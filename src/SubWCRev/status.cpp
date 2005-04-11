@@ -22,11 +22,7 @@
 #include "svn_wc.h"
 #include "svn_path.h"
 #include "svn_utf.h"
-
-extern BOOL bHasMods;
-extern long lowestupdate;
-extern long highestupdate;
-extern apr_time_t WCDate;
+#include "SubWCRev.h"
 
 #pragma warning(push)
 #pragma warning(disable:4127)	//conditional expression is constant (cause of SVN_ERR
@@ -34,19 +30,19 @@ void getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
 {
 	if ((status)&&(status->entry))
 	{
-		LONG * rev = (LONG *)baton;
-		if ((*rev)<status->entry->cmt_rev)
+		SubWCRev_t * SubStat = (SubWCRev_t *) baton;
+		if (SubStat->CmtRev < status->entry->cmt_rev)
 		{
-			*rev = status->entry->cmt_rev;
-			WCDate = status->entry->cmt_date;
+			SubStat->CmtRev = status->entry->cmt_rev;
+			SubStat->CmtDate = status->entry->cmt_date;
 		}
-		if (highestupdate < status->entry->revision)
+		if (SubStat->MaxRev < status->entry->revision)
 		{
-			highestupdate = status->entry->revision;
+			SubStat->MaxRev = status->entry->revision;
 		}
-		if (lowestupdate > status->entry->revision || lowestupdate == 0)
+		if (SubStat->MinRev > status->entry->revision || SubStat->MinRev == 0)
 		{
-			lowestupdate = status->entry->revision;
+			SubStat->MinRev = status->entry->revision;
 		}
 		switch (status->text_status)
 		{
@@ -58,7 +54,7 @@ void getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
 		case svn_wc_status_normal:
 			break;
 		default:
-			bHasMods = TRUE;
+			SubStat->HasMods = TRUE;
 			break;			
 		}
 		switch (status->prop_status)
@@ -71,7 +67,7 @@ void getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
 		case svn_wc_status_normal:
 			break;
 		default:
-			bHasMods = TRUE;
+			SubStat->HasMods = TRUE;
 			break;			
 		}
 	}

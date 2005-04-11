@@ -26,7 +26,7 @@
 #include "svn_error.h"
 #include "svn_client.h"
 #include "svn_path.h"
-
+#include "SubWCRev.h"
 
 #define VERDEF		"$WCREV$"
 #define DATEDEF		"$WCDATE$"
@@ -46,19 +46,8 @@
 #define ERR_SVN_MIXED	8	// Mixed rev WC found (-m)
 #define ERR_OUT_EXISTS	9	// Output file already exists (-d)
 
-BOOL bHasMods;
-LONG lowestupdate;
-LONG highestupdate;
-apr_time_t WCDate;
 
-svn_error_t *
-svn_status (       const char *path,
-                   void *status_baton,
-                   svn_boolean_t no_ignore,
-                   svn_client_ctx_t *ctx,
-                   apr_pool_t *pool);
-
-int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, long lowest, unsigned long rev)
+int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, long MinRev, long MaxRev)
 { 
 	char * pBuild = pBuf + index;
 	int bEof = pBuild - pBuf >= (int)filelength;
@@ -71,13 +60,13 @@ int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 	{
 		//replace the $WCxxx$ string with the actual revision number
 		char destbuf[40];
-		if (lowest == -1 || lowest == rev)
+		if (MinRev == -1 || MinRev == MaxRev)
 		{
-			sprintf(destbuf, "%Ld", rev);
+			sprintf(destbuf, "%Ld", MaxRev);
 		}
 		else
 		{
-			sprintf(destbuf, "%Ld:%Ld", lowest, rev);
+			sprintf(destbuf, "%Ld:%Ld", MinRev, MaxRev);
 		}
 		if (strlen(def) > strlen(destbuf))
 		{
@@ -234,10 +223,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	const TCHAR * wc = NULL;
 	BOOL bErrOnMods = FALSE;
 	BOOL bErrOnMixed = FALSE;
-	bHasMods = FALSE;
-	WCDate = 0;
-	lowestupdate = 0;
-	highestupdate = 0;
+	SubWCRev_t SubStat = { 0, };
 	if (argc == 2)
 	{
 		wc = argv[1];
@@ -321,9 +307,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 	memset (&ctx, 0, sizeof (ctx));
 	internalpath = svn_path_internal_style (wc, pool);
-	LONG highestrev = 0;
 	svnerr = svn_status(	internalpath,	//path
-							&highestrev,	//status_baton
+							&SubStat,		//status_baton
 							TRUE,			//noignore
 							&ctx,
 							pool);
@@ -343,30 +328,30 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	printf(_T("SubWCRev: '%s'\n"), wcfullpath);
 	
-	if (bErrOnMods && bHasMods)
+	if (bErrOnMods && SubStat.HasMods)
 	{
 		printf(_T("Working copy has local modifications!\n"));
 		return ERR_SVN_MODS;
 	}
 	
-	if (bErrOnMixed && (lowestupdate != highestupdate))
+	if (bErrOnMixed && (SubStat.MinRev != SubStat.MaxRev))
 	{
-		printf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), lowestupdate, highestupdate);
+		printf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), SubStat.MinRev, SubStat.MaxRev);
 		return ERR_SVN_MIXED;
 	}
 
-	printf(_T("Last committed at revision %Ld\n"), highestrev);
+	printf(_T("Last committed at revision %Ld\n"), SubStat.CmtRev);
 
-	if (lowestupdate != highestupdate)
+	if (SubStat.MinRev != SubStat.MaxRev)
 	{
-		printf(_T("Mixed revision range %Ld:%Ld\n"), lowestupdate, highestupdate);
+		printf(_T("Mixed revision range %Ld:%Ld\n"), SubStat.MinRev, SubStat.MaxRev);
 	}
 	else
 	{
-		printf(_T("Updated to revision %Ld\n"), highestupdate);
+		printf(_T("Updated to revision %Ld\n"), SubStat.MaxRev);
 	}
 	
-	if (bHasMods)
+	if (SubStat.HasMods)
 	{
 		printf(_T("Local modifications found\n"));
 	}
@@ -380,19 +365,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	unsigned long index = 0;
 	
-	while (RevDefine(VERDEF, pBuf, index, filelength, -1, highestrev));
+	while (RevDefine(VERDEF, pBuf, index, filelength, -1, SubStat.CmtRev));
 	
 	index = 0;
-	while (RevDefine(RANGEDEF, pBuf, index, filelength, lowestupdate, highestupdate));
+	while (RevDefine(RANGEDEF, pBuf, index, filelength, SubStat.MinRev, SubStat.MaxRev));
 	
 	index = 0;
-	while (DateDefine(DATEDEF, pBuf, index, filelength, WCDate));
+	while (DateDefine(DATEDEF, pBuf, index, filelength, SubStat.CmtDate));
 	
 	index = 0;
-	while (ModDefine(MODDEF, pBuf, index, filelength, bHasMods));
+	while (ModDefine(MODDEF, pBuf, index, filelength, SubStat.HasMods));
 	
 	index = 0;
-	while (ModDefine(MIXEDDEF, pBuf, index, filelength, lowestupdate != highestupdate));
+	while (ModDefine(MIXEDDEF, pBuf, index, filelength, SubStat.MinRev != SubStat.MaxRev));
 	
 	hFile = CreateFile(dst, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
