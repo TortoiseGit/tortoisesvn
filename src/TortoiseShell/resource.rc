@@ -350,6 +350,8 @@ BEGIN
     IDS_MENUDESC_UNLOCKFORCE 
                             "Releases locks even if you're not the owner of the locks (breaks them)."
     IDS_MENU_LOCKFORCE      "Steal Lock"
+    IDS_COLTITLEOWNER       "SVN Lock Owner"
+    IDS_COLDESCOWNER        "The user who owns the lock of the file"
 END
 
 #endif    // English (U.S.) resources

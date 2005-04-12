@@ -153,6 +153,7 @@ protected:
 	stdstring itemurl;
 	stdstring itemshorturl;
 	stdstring ignoredprops;
+	stdstring owner;
 	svn_revnum_t columnrev;			///< holds the corresponding revision to the file/dir above
 	svn_wc_status_kind	filestatus;
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
