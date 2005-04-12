@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-04-05 10:10+0100\n"
+"PO-Revision-Date: 2005-04-11 11:21+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -122,6 +122,10 @@ msgstr ""
 "TortoiseMerge ne peut faire de diff sur des répertoires."
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "&Au sujet de TortoiseMerge..."
 
@@ -187,6 +191,10 @@ msgstr "&Edition..."
 msgid "&Enable Proxy Server"
 msgstr "Utilis&er un Serveur Proxy"
 
+#: MenuEntry
+msgid "&Exit"
+msgstr "&Sortir"
+
 #: Control-ID:1092
 msgid "&External"
 msgstr "&Externe"
@@ -217,7 +225,6 @@ msgstr "&Depuis WC à l'URL:"
 msgid "&Head Revision"
 msgstr "Révision &principale"
 
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
@@ -895,6 +902,11 @@ msgstr "Branche / Etiquette créée avec succès!"
 #: ID:9
 msgid "Branch/Tag..."
 msgstr "Branche/Etiquette..."
+
+# ID:16,
+#: ID:16
+msgid "Break Lock"
+msgstr "Casser le verrou"
 
 #: Control-ID:1009
 msgid "Bro&wse..."
@@ -1593,6 +1605,11 @@ msgstr "Entrer le message du journal:"
 msgid "Enter URL"
 msgstr "Entrer une URL"
 
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr "Entrer un commentaire de verrou (optionel):"
+
 #: ID:3603
 msgid ""
 "Erase everything\n"
@@ -1771,6 +1788,11 @@ msgstr "Général"
 msgid "Generating Patchfile..."
 msgstr "Generation fichier patch..."
 
+# ID:16,
+#: ID:16
+msgid "Get Lock"
+msgstr "Obtenir un verrou"
+
 #: ID:119
 msgid "Getting File %s"
 msgstr "Obtention du fichier %s"
@@ -1888,6 +1910,11 @@ msgid ""
 msgstr ""
 "Si mis, TortoiseSVN mettra la date des fichiers à la date de leur\n"
 "dernière livraison. Si non mis, TortoiseSVN utilise la date courante. "
+
+# ID:251,
+#: ID:251
+msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgstr "Si vous voulez casser le verrou, utilisez la fonctionalité \"Vérifier les modifications\"."
 
 #: ID:73
 msgid "Ignore"
@@ -2020,6 +2047,11 @@ msgstr ""
 msgid "Jump to first difference when loading"
 msgstr "Aller directement à la première différence au chargement"
 
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "Garder les verrous"
+
 #: Control-ID:65535
 msgid "Language:"
 msgstr "Langage:"
@@ -2070,6 +2102,35 @@ msgid ""
 msgstr ""
 "Lieu ou le contenu de l'URL du\n"
 "repository va être sauvegardé."
+
+# ID:221,
+#: ID:221
+msgid "Lock"
+msgstr "Verrou"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "Date de création de verrou:"
+
+#: ID:263
+msgid "Lock failed"
+msgstr "Verrouillage échoué"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "Propriétaire du verrou:"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "Verrouillé par %s"
+
+# ID:16,
+#: ID:16
+msgid "Locks files for other users and makes it editable by you."
+msgstr "Verrouille les fichiers pour les autres utilisateurs et les rend modifiables pour vous."
 
 #: ID:126
 msgid "Log"
@@ -2322,6 +2383,10 @@ msgstr "OK"
 msgid "OVR"
 msgstr "RFP"
 
+#: Control-ID:1202
+msgid "Omit externals"
+msgstr "Omettre les externes"
+
 # ID:219,
 #: ID:219
 msgid "One or more files are in a conflicted state."
@@ -2371,6 +2436,11 @@ msgstr "Ouverture du Navigateur de Repository pour optimiser le repository en li
 #: ID:3843
 msgid "Out of memory."
 msgstr "Plus de mémoire."
+
+# ID:207,
+#: ID:207
+msgid "Owner"
+msgstr "Propriétaire"
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -2588,6 +2658,21 @@ msgstr "Rafraîchir"
 #: ID:82
 msgid "Reject"
 msgstr "Rejet"
+
+# ID:16,
+#: ID:16
+msgid "Release Lock"
+msgstr "Relâcher un verrou"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "Relâche les verrous même si vous n'etes pas le propriétaire des verrous (les casse)."
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "Relâche les verrous sur les fichiers ainsi les autres utilisateurs peuvent les modifier à nouveau."
 
 #: MenuEntry
 msgid "Reload"
@@ -3184,6 +3269,16 @@ msgstr "Statut"
 msgid "Status of item in SVN"
 msgstr "Statut des éléments dans SVN"
 
+# ID:16,
+#: ID:16
+msgid "Steal Lock"
+msgstr "Voler un verrou"
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "Voler le verrou"
+
 # Control-ID:1130,
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
@@ -3730,6 +3825,18 @@ msgstr ""
 "Emetteur du certificat inconnu.\n"
 "  Empreinte: %s\n"
 "  Nom distingué: %s"
+
+#: ID:221
+msgid "Unlock"
+msgstr "Déverrouiller"
+
+#: ID:264
+msgid "Unlock failed"
+msgstr "Déverrouillage échoué"
+
+#: ID:263
+msgid "Unlocked"
+msgstr "Déverrouillé"
 
 #: ID:3841
 msgid "Untitled"

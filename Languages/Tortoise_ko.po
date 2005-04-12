@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-04-07 00:52+0900\n"
+"PO-Revision-Date: 2005-04-11 17:47+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1093,6 +1093,11 @@ msgstr "브랜치 / 태그가 만들어졌습니다."
 msgid "Branch/Tag..."
 msgstr "브랜치/태그..."
 
+# ID:16,
+#: ID:16
+msgid "Break Lock"
+msgstr "잠금을 깨기"
+
 # Control-ID:1009,
 #: Control-ID:1009
 msgid "Bro&wse..."
@@ -1933,6 +1938,11 @@ msgstr "로그 메시지 입력:"
 msgid "Enter URL"
 msgstr "URL 입력"
 
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr "잠금 알림 메시지 (선택사항):"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2152,6 +2162,11 @@ msgstr "일반"
 msgid "Generating Patchfile..."
 msgstr "패치 파일 생성 중..."
 
+# ID:16,
+#: ID:16
+msgid "Get Lock"
+msgstr "잠금 얻기"
+
 # ID:119,
 #: ID:119
 msgid "Getting File %s"
@@ -2291,6 +2306,11 @@ msgid ""
 msgstr ""
 "파일을 생성할 때, 현재 시각 대신 마지막으로 커밋한 시각으로\n"
 "파일 날짜를 바꾸려면 선택합니다."
+
+# ID:251,
+#: ID:251
+msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgstr "잠금을 깨기 원한다면, \"수정내역 확인 확인\" 대화상자를 이용하세요."
 
 # ID:73,
 #: ID:73
@@ -2444,6 +2464,11 @@ msgstr ""
 msgid "Jump to first difference when loading"
 msgstr "모두 읽었으면 처음 차이점으로 이동"
 
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "잠금 유지"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Language:"
@@ -2499,6 +2524,37 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr "저장소 URL의 내용이 저장될 위치"
+
+# ID:221,
+#: ID:221
+msgid "Lock"
+msgstr "잠금"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "잠금 생성일:"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:263
+msgid "Lock failed"
+msgstr "잠금 실패"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "잠금 소유자:"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "%s에 의해 잠겼습니다."
+
+# ID:16,
+#: ID:16
+msgid "Locks files for other users and makes it editable by you."
+msgstr "다른 사람에 대해 파일을 잠그게 되면 자신에게만 수정가능하게 됩니다."
 
 # ID:126,
 #: ID:126
@@ -2867,6 +2923,11 @@ msgstr "저장소를 직접 조작하려면 저장소 브라우저를 사용하�
 msgid "Out of memory."
 msgstr "메모리 부족."
 
+# ID:207,
+#: ID:207
+msgid "Owner"
+msgstr "소유자"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -3145,6 +3206,21 @@ msgstr "새로고침"
 #: ID:82
 msgid "Reject"
 msgstr "거부"
+
+# ID:16,
+#: ID:16
+msgid "Release Lock"
+msgstr "잠금 해제"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "당신이 소유자가 아닐지라도 잠금을 해제합니다. (잠금을 깨뜨립니다.)"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "잠금을 해제하여 다른사람도 다시 수정가능하게 합니다."
 
 #: MenuEntry
 msgid "Reload"
@@ -3883,6 +3959,16 @@ msgstr "상태"
 msgid "Status of item in SVN"
 msgstr "SVN내의 아이템 상태"
 
+# ID:16,
+#: ID:16
+msgid "Steal Lock"
+msgstr "잠금 훔쳐오기"
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "잠금 훔쳐오기"
+
 # Control-ID:1130,
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
@@ -4508,6 +4594,24 @@ msgstr ""
 "알 수 없는 인증서 발급자입니다.\n"
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:221
+msgid "Unlock"
+msgstr "잠금해제"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:264
+msgid "Unlock failed"
+msgstr "잠금을 해제하지 못하였습니다."
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:263
+msgid "Unlocked"
+msgstr "잠금 해제됨"
 
 # ID:3841,#:
 # ID:3841,

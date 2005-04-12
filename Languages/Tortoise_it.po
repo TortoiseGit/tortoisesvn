@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-04-07 10:28+0100\n"
+"PO-Revision-Date: 2005-04-09 14:18+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1103,6 +1103,11 @@ msgstr "Ramo / Etichetta creata con successo!"
 msgid "Branch/Tag..."
 msgstr "Ramo/Etichetta..."
 
+# ID:16,
+#: ID:16
+msgid "Break Lock"
+msgstr "Forza blocco"
+
 # Control-ID:1009,
 #: Control-ID:1009
 msgid "Bro&wse..."
@@ -1943,6 +1948,11 @@ msgstr "Inserire un commento:"
 msgid "Enter URL"
 msgstr "Inserire un URL"
 
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr "Inserisci un messaggio riguardo il blocco (opzionale):"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2162,6 +2172,11 @@ msgstr "Generale"
 msgid "Generating Patchfile..."
 msgstr "Ottenimento Patch..."
 
+# Control-ID:1203,
+#: ID:16
+msgid "Get Lock"
+msgstr "Prendi blocco"
+
 # ID:119,
 #: ID:119
 msgid "Getting File %s"
@@ -2301,6 +2316,15 @@ msgid ""
 msgstr ""
 "Se specificato, TortoiseSVN imposterà la data e l'ora dei file alla data\n"
 "del loro ultimo invio. Se nulla viene specificato TortoiseSVN userà la data e l'ora corrente."
+
+# ID:251,
+#: ID:251
+msgid ""
+"If you want to break the lock, you have to hold the SHIFT key down\n"
+"while you right-click on the file in explorer to get that menu."
+msgstr ""
+"Per forzare il blocco, tenere premuto SHIFT\n"
+"mentre si clicca con il tasto destro. Apparirà il menu contestuale adeguato."
 
 # ID:73,
 #: ID:73
@@ -2517,16 +2541,36 @@ msgstr ""
 "Posizione in cui verranno salvati i contenuti\n"
 "del Repository selezionato."
 
+# ID:221,
+#: ID:221
+msgid "Lock"
+msgstr "Blocca"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "Data del blocco:"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:263
 msgid "Lock failed"
 msgstr "Blocco fallito"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "Bloccato da:"
+
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
 msgstr "Bloccato da %s"
+
+# ID:16,
+#: ID:16
+msgid "Locks files for other users and makes it editable by you."
+msgstr "Blocca i file rendendoli modificabili solo da te."
 
 # ID:126,
 #: ID:126
@@ -3179,6 +3223,21 @@ msgstr "Aggiorna"
 #: ID:82
 msgid "Reject"
 msgstr "Rifiuta"
+
+# Control-ID:1203,
+#: ID:16
+msgid "Release Lock"
+msgstr "Rilascia blocco"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "Rilascia il blocco anche se non è il proprio."
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "Rilascia il blocco, in modo che altri utenti possano modificare il/i file in questione."
 
 #: MenuEntry
 msgid "Reload"
@@ -3919,6 +3978,11 @@ msgstr "Stato"
 msgid "Status of item in SVN"
 msgstr "Stato degli elementi in SVN"
 
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "Ruba il blocco"
+
 # Control-ID:1130,
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
@@ -4546,6 +4610,12 @@ msgstr ""
 "Organo di emissione del certificato non riconosciuto:\n"
 "  Impronta: %s\n"
 "  Nome: %s"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:221
+msgid "Unlock"
+msgstr "Sblocca"
 
 # ID:11,#:
 # Control-ID:1002,

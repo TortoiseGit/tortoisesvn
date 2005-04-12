@@ -6,6 +6,8 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
+# Based on r3013
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
@@ -138,6 +140,10 @@ msgid "%s\nis a directory, not a file!\nTortoiseMerge can't diff directories."
 msgstr "%s\ner en mappe, ikke en fil.\nTortoiseMerge kan ikke sammenligne mapper."
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
@@ -202,6 +208,10 @@ msgstr "&Rediger..."
 msgid "&Enable Proxy Server"
 msgstr "&Aktiver proxyserver"
 
+#: MenuEntry
+msgid "&Exit"
+msgstr "&Afslut"
+
 #: Control-ID:1092,
 msgid "&External"
 msgstr "&Ekstern"
@@ -231,7 +241,7 @@ msgstr "&Fra arbejdskopi med URL:"
 msgid "&Head Revision"
 msgstr "&Nyeste revision"
 
-#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:57670,#: Control-ID:57670,#: MenuEntry
+#: MenuEntry#: Control-ID:57670,#: MenuEntry
 msgid "&Help"
 msgstr "&Hjælp"
 
@@ -790,6 +800,10 @@ msgstr "Forgrening/mærkat blev oprettet."
 msgid "Branch/Tag..."
 msgstr "Lav forgrening/mærkat..."
 
+#: ID:16,
+msgid "Break Lock"
+msgstr "Bryd lås"
+
 #: Control-ID:1009,
 msgid "Bro&wse..."
 msgstr "Genne&mse..."
@@ -1297,7 +1311,6 @@ msgid "Do not show this message again"
 msgstr "Vis ikke denne meddelelse igen"
 
 #: ID:76,
-#,fuzzy
 msgid "Do you really want to revert all changes to\n%s\nwhich were made in this revision?"
 msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nsom blev lavet i denne revision?"
 
@@ -1389,6 +1402,10 @@ msgstr "Indtast logbesked:"
 #: ID:80,
 msgid "Enter URL"
 msgstr "Indtast URL"
+
+#: ID:313,
+msgid "Enter a lock message (optional):"
+msgstr "Indtast en låsebesked (valgfrit):"
 
 #: ID:3603,
 msgid "Erase everything\nErase All"
@@ -1547,6 +1564,10 @@ msgstr "Generelt"
 msgid "Generating Patchfile..."
 msgstr "Opretter korrekturfil..."
 
+#: ID:16,
+msgid "Get Lock"
+msgstr "Tag lås"
+
 #: ID:119,
 msgid "Getting File %s"
 msgstr "Henter fil %s"
@@ -1635,6 +1656,10 @@ msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
 msgstr "Hvis valgt, så vil TortoiseSVN sætte tidsstemplerne på filerne til det tidspunkt,\nhvor de sidst blev arkiveret. Hvis ikke valgt, vil TortoiseSVN anvende den aktuelle tid."
 
+#: ID:251,
+msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgstr "Hvis du ønsker at bryde låsen, skal du benytte dialogen \"Check for ændringer\"."
+
 #: ID:73,
 msgid "Ignore"
 msgstr "Ignorer"
@@ -1719,6 +1744,10 @@ msgstr "Du kan ikke omdøbe en fil ved blot at ændre mellem store og små bogst
 msgid "Jump to first difference when loading"
 msgstr "Gå til første forskel med det samme"
 
+#: Control-ID:1203,
+msgid "Keep Locks"
+msgstr "Bevar låse"
+
 #: Control-ID:65535,
 msgid "Language:"
 msgstr "Sprog:"
@@ -1758,6 +1787,30 @@ msgstr "Lokal status"
 #: ID:94,
 msgid "Location where the contents of the\nrepository URL will be saved to."
 msgstr "Den placering, hvor indholdet af\nURL'ens versionsarkiv vil blive gemt."
+
+#: ID:221,
+msgid "Lock"
+msgstr "Lås"
+
+#: Control-ID:65535,
+msgid "Lock creation date:"
+msgstr "Dato for oprettelse af lås:"
+
+#: ID:263,
+msgid "Lock failed"
+msgstr "Låsning mislykkedes"
+
+#: Control-ID:65535,
+msgid "Lock owner:"
+msgstr "Ejer af lås:"
+
+#: ID:263,
+msgid "Locked by %s"
+msgstr "Låst af %s"
+
+#: ID:16,
+msgid "Locks files for other users and makes it editable by you."
+msgstr "Låser filer for andre brugere og gør, at du kan redigere dem."
 
 #: ID:126,
 msgid "Log"
@@ -1971,6 +2024,10 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+#: Control-ID:1202,#: Control-ID:1202,
+msgid "Omit externals"
+msgstr "Udelad externals"
+
 #: ID:219,
 msgid "One or more files are in a conflicted state."
 msgstr "En eller flere filer indeholder konflikter."
@@ -2010,6 +2067,10 @@ msgstr "Åbner versionsarkivsøgeren for at kunne styre versionsarkivet online"
 #: ID:3843,#: ID:3843,
 msgid "Out of memory."
 msgstr "Der er ikke mere hukommelse."
+
+#: ID:207,
+msgid "Owner"
+msgstr "Ejer"
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -2208,6 +2269,18 @@ msgstr "Opdater"
 #: ID:82,
 msgid "Reject"
 msgstr "Afvis"
+
+#: ID:16,
+msgid "Release Lock"
+msgstr "Lås op"
+
+#: ID:16,
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "Oplåser låse, selvom du ikke ejer dem (bryder dem op)."
+
+#: ID:16,
+msgid "Releases locks on files so other users can edit them again."
+msgstr "Oplåser låse på filer, så brugere kan redigere dem igen."
 
 #: MenuEntry
 msgid "Reload"
@@ -2733,6 +2806,14 @@ msgstr "Status"
 msgid "Status of item in SVN"
 msgstr "Status for emne i SVN"
 
+#: ID:16,
+msgid "Steal Lock"
+msgstr "Stjæl lås"
+
+#: ID:313,
+msgid "Steal the lock"
+msgstr "Stjæl låsen"
+
 #: Control-ID:1130,
 msgid "Stop On Copy/Rename"
 msgstr "Stop ved kopiering"
@@ -3082,6 +3163,18 @@ msgstr "Ikke-forventet filformat."
 #, fuzzy
 msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 msgstr "Ukendt udsteder af certifikat.\n  Fingeraftryk: %s\n  Distinguished navn: %s"
+
+#: ID:221,
+msgid "Unlock"
+msgstr "Lås op"
+
+#: ID:264,
+msgid "Unlock failed"
+msgstr "Oplåsning mislykkedes"
+
+#: ID:263,
+msgid "Unlocked"
+msgstr "Ikke låst"
 
 #: ID:3841,#: ID:3841,
 msgid "Untitled"
