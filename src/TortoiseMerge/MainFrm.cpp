@@ -806,9 +806,10 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 		{
 			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
 			{
-				bEnable = TRUE;
+				if (m_pwndBottomView->IsModified())
+					bEnable = TRUE;
 			} 
-		} // if (m_pwndBottomView) 
+		}
 		if (m_pwndRightView)
 		{
 			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
@@ -816,8 +817,8 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 				if (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(_T(": patched"))==0))
 					bEnable = TRUE;
 			} 
-		} // if (m_pwndRightView)
-	} // if (!this->m_Data.m_sMergedFile.IsEmpty())
+		}
+	}
 	pCmdUI->Enable(bEnable);
 }
 
@@ -829,14 +830,14 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 		if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
 		{
 			bEnable = TRUE;
-		} // if (m_pwndBottomView->IsWindowVisible()) 
-	} // if (m_pwndBottomView) 
+		}
+	}
 	if (m_pwndRightView)
 	{
 		if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
 		{
 			bEnable = TRUE;
-		} // if (m_pwndRightView->IsWindowVisible()) 
+		}
 	} 
 	pCmdUI->Enable(bEnable);
 }
@@ -850,7 +851,7 @@ void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
 	{
 		if (m_pwndBottomView->IsWindowVisible())
 			bEnable = FALSE;
-	} // if (m_pwndBottomView)
+	}
 	pCmdUI->Enable(bEnable);
 }
 
@@ -871,7 +872,7 @@ void CMainFrame::OnViewOptions()
 			{
 				return;
 			}
-		} // ified())))
+		}
 		m_Data.LoadRegistry();
 		LoadViews();
 		return;
@@ -893,7 +894,7 @@ void CMainFrame::OnClose()
 		{
 			OnFileSave();
 		}
-	} // ified())))
+	}
 	if ((ret == IDNO)||(ret == IDYES))
 	{
 		WINDOWPLACEMENT    wp;
