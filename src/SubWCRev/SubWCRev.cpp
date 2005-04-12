@@ -47,7 +47,9 @@
 #define ERR_OUT_EXISTS	9	// Output file already exists (-d)
 
 
-int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, long MinRev, long MaxRev)
+int RevDefine(char * def, char * pBuf, unsigned long & index,
+				unsigned long & filelength, unsigned long maxlength,
+				long MinRev, long MaxRev)
 { 
 	char * pBuild = pBuf + index;
 	int bEof = pBuild - pBuf >= (int)filelength;
@@ -68,17 +70,19 @@ int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 		{
 			sprintf(destbuf, "%Ld:%Ld", MinRev, MaxRev);
 		}
-		if (strlen(def) > strlen(destbuf))
+		int Expansion = strlen(destbuf) - strlen(def);
+		if (Expansion < 0)
 		{
-			memmove(pBuild, pBuild + (strlen(def)-strlen(destbuf)), filelength - abs((long)(pBuf - pBuild)));
-			filelength = filelength - (strlen(def)-strlen(destbuf));
+			memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
 		}
-		else if (strlen(def) < strlen(destbuf))
+		else if (Expansion > 0)
 		{
-			memmove(pBuild+strlen(destbuf)-strlen(def),pBuild, filelength - abs((long)(pBuf - pBuild)));
-			filelength = filelength + (strlen(destbuf)-strlen(def));
+			// Check for buffer overflow
+			if ((int)(maxlength - filelength) < Expansion) return FALSE;
+			memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
 		}
 		memmove(pBuild, destbuf, strlen(destbuf));
+		filelength += Expansion;
 	} // if (!bEof)
 	else
 		return FALSE;
@@ -86,7 +90,9 @@ int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 	return TRUE;
 }
 
-int DateDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, apr_time_t date_svn)
+int DateDefine(char * def, char * pBuf, unsigned long & index,
+				unsigned long & filelength, unsigned long maxlength,
+				apr_time_t date_svn)
 { 
 	char * pBuild = pBuf + index;
 	int bEof = pBuild - pBuf >= (int)filelength;
@@ -112,17 +118,19 @@ int DateDefine(char * def, char * pBuf, unsigned long & index, unsigned long & f
 				newtime->tm_min,
 				newtime->tm_sec);
 
-		if (strlen(def) > strlen(destbuf))
+		int Expansion = strlen(destbuf) - strlen(def);
+		if (Expansion < 0)
 		{
-			memmove(pBuild, pBuild + (strlen(def)-strlen(destbuf)), filelength - abs((long)(pBuf - pBuild)));
-			filelength = filelength - (strlen(def)-strlen(destbuf));
+			memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
 		}
-		else if (strlen(def) < strlen(destbuf))
+		else if (Expansion > 0)
 		{
-			memmove(pBuild+strlen(destbuf)-strlen(def),pBuild, filelength - abs((long)(pBuf - pBuild)));
-			filelength = filelength + (strlen(destbuf)-strlen(def));
+			// Check for buffer overflow
+			if ((int)(maxlength - filelength) < Expansion) return FALSE;
+			memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
 		}
 		memmove(pBuild, destbuf, strlen(destbuf));
+		filelength += Expansion;
 	} // if (!bEof)
 	else
 		return FALSE;
@@ -259,6 +267,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	char * pBuf = NULL;
 	unsigned long readlength = 0;
 	unsigned long filelength = 0;
+	unsigned long maxlength;
 	HANDLE hFile = INVALID_HANDLE_VALUE;
 	if ((argc == 4)||(argc == 5))
 	{
@@ -275,7 +284,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			printf(_T("could not determine filesize of %s\n"), src);
 			return ERR_READ;
 		}
-		pBuf = new char[filelength+1000];		//we might be increasing the filesize!
+		maxlength = filelength+4096;	// We might be increasing filesize.
+		pBuf = new char[maxlength];
 		if (pBuf == NULL)
 		{
 			printf(_T("could not allocate enough memory!\n"));
@@ -365,13 +375,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	unsigned long index = 0;
 	
-	while (RevDefine(VERDEF, pBuf, index, filelength, -1, SubStat.CmtRev));
+	while (RevDefine(VERDEF, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev));
 	
 	index = 0;
-	while (RevDefine(RANGEDEF, pBuf, index, filelength, SubStat.MinRev, SubStat.MaxRev));
+	while (RevDefine(RANGEDEF, pBuf, index, filelength, maxlength, SubStat.MinRev, SubStat.MaxRev));
 	
 	index = 0;
-	while (DateDefine(DATEDEF, pBuf, index, filelength, SubStat.CmtDate));
+	while (DateDefine(DATEDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
 	
 	index = 0;
 	while (ModDefine(MODDEF, pBuf, index, filelength, SubStat.HasMods));
