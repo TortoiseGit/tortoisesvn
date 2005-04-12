@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-04-04 09:52+0800\n"
+"PO-Revision-Date: 2005-04-12 10:21+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -146,6 +146,10 @@ msgstr ""
 "TortoiseMerge無法比對目錄差異."
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "關於 TortoiseMerge(&A)..."
 
@@ -227,6 +231,11 @@ msgstr "編輯(&E)..."
 msgid "&Enable Proxy Server"
 msgstr "啟用 Proxy 伺服器(&E)"
 
+# Control-ID:1031,
+#: MenuEntry
+msgid "&Exit"
+msgstr "離開(&E)"
+
 # Control-ID:1092,
 #: Control-ID:1092
 msgid "&External"
@@ -269,7 +278,6 @@ msgstr "最新版本(&H)"
 # MenuEntry#:
 # Control-ID:9,#:
 # Control-ID:57670,
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
@@ -1094,6 +1102,11 @@ msgstr "分支/標記建立成功!"
 #: ID:9
 msgid "Branch/Tag..."
 msgstr "分支/標記..."
+
+# ID:16,
+#: ID:16
+msgid "Break Lock"
+msgstr "破壞鎖定"
 
 # Control-ID:1009,
 #: Control-ID:1009
@@ -1937,6 +1950,11 @@ msgstr "輸入紀錄訊息:"
 msgid "Enter URL"
 msgstr "輸入 URL"
 
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr "輸入鎖定訊息(可不寫):"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2155,6 +2173,11 @@ msgstr "一般設定"
 msgid "Generating Patchfile..."
 msgstr "正在產生補綴檔..."
 
+# ID:16,
+#: ID:16
+msgid "Get Lock"
+msgstr "取得鎖定"
+
 # ID:119,
 #: ID:119
 msgid "Getting File %s"
@@ -2293,6 +2316,11 @@ msgid ""
 msgstr ""
 "如果設定, TortoiseSVN 會把檔案時間設定至上次\n"
 "提交的時間. 如果不設定, 則使用目前的時間."
+
+# ID:251,
+#: ID:251
+msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgstr "如果你想要強制解開鎖定, 請使用 \"檢查修改\" 對話框."
 
 # ID:73,
 #: ID:73
@@ -2446,6 +2474,11 @@ msgstr ""
 msgid "Jump to first difference when loading"
 msgstr "載入時跳至第一個差異處"
 
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "保持鎖定"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Language:"
@@ -2503,6 +2536,37 @@ msgid ""
 msgstr ""
 "儲存檔案庫 URL 內容\n"
 "的位置."
+
+# ID:221,
+#: ID:221
+msgid "Lock"
+msgstr "鎖定"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "鎖定建立日期:"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:263
+msgid "Lock failed"
+msgstr "鎖定失敗."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "鎖定持有人:"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "由 %s 鎖定"
+
+# ID:16,
+#: ID:16
+msgid "Locks files for other users and makes it editable by you."
+msgstr "鎖定某些檔案, 只能由你修改."
 
 # ID:126,
 #: ID:126
@@ -2807,6 +2871,11 @@ msgstr "確定"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:13,
+#: Control-ID:1202
+msgid "Omit externals"
+msgstr "忽略外部設定"
+
 # ID:219,
 #: ID:219
 msgid "One or more files are in a conflicted state."
@@ -2867,6 +2936,11 @@ msgstr "開啟檔案庫瀏覽器, 進行線上調校檔案庫"
 #: ID:3843
 msgid "Out of memory."
 msgstr "記憶體不足."
+
+# ID:207,
+#: ID:207
+msgid "Owner"
+msgstr "持有人"
 
 # ID:12,
 #: MenuEntry
@@ -3145,6 +3219,21 @@ msgstr "重新整理"
 #: ID:82
 msgid "Reject"
 msgstr "拒絕"
+
+# ID:16,
+#: ID:16
+msgid "Release Lock"
+msgstr "解除鎖定"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "強制解除鎖定, 即使你不是持有人(破壞鎖定)."
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "解除鎖定, 讓其它人也可以編輯."
 
 #: MenuEntry
 msgid "Reload"
@@ -3882,6 +3971,16 @@ msgstr "狀態"
 msgid "Status of item in SVN"
 msgstr "SVN 項目的狀態"
 
+# ID:16,
+#: ID:16
+msgid "Steal Lock"
+msgstr "偷取鎖定"
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "偷取鎖定"
+
 # Control-ID:1130,
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
@@ -4298,7 +4397,7 @@ msgstr "雙點以上檔案可顯示你所做的異動."
 # Control-ID:1201,
 #: Control-ID:1201
 msgid "To:"
-msgstr ""
+msgstr "到:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4508,6 +4607,24 @@ msgstr ""
 "不明的憑證發行人.\n"
 "  指紋: %s\n"
 "  識別名稱: %s"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:221
+msgid "Unlock"
+msgstr "解鎖"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:264
+msgid "Unlock failed"
+msgstr "解鎖失敗"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:263
+msgid "Unlocked"
+msgstr "未鎖定"
 
 # ID:3841,#:
 # ID:3841,
