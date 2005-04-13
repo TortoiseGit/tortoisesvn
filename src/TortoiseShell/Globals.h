@@ -57,7 +57,6 @@ enum FileState
 {
     Uncontrolled,
     Versioned,
-    Locked,
     Modified,
     Conflict,
 	Deleted,

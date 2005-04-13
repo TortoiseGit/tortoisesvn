@@ -88,7 +88,6 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	switch (m_State)
 	{
 		case Versioned : iconName = _T("InSubversionIcon"); break;
-		case Locked    : iconName = _T("LockedIcon"); break;
 		case Modified  : iconName = _T("ModifiedIcon"); break;
 		case Conflict  : iconName = _T("ConflictIcon"); break;
 		case Deleted   : iconName = _T("DeletedIcon"); break;
@@ -150,11 +149,8 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 		case Added:
 			*pPriority = 3;
 			break;
-		case Locked:
-			*pPriority = 4;
-			break;
 		case Versioned:
-			*pPriority = 5;
+			*pPriority = 4;
 			break;
 		default:
 			*pPriority = 100;
@@ -170,11 +166,10 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 //  IShellIconOverlayIdentifier::GetOverlayInfo method to determine which icon
 //  to display."
 
-STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
+STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 {
 	PreserveChdir preserveChdir;
 	svn_wc_status_kind status = svn_wc_status_unversioned;
-	bool lockedoverlay = false;
 	if (pwszPath == NULL)
 		return S_FALSE;
 #ifdef UNICODE
@@ -204,11 +199,6 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 			if(g_CachedStatus.m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, !!g_ShellCache.IsRecursive()))
 			{
 				status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
-				//BUGBUG: the SFGAO_CANCOPY is used because the SFGAO_READONLY didn't work, but as
-				//try-and-error showed the SFGAO_CANCOPY is only set for readonly files.
-				//Since this isn't as documented, the BUGBUG.
-				if ((dwAttrib & SFGAO_CANCOPY)&&(itemStatus.m_kind == svn_node_file))
-					lockedoverlay = true;
 			}
 		}
 		else
@@ -264,7 +254,6 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 	g_filepath.clear();
 	g_filepath = pPath;
 	g_filestatus = status;
-	g_lockedoverlay = lockedoverlay;
 
 	ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 
@@ -281,17 +270,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 		case svn_wc_status_normal:
 		case svn_wc_status_external:
 		case svn_wc_status_incomplete:
-			if (lockedoverlay)
-			{
-				if (m_State == Locked)
-				{
-					g_filepath.clear();
-					return S_OK;
-				}
-				else
-					return S_FALSE;
-			}
-			else if (m_State == Versioned)
+			if (m_State == Versioned)
 			{
 				g_filepath.clear();
 				return S_OK;

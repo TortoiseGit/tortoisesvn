@@ -417,10 +417,16 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	}
 	if (pSVNStatus->repos_lock)
 	{
-		if (entry->lock_owner.IsEmpty() && (pSVNStatus->repos_lock->owner))
-			entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
-		if (entry->lock_token.IsEmpty() && (pSVNStatus->repos_lock->token))
-			entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
+		if (pSVNStatus->repos_lock->owner)
+			if (entry->lock_owner.IsEmpty())
+				entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
+			else
+				entry->lock_owner += _T(" / ") + CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
+		if (pSVNStatus->repos_lock->token)
+			if (entry->lock_token.IsEmpty())
+				entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
+			else
+				entry->lock_token += _T(" / ") + CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
 	}
 
 	// Pass ownership of the entry to the array

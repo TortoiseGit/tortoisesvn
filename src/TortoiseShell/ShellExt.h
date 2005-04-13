@@ -33,7 +33,6 @@ extern	DWORD				g_langid;
 extern	HINSTANCE			g_hResInst;
 extern	stdstring			g_filepath;
 extern	svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
-extern  bool				g_lockedoverlay;		///< wether to show the locked overlay or not
 extern	void				LoadLangDll();
 extern  CComCriticalSection	g_csCacheGuard;
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;
