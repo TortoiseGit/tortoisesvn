@@ -16,6 +16,8 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#define URL_BUF	2048
+
 // This structure is used as the status baton for WC crawling
 // and contains all the information we are collecting.
 typedef struct SubWCRev_t
@@ -25,7 +27,9 @@ typedef struct SubWCRev_t
 	svn_revnum_t CmtRev;	// Highest commit revision found
 	apr_time_t CmtDate;		// Date of highest commit revision
 	BOOL HasMods;			// True if local modifications found
+	char Url[URL_BUF];		// URL of working copy
 } SubWCRev_t;
+
 
 svn_error_t *
 svn_status (       const char *path,

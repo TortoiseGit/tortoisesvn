@@ -33,6 +33,7 @@
 #define MODDEF		"$WCMODS?"
 #define RANGEDEF	"$WCRANGE$"
 #define MIXEDDEF	"$WCMIXED?"
+#define URLDEF		"$WCURL$"
 
 // Internal error codes
 #define ERR_SYNTAX		1	// Syntax error
@@ -138,6 +139,34 @@ int InsertDate(char * def, char * pBuf, unsigned long & index,
 	return TRUE;
 }
 
+int InsertUrl(char * def, char * pBuf, unsigned long & index,
+					unsigned long & filelength, unsigned long maxlength,
+					char * pUrl)
+{
+	// Search for first occurrence of def in the buffer, starting at index.
+	if (!FindPlaceholder(def, pBuf, index, filelength))
+	{
+		// No more matches found.
+		return FALSE;
+	}
+	// Replace the $WCURL$ string with the actual URL
+	char * pBuild = pBuf + index;
+	int Expansion = strlen(pUrl) - strlen(def);
+	if (Expansion < 0)
+	{
+		memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
+	}
+	else if (Expansion > 0)
+	{
+		// Check for buffer overflow
+		if ((int)(maxlength - filelength) < Expansion) return FALSE;
+		memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
+	}
+	memmove(pBuild, pUrl, strlen(pUrl));
+	filelength += Expansion;
+	return TRUE;
+}
+
 int InsertBoolean(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL isTrue)
 { 
 	// Search for first occurrence of def in the buffer, starting at index.
@@ -202,18 +231,7 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	if ((argc != 4)&&(argc != 2)&&(argc != 5))
 	{
-		printf(_T("SubWCRev reads the Subversion status of all files in a\n"));
-		printf(_T("working copy, excluding externals. Then the highest revision\n"));
-		printf(_T("number found is used to replace all occurrences of \"$WCREV$\"\n"));
-		printf(_T("in SrcVersionFile and the result is saved to DstVersionFile.\n"));
-		printf(_T("The commit date/time of the highest revision is used to replace\n"));
-		printf(_T("all occurrences of \"$WCDATE$\". The modification status is used\n"));
-		printf(_T("to replace all occurrences of \"$WCMODS?TrueText:FalseText$\" with\n"));
-		printf(_T("TrueText if there are local modifications, or FalseText if not.\n"));
-		printf(_T("The update revision range is used to replace all occurrences of\n"));
-		printf(_T("\"$WCRANGE$\", and all occurrences of \"$WCMIXED?TrueText:FalseText$\"\n"));
-		printf(_T("are replaced with TrueText if updates are mixed, or FalseText if not.\n\n"));
-		printf(_T("usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]\n\n"));
+		printf(_T("Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]\n\n"));
 		printf(_T("Params:\n"));
 		printf(_T("WorkingCopyPath    :   path to a Subversion working copy\n"));
 		printf(_T("SrcVersionFile     :   path to a template header file\n"));
@@ -224,6 +242,19 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf(_T("                       copy contains mixed revisions\n"));
 		printf(_T("-d                 :   if given, then SubWCRev will only do its job if\n"));
 		printf(_T("                       DstVersionFile does not exist\n"));
+		printf(_T("\nSubWCRev reads the Subversion status of all files in a working copy\n"));
+		printf(_T("excluding externals. If SrcVersionFile is specified, it is scanned\n"));
+		printf(_T("for special placeholders of the form \"$WCxxx$\".\n"));
+		printf(_T("SrcVersionFile is then copied to DstVersionFile but the placeholders\n"));
+		printf(_T("are replaced with information about the working copy as follows:\n\n"));
+		printf(_T("$WCREV$      Highest committed revision number\n"));
+		printf(_T("$WCDATE$     Date of highest committed revision\n"));
+		printf(_T("$WCRANGE$    Update revision range\n"));
+		printf(_T("$WCURL$      Repository URL of the working copy\n"));
+		printf(_T("\nPlaceholders of the form \"$WCxxx?TrueText:FalseText$\" are replaced with\n"));
+		printf(_T("TrueText if the tested condition is true, and FalseText if false.\n\n"));
+		printf(_T("$WCMODS$     True if local modifications found\n"));
+		printf(_T("$WCMIXED$    True if mixed update revisions found\n"));
 		return ERR_SYNTAX;
 	}
 	// we have three parameters
@@ -232,7 +263,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	const TCHAR * wc = NULL;
 	BOOL bErrOnMods = FALSE;
 	BOOL bErrOnMixed = FALSE;
-	SubWCRev_t SubStat = { 0, };
+	SubWCRev_t SubStat;
+	memset (&SubStat, 0, sizeof (SubStat));
 	if (argc == 2)
 	{
 		wc = argv[1];
@@ -388,6 +420,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	index = 0;
 	while (InsertBoolean(MIXEDDEF, pBuf, index, filelength, SubStat.MinRev != SubStat.MaxRev));
+	
+	index = 0;
+	while (InsertUrl(URLDEF, pBuf, index, filelength, maxlength, SubStat.Url));
 	
 	hFile = CreateFile(dst, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
