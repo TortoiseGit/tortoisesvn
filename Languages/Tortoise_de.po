@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-08 15:39+0100\n"
+"PO-Revision-Date: 2005-04-13 16:08+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -894,6 +894,11 @@ msgstr "Verzweigung / Markierung erfolgreich erstellt!"
 msgid "Branch/Tag..."
 msgstr "Verzweigen / Markieren..."
 
+# ID:16,
+#: ID:16
+msgid "Break Lock"
+msgstr "Sperre aufbrechen"
+
 #: Control-ID:1009
 msgid "Bro&wse..."
 msgstr "Suc&hen..."
@@ -1592,6 +1597,11 @@ msgstr "Log-Meldung eingeben:"
 msgid "Enter URL"
 msgstr "URL eingeben"
 
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr "Geben Sie eine optionale Sperrmeldung ein:"
+
 #: ID:3603
 msgid ""
 "Erase everything\n"
@@ -1770,6 +1780,11 @@ msgstr "Allgemein"
 msgid "Generating Patchfile..."
 msgstr "Erzeuge Patchdatei..."
 
+# Control-ID:1203,
+#: ID:16
+msgid "Get Lock"
+msgstr "Sperre holen"
+
 #: ID:119
 msgid "Getting File %s"
 msgstr "Hole Datei: %s"
@@ -1887,6 +1902,11 @@ msgid ""
 msgstr ""
 "Falls gesetzt, wird TortoiseSVN den Zeitstempel der Dateien auf den Zeitpunkt\n"
 "der letzten Übertragung setzen, andernfalls wird die aktuelle Zeit verwendet."
+
+# ID:251,
+#: ID:251
+msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgstr "Sie können die Sperre im Dialog \"Auf Änderungen prüfen\" aufbrechen."
 
 #: ID:73
 msgid "Ignore"
@@ -2077,14 +2097,34 @@ msgstr ""
 "Zielordner, in dem die Dateien aus dem gewählten\n"
 "Projektarchiv gespeichert werden."
 
+# ID:221,
+#: ID:221
+msgid "Lock"
+msgstr "Sperre"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "Sperre angelegt am:"
+
 #: ID:263
 msgid "Lock failed"
 msgstr "Sperren fehlgeschlagen"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "Eigner der Sperre:"
 
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
 msgstr "Gesperrt durch %s"
+
+# ID:16,
+#: ID:16
+msgid "Locks files for other users and makes it editable by you."
+msgstr "Sperrt Dateien für andere Anwender."
 
 #: ID:126
 msgid "Log"
@@ -2613,6 +2653,21 @@ msgstr "Aktualisieren"
 #: ID:82
 msgid "Reject"
 msgstr "Ablehnen"
+
+# Control-ID:1203,
+#: ID:16
+msgid "Release Lock"
+msgstr "Sperre freigeben"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "Gibt Sperren frei, selbst wenn Sie nicht der Eigner sind (Sperre aufbrechen)."
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "Gibt gesperrte Dateien frei, damit andere Benutzer sie wieder bearbeiten können."
 
 #: MenuEntry
 msgid "Reload"
@@ -3209,6 +3264,16 @@ msgstr "Status"
 msgid "Status of item in SVN"
 msgstr "Status eines Objekts in SVN"
 
+# ID:16,
+#: ID:16
+msgid "Steal Lock"
+msgstr "Sperre stehlen"
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "Sperre von einer anderen Arbeitskopie stehlen"
+
 # Control-ID:1130,
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
@@ -3754,6 +3819,10 @@ msgstr ""
 "Zertifikat von unbekannter Stelle zertifiziert.\n"
 "  Fingerabdruck: %s\n"
 "  Ermittelter Name: %s"
+
+#: ID:221
+msgid "Unlock"
+msgstr "Entsperren"
 
 #: ID:264
 msgid "Unlock failed"
