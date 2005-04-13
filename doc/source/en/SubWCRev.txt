@@ -45,6 +45,9 @@ local modifications, or FalseText if not.
 $WCMIXED?TrueText:FalseText$ is replaced with TrueText if there are
 mixed update revisions, or FalseText if not.
 
+$WCURL$ is replaced with the repository URL of the working copy path
+passed to SubWCRev.
+
 Finally, an optional switch may be added to abort SubWCRev if certain
 conditions are not met.
 
