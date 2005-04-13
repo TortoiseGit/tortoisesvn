@@ -46,145 +46,146 @@
 #define ERR_SVN_MIXED	8	// Mixed rev WC found (-m)
 #define ERR_OUT_EXISTS	9	// Output file already exists (-d)
 
-
-int RevDefine(char * def, char * pBuf, unsigned long & index,
-				unsigned long & filelength, unsigned long maxlength,
-				long MinRev, long MaxRev)
-{ 
-	char * pBuild = pBuf + index;
-	int bEof = pBuild - pBuf >= (int)filelength;
-	while (memcmp( pBuild, def, strlen(def)) && !bEof)
+int FindPlaceholder(char *def, char *pBuf, unsigned long & index, unsigned long filelength)
+{
+	int deflen = strlen(def);
+	while (index + deflen <= filelength)
 	{
-		pBuild++;
-		bEof = pBuild - pBuf >= (int)filelength;
+		if (memcmp(pBuf + index, def, deflen) == 0)
+			return TRUE;
+		index++;
 	}
-	if (!bEof)
+	return FALSE;
+}
+
+int InsertRevision(char * def, char * pBuf, unsigned long & index,
+					unsigned long & filelength, unsigned long maxlength,
+					long MinRev, long MaxRev)
+{
+	// Search for first occurrence of def in the buffer, starting at index.
+	if (!FindPlaceholder(def, pBuf, index, filelength))
 	{
-		//replace the $WCxxx$ string with the actual revision number
-		char destbuf[40];
-		if (MinRev == -1 || MinRev == MaxRev)
-		{
-			sprintf(destbuf, "%Ld", MaxRev);
-		}
-		else
-		{
-			sprintf(destbuf, "%Ld:%Ld", MinRev, MaxRev);
-		}
-		int Expansion = strlen(destbuf) - strlen(def);
-		if (Expansion < 0)
-		{
-			memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
-		}
-		else if (Expansion > 0)
-		{
-			// Check for buffer overflow
-			if ((int)(maxlength - filelength) < Expansion) return FALSE;
-			memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
-		}
-		memmove(pBuild, destbuf, strlen(destbuf));
-		filelength += Expansion;
-	} // if (!bEof)
-	else
+		// No more matches found.
 		return FALSE;
-	index = (unsigned long)(pBuild - pBuf);
+	}
+	// Format the text to insert at the placeholder
+	char destbuf[40];
+	if (MinRev == -1 || MinRev == MaxRev)
+	{
+		sprintf(destbuf, "%Ld", MaxRev);
+	}
+	else
+	{
+		sprintf(destbuf, "%Ld:%Ld", MinRev, MaxRev);
+	}
+	// Replace the $WCxxx$ string with the actual revision number
+	char * pBuild = pBuf + index;
+	int Expansion = strlen(destbuf) - strlen(def);
+	if (Expansion < 0)
+	{
+		memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
+	}
+	else if (Expansion > 0)
+	{
+		// Check for buffer overflow
+		if ((int)(maxlength - filelength) < Expansion) return FALSE;
+		memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
+	}
+	memmove(pBuild, destbuf, strlen(destbuf));
+	filelength += Expansion;
 	return TRUE;
 }
 
-int DateDefine(char * def, char * pBuf, unsigned long & index,
+int InsertDate(char * def, char * pBuf, unsigned long & index,
 				unsigned long & filelength, unsigned long maxlength,
 				apr_time_t date_svn)
 { 
-	char * pBuild = pBuf + index;
-	int bEof = pBuild - pBuf >= (int)filelength;
-	while (memcmp( pBuild, def, strlen(def)) && !bEof)
+	// Search for first occurrence of def in the buffer, starting at index.
+	if (!FindPlaceholder(def, pBuf, index, filelength))
 	{
-		pBuild++;
-		bEof = pBuild - pBuf >= (int)filelength;
-	}
-	if (!bEof)
-	{
-		// Replace the $WCDATE$ string with the actual commit date
-		__time64_t ttime = date_svn/1000000L;
-		struct tm *newtime = _localtime64(&ttime);
-		if (newtime == NULL)
-			return FALSE;
-		// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
-		char destbuf[32];
-		sprintf(destbuf, "%04d/%02d/%02d %02d:%02d:%02d",
-				newtime->tm_year + 1900,
-				newtime->tm_mon + 1,
-				newtime->tm_mday,
-				newtime->tm_hour,
-				newtime->tm_min,
-				newtime->tm_sec);
-
-		int Expansion = strlen(destbuf) - strlen(def);
-		if (Expansion < 0)
-		{
-			memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
-		}
-		else if (Expansion > 0)
-		{
-			// Check for buffer overflow
-			if ((int)(maxlength - filelength) < Expansion) return FALSE;
-			memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
-		}
-		memmove(pBuild, destbuf, strlen(destbuf));
-		filelength += Expansion;
-	} // if (!bEof)
-	else
+		// No more matches found.
 		return FALSE;
-	index = (unsigned long)(pBuild - pBuf);
+	}
+	// Format the text to insert at the placeholder
+	__time64_t ttime = date_svn/1000000L;
+	struct tm *newtime = _localtime64(&ttime);
+	if (newtime == NULL)
+		return FALSE;
+	// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
+	char destbuf[32];
+	sprintf(destbuf, "%04d/%02d/%02d %02d:%02d:%02d",
+			newtime->tm_year + 1900,
+			newtime->tm_mon + 1,
+			newtime->tm_mday,
+			newtime->tm_hour,
+			newtime->tm_min,
+			newtime->tm_sec);
+	// Replace the $WCDATE$ string with the actual commit date
+	char * pBuild = pBuf + index;
+	int Expansion = strlen(destbuf) - strlen(def);
+	if (Expansion < 0)
+	{
+		memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
+	}
+	else if (Expansion > 0)
+	{
+		// Check for buffer overflow
+		if ((int)(maxlength - filelength) < Expansion) return FALSE;
+		memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
+	}
+	memmove(pBuild, destbuf, strlen(destbuf));
+	filelength += Expansion;
 	return TRUE;
 }
 
-int ModDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL isTrue)
+int InsertBoolean(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL isTrue)
 { 
-	char * pBuild = pBuf + index;
-	int bEof = pBuild - pBuf >= (int)filelength;
-	while (memcmp( pBuild, def, strlen(def)) && !bEof)
+	// Search for first occurrence of def in the buffer, starting at index.
+	if (!FindPlaceholder(def, pBuf, index, filelength))
 	{
-		pBuild++;
-		bEof = pBuild - pBuf >= (int)filelength;
-	}
-	if (!bEof)
-	{
-		// Look for the terminating '$' character
-		char * pEnd = pBuild + 1;
-		while (*pEnd != '$')
-		{
-			pEnd++;
-			if (pEnd - pBuild >= (int)filelength)
-				return FALSE;	// No terminator - malformed so give up.
-		}
-		
-		// Look for the ':' dividing TrueText from FalseText
-		char *pSplit = pBuild + 1;
-		// This loop is guaranteed to terminate due to test above.
-		while (*pSplit != ':' && *pSplit != '$')
-			pSplit++;
-
-		if (*pSplit == '$')
-			return FALSE;		// No split - malformed so give up.
-
-		if (isTrue)
-		{
-			// Replace $WCxxx?TrueText:FalseText$ with TrueText
-			memmove(pSplit, pEnd + 1, filelength - abs((long)(pBuf - pBuild)));
-			memmove(pBuild, pBuild + strlen(def), filelength - abs((long)(pBuf - pBuild)));
-			filelength = filelength - strlen(def) - (pEnd - pSplit) - 1;
-		}
-		else
-		{
-			// Replace $WCxxx?TrueText:FalseText$ with FalseText
-			memmove(pEnd, pEnd + 1, filelength - abs((long)(pBuf - pBuild)));
-			memmove(pBuild, pSplit + 1, filelength - abs((long)(pBuf - pBuild)));
-			filelength = filelength - (pSplit - pBuild) - 2;
-		} // if (isTrue)
-	} // if (!bEof)
-	else
+		// No more matches found.
 		return FALSE;
-	index = (unsigned long)(pBuild - pBuf);
+	}
+	// Look for the terminating '$' character
+	char * pBuild = pBuf + index;
+	char * pEnd = pBuild + 1;
+	while (*pEnd != '$')
+	{
+		pEnd++;
+		if (pEnd - pBuf >= (int)filelength)
+			return FALSE;	// No terminator - malformed so give up.
+	}
+	
+	// Look for the ':' dividing TrueText from FalseText
+	char *pSplit = pBuild + 1;
+	// This loop is guaranteed to terminate due to test above.
+	while (*pSplit != ':' && *pSplit != '$')
+		pSplit++;
+
+	if (*pSplit == '$')
+		return FALSE;		// No split - malformed so give up.
+
+	if (isTrue)
+	{
+		// Replace $WCxxx?TrueText:FalseText$ with TrueText
+		// Remove :FalseText$
+		memmove(pSplit, pEnd + 1, filelength - (long)(pEnd + 1 - pBuf));
+		filelength -= (long)(pEnd + 1 - pSplit);
+		// Remove $WCxxx?
+		int deflen = strlen(def);
+		memmove(pBuild, pBuild + deflen, filelength - (long)(pBuild + deflen - pBuf));
+		filelength -= deflen;
+	}
+	else
+	{
+		// Replace $WCxxx?TrueText:FalseText$ with FalseText
+		// Remove terminating $
+		memmove(pEnd, pEnd + 1, filelength - (long)(pEnd + 1 - pBuf));
+		filelength--;
+		// Remove $WCxxx?TrueText:
+		memmove(pBuild, pSplit + 1, filelength - (long)(pSplit + 1 - pBuf));
+		filelength -= (long)(pSplit + 1 - pBuild);
+	} // if (isTrue)
 	return TRUE;
 }
 
@@ -304,9 +305,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		CloseHandle(hFile);
 
 	}
-	// now check the status of every file in the working copy
-	// and use the highest revision number found as the new
-	// version number!
+	// Now check the status of every file in the working copy
+	// and gather revision status information in SubStat.
 
 	apr_pool_t * pool;
 	svn_error_t * svnerr = NULL;
@@ -375,30 +375,34 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	unsigned long index = 0;
 	
-	while (RevDefine(VERDEF, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev));
+	while (InsertRevision(VERDEF, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev));
 	
 	index = 0;
-	while (RevDefine(RANGEDEF, pBuf, index, filelength, maxlength, SubStat.MinRev, SubStat.MaxRev));
+	while (InsertRevision(RANGEDEF, pBuf, index, filelength, maxlength, SubStat.MinRev, SubStat.MaxRev));
 	
 	index = 0;
-	while (DateDefine(DATEDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
+	while (InsertDate(DATEDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
 	
 	index = 0;
-	while (ModDefine(MODDEF, pBuf, index, filelength, SubStat.HasMods));
+	while (InsertBoolean(MODDEF, pBuf, index, filelength, SubStat.HasMods));
 	
 	index = 0;
-	while (ModDefine(MIXEDDEF, pBuf, index, filelength, SubStat.MinRev != SubStat.MaxRev));
+	while (InsertBoolean(MIXEDDEF, pBuf, index, filelength, SubStat.MinRev != SubStat.MaxRev));
 	
 	hFile = CreateFile(dst, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
-		printf(_T("unable to open input file %s for writing\n"), dst);
+		printf(_T("unable to open output file %s for writing\n"), dst);
 		return ERR_OPEN;
 	}
 	WriteFile(hFile, pBuf, filelength, &readlength, NULL);
+	if (readlength != filelength)
+	{
+		printf(_T("could not write the file %s to the end!\n"), dst);
+		return ERR_READ;
+	}
 	CloseHandle(hFile);
 	delete [] pBuf;
 		
 	return 0;
 }
-
