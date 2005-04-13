@@ -564,7 +564,7 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 						{
 							LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-							sPaths += cpath->sPath + _T("\n");
+							sPaths += cpath->sPath + _T("\r\n");
 						}
 						sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
 							(LPCTSTR)sRev, m_arRevs.GetAt(nItem),
