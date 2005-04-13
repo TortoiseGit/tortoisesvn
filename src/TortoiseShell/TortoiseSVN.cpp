@@ -30,6 +30,7 @@ DWORD				g_langid;
 HINSTANCE			g_hResInst;
 stdstring			g_filepath;
 svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
+bool				g_lockedoverlay;
 CComCriticalSection	g_csCacheGuard;
 
 extern "C" int APIENTRY
@@ -87,6 +88,8 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 
     if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UPTODATE))
         state = Versioned;
+	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_LOCKED))
+		state = Locked;
     else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_MODIFIED))
         state = Modified;
     else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_CONFLICTING))
