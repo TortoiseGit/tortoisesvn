@@ -43,6 +43,10 @@
 - BUG: Executing a command with multiple selected files/folders didn't work
        correctly. (Stefan)
 
+Version 1.1.6 (not released yet)
+- BUG: A word longer than 100 chars entered in the edit control made
+       TortoiseSVN crash.
+
 Version 1.1.5
 - BUG: Diffing from the modified list in the log dialog didn't work. (Stefan)
 - BUG: Searching case-insensitive in the log dialog would 
