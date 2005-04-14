@@ -27,6 +27,7 @@
 #include "svn_client.h"
 #include "svn_path.h"
 #include "SubWCRev.h"
+#include "..\version.h"
 
 #define VERDEF		"$WCREV$"
 #define DATEDEF		"$WCDATE$"
@@ -231,6 +232,9 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	if ((argc != 4)&&(argc != 2)&&(argc != 5))
 	{
+		printf(_T("SubWCRev %d.%d.%d, Build %d\n\n"),
+					TSVN_VERMAJOR, TSVN_VERMINOR,
+					TSVN_VERMICRO, TSVN_VERBUILD);
 		printf(_T("Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]\n\n"));
 		printf(_T("Params:\n"));
 		printf(_T("WorkingCopyPath    :   path to a Subversion working copy\n"));

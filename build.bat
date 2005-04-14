@@ -137,8 +137,8 @@ if DEFINED _RELEASE (
 echo ================================================================================
 echo building TortoiseSVN
 cd src
-devenv TortoiseSVN.sln /rebuild release /project SubWCRev
 ..\bin\release\bin\SubWCRev.exe .. version.in version.h
+devenv TortoiseSVN.sln /rebuild release /project SubWCRev
 if DEFINED _RELEASE (
   devenv TortoiseSVN.sln /rebuild release
   copy TortoiseSVNSetup\autolist.txt ..\bin\release\bin
