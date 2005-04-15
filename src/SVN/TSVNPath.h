@@ -177,6 +177,8 @@ public:
 	*/
 	__int64 GetLastWriteTime() const;
 	
+	bool IsReadOnly() const;
+	
 	/**
 	 * Checks if a Subversion admin directory is present. For files, the check
 	 * is done in the same directory. For folders, it checks if the folder itself
@@ -229,6 +231,7 @@ private:
 	mutable bool m_bURLKnown;
 	mutable bool m_bIsURL;
 	mutable __int64 m_lastWriteTime;
+	mutable bool m_bIsReadOnly;
 	mutable bool m_bHasAdminDirKnown;
 	mutable bool m_bHasAdminDir;
 	mutable bool m_bIsValidOnWindowsKnown;

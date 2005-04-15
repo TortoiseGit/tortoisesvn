@@ -34,7 +34,8 @@ CTSVNPath::CTSVNPath(void) :
 	m_bIsURL(false),
 	m_bURLKnown(false),
 	m_bHasAdminDirKnown(false),
-	m_bIsValidOnWindowsKnown(false)
+	m_bIsValidOnWindowsKnown(false),
+	m_bIsReadOnly(false)
 {
 }
 
@@ -48,7 +49,8 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
 	m_bIsURL(false),
 	m_bURLKnown(false),
 	m_bHasAdminDirKnown(false),
-	m_bIsValidOnWindowsKnown(false)
+	m_bIsValidOnWindowsKnown(false),
+	m_bIsReadOnly(false)
 {
 	SetFromUnknown(sUnknownPath);
 }
@@ -263,6 +265,15 @@ __int64  CTSVNPath::GetLastWriteTime() const
 	return m_lastWriteTime;
 }
 
+bool CTSVNPath::IsReadOnly() const
+{
+	if(!m_bLastWriteTimeKnown)
+	{
+		UpdateAttributes();
+	}
+	return m_bIsReadOnly;
+}
+
 void CTSVNPath::UpdateAttributes() const
 {
 	EnsureBackslashPathSet();
@@ -271,6 +282,7 @@ void CTSVNPath::UpdateAttributes() const
 	{
 		m_bIsDirectory = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 		m_lastWriteTime = *(__int64*)&attribs.ftLastWriteTime;
+		m_bIsReadOnly = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_READONLY);
 	}
 	else
 	{
