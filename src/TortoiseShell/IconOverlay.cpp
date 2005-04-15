@@ -21,6 +21,7 @@
 #include "Guids.h"
 #include "PreserveChdir.h"
 #include "UnicodeStrings.h"
+#include "SVNStatus.h"
 #include "..\TSVNCache\CacheInterface.h"
 
 // "The Shell calls IShellIconOverlayIdentifier::GetOverlayInfo to request the
@@ -91,7 +92,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 		case Modified  : iconName = _T("ModifiedIcon"); break;
 		case Conflict  : iconName = _T("ConflictIcon"); break;
 		case Deleted   : iconName = _T("DeletedIcon"); break;
-		case Added     : iconName = _T("AddedIcon"); break;
+		case ReadOnly  : iconName = _T("ReadOnlyIcon"); break;
 	}
 
 	for (int i = 0; i < 2; ++i)
@@ -146,7 +147,7 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 		case Deleted:
 			*pPriority = 2;
 			break;
-		case Added:
+		case ReadOnly:
 			*pPriority = 3;
 			break;
 		case Versioned:
@@ -170,6 +171,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 {
 	PreserveChdir preserveChdir;
 	svn_wc_status_kind status = svn_wc_status_unversioned;
+	bool readonlyoverlay = false;
 	if (pwszPath == NULL)
 		return S_FALSE;
 #ifdef UNICODE
@@ -188,72 +190,24 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	}
 	else
 	{
-		if(g_ShellCache.UseExternalCache())
+		if (!g_ShellCache.IsPathAllowed(pPath))
 		{
-			if (!g_ShellCache.IsPathAllowed(pPath))
-			{
-				return S_FALSE;
-			}
-
-			TSVNCacheResponse itemStatus;
-			if(g_CachedStatus.m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, !!g_ShellCache.IsRecursive()))
-			{
-				status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
-			}
+			return S_FALSE;
 		}
-		else
+
+		TSVNCacheResponse itemStatus;
+		ZeroMemory(&itemStatus, sizeof(itemStatus));
+		if (g_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, !!g_ShellCache.IsRecursive()))
 		{
-			AutoLocker lock(g_csCacheGuard);
-
-			// Look in our caches for this item 
-			const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(CTSVNPath(pPath));
-			if (s)
-			{
-				status = s->status;
-			}
-			else
-			{
-				// No cached status available 
-
-				// Check if we fetch icon overlays for this type of path
-				if (! g_ShellCache.IsPathAllowed(pPath))
-				{
-					return S_FALSE;
-				}
-				// since the dwAttrib param of the IsMemberOf() function does not
-				// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
-				// we have to check if the path is a folder ourselves :(
-				if (PathIsDirectory(pPath))
-				{
-					if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
-					{
-						if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
-						{
-							status = svn_wc_status_normal;
-						}
-						else
-						{
-							const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(CTSVNPath(pPath), TRUE);
-							status = s->status;
-							status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
-						}
-					}
-					else
-					{
-						status = svn_wc_status_unversioned;
-					}
-				} // if (PathIsDirectory(g_filepath))
-				else
-				{
-					const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(CTSVNPath(pPath), FALSE);
-					status = s->status;
-				}
-			}
+			status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
+			if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&(itemStatus.m_readonly))
+				readonlyoverlay = true;
 		}
 	}
 	g_filepath.clear();
 	g_filepath = pPath;
 	g_filestatus = status;
+	g_readonlyoverlay = readonlyoverlay;
 
 	ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 
@@ -270,15 +224,17 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_normal:
 		case svn_wc_status_external:
 		case svn_wc_status_incomplete:
-			if (m_State == Versioned)
+			if (readonlyoverlay)
 			{
-				g_filepath.clear();
-				return S_OK;
+				if (m_State == ReadOnly)
+				{
+					g_filepath.clear();
+					return S_OK;
+				}
+				else
+					return S_FALSE;
 			}
-			else
-				return S_FALSE;
-		case svn_wc_status_added:
-			if (m_State == Added)
+			else if (m_State == Versioned)
 			{
 				g_filepath.clear();
 				return S_OK;
@@ -302,6 +258,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			}
 			else
 				return S_FALSE;
+		case svn_wc_status_added:
 		case svn_wc_status_modified:
 			if (m_State == Modified)
 			{

@@ -8,7 +8,7 @@ class CStatusCacheEntry
 {
 public:
 	CStatusCacheEntry();
-	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime);
+	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool bReadOnly);
 	bool HasExpired(long now) const;
 	void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
 	bool IsVersioned() const;
@@ -29,11 +29,14 @@ private:
 	svn_wc_status2_t		m_svnStatus;
 	__int64				m_lastWriteTime;
 	bool				m_bSet;
+	svn_node_kind_t		m_kind;
+	bool				m_bReadOnly;
 
 	// Values copied from the 'entries' structure
 	bool				m_bSVNEntryFieldSet;
 	CStringA			m_sUrl;
 	CStringA			m_sOwner;
+	CStringA			m_sAuthor;
 	svn_revnum_t		m_commitRevision;
 
 //	friend class CSVNStatusCache;

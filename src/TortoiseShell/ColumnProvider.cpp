@@ -22,6 +22,8 @@
 #include "PreserveChdir.h"
 #include "SVNProperties.h"
 #include "UnicodeStrings.h"
+#include "SVNStatus.h"
+#include "..\TSVNCache\CacheInterface.h"
 
 
 const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
@@ -323,37 +325,38 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 	return S_OK;
 }
 
-void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
+void CShellExt::GetColumnStatus(const TCHAR * path, BOOL /*bIsDir*/)
 {
 	if (_tcscmp(path, columnfilepath.c_str())==0)
 		return;
 	LoadLangDll();
 	columnfilepath = path;
 	AutoLocker lock(g_csCacheGuard);
-	const FileStatusCacheEntry * status;
-	if (! g_ShellCache.IsPathAllowed(path))
-		status = &g_CachedStatus.invalidstatus;
-	else
+
+	TSVNCacheResponse itemStatus;
+	ZeroMemory(&itemStatus, sizeof(itemStatus));
+	if(g_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, false))
 	{
-		status = g_CachedStatus.GetFullStatus(CTSVNPath(path), bIsDir, TRUE);
+		filestatus = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
 	}
-	filestatus = status->status;
+	else
+		return;	
 
 #ifdef UNICODE
-	columnauthor = UTF8ToWide(status->author);
+	columnauthor = UTF8ToWide(itemStatus.m_author);
 #else
-	columnauthor = status->author;
+	columnauthor = itemStatus.m_author;
 #endif
-	columnrev = status->rev;
+	columnrev = itemStatus.m_entry.cmt_rev;
 #ifdef UNICODE
-	itemurl = UTF8ToWide(status->url);
+	itemurl = UTF8ToWide(itemStatus.m_url);
 #else
-	itemurl = status->url;
+	itemurl = itemStatus.m_url;
 #endif
 #ifdef UNICODE
-	owner = UTF8ToWide(status->owner);
+	owner = UTF8ToWide(itemStatus.m_owner);
 #else
-	owner = status->owner;
+	owner = itemStatus.m_owner;
 #endif
 	TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
 

@@ -24,6 +24,7 @@
 #include "ProgressDlg.h"
 #include "UnicodeStrings.h"
 #include "UnicodeUtils.h"
+#include "SVNStatus.h"
 
 #define MAX_PROP_STRING_LENGTH		4096			//should be big enough
 

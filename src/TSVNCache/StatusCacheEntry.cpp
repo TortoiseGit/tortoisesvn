@@ -29,13 +29,16 @@ CStatusCacheEntry::CStatusCacheEntry()
 	SetAsUnversioned();
 	m_bSet = false;
 	m_bSVNEntryFieldSet = false;
+	m_kind = svn_node_unknown;
+	m_bReadOnly = false;
 }
 
-CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus,__int64 lastWriteTime)
+CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool bReadOnly)
 {
 	SetStatus(pSVNStatus);
 	m_lastWriteTime = lastWriteTime;
 	m_discardAtTime = GetTickCount()+cachetimeout;
+	m_bReadOnly = bReadOnly;
 }
 
 bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
@@ -43,7 +46,7 @@ bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
 #define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) return false;
 #define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (!WriteFile(hFile, x, value, &written, NULL)) return false;}
 	DWORD written = 0;
-	int value = 1;
+	int value = 2;
 	WRITEVALUETOFILE(value); // 'version' of this save-format
 	WRITEVALUETOFILE(m_highestPriorityLocalStatus);
 	WRITEVALUETOFILE(m_lastWriteTime);
@@ -52,6 +55,9 @@ bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
 	WRITEVALUETOFILE(m_commitRevision);
 	WRITESTRINGTOFILE(m_sUrl);
 	WRITESTRINGTOFILE(m_sOwner);
+	WRITESTRINGTOFILE(m_sAuthor);
+	WRITEVALUETOFILE(m_kind);
+	WRITEVALUETOFILE(m_bReadOnly);
 
 	// now save the status struct (without the entry field, because we don't use that)
 	WRITEVALUETOFILE(m_svnStatus.copied);
@@ -70,7 +76,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	DWORD read = 0;
 	int value = 0;
 	LOADVALUEFROMFILE(value);
-	if (value != 1)
+	if (value != 2)
 		return false;		// not the correct version
 	LOADVALUEFROMFILE(m_highestPriorityLocalStatus);
 	LOADVALUEFROMFILE(m_lastWriteTime);
@@ -95,7 +101,16 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 			return false;
 		}
 		m_sOwner.ReleaseBuffer(value);
+
+		if (!ReadFile(hFile, m_sAuthor.GetBuffer(value), value, &read, NULL))
+		{
+			m_sAuthor.ReleaseBuffer(0);
+			return false;
+		}
+		m_sAuthor.ReleaseBuffer(value);
 	}
+	LOADVALUEFROMFILE(m_kind);
+	LOADVALUEFROMFILE(m_bReadOnly);
 	LOADVALUEFROMFILE(m_svnStatus.copied);
 	LOADVALUEFROMFILE(m_svnStatus.locked);
 	LOADVALUEFROMFILE(m_svnStatus.prop_status);
@@ -116,7 +131,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status2_t* pSVNStatus)
 	}
 	else
 	{
-		m_highestPriorityLocalStatus = SVNStatus::GetMoreImportant(pSVNStatus->prop_status,pSVNStatus->text_status);
+		m_highestPriorityLocalStatus = SVNStatus::GetMoreImportant(pSVNStatus->prop_status, pSVNStatus->text_status);
 		m_svnStatus = *pSVNStatus;
 
 		// Currently we don't deep-copy the whole entry value, but we do take a few members
@@ -126,6 +141,8 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status2_t* pSVNStatus)
 			m_commitRevision = pSVNStatus->entry->cmt_rev;
 			m_bSVNEntryFieldSet = true;
 			m_sOwner = pSVNStatus->entry->lock_owner;
+			m_kind = pSVNStatus->entry->kind;
+			m_sAuthor = pSVNStatus->entry->cmt_author;
 		}
 		else
 		{
@@ -159,9 +176,9 @@ bool CStatusCacheEntry::HasExpired(long now) const
 
 void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const
 {
+	ZeroMemory(&response, sizeof(response));
 	if(m_bSVNEntryFieldSet)
 	{
-		ZeroMemory(&response, sizeof(response));
 		response.m_status = m_svnStatus;
 		response.m_entry.cmt_rev = m_commitRevision;
 
@@ -172,9 +189,12 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
 		response.m_status.entry = NULL;
 		response.m_entry.url = NULL;
 
+		response.m_kind = m_kind;
+		response.m_readonly = m_bReadOnly;
 		// The whole of response has been zero'd, so this will copy safely 
 		strncat(response.m_url, m_sUrl, sizeof(response.m_url)-1);
 		strncat(response.m_owner, m_sOwner, sizeof(response.m_owner)-1);
+		strncat(response.m_author, m_sAuthor, sizeof(response.m_author)-1);
 		responseLength = sizeof(response);
 	}
 	else

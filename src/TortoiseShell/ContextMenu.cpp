@@ -22,6 +22,7 @@
 #include "PreserveChdir.h"
 #include "UnicodeStrings.h"
 #include "SVNProperties.h"
+#include "SVNStatus.h"
 
 #define GetPIDLFolder(pida) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[0])
 #define GetPIDLItem(pida, i) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[i+1])
@@ -97,19 +98,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							svn_wc_status_kind status = svn_wc_status_unversioned;
 							try
 							{
-								bool bIsDirectory = !!PathIsDirectory(str.c_str());
-								const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(CTSVNPath(str.c_str()), bIsDirectory);
-								if (s)
-								{
-									status = s->status;
-									isLocked = (strlen(s->owner)!=0);
-								}
-								// if the status is unversioned and the item is a folder,
-								// it still could be versioned! That's because svn_client_status()
-								// returns unversioned for nested layouts if the folder
-								// is from a different repository/wc!
-								if ((status == svn_wc_status_unversioned)&&(bIsDirectory))
-									status = SVNStatus::GetAllStatus(CTSVNPath(str.c_str()));
+								SVNStatus stat;
+								stat.GetStatus(CTSVNPath(str.c_str()));
+								status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+								if ((stat.status->entry)&&(stat.status->entry->lock_owner))
+									isLocked = (stat.status->entry->lock_owner[0] != 0);
 							}
 							catch ( ... )
 							{
@@ -159,20 +152,12 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							svn_wc_status_kind status = svn_wc_status_unversioned;
 							try
 							{
-								AutoLocker lock(g_csCacheGuard);
-								bool bIsDirectory = strpath.IsDirectory();
-								const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(strpath, bIsDirectory);
-								if (s)
-								{
-									status = s->status;
-									isLocked = (strlen(s->owner)!=0);
-								}
-								// if the status is unversioned and the item is a folder,
-								// it still could be versioned! That's because svn_client_status()
-								// returns unversioned for nested layouts if the folder
-								// is from a different repository/wc!
-								if ((status == svn_wc_status_unversioned)&&(bIsDirectory))
-									status = SVNStatus::GetAllStatus(strpath);
+								SVNStatus stat;
+								stat.GetStatus(CTSVNPath(strpath));
+								status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+								if ((stat.status->entry)&&(stat.status->entry->lock_owner))
+									isLocked = (stat.status->entry->lock_owner[0] != 0);
+	
 								statfetched = TRUE;
 							}
 							catch ( ... )
@@ -229,13 +214,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		svn_wc_status_kind status = svn_wc_status_unversioned;
 		try
 		{
-			AutoLocker lock(g_csCacheGuard);
-			const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(CTSVNPath(folder_.c_str()), PathIsDirectory(folder_.c_str()));
-			if (s)
-			{
-				status = s->status;
-				isLocked = (strlen(s->owner)!=0);
-			}
+			SVNStatus stat;
+			stat.GetStatus(CTSVNPath(folder_.c_str()));
+			status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+			if ((stat.status->entry)&&(stat.status->entry->lock_owner))
+				isLocked = (stat.status->entry->lock_owner[0] != 0);
 		}
 		catch ( ... )
 		{
@@ -259,12 +242,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			svn_wc_status_kind status = svn_wc_status_unversioned;
 			try
 			{
-				AutoLocker lock(g_csCacheGuard);
-				const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(CTSVNPath(folder_.c_str()), TRUE);
-				if (s)
-				{
-					status = s->status;
-				}
+				SVNStatus stat;
+				stat.GetStatus(CTSVNPath(folder_.c_str()));
+				status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+				if ((stat.status->entry)&&(stat.status->entry->lock_owner))
+					isLocked = (stat.status->entry->lock_owner[0] != 0);
 			}
 			catch ( ... )
 			{

@@ -101,7 +101,7 @@
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\_TortoiseSVN4" Value="{3035134b-7B7D-4fcc-81B4-1E394CA267EB}" Id="_BE50C516B3444976864879716C66A602" Type="string" />
 		</Component>
 		<Component Id="C__machineregistry" Guid="4913F361-DE93-490c-81D0-1FB002EBF141" >
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseAdded.ico" KeyPath="yes" Id="_0420474DA5564BCDBDA699049D561034" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ReadOnlyIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseReadOnly.ico" KeyPath="yes" Id="_0420474DA5564BCDBDA699049D561034" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseDeleted.ico" Id="_06060DF88EA34CAB9BECB0F277B7D7C6" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_144EF42CC6B14DC8A344CD7656CE7B17" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="CachePath" Value="[TARGETDIR]bin\TSVNCache.exe" Id="_C847099F97C04eadA6ED7C1AE15DCCBA" Type="string" />
@@ -446,7 +446,7 @@
 				<File Id="F__ClassicConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseConflict.ico" KeyPath="yes" />
 				<File Id="F__ClassicInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseInSubversion.ico" />
 				<File Id="F__ClassicModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseModified.ico" />
-				<File Id="F__ClassicAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseAdded.ico" />
+				<File Id="F__ClassicReadOnlyIcon" Name="TORTOI~4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseReadOnly.ico" />
 				<File Id="F__ClassicDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseDeleted.ico" />
 			</Component>
 		</Directory>
@@ -455,7 +455,7 @@
 				<File Id="F__ModernConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseConflict.ico" KeyPath="yes" />
 				<File Id="F__ModernInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseInSubversion.ico" />
 				<File Id="F__ModernModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseModified.ico" />
-				<File Id="F__ModernAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseAdded.ico" />
+				<File Id="F__ModernReadOnlyIcon" Name="TORTOI~4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseReadOnly.ico" />
 				<File Id="F__ModernDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseDeleted.ico" />
 			</Component>
 		</Directory>
@@ -464,7 +464,7 @@
 				<File Id="F__XPStyleConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseConflict.ico" KeyPath="yes" />
 				<File Id="F__XPStyleInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseInSubversion.ico" />
 				<File Id="F__XPStyleModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseModified.ico" />
-				<File Id="F__XPStyleAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseAdded.ico" />
+				<File Id="F__XPStyleReadOnlyIcon" Name="TORTOI~4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseReadOnly.ico" />
 				<File Id="F__XPStyleDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseDeleted.ico" />
 			</Component>
 		</Directory>
@@ -473,7 +473,7 @@
 				<File Id="F__SubclipseConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseConflict.ico" KeyPath="yes" />
 				<File Id="F__SubclipseInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseInSubversion.ico" />
 				<File Id="F__SubclipseModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseModified.ico" />
-				<File Id="F__SubclipseAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseAdded.ico" />
+				<File Id="F__SubclipseReadOnlyIcon" Name="TORTOI~4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseReadOnly.ico" />
 				<File Id="F__SubclipseDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseDeleted.ico" />
 			</Component>
 		</Directory>
@@ -482,7 +482,7 @@
 				<File Id="F__StraightConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseConflict.ico" KeyPath="yes" />
 				<File Id="F__StraightInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseInSubversion.ico" />
 				<File Id="F__StraightModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseModified.ico" />
-				<File Id="F__StraightAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseAdded.ico" />
+				<File Id="F__StraightReadOnlyIcon" Name="TORTOI~4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseReadOnly.ico" />
 				<File Id="F__StraightDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseDeleted.ico" />
 			</Component>
 		</Directory>

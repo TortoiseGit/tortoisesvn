@@ -23,13 +23,14 @@
 
 UINT      g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE g_hmodThisDll = NULL;				///< handle to this DLL itself.
-SVNFolderStatus g_CachedStatus;				///< status cache
+CRemoteCacheLink	g_remoteCacheLink;
 ShellCache g_ShellCache;					///< caching of registry entries, ...
 CRegStdWORD			g_regLang;
 DWORD				g_langid;
 HINSTANCE			g_hResInst;
 stdstring			g_filepath;
 svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
+bool				g_readonlyoverlay;
 CComCriticalSection	g_csCacheGuard;
 
 extern "C" int APIENTRY
@@ -97,8 +98,8 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 		state = DropHandler;
 	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_DELETED))
 		state = Deleted;
-	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_ADDED))
-		state = Added;
+	else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_READONLY))
+		state = ReadOnly;
 	
     if (state != Invalid)
     {

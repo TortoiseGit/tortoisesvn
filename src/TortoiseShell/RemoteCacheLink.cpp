@@ -2,6 +2,7 @@
 #include "Remotecachelink.h"
 #include "ShellExt.h"
 #include "..\TSVNCache\CacheInterface.h"
+#include "TSVNPath.h"
 
 CRemoteCacheLink::CRemoteCacheLink(void) :
 	m_hPipe(INVALID_HANDLE_VALUE)

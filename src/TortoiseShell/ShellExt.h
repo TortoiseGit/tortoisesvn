@@ -22,17 +22,18 @@
 #include "registry.h"
 #include "resource.h"
 #include "ShellCache.h"
-#include "SVNFolderStatus.h"
+#include "RemoteCacheLink.h"
 
 extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
-extern	SVNFolderStatus		g_CachedStatus;			// status cache
+extern	CRemoteCacheLink	g_remoteCacheLink;
 extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
 extern	CRegStdWORD			g_regLang;
 extern	DWORD				g_langid;
 extern	HINSTANCE			g_hResInst;
 extern	stdstring			g_filepath;
 extern	svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
+extern  bool				g_readonlyoverlay;		///< wether to show the readonly overlay or not
 extern	void				LoadLangDll();
 extern  CComCriticalSection	g_csCacheGuard;
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;

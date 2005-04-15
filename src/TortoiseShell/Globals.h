@@ -60,7 +60,7 @@ enum FileState
     Modified,
     Conflict,
 	Deleted,
-	Added,
+	ReadOnly,
 	DropHandler,
 	Invalid
 };
