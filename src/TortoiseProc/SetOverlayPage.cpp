@@ -179,6 +179,8 @@ BOOL CSetOverlayPage::OnInitDialog()
 	InsertItem(IDS_MENUREMOVE, IDI_DELETE, MENUREMOVE);
 	InsertItem(IDS_MENUREVERT, IDI_REVERT, MENUREVERT);
 	InsertItem(IDS_MENUCLEANUP, IDI_CLEANUP, MENUCLEANUP);
+	InsertItem(IDS_MENU_LOCK, IDI_LOCK, MENULOCK);
+	InsertItem(IDS_MENU_UNLOCK, IDI_UNLOCK, MENUUNLOCK);
 	InsertItem(IDS_MENUBRANCH, IDI_COPY, MENUCOPY);
 	InsertItem(IDS_MENUSWITCH, IDI_SWITCH, MENUSWITCH);
 	InsertItem(IDS_MENUMERGE, IDI_MERGE, MENUMERGE);
@@ -301,6 +303,8 @@ void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *pRes
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUREMOVE;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUREVERT;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCLEANUP;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENULOCK;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUUNLOCK;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCOPY;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUSWITCH;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUMERGE;
