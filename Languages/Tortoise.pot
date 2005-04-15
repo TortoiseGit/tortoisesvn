@@ -1669,7 +1669,7 @@ msgid "Invalid revision number! Valid revisions are:\nHEAD, BASE, PREV, COMMITTE
 msgstr ""
 
 #: ID:145,
-msgid "It's not possible to rename a file just in case!\nPlease read our docs on how to work around this Subversion limitation."
+msgid "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
 msgstr ""
 
 #: Control-ID:1016,
@@ -2408,6 +2408,10 @@ msgstr ""
 msgid "SVN Import..."
 msgstr ""
 
+#: ID:16,
+msgid "SVN Lock Owner"
+msgstr ""
+
 #: ID:78,
 msgid "SVN Merge..."
 msgstr ""
@@ -2902,6 +2906,10 @@ msgstr ""
 
 #: ID:88,
 msgid "The target folder is not empty!\nAre you sure you want to checkout/export into that folder?"
+msgstr ""
+
+#: ID:16,
+msgid "The user who owns the lock of the file"
 msgstr ""
 
 #: ID:81,
