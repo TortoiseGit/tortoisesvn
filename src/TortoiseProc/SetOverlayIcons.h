@@ -55,7 +55,7 @@ protected:
 	CString			m_sNormal;
 	CString			m_sModified;
 	CString			m_sConflicted;
-	CString			m_sAdded;
+	CString			m_sReadOnly;
 	CString			m_sDeleted;
 	CImageList		m_ImageList;
 	CImageList		m_ImageListBig;
@@ -63,6 +63,6 @@ protected:
 	CRegString		m_regInSubversion;
 	CRegString		m_regModified;
 	CRegString		m_regConflicted;
-	CRegString		m_regAdded;
+	CRegString		m_regReadOnly;
 	CRegString		m_regDeleted;
 };

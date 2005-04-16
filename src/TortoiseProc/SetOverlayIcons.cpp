@@ -33,7 +33,7 @@ CSetOverlayIcons::CSetOverlayIcons(CWnd* pParent /*=NULL*/)
 	m_regInSubversion = CRegString(_T("Software\\TortoiseSVN\\InSubversionIcon"));
 	m_regModified = CRegString(_T("Software\\TortoiseSVN\\ModifiedIcon"));
 	m_regConflicted = CRegString(_T("Software\\TortoiseSVN\\ConflictIcon"));
-	m_regAdded = CRegString(_T("Software\\TortoiseSVN\\AddedIcon"));
+	m_regReadOnly = CRegString(_T("Software\\TortoiseSVN\\ReadOnlyIcon"));
 	m_regDeleted = CRegString(_T("Software\\TortoiseSVN\\DeletedIcon"));
 }
 
@@ -106,10 +106,9 @@ BOOL CSetOverlayIcons::OnInitDialog()
 	m_sModified = statustext;
 	SVNStatus::GetStatusString(svn_wc_status_conflicted, statustext);
 	m_sConflicted = statustext;
-	SVNStatus::GetStatusString(svn_wc_status_added, statustext);
-	m_sAdded = statustext;
 	SVNStatus::GetStatusString(svn_wc_status_deleted, statustext);
 	m_sDeleted = statustext;
+	m_sReadOnly.LoadString(IDS_SETTINGS_READONLYNAME);
 
 	ShowIconSet(true);
 
@@ -157,8 +156,8 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 	HICON hConflictedOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseConflict.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
 	index = pImageList->Add(hConflictedOverlay);
 	VERIFY(pImageList->SetOverlayImage(index, 3));
-	HICON hAddedOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseAdded.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
-	index = pImageList->Add(hAddedOverlay);
+	HICON hReadOnlyOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseReadOnly.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
+	index = pImageList->Add(hReadOnlyOverlay);
 	VERIFY(pImageList->SetOverlayImage(index, 4));
 	HICON hDeletedOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseDeleted.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
 	index = pImageList->Add(hDeletedOverlay);
@@ -166,7 +165,7 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 	DestroyIcon(hNormalOverlay);
 	DestroyIcon(hModifiedOverlay);
 	DestroyIcon(hConflictedOverlay);
-	DestroyIcon(hAddedOverlay);
+	DestroyIcon(hReadOnlyOverlay);
 	DestroyIcon(hDeletedOverlay);
 
 	//create an image list with different file icons
@@ -193,7 +192,7 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(2), TVIS_OVERLAYMASK);
 	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sConflicted, folderindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(3), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sAdded, folderindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sReadOnly, folderindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(4), TVIS_OVERLAYMASK);
 	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sDeleted, folderindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(5), TVIS_OVERLAYMASK);
@@ -257,7 +256,7 @@ void CSetOverlayIcons::AddFileTypeGroup(CString sFileType, bool bSmallIcons)
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(2), TVIS_OVERLAYMASK);
 	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sConflicted+sFileType, imageindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(3), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sAdded+sFileType, imageindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sReadOnly+sFileType, imageindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(4), TVIS_OVERLAYMASK);
 	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sDeleted+sFileType, imageindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(5), TVIS_OVERLAYMASK);
@@ -300,7 +299,7 @@ void CSetOverlayIcons::OnOK()
 				m_regInSubversion = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseInSubversion.ico");
 				m_regModified = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseModified.ico");
 				m_regConflicted = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseConflict.ico");
-				m_regAdded = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseAdded.ico");
+				m_regReadOnly = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseReadOnly.ico");
 				m_regDeleted = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseDeleted.ico");
 			}
 		}

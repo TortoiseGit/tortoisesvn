@@ -1721,6 +1721,7 @@ BEGIN
                             "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
     IDS_SETTINGS_PROXYEXCEPTIONS_TT 
                             "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
+    IDS_SETTINGS_READONLYNAME "Needs Lock"
 END
 
 STRINGTABLE 
