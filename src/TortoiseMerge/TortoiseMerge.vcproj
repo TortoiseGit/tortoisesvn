@@ -17,7 +17,7 @@
 			IntermediateDirectory="..\..\obj\TortoiseMerge\Debug"
 			ConfigurationType="1"
 			UseOfMFC="2"
-			CharacterSet="2">
+			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
@@ -71,7 +71,8 @@
 			IntermediateDirectory="..\..\obj\TortoiseMerge\Release"
 			ConfigurationType="1"
 			UseOfMFC="2"
-			CharacterSet="2"
+			CharacterSet="1"
+			ManagedExtensions="FALSE"
 			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"

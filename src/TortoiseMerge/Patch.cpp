@@ -440,7 +440,20 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 			{
 				if (PatchLines.GetUnicodeType()==CFileTextLines::UTF8)
 				{
+#ifdef UNICODE
+					// convert the UTF-8 contents in CString sPatchLine into a CStringA
+					CStringA sPatchLineA;
+					char *pszPatchLine = sPatchLineA.GetBuffer(sPatchLine.GetLength());
+					for (int k = 0; k < sPatchLine.GetLength(); ++k)
+					{
+						*pszPatchLine++ = (char)sPatchLine.GetAt(k);
+					}
+					*pszPatchLine = 0;
+					sPatchLineA.ReleaseBuffer();
+					sPatchLine = CUnicodeUtils::GetUnicode(sPatchLineA);
+#else
 					sPatchLine = CUnicodeUtils::GetUnicode(sPatchLine);
+#endif
 				}
 			}
 			int nPatchState = (int)chunk->arLinesStates.GetAt(j);

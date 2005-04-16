@@ -152,7 +152,7 @@ LPCTSTR CDiffData::GetLineChars(int index)
 
 BOOL CDiffData::Load()
 {
-	CStringA sConvertedBaseFilename, sConvertedTheirFilename, sConvertedYourFilename;
+	CString sConvertedBaseFilename, sConvertedTheirFilename, sConvertedYourFilename;
 	apr_pool_t * pool;
 
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
@@ -266,10 +266,13 @@ BOOL CDiffData::Load()
 bool
 CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, apr_pool_t * pool)
 {
+	CStringA strBaseFilename(sBaseFilename);
+	CStringA strYourFilename(sYourFilename);
+
 	svn_diff_t * diffYourBase = NULL;
 	svn_error_t * svnerr = NULL;
 
-	svnerr = svn_diff_file_diff(&diffYourBase, sBaseFilename, sYourFilename, pool);
+	svnerr = svn_diff_file_diff(&diffYourBase, strBaseFilename, strYourFilename, pool);
 	if (svnerr)
 	{
 		TRACE(_T("diff-error in CDiffData::Load()\n"));
@@ -462,8 +465,11 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 bool
 CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, apr_pool_t * pool)
 {
+	CStringA strBaseFilename(sBaseFilename);
+	CStringA strYourFilename(sYourFilename);
+	CStringA strTheirFilename(sTheirFilename);
 	svn_diff_t * diffTheirYourBase = NULL;
-	svn_error_t * svnerr = svn_diff_file_diff3(&diffTheirYourBase, sBaseFilename, sTheirFilename, sYourFilename, pool);
+	svn_error_t * svnerr = svn_diff_file_diff3(&diffTheirYourBase, strBaseFilename, strTheirFilename, strYourFilename, pool);
 	if (svnerr)
 	{
 		TRACE(_T("diff-error in CDiffData::Load()\n"));
