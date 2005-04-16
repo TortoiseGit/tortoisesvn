@@ -30,7 +30,12 @@ DWORD				g_langid;
 HINSTANCE			g_hResInst;
 stdstring			g_filepath;
 svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
-bool				g_readonlyoverlay;
+bool				g_readonlyoverlay = false;
+bool				g_normalovlloaded = false;
+bool				g_modifiedovlloaded = false;
+bool				g_conflictedovlloaded = false;
+bool				g_readonlyovlloaded = false;
+bool				g_deletedovlloaded = false;
 CComCriticalSection	g_csCacheGuard;
 
 extern "C" int APIENTRY

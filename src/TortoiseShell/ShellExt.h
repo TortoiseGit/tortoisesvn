@@ -34,6 +34,13 @@ extern	HINSTANCE			g_hResInst;
 extern	stdstring			g_filepath;
 extern	svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
 extern  bool				g_readonlyoverlay;		///< wether to show the readonly overlay or not
+
+extern bool					g_normalovlloaded;
+extern bool					g_modifiedovlloaded;
+extern bool					g_conflictedovlloaded;
+extern bool					g_readonlyovlloaded;
+extern bool					g_deletedovlloaded;
+
 extern	void				LoadLangDll();
 extern  CComCriticalSection	g_csCacheGuard;
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;

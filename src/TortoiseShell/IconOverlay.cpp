@@ -128,6 +128,20 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 #endif		
     else
         return S_FALSE;
+
+	// Now here's where we can find out if due to lack of enough overlay
+	// slots some of our overlays won't be shown.
+	// To do that we have to mark every overlay handler that's successfully
+	// loaded, so we can later check if some are missing
+	switch (m_State)
+	{
+		case Versioned : g_normalovlloaded = true; break;
+		case Modified  : g_modifiedovlloaded = true; break;
+		case Conflict  : g_conflictedovlloaded = true; break;
+		case Deleted   : g_deletedovlloaded = true; break;
+		case ReadOnly  : g_readonlyovlloaded = true; break;
+	}
+
 	ATLTRACE2(_T("Icon loaded : %s\n"), icon.c_str());
     *pIndex = 0;
     *pdwFlags = ISIOI_ICONFILE;
@@ -217,6 +231,9 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	//So we return S_OK for ONLY ONE handler!
 	switch (status)
 	{
+		// note: we can show other overlays if due to lack of enough free overlay
+		// slots some of our overlays aren't loaded. But we assume that
+		// at least the 'normal' and 'modified' overlay are available.
 		case svn_wc_status_none:
 			return S_FALSE;
 		case svn_wc_status_unversioned:
@@ -224,7 +241,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_normal:
 		case svn_wc_status_external:
 		case svn_wc_status_incomplete:
-			if (readonlyoverlay)
+			if ((readonlyoverlay)&&(g_readonlyovlloaded))
 			{
 				if (m_State == ReadOnly)
 				{
@@ -243,30 +260,31 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 				return S_FALSE;
 		case svn_wc_status_missing:
 		case svn_wc_status_deleted:
-			if (m_State == Deleted)
+			if (g_deletedovlloaded)
 			{
-				g_filepath.clear();
-				return S_OK;
+				if (m_State == Deleted)
+				{
+					g_filepath.clear();
+					return S_OK;
+				}
+				else
+					return S_FALSE;
 			}
 			else
-				return S_FALSE;
+			{
+				// the 'deleted' overlay isn't available (due to lack of enough
+				// overlay slots). So just show the 'modified' overlay instead.
+				if (m_State == Modified)
+				{
+					g_filepath.clear();
+					return S_OK;
+				}
+				else
+					return S_FALSE;
+			}
 		case svn_wc_status_replaced:
-			if (m_State == Modified)
-			{
-				g_filepath.clear();
-				return S_OK;
-			}
-			else
-				return S_FALSE;
 		case svn_wc_status_added:
 		case svn_wc_status_modified:
-			if (m_State == Modified)
-			{
-				g_filepath.clear();
-				return S_OK;
-			}
-			else
-				return S_FALSE;
 		case svn_wc_status_merged:
 			if (m_State == Modified)
 			{
@@ -277,13 +295,28 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 				return S_FALSE;
 		case svn_wc_status_conflicted:
 		case svn_wc_status_obstructed:
-			if (m_State == Conflict)
+			if (g_conflictedovlloaded)
 			{
-				g_filepath.clear();
-				return S_OK;
+				if (m_State == Conflict)
+				{
+					g_filepath.clear();
+					return S_OK;
+				}
+				else
+					return S_FALSE;
 			}
 			else
-				return S_FALSE;
+			{
+				// the 'conflicted' overlay isn't available (due to lack of enough
+				// overlay slots). So just show the 'modified' overlay instead.
+				if (m_State == Modified)
+				{
+					g_filepath.clear();
+					return S_OK;
+				}
+				else
+					return S_FALSE;
+			}
 		default:
 			return S_FALSE;
 	} // switch (status)
