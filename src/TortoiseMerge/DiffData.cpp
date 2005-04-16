@@ -22,6 +22,7 @@
 #include "registry.h"
 #include "Resource.h"
 #include "Diffdata.h"
+#include "UnicodeUtils.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4702) // unreachable code
@@ -266,13 +267,14 @@ BOOL CDiffData::Load()
 bool
 CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, apr_pool_t * pool)
 {
-	CStringA strBaseFilename(sBaseFilename);
-	CStringA strYourFilename(sYourFilename);
+	// convert CString filenames (UTF-16 or ANSI) to UTF-8
+	CStringA sBaseFilenameUtf8 = CUnicodeUtils::GetUTF8(sBaseFilename);
+	CStringA sYourFilenameUtf8 = CUnicodeUtils::GetUTF8(sYourFilename);
 
 	svn_diff_t * diffYourBase = NULL;
 	svn_error_t * svnerr = NULL;
 
-	svnerr = svn_diff_file_diff(&diffYourBase, strBaseFilename, strYourFilename, pool);
+	svnerr = svn_diff_file_diff(&diffYourBase, sBaseFilenameUtf8, sYourFilenameUtf8, pool);
 	if (svnerr)
 	{
 		TRACE(_T("diff-error in CDiffData::Load()\n"));
@@ -465,11 +467,12 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 bool
 CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, apr_pool_t * pool)
 {
-	CStringA strBaseFilename(sBaseFilename);
-	CStringA strYourFilename(sYourFilename);
-	CStringA strTheirFilename(sTheirFilename);
+	// convert CString filenames (UTF-16 or ANSI) to UTF-8
+	CStringA sBaseFilenameUtf8  = CUnicodeUtils::GetUTF8(sBaseFilename);
+	CStringA sYourFilenameUtf8  = CUnicodeUtils::GetUTF8(sYourFilename);
+	CStringA sTheirFilenameUtf8 = CUnicodeUtils::GetUTF8(sTheirFilename);
 	svn_diff_t * diffTheirYourBase = NULL;
-	svn_error_t * svnerr = svn_diff_file_diff3(&diffTheirYourBase, strBaseFilename, strTheirFilename, strYourFilename, pool);
+	svn_error_t * svnerr = svn_diff_file_diff3(&diffTheirYourBase, sBaseFilenameUtf8, sTheirFilenameUtf8, sYourFilenameUtf8, pool);
 	if (svnerr)
 	{
 		TRACE(_T("diff-error in CDiffData::Load()\n"));
