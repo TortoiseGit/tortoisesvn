@@ -58,11 +58,8 @@ cd ..\..\Subversion
 rem perl apr-util\build\w32locatedb.pl dll .\db4-win32\include .\db4-win32\lib
 copy build\generator\vcnet_sln.ezt build\generator\vcnet_sln7.ezt
 copy %startdir%\vcnet_sln.ezt build\generator\vcnet_sln.ezt
-xcopy /Q /Y /I /E %startdir%\ext\berkeley-db\db4.2-win32 db4-win32
+xcopy /Q /Y /I /E %startdir%\ext\berkeley-db\db4.3-win32 db4-win32
 rmdir /s /q build\win32\vcnet-vcproj
-rem next line is commented because the vcproj generator is broken!
-rem Workaround: execute that line, then open subversion_vcnet.sln and add "..\db4-win32\lib\libdb42.lib"
-rem to the libaprutil project as an additional link
 call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls --enable-bdb-in-apr-util
 copy /Y %startdir%\ext\libaprutil.vcproj apr-util\libaprutil.vcproj
 
@@ -116,7 +113,7 @@ if DEFINED _DEBUG (
   mkdir bin\debug\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\debug\bin /Y > NUL
   copy .\ext\svn-win32-libintl\bin\intl3_svn.dll bin\debug\bin /Y > NUL
-  copy ..\Subversion\db4-win32\bin\libdb42d.dll bin\debug\bin /Y > NUL
+  copy ..\Subversion\db4-win32\bin\libdb43d.dll bin\debug\bin /Y > NUL
   copy ..\Subversion\apr\Debug\libapr.dll bin\Debug\bin /Y > NUL 
   copy ..\Subversion\apr-util\Debug\libaprutil.dll bin\Debug\bin /Y > NUL 
   copy ..\Subversion\apr-iconv\Debug\libapriconv.dll bin\Debug\bin /Y > NUL 
@@ -129,7 +126,7 @@ if DEFINED _RELEASE (
   mkdir bin\release\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\release\bin /Y > NUL
   copy .\ext\svn-win32-libintl\bin\intl3_svn.dll bin\release\bin /Y > NUL
-  copy ..\Subversion\db4-win32\bin\libdb42.dll bin\release\bin /Y > NUL
+  copy ..\Subversion\db4-win32\bin\libdb43.dll bin\release\bin /Y > NUL
   copy ..\Subversion\apr\Release\libapr.dll bin\Release\bin /Y > NUL 
   copy ..\Subversion\apr-util\Release\libaprutil.dll bin\Release\bin /Y > NUL 
   copy ..\Subversion\apr-iconv\Release\libapriconv.dll bin\Release\bin /Y > NUL 
