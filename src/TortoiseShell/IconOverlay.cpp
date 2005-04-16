@@ -201,6 +201,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	if (_tcscmp(pPath, g_filepath.c_str())==0)
 	{
 		status = g_filestatus;
+		readonlyoverlay = g_readonlyoverlay;
 	}
 	else
 	{
