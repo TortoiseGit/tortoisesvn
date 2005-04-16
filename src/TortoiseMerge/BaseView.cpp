@@ -1041,7 +1041,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 			else
 				VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
 		} // if (nWidth > 0) 
-		origin.x += GetCharWidth() * line.GetLength();
+		
+		origin.x += pDC->GetTextExtent(line).cx;
 	} // if (nLength > 0) 
 
 	//	Draw whitespaces to the left of the text

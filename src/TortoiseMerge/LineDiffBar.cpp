@@ -98,6 +98,14 @@ CSize CLineDiffBar::CalcFixedLayout(BOOL bStretch, BOOL bHorz)
 			if ((m_pMainFrm->m_pwndBottomView)&&(!m_pMainFrm->m_pwndBottomView->IsHidden()))
 				size.cy = 0;
 		} // if (m_pMainFrm) 
+
+		if (size.cy > 0)
+		{
+			// Convert client to window sizes
+			CRect rc(CPoint(0, 0), size);
+			AdjustWindowRectEx(&rc, GetStyle(), FALSE, GetExStyle());
+			size = rc.Size();
+		}
 	} // if (bStretch) // if not docked stretch to fit 
 	else
 	{
