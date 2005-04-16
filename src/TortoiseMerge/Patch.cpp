@@ -107,6 +107,8 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 	for ( ;nIndex<PatchLines.GetCount(); nIndex++)
 	{
 		sLine = PatchLines.GetAt(nIndex);
+		if (sLine.IsEmpty())
+			continue;
 		switch (state)
 		{
 		case 0:	//Index: <filepath>
