@@ -15,6 +15,10 @@
 - ADD: Paths are checked if they're valid on Windows and an error/warning
        is shown if they're not to avoid problems later. (Stefan)
 - ADD: "Remove from ignore list" from the context menu. (Stefan)
+- ADD: If not all overlays can be shown due to not enough free overlay
+       slots, TSVN now uses one of the available overlays instead. (Stefan)
+- CHG: The overlay for added files has been replaced with the overlay
+       for readonly files (which you need to lock to edit). (Stefan)
 - CHG: High color toolbar for TortoiseMerge. (Lübbe)
 - CHG: Several new Icons for the context menu. (Lübbe)
 - CHG: It's possible to select multiple items in the commit dialog. (Stefan)
