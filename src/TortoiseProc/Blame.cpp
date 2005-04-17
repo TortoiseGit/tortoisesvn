@@ -25,6 +25,38 @@
 #include "Utils.h"
 #include "UnicodeUtils.h"
 
+
+void CStdioFileA::WriteString(LPCSTR lpsz)
+{
+	ASSERT(lpsz != NULL);
+	ASSERT(m_pStream != NULL);
+	
+	if (lpsz == NULL)
+	{
+		AfxThrowInvalidArgException();
+	}
+
+	if (fputs(lpsz, m_pStream) == EOF)
+		AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
+}
+
+
+void CStdioFileA::WriteString(LPCWSTR lpsz)
+{
+	ASSERT(lpsz != NULL);
+	ASSERT(m_pStream != NULL);
+	
+	if (lpsz == NULL)
+	{
+		AfxThrowInvalidArgException();
+	}
+
+	if (fputws(lpsz, m_pStream) == EOF)
+		AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
+}
+
+
+
 CBlame::CBlame()
 {
 	m_bCancelled = FALSE;
@@ -41,7 +73,7 @@ CBlame::~CBlame()
 BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line)
 {
 	CString infolineA;
-	CString fulllineA;
+	CStringA fulllineA;
 
 	if ((m_lowestrev < 0)||(m_lowestrev > revision))
 		m_lowestrev = revision;
@@ -51,8 +83,8 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	CString dateA(CUnicodeUtils::GetUTF8(date));
 	infolineA.Format(_T("%6ld %6ld %30s %-30s "), linenumber, revision, (LPCTSTR)dateA, (LPCTSTR)author);
 	fulllineA = line;
-	fulllineA.TrimRight(_T("\r\n"));
-	fulllineA += _T("\n");
+	fulllineA.TrimRight("\r\n");
+	fulllineA += "\n";
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
 	{
 		m_saveFile.WriteString(infolineA);

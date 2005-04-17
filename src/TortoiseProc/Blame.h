@@ -23,6 +23,14 @@
 
 class CTSVNPath;
 
+
+class CStdioFileA : public CStdioFile
+{
+public:
+	void WriteString(LPCSTR lpsz);
+	void WriteString(LPCWSTR lpsz);
+};
+
 class CBlame : public SVN
 {
 public:
@@ -55,7 +63,7 @@ private:
 	LONG		m_nHeadRev;				///< The HEAD revision of the file
 
 	CString		m_sSavePath;			///< Where to save the blame data
-	CStdioFile	m_saveFile;				///< The file object to write to
+	CStdioFileA	m_saveFile;				///< The file object to write to
 	CFile		m_saveLog;
 	CProgressDlg m_progressDlg;			///< The progress dialog shown during operation
 	LONG		m_lowestrev;
