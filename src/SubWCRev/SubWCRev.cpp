@@ -48,6 +48,30 @@
 #define ERR_SVN_MIXED	8	// Mixed rev WC found (-m)
 #define ERR_OUT_EXISTS	9	// Output file already exists (-d)
 
+char *AnsiToUtf8(const char * pszAnsi, apr_pool_t *pool)
+{
+	// convert ANSI --> UTF16
+	int utf16_count = MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, NULL, 0);
+	WCHAR * pwc = new WCHAR[utf16_count];
+	MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, pwc, utf16_count);
+
+	// and now from URF16 --> UTF-8
+	int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, NULL, 0, NULL, NULL);
+	char * pch = (char*) apr_palloc(pool, utf8_count);
+	WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, pch, utf8_count, NULL, NULL);
+	delete[] pwc;
+	return pch;
+}
+
+char *Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool)
+{
+	// from URF16 --> UTF-8
+	int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, NULL, 0, NULL, NULL);
+	char * pch = (char*) apr_palloc(pool, utf8_count);
+	WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, pch, utf8_count, NULL, NULL);
+	return pch;
+}
+
 int FindPlaceholder(char *def, char *pBuf, unsigned long & index, unsigned long filelength)
 {
 	int deflen = strlen(def);
@@ -232,33 +256,39 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	if ((argc != 4)&&(argc != 2)&&(argc != 5))
 	{
-		printf(_T("SubWCRev %d.%d.%d, Build %d\n\n"),
+		_tprintf(_T("SubWCRev %d.%d.%d, Build %d\n\n"),
 					TSVN_VERMAJOR, TSVN_VERMINOR,
 					TSVN_VERMICRO, TSVN_VERBUILD);
-		printf(_T("Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]\n\n"));
-		printf(_T("Params:\n"));
-		printf(_T("WorkingCopyPath    :   path to a Subversion working copy\n"));
-		printf(_T("SrcVersionFile     :   path to a template header file\n"));
-		printf(_T("DstVersionFile     :   path to where to save the resulting header file\n"));
-		printf(_T("-n                 :   if given, then SubWCRev will error if the working\n"));
-		printf(_T("                       copy contains local modifications\n"));
-		printf(_T("-m                 :   if given, then SubWCRev will error if the working\n"));
-		printf(_T("                       copy contains mixed revisions\n"));
-		printf(_T("-d                 :   if given, then SubWCRev will only do its job if\n"));
-		printf(_T("                       DstVersionFile does not exist\n"));
-		printf(_T("\nSubWCRev reads the Subversion status of all files in a working copy\n"));
-		printf(_T("excluding externals. If SrcVersionFile is specified, it is scanned\n"));
-		printf(_T("for special placeholders of the form \"$WCxxx$\".\n"));
-		printf(_T("SrcVersionFile is then copied to DstVersionFile but the placeholders\n"));
-		printf(_T("are replaced with information about the working copy as follows:\n\n"));
-		printf(_T("$WCREV$      Highest committed revision number\n"));
-		printf(_T("$WCDATE$     Date of highest committed revision\n"));
-		printf(_T("$WCRANGE$    Update revision range\n"));
-		printf(_T("$WCURL$      Repository URL of the working copy\n"));
-		printf(_T("\nPlaceholders of the form \"$WCxxx?TrueText:FalseText$\" are replaced with\n"));
-		printf(_T("TrueText if the tested condition is true, and FalseText if false.\n\n"));
-		printf(_T("$WCMODS$     True if local modifications found\n"));
-		printf(_T("$WCMIXED$    True if mixed update revisions found\n"));
+		_putts(
+			_T("Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]\n")
+			_T("\n")
+			_T("Params:\n")
+			_T("WorkingCopyPath    :   path to a Subversion working copy\n")
+			_T("SrcVersionFile     :   path to a template header file\n")
+			_T("DstVersionFile     :   path to where to save the resulting header file\n")
+			_T("-n                 :   if given, then SubWCRev will error if the working\n")
+			_T("                       copy contains local modifications\n")
+			_T("-m                 :   if given, then SubWCRev will error if the working\n")
+			_T("                       copy contains mixed revisions\n")
+			_T("-d                 :   if given, then SubWCRev will only do its job if\n")
+			_T("                       DstVersionFile does not exist\n")
+			_T("\n")
+			_T("SubWCRev reads the Subversion status of all files in a working copy\n")
+			_T("excluding externals. If SrcVersionFile is specified, it is scanned\n")
+			_T("for special placeholders of the form \"$WCxxx$\".\n")
+			_T("SrcVersionFile is then copied to DstVersionFile but the placeholders\n")
+			_T("are replaced with information about the working copy as follows:\n")
+			_T("\n")
+			_T("$WCREV$      Highest committed revision number\n")
+			_T("$WCDATE$     Date of highest committed revision\n")
+			_T("$WCRANGE$    Update revision range\n")
+			_T("$WCURL$      Repository URL of the working copy\n")
+			_T("\n")
+			_T("Placeholders of the form \"$WCxxx?TrueText:FalseText$\" are replaced with\n")
+			_T("TrueText if the tested condition is true, and FalseText if false.\n")
+			_T("\n")
+			_T("$WCMODS$     True if local modifications found\n")
+			_T("$WCMIXED$    True if mixed update revisions found\n"));
 		return ERR_SYNTAX;
 	}
 	// we have three parameters
@@ -281,30 +311,30 @@ int _tmain(int argc, _TCHAR* argv[])
 		// Check for flags in argv[4]
 		if ((argc == 5) && (argv[4][0] == '-'))
 		{
-			if (strchr(argv[4], 'n') != 0)
+			if (_tcschr(argv[4], 'n') != 0)
 				bErrOnMods = TRUE;
-			if (strchr(argv[4], 'm') != 0)
+			if (_tcschr(argv[4], 'm') != 0)
 				bErrOnMixed = TRUE;
-			if (strchr(argv[4], 'd') != 0)
+			if (_tcschr(argv[4], 'd') != 0)
 				if (PathFileExists(dst))
 					return ERR_OUT_EXISTS;
 		}
 		if (!PathFileExists(src))
 		{
-			printf(_T("file %s does not exist\n"), src);
+			_tprintf(_T("file %s does not exist\n"), src);
 			return ERR_FNF;		// file does not exist
 		}
 	}
 
 	if (!PathFileExists(wc))
 	{
-		printf(_T("directory or file %s does not exist\n"), wc);
+		_tprintf(_T("directory or file %s does not exist\n"), wc);
 		return ERR_FNF;			// dir does not exist
 	}
 	char * pBuf = NULL;
 	unsigned long readlength = 0;
 	unsigned long filelength = 0;
-	unsigned long maxlength;
+	unsigned long maxlength  = 0;
 	HANDLE hFile = INVALID_HANDLE_VALUE;
 	if ((argc == 4)||(argc == 5))
 	{
@@ -312,30 +342,30 @@ int _tmain(int argc, _TCHAR* argv[])
 		hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
 		if (hFile == INVALID_HANDLE_VALUE)
 		{
-			printf(_T("unable to open input file %s\n"), src);
+			_tprintf(_T("unable to open input file %s\n"), src);
 			return ERR_OPEN;		// error opening file
 		}
 		filelength = GetFileSize(hFile, NULL);
 		if (filelength == INVALID_FILE_SIZE)
 		{
-			printf(_T("could not determine filesize of %s\n"), src);
+			_tprintf(_T("could not determine filesize of %s\n"), src);
 			return ERR_READ;
 		}
 		maxlength = filelength+4096;	// We might be increasing filesize.
 		pBuf = new char[maxlength];
 		if (pBuf == NULL)
 		{
-			printf(_T("could not allocate enough memory!\n"));
+			_tprintf(_T("could not allocate enough memory!\n"));
 			return ERR_ALLOC;
 		}
 		if (!ReadFile(hFile, pBuf, filelength, &readlength, NULL))
 		{
-			printf(_T("could not read the file %s\n"), src);
+			_tprintf(_T("could not read the file %s\n"), src);
 			return ERR_READ;
 		}
 		if (readlength != filelength)
 		{
-			printf(_T("could not read the file %s to the end!\n"), src);
+			_tprintf(_T("could not read the file %s to the end!\n"), src);
 			return ERR_READ;
 		}
 		CloseHandle(hFile);
@@ -352,7 +382,15 @@ int _tmain(int argc, _TCHAR* argv[])
 	apr_initialize();
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 	memset (&ctx, 0, sizeof (ctx));
-	internalpath = svn_path_internal_style (wc, pool);
+
+	char *wc_utf8;
+#ifdef UNICODE
+	wc_utf8 = Utf16ToUtf8(wc, pool);
+#else
+	wc_utf8 = AnsiToUtf8(wc, pool);
+#endif
+	internalpath = svn_path_internal_style (wc_utf8, pool);
+
 	svnerr = svn_status(	internalpath,	//path
 							&SubStat,		//status_baton
 							TRUE,			//noignore
@@ -363,7 +401,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		svn_handle_error(svnerr, stderr, FALSE);
 	}
-	char wcfullpath[MAX_PATH];
+	TCHAR wcfullpath[MAX_PATH];
 	LPTSTR dummy;
 	GetFullPathName(wc, MAX_PATH, wcfullpath, &dummy);
 	apr_terminate2();
@@ -372,34 +410,37 @@ int _tmain(int argc, _TCHAR* argv[])
 		return ERR_SVN_ERR;
 	}
 	
-	printf(_T("SubWCRev: '%s'\n"), wcfullpath);
+	char wcfull_oem[MAX_PATH];
+	CharToOem(wcfullpath, wcfull_oem);
+	_tprintf(_T("SubWCRev: '%hs'\n"), wcfull_oem);
+	
 	
 	if (bErrOnMods && SubStat.HasMods)
 	{
-		printf(_T("Working copy has local modifications!\n"));
+		_tprintf(_T("Working copy has local modifications!\n"));
 		return ERR_SVN_MODS;
 	}
 	
 	if (bErrOnMixed && (SubStat.MinRev != SubStat.MaxRev))
 	{
-		printf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), SubStat.MinRev, SubStat.MaxRev);
+		_tprintf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), SubStat.MinRev, SubStat.MaxRev);
 		return ERR_SVN_MIXED;
 	}
 
-	printf(_T("Last committed at revision %Ld\n"), SubStat.CmtRev);
+	_tprintf(_T("Last committed at revision %Ld\n"), SubStat.CmtRev);
 
 	if (SubStat.MinRev != SubStat.MaxRev)
 	{
-		printf(_T("Mixed revision range %Ld:%Ld\n"), SubStat.MinRev, SubStat.MaxRev);
+		_tprintf(_T("Mixed revision range %Ld:%Ld\n"), SubStat.MinRev, SubStat.MaxRev);
 	}
 	else
 	{
-		printf(_T("Updated to revision %Ld\n"), SubStat.MaxRev);
+		_tprintf(_T("Updated to revision %Ld\n"), SubStat.MaxRev);
 	}
 	
 	if (SubStat.HasMods)
 	{
-		printf(_T("Local modifications found\n"));
+		_tprintf(_T("Local modifications found\n"));
 	}
 
 	if (argc==2)
@@ -431,13 +472,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	hFile = CreateFile(dst, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
-		printf(_T("unable to open output file %s for writing\n"), dst);
+		_tprintf(_T("unable to open output file %s for writing\n"), dst);
 		return ERR_OPEN;
 	}
 	WriteFile(hFile, pBuf, filelength, &readlength, NULL);
 	if (readlength != filelength)
 	{
-		printf(_T("could not write the file %s to the end!\n"), dst);
+		_tprintf(_T("could not write the file %s to the end!\n"), dst);
 		return ERR_READ;
 	}
 	CloseHandle(hFile);
