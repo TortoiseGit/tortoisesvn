@@ -1,3 +1,6 @@
+- ADD: New commands to lock/unlock files. (Stefan)
+- ADD: Locked files are listed in the commit dialog so the user
+       won't forget to unlock them again. (Stefan)
 - ADD: Filter for the log dialog. (Stefan)
 - ADD: New, improved overlay cache. (Will Dean, Stefan)
 - ADD: Option to resolve a conflicted file in the status list control. (Stefan)
@@ -17,6 +20,7 @@
 - ADD: "Remove from ignore list" from the context menu. (Stefan)
 - ADD: If not all overlays can be shown due to not enough free overlay
        slots, TSVN now uses one of the available overlays instead. (Stefan)
+- CHG: TortoiseMerge is now built as UNICODE. (Norbert Unterberg)
 - CHG: The overlay for added files has been replaced with the overlay
        for readonly files (which you need to lock to edit). (Stefan)
 - CHG: High color toolbar for TortoiseMerge. (Lübbe)

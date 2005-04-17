@@ -706,9 +706,6 @@ for filename in filenames:
             ctxt.replaceEntities(1)
         ctxt.parseDocument()
         doc = ctxt.doc()
-        if doc.name != filename:
-            print >> sys.stderr, "Error: I tried to open '%s' but got '%s' -- how did that happen?" % (filename, doc.name)
-            sys.exit(4)
     except:
         print >> sys.stderr, "Error: cannot open file '%s'." % (filename)
         sys.exit(1)

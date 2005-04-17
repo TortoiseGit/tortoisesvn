@@ -15,4 +15,4 @@ cd ..\tsvn_repository
 FOR %%V In (*.xml) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_repository/%%V
 cd ..\..\..
 
-xml2po.py -o source/de.pot !CHAPTERS!
+xml2po.py -o po/doc.pot !CHAPTERS!
