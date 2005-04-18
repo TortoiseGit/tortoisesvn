@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-13 16:08+0100\n"
+"PO-Revision-Date: 2005-04-18 08:42+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2030,12 +2030,13 @@ msgstr ""
 # ID:145,
 #: ID:145
 msgid ""
-"It's not possible to rename a file just in case!\n"
-"Please read our docs on how to work around this Subversion limitation."
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"Es ist mit Subversion unter Windows nicht gestattet beim Umbenennen nur die\n"
-"Groß-/Kleinschreibung zu ändern! Bitte lesen Sie unsere Dokumentation, wie\n"
-"sie diese Einschränkung umgehen können."
+"\"Es ist mit Subversion unter Windows nicht gestattet beim Umbenennen nur die\n"
+"\"\"Groß-/Kleinschreibung zu ändern! Bitte lesen Sie unsere Dokumentation, wie\n"
+"\"\"sie diese Einschränkung umgehen können.\""
 
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -2270,6 +2271,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Eigenes Dateisystem (fsfs)"
+
+# Control-ID:1203,
+#: ID:195
+msgid "Needs Lock"
+msgstr "Benötigt Sperre"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -2890,6 +2896,11 @@ msgstr "SVN Exportieren..."
 #: ID:77
 msgid "SVN Import..."
 msgstr "SVN Importieren..."
+
+# Control-ID:65535,
+#: ID:16
+msgid "SVN Lock Owner"
+msgstr "SVN Sperreigner:"
 
 #: ID:78
 msgid "SVN Merge..."
@@ -3550,6 +3561,11 @@ msgid ""
 msgstr ""
 "Der Zielordner ist nicht leer!\n"
 "Sind Sie sicher, dass Sie in diesen Ordner auschecken/exportieren wollen?"
+
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr "Der Eigner der gesperrten Datei"
 
 #: ID:81
 msgid ""
