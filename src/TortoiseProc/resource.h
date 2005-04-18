@@ -309,6 +309,8 @@
 #define IDS_LOG_MESSAGE                 1207
 #define IDC_CHECKBOX                    1207
 #define IDS_LOG_REVISION                1208
+#define IDC_BUTTON2                     1208
+#define IDC_NEXTHUNDRED                 1208
 #define IDS_LOG_AUTHOR                  1209
 #define IDS_LOG_DATE                    1210
 #define IDS_LOG_REVERT_CONFIRM          1211
@@ -609,7 +611,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        188
 #define _APS_NEXT_COMMAND_VALUE         32783
-#define _APS_NEXT_CONTROL_VALUE         1208
+#define _APS_NEXT_CONTROL_VALUE         1209
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

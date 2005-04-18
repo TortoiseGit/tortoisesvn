@@ -455,19 +455,24 @@ BOOL CTortoiseProcApp::InitInstance()
 			long revstart = _tstol(val);
 			val = parser.GetVal(_T("revend"));
 			long revend = _tstol(val);
+			val = parser.GetVal(_T("limit"));
+			int limit = _tstoi(val);
 			if (revstart == 0)
 			{
 				revstart = SVNRev::REV_HEAD;
 			}
 			if (revend == 0)
 			{
+				revend = 1;
+			}
+			if (limit == 0)
+			{
 				CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-				revend = reg;
-				revend = -revend;
+				limit = (int)(LONG)reg;
 			}
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
-			dlg.SetParams(cmdLinePath, revstart, revend, parser.HasKey(_T("strict")));
+			dlg.SetParams(cmdLinePath, revstart, revend, limit, parser.HasKey(_T("strict")));
 			dlg.DoModal();			
 		}
 		//#endregion

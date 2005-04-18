@@ -50,11 +50,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
-	m_bShowedAll = FALSE;
 	m_pNotifyWindow = NULL;
 	m_bThreadRunning = FALSE;
-
-
 }
 
 CLogDlg::~CLogDlg()
@@ -108,17 +105,19 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_WM_TIMER()
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATETO, OnDtnDatetimechangeDateto)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATEFROM, OnDtnDatetimechangeDatefrom)
+	ON_BN_CLICKED(IDC_NEXTHUNDRED, OnBnClickedNexthundred)
 END_MESSAGE_MAP()
 
 
 
-void CLogDlg::SetParams(const CTSVNPath& path, long startrev /* = 0 */, long endrev /* = -1 */, BOOL bStrict /* = FALSE */)
+void CLogDlg::SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict /* = FALSE */)
 {
 	m_path = path;
 	m_startrev = startrev;
 	m_endrev = endrev;
 	m_hasWC = !path.IsUrl();
 	m_bStrict = bStrict;
+	m_limit = limit;
 }
 
 BOOL CLogDlg::OnInitDialog()
@@ -218,6 +217,7 @@ BOOL CLogDlg::OnInitDialog()
 	
 	AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_LEFT);
+	AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
 	AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -308,6 +308,25 @@ void CLogDlg::OnBnClickedGetall()
 	m_endrev = 1;
 	m_startrev = -1;
 	m_bCancelled = FALSE;
+	m_limit = 0;
+	if (AfxBeginThread(LogThreadEntry, this)==NULL)
+	{
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+}
+
+void CLogDlg::OnBnClickedNexthundred()
+{
+	UpdateData();
+	// we have to fetch the next hundred log messages.
+	LONG rev = m_arRevs.GetAt(m_LogList.GetItemCount()-1) - 1;
+	if (rev < 1)
+		return;		// do nothing! No more revisions to get
+	m_startrev = rev;
+	m_endrev = 1;
+	m_bCancelled = FALSE;
+	m_limit = 100;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
@@ -340,7 +359,13 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	m_logcounter += 1;
 	if (m_startrev == -1)
 		m_startrev = rev;
-	m_LogProgress.SetPos(m_startrev-rev+m_endrev);
+	if (m_limit != 0)
+	{
+		m_limitcounter--;
+		m_LogProgress.SetPos(m_limit - m_limitcounter);
+	}
+	else
+		m_LogProgress.SetPos(m_startrev-rev+m_endrev);
 	int count = m_LogList.GetItemCount();
 	int lastvisible = m_LogList.GetCountPerPage();
 	__time64_t ttime = time/1000000L;
@@ -410,7 +435,6 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	{
 		m_LogList.SetRedraw();
 	}
-	m_bGotRevisions = TRUE;
 	return TRUE;
 }
 
@@ -434,50 +458,33 @@ UINT CLogDlg::LogThread()
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	GetDlgItem(IDOK)->SetWindowText(temp);
-	long r = GetHEADRevision(m_path);
+	long r = -1;
 	if (m_startrev == -1)
+	{
+		r = GetHEADRevision(m_path);
 		m_startrev = r;
-	if (m_endrev < (-5) || m_bStrict)
-	{
-		if ((r != (-2))&&(m_endrev < (-5)))
-		{
-			m_endrev = m_startrev + m_endrev;
-		} // if (r != (-2))
-		if (m_endrev <= 0)
-		{
-			m_endrev = 1;
-			if (!m_bStrict)
-				m_bShowedAll = TRUE;
-		}
-	} // if (m_endrev < (-5))
-	else
-	{
-		m_bShowedAll = TRUE;
 	}
 	//disable the "Get All" button while we're receiving
 	//log messages.
 	GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
+	GetDlgItem(IDC_NEXTHUNDRED)->EnableWindow(FALSE);
 	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(FALSE);
-	m_LogProgress.SetRange32(m_endrev, m_startrev);
+	
+	if (m_limit != 0)
+	{
+		m_limitcounter = m_limit;
+		m_LogProgress.SetRange32(0, m_limit);
+	}
+	else
+		m_LogProgress.SetRange32(m_endrev, m_startrev);
 	m_LogProgress.SetPos(0);
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
-	m_bGotRevisions = FALSE;
-	while ((m_bCancelled == FALSE)&&(m_bGotRevisions == FALSE))
+	
+	if (!ReceiveLog(CTSVNPathList(m_path), m_startrev, m_endrev, m_limit, true, m_bStrict))
 	{
-		if (!ReceiveLog(CTSVNPathList(m_path), m_startrev, m_endrev, 0, true, m_bStrict))
-		{
-			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_bShowedAll = FALSE;
-			break;
-		}
-		if (m_endrev <= 1)
-			break;
-		m_endrev -= (LONG)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-		if (m_endrev <= 0)
-		{
-			m_endrev = 1;
-		}
+		CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
+
 	__time64_t rt = m_tFrom;
 	CTime tim(rt);
 	m_DateFrom.SetTime(&tim);
@@ -487,11 +494,11 @@ UINT CLogDlg::LogThread()
 
 	temp.LoadString(IDS_MSGBOX_OK);
 	GetDlgItem(IDOK)->SetWindowText(temp);
-	if (!m_bShowedAll)
-	{
-		GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
-		GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(TRUE);
-	}
+
+	GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
+	GetDlgItem(IDC_NEXTHUNDRED)->EnableWindow(TRUE);
+	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(TRUE);
+
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = TRUE;
 	m_bThreadRunning = FALSE;
@@ -2288,6 +2295,7 @@ BOOL CLogDlg::IsEntryInDateRange(int i)
 		return TRUE;
 	return FALSE;
 }
+
 
 
 

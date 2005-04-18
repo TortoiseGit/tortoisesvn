@@ -130,7 +130,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	void SetParams(const CTSVNPath& path, long startrev = 0, long endrev = -1, BOOL bStrict = FALSE);
+	void SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict = FALSE);
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
@@ -159,10 +159,8 @@ private:
 	long				m_endrev;
 	long				m_logcounter;
 	BOOL				m_bCancelled;
-	BOOL				m_bShowedAll;
 	BOOL				m_bThreadRunning;
 	BOOL				m_bStrict;
-	BOOL				m_bGotRevisions;
 	CStringArray		m_arLogMessages;
 	CStringArray		m_arShortLogMessages;
 	CArray<LogChangedPathArray*, LogChangedPathArray*> m_arLogPaths;
@@ -189,6 +187,10 @@ private:
 	CDateTimeCtrl		m_DateTo;
 	DWORD				m_tFrom;
 	DWORD				m_tTo;
+	int					m_limit;
+	int					m_limitcounter;
+public:
+	afx_msg void OnBnClickedNexthundred();
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 
