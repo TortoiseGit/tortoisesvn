@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2005-04-18 11:44+0100\n"
+"PO-Revision-Date: 2005-04-18 15:50+0100\n"
 "Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,12 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>"
 msgstr ""
+"Beispiele für Hook-Skripts findet man im <filename>hooks</filename> Ordner des Projektarchivs.Diese Beispiele sind gemacht für Unix/Linux-Server und müssen ein wenig angepasst werden wenn Ihr Server unter Windows läuft. Das Hook-Skript kann eine einfache Batch-Datei oder ein ausführbares Programm sein. Das untenstehende Beispiel zeigt eine Batch-Datei welche als pre-revprop-change Hook eingesetzt werden kann. <screen>\n"
+"rem Only allow log messages to be changed.\n"
+"if \"%4\" == \"svn:log\" exit 0\n"
+"echo Property '%4' cannot be changed &gt;&amp;2\n"
+"exit 1\n"
+"</screen> Beachten Sie dass alles was via stdout ausgegeben wird verworfen wird. Wenn Sie möchten dass eine Fehlermeldung auch in TortoiseSVN angezeigt wird müssen Sie diese Fehlermeldung via stderr ausgeben. In einer Batchdatei erreichen Sie dies über <filename>&gt;&amp;2</filename>."
 
 #: source/en/tsvn_repository/repository_create.xml:3(title)
 msgid "Repository Creation"
@@ -68,10 +74,15 @@ msgid ""
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "</screen>"
 msgstr ""
+"In der Kommandozeile (auch DOS-Box genannt) wechseln sie zu <filename>D:\\SVN\\</filename> und geben sie folgendes ein:<screen>\n"
+"svnadmin create --fs-type bdb MyNewRepository\n"
+"</screen> oder <screen>\n"
+"svnadmin create --fs-type fsfs MyNewRepository\n"
+"</screen>"
 
 #: source/en/tsvn_repository/repository_create.xml:50(para)
 msgid "Now you've got a new repository located at <filename>D:\\SVN\\MyNewRepository</filename>."
-msgstr ""
+msgstr "Nun haben Sie ein neues Projektarchiv in <filename>D:\\SVN\\MyNewRepository</filename> erstellt."
 
 #: source/en/tsvn_repository/repository_create.xml:58(title)
 msgid "Creating The Repository With TortoiseSVN"
@@ -100,11 +111,11 @@ msgstr "<action>Rechts-Klick</action> auf einen neu erstellten Ordner und wähle
 
 #: source/en/tsvn_repository/repository_create.xml:89(para)
 msgid "A repository is then created inside the new folder. <emphasis>Don't edit those files yourself!!!</emphasis>. If you get any errors make sure that the folder is empty and not write protected."
-msgstr ""
+msgstr "Ein Projektarchiv wird dann in dem neuen Ordner erstellt. <emphasis>Editieren Sie diese Dateien nicht selbst</emphasis>. Falls Sie eine Fehlermeldung erhalten stellen Sie sicher, dass der Ordner leer und nicht schreibgeschützt ist."
 
 #: source/en/tsvn_repository/repository_create.xml:97(para)
 msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>"
-msgstr ""
+msgstr "Um das lokale Projektarchiv anzusprechen benötigen Sie den den Pfad zum Projektarchiv-Ordner. Beachten Sie, dass Subversion alle Projektarchivpfade in der Form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem> benötigt."
 
 #: source/en/tsvn_repository/repository_create.xml:102(para)
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file:///\\ServerName/path/to/repos/</systemitem>. Note the backslash before the server name."
@@ -157,7 +168,7 @@ msgstr ""
 
 #: source/en/tsvn_repository/repository.xml:10(para)
 msgid "If you haven't created a Subversion repository yet, it's time to do that now."
-msgstr ""
+msgstr "Wenn Sie noch kein Subversion Projektarchiv erstellt haben, tun Sie dies jetzt."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:3(title)
 msgid "Getting Status Information"
@@ -183,7 +194,7 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:19(title)
 msgid "Explorer showing icon overlays"
-msgstr ""
+msgstr "Explorer zeigt überlagerte Icons"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:17(para)
 msgid "<placeholder-1/> Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different. <graphic fileref=\"images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>. <graphic fileref=\"images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed. <graphic fileref=\"images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark. <graphic fileref=\"images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <literal>added</literal> to version control. <graphic fileref=\"images/DeletedIcon.png\"/> This Icon shows you that some files or folders inside the current folder have been scheduled do be <literal>deleted</literal> from version control or a file under version control is missing in a folder."
@@ -219,15 +230,15 @@ msgstr " Anders als TortoiseCVS zeigt TortoiseSVN keine überlagerte Icons für 
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:103(title)
 msgid "TortoiseSVN Columns In Explorer"
-msgstr ""
+msgstr "TortoiseSVN Spalten Im Explorer"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:105(primary)
 msgid "Explorer Columns"
-msgstr ""
+msgstr "Explorer Spalten"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:107(para)
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Explorer's Detailed View."
-msgstr ""
+msgstr " Dieselben Informationen, die durch die überlagerten Icons angezeigt werden, können auch als zusätzliche Spalten in der Detail-Explorer-Ansicht dargestellt werden."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:112(para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the \"Detailed View\". Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
@@ -235,11 +246,11 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:124(para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr ""
+msgstr " Wenn das aktuelle Layout in allen Arbeitskopien angezeigt werden soll, müssen Sie es als Standard-Layout festlegen."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:132(title)
 msgid "Status Of The Repository"
-msgstr ""
+msgstr "Zustand des Projektarchivs"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:138(title)
 msgid "Check for Modifications"
@@ -1487,6 +1498,10 @@ msgid ""
 "/branches\n"
 "/tags\n"
 msgstr ""
+"\n"
+"/trunk\n"
+"/branches\n"
+"/tags\n"
 
 #: source/en/tsvn_dug/dug_import.xml:33(para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
@@ -1503,6 +1518,13 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 msgstr ""
+"\n"
+"/trunk/paint\n"
+"/trunk/calc\n"
+"/branches/paint\n"
+"/branches/calc\n"
+"/tags/paint\n"
+"/tags/calc\n"
 
 #: source/en/tsvn_dug/dug_import.xml:45(para)
 msgid "...or by project:"
@@ -1519,6 +1541,13 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 msgstr ""
+"\n"
+"/paint/trunk\n"
+"/paint/branches\n"
+"/paint/tags\n"
+"/calc/trunk\n"
+"/calc/branches\n"
+"/calc/tags\n"
 
 #: source/en/tsvn_dug/dug_import.xml:56(para)
 msgid "Indexing by project makes sense if the projects are not closely related and each one is checked out individually. For related projects where you may want to check out all projects in one go, or where the projects are all tied together in a single distribution package, it is often better to index by branch. This way you have only one trunk to checkout, and the relationships between the sub-projects is more easily visible."
@@ -1861,79 +1890,79 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_diff.xml:115(term)
 msgid "WinMerge"
-msgstr ""
+msgstr "WinMerge"
 
 #: source/en/tsvn_dug/dug_diff.xml:117(para)
 msgid "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is a great open-source diff viewer and merge tool."
-msgstr ""
+msgstr "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink>  ist ein großartiges Diff- und Merge-Programm (Open Source)."
 
 #: source/en/tsvn_dug/dug_diff.xml:126(term)
 msgid "Perforce WinDiff"
-msgstr ""
+msgstr "Perforce WinDiff"
 
 #: source/en/tsvn_dug/dug_diff.xml:128(para)
 msgid "Perforce is a commercial RCS, but you can download the diff/merge tool for free. Download the full installer from <ulink url=\"http://www.perforce.com/perforce/loadprog.html\"><citetitle>Perforce</citetitle></ulink>."
-msgstr ""
+msgstr " Perforce ist ein kommerzielles RCS, aber Sie können das Diff- und Merge-Programm kostenlos <ulink url=\"http://www.perforce.com/perforce/loadprog.html\"><citetitle>hier</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:138(term)
 msgid "KDiff3"
-msgstr ""
+msgstr "KDiff3"
 
 #: source/en/tsvn_dug/dug_diff.xml:140(para)
 msgid "KDiff3 is a free diff tool which can also handle directories. You can download it from <ulink url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr " KDiff3 ist ein freies Diff- und Merge-Programm, das auch Verzeichnisse vergleichen kann. Den Download finden Sie <ulink url=\"http://kdiff3.sf.net/\"><citetitle>hier</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:150(term)
 msgid "ExamDiff"
-msgstr ""
+msgstr "ExamDiff"
 
 #: source/en/tsvn_dug/dug_diff.xml:152(para)
 msgid "ExamDiff Standard is freeware. It can handle files but not directories. ExamDiff Pro is shareware and adds a number of goodies including directory diff and editing capability. In both flavours, version 3.2 and above can handle unicode. You can download them from <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
-msgstr ""
+msgstr " ExamDiff Standard ist Freeware. Es kann Dateien, aber keine Verzeichnisse vergleichen. ExamDiff Pro ist Shareware und hat eine Menge an Extras einschließlich dem Vergleichen von Verzeichnissen und der Möglichkeit des Editierens. In beiden Ausführungen ab Version 3.2 ist auch Unterstützung für Unicode vorhanden. Sie können sie von <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:167(term)
 msgid "Beyond Compare"
-msgstr ""
+msgstr "Beyond Compare"
 
 #: source/en/tsvn_dug/dug_diff.xml:169(para)
 msgid "Similar to ExamDiff Pro, this is an excellent shareware diff tool which can handle directory diffs and unicode. Download it from <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink>."
-msgstr ""
+msgstr " Dies ist ähnlich wie ExamDiff Pro eine exzellente Shareware, die auch Verzeichnisse vergleichen kann und Unicode-Unterstützung besitzt. Sie können sie von <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:180(term)
 msgid "SciTE"
-msgstr ""
+msgstr "SciTE"
 
 #: source/en/tsvn_dug/dug_diff.xml:182(para)
 msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
-msgstr ""
+msgstr " Dieser Texteditor bietet farbige Syntaxhervorhebung für Standard-Diffs, was diese leichter lesbar macht. Sie können ihn <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>hier</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:192(term)
 msgid "Notepad2"
-msgstr ""
+msgstr "Notepad2"
 
 #: source/en/tsvn_dug/dug_diff.xml:194(para)
 msgid "Notepad2 is designed as a replacement for the standard Windows Notepad program, and is based on the Scintilla open-source edit control. As well as being good for viewing unified diffs, it is much better than the Windows notepad for most jobs. Download it for free <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr " Notepad2 ist dazu gedacht, das normale Windows Notepad zu ersetzen und basiert auf dem Open Source Scintilla Edit Control. Außer zum Betrachten von Standard-Diffs ist es viel besser als das normale Notepad. Sie können es <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>hier</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:207(term)
 msgid "TkDiff"
-msgstr ""
+msgstr "TkDiff"
 
 #: source/en/tsvn_dug/dug_diff.xml:209(para)
 msgid "A free diff/merge tool which uses TCL/TK. Download it <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr " Ein freies Diff-/Merge-Programm, das TCL/TK benutzt. Den Download finden Sie <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>hier</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:219(term)
 msgid "CVSConflictEditor"
-msgstr ""
+msgstr "CVSConflictEditor"
 
 #: source/en/tsvn_dug/dug_diff.xml:221(para)
 msgid "This open source merge tool is buggy, but has potential. Download it <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr " Dieses Open Source Merge-Programm ist unstabil, hat aber Potential. Den Download finden Sie <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>hier</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:231(para)
 msgid "Read <xref linkend=\"tsvn-DUG-settings-progs\"/> for information on how to set up TortoiseSVN to use these tools."
-msgstr ""
+msgstr "Lesen Sie <xref linkend=\"tsvn-DUG-settings-progs\"/> für Informationen wie Sie diese Tools in TortoiseSVN einbinden/einrichten können."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:3(title)
 msgid "Resolving Conflicts"
@@ -1945,27 +1974,27 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_conflicts.xml:28(term)
 msgid "filename.ext.mine"
-msgstr ""
+msgstr "filename.ext.mine"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:30(para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
-msgstr ""
+msgstr " Dies ist die Datei, so wie Sie war bevor Sie Ihre Arbeitskopie aktualisierten. Das heisst es ist Ihre eigene Originaldatei, inklusive der Änderungen welche Sie selbst vorgenommen haben."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:39(term)
 msgid "filename.ext.rOLDREV"
-msgstr ""
+msgstr "filename.ext.rOLDREV"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:41(para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
-msgstr ""
+msgstr " Dies ist die Datei wie Sie ursprünglich war, ohne jegliche Änderungen, auch ohne den Änderungen welche Sie selbst an der Datei vorgenommen haben."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:50(term)
 msgid "filename.ext.rNEWREV"
-msgstr ""
+msgstr "filename.ext.rNEWREV"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:52(para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
-msgstr ""
+msgstr " Dies ist die Datei, wie sie im Projektarchiv gerade aktuell ist, d.h. diese Datei hat die Änderungen von den anderen Mitarbeitern bereits integriert, jedoch nocht nicht die Ihren."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:7(para)
 msgid ""
@@ -1977,14 +2006,21 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
+" Manchmal werden Sie einen <emphasis>Konflikt</emphasis> erhalten wenn Sie Ihre Arbeitskopie aktualisieren. Ein Konflikt tritt dann auf wenn mehrere Personen die gleiche(n) Stelle(n) in derselben Datei verändert haben. Da Subversion nichts über Ihr Projekt weiss, überlässt es solche Fälle Ihnen, den Konflikt aufzulösen. Wann immer ein Konflikt auftritt können Sie die entsprechende Datei öffnen und nach Zeilen suchen welche beginnen mit: <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Die Zeile in Konflikt ist so markiert:<screen>\n"
+"&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"    your changes\n"
+"=======\n"
+"    code merged from repository\n"
+"&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"</screen>  Ausserdem wird für jede Datei in Konflikt drei weitere Dateien erstellt: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:62(para)
 msgid "You can either launch an external merge tool / conflict editor with the <menuchoice><guimenuitem>Edit Conflict</guimenuitem></menuchoice> context menu or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
-msgstr ""
+msgstr " Sie können nun entweder ein Merge-Tool benutzen, welches Sie durch den Befehl <menuchoice><guimenuitem>Konflikt bearbeiten</guimenuitem></menuchoice>   aufrufen können oder Sie können die Datei mit einem normalen Texteditor ändern und den Konflikt auf diese Weise auflösen."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:72(para)
 msgid "Afterwards execute the command <menuchoice><guimenuitem>Resolved</guimenuitem></menuchoice> from the context menu and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
-msgstr ""
+msgstr " Anschliessend müssen Sie Subversion noch mitteilen, dass Sie den Konflikt aufgelöst haben. Dies geschieht mit dem Befehl <menuchoice><guimenuitem>Konflikt aufgelöst</guimenuitem></menuchoice>. Bitte beachten Sie dass dieser Befehl nicht den Konflikt selbst löst, sondern nur Subversion mitteilt dass Sie selbst den Konflikt bereits gelöst haben. Der Befehl macht nichts weiter als die drei zusätzlich erstellten Dateien<filename>filename.ext.mine</filename> und <filename>filename.ext.r*</filename>zu löschen, damit sie Ihre Änderungen in das Projektarchiv übertrage können."
 
 #: source/en/tsvn_dug/dug_commit.xml:3(title)
 msgid "Sending Your Changes To The Repository"
@@ -2851,7 +2887,7 @@ msgstr ""
 
 #: source/en/tsvn_introduction.xml:280(citetitle)
 msgid "http://lingucomponent.openoffice.org/spell_dic.html"
-msgstr ""
+msgstr "http://lingucomponent.openoffice.org/spell_dic.html"
 
 #: source/en/tsvn_introduction.xml:260(para)
 msgid "<indexterm><primary>spellchecker</primary></indexterm> If you want to use a spell checker for your log messages then you have to download the required dictionaries yourself. You can use the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> use. You can find the required dictionary files on various places: <placeholder-1/> You can also use the dictionaries which get installed with Mozilla. They're located in the installation folder of Mozilla."
@@ -3041,7 +3077,7 @@ msgstr ""
 
 #: source/en/tsvn_basics.xml:338(entry)
 msgid "Schema"
-msgstr ""
+msgstr "Schema"
 
 #: source/en/tsvn_basics.xml:339(entry)
 msgid "Access Method"
@@ -3049,7 +3085,7 @@ msgstr ""
 
 #: source/en/tsvn_basics.xml:345(literal)
 msgid "file:///"
-msgstr ""
+msgstr "file:///"
 
 #: source/en/tsvn_basics.xml:347(entry)
 msgid "Direct repository access on local disk."
@@ -3058,7 +3094,7 @@ msgstr ""
 #: source/en/tsvn_basics.xml:353(literal)
 #: source/en/tsvn_basics.xml:364(literal)
 msgid "http://"
-msgstr ""
+msgstr "http://"
 
 #: source/en/tsvn_basics.xml:355(entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
@@ -3066,7 +3102,7 @@ msgstr ""
 
 #: source/en/tsvn_basics.xml:361(literal)
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #: source/en/tsvn_basics.xml:363(entry)
 msgid "Same as <placeholder-1/>, but with SSL encryption."
@@ -3074,12 +3110,12 @@ msgstr ""
 
 #: source/en/tsvn_basics.xml:369(literal)
 msgid "svn://"
-msgstr ""
+msgstr "svn://"
 
 #: source/en/tsvn_basics.xml:373(literal)
 #: source/en/tsvn_basics.xml:382(literal)
 msgid "svnserve"
-msgstr ""
+msgstr "svnserve"
 
 #: source/en/tsvn_basics.xml:371(entry)
 msgid "Unauthenticated TCP/IP access via custom protocol to an <placeholder-1/> server."
@@ -3087,7 +3123,7 @@ msgstr ""
 
 #: source/en/tsvn_basics.xml:378(literal)
 msgid "svn+ssh://"
-msgstr ""
+msgstr "svn+ssh://"
 
 #: source/en/tsvn_basics.xml:380(entry)
 msgid "authenticated, encrypted TCP/IP access via custom protocol to an <placeholder-1/> server"
@@ -3110,6 +3146,11 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 msgstr ""
+"\n"
+"file:///X:/path/to/repos\n"
+"...\n"
+"file:///X|/path/to/repos\n"
+"...\n"
 
 #: source/en/tsvn_basics.xml:416(para)
 msgid "Note that a URL uses ordinary slashes even though the native (non-URL) form of a path on Windows uses backslashes."
@@ -3179,6 +3220,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:4\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:4\n"
 
 #: source/en/tsvn_basics.xml:535(para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
@@ -3192,6 +3237,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:5\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:5\n"
 
 #: source/en/tsvn_basics.xml:548(para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
@@ -3205,6 +3254,10 @@ msgid ""
 "     integer.c:6\n"
 "     button.c:6\n"
 msgstr ""
+"\n"
+"calc/Makefile:6\n"
+"     integer.c:6\n"
+"     button.c:6\n"
 
 #: source/en/tsvn_basics.xml:559(para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
@@ -3881,15 +3934,15 @@ msgstr ""
 
 #: source/en/tsvn_app_faq.xml:972(term)
 msgid "$WCMODS?Modified:Not modified$"
-msgstr ""
+msgstr "$WCMODS?Modified:Not modified$"
 
 #: source/en/tsvn_app_faq.xml:978(literal)
 msgid "Modified"
-msgstr ""
+msgstr "Modified"
 
 #: source/en/tsvn_app_faq.xml:979(literal)
 msgid "Not modified"
-msgstr ""
+msgstr "Not modified"
 
 #: source/en/tsvn_app_faq.xml:973(listitem)
 msgid "If you have local modifications, the string between Question mark and colon will be inserted. If you have no local modifications, the string between colon and dollar sign will be inserted. In our example above <placeholder-1/> or <placeholder-2/>."
@@ -4640,7 +4693,7 @@ msgstr ""
 
 #: source/en/tme_appb.xml:31(term)
 msgid "/basename:name"
-msgstr ""
+msgstr "/basename:name"
 
 #: source/en/tme_appb.xml:33(para)
 #: source/en/tme_appb.xml:49(para)
@@ -4813,7 +4866,7 @@ msgstr ""
 msgid "2005/04/13 18:11:01"
 msgstr ""
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#  Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #: source/en/Pubdate.xml:0(None)
 msgid "translator-credits"
 msgstr ""
