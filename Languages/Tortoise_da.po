@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3013
+# Based on r3069
 #
 msgid ""
 msgstr ""
@@ -276,6 +276,10 @@ msgstr "&Netværksdrev"
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "&New "
 msgstr "&Ny "
+
+#: Control-ID:1208,
+msgid "&Next 100"
+msgstr "&Næste 100"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -1737,8 +1741,8 @@ msgid "Invalid revision number! Valid revisions are:\nHEAD, BASE, PREV, COMMITTE
 msgstr "Revisionsnummeret er ugyldigt! Gyldige revisioner er:\nHEAD, BASE, PREV, COMMITTED, WC,\npositive heltal,\ndatoer i et af følgende formater:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
 
 #: ID:145,
-msgid "It's not possible to rename a file just in case!\nPlease read our docs on how to work around this Subversion limitation."
-msgstr "Du kan ikke omdøbe en fil ved blot at ændre mellem store og små bogstaver!\nLæs venligst vores dokumentation, hvordan man undgår denne begrænsning i Subversion."
+msgid "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
+msgstr "Du kan ikke omdøbe en fil ved blot at ændre mellem store og små bogstaver.\nFor eksempel kan du ikke omdøbe MyFile.txt til MYFILE.txt.\nLæs venligst i vores dokumentation, hvordan man omgår denne begrænsning."
 
 #: Control-ID:1016,
 msgid "Jump to first difference when loading"
@@ -1943,6 +1947,10 @@ msgstr "NUM"
 #: Control-ID:1129,
 msgid "Native Filesystem (FSFS)"
 msgstr "Indbygget filsystem (FSFS)"
+
+#: ID:195,
+msgid "Needs Lock"
+msgstr "Kræver lås"
 
 #: Dlg-ID:102,
 msgid "Network"
@@ -2479,6 +2487,10 @@ msgstr "SVN Eksporter..."
 msgid "SVN Import..."
 msgstr "SVN Importer..."
 
+#: ID:16,
+msgid "SVN Lock Owner"
+msgstr "SVN Lås-ejer"
+
 #: ID:78,
 msgid "SVN Merge..."
 msgstr "SVN Flet..."
@@ -2983,6 +2995,10 @@ msgstr "Den valgte fil ser ud til at indeholde en eller flere konfliktmarkeringe
 #: ID:88,
 msgid "The target folder is not empty!\nAre you sure you want to checkout/export into that folder?"
 msgstr "Den valgte mappe er ikke tom!\nEr du sikker på, at du vil hente en arbejdskopi eller eksportere til denne mappe?"
+
+#: ID:16,
+msgid "The user who owns the lock of the file"
+msgstr "Den bruger, som ejer låsen på filen"
 
 #: ID:81,
 msgid "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
