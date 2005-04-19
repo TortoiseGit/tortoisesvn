@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-04-11 17:47+0900\n"
+"PO-Revision-Date: 2005-04-19 00:18+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2453,11 +2453,13 @@ msgstr ""
 # ID:145,
 #: ID:145
 msgid ""
-"It's not possible to rename a file just in case!\n"
-"Please read our docs on how to work around this Subversion limitation."
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"모든 파일을 변경할 수 없는 상황입니다.\n"
-"이러한 서브버전의 제한사항에 대해 어떻게 처리할지 문서를 읽으시기 바랍니다."
+"파일이름의 대소문자를 변경하는 것만으로 이름을 바꾸는 것은 불가능합니다.\n"
+"예를 들어, MyFile.txt 를 MYFILE.txt로 변경할 수 없습니다.\n"
+"이런 제약점에 대해서는 문서를 참고하시기 바랍니다."
 
 # Control-ID:1016,
 #: Control-ID:1016
@@ -2728,6 +2730,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "고유의 파일시스템 (Navtive FS, FSFS)"
+
+# ID:16,
+#: ID:195
+msgid "Needs Lock"
+msgstr "잠금 필요"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -3499,6 +3506,11 @@ msgstr "SVN 익스포트..."
 #: ID:77
 msgid "SVN Import..."
 msgstr "SVN 임포트..."
+
+# Control-ID:65535,
+#: ID:16
+msgid "SVN Lock Owner"
+msgstr "SVN 잠금 소유자"
 
 # ID:78,
 #: ID:78
@@ -4280,6 +4292,11 @@ msgid ""
 msgstr ""
 "대상 폴더가 비어 있지 않습니다\n"
 "체크 아웃/익스포트를 강제로 진행하시겠습니까?"
+
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr "파일의 잠금을 소유하고 있는 사용자"
 
 # ID:81,
 #: ID:81

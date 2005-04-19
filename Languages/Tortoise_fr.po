@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-04-11 11:21+0100\n"
+"PO-Revision-Date: 2005-04-18 05:33+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2037,11 +2037,13 @@ msgstr ""
 # ID:145,
 #: ID:145
 msgid ""
-"It's not possible to rename a file just in case!\n"
-"Please read our docs on how to work around this Subversion limitation."
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"Ce n'est pas possible de renommer un fichier en changeant des majuscules par des minuscules ou inversement!\n"
-"Veuillez lire notre documentation sur la façon de contourner cette limitation de Subversion."
+"Ce n'est pas possible de renommer un fichier en changeant seulement la casse de son nom.\n"
+"Par exemple, vous ne pouvez pas faire que MonFichier.txt devienne MONFICHIER.txt.\n"
+"Veuillez consulter la documentation pour une façon de contourner cette limitation."
 
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -2276,6 +2278,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Système de Fichier Natif (FSFS)"
+
+# ID:16,
+#: ID:195
+msgid "Needs Lock"
+msgstr "A besoin d'un verrou"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -2896,6 +2903,11 @@ msgstr "SVN Exportation..."
 #: ID:77
 msgid "SVN Import..."
 msgstr "SVN Importation..."
+
+# Control-ID:65535,
+#: ID:16
+msgid "SVN Lock Owner"
+msgstr "Propriétaire du verrou SVN"
 
 #: ID:78
 msgid "SVN Merge..."
@@ -3557,6 +3569,11 @@ msgid ""
 msgstr ""
 "Le répertoire cible n'est pas vide!\n"
 "Etes vous sûr de vouloir extraire/exporter dans ce répertoire?"
+
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr "L'utilisateur qui détient le verrou sur le fichier"
 
 #: ID:81
 msgid ""

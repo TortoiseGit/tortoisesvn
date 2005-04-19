@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-04-09 14:18+0100\n"
+"PO-Revision-Date: 2005-04-18 17:34+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2319,12 +2319,8 @@ msgstr ""
 
 # ID:251,
 #: ID:251
-msgid ""
-"If you want to break the lock, you have to hold the SHIFT key down\n"
-"while you right-click on the file in explorer to get that menu."
-msgstr ""
-"Per forzare il blocco, tenere premuto SHIFT\n"
-"mentre si clicca con il tasto destro. Apparirà il menu contestuale adeguato."
+msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgstr "Se vuoi forzare il blocco, usa la finestra di dialogo \"Controlla se ci sono modifiche\"."
 
 # ID:73,
 #: ID:73
@@ -2467,11 +2463,13 @@ msgstr ""
 # ID:145,
 #: ID:145
 msgid ""
-"It's not possible to rename a file just in case!\n"
-"Please read our docs on how to work around this Subversion limitation."
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"Non è possibile rinominare un file cambiando solo delle maiuscole con delle minuscole o viceversa!\n"
-"Si consiglia di leggere la documentazione su come aggirare questa limitazione di Subversion."
+"Non è possibile rinominare un file scambiando solo lettere minuscole con maiuscole e viceversa.\n"
+"Per esempio, non si può rinominare MyFile.txt come MYFILE.txt.\n"
+"Si consiglia di consultare la documentazione per ottenere informazioni su come aggirare il problema."
 
 # Control-ID:1016,
 #: Control-ID:1016
@@ -2744,6 +2742,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Filesystem nativo (FSFS)"
+
+# Control-ID:1203,
+#: ID:195
+msgid "Needs Lock"
+msgstr "Necessita blocco"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -3518,6 +3521,11 @@ msgstr "SVN Esporta..."
 msgid "SVN Import..."
 msgstr "SVN Importa..."
 
+# Control-ID:65535,
+#: ID:16
+msgid "SVN Lock Owner"
+msgstr "Possessore del blocco SVN"
+
 # ID:78,
 #: ID:78
 msgid "SVN Merge..."
@@ -3979,6 +3987,11 @@ msgid "Status of item in SVN"
 msgstr "Stato degli elementi in SVN"
 
 # ID:313,
+#: ID:16
+msgid "Steal Lock"
+msgstr "Ruba il blocco"
+
+# ID:313,
 #: ID:313
 msgid "Steal the lock"
 msgstr "Ruba il blocco"
@@ -4296,6 +4309,11 @@ msgid ""
 msgstr ""
 "La cartella non è vuota!\n"
 "Si è sicuri di voler procedere al ritiro o all'esportazione in questa cartella?"
+
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr "L'utente che ha bloccato il file"
 
 # ID:81,
 #: ID:81
