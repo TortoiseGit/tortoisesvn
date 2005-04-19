@@ -286,6 +286,19 @@ BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= 
 		m_LineEndings = AUTOLINE;
 	try
 	{
+		CString destPath = sFilePath;
+		// now make sure that the destination directory exists
+		int ind = 0;
+		while (destPath.Find('\\', ind)>=0)
+		{
+			if (!PathIsDirectory(destPath.Left(destPath.Find('\\', ind))))
+			{
+				if (!CreateDirectory(destPath.Left(destPath.Find('\\', ind)), NULL))
+					return FALSE;
+			}
+			ind = destPath.Find('\\', ind)+1;
+		}
+		
 		CStdioFile file;			// Hugely faster the CFile for big file writes - because it uses buffering
 		if (!file.Open(sFilePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
 		{
