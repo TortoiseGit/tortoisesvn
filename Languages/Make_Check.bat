@@ -84,7 +84,7 @@ echo Needs review: >> %Logfile%
 type %TmpFileReview% >> %LogFile%
 
 echo. >> %Logfile%
-echo Finished: >> %Logfile%
+echo Up to date: >> %Logfile%
 type %TmpFileDone% >> %LogFile%
 
 del %TmpFileReview%
