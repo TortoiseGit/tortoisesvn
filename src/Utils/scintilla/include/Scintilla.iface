@@ -607,6 +607,20 @@ get int AutoCGetTypeSeparator=2285(,)
 # Default is '?' but can be changed if items contain '?'.
 set void AutoCSetTypeSeparator=2286(int separatorCharacter,)
 
+# Set the maximum width, in characters, of auto-completion and user lists.
+# Set to 0 to autosize to fit longest item, which is the default.
+set void AutoCSetMaxWidth=2208(int characterCount,)
+
+# Get the maximum width, in characters, of auto-completion and user lists.
+get int AutoCGetMaxWidth=2209(,)
+
+# Set the maximum height, in rows, of auto-completion and user lists.
+# The default is 5 rows.
+set void AutoCSetMaxHeight=2210(int rowCount,)
+
+# Set the maximum height, in rows, of auto-completion and user lists.
+get int AutoCGetMaxHeight=2211(,)
+
 # Set the number of spaces used for one level of indentation.
 set void SetIndent=2122(int indentSize,)
 
@@ -905,6 +919,9 @@ fun int VisibleFromDocLine=2220(int line,)
 # Find the document line of a display line taking hidden lines into account.
 fun int DocLineFromVisible=2221(int lineDisplay,)
 
+# The number of display lines needed to wrap a document line
+fun int WrapCount=2235(int line,)
+
 enu FoldLevel=SC_FOLDLEVEL
 val SC_FOLDLEVELBASE=0x400
 val SC_FOLDLEVELWHITEFLAG=0x1000
@@ -994,6 +1011,7 @@ fun int WordEndPosition=2267(position pos, bool onlyWordCharacters)
 enu Wrap=SC_WRAP_
 val SC_WRAP_NONE=0
 val SC_WRAP_WORD=1
+val SC_WRAP_CHAR=2
 
 # Sets whether text is word wrapped.
 set void SetWrapMode=2268(int mode,)
@@ -1582,6 +1600,32 @@ fun int AutoCGetCurrent=2445(,)
 # Enlarge the document to a particular size of text bytes.
 fun void Allocate=2446(int bytes,)
 
+# Returns the target converted to UTF8.
+# Return the length in bytes.
+fun int TargetAsUTF8=2447(, stringresult s)
+
+# Set the length of the utf8 argument for calling EncodedFromUTF8.
+# Set to 0 and the string will be measured to the first nul.
+fun void SetLengthForEncode=2448(int bytes,)
+
+# Translates a UTF8 string into the document encoding.
+# Return the length of the result in bytes.
+# On error return 0.
+fun int EncodedFromUTF8=2449(string utf8, stringresult encoded)
+
+# Find the position of a column on a line taking into account tabs and
+# multi-byte characters. If beyond end of line, return line end position.
+fun int FindColumn=2456(int line, int column)
+
+# Can the caret preferred x position only be changed by explicit movement commands?
+get bool GetCaretSticky=2457(,)
+
+# Stop the caret preferred x position changing when the user types.
+set void SetCaretSticky=2458(bool useCaretStickyBehaviour,)
+
+# Switch between sticky and non-sticky: meant to be bound to a key.
+fun void ToggleCaretSticky=2459(,)
+
 # Start notifying the container of all key presses and commands.
 fun void StartRecord=3001(,)
 
@@ -1698,8 +1742,6 @@ val SCLEX_TCL=25
 val SCLEX_NNCRONTAB=26
 val SCLEX_BULLANT=27
 val SCLEX_VBSCRIPT=28
-val SCLEX_ASP=29
-val SCLEX_PHP=30
 val SCLEX_BAAN=31
 val SCLEX_MATLAB=32
 val SCLEX_SCRIPTOL=33
@@ -1732,6 +1774,13 @@ val SCLEX_SPECMAN=59
 val SCLEX_AU3=60
 val SCLEX_APDL=61
 val SCLEX_BASH=62
+val SCLEX_ASN1=63
+val SCLEX_VHDL=64
+val SCLEX_CAML=65
+val SCLEX_BLITZBASIC=66
+val SCLEX_PUREBASIC=67
+val SCLEX_HASKELL=68
+val SCLEX_PHPSCRIPT=69
 
 # When a lexer specifies its language as SCLEX_AUTOMATIC it receives a
 # value assigned in sequence from SCLEX_AUTOMATIC+1.
@@ -1958,6 +2007,10 @@ val SCE_B_KEYWORD3=11
 val SCE_B_KEYWORD4=12
 val SCE_B_CONSTANT=13
 val SCE_B_ASM=14
+val SCE_B_LABEL=15
+val SCE_B_ERROR=16
+val SCE_B_HEXNUMBER=17
+val SCE_B_BINNUMBER=18
 # Lexical states for SCLEX_PROPERTIES
 lex Properties=SCLEX_PROPERTIES SCE_PROPS_
 val SCE_PROPS_DEFAULT=0
@@ -2016,6 +2069,7 @@ val SCE_ERR_IFC=16
 val SCE_ERR_IFORT=17
 val SCE_ERR_ABSF=18
 val SCE_ERR_TIDY=19
+val SCE_ERR_JAVA_STACK=20
 # Lexical states for SCLEX_BATCH
 lex Batch=SCLEX_BATCH SCE_BAT_
 val SCE_BAT_DEFAULT=0
@@ -2231,6 +2285,8 @@ val SCE_CSS_IMPORTANT=11
 val SCE_CSS_DIRECTIVE=12
 val SCE_CSS_DOUBLESTRING=13
 val SCE_CSS_SINGLESTRING=14
+val SCE_CSS_IDENTIFIER2=15
+val SCE_CSS_ATTRIBUTE=16
 # Lexical states for SCLEX_POV
 lex POV=SCLEX_POV SCE_POV_
 val SCE_POV_DEFAULT=0
@@ -2312,6 +2368,10 @@ val SCE_NSIS_IFDEFINEDEF=11
 val SCE_NSIS_MACRODEF=12
 val SCE_NSIS_STRINGVAR=13
 val SCE_NSIS_NUMBER=14
+val SCE_NSIS_SECTIONGROUP=15
+val SCE_NSIS_PAGEEX=16
+val SCE_NSIS_FUNCTIONDEF=17
+val SCE_NSIS_COMMENTBOX=18
 # Lexical states for SCLEX_MMIXAL
 lex MMIXAL=SCLEX_MMIXAL SCE_MMIXAL_
 val SCE_MMIXAL_LEADWS=0
@@ -2344,11 +2404,13 @@ val SCE_CLW_REAL_CONSTANT=6
 val SCE_CLW_PICTURE_STRING=7
 val SCE_CLW_KEYWORD=8
 val SCE_CLW_COMPILER_DIRECTIVE=9
-val SCE_CLW_BUILTIN_PROCEDURES_FUNCTION=10
-val SCE_CLW_STRUCTURE_DATA_TYPE=11
-val SCE_CLW_ATTRIBUTE=12
-val SCE_CLW_STANDARD_EQUATE=13
-val SCE_CLW_ERROR=14
+val SCE_CLW_RUNTIME_EXPRESSIONS=10
+val SCE_CLW_BUILTIN_PROCEDURES_FUNCTION=11
+val SCE_CLW_STRUCTURE_DATA_TYPE=12
+val SCE_CLW_ATTRIBUTE=13
+val SCE_CLW_STANDARD_EQUATE=14
+val SCE_CLW_ERROR=15
+val SCE_CLW_DEPRECATED=16
 # Lexical states for SCLEX_LOT
 lex LOT=SCLEX_LOT SCE_LOT_
 val SCE_LOT_DEFAULT=0
@@ -2495,6 +2557,8 @@ val SCE_AU3_OPERATOR=8
 val SCE_AU3_VARIABLE=9
 val SCE_AU3_SENT=10
 val SCE_AU3_PREPROCESSOR=11
+val SCE_AU3_SPECIAL=12
+val SCE_AU3_EXPAND=13
 # Lexical states for SCLEX_APDL
 lex APDL=SCLEX_APDL SCE_APDL_
 val SCE_APDL_DEFAULT=0
@@ -2502,10 +2566,14 @@ val SCE_APDL_COMMENT=1
 val SCE_APDL_COMMENTBLOCK=2
 val SCE_APDL_NUMBER=3
 val SCE_APDL_STRING=4
-val SCE_APDL_WORD=5
-val SCE_APDL_COMMAND=6
+val SCE_APDL_OPERATOR=5
+val SCE_APDL_WORD=6
 val SCE_APDL_PROCESSOR=7
-val SCE_APDL_FUNCTION=8
+val SCE_APDL_COMMAND=8
+val SCE_APDL_SLASHCOMMAND=9
+val SCE_APDL_STARCOMMAND=10
+val SCE_APDL_ARGUMENT=11
+val SCE_APDL_FUNCTION=12
 # Lexical states for SCLEX_BASH
 lex Bash=SCLEX_BASH SCE_SH_
 val SCE_SH_DEFAULT=0
@@ -2522,6 +2590,72 @@ val SCE_SH_PARAM=10
 val SCE_SH_BACKTICKS=11
 val SCE_SH_HERE_DELIM=12
 val SCE_SH_HERE_Q=13
+# Lexical states for SCLEX_ASN1
+lex Asn1=SCLEX_ASN1 SCE_ASN1_
+val SCE_ASN1_DEFAULT=0
+val SCE_ASN1_COMMENT=1
+val SCE_ASN1_IDENTIFIER=2
+val SCE_ASN1_STRING=3
+val SCE_ASN1_OID=4
+val SCE_ASN1_SCALAR=5
+val SCE_ASN1_KEYWORD=6
+val SCE_ASN1_ATTRIBUTE=7
+val SCE_ASN1_DESCRIPTOR=8
+val SCE_ASN1_TYPE=9
+val SCE_ASN1_OPERATOR=10
+# Lexical states for SCLEX_VHDL
+lex VHDL=SCLEX_VHDL SCE_VHDL_
+val SCE_VHDL_DEFAULT=0
+val SCE_VHDL_COMMENT=1
+val SCE_VHDL_COMMENTLINEBANG=2
+val SCE_VHDL_NUMBER=3
+val SCE_VHDL_STRING=4
+val SCE_VHDL_OPERATOR=5
+val SCE_VHDL_IDENTIFIER=6
+val SCE_VHDL_STRINGEOL=7
+val SCE_VHDL_KEYWORD=8
+val SCE_VHDL_STDOPERATOR=9
+val SCE_VHDL_ATTRIBUTE=10
+val SCE_VHDL_STDFUNCTION=11
+val SCE_VHDL_STDPACKAGE=12
+val SCE_VHDL_STDTYPE=13
+val SCE_VHDL_USERWORD=14
+# Lexical states for SCLEX_CAML
+lex Caml=SCLEX_CAML SCE_CAML_
+val SCE_CAML_DEFAULT=0
+val SCE_CAML_IDENTIFIER=1
+val SCE_CAML_TAGNAME=2
+val SCE_CAML_KEYWORD=3
+val SCE_CAML_KEYWORD2=4
+val SCE_CAML_LINENUM=5
+val SCE_CAML_OPERATOR=6
+val SCE_CAML_NUMBER=7
+val SCE_CAML_CHAR=8
+val SCE_CAML_STRING=9
+val SCE_CAML_COMMENT=10
+val SCE_CAML_COMMENT1=11
+val SCE_CAML_COMMENT2=12
+val SCE_CAML_COMMENT3=13
+# Lexical states for SCLEX_HASKELL
+lex Haskell=SCLEX_HASKELL SCE_HA_
+val SCE_HA_DEFAULT=0
+val SCE_HA_IDENTIFIER=1
+val SCE_HA_KEYWORD=2
+val SCE_HA_NUMBER=3
+val SCE_HA_STRING=4
+val SCE_HA_CHARACTER=5
+val SCE_HA_CLASS=6
+val SCE_HA_MODULE=7
+val SCE_HA_CAPITAL=8
+val SCE_HA_DATA=9
+val SCE_HA_IMPORT=10
+val SCE_HA_OPERATOR=11
+val SCE_HA_INSTANCE=12
+val SCE_HA_COMMENTLINE=13
+val SCE_HA_COMMENTBLOCK=14
+val SCE_HA_COMMENTBLOCK2=15
+val SCE_HA_COMMENTBLOCK3=16
+
 # Events
 
 evt void StyleNeeded=2000(int position)
@@ -2546,6 +2680,7 @@ evt void Zoom=2018(void)
 evt void HotSpotClick=2019(int modifiers, int position)
 evt void HotSpotDoubleClick=2020(int modifiers, int position)
 evt void CallTipClick=2021(int position)
+evt void AutoCSelection=2022(string text)
 
 cat Deprecated
 
@@ -2559,3 +2694,6 @@ val CARET_XJUMPS=0x10
 val SCN_CHECKBRACE=2007
 evt void PosChanged=2012(int position)
 
+# SCLEX_HTML should be used in preference to these.
+val SCLEX_ASP=29
+val SCLEX_PHP=30

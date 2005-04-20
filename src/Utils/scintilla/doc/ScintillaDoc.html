@@ -38,7 +38,7 @@
 
     <h1>Scintilla Documentation</h1>
 
-    <p>Last edited 29/May/2004 NH</p>
+    <p>Last edited 3/April/2005 NH</p>
 
     <p>There is <a class="jump" href="Design.html">an overview of the internal design of
     Scintilla</a>.<br />
@@ -310,6 +310,9 @@
     *tr)</a><br />
      <a class="message" href="#SCI_SETSTYLEBITS">SCI_SETSTYLEBITS(int bits)</a><br />
      <a class="message" href="#SCI_GETSTYLEBITS">SCI_GETSTYLEBITS</a><br />
+     <a class="message" href="#SCI_TARGETASUTF8">SCI_TARGETASUTF8(&lt;unused&gt;, char *s)</a><br />
+     <a class="message" href="#SCI_ENCODEDFROMUTF8">SCI_ENCODEDFROMUTF8(const char *utf8, char *encoded)</a><br />
+     <a class="message" href="#SCI_SETLENGTHFORENCODE">SCI_SETLENGTHFORENCODE(int bytes)</a><br />
     </code>
 
     <p><b id="SCI_GETTEXT">SCI_GETTEXT(int length, char *text)</b><br />
@@ -426,8 +429,8 @@
 
     <p><b id="SCI_INSERTTEXT">SCI_INSERTTEXT(int pos, const char *text)</b><br />
      This inserts the zero terminated <code>text</code> string at position <code>pos</code> or at
-    the current position if <code>pos</code> is -1. The current position is set at the end of the
-    inserted text, but it is not scrolled into view.</p>
+    the current position if <code>pos</code> is -1. If the current position is after the insertion point
+    then it is moved along with its surrounding text but no scrolling is performed.</p>
 
     <p><b id="SCI_CLEARALL">SCI_CLEARALL</b><br />
      Unless the document is read-only, this deletes all the text.</p>
@@ -466,6 +469,25 @@ struct TextRange {
     char *lpstrText;
 };
 </pre>
+
+    <h3 id="EncodedAccess">GTK+-specific: Access to encoded text</h3>
+
+    <p><b id="SCI_TARGETASUTF8">SCI_TARGETASUTF8(&lt;unused&gt;, char *s)</b><br />
+     This method retrieves the value of the target encoded as UTF-8 which is the default
+     encoding of GTK+ so is useful for retrieving text for use in other parts of the user interface,
+     such as find and replace dialogs. The length of the encoded text in bytes is returned.
+    </p>
+
+    <p><b id="SCI_ENCODEDFROMUTF8">SCI_ENCODEDFROMUTF8(const char *utf8, char *encoded)</b><br />
+     <b id="SCI_SETLENGTHFORENCODE">SCI_SETLENGTHFORENCODE(int bytes)</b><br />
+     <code>SCI_ENCODEDFROMUTF8</code> converts a UTF-8 string into the document's
+     encoding which is useful for taking the results of a find dialog, for example, and receiving
+     a string of bytes that can be searched for in the document. Since the text can contain nul bytes,
+     the <code>SCI_SETLENGTHFORENCODE</code> method can be used to set the 
+     length that will be converted. If set to -1, the length is determined by finding a nul byte.
+     The length of the converted string is returned.
+    </p>
+
 
     <h2 id="Searching">Searching</h2>
     <code><a class="message" href="#SCI_FINDTEXT">SCI_FINDTEXT(int flags, TextToFind
@@ -786,6 +808,10 @@ struct TextToFind {
     <p>GTK+ does not really support <code>SCI_CANPASTE</code> and always returns <code>TRUE</code>
     unless the document is read-only.</p>
 
+    <p>On X, the clipboard is asynchronous and may require several messages between
+    the destination and source applications. Data from SCI_PASTE will not arrive in the
+    document immediately.</p>
+
      <b id="SCI_COPYRANGE">SCI_COPYRANGE(int start, int end)</b><br />
      <b id="SCI_COPYTEXT">SCI_COPYTEXT(int length, const char *text)</b><br />
     <p><code>SCI_COPYRANGE</code> copies a range of text from the document to
@@ -898,6 +924,7 @@ struct TextToFind {
      <a class="message" href="#SCI_GETLINEENDPOSITION">SCI_GETLINEENDPOSITION(int line)</a><br />
      <a class="message" href="#SCI_LINELENGTH">SCI_LINELENGTH(int line)</a><br />
      <a class="message" href="#SCI_GETCOLUMN">SCI_GETCOLUMN(int position)</a><br />
+     <a class="message" href="#SCI_FINDCOLUMN">SCI_FINDCOLUMN(int line, int column)</a><br />
      <a class="message" href="#SCI_POSITIONFROMPOINT">SCI_POSITIONFROMPOINT(int x, int y)</a><br />
      <a class="message" href="#SCI_POSITIONFROMPOINTCLOSE">SCI_POSITIONFROMPOINTCLOSE(int x, int
     y)</a><br />
@@ -909,7 +936,7 @@ struct TextToFind {
      <a class="message" href="#SCI_GETSELTEXT">SCI_GETSELTEXT(&lt;unused&gt;, char *text)</a><br />
      <a class="message" href="#SCI_GETCURLINE">SCI_GETCURLINE(int textLen, char *text)</a><br />
      <a class="message" href="#SCI_SELECTIONISRECTANGLE">SCI_SELECTIONISRECTANGLE</a><br />
-     <a class="message" href="#SCI_SETSELECTIONMODE">SCI_SETSELECTIONMODE</a><br />
+     <a class="message" href="#SCI_SETSELECTIONMODE">SCI_SETSELECTIONMODE(int mode)</a><br />
      <a class="message" href="#SCI_GETSELECTIONMODE">SCI_GETSELECTIONMODE</a><br />
      <a class="message" href="#SCI_GETLINESELSTARTPOSITION">SCI_GETLINESELSTARTPOSITION(int line)</a><br />
      <a class="message" href="#SCI_GETLINESELENDPOSITION">SCI_GETLINESELENDPOSITION(int line)</a><br />
@@ -1095,7 +1122,7 @@ struct TextToFind {
     <p><b id="SCI_SELECTIONISRECTANGLE">SCI_SELECTIONISRECTANGLE</b><br />
      This returns 1 if the current selection is in rectangle mode, 0 if not.</p>
 
-    <p><b id="SCI_SETSELECTIONMODE">SCI_SETSELECTIONMODE</b><br />
+    <p><b id="SCI_SETSELECTIONMODE">SCI_SETSELECTIONMODE(int mode)</b><br />
     <b id="SCI_GETSELECTIONMODE">SCI_GETSELECTIONMODE</b><br />
     The two functions set and get the selection mode, which can be
      stream (<code>SC_SEL_STREAM</code>=1) or
@@ -1225,6 +1252,11 @@ struct TextToFind {
     <code>pos</code>. If there are no tab characters on the line, the return value is the number of
     characters up to the position on the line. In both cases, double byte characters count as a
     single character. This is probably only useful with monospaced fonts.</p>
+
+    <p><b id="SCI_FINDCOLUMN">SCI_FINDCOLUMN(int line, int column)</b><br />
+     This message returns the position of a <code>column</code> on a <code>line</code>
+    taking the width of tabs into account. It treats a multi-byte character as a single column.
+    Column numbers, like lines start at 0.</p>
 
     <p><b id="SCI_POSITIONFROMPOINT">SCI_POSITIONFROMPOINT(int x, int y)</b><br />
      <b id="SCI_POSITIONFROMPOINTCLOSE">SCI_POSITIONFROMPOINTCLOSE(int x, int y)</b><br />
@@ -2055,6 +2087,9 @@ struct TextToFind {
      <a class="message" href="#SCI_SETCONTROLCHARSYMBOL">SCI_SETCONTROLCHARSYMBOL(int
     symbol)</a><br />
      <a class="message" href="#SCI_GETCONTROLCHARSYMBOL">SCI_GETCONTROLCHARSYMBOL</a><br />
+     <a class="message" href="#SCI_SETCARETSTICKY">SCI_SETCARETSTICKY</a><br />
+     <a class="message" href="#SCI_GETCARETSTICKY">SCI_GETCARETSTICKY</a><br />
+     <a class="message" href="#SCI_TOGGLECARETSTICKY">SCI_TOGGLECARETSTICKY</a><br />
     </code>
 
     <p><b id="SCI_SETSELFORE">SCI_SETSELFORE(bool useSelectionForeColour, int <a class="jump"
@@ -2123,6 +2158,13 @@ struct TextToFind {
     as mnemonics. The symbol you set is rendered in the font of the style set for the character.
     You can read back the current symbol with the <code>SCI_GETCONTROLCHARSYMBOL</code> message.
     The default symbol value is 0.</p>
+
+    <p><b id="SCI_SETCARETSTICKY">SCI_SETCARETSTICKY(bool useCaretStickyBehaviour)</b><br />
+     <b id="SCI_GETCARETSTICKY">SCI_GETCARETSTICKY</b><br />
+     <b id="SCI_TOGGLECARETSTICKY">SCI_TOGGLECARETSTICKY</b><br />
+     These messages set, get or toggle the caretSticky flag which controls when the last position
+	 of the caret on the line is saved. When set to true, the position is not saved when you type
+	 a character, a tab, paste the clipboard content or press backspace.</p>
 
     <h2 id="Margins">Margins</h2>
 
@@ -2312,6 +2354,10 @@ struct TextToFind {
     Cyrillic, and Han characters. Languages which can use two characters stacked vertically in one
     horizontal space, such as Thai, will mostly work but there are some issues where the characters
     are drawn separately leading to visual glitches. Bi-directional text is not supported.</p>
+
+    <p>On Windows, code page can be set to 932 (Japanese Shift-JIS), 936 (Simplified Chinese GBK),
+    949 (Korean), and 950 (Traditional Chinese Big5) although these may require installation of language
+    specific support.</p>
 
     <p>On GTK+, code page <code>SC_CP_DBCS</code> (1) sets Scintilla into
     multi byte character mode as is required for Japanese language processing with
@@ -2862,7 +2908,7 @@ struct TextToFind {
 
     <h2 id="Autocompletion">Autocompletion</h2>
 
-    <p>Autocompletion displays a list box showing likely identifiers based upon the users typing.
+    <p>Autocompletion displays a list box showing likely identifiers based upon the user's typing.
     The user chooses the currently selected item by pressing the tab character or another character
     that is a member of the fillup character set defined with <code>SCI_AUTOCSETFILLUPS</code>.
     Autocompletion is triggered by your application. For example, in C if you detect that the user
@@ -2871,6 +2917,12 @@ struct TextToFind {
     monitor the user's typing and offer a list of likely items once their typing has narrowed down
     the choice to a reasonable list. As yet another alternative, you could define a key code to
     activate the list.</p>
+
+    <p>When the user makes a selection from the list the container is sent a <code><a class="message"
+    href="#SCN_AUTOCSELECTION">SCN_AUTOCSELECTION</a></code> <a class="jump"
+    href="#Notifications">notification message</a>. On return from the notification Scintilla will insert
+     the selected text unless the autocompletion list has been cancelled, for example by the container sending
+     <code><a class="message" href="#SCI_AUTOCCANCEL">SCI_AUTOCCANCEL</a></code>.</p>
 
     <p>To make use of autocompletion you must monitor each character added to the document. See
     <code>SciTEBase::CharAdded()</code> in SciTEBase.cxx for an example of autocompletion.</p>
@@ -2908,6 +2960,10 @@ struct TextToFind {
      <a class="message" href="#SCI_CLEARREGISTEREDIMAGES">SCI_CLEARREGISTEREDIMAGES</a><br />
      <a class="message" href="#SCI_AUTOCSETTYPESEPARATOR">SCI_AUTOCSETTYPESEPARATOR(char separatorCharacter)</a><br />
      <a class="message" href="#SCI_AUTOCGETTYPESEPARATOR">SCI_AUTOCGETTYPESEPARATOR</a><br />
+     <a class="message" href="#SCI_AUTOCSETMAXHEIGHT">SCI_AUTOCSETMAXHEIGHT(int rowCount)</a><br />
+     <a class="message" href="#SCI_AUTOCGETMAXHEIGHT">SCI_AUTOCGETMAXHEIGHT</a><br />
+     <a class="message" href="#SCI_AUTOCSETMAXWIDTH">SCI_AUTOCSETMAXWIDTH(int characterCount)</a><br />
+     <a class="message" href="#SCI_AUTOCGETMAXWIDTH">SCI_AUTOCGETMAXWIDTH</a><br />
     </code>
 
     <p><b id="SCI_AUTOCSHOW">SCI_AUTOCSHOW(int lenEntered, const char *list)</b><br />
@@ -3017,6 +3073,23 @@ struct TextToFind {
       with <code>SCI_AUTOCSETTYPESEPARATOR</code>.
     </p>
 
+    <p>
+      <b id="SCI_AUTOCSETMAXHEIGHT">SCI_AUTOCSETMAXHEIGHT(int rowCount)</b><br />
+      <b id="SCI_AUTOCGETMAXHEIGHT">SCI_AUTOCGETMAXHEIGHT</b><br />
+
+      Get or set the maximum number of rows that will be visible in an autocompletion list. If there are more rows in the list, then a vertical
+      scrollbar is shown. The default is 5.
+     </p>
+
+    <p>
+      <b id="SCI_AUTOCSETMAXWIDTH">SCI_AUTOCSETMAX(int characterCount)</b><br />
+      <b id="SCI_AUTOCGETMAXWIDTH">SCI_AUTOCGETMAX</b><br />
+
+      Get or set the maximum width of an autocompletion list expressed as the number of characters in the longest item that will be totally visible.
+      If zero (the default) then the list's width is calculated to fit the item with the most characters. Any items that cannot be fully displayed within
+      the available width are indicated by the presence of ellipsis.
+     </p>
+
     <h2 id="UserLists">User lists</h2>
 
     <p>User lists use the same internal mechanisms as autocompletion lists, and all the calls
@@ -3028,7 +3101,8 @@ struct TextToFind {
     effect.<br />
      o When the user makes a selection you are sent a <code><a class="message"
     href="#SCN_USERLISTSELECTION">SCN_USERLISTSELECTION</a></code> <a class="jump"
-    href="#Notifications">notification message</a>.</p>
+    href="#Notifications">notification message</a> rather than <code><a class="message"
+    href="#SCN_AUTOCSELECTION">SCN_AUTOCSELECTION</a></code>.</p>
 
     <p>BEWARE: if you have set fillup characters or stop characters, these will still be active
     with the user list, and may result in items being selected or the user list cancelled due to
@@ -3572,11 +3646,17 @@ struct RangeToFormat {
     <p><b id="SCI_SETPRINTWRAPMODE">SCI_SETPRINTWRAPMODE(int wrapMode)</b><br />
      <b id="SCI_GETPRINTWRAPMODE">SCI_GETPRINTWRAPMODE</b><br />
      These two functions get and set the printer wrap mode. <code>wrapMode</code> can be
-     set to <code>SC_WRAP_NONE</code> (0) or <code>SC_WRAP_WORD</code> (1). The default is
+     set to <code>SC_WRAP_NONE</code> (0), <code>SC_WRAP_WORD</code> (1) or
+     <code>SC_WRAP_CHAR</code> (2). The default is
      <code>SC_WRAP_WORD</code>, which wraps printed output so that all characters fit
      into the print rectangle. If you set <code>SC_WRAP_NONE</code>, each line of text
      generates one line of output and the line is truncated if it is too long to fit
-     into the print area.</p>
+     into the print area.<br />
+     <code>SC_WRAP_WORD</code> tries to wrap only between words as indicated by
+     white space or style changes although if a word is longer than a line, it will be wrapped before
+     the line end. <code>SC_WRAP_CHAR</code> is preferred to
+     <code>SC_WRAP_WORD</code> for Asian languages where there is no white space
+     between words.</p>
 
     <h2 id="DirectAccess">Direct access</h2>
     <code><a class="message" href="#SCI_GETDIRECTFUNCTION">SCI_GETDIRECTFUNCTION</a><br />
@@ -3703,7 +3783,7 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
     The best way to see how this is done is to search the SciTE source code for the messages used
     in this section of the documentation and see how they are used. You will also need to use
     markers and a folding margin to complete your folding implementation.
-    The <code>"fold"</code> property should be set to <code>"1"</code> with 
+    The <code>"fold"</code> property should be set to <code>"1"</code> with
     <code>SCI_SETPROPERTY("fold", "1")</code> to enable folding. </p>
     <code><a class="message" href="#SCI_VISIBLEFROMDOCLINE">SCI_VISIBLEFROMDOCLINE(int
     docLine)</a><br />
@@ -3883,6 +3963,7 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
      <a class="message" href="#SCI_GETLAYOUTCACHE">SCI_GETLAYOUTCACHE</a><br />
      <a class="message" href="#SCI_LINESSPLIT">SCI_LINESSPLIT</a><br />
      <a class="message" href="#SCI_LINESJOIN">SCI_LINESJOIN</a><br />
+     <a class="message" href="#SCI_WRAPCOUNT">SCI_WRAPCOUNT(int docLine)</a><br />
     </code>
 
     <p>By default, Scintilla does not wrap lines of text. If you enable line wrapping, lines wider
@@ -3917,8 +3998,13 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
 
     <p><b id="SCI_SETWRAPMODE">SCI_SETWRAPMODE(int wrapMode)</b><br />
      <b id="SCI_GETWRAPMODE">SCI_GETWRAPMODE</b><br />
-     Set wrapMode to <code>SC_WRAP_WORD</code> (1) to enable line wrapping and to
-    <code>SC_WRAP_NONE</code> (0) to disable line wrapping.</p>
+     Set wrapMode to <code>SC_WRAP_WORD</code> (1) to enable wrapping
+     on word boundaries, <code>SC_WRAP_CHAR</code> (2) to enable wrapping
+     between any characters, and to <code>SC_WRAP_NONE</code> (0) to disable line
+     wrapping. <code>SC_WRAP_CHAR</code> is preferred to
+     <code>SC_WRAP_WORD</code> for Asian languages where there is no white space
+     between words.</p>
+
 
     <p><b id="SCI_SETWRAPVISUALFLAGS">SCI_SETWRAPVISUALFLAGS(int wrapVisualFlags)</b><br />
      <b id="SCI_GETWRAPVISUALFLAGS">SCI_GETWRAPVISUALFLAGS</b><br />
@@ -4067,6 +4153,10 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
      removing line end characters.
      Where this would lead to no space between words, an extra space is inserted.
      </p>
+
+    <p><b id="SCI_WRAPCOUNT">SCI_WRAPCOUNT(int docLine)</b><br />
+    Document lines can occupy more than one display line if they wrap and this
+    returns the number of display lines needed to wrap a document line.</p>
 
     <h2 id="Zooming">Zooming</h2>
 
@@ -4219,7 +4309,7 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
      </p>
 
     <p><b id="SCI_COLOURISE">SCI_COLOURISE(int startPos, int endPos)</b><br />
-     This forces the current lexer or the container (if the lexer is set to
+     This requests the current lexer or the container (if the lexer is set to
     <code>SCLEX_CONTAINER</code>) to style the document between <code>startPos</code> and
     <code>endPos</code>. If <code>endPos</code> is -1, the document is styled from
     <code>startPos</code> to the end. If the <code>"fold"</code> property is set to
@@ -4290,7 +4380,7 @@ struct SCNotification {
     int ch;             // SCN_CHARADDED, SCN_KEY
     int modifiers;      // SCN_KEY, SCN_HOTSPOTCLICK, SCN_HOTSPOTDOUBLECLICK
     int modificationType; // SCN_MODIFIED
-    const char *text;   // SCN_MODIFIED
+    const char *text;   // SCN_MODIFIED, SCN_USERLISTSELECTION, SCN_AUTOCSELECTION
     int length;         // SCN_MODIFIED
     int linesAdded;     // SCN_MODIFIED
     int message;        // SCN_MACRORECORD
@@ -4300,7 +4390,7 @@ struct SCNotification {
     int foldLevelNow;   // SCN_MODIFIED
     int foldLevelPrev;  // SCN_MODIFIED
     int margin;         // SCN_MARGINCLICK
-    int listType;       // SCN_USERLISTSELECTION
+    int listType;       // SCN_USERLISTSELECTION, SCN_AUTOCSELECTION
     int x;              // SCN_DWELLSTART, SCN_DWELLEND
     int y;              // SCN_DWELLSTART, SCN_DWELLEND
 };
@@ -4329,6 +4419,7 @@ struct SCNotification {
      <a class="message" href="#SCN_HOTSPOTCLICK">SCN_HOTSPOTCLICK</a><br />
      <a class="message" href="#SCN_HOTSPOTDOUBLECLICK">SCN_HOTSPOTDOUBLECLICK</a><br />
      <a class="message" href="#SCN_CALLTIPCLICK">SCN_CALLTIPCLICK</a><br />
+     <a class="message" href="#SCN_AUTOCSELECTION">SCN_AUTOCSELECTION</a><br />
     </code>
 
     <p>The following <code>SCI_*</code> messages are associated with these notifications:</p>
@@ -4383,8 +4474,8 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
     href="#SCI_SETREADONLY">SCI_SETREADONLY</a></code>.</p>
 
     <p><b id="SCN_KEY">SCN_KEY</b><br />
-     Reports all keys pressed. Used on GTK+ because of some problems with keyboard focus and is not
-    sent by the Windows version. <code>SCNotification.ch</code> holds the key code and
+     Reports all keys pressed but not consumed by Scintilla. Used on GTK+ because of
+     some problems with keyboard focus and is not sent by the Windows version. <code>SCNotification.ch</code> holds the key code and
     <code>SCNotification.modifiers</code> holds the modifiers. This notification is sent if the
     modifiers include <code>SCMOD_ALT</code> or <code>SCMOD_CTRL</code> and the key code is less
     than 256.</p>
@@ -4452,7 +4543,9 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
 
           <td align="left">Valid for text changes, not for style changes. If we are collecting undo
           information this holds a pointer to the text that is handed to the Undo system, otherwise
-          it is zero.</td>
+          it is zero. For user performed SC_MOD_BEFOREDELETE the text field is 0 and
+		  for user performed SC_MOD_BEFOREINSERT the text field points to an array of cells,
+	 	  not bytes and the length is the number of cells.</td>
         </tr>
 
         <tr>
@@ -4480,7 +4573,7 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
 
     <p>The <code>SCNotification.modificationType</code> field has bits set to tell you what has
     been done. The <code>SC_MOD_*</code> bits correspond to actions. The
-    <code>SC_PREFORMED_*</code> bits tell you if the action was done by the user, or the result of
+    <code>SC_PERFORMED_*</code> bits tell you if the action was done by the user, or the result of
     Undo or Redo of a previous action.</p>
 
     <table cellpadding="1" cellspacing="2" border="0" summary="Modify notification type flags">
@@ -4504,7 +4597,7 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
 
           <td>Text has been inserted into the document.</td>
 
-          <td><code>position, length, linesAdded</code></td>
+          <td><code>position, length, text, linesAdded</code></td>
         </tr>
 
         <tr>
@@ -4514,7 +4607,7 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
 
           <td>Text has been removed from the document.</td>
 
-          <td><code>position, length, linesAdded</code></td>
+          <td><code>position, length, text, linesAdded</code></td>
         </tr>
 
         <tr>
@@ -4594,7 +4687,7 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
 
           <td>Text is about to be inserted into the document.</td>
 
-          <td><code>position, length</code></td>
+          <td><code>position, if performed by user then text in cells, length in cells</code></td>
         </tr>
 
         <tr>
@@ -4862,6 +4955,35 @@ for line = lineStart to lineEnd do SCI_ENSUREVISIBLE(line) next
     function name is overloaded with different arguments.
     The <code>position</code> field is set to 1 if the click is in an up arrow,
     2 if in a down arrow, and 0 if elsewhere.</p>
+
+    <p><b id="SCN_AUTOCSELECTION">SCN_AUTOCSELECTION</b><br />
+     The user has selected an item in an <a class="jump" href="#Autocompletion">autocompletion list</a>. The
+     notification is sent before the selection is inserted. Automatic insertion can be cancelled by sending a
+     <code><a class="message" href="#SCI_AUTOCCANCEL">SCI_AUTOCCANCEL</a></code> message
+     before returning from the notification. The <code>SCNotification</code> fields used are:</p>
+
+    <table cellpadding="1" cellspacing="2" border="0" summary="Autocompletion list notification">
+      <tbody>
+        <tr>
+          <th align="left">Field</th>
+
+          <th align="left">Usage</th>
+        </tr>
+      </tbody>
+
+      <tbody valign="top">
+        <tr>
+          <td align="left"><code>lParam</code></td>
+
+          <td align="left">The start position of the word being completed.</td>
+        </tr>
+        <tr>
+          <td align="left"><code>text</code></td>
+
+          <td align="left">The text of the selection.</td>
+        </tr>
+      </tbody>
+    </table>
 
     <h2 id="DeprecatedMessages">Deprecated messages and notifications</h2>
 

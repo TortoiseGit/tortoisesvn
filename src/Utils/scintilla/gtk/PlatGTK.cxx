@@ -1484,8 +1484,11 @@ int SurfaceImpl::Ascent(Font &font_) {
 		ascent = PFont(font_)->ascent;
 	}
 #endif
-	if (ascent == 0) {
+	if ((ascent == 0) && (PFont(font_)->pfont)) {
 		ascent = PFont(font_)->pfont->ascent;
+	}
+	if (ascent == 0) {
+		ascent = 1;
 	}
 	FontMutexUnlock();
 	return ascent;
@@ -1714,7 +1717,8 @@ void Window::SetCursor(Cursor curs) {
 		break;
 	}
 
-	gdk_window_set_cursor(PWidget(id)->window, gdkCurs);
+	if (PWidget(id)->window)
+		gdk_window_set_cursor(PWidget(id)->window, gdkCurs);
 	gdk_cursor_destroy(gdkCurs);
 }
 
@@ -1790,9 +1794,10 @@ public:
 		}
 	}
 	virtual void SetFont(Font &font);
-	virtual void Create(Window &parent, int ctrlID, int lineHeight_, bool unicodeMode_);
+	virtual void Create(Window &parent, int ctrlID, Point location_, int lineHeight_, bool unicodeMode_);
 	virtual void SetAverageCharWidth(int width);
 	virtual void SetVisibleRows(int rows);
+	virtual int GetVisibleRows() const;
 	virtual PRectangle GetDesiredRect();
 	virtual int CaretFromEdge();
 	virtual void Clear();
@@ -1808,6 +1813,7 @@ public:
 		doubleClickAction = action;
 		doubleClickActionData = data;
 	}
+	virtual void SetList(const char* list, char separator, char typesep);
 };
 
 ListBox *ListBox::Allocate() {
@@ -1816,6 +1822,11 @@ ListBox *ListBox::Allocate() {
 }
 
 #if GTK_MAJOR_VERSION < 2
+static void UnselectionAC(GtkWidget *, gint, gint,
+                        GdkEventButton *, gpointer p) {
+	int *pi = reinterpret_cast<int *>(p);
+	*pi = -1;
+}
 static void SelectionAC(GtkWidget *, gint row, gint,
                         GdkEventButton *, gpointer p) {
 	int *pi = reinterpret_cast<int *>(p);
@@ -1833,7 +1844,7 @@ static gboolean ButtonPress(GtkWidget *, GdkEventButton* ev, gpointer p) {
 	return FALSE;
 }
 
-void ListBoxX::Create(Window &, int, int, bool) {
+void ListBoxX::Create(Window &, int, Point, int, bool) {
 	id = gtk_window_new(GTK_WINDOW_POPUP);
 
 	GtkWidget *frame = gtk_frame_new(NULL);
@@ -1855,6 +1866,8 @@ void ListBoxX::Create(Window &, int, int, bool) {
 	gtk_container_add(GTK_CONTAINER(PWidget(scroller)), PWidget(list));
 	gtk_clist_set_column_auto_resize(GTK_CLIST(PWidget(list)), 0, TRUE);
 	gtk_clist_set_selection_mode(GTK_CLIST(PWidget(list)), GTK_SELECTION_BROWSE);
+	gtk_signal_connect(GTK_OBJECT(PWidget(list)), "unselect_row",
+	                   GTK_SIGNAL_FUNC(UnselectionAC), &current);
 	gtk_signal_connect(GTK_OBJECT(PWidget(list)), "select_row",
 	                   GTK_SIGNAL_FUNC(SelectionAC), &current);
 	gtk_signal_connect(GTK_OBJECT(PWidget(list)), "button_press_event",
@@ -1923,6 +1936,10 @@ void ListBoxX::SetAverageCharWidth(int width) {
 
 void ListBoxX::SetVisibleRows(int rows) {
 	desiredVisibleRows = rows;
+}
+
+int ListBoxX::GetVisibleRows() const {
+	return desiredVisibleRows;
 }
 
 PRectangle ListBoxX::GetDesiredRect() {
@@ -2089,16 +2106,23 @@ int ListBoxX::Length() {
 
 void ListBoxX::Select(int n) {
 #if GTK_MAJOR_VERSION < 2
-	gtk_clist_select_row(GTK_CLIST(list), n, 0);
-	gtk_clist_moveto(GTK_CLIST(list), n, 0, 0.5, 0.5);
+	if (n == -1) {
+		gtk_clist_unselect_row(GTK_CLIST(list), current, 0);
+	} else {
+		gtk_clist_select_row(GTK_CLIST(list), n, 0);
+		gtk_clist_moveto(GTK_CLIST(list), n, 0, 0.5, 0.5);
+	}
 #else
-	if (n < 0)
-		return;
-
 	GtkTreeIter iter;
 	GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(list));
 	GtkTreeSelection *selection =
 		gtk_tree_view_get_selection(GTK_TREE_VIEW(list));
+
+	if (n < 0) {
+		gtk_tree_selection_unselect_all(selection);
+		return;
+	}
+
 	bool valid = gtk_tree_model_iter_nth_child(model, &iter, NULL, n);
 	if (valid) {
 		gtk_tree_selection_select_iter(selection, &iter);
@@ -2133,6 +2157,8 @@ void ListBoxX::Select(int n) {
 
 		// Set it.
 		gtk_adjustment_set_value(adj, value);
+	} else {
+		gtk_tree_selection_unselect_all(selection);
 	}
 #endif
 }
@@ -2152,7 +2178,7 @@ int ListBoxX::GetSelection() {
 		if (indices)
 			return indices[0];
 	}
-	return 0;
+	return -1;
 #endif
 }
 
@@ -2182,7 +2208,7 @@ int ListBoxX::Find(const char *prefix) {
 		i++;
 	}
 #endif
-	return - 1;
+	return -1;
 }
 
 void ListBoxX::GetValue(int n, char *value, int len) {
@@ -2258,6 +2284,36 @@ void ListBoxX::RegisterImage(int type, const char *xpm_data) {
 
 void ListBoxX::ClearRegisteredImages() {
 	xset.Clear();
+}
+
+void ListBoxX::SetList(const char* list, char separator, char typesep) {
+	Clear();
+	int count = strlen(list) + 1;
+	char *words = new char[count];
+	if (words) {
+		memcpy(words, list, count);
+		char *startword = words;
+		char *numword = NULL;
+		int i = 0;
+		for (; words[i]; i++) {
+			if (words[i] == separator) {
+				words[i] = '\0';
+				if (numword)
+					*numword = '\0';
+				Append(startword, numword?atoi(numword + 1):-1);
+				startword = words + i + 1;
+				numword = NULL;
+			} else if (words[i] == typesep) {
+				numword = words + i;
+			}
+		}
+		if (startword) {
+			if (numword)
+				*numword = '\0';
+			Append(startword, numword?atoi(numword + 1):-1);
+		}
+		delete []words;
+	}
 }
 
 Menu::Menu() : id(0) {}

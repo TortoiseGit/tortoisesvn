@@ -39,12 +39,14 @@ protected:
 		return ret;
 	}
 	static bool IncludesVar(const char *value, const char *key);
+
 public:
 	PropSet *superPS;
 	PropSet();
 	~PropSet();
 	void Set(const char *key, const char *val, int lenKey=-1, int lenVal=-1);
 	void Set(const char *keyVal);
+	void Unset(const char *key, int lenKey=-1);
 	void SetMultiple(const char *s);
 	SString Get(const char *key);
 	SString GetExpanded(const char *key);
@@ -58,7 +60,7 @@ public:
 	bool GetNext(char **key, char **val);
 
 private:
-	// copy-value semantics not implemented	
+	// copy-value semantics not implemented
 	PropSet(const PropSet &copy);
 	void operator=(const PropSet &assign);
 };
@@ -74,9 +76,11 @@ public:
 	int len;
 	bool onlyLineEnds;	///< Delimited by any white space or only line ends
 	bool sorted;
+	bool sortedNoCase;
 	int starts[256];
 	WordList(bool onlyLineEnds_ = false) :
-		words(0), wordsNoCase(0), list(0), len(0), onlyLineEnds(onlyLineEnds_), sorted(false) {}
+		words(0), wordsNoCase(0), list(0), len(0), onlyLineEnds(onlyLineEnds_),
+		sorted(false), sortedNoCase(false) {}
 	~WordList() { Clear(); }
 	operator bool() { return len ? true : false; }
 	char *operator[](int ind) { return words[ind]; }
@@ -85,9 +89,9 @@ public:
 	char *Allocate(int size);
 	void SetFromAllocated();
 	bool InList(const char *s);
-	const char *GetNearestWord(const char *wordStart, int searchLen = -1,
+	const char *GetNearestWord(const char *wordStart, int searchLen,
 		bool ignoreCase = false, SString wordCharacters="", int wordIndex = -1);
-	char *GetNearestWords(const char *wordStart, int searchLen=-1,
+	char *GetNearestWords(const char *wordStart, int searchLen,
 		bool ignoreCase=false, char otherSeparator='\0', bool exactLen=false);
 };
 

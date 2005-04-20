@@ -127,7 +127,7 @@ public:
 
 /**
  * Hold a piece of text selected for copying or dragging.
- * The text is expected to hold a terminating '\0'.
+ * The text is expected to hold a terminating '\0' and this is counted in len.
  */
 class SelectionText {
 public:
@@ -218,6 +218,7 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	int scrollWidth;
 	bool verticalScrollBarVisible;
 	bool endAtLastLine;
+	bool caretSticky;
 
 	Surface *pixmapLine;
 	Surface *pixmapSelMargin;
@@ -257,6 +258,7 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	int searchFlags;
 	int topLine;
 	int posTopLine;
+	int lengthForEncode;
 
 	bool needUpdateUI;
 	Position braces[2];
@@ -300,7 +302,7 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	int hsEnd;
 
 	// Wrapping support
-	enum { eWrapNone, eWrapWord } wrapState;
+	enum { eWrapNone, eWrapWord, eWrapChar } wrapState;
 	bool backgroundWrapEnabled;
 	int wrapWidth;
 	int docLineLastWrapped;
@@ -368,6 +370,7 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	void ShowCaretAtCurrentPosition();
 	void DropCaret();
 	void InvalidateCaret();
+	virtual void UpdateSystemCaret();
 
 	void NeedWrapping(int docLineStartWrapping = 0, int docLineEndWrapping = 0x7ffffff);
 	bool WrapLines(bool fullWrap, int priorityWrapLineStart);
@@ -452,6 +455,7 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	virtual void CancelModes();
 	void NewLine();
 	void CursorUpOrDown(int direction, selTypes sel=noSel);
+	void ParaUpOrDown(int direction, selTypes sel=noSel);
 	int StartEndDisplayLine(int pos, bool start);
 	virtual int KeyCommand(unsigned int iMessage);
 	virtual int KeyDefault(int /* key */, int /*modifiers*/);
@@ -514,6 +518,7 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	void GetHotSpotRange(int& hsStart, int& hsEnd);
 
 	int CodePage() const;
+	int WrapCount(int line);
 
 	virtual sptr_t DefWndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam) = 0;
 
