@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2005-04-18 15:50+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2005-04-20 19:09+0100\n"
+"Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgstr "Projektarchiv Erstellung"
 
 #: source/en/tsvn_repository/repository_create.xml:4(para)
 msgid "You can create a repository with the FSFS backend or with the old but stable Berkeley Database (BDB) format. The FSFS format is faster and it now works on network shares and Windows 98 without problems. The BDB format is more stable because it has been tested longer. Read <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05.html#svn-ch-5-sect-1.2.A\"><citetitle>Chapter 5, Repository Data-Stores</citetitle></ulink> in the SVN book for more information."
-msgstr ""
+msgstr "Sie können ein Projektarchiv im FSFS Format oder im bewährten Berkeley Database (BDB) Format erstellen. Das FSFS Format ist schneller und funktioniert auch auf Netzwerk-Freigaben ohne Probleme. Das BDB Format ist etwas älter. Nähere Informationen zu den verschiedenen Formaten können Sie im Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05.html#svn-ch-5-sect-1.2.A\"><citetitle>Chapter 5, Repository Data-Stores</citetitle></ulink> im Subversion Buch nachlesen."
 
 #: source/en/tsvn_repository/repository_create.xml:16(title)
 msgid "Creating a Repository with the Command Line Client"
@@ -119,31 +119,31 @@ msgstr "Um das lokale Projektarchiv anzusprechen benötigen Sie den den Pfad zum
 
 #: source/en/tsvn_repository/repository_create.xml:102(para)
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file:///\\ServerName/path/to/repos/</systemitem>. Note the backslash before the server name."
-msgstr ""
+msgstr "Um ein Projektarchiv auf einer Netzwerkfreigabe anzusprechen können Sie entweder die Freigabe als Laufwerk verbinden oder den UNC-Pfad benutzen. UNC-Pfade haben die Form <systemitem class=\"url\">file:///\\ServerName/path/to/repos/</systemitem>. Beachten Sie den Backslash vor dem Servernamen."
 
 #: source/en/tsvn_repository/repository_create.xml:111(para)
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
-msgstr ""
+msgstr "Erstellen Sie kein Berkeley DB Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe sein! Auch nicht wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu beginn erhalten, oder es können Monate vergehen ehe Sie feststellen dass das Projektarchiv korrupt und nicht mehr zu retten ist."
 
 #: source/en/tsvn_repository/repository_create.xml:122(para)
 msgid "If you really need to access a repository through a network share, create the repository with fsfs format. If you need to provide server access as well, you will need Subversion Server 1.1 or higher."
-msgstr ""
+msgstr "Wenn Sie dennoch ein Projektarchiv auf einer Netzwerkfreigabe haben müssen, können sie ein solches im FSFS Format nutzen. Wenn Sie ebenfalls Server-Zugang möchten, brauchen Sie Subversion 1.1 oder höher."
 
 #: source/en/tsvn_repository/repository_backup.xml:3(title)
 msgid "Repository Backup"
-msgstr ""
+msgstr "Projektarchiv Backup"
 
 #: source/en/tsvn_repository/repository_backup.xml:5(primary)
 msgid "backup"
-msgstr ""
+msgstr "Backup"
 
 #: source/en/tsvn_repository/repository_backup.xml:7(para)
 msgid "Whichever type of repository you use, it is vitally important that you maintain regular backups, and that you verify the backup. If the server fails, you may be able to access a recent version of your files, but without the repository all your history is lost forever."
-msgstr ""
+msgstr "Welches Projektarchiv-Format Sie auch immer verwenden, es ist sehr wichtig regelmässige Datensicherungen vorzunehmen und auch dass Sie die gesicherten Daten überprüfen. Wenn der Server ausfällt und das Projektarchiv korrupt ist, haben Sie zwar noch die Arbeitskopie mit der letzten Version - aber ohne ein Backup verlieren Sie die gesamte Historie des Projekts!"
 
 #: source/en/tsvn_repository/repository_backup.xml:14(para)
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
-msgstr ""
+msgstr "Der einfachste (jedoch nicht empfohlene) Weg ein Backup zu erstellen ist die Projektarchiv-Dateien einfach auf ein Backup-Medium zu kopieren. Wenn Sie dies tun, müssen Sie absolut sicher sein, dass während des Kopiervorgangs niemand auf das Projektarchiv zugreift. Das bedeutet wirklich <emphasis>jeden</emphasis> Zugriff. Auf ein Projektarchiv wird sogar dann geschrieben, wenn die eigentliche Operation nur lesend ist wie zum Beispiel eine Statusanfrage. Wird auf das Projektarchiv während des Kopiervorgangs zugegriffen (Webbrowser offen, WebSVN, Log Anzeigen, ...) dann ist die Kopie (und damit das Backup) wertlos."
 
 #: source/en/tsvn_repository/repository_backup.xml:24(para)
 msgid ""
@@ -151,10 +151,13 @@ msgid ""
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
 "</screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
 msgstr ""
+"Die empfohlene Methode ist ein <screen>\n"
+"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
+"</screen> auszuführen um eine Kopie des Projektarchivs zu erstellen. Dann können Sie diese Kopie sichern (z.B. auf Band). Die <literal>--clean-logs</literal> Option ist nicht notwendig, entfernt aber redundante (und damit nicht unbedingt notwendige) Logdateien wenn Sie das Backup erstellen und hilft somit Platz zu sparen."
 
 #: source/en/tsvn_repository/repository_backup.xml:34(para)
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
-msgstr ""
+msgstr "Das <literal>svnadmin</literal> Tool wird automatisch installiert wenn Sie den Subversion Kommandozeilen-Client installieren. Wenn Sie die Kommandozeilentools auf einem Windows-PC installieren ist es am besten, die Windows-Installerversion zu verwenden. Diese ist besser komprimiert als die <filename>zip</filename>-Version und nimmt auch alle Pfad-Einstellungen für Sie vor. Sie können die jeweils aktuellste Version hier holen: <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 
 #: source/en/tsvn_repository/repository.xml:3(title)
 #: source/en/tsvn_basics.xml:34(title)
@@ -164,7 +167,7 @@ msgstr "Das Projektarchiv"
 
 #: source/en/tsvn_repository/repository.xml:5(para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
-msgstr ""
+msgstr "Egal welches Protokoll Sie verwenden um auf das Projektarchiv zuzugreifen, Sie müssen jeweils mindestens ein Projektarchiv erstellen. Sie können dies entweder mit the Subversion Kommandozeilen-Client oder mit TortoiseSVN tun."
 
 #: source/en/tsvn_repository/repository.xml:10(para)
 msgid "If you haven't created a Subversion repository yet, it's time to do that now."
@@ -172,12 +175,12 @@ msgstr "Wenn Sie noch kein Subversion Projektarchiv erstellt haben, tun Sie dies
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:3(title)
 msgid "Getting Status Information"
-msgstr ""
+msgstr "Status Informationen anzeigen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:5(primary)
 #: source/en/tsvn_dug/dug_wcstatus.xml:134(primary)
 msgid "status"
-msgstr ""
+msgstr "Status"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:7(para)
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
@@ -190,7 +193,7 @@ msgstr "Überlagerte Icons"
 #: source/en/tsvn_dug/dug_wcstatus.xml:15(primary)
 #: source/en/tsvn_app_faq.xml:75(primary)
 msgid "overlays"
-msgstr ""
+msgstr "Überlagerte Icons"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:19(title)
 msgid "Explorer showing icon overlays"
@@ -242,7 +245,7 @@ msgstr " Dieselben Informationen, die durch die überlagerten Icons angezeigt we
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:112(para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the \"Detailed View\". Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr ""
+msgstr "Klicken Sie einfach eine der vorhandenen Spalten mit der rechten Maustaste an und wählen Sie <guimenuitem>Weitere... </guimenuitem> aus dem Kontextmenü. In diesem Dialog können Sie die Spalten festlegen, die in der Ansicht \"Details\" angezeigt werden sollen. Die Einträge, die mit SVN beginnen gehören zu TortoiseSVN. Setzen Sie den Haken vor jeden Eintrag, den Sie wünschen. Klicken Sie dann auf <guibutton>OK</guibutton>. Die Spalten werden rechts an die bestehenden angehängt. Nutzen Sie Klicken und Ziehen, um Sie an die gewünschte Position zu bekommen. "
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:124(para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
@@ -258,7 +261,7 @@ msgstr "Auf Änderungen überprüfen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:136(para)
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have. If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict."
-msgstr ""
+msgstr "Oft ist es nützlich zu wissen, welche Dateien von anderen bereits geändert und im Projektarchiv gespeichert wurden. Dazu gibt es den Befehl <menuchoice><guimenuitem>Auf Änderungen überprüfen</guimenuitem></menuchoice>. Dieser Dialog zeigt Ihnen alle Dateien, welche entweder von Ihnen lokal und/oder von anderen im Projektarchiv geändert wurden. So können Sie schon vor einer Aktualisierung feststellen, ob es eventuell Konflikte geben kann. "
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:155(para)
 msgid "From the context menu of the dialog you can show a diff of the changes or revert your local changes. TortoiseSVN automatically downloads the most recent version from the repository to do the diff."
@@ -266,11 +269,11 @@ msgstr " Aus dem Kontextmenü des Dialogs heraus können Sie die Änderungen anz
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:163(title)
 msgid "Viewing Diffs"
-msgstr ""
+msgstr "Unterschiede Anzeigen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:165(primary)
 msgid "diffing"
-msgstr ""
+msgstr "vergleichen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:167(para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
@@ -278,28 +281,28 @@ msgstr " Oft möchten Sie in einer Datei sehen, was Sie geändert haben. Das kö
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:176(para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
-msgstr ""
+msgstr "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs: Auch wenn Sie sich nicht in einer Arbeitskopie befinden oder mehrere Versionen einer Datei haben, können Sie diese vergleichen: "
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:180(para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
-msgstr ""
+msgstr "Wählen Sie die beiden Dateien aus (z.B. durch das gedrückthalten von <keycap>Strg<keycap>), die Sie vergleichen wollen und wählen Sie <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN im Kontextmenü. Die zuletzt markierte Datei (die mit dem Fokus, der gestrichelte Rahmen) wird als die aktuellere erkannt. "
 
 #: source/en/tsvn_dug/dug_update.xml:3(title)
 msgid "Update Your Working Copy With Changes From Others"
-msgstr ""
+msgstr "Aktualisieren der Arbeitskopie mit Änderungen von anderen"
 
 #: source/en/tsvn_dug/dug_update.xml:5(primary)
 #: source/en/tsvn_app_automation.xml:113(entry)
 msgid "update"
-msgstr ""
+msgstr "aktualisieren"
 
 #: source/en/tsvn_dug/dug_update.xml:9(title)
 msgid "Progress dialog showing finished update"
-msgstr ""
+msgstr "Aktualisierung fertig im Fortschritts-Dialog"
 
 #: source/en/tsvn_dug/dug_update.xml:7(para)
 msgid "<placeholder-1/> Occasionally you may want changes done by others to get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
-msgstr ""
+msgstr "<placeholder-1/> Änderungen von anderen sollten Sie regelmässig in Ihre eigene Arbeitskopie einfügen. Änderungen von anderen in die eigene Arbeitskopie einfügen wird auch <literal>Aktualisieren</literal> genannt. Sie können einzelne Dateien, mehrere Dateien, ganze Ordner oder gleich die komplette Arbeitskopie aktualisieren. Wählen Sie einfach die Dateien oder Ordner aus, welche Sie aktualisieren möchten und öffnen Sie dann das Kontext-Menu durch einen <action>Rechts-Klick</action>. Im Kontextmenu wählen Sie dann den Befehl <menuchoice><guimenuitem>Aktualisieren</guimenuitem></menuchoice> aus und eine Dialogbox wird erscheinen welche Ihnen den Fortschritt der Aktualisierung anzeigt. Änderungen von anderen werden in Ihre Arbeitskopie eingefügt, wobei Ihre eigenen Änderungen selbstverständlich beibehalten werden. Das Projektarchiv selbst wird durch eine Aktualisierung nicht verändert. "
 
 #: source/en/tsvn_dug/dug_update.xml:33(term)
 #: source/en/tsvn_dug/dug_commit.xml:102(term)
@@ -347,23 +350,23 @@ msgstr " Alle anderen Objekte."
 
 #: source/en/tsvn_dug/dug_update.xml:28(para)
 msgid "The progress dialog uses colour coding to highlight different update actions <placeholder-1/>"
-msgstr ""
+msgstr "Der Fortschrittsdialog verwendet eine Farbcodierung, um verschiedene Aktionen anzuzeigen <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_update.xml:66(para)
 msgid "If you get any <literal>conflicts</literal> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
-msgstr ""
+msgstr "Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierung erhalten (Dies kann passieren wenn jemand anders dieselbe Stelle in einer Datei geändert hat wie Sie und diese Änderungen nicht zusammenpassen) dann zeigt der Fortschritts-Dialog diese Dateien rot markiert an. Ein <action>Doppelklick</action> auf diese roten Einträge öffnet ein sogenanntes Merge-Tool, mit welchem Sie solche Konflikte ganz einfach von Hand auflösen können."
 
 #: source/en/tsvn_dug/dug_update.xml:73(para)
 msgid "TortoiseSVN also allows you to update your working copy to a specific revision, not only to the most recent one. This command is called <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens a dialog where you can enter the required revision."
-msgstr ""
+msgstr "TortoiseSVN ermöglicht es Ihnen auch, eine Arbeitskopie auf eine ganz bestimmte Revision zu aktualisieren und nicht nur immer auf die neueste Revision. Dieser Befehl heisst <menuchoice><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> und öffnet zuerst einen Dialog, wo Sie die Revisionsnummer eingeben können, auf welche die Arbeitskopie aktualisiert werden soll."
 
 #: source/en/tsvn_dug/dug_update.xml:82(para)
 msgid "If you update a file or folder to a specific revision, you will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you must either use the <menuchoice><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> command from the log dialog or the <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> menu command."
-msgstr ""
+msgstr "Wenn Sie eine Datei oder Ordner auf eine bestimmte Revision aktualisieren, werden Sie <literal>out of date</literal> Fehlermeldungen erhalten sobald Sie versuchen, diese Dateien oder Ordner zu übertragen. Wenn Sie Änderungen an Dateien rückgängig machen wollen, dann müssen Sie entweder den Befehl <menuchoice><guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem></menuchoice> im Log-Dialog oder den Befehl <menuchoice><guimenuitem>Zusammenführen...</guimenuitem></menuchoice> verwenden."
 
 #: source/en/tsvn_dug/dug_update.xml:98(para)
 msgid "The <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> command allows you to revert your working to an earlier revision. Say e.g. your working copy is at revision 100, but you want your working copy To reflect the state which it had in revision 50 - then simply update to revision 50."
-msgstr ""
+msgstr "Der Befehl <menuchoice><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> ermöglicht es Ihnen, Ihre Arbeitskopie auf einen früheren Stand zu bringen. Ist z.B. Ihre Arbeitskopie auf Revision 100, aber Sie möchten nachsehen wie das Projekt in Revision 50 ausgesehen hat so aktualisieren Sie ganz einfach die Arbeitskopie auf Revision 50."
 
 #: source/en/tsvn_dug/dug_update.xml:108(para)
 msgid "In general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
@@ -375,180 +378,180 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_update.xml:138(title)
 msgid "Multiple Files/Folders"
-msgstr ""
+msgstr "Mehrere Dateien/Ordner"
 
 #: source/en/tsvn_dug/dug_update.xml:139(para)
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
-msgstr ""
+msgstr "Wenn Sie mehrere Dateien und Ordner im Explorer auswählen und dann <menuchoice><guimenuitem>Aktualisieren...</guimenuitem></menuchoice> ausführen, so werden alle Dateien und Ordner auf dieselbe Revision aktualisiert, sogar dann wenn zwischen den einzelnen Aktualisierungen jemand anders Änderungen zum Projektarchiv übertragen hat."
 
 #: source/en/tsvn_dug/dug_update.xml:151(title)
 msgid "Local File Already Exists"
-msgstr ""
+msgstr "Lokale Datei existiert bereits"
 
 #: source/en/tsvn_dug/dug_update.xml:152(para)
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
-msgstr ""
+msgstr "Manchmal wird die Aktualisierung mit einer Fehlermeldung abbrechen welche besagt dass eine Datei mit demselben Namen bereits existiert. Dies passiert wenn Subversion eine neu versionierte Datei auschecken möchte, aber eine Datei mit demselben Namen und Pfad bereits in Ihrer Arbeitskopie vorhanden ist. Subversion wird niemals eine solche Datei überschreiben - Sie könnten dadurch ja wichtige Daten verlieren."
 
 #: source/en/tsvn_dug/dug_update.xml:161(para)
 msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
-msgstr ""
+msgstr "Wenn Sie diese Fehlermeldung erhalten ist die Lösung sehr einfach: Benennen Sie die unversionierte Datei in Ihrer Arbeitskopie um. Danach führen Sie die Aktualisierung nochmals durch."
 
 #: source/en/tsvn_dug/dug_update.xml:166(para)
 msgid "If you keep getting error messages, use <menuchoice><guimenuitem>Check for modifications</guimenuitem></menuchoice> instead to list all the problem files. That way you can deal with them all at once."
-msgstr ""
+msgstr "Wenn Sie diese Fehlermeldung immer wieder erhalten, benutzen Sie <menuchoice><guimenuitem>Auf Aktualisierungen prüfen</guimenuitem></menuchoice>, um eine Liste von allen problematischen Dateien zu erhalten. Dadurch können Sie alle Konflikte auf einmal beheben. "
 
 #: source/en/tsvn_dug/dug_showlog.xml:3(title)
 msgid "Revision Log Dialog"
-msgstr ""
+msgstr "Log Dialog"
 
 #: source/en/tsvn_dug/dug_showlog.xml:5(primary)
 #: source/en/tsvn_app_automation.xml:87(entry)
 msgid "log"
-msgstr ""
+msgstr "log"
 
 #: source/en/tsvn_dug/dug_showlog.xml:8(primary)
 msgid "history"
-msgstr ""
+msgstr "Historie"
 
 #: source/en/tsvn_dug/dug_showlog.xml:11(para)
 msgid "For every change you make and commit, you should provide a log message for that change. That way you can later find out what changes you made and why, and you have a detailed log for your development process."
-msgstr ""
+msgstr "Für jede Änderung, welche sie machen und zum Projektarchiv übertragen müssen Sie eine Log-Meldung eingeben, welche die Änderung beschreibt. Damit können Sie später herausfinden, welche Änderungen wer wann gemacht hat. Auf diese Weise haben Sie eine detaillierte Aufzeichnung über den Fortschritt Ihres Projektes. "
 
 #: source/en/tsvn_dug/dug_showlog.xml:23(para)
 msgid "The top pane shows a list of revisions where changes to the file/folder have been committed. This summary includes the date and time, the person who committed the revision and the start of the log message."
-msgstr ""
+msgstr "Der oberste Abschnitt zeigt eine liste von Revisionen in welchen Änderungen in der Datei/Ordner übertragen wurden. Diese Liste enthält Datum, Zeit und die Person welche die Übertragung gemacht hat. Ausserdem wird der erste Teil der Log-Meldung angezeigt"
 
 #: source/en/tsvn_dug/dug_showlog.xml:29(para)
 msgid "Lines shown in blue indicate that something has been copied to this development line (perhaps from a branch)."
-msgstr ""
+msgstr "Zeilen in blau zeigen an, dass etwas in dieser Revision kopiert/verschoben/umbenannt wurde (vielleicht von einem anderen Zweig). "
 
 #: source/en/tsvn_dug/dug_showlog.xml:35(para)
 msgid "The middle pane shows the full log message for the selected revision."
-msgstr ""
+msgstr "Der mittlere Teil zeigt die ganze Log-Meldung für die ausgewählte Revision an."
 
 #: source/en/tsvn_dug/dug_showlog.xml:41(para)
 msgid "The bottom pane shows a list of all files and folders that were changed as part of the selected revision."
-msgstr ""
+msgstr "Der untere Teil zeigt eine Liste von Dateien und Ordnern welche in der ausgewählten Revision verändert wurden."
 
 #: source/en/tsvn_dug/dug_showlog.xml:17(para)
 msgid "The Revision Log Dialog retrieves all those log messages and shows them to you. The display is divided into 3 panes. <placeholder-1/> But it does much more than that - it provides context menu commands which you can use to get even more information about the project history."
-msgstr ""
+msgstr "Der Log-Dialog lädt alle diese Log-Meldungen aus dem Projektarchiv und zeigt Ihnen diese, einschliesslich einer Liste der Dateien welche in jeder Übertragung verändert wurden. Die Anzeige ist in drei Teile aufgeteilt.<placeholder-1/>Aber das ist noch nicht alles - der Log-Dialog stellt auch viele Funktionen zur Verfügung mit denen Sie noch mehr und noch detailliertere Informationen über die Projektgeschichte herausfinden können."
 
 #: source/en/tsvn_dug/dug_showlog.xml:52(title)
 msgid "Invoking the Revision Log Dialog"
-msgstr ""
+msgstr "Den Log-Dialog starten"
 
 #: source/en/tsvn_dug/dug_showlog.xml:55(title)
 msgid "The Revision Log Dialog"
-msgstr ""
+msgstr "Der Log-Dialog"
 
 #: source/en/tsvn_dug/dug_showlog.xml:61(para)
 msgid "From the TortoiseSVN context submenu"
-msgstr ""
+msgstr "Aus dem TortoiseSVN Kontextmenu."
 
 #: source/en/tsvn_dug/dug_showlog.xml:66(para)
 msgid "From the property page"
-msgstr ""
+msgstr "Aus der Eigenschaftsseite"
 
 #: source/en/tsvn_dug/dug_showlog.xml:71(para)
 msgid "From the Progress dialog after an update has finished. Then the Log dialog only shows those revisions which were changed since your last update"
-msgstr ""
+msgstr "Aus dem Fortschritts-Dialog, nachdem eine Aktualisierung beendet wurde. Dann jedoch zeigt der Log-Dialog nur die Einträge, welche seit Ihrer letzten Aktualisierung gemacht wurden."
 
 #: source/en/tsvn_dug/dug_showlog.xml:53(para)
 msgid "<placeholder-1/> There are several places from where you can show the Log dialog: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Es gibt mehrere Orte, von denen Sie den Log-Dialog starten können: <placeholder-2/>"
 
 #: source/en/tsvn_dug/dug_showlog.xml:81(title)
 msgid "Getting Additional Information"
-msgstr ""
+msgstr "Zusätzliche Informationen erhalten"
 
 #: source/en/tsvn_dug/dug_showlog.xml:84(title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
-msgstr ""
+msgstr "Log-Dialog mit Kontextmenu"
 
 #: source/en/tsvn_dug/dug_showlog.xml:90(para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr ""
+msgstr "Ein Diff-Programm zu starten, um Ihnen die Änderungen zu zeigen welche seit der gewählten Revision vorgenommen worden. Das mitinstallierte Diff-Programm ist TortoiseMerge. Wurde der Log-Dialog für ein Verzeichnis aufgerufen, so wird in TortoiseMerge eine Liste der geänderten Dateien angezeigt. Aus dieser Liste können Sie einen Eintrag wählen, um die Änderungen für jede Datei einzeln nachprüfen."
 
 #: source/en/tsvn_dug/dug_showlog.xml:100(para)
 msgid "View the changes made in the selected revision as a Unified-Diff file. The Unified-Diff operation is faster than invoking the <quote>normal</quote> external diff viewer because TortoiseSVN doesn't have to fetch whole files but only the differences."
-msgstr ""
+msgstr "Ein Standard-Diff anzuzeigen, welches Ihnen die Änderungen zwischen zwei gewählten Revisionen anzeigt. Damit können Sie herausfinden, was genau sich zwischen zwei Zeitpunkten an Ihrem Projekt geändert hat. Diese Operation ist schneller als ein externes Diff-Programm, da TortoiseSVN nur die Unterschiede und keine ganzen Dateien laden muss. "
 
 #: source/en/tsvn_dug/dug_showlog.xml:110(para)
 msgid "Save the selected revision to a file so you have an older version of that file. This option is only available when you access the log for a file, and it saves a version of that one file only."
-msgstr ""
+msgstr "Die Datei zu speichern, wie sie in der gewählten Revision ausgesehen hat. Nur möglich wenn der Log-Dialog für eine einzelne Datei gezeigt wird."
 
 #: source/en/tsvn_dug/dug_showlog.xml:118(para)
 msgid "Open the repository browser to examine the selected folder. This option is only available when you access the log for a directory."
-msgstr ""
+msgstr "Den Projektarchiv Browser zu öffnen. Nur möglich wenn der Log-Dialog für ein Verzeichnis gezeigt wird."
 
 #: source/en/tsvn_dug/dug_showlog.xml:125(para)
 msgid "Create a branch/tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr ""
+msgstr "Einen Zweig oder eine Markierung für die gewählte Revision zu erstellen. Dies ist nützlich für den Fall dass sie vergessen haben eine bestimmte Version Ihres Projektes zu markieren und Sie seitdem bereits weitere Änderungen in das Projektarchiv übertragen haben."
 
 #: source/en/tsvn_dug/dug_showlog.xml:133(para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy will be inconsistent and you will be unable to commit any changes."
-msgstr ""
+msgstr "Ihre Arbeitskopie auf eine bestimmte Revision zu aktualisieren. Nützlich wenn Sie möchten dass Ihre Arbeitskopie einen Zustand in der Vergangenheit beschreibt."
 
 #: source/en/tsvn_dug/dug_showlog.xml:143(para)
 msgid "Revert changes from which were made in the selected revision. The changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only. It does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since."
-msgstr ""
+msgstr "Änderungen, welche Sie in einer bestimmten Revision gemacht haben rückgängig zu machen. Die Änderungen werden in Ihrer Arbeitskopie rückgängig gemacht, das Projektarchiv selbst bleibt unverändert. "
 
 #: source/en/tsvn_dug/dug_showlog.xml:155(para)
 msgid "Edit the log message or author attached to a previous commit. Read <xref linkend=\"tsvn-DUG-showlog-4\"/> to find out how this works."
-msgstr ""
+msgstr "Ändern der Log-Meldung oder des Authors der Übertragung. Lesen Sie <xref linkend=\tsvn-DUG-showlog-4\"/> um herauszufinden wie dies funktioniert."
 
 #: source/en/tsvn_dug/dug_showlog.xml:162(para)
 msgid "Search log messages for the text you enter. This searches the log messages that you entered and also the action summaries created by Subversion (shown in the bottom pane). The search is not case sensitive."
-msgstr ""
+msgstr "Die Log-Meldungen durchsuchen. Die von Subversion generierte Liste der geänderten Dateien wird einbezogen. Die Suche beachtet Groß-/Kleinschreibung nicht."
 
 #: source/en/tsvn_dug/dug_showlog.xml:82(para)
 msgid "<placeholder-1/> The top pane of the Log dialog has a context menu that allows you to <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Der Log Dialog hat ein Kontextmenu, welches Ihnen erlaubt:  <placeholder-2/>"
 
 #: source/en/tsvn_dug/dug_showlog.xml:173(title)
 msgid "Top Pane Context Menu for 2 Selected Files"
-msgstr ""
+msgstr "Kontextmenü der Log-Dialog-Liste für 2 ausgewählte Revisionen"
 
 #: source/en/tsvn_dug/dug_showlog.xml:181(para)
 msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. This option is only available for files, not folders."
-msgstr ""
+msgstr "Vergleiche die gewählten Revisionen in einem Diff-Programm. Das mitinstallierte Diff-Programm ist TortoiseMerge. Diesen Eintrag gibt es nur für Dateien, nicht für Verzeichnisse."
 
 #: source/en/tsvn_dug/dug_showlog.xml:189(para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
-msgstr ""
+msgstr "Ein Standard-Diff anzuzeigen, welches Ihnen die Änderungen zwischen den zwei gewählten Revisionen anzeigt. Diesen Eintrag gibt es sowohl für Dateien, wie auch für Verzeichnisse."
 
 #: source/en/tsvn_dug/dug_showlog.xml:195(para)
 msgid "Search log messages as described above."
-msgstr ""
+msgstr "Die Log-Meldungen durchsuchen. Näheres dazu siehe oben."
 
 #: source/en/tsvn_dug/dug_showlog.xml:171(para)
 msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and only gives you three options: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Wenn Sie zwei Revisionen auf einmal auswählen (mit gedrückthalten von <keycap>Strg</keycap>), können Sie im Kontextmenü aus drei Möglichkeiten wählen: <placeholder-2/>"
 
 #: source/en/tsvn_dug/dug_showlog.xml:203(title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
-msgstr ""
+msgstr "Kontextmenü der Log-Dialog-Dateiliste"
 
 #: source/en/tsvn_dug/dug_showlog.xml:209(para)
 msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <literal>Modified</literal>."
-msgstr ""
+msgstr "Änderungen der gewählten Revision in der gewählten Datei anzuzeigen. Nur für Dateien verfügbar, die als <literal>Verändert</literal> gekennzeichnet sind."
 
 #: source/en/tsvn_dug/dug_showlog.xml:216(para)
 msgid "Save the selected revision to a file so you have an older version of that file."
-msgstr ""
+msgstr "Die Datei zu speichern, wie sie in der gewählten Revision ausgesehen hat."
 
 #: source/en/tsvn_dug/dug_showlog.xml:222(para)
 msgid "View the subversion properties for the selected item."
-msgstr ""
+msgstr "Die Subversion-Eigenschaften für die ausgewählte Datei zu zeigen."
 
 #: source/en/tsvn_dug/dug_showlog.xml:201(para)
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Die Log-Dialog-Dateiliste, die Ihnen die veränderten Dateien auflistet, hat auch ein Kontextmenü, das Ihnen erlaubt: <placeholder-2/>"
 
 #: source/en/tsvn_dug/dug_showlog.xml:230(title)
 msgid "Getting all log messages"
-msgstr ""
+msgstr "Anzeigen aller Log-Meldungen"
 
 #: source/en/tsvn_dug/dug_showlog.xml:236(para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-DUG-settings\"/>),"
