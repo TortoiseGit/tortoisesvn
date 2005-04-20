@@ -550,6 +550,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (parser.HasKey(_T("rev")))
 			{
 				CUpdateDlg dlg;
+				if (pathList.GetCount()>0)
+					dlg.m_wcPath = pathList[0];
 				if (dlg.DoModal() == IDOK)
 				{
 					rev = dlg.Revision;

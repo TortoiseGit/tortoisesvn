@@ -206,6 +206,7 @@
 #define IDC_CHECKREPO                   1132
 #define IDC_SELECTOVERLAYSET            1132
 #define IDC_WCLOG                       1132
+#define IDC_LOG                         1132
 #define IDC_GRAPHCOMBO                  1133
 #define IDC_GRAPHTYPELABEL              1134
 #define IDC_COMMITSEACHWEEK             1135
@@ -309,7 +310,6 @@
 #define IDS_LOG_MESSAGE                 1207
 #define IDC_CHECKBOX                    1207
 #define IDS_LOG_REVISION                1208
-#define IDC_BUTTON2                     1208
 #define IDC_NEXTHUNDRED                 1208
 #define IDS_LOG_AUTHOR                  1209
 #define IDS_LOG_DATE                    1210

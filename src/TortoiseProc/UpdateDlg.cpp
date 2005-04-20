@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "UpdateDlg.h"
 #include "Balloon.h"
+#include "registry.h"
 
 
 // CUpdateDlg dialog
@@ -30,11 +31,14 @@ CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
 	, Revision(_T("HEAD"))
 	, m_bNonRecursive(FALSE)
 	, m_bNoExternals(FALSE)
+	, m_pLogDlg(NULL)
 {
 }
 
 CUpdateDlg::~CUpdateDlg()
 {
+	if (m_pLogDlg)
+		delete m_pLogDlg;
 }
 
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
@@ -49,6 +53,8 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CUpdateDlg, CDialog)
 	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
+	ON_BN_CLICKED(IDC_LOG, OnBnClickedShowLog)
+	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
@@ -97,4 +103,34 @@ void CUpdateDlg::OnOK()
 	UpdateData(FALSE);
 
 	CDialog::OnOK();
+}
+
+void CUpdateDlg::OnBnClickedShowLog()
+{
+	UpdateData(TRUE);
+	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+		return;
+	if (!m_wcPath.IsEmpty())
+	{
+		delete m_pLogDlg;
+		m_pLogDlg = new CLogDlg();
+		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+		int limit = (int)(LONG)reg;
+		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, 1, limit, TRUE);
+		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->ShowWindow(SW_SHOW);
+		m_pLogDlg->m_wParam = 0;
+		m_pLogDlg->m_pNotifyWindow = this;
+	}
+	AfxGetApp()->DoWaitCursor(-1);
+}
+
+LPARAM CUpdateDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
+{
+	CString temp;
+	temp.Format(_T("%ld"), lParam);
+	GetDlgItem(IDC_REVNUM)->SetWindowText(temp);
+	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+	GetDlgItem(IDC_REVNUM)->EnableWindow(TRUE);
+	return 0;
 }

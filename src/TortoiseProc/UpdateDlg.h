@@ -20,6 +20,7 @@
 
 #include "StandAloneDlg.h"
 #include "SVNRev.h"
+#include "LogDlg.h"
 
 
 /**
@@ -63,12 +64,16 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnBnClickedNewest();
 	afx_msg void OnBnClickedRevisionN();
+	afx_msg void OnBnClickedShowLog();
+	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 
 	DECLARE_MESSAGE_MAP()
 
-	CString m_sRevision;
+	CLogDlg *	m_pLogDlg;
+	CString		m_sRevision;
 public:
-	SVNRev Revision;
-	BOOL m_bNonRecursive;
-	BOOL m_bNoExternals;
+	SVNRev		Revision;
+	CTSVNPath	m_wcPath;
+	BOOL		m_bNonRecursive;
+	BOOL		m_bNoExternals;
 };
