@@ -352,6 +352,7 @@ BEGIN
     IDS_MENU_LOCKFORCE      "Steal Lock"
     IDS_COLTITLEOWNER       "SVN Lock Owner"
     IDS_COLDESCOWNER        "The user who owns the lock of the file"
+    IDS_TT_NEEDSLOCK        "svn:needs-lock\nSet this to any value (e.g. '*') to make a file readonly for all users\nto indicate that they have to aquire a lock on that file before they can edit it."
 END
 
 #endif    // English (U.S.) resources

@@ -3472,6 +3472,10 @@ msgstr ""
 msgid "svn:mime-type\nThe mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 
+#: ID:16,
+msgid "svn:needs-lock\nSet this to any value (e.g. '*') to make a file readonly for all users\nto indicate that they have to aquire a lock on that file before they can edit it."
+msgstr ""
+
 #: ID:80,
 msgid "to %s"
 msgstr ""

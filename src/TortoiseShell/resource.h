@@ -159,6 +159,7 @@
 #define IDS_MENU_LOCKFORCE              246
 #define IDS_COLTITLEOWNER               247
 #define IDS_COLDESCOWNER                248
+#define IDS_TT_NEEDSLOCK                249
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

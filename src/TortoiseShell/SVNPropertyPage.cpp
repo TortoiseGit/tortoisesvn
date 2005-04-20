@@ -182,6 +182,8 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				if (iShowProps & FILEPROPS)
 					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:keywords"));
 				if (iShowProps & FILEPROPS)
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:needs-lock"));
+				if (iShowProps & FILEPROPS)
 					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:mime-type"));
 
 				if (iShowProps & FOLDERPROPS)
@@ -299,6 +301,11 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 					if (_tcscmp(name, _T("svn:executable"))==0)
 					{
 						LoadString(g_hResInst, IDS_TT_EXECUTABLE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("svn:needs-lock"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_NEEDSLOCK, buf, MAX_PROP_STRING_LENGTH);
 						lpnmtdi->lpszText = buf;
 					}
 					if (_tcscmp(name, _T("svn:mime-type"))==0)
