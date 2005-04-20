@@ -589,7 +589,11 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	else
 	{
 		if (m_arLogMessages.GetCount()>0)
+		{
+			m_LogList.SetSelectionMark(0);
+			m_LogList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED|LVIS_FOCUSED);
 			FillLogMessageCtrl(m_arLogMessages.GetAt(0), m_arLogPaths.GetAt(0));
+		}
 		UpdateData(FALSE);
 	}
 	*pResult = 0;
