@@ -944,7 +944,7 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
 	if (m_targetPathList.GetCount() != 1)
 		return;
 	CLogDlg dlg;
-	dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_nUpdateStartRev, TRUE);
+	dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_nUpdateStartRev, 0, TRUE);
 	dlg.DoModal();
 }
 
@@ -1288,10 +1288,9 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						case ID_LOG:
 							{
 								CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-								long revend = reg;
-								revend = -revend;
+								int limit = (int)(DWORD)reg;
 								CLogDlg dlg;
-								dlg.SetParams(data->path, m_RevisionEnd, m_nUpdateStartRev, TRUE);
+								dlg.SetParams(data->path, m_RevisionEnd, 1, limit, TRUE);
 								dlg.DoModal();
 							}
 							break;

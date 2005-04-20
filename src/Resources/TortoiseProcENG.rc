@@ -566,6 +566,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,63,189,10
     CONTROL         "Omit externals",IDC_NOEXTERNALS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,77,189,10
+    PUSHBUTTON      "Show &Log",IDC_LOG,139,18,50,14
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
