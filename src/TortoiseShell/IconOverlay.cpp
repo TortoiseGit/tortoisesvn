@@ -218,13 +218,12 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&(itemStatus.m_readonly))
 				readonlyoverlay = true;
 		}
+		ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 	}
 	g_filepath.clear();
 	g_filepath = pPath;
 	g_filestatus = status;
 	g_readonlyoverlay = readonlyoverlay;
-
-	ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 
 	//the priority system of the shell doesn't seem to work as expected (or as I expected):
 	//as it seems that if one handler returns S_OK then that handler is used, no matter
