@@ -246,6 +246,25 @@
 				in practice, locking seems to inhibit productivity more than
 				anything else.
 			</para>
+			<para>
+				There is one common situation where the lock-modify-unlock
+				model comes out better, and that is where you have un-mergeable
+				files. For example if your repository contains some graphic
+				images, and two people change the image at the same time, there
+				is no way for those changes to be merged together. Either Harry
+				or Sally will lose their changes.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-ch-2-sect-2.4">
+			<title>What does Subversion Do?</title>
+			<para>
+				Subversion uses the copy-modify-merge solution by default,
+				and in many cases this is all you will ever need. However,
+				as of Version 1.2, Subversion also supports file locking,
+				so if you have unmergeable files, or if you are simply
+				forced into a locking policy by management, Subversion
+				will still provide the features you need.
+			</para>
 		</sect2>
 	</sect1>
 	<!-- How svn implements the philosophy -->
@@ -394,8 +413,8 @@
 					locations on the same server as the client - in fact, in
 					accordance with convention, the server name portion of the
 					URL is required to be either absent or <literal>localhost</literal>.
-					Take great care that the <literal>file:</literal> access method may not be
-					used to access repositories located on drives shared over the network!
+					Take great care that the <literal>file:</literal> access method is not
+					used to access BDB repositories located on drives shared over the network!
 				</para>
 				<para>
 					Also, users of the <literal>file:</literal> scheme on
