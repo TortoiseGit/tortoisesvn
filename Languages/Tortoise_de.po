@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-19 08:55+0100\n"
+"PO-Revision-Date: 2005-04-21 09:06+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3139,6 +3139,7 @@ msgstr "Zeige &Unterschiede"
 #: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
+#: Control-ID:1132
 msgid "Show &Log"
 msgstr "Zeige &Log"
 
@@ -4375,6 +4376,18 @@ msgid ""
 msgstr ""
 "svn:mime-type\n"
 "Der MIME-Typ der Datei. Verwendet, um festzustellen, ob die Datei zusammengeführt werden kann und wie sie von Apache übertragen werden soll. Ein MIME-Typ, der mit 'text/' beginnt (oder kein MIME-Typ) werden als Text behandelt.  Alles andere wird als Binärdatei behandelt."
+
+# ID:16,
+#: ID:16
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to make a file readonly for all users\n"
+"to indicate that they have to aquire a lock on that file before they can edit it."
+msgstr ""
+"svn:needs-lock\n"
+"Setzen Sie diese Eigenschaft auf einen beliebigen Wert (z.B. '*'), um eine\n"
+"Date nur-lesend zu markieren. Dies zeigt anderen Anwendern, dass Sie die\n"
+"Datei sperren müssen, bevor sie bearbeitet werden kann."
 
 #: ID:80
 msgid "to %s"
