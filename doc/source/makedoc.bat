@@ -110,10 +110,10 @@ rmdir /s /q %_HTML_TARGET% > NUL
 mkdir %_HTML_TARGET% > NUL
 
 rem First copy the default images and afterwards copy the localized images
-xcopy /y %_DOC_HOME%\images %_HTML_TARGET%images\ > NUL
+xcopy /y %_DOC_HOME%\images\en %_HTML_TARGET%images\ > NUL
 rem Skip the localized images if there are none
-if not exist %_DOC_SRC%\%_LANG%\images\*.* goto :imagecopydone
-xcopy /y %_DOC_SRC%\%_LANG%\images %_HTML_TARGET%images\ > NUL
+if not exist %_DOC_HOME%\images\%_LANG%\*.* goto :imagecopydone
+xcopy /y %_DOC_HOME%\images\%_LANG% %_HTML_TARGET%images\ > NUL
 :imagecopydone
 
 if %_PDF%==ON (
