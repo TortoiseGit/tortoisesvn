@@ -1,10 +1,19 @@
+#
+# German translation for TortoiseSVN
+# Copyright (C) 2004-2005 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
+#
+# Authors:
+# Stefan Küng steveking@tigris.org, 2004-2005
+# Lübbe Onken luebbe@tigris.org>, 2004-2005
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2005-04-20 19:09+0100\n"
-"Last-Translator: \n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: TortoiseSVN Documentation\n"
+"POT-Creation-Date: 2004-06-28 14:09+0200\n"
+"PO-Revision-Date: 2005-04-21 09:06+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -184,7 +193,7 @@ msgstr "Status"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:7(para)
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
-msgstr " Während Sie an Ihrem Projekt arbeiten müssen Sie oft wissen, welche Dateien geändert wurden, welche Sie neu hinzugefügt haben oder welche Sie gelöscht haben, oder auch welche Dateien von anderen geändert und zum Projektarchiv übertragen wurden."
+msgstr "Während Sie an Ihrem Projekt arbeiten müssen Sie oft wissen, welche Dateien geändert wurden, welche Sie neu hinzugefügt haben oder welche Sie gelöscht haben, oder auch welche Dateien von anderen geändert und zum Projektarchiv übertragen wurden."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:13(title)
 msgid "Icon Overlays"
@@ -229,7 +238,7 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:95(para)
 msgid "Unlike <application>TortoiseCVS</application> (the CVS shell integration) no overlay icon for unversioned files is shown. We do this because the number of icon overlays are limited system wide and should be used economically."
-msgstr " Anders als TortoiseCVS zeigt TortoiseSVN keine überlagerte Icons für Dateien an, welche nicht unter Versionskontrolle stehen. Wir tun dies nicht weil die Anzahl von überlagerten Icons Systemweit limitiert sind und wir nicht andere Programme dadurch blockieren wollen."
+msgstr "Anders als TortoiseCVS zeigt TortoiseSVN keine überlagerte Icons für Dateien an, welche nicht unter Versionskontrolle stehen. Wir tun dies nicht weil die Anzahl von überlagerten Icons Systemweit limitiert sind und wir nicht andere Programme dadurch blockieren wollen."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:103(title)
 msgid "TortoiseSVN Columns In Explorer"
@@ -241,7 +250,7 @@ msgstr "Explorer Spalten"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:107(para)
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Explorer's Detailed View."
-msgstr " Dieselben Informationen, die durch die überlagerten Icons angezeigt werden, können auch als zusätzliche Spalten in der Detail-Explorer-Ansicht dargestellt werden."
+msgstr "Dieselben Informationen, die durch die überlagerten Icons angezeigt werden, können auch als zusätzliche Spalten in der Detail-Explorer-Ansicht dargestellt werden."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:112(para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the \"Detailed View\". Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
@@ -249,7 +258,7 @@ msgstr "Klicken Sie einfach eine der vorhandenen Spalten mit der rechten Maustas
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:124(para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr " Wenn das aktuelle Layout in allen Arbeitskopien angezeigt werden soll, müssen Sie es als Standard-Layout festlegen."
+msgstr "Wenn das aktuelle Layout in allen Arbeitskopien angezeigt werden soll, müssen Sie es als Standard-Layout festlegen."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:132(title)
 msgid "Status Of The Repository"
@@ -265,7 +274,7 @@ msgstr "Oft ist es nützlich zu wissen, welche Dateien von anderen bereits geän
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:155(para)
 msgid "From the context menu of the dialog you can show a diff of the changes or revert your local changes. TortoiseSVN automatically downloads the most recent version from the repository to do the diff."
-msgstr " Aus dem Kontextmenü des Dialogs heraus können Sie die Änderungen anzeigen (Diff), sowohl die Änderungen die Sie lokal gemacht haben als auch die Änderungen von anderen im Projektarchiv. TortoiseSVN lädt automatisch die entsprechende Datei aus dem Projektarchiv, um Ihnen die Änderungen zeigen zu können."
+msgstr "Aus dem Kontextmenü des Dialogs heraus können Sie die Änderungen anzeigen (Diff), sowohl die Änderungen die Sie lokal gemacht haben als auch die Änderungen von anderen im Projektarchiv. TortoiseSVN lädt automatisch die entsprechende Datei aus dem Projektarchiv, um Ihnen die Änderungen zeigen zu können."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:163(title)
 msgid "Viewing Diffs"
@@ -277,7 +286,7 @@ msgstr "vergleichen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:167(para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
-msgstr " Oft möchten Sie in einer Datei sehen, was Sie geändert haben. Das können Sie durch das auswählen einer Datei und dem Kontextmenübefehl <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN. Dies startet das TortoiseMerge (oder ein externes Diff-Programm), das Ihnen die Änderungen seit dem letzten Auschecken oder Aktualisieren anzeigt."
+msgstr "Oft möchten Sie in einer Datei sehen, was Sie geändert haben. Das können Sie durch das auswählen einer Datei und dem Kontextmenübefehl <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN. Dies startet das TortoiseMerge (oder ein externes Diff-Programm), das Ihnen die Änderungen seit dem letzten Auschecken oder Aktualisieren anzeigt."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:176(para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
@@ -298,7 +307,7 @@ msgstr "aktualisieren"
 
 #: source/en/tsvn_dug/dug_update.xml:9(title)
 msgid "Progress dialog showing finished update"
-msgstr "Aktualisierung fertig im Fortschritts-Dialog"
+msgstr "Der Fortschritts-Dialog nach Abschluß der Aktualisierung"
 
 #: source/en/tsvn_dug/dug_update.xml:7(para)
 msgid "<placeholder-1/> Occasionally you may want changes done by others to get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
@@ -311,7 +320,7 @@ msgstr "Blau"
 
 #: source/en/tsvn_dug/dug_update.xml:34(listitem)
 msgid "New item added to your WC."
-msgstr " Neues Objekt zur Arbeitskopie hinzugefügt."
+msgstr "Neues Objekt zur Arbeitskopie hinzugefügt."
 
 #: source/en/tsvn_dug/dug_update.xml:39(term)
 #: source/en/tsvn_dug/dug_commit.xml:108(term)
@@ -320,7 +329,7 @@ msgstr "Dunkelrot"
 
 #: source/en/tsvn_dug/dug_update.xml:40(listitem)
 msgid "Redundant item deleted from your WC."
-msgstr " Objekt aus Arbeitskopie gelöscht."
+msgstr "Objekt aus Arbeitskopie gelöscht."
 
 #: source/en/tsvn_dug/dug_update.xml:45(term)
 msgid "Green"
@@ -328,7 +337,7 @@ msgstr "Grün"
 
 #: source/en/tsvn_dug/dug_update.xml:46(listitem)
 msgid "Changes from repository successfully merged with your local changes."
-msgstr " Änderungen aus dem Projektarchiv wurden erfolgreich mit Ihren lokalen Änderungen zusammengeführt."
+msgstr "Änderungen aus dem Projektarchiv wurden erfolgreich mit Ihren lokalen Änderungen zusammengeführt."
 
 #: source/en/tsvn_dug/dug_update.xml:52(term)
 msgid "Bright red"
@@ -336,17 +345,17 @@ msgstr "Hellrot"
 
 #: source/en/tsvn_dug/dug_update.xml:53(listitem)
 msgid "Changes from repository merged with local changes, resulting in conflicts which you need to resolve."
-msgstr " Änderungen aus dem Projektarchiv wurden mit Ihren lokalen Änderungen zusammengeführt. Es gab jedoch Konflikte, die Sie noch auflösen müssen."
+msgstr "Änderungen aus dem Projektarchiv wurden mit Ihren lokalen Änderungen zusammengeführt. Es gab jedoch Konflikte, die Sie noch auflösen müssen."
 
 #: source/en/tsvn_dug/dug_update.xml:59(term)
 #: source/en/tsvn_dug/dug_commit.xml:114(term)
 msgid "Black"
-msgstr "Scharz"
+msgstr "Schwarz"
 
 #: source/en/tsvn_dug/dug_update.xml:60(listitem)
 #: source/en/tsvn_dug/dug_commit.xml:115(listitem)
 msgid "All other items."
-msgstr " Alle anderen Objekte."
+msgstr "Alle anderen Objekte."
 
 #: source/en/tsvn_dug/dug_update.xml:28(para)
 msgid "The progress dialog uses colour coding to highlight different update actions <placeholder-1/>"
@@ -1905,7 +1914,7 @@ msgstr "Perforce WinDiff"
 
 #: source/en/tsvn_dug/dug_diff.xml:128(para)
 msgid "Perforce is a commercial RCS, but you can download the diff/merge tool for free. Download the full installer from <ulink url=\"http://www.perforce.com/perforce/loadprog.html\"><citetitle>Perforce</citetitle></ulink>."
-msgstr " Perforce ist ein kommerzielles RCS, aber Sie können das Diff- und Merge-Programm kostenlos <ulink url=\"http://www.perforce.com/perforce/loadprog.html\"><citetitle>hier</citetitle></ulink> herunterladen."
+msgstr "Perforce ist ein kommerzielles RCS, aber Sie können das Diff- und Merge-Programm kostenlos <ulink url=\"http://www.perforce.com/perforce/loadprog.html\"><citetitle>hier</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:138(term)
 msgid "KDiff3"
@@ -1913,7 +1922,7 @@ msgstr "KDiff3"
 
 #: source/en/tsvn_dug/dug_diff.xml:140(para)
 msgid "KDiff3 is a free diff tool which can also handle directories. You can download it from <ulink url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
-msgstr " KDiff3 ist ein freies Diff- und Merge-Programm, das auch Verzeichnisse vergleichen kann. Den Download finden Sie <ulink url=\"http://kdiff3.sf.net/\"><citetitle>hier</citetitle></ulink>."
+msgstr "KDiff3 ist ein freies Diff- und Merge-Programm, das auch Verzeichnisse vergleichen kann. Den Download finden Sie <ulink url=\"http://kdiff3.sf.net/\"><citetitle>hier</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:150(term)
 msgid "ExamDiff"
@@ -1921,7 +1930,7 @@ msgstr "ExamDiff"
 
 #: source/en/tsvn_dug/dug_diff.xml:152(para)
 msgid "ExamDiff Standard is freeware. It can handle files but not directories. ExamDiff Pro is shareware and adds a number of goodies including directory diff and editing capability. In both flavours, version 3.2 and above can handle unicode. You can download them from <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
-msgstr " ExamDiff Standard ist Freeware. Es kann Dateien, aber keine Verzeichnisse vergleichen. ExamDiff Pro ist Shareware und hat eine Menge an Extras einschließlich dem Vergleichen von Verzeichnissen und der Möglichkeit des Editierens. In beiden Ausführungen ab Version 3.2 ist auch Unterstützung für Unicode vorhanden. Sie können sie von <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink> herunterladen."
+msgstr "ExamDiff Standard ist Freeware. Es kann Dateien, aber keine Verzeichnisse vergleichen. ExamDiff Pro ist Shareware und hat eine Menge an Extras einschließlich dem Vergleichen von Verzeichnissen und der Möglichkeit des Editierens. In beiden Ausführungen ab Version 3.2 ist auch Unterstützung für Unicode vorhanden. Sie können sie von <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:167(term)
 msgid "Beyond Compare"
@@ -1929,7 +1938,7 @@ msgstr "Beyond Compare"
 
 #: source/en/tsvn_dug/dug_diff.xml:169(para)
 msgid "Similar to ExamDiff Pro, this is an excellent shareware diff tool which can handle directory diffs and unicode. Download it from <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink>."
-msgstr " Dies ist ähnlich wie ExamDiff Pro eine exzellente Shareware, die auch Verzeichnisse vergleichen kann und Unicode-Unterstützung besitzt. Sie können sie von <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink> herunterladen."
+msgstr "Dies ist ähnlich wie ExamDiff Pro eine exzellente Shareware, die auch Verzeichnisse vergleichen kann und Unicode-Unterstützung besitzt. Sie können sie von <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:180(term)
 msgid "SciTE"
@@ -1937,7 +1946,7 @@ msgstr "SciTE"
 
 #: source/en/tsvn_dug/dug_diff.xml:182(para)
 msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
-msgstr " Dieser Texteditor bietet farbige Syntaxhervorhebung für Standard-Diffs, was diese leichter lesbar macht. Sie können ihn <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>hier</citetitle></ulink> herunterladen."
+msgstr "Dieser Texteditor bietet farbige Syntaxhervorhebung für Standard-Diffs, was diese leichter lesbar macht. Sie können ihn <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>hier</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:192(term)
 msgid "Notepad2"
@@ -1945,7 +1954,7 @@ msgstr "Notepad2"
 
 #: source/en/tsvn_dug/dug_diff.xml:194(para)
 msgid "Notepad2 is designed as a replacement for the standard Windows Notepad program, and is based on the Scintilla open-source edit control. As well as being good for viewing unified diffs, it is much better than the Windows notepad for most jobs. Download it for free <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>here</citetitle></ulink>."
-msgstr " Notepad2 ist dazu gedacht, das normale Windows Notepad zu ersetzen und basiert auf dem Open Source Scintilla Edit Control. Außer zum Betrachten von Standard-Diffs ist es viel besser als das normale Notepad. Sie können es <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>hier</citetitle></ulink> herunterladen."
+msgstr "Notepad2 ist dazu gedacht, das normale Windows Notepad zu ersetzen und basiert auf dem Open Source Scintilla Edit Control. Außer zum Betrachten von Standard-Diffs ist es viel besser als das normale Notepad. Sie können es <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>hier</citetitle></ulink> herunterladen."
 
 #: source/en/tsvn_dug/dug_diff.xml:207(term)
 msgid "TkDiff"
@@ -1953,7 +1962,7 @@ msgstr "TkDiff"
 
 #: source/en/tsvn_dug/dug_diff.xml:209(para)
 msgid "A free diff/merge tool which uses TCL/TK. Download it <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>here</citetitle></ulink>."
-msgstr " Ein freies Diff-/Merge-Programm, das TCL/TK benutzt. Den Download finden Sie <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>hier</citetitle></ulink>."
+msgstr "Ein freies Diff-/Merge-Programm, das TCL/TK benutzt. Den Download finden Sie <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>hier</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:219(term)
 msgid "CVSConflictEditor"
@@ -1961,7 +1970,7 @@ msgstr "CVSConflictEditor"
 
 #: source/en/tsvn_dug/dug_diff.xml:221(para)
 msgid "This open source merge tool is buggy, but has potential. Download it <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>here</citetitle></ulink>."
-msgstr " Dieses Open Source Merge-Programm ist unstabil, hat aber Potential. Den Download finden Sie <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>hier</citetitle></ulink>."
+msgstr "Dieses Open Source Merge-Programm ist unstabil, hat aber Potential. Den Download finden Sie <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>hier</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:231(para)
 msgid "Read <xref linkend=\"tsvn-DUG-settings-progs\"/> for information on how to set up TortoiseSVN to use these tools."
@@ -1981,7 +1990,7 @@ msgstr "filename.ext.mine"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:30(para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
-msgstr " Dies ist die Datei, so wie Sie war bevor Sie Ihre Arbeitskopie aktualisierten. Das heisst es ist Ihre eigene Originaldatei, inklusive der Änderungen welche Sie selbst vorgenommen haben."
+msgstr "Dies ist die Datei, so wie Sie war bevor Sie Ihre Arbeitskopie aktualisierten. Das heisst es ist Ihre eigene Originaldatei, inklusive der Änderungen welche Sie selbst vorgenommen haben."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:39(term)
 msgid "filename.ext.rOLDREV"
@@ -1989,7 +1998,7 @@ msgstr "filename.ext.rOLDREV"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:41(para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
-msgstr " Dies ist die Datei wie Sie ursprünglich war, ohne jegliche Änderungen, auch ohne den Änderungen welche Sie selbst an der Datei vorgenommen haben."
+msgstr "Dies ist die Datei wie Sie ursprünglich war, ohne jegliche Änderungen, auch ohne den Änderungen welche Sie selbst an der Datei vorgenommen haben."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:50(term)
 msgid "filename.ext.rNEWREV"
@@ -1997,7 +2006,7 @@ msgstr "filename.ext.rNEWREV"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:52(para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
-msgstr " Dies ist die Datei, wie sie im Projektarchiv gerade aktuell ist, d.h. diese Datei hat die Änderungen von den anderen Mitarbeitern bereits integriert, jedoch nocht nicht die Ihren."
+msgstr "Dies ist die Datei, wie sie im Projektarchiv gerade aktuell ist, d.h. diese Datei hat die Änderungen von den anderen Mitarbeitern bereits integriert, jedoch nocht nicht die Ihren."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:7(para)
 msgid ""
@@ -2009,7 +2018,7 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-" Manchmal werden Sie einen <emphasis>Konflikt</emphasis> erhalten wenn Sie Ihre Arbeitskopie aktualisieren. Ein Konflikt tritt dann auf wenn mehrere Personen die gleiche(n) Stelle(n) in derselben Datei verändert haben. Da Subversion nichts über Ihr Projekt weiss, überlässt es solche Fälle Ihnen, den Konflikt aufzulösen. Wann immer ein Konflikt auftritt können Sie die entsprechende Datei öffnen und nach Zeilen suchen welche beginnen mit: <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Die Zeile in Konflikt ist so markiert:<screen>\n"
+"Manchmal werden Sie einen <emphasis>Konflikt</emphasis> erhalten wenn Sie Ihre Arbeitskopie aktualisieren. Ein Konflikt tritt dann auf wenn mehrere Personen die gleiche(n) Stelle(n) in derselben Datei verändert haben. Da Subversion nichts über Ihr Projekt weiss, überlässt es solche Fälle Ihnen, den Konflikt aufzulösen. Wann immer ein Konflikt auftritt können Sie die entsprechende Datei öffnen und nach Zeilen suchen welche beginnen mit: <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Die Zeile in Konflikt ist so markiert:<screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
 "    your changes\n"
 "=======\n"
@@ -2019,11 +2028,11 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_conflicts.xml:62(para)
 msgid "You can either launch an external merge tool / conflict editor with the <menuchoice><guimenuitem>Edit Conflict</guimenuitem></menuchoice> context menu or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
-msgstr " Sie können nun entweder ein Merge-Tool benutzen, welches Sie durch den Befehl <menuchoice><guimenuitem>Konflikt bearbeiten</guimenuitem></menuchoice>   aufrufen können oder Sie können die Datei mit einem normalen Texteditor ändern und den Konflikt auf diese Weise auflösen."
+msgstr "Sie können nun entweder ein Merge-Tool benutzen, welches Sie durch den Befehl <menuchoice><guimenuitem>Konflikt bearbeiten</guimenuitem></menuchoice>   aufrufen können oder Sie können die Datei mit einem normalen Texteditor ändern und den Konflikt auf diese Weise auflösen."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:72(para)
 msgid "Afterwards execute the command <menuchoice><guimenuitem>Resolved</guimenuitem></menuchoice> from the context menu and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
-msgstr " Anschliessend müssen Sie Subversion noch mitteilen, dass Sie den Konflikt aufgelöst haben. Dies geschieht mit dem Befehl <menuchoice><guimenuitem>Konflikt aufgelöst</guimenuitem></menuchoice>. Bitte beachten Sie dass dieser Befehl nicht den Konflikt selbst löst, sondern nur Subversion mitteilt dass Sie selbst den Konflikt bereits gelöst haben. Der Befehl macht nichts weiter als die drei zusätzlich erstellten Dateien<filename>filename.ext.mine</filename> und <filename>filename.ext.r*</filename>zu löschen, damit sie Ihre Änderungen in das Projektarchiv übertrage können."
+msgstr "Anschliessend müssen Sie Subversion noch mitteilen, dass Sie den Konflikt aufgelöst haben. Dies geschieht mit dem Befehl <menuchoice><guimenuitem>Konflikt aufgelöst</guimenuitem></menuchoice>. Bitte beachten Sie dass dieser Befehl nicht den Konflikt selbst löst, sondern nur Subversion mitteilt dass Sie selbst den Konflikt bereits gelöst haben. Der Befehl macht nichts weiter als die drei zusätzlich erstellten Dateien<filename>filename.ext.mine</filename> und <filename>filename.ext.r*</filename>zu löschen, damit sie Ihre Änderungen in das Projektarchiv übertrage können."
 
 #: source/en/tsvn_dug/dug_commit.xml:3(title)
 msgid "Sending Your Changes To The Repository"
