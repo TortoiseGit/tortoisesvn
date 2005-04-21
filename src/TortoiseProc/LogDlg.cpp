@@ -229,6 +229,8 @@ BOOL CLogDlg::OnInitDialog()
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
+	m_tTo = 0;
+	m_tFrom = (DWORD)-1;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
@@ -309,6 +311,8 @@ void CLogDlg::OnBnClickedGetall()
 	m_startrev = -1;
 	m_bCancelled = FALSE;
 	m_limit = 0;
+	m_tTo = 0;
+	m_tFrom = (DWORD)-1;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
@@ -452,9 +456,6 @@ UINT CLogDlg::LogThread()
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 	
-	m_tTo = 0;
-	m_tFrom = (DWORD)-1;
-
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	GetDlgItem(IDOK)->SetWindowText(temp);
