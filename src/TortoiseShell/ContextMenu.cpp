@@ -100,9 +100,12 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							{
 								SVNStatus stat;
 								stat.GetStatus(CTSVNPath(str.c_str()));
-								status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-								if ((stat.status->entry)&&(stat.status->entry->lock_owner))
-									isLocked = (stat.status->entry->lock_owner[0] != 0);
+								if (stat.status)
+								{
+									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+									if ((stat.status->entry)&&(stat.status->entry->lock_owner))
+										isLocked = (stat.status->entry->lock_owner[0] != 0);
+								}
 							}
 							catch ( ... )
 							{
@@ -154,10 +157,12 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							{
 								SVNStatus stat;
 								stat.GetStatus(CTSVNPath(strpath));
-								status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-								if ((stat.status->entry)&&(stat.status->entry->lock_owner))
-									isLocked = (stat.status->entry->lock_owner[0] != 0);
-	
+								if (stat.status)
+								{
+									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+									if ((stat.status->entry)&&(stat.status->entry->lock_owner))
+										isLocked = (stat.status->entry->lock_owner[0] != 0);
+								}	
 								statfetched = TRUE;
 							}
 							catch ( ... )
@@ -216,9 +221,12 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		{
 			SVNStatus stat;
 			stat.GetStatus(CTSVNPath(folder_.c_str()));
-			status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-			if ((stat.status->entry)&&(stat.status->entry->lock_owner))
-				isLocked = (stat.status->entry->lock_owner[0] != 0);
+			if (stat.status)
+			{
+				status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+				if ((stat.status->entry)&&(stat.status->entry->lock_owner))
+					isLocked = (stat.status->entry->lock_owner[0] != 0);
+			}
 		}
 		catch ( ... )
 		{
@@ -244,9 +252,12 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			{
 				SVNStatus stat;
 				stat.GetStatus(CTSVNPath(folder_.c_str()));
-				status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-				if ((stat.status->entry)&&(stat.status->entry->lock_owner))
-					isLocked = (stat.status->entry->lock_owner[0] != 0);
+				if (stat.status)
+				{
+					status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+					if ((stat.status->entry)&&(stat.status->entry->lock_owner))
+						isLocked = (stat.status->entry->lock_owner[0] != 0);
+				}
 			}
 			catch ( ... )
 			{
