@@ -3473,7 +3473,7 @@ msgid "svn:mime-type\nThe mimetype of the file. Used to determine whether to mer
 msgstr ""
 
 #: ID:16,
-msgid "svn:needs-lock\nSet this to any value (e.g. '*') to make a file readonly for all users\nto indicate that they have to aquire a lock on that file before they can edit it."
+msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
 msgstr ""
 
 #: ID:80,
