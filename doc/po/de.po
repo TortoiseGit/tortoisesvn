@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-21 09:06+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2005-04-21 21:41+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2585,64 +2585,64 @@ msgstr ""
 
 #: source/en/tsvn_preface.xml:11(para)
 msgid "Do you work in a team?"
-msgstr ""
+msgstr "Arbeiten Sie in einem Team?"
 
 #: source/en/tsvn_preface.xml:14(para)
 msgid "Has it ever happened to you that you were working on a file, and someone else was working on the same file? Did you lose your changes to that file 'cause of that?"
-msgstr ""
+msgstr "Ist es Ihnen jemals passiert, dass Sie an einer Datei Änderungen vorgenommen haben und jemand anders dieselbe Datei verändert hat?Haben Sie dadurch Ihre eigenen Änderungen oder die des anderen verloren?"
 
 #: source/en/tsvn_preface.xml:22(para)
 msgid "Have you ever saved a file, and then wanted to revert the changes you made? Have you ever wished you could see what a file looked like some time ago?"
-msgstr ""
+msgstr "Haben Sie jemals eine Datei abgespeichert und dann später Ihre Änderungen wieder rückgängig machen wollen? Haben Sie sich jemals gewünscht, Sie könnten nachsehen, wie eine Datei zu einem früheren Zeitpunkt ausgesehen hat?"
 
 #: source/en/tsvn_preface.xml:29(para)
 msgid "Have you ever found a bug in your project and wanted to know when that bug got into your files?"
-msgstr ""
+msgstr "Haben Sie jemals einen Fehler in Ihrem Projekt gefunden und wollten wissen, wann und durch wen dieser Fehler in das Projekt geraten ist?"
 
 #: source/en/tsvn_preface.xml:36(para)
 msgid "If you answered one of the above questions with yes, then TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help you in your work. It's not that difficult."
-msgstr ""
+msgstr "Falls Sie eine der obigen Fragen mit Ja beantwortet haben, dann ist TortoiseSVN das richtige für Sie!Lesen Sie weiter und finden Sie heraus, wie TortoiseSVN Ihnen bei Ihrer Arbeit helfen kann. Es ist nicht schwierig.		"
 
 #: source/en/tsvn_preface.xml:46(title)
 msgid "Audience"
-msgstr ""
+msgstr "Zielgruppe"
 
 #: source/en/tsvn_preface.xml:47(para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr ""
+msgstr "Dieses Buch ist für Computerbenutzer geschrieben, welche Subversion für die Handhabung ihrer Daten nutzen wollen, aber den Umgang mit der Kommandozeile nicht gewohnt sind.Da TortoiseSVN eine Windows Shell-Erweiterung ist, wird angenommen, dass der Leser den Umgang mit dem Explorer gewohnt ist und weiss, wie man diesen benutzt."
 
 #: source/en/tsvn_preface.xml:54(para)
 msgid "Even most Subversion users will never have to set up a server themselves. A whole chapter deals with how to set up such a server."
-msgstr ""
+msgstr "Obwohl wohl die allermeisten Subversion-Nutzer nie einen Server installieren müssen, widmet sich ein ganzes Kapitel diesem Thema."
 
 #: source/en/tsvn_preface.xml:58(para)
 msgid "If you run into problems installing or working with TortoiseSVN, check <xref linkend=\"tsvn-faq\"/> at the end of this manual. If your question is not answered there, search our online FAQ at <ulink url=\"http://tortoisesvn.berlios.de/faq/\"><citetitle>Berlios.de</citetitle></ulink>, nachschlagen which contains more information and is - due to its nature - more up to date."
-msgstr ""
+msgstr "Falls Sie ein bei der Installation oder der Arbeit mit TortoiseSVN  auf Probleme stoßen, schauen Sie bitte zunächst in <xref linkend=\"tsvn-faq\"/> am Ende dieses Handbuchs. Sollte Ihre Frage dort nicht beantwortet werden, können Sie in unserer online FAQ auf<ulink url=\"http://tortoisesvn.berlios.de/faq/\"><citetitle>Berlios.de</citetitle></ulink>nachschlagen, die weitere FAQ Einträge enthält und - da online - aktueller ist."
 
 #: source/en/tsvn_preface.xml:72(title)
 msgid "TortoiseSVN is free!"
-msgstr ""
+msgstr "TortoiseSVN ist frei!"
 
 #: source/en/tsvn_preface.xml:73(para)
 msgid "TortoiseSVN is free. You don't have to pay for it, you can use it any way you want. It is developed under the GP license (GPL)."
-msgstr ""
+msgstr "TortoiseSVN ist gratis. Sie brauchen nichts dafür zu bezahlen, Sie können das Programm benutzen wie Sie wollen. TortoiseSVN wird unter der GP Lizenz (GPL) entwickelt."
 
 #: source/en/tsvn_preface.xml:77(para)
 msgid "TortoiseSVN is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>. The most recent version (where we're working on) is located under <emphasis><filename>/trunk/</filename></emphasis>, the released versions are located under <emphasis><filename>/tags/</filename></emphasis>."
-msgstr ""
+msgstr "TortoiseSVN ist ein Open Source Projekt. Das bedeutet, Sie haben Zugang zum Sourcecode des Programms. Sie können den Sourcecode unter folgendem Link:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
 
 #: source/en/tsvn_preface.xml:98(title)
 msgid "Community"
-msgstr ""
+msgstr "Gemeinschaft"
 
 #: source/en/tsvn_preface.xml:99(para)
 msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world and joined together to create wonderful programs."
-msgstr ""
+msgstr "Sowohl TortoiseSVN als auch Subversion werden von verschiedenen Gruppen von Leuten entwickelt. Diese Leute kommen aus vielen verschiedenen Ländern der Welt und haben sich zusammengefunden, um diese tollen Programme weiterzuentwickeln."
 
 #: source/en/tsvn_preface.xml:110(title)
 #: source/en/tme_ch00.xml:64(title)
 msgid "Acknowledgments"
-msgstr ""
+msgstr "Danksagung"
 
 #: source/en/tsvn_preface.xml:113(term)
 msgid "Tim Kemp"
@@ -2650,7 +2650,7 @@ msgstr "Tim Kemp"
 
 #: source/en/tsvn_preface.xml:115(para)
 msgid "for founding the TortoiseSVN project"
-msgstr ""
+msgstr "für die Gründung des TortoiseSVN Projekts"
 
 #: source/en/tsvn_preface.xml:121(term)
 #: source/en/tme_ch00.xml:68(term)
@@ -2659,7 +2659,7 @@ msgstr "Stefan Küng"
 
 #: source/en/tsvn_preface.xml:123(para)
 msgid "for the hard work to get TortoiseSVN to what it is now"
-msgstr ""
+msgstr "für die harte Arbeit an TortoiseSVN und die Programmierarbeit"
 
 #: source/en/tsvn_preface.xml:129(term)
 #: source/en/tme_ch00.xml:78(term)
@@ -2669,75 +2669,75 @@ msgstr "Lübbe Onken"
 #: source/en/tsvn_preface.xml:131(para)
 #: source/en/tme_ch00.xml:82(para)
 msgid "for the beautiful icons, logo, bughunting and taking care of the documentation"
-msgstr ""
+msgstr "für die wundervollen Icons, das Logo, die unermüdliche Fehlersuche und die Dokumentation"
 
 #: source/en/tsvn_preface.xml:138(term)
 msgid "The Subversion Book"
-msgstr ""
+msgstr "Das Subversion Buch"
 
 #: source/en/tsvn_preface.xml:140(para)
 msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
-msgstr ""
+msgstr "für die grossartige Einführung in Subversion und das Kapitel 2, das wir hier kopiert haben."
 
 #: source/en/tsvn_preface.xml:147(term)
 #: source/en/tme_ch00.xml:89(term)
 msgid "The Tigris Style project"
-msgstr ""
+msgstr "Das Tigris Style Project"
 
 #: source/en/tsvn_preface.xml:149(para)
 #: source/en/tme_ch00.xml:93(para)
 msgid "for some of the styles which are reused in this documentation"
-msgstr ""
+msgstr "für einige der Stile, welche für diese Dokumentation verwendet wurden."
 
 #: source/en/tsvn_preface.xml:155(term)
 #: source/en/tme_ch00.xml:100(term)
 msgid "Our Contributors"
-msgstr ""
+msgstr "Unsere Spender"
 
 #: source/en/tsvn_preface.xml:157(para)
 #: source/en/tme_ch00.xml:104(para)
 msgid "for many hours of joy with the music they sent us"
-msgstr ""
+msgstr "für viele Stunden voll toller Musik, welche sie uns geschenkt haben."
 
 #: source/en/tsvn_preface.xml:168(title)
 msgid "Terminology used in this document"
-msgstr ""
+msgstr "In diesem Dokument verwendete Terminologie"
 
 #: source/en/tsvn_preface.xml:169(para)
 msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
-msgstr ""
+msgstr "Um das Lesen der Dokumentation einfacher zu gestalten, sind die Namen aller Masken und Menüs von TortoiseSVN in einer anderen Schrift hervorgehoben. Der <guilabel>Log Dialog</guilabel> zum Beispiel."
 
 #: source/en/tsvn_preface.xml:174(para)
 msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
-msgstr ""
+msgstr "Eine Menüauswahl wird durch einen Pfeil angedeutet.<menuchoice>				<guimenu>TortoiseSVN</guimenu><guimenuitem>Zeige Log</guimenuitem>			</menuchoice> bedeutet: Wählen Sie <emphasis>Zeige Log</emphasis> aus dem    <emphasis>TortoiseSVN</emphasis> Kontextmenü."
 
 #: source/en/tsvn_preface.xml:183(para)
 msgid "User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton> to continue."
-msgstr ""
+msgstr "Schaltflächen weden durch einen 3D Effekt hervorgehoben: Drücken Sie    <guibutton>OK</guibutton>, um weiterzumachen."
 
 #: source/en/tsvn_preface.xml:187(para)
 msgid "User Actions are indicated using a bold font. <action>ALT+A</action>: press the <keycap>ALT</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
-msgstr ""
+msgstr "Benutzeraktionen werden durch Fettdruck hervorgehoben.<action>ALT+A</action>: Drücken Sie die    <keycap>ALT</keycap>-Taste und während Sie diese gedrückt halten, die    <keycap>A</keycap>-Taste dazu. <action>Rechts-Ziehen</action>: Halten Sie die rechte Maustaste gedrückt und    <emphasis>ziehen</emphasis> Sie die gewählten Einträge an den neuen Ort."
 
 #: source/en/tsvn_preface.xml:195(para)
 msgid "System output and keyboard input is indicated with a <literal>different</literal> font as well."
-msgstr ""
+msgstr "Systemausgaben und Tastatureingaben werden durch einen <literal>anderen</literal>    Zeichensatz hervorgehoben."
 
 #: source/en/tsvn_preface.xml:200(para)
 msgid "Important notes are marked with an icon."
-msgstr ""
+msgstr "Wichtige Hinweise im Dokument."
 
 #: source/en/tsvn_preface.xml:205(para)
 msgid "Tips that make your life easier."
-msgstr ""
+msgstr "Tips, die Ihre Arbeit mit Subversion erleichtern."
 
 #: source/en/tsvn_preface.xml:210(para)
 msgid "Places where you have to be careful what you are doing."
-msgstr ""
+msgstr "Stellen, an denen Sie vorsichtig sein müssen, was sie tun."
 
 #: source/en/tsvn_preface.xml:215(para)
 msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
-msgstr ""
+msgstr "Stellen, an denen extreme Vorsicht geboten ist. Nichtbeachtung dieser Warnungen kann zu irreparablen Datenverlusten führen."
 
 #: source/en/tsvn_introduction.xml:3(title)
 #: source/en/tme_ch01.xml:3(title)
