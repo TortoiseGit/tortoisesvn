@@ -79,7 +79,7 @@ class docbookXmlMode:
 
     def getCommentForTranslators(self):
         """Returns a comment to be added next to string for crediting translators."""
-        return """Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2."""
+        return """Put one translator per line, in the form of NAME <EMAIL>."""
 
     def _find_articleinfo(self, node):
         if node.name == 'articleinfo' or node.name == 'bookinfo':
@@ -145,7 +145,7 @@ class docbookXmlMode:
     def postProcessXmlTranslation(self, doc, language, translators):
         """Sets a language and translators in "doc" tree.
         
-        "translators" is a string consisted of "Name <email>, years" pairs
+        "translators" is a string consisted of "Name <email>" pairs
         of each translator, separated by newlines."""
 
         root = doc.getRootElement()
@@ -166,19 +166,20 @@ class docbookXmlMode:
                 return
 
             # Now, lets do one translator at a time
+            transgroup = libxml2.newNode("authorgroup")
             lines = translators.split("\n")
             for line in lines:
                 line = line.strip()
-                match = re.match(r"^([^<,]+)\s*(?:<([^>,]+)>)?,\s*(.*)$", line)
+                match = re.match(r"^([^<,]+)\s*(?:<([^>,]+)>)?$", line)
                 if match:
                     last = self._find_lastcopyright(ai)
-                    copy = libxml2.newNode("copyright")
+                    copy = libxml2.newNode("othercredit")
                     if last:
                         copy = last.addNextSibling(copy)
                     else:
-                        ai.addChild(copy)
-                    if match.group(3):
-                        copy.newChild(None, "year", match.group(3))
+                        transgroup.addChild(copy)
+                        ai.addChild(transgroup)
+                    copy.newChild(None, "contrib", "translation")
                     if match.group(1) and match.group(2):
                         holder = match.group(1)+"(%s)" % match.group(2)
                     elif match.group(1):
@@ -187,7 +188,7 @@ class docbookXmlMode:
                         holder = match.group(2)
                     else:
                         holder = "???"
-                    copy.newChild(None, "holder", holder)
+                    copy.newChild(None, "othername", holder)
 
 # Perform some tests when ran standalone
 if __name__ == '__main__':
