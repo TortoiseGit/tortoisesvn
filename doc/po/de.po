@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-22 10:26+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2005-04-22 12:28+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -417,7 +417,7 @@ msgstr "Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierun
 #: source/en/tsvn_dug/dug_update.xml:73
 #: (para)
 msgid "TortoiseSVN also allows you to update your working copy to a specific revision, not only to the most recent one. This command is called <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens a dialog where you can enter the required revision. In that dialog, you can also decide if you only want to update the current folder (without all the subfolder) and/or if you want to ignore the external projects in the update."
-msgstr "TortoiseSVN ermöglicht es Ihnen auch, eine Arbeitskopie auf eine ganz bestimmte Revision zu aktualisieren und nicht nur immer auf die neueste Revision. Dieser Befehl heisst <menuchoice><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> und öffnet zuerst einen Dialog, wo Sie die Revisionsnummer eingeben können, auf welche die Arbeitskopie aktualisiert werden soll. Sie können ebenfalls angeben, ob Sie nur den aktuellen Ordner aktualisieren wollen (ohne alle Unterordner) und/oder ob Sie die externen Projekte ignorieren möchten."
+msgstr "TortoiseSVN ermöglicht es Ihnen auch, eine Arbeitskopie auf eine ganz bestimmte Revision zu aktualisieren und nicht nur immer auf die neueste Revision. Dieser Befehl heisst <menuchoice><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> und öffnet zuerst einen Dialog, in dem Sie die Revisionsnummer eingeben können, auf welche die Arbeitskopie aktualisiert werden soll."
 
 #: source/en/tsvn_dug/dug_update.xml:85
 #: (para)
@@ -3160,7 +3160,7 @@ msgstr ""
 #: (title)
 #: source/en/tme_ch00.xml:3
 msgid "Preface"
-msgstr ""
+msgstr "Vorwort"
 
 #: source/en/tsvn_preface.xml:11
 #: (para)
@@ -3170,7 +3170,7 @@ msgstr "Arbeiten Sie in einem Team?"
 #: source/en/tsvn_preface.xml:16
 #: (para)
 msgid "Has it ever happened that you were working on a file, and someone else was working on the same file at the same time? Did you lose your changes to that file because of that?"
-msgstr "Ist es Ihnen jemals passiert, dass Sie an einer Datei Änderungen vorgenommen haben und jemand anders dieselbe Datei verändert hat?Haben Sie Ihre eigenen Änderungen an der Datei deswegen verloren?"
+msgstr "Ist es Ihnen jemals passiert, dass Sie an einer Datei Änderungen vorgenommen haben und jemand anders dieselbe Datei verändert hat? Haben Sie dadurch Ihre eigenen Änderungen oder die des anderen verloren?"
 
 #: source/en/tsvn_preface.xml:23
 #: (para)
@@ -3185,7 +3185,7 @@ msgstr "Haben Sie jemals einen Fehler in Ihrem Projekt gefunden und wollten wiss
 #: source/en/tsvn_preface.xml:37
 #: (para)
 msgid "If you answered <quote>yes</quote> to one of these questions, then TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help you in your work. It's not that difficult."
-msgstr "Falls Sie eine der obigen Fragen mit <quote>Ja</quote> beantwortet haben, dann ist TortoiseSVN das richtige für Sie!Lesen Sie weiter und finden Sie heraus, wie TortoiseSVN Ihnen bei Ihrer Arbeit helfen kann. Es ist nicht schwierig.		"
+msgstr "Falls Sie eine der obigen Fragen mit <quote>Ja</quote> beantwortet haben, dann ist TortoiseSVN das richtige für Sie! Lesen Sie weiter und finden Sie heraus, wie TortoiseSVN Ihnen bei Ihrer Arbeit helfen kann. Es ist nicht schwierig."
 
 #: source/en/tsvn_preface.xml:47
 #: (title)
@@ -3205,7 +3205,7 @@ msgstr "Obwohl wohl die allermeisten Subversion-Nutzer nie einen Server installi
 #: source/en/tsvn_preface.xml:59
 #: (para)
 msgid "If you run into problems installing or working with TortoiseSVN, check <xref linkend=\"tsvn-faq\"/> at the end of this manual. If your question is not answered there, search our online FAQ at <ulink url=\"http://tortoisesvn.berlios.de/faq/\"><citetitle>Berlios.de</citetitle></ulink>, which contains more information and is - due to its nature - more up to date."
-msgstr "Falls Sie ein bei der Installation oder der Arbeit mit TortoiseSVN  auf Probleme stoßen, schauen Sie bitte zunächst in <xref linkend=\"tsvn-faq\"/> am Ende dieses Handbuchs. Sollte Ihre Frage dort nicht beantwortet werden, können Sie in unserer online FAQ auf<ulink url=\"http://tortoisesvn.berlios.de/faq/\"><citetitle>Berlios.de</citetitle></ulink>nachschlagen, die weitere FAQ Einträge enthält und - da online - aktueller ist."
+msgstr "Falls Sie bei der Installation oder der Arbeit mit TortoiseSVN auf Probleme stoßen, schauen Sie bitte zunächst in <xref linkend=\"tsvn-faq\"/> am Ende dieses Handbuchs. Sollte Ihre Frage dort nicht beantwortet werden, können Sie in unserer online FAQ auf <ulink url=\"http://tortoisesvn.berlios.de/faq/\"><citetitle>Berlios.de</citetitle></ulink> nachschlagen, die weitere Einträge enthält und - da online - aktueller ist."
 
 #: source/en/tsvn_preface.xml:73
 #: (title)
@@ -3369,12 +3369,12 @@ msgstr "Stellen, an denen extreme Vorsicht geboten ist. Nichtbeachtung dieser Wa
 #: (title)
 #: source/en/tme_ch01.xml:3
 msgid "Introduction"
-msgstr ""
+msgstr "Einleitung"
 
 #: source/en/tsvn_introduction.xml:5
 #: (para)
 msgid "<indexterm><primary>version control</primary></indexterm> Version control is the art of managing changes to information. It has long been a critical tool for programmers, who typically spend their time making small changes to software and then undoing those changes the next day. Imagine a team of these programmers working concurrently - and perhaps even simultaneously at the very same files! - and you can see why a good system is needed to manage the potential chaos."
-msgstr ""
+msgstr "<indexterm><primary>Versionskontrolle</primary></indexterm> Versionskontrolle ist die Kunst, die Kontrolle über Änderungen an Informationen zu behalten. Es ist seit langer Zeit ein unverzichtbares Hilfsmittel für Programmierer, welche ihre Zeit damit verbringen, jeweils kleine Änderungen an Software vorzunehmen und dann manchmal diese Änderungen am nächsten Tag zurücknehmen. Stellen Sie sich ein Team von solchen Programmierern vor, welche gleichzeitig an demselben Projekt - und dabei unter Umständen auch noch gleichzeitig an denselben Dateien! - arbeiten und Sie können sehen, warum ein gutes Versionskontrollsystem notwendig ist, um ein mögliches Chaos zu verhindern."
 
 #: source/en/tsvn_introduction.xml:22
 #: (title)
@@ -3384,57 +3384,58 @@ msgstr "Was ist TortoiseSVN?"
 #: source/en/tsvn_introduction.xml:23
 #: (para)
 msgid "TortoiseSVN is a free open-source client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
-msgstr ""
+msgstr "TortoiseSVN ist ein freies Opensource Programm für das Subversion Versionskontrollsystem. Das heisst, TortoiseSVN verwaltet Dateien und Ordner über die Zeit. Dateien werden in einem zentralen Projektarchiv gespeichert. Das Projektarchiv entspricht einem normalen Dateiserver, mit der Besonderheit, dass sämtliche Änderungen protokolliert werden. Dies erlaubt es, ältere Versionen von Dateien zurückzuholen und Änderungen über die Zeit zu verfolgen. Aus diesem Grund sehen viele Leute Subversion als eine Art <quote>Zeitmaschine</quote> an."
 
 #: source/en/tsvn_introduction.xml:35
 #: (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
-msgstr ""
+msgstr "<indexterm><primary>SCM</primary></indexterm>Einige Versionskontrollsysteme sind zugleich Programmkonfigurations-Managementsysteme (Software Configuration Management Systems, SCM). Diese Systeme sind speziell dazu ausgelegt, Sourcecode zu handhaben und haben viele Funktionen, welche spezifisch\tfür die Softwareentwicklung sind - so verstehen diese etwa verschiedene Programmiersprachen oder stellen Hilfsmittel für die Erstellung von Programmen zur Verfügung. Subversion hingegen ist kein solches System; es ist allgemein gehalten, so dass es für die Handhabung von <emphasis>irgendwelchen</emphasis> Dateien geeignet st, einschliesslich Sourcecode selbstverständlich."
 
 #: source/en/tsvn_introduction.xml:51
 #: (title)
 msgid "TortoiseSVN's History"
-msgstr "TortoiseSVN's Geschichte"
+msgstr "Geschichte von TortoiseSVN"
 
 #: source/en/tsvn_introduction.xml:52
 #: (para)
 msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
-msgstr ""
+msgstr "Tim Kemp fand im Jahr 2002, dass Subversion ein sehr gutes\t\tVersionskontrollsystem sei, aber es fehle eine gute grafische\t\tOberfläche dazu. Die Idee einer Windows Shell-Integration wurde\t\tinspiriert von dem Windows-Programm TortoiseCVS für das ältere CVS\t\tVersionskontrollsystem."
 
 #: source/en/tsvn_introduction.xml:58
 #: (para)
 msgid "Tim studied the sourcecode of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain tortoisesvn.org and put the sourcecode online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
-msgstr ""
+msgstr "Tim studierte den Sourcecode von TortoiseCVS und benutzte diesen als\t\tBasis für TortoiseSVN. Er startete dann das Projekt, registrierte die\t\tDomäne <systemitem class=\"url\">tortoisesvn.org</systemitem> und stellte\t\tden Sourcecode online zur Verfügung. Während dieser Zeit suchte Stefan\t\tKüng nach einem guten Versionskontrollsystem und fand Subversion und\t\tden Sourcecode von TortoiseSVN. Da TortoiseSVN noch nicht für den\t\tnormalen Gebrauch nutzbar war, fing er an, TortoiseSVN weiterzuentwickeln.\t\tSchon bald hatte er den grössten Teil des Programmcodes neu geschrieben\t\tund fügte Funktionen und Befehle hinzu bis zu einem Punkt, wo von dem\t\tursprünglichen Code nichts mehr übrig war."
 
 #: source/en/tsvn_introduction.xml:69
 #: (para)
+#, fuzzy
 msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The userbase grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website."
-msgstr ""
+msgstr "Während Subversion immer stabiler wurde, zog es immer mehr Benutzer an, welche auch TortoiseSVN als ihren Subversion Client verwenden. Die Benutzerzahl wuchs schnell (und wächst täglich weiter). Zu diese Zeit bot Lübbe Onken an, beim Design zu helfen und kreierte die Icons und das Logo für TortoiseSVN. Er kümmert sich seitdem auch um die Webseite und das Übersetzungsmanagement."
 
 #: source/en/tsvn_introduction.xml:81
 #: (title)
 msgid "TortoiseSVN's Features"
-msgstr "Die Features von TortoiseSVN"
+msgstr "Eigenschaften von TortoiseSVN"
 
 #: source/en/tsvn_introduction.xml:82
 #: (para)
 msgid "What makes TortoiseSVN such a good Subversion client? Here's a short list of features."
-msgstr ""
+msgstr "Was macht TortoiseSVN zu einem guten Subversion Client? Hier eine Liste der herausragenden Eigenschaften:"
 
 #: source/en/tsvn_introduction.xml:88
 #: (term)
 msgid "Shell integration"
-msgstr ""
+msgstr "Shell Integration"
 
 #: source/en/tsvn_introduction.xml:90
 #: (para)
 msgid "<indexterm><primary>Windows shell</primary></indexterm><indexterm><primary>explorer</primary></indexterm> TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
-msgstr ""
+msgstr "<indexterm> <primary>Windows Shell</primary> </indexterm> <indexterm> <primary>Explorer</primary> </indexterm> TortoiseSVN fügt sich nahtlos in die Windows Shell (den Explorer) ein. Das heisst, Sie können weiter mit den gewohnten Programmen arbeiten und müssen sich nicht an ein neues Programm gewöhnen. Und brauchen auch nicht jedesmal erst in ein anderes Programm zu wechseln, wenn Sie Funktionen der Versionskontrolle tbenötigen!"
 
 #: source/en/tsvn_introduction.xml:103
 #: (para)
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr ""
+msgstr "Und dabei sind Sie nicht einmal gezwungen, den Windows Explorer zu benutzen. Auch in anderen Dateimanagern stehen Ihnen prinzipiell das Kontextmenu und die anderen Funktionen von TortoiseSVN jederzeit zur Verfügung. Wobei allerdings zu beachten ist, dass TortoiseSVN speziell als Erweiterung des Windows Explorers entwickelt wird. Daher kann es sein, dass in anderen Programmen die Integration nicht vollständig ist und beispielsweise die überlagerten Icons nicht angezeigt werden."
 
 #: source/en/tsvn_introduction.xml:117
 #: (term)
@@ -3444,42 +3445,42 @@ msgstr "Überlagerte Icons"
 #: source/en/tsvn_introduction.xml:119
 #: (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
-msgstr ""
+msgstr "Der Status von jeder Datei unter Versionskontrolle wird durch ein kleines überlagerndes Icon angezeigt. Auf diese Weise können Sie sofort den Zustand Ihrer Arbeitskopie erkennen."
 
 #: source/en/tsvn_introduction.xml:127
 #: (term)
 msgid "Easy access to Subversion commands"
-msgstr ""
+msgstr "Einfacher Zugriff auf Subversion-Befehle"
 
 #: source/en/tsvn_introduction.xml:129
 #: (para)
 msgid "All Subversion commands are available from the explorer context menu. TortoiseSVN adds its own submenu there."
-msgstr ""
+msgstr "Alle Befehle von Subversion sind über das Kontextmenu des Explorers zugänglich; TortoiseSVN fügt dort ein eigenes Untermenu ein."
 
 #: source/en/tsvn_introduction.xml:136
 #: (para)
 msgid "Since TortoiseSVN is a Subversion client, we would also like to show you some of the features of Subversion itself:"
-msgstr ""
+msgstr "Da TortoiseSVN ein Subversion Client ist, möchten wir auch ein paar Features von Subversion selbst erwähnen:"
 
 #: source/en/tsvn_introduction.xml:142
 #: (term)
 msgid "Directory versioning"
-msgstr "versionierte Ordner"
+msgstr "Versionierung von Verzeichnissen"
 
 #: source/en/tsvn_introduction.xml:144
 #: (para)
 msgid "CVS only tracks the history of individual files, but Subversion implements a <quote>virtual</quote> versioned filesystem that tracks changes to whole directory trees over time. Files <emphasis>and</emphasis> directories are versioned. As a result, there are real client-side <command>move</command> and <command>copy</command> commands that operate on files and directories."
-msgstr ""
+msgstr "CVS speichert nur die Geschichte von einzelnen Dateien, aber Subversion  implementiert ein <quote>virtuelles</quote> kontrolliertes Dateisystem, welches auch Änderungen an Ordnern über die Zeit speichert. Dateien <emphasis>und</emphasis> Ordner werden kontrolliert. Daher gibt es Befehle, um Dateien/Ordner zu <command>verschieben</command>. Und der <command>Kopiere...</command> Befehl arbeitet mit Dateien <emphasis>und</emphasis> Ordnern."
 
 #: source/en/tsvn_introduction.xml:157
 #: (term)
 msgid "Atomic commits"
-msgstr "nicht unterbrechbare Übertragungen"
+msgstr "Atomare Übertragungen"
 
 #: source/en/tsvn_introduction.xml:159
 #: (para)
 msgid "A commit either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks."
-msgstr ""
+msgstr "Eine Übertragung von Änderungen geht entweder komplett in das Projektarchiv oder gar nicht. Das erlaubt Entwicklern, Änderungen als zusammenhängende logische Einheit zu übertragen."
 
 #: source/en/tsvn_introduction.xml:167
 #: (term)
@@ -3489,17 +3490,17 @@ msgstr "Versionierte Metadaten"
 #: source/en/tsvn_introduction.xml:169
 #: (para)
 msgid "Each file and directory has an invisible set of <quote>properties</quote> attached. You can invent and store any arbitrary key/value pairs you wish. Properties are versioned over time, just like file contents."
-msgstr ""
+msgstr "Jede Datei und jeder Ordner hat einen unsichtbaren Satz von <quote>Eigenschaften</quote> angehängt. Sie können selbst neue Eigenschaften definieren und jede Art von Schlüssel/Wertepaare speichern. Änderungen an Eigenschaften werden versioniert, genauso wie der normale Dateiinhalt."
 
 #: source/en/tsvn_introduction.xml:179
 #: (term)
 msgid "Choice of network layers"
-msgstr ""
+msgstr "Auswahl an Netzwerkschichten"
 
 #: source/en/tsvn_introduction.xml:181
 #: (para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
-msgstr ""
+msgstr "Subversion hat einen abstrakten Begriff des Zugriffs auf das Projektarchiv,\t\tder es einfach macht, neue Netzwerkschichten zu implementieren.\t\t\t\tSubversions fortgeschrittenster Netzwerkserver ist ein Modul\t\t\t\tfür den Apache Webserver, welcher eine Variante von HTTP genannt\t\t\tWebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil an\t\t\t\tStabilität und Interoperabilität, und stellt verschiedene\t\t\t\tSchlüsselfunktionen gratis zur Verfügung: Authentifizierung,\t\t\t\tAuthorisierung, Netzwerkdatenkompression, Verschlüsselung via\t\t\t\tSSL und das Betrachten des Projektarchivs in einem Internetbrowser zum Beispiel.\tEin kleinerer Subversion Server ist ebenfalls vorhanden. Dieser\t\t\t\tServer nutzt ein eigenes Netzwerkprotokoll, welches über SSH\t\t\t\tgetunnelt werden kann."
 
 #: source/en/tsvn_introduction.xml:198
 #: (term)
@@ -3509,58 +3510,58 @@ msgstr "Konsistente Datenhaltung"
 #: source/en/tsvn_introduction.xml:200
 #: (para)
 msgid "Subversion expresses file differences using a binary differencing algorithm, which works identically on both text (human-readable) and binary (human-unreadable) files. Both types of files are stored equally compressed in the repository, and differences are transmitted in both directions across the network."
-msgstr ""
+msgstr "Subversion drückt Dateiunterschiede mit Hilfe eines binären Differenzalgorithmus aus, welcher identisch für Text- und Binärdateien arbeitet. Beide Dateiarten werden gleich komprimiert im Projektarchiv abgespeichert, und jeweils nur diese Differenz wird in beiden Richtungen übers Netzwerk übertragen."
 
 #: source/en/tsvn_introduction.xml:211
 #: (term)
 msgid "Efficient branching and tagging"
-msgstr ""
+msgstr "Effizientes Verzweigen und Markieren"
 
 #: source/en/tsvn_introduction.xml:213
 #: (para)
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
-msgstr ""
+msgstr "Die Kosten für Verzweigen und Markieren müssen nicht proportional zur Projektgrösse sein. Subversion erstellt Verzweigungen und Markierungen durch einfaches Kopieren des Projektes. Dabei wird ein Mechanismus ähnlich dem eines Links verwendet. Diese Operationen benötigen deshalb nur wenig Zeit und Speicherplatz."
 
 #: source/en/tsvn_introduction.xml:224
 #: (term)
 msgid "Hackability"
-msgstr ""
+msgstr "Wartbarkeit"
 
 #: source/en/tsvn_introduction.xml:226
 #: (para)
 msgid "Subversion has no historical baggage; it is implemented as a collection of shared C libraries with well-defined APIs. This makes Subversion extremely maintainable and usable by other applications and languages."
-msgstr ""
+msgstr "Subversion hat keine Altlasten; es ist als Sammlung von C-Bibliotheken mit gut definierten API's implementiert. Dies macht Subversion extrem gut wartbar und durch andere Programme und Programmiersprachen nutzbar."
 
 #: source/en/tsvn_introduction.xml:240
 #: (title)
 msgid "Installing TortoiseSVN"
-msgstr "TortoiseSVN installieren"
+msgstr "Installation von TortoiseSVN"
 
 #: source/en/tsvn_introduction.xml:243
 #: (primary)
 #: source/en/tsvn_app_faq.xml:22
 msgid "install"
-msgstr ""
+msgstr "Installation"
 
 #: source/en/tsvn_introduction.xml:245
 #: (title)
 msgid "System requirements"
-msgstr ""
+msgstr "Systemanforderungen"
 
 #: source/en/tsvn_introduction.xml:246
 #: (para)
 msgid "TortoiseSVN runs on Win2k SP2, WinXP or higher."
-msgstr ""
+msgstr "TortoiseSVN läuft unter Win2k SP2, WinXP oder höher."
 
 #: source/en/tsvn_introduction.xml:251
 #: (title)
 msgid "Installation"
-msgstr ""
+msgstr "Installation"
 
 #: source/en/tsvn_introduction.xml:252
 #: (para)
 msgid "TortoiseSVN comes with an easy to use installer. Doubleclick on the installer file and follow the instructions. The installer will take care of the rest. Make sure to select the <literal>Install for all users</literal> option, unless you <emphasis>really</emphasis> want to restrict its use to the current user only."
-msgstr ""
+msgstr "TortoiseSVN wird mit einem einfach zu benutzenden Installationsprogramm geliefert. Doppelklicken Sie auf das Installationsprogramm und folgen Sie den Anweisungen. Das Installationsprogramm kümmert sich um den Rest. Sie sollten auch die Option <literal>Für alle Benutzer installieren</literal> aktivieren, ausser Sie möchten TortoiseSVN wirklich nur für den aktuellen Benutzer installieren."
 
 #: source/en/tsvn_introduction.xml:280
 #: (citetitle)
@@ -3570,7 +3571,7 @@ msgstr "http://lingucomponent.openoffice.org/spell_dic.html"
 #: source/en/tsvn_introduction.xml:260
 #: (para)
 msgid "<indexterm><primary>spellchecker</primary></indexterm> If you want to use a spell checker for your log messages then you have to download the required dictionaries yourself. You can use the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> use. You can find the required dictionary files in various places: <placeholder-1/> You can also use the dictionaries which get installed with Mozilla. They're located in the installation folder of Mozilla."
-msgstr ""
+msgstr "<indexterm> <primary>Rechtschreibkorrektur</primary> </indexterm> Wenn Sie eine Rechtschreibkorrektur für die Eingabe der Log-Meldungen möchten, müssen Sie die entsprechenden Wörterbücher selbst herunterladen. Sie können dieselben Wörterbuch-Dateien wie <ulink url=\"http://openoffice.org\"> <citetitle>OpenOffice</citetitle> </ulink> und <ulink url=\"http://mozilla.org\"> <citetitle>Mozilla</citetitle> </ulink> nutzen. Sie finden solche Wörterbücher an verschiedenen Orten: <placeholder-1/> Sie können auch die Wörterbücher verwenden die Mozilla selbst installiert. Diese finden Sie im Installationsverzeichnis von Mozilla."
 
 #: source/en/tsvn_introduction.xml:295
 #: (para)
@@ -3585,12 +3586,12 @@ msgstr "en_US.dic"
 #: source/en/tsvn_introduction.xml:288
 #: (para)
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\dic</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr ""
+msgstr "Wenn Sie die Wörterbücher haben, müssen Sie diese möglicherweise erst umbenennen so dass die Dateinamen nur die Länderabkürzungen aufweisen. Zum Beispiel: <placeholder-1/> Danach kopieren Sie diese Dateien einfach im Installationsverzeichnis von TortoiseSVN in das Unterverzeichnis <literal>dic</literal>, das Sie eventuell vorher noch anlegen müssen <filename>C:\\Programme\\TortoiseSVN\\dic</filename>. Wenn Sie TortoiseSVN das nächste Mal starten, ist die Rechtschreibkorrektur bereit."
 
 #: source/en/tsvn_introduction.xml:314
 #: (para)
 msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
-msgstr ""
+msgstr "Falls Sie irgendwelche Probleme während oder nach der Installation von TortoiseSVN haben sollten, sehen Sie bitte zunächst im Kapitel <xref linkend=\"tsvn-faq\"/> nach."
 
 #: source/en/tsvn_basics.xml:6
 #: (title)
@@ -6029,5 +6030,7 @@ msgstr ""
 #: source/en/Pubdate.xml:0
 #: (None)
 msgid "translator-credits"
-msgstr "Stefan Küng <steveking@tigris.org>, 2004, 2005Lübbe Onken <luebbe@tigris.org>, 2004, 2005"
+msgstr ""
+"Stefan Küng <steveking@tigris.org>, 2004-2005\n"
+"Lübbe Onken <luebbe@tigris.org>, 2004-2005"
 
