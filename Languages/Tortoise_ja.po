@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-12 16:16+0900\n"
+"PO-Revision-Date: 2005-04-22 21:26+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -153,6 +153,10 @@ msgstr ""
 "TortoiseMerge はディレクトリの差分を取ることはできません。"
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge について(&A) ..."
 
@@ -234,6 +238,11 @@ msgstr "編集(&E) ..."
 msgid "&Enable Proxy Server"
 msgstr "プロキシサーバを有効にする(&E)"
 
+# Control-ID:1031,
+#: MenuEntry
+msgid "&Exit"
+msgstr "終了(&E)"
+
 # Control-ID:1092,
 #: Control-ID:1092
 msgid "&External"
@@ -276,7 +285,6 @@ msgstr "最新のリビジョン(&H)"
 # MenuEntry#:
 # Control-ID:9,#:
 # Control-ID:57670,
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
@@ -321,6 +329,11 @@ msgstr "ネットワークドライブ(&N)"
 #: Control-ID:65535
 msgid "&New "
 msgstr "新規(&N)"
+
+# Control-ID:1208,
+#: Control-ID:1208
+msgid "&Next 100"
+msgstr "次の 100 (&N)"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -543,6 +556,7 @@ msgstr "- %d"
 # Control-ID:1104,
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -796,7 +810,7 @@ msgstr "追加中"
 # ID:9,
 #: ID:9
 msgid "Adds file(s) to Subversion control"
-msgstr "ファイルをサブバージョン管理に追加"
+msgstr "ファイルをバージョン管理に追加"
 
 # ID:13,
 #: ID:13
@@ -966,6 +980,15 @@ msgstr "リビジョンデータを解析 ..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Unified-Diff 形式のファイルを作業用コピーに適用"
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"全てのファイル／フォルダに対して、再帰的に属性を適用する。\n"
+"bugtraq: と tsvn: 属性はフォルダに対してのみ適用されます。"
+
 # ID:13,
 #: ID:13
 msgid "Apply Patch..."
@@ -1007,6 +1030,11 @@ msgstr "作者"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "作者:                        Stefan Kueng"
+
+# ID:76,
+#: ID:116
+msgid "Authors"
+msgstr "作者"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1078,35 +1106,20 @@ msgstr "ファイルのそれぞれの行に注釈履歴をつける"
 msgid "Br&owse..."
 msgstr "参照(&O) ..."
 
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "分岐／タグ"
-
 # ID:115,
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "分岐／タグの生成が正常に終了しました！"
 
-# Control-ID:1073,
-#: Control-ID:1182
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr "サーバー上で直接ブランチ／タグを実行（HEAD リビジョン）"
-
-# ID:113,
-#: Control-ID:1185
-msgid "Branch/Tag from the revision:"
-msgstr "リビジョンから分岐／タグを作成:"
-
-# ID:79,
-#: Control-ID:1183
-msgid "Branch/Tag the working copy"
-msgstr "作業用コピーに対しブランチ／タグを実行"
-
 # ID:9,
 #: ID:9
 msgid "Branch/Tag..."
 msgstr "分岐／タグ ..."
+
+# ID:16,
+#: ID:16
+msgid "Break Lock"
+msgstr "ロックを解除する"
 
 # Control-ID:1009,
 #: Control-ID:1009
@@ -1183,6 +1196,11 @@ msgstr "注釈履歴をキャンセル中 ..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "キャンセル処理中 ..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Cascaded Context Menu"
+msgstr "コンテキストメニューを重ねる"
 
 # ID:82,
 #: ID:82
@@ -1448,11 +1466,6 @@ msgstr "衝突"
 msgid "Conflicts: %d"
 msgstr "衝突: %d"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "コンテキストメニュー"
-
 # ID:73,
 #: ID:73
 msgid "Continue"
@@ -1477,6 +1490,11 @@ msgstr "コピー"
 #: ID:126
 msgid "Copied remotely"
 msgstr "リモート操作によるコピー"
+
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "コピー（分岐／タグ）"
 
 # ID:76,
 #: ID:76
@@ -1636,8 +1654,13 @@ msgstr "リポジトリを作成"
 
 # ID:8,
 #: ID:8
-msgid "Create Repository here"
-msgstr "ここにリポジトリを作成"
+msgid "Create Repository here..."
+msgstr "ここにリポジトリを作成 ..."
+
+# ID:113,
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr "サーバー上でコピーを作成:"
 
 # ID:126,
 #: ID:126
@@ -1811,11 +1834,13 @@ msgstr "このメッセージを再び表示しない"
 # ID:76,
 #: ID:76
 msgid ""
-"Do you really want to revert all changes\n"
+"Do you really want to revert all changes to\n"
+"%s\n"
 "which were made in this revision?"
 msgstr ""
-"このリビジョンに対して行われた全ての変更を\n"
-"本当に元に戻していいんですか？"
+"このリビジョンで行われた、\n"
+"%s\n"
+"に対する全ての変更を元に戻してもよろしいですか？"
 
 # ID:76,
 #: ID:76
@@ -1894,6 +1919,16 @@ msgstr "拡張子に対応したマージプログラムを編集"
 msgid "Edit Log Message"
 msgstr "ログメッセージを編集"
 
+# ID:76,
+#: ID:115
+msgid "Edit author name"
+msgstr "作者名を編集"
+
+# Dlg-ID:135,
+#: ID:115
+msgid "Edit log message"
+msgstr "ログメッセージを編集"
+
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -1925,6 +1960,11 @@ msgstr "ログメッセージを入力:"
 #: ID:80
 msgid "Enter URL"
 msgstr "URLを入力"
+
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr "ロックメッセージを入力（オプション）:"
 
 # ID:3603,
 #: ID:3603
@@ -2001,6 +2041,7 @@ msgstr "リポジトリからSVN管理フォルダを除いたクリーンな作
 
 # ID:74,
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "拡張子"
 
@@ -2114,6 +2155,11 @@ msgid "For Help, press F1"
 msgstr "ヘルプを表示するには、F1を押す"
 
 # Control-ID:65535,
+#: Control-ID:1200
+msgid "From:"
+msgstr "元:"
+
+# Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "元: （開始URLとマージするリビジョンの範囲）"
@@ -2137,6 +2183,11 @@ msgstr "一般"
 #: ID:144
 msgid "Generating Patchfile..."
 msgstr "パッチファイルを作成中 ..."
+
+# ID:16,
+#: ID:16
+msgid "Get Lock"
+msgstr "ロックを取得"
 
 # ID:119,
 #: ID:119
@@ -2207,9 +2258,9 @@ msgid "H&ead Revision"
 msgstr "最新のリビジョン(&E)"
 
 # ID:12,
-#: ID:238
-msgid "Head revision of the repository is: %d"
-msgstr "リポジトリの最新のリビジョンは %d"
+#: Control-ID:1182
+msgid "HEAD revision in the repository"
+msgstr "リポジトリ内で最新のリビジョン"
 
 # Control-ID:1004,#:
 # ID:12,
@@ -2276,6 +2327,11 @@ msgid ""
 msgstr ""
 "チェックすると、TortoiseSVN はファイル名を最終コミット日に設定します。\n"
 "チェックしなければ、TortoiseSVN は現在の日時を使用します。"
+
+# ID:251,
+#: ID:251
+msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgstr "もしロックを解除したいなら、\"変更をチェック\" ダイアログを利用してください。"
 
 # ID:73,
 #: ID:73
@@ -2418,16 +2474,23 @@ msgstr ""
 # ID:145,
 #: ID:145
 msgid ""
-"It's not possible to rename a file just in case!\n"
-"Please read our docs on how to work around this Subversion limitation."
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"万一に備えて、名前を変更することはできません！\n"
-"このサブバージョンの制限について、どのように動作しているかを本を見て確認してください。"
+"ファイル名の大文字と小文字のみを変更することはできません。\n"
+"例えば、MyFile.txt を MYFILE.txt にすることはできません。\n"
+"この制限に関してはドキュメントを調べてください。"
 
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
 msgstr "ロード時に最初の相違点へ移動する"
+
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "ロックを保持"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2485,6 +2548,37 @@ msgid ""
 "repository URL will be saved to."
 msgstr "リポジトリURLの内容を保存する先。"
 
+# ID:221,
+#: ID:221
+msgid "Lock"
+msgstr "ロック"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "ロック作成日:"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:263
+msgid "Lock failed"
+msgstr "ロックに失敗"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "ロック所持者:"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "%s がロックしています"
+
+# ID:16,
+#: ID:16
+msgid "Locks files for other users and makes it editable by you."
+msgstr "他のユーザに対してファイルをロックし、自分が編集可能にする。"
+
 # ID:126,
 #: ID:126
 msgid "Log"
@@ -2509,6 +2603,16 @@ msgstr "ログメッセージ"
 #: Dlg-ID:106
 msgid "Look and Feel"
 msgstr "外観"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "開始リビジョン: %ld - 最終リビジョン: %ld"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "開始リビジョン: %ld - 最終リビジョン: %ld - 最新リビジョン: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -2569,6 +2673,16 @@ msgstr "マージ中"
 #: ID:76
 msgid "Message"
 msgstr "メッセージ"
+
+# ID:76,
+#: ID:116
+msgid "Messages"
+msgstr "メッセージ"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr "メッセージ、作者、パス"
 
 # ID:78,
 #: ID:78
@@ -2637,6 +2751,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Native Filesystem (FSFS)"
+
+# ID:195,
+#: ID:195
+msgid "Needs Lock"
+msgstr "ロックを要求"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -2766,14 +2885,15 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:13,
+#: Control-ID:1202
+msgid "Omit externals"
+msgstr "外部を除外する"
+
 # ID:219,
 #: ID:219
 msgid "One or more files are in a conflicted state."
 msgstr "１つ以上のファイルが衝突の状態にあります。"
-
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "片方向の差分のみ表示(&D)"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -2829,6 +2949,11 @@ msgstr "オンラインのリポジトリを調整するためにリポジトリ
 msgid "Out of memory."
 msgstr "メモリ不足です。"
 
+# ID:207,
+#: ID:207
+msgid "Owner"
+msgstr "所持者"
+
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -2850,9 +2975,9 @@ msgid "Password:"
 msgstr "パスワード:"
 
 # Dlg-ID:158,
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
-msgstr "変更されたファイル名を貼付"
+#: ID:172
+msgid "Paste filename list"
+msgstr "ファイル名のリストを貼付"
 
 # ID:376,
 #: ID:376
@@ -2868,6 +2993,11 @@ msgstr "パッチファイル (*.diff;*.patch)|*.diff;*.patch|全てのファイ
 # ID:77,
 #: ID:77
 msgid "Path"
+msgstr "パス"
+
+# ID:77,
+#: ID:116
+msgid "Paths"
 msgstr "パス"
 
 # ID:157,
@@ -3102,6 +3232,21 @@ msgstr "最新の情報に更新"
 msgid "Reject"
 msgstr "拒否"
 
+# ID:16,
+#: ID:16
+msgid "Release Lock"
+msgstr "ロックを開放"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "ロックの保持者でなくてもロックを開放（解除）する。"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "他のユーザが再び編集できるようにファイルのロックを開放する。"
+
 #: MenuEntry
 msgid "Reload"
 msgstr "再読み込み"
@@ -3268,10 +3413,14 @@ msgstr "再試行"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:175,
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "元に戻す"
+
+# ID:77,
+#: ID:8
+msgid "Revert..."
+msgstr "元に戻す ..."
 
 # ID:8,#:
 # ID:73,#:
@@ -3375,6 +3524,11 @@ msgstr "SVN エクスポート中 ..."
 #: ID:77
 msgid "SVN Import..."
 msgstr "SVN インポート中 ..."
+
+# ID:16,
+#: ID:16
+msgid "SVN Lock Owner"
+msgstr "SVN ロック所持者"
 
 # ID:78,
 #: ID:78
@@ -3668,6 +3822,7 @@ msgstr "差分を表示(&D)"
 #: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
+#: Control-ID:1132
 msgid "Show &Log"
 msgstr "ログを表示(&L)"
 
@@ -3783,6 +3938,11 @@ msgstr "スキップ"
 msgid "Skipped missing target"
 msgstr "ターゲットが見つからないのでスキップします"
 
+# Control-ID:1185,
+#: Control-ID:1185
+msgid "Specific revision in repository"
+msgstr "リポジトリ内で特定のリビジョン"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -3828,6 +3988,16 @@ msgstr "状態"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "SVNの項目の状態"
+
+# ID:16,
+#: ID:16
+msgid "Steal Lock"
+msgstr "ロックを奪う"
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "ロックを奪う"
 
 # Control-ID:1130,
 #: Control-ID:1130
@@ -3957,11 +4127,13 @@ msgstr "テキストの状態:"
 msgid ""
 "The File\n"
 "%s\n"
-"is not a valid text file!"
+"is not a valid text file!\n"
+"Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
 "ファイル\n"
 "%s\n"
-"は有効なテキストファイルではありません！"
+"は有効なテキストファイルではありません！\n"
+"注意：UTF16 と UTF32 のファイルはバイナリ扱いになります。"
 
 # ID:80,
 #: ID:80
@@ -4002,6 +4174,17 @@ msgstr "ファイル %s はパッチファイル内で見つかりませんで�
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "ファイルが大きすぎて開けません。"
+
+# ID:145,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
+"次のファイルもしくはフォルダはローカルで変更されています。\n"
+"%s\n"
+"このファイルを移動してもよろしいですか？"
 
 # ID:80,
 #: ID:80
@@ -4130,6 +4313,11 @@ msgstr ""
 "ターゲットフォルダは空ではありません！\n"
 "本当にそのフォルダにチェックアウト／エクスポートしてもよろしいですか？"
 
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr "ファイルのロックを所持しているユーザ"
+
 # ID:81,
 #: ID:81
 msgid ""
@@ -4229,6 +4417,11 @@ msgstr "3つのファイルの差分"
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "変更を見る場合は、上のファイルをダブルクリック。"
+
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr "先:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4334,6 +4527,10 @@ msgstr "TortoiseSVN を調整"
 msgid "Two File Diff"
 msgstr "2つのファイルの差分"
 
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "両方向の差分(&D)"
+
 # Dlg-ID:164,
 #: Dlg-ID:164
 msgid "URL"
@@ -4434,6 +4631,24 @@ msgstr ""
 "未知の証明書です。\n"
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:221
+msgid "Unlock"
+msgstr "ロック解除"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:264
+msgid "Unlock failed"
+msgstr "ロック解除に失敗"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:263
+msgid "Unlocked"
+msgstr "ロック解除"
 
 # ID:3841,#:
 # ID:3841,
@@ -4647,6 +4862,11 @@ msgstr "空白の相違"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "空白を表示"
+
+# ID:151,
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "作業用 Copy"
 
 # ID:80,
 #: ID:80
@@ -5036,6 +5256,21 @@ msgid ""
 msgstr ""
 "svn:mime-type\n"
 "ファイルのMIMEタイプ。どのようにファイルをマージするかを決定する際に用い、Apache からどのように送り出すかを決める。'text/' （もしくは何も設定しない場合）で始まるMIMEタイプの場合はテキストとして扱われる。そのほかは全てバイナリとして扱われる。"
+
+# ID:16,
+#: ID:16
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr ""
+"svn:needs-lock\n"
+"このファイルをロックするために、任意の値 (例えば '*') を設定する。\n"
+"ファイルはチェックアウトや更新を行ったときに読み取り専用になり、\n"
+"ファイルを編集する場合やコミットする場合には、\n"
+"ユーザはロックを取得しなくてはならなくなります。"
 
 # ID:80,
 #: ID:80
