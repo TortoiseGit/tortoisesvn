@@ -368,9 +368,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			case ID_POPSHOWLOG:
 				{
 					CLogDlg dlg;
-					long revend = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-					revend = -revend;
-					dlg.SetParams(CTSVNPath(url), GetRevision(), revend, FALSE);
+					int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+					dlg.SetParams(CTSVNPath(url), GetRevision(), 1, limit, FALSE);
 					dlg.m_ProjectProperties = m_ProjectProperties;
 					dlg.DoModal();
 				}
