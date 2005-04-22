@@ -8,6 +8,7 @@ rem Try to check, whether these vars are already set
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
 cd source\en
+del Pubdate.xml
 FOR %%V In (*.xml) Do Set CHAPTERS=!CHAPTERS! source/en/%%V
 cd tsvn_dug
 FOR %%V In (*.xml) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_dug/%%V
