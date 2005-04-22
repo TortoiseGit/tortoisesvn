@@ -9,11 +9,11 @@ if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
 cd source\en
 del Pubdate.xml
-FOR %%V In (*.xml) Do Set CHAPTERS=!CHAPTERS! source/en/%%V
+FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) DO Set CHAPTERS=!CHAPTERS! source/en/%%V
 cd tsvn_dug
-FOR %%V In (*.xml) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_dug/%%V
+FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_dug/%%V
 cd ..\tsvn_repository
-FOR %%V In (*.xml) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_repository/%%V
+FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_repository/%%V
 cd ..\..\..
 
 xml2po.py -o po/doc.pot !CHAPTERS!

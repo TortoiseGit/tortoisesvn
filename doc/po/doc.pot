@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-04-22 11:55Westeuropäische Sommerzeit\n"
+"POT-Creation-Date: 2005-04-22 13:50Westeuropäische Sommerzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -242,7 +242,7 @@ msgid "Progress dialog showing finished update"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_update.xml:7(para) 
-msgid "<placeholder-1/> Occasionally you may want changes done by others to get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
+msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_update.xml:33(term) source/en/tsvn_dug/dug_commit.xml:102(term) 
@@ -293,43 +293,39 @@ msgstr ""
 msgid "If you get any <literal>conflicts</literal> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:73(para) 
-msgid "TortoiseSVN also allows you to update your working copy to a specific revision, not only to the most recent one. This command is called <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens a dialog where you can enter the required revision. In that dialog, you can also decide if you only want to update the current folder (without all the subfolder) and/or if you want to ignore the external projects in the update."
+#: source/en/tsvn_dug/dug_update.xml:74(para) 
+msgid "TortoiseSVN also allows you to update your working copy to a specific revision, not only to the most recent one. This command is called <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens a dialog where you can enter the required revision. Say e.g. your working copy is at revision 100, but you want your working copy to reflect the state which it had in revision 50 - then simply update to revision 50. In that dialog, you can also decide if you only want to update the current folder only (without all the subfolders) and/or if you want to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:85(para) 
-msgid "If you update a file or folder to a specific revision, you will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you must either use the <menuchoice><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> command from the log dialog or the <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> menu command."
+#: source/en/tsvn_dug/dug_update.xml:90(para) 
+msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you should use one of the following commands instead. The <menuchoice><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> command from the log dialog will undo only those changes made in the selected revision. Changes made after that revision will be retained. For reverting multiple revisions, you should use the <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> menu command, where you can specify the range of revisions you want to undo."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:101(para) 
-msgid "The <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> command allows you to revert your working to an earlier revision. Say e.g. your working copy is at revision 100, but you want your working copy To reflect the state which it had in revision 50 - then simply update to revision 50."
+#: source/en/tsvn_dug/dug_update.xml:109(para) 
+msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:111(para) 
-msgid "In general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_update.xml:124(title) 
+#: source/en/tsvn_dug/dug_update.xml:127(title) 
 msgid "Multiple Files/Folders"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:125(para) 
+#: source/en/tsvn_dug/dug_update.xml:128(para) 
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:137(title) 
+#: source/en/tsvn_dug/dug_update.xml:140(title) 
 msgid "Local File Already Exists"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:138(para) 
+#: source/en/tsvn_dug/dug_update.xml:141(para) 
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:147(para) 
+#: source/en/tsvn_dug/dug_update.xml:150(para) 
 msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:152(para) 
+#: source/en/tsvn_dug/dug_update.xml:155(para) 
 msgid "If you keep getting error messages, use <menuchoice><guimenuitem>Check for modifications</guimenuitem></menuchoice> instead to list all the problem files. That way you can deal with them all at once."
 msgstr ""
 
@@ -2565,150 +2561,150 @@ msgid "Tim studied the sourcecode of TortoiseCVS and used it as a base for Torto
 msgstr ""
 
 #: source/en/tsvn_introduction.xml:69(para) 
-msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The userbase grew quickly (and is still growing every day). That's when LÃ¼bbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website."
+msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The userbase grew quickly (and is still growing every day). That's when LÃ¼bbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:81(title) 
+#: source/en/tsvn_introduction.xml:82(title) 
 msgid "TortoiseSVN's Features"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:82(para) 
+#: source/en/tsvn_introduction.xml:83(para) 
 msgid "What makes TortoiseSVN such a good Subversion client? Here's a short list of features."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:88(term) 
+#: source/en/tsvn_introduction.xml:89(term) 
 msgid "Shell integration"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:90(para) 
+#: source/en/tsvn_introduction.xml:91(para) 
 msgid "<indexterm><primary>Windows shell</primary></indexterm><indexterm><primary>explorer</primary></indexterm> TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:103(para) 
+#: source/en/tsvn_introduction.xml:104(para) 
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:117(term) 
+#: source/en/tsvn_introduction.xml:118(term) 
 msgid "Icon overlays"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:119(para) 
+#: source/en/tsvn_introduction.xml:120(para) 
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:127(term) 
+#: source/en/tsvn_introduction.xml:128(term) 
 msgid "Easy access to Subversion commands"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:129(para) 
+#: source/en/tsvn_introduction.xml:130(para) 
 msgid "All Subversion commands are available from the explorer context menu. TortoiseSVN adds its own submenu there."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:136(para) 
+#: source/en/tsvn_introduction.xml:137(para) 
 msgid "Since TortoiseSVN is a Subversion client, we would also like to show you some of the features of Subversion itself:"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:142(term) 
+#: source/en/tsvn_introduction.xml:143(term) 
 msgid "Directory versioning"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:144(para) 
+#: source/en/tsvn_introduction.xml:145(para) 
 msgid "CVS only tracks the history of individual files, but Subversion implements a <quote>virtual</quote> versioned filesystem that tracks changes to whole directory trees over time. Files <emphasis>and</emphasis> directories are versioned. As a result, there are real client-side <command>move</command> and <command>copy</command> commands that operate on files and directories."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:157(term) 
+#: source/en/tsvn_introduction.xml:158(term) 
 msgid "Atomic commits"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:159(para) 
+#: source/en/tsvn_introduction.xml:160(para) 
 msgid "A commit either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:167(term) 
+#: source/en/tsvn_introduction.xml:168(term) 
 msgid "Versioned metadata"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:169(para) 
+#: source/en/tsvn_introduction.xml:170(para) 
 msgid "Each file and directory has an invisible set of <quote>properties</quote> attached. You can invent and store any arbitrary key/value pairs you wish. Properties are versioned over time, just like file contents."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:179(term) 
+#: source/en/tsvn_introduction.xml:180(term) 
 msgid "Choice of network layers"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:181(para) 
+#: source/en/tsvn_introduction.xml:182(para) 
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:198(term) 
+#: source/en/tsvn_introduction.xml:199(term) 
 msgid "Consistent data handling"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:200(para) 
+#: source/en/tsvn_introduction.xml:201(para) 
 msgid "Subversion expresses file differences using a binary differencing algorithm, which works identically on both text (human-readable) and binary (human-unreadable) files. Both types of files are stored equally compressed in the repository, and differences are transmitted in both directions across the network."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:211(term) 
+#: source/en/tsvn_introduction.xml:212(term) 
 msgid "Efficient branching and tagging"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:213(para) 
+#: source/en/tsvn_introduction.xml:214(para) 
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:224(term) 
+#: source/en/tsvn_introduction.xml:225(term) 
 msgid "Hackability"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:226(para) 
+#: source/en/tsvn_introduction.xml:227(para) 
 msgid "Subversion has no historical baggage; it is implemented as a collection of shared C libraries with well-defined APIs. This makes Subversion extremely maintainable and usable by other applications and languages."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:240(title) 
+#: source/en/tsvn_introduction.xml:241(title) 
 msgid "Installing TortoiseSVN"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:243(primary) source/en/tsvn_app_faq.xml:22(primary) 
+#: source/en/tsvn_introduction.xml:244(primary) source/en/tsvn_app_faq.xml:22(primary) 
 msgid "install"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:245(title) 
+#: source/en/tsvn_introduction.xml:246(title) 
 msgid "System requirements"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:246(para) 
+#: source/en/tsvn_introduction.xml:247(para) 
 msgid "TortoiseSVN runs on Win2k SP2, WinXP or higher."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:251(title) 
+#: source/en/tsvn_introduction.xml:252(title) 
 msgid "Installation"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:252(para) 
+#: source/en/tsvn_introduction.xml:253(para) 
 msgid "TortoiseSVN comes with an easy to use installer. Doubleclick on the installer file and follow the instructions. The installer will take care of the rest. Make sure to select the <literal>Install for all users</literal> option, unless you <emphasis>really</emphasis> want to restrict its use to the current user only."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:280(citetitle) 
+#: source/en/tsvn_introduction.xml:281(citetitle) 
 msgid "http://lingucomponent.openoffice.org/spell_dic.html"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:260(para) 
+#: source/en/tsvn_introduction.xml:261(para) 
 msgid "<indexterm><primary>spellchecker</primary></indexterm> If you want to use a spell checker for your log messages then you have to download the required dictionaries yourself. You can use the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> use. You can find the required dictionary files in various places: <placeholder-1/> You can also use the dictionaries which get installed with Mozilla. They're located in the installation folder of Mozilla."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:295(para) 
+#: source/en/tsvn_introduction.xml:296(para) 
 msgid "en_US.aff"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:300(para) 
+#: source/en/tsvn_introduction.xml:301(para) 
 msgid "en_US.dic"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:288(para) 
+#: source/en/tsvn_introduction.xml:289(para) 
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\dic</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:314(para) 
+#: source/en/tsvn_introduction.xml:315(para) 
 msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
 msgstr ""
 
