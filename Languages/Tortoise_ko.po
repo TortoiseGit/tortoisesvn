@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-04-19 00:18+0900\n"
+"PO-Revision-Date: 2005-04-22 10:58+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -319,6 +319,11 @@ msgstr "네트워크 드라이브(&N)"
 #: Control-ID:65535
 msgid "&New "
 msgstr "새로 만들기(&N)"
+
+# Control-ID:1208,
+#: Control-ID:1208
+msgid "&Next 100"
+msgstr "다음 100개(&N)"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -3802,6 +3807,7 @@ msgstr "바뀐점 보기(&D)"
 #: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
+#: Control-ID:1132
 msgid "Show &Log"
 msgstr "로그 보기(&L)"
 
@@ -5238,6 +5244,21 @@ msgid ""
 msgstr ""
 "svn:mime-type\n"
 "파일의 MIME 타입. 병합 해야하는지 여부를 판단할 때 값이 없거나 text/ 로 되어 있는 것은 텍스트 파일로 취급하고 나머지는 바이너리로 취급합니다."
+
+# ID:16,
+#: ID:16
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr ""
+"svn:needs-lock\n"
+"이 값을 모든 값(즉, '*')으로 설정하면, 이 파일에 대해 반드시 잠금을해야합니다.\n"
+"이 파일은 체크아웃이나 업데이트를 하게 되면 읽기 전용 속성으로 설정되며,\n"
+"수정이나 변경사항을 커밋해야할 경우, 파일을 먼저 잠그고 진행해야 한다는\n"
+"것을 의미합니다."
 
 # ID:80,
 #: ID:80
