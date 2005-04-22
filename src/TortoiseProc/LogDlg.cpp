@@ -1067,6 +1067,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
 				}
+				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
+				if (m_hasWC)
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
 				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
@@ -1079,6 +1082,50 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_DIFF:
 					{
 						DoDiffFromLog(selIndex, rev);
+					}
+					break;
+				case ID_REVERTREV:
+					{
+						SetPromptApp(&theApp);
+						theApp.DoWaitCursor(1);
+						CString sUrl;
+						if (SVN::PathIsURL(m_path.GetSVNPathString()))
+						{
+							sUrl = m_path.GetSVNPathString();
+						}
+						else
+						{
+							SVN svn;
+							sUrl = svn.GetURLFromPath(m_path);
+							if (sUrl.IsEmpty())
+							{
+								theApp.DoWaitCursor(-1);
+								CString temp;
+								temp.Format(IDS_ERR_NOURLOFFILE, m_path);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								theApp.DoWaitCursor(-11);
+								break;		//exit
+							}
+						}
+						CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
+
+						CString fileURL = changedpath->sPath;
+						fileURL = sUrlRoot + fileURL.Trim();
+						// firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
+						// sUrl = http://mydomain.com/repos/trunk/folder
+						CString wcPath = m_path.GetWinPathString() + fileURL.Mid(sUrl.GetLength());
+						wcPath.Replace('/', '\\');
+						CString msg;
+						msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
+						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+						{
+							CSVNProgressDlg dlg;
+							dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev);		//use the message as the second url
+							dlg.m_RevisionEnd = rev-1;
+							dlg.DoModal();
+						}
+						theApp.DoWaitCursor(-1);
 					}
 					break;
 				case ID_POPPROPS:
