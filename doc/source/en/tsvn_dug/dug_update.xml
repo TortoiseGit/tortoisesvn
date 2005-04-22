@@ -9,7 +9,7 @@
 			<title>Progress dialog showing finished update</title>
 			<graphic fileref="images/UpdateFinished.png"/>
 		</figure>
-		Occasionally you may want changes done by others to get
+		Periodically, you should ensure that changes done by others get
 		incorporated in your local working copy. The process of
 		getting changes from the server to your local copy is
 		known as <literal>updating</literal>. Updating may be done on
@@ -70,6 +70,7 @@
 		conflicts in red. You can <action>double click</action> on these lines
 		to start the external merge tool to resolve the conflicts.
 	</para>
+	<?dbhh topicname="HIDD_UPDATE"?>
 	<para>
 		TortoiseSVN also allows you to update your working copy to a specific
 		revision, not only to the most recent one. This command is called
@@ -77,39 +78,41 @@
 			<guimenuitem>Update to Revision...</guimenuitem>
 		</menuchoice>
 		and first opens a dialog where you can enter the required revision.
+		Say e.g. your working copy is at revision 100, but you want your
+		working copy to reflect the state which it had in revision 50 -
+		then simply update to revision 50.
 		In that dialog, you can also decide if you only want to update the
-		current folder (without all the subfolder) and/or if you want to ignore
-		the external projects in the update.
+		current folder only (without all the subfolders) and/or if you want to
+		ignore any external projects in the update
+		(i.e. projects referenced using <literal>svn:externals</literal>).
 	</para>
 	<caution>
 		<para>
-			If you update a file or folder to a specific revision, you will get 
-			<literal>out of date</literal> error messages when you try to commit them!
+			If you update a file or folder to a specific revision, you should not
+			make changes to those files. You will get <literal>out of date</literal>
+			error messages when you try to commit them!
 			If you want to undo changes to a file and start afresh from an earlier
-			revision, you must either use the
+			revision, you should use one of the following commands instead. The
 			<menuchoice>
 				<guimenuitem>Revert changes from this revision</guimenuitem>
 			</menuchoice>
-			command from the log dialog or the
+			command from the log dialog will undo only those changes made in
+			the selected revision. Changes made after that revision will be retained.
+			For reverting multiple revisions, you should use the
 			<menuchoice>
 				<guimenuitem>Merge...</guimenuitem>
 			</menuchoice>
-			menu command.
+			menu command,
+			where you can specify the range of revisions you want to undo.
 		</para>
 	</caution>
-	<?dbhh topicname="HIDD_UPDATE"?>
 	<para>
-		The
 		<menuchoice>
-			<guimenuitem>Update to Revision...</guimenuitem>
+			<guimenuitem>Update to Revision</guimenuitem>
 		</menuchoice>
-		command allows you to revert your working to an earlier revision.
-		Say e.g. your working copy is at revision 100, but you want your
-		working copy To reflect the state which it had in revision 50 -
-		then simply update to revision 50.
-	</para>
-	<para>
-		In general, updating individual files to an earlier revision is
+		can occasionally be useful to see what your project looked like at
+		some earlier point in its history.
+		But in general, updating individual files to an earlier revision is
 		not a good idea as it leaves your working copy in an inconsistent
 		state. If the file you are updating has changed name, you may even
 		find that the file just disappears from your working copy because
