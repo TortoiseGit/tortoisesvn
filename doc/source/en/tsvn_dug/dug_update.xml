@@ -77,6 +77,9 @@
 			<guimenuitem>Update to Revision...</guimenuitem>
 		</menuchoice>
 		and first opens a dialog where you can enter the required revision.
+		In that dialog, you can also decide if you only want to update the
+		current folder (without all the subfolder) and/or if you want to ignore
+		the external projects in the update.
 	</para>
 	<caution>
 		<para>
@@ -117,23 +120,6 @@
 		</menuchoice>
 		command from the log dialog for that file.
 	</para>
-	<warning>
-		<para>
-			If you updated your working copy to an earlier revision, you must not
-			make changes to the files! You will get <literal>out of date</literal>
-			errors if you try to commit those changes.
-			If you want to revert some changes in your working copy, then use the 
-			repository browser and save the file in question over the file in your 
-			working copy. Or you can use the log dialog and use the command 
-			<menuchoice>
-				<guimenuitem>Revert changes in this revision</guimenuitem>
-			</menuchoice>.
-			This will undo only those changes made in the selected revision.
-			Changes made after that revision will be retained.
-			For reverting multiple revisions, you should use the merge command,
-			where you can specify the range of revisions you want to undo.
-		</para>
-	</warning>
 	<tip>
 		<title>Multiple Files/Folders</title>
 		<para>

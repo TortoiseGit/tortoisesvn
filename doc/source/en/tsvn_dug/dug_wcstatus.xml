@@ -37,60 +37,15 @@
 			<graphic fileref="images/ConflictIcon.png"/>
 			If during an update a <literal>conflict</literal> occurs then
 			the icon changes to a yellow exclamation mark.
-			<graphic fileref="images/AddedIcon.png"/> 
-			The plus sign tells you that a file or folder has been scheduled to be
-			<literal>added</literal> to version control.
+			<graphic fileref="images/ReadOnlyIcon.png"/> 
+			If you have set the <literal>svn:needs-lock</literal> property on a file,
+			Subversion makes that file read-only until you get a lock on that file.
+			Readonly files have this overlay to indicate that you have to get a lock
+			first before you can edit that file.
 			<graphic fileref="images/DeletedIcon.png"/> 
 			This Icon shows you that some files or folders inside the current folder
 			have been scheduled do be <literal>deleted</literal> from version control
 			or a file under version control is missing in a folder.
-		</para>
-		<para>
-			The folder icons also have icon overlays displayed. By default,
-			only the status of the folder itself is shown. But you can
-			change that behaviour in the 
-			<menuchoice>
-				<guimenuitem>Settings</guimenuitem>
-			</menuchoice>
-			(<xref linkend="tsvn-DUG-settings"/>),
-			so that the status of folders is shown recursively. This will
-			make the icon overlays for folders slower and is therefore
-			not recommended on slower machines or large working copies.
-		</para>
-		<para>
-			With this setting each folder shows the status of all files below it,
-			where status <literal>conflict</literal> overrides
-			<literal>modified</literal> and <literal>modified</literal> overrides
-			<literal>normal</literal>. So you can easily see if there's a file
-			with a conflict or a modified file in a folder.
-			<tip>
-				<title>Slow Overlays</title>
-				<para>
-					You may notice that if you enable the recursive overlay for folders
-					that the explorer slows down remarkably when browsing working
-					copies. This depends on how big your working copy is and how much
-					RAM Windows can use for file index caching. Usually it's only
-					very slow the first time you browse such a directory - if
-					you browse the same directory later again it's much faster.
-				</para>
-				<para>
-					If you want to disable the recursive overlays for some
-					folders but not for all then you can do that by creating a
-					file called <filename>_tsvnexcluderecursive</filename> inside
-					that folder. This will disable the recursive overlays for
-					that folder, but <emphasis>not</emphasis> for the files or
-					folders inside it.
-				</para>
-				<para>
-					You can also disable the overlays completely for a folder
-					by creating a file called <filename>_tsvnexcludethis</filename>
-					inside that folder. Again, this disables the overlays only
-					for that folder, not the folders inside it.
-					You can define specific paths to be excluded from showing overlays
-					on the settings page
-					(<xref linkend="tsvn-DUG-settings-overlay"/>).
-				</para>
-			</tip>
 		</para>
 		<para>
 			Unlike <application>TortoiseCVS</application> (the CVS shell
