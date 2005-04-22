@@ -60,14 +60,6 @@
 			authentication and access control, refer to
 			<xref linkend="tsvn_serversetup"/>
 		</para>
-		<important>
-			<para>
-				Under Windows 2000 and above the credentials are stored
-				encrypted in the registry. To delete the credentials go
-				to the settings dialog and press
-				<guibutton>Clear Auth Cache</guibutton>.
-			</para>
-		</important>
 		<tip>
 			<para>
 				If you have to authenticate against a Windows NT domain,
