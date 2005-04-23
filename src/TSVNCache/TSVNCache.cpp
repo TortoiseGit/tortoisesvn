@@ -599,9 +599,13 @@ VOID CommandThread(LPVOID lpvParam)
 				DisconnectNamedPipe(hPipe); 
 				CloseHandle(hPipe); 
 				ATLTRACE("Command thread exited\n");
-				return;				
+				return;
 			case TSVNCACHECOMMAND_CRAWL:
-				CSVNStatusCache::Instance().AddFolderForCrawling(CTSVNPath(CString(command.path)));
+				CTSVNPath changedpath;
+				changedpath.SetFromWin(CString(command.path), true);
+				// remove the path from our cache - that will 'invalidate' it.
+				CSVNStatusCache::Instance().RemoveCacheForPath(changedpath);
+				CSVNStatusCache::Instance().AddFolderForCrawling(changedpath);
 				break;
 		}
 	} 
