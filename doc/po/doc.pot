@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-04-22 13:50Westeuropäische Sommerzeit\n"
+"POT-Creation-Date: 2005-04-23 15:18Westeuropäische Normalzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3106,6 +3106,74 @@ msgstr ""
 
 #: source/en/tsvn_basics.xml:698(para) 
 msgid "We've talked a bit about the way Subversion tracks and manages information in a working copy."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:3(title) 
+msgid "How Do I..."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:5(para) 
+msgid "This appendix contains solutions to problems/questions you might have when using TortoiseSVN."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:12(title) 
+msgid "move/copy a lot of files at once"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:14(primary) 
+msgid "moving"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:16(para) 
+msgid "Moving/Copying single files can be done by using the <menuchoice><guimenuitem> Rename...</guimenuitem></menuchoice>. But if you want to move/copy a lot of files this way is just too slow and too much work."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:21(para) 
+msgid "The recommended way is by <action>right-dragging</action> the files to the new location. Simply <action>right-click</action> on the files you want to move/copy without releasing the mousebutton. Then drag the files to the new location and release the mousebutton. A context menu will appear where you can either choose <guimenuitem>Copy in Subversion to here</guimenuitem> or <guimenuitem>Move in Subversion to here</guimenuitem>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:32(title) 
+msgid "force users to enter a log message"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:34(primary) 
+msgid "log message"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:36(para) 
+msgid "There are two ways to prevent users from committing with an empty log message. One is specific to TortoiseSVN, the other requires access to the server directly."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:42(title) 
+msgid "Hook-script on the server"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:43(para) 
+msgid "If you have direct access to the repository server, you can install a pre-commit hook script which rejects all commits with an empty or too short log message."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:48(para) 
+msgid "In the repository folder on the server, there's a subfolder <filename>hooks</filename> which contains some example hook scripts you can use. The file <filename>pre-commit.tmpl</filename> contains an script which will reject commits if no log message or a too short log message is given. The file also contains comments on how to install/use this script. Just follow the instructions in that file."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:56(para) 
+msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled as long as no (or a too short) log message is entered then please use the method described below."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:67(title) 
+msgid "Project properties"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:68(para) 
+msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:minlogsize</literal> property."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:72(para) 
+msgid "If you set that property on a folder, then TortoiseSVN will disable the <guibutton>OK</guibutton> button in all commit dialogs until the user has entered a log message with the length specified in the property."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:77(para) 
+msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-DUG-propertypage\"/>"
 msgstr ""
 
 #: source/en/tsvn_app_faq.xml:3(title) 

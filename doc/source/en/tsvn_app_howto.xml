@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<appendix id="tsvn-howto" xmlns:xi="http://www.w3.org/2003/XInclude">
+	<title>How Do I...</title>
+	<simplesect>
+		<para>
+			This appendix contains solutions to problems/questions you might
+			have when using TortoiseSVN.
+		</para>
+	</simplesect>
+
+	<sect1 id="tsvn-howto-move">
+		<title>move/copy a lot of files at once</title>
+		<indexterm>
+			<primary>moving</primary>
+		</indexterm>
+		<para>
+		Moving/Copying single files can be done by using the <menuchoice><guimenuitem>
+		Rename...</guimenuitem></menuchoice>. But if you want to move/copy a lot
+		of files this way is just too slow and too much work.
+		</para>
+		<para>
+		The recommended way is by <action>right-dragging</action> the files to
+		the new location. Simply <action>right-click</action> on the files you want
+		to move/copy without releasing the mousebutton. Then drag the files
+		to the new location and release the mousebutton. A context menu will appear
+		where you can either choose <guimenuitem>Copy in Subversion to here</guimenuitem>
+		or <guimenuitem>Move in Subversion to here</guimenuitem>.
+		</para>
+	</sect1>
+	
+	<sect1 id="tsvn-howto-minlogmsgsize">
+		<title>force users to enter a log message</title>
+		<indexterm>
+			<primary>log message</primary>
+		</indexterm>
+		<para>
+		There are two ways to prevent users from committing with an empty
+		log message. One is specific to TortoiseSVN, the other requires access
+		to the server directly.
+		</para>
+		<sect2 id="tsvn-howto-minlogsize-hookscript">
+			<title>Hook-script on the server</title>
+			<para>
+			If you have direct access to the repository server, you can install
+			a pre-commit hook script which rejects all commits with an empty
+			or too short log message.
+			</para>
+			<para>
+			In the repository folder on the server, there's a subfolder <filename>hooks</filename>
+			which contains some example hook scripts you can use. The file
+			<filename>pre-commit.tmpl</filename> contains an script which will
+			reject commits if no log message or a too short log message is given.
+			The file also contains comments on how to install/use this script.
+			Just follow the instructions in that file.
+			</para>
+			<para>
+			This method is the recommended way if your users also use other
+			Subversion clients than TortoiseSVN. The drawback is that the commit
+			is rejected by the server and therefore users will get an error
+			message. The client can't know before the commit that it will be
+			rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton>
+			button disabled as long as no (or a too short) log message is entered
+			then please use the method described below.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-howto-minlogsize-projectproperties">
+			<title>Project properties</title>
+			<para>
+			TortoiseSVN uses properties to control some of its features. One of those
+			properties is the <literal>tsvn:minlogsize</literal> property.
+			</para>
+			<para>
+			If you set that property on a folder, then TortoiseSVN will disable the
+			<guibutton>OK</guibutton> button in all commit dialogs until the user has
+			entered a log message with the length specified in the property.
+			</para>
+			<para>
+			For detailed information on those project properties, please refer to
+			<xref linkend="tsvn-DUG-propertypage"/>
+			</para>
+		</sect2>
+	</sect1>
+</appendix>
