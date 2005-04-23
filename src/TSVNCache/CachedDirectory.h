@@ -12,10 +12,8 @@ public:
 public:
 
 	CCachedDirectory();
-//	CCachedDirectory(const svn_wc_status_t* pSVNStatus, __int64 lastWriteTime);
 	CCachedDirectory(const CTSVNPath& directoryPath);
 	~CCachedDirectory(void);
-	bool IsVersioned() const;
 	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive, bool bNoUpdates);
 	CStatusCacheEntry GetOwnStatus(bool bRecursive);
 	bool IsOwnStatusValid() const;

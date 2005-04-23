@@ -211,6 +211,14 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			if(dirEntry.IsOwnStatusValid())
 			{
 				// This directory knows its own status
+				// but is it still versioned?
+				
+				CTSVNPath svnFilePath(dirEntry.m_directoryPath);
+				if (!svnFilePath.HasAdminDir())
+				{
+					CSVNStatusCache::Instance().RemoveCacheForPath(svnFilePath);
+					return CStatusCacheEntry();
+				}
 
 				// To keep recursive status up to date, we'll request that children are all crawled again
 				// This will be very quick if nothing's changed, because it will all be cache hits
@@ -220,7 +228,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 					CTSVNPath childPath = it->first;
 					CSVNStatusCache::Instance().AddFolderForCrawling(it->first);
 				}
-
 
 				return dirEntry.GetOwnStatus(bRecursive);
 			}
@@ -286,6 +293,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	m_childDirectories.clear();
 	m_entryCache.clear();
 	m_bCurrentFullStatusValid = false;
+	m_ownStatus.SetStatus(NULL);
 
 	if(!bThisDirectoryIsUnversioned)
 	{
@@ -334,7 +342,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	// If it has, then we should tell our parent
 	UpdateCurrentStatus(bNoUpdates);
 
-	if(path.IsDirectory())
+	if (path.IsDirectory())
 	{
 		CCachedDirectory& dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 		if(dirEntry.IsOwnStatusValid())
