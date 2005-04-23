@@ -89,6 +89,7 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev)
 SVNProperties::SVNProperties(const CTSVNPath& filepath)
 {
 #endif
+	m_error = NULL;
 	m_pool = svn_pool_create (NULL);				// create the memory pool
 
 	const char * deststr = NULL;
