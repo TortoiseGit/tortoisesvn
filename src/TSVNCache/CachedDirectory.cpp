@@ -237,6 +237,9 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				{
 					if(itMap->second.DoesFileTimeMatch(path.GetLastWriteTime()))
 					{
+						// Note: the filetime matches after a modified has been committed too.
+						// So in that case, we would return a wrong status (e.g. 'modified' instead
+						// of 'normal') here.
 						return itMap->second;
 					}
 					else

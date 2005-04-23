@@ -55,13 +55,6 @@ public:
 	/// Removes the cache for a specific path, e.g. if a folder got deleted/renamed
 	void RemoveCacheForPath(const CTSVNPath& path);
 
-	/// Add an item to the list of paths which need a shell update
-	void AddPathForShellUpdate(const CTSVNPath& path);
-	/// Flush the shell update list
-	void FlushShellUpdateList();
-
-private:
-
 private:
 	CCachedDirectory::CachedDirMap m_directoryCache; 
 	CComAutoCriticalSection m_critSec;
