@@ -46,7 +46,7 @@ bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
 #define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) return false;
 #define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (!WriteFile(hFile, x, value, &written, NULL)) return false;}
 	DWORD written = 0;
-	int value = 2;
+	int value = 3;
 	WRITEVALUETOFILE(value); // 'version' of this save-format
 	WRITEVALUETOFILE(m_highestPriorityLocalStatus);
 	WRITEVALUETOFILE(m_lastWriteTime);
@@ -76,7 +76,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	DWORD read = 0;
 	int value = 0;
 	LOADVALUEFROMFILE(value);
-	if (value != 2)
+	if (value != 3)
 		return false;		// not the correct version
 	LOADVALUEFROMFILE(m_highestPriorityLocalStatus);
 	LOADVALUEFROMFILE(m_lastWriteTime);
@@ -94,14 +94,20 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 			return false;
 		}
 		m_sUrl.ReleaseBuffer(value);
-		
+	}
+	LOADVALUEFROMFILE(value);
+	if (value != 0)
+	{
 		if (!ReadFile(hFile, m_sOwner.GetBuffer(value), value, &read, NULL))
 		{
 			m_sOwner.ReleaseBuffer(0);
 			return false;
 		}
 		m_sOwner.ReleaseBuffer(value);
-
+	}
+	LOADVALUEFROMFILE(value);
+	if (value != 0)
+	{
 		if (!ReadFile(hFile, m_sAuthor.GetBuffer(value), value, &read, NULL))
 		{
 			m_sAuthor.ReleaseBuffer(0);
