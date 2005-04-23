@@ -469,17 +469,51 @@ int _tmain(int argc, _TCHAR* argv[])
 	index = 0;
 	while (InsertUrl(URLDEF, pBuf, index, filelength, maxlength, SubStat.Url));
 	
-	hFile = CreateFile(dst, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
+	hFile = CreateFile(dst, GENERIC_WRITE|GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
 		_tprintf(_T("unable to open output file %s for writing\n"), dst);
 		return ERR_OPEN;
 	}
-	WriteFile(hFile, pBuf, filelength, &readlength, NULL);
-	if (readlength != filelength)
+
+	unsigned long filelengthExisting = GetFileSize(hFile, NULL);
+	BOOL sameFileContent = FALSE;
+	if (filelength == filelengthExisting)
 	{
-		_tprintf(_T("could not write the file %s to the end!\n"), dst);
-		return ERR_READ;
+		unsigned long readlengthExisting = 0;
+		char * pBufExisting = new char[filelength];
+		if (!ReadFile(hFile, pBufExisting, filelengthExisting, &readlengthExisting, NULL))
+		{
+			_tprintf(_T("could not read the file %s\n"), dst);
+			return ERR_READ;
+		}
+		if (readlengthExisting != filelengthExisting)
+		{
+			_tprintf(_T("could not read the file %s to the end!\n"), dst);
+			return ERR_READ;
+		}
+		sameFileContent = (memcmp(pBuf, pBufExisting, filelength) == 0);
+		delete [] pBufExisting;
+	}
+
+	// The file is only written if its contents would change.
+	// This prevents the timestamp from changing.
+	if (!sameFileContent)
+	{
+		SetFilePointer(hFile, 0, NULL, FILE_BEGIN);
+
+		WriteFile(hFile, pBuf, filelength, &readlength, NULL);
+		if (readlength != filelength)
+		{
+			_tprintf(_T("could not write the file %s to the end!\n"), dst);
+			return ERR_READ;
+		}
+
+		if (!SetEndOfFile(hFile))
+		{
+			_tprintf(_T("could not truncate the file %s to the end!\n"), dst);
+			return ERR_READ;
+		}
 	}
 	CloseHandle(hFile);
 	delete [] pBuf;
