@@ -96,6 +96,34 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 			::SetWindowPos(pData->m_hwndControl, NULL, rc.left, rc.top, rc.Width(), rc.Height(), SWP_NOZORDER);
 		}
 		break;
+	case WM_NCPAINT:
+		{
+			// the edit control should draw the borders first.
+			CallWindowProc(WndProc, hwnd, message, wParam, lParam);
+			
+			RECT rect;
+			GetWindowRect(hwnd, &rect);
+			OffsetRect(&rect, -rect.left, -rect.top);
+			if (pData->m_uStyle == INSERTCONTROL_RIGHT)
+			{
+				rect.left = rect.right;
+				rect.right = rect.left - pData->m_uControlWidth;
+			}
+			else
+			{
+				rect.right = rect.left;
+				rect.left = rect.left + pData->m_uControlWidth;
+			}
+
+			// erase the background of the NC area.
+			HDC hdc = GetWindowDC(hwnd);
+			FillRect(hdc, &rect, GetSysColorBrush(COLOR_WINDOW));    
+			ReleaseDC(hwnd, hdc);
+			
+			// force a redraw of the inserted control			
+			RedrawWindow(pData->m_hwndControl, NULL, NULL, RDW_UPDATENOW | RDW_INTERNALPAINT | RDW_INVALIDATE | RDW_ERASENOW | RDW_ALLCHILDREN);
+		}
+		break;
 	}
 
 	return CallWindowProc(WndProc, hwnd, message, wParam, lParam);
