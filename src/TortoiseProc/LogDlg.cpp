@@ -2070,8 +2070,10 @@ void CLogDlg::OnStnClickedFiltericon()
 		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_PATHS), LOGFILTER_PATHS, temp);
 		temp.LoadString(IDS_LOG_FILTER_AUTHORS);
 		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_AUTHORS), LOGFILTER_AUTHORS, temp);
+		int oldfilter = m_nSelectedFilter;
 		m_nSelectedFilter = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		
+		if (m_nSelectedFilter == 0)
+			m_nSelectedFilter = oldfilter;
 		SetFilterCueText();
 		SetTimer(LOGFILTER_TIMER, 1000, NULL);
 	}
