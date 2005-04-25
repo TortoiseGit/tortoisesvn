@@ -22,7 +22,7 @@ FOR %%i in (_Tortois_*.po) DO (
 )
 
 echo. > %LogFile%
-echo Translation Status report for r!version:~0,4! >> %LogFile%
+echo GUI Translation Status report for r!version:~0,4! >> %LogFile%
 echo ----------------------------------- >> %LogFile%
 echo Total=!total! >> %LogFile%
 echo. >> %LogFile%
@@ -31,7 +31,7 @@ echo. >> %LogFile%
 echo Incomplete: >> %Logfile%
 
 echo.
-echo Translation Status report for r!version:~0,4!
+echo GUI Translation Status report for r!version:~0,4!
 echo ------------------------------------------
 echo Total=!total!
 echo.
