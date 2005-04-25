@@ -94,17 +94,33 @@ svnadmin create --fs-type fsfs MyNewRepository
 				</para>
 			</listitem>
 		</orderedlist>
+	</sect2>
+	<!-- ================================================================= -->
+	<sect2 id="tsvn-repository-local-access">
+		<title>Local Access to the Repository</title>
+		<indexterm>
+			<primary>Access</primary>
+		</indexterm>
+		<indexterm>
+			<primary>UNC paths</primary>
+		</indexterm>
 		<para>
 			To access your local repository you need the path to that folder.
 			Just remember that Subversion expects all repository paths in the form
-			<systemitem class="url">file:///C:/SVNRepository/</systemitem>
+			<systemitem class="url">file:///C:/SVNRepository/</systemitem>.
+			Note the use of forward slashes throughout.
 		</para>
 		<para>
 			To access a repository located on a network share you can either
 			use drive mapping, or you can use the UNC path. For UNC paths,
 			the form is
-			<systemitem class="url">file:///\ServerName/path/to/repos/</systemitem>.
-			Note the backslash before the server name.
+			<systemitem class="url">file://ServerName/path/to/repos/</systemitem>.
+			Note that there are only 2 leading slashes here.
+		</para>
+		<para>
+			Prior to SVN 1.2, UNC paths had to be given in the more obscure form
+			<systemitem class="url">file:///\ServerName/path/to/repos</systemitem>.
+			This form is still supported, but not recommended.
 		</para>
 	</sect2>
 		<warning>
