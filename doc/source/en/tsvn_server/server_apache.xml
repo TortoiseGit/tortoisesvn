@@ -123,6 +123,21 @@
 					It would be a more secure practice for you to create a
 					separate account for Apache to run as.
 				</para>
+				<para>
+					Make sure that the account on the server that Apache is running as
+					has an explicit entry in the repository directory's access control 
+					list (right-click directory | properties | security), with full 
+					control.  Otherwise, users will not be able to commit their changes.
+				</para>
+				<para>
+					Even if Apache runs as local system, you still need such an entry 
+					(which will be the Administrator account in this case).
+				</para>
+				<para>
+					If Apache does not have this permission set up, your users will get 
+					"Access denied" error messages, which show up in the Apache error log 
+					as error 500.
+				</para>
 			</caution>
 		</para>
 	</sect2>
