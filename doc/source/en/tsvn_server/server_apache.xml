@@ -81,8 +81,10 @@
 						<ulink url="http://httpd.apache.org/download.cgi">
 							<citetitle>http://httpd.apache.org/download.cgi</citetitle>
 						</ulink>.
-						Make sure that you download the version 2.0.xx -
-						the version 1.3.xx won't work!
+						Make sure that you download the version &gt; 2.0.54 -
+						the version 1.3.xx won't work! Also, versions lower than
+						2.0.54 won't work with Subversion 1.2 because of a bug in
+						how Apache &lt; 2.0.54 was built for Windows.
 					</para>
 				</listitem>
 				<listitem>
