@@ -249,24 +249,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 						// of 'normal') here.
 						return itMap->second;
 					}
-					else
-					{
-						ATLTRACE("Filetime change on file %ws\n", path.GetWinPath());
-					}
-				}
-				else
-				{
-					ATLTRACE("Cache timeout on file %ws\n", path.GetWinPath());
 				}
 			}
 		}
 	}
 	else
 	{
-		if(m_entriesFileTime != 0)
-		{
-			ATLTRACE("Entries file change seen for %ws\n", path.GetWinPath());
-		}
 		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
 		m_propsDirTime = propsDirPath.GetLastWriteTime();
 		m_entryCache.clear();
@@ -518,9 +506,6 @@ void CCachedDirectory::UpdateCurrentStatus(bool bNoUpdates)
 void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus, bool bNoUpdates)
 {
 	svn_wc_status_kind currentStatus = m_childDirectories[childDir];
-	ATLTRACE("Dir %ws, child %ws, newStatus %d, currentStatus %d\n", 
-		m_directoryPath.GetWinPath(),
-		childDir.GetWinPath(), childStatus, currentStatus);
 	if ((currentStatus != childStatus)||(!IsOwnStatusValid()))
 	{
 		m_childDirectories[childDir] = childStatus;
@@ -566,7 +551,6 @@ void CCachedDirectory::RefreshStatus()
 			if (!filePath.IsEquivalentTo(m_directoryPath))
 			{
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
-				//if ((!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{
 					// We need to request this item as well
 					GetStatusForMember(filePath,false,false);
@@ -574,6 +558,12 @@ void CCachedDirectory::RefreshStatus()
 					// So we have to get out of this for-loop since the iterator now
 					// is invalid!
 					break;
+				}
+				else if (itMembers->second.IsDirectory())
+				{
+					// crawl all subfolders too! Otherwise a change deep inside the
+					// tree which has changed won't get propagated up the tree.
+					CSVNStatusCache::Instance().AddFolderForCrawling(filePath);
 				}
 			}
 		}
