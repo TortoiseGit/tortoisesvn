@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3069
+# Based on r3089
 #
 msgid ""
 msgstr ""
@@ -230,6 +230,7 @@ msgid "&From Revision"
 msgstr "&Fra revision"
 
 #: Control-ID:65535,
+#,fuzzy
 msgid "&From URL:"
 msgstr "&Fra URL:"
 
@@ -287,7 +288,7 @@ msgstr "&Næste forskel"
 
 #: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
-msgstr "&OK"
+msgstr "&Ok"
 
 #: ID:101,#: ID:113,
 msgid "&Open"
@@ -371,10 +372,12 @@ msgid "&To Revision"
 msgstr "&Til revision"
 
 #: Control-ID:65535,#: Control-ID:65535,
+#,fuzzy
 msgid "&To URL:"
 msgstr "&Til URL:"
 
 #: Control-ID:65535,
+#,fuzzy
 msgid "&To URL: "
 msgstr "&Til URL: "
 
@@ -384,7 +387,7 @@ msgstr "&Værktøjslinje"
 
 #: Control-ID:65535,#: Control-ID:1058,
 msgid "&URL of repository:"
-msgstr "&URL til versionsarkiv:"
+msgstr "&Versionsarkivets URL:"
 
 #: ID:376,
 msgid "&Undo"
@@ -489,7 +492,7 @@ msgstr "En liste af stier, adskilt af linjeskift, som ikke vil blive vist med ik
 
 #: ID:3843,#: ID:3843,
 msgid "A required resource was unavailable."
-msgstr "En forventet ressource var ikke til rådighed."
+msgstr "En krævet ressource var ikke til rådighed."
 
 #: ID:3867,#: ID:3867,
 msgid "A sharing violation occurred while accessing %1."
@@ -545,7 +548,7 @@ msgstr "Aktiver opgaveliste"
 
 #: ID:78,
 msgid "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr "Aktivér denne, hvis du ønsker at ikonoverdækninger\npå mapper skal vise subversion-status af indeholdte filer.\n<ct=0x0000ff><b>Advarsel:</b> Dette kan få Windows Stifinder til at køre langsomt!</ct>"
+msgstr "Aktivér denne, hvis du ønsker at ikonoverdækninger\npå mapper skal vise subversion-status af de indeholdte filer.\n<ct=0x0000ff><b>Advarsel:</b> Dette kan få Windows Stifinder til at køre langsomt!</ct>"
 
 #: ID:8,#: ID:209,#: Dlg-ID:155,
 msgid "Add"
@@ -591,7 +594,7 @@ msgstr "En mappe blev tilføjet på server"
 
 #: ID:145,
 msgid "Added the file(s)\n%s\nto the ignore list."
-msgstr "Den/de valgte filer\n%s\nblev tilføjet \"ignorer\"-listen."
+msgstr "Filen/filerne\n%s\nblev tilføjet \"ignorer\"-listen."
 
 #: ID:263,
 msgid "Adding"
@@ -651,11 +654,11 @@ msgstr "Der blev forsøgt at skrive samtidig med en igangværende læseoperation
 
 #: ID:78,
 msgid "An external diff program used\nfor comparing different revisions of files\n<hr=100%>\nYou can specify the following parameters to the path:\n%base\tthe base file\n%mine\tthe modified file"
-msgstr "Et eksternt sammenligningsprogram benyttes\ntil at sammenligne forskellige revisioner af filer\n<hr=100%>\nDu kan angive følgende parametre til stien:\n%base\tbasisfilen\n%mine\tden ændrede fil"
+msgstr "Et eksternt sammenligningsprogram, der benyttes\ntil at sammenligne forskellige revisioner af filer\n<hr=100%>\nDu kan angive følgende parametre til stien:\n%base\tbasisfilen\n%mine\tden ændrede fil"
 
 #: ID:79,
 msgid "An external merge program used\nto resolve conflicted files.\n<hr=100%>\nYou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
-msgstr "Et eksternt flet-program benyttes\ntil at løse konflikter i filer.\n<hr=100%\nDu kan angive følgende parametre til stien:\n%merged\thvor filen indeholdende konflikter skal gemmes\n%theirs\t\tfilen, som den ser ud i versionsarkivet\n%mine\t\tdin egen fil med ændringer\n%base%\t\tden originale fil uden dine ændringer"
+msgstr "Et eksternt flet-program, der benyttes\ntil at løse konflikter i filer.\n<hr=100%\nDu kan angive følgende parametre til stien:\n%merged\thvor filen indeholdende konflikter skal gemmes\n%theirs\t\tfilen, som den ser ud i versionsarkivet\n%mine\t\tdin egen fil med ændringer\n%base%\t\tden originale fil uden dine ændringer"
 
 #: ID:3843,#: ID:3843,
 msgid "An invalid argument was encountered."
@@ -939,7 +942,7 @@ msgstr "Check den sti og/eller URL, som du har indtastet."
 
 #: ID:194,
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "Marker de menupunkter, som du gerne vil have i den øverste kontekstmenu i stedet for i undermenuen"
+msgstr "Marker de menupunkter, som du gerne vil have vist i den øverste kontekstmenu i stedet for i undermenuen"
 
 #: ID:80,
 msgid "Check to use a less verbose date and time format in log messages"
@@ -984,7 +987,7 @@ msgstr "Slet &adgangskode-cache"
 
 #: ID:195,
 msgid "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
-msgstr "Sletter de gemte adgangskoder.\nDu vil skulle indtaste dit brugernavn/kodeord til alle versionsarkiver igen."
+msgstr "Sletter de gemte adgangskoder.\nDu vil skulle indtaste dit brugernavn/adgangskode til alle versionsarkiver igen."
 
 #: Control-ID:65535,
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
@@ -1032,7 +1035,7 @@ msgstr "Arkiveringer pr. forfatter"
 
 #: ID:244,
 msgid "Commits by week"
-msgstr "Ugentlige arkiveringer"
+msgstr "Arkiveringer pr. uge"
 
 #: Control-ID:1135,
 msgid "Commits each week:"
@@ -1174,7 +1177,7 @@ msgstr "Det eksterne sammenligningsprogram kunne ikke startes!\n<hr=100%>\n%s"
 
 #: ID:81,
 msgid "Could not start external merge program!\n<hr=100%>\n%s"
-msgstr "Det eksterne fletteprogram kunne ikke startes!\n<hr=100%>\n%s"
+msgstr "Det eksterne flet-program kunne ikke startes!\n<hr=100%>\n%s"
 
 #: ID:3857,#: ID:3857,
 msgid "Could not start print job."
@@ -1201,9 +1204,8 @@ msgid "Create copy in the repository from:"
 msgstr "Opret kopi i versionsarkivet fra:"
 
 #: ID:126,
-#, fuzzy
 msgid "Created folder remotely"
-msgstr "Fjern mappen på server"
+msgstr "Mappen blev oprettet på server"
 
 #: ID:10,
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
@@ -1369,7 +1371,7 @@ msgstr "Tilføj filendelse-specifikt sammenligningsprogram"
 
 #: ID:110,
 msgid "Edit Extension Specific Merge Program"
-msgstr "Tilføj filendelse-specifikt fletteprogram"
+msgstr "Tilføj filendelse-specifikt flet-program"
 
 #: ID:113,
 msgid "Edit Log Message"
@@ -2702,7 +2704,7 @@ msgstr "Vis &alt"
 msgid "Show &Differences"
 msgstr "Vis &forskelle"
 
-#: ID:101,#: Control-ID:1031,#: Control-ID:1034,
+#: ID:101,#: Control-ID:1031,#: Control-ID:1034,#: Control-ID:1132,
 #Der er ikke plads til at skrive "Vis logbeskeder".
 msgid "Show &Log"
 msgstr "Vis &log"
@@ -3564,6 +3566,10 @@ msgstr "svn:keywords\nAngiv de nøgleord, som skal udfyldes. Følgende nøgleord
 #: ID:14,
 msgid "svn:mime-type\nThe mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr "svn:mime-type\nMime-typen for filen. Denne benyttes til at afgøre, om filen skal flettes, og Apache benytter den til at sende filen korrekt. En mime-type, der begynder med \"text/\" (eller en manglende mime-typen), opfattes som tekst. Alt andet opfattes som binært."
+
+#: ID:16,
+msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
+msgstr "svn:needs-lock\nSæt denne til en værdi (fx '*') for at kræve låsning for denne fil.\nFilen bliver gjort skrivebeskyttet, når den hentes eller opdateres\nog indikerer derved, at en bruger skal eje en lås på filen\nfør redigering og arkivering af ændringer er mulig."
 
 #: ID:80,
 msgid "to %s"
