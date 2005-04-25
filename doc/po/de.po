@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-25 10:28+0100\n"
+"PO-Revision-Date: 2005-04-25 10:53+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: source/en/tsvn_repository/repository_hooks.xml:3
 #: (title)
 msgid "Hook Scripts"
-msgstr "Hook Skripts"
+msgstr "Aktionsskripte"
 
 #: source/en/tsvn_repository/repository_hooks.xml:5
 #: (primary)
@@ -31,7 +31,7 @@ msgstr "hooks"
 #: source/en/tsvn_repository/repository_hooks.xml:7
 #: (para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "Ein Hook-Skript ist ein Programm welches durch bestimmte Projektarchiv-Ereignisse gestartet wird, z.B. wenn eine neue Revision erzeugt wird oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat.Abhängig vom Rückgabewert des Hook-Skripts wird die Operation weitergemacht, gestoppt oder angehalten. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> im Subversion-Buch."
+msgstr "Ein <firstterm>Aktionsskript</firstterm> (Hook-Script) ist ein Programm welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt wird oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> im Subversion-Buch."
 
 #: source/en/tsvn_repository/repository_hooks.xml:22
 #: (para)
@@ -43,12 +43,12 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>"
 msgstr ""
-"Beispiele für Hook-Skripts findet man im <filename>hooks</filename> Ordner des Projektarchivs.Diese Beispiele sind gemacht für Unix/Linux-Server und müssen ein wenig angepasst werden wenn Ihr Server unter Windows läuft. Das Hook-Skript kann eine einfache Batch-Datei oder ein ausführbares Programm sein. Das untenstehende Beispiel zeigt eine Batch-Datei welche als pre-revprop-change Hook eingesetzt werden kann. <screen>\n"
+"Beispiele für Aktionsskripte findet man im <filename>hooks</filename> Ordner des Projektarchivs. Diese Beispiele sind für Unix/Linux-Server erstellt worden und müssen ein wenig angepasst werden wenn Ihr Server unter Windows läuft. Das Aktionsskript kann eine einfache Batch-Datei oder ein ausführbares Programm sein. Das untenstehende Beispiel zeigt eine Batch-Datei welche als pre-revprop-change Aktion eingesetzt werden kann. <screen>\n"
 "rem Only allow log messages to be changed.\n"
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Beachten Sie dass alles was via stdout ausgegeben wird verworfen wird. Wenn Sie möchten dass eine Fehlermeldung auch in TortoiseSVN angezeigt wird müssen Sie diese Fehlermeldung via stderr ausgeben. In einer Batchdatei erreichen Sie dies über <filename>&gt;&amp;2</filename>."
+"</screen> Beachten Sie dass alle Ausgabebn via stdout verworfen werden. Wenn Sie möchten dass eine Fehlermeldung auch in TortoiseSVN angezeigt wird, müssen Sie diese Fehlermeldung via stderr ausgeben. In einer Batchdatei erreichen Sie dies über <filename>&gt;&amp;2</filename>."
 
 #: source/en/tsvn_repository/repository_create.xml:3
 #: (title)
@@ -4106,15 +4106,13 @@ msgstr ""
 
 #: source/en/tsvn_app_howto.xml:32
 #: (title)
-#, fuzzy
 msgid "force users to enter a log message"
-msgstr "Anzahl der angezeigten Log-Meldungen"
+msgstr ""
 
 #: source/en/tsvn_app_howto.xml:34
 #: (primary)
-#, fuzzy
 msgid "log message"
-msgstr "Anzeigen aller Log-Meldungen"
+msgstr "Log-Meldung"
 
 #: source/en/tsvn_app_howto.xml:36
 #: (para)
@@ -4143,9 +4141,8 @@ msgstr ""
 
 #: source/en/tsvn_app_howto.xml:67
 #: (title)
-#, fuzzy
 msgid "Project properties"
-msgstr "Übertrage Eigenschaften"
+msgstr "Projekteigenschaften"
 
 #: source/en/tsvn_app_howto.xml:68
 #: (para)
