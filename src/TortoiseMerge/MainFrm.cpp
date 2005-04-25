@@ -806,8 +806,7 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 		{
 			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
 			{
-				if (m_pwndBottomView->IsModified())
-					bEnable = TRUE;
+				bEnable = TRUE;
 			} 
 		}
 		if (m_pwndRightView)
