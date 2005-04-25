@@ -11,12 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-25 10:53+0100\n"
+"PO-Revision-Date: 2005-04-25 16:56+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-Basepath: ..\\\n"
 
 #: source/en/tsvn_repository/repository_hooks.xml:3
 #: (title)
@@ -653,32 +656,32 @@ msgstr "Anzeigen aller Log-Meldungen"
 #: source/en/tsvn_dug/dug_showlog.xml:236
 #: (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-DUG-settings\"/>),"
-msgstr ""
+msgstr "Bei einem großen Projektarchiv können hunderte oder gar tausende von Änderungen gespeichert sein. Und alle Änderungen auf einmal zu laden kann sehr lange dauern. Normalerweise ist man auch nur an den letzten Meldungen interessiert. Standardmässig werden beim ersten Aufruf des Log Dialogs die letzten hundert Log-Meldungen angezeigt, aber dieser Wert kann im Einstellungs-Dialog geändert werden. <menuchoice> <guimenuitem>Einstellungen</guimenuitem> </menuchoice> (<xref linkend=\"tsvn-DUG-settings\"/>),"
 
 #: source/en/tsvn_dug/dug_showlog.xml:250
 #: (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr ""
+msgstr "Wenn die Option <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, werden keine weiteren Log Meldungen mehr geholt, falls der Ordner / die Datei von einer anderen Stelle des Projektarchivs kopiert wurde. Dies ist insbesondere dann von Nutzen, wenn man Verzweigungen oder Markierungen betrachtet und nur die Änderungen innerhalb der Verzweigung sehen möchte."
 
 #: source/en/tsvn_dug/dug_showlog.xml:259
 #: (para)
 msgid "This option is normally unchecked by default, except when the Show Log dialog is invoked from within the Merge dialog."
-msgstr ""
+msgstr "Diese Option ist normalerweise deaktiviert, es sei denn der Log Dialog wurde aus dem Zusammenführen Dialog heraus aufgerufen."
 
 #: source/en/tsvn_dug/dug_showlog.xml:264
 #: (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
-msgstr ""
+msgstr "Beachten Sie, dass Subversion Umbenennen derzeit als aufeinanderfolgende Kopieren/Löschen Aktionen implementiert, so dass die Log Anzeige ebenfalls anhält, wenn ein Ordner / eine Datei umbenannt wurde, falls diese Option gewählt ist."
 
 #: source/en/tsvn_dug/dug_showlog.xml:231
 #: (para)
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/> If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Get All</guibutton>."
-msgstr ""
+msgstr "Der Log Dialog zeigt aus mehreren Gründen nicht immer alle Änderungen die jemalsgemacht wurden an: <placeholder-1/> Wenn Sie wirklich <emphasis>alle</emphasis> Log Meldungen zurück bis zur Revision 1 sehen möchten, klicken Sie auf  <guibutton>Hole Alle</guibutton>."
 
 #: source/en/tsvn_dug/dug_showlog.xml:277
 #: (title)
 msgid "Changing the Log Message and Author"
-msgstr ""
+msgstr "Ändern der Log-Meldung und des Autors"
 
 #: source/en/tsvn_dug/dug_showlog.xml:279
 #: (primary)
@@ -688,22 +691,22 @@ msgstr "Autor bearbeiten"
 #: source/en/tsvn_dug/dug_showlog.xml:281
 #: (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
-msgstr ""
+msgstr "Manchmal ist es notwendig, eine Log-Meldung nachträglich zu ändern. Sei es weil die Meldung Rechtschreibfehler enthält oder weil Sie die Meldung mit mehr Informationen erweitern müssen oder aus anderen Gründen Oder Sie müssen den Autor der Revision ändern, weil Sie vielleicht vergessen haben eine Authentifizierung für Übertragungen auf dem Server einzurichten oder..."
 
 #: source/en/tsvn_dug/dug_showlog.xml:288
 #: (para)
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
-msgstr ""
+msgstr "Subversion lässt Sie beides, Log-Meldungen und den Autor einer  Revision, ändern. Aber da solche Änderungen nicht wieder rückgängig gemacht werden können (diese Änderungen werden nicht aufgezeichnet) ist diese Funktion standardmässig deaktiviert. Um diese Funktion zu aktivieren, müssen Sie eine pre-revprop-change Aktion für das Projektarchiv einrichten. Bitte lesen Sie dazu das entsprechende Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"> <citetitle>Hook Scripts</citetitle> </ulink> im Subversion Buch, wie das gemacht wird. Lesen Sie auch <xref linkend=\"tsvn-repository-hooks\"/>, um mehr Informationen  über das Einrichten von Aktionen auf einem Windows PC zu erhalten."
 
 #: source/en/tsvn_dug/dug_showlog.xml:301
 #: (para)
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
-msgstr ""
+msgstr "Sobald Sie die gewünschten Aktionen für das Projektarchiv eingerichtet haben, können Sie sowohl den Autor als auch die Log-Meldung einer  jeden Revision nachträglich ändern, indem Sie den entsprechenden Eintrag aus dem Kontextmenü des Log Dialogs auswählen."
 
 #: source/en/tsvn_dug/dug_showlog.xml:307
 #: (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
-msgstr ""
+msgstr "Da die Revisionseigenschaften (z.B. <literal>svn:log</literal> für Log-Meldungen) in Subversion nicht aufgezeichnet werden, überschreiben Änderungen  den alten Wert für <emphasis>immer</emphasis>."
 
 #: source/en/tsvn_dug/dug_showlog.xml:318
 #: (title)
@@ -718,12 +721,12 @@ msgstr "Statistiken"
 #: source/en/tsvn_dug/dug_showlog.xml:322
 #: (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
-msgstr ""
+msgstr "Die <guibutton>Statistiken</guibutton> Schaltfläche zeigt eine Dialogbox an mit interessanten Informationen über die angezeigten Revisionen. Es zeigt zum Beispiel wieviele Autoren (Personen welche Übertragungen gemacht haben) am Werk waren, wieviele Übertragungen jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt und vieles mehr. Endlich haben Sie die Möglichkeit zu überprüfen, wer fleissig am Projekt mitarbeitet und wer hinterherhängt ;-)"
 
 #: source/en/tsvn_dug/dug_showlog.xml:330
 #: (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
-msgstr ""
+msgstr "Beachten Sie dass die Statistiken die selbe Zeitperiode überdecken wie Revisionen im Log-Dialog angezeigt werden. Wenn also nur eine Revision angezeigt wird, sagen die Statistiken nicht sehr viel aus."
 
 #: source/en/tsvn_dug/dug_settings.xml:3
 #: (title)
@@ -4982,7 +4985,7 @@ msgstr "Registry"
 #: source/en/tsvn_app_faq.xml:1047
 #: (term)
 msgid "HKCU\\Software\\TortoiseSVN\\Debug"
-msgstr ""
+msgstr "HKCU\\Software\\TortoiseSVN\\Debug"
 
 #: source/en/tsvn_app_faq.xml:1049
 #: (para)
@@ -4992,7 +4995,7 @@ msgstr ""
 #: source/en/tsvn_app_faq.xml:1056
 #: (term)
 msgid "HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus"
-msgstr ""
+msgstr "HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus"
 
 #: source/en/tsvn_app_faq.xml:1058
 #: (para)
@@ -5007,7 +5010,7 @@ msgstr ""
 #: source/en/tsvn_app_faq.xml:1073
 #: (term)
 msgid "HKCU\\Software\\TortoiseSVN\\BlockStatus"
-msgstr ""
+msgstr "HKCU\\Software\\TortoiseSVN\\BlockStatus"
 
 #: source/en/tsvn_app_faq.xml:1075
 #: (para)
