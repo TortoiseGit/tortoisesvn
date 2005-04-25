@@ -79,8 +79,6 @@ CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 		m_bItemsAddedSinceLastCrawl = true;
 	}
 
-	ATLTRACE("Q4Crawl: %ws\n", path.GetWinPath());
-
 	SetEvent(m_hWakeEvent);
 }
 

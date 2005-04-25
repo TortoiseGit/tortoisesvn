@@ -17,7 +17,7 @@ public:
 	svn_wc_status_kind GetEffectiveStatus() const { return m_highestPriorityLocalStatus; }
 	void SetStatus(const svn_wc_status2_t* pSVNStatus);
 	bool HasBeenSet() const;
-
+	bool IsDirectory() const {return m_kind == svn_node_dir;}
 	bool SaveToDisk(HANDLE hFile);
 	bool LoadFromDisk(HANDLE hFile);
 private:
