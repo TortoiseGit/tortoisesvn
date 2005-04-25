@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-24 20:16+0100\n"
+"PO-Revision-Date: 2005-04-25 10:28+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3179,7 +3179,7 @@ msgstr "TortoiseSVN ist gratis. Sie brauchen nichts dafür zu bezahlen, Sie kön
 #: source/en/tsvn_preface.xml:78
 #: (para)
 msgid "TortoiseSVN is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>. The most recent version (where we're working on) is located under <emphasis><filename>/trunk/</filename></emphasis>, the released versions are located under <emphasis><filename>/tags/</filename></emphasis>."
-msgstr "TortoiseSVN ist ein Open Source Projekt. Das bedeutet, Sie haben Zugang zum Sourcecode des Programms. Sie können den Sourcecode unter folgendem Link:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
+msgstr "TortoiseSVN ist ein Open Source Projekt. Das bedeutet, Sie haben Zugang zum Quellcode des Programms. Sie können den Quellcode unter folgendem Link:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
 
 #: source/en/tsvn_preface.xml:99
 #: (title)
@@ -3339,7 +3339,7 @@ msgstr "TortoiseSVN ist ein freies Opensource Programm für das Subversion Versi
 #: source/en/tsvn_introduction.xml:35
 #: (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
-msgstr "<indexterm><primary>SCM</primary></indexterm>Einige Versionskontrollsysteme sind zugleich Programmkonfigurations-Managementsysteme (Software Configuration Management Systems, SCM). Diese Systeme sind speziell dazu ausgelegt, Sourcecode zu handhaben und haben viele Funktionen, welche spezifisch\tfür die Softwareentwicklung sind - so verstehen diese etwa verschiedene Programmiersprachen oder stellen Hilfsmittel für die Erstellung von Programmen zur Verfügung. Subversion hingegen ist kein solches System; es ist allgemein gehalten, so dass es für die Handhabung von <emphasis>irgendwelchen</emphasis> Dateien geeignet st, einschliesslich Sourcecode selbstverständlich."
+msgstr "<indexterm><primary>SCM</primary></indexterm>Einige Versionskontrollsysteme sind zugleich Programmkonfigurations-Managementsysteme (Software Configuration Management Systems, SCM). Diese Systeme sind speziell dazu ausgelegt, Quellcode zu handhaben und haben viele Funktionen, welche spezifisch für die Softwareentwicklung sind - so verstehen diese etwa verschiedene Programmiersprachen oder stellen Hilfsmittel für die Erstellung von Programmen zur Verfügung. Subversion hingegen ist kein solches System; es ist allgemein gehalten, so dass es für die Handhabung von <emphasis>beliebigen</emphasis> Dateien, einschliesslich Quellcode, geeignet ist."
 
 #: source/en/tsvn_introduction.xml:51
 #: (title)
@@ -3349,12 +3349,12 @@ msgstr "Geschichte von TortoiseSVN"
 #: source/en/tsvn_introduction.xml:52
 #: (para)
 msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
-msgstr "Tim Kemp fand im Jahr 2002, dass Subversion ein sehr gutes\t\tVersionskontrollsystem sei, aber es fehle eine gute grafische\t\tOberfläche dazu. Die Idee einer Windows Shell-Integration wurde\t\tinspiriert von dem Windows-Programm TortoiseCVS für das ältere CVS\t\tVersionskontrollsystem."
+msgstr "Tim Kemp fand im Jahr 2002, dass Subversion ein sehr gutes Versionskontrollsystem sei, aber es fehle eine gute grafische Oberfläche dazu. Die Idee einer Windows Shell-Integration wurde inspiriert von dem Windows-Programm TortoiseCVS für das ältere CVS Versionskontrollsystem."
 
 #: source/en/tsvn_introduction.xml:58
 #: (para)
 msgid "Tim studied the sourcecode of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain tortoisesvn.org and put the sourcecode online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
-msgstr "Tim studierte den Sourcecode von TortoiseCVS und benutzte diesen als\t\tBasis für TortoiseSVN. Er startete dann das Projekt, registrierte die\t\tDomäne <systemitem class=\"url\">tortoisesvn.org</systemitem> und stellte\t\tden Sourcecode online zur Verfügung. Während dieser Zeit suchte Stefan\t\tKüng nach einem guten Versionskontrollsystem und fand Subversion und\t\tden Sourcecode von TortoiseSVN. Da TortoiseSVN noch nicht für den\t\tnormalen Gebrauch nutzbar war, fing er an, TortoiseSVN weiterzuentwickeln.\t\tSchon bald hatte er den grössten Teil des Programmcodes neu geschrieben\t\tund fügte Funktionen und Befehle hinzu bis zu einem Punkt, wo von dem\t\tursprünglichen Code nichts mehr übrig war."
+msgstr "Tim studierte den Quellcode von TortoiseCVS und benutzte diesen als Basis für TortoiseSVN. Er startete dann das Projekt, registrierte die Domäne <systemitem class=\"url\">tortoisesvn.org</systemitem> und stellte den Quellcode online zur Verfügung. Während dieser Zeit suchte Stefan Küng nach einem guten Versionskontrollsystem und fand Subversion und den Quellcode von TortoiseSVN. Da TortoiseSVN noch nicht für den normalen Gebrauch nutzbar war, fing er an, TortoiseSVN weiterzuentwickeln. Schon bald hatte er den grössten Teil des Programmcodes neu geschrieben und fügte Funktionen und Befehle hinzu bis zu einem Punkt, wo von dem ursprünglichen Code nichts mehr übrig war."
 
 #: source/en/tsvn_introduction.xml:69
 #: (para)
@@ -3544,7 +3544,7 @@ msgstr "Falls Sie irgendwelche Probleme während oder nach der Installation von 
 #: source/en/tsvn_basics.xml:6
 #: (title)
 msgid "Basic Concepts"
-msgstr ""
+msgstr "Grundlagen"
 
 #: source/en/tsvn_basics.xml:8
 #: (para)
@@ -3559,7 +3559,7 @@ msgstr "Dieses Kaptiel ist eine kurze, beiläufige Einführung in Subversion. Fa
 #: source/en/tsvn_basics.xml:26
 #: (para)
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr "Obwohl die hier gezeigten Beispiele Personen zeigen, die mitSourcecode arbeiten, beachten Sie bitte, dass Subversion <emphasis>jegliche</emphasis> Art von Daten verarbeiten kann - es ist nichtauf Sourcecode beschränkt."
+msgstr "Obwohl die hier gezeigten Beispiele Personen zeigen, die mit Quellcode arbeiten, beachten Sie bitte, dass Subversion <emphasis>jegliche</emphasis> Art von Daten verarbeiten kann - es ist nicht auf Quellcode beschränkt."
 
 #: source/en/tsvn_basics.xml:36
 #: (primary)
@@ -3599,7 +3599,7 @@ msgstr "Alle Versionskontrollsysteme haben ein gemeinsames, grundlegendes Proble
 #: source/en/tsvn_basics.xml:88
 #: (title)
 msgid "The Problem of File-Sharing"
-msgstr "Das Problem mit Datei-sharing"
+msgstr "Das Problem mit gemeinsamem Dateizugriff"
 
 #: source/en/tsvn_basics.xml:89
 #: (para)
@@ -3629,17 +3629,17 @@ msgstr "Das Problem mit der Sperren-Ändern-Freigeben Lösung ist, dass diese zu
 #: source/en/tsvn_basics.xml:136
 #: (para)
 msgid "<emphasis>Locking may cause administrative problems.</emphasis> Sometimes Harry will lock a file and then forget about it. Meanwhile, because Sally is still waiting to edit the file, her hands are tied. And then Harry goes on vacation. Now Sally has to get an administrator to release Harry's lock. The situation ends up causing a lot of unnecessary delay and wasted time."
-msgstr "<emphasis>Sperren kann administrative Probleme auslösen. </emphasis> Manchmal wird Harry eine Datei sperren und dann vergessen, diese wieder freizugeben. In der Zwischenzeit wartet Sally bis sie diese Datei ändern kann, aber durch die Sperre von Harry sind ihr die Hände gebunden. Und dann geht Harry in die Ferien. Nun braucht Sally einen Administrator, um die Sperre von Harry aufzuheben. Diese Situation führt zu unnötigen Verzögerungen und verschwendet Zeit."
+msgstr "<emphasis>Sperren kann administrative Probleme auslösen.</emphasis> Manchmal wird Harry eine Datei sperren und dann vergessen, diese wieder freizugeben. In der Zwischenzeit wartet Sally bis sie diese Datei ändern kann, aber durch die Sperre von Harry sind ihr die Hände gebunden. Und dann geht Harry in die Ferien. Nun braucht Sally einen Administrator, um die Sperre von Harry aufzuheben. Diese Situation führt zu unnötigen Verzögerungen und verschwendet Zeit."
 
 #: source/en/tsvn_basics.xml:147
 #: (para)
 msgid "<emphasis>Locking may cause unnecessary serialization.</emphasis> What if Harry is editing the beginning of a text file, and Sally simply wants to edit the end of the same file? These changes don't overlap at all. They could easily edit the file simultaneously, and no great harm would come, assuming the changes were properly merged together. There's no need for them to take turns in this situation."
-msgstr "<emphasis>Sperren kann zu unnötiger serieller Arbeitsweise führen</emphasis> Was, wenn Harry den Anfang einer Textdatei ändert und Sally das Ende dieser Textdatei ändern möchte? Diese Änderungen stören sich überhaupt nicht und könnten sehr einfach gleichzeitig ausgeführt werden, in der Annahme, dass diese Änderungen ohne Probleme zusammengeführt werden. Es ist in dieser Situation völlig unnötig zu warten, bis der eine mit der Arbeit fertig ist."
+msgstr "<emphasis>Sperren kann zu unnötiger sequenzieller Arbeitsweise führen.</emphasis> Was, wenn Harry den Anfang einer Textdatei ändert und Sally das Ende dieser Textdatei ändern möchte? Diese Änderungen stören sich überhaupt nicht und könnten sehr einfach gleichzeitig ausgeführt werden, in der Annahme, dass diese Änderungen ohne Probleme zusammengeführt werden. Es ist in dieser Situation völlig unnötig zu warten, bis der eine mit der Arbeit fertig ist."
 
 #: source/en/tsvn_basics.xml:159
 #: (para)
 msgid "<emphasis>Locking may create a false sense of security.</emphasis> Pretend that Harry locks and edits file A, while Sally simultaneously locks and edits file B. But suppose that A and B depend on one another, and the changes made to each are semantically incompatible. Suddenly A and B don't work together anymore. The locking system was powerless to prevent the problem - yet it somehow provided a sense of false security. It's easy for Harry and Sally to imagine that by locking files, each is beginning a safe, insulated task, and thus inhibits them from discussing their incompatible changes early on."
-msgstr "<emphasis>Sperren kann ein falsches Gefühl von Sicherheit erzeugen</emphasis> Angenommen, Harry sperrt und ändert eine Datei A, während Sally eine Datei B gesperrt hat und ändert. Aber angenommen, diese beiden Dateien sind nicht unabhängig voneinander und die Änderungen an der einen Datei sind nicht kompatibel mit den Änderungen an der anderen Datei. Plötzlich funktionieren die Dateien A und B nicht mehr zusammen. Das Sperr-System konnte dieses Problem nicht verhindern - es spiegelte sogar eine falsche Sicherheit vor. Es ist einfach für Harry und Sally anzunehmen, dass durch das Sperren von Dateien jeder Änderungen sicher durchführen kann."
+msgstr "<emphasis>Sperren kann ein falsches Gefühl von Sicherheit erzeugen.</emphasis> Angenommen, Harry sperrt und ändert eine Datei A, während Sally eine Datei B gesperrt hat und ändert. Aber angenommen, diese beiden Dateien sind nicht unabhängig voneinander und die Änderungen an der einen Datei sind nicht kompatibel mit den Änderungen an der anderen Datei. Plötzlich funktionieren die Dateien A und B nicht mehr zusammen. Das Sperr-System konnte dieses Problem nicht verhindern - es spiegelte sogar eine falsche Sicherheit vor. Es ist einfach für Harry und Sally anzunehmen, dass durch das Sperren von Dateien jeder Änderungen sicher durchführen kann."
 
 #: source/en/tsvn_basics.xml:177
 #: (title) source/en/tsvn_basics.xml:205
@@ -3679,7 +3679,7 @@ msgstr "Schlussendlich hängt alles von einem einzigen kritischen Faktor ab: Kom
 #: source/en/tsvn_basics.xml:249
 #: (para)
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have un-mergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
-msgstr ""
+msgstr "Es gibt eine Situation, in der das Sperren-Ändern-Freigeben Modell Vorteile bietet. Das ist bei Dateien der Fall, die sich nicht automatisch zusammenführen lassen. Wenn Ihr Projektarchiv zum Beispiel Grafiken enthält und zwei Personen gleichzeitig die selbe Grafik ändern, kann Subversion nicht entscheiden, wie die Änderungen zusammengeführt werden. Entweder Harry oder Sally wird ihre Änderungen verlieren."
 
 #: source/en/tsvn_basics.xml:259
 #: (title)
@@ -3689,7 +3689,7 @@ msgstr "Was macht Subversion?"
 #: source/en/tsvn_basics.xml:260
 #: (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr ""
+msgstr "Suversion verwended standardmäßig das Kopie-Ändern-Zusammenführen Modell, und in den meisten Fällen wird das alles sein, was Sie jemals benötigen werden. Mit der Einführung von Version 1.2 unterstützt Subversion auch das Sperren von Dateien, so dass Ihnen diese Möglichkeit ebenfalls zur Verfügung steht."
 
 #: source/en/tsvn_basics.xml:272
 #: (title)
@@ -3709,7 +3709,7 @@ msgstr "<indexterm> <primary>Arbeitskopie</primary> </indexterm> Sie haben berei
 #: source/en/tsvn_basics.xml:283
 #: (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr "Eine Subversion-Arbeitskopie ist eine ganz normale Ordnerstruktur auf einem lokalen Dateisystem, welches eine Anzahl von Dateien enthält. Sie können diese Dateien ändern wie Sie wollen, und falls dies Sourcecode-Dateien sind, können Sie diese kompilieren wie sonst auch. Ihre Arbeitskopie ist Ihr eigenes privates Arbeitsfeld: Subversion wird nie Änderungen von anderen einfügen oder Ihre Änderungen anderen zur Verfügung stellen, ohne dass Sie Subversion explizit dazu auffordern."
+msgstr "Eine Subversion-Arbeitskopie ist eine ganz normale Ordnerstruktur auf einem lokalen Dateisystem, welches eine Anzahl von Dateien enthält. Sie können diese Dateien ändern wie Sie wollen, und falls dies Quellcode-Dateien sind, können Sie diese kompilieren wie sonst auch. Ihre Arbeitskopie ist Ihr eigenes privates Arbeitsfeld: Subversion wird nie Änderungen von anderen einfügen oder Ihre Änderungen anderen zur Verfügung stellen, ohne dass Sie Subversion explizit dazu auffordern."
 
 #: source/en/tsvn_basics.xml:293
 #: (para)
@@ -3779,7 +3779,7 @@ msgstr "file:///"
 #: source/en/tsvn_basics.xml:366
 #: (entry)
 msgid "Direct repository access on local disk."
-msgstr ""
+msgstr "Direkter Zugriff auf einer lokalen Festplatte."
 
 #: source/en/tsvn_basics.xml:372
 #: (literal) source/en/tsvn_basics.xml:383
@@ -3789,7 +3789,7 @@ msgstr "http://"
 #: source/en/tsvn_basics.xml:374
 #: (entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
-msgstr ""
+msgstr "Zugriff via WebDAV Protokoll auf einen Apache-Server, auf dem Subversion installiert ist."
 
 #: source/en/tsvn_basics.xml:380
 #: (literal)
@@ -3799,7 +3799,7 @@ msgstr "https://"
 #: source/en/tsvn_basics.xml:382
 #: (entry)
 msgid "Same as <placeholder-1/>, but with SSL encryption."
-msgstr ""
+msgstr "Wie <placeholder-1/>, aber mit SSL-Verschlüsselung."
 
 #: source/en/tsvn_basics.xml:388
 #: (literal)
@@ -3814,7 +3814,7 @@ msgstr "svnserve"
 #: source/en/tsvn_basics.xml:390
 #: (entry)
 msgid "Unauthenticated TCP/IP access via custom protocol to an <placeholder-1/> server."
-msgstr ""
+msgstr "Nicht authentifizierter TCP/IP Zugriff mittels eigenem Protokoll auf einen <literal>svnserve</literal> Server."
 
 #: source/en/tsvn_basics.xml:397
 #: (literal)
@@ -3824,17 +3824,17 @@ msgstr "svn+ssh://"
 #: source/en/tsvn_basics.xml:399
 #: (entry)
 msgid "authenticated, encrypted TCP/IP access via custom protocol to an <placeholder-1/> server"
-msgstr ""
+msgstr "authentifizierter, verschlüsselter TCP/IP Zugriff mittels eigenem Protokoll auf einen <placeholder-1/> Server."
 
 #: source/en/tsvn_basics.xml:408
 #: (para)
 msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. Remember that the <literal>file:</literal> access method is valid only for locations on the same server as the client - in fact, in accordance with convention, the server name portion of the URL is required to be either absent or <literal>localhost</literal>. Take great care that the <literal>file:</literal> access method is not used to access BDB repositories located on drives shared over the network!"
-msgstr ""
+msgstr "In den weitaus meisten Fällen nutzen Subversion URLs die Standardsyntax und erlauben, dass Servernamen und Portnummern als Teil der URL angegeben werden. Beachten Sie jedoch, dass die <literal>file:/// </literal> Zugriffsmethode nur möglich ist, wenn das Projektarchiv auf demselben Rechner liegt wie das Clientprogramm. Mit <literal>file:/// </literal> darf nicht auf Projektarchive auf freigegebenen Netzlaufwerken zugegriffen werden!"
 
 #: source/en/tsvn_basics.xml:419
 #: (para)
 msgid "Also, users of the <literal>file:</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
-msgstr ""
+msgstr "Zudem müssen Benutzer des <literal>file:///</literal> Schemas auf Windowsrechnern eine nicht offizielle <quote>Standard</quote> Syntax für die URL verwenden. Jede der folgenden URLs funktioniert, wobei <literal>X</literal> das Laufwerk mit dem Projektarchiv ist:"
 
 #: source/en/tsvn_basics.xml:429
 #: (screen)
@@ -3855,37 +3855,37 @@ msgstr ""
 #: source/en/tsvn_basics.xml:435
 #: (para)
 msgid "Note that a URL uses ordinary slashes even though the native (non-URL) form of a path on Windows uses backslashes."
-msgstr ""
+msgstr "Beachten Sie, dass die URL normale Schrägstriche verwendet, obwohl Windows-Pfade mit umgekehrten Schrägstrichen angegeben werden."
 
 #: source/en/tsvn_basics.xml:440
 #: (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
-msgstr ""
+msgstr "Angenommen, Sie machen Änderungen an der Datei <filename>button.c</filename>. Da der <filename>.svn</filename> Ordner den Originalinhalt und das Änderungsdatum gespeichert hat, kann Subversion feststellen, dass Sie diese Datei geändert haben. Jedoch wird Subversion diese Änderungen erst veröffentlichen, wenn Sie Subversion dazu explizit auffordern. Der Vorgang des Veröffentlichens ist allgemein unter dem Begriff <firstterm>Übertragen</firstterm> (engl. <literal>committing</literal>) bekannt."
 
 #: source/en/tsvn_basics.xml:450
 #: (para)
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
-msgstr ""
+msgstr "Um Ihre Änderungen anderen zur Verfügung zu stellen, verwenden Sie den Befehl <command>Übertragen</command>."
 
 #: source/en/tsvn_basics.xml:454
 #: (para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
-msgstr ""
+msgstr "Danach sind Ihre Änderungen an der Datei <filename>button.c</filename> im Projektarchiv abgespeichert; falls jemand anders nun eine neue Arbeitskopie von <filename>/calc</filename> auscheckt, wird diese Ihre letzten Änderungen an der Datei <filename>button.c</filename> mitenthalten."
 
 #: source/en/tsvn_basics.xml:460
 #: (para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
-msgstr ""
+msgstr "Nehmen Sie an, Sie haben eine Mitarbeiterin, Sally, die eine Arbeitskopie von <filename>/calc</filename> zur selben Zeit wie Sie ausgecheckt hat. Wenn Sie Ihre Änderungen übertragen, bleibt die Arbeitskopie von Sally unverändert. Subversion ändert an einer Arbeitskopie nur dann etwas, wenn Sie es ausdrücklich dazu auffordern."
 
 #: source/en/tsvn_basics.xml:468
 #: (para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
-msgstr ""
+msgstr "Um ihre Arbeitskopie auf den neuesten Stand zu bringen, sagt Sally Subversion, dass es ihre Arbeitskopie <firstterm>aktualisieren </firstterm> soll mittels des <command>Aktualisieren</command> Befehls. Dies wird Ihre Änderungen in die Arbeitskopie von Sally einfügen, sowie natürlich alle weiteren Änderungen, welche andere vorgenommen haben seit Sally ihre Arbeitskopie das letzte mal aktualisiert hat."
 
 #: source/en/tsvn_basics.xml:476
 #: (para)
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
-msgstr ""
+msgstr "Beachten Sie, dass Sally nicht angeben muss, welche Dateien genau Subversion aktualisieren soll; Subversion nutzt die Informationen im <filename>.svn</filename> Ordner und weitere Informationen aus dem Projektarchiv, um dies selbst festzustellen."
 
 #: source/en/tsvn_basics.xml:485
 #: (title)
@@ -3895,22 +3895,22 @@ msgstr "Revisionen"
 #: source/en/tsvn_basics.xml:489
 #: (para)
 msgid "An <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
-msgstr ""
+msgstr "Ein <command>Übertragen</command> Befehl kann Änderungen an beliebig vielen Dateien und Ordnern als eine einzige atomare Operation übertragen. In Ihrer Arbeitskopie können Sie Dateien ändern, erstellen, löschen, umbenennen und verschieben und dann alle diese Änderungen in einem einzigen Schritt übertragen."
 
 #: source/en/tsvn_basics.xml:497
 #: (para)
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commit's changes take place, or none of them take place. Subversion tries to retain this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
-msgstr ""
+msgstr "Im Projektarchiv wird jede Übertragung als eine einzige atomare Transaktion behandelt: entweder werden alle Änderungen abgespeichert oder gar keine. Subversion stellt dies sogar im Falle von Systemabstürzen, Netzwerkproblemen, Stromausfällen oder anderen Problemen sicher."
 
 #: source/en/tsvn_basics.xml:504
 #: (para)
 msgid "Each time the repository accepts a commit, this creates a new state of the filesystem tree, called a <firstterm>revision</firstterm>. Each revision is assigned a unique natural number, one greater than the number of the previous revision. The initial revision of a freshly created repository is numbered zero, and consists of nothing but an empty root directory."
-msgstr ""
+msgstr "Jedesmal wenn ein Projektarchiv eine Übertragung akzeptiert, wird dadurch ein neuer Zustand der Dateistruktur erzeugt. Ein solcher Zustand wird <firstterm>Revision</firstterm> genannt. Jeder Revision wird eine natürliche Zahl zugeordnet, jeweils um eins grösser als die vorherige Revision. Der Ursprungszustand eines Projektarchivs bei der Erstellung ist also Revision 0. Revision 0 enthält nichts ausser einem leeren Hauptverzeichnis."
 
 #: source/en/tsvn_basics.xml:513
 #: (para)
 msgid "A nice way to visualize the repository is as a series of trees. Imagine an array of revision numbers, starting at 0, stretching from left to right. Each revision number has a filesystem tree hanging below it, and each tree is a <quote>snapshot</quote> of the way the repository looked after each commit."
-msgstr ""
+msgstr "Ein möglicher Weg, um sich das Projektarchiv vorzustellen, ist als eine Reihe von Bäumen. Stellen Sie sich eine Reihe von Revisionsnummern vor, beginnend mit 0, sich von links nach rechts ausbreitend. Jede Revisionsnummer hat einen Dateisystembaum, welcher an dieser Reihe hängt, und jeder dieser Bäume ist eine <quote>Momentaufnahme</quote> davon, wie das Projektarchiv nach der jeweiligen Übertragung ausgesehen hat."
 
 #: source/en/tsvn_basics.xml:526
 #: (title)
@@ -3920,12 +3920,12 @@ msgstr "Globale Revisionsnummern"
 #: source/en/tsvn_basics.xml:527
 #: (para)
 msgid "Unlike those of many other version control systems, Subversion's revision numbers apply to <emphasis>entire trees</emphasis>, not individual files. Each revision number selects an entire tree, a particular state of the repository after some committed change. Another way to think about it is that revision N represents the state of the repository filesystem after the Nth commit. When a Subversion user talks about ``revision 5 of <filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> as it appears in revision 5.'' Notice that in general, revisions N and M of a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr ""
+msgstr "Anders als in vielen bekannten Versionskontrollsystemen stellt eine Revisionsnummer den Zustand eines <emphasis>ganzen Dateibaumes </emphasis> dar, nicht nur von einzelnen Dateien. Jede Revision ist ein ganzer Dateibaum, ein bestimmter Zustand des Projektarchivs nach einer Übertragung. Eine andere Möglichkeit, sich eine Revision vorzustellen, ist, dass eine Revision N den Zustand des Projektarchivs nach der N-ten Übertragung darstellt. Wenn ein Subversion-Benutzer von <quote>Revision 5 der Datei <filename> foo.c</filename> </quote> spricht, meint er in Wirklichkeit den Zustand der Datei <filename>foo.c</filename> wie sie in Revision 5 ausgesehen hat. Beachten Sie, dass zwei verschiedene Revisionen einer Datei <emphasis>nicht</emphasis> unterschiedlich sein müssen!"
 
 #: source/en/tsvn_basics.xml:542
 #: (para)
 msgid "It's important to note that working copies do not always correspond to any single revision in the repository; they may contain files from several different revisions. For example, suppose you check out a working copy from a repository whose most recent revision is 4:"
-msgstr ""
+msgstr "Es ist wichtig zu beachten, dass Arbeitskopien nicht immer mit einer einzigen Revision des Projektarchivs übereinstimmen; sie können Dateien von verschiedenen Revisionen enthalten. Nehmen Sie zum Beispiel an, Sie haben aus einem Projektarchiv eine Arbeitskopie ausgecheckt, bei welcher die neueste Revision die 4 ist:"
 
 #: source/en/tsvn_basics.xml:549
 #: (screen)
@@ -3944,7 +3944,7 @@ msgstr ""
 #: source/en/tsvn_basics.xml:554
 #: (para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
-msgstr ""
+msgstr "In diesem Moment entspricht die Arbeitskopie exakt der Revision 4 im Projektarchiv. Nun nehmen Sie an, Sie ändern die Datei <filename>button.c</filename> und übertragen diese Änderungen. Nehmen Sie weiter an, dass keine weitern Änderungen vorgenommen wurden und Ihre Übertragung eine neue Revision 5 im Projektarchiv erstellt. Ihre Arbeitskopie wird dann so aussehen:"
 
 #: source/en/tsvn_basics.xml:562
 #: (screen)
@@ -3963,7 +3963,7 @@ msgstr ""
 #: source/en/tsvn_basics.xml:567
 #: (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
-msgstr ""
+msgstr "Nehmen Sie nun an, dass jetzt Sally Änderungen an der Datei <filename>integer.c</filename> überträgt und damit eine Revision 6 erstellt. Wenn Sie nun Ihre Arbeitskopie aktualisieren, wird dies dann so aussehen:"
 
 #: source/en/tsvn_basics.xml:573
 #: (screen)
@@ -3982,32 +3982,32 @@ msgstr ""
 #: source/en/tsvn_basics.xml:578
 #: (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
-msgstr ""
+msgstr "Sally's Änderungen an der Datei <filename>integer.c</filename> werden in Ihre Arbeitskopie eingefügt, und Ihre Änderungen in der Datei <filename>button.c</filename> werden immer noch vorhanden sein. In diesem Beispiel ist der Inhalt der Datei <filename>Makefile </filename> identisch in den Revisionen 4, 5 und 6, aber Subversion markiert Ihre lokale Kopie von <filename>Makefile</filename> mit Revision 6 um zu zeigen, dass diese immer noch aktuell ist. Also nachdem Sie eine saubere Aktualisierung durchgeführt haben, wird Ihre Arbeitskopie exakt einer Revision im Projektarchiv entsprechen."
 
 #: source/en/tsvn_basics.xml:591
 #: (title)
 msgid "How Working Copies Track the Repository"
-msgstr ""
+msgstr "Wie Arbeitskopien das Projektarchiv verfolgen"
 
 #: source/en/tsvn_basics.xml:592
 #: (para)
 msgid "For each file in a working directory, Subversion records two essential pieces of information in the <filename>.svn/</filename> administrative area:"
-msgstr ""
+msgstr "Für jede Datei in einer Arbeitskopie zeichnet Subversion zwei wesentliche Informationen im <filename>.svn</filename> Administrationsordner auf:"
 
 #: source/en/tsvn_basics.xml:598
 #: (para)
 msgid "what revision your working file is based on (this is called the file's <firstterm>working revision</firstterm>), and"
-msgstr ""
+msgstr "Auf welcher Revision die Datei basiert (dies wird auch <firstterm>Arbeitsrevision</firstterm> genannt)"
 
 #: source/en/tsvn_basics.xml:605
 #: (para)
 msgid "a timestamp recording when the local copy was last updated by the repository."
-msgstr ""
+msgstr "Der Zeitpunkt, an dem die Datei zum letzten Mal aus dem Projektarchiv aktualisiert wurde."
 
 #: source/en/tsvn_basics.xml:611
 #: (para)
 msgid "Given this information, by talking to the repository, Subversion can tell which of the following four states a working file is in:"
-msgstr ""
+msgstr "Mittels dieser Informationen ist Subversion in der Lage, durch Anfragen an das Projektarchiv herauszufinden, in welchem der folgenden vier Zustände eine Datei ist:"
 
 #: source/en/tsvn_basics.xml:618
 #: (term)
@@ -4017,17 +4017,17 @@ msgstr "Unverändert und aktuell"
 #: source/en/tsvn_basics.xml:620
 #: (para)
 msgid "The file is unchanged in the working directory, and no changes to that file have been committed to the repository since its working revision. A <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will do nothing."
-msgstr ""
+msgstr "Die Datei wurde weder lokal noch im Projektarchiv verändert. Eine <command>Übertragung</command> und auch eine <command>Aktualisierung</command>dieser Datei bewirkt nichts."
 
 #: source/en/tsvn_basics.xml:631
 #: (term)
 msgid "Locally changed, and current"
-msgstr ""
+msgstr "Lokal verändert und aktuell"
 
 #: source/en/tsvn_basics.xml:633
 #: (para)
 msgid "The file has been changed in the working directory, and no changes to that file have been committed to the repository since its base revision. There are local changes that have not been committed to the repository, thus an <command>commit</command> of the file will succeed in publishing your changes, and an <command>update</command> of the file will do nothing."
-msgstr ""
+msgstr "Die Datei wurde lokal verändert, aber nicht im Projektarchiv. Eine <command>Übertragung</command> bewirkt ein Speichern dieser Änderungen im Projektarchiv. Eine <command>Aktualisierung</command> hingegen bewirkt nichts."
 
 #: source/en/tsvn_basics.xml:645
 #: (term)
@@ -4037,42 +4037,42 @@ msgstr "Unverändert, aber nicht mehr aktuell"
 #: source/en/tsvn_basics.xml:647
 #: (para)
 msgid "The file has not been changed in the working directory, but it has been changed in the repository. The file should eventually be updated, to make it current with the public revision. An <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will fold the latest changes into your working copy."
-msgstr ""
+msgstr "Die Datei wurde lokal nicht verändert, jedoch gibt es Änderungen an der Datei im Projektarchiv. Eine <command>Übertragung</command> bewirkt nichts, jedoch wird ein <command>Aktualisieren</command> die Änderungen aus dem Projektarchiv in die lokale Kopie der Datei einfügen."
 
 #: source/en/tsvn_basics.xml:659
 #: (term)
 msgid "Locally changed, and out-of-date"
-msgstr ""
+msgstr "Lokal verändert und nicht aktuell"
 
 #: source/en/tsvn_basics.xml:661
 #: (para)
 msgid "The file has been changed both in the working directory, and in the repository. An <command>commit </command> of the file will fail with an \"out-of-date\" error. The file should be updated first; an <command>update </command> command will attempt to merge the public changes with the local changes. If Subversion can't complete the merge in a plausible way automatically, it leaves it to the user to resolve the conflict."
-msgstr ""
+msgstr "Die Datei wurde lokal und im Projektarchiv verändert. Ein <command>Übertragen</command> wird mit einer Fehlermeldung  fehlschlagen. Sie müssen die Datei zuerst <command> Aktualisieren</command>, um die Änderungen aus dem Projektarchiv in die lokale Kopie einzufügen. Falls Subversion nicht in der Lage sein sollte, diese Änderungen selbst zusammenzuführen, was selten der Fall ist, muss der Benutzer den Konflikt manuell lösen."
 
 #: source/en/tsvn_basics.xml:678
 #: (title)
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #: source/en/tsvn_basics.xml:679
 #: (para)
 msgid "We've covered a number of fundamental Subversion concepts in this chapter:"
-msgstr ""
+msgstr "Wir haben eine Anzahl von grundlegenden Subversion-Konzepten in diesem Kapitel behandelt:"
 
 #: source/en/tsvn_basics.xml:685
 #: (para)
 msgid "We've introduced the notions of the central repository, the client working copy, and the array of repository revision trees."
-msgstr ""
+msgstr "Wir haben den Begriff des zentralen Projektarchivs, der Arbeitskopie und der Revisionen eingeführt."
 
 #: source/en/tsvn_basics.xml:691
 #: (para)
 msgid "We've seen some simple examples of how two collaborators can use Subversion to publish and receive changes from one another, using the 'copy-modify-merge' model."
-msgstr ""
+msgstr "Wir haben einige einfache Beispiele gezeigt, wie zwei Mitarbeiter Subversion benutzen können, um Änderungen zur Verfügung zu stellen und Änderungen von anderen zu übernehmen mittels des Kopie-Ändern-Zusammenführen Modells."
 
 #: source/en/tsvn_basics.xml:698
 #: (para)
 msgid "We've talked a bit about the way Subversion tracks and manages information in a working copy."
-msgstr ""
+msgstr "Wir sprachen ein wenig darüber, wie Subversion Informationen in der Arbeitskopie verfolgt und verwaltet."
 
 #: source/en/tsvn_app_howto.xml:3
 #: (title)
@@ -5415,7 +5415,7 @@ msgstr "TortoiseMerge ist gratis. Sie brauchen nichts dafür zu bezahlen, Sie k�
 #: source/en/tme_ch00.xml:47
 #: (para)
 msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>. The most recent version (where we're working) is located under <filename>/trunk/</filename>, the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge ist ein Open Source Projekt. Das bedeutet, Sie haben Zugang zum Sourcecode des Programms. Sie können den Sourcecode unter folgendem Link:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
+msgstr "TortoiseMerge ist ein Open Source Projekt. Das bedeutet, dass sie Zugang zum Quellcode des Programms haben. Sie können den Quellcode unter folgendem Link:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
 
 #: source/en/tme_ch00.xml:72
 #: (para)
