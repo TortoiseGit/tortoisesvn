@@ -116,6 +116,14 @@
 					</para>
 				</listitem>
 			</orderedlist>
+			<caution>
+				<para>
+					If you decide to install Apache as a service, be warned that
+					by default it will run as the local system account.
+					It would be a more secure practice for you to create a
+					separate account for Apache to run as.
+				</para>
+			</caution>
 		</para>
 	</sect2>
 	<sect2 id="tsvn-serversetup-apache-3">
