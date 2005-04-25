@@ -1556,6 +1556,11 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLi
 		} // if (GetSaveFileName(&ofn)==FALSE)
 		delete [] pszFilters;
 		savePath = CTSVNPath(ofn.lpstrFile);
+		if (ofn.nFilterIndex == 1)
+		{
+			if (savePath.GetFileExtension().IsEmpty())
+				savePath.AppendRawString(_T(".patch"));
+		}
 	}
 	else
 	{
