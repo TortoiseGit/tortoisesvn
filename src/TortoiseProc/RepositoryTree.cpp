@@ -57,6 +57,11 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 {
 	m_strUrl = svn_url.GetPath();
 	m_Revision = svn_url.GetRevision();
+	if (m_strReposRoot.IsEmpty())
+	{
+		SVN svn;
+		m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_strUrl));
+	}
 
 	DeleteAllItems();
 
@@ -77,6 +82,17 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool init)
 {
 	CString folder_path;
+	if (init)
+	{
+		HTREEITEM hRootItem = FindUrl(m_strReposRoot);
+		if (hRootItem == 0)
+		{
+			DeleteDummyItem(RVTI_ROOT);
+			hRootItem = CReportCtrl::InsertItem(m_strReposRoot, m_nIconFolder, -1, -1, RVTI_ROOT, RVTI_SORT);
+			InsertDummyItem(hRootItem);
+			SetItemData(GetItemIndex(hRootItem), 0);
+		}
+	}
 	AfxExtractSubString(folder_path, SVNUrl(folder), 0, '\t');
 
 	HTREEITEM hItem = FindUrl(folder_path);
@@ -90,8 +106,6 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 			hParentItem = FindUrl(parent_folder);
 			if (hParentItem == 0)
 			{
-				//if (!force)
-				//	return NULL;
 				hParentItem = AddFolder(parent_folder, force);
 			}
 		}
@@ -224,7 +238,7 @@ HTREEITEM CRepositoryTree::FindUrl(const CString& url)
 	if (hRoot == NULL)
 		return NULL;
 
-	CString root_path = SVNUrl(url).GetRootPath();
+	CString root_path = m_strReposRoot;
 	CString root_item = GetItemText(GetItemIndex(hRoot), 0);
 
 	// root item must be compared case-insensitive

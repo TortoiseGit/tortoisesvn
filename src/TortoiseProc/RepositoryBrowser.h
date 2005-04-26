@@ -80,7 +80,8 @@ protected:
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	afx_msg void OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
-
+	afx_msg LRESULT OnAfterInitDialog(WPARAM wParam, LPARAM lParam);
+	
 	void ShowContextMenu(CPoint pt, LRESULT *pResult);
 	DECLARE_MESSAGE_MAP()
 
@@ -95,6 +96,8 @@ protected:
 private:
 	bool m_bStandAlone;
 	SVNUrl m_InitialSvnUrl;
+	static const UINT	m_AfterInitMessage;
 public:
 };
+static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));
 

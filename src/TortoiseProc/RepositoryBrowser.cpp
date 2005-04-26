@@ -93,6 +93,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_NOTIFY(RVN_KEYDOWN, IDC_REPOS_TREE, OnRVNKeyDownReposTree)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_WM_CONTEXTMENU()
+	ON_REGISTERED_MESSAGE(WM_AFTERINIT, OnAfterInitDialog) 
 END_MESSAGE_MAP()
 
 
@@ -121,12 +122,13 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
 	m_barRepository.AssocTree(&m_treeRepository);
-	m_treeRepository.Init(GetRevision());
-
-	if (m_InitialSvnUrl.GetPath().IsEmpty())
-		m_InitialSvnUrl = m_barRepository.GetCurrentUrl();
-
-	m_barRepository.GotoUrl(m_InitialSvnUrl);
+	
+	// since the dialog isn't visible when OnInitDialog is called,
+	// do the lengthy processing (fetching the repository root)
+	// right after OnInitDialog is finished. Then the dialog
+	// is visible and the user knows at least that something's
+	// going on here.
+	PostMessage(WM_AFTERINIT);
 
 	if (m_bStandAlone)
 	{
@@ -150,6 +152,17 @@ BOOL CRepositoryBrowser::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
+}
+
+LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+	m_treeRepository.Init(GetRevision());
+
+	if (m_InitialSvnUrl.GetPath().IsEmpty())
+		m_InitialSvnUrl = m_barRepository.GetCurrentUrl();
+
+	m_barRepository.GotoUrl(m_InitialSvnUrl);
+	return 0;
 }
 
 void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR * /* pNMHDR */, LRESULT *pResult)

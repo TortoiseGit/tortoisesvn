@@ -145,6 +145,7 @@ private:
 	CRepositoryBar	*m_pRepositoryBar;
 
 	CString		m_strUrl;
+	CString		m_strReposRoot;
 	SVN			m_svn;
 	BOOL		bInit;
 	SVNRev		m_Revision;
