@@ -30,6 +30,8 @@
 #include "BrowseFolder.h"
 #include "RenameDlg.h"
 #include "RevisionGraphDlg.h"
+#include "CheckoutDlg.h"
+#include "SVNProgressDlg.h"
 #include "Utils.h"
 
 
@@ -48,8 +50,9 @@
 #define ID_POPCOPYTOWC		13
 #define ID_POPIMPORTFOLDER  14
 #define ID_REVGRAPH			15
+#define ID_POPEXPORT		16
 //#define ID_POPPROPS			17		commented out because already defined to 17 in LogDlg.h
-
+#define ID_POPCHECKOUT		18
 // CRepositoryBrowser dialog
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableStandAloneDialog)
@@ -224,6 +227,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 
 				if (bFolder)
 				{
+					temp.LoadString(IDS_MENUEXPORT);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPEXPORT, temp);		// "Export"
+					temp.LoadString(IDS_MENUCHECKOUT);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCHECKOUT, temp);		// "Checkout.."
 					temp.LoadString(IDS_REPOBROWSE_REFRESH);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPREFRESH, temp);		// "Refresh"
 				}
@@ -372,6 +379,45 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					dlg.SetParams(CTSVNPath(url), GetRevision(), 1, limit, FALSE);
 					dlg.m_ProjectProperties = m_ProjectProperties;
 					dlg.DoModal();
+				}
+				break;
+			case ID_POPCHECKOUT:
+				{
+					CCheckoutDlg dlg;
+					dlg.m_URL = url;
+					dlg.Revision = GetRevision();
+					if (dlg.DoModal()==IDOK)
+					{
+						CTSVNPath checkoutDirectory;
+						checkoutDirectory.SetFromWin(dlg.m_strCheckoutDirectory, true);
+
+						CSVNProgressDlg progDlg;
+						int opts = dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive;
+						if (dlg.m_bNoExternals)
+							opts |= ProgOptIgnoreExternals;
+						progDlg.SetParams(CSVNProgressDlg::Checkout, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
+						progDlg.DoModal();
+					}
+				}
+				break;
+			case ID_POPEXPORT:
+				{
+					CCheckoutDlg dlg;
+					dlg.IsExport = TRUE;
+					dlg.m_URL = url;
+					dlg.Revision = GetRevision();
+					if (dlg.DoModal()==IDOK)
+					{
+						CTSVNPath checkoutDirectory;
+						checkoutDirectory.SetFromWin(dlg.m_strCheckoutDirectory, true);
+
+						CSVNProgressDlg progDlg;
+						int opts = dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive;
+						if (dlg.m_bNoExternals)
+							opts |= ProgOptIgnoreExternals;
+						progDlg.SetParams(CSVNProgressDlg::Export, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
+						progDlg.DoModal();
+					}
 				}
 				break;
 			case ID_REVGRAPH:

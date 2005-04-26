@@ -95,6 +95,15 @@ BOOL CCheckoutDlg::OnInitDialog()
 		GetDlgItem(IDC_NON_RECURSIVE)->ShowWindow(SW_HIDE);
 	} // if (IsExport)
 
+	if (!Revision.IsHead())
+	{
+		CString temp;
+		temp.Format(_T("%ld"), (LONG)Revision);
+		m_editRevision.SetWindowText(temp);
+		m_editRevision.EnableWindow(TRUE);
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+	}
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
