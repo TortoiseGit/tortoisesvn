@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-25 21:19+0100\n"
+"PO-Revision-Date: 2005-04-26 09:31+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1299,7 +1299,7 @@ msgstr "Ganz oben im Browserfenster können Sie die URL des Projektarchivs angeb
 #: source/en/tsvn_dug/dug_rename.xml:3
 #: (title)
 msgid "Deleting, Renaming And Moving"
-msgstr ""
+msgstr "Löschen, Umbenennen und Verschieben"
 
 #: source/en/tsvn_dug/dug_rename.xml:5
 #: (primary)
@@ -1331,39 +1331,42 @@ msgstr "Explorer Kontextmenu für Dateien unter Versionskontrolle"
 #: source/en/tsvn_dug/dug_rename.xml:17
 #: (para)
 msgid "Unlike CVS, Subversion allows renaming and moving of files and folders. So there are menu entries for delete and rename in the TortoiseSVN submenu. <placeholder-1/>"
-msgstr ""
+msgstr "Im Gegensatz zu CVS erlaubt es Subversion, Dateien und Ordner umzubenennen oder zu verschieben. Deshalb gibt es im Kontextmenu Befehle für diese Operationen. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_rename.xml:26
 #: (para)
 msgid "If you delete a file/directory using TSVN, the file is removed from your working copy and marked for deletion. The file's parent folder shows a \"deleted\" icon overlay. You can always get the file back, if you call <menuchoice><guimenuitem>revert</guimenuitem></menuchoice> on the parent folder."
-msgstr ""
+msgstr "Wenn Sie eine Datei/Ordner mit TortoiseSVN löschen, wird diese aus der Arbeitskopie entfernt und als gelöscht markiert. Solange Sie dieses <literal>Löschen</literal> noch nicht zum Projektarchiv übertragen haben, können Sie die Datei/Ordner mit dem <menuchoice> <guimenuitem>Rückgängig</guimenuitem> </menuchoice> Befehl auf dem übergeordneten Ordner wieder zurückholen."
 
 #: source/en/tsvn_dug/dug_rename.xml:41
 #: (para)
 msgid "select the files or directories you want to move"
-msgstr ""
+msgstr "Wählen Sie die Dateien aus welche Sie verschieben möchten."
 
 #: source/en/tsvn_dug/dug_rename.xml:46
 #: (para)
 #: source/en/tsvn_dug/dug_add.xml:50
 msgid "<action>right-drag</action> them to the new location inside the working copy"
-msgstr ""
+msgstr "<action>Ziehen</action> Sie die Dateien mit gedrückterrechter Maustaste an den neuen Ort."
 
 #: source/en/tsvn_dug/dug_rename.xml:52
 #: (para)
 #: source/en/tsvn_dug/dug_add.xml:56
 msgid "release the right mouse button"
-msgstr ""
+msgstr "Lassen Sie die rechte Maustaste los."
 
 #: source/en/tsvn_dug/dug_rename.xml:57
 #: (para)
 msgid "in the popup menu select <menuchoice><guimenuitem>move files in Subversion to here</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Wählen Sie im erscheinenden Popupmenu den Befehl <menuchoice> <guimenuitem>Verschiebe Datei(en) in Subversion hierher</guimenuitem> </menuchoice>"
 
 #: source/en/tsvn_dug/dug_rename.xml:36
 #: (para)
 msgid "If you want to move files inside a working copy, use the drag-and-drop handler again: <placeholder-1/> If a file is deleted via the explorer but not removed from version control (i.e. you delete a file as usual), the commit dialog shows those files and lets you remove them from version control too before the commit. So it doesn't really matter, if you forget to delete the file with TortoiseSVN as you are supposed to do."
 msgstr ""
+"Um Dateien innerhalb einer Arbeitskopie zu verschieben, benutzen Sie den drag-and-drop Handler:\n"
+"<placeholder-1/>\n"
+"Falls Sie eine Datei mit dem Explorer auf normale Weise löschen und nicht mit TortoiseSVN, dann zeigt Ihnen der Übertragungsdialog diese Datei in der Liste an und ermöglicht es Ihnen, die Datei beim Übertragen auch aus der Versionskontrolle zu löschen."
 
 #: source/en/tsvn_dug/dug_rename.xml:73
 #: (title)
@@ -1373,17 +1376,17 @@ msgstr "Den übergeordneten Ordner übertragen"
 #: source/en/tsvn_dug/dug_rename.xml:74
 #: (para)
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file. Only that way the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and an update of your coworkers won't remove the old file."
-msgstr ""
+msgstr "Umbenennen und Verschieben einer Datei führt dazu, dass die alte Datei gelöscht wird und dieselbe an einem neuen Ort und/oder unter einem neuen Namen wieder zur Versionkontrolle hinzugefügt wird. Die alte, gelöschte Datei ist daher zwar nicht mehr im Explorer sichtbar, aber dennoch, als gelöscht markiert, vorhanden. Die gelöschte Datei muss ebenfalls zum Server übertragen werden. Das geschieht am besten, indem der übergeordnete Ordner für die Übertragung ausgewählt wird. Dann erscheint die gelöschte Datei auch im Übertragungsdialog. Wird das nicht gemacht, bleibt die alte Datei im Projektarchiv bestehen!"
 
 #: source/en/tsvn_dug/dug_rename.xml:84
 #: (title)
 msgid "Getting a deleted file or folder back"
-msgstr ""
+msgstr "Eine gelöschte Datei/Ordner zurückholen"
 
 #: source/en/tsvn_dug/dug_rename.xml:85
 #: (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
-msgstr ""
+msgstr "Wenn Sie eine Datei oder einen Ordner gelöscht und die Löschung bereits ins Projektarchiv übertragen haben, wird ein normaler <menuchoice> <guimenuitem>Rückgängig</guimenuitem> </menuchoice> Befehl diese nicht wieder zurückbringen können. Aber die Datei oder der Ordner ist nicht verloren. Wenn Sie die Revisionsnummer kennen, in der sie gelöscht wurde (Benutzen Sie den Log-Dialog um das rauszufinden) öffnen Sie den Projektarchiv-Betrachter. Wechseln Sie dann zu der Revisionsnummer, selektieren Sie die Datei oder den gelöschten Ordner, Rechts-Klick und dann wählen Sie den Befehl <menuchoice> <guimenuitem>Kopieren zu...</guimenuitem> </menuchoice> Als Ziel für diesen Kopierbefehl geben Sie den Pfad zu Ihrer Arbeitskopie an."
 
 #: source/en/tsvn_dug/dug_relocate.xml:3
 #: (title)
@@ -1403,17 +1406,17 @@ msgstr "Der Umplazieren-Dialog"
 #: source/en/tsvn_dug/dug_relocate.xml:8
 #: (para)
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenuitem>relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all \"entries\" files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
-msgstr ""
+msgstr "<placeholder-1/> Sollte die URL Ihres Projektarchivs sich geändert haben (z.B.  der DNS-Eintrag des Servers hat sich geändert), so müssen Sie nicht erneut eine ganze Arbeitskopie aus dem Projektarchiv auschecken. Es reicht wenn Sie den Befehl <menuchoice> <guimenuitem>Umplatzieren...</guimenuitem> </menuchoice> ausführen und die neue URL angeben. Dieser Befehl durchläuft alle <quote>entries</quote> Dateien im .svn Verzeichnis und trägt dort die neue URL ein."
 
 #: source/en/tsvn_dug/dug_relocate.xml:27
 #: (para)
 msgid "Don't use the relocate command to switch your working copy to a different branch! If you do that, then you will get many unexplainable error messages while updating, committing, ..."
-msgstr ""
+msgstr "Benutzen Sie den Umplatzieren-Befehl nicht, wenn Sie mit Ihrer Arbeitskopie auf einen anderen Entwicklungszweig wechseln möchten. Sie werden beim Aktualisieren, Übertragen, usw. viele unerklärliche Fehlermeldungen erhalten."
 
 #: source/en/tsvn_dug/dug_relocate.xml:32
 #: (para)
 msgid "The relocate command must <emphasis>only</emphasis> be used if the URL of the server changed!"
-msgstr ""
+msgstr "Der Umplatzieren-Befehl darf <emphasis>nur</emphasis> benutzt werdenwenn die URL des Projektarchivs sich geändert hat!"
 
 #: source/en/tsvn_dug/dug_propertypage.xml:3
 #: (title)
@@ -1434,83 +1437,85 @@ msgstr "Subverion Eigenschaftsseite"
 #: (para)
 msgid "<placeholder-1/> Sometimes you want to have a more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control."
 msgstr ""
+"<placeholder-1/>\n"
+"Manchmal ist es notwendig, detailliertere Informationen über eine Datei oder Ordner zu haben als mit den überlagerten Icons möglich ist. Sie können diese zusätzlichen Informationen über den Eigenschaftsdialog des Explorers anzeigen. Wählen Sie dazu die Datei oder den Ordner aus, öffnen Sie das Kontextmenü mit der rechten Maustaste und wählen Sie den Eintrag <menuchoice> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus. (Beachten Sie: dies ist der normale Eintrag im Kontextmenü des Explorers und <emphasis>nicht</emphasis> der Eintrag im TortoiseSVN Untermenü!). Im darauffolgenden Eigenschaften-Dialog wählen Sie dann die Seite <guilabel>TortoiseSVN</guilabel> aus."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:25
 #: (para)
 msgid "On the Subversion page you can see all relevant information about the selected file/directory. In addition you can read and set the subversion properties. You can add your own properties, or some properties with a special meaning in subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-DUG-import-4\"/>. For more information about properties in subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"><citetitle>Subversion Manual</citetitle></ulink>."
-msgstr ""
+msgstr "Auf dieser Subversion Seite können Sie alle wichtigen Informationen über Dateien/Ordner unter Versionskontrolle ansehen und die speziellen Subversion-Eigenschaften lesen und schreiben. Sie können zusätzliche Ihre eigenen Eigenschaften hinzufügen. Die Subverision Eigenschaften beginnen alle mit <literal>svn:</literal>. <literal>svn:externals</literal> ist so eine  Eigenschaft, sehen Sie sich das Kapitel <xref linkend=\"tsvn-DUG-import-4\"/> an, um mehr über  das Thema zu erfahren. Um mehr Informationen über Eigenschaften in Subversion zu erhalten, schauen Sie sich das <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"> <citetitle>Subversion Handbuch</citetitle> </ulink> an. "
 
 #: source/en/tsvn_dug/dug_propertypage.xml:38
 #: (para)
 msgid "To set a property, select the required property name from the combo box, then type in a value in the field below. Properties which take multiple values, such as an ignore list, can be entered on multiple lines. Click on <guibutton>Set</guibutton> to add that property to the list."
-msgstr ""
+msgstr "Um eine Eigenschaft zu setzen, wählen Sie den Eigenschaftsnamen aus der Combobox aus und tragen Sie den gewünschten Wert in das darunterstehende Feld ein. Für Eigenschaften, die mehrere Werte akzeptieren z.B. <literal>svn:ignore, svn:externals</literal> geben Sie einfach mehrere Zeilen ein. Klicken Sie auf <guibutton>Setzen</guibutton>, um die Eigenschaft zur Liste hinzuzufügen."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:45
 #: (para)
 msgid "If you want to apply the property to <emphasis>every</emphasis> file and folder in the hierarchy below the current folder, check the <guilabel>Recursive</guilabel> checkbox."
-msgstr ""
+msgstr "Wenn Sie die Eigenschaft rekursiv für <emphasis>alle</emphasis> Dateien und Ordner unterhalb des aktuellen Ordners setzen wollen, wählen Sie die <guilabel>Rekursiv</guilabel> Option."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:50
 #: (para)
 msgid "If you wish to edit an existing property, first select that property from the list of existing properties, so that it appears in the edit area. Then procede as for a new property."
-msgstr ""
+msgstr "Wenn Sie eine vorhandene Eigenschaft bearbeiten wollen, wählen Sie die Eigenschaft zunächst aus der Liste aus, so dass sie im Bearbeitungsfeld angezeigt wird. Bearbeiten Sie den Wert und speichen Sie Ihre Änderung mit <guibutton>Setzen</guibutton>."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:55
 #: (para)
 msgid "If you wish to remove an existing property, select that property from the list of existing properties, so that it appears in the edit area. Then click on <guibutton>Remove</guibutton>."
-msgstr ""
+msgstr "Um eine Eigenschaft zu löschen,  wählen Sie die Eigenschaft zunächst aus der Liste aus, so dass sie im Bearbeitungsfeld angezeigt wird. Klicken Sie anschließend auf <guibutton>Löschen</guibutton>."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:65
 #: (para)
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
-msgstr ""
+msgstr "<literal>tsvn:logminsize</literal> Setzt die minimale Länge einer Log-Meldung für eine Übertragung. Wenn Sie eine Log-Meldung eingeben welche kürzer ist als mit dieser Eigenschaft festgelegt, dann bleibt die Übertragung deaktiviert. Dies ist nützlich wenn Sie die Benutzer dazu anhalten möchten, für jede Übertragung eine gute Log-Meldung zu schreiben. Wenn diese Eigenschaft nicht gesetzt ist, sind leere Log-Meldungen erlaubt."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:76
 #: (para)
 msgid "<literal>tsvn:logwidthmarker</literal> is used with projects which require log messages to be formatted with some maximum width (typically 80 characters) before a line break. Setting this property to a non-zero will do 2 things in the log message entry dialog: it places a marker to indicate the maximum width, and it disables word wrap in the display, so that you can see whether the text you entered is too long. Note: this feature will only work correctly if you have a fixed-width font selected for log messages."
-msgstr ""
+msgstr "<literal>tsvn:logwidthmarker</literal> kann für Projekte benutzt werden, welche Log-Meldungen mit einer maximalen Zeilenlänge (typischerweise 80 Zeichen) haben möchten. Wenn diese Eigenschaft auf einen Wert ungleich 0 gesetzt wird, wird einerseits der Wortumbruch für die Log-Meldung abgeschaltet und andererseits eine vertikale Linie gezeichnet um die maximale Zeilenlänge anzuzeigen. Auf diese Weise können Sie jederzeit sehen, ob Ihre Log-Meldung die maximale Zeilenlänge schon  überschreitet oder nicht. Beachten Sie: dies funktioniert nur korrekt, wenn Sie einen Font mit fester Breite für die Log-Meldungsbox ausgewählt haben."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:89
 #: (para)
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
-msgstr ""
+msgstr "<literal>tsvn:logtemplate</literal> wird für Projekte benutzt, die Regeln für die Formatierung der Log-Meldungen haben. Diese Eigenschaft enthält einen  mehrzeiligen Text, der automatisch im Übertragungsdialog in die Textbox eingefügt wird. Sie können dann diesen Text bei der Übertragung bearbeiten. Wenn Sie gleichzeitig <literal>tsvn:logminsize</literal> verwenden, stellen Sie sicher dass diese Wert größer als die Länge der Schablone ist, da sonst dieser Schutz wegfällt"
 
 #: source/en/tsvn_dug/dug_propertypage.xml:100
 #: (para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in english or in the localized language. If the property is not set, the default is <literal>true</literal>."
-msgstr ""
+msgstr "Im Übertragen Dialog haben Sie die Möglichkeit, die Liste der geänderten Dateien inclusive des Status (hinzugefügt, geändert, etc) einzufügen. <literal>tsvn:logfilelistenglish</literal> legt fest, ob die vordefinierten Log-Meldungen in englisch oder in einer anderen Sprache eingefügt werden sollen. Der Standardwert ist <literal>true</literal>. "
 
 #: source/en/tsvn_dug/dug_propertypage.xml:111
 #: (para)
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink><literal>true</literal>."
-msgstr ""
+msgstr "TortoiseSVN kann zur Rechtschreibprüfung die Wörterbücher benutzen, welche auch von OpenOffice oder Mozilla verwendet werden. Wenn Sie ein solches installiert haben, legt diese Eigenschaft fest, welches Sprachmodul für das Projekt benutzt werden soll.<literal>tsvn:projectlanguage</literal> setzt die Sprache des zu benutzenden Wörterbuchs. Die Werte für die Sprache können Sie hier nachschlagen: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"> <citetitle>MSDN: Language Identifiers</citetitle> </ulink>"
 
 #: source/en/tsvn_dug/dug_propertypage.xml:60
 #: (para)
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseSVN besitzt ein paar eigene spezielle Eigenschaften, die mit <literal>tsvn:</literal> beginnen. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_propertypage.xml:129
 #: (para)
 #: source/en/tsvn_dug/dug_bugtracker.xml:212
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
-msgstr ""
+msgstr "Manche <literal>tsvn:</literal> Eigenschaften erforden einen <literal>true/false</literal> Wert. TortoiseSVN versteht auch <literal>yes</literal> als Synonym für <literal>true</literal> und <literal>no</literal> als Synonym für <literal>false</literal>."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:136
 #: (title)
 msgid "Set the tsvn: properties on folders"
-msgstr ""
+msgstr "Setzen Sie die tsvn: Eigenschaften für Ordner"
 
 #: source/en/tsvn_dug/dug_propertypage.xml:137
 #: (para)
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr ""
+msgstr "Die <literal>tsvn:</literal> Eigenschaften müssen auf Ordnern und nicht Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner übertragen dann werden diese Eigenschaften von eben diesem Ordner gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie gefunden wurde. Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie diese Eigenschaften auch auf den Unterordnern Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf Unterordnern gesetzt ist überschreibt dieselbe Eigenschaft für  übergeordnete Ordner."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:151
 #: (para)
 #: source/en/tsvn_dug/dug_bugtracker.xml:234
 msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all subfolders in the hierarchy, without also setting it on all files."
-msgstr ""
+msgstr "<emphasis>Ausschließlich</emphasis> für <literal>tsvn:</literal> Eigenschaften <emphasis>only</emphasis> können Sie die <guilabel>Rekursiv</guilabel> Option wählen, um die Eigenschaft auf alle Unterordner zu setzen ohne sie gleichzeitig auch für alle die Dateien zu setzen."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:159
 #: (title)
@@ -1520,7 +1525,7 @@ msgstr "Übertrage Eigenschaften"
 #: source/en/tsvn_dug/dug_propertypage.xml:160
 #: (para)
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
-msgstr ""
+msgstr "Subversion Eigenschaften sind auch unter Versionskontrolle.  Nachdem Sie eine Eigenschaft geändert haben, müssen Sie die Änderungen  zum Projektarchiv übertragen. "
 
 #: source/en/tsvn_dug/dug_propertypage.xml:166
 #: (title)
@@ -1530,7 +1535,7 @@ msgstr "Konflikte in Eigenschaften"
 #: source/en/tsvn_dug/dug_propertypage.xml:167
 #: (para)
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
-msgstr ""
+msgstr "Sollte es zu einem Konflikt beim übertragen zum Server kommen, weil ein anderer Benutzer die gleiche Eigenschaft geändert hat, generiert Subversion eine <filename>.prej</filename> Datei. Löschen Sie diese Datei, nachdem Sie den  Konflikt aufgelöst haben. "
 
 #: source/en/tsvn_dug/dug_propertypage.xml:175
 #: (title)
@@ -1540,12 +1545,12 @@ msgstr "Automatisches setzen von Eigenschaften"
 #: source/en/tsvn_dug/dug_propertypage.xml:176
 #: (para)
 msgid "You can configure subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
-msgstr ""
+msgstr "Sie können Subversion so einrichten, dass Eigenschaften für Dateien und Ordner automatisch gesetzt werden, wenn Sie zum Projektarchiv hinzugefügt werden.Lesen Sir <xref linkend=\"tsvn-DUG-settings\"/> für weitere Information."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:182
 #: (para)
 msgid "<application>TortoiseSVN</application> can integrate with some bugtracking tools. This uses properties, which start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-DUG-bugtracker\"/> for further information."
-msgstr ""
+msgstr "<application>TortoiseSVN</application> kann Bugtracking Tools in Subversion  integrieren.  Dies geschieht über Eigenschaften, die mit <literal>bugtraq:</literal> beginnen. Wie Sie mit diesen Eigenschaften umgehen ist in <xref linkend=\"tsvn-DUG-bugtracker\"/> erklärt. "
 
 #: source/en/tsvn_dug/dug_patch.xml:3
 #: (title)
