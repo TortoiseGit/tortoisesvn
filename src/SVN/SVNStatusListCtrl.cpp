@@ -167,9 +167,9 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, bool bHasCheckboxes /* = TRUE */)
 		temp.LoadString(IDS_STATUSLIST_COLURL);
 		InsertColumn(nCol++, temp);
 	}
-	if (dwColumns & SVNSLC_COLOWNER)
+	if (dwColumns & SVNSLC_COLLOCK)
 	{
-		temp.LoadString(IDS_STATUSLIST_COLOWNER);
+		temp.LoadString(IDS_STATUSLIST_COLLOCK);
 		InsertColumn(nCol++, temp);
 	}
 
@@ -716,7 +716,7 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	{
 		SetItemText(index, nCol++, entry->url);
 	}
-	if (m_dwColumns & SVNSLC_COLOWNER)
+	if (m_dwColumns & SVNSLC_COLLOCK)
 	{
 		if (!m_HeadRev.IsHead())
 		{
@@ -900,7 +900,7 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
-		if (m_dwColumns & SVNSLC_COLOWNER)
+		if (m_dwColumns & SVNSLC_COLLOCK)
 			m_nSortedColumn++;
 	}
 	Sort();
