@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-26 09:31+0100\n"
+"PO-Revision-Date: 2005-04-27 09:48+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -722,7 +722,7 @@ msgstr "Statistiken"
 #: source/en/tsvn_dug/dug_showlog.xml:322
 #: (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
-msgstr "Die <guibutton>Statistiken</guibutton> Schaltfläche zeigt eine Dialogbox an mit interessanten Informationen über die angezeigten Revisionen. Es zeigt zum Beispiel wieviele Autoren (Personen welche Übertragungen gemacht haben) am Werk waren, wieviele Übertragungen jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt und vieles mehr. Endlich haben Sie die Möglichkeit zu überprüfen, wer fleissig am Projekt mitarbeitet und wer hinterherhängt ;-)"
+msgstr "Die <guibutton>Statistiken</guibutton> Schaltfläche zeigt eine Dialogbox mit interessanten Informationen über die angezeigten Revisionen an. Es zeigt zum Beispiel wieviele Autoren (Personen welche Übertragungen gemacht haben) am Werk waren, wieviele Übertragungen jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt und vieles mehr. Endlich haben Sie die Möglichkeit zu überprüfen, wer fleissig am Projekt mitarbeitet und wer hinterherhängt ;-)"
 
 #: source/en/tsvn_dug/dug_showlog.xml:330
 #: (para)
@@ -2972,22 +2972,22 @@ msgstr ""
 #: source/en/tsvn_dug/dug_blame.xml:3
 #: (title)
 msgid "Who Changed Which Line?"
-msgstr ""
+msgstr "Wer hat welche Zeile geändert?"
 
 #: source/en/tsvn_dug/dug_blame.xml:5
 #: (primary)
 msgid "blame"
-msgstr "Annotieren"
+msgstr "blame"
 
 #: source/en/tsvn_dug/dug_blame.xml:8
 #: (primary)
 msgid "annotate"
-msgstr "annotate"
+msgstr "Annotieren"
 
 #: source/en/tsvn_dug/dug_blame.xml:11
 #: (primary)
 msgid "praise"
-msgstr ""
+msgstr "praise"
 
 #: source/en/tsvn_dug/dug_blame.xml:16
 #: (title)
@@ -2997,52 +2997,52 @@ msgstr "Der Annotieren Dialog"
 #: source/en/tsvn_dug/dug_blame.xml:14
 #: (para)
 msgid "<placeholder-1/> Sometimes you need to know not only what lines have changed, but also who exactly changed specific lines in a file. That's when the <menuchoice><guimenuitem>Blame...</guimenuitem></menuchoice> command, sometimes also referred to as <firstterm>annotate</firstterm> command comes in handy."
-msgstr ""
+msgstr "<placeholder-1/> Manchmal möchten Sie nicht nur erfahren, welche Zeilen sich zwischen verschiedenen Revisionen geändert haben, sondern auch, wer genau für welche Zeile in einer Datei verantwortlich ist. Dazu gibt es den Befehl <menuchoice><guimenuitem>Annotieren...</guimenuitem></menuchoice>."
 
 #: source/en/tsvn_dug/dug_blame.xml:27
 #: (para)
 msgid "This command lists, for every line in a file, the author and the revision the line was changed."
-msgstr ""
+msgstr "Dieser Befehl listet für jede Zeile einer Datei den Autor und die Revision der letzten Änderung dieser Zeile auf."
 
 #: source/en/tsvn_dug/dug_blame.xml:31
 #: (para)
 msgid "If you're not interested in changes from earlier revisions you can set the revision from which the blame should start. Set this to <literal>1</literal>, if you want the blame for <emphasis>every</emphasis> revision."
-msgstr ""
+msgstr "Wenn Sie nur an den Änderungen in neueren Revisionen interessiert sind, können Sie die Revision festlegen, bei der das Annotieren beginnen soll. Wenn Sie <emphasis>jede</emphasis> Revision annotieren wollen, setzen Sie diesen Wert auf <literal>1</literal>."
 
 #: source/en/tsvn_dug/dug_blame.xml:36
 #: (para)
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>"
-msgstr ""
+msgstr "Standardmäßig wird die annotierte Datei in <firstterm>TortoiseBlame</firstterm> angezeigt, welches die verschiedenen Revisionen hervorhebt. Wenn Sie die annotierte Datei bearbeiten oder ausdrucken möchten, aktivieren Sie <guilabel>Betrachte Annotierungen im Texteditor</guilabel>."
 
 #: source/en/tsvn_dug/dug_blame.xml:42
 #: (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
-msgstr ""
+msgstr "Sobald Sie auf <guibutton>OK</guibutton> klicken, beginnt TortoiseSVN mit der Analyse der Daten dieser Datei. Beachten Sie bitte, dass dies mehrere Minuten dauern kann, je nach nachdem wie schnell Ihre Verbindung zum Projektarchiv ist. Sobald der TortoiseSVN mit der Analyse fertig ist wird das Ergebnis der Analyse in TortoiseBlame angezeigt."
 
 #: source/en/tsvn_dug/dug_blame.xml:52
 #: (title)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseBlame"
 
 #: source/en/tsvn_dug/dug_blame.xml:50
 #: (para)
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
-msgstr ""
+msgstr "<placeholder-1/> TortoiseBlame, das zusammen mit TortoiseSVN installiert wird, macht eine solche Annotierung leichter lesbar. Wenn Sie mit dem Mauszeiger über eine Zeile in der linken Spalte fahren, werden alle Zeilen, die in derselben Revision geändert wurden mit einer dunkleren Farbe dargestellt. Zeilen von anderen Revisionen, aber demselben Autor werden mit einem helleren Hintergrund dargestellt. Die Einfärbung funktioniert eventuell nicht optimal wenn Sie ihren Monitor auf nur 256 Farben eingestellt haben."
 
 #: source/en/tsvn_dug/dug_blame.xml:63
 #: (para)
 msgid "If you <action>left click</action> on a line, all lines with the same revision are highlighted, and lines from other revisions by the same author are highlighted in a lighter colour. This highlighting is sticky, allowing you to move the mouse without losing the highlights. Click on that revision again to turn off highlighting."
-msgstr ""
+msgstr "Wenn Sie auf eine Zeile <action>Links-Klicken</action> werden alle Zeilen derselben Revision markiert, und Zeilen von anderen Revisionen aber demselben Autor werden in einer anderen Farbe dargestellt. Diese Markierung bleibt bestehen, so dass Sie den Mauszeiger bewegen können ohne die Einfärbung zu verlieren. Klicken Sie nochmals auf diese Revision um die Markierung wieder aufzuheben."
 
 #: source/en/tsvn_dug/dug_blame.xml:70
 #: (para)
 msgid "The revision comments are shown in a hint box whenever the mouse hovers over the blame info column."
-msgstr ""
+msgstr "Die Log-Meldungen für die Revisionen werden als Hinweistext gezeigt, wenn Sie den Mauszeiger über der linke Spalte bewegen."
 
 #: source/en/tsvn_dug/dug_add.xml:3
 #: (title)
 msgid "Adding New Files And Directories"
-msgstr ""
+msgstr "Neue Dateien und Ordner hinzufügen"
 
 #: source/en/tsvn_dug/dug_add.xml:5
 #: (primary)
@@ -3052,22 +3052,22 @@ msgstr "hinzufügen"
 #: source/en/tsvn_dug/dug_add.xml:8
 #: (para)
 msgid "<placeholder-1/> If you created new files and/or directories during your development process the you need to add them to source control too. Select the file(s) and/or directory and select the command <menuchoice><guimenuitem>Add</guimenuitem></menuchoice> from the context menu."
-msgstr ""
+msgstr "<placeholder-1/> Wenn Sie neue Dateien und/oder Ordner während Ihrer Arbeit erstellen, müssen Sie diese auch zur Versionskontrolle hinzufügen. Wählen Sie diese Dateien und/oder Ordner aus und wählen Sie dann den Befehl <menuchoice><guimenuitem>Hinzufügen...</guimenuitem></menuchoice> im Kontextmenü."
 
 #: source/en/tsvn_dug/dug_add.xml:22
 #: (para)
 msgid "After you added the files/directories to source control the file appears with a <literal>added</literal> icon overlay which means you first have to commit your working copy to make those files/directories available to other developers. Adding a file/directory does <emphasis>not</emphasis> affect the repository!"
-msgstr ""
+msgstr "Nachdem Sie die Dateien/Ordner zur Versionskontrolle hinzugefügt haben, erscheinen diese mit einem Pluszeichen als überlagertes Icon im  Explorer. Dies bedeutet, dass diese bei der nächsten Übertragung mit in das Projektarchiv aufgenommen werden. Beachten Sie, dass das Hinzufügen alleine die Dateien/Ordner <emphasis>nicht</emphasis> im Projektarchiv speichert."
 
 #: source/en/tsvn_dug/dug_add.xml:31
 #: (title)
 msgid "Many Adds"
-msgstr ""
+msgstr "Multiples Hinzufügen"
 
 #: source/en/tsvn_dug/dug_add.xml:32
 #: (para)
 msgid "You can also use the Add command on already versioned folders. In that case, the add dialog will show you all unversioned files inside that versioned folder. This helps if you have many new files and need them to add at once."
-msgstr ""
+msgstr "Sie können den Hinzufügen-Befehl auch auf bereits versionierte Ordner anwenden. In diesem Falle zeigt Ihnen der Hinzufügen-Dialog alle noch nicht versionierten Dateien/Ordner innerhalb dieses Ordners an. Dies ist hilfreich, wenn Sie viele neue Dateien auf einmal in die Versionskontrolle aufnehmen wollen."
 
 #: source/en/tsvn_dug/dug_add.xml:45
 #: (para)
@@ -3077,12 +3077,12 @@ msgstr "Wählen Sie die Dateien zum hinzufügen"
 #: source/en/tsvn_dug/dug_add.xml:61
 #: (para)
 msgid "in the popup menu select <menuchoice><guimenuitem>add files to Subversion here</guimenuitem></menuchoice>. The files will then be copied to the working copy and added to version control."
-msgstr ""
+msgstr "Im erscheinenden Popupmenü wählen Sie <menuchoice><guimenuitem>Dateien zu Subversion hier hinzufügen</guimenuitem></menuchoice>. Die Dateien werden dann in die Arbeitskopie kopiert und zur Versionskontrolle hinzugefügt."
 
 #: source/en/tsvn_dug/dug_add.xml:40
 #: (para)
 msgid "To add files from outside your working copy you can use the drag-and-drop handler: <placeholder-1/>"
-msgstr ""
+msgstr "Wenn Sie Dateien von außerhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie hinzufügen möchten, können Sie auch den drag-and-drop Handler verwenden: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug.xml:3
 #: (title)
