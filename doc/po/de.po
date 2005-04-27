@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-27 09:48+0100\n"
+"PO-Revision-Date: 2005-04-27 12:35+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "hooks"
 #: source/en/tsvn_repository/repository_hooks.xml:7
 #: (para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "Ein <firstterm>Aktionsskript</firstterm> (Hook-Script) ist ein Programm welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt wird oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> im Subversion-Buch."
+msgstr "Ein <firstterm>Aktionsskript</firstterm> (Hook-Script) ist ein Programm welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt wird oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> im Subversion Buch."
 
 #: source/en/tsvn_repository/repository_hooks.xml:22
 #: (para)
@@ -808,7 +808,7 @@ msgstr "Bearbeiten"
 #: source/en/tsvn_dug/dug_settings.xml:98
 #: (para)
 msgid "... the subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Subversion Manual</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here."
-msgstr "Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor. Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden sondern nur mittels Bearbeitung der Konfigurationsdatei. Für mehr Informationen über die Subversion <filename>config</filename> Datei schauen Sie im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"> <citetitle>Subversion Manual</citetitle> </ulink> nach. Der Abschnitt <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"> <citetitle>Automatic Property Setting</citetitle> </ulink>ist hier auch von Interesse."
+msgstr "Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor. Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden sondern nur mittels Bearbeitung der Konfigurationsdatei. Für mehr Informationen über die Subversion <filename>config</filename> Datei schauen Sie im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"> <citetitle>Subversion Manual</citetitle> </ulink> nach. Der Abschnitt <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"> <citetitle>Automatic Property Setting</citetitle> </ulink> ist hier auch von Interesse."
 
 #: source/en/tsvn_dug/dug_settings.xml:116
 #: (term)
@@ -1444,7 +1444,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_propertypage.xml:25
 #: (para)
 msgid "On the Subversion page you can see all relevant information about the selected file/directory. In addition you can read and set the subversion properties. You can add your own properties, or some properties with a special meaning in subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-DUG-import-4\"/>. For more information about properties in subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"><citetitle>Subversion Manual</citetitle></ulink>."
-msgstr "Auf dieser Subversion Seite können Sie alle wichtigen Informationen über Dateien/Ordner unter Versionskontrolle ansehen und die speziellen Subversion-Eigenschaften lesen und schreiben. Sie können zusätzliche Ihre eigenen Eigenschaften hinzufügen. Die Subverision Eigenschaften beginnen alle mit <literal>svn:</literal>. <literal>svn:externals</literal> ist so eine  Eigenschaft, sehen Sie sich das Kapitel <xref linkend=\"tsvn-DUG-import-4\"/> an, um mehr über  das Thema zu erfahren. Um mehr Informationen über Eigenschaften in Subversion zu erhalten, schauen Sie sich das <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"> <citetitle>Subversion Handbuch</citetitle> </ulink> an. "
+msgstr "Auf dieser Subversion Seite können Sie alle wichtigen Informationen über Dateien/Ordner unter Versionskontrolle ansehen und die speziellen Subversion-Eigenschaften lesen und schreiben. Sie können zusätzliche Ihre eigenen Eigenschaften hinzufügen. Die Subverision Eigenschaften beginnen alle mit <literal>svn:</literal>. <literal>svn:externals</literal> ist so eine  Eigenschaft, sehen Sie sich das Kapitel <xref linkend=\"tsvn-DUG-import-4\"/> an, um mehr über  das Thema zu erfahren. Um mehr Informationen über Eigenschaften in Subversion zu erhalten, schauen Sie sich das <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3\"> <citetitle>Subversion Buch</citetitle> </ulink> an. "
 
 #: source/en/tsvn_dug/dug_propertypage.xml:38
 #: (para)
@@ -1556,7 +1556,7 @@ msgstr "<application>TortoiseSVN</application> kann Bugtracking Tools in Subvers
 #: source/en/tsvn_dug/dug_patch.xml:3
 #: (title)
 msgid "Creating and Applying Patches"
-msgstr ""
+msgstr "Erzeugen und Anwenden von Patches"
 
 #: source/en/tsvn_dug/dug_patch.xml:5
 #: (primary)
@@ -1566,12 +1566,12 @@ msgstr "patch"
 #: source/en/tsvn_dug/dug_patch.xml:8
 #: (para)
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
-msgstr ""
+msgstr "In Open Source Projekten (wie diesem) hat jedermann Lesezugriff auf das Projektarchiv, und jeder kann einen Beitrag zum Projekt leisten. Wie sollen diese Beiträge nun kontrolliert werden? Wenn jeder stets seine Änderungen in das Projektarchiv übertragen würde, wäre das Projekt permanent unstabil und wahrscheinlich sogar nicht funktionsfähig. Dieses Problem wird gelöst, indem ein <firstterm>Patch</firstterm> an das Entwicklerteam geschickt wird. Die Entwickler können den Patch überprüfen und dann entweder in das Projektarchiv übertragen oder verwerfen und an den Autor zurückschicken."
 
 #: source/en/tsvn_dug/dug_patch.xml:19
 #: (para)
 msgid "Patch files are simply Unified-Diff files showing the differences between your working copy and the base revision."
-msgstr ""
+msgstr "Bei Patchdateien handelt es sich um einfache Standard-Diff Dateien, die die Unterschiede zwischen Ihrer Arbeitskopie und der Basisrevision beinhalten."
 
 #: source/en/tsvn_dug/dug_patch.xml:24
 #: (title)
@@ -1581,12 +1581,12 @@ msgstr "Eine Patch-Datei erstellen"
 #: source/en/tsvn_dug/dug_patch.xml:25
 #: (para)
 msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenuitem>Create Patch...</guimenuitem></menuchoice> This will produce a single file containing a summary of all the changes you have made since the last update from the repository. If you create a patch file, make some more changes and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
-msgstr ""
+msgstr "Zunächst müssen Sie Ihre Änderungen selbstverständlich selber <emphasis>testen</emphasis>. Anstatt den übergeordneten Ordner zum Projektarchiv zu <menuchoice> <guimenuitem>Übertragen...</guimenuitem> </menuchoice>, wählen Sie <menuchoice> <guimenuitem>Patch erzeugen...</guimenuitem> </menuchoice> Diese Funktion erzeugt eine einzelne Datei, welche eine Zusammenfassung aller Änderungen enthält, die Sie seit der letzten Aktualisierung vorgenommen haben. Wenn Sie eine Patchdatei erzeugen, weitere Änderungen vornehmen und nochmals eine Patchdatei erstellen, so enthält die zweite Patchdatei <emphasis>beide</emphasis> Sätze von Änderungen."
 
 #: source/en/tsvn_dug/dug_patch.xml:40
 #: (para)
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
-msgstr ""
+msgstr "Speichern Sie die Datei unter einem Namen Ihrer Wahl. Patchdateien können jede beliebige Dateiendung haben. Eine Konvention ist jedoch,  <filename>.patch</filename> dafür zu verwenden.  Nun Sind Sie so weit. Sie können Ihre Patchdatei an die Entwickler schicken."
 
 #: source/en/tsvn_dug/dug_patch.xml:50
 #: (title)
@@ -1596,22 +1596,22 @@ msgstr "Eine Patchdatei anwenden"
 #: source/en/tsvn_dug/dug_patch.xml:51
 #: (para)
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>english</filename> folder."
-msgstr ""
+msgstr "Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet. Dies muß innerhalb des selben Ordners durchgeführt werden, in dem die Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher Ordner das war, schauen Sie in die erste Zeile der Patchdatei. Wenn z.B. die erste bearbeitete Datei <filename>doc/source/english/chapter1.xml</filename> hieß und die erste Zeile in der Patchdatei <filename>Index: english/chapter1.xml</filename> lautet, dann müssen sie den Patch auf den <filename>english</filename> Ordner anwenden."
 
 #: source/en/tsvn_dug/dug_patch.xml:62
 #: (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
-msgstr ""
+msgstr "Um den Patch anwenden zu können, benötigen Sie zumindest Lesezugriff auf das Projektarchiv, denn das Programm zum Zusammenführen (Patchen) der Daten muß eventuell auf dieses zurückgreifen, um die Änderungen auf die Revision im Projektarchiv zurückzuführen, auf der sie basieren."
 
 #: source/en/tsvn_dug/dug_patch.xml:69
 #: (para)
 msgid "From the context menu for that folder, click on <menuchoice><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for \"All files\". Open the file and TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
-msgstr ""
+msgstr "Vom Kontextmenü des betroffenen Ordners aus wählen Sie <menuchoice> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die  anzuwendende Patchdatei auswähren können. Standardmäßig werden nur  <filename>.patch</filename> Dateien angezeigt, aber sie können auch  <literal>Alle Dateien</literal> auswählen. Öffnen Sie die Datei und TortoiseMerge wird Ihnen eine Liste der Dateien anzeigen, die durch die Patchdatei geändert würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie zusammengeführt und farblich hervorgehoben. Überprüfen Sie die  Änderungen und speichern Sie die geänderten Dateien."
 
 #: source/en/tsvn_dug/dug_patch.xml:83
 #: (para)
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
-msgstr ""
+msgstr "Die Patchdatei wurde nun in Ihrer Arbeitskopie angewendet, so dass die Veränderungen nun zum Projektarchiv übertragen werden müssen, um anderen  Projekteilnehmern zur Verfügung zu stehen."
 
 #: source/en/tsvn_dug/dug_merge.xml:3
 #: (title)
@@ -1626,27 +1626,27 @@ msgstr "Zusammenführen"
 #: source/en/tsvn_dug/dug_merge.xml:8
 #: (para)
 msgid "Where branches are used to maintain separate lines of development, at some stage you will want to merge the changes made on one branch back into the trunk, or vice versa."
-msgstr ""
+msgstr "Wenn Zweige für verschiedene Entwicklungslinien verwendet werden, werden Sie an einem bestimmten Punkt die Änderungen die Sie in einem Zweig gemacht haben wieder mit dem Hauptast zusammenführen wollen, oder umgekehrt."
 
 #: source/en/tsvn_dug/dug_merge.xml:13
 #: (para)
 msgid "It is important to understand how branching and merging works in subversion before you start using it, as it can become quite complex. It is highly recommended that you read the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"><citetitle>Branching and Merging</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink> which gives a full description, and many examples of how it is used."
-msgstr ""
+msgstr "Es ist wichtig zu verstehen, wie Verzweigen und Zusammenführen in Subversion funktioniert bevor Sie es benutzen, denn es kann unter Umständen sehr komplex werden. Wir empfehlen Ihnen, das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04.html\"> <citetitle>Branching and Merging</citetitle> </ulink> im <ulink url=\"http://svnbook.red-bean.com/\"> <citetitle>Subversion Buch</citetitle> </ulink> zu lesen. Dieses Kapitel beschreibt ausführlich das Verzweigen und Zusammenführen und gibt auch einige Beispiele, wie man diese Werkzeuge am besten benutzt."
 
 #: source/en/tsvn_dug/dug_merge.xml:26
 #: (para)
 msgid "An important point to remember is that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. For example if you want to merge the changes made in revision N then you have to compare revision N with revision (N-1). Novices often ask <quote>Why do I have to subtract 1 from the start revision.</quote> Think of the underlying Diff process and it will become clearer. TO make this easier, when you use <guibutton>Show Log</guibutton> to select a range of revisions to merge, TortoiseSVN makes this adjustment for you automatically."
-msgstr ""
+msgstr "Es ist wichtig, in Erinnerung zu behalten, dass das Zusammenführen (Merge) eng mit dem Bilden von Differenzen (Diff) verwandt ist. Das Zusammenführen erfolgt, indem eine Liste von Differenzen zwischen zwei (Zeit)Punkten im Projekarchiv erstellt wird und diese Differenzen auf Ihre Arbeitskopie angewendet werden. Wenn Sie also die Änderungen aus Revision N ermitteln wollen, müssen Sie diese mit Revision N-1 vergleichen. Anfänger fragen sich oft <quote>Warum muss ich 1 von der Startrevision abziehen?</quote> Denken Sie an den zugrundeliegenden Diff Prozess, um sich das Bild zu verdeutlichen."
 
 #: source/en/tsvn_dug/dug_merge.xml:39
 #: (para)
 msgid "In general it is a good idea to perform a merge into an unmodified working copy. If you have made other changes in your WC, commit those first. If the merge does not go as you expect, you may want to revert the changes, and the <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> changes including any you made before the merge."
-msgstr ""
+msgstr "Es ist grundsätzlich eine gute Idee, Revisionen in einer unmodifizierten Arbeitskopie zusammenzuführen. Wenn Ihre Arbeitskopie Änderungen enthält, übertragen Sie diese zuerst. Falls nämlich das Zusammenführen nicht zu dem von Ihnen gewünschten Ergebnis führt, und sie die Änderungen <guilabel>Rückgängig</guilabel> machen, wird dieser Befehl <emphasis>alles</emphasis>, inklusive Ihrer eigenen Änderungen verwerfen."
 
 #: source/en/tsvn_dug/dug_merge.xml:46
 #: (para)
 msgid "There are two common use cases for merging which are handled in slightly different ways, as described below."
-msgstr ""
+msgstr "Es gibt im Grunde zwei Fälle für das Zusammenführen, welche ein wenig unterschiedlich gehandhabt werden. Diese werden weiter unten beschrieben."
 
 #: source/en/tsvn_dug/dug_merge.xml:52
 #: (title)
@@ -1656,7 +1656,7 @@ msgstr "Einen Bereich von Revisionen mischen"
 #: source/en/tsvn_dug/dug_merge.xml:53
 #: (para)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr ""
+msgstr "Diese Methode wird benutzt wenn Sie Änderungen an einem Zweig (branch) oder Stamm (trunk) der Entwicklung gemacht haben und diese nun in einem anderen Zweig (bzw. Stamm) zusammenführen möchten."
 
 #: source/en/tsvn_dug/dug_merge.xml:60
 #: (title)
@@ -1666,12 +1666,12 @@ msgstr "Der Mischen-Dialog"
 #: source/en/tsvn_dug/dug_merge.xml:72
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
-msgstr ""
+msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des Zweiges an welcher die Änderungen enthält welche Sie mit der Arbeitskopie zusammenführen möchten. Sie können auch auf <guibutton>...</guibutton> klicken, um den gewünschten Zweig zu finden."
 
 #: source/en/tsvn_dug/dug_merge.xml:85
 #: (para)
 msgid "Because you are porting a range of revisions from the same branch into your working copy, make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
-msgstr ""
+msgstr "Weil Sie einen Bereich von Revisionen in der Arbeitskopie zusammenführen, stellen Sie sicher dass <guilabel>Benutze <quote>Von:</quote> URL</guilabel> aktiviert ist."
 
 #: source/en/tsvn_dug/dug_merge.xml:93
 #: (para)
@@ -1687,97 +1687,115 @@ msgid ""
 "         ...\n"
 "</screen> If you now want to merge all the changes from MyBranch into the trunk you have to choose 36 as the <guilabel>From Revision</guilabel>, not 37 as you might think. If you select revision 37 as the start point, then the difference engine compares the end point with revision 37, and will miss the changes made in revision 37 itself. If that sounds complicated, don't worry, there is an easier way in TortoiseSVN ..."
 msgstr ""
+"Im <guilabel>Von Revision</guilabel> Feld geben Sie die Anfangsrevision an. Dies ist die Revision <emphasis>vor</emphasis> den Änderungen, welche Sie mit der Arbeitskopie zusammenführen möchten. Revisionsnummern werden automatisch bei jeder Übertragung um eins erhöht. Deshalb ist es notwendig, die Revisionsnummber vor der eigentlichen Übertragung der Änderung hier anzugeben. Zum Beispiel, wenn Ihre Log-Meldungen etwa so aussehen:\n"
+"<screen>\n"
+"Rev Log-Meldung\n"
+"39. Arbeit an MeinZweig\n"
+"38. Arbeit am Hauptast (trunk)\n"
+"37. Arbeit an MeinZweig\n"
+"36. Erstelle Zweig \"MeinZweig\"\n"
+"35. Arbeit am Hauptast\n"
+"34. Arbeit am Hauptast\n"
+" ...\n"
+"</screen>\n"
+"Wenn Sie nun die Änderungen, welche Sie an MeinZweig gemacht haben, mit dem Hauptast zusammenführen möchten, müssen Sie die Revisionsnummer 36 als Anfangsrevision angeben, nicht die 37 wie Sie vielleicht denken. Wenn Sie Revision 37 als Startrevision wählen, wird die Differenzenbildung ab dieser Revision beginnen und die Änderungen aus Revision 37 nicht mitbekommen. Keine Sorge, wenn Ihnen das jetzt kopliziert vorkommt. Es gibt in TortoiseSVN einen einfachenen Weg ..."
 
 #: source/en/tsvn_dug/dug_merge.xml:121
 #: (para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the revision numbers of the <guilabel>From revision</guilabel> and <guilabel>To revision</guilabel> in the Merge dialog will <emphasis>both</emphasis> be filled in for you."
-msgstr ""
+msgstr "Der einfachste Weg um die Revisionsnummern herauszufinden ist ein Klick auf <guibutton>Zeige Log</guibutton>. Dies zeigt Ihnen die letzten Änderungen inklusive der Log-Meldungen an. Wenn Sie nur die Änderungen einer einzelne Revision benötigen, wählen Sie die gewünschte Revision im Log-Dialog und klicken Sie auf <guibutton>OK</guibutton>. Wenn Sie einen Revisionsbereich benötigen, wählen Sie diesen mit gedrückter <keycap>Shift</keycap> Taste aus. Klicken Sie auf <guibutton>OK</guibutton> und die <guilabel>Von Revision</guilabel> und <guilabel>Bis Revision</guilabel> Felder im Zusammenführen Dialog werden <emphasis>beide</emphasis> für Sie ausgefüllt."
 
 #: source/en/tsvn_dug/dug_merge.xml:134
 #: (para)
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Use the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 39."
-msgstr ""
+msgstr "Wenn Sie bereits Änderungen aus diesem Zweig zusammengeführt haben, so haben Sie hoffentlich auch in der Log-Meldung notiert, welche Revisionen das waren. In diesem Fall können Sie einfach mit Hilfe der <guibutton>Zeige Log</guibutton> Schaltfläche nachschauen. Verwenden Sie die Endrevision des letzten Zusammenführens als Startrevision der geplanten Aktion. Wenn Sie zum Beispiel zuletzt die Revisionen 37 bis 39 mit Ihrer Arbeitskopie zusammengeführt haben, sollte die Startrevision für die aktuelle Aktion 39 sein."
 
 #: source/en/tsvn_dug/dug_merge.xml:147
 #: (para)
 msgid "If you have not used <guibutton>Show Log</guibutton> to select the revision range, then you will need to set the <guilabel>To Revision</guilabel> manually. Enter the last revision number in the range you want to merge. Often this will be the HEAD revision, although it doesn't need to be - you may just want to merge a single revision."
-msgstr ""
+msgstr "Wenn Sie den Revisionsbereich nicht mittels <guilabel>Zeige Log</guilabel> ausgewählt haben, müssen Sie im <guilabel>Zu Revision</guilabel> Feld die letzte Revision des Bereichs angeben, den Sie mit der Arbeitskopie zusammenführen möchten. Meist wird dies <literal>HEAD</literal> sein, zwingend ist dies jedoch nicht. Sie können auch eine einzelne Revision zusammenführen."
 
 #: source/en/tsvn_dug/dug_merge.xml:155
 #: (para)
 msgid "If other people may be committing changes then be careful about using the HEAD revision. It may not refer to the revision you think it does if someone else made a commit after your last update."
-msgstr ""
+msgstr "Falls ausser Ihnen noch andere Persionen Daten in das Projektarchiv übertragen, seien Sie vorsichtig mit der Verwendung der <literal>HEAD</literal> Revision. Diese entspricht eventuell nicht der Revision die Sie erwarten, weil seit Ihrer letzten Aktualisierung jemand anderes Daten übertragen haben könnte."
 
 #: source/en/tsvn_dug/dug_merge.xml:163
 #: (para)
 #: source/en/tsvn_dug/dug_merge.xml:270
 msgid "Click <guibutton>OK</guibutton> to complete the merge."
-msgstr ""
+msgstr "Klicken Sie auf <guibutton>OK</guibutton>, um das Zusammenführen anzustoßen."
 
 #: source/en/tsvn_dug/dug_merge.xml:58
 #: (para)
 msgid "<placeholder-1/> To merge revisions you need to go to a working copy of the branch in which you want to receive the changes, often the trunk. Select <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-2/> The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
 msgstr ""
+"<placeholder-1/>\n"
+"Um Revisionen mit einem Zweig zusammenzuführen, müssen Sie eine Arbeitskopie des Ziel-Zweiges haben, meist ist dies der Stamm. Wählen Sie <menuchoice> <guimenuitem>Zusammenführen...</guimenuitem> </menuchoice> aus dem Kontext-Menu.\n"
+"<placeholder-2/>\n"
+"Das Zusammenführen ist nun beendet. Es ist nun empfehlenswert nicht nur die Meldungen des Vorgangs zu studieren sondern auch die Arbeitskopie zu überprüfen, ob der Vorgang auch wie gewünscht ausgefallen ist. Zusammenführen von Änderungen ist für gewöhnlich ein bisschen kompliziert, und Konflikte können vor allem dann auftreten, wenn der Zweig sich zu weit vom Hauptstamm entfernt hat."
 
 #: source/en/tsvn_dug/dug_merge.xml:172
 #: (para)
 msgid "When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. Unfortunately merge information is not stored by Subversion. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>"
-msgstr ""
+msgstr "Wenn Sie die Änderungen überprüft haben und diese nun übertragen möchten, beachten Sie dass die Log-Meldung dieser Übertragung <emphasis>immer</emphasis> die bereits zusammengeführten Revisionsnummern enthalten sollte. Wenn Sie später erneut Revisionen zusammenführen möchten/müssen werden Sie froh sein zu wissen, was alles Sie bereits zusammengeführt haben und was nicht. Denn wenn Sie eine Revision ein weiteres Mal zusammenführen, würde dies zwingend zu einem Konflikt führen. Für genauere Informationen lesen Sie bitte <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"> <citetitle>Tracking Merges Manually</citetitle> </ulink> im <ulink url=\"http://svnbook.red-bean.com/\"> <citetitle>Subversion Buch</citetitle> </ulink>"
 
 #: source/en/tsvn_dug/dug_merge.xml:188
 #: (para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
-msgstr ""
+msgstr "Das Verfolgen von Verzweigungen ist wichtig. Falls Sie Ihren Zweig stets mit dem Stamm synchron halten wollen, stellen Sie sicher, dass Sie Änderungen häufig zusammenführen, damit Stamm und Zweig nicht zu weit auseinanderdriften. Wie bereits erklärt sollten Sie wiederholtes Zusammenführen der gleichen Änderungen vermeiden."
 
 #: source/en/tsvn_dug/dug_merge.xml:195
 #: (para)
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder url for the merge."
-msgstr ""
+msgstr "Subversion kann keine Datei mit einem Ordner zusammenführen und umgekehrt - nur Ordner mit Ordner und Dateien mit Dateien können zusammengeführt werden. Wenn Sie auf eine Datei klicken um den Zusammenführen-Dialog zu öffnen, müssen Sie eine URL zu einer Datei angeben, wenn Sie auf einen Ordner klicken um den Zusammenführen-Dialog zu öffnen müssen Sie für den Vorgang eine URL zu einem Ordner angeben."
 
 #: source/en/tsvn_dug/dug_merge.xml:206
 #: (title)
 msgid "Merging Two Different Trees"
-msgstr ""
+msgstr "Zusammenführen zweier Zweige"
 
 #: source/en/tsvn_dug/dug_merge.xml:207
 #: (para)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr ""
+msgstr "Diese Methode behandelt den Fall dass Sie einen Funktionszweig (feature branch), wie im Subversion Buch behandelt, haben. Alle Änderungen am Hauptast wurden mit dem Zweig Woche für Woche zusammengeführt, und nun möchten Sie, da die Funktion im Funktionszweig fertig ist diese mit dem Hauptast zusammenführen. Weil Sie den Funktionszweig immer mit dem Hauptast synchronisiert haben, sind die letzten Versionen des Funktionszweiges und des Hauptstamms, mit Ausnahme der auf dem Funktionszweig implementierten Funktion identisch. In diesem speziellen Fall können Sie das Zusammenführen durch einen Vergleich des Funktionszweigs mit dem Hauptstamm durchführen."
 
 #: source/en/tsvn_dug/dug_merge.xml:227
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr ""
+msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des <emphasis>Hauptstamms</emphasis> an (trunk). Dies mag Ihnen jetzt vielleicht falsch vorkommen, aber bedenken Sie dass der Hauptstamm der Ausgangspunkt ist von dem aus Sie die Änderungen des Funktionszweigs zusammenführen möchten. Sie können auch auf <guibutton>...</guibutton> klicken um die URL besser zu finden."
 
 #: source/en/tsvn_dug/dug_merge.xml:238
 #: (para)
 msgid "Because you are comparing two different trees, make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is <emphasis>not</emphasis> checked."
-msgstr ""
+msgstr "Weil Sie zwei unterschiedliche Zweige (Funktionszweig und Hauptstamm) vergleichen, stellen Sie sicher dass die Option <guilabel>Nutze <quote>Von:</quote> URL</guilabel> <emphasis>nicht</emphasis> gewählt ist."
 
 #: source/en/tsvn_dug/dug_merge.xml:245
 #: (para)
 msgid "In the <guilabel>To:</guilabel> field enter the full folder url of the feature branch."
-msgstr ""
+msgstr "Im <guilabel>Zu:</guilabel> Feld geben Sie die URL des Funktionszweiges an."
 
 #: source/en/tsvn_dug/dug_merge.xml:251
 #: (para)
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
-msgstr ""
+msgstr "Sowohl im <guilabel>Von Revision</guilabel> Feld als auch im <guilabel>Zu Revision</guilabel> Feld geben Sie die letzte Revision an in der die beiden Zweige synchron waren. Wenn Sie sicher sind dass niemand anders seit Ihrer letzen Synchronisation eine Übertragung gemacht hat, können Sie in beiden Feldern die <literal>HEAD</literal> Revision angeben. Falls jedoch in der Zwischenzeit die Möglichkeit einer Übertragung besteht, geben Sie die letzte Revision ihrer Synchronisation an."
 
 #: source/en/tsvn_dug/dug_merge.xml:261
 #: (para)
 msgid "You can also use <guibutton>Show Log</guibutton> to select the revision. Note that in this case you are not selecting a range of revisions, so the revision you select there is what will actually appear in the <guilabel>Revision</guilabel> field."
-msgstr ""
+msgstr "Sie können ebenfalls <guibutton>Zeige Log</guibutton> verwenden, um die Revision auszuwählen. Beachten Sie, dass Sie in diesem Fall keinen Bereich sondern eine einzelne Revision wählen, die im <guilabel>Revision</guilabel> Feld eingetragen wird."
 
 #: source/en/tsvn_dug/dug_merge.xml:217
 #: (para)
 msgid "To merge the feature branch back into the trunk you need to go to a working copy of the trunk. Select <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-1/>"
 msgstr ""
+"Um den Funktionszweig mit dem Hauptstamm zusammenzuführen, müssen Sie erst zur Arbeitskopie des Hauptstamms gehen. Dann wählen Sie <menuchoice> <guimenuitem>Zusammenführen...</guimenuitem> </menuchoice> aus dem Kontext-Menu.\n"
+"<placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_merge.xml:276
 #: (para)
 msgid "In this case you will not need the feature branch again because the new feature is now integrated into the trunk. The feature branch is redundant and can be deleted from the repository if required."
-msgstr ""
+msgstr "In diesem Falle werden Sie den Funktionszweig kaum mehr benötigen weil die Funktion jetzt ja im Hauptstamm integriert ist. Der Funktionszweig ist also nicht mehr nötig und kann deshalb gelöscht werden."
 
 #: source/en/tsvn_dug/dug_merge.xml:285
 #: (title)
@@ -1787,17 +1805,17 @@ msgstr "Misch-Resultate Vorschau"
 #: source/en/tsvn_dug/dug_merge.xml:286
 #: (para)
 msgid "If you are uncertain about the merge operation, you may want to preview what will happen do before you allow it to change your working copy. There are two additional buttons to help you."
-msgstr ""
+msgstr "Falls Sie nicht sicher sind, wie sich das Zusammenführen auf Ihre Arbeitskopie auswirken wird, gibt es zwei Möglichkeiten, sich die Ergebnisse vorher anzuschauen."
 
 #: source/en/tsvn_dug/dug_merge.xml:291
 #: (para)
 msgid "<guibutton>Unified Diff</guibutton> creates the diff file (remember that merge is based on diff) and shows you which lines will be changed in your working copy files. As this is a unified diff (patch) file it is not always easy to read out of context, but for small scale changes it is often helpful."
-msgstr ""
+msgstr "<guibutton>Standard Diff</guibutton> erzeugt eine Diffdatei (Sie erinnern sich, dass das Zusammenführen auf Differenzenbildung basiert?) und zeigt Ihnen, welche Zeilen in den Dateien Ihrer Arbeitskopie geändert würden. Da es sich um eine Standard Diffdatei handelt, ist der Inhalt ohne Kontext nicht immer einfach zu verstehen. Für kleinere Änderungen kann diese Information bereits ausreichen."
 
 #: source/en/tsvn_dug/dug_merge.xml:298
 #: (para)
 msgid "<guibutton>Dry Run</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
-msgstr ""
+msgstr "<guibutton>Trockenlauf</guibutton> simuliert das Zusammenführen lediglich, <emphasis>ohne</emphasis> dass die Arbeitskopie verändert wird. Eine Liste der veränderten Dateien und der eventuell resultierenden Konflikte wird angezeigt."
 
 #: source/en/tsvn_dug/dug_import.xml:3
 #: (title)
