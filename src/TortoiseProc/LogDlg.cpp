@@ -1739,7 +1739,7 @@ void CLogDlg::EditAuthor(int index)
 		}
 		else
 		{
-			m_arAuthors.SetAt(m_arShownList.GetAt(index), dlg.m_sInputText);
+			m_arAuthors.SetAt(index, dlg.m_sInputText);
 		}
 	}
 	theApp.DoWaitCursor(-1);
@@ -1799,7 +1799,7 @@ void CLogDlg::EditLogMessage(int index)
 			}
 			else if (sShortMessage.GetLength() > 80)
 				sShortMessage = sShortMessage.Left(77) + _T("...");
-			m_arShortLogMessages.SetAt(m_arShownList.GetAt(index), sShortMessage);
+			m_arShortLogMessages.SetAt(index, sShortMessage);
 			//split multiline logentries and concatenate them
 			//again but this time with \r\n as line separators
 			//so that the edit control recognizes them
