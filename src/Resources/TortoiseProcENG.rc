@@ -1708,7 +1708,9 @@ BEGIN
     IDS_SVNERR_UPDATEFIRST  "You have to update your working copy first."
     IDS_SVNERR_CLEANUPORFRESHCHECKOUT 
                             "Try a ""Cleanup"". If that doesn't work you need to do a fresh checkout."
-    IDS_SVNERR_UNLOCKFAILED "If you want to break the lock, use the ""Check For Modifiations"" dialog."
+    IDS_SVNERR_UNLOCKFAILED "If you want to break the lock, use the ""Check For Modifications"" dialog."
+    IDS_SVNERR_UNLOCKFAILEDNOLOCK 
+                            "The lock has already been broken from another working copy"
 END
 
 STRINGTABLE 

@@ -243,7 +243,13 @@ CString SVN::GetErrorString(svn_error_t * Err)
 		default:
 			break;
 		}
-		if (SVN_ERR_IS_UNLOCK_ERROR(Err))
+		if ((Err->apr_err == SVN_ERR_FS_PATH_NOT_LOCKED)||
+			(Err->apr_err == SVN_ERR_FS_NO_SUCH_LOCK)||
+			(Err->apr_err == SVN_ERR_RA_NOT_LOCKED))
+		{
+			temp.LoadString(IDS_SVNERR_UNLOCKFAILEDNOLOCK);
+		}
+		else if (SVN_ERR_IS_UNLOCK_ERROR(Err))
 		{
 			temp.LoadString(IDS_SVNERR_UNLOCKFAILED);
 		}
