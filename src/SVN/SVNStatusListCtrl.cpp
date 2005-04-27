@@ -418,15 +418,9 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	if (pSVNStatus->repos_lock)
 	{
 		if (pSVNStatus->repos_lock->owner)
-			if (entry->lock_owner.IsEmpty())
-				entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
-			else
-				entry->lock_owner += _T(" / ") + CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
+			entry->lock_remoteowner = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
 		if (pSVNStatus->repos_lock->token)
-			if (entry->lock_token.IsEmpty())
-				entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
-			else
-				entry->lock_token += _T(" / ") + CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
+			entry->lock_remotetoken = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
 	}
 
 	// Pass ownership of the entry to the array
@@ -724,7 +718,35 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	}
 	if (m_dwColumns & SVNSLC_COLOWNER)
 	{
-		SetItemText(index, nCol++, entry->lock_owner);
+		if (!m_HeadRev.IsHead())
+		{
+			// we have contacted the repository
+			
+			// decision-matrix
+			// wc		repository		text
+			// ""		""				""
+			// ""		UID1			owner
+			// UID1		UID1			owner
+			// UID1		""				lock has been broken
+			// UID1		UID2			lock has been stolen
+			if (entry->lock_token.IsEmpty() || (entry->lock_token.Compare(entry->lock_remotetoken)==0))
+				SetItemText(index, nCol++, entry->lock_owner);
+			else if (entry->lock_remotetoken.IsEmpty())
+			{
+				// broken lock
+				CString temp(MAKEINTRESOURCE(IDS_STATUSLIST_LOCKBROKEN));
+				SetItemText(index, nCol++, temp);
+			}
+			else
+			{
+				// stolen lock
+				CString temp;
+				temp.Format(IDS_STATUSLIST_LOCKSTOLEN, entry->lock_remoteowner);
+				SetItemText(index, nCol++, temp);
+			}			
+		}
+		else
+			SetItemText(index, nCol++, entry->lock_owner);
 	}
 	SetCheck(index, entry->checked);
 	if (entry->checked)

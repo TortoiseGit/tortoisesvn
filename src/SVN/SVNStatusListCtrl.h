@@ -136,7 +136,8 @@ public:
 		CString					url;					///< Subversion URL of the file
 		CString					lock_token;				///< universally unique URI representing lock 
 		CString					lock_owner;				///< the username which owns the lock
-		
+		CString					lock_remoteowner;		///< the username which owns the lock in the repository
+		CString					lock_remotetoken;		///< the unique URI in the repository of the lock
 	public:
 		svn_wc_status_kind		status;					///< local status
 	private:
