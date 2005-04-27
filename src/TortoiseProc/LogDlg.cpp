@@ -1072,6 +1072,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
 				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
+				temp.LoadString(IDS_MENULOG);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);					// "Show Log"				
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 				temp.LoadString(IDS_LOG_POPUP_OPEN);
@@ -1290,6 +1292,42 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							break;
 						}
 						ShellExecute(this->m_hWnd, _T("open"), tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						theApp.DoWaitCursor(-1);
+					}
+					break;
+				case ID_LOG:
+					{
+						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						SetPromptApp(&theApp);
+						theApp.DoWaitCursor(1);
+						CString filepath;
+						if (SVN::PathIsURL(m_path.GetSVNPathString()))
+						{
+							filepath = m_path.GetSVNPathString();
+						}
+						else
+						{
+							SVN svn;
+							filepath = svn.GetURLFromPath(m_path);
+							if (filepath.IsEmpty())
+							{
+								theApp.DoWaitCursor(-1);
+								CString temp;
+								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+								TRACE(_T("could not retrieve the URL of the file!\n"));
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								break;
+							}
+						}
+						filepath = GetRepositoryRoot(CTSVNPath(filepath));
+						filepath += changedpath->sPath;
+						
+						CString sCmd;
+						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /rev:%ld"), CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev);
+						
+						CUtils::LaunchApplication(sCmd, NULL, false);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);
 					}
