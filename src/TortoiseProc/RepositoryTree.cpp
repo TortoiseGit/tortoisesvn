@@ -61,6 +61,7 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 	{
 		SVN svn;
 		m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_strUrl));
+		m_strReposRoot = SVNUrl::Unescape(m_strReposRoot);
 	}
 
 	DeleteAllItems();
@@ -82,7 +83,7 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool init)
 {
 	CString folder_path;
-	if (init)
+	if ((init)&&(!m_strReposRoot.IsEmpty()))
 	{
 		HTREEITEM hRootItem = FindUrl(m_strReposRoot);
 		if (hRootItem == 0)
@@ -239,6 +240,10 @@ HTREEITEM CRepositoryTree::FindUrl(const CString& url)
 		return NULL;
 
 	CString root_path = m_strReposRoot;
+	if (root_path.IsEmpty())
+	{
+		root_path = SVNUrl(url).GetRootPath();
+	}
 	CString root_item = GetItemText(GetItemIndex(hRoot), 0);
 
 	// root item must be compared case-insensitive
