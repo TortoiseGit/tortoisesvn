@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-27 12:35+0100\n"
+"PO-Revision-Date: 2005-04-28 10:43+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,770 @@ msgstr ""
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-Basepath: ..\\\n"
+
+#: source/en/tsvn_server/server_svn.xml:3
+#: (title)
+msgid "Svnserve Based Server"
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:5
+#: (title)
+#: source/en/tsvn_server/server_apache.xml:5
+#: source/en/tsvn_introduction.xml:3
+#: source/en/tme_ch01.xml:3
+msgid "Introduction"
+msgstr "Einleitung"
+
+#: source/en/tsvn_server/server_svn.xml:7
+#: (primary)
+#: source/en/tsvn_basics.xml:392
+#: (literal) source/en/tsvn_basics.xml:401
+msgid "svnserve"
+msgstr "svnserve"
+
+#: source/en/tsvn_server/server_svn.xml:9
+#: (para)
+msgid "There may be situations where it's not possible to use Apache as your server. Fortunately, Subversion includes <application>svnserve</application> - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:16
+#: (para)
+msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:22
+#: (title)
+#, fuzzy
+msgid "Installing svnserve"
+msgstr "Installation von TortoiseSVN"
+
+#: source/en/tsvn_server/server_svn.xml:26
+#: (para)
+msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:34
+#: (para)
+msgid "Run the Subversion installer. If you run the installer on your server you can skip step 3."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:40
+#: (para)
+msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb42.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:57
+#: (title)
+#, fuzzy
+msgid "Running svnserve"
+msgstr "svnserve"
+
+#: source/en/tsvn_server/server_svn.xml:58
+#: (para)
+msgid ""
+"Now that svnserve is installed, you need it running on your server. The simplest approach is to run the following from a DOS shell or create a windows shortcut: <screen>\n"
+"svnserve.exe -d\n"
+"</screen> svnserve will now start waiting for incoming requests on port 3690. The -d switch tells svnserve to run as a daemon process, so it will always exist until it is manually terminated."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:69
+#: (para)
+msgid "If you have not yet created a repository, follow the instructions given with the Apache server setup <xref linkend=\"tsvn-serversetup-apache-4\"/>."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:74
+#: (para)
+msgid "To test that svnserve is working, use TortoiseSVN's <menuchoice><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to view a repository."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:81
+#: (para)
+msgid ""
+"Assuming your repository is located in <filename>c:\\repos\\TestRepo</filename>, and your server is called <filename>localhost</filename>, when asked by <menuchoice><guimenuitem>Repo-Browser</guimenuitem></menuchoice> , enter Url: <screen>\n"
+"svn://localhost/repos/TestRepo\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:93
+#: (para)
+msgid ""
+"You can also increase security and save time entering Url's with svnserve by using the -r switch to set the root location and restrict access to a specified directory on the server: <screen>\n"
+"svnserve.exe -d -r drive:\\path\\to\\repository\n"
+"</screen> Using the previous test as a guide, svnserve would now run as: <screen>\n"
+"svnserve.exe -d -r c:\\repos\n"
+"</screen> And in TortoiseSVN our repo-browser Url is now shortened to: <screen>\n"
+"svn://localhost/TestRepo\n"
+"</screen> Note that the -r switch is also needed if your repository is located on a different partition or drive than the location of svnserve on your server."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:113
+#: (para)
+#: source/en/tsvn_repository/repository_create.xml:127
+msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
+msgstr "Erstellen Sie kein Berkeley DB Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe sein! Auch nicht wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu beginn erhalten, oder es können Monate vergehen ehe Sie feststellen dass das Projektarchiv korrupt und nicht mehr zu retten ist."
+
+#: source/en/tsvn_server/server_svn.xml:124
+#: (title)
+msgid "Run svnserve as a Service"
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:125
+#: (para)
+msgid "If you are concerned about always having a user logged in on your server, or worried about someone shutting down svnserve or forgetting to restart it after a reboot, it is possible to run svnserve as a windows service using a wrapper like the one available at <ulink url=\"http://dark.clansoft.dk/~mbn/svnservice/\"><citetitle>svnservice</citetitle></ulink> provided by Magnus Norddahl. Note that SVNService installs svnserve as a manual service, you may want to change this to automatic."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:138
+#: (para)
+msgid "More generic tools like <ulink url=\"http://www.firedaemon.com/\"><citetitle>firedaemon</citetitle></ulink> will also work. Note that you will still need to run svnserve with the -d switch."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:149
+#: (title)
+#, fuzzy
+msgid "Authentication with svnserve"
+msgstr "Anmeldung"
+
+#: source/en/tsvn_server/server_svn.xml:150
+#: (para)
+msgid "The default svnserve setup provides anonymous read-only access, so whilst you can use the repo-browser in TortoiseSVN to view a repository using an svn:// Url, you won't be able to perform any normal Subversion operations such as checkout, update or commit."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:156
+#: (para)
+msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:162
+#: (para)
+msgid ""
+"You can enable anonymous write access by simply setting: <screen>\n"
+"[general]\n"
+"anon-access = write\n"
+"</screen> However, you will not know who has made changes to a repository, as the <literal>svn:author</literal> property will be empty. You will also be unable to control who makes changes to a repository. This is a somewhat risky setup!"
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:173
+#: (para)
+msgid ""
+"One way to overcome this is to create a password database: <screen>\n"
+"[general]\n"
+"anon-access = none\n"
+"auth-access = write\n"
+"password-db = userfile\n"
+"</screen> Where <literal>userfile</literal> is a file which exists in the same directory as <filename>svnserve.conf</filename>. This file can live elsewhere in your filesytem (useful for when you have multiple repositories which require the same access rights) and be can referenced using an absolute or relative path. The <filename>userfile</filename> should have a structure of: <screen>\n"
+"[users]\n"
+"username = password\n"
+"...\n"
+"</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:197
+#: (para)
+#, fuzzy
+msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your creditentials so that you only have to enter them once. More information can be found in the Subversion book, specificially in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
+msgstr "Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor. Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden sondern nur mittels Bearbeitung der Konfigurationsdatei. Für mehr Informationen über die Subversion <filename>config</filename> Datei schauen Sie im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"> <citetitle>Subversion Manual</citetitle> </ulink> nach. Der Abschnitt <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"> <citetitle>Automatic Property Setting</citetitle> </ulink> ist hier auch von Interesse."
+
+#: source/en/tsvn_server/server_svn.xml:215
+#: (title)
+#, fuzzy
+msgid "Authentication with svn+ssh"
+msgstr "Anmeldung"
+
+#: source/en/tsvn_server/server_svn.xml:216
+#: (para)
+msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:221
+#: (para)
+msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:227
+#: (para)
+msgid "It is beyond the scope of this documentation to detail the installation and setup of a secure shell, however you can find further information in the <ulink url=\"http://tortoisesvn.berlios.de/faq/index.php?action=artikel&amp;cat=8&amp;id=30&amp;artlang=en\"><citetitle>Subversion / TortoiseSVN SSH HowTo</citetitle></ulink>"
+msgstr ""
+
+#: source/en/tsvn_server/server_svn.xml:235
+#: (para)
+#, fuzzy
+msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>SVN book</citetitle></ulink>."
+msgstr "Falls Sie eine Anleitung für Versionskontrolle mit Subversion benötigen, empfehlen wir das fantastische Buch <ulink url=\"http://svnbook.red-bean.com/\"> <citetitle>Subversion: The Definitive Guide</citetitle> </ulink>."
+
+#: source/en/tsvn_server/server_apache.xml:3
+#: (title)
+msgid "Apache Based Server"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:7
+#: (primary)
+#, fuzzy
+msgid "Apache"
+msgstr "patch"
+
+#: source/en/tsvn_server/server_apache.xml:9
+#: (para)
+msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:15
+#: (primary)
+#: source/en/tsvn_server/server_apache.xml:19
+#: (term)
+msgid "WebDAV"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:21
+#: (para)
+msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a \"Webfolder\" in the Windows explorer and then access it like any other folder in the filesystem"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:32
+#: (term)
+#, fuzzy
+msgid "Browsing The Repository"
+msgstr "Das Projektarchiv"
+
+#: source/en/tsvn_server/server_apache.xml:34
+#: (para)
+msgid "You can point your browser to the URL of your repository and browse the contents of it without having a Subversion client installed. This gives access to your data to a much wider circle of users."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:44
+#: (term)
+#: source/en/tsvn_dug/dug_general.xml:40
+#: (title)
+msgid "Authentication"
+msgstr "Anmeldung"
+
+#: source/en/tsvn_server/server_apache.xml:46
+#: (para)
+msgid "You can use any authentication mechanism Apache supports, including SSPI and LDAP."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:53
+#: (term)
+msgid "Security"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:55
+#: (para)
+msgid "Since Apache is very stable and secure, you automatically get the same security for your repository. This includes SSL encryption."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:65
+#: (title)
+#, fuzzy
+msgid "Installing Apache"
+msgstr "Installation"
+
+#: source/en/tsvn_server/server_apache.xml:70
+#: (para)
+msgid "Please note that Windows XP without the servicepack 1 will lead to bogus network data and could therefore corrupt your repository!"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:78
+#: (para)
+msgid "Download the latest version of the Apache webserver from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version &gt; 2.0.54 - the version 1.3.xx won't work! Also, versions lower than 2.0.54 won't work with Subversion 1.2 because of a bug in how Apache &lt; 2.0.54 was built for Windows."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:91
+#: (para)
+msgid "Once you have the Apache2 installer you can doubleclick on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a dns name for your server just enter the ip-address). I recommend to install apache <literal>for All Users, on Port 80, as a Service</literal>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:113
+#: (para)
+msgid "Now test if the Apache-webserver is running correctly by pointing your webbrowser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:122
+#: (para)
+msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:128
+#: (para)
+msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right-click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:134
+#: (para)
+msgid "Even if Apache runs as local system, you still need such an entry (which will be the Administrator account in this case)."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:138
+#: (para)
+msgid "If Apache does not have this permission set up, your users will get \"Access denied\" error messages, which show up in the Apache error log as error 500."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:66
+#: (para)
+msgid "The first thing you need before installing Apache is a computer with either Windows2000 / WinXP+SP1 or Windows2003. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:147
+#: (title)
+#, fuzzy
+msgid "Installing Subversion"
+msgstr "Installation"
+
+#: source/en/tsvn_server/server_apache.xml:151
+#: (para)
+msgid "Download the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:159
+#: (para)
+msgid "Run the Subversion installer and follow the instructions. If the Subversion installer recognized that you've installed Apache, then you're almost done. If it couldn't find an Apache server then you have to do some additional steps."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:169
+#: (primary)
+msgid "mod_authz_svn"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:171
+#: (para)
+msgid "Using the windows explorer, go to the installation directory of Subversion (usually <filename>c:\\program files\\Subversion</filename>) and find the files <filename>/httpd/mod_dav_svn.so</filename> and <filename>mod_authz_svn.so</filename>. Copy these files to the Apache modules directory (usually <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:184
+#: (para)
+msgid "Copy the file <filename>/bin/libdb42.dll</filename> from the Subversion installation directory to the Apache modules directory."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:191
+#: (para)
+msgid "Edit Apache's configuration file (usually <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) with a text editor such as Notepad and make the following changes:"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:197
+#: (para)
+msgid ""
+"Uncomment (remove the '<literal>#</literal>' mark) the following lines: <screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen><screen>#LoadModule dav_module modules/mod_dav.so</screen> Add the following two lines to the end of the <literal>LoadModule</literal> section. <screen>\n"
+"LoadModule dav_svn_module modules/mod_dav_svn.so\n"
+"LoadModule authz_svn_module modules/mod_authz_svn.so\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:214
+#: (title)
+msgid "Configuration"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:225
+#: (para)
+msgid ""
+"At the end of the Config file add the following lines: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"DAV svn\n"
+"SVNParentPath D:\\SVN\n"
+"AuthType Basic\n"
+"AuthName \"Subversion repositories\"\n"
+"AuthUserFile passwd\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen> This configures Apache so that all your Subversion repositories are physically located below <filename>D:\\SVN</filename>. The repositories are served to the outside world from the URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Access is restricted to known users/passwords listed in the <filename>passwd</filename> file."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:250
+#: (para)
+msgid ""
+"To create the <filename>passwd</filename> file, open the command prompt (DOS-Box) again, change to the apache2 folder (usually <filename>c:\\program files\\apache group\\apache2</filename>) and create the file by entering <screen>\n"
+"bin\\htpasswd -c passwd &lt;username&gt;\n"
+"</screen> This will create a file with the name passwd which is used for authentication. Additional users can be added with <screen>\n"
+"bin\\htpasswd passwd &lt;username&gt;\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:269
+#: (para)
+msgid "Restart the Apache service again."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:274
+#: (para)
+msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (where <filename>MyNewRepository</filename> is the name of the Subversion repository you created before). If all went well you should be prompted for a username and password, then you can see the contents of your repository."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:215
+#: (para)
+msgid "Now you have set up Apache and Subversion, but Apache doesn't know how to handle Subversion clients like TortoiseSVN yet. To get Apache to know which URL shall be used for Subversion repositories you have to edit the Apache config file (usually located in <filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>) with any text editor you like (e.g. Notepad): <placeholder-1/>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:295
+#: (title)
+msgid "Apache httpd.conf Settings"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:368
+#: (para)
+msgid ""
+"If you want your repository to have read access for everyone but write access only for specific users you can change the line <screen>\n"
+"Require valid-user\n"
+"</screen> to <screen>\n"
+"&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;\n"
+"Require valid-user\n"
+"&lt;/LimitExcept&gt;\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:383
+#: (para)
+msgid ""
+"Using a <filename>passwd</filename> file limits and grants access to all of your repositories as a unit. If you want more control over which users have access each folder inside a repository you can uncomment the line <screen>\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's AuthzSVNAccessFile module so that it can enforce more granular access based upon rules listed in the Subversion access file. An example file would look like this: <screen>\n"
+"[groups]\n"
+"developers = user1,user2,user3,user4\n"
+"docs = user5,user6,user7\n"
+"#to allow everyone read access\n"
+"[/]\n"
+"* = r\n"
+"#allow all developers complete access\n"
+"@developers = rw\n"
+"#give the doc people write access to the docs folder\n"
+"[/project/trunk/doc]\n"
+"@docs = rw\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:286
+#: (para)
+msgid "A short explanation of what you just entered: <indexterm><primary>SVNPath</primary></indexterm><indexterm><primary>SVNParentPath</primary></indexterm><table id=\"tsvn-serversetup-apache-4-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1.5*\"/><colspec colnum=\"2\" colwidth=\"3*\"/><thead><row><entry>Setting</entry><entry>Explanation</entry></row></thead><tbody><row><entry>&lt;Location /svn&gt;</entry><entry> means that the Subversion repositories are available from the URL <systemitem class=\"url\">http://MyServer/svn/</systemitem></entry></row><row><entry>DAV svn</entry><entry> tells Apache which module will be responsible to serve that URL - in this case the Subversion module. </entry></row><row><entry>SVNParentPath D:\\SVN</entry><entry> tells Subversion to look for repositories below <filename>D:\\SVN</filename></entry></row><row><entry>AuthType Basic</entry><entry> is to activate basic authentication, i.e. Username/password </entry></row><row><entry>AuthName \"Subversion repositories\"</entry><entry> is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for </entry></row><row><entry>AuthUserFile passwd</entry><entry> specifies which password file to use for authentication </entry></row><row><entry>AuthzSVNAccessFile</entry><entry> Location of the Access file for paths inside a subversion repository </entry></row><row><entry>Require valid-user</entry><entry> specifies that only users who entered a correct username/password are allowed to access the URL </entry></row></tbody></tgroup></table> But that's just an example. There are many, many more possibilities of what you can do with the Apache webserver. <placeholder-2/>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:417
+#: (title)
+msgid "Use SVNParentPath"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:419
+#: (primary)
+msgid "SVNParentPath"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:421
+#: (para)
+msgid "If you used the SVNParentPath directive then you don't have to change the Apache config file everytime you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:436
+#: (title)
+msgid "Index of projects under SVNParentPath"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:438
+#: (primary)
+msgid "Index of projects"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:440
+#: (para)
+msgid "The advantage of using the SVNParentPath directive is that you don't have to change the Apache config each time you create a new repository, but you also don't have an index of all created and available projects. If you point your browser to the path SVNParentPath points to, you will get a nasty error page showing."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:448
+#: (para)
+msgid "To avoid that ugly error page and have a nice looking listing of all available projects instead, you can use the following PHP script which generates the index for you automatically. (You will need to install PHP on your server in order to use the below file)."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:508
+#: (para)
+msgid ""
+"Uncomment (remove the '#' char) from the following line in your Apache config file: <screen>\n"
+"#LoadModule rewrite_module modules/mod_rewrite.so\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:517
+#: (para)
+msgid ""
+"Add the following lines just below your &lt;Location&gt; block where you define your Subversion stuff: <screen>\n"
+"    RewriteEngine on\n"
+"    RewriteRule ^/svn$ /svn_index.php [PT]\n"
+"    RewriteRule ^/svn/$ /svn_index.php [PT]\n"
+"    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:502
+#: (para)
+msgid "Save the lines above to a file <filename>svn_index.php</filename> and store that file in your web root folder. Next you have to tell Apache to show that page instead of the error: <placeholder-1/>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:533
+#: (title)
+msgid "Authentication With A Windows Domain"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:535
+#: (primary)
+msgid "Windows domain"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:538
+#: (primary)
+msgid "domaincontroller"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:540
+#: (para)
+msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:547
+#: (para)
+msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: mod_auth_sspi!"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:552
+#: (para)
+msgid "<indexterm><primary>SSPI</primary></indexterm> The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, including a patch from Vladimir Berezniker. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:567
+#: (para)
+msgid "Download the module, copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:574
+#: (para)
+msgid ""
+"Edit the Apache config file: add the line <screen>\n"
+"LoadModule sspi_auth_module modules/mod_auth_sspi.so\n"
+"</screen> to the LoadModule's section. Make sure you insert this line <emphasis>before</emphasis> the line <screen>\n"
+"LoadModule auth_module modules/mod_auth.so\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:587
+#: (para)
+msgid ""
+"To make the Subversion location use this type of authentication you have to change the line <screen>\n"
+"AuthType Basic\n"
+"</screen> to <screen>\n"
+"AuthType SSPI\n"
+"</screen> also you need to add <screen>\n"
+"SSPIAuth On\n"
+"SSPIAuthoritative On\n"
+"SSPIDomain &lt;domaincontroller&gt;\n"
+"SSPIOfferBasic On\n"
+"</screen> within the &lt;Location /svn&gt; block. If you don't have a domain controller, leave the name of the domain control as &lt;domaincontroller&gt;."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:610
+#: (para)
+msgid "Note that if you are authenticating using SSPI, then you don't need the <filename>AuthUserFile</filename> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:620
+#: (para)
+msgid "Subversion AuthzSVNAccessFile files are case sensitive in regard to user names (\"JUser\" is different from \"juser\")."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:624
+#: (para)
+msgid "In Microsoft's world, Windows domains and usernames are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. \"JUser\")."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:629
+#: (para)
+msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:637
+#: (para)
+msgid "The end result is that you may need at least two entries in your AuthzSVNAccessFile for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:645
+#: (para)
+msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's AuthzSVNAccessFile module. You may need to experiment with the exact format of the user string in the svnaccessfile (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:657
+#: (title)
+msgid "SSL and InternetExplorer"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:658
+#: (para)
+msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:672
+#: (para)
+msgid "define a separate &lt;Location /path&gt; directive in the apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:682
+#: (para)
+msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:690
+#: (para)
+msgid ""
+"In the ssl \"standard\" setup there's often the following statement in apache's virtual ssl host: <screen>\n"
+"SetEnvIf User-Agent \".*MSIE.*\" \\\n"
+"             nokeepalive ssl-unclean-shutdown \\\n"
+"             downgrade-1.0 force-response-1.0\n"
+"</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want ntlm authentication you have to use keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> If You uncomment the whole \"SetEnvIf\" You should be able to authenticate IE with windows authentication over SSL against the apache on Win32 with included mod_auth_sspi."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:667
+#: (para)
+#, fuzzy
+msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
+msgstr "Bevor Sie ein Projekt in das Projektarchiv importieren sollten Sie: <placeholder-1/>"
+
+#: source/en/tsvn_server/server_apache.xml:717
+#: (title)
+msgid "Securing the server with SSL"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:719
+#: (primary)
+msgid "SSL"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:721
+#: (para)
+msgid "The apache server doesn't have SSL support installed by default due to US-export restrictions. But you can easily download the required module from somewhere else and install it yourself."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:728
+#: (para)
+msgid "First you need the required files to enable SSL. You can find those in the package available at <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Just unzip the package and then copy <filename>mod_ssl.so</filename> to the <filename>modules</filename> folder of Apache and the file <filename>openssl.exe</filename> to the <filename>bin</filename> folder. Also copy the file <filename>conf/ssl.conf</filename> to the <filename>conf</filename> folder of Apache."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:744
+#: (para)
+msgid "Open the file <filename>ssl.conf</filename> in the Apache conf folder with a text editor."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:751
+#: (para)
+msgid ""
+"Place a comment char (<literal>#</literal>) in front of the following lines: <screen>\n"
+"DocumentRoot \"c:/apache/htdocs\"\n"
+"ServerName www.example.com:443\n"
+"ServerAdmin you@example.com\n"
+"ErrorLog logs/error_log\n"
+"TransferLog logs/access_log\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:764
+#: (para)
+msgid ""
+"change the line <screen>\n"
+"SSLCertificateFile conf/ssl.crt/server.crt\n"
+"</screen> to <screen>\n"
+"SSLCertificateFile conf/ssl/my-server.cert\n"
+"</screen> the line <screen>\n"
+"SSLCertificateKeyFile conf/ssl.key/server.key\n"
+"</screen> to <screen>\n"
+"SSLCertificateKeyFile conf/ssl/my-server.key\n"
+"</screen> and the line <screen>\n"
+"SSLMutex  file:logs/ssl_mutex\n"
+"</screen> to <screen>\n"
+"SSLMutex  default\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:792
+#: (para)
+msgid ""
+"Delete the lines <screen>\n"
+"&lt;IfDefine SSL&gt;\n"
+"</screen> and <screen>\n"
+"&lt;/IfDefine&gt;\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:804
+#: (para)
+msgid ""
+"Open the Apache config file (<filename>httpd.conf</filename>) and uncomment the line <screen>\n"
+"#LoadModule ssl_module modules/mod_ssl.so\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:813
+#: (para)
+msgid "Openssl needs a config file. You can download a working one from <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Save the file to <filename>bin/openssl.cnf</filename>. Please note: the file has the type <filename>*.cnf</filename>. Windows treats such files in a special way but it really is just a text file!"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:827
+#: (para)
+msgid ""
+"Next you need to create an SSL certificate. To do that open a command prompt (DOS-Box) and change to the apache folder (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) and type the following command: <screen>\n"
+"bin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr\n"
+"</screen> You will be asked for a passphrase. Please don't use simple words but whole sentences, e.g. a part of a poem. The longer the phrase the better. Also you have to enter the URL of you server. All other questions are optional but I recommend to fill out those too. Next type the commands <screen>\n"
+"bin\\openssl rsa -in privkey.pem -out my-server.key\n"
+"</screen> and (on one line) <screen>\n"
+"bin\\openssl x509 -in my-server.csr -out my-server.cert\n"
+"                 -req -signkey my-server.key -days 4000\n"
+"</screen> This will create a certificate which will expire in 4000 days. And finally enter: <screen>\n"
+"bin\\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER\n"
+"</screen> These commands created some files in the Apache folder (<filename>my-server.der.crt</filename>, <filename>my-server.csr</filename>, <filename>my-server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>my-server.cert</filename>). Copy the files to the folder <filename>conf/ssl</filename> (e.g. <filename>C:\\program files\\apache group\\apache2\\conf\\ssl</filename>) - if this folder does not exist you have to create it first."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:868
+#: (para)
+msgid "Restart the apache service."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:873
+#: (para)
+msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:881
+#: (title)
+msgid "Forcing SSL access"
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:882
+#: (para)
+msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-ssl (http) and only allow https access. To do this, you have to add another directive to the Subversion &lt;Location&gt; block: <literal>SSLRequireSSL</literal>."
+msgstr ""
+
+#: source/en/tsvn_server/server_apache.xml:889
+#: (para)
+msgid ""
+"An example &lt;Location&gt; block would look like this: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"DAV svn\n"
+"SVNParentPath D:\\SVN\n"
+"SSLRequireSSL\n"
+"AuthType Basic\n"
+"AuthName \"Subversion repositories\"\n"
+"AuthUserFile passwd\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_server/server.xml:3
+#: (title)
+msgid "Setting Up A Server"
+msgstr ""
+
+#: source/en/tsvn_server/server.xml:5
+#: (para)
+msgid "To use TortoiseSVN (or any other subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <emphasis>file://</emphasis> protocol or you can place them on a server and access them with the <emphasis>http://</emphasis> or <emphasis>svn://</emphasis> protocols. The two server protocols can also be encrypted. You use <emphasis>https://</emphasis> or <emphasis>svn+ssh://</emphasis>. This chapter shows you step by step on how you can set up such a server on a Windows machine."
+msgstr ""
+
+#: source/en/tsvn_server/server.xml:16
+#: (para)
+msgid "If you don't have a server and/or if you only work alone then local repositories are probably your best choice. You can skip this chapter and go directly to <xref linkend=\"tsvn_repository\"/>."
+msgstr ""
 
 #: source/en/tsvn_repository/repository_hooks.xml:3
 #: (title)
@@ -146,22 +910,41 @@ msgstr "<action>Rechts-Klick</action> auf einen neu erstellten Ordner und wähle
 msgid "A repository is then created inside the new folder. <emphasis>Don't edit those files yourself!!!</emphasis>. If you get any errors make sure that the folder is empty and not write protected."
 msgstr "Ein Projektarchiv wird dann in dem neuen Ordner erstellt. <emphasis>Editieren Sie diese Dateien nicht selbst</emphasis>. Falls Sie eine Fehlermeldung erhalten stellen Sie sicher, dass der Ordner leer und nicht schreibgeschützt ist."
 
-#: source/en/tsvn_repository/repository_create.xml:97
-#: (para)
-msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>"
-msgstr "Um das lokale Projektarchiv anzusprechen benötigen Sie den den Pfad zum Projektarchiv-Ordner. Beachten Sie, dass Subversion alle Projektarchivpfade in der Form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem> benötigt."
+#: source/en/tsvn_repository/repository_create.xml:100
+#: (title)
+#, fuzzy
+msgid "Local Access to the Repository"
+msgstr "Zustand des Projektarchivs"
 
 #: source/en/tsvn_repository/repository_create.xml:102
+#: (primary)
+#, fuzzy
+msgid "Access"
+msgstr "Zugriffsmethode"
+
+#: source/en/tsvn_repository/repository_create.xml:105
+#: (primary)
+msgid "UNC paths"
+msgstr "UNC Pfade"
+
+#: source/en/tsvn_repository/repository_create.xml:107
 #: (para)
-msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file:///\\ServerName/path/to/repos/</systemitem>. Note the backslash before the server name."
+#, fuzzy
+msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the use of forward slashes throughout."
+msgstr "Um das lokale Projektarchiv anzusprechen benötigen Sie den den Pfad zum Projektarchiv-Ordner. Beachten Sie, dass Subversion alle Projektarchivpfade in der Form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem> benötigt."
+
+#: source/en/tsvn_repository/repository_create.xml:113
+#: (para)
+#, fuzzy
+msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
 msgstr "Um ein Projektarchiv auf einer Netzwerkfreigabe anzusprechen können Sie entweder die Freigabe als Laufwerk verbinden oder den UNC-Pfad benutzen. UNC-Pfade haben die Form <systemitem class=\"url\">file:///\\ServerName/path/to/repos/</systemitem>. Beachten Sie den Backslash vor dem Servernamen."
 
-#: source/en/tsvn_repository/repository_create.xml:111
+#: source/en/tsvn_repository/repository_create.xml:120
 #: (para)
-msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
-msgstr "Erstellen Sie kein Berkeley DB Projektarchiv auf einer Netzwerkfreigabe oder greifen auf eine solche zu. Eine BDB <emphasis>darf nicht</emphasis> auf einer Netzwerkfreigabe sein! Auch nicht wenn die Netzwerkfreigabe als Laufwerk verbunden ist. Wenn Sie versuchen ein solches Projektarchiv zu verwenden wird dies zu unvorhersehbaren Effekten führen - Sie können mysteriöse Fehlermeldungen gleich zu beginn erhalten, oder es können Monate vergehen ehe Sie feststellen dass das Projektarchiv korrupt und nicht mehr zu retten ist."
+msgid "Prior to SVN 1.2, UNC paths had to be given in the more obscure form <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. This form is still supported, but not recommended."
+msgstr "Vor Subversion 1.2, mussten UNC Pfade in dem obskuren Format <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem> angegeben werden. Diese Format wird weiterhin unterstützt, aber nicht empfohlen."
 
-#: source/en/tsvn_repository/repository_create.xml:122
+#: source/en/tsvn_repository/repository_create.xml:138
 #: (para)
 msgid "If you really need to access a repository through a network share, create the repository with fsfs format. If you need to provide server access as well, you will need Subversion Server 1.1 or higher."
 msgstr "Wenn Sie dennoch ein Projektarchiv auf einer Netzwerkfreigabe haben müssen, können sie ein solches im FSFS Format nutzen. Wenn Sie ebenfalls Server-Zugang möchten, brauchen Sie Subversion 1.1 oder höher."
@@ -1820,7 +2603,7 @@ msgstr "<guibutton>Trockenlauf</guibutton> simuliert das Zusammenführen ledigli
 #: source/en/tsvn_dug/dug_import.xml:3
 #: (title)
 msgid "Importing Data Into A Repository"
-msgstr ""
+msgstr "Daten in ein Projektarchiv importieren"
 
 #: source/en/tsvn_dug/dug_import.xml:5
 #: (primary)
@@ -1840,12 +2623,12 @@ msgstr "Projektarchiv Layout"
 #: source/en/tsvn_dug/dug_import.xml:13
 #: (para)
 msgid "Before you import your data into the repository you should first think about how you want to organize your data. If you use one of the recommended layouts you will later have it much easier."
-msgstr ""
+msgstr "Bevor Sie Daten in das Projektarchiv importieren sollten Sie sich Gedanken darüber machen wie Sie Ihre Daten organisieren wollen. Wenn Sie eine der empfohlenen Strukturen verwenden, werden Sie es später viel viel einfacher haben."
 
 #: source/en/tsvn_dug/dug_import.xml:19
 #: (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the \"main line\" of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr ""
+msgstr "Es gibt ein paar empfohlene Standards um die Daten innerhalb eines Projektarchivs zu organisieren. Die meisten Leute erstellen einen <filename>trunk</filename> Ordner, der den Stamm der Entwicklung enthält, einen <filename>branches</filename> Ordner, welcher Sonder-Entwicklungszweige (Äste) enthält und einen <filename>tags</filename> Ordner, der markierte Zustände enthält. Wenn ein Projektarchiv nur ein einziges Projekt enthält ist die folgende Struktur zu empfehlen:"
 
 #: source/en/tsvn_dug/dug_import.xml:28
 #: (screen)
@@ -1864,7 +2647,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_import.xml:33
 #: (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
-msgstr ""
+msgstr "Falls ein Projektarchiv jedoch mehrere Projekte enthält, wird innerhalb der Struktur nach Ästen (branches) organisiert:"
 
 #: source/en/tsvn_dug/dug_import.xml:37
 #: (screen)
@@ -1914,47 +2697,47 @@ msgstr ""
 #: source/en/tsvn_dug/dug_import.xml:56
 #: (para)
 msgid "Indexing by project makes sense if the projects are not closely related and each one is checked out individually. For related projects where you may want to check out all projects in one go, or where the projects are all tied together in a single distribution package, it is often better to index by branch. This way you have only one trunk to checkout, and the relationships between the sub-projects is more easily visible."
-msgstr ""
+msgstr "Nach Projekt zu organisieren ist sinnvoll, wenn diese nicht eng miteinander verwandt sind und jedes für sich bearbeitet wird. Für verwandte Projekte, die sie alle in einem Rutsch auschecken wollen oder die in einer Distribution zusammengefasst sind, ist es oft besser nach Ästen zu organisieren. Auf diese Weise müssen Sie nur den Stamm (trunk) auschecken und die Beziehungen zwischen den Unterprojekten sind einfacher zu erkennen."
 
 #: source/en/tsvn_dug/dug_import.xml:64
 #: (para)
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
-msgstr ""
+msgstr "Wenn Sie eine <filename>/trunk /tags /branches</filename> Struktur wählen, müssen Sie lediglich den gesamten Stamm kopieren, um Äste oder Marken zu erstellen. In vielen Punkten ist das der flexibelste Ansatz."
 
 #: source/en/tsvn_dug/dug_import.xml:70
 #: (para)
 msgid "For unrelated projects you may prefer to use separate repositories. When you commit changes, it is the revision number of the whole repository which changes, not the revision number of the project. Having 2 unrelated projects share a repository can mean large gaps in the revision numbers. The Subversion and TortoiseSVN projects appear at the same host address, but are completely separate repositories allowing independent development, and no confusion over build numbers."
-msgstr ""
+msgstr "Für völlig unabhängige Projekte sollten Sie besser pro Projekt ein einzelnes Projektarchiv anlegen. Der Grund dafür ist, dass wenn Sie Änderungen übertragen, die Revisionsnummer des Projektarchivs, nicht des Projektes hochgezählt wird. Bei mehreren unabhängigen Projekten, die sich ein Archiv teilen, kann das zu Konfusion führen, wenn z.B. an einem der Projekte überhaupt nicht gearbeitet wird, an anderen jedoch viel. TortoiseSVN und Subversion sind erscheinen auf demselben Host, sind aber völlig selbstständige Projek(archiv)e, mit voneinander unabhängiger Entwicklung und ohne Verwirrung über Versionsnummern."
 
 #: source/en/tsvn_dug/dug_import.xml:80
 #: (para)
 msgid "Of course, you're free to ignore these common layouts. You can create any sort of variation, whatever works best for you or your team. Remember that whatever you choose, it's not a permanent commitment. You can reorganize your repository at any time. Because branches and tags are ordinary directories, TortoiseSVN can move or rename them however you wish."
-msgstr ""
+msgstr "Natürlich können Sie diese Empfehlungen auch ignorieren. Es steht Ihnen frei, ein Layout zu wählen welches am besten für Sie oder Ihr Team geeignet ist. Beachten Sie auch, dass was immer für eine Wahl Sie treffen diese nicht fix ist. Sie können das Layout später immer noch reorganisieren. Weil Äste (branches) und Markierungen (tags) gewöhnliche Ordner in Subversion sind, können Sie diese ganz einfach mit TortoiseSVN umbenennen oder verschieben wie Sie wollen."
 
 #: source/en/tsvn_dug/dug_import.xml:88
 #: (para)
 msgid "Switching from one layout to another is just a matter of issuing a series of server-side moves; If you don't like the way things are organized in the repository, just juggle the directories around."
-msgstr ""
+msgstr "Von einem Layout zu einem anderen zu wechseln ist lediglich eine Abfolge serverseitiger Umbenennungen; Wenn Ihnen die Art und Weise wie Dinge im Projektarchiv organisiert sind, nicht gefallen, jonglieren Sie einfach mit den Verzeichnissen herum."
 
 #: source/en/tsvn_dug/dug_import.xml:99
 #: (para)
 msgid "create a new empty folder on your hard drive"
-msgstr ""
+msgstr "Erstellen Sie einen leeren Ordner auf Ihrer Festplatte"
 
 #: source/en/tsvn_dug/dug_import.xml:104
 #: (para)
 msgid "create your desired top-level folder structure inside that folder - don't put any files in it yet!"
-msgstr ""
+msgstr "Erstellen Sie in diesem Ordner die gewünschte Ordnerstruktur - kopieren Sie noch keine Dateien hinein!"
 
 #: source/en/tsvn_dug/dug_import.xml:110
 #: (para)
 msgid "import this structure into the repository via a <action>right click</action> on the folder and selecting <menuchoice><guimenuitem>Import...</guimenuitem></menuchoice> from the context menu. This will import your temp folder into the repository root to create the basic repository layout."
-msgstr ""
+msgstr "Importieren Sie diese Struktur durch <action>Rechts-Klick</action> auf den obersten Ordner und Klick auf <guimenuitem>Importieren...</guimenuitem> in das Projektarchiv. Dies importiert Ihren Ordner in das Projektarchiv und erstellt dort die gewünschte Ordnerstruktur."
 
 #: source/en/tsvn_dug/dug_import.xml:94
 #: (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now: <placeholder-1/>"
-msgstr ""
+msgstr "Falls Sie noch keine Ordnerstruktur in Ihrem Projektarchiv angelegt haben sollten Sie dies jetzt tun: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_import.xml:124
 #: (para)
@@ -1969,11 +2752,23 @@ msgid ""
 "/tags\n"
 "</screen>"
 msgstr ""
+"Beachten Sie dass der Name des Ordner welchen Sie importieren <emphasis>nicht</emphasis> im Projektarchiv erscheint, nur dessen Inhalt. Erstellen Sie zum Beispiel folgende Ordnerstruktur:\n"
+"<screen>\n"
+"C:\\Temp\\New\\trunk\n"
+"C:\\Temp\\New\\branches\n"
+"C:\\Temp\\New\\tags\n"
+"</screen>\n"
+"Importieren Sie C:\\Temp\\New ins Projektarchiv, welches dann so aussieht:\n"
+"<screen>\n"
+"/trunk\n"
+"/branches\n"
+"/tags\n"
+"</screen>"
 
 #: source/en/tsvn_dug/dug_import.xml:141
 #: (para)
 msgid "You can also use the repository browser to create new folders directly in the repository."
-msgstr ""
+msgstr "Sie können auch den Projektarchiv Betrachter benutzen, um neue Ordner direkt im Projektarchiv zu erstellen."
 
 #: source/en/tsvn_dug/dug_import.xml:147
 #: (title)
@@ -1988,17 +2783,17 @@ msgstr "temporäre Dateien"
 #: source/en/tsvn_dug/dug_import.xml:155
 #: (para)
 msgid "Remove all files which are not needed to build the project (temporary files, files which are generated by a compiler e.g. *.obj, compiled binaries, ...)"
-msgstr ""
+msgstr "Alle Dateien entfernen/löschen welche nicht unbedingt für das Projekt notwendig sind (z.B. temporäre Dateien, Dateien die vom Kompiler erzeugt werden wie *.obj, kompilierte EXE Dateien, ...)"
 
 #: source/en/tsvn_dug/dug_import.xml:163
 #: (para)
 msgid "Organize the files in folders and subfolders. Although it is possible to rename/move files later it is highly recommended to get your project's structure straight before importing!"
-msgstr ""
+msgstr "die Dateien und Ordner optimal anordnen. Obwohl es auch später noch immer möglich ist, die Dateien und Ordner umzubenenen oder zu verschieben, ist es doch empfehlenswert, schon beim Importieren zu eine saubere Struktur haben."
 
 #: source/en/tsvn_dug/dug_import.xml:151
 #: (para)
 msgid "Before you import your project into a repository you should: <placeholder-1/>"
-msgstr ""
+msgstr "Bevor Sie ein Projekt in das Projektarchiv importieren sollten Sie: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_import.xml:182
 #: (title)
@@ -2008,17 +2803,17 @@ msgstr "Der Import-Dialog"
 #: source/en/tsvn_dug/dug_import.xml:172
 #: (para)
 msgid "Now select the top-level folder of your project directory structure in the windows explorer and <action>right click</action> to open the context menu. Select the command <menuchoice><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog box: <placeholder-1/>"
-msgstr ""
+msgstr "Wählen Sie nun den <emphasis>übergeordneten</emphasis> Ordner Ihrer Ordnerstruktur im Windows Explorer und öffnen Sie mit einem <action>Rechts-Klick</action> das Kontext-Menu. Wählen Sie den Befehl <menuchoice> <guimenuitem>Importieren...</guimenuitem> </menuchoice> worauf der folgende Dialog erscheint: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_import.xml:186
 #: (para)
 msgid "In this dialog you have to enter the URL of the repository into which you want to import your project."
-msgstr ""
+msgstr "Geben Sie in diesem Dialog die URL Ihres Projektarchivs ein in das Sie das Projekt importieren möchten."
 
 #: source/en/tsvn_dug/dug_import.xml:190
 #: (para)
 msgid "The import message is used as a log message. Since you usually just started your project a default <literal>initial import</literal> is filled in by TortoiseSVN."
-msgstr ""
+msgstr "Die Import-Meldung ist gedacht als Log-Meldung. Da Sie normalerweise ganz zu Beginn eines Projektes importieren, hat TortoiseSVN schon die Meldung <literal>erster Import</literal> für Sie ausgefällt. Sie können diese Meldung jedoch nach belieben ändern."
 
 #: source/en/tsvn_dug/dug_import.xml:196
 #: (primary)
@@ -2028,12 +2823,12 @@ msgstr "Ausschließ/Ignorier-Muster:"
 #: source/en/tsvn_dug/dug_import.xml:199
 #: (para)
 msgid "Files or directories which match the <guilabel>exclude pattern</guilabel> are <emphasis>not</emphasis> imported."
-msgstr ""
+msgstr "Dateien oder Verzeichnisse, die dem <guilabel>Dateien ausschließen</guilabel> Muster entsprechen werden <emphasis>nicht</emphasis> importiert."
 
 #: source/en/tsvn_dug/dug_import.xml:205
 #: (para)
 msgid "As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the complete directory tree including all files into the repository. As before, the name of the folder you import does not appear in the repository, only the folder contents. The project is now stored in the repository under version control. Please note that the folder you imported is <emphasis>NOT</emphasis> under version control! To get a version-controlled <firstterm>working copy</firstterm> you need to do a Checkout of the version you just imported."
-msgstr ""
+msgstr "Sobald Sie auf <guibutton>OK</guibutton> klicken beginnt TortoiseSVN die Daten in das Projektarchiv zu importieren. Beachten Sie bitte, dass dadurch Ihr Importverzeichnis <emphasis>nicht</emphasis> unter Versionskontrolle gestellt wird! Um eine Arbeitskopie zu erhalten, in der die Daten unter Versionskontrolle sind müssen sie die Daten frisch aus dem Projektarchiv <action>auschecken</action>."
 
 #: source/en/tsvn_dug/dug_import.xml:218
 #: (title)
@@ -2048,22 +2843,22 @@ msgstr "spezielle Dateien"
 #: source/en/tsvn_dug/dug_import.xml:222
 #: (para)
 msgid "Sometimes you need to have a file under version control which contains user specific data. That means you have a file which every developer/user needs to modify to suit his/her local setup. But versioning such a file is difficult because every user would commit his/her changes every time to the repository."
-msgstr ""
+msgstr "Machmal ist es notwendig, eine Datei unter Versionskontrolle zu haben, die benutzerspezifische Daten (z.B. absolute Pfade zu Programmtools) enthält. Das bedeutet Sie haben eine Datei welche von jedem Benutzer verändert werden muss um seine/ihre lokalen Einstellungen anzupassen. Aber eine Datei unter Versionskontrolle würde von jedem Benutzer jeweils wieder zum Projektarchiv übertragen werden und so die Änderungen von anderen Benutzern wieder überschreiben."
 
 #: source/en/tsvn_dug/dug_import.xml:229
 #: (para)
 msgid "In such cases we suggest to use <literal>template</literal> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
-msgstr ""
+msgstr "In solchen Fällen empfehlen wir die Verwendung von sogenannten <literal>Schablonen</literal>. Eine Schablone ist nichts anderes als eine normale Datei, welche entweder einen anderen Dateinamen oder eine andere Dateiendung hat als die Datei, welche schlussendlich verwendet wird."
 
 #: source/en/tsvn_dug/dug_import.xml:237
 #: (para)
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
-msgstr ""
+msgstr "Als Beispiel sehen Sie sich das Build-Skript von TortoiseSVN mal an. Es ruft eine Datei namens <filename>TortoiseVars.bat</filename> auf, die im Projektarchiv gar nicht existiert! Es existiert aber die Datei <filename>TortoiseVars.tmpl</filename>, welche die Schablone für die Datei <filename>TortoiseVars.bat</filename> darstellt. Bevor also das Build-Skript ausgeführt werden kann muss jeder Benutzer eine Kopie von <filename>TortoiseVars.tmpl</filename> erstellen und die Kopie in <filename>TortoiseVars.bat</filename> umbenennen. Dann kann die Datei <filename>TortoiseVars.bat</filename> ohne Probleme so verändert werden, dass die absoluten Pfade zu den zur Erstellung von TortoiseSVN notwendigen Tools mit den lokalen Pfaden übereinstimmen."
 
 #: source/en/tsvn_dug/dug_import.xml:248
 #: (para)
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignored</literal> to include that filename. That way it won't show up as unversioned on every commit."
-msgstr ""
+msgstr "Um die Benutzer nicht zu stören, ist die Datei <filename>TortoiseVars.bat</filename> auch in der Liste der ignorierten Dateien eingetragen. Das heisst wir haben die Subversion Eigenschaft <literal>svn:ignored</literal> für diese Datei gesetzt. Damit erscheint diese Datei nicht in jedem Übertragungsdialog als (noch) nicht versioniert."
 
 #: source/en/tsvn_dug/dug_import.xml:257
 #: (title)
@@ -2083,7 +2878,7 @@ msgstr "externals"
 #: source/en/tsvn_dug/dug_import.xml:264
 #: (para)
 msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties."
-msgstr ""
+msgstr "Manchmal ist es nützlich eine Arbeitskopie zu haben, die aus mehreren anderen Projekten besteht. Zum Beispiel kann es vorkommen, dass Sie Unterordner haben wollen, die von verschiedenen anderen Stellen des Projektarchivs kommen oder vielleicht sogar von verschiedenen Projektarchiven. Wenn Sie wollen, dass jeder Benutzer die gleiche Struktur der Arbeitskopie hat, können Sie das mit Hilfe der <literal>svn:externals</literal> Eigenschaft definieren."
 
 #: source/en/tsvn_dug/dug_import.xml:272
 #: (para)
@@ -2091,12 +2886,12 @@ msgid ""
 "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenuitem>properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal>. For example <screen>\n"
 "subversion http://svn.collab.net/repos/svn/trunk\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. If a user updates their working copy the external project is checked out, too."
-msgstr ""
+msgstr "Nehmen wir an Sie erstellen eine Arbeitskopie von /project1 in <filename>D:\\dev\\project1</filename>. Selektieren Sie den Ordner <filename>D:\\dev\\project1</filename>, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Eigenschaften Dialog erscheint; gehen Sie zu dem Tab Subversion. Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die <literal>svn:externals</literal> Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu referenzierende Projektarchiv URL in dem Format <literal>Name URL</literal> in das Textfeld. Zum Beispiel <literal>subversion http://svn.collab.net/repos/svn/trunk</literal>, wenn Sie das Subversion Projektarchiv einbinden wollen. Klicken Sie jetzt auf <guibutton>Setzen</guibutton> und übertragen Sie die Änderungen in das Projektarchiv. Wenn jetzt ein Benutzer seine Arbeitskopie aktualisiert, wird das eingebundene Projektarchiv auch ausgecheckt bzw. aktualisiert."
 
 #: source/en/tsvn_dug/dug_import.xml:294
 #: (para)
 msgid "If you need more information how <application>TortoiseSVN</application> handles Properties read <xref linkend=\"tsvn-DUG-propertypage\"/>."
-msgstr ""
+msgstr "Wenn sie mehr Informationen brauchen, wie <application>TortoiseSVN</application> Eigenschaften behandelt lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/>."
 
 #: source/en/tsvn_dug/dug_ignore.xml:3
 #: (title)
@@ -2193,11 +2988,6 @@ msgstr "Rechts-Zieh-Menü für einen Ordner unter Versionskontrolle"
 #: (para)
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
 msgstr "<placeholder-1/> Andere Befehle sind als Drag-Handler vorhanden. Wenn Sie Dateien oder Ordner innerhalb einer Arbeitskopie <action>Rechts-Ziehen</action> oder wenn Sie eine nicht versionskontrollierte Datei in eine Arbeitskopie <action>Rechts-Ziehen</action>."
-
-#: source/en/tsvn_dug/dug_general.xml:40
-#: (title)
-msgid "Authentication"
-msgstr "Anmeldung"
 
 #: source/en/tsvn_dug/dug_general.xml:42
 #: (primary)
@@ -2871,9 +3661,9 @@ msgstr ""
 #: (para)
 msgid ""
 "The default destination URL for the new branch will be the source URL on which your working copy is based. You will need to edit that URL to the new path for your branch/tag. So instead of <screen>\n"
-"    C:/SVNRepository/ProjectName/trunk\n"
+"    http://svn.collab.net/repos/ProjectName/trunk\n"
 "</screen> you might now use something like <screen>\n"
-"    C:/SVNRepository/ProjectName/tags/Release_1.10\n"
+"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
 
@@ -3362,11 +4152,6 @@ msgstr "Stellen, an denen Sie vorsichtig sein müssen, was sie tun."
 msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
 msgstr "Stellen, an denen extreme Vorsicht geboten ist. Nichtbeachtung dieser Warnungen kann zu irreparablen Datenverlusten führen."
 
-#: source/en/tsvn_introduction.xml:3
-#: (title) source/en/tme_ch01.xml:3
-msgid "Introduction"
-msgstr "Einleitung"
-
 #: source/en/tsvn_introduction.xml:5
 #: (para)
 msgid "<indexterm><primary>version control</primary></indexterm> Version control is the art of managing changes to information. It has long been a critical tool for programmers, who typically spend their time making small changes to software and then undoing those changes the next day. Imagine a team of these programmers working concurrently - and perhaps even simultaneously at the very same files! - and you can see why a good system is needed to manage the potential chaos."
@@ -3600,7 +4385,7 @@ msgstr "<indexterm> <primary>Subversion Buch</primary> </indexterm> Dieses Kapit
 #: source/en/tsvn_basics.xml:18
 #: (para)
 msgid "This chapter is a short, casual introduction to Subversion. If you're new to version control, this chapter is definitely for you. We begin with a discussion of general version control concepts, work our way into the specific ideas behind Subversion, and show some simple examples of Subversion in use."
-msgstr "Dieses Kaptiel ist eine kurze, beiläufige Einführung in Subversion. Falls Sie noch nie etwas von Versionskontrolle gehört haben, dann ist dieses Kapitel definitiv etwas für Sie. Wir beginnen mit einer Diskussion über allgemeine Konzepte der Versionskontrolle, arbeiten uns dann vor in die spezifischen Ideen		hinter Subversion und zeigen ein paar einfache Beispiele zur Benutzung von Subversion."
+msgstr "Dieses Kaptiel ist eine kurze, beiläufige Einführung in Subversion. Falls Sie noch nie etwas von Versionskontrolle gehört haben, dann ist dieses Kapitel definitiv etwas für Sie. Wir beginnen mit einer Diskussion über allgemeine Konzepte der Versionskontrolle, arbeiten uns dann vor in die spezifischen Ideen hinter Subversion und zeigen ein paar einfache Beispiele zur Benutzung von Subversion."
 
 #: source/en/tsvn_basics.xml:26
 #: (para)
@@ -3851,11 +4636,6 @@ msgstr "Wie <placeholder-1/>, aber mit SSL-Verschlüsselung."
 #: (literal)
 msgid "svn://"
 msgstr "svn://"
-
-#: source/en/tsvn_basics.xml:392
-#: (literal) source/en/tsvn_basics.xml:401
-msgid "svnserve"
-msgstr "svnserve"
 
 #: source/en/tsvn_basics.xml:390
 #: (entry)
