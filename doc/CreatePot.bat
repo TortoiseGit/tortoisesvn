@@ -17,6 +17,8 @@ cd tsvn_dug
 FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_dug/%%V
 cd ..\tsvn_repository
 FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_repository/%%V
+cd ..\tsvn_server
+FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_server/%%V
 cd ..\..\..
 
 xml2po.py -o po/doc.pot !CHAPTERS!
