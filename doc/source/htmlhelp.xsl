@@ -8,5 +8,7 @@
 <xsl:param name="htmlhelp.force.map.and.alias" select="1"/> 
 <xsl:param name="htmlhelp.show.menu" select="1"/> 
 <xsl:param name="htmlhelp.show.advanced.search" select="1"/> 
+<xsl:param name="htmlhelp.hhc.folders.instead.books" select="1"></xsl:param>
+<xsl:param name="htmlhelp.hhc.binary" select="0"></xsl:param>
 
 </xsl:stylesheet> 
