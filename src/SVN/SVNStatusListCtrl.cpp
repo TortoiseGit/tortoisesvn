@@ -72,6 +72,7 @@ END_MESSAGE_MAP()
 
 bool	CSVNStatusListCtrl::m_bAscending = false;
 int		CSVNStatusListCtrl::m_nSortedColumn = -1;
+int		CSVNStatusListCtrl::m_nSortedInternalColumn = -1;
 
 CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_HeadRev(SVNRev::REV_HEAD)
@@ -193,7 +194,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	m_bHasExternalsFromDifferentRepos = FALSE;
 	m_bHasExternals = FALSE;
 	m_bHasUnversionedItems = FALSE;
-
+	m_nSortedColumn = 0;
 	m_bBlock = TRUE;
 
 	// first clear possible status data left from
@@ -646,6 +647,22 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 	SetRedraw(TRUE);
 	GetStatisticsString();
 
+	CHeaderCtrl * pHeader = GetHeaderCtrl();
+	HDITEM HeaderItem = {0};
+	HeaderItem.mask = HDI_FORMAT;
+	for (int i=0; i<pHeader->GetItemCount(); ++i)
+	{
+		pHeader->GetItem(i, &HeaderItem);
+		HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
+		pHeader->SetItem(i, &HeaderItem);
+	}
+	if (m_nSortedColumn)
+	{
+		pHeader->GetItem(m_nSortedColumn, &HeaderItem);
+		HeaderItem.fmt |= (m_bAscending ? HDF_SORTDOWN : HDF_SORTUP);
+		pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+	}
+
 	if (pApp)
 		pApp->DoWaitCursor(-1);
 }
@@ -765,7 +782,7 @@ void CSVNStatusListCtrl::Sort()
 bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2)
 {
 	int result = 0;
-	switch (m_nSortedColumn)
+	switch (m_nSortedInternalColumn)
 	{
 	case 9:
 		{
@@ -859,49 +876,59 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	else
 		m_bAscending = TRUE;
 	m_nSortedColumn = 0;
+	m_nSortedInternalColumn = 0;
 	// get the internal column from the visible columns
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLEXT)
 			m_nSortedColumn++;
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLSTATUS)
 			m_nSortedColumn++;
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLREMOTESTATUS)
 			m_nSortedColumn++;
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLTEXTSTATUS)
 			m_nSortedColumn++;
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLPROPSTATUS)
 			m_nSortedColumn++;
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLREMOTETEXT)
 			m_nSortedColumn++;
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLREMOTEPROP)
 			m_nSortedColumn++;
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLURL)
 			m_nSortedColumn++;
 	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
+		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLLOCK)
 			m_nSortedColumn++;
 	}

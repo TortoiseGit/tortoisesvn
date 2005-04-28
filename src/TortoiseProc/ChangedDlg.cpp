@@ -28,6 +28,7 @@ IMPLEMENT_DYNAMIC(CChangedDlg, CResizableStandAloneDialog)
 CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CChangedDlg::IDD, pParent)
 	, m_bShowUnversioned(FALSE)
+	, m_iShowUnmodified(0)
 {
 	m_bRemote = FALSE;
 }
@@ -41,12 +42,14 @@ void CChangedDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_CHANGEDLIST, m_FileListCtrl);
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
+	DDX_Check(pDX, IDC_SHOWUNMODIFIED, m_iShowUnmodified);
 }
 
 
 BEGIN_MESSAGE_MAP(CChangedDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_CHECKREPO, OnBnClickedCheckrepo)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
+	ON_BN_CLICKED(IDC_SHOWUNMODIFIED, OnBnClickedShowUnmodified)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
@@ -65,6 +68,7 @@ BOOL CChangedDlg::OnInitDialog()
 	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SHOWUNMODIFIED, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	SetPromptParentWindow(m_hWnd);
@@ -102,6 +106,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	}
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS;
 	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
+	dwShow |= m_iShowUnmodified ? SVNSLC_SHOWNORMAL : 0;
 	m_FileListCtrl.Show(dwShow);
 	LONG lMin, lMax;
 	m_FileListCtrl.GetMinMaxRevisions(lMin, lMax);
@@ -154,6 +159,17 @@ void CChangedDlg::OnBnClickedShowunversioned()
 	UpdateData();
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS;
 	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
+	dwShow |= m_iShowUnmodified ? SVNSLC_SHOWNORMAL : 0;
+	m_FileListCtrl.Show(dwShow);
+	m_regAddBeforeCommit = m_bShowUnversioned;
+}
+
+void CChangedDlg::OnBnClickedShowUnmodified()
+{
+	UpdateData();
+	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS;
+	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
+	dwShow |= m_iShowUnmodified ? SVNSLC_SHOWNORMAL : 0;
 	m_FileListCtrl.Show(dwShow);
 	m_regAddBeforeCommit = m_bShowUnversioned;
 }

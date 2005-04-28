@@ -42,6 +42,7 @@ protected:
 	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void			OnBnClickedCheckrepo();
 	afx_msg void			OnBnClickedShowunversioned();
+	afx_msg void			OnBnClickedShowUnmodified();
 	virtual BOOL			OnInitDialog();
 	virtual void			OnOK();
 	virtual void			OnCancel();
@@ -62,5 +63,6 @@ private:
 	CSVNStatusListCtrl	m_FileListCtrl;
 	bool			m_bRemote;
 	BOOL			m_bShowUnversioned;
+	int				m_iShowUnmodified;
 };
 

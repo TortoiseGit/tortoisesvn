@@ -316,6 +316,7 @@ private:
 private:
 	static bool					m_bAscending;		///< sort direction
 	static int					m_nSortedColumn;	///< which column to sort
+	static int					m_nSortedInternalColumn;
 	bool						m_bHasExternalsFromDifferentRepos;
 	bool						m_bHasExternals;
 	BOOL						m_bHasUnversionedItems;
