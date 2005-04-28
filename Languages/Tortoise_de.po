@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-22 09:04+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2005-04-28 09:45+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1787,8 +1787,8 @@ msgstr "Erzeuge Patchdatei..."
 
 # Control-ID:1203,
 #: ID:16
-msgid "Get Lock"
-msgstr "Sperre holen"
+msgid "Get Lock..."
+msgstr "Sperre holen..."
 
 #: ID:119
 msgid "Getting File %s"
@@ -1910,8 +1910,8 @@ msgstr ""
 
 # ID:251,
 #: ID:251
-msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
-msgstr "Sie können die Sperre im Dialog \"Auf Änderungen prüfen\" aufbrechen."
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr "Sie können die Sperre im \"Auf Änderungen prüfen\" Dialog aufbrechen."
 
 #: ID:73
 msgid "Ignore"
@@ -2104,9 +2104,15 @@ msgstr ""
 "Projektarchiv gespeichert werden."
 
 # ID:221,
+#: ID:207
 #: ID:221
 msgid "Lock"
 msgstr "Sperre"
+
+# Control-ID:65535,
+#: ID:209
+msgid "Lock broken!"
+msgstr "Sperre aufgebrochen!"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2121,6 +2127,11 @@ msgstr "Sperren fehlgeschlagen"
 #: Control-ID:65535
 msgid "Lock owner:"
 msgstr "Eigner der Sperre:"
+
+# ID:263,
+#: ID:209
+msgid "Lock stolen by %s"
+msgstr "Sperre von %s gestohlen "
 
 # ID:263,
 #: ID:263
@@ -2442,11 +2453,6 @@ msgstr "Programm, um das Projektarchiv direkt zu manipulieren."
 #: ID:3843
 msgid "Out of memory."
 msgstr "Zu wenig Speicher."
-
-# ID:207,
-#: ID:207
-msgid "Owner"
-msgstr "Eigner"
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -3492,6 +3498,11 @@ msgstr "Die Angabe der neuen Datei wurde in Zeile %d erwartet!"
 #: ID:63
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "Die Angabe der alten Datei wurde in Zeile %d erwartet!"
+
+# ID:251,
+#: ID:251
+msgid "The lock has already been broken from another working copy"
+msgstr "Die Sperre wurde bereits aus einer anderen Arbeitskopie heraus aufgebrochen."
 
 #: ID:63
 msgid ""
