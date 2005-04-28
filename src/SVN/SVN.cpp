@@ -916,7 +916,7 @@ BOOL SVN::Cat(const CTSVNPath& url, SVNRev revision, const CTSVNPath& localpath)
 	}
 	::DeleteFile(fullLocalPath.GetWinPath());
 
-	status = apr_file_open(&file, fullLocalPath.GetSVNApiPath(), APR_WRITE | APR_CREATE, APR_OS_DEFAULT, pool);
+	status = apr_file_open(&file, fullLocalPath.GetSVNApiPath(), APR_WRITE | APR_CREATE | APR_TRUNCATE, APR_OS_DEFAULT, pool);
 	if (status)
 	{
 		Err = svn_error_wrap_apr(status, NULL);
