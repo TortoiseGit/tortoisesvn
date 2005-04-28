@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-28 10:43+0100\n"
+"PO-Revision-Date: 2005-04-28 22:00+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: source/en/tsvn_server/server_svn.xml:3
 #: (title)
 msgid "Svnserve Based Server"
-msgstr ""
+msgstr "Svnserve als Server"
 
 #: source/en/tsvn_server/server_svn.xml:5
 #: (title)
@@ -44,39 +44,37 @@ msgstr "svnserve"
 #: source/en/tsvn_server/server_svn.xml:9
 #: (para)
 msgid "There may be situations where it's not possible to use Apache as your server. Fortunately, Subversion includes <application>svnserve</application> - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection."
-msgstr ""
+msgstr "Es kann Situationen geben, in denen es nicht möglich ist, Apache als Server einzusetzen. Glücklicherweise enthält Subversion <application>svnserve</application> - ein eigenständiger kleiner Server, der ein eigenes Protokoll über einer Standard TCP/IP Verbindung nutzt."
 
 #: source/en/tsvn_server/server_svn.xml:16
 #: (para)
 msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server."
-msgstr ""
+msgstr "In den meisten Fällen ist svnserve einfacher aufzusetzen und arbeitet obendrein schneller als ein Apache basierter Server."
 
 #: source/en/tsvn_server/server_svn.xml:22
 #: (title)
-#, fuzzy
 msgid "Installing svnserve"
-msgstr "Installation von TortoiseSVN"
+msgstr "Svnserve installieren"
 
 #: source/en/tsvn_server/server_svn.xml:26
 #: (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
-msgstr ""
+msgstr "Laden Sie die neueste Subversion Version von <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 
 #: source/en/tsvn_server/server_svn.xml:34
 #: (para)
 msgid "Run the Subversion installer. If you run the installer on your server you can skip step 3."
-msgstr ""
+msgstr "Starten Sie das Subeversion Installationsprogramm. Wenn Sie die Installation auf Ihrem Server durchführen, können Sie Schritt 3 überspringen."
 
 #: source/en/tsvn_server/server_svn.xml:40
 #: (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb42.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr ""
+msgstr "Öffnen Sie das Installationsverzeichnis von Subversion im Windows Explorer, (normalerweise <filename>C:\\Programme\\Subversion</filename>) aus dem <filename>bin</filename> Verzeichnis kopieren Sie die Dateien <filename>svnserve.exe</filename>, <filename>libdb42.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> in das Verzeichnis in dem Ihr Server installiert ist z.B. <filename>c:\\svnserve</filename>."
 
 #: source/en/tsvn_server/server_svn.xml:57
 #: (title)
-#, fuzzy
 msgid "Running svnserve"
-msgstr "svnserve"
+msgstr "Svnserve starten"
 
 #: source/en/tsvn_server/server_svn.xml:58
 #: (para)
@@ -125,7 +123,7 @@ msgstr "Erstellen Sie kein Berkeley DB Projektarchiv auf einer Netzwerkfreigabe 
 #: source/en/tsvn_server/server_svn.xml:124
 #: (title)
 msgid "Run svnserve as a Service"
-msgstr ""
+msgstr "Svnserve als Dienst starten"
 
 #: source/en/tsvn_server/server_svn.xml:125
 #: (para)
@@ -139,9 +137,8 @@ msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:149
 #: (title)
-#, fuzzy
 msgid "Authentication with svnserve"
-msgstr "Anmeldung"
+msgstr "Anmeldung mit Svnserve"
 
 #: source/en/tsvn_server/server_svn.xml:150
 #: (para)
@@ -179,15 +176,13 @@ msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:197
 #: (para)
-#, fuzzy
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your creditentials so that you only have to enter them once. More information can be found in the Subversion book, specificially in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
-msgstr "Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor. Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden sondern nur mittels Bearbeitung der Konfigurationsdatei. Für mehr Informationen über die Subversion <filename>config</filename> Datei schauen Sie im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"> <citetitle>Subversion Manual</citetitle> </ulink> nach. Der Abschnitt <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"> <citetitle>Automatic Property Setting</citetitle> </ulink> ist hier auch von Interesse."
+msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:215
 #: (title)
-#, fuzzy
 msgid "Authentication with svn+ssh"
-msgstr "Anmeldung"
+msgstr "Anmeldung mit svn+ssh"
 
 #: source/en/tsvn_server/server_svn.xml:216
 #: (para)
@@ -206,48 +201,45 @@ msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:235
 #: (para)
-#, fuzzy
 msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>SVN book</citetitle></ulink>."
-msgstr "Falls Sie eine Anleitung für Versionskontrolle mit Subversion benötigen, empfehlen wir das fantastische Buch <ulink url=\"http://svnbook.red-bean.com/\"> <citetitle>Subversion: The Definitive Guide</citetitle> </ulink>."
+msgstr "Weitere Informationen über svnserve finden sich im <ulink url=\"http://svnbook.red-bean.com/\"> <citetitle>Subversion Buch</citetitle> </ulink>."
 
 #: source/en/tsvn_server/server_apache.xml:3
 #: (title)
 msgid "Apache Based Server"
-msgstr ""
+msgstr "Apache als Server"
 
 #: source/en/tsvn_server/server_apache.xml:7
 #: (primary)
-#, fuzzy
 msgid "Apache"
-msgstr "patch"
+msgstr "Apache"
 
 #: source/en/tsvn_server/server_apache.xml:9
 #: (para)
 msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
-msgstr ""
+msgstr "Der vielseitigste aller Server für Subversion ist der auf Apache basierende Server. Obwohl er ein wenig schwieriger einzurichten ist, bietet er den anderen Varianten gegenüber einige Vorteile:"
 
 #: source/en/tsvn_server/server_apache.xml:15
 #: (primary)
 #: source/en/tsvn_server/server_apache.xml:19
 #: (term)
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 #: source/en/tsvn_server/server_apache.xml:21
 #: (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a \"Webfolder\" in the Windows explorer and then access it like any other folder in the filesystem"
-msgstr ""
+msgstr "Der Apachebasierte Subversion Server nutzt das WebDAV Protokoll, das auch von vielen anderen Programmen unterstützt wird. Sie können ein solches Verzeichnis zum Beispiel als <quote>Web Ordner</quote> im Windows Explorer einbinden und wie jeden anderen Ordner im Dateisystem benutzen."
 
 #: source/en/tsvn_server/server_apache.xml:32
 #: (term)
-#, fuzzy
 msgid "Browsing The Repository"
-msgstr "Das Projektarchiv"
+msgstr "Das Projektarchiv betrachten"
 
 #: source/en/tsvn_server/server_apache.xml:34
 #: (para)
 msgid "You can point your browser to the URL of your repository and browse the contents of it without having a Subversion client installed. This gives access to your data to a much wider circle of users."
-msgstr ""
+msgstr "Sie können Ihren WebBrowser per http:// auf die URL des Projektarchivs zeigen lassen und dessen Inhalt betrachten, ohne einen Subversion Client zu installieren. Dies ermöglicht einem großen Anwenderkreis auf Ihre Daten zuzugreifen."
 
 #: source/en/tsvn_server/server_apache.xml:44
 #: (term)
@@ -259,23 +251,22 @@ msgstr "Anmeldung"
 #: source/en/tsvn_server/server_apache.xml:46
 #: (para)
 msgid "You can use any authentication mechanism Apache supports, including SSPI and LDAP."
-msgstr ""
+msgstr "Sie können jedes Anmeldeverfahren nutzen, das von Apache unterstützt wird, zum Beispiel SSPI und LDAP."
 
 #: source/en/tsvn_server/server_apache.xml:53
 #: (term)
 msgid "Security"
-msgstr ""
+msgstr "Sicherheit"
 
 #: source/en/tsvn_server/server_apache.xml:55
 #: (para)
 msgid "Since Apache is very stable and secure, you automatically get the same security for your repository. This includes SSL encryption."
-msgstr ""
+msgstr "Da Apache sehr stabil und sicher ist, bekommen Sie damit automatisch die gleiche Sicherheit (zum Beispiel SSL Verschlüsselung) für Ihr Projektarchiv."
 
 #: source/en/tsvn_server/server_apache.xml:65
 #: (title)
-#, fuzzy
 msgid "Installing Apache"
-msgstr "Installation"
+msgstr "Apache installieren"
 
 #: source/en/tsvn_server/server_apache.xml:70
 #: (para)
@@ -321,12 +312,13 @@ msgstr ""
 #: (para)
 msgid "The first thing you need before installing Apache is a computer with either Windows2000 / WinXP+SP1 or Windows2003. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 msgstr ""
+"Für die Installation von Apache unter Window benötigen Sie zumindest Windows2000 / WinXP+SP1 oder Windows2003. Die Installation von Apache unter Linux ist bis auf Kleinigkeiten (Verzeichnisnamen etc.) vorzunehmen wie unter Windows.\n"
+"<warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 
 #: source/en/tsvn_server/server_apache.xml:147
 #: (title)
-#, fuzzy
 msgid "Installing Subversion"
-msgstr "Installation"
+msgstr "Subversion installieren"
 
 #: source/en/tsvn_server/server_apache.xml:151
 #: (para)
@@ -636,9 +628,8 @@ msgstr ""
 
 #: source/en/tsvn_server/server_apache.xml:667
 #: (para)
-#, fuzzy
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
-msgstr "Bevor Sie ein Projekt in das Projektarchiv importieren sollten Sie: <placeholder-1/>"
+msgstr "Wenn Sie trotzem IE verwenden wollen, um Projektarchive zu betrachten, können Sie entweder: <placeholder-1/>"
 
 #: source/en/tsvn_server/server_apache.xml:717
 #: (title)
@@ -773,17 +764,17 @@ msgstr ""
 #: source/en/tsvn_server/server.xml:3
 #: (title)
 msgid "Setting Up A Server"
-msgstr ""
+msgstr "Einen Server einrichten"
 
 #: source/en/tsvn_server/server.xml:5
 #: (para)
 msgid "To use TortoiseSVN (or any other subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <emphasis>file://</emphasis> protocol or you can place them on a server and access them with the <emphasis>http://</emphasis> or <emphasis>svn://</emphasis> protocols. The two server protocols can also be encrypted. You use <emphasis>https://</emphasis> or <emphasis>svn+ssh://</emphasis>. This chapter shows you step by step on how you can set up such a server on a Windows machine."
-msgstr ""
+msgstr "Um TortoiseSVN (oder einen anderen Subversion Client) nutzen zu können, benötigen Sie einen Ort, an dem Ihre Projektarchive liegen. Sie können diese entweder lokal anlegen und mit dem <emphasis>file://</emphasis> Protokoll darauf zugreifen oder Sie können die Projekarchive auf einem Server anlegen und mit den <emphasis>http://</emphasis> oder <emphasis>svn://</emphasis> Protokollen darauf zugreifen. Die beiden Serverprotokolle können zusätzlich verschlüsselt werden. Dazu verwenden Sie entweder <emphasis>https://</emphasis> oder <emphasis>svn+ssh://</emphasis>. Diese Kapitel zeigt Ihnen Schritt für Schritt, wie Sie einen Server auf einem Windows Rechner einrichten."
 
 #: source/en/tsvn_server/server.xml:16
 #: (para)
 msgid "If you don't have a server and/or if you only work alone then local repositories are probably your best choice. You can skip this chapter and go directly to <xref linkend=\"tsvn_repository\"/>."
-msgstr ""
+msgstr "Wenn Ihnen kein Server zur Verfügung steht oder Sie sowieso nur alleine arbeiten, sind lokale Projektarchive für Sie die beste Wahl. Sie können dieses Kapitel überspringen und direkt zu <xref linkend=\"tsvn_repository\"/> gehen."
 
 #: source/en/tsvn_repository/repository_hooks.xml:3
 #: (title)
@@ -798,7 +789,7 @@ msgstr "hooks"
 #: source/en/tsvn_repository/repository_hooks.xml:7
 #: (para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "Ein <firstterm>Aktionsskript</firstterm> (Hook-Script) ist ein Programm welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt wird oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> im Subversion Buch."
+msgstr "Ein <firstterm>Aktionsskript</firstterm> (Hook-Script) ist ein Programm, welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> im Subversion Buch."
 
 #: source/en/tsvn_repository/repository_hooks.xml:22
 #: (para)
@@ -815,12 +806,12 @@ msgstr ""
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Beachten Sie dass alle Ausgabebn via stdout verworfen werden. Wenn Sie möchten dass eine Fehlermeldung auch in TortoiseSVN angezeigt wird, müssen Sie diese Fehlermeldung via stderr ausgeben. In einer Batchdatei erreichen Sie dies über <filename>&gt;&amp;2</filename>."
+"</screen> Beachten Sie dass alle Ausgabebn via stdout verworfen werden. Wenn Sie möchten, dass eine Fehlermeldung auch in TortoiseSVN angezeigt wird, müssen Sie diese Fehlermeldung via stderr ausgeben. In einer Batchdatei erreichen Sie dies über <filename>&gt;&amp;2</filename>."
 
 #: source/en/tsvn_repository/repository_create.xml:3
 #: (title)
 msgid "Repository Creation"
-msgstr "Projektarchiv Erstellung"
+msgstr "Projektarchiv Erstellen"
 
 #: source/en/tsvn_repository/repository_create.xml:4
 #: (para)
@@ -912,15 +903,13 @@ msgstr "Ein Projektarchiv wird dann in dem neuen Ordner erstellt. <emphasis>Edit
 
 #: source/en/tsvn_repository/repository_create.xml:100
 #: (title)
-#, fuzzy
 msgid "Local Access to the Repository"
-msgstr "Zustand des Projektarchivs"
+msgstr "Lokaler Zugriff auf das Projektarchiv"
 
 #: source/en/tsvn_repository/repository_create.xml:102
 #: (primary)
-#, fuzzy
 msgid "Access"
-msgstr "Zugriffsmethode"
+msgstr "Zugriff"
 
 #: source/en/tsvn_repository/repository_create.xml:105
 #: (primary)
@@ -929,9 +918,8 @@ msgstr "UNC Pfade"
 
 #: source/en/tsvn_repository/repository_create.xml:107
 #: (para)
-#, fuzzy
 msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the use of forward slashes throughout."
-msgstr "Um das lokale Projektarchiv anzusprechen benötigen Sie den den Pfad zum Projektarchiv-Ordner. Beachten Sie, dass Subversion alle Projektarchivpfade in der Form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem> benötigt."
+msgstr "Um das lokale Projektarchiv anzusprechen, benötigen Sie den den Pfad zum Projektarchiv-Ordner. Beachten Sie, dass Subversion alle Projektarchivpfade in der Form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem> benötigt."
 
 #: source/en/tsvn_repository/repository_create.xml:113
 #: (para)
@@ -952,7 +940,7 @@ msgstr "Wenn Sie dennoch ein Projektarchiv auf einer Netzwerkfreigabe haben müs
 #: source/en/tsvn_repository/repository_backup.xml:3
 #: (title)
 msgid "Repository Backup"
-msgstr "Projektarchiv Backup"
+msgstr "Projektarchiv Sichern"
 
 #: source/en/tsvn_repository/repository_backup.xml:5
 #: (primary)
@@ -995,7 +983,7 @@ msgstr "Das Projektarchiv"
 #: source/en/tsvn_repository/repository.xml:5
 #: (para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
-msgstr "Egal welches Protokoll Sie verwenden um auf das Projektarchiv zuzugreifen, Sie müssen jeweils mindestens ein Projektarchiv erstellen. Sie können dies entweder mit the Subversion Kommandozeilen-Client oder mit TortoiseSVN tun."
+msgstr "Egal welches Protokoll Sie verwenden, um auf das Projektarchiv zuzugreifen, Sie müssen jeweils mindestens ein Projektarchiv erstellen. Sie können dies entweder mit the Subversion Kommandozeilen-Client oder mit TortoiseSVN tun."
 
 #: source/en/tsvn_repository/repository.xml:10
 #: (para)
@@ -5868,7 +5856,7 @@ msgstr "Ein Subversion-Client für Windows"
 #: source/en/tortoisesvn.xml:7
 #: (edition) source/en/tortoisemerge.xml:8
 msgid "First"
-msgstr ""
+msgstr "Erste"
 
 #: source/en/tortoisesvn.xml:10
 #: (firstname) source/en/tortoisemerge.xml:11
