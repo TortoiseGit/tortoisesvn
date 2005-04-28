@@ -37,7 +37,9 @@
 #include "InputDlg.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
-			= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
+					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
+const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
+					= ::RegisterWindowMessage(_T("SVNSLNM_NEEDSREFRESH"));
 
 #define IDSVNLC_REVERT			 1
 #define IDSVNLC_COMPARE			 2
@@ -1260,8 +1262,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
 				}
 				popup.AppendMenu(MF_SEPARATOR);
-				temp.LoadString(IDS_MENU_LOCK);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);					
+				if (wcStatus >= svn_wc_status_normal)
+				{
+					temp.LoadString(IDS_MENU_LOCK);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);					
+				}
 				if ((!entry->lock_owner.IsEmpty())&&(wcStatus >= svn_wc_status_normal))
 				{
 					temp.LoadString(IDS_MENU_UNLOCK);
@@ -1724,6 +1729,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						progDlg.SetParams(CSVNProgressDlg::Lock, inpDlg.m_iCheck ? ProgOptLockForce : 0, itemsToLock, CString(), inpDlg.m_sInputText);
 						progDlg.DoModal();
 						// refresh!
+						CWnd* pParent = GetParent();
+						if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+						{
+							pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+						}
 					}
 				}
 				break;
@@ -1737,6 +1747,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					progDlg.SetParams(CSVNProgressDlg::Unlock, bForce ? ProgOptLockForce : 0, itemsToUnlock);
 					progDlg.DoModal();
 					// refresh!
+					CWnd* pParent = GetParent();
+					if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+					{
+						pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+					}
 				}
 				break;
 				default:

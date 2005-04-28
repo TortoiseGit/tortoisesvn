@@ -46,6 +46,8 @@ protected:
 	virtual void			OnOK();
 	virtual void			OnCancel();
 
+	afx_msg LRESULT			OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+
 	DECLARE_MESSAGE_MAP()
 
 private:

@@ -47,6 +47,7 @@ void CChangedDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CChangedDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_CHECKREPO, OnBnClickedCheckrepo)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 END_MESSAGE_MAP()
 
 BOOL CChangedDlg::OnInitDialog()
@@ -155,6 +156,15 @@ void CChangedDlg::OnBnClickedShowunversioned()
 	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
 	m_FileListCtrl.Show(dwShow);
 	m_regAddBeforeCommit = m_bShowUnversioned;
+}
+
+LRESULT CChangedDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
+{
+	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
+	{
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	return 0;
 }
 
 

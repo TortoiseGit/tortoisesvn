@@ -80,6 +80,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
 	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 END_MESSAGE_MAP()
@@ -550,6 +551,12 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 			}
 		}
 	}
+	return 0;
+}
+
+LRESULT CLogPromptDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
+{
+	Refresh();
 	return 0;
 }
 

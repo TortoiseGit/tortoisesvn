@@ -102,6 +102,12 @@ public:
 	 * command has finished if the item count has changed.
 	 */
 	static const UINT SVNSLNM_ITEMCOUNTCHANGED;
+	/**
+	 * Sent to the parent window (using ::SendMessage) when the control needs
+	 * to be refreshed. Since this is done usually in the parent window using
+	 * a thread, this message is used to tell the parent to do exactly that.
+	 */
+	static const UINT SVNSLNM_NEEDSREFRESH;
 
 	CSVNStatusListCtrl();
 	~CSVNStatusListCtrl();

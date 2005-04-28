@@ -82,6 +82,7 @@ protected:
 	afx_msg void OnEnChangeLogmessage();
 	afx_msg void OnCbnCloseupOldlogs();
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
+	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg LRESULT OnAutoListReady(WPARAM, LPARAM);
 	void Refresh();
 	void GetAutocompletionList();
