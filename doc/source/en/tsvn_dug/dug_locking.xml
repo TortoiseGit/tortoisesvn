@@ -66,6 +66,15 @@
 			acquire a lock before editing.
 		</para>
 		<para>
+			It is also a good idea to install a <literal>post-lock</literal>
+			and <literal>post-unlock</literal> hook script on the server which
+			sends out an email indicating the file which has been locked.
+			With such a script in place, all your users can be notified if
+			someone locks/unlocks a file. You can find an example hook script
+			<filename>hooks/post-lock.tmpl</filename> in your repository folder.
+			Read <xref linkend="tsvn-DUG-locking-hooks"/> for more details.
+		</para>
+		<para>
 			Locks are recorded by working copy location as well as by owner.
 			If you have several working copies (at home, at work) then you
 			can only hold a lock in <emphasis>one</emphasis> of those
@@ -87,6 +96,17 @@
 			if someone else has broken the lock, the local lock token becomes
 			invalid. The repository is always the definitive reference.
 		</para>
+		<para>
+			To make sure you don't forget to release a lock you don't need
+			anymore, locked files are shown in the commit dialog and selected
+			by default. If you commit those files, the lock you hold on them
+			is removed, even if the files haven't been modified.
+			If you don't want to release a lock on certain files, you can
+			uncheck them (if they're not modified).
+			If you want to keep a lock on a file you've modified, you have
+			to enable the checkbox <guibutton>keep locks</guibutton> before
+			you commit your changes.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-locking-lock">
 		<title>Getting a Lock</title>
@@ -102,7 +122,9 @@
 				<graphic fileref="images/GetLock.png"/>
 			</figure>
 			A dialog appears, allowing you to enter a comment, so others
-			can see why you have locked the file. The comment is optional.
+			can see why you have locked the file. The comment is optional
+			and currently only used with <application>svnserve</application>
+			based repositories.
 			If (and <emphasis>only</emphasis> if) you need to steal the
 			lock from someone else, check the
 			<guilabel>Steal lock</guilabel> box, then click on
