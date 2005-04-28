@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-04-23 15:27Westeuropäische Normalzeit\n"
+"POT-Creation-Date: 2005-04-28 09:34Westeuropäische Sommerzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,19 +89,35 @@ msgstr ""
 msgid "A repository is then created inside the new folder. <emphasis>Don't edit those files yourself!!!</emphasis>. If you get any errors make sure that the folder is empty and not write protected."
 msgstr ""
 
-#: source/en/tsvn_repository/repository_create.xml:97(para) 
-msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>"
+#: source/en/tsvn_repository/repository_create.xml:100(title) 
+msgid "Local Access to the Repository"
 msgstr ""
 
-#: source/en/tsvn_repository/repository_create.xml:102(para) 
-msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file:///\\ServerName/path/to/repos/</systemitem>. Note the backslash before the server name."
+#: source/en/tsvn_repository/repository_create.xml:102(primary) 
+msgid "Access"
 msgstr ""
 
-#: source/en/tsvn_repository/repository_create.xml:111(para) 
+#: source/en/tsvn_repository/repository_create.xml:105(primary) 
+msgid "UNC paths"
+msgstr ""
+
+#: source/en/tsvn_repository/repository_create.xml:107(para) 
+msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the use of forward slashes throughout."
+msgstr ""
+
+#: source/en/tsvn_repository/repository_create.xml:113(para) 
+msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
+msgstr ""
+
+#: source/en/tsvn_repository/repository_create.xml:120(para) 
+msgid "Prior to SVN 1.2, UNC paths had to be given in the more obscure form <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. This form is still supported, but not recommended."
+msgstr ""
+
+#: source/en/tsvn_repository/repository_create.xml:127(para) 
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
 msgstr ""
 
-#: source/en/tsvn_repository/repository_create.xml:122(para) 
+#: source/en/tsvn_repository/repository_create.xml:138(para) 
 msgid "If you really need to access a repository through a network share, create the repository with fsfs format. If you need to provide server access as well, you will need Subversion Server 1.1 or higher."
 msgstr ""
 
@@ -2137,7 +2153,7 @@ msgid "If you have imported your project with the recommended directory structur
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:55(para) 
-msgid "The default destination URL for the new branch will be the source URL on which your working copy is based. You will need to edit that URL to the new path for your branch/tag. So instead of <screen>\n    C:/SVNRepository/ProjectName/trunk\n</screen> you might now use something like <screen>\n    C:/SVNRepository/ProjectName/tags/Release_1.10\n</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
+msgid "The default destination URL for the new branch will be the source URL on which your working copy is based. You will need to edit that URL to the new path for your branch/tag. So instead of <screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> you might now use something like <screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:76(term) 
