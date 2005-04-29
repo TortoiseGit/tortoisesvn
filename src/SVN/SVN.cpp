@@ -1460,7 +1460,7 @@ LONG SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev
 	svn_revnum_t set_rev;
 	svn_string_t*	pval;
 	sValue.Replace(_T("\r"), _T(""));
-	pval = svn_string_create (MakeSVNUrlOrPath(sValue), pool);
+	pval = svn_string_create (CUnicodeUtils::GetUTF8(sValue), pool);
 	Err = svn_client_revprop_set(MakeSVNUrlOrPath(sName), 
 									pval, 
 									MakeSVNUrlOrPath(sURL), 
