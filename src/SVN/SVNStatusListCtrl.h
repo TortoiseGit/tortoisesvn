@@ -33,6 +33,7 @@ class SVNStatus;
 #define SVNSLC_COLURL			0x000000080
 #define SVNSLC_COLEXT			0x000000100
 #define SVNSLC_COLLOCK			0x000000200
+#define SVNSLC_COLLOCKCOMMENT	0x000000400
 
 
 #define SVNSLC_SHOWUNVERSIONED	0x000000001
@@ -144,6 +145,7 @@ public:
 		CString					lock_owner;				///< the username which owns the lock
 		CString					lock_remoteowner;		///< the username which owns the lock in the repository
 		CString					lock_remotetoken;		///< the unique URI in the repository of the lock
+		CString					lock_comment;			///< the message for the lock
 	public:
 		svn_wc_status_kind		status;					///< local status
 	private:

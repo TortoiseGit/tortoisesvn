@@ -63,7 +63,7 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -1702,6 +1702,7 @@ BEGIN
     IDS_STATUSLIST_COLURL   "Url"
     IDS_STATUSLIST_COLEXT   "Extension"
     IDS_STATUSLIST_COLLOCK  "Lock"
+    IDS_STATUSLIST_COLLOCKCOMMENT "Lock Comment"
 END
 
 STRINGTABLE 
@@ -1890,12 +1891,12 @@ BEGIN
     IDS_LOCK_STEALCHECK     "Steal the lock"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1938,7 +1939,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

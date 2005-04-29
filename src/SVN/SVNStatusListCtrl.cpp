@@ -35,6 +35,7 @@
 #include "Registry.h"
 #include "SVNStatus.h"
 #include "InputDlg.h"
+#include ".\svnstatuslistctrl.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -173,6 +174,11 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, bool bHasCheckboxes /* = TRUE */)
 	if (dwColumns & SVNSLC_COLLOCK)
 	{
 		temp.LoadString(IDS_STATUSLIST_COLLOCK);
+		InsertColumn(nCol++, temp);
+	}
+	if (dwColumns & SVNSLC_COLLOCKCOMMENT)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLLOCKCOMMENT);
 		InsertColumn(nCol++, temp);
 	}
 
@@ -413,6 +419,8 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_owner);
 		if (pSVNStatus->entry->lock_token)
 			entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_token);
+		if (pSVNStatus->entry->lock_comment)
+			entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_comment);
 	}
 	else
 	{
@@ -424,6 +432,8 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			entry->lock_remoteowner = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
 		if (pSVNStatus->repos_lock->token)
 			entry->lock_remotetoken = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
+		if (pSVNStatus->repos_lock->comment)
+			entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->comment);
 	}
 
 	// Pass ownership of the entry to the array
@@ -772,6 +782,10 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		else
 			SetItemText(index, nCol++, entry->lock_owner);
 	}
+	if (m_dwColumns & SVNSLC_COLLOCKCOMMENT)
+	{
+		SetItemText(index, nCol++, entry->lock_comment);
+	}
 	SetCheck(index, entry->checked);
 	if (entry->checked)
 		m_nSelected++;
@@ -789,6 +803,13 @@ bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* e
 	int result = 0;
 	switch (m_nSortedInternalColumn)
 	{
+	case 10:
+		{
+			if (result == 0)
+			{
+				result = entry1->lock_comment.CompareNoCase(entry2->lock_comment);
+			}
+		}
 	case 9:
 		{
 			if (result == 0)
@@ -935,6 +956,12 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		m_nSortedInternalColumn++;
 		if (m_dwColumns & SVNSLC_COLLOCK)
+			m_nSortedColumn++;
+	}
+	if (m_nSortedColumn != phdr->iItem)
+	{
+		m_nSortedInternalColumn++;
+		if (m_dwColumns & SVNSLC_COLLOCKCOMMENT)
 			m_nSortedColumn++;
 	}
 	Sort();
