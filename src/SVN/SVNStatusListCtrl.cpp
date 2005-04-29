@@ -749,7 +749,12 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 			// UID1		""				lock has been broken
 			// UID1		UID2			lock has been stolen
 			if (entry->lock_token.IsEmpty() || (entry->lock_token.Compare(entry->lock_remotetoken)==0))
-				SetItemText(index, nCol++, entry->lock_owner);
+			{
+				if (entry->lock_owner.IsEmpty())
+					SetItemText(index, nCol++, entry->lock_remoteowner);
+				else
+					SetItemText(index, nCol++, entry->lock_owner);
+			}
 			else if (entry->lock_remotetoken.IsEmpty())
 			{
 				// broken lock
