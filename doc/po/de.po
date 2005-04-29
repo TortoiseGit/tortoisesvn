@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-28 22:00+0100\n"
+"PO-Revision-Date: 2005-04-29 10:04+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -176,7 +176,7 @@ msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:197
 #: (para)
-msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your creditentials so that you only have to enter them once. More information can be found in the Subversion book, specificially in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
+msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
 msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:215
@@ -301,12 +301,12 @@ msgstr ""
 #: source/en/tsvn_server/server_apache.xml:134
 #: (para)
 msgid "Even if Apache runs as local system, you still need such an entry (which will be the Administrator account in this case)."
-msgstr ""
+msgstr "Selbst wenn Apache als <quote>Lokales System</quote> läuft, brauchen Sie immer noch einen solchen Eintrag (der in diesem Fall das Administrator-Konto sein wird)."
 
 #: source/en/tsvn_server/server_apache.xml:138
 #: (para)
 msgid "If Apache does not have this permission set up, your users will get \"Access denied\" error messages, which show up in the Apache error log as error 500."
-msgstr ""
+msgstr "Wenn Apache diese Berechtigung nicht gesetzt hat, werden Ihre Benutzer <quote>Zugriff verweigert</quote>-Fehlermeldungen erhalten, die im Apache-Fehlerlog als Fehler 500 erscheinen."
 
 #: source/en/tsvn_server/server_apache.xml:66
 #: (para)
@@ -323,32 +323,32 @@ msgstr "Subversion installieren"
 #: source/en/tsvn_server/server_apache.xml:151
 #: (para)
 msgid "Download the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
-msgstr ""
+msgstr "Laden Sie die neueste Version von Subversion unter <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink> herunter."
 
 #: source/en/tsvn_server/server_apache.xml:159
 #: (para)
 msgid "Run the Subversion installer and follow the instructions. If the Subversion installer recognized that you've installed Apache, then you're almost done. If it couldn't find an Apache server then you have to do some additional steps."
-msgstr ""
+msgstr "Starten Sie den Subversion-Installer und folgen Sie den Anweisungen. Wenn der Subversion-Installer bemerkt, dass Sie Apache installiert haben, haben Sie es fast geschafft. Wenn er keinen Apache-Server finden konnte, müssen Sie einige zusätzliche Schritte durchführen."
 
 #: source/en/tsvn_server/server_apache.xml:169
 #: (primary)
 msgid "mod_authz_svn"
-msgstr ""
+msgstr "mod_authz_svn"
 
 #: source/en/tsvn_server/server_apache.xml:171
 #: (para)
 msgid "Using the windows explorer, go to the installation directory of Subversion (usually <filename>c:\\program files\\Subversion</filename>) and find the files <filename>/httpd/mod_dav_svn.so</filename> and <filename>mod_authz_svn.so</filename>. Copy these files to the Apache modules directory (usually <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
-msgstr ""
+msgstr "Gehen Sie mit dem Windows Explorer ins Installationsverzeichnis von Subversion (für gewöhnlich <filename>c:\\Programme\\Subversion</filename>) und finden Sie die Dateien <filename>/httpd/mod_dav_svn.so</filename> und <filename>mod_authz_svn.so</filename>. Kopieren Sie diese Dateien ins Apache-Modul-Verzeichnis (für gewöhnlich <filename>c:\\Programme\\apache group\\apache2\\modules </filename>)."
 
 #: source/en/tsvn_server/server_apache.xml:184
 #: (para)
 msgid "Copy the file <filename>/bin/libdb42.dll</filename> from the Subversion installation directory to the Apache modules directory."
-msgstr ""
+msgstr "Kopieren Sie die Datei <filename>/bin/libdb42.dll</filename> aus dem Subversion-Installationsverzeichnis ins Apache-Modul-Verzeichnis."
 
 #: source/en/tsvn_server/server_apache.xml:191
 #: (para)
 msgid "Edit Apache's configuration file (usually <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) with a text editor such as Notepad and make the following changes:"
-msgstr ""
+msgstr "Bearbeiten Sie die Konfigurationsdatei von Apache (für gewöhnlich <filename> C:\\Programme\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) mit einem Texteditor wie Notepad und nehmen Sie die folgenden Änderungen vor:"
 
 #: source/en/tsvn_server/server_apache.xml:197
 #: (para)
@@ -358,11 +358,15 @@ msgid ""
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 msgstr ""
+"Entfernen Sie den Kommentar (d.h. das '<literal>#</literal>'-Zeichen) in den folgenden Zeilen: <screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen><screen>#LoadModule dav_module modules/mod_dav.so</screen> Fügen Sie die folgenden zwei Zeilen ans Ende des <literal>LoadModule</literal>-Abschnittes ein. <screen>\n"
+"LoadModule dav_svn_module modules/mod_dav_svn.so\n"
+"LoadModule authz_svn_module modules/mod_authz_svn.so\n"
+"</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:214
 #: (title)
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 #: source/en/tsvn_server/server_apache.xml:225
 #: (para)
@@ -379,6 +383,19 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen> This configures Apache so that all your Subversion repositories are physically located below <filename>D:\\SVN</filename>. The repositories are served to the outside world from the URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Access is restricted to known users/passwords listed in the <filename>passwd</filename> file."
 msgstr ""
+"Am Ende der Konfigurationsdatei fügen Sie die folgenden Zeilen hinzu:\n"
+"<screen>\n"
+"&lt;Location /svn&gt;\n"
+"DAV svn\n"
+"SVNParentPath D:\\SVN\n"
+"AuthType Basic\n"
+"AuthName \"Subversion-Projektarchiv\"\n"
+"AuthUserFile passwd\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>\n"
+"Dies konfiguriert Apache so, dass alle Ihre Subversion-Projektarchive physikalisch unterhalb von <filename>D:\\SVN</filename> liegen. Die Projektarchive werden der Außenwelt unter folgender URL zu Verfügung gestellt: <systemitem class=\"url\">http://MyServer/svn/</systemitem>. Der Zugriff ist auf bekannte Benutzer/Passwörter beschränkt, die in der <filename>passwd</filename>-Datei aufgelistet sind."
 
 #: source/en/tsvn_server/server_apache.xml:250
 #: (para)
@@ -389,26 +406,31 @@ msgid ""
 "bin\\htpasswd passwd &lt;username&gt;\n"
 "</screen>"
 msgstr ""
+"Um die <filename>passwd</filename>-Datei zu erstellen, öffnen Sie den Kommandozeilenprompt (DOS-Box) noch einmal, wechseln in den apache2-Ordner (für gewöhnlich <filename>c:\\Programme\\apache group\\apache2</filename>) und erstellen Sie die Datei, indem Sie <screen>\n"
+"bin\\htpasswd -c passwd &lt;username&gt;\n"
+"</screen> eintippen. Dies wird eine Datei mit dem Namen <quote>passwd</quote> erstellen, die für die Anmeldung verwendet wird. Zusätzliche Benutzer können mit <screen>\n"
+"bin\\htpasswd passwd &lt;username&gt;\n"
+"</screen> hinzugefügt werden."
 
 #: source/en/tsvn_server/server_apache.xml:269
 #: (para)
 msgid "Restart the Apache service again."
-msgstr ""
+msgstr "Starten Sie den Apache-Dienst noch einmal neu."
 
 #: source/en/tsvn_server/server_apache.xml:274
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (where <filename>MyNewRepository</filename> is the name of the Subversion repository you created before). If all went well you should be prompted for a username and password, then you can see the contents of your repository."
-msgstr ""
+msgstr "Öffnen Sie mit Ihrem Browser die URL <systemitem class=\"url\">http://MeinServer/svn/MeinNeuesProjektarchiv</systemitem> (wobei <filename>MeinNeuesProjektarchiv</filename> der Name des Subversion-Projektarchives ist, das Sie zuvor erstellt haben). Wenn alles gut gegangen ist, sollten Sie nach einem Benuternamen und Passwort gefragt werden und können dann den Inhalt Ihrers Projektarchives sehen."
 
 #: source/en/tsvn_server/server_apache.xml:215
 #: (para)
 msgid "Now you have set up Apache and Subversion, but Apache doesn't know how to handle Subversion clients like TortoiseSVN yet. To get Apache to know which URL shall be used for Subversion repositories you have to edit the Apache config file (usually located in <filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>) with any text editor you like (e.g. Notepad): <placeholder-1/>"
-msgstr ""
+msgstr "Jetzt haben Sie Apache und Subversion eingerichtet, aber Apache weiß noch nicht, wie mit Subversion-Clients wie TortoiseSVN umzugehen ist. Um Apache beizubringen, welche URL für Subversion-Projektarchive benutzt werden soll, müssen Sie die Apache-Konfigurationsdatei (für gewöhnlich platziert in <filename>c:\\Programme\\apache group\\apache2\\conf\\httpd.conf</filename>) mit einem beliebigen Texteditor (z.B. Notepad) bearbeiten: <placeholder-1/>"
 
 #: source/en/tsvn_server/server_apache.xml:295
 #: (title)
 msgid "Apache httpd.conf Settings"
-msgstr ""
+msgstr "Apache httpd.conf Einstellungen"
 
 #: source/en/tsvn_server/server_apache.xml:368
 #: (para)
@@ -421,6 +443,13 @@ msgid ""
 "&lt;/LimitExcept&gt;\n"
 "</screen>"
 msgstr ""
+"Wenn Sie möchten, dass Ihr Projektarchiv für jedermann Lesezugriff bietet, aber der Schreibzugriff bestimmten Benutzern vorbehalten bleibt, können Sie die Zeile <screen>\n"
+"Require valid-user\n"
+"</screen> in <screen>\n"
+"&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;\n"
+"Require valid-user\n"
+"&lt;/LimitExcept&gt;\n"
+"</screen> ändern."
 
 #: source/en/tsvn_server/server_apache.xml:383
 #: (para)
@@ -450,37 +479,37 @@ msgstr ""
 #: source/en/tsvn_server/server_apache.xml:417
 #: (title)
 msgid "Use SVNParentPath"
-msgstr ""
+msgstr "Nutzen Sie SVNParentPath"
 
 #: source/en/tsvn_server/server_apache.xml:419
 #: (primary)
 msgid "SVNParentPath"
-msgstr ""
+msgstr "SVNParentPath"
 
 #: source/en/tsvn_server/server_apache.xml:421
 #: (para)
 msgid "If you used the SVNParentPath directive then you don't have to change the Apache config file everytime you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
-msgstr ""
+msgstr "Wenn Sie die <literal>SVNParentPath</literal>-Direktive benutzt haben, brauchen Sie die Apache-Konfigurationsdatei nicht jedesmal zu ändern, wenn Sie ein neues Subversion-Projektarchiv erstellt haben. Erstellen Sie das neue Projektarchiv einfach an der gleichen Stelle wie das erste Projektarchiv und Sie sind fertig! In meiner Firma habe ich über SMB (normaler Windows-Dateizugriff) direkten Zugriff auf diesen speziellen Ordner auf dem Server. Also erstelle ich dort einfach einen neuen Ordner, führe den TortoiseSVN-Befehl <menuchoice><guimenuitem>Projektarchiv hier erstellen...</guimenuitem></menuchoice> aus und ein neues Projekt hat ein Zuhause..."
 
 #: source/en/tsvn_server/server_apache.xml:436
 #: (title)
 msgid "Index of projects under SVNParentPath"
-msgstr ""
+msgstr "Index der Projekte unter SVNParentPath"
 
 #: source/en/tsvn_server/server_apache.xml:438
 #: (primary)
 msgid "Index of projects"
-msgstr ""
+msgstr "Index der Projekte"
 
 #: source/en/tsvn_server/server_apache.xml:440
 #: (para)
 msgid "The advantage of using the SVNParentPath directive is that you don't have to change the Apache config each time you create a new repository, but you also don't have an index of all created and available projects. If you point your browser to the path SVNParentPath points to, you will get a nasty error page showing."
-msgstr ""
+msgstr "Der Vorteil davon, die <literal>SVNParentPath</literal>-Direktive zu benutzen, ist, dass Sie die Apache-Konfigurationsdatei nicht jedesmal ändern müssen, wenn Sie ein neues Projektarchiv erstellen, aber Sie haben auch keinen Index aller erstellten und verfügbaren Projektarchive. Wenn Sie mit Ihrem Browser den Pfad öffnen, auf den SVNParentPath zeigt, erhalten Sie eine hässliche Fehlerseite."
 
 #: source/en/tsvn_server/server_apache.xml:448
 #: (para)
 msgid "To avoid that ugly error page and have a nice looking listing of all available projects instead, you can use the following PHP script which generates the index for you automatically. (You will need to install PHP on your server in order to use the below file)."
-msgstr ""
+msgstr "Um diese hässliche Fehlerseite zu vermeiden und stattdessen eine gut aussehende Liste aller verfügbaren Projekte zu erhalten, können Sie das folgende PHP-Skript benutzen, das den Index automatisch für Sie erstellt. (Sie müssen PHP auf Ihrem Server installieren, um die unten stehende Datei zu benutzen)."
 
 #: source/en/tsvn_server/server_apache.xml:508
 #: (para)
@@ -789,7 +818,7 @@ msgstr "hooks"
 #: source/en/tsvn_repository/repository_hooks.xml:7
 #: (para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "Ein <firstterm>Aktionsskript</firstterm> (Hook-Script) ist ein Programm, welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> im Subversion Buch."
+msgstr "Ein <firstterm>Aktionsskript</firstterm> (Hook-Script) ist ein Programm, welches durch bestimmte Ereignisse im Projektarchiv gestartet wird, z.B. wenn eine neue Revision erzeugt oder eine Revisions-Eigenschaft verändert wird. Jedem Skript werden Information übergeben über das Ereignis selbst, die Ziele des Ereignisses und der Benutzername der Person welche das Ereignis ausgelöst hat. Abhängig vom Rückgabewert des Aktionsskripts wird die Operation fortgesetzt, angehalten oder unterbrochen. Bitte lesen Sie dazu das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02html#svn-ch-5-sect-2.1\"> <citetitle>Hook Scripts</citetitle> </ulink> im Subversion Buch."
 
 #: source/en/tsvn_repository/repository_hooks.xml:22
 #: (para)
@@ -923,9 +952,8 @@ msgstr "Um das lokale Projektarchiv anzusprechen, benötigen Sie den den Pfad zu
 
 #: source/en/tsvn_repository/repository_create.xml:113
 #: (para)
-#, fuzzy
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
-msgstr "Um ein Projektarchiv auf einer Netzwerkfreigabe anzusprechen können Sie entweder die Freigabe als Laufwerk verbinden oder den UNC-Pfad benutzen. UNC-Pfade haben die Form <systemitem class=\"url\">file:///\\ServerName/path/to/repos/</systemitem>. Beachten Sie den Backslash vor dem Servernamen."
+msgstr "Um ein Projektarchiv auf einer Netzwerkfreigabe anzusprechen können Sie entweder die Freigabe als Laufwerk verbinden oder den UNC-Pfad benutzen. UNC-Pfade haben die Form <systemitem class=\"url\">file://ServerName/Pfad/zum/Projektarchiv/</systemitem>. Beachten Sie, dass hier nur zwei Schrägstriche vor dem Servernamen stehen."
 
 #: source/en/tsvn_repository/repository_create.xml:120
 #: (para)
@@ -1190,15 +1218,13 @@ msgstr "Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierun
 
 #: source/en/tsvn_dug/dug_update.xml:74
 #: (para)
-#, fuzzy
 msgid "TortoiseSVN also allows you to update your working copy to a specific revision, not only to the most recent one. This command is called <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens a dialog where you can enter the required revision. Say e.g. your working copy is at revision 100, but you want your working copy to reflect the state which it had in revision 50 - then simply update to revision 50. In that dialog, you can also decide if you only want to update the current folder only (without all the subfolders) and/or if you want to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr "TortoiseSVN ermöglicht es Ihnen auch, eine Arbeitskopie auf eine ganz bestimmte Revision zu aktualisieren und nicht nur immer auf die neueste Revision. Dieser Befehl heisst <menuchoice><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> und öffnet zuerst einen Dialog, in dem Sie die Revisionsnummer eingeben können, auf welche die Arbeitskopie aktualisiert werden soll."
+msgstr "TortoiseSVN ermöglicht es Ihnen auch, eine Arbeitskopie auf eine ganz bestimmte Revision zu aktualisieren und nicht nur immer auf die neueste Revision. Dieser Befehl heisst <menuchoice><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> und öffnet zuerst einen Dialog, in dem Sie die Revisionsnummer eingeben können, auf welche die Arbeitskopie aktualisiert werden soll. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision 100, aber sie möchten sie gerne in Revision 50 zurückversetzen - Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch festlegen, ob Sie nur den aktuellen Ordner (ohne Unterordner) aktualisieren wollen und ob Sie externe Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) ignorieren wollen."
 
 #: source/en/tsvn_dug/dug_update.xml:90
 #: (para)
-#, fuzzy
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you should use one of the following commands instead. The <menuchoice><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> command from the log dialog will undo only those changes made in the selected revision. Changes made after that revision will be retained. For reverting multiple revisions, you should use the <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> menu command, where you can specify the range of revisions you want to undo."
-msgstr "Wenn Sie eine Datei oder Ordner auf eine bestimmte Revision aktualisieren, werden Sie <literal>out of date</literal> Fehlermeldungen erhalten sobald Sie versuchen, diese Dateien oder Ordner zu übertragen. Wenn Sie Änderungen an Dateien rückgängig machen wollen, dann müssen Sie entweder den Befehl <menuchoice><guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem></menuchoice> im Log-Dialog oder den Befehl <menuchoice><guimenuitem>Zusammenführen...</guimenuitem></menuchoice> verwenden."
+msgstr "Wenn Sie eine Datei oder Ordner auf eine bestimmte Revision aktualisieren, sollten Sie keine Änderungen daran vornehmen. Sie werden <literal>out of date</literal> Fehlermeldungen erhalten sobald Sie versuchen, diese Dateien oder Ordner zu übertragen! Wenn Sie Änderungen an Dateien rückgängig machen und mit einer vorherigen Version weitermachen wollen, dann sollten Sie folgendermaßen vorgehen. Der Befehl <menuchoice><guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem></menuchoice> im Log-Dialog wird nur die Änderungen der gewählten Revision rückgängig machen. Änderungen nach dieser Revision werden beibehalten. Um mehrere Revisionen rückgängig zu machen, rufen Sie den <menuchoice><guimenuitem>Zusammenführen...</guimenuitem></menuchoice> Dialog auf, in dem Sie einen Revisionsbereich wählen können."
 
 #: source/en/tsvn_dug/dug_update.xml:109
 #: (para)
@@ -2588,6 +2614,171 @@ msgstr "<guibutton>Standard Diff</guibutton> erzeugt eine Diffdatei (Sie erinner
 msgid "<guibutton>Dry Run</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
 msgstr "<guibutton>Trockenlauf</guibutton> simuliert das Zusammenführen lediglich, <emphasis>ohne</emphasis> dass die Arbeitskopie verändert wird. Eine Liste der veränderten Dateien und der eventuell resultierenden Konflikte wird angezeigt."
 
+#: source/en/tsvn_dug/dug_locking.xml:3
+#: (title)
+msgid "Locking"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:5
+#: (primary)
+msgid "locking"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:15
+#: (para)
+msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:23
+#: (para)
+msgid "Your company has always used a locking VCS in the past and there has been a management decision that <quote>locking is best</quote>."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:7
+#: (para)
+msgid "Subversion generally works best without locking, using the <quote>Copy-Modify-Merge</quote> methods described earlier in <xref linkend=\"tsvn-ch-2-sect-2.3\"/>. However there are a few instances when you may need to implement some form of locking policy. <placeholder-1/>"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:31
+#: (para)
+msgid "Firstly you need to ensure that your subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <filename>file:///</filename> access, then of course only your client needs to be updated."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:38
+#: (title)
+msgid "How Locking Works in Subversion"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:39
+#: (para)
+msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:45
+#: (para)
+msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:52
+#: (para)
+msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:68
+#: (para)
+msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:74
+#: (para)
+msgid "If one of your co-workers acquires a lock and then goes on holiday without releasing it, what do you do? Subversion provides a means to force locks. Releasing a lock held by someone else is referred to as <firstterm>Breaking</firstterm> the lock, and forcibly acquiring a lock which someone else already holds is referred to as <firstterm>Stealing</firstterm> the lock. Naturally these are not things you should do lightly if you want to remain friends with your co-workers."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:84
+#: (para)
+msgid "Locks are recorded in the repository, and a lock token is created in your local working copy. If there is a discrepancy, for example if someone else has broken the lock, the local lock token becomes invalid. The repository is always the definitive reference."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:92
+#: (title)
+msgid "Getting a Lock"
+msgstr "Eine Sperre erhalten"
+
+#: source/en/tsvn_dug/dug_locking.xml:101
+#: (title)
+msgid "The Locking Dialog"
+msgstr "Der Sperren-Dialog"
+
+#: source/en/tsvn_dug/dug_locking.xml:93
+#: (para)
+msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenuitem>Get Lock...</guimenuitem></menuchoice> from the context menu. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with <application>svnserve</application> based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:115
+#: (title)
+msgid "Releasing a Lock"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:116
+#: (para)
+msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:127
+#: (para)
+msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenuitem>Release Lock</guimenuitem></menuchoice> from the context menu. There is nothing further to enter so TortoiseSVN will contact the repository and release the locks."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:139
+#: (title)
+msgid "Checking Lock Status"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:142
+#: (title)
+msgid "The Check for Modifications Dialog"
+msgstr "Auf Änderungen überprüfen"
+
+#: source/en/tsvn_dug/dug_locking.xml:140
+#: (para)
+msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenuitem>Check for Modifications...</guimenuitem></menuchoice> from the context menu. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:155
+#: (para)
+msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:160
+#: (title)
+msgid "Avoid Breaking and Stealing Locks"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:161
+#: (para)
+msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:173
+#: (title)
+msgid "Making Non-locked Files Read-Only"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:174
+#: (para)
+msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:184
+#: (para)
+msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:192
+#: (title)
+msgid "The Locking Hook Scripts"
+msgstr "Aktionsskripte für Sperren"
+
+#: source/en/tsvn_dug/dug_locking.xml:193
+#: (para)
+msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:199
+#: (para)
+msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:207
+#: (para)
+msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:213
+#: (para)
+msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
+msgstr ""
+
 #: source/en/tsvn_dug/dug_import.xml:3
 #: (title)
 msgid "Importing Data Into A Repository"
@@ -3920,7 +4111,7 @@ msgstr "Sie kennen die Grundlagen von Subversion."
 msgid "You should have set up a server and/or have access to a Subversion repository."
 msgstr "Sie haben einen Server installiert und/oder haben Zugriff auf ein Subversion Projektarchiv."
 
-#: source/en/tsvn_dug/dug.xml:83
+#: source/en/tsvn_dug/dug.xml:84
 #: (title)
 msgid "Final Step"
 msgstr "Letzter Schritt"
