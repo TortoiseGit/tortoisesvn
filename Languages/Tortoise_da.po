@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3089
+# Based on r3164
 #
 msgid ""
 msgstr ""
@@ -1571,12 +1571,12 @@ msgid "Generating Patchfile..."
 msgstr "Opretter korrekturfil..."
 
 #: ID:16,
-msgid "Get Lock"
-msgstr "Tag lås"
+msgid "Get Lock..."
+msgstr "Tag lås..."
 
 #: ID:119,
 msgid "Getting File %s"
-msgstr "Henter fil %s"
+msgstr "Henter filen %s"
 
 #: ID:132,
 msgid "Getting file info..."
@@ -1663,7 +1663,7 @@ msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last co
 msgstr "Hvis valgt, så vil TortoiseSVN sætte tidsstemplerne på filerne til det tidspunkt,\nhvor de sidst blev arkiveret. Hvis ikke valgt, vil TortoiseSVN anvende den aktuelle tid."
 
 #: ID:251,
-msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
 msgstr "Hvis du ønsker at bryde låsen, skal du benytte dialogen \"Check for ændringer\"."
 
 #: ID:73,
@@ -1792,11 +1792,15 @@ msgstr "Lokal status"
 
 #: ID:94,
 msgid "Location where the contents of the\nrepository URL will be saved to."
-msgstr "Den placering, hvor indholdet af\nURL'ens versionsarkiv vil blive gemt."
+msgstr "Den placering, hvor indholdet af\nversionsarkiv-URL'en vil blive gemt."
 
-#: ID:221,
+#: ID:207,#: ID:221,
 msgid "Lock"
 msgstr "Lås"
+
+#: ID:209,
+msgid "Lock broken!"
+msgstr "Låsen er brudt!"
 
 #: Control-ID:65535,
 msgid "Lock creation date:"
@@ -1809,6 +1813,10 @@ msgstr "Låsning mislykkedes"
 #: Control-ID:65535,
 msgid "Lock owner:"
 msgstr "Ejer af lås:"
+
+#: ID:209,
+msgid "Lock stolen by %s"
+msgstr "Låsen er stjålet af %s"
 
 #: ID:263,
 msgid "Locked by %s"
@@ -1856,7 +1864,7 @@ msgstr "Generelt"
 
 #: ID:2051,
 msgid "Marks a file as resolved in Subversion\nMark as resolved"
-msgstr "Markerer filer med konflikter som løst i Subversion\nMarker som løst"
+msgstr "Markerer en fil med konflikter som løst i Subversion\nMarker som løst"
 
 #: Control-ID:1159,
 msgid "Max"
@@ -2028,7 +2036,7 @@ msgstr "Antal uger:"
 
 #: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
-msgstr "OK"
+msgstr "Ok"
 
 #: ID:3697,
 msgid "OVR"
@@ -2044,7 +2052,7 @@ msgstr "En eller flere filer indeholder konflikter."
 
 #: Control-ID:1073,
 msgid "Only check out the top folder"
-msgstr "Hent kun øverste mappe"
+msgstr "Hent kun den øverste mappe"
 
 #: ID:169,
 msgid "Only numbers (optionally separated by commas)\nare allowed!"
@@ -2072,15 +2080,11 @@ msgstr "Åbner hjælpen\nHjælpeemner"
 
 #: ID:13,
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Åbner versionsarkivsøgeren for at kunne styre versionsarkivet online"
+msgstr "Åbner versionsarkivsøgeren til at styre versionsarkivet online"
 
 #: ID:3843,#: ID:3843,
 msgid "Out of memory."
 msgstr "Der er ikke mere hukommelse."
-
-#: ID:207,
-msgid "Owner"
-msgstr "Ejer"
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -2209,7 +2213,7 @@ msgstr "Program"
 
 #: ID:157,
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr "Programmer (*.exe)|*.*|Alle Filer (*.*)|*.*||"
+msgstr "Programmer (*.exe)|*.*|Alle filer (*.*)|*.*||"
 
 #: Control-ID:65535,
 msgid "Progress dialog:"
@@ -2641,7 +2645,7 @@ msgstr "Vælg diff-fil..."
 
 #: ID:79,
 msgid "Select folder to export to.\nYou might need to create a new folder before performing this export."
-msgstr "Vælg den mappe der skal eksporteres til.\nDet kan være nødvendigt for oprette en ny mappe, før du udfører denne eksport."
+msgstr "Vælg den mappe der skal eksporteres til.\nDet kan være nødvendigt at oprette en ny mappe, før du udfører denne eksport."
 
 #: ID:79,
 msgid "Select the behaviour of the progress dialog at the end of the operation."
@@ -2755,6 +2759,10 @@ msgstr "Vis eller skjul værktøjslinjen\nVis/skjul værktøjslinje"
 msgid "Show special characters for whitespaces\nShow Whitespaces"
 msgstr "Vis specielle tegn for blanktegn\nVis blanktegn"
 
+#: Control-ID:1209,
+msgid "Show unmodified files"
+msgstr "Vis ikke-ændrede filer"
+
 #: Control-ID:1073,#: Control-ID:1073,
 msgid "Show unversioned files"
 msgstr "Vis ikke-versionerede filer"
@@ -2830,7 +2838,7 @@ msgstr "Stjæl låsen"
 
 #: Control-ID:1130,
 msgid "Stop On Copy/Rename"
-msgstr "Stop ved kopiering"
+msgstr "Stop ved kopiering/omdøbning"
 
 #: Control-ID:65535,
 msgid "Subversion configuration file:"
@@ -2969,6 +2977,10 @@ msgstr "Linjen, der indikerer den nye fil, var forventet på linje %d!"
 #: ID:63,
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "Linjen, der indikerer den gamle fil, var forventet på linje %d!"
+
+#: ID:251,
+msgid "The lock has already been broken from another working copy"
+msgstr "Låsen er allerede blevet brudt fra en anden arbejdskopi"
 
 #: ID:63,
 msgid "The old file does not match the new file.\nRenaming of files is not (yet) supported!"
