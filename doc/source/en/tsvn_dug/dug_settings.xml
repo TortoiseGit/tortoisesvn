@@ -48,13 +48,13 @@
 							The first two entries refer to directories, the 
 							other four to files.
 						</para>
-						<warning>
+						<caution>
 							If you use the subversion configuration file to set
 							a <literal>global-ignores</literal> pattern, it will
 							override the settings you made here. The Subversion
 							configuration file is accessed using the
 							<guibutton>Edit</guibutton> as described below.
-						</warning>
+						</caution>
 						<para>
 							This exclude pattern will affect all your projects.
 							It is not versioned, so it will not affect other users.
