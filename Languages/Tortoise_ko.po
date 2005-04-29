@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-04-22 10:58+0900\n"
+"PO-Revision-Date: 2005-04-29 18:37+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ID:10
 #: ID:126
 msgid " "
-msgstr " "
+msgstr ""
 
 # ID:188,
 #: ID:188
@@ -2169,8 +2169,8 @@ msgstr "패치 파일 생성 중..."
 
 # ID:16,
 #: ID:16
-msgid "Get Lock"
-msgstr "잠금 얻기"
+msgid "Get Lock..."
+msgstr "잠그기..."
 
 # ID:119,
 #: ID:119
@@ -2314,8 +2314,8 @@ msgstr ""
 
 # ID:251,
 #: ID:251
-msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
-msgstr "잠금을 깨기 원한다면, \"수정내역 확인 확인\" 대화상자를 이용하세요."
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr "잠금을 해제하기 원한다면, \"수정내역 확인 확인\" 대화상자를 이용하세요."
 
 # ID:73,
 #: ID:73
@@ -2533,9 +2533,15 @@ msgid ""
 msgstr "저장소 URL의 내용이 저장될 위치"
 
 # ID:221,
+#: ID:207
 #: ID:221
 msgid "Lock"
 msgstr "잠금"
+
+# Control-ID:65535,
+#: ID:209
+msgid "Lock broken!"
+msgstr "잠금 해제됨!"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2552,6 +2558,11 @@ msgstr "잠금 실패"
 #: Control-ID:65535
 msgid "Lock owner:"
 msgstr "잠금 소유자:"
+
+# ID:263,
+#: ID:209
+msgid "Lock stolen by %s"
+msgstr "잠금 소유자가 %s(으)로 바뀌었습니다."
 
 # ID:263,
 #: ID:263
@@ -2934,11 +2945,6 @@ msgstr "저장소를 직접 조작하려면 저장소 브라우저를 사용하�
 #: ID:3843
 msgid "Out of memory."
 msgstr "메모리 부족."
-
-# ID:207,
-#: ID:207
-msgid "Owner"
-msgstr "소유자"
 
 # ID:12,
 #: MenuEntry
@@ -3880,6 +3886,11 @@ msgstr ""
 "공백 보기"
 
 # Control-ID:1073,
+#: Control-ID:1209
+msgid "Show unmodified files"
+msgstr "수정되지 않은 파일 보기"
+
+# Control-ID:1073,
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "버전관리 대상이 아닌 파일 보기"
@@ -4219,6 +4230,11 @@ msgstr "새 파일을 지시하는 곳은 %d 행 입니다."
 #: ID:63
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "이전 파일을 지시하는 곳은 %d 행 입니다."
+
+# ID:251,
+#: ID:251
+msgid "The lock has already been broken from another working copy"
+msgstr "잠금이 다른 작업 사본에 의해 이미 깨졌습니다."
 
 # ID:63,
 #: ID:63
