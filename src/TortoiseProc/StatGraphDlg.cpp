@@ -423,6 +423,7 @@ void CStatGraphDlg::ShowStats()
 	} // for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	if (!weekover)
 	{
+		nWeeks++;
 		std::map<stdstring, LONG>::iterator iter;
 		iter = authors.begin();
 		while (iter != authors.end()) 
