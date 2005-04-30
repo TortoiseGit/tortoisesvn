@@ -1730,6 +1730,7 @@ BEGIN
     IDS_SETTINGS_PROXYEXCEPTIONS_TT 
                             "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
     IDS_SETTINGS_READONLYNAME "Needs Lock"
+    IDS_SETTINGS_LOCKEDNAME "Locked"
 END
 
 STRINGTABLE 

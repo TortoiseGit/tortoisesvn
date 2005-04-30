@@ -76,6 +76,13 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 		delete buf;
 	}
 
+	int nInstalledOverlays = GetInstalledOverlays();
+	
+	if ((m_State == AddedOverlay)&&(nInstalledOverlays > 12))
+		return S_FALSE;		// don't use the 'added' overlay
+	if ((m_State == LockedOverlay)&&(nInstalledOverlays > 13))
+		return S_FALSE;		// don't show the 'locked' overlay
+
     // Get folder icons from registry
 	// Default icons are stored in LOCAL MACHINE
 	// User selected icons are stored in CURRENT USER
@@ -88,11 +95,13 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	HKEY hkeys [] = { HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE };
 	switch (m_State)
 	{
-		case Versioned : iconName = _T("InSubversionIcon"); break;
-		case Modified  : iconName = _T("ModifiedIcon"); break;
-		case Conflict  : iconName = _T("ConflictIcon"); break;
-		case Deleted   : iconName = _T("DeletedIcon"); break;
-		case ReadOnly  : iconName = _T("ReadOnlyIcon"); break;
+		case Versioned		: iconName = _T("InSubversionIcon"); break;
+		case Modified		: iconName = _T("ModifiedIcon"); break;
+		case Conflict		: iconName = _T("ConflictIcon"); break;
+		case Deleted		: iconName = _T("DeletedIcon"); break;
+		case ReadOnly		: iconName = _T("ReadOnlyIcon"); break;
+		case LockedOverlay	: iconName = _T("LockedIcon"); break;
+		case AddedOverlay	: iconName = _T("AddedIcon"); break;
 	}
 
 	for (int i = 0; i < 2; ++i)
@@ -135,11 +144,13 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	// loaded, so we can later check if some are missing
 	switch (m_State)
 	{
-		case Versioned : g_normalovlloaded = true; break;
-		case Modified  : g_modifiedovlloaded = true; break;
-		case Conflict  : g_conflictedovlloaded = true; break;
-		case Deleted   : g_deletedovlloaded = true; break;
-		case ReadOnly  : g_readonlyovlloaded = true; break;
+		case Versioned		: g_normalovlloaded = true; break;
+		case Modified		: g_modifiedovlloaded = true; break;
+		case Conflict		: g_conflictedovlloaded = true; break;
+		case Deleted		: g_deletedovlloaded = true; break;
+		case ReadOnly		: g_readonlyovlloaded = true; break;
+		case LockedOverlay	: g_lockedovlloaded = true; break;
+		case AddedOverlay	: g_addedovlloaded = true; break;
 	}
 
 	ATLTRACE2(_T("Icon loaded : %s\n"), icon.c_str());
@@ -164,8 +175,14 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 		case ReadOnly:
 			*pPriority = 3;
 			break;
-		case Versioned:
+		case LockedOverlay:
 			*pPriority = 4;
+			break;
+		case AddedOverlay:
+			*pPriority = 5;
+			break;
+		case Versioned:
+			*pPriority = 6;
 			break;
 		default:
 			*pPriority = 100;
@@ -186,6 +203,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	PreserveChdir preserveChdir;
 	svn_wc_status_kind status = svn_wc_status_unversioned;
 	bool readonlyoverlay = false;
+	bool lockedoverlay = false;
 	if (pwszPath == NULL)
 		return S_FALSE;
 #ifdef UNICODE
@@ -202,6 +220,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	{
 		status = g_filestatus;
 		readonlyoverlay = g_readonlyoverlay;
+		lockedoverlay = g_lockedoverlay;
 	}
 	else
 	{
@@ -217,6 +236,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
 			if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&(itemStatus.m_readonly))
 				readonlyoverlay = true;
+			if (itemStatus.m_owner[0]!=0)
+				lockedoverlay = true;
 		}
 		ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 	}
@@ -224,7 +245,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	g_filepath = pPath;
 	g_filestatus = status;
 	g_readonlyoverlay = readonlyoverlay;
-
+	g_lockedoverlay = lockedoverlay;
+	
 	//the priority system of the shell doesn't seem to work as expected (or as I expected):
 	//as it seems that if one handler returns S_OK then that handler is used, no matter
 	//if other handlers would return S_OK too (they're never called on my machine!)
@@ -244,6 +266,16 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			if ((readonlyoverlay)&&(g_readonlyovlloaded))
 			{
 				if (m_State == ReadOnly)
+				{
+					g_filepath.clear();
+					return S_OK;
+				}
+				else
+					return S_FALSE;
+			}
+			else if ((lockedoverlay)&&(g_lockedovlloaded))
+			{
+				if (m_State == LockedOverlay)
 				{
 					g_filepath.clear();
 					return S_OK;
@@ -283,7 +315,6 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 					return S_FALSE;
 			}
 		case svn_wc_status_replaced:
-		case svn_wc_status_added:
 		case svn_wc_status_modified:
 		case svn_wc_status_merged:
 			if (m_State == Modified)
@@ -293,6 +324,29 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			}
 			else
 				return S_FALSE;
+		case svn_wc_status_added:
+			if (g_addedovlloaded)
+			{
+				if (m_State== AddedOverlay)
+				{
+					g_filepath.clear();
+					return S_OK;
+				}
+				else
+					return S_FALSE;
+			}
+			else
+			{
+				// the 'added' overlay isn't available (due to lack of enough
+				// overlay slots). So just show the 'modified' overlay instead.
+				if (m_State == Modified)
+				{
+					g_filepath.clear();
+					return S_OK;
+				}
+				else
+					return S_FALSE;
+			}
 		case svn_wc_status_conflicted:
 		case svn_wc_status_obstructed:
 			if (g_conflictedovlloaded)
@@ -323,3 +377,32 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
     //return S_FALSE;
 }
 
+int CShellExt::GetInstalledOverlays()
+{
+	// if there are more than 12 overlay handlers installed, then that means not all
+	// of the overlay handlers can't be shown. Windows chooses the ones first
+	// returned by RegEnumKeyEx() and just drops the ones that come last in
+	// that enumeration.
+	int nInstalledOverlayhandlers = 0;
+	// scan the registry for installed overlay handlers
+	HKEY hKey;
+	if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, 
+		_T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers"),
+		0, KEY_ENUMERATE_SUB_KEYS, &hKey)==ERROR_SUCCESS)
+	{
+		for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
+		{ 
+			TCHAR value[1024];
+			DWORD size = sizeof value / sizeof TCHAR;
+			FILETIME last_write_time;
+			rc = RegEnumKeyEx(hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
+			if (rc == ERROR_SUCCESS) 
+			{
+				ATLTRACE("installed handler %ws\n", value);
+				nInstalledOverlayhandlers++;
+			}
+		}
+	}
+	RegCloseKey(hKey);
+	return nInstalledOverlayhandlers;
+}

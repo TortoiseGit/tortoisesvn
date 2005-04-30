@@ -61,6 +61,8 @@ enum FileState
     Conflict,
 	Deleted,
 	ReadOnly,
+	LockedOverlay,
+	AddedOverlay,
 	DropHandler,
 	Invalid
 };
