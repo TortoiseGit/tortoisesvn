@@ -1620,7 +1620,7 @@ BEGIN
     IDS_PROGRAMSFILEFILTER  "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
     IDS_CERTIFICATESFILEFILTER "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
     IDS_PATCHFILEFILTER     "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-    IDS_PICTUREFILEFILTER   "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+    IDS_PICTUREFILEFILTER   "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 END
 
 STRINGTABLE 

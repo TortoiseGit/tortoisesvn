@@ -123,7 +123,7 @@ private:
 	void			DrawNode(CDC * pDC, const CRect& rect,
 							COLORREF contour, CRevisionEntry *rentry,
 							NodeShape shape, BOOL isSel, int penStyle = PS_SOLID);
-	void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
+	void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw);
 	void			BuildConnections();
 	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
