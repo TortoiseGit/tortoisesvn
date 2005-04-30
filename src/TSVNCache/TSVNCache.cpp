@@ -369,50 +369,43 @@ VOID PipeThread(LPVOID lpvParam)
 			continue; // never leave the thread!
 		}
 		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
-		if (WaitNamedPipe(TSVN_CACHE_PIPE_NAME, 1000))
-		{
-			// Wait for the client to connect; if it succeeds, 
-			// the function returns a nonzero value. If the function returns 
-			// zero, GetLastError returns ERROR_PIPE_CONNECTED. 
-			fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED); 
-			if (fConnected) 
-			{ 
-				// Create a thread for this client. 
-				hInstanceThread = CreateThread( 
-					NULL,              // no security attribute 
-					0,                 // default stack size 
-					(LPTHREAD_START_ROUTINE) InstanceThread, 
-					(LPVOID) hPipe,    // thread parameter 
-					0,                 // not suspended 
-					&dwThreadId);      // returns thread ID 
 
-				if (hInstanceThread == NULL) 
-				{
-					OutputDebugStringA("TSVNCache: Could not create Instance thread\n");
-					DebugOutputLastError();
-					DisconnectNamedPipe(hPipe);
-					CloseHandle(hPipe);
-					// since we're now closing this thread, we also have to close the whole application!
-					// otherwise the thread is dead, but the app is still running, refusing new instances
-					// but no pipe will be available anymore.
-					PostMessage(hWnd, WM_CLOSE, 0, 0);
-					return;
-				}
-				else CloseHandle(hInstanceThread); 
-			} 
-			else
+		// Wait for the client to connect; if it succeeds, 
+		// the function returns a nonzero value. If the function returns 
+		// zero, GetLastError returns ERROR_PIPE_CONNECTED. 
+		fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED); 
+		if (fConnected) 
+		{ 
+			// Create a thread for this client. 
+			hInstanceThread = CreateThread( 
+				NULL,              // no security attribute 
+				0,                 // default stack size 
+				(LPTHREAD_START_ROUTINE) InstanceThread, 
+				(LPVOID) hPipe,    // thread parameter 
+				0,                 // not suspended 
+				&dwThreadId);      // returns thread ID 
+
+			if (hInstanceThread == NULL) 
 			{
-				// The client could not connect, so close the pipe. 
-				OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
+				OutputDebugStringA("TSVNCache: Could not create Instance thread\n");
 				DebugOutputLastError();
-				CloseHandle(hPipe); 
-				continue;	// don't end the thread!
+				DisconnectNamedPipe(hPipe);
+				CloseHandle(hPipe);
+				// since we're now closing this thread, we also have to close the whole application!
+				// otherwise the thread is dead, but the app is still running, refusing new instances
+				// but no pipe will be available anymore.
+				PostMessage(hWnd, WM_CLOSE, 0, 0);
+				return;
 			}
-		}
+			else CloseHandle(hInstanceThread); 
+		} 
 		else
 		{
-			CloseHandle(hPipe);
-			continue;		// don't end the thread!
+			// The client could not connect, so close the pipe. 
+			OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
+			DebugOutputLastError();
+			CloseHandle(hPipe); 
+			continue;	// don't end the thread!
 		}
 	}
 	ATLTRACE("Pipe thread exited\n");
@@ -452,50 +445,43 @@ VOID CommandWaitThread(LPVOID lpvParam)
 			continue; // never leave the thread!
 		}
 		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
-		if (WaitNamedPipe(TSVN_CACHE_COMMANDPIPE_NAME, 1000))
-		{
-			// Wait for the client to connect; if it succeeds, 
-			// the function returns a nonzero value. If the function returns 
-			// zero, GetLastError returns ERROR_PIPE_CONNECTED. 
-			fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED); 
-			if (fConnected) 
-			{ 
-				// Create a thread for this client. 
-				hCommandThread = CreateThread( 
-					NULL,              // no security attribute 
-					0,                 // default stack size 
-					(LPTHREAD_START_ROUTINE) CommandThread, 
-					(LPVOID) hPipe,    // thread parameter 
-					0,                 // not suspended 
-					&dwThreadId);      // returns thread ID 
 
-				if (hCommandThread == NULL) 
-				{
-					OutputDebugStringA("TSVNCache: Could not create Command thread\n");
-					DebugOutputLastError();
-					DisconnectNamedPipe(hPipe);
-					CloseHandle(hPipe);
-					// since we're now closing this thread, we also have to close the whole application!
-					// otherwise the thread is dead, but the app is still running, refusing new instances
-					// but no pipe will be available anymore.
-					PostMessage(hWnd, WM_CLOSE, 0, 0);
-					return;
-				}
-				else CloseHandle(hCommandThread); 
-			} 
-			else
+		// Wait for the client to connect; if it succeeds, 
+		// the function returns a nonzero value. If the function returns 
+		// zero, GetLastError returns ERROR_PIPE_CONNECTED. 
+		fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED); 
+		if (fConnected) 
+		{ 
+			// Create a thread for this client. 
+			hCommandThread = CreateThread( 
+				NULL,              // no security attribute 
+				0,                 // default stack size 
+				(LPTHREAD_START_ROUTINE) CommandThread, 
+				(LPVOID) hPipe,    // thread parameter 
+				0,                 // not suspended 
+				&dwThreadId);      // returns thread ID 
+
+			if (hCommandThread == NULL) 
 			{
-				// The client could not connect, so close the pipe. 
-				OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
+				OutputDebugStringA("TSVNCache: Could not create Command thread\n");
 				DebugOutputLastError();
-				CloseHandle(hPipe); 
-				continue;	// don't end the thread!
+				DisconnectNamedPipe(hPipe);
+				CloseHandle(hPipe);
+				// since we're now closing this thread, we also have to close the whole application!
+				// otherwise the thread is dead, but the app is still running, refusing new instances
+				// but no pipe will be available anymore.
+				PostMessage(hWnd, WM_CLOSE, 0, 0);
+				return;
 			}
-		}
+			else CloseHandle(hCommandThread); 
+		} 
 		else
 		{
-			CloseHandle(hPipe);
-			continue;		// don't end the thread!
+			// The client could not connect, so close the pipe. 
+			OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
+			DebugOutputLastError();
+			CloseHandle(hPipe); 
+			continue;	// don't end the thread!
 		}
 	}
 	ATLTRACE("CommandWait thread exited\n");

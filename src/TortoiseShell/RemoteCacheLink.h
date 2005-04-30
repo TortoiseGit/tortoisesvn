@@ -14,6 +14,7 @@ public:
 
 private:
 	bool EnsurePipeOpen();
+	void ClosePipe();
 
 private:
 	HANDLE m_hPipe;
