@@ -336,6 +336,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				{
 					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSAVEAS, temp);		// "Save as..."
+					temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTOWC, temp);		// "Copy To Working Copy..."
 				}
 			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
@@ -677,55 +679,103 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPCOPYTOWC:
 				{
-					OPENFILENAME ofn;		// common dialog box structure
-					TCHAR szFile[MAX_PATH];  // buffer for file name
-					ZeroMemory(szFile, sizeof(szFile));
-					// Initialize OPENFILENAME
-					ZeroMemory(&ofn, sizeof(OPENFILENAME));
-					ofn.lStructSize = sizeof(OPENFILENAME);
-					//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-					ofn.hwndOwner = this->m_hWnd;
-					ofn.lpstrFile = szFile;
-					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-					CString temp;
-					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-					CUtils::RemoveAccelerators(temp);
-					if (temp.IsEmpty())
-						ofn.lpstrTitle = NULL;
-					else
-						ofn.lpstrTitle = temp;
-					ofn.Flags = OFN_OVERWRITEPROMPT;
-
-					CString sFilter;
-					sFilter.LoadString(IDS_COMMONFILEFILTER);
-					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-					_tcscpy (pszFilters, sFilter);
-					// Replace '|' delimeters with '\0's
-					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-					while (ptr != pszFilters)
+					bool bSavePathOK = false;
+					CTSVNPath tempfile;
+					if (uSelCount == 1)
 					{
-						if (*ptr == '|')
-							*ptr = '\0';
-						ptr--;
-					} // while (ptr != pszFilters) 
-					ofn.lpstrFilter = pszFilters;
-					ofn.nFilterIndex = 1;
-					// Display the Open dialog box. 
-					if (GetSaveFileName(&ofn)==TRUE)
+						OPENFILENAME ofn;		// common dialog box structure
+						TCHAR szFile[MAX_PATH];  // buffer for file name
+						ZeroMemory(szFile, sizeof(szFile));
+						CString filename = url.Mid(url.ReverseFind('/')+1);
+						_tcscpy(szFile, filename);
+						// Initialize OPENFILENAME
+						ZeroMemory(&ofn, sizeof(OPENFILENAME));
+						ofn.lStructSize = sizeof(OPENFILENAME);
+						//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+						ofn.hwndOwner = this->m_hWnd;
+						ofn.lpstrFile = szFile;
+						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+						CString temp;
+						temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+						CUtils::RemoveAccelerators(temp);
+						if (temp.IsEmpty())
+							ofn.lpstrTitle = NULL;
+						else
+							ofn.lpstrTitle = temp;
+						ofn.Flags = OFN_OVERWRITEPROMPT;
+
+						CString sFilter;
+						sFilter.LoadString(IDS_COMMONFILEFILTER);
+						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+						_tcscpy (pszFilters, sFilter);
+						// Replace '|' delimeters with '\0's
+						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+						while (ptr != pszFilters)
+						{
+							if (*ptr == '|')
+								*ptr = '\0';
+							ptr--;
+						} // while (ptr != pszFilters) 
+						ofn.lpstrFilter = pszFilters;
+						ofn.nFilterIndex = 1;
+						// Display the Open dialog box. 
+						bSavePathOK = (GetSaveFileName(&ofn)==TRUE);
+						if (bSavePathOK)
+							tempfile.SetFromWin(ofn.lpstrFile);
+						delete [] pszFilters;
+					} // if (uSelCount == 1)
+					else
+					{
+						CBrowseFolder browser;
+						CString sTempfile;
+						browser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+						browser.Show(GetSafeHwnd(), sTempfile);
+						if (!sTempfile.IsEmpty())
+						{
+							bSavePathOK = true;
+							tempfile.SetFromWin(sTempfile);
+						}
+					}
+					if (bSavePathOK)
 					{
 						CWaitCursorEx wait_cursor;
-						CTSVNPath destination(ofn.lpstrFile);
 						SVN svn;
 						svn.SetPromptApp(&theApp);
-						if (!svn.Copy(CTSVNPath(url), destination, GetRevision()))
+
+						int si = m_treeRepository.GetFirstSelectedItem();
+						CString saveurl;
+						CProgressDlg progDlg;
+						int selcount = m_treeRepository.GetSelectedCount();
+						if (selcount > 1)
 						{
-							delete [] pszFilters;
-							wait_cursor.Hide();
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							return;
-						} 
+							progDlg.SetTitle(IDS_REPOBROWSE_COPYTOWCPROGTITLE);
+							progDlg.SetShowProgressBar(true);
+							progDlg.ShowModeless(GetSafeHwnd());
+							progDlg.SetProgress((DWORD)0, (DWORD)selcount);
+						}
+						int counter = 0;		// the file counter
+						do
+						{
+							saveurl = m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(si));
+							CTSVNPath savepath = tempfile;
+							if (tempfile.IsDirectory())
+								savepath.AppendPathString(saveurl.Mid(saveurl.ReverseFind('/')));
+							progDlg.FormatPathLine(1, IDS_REPOBROWSE_COPYTOWC_LINE1, saveurl);
+							progDlg.FormatPathLine(2, IDS_REPOBROWSE_COPYTOWC_LINE2, savepath.GetWinPathString());
+							if (!svn.Copy(CTSVNPath(saveurl), savepath, GetRevision())||(progDlg.HasUserCancelled()))
+							{
+								wait_cursor.Hide();
+								progDlg.Stop();
+								if (!progDlg.HasUserCancelled())
+									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								return;
+							}
+							counter++;
+							progDlg.SetProgress((DWORD)counter, (DWORD)selcount);
+							si = m_treeRepository.GetNextSelectedItem(si);
+						} while (si != RVI_INVALID);
+						progDlg.Stop();
 					} // if (GetSaveFileName(&ofn)==TRUE) 
-					delete [] pszFilters;
 				}
 				break;
 			case ID_POPMKDIR:

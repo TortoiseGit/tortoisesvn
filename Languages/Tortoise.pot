@@ -1032,6 +1032,10 @@ msgstr ""
 msgid "Copied remotely"
 msgstr ""
 
+#: ID:103,
+msgid "Copy %s"
+msgstr ""
+
 #: Dlg-ID:142,
 msgid "Copy (Branch / Tag)"
 msgstr ""
@@ -1050,6 +1054,10 @@ msgstr ""
 
 #: ID:3603,
 msgid "Copy the selection and put it on the Clipboard\nCopy"
+msgstr ""
+
+#: ID:103,
+msgid "Copy to working copy"
 msgstr ""
 
 #: ID:80,
@@ -3516,7 +3524,7 @@ msgstr ""
 msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
 msgstr ""
 
-#: ID:80,#: ID:103,
+#: ID:80,#: ID:103,#: ID:103,
 msgid "to %s"
 msgstr ""
 
