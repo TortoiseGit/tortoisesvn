@@ -1760,6 +1760,10 @@ msgstr ""
 msgid "Lock stolen by %s"
 msgstr ""
 
+#: ID:195,
+msgid "Locked"
+msgstr ""
+
 #: ID:263,
 msgid "Locked by %s"
 msgstr ""
@@ -2518,6 +2522,14 @@ msgstr ""
 
 #: ID:3601,#: ID:3601,
 msgid "Save the modified file\nSave file"
+msgstr ""
+
+#: ID:103,
+msgid "Saving Files"
+msgstr ""
+
+#: ID:103,
+msgid "Saving file %s"
 msgstr ""
 
 #: ID:144,
@@ -3504,7 +3516,7 @@ msgstr ""
 msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
 msgstr ""
 
-#: ID:80,
+#: ID:80,#: ID:103,
 msgid "to %s"
 msgstr ""
 

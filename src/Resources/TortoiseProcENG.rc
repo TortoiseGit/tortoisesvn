@@ -1892,6 +1892,13 @@ BEGIN
     IDS_LOCK_STEALCHECK     "Steal the lock"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_SAVEASPROGTITLE "Saving Files"
+    IDS_REPOBROWSE_SAVEAS_LINE1 "Saving file %s"
+    IDS_REPOBROWSE_SAVEAS_LINE2 "to %s"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
