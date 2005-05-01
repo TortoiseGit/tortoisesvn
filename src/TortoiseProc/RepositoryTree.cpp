@@ -24,8 +24,7 @@
 #include "WaitCursorEx.h"
 #include "RepositoryBar.h"
 #include "TSVNPath.h"
-
-
+#include "SVN.h"
 
 // CRepositoryTree
 
@@ -62,6 +61,7 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 		SVN svn;
 		m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_strUrl));
 		m_strReposRoot = SVNUrl::Unescape(m_strReposRoot);
+		svn.GetLocks(CTSVNPath(m_strReposRoot), &m_locks);
 	}
 
 	DeleteAllItems();
@@ -125,7 +125,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 	}
 	// insert other columns text
 	CString temp;
-	for (int col=1; col<GetActiveSubItemCount(); col++)
+	for (int col=1; col<GetActiveSubItemCount()-1; col++)
 	{
 		if (AfxExtractSubString(temp, folder, col, '\t'))
 			SetItemText(GetItemIndex(hItem), col, temp);
@@ -140,7 +140,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 		rvi.Param64 = _ttoi64(temp);
 		SetItem(&rvi);
 	}
-
+	SetItemText(GetItemIndex(hItem), 5, _T(""));
 	return hItem;
 }
 
@@ -181,7 +181,7 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 
 	// insert other columns text
 	CString temp;
-	for (int col=1; col<GetActiveSubItemCount(); col++)
+	for (int col=1; col<GetActiveSubItemCount()-1; col++)
 	{
 		if (AfxExtractSubString(temp, file, col, '\t'))
 			SetItemText(GetItemIndex(hItem), col, temp);
@@ -196,6 +196,8 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 		rvi.Param64 = _ttoi64(temp);
 		SetItem(&rvi);
 	}
+	CString file_path_stripped = file_path.Mid(m_strReposRoot.GetLength());
+	SetItemText(GetItemIndex(hItem), 5, m_locks[file_path_stripped].owner);
 	return hItem;
 }
 
@@ -557,6 +559,15 @@ void CRepositoryTree::Init(const SVNRev& revision)
 	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
 	DefineSubItem(4, &rvs);
 	ActivateSubItem(4, 4);
+	//
+	// column 5: lock owner
+	temp.LoadString(IDS_STATUSLIST_COLLOCK);
+	rvs.lpszText = temp;
+	rvs.iWidth = 125;
+	rvs.iMinWidth = 25;
+	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
+	DefineSubItem(5, &rvs);
+	ActivateSubItem(5, 5);
 
 	SVNUrl svn_url(m_strUrl, m_Revision);
 

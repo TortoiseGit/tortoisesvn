@@ -26,7 +26,6 @@
 #include "SVNRev.h"
 #include "ReportCtrl/ReportCtrl.h"
 
-
 /**
  * \ingroup TortoiseProc
  * Implements a CTreeCtrl which browses a subversion repository. The constructor
@@ -147,6 +146,7 @@ private:
 	CString		m_strUrl;
 	CString		m_strReposRoot;
 	SVN			m_svn;
+	std::map<CString, SVN::SVNLock> m_locks;
 	BOOL		bInit;
 	SVNRev		m_Revision;
 	BOOL		m_bFile;
