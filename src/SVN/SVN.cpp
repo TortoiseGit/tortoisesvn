@@ -1431,6 +1431,43 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	return CString(returl);
 }
 
+BOOL SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
+{
+	svn_ra_session_t *ra_session;
+
+	SVNPool localpool(pool);
+	apr_hash_t * hash = apr_hash_make(localpool);
+
+	/* use subpool to create a temporary RA session */
+	Err = svn_client__open_ra_session (&ra_session, url.GetSVNApiPath(), NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool);
+	if (Err != NULL)
+		return FALSE;
+
+	Err = svn_ra_get_locks(ra_session, &hash, "", localpool);
+	if (Err != NULL)
+		return FALSE;
+	apr_hash_index_t *hi;
+	svn_lock_t* val;
+	const char* key;
+	for (hi = apr_hash_first(localpool, hash); hi; hi = apr_hash_next(hi)) 
+	{
+		apr_hash_this(hi, (const void**)&key, NULL, (void**)&val);
+		if (val)
+		{
+			SVNLock lock;
+			lock.comment = CUnicodeUtils::GetUnicode(val->comment);
+			lock.creation_date = val->creation_date/1000000L;
+			lock.expiration_date = val->expiration_date/1000000L;
+			lock.owner = CUnicodeUtils::GetUnicode(val->owner);
+			lock.path = CUnicodeUtils::GetUnicode(val->path);
+			lock.token = CUnicodeUtils::GetUnicode(val->token);
+			CString sKey = CUnicodeUtils::GetUnicode(key);
+			(*locks)[sKey] = lock;
+		}
+	}
+	return TRUE;
+}
+
 LONG SVN::GetHEADRevision(const CTSVNPath& url)
 {
 	svn_ra_session_t *ra_session;

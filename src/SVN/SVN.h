@@ -85,6 +85,16 @@ public:
 	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies);
 	virtual BOOL BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
 
+	struct SVNLock
+	{
+		CString path;
+		CString token;
+		CString owner;
+		CString comment;
+		__time64_t creation_date;
+		__time64_t expiration_date;
+	};
+	
 	/**
 	 * If a method of this class returns FALSE then you can
 	 * get the detailed error message with this method.
@@ -485,7 +495,13 @@ public:
 	 */
 	CString	RevPropertyGet(CString sName, CString sURL, SVNRev rev);
 
-	
+	/**
+	 * Fetches all locks for \a url and the paths below.
+	 * \remark The CString key in the map is the absolute path in
+	 * the repository of the lock. It is \b not an absolute URL, the
+	 * repository root part is stripped off!
+	 */
+	BOOL GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks);	
 
 	CString GetURLFromPath(const CTSVNPath& path);
 	CString GetUUIDFromPath(const CTSVNPath& path);
