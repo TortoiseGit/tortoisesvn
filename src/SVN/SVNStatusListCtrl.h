@@ -135,7 +135,7 @@ public:
 		}
 		const bool IsLocked() const
 		{
-			return !(lock_owner.IsEmpty() && lock_remoteowner.IsEmpty());
+			return !(lock_token.IsEmpty() && lock_remotetoken.IsEmpty());
 		}
 	private:
 		CTSVNPath				path;					///< full path of the file

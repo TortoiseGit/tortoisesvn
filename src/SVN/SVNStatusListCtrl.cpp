@@ -1321,12 +1321,12 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
 				}
 				popup.AppendMenu(MF_SEPARATOR);
-				if ((wcStatus >= svn_wc_status_normal)&&(entry->lock_owner.IsEmpty()))
+				if ((wcStatus >= svn_wc_status_normal)&&(entry->lock_token.IsEmpty()))
 				{
 					temp.LoadString(IDS_MENU_LOCK);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);					
 				}
-				if ((!entry->lock_owner.IsEmpty())&&(wcStatus >= svn_wc_status_normal))
+				if ((!entry->lock_token.IsEmpty())&&(wcStatus >= svn_wc_status_normal))
 				{
 					temp.LoadString(IDS_MENU_UNLOCK);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);					
