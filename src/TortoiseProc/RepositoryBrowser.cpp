@@ -63,6 +63,7 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, BOOL bFile)
 	, m_cnrRepositoryBar(&m_barRepository)
 	, m_bStandAlone(true)
 	, m_InitialSvnUrl(svn_url)
+	, m_bInitDone(false)
 {
 }
 
@@ -72,6 +73,7 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOO
 	, m_cnrRepositoryBar(&m_barRepository)
 	, m_InitialSvnUrl(svn_url)
 	, m_bStandAlone(false)
+	, m_bInitDone(false)
 {
 }
 
@@ -93,6 +95,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_NOTIFY(RVN_KEYDOWN, IDC_REPOS_TREE, OnRVNKeyDownReposTree)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_WM_CONTEXTMENU()
+	ON_WM_SETCURSOR()
 	ON_REGISTERED_MESSAGE(WM_AFTERINIT, OnAfterInitDialog) 
 END_MESSAGE_MAP()
 
@@ -122,13 +125,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
 	m_barRepository.AssocTree(&m_treeRepository);
-	
-	// since the dialog isn't visible when OnInitDialog is called,
-	// do the lengthy processing (fetching the repository root)
-	// right after OnInitDialog is finished. Then the dialog
-	// is visible and the user knows at least that something's
-	// going on here.
-	PostMessage(WM_AFTERINIT);
+	m_treeRepository.Init(GetRevision());
 
 	if (m_bStandAlone)
 	{
@@ -150,18 +147,42 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	EnableSaveRestore(_T("RepositoryBrowser"));
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (AfxBeginThread(InitThreadEntry, this)==NULL)
+	{
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
+//this is the thread function which calls the subversion function
+UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
+{
+	return ((CRepositoryBrowser*)pVoid)->InitThread();
+}
+
+
+//this is the thread function which calls the subversion function
+UINT CRepositoryBrowser::InitThread()
+{
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+	SVN svn;
+	m_treeRepository.m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_InitialSvnUrl.GetPath()));
+	m_treeRepository.m_strReposRoot = SVNUrl::Unescape(m_treeRepository.m_strReposRoot);
+	svn.GetLocks(CTSVNPath(m_treeRepository.m_strReposRoot), &m_treeRepository.m_locks);
+	PostMessage(WM_AFTERINIT);
+	return 0;
+}
+
 LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-	m_treeRepository.Init(GetRevision());
-
 	if (m_InitialSvnUrl.GetPath().IsEmpty())
 		m_InitialSvnUrl = m_barRepository.GetCurrentUrl();
 
+	m_treeRepository.ChangeToUrl(m_InitialSvnUrl);
 	m_barRepository.GotoUrl(m_InitialSvnUrl);
+	m_bInitDone = TRUE;
 	return 0;
 }
 
@@ -982,4 +1003,24 @@ void CRepositoryBrowser::SetupInputDlg(CInputDlg * dlg)
 	dlg->m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 	CUtils::RemoveAccelerators(dlg->m_sTitle);
 	dlg->m_pProjectProperties = &m_ProjectProperties;
+}
+
+BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if (!m_bInitDone)
+	{
+		// only show the wait cursor over the list control
+		if ((pWnd)&&
+			((pWnd == &m_treeRepository)||
+			(pWnd == &m_barRepository)||
+			(pWnd == &m_cnrRepositoryBar)))
+		{
+			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+			SetCursor(hCur);
+			return TRUE;
+		}
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+	SetCursor(hCur);
+	return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
 }

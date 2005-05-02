@@ -35,6 +35,7 @@ CRepositoryTree::CRepositoryTree(const CString& strUrl, BOOL bFile) :
 	m_bFile(bFile)
 {
 	m_strUrl.TrimRight('/');
+	m_strNoItems.LoadString(IDS_REPOBROWSE_INITWAIT);
 }
 
 CRepositoryTree::~CRepositoryTree()
@@ -570,8 +571,6 @@ void CRepositoryTree::Init(const SVNRev& revision)
 	ActivateSubItem(5, 5);
 
 	SVNUrl svn_url(m_strUrl, m_Revision);
-
-	ChangeToUrl(svn_url);
 
 	SetSortCallback(SortCallback, (LPARAM)this);
 	bInit = FALSE;

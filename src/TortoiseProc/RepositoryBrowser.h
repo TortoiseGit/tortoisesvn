@@ -80,6 +80,7 @@ protected:
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	afx_msg void OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg LRESULT OnAfterInitDialog(WPARAM wParam, LPARAM lParam);
 	
 	void ShowContextMenu(CPoint pt, LRESULT *pResult);
@@ -88,6 +89,10 @@ protected:
 	void DeleteSelectedEntries();
 	void SetupInputDlg(CInputDlg * dlg);
 
+	static UINT InitThreadEntry(LPVOID pVoid);
+	UINT InitThread();
+
+	bool				m_bInitDone;
 	CRepositoryTree		m_treeRepository;
 	CRepositoryBar		m_barRepository;
 	CRepositoryBarCnr	m_cnrRepositoryBar;

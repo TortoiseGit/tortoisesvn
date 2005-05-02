@@ -26,6 +26,7 @@
 #include "SVNRev.h"
 #include "ReportCtrl/ReportCtrl.h"
 
+
 /**
  * \ingroup TortoiseProc
  * Implements a CTreeCtrl which browses a subversion repository. The constructor
@@ -127,6 +128,8 @@ public:
 	void Refresh(HTREEITEM hItem);
 	void RefreshMe(HTREEITEM hItem);
 
+	CString		m_strReposRoot;
+	std::map<CString, SVN::SVNLock> m_locks;
 private:
 	//! Finds the tree item corresponding to \a path, starting at \a hParent.
 	HTREEITEM FindPath(const CString& path, HTREEITEM hParent);
@@ -144,9 +147,7 @@ private:
 	CRepositoryBar	*m_pRepositoryBar;
 
 	CString		m_strUrl;
-	CString		m_strReposRoot;
 	SVN			m_svn;
-	std::map<CString, SVN::SVNLock> m_locks;
 	BOOL		bInit;
 	SVNRev		m_Revision;
 	BOOL		m_bFile;

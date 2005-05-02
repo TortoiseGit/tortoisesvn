@@ -1902,6 +1902,11 @@ BEGIN
     IDS_REPOBROWSE_COPYTOWC_LINE2 "to %s"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_INITWAIT "Please wait while the repository browser is initialized..."
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
