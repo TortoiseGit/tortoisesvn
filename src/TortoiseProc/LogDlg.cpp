@@ -1574,7 +1574,7 @@ void CLogDlg::OnOK()
 			while (pos)
 			{
 				index = m_LogList.GetNextSelectedItem(pos);
-				LONG rev = m_arRevs.GetAt(index);
+				LONG rev = m_arRevs.GetAt(m_arShownList.GetAt(index));
 				if (lowerRev > rev)
 					lowerRev = rev;
 				if (higherRev < rev)
