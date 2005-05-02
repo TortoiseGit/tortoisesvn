@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-01-24 21:54+0800\n"
-"Last-Translator: NetCobra <netcobra@gmail.com>\n"
+"PO-Revision-Date: 2005-04-30 02:54+0800\n"
+"Last-Translator: Ken Chew <ken.chew@openology.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,6 +137,21 @@ msgstr ""
 "%s\n"
 "确定要删除吗？"
 
+# ID:69,
+#: ID:69
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"是个目录，不是文件！\n"
+"TortoiseMerge无法比较目录差异。"
+
+#: MenuEntry
+msgid "&?"
+msgstr "&?"
+
 #: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "关于 TortoiseMerge(&A)..."
@@ -182,11 +197,6 @@ msgstr "光驱(&R)"
 msgid "&Cancel"
 msgstr "取消(&C)"
 
-# Control-ID:1066,
-#: Control-ID:1066
-msgid "&Close windows automatically"
-msgstr "自动关闭窗口(&C)"
-
 # ID:76,
 #: ID:76
 msgid "&Compare Revisions"
@@ -202,6 +212,12 @@ msgstr "复制到(&C)..."
 msgid "&Delete"
 msgstr "删除(&D)"
 
+# Control-ID:1061,
+#: Control-ID:1179
+#, fuzzy
+msgid "&Dry Run"
+msgstr "预检"
+
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "&Edit"
@@ -216,6 +232,11 @@ msgstr "编辑(&E)..."
 #: Control-ID:1023
 msgid "&Enable Proxy Server"
 msgstr "使用代理服务器(&E)"
+
+# Control-ID:1031,
+#: MenuEntry
+msgid "&Exit"
+msgstr "退出(&E)"
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -258,7 +279,6 @@ msgstr "主版本(&H)"
 
 # Control-ID:9,#:
 # Control-ID:57670,#:
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
@@ -283,14 +303,10 @@ msgstr "语言(&L)"
 msgid "&Mark as resolved"
 msgstr "标记为已解决(&M)"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "合并(&M)"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "将URL的修改合并至工作复本(&M)："
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -307,6 +323,11 @@ msgstr "网络磁盘(&N)"
 #: Control-ID:65535
 msgid "&New "
 msgstr "新健(&N)"
+
+# Control-ID:1208,
+#: Control-ID:1208
+msgid "&Next 100"
+msgstr "&下100"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -455,6 +476,12 @@ msgstr "撤销(&U)"
 msgid "&Undo\tCtrl+Z"
 msgstr "还原(&U)\tCtrl+Z"
 
+# Control-ID:1013,
+#: Control-ID:1180
+#, fuzzy
+msgid "&Unified Diff"
+msgstr "应用单一补丁文件(&A)"
+
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -480,6 +507,11 @@ msgstr "查看(&V)"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "空白字符(&W)"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "（预检）"
 
 # ID:208,
 #: ID:208
@@ -515,6 +547,7 @@ msgstr "- %d"
 # Control-ID:1104,
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -748,9 +781,11 @@ msgstr "远程加入文件夹完成"
 
 # ID:145,
 #: ID:145
+#, fuzzy
 msgid ""
 "Added the file(s)\n"
-"%sto the ignore list."
+"%s\n"
+"to the ignore list."
 msgstr ""
 "将选定的文件\n"
 "%s 添加到忽略列表"
@@ -934,6 +969,15 @@ msgstr "分析分支数据..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "应用单一差异文件至工作复本"
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"递归式将属性加到所有文件/目录上。\n"
+"bugtraq: 和 tsvn: 属性只用于目录."
+
 # ID:13,
 #: ID:13
 msgid "Apply Patch..."
@@ -976,15 +1020,30 @@ msgstr "作者"
 msgid "Author:                        Stefan Kueng"
 msgstr "作者：                        Stefan Kueng"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "作者：                      Stefan Kueng, Tim Kemp"
+# ID:76,
+#: ID:116
+msgid "Authors"
+msgstr "作者"
 
-# Control-ID:1067,
-#: Control-ID:1067
-msgid "Automatically resolve conflicted subversion status on save"
-msgstr "保存时自动解除 subversion 的冲突状态"
+# ID:76,
+#: Control-ID:65535
+msgid "Authors:"
+msgstr "作者："
+
+# Control-ID:1123,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "无冲突时自动关闭窗口(&O)"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "如无错误，自动关闭"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "如无合并，添加，删除，自动关闭"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1036,11 +1095,6 @@ msgstr "列出文件每一行的作者"
 msgid "Br&owse..."
 msgstr "浏览(&O)..."
 
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "分支/标记"
-
 # ID:115,
 #: ID:115
 msgid "Branch / Tag created successfully!"
@@ -1050,6 +1104,12 @@ msgstr "分支/标记创建成功！"
 #: ID:9
 msgid "Branch/Tag..."
 msgstr "分支/标记..."
+
+# ID:16,
+#: ID:16
+#, fuzzy
+msgid "Break Lock"
+msgstr "破除锁定"
 
 # Control-ID:1009,
 #: Control-ID:1009
@@ -1128,6 +1188,12 @@ msgstr "正在取消 SVN 谴责..."
 msgid "Cancelling operation..."
 msgstr "正在取消操作..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Cascaded Context Menu"
+msgstr "右键菜单"
+
 # ID:82,
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1198,15 +1264,6 @@ msgstr "检查更新"
 #: Control-ID:1073
 msgid "Check for newer &versions"
 msgstr "检查新版本(&V)"
-
-# ID:79,
-#: ID:79
-msgid ""
-"Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
-msgstr ""
-"选中此选项可以让进度窗口在操作\n"
-"完成后自动关闭。"
 
 # ID:9,
 #: ID:9
@@ -1306,6 +1363,11 @@ msgstr "点击“高级设置”可根据不同扩展名指定不同合并程序
 msgid "Clipboard"
 msgstr "剪贴板"
 
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "手动关闭"
+
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1379,7 +1441,7 @@ msgstr "与工作复本比较(&W)"
 
 # ID:12,
 #: ID:12
-msgid "Compares the file with the last commited version to show you the changes you made"
+msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "比较此文件与上次提交的版本并列出你所做的修改"
 
 # ID:74,
@@ -1398,15 +1460,15 @@ msgstr "冲突"
 msgid "Conflicts: %d"
 msgstr "冲突: %d"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "右键菜单"
-
 # ID:73,
 #: ID:73
 msgid "Continue"
 msgstr "继续"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Convert files when diffing against BASE"
+msgstr "与 BASE 比较修改时转换文件"
 
 # ID:376,
 #: ID:376
@@ -1422,6 +1484,16 @@ msgstr "已复制"
 #: ID:126
 msgid "Copied remotely"
 msgstr "远程复制完成"
+
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "复制（分支/标记）"
+
+# ID:76,
+#: ID:76
+msgid "Copy From Path"
+msgstr "从路径复制"
 
 # ID:101,
 #: ID:101
@@ -1493,6 +1565,11 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:82
+msgid "Could not remove %s from the ignored list"
+msgstr "无法从忽略列表删除 %s！"
+
+# ID:81,
 #: ID:81
 msgid ""
 "Could not retrieve URL of the file!\n"
@@ -1503,8 +1580,9 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, fuzzy
 msgid ""
-"Could not retrieve version %s of the file %s.\n"
+"Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
 "无法取得 %s 版本的 %s 文件.\n"
@@ -1571,13 +1649,14 @@ msgstr "创建文件库"
 
 # ID:8,
 #: ID:8
-msgid "Create Repository here"
+#, fuzzy
+msgid "Create Repository here..."
 msgstr "在此创建文件库"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Create the branch/tag directly on the server"
-msgstr "直接在服务器端创建分支/标记"
+# ID:8,
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr "从此复制到文件库"
 
 # ID:126,
 #: ID:126
@@ -1599,6 +1678,11 @@ msgstr "在当前地址创建文件数据库"
 msgid "Creates a unified diff file with all changes you made"
 msgstr "创建包含你所有修改的单一修改文件"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Credits:"
+msgstr "贡献者："
+
 # ID:376,
 #: ID:376
 msgid "Cu&t"
@@ -1612,11 +1696,6 @@ msgid ""
 msgstr ""
 "剪切选择的区块并放到剪贴板\n"
 "剪切"
-
-# Control-ID:1123,
-#: Control-ID:1123
-msgid "D&on't close on conflicts"
-msgstr "有冲突时不关闭窗口(&O)"
 
 # ID:76,
 #: ID:76
@@ -1752,10 +1831,12 @@ msgstr "不再显示此信息"
 
 # ID:76,
 #: ID:76
+#, fuzzy
 msgid ""
-"Do you really want to revert all changes\n"
+"Do you really want to revert all changes to\n"
+"%s\n"
 "which were made in this revision?"
-msgstr "你确定要复原这个版本的所有修改吗？"
+msgstr "你确定要复原对这%s个版本的所有修改吗？"
 
 # ID:76,
 #: ID:76
@@ -1785,10 +1866,10 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "是否要保存你所做的修改？"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Don't convert files when diffing against BASE"
-msgstr "与 BASE 比较修改时不转换文件"
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Documentation - Simon Large"
+msgstr "文档 - Simon Large"
 
 # ID:73,
 #: ID:73
@@ -1799,11 +1880,6 @@ msgstr "不再显示此信息"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "磁盘驱动器类型"
-
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Dry Run"
-msgstr "预检"
 
 #: MenuEntry
 msgid "E&xit"
@@ -1819,6 +1895,11 @@ msgstr "外部(&X)"
 msgid "EXT"
 msgstr "EXT"
 
+# ID:76,
+#: ID:113
+msgid "Edit Author"
+msgstr "编辑作者"
+
 # ID:12,
 #: ID:12
 msgid "Edit Conflicts"
@@ -1833,6 +1914,21 @@ msgstr "编辑根据扩展名的差异比较程序"
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "编辑根据扩展名的合并程序"
+
+# Dlg-ID:135,
+#: ID:113
+msgid "Edit Log Message"
+msgstr "编辑日志信息"
+
+# ID:115,
+#: ID:115
+msgid "Edit author name"
+msgstr "编辑作者名"
+
+# Dlg-ID:135,
+#: ID:115
+msgid "Edit log message"
+msgstr "编辑日志信息"
 
 # ID:79,
 #: ID:79
@@ -1866,6 +1962,11 @@ msgstr "输入日志信息："
 msgid "Enter URL"
 msgstr "输入 URL"
 
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr "输入锁定信息（任意）："
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -1883,6 +1984,11 @@ msgid ""
 msgstr ""
 "清除选择区\n"
 "清除"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "错误"
 
 # ID:81,
 #: ID:81
@@ -1936,6 +2042,7 @@ msgstr "从文件库中导出干净的工作复本, 不含 svn 管理用文件�
 
 # ID:74,
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "扩展名"
 
@@ -1995,7 +2102,7 @@ msgstr "正在取得文件..."
 
 # ID:313,
 #: ID:313
-msgid "Fetching version %s of file:"
+msgid "Fetching revision %s of file:"
 msgstr "正在取得文件的 %s 版本："
 
 # ID:63,#:
@@ -2049,15 +2156,16 @@ msgstr "字体："
 msgid "For Help, press F1"
 msgstr "要获取帮助，请按 F1 键"
 
-# Control-ID:1168,
-#: Control-ID:1168
-msgid "Force shell icon refresh"
-msgstr "强制刷新图标"
+# Control-ID:65535,
+#: Control-ID:1200
+msgid "From:"
+msgstr "从："
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "从："
+#, fuzzy
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "从：（从此URL和修改版本开始合并）"
 
 # ID:273,
 #: ID:273
@@ -2078,6 +2186,11 @@ msgstr "常规设置"
 #: ID:144
 msgid "Generating Patchfile..."
 msgstr "正在生成补丁文件..."
+
+# ID:16,
+#: ID:16
+msgid "Get Lock..."
+msgstr "取得锁定..."
 
 # ID:119,
 #: ID:119
@@ -2149,8 +2262,9 @@ msgid "H&ead Revision"
 msgstr "主版本(&E)"
 
 # ID:238,
-#: ID:238
-msgid "Head revision of the repository is: %d"
+#: Control-ID:1182
+#, fuzzy
+msgid "HEAD revision in the repository"
 msgstr "文件库中的最新版本是: %d"
 
 # ID:12,#:
@@ -2202,8 +2316,9 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "选中此选项时, TortoiseSVN 不会创建用于比较差异的临时文件, 而是直接与原始的基础文件比较"
+#, fuzzy
+msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
+msgstr "选中此选项时, TortoiseSVN 创建用于比较差异的临时文件, 不展开的关键词"
 
 # ID:194,
 #: ID:194
@@ -2218,6 +2333,11 @@ msgid ""
 msgstr ""
 "如果设置此项, TortoiseSVN 会把文件时间设置至上次\n"
 "提交的时间. 如果不设置, 则使用当前时间。"
+
+# ID:251,
+#: ID:251
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr "如果你想破除锁定，用、“检查更新”对话框"
 
 # ID:73,
 #: ID:73
@@ -2243,6 +2363,11 @@ msgstr "忽略开头的空白字符"
 #: Control-ID:1018
 msgid "Ignore Lineendings (recommended)"
 msgstr "忽略行尾 (建议)"
+
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Ignore case changes"
+msgstr "忽略大/小写"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -2321,8 +2446,8 @@ msgstr "文件名称错误。"
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -2355,16 +2480,23 @@ msgstr ""
 # ID:145,
 #: ID:145
 msgid ""
-"It's not possible to rename a file just in case!\n"
-"Please read our docs on how to work around this Subversion limitation."
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"不能仅仅修改文件名的大小写！\n"
-"请阅读文档中关于如何在 Subversion 的限制下工作的部分。"
+"不能仅仅修改文件名的大小写\n"
+"示例：不能将MyFile.txt修改为MYFILE.txt.\n"
+"请阅读文档中关于如何在此限制下工作的部分。"
 
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
 msgstr "加载时跳转到第一个差异处"
+
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "保持锁定"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2424,6 +2556,49 @@ msgstr ""
 "保存文件库 URL 内容\n"
 "的位置。"
 
+# ID:207,#:
+# ID:221,
+#: ID:207
+#: ID:221
+msgid "Lock"
+msgstr "锁定"
+
+# ID:209,
+#: ID:209
+msgid "Lock broken!"
+msgstr "锁定被破！"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "锁定创建日期："
+
+# ID:3857,#:
+# ID:3857,
+#: ID:263
+msgid "Lock failed"
+msgstr "命令失败。"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "锁定拥有者："
+
+# ID:209,
+#: ID:209
+msgid "Lock stolen by %s"
+msgstr "锁定被%s偷取"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "被%s锁定"
+
+# ID:16,
+#: ID:16
+msgid "Locks files for other users and makes it editable by you."
+msgstr "将文件锁定。只有你能修改。"
+
 # ID:126,
 #: ID:126
 msgid "Log"
@@ -2449,6 +2624,16 @@ msgstr "日志信息"
 #: Dlg-ID:106
 msgid "Look and Feel"
 msgstr "外观样式"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "最低版本: %ld - 最高版本: %ld"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -2509,6 +2694,16 @@ msgstr "正在合并"
 #: ID:76
 msgid "Message"
 msgstr "信息"
+
+# ID:76,
+#: ID:116
+msgid "Messages"
+msgstr "信息"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr "信息，作者，路径"
 
 # ID:78,
 #: ID:78
@@ -2576,6 +2771,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "本地文件系统(FSFS)"
+
+# ID:195,
+#: ID:195
+msgid "Needs Lock"
+msgstr "需锁定"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -2657,6 +2857,12 @@ msgstr ""
 "可执行的操作。\n"
 "要查看未进行版本控制的文件吗？"
 
+# ID:3843,#:
+# ID:3843,
+#: ID:273
+msgid "No graph available"
+msgstr "没有图片。"
+
 # ID:273,
 #: ID:273
 msgid "No image encoder found for %s."
@@ -2672,6 +2878,11 @@ msgstr "正常"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "没有删除全部的注册表项(或 INI 文件)。"
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "告示"
 
 # Control-ID:1161,
 #: Control-ID:1161
@@ -2696,14 +2907,16 @@ msgstr "确定"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:13,
+#: Control-ID:1202
+#, fuzzy
+msgid "Omit externals"
+msgstr "省略外部"
+
 # ID:219,
 #: ID:219
 msgid "One or more files are in a conflicted state."
 msgstr "至少还有一个的文件处于冲突状态。"
-
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "单向差异(&D)"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -2780,8 +2993,9 @@ msgid "Password:"
 msgstr "密码："
 
 # Control-ID:1031,
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
+#: ID:172
+#, fuzzy
+msgid "Paste filename list"
 msgstr "粘贴修改过文件的文件名"
 
 # ID:376,
@@ -2798,6 +3012,12 @@ msgstr "补丁文件(*.diff, *.patch)|*.diff;*.patch|所有文件(*.*)|*.*||"
 # ID:77,
 #: ID:77
 msgid "Path"
+msgstr "路径"
+
+# ID:77,
+#: ID:116
+#, fuzzy
+msgid "Paths"
 msgstr "路径"
 
 # ID:157,
@@ -2884,11 +3104,12 @@ msgstr "请执行“清理”动作。"
 
 # ID:78,
 #: ID:78
+#, fuzzy
 msgid ""
 "Please note:\n"
 "your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to <b>switch</b> over\n"
-"to that copy path. Use the <b>Switch</b> command to do that."
+"to be in the just created copy then you need to switch over\n"
+"to that copy path. Use the Switch command to do that."
 msgstr ""
 "请注意:\n"
 "你的工作复本仍设为原来的路径。如果你想要之后的修改\n"
@@ -2935,6 +3156,11 @@ msgstr "程序"
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "程序文件 (*.exe)|*.*|所有文件 (*.*)|*.*||"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Progress dialog:"
+msgstr "进度窗口："
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
@@ -3028,6 +3254,21 @@ msgstr "重新整理"
 msgid "Reject"
 msgstr "拒绝"
 
+# ID:16,
+#: ID:16
+msgid "Release Lock"
+msgstr "解除锁定"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "解除文件锁定，即使不是锁定拥有者（破除锁定）"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "解除文件锁定，让其他用户再次能够修改文件。"
+
 #: MenuEntry
 msgid "Reload"
 msgstr "重新加载"
@@ -3073,6 +3314,11 @@ msgstr "远程状态"
 msgid "Remote Text Status"
 msgstr "远程文字状态："
 
+# ID:13,
+#: ID:15
+msgid "Remove From Ignore List"
+msgstr "从忽略列表删除"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
@@ -3082,6 +3328,21 @@ msgstr "删除"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "已删除文件/文件夹"
+
+# ID:145,
+#: ID:145
+msgid ""
+"Removed the file(s)\n"
+"%s\n"
+"from the ignored list."
+msgstr ""
+"已将选定的文件\n"
+"%s 从忽略列表删除"
+
+# ID:13,
+#: ID:15
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "将选定的文件或文件匹配列表从忽略列表删除"
 
 # Dlg-ID:151,
 #: Dlg-ID:151
@@ -3173,10 +3434,15 @@ msgstr "重试"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:175,
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "还原"
+
+# ID:77,
+#: ID:8
+#, fuzzy
+msgid "Revert..."
+msgstr "SVN 还原..."
 
 # ID:8,#:
 # ID:73,#:
@@ -3281,6 +3547,11 @@ msgstr "SVN 导出..."
 msgid "SVN Import..."
 msgstr "SVN 导入..."
 
+# ID:16,
+#: ID:16
+msgid "SVN Lock Owner"
+msgstr "SVN锁定拥有者"
+
 # ID:78,
 #: ID:78
 msgid "SVN Merge..."
@@ -3290,6 +3561,12 @@ msgstr "SVN 合并..."
 #: Dlg-ID:134
 msgid "SVN Progress"
 msgstr "SVN 进程"
+
+# ID:101,
+#: ID:221
+#, fuzzy
+msgid "SVN Rename/Move"
+msgstr "重命名/移动(&R)..."
 
 # ID:77,
 #: ID:77
@@ -3478,6 +3755,11 @@ msgstr ""
 "选择要导出至的文件夹.\n"
 "你可能需要在进行导出之前先创建新文件夹。"
 
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "选择进度窗口在操作后的特性。"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -3525,6 +3807,12 @@ msgstr "正在设置属性..."
 msgid "Settings"
 msgstr "设置"
 
+# ID:12,
+#: Control-ID:1132
+#, fuzzy
+msgid "Sh&ow Log"
+msgstr "显示日志"
+
 # ID:101,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3537,7 +3825,8 @@ msgstr "日志信息使用短日期/时间格式(&D)"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of subversion items"
+#, fuzzy
+msgid "Short Url of Subversion items"
 msgstr "Subversion 项目标短 URL"
 
 # Control-ID:1031,
@@ -3556,6 +3845,7 @@ msgstr "显示差异(&D)"
 #: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
+#: Control-ID:1132
 msgid "Show &Log"
 msgstr "显示日志(&L)"
 
@@ -3627,6 +3917,12 @@ msgstr ""
 "显示空白字符"
 
 # Control-ID:1073,
+#: Control-ID:1209
+#, fuzzy
+msgid "Show unmodified files"
+msgstr "显示未进行版本控制的文件"
+
+# Control-ID:1073,
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "显示未进行版本控制的文件"
@@ -3671,16 +3967,27 @@ msgstr "跳过"
 msgid "Skipped missing target"
 msgstr "跳过丢失的目标项"
 
+# ID:238,
+#: Control-ID:1185
+msgid "Specific revision in repository"
+msgstr "文件库中的指定版本"
+
 # ID:79,
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-" should exclude from version control.\n"
+"should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "指定不需要使用 TortoiseSVN 进\n"
 "行版本控制的目录或文件名称。\n"
 "请以空白分隔项目。"
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Specify the revision range which you want to merge:"
+msgstr "指定合并的版本量程："
 
 # ID:3604,
 #: ID:3604
@@ -3712,6 +4019,21 @@ msgstr "状态"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "SVN 项目状态"
+
+# ID:16,
+#: ID:16
+msgid "Steal Lock"
+msgstr "偷取锁定"
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "偷取此锁定"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 # Control-ID:1130,
 #: Control-ID:1130
@@ -3841,11 +4163,13 @@ msgstr "文字状态："
 msgid ""
 "The File\n"
 "%s\n"
-"is not a valid text file!"
+"is not a valid text file!\n"
+"Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
 "文件\n"
 "%s\n"
-"不是正确的文本文件！"
+"不是正确的文本文件！\n"
+"注：UTF16，UTF32文件视为二进制文件。"
 
 # ID:80,
 #: ID:80
@@ -3886,6 +4210,17 @@ msgstr "补丁文件中找不到文件: %s！"
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "文件过大，无法打开。"
+
+# ID:145,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
+"文件或目录\n"
+"%s\n"
+"被修改过。确定移动文件？"
 
 # ID:80,
 #: ID:80
@@ -3935,6 +4270,11 @@ msgstr "新文件的标示行应该位于第 %d 行！"
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "旧文件的标示行应该位于第 %d 行！"
 
+# ID:251,
+#: ID:251
+msgid "The lock has already been broken from another working copy"
+msgstr "锁定已被其它工作复本解除。"
+
 # ID:63,
 #: ID:63
 msgid ""
@@ -3959,6 +4299,21 @@ msgstr ""
 "%s\n"
 "行不符合！"
 
+# ID:88,
+#: ID:88
+msgid ""
+"The path/url you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"输入的路径似乎在Windows上有错！\n"
+"你可以尝试继续，但可能会出现错误。\n"
+"\n"
+"正确windows路径不能包含'<>|\"?*:'或以下设备名：\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
 # ID:314,
 #: ID:314
 msgid ""
@@ -3976,6 +4331,11 @@ msgstr ""
 "<i>%s</i>。\n"
 "要使用建议路径替换吗？"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "合并结果已储到工作复本："
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -3987,12 +4347,18 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, fuzzy
 msgid ""
 "The target folder is not empty!\n"
-"Are you sure you want to check out into that folder?"
+"Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "目标文件夹非空！\n"
 "你确定要取出到该文件夹吗？"
+
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr "拥有此文件锁定的用户"
 
 # ID:81,
 #: ID:81
@@ -4046,6 +4412,17 @@ msgstr ""
 msgid "Thesaurus"
 msgstr "知识库"
 
+# ID:82,
+#: ID:82
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"这是无效路！\n"
+"正确路径不能包含'<>|\"?*:'或以下设备名：\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -4084,9 +4461,14 @@ msgid "To see the changes you made, double click on the files above."
 msgstr "双击以上文件可显示你所做的修改。"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1201
 msgid "To:"
 msgstr "至："
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "到： （合并结束于此URL和修改版本）"
 
 # ID:7,#:
 # ID:3585,#:
@@ -4187,6 +4569,10 @@ msgstr "调整 TortoiseSVN 设置"
 msgid "Two File Diff"
 msgstr "两文件差异比较"
 
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "双向差异(&D)"
+
 # Dlg-ID:164,
 #: Dlg-ID:164
 msgid "URL"
@@ -4194,7 +4580,8 @@ msgstr "URL"
 
 # ID:12,
 #: ID:12
-msgid "URL of subversion items"
+#, fuzzy
+msgid "URL of Subversion items"
 msgstr "Subversion 项目 URL"
 
 # Control-ID:65535,#:
@@ -4288,6 +4675,24 @@ msgstr ""
 "  指纹：%s\n"
 "  识别名称：%s"
 
+# ID:11,#:
+# Control-ID:1002,
+#: ID:221
+msgid "Unlock"
+msgstr "解除锁定"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:264
+msgid "Unlock failed"
+msgstr "解除锁定失败"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:263
+msgid "Unlocked"
+msgstr "已解除锁定"
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -4364,6 +4769,11 @@ msgstr "使用文字编辑器查看谴责"
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
 msgstr "使用“从:”的URL"
+
+# Control-ID:1184,
+#: Control-ID:1184
+msgid "Use autocompletion of filepaths and keywords"
+msgstr "自动完成文件路径和关键词"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -4477,18 +4887,14 @@ msgid "Visit our website"
 msgstr "浏览我们的网站"
 
 # ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "警告"
+
+# ID:219,
 #: ID:219
 msgid "Warning!"
 msgstr "警告！"
-
-# ID:195,
-#: ID:195
-msgid ""
-"When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"选中该项，则在每次操作后强制刷新浏览器中的叠加图标显示。\n"
-"<ct=0x0000ff><b>注意：</b> 此选项会造成资源管理器性能下降！</ct>"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4499,6 +4905,11 @@ msgstr "空白字符差异"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "空白字符"
+
+# ID:151,
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "工作复本"
 
 # ID:80,
 #: ID:80
@@ -4521,7 +4932,7 @@ msgstr "全部选是"
 
 # ID:201,
 #: ID:201
-msgid "You already have the most current version installed."
+msgid "You already have the latest version installed."
 msgstr "你已经安装了最新版。"
 
 # ID:144,
@@ -4590,11 +5001,11 @@ msgstr "本地文件："
 # ID:78,
 #: ID:78
 msgid ""
-"Your working copy appears to be on a <b>tag</b> path!\n"
+"Your working copy appears to be on a tag path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"你的工作复本正处于<b>标记</b>的路径下！\n"
-"你必须先切换至主版本, 或从主版本分支才能进行提交动作。"
+"你的工作复本正处于标记的路径下！\n"
+"你必须先切换至主版本或分支才能进行提交动作。"
 
 # ID:88,
 #: ID:88
@@ -4608,12 +5019,12 @@ msgstr ""
 "可能看上去和你要更新到的那个分支不是完全一致！"
 
 #: MenuEntry
-msgid "Zoom &In"
-msgstr "放大(&I)"
+msgid "Zoom &In\tCtrl-+"
+msgstr "放大(&I）\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out"
-msgstr "缩小(&O)"
+msgid "Zoom &Out\tCtrl--"
+msgstr "缩小(&O)\tCtrl--"
 
 # ID:10,
 #: ID:10
@@ -4657,6 +5068,18 @@ msgid ""
 msgstr ""
 "bugtraq:label\n"
 "用来提示使用者输入问题编号的信息。"
+
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline\n"
+"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"两个正则表达式，用换行分隔\n"
+"第一个正则表达式用于查找issue标题中的字符串，第二个正则表达式用于从字符串取得bug ID。"
 
 # ID:14,
 #: ID:14
@@ -4855,10 +5278,11 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, fuzzy
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
 "Author, LastChangedBy\t\tThe last person to modify the file.\n"
 "Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
@@ -4880,6 +5304,22 @@ msgid ""
 msgstr ""
 "svn:mime-type\r\n"
 "此文件的 mime 类型。用来决定文件是否要合并，以及由 Apache 传输时要怎么处理. 以“text/”开头(或没有设置)的 mime 类型视为文本文件，其它则视为二进制文件。"
+
+# ID:16,
+#: ID:16
+#, fuzzy
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr ""
+"svn:needs-lock\n"
+"将此属性设为任意值（如 ‘*’）来执行此文件锁定。\n"
+"文件T将在取出或更新时下设为只读，\n"
+"表明用户需在修改或提交前\n"
+"取得该文件锁定。"
 
 # ID:80,
 #: ID:80
@@ -4953,6 +5393,12 @@ msgstr ""
 msgid "week"
 msgstr "周"
 
+# ID:9,
+#: Control-ID:65535
+#, fuzzy
+msgid "which points to the repository at URL:"
+msgstr "将你所做的修改提交至文件库"
+
 # Control-ID:1112,
 #: Control-ID:1112
 msgid "your version is:"
@@ -4962,4 +5408,5 @@ msgstr "你的版本是："
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "你的版本是：%d.%d.%d.%d"
+
 

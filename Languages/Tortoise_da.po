@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3174
+# Based on r3191
 #
 msgid ""
 msgstr ""
@@ -1099,6 +1099,10 @@ msgstr "Kopieret"
 msgid "Copied remotely"
 msgstr "Kopieret på server"
 
+#: ID:103,
+msgid "Copy %s"
+msgstr "Kopier %s"
+
 #: Dlg-ID:142,
 msgid "Copy (Branch / Tag)"
 msgstr "Kopier (Lav forgrening/mærkat)"
@@ -1118,6 +1122,10 @@ msgstr "Kopier filer i Subversion hertil"
 #: ID:3603,
 msgid "Copy the selection and put it on the Clipboard\nCopy"
 msgstr "Kopier det markerede og læg det i udklipsholderen\nKopier"
+
+#: ID:103,
+msgid "Copy to working copy"
+msgstr "Kopier til arbejdskopi"
 
 #: ID:80,
 msgid "Copying %s"
@@ -1806,6 +1814,10 @@ msgstr "Den placering, hvor indholdet af\nversionsarkiv-URL'en vil blive gemt."
 msgid "Lock"
 msgstr "Lås"
 
+#: ID:207,
+msgid "Lock Comment"
+msgstr ""
+
 #: ID:209,
 msgid "Lock broken!"
 msgstr "Låsen er brudt!"
@@ -1825,6 +1837,10 @@ msgstr "Ejer af lås:"
 #: ID:209,
 msgid "Lock stolen by %s"
 msgstr "Låsen er stjålet af %s"
+
+#: ID:195,
+msgid "Locked"
+msgstr "Låst"
 
 #: ID:263,
 msgid "Locked by %s"
@@ -2132,8 +2148,8 @@ msgid "Paths"
 msgstr "Stier"
 
 #: ID:157,
-msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Billeder (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Billeder (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
 
 #: ID:3858,#: ID:3858,
 msgid "Please enter a GUID."
@@ -2589,6 +2605,14 @@ msgstr "Sti til gemte klientcertifikater"
 #: ID:3601,#: ID:3601,
 msgid "Save the modified file\nSave file"
 msgstr "Gem den ændrede fil\nGem fil"
+
+#: ID:103,
+msgid "Saving Files"
+msgstr "Gemmer filer"
+
+#: ID:103,
+msgid "Saving file %s"
+msgstr "Gemmer filen %s"
 
 #: ID:144,
 msgid "Saving patchfile to:"
@@ -3597,7 +3621,7 @@ msgstr "svn:mime-type\nMime-typen for filen. Denne benyttes til at afgøre, om f
 msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
 msgstr "svn:needs-lock\nSæt denne til en værdi (fx '*') for at kræve låsning for denne fil.\nFilen bliver gjort skrivebeskyttet, når den hentes eller opdateres\nog indikerer derved, at en bruger skal eje en lås på filen\nfør redigering og arkivering af ændringer er mulig."
 
-#: ID:80,
+#: ID:80,#: ID:103,#: ID:103,
 msgid "to %s"
 msgstr "til %s"
 

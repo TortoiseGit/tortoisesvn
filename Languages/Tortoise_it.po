@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-04-18 17:34+0100\n"
+"PO-Revision-Date: 2005-05-01 23:35+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -320,6 +320,11 @@ msgstr "Dischi di &rete"
 #: Control-ID:65535
 msgid "&New "
 msgstr "&Nuovo"
+
+# Control-ID:1208,
+#: Control-ID:1208
+msgid "&Next 100"
+msgstr "&Prossimi 100"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -1023,10 +1028,10 @@ msgstr "Autore:                        Stefan Kueng"
 msgid "Authors"
 msgstr "Autori"
 
-# Control-ID:65535,
+# ID:76,
 #: Control-ID:65535
-msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "Autori:                      Stefan Kueng, Tim Kemp"
+msgid "Authors:"
+msgstr "Autori:"
 
 # Control-ID:1123,
 #: ID:222
@@ -1480,6 +1485,11 @@ msgstr "Copiato"
 msgid "Copied remotely"
 msgstr "Copiato in remoto"
 
+# ID:80,
+#: ID:103
+msgid "Copy %s"
+msgstr "Copia %s"
+
 # Dlg-ID:142,
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
@@ -1508,6 +1518,11 @@ msgid ""
 msgstr ""
 "Copia il testo selezionato e lo copia negli appunti\n"
 "Copia"
+
+# ID:151,
+#: ID:103
+msgid "Copy to working copy"
+msgstr "Copia sulla copia di lavoro"
 
 # ID:80,
 #: ID:80
@@ -1668,6 +1683,11 @@ msgstr "Crea un repository nella directory corrente"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Crea un file di confronto unificato per tutte le modifiche apportate"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Credits:"
+msgstr "Crediti:"
 
 # ID:376,
 #: ID:376
@@ -1856,6 +1876,11 @@ msgstr ""
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "Si desidera salvare i cambiamenti?"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Documentation - Simon Large"
+msgstr "Documentazione - Simon Large"
 
 # ID:80,
 #: ID:73
@@ -2174,8 +2199,8 @@ msgstr "Ottenimento Patch..."
 
 # Control-ID:1203,
 #: ID:16
-msgid "Get Lock"
-msgstr "Prendi blocco"
+msgid "Get Lock..."
+msgstr "Prendi blocco..."
 
 # ID:119,
 #: ID:119
@@ -2319,7 +2344,7 @@ msgstr ""
 
 # ID:251,
 #: ID:251
-msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
 msgstr "Se vuoi forzare il blocco, usa la finestra di dialogo \"Controlla se ci sono modifiche\"."
 
 # ID:73,
@@ -2540,9 +2565,20 @@ msgstr ""
 "del Repository selezionato."
 
 # ID:221,
+#: ID:207
 #: ID:221
 msgid "Lock"
 msgstr "Blocca"
+
+# Control-ID:65535,
+#: ID:207
+msgid "Lock Comment"
+msgstr "Commento al blocco:"
+
+# Control-ID:65535,
+#: ID:209
+msgid "Lock broken!"
+msgstr "Blocco forzato!"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2559,6 +2595,17 @@ msgstr "Blocco fallito"
 #: Control-ID:65535
 msgid "Lock owner:"
 msgstr "Bloccato da:"
+
+# ID:263,
+#: ID:209
+msgid "Lock stolen by %s"
+msgstr "Blocco forzato da %s"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:195
+msgid "Locked"
+msgstr "Bloccato"
 
 # ID:263,
 #: ID:263
@@ -2944,11 +2991,6 @@ msgstr "Apre Repository Browser per personalizzare il browser online"
 msgid "Out of memory."
 msgstr "Memoria insufficente."
 
-# ID:207,
-#: ID:207
-msgid "Owner"
-msgstr "Proprietario"
-
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -2997,8 +3039,8 @@ msgstr "Percorsi"
 
 # ID:157,
 #: ID:157
-msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Immagini (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Tutte (*.*)|*.*||"
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Immagini (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Tutte (*.*)|*.*||"
 
 # ID:3858,#:
 # ID:3858,
@@ -3640,6 +3682,16 @@ msgstr ""
 "Salva il file modificato\n"
 "Salva file"
 
+# Dlg-ID:158,
+#: ID:103
+msgid "Saving Files"
+msgstr "Salvataggio dei file"
+
+# ID:144,
+#: ID:103
+msgid "Saving file %s"
+msgstr "Salvataggio del file %s"
+
 # ID:144,
 #: ID:144
 msgid "Saving patchfile to:"
@@ -3818,6 +3870,7 @@ msgstr "Mostra &differenze"
 #: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
+#: Control-ID:1132
 msgid "Show &Log"
 msgstr "Visualizza &Log"
 
@@ -3887,6 +3940,11 @@ msgid ""
 msgstr ""
 "Mostra i caratteri di spaziatura come caratteri speciali\n"
 "Mostra spaziature"
+
+# Control-ID:1073,
+#: Control-ID:1209
+msgid "Show unmodified files"
+msgstr "Mostra file non modificati"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -3995,6 +4053,11 @@ msgstr "Ruba il blocco"
 #: ID:313
 msgid "Steal the lock"
 msgstr "Ruba il blocco"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 # Control-ID:1130,
 #: Control-ID:1130
@@ -4230,6 +4293,11 @@ msgstr "La stringa indicante il nuovo file era attesa alla linea %d !"
 #: ID:63
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "La stringa indicante il vecchio file era attesa alla linea %d !"
+
+# ID:251,
+#: ID:251
+msgid "The lock has already been broken from another working copy"
+msgstr "Il blocco è stato già forzato da un'altra copia di lavoro"
 
 # ID:63,
 #: ID:63
@@ -5254,8 +5322,24 @@ msgstr ""
 "svn:mime-type\n"
 "Il mime-type del file. Viene usato per determinare come fondere il file e come distribuirlo con Apache. Un mime-type iniziate per 'text/' (o in caso di assenza del mime-type) viene trattato come testo. Tutto  il resto è trattato come codice binario."
 
+# ID:16,
+#: ID:16
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr ""
+"svn:needs-lock\n"
+"Impostare questa proprietà con qualsiasi valore (per esempio '*') per forzare il blocco di questo file.\n"
+"Il file verrà impostato in sola lettura quando ritirato o aggiornato,\n"
+"indicando che un utente lo deve bloccare\n"
+"prima che si possa modificalro o inviarne i cambiamenti."
+
 # ID:80,
 #: ID:80
+#: ID:103
 msgid "to %s"
 msgstr "verso %s"
 
