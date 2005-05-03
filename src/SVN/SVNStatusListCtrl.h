@@ -137,6 +137,10 @@ public:
 		{
 			return !(lock_token.IsEmpty() && lock_remotetoken.IsEmpty());
 		}
+		const bool IsFolder() const
+		{
+			return isfolder;
+		}
 	private:
 		CTSVNPath				path;					///< full path of the file
 		CTSVNPath				basepath;				///< common ancestor path of all files

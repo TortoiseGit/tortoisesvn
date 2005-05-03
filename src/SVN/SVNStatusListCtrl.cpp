@@ -1320,18 +1320,19 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_MENURESOLVE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
 				}
-				popup.AppendMenu(MF_SEPARATOR);
-				if ((wcStatus >= svn_wc_status_normal)&&((entry->lock_token.IsEmpty())&&(entry->lock_remotetoken.IsEmpty())))
+				if (!entry->IsFolder())
+					popup.AppendMenu(MF_SEPARATOR);
+				if ((wcStatus >= svn_wc_status_normal)&&(!entry->IsFolder()))
 				{
 					temp.LoadString(IDS_MENU_LOCK);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);					
 				}
-				if ((!entry->lock_token.IsEmpty())&&(wcStatus >= svn_wc_status_normal))
+				if ((!entry->lock_token.IsEmpty())&&(wcStatus >= svn_wc_status_normal)&&(!entry->IsFolder()))
 				{
 					temp.LoadString(IDS_MENU_UNLOCK);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);
 				}
-				if (((!entry->lock_token.IsEmpty())||(!entry->lock_remotetoken.IsEmpty()))&&(wcStatus >= svn_wc_status_normal))
+				if ((!entry->IsFolder())&&((!entry->lock_token.IsEmpty())||(!entry->lock_remotetoken.IsEmpty()))&&(wcStatus >= svn_wc_status_normal))
 				{
 					temp.LoadString(IDS_MENU_UNLOCKFORCE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);
