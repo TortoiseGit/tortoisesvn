@@ -1768,6 +1768,7 @@ void CLogDlg::EditLogMessage(int index)
 	dlg.m_sHintText.LoadString(IDS_LOG_MESSAGE);
 	dlg.m_sInputText = value;
 	dlg.m_sTitle.LoadString(IDS_LOG_MESSAGEEDITTITLE);
+	dlg.m_pProjectProperties = &m_ProjectProperties;
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
