@@ -143,11 +143,11 @@
 			<itemizedlist>
 				<listitem>
 					<para>
-						do a
+						Make a fresh
 						<menuchoice>
 							<guimenuitem>Checkout</guimenuitem>
 						</menuchoice>
-						of it again. You can check it out to any location on your
+						to an empty folder. You can check out to any location on your
 						local disk and you can create as many working copies
 						from your repository as you like.
 					</para>
@@ -156,17 +156,17 @@
 					<para>
 						Switch your current working copy to the
 						newly created copy in the repository. Again select the
-						parent folder of your project and select the command
+						top level folder of your project and use
 						<menuchoice>
 							<guimenuitem>Switch...</guimenuitem>
 						</menuchoice>
 						from the context menu.
 					</para>
 					<para>
-						In the next dialog yout enter the URL of the branch you just created.
-						Leave the Checkbox 
-						<guilabel>latest revision</guilabel>
-						active and click on
+						In the next dialog enter the URL of the branch you just created.
+						Select the
+						<guilabel>Head Revision</guilabel>
+						radio button and click on
 						<guibutton>OK</guibutton>.
 						Your working copy is switched to the new branch / tag.
 					</para>
