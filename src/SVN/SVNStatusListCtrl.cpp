@@ -1321,7 +1321,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
 				}
 				popup.AppendMenu(MF_SEPARATOR);
-				if ((wcStatus >= svn_wc_status_normal)&&(entry->lock_token.IsEmpty()))
+				if ((wcStatus >= svn_wc_status_normal)&&((entry->lock_token.IsEmpty())&&(entry->lock_remotetoken.IsEmpty())))
 				{
 					temp.LoadString(IDS_MENU_LOCK);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);					
@@ -1329,9 +1329,12 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				if ((!entry->lock_token.IsEmpty())&&(wcStatus >= svn_wc_status_normal))
 				{
 					temp.LoadString(IDS_MENU_UNLOCK);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);					
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);
+				}
+				if (((!entry->lock_token.IsEmpty())||(!entry->lock_remotetoken.IsEmpty()))&&(wcStatus >= svn_wc_status_normal))
+				{
 					temp.LoadString(IDS_MENU_UNLOCKFORCE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);					
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);
 				}
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				m_bBlock = TRUE;
