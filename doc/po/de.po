@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-29 10:04+0100\n"
+"PO-Revision-Date: 2005-05-03 10:18+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -83,16 +83,21 @@ msgid ""
 "svnserve.exe -d\n"
 "</screen> svnserve will now start waiting for incoming requests on port 3690. The -d switch tells svnserve to run as a daemon process, so it will always exist until it is manually terminated."
 msgstr ""
+"Nun, da <application>svnserve<application> installiert ist, müssen Sie die Anwendung auch aktivieren. Die einfachste Variante ist, das folgende Skript in der Eingabeaufforderung zu starten:\n"
+"<screen>\n"
+"svnserve.exe -d\n"
+"</screen>\n"
+"Sie können auch eine Verknüpfung dafür anzulegen. <application>Svnserve<application> wird nun auf über Port 3690 eingehende Anfragen warten. Die <literal>-d</literal> Option zwingt svnserve, so lange als Dienst zu laufen, bis der Prozess manuell beendet wird."
 
 #: source/en/tsvn_server/server_svn.xml:69
 #: (para)
 msgid "If you have not yet created a repository, follow the instructions given with the Apache server setup <xref linkend=\"tsvn-serversetup-apache-4\"/>."
-msgstr ""
+msgstr "Wenn Sie noch kein Projektarchiv angelegt haben, befolgen Sie die folgenden Anweisungen dazu <xref linkend=\"tsvn-serversetup-apache-4\"/>."
 
 #: source/en/tsvn_server/server_svn.xml:74
 #: (para)
 msgid "To test that svnserve is working, use TortoiseSVN's <menuchoice><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to view a repository."
-msgstr ""
+msgstr "Um schnell herauszufinden, ob svnserve arbeitet, rufen Sie mittels <menuchoice><guimenuitem>Projektarchiv</guimenuitem></menuchoice> den Projektarchiv-Betrachter aus dem Kontextmenü von TortoiseSVN auf."
 
 #: source/en/tsvn_server/server_svn.xml:81
 #: (para)
@@ -101,6 +106,11 @@ msgid ""
 "svn://localhost/repos/TestRepo\n"
 "</screen>"
 msgstr ""
+"Nehmen wir an, Ihr Projektarchiv befindet sich in <filename>c:\\repos\\TestRepo</filename> und Ihr Server heisst  <filename>localhost</filename>. Dann müssen Sie in das URL Feld des Projektarchiv-Betrachters\n"
+"<screen>\n"
+"svn://localhost/repos/TestRepo\n"
+"</screen>\n"
+"eingeben."
 
 #: source/en/tsvn_server/server_svn.xml:93
 #: (para)
