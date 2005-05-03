@@ -1140,7 +1140,7 @@ void CBaseView::ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar)
 	if ((m_pwndLeft)&&(m_pwndRight))
 	{
 		m_pwndLeft->ScrollToLine(nNewTopLine, bTrackScrollBar);
-		m_pwndRight->ScrollToLine(nNewTopLine, FALSE);
+		m_pwndRight->ScrollToLine(nNewTopLine, bTrackScrollBar);
 	}
 	else
 	{
