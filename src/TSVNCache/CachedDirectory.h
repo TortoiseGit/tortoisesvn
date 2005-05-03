@@ -6,7 +6,7 @@
 class CCachedDirectory
 {
 public:
-	typedef std::map<CTSVNPath, CCachedDirectory> CachedDirMap; 
+	typedef std::map<CTSVNPath, CCachedDirectory *> CachedDirMap; 
 	typedef CachedDirMap::iterator ItDir;
 
 public:
@@ -38,6 +38,8 @@ private:
 	svn_wc_status_kind GetCurrentFullStatus();
 
 private:
+	CComAutoCriticalSection m_critSec;
+
 	// The cache of files and directories within this directory
 	typedef std::map<CString, CStatusCacheEntry> CacheEntryMap; 
 	CacheEntryMap m_entryCache; 

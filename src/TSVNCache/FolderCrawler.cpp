@@ -162,7 +162,7 @@ void CFolderCrawler::WorkerThread()
 			ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
 
 			// Now, we need to visit this folder, to make sure that we know its 'most important' status
-			CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath).RefreshStatus();
+			CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus();
 
 			Sleep(10);
 		}

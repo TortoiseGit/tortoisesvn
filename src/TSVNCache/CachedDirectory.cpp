@@ -15,6 +15,8 @@ CCachedDirectory::CCachedDirectory(void)
 
 CCachedDirectory::~CCachedDirectory(void)
 {
+	AutoLocker lock(m_critSec);
+	
 }
 
 CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
@@ -30,6 +32,7 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 
 BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
 {
+	AutoLocker lock(m_critSec);
 #define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) return false;
 	DWORD written = 0;
 	int value = 0;
@@ -84,6 +87,7 @@ BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
 
 BOOL CCachedDirectory::LoadFromDisk(HANDLE hFile)
 {
+	AutoLocker lock(m_critSec);
 #define LOADVALUEFROMFILE(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) return false;
 	DWORD read = 0;
 	int value = 0;
@@ -207,13 +211,13 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		{
 			// We don't have directory status in our cache
 			// Ask the directory if it knows its own status
-			CCachedDirectory& dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
-			if(dirEntry.IsOwnStatusValid())
+			CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
+			if(dirEntry->IsOwnStatusValid())
 			{
 				// This directory knows its own status
 				// but is it still versioned?
 				
-				CTSVNPath svnFilePath(dirEntry.m_directoryPath);
+				CTSVNPath svnFilePath(dirEntry->m_directoryPath);
 				if (!svnFilePath.HasAdminDir())
 				{
 					CSVNStatusCache::Instance().RemoveCacheForPath(svnFilePath);
@@ -223,18 +227,19 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				// To keep recursive status up to date, we'll request that children are all crawled again
 				// This will be very quick if nothing's changed, because it will all be cache hits
 				ChildDirStatus::const_iterator it;
-				for(it = dirEntry.m_childDirectories.begin(); it != dirEntry.m_childDirectories.end(); ++it)
+				for(it = dirEntry->m_childDirectories.begin(); it != dirEntry->m_childDirectories.end(); ++it)
 				{
 					CTSVNPath childPath = it->first;
 					CSVNStatusCache::Instance().AddFolderForCrawling(it->first);
 				}
 
-				return dirEntry.GetOwnStatus(bRecursive);
+				return dirEntry->GetOwnStatus(bRecursive);
 			}
 		}
 		else
 		{
 			// Look up a file in our own cache
+			AutoLocker lock(m_critSec);
 			strCacheKey = GetCacheKey(path);
 			CacheEntryMap::iterator itMap = m_entryCache.find(strCacheKey);
 			if(itMap != m_entryCache.end())
@@ -255,6 +260,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	}
 	else
 	{
+		AutoLocker lock(m_critSec);
 		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
 		m_propsDirTime = propsDirPath.GetLastWriteTime();
 		m_entryCache.clear();
@@ -285,6 +291,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 	if(!bThisDirectoryIsUnversioned)
 	{
+		AutoLocker lock(m_critSec);
 		ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
 		svn_error_t* pErr = svn_client_status2 (
 			NULL,
@@ -332,15 +339,15 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 	if (path.IsDirectory())
 	{
-		CCachedDirectory& dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
-		if(dirEntry.IsOwnStatusValid())
+		CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
+		if(dirEntry->IsOwnStatusValid())
 		{
-			return dirEntry.GetOwnStatus(bRecursive);
+			return dirEntry->GetOwnStatus(bRecursive);
 		}
 
 		// If the status *still* isn't valid here, it means that 
 		// the current directory is unversioned, and we shall need to ask its children for info about themselves
-		return dirEntry.GetStatusForMember(path,bRecursive,bNoUpdates);
+		return dirEntry->GetStatusForMember(path,bRecursive,bNoUpdates);
 	}
 	else
 	{
@@ -360,12 +367,13 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 {
 	if(path.IsDirectory())
 	{
-		CCachedDirectory& childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
-		childDir.m_ownStatus.SetStatus(pSVNStatus);
+		CCachedDirectory * childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
+		childDir->m_ownStatus.SetStatus(pSVNStatus);
 		m_bCurrentFullStatusValid = false;
 	}
 	else
 	{
+		AutoLocker lock(m_critSec);
 		m_entryCache[GetCacheKey(path)] = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly());
 	}
 }
@@ -496,7 +504,7 @@ void CCachedDirectory::UpdateCurrentStatus(bool bNoUpdates)
 	if(!parentPath.IsEmpty())
 	{
 		// We have a parent
-		CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath).UpdateChildDirectoryStatus(m_directoryPath, 	m_currentFullStatus, bNoUpdates);
+		CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath)->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus, bNoUpdates);
 	}
 	m_bCurrentFullStatusValid = true;
 }
@@ -542,6 +550,7 @@ void CCachedDirectory::RefreshStatus()
 	CacheEntryMap::iterator itMembers;
 	DWORD now = GetTickCount();
 	
+	AutoLocker lock(m_critSec);
 	for(itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{
 		if (itMembers->first)
