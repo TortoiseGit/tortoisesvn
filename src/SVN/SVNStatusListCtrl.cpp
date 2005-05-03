@@ -1856,6 +1856,8 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	ASSERT(entry != NULL);
 	if (entry == NULL)
 		return;
+	if (entry->status == svn_wc_status_normal)
+		return;		//normal files won't show anything interesting in a diff
 	if (entry->status == svn_wc_status_deleted)
 		return;		//we don't compare a deleted file (nothing) with something
 	if (entry->status == svn_wc_status_missing)
