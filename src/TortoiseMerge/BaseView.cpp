@@ -1673,11 +1673,23 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	} // if (nChar==VK_PRIOR)
 	if (nChar==VK_HOME)
 	{
-		ScrollAllToLine(0);
+		if (GetKeyState(VK_CONTROL)&0x8000)
+			ScrollAllToLine(0);
+		else
+		{
+			ScrollToChar(0);
+		}
 	}
 	if (nChar==VK_END)
 	{
-		ScrollAllToLine(GetLineCount());
+		if (GetKeyState(VK_CONTROL)&0x8000)
+			ScrollAllToLine(GetLineCount()-GetAllMinScreenLines());
+		else
+		{
+			int charpos = GetMaxLineLength() - GetScreenChars();
+			if (charpos > 0)
+				ScrollToChar(charpos);
+		}
 	}
 	if (nChar==VK_DOWN)
 	{
