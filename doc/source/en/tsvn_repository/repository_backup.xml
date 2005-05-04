@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-repository-backup">
 	<title>Repository Backup</title>
 	<indexterm>
@@ -33,7 +33,7 @@ svnadmin hotcopy path/to/repository path/to/backup --clean-logs
 	</para>
 	<para>
 		The <literal>svnadmin</literal> tool is installed automatically
-		when you install the subversion command line client. If you
+		when you install the Subversion command line client. If you
 		are installing the command line tools on a Windows PC, the
 		best way is to download the Windows installer version. It
 		is compressed more efficiently than the <filename>.zip</filename>

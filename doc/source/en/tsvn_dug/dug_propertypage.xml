@@ -25,12 +25,12 @@
 	<para>
 		On the Subversion page you can see all relevant
 		information about the selected file/directory. In
-		addition you can read and set the subversion properties.
+		addition you can read and set the Subversion properties.
 		You can add your own properties, or some properties with a 
-		special meaning in subversion. These begin with <literal>svn:</literal>. 
+		special meaning in Subversion. These begin with <literal>svn:</literal>. 
 		<literal>svn:externals</literal> is such a property; see how to handle
 		externals in <xref linkend="tsvn-DUG-import-4"/>.
-		For more information about properties in subversion see the  
+		For more information about properties in Subversion see the  
 		<ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3">
 			<citetitle>Subversion Manual</citetitle>
 		</ulink>.
@@ -174,7 +174,7 @@
 	<tip>
 		<title>Automatic property setting</title>
 		<para>
-			You can configure subversion to set properties automatically 
+			You can configure Subversion to set properties automatically 
 			on files and folders when they are added to the repository.
 			Read <xref linkend="tsvn-DUG-settings"/> for further information. 
 		</para>

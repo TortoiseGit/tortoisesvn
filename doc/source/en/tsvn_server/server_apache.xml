@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-serversetup-apache">
 	<title>Apache Based Server</title>
 	<sect2 id="tsvn-serversetup-apache-1">
@@ -348,7 +348,7 @@ bin\htpasswd passwd &lt;username&gt;
 							<entry>AuthzSVNAccessFile</entry>
 							<entry>
 								Location of the Access file for paths inside a
-								subversion repository
+								Subversion repository
 							</entry>
 						</row>
 						<row>

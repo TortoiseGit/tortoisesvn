@@ -29,7 +29,7 @@
 		</itemizedlist>
 	</para>
 	<para>
-		Firstly you need to ensure that your subversion server is upgraded to at
+		Firstly you need to ensure that your Subversion server is upgraded to at
 		least version 1.2. Earlier versions do not support locking at all. If you
 		are using <filename>file:///</filename> access, then of course only your
 		client needs to be updated.
@@ -54,7 +54,7 @@
 			out a lock. Unless they check the lock status regularly, the first
 			they will know about it is when their commit fails, which in most
 			cases is not very useful. To make it easier to manage locks, there
-			is a new subversion property
+			is a new Subversion property
 			<literal>svn:needs-lock</literal>.
 			When this property is set (to any value) on a file, whenever the
 			file is checked out or updated, the local copy is made read-only

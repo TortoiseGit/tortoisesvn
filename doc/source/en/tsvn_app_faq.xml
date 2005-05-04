@@ -377,11 +377,11 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				Simply uninstall from Add/Remove Programs in the Windows 
 				control panel. This does not effect your repositories or 
 				working copies at all. Be aware however, that the 
-				subversion database schema might change before 
-				subversion 1.0 is released. When you are working with 
+				Subversion database schema might change before 
+				Subversion 1.0 is released. When you are working with 
 				local repositories (<filename>file:///</filename> URLs), a 
 				newer version of TortoiseSVN might be incompatible to 
-				an old repository. Please check the subversion release notes. 
+				an old repository. Please check the Subversion release notes. 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-7">
@@ -496,7 +496,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				<systemitem class="url">
 				http://svn.collab.net/svn/repos/trunk/README</systemitem>) 
 				is a file or a folder (ok, it could - but that would
-				take a few seconds to check...). But subversion itself 
+				take a few seconds to check...). But Subversion itself 
 				complains if it's a file... 
 			</para>
 		</sect2>
@@ -508,7 +508,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 				There are (at least) two possible solutions to rename a file
 				without losing its log history. It is important to rename it
-				<emphasis>within</emphasis> subversion. Just renaming in the
+				<emphasis>within</emphasis> Subversion. Just renaming in the
 				explorer will corrupt your working copy!!!
 			</para>
 			<para>
@@ -598,7 +598,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 				There's only one exception: if you use the special build to work
 				around the VS.NET bug with web projects then you can't use any
-				other subversion clients anymore. You're stuck with that special
+				other Subversion clients anymore. You're stuck with that special
 				build. Other Subversion clients won't recognize your working copies.
 			</para>
 		</sect2>
@@ -942,8 +942,8 @@ Folder/File2 : revision 2
 				found in <xref linkend="tsvn-serversetup-apache-6"/>
 			</para>
 			<para>
-				Please have a look at the subversion book and the 
-				INSTALL file of subversion on how to use
+				Please have a look at the Subversion book and the 
+				INSTALL file of Subversion on how to use
 				<systemitem class="url">svn+ssh://</systemitem>
 			</para>
 		</sect2>
