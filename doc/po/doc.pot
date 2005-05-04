@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-04-29 09:39Westeuropäische Sommerzeit\n"
+"POT-Creation-Date: 2005-05-04 10:01Westeuropäische Sommerzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1069,7 +1069,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:51(warning) 
+#: source/en/tsvn_dug/dug_settings.xml:51(caution) 
 msgid "If you use the subversion configuration file to set a <placeholder-1/> pattern, it will override the settings you made here. The Subversion configuration file is accessed using the <placeholder-2/> as described below."
 msgstr ""
 
@@ -1405,7 +1405,7 @@ msgstr ""
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_revgraph.xml:71(warning) 
+#: source/en/tsvn_dug/dug_revgraph.xml:71(caution) 
 msgid "Because subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
 msgstr ""
 
@@ -2373,38 +2373,46 @@ msgid "Similar to ExamDiff Pro, this is an excellent shareware diff tool which c
 msgstr ""
 
 #: source/en/tsvn_dug/dug_diff.xml:180(term) 
-msgid "SciTE"
+msgid "Araxis Merge"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_diff.xml:182(para) 
+msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparision in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_diff.xml:194(term) 
+msgid "SciTE"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_diff.xml:196(para) 
 msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_diff.xml:192(term) 
+#: source/en/tsvn_dug/dug_diff.xml:206(term) 
 msgid "Notepad2"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_diff.xml:194(para) 
+#: source/en/tsvn_dug/dug_diff.xml:208(para) 
 msgid "Notepad2 is designed as a replacement for the standard Windows Notepad program, and is based on the Scintilla open-source edit control. As well as being good for viewing unified diffs, it is much better than the Windows notepad for most jobs. Download it for free <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>here</citetitle></ulink>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_diff.xml:207(term) 
+#: source/en/tsvn_dug/dug_diff.xml:221(term) 
 msgid "TkDiff"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_diff.xml:209(para) 
+#: source/en/tsvn_dug/dug_diff.xml:223(para) 
 msgid "A free diff/merge tool which uses TCL/TK. Download it <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>here</citetitle></ulink>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_diff.xml:219(term) 
+#: source/en/tsvn_dug/dug_diff.xml:233(term) 
 msgid "CVSConflictEditor"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_diff.xml:221(para) 
+#: source/en/tsvn_dug/dug_diff.xml:235(para) 
 msgid "This open source merge tool is buggy, but has potential. Download it <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>here</citetitle></ulink>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_diff.xml:231(para) 
+#: source/en/tsvn_dug/dug_diff.xml:245(para) 
 msgid "Read <xref linkend=\"tsvn-DUG-settings-progs\"/> for information on how to set up TortoiseSVN to use these tools."
 msgstr ""
 
@@ -2805,15 +2813,15 @@ msgid "...that is (not really) the question. While a checkout checks out everyth
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:145(para) 
-msgid "do a <menuchoice><guimenuitem>Checkout</guimenuitem></menuchoice> of it again. You can check it out to any location on your local disk and you can create as many working copies from your repository as you like."
+msgid "Make a fresh <menuchoice><guimenuitem>Checkout</guimenuitem></menuchoice> to an empty folder. You can check out to any location on your local disk and you can create as many working copies from your repository as you like."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:156(para) 
-msgid "Switch your current working copy to the newly created copy in the repository. Again select the parent folder of your project and select the command <menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
+msgid "Switch your current working copy to the newly created copy in the repository. Again select the top level folder of your project and use <menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:165(para) 
-msgid "In the next dialog yout enter the URL of the branch you just created. Leave the Checkbox <guilabel>latest revision</guilabel> active and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch / tag."
+msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch / tag."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:173(para) 

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-03 10:18+0100\n"
+"PO-Revision-Date: 2005-05-04 10:37+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -153,12 +153,12 @@ msgstr "Anmeldung mit Svnserve"
 #: source/en/tsvn_server/server_svn.xml:150
 #: (para)
 msgid "The default svnserve setup provides anonymous read-only access, so whilst you can use the repo-browser in TortoiseSVN to view a repository using an svn:// Url, you won't be able to perform any normal Subversion operations such as checkout, update or commit."
-msgstr ""
+msgstr "Die Standardkonfiguration von svnserve lässt nur anonymen Lesezugriff zu, so daß Sie zwar das Projektarchiv über eine svn:// URL betrachten, jedoch keine weiteren Operationen wie Auschecken, Aktualisieren oder Übertragen vornehmen können"
 
 #: source/en/tsvn_server/server_svn.xml:156
 #: (para)
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
-msgstr ""
+msgstr "Um Schreibzugriff auf das Projekarchiv zu ermöglichen, müssen Sie die <filename>conf/svnserve.conf</filename> Datei im Verzeichnis des Projektarchivs bearbeiten. Diese Datei enthält die Dokumentation sowie die Parameter zur Einrichtung des svnserve Dienstes."
 
 #: source/en/tsvn_server/server_svn.xml:162
 #: (para)
@@ -168,9 +168,16 @@ msgid ""
 "anon-access = write\n"
 "</screen> However, you will not know who has made changes to a repository, as the <literal>svn:author</literal> property will be empty. You will also be unable to control who makes changes to a repository. This is a somewhat risky setup!"
 msgstr ""
+"Sie können anonymen Schreibzugriff ermöglichen, indem Sie einfach:\n"
+"<screen>\n"
+"[general]\n"
+"anon-access = write\n"
+"</screen>\n"
+"eintragen. Allerdings werden Sie nicht erfahren, wer Änderungen an Daten im Projektarchiv vorgenommen hat, weil die <literal>svn:author</literal> Eigenschaft leer bleibt. Obendrein können Sie nicht kontrollieren, wer Änderungen an Daten vornimmt, da Sie es ja explizit <emphasis> jedem, anonym</emphasis> gestatten!"
 
 #: source/en/tsvn_server/server_svn.xml:173
 #: (para)
+#, fuzzy
 msgid ""
 "One way to overcome this is to create a password database: <screen>\n"
 "[general]\n"
@@ -183,6 +190,20 @@ msgid ""
 "...\n"
 "</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
+"Eine Möglichkeit, den Zugriff zu steuern, ist eine Passwortdatenbank anzulegen:\n"
+"<screen>\n"
+"[general]\n"
+"anon-access = none\n"
+"auth-access = write\n"
+"password-db = userfile\n"
+"</screen>\n"
+"Wobei <literal>userfile</literal> eine Datei im gleichen Verzeichnis wie <filename>svnserve.conf</filename> sein muss. This file can live elsewhere in your filesytem (useful for when you have multiple repositories which require the same access rights) and be can referenced using an absolute or relative path. Die Datei <filename>userfile</filename> hat folgende Struktur:\n"
+"<screen>\n"
+"[users]\n"
+"username = password\n"
+"...\n"
+"</screen>\n"
+"Auf diese Weise wird allen nicht angemeldeten (anon-access) Benutzern der Zugriff verweigert, wogegen alle in <filename>userfile</filename> aufgeführten Anwender Schreibzugriff erhalten."
 
 #: source/en/tsvn_server/server_svn.xml:197
 #: (para)
@@ -197,17 +218,17 @@ msgstr "Anmeldung mit svn+ssh"
 #: source/en/tsvn_server/server_svn.xml:216
 #: (para)
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through."
-msgstr ""
+msgstr "Eine andere Möglichkeit Benutzer an einem svnserve basierten Server anzumelden, besteht darin, eine Secure Shell (SSH) zu installieren, durch die die Anfragen weitergeleitet (getunnelt) werden."
 
 #: source/en/tsvn_server/server_svn.xml:221
 #: (para)
 msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
-msgstr ""
+msgstr "Mit diesem Ansatz läuft svnserve nicht als Dienst, sondern die Secure Shell started svnserve mit den Berechtigungen des über SSH angemeldeten Benutzers. Dafür benötigen Sie allerdings einen SSH Dienst auf Ihrem Server."
 
 #: source/en/tsvn_server/server_svn.xml:227
 #: (para)
 msgid "It is beyond the scope of this documentation to detail the installation and setup of a secure shell, however you can find further information in the <ulink url=\"http://tortoisesvn.berlios.de/faq/index.php?action=artikel&amp;cat=8&amp;id=30&amp;artlang=en\"><citetitle>Subversion / TortoiseSVN SSH HowTo</citetitle></ulink>"
-msgstr ""
+msgstr "Es sprengt den Rahmen dieses Handbuchs, auf die Konfiguration der Secure Shell genauer einzugehen. Auf unserer FAQ Seite finden Sie eine ausführliche Anleitung dazu. <ulink url=\"http://tortoisesvn.berlios.de/faq/index.php?action=artikel&amp;cat=8&amp;id=30&amp;artlang=en\"><citetitle>Subversion / TortoiseSVN SSH HowTo</citetitle></ulink>"
 
 #: source/en/tsvn_server/server_svn.xml:235
 #: (para)
@@ -281,12 +302,12 @@ msgstr "Apache installieren"
 #: source/en/tsvn_server/server_apache.xml:70
 #: (para)
 msgid "Please note that Windows XP without the servicepack 1 will lead to bogus network data and could therefore corrupt your repository!"
-msgstr ""
+msgstr "Bitte beachten Sie, dass Windows XP ohne Servicepack 1 zu fehlerhaften Netzwerkdaten führt und dadurch Ihr Projektarchiv beschädigt werden kann!"
 
 #: source/en/tsvn_server/server_apache.xml:78
 #: (para)
 msgid "Download the latest version of the Apache webserver from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version &gt; 2.0.54 - the version 1.3.xx won't work! Also, versions lower than 2.0.54 won't work with Subversion 1.2 because of a bug in how Apache &lt; 2.0.54 was built for Windows."
-msgstr ""
+msgstr "Laden Sie die neueste Version des Apache Webservers von <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Achten Sie darauf, dass Sie Version 2.0.54 oder neuer herunterladen - Die 1.3.xx Versionen unterstützen kein WebDAV und arbeiten deshalb nicht mit Subversion zusammen! Außerdem arbeiten Versionen vor 2.0.54 aufgrund eines Fehlers in Apache für Windows nicht mit Subversion 1.2 zusammen."
 
 #: source/en/tsvn_server/server_apache.xml:91
 #: (para)
@@ -553,12 +574,12 @@ msgstr ""
 #: source/en/tsvn_server/server_apache.xml:535
 #: (primary)
 msgid "Windows domain"
-msgstr ""
+msgstr "Windows Domäne"
 
 #: source/en/tsvn_server/server_apache.xml:538
 #: (primary)
 msgid "domaincontroller"
-msgstr ""
+msgstr "Domaincontroller"
 
 #: source/en/tsvn_server/server_apache.xml:540
 #: (para)
@@ -1588,7 +1609,7 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 #: source/en/tsvn_dug/dug_settings.xml:51
-#: (warning)
+#: (caution)
 msgid "If you use the subversion configuration file to set a <placeholder-1/> pattern, it will override the settings you made here. The Subversion configuration file is accessed using the <placeholder-2/> as described below."
 msgstr "Wenn Sie die Subversion Konfigurationsdatei verwenden, um ein <literal>global-ignores</literal> Muster zu definieren, wird das die TortoiseSVN Einstellungen überlagern. Die Subversion Konfigurationsdatei kann über die <guibutton>Bearbeiten</guibutton> Schaltfläche geändert werden."
 
@@ -2043,7 +2064,7 @@ msgid "The revision date, author and comments are shown in a hint box whenever t
 msgstr "Das Datum, der Autor und die Log-Meldung der Revision werden in einem Hinweistext angezeigt, sobald die Maus über ein Element bewegt wird."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:71
-#: (warning)
+#: (caution)
 msgid "Because subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
 msgstr "Da Subversion nicht alle Informationen bereitstellt, ist ein gewisser Grad der Interpretation notwendig, was manchmal zu seltsamen Ergebnissen führen kann. Trotzdem sollte der Revisionsgraph für <literal>trunk/</literal> normalerweise brauchbare Ergebnisse liefern."
 
@@ -3358,45 +3379,55 @@ msgstr "Dies ist ähnlich wie ExamDiff Pro eine exzellente Shareware, die auch V
 
 #: source/en/tsvn_dug/dug_diff.xml:180
 #: (term)
+msgid "Araxis Merge"
+msgstr "Araxis Merge"
+
+#: source/en/tsvn_dug/dug_diff.xml:182
+#: (para)
+msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparision in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_diff.xml:194
+#: (term)
 msgid "SciTE"
 msgstr "SciTE"
 
-#: source/en/tsvn_dug/dug_diff.xml:182
+#: source/en/tsvn_dug/dug_diff.xml:196
 #: (para)
 msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
 msgstr "Dieser Texteditor bietet farbige Syntaxhervorhebung für Standard-Diffs, was diese leichter lesbar macht. Sie können ihn <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>hier</citetitle></ulink> herunterladen."
 
-#: source/en/tsvn_dug/dug_diff.xml:192
+#: source/en/tsvn_dug/dug_diff.xml:206
 #: (term)
 msgid "Notepad2"
 msgstr "Notepad2"
 
-#: source/en/tsvn_dug/dug_diff.xml:194
+#: source/en/tsvn_dug/dug_diff.xml:208
 #: (para)
 msgid "Notepad2 is designed as a replacement for the standard Windows Notepad program, and is based on the Scintilla open-source edit control. As well as being good for viewing unified diffs, it is much better than the Windows notepad for most jobs. Download it for free <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>here</citetitle></ulink>."
 msgstr "Notepad2 ist dazu gedacht, das normale Windows Notepad zu ersetzen und basiert auf dem Open Source Scintilla Edit Control. Außer zum Betrachten von Standard-Diffs ist es viel besser als das normale Notepad. Sie können es <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>hier</citetitle></ulink> herunterladen."
 
-#: source/en/tsvn_dug/dug_diff.xml:207
+#: source/en/tsvn_dug/dug_diff.xml:221
 #: (term)
 msgid "TkDiff"
 msgstr "TkDiff"
 
-#: source/en/tsvn_dug/dug_diff.xml:209
+#: source/en/tsvn_dug/dug_diff.xml:223
 #: (para)
 msgid "A free diff/merge tool which uses TCL/TK. Download it <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>here</citetitle></ulink>."
 msgstr "Ein freies Diff-/Merge-Programm, das TCL/TK benutzt. Den Download finden Sie <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>hier</citetitle></ulink>."
 
-#: source/en/tsvn_dug/dug_diff.xml:219
+#: source/en/tsvn_dug/dug_diff.xml:233
 #: (term)
 msgid "CVSConflictEditor"
 msgstr "CVSConflictEditor"
 
-#: source/en/tsvn_dug/dug_diff.xml:221
+#: source/en/tsvn_dug/dug_diff.xml:235
 #: (para)
 msgid "This open source merge tool is buggy, but has potential. Download it <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>here</citetitle></ulink>."
 msgstr "Dieses Open Source Merge-Programm ist unstabil, hat aber Potential. Den Download finden Sie <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>hier</citetitle></ulink>."
 
-#: source/en/tsvn_dug/dug_diff.xml:231
+#: source/en/tsvn_dug/dug_diff.xml:245
 #: (para)
 msgid "Read <xref linkend=\"tsvn-DUG-settings-progs\"/> for information on how to set up TortoiseSVN to use these tools."
 msgstr "Lesen Sie <xref linkend=\"tsvn-DUG-settings-progs\"/> für Informationen wie Sie diese Tools in TortoiseSVN einbinden/einrichten können."
@@ -3918,17 +3949,17 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:145
 #: (para)
-msgid "do a <menuchoice><guimenuitem>Checkout</guimenuitem></menuchoice> of it again. You can check it out to any location on your local disk and you can create as many working copies from your repository as you like."
+msgid "Make a fresh <menuchoice><guimenuitem>Checkout</guimenuitem></menuchoice> to an empty folder. You can check out to any location on your local disk and you can create as many working copies from your repository as you like."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:156
 #: (para)
-msgid "Switch your current working copy to the newly created copy in the repository. Again select the parent folder of your project and select the command <menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
+msgid "Switch your current working copy to the newly created copy in the repository. Again select the top level folder of your project and use <menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:165
 #: (para)
-msgid "In the next dialog yout enter the URL of the branch you just created. Leave the Checkbox <guilabel>latest revision</guilabel> active and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch / tag."
+msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch / tag."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:173
@@ -6676,13 +6707,11 @@ msgstr "Ctrl-T"
 msgid "Toggles between showing whitespaces or not"
 msgstr "Zeigt Platzhalter für Unsichtbare Zeichen an oder nicht"
 
-#  Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#  Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/en/tme_appa.xml:0
 #: (None)
 msgid "translator-credits"
 msgstr ""
-"Stefan Küng <steveking@tigris.org>, 2004-2005\n"
-"Lübbe Onken <luebbe@tigris.org>, 2004-2005"
+"Stefan Kueng\n"
+"Luebbe Onken"
 
