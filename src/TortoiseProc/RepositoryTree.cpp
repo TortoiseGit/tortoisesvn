@@ -57,6 +57,9 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 {
 	m_strUrl = svn_url.GetPath();
 	m_Revision = svn_url.GetRevision();
+	// check if the repository root is still the same
+	if (m_strReposRoot.Compare(svn_url.GetPath().Left(m_strReposRoot.GetLength()))!=0)
+		m_strReposRoot.Empty();
 	if (m_strReposRoot.IsEmpty())
 	{
 		SVN svn;
