@@ -1064,16 +1064,18 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			CString temp;
 			if (m_LogMsgCtrl.GetSelectedCount() == 1)
 			{
+				if (DiffPossible(changedpath, rev))
+				{
+					temp.LoadString(IDS_LOG_POPUP_DIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
+					popup.SetDefaultItem(ID_DIFF, FALSE);
+					popup.AppendMenu(MF_SEPARATOR, NULL);
+				}
 				temp.LoadString(IDS_LOG_POPUP_OPEN);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
-				if (DiffPossible(changedpath, rev))
-				{
-					temp.LoadString(IDS_LOG_POPUP_DIFF);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
-				}
 				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 				if (m_hasWC)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
