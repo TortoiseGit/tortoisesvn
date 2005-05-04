@@ -16,9 +16,8 @@
 		<para>
 			Moving/Copying single files can be done by using
 			<menuchoice>
-				<guimenuitem>
-					Rename...
-				</guimenuitem>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Rename...</guimenuitem>
 			</menuchoice>.
 			But if you want to move/copy a lot of files, this way is just
 			too slow and too much work.
@@ -30,15 +29,13 @@
 			to the new location and release the mouse button. A context menu will appear
 			where you can either choose
 			<menuchoice>
-				<guimenuitem>
-					Copy in Subversion to here
-				</guimenuitem>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Copy in Subversion to here</guimenuitem>
 			</menuchoice>.
 			or
 			<menuchoice>
-				<guimenuitem>
-					Move in Subversion to here
-				</guimenuitem>.
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Move in Subversion to here</guimenuitem>.
 			</menuchoice>.
 		</para>
 	</sect1>
@@ -106,9 +103,8 @@
 		<para>
 			Normally you update your working copy using
 			<menuchoice>
-				<guimenuitem>
-					Update
-				</guimenuitem>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Update</guimenuitem>
 			</menuchoice>.
 			But if you only want to pick up some new files that a colleague has added
 			without merging in any changes to other files at the same time, you need
@@ -117,9 +113,8 @@
 		<para>
 			Use
 			<menuchoice>
-				<guimenuitem>
-					Check for modifications
-				</guimenuitem>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Check for Modifications</guimenuitem>
 			</menuchoice>.
 			and click on <guibutton>Check repository</guibutton> to see what has changed
 			in the repository. Select the files you want to update locally, then use

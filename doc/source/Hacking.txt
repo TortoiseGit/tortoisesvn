@@ -57,6 +57,12 @@ Rules
   	<guimenuitem>Commit</guimenuitem>
   </menuchoice>
 
+  For context menus within TSVN dialogs, use this markup:
+  <menuchoice>
+  	<guimenu>Context Menu</guimenu>
+  	<guimenuitem>Commit</guimenuitem>
+  </menuchoice>
+  
 - Gui Labels / Fields
   If you want to say: "Select the URL from the URL Combobox", use the following markup:
   "Select the URL from the <guilabel>URL</guilabel> Combobox"
@@ -139,10 +145,9 @@ Require valid-user
   Each paragraph should be enclosed in <para> tags.
 
 - Mark Filenames with <filename>Hacking.txt</filename>
+  Note this also applies to executables when the reference includes the .exe extension.
 
 - Mark URLS with <systemitem class="url">file:///C:/SVNRepository/</systemitem>
-
-- Mark application names with <application>TortoiseSVN</application>
 
 - Place markers where you want an index entry to point to:
   <indexterm>

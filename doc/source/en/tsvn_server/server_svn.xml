@@ -72,8 +72,9 @@ svnserve.exe -d
 			<xref linkend="tsvn-serversetup-apache-4"/>.
 		</para>
 		<para>
-			To test that svnserve is working, use TortoiseSVN's
+			To test that svnserve is working, use
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Repo-Browser</guimenuitem>
 			</menuchoice>
 			to view a repository.
@@ -81,14 +82,11 @@ svnserve.exe -d
 		<para>
 			Assuming your repository is located in
 			<filename>c:\repos\TestRepo</filename>, and your server is called
-			<filename>localhost</filename>, when asked by
-			<menuchoice>
-				<guimenuitem>Repo-Browser</guimenuitem>
-			</menuchoice>
-, enter Url:
+			<filename>localhost</filename>, enter:
 <screen>
 svn://localhost/repos/TestRepo
 </screen>
+			when prompted by the repo browser.
 		</para>
 		<para>
 			You can also increase security and save time entering Url's with

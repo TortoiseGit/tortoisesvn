@@ -26,10 +26,12 @@
 			First you need to make <emphasis>and test</emphasis> your changes.
 			Then instead of using
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Commit...</guimenuitem>
 			</menuchoice>
 			on the parent folder, you select
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Create Patch...</guimenuitem>
 			</menuchoice>
 			This will produce a single file containing a summary of all the changes
@@ -69,6 +71,7 @@
 		<para>
 			From the context menu for that folder, click on
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Apply Patch...</guimenuitem>
 			</menuchoice>
 			This will bring up a file open dialog allowing you to select the

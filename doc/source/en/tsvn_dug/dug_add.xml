@@ -13,11 +13,11 @@
 		If you created new files and/or directories during
 		your development process the you need to add them
 		to source control too. Select the file(s) and/or directory
-		and select the command
+		and use
 		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Add</guimenuitem>
-		</menuchoice>
-		from the context menu.
+		</menuchoice>.
 	</para>
 	<para>
 		After you added the files/directories to source control
@@ -59,9 +59,10 @@
 			</listitem>
 			<listitem>
 				<para>
-					in the popup menu select
+					select
 					<menuchoice>
-						<guimenuitem>add files to Subversion here</guimenuitem>
+						<guimenu>Context Menu</guimenu>
+						<guimenuitem>Add files to Subversion here</guimenuitem>
 					</menuchoice>.
 					The files will then be copied to the working copy and
 					added to version control.

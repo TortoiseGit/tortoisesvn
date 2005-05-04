@@ -9,12 +9,14 @@
 		Sending the changes you made to your working copy is known as
 		<firstterm>committing</firstterm> the changes. But before you
 		commit you have to make sure that your working copy is up to
-		date. You can either make an
+		date. You can either use
 		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Update</guimenuitem>
 		</menuchoice>
-		directly. Or you can
+		directly. Or you can use
 		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Check for Modifications</guimenuitem>
 		</menuchoice>
 		first, to see which files have changed locally or on the server.
@@ -22,11 +24,11 @@
 	<para>
 		If your working copy is up to date and there are no conflicts,
 		you are ready to commit your changes. Select any file
-		and/or folders you want to commit and select
+		and/or folders you want to commit, then
 		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Commit...</guimenuitem>
-		</menuchoice>
-		from the context menu.
+		</menuchoice>.
 		<figure id="tsvn-DUG-commit-dia-1">
 			<title>The Commit dialog</title>
 			<graphic fileref="images/CommitContextMenu.png"/>
@@ -67,11 +69,12 @@
 					<listitem>
 						<para>
 							add the file to the <literal>svn:ignore</literal> list
-							using the
+							using
 							<menuchoice>
+								<guimenu>TortoiseSVN</guimenu>
 								<guimenuitem>Add to ignore list</guimenuitem>
 							</menuchoice>
-							context menu. This will only affect the directory on
+							This will only affect the directory on
 							which you set the <literal>svn:ignore</literal> property.
 							Using the SVN Property Dialog, you can alter the
 							<literal>svn:ignore</literal> property for a directory.

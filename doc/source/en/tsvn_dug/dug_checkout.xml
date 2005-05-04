@@ -14,6 +14,7 @@
 		your working copy. <action>Right click</action> to pop up the
 		context menu and select the command
 		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Checkout...</guimenuitem>
 		</menuchoice>,
 		which brings up the following dialog box:
@@ -51,6 +52,7 @@
 			all those <filename>.svn</filename> directories manually,
 			TortoiseSVN offers the command
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Export...</guimenuitem>
 			</menuchoice>.
 			If you execute this command
@@ -64,10 +66,12 @@
 			Another way to do an export is by right-dragging a working copy
 			folder to another location and choose
 			<menuchoice>
+				<guimenu>Context Menu</guimenu>
 				<guimenuitem>Subversion export here</guimenuitem>
 			</menuchoice>
 			or 
 			<menuchoice>
+				<guimenu>Context Menu</guimenu>
 				<guimenuitem>Subversion export all here</guimenuitem>
 			</menuchoice>
 		</para>

@@ -61,21 +61,23 @@
 	</para>
 	<para>
 		You can either launch an external merge tool / conflict
-		editor with the
+		editor with
 		<menuchoice>
-			<guimenuitem>Edit Conflict</guimenuitem>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Edit Conflicts</guimenuitem>
 		</menuchoice>
-		context menu or you can use any other editor to manually
+		or you can use any other editor to manually
 		resolve the conflict. You should decide what the code
 		should look like, do the necessary changes and save the file.
 	</para>
 	<para>
 		Afterwards execute the command
 		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Resolved</guimenuitem>
 		</menuchoice>
-		from the context menu and commit your modifications to the
-		repository. Please note that the Resolve command does not really
+		and commit your modifications to the repository.
+		Please note that the Resolve command does not really
 		resolve the conflict. It just removes the
 		<filename>filename.ext.mine</filename> and
 		<filename>filename.ext.r*</filename> files,

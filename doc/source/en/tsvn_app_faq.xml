@@ -455,9 +455,10 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				<primary>revert</primary>
 			</indexterm>
 			<para>
-				You can do a
+				You can use
 				<menuchoice>
-					<guimenuitem>revert</guimenuitem>
+					<guimenu>TortoiseSVN</guimenu>
+					<guimenuitem>Revert</guimenuitem>
 				</menuchoice>
 				on the parent folder where you deleted the file or 
 				directory.
@@ -465,12 +466,12 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 				If you have already committed the deleted file, then you can
 				use the repository browser, change to the revision where the file
-				still existed and then use the command 
+				still existed and then use
 				<menuchoice>
+					<guimenu>Context Menu</guimenu>
 					<guimenuitem>Copy to...</guimenuitem>
 				</menuchoice>
-				from the context menu. Enter the path to your working copy
-				as the target.
+				Enter the path to your working copy as the target.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-2">
@@ -480,7 +481,8 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				<action>Right-click</action> in the Explorer window 
 				next to the file, and choose
 				<menuchoice>
-					<guimenuitem>commit</guimenuitem>
+					<guimenu>TortoiseSVN</guimenu>
+					<guimenuitem>Commit</guimenuitem>
 				</menuchoice>.
 				I nearly always commit things from the top level 
 				directory - it is recursive through the whole project. 
@@ -524,9 +526,10 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 							Rename the file from
 							<filename>UPPERcase</filename> to
 							<filename>upperCASE</filename> inside the repository 
-							using the
+							using
 							<menuchoice>
-								<guimenuitem>repository browser</guimenuitem>
+								<guimenu>TortoiseSVN</guimenu>
+								<guimenuitem>Repository Browser</guimenuitem>
 							</menuchoice>.
 						</para>
 					</listitem>
@@ -559,11 +562,11 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 						<para>
 							Rename from
 							<filename>UPPERcase</filename> to
-							<filename>UPPERcase_</filename> with the
+							<filename>UPPERcase_</filename> using
 							<menuchoice>
-								<guimenuitem>rename</guimenuitem>
-							</menuchoice>
-							command in the TortoiseSVN submenu.
+								<guimenu>TortoiseSVN</guimenu>
+								<guimenuitem>Rename</guimenuitem>
+							</menuchoice>.
 						</para>
 					</listitem>
 					<listitem>
@@ -656,6 +659,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 				That means you need to use the
 				<menuchoice>
+					<guimenu>TortoiseSVN</guimenu>
 					<guimenuitem>Update</guimenuitem>
 				</menuchoice>
 				command to update your working copy to the same level as the repository.

@@ -48,9 +48,9 @@
 			Select the folder in your working copy which you want to copy
 			to a branch or tag, then select the command
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Branch/Tag...</guimenuitem>
-			</menuchoice>
-			from the context menu.
+			</menuchoice>.
 		</para>
 		<para>
 			The default destination URL for the new branch
@@ -130,8 +130,9 @@
 		<para>
 			...that is (not really) the question. While a checkout checks
 			out everything from the desired branch into your working
-			directory, a 
+			directory,
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Switch...</guimenuitem>
 			</menuchoice>
 			only transfers the changed data to your
@@ -143,11 +144,12 @@
 			<itemizedlist>
 				<listitem>
 					<para>
-						Make a fresh
 						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Checkout</guimenuitem>
 						</menuchoice>
-						to an empty folder. You can check out to any location on your
+						to make a fresh checkout in an empty folder.
+						You can check out to any location on your
 						local disk and you can create as many working copies
 						from your repository as you like.
 					</para>
@@ -158,6 +160,7 @@
 						newly created copy in the repository. Again select the
 						top level folder of your project and use
 						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Switch...</guimenuitem>
 						</menuchoice>
 						from the context menu.

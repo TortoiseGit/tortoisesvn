@@ -94,9 +94,9 @@
 			Select the file(s) in your working copy for which you want to 
 			acquire a lock, then select the command
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Get Lock...</guimenuitem>
-			</menuchoice>
-			from the context menu.
+			</menuchoice>.
 			<figure id="tsvn-DUG-locking-dia-lock">
 				<title>The Locking Dialog</title>
 				<graphic fileref="images/GetLock.png"/>
@@ -128,11 +128,11 @@
 			To release a lock manually, select the file(s) in your working copy
 			for which you want to release the lock, then select the command
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Release Lock</guimenuitem>
 			</menuchoice>
-			from the context menu. There is nothing further to enter
-			so TortoiseSVN will contact the repository and release
-			the locks.
+			There is nothing further to enter so TortoiseSVN will contact
+			the repository and release the locks.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-locking-status">
@@ -144,9 +144,9 @@
 			</figure>
 			To see what locks you and others hold, you can use
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Check for Modifications...</guimenuitem>
-			</menuchoice>
-			from the context menu.
+			</menuchoice>.
 			Locally held lock tokens show up immediately. To check for
 			locks held by others (and to see if any of your locks are
 			broken or stolen) you need to click on

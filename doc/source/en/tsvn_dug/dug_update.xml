@@ -17,6 +17,7 @@
 		entire directory hierarchies. To update, select the files
 		and/or directories you want, <action>right click</action> and select
 		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Update</guimenuitem>
 		</menuchoice>
 		in the explorer context menu. A window will pop up displaying the 
@@ -75,6 +76,7 @@
 		TortoiseSVN also allows you to update your working copy to a specific
 		revision, not only to the most recent one. This command is called
 		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Update to Revision...</guimenuitem>
 		</menuchoice>
 		and first opens a dialog where you can enter the required revision.
@@ -94,12 +96,14 @@
 			If you want to undo changes to a file and start afresh from an earlier
 			revision, you should use one of the following commands instead. The
 			<menuchoice>
+				<guimenu>Context Menu</guimenu>
 				<guimenuitem>Revert changes from this revision</guimenuitem>
 			</menuchoice>
 			command from the log dialog will undo only those changes made in
 			the selected revision. Changes made after that revision will be retained.
 			For reverting multiple revisions, you should use the
 			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Merge...</guimenuitem>
 			</menuchoice>
 			menu command,
@@ -119,6 +123,7 @@
 		no file of that name existed in the earlier revision. If you simply
 		want a local copy of an old version of a file it is better to use the
 		<menuchoice>
+			<guimenu>Context Menu</guimenu>
 			<guimenuitem>Save revision to...</guimenuitem>
 		</menuchoice>
 		command from the log dialog for that file.
@@ -155,7 +160,8 @@
 		<para>
 			If you keep getting error messages, use
 			<menuchoice>
-				<guimenuitem>Check for modifications</guimenuitem>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Check for Modifications</guimenuitem>
 			</menuchoice>
 			instead to list all the problem files. That way you can deal with them
 			all at once.
