@@ -97,4 +97,33 @@
 			</para>
 		</sect2>
 	</sect1>
+
+	<sect1 id="tsvn-howto-selective-update">
+		<title>Update selected files from the repository</title>
+		<indexterm>
+			<primary>update</primary>
+		</indexterm>
+		<para>
+			Normally you update your working copy using
+			<menuchoice>
+				<guimenuitem>
+					Update
+				</guimenuitem>
+			</menuchoice>.
+			But if you only want to pick up some new files that a colleague has added
+			without merging in any changes to other files at the same time, you need
+			a different approach.
+		</para>
+		<para>
+			Use
+			<menuchoice>
+				<guimenuitem>
+					Check for modifications
+				</guimenuitem>
+			</menuchoice>.
+			and click on <guibutton>Check repository</guibutton> to see what has changed
+			in the repository. Select the files you want to update locally, then use
+			the context menu to update just those files.
+		</para>
+	</sect1>
 </appendix>
