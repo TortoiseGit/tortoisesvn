@@ -459,6 +459,8 @@ UINT CLogDlg::LogThread()
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	GetDlgItem(IDOK)->SetWindowText(temp);
+	m_LogProgress.SetRange32(0, 100);
+	m_LogProgress.SetPos(0);
 	long r = -1;
 	if (m_startrev == -1)
 	{
