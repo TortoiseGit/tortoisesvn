@@ -53,6 +53,7 @@
 #define ID_POPEXPORT		16
 //#define ID_POPPROPS			17		commented out because already defined to 17 in LogDlg.h
 #define ID_POPCHECKOUT		18
+#define ID_POPOPENWITH		19
 // CRepositoryBrowser dialog
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableStandAloneDialog)
@@ -254,6 +255,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				{
 					temp.LoadString(IDS_REPOBROWSE_OPEN);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPEN, temp);		// "open"
+					temp.LoadString(IDS_LOG_POPUP_OPENWITH);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPENWITH, temp);
+					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
@@ -363,7 +367,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
-
+			bool bOpenWith = false;
 			switch (cmd)
 			{
 			case ID_POPSAVEAS:
@@ -522,9 +526,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					dlg.DoModal();
 				}
 				break;
+			case ID_POPOPENWITH:
+				bOpenWith = true;
 			case ID_POPOPEN:
 				{
-					if (GetRevision().IsHead())
+					if (GetRevision().IsHead() && (bOpenWith==false))
 					{
 						if (url.Left(4).CompareNoCase(_T("http")) == 0)
 						{
@@ -542,7 +548,14 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						break;;
 					}
-					ShellExecute(NULL, _T("open"), tempfile.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
+					if (bOpenWith)
+					{
+						CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+						cmd += tempfile.GetWinPathString();
+						CUtils::LaunchApplication(cmd, NULL, false);
+					}
+					else
+						ShellExecute(NULL, _T("open"), tempfile.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
 				}
 				break;
 			case ID_POPDELETE:

@@ -48,6 +48,7 @@
 
 #define ID_DIFF			20
 #define ID_EDITCONFLICT	21
+#define ID_OPENWITH		22
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2

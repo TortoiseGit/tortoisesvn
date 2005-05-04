@@ -1064,6 +1064,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			CString temp;
 			if (m_LogMsgCtrl.GetSelectedCount() == 1)
 			{
+				temp.LoadString(IDS_LOG_POPUP_OPEN);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
+				popup.AppendMenu(MF_SEPARATOR, NULL);
 				if (DiffPossible(changedpath, rev))
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
@@ -1078,9 +1083,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);					// "Show Log"				
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
-				temp.LoadString(IDS_LOG_POPUP_OPEN);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+				bool bOpenWith = false;
 				switch (cmd)
 				{
 				case ID_DIFF:
@@ -1255,6 +1259,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						theApp.DoWaitCursor(-1);
 					}
 					break;
+				case ID_OPENWITH:
+					bOpenWith = true;
 				case ID_OPEN:
 					{
 						GetDlgItem(IDOK)->EnableWindow(FALSE);
@@ -1293,7 +1299,14 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							theApp.DoWaitCursor(-1);
 							break;
 						}
-						ShellExecute(this->m_hWnd, _T("open"), tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+						if (bOpenWith)
+						{
+							CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+							cmd += tempfile.GetWinPathString();
+							CUtils::LaunchApplication(cmd, NULL, false);
+						}
+						else
+							ShellExecute(this->m_hWnd, _T("open"), tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);
 					}
