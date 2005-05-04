@@ -1,4 +1,5 @@
 @echo off
+echo Updating doc.pot
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 rem BEWARE, this may cause a "line too long" error if called repeatedly from the same dos box
@@ -8,7 +9,7 @@ rem Try to check, whether these vars are already set
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
 cd source\en
-del Pubdate.xml
+if exist Pubdate.xml del Pubdate.xml
 rem we don't want to translate the 'automation' section!
 ren tsvn_app_automation.xml tsvn_app_automation.tmpl
 FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) DO Set CHAPTERS=!CHAPTERS! source/en/%%V
