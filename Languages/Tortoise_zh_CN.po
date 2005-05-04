@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-04-30 02:54+0800\n"
+"PO-Revision-Date: 2005-05-04 02:41+0800\n"
 "Last-Translator: Ken Chew <ken.chew@openology.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # ID:10,#:
@@ -214,7 +214,6 @@ msgstr "删除(&D)"
 
 # Control-ID:1061,
 #: Control-ID:1179
-#, fuzzy
 msgid "&Dry Run"
 msgstr "预检"
 
@@ -478,9 +477,8 @@ msgstr "还原(&U)\tCtrl+Z"
 
 # Control-ID:1013,
 #: Control-ID:1180
-#, fuzzy
 msgid "&Unified Diff"
-msgstr "应用单一补丁文件(&A)"
+msgstr "应用单一补丁文件(&U)"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -781,7 +779,6 @@ msgstr "远程加入文件夹完成"
 
 # ID:145,
 #: ID:145
-#, fuzzy
 msgid ""
 "Added the file(s)\n"
 "%s\n"
@@ -1107,7 +1104,6 @@ msgstr "分支/标记..."
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "Break Lock"
 msgstr "破除锁定"
 
@@ -1190,7 +1186,6 @@ msgstr "正在取消操作..."
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Cascaded Context Menu"
 msgstr "右键菜单"
 
@@ -1485,6 +1480,11 @@ msgstr "已复制"
 msgid "Copied remotely"
 msgstr "远程复制完成"
 
+# ID:80,
+#: ID:103
+msgid "Copy %s"
+msgstr "复制 %s"
+
 # Dlg-ID:142,
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
@@ -1513,6 +1513,11 @@ msgid ""
 msgstr ""
 "将选择的区块复制至剪贴板\n"
 "复制"
+
+# ID:101,
+#: ID:103
+msgid "Copy to working copy"
+msgstr "复制至工作复本..."
 
 # ID:80,
 #: ID:80
@@ -1580,7 +1585,6 @@ msgstr ""
 
 # ID:66,
 #: ID:66
-#, fuzzy
 msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
@@ -1649,7 +1653,6 @@ msgstr "创建文件库"
 
 # ID:8,
 #: ID:8
-#, fuzzy
 msgid "Create Repository here..."
 msgstr "在此创建文件库"
 
@@ -1831,7 +1834,6 @@ msgstr "不再显示此信息"
 
 # ID:76,
 #: ID:76
-#, fuzzy
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
@@ -2163,7 +2165,6 @@ msgstr "从："
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "从：（从此URL和修改版本开始合并）"
 
@@ -2263,9 +2264,8 @@ msgstr "主版本(&E)"
 
 # ID:238,
 #: Control-ID:1182
-#, fuzzy
 msgid "HEAD revision in the repository"
-msgstr "文件库中的最新版本是: %d"
+msgstr "文件库中的最新版本"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -2316,7 +2316,6 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-#, fuzzy
 msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
 msgstr "选中此选项时, TortoiseSVN 创建用于比较差异的临时文件, 不展开的关键词"
 
@@ -2564,6 +2563,11 @@ msgid "Lock"
 msgstr "锁定"
 
 # ID:209,
+#: ID:207
+msgid "Lock Comment"
+msgstr "锁定备注"
+
+# ID:209,
 #: ID:209
 msgid "Lock broken!"
 msgstr "锁定被破！"
@@ -2589,6 +2593,12 @@ msgstr "锁定拥有者："
 msgid "Lock stolen by %s"
 msgstr "锁定被%s偷取"
 
+# ID:11,#:
+# Control-ID:1002,
+#: ID:195
+msgid "Locked"
+msgstr "锁定"
+
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2596,7 +2606,8 @@ msgstr "被%s锁定"
 
 # ID:16,
 #: ID:16
-msgid "Locks files for other users and makes it editable by you."
+#, fuzzy
+msgid "Locks a file for other users and makes it editable by you."
 msgstr "将文件锁定。只有你能修改。"
 
 # ID:126,
@@ -2909,7 +2920,6 @@ msgstr "OVR"
 
 # ID:13,
 #: Control-ID:1202
-#, fuzzy
 msgid "Omit externals"
 msgstr "省略外部"
 
@@ -3016,13 +3026,12 @@ msgstr "路径"
 
 # ID:77,
 #: ID:116
-#, fuzzy
 msgid "Paths"
 msgstr "路径"
 
 # ID:157,
 #: ID:157
-msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr "图像文件 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件(*.*)|*.*||"
 
 # ID:3858,#:
@@ -3136,6 +3145,11 @@ msgstr "请稍候，可能需要数分钟，真的！"
 #: ID:13
 msgid "Please wait while cancelling..."
 msgstr "正在取消, 请稍候..."
+
+# ID:104,
+#: ID:104
+msgid "Please wait while the repository browser is initialized..."
+msgstr "请稍候，正在启动文件库浏览器"
 
 # ID:119,
 #: ID:119
@@ -3440,7 +3454,6 @@ msgstr "还原"
 
 # ID:77,
 #: ID:8
-#, fuzzy
 msgid "Revert..."
 msgstr "SVN 还原..."
 
@@ -3564,7 +3577,6 @@ msgstr "SVN 进程"
 
 # ID:101,
 #: ID:221
-#, fuzzy
 msgid "SVN Rename/Move"
 msgstr "重命名/移动(&R)..."
 
@@ -3663,6 +3675,17 @@ msgid ""
 msgstr ""
 "保存变更过的文件\n"
 "保存文件"
+
+# Dlg-ID:158,
+#: ID:103
+msgid "Saving Files"
+msgstr "正在保存文件"
+
+# ID:144,
+#: ID:103
+#, fuzzy
+msgid "Saving file %s"
+msgstr "保存补丁文件至："
 
 # ID:144,
 #: ID:144
@@ -3809,9 +3832,8 @@ msgstr "设置"
 
 # ID:12,
 #: Control-ID:1132
-#, fuzzy
 msgid "Sh&ow Log"
-msgstr "显示日志"
+msgstr "显示日志（&o）"
 
 # ID:101,
 #: ID:101
@@ -3825,7 +3847,6 @@ msgstr "日志信息使用短日期/时间格式(&D)"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Short Url of Subversion items"
 msgstr "Subversion 项目标短 URL"
 
@@ -4580,7 +4601,6 @@ msgstr "URL"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "URL of Subversion items"
 msgstr "Subversion 项目 URL"
 
@@ -5323,6 +5343,7 @@ msgstr ""
 
 # ID:80,
 #: ID:80
+#: ID:103
 msgid "to %s"
 msgstr "至 %s"
 

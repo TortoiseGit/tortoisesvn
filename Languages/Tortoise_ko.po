@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-04-29 18:37+0900\n"
+"PO-Revision-Date: 2005-05-04 01:28+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ID:10
 #: ID:126
 msgid " "
-msgstr ""
+msgstr " "
 
 # ID:188,
 #: ID:188
@@ -166,7 +166,7 @@ msgstr "고급 설정(&A)"
 # Control-ID:1013,
 #: Control-ID:1013
 msgid "&Apply Unified Diff"
-msgstr "Unified Diff 적용(&A)"
+msgstr "Unified diff(&A)"
 
 # ID:138,
 #: ID:138
@@ -1018,10 +1018,10 @@ msgstr "작성자:                         Stefan Kueng"
 msgid "Authors"
 msgstr "작성자"
 
-# Control-ID:65535,
+# ID:76,
 #: Control-ID:65535
-msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "작성자:                      Stefan Kueng, Tim Kemp"
+msgid "Authors:"
+msgstr "작성자:"
 
 # Control-ID:1123,
 #: ID:222
@@ -1476,6 +1476,11 @@ msgstr "복사됨"
 msgid "Copied remotely"
 msgstr "원격 복사됨"
 
+# ID:80,
+#: ID:103
+msgid "Copy %s"
+msgstr "복사 %s"
+
 # Dlg-ID:142,
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
@@ -1504,6 +1509,11 @@ msgid ""
 msgstr ""
 "선택한 부분을 복사하고 클립보드에 넣음\n"
 "복사"
+
+# ID:151,
+#: ID:103
+msgid "Copy to working copy"
+msgstr "작업 사본으로 복사"
 
 # ID:80,
 #: ID:80
@@ -1666,6 +1676,11 @@ msgstr "현재 위치에 저장소 DB를 만듭니다."
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "바뀐 모든 부분에 대해 Unified diff를 생성합니다"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Credits:"
+msgstr "만든이들:"
 
 # ID:376,
 #: ID:376
@@ -1851,6 +1866,11 @@ msgstr ""
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "바뀐 내용을 저장하시겠습니까?"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Documentation - Simon Large"
+msgstr "문서화 - Simon Large"
 
 # ID:80,
 #: ID:73
@@ -2539,6 +2559,11 @@ msgid "Lock"
 msgstr "잠금"
 
 # Control-ID:65535,
+#: ID:207
+msgid "Lock Comment"
+msgstr "잠금 코멘트"
+
+# Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
 msgstr "잠금 해제됨!"
@@ -2564,6 +2589,12 @@ msgstr "잠금 소유자:"
 msgid "Lock stolen by %s"
 msgstr "잠금 소유자가 %s(으)로 바뀌었습니다."
 
+# ID:11,#:
+# Control-ID:1002,
+#: ID:195
+msgid "Locked"
+msgstr "잠김"
+
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2571,8 +2602,8 @@ msgstr "%s에 의해 잠겼습니다."
 
 # ID:16,
 #: ID:16
-msgid "Locks files for other users and makes it editable by you."
-msgstr "다른 사람에 대해 파일을 잠그게 되면 자신에게만 수정가능하게 됩니다."
+msgid "Locks a file for other users and makes it editable by you."
+msgstr "다른 사람에 대해 파일을 잠그고, 자신에게만 수정가능하게 합니다."
 
 # ID:126,
 #: ID:126
@@ -2994,8 +3025,8 @@ msgstr "경로"
 
 # ID:157,
 #: ID:157
-msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "그림 파일 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|모두 (*.*)|*.*||"
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "그림 파일 (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|모두 (*.*)|*.*||"
 
 # ID:3858,#:
 # ID:3858,
@@ -3107,6 +3138,11 @@ msgstr "잠시 기다려주십시오. 몇분 걸리는 작업을 수행중입니
 #: ID:13
 msgid "Please wait while cancelling..."
 msgstr "취소중입니다. 잠시 기다려주십시오..."
+
+# ID:104,
+#: ID:104
+msgid "Please wait while the repository browser is initialized..."
+msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
 
 # ID:119,
 #: ID:119
@@ -3634,6 +3670,16 @@ msgstr ""
 "변경된 파일 저장\n"
 "파일 저장"
 
+# Dlg-ID:158,
+#: ID:103
+msgid "Saving Files"
+msgstr "파일 저장중"
+
+# ID:144,
+#: ID:103
+msgid "Saving file %s"
+msgstr "파일 저장 중: "
+
 # ID:144,
 #: ID:144
 msgid "Saving patchfile to:"
@@ -3998,6 +4044,11 @@ msgstr "잠금 훔쳐오기"
 msgid "Steal the lock"
 msgstr "잠금 훔쳐오기"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
+
 # Control-ID:1130,
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
@@ -4295,7 +4346,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "The result of the merge is stored in the working copy at:"
-msgstr "병합 결과는 작업사본에 저장되었습니다. :"
+msgstr "병합 결과는 작업사본에 저장됩니다:"
 
 # ID:78,
 #: ID:78
@@ -4423,7 +4474,7 @@ msgstr "바뀐 부분을 보고 싶을 경우 위 파일들을 더블 클릭하�
 # Control-ID:1201,
 #: Control-ID:1201
 msgid "To:"
-msgstr "대상:"
+msgstr "끝:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4727,7 +4778,7 @@ msgstr "수정한 사람을 보기위해 텍스트 뷰어 사용"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
-msgstr "\"From:\" URL을 사용"
+msgstr "\"시작:\" URL을 사용"
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -5278,6 +5329,7 @@ msgstr ""
 
 # ID:80,
 #: ID:80
+#: ID:103
 msgid "to %s"
 msgstr "%s"
 
@@ -5351,7 +5403,7 @@ msgstr "주"
 # ID:9,
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
-msgstr "저장소 URL의 원하는 위치:"
+msgstr "작업사본의 저장소 URL:"
 
 # Control-ID:1112,
 #: Control-ID:1112
