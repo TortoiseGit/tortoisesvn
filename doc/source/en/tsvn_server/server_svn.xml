@@ -179,7 +179,8 @@ password-db = userfile
 			the same directory as <filename>svnserve.conf</filename>.  This
 			file can live elsewhere in your filesytem (useful for when you
 			have multiple repositories which require the same access rights)
-			and be can referenced using an absolute or relative path.  The
+			and may be referenced using an absolute path, or a path
+			relative to the <filename>conf</filename> directory.  The
 			<filename>userfile</filename> should have a structure of:
 <screen>
 [users]
