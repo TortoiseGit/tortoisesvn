@@ -324,7 +324,7 @@ void CLogDlg::OnBnClickedNexthundred()
 {
 	UpdateData();
 	// we have to fetch the next hundred log messages.
-	LONG rev = m_arRevs.GetAt(m_LogList.GetItemCount()-1) - 1;
+	LONG rev = m_arRevs.GetAt(m_arRevs.GetCount()-1) - 1;
 	if (rev < 1)
 		return;		// do nothing! No more revisions to get
 	m_startrev = rev;
