@@ -121,4 +121,130 @@
 			the context menu to update just those files.
 		</para>
 	</sect1>
+
+	<sect1 id="tsvn-howto-rollback">
+		<title>Roll back revisions in the repository</title>
+		<indexterm>
+			<primary>rollback</primary>
+		</indexterm>
+		<sect2 id="tsvn-howto-rollback-log">
+			<title>Use the revision log dialog</title>
+			<para>
+				The easiest way to revert the changes from a single revision
+				is to use the revision log dialog.
+			</para>
+			<orderedlist>
+				<listitem>
+					<para>
+						Select the file or folder in which you need to revert
+						the changes. If you want to revert all changes, this
+						should be the top level folder.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Select
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Show Log</guimenuitem>
+						</menuchoice>
+						to display a list of revisions. You may need to use
+						<guibutton>Get All</guibutton> or
+						<guibutton>Next 100</guibutton>
+						to show the revision you are interested in.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<action>right click</action> on the revision you wish
+						to undo, then select
+						<menuchoice>
+							<guimenu>Context Menu</guimenu>
+							<guimenuitem>Revert changes from this revision</guimenuitem>
+						</menuchoice>.
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				You have reverted the changes within your working copy.
+				Check the results, then commit the changes.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-howto-rollback-merge">
+			<title>Use the merge dialog</title>
+			<para>
+				To undo a larger range of revisions, you can use the Merge dialog.
+				The previous method uses merging behind the scenes; this method
+				uses it explicitly.
+			</para>
+			<orderedlist>
+				<listitem>
+					<para>
+						In our working copy select
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Merge</guimenuitem>
+						</menuchoice>.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						In the <guilabel>From:</guilabel> field enter the full
+						folder url of the branch or tag containing the changes
+						you want to revert in your working copy. This should come
+						up as the default URL.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						In the <guilabel>From Revision</guilabel> field enter the
+						revision number that you are currently at. If you are
+						sure there is no-one else making changes, you can use the
+						HEAD revision.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						make sure the <guilabel>Use "From:" URL</guilabel>
+						checkbox is checked.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						In the <guilabel>To Revision</guilabel> field enter the
+						revision number that you want to revert to, ie. the one
+						<emphasis>before</emphasis> the first revision to be reverted.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Click <guibutton>OK</guibutton> to complete the merge.
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				You have reverted the changes within your working copy.
+				Check the results, then commit the changes.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-howto-rollback-dumpload">
+			<title>Use svndumpfilter</title>
+			<para>
+				If you want to make revisions disappear completely from your
+				repository, erasing all trace that they ever existed, you have
+				to use more extreme measures. Unless there is a really good reason
+				to do this, it is <emphasis>not recommended</emphasis>. One
+				possible reason would be that someone committed a confidential
+				document to a public repository.
+			</para>
+			<para>
+				The only way to remove data from the repository is to use the
+				Subversion command line tool <literal>svnadmin></literal>.
+				You can find a description of how this works in the
+				<ulink url="http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3">
+					<citetitle>Subversion Book</citetitle>
+				</ulink>.
+			</para>
+		</sect2>
+	</sect1>
 </appendix>
