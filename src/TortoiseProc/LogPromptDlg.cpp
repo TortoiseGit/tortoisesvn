@@ -124,6 +124,9 @@ BOOL CLogPromptDlg::OnInitDialog()
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
 	
+	if (!m_sLogMessage.IsEmpty())
+		m_cLogMessage.SetText(m_sLogMessage);
+	
 	SVN svn;
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), svn.GetUUIDFromPath(m_pathList[0]));

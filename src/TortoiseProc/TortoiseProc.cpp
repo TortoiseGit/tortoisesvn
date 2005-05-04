@@ -584,7 +584,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CLogPromptDlg dlg;
 			if (parser.HasKey(_T("logmsg")))
 			{
-				dlg.m_cLogMessage.SetText(parser.GetVal(_T("logmsg")));
+				dlg.m_sLogMessage = parser.GetVal(_T("logmsg"));
 			}
 			dlg.m_pathList = pathList;
 			if (dlg.DoModal() == IDOK)
