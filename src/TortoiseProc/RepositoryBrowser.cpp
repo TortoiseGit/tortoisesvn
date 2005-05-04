@@ -262,15 +262,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);			// "Show Log..."
-
+				temp.LoadString(IDS_MENUREVISIONGRAPH);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVGRAPH, temp);
 				if (!bFolder)
 				{
 					temp.LoadString(IDS_MENUBLAME);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPBLAME, temp);			// "Blame..."
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPBLAME, temp);		// "Blame..."
 				}
-				
-				temp.LoadString(IDS_MENUREVISIONGRAPH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVGRAPH, temp);
 
 				if (bFolder)
 				{
@@ -286,11 +284,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSAVEAS, temp);		// "Save as..."
 				}
+				popup.AppendMenu(MF_SEPARATOR, NULL);				
 
 				if (GetRevision().IsHead())
 				{
-					popup.AppendMenu(MF_SEPARATOR);
-
 					if (bFolder)
 					{
 						temp.LoadString(IDS_REPOBROWSE_MKDIR);
@@ -301,6 +298,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 
 						temp.LoadString(IDS_REPOBROWSE_IMPORTFOLDER);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPIMPORTFOLDER, temp);	// "Add/Import Folder"
+
+						popup.AppendMenu(MF_SEPARATOR, NULL);
 					}
 
 					temp.LoadString(IDS_REPOBROWSE_DELETE);
@@ -317,6 +316,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				}
 				temp.LoadString(IDS_REPOBROWSE_COPY);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);			// "Copy To..."
+				
+				popup.AppendMenu(MF_SEPARATOR, NULL);
+				
 				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 			} // if (uSelCount == 1)
