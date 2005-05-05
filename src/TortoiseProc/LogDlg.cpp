@@ -683,15 +683,37 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					if (m_hasWC)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
 				}
-				else if (m_LogList.GetSelectedCount() == 2)
+				else if (m_LogList.GetSelectedCount() >= 2)
 				{
-					if (!m_path.IsDirectory())
+					if (m_LogList.GetSelectedCount() == 2)
 					{
-						temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
+						if (!m_path.IsDirectory())
+						{
+							temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
+						}
+						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 					}
-					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
+					// reverting revisions only works (in one merge!) when the selected
+					// revisions are continuous. So check first if that's the case before
+					// we show the context menu.
+					POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+					bool bContinuous = true;
+					int itemindex = m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos));
+					while (pos)
+					{
+						int nextindex = m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos));
+						if (nextindex - itemindex > 1)
+						{
+							bContinuous = false;
+							break;
+						}
+						itemindex = nextindex;
+					}					
+					temp.LoadString(IDS_LOG_POPUP_REVERTREVS);
+					if ((m_hasWC)&&(bContinuous))
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
 				}
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				
@@ -759,7 +781,14 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_REVERTREV:
 					{
-						long rev = m_arRevs.GetAt(selIndex);
+						// we show the context menu.
+						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+						long rev = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long revend = rev-1;
+						while (pos)
+						{
+							revend = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						}					
 						CString msg;
 						msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPathString());
 						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
@@ -777,7 +806,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								CSVNProgressDlg dlg;
 								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(m_path), url, url, rev);		//use the message as the second url
-								dlg.m_RevisionEnd = rev-1;
+								dlg.m_RevisionEnd = revend;
 								dlg.DoModal();
 							}
 						}
