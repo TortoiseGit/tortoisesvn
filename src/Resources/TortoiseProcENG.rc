@@ -451,40 +451,34 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "&Recurse into folders to fetch the status",
-                    IDC_CHANGEDDIRS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,
-                    20,274,10
     CONTROL         "Re&movable drives",IDC_REMOVABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,18,62,130,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,18,45,130,10
     CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,18,72,130,10
+                    WS_TABSTOP,18,55,130,10
     CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,18,83,127,10
+                    WS_TABSTOP,18,66,127,10
     CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,166,62,118,10
-    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,52,274,42
+                    WS_TABSTOP,166,45,118,10
+    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,33,274,48
     CONTROL         "R&AM drives",IDC_RAM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,166,72,112,10
+                    WS_TABSTOP,166,55,112,10
     CONTROL         "&Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,166,82,118,10
+                    WS_TABSTOP,166,65,118,10
     CONTROL         "Show &overlays only in explorer",IDC_ONLYEXPLORER,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,42,154,10
-    GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,7,7,286,147
-    GROUPBOX        "Cascaded Context Menu",IDC_STATIC,7,156,286,54
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,20,154,10
+    GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,7,7,286,136
+    GROUPBOX        "Cascaded Context Menu",IDC_STATIC,7,146,286,64
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,170,274,33
-    LTEXT           "Exclude paths:",IDC_STATIC,12,133,85,8
-    EDITTEXT        IDC_EXCLUDEPATHS,102,126,184,22,ES_MULTILINE | 
+                    WS_BORDER | WS_TABSTOP,12,158,274,45
+    LTEXT           "Exclude paths:",IDC_STATIC,12,120,85,8
+    EDITTEXT        IDC_EXCLUDEPATHS,102,113,184,22,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
-    LTEXT           "Include paths:",IDC_STATIC,12,106,86,8
-    EDITTEXT        IDC_INCLUDEPATHS,101,98,185,22,ES_MULTILINE | 
+    LTEXT           "Include paths:",IDC_STATIC,12,95,86,8
+    EDITTEXT        IDC_INCLUDEPATHS,101,87,185,22,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
-    CONTROL         "Show folderstatus",IDC_SHOWFOLDERSTATUS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,12,31,154,10
-    PUSHBUTTON      "&Select Overlay Set",IDC_SELECTOVERLAYSET,180,38,106,14
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 217
@@ -1374,16 +1368,12 @@ BEGIN
     IDS_SETTINGS_SELECTSSH  "Select SSH Client"
     IDS_SETTINGS_EXTDIFF_TT "An external diff program used\nfor comparing different revisions of files\n<hr=100%>\nYou can specify the following parameters to the path:\n%base\tthe base file\n%mine\tthe modified file"
     IDS_SETTINGS_EXTDIFFBROWSE_TT "Browse for the external diff program"
-    IDS_SETTINGS_CHANGEDDIRS_TT 
-                            "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
-    IDS_SETTINGS_FOLDERSTATUS_TT 
-                            "Indicates the status of a folder with the overlay icon.\nIf deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
     IDS_SETTINGS_EXTMERGE_TT 
                             "An external merge program used\nto resolve conflicted files.\n<hr=100%>\nYou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "Either the name or IP of the proxy server"

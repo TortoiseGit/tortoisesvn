@@ -79,4 +79,6 @@ protected:
 	CRegString		m_regDeleted;
 	CRegString		m_regLocked;
 	CRegString		m_regAdded;
+public:
+	virtual BOOL OnApply();
 };

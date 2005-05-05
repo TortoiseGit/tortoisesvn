@@ -40,10 +40,7 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bOnlyExplorer(FALSE)
 	, m_sExcludePaths(_T(""))
 	, m_sIncludePaths(_T(""))
-	, m_bShowFolderStatus(TRUE)
 {
-	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
-	m_regShowFolderStatus = CRegDWORD(_T("Software\\TortoiseSVN\\FolderOverlay"), TRUE);
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 	m_regDriveMaskRemote = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
@@ -55,8 +52,6 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regExcludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 	m_regIncludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 
-	m_bShowChangedDirs = m_regShowChangedDirs;
-	m_bShowFolderStatus = m_regShowFolderStatus;
 	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
 	m_bNetwork = m_regDriveMaskRemote;
@@ -78,7 +73,6 @@ CSetOverlayPage::~CSetOverlayPage()
 void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
-	DDX_Check(pDX, IDC_CHANGEDDIRS, m_bShowChangedDirs);
 	DDX_Check(pDX, IDC_REMOVABLE, m_bRemovable);
 	DDX_Check(pDX, IDC_NETWORK, m_bNetwork);
 	DDX_Check(pDX, IDC_FIXED, m_bFixed);
@@ -90,12 +84,10 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
 	DDX_Text(pDX, IDC_EXCLUDEPATHS, m_sExcludePaths);
 	DDX_Text(pDX, IDC_INCLUDEPATHS, m_sIncludePaths);
-	DDX_Check(pDX, IDC_SHOWFOLDERSTATUS, m_bShowFolderStatus);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
-	ON_BN_CLICKED(IDC_CHANGEDDIRS, OnBnClickedChangeddirs)
 	ON_BN_CLICKED(IDC_REMOVABLE, OnBnClickedRemovable)
 	ON_BN_CLICKED(IDC_NETWORK, OnBnClickedNetwork)
 	ON_BN_CLICKED(IDC_FIXED, OnBnClickedFixed)
@@ -106,8 +98,6 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
 	ON_EN_CHANGE(IDC_EXCLUDEPATHS, OnEnChangeExcludepaths)
 	ON_EN_CHANGE(IDC_INCLUDEPATHS, OnEnChangeIncludepaths)
-	ON_BN_CLICKED(IDC_SHOWFOLDERSTATUS, OnBnClickedShowfolderstatus)
-	ON_BN_CLICKED(IDC_SELECTOVERLAYSET, OnBnClickedSelectoverlayset)
 END_MESSAGE_MAP()
 
 
@@ -115,8 +105,6 @@ void CSetOverlayPage::SaveData()
 {
 	if (m_bInitialized)
 	{
-		m_regShowChangedDirs = m_bShowChangedDirs;
-		m_regShowFolderStatus = m_bShowFolderStatus;
 		m_regOnlyExplorer = m_bOnlyExplorer;
 		m_regDriveMaskRemovable = m_bRemovable;
 		m_regDriveMaskRemote = m_bNetwork;
@@ -145,8 +133,6 @@ BOOL CSetOverlayPage::OnInitDialog()
 	m_cDriveGroup.SetIcon(IDI_DRIVES);
 
 	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_CHANGEDDIRS, IDS_SETTINGS_CHANGEDDIRS_TT);
-	m_tooltips.AddTool(IDC_SHOWFOLDERSTATUS, IDS_SETTINGS_FOLDERSTATUS_TT);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
 	m_tooltips.AddTool(IDC_EXCLUDEPATHS, IDS_SETTINGS_EXCLUDELIST_TT);	
@@ -216,11 +202,6 @@ BOOL CSetOverlayPage::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
 	return CPropertyPage::PreTranslateMessage(pMsg);
-}
-
-void CSetOverlayPage::OnBnClickedChangeddirs()
-{
-	SetModified();
 }
 
 void CSetOverlayPage::OnBnClickedRemovable()
@@ -329,20 +310,4 @@ void CSetOverlayPage::OnEnChangeExcludepaths()
 void CSetOverlayPage::OnEnChangeIncludepaths()
 {
 	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedShowfolderstatus()
-{
-	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedSelectoverlayset()
-{
-	CString regInSubversion = CRegString(_T("Software\\TortoiseSVN\\InSubversionIcon"));
-
-	CSetOverlayIcons dlg;
-	dlg.DoModal();
-	CString newInSubversion = CRegString(_T("Software\\TortoiseSVN\\InSubversionIcon"));
-	if (regInSubversion.Compare(newInSubversion)!=0)
-		CShellUpdater::RebuildIcons();
 }

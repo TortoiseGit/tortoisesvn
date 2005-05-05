@@ -76,8 +76,6 @@ private:
 	void InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags);
 
 
-	BOOL			m_bShowChangedDirs;
-	BOOL			m_bShowFolderStatus;
 	BOOL			m_bOnlyExplorer;
 	BOOL			m_bRemovable;
 	BOOL			m_bNetwork;
@@ -85,8 +83,6 @@ private:
 	BOOL			m_bCDROM;
 	BOOL			m_bRAM;
 	BOOL			m_bUnknown;
-	CRegDWORD		m_regShowChangedDirs;
-	CRegDWORD		m_regShowFolderStatus;
 	CRegDWORD		m_regOnlyExplorer;
 	CRegDWORD		m_regDriveMaskRemovable;
 	CRegDWORD		m_regDriveMaskRemote;
@@ -110,7 +106,6 @@ private:
 
 public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedChangeddirs();
 	afx_msg void OnBnClickedRemovable();
 	afx_msg void OnBnClickedNetwork();
 	afx_msg void OnBnClickedFixed();
@@ -122,6 +117,4 @@ public:
 	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnEnChangeExcludepaths();
 	afx_msg void OnEnChangeIncludepaths();
-	afx_msg void OnBnClickedShowfolderstatus();
-	afx_msg void OnBnClickedSelectoverlayset();
 };

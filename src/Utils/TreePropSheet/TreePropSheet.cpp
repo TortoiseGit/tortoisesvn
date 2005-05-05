@@ -370,6 +370,7 @@ void CTreePropSheet::RefillPageTree()
 
 				m_pwndPageTree->SetItemImage(hItem, nImage, nImage);
 			}
+			m_pwndPageTree->Expand(m_pwndPageTree->GetParentItem(hItem), TVE_EXPAND);
 		}
 	}
 }
@@ -397,7 +398,7 @@ HTREEITEM CTreePropSheet::CreatePageTreeItem(LPCTSTR lpszPath, HTREEITEM hParent
 	if (!hItem)
 	{
 		hItem = m_pwndPageTree->InsertItem(strTopMostItem, hParent);
-		m_pwndPageTree->SetItemData(hItem, -1);
+		m_pwndPageTree->SetItemData(hItem, (DWORD_PTR)-1);
 		if (!strPath.IsEmpty() && m_bTreeImages && m_DefaultImages.GetSafeHandle())
 			// set folder image
 			m_pwndPageTree->SetItemImage(hItem, m_Images.GetImageCount()-2, m_Images.GetImageCount()-2);
@@ -418,6 +419,8 @@ HTREEITEM CTreePropSheet::CreatePageTreeItem(LPCTSTR lpszPath, HTREEITEM hParent
 CString CTreePropSheet::SplitPageTreePath(CString &strRest)
 {
 	int	nSeperatorPos = 0;
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression constant
 	while (TRUE)
 	{
 		nSeperatorPos = strRest.Find(_T("::"), nSeperatorPos);
@@ -439,6 +442,7 @@ CString CTreePropSheet::SplitPageTreePath(CString &strRest)
 				++nSeperatorPos;
 		}
 	}
+#pragma warning(pop)
 
 	CString	strItem(strRest.Left(nSeperatorPos));
 	strItem.Replace(_T("\\::"), _T("::"));
@@ -629,7 +633,7 @@ void CTreePropSheet::ActivatePreviousPage()
 			return;
 
 		HTREEITEM	hPrevItem = NULL;
-		if (hPrevItem=m_pwndPageTree->GetPrevSiblingItem(hItem))
+		if ((hPrevItem=m_pwndPageTree->GetPrevSiblingItem(hItem))!=0)
 		{
 			while (m_pwndPageTree->ItemHasChildren(hPrevItem))
 			{
@@ -646,6 +650,8 @@ void CTreePropSheet::ActivatePreviousPage()
 			// no prev item, so cycle to the last item
 			hPrevItem = m_pwndPageTree->GetRootItem();
 
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression constant
 			while (TRUE)
 			{
 				while (m_pwndPageTree->GetNextSiblingItem(hPrevItem))
@@ -656,6 +662,7 @@ void CTreePropSheet::ActivatePreviousPage()
 				else
 					break;
 			}
+#pragma warning(pop)
 		}
 
 		if (hPrevItem)
@@ -691,9 +698,9 @@ void CTreePropSheet::ActivateNextPage()
 			return;
 
 		HTREEITEM	hNextItem = NULL;
-		if (hNextItem=m_pwndPageTree->GetChildItem(hItem))
+		if ((hNextItem=m_pwndPageTree->GetChildItem(hItem))!=0)
 			;
-		else if (hNextItem=m_pwndPageTree->GetNextSiblingItem(hItem))
+		else if ((hNextItem=m_pwndPageTree->GetNextSiblingItem(hItem))!=0)
 			;
 		else if (m_pwndPageTree->GetParentItem(hItem))
 		{
@@ -964,7 +971,7 @@ void CTreePropSheet::OnPageTreeSelChanging(NMHDR *pNotifyStruct, LRESULT *plResu
 }
 
 
-void CTreePropSheet::OnPageTreeSelChanged(NMHDR *pNotifyStruct, LRESULT *plResult)
+void CTreePropSheet::OnPageTreeSelChanged(NMHDR * /*pNotifyStruct*/, LRESULT *plResult)
 {
 	*plResult = 0;
 

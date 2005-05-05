@@ -23,6 +23,7 @@
 #include ".\setoverlayicons.h"
 #include "SVNStatus.h"
 #include "Utils.h"
+#include "ShellUpdater.h"
 
 // CSetOverlayIcons dialog
 
@@ -315,6 +316,16 @@ void CSetOverlayIcons::SaveData()
 			m_regDeleted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseDeleted.ico");
 			m_regLocked = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseLocked.ico");
 			m_regAdded = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseAdded.ico");
+			CShellUpdater::RebuildIcons();
 		}
+		m_sOriginalIconSet = m_sIconSet;
 	}
+}
+
+BOOL CSetOverlayIcons::OnApply()
+{
+	UpdateData();
+	SaveData();
+	SetModified(FALSE);
+	return CPropertyPage::OnApply();
 }
