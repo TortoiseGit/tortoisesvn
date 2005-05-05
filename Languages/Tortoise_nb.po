@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-04-08 20:34+0100\n"
+"PO-Revision-Date: 2005-05-05 20:16+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -210,7 +210,8 @@ msgid "&Copy To..."
 msgstr "&Kopier til..."
 
 #: ID:101
-msgid "&Delete"
+#, fuzzy
+msgid "&Delete..."
 msgstr "&Slett"
 
 # Control-ID:1061,
@@ -302,6 +303,11 @@ msgstr "&Nettverks-stasjoner"
 msgid "&New "
 msgstr "&Ny"
 
+# Control-ID:1208,
+#: Control-ID:1208
+msgid "&Next 100"
+msgstr ""
+
 #: MenuEntry
 msgid "&Next Difference"
 msgstr "&Neste forskjell"
@@ -338,11 +344,6 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Forrige forskjell"
-
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "&Gå rekursivt inn i foldere for å hente status"
 
 #: ID:376
 msgid "&Redo"
@@ -381,11 +382,6 @@ msgstr "&Lagre graf som..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Lagre autentisering"
-
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "&Velg Ikonlag-sett"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -620,16 +616,6 @@ msgstr "Handling"
 #: ID:3826
 msgid "Activate Task List"
 msgstr "Aktiver oppgaveliste"
-
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Aktiver dette hvis du vil at mappenes ikon-overlegg\n"
-"skal vise Subversion-statusen på filene nedenfor.\n"
-"<ct=0x0000ff><b>Advarsel:</b> Dette kan gjøre utforskeren tregere</ct>"
 
 #: ID:8
 #: ID:209
@@ -871,8 +857,9 @@ msgid "Authors"
 msgstr "Forfattere"
 
 #: Control-ID:65535
-msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "Forfattere:                   Stefan Kueng, Tim Kemp"
+#, fuzzy
+msgid "Authors:"
+msgstr "Forfattere"
 
 # Control-ID:1123,
 #: ID:222
@@ -937,6 +924,11 @@ msgstr "Det gikk bra å lage Forgrening/Merke!"
 #: ID:9
 msgid "Branch/Tag..."
 msgstr "Gren/merke..."
+
+# ID:16,
+#: ID:16
+msgid "Break Lock"
+msgstr ""
 
 #: Control-ID:1009
 msgid "Bro&wse..."
@@ -1081,7 +1073,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Sjekk stien og/eller URLen du anga"
 
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
+#, fuzzy
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
 msgstr "Kryss av for de menyvalgene du se direkte under høyreklikk i stedet for i en av undermenyene"
 
 #: ID:80
@@ -1250,6 +1243,11 @@ msgstr "Kopiert"
 msgid "Copied remotely"
 msgstr "Kopiert eksternt"
 
+#: ID:103
+#, fuzzy
+msgid "Copy %s"
+msgstr "Kopierer %s"
+
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
 msgstr "Kopier (forgrening/merke)"
@@ -1274,6 +1272,11 @@ msgid ""
 msgstr ""
 "Kopiér det som er merket til utklippstavlen\n"
 "Kopiér"
+
+#: ID:103
+#, fuzzy
+msgid "Copy to working copy"
+msgstr "Kopi til arbeidskopi..."
 
 #: ID:80
 msgid "Copying %s"
@@ -1411,6 +1414,11 @@ msgstr "Lager et depot på gjeldende plassering"
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Lager en enhetlig lappefil (diff-fil) med forandringene du har gjort"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Credits:"
+msgstr ""
+
 # ID:376,
 #: ID:376
 msgid "Cu&t"
@@ -1451,11 +1459,6 @@ msgstr "Slettet"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "Måldisken er full."
-
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "Dialog"
 
 #: ID:12
 msgid "Diff"
@@ -1563,6 +1566,11 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Vil du lagre dine endringer?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Documentation - Simon Large"
+msgstr ""
+
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Ikke vis denne beskjeden igjen"
@@ -1637,6 +1645,11 @@ msgstr "Angi loggmelding"
 #: ID:80
 msgid "Enter URL"
 msgstr "Angi nettadresse"
+
+# ID:313,
+#: ID:313
+msgid "Enter a lock message (optional):"
+msgstr ""
 
 #: ID:3603
 msgid ""
@@ -1816,6 +1829,11 @@ msgstr "Generelt"
 msgid "Generating Patchfile..."
 msgstr "Genererer lappefil (patch-fil)..."
 
+# ID:16,
+#: ID:16
+msgid "Get Lock..."
+msgstr ""
+
 #: ID:119
 msgid "Getting File %s"
 msgstr "Henter filen %s"
@@ -1935,6 +1953,11 @@ msgstr ""
 "TortoiseSVN setter tidsstempler for filer til den tiden de sist\n"
 "ble sendt inn hvis angitt, ellers vises gjeldende tid."
 
+# ID:251,
+#: ID:251
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr ""
+
 #: ID:73
 msgid "Ignore"
 msgstr "Ignorér"
@@ -1979,17 +2002,6 @@ msgstr "Importerer katalogen til et depot"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "Stier å inkludere:"
-
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"Viser statusen til en mappe med ikonlaget.\n"
-"En versjonert mappe har alltid 'normale' ikon hvis deaktivert.\n"
-"<ct=0x0000ff><b>Deaktiver dette hvis utforkeren er treg.</b></ct>"
 
 #: ID:76
 msgid "Initial Import"
@@ -2056,11 +2068,10 @@ msgstr ""
 # ID:145,
 #: ID:145
 msgid ""
-"It's not possible to rename a file just in case!\n"
-"Please read our docs on how to work around this Subversion limitation."
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"Det går ikke å kun forandre små og store bokstaver i filnavn!\n"
-"Se på dokumentasjonen for å gå rundt denne Subversion-begrensningen."
 
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -2122,15 +2133,29 @@ msgstr ""
 "Plasseringen som inneholdet i\n"
 "depoets adresse lagres til."
 
+# ID:207,#:
+# ID:221,
+#: ID:207
+#: ID:221
+msgid "Lock"
+msgstr ""
+
+# Control-ID:65535,
+#: ID:207
+#, fuzzy
+msgid "Lock Comment"
+msgstr "Sperrens eier:"
+
+# Control-ID:65535,
+#: ID:209
+#, fuzzy
+msgid "Lock broken!"
+msgstr "Sperrens eier:"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Lock creation date:"
 msgstr "Opprettelsdato for sperre:"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Lock exp. date:"
-msgstr "Sperren utgår:"
 
 #: ID:263
 msgid "Lock failed"
@@ -2142,9 +2167,25 @@ msgid "Lock owner:"
 msgstr "Sperrens eier:"
 
 # ID:263,
+#: ID:209
+#, fuzzy
+msgid "Lock stolen by %s"
+msgstr "Sperret av %s"
+
+#: ID:195
+#, fuzzy
+msgid "Locked"
+msgstr "Låst"
+
+# ID:263,
 #: ID:263
 msgid "Locked by %s"
 msgstr "Sperret av %s"
+
+# ID:16,
+#: ID:16
+msgid "Locks a file for other users and makes it editable by you."
+msgstr ""
 
 #: ID:126
 msgid "Log"
@@ -2166,6 +2207,11 @@ msgstr "Loggmeldinger"
 #: Dlg-ID:106
 msgid "Look and Feel"
 msgstr "Utseende og følelse"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+msgid "Look and Feel::Overlays"
+msgstr "Utseende og følelse: Ikon-overlegg"
 
 # ID:238,
 #: ID:238
@@ -2291,6 +2337,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Operativsystemets filsystem (FSFS)"
+
+# Control-ID:1203,
+#: ID:195
+msgid "Needs Lock"
+msgstr "Behøver sperre"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -2441,6 +2492,10 @@ msgstr "Åpne klient-sertifikatfilen"
 msgid "Open file"
 msgstr "Åpne fil"
 
+#: ID:113
+msgid "Open with..."
+msgstr "Åpne med..."
+
 #: ID:3605
 msgid ""
 "Opens Help\n"
@@ -2456,11 +2511,6 @@ msgstr "Åpner depot-utforskeren slik at depoet kan jobbes med når tilkoblet"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Ikke mer minne."
-
-# ID:207,
-#: ID:207
-msgid "Owner"
-msgstr "Eier"
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -2502,8 +2552,8 @@ msgstr "Stier"
 
 # ID:157,
 #: ID:157
-msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Bildefiler (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Bildefiler (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
 
 #: ID:3858
 msgid "Please enter a GUID."
@@ -2585,6 +2635,11 @@ msgstr "Vennligst vent - dette kan ta flere minutter (det er helt sant)!"
 #: ID:13
 msgid "Please wait while cancelling..."
 msgstr "Vent mens det avbrytes..."
+
+# ID:104,
+#: ID:104
+msgid "Please wait while the repository browser is initialized..."
+msgstr ""
 
 #: ID:119
 msgid "Please wait..."
@@ -2681,6 +2736,21 @@ msgstr "Gjenoppfrisk"
 #: ID:82
 msgid "Reject"
 msgstr "Nekt"
+
+# Control-ID:1203,
+#: ID:16
+msgid "Release Lock"
+msgstr "Løs sperre"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr ""
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr ""
 
 #: MenuEntry
 msgid "Reload"
@@ -2819,6 +2889,10 @@ msgstr "Prøv igjen"
 msgid "Revert"
 msgstr "Tilbakestill"
 
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "Tilbakestill endringer fra disse revisjonene"
+
 #: ID:8
 msgid "Revert..."
 msgstr "Tilbakestill..."
@@ -2906,6 +2980,11 @@ msgstr "SVN Eksporter..."
 #: ID:77
 msgid "SVN Import..."
 msgstr "SVN Importer..."
+
+# Control-ID:65535,
+#: ID:16
+msgid "SVN Lock Owner"
+msgstr "SVN Sperrens eier:"
 
 #: ID:78
 msgid "SVN Merge..."
@@ -2995,6 +3074,14 @@ msgid ""
 msgstr ""
 "Lagre den endrede filen\n"
 "Lagre fil"
+
+#: ID:103
+msgid "Saving Files"
+msgstr "Lagre filer"
+
+#: ID:103
+msgid "Saving file %s"
+msgstr "Lagrer filen %s"
 
 #: ID:144
 msgid "Saving patchfile to:"
@@ -3139,6 +3226,7 @@ msgstr "Vis &forskjeller"
 #: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
+#: Control-ID:1132
 msgid "Show &Log"
 msgstr "Vis &logg"
 
@@ -3171,11 +3259,6 @@ msgstr "Vis linjenummere"
 msgid "Show Log"
 msgstr "Vis logg"
 
-# Control-ID:1169,
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "Vis mappestatus"
-
 #: ID:3713
 msgid ""
 "Show or hide the status bar\n"
@@ -3199,6 +3282,10 @@ msgid ""
 msgstr ""
 "Vis spesialkarakterer i stedet for mellomrom\n"
 "Vis mellomrom"
+
+#: Control-ID:1209
+msgid "Show unmodified files"
+msgstr "Vis uendrede filer"
 
 #: Control-ID:1073
 msgid "Show unversioned files"
@@ -3280,6 +3367,21 @@ msgstr "Status"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Et elements status i SVN"
+
+# ID:16,
+#: ID:16
+msgid "Steal Lock"
+msgstr ""
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Stefan Küng, Lübbe Onken"
+msgstr ""
 
 # Control-ID:1130,
 #: Control-ID:1130
@@ -3484,6 +3586,11 @@ msgstr "Linjen indikerer at den nye filen var forventet i linjenummer %d !"
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "Linjen indikerer at den gamle filen var forventet i linjenummer %d !"
 
+# ID:251,
+#: ID:251
+msgid "The lock has already been broken from another working copy"
+msgstr ""
+
 #: ID:63
 msgid ""
 "The old file does not match the new file.\n"
@@ -3559,6 +3666,11 @@ msgid ""
 msgstr ""
 "Målmappen er ikke tom!\n"
 "Er du sikker på at du vil sjekke ut/eksportere inn i den mappen?"
+
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr ""
 
 #: ID:81
 msgid ""
@@ -3829,6 +3941,10 @@ msgstr ""
 "Ukjent sertifikat-utsteder.\n"
 "  Fingeravtrykk: %s\n"
 "  Enestående navn: %s"
+
+#: ID:221
+msgid "Unlock"
+msgstr "Opphev sperre"
 
 #: ID:264
 msgid "Unlock failed"
@@ -4363,7 +4479,18 @@ msgstr ""
 "svn:mime-type\n"
 "En fils MIME-type. Brukes for å bestemme om filen skal flettes og hvordan filen sendes via Apache. En MIME-type som begynner med 'text/' (eller mangler MIME-type), behandles som tekst mens alt annet behandles binært."
 
+# ID:16,
+#: ID:16
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr ""
+
 #: ID:80
+#: ID:103
 msgid "to %s"
 msgstr "til %s"
 
