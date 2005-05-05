@@ -67,6 +67,7 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_AUTOCSETIGNORECASE, 1);
 	Call(SCI_SETLEXER, SCLEX_CONTAINER);
 	Call(SCI_SETCODEPAGE, SC_CP_UTF8);
+	Call(SCI_AUTOCSETFILLUPS, 0, (LPARAM)"([.-: ");
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
 	if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
@@ -468,6 +469,15 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		{
 			if ((Call(SCI_AUTOCACTIVE)==0)&&(Call(SCI_CALLTIPACTIVE)==0))
 				::SendMessage(GetParent()->GetSafeHwnd(), WM_CLOSE, 0, 0);
+		}
+		break;
+	case (VK_SPACE):
+		{
+			if ((GetKeyState(VK_CONTROL)&0x8000)&&(GetKeyState(VK_SHIFT)&0x8000))
+			{
+				DoAutoCompletion();
+				return;
+			}
 		}
 		break;
 	}
