@@ -67,7 +67,7 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_AUTOCSETIGNORECASE, 1);
 	Call(SCI_SETLEXER, SCLEX_CONTAINER);
 	Call(SCI_SETCODEPAGE, SC_CP_UTF8);
-	Call(SCI_AUTOCSETFILLUPS, 0, (LPARAM)"([.-: ");
+	Call(SCI_AUTOCSETFILLUPS, 0, (LPARAM)"([.-:");
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
 	if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
