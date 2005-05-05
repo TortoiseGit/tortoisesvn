@@ -76,6 +76,7 @@ protected:
 	afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
 	afx_msg void OnDestroy();
 	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnWindowPosChanging(WINDOWPOS FAR* lpwndpos);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

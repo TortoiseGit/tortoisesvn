@@ -46,6 +46,7 @@ BEGIN_MESSAGE_MAP(CResizableMDIChild, CMDIChildWnd)
 	ON_WM_GETMINMAXINFO()
 	ON_WM_SIZE()
 	ON_WM_DESTROY()
+	ON_WM_NCCREATE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -67,7 +68,9 @@ void CResizableMDIChild::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI)
 void CResizableMDIChild::OnSize(UINT nType, int cx, int cy) 
 {
 	CMDIChildWnd::OnSize(nType, cx, cy);
-/*
+
+/* Why was this necessary???
+
 	// make sure the MDI parent frame doesn't clip
 	// this child window when it is maximized
 	if (nType == SIZE_MAXIMIZED)
@@ -77,7 +80,8 @@ void CResizableMDIChild::OnSize(UINT nType, int cx, int cy)
 		CRect rect;
 		pFrame->GetWindowRect(rect);
 		pFrame->MoveWindow(rect);
-	}*/
+	}
+/*/
 }
 
 // NOTE: this must be called after setting the layout
@@ -101,6 +105,7 @@ void CResizableMDIChild::OnDestroy()
 	CMDIChildWnd::OnDestroy();
 }
 
+
 LRESULT CResizableMDIChild::WindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
 {
 	if (message != WM_NCCALCSIZE || wParam == 0)
@@ -112,4 +117,12 @@ LRESULT CResizableMDIChild::WindowProc(UINT message, WPARAM wParam, LPARAM lPara
 	lResult = CMDIChildWnd::WindowProc(message, wParam, lParam);
 	HandleNcCalcSize(TRUE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
 	return lResult;
+}
+
+BOOL CResizableMDIChild::OnNcCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (!CMDIChildWnd::OnNcCreate(lpCreateStruct))
+		return FALSE;
+	ModifyStyle(0, WS_CLIPCHILDREN);
+	return TRUE;
 }

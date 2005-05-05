@@ -111,7 +111,7 @@ void CResizableFormView::OnSize(UINT nType, int cx, int cy)
 		hWndChild = ::GetNextWindow(hWndChild, GW_HWNDNEXT))
 	{
 		::GetWindowRect(hWndChild, rectChild);
-		// TODO: check RTL layouts!
+		//! @todo check RTL layouts!
 		if (rectChild.right > rect.right || rectChild.bottom > rect.bottom)
 		{
 			bCanResize = FALSE;
