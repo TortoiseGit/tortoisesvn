@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-04 22:24GMT Daylight Time\n"
+"POT-Creation-Date: 2005-05-05 09:23GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,30 +102,30 @@ msgid "You can enable anonymous write access by simply setting: <screen>\n[gener
 msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:170(para) 
-msgid "One way to overcome this is to create a password database: <screen>\n[general]\nanon-access = none\nauth-access = write\npassword-db = userfile\n</screen> Where <literal>userfile</literal> is a file which exists in the same directory as <filename>svnserve.conf</filename>. This file can live elsewhere in your filesytem (useful for when you have multiple repositories which require the same access rights) and may be referenced using an absolute path, or a path relative to the <filename>conf</filename> directory. The <filename>userfile</filename> should have a structure of: <screen>\n[users]\nusername = password\n...\n</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
+msgid "One way to overcome this is to create a password database: <screen>\n[general]\nanon-access = none\nauth-access = write\npassword-db = userfile\n</screen> Where <literal>userfile</literal> is a file which exists in the same directory as <filename>svnserve.conf</filename>. This file can live elsewhere in your filesytem (useful for when you have multiple repositories which require the same access rights) and may be referenced using an absolute path, or a path relative to the <filename>conf</filename> directory. If you include a path, it must be written <filename>/the/unix/way</filename>. Using \\ or drive letters will not work. The <filename>userfile</filename> should have a structure of: <screen>\n[users]\nusername = password\n...\n</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
 
-#: source/en/tsvn_server/server_svn.xml:195(para) 
+#: source/en/tsvn_server/server_svn.xml:198(para) 
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
 msgstr ""
 
-#: source/en/tsvn_server/server_svn.xml:213(title) 
+#: source/en/tsvn_server/server_svn.xml:216(title) 
 msgid "Authentication with svn+ssh"
 msgstr ""
 
-#: source/en/tsvn_server/server_svn.xml:214(para) 
+#: source/en/tsvn_server/server_svn.xml:217(para) 
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through."
 msgstr ""
 
-#: source/en/tsvn_server/server_svn.xml:219(para) 
+#: source/en/tsvn_server/server_svn.xml:222(para) 
 msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
 msgstr ""
 
-#: source/en/tsvn_server/server_svn.xml:225(para) 
+#: source/en/tsvn_server/server_svn.xml:228(para) 
 msgid "It is beyond the scope of this documentation to detail the installation and setup of a secure shell, however you can find further information in the <ulink url=\"http://tortoisesvn.berlios.de/faq/index.php?action=artikel&amp;cat=8&amp;id=30&amp;artlang=en\"><citetitle>Subversion / TortoiseSVN SSH HowTo</citetitle></ulink>"
 msgstr ""
 
-#: source/en/tsvn_server/server_svn.xml:233(para) 
+#: source/en/tsvn_server/server_svn.xml:236(para) 
 msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>SVN book</citetitle></ulink>."
 msgstr ""
 

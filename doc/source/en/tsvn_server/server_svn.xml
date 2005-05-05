@@ -180,8 +180,11 @@ password-db = userfile
 			file can live elsewhere in your filesytem (useful for when you
 			have multiple repositories which require the same access rights)
 			and may be referenced using an absolute path, or a path
-			relative to the <filename>conf</filename> directory.  The
-			<filename>userfile</filename> should have a structure of:
+			relative to the <filename>conf</filename> directory.
+			If you include a path, it must be written
+			<filename>/the/unix/way</filename>.
+			Using \ or drive letters will not work.
+			The <filename>userfile</filename> should have a structure of:
 <screen>
 [users]
 username = password
