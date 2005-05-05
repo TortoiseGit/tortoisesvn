@@ -21,12 +21,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;APU_HAVE_DB=1;ENABLE_NLS"
 				MinimalRebuild="TRUE"
 				ExceptionHandling="TRUE"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="TRUE"
+				RuntimeTypeInfo="FALSE"
 				UsePrecompiledHeader="3"
 				WarningLevel="4"
 				DebugInformationFormat="4"/>
@@ -82,7 +83,7 @@
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APU_HAVE_DB=1"
 				StringPooling="TRUE"
 				MinimalRebuild="FALSE"
@@ -603,6 +604,28 @@
 						RelativePath="..\..\ext\Greta\syntax2.h">
 					</File>
 				</Filter>
+				<Filter
+					Name="TreePropSheet"
+					Filter="">
+					<File
+						RelativePath="..\Utils\TreePropSheet\PropPageFrame.cpp">
+					</File>
+					<File
+						RelativePath="..\Utils\TreePropSheet\PropPageFrame.h">
+					</File>
+					<File
+						RelativePath="..\Utils\TreePropSheet\PropPageFrameDefault.cpp">
+					</File>
+					<File
+						RelativePath="..\Utils\TreePropSheet\PropPageFrameDefault.h">
+					</File>
+					<File
+						RelativePath="..\Utils\TreePropSheet\TreePropSheet.cpp">
+					</File>
+					<File
+						RelativePath="..\Utils\TreePropSheet\TreePropSheet.h">
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -1054,6 +1077,9 @@
 			</File>
 			<File
 				RelativePath="..\Resources\ModifiedIcon.ico">
+			</File>
+			<File
+				RelativePath="..\Resources\Overlays.ico">
 			</File>
 			<File
 				RelativePath="..\Resources\proxy.ico">

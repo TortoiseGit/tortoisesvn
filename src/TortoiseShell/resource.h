@@ -181,7 +181,6 @@
 #define IDI_BLAME                       5146
 #define IDI_PATCH                       5147
 #define IDI_CREATEPATCH                 5150
-#define IDI_ICON1                       5151
 #define IDI_REVISIONGRAPH               5151
 #define IDI_LOCK                        5152
 #define IDI_UNLOCK                      5153

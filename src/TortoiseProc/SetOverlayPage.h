@@ -60,6 +60,8 @@ public:
 	 */
 	void SaveData();
 
+	UINT GetIconID() {return IDI_SET_OVERLAYS;}
+
 // Dialog Data
 	enum { IDD = IDD_SETTINGSOVERLAY };
 

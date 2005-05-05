@@ -63,6 +63,8 @@ public:
 	 */
 	void SaveData();
 
+	UINT GetIconID() {return IDI_PROXY;}
+
 	enum { IDD = IDD_SETTINGSPROXY };
 
 protected:

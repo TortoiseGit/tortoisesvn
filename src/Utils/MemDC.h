@@ -56,6 +56,48 @@ public:
 		FillSolidRect(m_rect, pDC->GetBkColor());
 	}
 	
+	CMemDC(CDC* pDC, const CRect* pRect) : CDC()
+	{
+		ASSERT(pDC != NULL); 
+
+		// Some initialization
+		m_pDC = pDC;
+		m_pOldBitmap = NULL;
+		m_bMemDC = !pDC->IsPrinting();
+
+		// Get the rectangle to draw
+		if (pRect == NULL) {
+			pDC->GetClipBox(&m_rect);
+		} else {
+			m_rect = *pRect;
+		}
+
+		if (m_bMemDC) {
+			// Create a Memory DC
+			CreateCompatibleDC(pDC);
+			pDC->LPtoDP(&m_rect);
+
+			m_bitmap.CreateCompatibleBitmap(pDC, m_rect.Width(), m_rect.Height());
+			m_pOldBitmap = SelectObject(&m_bitmap);
+
+			SetMapMode(pDC->GetMapMode());
+
+			SetWindowExt(pDC->GetWindowExt());
+			SetViewportExt(pDC->GetViewportExt());
+
+			pDC->DPtoLP(&m_rect);
+			SetWindowOrg(m_rect.left, m_rect.top);
+		} else {
+			// Make a copy of the relevent parts of the current DC for printing
+			m_bPrinting = pDC->m_bPrinting;
+			m_hDC       = pDC->m_hDC;
+			m_hAttribDC = pDC->m_hAttribDC;
+		}
+
+		// Fill background 
+		FillSolidRect(m_rect, pDC->GetBkColor());
+	}
+	
 	// Destructor copies the contents of the mem DC to the original DC
 	~CMemDC()
     {

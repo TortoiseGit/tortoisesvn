@@ -22,9 +22,9 @@
 
 
 
-IMPLEMENT_DYNAMIC(CSettings, CPropertySheet)
+IMPLEMENT_DYNAMIC(CSettings, CTreePropSheet)
 CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
-	:CPropertySheet(nIDCaption, pParentWnd, iSelectPage)
+	:CTreePropSheet(nIDCaption, pParentWnd, iSelectPage)
 {
 	AddPropPages();
 }
@@ -38,11 +38,19 @@ void CSettings::AddPropPages()
 {
 	m_pMainPage = new CSetMainPage();
 	m_pOverlayPage = new CSetOverlayPage();
+	m_pOverlaysPage = new CSetOverlayIcons();
 	m_pProxyPage = new CSetProxyPage();
 	m_pProgsPage = new CSetProgsPage();
 
+	SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
+	SetPageIcon(m_pOverlayPage, m_pOverlayPage->GetIconID());
+	SetPageIcon(m_pOverlaysPage, m_pOverlayPage->GetIconID());
+	SetPageIcon(m_pProxyPage, m_pProxyPage->GetIconID());
+	SetPageIcon(m_pProgsPage, m_pProgsPage->GetIconID());
+
 	AddPage(m_pMainPage);
 	AddPage(m_pOverlayPage);
+	AddPage(m_pOverlaysPage);
 	AddPage(m_pProxyPage);
 	AddPage(m_pProgsPage);
 }
@@ -51,6 +59,7 @@ void CSettings::RemovePropPages()
 {
 	delete m_pMainPage;
 	delete m_pOverlayPage;
+	delete m_pOverlaysPage;
 	delete m_pProxyPage;
 	delete m_pProgsPage;
 }
@@ -59,11 +68,12 @@ void CSettings::SaveData()
 {
 	m_pMainPage->SaveData();
 	m_pOverlayPage->SaveData();
+	m_pOverlaysPage->SaveData();
 	m_pProxyPage->SaveData();
 	m_pProgsPage->SaveData();
 }
 
-BEGIN_MESSAGE_MAP(CSettings, CPropertySheet)
+BEGIN_MESSAGE_MAP(CSettings, CTreePropSheet)
 END_MESSAGE_MAP()
 
 
@@ -71,7 +81,8 @@ END_MESSAGE_MAP()
 
 BOOL CSettings::OnInitDialog()
 {
-	BOOL bResult = CPropertySheet::OnInitDialog();
+	BOOL bResult = CTreePropSheet::OnInitDialog();
+
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return bResult;
 }

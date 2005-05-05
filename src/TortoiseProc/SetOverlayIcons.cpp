@@ -26,9 +26,9 @@
 
 // CSetOverlayIcons dialog
 
-IMPLEMENT_DYNAMIC(CSetOverlayIcons, CResizableStandAloneDialog)
-CSetOverlayIcons::CSetOverlayIcons(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CSetOverlayIcons::IDD, pParent)
+IMPLEMENT_DYNAMIC(CSetOverlayIcons, CPropertyPage)
+CSetOverlayIcons::CSetOverlayIcons()
+	: CPropertyPage(CSetOverlayIcons::IDD)
 { 
 	m_regInSubversion = CRegString(_T("Software\\TortoiseSVN\\InSubversionIcon"));
 	m_regModified = CRegString(_T("Software\\TortoiseSVN\\ModifiedIcon"));
@@ -45,22 +45,21 @@ CSetOverlayIcons::~CSetOverlayIcons()
 
 void CSetOverlayIcons::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+	CPropertyPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_ICONSETCOMBO, m_cIconSet);
 	DDX_Control(pDX, IDC_ICONLIST, m_cIconList);
 }
 
 
-BEGIN_MESSAGE_MAP(CSetOverlayIcons, CResizableStandAloneDialog)
+BEGIN_MESSAGE_MAP(CSetOverlayIcons, CPropertyPage)
 	ON_BN_CLICKED(IDC_LISTRADIO, OnBnClickedListradio)
 	ON_BN_CLICKED(IDC_SYMBOLRADIO, OnBnClickedSymbolradio)
 	ON_CBN_SELCHANGE(IDC_ICONSETCOMBO, OnCbnSelchangeIconsetcombo)
-	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 BOOL CSetOverlayIcons::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+	CPropertyPage::OnInitDialog();
 
 	m_cIconList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES);
 	//get the path to our icon sets
@@ -116,14 +115,6 @@ BOOL CSetOverlayIcons::OnInitDialog()
 	m_sLocked.LoadString(IDS_SETTINGS_LOCKEDNAME);
 	ShowIconSet(true);
 
-	AddAnchor(IDC_ICONSETLABEL, TOP_LEFT);
-	AddAnchor(IDC_ICONSETCOMBO, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_ICONLIST, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_LISTRADIO, BOTTOM_LEFT);
-	AddAnchor(IDC_SYMBOLRADIO, BOTTOM_RIGHT);
-	AddAnchor(IDOK, BOTTOM_RIGHT);
-	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	return TRUE;
 }
 
@@ -298,37 +289,32 @@ void CSetOverlayIcons::OnCbnSelchangeIconsetcombo()
 {
 	bool bSmallIcons = (GetCheckedRadioButton(IDC_LISTRADIO, IDC_SYMBOLRADIO) == IDC_LISTRADIO);
 	ShowIconSet(bSmallIcons);
+	m_selIndex = m_cIconSet.GetCurSel();
+	if (m_selIndex != CB_ERR)
+	{
+		m_cIconSet.GetLBText(m_selIndex, m_sIconSet);
+	}
+	if (m_sIconSet.CompareNoCase(m_sOriginalIconSet)!=0)
+		SetModified();
 }
 
-void CSetOverlayIcons::OnOK()
+void CSetOverlayIcons::SaveData()
 {
-	CString sIconSet;
-	int index = m_cIconSet.GetCurSel();
-	if (index != CB_ERR)
+	if (m_sIconSet.CompareNoCase(m_sOriginalIconSet)!=0)
 	{
-		m_cIconSet.GetLBText(index, sIconSet);
-		if (sIconSet.CompareNoCase(m_sOriginalIconSet)!=0)
+		// the selected icon set has changed.
+		CString msg;
+		msg.Format(IDS_SETTINGS_ICONSETCHANGED, m_sOriginalIconSet, m_sIconSet);
+		UINT ret = CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_ICONQUESTION | MB_OKCANCEL);
+		if (ret != IDCANCEL)
 		{
-			// the selected icon set has changed.
-			CString msg;
-			msg.Format(IDS_SETTINGS_ICONSETCHANGED, m_sOriginalIconSet, sIconSet);
-			UINT ret = CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_ICONQUESTION | MB_OKCANCEL);
-			if (ret != IDCANCEL)
-			{
-				m_regInSubversion = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseInSubversion.ico");
-				m_regModified = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseModified.ico");
-				m_regConflicted = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseConflict.ico");
-				m_regReadOnly = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseReadOnly.ico");
-				m_regDeleted = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseDeleted.ico");
-				m_regLocked = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseLocked.ico");
-				m_regAdded = m_sIconPath + _T("\\") + sIconSet + _T("\\TortoiseAdded.ico");
-			}
+			m_regInSubversion = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseInSubversion.ico");
+			m_regModified = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseModified.ico");
+			m_regConflicted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseConflict.ico");
+			m_regReadOnly = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseReadOnly.ico");
+			m_regDeleted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseDeleted.ico");
+			m_regLocked = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseLocked.ico");
+			m_regAdded = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseAdded.ico");
 		}
 	}
-	CResizableStandAloneDialog::OnOK();
-}
-
-void CSetOverlayIcons::OnBnClickedHelp()
-{
-	OnHelp();
 }

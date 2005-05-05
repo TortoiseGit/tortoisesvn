@@ -23,13 +23,23 @@
 
 // CSetOverlayIcons dialog
 
-class CSetOverlayIcons : public CResizableStandAloneDialog
+class CSetOverlayIcons : public CPropertyPage
 {
 	DECLARE_DYNAMIC(CSetOverlayIcons)
 
 public:
-	CSetOverlayIcons(CWnd* pParent = NULL);   // standard constructor
+	CSetOverlayIcons();   // standard constructor
 	virtual ~CSetOverlayIcons();
+
+	/**
+	* Saves the changed settings to the registry.
+	* \remark If the dialog is closed/dismissed without calling
+	* this method first then all settings the user made must be
+	* discarded!
+	*/
+	void SaveData();
+
+	UINT GetIconID() {return IDI_SET_OVERLAYS;}
 
 // Dialog Data
 	enum { IDD = IDD_OVERLAYICONS };
@@ -37,16 +47,16 @@ public:
 protected:
 	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL			OnInitDialog();
-	virtual void			OnOK();
 	afx_msg void			OnBnClickedListradio();
 	afx_msg void			OnBnClickedSymbolradio();
 	afx_msg void			OnCbnSelchangeIconsetcombo();
-	afx_msg void			OnBnClickedHelp();
 
 	void					ShowIconSet(bool bSmallIcons);
 	void					AddFileTypeGroup(CString sFileType, bool bSmallIcons);
 	DECLARE_MESSAGE_MAP()
 protected:
+	int				m_selIndex;
+	CString			m_sIconSet;
 	CComboBox		m_cIconSet;
 	CListCtrl		m_cIconList;
 

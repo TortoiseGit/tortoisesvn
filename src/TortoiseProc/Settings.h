@@ -22,8 +22,10 @@
 #include "SetProxyPage.h"
 #include "SetOverlayPage.h"
 #include "SetProgsPage.h"
+#include "SetOverlayIcons.h"
+#include "TreePropSheet/TreePropSheet.h"
 
-
+using namespace TreePropSheet;
 
 /**
  * \ingroup TortoiseProc
@@ -53,7 +55,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CSettings : public CPropertySheet
+class CSettings : public CTreePropSheet
 {
 	DECLARE_DYNAMIC(CSettings)
 private:
@@ -71,6 +73,7 @@ private:
 	CSetProxyPage *		m_pProxyPage;
 	CSetOverlayPage *	m_pOverlayPage;
 	CSetProgsPage *		m_pProgsPage;
+	CSetOverlayIcons *	m_pOverlaysPage;
 
 public:
 	CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);

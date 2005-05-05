@@ -38,6 +38,8 @@ public:
 	 */
 	void SaveData();
 
+	UINT GetIconID() {return IDI_DRIVES;}
+
 // Dialog Data
 	enum { IDD = IDD_SETTINGSPROGS };
 

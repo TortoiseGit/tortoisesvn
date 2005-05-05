@@ -62,6 +62,8 @@ public:
 	 * discarded!
 	 */
 	void SaveData();
+	
+	UINT GetIconID() {return IDI_MISC;}
 
 // Dialog Data
 	enum { IDD = IDD_SETTINGSMAIN };
