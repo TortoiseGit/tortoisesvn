@@ -162,6 +162,27 @@ void CSVNStatusCache::Clear()
 
 }
 
+void CSVNStatusCache::StartRequest(const CTSVNPath& path)
+{
+	AutoLocker lock(m_critSec);
+	m_askedList.AddHead(path.GetWinPathString());
+}
+
+void CSVNStatusCache::EndRequest(const CTSVNPath& path)
+{
+	AutoLocker lock(m_critSec);
+	POSITION pos = m_askedList.Find(path.GetWinPathString());
+	if (pos)
+		m_askedList.RemoveAt(pos);
+}
+
+void CSVNStatusCache::UpdateShell(const CTSVNPath& path)
+{
+	AutoLocker lock(m_critSec);
+	if (m_askedList.Find(path.GetWinPathString()) == 0)
+		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, path.GetWinPath(), NULL);
+}
+
 void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 {
 	// Stop the crawler starting on a new folder
@@ -216,7 +237,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory())->GetStatusForMember(path, bRecursive, path);
+	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory())->GetStatusForMember(path, bRecursive);
 }
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)

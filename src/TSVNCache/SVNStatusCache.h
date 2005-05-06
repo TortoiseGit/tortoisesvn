@@ -23,7 +23,7 @@
 #include "StatusCacheEntry.h"
 #include "CachedDirectory.h"
 #include "FolderCrawler.h"
-
+#include "atlcoll.h"
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -54,8 +54,19 @@ public:
 
 	/// Removes the cache for a specific path, e.g. if a folder got deleted/renamed
 	void RemoveCacheForPath(const CTSVNPath& path);
+	
+	/// Call this method before getting the status for a shell request
+	void StartRequest(const CTSVNPath& path);
+	/// Call this method after the data for the shell request has been gathered
+	void EndRequest(const CTSVNPath& path);
+	
+	/// Notifies the shell about file/folder status changes.
+	/// A notification is only sent for paths which aren't currently
+	/// in the list of handled shell requests to avoid deadlocks.
+	void UpdateShell(const CTSVNPath& path);
 
 private:
+	CAtlList<CString> m_askedList;
 	CCachedDirectory::CachedDirMap m_directoryCache; 
 	CComAutoCriticalSection m_critSec;
 	SVNHelper m_svnHelp;
