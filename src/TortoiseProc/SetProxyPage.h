@@ -21,6 +21,8 @@
 #include "IconStatic.h"
 #include "Balloon.h"
 #include "Registry.h"
+#include "FileDropEdit.h"
+#include "afxwin.h"
 
 
 /**
@@ -111,4 +113,5 @@ private:
 	CString		m_Exceptions;
 	CIconStatic	m_cSSHGroup;
 	CIconStatic	m_cProxyGroup;
+	CFileDropEdit m_cSSHClientEdit;
 };

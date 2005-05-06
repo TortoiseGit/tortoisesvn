@@ -115,6 +115,7 @@ void CSetProxyPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_SSHCLIENT, m_SSHClient);
 	DDX_Control(pDX, IDC_SSHGROUP, m_cSSHGroup);
 	DDX_Control(pDX, IDC_PROXYGROUP, m_cProxyGroup);
+	DDX_Control(pDX, IDC_SSHCLIENT, m_cSSHClientEdit);
 }
 
 

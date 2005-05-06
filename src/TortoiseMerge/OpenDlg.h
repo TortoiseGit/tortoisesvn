@@ -17,7 +17,8 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-
+#include "FileDropEdit.h"
+#include "afxwin.h"
 
 // COpenDlg dialog
 
@@ -44,6 +45,13 @@ public:
 	CString m_sUnifiedDiffFile;
 	CString m_sPatchDirectory;
 
+protected:
+	CFileDropEdit m_cBaseFileEdit;
+	CFileDropEdit m_cTheirFileEdit;
+	CFileDropEdit m_cYourFileEdit;
+	CFileDropEdit m_cDiffFileEdit;
+	CFileDropEdit m_cDirEdit;
+
 	afx_msg void OnBnClickedBasefilebrowse();
 	afx_msg void OnBnClickedTheirfilebrowse();
 	afx_msg void OnBnClickedYourfilebrowse();
@@ -53,6 +61,5 @@ public:
 	afx_msg void OnBnClickedMergeradio();
 	afx_msg void OnBnClickedApplyradio();
 	virtual BOOL OnInitDialog();
-protected:
 	virtual void OnOK();
 };

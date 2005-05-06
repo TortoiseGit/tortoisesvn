@@ -160,6 +160,24 @@
 				RelativePath="..\Utils\DirFileEnum.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\DragDropImpl.cpp">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\Utils\FileDropEdit.cpp">
+			</File>
+			<File
 				RelativePath=".\FilePatchesDlg.cpp">
 			</File>
 			<File
@@ -292,6 +310,12 @@
 			</File>
 			<File
 				RelativePath="..\Utils\DirFileEnum.h">
+			</File>
+			<File
+				RelativePath="..\Utils\DragDropImpl.h">
+			</File>
+			<File
+				RelativePath="..\Utils\FileDropEdit.h">
 			</File>
 			<File
 				RelativePath=".\FilePatchesDlg.h">
@@ -432,6 +456,6 @@
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="\Development\Subversion\TortoiseSVN\src\Resources\TortoiseMergeENG.rc"/>
+			Value="\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc"/>
 	</Globals>
 </VisualStudioProject>

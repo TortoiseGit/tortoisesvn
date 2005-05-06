@@ -88,6 +88,9 @@ void CSetProgsPage::DoDataExchange(CDataExchange* pDX)
 	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(m_iDiffViewer == 1);
 	GetDlgItem(IDC_EXTMERGE)->EnableWindow(m_iExtMerge == 1);
 	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(m_iExtMerge == 1);
+	DDX_Control(pDX, IDC_EXTDIFF, m_cDiffEdit);
+	DDX_Control(pDX, IDC_EXTMERGE, m_cMergeEdit);
+	DDX_Control(pDX, IDC_DIFFVIEWER, m_cUnifiedDiffEdit);
 }
 
 

@@ -52,6 +52,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_CHECKOUTDIRECTORY, m_strCheckoutDirectory);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 	DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
+	DDX_Control(pDX, IDC_CHECKOUTDIRECTORY, m_cCheckoutEdit);
 }
 
 

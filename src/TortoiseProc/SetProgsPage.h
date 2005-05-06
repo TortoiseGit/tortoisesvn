@@ -19,6 +19,8 @@
 #pragma once
 
 #include "SetProgsAdvDlg.h"
+#include "FileDropEdit.h"
+#include "afxwin.h"
 
 
 // CSetProgsPage dialog
@@ -85,5 +87,8 @@ private:
 	BOOL			m_bInitialized;
 	CRegDWORD		m_regConvertBase;	///< registry value for the "Don't Convert" flag
 	BOOL			m_bConvertBase;		///< don't convert files when diffing agains BASE
-public:
+
+	CFileDropEdit	m_cDiffEdit;
+	CFileDropEdit	m_cMergeEdit;
+	CFileDropEdit	m_cUnifiedDiffEdit;
 };

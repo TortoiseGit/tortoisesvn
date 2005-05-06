@@ -22,6 +22,8 @@
 #include "StandAloneDlg.h"
 #include "Balloon.h"
 #include "HistoryCombo.h"
+#include "FileDropEdit.h"
+#include "afxwin.h"
 
 /**
  * \ingroup TortoiseProc
@@ -89,4 +91,5 @@ public:
 	CButton			m_butBrowse;
 	CEdit			m_editRevision;
 	CString			m_strCheckoutDirectory;
+	CFileDropEdit	m_cCheckoutEdit;
 };
