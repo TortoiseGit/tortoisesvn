@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3191
+# Based on r3238
 #
 msgid ""
 msgstr ""
@@ -176,7 +176,7 @@ msgstr "&Intern"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
-#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "&Cancel"
 msgstr "&Annuller"
 
@@ -189,8 +189,8 @@ msgid "&Copy To..."
 msgstr "&Kopier til..."
 
 #: ID:101,
-msgid "&Delete"
-msgstr "&Slet"
+msgid "&Delete..."
+msgstr "&Slet..."
 
 #: Control-ID:1179,
 msgid "&Dry Run"
@@ -286,7 +286,7 @@ msgstr "&Næste 100"
 msgid "&Next Difference"
 msgstr "&Næste forskel"
 
-#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
 msgstr "&Ok"
 
@@ -313,10 +313,6 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Forrige forskel"
-
-#: Control-ID:1023,
-msgid "&Recurse into folders to fetch the status"
-msgstr "&Gennemløb undermapper for at hente status"
 
 #: ID:376,
 msgid "&Redo"
@@ -353,10 +349,6 @@ msgstr "Gem graf &som..."
 #: Control-ID:1023,
 msgid "&Save authentication"
 msgstr "&Gem adgangskoder"
-
-#: Control-ID:1132,
-msgid "&Select Overlay Set"
-msgstr "&Vælg ikonoverdækning"
 
 #: Control-ID:1012,
 #, fuzzy
@@ -545,10 +537,6 @@ msgstr "Handling"
 #: ID:3826,
 msgid "Activate Task List"
 msgstr "Aktiver opgaveliste"
-
-#: ID:78,
-msgid "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr "Aktivér denne, hvis du ønsker at ikonoverdækninger\npå mapper skal vise subversion-status af de indeholdte filer.\n<ct=0x0000ff><b>Advarsel:</b> Dette kan få Windows Stifinder til at arbejde langsomt!</ct>"
 
 #: ID:8,#: ID:209,#: Dlg-ID:155,
 msgid "Add"
@@ -941,8 +929,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Check den sti og/eller URL, som du har indtastet."
 
 #: ID:194,
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "Marker de menupunkter, som du gerne vil have vist i den øverste kontekstmenu i stedet for i undermenuen"
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr "Marker de menupunkter, som du gerne vil have vist i undermenuen i stedet for i den øverste kontekstmenu"
 
 #: ID:80,
 msgid "Check to use a less verbose date and time format in log messages"
@@ -1266,10 +1254,6 @@ msgstr "Sletter"
 #: ID:3859,#: ID:3859,
 msgid "Destination disk drive is full."
 msgstr "Destinationsdisken er fyldt op."
-
-#: Dlg-ID:184,
-msgid "Dialog"
-msgstr "Dialog"
 
 #: ID:12,
 msgid "Diff"
@@ -1726,10 +1710,6 @@ msgstr "Importerer mappen til et versionsarkiv"
 msgid "Include paths:"
 msgstr "Inkluder stierne:"
 
-#: ID:79,
-msgid "Indicates the status of a folder with the overlay icon.\nIf deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr "Viser status for mappen med overdækningsikonen.\nHvis ikke valgt, så vil den versionerede mappe altid have få vist ikonen \"normal\".\n<ct=0x0000ff><b>Hvis Windows Stifinder virker langsom, så slå denne indstilling fra!</b></ct>"
-
 #: ID:76,
 msgid "Initial Import"
 msgstr "Oprindelig import"
@@ -1816,7 +1796,7 @@ msgstr "Lås"
 
 #: ID:207,
 msgid "Lock Comment"
-msgstr ""
+msgstr "Lås-kommentar"
 
 #: ID:209,
 msgid "Lock broken!"
@@ -1847,8 +1827,8 @@ msgid "Locked by %s"
 msgstr "Låst af %s"
 
 #: ID:16,
-msgid "Locks files for other users and makes it editable by you."
-msgstr "Låser filer for andre brugere og gør, at du kan redigere dem."
+msgid "Locks a file for other users and makes it editable by you."
+msgstr "Låser en fil for andre brugere og gør, at du kan redigere den."
 
 #: ID:126,
 msgid "Log"
@@ -1869,6 +1849,10 @@ msgstr "Logbeskeder"
 #: Dlg-ID:106,
 msgid "Look and Feel"
 msgstr "Tema"
+
+#: Dlg-ID:184,
+msgid "Look and Feel::Overlays"
+msgstr "Tema::Ikonoverdækninger"
 
 #: ID:238,
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
@@ -2098,6 +2082,10 @@ msgstr "Åbn klient-certifikatfil"
 msgid "Open file"
 msgstr "Åbn fil"
 
+#: ID:113,
+msgid "Open with..."
+msgstr "Åbn med..."
+
 #: ID:3605,
 msgid "Opens Help\nHelp Topics"
 msgstr "Åbner hjælpen\nHjælpeemner"
@@ -2222,6 +2210,10 @@ msgstr "Vent venligst - dette kan meget vel vare flere minutter!"
 #: ID:13,
 msgid "Please wait while cancelling..."
 msgstr "Vent venligst mens der annulleres..."
+
+#: ID:104,
+msgid "Please wait while the repository browser is initialized..."
+msgstr "Vent venligst mens versionsarkivsøgeren initialiseres..."
 
 #: ID:119,
 msgid "Please wait..."
@@ -2436,6 +2428,10 @@ msgstr "Prøv igen"
 #: Dlg-ID:175,
 msgid "Revert"
 msgstr "Tilbagefør"
+
+#: ID:114,
+msgid "Revert changes from these revisions"
+msgstr "Tilbagefør ændringer fra disse revisioner"
 
 #: ID:8,
 msgid "Revert..."
@@ -2746,8 +2742,9 @@ msgid "Show &Log"
 msgstr "Vis &log"
 
 #: Control-ID:1031,
+#Der er ikke plads til at skrive "Vis logbeskeder".
 msgid "Show &Log..."
-msgstr "Vis &logbeskeder..."
+msgstr "Vis &log..."
 
 #: Control-ID:1016,
 #Der er ikke plads til at skrive "Vis logbeskeder".
@@ -2774,10 +2771,6 @@ msgstr "Vis linjenumre"
 #Der er ikke plads til at skrive "Vis logbeskeder".
 msgid "Show Log"
 msgstr "Vis log"
-
-#: Control-ID:1169,
-msgid "Show folderstatus"
-msgstr "Vis status for mappe"
 
 #: ID:3713,
 msgid "Show or hide the status bar\nToggle StatusBar"
@@ -2947,11 +2940,11 @@ msgstr "Arbejdskopien blev mærket til %s"
 
 #: ID:207,
 msgid "Text Status"
-msgstr "Tekst-status"
+msgstr "Tekststatus"
 
 #: Control-ID:65535,
 msgid "Text Status:"
-msgstr "Tekst-status:"
+msgstr "Tekststatus:"
 
 #: ID:69,
 msgid "The File\n%s\nis not a valid text file!\nNote that UTF16 and UTF32 files are treated as binary too."
