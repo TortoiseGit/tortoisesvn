@@ -24,12 +24,6 @@
 #include "..\version.h"
 #include "Utils.h"
 
-#ifdef UNICODE
-#	define STRINGWIDTH  "UNICODE"
-#else
-#	define STRINGWIDTH	"MBCS"
-#endif
-
 // CAboutDlg dialog
 
 IMPLEMENT_DYNAMIC(CAboutDlg, CDialog)
@@ -65,7 +59,7 @@ BOOL CAboutDlg::OnInitDialog()
 	GetDlgItem(IDC_VERSIONBOX)->SetWindowText(boxtitle);
 	const svn_version_t * svnver = svn_client_version();
 
-	temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(STRINGWIDTH),
+	temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD,
 		svnver->major, svnver->minor, svnver->patch, CString(svnver->tag), 
 		APR_MAJOR_VERSION, APR_MINOR_VERSION, APR_PATCH_VERSION,
 		API_MAJOR_VERSION, API_MINOR_VERSION, API_PATCH_VERSION,
@@ -75,8 +69,7 @@ BOOL CAboutDlg::OnInitDialog()
 		_T(OPENSSL_VERSION_TEXT),
 		_T(ZLIB_VERSION));
 	GetDlgItem(IDC_VERSIONABOUT)->SetWindowText(temp);
-	temp.Format(_T("%s, %s version"), _T("TortoiseSVN"), _T(STRINGWIDTH));
-	this->SetWindowText(temp);
+	this->SetWindowText(_T("TortoiseSVN"));
 
 	CPictureHolder tmpPic;
 	tmpPic.CreateFromBitmap(IDB_LOGOFLIPPED);
