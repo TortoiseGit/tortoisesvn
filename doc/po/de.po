@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-04 10:37+0100\n"
+"PO-Revision-Date: 2005-05-06 11:59+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3830,7 +3830,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_branchtag.xml:3
 #: (title)
 msgid "Branching / Tagging"
-msgstr ""
+msgstr "Verzweigen / Markieren"
 
 #: source/en/tsvn_dug/dug_branchtag.xml:5
 #: (primary)
@@ -3850,17 +3850,17 @@ msgstr "copy"
 #: source/en/tsvn_dug/dug_branchtag.xml:14
 #: (para)
 msgid "One of the features of version control systems is the ability to isolate changes onto a separate line of development. This line is known as a <firstterm>branch</firstterm>. Branches are often used to try out new features without disturbing the main line of development with compiler errors and bugs. As soon as the new feature is stable enough then the development branch is <firstterm>merged</firstterm> back into the main branch (trunk)."
-msgstr ""
+msgstr "Eine der Funktionen von Versionskontrollsystemen ist die Möglichkeit bestimmte isolierte Änderungen auf einer separaten Entwicklungslinie zu machen. Solche Linien werden <literal>Zweige</literal> genannt. Zweige werden üblicherweise dazu benutzt, um neue Funktionen auszutesten, ohne dadurch die normale Entwicklung am Projekt zu stören. Sobald dann eine solche neue Funktion stabil genug ist, wird der Zweig mit dem Hauptstamm (<filename>trunk</filename>) zusammengeführt."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:24
 #: (para)
 msgid "Another feature of version control systems is the ability to mark particular revisions (e.g. a release version), so you can at any time recreate a certain build or environment. This process is known as <firstterm>tagging</firstterm>."
-msgstr ""
+msgstr "Eine andere wichtige Funktion ist die Möglichkeit, bestimmte Zustände zu markieren (z.B. eine Release-Version), damit es jederzeit möglich ist diesen bestimmten Zustand wieder herstellen zu können. Dieser Vorgang wird <literal>markieren</literal> genannt."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:30
 #: (para)
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <literal>cheap copies</literal> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr ""
+msgstr "Subversion kennt keinen speziellen Befehl für das Verzweigen oder Markieren. Subversion benutzt stattdessen sogenannte <literal>billige Kopien</literal>. Diese funktionieren ähnlich wie Links, d.h. es wird keine richtige Kopie erstellt sondern nur eine Verknüpfung auf eine bestimmte Revision. Daraus ergibt sich, dass Verzweigungen oder Markierungen schnell zu erstellen sind und nahezu keinen zusätzlichen Platz im Projektarchiv benötigen."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:40
 #: (title)
@@ -3875,7 +3875,7 @@ msgstr "Der Verzweigen/Markieren-Dialog"
 #: source/en/tsvn_dug/dug_branchtag.xml:41
 #: (para)
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenuitem>Branch/Tag...</guimenuitem></menuchoice> from the context menu."
-msgstr ""
+msgstr "Wenn Sie beim Importieren Ihres Projektes die empfohlene Ordnerstruktur verwendet haben, ist ein Verzweigen oder Markieren sehr einfach: <placeholder-1/> Wählen Sie den Ordner Ihrer Arbeitskopie von dem Sie eine Verzweigung oder Markierung erstellen wollen und wählen Sie den Befehl <menuchoice><guimenuitem>Verzweigen/Markieren...</guimenuitem></menuchoice> im Kontextmenu."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:55
 #: (para)
@@ -3886,6 +3886,15 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
+"Standardmäßig wird die Ziel-URL mit der Quell-URL Ihrer Arbeitskopie vorbelegt. Sie müssen nun diese URL in den Pfad Ihrer neuen Verzweigung oder Markierung ändern. Anstelle von\n"
+"<screen>\n"
+"http://svn.collab.net/repos/ProjectName/trunk\n"
+"</screen>\n"
+"könnte das neue Verzeichnis wie folgt lauten:\n"
+"<screen>\n"
+"http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
+"</screen>\n"
+"Wenn Sie sich nicht mehr daran erinnern, welchen Namen Sie zuletzt vergeben hatten, klicken Sie einfach auf die rechte Schaltfläche. Damit öffnet sich der Projektarchiv-Betrachter und Sie können sich die Struktur des Projektarchivs ansehen."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:76
 #: (term)
@@ -3895,7 +3904,7 @@ msgstr "HEAD Revision im Projektarchiv"
 #: source/en/tsvn_dug/dug_branchtag.xml:77
 #: (listitem)
 msgid "The new branch is copied directly in the repository from the HEAD revision. No data needs to be transferred from your working copy, and the branch is created very quickly."
-msgstr ""
+msgstr "Der neue Zweig wird direkt im Projektarchiv als Kopie der HEAD Revision erstellt. Dabei werden keine Daten von Ihrer Arbeitskopie in das Projektarchiv übertragen und der Zweig kann sehr schnell erzeugt werden."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:85
 #: (term)
@@ -3905,7 +3914,7 @@ msgstr "Revisionsnummer im Projektarchiv"
 #: source/en/tsvn_dug/dug_branchtag.xml:86
 #: (listitem)
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
-msgstr ""
+msgstr "Der neue Zweig wird direkt im Projektarchiv kopiert, Sie können aber auch eine ältere Revision auswählen. Das ist dann nützlich, wenn Sie z.B. vergessen haben eine Markierung zu erstellen, als das Release in der letzen Woche erstellt wurde. Wenn Sie sich nicht mehr an die Revisionsnummer erinnern können, dann klicken Sie auf die Schaltfläche rechts und wählen die Revisionsnummer aus. Auch dabei werden keine Daten aus Ihrer Arbeitskopie an das Projektarchiv übertragen, so dass der Zweig sehr schnell erstellt werden kann."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:98
 #: (term)
@@ -3915,22 +3924,22 @@ msgstr "Arbeitskopie"
 #: source/en/tsvn_dug/dug_branchtag.xml:99
 #: (listitem)
 msgid "The new branch is an identical copy of your local working copy. If you have updated some files to an older revision in your WC, or if you have made local changes, that is exactly what goes into the copy. Naturally this sort of complex tag may involve transferring data from your WC back to the repository if it does not exist there already."
-msgstr ""
+msgstr "Der neue Zweig ist eine identische Kopie Ihrer lokalen Arbeitskopie. Egal ob Sie einige Dateien durch die einer älteren Revision ersetzt haben, oder sie geändert haben, diese Dateien sind genau die, die in diesen Zweig kopiert werden. Natürlich erfordert diese aufwändige Markierung, dass Daten von Ihrer Arbeitskopie zurück in das Projektarchiv übertragen werden müssen, sofern sie dort noch nicht existieren. "
 
 #: source/en/tsvn_dug/dug_branchtag.xml:71
 #: (para)
 msgid "Now you have to select the source of the copy. Here you have three options: <placeholder-1/>"
-msgstr ""
+msgstr "Nun haben Sie mehrere Möglichkeiten, die Quelle der Kopie auszuwählen: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_branchtag.xml:111
 #: (para)
 msgid "Press <guibutton>OK</guibutton> to commit the new copy to the repository. Don't forget to supply a log message. Note that the copy is created <emphasis>inside the repository</emphasis>."
-msgstr ""
+msgstr "Klicken Sie <guibutton>OK</guibutton>, um die neue Kopie in das Projektarchiv zu übertragen und vergessen Sie dabei nicht, eine Log-Meldung anzugeben. Beachten Sie, dass diese Kopie <emphasis>innerhalb des Projektarchivs</emphasis> angelegt wird."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:116
 #: (para)
 msgid "Note that creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you copy your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified."
-msgstr ""
+msgstr "Beachten Sie, dass das Anlegen eines Zweiges oder einer Markierung sich <emphasis>nicht</emphasis> auf ihre Arbeitskopie auswirkt. Auch wenn Sie eine Kopie der Arbeitskopie erstellen, werden die Änderungen darin in den neuen Zweig übertragen und nicht in den Hauptzweig. Die geänderten Dateien ihrer Arbeitskopie bleiben als geändert markiert."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:125
 #: (title)
@@ -3945,7 +3954,7 @@ msgstr "switch"
 #: source/en/tsvn_dug/dug_branchtag.xml:130
 #: (para)
 msgid "...that is (not really) the question. While a checkout checks out everything from the desired branch into your working directory, a <menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> only transfers the changed data to your working copy. Good for the network load, good for your patience. :-)"
-msgstr ""
+msgstr "...das ist hier (eigentlich nicht) die Frage. Während beim Auschecken eine neue Arbeitskopie erstellt wird (z.B. des neu estellten Zweiges) verändert der Befehl <menuchoice><guimenuitem>Wechseln zu...</guimenuitem></menuchoice> Ihre bestehende Arbeitskopie so, dass diese genau wie auf dem erstellten Zweig aussieht. Dabei werden nur die Unterschiede zwischen Ihrer bestehenden Arbeitskopie und dem Zweig des Projektarchivs übertragen, was natürlich günstig auf die Netzwerkauslastung und Ihre Geduld auswirkt."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:145
 #: (para)

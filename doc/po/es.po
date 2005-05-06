@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-04 10:38+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-05-04 21:58+0100\n"
+"Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -1540,7 +1540,7 @@ msgid "Edit"
 msgstr "Editar"
 
 #: source/en/tsvn_dug/dug_settings.xml:51
-#: (warning)
+#: (caution)
 msgid "If you use the subversion configuration file to set a <placeholder-1/> pattern, it will override the settings you made here. The Subversion configuration file is accessed using the <placeholder-2/> as described below."
 msgstr "Si utiliza el fichero de configuración de Subversion para establecer un patrón <placeholder-1/>, prevalecerá sobre las preferencias que haga aquí. El Fichero de configuración de Subversion se accede utilizando el botón <placeholder-2/> como se describe a continuación."
 
@@ -1990,7 +1990,7 @@ msgid "The revision date, author and comments are shown in a hint box whenever t
 msgstr "La fecha de la revisión, el autor y los comentarios se muestran en una caja de ayuda cuando se mueve el ratón encima de una caja de revisión."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:71
-#: (warning)
+#: (caution)
 msgid "Because subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
 msgstr "Dado que Subversion no proporciona toda la información necesaria, se necesita una cierta cantidad de interpretación, que a veces puede dar resultados estraños. En cualquier caso, la salida para el tronco generalmente da resultados útiles."
 
@@ -3289,45 +3289,55 @@ msgstr "Similar a ExamDiff Pro, esta es una herramienta shareware de diferencias
 
 #: source/en/tsvn_dug/dug_diff.xml:180
 #: (term)
+msgid "Araxis Merge"
+msgstr "Araxis Merge"
+
+#: source/en/tsvn_dug/dug_diff.xml:182
+#: (para)
+msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparision in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
+msgstr "Araxis Merge es una útil herramienta comercial para ver diferencias y combinar tanto ficheros como carpetas. Hace comparaciones a tres bandas en las combinaciones y tiene vínculos de sincronización para utilizar si ha cambiado el orden las funciones. Descárgelo desde <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
+
+#: source/en/tsvn_dug/dug_diff.xml:194
+#: (term)
 msgid "SciTE"
 msgstr "SciTE"
 
-#: source/en/tsvn_dug/dug_diff.xml:182
+#: source/en/tsvn_dug/dug_diff.xml:196
 #: (para)
 msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
 msgstr "Este editor de texto incluye sintaxis coloreada para ficheros diff unificados, haciéndolos mucho más fáciles de leer. Descárgelo desde <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
 
-#: source/en/tsvn_dug/dug_diff.xml:192
+#: source/en/tsvn_dug/dug_diff.xml:206
 #: (term)
 msgid "Notepad2"
 msgstr "Notepad2"
 
-#: source/en/tsvn_dug/dug_diff.xml:194
+#: source/en/tsvn_dug/dug_diff.xml:208
 #: (para)
 msgid "Notepad2 is designed as a replacement for the standard Windows Notepad program, and is based on the Scintilla open-source edit control. As well as being good for viewing unified diffs, it is much better than the Windows notepad for most jobs. Download it for free <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>here</citetitle></ulink>."
 msgstr "Notepad2 está diseñado como un reemplazo del programa Bloc de Notas estándar de Windows, y se basa en el control de edición de código abierto Scintilla. Además de ser bueno para ver diffs unificados, es mucho mejor que el bloc de notas de Windows para la mayoría de trabajo. Descárgelo gratuitamente <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>aquí</citetitle></ulink>."
 
-#: source/en/tsvn_dug/dug_diff.xml:207
+#: source/en/tsvn_dug/dug_diff.xml:221
 #: (term)
 msgid "TkDiff"
 msgstr "TkDiff"
 
-#: source/en/tsvn_dug/dug_diff.xml:209
+#: source/en/tsvn_dug/dug_diff.xml:223
 #: (para)
 msgid "A free diff/merge tool which uses TCL/TK. Download it <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>here</citetitle></ulink>."
 msgstr "Una herramienta gratuita de diferencias/combinaciones que utiliza TCL/TK. Descárgela <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>aquí</citetitle></ulink>."
 
-#: source/en/tsvn_dug/dug_diff.xml:219
+#: source/en/tsvn_dug/dug_diff.xml:233
 #: (term)
 msgid "CVSConflictEditor"
 msgstr "CVSConflictEditor"
 
-#: source/en/tsvn_dug/dug_diff.xml:221
+#: source/en/tsvn_dug/dug_diff.xml:235
 #: (para)
 msgid "This open source merge tool is buggy, but has potential. Download it <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>here</citetitle></ulink>."
 msgstr "Esta herramienta de combinación de código abierto tiene fallos, pero tiene potencial. Descárgela <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>aquí</citetitle></ulink>."
 
-#: source/en/tsvn_dug/dug_diff.xml:231
+#: source/en/tsvn_dug/dug_diff.xml:245
 #: (para)
 msgid "Read <xref linkend=\"tsvn-DUG-settings-progs\"/> for information on how to set up TortoiseSVN to use these tools."
 msgstr "Lea <xref linkend=\"tsvn-DUG-settings-progs\"/> para más información sobre cómo preparar TortoiseSVN para utilizar estas herramientas."
@@ -3853,18 +3863,18 @@ msgstr "...esa es la cuestión (o no). Mientras que obtener obtiene todo de la r
 
 #: source/en/tsvn_dug/dug_branchtag.xml:145
 #: (para)
-msgid "do a <menuchoice><guimenuitem>Checkout</guimenuitem></menuchoice> of it again. You can check it out to any location on your local disk and you can create as many working copies from your repository as you like."
-msgstr "ejecute el comando <menuchoice><guimenuitem>Obtener</guimenuitem></menuchoice> con esa URL de nuevo. Puede obtenerla en cualquier parte de su disco duro, y puede crear tantas copias de trabajo de su repositorio como quiera."
+msgid "Make a fresh <menuchoice><guimenuitem>Checkout</guimenuitem></menuchoice> to an empty folder. You can check out to any location on your local disk and you can create as many working copies from your repository as you like."
+msgstr "Vuelva a <menuchoice><guimenuitem>Obtener</guimenuitem></menuchoice> en una carpeta vacía. Puede obtener la copia de trabajo en cualquier parte de su disco duro, y puede crear tantas copias de trabajo de su repositorio como desee."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:156
 #: (para)
-msgid "Switch your current working copy to the newly created copy in the repository. Again select the parent folder of your project and select the command <menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
-msgstr "Cambie su copia de trabajo actual a la copia recién creada en el repositorio. De nuevo seleccione la carpeta padre de su proyecto y seleccione el comando <menuchoice><guimenuitem>Cambiar...</guimenuitem></menuchoice> del menú contextual."
+msgid "Switch your current working copy to the newly created copy in the repository. Again select the top level folder of your project and use <menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
+msgstr "Cambie su copia de trabajo actual a la copia recién creada en el repositorio. De nuevo seleccione la carpeta superior de su proyecto y seleccione el comando <menuchoice><guimenuitem>Cambiar...</guimenuitem></menuchoice> del menú contextual."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:165
 #: (para)
-msgid "In the next dialog yout enter the URL of the branch you just created. Leave the Checkbox <guilabel>latest revision</guilabel> active and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch / tag."
-msgstr "En el siguiente diálogo, introduzca la URL de la rama que acaba de crear. Deje la casilla <guilabel>última revisión</guilabel> activada y pulse en <guibutton>Aceptar</guibutton>. Su copia de trabajo se cambia a la nueva rama / etiqueta."
+msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch / tag."
+msgstr "En el siguiente diálogo, introduzca la URL de la rama que acaba de crear. Deje la opción <guilabel>Revisión HEAD</guilabel> activada y pulse <guibutton>Aceptar</guibutton>. Su copia de trabajo se cambia a la nueva rama / etiqueta."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:173
 #: (para)
@@ -5013,37 +5023,37 @@ msgstr ""
 #: source/en/tsvn_app_howto.xml:3
 #: (title)
 msgid "How Do I..."
-msgstr ""
+msgstr "¿Cómo...?"
 
 #: source/en/tsvn_app_howto.xml:5
 #: (para)
 msgid "This appendix contains solutions to problems/questions you might have when using TortoiseSVN."
-msgstr ""
+msgstr "Este apéndice contiene soluciones a los problemas o preguntas que puede tener mientras utiliza TortoiseSVN."
 
 #: source/en/tsvn_app_howto.xml:12
 #: (title)
 msgid "move/copy a lot of files at once"
-msgstr ""
+msgstr "mover/copiar muchos ficheros de golpe"
 
 #: source/en/tsvn_app_howto.xml:14
 #: (primary)
 msgid "moving"
-msgstr ""
+msgstr "moviendo"
 
 #: source/en/tsvn_app_howto.xml:16
 #: (para)
 msgid "Moving/Copying single files can be done by using the <menuchoice><guimenuitem> Rename...</guimenuitem></menuchoice>. But if you want to move/copy a lot of files this way is just too slow and too much work."
-msgstr ""
+msgstr "Se puede Mover/Copiar ficheros de uno en uno utilizando <menuchoice><guimenuitem>Renombrar...</guimenuitem></menuchoice>. Pero si desea mover/copiar muchos ficheros esta forma es muy lenta y trabajosa."
 
 #: source/en/tsvn_app_howto.xml:21
 #: (para)
 msgid "The recommended way is by <action>right-dragging</action> the files to the new location. Simply <action>right-click</action> on the files you want to move/copy without releasing the mousebutton. Then drag the files to the new location and release the mousebutton. A context menu will appear where you can either choose <guimenuitem>Copy in Subversion to here</guimenuitem> or <guimenuitem>Move in Subversion to here</guimenuitem>."
-msgstr ""
+msgstr "La forma recomendada es <action>arrastrar con el botón derecho</action> los ficheros a su nuevo destino. Simplemente <action>haga click con el botón derecho</action> en los ficheros que desea mover o copiar sin soltar el botón del ratón. Luego arrastre los ficheros a su nuevo destino y suelte el botón del ratón. Aparecerá un menú contextual donde puede elegir <guimenuitem>Copiar en Subversion aquí</guimenuitem> o <guimenuitem>Mover en Subversion aquí</guimenuitem>."
 
 #: source/en/tsvn_app_howto.xml:32
 #: (title)
 msgid "force users to enter a log message"
-msgstr "obliga a los usuarios a introducir un mensaje de registro"
+msgstr "obligar a los usuarios a introducir un mensaje de registro"
 
 #: source/en/tsvn_app_howto.xml:34
 #: (primary)
@@ -5053,137 +5063,137 @@ msgstr "mensaje de registro"
 #: source/en/tsvn_app_howto.xml:36
 #: (para)
 msgid "There are two ways to prevent users from committing with an empty log message. One is specific to TortoiseSVN, the other requires access to the server directly."
-msgstr ""
+msgstr "Hay dos formas de evitar que los usuarios puedan confirmar con un mensaje de registro vacío. Uno es específico de TortoiseSVN, el otro necesita acceder directamente al servidor."
 
 #: source/en/tsvn_app_howto.xml:42
 #: (title)
 msgid "Hook-script on the server"
-msgstr ""
+msgstr "Script-gancho en el servidor"
 
 #: source/en/tsvn_app_howto.xml:43
 #: (para)
 msgid "If you have direct access to the repository server, you can install a pre-commit hook script which rejects all commits with an empty or too short log message."
-msgstr ""
+msgstr "Si tiene acceso directo al servidor del repositorio, puede instalar un script gancho pre-commit que rechace todas las confirmaciones con mensajes de registro cortos o vacíos."
 
 #: source/en/tsvn_app_howto.xml:48
 #: (para)
 msgid "In the repository folder on the server, there's a subfolder <filename>hooks</filename> which contains some example hook scripts you can use. The file <filename>pre-commit.tmpl</filename> contains an script which will reject commits if no log message or a too short log message is given. The file also contains comments on how to install/use this script. Just follow the instructions in that file."
-msgstr ""
+msgstr "En la carpeta del repositorio en el servidor, hay una subcarpeta <filename>hooks</filename> que contiene algunos scripts ganchos de ejemplo que puede utilizar. El fichero <filename>pre-commit.tmpl</filename> contiene un script que rechaza las confirmaciones si no se ha introducido un mensaje de registro o ese mensaje es demasiado corto. El fichero también tiene comentarios sobre cómo instalar y utilizar este script. Simplemente siga las instrucciones de ese fichero."
 
 #: source/en/tsvn_app_howto.xml:56
 #: (para)
 msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled as long as no (or a too short) log message is entered then please use the method described below."
-msgstr ""
+msgstr "Este método es la forma recomendada si sus usuarios también utilizan otros clientes de Subversion además de TortoiseSVN. La parte negativa es que la confirmación se rechaza por el servidor, y por tanto los usuarios obtendrán un mensaje de error. El cliente no puede saber antes de realizar la confirmación que se rechazará. Si desea que TortoiseSVN deshabilite el botón <guibutton>Aceptar</guibutton> mientras el mensaje de registro esté vacío (o sea demasiado corto), utilice el siguiente método descrito a continuación."
 
 #: source/en/tsvn_app_howto.xml:67
 #: (title)
 msgid "Project properties"
-msgstr "Propiedades del proeycto"
+msgstr "Propiedades del proyecto"
 
 #: source/en/tsvn_app_howto.xml:68
 #: (para)
 msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:minlogsize</literal> property."
-msgstr ""
+msgstr "TortoiseSVN utiliza propiedades para controlar algunas de sus funciones. Una de esas propiedades es la propiedad <literal>tsvn:minlogsize</literal>."
 
 #: source/en/tsvn_app_howto.xml:72
 #: (para)
 msgid "If you set that property on a folder, then TortoiseSVN will disable the <guibutton>OK</guibutton> button in all commit dialogs until the user has entered a log message with the length specified in the property."
-msgstr ""
+msgstr "Si establece esa propiedad en una carpeta, TortoiseSVN deshabilitará el botón <guibutton>Aceptar</guibutton> en todos los diálogos de confirmaciones hasta que el usuario introduzca un mensaje de registro con la longitud especificada en la propiedad."
 
 #: source/en/tsvn_app_howto.xml:77
 #: (para)
 msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-DUG-propertypage\"/>"
-msgstr ""
+msgstr "Para obtener información más detallada sobre estas propiedades de proyectos, por favor lea <xref linkend=\"tsvn-DUG-propertypage\"/>"
 
 #: source/en/tsvn_app_faq.xml:3
 #: (title)
 msgid "Frequently Asked Questions (FAQ)"
-msgstr ""
+msgstr "Preguntas Más Frecuentes (FAQ)"
 
 #: source/en/tsvn_app_faq.xml:5
 #: (para)
 msgid "This appendix contains an extract of the questions we are asked the most on the TortoiseSVN mailing list <email>dev@tortoisesvn.tigris.org</email>. We maintain an interactive online FAQ at <ulink url=\"http://tortoisesvn.berlios.de/faq/\"><citetitle>Berlios.de</citetitle></ulink> which contains a lot more information."
-msgstr ""
+msgstr "Este apéndice contiene un extracto de las preguntas que más se han hecho en la lista de correo de TortoiseSVN <email>dev@tortoisesvn.tigris.org</email>. Mantenemos una lista online de preguntas más frecuentes interactiva en <ulink url=\"http://tortoisesvn.berlios.de/faq/\"><citetitle>Berlios.de</citetitle></ulink> que contiene mucha más información."
 
 #: source/en/tsvn_app_faq.xml:20
 #: (title)
 msgid "Installation issues"
-msgstr ""
+msgstr "Problemas de instalación"
 
 #: source/en/tsvn_app_faq.xml:24
 #: (para)
 msgid "Many of these answers came from the <ulink url=\"http://www.tortoisecvs.org/faq.html\"><citetitle>TortoiseCVS FAQ</citetitle></ulink>"
-msgstr ""
+msgstr "Muchas de estas respuestas vienen del <ulink url=\"http://www.tortoisecvs.org/faq.html\"><citetitle>FAQ de TortoiseCVS</citetitle></ulink>"
 
 #: source/en/tsvn_app_faq.xml:31
 #: (title)
 msgid "The installer aborts with an error message"
-msgstr ""
+msgstr "El instalador se cancela con un mensaje de error"
 
 #: source/en/tsvn_app_faq.xml:32
 #: (para)
 msgid "If the msi installer shows you the error message <literal>The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again. Click Close to exit</literal> then the user SYSTEM doesn't have read access to the folder where the msi file is located."
-msgstr ""
+msgstr "Si el instalador MSI le muestra el mensaje de error <literal>El instalador se interrumpió antes de que TortoiseSVN pudiera ser instalado. Necesita volver a iniciar el instalador para intentarlo de nuevo. Pulse Cerrar para salir</literal> o <literal>The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again. Click Close to exit</literal>, puede que el usuario SYSTEM no tenga permisos de lectura sobre la carpeta donde está el fichero MSI."
 
 #: source/en/tsvn_app_faq.xml:39
 #: (para)
 msgid "Just move the msi file to another location, e.g. <filename>c:\\</filename> and try again."
-msgstr ""
+msgstr "Símplemente mueva el fichero MSI a otra carpeta, por ejemplo <filename>c:\\</filename>, y vuelva a intentarlo."
 
 #: source/en/tsvn_app_faq.xml:45
 #: (title)
 msgid "I installed TortoiseSVN as Administrator. Now when I log in as me, it's not there"
-msgstr ""
+msgstr "He instalado TortoiseSVN como Administrador. Ahora cuando entro con mi usuario, no está ahí"
 
 #: source/en/tsvn_app_faq.xml:49
 #: (para)
 msgid "When you started the installation you forgot to select the option to <literal>install for all users</literal> instead of <literal>just for me</literal>. The easiest way to correct that is to uninstall, reboot, then reinstall."
-msgstr ""
+msgstr "Cuando inició la instalación se le olvidó seleccionar la opción <literal>instalar para todos los usuarios</literal> o <literal>install for all users</literal> en vez de <literal>sólo para mí</literal> o <literal>just for me</literal>. La forma más fácil de corregir esto es desinstalar, reiniciar y volver a instalar."
 
 #: source/en/tsvn_app_faq.xml:57
 #: (title)
 msgid "When upgrading TortoiseSVN, do I have to uninstall the existing version first?"
-msgstr ""
+msgstr "Cuando actualice TortoiseSVN, ¿debo desinstalar antes la versión antigua?"
 
 #: source/en/tsvn_app_faq.xml:61
 #: (para)
 msgid "No. You can just install the new version over the old one. The installer will take care of uninstalling the old version first automatically."
-msgstr ""
+msgstr "No. Puede simplemente instalar la versión nueva sobre la antigua. El instalador se encargará de desinstalar antes la versión antigua automáticamente."
 
 #: source/en/tsvn_app_faq.xml:66
 #: (para)
 msgid "But you <emphasis>must</emphasis> reboot your computer after the installer finishes! Or at least you have to log off and log on again. If you don't, TortoiseSVN will crash!"
-msgstr ""
+msgstr "¡Pero <emphasis>debe</emphasis> reiniciar el ordenador después de que termine la instalación! O al menos salir de su sesión y volver a entrar. Si no lo hace, ¡TortoiseSVN dará errores!"
 
 #: source/en/tsvn_app_faq.xml:73
 #: (title)
 msgid "Why don't the icon overlays appear?"
-msgstr ""
+msgstr "¿Por qué no aparecen los iconos sobreimpresionados?"
 
 #: source/en/tsvn_app_faq.xml:80
 #: (para)
 msgid "If you are using Windows 95 the icon overlays won't appear. You can try the instructions for Windows NT4 below if you like, but it may still not work. Please note: We don't support Windows 95 at all - so there may be other issues if you're using that OS"
-msgstr ""
+msgstr "Si está utilizando Windows 95 los iconos sobreimpresionados no aparecerán. Puede intentar seguir las instrucciones para Windows NT4 que siguen si lo desea, pero puede que siga sin funcionar. Tenga en cuenta que nosotros no damos soporte para Windows 95 en absoluto - así que puede tener más problemas si está utilizando ese Sistema Operativo."
 
 #: source/en/tsvn_app_faq.xml:89
 #: (para)
 msgid "If you are using Windows NT4, you need to install the IE4 shell or desktop extensions to get a more recent version of Explorer. To do this install IE4, and choose Yes to install the active desktop. Don't worry, you can turn off the actual active desktop later by right clicking on it. It's the new version of Explorer that we are after."
-msgstr ""
+msgstr "Si está utilizando Windows NT4, necesita instalar el shell o las extensiones del escritorio de IE4 para obtener una versión más reciente del Explorador. Para hacer ésto, instale IE4, y elija Sí para instalar el Escritorio Activo. No se preocupe, puede desactivar el escritorio activo más tarde pulsando en él. Lo que buscamos es la nueva versión del Explorer."
 
 #: source/en/tsvn_app_faq.xml:105
 #: (para)
 msgid "Uninstall IE5 and then install IE4 with desktop extensions, and then install IE5 again. What a palaver."
-msgstr ""
+msgstr "Desinstale IE5 y luego instale IE4 con las extensiones del escritorio, y luego instale IE5 de nuevo. Vaya rollo."
 
 #: source/en/tsvn_app_faq.xml:112
 #: (para)
 msgid "Run IE5 setup with command line switches to install the IE4 desktop (shell) extensions"
-msgstr ""
+msgstr "Ejecute la instalación de IE5 con las opciones de la línea de comandos para instalar las extensiones (del shell) del escritorio de IE4"
 
 #: source/en/tsvn_app_faq.xml:117
 #: (para)
 msgid "The command must be run from the folder that contains the <filename>ie5setup.exe</filename> file. If the browser appears unstable afterwards just run the IE5 repair function."
-msgstr ""
+msgstr "El comando debe ejecutarse desde la carpeta que contiene el fichero <filename>ie5setup.exe</filename>. Si el navegador después parece inestable, ejecute la función Reparar de IE5."
 
 #: source/en/tsvn_app_faq.xml:124
 #: (para)
@@ -5192,6 +5202,9 @@ msgid ""
 "ie5setup.exe /c:\"ie5wzd /e:IE4Shell WIN /I:Y\"\n"
 "</screen>"
 msgstr ""
+"Para Windows 95: <screen>\n"
+"ie5setup.exe /c:\"ie5wzd /e:IE4Shell WIN /I:Y\"\n"
+"</screen>"
 
 #: source/en/tsvn_app_faq.xml:130
 #: (para)
@@ -5200,11 +5213,14 @@ msgid ""
 "ie5setup.exe /c:\"ie5wzd /e:IE4Shell NTx86 /I:Y\"\n"
 "</screen>"
 msgstr ""
+"Para Windows NT: <screen>\n"
+"ie5setup.exe /c:\"ie5wzd /e:IE4Shell NTx86 /I:Y\"\n"
+"</screen>"
 
 #: source/en/tsvn_app_faq.xml:101
 #: (para)
 msgid "If you've already installed IE5, you must either: <placeholder-1/>"
-msgstr ""
+msgstr "Si ya ha instalado IE5, deberá:"
 
 #: source/en/tsvn_app_faq.xml:141
 #: (para)
@@ -5214,7 +5230,7 @@ msgstr "Para IE6:"
 #: source/en/tsvn_app_faq.xml:144
 #: (para)
 msgid "Run IE6 setup with command line switches to install the IE4 desktop (shell) extensions. The same caveats apply as for IE5. The command must be run from the folder that contains the <filename>ie6setup.exe</filename> file."
-msgstr ""
+msgstr "Ejecute la instalación de IE6 con las opciones de la línea de comandos para instalar las extensiones (del shell) del escritorio de IE4. Se aplican las mismas advertencias que con IE5. El comando se debe ejecutar desde la carpeta que contiene el fichero <filename>ie6setup.exe</filename>."
 
 #: source/en/tsvn_app_faq.xml:151
 #: (para)
@@ -5223,6 +5239,9 @@ msgid ""
 "ie6setup.exe /c:\"ie6wzd /e:IE4Shell NTx86 /I:Y\"\n"
 "</screen>"
 msgstr ""
+"Para Windows NT: <screen>\n"
+"ie6setup.exe /c:\"ie6wzd /e:IE4Shell NTx86 /I:Y\"\n"
+"</screen>"
 
 #: source/en/tsvn_app_faq.xml:159
 #: (para)
@@ -5231,66 +5250,69 @@ msgid ""
 "%windir%\\Explorer.exe /n, /e\n"
 "</screen> and it may get the overlays."
 msgstr ""
+"El acceso directo llamado <literal>Explorador de Windows NT</literal> en su menú de inicio seguramente apunta a <filename>C:\\WINNT\\explorer.scf</filename> y no tiene las sobreimpresiones. Cree un nuevo acceso directo a <screen>\n"
+"%windir%\\Explorer.exe /n, /e\n"
+"</screen> y puede que obtenga las sobreimpresiones."
 
 #: source/en/tsvn_app_faq.xml:172
 #: (para)
 msgid "If you're using an IntelliPoint mouse driver, and launching Explorer via a mouse click, you need to upgrade from version 3 to version 3.2 or higher of IntelliPoint. Strangely, launching Explorer from the Start menu gives icons in this case, but not when launched from the mouse."
-msgstr ""
+msgstr "Si está utilizando un controlador de ratón IntelliPoint, y está lanzando el Explorador utilizando el click de ratón, necesitará actualizar IntelliPoint desde la versión 3 a la versión 3.2 o superior. Es extraño, pero al lanzar el Explorador desde el menú Inicio proporciona iconos en este caso, pero no cuando se lanza desde el ratón."
 
 #: source/en/tsvn_app_faq.xml:185
 #: (title)
 msgid "I followed the instructions, but there are still no icons?!?"
-msgstr ""
+msgstr "He seguido las instrucciones, ¿¡¿pero sigo sin iconos?!?"
 
 #: source/en/tsvn_app_faq.xml:186
 #: (para)
 msgid "You rebooted your PC off course? So after installing the shell extensions you now have WinNT / Win95 and IE &gt;= 5.5 installed?"
-msgstr ""
+msgstr "¿Por supuesto que ha reiniciado su ordenador? ¿Por lo que después de instalar las extensiones del shell ahora tiene un Windows NT / Windows 95 e Internet Explorer &gt;= 5.5 instalado?"
 
 #: source/en/tsvn_app_faq.xml:191
 #: (para)
 msgid "If you installed TortoiseSVN as a different user under WinNT/Win2K/WinXP than you are using now, do the following thing: Go to the settings of TSVN and activate the icon overlays for at least the fixed drives. The installer does this automatically for the <emphasis>current</emphasis> user (can't do it for other users...) but since you are using TSVN as a different user than you installed it you need to set this manually."
-msgstr ""
+msgstr "Si ha instalado TortoiseSVN bajo Windows NT/Windows 2000/Windows XP desde un usuario diferente al que está utilizando ahora, haga lo siguiente: vaya a las propiedades de TSVN y active la sobreimpresión de iconos al menos para las unidades fijas. El instalador lo hace automáticamente para el usuario <emphasis>actual</emphasis> (no lo puede hacer para otros usuarios...) pero dado que está utilizando TSVN desde un usuario diferente al que utilizó para instalarlo debe establecer esto manualmente."
 
 #: source/en/tsvn_app_faq.xml:204
 #: (title)
 msgid "The overlay icons appear, but not all of them!"
-msgstr ""
+msgstr "Aparecen los iconos sobreimpresionados, ¡pero no todos!"
 
 #: source/en/tsvn_app_faq.xml:205
 #: (para)
 msgid "This usually happens if you have other programs installed which use icon overlays like e.g. TortoiseCVS. The reason for this is that Windows only has 15 slots for icon overlays, and about three or four are used by Windows itself (e.g. for links, shared folders, ...). If all those slots are full then TortoiseSVN can't register another one and won't show all overlays."
-msgstr ""
+msgstr "Esto normalmente ocurre si tiene otros programas instalados que utilizan iconos sobreimpresionados como por ejemplo TortoiseSVN. El motivo es que Windows sólo tiene 15 posiciones para iconos sobreimpresionados, y unos tres o cuatro los usa el propio Windows (por ejemplo para los accesos directos, las carpetas compartidas...). Si están ocupadas todas estas posiciones, TortoiseSVN no puede registrar otra y no mostrará todos los iconos sobreimpresionados."
 
 #: source/en/tsvn_app_faq.xml:213
 #: (para)
 msgid "TortoiseSVN uses five overlay slots for the status: <graphic fileref=\"images/InSubVersionIcon.png\"/> normal <graphic fileref=\"images/ModifiedIcon.png\"/> modified <graphic fileref=\"images/ConflictIcon.png\"/> conflicted <graphic fileref=\"images/DeletedIcon.png\"/> deleted <graphic fileref=\"images/AddedIcon.png\"/> added"
-msgstr ""
+msgstr "TortoiseSVN utiliza cinco posiciones para el estado: <graphic fileref=\"images/InSubVersionIcon.png\"/> normal <graphic fileref=\"images/ModifiedIcon.png\"/> modificado <graphic fileref=\"images/ConflictIcon.png\"/> en conflicto <graphic fileref=\"images/DeletedIcon.png\"/> borrado <graphic fileref=\"images/AddedIcon.png\"/> añadido"
 
 #: source/en/tsvn_app_faq.xml:226
 #: (para)
 msgid "So most likely the <literal>added</literal> overlay will be missing, then the <literal>deleted</literal> and so on."
-msgstr ""
+msgstr "Así que seguramente le falte la sobreimpresión <literal>añadido</literal>, luego la de <literal>borrado</literal> y así sucesivamente."
 
 #: source/en/tsvn_app_faq.xml:232
 #: (title)
 msgid "Why is there no overlay icon for unversioned files?"
-msgstr ""
+msgstr "¿Por qué no hay icono de sobreimpresión para los ficheros no versionados?"
 
 #: source/en/tsvn_app_faq.xml:233
 #: (para)
 msgid "For the same reason. There are only 15 slots for icon overlays available. We don't want to waste a slot for the least important information. That's why. If you want to distinguish <literal>unversioned</literal> and <literal>ignored</literal> files in the explorer, switch to the explorers detailed view and activate the column <guilabel>SVN Status</guilabel>. Then you will see the difference."
-msgstr ""
+msgstr "Por la misma razón. Sólo hay disponibles 15 posiciones para iconos de sobreimpresión. No queremos que pierda una posición para la información menos importante. Ese es el motivo. Si desea distinguir entre ficheros <literal>no versionados</literal> e <literal>ignorados</literal> en el explorador, cambie a la vista de detalle y active la columna <guilabel>SVN Estado</guilabel>. Ahí verá la diferencia."
 
 #: source/en/tsvn_app_faq.xml:244
 #: (title)
 msgid "Why do the overlay icons sometimes change to random graphics?"
-msgstr ""
+msgstr "¿Por qué a veces los iconos sobreimpresionados se cambian por gráficos aleatorios?"
 
 #: source/en/tsvn_app_faq.xml:250
 #: (para)
 msgid "Install Microsoft's <application><ulink url=\"http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp\"><citetitle>TweakUI</citetitle></ulink></application> and run the option to rebuild icons."
-msgstr ""
+msgstr "Instale la aplicación de Microsoft <application><ulink url=\"http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp\"><citetitle>TweakUI</citetitle></ulink></application> y ejecute la opción de rehacer iconos."
 
 #: source/en/tsvn_app_faq.xml:261
 #: (para)
@@ -5299,71 +5321,74 @@ msgid ""
 "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\n"
 "</screen> and add a new String Value called <literal>Max Cached Icons</literal>. The default value is 500 - try increasing it to 2048 (see <ulink url=\"http://support.microsoft.com/support/kb/articles/Q132/6/68.asp\"><citetitle>Q132668</citetitle></ulink> in the Microsoft knowledge base for more details)."
 msgstr ""
+"O incremente el tamaño de la caché de iconos. Vaya a <screen>\n"
+"HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\n"
+"</screen> y añada un nuevo Valor de la Cadena llamada <literal>Max Cached Icons</literal>. El valor por defecto es 500 - intente incrementarlo a 2048 (vea <ulink url=\"http://support.microsoft.com/support/kb/articles/Q132/6/68.asp\"><citetitle>Q132668</citetitle></ulink> en la base de datos del conocimiento de Microsoft para más detalles)."
 
 #: source/en/tsvn_app_faq.xml:276
 #: (para)
 msgid "Or delete the file called ShellIconCache in your Windows directory. And reboot."
-msgstr ""
+msgstr "O borre el fichero llamado ShellIconCache en su directorio de Windows. Y reinicie."
 
 #: source/en/tsvn_app_faq.xml:245
 #: (para)
 msgid "The Windows icon cache is a fairly buggy creature. You can solve this in one of the following ways: <placeholder-1/>"
-msgstr ""
+msgstr "La caché de iconos de Windows es una criatura llena de fallos. Puede resolver esto de alguna de estas formas: <placeholder-1/>"
 
 #: source/en/tsvn_app_faq.xml:285
 #: (title)
 msgid "Those icons are grotesque, I want better ones!"
-msgstr ""
+msgstr "¡Esos iconos son grotescos, quiero unos mejores!"
 
 #: source/en/tsvn_app_faq.xml:286
 #: (para)
 msgid "You can create your own icon set if you want. And if you do please contribute them to the rest of the world! Just send them to the mailing list <email>dev@tortoisesvn.tigris.org</email>."
-msgstr ""
+msgstr "Puede crear su propio conjunto de iconos si lo desea. ¡Y si lo hace por favor contribuya con ellos al resto del mundo! Simplemente envíelos a la lista de correo <email>dev@tortoisesvn.tigris.org</email>."
 
 #: source/en/tsvn_app_faq.xml:291
 #: (para)
 msgid "The icons should have at least two sizes (16x16 and 32x32 with 16 colors), for Windows XP there should also be a set with 48x48 pixels."
-msgstr ""
+msgstr "Los iconos deben tener como mínimo dos tamaños (de 16x16 y 32x32 a 16 colores), y para Windows XP debe haber también un conjunto de 48x48 píxeles."
 
 #: source/en/tsvn_app_faq.xml:296
 #: (para)
 msgid "To install the icons you should copy them to the directory where TortoiseSVN was installed. There you will find a directory called <filename>Icons</filename> which contains a separate subfolder for each available icon set. Copy your own icon set in there. Then start the settings dialog, and set the active icon set to the one you created."
-msgstr ""
+msgstr "Para instalar los iconos debe copiarlos al directorio donde se instaló TortoiseSVN. Allí encontrará un directorio llamado <filename>Icons</filename> que contiene una carpeta separada para cada conjunto de iconos disponibles. Copie sus propios iconos allí. Luego ejecute el diálogo de opciones, y establezca el conjunto de iconos que ha creado como el conjunto activo."
 
 #: source/en/tsvn_app_faq.xml:304
 #: (para)
 msgid "After that you need to restart (or logoff) your computer so that explorer reads in the icons again. Alternatively you can flush the icon cache with the <ulink url=\"http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp\"><citetitle>TweakUI</citetitle></ulink> tool from Microsoft. For WinXP you can get <ulink url=\"http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp\"><citetitle>TweakUI</citetitle></ulink> here."
-msgstr ""
+msgstr "Después de eso necesita reiniciar (o cerrar la sesión) de su ordenador para que el explorador lea los iconos de nuevo. Alternativamente, puede vaciar la caché de iconos con la utilidad <ulink url=\"http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp\"><citetitle>TweakUI</citetitle></ulink> de Microsoft. Para Windows XP puede obtener <ulink url=\"http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp\"><citetitle>TweakUI</citetitle></ulink> aquí."
 
 #: source/en/tsvn_app_faq.xml:319
 #: (title)
 msgid "The TortoiseSVN menu is invisible!"
-msgstr ""
+msgstr "¡El menú de TortoiseSVN es invisible!"
 
 #: source/en/tsvn_app_faq.xml:327
 #: (para)
 msgid "If you select a folder in the left pane of explorer, then use the File menu to access TSVN, the menu text and icons are invisible the second time you use the File menu. If you select another folder, the menu is restored. This happens under Windows 98, ME, NT and 2000. Everything works fine under XP."
-msgstr ""
+msgstr "Si selecciona una carpeta en el panel izquierdo del explorador, y luego utiliza el menú Archivo para acceder a TortoiseSVN, los textos y los iconos del menú son invisibles la segunda vez que utilice el menú Archivo. Si selecciona otra carpeta, se restaura el menú. Esto ocurre bajo Windows 98, ME, NT y 2000. Todo funciona correctamente bajo XP."
 
 #: source/en/tsvn_app_faq.xml:337
 #: (para)
 msgid "Under Windows NT 4, the context menu text and icons for TSVN sometimes disappear. This can happen anywhere in explorer."
-msgstr ""
+msgstr "Bajo Windows NT 4, el texto y los iconos del menú contextual de TSVN a veces desaparecen. Eso puede ocurrir en cualquier parte del explorador."
 
 #: source/en/tsvn_app_faq.xml:320
 #: (para)
 msgid "There are a number of known problems with disappearing menus, which are due to the Windows Explorer, not TSVN. Usually it shows up as a blank space in the menu where the text and icon should be. <placeholder-1/>"
-msgstr ""
+msgstr "Hay un número de problemas conocidos sobre la desaparición de los menús, que son debidos al Explorador de Windows, no a TSVN. A menudo aparecen como un espacio en blanco en el menú donde debería aparecer el texto y el icono. <placeholder-1/>"
 
 #: source/en/tsvn_app_faq.xml:347
 #: (title)
 msgid "The TortoiseSVN menus are shown as ownerdrawn (no icons, no text) in some software"
-msgstr ""
+msgstr "Los menús de TortoiseSVN se muestran como dibujados de forma personalizada (sin iconos, sin texto) en algún software"
 
 #: source/en/tsvn_app_faq.xml:351
 #: (para)
 msgid "This is because the icons are completely ownerdrawn."
-msgstr ""
+msgstr "fEsto es porque los iconos se dibujan completamente de forma personalizada."
 
 #: source/en/tsvn_app_faq.xml:354
 #: (para)
@@ -5372,61 +5397,64 @@ msgid ""
 "HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus\n"
 "</screen> and set it to <literal>0</literal>. This will force TortoiseSVN to use the windows standard routine to draw menu entries. You'll have all the menu entries any time, but you will have ugly icons, since window's default only allows 10x10 icons. If you delete this registry key (the default) or set it to something other than <literal>0</literal> you have the nice icons back."
 msgstr ""
+"Si no le gusta la forma en la que TSVN maneja sus entradas de menú, puede hacer lo siguiente: Cree una entrada de registro DWORD bajo: <screen>\n"
+"HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus\n"
+"</screen> y establézcalo a <literal>0</literal>. Esto forzará que TortoiseSVN utilice las rutinas estándar de Windows para dibujar las entradas de menú. Tendrá las entradas de menú todo el tiempo, pero con iconos horrorosos, porque por defecto Windows sólo permite iconos 10x10. Si borra esta entrada de registro (por defecto) o lo establece a algo que no sea <literal>0</literal> tendrá los bonitos iconos de vuelta."
 
 #: source/en/tsvn_app_faq.xml:369
 #: (para)
 msgid "In case you want no icons at all you can set this value to <literal>2</literal>. Then the context menu entries show up as text only."
-msgstr ""
+msgstr "En caso de que no quiera iconos en absoluto establezca este valor a <literal>2</literal>. Entonces las entradas del menú contextual se mostrarán como sólo-texto."
 
 #: source/en/tsvn_app_faq.xml:375
 #: (title)
 msgid "How do I uninstall TortoiseSVN?"
-msgstr ""
+msgstr "¿Cómo desinstalo TortoiseSVN?"
 
 #: source/en/tsvn_app_faq.xml:376
 #: (para)
 msgid "Simply uninstall from Add/Remove Programs in the Windows control panel. This does not effect your repositories or working copies at all. Be aware however, that the subversion database schema might change before subversion 1.0 is released. When you are working with local repositories (<filename>file:///</filename> URLs), a newer version of TortoiseSVN might be incompatible to an old repository. Please check the subversion release notes."
-msgstr ""
+msgstr "Simplemente desinstálelo desde Agregar o quitar programas en el panel de control de Windows. Esto no afecta en absoluto a sus repositorios o a sus copias de trabajo. Sin embargo, tenga en cuenta de que el esquema de la base de datos de Subversion puede cambiar antes de que se lance la versión 1.0 de Subversion. Si está trabajando con repositorios locales (URLs tipo <filename>file:///</filename>), puede que una versión más moderna de TortoiseSVN sea incompatible con un repositorio antiguo. Por favor, revise las notas de lanzamiento de Subversion."
 
 #: source/en/tsvn_app_faq.xml:388
 #: (title)
 msgid "I installed a new version of TortoiseSVN, but the new functions aren't visible?!?"
-msgstr ""
+msgstr "He instalado una versión nueva de TortoiseSVN, ¿¡¿pero no veo las nuevas funciones?!?"
 
 #: source/en/tsvn_app_faq.xml:392
 #: (para)
 msgid "TortoiseSVN is a Windows explorer shell extension. So after updating you <emphasis>must</emphasis> restart windows or at least the explorer process. If you don't then the the explorer process still has the old version of the dll loaded in RAM and uses that old version..."
-msgstr ""
+msgstr "TortoiseSVN es una extensión al shell del Explorador de Windows. Por lo que tras actualizar <emphasis>debe</emphasis> reiniciar Windows o al menos el proceso del Explorador. Si no lo hace, el proceso del explorador todavía tendrá la versión antigua de la dll cargada en la RAM y utilizará esa versión antigua..."
 
 #: source/en/tsvn_app_faq.xml:401
 #: (title)
 msgid "Can I use TortoiseCVS and TortoiseSVN on the same computer?"
-msgstr ""
+msgstr "¿Puedo utilizar TortoiseCVS y TortoiseSVN en el mismo ordenador?"
 
 #: source/en/tsvn_app_faq.xml:402
 #: (para)
 msgid "Yes they can live happily together on the same PC. You can even use them on the same folder if that makes any sense to you."
-msgstr ""
+msgstr "Sí, ámbas pueden vivir felizmente juntas en el mismo PC. Incluso puede utilizarlas en lamisma carpeta, si es que eso tiene algún sentido para usted."
 
 #: source/en/tsvn_app_faq.xml:409
 #: (title)
 msgid "I've got PowerDesk 5 installed and TSVN doesn't work on my PC"
-msgstr ""
+msgstr "He instalado PowerDesk 5 y TortoiseSVN no funciona en mi PC"
 
 #: source/en/tsvn_app_faq.xml:410
 #: (para)
 msgid "Well, in this case Powerdesk is the bad guy. However, they have now provided a fix, as reported by Paul Gifford."
-msgstr ""
+msgstr "Bueno, en este caso el malo es Powerdesk. Sin embargo, ellos han proporcionado un arreglo, tal y como nos contó Paul Gifford."
 
 #: source/en/tsvn_app_faq.xml:415
 #: (para)
 msgid "There is a fix for Powerdesk 5, but it's not available on their website; you have to contact support to get it. They'll give you an update to a later version (5.0.1.7 - which is strangely not on the update portion of the site) then send you a patch to bring you to 5.0.1.8. which fixes the problem."
-msgstr ""
+msgstr "Hay un parche para Poderdesk 5, pero no está disponible en nuestro sitio web; deberá contactar con el equipo de soporte para obtenerlo. Le darán una actualización a una versión posterior (5.0.1.7 - que extrañamente no está en la parte de actualizaciones del sitio) y luego le enviarán un parche para llevarle a la 5.0.1.8 que arregla el problema."
 
 #: source/en/tsvn_app_faq.xml:423
 #: (para)
 msgid "Version 6 does not have the menu problem."
-msgstr ""
+msgstr "La versión 6 no tiene el problema del menú."
 
 #: source/en/tsvn_app_faq.xml:429
 #: (title)
@@ -5446,47 +5474,47 @@ msgstr "Preguntas de uso diario"
 #: source/en/tsvn_app_faq.xml:442
 #: (para)
 msgid "This section answers questions about problems you may encounter while using TortoiseSVN on a daily basis."
-msgstr ""
+msgstr "Esta sección responde a preguntas sobre problemas que puede encontrar cuando utiliza TortoiseSVN en su uso diario."
 
 #: source/en/tsvn_app_faq.xml:447
 #: (title)
 msgid "I accidentally removed a file, and now it's gone!"
-msgstr ""
+msgstr "He borrado un fichero por accidente, ¡y ahora se ha ido!"
 
 #: source/en/tsvn_app_faq.xml:457
 #: (para)
 msgid "You can do a <menuchoice><guimenuitem>revert</guimenuitem></menuchoice> on the parent folder where you deleted the file or directory."
-msgstr ""
+msgstr "Puede <menuchoice><guimenuitem>revertir</guimenuitem></menuchoice> sobre la carpeta padre desde la que borró el fichero o la carpeta."
 
 #: source/en/tsvn_app_faq.xml:465
 #: (para)
 msgid "If you have already committed the deleted file, then you can use the repository browser, change to the revision where the file still existed and then use the command <menuchoice><guimenuitem>Copy to...</guimenuitem></menuchoice> from the context menu. Enter the path to your working copy as the target."
-msgstr ""
+msgstr "Si ya ha confirmado el fichero borrado, entonces puede utilizar el navegador de repositorios, cambiar a la revisión donde el fichero aún existía, y luego utilizar el comando <menuchoice><guimenuitem>Copiar a...</guimenuitem></menuchoice> desde el menú contextual. Introduzca la ruta de su copia de trabajo como destino."
 
 #: source/en/tsvn_app_faq.xml:477
 #: (title)
 msgid "When I remove a file it vanishes, how do I commit it?"
-msgstr ""
+msgstr "Cuando elimino un fichero, éste desaparece; ¿cómo lo confirmo?"
 
 #: source/en/tsvn_app_faq.xml:478
 #: (para)
 msgid "Easy, you commit the whole directory! <action>Right-click</action> in the Explorer window next to the file, and choose <menuchoice><guimenuitem>commit</guimenuitem></menuchoice>. I nearly always commit things from the top level directory - it is recursive through the whole project."
-msgstr ""
+msgstr "¡Fácil, confirme el directorio completo! <action>Haga click con el botón derecho</action> en la ventana del Explorador al lado del fichero, y seleccione <menuchoice><guimenuitem>Confirmar</guimenuitem></menuchoice>. Yo casi siempre confirmo las cosas desde el directorio más alto - se realiza recursivamente a través de todo el proyecto completo."
 
 #: source/en/tsvn_app_faq.xml:490
 #: (title)
 msgid "I always get an error when I check out a single file"
-msgstr ""
+msgstr "Siempre obtengo un error cuando obtengo un único fichero"
 
 #: source/en/tsvn_app_faq.xml:491
 #: (para)
 msgid "There's nothing wrong with it. Subversion only allows you to check out directories - not files. A warning is not possible because TortoiseSVN has no possibility to check if a URL (e.g. <systemitem class=\"url\"> http://svn.collab.net/svn/repos/trunk/README</systemitem>) is a file or a folder (ok, it could - but that would take a few seconds to check...). But subversion itself complains if it's a file..."
-msgstr ""
+msgstr "No hay nada erróneo en ello. Subversion sólo le permite obtener directorios - no ficheros. No se puede mostrar una advertencia porque TortoiseSVN no tiene forma de comprobar si una URL (por ejemplo, <systemitem class=\"url\">http://svn.collab.net/svn/repos/trunk/README</systemitem>) es un fichero o una carpeta (vale, podría - pero llevaría unos pocos segundos comprobarlo...). Pero el propio Subversion se queja si es un fichero..."
 
 #: source/en/tsvn_app_faq.xml:504
 #: (title)
 msgid "I'm in trouble renaming a file from UPPERcase to upperCASE"
-msgstr ""
+msgstr "Tengo problemas al cambiar el nombre de un fichero de MAYUSculas a mayusCULAS"
 
 #: source/en/tsvn_app_faq.xml:506
 #: (primary)
@@ -5497,32 +5525,32 @@ msgstr "Ignorar cambios de mayúsculas/minúsculas"
 #: source/en/tsvn_app_faq.xml:508
 #: (para)
 msgid "There are (at least) two possible solutions to rename a file without losing its log history. It is important to rename it <emphasis>within</emphasis> subversion. Just renaming in the explorer will corrupt your working copy!!!"
-msgstr ""
+msgstr "Hay (al menos) dos soluciones posibles para renombrar un fichero sin perder su historia de registro. Es importante que lo renombre <emphasis>dentro</emphasis> de Subversion. ¡¡¡Si únicamente lo renombra en el Explorador corromperá su copia de trabajo!!!"
 
 #: source/en/tsvn_app_faq.xml:518
 #: (para)
 msgid "Commit the changes in your working copy."
-msgstr ""
+msgstr "Confirme los cambios en su copia de trabajo."
 
 #: source/en/tsvn_app_faq.xml:523
 #: (para)
 msgid "Rename the file from <filename>UPPERcase</filename> to <filename>upperCASE</filename> inside the repository using the <menuchoice><guimenuitem>repository browser</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Renombre el fichero de <filename>MAYUSculas</filename> a <filename>mayusCULAS</filename> dentro del repositorio utilizando el <menuchoice><guimenuitem>navegador</guimenuitem></menuchoice>."
 
 #: source/en/tsvn_app_faq.xml:534
 #: (para)
 msgid "Select the <emphasis>file</emphasis> you renamed, <emphasis>not</emphasis> any of its parent folders, right-click and do an update. After that, update the parent folder."
-msgstr ""
+msgstr "Seleccione el <emphasis>fichero</emphasis> que ha renombrado, <emphasis>no</emphasis> cualquiera de sus carpetas padre, haga click con el botón derecho en él y haga una actualización. Luego, actualice la carpeta padre."
 
 #: source/en/tsvn_app_faq.xml:542
 #: (para)
 msgid "Or: delete your working copy and do a fresh checkout. Just updating won't work, because it will result in an obstructed update."
-msgstr ""
+msgstr "O: borre la copia de trabajo y haga obtenga una nueva. Actualizar símplemente no funcionará, porque resultará en una actualización obstruida."
 
 #: source/en/tsvn_app_faq.xml:547
 #: (para)
 msgid "If you don't want to checkout the whole working copy again, delete the parent folder of the file you've just renamed and do an update."
-msgstr ""
+msgstr "Si no desea obtener la copia de trabajo completa de nuevo, borre la carpeta padre del fichero que acaba de renombrar y actualice."
 
 #: source/en/tsvn_app_faq.xml:514
 #: (para)
@@ -5532,77 +5560,77 @@ msgstr "Solución A) (recomendada) <placeholder-1/>"
 #: source/en/tsvn_app_faq.xml:559
 #: (para)
 msgid "Rename from <filename>UPPERcase</filename> to <filename>UPPERcase_</filename> with the <menuchoice><guimenuitem>rename</guimenuitem></menuchoice> command in the TortoiseSVN submenu."
-msgstr ""
+msgstr "Renombre de <filename>MAYUSculas</filename> a <filename>MAYUSculas_</filename> con el comando <menuchoice><guimenuitem>renombrar</guimenuitem></menuchoice> del submenú de TortoiseSVN."
 
 #: source/en/tsvn_app_faq.xml:570
 #: (para) source/en/tsvn_app_faq.xml:582
 msgid "Commit the changes"
-msgstr "Confirmar los cambios"
+msgstr "Confirme los cambios"
 
 #: source/en/tsvn_app_faq.xml:575
 #: (para)
 msgid "Rename from <filename>UPPERcase_</filename> to <filename>upperCASE</filename>"
-msgstr ""
+msgstr "Renombre de <filename>MAYUSculas_</filename> a <filename>mayusCULAS</filename> "
 
 #: source/en/tsvn_app_faq.xml:555
 #: (para)
 msgid "Solution B) <placeholder-1/>"
-msgstr ""
+msgstr "Solución B) <placeholder-1/>"
 
 #: source/en/tsvn_app_faq.xml:590
 #: (title)
 msgid "Can I mix and match with the Subversion command line client or another Subversion client?"
-msgstr ""
+msgstr "¿Puedo mezclar y funcionar TortoiseSVN con el cliente de línea de comandos de Subversion o con otro cliente de Subversion?"
 
 #: source/en/tsvn_app_faq.xml:594
 #: (para)
 msgid "Yes, you can change from one client to another whenever you want."
-msgstr ""
+msgstr "Sí, puede cambiar de uno a otro cliente cuando desee."
 
 #: source/en/tsvn_app_faq.xml:598
 #: (para)
 msgid "There's only one exception: if you use the special build to work around the VS.NET bug with web projects then you can't use any other subversion clients anymore. You're stuck with that special build. Other Subversion clients won't recognize your working copies."
-msgstr ""
+msgstr "Sólo hay una excepción: si utiliza la edición especial para evitar el error de VS.NET con los proyectos web, no podrá utilizar ningún otro cliente de subversion nunca más. Está atado a esa edición especial. Los demás clientes de Subversion no reconocerán sus copias de trabajo."
 
 #: source/en/tsvn_app_faq.xml:606
 #: (title)
 msgid "Can I work on lots of working copies from different repositories at once?"
-msgstr ""
+msgstr "¿Puedo trabajar con muchas copias de trabajo de repositorios diferentes a la vez?"
 
 #: source/en/tsvn_app_faq.xml:610
 #: (para)
 msgid "Yes, you can. This is a standard feature of Subversion. Each directory which was checked out of Subversion remembers where it came from. You can even multiply select working copies which came from different places, and update or commit them all at once."
-msgstr ""
+msgstr "Sí, puede. Esa es una característica estándar de Subversion. Cada directorio que se obtiene de Subversion se acuerda de dónde vino. Puede incluso seleccionar múltiples copias de trabajo que vinieron de diferentes lugares, y actualizarlas o confirmarlas todas de golpe."
 
 #: source/en/tsvn_app_faq.xml:617
 #: (para)
 msgid "If you want to have different subdirectories to come from different repositories you can set a special Subversion property called <literal>svn:externals</literal>. Please look at the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3.6\"><citetitle>External Definitions</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>."
-msgstr ""
+msgstr "Si desea tener diferentes subdirectorios que vengan de diferentes repositorios, puede establecer una propiedad especial de Subversion llamada <literal>svn:externals</literal>. Lea el capítulo <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3.6\"><citetitle>Definiciones Externas</citetitle></ulink> en el <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Libro de Subversion</citetitle></ulink>."
 
 #: source/en/tsvn_app_faq.xml:633
 #: (title)
 msgid "How does TortoiseSVN handle conflicts?"
-msgstr ""
+msgstr "¿Cómo maneja los conflictos TortoiseSVN?"
 
 #: source/en/tsvn_app_faq.xml:634
 #: (para)
 msgid "Imagine you check out revision 24 of a file and started editing it. In the meantime, someone else committed revision 25, and shortly after that revision 26. You tell TortoiseSVN to update your file now, and Subversion will try to incorporate all the changes between revision 24 and 26 into your local file."
-msgstr ""
+msgstr "Imagine que ha obtenido la revisión 24 de un fichero y empieza a editarlo. Mientras tanto, alguien ya ha confirmado la revisión 25, y poco después la 26. Usted le dice a TortoiseSVN que actualice su fichero ahora, y Subversion intentará incorporar todos los cambios entre las revisiones 24 y 26 en su fichero local."
 
 #: source/en/tsvn_app_faq.xml:642
 #: (para)
 msgid "But if the changes made between 24 and 26 were too close to or even overlap with the changes you have made, Subversion detects a conflict and creates conflict markers in the file. You then have to resolve these conflicts yourself. Read <xref linkend=\"tsvn-DUG-conflicts\"/> to find out more."
-msgstr ""
+msgstr "Pero si los cambios que se hicieron entre la revisión 24 y la 26 estaban muy cerca o incluso se solapan con los cambios que usted ha hecho, Subversion detecta un conflicto, y crea marcadores de conflicto en el fichero. Usted debe resolver estos conflictos por sí mismo. Para más información lea <xref linkend=\"tsvn-DUG-conflicts\"/>."
 
 #: source/en/tsvn_app_faq.xml:652
 #: (title)
 msgid "I tried to commit my changes and got a message telling me my working copy is out-of-date"
-msgstr ""
+msgstr "Intento confirmar mis cambios y obtengo un mensaje diciéndome que mi copia de trabajo está desactualizada"
 
 #: source/en/tsvn_app_faq.xml:656
 #: (para)
 msgid "That means you need to use the <menuchoice><guimenuitem>Update</guimenuitem></menuchoice> command to update your working copy to the same level as the repository."
-msgstr ""
+msgstr "Eso significa que debe utilizar el comando <menuchoice><guimenuitem>Actualizar</guimenuitem></menuchoice> para actualizar su copia de trabajo al mismo nivel que el repositorio."
 
 #: source/en/tsvn_app_faq.xml:663
 #: (para)
@@ -5617,206 +5645,215 @@ msgid ""
 "Folder/File2 : revision 2\n"
 "</screen> Now if you modify File2 and try to commit, it fails. The client tells the repository that File2 is at revision 2 with local modifications, but the repository is already at revision 3. If you then do an update, File2 will be at revision 3 as well (and of course your local changes will still be there)."
 msgstr ""
+"Puede no ser obvio el motivo por el que deba hacer esto, especialmente si <emphasis>sabe</emphasis> que el repositorio no ha cambiado. La respuesta es simplemente que su copia de trabajo no está completamente actualizada tras una confirmación. Sólo se actualizan automáticamente los ficheros y carpetas cambiados. Considere este ejemplo en un repositorio recién creado: <screen>\n"
+"Carpeta añadida en la revisión 1\n"
+"Fichero1 y Fichero2 añadidos en la revisión 2\n"
+"Fichero1 modificado y confirmado en la revisión 3\n"
+"</screen> Ahora el repositorio está en la revisión 3, pero en su copia de trabajo las revisiones están así: <screen>\n"
+"Carpeta          : revisión 1\n"
+"Carpeta/Fichero1 : revisión 3\n"
+"Carpeta/Fichero2 : revisión 2\n"
+"</screen> Si ahora modifica el Fichero2 e intenta confirmar, fallará. El cliente le dice al repositorio que el fichero Fichero2 está en la revisión 2 con modificaciones locales, pero el repositorio ya está en la revisión 3. Si hace entonces una actualización, el Fichero2 estará en la revisión 3 también (y por supuesto sus cambios locales seguirán allí)."
 
 #: source/en/tsvn_app_faq.xml:687
 #: (para)
 msgid "The same thing may happen if you try to create a branch or tag. The answer is always the same: If your working copy is out-of-date, update it!"
-msgstr ""
+msgstr "Lo mismo ocurre si intenta crear una rama o etiqueta. La respuesta siempre es la misma: ¡si su copia de trabajo está desactualizada, actualícela!"
 
 #: source/en/tsvn_app_faq.xml:698
 #: (title)
 msgid "Misc Questions"
-msgstr ""
+msgstr "Preguntas Varias"
 
 #: source/en/tsvn_app_faq.xml:700
 #: (title)
 msgid "TortoiseSVN seems very slow on big directories"
-msgstr ""
+msgstr "TortoiseSVN parece ser muy lento en directorios grandes"
 
 #: source/en/tsvn_app_faq.xml:701
 #: (para)
 msgid "To show you the file and folder icon overlays TortoiseSVN must fetch the status each time you open such a folder in the explorer. This takes usually only a few seconds, but can take much longer if you have either a slow harddisk or a very big directory."
-msgstr ""
+msgstr "Para poder mostrarle los iconos sobreimpresionados en los ficheros y carpetas, TortoiseSVN debe obtener el estado cada vez que abre dicha carpeta en el Explorador. Esto normalmente sólo lleva unos pocos segundos, pero puede llevar mucho más tiempo en un disco duro lento o un directorio muy grande."
 
 #: source/en/tsvn_app_faq.xml:707
 #: (para)
 msgid "Note: usually it's only very slow the first time you open a versioned folder. If you browse the same directory later again it's much faster due to internal caching."
-msgstr ""
+msgstr "Nota: normalmente sólo es muy lento la primera vez que abra una carpeta versionada. Si navega al mismo directorio más tarde será mucho más rápido por la caché interna."
 
 #: source/en/tsvn_app_faq.xml:712
 #: (para)
 msgid "You can try to speed things up by:"
-msgstr ""
+msgstr "Puede intentar acelerar las cosas:"
 
 #: source/en/tsvn_app_faq.xml:717
 #: (para)
 msgid "To speed up browsing in the explorer you should first turn off the recursive overlays. Go to the settings dialog and uncheck <guilabel>Recurse into folders to fetch the status</guilabel>. This will tell TortoiseSVN not to scan subfolders."
-msgstr ""
+msgstr "Para acelerar la navegación en el Explorador debería primero desactivar las sobreimpresiones recursivas. Vaya al diálogo de opciones y desmarque <guilabel>Buscar en subcarpetas para obtener el estado</guilabel>. Esto le indicará a TortoiseSVN que no busque en las subcarpetas."
 
 #: source/en/tsvn_app_faq.xml:726
 #: (para)
 msgid "Whenever the <emphasis>last modified time</emphasis> of a file changed, TortoiseSVN needs to do a complete diff (!) of that file to find out if it has changed. If you often change a file, undo the changes and save the file again you'll encounter a slowdown in browsing. A fresh checkout of your working copy would solve that problem."
-msgstr ""
+msgstr "Cada vez que cambia la <emphasis>fecha de última modificación</emphasis> de un fichero, TortoiseSVN necesita hacer una diferenciación completa (¡!) de ese fichero para saber si ha cambiado. Si cambia a menudo un fichero, deshace los cambios y graba el fichero de nuevo se encontrará con retardos al navegar. Obtener una copia de trabajo limpia podría resolver ese problema."
 
 #: source/en/tsvn_app_faq.xml:737
 #: (para)
 msgid "There are several Virus scanners around that interfere with TortoiseSVN. Most of the time they lock files inside the <filename>.svn</filename> Status directory, which can cause TortoiseSVN to hang or to become very slow. Sometimes you might even get an <emphasis>Access Denied</emphasis> error."
-msgstr ""
+msgstr "Hay algunos Antivirus que interfieren con TortoiseSVN. La mayoría de las veces bloquean los ficheros dentro del directorio de estado <filename>.svn</filename>, que provocan que TortoiseSVN se cuelgue o se enlentezca. A veces incluso puede obtener un error <emphasis>Acceso Denegado</emphasis> error."
 
 #: source/en/tsvn_app_faq.xml:745
 #: (para)
 msgid "Try to configure your virus scanner so that it ignores <filename>.svn</filename> directories."
-msgstr ""
+msgstr "Intente configurar su antivirus para que ignore los directorios <filename>.svn</filename>."
 
 #: source/en/tsvn_app_faq.xml:749
 #: (para)
 msgid "Virus scanners that are known to behave badly are: McAfee, Norton Antivirus, ..."
-msgstr ""
+msgstr "Algunos antivirus que se conocen por su mal comportamiento son: McAfee, Norton Antivirus, ..."
 
 #: source/en/tsvn_app_faq.xml:761
 #: (para) source/en/tsvn_app_faq.xml:786
 msgid "Select <command>Run</command> from the start menu"
-msgstr ""
+msgstr "Seleccione <command>Ejecutar...</command> desde el Menú Inicio"
 
 #: source/en/tsvn_app_faq.xml:767
 #: (para)
 msgid "Type <command>regsvr32 /u %windir%\\system32\\zipfldr.dll</command> at the prompt and click ok"
-msgstr ""
+msgstr "Escriba <command>regsvr32 /u %windir%\\system32\\zipfldr.dll</command> en la casilla y pulse Aceptar"
 
 #: source/en/tsvn_app_faq.xml:774
 #: (para)
 msgid "The change will take effect immediately, but you may have to restart Windows for all traces of the built-in ZIP support to disappear."
-msgstr ""
+msgstr "El cambio tendrá efecto inmediatamente, pero puede que tenga que reiniciar Windows para que desaparezcan todas las trazas del soporte ZIP integrado."
 
 #: source/en/tsvn_app_faq.xml:792
 #: (para)
 msgid "Type <command>regsvr32 %windir%\\system32\\zipfldr.dll </command> at the prompt and click ok"
-msgstr ""
+msgstr "Escriba <command>regsvr32 %windir%\\system32\\zipfldr.dll </command> en la casilla y pulse Aceptar"
 
 #: source/en/tsvn_app_faq.xml:799
 #: (para)
 msgid "The change will take effect immediately, but you may have to restart Windows for all features of the built-in ZIP support to be available."
-msgstr ""
+msgstr "El cambio tendrá efecto inmediatamente, pero puede que tenga que reiniciar Windows para que estén disponibles todas las características del soporte ZIP integrado."
 
 #: source/en/tsvn_app_faq.xml:755
 #: (para)
 msgid "If you're working on Windows XP then you can also disable the <emphasis>zipfolders</emphasis>. This will also increase the browsing speed. <placeholder-1/> If, at any time, you wish to re-enable Windows XP's built-in ZIP support, just follow these steps: <placeholder-2/>"
-msgstr ""
+msgstr "Si está trabajando con Windows XP puede deshabilitar también las <emphasis>carpetas zip</emphasis>. Esto incrementará también la velocidad al navegar. <placeholder-1/> Si, en cualquier momento, desea volver a habilitar el soporte ZIP integrado, siga estos pasos: <placeholder-2/>"
 
 #: source/en/tsvn_app_faq.xml:814
 #: (title)
 msgid "TortoiseSVN doesn't work with VS.NET web projects?"
-msgstr ""
+msgstr "¿TortoiseSVN no funciona con proyectos web de VS.NET?"
 
 #: source/en/tsvn_app_faq.xml:816
 #: (primary)
 msgid "VS.NET"
-msgstr ""
+msgstr "VS.NET"
 
 #: source/en/tsvn_app_faq.xml:818
 #: (para)
 msgid "VS.NET when used with web projects can't handle the <filename>.svn</filename> folders Subversion uses to store its internal information. This is <emphasis>not</emphasis> a bug in Subversion. The bug is in VS.NET and the frontpage extensions it uses. Even though you might argue that Windows can't handle such foldernames, it's not correct. Windows can handle such folders very well, you just can't create them with the explorer."
-msgstr ""
+msgstr "Cuando se utiliza VS.NET con proyectos web, no puede manejar las carpetas <filename>.svn</filename> que Subversion utiliza para almacenar su información interna. Esto <emphasis>no</emphasis> es un error en Subversion. El error es de VS.NET y las extensiones de Frontpage que utiliza. Incluso aunque puede decir que Windows no puede manejar dichos nombres de carpetas, no es correcto. Windows puede manejar dichas carpetas muy bien, sólo que no puede crearlos desde el Explorador."
 
 #: source/en/tsvn_app_faq.xml:828
 #: (para)
 msgid "However, this bug applies only when you use web projects, which is not the same as ASP.NET projects. Usually, when you want to create an ASP.NET project, you choose to create a web project. But you can create or convert an ASP.NET project as a class project. With some minor tweaking, you won't notice the difference, and you then can use TortoiseSVN and SVN with <filename>.svn</filename> folders without problems."
-msgstr ""
+msgstr "Sin embargo, este error sólo se aplica cuando utiliza proyectos web, que no es lo mismo que proyectos ASP.NET. Normalmente, cuando quiere crear un proyecto ASP.NET, se elige crear un proyecto web. Pero puede crear o convertir un proyecto ASP.NET a un proyecto de clases. Con unos pocos ajustes, no notará las diferencias, y puede utilizar TortoiseSVN y SVN con las carpetas <filename>.svn</filename> sin problemas."
 
 #: source/en/tsvn_app_faq.xml:838
 #: (para)
 msgid "There is a really good blog post that helps you to convert your ASP.NET web projects to ASP.NET class project. You can find it <ulink url=\"http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm\"><citetitle>here</citetitle></ulink>. If you follow those instructions, you'll have a VS.NET working with ASP.NET projects and Subversion without troubles."
-msgstr ""
+msgstr "Hay un artículo en un blog realmente bueno que le ayudará a convertir sus proyectos web ASP.NET a proyectos de clase ASP.NET. Puede encontrarlo <ulink url=\"http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm\"><citetitle>aquí</citetitle></ulink>. Si sigue esas instrucciones, tendrá un VS.NET trabajando con proyectos ASP.NET y Subversion sin problemas."
 
 #: source/en/tsvn_app_faq.xml:848
 #: (para)
 msgid "Alternatively, upgrade your copy of VS.NET. The bug has been fixed in VS.NET2005, so it no longer has this problem."
-msgstr ""
+msgstr "Alternativamente, puede actualizar su copia de VS.NET. El error se ha corregido en VS.NET 2005, que ya no tiene este problema."
 
 #: source/en/tsvn_app_faq.xml:858
 #: (term)
 msgid "You need to fix this in Subversion!"
-msgstr ""
+msgstr "¡Tienen que corregir esto en Subversion!"
 
 #: source/en/tsvn_app_faq.xml:860
 #: (para)
 msgid "No, we don't. It's a bug in VS.NET and not in Subversion. So the bug has to be fixed there. In fact in VS.NET2005 it has been fixed, so if you can upgrade VS.NET, the problem goes away."
-msgstr ""
+msgstr "No, no tenemos que hacerlo. Es un error en VS.NET y no en Subversion. Por lo que el error tiene que arreglarse allí. De hecho en VS.NET 2005 ya ha sido arreglado, así que si puede actualizar VS.NET, el problema se acabará."
 
 #: source/en/tsvn_app_faq.xml:869
 #: (term)
 msgid "Why not make the foldername configurable?"
-msgstr ""
+msgstr "¿Por qué no hacer el nombre de la carpeta configurable?"
 
 #: source/en/tsvn_app_faq.xml:871
 #: (para)
 msgid "There are many reasons <emphasis>not</emphasis> to do that. It would require major changes to the existing sourcecode, it would make the interaction of different Subversion clients very hard if not impossible and it would lead to confusion among users."
-msgstr ""
+msgstr "Hay muchas razones para <emphasis>no</emphasis> hacer eso. Requeriría cambios muy serios en el código fuente existente, haría la interacción entre diferentes clientes de Subversion muy dificil si no imposible, y llevaría a los usuarios a confusión."
 
 #: source/en/tsvn_app_faq.xml:879
 #: (para)
 msgid "There are more reasons, but they are very technical and don't belong in this FAQ."
-msgstr ""
+msgstr "Hay más razones, pero son muy técnicas y no pertenecen a estas Preguntas Más Frecuentes."
 
 #: source/en/tsvn_app_faq.xml:886
 #: (term)
 msgid "Then just create a special version of TortoiseSVN which uses a different foldername, and all problems are gone!"
-msgstr ""
+msgstr "¡Entonces fabriquemos una versión especial de TortoiseSVN que utilice nombres de carpetas diferentes, y se acabaron los problemas!"
 
 #: source/en/tsvn_app_faq.xml:892
 #: (para)
 msgid "No, we won't. <emphasis>Your</emphasis> problems might be gone, but all others who are using Subversion and TortoiseSVN would get into troubles if we did that."
-msgstr ""
+msgstr "No, no lo harán. Puede que <emphasis>sus</emphasis> problemas desaparezcan, pero todos los demás que utilizan Subversion y TortoiseSVN podrían tener problemas si lo hiciéramos."
 
 #: source/en/tsvn_app_faq.xml:898
 #: (para)
 msgid "One of the big advantages in using this folder name is that it is universal. i.e. you can use the same working copy from your Linux box and from your Windows box. Very useful if you have a dual boot computer and don't want to have two working copies for each OS you boot."
-msgstr ""
+msgstr "Una de las grandes ventajas al utilizar este nombre de carpeta es que es universal, es decir, que puede utilizar la misma copia de trabajo desde su Linux y su Windows. Muy útil si tiene un ordenador con arranque dual y no quiere tener copias de trabajo diferentes para cada Sistema Operativo que arranque."
 
 #: source/en/tsvn_app_faq.xml:909
 #: (term)
 msgid "But I can't use TortoiseSVN if that's not fixed!"
-msgstr ""
+msgstr "¡Pero no puedo utilizar TortoiseSVN si no se arregla eso!"
 
 #: source/en/tsvn_app_faq.xml:911
 #: (para)
 msgid "Then don't use it! Nobody forces you to use our product. If you really want to use it, then you could compile yourself a special version using a different foldername. After all, both Subversion and TortoiseSVN are open source."
-msgstr ""
+msgstr "¡Pues no lo use! Nadie le obliga a utilizar nuestro producto. Si realmente desea utilizarlo, puede compilarse usted mismo una versión especial utilizando un nombre de carpeta diferente. Después de todo, tanto Subversion como TortoiseSVN son proyectos de código abierto."
 
 #: source/en/tsvn_app_faq.xml:852
 #: (para)
 msgid "If you still want to use TortoiseSVN with web projects, these are the questions we face every few weeks and here are the answers once and for all: <placeholder-1/>"
-msgstr ""
+msgstr "Pero si todavía desea utilizar TortoiseSVN con proyectos web, estas son las preguntas que se nos hacen cada pocas semanas, y aquí están las respuestas de una vez y para siempre: <placeholder-1/>"
 
 #: source/en/tsvn_app_faq.xml:922
 #: (para)
 msgid "But you're not completely lost in this case. Usually a few days after each official release of TortoiseSVN some people upload an installer for TortoiseSVN which is specially compiled to use <filename>_svn</filename> instead of the default <filename>.svn</filename> foldername. You can use that version then. Just be aware that we don't support that version at all!"
-msgstr ""
+msgstr "Pero no está todo perdido en este caso. Normalmente, unos días después de cada lanzamiento oficial de TortoiseSVN alguien sube un instalador de TortoiseSVN que está especialmente compilado para utilizar <filename>_svn</filename> en vez del nombre de carpeta <filename>.svn</filename> por defecto. Puede utilizar esa versión. ¡Pero recuerde que no damos soporte a esa versión en absoluto!"
 
 #: source/en/tsvn_app_faq.xml:932
 #: (title)
 msgid "Does TortoiseSVN support SSH?"
-msgstr ""
+msgstr "¿TortoiseSVN soporta SSH?"
 
 #: source/en/tsvn_app_faq.xml:933
 #: (para)
 msgid "TortoiseSVN uses Subversion. And Subversion supports SSH <systemitem class=\"url\">svn+ssh://</systemitem> (repository reachable via svnserve). If you don't want to use the svnserve server but Apache instead (which I would recommend!) then Subversion supports secure connections via SSL."
-msgstr ""
+msgstr "TortoiseSVN utiliza Subversion. Y Subversion soporta SSH <systemitem class=\"url\">svn+ssh://</systemitem> (repositorio accedido vía svnserve). Si no desea utilizar el servidor svnserve sino Apache (¡lo que yo le recomendaría!) entonces Subversion soporta conexiones seguras vía SSL."
 
 #: source/en/tsvn_app_faq.xml:940
 #: (para)
 msgid "A guide on how to secure your Apache server with SSL can be found in <xref linkend=\"tsvn-serversetup-apache-6\"/>"
-msgstr ""
+msgstr "Puede encontrar una guía sobre cómo hacer más seguro su Apache con SSl en <xref linkend=\"tsvn-serversetup-apache-6\"/>"
 
 #: source/en/tsvn_app_faq.xml:944
 #: (para)
 msgid "Please have a look at the subversion book and the INSTALL file of subversion on how to use <systemitem class=\"url\">svn+ssh://</systemitem>"
-msgstr ""
+msgstr "Por favor revise el Libro de Subversion y el fichero INSTALL de Subversion para saber cómo utilizar <systemitem class=\"url\">svn+ssh://</systemitem>"
 
 #: source/en/tsvn_app_faq.xml:951
 #: (title)
 msgid "Can I get the project revision number into my project?"
-msgstr ""
+msgstr "¿Puedo tener el número de revisión de mi proyecto en mi proyecto?"
 
 #: source/en/tsvn_app_faq.xml:952
 #: (para)
@@ -5831,7 +5868,7 @@ msgstr "$WCREV$"
 #: source/en/tsvn_app_faq.xml:966
 #: (listitem)
 msgid "This string will be replaced by the revision number of your working copy."
-msgstr ""
+msgstr "Esta cadena se reemplazará por el número de revisión de su copia de trabajo."
 
 #: source/en/tsvn_app_faq.xml:972
 #: (term)
@@ -5875,6 +5912,9 @@ msgid ""
 "SubWCRev.exe path\\to\\working\\copy version.in version.h\n"
 "</screen> This creates a new file <filename>version.h</filename> with all the strings above replaced with the values of the working copy. The <filename>version.h</filename> file is then used in the project itself and included in the resource files for the version information."
 msgstr ""
+"Por ejemplo, mire el fichero <filename>version.in</filename> del <ulink url=\"http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in\"><citetitle>árbol de código fuente de TortoiseSVN</citetitle></ulink>. Este fichero se utiliza en TortoiseSVN y sus ficheros de recursos. El script de compilación llama a la herramienta SubWCRev.exe así: <screen>\n"
+"SubWCRev.exe ruta\\a\\la\\copia\\de\\trabajo version.in version.h\n"
+"</screen> Esto crea un nuevo fichero <filename>version.h</filename> que tiene todas las cadenas anteriores reemplazadas con los valores de la copia de trabajo. El fichero <filename>version.h</filename> es el que se utiliza en el propio proyecto y se incluye en los ficheros de recursos para tener la información de la versión."
 
 #: source/en/tsvn_app_faq.xml:1010
 #: (title)
@@ -5889,22 +5929,22 @@ msgstr "TortoiseSVN usa Subversion. "
 #: source/en/tsvn_app_faq.xml:1014
 #: (para)
 msgid "Seriously - No! Read the Subversion pages. You can screw up your working copy any way you like, but if you commit your data regularly, you can always revert to a functional state. Just remember that TortoiseSVN was not made to protect you against stupidity (e.g. Format C:)."
-msgstr ""
+msgstr "En serio - ¡No! Lea las páginas de Subversion. Puede estropear su copia de trabajo como desee, pero si confirma sus cambios regularmente, siempre puede revertir a un estado funcional. Simplemente recuerde que TortoiseSVN no se ha diseñado para protegerle de la estupidez (por ejemplo, Format C:)."
 
 #: source/en/tsvn_app_faq.xml:1021
 #: (para)
 msgid "You can only lose your data if you throw your computer out of the window, format your harddrive, nail your harddrive to a wall..."
-msgstr ""
+msgstr "Sólo puede perder sus datos si tira su ordenador por la ventana, formatea su disco duro, estrella su disco duro contra una pared, ..."
 
 #: source/en/tsvn_app_faq.xml:1028
 #: (title)
 msgid "I'm looking for an external diff or merge tool"
-msgstr ""
+msgstr "Estoy buscando una herramienta externa de diferencias o combinación"
 
 #: source/en/tsvn_app_faq.xml:1029
 #: (para)
 msgid "Take a look at <xref linkend=\"tsvn-DUG-diff-tools\"/>."
-msgstr ""
+msgstr "Vaya a <xref linkend=\"tsvn-DUG-diff-tools\"/>."
 
 #: source/en/tsvn_app_faq.xml:1035
 #: (title)
@@ -5924,7 +5964,7 @@ msgstr "HKCU\\Software\\TortoiseSVN\\Debug"
 #: source/en/tsvn_app_faq.xml:1049
 #: (para)
 msgid "Set this value to 1 for TortoiseSVN to show you the parameters it gets from the shell extension part."
-msgstr ""
+msgstr "Establezca este valor a 1 para que TortoiseSVN le muestre los parámetros que obtiene de la parte de la extensión del shell."
 
 #: source/en/tsvn_app_faq.xml:1056
 #: (term)
@@ -5934,12 +5974,12 @@ msgstr "HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus"
 #: source/en/tsvn_app_faq.xml:1058
 #: (para)
 msgid "Set this value to 0 if you don't want TortoiseSVN to use ownerdraw menu items in the shell context menu. This helps if you use something else than the windows explorer or if you get problems with the context menu showing up."
-msgstr ""
+msgstr "Establezca este valor a 0 si no desea que TortoiseSVN utilice ítems de menú dibujados de forma personalizada en el menú contextual del shell. Esto ayuda si utiliza otra cosa que no sea el Explorador de Windows o si tiene problemas al mostrar el menú contextual."
 
 #: source/en/tsvn_app_faq.xml:1065
 #: (para)
 msgid "Set this value to 2 if you don't want TortoiseSVN to use icons in the context menu at all. With this value set to 2 the context menu is text only."
-msgstr ""
+msgstr "Establezca este valor a 2 para que TortoiseSVN no utilice ningún icono en el menú contextual. Con este valor establecido a 2 el menú contextual será sólo-texto."
 
 #: source/en/tsvn_app_faq.xml:1073
 #: (term)
@@ -5949,7 +5989,7 @@ msgstr "HKCU\\Software\\TortoiseSVN\\BlockStatus"
 #: source/en/tsvn_app_faq.xml:1075
 #: (para)
 msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. an update, commit, ...) then set this value to 1."
-msgstr ""
+msgstr "Si no desea que el explorador actualice las sobreimpresiones de estado mientras se ejecuta otro comando de TortoiseSVN (por ejemplo, una actualización, confirmación, ...) establezca este valor a 1."
 
 #: source/en/tsvn_app_faq.xml:1039
 #: (para)
@@ -6604,5 +6644,5 @@ msgstr "Cambia entre mostrar espacios en blanco o no"
 #: source/en/tme_appa.xml:0
 #: (None)
 msgid "translator-credits"
-msgstr "Fernando P. Najera Cano"
+msgstr "Fernando P. Nájera Cano <yo@FernandoNajera.com>"
 
