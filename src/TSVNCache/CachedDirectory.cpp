@@ -211,6 +211,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		{
 			// We don't have directory status in our cache
 			// Ask the directory if it knows its own status
+			AutoLocker lock(m_critSec);
 			CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 			if(dirEntry->IsOwnStatusValid())
 			{
@@ -283,6 +284,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		return CStatusCacheEntry();
 	}
 
+	AutoLocker lock(m_critSec);
 	m_mostImportantFileStatus = svn_wc_status_unversioned;
 	m_childDirectories.clear();
 	m_entryCache.clear();
@@ -291,7 +293,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 	if(!bThisDirectoryIsUnversioned)
 	{
-		AutoLocker lock(m_critSec);
 		ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
 		svn_error_t* pErr = svn_client_status2 (
 			NULL,
@@ -365,6 +366,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 void 
 CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus)
 {
+	AutoLocker lock(m_critSec);
 	if(path.IsDirectory())
 	{
 		CCachedDirectory * childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
@@ -373,7 +375,6 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 	}
 	else
 	{
-		AutoLocker lock(m_critSec);
 		m_entryCache[GetCacheKey(path)] = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly());
 	}
 }
@@ -454,7 +455,12 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 bool 
 CCachedDirectory::IsOwnStatusValid() const
 {
-	return m_ownStatus.HasBeenSet() && !m_ownStatus.HasExpired(GetTickCount());
+	return m_ownStatus.HasBeenSet() && 
+		   !m_ownStatus.HasExpired(GetTickCount()) &&
+		   // 'external' isn't a valid status. That just
+		   // means the folder is not part of the current working
+		   // copy but it still has its own 'real' status
+		   m_ownStatus.GetEffectiveStatus()!=svn_wc_status_external;
 }
 
 svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
@@ -469,6 +475,7 @@ svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
 	}
 
 	// Now combine all our child-directorie's status
+	
 	ChildDirStatus::const_iterator it;
 	for(it = m_childDirectories.begin(); it != m_childDirectories.end(); ++it)
 	{
@@ -516,8 +523,10 @@ void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn
 	svn_wc_status_kind currentStatus = m_childDirectories[childDir];
 	if ((currentStatus != childStatus)||(!IsOwnStatusValid()))
 	{
-		m_childDirectories[childDir] = childStatus;
-
+		{
+			AutoLocker lock(m_critSec);
+			m_childDirectories[childDir] = childStatus;
+		}
 		UpdateCurrentStatus(bNoUpdates);
 	}
 }

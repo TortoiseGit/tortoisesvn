@@ -97,7 +97,6 @@ void CFolderCrawler::WorkerThread()
 
 	for(;;)
 	{
-
 		DWORD waitResult = WaitForMultipleObjects(sizeof(hWaitHandles)/sizeof(hWaitHandles[0]), hWaitHandles, FALSE, INFINITE);
 		
 		// exit event/working loop if the first event (m_hTerminationEvent)
