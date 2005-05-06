@@ -829,6 +829,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							dlg.m_URL = url;
 							dlg.m_path = m_path;
+							dlg.m_CopyRev = SVNRev(rev);
 							if (dlg.DoModal() == IDOK)
 							{
 								SVN svn;
