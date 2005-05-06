@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-02 08:13+0100\n"
+"PO-Revision-Date: 2005-05-06 12:15+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -170,8 +170,8 @@ msgid "&Copy To..."
 msgstr "&Copier vers..."
 
 #: ID:101
-msgid "&Delete"
-msgstr "&Effacer"
+msgid "&Delete..."
+msgstr "&Effacer..."
 
 # Control-ID:1179,
 #: Control-ID:1179
@@ -302,11 +302,6 @@ msgstr "&Port:"
 msgid "&Previous Difference"
 msgstr "&Précédente différence"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "&Parcourir récursivement les répertoires pour récupérer le statut "
-
 #: ID:376
 msgid "&Redo"
 msgstr "&Refaire"
@@ -344,11 +339,6 @@ msgstr "&Sauver le Graphique sous..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Sauver l'authentification"
-
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "&Sélectionnez le jeu de recouvrement"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -590,16 +580,6 @@ msgstr "Action"
 #: ID:3826
 msgid "Activate Task List"
 msgstr "Liste des tâches courantes"
-
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Activer ceci si vous voulez que le recouvrement d'affichage sur les répertoires\n"
-"affiche le statut sous subversion des fichiers en dessous.\n"
-"<ct=0x0000ff><b>Attention:</b> ceci peut ralentir l'explorateur</ct>"
 
 #: ID:8
 #: ID:209
@@ -1054,8 +1034,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Vérifiez le chemin et/ou l'URL que vous avez entré"
 
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "Sélectionner les entrées de menu, apparaissant directement dans le menu contextuel au lieu du sous-menu"
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr "Sélectionnez les entrées de menu que vous voulez faire apparaître dans le sous-menu au lieu du menu contextuel"
 
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
@@ -1437,11 +1417,6 @@ msgstr "Supprime"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "Le disque de destination est plein."
-
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "Dialogue"
 
 #: ID:12
 msgid "Diff"
@@ -1984,17 +1959,6 @@ msgstr "Importer le répertoire dans un repository"
 msgid "Include paths:"
 msgstr "Chemins inclus:"
 
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"Indique le statut d'un dossier avec l'icône de recouvrement.\n"
-"Si désactivé, un répertoire versioné aura toujours l'icône de recouvrement 'normal' d'affiché.\n"
-"<ct=0x0000ff><b>Si l'explorateur semble lent, désactivez cette fonction!</b></ct>"
-
 #: ID:76
 msgid "Initial Import"
 msgstr "Importation initiale"
@@ -2174,8 +2138,8 @@ msgstr "Verrouillé par %s"
 
 # ID:16,
 #: ID:16
-msgid "Locks files for other users and makes it editable by you."
-msgstr "Verrouille les fichiers pour les autres utilisateurs et les rend modifiables pour vous."
+msgid "Locks a file for other users and makes it editable by you."
+msgstr "Verrouille un fichier pour les autres utilisateurs et le rend modifiable pour vous."
 
 #: ID:126
 msgid "Log"
@@ -2197,6 +2161,11 @@ msgstr "Journal"
 #: Dlg-ID:106
 msgid "Look and Feel"
 msgstr "Apparence et comportement"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+msgid "Look and Feel::Overlays"
+msgstr "Apparence et comportement::Recouvrement"
 
 # ID:238,
 #: ID:238
@@ -2471,6 +2440,10 @@ msgstr "Ouvrir fichier certificat du client"
 msgid "Open file"
 msgstr "Ouvrir fichier"
 
+#: ID:113
+msgid "Open with..."
+msgstr "Ouvrir avec..."
+
 #: ID:3605
 msgid ""
 "Opens Help\n"
@@ -2608,6 +2581,11 @@ msgstr "S'il vous plaît attendez - cela peut prendre plusieurs minutes. Vraimen
 #: ID:13
 msgid "Please wait while cancelling..."
 msgstr "Attente de l'annulation..."
+
+# ID:104,
+#: ID:104
+msgid "Please wait while the repository browser is initialized..."
+msgstr "Veuillez patienter pendant l'initialisation du navigateur de repository..."
 
 #: ID:119
 msgid "Please wait..."
@@ -2855,6 +2833,10 @@ msgstr "Réessayer"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Retourner à l'ancienne version"
+
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "Annuler les modifications depuis ces révisions"
 
 #: ID:8
 msgid "Revert..."
@@ -3218,10 +3200,6 @@ msgstr "Voir les numéros de lignes"
 #: ID:12
 msgid "Show Log"
 msgstr "Voir le journal"
-
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "Afficher le statut de répertoire"
 
 #: ID:3713
 msgid ""
