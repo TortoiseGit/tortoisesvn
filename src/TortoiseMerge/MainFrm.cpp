@@ -877,7 +877,6 @@ void CMainFrame::OnViewOptions()
 		return;
 	} // if (dlg.IsReloadNeeded())
 	m_Data.LoadRegistry();
-	LoadViews(FALSE);
 }
 
 void CMainFrame::OnClose()
