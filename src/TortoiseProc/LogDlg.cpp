@@ -461,6 +461,7 @@ UINT CLogDlg::LogThread()
 	GetDlgItem(IDOK)->SetWindowText(temp);
 	m_LogProgress.SetRange32(0, 100);
 	m_LogProgress.SetPos(0);
+	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
 	long r = -1;
 	if (m_startrev == -1)
 	{
@@ -481,7 +482,6 @@ UINT CLogDlg::LogThread()
 	else
 		m_LogProgress.SetRange32(m_endrev, m_startrev);
 	m_LogProgress.SetPos(0);
-	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
 	
 	if (!ReceiveLog(CTSVNPathList(m_path), m_startrev, m_endrev, m_limit, true, m_bStrict))
 	{
