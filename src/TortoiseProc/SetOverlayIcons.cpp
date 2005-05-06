@@ -301,6 +301,8 @@ void CSetOverlayIcons::OnCbnSelchangeIconsetcombo()
 
 void CSetOverlayIcons::SaveData()
 {
+	if (m_sIconPath.IsEmpty())
+		return;
 	if (m_sIconSet.CompareNoCase(m_sOriginalIconSet)!=0)
 	{
 		// the selected icon set has changed.
