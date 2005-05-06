@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-03 10:06+0100\n"
+"PO-Revision-Date: 2005-05-06 09:20+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -166,8 +166,8 @@ msgid "&Copy To..."
 msgstr "&Kopieren nach..."
 
 #: ID:101
-msgid "&Delete"
-msgstr "&Löschen"
+msgid "&Delete..."
+msgstr "&Löschen..."
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -298,11 +298,6 @@ msgstr "&Port:"
 msgid "&Previous Difference"
 msgstr "&Vorherige Unterschied"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "&Rekursiv in Unterverzeichnisse gehen, um den Status zu ermitteln"
-
 #: ID:376
 msgid "&Redo"
 msgstr "&Wiederholen"
@@ -340,11 +335,6 @@ msgstr "Graph &speichern unter..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Kennwort speichern"
-
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "&Wähle überlagerte Icons"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -506,7 +496,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die überlagerte Icons angezeigt werden.\n"
+"Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die überlagerte Symbole angezeigt werden.\n"
 "Wenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades eingeschlossen."
 
 # ID:194,
@@ -516,7 +506,7 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die <b>keine</b> überlagerten Icons angezeigt werden.\n"
+"Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die <b>keine</b> überlagerten Symbole angezeigt werden.\n"
 "Wenn Sie ein \"*\" Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
 
 #: ID:3843
@@ -579,17 +569,6 @@ msgstr "Aktion"
 #: ID:3826
 msgid "Activate Task List"
 msgstr "Aktiviere die Task-Liste"
-
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Aktivieren Sie dies, um den Subversion Status von Dateien und Unterordnern\n"
-"auf dem Ordnersymbol anzuzeigen.\n"
-"\n"
-"<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
 
 #: ID:8
 #: ID:209
@@ -1046,8 +1025,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Überprüfen Sie den eingegebenen Pfad und/oder die URL."
 
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "Markieren Sie die Einträge, welche im obersten Kontextmenü erscheinen sollen anstatt im Untermenü."
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr "Markieren Sie die Einträge, welche im Untermenü anstatt im  obersten Kontextmenü erscheinen sollen."
 
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
@@ -1430,11 +1409,6 @@ msgstr "Lösche"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "Ziel-Partition ist voll."
-
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "Dialog"
 
 #: ID:12
 msgid "Diff"
@@ -1886,12 +1860,12 @@ msgstr "Servernamen stimmen nicht überein (%s)"
 
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
-msgstr "Überlagerte Icons / Statusspalten"
+msgstr "Überlagerte Symbole / Statusspalten"
 
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "Icon Set:"
-msgstr "Iconsatz:"
+msgstr "Symbole:"
 
 #: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -1899,7 +1873,7 @@ msgstr "Icons/Design/Code:     Lübbe Onken"
 
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Wenn aktiviert, werden die überlagerten Icons in <b>Speichern unter...</b> und <b>Öffnen</b> Dialogen nicht angezeigt"
+msgstr "Wenn aktiviert, werden die überlagerten Symbole in <b>Speichern unter...</b> und <b>Öffnen</b> Dialogen nicht angezeigt"
 
 #: ID:95
 msgid ""
@@ -1975,18 +1949,6 @@ msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "Pfade einschließen:"
-
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"Aktivieren sie dies, um den Status des aktuellen Ordners mit einem überlagerten\n"
-"Icon anzuzeigen. Falls deaktiviert, wird immer das <b>normale</b> Icon angezeigt.\n"
-"\n"
-"<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
 
 #: ID:76
 msgid "Initial Import"
@@ -2190,6 +2152,11 @@ msgstr "Log-Meldungen"
 #: Dlg-ID:106
 msgid "Look and Feel"
 msgstr "Anzeige"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+msgid "Look and Feel::Overlays"
+msgstr "Anzeige::Symbole"
 
 # ID:238,
 #: ID:238
@@ -2464,6 +2431,10 @@ msgstr "Öffne Client Zertifikatsdatei"
 #: ID:3601
 msgid "Open file"
 msgstr "Datei öffnen"
+
+#: ID:113
+msgid "Open with..."
+msgstr "Öffnen mit..."
 
 #: ID:3605
 msgid ""
@@ -2854,6 +2825,10 @@ msgstr "Wiederholen"
 msgid "Revert"
 msgstr "Änderungen rückgängig"
 
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "Änderungen dieser Revisionen &rückgängig machen"
+
 #: ID:8
 msgid "Revert..."
 msgstr "Rückgängig..."
@@ -3216,10 +3191,6 @@ msgstr "Zeige Zeilennummern"
 #: ID:12
 msgid "Show Log"
 msgstr "Zeige &Log"
-
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "Zeige Ordnereigenschaften"
 
 #: ID:3713
 msgid ""
@@ -4164,7 +4135,7 @@ msgid ""
 "You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
 msgstr ""
-"Sie haben den Iconsatz von <i>%s</i> in <i>%s</i> geändert.\n"
+"Sie haben den Symbolsatz von <i>%s</i> in <i>%s</i> geändert.\n"
 "Die Änderungen werden erst wirksam, nachdem Sie den Rechner neu gestartet oder sich ab- und wieder angemeldet haben!"
 
 #: Control-ID:65535

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-24 22:54+0100\n"
+"PO-Revision-Date: 2005-05-05 22:05+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -119,6 +119,10 @@ msgstr ""
 "TortoiseMerge kan inte jämföra mappar. "
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
@@ -163,8 +167,8 @@ msgid "&Copy To..."
 msgstr "&Kopiera till..."
 
 #: ID:101
-msgid "&Delete"
-msgstr "&Ta bort"
+msgid "&Delete..."
+msgstr "&Ta bort..."
 
 # ???
 #: Control-ID:1179
@@ -182,6 +186,10 @@ msgstr "&Redigera..."
 #: Control-ID:1023
 msgid "&Enable Proxy Server"
 msgstr "&Aktivera proxyserver"
+
+#: MenuEntry
+msgid "&Exit"
+msgstr "&Avsluta"
 
 #: Control-ID:1092
 msgid "&External"
@@ -213,7 +221,6 @@ msgstr "&Från arbetskopia på URL:"
 msgid "&Head Revision"
 msgstr "&Huvudrevision"
 
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
@@ -252,6 +259,11 @@ msgstr "&Nätverksenheter"
 msgid "&New "
 msgstr "&Ny"
 
+# Control-ID:1208,
+#: Control-ID:1208
+msgid "&Next 100"
+msgstr "&Nästa 100"
+
 # Hur översätta "difference"
 #: MenuEntry
 msgid "&Next Difference"
@@ -287,10 +299,6 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Föregående avvikelse"
-
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "&Sök status rekursivt i undermappar"
 
 #: ID:376
 msgid "&Redo"
@@ -329,11 +337,6 @@ msgstr "&Spara graf som..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Spara autentisering"
-
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "&Välj statusikonuppsättning"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -572,15 +575,6 @@ msgstr "Åtgärd"
 msgid "Activate Task List"
 msgstr "Aktivera uppgiftslistan"
 
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Aktivera detta om du vill att mappar ska visa status rekursivt.\n"
-"<ct=0x0000ff><b>Varning:</b> Detta alternativ kan göra utforskaren långsam</ct>"
-
 #: ID:8
 #: ID:209
 #: Dlg-ID:155
@@ -777,6 +771,15 @@ msgstr "Analysera revisionsdata..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Applicerar en patchfil i \"Unified Diff\"-format på arbetskopian"
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"Applicerar egenskaper på alla filer/mappar rekursivt.\n"
+"bugtraq: och tsvn: egenskaper appliceras endast på mappar. "
+
 #: ID:13
 msgid "Apply Patch..."
 msgstr "Applicera patch..."
@@ -811,9 +814,14 @@ msgstr "Ändrad av"
 msgid "Author:                        Stefan Kueng"
 msgstr "Upphovsman: Stefan Kueng"
 
+#: ID:116
+#, fuzzy
+msgid "Authors"
+msgstr "Ändrad av"
+
 #: Control-ID:65535
-msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "Upphovsmän: Stefan Kueng, Tim Kemp"
+msgid "Authors:"
+msgstr "Ändrad av:"
 
 #: ID:222
 msgid "Auto-close if no conflicts"
@@ -878,6 +886,11 @@ msgstr "Gren / märke skapades utan fel!"
 msgid "Branch/Tag..."
 msgstr "Skapa gren / märke..."
 
+# ID:16,
+#: ID:16
+msgid "Break Lock"
+msgstr "Bryt lås"
+
 #: Control-ID:1009
 msgid "Bro&wse..."
 msgstr "Blä&ddra..."
@@ -939,6 +952,11 @@ msgstr "Avbryter visa ändringar per rad..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "Avbryter..."
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Cascaded Context Menu"
+msgstr "Snabbvalsmeny"
 
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1011,8 +1029,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Kontrollera sökvägen och/eller URL:en som du angivit."
 
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "Markera de alternativ du vill ska visas i den översta högerknappsmenyn istället för i TSVNs undermeny"
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr "Markera de alternativ du vill ska visas i TSVNs undermeny istället för den översta högerknappsmenyn"
 
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
@@ -1161,10 +1179,6 @@ msgstr "I konflikt"
 msgid "Conflicts: %d"
 msgstr "Konflikter: %d"
 
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "Snabbvalsmeny"
-
 #: ID:73
 msgid "Continue"
 msgstr "Fortsätt"
@@ -1186,6 +1200,10 @@ msgstr "Kopierad"
 #: ID:126
 msgid "Copied remotely"
 msgstr "Kopierades i arkivet"
+
+#: ID:103
+msgid "Copy %s"
+msgstr "Kopiera %s"
 
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
@@ -1212,6 +1230,11 @@ msgid ""
 msgstr ""
 "Kopiera markeringen till urklipp\n"
 "Kopiera"
+
+# Osäker på var denna visas
+#: ID:103
+msgid "Copy to working copy"
+msgstr "Kopiera till arbetskopia"
 
 #: ID:80
 msgid "Copying %s"
@@ -1326,8 +1349,8 @@ msgid "Create Repository"
 msgstr "Skapa arkiv här"
 
 #: ID:8
-msgid "Create Repository here"
-msgstr "Skapa arkiv här"
+msgid "Create Repository here..."
+msgstr "Skapa arkiv här..."
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -1348,6 +1371,12 @@ msgstr "Skapar ett nytt arkiv på vald plats"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Skapar en patchfil med dina ändringar i \"Unified Diff\"-format"
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Credits:"
+msgstr "Credits:"
 
 # ID:376,
 #: ID:376
@@ -1389,11 +1418,6 @@ msgstr "Tar bort"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "Otillräckligt diskutrymme på målenheten."
-
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "Dialog"
 
 # Hur översätta "diff"
 #: ID:12
@@ -1473,10 +1497,12 @@ msgstr "Visa inte detta meddelande igen"
 
 #: ID:76
 msgid ""
-"Do you really want to revert all changes\n"
+"Do you really want to revert all changes to\n"
+"%s\n"
 "which were made in this revision?"
 msgstr ""
-"Vill du verkligen återställa alla ändringar\n"
+"Vill du verkligen återställa alla ändringar av\n"
+"%s\n"
 "som gjorts i den här revisionen?"
 
 #: ID:76
@@ -1502,6 +1528,11 @@ msgstr ""
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "Vill du spara dina ändringar?"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Documentation - Simon Large"
+msgstr "Dokumentation - Simon Large"
 
 #: ID:73
 msgid "Don't show this message again"
@@ -1578,6 +1609,12 @@ msgstr "Skriv loggmeddelande:"
 msgid "Enter URL"
 msgstr "Skriv in URL"
 
+# ID:313,
+#: ID:313
+#, fuzzy
+msgid "Enter a lock message (optional):"
+msgstr "Ange ett låsmeddelande (valfritt):"
+
 #: ID:3603
 msgid ""
 "Erase everything\n"
@@ -1640,6 +1677,7 @@ msgid "Exports a repository to a clean working copy without the svn administrati
 msgstr "Exporterar en 'ren' kopia från arkivet, utan .svn mappar"
 
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "Filändelse"
 
@@ -1728,6 +1766,10 @@ msgstr "Font:"
 msgid "For Help, press F1"
 msgstr "Tryck F1 för hjälp"
 
+#: Control-ID:1200
+msgid "From:"
+msgstr "Från:"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
@@ -1750,6 +1792,12 @@ msgstr "Generella inställningar"
 #: ID:144
 msgid "Generating Patchfile..."
 msgstr "Skapar patchfil..."
+
+# ID:16,
+#: ID:16
+#, fuzzy
+msgid "Get Lock..."
+msgstr "Skaffa lås..."
 
 #: ID:119
 msgid "Getting File %s"
@@ -1873,6 +1921,12 @@ msgstr ""
 "Om valt, kommer TortoiseSVN sätta datum/tid för filer till den tid då\n"
 "de senast arkiverades. Om inte valt, används aktuell tid."
 
+# ID:251,
+#: ID:251
+#, fuzzy
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr "Om du vill bryta låset, använd \"Leta efter ändringar\" dialogen. "
+
 #: ID:73
 msgid "Ignore"
 msgstr "Ignorera"
@@ -1917,17 +1971,6 @@ msgstr "Importera mappen till ett arkiv"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "Inkluderingsfiler:"
-
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"Indikera mappstatus.\n"
-"Avaktiverat så visas alltid den \"normala\" statusikonen.\n"
-"<ct=0x0000ff><b>Om utforskaren verkar långsam så avaktivera den här funktionen!</b></ct>"
 
 #: ID:76
 msgid "Initial Import"
@@ -1994,16 +2037,23 @@ msgstr ""
 # ID:145,
 #: ID:145
 msgid ""
-"It's not possible to rename a file just in case!\n"
-"Please read our docs on how to work around this Subversion limitation."
+"It is not possible to rename a file by changing the case of its name alone.\n"
+"For example, you can't make MyFile.txt become MYFILE.txt.\n"
+"Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"Det går inte att byta namn på en fil till ett där endast stora och små bokstäver har ändrats!\n"
-"Läs i dokumentationen om hur man kan komma runt den här begränsningen i Subversion."
+"Det går inte att byta namn på en fil om det enda som ändrats är stora och små bokstäver.\n"
+"Till exempel, det går inte att byta namn på MyFile.txt till MYFILE.txt.\n"
+"För instruktioner om hur man kan komma runt denna begränsning konsultera dokumentationen."
 
 # Hur översätta "diff"
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
 msgstr "Hoppa till första avvikelse när programmet startas"
+
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "Behåll lås"
 
 #: Control-ID:65535
 msgid "Language:"
@@ -2054,6 +2104,56 @@ msgstr ""
 "Plats där innehållet på URL:en\n"
 "i arkivet ska sparas."
 
+# ID:221,
+#: ID:207
+#: ID:221
+msgid "Lock"
+msgstr "Lås"
+
+# Control-ID:65535,
+#: ID:207
+msgid "Lock Comment"
+msgstr "Lås kommentar"
+
+# Control-ID:65535,
+#: ID:209
+msgid "Lock broken!"
+msgstr "Lås brutet!"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "Låset skapades:"
+
+#: ID:263
+msgid "Lock failed"
+msgstr "Låsning misslyckades"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "Ägare av låset:"
+
+# ID:263,
+#: ID:209
+msgid "Lock stolen by %s"
+msgstr "Lås stulet av %s"
+
+#: ID:195
+msgid "Locked"
+msgstr "Låst"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "Låst av %s"
+
+# ID:16,
+#: ID:16
+#, fuzzy
+msgid "Locks a file for other users and makes it editable by you."
+msgstr "Låser filer för andra användare och gör dem editerbara för dig. "
+
 #: ID:126
 msgid "Log"
 msgstr "Historik"
@@ -2073,6 +2173,12 @@ msgstr "Historik"
 # Hantering?
 #: Dlg-ID:106
 msgid "Look and Feel"
+msgstr "Utseende och hantering"
+
+# Hantering?
+#: Dlg-ID:184
+#, fuzzy
+msgid "Look and Feel::Overlays"
 msgstr "Utseende och hantering"
 
 # ID:238,
@@ -2136,6 +2242,15 @@ msgstr "Förena"
 msgid "Message"
 msgstr "Loggmeddelande"
 
+#: ID:116
+msgid "Messages"
+msgstr "Meddelanden"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr "Meddelanden, upphovsmän och sökvägar"
+
 #: ID:78
 msgid "Mime Type"
 msgstr "Mime-typ"
@@ -2190,6 +2305,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Lokalt filsystem (FSFS)"
+
+# ID:195,
+#: ID:195
+msgid "Needs Lock"
+msgstr "Behöver lås"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -2297,6 +2417,10 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+#: Control-ID:1202
+msgid "Omit externals"
+msgstr "Hoppa över externa"
+
 #: ID:219
 msgid "One or more files are in a conflicted state."
 msgstr "En eller flera filer innehåller konflikter."
@@ -2328,6 +2452,10 @@ msgstr "Öppna fil med klientcertifikat"
 #: ID:3601
 msgid "Open file"
 msgstr "Öppna fil"
+
+#: ID:113
+msgid "Open with..."
+msgstr "Öppna med..."
 
 #: ID:3605
 msgid ""
@@ -2377,10 +2505,14 @@ msgstr "Patchfiler (*.diff, *.patch)|*.diff;*.patch|Alla (*.*)|*.*||"
 msgid "Path"
 msgstr "Sökväg"
 
+#: ID:116
+msgid "Paths"
+msgstr "Sökvägar"
+
 # ID:157,
 #: ID:157
-msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Bilder (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alla (*.*)|*.*||"
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Bilder (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alla (*.*)|*.*||"
 
 #: ID:3858
 msgid "Please enter a GUID."
@@ -2461,6 +2593,11 @@ msgstr "Var god vänta - åtgärden kan ta upp till flera minuter att genomföra
 #: ID:13
 msgid "Please wait while cancelling..."
 msgstr "Vänta medan operationen avbryts..."
+
+# ID:104,
+#: ID:104
+msgid "Please wait while the repository browser is initialized..."
+msgstr "Var god vänta medans arkivsutforskaren initieras..."
 
 #: ID:119
 msgid "Please wait..."
@@ -2557,6 +2694,21 @@ msgstr "Uppdatera"
 #: ID:82
 msgid "Reject"
 msgstr "Avslå"
+
+# ID:16,
+#: ID:16
+msgid "Release Lock"
+msgstr "Släpp lås"
+
+# ID:16,
+#: ID:16
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr "Släpper lås även om du inte äger dem (bryter dem)."
+
+# ID:16,
+#: ID:16
+msgid "Releases locks on files so other users can edit them again."
+msgstr "Släpper låset på filer så att andra användare kan editera dem igen. "
 
 #: MenuEntry
 msgid "Reload"
@@ -2692,10 +2844,17 @@ msgstr "Återställd"
 msgid "Retry"
 msgstr "Försök igen"
 
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Återställ"
+
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "Återställ ändringar från de här revisionerna"
+
+#: ID:8
+msgid "Revert..."
+msgstr "Återställ..."
 
 #: ID:73
 msgid "Reverted"
@@ -2777,6 +2936,12 @@ msgstr "SVN Exportera..."
 #: ID:77
 msgid "SVN Import..."
 msgstr "SVN Importera..."
+
+# ID:16,
+#: ID:16
+#, fuzzy
+msgid "SVN Lock Owner"
+msgstr "SVN Lås ägare"
 
 #: ID:78
 msgid "SVN Merge..."
@@ -2868,6 +3033,14 @@ msgid ""
 msgstr ""
 "Spara den ändrade filen\n"
 "Spara fil"
+
+#: ID:103
+msgid "Saving Files"
+msgstr "Sparar filer"
+
+#: ID:103
+msgid "Saving file %s"
+msgstr "Sparar %s"
 
 #: ID:144
 msgid "Saving patchfile to:"
@@ -3016,6 +3189,7 @@ msgstr "Visa &avvikelser"
 #: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
+#: Control-ID:1132
 msgid "Show &Log"
 msgstr "Visa &logg"
 
@@ -3049,10 +3223,6 @@ msgstr "Visa radnummer"
 msgid "Show Log"
 msgstr "Visa historik"
 
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "&Visa mappegenskaper"
-
 #: ID:3713
 msgid ""
 "Show or hide the status bar\n"
@@ -3076,6 +3246,10 @@ msgid ""
 msgstr ""
 "Visa whitespace som specialtecken\n"
 "Visa whitespace"
+
+#: Control-ID:1209
+msgid "Show unmodified files"
+msgstr "Visa omodifierade filer"
 
 #: Control-ID:1073
 msgid "Show unversioned files"
@@ -3157,6 +3331,21 @@ msgstr "Status"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Objektets status i SVN"
+
+# ID:16,
+#: ID:16
+msgid "Steal Lock"
+msgstr "Stjäl lås"
+
+# ID:313,
+#: ID:313
+msgid "Steal the lock"
+msgstr "Stjäl låset"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 # Control-ID:1130,
 #: Control-ID:1130
@@ -3307,6 +3496,17 @@ msgstr "Filen %s kunde inte hittas i patchfilen!"
 msgid "The file is too large to open."
 msgstr "Filen är för stor för att öppna."
 
+# ID:145,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
+"Filen eller mappen\n"
+"%s\n"
+"har lokala ändringar. Vill du verkligen flytta den här filen?"
+
 #: ID:80
 msgid ""
 "The file\n"
@@ -3349,6 +3549,11 @@ msgstr "Raden som visar den ny filen förväntas på rad %d!"
 #: ID:63
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "Raden som visar den gamla filen förväntas på rad %d!"
+
+# ID:251,
+#: ID:251
+msgid "The lock has already been broken from another working copy"
+msgstr "Låset har redan blivit brutet i en annan arbetskopia"
 
 #: ID:63
 msgid ""
@@ -3425,6 +3630,11 @@ msgid ""
 msgstr ""
 "Målmappen är inte tom!\n"
 "Är du säker på att du vill hämta ut till den mappen?"
+
+# ID:16,
+#: ID:16
+msgid "The user who owns the lock of the file"
+msgstr "Användaren som äger låset till filen"
 
 #: ID:81
 msgid ""
@@ -3513,6 +3723,11 @@ msgstr "3-filershantering av avvikelser"
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "Dubbelklicka på filerna ovan för att se de ändringar som är gjorda."
+
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr "Till:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3688,6 +3903,18 @@ msgstr ""
 "Okänd utgivare av certifikat.\n"
 "  Avtryck: %s\n"
 "  Namn: %s"
+
+#: ID:221
+msgid "Unlock"
+msgstr "Lås upp"
+
+#: ID:264
+msgid "Unlock failed"
+msgstr "Upplåsning misslyckades"
+
+#: ID:263
+msgid "Unlocked"
+msgstr "Upplåst"
 
 #: ID:3841
 msgid "Untitled"
@@ -4209,7 +4436,24 @@ msgstr ""
 "svn:mime-type\n"
 "Mimetyp för en fil. Används för att avgöra om det går att förena filen och hur den ska hanteras av Apache. En mimetyp som börjar med 'text/' (eller om ingen mimetyp anges) hanteras som text. Allt annat hanteras som binärdata."
 
+# ID:16,
+#: ID:16
+#, fuzzy
+msgid ""
+"svn:needs-lock\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\n"
+"The file will be set to read-only when checked out or updated,\n"
+"indicating that a user must acquire a lock on the file\n"
+"before they can edit it and commit changes."
+msgstr ""
+"svn:needs-lock\n"
+"Sätt till vilket värde som helst (tex '*') för att markera att filen behöver låsas.\n"
+"Filen kommer att vara skrivskyddad när den hämtas ut eller uppdateras\n"
+"för att visa att användaren måste erhålla låset på filen innan\n"
+"de kan ändra på den och arkivera förändringar. "
+
 #: ID:80
+#: ID:103
 msgid "to %s"
 msgstr "till %s"
 
@@ -4278,7 +4522,6 @@ msgid "week"
 msgstr "vecka"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "which points to the repository at URL:"
 msgstr "som pekar till arkivet på URL:"
 
