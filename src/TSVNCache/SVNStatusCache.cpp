@@ -199,7 +199,6 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	AutoLocker lock(m_critSec);
 
 	bool bRecursive = !!(flags & TSVNCACHE_FLAGS_RECUSIVE_STATUS);
-	bool bNoUpdates = !!(flags & TSVNCACHE_FLAGS_NONOTIFICATIONS);
 
 	// Check a very short-lived 'mini-cache' of the last thing we were asked for.
 	long now = (long)GetTickCount();
@@ -217,7 +216,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory())->GetStatusForMember(path, bRecursive, bNoUpdates);
+	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory())->GetStatusForMember(path, bRecursive, path);
 }
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)

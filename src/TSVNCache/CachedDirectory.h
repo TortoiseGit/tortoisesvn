@@ -14,8 +14,8 @@ public:
 	CCachedDirectory();
 	CCachedDirectory(const CTSVNPath& directoryPath);
 	~CCachedDirectory(void);
-	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive, bool bNoUpdates);
-	CStatusCacheEntry GetOwnStatus(bool bRecursive);
+	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive, const CTSVNPath& askedPath);
+	CStatusCacheEntry GetOwnStatus(bool bRecursive, const CTSVNPath& askedPath);
 	bool IsOwnStatusValid() const;
 	void RefreshStatus();
 	BOOL SaveToDisk(HANDLE hFile);
@@ -26,13 +26,13 @@ private:
 	CString GetCacheKey(const CTSVNPath& path);
 	CString GetFullPathString(const CString& cacheKey);
 	CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);
-	void UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus, bool bNoUpdates);
+	void UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus, const CTSVNPath& askedPath);
 
 	// Calculate the complete, composite status from ourselves, our files, and our decendants
 	svn_wc_status_kind CalculateRecursiveStatus() const;
 
 	// Update our composite status and deal with things if it's changed
-	void UpdateCurrentStatus(bool bNoUpdates);
+	void UpdateCurrentStatus(const CTSVNPath& askedPath);
 
 	// Get the current full status of this folder, recalculating if necessary
 	svn_wc_status_kind GetCurrentFullStatus();
