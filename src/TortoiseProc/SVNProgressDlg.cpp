@@ -910,8 +910,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	SetWindowText(sWindowTitle);
 
 	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
-
+	GetDlgItem(IDOK)->EnableWindow(TRUE);	
 	m_bCancelled = TRUE;
 	m_bThreadRunning = FALSE;
 	POINT pt;
@@ -921,6 +920,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	CString info = BuildInfoString();
 	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
 	ResizeColumns();
+	SendMessage(DM_SETDEFID, IDOK);
+	GetDlgItem(IDOK)->SetFocus();	
 
 	DWORD dwAutoClose = CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	if (m_options & ProgOptDryRun)
@@ -967,8 +968,6 @@ void CSVNProgressDlg::OnClose()
 
 void CSVNProgressDlg::OnOK()
 {
-	if (GetFocus() != GetDlgItem(IDOK))
-		return;
 	if ((m_bCancelled)&&(!m_bThreadRunning))
 	{
 		// I have made this wait a sensible amount of time (10 seconds) for the thread to finish
