@@ -47,7 +47,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CUpdateDlg : public CDialog
+class CUpdateDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CUpdateDlg)
 

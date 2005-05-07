@@ -27,9 +27,9 @@
 #include "Utils.h"
 #include ".\mergedlg.h"
 
-IMPLEMENT_DYNAMIC(CMergeDlg, CDialog)
+IMPLEMENT_DYNAMIC(CMergeDlg, CStandAloneDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CMergeDlg::IDD, pParent)
+	: CStandAloneDialog(CMergeDlg::IDD, pParent)
 	, m_URLFrom(_T(""))
 	, m_URLTo(_T(""))
 	, StartRev(0)
@@ -52,7 +52,7 @@ CMergeDlg::~CMergeDlg()
 
 void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
@@ -61,7 +61,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
+BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_BROWSE2, OnBnClickedBrowse2)
@@ -84,7 +84,7 @@ END_MESSAGE_MAP()
 
 BOOL CMergeDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
@@ -203,7 +203,7 @@ void CMergeDlg::OnOK()
 	delete m_pLogDlg2;
 	m_pLogDlg2 = NULL;
 	if (CheckData())
-		CDialog::OnOK();
+		CStandAloneDialog::OnOK();
 	else
 		return;
 }
@@ -216,7 +216,7 @@ void CMergeDlg::OnBnClickedDryrunbutton()
 	delete m_pLogDlg2;
 	m_pLogDlg2 = NULL;
 	if (CheckData())
-		CDialog::OnOK();
+		CStandAloneDialog::OnOK();
 	else
 		return;
 }

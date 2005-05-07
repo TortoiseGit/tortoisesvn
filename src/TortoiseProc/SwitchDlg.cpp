@@ -27,9 +27,9 @@
 
 // CSwitchDlg dialog
 
-IMPLEMENT_DYNAMIC(CSwitchDlg, CDialog)
+IMPLEMENT_DYNAMIC(CSwitchDlg, CStandAloneDialog)
 CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CSwitchDlg::IDD, pParent)
+	: CStandAloneDialog(CSwitchDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_rev(_T("HEAD"))
 	, Revision(_T("HEAD"))
@@ -42,13 +42,13 @@ CSwitchDlg::~CSwitchDlg()
 
 void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_NUM, m_rev);
 }
 
 
-BEGIN_MESSAGE_MAP(CSwitchDlg, CDialog)
+BEGIN_MESSAGE_MAP(CSwitchDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
@@ -61,7 +61,7 @@ END_MESSAGE_MAP()
 
 BOOL CSwitchDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	CTSVNPath svnPath(m_path);
 	m_bFolder = svnPath.IsDirectory();
@@ -164,7 +164,7 @@ void CSwitchDlg::OnOK()
 	m_URL = m_URLCombo.GetString();
 
 	UpdateData(FALSE);
-	CDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void CSwitchDlg::OnBnClickedHelp()

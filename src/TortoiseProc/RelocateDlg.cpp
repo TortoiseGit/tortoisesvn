@@ -25,9 +25,9 @@
 
 // CRelocateDlg dialog
 
-IMPLEMENT_DYNAMIC(CRelocateDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRelocateDlg, CStandAloneDialog)
 CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CRelocateDlg::IDD, pParent)
+	: CStandAloneDialog(CRelocateDlg::IDD, pParent)
 	, m_sToUrl(_T(""))
 	, m_sFromUrl(_T(""))
 {
@@ -39,12 +39,12 @@ CRelocateDlg::~CRelocateDlg()
 
 void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_TOURL, m_URLCombo);
 }
 
 
-BEGIN_MESSAGE_MAP(CRelocateDlg, CDialog)
+BEGIN_MESSAGE_MAP(CRelocateDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
@@ -54,7 +54,7 @@ END_MESSAGE_MAP()
 
 BOOL CRelocateDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -129,7 +129,7 @@ void CRelocateDlg::OnOK()
 	m_sToUrl = m_URLCombo.GetString();
 	UpdateData(FALSE);
 
-	CDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void CRelocateDlg::OnBnClickedHelp()

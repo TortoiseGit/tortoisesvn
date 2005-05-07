@@ -26,9 +26,9 @@
 
 // CAboutDlg dialog
 
-IMPLEMENT_DYNAMIC(CAboutDlg, CDialog)
+IMPLEMENT_DYNAMIC(CAboutDlg, CStandAloneDialog)
 CAboutDlg::CAboutDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CAboutDlg::IDD, pParent)
+	: CStandAloneDialog(CAboutDlg::IDD, pParent)
 {
 }
 
@@ -38,12 +38,12 @@ CAboutDlg::~CAboutDlg()
 
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_WEBLINK, m_cWebLink);
 	DDX_Control(pDX, IDC_SUPPORTLINK, m_cSupportLink);
 }
 
-BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
+BEGIN_MESSAGE_MAP(CAboutDlg, CStandAloneDialog)
 	ON_WM_TIMER()
 	ON_WM_MOUSEMOVE()
 	ON_BN_CLICKED(IDC_UPDATE, OnBnClickedUpdate)
@@ -51,7 +51,7 @@ END_MESSAGE_MAP()
 
 BOOL CAboutDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	//set the version string
 	CString temp, boxtitle;
@@ -106,7 +106,7 @@ void CAboutDlg::OnTimer(UINT nIDEvent)
 		r.bottom = r.top + m_renderSrc.GetHeight();
 		m_waterEffect.Blob(random(r.left,r.right), random(r.top, r.bottom), 2, 400, m_waterEffect.m_iHpage);
 	}
-	CDialog::OnTimer(nIDEvent);
+	CStandAloneDialog::OnTimer(nIDEvent);
 }
 
 void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
@@ -131,7 +131,7 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 	}
 
 
-	CDialog::OnMouseMove(nFlags, point);
+	CStandAloneDialog::OnMouseMove(nFlags, point);
 }
 
 void CAboutDlg::OnBnClickedUpdate()

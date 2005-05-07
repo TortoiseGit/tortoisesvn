@@ -108,4 +108,5 @@ private:
 };
 
 typedef CStandAloneDialogTmpl<CResizableDialog> CResizableStandAloneDialog;
-typedef CStandAloneDialogTmpl<CStateDialog> CStandAloneDialog;
+typedef CStandAloneDialogTmpl<CDialog> CStandAloneDialog;
+typedef CStandAloneDialogTmpl<CStateDialog> CStateStandAloneDialog;

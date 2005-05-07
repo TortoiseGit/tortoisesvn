@@ -23,9 +23,9 @@
 
 // CRepoCreateDlg dialog
 
-IMPLEMENT_DYNAMIC(CRepoCreateDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRepoCreateDlg, CStandAloneDialog)
 CRepoCreateDlg::CRepoCreateDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CRepoCreateDlg::IDD, pParent)
+	: CStandAloneDialog(CRepoCreateDlg::IDD, pParent)
 {
 }
 
@@ -35,18 +35,18 @@ CRepoCreateDlg::~CRepoCreateDlg()
 
 void CRepoCreateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CRepoCreateDlg, CDialog)
+BEGIN_MESSAGE_MAP(CRepoCreateDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
 BOOL CRepoCreateDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	CheckRadioButton(IDC_RADIOBDB, IDC_RADIOFSFS, IDC_RADIOBDB);
 
@@ -68,7 +68,7 @@ void CRepoCreateDlg::OnOK()
 		RepoType = _T("fsfs");
 	}
 
-	CDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void CRepoCreateDlg::OnBnClickedHelp()

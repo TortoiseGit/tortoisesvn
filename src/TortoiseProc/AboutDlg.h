@@ -22,6 +22,7 @@
 #include "Watereffect.h"
 #include "Dib.h"
 #include "HyperLink.h"
+#include "StandAloneDlg.h"
 
 #define ID_EFFECTTIMER 1111
 #define ID_DROPTIMER 1112
@@ -51,7 +52,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CAboutDlg : public CDialog
+class CAboutDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CAboutDlg)
 
