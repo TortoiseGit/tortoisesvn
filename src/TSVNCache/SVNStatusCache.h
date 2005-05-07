@@ -23,11 +23,17 @@
 #include "StatusCacheEntry.h"
 #include "CachedDirectory.h"
 #include "FolderCrawler.h"
+#include "ShellUpdater.h"
 #include "atlcoll.h"
 
 //////////////////////////////////////////////////////////////////////////
 
-
+/**
+ * \ingroup TSVNCache
+ * The main class handling the status cache.
+ * Provides access to a global object of itself which handles all
+ * the requests for status.
+ */
 class CSVNStatusCache
 {
 private:
@@ -74,6 +80,7 @@ private:
 	static CSVNStatusCache* m_pInstance;
 
 	CFolderCrawler m_folderCrawler;
+	CShellUpdater m_shellUpdater;
 
 	CTSVNPath m_mostRecentPath;
 	CStatusCacheEntry m_mostRecentStatus;

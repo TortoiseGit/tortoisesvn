@@ -20,7 +20,7 @@
 
 /**
 * \ingroup SVN
-* This class encapsulates an apr_poolm taking care of destroying it at end of scope
+* This class encapsulates an apr_pool taking care of destroying it at end of scope
 * Use this class in preference to doing svn_pool_create and then trying to remember all 
 * the svn_pool_destroys which might be needed.
 *

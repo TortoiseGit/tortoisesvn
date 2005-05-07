@@ -3,7 +3,6 @@
 #include "SVNHelpers.h"
 #include "SVNStatusCache.h"
 #include "SVNStatus.h"
-#include <ShlObj.h>
 
 CCachedDirectory::CCachedDirectory(void)
 {

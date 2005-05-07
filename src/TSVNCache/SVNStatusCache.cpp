@@ -147,6 +147,7 @@ error:
 CSVNStatusCache::CSVNStatusCache(void)
 {
 	m_folderCrawler.Initialise();
+	m_shellUpdater.Initialise();
 }
 
 CSVNStatusCache::~CSVNStatusCache(void)
@@ -162,25 +163,9 @@ void CSVNStatusCache::Clear()
 
 }
 
-void CSVNStatusCache::StartRequest(const CTSVNPath& path)
-{
-	AutoLocker lock(m_critSec);
-	m_askedList.AddHead(path.GetWinPathString());
-}
-
-void CSVNStatusCache::EndRequest(const CTSVNPath& path)
-{
-	AutoLocker lock(m_critSec);
-	POSITION pos = m_askedList.Find(path.GetWinPathString());
-	if (pos)
-		m_askedList.RemoveAt(pos);
-}
-
 void CSVNStatusCache::UpdateShell(const CTSVNPath& path)
 {
-	AutoLocker lock(m_critSec);
-	if (m_askedList.Find(path.GetWinPathString()) == 0)
-		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, path.GetWinPath(), NULL);
+	m_shellUpdater.AddPathForUpdate(path);
 }
 
 void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)

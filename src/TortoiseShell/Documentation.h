@@ -363,7 +363,10 @@
  * Wrappers for the Subversion API.
  */
 
-
+/**
+ * \defgroup TSVNCache TSVNCache
+ * Cache for Subversion status of files and folders.
+ */
 
 
 

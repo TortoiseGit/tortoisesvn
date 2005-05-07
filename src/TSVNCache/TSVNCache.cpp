@@ -332,9 +332,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 		path.SetFromWin(pRequest->path);
 	}
 
-	CSVNStatusCache::Instance().StartRequest(path);
 	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).BuildCacheResponse(*pReply, *pResponseLength);
-	CSVNStatusCache::Instance().EndRequest(path);
 }
 
 VOID PipeThread(LPVOID lpvParam)
