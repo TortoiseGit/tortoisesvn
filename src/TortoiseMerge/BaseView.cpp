@@ -1247,14 +1247,29 @@ BOOL CBaseView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
 void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 {
-	int nLineCount = GetLineCount();
-	int nTopLine = m_nTopLine;
-	nTopLine -= (zDelta/30);
-	if (nTopLine < 0)
-		nTopLine = 0;
-	if (nTopLine >= nLineCount)
-		nTopLine = nLineCount - 1;
-	ScrollToLine(nTopLine, TRUE);
+	if (GetKeyState(VK_CONTROL)&0x8000)
+	{
+		// Ctrl-Wheel scrolls sideways
+		int nNewOffset = m_nOffsetChar;
+		nNewOffset -= (zDelta/30);
+		int nMaxLineLength = GetMaxLineLength();
+		if (nNewOffset >= nMaxLineLength)
+			nNewOffset = nMaxLineLength - 1;
+		if (nNewOffset < 0)
+			nNewOffset = 0;
+		ScrollToChar(nNewOffset, TRUE);
+	}
+	else
+	{
+		int nLineCount = GetLineCount();
+		int nTopLine = m_nTopLine;
+		nTopLine -= (zDelta/30);
+		if (nTopLine < 0)
+			nTopLine = 0;
+		if (nTopLine >= nLineCount)
+			nTopLine = nLineCount - 1;
+		ScrollToLine(nTopLine, TRUE);
+	}
 }
 
 BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
