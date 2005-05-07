@@ -53,6 +53,8 @@
 #define IDR_ACC_REVISIONGRAPH           185
 #define IDI_LOGFILTER                   186
 #define IDI_SET_OVERLAYS                190
+#define IDD_DIALOG1                     191
+#define IDD_LOCK                        191
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -301,7 +303,9 @@
 #define IDC_SHOWUNMODIFIED              1209
 #define IDS_LOG_DATE                    1210
 #define IDS_LOG_REVERT_CONFIRM          1211
+#define IDC_STEALLOCKS                  1211
 #define IDS_LOG_POPUP_COMPARE           1212
+#define IDC_LOCKMESSAGE                 1212
 #define IDS_LOG_POPUP_SAVE              1213
 #define IDS_LOG_POPUP_COMPARETWO        1214
 #define IDS_LOG_POPUP_UPDATE            1215
@@ -607,9 +611,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        191
+#define _APS_NEXT_RESOURCE_VALUE        192
 #define _APS_NEXT_COMMAND_VALUE         32783
-#define _APS_NEXT_CONTROL_VALUE         1210
+#define _APS_NEXT_CONTROL_VALUE         1213
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

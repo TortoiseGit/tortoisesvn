@@ -30,6 +30,7 @@ ProjectProperties::ProjectProperties(void)
 	bWarnIfNoIssue = FALSE;
 	nLogWidthMarker = 0;
 	nMinLogSize = 0;
+	nMinLockMsgSize = 0;
 	bFileListInEnglish = TRUE;
 	bAppend = TRUE;
 	lProjectLanguage = 0;
@@ -64,6 +65,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	BOOL bFoundLogWidth = FALSE;
 	BOOL bFoundLogTemplate = FALSE;
 	BOOL bFoundMinLogSize = FALSE;
+	BOOL bFoundMinLockMsgSize = FALSE;
 	BOOL bFoundFileListEnglish = FALSE;
 	BOOL bFoundProjectLanguage = FALSE;
 
@@ -218,6 +220,20 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				}
 				bFoundMinLogSize = TRUE;
 			}
+			if ((!bFoundMinLockMsgSize)&&(sPropName.Compare(PROJECTPROPNAME_LOCKMSGMINSIZE)==0))
+			{
+				CString val;
+#ifdef UNICODE
+				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+#else
+				val = sPropVal.c_str();
+#endif
+				if (!val.IsEmpty())
+				{
+					nMinLockMsgSize = _ttoi(val);
+				}
+				bFoundMinLockMsgSize = TRUE;
+			}
 			if ((!bFoundFileListEnglish)&&(sPropName.Compare(PROJECTPROPNAME_LOGFILELISTLANG)==0))
 			{
 				CString val;
@@ -254,7 +270,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 		{
 			if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
-				| bFoundLogTemplate | bFoundBugtraqLogRe)
+				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize)
 				return TRUE;
 			return FALSE;
 		}

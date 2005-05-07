@@ -34,6 +34,7 @@ using namespace regex;
 #define PROJECTPROPNAME_LOGTEMPLATE		  _T("tsvn:logtemplate")
 #define PROJECTPROPNAME_LOGWIDTHLINE	  _T("tsvn:logwidthmarker")
 #define PROJECTPROPNAME_LOGMINSIZE		  _T("tsvn:logminsize")
+#define PROJECTPROPNAME_LOCKMSGMINSIZE	  _T("tsvn:lockmsgminsize")
 #define PROJECTPROPNAME_LOGFILELISTLANG	  _T("tsvn:logfilelistenglish")
 #define PROJECTPROPNAME_PROJECTLANGUAGE   _T("tsvn:projectlanguage")
 
@@ -149,6 +150,9 @@ public:
 
 	/** Minimum size a log message must have in chars */
 	int			nMinLogSize;
+
+	/** Minimum size a lock message must have in chars */
+	int			nMinLockMsgSize;
 
 	/** TRUE if the file list to be inserted in the commit dialog should be in
 	 * english and not in the localized language. Default is TRUE */

@@ -858,6 +858,24 @@ BEGIN
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP
 END
 
+IDD_LOCK DIALOGEX 0, 0, 303, 210
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Lock Files"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,189,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,189,189,50,14
+    PUSHBUTTON      "&Help",IDHELP,246,189,50,14
+    CONTROL         "Scintilla",IDC_LOCKMESSAGE,"Scintilla",WS_TABSTOP,7,7,
+                    289,78,WS_EX_STATICEDGE
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
+                    WS_TABSTOP,7,92,289,87
+    CONTROL         "Steal the locks",IDC_STEALLOCKS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,190,117,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1221,6 +1239,14 @@ BEGIN
         VERTGUIDE, 138
         TOPMARGIN, 7
         BOTTOMMARGIN, 207
+    END
+
+    IDD_LOCK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 296
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
     END
 END
 #endif    // APSTUDIO_INVOKED

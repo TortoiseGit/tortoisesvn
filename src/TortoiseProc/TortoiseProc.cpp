@@ -45,6 +45,7 @@
 #include "ChangedDlg.h"
 #include "RepositoryBrowser.h"
 #include "BlameDlg.h"
+#include "LockDlg.h"
 #include "CheckForUpdatesDlg.h"
 #include "RevisionGraphDlg.h"
 #include "InputDlg.h"
@@ -1418,18 +1419,12 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region lock
 		if (command == cmdLock)
 		{
-			CInputDlg inpDlg;
-			inpDlg.m_sTitle.LoadString(IDS_MENU_LOCK);
-			inpDlg.m_sHintText.LoadString(IDS_LOCK_MESSAGEHINT);
-			inpDlg.m_sCheckText.LoadString(IDS_LOCK_STEALCHECK);
-			ProjectProperties props;
-			props.ReadPropsPathList(pathList);
-			props.nMinLogSize = 0;		// the lock message is optional, so no minimum!
-			inpDlg.m_pProjectProperties = &props;
-			if (inpDlg.DoModal()==IDOK)
+			CLockDlg lockDlg;
+			lockDlg.m_pathList = pathList;
+			if (lockDlg.DoModal()==IDOK)
 			{
 				CSVNProgressDlg progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Lock, inpDlg.m_iCheck ? ProgOptLockForce : 0, pathList, CString(), inpDlg.m_sInputText);
+				progDlg.SetParams(CSVNProgressDlg::Lock, lockDlg.m_bStealLocks ? ProgOptLockForce : 0, pathList, CString(), lockDlg.m_sLockMessage);
 				progDlg.DoModal();
 			}
 		}
