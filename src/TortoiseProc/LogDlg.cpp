@@ -1787,6 +1787,7 @@ void CLogDlg::EditAuthor(int index)
 		else
 		{
 			m_arAuthors.SetAt(index, dlg.m_sInputText);
+			m_LogList.Invalidate();
 		}
 	}
 	theApp.DoWaitCursor(-1);
@@ -1866,6 +1867,7 @@ void CLogDlg::EditLogMessage(int index)
 			pMsgView->SetWindowText(_T(" "));
 			pMsgView->SetWindowText(dlg.m_sInputText);
 			m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
+			m_LogList.Invalidate();
 		}
 	}
 	theApp.DoWaitCursor(-1);
