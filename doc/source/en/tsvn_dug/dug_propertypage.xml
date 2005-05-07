@@ -72,6 +72,15 @@
 					If this property is not set,
 					or the value is zero, empty log messages are allowed.
 				</para>
+				<para>
+					<literal>tsvn:lockmsgminsize</literal>
+					sets the minimum length of a lock message.
+					If you enter a shorter message than specified here, the lock
+					is disabled. This feature is very useful for reminding you to
+					supply a proper descriptive message for every lock you get.
+					If this property is not set,
+					or the value is zero, empty lock messages are allowed.
+				</para>
 			</listitem>
 			<listitem>
 				<para>

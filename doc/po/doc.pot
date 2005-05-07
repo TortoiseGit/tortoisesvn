@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-05 09:23GMT Daylight Time\n"
+"POT-Creation-Date: 2005-05-07 18:38Westeuropäische Normalzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1585,19 +1585,23 @@ msgstr ""
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:77(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:75(para) 
+msgid "<literal>tsvn:lockmsgminsize</literal> sets the minimum length of a lock message. If you enter a shorter message than specified here, the lock is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every lock you get. If this property is not set, or the value is zero, empty lock messages are allowed."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_propertypage.xml:86(para) 
 msgid "<literal>tsvn:logwidthmarker</literal> is used with projects which require log messages to be formatted with some maximum width (typically 80 characters) before a line break. Setting this property to a non-zero will do 2 things in the log message entry dialog: it places a marker to indicate the maximum width, and it disables word wrap in the display, so that you can see whether the text you entered is too long. Note: this feature will only work correctly if you have a fixed-width font selected for log messages."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:90(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:99(para) 
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:101(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:110(para) 
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in english or in the localized language. If the property is not set, the default is <literal>true</literal>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:112(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:121(para) 
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink><literal>true</literal>."
 msgstr ""
 
@@ -1605,47 +1609,47 @@ msgstr ""
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:130(para) source/en/tsvn_dug/dug_bugtracker.xml:212(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:139(para) source/en/tsvn_dug/dug_bugtracker.xml:212(para) 
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:137(title) 
+#: source/en/tsvn_dug/dug_propertypage.xml:146(title) 
 msgid "Set the tsvn: properties on folders"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:138(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:147(para) 
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:152(para) source/en/tsvn_dug/dug_bugtracker.xml:234(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:161(para) source/en/tsvn_dug/dug_bugtracker.xml:234(para) 
 msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all subfolders in the hierarchy, without also setting it on all files."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:160(title) 
+#: source/en/tsvn_dug/dug_propertypage.xml:169(title) 
 msgid "Commit properties"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:161(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:170(para) 
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:167(title) 
+#: source/en/tsvn_dug/dug_propertypage.xml:176(title) 
 msgid "Conflicts on properties"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:168(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:177(para) 
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:176(title) 
+#: source/en/tsvn_dug/dug_propertypage.xml:185(title) 
 msgid "Automatic property setting"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:177(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:186(para) 
 msgid "You can configure Subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:183(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:192(para) 
 msgid "TortoiseSVN can integrate with some bugtracking tools. This uses properties, which start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-DUG-bugtracker\"/> for further information."
 msgstr ""
 
