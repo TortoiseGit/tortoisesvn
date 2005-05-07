@@ -87,6 +87,8 @@ void CSciEdit::Init(LONG lLanguage)
 				langId = 1033;
 		} while ((langId)&&((pChecker==NULL)||(pThesaur==NULL)));
 	}
+	Call(SCI_SETEDGEMODE, EDGE_NONE);
+	Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
 }
 
 void CSciEdit::Init(const ProjectProperties& props)
