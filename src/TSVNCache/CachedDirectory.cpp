@@ -342,6 +342,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 		if(dirEntry->IsOwnStatusValid())
 		{
+			CSVNStatusCache::Instance().AddFolderForCrawling(path);
 			return dirEntry->GetOwnStatus(bRecursive);
 		}
 
@@ -445,6 +446,15 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 				// also mark the status in the status object as normal
 				status->text_status = svn_wc_status_normal;
 			}
+		}
+		if (status->text_status == svn_wc_status_external)
+		{
+			CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
+			// Mark the directory as 'versioned' (status 'normal' for now).
+			// This initial value will be overwritten from below some time later
+			pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+			// also mark the status in the status object as normal
+			status->text_status = svn_wc_status_normal;
 		}
 	}
 
