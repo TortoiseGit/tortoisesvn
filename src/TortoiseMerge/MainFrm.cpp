@@ -69,6 +69,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_COMMAND(ID_MERGE_MARKASRESOLVED, OnMergeMarkasresolved)
 	ON_UPDATE_COMMAND_UI(ID_MERGE_NEXTCONFLICT, OnUpdateMergeNextconflict)
 	ON_UPDATE_COMMAND_UI(ID_MERGE_PREVIOUSCONFLICT, OnUpdateMergePreviousconflict)
+	ON_WM_MOVE()
+	ON_WM_MOVING()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -429,7 +431,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 				if (CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
 					m_Data.m_sPatchPath = betterpatchpath;
 			}
-			m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath);
+			m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath, this);
 			m_dlgFilePatches.ShowWindow(SW_SHOW);
 			m_pwndLeftView->m_sWindowName = _T("");
 			m_pwndLeftView->m_sFullFilePath = _T("");
@@ -1228,4 +1230,26 @@ void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 {
 	pCmdUI->Enable((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()));
+}
+
+void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
+{
+	// if the pathfilelist dialog is attached to the mainframe,
+	// move it along with the mainframe
+	if (::IsWindow(m_dlgFilePatches.m_hWnd))
+	{
+		RECT patchrect;
+		m_dlgFilePatches.GetWindowRect(&patchrect);
+		if (::IsWindow(this->m_hWnd))
+		{
+			RECT thisrect;
+			GetWindowRect(&thisrect);
+			if (patchrect.right == thisrect.left)
+			{
+				m_dlgFilePatches.SetWindowPos(NULL, patchrect.left - (thisrect.left - pRect->left), patchrect.top - (thisrect.top - pRect->top), 
+					0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOSIZE | SWP_NOZORDER);
+			}
+		}
+	}
+	__super::OnMoving(fwSide, pRect);
 }

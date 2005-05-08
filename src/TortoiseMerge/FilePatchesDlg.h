@@ -64,7 +64,7 @@ public:
 	 * \param sPath The path to the "parent" folder where the patch gets applied to
 	 * \return TRUE if successful
 	 */
-	BOOL	Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath);
+	BOOL	Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath, CWnd * pParent);
 
 	BOOL	SetFileStatusAsPatched(CString sPath);
 	enum { IDD = IDD_FILEPATCHES };
@@ -77,6 +77,7 @@ protected:
 	CImageList					m_ImgList;
 	BOOL						m_bMinimized;
 	int							m_nWindowHeight;
+	CWnd *						m_pMainFrame;
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void OnSize(UINT nType, int cx, int cy);
@@ -89,4 +90,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	CString GetFullPath(int nIndex);
+public:
+	afx_msg void OnMoving(UINT fwSide, LPRECT pRect);
 };

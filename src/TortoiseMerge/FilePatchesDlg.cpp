@@ -21,6 +21,7 @@
 #include "FilePatchesDlg.h"
 #include "Patch.h"
 #include "Utils.h"
+#include ".\filepatchesdlg.h"
 
 
 IMPLEMENT_DYNAMIC(CFilePatchesDlg, CDialog)
@@ -65,7 +66,7 @@ CString CFilePatchesDlg::GetFullPath(int nIndex)
 	return temp;
 }
 
-BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath)
+BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath, CWnd * pParent)
 {
 	if ((pCallBack==NULL)||(pPatch==NULL))
 	{
@@ -131,9 +132,27 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 	m_cFileList.SetImageList(&m_ImgList, LVSIL_SMALL);
 	m_cFileList.SetRedraw(true);
 
+	RECT parentrect;
+	pParent->GetWindowRect(&parentrect);
 	RECT windowrect;
 	GetWindowRect(&windowrect);
+
+	int width = windowrect.right - windowrect.left;
+	int height = windowrect.bottom - windowrect.top;
+	windowrect.right = parentrect.left;
+	windowrect.left = windowrect.right - width;
+	if (windowrect.left < 0)
+	{
+		windowrect.left = 0;
+		windowrect.right = width;
+	}
+	windowrect.top = parentrect.top;
+	windowrect.bottom = windowrect.top + height;
+
+	SetWindowPos(NULL, windowrect.left, windowrect.top, width, height, SWP_NOACTIVATE | SWP_NOZORDER);
+
 	m_nWindowHeight = windowrect.bottom - windowrect.top;
+	m_pMainFrame = pParent;
 	return TRUE;
 }
 
@@ -144,6 +163,7 @@ BEGIN_MESSAGE_MAP(CFilePatchesDlg, CDialog)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_FILELIST, OnNMCustomdrawFilelist)
 	ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
 	ON_WM_NCLBUTTONDBLCLK()
+	ON_WM_MOVING()
 END_MESSAGE_MAP()
 
 void CFilePatchesDlg::OnSize(UINT nType, int cx, int cy)
@@ -279,4 +299,18 @@ void CFilePatchesDlg::OnNcLButtonDblClk(UINT nHitTest, CPoint point)
 	}
 	m_bMinimized = !m_bMinimized;
 	CDialog::OnNcLButtonDblClk(nHitTest, point);
+}
+
+void CFilePatchesDlg::OnMoving(UINT fwSide, LPRECT pRect)
+{
+#define STICKYSIZE 5
+	RECT parentRect;
+	m_pMainFrame->GetWindowRect(&parentRect);
+	if (abs(parentRect.left - pRect->right) < STICKYSIZE)
+	{
+		int width = pRect->right - pRect->left;
+		pRect->right = parentRect.left;
+		pRect->left = pRect->right - width;
+	}
+	CDialog::OnMoving(fwSide, pRect);
 }
