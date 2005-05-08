@@ -8,7 +8,7 @@ CCachedDirectory::CCachedDirectory(void)
 {
 	m_entriesFileTime = 0;
 	m_propsDirTime = 0;
-	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_unversioned;
+	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 	m_bCurrentFullStatusValid = false;
 }
 
@@ -25,7 +25,7 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_directoryPath = directoryPath;
 	m_entriesFileTime = 0;
 	m_propsDirTime = 0;
-	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_unversioned;
+	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 	m_bCurrentFullStatusValid = false;
 }
 
@@ -284,7 +284,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	}
 
 	AutoLocker lock(m_critSec);
-	m_mostImportantFileStatus = svn_wc_status_unversioned;
+	m_mostImportantFileStatus = svn_wc_status_none;
 	m_childDirectories.clear();
 	m_entryCache.clear();
 	m_bCurrentFullStatusValid = false;
@@ -324,7 +324,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			// - renaming a folder with many subfolders --> results in "not a working copy" if the revert
 			//   happens between our checks and the svn_client_status() call.
 			// - reverting a move/copy --> results in "not a working copy" (as above)
-			m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_unversioned;
+			m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 			return CStatusCacheEntry();
 		}
 	}
@@ -506,7 +506,7 @@ void CCachedDirectory::UpdateCurrentStatus()
 
 
 	// Our status has changed - tell the shell
-	if (newStatus != m_currentFullStatus)
+	if ((newStatus != m_currentFullStatus)&&(m_currentFullStatus != svn_wc_status_none))
 	{
 		ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);		
 		CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
