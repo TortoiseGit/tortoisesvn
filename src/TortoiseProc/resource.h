@@ -307,6 +307,7 @@
 #define IDS_LOG_POPUP_COMPARE           1212
 #define IDC_LOCKMESSAGE                 1212
 #define IDS_LOG_POPUP_SAVE              1213
+#define IDC_LOCKTITLELABEL              1213
 #define IDS_LOG_POPUP_COMPARETWO        1214
 #define IDS_LOG_POPUP_UPDATE            1215
 #define IDS_LOG_POPUP_COPY              1216
@@ -613,7 +614,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        192
 #define _APS_NEXT_COMMAND_VALUE         32783
-#define _APS_NEXT_CONTROL_VALUE         1213
+#define _APS_NEXT_CONTROL_VALUE         1214
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

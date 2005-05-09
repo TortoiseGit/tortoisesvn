@@ -53,6 +53,7 @@ BOOL CLockDlg::OnInitDialog()
 	if (!m_sLockMessage.IsEmpty())
 		m_cEdit.SetText(m_sLockMessage);
 		
+	AddAnchor(IDC_LOCKTITLELABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOCKMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_STEALLOCKS, BOTTOM_LEFT);
