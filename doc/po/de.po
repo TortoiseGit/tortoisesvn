@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-09 11:22+0100\n"
+"PO-Revision-Date: 2005-05-09 21:23+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -311,22 +311,22 @@ msgstr "Laden Sie die neueste Version des Apache Webservers von <ulink url=\"htt
 #: source/en/tsvn_server/server_apache.xml:91
 #: (para)
 msgid "Once you have the Apache2 installer you can doubleclick on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a dns name for your server just enter the ip-address). I recommend to install apache <literal>for All Users, on Port 80, as a Service</literal>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
-msgstr ""
+msgstr "Sobald Sie den Apache 2 Installer haben, können Sie ihn mit einem Doppelklick starten. Sie werden Schritt für Schritt durch den Installationsprozess geführt. Stellen Sie sicher, dass Sie die Server URL korrekt eingeben. Wenn Sie keinen DNS Server haben, nehmen Sie stattdessen einfach die IP Adresse. Wir raten dazu, Apache für <literal>for Alle Benutzer, auf Port 80, als Dienst</literal> zu installieren. Achtung: Wenn Sie bereits IIS oder ein anderes Programm installiert haben, dass auf Port 80 lauscht, kann die Installation fehlschlagen. Wenn das passiert, gehen Sie in <filename>C:\\Programme\\Apache Group\\Apache2\\conf</filename> und öffnen Sie dort die Datei <filename>httpd.conf</filename>. Suchen Sie den Eintrag <literal>Listen 80</literal> und ändern Sie diesen in eine freie Portnummer, z.B. <literal>Listen 81</literal>. Starten Sie die Installation erneut - Diesmal sollte sie ohne Probleme durchlaufen."
 
 #: source/en/tsvn_server/server_apache.xml:113
 #: (para)
 msgid "Now test if the Apache-webserver is running correctly by pointing your webbrowser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up."
-msgstr ""
+msgstr "Testen Sie nun, ob Apache korrekt installiert ist, indem Sie in Ihren Web Browser die URL <systemitem class=\"url\">http://localhost/</systemitem> eingeben. Eine Standard Webseite sollte angezeigt werden. Wenn Sie bei der Installation eine andere Portnummer als 80 eingestellt haben, müssen Sie diese in der URL übergeben <systemitem class=\"url\">http://localhost:81/</systemitem>."
 
 #: source/en/tsvn_server/server_apache.xml:122
 #: (para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
-msgstr ""
+msgstr "Wenn Sie sich entscheiden, Apache als Dienst zu installieren, beachten Sie bitte dass er dann mit den lokalen <literal>SYSTEM</literal> Berechtigungen läuft. Es ist wesentlich sicherer, wenn Sie für Apache ein eigenes Benutzerkonto anlegen in dessen Kontext der Dienst dann läuft."
 
 #: source/en/tsvn_server/server_apache.xml:128
 #: (para)
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right-click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
-msgstr ""
+msgstr "Stellen Sie sicher, dass das Konto unter dem der Apache Server läuft, einen eigenen Eintrag in der Zugriffskontrollliste des übergeordneten Verzeichnisses für die Projektarchive hat (rechts-klick Verzeichnis | Eigenschaften | Sicherheit), der dem Konto vollen Zugriff auf das Verzeichnis gestattet. Andernfalls können Anwender keine Änderungen zum Projektarchiv übertragen."
 
 #: source/en/tsvn_server/server_apache.xml:134
 #: (para)
@@ -500,11 +500,60 @@ msgid ""
 "@docs = rw\n"
 "</screen>"
 msgstr ""
+"Mit einer <filename>passwd</filename> Datei können Sie den Zugriff auf alle Ihre Projektarchive zentral steuern.Wenn Sie genau einstellen wollen, welche Benutzer / Gruppen welche Berechtigungen in Ihren Projektarchiven haben sollen, entfernen Sie das Kommentarzeichen vor\n"
+"<screen>#AuthzSVNAccessFile svnaccessfile</screen> und legen Sie die Subversion Zugriffsdatei <filename>svnaccessfile</filename>an. Apache stellt sicher, dass nur angemeldete Benutzer auf Ihre <filename>/svn</filename> Location zugreifen können und wird dann den Benutzernamen an Subversions AuthzSVNAccessFile Module weiterreichen, das die Benutzerrechte fein gegliedert anhand der Subversion Zugriffsdatei steuert. Eine Beispieldatei:\n"
+"<screen>[groups]\n"
+"developers = user1,user2,user3,user4\n"
+"docs = user5,user6,user7\n"
+"#Jeder erhält Lesezugriff\n"
+"[/]\n"
+"* = r\n"
+"#Die Gruppe developers erhält Vollzugriff\n"
+"@developers = rw\n"
+"#Die doc Gruppe erhält Vollzugriff auf das doc Unterverzeichnis\n"
+"[/project/trunk/doc]\n"
+"@docs = rw\n"
+"</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:286
 #: (para)
 msgid "A short explanation of what you just entered: <indexterm><primary>SVNPath</primary></indexterm><indexterm><primary>SVNParentPath</primary></indexterm><table id=\"tsvn-serversetup-apache-4-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1.5*\"/><colspec colnum=\"2\" colwidth=\"3*\"/><thead><row><entry>Setting</entry><entry>Explanation</entry></row></thead><tbody><row><entry>&lt;Location /svn&gt;</entry><entry> means that the Subversion repositories are available from the URL <systemitem class=\"url\">http://MyServer/svn/</systemitem></entry></row><row><entry>DAV svn</entry><entry> tells Apache which module will be responsible to serve that URL - in this case the Subversion module. </entry></row><row><entry>SVNParentPath D:\\SVN</entry><entry> tells Subversion to look for repositories below <filename>D:\\SVN</filename></entry></row><row><entry>AuthType Basic</entry><entry> is to activate basic authentication, i.e. Username/password </entry></row><row><entry>AuthName \"Subversion repositories\"</entry><entry> is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for </entry></row><row><entry>AuthUserFile passwd</entry><entry> specifies which password file to use for authentication </entry></row><row><entry>AuthzSVNAccessFile</entry><entry> Location of the Access file for paths inside a Subversion repository </entry></row><row><entry>Require valid-user</entry><entry> specifies that only users who entered a correct username/password are allowed to access the URL </entry></row></tbody></tgroup></table> But that's just an example. There are many, many more possibilities of what you can do with the Apache webserver. <placeholder-2/>"
 msgstr ""
+"Eine kurze Erklärung dessen was Sie gerade eingegeben haben: <indexterm> <primary>SVNPath</primary> </indexterm> <indexterm> <primary>SVNParentPath</primary> </indexterm>\n"
+"<table id=\"tsvn-serversetup-apache-4-table\">\n"
+"<placeholder-1/>\n"
+"<tgroup cols=\"2\">\n"
+"<colspec colnum=\"1\" colwidth=\"1.5*\"/>\n"
+"<colspec colnum=\"2\" colwidth=\"3*\"/>\n"
+"<thead><row>\n"
+"<entry>Einstellung</entry><entry>Erklärung</entry>\n"
+"</row></thead>\n"
+"<tbody><row>\n"
+"<entry>&lt;Location /svn&gt;</entry>\n"
+"<entry>bedeutet, dass die Projektarchive unter der URL <systemitem class=\"url\">http://MyServer/svn/</systemitem> aufrufbar sind</entry>\n"
+"</row><row>\n"
+"<entry>DAV svn</entry>\n"
+"<entry>teilt Apache mit, welches Modul (in diesem Fall das Subversion Modul), für diese URL zuständig ist. </entry>\n"
+"</row><row>\n"
+"<entry>SVNParentPath D:\\SVN</entry>\n"
+"<entry>teilt Apache mit, dass die Projektarchive in <filename>D:\\SVN</filename> liegen.</entry>\n"
+"</row><row>\n"
+"<entry>AuthType Basic</entry>\n"
+"<entry>zur Anmeldung wird ein einfaches Verfahren mit Name / Passwort verwendet.</entry>\n"
+"</row><row>\n"
+"<entry>AuthName \"Subversion repositories\"</entry>\n"
+"<entry>wird als Information an das Programm (z.B. Web Browser, TortoiseSVN) weitergereicht, mit dem sich der Benutzer am Projektarchiv anmeldet.</entry>\n"
+"</row><row>\n"
+"<entry>AuthUserFile passwd</entry>\n"
+"<entry>gibt die Passwortdatei für die Anmeldung an.</entry>\n"
+"</row><row>\n"
+"<entry>AuthzSVNAccessFile</entry>\n"
+"<entry>Name der Datei in der die Zugriffsrechte <emphasis>innerhalb</emphasis> der Subversion Projektarchive festgelegt sind.</entry>\n"
+"</row><row>\n"
+"<entry>Require valid-user</entry>\n"
+"<entry>legt fest, dass nur Personen, die sich korrekt angemeldet haben, auf die URL zugreifen dürfen.</entry>\n"
+"</row></tbody></tgroup></table>\n"
+"Aber das ist nur ein Beispiel. Der Apache Webserver bietet Ihen viele weiter Möglichkeiten. <placeholder-2/>"
 
 #: source/en/tsvn_server/server_apache.xml:417
 #: (title)
@@ -548,6 +597,8 @@ msgid ""
 "#LoadModule rewrite_module modules/mod_rewrite.so\n"
 "</screen>"
 msgstr ""
+"Entfernen Sie das Kommentarzeichen (<literal>'#'</literal>) aus der folgenden Zeile Ihrer Apache Konfigurationsdatei:\n"
+"<screen>#LoadModule rewrite_module modules/mod_rewrite.so</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:518
 #: (para)
@@ -559,16 +610,23 @@ msgid ""
 "    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
 "</screen>"
 msgstr ""
+"Fügen Sie die folgenden Zeilen direkt hinter dem &lt;Location&gt; Block ein:\n"
+"<screen>\n"
+"    RewriteEngine on\n"
+"    RewriteRule ^/svn$ /svn_index.php [PT]\n"
+"    RewriteRule ^/svn/$ /svn_index.php [PT]\n"
+"    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
+"</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:503
 #: (para)
 msgid "Save the lines above to a file <filename>svn_index.php</filename> and store that file in your web root folder. Next you have to tell Apache to show that page instead of the error: <placeholder-1/>"
-msgstr ""
+msgstr "Speichen Sie die obenstehenden Zeilen in <filename>svn_index.php</filename> und legen Sie diese Datei im <literal>DocRoot</literal> Ihres Webservers ab. Als nächstes müssen Sie URLs, die zu einer Fehlermeldung führen, auf diese Datei umleiten: <placeholder-1/>"
 
 #: source/en/tsvn_server/server_apache.xml:534
 #: (title)
 msgid "Authentication With A Windows Domain"
-msgstr ""
+msgstr "Anmeldung an einer Windows Domäne"
 
 #: source/en/tsvn_server/server_apache.xml:536
 #: (primary)
@@ -658,7 +716,7 @@ msgstr ""
 #: source/en/tsvn_server/server_apache.xml:658
 #: (title)
 msgid "SSL and InternetExplorer"
-msgstr ""
+msgstr "SSL und Internet Explorer"
 
 #: source/en/tsvn_server/server_apache.xml:659
 #: (para)
@@ -693,7 +751,7 @@ msgstr "Wenn Sie trotzem IE verwenden wollen, um Projektarchive zu betrachten, k
 #: source/en/tsvn_server/server_apache.xml:718
 #: (title)
 msgid "Securing the server with SSL"
-msgstr ""
+msgstr "Den Server mit SSL sichern"
 
 #: source/en/tsvn_server/server_apache.xml:720
 #: (primary)
