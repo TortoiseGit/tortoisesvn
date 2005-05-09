@@ -695,11 +695,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (m_LogList.GetSelectedCount() == 2)
 					{
-						if (!m_path.IsDirectory())
-						{
-							temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
-						}
+						temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 					}
@@ -908,12 +905,42 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_COMPARETWO:
 					{
 						//user clicked on the menu item "compare revisions"
-						//now first get the revisions which are selected
-						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-						long rev1 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-						long rev2 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						if ((m_path.IsDirectory())||(!m_hasWC))
+						{
+							POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+							long rev1 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+							long rev2 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+							this->m_bCancelled = FALSE;
+							CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
+							m_tempFileList.AddPath(tempfile);
+							
+							// Instead of doing a full diff here, we maybe could just use the changed paths from all the
+							// log messages between the two selected revisions? Of course, we then would need to ask
+							// for the repository root to get full URL's to the changed files, and filter out folders
+							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
+							{
+								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								break;		//exit
+							}
+							else
+							{
+								if (CUtils::CheckForEmptyDiff(tempfile))
+								{
+									CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+									break;
+								}
+								CUtils::StartExtPatch(tempfile, CTSVNPath());
+							}
+						}
+						else
+						{
+							//now first get the revisions which are selected
+							POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+							long rev1 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+							long rev2 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 
-						StartDiff(m_path, rev1, m_path, rev2);
+							StartDiff(m_path, rev1, m_path, rev2);
+						}
 					}
 					break;
 				case ID_SAVEAS:
