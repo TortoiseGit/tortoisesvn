@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3238
+# Based on r3271
 #
 msgid ""
 msgstr ""
@@ -839,7 +839,7 @@ msgstr "CAP"
 msgid "Can't copy \n%s\nto\n%s"
 msgstr "Kan ikke kopiere \n%s\ntil\n%s"
 
-#: ID:73,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1798,6 +1798,11 @@ msgstr "Lås"
 msgid "Lock Comment"
 msgstr "Lås-kommentar"
 
+#: Dlg-ID:191,
+#Meaning: "Lock (some) files"
+msgid "Lock Files"
+msgstr "Lås filer"
+
 #: ID:209,
 msgid "Lock broken!"
 msgstr "Låsen er brudt!"
@@ -2042,7 +2047,7 @@ msgstr "Antal forfattere:"
 msgid "Number of weeks:"
 msgstr "Antal uger:"
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr "Ok"
 
@@ -2614,7 +2619,7 @@ msgstr "Gemmer filen %s"
 msgid "Saving patchfile to:"
 msgstr "Gemmer korrekturfil som:"
 
-#: Control-ID:1014,#: Control-ID:1017,#: Control-ID:1014,#: Control-ID:1064,
+#: Control-ID:1014,#: Control-ID:1017,#: Control-ID:1014,#: Control-ID:1064,#: Control-ID:1212,
 #, fuzzy
 msgid "Scintilla"
 msgstr "Scintilla"
@@ -2860,6 +2865,10 @@ msgstr "Stjæl lås"
 #: ID:313,
 msgid "Steal the lock"
 msgstr "Stjæl låsen"
+
+#: Control-ID:1211,
+msgid "Steal the locks"
+msgstr "Stjæl låsene"
 
 #: Control-ID:65535,
 msgid "Stefan Küng, Lübbe Onken"
@@ -3118,8 +3127,8 @@ msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 #: ID:107,
-msgid "TortoiseMerge %d.%d.%d, Build %d, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
+msgid "TortoiseMerge %d.%d.%d, Build %d\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
+msgstr "TortoiseMerge %d.%d.%d, Build %d\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
 
 #: ID:9,#: ID:80,
 msgid "TortoiseSVN"
@@ -3130,8 +3139,8 @@ msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 #: ID:107,
-msgid "TortoiseSVN %d.%d.%d, Build %d, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 
 #: ID:80,
 msgid "TortoiseSVN Settings"
