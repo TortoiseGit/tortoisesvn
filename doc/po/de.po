@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-06 13:38+0100\n"
+"PO-Revision-Date: 2005-05-09 11:22+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -84,9 +84,7 @@ msgid ""
 "</screen> svnserve will now start waiting for incoming requests on port 3690. The -d switch tells svnserve to run as a daemon process, so it will always exist until it is manually terminated."
 msgstr ""
 "Nun, da Svnserve installiert ist, müssen Sie die Anwendung auch aktivieren. Die einfachste Variante ist, das folgende Skript in der Eingabeaufforderung zu starten:\n"
-"<screen>\n"
-"svnserve.exe -d\n"
-"</screen>\n"
+"<screen>svnserve.exe -d</screen>\n"
 "Sie können auch eine Verknüpfung dafür anzulegen. Svnserve wird nun auf über Port 3690 eingehende Anfragen warten. Die <literal>-d</literal> Option zwingt svnserve, so lange als Dienst zu laufen, bis der Prozess manuell beendet wird."
 
 #: source/en/tsvn_server/server_svn.xml:68
@@ -106,10 +104,8 @@ msgid ""
 "svn://localhost/repos/TestRepo\n"
 "</screen> when prompted by the repo browser."
 msgstr ""
-"Nehmen wir an, Ihr Projektarchiv befindet sich in <filename>c:\\repos\\TestRepo</filename> und Ihr Server heisst  <filename>localhost</filename>. Dann müssen Sie in das URL Feld des Projektarchiv-Betrachters\n"
-"<screen>\n"
-"svn://localhost/repos/TestRepo\n"
-"</screen>\n"
+"Nehmen wir an, Ihr Projektarchiv befindet sich in <filename>c:\\repos\\TestRepo</filename> und Ihr Server heisst  <filename>localhost</filename>. Dann müssen Sie in das URL Feld des Projektarchiv-Betrachters:\n"
+"<screen>svn://localhost/repos/TestRepo</screen>\n"
 "eingeben."
 
 #: source/en/tsvn_server/server_svn.xml:90
@@ -123,6 +119,13 @@ msgid ""
 "svn://localhost/TestRepo\n"
 "</screen> Note that the -r switch is also needed if your repository is located on a different partition or drive than the location of svnserve on your server."
 msgstr ""
+"Sie können beim Eingeben von URLs Zeit sparen und die Sicherheit erhöhen, indem Sie svnserve mit der -r Option einen Basispfad für das Projektarchiv übergeben und den Zugriff auf ein bestimmtes Verzeichnis auf dem Server beschränken:\n"
+"<screen>svnserve.exe -d -r drive:\\path\\to\\repository</screen>\n"
+"Mit dem vorigen Test als Vorgabe würde Svnserve folgendermaßen aufgerufen:\n"
+"<screen>svnserve.exe -d -r c:\\repos</screen>\n"
+"In TortoiseSVN würde sich die URL zum Projektrarchiv dementsprechend verkürzen:\n"
+"<screen>svn://localhost/TestRepo</screen>\n"
+"Beachten Sie, dass die -r Option auch verwendet werden muss, wenn sich das Projektarchiv auf einer anderen Partition oder einem anderen Laufwerk auf dem Server befindet, als Svnserve."
 
 #: source/en/tsvn_server/server_svn.xml:110
 #: (para)
@@ -138,12 +141,12 @@ msgstr "Svnserve als Dienst starten"
 #: source/en/tsvn_server/server_svn.xml:122
 #: (para)
 msgid "If you are concerned about always having a user logged in on your server, or worried about someone shutting down svnserve or forgetting to restart it after a reboot, it is possible to run svnserve as a windows service using a wrapper like the one available at <ulink url=\"http://dark.clansoft.dk/~mbn/svnservice/\"><citetitle>svnservice</citetitle></ulink> provided by Magnus Norddahl. Note that SVNService installs svnserve as a manual service, you may want to change this to automatic."
-msgstr ""
+msgstr "Wenn Sie besorgt darüber sind, dass ständig ein Anwender an ihrem Server angemeldet ist oder dass jemand Svnserve versehentlich beenden oder nach einem Neustart vergessen könnte den Prozess ebenfalls zu starten, lassen Sie svnserve einfach mit Hilfe von <ulink url=\"http://dark.clansoft.dk/~mbn/svnservice/\"> <citetitle>SVNService</citetitle> </ulink> von Magnus Norddahl als Dienst laufen. Beachten Sie, dass SVNService zunächst als manueller zu startender Dienst installiert wird. Eventuell möchten Sie den Dienst automatisch starten."
 
 #: source/en/tsvn_server/server_svn.xml:135
 #: (para)
 msgid "More generic tools like <ulink url=\"http://www.firedaemon.com/\"><citetitle>firedaemon</citetitle></ulink> will also work. Note that you will still need to run svnserve with the -d switch."
-msgstr ""
+msgstr "Allgemeinere Werkzeuge, wie z.B. <ulink url=\"http://www.firedaemon.com/\"><citetitle>firedaemon</citetitle></ulink> funktionieren auch. Beachten Sie, dass Sie Svnserve trotzdem mit der -d Option starten müssen."
 
 #: source/en/tsvn_server/server_svn.xml:146
 #: (title)
@@ -169,8 +172,7 @@ msgid ""
 "</screen> However, you will not know who has made changes to a repository, as the <literal>svn:author</literal> property will be empty. You will also be unable to control who makes changes to a repository. This is a somewhat risky setup!"
 msgstr ""
 "Sie können anonymen Schreibzugriff ermöglichen, indem Sie einfach:\n"
-"<screen>\n"
-"[general]\n"
+"<screen>[general]\n"
 "anon-access = write\n"
 "</screen>\n"
 "eintragen. Allerdings werden Sie nicht erfahren, wer Änderungen an Daten im Projektarchiv vorgenommen hat, weil die <literal>svn:author</literal> Eigenschaft leer bleibt. Obendrein können Sie nicht kontrollieren, wer Änderungen an Daten vornimmt, da Sie es ja explizit <emphasis> jedem, anonym</emphasis> gestatten!"
@@ -190,15 +192,13 @@ msgid ""
 "</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
 "Eine Möglichkeit, den Zugriff zu steuern, ist eine Passwortdatenbank anzulegen:\n"
-"<screen>\n"
-"[general]\n"
+"<screen>[general]\n"
 "anon-access = none\n"
 "auth-access = write\n"
 "password-db = userfile\n"
 "</screen>\n"
 "Wobei <literal>userfile</literal> im gleichen Verzeichnis wie <filename>svnserve.conf</filename> liegt. Diese Datei kan auch an einer anderen Stelle im Dateisystem liegen (nützlich, wenn Sie mehrere Projektarchive haben, die die gleichen Zugriffsrechte benötigen). In diesem Fall muss mit einer absoluten Pfadangabe oder mit einer Pfadangabe relativ zum <filename>conf</filename> Verzeichnis auf die Datei verwiesen werden. Wenn Sie einen Pfad angeben muss er <filename>/wie/in/unix</filename> geschrieben werden. Ein <literal>\\</literal> oder ein Laufwerksbuchstabe funktionieren nicht. Die Datei <filename>userfile</filename> hat folgende Struktur:\n"
-"<screen>\n"
-"[users]\n"
+"<screen>[users]\n"
 "username = password\n"
 "...\n"
 "</screen>\n"
@@ -207,7 +207,7 @@ msgstr ""
 #: source/en/tsvn_server/server_svn.xml:198
 #: (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
-msgstr ""
+msgstr "Falls Sie mehrere Projektarchive mit derselben Passwortdatenbank verwalten, wird die Einrichtung eines Anmeldebereichs das Leben für die Anwender vereinfachen, weil TortoiseSVN Anmeldeinformationen speichern kann, so dass sie nur einmal eingegeben werden müssen.Weitere Informationen finden sich in folgenden Abschnitten des Subversion Buchs: <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"> <citetitle>Create a 'users' file and realm</citetitle> </ulink> und <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"> <citetitle>Client Credentials Caching</citetitle> </ulink>."
 
 #: source/en/tsvn_server/server_svn.xml:216
 #: (title)
@@ -388,8 +388,8 @@ msgid ""
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 msgstr ""
-"Entfernen Sie den Kommentar (d.h. das '<literal>#</literal>'-Zeichen) in den folgenden Zeilen: <screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen><screen>#LoadModule dav_module modules/mod_dav.so</screen> Fügen Sie die folgenden zwei Zeilen ans Ende des <literal>LoadModule</literal>-Abschnittes ein. <screen>\n"
-"LoadModule dav_svn_module modules/mod_dav_svn.so\n"
+"Entfernen Sie den Kommentar (d.h. das '<literal>#</literal>'-Zeichen) in den folgenden Zeilen: <screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen><screen>#LoadModule dav_module modules/mod_dav.so</screen> Fügen Sie die folgenden zwei Zeilen an das Ende des <literal>LoadModule</literal>-Abschnittes ein.\n"
+"<screen>LoadModule dav_svn_module modules/mod_dav_svn.so\n"
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 
@@ -414,8 +414,7 @@ msgid ""
 "</screen> This configures Apache so that all your Subversion repositories are physically located below <filename>D:\\SVN</filename>. The repositories are served to the outside world from the URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Access is restricted to known users/passwords listed in the <filename>passwd</filename> file."
 msgstr ""
 "Am Ende der Konfigurationsdatei fügen Sie die folgenden Zeilen hinzu:\n"
-"<screen>\n"
-"&lt;Location /svn&gt;\n"
+"<screen>&lt;Location /svn&gt;\n"
 "DAV svn\n"
 "SVNParentPath D:\\SVN\n"
 "AuthType Basic\n"
@@ -436,11 +435,11 @@ msgid ""
 "bin\\htpasswd passwd &lt;username&gt;\n"
 "</screen>"
 msgstr ""
-"Um die <filename>passwd</filename>-Datei zu erstellen, öffnen Sie den Kommandozeilenprompt (DOS-Box) noch einmal, wechseln in den apache2-Ordner (für gewöhnlich <filename>c:\\Programme\\apache group\\apache2</filename>) und erstellen Sie die Datei, indem Sie <screen>\n"
-"bin\\htpasswd -c passwd &lt;username&gt;\n"
-"</screen> eintippen. Dies wird eine Datei mit dem Namen <quote>passwd</quote> erstellen, die für die Anmeldung verwendet wird. Zusätzliche Benutzer können mit <screen>\n"
-"bin\\htpasswd passwd &lt;username&gt;\n"
-"</screen> hinzugefügt werden."
+"Um die <filename>passwd</filename>-Datei zu erstellen, öffnen Sie den Kommandozeilenprompt (DOS-Box) noch einmal, wechseln in den apache2-Ordner (für gewöhnlich <filename>c:\\Programme\\apache group\\apache2</filename>) und erstellen Sie die Datei, indem Sie\n"
+"<screen>bin\\htpasswd -c passwd &lt;username&gt;</screen>\n"
+"eintippen. Dies wird eine Datei mit dem Namen <quote>passwd</quote> erstellen, die für die Anmeldung verwendet wird. Zusätzliche Benutzer können mit\n"
+"<screen>bin\\htpasswd passwd &lt;username&gt;</screen>\n"
+"hinzugefügt werden."
 
 #: source/en/tsvn_server/server_apache.xml:269
 #: (para)
@@ -473,13 +472,14 @@ msgid ""
 "&lt;/LimitExcept&gt;\n"
 "</screen>"
 msgstr ""
-"Wenn Sie möchten, dass Ihr Projektarchiv für jedermann Lesezugriff bietet, aber der Schreibzugriff bestimmten Benutzern vorbehalten bleibt, können Sie die Zeile <screen>\n"
-"Require valid-user\n"
-"</screen> in <screen>\n"
-"&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;\n"
+"Wenn Sie möchten, dass Ihr Projektarchiv für jedermann Lesezugriff bietet, aber der Schreibzugriff bestimmten Benutzern vorbehalten bleibt, können Sie die Zeile\n"
+"<screen>Require valid-user</screen>\n"
+"in\n"
+"<screen>&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;\n"
 "Require valid-user\n"
 "&lt;/LimitExcept&gt;\n"
-"</screen> ändern."
+"</screen>\n"
+"ändern."
 
 #: source/en/tsvn_server/server_apache.xml:383
 #: (para)
@@ -860,8 +860,8 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>"
 msgstr ""
-"Beispiele für Aktionsskripte findet man im <filename>hooks</filename> Ordner des Projektarchivs. Diese Beispiele sind für Unix/Linux-Server erstellt worden und müssen ein wenig angepasst werden wenn Ihr Server unter Windows läuft. Das Aktionsskript kann eine einfache Batch-Datei oder ein ausführbares Programm sein. Das untenstehende Beispiel zeigt eine Batch-Datei welche als pre-revprop-change Aktion eingesetzt werden kann. <screen>\n"
-"rem Only allow log messages to be changed.\n"
+"Beispiele für Aktionsskripte findet man im <filename>hooks</filename> Ordner des Projektarchivs. Diese Beispiele sind für Unix/Linux-Server erstellt worden und müssen ein wenig angepasst werden wenn Ihr Server unter Windows läuft. Das Aktionsskript kann eine einfache Batch-Datei oder ein ausführbares Programm sein. Das untenstehende Beispiel zeigt eine Batch-Datei welche als pre-revprop-change Aktion eingesetzt werden kann.\n"
+"<screen>rem Only allow log messages to be changed.\n"
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
@@ -912,11 +912,10 @@ msgid ""
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "</screen>"
 msgstr ""
-"In der Kommandozeile (auch DOS-Box genannt) wechseln sie zu <filename>D:\\SVN\\</filename> und geben sie folgendes ein:<screen>\n"
-"svnadmin create --fs-type bdb MyNewRepository\n"
-"</screen> oder <screen>\n"
-"svnadmin create --fs-type fsfs MyNewRepository\n"
-"</screen>"
+"In der Kommandozeile (auch DOS-Box genannt) wechseln sie zu <filename>D:\\SVN\\</filename> und geben sie folgendes ein:\n"
+"<screen>svnadmin create --fs-type bdb MyNewRepository</screen>\n"
+"oder\n"
+"<screen>svnadmin create --fs-type fsfs MyNewRepository</screen>"
 
 #: source/en/tsvn_repository/repository_create.xml:50
 #: (para)
@@ -1022,9 +1021,9 @@ msgid ""
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
 "</screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
 msgstr ""
-"Die empfohlene Methode ist ein <screen>\n"
-"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"</screen> auszuführen um eine Kopie des Projektarchivs zu erstellen. Dann können Sie diese Kopie sichern (z.B. auf Band). Die <literal>--clean-logs</literal> Option ist nicht notwendig, entfernt aber redundante (und damit nicht unbedingt notwendige) Logdateien wenn Sie das Backup erstellen und hilft somit Platz zu sparen."
+"Die empfohlene Methode ist ein\n"
+"<screen>svnadmin hotcopy path/to/repository path/to/backup --clean-logs</screen>\n"
+"auszuführen um eine Kopie des Projektarchivs zu erstellen. Dann können Sie diese Kopie sichern (z.B. auf Band). Die <literal>--clean-logs</literal> Option ist nicht notwendig, entfernt aber redundante (und damit nicht unbedingt notwendige) Logdateien wenn Sie das Backup erstellen und hilft somit Platz zu sparen."
 
 #: source/en/tsvn_repository/repository_backup.xml:34
 #: (para)
@@ -1846,11 +1845,10 @@ msgid ""
 "C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
 "</screen>"
 msgstr ""
-"Zum Beispiel für ExamDiff Pro:<screen>\n"
-"C:\\Path-To\\ExamDiff.exe %base %mine\n"
-"</screen>oder für KDiff3:<screen>\n"
-"C:\\Path-To\\Kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
-"</screen>"
+"Zum Beispiel für ExamDiff Pro:\n"
+"<screen>C:\\Pfad-Zu\\ExamDiff.exe %base %mine</screen>\n"
+"oder für KDiff3:\n"
+"<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine --L1 %bname --L2 %yname</screen>"
 
 #: source/en/tsvn_dug/dug_settings.xml:362
 #: (para)
@@ -1926,11 +1924,10 @@ msgid ""
 "C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
 "</screen>"
 msgstr ""
-"Zum Beispiel für Perforce WinMerge:<screen>\n"
-"C:\\Path-To\\P4WinMrg.exe %base %theirs %mine %merged\n"
-"</screen>oder für KDiff3:<screen>\n"
-"C:\\Path-To\\Kdiff3.exe %base %mine %theirs -o %merged\n"
-"</screen>"
+"Zum Beispiel für Perforce WinMerge:\n"
+"<screen>C:\\Pfad-Zu\\P4WinMrg.exe %base %theirs %mine %merged</screen>\n"
+"oder für KDiff3:\n"
+"<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine %theirs -o %merged</screen>"
 
 #: source/en/tsvn_dug/dug_settings.xml:462
 #: (title)
@@ -2299,22 +2296,27 @@ msgstr "Um eine Eigenschaft zu löschen,  wählen Sie die Eigenschaft zunächst 
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
 msgstr "<literal>tsvn:logminsize</literal> Setzt die minimale Länge einer Log-Meldung für eine Übertragung. Wenn Sie eine Log-Meldung eingeben welche kürzer ist als mit dieser Eigenschaft festgelegt, dann bleibt die Übertragung deaktiviert. Dies ist nützlich wenn Sie die Benutzer dazu anhalten möchten, für jede Übertragung eine gute Log-Meldung zu schreiben. Wenn diese Eigenschaft nicht gesetzt ist, sind leere Log-Meldungen erlaubt."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:77
+#: source/en/tsvn_dug/dug_propertypage.xml:75
+#: (para)
+msgid "<literal>tsvn:lockmsgminsize</literal> sets the minimum length of a lock message. If you enter a shorter message than specified here, the lock is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every lock you get. If this property is not set, or the value is zero, empty lock messages are allowed."
+msgstr "<literal>tsvn:lockminsize</literal> Setzt die minimale Länge einer Sperrmeldung. Wenn Sie eine Meldung eingeben, die kürzer ist als mit dieser Eigenschaft festgelegt, dann bleibt die Sperrung deaktiviert. Dies ist nützlich, wenn Sie die Benutzer dazu anhalten möchten, für jede Sperrung eine Beschreibung anzugeben. Wenn diese Eigenschaft nicht gesetzt ist, sind leere Sperrmeldungen erlaubt."
+
+#: source/en/tsvn_dug/dug_propertypage.xml:86
 #: (para)
 msgid "<literal>tsvn:logwidthmarker</literal> is used with projects which require log messages to be formatted with some maximum width (typically 80 characters) before a line break. Setting this property to a non-zero will do 2 things in the log message entry dialog: it places a marker to indicate the maximum width, and it disables word wrap in the display, so that you can see whether the text you entered is too long. Note: this feature will only work correctly if you have a fixed-width font selected for log messages."
 msgstr "<literal>tsvn:logwidthmarker</literal> kann für Projekte benutzt werden, welche Log-Meldungen mit einer maximalen Zeilenlänge (typischerweise 80 Zeichen) haben möchten. Wenn diese Eigenschaft auf einen Wert ungleich 0 gesetzt wird, wird einerseits der Wortumbruch für die Log-Meldung abgeschaltet und andererseits eine vertikale Linie gezeichnet um die maximale Zeilenlänge anzuzeigen. Auf diese Weise können Sie jederzeit sehen, ob Ihre Log-Meldung die maximale Zeilenlänge schon  überschreitet oder nicht. Beachten Sie: dies funktioniert nur korrekt, wenn Sie einen Font mit fester Breite für die Log-Meldungsbox ausgewählt haben."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:90
+#: source/en/tsvn_dug/dug_propertypage.xml:99
 #: (para)
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
 msgstr "<literal>tsvn:logtemplate</literal> wird für Projekte benutzt, die Regeln für die Formatierung der Log-Meldungen haben. Diese Eigenschaft enthält einen  mehrzeiligen Text, der automatisch im Übertragungsdialog in die Textbox eingefügt wird. Sie können dann diesen Text bei der Übertragung bearbeiten. Wenn Sie gleichzeitig <literal>tsvn:logminsize</literal> verwenden, stellen Sie sicher dass diese Wert größer als die Länge der Schablone ist, da sonst dieser Schutz wegfällt"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:101
+#: source/en/tsvn_dug/dug_propertypage.xml:110
 #: (para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in english or in the localized language. If the property is not set, the default is <literal>true</literal>."
 msgstr "Im Übertragen Dialog haben Sie die Möglichkeit, die Liste der geänderten Dateien inclusive des Status (hinzugefügt, geändert, etc) einzufügen. <literal>tsvn:logfilelistenglish</literal> legt fest, ob die vordefinierten Log-Meldungen in englisch oder in einer anderen Sprache eingefügt werden sollen. Der Standardwert ist <literal>true</literal>. "
 
-#: source/en/tsvn_dug/dug_propertypage.xml:112
+#: source/en/tsvn_dug/dug_propertypage.xml:121
 #: (para)
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink><literal>true</literal>."
 msgstr "TortoiseSVN kann zur Rechtschreibprüfung die Wörterbücher benutzen, welche auch von OpenOffice oder Mozilla verwendet werden. Wenn Sie ein solches installiert haben, legt diese Eigenschaft fest, welches Sprachmodul für das Projekt benutzt werden soll.<literal>tsvn:projectlanguage</literal> setzt die Sprache des zu benutzenden Wörterbuchs. Die Werte für die Sprache können Sie hier nachschlagen: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"> <citetitle>MSDN: Language Identifiers</citetitle> </ulink>"
@@ -2324,59 +2326,59 @@ msgstr "TortoiseSVN kann zur Rechtschreibprüfung die Wörterbücher benutzen, w
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
 msgstr "TortoiseSVN besitzt ein paar eigene spezielle Eigenschaften, die mit <literal>tsvn:</literal> beginnen. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:130
+#: source/en/tsvn_dug/dug_propertypage.xml:139
 #: (para)
 #: source/en/tsvn_dug/dug_bugtracker.xml:212
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
 msgstr "Manche <literal>tsvn:</literal> Eigenschaften erforden einen <literal>true/false</literal> Wert. TortoiseSVN versteht auch <literal>yes</literal> als Synonym für <literal>true</literal> und <literal>no</literal> als Synonym für <literal>false</literal>."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:137
+#: source/en/tsvn_dug/dug_propertypage.xml:146
 #: (title)
 msgid "Set the tsvn: properties on folders"
 msgstr "Setzen Sie die tsvn: Eigenschaften für Ordner"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:138
+#: source/en/tsvn_dug/dug_propertypage.xml:147
 #: (para)
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Die <literal>tsvn:</literal> Eigenschaften müssen auf Ordnern und nicht Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner übertragen dann werden diese Eigenschaften von eben diesem Ordner gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie gefunden wurde. Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie diese Eigenschaften auch auf den Unterordnern Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf Unterordnern gesetzt ist überschreibt dieselbe Eigenschaft für  übergeordnete Ordner."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:152
+#: source/en/tsvn_dug/dug_propertypage.xml:161
 #: (para)
 #: source/en/tsvn_dug/dug_bugtracker.xml:234
 msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all subfolders in the hierarchy, without also setting it on all files."
 msgstr "<emphasis>Ausschließlich</emphasis> für <literal>tsvn:</literal> Eigenschaften <emphasis>only</emphasis> können Sie die <guilabel>Rekursiv</guilabel> Option wählen, um die Eigenschaft auf alle Unterordner zu setzen ohne sie gleichzeitig auch für alle die Dateien zu setzen."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:160
+#: source/en/tsvn_dug/dug_propertypage.xml:169
 #: (title)
 msgid "Commit properties"
 msgstr "Übertrage Eigenschaften"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:161
+#: source/en/tsvn_dug/dug_propertypage.xml:170
 #: (para)
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
 msgstr "Subversion Eigenschaften sind auch unter Versionskontrolle.  Nachdem Sie eine Eigenschaft geändert haben, müssen Sie die Änderungen  zum Projektarchiv übertragen. "
 
-#: source/en/tsvn_dug/dug_propertypage.xml:167
+#: source/en/tsvn_dug/dug_propertypage.xml:176
 #: (title)
 msgid "Conflicts on properties"
 msgstr "Konflikte in Eigenschaften"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:168
+#: source/en/tsvn_dug/dug_propertypage.xml:177
 #: (para)
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
 msgstr "Sollte es zu einem Konflikt beim übertragen zum Server kommen, weil ein anderer Benutzer die gleiche Eigenschaft geändert hat, generiert Subversion eine <filename>.prej</filename> Datei. Löschen Sie diese Datei, nachdem Sie den  Konflikt aufgelöst haben. "
 
-#: source/en/tsvn_dug/dug_propertypage.xml:176
+#: source/en/tsvn_dug/dug_propertypage.xml:185
 #: (title)
 msgid "Automatic property setting"
 msgstr "Automatisches setzen von Eigenschaften"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:177
+#: source/en/tsvn_dug/dug_propertypage.xml:186
 #: (para)
 msgid "You can configure Subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
 msgstr "Sie können Subversion so einrichten, dass Eigenschaften für Dateien und Ordner automatisch gesetzt werden, wenn Sie zum Projektarchiv hinzugefügt werden.Lesen Sir <xref linkend=\"tsvn-DUG-settings\"/> für weitere Information."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:183
+#: source/en/tsvn_dug/dug_propertypage.xml:192
 #: (para)
 msgid "TortoiseSVN can integrate with some bugtracking tools. This uses properties, which start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-DUG-bugtracker\"/> for further information."
 msgstr "TortoiseSVN kann Bugtracking Tools in Subversion integrieren. Dies geschieht über Eigenschaften, die mit <literal>bugtraq:</literal> beginnen. Wie Sie mit diesen Eigenschaften umgehen ist in <xref linkend=\"tsvn-DUG-bugtracker\"/> erklärt. "
@@ -3888,13 +3890,9 @@ msgid ""
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
 "Standardmäßig wird die Ziel-URL mit der Quell-URL Ihrer Arbeitskopie vorbelegt. Sie müssen nun diese URL in den Pfad Ihrer neuen Verzweigung oder Markierung ändern. Anstelle von\n"
-"<screen>\n"
-"http://svn.collab.net/repos/ProjectName/trunk\n"
-"</screen>\n"
+"<screen>http://svn.collab.net/repos/ProjectName/trunk</screen>\n"
 "könnte das neue Verzeichnis wie folgt lauten:\n"
-"<screen>\n"
-"http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
-"</screen>\n"
+"<screen>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</screen>\n"
 "Wenn Sie sich nicht mehr daran erinnern, welchen Namen Sie zuletzt vergeben hatten, klicken Sie einfach auf die rechte Schaltfläche. Damit öffnet sich der Projektarchiv-Betrachter und Sie können sich die Struktur des Projektarchivs ansehen."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:76
