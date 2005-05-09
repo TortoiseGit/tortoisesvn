@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-07 18:38Westeuropäische Normalzeit\n"
+"POT-Creation-Date: 2005-05-09 21:36GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -633,7 +633,7 @@ msgstr ""
 msgid "Getting Status Information"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:5(primary) source/en/tsvn_dug/dug_wcstatus.xml:89(primary) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:5(primary) source/en/tsvn_dug/dug_wcstatus.xml:145(primary) 
 msgid "status"
 msgstr ""
 
@@ -654,66 +654,90 @@ msgid "Explorer showing icon overlays"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:17(para) 
-msgid "<placeholder-1/> Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different. <graphic fileref=\"images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>. <graphic fileref=\"images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed. <graphic fileref=\"images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark. <graphic fileref=\"images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Readonly files have this overlay to indicate that you have to get a lock first before you can edit that file. <graphic fileref=\"images/DeletedIcon.png\"/> This Icon shows you that some files or folders inside the current folder have been scheduled do be <literal>deleted</literal> from version control or a file under version control is missing in a folder."
+msgid "<placeholder-1/> Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different. <graphic fileref=\"images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>. <graphic fileref=\"images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed. <graphic fileref=\"images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark. <graphic fileref=\"images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Read-only files have this overlay to indicate that you have to get a lock first before you can edit that file. <graphic fileref=\"images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <literal>normal</literal>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file. <graphic fileref=\"images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <literal>deleted</literal> from version control or a file under version control is missing in a folder. <graphic fileref=\"images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <literal>added</literal> to version control."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:50(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:58(para) 
 msgid "Unlike TortoiseCVS (the CVS shell integration) no overlay icon for unversioned files is shown. We do this because the number of icon overlays are limited system wide and should be used economically."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:58(title) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:64(para) 
+msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If you are also using TortoiseCVS, then there are not enough overlay slots available, so TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:74(para) 
+msgid "<literal>Normal</literal>, <literal>Modified</literal> and <literal>Conflicted</literal> are always loaded and visible."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:82(para) 
+msgid "<literal>Deleted</literal> is loaded if possible, but falls back to <literal>Modified</literal> if there are not enough slots."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:89(para) 
+msgid "<literal>ReadOnly</literal> is loaded if possible, but falls back to <literal>Normal</literal> if there are not enough slots."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:96(para) 
+msgid "<literal>Locked</literal> is only loaded if there are less than 13 overlays already loaded. It falls back to <literal>Normal</literal> if there are not enough slots."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:104(para) 
+msgid "<literal>Added</literal> is only loaded if there are less than 14 overlays already loaded. It falls back to <literal>Modified</literal> if there are not enough slots."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:114(title) 
 msgid "TortoiseSVN Columns In Explorer"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:60(primary) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:116(primary) 
 msgid "Explorer Columns"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:62(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:118(para) 
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Explorer's Detailed View."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:67(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:123(para) 
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the \"Detailed View\". Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:79(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:135(para) 
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:87(title) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:143(title) 
 msgid "Status Of The Repository"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:93(title) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:149(title) 
 msgid "Check for Modifications"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:91(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:147(para) 
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have. If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:113(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:169(para) 
 msgid "From the context menu of the dialog you can show a diff of the changes or revert your local changes. TortoiseSVN automatically downloads the most recent version from the repository to do the diff."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:121(title) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:177(title) 
 msgid "Viewing Diffs"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:123(primary) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:179(primary) 
 msgid "diffing"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:125(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:181(para) 
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:134(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:190(para) 
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:138(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:194(para) 
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr ""
 
@@ -2825,7 +2849,7 @@ msgid "Switch your current working copy to the newly created copy in the reposit
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:168(para) 
-msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch / tag."
+msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch/tag."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:176(para) 

@@ -40,12 +40,20 @@
 			<graphic fileref="images/ReadOnlyIcon.png"/> 
 			If you have set the <literal>svn:needs-lock</literal> property on a file,
 			Subversion makes that file read-only until you get a lock on that file.
-			Readonly files have this overlay to indicate that you have to get a lock
+			Read-only files have this overlay to indicate that you have to get a lock
 			first before you can edit that file.
+			<graphic fileref="images/LockedIcon.png"/> 
+			If you hold a lock on a file, and the Subversion status is
+			<literal>normal</literal>, this icon overlay reminds you that you
+			should release the lock if you are not using it to allow others to
+			commit their changes to the file.
 			<graphic fileref="images/DeletedIcon.png"/> 
-			This Icon shows you that some files or folders inside the current folder
-			have been scheduled do be <literal>deleted</literal> from version control
+			This icon shows you that some files or folders inside the current folder
+			have been scheduled to be <literal>deleted</literal> from version control
 			or a file under version control is missing in a folder.
+			<graphic fileref="images/AddedIcon.png"/> 
+			The plus sign tells you that a file or folder has been scheduled to be
+			<literal>added</literal> to version control.
 		</para>
 		<para>
 			Unlike TortoiseCVS (the CVS shell
@@ -53,6 +61,54 @@
 			We do this because the number of icon overlays are limited system wide
 			and should be used economically.
 		</para>
+		<para>
+			In fact, you may find that not all of these icons are used on your system.
+			This is because the number of overlays allowed by Windows is limited to 15.
+			Windows uses 4 of those, and the remaining 11 can be used by other applications.
+			If you are also using TortoiseCVS, then there are not enough overlay slots
+			available, so TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote>
+			and limits its use of overlays to give other apps a chance.
+		</para>
+		<itemizedlist>
+			<listitem>
+				<para>
+					<literal>Normal</literal>,
+					<literal>Modified</literal> and
+					<literal>Conflicted</literal>
+					are always loaded and visible.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<literal>Deleted</literal>
+					is loaded if possible, but falls back to
+					<literal>Modified</literal> if there are not enough slots.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<literal>ReadOnly</literal>
+					is loaded if possible, but falls back to
+					<literal>Normal</literal> if there are not enough slots.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<literal>Locked</literal>
+					is only loaded if there are less than 13 overlays already loaded.
+					It falls back to <literal>Normal</literal>
+					if there are not enough slots.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<literal>Added</literal>
+					is only loaded if there are less than 14 overlays already loaded.
+					It falls back to <literal>Modified</literal>
+					if there are not enough slots.
+				</para>
+			</listitem>
+		</itemizedlist>
 	</sect2>
 	<sect2>
 		<title>TortoiseSVN Columns In Explorer</title>
