@@ -22,8 +22,8 @@ FOR %%i in (_Tortois_*.po) DO (
 )
 
 echo. > %LogFile%
-echo GUI Translation Status report for r!version:~0,4! >> %LogFile%
-echo ----------------------------------- >> %LogFile%
+echo GUI Translation Status report for TortoiseSVN trunk ^(r!version:~0,4!^) >> %LogFile%
+echo ----------------------------------------------------------- >> %LogFile%
 echo Total=!total! >> %LogFile%
 echo. >> %LogFile%
 echo Language : translated - fuzzy - untranslated - missing accelerator keys >> %LogFile%
@@ -31,8 +31,8 @@ echo. >> %LogFile%
 echo Incomplete: >> %Logfile%
 
 echo.
-echo GUI Translation Status report for r!version:~0,4!
-echo ------------------------------------------
+echo GUI Translation Status report for TortoiseSVN trunk ^(r!version:~0,4!^)
+echo -----------------------------------------------------------
 echo Total=!total!
 echo.
 echo Language : translated - fuzzy - untranslated - missing accelerator keys

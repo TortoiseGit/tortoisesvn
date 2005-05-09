@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-06 12:15+0100\n"
+"PO-Revision-Date: 2005-05-09 15:40+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2103,6 +2103,10 @@ msgstr "Verrou"
 msgid "Lock Comment"
 msgstr "Commentaire du verrou"
 
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "Verrouiller les fichiers"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -3036,6 +3040,7 @@ msgstr "Sauvegarde fichier patch vers:"
 #: Control-ID:1014
 #: Control-ID:1017
 #: Control-ID:1064
+#: Control-ID:1212
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3319,6 +3324,11 @@ msgstr "Voler un verrou"
 #: ID:313
 msgid "Steal the lock"
 msgstr "Voler le verrou"
+
+# ID:313,
+#: Control-ID:1211
+msgid "Steal the locks"
+msgstr "Voler les verrous"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3724,13 +3734,13 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Compilation %d, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3747,7 +3757,7 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3757,7 +3767,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Compilation %d, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
