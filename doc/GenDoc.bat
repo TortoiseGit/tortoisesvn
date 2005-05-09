@@ -79,6 +79,13 @@ if NOT %1 EQU en (
   )
 
   del %1.po
+
+  echo.
+  echo Temporary solution
+  echo Ugly hack to prevent the automation appendix from being translated.
+  echo Copying tsvn_app_automation.xml from english source
+  copy %SRCDIR%\tsvn_app_automation.xml %TARGDIR%
+
 )
 
 echo ----------------------------------------------------------------------
