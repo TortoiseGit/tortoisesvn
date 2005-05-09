@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-09 12:52+0100\n"
+"PO-Revision-Date: 2005-05-09 21:28+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1599,6 +1599,11 @@ msgstr "URL eingeben"
 msgid "Enter a lock message (optional):"
 msgstr "Geben Sie eine optionale Sperrmeldung ein:"
 
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "Geben Sie eine Meldung an in der Sie beschreiben warum Sie die Datei(en) sperren."
+
 #: ID:3603
 msgid ""
 "Erase everything\n"
@@ -1890,6 +1895,11 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Bei Aktivierung überprüft TortoiseSVN einmal wöchentlich, ob Aktualisierungen vorliegen"
+
+# ID:195,
+#: ID:195
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "Beschleunigt den Zugriff auf Log-Meldungen bei Subversion Servern vor Version 1.2"
 
 # ID:195,
 #: ID:195
@@ -3961,6 +3971,11 @@ msgstr "Benutze \"Von\" URL"
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "Dateinamen und Schlüsselwörter automatisch vervollständigen"
 
+# Control-ID:1214,
+#: Control-ID:1214
+msgid "Use old API's to fetch log messages"
+msgstr "Benutze alte API, um Log-Meldungen zu holen"
+
 #: Control-ID:1024
 msgid "Use one-pane view as default"
 msgstr "Verwende Ein-Fenster Ansicht als Standard"
@@ -4236,7 +4251,7 @@ msgid ""
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\n"
-"Zeichenkette, die an eine Log Meldung angefügt wird, wenn eine ID angegeben wird\n"
+"Zeichenkette, die an eine Log-Meldung angefügt wird, wenn eine ID angegeben wird\n"
 "Die Zeichenkette muß \"%BUGID%\" enthalten, welches dann durch die eingegebene ID ersetzt wird."
 
 # ID:14,
