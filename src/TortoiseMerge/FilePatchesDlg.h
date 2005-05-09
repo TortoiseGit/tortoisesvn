@@ -30,13 +30,25 @@ class CPatchFilesDlgCallBack
 public:
 	/**
 	 * Callback function. Called when the user doubleclicks on a
-	 * specific file to patch. The framework the has to process
+	 * specific file to patch. The framework then has to process
 	 * the patching/viewing.
 	 * \param sFilePath the full path to the file to patch
 	 * \param sVersion the revision number of the file to patch
 	 * \return TRUE if patching was successful
 	 */
 	virtual BOOL PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch = FALSE) = 0;
+	
+	/**
+	 * Callback function. Called when the user doubleclicks on a
+	 * specific file to diff. The framework then has to fetch the two
+	 * files from the URL's and revisions specified in the callback function and
+	 * show them in the diff viewer.
+	 * \param sURL1 the URL of the first file to diff
+	 * \param sURL2 the URL of the second file to diff
+	 * \param sRev1 the revision of the first file
+	 * \param sRev2 the revision of the second file
+	 */
+	virtual BOOL DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString sRev2) = 0;
 };
 
 #define	FPDLG_FILESTATE_GOOD		0x0000
@@ -86,10 +98,9 @@ protected:
 	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNcLButtonDblClk(UINT nHitTest, CPoint point);
+	afx_msg void OnMoving(UINT fwSide, LPRECT pRect);
 
 	DECLARE_MESSAGE_MAP()
 
 	CString GetFullPath(int nIndex);
-public:
-	afx_msg void OnMoving(UINT fwSide, LPRECT pRect);
 };

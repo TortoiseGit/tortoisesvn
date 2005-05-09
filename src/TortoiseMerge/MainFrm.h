@@ -79,6 +79,7 @@ protected:
 protected:
 	void			UpdateLayout();
 	virtual BOOL	PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch);
+	virtual BOOL	DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString sRev2);
 	int				CheckResolved();
 	BOOL			MarkAsResolved();
 	void			SaveFile(const CString& sFilePath);

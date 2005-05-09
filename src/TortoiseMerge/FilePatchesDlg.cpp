@@ -76,21 +76,29 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 	m_pPatch = pPatch;
 	m_pCallBack = pCallBack;
 	m_sPath = sPath;
-	CString title;
-	title.LoadString(IDS_PATCH_TITLE);
-	title += _T("  ") + m_sPath;
-	CRect rect;
-	GetClientRect(&rect);
-	PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), rect.Width());
-	title.ReleaseBuffer();
-	SetWindowText(title);
-	if (m_sPath.Right(1).Compare(_T("\\"))==0)
-		m_sPath = m_sPath.Left(m_sPath.GetLength()-1);
-
-	m_sPath = m_sPath + _T("\\");
-	for (int i=m_ImgList.GetImageCount();i>0;i--)
+	if (m_sPath.IsEmpty())
 	{
-		m_ImgList.Remove(0);
+		CString title(MAKEINTRESOURCE(IDS_DIFF_TITLE));
+		SetWindowText(title);
+	}
+	else
+	{
+		CString title;
+		title.LoadString(IDS_PATCH_TITLE);
+		title += _T("  ") + m_sPath;
+		CRect rect;
+		GetClientRect(&rect);
+		PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), rect.Width());
+		title.ReleaseBuffer();
+		SetWindowText(title);
+		if (m_sPath.Right(1).Compare(_T("\\"))==0)
+			m_sPath = m_sPath.Left(m_sPath.GetLength()-1);
+
+		m_sPath = m_sPath + _T("\\");
+		for (int i=m_ImgList.GetImageCount();i>0;i--)
+		{
+			m_ImgList.Remove(0);
+		}
 	}
 
 	m_cFileList.SetExtendedStyle(LVS_EX_INFOTIP | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
@@ -106,10 +114,15 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 	{
 		CString sFile = CUtils::GetFileNameFromPath(m_pPatch->GetFilename(i));
 		DWORD state;
-		if (m_pPatch->PatchFile(GetFullPath(i)))
+		if (m_sPath.IsEmpty())
 			state = FPDLG_FILESTATE_GOOD;
 		else
-			state = FPDLG_FILESTATE_CONFLICTED;
+		{
+			if (m_pPatch->PatchFile(GetFullPath(i)))
+				state = FPDLG_FILESTATE_GOOD;
+			else
+				state = FPDLG_FILESTATE_CONFLICTED;
+		}
 		m_arFileStates.Add(state);
 		SHFILEINFO    sfi;
 		SHGetFileInfo(
@@ -199,10 +212,20 @@ void CFilePatchesDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if ((pNMLV->iItem < 0) || (pNMLV->iItem >= m_arFileStates.GetCount()))
 		return;
-	if ((m_pCallBack)&&(m_arFileStates.GetAt(pNMLV->iItem)!=FPDLG_FILESTATE_PATCHED))
+	if (m_pCallBack==NULL)
+		return;
+	if (m_sPath.IsEmpty())
 	{
-		m_pCallBack->PatchFile(GetFullPath(pNMLV->iItem), m_pPatch->GetRevision(pNMLV->iItem));
-	} // if ((m_pCallBack)&&(!temp.IsEmpty())) 
+		m_pCallBack->DiffFiles(GetFullPath(pNMLV->iItem), m_pPatch->GetRevision(pNMLV->iItem),
+							   m_pPatch->GetFilename2(pNMLV->iItem), m_pPatch->GetRevision2(pNMLV->iItem));
+	}
+	else
+	{
+		if (m_arFileStates.GetAt(pNMLV->iItem)!=FPDLG_FILESTATE_PATCHED)
+		{
+			m_pCallBack->PatchFile(GetFullPath(pNMLV->iItem), m_pPatch->GetRevision(pNMLV->iItem));
+		}
+	}
 }
 
 void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -249,6 +272,8 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	*pResult = 0;
+	if (m_sPath.IsEmpty())
+		return;
 	CString temp;
 	CMenu popup;
 	POINT point;

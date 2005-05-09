@@ -45,6 +45,8 @@ public:
 	int			GetNumberOfFiles() const  {return m_arFileDiffs.GetCount();}
 	CString		GetFilename(int nIndex);
 	CString		GetRevision(int nIndex);
+	CString		GetFilename2(int nIndex);
+	CString		GetRevision2(int nIndex);
 	CString		GetErrorMessage() const  {return m_sErrorMessage;}
 	CString		CheckPatchPath(const CString& path);
 protected:
@@ -66,6 +68,8 @@ protected:
 	{
 		CString					sFilePath;
 		CString					sRevision;
+		CString					sFilePath2;
+		CString					sRevision2;
 		CStdArray<Chunk*>		chunks;
 	};
 

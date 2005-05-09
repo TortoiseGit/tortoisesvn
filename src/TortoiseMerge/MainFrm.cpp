@@ -357,6 +357,61 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 	return TRUE;
 }
 
+// Callback function
+BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString sRev2)
+{
+	CString tempfile1 = m_TempFiles.GetTempFilePath();
+	CString tempfile2 = m_TempFiles.GetTempFilePath();
+	
+	ASSERT(tempfile1.Compare(tempfile2));
+	
+	CString sTemp;
+	CProgressDlg progDlg;
+	sTemp.Format(IDS_GETVERSIONOFFILE, sRev1);
+	progDlg.SetLine(1, sTemp, true);
+	progDlg.SetLine(2, sURL1, true);
+	sTemp.LoadString(IDS_GETVERSIONOFFILETITLE);
+	progDlg.SetTitle(sTemp);
+	progDlg.SetShowProgressBar(true);
+	progDlg.SetAnimation(IDR_DOWNLOAD);
+	progDlg.SetTime(FALSE);
+	progDlg.SetProgress(1,100);
+	progDlg.ShowModeless(this);
+	if (!CUtils::GetVersionedFile(sURL1, sRev1, tempfile1, &progDlg, this->m_hWnd))
+	{
+		progDlg.Stop();
+		CString sErrMsg;
+		sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, sRev1, sURL1);
+		MessageBox(sErrMsg, NULL, MB_ICONERROR);
+		return FALSE;
+	}
+	sTemp.Format(IDS_GETVERSIONOFFILE, sRev2);
+	progDlg.SetLine(1, sTemp, true);
+	progDlg.SetLine(2, sURL2, true);
+	progDlg.SetProgress(50, 100);
+	if (!CUtils::GetVersionedFile(sURL2, sRev2, tempfile2, &progDlg, this->m_hWnd))
+	{
+		progDlg.Stop();
+		CString sErrMsg;
+		sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, sRev2, sURL2);
+		MessageBox(sErrMsg, NULL, MB_ICONERROR);
+		return FALSE;
+	}
+	progDlg.SetProgress(100,100);
+	progDlg.Stop();
+	CString temp;
+	temp.Format(_T("%s Revision %s"), CUtils::GetFileNameFromPath(sURL1), sRev1);
+	this->m_Data.m_baseFile.SetFileName(tempfile1);
+	this->m_Data.m_baseFile.SetDescriptiveName(temp);
+	temp.Format(_T("%s Revision %s"), CUtils::GetFileNameFromPath(sURL2), sRev2);
+	this->m_Data.m_yourFile.SetFileName(tempfile2);
+	this->m_Data.m_yourFile.SetDescriptiveName(temp);
+
+	LoadViews();
+
+	return TRUE;
+}
+
 void CMainFrame::OnFileOpen()
 {
 	COpenDlg dlg;

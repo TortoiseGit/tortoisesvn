@@ -201,13 +201,11 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				sLine =sLine.Trim();
 				//at the end of the filepath there's a revision number...
 				int bracket = sLine.ReverseFind('(');
-				if (sLine.Left(bracket-1).Trim().Compare(chunks->sFilePath) != 0)
-				{
-					//--- filename did not match the +++ filename
-					//since we don't support renaming of files throw an error
-					m_sErrorMessage.LoadString(IDS_ERR_PATCH_RENAMINGNOTSUPPORTED);
-					goto errorcleanup;
-				} // if (sLine.Left(bracket-1).Trim().Compare(chunks->sFilePath) != 0) 
+				CString num = sLine.Mid(bracket);		//num = "(revision xxxxx)"
+				num = num.Mid(num.Find(' '));
+				num = num.Trim(_T(" )"));
+				chunks->sRevision2 = num;
+				chunks->sFilePath2 = sLine.Left(bracket-1).Trim();
 				state++;
 			}
 		break;
@@ -366,7 +364,7 @@ CString CPatch::GetFilename(int nIndex)
 	{
 		Chunks * c = m_arFileDiffs.GetAt(nIndex);
 		return c->sFilePath;
-	} // if (nIndex < m_arFileDiffs.GetCount())
+	}
 	return _T("");
 }
 
@@ -378,7 +376,31 @@ CString CPatch::GetRevision(int nIndex)
 	{
 		Chunks * c = m_arFileDiffs.GetAt(nIndex);
 		return c->sRevision;
-	} // if (nIndex < m_arFileDiffs.GetCount())
+	}
+	return 0;
+}
+
+CString CPatch::GetFilename2(int nIndex)
+{
+	if (nIndex < 0)
+		return _T("");
+	if (nIndex < m_arFileDiffs.GetCount())
+	{
+		Chunks * c = m_arFileDiffs.GetAt(nIndex);
+		return c->sFilePath2;
+	}
+	return _T("");
+}
+
+CString CPatch::GetRevision2(int nIndex)
+{
+	if (nIndex < 0)
+		return 0;
+	if (nIndex < m_arFileDiffs.GetCount())
+	{
+		Chunks * c = m_arFileDiffs.GetAt(nIndex);
+		return c->sRevision2;
+	} 
 	return 0;
 }
 
