@@ -103,6 +103,8 @@ private:
 	CComboBox		m_cAutoClose;
 	CRegDWORD		m_regAutocompletion;
 	BOOL			m_bAutocompletion;
+	CRegDWORD		m_regOldLogAPIs;
+	BOOL			m_bOldLogAPIs;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -120,4 +122,5 @@ public:
 	afx_msg void OnBnClickedClearauth();
 	afx_msg void OnCbnSelchangeAutoclosecombo();
 	afx_msg void OnBnClickedAutocompletion();
+	afx_msg void OnBnClickedOldapilogs();
 };

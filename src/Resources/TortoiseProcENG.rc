@@ -444,6 +444,8 @@ BEGIN
     CONTROL         "Use autocompletion of filepaths and keywords",
                     IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     13,193,271,10
+    CONTROL         "Use old API's to fetch log messages",IDC_OLDAPILOGS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,141,271,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217
@@ -1747,6 +1749,8 @@ BEGIN
                             "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
     IDS_SETTINGS_READONLYNAME "Needs Lock"
     IDS_SETTINGS_LOCKEDNAME "Locked"
+    IDS_SETTINGS_OLDLOGAPIS_TT 
+                            "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
 END
 
 STRINGTABLE 

@@ -38,6 +38,7 @@ CSetMainPage::CSetMainPage()
 	, m_bLastCommitTime(FALSE)
 	, m_bCheckNewer(TRUE)
 	, m_bAutocompletion(FALSE)
+	, m_bOldLogAPIs(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
@@ -49,6 +50,7 @@ CSetMainPage::CSetMainPage()
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
 	m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
+	m_regOldLogAPIs = CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -72,6 +74,7 @@ void CSetMainPage::SaveData()
 	m_regFontSize = m_dwFontSize;
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
 	m_regAutocompletion = m_bAutocompletion;
+	m_regOldLogAPIs = m_bOldLogAPIs;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -97,6 +100,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
 	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
 	DDX_Check(pDX, IDC_AUTOCOMPLETION, m_bAutocompletion);
+	DDX_Check(pDX, IDC_OLDAPILOGS, m_bOldLogAPIs);
 }
 
 
@@ -113,6 +117,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
 	ON_BN_CLICKED(IDC_AUTOCOMPLETION, OnBnClickedAutocompletion)
+	ON_BN_CLICKED(IDC_OLDAPILOGS, OnBnClickedOldapilogs)
 END_MESSAGE_MAP()
 
 
@@ -148,6 +153,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_dwFontSize = m_regFontSize;
 	m_bCheckNewer = m_regCheckNewer;
 	m_bAutocompletion = m_regAutocompletion;
+	m_bOldLogAPIs = m_regOldLogAPIs;
 
 	for (int i=0; i<m_cAutoClose.GetCount(); ++i)
 		if (m_cAutoClose.GetItemData(i)==m_dwAutoClose)
@@ -167,7 +173,8 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_CLEARAUTH, IDS_SETTINGS_CLEARAUTH_TT);
 	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSECOMBO, IDS_SETTINGS_AUTOCLOSE_TT);
-
+	m_tooltips.AddTool(IDC_OLDAPILOGS, IDS_SETTINGS_OLDLOGAPIS_TT);
+	
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
 	m_LanguageCombo.SetItemData(0, 1033);
@@ -275,6 +282,11 @@ void CSetMainPage::OnBnClickedChecknewerversion()
 }
 
 void CSetMainPage::OnBnClickedAutocompletion()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnBnClickedOldapilogs()
 {
 	SetModified();
 }
