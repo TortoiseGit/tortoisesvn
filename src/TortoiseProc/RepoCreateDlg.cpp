@@ -48,7 +48,7 @@ BOOL CRepoCreateDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
-	CheckRadioButton(IDC_RADIOBDB, IDC_RADIOFSFS, IDC_RADIOBDB);
+	CheckRadioButton(IDC_RADIOBDB, IDC_RADIOFSFS, IDC_RADIOFSFS);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE

@@ -815,15 +815,15 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Create Repository"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,9,69,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,69,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,68,69,50,14
-    PUSHBUTTON      "&Help",IDHELP,127,69,50,14
+    PUSHBUTTON      "&Help",IDHELP,129,69,50,14
     LTEXT           "Select the type of repository you want to create:",
                     IDC_STATIC,7,7,172,20
     CONTROL         "Berkeley Database (BDB)",IDC_RADIOBDB,"Button",
-                    BS_AUTORADIOBUTTON,7,33,172,10
+                    BS_AUTORADIOBUTTON,7,45,172,10
     CONTROL         "Native Filesystem (FSFS)",IDC_RADIOFSFS,"Button",
-                    BS_AUTORADIOBUTTON,7,46,172,10
+                    BS_AUTORADIOBUTTON,7,33,172,10
 END
 
 IDD_PATCH_FILE_OPEN_CUSTOM DIALOGEX 0, 0, 94, 28
