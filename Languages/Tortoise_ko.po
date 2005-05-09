@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-04 01:28+0900\n"
+"PO-Revision-Date: 2005-05-08 19:22+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -206,8 +206,8 @@ msgstr "복사(&C)..."
 
 # ID:101,
 #: ID:101
-msgid "&Delete"
-msgstr "삭제(&D)"
+msgid "&Delete..."
+msgstr "삭제(&D)..."
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -365,11 +365,6 @@ msgstr "포트(&P):"
 msgid "&Previous Difference"
 msgstr "이전 차이점(&P)"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "하위 폴더의 상태도 얻음(&R)"
-
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: ID:376
@@ -420,11 +415,6 @@ msgstr "그래프를 다른 이름으로 저장(&S)..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "인증 정보 저장(&S)"
-
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "오버레이 모음 선택(&S)"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -706,17 +696,6 @@ msgstr "명령"
 #: ID:3826
 msgid "Activate Task List"
 msgstr "작업 목록 활성화"
-
-# ID:78,
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"아래 폴더에 포함된 파일의 subversion의 상태를\n"
-"알고 싶을 때 체크합니다.\n"
-"<ct=0x0000ff><b>주의:</b> 이 기능은 탐색기 성능을 떨어뜨릴 수 있습니다.</ct>"
 
 # ID:8,#:
 # ID:73,#:
@@ -1277,7 +1256,7 @@ msgstr "입력한 경로나 URL을 확인하십시오."
 
 # ID:194,
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
 msgstr "하위메뉴에 나타내지 않고 컨텍스트 메뉴에 바로 나타낼 것을 선택하십시오."
 
 # ID:80,
@@ -1734,11 +1713,6 @@ msgstr "삭제"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "목적지 디스크가 꽉 찼습니다."
-
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "대화상자"
 
 # ID:12,
 #: ID:12
@@ -2392,17 +2366,6 @@ msgstr "현재 디렉토리를 저장소에 넣습니다."
 msgid "Include paths:"
 msgstr "포함 경로:"
 
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"오버레이 아이콘으로 폴더의 상태를 나타냅니다.\n"
-"기능이 꺼있다면, 버전관리되는 폴더는 항상 일반 오버레이 아이콘이 보이게 됩니다.\n"
-"<ct=0x0000ff><b>만약 탐색기가 느려진것 같다면, 이 기능을 끄시기 바랍니다.</b></ct>"
-
 # ID:76,
 #: ID:76
 msgid "Initial Import"
@@ -2563,6 +2526,12 @@ msgstr "잠금"
 msgid "Lock Comment"
 msgstr "잠금 코멘트"
 
+# ID:3857,#:
+# ID:3857,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "파일 잠금"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -2629,6 +2598,11 @@ msgstr "로그 메시지"
 #: Dlg-ID:106
 msgid "Look and Feel"
 msgstr "모양"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+msgid "Look and Feel::Overlays"
+msgstr "모양::아이콘 덧붙이기"
 
 # ID:238,
 #: ID:238
@@ -2956,6 +2930,11 @@ msgstr "클라이언트 인증서 파일 열기"
 #: ID:3601
 msgid "Open file"
 msgstr "파일 열기"
+
+# ID:9,
+#: ID:113
+msgid "Open with..."
+msgstr "수동 열기..."
 
 # ID:3605,
 #: ID:3605
@@ -3446,6 +3425,11 @@ msgstr "재시도"
 msgid "Revert"
 msgstr "되돌리기"
 
+# ID:113,
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "이 리비전에서 바뀐 부분을 원상태로 되돌립니다."
+
 # ID:77,
 #: ID:8
 msgid "Revert..."
@@ -3691,6 +3675,7 @@ msgstr "패치 파일 저장:"
 #: Control-ID:1014
 #: Control-ID:1017
 #: Control-ID:1064
+#: Control-ID:1212
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3899,11 +3884,6 @@ msgstr "줄 번호 보기"
 msgid "Show Log"
 msgstr "로그 보기"
 
-# ID:101,
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "폴더 상태 보기"
-
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -4042,6 +4022,11 @@ msgstr "잠금 훔쳐오기"
 # ID:313,
 #: ID:313
 msgid "Steal the lock"
+msgstr "잠금 훔쳐오기"
+
+# ID:313,
+#: Control-ID:1211
+msgid "Steal the locks"
 msgstr "잠금 훔쳐오기"
 
 # Control-ID:65535,
@@ -4498,13 +4483,13 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, 빌드번호 %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, 빌드번호 %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4525,7 +4510,7 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4535,7 +4520,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, 빌드번호 %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, 빌드번호%d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
