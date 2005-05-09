@@ -79,7 +79,6 @@ BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath
 	do
 	{
 		ret = WaitForSingleObject(process.hProcess, 100);
-		progDlg->SetProgress(i++, (DWORD)10000);
 	} while ((ret == WAIT_TIMEOUT) && (!progDlg->HasUserCancelled()));
 	
 	if (progDlg->HasUserCancelled())
