@@ -866,6 +866,18 @@
 				Name="Settings Dialog"
 				Filter="">
 				<File
+					RelativePath=".\SetDialogs.cpp">
+				</File>
+				<File
+					RelativePath=".\SetDialogs.h">
+				</File>
+				<File
+					RelativePath=".\SetLookAndFeelPage.cpp">
+				</File>
+				<File
+					RelativePath=".\SetLookAndFeelPage.h">
+				</File>
+				<File
 					RelativePath="SetMainPage.cpp">
 				</File>
 				<File
@@ -1191,6 +1203,6 @@
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc"/>
+			Value="\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc"/>
 	</Globals>
 </VisualStudioProject>

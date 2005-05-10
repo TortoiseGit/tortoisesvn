@@ -73,9 +73,6 @@ public:
 	virtual BOOL OnInitDialog();
 
 private:
-	void InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags);
-
-
 	BOOL			m_bOnlyExplorer;
 	BOOL			m_bRemovable;
 	BOOL			m_bNetwork;
@@ -93,16 +90,12 @@ private:
 	CBalloon		m_tooltips;
 	CIconStatic		m_cDriveGroup;
 	BOOL			m_bInitialized;
-	CRegDWORD		m_regTopmenu;
 	CRegString		m_regExcludePaths;
 	CString			m_sExcludePaths;
 	CRegString		m_regIncludePaths;
 	CString			m_sIncludePaths;
 
-	CImageList		m_imgList;
-	CListCtrl		m_cMenuList;
 	BOOL			m_bModified;
-	DWORD			m_topmenu;
 
 public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
@@ -114,7 +107,6 @@ public:
 	afx_msg void OnBnClickedUnknown();
 	virtual BOOL OnApply();
 	afx_msg void OnBnClickedOnlyexplorer();
-	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnEnChangeExcludepaths();
 	afx_msg void OnEnChangeIncludepaths();
 };

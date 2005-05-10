@@ -25,6 +25,8 @@
 #include "SettingsProgsMerge.h"
 #include "SettingsProgsUniDiff.h"
 #include "SetOverlayIcons.h"
+#include "SetLookAndFeelPage.h"
+#include "SetDialogs.h"
 #include "TreePropSheet/TreePropSheet.h"
 
 using namespace TreePropSheet;
@@ -78,6 +80,8 @@ private:
 	CSettingsProgsDiff*		m_pProgsDiffPage;
 	CSettingsProgsMerge *	m_pProgsMergePage;
 	CSettingsProgsUniDiff * m_pProgsUniDiffPage;
+	CSetLookAndFeelPage *	m_pLookAndFeelPage;
+	CSetDialogs *			m_pDialogsPage;
 
 public:
 	CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);

@@ -688,6 +688,14 @@ msgstr ""
 msgid "Auto-close if no merges, adds or deletes"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Autoclose:"
+msgstr ""
+
+#: Control-ID:1073,
+msgid "Automatically check for newer versions every week"
+msgstr ""
+
 #: Control-ID:1157,
 msgid "Average"
 msgstr ""
@@ -848,8 +856,8 @@ msgstr ""
 msgid "Check for Modifications"
 msgstr ""
 
-#: Control-ID:1073,
-msgid "Check for newer &versions"
+#: Control-ID:1215,
+msgid "Check now"
 msgstr ""
 
 #: ID:9,
@@ -944,6 +952,10 @@ msgstr ""
 msgid "Command failed."
 msgstr ""
 
+#: Control-ID:1083,
+msgid "Commit"
+msgstr ""
+
 #: Control-ID:1110,
 msgid "Commit to:"
 msgstr ""
@@ -966,10 +978,6 @@ msgstr ""
 
 #: ID:9,
 msgid "Commits your changes to the repository"
-msgstr ""
-
-#: Control-ID:1083,
-msgid "Committing"
 msgstr ""
 
 #: Control-ID:1019,
@@ -1476,6 +1484,10 @@ msgstr ""
 msgid "File"
 msgstr ""
 
+#: ID:376,
+msgid "File Diffs"
+msgstr ""
+
 #: ID:376,#: Dlg-ID:135,
 msgid "File Patches"
 msgstr ""
@@ -1520,7 +1532,7 @@ msgstr ""
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr ""
 
-#: Dlg-ID:107,
+#: Dlg-ID:143,#: Dlg-ID:107,
 msgid "General"
 msgstr ""
 
@@ -1812,12 +1824,20 @@ msgstr ""
 msgid "Log Messages"
 msgstr ""
 
-#: Dlg-ID:106,
+#: Dlg-ID:195,
 msgid "Look and Feel"
 msgstr ""
 
+#: Dlg-ID:196,
+msgid "Look and Feel::Dialogs"
+msgstr ""
+
+#: Dlg-ID:106,
+msgid "Look and Feel::Icon Overlays"
+msgstr ""
+
 #: Dlg-ID:184,
-msgid "Look and Feel::Overlays"
+msgid "Look and Feel::Icon Set"
 msgstr ""
 
 #: ID:238,
@@ -1830,10 +1850,6 @@ msgstr ""
 
 #: ID:3866,#: ID:3866,
 msgid "Mail system DLL is invalid."
-msgstr ""
-
-#: Dlg-ID:143,
-msgid "Main"
 msgstr ""
 
 #: ID:2051,
@@ -1888,7 +1904,7 @@ msgstr ""
 msgid "Min"
 msgstr ""
 
-#: Control-ID:1082,#: Control-ID:1023,
+#: Control-ID:1023,
 msgid "Misc"
 msgstr ""
 
@@ -2197,7 +2213,7 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Progress dialog:"
+msgid "Progress"
 msgstr ""
 
 #: Control-ID:65535,#: Dlg-ID:177,
@@ -2426,6 +2442,10 @@ msgstr ""
 
 #: ID:15,#: ID:269,#: Dlg-ID:182,
 msgid "Revision Graph"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Revision Log"
 msgstr ""
 
 #: ID:75,

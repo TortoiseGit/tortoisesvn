@@ -43,6 +43,8 @@ void CSettings::AddPropPages()
 	m_pProgsDiffPage = new CSettingsProgsDiff();
 	m_pProgsMergePage = new CSettingsProgsMerge();
 	m_pProgsUniDiffPage = new CSettingsProgsUniDiff();
+	m_pLookAndFeelPage = new CSetLookAndFeelPage();
+	m_pDialogsPage = new CSetDialogs();
 
 	SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
 	SetPageIcon(m_pOverlayPage, m_pOverlayPage->GetIconID());
@@ -51,6 +53,8 @@ void CSettings::AddPropPages()
 	SetPageIcon(m_pProgsDiffPage, m_pProgsDiffPage->GetIconID());
 	SetPageIcon(m_pProgsMergePage, m_pProgsMergePage->GetIconID());
 	SetPageIcon(m_pProgsUniDiffPage, m_pProgsUniDiffPage->GetIconID());
+	SetPageIcon(m_pLookAndFeelPage, m_pLookAndFeelPage->GetIconID());
+	SetPageIcon(m_pDialogsPage, m_pDialogsPage->GetIconID());
 
 	AddPage(m_pMainPage);
 	AddPage(m_pOverlayPage);
@@ -59,6 +63,8 @@ void CSettings::AddPropPages()
 	AddPage(m_pProgsDiffPage);
 	AddPage(m_pProgsMergePage);
 	AddPage(m_pProgsUniDiffPage);
+	AddPage(m_pLookAndFeelPage);
+	AddPage(m_pDialogsPage);
 }
 
 void CSettings::RemovePropPages()
@@ -70,6 +76,8 @@ void CSettings::RemovePropPages()
 	delete m_pProgsDiffPage;
 	delete m_pProgsMergePage;
 	delete m_pProgsUniDiffPage;
+	delete m_pLookAndFeelPage;
+	delete m_pDialogsPage;
 }
 
 void CSettings::SaveData()
@@ -81,6 +89,8 @@ void CSettings::SaveData()
 	m_pProgsDiffPage->SaveData();
 	m_pProgsMergePage->SaveData();
 	m_pProgsUniDiffPage->SaveData();
+	m_pLookAndFeelPage->SaveData();
+	m_pDialogsPage->SaveData();
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CTreePropSheet)

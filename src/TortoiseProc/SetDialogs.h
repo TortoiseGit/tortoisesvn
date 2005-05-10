@@ -26,16 +26,15 @@
 
 /**
  * \ingroup TortoiseProc
- * This is the mainpage of the settings. It contains all the most important
- * settings.
+ * Settings page responsible for dialog settings.
  */
-class CSetMainPage : public CPropertyPage
+class CSetDialogs : public CPropertyPage
 {
-	DECLARE_DYNAMIC(CSetMainPage)
+	DECLARE_DYNAMIC(CSetDialogs)
 
 public:
-	CSetMainPage();
-	virtual ~CSetMainPage();
+	CSetDialogs();
+	virtual ~CSetDialogs();
 	/**
 	 * Saves the changed settings to the registry.
 	 * \remark If the dialog is closed/dismissed without calling
@@ -47,7 +46,7 @@ public:
 	UINT GetIconID() {return IDI_MISC;}
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSMAIN };
+	enum { IDD = IDD_SETTINGSDIALOGS };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -57,23 +56,38 @@ protected:
 	CString GetVersionFromFile(const CString & p_strDateiname);
 
 private:
-	CRegString		m_regExtensions;
-	CString			m_sTempExtensions;
 	CBalloon		m_tooltips;
-	CComboBox		m_LanguageCombo;
-	CRegDWORD		m_regLanguage;
-	DWORD			m_dwLanguage;
-	CRegDWORD		m_regCheckNewer;
-	BOOL			m_bCheckNewer;
+	BOOL			m_bShortDateFormat;
+	CRegDWORD		m_regShortDateFormat;
+	CRegDWORD		m_regAutoClose;
+	DWORD			m_dwAutoClose;
+	CRegDWORD		m_regDefaultLogs;
+	CString			m_sDefaultLogs;
+	CFontPreviewCombo	m_cFontNames;
+	CComboBox		m_cFontSizes;
+	CRegDWORD		m_regFontSize;
+	DWORD			m_dwFontSize;
+	CRegString		m_regFontName;
+	CString			m_sFontName;
+	CRegString		m_regLastCommitTime;
+	BOOL			m_bLastCommitTime;
+	CComboBox		m_cAutoClose;
+	CRegDWORD		m_regAutocompletion;
+	BOOL			m_bAutocompletion;
+	CRegDWORD		m_regOldLogAPIs;
+	BOOL			m_bOldLogAPIs;
 
 public:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnCbnSelchangeLanguagecombo();
-	afx_msg void OnEnChangeTempextensions();
 	virtual BOOL OnApply();
-	afx_msg void OnBnClickedEditconfig();
-	afx_msg void OnBnClickedChecknewerversion();
-	afx_msg void OnBnClickedClearauth();
-	afx_msg void OnBnClickedChecknewerbutton();
+	afx_msg void OnEnChangeDefaultlog();
+	afx_msg void OnBnClickedShortdateformat();
+	afx_msg void OnCbnSelchangeFontsizes();
+	afx_msg void OnCbnSelchangeFontnames();
+	afx_msg void OnBnClickedCommitfiletimes();
+	afx_msg void OnCbnSelchangeAutoclosecombo();
+	afx_msg void OnBnClickedAutocompletion();
+	afx_msg void OnBnClickedOldapilogs();
 };
