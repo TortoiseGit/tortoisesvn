@@ -40,7 +40,7 @@ public:
 	 */
 	void SaveData();
 
-	UINT GetIconID() {return IDI_DRIVES;}
+	UINT GetIconID() {return IDI_DIFF;}
 
 // Dialog Data
 	enum { IDD = IDD_SETTINGSPROGSUNIDIFF };

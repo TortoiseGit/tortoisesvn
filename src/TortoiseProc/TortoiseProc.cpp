@@ -821,6 +821,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CSettings dlg(IDS_PROC_SETTINGS_TITLE);
 			dlg.SetTreeViewMode(TRUE, TRUE, TRUE);
+			dlg.SetTreeWidth(180);
 
 			if (dlg.DoModal()==IDOK)
 			{

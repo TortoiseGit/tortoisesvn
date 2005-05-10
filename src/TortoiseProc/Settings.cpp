@@ -48,7 +48,7 @@ void CSettings::AddPropPages()
 
 	SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
 	SetPageIcon(m_pOverlayPage, m_pOverlayPage->GetIconID());
-	SetPageIcon(m_pOverlaysPage, m_pOverlayPage->GetIconID());
+	SetPageIcon(m_pOverlaysPage, m_pOverlaysPage->GetIconID());
 	SetPageIcon(m_pProxyPage, m_pProxyPage->GetIconID());
 	SetPageIcon(m_pProgsDiffPage, m_pProgsDiffPage->GetIconID());
 	SetPageIcon(m_pProgsMergePage, m_pProgsMergePage->GetIconID());

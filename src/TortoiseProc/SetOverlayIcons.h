@@ -39,7 +39,7 @@ public:
 	*/
 	void SaveData();
 
-	UINT GetIconID() {return IDI_SET_OVERLAYS;}
+	UINT GetIconID() {return IDI_ICONSET;}
 
 // Dialog Data
 	enum { IDD = IDD_OVERLAYICONS };

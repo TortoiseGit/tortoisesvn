@@ -29,7 +29,6 @@
 #define IDD_INPUTDLG                    161
 #define IDD_BLAME                       162
 #define IDR_SEARCH                      163
-#define IDD_SETTINGSPROGS               163
 #define IDI_DRIVES                      164
 #define IDD_URL                         164
 #define IDI_SSH                         165
@@ -58,7 +57,11 @@
 #define IDD_SETTINGSPROGSMERGE          193
 #define IDD_SETTINGSPROGSUNIDIFF        194
 #define IDD_SETTINGSLOOKANDFEEL         195
+#define IDI_GENERAL                     195
 #define IDD_SETTINGSDIALOGS             196
+#define IDI_LOOKANDFEEL                 196
+#define IDI_ICONSET                     197
+#define IDI_DIALOGS                     198
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -315,7 +318,6 @@
 #define IDS_LOG_POPUP_COMPARETWO        1214
 #define IDC_OLDAPILOGS                  1214
 #define IDS_LOG_POPUP_UPDATE            1215
-#define IDC_BUTTON1                     1215
 #define IDC_CHECKNEWERBUTTON            1215
 #define IDS_LOG_POPUP_COPY              1216
 #define IDS_LOGPROMPT_FILE              1217
@@ -620,7 +622,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        195
+#define _APS_NEXT_RESOURCE_VALUE        199
 #define _APS_NEXT_COMMAND_VALUE         32783
 #define _APS_NEXT_CONTROL_VALUE         1216
 #define _APS_NEXT_SYMED_VALUE           195

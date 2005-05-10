@@ -51,6 +51,10 @@ IDI_PROXY               ICON                    "proxy.ico"
 IDI_MISC                ICON                    "misc.ico"
 IDI_LOGFILTER           ICON                    "logfilter.ico"
 IDI_SET_OVERLAYS        ICON                    "Overlays.ico"
+IDI_GENERAL             ICON                    "general.ico"
+IDI_LOOKANDFEEL         ICON                    "lookandfeel.ico"
+IDI_ICONSET             ICON                    "iconset.ico"
+IDI_DIALOGS             ICON                    "dialogs.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -593,49 +597,6 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,57,297,10
 END
 
-IDD_SETTINGSPROGS DIALOGEX 0, 0, 300, 217
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Diff/Merge"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
-BEGIN
-    GROUPBOX        "Diff Program",IDC_STATIC,7,7,286,80
-    LTEXT           "Used for comparing different revisions of files.",
-                    IDC_STATIC,13,16,251,8
-    CONTROL         "&Builtin",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,13,26,46,10
-    CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,
-                    13,37,46,10
-    EDITTEXT        IDC_EXTDIFF,59,31,205,14,ES_AUTOHSCROLL | WS_GROUP
-    PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,271,31,14,14
-    LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
-                    IDC_STATIC,13,49,160,19
-    PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,177,50,87,14
-    GROUPBOX        "Merge Program",IDC_STATIC,7,92,286,65
-    LTEXT           "Used to resolve conflicted files.",IDC_STATIC,13,101,
-                    251,8
-    CONTROL         "B&uiltin",IDC_EXTMERGE_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,13,111,46,10
-    CONTROL         "E&xternal",IDC_EXTMERGE_ON,"Button",BS_AUTORADIOBUTTON,
-                    13,121,46,10
-    EDITTEXT        IDC_EXTMERGE,59,115,205,14,ES_AUTOHSCROLL | WS_GROUP
-    PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,271,114,14,14
-    LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
-                    IDC_STATIC,13,135,160,19
-    PUSHBUTTON      "A&dvanced...",IDC_EXTMERGEADVANCED,177,135,87,14
-    GROUPBOX        "Diff Viewer",IDC_STATIC,7,161,286,49
-    LTEXT           "Viewer program for GNU diff files (patch files).",
-                    IDC_STATIC,13,175,251,8
-    CONTROL         "Bu&iltin",IDC_DIFFVIEWER_OFF,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,13,185,46,10
-    CONTROL         "Ex&ternal",IDC_DIFFVIEWER_ON,"Button",
-                    BS_AUTORADIOBUTTON,13,194,46,10
-    EDITTEXT        IDC_DIFFVIEWER,59,189,205,14,ES_AUTOHSCROLL | WS_GROUP
-    PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,271,187,14,14
-    CONTROL         "Convert files when diffing against BASE",
-                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
-                    70,272,10
-END
-
 IDD_SETTINGSPROGSADV DIALOGEX 0, 0, 319, 217
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
@@ -822,6 +783,8 @@ CAPTION "Look and Feel::Icon Set"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "Icon Set:",IDC_ICONSETLABEL,7,9,77,8
+    COMBOBOX        IDC_ICONSETCOMBO,137,7,158,70,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_ICONLIST,"SysListView32",LVS_LIST | 
                     LVS_AUTOARRANGE | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
                     WS_BORDER | WS_TABSTOP,7,28,288,156
@@ -829,8 +792,6 @@ BEGIN
                     WS_GROUP,7,191,118,10
     CONTROL         "Symbol View",IDC_SYMBOLRADIO,"Button",
                     BS_AUTORADIOBUTTON,138,191,157,10
-    COMBOBOX        IDC_ICONSETCOMBO,137,7,158,70,CBS_DROPDOWNLIST | 
-                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_LOCK DIALOGEX 0, 0, 303, 169
@@ -861,14 +822,14 @@ BEGIN
     LTEXT           "Configure the program used for comparing different revisions of files.",
                     IDC_STATIC,7,7,286,8
     CONTROL         "&Builtin",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,7,25,52,10
+                    WS_GROUP,7,22,52,10
     CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,7,
-                    39,52,10
-    EDITTEXT        IDC_EXTDIFF,66,37,209,14,ES_AUTOHSCROLL | WS_GROUP
-    PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,279,37,14,14
+                    43,52,10
+    EDITTEXT        IDC_EXTDIFF,61,41,209,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,279,41,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
-                    IDC_STATIC,7,64,160,19
-    PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,206,67,87,14
+                    IDC_STATIC,7,70,160,19
+    PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,206,73,87,14
     CONTROL         "Convert files when diffing against BASE",
                     IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
                     105,286,10
@@ -1189,20 +1150,6 @@ BEGIN
         VERTGUIDE, 247
         TOPMARGIN, 7
         BOTTOMMARGIN, 87
-    END
-
-    IDD_SETTINGSPROGS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 293
-        VERTGUIDE, 13
-        VERTGUIDE, 59
-        VERTGUIDE, 173
-        VERTGUIDE, 264
-        VERTGUIDE, 271
-        VERTGUIDE, 285
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 210
     END
 
     IDD_SETTINGSPROGSADV, DIALOG
