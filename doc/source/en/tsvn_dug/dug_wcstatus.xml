@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-wcstatus">
 	<title>Getting Status Information</title>
 	<indexterm>
@@ -19,38 +19,54 @@
 				<title>Explorer showing icon overlays</title>
 				<graphic fileref="images/Overlays.png"/>
 			</figure>
+		</para>
+		<para>
 			Now that you have checked out a working copy from a Subversion
 			repository you can see your files in the windows explorer with
 			changed icons. This is one of the reasons why TortoiseSVN is so
 			popular. TortoiseSVN adds a so called overlay icon to each
 			file icon which overlaps the original file icon. Depending on
 			the Subversion status of the file the overlay icon is different.
+		</para>
+		<para>
 		 	<graphic fileref="images/InSubVersionIcon.png"/>
 			A fresh checked out working copy has a green checkmark as overlay.
 			That means the Subversion status is <literal>normal</literal>.
+		</para>
+		<para>
 			<graphic fileref="images/ModifiedIcon.png"/>
 			As soon as you start editing a file,
 			the status changes to <literal>modified</literal>
 			and the icon overlay then changes to a red exclamation
 			mark. That way you can easily see which files were changed
 			since you last updated your working copy and need to be committed.
+		</para>
+		<para>
 			<graphic fileref="images/ConflictIcon.png"/>
 			If during an update a <literal>conflict</literal> occurs then
 			the icon changes to a yellow exclamation mark.
+		</para>
+		<para>
 			<graphic fileref="images/ReadOnlyIcon.png"/> 
 			If you have set the <literal>svn:needs-lock</literal> property on a file,
 			Subversion makes that file read-only until you get a lock on that file.
 			Read-only files have this overlay to indicate that you have to get a lock
 			first before you can edit that file.
+		</para>
+		<para>
 			<graphic fileref="images/LockedIcon.png"/> 
 			If you hold a lock on a file, and the Subversion status is
 			<literal>normal</literal>, this icon overlay reminds you that you
 			should release the lock if you are not using it to allow others to
 			commit their changes to the file.
+		</para>
+		<para>
 			<graphic fileref="images/DeletedIcon.png"/> 
 			This icon shows you that some files or folders inside the current folder
 			have been scheduled to be <literal>deleted</literal> from version control
 			or a file under version control is missing in a folder.
+		</para>
+		<para>
 			<graphic fileref="images/AddedIcon.png"/> 
 			The plus sign tells you that a file or folder has been scheduled to be
 			<literal>added</literal> to version control.
@@ -139,7 +155,7 @@
 		</tip>
 	</sect2>
 	<sect2 id="tsvn-DUG-wcstatus-2">
-	<?dbhh topicname="HIDD_CHANGEDFILES"?>
+		<?dbhh topicname="HIDD_CHANGEDFILES"?>
 		<title>Status Of The Repository</title>
 		<indexterm>
 			<primary>status</primary>
