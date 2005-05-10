@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-05 22:05+0100\n"
+"PO-Revision-Date: 2005-05-09 22:48+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -404,7 +404,6 @@ msgstr "&Whitespace"
 
 # ???
 #: ID:219
-#, fuzzy
 msgid "(dry run)"
 msgstr "(provkör)"
 
@@ -1615,6 +1614,11 @@ msgstr "Skriv in URL"
 msgid "Enter a lock message (optional):"
 msgstr "Ange ett låsmeddelande (valfritt):"
 
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "Skriv ett meddelande som beskriver varför du låser filen/filerna. "
+
 #: ID:3603
 msgid ""
 "Erase everything\n"
@@ -1731,6 +1735,10 @@ msgstr "Hämtar revision %s av filen:"
 #: ID:207
 msgid "File"
 msgstr "Filnamn"
+
+#: ID:376
+msgid "File Diffs"
+msgstr "Filavvikelser"
 
 #: ID:376
 #: Dlg-ID:135
@@ -1912,6 +1920,11 @@ msgstr "Om markerad, skapar TortoiseSVN en temporär fil för järmförelsen uta
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare version tillgänglig"
+
+# ID:195,
+#: ID:195
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "Om aktiverat, snabbar upp hämtningen av loggmeddelanden från arkivservrar med äldre version än 1.2"
 
 #: ID:195
 msgid ""
@@ -2115,6 +2128,10 @@ msgstr "Lås"
 msgid "Lock Comment"
 msgstr "Lås kommentar"
 
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "Lås filer"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -2150,9 +2167,8 @@ msgstr "Låst av %s"
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "Locks a file for other users and makes it editable by you."
-msgstr "Låser filer för andra användare och gör dem editerbara för dig. "
+msgstr "Låser en fil för andra användare och gör den editerbar för dig. "
 
 #: ID:126
 msgid "Log"
@@ -2770,7 +2786,6 @@ msgstr ""
 "från undantagslistan."
 
 #: ID:15
-#, fuzzy
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Tar bort filen eller filmasken från undantagslistan"
 
@@ -2939,9 +2954,8 @@ msgstr "SVN Importera..."
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "SVN Lock Owner"
-msgstr "SVN Lås ägare"
+msgstr "SVN Låsägare"
 
 #: ID:78
 msgid "SVN Merge..."
@@ -3052,6 +3066,7 @@ msgstr "Sparar patchfil till:"
 #: Control-ID:1014
 #: Control-ID:1017
 #: Control-ID:1064
+#: Control-ID:1212
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3341,6 +3356,11 @@ msgstr "Stjäl lås"
 #: ID:313
 msgid "Steal the lock"
 msgstr "Stjäl låset"
+
+# ID:313,
+#: Control-ID:1211
+msgid "Steal the locks"
+msgstr "Stjäl låsen"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3746,13 +3766,13 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3769,7 +3789,7 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3779,7 +3799,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3980,6 +4000,11 @@ msgstr "Använd \"Från:\" URL"
 #: Control-ID:1184
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "Använd automatisk ifyllning av filsökvägar och nyckelord"
+
+# Control-ID:1214,
+#: Control-ID:1214
+msgid "Use old API's to fetch log messages"
+msgstr "Hämta loggmeddelanden med det gamla APIt"
 
 #: Control-ID:1024
 msgid "Use one-pane view as default"

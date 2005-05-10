@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-04 02:41+0800\n"
+"PO-Revision-Date: 2005-05-10 16:08+0800\n"
 "Last-Translator: Ken Chew <ken.chew@openology.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -209,13 +209,13 @@ msgstr "复制到(&C)..."
 
 # ID:101,
 #: ID:101
-msgid "&Delete"
+msgid "&Delete..."
 msgstr "删除(&D)"
 
 # Control-ID:1061,
 #: Control-ID:1179
 msgid "&Dry Run"
-msgstr "预检"
+msgstr "预检(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -326,7 +326,7 @@ msgstr "新健(&N)"
 # Control-ID:1208,
 #: Control-ID:1208
 msgid "&Next 100"
-msgstr "&下100"
+msgstr "下100 (&N)"
 
 #: MenuEntry
 msgid "&Next Difference"
@@ -368,11 +368,6 @@ msgstr "端口(&P)："
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "前一条差异(&P)"
-
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "递归至子目录以取得状态(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -424,11 +419,6 @@ msgstr "保存图片为(&S)..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "保存认证(&S)"
-
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "选择叠加图标集(&S)"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -711,16 +701,6 @@ msgstr "操作"
 #: ID:3826
 msgid "Activate Task List"
 msgstr "当前工作列表"
-
-# ID:78,
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"如果你想要在文件夹上叠加图标显示 Subversion 的状态，请选中此项。\n"
-"<ct=0x0000ff><b>注意:</b>本功能会降低资源管理器的性能！</ct>"
 
 # ID:8,#:
 # ID:73,#:
@@ -1281,7 +1261,8 @@ msgstr "请检查你输入的路径或 URL。"
 
 # ID:194,
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
+#, fuzzy
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
 msgstr "选中你希望出现在右键菜单, 而不是子菜单中的操作项目"
 
 # ID:80,
@@ -1739,11 +1720,6 @@ msgstr "正在删除"
 msgid "Destination disk drive is full."
 msgstr "目标磁盘已满。"
 
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "对话框"
-
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -1969,6 +1945,11 @@ msgstr "输入 URL"
 msgid "Enter a lock message (optional):"
 msgstr "输入锁定信息（任意）："
 
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "注明对文件加锁原因"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2117,6 +2098,12 @@ msgstr "正在取得文件的 %s 版本："
 #: ID:207
 msgid "File"
 msgstr "文件"
+
+# Control-ID:65535,
+#: ID:376
+#, fuzzy
+msgid "File Diffs"
+msgstr "两文件差异比较"
 
 # Dlg-ID:135,
 #: ID:376
@@ -2326,6 +2313,11 @@ msgstr "启用时, TortoiseSVN 每周会检查一次最新版本"
 
 # ID:195,
 #: ID:195
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "加快从1.2版本之前服务器取得日志信息"
+
+# ID:195,
+#: ID:195
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
@@ -2392,17 +2384,6 @@ msgstr "导入目录至文件库"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "包含路径："
-
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"用叠加图标显示文件夹的状态。\n"
-"如果不选择，那么一个在版本控制下的文件夹将总是显示“常规”状态叠加图标。\n"
-"<ct=0x0000ff><b>如果资源管理器比较慢，请不要选择此项！</b></ct>"
 
 # ID:76,
 #: ID:76
@@ -2567,6 +2548,13 @@ msgstr "锁定"
 msgid "Lock Comment"
 msgstr "锁定备注"
 
+# ID:3857,#:
+# ID:3857,
+#: Dlg-ID:191
+#, fuzzy
+msgid "Lock Files"
+msgstr "锁定文件"
+
 # ID:209,
 #: ID:209
 msgid "Lock broken!"
@@ -2634,6 +2622,12 @@ msgstr "日志信息"
 # Dlg-ID:106,
 #: Dlg-ID:106
 msgid "Look and Feel"
+msgstr "外观样式"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+#, fuzzy
+msgid "Look and Feel::Overlays"
 msgstr "外观样式"
 
 # ID:238,
@@ -2962,6 +2956,11 @@ msgstr "打开用户端凭证文件"
 #: ID:3601
 msgid "Open file"
 msgstr "打开文件"
+
+# ID:9,
+#: ID:113
+msgid "Open with..."
+msgstr "打开方式..."
 
 # ID:3605,
 #: ID:3605
@@ -3452,6 +3451,12 @@ msgstr "重试"
 msgid "Revert"
 msgstr "还原"
 
+# ID:113,
+#: ID:114
+#, fuzzy
+msgid "Revert changes from these revisions"
+msgstr "复原自此版本以来的变更(&R)"
+
 # ID:77,
 #: ID:8
 msgid "Revert..."
@@ -3698,6 +3703,7 @@ msgstr "保存补丁文件至："
 #: Control-ID:1014
 #: Control-ID:1017
 #: Control-ID:1064
+#: Control-ID:1212
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3833,7 +3839,7 @@ msgstr "设置"
 # ID:12,
 #: Control-ID:1132
 msgid "Sh&ow Log"
-msgstr "显示日志（&o）"
+msgstr "显示日志(&o)"
 
 # ID:101,
 #: ID:101
@@ -3904,11 +3910,6 @@ msgstr "显示行号"
 #: ID:12
 msgid "Show Log"
 msgstr "显示日志"
-
-# ID:101,
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "显示文件夹状态"
 
 # ID:3713,
 #: ID:3713
@@ -4049,6 +4050,12 @@ msgstr "偷取锁定"
 # ID:313,
 #: ID:313
 msgid "Steal the lock"
+msgstr "偷取此锁定"
+
+# ID:313,
+#: Control-ID:1211
+#, fuzzy
+msgid "Steal the locks"
 msgstr "偷取此锁定"
 
 # Control-ID:65535,
@@ -4507,8 +4514,9 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
+#, fuzzy
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4534,8 +4542,9 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
+#, fuzzy
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4794,6 +4803,11 @@ msgstr "使用“从:”的URL"
 #: Control-ID:1184
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "自动完成文件路径和关键词"
+
+# Control-ID:1214,
+#: Control-ID:1214
+msgid "Use old API's to fetch log messages"
+msgstr "用旧API取得日志信息"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -5429,5 +5443,4 @@ msgstr "你的版本是："
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "你的版本是：%d.%d.%d.%d"
-
 
