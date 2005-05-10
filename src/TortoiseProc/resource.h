@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -53,8 +53,10 @@
 #define IDR_ACC_REVISIONGRAPH           185
 #define IDI_LOGFILTER                   186
 #define IDI_SET_OVERLAYS                190
-#define IDD_DIALOG1                     191
 #define IDD_LOCK                        191
+#define IDD_SETTINGSPROGSDIFF           192
+#define IDD_SETTINGSPROGSMERGE          193
+#define IDD_SETTINGSPROGSUNIDIFF        194
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -614,9 +616,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        192
+#define _APS_NEXT_RESOURCE_VALUE        195
 #define _APS_NEXT_COMMAND_VALUE         32783
 #define _APS_NEXT_CONTROL_VALUE         1215
-#define _APS_NEXT_SYMED_VALUE           101
+#define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

@@ -21,7 +21,9 @@
 #include "SetMainPage.h"
 #include "SetProxyPage.h"
 #include "SetOverlayPage.h"
-#include "SetProgsPage.h"
+#include "SettingsProgsDiff.h"
+#include "SettingsProgsMerge.h"
+#include "SettingsProgsUniDiff.h"
 #include "SetOverlayIcons.h"
 #include "TreePropSheet/TreePropSheet.h"
 
@@ -69,11 +71,13 @@ private:
 	void RemovePropPages();
 
 private:
-	CSetMainPage *		m_pMainPage;
-	CSetProxyPage *		m_pProxyPage;
-	CSetOverlayPage *	m_pOverlayPage;
-	CSetProgsPage *		m_pProgsPage;
-	CSetOverlayIcons *	m_pOverlaysPage;
+	CSetMainPage *			m_pMainPage;
+	CSetProxyPage *			m_pProxyPage;
+	CSetOverlayPage *		m_pOverlayPage;
+	CSetOverlayIcons *		m_pOverlaysPage;
+	CSettingsProgsDiff*		m_pProgsDiffPage;
+	CSettingsProgsMerge *	m_pProgsMergePage;
+	CSettingsProgsUniDiff * m_pProgsUniDiffPage;
 
 public:
 	CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);

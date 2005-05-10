@@ -40,19 +40,25 @@ void CSettings::AddPropPages()
 	m_pOverlayPage = new CSetOverlayPage();
 	m_pOverlaysPage = new CSetOverlayIcons();
 	m_pProxyPage = new CSetProxyPage();
-	m_pProgsPage = new CSetProgsPage();
+	m_pProgsDiffPage = new CSettingsProgsDiff();
+	m_pProgsMergePage = new CSettingsProgsMerge();
+	m_pProgsUniDiffPage = new CSettingsProgsUniDiff();
 
 	SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
 	SetPageIcon(m_pOverlayPage, m_pOverlayPage->GetIconID());
 	SetPageIcon(m_pOverlaysPage, m_pOverlayPage->GetIconID());
 	SetPageIcon(m_pProxyPage, m_pProxyPage->GetIconID());
-	SetPageIcon(m_pProgsPage, m_pProgsPage->GetIconID());
+	SetPageIcon(m_pProgsDiffPage, m_pProgsDiffPage->GetIconID());
+	SetPageIcon(m_pProgsMergePage, m_pProgsMergePage->GetIconID());
+	SetPageIcon(m_pProgsUniDiffPage, m_pProgsUniDiffPage->GetIconID());
 
 	AddPage(m_pMainPage);
 	AddPage(m_pOverlayPage);
 	AddPage(m_pOverlaysPage);
 	AddPage(m_pProxyPage);
-	AddPage(m_pProgsPage);
+	AddPage(m_pProgsDiffPage);
+	AddPage(m_pProgsMergePage);
+	AddPage(m_pProgsUniDiffPage);
 }
 
 void CSettings::RemovePropPages()
@@ -61,7 +67,9 @@ void CSettings::RemovePropPages()
 	delete m_pOverlayPage;
 	delete m_pOverlaysPage;
 	delete m_pProxyPage;
-	delete m_pProgsPage;
+	delete m_pProgsDiffPage;
+	delete m_pProgsMergePage;
+	delete m_pProgsUniDiffPage;
 }
 
 void CSettings::SaveData()
@@ -70,7 +78,9 @@ void CSettings::SaveData()
 	m_pOverlayPage->SaveData();
 	m_pOverlaysPage->SaveData();
 	m_pProxyPage->SaveData();
-	m_pProgsPage->SaveData();
+	m_pProgsDiffPage->SaveData();
+	m_pProgsMergePage->SaveData();
+	m_pProgsUniDiffPage->SaveData();
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CTreePropSheet)

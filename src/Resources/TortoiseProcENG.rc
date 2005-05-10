@@ -880,6 +880,60 @@ BEGIN
                     IDC_LOCKTITLELABEL,7,7,289,8
 END
 
+IDD_SETTINGSPROGSDIFF DIALOGEX 0, 0, 300, 217
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "External Programs::Diff Viewer"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Configure the program used for comparing different revisions of files.",
+                    IDC_STATIC,7,7,286,8
+    CONTROL         "&Builtin",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,7,25,52,10
+    CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,7,
+                    39,52,10
+    EDITTEXT        IDC_EXTDIFF,66,37,209,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,279,37,14,14
+    LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
+                    IDC_STATIC,7,64,160,19
+    PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,206,67,87,14
+    CONTROL         "Convert files when diffing against BASE",
+                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
+                    105,286,10
+END
+
+IDD_SETTINGSPROGSMERGE DIALOGEX 0, 0, 300, 217
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "External Programs::Merge Tool"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Configure the program used to resolve conflicted files.",
+                    IDC_STATIC,7,7,251,8
+    CONTROL         "B&uiltin",IDC_EXTMERGE_OFF,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,7,22,46,10
+    CONTROL         "E&xternal",IDC_EXTMERGE_ON,"Button",BS_AUTORADIOBUTTON,
+                    7,43,46,10
+    EDITTEXT        IDC_EXTMERGE,61,41,209,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,279,41,14,14
+    LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
+                    IDC_STATIC,7,70,160,19
+    PUSHBUTTON      "A&dvanced...",IDC_EXTMERGEADVANCED,206,73,87,14
+END
+
+IDD_SETTINGSPROGSUNIDIFF DIALOGEX 0, 0, 300, 217
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "External Programs::Unified Diff Viewer"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Configure viewer program for GNU diff files (patch files).",
+                    IDC_STATIC,7,7,286,8
+    CONTROL         "Bu&iltin",IDC_DIFFVIEWER_OFF,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,7,22,46,10
+    CONTROL         "Ex&ternal",IDC_DIFFVIEWER_ON,"Button",
+                    BS_AUTORADIOBUTTON,7,43,46,10
+    EDITTEXT        IDC_DIFFVIEWER,61,41,212,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,279,41,14,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1251,6 +1305,30 @@ BEGIN
         RIGHTMARGIN, 296
         TOPMARGIN, 7
         BOTTOMMARGIN, 162
+    END
+
+    IDD_SETTINGSPROGSDIFF, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_SETTINGSPROGSMERGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_SETTINGSPROGSUNIDIFF, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
     END
 END
 #endif    // APSTUDIO_INVOKED

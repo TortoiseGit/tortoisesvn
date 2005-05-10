@@ -17,21 +17,20 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-
 #include "SetProgsAdvDlg.h"
 #include "FileDropEdit.h"
-#include "afxwin.h"
 
 
-// CSetProgsPage dialog
+// CSettingsProgsMerge dialog
 
-class CSetProgsPage : public CPropertyPage
+class CSettingsProgsMerge : public CPropertyPage
 {
-	DECLARE_DYNAMIC(CSetProgsPage)
+	DECLARE_DYNAMIC(CSettingsProgsMerge)
 
 public:
-	CSetProgsPage();
-	virtual ~CSetProgsPage();
+	CSettingsProgsMerge();
+	virtual ~CSettingsProgsMerge();
+
 	/**
 	 * Saves the changed settings to the registry.
 	 * \remark If the dialog is closed/dismissed without calling
@@ -41,54 +40,32 @@ public:
 	void SaveData();
 
 	UINT GetIconID() {return IDI_DRIVES;}
-
 // Dialog Data
-	enum { IDD = IDD_SETTINGSPROGS };
+	enum { IDD = IDD_SETTINGSPROGSMERGE };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+	DECLARE_MESSAGE_MAP()
+public:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual BOOL OnApply();
-	afx_msg void OnBnClickedExtdiffbrowse();
-	afx_msg void OnEnChangeExtdiff();
-	afx_msg void OnBnClickedExtmergebrowse();
-	afx_msg void OnEnChangeExtmerge();
-	afx_msg void OnBnClickedDiffviewerbrowse();
-	afx_msg void OnEnChangeDiffviewer();
-	afx_msg void OnBnClickedExtdiffOff();
-	afx_msg void OnBnClickedExtdiffOn();
 	afx_msg void OnBnClickedExtmergeOff();
 	afx_msg void OnBnClickedExtmergeOn();
-	afx_msg void OnBnClickedDiffviewerOff();
-	afx_msg void OnBnClickedDiffviewerOn();
-	afx_msg void OnBnClickedExtdiffadvanced();
+	afx_msg void OnBnClickedExtmergebrowse();
 	afx_msg void OnBnClickedExtmergeadvanced();
-	afx_msg void OnBnClickedDontconvert();
-
-	DECLARE_MESSAGE_MAP()
-
+	afx_msg void OnEnChangeExtmerge();
 private:
 	bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
 	void CheckProgComment();
 private:
-	CString			m_sDiffPath;
 	CString			m_sMergePath;
-	CString			m_sDiffViewerPath;
-	CRegString		m_regDiffPath;
 	CRegString		m_regMergePath;
-	CRegString		m_regDiffViewerPath;
-	int             m_iExtDiff;
 	int             m_iExtMerge;
-	int             m_iDiffViewer;
-	CSetProgsAdvDlg m_dlgAdvDiff;
 	CSetProgsAdvDlg m_dlgAdvMerge;
 	CBalloon		m_tooltips;
 	BOOL			m_bInitialized;
-	CRegDWORD		m_regConvertBase;	///< registry value for the "Don't Convert" flag
-	BOOL			m_bConvertBase;		///< don't convert files when diffing agains BASE
 
-	CFileDropEdit	m_cDiffEdit;
 	CFileDropEdit	m_cMergeEdit;
-	CFileDropEdit	m_cUnifiedDiffEdit;
 };
