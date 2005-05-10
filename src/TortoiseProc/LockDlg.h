@@ -36,7 +36,7 @@ private:
 	DECLARE_MESSAGE_MAP()
 
 // Dialog Data
-	enum { IDD = IDD_DIALOG1 };
+	enum { IDD = IDD_LOCK };
 public:
 	CString				m_sLockMessage;
 	BOOL				m_bStealLocks;
