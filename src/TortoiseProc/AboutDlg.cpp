@@ -84,7 +84,8 @@ BOOL CAboutDlg::OnInitDialog()
 	m_cSupportLink.SetURL(_T("http://tortoisesvn.tigris.org/donate.html"));
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
-	return TRUE;  // return TRUE unless you set the focus to a control
+	GetDlgItem(IDOK)->SetFocus();
+	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
