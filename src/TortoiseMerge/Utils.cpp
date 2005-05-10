@@ -75,7 +75,6 @@ BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath
 		LocalFree( lpMsgBuf );
 	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)com), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 	DWORD ret = 0;
-	DWORD i = 0;
 	do
 	{
 		ret = WaitForSingleObject(process.hProcess, 100);
