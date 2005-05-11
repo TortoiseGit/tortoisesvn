@@ -83,6 +83,7 @@ private:
 	CSetLookAndFeelPage *	m_pLookAndFeelPage;
 	CSetDialogs *			m_pDialogsPage;
 
+	HICON					m_hIcon;
 public:
 	CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
 	virtual ~CSettings();
@@ -95,6 +96,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL OnInitDialog();
+	afx_msg void OnPaint();
+	afx_msg HCURSOR OnQueryDragIcon();
 };
 
 
