@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3271
+# Based on r3304
 #
 msgid ""
 msgstr ""
@@ -53,6 +53,7 @@ msgstr ""
 # Corrections = Rettelser (ikke ændringer)
 # Explorer = Windows Stifinder - done
 # Item = emne
+# Viewer = fremvisningsprogram
 #
 # Bemærkninger:
 # ! skal kun bruges ved meget vigtige beskeder og fejl.
@@ -437,7 +438,7 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1104,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,
 msgid "..."
 msgstr "..."
 
@@ -492,7 +493,7 @@ msgstr "En overtrædelse af deling opstod under adgang til %1."
 
 #: ID:79,
 msgid "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
-msgstr "Et visningsprogram for GNU diff-filer (korrekturfiler).\nHvis du ikke har et sådant program, kan du bruge Notesblok."
+msgstr "Et program til fremvisning af GNU diff-filer (korrekturfiler).\nHvis du ikke har et sådant program, kan du bruge Notesblok."
 
 #: ID:101,
 msgid "A&dd Folder..."
@@ -744,6 +745,14 @@ msgstr "Luk automatisk, hvis ingen fejl"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Luk automatisk, hvis intet flettet, tilføjet eller slettet"
 
+#: Control-ID:65535,
+msgid "Autoclose:"
+msgstr "Auto-luk:"
+
+#: Control-ID:1073,
+msgid "Automatically check for newer versions every week"
+msgstr "Check automatisk efter nyere versioner hver uge"
+
 #: Control-ID:1157,
 msgid "Average"
 msgstr "Gennemsnit"
@@ -912,9 +921,9 @@ msgstr "Check versionsarkiv"
 msgid "Check for Modifications"
 msgstr "Check for ændringer"
 
-#: Control-ID:1073,
-msgid "Check for newer &versions"
-msgstr "Check for nyere &versioner"
+#: Control-ID:1215,
+msgid "Check now"
+msgstr "Check nu"
 
 #: ID:9,
 msgid "Check out a working copy from a repository"
@@ -1009,6 +1018,10 @@ msgstr "Farver"
 msgid "Command failed."
 msgstr "Kommandoen mislykkedes."
 
+#: Control-ID:1083,
+msgid "Commit"
+msgstr "Arkivér"
+
 #: Control-ID:1110,
 msgid "Commit to:"
 msgstr "Arkivér til:"
@@ -1033,11 +1046,6 @@ msgstr "Ugentlige arkiveringer:"
 msgid "Commits your changes to the repository"
 msgstr "Arkiverer dine ændringer i versionsarkivet"
 
-#: Control-ID:1083,
-#Dette er en overskrift i Indstillinger-dialogen
-msgid "Committing"
-msgstr "Arkivering"
-
 #: Control-ID:1019,
 msgid "Compare Whitespaces"
 msgstr "Sammenlign blanktegn"
@@ -1057,6 +1065,18 @@ msgstr "Sammenligner filen med den sidst arkiverede revision og viser de ændrin
 #: ID:74,
 msgid "Completed"
 msgstr "Afsluttet"
+
+#: Control-ID:65535,
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "Indstil programmet, der bruges til at sammenligne forskellige revisioner af filer."
+
+#: Control-ID:65535,
+msgid "Configure the program used to resolve conflicted files."
+msgstr "Indstil programmet, der bruger til at løse konflikter i filer."
+
+#: Control-ID:65535,
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "Indstil fremvisningsprogrammet til GNU diff-filer (korrekturark)."
 
 #: ID:263,#: Control-ID:65535,
 #Dette er nøgleord i første kolonne i progress dialog, tilsvarende "Opdateret", "Afsluttet", "Tilføjet", "Advarsel!"
@@ -1165,7 +1185,7 @@ msgstr "Filen %s kunne ikke gemmes!"
 
 #: ID:81,
 msgid "Could not start diff viewer!\n<hr=100%>\n%s"
-msgstr "Sammenligningsprogrammet kunne ikke startes!\n<hr=100%>\n%"
+msgstr "Diff-fremvisningsprogrammet kunne ikke startes!\n<hr=100%>\n%"
 
 #: ID:81,
 msgid "Could not start external diff program!\n<hr=100%>\n%s"
@@ -1262,18 +1282,6 @@ msgstr "Sammenlign"
 #: Control-ID:65535,
 msgid "Diff File:"
 msgstr "Sammenligningsfil:"
-
-#: Control-ID:65535,
-msgid "Diff Program"
-msgstr "Sammenligningsprogram"
-
-#: Control-ID:65535,
-msgid "Diff Viewer"
-msgstr "Sammenligningsviser"
-
-#: Dlg-ID:163,
-msgid "Diff/Merge"
-msgstr "Sammenlign/flet"
 
 #: Control-ID:1022,
 msgid "Diffing"
@@ -1413,6 +1421,10 @@ msgstr "Indtast URL"
 msgid "Enter a lock message (optional):"
 msgstr "Indtast en låsebesked (valgfrit):"
 
+#: Control-ID:1213,
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "Indtast en meddelelse, der beskriver, hvorfor du låser filen/filerne."
+
 #: ID:3603,
 msgid "Erase everything\nErase All"
 msgstr "Slet alt\nSlet alt"
@@ -1486,6 +1498,18 @@ msgstr "Ekstern"
 msgid "External Program:"
 msgstr "Eksternt program:"
 
+#: Dlg-ID:192,
+msgid "External Programs::Diff Viewer"
+msgstr "Eksterne programmer::Diff-fremvisningsprogram"
+
+#: Dlg-ID:193,
+msgid "External Programs::Merge Tool"
+msgstr "Eksterne programmer::Flet-program"
+
+#: Dlg-ID:194,
+msgid "External Programs::Unified Diff Viewer"
+msgstr "Eksterne programmer::\"Unified diff\"-fremvisningsprogram"
+
 #: ID:74,
 msgid "Failed Revert"
 msgstr "Tilbageføring mislykkedes"
@@ -1517,6 +1541,10 @@ msgstr "Henter revision %s af filen:"
 #: ID:63,#: ID:74,#: ID:77,#: ID:207,
 msgid "File"
 msgstr "Fil"
+
+#: ID:376,
+msgid "File Diffs"
+msgstr "Filforskelle"
 
 #: ID:376,#: Dlg-ID:135,
 msgid "File Patches"
@@ -1562,7 +1590,7 @@ msgstr "GDI+ kunne ikke initialiseres!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ kunne ikke oprette bitmap-objekt. Der er formodentlig ikke hukommelse nok."
 
-#: Dlg-ID:107,
+#: Dlg-ID:143,#: Dlg-ID:107,
 msgid "General"
 msgstr "Generelt"
 
@@ -1657,6 +1685,10 @@ msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig fil for at lave samm
 #: ID:194,
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere version til rådighed"
+
+#: ID:195,
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "Hvis valgt, så forøges hastigheden, hvormed logbeskeder hentes fra pre-1.2 versionsarkiv-servere"
 
 #: ID:195,
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
@@ -1847,17 +1879,25 @@ msgstr "Logbesked"
 msgid "Log Message History:"
 msgstr "Historik over logbeskeder:"
 
-#: Dlg-ID:130,
+#: Dlg-ID:130,#: Control-ID:65535,
 msgid "Log Messages"
 msgstr "Logbeskeder"
 
-#: Dlg-ID:106,
+#: Dlg-ID:195,
 msgid "Look and Feel"
 msgstr "Tema"
 
-#: Dlg-ID:184,
-msgid "Look and Feel::Overlays"
+#: Dlg-ID:196,
+msgid "Look and Feel::Dialogs"
+msgstr "Tema::Dialoger"
+
+#: Dlg-ID:106,
+msgid "Look and Feel::Icon Overlays"
 msgstr "Tema::Ikonoverdækninger"
+
+#: Dlg-ID:184,
+msgid "Look and Feel::Icon Set"
+msgstr "Tema::Ikoner"
 
 #: ID:238,
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
@@ -1871,10 +1911,6 @@ msgstr "Laveste revision: %ld - Højeste revision: %ld - Nyeste revision: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "Mailsystem-DLL'en er ugyldig."
 
-#: Dlg-ID:143,
-msgid "Main"
-msgstr "Generelt"
-
 #: ID:2051,
 msgid "Marks a file as resolved in Subversion\nMark as resolved"
 msgstr "Markerer en fil med konflikter som løst i Subversion\nMarker som løst"
@@ -1886,10 +1922,6 @@ msgstr "Maks"
 #: Dlg-ID:141,
 msgid "Merge"
 msgstr "Flet"
-
-#: Control-ID:65535,
-msgid "Merge Program"
-msgstr "Flet-program"
 
 #: ID:9,
 msgid "Merge..."
@@ -1927,7 +1959,7 @@ msgstr "Mime-type"
 msgid "Min"
 msgstr "Min"
 
-#: Control-ID:1082,#: Control-ID:1023,
+#: Control-ID:1023,
 msgid "Misc"
 msgstr "Diverse"
 
@@ -2237,8 +2269,8 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programmer (*.exe)|*.*|Alle filer (*.*)|*.*||"
 
 #: Control-ID:65535,
-msgid "Progress dialog:"
-msgstr "Fremskridtsdialog:"
+msgid "Progress"
+msgstr "Fremskridt"
 
 #: Control-ID:65535,#: Dlg-ID:177,
 msgid "Properties"
@@ -2666,7 +2698,7 @@ msgstr "Vælg tekstredigeringsprogram"
 
 #: ID:78,
 msgid "Select Viewer for Diff-Files"
-msgstr "Vælg fremviser til diff-filer"
+msgstr "Vælg fremvisningsprogram til diff-filer"
 
 #: ID:3585,
 msgid "Select an object on which to get Help"
@@ -3292,7 +3324,7 @@ msgstr "Brug forstørrer på lokationslinje"
 
 #: Control-ID:1126,
 msgid "Use Text viewer to view blames"
-msgstr "Brug en tekstfremviser til at vise ændringsfordelinger"
+msgstr "Brug et tekst-fremvisningsprogram til at vise ændringsfordelinger"
 
 #: Control-ID:1073,
 msgid "Use \"From:\" URL"
@@ -3301,6 +3333,10 @@ msgstr "Anvend \"Fra:\"-URL"
 #: Control-ID:1184,
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "Brug automatisk udfyldning af stier og nøgleord"
+
+#: Control-ID:1214,
+msgid "Use old API's to fetch log messages"
+msgstr "Brug gammel API til at hente logbeskeder"
 
 #: Control-ID:1024,
 msgid "Use one-pane view as default"
@@ -3348,14 +3384,6 @@ msgstr "Brug denne, hvis URL'en til versionsarkivet er blevet ændret"
 msgid "Use whole other &file"
 msgstr "Brug en anden, hel &fil"
 
-#: Control-ID:65535,
-msgid "Used for comparing different revisions of files."
-msgstr "Bruges til at sammenligne forskellige revisioner af filer."
-
-#: Control-ID:65535,
-msgid "Used to resolve conflicted files."
-msgstr "Bruges til at løse konflikter i filer."
-
 #: ID:74,
 msgid "User cancelled"
 msgstr "Brugeren annullerede"
@@ -3375,10 +3403,6 @@ msgstr "Værdi"
 #: Control-ID:1075,#: Control-ID:1075,
 msgid "Version"
 msgstr "Version"
-
-#: Control-ID:65535,
-msgid "Viewer program for GNU diff files (patch files)."
-msgstr "Visningsprogram for GNU diff-filer (korrekturfiler)."
 
 #: Control-ID:1084,#: Control-ID:1084,
 msgid "Visit our website"
