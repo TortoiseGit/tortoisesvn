@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-10 12:19+0100\n"
+"PO-Revision-Date: 2005-05-11 10:09+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -311,7 +311,7 @@ msgstr "Laden Sie die neueste Version des Apache Webservers von <ulink url=\"htt
 #: source/en/tsvn_server/server_apache.xml:91
 #: (para)
 msgid "Once you have the Apache2 installer you can doubleclick on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a dns name for your server just enter the ip-address). I recommend to install apache <literal>for All Users, on Port 80, as a Service</literal>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
-msgstr "Sobald Sie den Apache 2 Installer haben, können Sie ihn mit einem Doppelklick starten. Sie werden Schritt für Schritt durch den Installationsprozess geführt. Stellen Sie sicher, dass Sie die Server URL korrekt eingeben. Wenn Sie keinen DNS Server haben, nehmen Sie stattdessen einfach die IP Adresse. Wir raten dazu, Apache für <literal>for Alle Benutzer, auf Port 80, als Dienst</literal> zu installieren. Achtung: Wenn Sie bereits IIS oder ein anderes Programm installiert haben, dass auf Port 80 lauscht, kann die Installation fehlschlagen. Wenn das passiert, gehen Sie in <filename>C:\\Programme\\Apache Group\\Apache2\\conf</filename> und öffnen Sie dort die Datei <filename>httpd.conf</filename>. Suchen Sie den Eintrag <literal>Listen 80</literal> und ändern Sie diesen in eine freie Portnummer, z.B. <literal>Listen 81</literal>. Starten Sie die Installation erneut - Diesmal sollte sie ohne Probleme durchlaufen."
+msgstr "Sobald Sie den Apache 2 Installer haben, können Sie ihn mit einem Doppelklick starten. Sie werden Schritt für Schritt durch den Installationsprozess geführt. Stellen Sie sicher, dass Sie die Server URL korrekt eingeben. Wenn Sie keinen DNS Server haben, nehmen Sie stattdessen einfach die IP Adresse. Wir raten dazu, Apache für <quote>Alle Benutzer, auf Port 80, als Dienst</quote> zu installieren. Achtung: Wenn Sie bereits IIS oder ein anderes Programm installiert haben, dass auf Port 80 lauscht, kann die Installation fehlschlagen. Wenn das passiert, gehen Sie in <filename>C:\\Programme\\Apache Group\\Apache2\\conf</filename> und öffnen Sie dort die Datei <filename>httpd.conf</filename>. Suchen Sie den Eintrag <literal>Listen 80</literal> und ändern Sie diesen in eine freie Portnummer, z.B. <literal>Listen 81</literal>. Starten Sie die Installation erneut - Diesmal sollte sie ohne Probleme durchlaufen."
 
 #: source/en/tsvn_server/server_apache.xml:113
 #: (para)
@@ -641,22 +641,22 @@ msgstr "Domaincontroller"
 #: source/en/tsvn_server/server_apache.xml:541
 #: (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
-msgstr ""
+msgstr "Wie Sie bestimmt bemerkt haben, benötigen Sie für jeden Anwender einen eigenen Eintrag in der <filename>passwd</filename> Datei. Falls Sie aus Sicherheitsgründen verlangen, dass die Benutzerpasswörter regelmäßig geändert werden, müssen Sie das jedes Mal von Hand machen."
 
 #: source/en/tsvn_server/server_apache.xml:548
 #: (para)
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: mod_auth_sspi!"
-msgstr ""
+msgstr "Falls Sie auf das Projektarchiv in einem Windowsnetzwerk mit einem Domänencontroller zugreifen, gibt es eine einfache Lösung: mod_auth_sspi!"
 
 #: source/en/tsvn_server/server_apache.xml:553
 #: (para)
 msgid "<indexterm><primary>SSPI</primary></indexterm> The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, including a patch from Vladimir Berezniker. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
-msgstr ""
+msgstr "<indexterm><primary>SSPI</primary></indexterm>Das Original SSPI Modulwurde von Syneapps inklusive Quellcode zur Verfügung gestellt. Das Modul wurde jedoch nicht mehr weiterentwickelt. Sie können es jedoch immer noch im Internet finden - Suchen Sie einfach mit einer Suchmaschine danach. Wir stellen eine übersetzte Version, mit einem Patch von Vladimir Berezniker, auf unsere Webseite zum Herunterladen bereit. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"> <citetitle>mod_auth_sspi herunterladen</citetitle> </ulink>."
 
 #: source/en/tsvn_server/server_apache.xml:568
 #: (para)
 msgid "Download the module, copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
-msgstr ""
+msgstr "Laden Sie das Modul herunter und kopieren Sie die Datei <filename>mod_auth_sspi.so</filename> in den Apache <filename>modules</filename> Ordner."
 
 #: source/en/tsvn_server/server_apache.xml:575
 #: (para)
@@ -667,6 +667,10 @@ msgid ""
 "LoadModule auth_module modules/mod_auth.so\n"
 "</screen>"
 msgstr ""
+"Bearbeiten Sie die Apache Konfigurationsdatei. Fügen Sie dort die Zeile\n"
+"<screen>LoadModule sspi_auth_module modules/mod_auth_sspi.so</screen>\n"
+"in den LoadModule Abschnitt ein. Stellen Sie sicher, dass Sie diesen Eintrag <emphasis>vor</emphasis> der Zeile\n"
+"<screen>LoadModule auth_module modules/mod_auth.so</screen> einfügen."
 
 #: source/en/tsvn_server/server_apache.xml:588
 #: (para)
@@ -682,36 +686,43 @@ msgid ""
 "SSPIOfferBasic On\n"
 "</screen> within the &lt;Location /svn&gt; block. If you don't have a domain controller, leave the name of the domain control as &lt;domaincontroller&gt;."
 msgstr ""
+"Damit die Subversion <literal>Location</literal> dieses Anmeldeverfahren verwendet, müssen Sie die Zeile\n"
+"<screen>AuthType Basic</screen> in\n"
+"<screen>AuthType SSPI</screen> ändern. Weiterhin müssen Sie die Zeilen:\n"
+"<screen>SSPIAuth On\n"
+"SSPIAuthoritative On\n"
+"SSPIDomain &lt;domaincontroller&gt;\n"
+"SSPIOfferBasic On</screen> in den <literal>&lt;Location /svn;&gt;</literal> Abschnitt einfügen. Wenn Sie keinen Domänencontroller haben, lassen Sie den Namen <literal>&lt;domaincontroller&gt;<literal> unverändert."
 
 #: source/en/tsvn_server/server_apache.xml:611
 #: (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <filename>AuthUserFile</filename> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
-msgstr ""
+msgstr "Beachten Sie, dass Sie bei Verwendung von SSPI keine <filename>AuthUserFile</filename> Zeile mehr benötigen, um eine Passwortdatei zu definieren. Apache wird Ihren Namen und Ihr Passwort gegen den Windows Domänencontroller verifizieren. Sie müssen die Benutzerliste in <filename>svnaccessfile</filename> anpassen, um Anmeldungen der Form <literal>DOMAIN\\username</literal> ebenfalls zuzulassen."
 
 #: source/en/tsvn_server/server_apache.xml:621
 #: (para)
 msgid "Subversion AuthzSVNAccessFile files are case sensitive in regard to user names (\"JUser\" is different from \"juser\")."
-msgstr ""
+msgstr "Subversion AuthzSVNAccessFile Dateien berücksichtigen bei Benutzernamen die Groß- / Kleinschreibung (<literal>JUser</literal> unterscheidet sich von <literal>juser</literal>)."
 
 #: source/en/tsvn_server/server_apache.xml:625
 #: (para)
 msgid "In Microsoft's world, Windows domains and usernames are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. \"JUser\")."
-msgstr ""
+msgstr "In der Microsoft Welt wird die Schreibweise bei Windows Domänen und Benutzernamen ignoriert. Trotzdem legen viele Administratoren gerne Benutzerkonten wie <literal>JUser</literal> an."
 
 #: source/en/tsvn_server/server_apache.xml:630
 #: (para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
-msgstr ""
+msgstr "Dieser Unterschied kann schmerzhaft sein, wenn Sie SSPI Anmeldung unter Windows verwenden und der Benutzername in der gleichen Schreibweise an Subversion weitergereicht werden, wie der Anwender ihn eingegeben hat, da <literal>JUser</literal> und <literal>juser</literal> für Subversion verschiedene Personen sind. Der Internet Explorer reicht den Anmeldenamen oft automatisch in der Schreibweise, in der das Konto angelegt wurde, an Apache weiter."
 
 #: source/en/tsvn_server/server_apache.xml:638
 #: (para)
 msgid "The end result is that you may need at least two entries in your AuthzSVNAccessFile for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
-msgstr ""
+msgstr "Das Ergebnis davon ist, dass Sie für jeden Anwender mindestens zwei Einträge in Ihrer <literal>AuthzSVNAccessFile</literal> Datei benötigen. Einen Eintrag in Kleinbuchstaben und einen Eintrag in der Schreibweise wie das Konto angelegt wurde. Weiterhin müssen Sie Ihre Anwender dahingehend trainieren, dass sie sich immer in Kleinbuchstaben anmelden, wenn sie einen Subversion Client wie TortoiseSVN benutzen."
 
 #: source/en/tsvn_server/server_apache.xml:646
 #: (para)
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's AuthzSVNAccessFile module. You may need to experiment with the exact format of the user string in the svnaccessfile (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
-msgstr ""
+msgstr "Die Fehler und Zugriffslogs von Apache sind Ihre besten Freunde, wenn es darum geht, Probleme dieser Art zu lokalisieren und zu beseitigen, da Sie Ihnen anzeigen, in welcher Schreibweise ein Anmeldename an das Subversion AuthzSVNAccessFile Modul weitergereicht wurde. Sie müssen eventuell etwas mit dem exakten Format der Anmeldenamen in <filename>svnaccessfile</filename> experimentieren (z.B. <literal>DOMAIN\\user</literal> und <literal>DOMAIN//user</literal>), um alles ans Laufen zu bekommen."
 
 #: source/en/tsvn_server/server_apache.xml:658
 #: (title)
