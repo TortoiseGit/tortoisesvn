@@ -140,7 +140,7 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
 			data.lock_owner = CUnicodeUtils::GetUnicode(info->lock->owner);
 		if (info->lock->comment)
 			data.lock_comment = CUnicodeUtils::GetUnicode(info->lock->comment);
-		data.lock_xmlcomment = !!info->lock->xml_comment;
+		data.lock_davcomment = !!info->lock->is_dav_comment;
 		data.lock_createtime = info->lock->creation_date/1000000L;
 		data.lock_expirationtime = info->lock->expiration_date/1000000L;
 	}

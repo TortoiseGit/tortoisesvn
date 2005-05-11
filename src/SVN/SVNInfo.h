@@ -40,7 +40,7 @@ public:
 	CString				lock_token;
 	CString				lock_owner;
 	CString				lock_comment;
-	bool				lock_xmlcomment;
+	bool				lock_davcomment;
 	__time64_t			lock_createtime;
 	__time64_t			lock_expirationtime;
 
