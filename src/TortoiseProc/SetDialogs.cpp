@@ -37,6 +37,8 @@ CSetDialogs::CSetDialogs()
 	, m_bLastCommitTime(FALSE)
 	, m_bAutocompletion(FALSE)
 	, m_bOldLogAPIs(FALSE)
+	, m_dwFontSize(0)
+	, m_sFontName(_T(""))
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
