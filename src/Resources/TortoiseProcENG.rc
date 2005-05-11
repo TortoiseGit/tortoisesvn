@@ -68,7 +68,7 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -417,16 +417,17 @@ BEGIN
     LTEXT           "&Language:",IDC_STATIC,7,17,86,8
     COMBOBOX        IDC_LANGUAGECOMBO,108,15,185,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Exclude/Ignore pattern:",IDC_STATIC,7,38,91,18,
+    LTEXT           "Exclude/Ignore pattern:",IDC_STATIC,14,47,84,18,
                     SS_CENTERIMAGE
-    EDITTEXT        IDC_TEMPEXTENSIONS,108,40,185,14,ES_AUTOHSCROLL
-    LTEXT           "Subversion configuration file:",IDC_STATIC,7,71,183,8
-    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,200,68,93,14
-    PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,199,89,94,14
+    EDITTEXT        IDC_TEMPEXTENSIONS,108,49,176,14,ES_AUTOHSCROLL
+    LTEXT           "Subversion configuration file:",IDC_STATIC,14,78,176,8
+    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,200,75,84,14
+    PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,199,102,85,14
     CONTROL         "Automatically check for newer versions every week",
                     IDC_CHECKNEWERVERSION,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,117,192,20
-    PUSHBUTTON      "Check now",IDC_CHECKNEWERBUTTON,199,120,94,14
+                    WS_TABSTOP,14,129,185,20
+    PUSHBUTTON      "Check now",IDC_CHECKNEWERBUTTON,199,132,85,14
+    GROUPBOX        "Subversion",IDC_STATIC,7,36,286,125
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217
@@ -822,10 +823,10 @@ BEGIN
     LTEXT           "Configure the program used for comparing different revisions of files.",
                     IDC_STATIC,7,7,286,8
     CONTROL         "&Builtin",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,7,22,52,10
-    CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,7,
-                    43,52,10
-    EDITTEXT        IDC_EXTDIFF,61,41,209,14,ES_AUTOHSCROLL | WS_GROUP
+                    WS_GROUP,7,23,74,10
+    CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,
+                    89,23,71,10
+    EDITTEXT        IDC_EXTDIFF,7,41,263,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,279,41,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
                     IDC_STATIC,7,70,160,19
@@ -843,10 +844,10 @@ BEGIN
     LTEXT           "Configure the program used to resolve conflicted files.",
                     IDC_STATIC,7,7,251,8
     CONTROL         "B&uiltin",IDC_EXTMERGE_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,7,22,46,10
+                    WS_GROUP,7,23,70,10
     CONTROL         "E&xternal",IDC_EXTMERGE_ON,"Button",BS_AUTORADIOBUTTON,
-                    7,43,46,10
-    EDITTEXT        IDC_EXTMERGE,61,41,209,14,ES_AUTOHSCROLL | WS_GROUP
+                    89,23,76,10
+    EDITTEXT        IDC_EXTMERGE,7,41,263,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,279,41,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
                     IDC_STATIC,7,70,160,19
@@ -861,10 +862,10 @@ BEGIN
     LTEXT           "Configure viewer program for GNU diff files (patch files).",
                     IDC_STATIC,7,7,286,8
     CONTROL         "Bu&iltin",IDC_DIFFVIEWER_OFF,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,7,22,46,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,7,23,67,10
     CONTROL         "Ex&ternal",IDC_DIFFVIEWER_ON,"Button",
-                    BS_AUTORADIOBUTTON,7,43,46,10
-    EDITTEXT        IDC_DIFFVIEWER,61,41,212,14,ES_AUTOHSCROLL | WS_GROUP
+                    BS_AUTORADIOBUTTON,89,23,74,10
+    EDITTEXT        IDC_DIFFVIEWER,7,41,266,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,279,41,14,14
 END
 
@@ -1064,9 +1065,11 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
+        VERTGUIDE, 14
         VERTGUIDE, 108
         VERTGUIDE, 199
         VERTGUIDE, 229
+        VERTGUIDE, 284
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
     END
@@ -1276,6 +1279,7 @@ BEGIN
         RIGHTMARGIN, 293
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
+        HORZGUIDE, 33
     END
 
     IDD_SETTINGSPROGSMERGE, DIALOG
@@ -1284,6 +1288,7 @@ BEGIN
         RIGHTMARGIN, 293
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
+        HORZGUIDE, 33
     END
 
     IDD_SETTINGSPROGSUNIDIFF, DIALOG
@@ -1292,6 +1297,7 @@ BEGIN
         RIGHTMARGIN, 293
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
+        HORZGUIDE, 33
     END
 
     IDD_SETTINGSLOOKANDFEEL, DIALOG
@@ -1991,12 +1997,12 @@ BEGIN
     IDS_LOG_POPUP_REVERTREVS "Revert changes from these revisions"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -2039,7 +2045,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
