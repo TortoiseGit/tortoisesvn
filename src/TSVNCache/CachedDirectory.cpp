@@ -281,56 +281,58 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		return CStatusCacheEntry();
 	}
 
-	AutoLocker lock(m_critSec);
-	CSVNStatusCache& mainCache = CSVNStatusCache::Instance();
-	SVNPool subPool(mainCache.m_svnHelp.Pool());
-	m_mostImportantFileStatus = svn_wc_status_none;
-	m_childDirectories.clear();
-	m_entryCache.clear();
-	m_bCurrentFullStatusValid = false;
-	m_ownStatus.SetStatus(NULL);
-
-	if(!bThisDirectoryIsUnversioned)
 	{
-		ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
-		svn_error_t* pErr = svn_client_status2 (
-			NULL,
-			m_directoryPath.GetSVNApiPath(),
-			&revision,
-			GetStatusCallback,
-			this,
-			FALSE,
-			TRUE,									//getall
-			FALSE,
-			TRUE,									//noignore
-			FALSE,									//ignore externals
-			mainCache.m_svnHelp.ClientContext(),
-			subPool
-			);
+		AutoLocker lock(m_critSec);
+		CSVNStatusCache& mainCache = CSVNStatusCache::Instance();
+		SVNPool subPool(mainCache.m_svnHelp.Pool());
+		m_mostImportantFileStatus = svn_wc_status_none;
+		m_childDirectories.clear();
+		m_entryCache.clear();
+		m_bCurrentFullStatusValid = false;
+		m_ownStatus.SetStatus(NULL);
 
-		if(pErr)
+		if(!bThisDirectoryIsUnversioned)
 		{
-			// Handle an error
-			// The most likely error on a folder is that it's not part of a WC
-			// In most circumstances, this will have been caught earlier,
-			// but in some situations, we'll get this error.
-			// If we allow ourselves to fall on through, then folders will be asked
-			// for their own status, and will set themselves as unversioned, for the 
-			// benefit of future requests
-			ATLTRACE("svn_cli_stat err: '%s'\n", pErr->message);
-			svn_error_clear(pErr);
-			// No assert here! Since we _can_ get here, an assertion is not an option!
-			// Reasons to get here: 
-			// - renaming a folder with many subfolders --> results in "not a working copy" if the revert
-			//   happens between our checks and the svn_client_status() call.
-			// - reverting a move/copy --> results in "not a working copy" (as above)
-			m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-			return CStatusCacheEntry();
+			ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
+			svn_error_t* pErr = svn_client_status2 (
+				NULL,
+				m_directoryPath.GetSVNApiPath(),
+				&revision,
+				GetStatusCallback,
+				this,
+				FALSE,
+				TRUE,									//getall
+				FALSE,
+				TRUE,									//noignore
+				FALSE,									//ignore externals
+				mainCache.m_svnHelp.ClientContext(),
+				subPool
+				);
+
+			if(pErr)
+			{
+				// Handle an error
+				// The most likely error on a folder is that it's not part of a WC
+				// In most circumstances, this will have been caught earlier,
+				// but in some situations, we'll get this error.
+				// If we allow ourselves to fall on through, then folders will be asked
+				// for their own status, and will set themselves as unversioned, for the 
+				// benefit of future requests
+				ATLTRACE("svn_cli_stat err: '%s'\n", pErr->message);
+				svn_error_clear(pErr);
+				// No assert here! Since we _can_ get here, an assertion is not an option!
+				// Reasons to get here: 
+				// - renaming a folder with many subfolders --> results in "not a working copy" if the revert
+				//   happens between our checks and the svn_client_status() call.
+				// - reverting a move/copy --> results in "not a working copy" (as above)
+				m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+				return CStatusCacheEntry();
+			}
 		}
-	}
-	else
-	{
-		ATLTRACE("Skipped SVN status for unversioned folder\n");
+		else
+		{
+			ATLTRACE("Skipped SVN status for unversioned folder\n");
+		}
 	}
 	// Now that we've refreshed our SVN status, we can see if it's 
 	// changed the 'most important' status value for this directory.
