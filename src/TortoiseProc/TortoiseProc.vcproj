@@ -4,6 +4,7 @@
 	Version="7.10"
 	Name="TortoiseProc"
 	ProjectGUID="{50797F06-39C5-4802-8E2B-7B7A4EF03214}"
+	RootNamespace="TortoiseProc"
 	Keyword="MFCProj">
 	<Platforms>
 		<Platform
@@ -90,6 +91,7 @@
 				RuntimeLibrary="2"
 				BufferSecurityCheck="FALSE"
 				TreatWChar_tAsBuiltInType="TRUE"
+				RuntimeTypeInfo="TRUE"
 				UsePrecompiledHeader="3"
 				WarningLevel="4"
 				DebugInformationFormat="3"/>
