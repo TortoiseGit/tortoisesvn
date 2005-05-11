@@ -21,7 +21,7 @@
 #include "StandAloneDlg.h"
 
 
-class CCheckForUpdatesDlg : public CDialog
+class CCheckForUpdatesDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CCheckForUpdatesDlg)
 
