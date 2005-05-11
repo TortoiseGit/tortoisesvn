@@ -76,6 +76,8 @@ private:
 	BOOL			m_bAutocompletion;
 	CRegDWORD		m_regOldLogAPIs;
 	BOOL			m_bOldLogAPIs;
+	
+	BOOL			m_bInitialized;
 
 public:
 	virtual BOOL OnInitDialog();

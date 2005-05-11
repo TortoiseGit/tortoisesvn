@@ -39,6 +39,7 @@ CSetDialogs::CSetDialogs()
 	, m_bOldLogAPIs(FALSE)
 	, m_dwFontSize(0)
 	, m_sFontName(_T(""))
+	, m_bInitialized(FALSE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -56,6 +57,8 @@ CSetDialogs::~CSetDialogs()
 
 void CSetDialogs::SaveData()
 {
+	if (m_bInitialized == FALSE)
+		return;
 	m_regAutoClose = m_dwAutoClose;
 	m_regShortDateFormat = m_bShortDateFormat;
 	long val = _ttol(m_sDefaultLogs);
@@ -171,6 +174,8 @@ BOOL CSetDialogs::OnInitDialog()
 		m_cFontSizes.SetWindowText(temp);
 	}
 
+	m_bInitialized = TRUE;
+	
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
