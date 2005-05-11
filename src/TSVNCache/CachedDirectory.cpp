@@ -210,7 +210,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		{
 			// We don't have directory status in our cache
 			// Ask the directory if it knows its own status
-			AutoLocker lock(m_critSec);
 			CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 			if(dirEntry->IsOwnStatusValid())
 			{
@@ -226,6 +225,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 				// To keep recursive status up to date, we'll request that children are all crawled again
 				// This will be very quick if nothing's changed, because it will all be cache hits
+				AutoLocker lock(m_critSec);
 				ChildDirStatus::const_iterator it;
 				for(it = dirEntry->m_childDirectories.begin(); it != dirEntry->m_childDirectories.end(); ++it)
 				{
@@ -267,8 +267,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		strCacheKey = GetCacheKey(path);
 	}
 
-	CSVNStatusCache& mainCache = CSVNStatusCache::Instance();
-	SVNPool subPool(mainCache.m_svnHelp.Pool());
 	svn_opt_revision_t revision;
 	revision.kind = svn_opt_revision_unspecified;
 
@@ -284,6 +282,8 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	}
 
 	AutoLocker lock(m_critSec);
+	CSVNStatusCache& mainCache = CSVNStatusCache::Instance();
+	SVNPool subPool(mainCache.m_svnHelp.Pool());
 	m_mostImportantFileStatus = svn_wc_status_none;
 	m_childDirectories.clear();
 	m_entryCache.clear();

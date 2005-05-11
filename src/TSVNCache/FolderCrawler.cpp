@@ -139,13 +139,13 @@ void CFolderCrawler::WorkerThread()
 			}
 	
 			{
-				AutoLocker lock(m_critSec);
 				if(m_foldersToUpdate.empty())
 				{
 					// Nothing left to do 
 					break;
 				}
 
+				AutoLocker lock(m_critSec);
 				if(m_bItemsAddedSinceLastCrawl)
 				{
 					// The queue has changed - it's worth sorting and de-duping
