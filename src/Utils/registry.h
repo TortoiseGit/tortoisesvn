@@ -483,7 +483,7 @@ protected:
  * \version 1.0 
  * \date 02-2004
  */
-class CRegKey
+class CRegistryKey
 {
 public:	//methods
 	/**
@@ -491,8 +491,8 @@ public:	//methods
 	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey"
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
-	CRegKey(const CString& key, HKEY base = HKEY_CURRENT_USER);
-	~CRegKey();
+	CRegistryKey(const CString& key, HKEY base = HKEY_CURRENT_USER);
+	~CRegistryKey();
 
 	/**
 	 * Creates the registry key if it does not already exist.

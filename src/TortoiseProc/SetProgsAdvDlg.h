@@ -62,7 +62,7 @@ protected:
 
 private:
 	CString		m_sType;				///< tool type ("Diff" or "Merge")
-	CRegKey		m_regToolKey;			///< registry key where the tools are stored
+	CRegistryKey m_regToolKey;			///< registry key where the tools are stored
 	CListCtrl	m_ToolListCtrl;			///< list control used for viewing and editing
 
 	typedef std::map<CString,CString> TOOL_MAP;

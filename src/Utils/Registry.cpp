@@ -468,7 +468,7 @@ CRegPoint& CRegPoint::operator =(CPoint s)
 
 /////////////////////////////////////////////////////////////////////
 
-CRegKey::CRegKey(const CString& key, HKEY base)
+CRegistryKey::CRegistryKey(const CString& key, HKEY base)
 {
 	m_base = base;
 	m_hKey = NULL;
@@ -476,13 +476,13 @@ CRegKey::CRegKey(const CString& key, HKEY base)
 	m_path.TrimLeft(_T("\\"));
 }
 
-CRegKey::~CRegKey()
+CRegistryKey::~CRegistryKey()
 {
 	if (m_hKey)
 		RegCloseKey(m_hKey);
 }
 
-DWORD CRegKey::createKey()
+DWORD CRegistryKey::createKey()
 {
 	DWORD disp;
 	DWORD rc = RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &m_hKey, &disp);
@@ -493,13 +493,13 @@ DWORD CRegKey::createKey()
 	return RegCloseKey(m_hKey);
 }
 
-DWORD CRegKey::removeKey()
+DWORD CRegistryKey::removeKey()
 {
 	RegOpenKeyEx(m_base, m_path, 0, KEY_WRITE, &m_hKey);
 	return SHDeleteKey(m_base, (LPCTSTR)m_path);
 }
 
-bool CRegKey::getValues(CStringList& values)
+bool CRegistryKey::getValues(CStringList& values)
 {
 	values.RemoveAll();
 
@@ -520,7 +520,7 @@ bool CRegKey::getValues(CStringList& values)
 	return values.GetCount() > 0;
 }
 
-bool CRegKey::getSubKeys(CStringList& subkeys)
+bool CRegistryKey::getSubKeys(CStringList& subkeys)
 {
 	subkeys.RemoveAll();
 

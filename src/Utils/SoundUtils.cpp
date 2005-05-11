@@ -47,7 +47,7 @@ void CSoundUtils::RegisterTSVNSounds()
 
 	CString apppath = CUtils::GetAppDirectory();
 	
-	CRegKey schemenamekey = CRegKey(_T("AppEvents\\Schemes\\Names"));
+	CRegistryKey schemenamekey = CRegistryKey(_T("AppEvents\\Schemes\\Names"));
 	CStringList schemenames;
 	schemenamekey.getSubKeys(schemenames);
 	// if the sound scheme has been modified but not save under a different name,
