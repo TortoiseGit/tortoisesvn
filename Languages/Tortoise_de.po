@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-09 21:28+0100\n"
+"PO-Revision-Date: 2005-05-11 11:12+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -428,10 +428,10 @@ msgstr "- %d"
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1187
+#: Control-ID:1104
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
-#: Control-ID:1104
 msgid "..."
 msgstr "..."
 
@@ -582,11 +582,11 @@ msgstr "Datei hinzu&fügen..."
 
 #: ID:110
 msgid "Add Extension Specific Diff Program"
-msgstr "Dateityp-spezifisches Diff Programm hinzufügen"
+msgstr "Diff Programm für Dateityp hinzufügen"
 
 #: ID:110
 msgid "Add Extension Specific Merge Program"
-msgstr "Dateityp-spezifisches Merge Programm hinzufügen"
+msgstr "Merge Programm für Dateityp hinzufügen"
 
 #: ID:13
 msgid "Add To Ignore List"
@@ -598,7 +598,7 @@ msgstr "Hier zum Projektarchiv hinzufügen"
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "Dateityp-spezifisches Diff/Merge Programm bearbeiten/hinzufügen"
+msgstr "Diff/Merge Programm für Dateityp bearbeiten/hinzufügen"
 
 #: ID:73
 #: Control-ID:65535
@@ -711,8 +711,7 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"Ein externes Merge Programm,\n"
-"um Konflikte in Dateien aufzulösen\n"
+"Ein externes Merge Programm, um Konflikte in Dateien aufzulösen\n"
 "<hr=100%>\n"
 "Sie können folgende Parameter für das Programm angeben:\n"
 "%base\t\tDie Originaldatei, ohne Ihre Änderungen\n"
@@ -817,17 +816,25 @@ msgstr "Autoren:"
 # Control-ID:1123,
 #: ID:222
 msgid "Auto-close if no conflicts"
-msgstr "Schließen, falls keine Konflikte"
+msgstr "Falls keine Konflikte"
 
 # ID:222,
 #: ID:222
 msgid "Auto-close if no errors"
-msgstr "Schließen, falls keine Fehler"
+msgstr "Falls keine Fehler"
 
 # ID:222,
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Schließen, falls kein Löschen, Hinzufügen oder Zusammenführen"
+msgstr "Falls kein Löschen, Hinzufügen oder Zusammenführen"
+
+#: Control-ID:65535
+msgid "Autoclose:"
+msgstr "Schließen:"
+
+#: Control-ID:1073
+msgid "Automatically check for newer versions every week"
+msgstr "Wöchentlich auf eine neuere Version prüfen"
 
 #: Control-ID:1157
 msgid "Average"
@@ -949,7 +956,7 @@ msgstr "Operation abbrechen..."
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Cascaded Context Menu"
-msgstr "Verschachteltes Kontextmenü"
+msgstr "TortoiseSVN Kontextmenü"
 
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1003,9 +1010,9 @@ msgstr "Projektarchiv prüfen"
 msgid "Check for Modifications"
 msgstr "Auf Änderungen prüfen"
 
-#: Control-ID:1073
-msgid "Check for newer &versions"
-msgstr "Prüfe auf neue &Versionen"
+#: Control-ID:1215
+msgid "Check now"
+msgstr "Jetzt prüfen"
 
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1026,7 +1033,7 @@ msgstr "Überprüfen Sie den eingegebenen Pfad und/oder die URL."
 
 #: ID:194
 msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Markieren Sie die Einträge, welche im Untermenü anstatt im  obersten Kontextmenü erscheinen sollen."
+msgstr "Markieren Sie die Einträge, die im TortoiseSVN Untermenü anstatt im Windows Kontextmenü erscheinen sollen."
 
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
@@ -1081,11 +1088,11 @@ msgstr ""
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "Klicke auf \"Erweitert\", um ein alternatives Diff Programm für Dateitypen zu wählen."
+msgstr "Alternative Diff Programme für Dateitypen definieren."
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Klicke auf \"Erweitert\" um ein alternatives Merge Programm für Dateitypen zu wählen."
+msgstr "Alternative Merge Programe für Dateitypen definieren."
 
 # ID:257,
 #: ID:257
@@ -1095,7 +1102,7 @@ msgstr "Zwischenablage"
 # ID:222,
 #: ID:222
 msgid "Close manually"
-msgstr "Manuell schließen"
+msgstr "Manuell"
 
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1113,6 +1120,10 @@ msgstr "Farben"
 #: ID:3857
 msgid "Command failed."
 msgstr "Befehl konnte nicht ausgeführt werden."
+
+#: Control-ID:1083
+msgid "Commit"
+msgstr "Übertragen"
 
 #: Control-ID:1110
 msgid "Commit to:"
@@ -1140,10 +1151,6 @@ msgstr "Übertragungen pro Woche:"
 msgid "Commits your changes to the repository"
 msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
 
-#: Control-ID:1083
-msgid "Committing"
-msgstr "Übertragen"
-
 #: Control-ID:1019
 msgid "Compare Whitespaces"
 msgstr "Vergleiche Leerzeichen"
@@ -1163,6 +1170,18 @@ msgstr "Vergleicht die Datei mit der letzten übertragenen Revision, um Ihre Än
 #: ID:74
 msgid "Completed"
 msgstr "Fertig"
+
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "Konfigurieren Sie das Programm zum Betrachten verschiedener Dateirevisionen."
+
+#: Control-ID:65535
+msgid "Configure the program used to resolve conflicted files."
+msgstr "Konfigurieren Sie das Programm zum Auflösen von Konflikten."
+
+#: Control-ID:65535
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "Konfigurieren Sie das Programm zum Anzeigen von GNU Diff Dateien (Patch Dateien)."
 
 #: ID:263
 #: Control-ID:65535
@@ -1388,7 +1407,7 @@ msgstr "Datum"
 
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr "A&nzahl der angezeigten Log-Meldungen"
+msgstr "A&nzahl der angezeigten Meldungen"
 
 #: ID:11
 msgid "Delete"
@@ -1417,18 +1436,6 @@ msgstr "Vergleiche"
 #: Control-ID:65535
 msgid "Diff File:"
 msgstr "Diff Datei:"
-
-#: Control-ID:65535
-msgid "Diff Program"
-msgstr "Diff Programm"
-
-#: Control-ID:65535
-msgid "Diff Viewer"
-msgstr "Diff Betrachter"
-
-#: Dlg-ID:163
-msgid "Diff/Merge"
-msgstr "Diff / Merge"
 
 #: Control-ID:1022
 msgid "Diffing"
@@ -1551,11 +1558,11 @@ msgstr "Konflikt bearbeiten"
 
 #: ID:110
 msgid "Edit Extension Specific Diff Program"
-msgstr "Bearbeite Dateityp-spezifisches Diff Programm"
+msgstr "Diff Programm für Dateityp bearbeiten"
 
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
-msgstr "Bearbeite Dateityp-spezifisches Merge Programm"
+msgstr "Merge Programm für Dateityp bearbeiten"
 
 #: ID:113
 msgid "Edit Log Message"
@@ -1639,7 +1646,7 @@ msgstr "Ausnahmen:"
 
 #: Control-ID:65535
 msgid "Exclude paths:"
-msgstr "Pfade ausschließen:"
+msgstr "Pfade &ausschließen:"
 
 #: Control-ID:65535
 msgid "Exclude/Ignore pattern:"
@@ -1672,7 +1679,7 @@ msgstr "Erweiterung"
 
 #: Control-ID:65535
 msgid "Extension specific programs"
-msgstr "Dateityp-spezifische Programme"
+msgstr "Programme für Dateitypen"
 
 #: Control-ID:65535
 msgid "Extension:"
@@ -1684,7 +1691,19 @@ msgstr "Extern"
 
 #: Control-ID:65535
 msgid "External Program:"
-msgstr "Externes Programm:"
+msgstr "Anwendung:"
+
+#: Dlg-ID:192
+msgid "External Programs::Diff Viewer"
+msgstr "Externe Programme::Diff Programm"
+
+#: Dlg-ID:193
+msgid "External Programs::Merge Tool"
+msgstr "Externe Programme::Zusammenführen"
+
+#: Dlg-ID:194
+msgid "External Programs::Unified Diff Viewer"
+msgstr "Externe Programme::Standard Diff Betrachter"
 
 #: ID:74
 msgid "Failed Revert"
@@ -1720,6 +1739,10 @@ msgstr "Hole Revision %s der Datei:"
 #: ID:207
 msgid "File"
 msgstr "Datei"
+
+#: ID:376
+msgid "File Diffs"
+msgstr "Datei Unterschiede"
 
 #: ID:376
 #: Dlg-ID:135
@@ -1774,6 +1797,7 @@ msgstr "GDI+ konnte nicht intialisiert werden!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ konne kein Bitmapobjekt erzeugen. Vermutlich reicht der Speicher nicht aus."
 
+#: Dlg-ID:143
 #: Dlg-ID:107
 msgid "General"
 msgstr "Allgemein"
@@ -1958,7 +1982,7 @@ msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
 
 #: Control-ID:65535
 msgid "Include paths:"
-msgstr "Pfade einschließen:"
+msgstr "Pfade &einschließen:"
 
 #: ID:76
 msgid "Initial Import"
@@ -2159,18 +2183,29 @@ msgid "Log Message History:"
 msgstr "Historie der Log-Meldungen:"
 
 #: Dlg-ID:130
+#: Control-ID:65535
 msgid "Log Messages"
 msgstr "Log-Meldungen"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
+#: Dlg-ID:195
 msgid "Look and Feel"
 msgstr "Anzeige"
 
 # Dlg-ID:106,
+#: Dlg-ID:196
+msgid "Look and Feel::Dialogs"
+msgstr "Anzeige::Dialoge"
+
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel::Icon Overlays"
+msgstr "Anzeige::Überlagerte Symbole"
+
+# Dlg-ID:106,
 #: Dlg-ID:184
-msgid "Look and Feel::Overlays"
-msgstr "Anzeige::Symbole"
+msgid "Look and Feel::Icon Set"
+msgstr "Anzeige::Symbolauswahl"
 
 # ID:238,
 #: ID:238
@@ -2185,10 +2220,6 @@ msgstr "Kleinste Revision: %ld - Größte Revision: %ld - Neueste Revision: %ld"
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "Mail System DLL ist ungültig."
-
-#: Dlg-ID:143
-msgid "Main"
-msgstr "Hauptseite"
 
 # ID:2051,
 #: ID:2051
@@ -2207,10 +2238,6 @@ msgstr "Maximum"
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "Zusammenführen"
-
-#: Control-ID:65535
-msgid "Merge Program"
-msgstr "Merge Programm"
 
 #: ID:9
 msgid "Merge..."
@@ -2249,7 +2276,6 @@ msgstr "Mime Typ"
 msgid "Min"
 msgstr "Minimum"
 
-#: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
 msgstr "Allgemein"
@@ -2609,10 +2635,9 @@ msgstr "Programm"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programme (*.exe)|*.*|Alle Dateien (*.*)|*.*||"
 
-# Control-ID:65535,
 #: Control-ID:65535
-msgid "Progress dialog:"
-msgstr "Fortschrittsanzeige:"
+msgid "Progress"
+msgstr "Fortschritt"
 
 #: Control-ID:65535
 #: Dlg-ID:177
@@ -2653,7 +2678,7 @@ msgstr ""
 
 #: Control-ID:1073
 msgid "R&AM drives"
-msgstr "R&AM disks"
+msgstr "&RAM disks"
 
 #: ID:3697
 msgid "REC"
@@ -3158,7 +3183,7 @@ msgstr "Zeige &Eigenschaften"
 
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "&Kurzes Datum/Zeit Format in Log-Meldungen"
+msgstr "&Kurzes Datum/Zeit Format in Meldungen"
 
 #: ID:12
 msgid "Short Url of Subversion items"
@@ -3189,7 +3214,7 @@ msgstr "Zeige &Log"
 
 #: Control-ID:1088
 msgid "Show &overlays only in explorer"
-msgstr "Überlagerte Ic&ons nur im Explorer anzeigen"
+msgstr "&Überlagerte Symbole nur im Explorer anzeigen"
 
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -3974,7 +3999,7 @@ msgstr "Dateinamen und Schlüsselwörter automatisch vervollständigen"
 # Control-ID:1214,
 #: Control-ID:1214
 msgid "Use old API's to fetch log messages"
-msgstr "Benutze alte API, um Log-Meldungen zu holen"
+msgstr "&Alte API verwenden, um Meldungen zu holen"
 
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -4018,14 +4043,6 @@ msgstr "URL der Arbeitskopie an geänderte URL des Projektarchivs anpassen."
 msgid "Use whole other &file"
 msgstr "Verwende &gesamte andere Datei"
 
-#: Control-ID:65535
-msgid "Used for comparing different revisions of files."
-msgstr "Zum Vergleichen verschiedener Revisionen von Dateien"
-
-#: Control-ID:65535
-msgid "Used to resolve conflicted files."
-msgstr "Zum Auflösen von Konflikten"
-
 #: ID:74
 msgid "User cancelled"
 msgstr "Abbruch durch Anwender"
@@ -4059,10 +4076,6 @@ msgstr "Wert"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Version"
-
-#: Control-ID:65535
-msgid "Viewer program for GNU diff files (patch files)."
-msgstr "Anzeigeprogramm für GNU Diff Dateien (Patch Dateien)."
 
 #: Control-ID:1084
 msgid "Visit our website"

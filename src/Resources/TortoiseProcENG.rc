@@ -68,7 +68,7 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -884,32 +884,32 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel::Dialogs"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Revision Log",IDC_STATIC,7,7,286,64
+    GROUPBOX        "Log Messages",IDC_STATIC,7,7,286,87
     LTEXT           "Default &number of log messages",IDC_STATIC,13,20,204,8
-    EDITTEXT        IDC_DEFAULTLOG,229,19,55,14,ES_AUTOHSCROLL | ES_NUMBER,
+    EDITTEXT        IDC_DEFAULTLOG,229,20,55,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
-    CONTROL         "Short &date/time format in log messages",
-                    IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,36,271,10
-    CONTROL         "Use old API's to fetch log messages",IDC_OLDAPILOGS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,52,271,8
-    GROUPBOX        "Progress",IDC_STATIC,7,79,286,38
-    LTEXT           "Autoclose:",IDC_STATIC,13,97,87,8
-    COMBOBOX        IDC_AUTOCLOSECOMBO,108,94,176,75,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "Commit",IDC_COMMITGROUP,7,123,286,87
-    CONTROL         "Set filedates to the ""last commit time""",
-                    IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,138,271,10
-    LTEXT           "Font for log messages:",IDC_STATIC,13,157,116,8
-    COMBOBOX        IDC_FONTNAMES,131,154,112,90,CBS_DROPDOWNLIST | 
+    LTEXT           "Font for log messages:",IDC_STATIC,13,44,116,8
+    COMBOBOX        IDC_FONTNAMES,107,41,136,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,253,155,31,47,CBS_DROPDOWN | WS_VSCROLL | 
+    COMBOBOX        IDC_FONTSIZES,253,41,31,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
+    CONTROL         "Short &date/time format in log messages",
+                    IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,63,271,10
+    CONTROL         "Use old API's to fetch log messages",IDC_OLDAPILOGS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,79,271,8
+    GROUPBOX        "Progress",IDC_STATIC,7,100,286,38
+    LTEXT           "Autoclose:",IDC_STATIC,13,119,87,8
+    COMBOBOX        IDC_AUTOCLOSECOMBO,107,116,177,75,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Commit",IDC_COMMITGROUP,7,147,286,63
+    CONTROL         "Set filedates to the ""last commit time""",
+                    IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,161,271,10
     CONTROL         "Use autocompletion of filepaths and keywords",
                     IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,177,271,10
+                    13,174,271,10
 END
 
 
@@ -1991,12 +1991,12 @@ BEGIN
     IDS_LOG_POPUP_REVERTREVS "Revert changes from these revisions"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -2039,7 +2039,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
