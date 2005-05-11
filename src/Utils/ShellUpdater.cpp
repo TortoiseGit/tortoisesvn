@@ -87,93 +87,76 @@ void CShellUpdater::UpdateShell()
 	// There's no point asking the shell to do more than it has to, so we remove the duplicates before
 	// passing the list on
 	m_pathsForUpdating.RemoveDuplicates();
-	
-	BOOL bUseExternalCache = CRegStdWORD(_T("Software\\TortoiseSVN\\ExternalCache"), TRUE);
-	
-	if (bUseExternalCache)
+
+	// if we use the external cache, we tell the cache directly that something
+	// has changed, without the detour via the shell.
+	HANDLE hPipe = CreateFile( 
+		TSVN_CACHE_COMMANDPIPE_NAME,	// pipe name 
+		GENERIC_READ |					// read and write access 
+		GENERIC_WRITE, 
+		0,								// no sharing 
+		NULL,							// default security attributes
+		OPEN_EXISTING,					// opens existing pipe 
+		FILE_FLAG_OVERLAPPED,			// default attributes 
+		NULL);							// no template file 
+
+
+	if (hPipe != INVALID_HANDLE_VALUE) 
 	{
-		// if we use the external cache, we tell the cache directly that something
-		// has changed, without the detour via the shell.
-		HANDLE hPipe = CreateFile( 
-			TSVN_CACHE_COMMANDPIPE_NAME,	// pipe name 
-			GENERIC_READ |					// read and write access 
-			GENERIC_WRITE, 
-			0,								// no sharing 
-			NULL,							// default security attributes
-			OPEN_EXISTING,					// opens existing pipe 
-			FILE_FLAG_OVERLAPPED,			// default attributes 
-			NULL);							// no template file 
+		// The pipe connected; change to message-read mode. 
+		DWORD dwMode; 
 
-
-		if (hPipe != INVALID_HANDLE_VALUE) 
+		dwMode = PIPE_READMODE_MESSAGE; 
+		if(SetNamedPipeHandleState( 
+			hPipe,    // pipe handle 
+			&dwMode,  // new pipe mode 
+			NULL,     // don't set maximum bytes 
+			NULL))    // don't set maximum time 
 		{
-			// The pipe connected; change to message-read mode. 
-			DWORD dwMode; 
-
-			dwMode = PIPE_READMODE_MESSAGE; 
-			if(SetNamedPipeHandleState( 
-				hPipe,    // pipe handle 
-				&dwMode,  // new pipe mode 
-				NULL,     // don't set maximum bytes 
-				NULL))    // don't set maximum time 
+			for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
 			{
-				for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
-				{
-					ATLTRACE("Cache Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
+				ATLTRACE("Cache Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
 
-					DWORD cbWritten; 
-					TSVNCacheCommand cmd;
-					cmd.command = TSVNCACHECOMMAND_CRAWL;
-					wcsncpy(cmd.path, m_pathsForUpdating[nPath].GetDirectory().GetWinPath(), MAX_PATH);
-					BOOL fSuccess = WriteFile( 
-						hPipe,			// handle to pipe 
-						&cmd,			// buffer to write from 
-						sizeof(cmd),	// number of bytes to write 
-						&cbWritten,		// number of bytes written 
-						NULL);			// not overlapped I/O 
+				DWORD cbWritten; 
+				TSVNCacheCommand cmd;
+				cmd.command = TSVNCACHECOMMAND_CRAWL;
+				wcsncpy(cmd.path, m_pathsForUpdating[nPath].GetDirectory().GetWinPath(), MAX_PATH);
+				BOOL fSuccess = WriteFile( 
+					hPipe,			// handle to pipe 
+					&cmd,			// buffer to write from 
+					sizeof(cmd),	// number of bytes to write 
+					&cbWritten,		// number of bytes written 
+					NULL);			// not overlapped I/O 
 
-					if (! fSuccess || sizeof(cmd) != cbWritten)
-					{
-						DisconnectNamedPipe(hPipe); 
-						CloseHandle(hPipe); 
-						hPipe = INVALID_HANDLE_VALUE;
-						bUseExternalCache = false;		// fall back using the shell notifications
-						break;
-					}
-				}
-				if (hPipe != INVALID_HANDLE_VALUE)
+				if (! fSuccess || sizeof(cmd) != cbWritten)
 				{
-					// now tell the cache we don't need it's command thread anymore
-					DWORD cbWritten; 
-					TSVNCacheCommand cmd;
-					cmd.command = TSVNCACHECOMMAND_END;
-					WriteFile( 
-						hPipe,			// handle to pipe 
-						&cmd,			// buffer to write from 
-						sizeof(cmd),	// number of bytes to write 
-						&cbWritten,		// number of bytes written 
-						NULL);			// not overlapped I/O 
 					DisconnectNamedPipe(hPipe); 
 					CloseHandle(hPipe); 
 					hPipe = INVALID_HANDLE_VALUE;
+					break;
 				}
 			}
-			else
+			if (hPipe != INVALID_HANDLE_VALUE)
 			{
-				ATLTRACE("SetNamedPipeHandleState failed"); 
-				CloseHandle(hPipe);
-				bUseExternalCache = false;		// fall back using the shell notifications
+				// now tell the cache we don't need it's command thread anymore
+				DWORD cbWritten; 
+				TSVNCacheCommand cmd;
+				cmd.command = TSVNCACHECOMMAND_END;
+				WriteFile( 
+					hPipe,			// handle to pipe 
+					&cmd,			// buffer to write from 
+					sizeof(cmd),	// number of bytes to write 
+					&cbWritten,		// number of bytes written 
+					NULL);			// not overlapped I/O 
+				DisconnectNamedPipe(hPipe); 
+				CloseHandle(hPipe); 
+				hPipe = INVALID_HANDLE_VALUE;
 			}
 		}
 		else
-			bUseExternalCache = false;		// fall back using the shell notifications
-	}
-	if (!bUseExternalCache)
-	{
-		for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
 		{
-			ATLTRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
-			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
+			ATLTRACE("SetNamedPipeHandleState failed"); 
+			CloseHandle(hPipe);
 		}
 	}
 }
