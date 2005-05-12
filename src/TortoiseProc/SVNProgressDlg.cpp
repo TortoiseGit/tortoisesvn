@@ -623,6 +623,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				UuidMap uuidmap;
 				bool bRecursive = !!(m_options & ProgOptRecursive);
 				SVNRev revstore = m_Revision;
+				int nUUIDs = 0;
 				for(int nItem = 0; nItem < targetcount; nItem++)
 				{
 					const CTSVNPath& targetPath = m_targetPathList[nItem];
@@ -641,7 +642,10 @@ UINT CSVNProgressDlg::ProgressThread()
 									uuid = st.status->entry->uuid;
 									UuidMap::const_iterator iter;
 									if ((iter = uuidmap.find(uuid)) == uuidmap.end())
+									{
 										uuidmap[uuid] = headrev;
+										nUUIDs++;
+									}
 									else
 										headrev = iter->second;
 									m_Revision = headrev;
@@ -665,7 +669,22 @@ UINT CSVNProgressDlg::ProgressThread()
 				else if (m_targetPathList.GetCount() == 1)
 					SetWindowText(m_targetPathList[0].GetWinPathString()+_T(" - ")+sWindowTitle);
 				
-				if (!m_pSvn->Update(m_targetPathList, m_Revision, bRecursive, m_options & ProgOptIgnoreExternals))
+				if (nUUIDs > 1)
+				{
+					// the selected items are from different repositories,
+					// so we have to update them separately
+					for(int nItem = 0; nItem < targetcount; nItem++)
+					{
+						const CTSVNPath& targetPath = m_targetPathList[nItem];
+						
+						if (!m_pSvn->Update(CTSVNPathList(targetPath), revstore, bRecursive, m_options & ProgOptIgnoreExternals))
+						{
+							ReportSVNError();
+							break;
+						}
+					}
+				}
+				else if (!m_pSvn->Update(m_targetPathList, m_Revision, bRecursive, m_options & ProgOptIgnoreExternals))
 				{
 					ReportSVNError();
 					break;
