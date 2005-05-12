@@ -131,6 +131,8 @@ public:
 		}
 		CString GetRelativeSVNPath() const
 		{
+			if (path.IsEquivalentTo(basepath))
+				return path.GetSVNPathString();
 			return path.GetSVNPathString().Mid(basepath.GetSVNPathString().GetLength()+1);
 		}
 		const bool IsLocked() const
