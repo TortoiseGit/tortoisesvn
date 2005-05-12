@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-10 11:56Westeuropäische Sommerzeit\n"
+"POT-Creation-Date: 2005-05-12 21:57GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -737,35 +737,51 @@ msgstr ""
 msgid "Status Of The Repository"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:165(title) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:165(title) source/en/tsvn_dug/dug_wcstatus.xml:202(guilabel) 
 msgid "Check for Modifications"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:163(para) 
-msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have. If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
+msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:185(para) 
-msgid "From the context menu of the dialog you can show a diff of the changes or revert your local changes. TortoiseSVN automatically downloads the most recent version from the repository to do the diff."
+#: source/en/tsvn_dug/dug_wcstatus.xml:180(para) 
+msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:193(title) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:188(para) 
+msgid "From the context menu of the dialog you can show a diff of the changes. TortoiseSVN automatically downloads the most recent version from the repository to do the diff."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:194(para) 
+msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:204(guilabel) 
+msgid "Show unmodified files"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:199(tip) 
+msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <placeholder-1/> dialog is the easiest way to achieve that. Just check the <placeholder-2/> checkbox to show all files in your working copy."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:209(title) 
 msgid "Viewing Diffs"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:195(primary) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:211(primary) 
 msgid "diffing"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:197(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:213(para) 
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:206(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:222(para) 
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:210(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:226(para) 
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr ""
 
@@ -3121,7 +3137,7 @@ msgid "for founding the TortoiseSVN project"
 msgstr ""
 
 #: source/en/tsvn_preface.xml:122(term) source/en/tme_ch00.xml:68(term) 
-msgid "Stefan Küng"
+msgid "Stefan KÃ¼ng"
 msgstr ""
 
 #: source/en/tsvn_preface.xml:124(para) 
@@ -3129,7 +3145,7 @@ msgid "for the hard work to get TortoiseSVN to what it is now"
 msgstr ""
 
 #: source/en/tsvn_preface.xml:130(term) source/en/tme_ch00.xml:78(term) 
-msgid "Lübbe Onken"
+msgid "LÃ¼bbe Onken"
 msgstr ""
 
 #: source/en/tsvn_preface.xml:132(para) source/en/tme_ch00.xml:82(para) 
@@ -3237,11 +3253,11 @@ msgid "In 2002, Tim Kemp found that Subversion was a very good version control s
 msgstr ""
 
 #: source/en/tsvn_introduction.xml:58(para) 
-msgid "Tim studied the sourcecode of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain tortoisesvn.org and put the sourcecode online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
+msgid "Tim studied the sourcecode of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain tortoisesvn.org and put the sourcecode online. During that time, Stefan KÃ¼ng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
 msgstr ""
 
 #: source/en/tsvn_introduction.xml:69(para) 
-msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The userbase grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
+msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The userbase grew quickly (and is still growing every day). That's when LÃ¼bbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
 msgstr ""
 
 #: source/en/tsvn_introduction.xml:82(title) 
@@ -4625,11 +4641,11 @@ msgid "Stefan"
 msgstr ""
 
 #: source/en/tortoisesvn.xml:11(surname) source/en/tortoisemerge.xml:12(surname) 
-msgid "Küng"
+msgid "KÃ¼ng"
 msgstr ""
 
 #: source/en/tortoisesvn.xml:14(firstname) source/en/tortoisemerge.xml:15(firstname) 
-msgid "Lübbe"
+msgid "LÃ¼bbe"
 msgstr ""
 
 #: source/en/tortoisesvn.xml:15(surname) source/en/tortoisemerge.xml:16(surname) 

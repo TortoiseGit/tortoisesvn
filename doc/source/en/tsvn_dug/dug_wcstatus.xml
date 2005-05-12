@@ -175,7 +175,10 @@
 			comes in handy.
 			This dialog will show you every file that has changed in any
 			way in your working copy, as well as any unversioned files
-			you may have. If you click on the
+			you may have.
+		</para>
+		<para>
+			If you click on the
 			<guibutton>Check Repository</guibutton> then you can also
 			look for changes in the repository. That way
 			you can check before an update if there's a possible conflict.
@@ -184,10 +187,23 @@
 		</para>
 		<para>
 			From the context menu of the dialog you can show a diff of the
-			changes or revert your local changes. TortoiseSVN automatically
+			changes. TortoiseSVN automatically
 			downloads the most recent version from the repository to do
 			the diff.
 		</para>
+		<para>
+			You can also revert changes in individual files. If you have deleted
+			a file accidentally, it will show up as <literal>Missing</literal>
+			and you can use <literal>Revert</literal> to recover it.
+		</para>
+		<tip>
+			If you want a flat view of your working copy, i.e. showing all files
+			and folders at every level of the folder hierarchy, then the
+			<guilabel>Check for Modifications</guilabel> dialog is the
+			easiest way to achieve that. Just check the
+			<guilabel>Show unmodified files</guilabel> checkbox to show
+			all files in your working copy.
+		</tip>
 	</sect2>
 	<sect2 id="tsvn-DUG-diffing">
 		<title>Viewing Diffs</title>
