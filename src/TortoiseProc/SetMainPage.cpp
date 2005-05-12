@@ -34,10 +34,12 @@ CSetMainPage::CSetMainPage()
 	: CPropertyPage(CSetMainPage::IDD)
 	, m_sTempExtensions(_T(""))
 	, m_bCheckNewer(TRUE)
+	, m_bLastCommitTime(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
+	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 }
 
 CSetMainPage::~CSetMainPage()
@@ -49,6 +51,7 @@ void CSetMainPage::SaveData()
 	m_regLanguage = m_dwLanguage;
 	m_regExtensions = m_sTempExtensions;
 	m_regCheckNewer = m_bCheckNewer;
+	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -58,6 +61,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
+	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 }
 
 
@@ -68,6 +72,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
 	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
 	ON_BN_CLICKED(IDC_CHECKNEWERBUTTON, OnBnClickedChecknewerbutton)
+	ON_BN_CLICKED(IDC_COMMITFILETIMES, OnBnClickedCommitfiletimes)
 END_MESSAGE_MAP()
 
 
@@ -82,11 +87,16 @@ BOOL CSetMainPage::OnInitDialog()
 	m_dwLanguage = m_regLanguage;
 	m_bCheckNewer = m_regCheckNewer;
 
+	CString temp;
+	temp = m_regLastCommitTime;
+	m_bLastCommitTime = (temp.CompareNoCase(_T("yes"))==0);
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
 	m_tooltips.AddTool(IDC_CHECKNEWERVERSION, IDS_SETTINGS_CHECKNEWER_TT);
 	m_tooltips.AddTool(IDC_CLEARAUTH, IDS_SETTINGS_CLEARAUTH_TT);
-	
+	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
+
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
 	m_LanguageCombo.SetItemData(0, 1033);
@@ -141,6 +151,11 @@ void CSetMainPage::OnEnChangeTempextensions()
 }
 
 void CSetMainPage::OnBnClickedChecknewerversion()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnBnClickedCommitfiletimes()
 {
 	SetModified();
 }

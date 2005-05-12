@@ -69,8 +69,6 @@ private:
 	DWORD			m_dwFontSize;
 	CRegString		m_regFontName;
 	CString			m_sFontName;
-	CRegString		m_regLastCommitTime;
-	BOOL			m_bLastCommitTime;
 	CComboBox		m_cAutoClose;
 	CRegDWORD		m_regAutocompletion;
 	BOOL			m_bAutocompletion;
@@ -88,7 +86,6 @@ public:
 	afx_msg void OnBnClickedShortdateformat();
 	afx_msg void OnCbnSelchangeFontsizes();
 	afx_msg void OnCbnSelchangeFontnames();
-	afx_msg void OnBnClickedCommitfiletimes();
 	afx_msg void OnCbnSelchangeAutoclosecombo();
 	afx_msg void OnBnClickedAutocompletion();
 	afx_msg void OnBnClickedOldapilogs();

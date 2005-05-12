@@ -34,7 +34,6 @@ CSetDialogs::CSetDialogs()
 	: CPropertyPage(CSetDialogs::IDD)
 	, m_sDefaultLogs(_T(""))
 	, m_bShortDateFormat(FALSE)
-	, m_bLastCommitTime(FALSE)
 	, m_bAutocompletion(FALSE)
 	, m_bOldLogAPIs(FALSE)
 	, m_dwFontSize(0)
@@ -46,7 +45,6 @@ CSetDialogs::CSetDialogs()
 	m_regShortDateFormat = CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat"), FALSE);
 	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
-	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 	m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
 	m_regOldLogAPIs = CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
 }
@@ -69,7 +67,6 @@ void CSetDialogs::SaveData()
 
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
-	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
 	m_regAutocompletion = m_bAutocompletion;
 	m_regOldLogAPIs = m_bOldLogAPIs;
 }
@@ -88,7 +85,6 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
 	DDX_Check(pDX, IDC_SHORTDATEFORMAT, m_bShortDateFormat);
-	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
 	DDX_Check(pDX, IDC_AUTOCOMPLETION, m_bAutocompletion);
 	DDX_Check(pDX, IDC_OLDAPILOGS, m_bOldLogAPIs);
@@ -98,7 +94,6 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CSetDialogs, CPropertyPage)
 	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
 	ON_BN_CLICKED(IDC_SHORTDATEFORMAT, OnBnClickedShortdateformat)
-	ON_BN_CLICKED(IDC_COMMITFILETIMES, OnBnClickedCommitfiletimes)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
@@ -140,15 +135,11 @@ BOOL CSetDialogs::OnInitDialog()
 			m_cAutoClose.SetCurSel(i);
 
 	CString temp;
-	temp = m_regLastCommitTime;
-	m_bLastCommitTime = (temp.CompareNoCase(_T("yes"))==0);
-
 	temp.Format(_T("%ld"), (DWORD)m_regDefaultLogs);
 	m_sDefaultLogs = temp;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
-	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSECOMBO, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.AddTool(IDC_OLDAPILOGS, IDS_SETTINGS_OLDLOGAPIS_TT);
 	
@@ -203,11 +194,6 @@ void CSetDialogs::OnCbnSelchangeFontsizes()
 }
 
 void CSetDialogs::OnCbnSelchangeFontnames()
-{
-	SetModified();
-}
-
-void CSetDialogs::OnBnClickedCommitfiletimes()
 {
 	SetModified();
 }

@@ -420,14 +420,17 @@ BEGIN
     LTEXT           "Exclude/Ignore pattern:",IDC_STATIC,14,47,84,18,
                     SS_CENTERIMAGE
     EDITTEXT        IDC_TEMPEXTENSIONS,108,49,176,14,ES_AUTOHSCROLL
-    LTEXT           "Subversion configuration file:",IDC_STATIC,14,78,176,8
-    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,200,75,84,14
-    PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,199,102,85,14
+    LTEXT           "Subversion configuration file:",IDC_STATIC,14,91,176,8
+    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,200,88,84,14
+    PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,199,115,85,14
     CONTROL         "Automatically check for newer versions every week",
                     IDC_CHECKNEWERVERSION,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,14,129,185,20
-    PUSHBUTTON      "Check now",IDC_CHECKNEWERBUTTON,199,132,85,14
-    GROUPBOX        "Subversion",IDC_STATIC,7,36,286,125
+                    WS_TABSTOP,14,142,185,20
+    PUSHBUTTON      "Check now",IDC_CHECKNEWERBUTTON,199,145,85,14
+    GROUPBOX        "Subversion",IDC_STATIC,7,36,286,140
+    CONTROL         "Set filedates to the ""last commit time""",
+                    IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,71,270,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217
@@ -905,9 +908,6 @@ BEGIN
     COMBOBOX        IDC_AUTOCLOSECOMBO,107,116,177,75,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Commit",IDC_COMMITGROUP,7,147,286,63
-    CONTROL         "Set filedates to the ""last commit time""",
-                    IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,161,271,10
     CONTROL         "Use autocompletion of filepaths and keywords",
                     IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     13,174,271,10

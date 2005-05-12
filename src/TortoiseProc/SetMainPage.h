@@ -65,6 +65,8 @@ private:
 	DWORD			m_dwLanguage;
 	CRegDWORD		m_regCheckNewer;
 	BOOL			m_bCheckNewer;
+	CRegString		m_regLastCommitTime;
+	BOOL			m_bLastCommitTime;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -76,4 +78,5 @@ public:
 	afx_msg void OnBnClickedChecknewerversion();
 	afx_msg void OnBnClickedClearauth();
 	afx_msg void OnBnClickedChecknewerbutton();
+	afx_msg void OnBnClickedCommitfiletimes();
 };
