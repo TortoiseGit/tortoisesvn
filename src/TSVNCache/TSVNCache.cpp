@@ -33,10 +33,10 @@
 
 CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TSVNCache : " STRPRODUCTVER);// crash
 
-VOID				InstanceThread(LPVOID); 
-VOID				PipeThread(LPVOID);
-VOID				CommandWaitThread(LPVOID);
-VOID				CommandThread(LPVOID);
+DWORD WINAPI 		InstanceThread(LPVOID); 
+DWORD WINAPI		PipeThread(LPVOID);
+DWORD WINAPI		CommandWaitThread(LPVOID);
+DWORD WINAPI		CommandThread(LPVOID);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 bool				bRun = true;
 NOTIFYICONDATA		niData; 
@@ -199,7 +199,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	hPipeThread = CreateThread( 
 		NULL,              // no security attribute 
 		0,                 // default stack size 
-		(LPTHREAD_START_ROUTINE) PipeThread, 
+		PipeThread, 
 		(LPVOID) &bRun,    // thread parameter 
 		0,                 // not suspended 
 		&dwThreadId);      // returns thread ID 
@@ -217,7 +217,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	hCommandWaitThread = CreateThread( 
 		NULL,              // no security attribute 
 		0,                 // default stack size 
-		(LPTHREAD_START_ROUTINE) CommandWaitThread, 
+		CommandWaitThread, 
 		(LPVOID) &bRun,    // thread parameter 
 		0,                 // not suspended 
 		&dwThreadId);      // returns thread ID 
@@ -335,7 +335,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).BuildCacheResponse(*pReply, *pResponseLength);
 }
 
-VOID PipeThread(LPVOID lpvParam)
+DWORD WINAPI PipeThread(LPVOID lpvParam)
 {
 	ATLTRACE("PipeThread started\n");
 	bool * bRun = (bool *)lpvParam;
@@ -380,7 +380,7 @@ VOID PipeThread(LPVOID lpvParam)
 			hInstanceThread = CreateThread( 
 				NULL,              // no security attribute 
 				0,                 // default stack size 
-				(LPTHREAD_START_ROUTINE) InstanceThread, 
+				InstanceThread, 
 				(LPVOID) hPipe,    // thread parameter 
 				0,                 // not suspended 
 				&dwThreadId);      // returns thread ID 
@@ -395,7 +395,7 @@ VOID PipeThread(LPVOID lpvParam)
 				// otherwise the thread is dead, but the app is still running, refusing new instances
 				// but no pipe will be available anymore.
 				PostMessage(hWnd, WM_CLOSE, 0, 0);
-				return;
+				return 1;
 			}
 			else CloseHandle(hInstanceThread); 
 		} 
@@ -409,9 +409,10 @@ VOID PipeThread(LPVOID lpvParam)
 		}
 	}
 	ATLTRACE("Pipe thread exited\n");
+	return 0;
 }
 
-VOID CommandWaitThread(LPVOID lpvParam)
+DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 {
 	ATLTRACE("CommandWaitThread started\n");
 	bool * bRun = (bool *)lpvParam;
@@ -456,7 +457,7 @@ VOID CommandWaitThread(LPVOID lpvParam)
 			hCommandThread = CreateThread( 
 				NULL,              // no security attribute 
 				0,                 // default stack size 
-				(LPTHREAD_START_ROUTINE) CommandThread, 
+				CommandThread, 
 				(LPVOID) hPipe,    // thread parameter 
 				0,                 // not suspended 
 				&dwThreadId);      // returns thread ID 
@@ -471,7 +472,7 @@ VOID CommandWaitThread(LPVOID lpvParam)
 				// otherwise the thread is dead, but the app is still running, refusing new instances
 				// but no pipe will be available anymore.
 				PostMessage(hWnd, WM_CLOSE, 0, 0);
-				return;
+				return 1;
 			}
 			else CloseHandle(hCommandThread); 
 		} 
@@ -485,9 +486,10 @@ VOID CommandWaitThread(LPVOID lpvParam)
 		}
 	}
 	ATLTRACE("CommandWait thread exited\n");
+	return 0;
 }
 
-VOID InstanceThread(LPVOID lpvParam) 
+DWORD WINAPI InstanceThread(LPVOID lpvParam) 
 { 
 	ATLTRACE("InstanceThread started\n");
 	TSVNCacheResponse response; 
@@ -515,7 +517,7 @@ VOID InstanceThread(LPVOID lpvParam)
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
 			ATLTRACE("Instance thread exited\n");
-			return;
+			return 1;
 		}
 
 		DWORD responseLength;
@@ -534,7 +536,7 @@ VOID InstanceThread(LPVOID lpvParam)
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
 			ATLTRACE("Instance thread exited\n");
-			return;
+			return 1;
 		}
 	} 
 
@@ -546,9 +548,10 @@ VOID InstanceThread(LPVOID lpvParam)
 	DisconnectNamedPipe(hPipe); 
 	CloseHandle(hPipe); 
 	ATLTRACE("Instance thread exited\n");
+	return 0;
 }
 
-VOID CommandThread(LPVOID lpvParam) 
+DWORD WINAPI CommandThread(LPVOID lpvParam) 
 { 
 	ATLTRACE("CommandThread started\n");
 	DWORD cbBytesRead; 
@@ -575,7 +578,7 @@ VOID CommandThread(LPVOID lpvParam)
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
 			ATLTRACE("Command thread exited\n");
-			return;
+			return 1;
 		}
 		
 		switch (command.command)
@@ -585,7 +588,7 @@ VOID CommandThread(LPVOID lpvParam)
 				DisconnectNamedPipe(hPipe); 
 				CloseHandle(hPipe); 
 				ATLTRACE("Command thread exited\n");
-				return;
+				return 0;
 			case TSVNCACHECOMMAND_CRAWL:
 				CTSVNPath changedpath;
 				changedpath.SetFromWin(CString(command.path), true);
@@ -604,4 +607,5 @@ VOID CommandThread(LPVOID lpvParam)
 	DisconnectNamedPipe(hPipe); 
 	CloseHandle(hPipe); 
 	ATLTRACE("Command thread exited\n");
+	return 0;
 }
