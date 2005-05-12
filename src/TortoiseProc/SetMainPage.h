@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "..\\Utils\\Balloon.h"
-#include "IconStatic.h"
 #include "FontPreviewCombo.h"
 #include "Registry.h"
 #include "afxwin.h"

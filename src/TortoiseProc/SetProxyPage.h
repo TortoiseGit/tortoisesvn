@@ -18,7 +18,6 @@
 //
 #pragma once
 
-#include "IconStatic.h"
 #include "Balloon.h"
 #include "Registry.h"
 #include "FileDropEdit.h"
