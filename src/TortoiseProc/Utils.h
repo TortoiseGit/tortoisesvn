@@ -100,11 +100,6 @@ public:
 	static CStringA PathEscape(const CStringA& path);
 
 	/**
-	 * Returns TRUE if the path/URL contains escaped chars
-	 */
-	static BOOL IsEscaped(const char * path);
-
-	/**
 	 * Returns the version string from the VERSION resource of a dll or exe.
 	 * \param p_strDateiname path to the dll or exe
 	 * \return the version string

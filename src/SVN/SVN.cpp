@@ -1625,8 +1625,7 @@ CStringA SVN::MakeSVNUrlOrPath(const CString& UrlOrPath)
 	CStringA url = CUnicodeUtils::GetUTF8(UrlOrPath);
 	if (svn_path_is_url(url))
 	{
-		if (!CUtils::IsEscaped(url))
-			url = CUtils::PathEscape(url);
+		url = CUtils::PathEscape(url);
 	}
 	return url;
 }

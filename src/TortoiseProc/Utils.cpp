@@ -475,63 +475,120 @@ void CUtils::Unescape(char * psz)
 	*pszDest = '\0';
 }
 
+static const char iri_escape_chars[256] = {
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+
+		/* 128 */
+		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0
+};
+
+const char uri_autoescape_chars[256] = {
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		0, 1, 0, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 0, 1, 0, 1,
+
+		/* 64 */
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 0, 1, 0, 1,
+		0, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 0, 0, 0, 1, 1,
+
+		/* 128 */
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+
+		/* 192 */
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1, 1, 1, 1,
+};
+
+static const char uri_char_validity[256] = {
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+		0, 1, 0, 0, 1, 0, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 1, 0, 0,
+
+		/* 64 */
+		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 0, 1,
+		0, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 0, 1, 0,
+
+		/* 128 */
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+
+		/* 192 */
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
+};
+
 CStringA CUtils::PathEscape(const CStringA& path)
 {
-	CStringA ret = path;
-	ret.Replace((" "), ("%20"));
-	ret.Replace(("^"), ("%5E"));
-	ret.Replace(("&"), ("%26"));
-	ret.Replace(("`"), ("%60"));
-	ret.Replace(("{"), ("%7B"));
-	ret.Replace(("}"), ("%7D"));
-	ret.Replace(("|"), ("%7C"));
-	ret.Replace(("]"), ("%5D"));
-	ret.Replace(("["), ("%5B"));
-	ret.Replace(("\""), ("%22"));
-	ret.Replace(("<"), ("%3C"));
-	ret.Replace((">"), ("%3E"));
-	ret.Replace(("#"), ("%23"));
-	ret.Replace(("?"), ("%3F"));
-	ret.Replace(("\\"), ("%5C"));
+	CStringA ret2;
+	int c;
+	int i;
+	for (i=0; path[i]; ++i)
+	{
+		c = (unsigned char)path[i];
+		if (iri_escape_chars[c])
+		{
+			// no escaping needed for that char
+			ret2 += (unsigned char)path[i];
+		}
+		else
+		{
+			// char needs escaping
+			CStringA temp;
+			temp.Format("%%%02X", (unsigned char)c);
+			ret2 += temp;
+		}
+	}
+	CStringA ret;
+	for (i=0; ret2[i]; ++i)
+	{
+		c = (unsigned char)ret2[i];
+		if (uri_autoescape_chars[c])
+		{
+			// no escaping needed for that char
+			ret += (unsigned char)ret2[i];
+		}
+		else
+		{
+			// char needs escaping
+			CStringA temp;
+			temp.Format("%%%02X", (unsigned char)c);
+			ret += temp;
+		}
+	}
+
 	ret.Replace(("file:///%5C"), ("file:///\\"));
 	ret.Replace(("file:////%5C"), ("file:////\\"));
 
 	return ret;
-}
-
-BOOL CUtils::IsEscaped(const char * path)
-{
-	if (strstr(path, "%20") > 0)
-		return TRUE;
-	if (strstr(path, "%5E") > 0)
-		return TRUE;
-	if (strstr(path, "%26") > 0)
-		return TRUE;
-	if (strstr(path, "%60") > 0)
-		return TRUE;
-	if (strstr(path, "%7B") > 0)
-		return TRUE;
-	if (strstr(path, "%7D") > 0)
-		return TRUE;
-	if (strstr(path, "%7C") > 0)
-		return TRUE;
-	if (strstr(path, "%5D") > 0)
-		return TRUE;
-	if (strstr(path, "%5B") > 0)
-		return TRUE;
-	if (strstr(path, "%22") > 0)
-		return TRUE;
-	if (strstr(path, "%3C") > 0)
-		return TRUE;
-	if (strstr(path, "%3E") > 0)
-		return TRUE;
-	if (strstr(path, "%5C") > 0)
-		return TRUE;
-	if (strstr(path, "%23") > 0)
-		return TRUE;
-	if (strstr(path, "%3F") > 0)
-		return TRUE;
-	return FALSE;
 }
 
 CString CUtils::GetVersionFromFile(const CString & p_strDateiname)

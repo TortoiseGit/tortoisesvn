@@ -158,14 +158,11 @@ const char* CTSVNPath::GetSVNApiPath() const
 		SetUTF8FwdslashPath(m_sFwdslashPath);
 	}
 #if defined(_MFC_VER)
-//BUGBUG HORRIBLE!!! - CUtils::IsEscaped doesn't need to be MFC-only
+//BUGBUG HORRIBLE!!! - CUtils::PathEscape doesn't need to be MFC-only
 	if (svn_path_is_url(m_sUTF8FwdslashPath))
 	{
-		if (!CUtils::IsEscaped(m_sUTF8FwdslashPath))
-		{
-			m_sUTF8FwdslashPathEscaped = CUtils::PathEscape(m_sUTF8FwdslashPath);
-			return m_sUTF8FwdslashPathEscaped;
-		}
+		m_sUTF8FwdslashPathEscaped = CUtils::PathEscape(m_sUTF8FwdslashPath);
+		return m_sUTF8FwdslashPathEscaped;
 	}
 #endif // _MFC_VER
 	return m_sUTF8FwdslashPath;
@@ -915,10 +912,13 @@ private:
 #if defined(_MFC_VER)
 		testPath.SetFromUnknown(_T("http://testing again"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
+		testPath.SetFromUnknown(_T("http://testing%20again"));
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
 		testPath.SetFromUnknown(_T("http://testing special chars äöü"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20special%20chars%20Ã¤Ã¶Ã¼") == 0);		
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20special%20chars%20%C3%A4%C3%B6%C3%BC") == 0);		
 #endif
 	}
+
 	
 #if defined(_MFC_VER)
 	void ValidPathAndUrlTest()
