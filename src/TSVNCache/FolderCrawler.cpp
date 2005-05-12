@@ -42,8 +42,7 @@ CFolderCrawler::~CFolderCrawler(void)
 	CloseHandle(m_hWakeEvent);
 }
 
-void 
-CFolderCrawler::Initialise()
+void CFolderCrawler::Initialise()
 {
 	// Don't call Initalise more than once
 	ATLASSERT(m_hThread == INVALID_HANDLE_VALUE);
@@ -58,18 +57,8 @@ CFolderCrawler::Initialise()
 	SetThreadPriority(m_hThread, THREAD_PRIORITY_IDLE);
 }
 
-void 
-CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
+void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 {
-	if (!PathFileExists(path.GetWinPath()))
-	{
-		// the path doesn't exist anymore (e.g. directory deleted, renamed, moved)
-		CSVNStatusCache::Instance().RemoveCacheForPath(path);
-		return;
-	}
-	
-	ATLASSERT(path.IsDirectory());
-
 	{
 		AutoLocker lock(m_critSec);
 		m_foldersToUpdate.push_back(path);
@@ -157,11 +146,20 @@ void CFolderCrawler::WorkerThread()
 				workingPath = m_foldersToUpdate.front();
 				m_foldersToUpdate.pop_front();
 			}
-
-			ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
-
-			// Now, we need to visit this folder, to make sure that we know its 'most important' status
-			CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus();
+			
+			if (!PathFileExists(workingPath.GetWinPath()))
+			{
+				// the path doesn't exist anymore (e.g. directory deleted, renamed, moved)
+				CSVNStatusCache::Instance().WaitToWrite();
+				CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+				CSVNStatusCache::Instance().Done();
+			}
+			else
+			{
+				ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
+				// Now, we need to visit this folder, to make sure that we know its 'most important' status
+				CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus();
+			}
 
 			Sleep(10);
 		}

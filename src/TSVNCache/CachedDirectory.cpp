@@ -190,9 +190,9 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			{
 				if ((PathFileExists(path.GetWinPath()))||(bRequestForSelf))
 					return CStatusCacheEntry();
-				// the entry doesn't exist anymore! Remove the cache entry
-				// of it so we never have to deal with it anymore.
-				CSVNStatusCache::Instance().RemoveCacheForPath(path);
+				// the entry doesn't exist anymore! 
+				// Let the crawler remove it from the cache.
+				CSVNStatusCache::Instance().AddFolderForCrawling(path);
 				return CStatusCacheEntry();
 			}
 			else
@@ -219,7 +219,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				CTSVNPath svnFilePath(dirEntry->m_directoryPath);
 				if (!svnFilePath.HasAdminDir())
 				{
-					CSVNStatusCache::Instance().RemoveCacheForPath(svnFilePath);
+					CSVNStatusCache::Instance().AddFolderForCrawling(svnFilePath);
 					return CStatusCacheEntry();
 				}
 

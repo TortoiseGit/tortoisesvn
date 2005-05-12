@@ -332,7 +332,9 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 		path.SetFromWin(pRequest->path);
 	}
 
+	CSVNStatusCache::Instance().WaitToRead();
 	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).BuildCacheResponse(*pReply, *pResponseLength);
+	CSVNStatusCache::Instance().Done();
 }
 
 DWORD WINAPI PipeThread(LPVOID lpvParam)
@@ -593,7 +595,9 @@ DWORD WINAPI CommandThread(LPVOID lpvParam)
 				CTSVNPath changedpath;
 				changedpath.SetFromWin(CString(command.path), true);
 				// remove the path from our cache - that will 'invalidate' it.
+				CSVNStatusCache::Instance().WaitToWrite();
 				CSVNStatusCache::Instance().RemoveCacheForPath(changedpath);
+				CSVNStatusCache::Instance().Done();
 				CSVNStatusCache::Instance().AddFolderForCrawling(changedpath);
 				break;
 		}

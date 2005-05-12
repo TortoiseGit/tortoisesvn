@@ -24,6 +24,7 @@
 #include "CachedDirectory.h"
 #include "FolderCrawler.h"
 #include "ShellUpdater.h"
+#include "RWSection.h"
 #include "atlcoll.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -71,7 +72,12 @@ public:
 	/// in the list of handled shell requests to avoid deadlocks.
 	void UpdateShell(const CTSVNPath& path);
 
+	void WaitToRead() {m_rwSection.WaitToRead();}
+	void WaitToWrite() {m_rwSection.WaitToWrite();}
+	void Done() {m_rwSection.Done();}
+
 private:
+	CRWSection m_rwSection;
 	CAtlList<CString> m_askedList;
 	CCachedDirectory::CachedDirMap m_directoryCache; 
 	CComAutoCriticalSection m_critSec;
