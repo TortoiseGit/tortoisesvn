@@ -644,7 +644,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 						break;
 				}		
 			}
-			else if (cmd <= nCorrections)
+			else if (cmd <= (nCorrections+nCustoms))
 			{
 				GetWordUnderCursor(true);
 				CString temp;
@@ -652,7 +652,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)StringForControl(temp));
 			}
 #if THESAURUS
-			else if (cmd <= nThesaurs)
+			else if (cmd <= (nThesaurs+nCorrections+nCustoms))
 			{
 				GetWordUnderCursor(true);
 				CString temp;
