@@ -111,7 +111,5 @@ private:
 	CRegString	m_regExceptions;
 	CRegString	m_regExceptions_copy;
 	CString		m_Exceptions;
-	CIconStatic	m_cSSHGroup;
-	CIconStatic	m_cProxyGroup;
 	CFileDropEdit m_cSSHClientEdit;
 };

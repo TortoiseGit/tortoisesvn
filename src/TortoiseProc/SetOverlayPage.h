@@ -88,7 +88,6 @@ private:
 	CRegDWORD		m_regDriveMaskRAM;
 	CRegDWORD		m_regDriveMaskUnknown;
 	CBalloon		m_tooltips;
-	CIconStatic		m_cDriveGroup;
 	BOOL			m_bInitialized;
 	CRegString		m_regExcludePaths;
 	CString			m_sExcludePaths;

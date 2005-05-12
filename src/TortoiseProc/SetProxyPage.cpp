@@ -113,8 +113,6 @@ void CSetProxyPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EXCEPTIONS, m_Exceptions);
 	DDX_Check(pDX, IDC_ENABLE, m_isEnabled);
 	DDX_Text(pDX, IDC_SSHCLIENT, m_SSHClient);
-	DDX_Control(pDX, IDC_SSHGROUP, m_cSSHGroup);
-	DDX_Control(pDX, IDC_PROXYGROUP, m_cProxyGroup);
 	DDX_Control(pDX, IDC_SSHCLIENT, m_cSSHClientEdit);
 }
 
@@ -136,9 +134,6 @@ END_MESSAGE_MAP()
 BOOL CSetProxyPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
-
-	m_cProxyGroup.SetIcon(IDI_PROXY);
-	m_cSSHGroup.SetIcon(IDI_SSH);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_SERVERADDRESS, IDS_SETTINGS_PROXYSERVER_TT);

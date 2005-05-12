@@ -77,7 +77,6 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CDROM, m_bCDROM);
 	DDX_Check(pDX, IDC_RAM, m_bRAM);
 	DDX_Check(pDX, IDC_UNKNOWN, m_bUnknown);
-	DDX_Control(pDX, IDC_DRIVEGROUP, m_cDriveGroup);
 	DDX_Check(pDX, IDC_ONLYEXPLORER, m_bOnlyExplorer);
 	DDX_Text(pDX, IDC_EXCLUDEPATHS, m_sExcludePaths);
 	DDX_Text(pDX, IDC_INCLUDEPATHS, m_sIncludePaths);
@@ -124,8 +123,6 @@ void CSetOverlayPage::SaveData()
 BOOL CSetOverlayPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
-
-	m_cDriveGroup.SetIcon(IDI_DRIVES);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
