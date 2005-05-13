@@ -33,6 +33,7 @@
 #include "CheckoutDlg.h"
 #include "SVNProgressDlg.h"
 #include "Utils.h"
+#include "UnicodeUtils.h"
 #include "BrowseFolder.h"
 
 #define ID_POPSAVEAS		1
@@ -536,7 +537,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					{
 						if (url.Left(4).CompareNoCase(_T("http")) == 0)
 						{
-							ShellExecute(NULL, _T("open"), url, NULL, NULL, SW_SHOWNORMAL);
+							CString sBrowserUrl = CString(CUtils::PathEscape(CUnicodeUtils::GetUTF8(url)));
+							
+							ShellExecute(NULL, _T("open"), sBrowserUrl, NULL, NULL, SW_SHOWNORMAL);
 							break;
 						}
 					}
