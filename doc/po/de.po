@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-11 10:09+0100\n"
+"PO-Revision-Date: 2005-05-13 11:13+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -732,20 +732,21 @@ msgstr "SSL und Internet Explorer"
 #: source/en/tsvn_server/server_apache.xml:659
 #: (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
-msgstr ""
+msgstr "Wenn Sie Ihren Server mit SSL sichern und sich über eine Windows Domäne anmelden, werden Sie feststellen, dass die Anzeige des Projektarchivs im Internet Explorer nicht mehr funktioniert. Das liegt daran, dass sich der Internet Explorer nicht mehr anmelden kann. Andere Web-Browser haben dieses Problem nicht und sowohl TortoiseSVN als auch andere Subversion Clients können sich problemlos anmelden."
 
 #: source/en/tsvn_server/server_apache.xml:673
 #: (para)
 msgid "define a separate &lt;Location /path&gt; directive in the apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
-msgstr ""
+msgstr "Einen separaten &lt;Location /path&gt; Block in der Apache Konfigurationsdatei definieren und fügen den Eintrag<literal>SSPIBasicPreferred On</literal> hinzufügen. Dies ermöglicht IE die Anmeldung wieder, aber andere Browser und Subversion und Subversion können sich an dieser <literal>Location</literal> nicht anmelden."
 
 #: source/en/tsvn_server/server_apache.xml:683
 #: (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
-msgstr ""
+msgstr "Zusätzlich das Betrachten des Projektarchivs ohne Verschlüsselung (ohne SSL) anbieten. Seltsamerweise hat IE kein Problem mit der Anmeldung, wenn die Übertragung nicht verschlüsselt erfolgt."
 
 #: source/en/tsvn_server/server_apache.xml:691
 #: (para)
+#, fuzzy
 msgid ""
 "In the ssl \"standard\" setup there's often the following statement in apache's virtual ssl host: <screen>\n"
 "SetEnvIf User-Agent \".*MSIE.*\" \\\n"
@@ -753,6 +754,12 @@ msgid ""
 "             downgrade-1.0 force-response-1.0\n"
 "</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want ntlm authentication you have to use keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> If You uncomment the whole \"SetEnvIf\" You should be able to authenticate IE with windows authentication over SSL against the apache on Win32 with included mod_auth_sspi."
 msgstr ""
+"In der SSL <quote>Standardkonfiguration</quote> findet sich häufig der folgende Eintrag im beim virtuellen SSL Host:\n"
+"<screen>SetEnvIf User-Agent \".*MSIE.*\" \\\n"
+"         nokeepalive ssl-unclean-shutdown \\\n"
+"         downgrade-1.0 force-response-1.0\n"
+"</screen>\n"
+"Es gibt (gab?) gute Gründe für diesen Eintrag. Siehe <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"> <citetitle>ModSSL FAQ</citetitle></ulink>. Wenn Sie allerdings das NTLM Anmeldeverfahren nutzen wollen müssen Sie <literal>keepalive</literal> verwenden.<ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"> <citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle> </ulink>. If You uncomment the whole \"SetEnvIf\" You should be able to authenticate IE with windows authentication over SSL against the apache on Win32 with included mod_auth_sspi."
 
 #: source/en/tsvn_server/server_apache.xml:668
 #: (para)
@@ -767,12 +774,12 @@ msgstr "Den Server mit SSL sichern"
 #: source/en/tsvn_server/server_apache.xml:720
 #: (primary)
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: source/en/tsvn_server/server_apache.xml:722
 #: (para)
 msgid "The apache server doesn't have SSL support installed by default due to US-export restrictions. But you can easily download the required module from somewhere else and install it yourself."
-msgstr ""
+msgstr "Aufgrund der US Exportbeschränkungen, unterstützt Apache standardmäßig kein SSL. Das für die Verschlüsselung erforderliche SSL Modul können Sie jedoch einfach aus dem Internet herunterladen und selbst installieren."
 
 #: source/en/tsvn_server/server_apache.xml:729
 #: (para)
@@ -888,6 +895,18 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"Ein Beispiel &lt;Location&gt; Block könne folgendermaßen aussehen:\n"
+"<screen>&lt;Location /svn&gt;\n"
+"DAV svn\n"
+"SVNParentPath D:\\SVN\n"
+"SSLRequireSSL\n"
+"AuthType Basic\n"
+"AuthName \"Subversion repositories\"\n"
+"AuthUserFile passwd\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #: source/en/tsvn_server/server.xml:3
 #: (title)
@@ -1175,12 +1194,12 @@ msgstr ""
 #: source/en/tsvn_dug/dug_wcstatus.xml:49
 #: (para)
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Read-only files have this overlay to indicate that you have to get a lock first before you can edit that file."
-msgstr ""
+msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> Wenn eine Datei die <literal>svn:needs-lock</literal> Eigenschaft besitzt, setzt Subversion den Schreibschutz für diese Datei, bis Sie eine Sperre für die Datei holen. Schreibgeschützte Dateien erhalten dieses Symbol, um anzuzeigen, dass Sie die Datei erst sperren müssen, bevor Sie sie bearbeiten können."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:56
 #: (para)
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <literal>normal</literal>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
-msgstr ""
+msgstr "<graphic fileref=\"images/LockedIcon.png\"/> Wenn Sie die Sperre für eine Datei besitzen und der Subversion Status <literal>normal</literal> ist, erinnert Sie dieses Symbol daran, dass Sie die Sperre wieder freigeben müssen, wenn Sie sie nicht benötigen, damit andere ihre Änderungen übertragen können."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:63
 #: (para)
@@ -1204,32 +1223,32 @@ msgstr "Anders als TortoiseCVS zeigt TortoiseSVN keine überlagerten Symbole fü
 #: source/en/tsvn_dug/dug_wcstatus.xml:80
 #: (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If you are also using TortoiseCVS, then there are not enough overlay slots available, so TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
-msgstr ""
+msgstr "Sie werden möglicherweise feststellen, dass nicht alle diese Symbole auf Ihrem Rechner dargestellt werden. Das liegt daran, dass Windows die Anzahl der überlagerten Symbole auf 15 beschränkt. Windows selber verwendet vier, und die verbleibenden 11 können von anderen Anwendungen genutzt werden. Wenn Sie gleichzeitig TortoiseCVS installiert haben, sind nicht genügend Plätze für die Symbole beider Anwendungen frei. Deshalb versucht TortoiseSVN ein <quote>Guter Bürger(tm)</quote> zu sein und schränkt seine Verwendung von überlagerten Symbolen ein, damit andere Anwendungen eine Chance haben."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:90
 #: (para)
 msgid "<literal>Normal</literal>, <literal>Modified</literal> and <literal>Conflicted</literal> are always loaded and visible."
-msgstr ""
+msgstr "<literal>Normal</literal>, <literal>Verändert</literal> und <literal>Konflikt</literal> sind immer geladen und sichtbar."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:98
 #: (para)
 msgid "<literal>Deleted</literal> is loaded if possible, but falls back to <literal>Modified</literal> if there are not enough slots."
-msgstr ""
+msgstr "<literal>Gelöscht</literal> wird, wenn möglich geladen, fällt aber auf <literal>Verändert</literal> zurück, wenn nicht genügend Plätze frei sind."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:105
 #: (para)
 msgid "<literal>ReadOnly</literal> is loaded if possible, but falls back to <literal>Normal</literal> if there are not enough slots."
-msgstr ""
+msgstr "<literal>Schreibgeschützt</literal> wird, wenn möglich geladen, fällt aber auf <literal>Verändert</literal> zurück, wenn nicht genügend Plätze frei sind."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:112
 #: (para)
 msgid "<literal>Locked</literal> is only loaded if there are less than 13 overlays already loaded. It falls back to <literal>Normal</literal> if there are not enough slots."
-msgstr ""
+msgstr "<literal>Gesperrt</literal> wird nur geladen, wenn weniger als 13 Plätze belegt sint. Es fällt auf <literal>Normal</literal> zurück, wenn nicht genügend frei sind."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:120
 #: (para)
 msgid "<literal>Added</literal> is only loaded if there are less than 14 overlays already loaded. It falls back to <literal>Modified</literal> if there are not enough slots."
-msgstr ""
+msgstr "<literal>Hinzugefügt</literal> wird nur geladen, wenn weniger als 14 Plätze belegt sint. Es fällt auf <literal>Verändert</literal> zurück, wenn nicht genügend frei sind."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:130
 #: (title)
@@ -1263,40 +1282,62 @@ msgstr "Zustand des Projektarchivs"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:165
 #: (title)
+#: source/en/tsvn_dug/dug_wcstatus.xml:202
+#: (guilabel)
 msgid "Check for Modifications"
 msgstr "Auf Änderungen überprüfen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:163
 #: (para)
-msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have. If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
-msgstr "<placeholder-1/> Oft ist es nützlich zu wissen, welche Dateien von anderen bereits geändert und im Projektarchiv gespeichert wurden. Dazu gibt es den Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Auf Änderungen überprüfen</guimenuitem></menuchoice>. Dieser Dialog zeigt Ihnen alle Dateien, welche entweder von Ihnen lokal und/oder von anderen im Projektarchiv geändert wurden. So können Sie schon vor einer Aktualisierung feststellen, ob es eventuell Konflikte geben kann. Sie können auch einzelne Dateien ohne den gesamten Ordner aus dem Projektarchiv aktualisieren."
+msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
+msgstr "<placeholder-1/> Oft ist es nützlich zu wissen, welche Dateien von anderen bereits geändert und im Projektarchiv gespeichert wurden. Dazu gibt es den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen überprüfen...</guimenuitem> </menuchoice>. Dieser Dialog zeigt Ihnen alle Dateien, welche entweder von Ihnen lokal und/oder von anderen im Projektarchiv geändert wurden. Sie können aus diesem Dialog heraus auch einzelne Dateien, ohne den gesamten Ordner, aus dem Projektarchiv aktualisieren."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:185
+#: source/en/tsvn_dug/dug_wcstatus.xml:180
 #: (para)
-msgid "From the context menu of the dialog you can show a diff of the changes or revert your local changes. TortoiseSVN automatically downloads the most recent version from the repository to do the diff."
-msgstr "Aus dem Kontextmenü des Dialogs heraus können Sie die Änderungen anzeigen (Diff), sowohl die Änderungen die Sie lokal gemacht haben als auch die Änderungen von anderen im Projektarchiv. TortoiseSVN lädt automatisch die entsprechende Datei aus dem Projektarchiv, um Ihnen die Änderungen zeigen zu können."
+msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
+msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:193
+#: source/en/tsvn_dug/dug_wcstatus.xml:188
+#: (para)
+msgid "From the context menu of the dialog you can show a diff of the changes. TortoiseSVN automatically downloads the most recent version from the repository to do the diff."
+msgstr "Aus dem Kontextmenü des Dialogs heraus können Sie sowohl die Änderungen die Sie lokal gemacht haben als auch die Änderungen von anderen im Projektarchiv anzeigen. TortoiseSVN lädt automatisch die neueste Version der Datei aus dem Projektarchiv, um die Änderungen zu ermitteln."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:194
+#: (para)
+msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:204
+#: (guilabel)
+msgid "Show unmodified files"
+msgstr "Unveränderte Dateien zeigen"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:199
+#: (tip)
+msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <placeholder-1/> dialog is the easiest way to achieve that. Just check the <placeholder-2/> checkbox to show all files in your working copy."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:209
 #: (title)
 msgid "Viewing Diffs"
 msgstr "Unterschiede Anzeigen"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:195
+#: source/en/tsvn_dug/dug_wcstatus.xml:211
 #: (primary)
 msgid "diffing"
 msgstr "vergleichen"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:197
+#: source/en/tsvn_dug/dug_wcstatus.xml:213
 #: (para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
 msgstr "Oft möchten Sie in einer Datei sehen, was Sie geändert haben. Das können Sie durch das auswählen einer Datei und dem Kontextmenübefehl <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN. Dies startet das TortoiseMerge (oder ein externes Diff-Programm), das Ihnen die Änderungen seit dem letzten Auschecken oder Aktualisieren anzeigt."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:206
+#: source/en/tsvn_dug/dug_wcstatus.xml:222
 #: (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs: Auch wenn Sie sich nicht in einer Arbeitskopie befinden oder mehrere Versionen einer Datei haben, können Sie diese vergleichen: "
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:210
+#: source/en/tsvn_dug/dug_wcstatus.xml:226
 #: (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr "Wählen Sie die beiden Dateien aus (z.B. durch das gedrückthalten von <keycap>Strg<keycap>), die Sie vergleichen wollen und wählen Sie <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN im Kontextmenü. Die zuletzt markierte Datei (die mit dem Fokus, der gestrichelte Rahmen) wird als die aktuellere erkannt. "
