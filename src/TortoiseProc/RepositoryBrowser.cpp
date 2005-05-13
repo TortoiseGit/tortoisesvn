@@ -55,6 +55,7 @@
 //#define ID_POPPROPS			17		commented out because already defined to 17 in LogDlg.h
 #define ID_POPCHECKOUT		18
 #define ID_POPOPENWITH		19
+#define ID_POPURLTOCLIPBOARD 20
 // CRepositoryBrowser dialog
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableStandAloneDialog)
@@ -260,6 +261,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPENWITH, temp);
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
+				
+				temp.LoadString(IDS_REPOBROWSE_URLTOCLIPBOARD);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPURLTOCLIPBOARD, temp);			// "Copy URL to clipboard"
+				
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);			// "Show Log..."
@@ -373,6 +378,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			bool bOpenWith = false;
 			switch (cmd)
 			{
+			case ID_POPURLTOCLIPBOARD:
+				{
+					CUtils::WriteAsciiStringToClipboard(CUtils::PathEscape(CUnicodeUtils::GetUTF8(url)));
+				}
+				break;
 			case ID_POPSAVEAS:
 				{
 					bool bSavePathOK = false;
