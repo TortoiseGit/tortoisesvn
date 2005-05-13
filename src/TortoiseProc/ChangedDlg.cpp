@@ -29,6 +29,7 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CChangedDlg::IDD, pParent)
 	, m_bShowUnversioned(FALSE)
 	, m_iShowUnmodified(0)
+	, m_bBlock(FALSE)
 {
 	m_bRemote = FALSE;
 }
@@ -94,6 +95,7 @@ UINT CChangedDlg::ChangedStatusThreadEntry(LPVOID pVoid)
 
 UINT CChangedDlg::ChangedStatusThread()
 {
+	m_bBlock = TRUE;
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
@@ -130,6 +132,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
+	m_bBlock = FALSE;
 	return 0;
 }
 
@@ -183,4 +186,25 @@ LRESULT CChangedDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 	return 0;
 }
 
+BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_F5:
+			{
+				if (m_bBlock)
+					return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+				if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
+				{
+					CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+				}
+			}
+			break;
+		}
+	}
+
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+}
 

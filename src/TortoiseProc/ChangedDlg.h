@@ -48,6 +48,7 @@ protected:
 	virtual void			OnCancel();
 
 	afx_msg LRESULT			OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+	virtual BOOL			PreTranslateMessage(MSG* pMsg);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -64,5 +65,6 @@ private:
 	bool			m_bRemote;
 	BOOL			m_bShowUnversioned;
 	int				m_iShowUnmodified;
+	BOOL			m_bBlock;
 };
 
