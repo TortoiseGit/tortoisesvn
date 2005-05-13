@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-13 11:13+0100\n"
+"PO-Revision-Date: 2005-05-14 00:00+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -784,12 +784,12 @@ msgstr "Aufgrund der US Exportbeschränkungen, unterstützt Apache standardmäß
 #: source/en/tsvn_server/server_apache.xml:729
 #: (para)
 msgid "First you need the required files to enable SSL. You can find those in the package available at <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Just unzip the package and then copy <filename>mod_ssl.so</filename> to the <filename>modules</filename> folder of Apache and the file <filename>openssl.exe</filename> to the <filename>bin</filename> folder. Also copy the file <filename>conf/ssl.conf</filename> to the <filename>conf</filename> folder of Apache."
-msgstr ""
+msgstr "Zunächst benötigen Sie einige Dateien, um SSL zu aktivieren. Sie finden diese in dem Paket das Sie von <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink> herunterladen können. Entpacken Sie das Paket und kopieren Sie die Datei <filename>mod_ssl.so</filename> in den <filename>modules</filename> Ordner von Apache und die Datei <filename>openssl.exe</filename> in den <filename>bin</filename> Ordner. Kopieren Sie <filename>conf/ssl.conf</filename> in den <filename>conf</filename> Ordner von Apache."
 
 #: source/en/tsvn_server/server_apache.xml:745
 #: (para)
 msgid "Open the file <filename>ssl.conf</filename> in the Apache conf folder with a text editor."
-msgstr ""
+msgstr "Öffnen Die die Datei <filename>ssl.conf</filename> im Apache <filename>conf</filename> Ordner mit einem Texteditor."
 
 #: source/en/tsvn_server/server_apache.xml:752
 #: (para)
@@ -802,6 +802,12 @@ msgid ""
 "TransferLog logs/access_log\n"
 "</screen>"
 msgstr ""
+"Setzen Sie ein Kommentarzeichen (<literal>#</literal>) an den Anfang der folgenden Zeilen:\n"
+"<screen>DocumentRoot \"c:/apache/htdocs\"\n"
+"ServerName www.example.com:443\n"
+"ServerAdmin you@example.com\n"
+"ErrorLog logs/error_log\n"
+"TransferLog logs/access_log</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:765
 #: (para)
@@ -820,6 +826,17 @@ msgid ""
 "SSLMutex  default\n"
 "</screen>"
 msgstr ""
+"Ändern Sie die Zeile\n"
+"<screen>SSLCertificateFile conf/ssl.crt/server.crt</screen>\n"
+"in\n"
+"<screen>SSLCertificateFile conf/ssl/my-server.cert</screen>,die Zeile\n"
+"<screen>SSLCertificateKeyFile conf/ssl.key/server.key</screen>\n"
+"in\n"
+"<screen>SSLCertificateKeyFile conf/ssl/my-server.key</screen>\n"
+"und die Zeile\n"
+"<screen>SSLMutex  file:logs/ssl_mutex</screen>\n"
+"in\n"
+"<screen>SSLMutex  default</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:793
 #: (para)
@@ -830,6 +847,10 @@ msgid ""
 "&lt;/IfDefine&gt;\n"
 "</screen>"
 msgstr ""
+"Löschen Sie die Zeilen\n"
+"<screen>&lt;IfDefine SSL&gt;</screen>\n"
+"und\n"
+"<screen>&lt;/IfDefine&gt;</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:805
 #: (para)
@@ -838,6 +859,8 @@ msgid ""
 "#LoadModule ssl_module modules/mod_ssl.so\n"
 "</screen>"
 msgstr ""
+"Öffnen Sie die Apache Konfigurationsdatei (<filename>httpd.conf</filename>) und entfernen Sie den Kommentar in Zeile\n"
+"<screen>#LoadModule ssl_module modules/mod_ssl.so</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:814
 #: (para)
@@ -862,22 +885,22 @@ msgstr ""
 #: source/en/tsvn_server/server_apache.xml:869
 #: (para)
 msgid "Restart the apache service."
-msgstr ""
+msgstr "Starten Sie den Apache Dienst neu."
 
 #: source/en/tsvn_server/server_apache.xml:874
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
-msgstr ""
+msgstr "Rufen Sie Ihren Web Browser mit der URL <systemitem class=\"url\">https://servername/svn/project</systemitem> auf."
 
 #: source/en/tsvn_server/server_apache.xml:882
 #: (title)
 msgid "Forcing SSL access"
-msgstr ""
+msgstr "SSL Zugriff erzwingen"
 
 #: source/en/tsvn_server/server_apache.xml:883
 #: (para)
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-ssl (http) and only allow https access. To do this, you have to add another directive to the Subversion &lt;Location&gt; block: <literal>SSLRequireSSL</literal>."
-msgstr ""
+msgstr "Wenn Sie SSL eingerichtet haben, um Ihr Projektarchiv abzusichern, möchten Sie vielleicht den normalen, unverschlüsselten http:// Zugriff sperren und nur https:// zulassen. Dafür müssen Sie zusätzlich die Anweisung <literal>SSLRequireSSL</literal> in den Subversion &lt;Location&gt; Block einfügen."
 
 #: source/en/tsvn_server/server_apache.xml:890
 #: (para)
@@ -1290,12 +1313,12 @@ msgstr "Auf Änderungen überprüfen"
 #: source/en/tsvn_dug/dug_wcstatus.xml:163
 #: (para)
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
-msgstr "<placeholder-1/> Oft ist es nützlich zu wissen, welche Dateien von anderen bereits geändert und im Projektarchiv gespeichert wurden. Dazu gibt es den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen überprüfen...</guimenuitem> </menuchoice>. Dieser Dialog zeigt Ihnen alle Dateien, welche entweder von Ihnen lokal und/oder von anderen im Projektarchiv geändert wurden. Sie können aus diesem Dialog heraus auch einzelne Dateien, ohne den gesamten Ordner, aus dem Projektarchiv aktualisieren."
+msgstr "<placeholder-1/> Oft ist es nützlich zu wissen, welche Dateien von anderen bereits geändert und im Projektarchiv gespeichert wurden. Dazu gibt es den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen überprüfen...</guimenuitem> </menuchoice>. Dieser Dialog zeigt Ihnen alle veränderten oder unversionierten Dateien in Ihrer Arbeitskopie."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:180
 #: (para)
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
-msgstr ""
+msgstr "Mit der <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche können Sie das Projektarchiv auf Änderungen prüfen. Auf diese Weise können Sie vor dem Aktualisieren feststellen, ob es möglicherweise Konflikte gibt. Sie können aus diesem Dialog heraus auch einzelne Dateien - ohne den gesamten Ordner - aus dem Projektarchiv aktualisieren."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:188
 #: (para)
@@ -1305,7 +1328,7 @@ msgstr "Aus dem Kontextmenü des Dialogs heraus können Sie sowohl die Änderung
 #: source/en/tsvn_dug/dug_wcstatus.xml:194
 #: (para)
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
-msgstr ""
+msgstr "Sie können auch Änderungen in einzelnen Dateien rückgängig machen. Falls Sie aus Versehen eine Datei gelöscht haben, wird sie in diesem Dialog als <literal>Fehlend</literal> angezeigt und kann mittels <literal>Rückgängig</literal> wieder hergestellt werden."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:204
 #: (guilabel)
