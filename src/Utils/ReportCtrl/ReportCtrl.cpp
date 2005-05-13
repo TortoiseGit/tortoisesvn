@@ -3226,7 +3226,7 @@ INT CReportCtrl::PreviewHeight(CFont* pFont, LPCTSTR lpszText, LPRECT lpRect)
 			rect = *lpRect;
 
 		pDC->SelectObject(pFont);
-		iHeight = pDC->DrawText( lpszText, -1, rect, DT_CALCRECT|DT_EXPANDTABS|DT_WORDBREAK|DT_NOCLIP );
+		iHeight = pDC->DrawText( lpszText, -1, rect, DT_NOPREFIX|DT_CALCRECT|DT_EXPANDTABS|DT_WORDBREAK|DT_NOCLIP );
 		ReleaseDC(pDC);
 	}
 
@@ -4707,7 +4707,7 @@ void CReportCtrl::DrawCtrl(CDC* pDC)
 		if(!m_strNoItems.IsEmpty())
 		{
 			pDC->SetTextColor(m_crText);
-			pDC->DrawText(m_strNoItems, rect, DT_CENTER|DT_END_ELLIPSIS);
+			pDC->DrawText(m_strNoItems, rect, DT_NOPREFIX|DT_CENTER|DT_END_ELLIPSIS);
 		}
 	}
 	else
@@ -5177,15 +5177,15 @@ INT CReportCtrl::DrawText(CDC* pDC, CRect rect, LPRVITEM lprvi)
 		{
 		case HDF_LEFT:
 		case HDF_LEFT|HDF_RTLREADING:
-			pDC->DrawText(lprvi->lpszText, -1, rect, DT_LEFT|DT_END_ELLIPSIS|DT_SINGLELINE|DT_VCENTER);
+			pDC->DrawText(lprvi->lpszText, -1, rect, DT_NOPREFIX|DT_LEFT|DT_END_ELLIPSIS|DT_SINGLELINE|DT_VCENTER);
 			break;
 		case HDF_CENTER:
 		case HDF_CENTER|HDF_RTLREADING:
-			pDC->DrawText(lprvi->lpszText, -1, rect, DT_CENTER|DT_END_ELLIPSIS|DT_SINGLELINE|DT_VCENTER);
+			pDC->DrawText(lprvi->lpszText, -1, rect, DT_NOPREFIX|DT_CENTER|DT_END_ELLIPSIS|DT_SINGLELINE|DT_VCENTER);
 			break;
 		case HDF_RIGHT:
 		case HDF_RIGHT|HDF_RTLREADING:
-			pDC->DrawText(lprvi->lpszText, -1, rect, DT_RIGHT|DT_END_ELLIPSIS|DT_SINGLELINE|DT_VCENTER);
+			pDC->DrawText(lprvi->lpszText, -1, rect, DT_NOPREFIX|DT_RIGHT|DT_END_ELLIPSIS|DT_SINGLELINE|DT_VCENTER);
 			break;
 		}
 	}
