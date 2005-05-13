@@ -109,9 +109,10 @@ CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(int index)
 	return m_arStatusArray[m_arListArray[index]];
 }
 
-void CSVNStatusListCtrl::Init(DWORD dwColumns, bool bHasCheckboxes /* = TRUE */)
+void CSVNStatusListCtrl::Init(DWORD dwColumns, DWORD dwContextMenus /* = SVNSLC_POPALL */, bool bHasCheckboxes /* = true */)
 {
 	m_dwColumns = dwColumns;
+	m_dwContextMenus = dwContextMenus;
 	// set the extended style of the listcontrol
 	DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
 	exStyle |= (bHasCheckboxes ? LVS_EX_CHECKBOXES : 0);
@@ -1245,97 +1246,143 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (entry->remotestatus <= svn_wc_status_normal)
 						{
-							temp.LoadString(IDS_LOG_COMPAREWITHBASE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+							if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
+							{
+								temp.LoadString(IDS_LOG_COMPAREWITHBASE);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+							}
 						}
 						else
 						{
-							temp.LoadString(IDS_LOG_POPUP_COMPARE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+							if (m_dwContextMenus & SVNSLC_POPCOMPARE)
+							{
+								temp.LoadString(IDS_LOG_POPUP_COMPARE);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+							}
 						}
 						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 						if ((wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing))
 						{
-							temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
+							if (m_dwContextMenus & SVNSLC_POPGNUDIFF)
+							{
+								temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
+							}
 						}
 						popup.AppendMenu(MF_SEPARATOR);
 					}
 				}
 				if (wcStatus > svn_wc_status_normal)
 				{
-					temp.LoadString(IDS_MENUREVERT);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REVERT, temp);
+					if (m_dwContextMenus & SVNSLC_POPREVERT)
+					{
+						temp.LoadString(IDS_MENUREVERT);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REVERT, temp);
+					}
 				}
 				if (entry->remotestatus > svn_wc_status_normal)
 				{
-					temp.LoadString(IDS_MENUUPDATE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UPDATE, temp);
+					if (m_dwContextMenus & SVNSLC_POPUPDATE)
+					{
+						temp.LoadString(IDS_MENUUPDATE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UPDATE, temp);
+					}
 					if (GetSelectedCount() == 1)
 					{
-						temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
+						if (m_dwContextMenus & SVNSLC_POPSHOWLOG)
+						{
+							temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
+						}
 					}
 				}
 				if ((wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing) && (GetSelectedCount() == 1))
 				{
-					temp.LoadString(IDS_REPOBROWSE_OPEN);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_OPEN, temp);
+					if (m_dwContextMenus & SVNSLC_POPOPEN)
+					{
+						temp.LoadString(IDS_REPOBROWSE_OPEN);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_OPEN, temp);
+					}
 				}
 				if (wcStatus == svn_wc_status_unversioned)
 				{
-					temp.LoadString(IDS_REPOBROWSE_DELETE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
-					temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD, temp);
+					if (m_dwContextMenus & SVNSLC_POPDELETE)
+					{
+						temp.LoadString(IDS_REPOBROWSE_DELETE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
+					}
+					if (m_dwContextMenus & SVNSLC_POPADD)
+					{
+						temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD, temp);
+					}
 
 					if (GetSelectedCount() == 1)
 					{
-						CString filename = filepath.GetFileOrDirectoryName();
-						if ((filename.ReverseFind('.')>=0)&&(!filepath.IsDirectory()))
+						if (m_dwContextMenus & SVNSLC_POPIGNORE)
 						{
-							CMenu submenu;
-							if (submenu.CreateMenu())
+							CString filename = filepath.GetFileOrDirectoryName();
+							if ((filename.ReverseFind('.')>=0)&&(!filepath.IsDirectory()))
 							{
-								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, filename);
-								filename = _T("*")+filename.Mid(filename.ReverseFind('.'));
-								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, filename);
-								temp.LoadString(IDS_MENUIGNORE);
-								popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)submenu.m_hMenu, temp);
+								CMenu submenu;
+								if (submenu.CreateMenu())
+								{
+									submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, filename);
+									filename = _T("*")+filename.Mid(filename.ReverseFind('.'));
+									submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, filename);
+									temp.LoadString(IDS_MENUIGNORE);
+									popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)submenu.m_hMenu, temp);
+								}
 							}
-						}
-						else
-						{
-							temp.LoadString(IDS_MENUIGNORE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, temp);
+							else
+							{
+								temp.LoadString(IDS_MENUIGNORE);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, temp);
+							}
 						}
 					}
 				}
 				if ((wcStatus == svn_wc_status_conflicted)&&(GetSelectedCount()==1))
 				{
+					if ((m_dwContextMenus & SVNSLC_POPCONFLICT)||(m_dwContextMenus & SVNSLC_POPRESOLVE))
 					popup.AppendMenu(MF_SEPARATOR);
 					
-					temp.LoadString(IDS_MENUCONFLICT);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_EDITCONFLICT, temp);
-					temp.LoadString(IDS_MENURESOLVE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
+					if (m_dwContextMenus & SVNSLC_POPCONFLICT)
+					{
+						temp.LoadString(IDS_MENUCONFLICT);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_EDITCONFLICT, temp);
+					}
+					if (m_dwContextMenus & SVNSLC_POPRESOLVE)
+					{
+						temp.LoadString(IDS_MENURESOLVE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
+					}
 				}
-				if (!entry->IsFolder())
+				if ((!entry->IsFolder())&&(wcStatus >= svn_wc_status_normal))
 					popup.AppendMenu(MF_SEPARATOR);
 				if ((wcStatus >= svn_wc_status_normal)&&(!entry->IsFolder()))
 				{
-					temp.LoadString(IDS_MENU_LOCK);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);					
+					if (m_dwContextMenus & SVNSLC_POPLOCK)
+					{
+						temp.LoadString(IDS_MENU_LOCK);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);					
+					}
 				}
 				if ((!entry->lock_token.IsEmpty())&&(wcStatus >= svn_wc_status_normal)&&(!entry->IsFolder()))
 				{
-					temp.LoadString(IDS_MENU_UNLOCK);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);
+					if (m_dwContextMenus & SVNSLC_POPUNLOCK)
+					{
+						temp.LoadString(IDS_MENU_UNLOCK);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);
+					}
 				}
 				if ((!entry->IsFolder())&&((!entry->lock_token.IsEmpty())||(!entry->lock_remotetoken.IsEmpty()))&&(wcStatus >= svn_wc_status_normal))
 				{
-					temp.LoadString(IDS_MENU_UNLOCKFORCE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);
+					if (m_dwContextMenus & SVNSLC_POPUNLOCKFORCE)
+					{
+						temp.LoadString(IDS_MENU_UNLOCKFORCE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);
+					}
 				}
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				m_bBlock = TRUE;

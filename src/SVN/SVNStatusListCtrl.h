@@ -67,6 +67,24 @@ SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLE
 
 #define SVNSLC_SHOWALL (SVNSLC_SHOWVERSIONED|SVNSLC_SHOWUNVERSIONED)
 
+#define SVNSLC_POPALL					0xFFFFFFFF
+#define SVNSLC_POPCOMPAREWITHBASE		0x00000001
+#define SVNSLC_POPCOMPARE				0x00000002
+#define SVNSLC_POPGNUDIFF				0x00000004
+#define SVNSLC_POPREVERT				0x00000008
+#define SVNSLC_POPUPDATE				0x00000010
+#define SVNSLC_POPSHOWLOG				0x00000020
+#define SVNSLC_POPOPEN					0x00000040
+#define SVNSLC_POPDELETE				0x00000080
+#define SVNSLC_POPADD					0x00000100
+#define SVNSLC_POPIGNORE				0x00000200
+#define SVNSLC_POPCONFLICT				0x00000400
+#define SVNSLC_POPRESOLVE				0x00000800
+#define SVNSLC_POPLOCK					0x00001000
+#define SVNSLC_POPUNLOCK				0x00002000
+#define SVNSLC_POPUNLOCKFORCE			0x00004000
+
+
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 /**
@@ -174,7 +192,7 @@ public:
 	 * \param dwColumns mask of columns to show. Use the SVNSLC_COLxxx defines.
 	 * \param bHasCheckboxes TRUE if the control should show checkboxes on the left of each file entry
 	 */
-	void Init(DWORD dwColumns, bool bHasCheckboxes = TRUE);
+	void Init(DWORD dwColumns, DWORD dwContextMenus = SVNSLC_POPALL, bool bHasCheckboxes = true);
 
 	/**
 	 * Fetches the Subversion status of all files and stores the information
@@ -345,6 +363,7 @@ private:
 
 	DWORD						m_dwColumns;
 	DWORD						m_dwShow;
+	DWORD						m_dwContextMenus;
 	BOOL						m_bBlock;
 
 	int							m_nIconFolder;
