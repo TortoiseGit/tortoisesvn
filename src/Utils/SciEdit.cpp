@@ -218,6 +218,7 @@ CStringA CSciEdit::StringForControl(const CString& text)
 #else
 	sTextA = text;
 #endif
+	ATLTRACE("string length %d\n", sTextA.GetLength());
 	return sTextA;
 }
 
@@ -225,6 +226,14 @@ void CSciEdit::SetText(const CString& sText)
 {
 	CStringA sTextA = StringForControl(sText);
 	Call(SCI_SETTEXT, 0, (LPARAM)(LPCSTR)sTextA);
+	
+	// Scintilla seems to have problems with strings that
+	// aren't terminated by a newline char. Once that char
+	// is there, it can be removed without problems.
+	// So we add here a newline, then remove it again.
+	Call(SCI_DOCUMENTEND);
+	Call(SCI_NEWLINE);
+	Call(SCI_DELETEBACK);
 }
 
 void CSciEdit::InsertText(const CString& sText, bool bNewLine)
