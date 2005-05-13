@@ -83,6 +83,10 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOO
 CRepositoryBrowser::~CRepositoryBrowser()
 {
 	m_templist.DeleteAllFiles();
+	for (int i=0; i<m_arLogDialogs.GetCount(); ++i)
+	{
+		delete m_arLogDialogs.GetAt(i);
+	}
 }
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
@@ -486,11 +490,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPSHOWLOG:
 				{
-					CLogDlg dlg;
+					CLogDlg * pDlg = new CLogDlg();
+					m_arLogDialogs.Add(pDlg);
 					int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-					dlg.SetParams(CTSVNPath(url), GetRevision(), 1, limit, FALSE);
-					dlg.m_ProjectProperties = m_ProjectProperties;
-					dlg.DoModal();
+					pDlg->SetParams(CTSVNPath(url), GetRevision(), 1, limit, FALSE);
+					pDlg->m_ProjectProperties = m_ProjectProperties;
+					pDlg->Create(IDD_LOGMESSAGE, this);
+					pDlg->ShowWindow(SW_SHOW);
 				}
 				break;
 			case ID_POPCHECKOUT:

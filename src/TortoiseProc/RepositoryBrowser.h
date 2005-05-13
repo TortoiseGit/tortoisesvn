@@ -23,6 +23,7 @@
 #include "RepositoryBar.h"
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
+#include "LogDlg.h"
 #include "TSVNPath.h"
 
 class CInputDlg;
@@ -102,6 +103,7 @@ private:
 	bool m_bStandAlone;
 	SVNUrl m_InitialSvnUrl;
 	static const UINT	m_AfterInitMessage;
+	CArray<CLogDlg *, CLogDlg *> m_arLogDialogs;
 public:
 };
 static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));
