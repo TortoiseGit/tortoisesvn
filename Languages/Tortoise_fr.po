@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-09 15:40+0100\n"
+"PO-Revision-Date: 2005-05-13 14:44+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -440,10 +440,10 @@ msgstr "- %d"
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1187
+#: Control-ID:1104
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
-#: Control-ID:1104
 msgid "..."
 msgstr "..."
 
@@ -839,6 +839,14 @@ msgstr "Fermeture automatique s'il n'y a pas d'erreurs"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Fermeture automatique s'il n'y a pas de fusions, ajouts ou suppressions"
 
+#: Control-ID:65535
+msgid "Autoclose:"
+msgstr "Fermeture automatique:"
+
+#: Control-ID:1073
+msgid "Automatically check for newer versions every week"
+msgstr "Vérifier automatiquement  les nouvelles versions chaque semaine"
+
 #: Control-ID:1157
 msgid "Average"
 msgstr "Moyenne"
@@ -984,10 +992,6 @@ msgstr "Changer la position de la fenêtre"
 msgid "Change the window size"
 msgstr "Changer la taille de la fenêtre"
 
-#: Dlg-ID:158
-msgid "Changed Files"
-msgstr "Fichiers modifiés"
-
 #: ID:163
 msgid "Changed files: %d"
 msgstr "Fichiers modifiés: %d"
@@ -1012,9 +1016,9 @@ msgstr "Vérifier le repository"
 msgid "Check for Modifications"
 msgstr "Vérifier les modifications"
 
-#: Control-ID:1073
-msgid "Check for newer &versions"
-msgstr "&Vérification de nouvelles versions"
+#: Control-ID:1215
+msgid "Check now"
+msgstr "Vérifier maintenant"
 
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1123,6 +1127,10 @@ msgstr "Couleurs"
 msgid "Command failed."
 msgstr "Echec de la commande."
 
+#: Control-ID:1083
+msgid "Commit"
+msgstr "Livrer"
+
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Livrer vers:"
@@ -1149,10 +1157,6 @@ msgstr "Livraisons chaque semaine:"
 msgid "Commits your changes to the repository"
 msgstr "Livrer vos modifications dans le repository"
 
-#: Control-ID:1083
-msgid "Committing"
-msgstr "Livraison"
-
 #: Control-ID:1019
 msgid "Compare Whitespaces"
 msgstr "Comparer les espacements"
@@ -1172,6 +1176,18 @@ msgstr "Compare le fichier avec la dernière version mise à jour pour afficher 
 #: ID:74
 msgid "Completed"
 msgstr "Terminé"
+
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "Configurer le programme utilisé pour comparer les différentes révisions de fichiers."
+
+#: Control-ID:65535
+msgid "Configure the program used to resolve conflicted files."
+msgstr "Configurer le programme utilisé pour résoudre les fichiers en conflit."
+
+#: Control-ID:65535
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "Configurer le programme de visualisation  de fichiers de différences GNU (fichiers patch)."
 
 #: ID:263
 #: Control-ID:65535
@@ -1426,18 +1442,6 @@ msgstr "Voir différence"
 msgid "Diff File:"
 msgstr "Fichier diff:"
 
-#: Control-ID:65535
-msgid "Diff Program"
-msgstr "Programme de différence"
-
-#: Control-ID:65535
-msgid "Diff Viewer"
-msgstr "Visualisateur de différence"
-
-#: Dlg-ID:163
-msgid "Diff/Merge"
-msgstr "Diff/Fusionner"
-
 #: Control-ID:1022
 msgid "Diffing"
 msgstr "Voir différence"
@@ -1608,6 +1612,11 @@ msgstr "Entrer une URL"
 msgid "Enter a lock message (optional):"
 msgstr "Entrer un commentaire de verrou (optionel):"
 
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "Entrez un message décrivant pourquoi vous verrouillez le(s) fichier(s)."
+
 #: ID:3603
 msgid ""
 "Erase everything\n"
@@ -1690,6 +1699,18 @@ msgstr "Externe"
 msgid "External Program:"
 msgstr "Programme externe:"
 
+#: Dlg-ID:192
+msgid "External Programs::Diff Viewer"
+msgstr "Programmes externes::Visualisateur de Différences"
+
+#: Dlg-ID:193
+msgid "External Programs::Merge Tool"
+msgstr "Programmes externes::Outil de Fusion"
+
+#: Dlg-ID:194
+msgid "External Programs::Unified Diff Viewer"
+msgstr "Programmes externes::Visualisateur de Différences Unifiées"
+
 #: ID:74
 msgid "Failed Revert"
 msgstr "Echec pour retourner à l'ancienne version"
@@ -1724,6 +1745,10 @@ msgstr "Récupération de la révision %s du fichier:"
 #: ID:207
 msgid "File"
 msgstr "Fichier"
+
+#: ID:376
+msgid "File Diffs"
+msgstr "Différences de fichiers"
 
 #: ID:376
 #: Dlg-ID:135
@@ -1778,6 +1803,7 @@ msgstr "GDI+ ne peut être initialisé!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ ne peut créer un objet bitmap. Vous n'avez probablement plus assez de mémoire."
 
+#: Dlg-ID:143
 #: Dlg-ID:107
 msgid "General"
 msgstr "Général"
@@ -1899,6 +1925,11 @@ msgstr "Si sélectionné, TortoiseSVN crée un fichier temporaire pour faire un 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Si validé, TortoiseSVN contrôle une fois par semaine si une nouvelle version est disponible"
+
+# ID:195,
+#: ID:195
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "Si activé, accélère la récupération des messages de journal depuis les serveurs de repository pré-1.2"
 
 # ID:195,
 #: ID:195
@@ -2158,18 +2189,29 @@ msgid "Log Message History:"
 msgstr "Historique du Journal:"
 
 #: Dlg-ID:130
+#: Control-ID:65535
 msgid "Log Messages"
 msgstr "Journal"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
+#: Dlg-ID:195
 msgid "Look and Feel"
 msgstr "Apparence et comportement"
 
 # Dlg-ID:106,
+#: Dlg-ID:196
+msgid "Look and Feel::Dialogs"
+msgstr "Apparence et comportement::Boites de dialogue"
+
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel::Icon Overlays"
+msgstr "Apparence et comportement::Recouvrement d'icônes"
+
+# Dlg-ID:106,
 #: Dlg-ID:184
-msgid "Look and Feel::Overlays"
-msgstr "Apparence et comportement::Recouvrement"
+msgid "Look and Feel::Icon Set"
+msgstr "Apparence et comportement::Ensemble d'icônes"
 
 # ID:238,
 #: ID:238
@@ -2184,10 +2226,6 @@ msgstr "Plus basse Révision: %ld - Plus haute Révision: %ld - Dernière révis
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "La DLL du système de mail n'est pas valide."
-
-#: Dlg-ID:143
-msgid "Main"
-msgstr "Principale"
 
 # ID:2051,
 #: ID:2051
@@ -2206,10 +2244,6 @@ msgstr "Max"
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "Fusionnner"
-
-#: Control-ID:65535
-msgid "Merge Program"
-msgstr "Programme de fusionnement"
 
 #: ID:9
 msgid "Merge..."
@@ -2248,7 +2282,6 @@ msgstr "Type Mime"
 msgid "Min"
 msgstr "Min"
 
-#: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
 msgstr "Divers"
@@ -2607,10 +2640,9 @@ msgstr "Programme"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programmes (*.exe)|*.*|Tous fichiers (*.*)|*.*||"
 
-# Control-ID:65535,
 #: Control-ID:65535
-msgid "Progress dialog:"
-msgstr "Dialogue de progression:"
+msgid "Progress"
+msgstr "Progression"
 
 #: Control-ID:65535
 #: Dlg-ID:177
@@ -3341,6 +3373,10 @@ msgid "Stop On Copy/Rename"
 msgstr "Arret à la Copie/Renommage"
 
 #: Control-ID:65535
+msgid "Subversion"
+msgstr "Subversion"
+
+#: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Fichier de configuration de Subversion:"
 
@@ -3970,6 +4006,11 @@ msgstr "&Utiliser l'URL \"Depuis:\""
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "Utiliser l'autocompletion des chemins de fichiers ou de mots-clé"
 
+# Control-ID:1214,
+#: Control-ID:1214
+msgid "Use old API's to fetch log messages"
+msgstr "Utiliser l'ancienne API pour récuperer les messages de journal"
+
 #: Control-ID:1024
 msgid "Use one-pane view as default"
 msgstr "Utiliser un seul carreau de fenêtre par défaut"
@@ -4012,14 +4053,6 @@ msgstr "Utiliser ceci si l'URL du repository a changé"
 msgid "Use whole other &file"
 msgstr "Utiliser l'autre &fichier entier"
 
-#: Control-ID:65535
-msgid "Used for comparing different revisions of files."
-msgstr "Utilisé pour comparer les différentes révisions de fichiers."
-
-#: Control-ID:65535
-msgid "Used to resolve conflicted files."
-msgstr "Utilisé pour résoudre les fichiers en conflits"
-
 #: ID:74
 msgid "User cancelled"
 msgstr "Annulé par l'utilisateur"
@@ -4054,10 +4087,6 @@ msgstr "Valeur"
 msgid "Version"
 msgstr "Révision"
 
-#: Control-ID:65535
-msgid "Viewer program for GNU diff files (patch files)."
-msgstr "Visualisateur de fichier de différence GNU (fichiers patch)."
-
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Visitez notre site Web"
@@ -4079,6 +4108,10 @@ msgstr "Différence d'espacements"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "Espacements"
+
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Copie Locale"
 
 #: Control-ID:1183
 msgid "Working copy"
