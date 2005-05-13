@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-04-26 00:22+0200\n"
+"PO-Revision-Date: 2005-05-13 10:46+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -246,8 +246,8 @@ msgstr "&Копиране в..."
 # ID:73,#:
 # ID:101,
 #: ID:101
-msgid "&Delete"
-msgstr "&Изтриване"
+msgid "&Delete..."
+msgstr "&Изтриване..."
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -408,11 +408,6 @@ msgstr "&Порт:"
 msgid "&Previous Difference"
 msgstr "&Предишна разлика"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "&Обхождане на поддиректориите за извличане на състоянието им"
-
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: ID:376
@@ -465,11 +460,6 @@ msgstr "&Запис на графиката като..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Запис на удостоверението"
-
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "&Избор на комплект с иконки"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -588,10 +578,10 @@ msgstr "- %d"
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1187
+#: Control-ID:1104
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
-#: Control-ID:1104
 msgid "..."
 msgstr "..."
 
@@ -753,17 +743,6 @@ msgstr "Действие"
 #: ID:3826
 msgid "Activate Task List"
 msgstr "Показване на списък със задачите"
-
-# ID:78,
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Включете, ако желаете модификациите за иконките на папките\n"
-"да показват състоянието на контролираните файлове в тях.\n"
-"<ct=0x0000ff><b>Внимание:</b> това може сериозно да забави работата на Windows explorer</ct>"
 
 # ID:8,#:
 # ID:73,#:
@@ -1067,10 +1046,10 @@ msgstr "Автор:                        Stefan Kueng"
 msgid "Authors"
 msgstr "Автори"
 
-# Control-ID:65535,
+# ID:76,
 #: Control-ID:65535
-msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "Автори:                      Stefan Kueng, Tim Kemp"
+msgid "Authors:"
+msgstr "Автори:"
 
 # Control-ID:1123,
 #: ID:222
@@ -1086,6 +1065,16 @@ msgstr "Автоматично затваряне, ако няма грешки"
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Автоматично затваряне, ако няма сливане, добавяне или изтриване"
+
+# ID:76,
+#: Control-ID:65535
+msgid "Autoclose:"
+msgstr "Автоматично затваряне:"
+
+# ID:201,
+#: Control-ID:1073
+msgid "Automatically check for newer versions every week"
+msgstr "Автоматична проверка за по-нова версия всяка седмица"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1300,10 +1289,11 @@ msgstr "Проверка в хранилището"
 msgid "Check for Modifications"
 msgstr "Проверка за промени"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Check for newer &versions"
-msgstr "&Проверка за по-нова версия"
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "Check now"
+msgstr "Незабавна проверка"
 
 # ID:9,
 #: ID:9
@@ -1326,8 +1316,8 @@ msgstr "Проверете пътя и/или URL, koито сте въвели.
 
 # Control-ID:65535,
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "Изберете тези позиции, които желаете да се виждат в главното контекстно меню, вместо в подменюто."
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr "Изберете тези команди, които желаете да се виждат в подменюто, вместо в главното контекстно меню."
 
 # ID:80,
 #: ID:80
@@ -1429,6 +1419,11 @@ msgstr "Цветове"
 msgid "Command failed."
 msgstr "Командата се провали."
 
+# ID:8,
+#: Control-ID:1083
+msgid "Commit"
+msgstr "Поверяване"
+
 # Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
@@ -1459,11 +1454,6 @@ msgstr "Поверявания всяка седмица:"
 msgid "Commits your changes to the repository"
 msgstr "Поверява промените Ви на хранилището"
 
-# Control-ID:1083,
-#: Control-ID:1083
-msgid "Committing"
-msgstr "Поверяване"
-
 # Control-ID:1019,
 #: Control-ID:1019
 msgid "Compare Whitespaces"
@@ -1488,6 +1478,21 @@ msgstr "Сравнява файла със последната поверена
 #: ID:74
 msgid "Completed"
 msgstr "Завършено"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "Конфигуриране на програмата за сравняване на ревизии на файлове."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used to resolve conflicted files."
+msgstr "Конфигуриране на програмата за разрешаване на конфликти."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "Конфигуриране на програмата за разглеждане на GNU diff файлове (файлове с кръпки)."
 
 # Control-ID:65535,
 #: ID:263
@@ -1525,6 +1530,11 @@ msgstr "Копиран"
 msgid "Copied remotely"
 msgstr "Копиран отдалечено"
 
+# ID:80,
+#: ID:103
+msgid "Copy %s"
+msgstr "Копиране "
+
 # Dlg-ID:142,
 #: Dlg-ID:142
 msgid "Copy (Branch / Tag)"
@@ -1553,6 +1563,11 @@ msgid ""
 msgstr ""
 "Копира селекция и я поставя в системния буфер\n"
 "Копиране"
+
+# ID:151,
+#: ID:103
+msgid "Copy to working copy"
+msgstr "Копиране в работно копие"
 
 # ID:80,
 #: ID:80
@@ -1718,6 +1733,11 @@ msgstr "Създава хранилище на текущото местопол
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Създава Unified Diff с всички промени, които сте направили"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Credits:"
+msgstr "Заслуги:"
+
 # ID:376,
 #: ID:376
 msgid "Cu&t"
@@ -1774,11 +1794,6 @@ msgstr "Изтриване"
 msgid "Destination disk drive is full."
 msgstr "Дискът е пълен."
 
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "Диалог"
-
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -1788,21 +1803,6 @@ msgstr "Сравняване"
 #: Control-ID:65535
 msgid "Diff File:"
 msgstr "Файл с разлики:"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Diff Program"
-msgstr "Програма за сравняване"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Diff Viewer"
-msgstr "Програма за разглеждане на разлики"
-
-# Dlg-ID:163,
-#: Dlg-ID:163
-msgid "Diff/Merge"
-msgstr "Сравняване/сливане"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -1906,6 +1906,11 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Желаете ли да запишете промените си?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Documentation - Simon Large"
+msgstr "Документация - Simon Large"
+
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
@@ -2001,6 +2006,11 @@ msgstr "Въведете URL"
 #: ID:313
 msgid "Enter a lock message (optional):"
 msgstr "Въведете съобщение за заключването (незадължително):"
+
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "Въведете съобщение, обясняващо причината за заключването на файла/файловете."
 
 # ID:3603,
 #: ID:3603
@@ -2101,6 +2111,21 @@ msgstr "Външна"
 msgid "External Program:"
 msgstr "Външна програма:"
 
+# Control-ID:65535,
+#: Dlg-ID:192
+msgid "External Programs::Diff Viewer"
+msgstr "Външна програма::Програма за разглеждане на Diff файлове"
+
+# Control-ID:65535,
+#: Dlg-ID:193
+msgid "External Programs::Merge Tool"
+msgstr "Външна програма::Програма за сливане"
+
+# Control-ID:65535,
+#: Dlg-ID:194
+msgid "External Programs::Unified Diff Viewer"
+msgstr "Външна програма::Програма за разглеждане на Unified Diff файлове"
+
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -2149,6 +2174,11 @@ msgstr "Изтегляне на ревизия %s на файл:"
 #: ID:207
 msgid "File"
 msgstr "Файл"
+
+# Control-ID:65535,
+#: ID:376
+msgid "File Diffs"
+msgstr "Файлове с разлики"
 
 # Dlg-ID:135,
 #: ID:376
@@ -2211,6 +2241,7 @@ msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memo
 msgstr "Грешка при създаване на обект побитова карта от GDI+. Най-вероятно липсва достатъчно свободна памет."
 
 # Dlg-ID:107,
+#: Dlg-ID:143
 #: Dlg-ID:107
 msgid "General"
 msgstr "Общи"
@@ -2222,8 +2253,8 @@ msgstr "Създаване на файл с кръпка..."
 
 # Control-ID:1203,
 #: ID:16
-msgid "Get Lock"
-msgstr "Заключване"
+msgid "Get Lock..."
+msgstr "Заключване..."
 
 # ID:119,
 #: ID:119
@@ -2357,6 +2388,11 @@ msgstr "Ако тази опция е включена, TortoiseSVN провер
 
 # ID:195,
 #: ID:195
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "Ако е включено, ускорява изтеглянето на съобщенията от дневника при хранилище, обслужвано от сървър версия преди 1.2"
+
+# ID:195,
+#: ID:195
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
@@ -2366,8 +2402,8 @@ msgstr ""
 
 # ID:251,
 #: ID:251
-msgid "If you want to break the lock, use the \"Check For Modifiations\" dialog."
-msgstr "Ако желаете да разбиете заключване, използвайте диалога \"Проверка за промени\"."
+msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgstr "Ако желаете да разбиете заключването, използвайте диалога \"Проверка за промени\"."
 
 # ID:73,
 #: ID:73
@@ -2423,17 +2459,6 @@ msgstr "Внася директорията в хранилище"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "Пътища за включване:"
-
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"Указва състоянието на папка чрез модификация на иконката й.\n"
-"Ако е изключено, за контролираните папки ще се показва само модификацията на иконка, указваща състояние \"нормално\".\n"
-"<ct=0x0000ff><b>Ако чувствате, че Windows explorer е бавен, изключете тази настройка!</b></ct>"
 
 # ID:76,
 #: ID:76
@@ -2587,9 +2612,26 @@ msgstr ""
 "URL на хранилище ще бъде записано."
 
 # ID:221,
+#: ID:207
 #: ID:221
 msgid "Lock"
 msgstr "Заключване"
+
+# Control-ID:65535,
+#: ID:207
+msgid "Lock Comment"
+msgstr "Коментар за заключване"
+
+# ID:3857,#:
+# ID:3857,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "Заключване на файлове"
+
+# Control-ID:65535,
+#: ID:209
+msgid "Lock broken!"
+msgstr "Заключването е разбито!"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2608,14 +2650,25 @@ msgid "Lock owner:"
 msgstr "Собственик на заключването:"
 
 # ID:263,
+#: ID:209
+msgid "Lock stolen by %s"
+msgstr "Заключването е присвоено от %s"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:195
+msgid "Locked"
+msgstr "Заключени"
+
+# ID:263,
 #: ID:263
 msgid "Locked by %s"
 msgstr "Заключено от %s"
 
 # ID:16,
 #: ID:16
-msgid "Locks files for other users and makes it editable by you."
-msgstr "Заключва файлове за останалите потребители и Ви ги предоставя за редакция."
+msgid "Locks a file for other users and makes it editable by you."
+msgstr "Заключва файл за останалите потребители и Ви го предоставя за редакция."
 
 # ID:126,
 #: ID:126
@@ -2634,13 +2687,29 @@ msgstr "Предишни съобщения за дневника:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
+#: Control-ID:65535
 msgid "Log Messages"
 msgstr "Съобщения в дневника"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
+#: Dlg-ID:195
 msgid "Look and Feel"
 msgstr "Външен вид"
+
+# Dlg-ID:106,
+#: Dlg-ID:196
+msgid "Look and Feel::Dialogs"
+msgstr "Външен вид::Диалози"
+
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel::Icon Overlays"
+msgstr "Външен вид::Модификации на иконките"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+msgid "Look and Feel::Icon Set"
+msgstr "Външен вид::Комплект с иконки"
 
 # ID:238,
 #: ID:238
@@ -2657,11 +2726,6 @@ msgstr "Най-стара ревизия: %ld - Най-нова ревизия: 
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "DLL файлът на системата за електронна поще е невалиден."
-
-# Dlg-ID:143,
-#: Dlg-ID:143
-msgid "Main"
-msgstr "Основни"
 
 # ID:2051,
 #: ID:2051
@@ -2681,11 +2745,6 @@ msgstr "Макс"
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "Сливане"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Merge Program"
-msgstr "Програма за сливане"
 
 # ID:9,
 #: ID:9
@@ -2734,7 +2793,6 @@ msgstr "Мин"
 
 # Control-ID:1023,#:
 # Control-ID:1082,
-#: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
 msgstr "Други"
@@ -2971,6 +3029,11 @@ msgstr "Отваряне на файл с клиентски сертифика�
 msgid "Open file"
 msgstr "Отваряне на файл"
 
+# ID:9,
+#: ID:113
+msgid "Open with..."
+msgstr "Отваряне с..."
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -2990,11 +3053,6 @@ msgstr "Отваря браузъра на хранилища, за да се д
 #: ID:3843
 msgid "Out of memory."
 msgstr "Недостиг на оперативна памет."
-
-# ID:207,
-#: ID:207
-msgid "Owner"
-msgstr "Собственик"
 
 # ID:12,
 #: MenuEntry
@@ -3044,8 +3102,8 @@ msgstr "Пътища"
 
 # ID:157,
 #: ID:157
-msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Изображения (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Всички (*.*)|*.*||"
+msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Изображения (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Всички (*.*)|*.*||"
 
 # ID:3858,#:
 # ID:3858,
@@ -3157,6 +3215,11 @@ msgstr "Моля, изчакайте - може да отнеме няколко
 msgid "Please wait while cancelling..."
 msgstr "Моля, изчакайте отменянето..."
 
+# ID:104,
+#: ID:104
+msgid "Please wait while the repository browser is initialized..."
+msgstr "Моля, изчакайте инициализацията на програмата за разглеждане на хранилища... "
+
 # ID:119,
 #: ID:119
 msgid "Please wait..."
@@ -3177,10 +3240,10 @@ msgstr "Програма"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Програми (*.exe)|*.*|Всички файлове (*.*)|*.*||"
 
-# Control-ID:65535,
+# Dlg-ID:134,
 #: Control-ID:65535
-msgid "Progress dialog:"
-msgstr "Диалог за хода на операцията"
+msgid "Progress"
+msgstr "Развитие"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3458,6 +3521,11 @@ msgstr "Нов опит"
 msgid "Revert"
 msgstr "Отмяна"
 
+# ID:113,
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "Връщане на промените от тези ревизии"
+
 # ID:77,
 #: ID:8
 msgid "Revert..."
@@ -3685,6 +3753,16 @@ msgstr ""
 "Записва промененият файл\n"
 "Запис на файл"
 
+# Dlg-ID:158,
+#: ID:103
+msgid "Saving Files"
+msgstr "Запис на файлове"
+
+# ID:144,
+#: ID:103
+msgid "Saving file %s"
+msgstr "Запис на файл %s"
+
 # ID:144,
 #: ID:144
 msgid "Saving patchfile to:"
@@ -3696,6 +3774,7 @@ msgstr "Запис на файл с кръпка в:"
 #: Control-ID:1014
 #: Control-ID:1017
 #: Control-ID:1064
+#: Control-ID:1212
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3902,11 +3981,6 @@ msgstr "Показване на номерата на редовете"
 msgid "Show Log"
 msgstr "Дневник"
 
-# Control-ID:65535,
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "Показване на състояние на папка"
-
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -3933,6 +4007,11 @@ msgid ""
 msgstr ""
 "Показване на специални символи за празните символи\n"
 "Показване на празните символи"
+
+# Control-ID:1073,
+#: Control-ID:1209
+msgid "Show unmodified files"
+msgstr "Показване на непроменените файлове"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -4040,10 +4119,26 @@ msgstr "Присвояване на заключване"
 msgid "Steal the lock"
 msgstr "Присвоява заключване"
 
+# ID:313,
+#: Control-ID:1211
+msgid "Steal the locks"
+msgstr "Присвояване на заключванията"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
+
 # Control-ID:1130,
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
 msgstr "Спиране при копиране/преименуване"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: Control-ID:65535
+msgid "Subversion"
+msgstr "Subversion"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4275,6 +4370,11 @@ msgstr "Редът, указващ новият файл, се очакваше 
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "Редът, указващ стария файл, се очакваше на ред %d!"
 
+# ID:251,
+#: ID:251
+msgid "The lock has already been broken from another working copy"
+msgstr "Заключването вече е било разбито от друго работно копие"
+
 # ID:63,
 #: ID:63
 msgid ""
@@ -4462,7 +4562,7 @@ msgstr "За да видите промените, които сте напра�
 # Control-ID:1201,
 #: Control-ID:1201
 msgid "To:"
-msgstr "Към:"
+msgstr "До:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4486,13 +4586,13 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4513,7 +4613,7 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4523,7 +4623,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4773,6 +4873,11 @@ msgstr "Използване на \"От:\" URL:"
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "Автоматично дописване на имена на файлове и ключови думи"
 
+# Control-ID:1214,
+#: Control-ID:1214
+msgid "Use old API's to fetch log messages"
+msgstr "Използва стария приложен програмен интерфейс, за да изтегли съобщенията от дневника"
+
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -4823,16 +4928,6 @@ msgstr "Използвайте това, ако URL на хранилището 
 msgid "Use whole other &file"
 msgstr "Използване на &другият файл изцяло"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Used for comparing different revisions of files."
-msgstr "Използва се при сравняване на различни ревизии на файловете."
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Used to resolve conflicted files."
-msgstr "Използва се при разрешаване на конфликти."
-
 # ID:74,
 #: ID:74
 msgid "User cancelled"
@@ -4872,11 +4967,6 @@ msgstr "Стойност"
 #: Control-ID:1075
 msgid "Version"
 msgstr "Версия"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Viewer program for GNU diff files (patch files)."
-msgstr "Програма за разглеждане на GNU diff файлове (файлове с кръпки)."
 
 # Control-ID:1084,#:
 # Control-ID:1084,
@@ -5317,6 +5407,7 @@ msgstr ""
 
 # ID:80,
 #: ID:80
+#: ID:103
 msgid "to %s"
 msgstr "към %s"
 
