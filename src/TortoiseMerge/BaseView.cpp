@@ -1258,6 +1258,8 @@ void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 		if (nNewOffset < 0)
 			nNewOffset = 0;
 		ScrollToChar(nNewOffset, TRUE);
+		if (m_pwndLineDiffBar)
+			m_pwndLineDiffBar->Invalidate();
 	}
 	else
 	{
