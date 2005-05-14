@@ -436,21 +436,28 @@ int SuggestMgr::ngsuggest(char** wlst, char * word, HashMgr* pHMgr)
                                         rp->astr, rp->alen);
         for (int k = 0; k < nw; k++) {
            sc = ngram(n, word, glst[k].word, NGRAM_ANY_MISMATCH);
-           if (sc > thresh) {
-              if (sc > gscore[lp]) {
-	         if (guess[lp]) free (guess[lp]);
-                 gscore[lp] = sc;
-                 guess[lp] = glst[k].word;
-                 lval = sc;
-                 for (j=0; j < MAX_GUESS; j++)
-	            if (gscore[j] < lval) {
-	               lp = j;
-                       lval = gscore[j];
-	            }
-	      } else {
-                 free (glst[k].word);  
-              }
-	   }            
+	   if (sc > thresh)
+	   {
+		if (sc > gscore[lp])
+		{
+			if (guess[lp]) free(guess[lp]);
+			gscore[lp] = sc;
+			guess[lp] = glst[k].word;
+			glst[k].word = NULL;
+			lval = sc;
+			for (j=0; j < MAX_GUESS; j++)
+			{
+				if (gscore[j] < lval)
+				{
+					lp = j;
+					lval = gscore[j];
+				}
+			}
+		}
+	   }
+	   free (glst[k].word);
+	   glst[k].word = NULL;
+	   glst[k].allow = 0;
 	}
       }
   }
