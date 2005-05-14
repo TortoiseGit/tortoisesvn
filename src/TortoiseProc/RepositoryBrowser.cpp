@@ -264,11 +264,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					temp.LoadString(IDS_LOG_POPUP_OPENWITH);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPENWITH, temp);
 					popup.AppendMenu(MF_SEPARATOR, NULL);
-				}
-				
-				temp.LoadString(IDS_REPOBROWSE_URLTOCLIPBOARD);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPURLTOCLIPBOARD, temp);			// "Copy URL to clipboard"
-				
+				}				
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);			// "Show Log..."
@@ -327,6 +323,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				temp.LoadString(IDS_REPOBROWSE_COPY);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);			// "Copy To..."
 				
+				temp.LoadString(IDS_REPOBROWSE_URLTOCLIPBOARD);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPURLTOCLIPBOARD, temp);			// "Copy URL to clipboard"
+
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				
 				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
