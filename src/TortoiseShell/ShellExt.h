@@ -157,6 +157,7 @@ protected:
 	bool isNormal;
 	bool isAdded;
 	bool isLocked;
+	bool isPatchFile;
 	int space;
 	TCHAR stringtablebuffer[255];
 	stdstring columnfilepath;		///< holds the last file/dir path for the column provider

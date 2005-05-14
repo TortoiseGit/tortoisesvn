@@ -45,7 +45,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isInVersionedFolder = false;
 	isAdded = false;
 	isLocked = false;
-	
+	isPatchFile = false;
 	// get selected files/folders
 	if (pDataObj)
 	{
@@ -149,6 +149,9 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						files_.push_back(str);
 						CTSVNPath strpath;
 						strpath.SetFromWin(str.c_str());
+						isPatchFile |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0);
+						isPatchFile |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0);
+
 						if (!statfetched)
 						{
 							//get the Subversion status of the item
@@ -758,7 +761,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	if ((isInSVN)&&(!isAdded)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCREATEPATCH), HMENU(MENUCREATEPATCH), INDEXMENU(MENUCREATEPATCH), idCmd++, IDS_MENUCREATEPATCH, IDI_CREATEPATCH, idCmdFirst, CreatePatch);
-	if ((isInSVN)&&(!isAdded)&&(isFolder)&&(isFolderInSVN))
+	if (((isInSVN)&&(!isAdded)&&(isFolder)&&(isFolderInSVN))||(isOnlyOneItemSelected && isPatchFile))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUAPPLYPATCH), HMENU(MENUAPPLYPATCH), INDEXMENU(MENUAPPLYPATCH), idCmd++, IDS_MENUAPPLYPATCH, IDI_PATCH, idCmdFirst, ApplyPatch);
 
 	//---- separator 
@@ -1103,12 +1106,24 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += _T("\"");
 						break;
 					case ApplyPatch:
-						svnCmd = _T(" /patchpath:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
+						if (isPatchFile)
+						{
+							svnCmd = _T(" /diff:\"");
+							if (files_.size() > 0)
+								svnCmd += files_.front();
+							else
+								svnCmd += folder_;
+							svnCmd += _T("\"");
+						}
 						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
+						{
+							svnCmd = _T(" /patchpath:\"");
+							if (files_.size() > 0)
+								svnCmd += files_.front();
+							else
+								svnCmd += folder_;
+							svnCmd += _T("\"");
+						}
 						myIDMap.clear();
 						if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 						{
