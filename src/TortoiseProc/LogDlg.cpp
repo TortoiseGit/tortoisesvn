@@ -506,7 +506,6 @@ UINT CLogDlg::LogThread()
 	}
 	else
 		m_LogProgress.SetRange32(m_endrev, m_startrev);
-	m_LogProgress.SetPos(0);
 	
 	if (!ReceiveLog(CTSVNPathList(m_path), m_startrev, m_endrev, m_limit, true, m_bStrict))
 	{
