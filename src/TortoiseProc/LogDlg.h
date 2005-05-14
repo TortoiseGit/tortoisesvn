@@ -114,12 +114,14 @@ protected:
 	afx_msg void OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedStatbutton();
 	afx_msg void OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMCustomdrawLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnStnClickedFiltericon();
 	afx_msg void OnEnChangeSearchedit();
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDtnDatetimechangeDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedNexthundred();
 	virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -152,6 +154,8 @@ public:
 	ProjectProperties	m_ProjectProperties;
 	WORD				m_wParam;
 private:
+	CString				m_sRelativeRoot;
+	CString				m_sRepositoryRoot;
 	CListCtrl			m_LogList;
 	CListCtrl			m_LogMsgCtrl;
 	CProgressCtrl		m_LogProgress;
@@ -165,6 +169,7 @@ private:
 	CStringArray		m_arLogMessages;
 	CStringArray		m_arShortLogMessages;
 	CArray<LogChangedPathArray*, LogChangedPathArray*> m_arLogPaths;
+	LogChangedPathArray* m_currentChangedArray;
 	CDWordArray			m_arDates;
 	CStringArray		m_arDateStrings;
 	CStringArray		m_arAuthors;
@@ -190,8 +195,6 @@ private:
 	DWORD				m_tTo;
 	int					m_limit;
 	int					m_limitcounter;
-public:
-	afx_msg void OnBnClickedNexthundred();
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 

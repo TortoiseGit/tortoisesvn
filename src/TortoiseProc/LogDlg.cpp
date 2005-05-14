@@ -32,6 +32,7 @@
 #include "Registry.h"
 #include "Utils.h"
 #include "InsertControl.h"
+#include "SVNInfo.h"
 #include ".\logdlg.h"
 
 // CLogDlg dialog
@@ -46,7 +47,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_nSearchIndex(0),
 	m_wParam(0),
 	m_nSelectedFilter(LOGFILTER_ALL),
-	m_bNoDispUpdates(false)
+	m_bNoDispUpdates(false),
+	m_currentChangedArray(NULL)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -106,6 +108,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATETO, OnDtnDatetimechangeDateto)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATEFROM, OnDtnDatetimechangeDatefrom)
 	ON_BN_CLICKED(IDC_NEXTHUNDRED, OnBnClickedNexthundred)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGMSG, OnNMCustomdrawLogmsg)
 END_MESSAGE_MAP()
 
 
@@ -250,6 +253,7 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 	m_LogMsgCtrl.SetRedraw(FALSE);
 	int line = 0;
 	CString temp;
+	m_currentChangedArray = paths;
 	if (paths)
 	{
 		for (INT_PTR i=0; i<paths->GetCount(); ++i)
@@ -462,10 +466,23 @@ UINT CLogDlg::LogThread()
 	m_LogProgress.SetRange32(0, 100);
 	m_LogProgress.SetPos(0);
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
+	SVNInfo inf;
 	long r = -1;
-	if (m_startrev == -1)
+	const SVNInfoData * infodata = inf.GetFirstFileInfo(m_path, SVNRev(m_startrev), SVNRev(m_startrev));
+	if (infodata)
 	{
-		r = GetHEADRevision(m_path);
+		r = infodata->rev;
+		m_sRepositoryRoot = infodata->reposRoot;
+		CString sUrl = m_path.GetSVNPathString();
+		if (!m_path.IsUrl())
+		{
+			sUrl = GetURLFromPath(m_path);
+		}
+		m_sRelativeRoot = sUrl.Mid(m_sRepositoryRoot.GetLength());
+	}
+	m_LogProgress.SetPos(1);
+	if (m_startrev == SVNRev::REV_HEAD)
+	{
 		m_startrev = r;
 	}
 	//disable the "Get All" button while we're receiving
@@ -2064,10 +2081,43 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			if (m_arCopies.GetAt(m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec)))
 				crText = GetSysColor(COLOR_HIGHLIGHT);
-
-			// Store the color back in the NMLVCUSTOMDRAW struct.
-			pLVCD->clrText = crText;
 		}
+		// Store the color back in the NMLVCUSTOMDRAW struct.
+		pLVCD->clrText = crText;
+	}
+}
+
+void CLogDlg::OnNMCustomdrawLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
+	// Take the default processing unless we set this to something else below.
+	*pResult = CDRF_DODEFAULT;
+
+	// First thing - check the draw stage. If it's the control's prepaint
+	// stage, then tell Windows we want messages for every item.
+
+	if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+	{
+		*pResult = CDRF_NOTIFYITEMDRAW;
+	}
+	else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
+	{
+		// This is the prepaint stage for an item. Here's where we set the
+		// item's text color. Our return value will tell Windows to draw the
+		// item itself, but it will use the new color we set here.
+
+		// Tell Windows to paint the control itself.
+		*pResult = CDRF_DODEFAULT;
+
+		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+
+		if ((m_currentChangedArray)&&((m_currentChangedArray->GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)))
+		{
+			if (m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+				crText = GetSysColor(COLOR_GRAYTEXT);
+		}
+		// Store the color back in the NMLVCUSTOMDRAW struct.
+		pLVCD->clrText = crText;
 	}
 }
 
@@ -2472,6 +2522,7 @@ BOOL CLogDlg::IsEntryInDateRange(int i)
 		return TRUE;
 	return FALSE;
 }
+
 
 
 
