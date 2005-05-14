@@ -150,7 +150,7 @@ UINT CCacheDlg::TestThread()
 	while (direnum.NextFile(filepath, &bIsDir))
 		m_filelist.Add(filepath);
 
-	CTime starttime = CTime();
+	CTime starttime = CTime::GetCurrentTime();
 	GetDlgItem(IDC_STARTTIME)->SetWindowText(starttime.Format(_T("%H:%M:%S")));
 	int filecounter = 0;
 
@@ -170,7 +170,7 @@ UINT CCacheDlg::TestThread()
 		if ((rand()%10)==3)
 			RemoveFromCache(filepath);
 	}
-	CTime endtime = CTime();
+	CTime endtime = CTime::GetCurrentTime();
 	CString sEnd = endtime.Format(_T("%H:%M:%S"));
 
 	DWORD endticks = GetTickCount();
@@ -336,6 +336,7 @@ bool CCacheDlg::GetStatusFromRemoteCache(const CTSVNPath& Path, bool bRecursive)
 		if (dwWait == WAIT_OBJECT_0)
 		{
 			fSuccess = GetOverlappedResult(m_hPipe, &m_Overlapped, &nBytesRead, FALSE);
+			return TRUE;
 		}
 		else
 			fSuccess = FALSE;
