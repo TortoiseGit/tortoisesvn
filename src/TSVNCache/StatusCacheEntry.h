@@ -19,7 +19,7 @@
 #pragma once
 
 struct TSVNCacheResponse;
-#define CACHETIMEOUT	600000
+#define CACHETIMEOUT	0x7FFFFFFF
 extern DWORD cachetimeout;
 
 /**
