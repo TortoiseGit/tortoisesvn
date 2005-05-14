@@ -32,7 +32,6 @@
 #include "Registry.h"
 #include "Utils.h"
 #include "InsertControl.h"
-#include "SVNInfo.h"
 #include ".\logdlg.h"
 
 // CLogDlg dialog
@@ -466,20 +465,18 @@ UINT CLogDlg::LogThread()
 	m_LogProgress.SetRange32(0, 100);
 	m_LogProgress.SetPos(0);
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
-	SVNInfo inf;
 	long r = -1;
-	const SVNInfoData * infodata = inf.GetFirstFileInfo(m_path, SVNRev(m_startrev), SVNRev(m_startrev));
-	if (infodata)
+	
+	CTSVNPath rootpath;
+	GetRootAndHead(m_path, rootpath, r);	
+	m_sRepositoryRoot = rootpath.GetSVNPathString();
+	CString sUrl = m_path.GetSVNPathString();
+	if (!m_path.IsUrl())
 	{
-		r = infodata->rev;
-		m_sRepositoryRoot = infodata->reposRoot;
-		CString sUrl = m_path.GetSVNPathString();
-		if (!m_path.IsUrl())
-		{
-			sUrl = GetURLFromPath(m_path);
-		}
-		m_sRelativeRoot = sUrl.Mid(m_sRepositoryRoot.GetLength());
+		sUrl = GetURLFromPath(m_path);
 	}
+	m_sRelativeRoot = sUrl.Mid(m_sRepositoryRoot.GetLength());
+	
 	m_LogProgress.SetPos(1);
 	if (m_startrev == SVNRev::REV_HEAD)
 	{
