@@ -479,6 +479,8 @@ public:
 	 */
 	LONG GetHEADRevision(const CTSVNPath& url);
 
+	BOOL GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, LONG& rev);
+
 	/**
 	 * Set the revision property \a sName to the new value \a sValue.
 	 * \param sURL the URL of the file/folder

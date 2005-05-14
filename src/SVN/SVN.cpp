@@ -1431,6 +1431,60 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	return CString(returl);
 }
 
+LONG SVN::GetHEADRevision(const CTSVNPath& url)
+{
+	svn_ra_session_t *ra_session;
+	const char * urla;
+	LONG rev;
+
+	SVNPool localpool(pool);
+	if (!url.IsUrl())
+		SVN::get_url_from_target(&urla, url.GetSVNApiPath());
+	else
+		urla = url.GetSVNApiPath();
+
+	if (urla == NULL)
+		return -1;
+
+	/* use subpool to create a temporary RA session */
+	if (svn_client__open_ra_session (&ra_session, urla, NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool))
+		return -1;
+
+	if (svn_ra_get_latest_revnum(ra_session, &rev, localpool))
+		return -1;
+	return rev;
+}
+
+BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, LONG& rev)
+{
+	svn_ra_session_t *ra_session;
+	const char * urla;
+	const char * returl;
+
+	SVNPool localpool(pool);
+	if (!path.IsUrl())
+		SVN::get_url_from_target(&urla, path.GetSVNApiPath());
+	else
+		urla = path.GetSVNApiPath();
+
+	if (urla == NULL)
+		return FALSE;
+
+	/* use subpool to create a temporary RA session */
+	if (svn_client__open_ra_session (&ra_session, urla, NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool))
+		return FALSE;
+
+	if (svn_ra_get_latest_revnum(ra_session, &rev, localpool))
+		return FALSE;
+
+	if (svn_ra_get_repos_root(ra_session, &returl, localpool))
+		return FALSE;
+		
+	url.SetFromSVN(CUnicodeUtils::GetUnicode(returl));
+	
+	return TRUE;
+}
+
 BOOL SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 {
 	svn_ra_session_t *ra_session;
@@ -1466,30 +1520,6 @@ BOOL SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 		}
 	}
 	return TRUE;
-}
-
-LONG SVN::GetHEADRevision(const CTSVNPath& url)
-{
-	svn_ra_session_t *ra_session;
-	const char * urla;
-	LONG rev;
-
-	SVNPool localpool(pool);
-	if (!url.IsUrl())
-		SVN::get_url_from_target(&urla, url.GetSVNApiPath());
-	else
-		urla = url.GetSVNApiPath();
-
-	if (urla == NULL)
-		return -1;
-
-	/* use subpool to create a temporary RA session */
-	if (svn_client__open_ra_session (&ra_session, urla, NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool))
-		return -1;
-
-	if (svn_ra_get_latest_revnum(ra_session, &rev, localpool))
-		return -1;
-	return rev;
 }
 
 LONG SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev)
