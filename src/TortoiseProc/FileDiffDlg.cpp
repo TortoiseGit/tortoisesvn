@@ -90,9 +90,10 @@ BOOL CFileDiffDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-bool CFileDiffDlg::SetUnifiedDiff(const CTSVNPath& diffFile)
+bool CFileDiffDlg::SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRepoRoot)
 {
 	bool bRet = true;
+	m_sRepoRoot = sRepoRoot;
 	try
 	{
 		CString strLine;
@@ -134,6 +135,22 @@ bool CFileDiffDlg::SetUnifiedDiff(const CTSVNPath& diffFile)
 					rev2 = SVNRev::REV_WC;
 				else
 					rev2 = r2;
+
+				// sometimes the paths here still have a '(.../path/path)
+				// appended. This is when the diff isn't done from the
+				// repository root.
+				if (strLine.Find(_T("(...")) >= 0)
+				{
+					strLine = strLine.Mid(strLine.Find(_T("(..."))+4).TrimRight(_T(" )")) + _T("/") + strLine.Left(strLine.Find(_T("(..."))-1);
+				}
+				if (sAddedLine.Find(_T("(...")) >= 0)
+				{
+					sAddedLine = sAddedLine.Mid(sAddedLine.Find(_T("(..."))+4).TrimRight(_T(" )")) + _T("/") + sAddedLine.Left(sAddedLine.Find(_T("(..."))-1);
+				}
+				if (strLine[0] == '/')
+					strLine = m_sRepoRoot + strLine;
+				if (sAddedLine[0] == '/')
+					sAddedLine = m_sRepoRoot + sAddedLine;
 				CFileDiffDlg::FileDiff fd;
 				fd.rev1 = rev1;
 				fd.rev2 = rev2;
@@ -155,7 +172,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	int selIndex = pNMLV->iItem;
-	if (selIndex <= 0)
+	if (selIndex < 0)
 		return;
 	if (selIndex >= m_arFileList.GetCount())
 		return;	

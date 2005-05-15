@@ -38,7 +38,7 @@ public:
 	CFileDiffDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CFileDiffDlg();
 
-	bool	SetUnifiedDiff(const CTSVNPath& diffFile);
+	bool	SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRepoRoot);
 
 // Dialog Data
 	enum { IDD = IDD_DIFFFILES };
@@ -47,13 +47,14 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 private:
+	CString				m_sRepoRoot;
 	CListCtrl			m_cFileList;
 	SVN					m_SVN;
 	CArray<FileDiff, FileDiff> m_arFileList;
 	CTSVNPathList		m_tempFileList;
 public:
-	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };
