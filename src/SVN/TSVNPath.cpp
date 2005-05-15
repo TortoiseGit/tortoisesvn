@@ -705,7 +705,24 @@ CTSVNPathList::AreAllPathsFilesInOneDirectory() const
 
 CTSVNPath CTSVNPathList::GetCommonDirectory() const
 {
-	ATLASSERT(!m_commonBaseDirectory.IsEmpty());
+	if (m_commonBaseDirectory.IsEmpty())
+	{
+		PathVector::const_iterator it;
+		for(it = m_paths.begin(); it != m_paths.end(); ++it)
+		{
+			const CTSVNPath& baseDirectory = it->GetDirectory();
+			if(m_commonBaseDirectory.IsEmpty())
+			{
+				m_commonBaseDirectory = baseDirectory;
+			}
+			else if(!m_commonBaseDirectory.IsEquivalentTo(baseDirectory))
+			{
+				// Different path
+				m_commonBaseDirectory.Reset();
+				break;
+			}
+		}
+	}
 	return m_commonBaseDirectory;
 }
 
