@@ -62,6 +62,7 @@
 #define IDI_LOOKANDFEEL                 196
 #define IDI_ICONSET                     197
 #define IDI_DIALOGS                     198
+#define IDD_DIFFFILES                   199
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -320,6 +321,7 @@
 #define IDS_LOG_POPUP_UPDATE            1215
 #define IDC_CHECKNEWERBUTTON            1215
 #define IDS_LOG_POPUP_COPY              1216
+#define IDC_LIST1                       1216
 #define IDS_LOGPROMPT_FILE              1217
 #define IDS_LOGPROMPT_STATUS            1218
 #define IDS_LOGPROMPT_ASKADD            1219
@@ -623,9 +625,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        199
+#define _APS_NEXT_RESOURCE_VALUE        200
 #define _APS_NEXT_COMMAND_VALUE         32783
-#define _APS_NEXT_CONTROL_VALUE         1216
+#define _APS_NEXT_CONTROL_VALUE         1217
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
