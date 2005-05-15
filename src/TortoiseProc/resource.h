@@ -321,7 +321,6 @@
 #define IDS_LOG_POPUP_UPDATE            1215
 #define IDC_CHECKNEWERBUTTON            1215
 #define IDS_LOG_POPUP_COPY              1216
-#define IDC_LIST1                       1216
 #define IDS_LOGPROMPT_FILE              1217
 #define IDS_LOGPROMPT_STATUS            1218
 #define IDS_LOGPROMPT_ASKADD            1219
