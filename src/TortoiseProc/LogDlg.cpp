@@ -32,6 +32,7 @@
 #include "Registry.h"
 #include "Utils.h"
 #include "InsertControl.h"
+#include "FileDiffDlg.h"
 #include ".\logdlg.h"
 
 // CLogDlg dialog
@@ -458,6 +459,12 @@ UINT CLogDlg::LogThread()
 	m_bThreadRunning = TRUE;
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
+	//disable the "Get All" button while we're receiving
+	//log messages.
+	GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
+	GetDlgItem(IDC_NEXTHUNDRED)->EnableWindow(FALSE);
+	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(FALSE);
 	
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
@@ -482,11 +489,6 @@ UINT CLogDlg::LogThread()
 	{
 		m_startrev = r;
 	}
-	//disable the "Get All" button while we're receiving
-	//log messages.
-	GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
-	GetDlgItem(IDC_NEXTHUNDRED)->EnableWindow(FALSE);
-	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(FALSE);
 	
 	BOOL bOldAPI = (BOOL)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
 	if ((bOldAPI)&&(m_limit != 0))
@@ -942,7 +944,10 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
 									break;
 								}
-								CUtils::StartExtPatch(tempfile, CTSVNPath());
+								
+								CFileDiffDlg fdlg;
+								fdlg.SetUnifiedDiff(CTSVNPath(tempfile));
+								fdlg.DoModal();
 							}
 						}
 						else
