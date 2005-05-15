@@ -1338,6 +1338,15 @@ BEGIN
     BEGIN
         MENUITEM "Zoom &In\tCtrl-+",            ID_VIEW_ZOOMIN
         MENUITEM "Zoom &Out\tCtrl--",           ID_VIEW_ZOOMOUT
+        MENUITEM SEPARATOR
+        MENUITEM "&Compare Revisions",          ID_VIEW_COMPAREREVISIONS
+        , GRAYED
+        MENUITEM "Compare &HEAD Revisions",     ID_VIEW_COMPAREHEADREVISIONS
+        , GRAYED
+        MENUITEM "&Unified Diff",               ID_VIEW_UNIFIEDDIFF, GRAYED
+        MENUITEM "Unified &Diff Of Head Revisions", 
+                                                ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS
+        , GRAYED
     END
     POPUP "&?"
     BEGIN
@@ -1996,6 +2005,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOG_POPUP_REVERTREVS "Revert changes from these revisions"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_REVGRAPH_POPUP_COMPAREREVS "&Compare Revisions"
+    IDS_REVGRAPH_POPUP_COMPAREHEADS "Compare &Head Revisions"
+    IDS_REVGRAPH_POPUP_UNIDIFFREVS "&Unified Diff"
+    IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of Head Revisions"
 END
 
 #endif    // English (U.S.) resources

@@ -946,7 +946,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 								
 								CFileDiffDlg fdlg;
-								fdlg.SetUnifiedDiff(CTSVNPath(tempfile));
+								fdlg.SetUnifiedDiff(CTSVNPath(tempfile), CString());
 								fdlg.DoModal();
 							}
 						}

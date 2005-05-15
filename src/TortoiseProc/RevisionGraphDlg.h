@@ -49,6 +49,13 @@ enum NodeShape
 #define MAXFONTS				4
 #define	MAX_TT_LENGTH			10000
 
+
+#define ID_COMPAREREVS 1
+#define ID_COMPAREHEADS 2
+#define ID_UNIDIFFREVS 3
+#define ID_UNIDIFFHEADS 4
+
+
 class CRevisionGraphDlg : public CResizableStandAloneDialog, public CRevisionGraph //CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRevisionGraphDlg)
@@ -73,7 +80,8 @@ protected:
 	CPtrArray		m_arConnections;
 	CArray<CRect, CRect> m_arNodeList;
 	CDWordArray		m_arNodeRevList;
-	LONG			m_lSelectedRev;
+	LONG			m_lSelectedRev1;
+	LONG			m_lSelectedRev2;
 	LOGFONT			m_lfBaseFont;
 	CFont *			m_apFonts[MAXFONTS];
 	int				m_nFontSize;
@@ -111,9 +119,17 @@ protected:
 	afx_msg void	OnViewZoomout();
 	afx_msg void	OnMenuexit();
 	afx_msg void	OnMenuhelp();
+	afx_msg void	OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
+	afx_msg void	OnViewCompareheadrevisions();
+	afx_msg void	OnViewComparerevisions();
+	afx_msg void	OnViewUnifieddiff();
+	afx_msg void	OnViewUnifieddiffofheadrevisions();
 
 	DECLARE_MESSAGE_MAP()
 private:
+	void			CompareRevs(bool bHead);
+	void			UnifiedDiffRevs(bool bHead);
+	CTSVNPath		DoUnifiedDiff(bool bHead, CString& sRoot);
 	INT_PTR			GetIndexOfRevision(LONG rev) const;
 	void			SetScrollbars(int nVert = 0, int nHorz = 0);
 	CRect *			GetViewSize();
@@ -129,6 +145,4 @@ private:
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 	void			DoZoom(int nZoomFactor);
 	static UINT		WorkerThread(LPVOID pVoid);
-
-
 };

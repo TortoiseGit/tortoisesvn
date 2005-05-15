@@ -25,6 +25,8 @@
 #include "SVN.h"
 #include "Utils.h"
 #include "UnicodeUtils.h"
+#include "TSVNPath.h"
+#include "FileDiffDlg.h"
 #include ".\revisiongraphdlg.h"
 
 #ifdef _DEBUG
@@ -42,7 +44,8 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
 {
 	m_bThreadRunning = FALSE;
-	m_lSelectedRev = -1;
+	m_lSelectedRev1 = -1;
+	m_lSelectedRev2 = -1;
 	m_pDlgTip = NULL;
 	m_bNoGraph = FALSE;
 
@@ -106,6 +109,11 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_ZOOMOUT, OnViewZoomout)
 	ON_COMMAND(ID_MENUEXIT, OnMenuexit)
 	ON_COMMAND(ID_MENUHELP, OnMenuhelp)
+	ON_WM_CONTEXTMENU()
+	ON_COMMAND(ID_VIEW_COMPAREHEADREVISIONS, OnViewCompareheadrevisions)
+	ON_COMMAND(ID_VIEW_COMPAREREVISIONS, OnViewComparerevisions)
+	ON_COMMAND(ID_VIEW_UNIFIEDDIFF, OnViewUnifieddiff)
+	ON_COMMAND(ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, OnViewUnifieddiffofheadrevisions)
 END_MESSAGE_MAP()
 
 
@@ -477,16 +485,16 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		switch (entry->action)
 		{
 		case 'D':
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, m_lSelectedRev==entry->revision);
+			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
 			break;
 		case 'A':
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRoundRect, m_lSelectedRev==entry->revision);
+			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRoundRect, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
 			break;
 		case 'R':
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, m_lSelectedRev==entry->revision);
+			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
 			break;
 		default:
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRectangle, m_lSelectedRev==entry->revision);
+			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRectangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
 			break;
 		}
 		m_arNodeList.Add(noderect);
@@ -879,17 +887,43 @@ void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 
 void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
+	bool bHit = false;
 	for (INT_PTR i=0; i<m_arNodeList.GetCount(); ++i)
 	{
 		if (m_arNodeList.GetAt(i).PtInRect(point))
 		{
-			if (m_lSelectedRev == (LONG)m_arNodeRevList.GetAt(i))
-				m_lSelectedRev = -1;
+			if (m_lSelectedRev1 == (LONG)m_arNodeRevList.GetAt(i))
+				m_lSelectedRev1 = -1;
+			else if (m_lSelectedRev2 == (LONG)m_arNodeRevList.GetAt(i))
+				m_lSelectedRev2 = -1;
+			else if (m_lSelectedRev1 < 0)
+				m_lSelectedRev1 = m_arNodeRevList.GetAt(i);
+			else if (m_lSelectedRev2 < 0)
+				m_lSelectedRev2 = m_arNodeRevList.GetAt(i);
 			else
-				m_lSelectedRev = m_arNodeRevList.GetAt(i);
+				m_lSelectedRev2 = m_arNodeRevList.GetAt(i);
+			bHit = true;
 			Invalidate();
 		}
 	}
+	if (!bHit)
+	{
+		m_lSelectedRev1 = -1;
+		m_lSelectedRev2 = -1;
+		Invalidate();
+	}
+	
+	UINT uEnable = MF_BYCOMMAND;
+	if ((m_lSelectedRev2 >= 0)&&(m_lSelectedRev1 >= 0))
+		uEnable |= MF_ENABLED;
+	else
+		uEnable |= MF_GRAYED;
+
+	EnableMenuItem(GetMenu()->m_hMenu, ID_VIEW_COMPAREREVISIONS, uEnable);
+	EnableMenuItem(GetMenu()->m_hMenu, ID_VIEW_COMPAREHEADREVISIONS, uEnable);
+	EnableMenuItem(GetMenu()->m_hMenu, ID_VIEW_UNIFIEDDIFF, uEnable);
+	EnableMenuItem(GetMenu()->m_hMenu, ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, uEnable);
+	
 	__super::OnLButtonDown(nFlags, point);
 }
 
@@ -1224,6 +1258,123 @@ BOOL CRevisionGraphDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 	return __super::OnMouseWheel(nFlags, zDelta, pt);
 }
 
+void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
+{
+	if ((m_lSelectedRev1 < 0)||(m_lSelectedRev2 < 0))
+		return;
+	CMenu popup;
+	if (popup.CreatePopupMenu())
+	{
+		CString temp;
+		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
+		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
+
+		temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
+		temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
+
+		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		switch (cmd)
+		{
+		case ID_COMPAREREVS:
+			CompareRevs(false);
+			break;
+		case ID_COMPAREHEADS:
+			CompareRevs(true);
+			break;
+		case ID_UNIDIFFREVS:
+			UnifiedDiffRevs(false);
+			break;
+		case ID_UNIDIFFHEADS:
+			UnifiedDiffRevs(true);
+			break;
+		}
+	}
+}
+
+void CRevisionGraphDlg::CompareRevs(bool bHead)
+{
+	CString sRoot;
+	CTSVNPath tempfile = DoUnifiedDiff(bHead, sRoot);
+	if (tempfile.IsEmpty())
+		return;
+	CFileDiffDlg dlg;
+	dlg.SetUnifiedDiff(tempfile, sRoot);
+	dlg.DoModal();
+}
+
+void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
+{
+	CString dummy;
+	CTSVNPath tempfile = DoUnifiedDiff(bHead, dummy);
+	if (tempfile.IsEmpty())
+		return;
+	CUtils::StartUnifiedDiffViewer(tempfile);
+}
+
+CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot)
+{
+	theApp.DoWaitCursor(1);
+	CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("test.diff")));
+	// find selected objects
+	ASSERT(m_lSelectedRev1 >= 0);
+	ASSERT(m_lSelectedRev2 >= 0);
+	
+	CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
+	CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+	
+	
+	SVN svn;
+	CString sRepoRoot;
+	if (SVN::PathIsURL(m_sPath))
+		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
+	else
+		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(svn.GetURLFromPath(CTSVNPath(m_sPath))));
+		
+
+	CTSVNPath url1;
+	CTSVNPath url2;
+	url1.SetFromSVN(sRepoRoot+CString(entry1->url));
+	url2.SetFromSVN(sRepoRoot+CString(entry2->url));
+	CTSVNPath url1_temp = url1;
+	CTSVNPath url2_temp = url2;
+	while (!url1_temp.IsEquivalentTo(url2_temp))
+	{
+		url1_temp = url1_temp.GetContainingDirectory();
+		url2_temp = url2_temp.GetContainingDirectory();
+	}
+	sRoot = url1_temp.GetSVNPathString();
+		
+	if (url1.IsEquivalentTo(url2))
+	{
+		if (!svn.PegDiff(url1, SVNRev(entry1->revision), 
+			bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry1->revision), 
+			bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry2->revision), 
+			TRUE, TRUE, TRUE, TRUE, CString(), tempfile))
+		{
+			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			theApp.DoWaitCursor(-1);
+			return CTSVNPath();
+		}
+	}
+	else
+	{
+		if (!svn.Diff(url1, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry1->revision), 
+			url2, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry2->revision), 
+			TRUE, TRUE, TRUE, TRUE, CString(), tempfile))
+		{
+			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);		
+			theApp.DoWaitCursor(-1);
+			return CTSVNPath();
+		}
+	}
+	theApp.DoWaitCursor(-1);
+	return tempfile;
+}
+
 void CRevisionGraphDlg::DoZoom(int nZoomFactor)
 {
 	m_node_rect_width = NODE_RECT_WIDTH * nZoomFactor / 10;
@@ -1275,6 +1426,26 @@ void CRevisionGraphDlg::OnMenuexit()
 void CRevisionGraphDlg::OnMenuhelp()
 {
 	OnHelp();
+}
+
+void CRevisionGraphDlg::OnViewCompareheadrevisions()
+{
+	CompareRevs(true);
+}
+
+void CRevisionGraphDlg::OnViewComparerevisions()
+{
+	CompareRevs(false);
+}
+
+void CRevisionGraphDlg::OnViewUnifieddiff()
+{
+	UnifiedDiffRevs(false);
+}
+
+void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
+{
+	UnifiedDiffRevs(true);
 }
 
 #ifdef DEBUG
@@ -1464,6 +1635,9 @@ void CRevisionGraphDlg::FillTestData()
 	m_arEntryPtrs.Add(e);
 }
 #endif //DEBUG
+
+
+
 
 
 
