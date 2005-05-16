@@ -2046,10 +2046,21 @@ void CLogDlg::OnBnClickedStatbutton()
 {
 	if (m_bThreadRunning)
 		return;
+	// create arrays which are aware of the current filter
+	CStringArray m_arAuthorsFiltered;
+	CDWordArray m_arDatesFiltered;
+	CDWordArray m_arFileChangesFiltered;
+	for (INT_PTR i=0; i<m_arShownList.GetCount(); ++i)
+	{
+		DWORD shownIndex = m_arShownList.GetAt(i);
+		m_arAuthorsFiltered.Add(m_arAuthors.GetAt(shownIndex));
+		m_arDatesFiltered.Add(m_arDates.GetAt(shownIndex));
+		m_arFileChangesFiltered.Add(m_arFileChanges.GetAt(shownIndex));
+	}
 	CStatGraphDlg dlg;
-	dlg.m_parAuthors = &m_arAuthors;
-	dlg.m_parDates = &m_arDates;
-	dlg.m_parFileChanges = &m_arFileChanges;
+	dlg.m_parAuthors = &m_arAuthorsFiltered;
+	dlg.m_parDates = &m_arDatesFiltered;
+	dlg.m_parFileChanges = &m_arFileChangesFiltered;
 	dlg.DoModal();
 		
 }
