@@ -68,6 +68,9 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY_REFLECT(LVN_GETINFOTIP, OnLvnGetInfoTip)
 	ON_NOTIFY_REFLECT(NM_CUSTOMDRAW, OnNMCustomdraw)
 	ON_WM_SETCURSOR()
+	ON_WM_GETDLGCODE()
+	ON_NOTIFY_REFLECT(NM_RETURN, OnNMReturn)
+	ON_WM_KEYDOWN()
 END_MESSAGE_MAP()
 
 
@@ -2182,8 +2185,7 @@ void CSVNStatusListCtrl::SetCheckOnAllDescendentsOf(const FileEntry* parentEntry
 	}
 }
 
-void
-CSVNStatusListCtrl::WriteCheckedNamesToPathList(CTSVNPathList& pathList)
+void CSVNStatusListCtrl::WriteCheckedNamesToPathList(CTSVNPathList& pathList)
 {
 	pathList.Clear();
 	int nListItems = GetItemCount();
@@ -2211,4 +2213,47 @@ void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList)
 	{
 		pathList.AddPath(GetListEntry(index)->path);
 	}
+}
+
+UINT CSVNStatusListCtrl::OnGetDlgCode()
+{
+	// we want to process the return key and not have that one
+	// routed to the default pushbutton
+	return CListCtrl::OnGetDlgCode() | DLGC_WANTALLKEYS;
+}
+
+void CSVNStatusListCtrl::OnNMReturn(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+	*pResult = 0;
+	if (m_bBlock)
+		return;
+	int selIndex = GetSelectionMark();
+	if (selIndex < 0)
+		return;
+	StartDiff(selIndex);
+}
+
+void CSVNStatusListCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	// Since we catch all keystrokes (to have the enter key processed here instead
+	// of routed to the default pushbutton) we have to make sure that other
+	// keys like Tab and Esc still do what they're supposed to do
+	// Tab = change focus to next/previous control
+	// Esc = quit the dialog
+	switch (nChar)
+	{
+	case (VK_TAB):
+		{
+			::PostMessage(GetParent()->GetSafeHwnd(), WM_NEXTDLGCTL, GetKeyState(VK_SHIFT)&0x8000, 0);
+			return;
+		}
+		break;
+	case (VK_ESCAPE):
+		{
+			::SendMessage(GetParent()->GetSafeHwnd(), WM_CLOSE, 0, 0);
+		}
+		break;
+	}
+
+	CListCtrl::OnKeyDown(nChar, nRepCnt, nFlags);
 }

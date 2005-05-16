@@ -338,6 +338,9 @@ private:
 	afx_msg void OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg UINT OnGetDlgCode();
+	afx_msg void OnNMReturn(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 
 private:
 	static bool					m_bAscending;		///< sort direction
@@ -370,5 +373,4 @@ private:
 
 	CWnd *						m_pStatLabel;
 	CButton *					m_pSelectButton;
-
 };
