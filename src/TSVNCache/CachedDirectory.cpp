@@ -580,7 +580,7 @@ void CCachedDirectory::RefreshStatus()
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{
 					// We need to request this item as well
-					GetStatusForMember(filePath,false);
+					GetStatusForMember(filePath,true);
 					// GetStatusForMember now has recreated the m_entryCache map.
 					// So we have to get out of this for-loop since the iterator now
 					// is invalid!
