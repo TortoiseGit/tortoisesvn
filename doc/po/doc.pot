@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-12 21:57GMT Daylight Time\n"
+"POT-Creation-Date: 2005-05-16 22:06GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -998,102 +998,142 @@ msgid "Top Pane Context Menu for 2 Selected Files"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_showlog.xml:181(para) 
-msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. This option is only available for files, not folders."
+msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If you select this option for a folder, a further dialog pops up listing the changed files and you can diff them one at a time."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:189(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:190(para) 
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:195(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:196(para) 
+msgid "Edit the log message or author as described above."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:201(para) 
 msgid "Search log messages as described above."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_showlog.xml:171(para) 
-msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and only gives you three options: <placeholder-2/>"
+msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and gives you fewer options: <placeholder-2/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:203(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:209(title) 
 msgid "The Log Dialog Bottom Pane with Context Menu"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:209(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:215(para) 
 msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <literal>Modified</literal>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:216(para) 
-msgid "Save the selected revision to a file so you have an older version of that file."
+#: source/en/tsvn_dug/dug_showlog.xml:222(para) 
+msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:222(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:228(para) 
+msgid "Revert the changes made to the selected file in that revision."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:233(para) 
 msgid "View the Subversion properties for the selected item."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:201(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:238(para) 
+msgid "Show the revision log for the selected single file."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:243(para) 
+msgid "Save the selected revision to a file so you have an older version of that file."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:207(para) 
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:230(title) 
-msgid "Getting all log messages"
+#: source/en/tsvn_dug/dug_showlog.xml:252(title) 
+msgid "Getting more log messages"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:236(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:258(para) 
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-DUG-settings\"/>),"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:251(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:273(para) 
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:260(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:282(para) 
 msgid "This option is normally unchecked by default, except when the Show Log dialog is invoked from within the Merge dialog."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:265(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:287(para) 
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:231(para) 
-msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/> If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Get All</guibutton>."
+#: source/en/tsvn_dug/dug_showlog.xml:253(para) 
+msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:278(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:296(para) 
+msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:301(para) 
+msgid "If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Get All</guibutton>."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:307(title) 
 msgid "Changing the Log Message and Author"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:280(primary) 
+#: source/en/tsvn_dug/dug_showlog.xml:309(primary) 
 msgid "edit log/author"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:282(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:311(para) 
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:289(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:318(para) 
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:302(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:331(para) 
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:308(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:337(para) 
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:319(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:347(title) 
+msgid "Filtering Log Messages"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:349(primary) 
+msgid "filter"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:351(para) 
+msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:360(para) 
+msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:367(title) 
 msgid "Statistical Information"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:321(primary) 
+#: source/en/tsvn_dug/dug_showlog.xml:369(primary) 
 msgid "statistics"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:323(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:371(para) 
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:331(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:379(para) 
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
 msgstr ""
 
@@ -3950,6 +3990,26 @@ msgstr ""
 
 #: source/en/tsvn_app_howto.xml:240(para) 
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin&gt;</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3\"><citetitle>Subversion Book</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:252(title) 
+msgid "Compare two revisions of a file"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:254(primary) 
+msgid "compare files"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:256(para) 
+msgid "If you want to compare two revisions in a file's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:270(para) 
+msgid "If you want to compare the same file in two different trees, for example the trunk and a branch, you can use the repository browser to open up both trees, select the file in both places, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:280(para) 
+msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Head Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of Head Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
 msgstr ""
 
 #: source/en/tsvn_app_faq.xml:3(title) 

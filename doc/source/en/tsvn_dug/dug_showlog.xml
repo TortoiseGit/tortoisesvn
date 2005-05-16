@@ -175,20 +175,26 @@
 			</figure>
 			If you select two revisions at once (using the usual
 			<keycap>Ctrl</keycap>-modifier), the context menu changes and
-			only gives you three options:
+			gives you fewer options:
 			<itemizedlist>
 				<listitem>
 					<para>
 						Compare the two selected revisions using a visual
 						difference tool. The default Diff-Tool is TortoiseMerge
-						which is supplied with TortoiseSVN. This option is only
-						available for files, not folders.
+						which is supplied with TortoiseSVN. If you select this
+						option for a folder, a further dialog pops up listing
+						the changed files and you can diff them one at a time.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 						View the differences between the two selected revisions
 						as a Unified-Diff file. This works for files and folders.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Edit the log message or author as described above.
 					</para>
 				</listitem>
 				<listitem>
@@ -214,8 +220,13 @@
 				</listitem>
 				<listitem>
 					<para>
-						Save the selected revision to a file so you
-						have an older version of that file.
+						Open the selected file, either with the default viewer for
+						that file type, or with a program you choose.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Revert the changes made to the selected file in that revision.
 					</para>
 				</listitem>
 				<listitem>
@@ -223,11 +234,22 @@
 						View the Subversion properties for the selected item.
 					</para>
 				</listitem>
+				<listitem>
+					<para>
+						Show the revision log for the selected single file.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Save the selected revision to a file so you
+						have an older version of that file.
+					</para>
+				</listitem>
 			</itemizedlist>
 		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-showlog-3">
-		<title>Getting all log messages</title>
+		<title>Getting more log messages</title>
 		<para>
 			The Log dialog does not always show all changes ever made for a
 			number of reasons:
@@ -270,6 +292,13 @@
 					</para>
 				</listitem>
 			</itemizedlist>
+		</para>
+		<para>
+			If you want to see more log messages, click the
+			<guibutton>Next 100</guibutton> to retrieve the next 100 log messages.
+			You can repeat this as many times as needed.
+		</para>
+		<para>
 			If you want to see <emphasis>all</emphasis> log messages right back
 			to revision 1, press <guibutton>Get All</guibutton>.
 		</para>
@@ -313,6 +342,25 @@
 				property <emphasis>forever</emphasis>.
 			</para>
 		</warning>
+	</sect2>
+	<sect2 id="tsvn-DUG-showlog-filter">
+		<title>Filtering Log Messages</title>
+		<indexterm>
+			<primary>filter</primary>
+		</indexterm>
+		<para>
+			If you want to restrict the log messages to show only those
+			you are interested in rather than scrolling through a list
+			of hundreds, you can use the filter controls at the top of
+			the Log Dialog. The start and end date controls allow you
+			to restrict the output to a known date range. The search
+			box allows you to show only messages which contain a
+			particular phrase.
+		</para>
+		<para>
+			Note that these filters act on the messages already retrieved.
+			They do not control downloading of messages from the repository.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-showlog-5">
 	<?dbhh topicname="HIDD_STATGRAPH"?>
