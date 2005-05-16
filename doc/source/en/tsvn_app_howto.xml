@@ -247,4 +247,56 @@
 			</para>
 		</sect2>
 	</sect1>
+
+	<sect1 id="tsvn-howto-compare">
+		<title>Compare two revisions of a file</title>
+		<indexterm>
+			<primary>compare files</primary>
+		</indexterm>
+		<para>
+			If you want to compare two revisions in a file's history,
+			for example revisions 100 and 200 of the same file, just use
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Show Log</guimenuitem>
+			</menuchoice>
+			to list the revision history for that file. Pick the two revisions
+			you want to compare then use
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Compare Revisions</guimenuitem>
+			</menuchoice>.
+		</para>
+		<para>
+			If you want to compare the same file in two different trees,
+			for example the trunk and a branch, you can use the repository
+			browser to open up both trees, select the file in both places,
+			then use
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Compare Revisions</guimenuitem>
+			</menuchoice>.
+		</para>
+		<para>
+			If you want to compare two trees to see what has changed,
+			for example the trunk and a tagged release, you can use
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Revision Graph</guimenuitem>
+			</menuchoice>
+			Select the two nodes to compare, then use
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Compare Head Revisions</guimenuitem>
+			</menuchoice>.
+			This will show a list of changed files, and you can then select
+			individual files to view the changes in detail.
+			Alternatively use
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Unified Diff of Head Revisions</guimenuitem>
+			</menuchoice>
+			to see a summary of all differences, with minimal context.
+		</para>
+	</sect1>
 </appendix>
