@@ -887,6 +887,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 
 BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict /* = FALSE */)
 {
+	SVNPool localpool(pool);
 	Err = svn_client_log2 (MakePathArray(pathlist), 
 						revisionStart, 
 						revisionEnd, 
@@ -894,7 +895,7 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev
 						changed,
 						strict,
 						logReceiver,	// log_message_receiver
-						(void *)this, m_pctx, pool);
+						(void *)this, m_pctx, localpool);
 
 	if(Err != NULL)
 	{
