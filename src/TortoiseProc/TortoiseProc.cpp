@@ -214,8 +214,6 @@ void CTortoiseProcApp::CrashProgram()
 }
 BOOL CTortoiseProcApp::InitInstance()
 {
-	CFileDiffDlg dlg;
-	dlg.SetUnifiedDiff(CTSVNPath(_T("D:\\svn00a.tmp.diff")), _T("https://svn.collab.net/repos/tortoisesvn"));
 	CheckUpgrade();
 	//set the resource dll for the required language
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
