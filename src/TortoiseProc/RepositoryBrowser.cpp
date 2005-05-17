@@ -85,7 +85,8 @@ CRepositoryBrowser::~CRepositoryBrowser()
 	m_templist.DeleteAllFiles();
 	for (int i=0; i<m_arLogDialogs.GetCount(); ++i)
 	{
-		delete m_arLogDialogs.GetAt(i);
+		if (!m_arLogDialogs.GetAt(i)->IsThreadRunning())
+			delete m_arLogDialogs.GetAt(i);
 	}
 }
 
@@ -494,7 +495,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 					pDlg->SetParams(CTSVNPath(url), GetRevision(), 1, limit, FALSE);
 					pDlg->m_ProjectProperties = m_ProjectProperties;
-					pDlg->Create(IDD_LOGMESSAGE, this);
+					pDlg->Create(IDD_LOGMESSAGE, NULL);
 					pDlg->ShowWindow(SW_SHOW);
 				}
 				break;

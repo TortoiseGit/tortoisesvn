@@ -134,6 +134,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	void SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict = FALSE);
+	bool IsThreadRunning() {return !!m_bThreadRunning;}
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
