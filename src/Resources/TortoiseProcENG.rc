@@ -252,7 +252,7 @@ BEGIN
                     131,367,96
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,227,367,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
-                    WS_BORDER | WS_TABSTOP,7,231,367,77
+                    LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,231,367,77
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",NOT WS_VISIBLE | 
                     WS_BORDER,7,314,310,9
     PUSHBUTTON      "Statistics",IDC_STATBUTTON,324,312,50,14

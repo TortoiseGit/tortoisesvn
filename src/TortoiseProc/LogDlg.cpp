@@ -109,6 +109,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATEFROM, OnDtnDatetimechangeDatefrom)
 	ON_BN_CLICKED(IDC_NEXTHUNDRED, OnBnClickedNexthundred)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGMSG, OnNMCustomdrawLogmsg)
+	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGMSG, OnLvnGetdispinfoLogmsg)
 END_MESSAGE_MAP()
 
 
@@ -150,10 +151,8 @@ BOOL CLogDlg::OnInitDialog()
 	m_arRevs.SetSize(0,100);
 
 	m_LogList.SetRedraw(false);
-	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
+	for (int col = 0; col <= maxcol; col++)
 	{
 		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
@@ -172,10 +171,8 @@ BOOL CLogDlg::OnInitDialog()
 	temp.LoadString(IDS_LOG_REVISION);
 	m_LogMsgCtrl.InsertColumn(3, temp);
 	m_LogMsgCtrl.SetRedraw(false);
-	mincol = 0;
 	maxcol = ((CHeaderCtrl*)(m_LogMsgCtrl.GetDlgItem(0)))->GetItemCount()-1;
-	col;
-	for (col = mincol; col <= maxcol; col++)
+	for (int col = 0; col <= maxcol; col++)
 	{
 		m_LogMsgCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
@@ -251,36 +248,24 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
 	m_LogMsgCtrl.SetRedraw(FALSE);
-	int line = 0;
-	CString temp;
+
 	m_currentChangedArray = paths;
-	if (paths)
+
+	if (m_currentChangedArray)
 	{
-		for (INT_PTR i=0; i<paths->GetCount(); ++i)
-		{
-			LogChangedPath * changedpath = paths->GetAt(i);
-			m_LogMsgCtrl.InsertItem(line, changedpath->sAction);
-			m_LogMsgCtrl.SetItemText(line, 1, changedpath->sPath);
-			m_LogMsgCtrl.SetItemText(line, 2, changedpath->sCopyFromPath);
-			if (!changedpath->sCopyFromPath.IsEmpty())
-			{
-				temp.Format(_T("%ld"), changedpath->lCopyFromRev);
-				m_LogMsgCtrl.SetItemText(line, 3, temp);
-			}
-			line++;
-		}
+		m_LogMsgCtrl.SetItemCountEx(m_currentChangedArray->GetCount());
+		m_LogMsgCtrl.RedrawItems(0, m_currentChangedArray->GetCount());
 	}
 	else
 	{
-		m_LogMsgCtrl.DeleteAllItems();
+		m_LogMsgCtrl.SetItemCountEx(0);
+		m_LogMsgCtrl.Invalidate();
 	}
-
 	int maxcol = ((CHeaderCtrl*)(m_LogMsgCtrl.GetDlgItem(0)))->GetItemCount()-1;
 	for (int col = 0; col <= maxcol; col++)
 	{
 		m_LogMsgCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
-	m_LogMsgCtrl.SetColumnWidth(0,LVSCW_AUTOSIZE_USEHEADER);
 	m_LogMsgCtrl.SetRedraw();
 }
 
@@ -530,10 +515,8 @@ UINT CLogDlg::LogThread()
 	m_bThreadRunning = FALSE;
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
-	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
+	for (int col = 0; col <= maxcol; col++)
 	{
 		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
@@ -2328,6 +2311,48 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
+void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+
+	//Create a pointer to the item
+	LV_ITEM* pItem= &(pDispInfo)->item;
+
+	*pResult = 0;
+	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(m_currentChangedArray==NULL)||(pItem->iItem >= m_currentChangedArray->GetCount()))
+	{
+		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+		return;
+	}
+
+	LogChangedPath * lcpath = m_currentChangedArray->GetAt(pItem->iItem);
+	//Does the list need text information?
+	if (pItem->mask & LVIF_TEXT)
+	{
+		//Which column?
+		switch (pItem->iSubItem)
+		{
+		case 0:	//Action
+			lstrcpyn(pItem->pszText, lcpath->sAction, pItem->cchTextMax);
+			break;
+		case 1: //path
+			lstrcpyn(pItem->pszText, lcpath->sPath, pItem->cchTextMax);
+			break;
+		case 2: //copyfrom path
+			lstrcpyn(pItem->pszText, lcpath->sCopyFromPath, pItem->cchTextMax);
+			break;
+		case 3: //revision
+			if (lcpath->sCopyFromPath.IsEmpty())
+				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+			else
+				_stprintf(pItem->pszText, _T("%ld"), lcpath->lCopyFromRev);
+			break;
+		}
+	}
+
+	*pResult = 0;
+}
+
 void CLogDlg::OnEnChangeSearchedit()
 {
 	UpdateData();
@@ -2348,10 +2373,8 @@ void CLogDlg::OnEnChangeSearchedit()
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
-		int mincol = 0;
 		int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-		int col;
-		for (col = mincol; col <= maxcol; col++)
+		for (int col = 0; col <= maxcol; col++)
 		{
 			m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 		}
@@ -2488,10 +2511,8 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
-		int mincol = 0;
 		int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-		int col;
-		for (col = mincol; col <= maxcol; col++)
+		for (int col = 0; col <= maxcol; col++)
 		{
 			m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 		}
@@ -2534,6 +2555,7 @@ BOOL CLogDlg::IsEntryInDateRange(int i)
 		return TRUE;
 	return FALSE;
 }
+
 
 
 

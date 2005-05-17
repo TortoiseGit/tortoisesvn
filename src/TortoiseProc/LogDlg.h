@@ -116,6 +116,7 @@ protected:
 	afx_msg void OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdrawLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnStnClickedFiltericon();
 	afx_msg void OnEnChangeSearchedit();
 	afx_msg void OnTimer(UINT nIDEvent);
