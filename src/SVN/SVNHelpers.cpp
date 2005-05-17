@@ -22,6 +22,7 @@
 SVNPool::SVNPool()
 {
 	m_pool = svn_pool_create(NULL);
+	svn_utf_initialize(m_pool);
 }
 
 SVNPool::SVNPool(apr_pool_t* parentPool)
