@@ -186,7 +186,8 @@ BOOL CTortoiseMergeApp::InitInstance()
 		// a patchfile was given, but not folder path to apply the patch to
 		CBrowseFolder fbrowser;
 		fbrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-		fbrowser.Show(NULL, pFrame->m_Data.m_sPatchPath);
+		if (fbrowser.Show(NULL, pFrame->m_Data.m_sPatchPath)==CBrowseFolder::CANCEL)
+			return FALSE;
 	}
 
 	if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff"))))
