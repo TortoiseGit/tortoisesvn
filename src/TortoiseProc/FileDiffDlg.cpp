@@ -48,6 +48,7 @@ void CFileDiffDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CFileDiffDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
 	ON_NOTIFY(LVN_GETINFOTIP, IDC_FILELIST, OnLvnGetInfoTipFilelist)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_FILELIST, OnNMCustomdrawFilelist)
 END_MESSAGE_MAP()
 
 
@@ -181,6 +182,12 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	
 	CTSVNPath url1 = CTSVNPath(fd.url1);
 	CTSVNPath url2 = CTSVNPath(fd.url2);
+	LONG rev1 = fd.rev1;
+	LONG rev2 = fd.rev2;
+	if (rev1 < 0)
+		rev1 = 0;
+	if (rev2 < 0)
+		rev2 = 0;
 	CTSVNPath tempfile = CUtils::GetTempFilePath(url1);
 	m_tempFileList.AddPath(tempfile);
 	CString sTemp;
@@ -188,19 +195,19 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	progDlg.SetTitle(IDS_PROGRESSWAIT);
 	progDlg.ShowModeless(this);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetUIPathString());
-	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, (LONG)fd.rev1);
+	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev1);
 	
-	if (!m_SVN.Cat(url1, fd.rev1, tempfile))
+	if ((rev1 > 0)&&(!m_SVN.Cat(url1, rev1, tempfile)))
 	{
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return;
 	} 
 	progDlg.SetProgress(1, 2);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
-	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, (LONG)fd.rev2);
+	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
 	CTSVNPath tempfile2 = CUtils::GetTempFilePath(url2);
 	m_tempFileList.AddPath(tempfile2);
-	if (!m_SVN.Cat(url2, fd.rev2, tempfile2))
+	if ((rev2 > 0)&&(!m_SVN.Cat(url2, fd.rev2, tempfile2)))
 	{
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return;
@@ -209,8 +216,8 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	progDlg.Stop();
 
 	CString rev1name, rev2name;
-	rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)fd.rev1);
-	rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)fd.rev2);
+	rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev1);
+	rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev2);
 	CUtils::StartExtDiff(tempfile, tempfile2, rev1name, rev2name);
 
 }
@@ -224,4 +231,39 @@ void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		if (pGetInfoTip->cchTextMax > m_arFileList.GetAt(pGetInfoTip->iItem).url1.GetLength())
 			_tcsncpy(pGetInfoTip->pszText, m_arFileList.GetAt(pGetInfoTip->iItem).url1, pGetInfoTip->cchTextMax);
 	*pResult = 0;
+}
+
+void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
+	// Take the default processing unless we set this to something else below.
+	*pResult = CDRF_DODEFAULT;
+
+	// First thing - check the draw stage. If it's the control's prepaint
+	// stage, then tell Windows we want messages for every item.
+
+	if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+	{
+		*pResult = CDRF_NOTIFYITEMDRAW;
+	}
+	else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
+	{
+		// This is the prepaint stage for an item. Here's where we set the
+		// item's text color. Our return value will tell Windows to draw the
+		// item itself, but it will use the new color we set here.
+
+		// Tell Windows to paint the control itself.
+		*pResult = CDRF_DODEFAULT;
+
+		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+
+		if (m_arFileList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		{
+			FileDiff fd = m_arFileList.GetAt(pLVCD->nmcd.dwItemSpec);
+			if ((fd.rev1 == 0)||(fd.rev2 == 0))
+				crText = GetSysColor(COLOR_GRAYTEXT);
+		}
+		// Store the color back in the NMLVCUSTOMDRAW struct.
+		pLVCD->clrText = crText;
+	}
 }

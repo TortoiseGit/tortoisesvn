@@ -48,6 +48,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 private:
@@ -56,5 +57,4 @@ private:
 	SVN					m_SVN;
 	CArray<FileDiff, FileDiff> m_arFileList;
 	CTSVNPathList		m_tempFileList;
-public:
 };
