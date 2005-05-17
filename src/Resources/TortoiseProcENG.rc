@@ -154,7 +154,7 @@ BEGIN
     CONTROL         "Only check out the top folder",IDC_NON_RECURSIVE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,70,274,10
     GROUPBOX        "Revision",IDC_STATIC,7,100,286,48
-    CONTROL         "H&ead Revision",IDC_REVISION_HEAD,"Button",
+    CONTROL         "H&EAD Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,13,112,76,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,128,74,10
@@ -311,7 +311,7 @@ BEGIN
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,31,289,64
     PUSHBUTTON      "...",IDC_BROWSE,312,30,19,14
-    CONTROL         "&Head Revision",IDC_REVISION_HEAD1,"Button",
+    CONTROL         "&HEAD Revision",IDC_REVISION_HEAD1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,13,49,95,10
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
                     13,63,44,10
@@ -324,7 +324,7 @@ BEGIN
     CONTROL         "",IDC_URLCOMBO2,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,113,289,62
     PUSHBUTTON      "...",IDC_BROWSE2,312,113,19,14,WS_DISABLED
-    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
+    CONTROL         "&HEAD Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,13,131,86,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,144,45,10
@@ -516,7 +516,7 @@ BEGIN
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,20,268,53
     PUSHBUTTON      "...",IDC_BROWSE,279,20,14,14
     GROUPBOX        "Revision",IDC_STATIC,7,47,286,51
-    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
+    CONTROL         "&HEAD Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,13,60,80,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,76,73,10
@@ -534,7 +534,7 @@ CAPTION "Update"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Revision",IDC_STATIC,7,7,189,51
-    CONTROL         "&Head Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
+    CONTROL         "&HEAD Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
                     13,21,106,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,85,10
@@ -588,7 +588,7 @@ BEGIN
     GROUPBOX        "&From Revision",IDC_STATIC,7,7,123,46
     EDITTEXT        IDC_REVISON_START,13,24,105,14,ES_AUTOHSCROLL
     GROUPBOX        "&To Revision",IDC_STATIC,139,7,165,46
-    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
+    CONTROL         "&HEAD Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,145,18,81,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     145,34,63,10
@@ -653,7 +653,7 @@ CAPTION "Select Revision"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Revision",IDC_STATIC,7,7,189,51
-    CONTROL         "&Head Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
+    CONTROL         "&HEAD Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
                     13,21,106,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,85,10
@@ -1344,7 +1344,7 @@ BEGIN
         MENUITEM "Compare &HEAD Revisions",     ID_VIEW_COMPAREHEADREVISIONS
         , GRAYED
         MENUITEM "&Unified Diff",               ID_VIEW_UNIFIEDDIFF, GRAYED
-        MENUITEM "Unified &Diff Of Head Revisions", 
+        MENUITEM "Unified &Diff Of HEAD Revisions", 
                                                 ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS
         , GRAYED
     END
@@ -1853,7 +1853,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOSTATUS_HEADREV  "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+    IDS_REPOSTATUS_HEADREV  "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
     IDS_REPOSTATUS_WCINFO   "Lowest Revision: %ld - Highest Revision: %ld"
 END
 
@@ -2010,9 +2010,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_REVGRAPH_POPUP_COMPAREREVS "&Compare Revisions"
-    IDS_REVGRAPH_POPUP_COMPAREHEADS "Compare &Head Revisions"
+    IDS_REVGRAPH_POPUP_COMPAREHEADS "Compare &HEAD Revisions"
     IDS_REVGRAPH_POPUP_UNIDIFFREVS "&Unified Diff"
-    IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of Head Revisions"
+    IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of HEAD Revisions"
 END
 
 #endif    // English (U.S.) resources
