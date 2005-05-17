@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-14 00:00+0100\n"
+"PO-Revision-Date: 2005-05-17 10:43+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -746,7 +746,6 @@ msgstr "Zusätzlich das Betrachten des Projektarchivs ohne Verschlüsselung (ohn
 
 #: source/en/tsvn_server/server_apache.xml:691
 #: (para)
-#, fuzzy
 msgid ""
 "In the ssl \"standard\" setup there's often the following statement in apache's virtual ssl host: <screen>\n"
 "SetEnvIf User-Agent \".*MSIE.*\" \\\n"
@@ -759,7 +758,7 @@ msgstr ""
 "         nokeepalive ssl-unclean-shutdown \\\n"
 "         downgrade-1.0 force-response-1.0\n"
 "</screen>\n"
-"Es gibt (gab?) gute Gründe für diesen Eintrag. Siehe <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"> <citetitle>ModSSL FAQ</citetitle></ulink>. Wenn Sie allerdings das NTLM Anmeldeverfahren nutzen wollen müssen Sie <literal>keepalive</literal> verwenden.<ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"> <citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle> </ulink>. If You uncomment the whole \"SetEnvIf\" You should be able to authenticate IE with windows authentication over SSL against the apache on Win32 with included mod_auth_sspi."
+"Es gibt (gab?) gute Gründe für diesen Eintrag. Siehe <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"> <citetitle>ModSSL FAQ</citetitle></ulink>. Wenn Sie allerdings das NTLM Anmeldeverfahren nutzen wollen müssen Sie <literal>keepalive</literal> verwenden. Siehe: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"> <citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle> </ulink>. Wenn Sie den gesamten <quote>SetEnvIf</quote> Block auskommentieren, sollten Sie sich mit dem IE per Windows Anmeldung über SSL und dem eingebundenen mod_auth_sspi Modul am Apache anmelden können."
 
 #: source/en/tsvn_server/server_apache.xml:668
 #: (para)
@@ -865,7 +864,7 @@ msgstr ""
 #: source/en/tsvn_server/server_apache.xml:814
 #: (para)
 msgid "Openssl needs a config file. You can download a working one from <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Save the file to <filename>bin/openssl.cnf</filename>. Please note: the file has the type <filename>*.cnf</filename>. Windows treats such files in a special way but it really is just a text file!"
-msgstr ""
+msgstr "Openssl benötigt eine Konfigurationsdatei. Sie können eine passende von: <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink> herunterladen. Speichren Sie die Datei unter <filename>bin/openssl.cnf</filename>. Bitte beachten Sie das die Datei die Endung <filename>*.cnf</filename> erhält. Windows behandelt diese Dateien zwar anders, es handelt sich in diesem Fall um eine normale Textdatei!"
 
 #: source/en/tsvn_server/server_apache.xml:828
 #: (para)
@@ -881,6 +880,17 @@ msgid ""
 "bin\\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER\n"
 "</screen> These commands created some files in the Apache folder (<filename>my-server.der.crt</filename>, <filename>my-server.csr</filename>, <filename>my-server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>my-server.cert</filename>). Copy the files to the folder <filename>conf/ssl</filename> (e.g. <filename>C:\\program files\\apache group\\apache2\\conf\\ssl</filename>) - if this folder does not exist you have to create it first."
 msgstr ""
+"Als nächstes benötigen Sie ein SSL Zertifikat. Dazu starten Sie eine Kommandozeile (DOS-Box) und wechseln in den Apache Ordner (z.B. <filename>C:\\Programme\\apache group\\apache2</filename>) und geben den folgenden Befehl ein:\n"
+"<screen>bin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr</screen>\n"
+"Sie werden nach einer Passphrase gefragt. Bitte nutzen Sie keine einfachen Worte sondern ganze Sätze, z.B. ein Teil eines Gedichts. Je länger die Passphrase ist, desto besser. Ausserdem müssen Sie die URL Ihres Servers angeben. Alle anderen Angaben sind optional. Sie sollten Sie aber trotzdem ausfüllen. Danach geben Sie die Befehle\n"
+"<screen>bin\\openssl rsa -in privkey.pem -out my-server.key</screen>\n"
+"und (in einer Zeile)\n"
+"<screen>bin\\openssl x509 -in my-server.csr -out my-server.cert\n"
+"                 -req -signkey my-server.key -days 4000</screen>\n"
+"ein. Dies wird ein Zertifikat erstellen, das in 4000 Tagen verfällt. Abschließend geben Sie:\n"
+"<screen>bin\\openssl x509 -in my-server.cert -out my-server.der.crt\n"
+"                 -outform DER</screen>\n"
+"ein. Dieser Befehl legt einige Dateien im Apache Ordner an: <filename>my-server.der.crt</filename>, <filename>my-server.csr</filename>, <filename>my-server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>my-server.cert</filename>. Kopieren Sie diese in den Ordner <filename>conf/ssl</filename> (z.B. <filename>C:\\Programme\\apache group\\apache2\\conf\\ssl</filename>) - Falls dieser Ordner nicht exisitert, müssen Sie ihn vorher anlegen."
 
 #: source/en/tsvn_server/server_apache.xml:869
 #: (para)
@@ -1640,125 +1650,175 @@ msgstr "Kontextmenü der Log-Dialog-Liste für zwei ausgewählte Revisionen"
 
 #: source/en/tsvn_dug/dug_showlog.xml:181
 #: (para)
-msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. This option is only available for files, not folders."
-msgstr "Vergleiche die gewählten Revisionen in einem Diff-Programm. Das mitinstallierte Diff-Programm ist TortoiseMerge. Diesen Eintrag gibt es nur für Dateien, nicht für Verzeichnisse."
+msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If you select this option for a folder, a further dialog pops up listing the changed files and you can diff them one at a time."
+msgstr "Vergleiche die gewählten Revisionen in einem Diff-Programm. Das Standard Diff-Programm ist TortoiseMerge, welches mit TortoiseSVN installiert wird. Wenn Sie diese Funktion für einen Ordner wählen, erscheint ein weiterer Dialog, der die geänderten Dateien auflistet, die Sie dann einzeln vergleichen können."
 
-#: source/en/tsvn_dug/dug_showlog.xml:189
+#: source/en/tsvn_dug/dug_showlog.xml:190
 #: (para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
 msgstr "Ein Standard-Diff anzuzeigen, welches Ihnen die Änderungen zwischen den zwei gewählten Revisionen anzeigt. Diesen Eintrag gibt es sowohl für Dateien, wie auch für Verzeichnisse."
 
-#: source/en/tsvn_dug/dug_showlog.xml:195
+#: source/en/tsvn_dug/dug_showlog.xml:196
+#: (para)
+msgid "Edit the log message or author as described above."
+msgstr "Wie oben beschrieben die Log-Meldungen oder den Autor ändern."
+
+#: source/en/tsvn_dug/dug_showlog.xml:201
 #: (para)
 msgid "Search log messages as described above."
 msgstr "Die Log-Meldungen durchsuchen. Näheres dazu siehe oben."
 
 #: source/en/tsvn_dug/dug_showlog.xml:171
 #: (para)
-msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and only gives you three options: <placeholder-2/>"
-msgstr "<placeholder-1/> Wenn Sie zwei Revisionen auf einmal auswählen (mit gedrückthalten von <keycap>Strg</keycap>), können Sie im Kontextmenü aus drei Möglichkeiten wählen: <placeholder-2/>"
+msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and gives you fewer options: <placeholder-2/>"
+msgstr "<placeholder-1/> Wenn Sie (mit <keycap>Strg</keycap>) zwei Revisionen auf einmal auswählen, ändert sich das Kontextmenü und zeigt weniger Optionen an: <placeholder-2/>"
 
-#: source/en/tsvn_dug/dug_showlog.xml:203
+#: source/en/tsvn_dug/dug_showlog.xml:209
 #: (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
 msgstr "Kontextmenü der Log-Dialog-Dateiliste"
 
-#: source/en/tsvn_dug/dug_showlog.xml:209
+#: source/en/tsvn_dug/dug_showlog.xml:215
 #: (para)
 msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <literal>Modified</literal>."
 msgstr "Änderungen der gewählten Revision in der gewählten Datei anzuzeigen. Nur für Dateien verfügbar, die als <literal>Verändert</literal> gekennzeichnet sind."
 
-#: source/en/tsvn_dug/dug_showlog.xml:216
-#: (para)
-msgid "Save the selected revision to a file so you have an older version of that file."
-msgstr "Die Datei zu speichern, wie sie in der gewählten Revision ausgesehen hat."
-
 #: source/en/tsvn_dug/dug_showlog.xml:222
+#: (para)
+msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:228
+#: (para)
+msgid "Revert the changes made to the selected file in that revision."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:233
 #: (para)
 msgid "View the Subversion properties for the selected item."
 msgstr "Die Subversion-Eigenschaften für die ausgewählte Datei zu zeigen."
 
-#: source/en/tsvn_dug/dug_showlog.xml:201
+#: source/en/tsvn_dug/dug_showlog.xml:238
+#: (para)
+msgid "Show the revision log for the selected single file."
+msgstr "Zeigt die Log-Meldungen für die ausgewählte Datei."
+
+#: source/en/tsvn_dug/dug_showlog.xml:243
+#: (para)
+msgid "Save the selected revision to a file so you have an older version of that file."
+msgstr "Die Datei zu speichern, wie sie in der gewählten Revision ausgesehen hat."
+
+#: source/en/tsvn_dug/dug_showlog.xml:207
 #: (para)
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
 msgstr "<placeholder-1/> Die Log-Dialog-Dateiliste, die Ihnen die veränderten Dateien auflistet, hat auch ein Kontextmenü, das Ihnen erlaubt: <placeholder-2/>"
 
-#: source/en/tsvn_dug/dug_showlog.xml:230
+#: source/en/tsvn_dug/dug_showlog.xml:252
 #: (title)
-msgid "Getting all log messages"
-msgstr "Anzeigen aller Log-Meldungen"
+msgid "Getting more log messages"
+msgstr "Holen weiterer Log-Meldungen"
 
-#: source/en/tsvn_dug/dug_showlog.xml:236
+#: source/en/tsvn_dug/dug_showlog.xml:258
 #: (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-DUG-settings\"/>),"
 msgstr "Bei einem großen Projektarchiv können hunderte oder gar tausende von Änderungen gespeichert sein. Alle diese Änderungen auf einmal zu laden kann sehr lange dauern. Normalerweise ist man auch nur an den letzten Meldungen interessiert. Standardmäßig werden beim ersten Aufruf des Log Dialogs die letzten einhundert Log-Meldungen angezeigt. Dieser Wert kann im Einstellungs-Dialog geändert werden. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Einstellungen</guimenuitem></menuchoice> (<xref linkend=\"tsvn-DUG-settings\"/>),"
 
-#: source/en/tsvn_dug/dug_showlog.xml:251
+#: source/en/tsvn_dug/dug_showlog.xml:273
 #: (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr "Wenn die Option <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, werden keine weiteren Log Meldungen mehr geholt, falls der Ordner / die Datei von einer anderen Stelle des Projektarchivs kopiert wurde. Dies ist insbesondere dann von Nutzen, wenn man Verzweigungen oder Markierungen betrachtet und nur die Änderungen innerhalb der Verzweigung sehen möchte."
+msgstr "Wenn die Option <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, werden keine weiteren Log-Meldungen mehr geholt, falls der Ordner / die Datei von einer anderen Stelle des Projektarchivs kopiert wurde. Dies ist insbesondere dann von Nutzen, wenn man Verzweigungen oder Markierungen betrachtet und nur die Änderungen innerhalb der Verzweigung sehen möchte."
 
-#: source/en/tsvn_dug/dug_showlog.xml:260
+#: source/en/tsvn_dug/dug_showlog.xml:282
 #: (para)
 msgid "This option is normally unchecked by default, except when the Show Log dialog is invoked from within the Merge dialog."
 msgstr "Diese Option ist normalerweise deaktiviert, es sei denn der Log Dialog wurde aus dem Zusammenführen Dialog heraus aufgerufen."
 
-#: source/en/tsvn_dug/dug_showlog.xml:265
+#: source/en/tsvn_dug/dug_showlog.xml:287
 #: (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
 msgstr "Beachten Sie, dass Subversion Umbenennen derzeit als aufeinanderfolgende Kopieren/Löschen Aktionen implementiert, so dass die Log Anzeige ebenfalls anhält, wenn ein Ordner / eine Datei umbenannt wurde, falls diese Option gewählt ist."
 
-#: source/en/tsvn_dug/dug_showlog.xml:231
+#: source/en/tsvn_dug/dug_showlog.xml:253
 #: (para)
-msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/> If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Get All</guibutton>."
-msgstr "Der Log Dialog zeigt aus mehreren Gründen nicht immer alle Änderungen die jemals gemacht wurden an: <placeholder-1/> Wenn Sie wirklich <emphasis>alle</emphasis> Log Meldungen zurück bis zur Revision 1 sehen möchten, klicken Sie auf <guibutton>Hole Alle</guibutton>."
+msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
+msgstr "Der Log Dialog zeigt aus mehreren Gründen nicht immer alle Änderungen die jemals gemacht wurden an: <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_showlog.xml:278
+#: source/en/tsvn_dug/dug_showlog.xml:296
+#: (para)
+msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:301
+#: (para)
+msgid "If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Get All</guibutton>."
+msgstr "Wenn Sie wirklich <emphasis>alle</emphasis> Log-Meldungen zurück bis zur Revision 1 sehen möchten, klicken Sie auf <guibutton>Hole Alle</guibutton>."
+
+#: source/en/tsvn_dug/dug_showlog.xml:307
 #: (title)
 msgid "Changing the Log Message and Author"
 msgstr "Ändern der Log-Meldung und des Autors"
 
-#: source/en/tsvn_dug/dug_showlog.xml:280
+#: source/en/tsvn_dug/dug_showlog.xml:309
 #: (primary)
 msgid "edit log/author"
 msgstr "Autor bearbeiten"
 
-#: source/en/tsvn_dug/dug_showlog.xml:282
+#: source/en/tsvn_dug/dug_showlog.xml:311
 #: (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
 msgstr "Manchmal ist es notwendig, eine Log-Meldung nachträglich zu ändern. Sei es weil die Meldung Rechtschreibfehler enthält oder weil Sie die Meldung mit mehr Informationen erweitern müssen oder aus anderen Gründen Oder Sie müssen den Autor der Revision ändern, weil Sie vielleicht vergessen haben eine Authentifizierung für Übertragungen auf dem Server einzurichten oder..."
 
-#: source/en/tsvn_dug/dug_showlog.xml:289
+#: source/en/tsvn_dug/dug_showlog.xml:318
 #: (para)
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
 msgstr "Subversion lässt Sie beides, Log-Meldungen und den Autor einer  Revision, ändern. Aber da solche Änderungen nicht wieder rückgängig gemacht werden können (diese Änderungen werden nicht aufgezeichnet) ist diese Funktion standardmässig deaktiviert. Um diese Funktion zu aktivieren, müssen Sie eine pre-revprop-change Aktion für das Projektarchiv einrichten. Bitte lesen Sie dazu das entsprechende Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"> <citetitle>Hook Scripts</citetitle> </ulink> im Subversion Buch, wie das gemacht wird. Lesen Sie auch <xref linkend=\"tsvn-repository-hooks\"/>, um mehr Informationen  über das Einrichten von Aktionen auf einem Windows PC zu erhalten."
 
-#: source/en/tsvn_dug/dug_showlog.xml:302
+#: source/en/tsvn_dug/dug_showlog.xml:331
 #: (para)
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
 msgstr "Sobald Sie die gewünschten Aktionen für das Projektarchiv eingerichtet haben, können Sie sowohl den Autor als auch die Log-Meldung einer  jeden Revision nachträglich ändern, indem Sie den entsprechenden Eintrag aus dem Kontextmenü des Log Dialogs auswählen."
 
-#: source/en/tsvn_dug/dug_showlog.xml:308
+#: source/en/tsvn_dug/dug_showlog.xml:337
 #: (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
 msgstr "Da die Revisionseigenschaften (z.B. <literal>svn:log</literal> für Log-Meldungen) in Subversion nicht aufgezeichnet werden, überschreiben Änderungen  den alten Wert für <emphasis>immer</emphasis>."
 
-#: source/en/tsvn_dug/dug_showlog.xml:319
+#: source/en/tsvn_dug/dug_showlog.xml:347
+#: (title)
+msgid "Filtering Log Messages"
+msgstr "Log-Meldungen filtern"
+
+#: source/en/tsvn_dug/dug_showlog.xml:349
+#: (primary)
+msgid "filter"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:351
+#: (para)
+msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:360
+#: (para)
+msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:367
 #: (title)
 msgid "Statistical Information"
 msgstr "Statistiken anzeigen"
 
-#: source/en/tsvn_dug/dug_showlog.xml:321
+#: source/en/tsvn_dug/dug_showlog.xml:369
 #: (primary)
 msgid "statistics"
 msgstr "Statistiken"
 
-#: source/en/tsvn_dug/dug_showlog.xml:323
+#: source/en/tsvn_dug/dug_showlog.xml:371
 #: (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
 msgstr "Die <guibutton>Statistiken</guibutton> Schaltfläche zeigt eine Dialogbox mit interessanten Informationen über die angezeigten Revisionen an. Es zeigt zum Beispiel wieviele Autoren (Personen welche Übertragungen gemacht haben) am Werk waren, wieviele Übertragungen jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt und vieles mehr. Endlich haben Sie die Möglichkeit zu überprüfen, wer fleissig am Projekt mitarbeitet und wer hinterherhängt ;-)"
 
-#: source/en/tsvn_dug/dug_showlog.xml:331
+#: source/en/tsvn_dug/dug_showlog.xml:379
 #: (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
 msgstr "Beachten Sie, dass die Statistiken die selbe Zeitperiode überdecken wie Revisionen im Log-Dialog angezeigt werden. Wenn also nur eine  Revision angezeigt wird, sagen die Statistiken nicht sehr viel aus."
@@ -5528,6 +5588,31 @@ msgstr ""
 #: source/en/tsvn_app_howto.xml:240
 #: (para)
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin&gt;</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3\"><citetitle>Subversion Book</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:252
+#: (title)
+msgid "Compare two revisions of a file"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:254
+#: (primary)
+msgid "compare files"
+msgstr "Dateien vergleichen"
+
+#: source/en/tsvn_app_howto.xml:256
+#: (para)
+msgid "If you want to compare two revisions in a file's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:270
+#: (para)
+msgid "If you want to compare the same file in two different trees, for example the trunk and a branch, you can use the repository browser to open up both trees, select the file in both places, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:280
+#: (para)
+msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Head Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of Head Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
 msgstr ""
 
 #: source/en/tsvn_app_faq.xml:3
