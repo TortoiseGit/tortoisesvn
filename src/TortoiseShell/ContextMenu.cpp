@@ -46,6 +46,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isAdded = false;
 	isLocked = false;
 	isPatchFile = false;
+	stdstring statuspath;
+	svn_wc_status_kind fetchedstatus = svn_wc_status_unversioned;
 	// get selected files/folders
 	if (pDataObj)
 	{
@@ -102,7 +104,9 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								stat.GetStatus(CTSVNPath(str.c_str()));
 								if (stat.status)
 								{
+									statuspath = str;
 									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+									fetchedstatus = status;
 									if ((stat.status->entry)&&(stat.status->entry->lock_token))
 										isLocked = (stat.status->entry->lock_token[0] != 0);
 								}
@@ -162,7 +166,9 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								stat.GetStatus(CTSVNPath(strpath));
 								if (stat.status)
 								{
+									statuspath = str;
 									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+									fetchedstatus = status;
 									if ((stat.status->entry)&&(stat.status->entry->lock_token))
 										isLocked = (stat.status->entry->lock_token[0] != 0);
 								}	
@@ -220,21 +226,29 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		ItemIDList list(pIDFolder);
 		folder_ = list.toString();
 		svn_wc_status_kind status = svn_wc_status_unversioned;
-		try
+		if (folder_.compare(statuspath)!=0)
 		{
-			SVNStatus stat;
-			stat.GetStatus(CTSVNPath(folder_.c_str()));
-			if (stat.status)
+			try
 			{
-				status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-				if ((stat.status->entry)&&(stat.status->entry->lock_token))
-					isLocked = (stat.status->entry->lock_token[0] != 0);
+				SVNStatus stat;
+				stat.GetStatus(CTSVNPath(folder_.c_str()));
+				if (stat.status)
+				{
+					status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+					if ((stat.status->entry)&&(stat.status->entry->lock_token))
+						isLocked = (stat.status->entry->lock_token[0] != 0);
+				}
+			}
+			catch ( ... )
+			{
+				ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 			}
 		}
-		catch ( ... )
+		else
 		{
-			ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+			status = fetchedstatus;
 		}
+		status = fetchedstatus;
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 		{
 			isFolderInSVN = true;
@@ -251,20 +265,27 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		{
 			folder_ = files_.front();
 			svn_wc_status_kind status = svn_wc_status_unversioned;
-			try
+			if (folder_.compare(statuspath)!=0)
 			{
-				SVNStatus stat;
-				stat.GetStatus(CTSVNPath(folder_.c_str()));
-				if (stat.status)
+				try
 				{
-					status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-					if ((stat.status->entry)&&(stat.status->entry->lock_token))
-						isLocked = (stat.status->entry->lock_token[0] != 0);
+					SVNStatus stat;
+					stat.GetStatus(CTSVNPath(folder_.c_str()));
+					if (stat.status)
+					{
+						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+						if ((stat.status->entry)&&(stat.status->entry->lock_token))
+							isLocked = (stat.status->entry->lock_token[0] != 0);
+					}
+				}
+				catch ( ... )
+				{
+					ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 				}
 			}
-			catch ( ... )
+			else
 			{
-				ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+				status = fetchedstatus;
 			}
 			if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 				isFolderInSVN = true;
