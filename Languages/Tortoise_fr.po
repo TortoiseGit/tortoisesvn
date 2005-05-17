@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-13 14:44+0100\n"
+"PO-Revision-Date: 2005-05-16 23:51+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -161,7 +161,7 @@ msgstr "&CD-ROM (Cédérom)"
 msgid "&Cancel"
 msgstr "&Annuler"
 
-#: ID:76
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "&Comparer les révisions"
 
@@ -223,7 +223,7 @@ msgstr "&Depuis WC à l'URL:"
 #: Control-ID:1115
 #: Control-ID:1019
 msgid "&Head Revision"
-msgstr "Révision &principale"
+msgstr "&Dernière Révision"
 
 #: Control-ID:57670
 #: MenuEntry
@@ -378,7 +378,7 @@ msgstr "Ann&uler"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Annuler\tCtrl+Z"
 
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "&Diff Standard"
 
@@ -992,6 +992,10 @@ msgstr "Changer la position de la fenêtre"
 msgid "Change the window size"
 msgstr "Changer la taille de la fenêtre"
 
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "Fichiers Modifiés"
+
 #: ID:163
 msgid "Changed files: %d"
 msgstr "Fichiers modifiés: %d"
@@ -1157,6 +1161,14 @@ msgstr "Livraisons chaque semaine:"
 msgid "Commits your changes to the repository"
 msgstr "Livrer vos modifications dans le repository"
 
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "Comparer les Révisions &HEAD"
+
+#: ID:274
+msgid "Compare &Head Revisions"
+msgstr "Comparer les &Dernières Révisions"
+
 #: Control-ID:1019
 msgid "Compare Whitespaces"
 msgstr "Comparer les espacements"
@@ -1235,6 +1247,11 @@ msgstr "Copier depuis le Chemin"
 #: ID:101
 msgid "Copy To Working Copy..."
 msgstr "Copier vers la Copie locale..."
+
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "Copier l'URL dans le presse-papier"
 
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -3918,6 +3935,10 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Format de fichier non attendu."
 
+#: MenuEntry
+msgid "Unified &Diff Of Head Revisions"
+msgstr "&Diff Standard des Dernières Révisions"
+
 #: ID:81
 msgid ""
 "Unknown certificate issuer.\n"
@@ -4561,4 +4582,5 @@ msgstr "votre version est:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "votre version est: %d.%d.%d.%d"
+
 
