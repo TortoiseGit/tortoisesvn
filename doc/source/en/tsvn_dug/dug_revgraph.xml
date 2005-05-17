@@ -69,6 +69,23 @@
 		The revision date, author and comments are shown in a hint box whenever
 		the mouse hovers over a revision box.
 	</para>
+	<para>
+		If you select two revisions, you can use the context menu to show the
+		differences between these revisions. You can choose to show differences
+		as at the branch creation points, but usually you will want to show the
+		differences at the branch end points, i.e. at the HEAD revision.
+	</para>
+	<para>
+		You can view the differences as a Unified-Diff file, which shows all
+		differences in a single file with minimal context. If you opt to
+		<menuchoice>
+			<guimenu>Context Menu</guimenu>
+			<guimenuitem>Compare Revisions</guimenuitem>
+		</menuchoice>
+		you will be presented with a list of changed files.
+		<action>Double click</action> on a file name to fetch both revisions
+		of the file and compare them using the visual difference tool.
+	</para>
 	<caution>
 		Because Subversion cannot provide all the information required,
 		a certain amount of interpretation is required, which can sometimes
