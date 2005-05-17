@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-04 10:03+0800\n"
+"PO-Revision-Date: 2005-05-16 09:45+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -195,7 +195,7 @@ msgid "&Cancel"
 msgstr "取消(&C)"
 
 # ID:76,
-#: ID:76
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "比對版本差異(&C)"
 
@@ -208,8 +208,8 @@ msgstr "複製至(&C)..."
 # ID:73,#:
 # ID:101,
 #: ID:101
-msgid "&Delete"
-msgstr "刪除(&D)"
+msgid "&Delete..."
+msgstr "刪除(&D)..."
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -370,11 +370,6 @@ msgstr "埠(&P):"
 msgid "&Previous Difference"
 msgstr "前一筆差異(&P)"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "遞迴至子目錄以取得狀態(&R)"
-
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: ID:376
@@ -428,11 +423,6 @@ msgstr "另存新檔(&S)..."
 msgid "&Save authentication"
 msgstr "儲存認證(&S)"
 
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "選擇覆蓋圖示組(&S)"
-
 # Control-ID:1012,
 #: Control-ID:1012
 msgid "&Set"
@@ -480,7 +470,7 @@ msgid "&Undo\tCtrl+Z"
 msgstr "還原(&U)\tCtrl+Z"
 
 # Control-ID:1013,
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "單一差異檔(&U)"
 
@@ -550,10 +540,10 @@ msgstr "- %d"
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1187
+#: Control-ID:1104
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
-#: Control-ID:1104
 msgid "..."
 msgstr "..."
 
@@ -715,17 +705,6 @@ msgstr "行動"
 #: ID:3826
 msgid "Activate Task List"
 msgstr "目前工作列表"
-
-# ID:78,
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"如果你想要資料夾圖示顯示 Subversion\n"
-"的狀態, 請啟用此選項.\n"
-"<ct=0x0000ff><b>注意:</b>本功能會拖慢檔案總管執行效率.</ct>"
 
 # ID:8,#:
 # ID:73,#:
@@ -1048,6 +1027,16 @@ msgstr "無錯誤時自動關閉"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "無合併, 新增, 刪除時自動關閉"
 
+# ID:76,
+#: Control-ID:65535
+msgid "Autoclose:"
+msgstr "自動關閉:"
+
+# ID:201,
+#: Control-ID:1073
+msgid "Automatically check for newer versions every week"
+msgstr "每週自動檢查新版"
+
 # Dlg-ID:141,
 #: Control-ID:1157
 msgid "Average"
@@ -1225,7 +1214,7 @@ msgid "Change the window size"
 msgstr "更改視窗大小"
 
 # Dlg-ID:158,
-#: Dlg-ID:158
+#: Dlg-ID:199
 msgid "Changed Files"
 msgstr "異動過的檔案"
 
@@ -1260,10 +1249,11 @@ msgstr "檢查檔案庫"
 msgid "Check for Modifications"
 msgstr "檢查異動"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Check for newer &versions"
-msgstr "檢查新版本(&V)"
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "Check now"
+msgstr "立刻檢查"
 
 # ID:9,
 #: ID:9
@@ -1286,8 +1276,8 @@ msgstr "請檢查你輸入的路徑或 URL."
 
 # Control-ID:65535,
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "勾選你希望出現在快顯功能表, 而不是子選單中的選單項目"
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr "勾選你希望出現在子選單, 而不是第一層快選功能表中的選單項目"
 
 # ID:80,
 #: ID:80
@@ -1389,6 +1379,11 @@ msgstr "色彩"
 msgid "Command failed."
 msgstr "命令失敗."
 
+# ID:8,
+#: Control-ID:1083
+msgid "Commit"
+msgstr "送交"
+
 # Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
@@ -1419,10 +1414,15 @@ msgstr "每週送交:"
 msgid "Commits your changes to the repository"
 msgstr "將你所做的修改送交至檔案庫"
 
-# Control-ID:1083,
-#: Control-ID:1083
-msgid "Committing"
-msgstr "正在送交"
+# ID:76,
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "比對最新版本(&C)"
+
+# ID:76,
+#: ID:274
+msgid "Compare &Head Revisions"
+msgstr "比對最新版本(&C)"
 
 # Control-ID:1019,
 #: Control-ID:1019
@@ -1448,6 +1448,21 @@ msgstr "比對此檔案與上次送交的版本並列出你所做的異動"
 #: ID:74
 msgid "Completed"
 msgstr "完畢"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "設定用來比對不同版本檔案的工具程式."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used to resolve conflicted files."
+msgstr "設定用來解決衝突檔案的工具程式."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "設定檢視 GNU 差異檔(補綴檔)的工具程式."
 
 # Control-ID:65535,
 #: ID:263
@@ -1504,6 +1519,11 @@ msgstr "從路徑複製"
 #: ID:101
 msgid "Copy To Working Copy..."
 msgstr "複製至工作複本..."
+
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "複製URL至剪貼簿"
 
 # ID:13,
 #: ID:13
@@ -1747,11 +1767,6 @@ msgstr "正在刪除"
 msgid "Destination disk drive is full."
 msgstr "目的磁碟已滿."
 
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "對話盒"
-
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -1761,21 +1776,6 @@ msgstr "比對差異"
 #: Control-ID:65535
 msgid "Diff File:"
 msgstr "差異檔:"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Diff Program"
-msgstr "差異比對程式"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Diff Viewer"
-msgstr "差異檢視工具"
-
-# Dlg-ID:163,
-#: Dlg-ID:163
-msgid "Diff/Merge"
-msgstr "差異比對/合併"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -1980,6 +1980,11 @@ msgstr "輸入 URL"
 msgid "Enter a lock message (optional):"
 msgstr "輸入鎖定訊息(可不寫):"
 
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "請輸入鎖定檔案的原因."
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2079,6 +2084,21 @@ msgstr "外部"
 msgid "External Program:"
 msgstr "外部程式:"
 
+# Control-ID:65535,
+#: Dlg-ID:192
+msgid "External Programs::Diff Viewer"
+msgstr "External Programs::Diff Viewer"
+
+# Control-ID:65535,
+#: Dlg-ID:193
+msgid "External Programs::Merge Tool"
+msgstr "External Programs::Merge Tool"
+
+# Control-ID:65535,
+#: Dlg-ID:194
+msgid "External Programs::Unified Diff Viewer"
+msgstr "External Programs::Unified Diff Viewer"
+
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -2127,6 +2147,11 @@ msgstr "正在取得第 %s 版的:"
 #: ID:207
 msgid "File"
 msgstr "檔案"
+
+# Control-ID:65535,
+#: ID:376
+msgid "File Diffs"
+msgstr "檔案差異"
 
 # Dlg-ID:135,
 #: ID:376
@@ -2189,6 +2214,7 @@ msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memo
 msgstr "GDI+ 無法建立點陣圖物件. 你可能沒有足夠的記憶體."
 
 # Dlg-ID:107,
+#: Dlg-ID:143
 #: Dlg-ID:107
 msgid "General"
 msgstr "一般設定"
@@ -2335,6 +2361,11 @@ msgstr "啟用時, TortoiseSVN 每週會檢查一次最新版本"
 
 # ID:195,
 #: ID:195
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "啟用時, 可以提高從 1.2版之前的伺服器取得紀錄訊息的速度."
+
+# ID:195,
+#: ID:195
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
@@ -2401,17 +2432,6 @@ msgstr "匯入目錄至檔案庫"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "包含路徑:"
-
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"以圖示覆蓋標示資料夾的狀態.\n"
-"如果沒有啟動, 有版本控制的資料夾永遠會顯示正常狀態的圖示.\n"
-"<ct=0x0000ff><b>如果檔案總管運作緩慢, 請關閉此功能!</b></ct>"
 
 # ID:76,
 #: ID:76
@@ -2575,6 +2595,12 @@ msgstr "鎖定"
 msgid "Lock Comment"
 msgstr "鎖定說明"
 
+# ID:3857,#:
+# ID:3857,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "鎖定檔案"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -2634,13 +2660,29 @@ msgstr "紀錄訊息歷程:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
+#: Control-ID:65535
 msgid "Log Messages"
 msgstr "紀錄訊息"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
+#: Dlg-ID:195
 msgid "Look and Feel"
 msgstr "視覺樣式"
+
+# Dlg-ID:106,
+#: Dlg-ID:196
+msgid "Look and Feel::Dialogs"
+msgstr "Look and Feel::Dialogs"
+
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel::Icon Overlays"
+msgstr "Look and Feel::Icon Overlays"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+msgid "Look and Feel::Icon Set"
+msgstr "Look and Feel::Icon Set"
 
 # ID:238,
 #: ID:238
@@ -2657,11 +2699,6 @@ msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "郵件系統 DLL 錯誤."
-
-# Dlg-ID:143,
-#: Dlg-ID:143
-msgid "Main"
-msgstr "主要設定"
 
 # ID:2051,
 #: ID:2051
@@ -2681,11 +2718,6 @@ msgstr "最大"
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "合併"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Merge Program"
-msgstr "合併程式"
 
 # ID:9,
 #: ID:9
@@ -2734,7 +2766,6 @@ msgstr "最小"
 
 # Control-ID:1023,#:
 # Control-ID:1082,
-#: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
 msgstr "其他"
@@ -2971,6 +3002,11 @@ msgstr "開啟用戶端憑證檔"
 msgid "Open file"
 msgstr "開啟檔案"
 
+# ID:9,
+#: ID:113
+msgid "Open with..."
+msgstr "開啟程式..."
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -3178,10 +3214,10 @@ msgstr "程式"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "程式 (*.exe)|*.*|所有檔案 (*.*)|*.*||"
 
-# Control-ID:65535,
+# Dlg-ID:134,
 #: Control-ID:65535
-msgid "Progress dialog:"
-msgstr "進度視窗:"
+msgid "Progress"
+msgstr "進度"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3459,6 +3495,11 @@ msgstr "重試"
 msgid "Revert"
 msgstr "復原"
 
+# ID:113,
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "復原這些版本的變更"
+
 # ID:77,
 #: ID:8
 msgid "Revert..."
@@ -3606,7 +3647,7 @@ msgstr "SVN 版本"
 # ID:11,
 #: ID:11
 msgid "SVN Status"
-msgstr "SVN Status"
+msgstr "SVN 狀態"
 
 # ID:78,
 #: ID:78
@@ -3631,7 +3672,7 @@ msgstr "SVN mime-type"
 # ID:12,
 #: ID:12
 msgid "SVN short Url"
-msgstr "SVN 短 UR"
+msgstr "SVN 短 URL"
 
 #: MenuEntry
 msgid "Save &As..."
@@ -3707,6 +3748,7 @@ msgstr "儲存補綴檔至:"
 #: Control-ID:1014
 #: Control-ID:1017
 #: Control-ID:1064
+#: Control-ID:1212
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3913,11 +3955,6 @@ msgstr "顯示行號"
 msgid "Show Log"
 msgstr "顯示記錄"
 
-# Control-ID:65535,
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "顯示資料夾狀態"
-
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -4056,6 +4093,11 @@ msgstr "偷取鎖定"
 msgid "Steal the lock"
 msgstr "偷取鎖定"
 
+# ID:313,
+#: Control-ID:1211
+msgid "Steal the locks"
+msgstr "偷取鎖定"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Stefan Küng, Lübbe Onken"
@@ -4065,6 +4107,12 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
 msgstr "複製/更名時停止"
+
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: Control-ID:65535
+msgid "Subversion"
+msgstr "Subversion"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4511,13 +4559,13 @@ msgstr "TortoiseMerge %d.%d.%d, 組建 %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, 組建 %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4538,7 +4586,7 @@ msgstr "TortoiseSVN %d.%d.%d, 組建 %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4548,7 +4596,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, 組建 %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4687,6 +4735,13 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "預期外的檔案格式."
 
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: MenuEntry
+msgid "Unified &Diff Of Head Revisions"
+msgstr "最新版本單一差異檔(%D)"
+
 # ID:81,
 #: ID:81
 msgid ""
@@ -4798,6 +4853,11 @@ msgstr "使用 \"從:\" 的URL"
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "自動完成檔案名稱及關鍵字"
 
+# Control-ID:1214,
+#: Control-ID:1214
+msgid "Use old API's to fetch log messages"
+msgstr "使用舊的 API 取得紀錄訊息"
+
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -4848,16 +4908,6 @@ msgstr "檔案庫的 URL 異動時可使用此功能修改"
 msgid "Use whole other &file"
 msgstr "全部使用另一個檔案(&f)"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Used for comparing different revisions of files."
-msgstr "用來比對不同版本的檔案."
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Used to resolve conflicted files."
-msgstr "用來解決衝突的檔案."
-
 # ID:74,
 #: ID:74
 msgid "User cancelled"
@@ -4898,11 +4948,6 @@ msgstr "值"
 msgid "Version"
 msgstr "版本"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Viewer program for GNU diff files (patch files)."
-msgstr "檢視 GNU 差異檔(補綴檔)的工具程式."
-
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
@@ -4928,6 +4973,11 @@ msgstr "空白字元差異"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "空白字元"
+
+# ID:151,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "工作複本"
 
 # ID:151,
 #: Control-ID:1183

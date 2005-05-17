@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-13 13:15+0100\n"
+"PO-Revision-Date: 2005-05-16 12:10+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -194,7 +194,7 @@ msgid "&Cancel"
 msgstr "&Annulla"
 
 # ID:76,
-#: ID:76
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "&Confronta revisioni"
 
@@ -468,7 +468,7 @@ msgid "&Undo\tCtrl+Z"
 msgstr "&Annulla\tCtrl+Z"
 
 # Control-ID:65535,
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "Confronto &unificato"
 
@@ -1214,6 +1214,11 @@ msgid "Change the window size"
 msgstr "Cambia le dimensioni della finestra"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "File modificati"
+
+# ID:163,
 #: ID:163
 msgid "Changed files: %d"
 msgstr "File modificati: %d"
@@ -1409,6 +1414,16 @@ msgstr "Invia ogni settimana:"
 msgid "Commits your changes to the repository"
 msgstr "Invia i cambiamenti al repository"
 
+# ID:76,
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "Confronta revisioni di &testa"
+
+# ID:76,
+#: ID:274
+msgid "Compare &Head Revisions"
+msgstr "Confronta revisioni di &testa"
+
 # Control-ID:1019,
 #: Control-ID:1019
 msgid "Compare Whitespaces"
@@ -1504,6 +1519,11 @@ msgstr "Copia dal percorso"
 #: ID:101
 msgid "Copy To Working Copy..."
 msgstr "Copia sulla Copia di lavoro"
+
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "Copia l'URL negli appunti"
 
 # ID:13,
 #: ID:13
@@ -4718,6 +4738,14 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Formato del file inatteso."
+
+# Control-ID:1032,#:
+# Control-ID:1115,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: MenuEntry
+msgid "Unified &Diff Of Head Revisions"
+msgstr "&Confronto unificato delle revisioni di testa"
 
 # ID:81,
 #: ID:81

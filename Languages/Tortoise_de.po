@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-13 11:51+0100\n"
+"PO-Revision-Date: 2005-05-17 09:05+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -157,7 +157,7 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
-#: ID:76
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "Revisionen &vergleichen"
 
@@ -374,7 +374,7 @@ msgstr "&Rückgängig"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Rückgängig\tStrg+Z"
 
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "&Standard Diff"
 
@@ -982,7 +982,7 @@ msgstr "Change the window position"
 msgid "Change the window size"
 msgstr "Change the window size"
 
-#: Dlg-ID:158
+#: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Geänderte Objekte"
 
@@ -1151,6 +1151,14 @@ msgstr "Übertragungen pro Woche:"
 msgid "Commits your changes to the repository"
 msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
 
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "&Neueste Revisionen vergleichen"
+
+#: ID:274
+msgid "Compare &Head Revisions"
+msgstr "&Neueste Revisionen vergleichen"
+
 #: Control-ID:1019
 msgid "Compare Whitespaces"
 msgstr "Vergleiche Leerzeichen"
@@ -1229,6 +1237,11 @@ msgstr "Kopiert von"
 #: ID:101
 msgid "Copy To Working Copy..."
 msgstr "Kopiere zur Arbeitskopie.."
+
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "URL in Zwischenablage kopieren"
 
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -1871,7 +1884,7 @@ msgstr "&Neueste Revision"
 
 #: Control-ID:1182
 msgid "HEAD revision in the repository"
-msgstr "HEAD Revision im Projektarchiv"
+msgstr "Neueste Revision im Projektarchiv"
 
 #: ID:12
 #: Control-ID:1004
@@ -3912,6 +3925,10 @@ msgstr "Rückgängig|Letzte Aktuion rückgängig machen"
 msgid "Unexpected file format."
 msgstr "Unerwartetes Dateiformat."
 
+#: MenuEntry
+msgid "Unified &Diff Of Head Revisions"
+msgstr "Standard &Diff der neuesten Revisionen"
+
 #: ID:81
 msgid ""
 "Unknown certificate issuer.\n"
@@ -4102,6 +4119,10 @@ msgstr "Leerzeichen Diff"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "Leerzeichen"
+
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Arbeitskopie"
 
 #: Control-ID:1183
 msgid "Working copy"
@@ -4436,7 +4457,7 @@ msgid ""
 msgstr ""
 "svn:keywords\n"
 "Schlüsselworte, die expandiert werden sollen. Gültige Schlüsselworte sind:\n"
-"URL, HeadURL\t\t\tDie URL für die Head-Revision des Objektes.\n"
+"URL, HeadURL\t\t\tDie URL für die neueste Revision des Objektes.\n"
 "Author, LastChangedBy\t\tDie letzte Person, die die Datei geändert hat.\n"
 "Date, LastChangedDate\t\tDas Datum / die Zeit zu der das Objekt zuletzt geändert wurde.\n"
 "Rev, LastChangedRevision\tDie letzte Revision, in der das Objekt geändert wurde.\n"
