@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3304
+# Based on r3365
 #
 msgid ""
 msgstr ""
@@ -181,7 +181,7 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Annuller"
 
-#: ID:76,
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "&Sammenlign revisioner"
 
@@ -390,7 +390,7 @@ msgstr "&Fortryd"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Fortryd\tCtrl+Z"
 
-#: Control-ID:1180,
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "&Unified diff"
 
@@ -892,7 +892,7 @@ msgstr "Ret vinduesplaceringen"
 msgid "Change the window size"
 msgstr "Ret vinduesstørrelsen"
 
-#: Dlg-ID:158,
+#: Dlg-ID:199,
 msgid "Changed Files"
 msgstr "Ændrede filer"
 
@@ -1046,6 +1046,14 @@ msgstr "Ugentlige arkiveringer:"
 msgid "Commits your changes to the repository"
 msgstr "Arkiverer dine ændringer i versionsarkivet"
 
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "Sammenlign &HEAD-revisioner"
+
+#: ID:274,
+msgid "Compare &Head Revisions"
+msgstr "Sammenlign &nyeste revisioner"
+
 #: Control-ID:1019,
 msgid "Compare Whitespaces"
 msgstr "Sammenlign blanktegn"
@@ -1122,6 +1130,10 @@ msgstr "Kopier fra sti"
 #: ID:101,
 msgid "Copy To Working Copy..."
 msgstr "Kopier til arbejdskopi..."
+
+#: ID:101,
+msgid "Copy URL to clipboard"
+msgstr "Kopier URL til udklipsholder"
 
 #: ID:13,
 msgid "Copy files in Subversion to here"
@@ -1358,7 +1370,7 @@ msgstr "&Afslut"
 
 #: Control-ID:1095,
 msgid "E&xternal"
-msgstr "Eks&tern"
+msgstr "E&kstern"
 
 #: ID:3697,
 #, fuzzy
@@ -1444,7 +1456,7 @@ msgstr "Der opstod en fejl under validering af servercertifikatet for %s:"
 
 #: Control-ID:1097,
 msgid "Ex&ternal"
-msgstr "Eks&tern"
+msgstr "Ek&stern"
 
 #: Control-ID:65535,
 msgid "Exceptions:"
@@ -2855,7 +2867,7 @@ msgstr "Størrelse"
 
 #: ID:74,
 msgid "Skipped"
-msgstr "Sprunget over"
+msgstr "Oversprunget"
 
 #: ID:263,
 #, fuzzy
@@ -2909,6 +2921,10 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:1130,
 msgid "Stop On Copy/Rename"
 msgstr "Stop ved kopiering/omdøbning"
+
+#: Control-ID:65535,
+msgid "Subversion"
+msgstr "Subversion"
 
 #: Control-ID:65535,
 msgid "Subversion configuration file:"
@@ -3259,6 +3275,10 @@ msgstr "Fortryd den seneste handling\nFortryd"
 msgid "Unexpected file format."
 msgstr "Ikke-forventet filformat."
 
+#: MenuEntry
+msgid "Unified &Diff Of Head Revisions"
+msgstr "\"Unified &Diff\" af nyeste revisioner"
+
 #: ID:81,
 #, fuzzy
 msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
@@ -3371,9 +3391,8 @@ msgid "Use th&is text block"
 msgstr "Brug &denne tekstblok"
 
 #: ID:251,
-#, fuzzy
 msgid "Use this &whole file"
-msgstr "Brug denne &hele fil"
+msgstr "Brug &hele denne fil"
 
 #: ID:12,
 msgid "Use this if the URL of the repository has changed"
@@ -3423,6 +3442,10 @@ msgstr "Sammenligning af blanktegn"
 #: Control-ID:65535,
 msgid "Whitespaces"
 msgstr "Blanktegn"
+
+#: Dlg-ID:158,
+msgid "Working Copy"
+msgstr "Arbejdskopi"
 
 #: Control-ID:1183,
 msgid "Working copy"
