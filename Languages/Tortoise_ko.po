@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-08 19:22+0900\n"
+"PO-Revision-Date: 2005-05-18 06:43+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -195,7 +195,7 @@ msgid "&Cancel"
 msgstr "취소(&C)"
 
 # ID:76,
-#: ID:76
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "리비전 비교(&C)"
 
@@ -270,7 +270,7 @@ msgstr "현재 작업 중인 URL(&F):"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
+msgid "&HEAD Revision"
 msgstr "&HEAD 리비전"
 
 # Control-ID:9,#:
@@ -462,7 +462,7 @@ msgid "&Undo\tCtrl+Z"
 msgstr "실행 취소(&U)\tCtrl-Z"
 
 # Control-ID:1013,
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "Unified Diff 적용(&U)"
 
@@ -532,10 +532,10 @@ msgstr "- %d"
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1187
+#: Control-ID:1104
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
-#: Control-ID:1104
 msgid "..."
 msgstr "..."
 
@@ -1017,6 +1017,16 @@ msgstr "오류가 없으면 자동으로 닫습니다."
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "병합, 추가, 삭제가 되지 않으면 자동으로 닫습니다."
 
+# ID:76,
+#: Control-ID:65535
+msgid "Autoclose:"
+msgstr "자동닫기:"
+
+# ID:201,
+#: Control-ID:1073
+msgid "Automatically check for newer versions every week"
+msgstr "매주 새 버전을 확인합니다."
+
 # Dlg-ID:141,
 #: Control-ID:1157
 msgid "Average"
@@ -1195,7 +1205,7 @@ msgid "Change the window size"
 msgstr "윈도우 크기 조정"
 
 # Dlg-ID:158,
-#: Dlg-ID:158
+#: Dlg-ID:199
 msgid "Changed Files"
 msgstr "바뀐 파일들"
 
@@ -1230,10 +1240,11 @@ msgstr "저장소 생성"
 msgid "Check for Modifications"
 msgstr "수정내역 확인 확인"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Check for newer &versions"
-msgstr "새 버전 확인(&V)"
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "Check now"
+msgstr "지금 확인합니다."
 
 # ID:9,
 #: ID:9
@@ -1359,6 +1370,11 @@ msgstr "색상"
 msgid "Command failed."
 msgstr "명령 오류."
 
+# ID:8,
+#: Control-ID:1083
+msgid "Commit"
+msgstr "커밋"
+
 # Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
@@ -1389,10 +1405,10 @@ msgstr "주단위로 커밋:"
 msgid "Commits your changes to the repository"
 msgstr "바뀐 내용을 저장소에 반영합니다."
 
-# Control-ID:1083,
-#: Control-ID:1083
-msgid "Committing"
-msgstr "커밋 중"
+# ID:76,
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "HEAD 리비전 비교(&H)"
 
 # Control-ID:1019,
 #: Control-ID:1019
@@ -1418,6 +1434,21 @@ msgstr "작업한 내용을 마지막 커밋된 버전과 비교하여 보여줍
 #: ID:74
 msgid "Completed"
 msgstr "완료"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "두 리비전의 차이점을 찾는 프로그램에 대한 설정을 합니다."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used to resolve conflicted files."
+msgstr "충돌난 파일을 해결하는 프로그램을 설정합니다."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "GNU diff 파일 (패치 파일) 보기 프로그램을 설정합니다."
 
 # Control-ID:65535,
 #: ID:263
@@ -1474,6 +1505,11 @@ msgstr "복사할 원본 경로"
 #: ID:101
 msgid "Copy To Working Copy..."
 msgstr "작업 사본으로 복사..."
+
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "URL을 클립보드에 복사합니다"
 
 # ID:13,
 #: ID:13
@@ -1724,21 +1760,6 @@ msgstr "비교"
 msgid "Diff File:"
 msgstr "비교 파일:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Diff Program"
-msgstr "비교 프로그램"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Diff Viewer"
-msgstr "차이점 보기"
-
-# Dlg-ID:163,
-#: Dlg-ID:163
-msgid "Diff/Merge"
-msgstr "비교/병합"
-
 # Control-ID:1022,
 #: Control-ID:1022
 msgid "Diffing"
@@ -1942,6 +1963,11 @@ msgstr "URL 입력"
 msgid "Enter a lock message (optional):"
 msgstr "잠금 알림 메시지 (선택사항):"
 
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "파일을 잠그는 이유를 기술하십시오."
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2041,6 +2067,21 @@ msgstr "외부"
 msgid "External Program:"
 msgstr "외부 프로그램:"
 
+# Control-ID:65535,
+#: Dlg-ID:192
+msgid "External Programs::Diff Viewer"
+msgstr "외부 프로그램:Diff"
+
+# Control-ID:65535,
+#: Dlg-ID:193
+msgid "External Programs::Merge Tool"
+msgstr "외부 프로그램:Merge"
+
+# Control-ID:65535,
+#: Dlg-ID:194
+msgid "External Programs::Unified Diff Viewer"
+msgstr "외부 프로그램:Unified diff"
+
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -2090,6 +2131,11 @@ msgstr "리비전 %s 가져오기 파일명:"
 #: ID:207
 msgid "File"
 msgstr "파일"
+
+# Control-ID:65535,
+#: ID:376
+msgid "File Diffs"
+msgstr "파일 비교"
 
 # Dlg-ID:135,
 #: ID:376
@@ -2152,6 +2198,7 @@ msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memo
 msgstr "GDI+가 비트맵 개체를 만들 수 없습니다. 메모리 충분하지 않습니다."
 
 # Dlg-ID:107,
+#: Dlg-ID:143
 #: Dlg-ID:107
 msgid "General"
 msgstr "일반"
@@ -2232,7 +2279,7 @@ msgstr "그래프 종류:"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
-msgid "H&ead Revision"
+msgid "H&EAD Revision"
 msgstr "H&EAD 리비전"
 
 # ID:12,
@@ -2296,6 +2343,11 @@ msgstr "TortoiseSVN이 svn:keywords 들을 치환하지 않고 차이점을 생�
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
+
+# ID:195,
+#: ID:195
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "pre-1.2 저장소 서버이후부터 커밋로그를 가져오는데 속도를 높힙니다."
 
 # ID:195,
 #: ID:195
@@ -2591,18 +2643,29 @@ msgstr "로그 메시지 기록:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
+#: Control-ID:65535
 msgid "Log Messages"
 msgstr "로그 메시지"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
+#: Dlg-ID:195
 msgid "Look and Feel"
 msgstr "모양"
 
 # Dlg-ID:106,
-#: Dlg-ID:184
-msgid "Look and Feel::Overlays"
+#: Dlg-ID:196
+msgid "Look and Feel::Dialogs"
+msgstr "모양::대화상자"
+
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel::Icon Overlays"
 msgstr "모양::아이콘 덧붙이기"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+msgid "Look and Feel::Icon Set"
+msgstr "모양::아이콘 모음"
 
 # ID:238,
 #: ID:238
@@ -2611,19 +2674,14 @@ msgstr "최하위 리비전: %ld - 최상위 리비전: %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - 최신 리비전: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
+msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - 최신(HEAD) 리비전: %ld"
 
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "메일 시스템 DLL이 유효하지 않습니다."
-
-# Dlg-ID:143,
-#: Dlg-ID:143
-msgid "Main"
-msgstr "일반"
 
 # ID:2051,
 #: ID:2051
@@ -2643,11 +2701,6 @@ msgstr "최대"
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "병합"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Merge Program"
-msgstr "병합 프로그램"
 
 # ID:9,
 #: ID:9
@@ -2696,7 +2749,6 @@ msgstr "최소"
 
 # Control-ID:1082,#:
 # Control-ID:1023,
-#: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
 msgstr "기타"
@@ -3143,10 +3195,10 @@ msgstr "프로그램"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "프로그램 (*.exe)|*.exe|모든 파일들 (*.*)|*.*||"
 
-# Control-ID:65535,
+# Dlg-ID:134,
 #: Control-ID:65535
-msgid "Progress dialog:"
-msgstr "진행 대화상자:"
+msgid "Progress"
+msgstr "진행"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
@@ -4039,6 +4091,12 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Stop On Copy/Rename"
 msgstr "복사/이름변경 시점에서 중지"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: Control-ID:65535
+msgid "Subversion"
+msgstr "Subversion"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -4659,6 +4717,10 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "기타 파일 형식"
 
+#: MenuEntry
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "HEAD 리비전에 대한 차이를 구합니다.(&D)"
+
 # ID:81,
 #: ID:81
 msgid ""
@@ -4770,6 +4832,11 @@ msgstr "\"시작:\" URL을 사용"
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "파일 경로와 키워드의 자동 완성기능을 이용합니다."
 
+# Control-ID:1214,
+#: Control-ID:1214
+msgid "Use old API's to fetch log messages"
+msgstr "커밋로그를 가져오는데 구버전 API를 사용합니다"
+
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -4820,16 +4887,6 @@ msgstr "저장소의 URL이 변경되었을때 사용"
 msgid "Use whole other &file"
 msgstr "전체파일 사용(&F)"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Used for comparing different revisions of files."
-msgstr "두 리비전의 차이점을 찾는 프로그램입니다."
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Used to resolve conflicted files."
-msgstr "충돌난 파일을 해결하는 프로그램입니다."
-
 # ID:74,
 #: ID:74
 msgid "User cancelled"
@@ -4870,11 +4927,6 @@ msgstr "값"
 msgid "Version"
 msgstr "버전"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Viewer program for GNU diff files (patch files)."
-msgstr "GNU diff 파일 (패치 파일) 보기 프로그램"
-
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
@@ -4900,6 +4952,11 @@ msgstr "공백 비교"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "공백"
+
+# ID:151,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "작업 사본"
 
 # ID:151,
 #: Control-ID:1183
