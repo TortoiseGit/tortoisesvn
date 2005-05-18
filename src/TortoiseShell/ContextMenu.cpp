@@ -101,7 +101,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							try
 							{
 								SVNStatus stat;
-								stat.GetStatus(CTSVNPath(str.c_str()));
+								stat.GetStatus(CTSVNPath(str.c_str()), false, true, true);
 								if (stat.status)
 								{
 									statuspath = str;
@@ -163,7 +163,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							try
 							{
 								SVNStatus stat;
-								stat.GetStatus(CTSVNPath(strpath));
+								stat.GetStatus(CTSVNPath(strpath), false, true, true);
 								if (stat.status)
 								{
 									statuspath = str;
@@ -231,7 +231,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			try
 			{
 				SVNStatus stat;
-				stat.GetStatus(CTSVNPath(folder_.c_str()));
+				stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
 				if (stat.status)
 				{
 					status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
@@ -270,7 +270,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				try
 				{
 					SVNStatus stat;
-					stat.GetStatus(CTSVNPath(folder_.c_str()));
+					stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
 					if (stat.status)
 					{
 						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
