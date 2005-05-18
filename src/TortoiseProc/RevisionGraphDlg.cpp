@@ -1108,108 +1108,117 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 		{
 			// save the graph as a pixel picture instead of a vector picture
 			// create dc to paint on
-			CWindowDC ddc(this);
-			CDC dc;
-			if (!dc.CreateCompatibleDC(&ddc))
+			try
 			{
-				LPVOID lpMsgBuf;
-				if (!FormatMessage( 
-					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL ))
+				CWindowDC ddc(this);
+				CDC dc;
+				if (!dc.CreateCompatibleDC(&ddc))
 				{
+					LPVOID lpMsgBuf;
+					if (!FormatMessage( 
+						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+						FORMAT_MESSAGE_FROM_SYSTEM | 
+						FORMAT_MESSAGE_IGNORE_INSERTS,
+						NULL,
+						GetLastError(),
+						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+						(LPTSTR) &lpMsgBuf,
+						0,
+						NULL ))
+					{
+						return;
+					}
+					MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+					LocalFree( lpMsgBuf );
 					return;
 				}
-				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-				LocalFree( lpMsgBuf );
-				return;
-			}
-			CRect rect;
-			rect = GetViewSize();
-			HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, rect.Width(), rect.Height());
-			if (hbm==0)
-			{
-				LPVOID lpMsgBuf;
-				if (!FormatMessage( 
-					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL ))
+				CRect rect;
+				rect = GetViewSize();
+				HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, rect.Width(), rect.Height());
+				if (hbm==0)
 				{
+					LPVOID lpMsgBuf;
+					if (!FormatMessage( 
+						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+						FORMAT_MESSAGE_FROM_SYSTEM | 
+						FORMAT_MESSAGE_IGNORE_INSERTS,
+						NULL,
+						GetLastError(),
+						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+						(LPTSTR) &lpMsgBuf,
+						0,
+						NULL ))
+					{
+						return;
+					}
+					MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+					LocalFree( lpMsgBuf );
 					return;
 				}
-				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-				LocalFree( lpMsgBuf );
-				return;
-			}
-			HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
-			//paint the whole graph
-			DrawGraph(&dc, rect, 0, 0, false);
-			//now use GDI+ to save the picture
-			CLSID   encoderClsid;
-			GdiplusStartupInput gdiplusStartupInput;
-			ULONG_PTR           gdiplusToken;
-			CString sErrormessage;
-			if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
-			{   
-				{
-					Bitmap bitmap(hbm, NULL);
-					if (bitmap.GetLastStatus()==Ok)
+				HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
+				//paint the whole graph
+				DrawGraph(&dc, rect, 0, 0, false);
+				//now use GDI+ to save the picture
+				CLSID   encoderClsid;
+				GdiplusStartupInput gdiplusStartupInput;
+				ULONG_PTR           gdiplusToken;
+				CString sErrormessage;
+				if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
+				{   
 					{
-						// Get the CLSID of the encoder.
-						int ret = 0;
-						if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
-							ret = GetEncoderClsid(L"image/png", &encoderClsid);
-						else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
-							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-						else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
-							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-						else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
-							ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
-						else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
-							ret = GetEncoderClsid(L"image/gif", &encoderClsid);
+						Bitmap bitmap(hbm, NULL);
+						if (bitmap.GetLastStatus()==Ok)
+						{
+							// Get the CLSID of the encoder.
+							int ret = 0;
+							if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
+								ret = GetEncoderClsid(L"image/png", &encoderClsid);
+							else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
+								ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+							else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
+								ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+							else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
+								ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
+							else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
+								ret = GetEncoderClsid(L"image/gif", &encoderClsid);
+							else
+							{
+								tempfile += _T(".jpg");
+								ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+							}
+							if (ret >= 0)
+							{
+								CStringW tfile = CStringW(tempfile);
+								bitmap.Save(tfile, &encoderClsid, NULL);
+							}
+							else
+							{
+								sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CUtils::GetFileExtFromPath(tempfile));
+							}
+						}
 						else
 						{
-							tempfile += _T(".jpg");
-							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-						}
-						if (ret >= 0)
-						{
-							CStringW tfile = CStringW(tempfile);
-							bitmap.Save(tfile, &encoderClsid, NULL);
-						}
-						else
-						{
-							sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CUtils::GetFileExtFromPath(tempfile));
+							sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
 						}
 					}
-					else
-					{
-						sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
-					}
+					GdiplusShutdown(gdiplusToken);
 				}
-				GdiplusShutdown(gdiplusToken);
+				else
+				{
+					sErrormessage.LoadString(IDS_REVGRAPH_ERR_GDIINIT);
+				}
+				dc.SelectObject(oldbm);
+				dc.DeleteDC();
+				if (!sErrormessage.IsEmpty())
+				{
+					CMessageBox::Show(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
+				}
 			}
-			else
+			catch (CException * pE)
 			{
-				sErrormessage.LoadString(IDS_REVGRAPH_ERR_GDIINIT);
-			}
-			dc.SelectObject(oldbm);
-			dc.DeleteDC();
-			if (!sErrormessage.IsEmpty())
-			{
-				CMessageBox::Show(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
+				TCHAR szErrorMsg[2048];
+				pE->GetErrorMessage(szErrorMsg, 2048);
+				CMessageBox::Show(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
 			}
 		}
 	} // if (GetSaveFileName(&ofn)==TRUE)
