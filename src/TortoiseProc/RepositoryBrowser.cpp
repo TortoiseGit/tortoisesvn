@@ -599,6 +599,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CString filename = svnPath.GetFileOrDirectoryName();
 						CInputDlg input(this);
 						SetupInputDlg(&input);
+						input.m_sInputText.LoadString(IDS_INPUT_ADDFOLDERLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
@@ -658,6 +659,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CString filename = path.GetFileOrDirectoryName();
 						CInputDlg input(this);
 						SetupInputDlg(&input);
+						input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
@@ -687,6 +689,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						SetupInputDlg(&input);
+						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Move(CTSVNPath(url), CTSVNPath(filepath), TRUE, input.m_sInputText))
@@ -713,6 +716,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						SetupInputDlg(&input);
+						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_name), GetRevision(), input.m_sInputText))
@@ -846,6 +850,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						SetupInputDlg(&input);
+						input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name)), input.m_sInputText))
