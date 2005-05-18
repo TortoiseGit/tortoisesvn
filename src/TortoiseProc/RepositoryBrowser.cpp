@@ -607,7 +607,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
 							} // if (!svn.Import(path, url, _T("adding file remotely"), FALSE)) 
-							m_treeRepository.AddFile(url+_T("/")+filename);
+							m_treeRepository.AddFolder(url+_T("/")+filename);
 						} // if (input.DoModal() == IDOK) 
 					} // if (GetOpenFileName(&ofn)==TRUE) 
 				}
