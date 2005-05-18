@@ -231,7 +231,7 @@ void CMergeDlg::OnBnClickedDiffbutton()
 	CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("test.diff")));
 	if (m_bUseFromURL)
 	{
-		if (!svn.PegDiff(CTSVNPath(m_URLFrom), StartRev, StartRev, EndRev, TRUE, FALSE, FALSE, TRUE, CString(), tempfile))
+		if (!svn.PegDiff(CTSVNPath(m_URLFrom), StartRev, StartRev, EndRev, TRUE, FALSE, FALSE, FALSE, CString(), tempfile))
 		{
 			CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			AfxGetApp()->DoWaitCursor(-1);
@@ -240,7 +240,7 @@ void CMergeDlg::OnBnClickedDiffbutton()
 	}
 	else
 	{
-		if (!svn.Diff(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, TRUE, FALSE, FALSE, TRUE, CString(), tempfile))
+		if (!svn.Diff(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, TRUE, FALSE, FALSE, FALSE, CString(), tempfile))
 		{
 			CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			AfxGetApp()->DoWaitCursor(-1);

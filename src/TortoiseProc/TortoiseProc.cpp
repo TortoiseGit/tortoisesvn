@@ -1611,7 +1611,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLi
 	}
 
 	SVN svn;
-	if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, TRUE, _T(""), tempPatchFilePath))
+	if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, FALSE, _T(""), tempPatchFilePath))
 	{
 		progDlg.Stop();
 		::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

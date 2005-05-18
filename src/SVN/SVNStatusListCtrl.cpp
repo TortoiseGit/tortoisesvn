@@ -1445,7 +1445,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						SVN svn;
 						if (entry->remotestatus <= svn_wc_status_normal)
 						{
-							if (!svn.Diff(entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC, TRUE, FALSE, FALSE, TRUE, _T(""), tempfile))
+							if (!svn.Diff(entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit
@@ -1453,7 +1453,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						else
 						{
-							if (!svn.PegDiff(entry->path, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
+							if (!svn.PegDiff(entry->path, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit

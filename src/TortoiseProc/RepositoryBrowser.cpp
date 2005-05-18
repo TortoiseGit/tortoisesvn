@@ -874,7 +874,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CTSVNPath tempfile = CUtils::GetTempFilePath();
 					tempfile.AppendRawString(_T(".diff"));
 					SVN svn;
-					if (!svn.Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
+					if (!svn.Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						::DeleteFile(tempfile.GetWinPath());

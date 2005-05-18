@@ -742,7 +742,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 						m_tempFileList.AddPath(tempfile);
-						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
+						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
@@ -766,7 +766,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 						m_tempFileList.AddPath(tempfile);
-						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
+						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
@@ -861,7 +861,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							m_tempFileList.AddPath(tempfile);
 							tempfile.AppendRawString(_T(".diff"));
 							m_tempFileList.AddPath(tempfile);
-							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
+							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, FALSE, TRUE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit
@@ -915,7 +915,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							// Instead of doing a full diff here, we maybe could just use the changed paths from all the
 							// log messages between the two selected revisions? Of course, we then would need to ask
 							// for the repository root to get full URL's to the changed files, and filter out folders
-							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
+							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, FALSE, TRUE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit
