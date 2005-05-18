@@ -1265,16 +1265,25 @@ void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	CMenu popup;
 	if (popup.CreatePopupMenu())
 	{
+		CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
+		CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+		bool bSameURL = (strcmp(entry1->url, entry2->url)==0);
 		CString temp;
 		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
-		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
+		if (!bSameURL)
+		{
+			temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
+		}
 
 		temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
-		temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
+		if (!bSameURL)
+		{
+			temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
+		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
@@ -1341,11 +1350,13 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot)
 	url2.SetFromSVN(sRepoRoot+CString(entry2->url));
 	CTSVNPath url1_temp = url1;
 	CTSVNPath url2_temp = url2;
-	while (!url1_temp.IsEquivalentTo(url2_temp))
-	{
+	INT_PTR iMax = min(url1_temp.GetSVNPathString().GetLength(), url2_temp.GetSVNPathString().GetLength());
+	INT_PTR i = 0;
+	for ( ; ((i<iMax) && (url1_temp.GetSVNPathString().GetAt(i)==url2_temp.GetSVNPathString().GetAt(i))); ++i)
+		;
+	while (url1_temp.GetSVNPathString().GetLength()>i)
 		url1_temp = url1_temp.GetContainingDirectory();
-		url2_temp = url2_temp.GetContainingDirectory();
-	}
+	
 	sRoot = url1_temp.GetSVNPathString();
 		
 	if (url1.IsEquivalentTo(url2))
