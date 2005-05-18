@@ -68,4 +68,7 @@ private:
 	CProgressDlg m_progressDlg;			///< The progress dialog shown during operation
 	LONG		m_lowestrev;
 	LONG		m_highestrev;
+	char*		m_locale;				///< saved application's locale
+	int			m_mbcp;					///< saved application's multibyte codepage
+	LCID		m_LCID;
 };
