@@ -221,17 +221,17 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 					{
 						delete chunk;
 						chunk = 0;
-					} // if (chunk) 
-					if (chunks)
-					{
-						for (int i=0; i<chunks->chunks.GetCount(); i++)
+						if (chunks)
 						{
-							delete chunks->chunks.GetAt(i);
-						}
-						chunks->chunks.RemoveAll();
-						delete chunks;
-						chunks = NULL;
-					} // if (chunks)
+							for (int i=0; i<chunks->chunks.GetCount(); i++)
+							{
+								delete chunks->chunks.GetAt(i);
+							}
+							chunks->chunks.RemoveAll();
+							delete chunks;
+							chunks = NULL;
+						} // if (chunks)
+					} // if (chunk) 
 					break;		//skip the garbage
 					//m_sErrorMessage.Format(IDS_ERR_PATCH_CHUNKSTARTNOTFOUND, nIndex);
 					//goto errorcleanup;
