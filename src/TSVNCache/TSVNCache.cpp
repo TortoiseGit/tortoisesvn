@@ -23,7 +23,8 @@
 #include "Resource.h"
 #include "registry.h"
 #include "..\crashrpt\CrashReport.h"
-#include "Aclapi.h"
+#include "SecAttribs.h"
+
 
 #include "..\version.h"
 
@@ -118,8 +119,10 @@ void DebugOutputLastError()
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
-	HANDLE hReloadProtection = ::CreateSemaphore(NULL, 0, 1, _T("TSVNCacheReloadProtection"));
-	if(hReloadProtection != INVALID_HANDLE_VALUE && GetLastError() == ERROR_ALREADY_EXISTS)
+	CSecAttribs sa;
+	HANDLE hReloadProtection = ::CreateMutex(&sa.sa, FALSE, _T("Global\\TSVNCacheReloadProtection"));
+	
+	if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)
 	{
 		// An instance of TSVNCache is already running
 		ATLTRACE("TSVNCache ignoring restart\n");
@@ -350,6 +353,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 	HANDLE hPipe = INVALID_HANDLE_VALUE;
 	HANDLE hInstanceThread = INVALID_HANDLE_VALUE;
 
+	CSecAttribs sa;
 	while (*bRun) 
 	{ 
 		hPipe = CreateNamedPipe( 
@@ -362,7 +366,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 			BUFSIZE,                  // output buffer size 
 			BUFSIZE,                  // input buffer size 
 			NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
-			NULL);                    // default security attribute 
+			&sa.sa);                  // NULL DACL
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
@@ -370,7 +374,6 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 			DebugOutputLastError();
 			continue; // never leave the thread!
 		}
-		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
 
 		// Wait for the client to connect; if it succeeds, 
 		// the function returns a nonzero value. If the function returns 
@@ -427,6 +430,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 	HANDLE hPipe = INVALID_HANDLE_VALUE;
 	HANDLE hCommandThread = INVALID_HANDLE_VALUE;
 
+	CSecAttribs sa;
 	while (*bRun) 
 	{ 
 		hPipe = CreateNamedPipe( 
@@ -439,7 +443,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 			BUFSIZE,                  // output buffer size 
 			BUFSIZE,                  // input buffer size 
 			NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
-			NULL);                    // default security attribute 
+			&sa.sa);                  // NULL DACL
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
