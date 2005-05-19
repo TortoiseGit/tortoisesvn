@@ -1276,6 +1276,9 @@ void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	{
 		CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
 		CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+		if ((entry1->action == 'D')||(entry2->action == 'D'))
+			return;	// we can't compare with deleted items
+
 		bool bSameURL = (strcmp(entry1->url, entry2->url)==0);
 		CString temp;
 		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
