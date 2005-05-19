@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-17 10:43+0100\n"
+"PO-Revision-Date: 2005-05-19 11:31+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -161,7 +161,7 @@ msgstr "Die Standardkonfiguration von svnserve lässt nur anonymen Lesezugriff z
 #: source/en/tsvn_server/server_svn.xml:153
 #: (para)
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
-msgstr "Um Schreibzugriff auf das Projekarchiv zu ermöglichen, müssen Sie die <filename>conf/svnserve.conf</filename> Datei im Verzeichnis des Projektarchivs bearbeiten. Diese Datei enthält die Dokumentation sowie die Parameter zur Einrichtung des svnserve Dienstes."
+msgstr "Um Schreibzugriff auf das Projektarchiv zu ermöglichen, müssen Sie die <filename>conf/svnserve.conf</filename> Datei im Verzeichnis des Projektarchivs bearbeiten. Diese Datei enthält die Dokumentation sowie die Parameter zur Einrichtung des svnserve Dienstes."
 
 #: source/en/tsvn_server/server_svn.xml:159
 #: (para)
@@ -949,7 +949,7 @@ msgstr "Einen Server einrichten"
 #: source/en/tsvn_server/server.xml:5
 #: (para)
 msgid "To use TortoiseSVN (or any other Subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <emphasis>file://</emphasis> protocol or you can place them on a server and access them with the <emphasis>http://</emphasis> or <emphasis>svn://</emphasis> protocols. The two server protocols can also be encrypted. You use <emphasis>https://</emphasis> or <emphasis>svn+ssh://</emphasis>. This chapter shows you step by step on how you can set up such a server on a Windows machine."
-msgstr "Um TortoiseSVN (oder einen anderen Subversion Client) nutzen zu können, benötigen Sie einen Ort, an dem Ihre Projektarchive liegen. Sie können diese entweder lokal anlegen und mit dem <emphasis>file://</emphasis> Protokoll darauf zugreifen oder Sie können die Projekarchive auf einem Server anlegen und mit den <emphasis>http://</emphasis> oder <emphasis>svn://</emphasis> Protokollen darauf zugreifen. Die beiden Serverprotokolle können zusätzlich verschlüsselt werden. Dazu verwenden Sie entweder <emphasis>https://</emphasis> oder <emphasis>svn+ssh://</emphasis>. Diese Kapitel zeigt Ihnen Schritt für Schritt, wie Sie einen Server auf einem Windows Rechner einrichten."
+msgstr "Um TortoiseSVN (oder einen anderen Subversion Client) nutzen zu können, benötigen Sie einen Ort, an dem Ihre Projektarchive liegen. Sie können diese entweder lokal anlegen und mit dem <emphasis>file://</emphasis> Protokoll darauf zugreifen oder Sie können die Projektarchive auf einem Server anlegen und mit den <emphasis>http://</emphasis> oder <emphasis>svn://</emphasis> Protokollen darauf zugreifen. Die beiden Serverprotokolle können zusätzlich verschlüsselt werden. Dazu verwenden Sie entweder <emphasis>https://</emphasis> oder <emphasis>svn+ssh://</emphasis>. Diese Kapitel zeigt Ihnen Schritt für Schritt, wie Sie einen Server auf einem Windows Rechner einrichten."
 
 #: source/en/tsvn_server/server.xml:16
 #: (para)
@@ -1161,7 +1161,7 @@ msgstr "Das Projektarchiv"
 #: source/en/tsvn_repository/repository.xml:5
 #: (para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
-msgstr "Egal welches Protokoll Sie verwenden, um auf das Projektarchiv zuzugreifen, Sie müssen jeweils mindestens ein Projektarchiv erstellen. Sie können dies entweder mit the Subversion Kommandozeilen-Client oder mit TortoiseSVN tun."
+msgstr "Egal welches Protokoll Sie verwenden, um auf das Projektarchiv zuzugreifen, Sie müssen jeweils mindestens ein Projektarchiv erstellen. Sie können dies entweder mit dem Subversion Kommandozeilen-Client oder mit TortoiseSVN tun."
 
 #: source/en/tsvn_repository/repository.xml:10
 #: (para)
@@ -1348,7 +1348,7 @@ msgstr "Unveränderte Dateien zeigen"
 #: source/en/tsvn_dug/dug_wcstatus.xml:199
 #: (tip)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <placeholder-1/> dialog is the easiest way to achieve that. Just check the <placeholder-2/> checkbox to show all files in your working copy."
-msgstr ""
+msgstr "Wenn Sie eine flache Ansicht Ihrer Arbeitskopie (also alle Dateien und Ordner in einer Liste) wollen, dann ist der <placeholder-1/> Dialog der einfachste Weg das zu erreichen. Wählen Sie einfach die <placeholder-2/> Option, um alle Dateien in Ihrer Arbeitskopie anzuzeigen."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:209
 #: (title)
@@ -1368,7 +1368,7 @@ msgstr "Oft möchten Sie in einer Datei sehen, was Sie geändert haben. Das kön
 #: source/en/tsvn_dug/dug_wcstatus.xml:222
 #: (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
-msgstr "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs: Auch wenn Sie sich nicht in einer Arbeitskopie befinden oder mehrere Versionen einer Datei haben, können Sie diese vergleichen: "
+msgstr "Auch wenn Sie sich nicht in einer Arbeitskopie befinden oder mehrere Versionen einer Datei haben, können Sie diese vergleichen: "
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:226
 #: (para)
@@ -1686,12 +1686,12 @@ msgstr "Änderungen der gewählten Revision in der gewählten Datei anzuzeigen. 
 #: source/en/tsvn_dug/dug_showlog.xml:222
 #: (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
-msgstr ""
+msgstr "Öffen Sie die gewählte Datei entweder mit dem Standardbetrachter für den Dateityp oder mit einem von Ihnen gewählten Programm."
 
 #: source/en/tsvn_dug/dug_showlog.xml:228
 #: (para)
 msgid "Revert the changes made to the selected file in that revision."
-msgstr ""
+msgstr "Macht die Änderungen der gewählten Datei in dieser Revision rückgängig."
 
 #: source/en/tsvn_dug/dug_showlog.xml:233
 #: (para)
@@ -1746,7 +1746,7 @@ msgstr "Der Log Dialog zeigt aus mehreren Gründen nicht immer alle Änderungen 
 #: source/en/tsvn_dug/dug_showlog.xml:296
 #: (para)
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
-msgstr ""
+msgstr "Wenn Sie mehr Log-Meldungen sehen wollen, klicken Sie auf die <guibutton>Nächste 100</guibutton> Schaltfläche um weiter 100 Meldungen zu holen. Sie können dies so oft wie nötig wiederholen."
 
 #: source/en/tsvn_dug/dug_showlog.xml:301
 #: (para)
@@ -1791,7 +1791,7 @@ msgstr "Log-Meldungen filtern"
 #: source/en/tsvn_dug/dug_showlog.xml:349
 #: (primary)
 msgid "filter"
-msgstr ""
+msgstr "Filter"
 
 #: source/en/tsvn_dug/dug_showlog.xml:351
 #: (para)
@@ -2328,6 +2328,16 @@ msgid "The revision date, author and comments are shown in a hint box whenever t
 msgstr "Das Datum, der Autor und die Log-Meldung der Revision werden in einem Hinweistext angezeigt, sobald die Maus über ein Element bewegt wird."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:72
+#: (para)
+msgid "If you select two revisions, you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_revgraph.xml:78
+#: (para)
+msgid "You can view the differences as a Unified-Diff file, which shows all differences in a single file with minimal context. If you opt to <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice> you will be presented with a list of changed files. <action>Double click</action> on a file name to fetch both revisions of the file and compare them using the visual difference tool."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_revgraph.xml:89
 #: (caution)
 msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
 msgstr "Da Subversion nicht alle Informationen bereitstellt, ist ein gewisser Grad der Interpretation notwendig, was manchmal zu seltsamen Ergebnissen führen kann. Trotzdem sollte der Revisionsgraph für <literal>trunk/</literal> normalerweise brauchbare Ergebnisse liefern."
@@ -2509,7 +2519,7 @@ msgstr "Benutzen Sie den Umplatzieren-Befehl nicht, wenn Sie mit Ihrer Arbeitsko
 #: source/en/tsvn_dug/dug_relocate.xml:33
 #: (para)
 msgid "The relocate command must <emphasis>only</emphasis> be used if the URL of the server changed!"
-msgstr "Der Umplatzieren-Befehl darf <emphasis>nur</emphasis> benutzt werdenwenn die URL des Projektarchivs sich geändert hat!"
+msgstr "Der Umplatzieren-Befehl darf <emphasis>nur</emphasis> benutzt werden, wenn die URL des Projektarchivs sich geändert hat!"
 
 #: source/en/tsvn_dug/dug_propertypage.xml:3
 #: (title)
@@ -2692,20 +2702,35 @@ msgstr "Eine Patchdatei anwenden"
 
 #: source/en/tsvn_dug/dug_patch.xml:53
 #: (para)
-msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>english</filename> folder."
-msgstr "Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet. Dies muß innerhalb des selben Ordners durchgeführt werden, in dem die Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher Ordner das war, schauen Sie in die erste Zeile der Patchdatei. Wenn z.B. die erste bearbeitete Datei <filename>doc/source/english/chapter1.xml</filename> hieß und die erste Zeile in der Patchdatei <filename>Index: english/chapter1.xml</filename> lautet, dann müssen sie den Patch auf den <filename>english</filename> Ordner anwenden."
+msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>english</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TSVN will notice and suggest the correct level."
+msgstr "Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet. Dies muß innerhalb des selben Ordners durchgeführt werden, in dem die Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher Ordner das war, schauen Sie in die erste Zeile der Patchdatei. Wenn z.B. die erste bearbeitete Datei <filename>doc/source/english/chapter1.xml</filename> hieß und die erste Zeile in der Patchdatei <filename>Index: english/chapter1.xml</filename> lautet, dann müssen sie den Patch auf den <filename>english</filename> Ordner anwenden. Falls den Patch nicht in der richtigen Arbeitskopie oder im richtigen Ordner anwenden, wird TortoiseSVN das bemerken und den Pfad vorschlagen, den es für richtig hält."
 
-#: source/en/tsvn_dug/dug_patch.xml:64
+#: source/en/tsvn_dug/dug_patch.xml:67
 #: (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
 msgstr "Um den Patch anwenden zu können, benötigen Sie zumindest Lesezugriff auf das Projektarchiv, denn das Programm zum Zusammenführen (Patchen) der Daten muß eventuell auf dieses zurückgreifen, um die Änderungen auf die Revision im Projektarchiv zurückzuführen, auf der sie basieren."
 
-#: source/en/tsvn_dug/dug_patch.xml:71
+#: source/en/tsvn_dug/dug_patch.xml:74
 #: (para)
-msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for \"All files\". Open the file and TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
-msgstr "Vom Kontextmenü des betroffenen Ordners aus wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die  anzuwendende Patchdatei auswähren können. Standardmäßig werden nur  <filename>.patch</filename> Dateien angezeigt, aber sie können auch  <literal>Alle Dateien</literal> auswählen. Öffnen Sie die Datei und TortoiseMerge wird Ihnen eine Liste der Dateien anzeigen, die durch die Patchdatei geändert würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie zusammengeführt und farblich hervorgehoben. Überprüfen Sie die  Änderungen und speichern Sie die geänderten Dateien."
+msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for \"All files\"."
+msgstr "Vom Kontextmenü des betroffenen Ordners aus wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die  anzuwendende Patchdatei auswähren können. Standardmäßig werden nur  <filename>.patch</filename> Dateien angezeigt, aber sie können auch  <literal>Alle Dateien</literal> auswählen."
 
-#: source/en/tsvn_dug/dug_patch.xml:86
+#: source/en/tsvn_dug/dug_patch.xml:85
+#: (para)
+msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_patch.xml:95
+#: (para)
+msgid "These two methods just offer different ways of doing the same thing. With the first method you select the WC and browse to the patch file. With the second you select the patch file and browse to the WC."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_patch.xml:100
+#: (para)
+msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
+msgstr "Sobald Sie eine Datei gewählt haben, wird TortoiseMerge gestartet, um die Änderungen in Ihrer Arbeitskopie zusammenführen. Ein kleines Fenster zeigt die die Liste der Dateien an, die durch die Patchdatei geändert würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie zusammengeführt. Prüfen Sie die  Änderungen und speichern Sie die geänderten Dateien."
+
+#: source/en/tsvn_dug/dug_patch.xml:107
 #: (para)
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
 msgstr "Die Patchdatei wurde nun in Ihrer Arbeitskopie angewendet, so dass die Veränderungen nun zum Projektarchiv übertragen werden müssen, um anderen  Projekteilnehmern zur Verfügung zu stehen."
@@ -2718,7 +2743,7 @@ msgstr "Zusammenführen"
 #: source/en/tsvn_dug/dug_merge.xml:6
 #: (primary)
 msgid "merge"
-msgstr "Zusammenführen"
+msgstr "Merge"
 
 #: source/en/tsvn_dug/dug_merge.xml:8
 #: (para)
@@ -2733,7 +2758,7 @@ msgstr "Es ist wichtig zu verstehen, wie Verzweigen und Zusammenführen in Subve
 #: source/en/tsvn_dug/dug_merge.xml:26
 #: (para)
 msgid "An important point to remember is that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. For example if you want to merge the changes made in revision N then you have to compare revision N with revision (N-1). Novices often ask <quote>Why do I have to subtract 1 from the start revision.</quote> Think of the underlying Diff process and it will become clearer. TO make this easier, when you use <guibutton>Show Log</guibutton> to select a range of revisions to merge, TortoiseSVN makes this adjustment for you automatically."
-msgstr "Es ist wichtig, in Erinnerung zu behalten, dass das Zusammenführen (Merge) eng mit dem Bilden von Differenzen (Diff) verwandt ist. Das Zusammenführen erfolgt, indem eine Liste von Differenzen zwischen zwei (Zeit)Punkten im Projekarchiv erstellt wird und diese Differenzen auf Ihre Arbeitskopie angewendet werden. Wenn Sie also die Änderungen aus Revision N ermitteln wollen, müssen Sie diese mit Revision N-1 vergleichen. Anfänger fragen sich oft <quote>Warum muss ich 1 von der Startrevision abziehen?</quote> Denken Sie an den zugrundeliegenden Diff Prozess, um sich das Bild zu verdeutlichen."
+msgstr "Es ist wichtig, in Erinnerung zu behalten, dass das Zusammenführen (Merge) eng mit dem Bilden von Differenzen (Diff) verwandt ist. Das Zusammenführen erfolgt, indem eine Liste von Differenzen zwischen zwei (Zeit)Punkten im Projektarchiv erstellt wird und diese Differenzen auf Ihre Arbeitskopie angewendet werden. Wenn Sie also die Änderungen aus Revision N ermitteln wollen, müssen Sie diese mit Revision N-1 vergleichen. Anfänger fragen sich oft <quote>Warum muss ich 1 von der Startrevision abziehen?</quote> Denken Sie an den zugrundeliegenden Diff Prozess, um sich das Bild zu verdeutlichen."
 
 #: source/en/tsvn_dug/dug_merge.xml:39
 #: (para)
@@ -2784,7 +2809,7 @@ msgid ""
 "         ...\n"
 "</screen> If you now want to merge all the changes from MyBranch into the trunk you have to choose 36 as the <guilabel>From Revision</guilabel>, not 37 as you might think. If you select revision 37 as the start point, then the difference engine compares the end point with revision 37, and will miss the changes made in revision 37 itself. If that sounds complicated, don't worry, there is an easier way in TortoiseSVN ..."
 msgstr ""
-"Im <guilabel>Von Revision</guilabel> Feld geben Sie die Anfangsrevision an. Dies ist die Revision <emphasis>vor</emphasis> den Änderungen, welche Sie mit der Arbeitskopie zusammenführen möchten. Revisionsnummern werden automatisch bei jeder Übertragung um eins erhöht. Deshalb ist es notwendig, die Revisionsnummber vor der eigentlichen Übertragung der Änderung hier anzugeben. Zum Beispiel, wenn Ihre Log-Meldungen etwa so aussehen:\n"
+"Im <guilabel>Von Revision</guilabel> Feld geben Sie die Anfangsrevision an. Dies ist die Revision <emphasis>vor</emphasis> den Änderungen, welche Sie mit der Arbeitskopie zusammenführen möchten. Revisionsnummern werden automatisch bei jeder Übertragung um eins erhöht. Deshalb ist es notwendig, die Revisionsnummer vor der eigentlichen Übertragung der Änderung hier anzugeben. Zum Beispiel, wenn Ihre Log-Meldungen etwa so aussehen:\n"
 "<screen>\n"
 "Rev Log-Meldung\n"
 "39. Arbeit an MeinZweig\n"
@@ -2918,12 +2943,12 @@ msgstr "<guibutton>Trockenlauf</guibutton> simuliert das Zusammenführen ledigli
 #: source/en/tsvn_dug/dug_locking.xml:3
 #: (title)
 msgid "Locking"
-msgstr ""
+msgstr "Sperren"
 
 #: source/en/tsvn_dug/dug_locking.xml:5
 #: (primary)
 msgid "locking"
-msgstr ""
+msgstr "locking"
 
 #: source/en/tsvn_dug/dug_locking.xml:15
 #: (para)
@@ -3283,7 +3308,7 @@ msgstr "Der Import-Dialog"
 #: source/en/tsvn_dug/dug_import.xml:173
 #: (para)
 msgid "Now select the top-level folder of your project directory structure in the windows explorer and <action>right click</action> to open the context menu. Select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog box: <placeholder-1/>"
-msgstr "Wählen Sie nun den <emphasis>übergeordneten</emphasis> Ordner Ihrer Ordnerstruktur im Windows Explorer und öffnen Sie mit einem <action>Rechts-Klick</action> das Kontext-Menu. Wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Importieren...</guimenuitem> </menuchoice> worauf der folgende Dialog erscheint: <placeholder-1/>"
+msgstr "Wählen Sie nun den <emphasis>übergeordneten</emphasis> Ordner Ihrer Ordnerstruktur im Windows Explorer und öffnen Sie mit einem <action>Rechts-Klick</action> das Kontextmenü. Wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Importieren...</guimenuitem> </menuchoice> worauf der folgende Dialog erscheint: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_import.xml:188
 #: (para)
@@ -3905,7 +3930,7 @@ msgstr "Der Checkout-Dialog"
 #: source/en/tsvn_dug/dug_checkout.xml:12
 #: (para)
 msgid "Select a directory in windows explorer where you want to place your working copy. <action>Right click</action> to pop up the context menu and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, which brings up the following dialog box: <placeholder-1/> If you enter a folder name that does not yet exist, then a directory with that name is created."
-msgstr "Wählen Sie nun den Ordner im Windows Explorer in dem Sie Ihre Arbeitskopie ertellen wollen und öffnen Sie mit einem <action>Rechts-Klick</action> das Kontext-Menu. Wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auschecken...</guimenuitem> </menuchoice> worauf der folgende Dialog erscheint: <placeholder-1/> Wenn Sie einen Ordnernamen angeben, der noch nicht existiert, wird dieser Ordner im Projektarchiv angelegt."
+msgstr "Wählen Sie nun den Ordner im Windows Explorer in dem Sie Ihre Arbeitskopie ertellen wollen und öffnen Sie mit einem <action>Rechts-Klick</action> das Kontextmenü. Wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auschecken...</guimenuitem> </menuchoice> worauf der folgende Dialog erscheint: <placeholder-1/> Wenn Sie einen Ordnernamen angeben, der noch nicht existiert, wird dieser Ordner im Projektarchiv angelegt."
 
 #: source/en/tsvn_dug/dug_checkout.xml:29
 #: (para)
@@ -5612,7 +5637,7 @@ msgstr ""
 
 #: source/en/tsvn_app_howto.xml:280
 #: (para)
-msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Head Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of Head Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
+msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
 msgstr ""
 
 #: source/en/tsvn_app_faq.xml:3
