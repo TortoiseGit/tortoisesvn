@@ -6,9 +6,12 @@ rem Try to check, whether these vars are already set
 if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
+SET IGNORELIST=tsvn_app_automation.xml tsvn_app_faq.xml Pubdate.xml
+
 SET LOGFILE=translatelog.txt
 
-echo. >%LOGFILE%
+copy %LOGFILE% %LOGFILE%.bak
+echo.>%LOGFILE%
 
 if "%1"=="" (
   FOR %%L IN (po\*.po) DO (
@@ -25,6 +28,8 @@ rem +----------------------------------------------------------------------
 :doit
 echo.
 echo Translating: %1
+echo Ignoring: %IGNORELIST%
+echo.
 SET POFILE=po\%1.po
 SET SRCDIR=source\en
 SET TARGDIR=%~dp0source\%1
@@ -41,14 +46,24 @@ cd %SRCDIR%
 SET CHAPTERS=
 
 FOR %%F IN (*.xml) DO (
-  SET CHAPTERS=!CHAPTERS! %%F
+  
+  SET IGNORED=0
+  FOR %%I IN (%IGNORELIST%) do (
+    IF %%I == %%F SET IGNORED=1
+  )
+  IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! %%F
 )
 
 FOR /D %%D IN (*) DO (
   mkdir %TARGDIR%\%%D
 
   FOR %%F IN (%%D\*.xml) DO (
-    SET CHAPTERS=!CHAPTERS! %%F
+
+    SET IGNORED=0
+    FOR %%I IN (%IGNORELIST%) do (
+      IF %%I == %%F SET IGNORED=1
+    )
+    IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! %%F
   )
 )
 
@@ -61,8 +76,10 @@ copy %POFILE% . > NUL
 
 FOR %%F in (!CHAPTERS!) DO (
   echo %%F
+  echo.>>%LOGFILE%
   echo ---------------------------------------------------------------------->>%LOGFILE%
   echo %%F >>%LOGFILE%
+  echo ---------------------------------------------------------------------->>%LOGFILE%
 
   rem Translate file
   xml2po.py -p %1.po %SRCDIR%\%%F > %TARGDIR%\%%F
@@ -74,10 +91,9 @@ FOR %%F in (!CHAPTERS!) DO (
 del %1.po
 
 echo.
-echo Temporary solution
-echo Ugly hack to prevent the automation appendix from being translated.
-echo Copying tsvn_app_automation.xml from english source
-copy %SRCDIR%\tsvn_app_automation.xml %TARGDIR%
+echo Copying files which should not be translated (%IGNORELIST%) from english source
+
+FOR %%F in (%IGNORELIST%) DO copy %SRCDIR%\%%F %TARGDIR%
 
 Goto :EOF
 rem | End of Subroutine -> return to caller

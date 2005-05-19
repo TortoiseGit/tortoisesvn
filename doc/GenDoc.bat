@@ -8,6 +8,8 @@ if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
 set APPS=TortoiseSVN TortoiseMerge
 set TARGETS=pdf chm html
+set IGNORELIST=tsvn_app_automation.xml Pubdate.xml
+
 
 rmdir /s /q output > NUL
 mkdir output > NUL
@@ -55,13 +57,25 @@ if NOT %1 EQU en (
 
   SET CHAPTERS=
 
-  FOR %%F IN (*.xml) DO SET CHAPTERS=!CHAPTERS! %%F
+  FOR %%F IN (*.xml) DO (
+  
+    SET IGNORED=0
+    FOR %%I IN (%IGNORELIST%) do (
+      IF %%I == %%F SET IGNORED=1
+    )
+    IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! %%F
+  )
 
   FOR /D %%D IN (*) DO (
-    mkdir !TARGDIR!\%%D
+    mkdir %TARGDIR%\%%D
 
     FOR %%F IN (%%D\*.xml) DO (
-      SET CHAPTERS=!CHAPTERS! %%F
+
+      SET IGNORED=0
+      FOR %%I IN (%IGNORELIST%) do (
+        IF %%I == %%F SET IGNORED=1
+      )
+      IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! %%F
     )
   )
 
@@ -81,10 +95,9 @@ if NOT %1 EQU en (
   del %1.po
 
   echo.
-  echo Temporary solution
-  echo Ugly hack to prevent the automation appendix from being translated.
-  echo Copying tsvn_app_automation.xml from english source
-  copy %SRCDIR%\tsvn_app_automation.xml %TARGDIR%
+  echo Copying files which should not be translated (%IGNORELIST%) from english source
+
+  FOR %%F in (%IGNORELIST%) DO copy %SRCDIR%\%%F %TARGDIR%
 
 )
 
