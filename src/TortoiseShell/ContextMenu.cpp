@@ -98,22 +98,32 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						{
 							//get the Subversion status of the item
 							svn_wc_status_kind status = svn_wc_status_unversioned;
-							try
+							CTSVNPath askedpath;
+							askedpath.SetFromWin(str.c_str());
+							if ((g_ShellCache.IsSimpleContext())&&(askedpath.IsDirectory()))
 							{
-								SVNStatus stat;
-								stat.GetStatus(CTSVNPath(str.c_str()), false, true, true);
-								if (stat.status)
-								{
-									statuspath = str;
-									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-									fetchedstatus = status;
-									if ((stat.status->entry)&&(stat.status->entry->lock_token))
-										isLocked = (stat.status->entry->lock_token[0] != 0);
-								}
+								if (askedpath.HasAdminDir())
+									status = svn_wc_status_normal;
 							}
-							catch ( ... )
+							else
 							{
-								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+								try
+								{
+									SVNStatus stat;
+									stat.GetStatus(CTSVNPath(str.c_str()), false, true, true);
+									if (stat.status)
+									{
+										statuspath = str;
+										status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+										fetchedstatus = status;
+										if ((stat.status->entry)&&(stat.status->entry->lock_token))
+											isLocked = (stat.status->entry->lock_token[0] != 0);
+									}
+								}
+								catch ( ... )
+								{
+									ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+								}
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 								isInSVN = true;
@@ -160,23 +170,31 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						{
 							//get the Subversion status of the item
 							svn_wc_status_kind status = svn_wc_status_unversioned;
-							try
+							if ((g_ShellCache.IsSimpleContext())&&(strpath.IsDirectory()))
 							{
-								SVNStatus stat;
-								stat.GetStatus(CTSVNPath(strpath), false, true, true);
-								if (stat.status)
-								{
-									statuspath = str;
-									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-									fetchedstatus = status;
-									if ((stat.status->entry)&&(stat.status->entry->lock_token))
-										isLocked = (stat.status->entry->lock_token[0] != 0);
-								}	
-								statfetched = TRUE;
+								if (strpath.HasAdminDir())
+									status = svn_wc_status_normal;
 							}
-							catch ( ... )
+							else
 							{
-								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+								try
+								{
+									SVNStatus stat;
+									stat.GetStatus(CTSVNPath(strpath), false, true, true);
+									if (stat.status)
+									{
+										statuspath = str;
+										status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+										fetchedstatus = status;
+										if ((stat.status->entry)&&(stat.status->entry->lock_token))
+											isLocked = (stat.status->entry->lock_token[0] != 0);
+									}	
+									statfetched = TRUE;
+								}
+								catch ( ... )
+								{
+									ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+								}
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 								isInSVN = true;
@@ -228,20 +246,30 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		svn_wc_status_kind status = svn_wc_status_unversioned;
 		if (folder_.compare(statuspath)!=0)
 		{
-			try
+			CTSVNPath askedpath;
+			askedpath.SetFromWin(folder_.c_str());
+			if ((g_ShellCache.IsSimpleContext())&&(askedpath.IsDirectory()))
 			{
-				SVNStatus stat;
-				stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
-				if (stat.status)
-				{
-					status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-					if ((stat.status->entry)&&(stat.status->entry->lock_token))
-						isLocked = (stat.status->entry->lock_token[0] != 0);
-				}
+				if (askedpath.HasAdminDir())
+					status = svn_wc_status_normal;
 			}
-			catch ( ... )
+			else
 			{
-				ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+				try
+				{
+					SVNStatus stat;
+					stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+					if (stat.status)
+					{
+						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+						if ((stat.status->entry)&&(stat.status->entry->lock_token))
+							isLocked = (stat.status->entry->lock_token[0] != 0);
+					}
+				}
+				catch ( ... )
+				{
+					ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+				}
 			}
 		}
 		else
@@ -266,6 +294,13 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			svn_wc_status_kind status = svn_wc_status_unversioned;
 			if (folder_.compare(statuspath)!=0)
 			{
+				CTSVNPath askedpath;
+				askedpath.SetFromWin(folder_.c_str());
+				if (g_ShellCache.IsSimpleContext())
+				{
+					if (askedpath.HasAdminDir())
+						status = svn_wc_status_normal;
+				}
 				try
 				{
 					SVNStatus stat;

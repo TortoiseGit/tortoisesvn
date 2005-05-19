@@ -47,6 +47,11 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	virtual BOOL OnApply();
+	afx_msg void OnBnClickedOnlyexplorer();
+	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedSimplecontext();
 
 	DECLARE_MESSAGE_MAP()
 public:
@@ -63,10 +68,7 @@ private:
 	CListCtrl		m_cMenuList;
 	BOOL			m_bModified;
 	DWORD			m_topmenu;
-
-public:
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
-	afx_msg void OnBnClickedOnlyexplorer();
-	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
+	
+	CRegDWORD		m_regSimpleContext;
+	BOOL			m_bSimpleContext;
 };

@@ -29,10 +29,12 @@ IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, CPropertyPage)
 CSetLookAndFeelPage::CSetLookAndFeelPage()
 	: CPropertyPage(CSetLookAndFeelPage::IDD)
 	, m_bInitialized(FALSE)
+	, m_bSimpleContext(FALSE)
 {
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-
 	m_topmenu = m_regTopmenu;
+	m_regSimpleContext = CRegDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
+	m_bSimpleContext = m_regSimpleContext;
 }
 
 CSetLookAndFeelPage::~CSetLookAndFeelPage()
@@ -43,11 +45,13 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
+	DDX_Check(pDX, IDC_SIMPLECONTEXT, m_bSimpleContext);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetLookAndFeelPage, CPropertyPage)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
+	ON_BN_CLICKED(IDC_SIMPLECONTEXT, OnBnClickedSimplecontext)
 END_MESSAGE_MAP()
 
 
@@ -56,6 +60,7 @@ void CSetLookAndFeelPage::SaveData()
 	if (m_bInitialized)
 	{
 		m_regTopmenu = m_topmenu;
+		m_regSimpleContext = m_bSimpleContext;
 	}
 }
 
@@ -65,6 +70,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
+	m_tooltips.AddTool(IDC_SIMPLECONTEXT, IDS_SETTINGS_SIMPLECONTEXT_TT);
 
 	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
@@ -193,4 +199,9 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUAPPLYPATCH;
 	} // if (m_cMenuList.GetItemCount() > 0) 
 	*pResult = 0;
+}
+
+void CSetLookAndFeelPage::OnBnClickedSimplecontext()
+{
+	SetModified();
 }

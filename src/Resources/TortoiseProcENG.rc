@@ -880,7 +880,9 @@ BEGIN
     GROUPBOX        "Cascaded Context Menu",IDC_STATIC,7,7,286,202
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,19,274,180
+                    WS_BORDER | WS_TABSTOP,12,19,274,172
+    CONTROL         "Don't fetch status for context menu",IDC_SIMPLECONTEXT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,195,274,10
 END
 
 IDD_SETTINGSDIALOGS DIALOGEX 0, 0, 300, 217
@@ -1304,6 +1306,8 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
+        VERTGUIDE, 12
+        VERTGUIDE, 286
         TOPMARGIN, 7
         BOTTOMMARGIN, 209
     END
@@ -1827,6 +1831,8 @@ BEGIN
     IDS_SETTINGS_LOCKEDNAME "Locked"
     IDS_SETTINGS_OLDLOGAPIS_TT 
                             "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+    IDS_SETTINGS_SIMPLECONTEXT_TT 
+                            "If activated, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the ""Show Log"" entry will show even for just added folders."
 END
 
 STRINGTABLE 

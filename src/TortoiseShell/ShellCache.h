@@ -38,6 +38,7 @@ public:
 		driveunknown = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
+		simplecontext = CRegStdWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
 		recursiveticker = GetTickCount();
 		folderoverlayticker = GetTickCount();
 		driveticker = recursiveticker;
@@ -102,6 +103,15 @@ public:
 			folderoverlay.read();
 		} // if ((GetTickCount() - REGISTRYTIMEOUT)>recursiveticker) 
 		return (folderoverlay);
+	}
+	BOOL IsSimpleContext()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>simplecontextticker)
+		{
+			simplecontextticker = GetTickCount();
+			simplecontext.read();
+		}
+		return (simplecontext);
 	}
 	BOOL IsRemote()
 	{
@@ -354,6 +364,7 @@ private:
 	CRegStdWORD driveram;
 	CRegStdWORD driveunknown;
 	CRegStdWORD menulayout;
+	CRegStdWORD simplecontext;
 	CRegStdString excludelist;
 	stdstring excludeliststr;
 	std::vector<stdstring> exvector;
@@ -370,6 +381,7 @@ private:
 	DWORD columnrevformatticker;
 	DWORD excludelistticker;
 	DWORD includelistticker;
+	DWORD simplecontextticker;
 	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];		// MAX_PATH ok.
 	NUMBERFMT columnrevformat;
