@@ -248,7 +248,6 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		{
 			status = fetchedstatus;
 		}
-		status = fetchedstatus;
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 		{
 			isFolderInSVN = true;
