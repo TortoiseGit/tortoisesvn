@@ -391,7 +391,7 @@ public:
 	 * \param revision the revision of the file to checkout
 	 * \param localpath the place to store the file
 	 */
-	BOOL Cat(const CTSVNPath& url, SVNRev revision, const CTSVNPath& localpath);
+	BOOL Cat(const CTSVNPath& url, SVNRev pegrevision, SVNRev revision, const CTSVNPath& localpath);
 
 	/**
 	 * Lists the sub directories under a repository URL. The returned strings start with either

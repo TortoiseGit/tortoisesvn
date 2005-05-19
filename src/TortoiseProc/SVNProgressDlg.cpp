@@ -1284,7 +1284,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CTSVNPath tempfile = CUtils::GetTempFilePath(data->path);
 								m_templist.AddPath(tempfile);
 								SVN svn;
-								if (!svn.Cat(data->path, m_nUpdateStartRev, tempfile))
+								if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), m_nUpdateStartRev, tempfile))
 								{
 									ReportSVNError();
 									GetDlgItem(IDOK)->EnableWindow(TRUE);

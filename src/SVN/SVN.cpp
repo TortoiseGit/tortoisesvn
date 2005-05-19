@@ -904,7 +904,7 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev
 	return TRUE;
 }
 
-BOOL SVN::Cat(const CTSVNPath& url, SVNRev revision, const CTSVNPath& localpath)
+BOOL SVN::Cat(const CTSVNPath& url, SVNRev pegrevision, SVNRev revision, const CTSVNPath& localpath)
 {
 	apr_file_t * file;
 	svn_stream_t * stream;
@@ -925,7 +925,7 @@ BOOL SVN::Cat(const CTSVNPath& url, SVNRev revision, const CTSVNPath& localpath)
 	}
 	stream = svn_stream_from_aprfile(file, pool);
 
-	Err = svn_client_cat(stream, url.GetSVNApiPath(), revision, m_pctx, pool);
+	Err = svn_client_cat2(stream, url.GetSVNApiPath(), pegrevision, revision, m_pctx, pool);
 
 	apr_file_close(file);
 	if (Err != NULL)

@@ -1390,11 +1390,15 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString savepath = CUtils::GetLongPathname(parser.GetVal(_T("savepath")));
 			CString revision = parser.GetVal(_T("revision"));
+			CString pegrevision = parser.GetVal(_T("pegrevision"));
 			LONG rev = _ttol(revision);
 			if (rev==0)
 				rev = SVNRev::REV_HEAD;
+			LONG pegrev = _ttol(pegrevision);
+			if (pegrev == 0)
+				pegrev = SVNRev::REV_HEAD;
 			SVN svn;
-			if (!svn.Cat(cmdLinePath, rev, CTSVNPath(savepath)))
+			if (!svn.Cat(cmdLinePath, pegrev, rev, CTSVNPath(savepath)))
 			{
 				::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				::DeleteFile(savepath);

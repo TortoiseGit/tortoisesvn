@@ -472,7 +472,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 								savepath.AppendPathString(saveurl.Mid(saveurl.ReverseFind('/')));
 							progDlg.FormatPathLine(1, IDS_REPOBROWSE_SAVEAS_LINE1, saveurl);
 							progDlg.FormatPathLine(2, IDS_REPOBROWSE_SAVEAS_LINE2, savepath.GetWinPathString());
-							if (!svn.Cat(CTSVNPath(saveurl), GetRevision(), savepath)||(progDlg.HasUserCancelled()))
+							if (!svn.Cat(CTSVNPath(saveurl), GetRevision(), GetRevision(), savepath)||(progDlg.HasUserCancelled()))
 							{
 								wait_cursor.Hide();
 								progDlg.Stop();
@@ -563,7 +563,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CWaitCursorEx wait_cursor;
 					SVN svn;
 					svn.SetPromptApp(&theApp);
-					if (!svn.Cat(CTSVNPath(url), GetRevision(), tempfile))
+					if (!svn.Cat(CTSVNPath(url), GetRevision(), GetRevision(), tempfile))
 					{
 						wait_cursor.Hide();
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -891,7 +891,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				{
 					CTSVNPath tempfile1 = CUtils::GetTempFilePath(url1);
 					SVN svn;
-					if (!svn.Cat(url1, GetRevision(), CTSVNPath(tempfile1)))
+					if (!svn.Cat(url1, GetRevision(), GetRevision(), CTSVNPath(tempfile1)))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						::DeleteFile(tempfile1.GetWinPath());
@@ -899,7 +899,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					}
 					m_templist.AddPath(tempfile1);
 					CTSVNPath tempfile2 = CUtils::GetTempFilePath(url2);
-					if (!svn.Cat(url2, GetRevision(), CTSVNPath(tempfile2)))
+					if (!svn.Cat(url2, GetRevision(), GetRevision(), CTSVNPath(tempfile2)))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						::DeleteFile(tempfile2.GetWinPath());

@@ -210,7 +210,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetUIPathString());
 	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev1);
 	
-	if ((rev1 > 0)&&(!m_SVN.Cat(url1, rev1, tempfile)))
+	if ((rev1 > 0)&&(!m_SVN.Cat(url1, SVNRev(rev1), rev1, tempfile)))
 	{
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return;
@@ -220,7 +220,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
 	CTSVNPath tempfile2 = CUtils::GetTempFilePath(url2);
 	m_tempFileList.AddPath(tempfile2);
-	if ((rev2 > 0)&&(!m_SVN.Cat(url2, fd.rev2, tempfile2)))
+	if ((rev2 > 0)&&(!m_SVN.Cat(url2, fd.rev2, fd.rev2, tempfile2)))
 	{
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return;

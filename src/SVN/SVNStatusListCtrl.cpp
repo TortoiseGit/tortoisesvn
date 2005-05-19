@@ -1928,7 +1928,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		remotePath = CUtils::GetTempFilePath(entry->path);
 
 		SVN svn;
-		if (!svn.Cat(entry->path, SVNRev::REV_HEAD, remotePath))
+		if (!svn.Cat(entry->path, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD, remotePath))
 		{
 			CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;

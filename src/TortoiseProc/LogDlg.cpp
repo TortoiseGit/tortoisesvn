@@ -857,7 +857,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							m_tempFileList.AddPath(tempfile);
 							tempfile.AppendRawString(_T(".diff"));
 							m_tempFileList.AddPath(tempfile);
-							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
+							if (!PegDiff(m_path, SVNRev(rev), SVNRev::REV_WC, rev, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit
@@ -880,7 +880,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
 							m_tempFileList.AddPath(tempfile);
 							SVN svn;
-							if (!svn.Cat(m_path, rev, tempfile))
+							if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
 							{
 								CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -936,7 +936,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							long rev1 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 							long rev2 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 
-							StartDiff(m_path, rev1, m_path, rev2);
+							StartDiff(m_path, rev1, m_path, rev2, SVNRev::REV_HEAD);
 						}
 					}
 					break;
@@ -996,7 +996,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							tempfile.SetFromWin(ofn.lpstrFile);
 							SVN svn;
-							if (!svn.Cat(m_path, rev, tempfile))
+							if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
 							{
 								delete [] pszFilters;
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1016,7 +1016,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
 						m_tempFileList.AddPath(tempfile);
 						SVN svn;
-						if (!svn.Cat(m_path, rev, tempfile))
+						if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -1308,7 +1308,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							tempfile.SetFromWin(ofn.lpstrFile);
 							SVN svn;
-							if (!svn.Cat(CTSVNPath(filepath), rev, tempfile))
+							if (!svn.Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
 							{
 								delete [] pszFilters;
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1355,7 +1355,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(filepath));
 						m_tempFileList.AddPath(tempfile);
 						SVN svn;
-						if (!svn.Cat(CTSVNPath(filepath), rev, tempfile))
+						if (!svn.Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -1647,7 +1647,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 }
 
-BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2)
+BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2, SVNRev pegrevision /*= SVNRev()*/)
 {
 	CTSVNPath tempfile1 = CUtils::GetTempFilePath(path1);
 	// The mere process of asking for a temp file creates it as a zero length file
@@ -1667,7 +1667,7 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 	m_bCancelled = FALSE;
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
-	if (!Cat(path1, rev1, tempfile1))
+	if (!Cat(path1, pegrevision.IsValid() ? pegrevision : rev1, rev1, tempfile1))
 	{
 		theApp.DoWaitCursor(-1);
 		CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1680,7 +1680,7 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 		progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
 	}
 
-	if (!Cat(path2, rev2, tempfile2))
+	if (!Cat(path2, pegrevision.IsValid() ? pegrevision : rev2, rev2, tempfile2))
 	{
 		theApp.DoWaitCursor(-1);
 		CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
