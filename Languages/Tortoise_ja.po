@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-15 02:39+0900\n"
+"PO-Revision-Date: 2005-05-19 15:55+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -125,12 +125,12 @@ msgstr "%s : リモートファイル"
 # ID:151,
 #: ID:151
 msgid "%s : Working Base"
-msgstr "%s : 作業用 Base"
+msgstr "%s : 作業ベース"
 
 # ID:151,
 #: ID:151
 msgid "%s : Working Copy"
-msgstr "%s : 作業用 Copy"
+msgstr "%s : 作業コピー"
 
 # ID:145,
 #: ID:145
@@ -202,7 +202,7 @@ msgid "&Cancel"
 msgstr "キャンセル(&C)"
 
 # ID:76,
-#: ID:76
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "リビジョンを比較(&C)"
 
@@ -270,7 +270,7 @@ msgstr "元 URL(&F):"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&From WC at URL:"
-msgstr "作業用コピーのURL(&F):"
+msgstr "作業コピーのURL(&F):"
 
 # Control-ID:1032,#:
 # Control-ID:1019,#:
@@ -278,7 +278,7 @@ msgstr "作業用コピーのURL(&F):"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
+msgid "&HEAD Revision"
 msgstr "最新のリビジョン(&H)"
 
 # Control-ID:57670,#:
@@ -307,7 +307,7 @@ msgstr "言語(&L):"
 
 #: MenuEntry
 msgid "&Mark as resolved"
-msgstr "解決マークを付ける(&M)"
+msgstr "解消マークを付ける(&M)"
 
 #: Control-ID:1
 #: MenuEntry
@@ -399,7 +399,7 @@ msgstr "名前を変更／移動 (&R) ..."
 # ID:113,
 #: ID:113
 msgid "&Revert changes from this revision"
-msgstr "このリビジョン以降の変更を元に戻す(&R)"
+msgstr "このリビジョンによる変更を元に戻す(&R)"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -477,7 +477,7 @@ msgid "&Undo\tCtrl+Z"
 msgstr "元に戻す(&U)\tCtrl+Z"
 
 # Control-ID:1013,
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "Unified Diff(&U)"
 
@@ -562,12 +562,12 @@ msgstr ": リビジョン %d"
 # ID:151,
 #: ID:151
 msgid ": working base"
-msgstr ": 作業用 Base"
+msgstr ": 作業ベース"
 
 # ID:151,
 #: ID:151
 msgid ": working copy"
-msgstr ": 作業用 Copy"
+msgstr ": 作業コピー"
 
 # ID:88,
 #: ID:88
@@ -579,9 +579,9 @@ msgid ""
 "Are you sure you want to relocate?"
 msgstr ""
 "<b>注意:</b> オリジナルのリポジトリが新しいURLに移行した時にのみ、再配置コマンドを使用してください。\n"
-"もし再配置コマンドを、直接作業用 Copy を他のリポジトリもしくはブランチに移すのに使用するなら、\n"
-"<b>作業用 Copy を破壊するかもしれません！</b>\n"
-"他のブランチと作業用 Copy を関連付けるために、切り替えコマンドを利用してください。\n"
+"もし再配置コマンドを、直接作業コピーを他のリポジトリもしくはブランチに移すのに使用するなら、\n"
+"<b>作業コピーを破壊するかもしれません！</b>\n"
+"他のブランチと作業コピーを関連付けるために、切り替えコマンドを利用してください。\n"
 "本当に再配置を行ってもよろしいですか？"
 
 # ID:145,
@@ -891,7 +891,7 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"衝突したファイルを解決するために、\n"
+"ファイルの衝突を解消するために、\n"
 "利用する外部マージツール。\n"
 "<hr=100%>\n"
 "パスに次のようなパラメータ指定が可能:\n"
@@ -957,7 +957,7 @@ msgstr "リビジョンデータを解析 ..."
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "Unified-Diff 形式のファイルを作業用コピーに適用"
+msgstr "Unified-Diff 形式のファイルを作業コピーに適用"
 
 # ID:15,
 #: ID:15
@@ -981,7 +981,7 @@ msgstr "Unified-Diff を適用"
 # ID:145,
 #: ID:145
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "本当に、衝突ファイルを解決に変更してもよろしいですか？"
+msgstr "本当に、ファイルの衝突を解消済に変更してもよろしいですか？"
 
 # ID:79,
 #: ID:79
@@ -1038,7 +1038,7 @@ msgstr "マージ、追加、削除が無い場合は自動的に閉じる"
 # ID:76,
 #: Control-ID:65535
 msgid "Autoclose:"
-msgstr "オートクローズ:"
+msgstr "処理終了後の動作:"
 
 # ID:201,
 #: Control-ID:1073
@@ -1222,6 +1222,11 @@ msgid "Change the window size"
 msgstr "ウィンドウサイズを変更する"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "変更されたファイル"
+
+# ID:163,
 #: ID:163
 msgid "Changed files: %d"
 msgstr "変更されたファイル: %d"
@@ -1261,7 +1266,7 @@ msgstr "今すぐチェック"
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
-msgstr "リポジトリから作業用コピーをチェックアウト"
+msgstr "リポジトリから作業コピーをチェックアウト"
 
 # ID:95,
 #: ID:95
@@ -1415,6 +1420,11 @@ msgstr "週毎のコミット数:"
 msgid "Commits your changes to the repository"
 msgstr "変更をリポジトリにコミット"
 
+# ID:76,
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "最新のリビジョンを比較(&H)"
+
 # Control-ID:1019,
 #: Control-ID:1019
 msgid "Compare Whitespaces"
@@ -1428,7 +1438,7 @@ msgstr "B&ase と比較"
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
-msgstr "作業用コピーと比較(&W)"
+msgstr "作業コピーと比較(&W)"
 
 # ID:12,
 #: ID:12
@@ -1448,7 +1458,7 @@ msgstr "異なるリビジョンのファイルを比較するのに用いるプ
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used to resolve conflicted files."
-msgstr "衝突したファイルの解決に用いるプログラムを設定する。"
+msgstr "ファイルの衝突を解消するために利用するプログラムを設定する。"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1509,7 +1519,7 @@ msgstr "パスからコピー"
 # ID:151,
 #: ID:101
 msgid "Copy To Working Copy..."
-msgstr "作業用 Copy へコピー ..."
+msgstr "作業コピーへコピー ..."
 
 # ID:101,
 #: ID:101
@@ -1533,7 +1543,7 @@ msgstr ""
 # ID:151,
 #: ID:103
 msgid "Copy to working copy"
-msgstr "作業用コピーへコピー"
+msgstr "作業コピーへコピー"
 
 # ID:80,
 #: ID:80
@@ -2047,7 +2057,7 @@ msgstr "エクスポート中 ..."
 # ID:10,
 #: ID:10
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "リポジトリからSVN管理フォルダを除いたクリーンな作業用コピーをエクスポートする"
+msgstr "リポジトリからSVN管理フォルダを除いたクリーンな作業コピーをエクスポートする"
 
 # ID:74,
 #: ID:74
@@ -2078,17 +2088,17 @@ msgstr "外部プログラム:"
 # Control-ID:65535,
 #: Dlg-ID:192
 msgid "External Programs::Diff Viewer"
-msgstr "外部プログラム 「差分ビューア」"
+msgstr "外部プログラム::差分ビューア"
 
 # Control-ID:65535,
 #: Dlg-ID:193
 msgid "External Programs::Merge Tool"
-msgstr "外部プログラム 「マージツール」"
+msgstr "外部プログラム::マージツール"
 
 # Control-ID:65535,
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
-msgstr "外部プログラム 「Unified形式の差分ビューア」"
+msgstr "外部プログラム::Unified形式の差分ビューア"
 
 # ID:74,
 #: ID:74
@@ -2192,7 +2202,7 @@ msgstr "元:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "元: （開始URLとマージするリビジョンの範囲）"
+msgstr "元: （マージする範囲のURLとリビジョン開始位置）"
 
 # ID:273,
 #: ID:273
@@ -2233,7 +2243,7 @@ msgstr "ファイル情報を取得 ..."
 # ID:269,
 #: ID:269
 msgid "Getting information from repository..."
-msgstr "レジストリから情報を取得中 ..."
+msgstr "リポジトリから情報を取得中 ..."
 
 # ID:132,
 #: ID:132
@@ -2285,7 +2295,7 @@ msgstr "グラフの種類:"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
-msgid "H&ead Revision"
+msgid "H&EAD Revision"
 msgstr "最新のリビジョン(&E)"
 
 # ID:12,
@@ -2535,7 +2545,7 @@ msgstr "最後に保存した項目のリビジョン"
 # ID:12,
 #: ID:12
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "衝突を解決するために、外部の差分／マージプログラムを起動"
+msgstr "衝突を解消するために、外部の差分／マージプログラムを起動"
 
 # Control-ID:1137,
 #: Control-ID:1137
@@ -2661,26 +2671,26 @@ msgstr "外観"
 # Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
-msgstr "外観 「ダイアログ」"
+msgstr "外観::ダイアログ"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
 msgid "Look and Feel::Icon Overlays"
-msgstr "外観 「アイコンオーバーレイ」"
+msgstr "外観::アイコンオーバーレイ"
 
 # Dlg-ID:106,
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
-msgstr "外観 「アイコンセット」"
+msgstr "外観::アイコンセット"
 
 # ID:238,
 #: ID:238
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
-msgstr "開始リビジョン: %ld - 最終リビジョン: %ld"
+msgstr "リビジョンの範囲: %ld - %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
 msgstr "開始リビジョン: %ld - 最終リビジョン: %ld - 最新リビジョン: %ld"
 
 # ID:3866,#:
@@ -2695,8 +2705,8 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr ""
-"バージョン管理下のファイルに解決マークを付ける\n"
-"解決マークを付ける"
+"バージョン管理下のファイルに解消マークを付ける\n"
+"解消マークを付ける"
 
 # Control-ID:1159,
 #: Control-ID:1159
@@ -2798,7 +2808,7 @@ msgstr "移動中 ..."
 # ID:12,
 #: MenuEntry
 msgid "N&ext Conflict"
-msgstr "次の衝突(&E)"
+msgstr "次の衝突点へ(&E)"
 
 # ID:3697,
 #: ID:3697
@@ -2946,7 +2956,7 @@ msgstr "OVR"
 # ID:13,
 #: Control-ID:1202
 msgid "Omit externals"
-msgstr "外部を除外する"
+msgstr "外部参照を除外する"
 
 # ID:219,
 #: ID:219
@@ -2990,7 +3000,7 @@ msgstr "ファイルを開く"
 # ID:9,
 #: ID:113
 msgid "Open with..."
-msgstr " ... で開く"
+msgstr "プログラムを指定して開く"
 
 # ID:3605,
 #: ID:3605
@@ -3015,7 +3025,7 @@ msgstr "メモリ不足です。"
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
-msgstr "前の衝突(&R)"
+msgstr "前の衝突点へ(&R)"
 
 # ID:76,
 #: ID:76
@@ -3149,7 +3159,7 @@ msgid ""
 "to that copy path. Use the Switch command to do that."
 msgstr ""
 "注意書き：\n"
-"あなたの作業用コピーは従来のパスのままです。もし今後の変更を今作成した\n"
+"あなたの作業コピーは従来のパスのままです。もし今後の変更を今作成した\n"
 "コピーに反映する場合は、そのコピー先パスに全体を切り替える必要があります。\n"
 "本操作を行うためには、切り替えコマンドを使用してください。"
 
@@ -3451,12 +3461,12 @@ msgstr "リポジトリブラウザ"
 #: ID:8
 #: ID:74
 msgid "Resolved"
-msgstr "問題の解決"
+msgstr "問題の解消"
 
 # ID:9,
 #: ID:9
 msgid "Resolves conflicted files"
-msgstr "衝突したファイルを解決する"
+msgstr "ファイルの衝突を解消する"
 
 # ID:3826,
 #: ID:3826
@@ -3617,7 +3627,7 @@ msgstr "SVN 名前を変更／移動"
 # ID:77,
 #: ID:77
 msgid "SVN Resolve..."
-msgstr "SVN 解決中 ..."
+msgstr "SVN 解消中 ..."
 
 # ID:77,
 #: ID:77
@@ -3884,7 +3894,7 @@ msgstr "ログメッセージに短い日付形式を利用する(&D)"
 # ID:12,
 #: ID:12
 msgid "Short Url of Subversion items"
-msgstr "サブバージョン項目の短いURL"
+msgstr "Subversion 項目の短いURL"
 
 # Control-ID:1016,
 #: Control-ID:1031
@@ -4102,7 +4112,7 @@ msgstr "Subversion"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
-msgstr "サブバージョンの設定ファイル:"
+msgstr "Subversion の設定ファイル:"
 
 # ID:13,
 #: ID:14
@@ -4120,7 +4130,7 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
-"リポジトリ作成中にサブバージョンはエラーを返しました！\n"
+"リポジトリ作成中に Subversion はエラーを返しました！\n"
 "フォルダが空か書込み禁止でないかを確認してください。"
 
 # ID:81,
@@ -4130,7 +4140,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"クリーンアップ中にサブバージョンがエラーを返しました！\n"
+"クリーンアップ中に Subversion がエラーを返しました！\n"
 "<hr=100%>\n"
 "%s"
 
@@ -4179,7 +4189,7 @@ msgstr "前のドキュメントウィンドウに切り替える"
 # ID:9,
 #: ID:9
 msgid "Switch working copy to another branch / tag"
-msgstr "他の分岐／タグへ作業用コピーを切り替え"
+msgstr "他の分岐／タグへ作業コピーを切り替え"
 
 # ID:9,
 #: ID:9
@@ -4205,7 +4215,7 @@ msgstr "タブ幅:"
 # ID:79,
 #: ID:79
 msgid "Tagged the working copy to %s"
-msgstr "作業用コピーを %s へタグ付けしました。"
+msgstr "作業コピーを %s へタグ付けしました。"
 
 # Control-ID:65535,
 #: ID:207
@@ -4332,7 +4342,7 @@ msgstr "古いファイルを示している行は、行 %d だと思われま�
 # ID:251,
 #: ID:251
 msgid "The lock has already been broken from another working copy"
-msgstr "ロックは他の作業用コピーですでに解除されています"
+msgstr "ロックは他の作業コピーですでに解除されています"
 
 # ID:63,
 #: ID:63
@@ -4393,7 +4403,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "The result of the merge is stored in the working copy at:"
-msgstr "マージ結果を保存する作業用コピー:"
+msgstr "マージ結果を保存する作業コピー:"
 
 # ID:78,
 #: ID:78
@@ -4402,7 +4412,7 @@ msgid ""
 "Are you sure you want to mark the file resolved?"
 msgstr ""
 "選択されたファイル内には、まだ１つ以上の衝突マークがあります。\n"
-"本当に、ファイルに解決マークを付けてもよろしいですか？"
+"本当に、ファイルに解消済マークを付けてもよろしいですか？"
 
 # ID:88,
 #: ID:88
@@ -4425,7 +4435,7 @@ msgid ""
 "<hr=100%>\n"
 "Please commit your changes first or revert."
 msgstr ""
-"作業用コピーは変更されました！\n"
+"作業コピーは変更されました！\n"
 "<hr=100%>\n"
 "まず変更をコミット、もしくは元に戻してください。"
 
@@ -4435,7 +4445,7 @@ msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
 msgstr ""
-"作業用コピーは最新ではありません！\n"
+"作業コピーは最新ではありません！\n"
 "まず更新を行ってください。"
 
 # Control-ID:65535,
@@ -4460,8 +4470,8 @@ msgid ""
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"まだ未解決の衝突が行 %d に存在しています！\n"
-"保存する前に、まずそれらの衝突を解決してください。\n"
+"まだ未解消の衝突が行 %d に存在しています！\n"
+"保存する前に、まずそれらの衝突を解消してください。\n"
 "衝突が存在する状態のままで、ファイルの保存を行ってもよろしいですか？\n"
 "「はい」をクリックすると、他のエディタを用いて手作業で編集する必要があります！"
 
@@ -4526,7 +4536,7 @@ msgstr "先:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "先: （終了URLとマージするリビジョンの範囲）"
+msgstr "先: （マージする範囲のURLとリビジョンの終了位置）"
 
 # ID:7,#:
 # ID:3585,#:
@@ -4639,7 +4649,7 @@ msgstr "URL"
 # ID:12,
 #: ID:12
 msgid "URL of Subversion items"
-msgstr "サブバージョン項目のURL"
+msgstr "Subversion 項目のURL"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -4721,6 +4731,13 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "予期せぬファイルフォーマットです。"
 
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: MenuEntry
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "最新のリビジョンに対するUnified形式での差分(&D)"
+
 # ID:81,
 #: ID:81
 msgid ""
@@ -4779,12 +4796,12 @@ msgstr "更新"
 # ID:11,
 #: ID:11
 msgid "Updates the working copy to a specific revision"
-msgstr "特定のリビジョンへ作業用コピーを更新"
+msgstr "特定のリビジョンへ作業コピーを更新"
 
 # ID:9,
 #: ID:9
 msgid "Updates the working copy to the current revision"
-msgstr "現在のリビジョンに作業用コピーを更新"
+msgstr "現在のリビジョンに作業コピーを更新"
 
 # ID:144,
 #: ID:207
@@ -4825,7 +4842,7 @@ msgstr "変更履歴を見るためにテキストビューアを用いる"
 # Control-ID:65535,
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
-msgstr "\"From\"\" URL を利用する"
+msgstr "\"From:\" の URL を利用する"
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -4956,12 +4973,12 @@ msgstr "空白を表示"
 # ID:151,
 #: Dlg-ID:158
 msgid "Working Copy"
-msgstr "作業用 Copy"
+msgstr "作業コピー"
 
 # ID:151,
 #: Control-ID:1183
 msgid "Working copy"
-msgstr "作業用 Copy"
+msgstr "作業コピー"
 
 # ID:80,
 #: ID:80
@@ -4969,7 +4986,7 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"作業用コピーは再配置されました。\n"
+"作業コピーは再配置されました。\n"
 "%s"
 
 # ID:73,
@@ -5015,7 +5032,7 @@ msgstr ""
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
-msgstr "まず、作業用コピーを更新してください。"
+msgstr "まず、作業コピーを更新してください。"
 
 # ID:169,
 #: ID:169
@@ -5055,7 +5072,7 @@ msgid ""
 "Your working copy appears to be on a tag path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"作業用コピーが tag パスを指しています！\n"
+"作業コピーが tag パスを指しています！\n"
 "まず、コミットする前に分岐もしくは本体へ切り替えてください。"
 
 # ID:88,
@@ -5065,7 +5082,7 @@ msgid ""
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
-"作業用コピーはローカルで変更されています！\n"
+"作業コピーはローカルで変更されています！\n"
 "注意: 他のリビジョンへ更新する際に、これらの変更は失われないかもしれません！"
 
 #: MenuEntry
@@ -5442,7 +5459,7 @@ msgstr "週"
 # ID:9,
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
-msgstr "作業用コピーのリポジトリURL:"
+msgstr "作業コピーを示すリポジトリのURL:"
 
 # Control-ID:1112,
 #: Control-ID:1112
