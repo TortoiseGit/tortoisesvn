@@ -148,19 +148,22 @@ bool CFileDiffDlg::SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRep
 				{
 					sAddedLine = sAddedLine.Mid(sAddedLine.Find(_T("(..."))+4).TrimRight(_T(" )")) + _T("/") + sAddedLine.Left(sAddedLine.Find(_T("(..."))-1);
 				}
-				if (!SVN::PathIsURL(strLine))
+				if (!m_sRepoRoot.IsEmpty())
 				{
-					if (strLine[0] == '/')
-						strLine = m_sRepoRoot + strLine;
-					else
-						strLine = m_sRepoRoot + _T("/") + strLine;
-				}
-				if (!SVN::PathIsURL(sAddedLine))
-				{
-					if (sAddedLine[0] == '/')
-						sAddedLine = m_sRepoRoot + sAddedLine;
-					else
-						sAddedLine = m_sRepoRoot + _T("/") + sAddedLine;
+					if (!SVN::PathIsURL(strLine))
+					{
+						if (strLine[0] == '/')
+							strLine = m_sRepoRoot + strLine;
+						else
+							strLine = m_sRepoRoot + _T("/") + strLine;
+					}
+					if (!SVN::PathIsURL(sAddedLine))
+					{
+						if (sAddedLine[0] == '/')
+							sAddedLine = m_sRepoRoot + sAddedLine;
+						else
+							sAddedLine = m_sRepoRoot + _T("/") + sAddedLine;
+					}
 				}
 				CFileDiffDlg::FileDiff fd;
 				fd.rev1 = rev1;
