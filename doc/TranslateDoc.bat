@@ -6,6 +6,10 @@ rem Try to check, whether these vars are already set
 if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
+SET LOGFILE=translatelog.txt
+
+echo. >%LOGFILE%
+
 if "%1"=="" (
   FOR %%L IN (po\*.po) DO (
     CALL :doit %%~nL
@@ -57,7 +61,14 @@ copy %POFILE% . > NUL
 
 FOR %%F in (!CHAPTERS!) DO (
   echo %%F
+  echo ---------------------------------------------------------------------->>%LOGFILE%
+  echo %%F >>%LOGFILE%
+
+  rem Translate file
   xml2po.py -p %1.po %SRCDIR%\%%F > %TARGDIR%\%%F
+
+  rem Run spellchecker on file. Uncomment if you don't want it.
+  aspell --mode=sgml --encoding=utf-8 -l -d %1 < %TARGDIR%\%%F >>%LOGFILE%
 )
 
 del %1.po

@@ -31,14 +31,26 @@ Three scripts are provided to build the documentation:
 
 TranslateDoc.bat:
   will translate into the given language if the po file exists.
-  "TranslateDoc de" will use de.po and the English xml files to
-  build the German document stucture in source\de
+  If no parameter is given, all .po files found in doc\po will be
+  used to create the corresponding target languages.
   This script uses xml2po.py and requires a Python runtime
   environment to be installed.
+  This script makes use of gnu "aspell". Windows binaries and 
+  dictionaries are found at ftp://ftp.gnu.org/gnu/aspell/w32/
+  A log is written to "translatelog.txt"
+
+Example: "TranslateDoc de" will use de.po and the English xml files to
+  build the German document stucture in source\de
 
 GenDoc.bat:
-  will loop over all known applications and every directory 
-  it finds inside "source" (so don't place any nonsense there).
+  will loop over all known applications and build the docs in
+  English plus all .po files it finds inside "doc\po" 
+  (so don't place any nonsense or backup .po files there)
+  This script uses xml2po.py and requires a Python runtime
+  environment to be installed.
+  The script retranslates all source files while building, so there's
+  no need to run "TranslateDoc" before "GenDoc". "GenDoc" doesn't
+  run the spellchecker on the source.
 
 source\MakeDoc.bat:
   is called from GenDoc.bat and will generate html, pdf and chm 
