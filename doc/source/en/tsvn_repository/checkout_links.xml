@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-repository-links">
+	<title>Checkout Links</title>
+	<indexterm>
+		<primary>checkout link</primary>
+	</indexterm>
+	<para>
+		If you want to make your Subversion repository available
+		to others you may want to include a link to it from your
+		website. One way to make this more accessible is to include
+		a <firstterm>checkout link</firstterm> for other TSVN users.
+	</para>
+	<para>
+		When you install TortoiseSVN, it registers a new
+		<literal>tsvn:</literal> protocol. When a TSVN user clicks on
+		such a link, the checkout dialog will open automatically with
+		the repository URL already filled in.
+	</para>
+	<para>
+		To include such a link in your own html page, you need to add
+		code which looks something like this:
+<screen>
+&lt;a href="tsvn:https://svn.collab.net/repos/tortoisesvn/trunk"&gt;&lt;/a&gt;
+</screen>
+	</para>
+	<para>
+		Of course it would look even better if you included a suitable picture.
+		You can use the
+		<ulink url="https://svn.collab.net/repos/tortoisesvn/trunk/doc/logo/TortoiseCheckout.png">
+			<citetitle>TortoiseSVN logo</citetitle>
+		</ulink>
+		or you can provide your own image.
+<screen>
+&lt;a href="tsvn:https://svn.collab.net/repos/tortoisesvn/trunk"&gt;
+&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;
+</screen>
+	</para>
+</sect1>
