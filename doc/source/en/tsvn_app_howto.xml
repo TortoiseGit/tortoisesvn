@@ -299,4 +299,106 @@
 			to see a summary of all differences, with minimal context.
 		</para>
 	</sect1>
+
+	<sect1 id="tsvn-howto-common-projects">
+		<title>Include a common sub-project</title>
+		<indexterm>
+			<primary>common projects</primary>
+		</indexterm>
+		<para>
+			Sometimes you will want to include another project within
+			your working copy, perhaps some library code. You don't
+			want to make a duplicate of this code in your repository
+			because then you would lose connection with the original
+			(and maintained) code. Or maybe you have several projects
+			which share core code. There are at least 3 ways of dealing
+			with this.
+		</para>
+		<sect2 id="tsvn-howto-common-externals">
+			<title>Use svn:externals</title>
+			<para>
+				Create a new folder within your project to contain the
+				common code, and <action>Add</action> it to Subversion
+			</para>
+			<para>
+				Set the <literal>svn:externals</literal> property on that
+				folder. The property value should be the repository URL
+				of the code you want to include. Of course it has to reside
+				in a Subversion repository, although it does not have to
+				be the same one.
+			</para>
+			<para>
+				Commit the new folder. Now when you update, Subversion
+				will pull a copy of that project from its repository
+				into your working copy. Each time you update, you will also
+				receive the latest version of that project. Changes you
+				make to the common project will be committed back.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-howto-common-nested">
+			<title>Use a nested working copy</title>
+			<para>
+				Create a new folder within your project to contain the
+				common code, but do not add it to Subversion
+			</para>
+			<para>
+				Select
+				<menuchoice>
+					<guimenu>TortoiseSVN</guimenu>
+					<guimenuitem>Checkout</guimenuitem>
+				</menuchoice>
+				for the new folder and checkout a copy of the common
+				code into it. You now have a separate working copy nested
+				within your main working copy.
+			</para>
+			<para>
+				The two working copies are independent. When you commit
+				changes to the parent, changes to the nested WC are not committed.
+				Likewise when you update the parent, the nested WC is not updated.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-howto-common-location">
+			<title>Use a relative location</title>
+			<para>
+				If you use the same common core code in several projects,
+				and you do not want to keep multiple working copies of it
+				for every project that uses it, you can just check it out
+				to a separate location which is related to all the other
+				projects which use it. For example:
+<screen>
+C:\Projects\Proj1
+C:\Projects\Proj2
+C:\Projects\Proj3
+C:\Projects\Common
+</screen>
+				and refer to the common code using a relative path, eg.
+				<filename>..\..\Common\DSPcore</filename>.
+			</para>
+			<para>
+				If your projects are scattered in unrelated locations you
+				can use a variant of this, which is to put the common
+				code in one location and use drive letter substitution to
+				map that location to something you can hard code in your
+				projects, eg. Checkout the common code to
+				<filename>D:\Documents\Framework</filename> or
+				<filename>C:\Documents and Settings\{login}\My Documents\framework</filename>
+				then use
+<screen>
+SUBST X: "D:\Documents\framework"
+</screen>
+				to create the drive mapping used in your source code.
+				Your code can then use absolute locations.
+<screen>
+#include "X:\superio\superio.h"
+</screen>
+			</para>
+			<para>
+				This method will only work in an all-PC environment,
+				and you will need to document the required drive mappings
+				so your team know where these mysterious files are.
+				This method is strictly for use in closed development environments,
+				and not recommended for general use.
+			</para>
+		</sect2>
+	</sect1>
 </appendix>

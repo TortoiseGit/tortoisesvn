@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-20 13:00GMT Daylight Time\n"
+"POT-Creation-Date: 2005-05-20 22:35GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -627,6 +627,30 @@ msgstr ""
 
 #: source/en/tsvn_repository/repository.xml:10(para) 
 msgid "If you haven't created a Subversion repository yet, it's time to do that now."
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:3(title) 
+msgid "Checkout Links"
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:5(primary) 
+msgid "checkout link"
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:7(para) 
+msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TSVN users."
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:13(para) 
+msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:19(para) 
+msgid "To include such a link in your own html page, you need to add code which looks something like this: <screen>\n&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;&lt;/a&gt;\n</screen>"
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:26(para) 
+msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"https://svn.collab.net/repos/tortoisesvn/trunk/doc/logo/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <screen>\n&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;\n&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n</screen>"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:3(title) 
@@ -4118,6 +4142,66 @@ msgstr ""
 
 #: source/en/tsvn_app_howto.xml:280(para) 
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:304(title) 
+msgid "Include a common sub-project"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:306(primary) 
+msgid "common projects"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:308(para) 
+msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:318(title) 
+msgid "Use svn:externals"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:319(para) 
+msgid "Create a new folder within your project to contain the common code, and <action>Add</action> it to Subversion"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:323(para) 
+msgid "Set the <literal>svn:externals</literal> property on that folder. The property value should be the repository URL of the code you want to include. Of course it has to reside in a Subversion repository, although it does not have to be the same one."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:330(para) 
+msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. Each time you update, you will also receive the latest version of that project. Changes you make to the common project will be committed back."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:339(title) 
+msgid "Use a nested working copy"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:340(para) 
+msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:344(para) 
+msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:354(para) 
+msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are not committed. Likewise when you update the parent, the nested WC is not updated."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:361(title) 
+msgid "Use a relative location"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:362(para) 
+msgid "If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen> and refer to the common code using a relative path, eg. <filename>..\\..\\Common\\DSPcore</filename>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:377(para) 
+msgid "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:395(para) 
+msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr ""
 
 #: source/en/tsvn_app_faq.xml:3(title) 
