@@ -95,7 +95,8 @@ if NOT %1 EQU en (
   del %1.po
 
   echo.
-  echo Copying files which should not be translated (%IGNORELIST%) from english source
+  echo Copying files which should not be translated from english source
+  echo (%IGNORELIST%) 
 
   FOR %%F in (%IGNORELIST%) DO copy %SRCDIR%\%%F %TARGDIR%
 
