@@ -41,12 +41,16 @@ echo.
 rem do *NOT* create english translation from english :-)
 
 if NOT %1 EQU en (
+  echo.
   echo Translating: %1
+  echo Ignoring: %IGNORELIST%
+  echo.
+
   SET POFILE=po\%1.po
   SET SRCDIR=source\en
   SET TARGDIR=%2source\%1
 
-  rmdir /s /q !TARGDIR! 
+  rmdir /s /q !TARGDIR!
   mkdir !TARGDIR!
 
   rem --------------------
@@ -67,7 +71,7 @@ if NOT %1 EQU en (
   )
 
   FOR /D %%D IN (*) DO (
-    mkdir %TARGDIR%\%%D
+    mkdir !TARGDIR!\%%D
 
     FOR %%F IN (%%D\*.xml) DO (
 
@@ -96,9 +100,9 @@ if NOT %1 EQU en (
 
   echo.
   echo Copying files which should not be translated from english source
-  echo (%IGNORELIST%) 
+  echo (!IGNORELIST!) 
 
-  FOR %%F in (%IGNORELIST%) DO copy %SRCDIR%\%%F %TARGDIR%
+  FOR %%F in (!IGNORELIST!) DO copy !SRCDIR!\%%F !TARGDIR!
 
 )
 
