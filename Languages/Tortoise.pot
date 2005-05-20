@@ -132,6 +132,10 @@ msgstr ""
 msgid "&Cancel"
 msgstr ""
 
+#: Control-ID:1215,
+msgid "&Check Now"
+msgstr ""
+
 #: MenuEntry
 msgid "&Compare Revisions"
 msgstr ""
@@ -844,10 +848,6 @@ msgstr ""
 msgid "Check for Modifications"
 msgstr ""
 
-#: Control-ID:1215,
-msgid "Check now"
-msgstr ""
-
 #: ID:9,
 msgid "Check out a working copy from a repository"
 msgstr ""
@@ -901,7 +901,7 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr ""
 
 #: Control-ID:1059,
-msgid "Clear &Auth Cache"
+msgid "Clear &Now"
 msgstr ""
 
 #: ID:195,
@@ -2829,6 +2829,10 @@ msgid "Subversion"
 msgstr ""
 
 #: Control-ID:65535,
+msgid "Subversion authenticaton data:"
+msgstr ""
+
+#: Control-ID:65535,
 msgid "Subversion configuration file:"
 msgstr ""
 
@@ -3076,7 +3080,7 @@ msgstr ""
 msgid "TortoiseMerge %d.%d.%d, Build %d\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
 msgstr ""
 
-#: ID:9,#: ID:80,
+#: ID:9,#: ID:80,#: Control-ID:65535,
 msgid "TortoiseSVN"
 msgstr ""
 

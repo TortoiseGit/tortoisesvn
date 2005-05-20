@@ -68,7 +68,7 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -414,23 +414,25 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "General"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "&Language:",IDC_STATIC,7,17,86,8
-    COMBOBOX        IDC_LANGUAGECOMBO,108,15,185,64,CBS_DROPDOWNLIST | 
+    LTEXT           "&Language:",IDC_STATIC,14,20,86,8
+    COMBOBOX        IDC_LANGUAGECOMBO,108,18,176,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Exclude/Ignore pattern:",IDC_STATIC,14,47,84,18,
+    LTEXT           "Exclude/Ignore pattern:",IDC_STATIC,14,103,84,18,
                     SS_CENTERIMAGE
-    EDITTEXT        IDC_TEMPEXTENSIONS,108,49,176,14,ES_AUTOHSCROLL
-    LTEXT           "Subversion configuration file:",IDC_STATIC,14,91,176,8
-    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,200,88,84,14
-    PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,199,115,85,14
+    EDITTEXT        IDC_TEMPEXTENSIONS,108,105,176,14,ES_AUTOHSCROLL
+    LTEXT           "Subversion configuration file:",IDC_STATIC,14,150,192,8
+    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,212,145,72,14
+    PUSHBUTTON      "Clear &Now",IDC_CLEARAUTH,212,171,72,14
     CONTROL         "Automatically check for newer versions every week",
                     IDC_CHECKNEWERVERSION,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,14,142,185,20
-    PUSHBUTTON      "Check now",IDC_CHECKNEWERBUTTON,199,145,85,14
-    GROUPBOX        "Subversion",IDC_STATIC,7,36,286,140
+                    WS_TABSTOP,11,34,195,20
+    PUSHBUTTON      "&Check Now",IDC_CHECKNEWERBUTTON,212,38,72,14
+    GROUPBOX        "Subversion",IDC_STATIC,7,92,286,118
     CONTROL         "Set filedates to the ""last commit time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,14,71,270,10
+                    WS_TABSTOP,14,127,270,10
+    GROUPBOX        "TortoiseSVN",IDC_STATIC,7,7,286,61
+    LTEXT           "Subversion authenticaton data:",IDC_STATIC,14,174,192,8
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217
@@ -1069,8 +1071,8 @@ BEGIN
         RIGHTMARGIN, 293
         VERTGUIDE, 14
         VERTGUIDE, 108
-        VERTGUIDE, 199
-        VERTGUIDE, 229
+        VERTGUIDE, 206
+        VERTGUIDE, 212
         VERTGUIDE, 284
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
@@ -2022,12 +2024,12 @@ BEGIN
     IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of HEAD Revisions"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -2106,7 +2108,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
