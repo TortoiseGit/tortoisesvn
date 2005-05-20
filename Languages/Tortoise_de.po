@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-18 09:02+0100\n"
+"PO-Revision-Date: 2005-05-20 08:57+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1537,6 +1537,11 @@ msgstr "Wollen Sie Ihre Änderungen speichern?"
 msgid "Documentation - Simon Large"
 msgstr "Documentation - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "Keine Statusabfrage für Kontextmenü"
+
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Diese Meldung nicht wieder anzeigen"
@@ -1912,6 +1917,17 @@ msgstr "Icons/Design/Code:     Lübbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Wenn aktiviert, werden die überlagerten Symbole in <b>Speichern unter...</b> und <b>Öffnen</b> Dialogen nicht angezeigt"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Das Kontextmenü wird schneller angezeigt, wenn diese Option aktiviert ist.\n"
+"Es wird allerdings Einträge enthalten, die nicht sinnvoll anwendbar sind,\n"
+"zum Beispiel \"Zeige Log\" für einen gerade hinzugefügten Ordner."
 
 #: ID:95
 msgid ""
