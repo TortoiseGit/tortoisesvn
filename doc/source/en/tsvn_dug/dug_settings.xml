@@ -11,7 +11,7 @@
 	</para>
 	<sect2 id="tsvn-DUG-settings-main">
 		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
-		<title>The Settings Dialog, General Page</title>
+		<title>General Settings</title>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-main">
 				<title>The Settings Dialog, General Page</title>
@@ -131,7 +131,7 @@
 		</variablelist>
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-look-feel">
-		<title>The Settings Dialog, Look and Feel Page</title>
+		<title>Look and Feel Settings</title>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-context">
 				<title>The Settings Dialog, Look and Feel Page</title>
@@ -159,188 +159,188 @@
 			for an <literal>Added</literal> folder, which will not work because
 			the folder is not yet in the repository.
 		</para>
-	</sect2>
-	<sect2 id="tsvn-DUG-settings-overlay">
-		<title>The Settings Dialog, Icon Overlays Page</title>
-		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
-		<para>
-			<figure id="tsvn-DUG-settings-dia-overlay">
-				<title>The Settings Dialog, Look and Feel Page</title>
-				<graphic fileref="images/SettingsOverlay.png"/>
-			</figure>
-			This page allows you to choose the items for which TortoiseSVN will
-			display icon overlays. Network drives can be very slow, so by default
-			icons are not shown for working copies located on network shares.
-			You can even disable all icon overlays, but where's the fun in that?
-		</para>
-		<para>
-			By default, overlay icons will appear in all open/save dialogs
-			as well as in Windows Explorer. If you want them to appear
-			<emphasis>only</emphasis> in Windows Explorer, check the
-			<guilabel>Show overlays only in explorer</guilabel> box.
-		</para>
-		<para>
-			The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which
-			paths <emphasis>not</emphasis> to show icon overlays and status columns.
-			This is useful if you have some very big working copies containing
-			only libraries which you won't change at all and therefore don't
-			need the overlays. For example:
-		</para>
-		<para>
-			<filename>f:\development\SVN\Subversion</filename> will disable
-			the overlays on <emphasis>only</emphasis> that specific folder. You
-			still can see the overlays on all files and folder inside that folder.
-		</para>
-		<para>
-			<filename>f:\development\SVN\Subversion*</filename> will disable the
-			overlays on <emphasis>all</emphasis> files and folders whose path
-			starts with <filename>f:\development\SVN\Subversion</filename>. That
-			means you won't see overlays for any files and folders below that
-			path.
-		</para>
-		<para>
-			The same applies to the <guilabel>Include Paths</guilabel>. Except that
-			for those paths the overlays are shown even if the overlays are disabled
-			for that specific drive type.
-		</para>
-	</sect2>
-	<sect2 id="tsvn-DUG-settings-icon-set">
-		<title>The Settings Dialog, Icon Set Page</title>
-		<?dbhh topicname="HIDD_OVERLAYICONS"?>
-		<para>
-			<figure id="tsvn-DUG-settings-dia-icons">
-				<title>The Settings Dialog, Icon Set Page</title>
-				<graphic fileref="images/SettingsOverlayChooser.png"/>
-			</figure>
-			You can change the overlay icon set to the one you like best.
-			Note that if you change overlay set, you may have to restart
-			your computer for the changes to take effect.
-		</para>
-	</sect2>
-	<sect2 id="tsvn-DUG-settings-dialogs">
-		<title>The Settings Dialog, Dialogs Page</title>
-		<para>
-			<figure id="tsvn-DUG-settings-dia-dialogs">
-				<title>The Settings Dialog, Dialogs Page</title>
-				<graphic fileref="images/SettingsDialog.png"/>
-			</figure>
-			This dialog allows you to configure some of TortoiseSVN's
-			dialogs the way you like them.
-		</para>
-		<variablelist>
-			<varlistentry>
-				<term>Default number of log messages</term>
-				<listitem>
-					<para>
-						Limits the number of log messages that TortoiseSVN
-						fetches when you first select
-						<menuchoice>
-							<guimenu>TortoiseSVN</guimenu>
-							<guimenuitem>Show Log</guimenuitem>
-						</menuchoice>
-						Useful for slow server connections. You can always use
-						<guibutton>Get All</guibutton> or
-						<guibutton>Next 100</guibutton> to get more messages.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Font for log messages</term>
-				<listitem>
-					<para>
-						Selects the font face and size used to display the log
-						message itself in the middle pane of the Revision Log
-						dialog, and when composing log messages in the Commit
-						dialog.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Short date / time format in log messages</term>
-				<listitem>
-					<para>
-						If the standard long messages use up too much 
-						space on your screen use the short format.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Use old APIs to fetch log messages</term>
-				<listitem>
-					<para>
-						As of version 1.2, Subversion servers support fetching a defined
-						number of log messages, rather than the log messages from a range
-						of revisions. With the new API, if you ask for 100 messages you
-						will get 100 message. With the old API, if you ask for 100 messages
-						you get the messages from the last 100 repository revisions. If your
-						file didn't change often, you will see few messages.
-					</para>
-					<para>
-						However, if you query a pre-1.2 server using the new API, it will
-						return <emphasis>all</emphasis> log message which the client then
-						filters. This can result in <emphasis>very</emphasis> slow reponses.
-						If you have to work with an older server, you should check this
-						box to avoid the slowdown. The best option of course is to upgrade
-						the server.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Progress Dialog</term>
-				<listitem>
-					<para>
-						TortoiseSVN can automatically close all progress dialogs 
-						when the action is finished without error. This setting
-						allows you to select the conditions for closing the
-						dialogs. The default (recommended) setting is
-						<guilabel>Close manually</guilabel>
-						which allows you to review all messages and check what
-						has happened. However, you may decide that you want to
-						ignore some types of message and have the dialog
-						close automatically if there are no critical changes.
-					</para>
-					<para>
-						<guilabel>Auto-close if no merges, adds or deletes</guilabel>
-						means that the progress dialog will close if there were
-						simple updates, but if changes from the repository were
-						merged with yours, or if any files were added or deleted,
-						the dialog will remain open.
-					</para>
-					<para>
-						<guilabel>Auto-close if no conflicts</guilabel>
-						relaxes the criteria further and will close the dialog
-						even if there were merges, adds or deletes. However,
-						if there were any conflicts or errors, the dialog
-						remains open.
-					</para>
-					<para>
-						<guilabel>Auto-close if no errors</guilabel>
-						always closes the dialog even if there were conflicts.
-						The only condition that keeps the dialog open is an
-						error condition, which occurs when Subversion is unable
-						to complete the task. For example, an update fails
-						because the server is inaccessible, or a commit fails
-						because the working copy is out-of-date.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Use autocompletion of filepaths and keywords</term>
-				<listitem>
-					<para>
-						The commit dialog includes a facility to parse the list
-						of filenames being committed. When you type the first 3
-						letters of an item in the list, the autocompletion
-						box pops up, and you can press Enter to complete the
-						filename. Check the box to enable this feature.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
+		<sect3 id="tsvn-DUG-settings-overlay">
+			<title>Icon Overlay Settings</title>
+			<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
+			<para>
+				<figure id="tsvn-DUG-settings-dia-overlay">
+					<title>The Settings Dialog, Look and Feel Page</title>
+					<graphic fileref="images/SettingsOverlay.png"/>
+				</figure>
+				This page allows you to choose the items for which TortoiseSVN will
+				display icon overlays. Network drives can be very slow, so by default
+				icons are not shown for working copies located on network shares.
+				You can even disable all icon overlays, but where's the fun in that?
+			</para>
+			<para>
+				By default, overlay icons will appear in all open/save dialogs
+				as well as in Windows Explorer. If you want them to appear
+				<emphasis>only</emphasis> in Windows Explorer, check the
+				<guilabel>Show overlays only in explorer</guilabel> box.
+			</para>
+			<para>
+				The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which
+				paths <emphasis>not</emphasis> to show icon overlays and status columns.
+				This is useful if you have some very big working copies containing
+				only libraries which you won't change at all and therefore don't
+				need the overlays. For example:
+			</para>
+			<para>
+				<filename>f:\development\SVN\Subversion</filename> will disable
+				the overlays on <emphasis>only</emphasis> that specific folder. You
+				still can see the overlays on all files and folder inside that folder.
+			</para>
+			<para>
+				<filename>f:\development\SVN\Subversion*</filename> will disable the
+				overlays on <emphasis>all</emphasis> files and folders whose path
+				starts with <filename>f:\development\SVN\Subversion</filename>. That
+				means you won't see overlays for any files and folders below that
+				path.
+			</para>
+			<para>
+				The same applies to the <guilabel>Include Paths</guilabel>. Except that
+				for those paths the overlays are shown even if the overlays are disabled
+				for that specific drive type.
+			</para>
+		</sect3>
+		<sect3 id="tsvn-DUG-settings-icon-set">
+			<title>Icon Set Selection</title>
+			<?dbhh topicname="HIDD_OVERLAYICONS"?>
+			<para>
+				<figure id="tsvn-DUG-settings-dia-icons">
+					<title>The Settings Dialog, Icon Set Page</title>
+					<graphic fileref="images/SettingsOverlayChooser.png"/>
+				</figure>
+				You can change the overlay icon set to the one you like best.
+				Note that if you change overlay set, you may have to restart
+				your computer for the changes to take effect.
+			</para>
+		</sect3>
+		<sect3 id="tsvn-DUG-settings-dialogs">
+			<title>TortoiseSVN Dialog Settings</title>
+			<para>
+				<figure id="tsvn-DUG-settings-dia-dialogs">
+					<title>The Settings Dialog, Dialogs Page</title>
+					<graphic fileref="images/SettingsDialog.png"/>
+				</figure>
+				This dialog allows you to configure some of TortoiseSVN's
+				dialogs the way you like them.
+			</para>
+			<variablelist>
+				<varlistentry>
+					<term>Default number of log messages</term>
+					<listitem>
+						<para>
+							Limits the number of log messages that TortoiseSVN
+							fetches when you first select
+							<menuchoice>
+								<guimenu>TortoiseSVN</guimenu>
+								<guimenuitem>Show Log</guimenuitem>
+							</menuchoice>
+							Useful for slow server connections. You can always use
+							<guibutton>Get All</guibutton> or
+							<guibutton>Next 100</guibutton> to get more messages.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Font for log messages</term>
+					<listitem>
+						<para>
+							Selects the font face and size used to display the log
+							message itself in the middle pane of the Revision Log
+							dialog, and when composing log messages in the Commit
+							dialog.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Short date / time format in log messages</term>
+					<listitem>
+						<para>
+							If the standard long messages use up too much 
+							space on your screen use the short format.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Use old APIs to fetch log messages</term>
+					<listitem>
+						<para>
+							As of version 1.2, Subversion servers support fetching a defined
+							number of log messages, rather than the log messages from a range
+							of revisions. With the new API, if you ask for 100 messages you
+							will get 100 message. With the old API, if you ask for 100 messages
+							you get the messages from the last 100 repository revisions. If your
+							file didn't change often, you will see few messages.
+						</para>
+						<para>
+							However, if you query a pre-1.2 server using the new API, it will
+							return <emphasis>all</emphasis> log message which the client then
+							filters. This can result in <emphasis>very</emphasis> slow reponses.
+							If you have to work with an older server, you should check this
+							box to avoid the slowdown. The best option of course is to upgrade
+							the server.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Progress Dialog</term>
+					<listitem>
+						<para>
+							TortoiseSVN can automatically close all progress dialogs 
+							when the action is finished without error. This setting
+							allows you to select the conditions for closing the
+							dialogs. The default (recommended) setting is
+							<guilabel>Close manually</guilabel>
+							which allows you to review all messages and check what
+							has happened. However, you may decide that you want to
+							ignore some types of message and have the dialog
+							close automatically if there are no critical changes.
+						</para>
+						<para>
+							<guilabel>Auto-close if no merges, adds or deletes</guilabel>
+							means that the progress dialog will close if there were
+							simple updates, but if changes from the repository were
+							merged with yours, or if any files were added or deleted,
+							the dialog will remain open.
+						</para>
+						<para>
+							<guilabel>Auto-close if no conflicts</guilabel>
+							relaxes the criteria further and will close the dialog
+							even if there were merges, adds or deletes. However,
+							if there were any conflicts or errors, the dialog
+							remains open.
+						</para>
+						<para>
+							<guilabel>Auto-close if no errors</guilabel>
+							always closes the dialog even if there were conflicts.
+							The only condition that keeps the dialog open is an
+							error condition, which occurs when Subversion is unable
+							to complete the task. For example, an update fails
+							because the server is inaccessible, or a commit fails
+							because the working copy is out-of-date.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Use autocompletion of filepaths and keywords</term>
+					<listitem>
+						<para>
+							The commit dialog includes a facility to parse the list
+							of filenames being committed. When you type the first 3
+							letters of an item in the list, the autocompletion
+							box pops up, and you can press Enter to complete the
+							filename. Check the box to enable this feature.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</sect3>
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-network">
 		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
-		<title>The Settings Dialog, Network Page</title>
+		<title>Network Settings</title>
 		<indexterm>
 			<primary>proxy server</primary>
 		</indexterm>
@@ -361,7 +361,7 @@
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-progs">
 		<?dbhh topicname="HIDD_SETTINGSPROGS"?>
-		<title>The Settings Dialog, External Programs Pages</title>
+		<title>External Program Settings</title>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-5">
 				<title>The Settings Dialog, Diff Viewer Page</title>
