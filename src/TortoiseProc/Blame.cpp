@@ -24,7 +24,6 @@
 #include "Registry.h"
 #include "Utils.h"
 #include "UnicodeUtils.h"
-#include <mbctype.h>
 
 
 void CStdioFileA::WriteString(LPCSTR lpsz)
@@ -65,27 +64,15 @@ CBlame::CBlame()
 	m_highestrev = -1;
 	m_nCounter = 0;
 	m_nHeadRev = -1;
-
-	// save current locale before setting the new one
-	m_locale = setlocale(LC_CTYPE, NULL);
-	m_mbcp   = _getmbcp();
-	m_LCID   = GetThreadLocale();
-	setlocale(LC_CTYPE, "");
-	_setmbcp(_MB_CP_LOCALE);
-	SetThreadLocale(LOCALE_USER_DEFAULT);
 }
 CBlame::~CBlame()
 {
 	m_progressDlg.Stop();
-	// restore previous locale
-	SetThreadLocale(m_LCID);
-	setlocale(LC_CTYPE, m_locale);
-	_setmbcp(m_mbcp);
 }
 
 BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line)
 {
-	CStringA infolineA;
+	CString infolineA;
 	CStringA fulllineA;
 
 	if ((m_lowestrev < 0)||(m_lowestrev > revision))
@@ -93,10 +80,8 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	if (m_highestrev < revision)
 		m_highestrev = revision;
 
-	CStringA dateA(date);
-	CStringA authorA(author);
-
-	infolineA.Format("%6ld %6ld %30s %-30s ", linenumber, revision, dateA, authorA);
+	CString dateA(CUnicodeUtils::GetUTF8(date));
+	infolineA.Format(_T("%6ld %6ld %30s %-30s "), linenumber, revision, (LPCTSTR)dateA, (LPCTSTR)author);
 	fulllineA = line;
 	fulllineA.TrimRight("\r\n");
 	fulllineA += "\n";
