@@ -6,7 +6,7 @@ rem Try to check, whether these vars are already set
 if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
-SET IGNORELIST=tsvn_app_automation.xml tsvn_app_faq.xml Pubdate.xml
+if "%IGNORELIST%"=="" call IgnoreList.bat
 
 SET LOGFILE=translatelog.txt
 

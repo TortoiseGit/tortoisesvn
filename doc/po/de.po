@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-20 15:39+0100\n"
+"PO-Revision-Date: 2005-05-21 22:49+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1168,6 +1168,43 @@ msgstr "Egal welches Protokoll Sie verwenden, um auf das Projektarchiv zuzugreif
 msgid "If you haven't created a Subversion repository yet, it's time to do that now."
 msgstr "Wenn Sie noch kein Subversion Projektarchiv erstellt haben, tun Sie dies jetzt."
 
+#: source/en/tsvn_repository/checkout_links.xml:3
+#: (title)
+msgid "Checkout Links"
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:5
+#: (primary)
+msgid "checkout link"
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:7
+#: (para)
+msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TSVN users."
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:13
+#: (para)
+msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:19
+#: (para)
+msgid ""
+"To include such a link in your own html page, you need to add code which looks something like this: <screen>\n"
+"&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;&lt;/a&gt;\n"
+"</screen>"
+msgstr ""
+
+#: source/en/tsvn_repository/checkout_links.xml:26
+#: (para)
+msgid ""
+"Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"https://svn.collab.net/repos/tortoisesvn/trunk/doc/logo/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <screen>\n"
+"&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;\n"
+"&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
+"</screen>"
+msgstr ""
+
 #: source/en/tsvn_dug/dug_wcstatus.xml:3
 #: (title)
 msgid "Getting Status Information"
@@ -1191,7 +1228,6 @@ msgstr "Überlagerte Icons"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:15
 #: (primary)
-#: source/en/tsvn_app_faq.xml:75
 msgid "overlays"
 msgstr "Überlagerte Icons"
 
@@ -2108,12 +2144,12 @@ msgstr "<guilabel>Schließen, falls keineFehler</guilabel> schließt den Dialog 
 #: source/en/tsvn_dug/dug_settings.xml:327
 #: (term)
 msgid "Use autocompletion of filepaths and keywords"
-msgstr ""
+msgstr "Dateinamen und Schlüsselwörter automatisch vervollständigen"
 
 #: source/en/tsvn_dug/dug_settings.xml:329
 #: (para)
 msgid "The commit dialog includes a facility to parse the list of filenames being committed. When you type the first 3 letters of an item in the list, the autocompletion box pops up, and you can press Enter to complete the filename. Check the box to enable this feature."
-msgstr ""
+msgstr "Der Übertragen Dialog bietet die Möglichkeit, die zu übertragenden Dateien nach Schlüsselwörtern zu durchsuchen. Wenn Sie die ersten drei Zeichen eines gefundenen Eintrags eigegeben haben, erscheint eine automatische Vervollständigungsliste, aus der Sie mittels <keycap>Enter</keycap> einen Eintrag auswählen können."
 
 #: source/en/tsvn_dug/dug_settings.xml:343
 #: (title)
@@ -2462,7 +2498,6 @@ msgstr "Änderungen rückgängig"
 
 #: source/en/tsvn_dug/dug_revert.xml:6
 #: (primary)
-#: source/en/tsvn_app_faq.xml:453
 msgid "revert"
 msgstr "Änderungen rückgängig"
 
@@ -2519,13 +2554,11 @@ msgstr "Löschen, Umbenennen und Verschieben"
 
 #: source/en/tsvn_dug/dug_rename.xml:5
 #: (primary)
-#: source/en/tsvn_app_faq.xml:450
 msgid "delete"
 msgstr "Löschen"
 
 #: source/en/tsvn_dug/dug_rename.xml:8
 #: (primary)
-#: source/en/tsvn_app_faq.xml:447
 msgid "remove"
 msgstr "Entfernen"
 
@@ -3918,7 +3951,7 @@ msgstr "übertragen"
 #: source/en/tsvn_dug/dug_commit.xml:8
 #: (para)
 msgid "Sending the changes you made to your working copy is known as <firstterm>committing</firstterm> the changes. But before you commit you have to make sure that your working copy is up to date. You can either use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> directly. Or you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> first, to see which files have changed locally or on the server."
-msgstr ""
+msgstr "Änderungen an Dateien im Projektarchiv abzuspeichern wird auch <firstterm>Übertragen</firstterm> der Änderungen genannt. Vor dem Übertragen jedoch sollten Sie sicherstellen, dass Ihre Arbeitskopie auch auf dem neuesten Stand ist. Sie können entweder den Befehl<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Aktualisieren...</guimenuitem></menuchoice> sofort ausführen oder zunächst mittels<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen überprüfen</guimenuitem></menuchoice>, welche Dateien sich lokal oder auf dem Server geändert haben."
 
 #: source/en/tsvn_dug/dug_commit.xml:33
 #: (title)
@@ -3928,7 +3961,7 @@ msgstr "Der Übertragen-Dialog"
 #: source/en/tsvn_dug/dug_commit.xml:24
 #: (para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
-msgstr ""
+msgstr "Wenn Ihre Arbeitskopie auf dem neuesten Stand ist und keine Konflikte vorhanden sind, können Sie Ihre Änderungen übertragen. Wählen Sie die Dateien/Ordner aus die Sie übertragen wollen und wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen...</guimenuitem> </menuchoice>. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_commit.xml:44
 #: (title)
@@ -3938,37 +3971,37 @@ msgstr "Dateien oder Ordner übertragen?"
 #: source/en/tsvn_dug/dug_commit.xml:45
 #: (para)
 msgid "When you commit files, the commit dialog shows only the files you have selected. When you commit a folder the commit dialog will select the changed files automatically. If you forget about a new file you created, committing the folder will find it anyway. Committing a folder does <emphasis>not</emphasis> mean that every file gets marked as changed; It just makes your life easier by doing more work for you."
-msgstr ""
+msgstr "Wenn Sie Dateien übertragen zeigt der Dialog <emphasis>nur</emphasis> die gewählten Dateien an. Wenn Sie Ordner übertragen, werden die geänderten Dateien automatisch selektiert. Übertragen eines Ordners bedeutet <emphasis>nicht</emphasis>, dass jede Datei in diesem Ordner übertragen wird. Es nimmt Ihnen lediglich die Arbeit ab, alle Dateien vorher auszuwählen."
 
 #: source/en/tsvn_dug/dug_commit.xml:56
 #: (title)
 msgid "Many unversioned files in the commit dialog"
-msgstr ""
+msgstr "Zu viele Dateien werden angezeigt"
 
 #: source/en/tsvn_dug/dug_commit.xml:63
 #: (para)
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
-msgstr ""
+msgstr "diese Dateien im Eigenschaftsdialog in die Liste der auszuschließenden Dateienaufnehmen. Dies hat Einfluss auf <emphasis>alle</emphasis> Arbeitskopien gleichzeitig."
 
 #: source/en/tsvn_dug/dug_commit.xml:70
 #: (para)
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
-msgstr ""
+msgstr "Fügen Sie diese Dateien mit dem Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Ignorieren</guimenuitem> </menuchoice> zur Liste der ignorierten Dateien hinzu .Dadurch werden diese Dateien in die <literal>svn:ignore</literal> Eigenschaft des Ordners aufgenommen, in dem Sie den Befehl aufgerufen haben. Mit dem SVN Eigenschaften Dialog können Sie die <literal>svn:ignore</literal> eines Verzeichnisses ändern."
 
 #: source/en/tsvn_dug/dug_commit.xml:57
 #: (para)
 msgid "If you think that the TSVN commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-DUG-ignore\"/> for more information."
-msgstr ""
+msgstr "Falls Sie das Gefühl haben dass TortoiseSVN Ihnen viel zu viele Dateien im Übertragungsdialog anzeigt die nicht unter Versionskontrolle stehen (z.B. vom Compiler erzeugte Dateien oder Sicherungsdateien vom Editor), haben Sie mehrere Möglichkeiten dies einzugrenzen. Sie können: <placeholder-1/> Siehe <xref linkend=\"tsvn-DUG-ignore\"/> für weitere Information."
 
 #: source/en/tsvn_dug/dug_commit.xml:37
 #: (para)
 msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit. <tip><placeholder-1/><placeholder-2/></tip><tip><placeholder-3/><placeholder-4/></tip>"
-msgstr ""
+msgstr "Der Dialog zeigt alle geänderten Dateien einschließlich hinzugefügter, gelöschter ode nicht versionierter Dateien an. Wenn Sie bestimmte Dateien nicht übertragen wollen, wählen Sie diese einfach ab. Dateien, die noch nicht unter Versionskontrolle stehen, können Sie durch Markieren vor dem Übertragen hinzufügen. <tip><placeholder-1/><placeholder-2/></tip><tip><placeholder-3/><placeholder-4/></tip>"
 
 #: source/en/tsvn_dug/dug_commit.xml:88
 #: (para)
 msgid "<action>Doubleclicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes."
-msgstr ""
+msgstr "Durch einen <action>Doppelklick</action> auf eine Datei im Übertragungsdialog wird das Diff-Programm gestartet so dass Sie die Änderungen, welche Sie vorgenommen haben, genauer ansehen können."
 
 #: source/en/tsvn_dug/dug_commit.xml:96
 #: (title)
@@ -3978,17 +4011,17 @@ msgstr "Eine laufende Übertragung im Fortschritts-Dialog"
 #: source/en/tsvn_dug/dug_commit.xml:92
 #: (para)
 msgid "After pressing <guibutton>OK</guibutton>, a dialog appears displaying the progress of the commit. <placeholder-1/>"
-msgstr ""
+msgstr "Wenn Sie schlussendlich auf <guibutton>OK</guibutton> klicken wird dieÜbertragung gestartet und der Fortschrittsdialog angezeigt. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_commit.xml:106
 #: (listitem)
 msgid "Committing a modification or a new item."
-msgstr ""
+msgstr "Übertragen einer Änderung oder eines neuen Objekts."
 
 #: source/en/tsvn_dug/dug_commit.xml:112
 #: (listitem)
 msgid "Committing a deletion or a replacement."
-msgstr ""
+msgstr "Übertragen einer Löschung oder Ersetzen eines Objekts."
 
 #: source/en/tsvn_dug/dug_commit.xml:100
 #: (para)
@@ -4003,17 +4036,17 @@ msgstr "Spezielle Ordner-Eigenschaften"
 #: source/en/tsvn_dug/dug_commit.xml:126
 #: (para)
 msgid "There are several special folder properties which can be used to help give more control over the formatting of commit log messages. Read <xref linkend=\"tsvn-DUG-propertypage\"/> for further information."
-msgstr ""
+msgstr "Es gibt mehrere spezielle Ordner-Eigenschaften welche z.B. für die Formatierung von Log-Meldungen verwendet werden können. Sehen Sie dazu <xref linkend=\"tsvn-DUG-propertypage\"/>."
 
 #: source/en/tsvn_dug/dug_commit.xml:133
 #: (title)
 msgid "Integration with Bugtracking Tools"
-msgstr ""
+msgstr "Integration mit Bugtracking Systemen"
 
 #: source/en/tsvn_dug/dug_commit.xml:134
 #: (para)
 msgid "If you have activated the bugtracking system, you could set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues should be comma separated. Learn more <xref linkend=\"tsvn-DUG-bugtracker\"/>."
-msgstr ""
+msgstr "Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei <guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n) Ihres Bugtracking Programms eingeben. Falls Sie mehrere eingeben, müssen Sie diese dann durch Kommata trennen. Mehr dazu können Sie in <xref linkend=\"tsvn-DUG-bugtracker\"/> lesen. "
 
 #: source/en/tsvn_dug/dug_checkout.xml:3
 #: (title)
@@ -4043,12 +4076,12 @@ msgstr "Wählen Sie nun den Ordner im Windows Explorer in dem Sie Ihre Arbeitsko
 #: source/en/tsvn_dug/dug_checkout.xml:29
 #: (para)
 msgid "You can only check out into an empty directory. If you want to check out a previously imported sourcetree, Subversion will throw an error messge. You will have to check out into a different directory or delete the existing sourcetree first."
-msgstr ""
+msgstr "Sie können nur in einen leeren Ordner auschecken. Wenn Sie in einen vorher importieren Ordner auschecken möchten wird Subversion eine Fehlermeldung ausgeben. Sie müssen die importierten Dateien entweder in einen neuen Ordner auschecken oder zuerst alle Dateien in dem gerade importieren Ordner löschen."
 
 #: source/en/tsvn_dug/dug_checkout.xml:36
 #: (para)
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree. If you specify the parent path of the directory tree in the URL then you might end up with a full harddisk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr ""
+msgstr "Wir empfehlen Ihnen, jeweils nur den <filename>trunk</filename>-Teil des Projektarchivs auszuchecken. Falls Sie den übergeordneten Pfad auschecken, erhalten Sie den kompletten Dateibaum des Projektarchivs! So können Sie sehr schnell Ihre Festplatte füllen, da Sie z.B. für jede Markierung in <filename>tags</filename> eine separate Kopie der Daten erhalten!"
 
 #: source/en/tsvn_dug/dug_checkout.xml:44
 #: (title)
@@ -4063,62 +4096,62 @@ msgstr "Exportieren"
 #: source/en/tsvn_dug/dug_checkout.xml:48
 #: (para)
 msgid "Sometimes you may want a working copy without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source. Instead of making a copy and then delete all those <filename>.svn</filename> directories manually, TortoiseSVN offers the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. If you execute this command on your working copy you'll be asked for a place to save the <literal>clean</literal> working copy without the <filename>.svn</filename> folders. Also, you can specify if you want to export <emphasis>all</emphasis> files or just the versioned files."
-msgstr ""
+msgstr "Es kommt vor dass Sie eine Kopie Ihres Projektes möchten, aber ohne die administrativen Ordner (<filename>.svn</filename>), zum Beispiel weil Sie das Projekt zippen möchten. Statt dass Sie nun eine Kopie von Ihrer Arbeitskopie erstellen und dann von Hand alle <filename>.svn</filename> Ordner löschen können Sie den Befehl  <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Exportieren...</guimenuitem> </menuchoice> verwenden. Wenn Sie diesen Befehl ausführen werden Sie nach  einem Ort gefragt an dem Sie die Daten speichern möchten, und  Sie erhalten dann eine <emphasis>saubere</emphasis> Kopie Ihrer Daten, ohne die <filename>.svn</filename> Ordner. Sie können auch angeben, ob Sie <emphasis>alle</emphasis> Dateien exportieren möchten oder nur diejenigen unter  Versionskontrolle."
 
 #: source/en/tsvn_dug/dug_checkout.xml:65
 #: (para)
 msgid "Another way to do an export is by right-dragging a working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
-msgstr ""
+msgstr " Eine andere Möglichkeit zu exportieren geht durch <action>Rechts-ziehen<action> eines Arbeitskopieordners an einen anderen Ort. Dann einfach im Kontextmenu  <menuchoice> <guimenu>Context Menu</guimenu> <guimenuitem>Subversion hier exportieren</guimenuitem> </menuchoice> oder  <menuchoice> <guimenu>Context Menu</guimenu> <guimenuitem>Subversion hier alle exportieren</guimenuitem> </menuchoice> wählen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:3
 #: (title)
 msgid "Integration with Bugtracking Systems / Issue trackers"
-msgstr ""
+msgstr "Integration mit einem Bugtracking System"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:5
 #: (primary)
 msgid "bugtracking"
-msgstr ""
+msgstr "bugtracking"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:8
 #: (primary)
 msgid "bugtracker"
-msgstr ""
+msgstr "bugtracker"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:11
 #: (primary)
 msgid "issuetracker"
-msgstr ""
+msgstr "issuetracker"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:13
 #: (para)
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
-msgstr ""
+msgstr "Es ist in der Software Entwicklung üblich, Änderungen am Quellcode mit einer spezifischen ID in einem Issuetracker zu verbinden. Dies wird meist mittels eines pre-commit Aktionsskripts im Projektarchiv erreicht, das vom Issuetracker zur Verfügung gestellt wird und die Log-Meldung einer Übertragung nach bestimmten Worten durchsucht. Dies ist jedoch sehr Fehleranfällig, da der Benutzer sich merken muss wie die Log-Meldung auszusehen hat damit das Aktionsskript dies auch richtig erkennen kann."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:26
 #: (para)
 msgid "When the user enters a log message, a well defined line including the issue number associated with the commit can be added automatically. This reduces the risk that the user enters the issue number in a way the bug tracking tools can't parse correctly."
-msgstr ""
+msgstr "Wenn der Benutzer eine Log-Meldung eingibt, kann eine vordefinierte Zeile automatisch der Log-Meldung angehängt oder vorangestellt werden. Dies reduziert das Risiko, dass der Benutzer die Log-Meldung falsch eingibt und das Aktionsskript die Eintragsnummer nicht mehr erkennen kann."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:32
 #: (para)
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
-msgstr ""
+msgstr "Oder TortoiseSVN kann, während der Benutzer die Log-Meldung eingibt die Stelle in der Log-Meldung hervorheben, die vom Aktionsskript als Eintragsnummer erkannt wird. Auf diese Weise hat der Benutzer eine visuelle Bestätigung für die Korrektheit der Log-Meldung ."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:39
 #: (para)
 msgid "When the user browses the log messages, TortoiseSVN creates a link out of each bug ID in the log message which fires up the browser to the issue mentioned."
-msgstr ""
+msgstr "Wenn der Benutzer die Log-Meldungen im Log Dialog ansieht, kann TortoiseSVN einen Verweis zum Eintrag erstellen und damit durch einen Klick den Browser gleich auf die entsprechende Seite führen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:22
 #: (para)
 msgid "TortoiseSVN can help the user in two ways: <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseSVN kann hier zweifach helfen: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:47
 #: (para)
 msgid "You can integrate a Bugtracking Tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-DUG-propertypage\"/>)"
-msgstr ""
+msgstr "Sie können eine Bugtracking Anwendung Ihrer Wahl in TortoiseSVN integrieren. Dafür müssen Sie ein paar Subversion Eigenschaften definieren, die mit <literal>bugtraq:</literal> beginnen. Diese Eigenschaften müssen für Ordner gesetzt werden: (<xref linkend=\"tsvn-DUG-propertypage\"/>)"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:59
 #: (term)
@@ -4128,7 +4161,7 @@ msgstr "bugtraq:url"
 #: source/en/tsvn_dug/dug_bugtracker.xml:61
 #: (para)
 msgid "Set this property to the url of your bugtracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issuenumber you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bugtracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issuenumber and not the link to it. e.g the TortoiseSVN project is using <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
-msgstr ""
+msgstr "Hier geben Sie die URL zu Ihrem Bugtracking Programm ein.  Die URL muss gültige (sprich URI codiert) URL sein und <literal>%BUGID%</literal> enthalten. <literal>%BUGID%</literal> wird später durch die Eintragsnummer ersetzt. Dies ermöglicht es TortoiseSVN einen direkten Verweis auf die Revision im Log Dialog anzuzeigen, so dass Sie direkt dort hinspringen können.Sie müssen diese Eigenschaft nicht setzen, aber wenn Sie sie weglassen, zeigt TortoiseSVN später nur die Eintragsnummer an und keinen Verweis.  Ein Beispiel für TortoiseSVN wäre <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:79
 #: (term)
@@ -4138,7 +4171,7 @@ msgstr "bugtraq:warnifnoissue"
 #: source/en/tsvn_dug/dug_bugtracker.xml:81
 #: (para)
 msgid "Set this to <literal>true</literal>, if you want TortoiseSVN to warn you because of an empty issuenumber textfield. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>false</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr "Wenn die Eigenschaft auf <literal>true</literal> gesetzt ist, warnt Sie TortoiseSVN, falls das Eingabefeld für die Eintragsnummer im Übertragen Dialog leer gelassen wurde.  Das ist nur eine Erinnerungshilfe, falls der Benutzer die Eingabe  vergessen hat. Gültige Werte: <literal>true/false</literal>. Wenn keine  Eigenschaft definiert ist, wird <literal>false</literal> angenommen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:98
 #: (term)
@@ -4148,7 +4181,7 @@ msgstr "bugtraq:message"
 #: source/en/tsvn_dug/dug_bugtracker.xml:100
 #: (para)
 msgid "<emphasis> This property activates the Bugtracking System. </emphasis> If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the logmessage. It must contain <literal>%BUGID%</literal>, which is replaced with the issuenumber on commit. This ensures that your commit log contains a reference to the issuenumber which is always in a consistent format and can be parsed by your Bugtracking tool to associate the issuenumber with a particular commit. e.g the TortoiseSVN project is using <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
-msgstr ""
+msgstr "<emphasis>Diese Eigenschaft aktiviert das Bugtracking System.</emphasis> Wenn sie gesetzt ist, wird TortoiseSVN Sie auffordern, beim Übertragen eine Eintragsnummer anzugeben.Sie wird benutzt, um eine extra Zeile an das Ende des Logtextes hinzuzufügen. Dafür muss sie den Text <literal>%BUGID%</literal> enthalten, der beim Übertragen durch die Eintragsnummer ersetzt wird. Mithilfe dieses Textes kann Ihr Bugtracking Programm die Log  Meldungen zerlegen und die Revisionen einem Eintrag zuordnen. TortoiseSVN benutzt z.B. <literal>Issue : %BUGID%</literal>,  aber das hängt von Ihrem Programm ab."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:120
 #: (term)
@@ -4158,7 +4191,7 @@ msgstr "bugtraq:append"
 #: source/en/tsvn_dug/dug_bugtracker.xml:122
 #: (para)
 msgid "This property defines if the bug-ID is appended (true) to the end of the log message or inserted (false) at the start of the log message. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed, so that existing projects don't break. </emphasis>"
-msgstr ""
+msgstr "Diese Eigenschaft definiert ob die Eintragsnummer an das Ende angehängt oder vor der Logmeldung eingefügt wird. Gütige Werte sind: <literal>true/false</literal>.  Wenn keine Eigenschaft definiert ist, wird <literal>true</literal> angenommen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:135
 #: (term)
@@ -4168,7 +4201,7 @@ msgstr "bugtraq:label"
 #: source/en/tsvn_dug/dug_bugtracker.xml:137
 #: (para)
 msgid "This text is shown by TortoiseSVN on the commit dialog to label the edit box where you enter the issuenumber. If it's not set, <literal>Bug-ID / Issue-Nr:</literal> will be displayed. Keep in mind though that the window will not be resized to fit this label, so keep the size of the label below 20-25 characters."
-msgstr ""
+msgstr "Dieser Text wird von TortoiseSVN im Übertragen Dialog angezeigt. Er beschreibt das Eingabefeld  für die Eintragsnummer. Wird er weggelassen, wird  <guilabel>Bug-ID / EintragsNr: </guilabel> angezeigt. Beachten Sie bitte, dass der Text nicht zu lang ist, da er sonst eventuell einfach abgeschnitten wird.  (empfohlen werden max 20 bis 25 Zeichen)"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:149
 #: (term)
@@ -4178,12 +4211,12 @@ msgstr "bugtraq:number"
 #: source/en/tsvn_dug/dug_bugtracker.xml:151
 #: (para)
 msgid "If set to <literal>true</literal> only numbers are allowed in the issuenumber textfield. An exception is the comma, so you can comma separate several numbers. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr " Auf <literal>true</literal> gesetzt, werden, ausser dem Komma nur Zahlen  im Bugtracking Eingabefeld akzeptiert. <literal>False</literal> erlaubt auch die Eingabe von Buchstaben. Gültige Werte: <literal>true/false</literal>. Wenn keine  Eigenschaft definiert ist, wird <literal>true</literal> angenommen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:169
 #: (para)
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
-msgstr ""
+msgstr "Auch wenn Sie gar keinen Issue Tracker mit pre-commit Aktionsskript haben, können Sie diese Funktion auch dazu nutzen, um Eintragsnummern welche Sie in Ihren Logmeldungen erwähnt haben, in einen Verweis zum Issuetracker zu verwandeln."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:177
 #: (term)
@@ -4193,42 +4226,42 @@ msgstr "bugtraq:logregex"
 #: source/en/tsvn_dug/dug_bugtracker.xml:179
 #: (para)
 msgid "This property contains one or two regular expressions, separated by a newline."
-msgstr ""
+msgstr "Diese Eigenschaft enthält entweder einen oder zwei Reguläre Ausdrücke, die durch einen Zeilenumbruch getrennt werden."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:183
 #: (para)
 msgid "If only one expression is set, then the bare bug ID's must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>"
-msgstr ""
+msgstr "Wenn nur ein Regulörer Ausdruck gesetzt wird, dann müssen die reinen Issuenummern in den Gruppen des Ausdrucks gefunden werden. Als Beispiel: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:188
 #: (para)
 msgid "If two expressions are set, then the first expression is used to find a string which relates to the bug ID but may contain more than just the bug ID (e.g. \"Issue #123\" or \"resolves issue 123\"). The second expression is then used to extract the bare bug ID from the string extracted with the first expression. An example:"
-msgstr ""
+msgstr "Wenn zwei reguläre Ausdrüke gesetzt sind, wird der erste Ausdruck verwendet, um eine Zeichenkette zu finden welche die Issuenummer enthält, aber nicht nur die Issuenummer (zum Beispiel: \"Issue #123\" oder \"Löst issue 123\"). Der zweite reguläre Ausdruck wird dann verwendet, um die reinen Issuenummern aus dieser Zeichenkette zu extrahieren. Zum Beispiel:"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:196
 #: (para)
 msgid "If you want to catch every pattern \"issue #XXX\" and \"issue #890, #789\" inside a log message you could use the following regex strings: <literal>[Ii]ssue #?(\\d+)(,? ?#'(\\d+))+</literal> and the second expression as <literal>(\\d+)</literal>"
-msgstr ""
+msgstr "Wenn Sie alle Zeichenketten \"issue #XXX\" und \"issue #123, #456\" in einer Logmeldung finden möchten, können Sie folgende beiden regulären Ausdrücke verwenden: <literal>[Ii]ssue #?(\\d+)(,? ?#'(\\d+))+</literal> mit dem zweiten Ausruck <literal>(\\d+)</literal>"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:202
 #: (para)
 msgid "If you are unfamiliar with regular expressions, take a look at the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Wenn Sie sich mit regulären Ausdrücken noch nicht so gut auskennen, lesen Sie sich doch die Online Dokumentation auf <ulink url=\"http://www.reular-expressions.info/\"> <citetitle>http://www.regular-expressions.info/</citetitle> </ulink> durch."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:219
 #: (title)
 msgid "Set the Properties on Folders"
-msgstr ""
+msgstr "Setzen Sie die Eigenschaften auf Ordner"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:220
 #: (para)
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr ""
+msgstr "Die obigen Eigenschaften müssen auf Ordner gesetzt sein, damit das System richtig funktioniert. Beim Übertragen werden die Eigenschaften des aktuellen Ordners gelesen. Falls die Eigenschaften nicht gefunden werden, sucht TortoiseSVN nach oben durch die Ordnerstruktur bis es auf einen nicht versionierten Ordner oder die Wurzel (z.B. <literal>C:\\</literal>) stößt.Wenn Sie sicher gehen können, dass jeder Benutzer z.B. von <filename>trunk/</filename> und nicht aus einem Unterordner auscheckt, definieren Sie die Eigenschaften nur für <filename>trunk/</filename>. Wenn Sie nicht sicher sein können, definieren Sie die Eigenschaft rekursiv für jeden Unterordner. Eigenschaften in einem Unterordner überschreiben die Einstellungen in einem übergeordneten Ordner. "
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:53
 #: (para)
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/> In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-2/> In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! <tip><placeholder-3/></tip><placeholder-4/><placeholder-5/><important><placeholder-6/><placeholder-7/><placeholder-8/></important>"
-msgstr ""
+msgstr "Es gibt zwei verschiedene Wege um TortoiseSVN mit einem Bugtracker zu verbinden. Ein Weg basiert auf einfachen Zeichenketten, der andere basiert auf <literal>Regulären Ausdrücken</literal>. Die Eigenschaften welche von beiden Methoden benutzt werden sind: <placeholder-1/>  Mit dem einfachen Weg zeigt TortoiseSVN dem  Benutzer ein zusätzliches Eingabefeld für die Eintragsnummer. Es wird dann eine zusätzliche Zeile der Log-Meldung angehängt oder vorangestellt. <placeholder-2/>  Beim Weg mit den <literal>Regulären Ausdrücken</literal> zeigt TortoiseSVN kein separates Eingabefeld an sondern hebt den Teil der Logmeldung hervor, der von dem Aktionsskript als Eintragsnummer erkannt wird. Die Hervorhebung erfolgt während der Benutzer die Logmeldung eingibt. Dies bedeutet auch, dass die Eintragsnummer irgendwo in der Log-Meldung stehen kann und nicht nur in einer separaten Zeile! <tip><placeholder-3/></tip><placeholder-4/><placeholder-5/><important><placeholder-6/><placeholder-7/><placeholder-8/></important>"
 
 #: source/en/tsvn_dug/dug_branchtag.xml:3
 #: (title)
@@ -4403,7 +4436,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_branchtag.xml:191
 #: (para)
 msgid "Although Subversion itself makes no distinction between tags and branches, the way they are typically used differs a bit. <placeholder-1/>"
-msgstr ""
+msgstr "Obwohl Subversion keine Unterscheidung zwischen <literal>tags</literal> und <literal>branches</literal> macht, werden sie normalerweise unterschiedlich genutzt. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_blame.xml:3
 #: (title)
@@ -4643,7 +4676,7 @@ msgstr "TortoiseSVN ist freie Software. Sie brauchen nichts dafür zu bezahlen. 
 #: source/en/tsvn_preface.xml:78
 #: (para)
 msgid "TortoiseSVN is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>. The most recent version (where we're working on) is located under <emphasis><filename>/trunk/</filename></emphasis>, the released versions are located under <emphasis><filename>/tags/</filename></emphasis>."
-msgstr "TortoiseSVN ist ein Open Source Projekt. Das bedeutet, Sie haben Zugang zum Quellcode des Programms. Sie können den Quellcode unter folgendem Link:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
+msgstr "TortoiseSVN ist ein Open Source Projekt. Das bedeutet, Sie haben Zugang zum Quellcode des Programms. Sie können den Quellcode unter folgendem Verweis:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
 
 #: source/en/tsvn_preface.xml:99
 #: (title)
@@ -4951,7 +4984,7 @@ msgid "Installing TortoiseSVN"
 msgstr "Installation von TortoiseSVN"
 
 #: source/en/tsvn_introduction.xml:244
-#: (primary) source/en/tsvn_app_faq.xml:22
+#: (primary)
 msgid "install"
 msgstr "Installation"
 
@@ -5748,880 +5781,91 @@ msgstr ""
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:3
+#: source/en/tsvn_app_howto.xml:304
 #: (title)
-msgid "Frequently Asked Questions (FAQ)"
+msgid "Include a common sub-project"
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:5
+#: source/en/tsvn_app_howto.xml:306
+#: (primary)
+msgid "common projects"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:308
 #: (para)
-msgid "This appendix contains an extract of the questions we are asked the most on the TortoiseSVN mailing list <email>dev@tortoisesvn.tigris.org</email>. We maintain an interactive online FAQ at <ulink url=\"http://tortoisesvn.berlios.de/faq/\"><citetitle>Berlios.de</citetitle></ulink> which contains a lot more information."
+msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:20
+#: source/en/tsvn_app_howto.xml:318
 #: (title)
-msgid "Installation issues"
+msgid "Use svn:externals"
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:24
+#: source/en/tsvn_app_howto.xml:319
 #: (para)
-msgid "Many of these answers came from the <ulink url=\"http://www.tortoisecvs.org/faq.html\"><citetitle>TortoiseCVS FAQ</citetitle></ulink>"
+msgid "Create a new folder within your project to contain the common code, and <action>Add</action> it to Subversion"
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:31
+#: source/en/tsvn_app_howto.xml:323
+#: (para)
+msgid "Set the <literal>svn:externals</literal> property on that folder. The property value should be the repository URL of the code you want to include. Of course it has to reside in a Subversion repository, although it does not have to be the same one."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:330
+#: (para)
+msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. Each time you update, you will also receive the latest version of that project. Changes you make to the common project will be committed back."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:339
 #: (title)
-msgid "The installer aborts with an error message"
+msgid "Use a nested working copy"
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:32
+#: source/en/tsvn_app_howto.xml:340
 #: (para)
-msgid "If the msi installer shows you the error message <literal>The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again. Click Close to exit</literal> then the user SYSTEM doesn't have read access to the folder where the msi file is located."
+msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:39
+#: source/en/tsvn_app_howto.xml:344
 #: (para)
-msgid "Just move the msi file to another location, e.g. <filename>c:\\</filename> and try again."
+msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:45
+#: source/en/tsvn_app_howto.xml:354
+#: (para)
+msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are not committed. Likewise when you update the parent, the nested WC is not updated."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:361
 #: (title)
-msgid "I installed TortoiseSVN as Administrator. Now when I log in as me, it's not there"
+msgid "Use a relative location"
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:49
-#: (para)
-msgid "When you started the installation you forgot to select the option to <literal>install for all users</literal> instead of <literal>just for me</literal>. The easiest way to correct that is to uninstall, reboot, then reinstall."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:57
-#: (title)
-msgid "When upgrading TortoiseSVN, do I have to uninstall the existing version first?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:61
-#: (para)
-msgid "No. You can just install the new version over the old one. The installer will take care of uninstalling the old version first automatically."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:66
-#: (para)
-msgid "But you <emphasis>must</emphasis> reboot your computer after the installer finishes! Or at least you have to log off and log on again. If you don't, TortoiseSVN will crash!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:73
-#: (title)
-msgid "Why don't the icon overlays appear?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:80
-#: (para)
-msgid "If you are using Windows 95 the icon overlays won't appear. You can try the instructions for Windows NT4 below if you like, but it may still not work. Please note: We don't support Windows 95 at all - so there may be other issues if you're using that OS"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:89
-#: (para)
-msgid "If you are using Windows NT4, you need to install the IE4 shell or desktop extensions to get a more recent version of Explorer. To do this install IE4, and choose Yes to install the active desktop. Don't worry, you can turn off the actual active desktop later by right clicking on it. It's the new version of Explorer that we are after."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:105
-#: (para)
-msgid "Uninstall IE5 and then install IE4 with desktop extensions, and then install IE5 again. What a palaver."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:112
-#: (para)
-msgid "Run IE5 setup with command line switches to install the IE4 desktop (shell) extensions"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:117
-#: (para)
-msgid "The command must be run from the folder that contains the <filename>ie5setup.exe</filename> file. If the browser appears unstable afterwards just run the IE5 repair function."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:124
+#: source/en/tsvn_app_howto.xml:362
 #: (para)
 msgid ""
-"For Win95: <screen>\n"
-"ie5setup.exe /c:\"ie5wzd /e:IE4Shell WIN /I:Y\"\n"
+"If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\n"
+"C:\\Projects\\Proj1\n"
+"C:\\Projects\\Proj2\n"
+"C:\\Projects\\Proj3\n"
+"C:\\Projects\\Common\n"
+"</screen> and refer to the common code using a relative path, eg. <filename>..\\..\\Common\\DSPcore</filename>."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:377
+#: (para)
+msgid ""
+"If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\n"
+"SUBST X: \"D:\\Documents\\framework\"\n"
+"</screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n"
+"#include \"X:\\superio\\superio.h\"\n"
 "</screen>"
 msgstr ""
 
-#: source/en/tsvn_app_faq.xml:130
+#: source/en/tsvn_app_howto.xml:395
 #: (para)
-msgid ""
-"For WinNT: <screen>\n"
-"ie5setup.exe /c:\"ie5wzd /e:IE4Shell NTx86 /I:Y\"\n"
-"</screen>"
+msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr ""
-
-#: source/en/tsvn_app_faq.xml:101
-#: (para)
-msgid "If you've already installed IE5, you must either: <placeholder-1/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:141
-#: (para)
-msgid "For IE6:"
-msgstr "Für IE6:"
-
-#: source/en/tsvn_app_faq.xml:144
-#: (para)
-msgid "Run IE6 setup with command line switches to install the IE4 desktop (shell) extensions. The same caveats apply as for IE5. The command must be run from the folder that contains the <filename>ie6setup.exe</filename> file."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:151
-#: (para)
-msgid ""
-"For WinNT: <screen>\n"
-"ie6setup.exe /c:\"ie6wzd /e:IE4Shell NTx86 /I:Y\"\n"
-"</screen>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:159
-#: (para)
-msgid ""
-"The shortcut labelled <literal>Win NT Explorer</literal> on your start menu probably points to <filename>C:\\WINNT\\explorer.scf</filename> and doesn't get the overlays. Create a new shortcut to <screen>\n"
-"%windir%\\Explorer.exe /n, /e\n"
-"</screen> and it may get the overlays."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:172
-#: (para)
-msgid "If you're using an IntelliPoint mouse driver, and launching Explorer via a mouse click, you need to upgrade from version 3 to version 3.2 or higher of IntelliPoint. Strangely, launching Explorer from the Start menu gives icons in this case, but not when launched from the mouse."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:185
-#: (title)
-msgid "I followed the instructions, but there are still no icons?!?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:186
-#: (para)
-msgid "You rebooted your PC off course? So after installing the shell extensions you now have WinNT / Win95 and IE &gt;= 5.5 installed?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:191
-#: (para)
-msgid "If you installed TortoiseSVN as a different user under WinNT/Win2K/WinXP than you are using now, do the following thing: Go to the settings of TSVN and activate the icon overlays for at least the fixed drives. The installer does this automatically for the <emphasis>current</emphasis> user (can't do it for other users...) but since you are using TSVN as a different user than you installed it you need to set this manually."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:204
-#: (title)
-msgid "The overlay icons appear, but not all of them!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:205
-#: (para)
-msgid "This usually happens if you have other programs installed which use icon overlays like e.g. TortoiseCVS. The reason for this is that Windows only has 15 slots for icon overlays, and about three or four are used by Windows itself (e.g. for links, shared folders, ...). If all those slots are full then TortoiseSVN can't register another one and won't show all overlays."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:213
-#: (para)
-msgid "TortoiseSVN uses five overlay slots for the status: <graphic fileref=\"images/InSubVersionIcon.png\"/> normal <graphic fileref=\"images/ModifiedIcon.png\"/> modified <graphic fileref=\"images/ConflictIcon.png\"/> conflicted <graphic fileref=\"images/DeletedIcon.png\"/> deleted <graphic fileref=\"images/AddedIcon.png\"/> added"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:226
-#: (para)
-msgid "So most likely the <literal>added</literal> overlay will be missing, then the <literal>deleted</literal> and so on."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:232
-#: (title)
-msgid "Why is there no overlay icon for unversioned files?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:233
-#: (para)
-msgid "For the same reason. There are only 15 slots for icon overlays available. We don't want to waste a slot for the least important information. That's why. If you want to distinguish <literal>unversioned</literal> and <literal>ignored</literal> files in the explorer, switch to the explorers detailed view and activate the column <guilabel>SVN Status</guilabel>. Then you will see the difference."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:244
-#: (title)
-msgid "Why do the overlay icons sometimes change to random graphics?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:250
-#: (para)
-msgid "Install Microsoft's <ulink url=\"http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp\"><citetitle>TweakUI</citetitle></ulink> and run the option to rebuild icons."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:259
-#: (para)
-msgid ""
-"Or increase the icon cache size. Go to <screen>\n"
-"HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\n"
-"</screen> and add a new String Value called <literal>Max Cached Icons</literal>. The default value is 500 - try increasing it to 2048 (see <ulink url=\"http://support.microsoft.com/support/kb/articles/Q132/6/68.asp\"><citetitle>Q132668</citetitle></ulink> in the Microsoft knowledge base for more details)."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:274
-#: (para)
-msgid "Or delete the file called ShellIconCache in your Windows directory. And reboot."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:245
-#: (para)
-msgid "The Windows icon cache is a fairly buggy creature. You can solve this in one of the following ways: <placeholder-1/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:283
-#: (title)
-msgid "Those icons are grotesque, I want better ones!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:284
-#: (para)
-msgid "You can create your own icon set if you want. And if you do please contribute them to the rest of the world! Just send them to the mailing list <email>dev@tortoisesvn.tigris.org</email>."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:289
-#: (para)
-msgid "The icons should have at least two sizes (16x16 and 32x32 with 16 colors), for Windows XP there should also be a set with 48x48 pixels."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:294
-#: (para)
-msgid "To install the icons you should copy them to the directory where TortoiseSVN was installed. There you will find a directory called <filename>Icons</filename> which contains a separate subfolder for each available icon set. Copy your own icon set in there. Then start the settings dialog, and set the active icon set to the one you created."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:302
-#: (para)
-msgid "After that you need to restart (or logoff) your computer so that explorer reads in the icons again. Alternatively you can flush the icon cache with the <ulink url=\"http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp\"><citetitle>TweakUI</citetitle></ulink> tool from Microsoft. For WinXP you can get <ulink url=\"http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp\"><citetitle>TweakUI</citetitle></ulink> here."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:317
-#: (title)
-msgid "The TortoiseSVN menu is invisible!"
-msgstr "Das TortoiseSVN Menü ist nicht sichtbar!"
-
-#: source/en/tsvn_app_faq.xml:325
-#: (para)
-msgid "If you select a folder in the left pane of explorer, then use the File menu to access TSVN, the menu text and icons are invisible the second time you use the File menu. If you select another folder, the menu is restored. This happens under Windows 98, ME, NT and 2000. Everything works fine under XP."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:335
-#: (para)
-msgid "Under Windows NT 4, the context menu text and icons for TSVN sometimes disappear. This can happen anywhere in explorer."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:318
-#: (para)
-msgid "There are a number of known problems with disappearing menus, which are due to the Windows Explorer, not TSVN. Usually it shows up as a blank space in the menu where the text and icon should be. <placeholder-1/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:345
-#: (title)
-msgid "The TortoiseSVN menus are shown as ownerdrawn (no icons, no text) in some software"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:349
-#: (para)
-msgid "This is because the icons are completely ownerdrawn."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:352
-#: (para)
-msgid ""
-"I you don't like the way TSVN handles it's menu entries, you can do the following: Just create a (DWORD) registry entry under: <screen>\n"
-"HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus\n"
-"</screen> and set it to <literal>0</literal>. This will force TortoiseSVN to use the windows standard routine to draw menu entries. You'll have all the menu entries any time, but you will have ugly icons, since window's default only allows 10x10 icons. If you delete this registry key (the default) or set it to something other than <literal>0</literal> you have the nice icons back."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:367
-#: (para)
-msgid "In case you want no icons at all you can set this value to <literal>2</literal>. Then the context menu entries show up as text only."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:373
-#: (title)
-msgid "How do I uninstall TortoiseSVN?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:374
-#: (para)
-msgid "Simply uninstall from Add/Remove Programs in the Windows control panel. This does not effect your repositories or working copies at all. Be aware however, that the Subversion database schema might change before Subversion 1.0 is released. When you are working with local repositories (<filename>file:///</filename> URLs), a newer version of TortoiseSVN might be incompatible to an old repository. Please check the Subversion release notes."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:386
-#: (title)
-msgid "I installed a new version of TortoiseSVN, but the new functions aren't visible?!?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:390
-#: (para)
-msgid "TortoiseSVN is a Windows explorer shell extension. So after updating you <emphasis>must</emphasis> restart windows or at least the explorer process. If you don't then the the explorer process still has the old version of the dll loaded in RAM and uses that old version..."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:399
-#: (title)
-msgid "Can I use TortoiseCVS and TortoiseSVN on the same computer?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:400
-#: (para)
-msgid "Yes they can live happily together on the same PC. You can even use them on the same folder if that makes any sense to you."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:407
-#: (title)
-msgid "I've got PowerDesk 5 installed and TSVN doesn't work on my PC"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:408
-#: (para)
-msgid "Well, in this case Powerdesk is the bad guy. However, they have now provided a fix, as reported by Paul Gifford."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:413
-#: (para)
-msgid "There is a fix for Powerdesk 5, but it's not available on their website; you have to contact support to get it. They'll give you an update to a later version (5.0.1.7 - which is strangely not on the update portion of the site) then send you a patch to bring you to 5.0.1.8. which fixes the problem."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:421
-#: (para)
-msgid "Version 6 does not have the menu problem."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:427
-#: (title)
-msgid "Where is the spellchecker?"
-msgstr "Wo ist die Rechtschreibkorrektur?"
-
-#: source/en/tsvn_app_faq.xml:428
-#: (para)
-msgid "If you want to use a spellchecker when entering your log messages please follow the installation instructions here: <xref linkend=\"tsvn-ch-1-sect-4\"/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:439
-#: (title)
-msgid "Daily use questions"
-msgstr "Fragen beim täglichen Umgang"
-
-#: source/en/tsvn_app_faq.xml:440
-#: (para)
-msgid "This section answers questions about problems you may encounter while using TortoiseSVN on a daily basis."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:445
-#: (title)
-msgid "I accidentally removed a file, and now it's gone!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:455
-#: (para)
-msgid "You can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the parent folder where you deleted the file or directory."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:464
-#: (para)
-msgid "If you have already committed the deleted file, then you can use the repository browser, change to the revision where the file still existed and then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> Enter the path to your working copy as the target."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:476
-#: (title)
-msgid "When I remove a file it vanishes, how do I commit it?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:477
-#: (para)
-msgid "Easy, you commit the whole directory! <action>Right-click</action> in the Explorer window next to the file, and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice>. I nearly always commit things from the top level directory - it is recursive through the whole project."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:490
-#: (title)
-msgid "I always get an error when I check out a single file"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:491
-#: (para)
-msgid "There's nothing wrong with it. Subversion only allows you to check out directories - not files. A warning is not possible because TortoiseSVN has no possibility to check if a URL (e.g. <systemitem class=\"url\"> http://svn.collab.net/svn/repos/trunk/README</systemitem>) is a file or a folder (ok, it could - but that would take a few seconds to check...). But Subversion itself complains if it's a file..."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:504
-#: (title)
-msgid "I'm in trouble renaming a file from UPPERcase to upperCASE"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:506
-#: (primary)
-msgid "case sensitive"
-msgstr "Groß- / Kleinschreibung ignorieren"
-
-#: source/en/tsvn_app_faq.xml:508
-#: (para)
-msgid "There are (at least) two possible solutions to rename a file without losing its log history. It is important to rename it <emphasis>within</emphasis> Subversion. Just renaming in the explorer will corrupt your working copy!!!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:518
-#: (para)
-msgid "Commit the changes in your working copy."
-msgstr "Die Änderungen in der Arbeitskopie übertragen."
-
-#: source/en/tsvn_app_faq.xml:523
-#: (para)
-msgid "Rename the file from <filename>UPPERcase</filename> to <filename>upperCASE</filename> inside the repository using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repository Browser</guimenuitem></menuchoice>."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:535
-#: (para)
-msgid "Select the <emphasis>file</emphasis> you renamed, <emphasis>not</emphasis> any of its parent folders, right-click and do an update. After that, update the parent folder."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:543
-#: (para)
-msgid "Or: delete your working copy and do a fresh checkout. Just updating won't work, because it will result in an obstructed update."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:548
-#: (para)
-msgid "If you don't want to checkout the whole working copy again, delete the parent folder of the file you've just renamed and do an update."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:514
-#: (para)
-msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr "Lösung A) (empfohlen) <placeholder-1/>"
-
-#: source/en/tsvn_app_faq.xml:560
-#: (para)
-msgid "Rename from <filename>UPPERcase</filename> to <filename>UPPERcase_</filename> using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rename</guimenuitem></menuchoice>."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:571
-#: (para) source/en/tsvn_app_faq.xml:583
-msgid "Commit the changes"
-msgstr "Änderungen übertragen"
-
-#: source/en/tsvn_app_faq.xml:576
-#: (para)
-msgid "Rename from <filename>UPPERcase_</filename> to <filename>upperCASE</filename>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:556
-#: (para)
-msgid "Solution B) <placeholder-1/>"
-msgstr "Lösung B) <placeholder-1/>"
-
-#: source/en/tsvn_app_faq.xml:591
-#: (title)
-msgid "Can I mix and match with the Subversion command line client or another Subversion client?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:595
-#: (para)
-msgid "Yes, you can change from one client to another whenever you want."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:599
-#: (para)
-msgid "There's only one exception: if you use the special build to work around the VS.NET bug with web projects then you can't use any other Subversion clients anymore. You're stuck with that special build. Other Subversion clients won't recognize your working copies."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:607
-#: (title)
-msgid "Can I work on lots of working copies from different repositories at once?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:611
-#: (para)
-msgid "Yes, you can. This is a standard feature of Subversion. Each directory which was checked out of Subversion remembers where it came from. You can even multiply select working copies which came from different places, and update or commit them all at once."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:618
-#: (para)
-msgid "If you want to have different subdirectories to come from different repositories you can set a special Subversion property called <literal>svn:externals</literal>. Please look at the chapter <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3.6\"><citetitle>External Definitions</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:634
-#: (title)
-msgid "How does TortoiseSVN handle conflicts?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:635
-#: (para)
-msgid "Imagine you check out revision 24 of a file and started editing it. In the meantime, someone else committed revision 25, and shortly after that revision 26. You tell TortoiseSVN to update your file now, and Subversion will try to incorporate all the changes between revision 24 and 26 into your local file."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:643
-#: (para)
-msgid "But if the changes made between 24 and 26 were too close to or even overlap with the changes you have made, Subversion detects a conflict and creates conflict markers in the file. You then have to resolve these conflicts yourself. Read <xref linkend=\"tsvn-DUG-conflicts\"/> to find out more."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:653
-#: (title)
-msgid "I tried to commit my changes and got a message telling me my working copy is out-of-date"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:657
-#: (para)
-msgid "That means you need to use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> command to update your working copy to the same level as the repository."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:665
-#: (para)
-msgid ""
-"It may not be obvious why you need to do this, especially if you <emphasis>know</emphasis> the repository has not changed. The answer is simply that your working copy is not completely updated by a commit.Only changed files and folders get updated automatically. Consider this example on a newly created repository: <screen>\n"
-"Add Folder in revision 1\n"
-"Add File1 and File2 in revision 2\n"
-"Modify File1 and commit in revision 3\n"
-"</screen> Now the repository is at revision 3, but in your working copy the revisions look like this: <screen>\n"
-"Folder       : revision 1\n"
-"Folder/File1 : revision 3\n"
-"Folder/File2 : revision 2\n"
-"</screen> Now if you modify File2 and try to commit, it fails. The client tells the repository that File2 is at revision 2 with local modifications, but the repository is already at revision 3. If you then do an update, File2 will be at revision 3 as well (and of course your local changes will still be there)."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:689
-#: (para)
-msgid "The same thing may happen if you try to create a branch or tag. The answer is always the same: If your working copy is out-of-date, update it!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:700
-#: (title)
-msgid "Misc Questions"
-msgstr "Diverse Fragen"
-
-#: source/en/tsvn_app_faq.xml:702
-#: (title)
-msgid "TortoiseSVN seems very slow on big directories"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:703
-#: (para)
-msgid "To show you the file and folder icon overlays TortoiseSVN must fetch the status each time you open such a folder in the explorer. This takes usually only a few seconds, but can take much longer if you have either a slow harddisk or a very big directory."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:709
-#: (para)
-msgid "Note: usually it's only very slow the first time you open a versioned folder. If you browse the same directory later again it's much faster due to internal caching."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:714
-#: (para)
-msgid "You can try to speed things up by:"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:719
-#: (para)
-msgid "To speed up browsing in the explorer you should first turn off the recursive overlays. Go to the settings dialog and uncheck <guilabel>Recurse into folders to fetch the status</guilabel>. This will tell TortoiseSVN not to scan subfolders."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:728
-#: (para)
-msgid "Whenever the <emphasis>last modified time</emphasis> of a file changed, TortoiseSVN needs to do a complete diff (!) of that file to find out if it has changed. If you often change a file, undo the changes and save the file again you'll encounter a slowdown in browsing. A fresh checkout of your working copy would solve that problem."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:739
-#: (para)
-msgid "There are several Virus scanners around that interfere with TortoiseSVN. Most of the time they lock files inside the <filename>.svn</filename> Status directory, which can cause TortoiseSVN to hang or to become very slow. Sometimes you might even get an <emphasis>Access Denied</emphasis> error."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:747
-#: (para)
-msgid "Try to configure your virus scanner so that it ignores <filename>.svn</filename> directories."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:751
-#: (para)
-msgid "Virus scanners that are known to behave badly are: McAfee, Norton Antivirus, ..."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:763
-#: (para) source/en/tsvn_app_faq.xml:788
-msgid "Select <command>Run</command> from the start menu"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:769
-#: (para)
-msgid "Type <command>regsvr32 /u %windir%\\system32\\zipfldr.dll</command> at the prompt and click ok"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:776
-#: (para)
-msgid "The change will take effect immediately, but you may have to restart Windows for all traces of the built-in ZIP support to disappear."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:794
-#: (para)
-msgid "Type <command>regsvr32 %windir%\\system32\\zipfldr.dll </command> at the prompt and click ok"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:801
-#: (para)
-msgid "The change will take effect immediately, but you may have to restart Windows for all features of the built-in ZIP support to be available."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:757
-#: (para)
-msgid "If you're working on Windows XP then you can also disable the <emphasis>zipfolders</emphasis>. This will also increase the browsing speed. <placeholder-1/> If, at any time, you wish to re-enable Windows XP's built-in ZIP support, just follow these steps: <placeholder-2/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:816
-#: (title)
-msgid "TortoiseSVN doesn't work with VS.NET web projects?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:818
-#: (primary)
-msgid "VS.NET"
-msgstr "VS.NET"
-
-#: source/en/tsvn_app_faq.xml:820
-#: (para)
-msgid "VS.NET when used with web projects can't handle the <filename>.svn</filename> folders Subversion uses to store its internal information. This is <emphasis>not</emphasis> a bug in Subversion. The bug is in VS.NET and the frontpage extensions it uses. Even though you might argue that Windows can't handle such foldernames, it's not correct. Windows can handle such folders very well, you just can't create them with the explorer."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:830
-#: (para)
-msgid "However, this bug applies only when you use web projects, which is not the same as ASP.NET projects. Usually, when you want to create an ASP.NET project, you choose to create a web project. But you can create or convert an ASP.NET project as a class project. With some minor tweaking, you won't notice the difference, and you then can use TortoiseSVN and SVN with <filename>.svn</filename> folders without problems."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:840
-#: (para)
-msgid "There is a really good blog post that helps you to convert your ASP.NET web projects to ASP.NET class project. You can find it <ulink url=\"http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm\"><citetitle>here</citetitle></ulink>. If you follow those instructions, you'll have a VS.NET working with ASP.NET projects and Subversion without troubles."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:850
-#: (para)
-msgid "Alternatively, upgrade your copy of VS.NET. The bug has been fixed in VS.NET2005, so it no longer has this problem."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:860
-#: (term)
-msgid "You need to fix this in Subversion!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:862
-#: (para)
-msgid "No, we don't. It's a bug in VS.NET and not in Subversion. So the bug has to be fixed there. In fact in VS.NET2005 it has been fixed, so if you can upgrade VS.NET, the problem goes away."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:871
-#: (term)
-msgid "Why not make the foldername configurable?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:873
-#: (para)
-msgid "There are many reasons <emphasis>not</emphasis> to do that. It would require major changes to the existing sourcecode, it would make the interaction of different Subversion clients very hard if not impossible and it would lead to confusion among users."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:881
-#: (para)
-msgid "There are more reasons, but they are very technical and don't belong in this FAQ."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:888
-#: (term)
-msgid "Then just create a special version of TortoiseSVN which uses a different foldername, and all problems are gone!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:894
-#: (para)
-msgid "No, we won't. <emphasis>Your</emphasis> problems might be gone, but all others who are using Subversion and TortoiseSVN would get into troubles if we did that."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:900
-#: (para)
-msgid "One of the big advantages in using this folder name is that it is universal. i.e. you can use the same working copy from your Linux box and from your Windows box. Very useful if you have a dual boot computer and don't want to have two working copies for each OS you boot."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:911
-#: (term)
-msgid "But I can't use TortoiseSVN if that's not fixed!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:913
-#: (para)
-msgid "Then don't use it! Nobody forces you to use our product. If you really want to use it, then you could compile yourself a special version using a different foldername. After all, both Subversion and TortoiseSVN are open source."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:854
-#: (para)
-msgid "If you still want to use TortoiseSVN with web projects, these are the questions we face every few weeks and here are the answers once and for all: <placeholder-1/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:924
-#: (para)
-msgid "But you're not completely lost in this case. Usually a few days after each official release of TortoiseSVN some people upload an installer for TortoiseSVN which is specially compiled to use <filename>_svn</filename> instead of the default <filename>.svn</filename> foldername. You can use that version then. Just be aware that we don't support that version at all!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:934
-#: (title)
-msgid "Does TortoiseSVN support SSH?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:935
-#: (para)
-msgid "TortoiseSVN uses Subversion. And Subversion supports SSH <systemitem class=\"url\">svn+ssh://</systemitem> (repository reachable via svnserve). If you don't want to use the svnserve server but Apache instead (which I would recommend!) then Subversion supports secure connections via SSL."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:942
-#: (para)
-msgid "A guide on how to secure your Apache server with SSL can be found in <xref linkend=\"tsvn-serversetup-apache-6\"/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:946
-#: (para)
-msgid "Please have a look at the Subversion book and the INSTALL file of Subversion on how to use <systemitem class=\"url\">svn+ssh://</systemitem>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:953
-#: (title)
-msgid "Can I get the project revision number into my project?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:954
-#: (para)
-msgid "If you want the revision number in your program version number you need an additional tool to do that. You can find the tool <literal>SubWCRev.exe</literal> on the download page on our website or in your TortoiseSVN Folder under <filename>bin</filename>."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:967
-#: (term)
-msgid "$WCREV$"
-msgstr "$WCREV$"
-
-#: source/en/tsvn_app_faq.xml:968
-#: (listitem)
-msgid "This string will be replaced by the revision number of your working copy."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:974
-#: (term)
-msgid "$WCMODS?Modified:Not modified$"
-msgstr "$WCMODS?Modified:Not modified$"
-
-#: source/en/tsvn_app_faq.xml:980
-#: (literal)
-msgid "Modified"
-msgstr "Modified"
-
-#: source/en/tsvn_app_faq.xml:981
-#: (literal)
-msgid "Not modified"
-msgstr "Not modified"
-
-#: source/en/tsvn_app_faq.xml:975
-#: (listitem)
-msgid "If you have local modifications, the string between Question mark and colon will be inserted. If you have no local modifications, the string between colon and dollar sign will be inserted. In our example above <placeholder-1/> or <placeholder-2/>."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:985
-#: (term)
-msgid "$WCDATE$"
-msgstr "$WCDATE$"
-
-#: source/en/tsvn_app_faq.xml:986
-#: (listitem)
-msgid "Will be replaced by the date of the highest revision in your working copy."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:961
-#: (para)
-msgid "This tool traverses your whole working copy for the most recent revision. Once that revision is found, it replaces all occurrences of the following strings: <placeholder-1/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:993
-#: (para)
-msgid ""
-"As an example, have a look at the file <filename>version.in</filename> in the <ulink url=\"http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in\"><citetitle>TortoiseSVN source tree</citetitle></ulink>. This file is used in TortoiseSVN and its resource files. The SubWCRev.exe tool is called from the build script like this: <screen>\n"
-"SubWCRev.exe path\\to\\working\\copy version.in version.h\n"
-"</screen> This creates a new file <filename>version.h</filename> with all the strings above replaced with the values of the working copy. The <filename>version.h</filename> file is then used in the project itself and included in the resource files for the version information."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1012
-#: (title)
-msgid "Can I lose data, when I use TortoiseSVN?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1013
-#: (para)
-msgid "TortoiseSVN uses Subversion. Nuff said :-)"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1016
-#: (para)
-msgid "Seriously - No! Read the Subversion pages. You can screw up your working copy any way you like, but if you commit your data regularly, you can always revert to a functional state. Just remember that TortoiseSVN was not made to protect you against stupidity (e.g. Format C:)."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1023
-#: (para)
-msgid "You can only lose your data if you throw your computer out of the window, format your harddrive, nail your harddrive to a wall..."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1030
-#: (title)
-msgid "I'm looking for an external diff or merge tool"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1031
-#: (para)
-msgid "Take a look at <xref linkend=\"tsvn-DUG-diff-tools\"/>."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1037
-#: (title)
-msgid "What are the hidden registry settings?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1039
-#: (primary)
-msgid "Registry"
-msgstr "Registry"
-
-#: source/en/tsvn_app_faq.xml:1049
-#: (term)
-msgid "HKCU\\Software\\TortoiseSVN\\Debug"
-msgstr "HKCU\\Software\\TortoiseSVN\\Debug"
-
-#: source/en/tsvn_app_faq.xml:1051
-#: (para)
-msgid "Set this value to 1 for TortoiseSVN to show you the parameters it gets from the shell extension part."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1058
-#: (term)
-msgid "HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus"
-msgstr "HKCU\\Software\\TortoiseSVN\\OwnerdrawnMenus"
-
-#: source/en/tsvn_app_faq.xml:1060
-#: (para)
-msgid "Set this value to 0 if you don't want TortoiseSVN to use ownerdraw menu items in the shell context menu. This helps if you use something else than the windows explorer or if you get problems with the context menu showing up."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1067
-#: (para)
-msgid "Set this value to 2 if you don't want TortoiseSVN to use icons in the context menu at all. With this value set to 2 the context menu is text only."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1075
-#: (term)
-msgid "HKCU\\Software\\TortoiseSVN\\BlockStatus"
-msgstr "HKCU\\Software\\TortoiseSVN\\BlockStatus"
-
-#: source/en/tsvn_app_faq.xml:1077
-#: (para)
-msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. an update, commit, ...) then set this value to 1."
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1041
-#: (para)
-msgid "There are some registry settings for TortoiseSVN which aren't available through the settings dialog. These registry settings usually are for debugging purposes or very special occasions. You can set those with the registry editor <command>regedt32</command>. <placeholder-1/>"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1086
-#: (para)
-msgid "Please don't mess with those and any other registry setting if you don't know <emphasis>exactly</emphasis> what you're doing!"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1092
-#: (title)
-msgid "I love TortoiseSVN, how can I do something for the developers?"
-msgstr ""
-
-#: source/en/tsvn_app_faq.xml:1093
-#: (para)
-msgid "Thanks for asking!"
-msgstr "Danke der Nachfrage!"
 
 #: source/en/tortoisesvn.xml:5
 #: (subtitle)
@@ -7001,7 +6245,7 @@ msgstr "TortoiseMerge ist freie Software. Sie brauchen nichts dafür zu bezahlen
 #: source/en/tme_ch00.xml:47
 #: (para)
 msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>. The most recent version (where we're working) is located under <filename>/trunk/</filename>, the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge ist ein Open Source Projekt. Das bedeutet, dass sie Zugang zum Quellcode des Programms haben. Sie können den Quellcode unter folgendem Link:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
+msgstr "TortoiseMerge ist ein Open Source Projekt. Das bedeutet, dass sie Zugang zum Quellcode des Programms haben. Sie können den Quellcode unter folgendem Verweis:<ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
 
 #: source/en/tme_ch00.xml:72
 #: (para)

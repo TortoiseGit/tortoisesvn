@@ -8,8 +8,8 @@ if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
 set APPS=TortoiseSVN TortoiseMerge
 set TARGETS=pdf chm html
-set IGNORELIST=tsvn_app_automation.xml Pubdate.xml
 
+if "%IGNORELIST%"=="" call IgnoreList.bat
 
 rmdir /s /q output > NUL
 mkdir output > NUL

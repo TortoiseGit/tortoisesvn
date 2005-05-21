@@ -8,18 +8,37 @@ rem Try to check, whether these vars are already set
 
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 
+if "%IGNORELIST%"=="" call IgnoreList.bat
+
+rem --------------------
+rem Collect files
+rem No real recursion, only one level deep
+
 cd source\en
 if exist Pubdate.xml del Pubdate.xml
-rem we don't want to translate the 'automation' section!
-ren tsvn_app_automation.xml tsvn_app_automation.tmpl
-FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) DO Set CHAPTERS=!CHAPTERS! source/en/%%V
-ren tsvn_app_automation.tmpl tsvn_app_automation.xml
-cd tsvn_dug
-FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_dug/%%V
-cd ..\tsvn_repository
-FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_repository/%%V
-cd ..\tsvn_server
-FOR /F "usebackq" %%V IN (`dir /b /on *.xml`) Do Set CHAPTERS=!CHAPTERS! source/en/tsvn_server/%%V
-cd ..\..\..
+
+FOR /F "usebackq" %%F IN (`dir /b /on *.xml`) DO (
+  SET IGNORED=0
+  FOR %%I IN (%IGNORELIST%) do (
+    IF %%I == %%F SET IGNORED=1
+  )
+  IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! source/en/%%F
+)
+
+FOR /D %%D IN (*) DO (
+  FOR /F "usebackq" %%F IN (`dir /b /on %%D\*.xml`) DO (
+
+    SET IGNORED=0
+    FOR %%I IN (%IGNORELIST%) do (
+      IF %%I == %%F SET IGNORED=1
+    )
+    IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! source/en/%%D/%%F
+  )
+)
+
+echo !CHAPTERS!
+pause
+
+cd ..\..
 
 xml2po.py -o po/doc.pot !CHAPTERS!
