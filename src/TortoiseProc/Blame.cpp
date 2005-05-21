@@ -72,7 +72,7 @@ CBlame::~CBlame()
 
 BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line)
 {
-	CString infolineA;
+	CStringA infolineA;
 	CStringA fulllineA;
 
 	if ((m_lowestrev < 0)||(m_lowestrev > revision))
@@ -80,8 +80,10 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	if (m_highestrev < revision)
 		m_highestrev = revision;
 
-	CString dateA(CUnicodeUtils::GetUTF8(date));
-	infolineA.Format(_T("%6ld %6ld %30s %-30s "), linenumber, revision, (LPCTSTR)dateA, (LPCTSTR)author);
+	CStringA dateA(date);
+	CStringA authorA(author);
+
+	infolineA.Format("%6ld %6ld %30s %-30s ", linenumber, revision, dateA, authorA);
 	fulllineA = line;
 	fulllineA.TrimRight("\r\n");
 	fulllineA += "\n";
