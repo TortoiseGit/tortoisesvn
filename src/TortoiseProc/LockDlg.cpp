@@ -114,8 +114,6 @@ UINT CLockDlg::StatusThread()
 	m_bBlock = TRUE;
 	GetDlgItem(IDCANCEL)->EnableWindow(false);
 	GetDlgItem(IDOK)->EnableWindow(false);
-	// to make gettext happy
-	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	// Initialise the list control with the status of the files/folders below us
 	m_cFileList.GetStatus(m_pathList);

@@ -109,8 +109,6 @@ UINT CPropDlg::PropThreadEntry(LPVOID pVoid)
 UINT CPropDlg::PropThread()
 {
 	SVNProperties props(m_Path, m_rev);
-	// to make gettext happy
-	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	m_proplist.SetRedraw(false);
 	for (int i=0; i<props.GetCount(); ++i)

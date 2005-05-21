@@ -99,8 +99,6 @@ UINT CChangedDlg::ChangedStatusThread()
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
-	// to make gettext happy
-	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote))
 	{

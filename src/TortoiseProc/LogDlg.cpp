@@ -440,8 +440,6 @@ UINT CLogDlg::LogThreadEntry(LPVOID pVoid)
 UINT CLogDlg::LogThread()
 {
 	m_bThreadRunning = TRUE;
-	// to make gettext happy
-	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	//disable the "Get All" button while we're receiving
 	//log messages.

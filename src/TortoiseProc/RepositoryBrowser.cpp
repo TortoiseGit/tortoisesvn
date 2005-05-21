@@ -173,8 +173,6 @@ UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
 //this is the thread function which calls the subversion function
 UINT CRepositoryBrowser::InitThread()
 {
-	// to make gettext happy
-	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 	SVN svn;
 	m_treeRepository.m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_InitialSvnUrl.GetPath()));
 	m_treeRepository.m_strReposRoot = SVNUrl::Unescape(m_treeRepository.m_strReposRoot);
