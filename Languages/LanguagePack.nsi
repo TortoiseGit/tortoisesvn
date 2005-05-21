@@ -57,7 +57,7 @@ Proceed:
   !insertmacro UpgradeDLL "..\bin\TortoiseProc${CountryID}.dll" "$INSTDIR\TortoiseProc${CountryID}.dll" "$INSTDIR"
   !insertmacro UpgradeDLL "..\bin\TortoiseMerge${CountryID}.dll" "$INSTDIR\TortoiseMerge${CountryID}.dll" "$INSTDIR"
 !ifdef MoFile
-  StrCpy $INSTDIR "$0\Languages\${CountryCode}"
+  StrCpy $INSTDIR "$0\Languages\${CountryCode}\LC_MESSAGES"
   SetOutPath "$INSTDIR"
   File "subversion.mo"
 !endif
