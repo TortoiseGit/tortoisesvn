@@ -730,10 +730,13 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				
-				temp.LoadString(IDS_LOG_POPUP_EDITAUTHOR);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, temp);
-				temp.LoadString(IDS_LOG_POPUP_EDITLOG);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
+				if (m_LogList.GetSelectedCount() == 1)
+				{
+					temp.LoadString(IDS_LOG_POPUP_EDITAUTHOR);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, temp);
+					temp.LoadString(IDS_LOG_POPUP_EDITLOG);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
+				}
 				
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
