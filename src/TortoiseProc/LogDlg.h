@@ -49,6 +49,7 @@
 #define ID_DIFF			20
 #define ID_EDITCONFLICT	21
 #define ID_OPENWITH		22
+#define ID_COPYCLIPBOARD 23
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
@@ -146,6 +147,7 @@ private:
 	void SetSplitterRange();
 	void SetFilterCueText();
 	BOOL IsEntryInDateRange(int i);
+	void CopySelectionToClipBoard();
 	
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 

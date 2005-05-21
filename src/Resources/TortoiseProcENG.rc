@@ -68,7 +68,7 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -2014,6 +2014,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOG_POPUP_REVERTREVS "Revert changes from these revisions"
+    IDS_LOG_POPUP_COPYTOCLIPBOARD "Copy to clipboard"
 END
 
 STRINGTABLE 
@@ -2024,12 +2025,12 @@ BEGIN
     IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of HEAD Revisions"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -2108,7 +2109,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

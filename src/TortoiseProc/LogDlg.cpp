@@ -555,50 +555,7 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			if (GetKeyState(VK_CONTROL)&0x8000)
 			{
 				//Ctrl-C -> copy to clipboard
-				CStringA sClipdata;
-				POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-				if (pos != NULL)
-				{
-					CString sRev;
-					sRev.LoadString(IDS_LOG_REVISION);
-					CString sAuthor;
-					sAuthor.LoadString(IDS_LOG_AUTHOR);
-					CString sDate;
-					sDate.LoadString(IDS_LOG_DATE);
-					CString sMessage;
-					sMessage.LoadString(IDS_LOG_MESSAGE);
-					while (pos)
-					{
-						int nItem = m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos));
-						CString sLogCopyText;
-						CString sPaths;
-						LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(nItem);
-						for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
-						{
-							LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-							sPaths += cpath->sAction + _T(" : ") + cpath->sPath;
-							if (cpath->sCopyFromPath.IsEmpty())
-								sPaths += _T("\r\n");
-							else
-							{
-								CString sCopyFrom;
-								sCopyFrom.Format(_T("(%s: %s, %s, %ld\r\n"), CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)), 
-																			 cpath->sCopyFromPath, 
-																			 CString(MAKEINTRESOURCE(IDS_LOG_REVISION)), 
-																			 cpath->lCopyFromRev);
-								sPaths += sCopyFrom;
-							}
-						}
-						sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
-							(LPCTSTR)sRev, m_arRevs.GetAt(nItem),
-							(LPCTSTR)sAuthor, (LPCTSTR)m_LogList.GetItemText(nItem, 1),
-							(LPCTSTR)sDate, (LPCTSTR)m_LogList.GetItemText(nItem, 2),
-							(LPCTSTR)sMessage, (LPCTSTR)m_arLogMessages.GetAt(nItem),
-							(LPCTSTR)sPaths);
-						sClipdata +=  CStringA(sLogCopyText);
-					}
-					CUtils::WriteAsciiStringToClipboard(sClipdata);
-				}
+				CopySelectionToClipBoard();
 			}
 		}
 	}
@@ -613,6 +570,54 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		UpdateData(FALSE);
 	}
 	*pResult = 0;
+}
+
+void CLogDlg::CopySelectionToClipBoard()
+{
+	CStringA sClipdata;
+	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+	if (pos != NULL)
+	{
+		CString sRev;
+		sRev.LoadString(IDS_LOG_REVISION);
+		CString sAuthor;
+		sAuthor.LoadString(IDS_LOG_AUTHOR);
+		CString sDate;
+		sDate.LoadString(IDS_LOG_DATE);
+		CString sMessage;
+		sMessage.LoadString(IDS_LOG_MESSAGE);
+		while (pos)
+		{
+			int nItem = m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos));
+			CString sLogCopyText;
+			CString sPaths;
+			LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(nItem);
+			for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+			{
+				LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+				sPaths += cpath->sAction + _T(" : ") + cpath->sPath;
+				if (cpath->sCopyFromPath.IsEmpty())
+					sPaths += _T("\r\n");
+				else
+				{
+					CString sCopyFrom;
+					sCopyFrom.Format(_T("(%s: %s, %s, %ld\r\n"), CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)), 
+						cpath->sCopyFromPath, 
+						CString(MAKEINTRESOURCE(IDS_LOG_REVISION)), 
+						cpath->lCopyFromRev);
+					sPaths += sCopyFrom;
+				}
+			}
+			sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
+				(LPCTSTR)sRev, m_arRevs.GetAt(nItem),
+				(LPCTSTR)sAuthor, (LPCTSTR)m_LogList.GetItemText(nItem, 1),
+				(LPCTSTR)sDate, (LPCTSTR)m_LogList.GetItemText(nItem, 2),
+				(LPCTSTR)sMessage, (LPCTSTR)m_arLogMessages.GetAt(nItem),
+				(LPCTSTR)sPaths);
+			sClipdata +=  CStringA(sLogCopyText);
+		}
+		CUtils::WriteAsciiStringToClipboard(sClipdata);
+	}
 }
 
 BOOL CLogDlg::DiffPossible(LogChangedPath * changedpath, long rev)
@@ -731,6 +736,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
 				
 				popup.AppendMenu(MF_SEPARATOR, NULL);
+				temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYCLIPBOARD, temp);
 				temp.LoadString(IDS_LOG_POPUP_FIND);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
 
@@ -1098,6 +1105,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_EDITAUTHOR:
 				{
 					EditAuthor(selIndex);
+				}
+				break;
+				case ID_COPYCLIPBOARD:
+				{
+					CopySelectionToClipBoard();
 				}
 				break;
 				default:
