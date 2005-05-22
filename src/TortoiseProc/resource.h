@@ -63,6 +63,10 @@
 #define IDI_ICONSET                     197
 #define IDI_DIALOGS                     198
 #define IDD_DIFFFILES                   199
+#define IDB_CANCELHIGHLIGHT             201
+#define IDB_CANCELNORMAL                202
+#define IDB_BITMAP1                     203
+#define IDB_CANCELPRESSED               203
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -324,6 +328,7 @@
 #define IDS_LOGPROMPT_FILE              1217
 #define IDC_SIMPLECONTEXT               1217
 #define IDS_LOGPROMPT_STATUS            1218
+#define IDC_FILTERCANCEL                1218
 #define IDS_LOGPROMPT_ASKADD            1219
 #define IDS_LOGPROMPT_NOTHINGTOCOMMIT   1220
 #define IDS_PROGRS_ATREV                1221
@@ -635,9 +640,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        200
+#define _APS_NEXT_RESOURCE_VALUE        204
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1218
+#define _APS_NEXT_CONTROL_VALUE         1219
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

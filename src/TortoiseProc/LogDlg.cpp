@@ -84,6 +84,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_SEARCHEDIT, m_sFilterText);
 	DDX_Control(pDX, IDC_DATEFROM, m_DateFrom);
 	DDX_Control(pDX, IDC_DATETO, m_DateTo);
+	DDX_Control(pDX, IDC_FILTERCANCEL, m_cFilterCancelButton);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -108,6 +109,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_NEXTHUNDRED, OnBnClickedNexthundred)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGMSG, OnNMCustomdrawLogmsg)
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGMSG, OnLvnGetdispinfoLogmsg)
+	ON_BN_CLICKED(IDC_FILTERCANCEL, OnBnClickedFiltercancel)
 END_MESSAGE_MAP()
 
 
@@ -197,7 +199,10 @@ BOOL CLogDlg::OnInitDialog()
 	}
 
 	SetSplitterRange();
-
+	
+	m_cFilterCancelButton.LoadBitmaps(IDB_CANCELNORMAL, IDB_CANCELPRESSED, IDB_CANCELHIGHLIGHT, 0);
+	m_cFilterCancelButton.SizeToContent();
+	
 	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
 	AddAnchor(IDC_DATEFROM, TOP_LEFT);
 	AddAnchor(IDC_TOLABEL, TOP_LEFT);
@@ -206,6 +211,7 @@ BOOL CLogDlg::OnInitDialog()
 	SetFilterCueText();
 	AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
 	InsertControl(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), GetDlgItem(IDC_FILTERICON)->GetSafeHwnd(), INSERTCONTROL_LEFT);
+	InsertControl(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), GetDlgItem(IDC_FILTERCANCEL)->GetSafeHwnd(), INSERTCONTROL_RIGHT);
 	
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
 	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
@@ -2284,6 +2290,38 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
+void CLogDlg::OnBnClickedFiltercancel()
+{
+	m_sFilterText.Empty();
+	UpdateData(FALSE);
+	theApp.DoWaitCursor(1);
+	KillTimer(LOGFILTER_TIMER);
+	FillLogMessageCtrl(_T(""), NULL);
+	m_bNoDispUpdates = true;
+	m_arShownList.RemoveAll();
+	for (INT_PTR i=0; i<m_arLogMessages.GetCount(); ++i)
+	{
+		if (IsEntryInDateRange(i))
+			m_arShownList.Add(i);
+	}
+	m_bNoDispUpdates = false;
+	m_LogList.SetItemCountEx(m_arShownList.GetCount());
+	m_LogList.RedrawItems(0, m_arShownList.GetCount());
+	m_LogList.SetRedraw(false);
+	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
+	for (int col = 0; col <= maxcol; col++)
+	{
+		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
+	m_LogList.SetRedraw(true);
+	theApp.DoWaitCursor(-1);
+	m_cFilterCancelButton.ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
+	GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
+	return;	
+}
+
 void CLogDlg::OnEnChangeSearchedit()
 {
 	UpdateData();
@@ -2311,6 +2349,10 @@ void CLogDlg::OnEnChangeSearchedit()
 		}
 		m_LogList.SetRedraw(true);
 		theApp.DoWaitCursor(-1);
+		m_cFilterCancelButton.ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 		return;
 	}
 	SetTimer(LOGFILTER_TIMER, 1000, NULL);
@@ -2449,6 +2491,10 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 		}
 		m_LogList.SetRedraw(true);
 		theApp.DoWaitCursor(-1);
+		m_cFilterCancelButton.ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 	} // if (nIDEvent == LOGFILTER_TIMER)
 	__super::OnTimer(nIDEvent);
 }
@@ -2486,6 +2532,7 @@ BOOL CLogDlg::IsEntryInDateRange(int i)
 		return TRUE;
 	return FALSE;
 }
+
 
 
 

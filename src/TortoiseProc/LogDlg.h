@@ -117,6 +117,7 @@ protected:
 	afx_msg void OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnStnClickedFiltericon();
+	afx_msg void OnBnClickedFiltercancel();
 	afx_msg void OnEnChangeSearchedit();
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
@@ -197,6 +198,7 @@ private:
 	DWORD				m_tTo;
 	int					m_limit;
 	int					m_limitcounter;
+	CBitmapButton		m_cFilterCancelButton;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 
