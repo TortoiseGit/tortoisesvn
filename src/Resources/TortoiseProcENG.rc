@@ -434,7 +434,8 @@ BEGIN
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,14,127,270,10
     GROUPBOX        "TortoiseSVN",IDC_STATIC,7,7,286,61
-    LTEXT           "Subversion authenticaton data:",IDC_STATIC,14,174,192,8
+    LTEXT           "Subversion authentication data:",IDC_STATIC,14,174,192,
+                    8
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217
