@@ -20,20 +20,21 @@
 #include "InsertControl.h"
 
 static LPCTSTR g_szOldWndProc = _T("InsertControlOldProc");
-static LPCTSTR g_szData = _T("InsertControlData");
+static LPCTSTR g_szDataLeft = _T("InsertControlDataLeft");
+static LPCTSTR g_szDataRight = _T("InsertControlDataRight");
 
 
 struct Data
 {
 	UINT m_uControlWidth;
 	HWND m_hwndControl;
-	UINT m_uStyle;
 };
 
 static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	WNDPROC	WndProc = reinterpret_cast<WNDPROC>(::GetProp(hwnd, g_szOldWndProc));
-	Data *pData = reinterpret_cast<Data *>(::GetProp(hwnd, g_szData));
+	Data *pDataLeft = reinterpret_cast<Data *>(::GetProp(hwnd, g_szDataLeft));
+	Data *pDataRight = reinterpret_cast<Data *>(::GetProp(hwnd, g_szDataRight));
 	ASSERT(WndProc);
 
 	switch (message)
@@ -43,9 +44,11 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 			// Restore the old window procedure and clean up our props
 			SetWindowLong(hwnd, GWL_WNDPROC, (LONG)WndProc);
 			RemoveProp(hwnd, g_szOldWndProc);
-			RemoveProp(hwnd, g_szData);
+			RemoveProp(hwnd, g_szDataLeft);
+			RemoveProp(hwnd, g_szDataRight);
 			// free allocated memory
-			delete pData;
+			delete pDataLeft;
+			delete pDataRight;
 		}
 		break;
 	case WM_NCHITTEST:
@@ -63,13 +66,13 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 			//	Adjust the client rect to fit into the edit control
 			LRESULT lr = CallWindowProc(WndProc, hwnd, message, wParam, lParam);
 			LPNCCALCSIZE_PARAMS lpnccs = reinterpret_cast<LPNCCALCSIZE_PARAMS>(lParam);
-			if (pData->m_uStyle == INSERTCONTROL_RIGHT)
+			if (pDataRight)
 			{
-				lpnccs->rgrc[0].right -= pData->m_uControlWidth;
+				lpnccs->rgrc[0].right -= pDataRight->m_uControlWidth;
 			}
-			else
+			if (pDataLeft)
 			{
-				lpnccs->rgrc[0].left += pData->m_uControlWidth;
+				lpnccs->rgrc[0].left += pDataLeft->m_uControlWidth;
 			}
 			return lr;
 		}
@@ -78,22 +81,27 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 	case WM_MOVE:
 		{
 			CRect rc;
-			::GetClientRect(hwnd, rc);
-			if (pData->m_uStyle == INSERTCONTROL_RIGHT)
+			if (pDataRight)
 			{
+				::GetClientRect(hwnd, rc);
 				rc.left = rc.right;
-				rc.right = rc.left + pData->m_uControlWidth;
+				rc.right = rc.left + pDataRight->m_uControlWidth;
+				::MapWindowPoints(hwnd, GetParent(hwnd), (LPPOINT)&rc, 2);
+
+				//	Move the control into the edit control, but don't adjust it's z-order
+				::SetWindowPos(pDataRight->m_hwndControl, NULL, rc.left, rc.top, rc.Width(), rc.Height(), SWP_NOZORDER);
 			}
-			else
+			if (pDataLeft)
 			{
+				::GetClientRect(hwnd, rc);
 				rc.right = rc.left;
-				rc.left = rc.left - pData->m_uControlWidth;
+				rc.left = rc.left - pDataLeft->m_uControlWidth;
+				::MapWindowPoints(hwnd, GetParent(hwnd), (LPPOINT)&rc, 2);
+
+				//	Move the control into the edit control, but don't adjust it's z-order
+				::SetWindowPos(pDataLeft->m_hwndControl, NULL, rc.left, rc.top, rc.Width(), rc.Height(), SWP_NOZORDER);
 			}
 
-			::MapWindowPoints(hwnd, GetParent(hwnd), (LPPOINT)&rc, 2);
-
-			//	Move the control into the edit control, but don't adjust it's z-order
-			::SetWindowPos(pData->m_hwndControl, NULL, rc.left, rc.top, rc.Width(), rc.Height(), SWP_NOZORDER);
 		}
 		break;
 	case WM_NCPAINT:
@@ -102,26 +110,34 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 			CallWindowProc(WndProc, hwnd, message, wParam, lParam);
 			
 			RECT rect;
-			GetWindowRect(hwnd, &rect);
-			OffsetRect(&rect, -rect.left, -rect.top);
-			if (pData->m_uStyle == INSERTCONTROL_RIGHT)
+			if (pDataRight)
 			{
+				GetWindowRect(hwnd, &rect);
+				OffsetRect(&rect, -rect.left, -rect.top);
 				rect.left = rect.right;
-				rect.right = rect.left - pData->m_uControlWidth;
-			}
-			else
-			{
-				rect.right = rect.left;
-				rect.left = rect.left + pData->m_uControlWidth;
-			}
+				rect.right = rect.left - pDataRight->m_uControlWidth;
+				// erase the background of the NC area.
+				HDC hdc = GetWindowDC(hwnd);
+				FillRect(hdc, &rect, GetSysColorBrush(COLOR_WINDOW));    
+				ReleaseDC(hwnd, hdc);
 
-			// erase the background of the NC area.
-			HDC hdc = GetWindowDC(hwnd);
-			FillRect(hdc, &rect, GetSysColorBrush(COLOR_WINDOW));    
-			ReleaseDC(hwnd, hdc);
-			
-			// force a redraw of the inserted control			
-			RedrawWindow(pData->m_hwndControl, NULL, NULL, RDW_UPDATENOW | RDW_INTERNALPAINT | RDW_INVALIDATE | RDW_ERASENOW | RDW_ALLCHILDREN);
+				// force a redraw of the inserted control			
+				RedrawWindow(pDataRight->m_hwndControl, NULL, NULL, RDW_UPDATENOW | RDW_INTERNALPAINT | RDW_INVALIDATE | RDW_ERASENOW | RDW_ALLCHILDREN);
+			}
+			if (pDataLeft)
+			{
+				GetWindowRect(hwnd, &rect);
+				OffsetRect(&rect, -rect.left, -rect.top);
+				rect.right = rect.left;
+				rect.left = rect.left + pDataLeft->m_uControlWidth;
+				// erase the background of the NC area.
+				HDC hdc = GetWindowDC(hwnd);
+				FillRect(hdc, &rect, GetSysColorBrush(COLOR_WINDOW));    
+				ReleaseDC(hwnd, hdc);
+
+				// force a redraw of the inserted control			
+				RedrawWindow(pDataLeft->m_hwndControl, NULL, NULL, RDW_UPDATENOW | RDW_INTERNALPAINT | RDW_INVALIDATE | RDW_ERASENOW | RDW_ALLCHILDREN);
+			}
 		}
 		break;
 	}
@@ -135,14 +151,18 @@ bool InsertControl(HWND hwndEdit, HWND hwndControl, UINT uStyle)
 	{
 		if (IsWindow(hwndEdit) && IsWindow(hwndControl))
 		{
-			//	Subclass the edit control so we can catch the messages we need
-			FARPROC lpfnWndProc = reinterpret_cast<FARPROC>(SetWindowLong( hwndEdit, GWL_WNDPROC, (LONG) SubClassedWndProc));
-			ASSERT(lpfnWndProc != NULL);
-			VERIFY(::SetProp(hwndEdit, g_szOldWndProc, reinterpret_cast<HANDLE>(lpfnWndProc)));
+			// Check if we already have the control subclassed
+			WNDPROC	WndProc = reinterpret_cast<WNDPROC>(::GetProp(hwndEdit, g_szOldWndProc));
+			if (WndProc == 0)
+			{
+				// Subclass the edit control so we can catch the messages we need
+				FARPROC lpfnWndProc = reinterpret_cast<FARPROC>(SetWindowLong( hwndEdit, GWL_WNDPROC, (LONG) SubClassedWndProc));
+				ASSERT(lpfnWndProc != NULL);
+				VERIFY(::SetProp(hwndEdit, g_szOldWndProc, reinterpret_cast<HANDLE>(lpfnWndProc)));
+			}
 
 			//	Create our data object. We later give this to our subclassed edit control so we can 
 			Data *pData = new Data;
-			pData->m_uStyle = uStyle;
 
 			CRect rcControl;
 			::GetWindowRect(hwndControl, rcControl);
@@ -150,7 +170,10 @@ bool InsertControl(HWND hwndEdit, HWND hwndControl, UINT uStyle)
 			pData->m_uControlWidth = rcControl.Width();
 			pData->m_hwndControl = hwndControl;
 
-			VERIFY(::SetProp(hwndEdit, g_szData, reinterpret_cast<HANDLE>(pData)));
+			if (uStyle == INSERTCONTROL_LEFT)
+				VERIFY(::SetProp(hwndEdit, g_szDataLeft, reinterpret_cast<HANDLE>(pData)));
+			else
+				VERIFY(::SetProp(hwndEdit, g_szDataRight, reinterpret_cast<HANDLE>(pData)));
 
 			// Make the edit control be aware of the changes to the NC area
 			SetWindowPos(hwndEdit, NULL, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
