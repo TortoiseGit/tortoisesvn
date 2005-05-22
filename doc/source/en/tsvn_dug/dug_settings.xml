@@ -31,6 +31,15 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
+				<term>Automatically check for newer versions every week</term>
+				<listitem>
+					<para>
+						If checked, TortoiseSVN will contact its download site once a week 
+						to see if there is a newer version of the program available.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term>Exclude/Ignore pattern</term>
 				<listitem>
 					<indexterm>
@@ -116,15 +125,6 @@
 						and password are cached locally so you don't have to keep
 						entering them. To clear everything from that cache,
 						use this button.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Automatically check for newer versions every week</term>
-				<listitem>
-					<para>
-						If checked, TortoiseSVN will contact its download site once a week 
-						to see if there is a newer version of the program available.
 					</para>
 				</listitem>
 			</varlistentry>
