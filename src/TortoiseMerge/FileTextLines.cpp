@@ -154,7 +154,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	{
 		SetErrorString();
 		return FALSE;
-	} // if (hFile == NULL) 
+	}
 
 	char buf[10000];
 	DWORD dwReadBytes = 0;
@@ -165,7 +165,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			SetErrorString();
 			CloseHandle(hFile);
 			return FALSE;
-		} // if (!ReadFile(hFile, buf, sizeof(buf), &dwReadBytes, NULL))
+		}
 		if (m_UnicodeType == CFileTextLines::AUTOTYPE)
 		{
 			m_UnicodeType = this->CheckUnicodeType(buf, dwReadBytes);
@@ -181,19 +181,14 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	{
 		m_sErrorString.Format(IDS_ERR_FILE_BINARY, sFilePath);
 		return FALSE;
-	} // if (m_UnicodeType == CFileTextLines::BINARY) 
+	}
 
-//#ifndef UNICODE		as soon as the diff lib supports unicode this line can be put in use!
-	// When compiled for non-unicode systems don't handle unicode
-	// files. Sure, we could convert those to ASCII when reading
-	// and convert them back to unicode when writing, but why bother?
-	// Non-unicode systems like Win98/Me are obsolete anyway.
 	if (m_UnicodeType == CFileTextLines::UNICODE_LE)
 	{
 		m_sErrorString.Format(IDS_ERR_FILE_BINARY, sFilePath);
 		return FALSE;
-	} // if (m_UnicodeType == CFileTextLines::BINARY) 
-//#endif
+	}
+	
 	BOOL bRetval = TRUE;
 	CString sLine;
 	try
@@ -233,7 +228,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 					{
 						*bufcopy = LOBYTE((TCHAR)sLine.GetAt(i));
 						bufcopy++;
-					} // for (int i=0; i<sLine.GetLength(); i++)
+					}
 					*bufcopy = 0;
 					Add(CUnicodeUtils::GetUnicode(CStringA(buf)));
 					delete [] buf;
@@ -261,8 +256,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 //
 // Fast in-place removal of spaces and tabs from CStringA line
 //
-void
-CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
+void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
 {
 	int outputLen = 0;
 	char* pWriteChr = sLine.GetBuffer(sLine.GetLength());
