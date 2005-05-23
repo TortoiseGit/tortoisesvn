@@ -54,7 +54,7 @@
 						patterns are also ignored by an import.
 						Exclude files or directories by typing in the names or extensions.
 						Patterns are separated by spaces e.g.
-						<literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
+						<literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
 						The first two entries refer to directories, the 
 						other four to files.
 					</para>
