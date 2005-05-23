@@ -2234,13 +2234,13 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			_stprintf(pItem->pszText, _T("%ld"), m_arRevs.GetAt(itemid));
 			break;
 		case 1: //author
-			lstrcpyn(pItem->pszText, m_arAuthors.GetAt(itemid), pItem->cchTextMax);
+			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arAuthors.GetAt(itemid));
 			break;
 		case 2: //date
-			lstrcpyn(pItem->pszText, m_arDateStrings.GetAt(itemid), pItem->cchTextMax);
+			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arDateStrings.GetAt(itemid));
 			break;
 		case 3: //message
-			lstrcpyn(pItem->pszText, m_arShortLogMessages.GetAt(itemid), pItem->cchTextMax);
+			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arShortLogMessages.GetAt(itemid));
 			break;
 		}
 	}
@@ -2270,13 +2270,13 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 		switch (pItem->iSubItem)
 		{
 		case 0:	//Action
-			lstrcpyn(pItem->pszText, lcpath->sAction, pItem->cchTextMax);
+			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sAction);
 			break;
 		case 1: //path
-			lstrcpyn(pItem->pszText, lcpath->sPath, pItem->cchTextMax);
+			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sPath);
 			break;
 		case 2: //copyfrom path
-			lstrcpyn(pItem->pszText, lcpath->sCopyFromPath, pItem->cchTextMax);
+			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sCopyFromPath);
 			break;
 		case 3: //revision
 			if (lcpath->sCopyFromPath.IsEmpty())
