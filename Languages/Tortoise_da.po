@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3365
+# Based on r3445
 #
 msgid ""
 msgstr ""
@@ -152,7 +152,7 @@ msgstr "&Om TortoiseMerge..."
 msgid "&Add..."
 msgstr "&Tilføj..."
 
-#: Control-ID:1090,
+#: Control-ID:1090,#: Control-ID:1093,
 msgid "&Advanced..."
 msgstr "&Avanceret..."
 
@@ -168,7 +168,7 @@ msgstr "&Gennemse versionsarkiv"
 msgid "&Browse..."
 msgstr "&Gennemse..."
 
-#: Control-ID:1091,
+#: Control-ID:1091,#: Control-ID:1094,#: Control-ID:1096,
 #Der er ikke plads til at skrive "indbygget", derfor "intern".
 msgid "&Builtin"
 msgstr "&Intern"
@@ -180,6 +180,10 @@ msgstr "&CD-ROM"
 #: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "&Cancel"
 msgstr "&Annuller"
+
+#: Control-ID:1215,
+msgid "&Check Now"
+msgstr "&Check nu"
 
 #: MenuEntry
 msgid "&Compare Revisions"
@@ -213,7 +217,7 @@ msgstr "&Aktiver proxyserver"
 msgid "&Exit"
 msgstr "&Afslut"
 
-#: Control-ID:1092,
+#: Control-ID:1092,#: Control-ID:1095,#: Control-ID:1097,
 msgid "&External"
 msgstr "&Ekstern"
 
@@ -240,8 +244,8 @@ msgid "&From WC at URL:"
 msgstr "&Fra arbejdskopi med URL:"
 
 #: Control-ID:1032,#: Control-ID:1115,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,
-msgid "&Head Revision"
-msgstr "&Nyeste revision"
+msgid "&HEAD Revision"
+msgstr "&HEAD-revision"
 
 #: MenuEntry#: Control-ID:57670,#: MenuEntry
 msgid "&Help"
@@ -498,10 +502,6 @@ msgstr "Et program til fremvisning af GNU diff-filer (korrekturfiler).\nHvis du 
 #: ID:101,
 msgid "A&dd Folder..."
 msgstr "T&ilføj mappe..."
-
-#: Control-ID:1093,
-msgid "A&dvanced..."
-msgstr "&Avanceret..."
 
 #: ID:73,
 msgid "Abort"
@@ -761,10 +761,6 @@ msgstr "Gennemsnit"
 msgid "B&rowse..."
 msgstr "&Gennemse..."
 
-#: Control-ID:1094,
-msgid "B&uiltin"
-msgstr "&Indbygget"
-
 #: Control-ID:1015,
 msgid "Backup original file"
 msgstr "Lav sikkerhedskopi af oprindelig fil"
@@ -823,10 +819,6 @@ msgstr "Vælg eksternt sammenligningsprogram"
 #: Control-ID:1069,
 msgid "Browse..."
 msgstr "Gennemse..."
-
-#: Control-ID:1096,
-msgid "Bu&iltin"
-msgstr "&Indbygget"
 
 #: Control-ID:1119,#: Control-ID:1119,
 msgid "Bug-ID / Issue-Nr:"
@@ -921,10 +913,6 @@ msgstr "Check versionsarkiv"
 msgid "Check for Modifications"
 msgstr "Check for ændringer"
 
-#: Control-ID:1215,
-msgid "Check now"
-msgstr "Check nu"
-
 #: ID:9,
 msgid "Check out a working copy from a repository"
 msgstr "Hent en arbejdskopi fra et versionsarkiv"
@@ -979,8 +967,8 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Rydder op i afbrudte handlinger, låste filer mv."
 
 #: Control-ID:1059,
-msgid "Clear &Auth Cache"
-msgstr "Slet &adgangskode-cache"
+msgid "Clear &Now"
+msgstr "Slet &nu"
 
 #: ID:195,
 msgid "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
@@ -1049,10 +1037,6 @@ msgstr "Arkiverer dine ændringer i versionsarkivet"
 #: MenuEntry
 msgid "Compare &HEAD Revisions"
 msgstr "Sammenlign &HEAD-revisioner"
-
-#: ID:274,
-msgid "Compare &Head Revisions"
-msgstr "Sammenlign &nyeste revisioner"
 
 #: Control-ID:1019,
 msgid "Compare Whitespaces"
@@ -1142,6 +1126,10 @@ msgstr "Kopier filer i Subversion hertil"
 #: ID:3603,
 msgid "Copy the selection and put it on the Clipboard\nCopy"
 msgstr "Kopier det markerede og læg det i udklipsholderen\nKopier"
+
+#: ID:114,
+msgid "Copy to clipboard"
+msgstr "Kopier til udklipsholder"
 
 #: ID:103,
 msgid "Copy to working copy"
@@ -1356,6 +1344,10 @@ msgstr "Vil du gemme dine ændringer?"
 msgid "Documentation - Simon Large"
 msgstr "Dokumentation - Simon Large, Danish Translation - Jan Normann Nielsen"
 
+#: Control-ID:1217,
+msgid "Don't fetch status for context menu"
+msgstr "Hent ikke status til kontekstmenu"
+
 #: ID:73,
 msgid "Don't show this message again"
 msgstr "Vis ikke denne meddelelse igen"
@@ -1367,10 +1359,6 @@ msgstr "Drevtyper"
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Afslut"
-
-#: Control-ID:1095,
-msgid "E&xternal"
-msgstr "E&kstern"
 
 #: ID:3697,
 #, fuzzy
@@ -1453,10 +1441,6 @@ msgstr "Fejl"
 #: ID:81,
 msgid "Error validating server certificate for %s:"
 msgstr "Der opstod en fejl under validering af servercertifikatet for %s:"
-
-#: Control-ID:1097,
-msgid "Ex&ternal"
-msgstr "Ek&stern"
 
 #: Control-ID:65535,
 msgid "Exceptions:"
@@ -1651,12 +1635,12 @@ msgid "Graph type:"
 msgstr "Graftype:"
 
 #: Control-ID:1032,
-msgid "H&ead Revision"
-msgstr "&Nyeste revision"
+msgid "H&EAD Revision"
+msgstr "H&EAD-revision"
 
 #: Control-ID:1182,
 msgid "HEAD revision in the repository"
-msgstr "Nyeste revision i versionsarkivet"
+msgstr "HEAD-revision i versionsarkivet"
 
 #: ID:12,#: Control-ID:1004,
 msgid "Help"
@@ -1685,6 +1669,10 @@ msgstr "Ikoner/design/kode:    Luebbe Onken"
 #: ID:194,
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Hvis valgt, så vises overdækningerne ikke i dialogerne \"gem som..\" eller \"åbn\""
+
+#: ID:195,
+msgid "If activated, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the \"Show Log\" entry will show even for just added folders."
+msgstr "Hvis valgt, så vises kontekstmenuen hurtigere,\nmen nogle elementer i kontekstmenuen vil blive vist, selvom de faktisk ikke kan bruges.\nFor eksempel: \"Vis log\"-elementet vil blive vist for mapper, der lige er tilføjet."
 
 #: ID:95,
 msgid "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
@@ -1916,8 +1904,8 @@ msgid "Lowest Revision: %ld - Highest Revision: %ld"
 msgstr "Laveste revision: %ld - Højeste revision: %ld"
 
 #: ID:238,
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr "Laveste revision: %ld - Højeste revision: %ld - Nyeste revision: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
+msgstr "Laveste revision: %ld - Højeste revision: %ld - HEAD-revision: %ld"
 
 #: ID:3866,#: ID:3866,
 msgid "Mail system DLL is invalid."
@@ -2927,6 +2915,10 @@ msgid "Subversion"
 msgstr "Subversion"
 
 #: Control-ID:65535,
+msgid "Subversion authentication data:"
+msgstr "Subversion adgangskode-data:"
+
+#: Control-ID:65535,
 msgid "Subversion configuration file:"
 msgstr "Subversion-konfigurationsfil:"
 
@@ -3178,7 +3170,7 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 msgid "TortoiseMerge %d.%d.%d, Build %d\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
 
-#: ID:9,#: ID:80,
+#: ID:9,#: ID:80,#: Control-ID:65535,
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -3276,8 +3268,8 @@ msgid "Unexpected file format."
 msgstr "Ikke-forventet filformat."
 
 #: MenuEntry
-msgid "Unified &Diff Of Head Revisions"
-msgstr "\"Unified &Diff\" af nyeste revisioner"
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "\"Unified &Diff\" af HEAD-revisioner"
 
 #: ID:81,
 #, fuzzy
@@ -3405,7 +3397,7 @@ msgstr "Brug en anden, hel &fil"
 
 #: ID:74,
 msgid "User cancelled"
-msgstr "Brugeren annullerede"
+msgstr "Annulleret af bruger"
 
 #: ID:69,
 msgid "Username:"

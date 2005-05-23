@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-16 23:51+0100\n"
+"PO-Revision-Date: 2005-05-23 09:22+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -134,6 +134,7 @@ msgid "&Add..."
 msgstr "&Ajouter..."
 
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "&Avancé..."
 
@@ -150,6 +151,8 @@ msgid "&Browse..."
 msgstr "&Naviguer..."
 
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Interne"
 
@@ -160,6 +163,10 @@ msgstr "&CD-ROM (Cédérom)"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "&Annuler"
+
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "&Vérifier Maintenant"
 
 #: MenuEntry
 msgid "&Compare Revisions"
@@ -196,6 +203,8 @@ msgid "&Exit"
 msgstr "&Sortir"
 
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Externe"
 
@@ -222,8 +231,8 @@ msgstr "&Depuis WC à l'URL:"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
-msgstr "&Dernière Révision"
+msgid "&HEAD Revision"
+msgstr "Révision &HEAD"
 
 #: Control-ID:57670
 #: MenuEntry
@@ -541,10 +550,6 @@ msgstr ""
 msgid "A&dd Folder..."
 msgstr "A&jouter répertoire..."
 
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "A&vancé..."
-
 #: ID:73
 msgid "Abort"
 msgstr "Interrompre"
@@ -855,10 +860,6 @@ msgstr "Moyenne"
 msgid "B&rowse..."
 msgstr "&Naviguer..."
 
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "&Interne"
-
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Sauvergarde du fichier original"
@@ -916,10 +917,6 @@ msgstr "Choix d'un programme externe de gestion des différences"
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "Naviguer..."
-
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "&Interne"
 
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1020,10 +1017,6 @@ msgstr "Vérifier le repository"
 msgid "Check for Modifications"
 msgstr "Vérifier les modifications"
 
-#: Control-ID:1215
-msgid "Check now"
-msgstr "Vérifier maintenant"
-
 #: ID:9
 msgid "Check out a working copy from a repository"
 msgstr "Extraire une copie locale depuis le repository"
@@ -1084,8 +1077,8 @@ msgstr "Nettoyage de opération interrompu, des fichiers verrouillés, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "Vider le c&ache d'authentification"
+msgid "Clear &Now"
+msgstr "&Nettoyer Maintenant"
 
 # ID:195,
 #: ID:195
@@ -1164,10 +1157,6 @@ msgstr "Livrer vos modifications dans le repository"
 #: MenuEntry
 msgid "Compare &HEAD Revisions"
 msgstr "Comparer les Révisions &HEAD"
-
-#: ID:274
-msgid "Compare &Head Revisions"
-msgstr "Comparer les &Dernières Révisions"
 
 #: Control-ID:1019
 msgid "Compare Whitespaces"
@@ -1264,6 +1253,11 @@ msgid ""
 msgstr ""
 "Copier la sélection et la mettre dans le presse papier\n"
 "Copier"
+
+# ID:101,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Copier dans le presse-papier"
 
 #: ID:103
 msgid "Copy to working copy"
@@ -1550,6 +1544,11 @@ msgstr "Voulez-vous sauver vos modifications?"
 msgid "Documentation - Simon Large"
 msgstr "Documentation - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "Ne pas récupérer le statut pour le menu contextuel"
+
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Ne plus afficher ce message"
@@ -1561,10 +1560,6 @@ msgstr "Type de disque"
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Quitter"
-
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "E&xterne"
 
 #: ID:3697
 msgid "EXT"
@@ -1658,10 +1653,6 @@ msgstr "Erreur"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "Erreur de validation du certificat serveur pour %s:"
-
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "Ex&terne"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -1889,8 +1880,8 @@ msgid "Graph type:"
 msgstr "Type de graphique"
 
 #: Control-ID:1032
-msgid "H&ead Revision"
-msgstr "D&ernière Révision"
+msgid "H&EAD Revision"
+msgstr "Révision H&EAD"
 
 #: Control-ID:1182
 msgid "HEAD revision in the repository"
@@ -1926,6 +1917,17 @@ msgstr "Icônes/Design/Code:     Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Si activé, prévient le recouvrement d'icône dans les boîtes de dialogue \"Enregistrer sous...\" ou \"Ouvrir...\""
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Si activé, alors le menu contextuel s'affichera plus rapidement.\n"
+"Mais quelques entrées du menu contextuel s'afficheront sans pouvoir être réellement utilisées.\n"
+"Par exemple: l'entrée \"Voir le journal\" s'affichera même pour des répertoires juste ajoutés."
 
 #: ID:95
 msgid ""
@@ -2237,8 +2239,8 @@ msgstr "Plus basse Révision: %ld - Plus haute Révision: %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr "Plus basse Révision: %ld - Plus haute Révision: %ld - Dernière révision: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
+msgstr "Plus basse Révision: %ld - Plus haute Révision: %ld - Révision HEAD: %ld"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
@@ -3394,6 +3396,10 @@ msgid "Subversion"
 msgstr "Subversion"
 
 #: Control-ID:65535
+msgid "Subversion authentication data:"
+msgstr "Données d'authentification Subversion:"
+
+#: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Fichier de configuration de Subversion:"
 
@@ -3801,6 +3807,7 @@ msgstr ""
 
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -3936,8 +3943,8 @@ msgid "Unexpected file format."
 msgstr "Format de fichier non attendu."
 
 #: MenuEntry
-msgid "Unified &Diff Of Head Revisions"
-msgstr "&Diff Standard des Dernières Révisions"
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "&Diff Standard des Révisions HEAD"
 
 #: ID:81
 msgid ""
@@ -4582,5 +4589,4 @@ msgstr "votre version est:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "votre version est: %d.%d.%d.%d"
-
 
