@@ -2,7 +2,11 @@
 - ADD: Locked files are listed in the commit dialog so the user
        won't forget to unlock them again. (Stefan)
 - ADD: Filter for the log dialog. (Stefan)
-- ADD: New, improved overlay cache. (Will Dean, Stefan)
+- ADD: The three parts (log list, message, change-files-list) in the
+       log dialog can now be individually resized. (Stefan)
+- ADD: Files not part of the selected file/folder are shown grayed out
+       in the log dialogs changed-file-list. (Stefan)
+- ADD: New, much improved overlay cache. (Will Dean, Stefan)
 - ADD: Option to resolve a conflicted file in the status list control. (Stefan)
 - ADD: TortoiseSVN now uses its own sound files for errors, warnings
        and notifications in the progress dialog. (Stefan)
@@ -22,9 +26,10 @@
        slots, TSVN now uses one of the available overlays instead. (Stefan)
 - ADD: Export and Checkout from the repository browser. (Stefan)
 - ADD: The revision graph can now be saved as a wmf file. (Stefan)
+- ADD: New overlay icons for 'locked' and 'readonly' files. (Lübbe)
+- ADD: New keywords for SubWCRev: $WCURL$, $WCMIXED?TrueText:FalseText$. (Simon)
+- CHG: Improved look of the settings dialog. (Stefan)
 - CHG: TortoiseMerge is now built as UNICODE. (Norbert Unterberg)
-- CHG: The overlay for added files has been replaced with the overlay
-       for readonly files (which you need to lock to edit). (Stefan)
 - CHG: High color toolbar for TortoiseMerge. (Lübbe)
 - CHG: Several new Icons for the context menu. (Lübbe)
 - CHG: It's possible to select multiple items in the commit dialog. (Stefan)
@@ -49,11 +54,15 @@
 - CHG: The properties page now only shows those properties in the combobox
        which you can really use, depending on if you've selected a file
        or a folder. (Stefan)
+- BUG: Using the '/logmessage' command line param made TSVN crash (Stefan)
 - BUG: Issue 11: TortoiseMerge now shows the real linenumbers when diffing. (Stefan)
 - BUG: Executing a command with multiple selected files/folders didn't work
        correctly. (Stefan)
 
-Version 1.1.6 (not released yet)
+Version 1.1.7
+       The 1.1.6 build was corrupt due to harddisk trouble.
+
+Version 1.1.6
 - BUG: A word longer than 100 chars entered in the edit control made
        TortoiseSVN crash.
 
