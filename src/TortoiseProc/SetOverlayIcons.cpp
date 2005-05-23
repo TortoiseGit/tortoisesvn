@@ -101,16 +101,17 @@ BOOL CSetOverlayIcons::OnInitDialog()
 		if (ComboItem.CompareNoCase(m_sOriginalIconSet)==0)
 			m_cIconSet.SetCurSel(i);
 	}
-	TCHAR statustext[40];
-	SVNStatus::GetStatusString(svn_wc_status_normal, statustext);
+	WORD langID = (WORD)(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+	TCHAR statustext[MAX_STATUS_STRING_LENGTH];
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, statustext, sizeof(statustext)/sizeof(TCHAR), langID);
 	m_sNormal = statustext;
-	SVNStatus::GetStatusString(svn_wc_status_modified, statustext);
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_modified, statustext, sizeof(statustext)/sizeof(TCHAR), langID);
 	m_sModified = statustext;
-	SVNStatus::GetStatusString(svn_wc_status_conflicted, statustext);
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_conflicted, statustext, sizeof(statustext)/sizeof(TCHAR), langID);
 	m_sConflicted = statustext;
-	SVNStatus::GetStatusString(svn_wc_status_deleted, statustext);
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_deleted, statustext, sizeof(statustext)/sizeof(TCHAR), langID);
 	m_sDeleted = statustext;
-	SVNStatus::GetStatusString(svn_wc_status_added, statustext);
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, statustext, sizeof(statustext)/sizeof(TCHAR), langID);
 	m_sAdded = statustext;
 	m_sReadOnly.LoadString(IDS_SETTINGS_READONLYNAME);
 	m_sLocked.LoadString(IDS_SETTINGS_LOCKEDNAME);
