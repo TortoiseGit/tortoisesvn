@@ -56,6 +56,8 @@
 #define ID_POPCHECKOUT		18
 #define ID_POPOPENWITH		19
 #define ID_POPURLTOCLIPBOARD 20
+#define ID_BREAKLOCK		21
+
 // CRepositoryBrowser dialog
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableStandAloneDialog)
@@ -236,12 +238,15 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 	BOOL bFolder1;
 	BOOL bFolder2;
 	BOOL hasFolders = FALSE;
+	BOOL bLocked = FALSE;
 
 	int si = m_treeRepository.GetFirstSelectedItem();
 	do
 	{
 		if (m_treeRepository.IsFolder(m_treeRepository.GetItemHandle(si)))
 			hasFolders = TRUE;
+		if (!m_treeRepository.GetItemText(si, 5).IsEmpty())
+			bLocked = TRUE;
 		si = m_treeRepository.GetNextSelectedItem(si);
 	} while (si != RVI_INVALID);
 
@@ -305,6 +310,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPIMPORTFOLDER, temp);	// "Add/Import Folder"
 
 						popup.AppendMenu(MF_SEPARATOR, NULL);
+					}
+					else if (bLocked)
+					{
+						temp.LoadString(IDS_MENU_UNLOCKFORCE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BREAKLOCK, temp);	// "Break Lock"
 					}
 
 					temp.LoadString(IDS_REPOBROWSE_DELETE);
@@ -581,6 +591,19 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				{
 					DeleteSelectedEntries();
 					*pResult = 1; // mark HTREEITEM as deleted
+				}
+				break;
+			case ID_BREAKLOCK:
+				{
+					SVN svn;
+					if (!svn.Unlock(CTSVNPathList(CTSVNPath(url)), TRUE))
+					{
+						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						return;
+					}
+					m_treeRepository.SetItemText(m_treeRepository.GetItemIndex(hSelItem), 5, _T(""));
+					CString file_path_stripped = url.Mid(m_treeRepository.m_strReposRoot.GetLength());
+					m_treeRepository.m_locks.erase(file_path_stripped);
 				}
 				break;
 			case ID_POPIMPORTFOLDER:
