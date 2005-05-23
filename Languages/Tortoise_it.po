@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-16 12:10+0100\n"
-"Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
+"PO-Revision-Date: 2005-05-22 14:06+0100\n"
+"Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,6 +159,7 @@ msgstr "&Aggiungi..."
 
 # Control-ID:1090,
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "&Avanzate..."
 
@@ -179,6 +180,8 @@ msgstr "&Sfoglia..."
 
 # Control-ID:1091,
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Integrato"
 
@@ -192,6 +195,12 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "&Annulla"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "&Controlla adesso"
 
 # ID:76,
 #: MenuEntry
@@ -237,6 +246,8 @@ msgstr "&Esci"
 
 # Control-ID:1092,
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Esterno"
 
@@ -271,8 +282,8 @@ msgstr "&Da WC con URL:"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
-msgstr "&Revisione di testa"
+msgid "&HEAD Revision"
+msgstr "Revisione di &testa"
 
 # Control-ID:9,#:
 # Control-ID:57670,#:
@@ -653,11 +664,6 @@ msgstr ""
 #: ID:101
 msgid "A&dd Folder..."
 msgstr "Aggiungi &Cartella..."
-
-# Control-ID:1093,
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "A&vanzate..."
 
 # ID:73,
 #: ID:73
@@ -1047,11 +1053,6 @@ msgstr "Media"
 msgid "B&rowse..."
 msgstr "S&foglia..."
 
-# Control-ID:1094,
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "I&ntegrato"
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -1121,11 +1122,6 @@ msgstr "Cerca l'applicazione esterna di confornto"
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "Sfoglia..."
-
-# Control-ID:1096,
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "In&tegrato"
 
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1249,12 +1245,6 @@ msgstr "Controlla Repository"
 msgid "Check for Modifications"
 msgstr "Controlla se ci sono modifiche"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "Check now"
-msgstr "Controlla adesso"
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1326,8 +1316,8 @@ msgstr "Pulisce operazioni interrotte, file bloccati, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "Elimina &password salvate"
+msgid "Clear &Now"
+msgstr "Svuota &adesso"
 
 # ID:195,
 #: ID:195
@@ -1417,11 +1407,6 @@ msgstr "Invia i cambiamenti al repository"
 # ID:76,
 #: MenuEntry
 msgid "Compare &HEAD Revisions"
-msgstr "Confronta revisioni di &testa"
-
-# ID:76,
-#: ID:274
-msgid "Compare &Head Revisions"
 msgstr "Confronta revisioni di &testa"
 
 # Control-ID:1019,
@@ -1538,6 +1523,11 @@ msgid ""
 msgstr ""
 "Copia il testo selezionato e lo copia negli appunti\n"
 "Copia"
+
+# ID:101,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Copia negli appunti"
 
 # ID:151,
 #: ID:103
@@ -1882,6 +1872,11 @@ msgstr "Si desidera salvare i cambiamenti?"
 msgid "Documentation - Simon Large"
 msgstr "Documentazione - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "Non recuperare lo stato dei menu contestuali"
+
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
@@ -1895,11 +1890,6 @@ msgstr "Tipi di disco"
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Esci"
-
-# Control-ID:1095,
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "E&sterno"
 
 # ID:3697,
 #: ID:3697
@@ -2010,11 +2000,6 @@ msgstr "Errore"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "Errore nel validare il certificato per %s:"
-
-# Control-ID:1097,
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "Es&terno"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2294,8 +2279,8 @@ msgstr "Tipo di grafico:"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
-msgid "H&ead Revision"
-msgstr "&Revisione principale"
+msgid "H&EAD Revision"
+msgstr "R&evisione di testa"
 
 # ID:12,
 #: Control-ID:1182
@@ -2339,6 +2324,17 @@ msgstr "Icone/Design/Codice:     Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Se attivata previene la visualizzazione delle icone di stato nei dialoghi \"Salva come...\" e \"Apri\""
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Se attivato, il menu contestuale si aprirà più rapidamente.\n"
+"Tuttavia verranno visualizzati anche comandi che non potranno essere usati.\n"
+"Ad esempio il comando \"Visualizza Log\" verrà mostrato anche se avete solamente aggiunto delle cartelle."
 
 # ID:95,
 #: ID:95
@@ -2691,8 +2687,8 @@ msgstr "Revisione più bassa: %ld - Revisione più alta: %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr "Revisione più bassa: %ld - Revisione più alta: %ld - Revisione di testa %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
+msgstr "Revisione più bassa: %ld - Revisione più alta: %ld - Revisione di testa: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -4117,6 +4113,12 @@ msgstr "Sospendi durante la copia o la rinomina"
 msgid "Subversion"
 msgstr "Subversion"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:65535
+msgid "Subversion authenticaton data:"
+msgstr "Dati d'autenticazione:"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -4579,6 +4581,7 @@ msgstr ""
 # ID:80,
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -4744,7 +4747,7 @@ msgstr "Formato del file inatteso."
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: MenuEntry
-msgid "Unified &Diff Of Head Revisions"
+msgid "Unified &Diff Of HEAD Revisions"
 msgstr "&Confronto unificato delle revisioni di testa"
 
 # ID:81,

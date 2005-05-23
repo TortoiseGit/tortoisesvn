@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-09 22:48+0100\n"
+"PO-Revision-Date: 2005-05-20 19:11+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -131,6 +131,7 @@ msgid "&Add..."
 msgstr "&Lägg till..."
 
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "&Avancerat..."
 
@@ -147,6 +148,8 @@ msgid "&Browse..."
 msgstr "&Bläddra..."
 
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Inbyggd"
 
@@ -158,7 +161,11 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Avbryt"
 
-#: ID:76
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "&Leta nu"
+
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "&Jämför revisioner"
 
@@ -192,6 +199,8 @@ msgid "&Exit"
 msgstr "&Avsluta"
 
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Extern"
 
@@ -218,8 +227,8 @@ msgstr "&Från arbetskopia på URL:"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
-msgstr "&Huvudrevision"
+msgid "&HEAD Revision"
+msgstr "&HEAD revision"
 
 #: Control-ID:57670
 #: MenuEntry
@@ -376,7 +385,7 @@ msgstr "&Ångra"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Ångra\tCtrl+Z"
 
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "&Applicera patch (\"Unified Diff\")"
 
@@ -430,10 +439,10 @@ msgstr "- %d"
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1187
+#: Control-ID:1104
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
-#: Control-ID:1104
 msgid "..."
 msgstr "..."
 
@@ -533,10 +542,6 @@ msgstr ""
 #: ID:101
 msgid "A&dd Folder..."
 msgstr "&Lägg till mapp..."
-
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "A&vancerat..."
 
 #: ID:73
 msgid "Abort"
@@ -836,6 +841,14 @@ msgstr "Stäng automatiskt om inga fel uppstod"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Stäng automatiskt om inga föreningar, tillläggningar eller borttagningar"
 
+#: Control-ID:65535
+msgid "Autoclose:"
+msgstr "Stäng automatiskt:"
+
+#: Control-ID:1073
+msgid "Automatically check for newer versions every week"
+msgstr "Leta automatiskt efter nyare versioner varje vecka"
+
 #: Control-ID:1157
 msgid "Average"
 msgstr "Medel"
@@ -843,10 +856,6 @@ msgstr "Medel"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "B&läddra..."
-
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "&Intern"
 
 #: Control-ID:1015
 msgid "Backup original file"
@@ -907,10 +916,6 @@ msgstr "Välj applikation för avvikelsehantering"
 msgid "Browse..."
 msgstr "Bläddra..."
 
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "I&ntern"
-
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "BuggID / Ärendenr:"
@@ -955,7 +960,7 @@ msgstr "Avbryter..."
 #: Control-ID:65535
 #, fuzzy
 msgid "Cascaded Context Menu"
-msgstr "Snabbvalsmeny"
+msgstr "Högerklickmeny"
 
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -981,7 +986,7 @@ msgstr "Ändra position på fönstret"
 msgid "Change the window size"
 msgstr "Ändra storlek på fönstret"
 
-#: Dlg-ID:158
+#: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Ändrade filer"
 
@@ -1008,10 +1013,6 @@ msgstr "Kontrollera arkiv"
 #: ID:13
 msgid "Check for Modifications"
 msgstr "Leta efter ändringar"
-
-#: Control-ID:1073
-msgid "Check for newer &versions"
-msgstr "Sök efter nya &versioner"
 
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1068,9 +1069,10 @@ msgstr "Rensning klar"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Rensar bort efter avbrutna åtgärder; låsta filer etc"
 
+# Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "Töm &behörighetscachen"
+msgid "Clear &Now"
+msgstr "Radera &nu"
 
 # ID:195,
 #: ID:195
@@ -1118,6 +1120,10 @@ msgstr "Färger"
 msgid "Command failed."
 msgstr "Kommandot misslyckades."
 
+#: Control-ID:1083
+msgid "Commit"
+msgstr "Arkivera"
+
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Arkivera i:"
@@ -1144,9 +1150,9 @@ msgstr "Arkiveringar varje vecka:"
 msgid "Commits your changes to the repository"
 msgstr "Sparar dina ändringar i arkivet"
 
-#: Control-ID:1083
-msgid "Committing"
-msgstr "Arkivering"
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "Jämför &HEAD revisioner"
 
 #: Control-ID:1019
 msgid "Compare Whitespaces"
@@ -1168,6 +1174,19 @@ msgstr "Jämför filen med den senaste arkiverade revisionen och visar de ändri
 #: ID:74
 msgid "Completed"
 msgstr "Klar"
+
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "Konfigurera programmet som används för att jämföra olika revisioner av filer."
+
+#: Control-ID:65535
+msgid "Configure the program used to resolve conflicted files."
+msgstr "Konfigurera programmet som används för att lösa konflikter i filer."
+
+# Hur översätta "diff", menas det "unified diff" här tro?
+#: Control-ID:65535
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "Konfigurera applikation för att visa GNU avvikelsefiler (patchfiler)."
 
 #: ID:263
 #: Control-ID:65535
@@ -1211,12 +1230,17 @@ msgstr "Kopiera (gren / märke)"
 # ID:76,
 #: ID:76
 msgid "Copy From Path"
-msgstr "Kopiera från sökväg"
+msgstr "Kopierad från"
 
 # Osäker på var denna visas
 #: ID:101
 msgid "Copy To Working Copy..."
 msgstr "Kopiera till arbetskopia..."
+
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "Kopiera URL till urklipp"
 
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -1427,20 +1451,6 @@ msgstr "Avvikelse"
 msgid "Diff File:"
 msgstr "Patchfil:"
 
-#: Control-ID:65535
-msgid "Diff Program"
-msgstr "Redigeringsprogram för avvikelser"
-
-# Hur översätta "diff"
-#: Control-ID:65535
-msgid "Diff Viewer"
-msgstr "Avvikelsevisare"
-
-# Hur översätta "diff/merge"
-#: Dlg-ID:163
-msgid "Diff/Merge"
-msgstr "Avvikelse/förening"
-
 # Hur översätta "diffing"
 #: Control-ID:1022
 msgid "Diffing"
@@ -1533,6 +1543,11 @@ msgstr "Vill du spara dina ändringar?"
 msgid "Documentation - Simon Large"
 msgstr "Dokumentation - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "Hämta inte status för högerknappsmenyn"
+
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Visa inte detta meddelande igen"
@@ -1544,10 +1559,6 @@ msgstr "Enhetstyper"
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Avsluta"
-
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "&Extern"
 
 #: ID:3697
 msgid "EXT"
@@ -1644,10 +1655,6 @@ msgstr "Fel"
 msgid "Error validating server certificate for %s:"
 msgstr "Fel vid validering av servercertifikat för %s:"
 
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "E&xtern"
-
 #: Control-ID:65535
 msgid "Exceptions:"
 msgstr "Undantag:"
@@ -1700,6 +1707,18 @@ msgstr "Extern"
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "Externt program:"
+
+#: Dlg-ID:192
+msgid "External Programs::Diff Viewer"
+msgstr "Externt program::Avvikelsevisare"
+
+#: Dlg-ID:193
+msgid "External Programs::Merge Tool"
+msgstr "Externt program::Föreningsverktyg"
+
+#: Dlg-ID:194
+msgid "External Programs::Unified Diff Viewer"
+msgstr "Externt program::\"Unified Diff\" visare"
 
 #: ID:74
 msgid "Failed Revert"
@@ -1793,6 +1812,7 @@ msgstr "Det gick inte att initiera GDI+!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ kunde inte skapa ett bitmap objekt. Du har antagligen inte tillräckligt med ledigt minne."
 
+#: Dlg-ID:143
 #: Dlg-ID:107
 msgid "General"
 msgstr "Generella inställningar"
@@ -1866,12 +1886,12 @@ msgid "Graph type:"
 msgstr "Graf typ:"
 
 #: Control-ID:1032
-msgid "H&ead Revision"
-msgstr "&Huvudrevision"
+msgid "H&EAD Revision"
+msgstr "H&EAD revision"
 
 #: Control-ID:1182
 msgid "HEAD revision in the repository"
-msgstr "Arkivets huvudrevision är: %d"
+msgstr "Arkivets HEAD revision är: %d"
 
 #: ID:12
 #: Control-ID:1004
@@ -1904,6 +1924,17 @@ msgstr "Ikoner/Design/Kodning: Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Förhindra att ikonsymboler visas i \"spara som...\" och \"öppna\" dialoger"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Om aktiverat så visas högerknappsmenyn snabbare.\n"
+"Men en del menyval kommer att visas som inte kan användas.\n"
+"Till exempel: \"Visa historik\" kommer att visas även för nyligen tillagda mappar."
 
 #: ID:95
 msgid ""
@@ -2183,19 +2214,29 @@ msgid "Log Message History:"
 msgstr "Logmeddelande historik:"
 
 #: Dlg-ID:130
+#: Control-ID:65535
 msgid "Log Messages"
 msgstr "Historik"
 
 # Hantering?
-#: Dlg-ID:106
+#: Dlg-ID:195
 msgid "Look and Feel"
 msgstr "Utseende och hantering"
 
 # Hantering?
+#: Dlg-ID:196
+msgid "Look and Feel::Dialogs"
+msgstr "Utseende och hantering::Dialoger"
+
+# Hantering?
+#: Dlg-ID:106
+msgid "Look and Feel::Icon Overlays"
+msgstr "Utseende och hantering::Ikonsymboler"
+
+# Hantering?
 #: Dlg-ID:184
-#, fuzzy
-msgid "Look and Feel::Overlays"
-msgstr "Utseende och hantering"
+msgid "Look and Feel::Icon Set"
+msgstr "Utseende och hantering::Statusikonuppsättning"
 
 # ID:238,
 #: ID:238
@@ -2204,16 +2245,12 @@ msgstr "Lägsta revisionen: %ld - Högsta revisionen: %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr "Lägsta revisionen: %ld - Högsta revisionen: %ld - Huvudrevision: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
+msgstr "Lägsta revisionen: %ld - Högsta revisionen: %ld - HEAD revision: %ld"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "Felaktig DLL för mailsystem."
-
-#: Dlg-ID:143
-msgid "Main"
-msgstr "Generella"
 
 # ID:2051,
 #: ID:2051
@@ -2232,11 +2269,6 @@ msgstr "Max"
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "Förena"
-
-# Hur översätta "merge"
-#: Control-ID:65535
-msgid "Merge Program"
-msgstr "Föreningsprogram"
 
 #: ID:9
 msgid "Merge..."
@@ -2275,7 +2307,6 @@ msgstr "Mime-typ"
 msgid "Min"
 msgstr "Min"
 
-#: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
 msgstr "Övrigt"
@@ -2631,11 +2662,9 @@ msgstr "Program"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Program (*.exe)|*.exe|Alla Files (*.*)|*.*||"
 
-# Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
-msgid "Progress dialog:"
-msgstr "Dialog:"
+msgid "Progress"
+msgstr "Förlopp"
 
 #: Control-ID:65535
 #: Dlg-ID:177
@@ -2902,7 +2931,7 @@ msgstr "Revision / ändrad av:"
 #: ID:269
 #: Dlg-ID:182
 msgid "Revision Graph"
-msgstr "Revisionsgraf:"
+msgstr "Revisionsgraf"
 
 #: ID:75
 msgid "Revision: "
@@ -3373,6 +3402,14 @@ msgid "Stop On Copy/Rename"
 msgstr "Följ inte kopieringshistorik"
 
 #: Control-ID:65535
+msgid "Subversion"
+msgstr "Subversion"
+
+#: Control-ID:65535
+msgid "Subversion authenticaton data:"
+msgstr "Subversion autentiseringsdata:"
+
+#: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Konfigurationsfil för Subversion:"
 
@@ -3780,6 +3817,7 @@ msgstr ""
 
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -3913,6 +3951,10 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Oväntat filformat."
+
+#: MenuEntry
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "\"Unified &Diff\" av HEAD revisioner"
 
 #: ID:81
 msgid ""
@@ -4048,14 +4090,6 @@ msgstr "Används när URL:en för ett arkiv har ändrats"
 msgid "Use whole other &file"
 msgstr "Använd hela den andra &filen"
 
-#: Control-ID:65535
-msgid "Used for comparing different revisions of files."
-msgstr "Används för att jämföra olika revisioner av filer."
-
-#: Control-ID:65535
-msgid "Used to resolve conflicted files."
-msgstr "Används för att lösa konflikter i filer."
-
 #: ID:74
 msgid "User cancelled"
 msgstr "Åtgärd avbruten av användaren"
@@ -4090,11 +4124,6 @@ msgstr "Värde"
 msgid "Version"
 msgstr "Version"
 
-# Hur översätta "diff", menas det "unified diff" här tro?
-#: Control-ID:65535
-msgid "Viewer program for GNU diff files (patch files)."
-msgstr "Applikation för att visa GNU avvikelsefiler (patchfiler)."
-
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Besök vår webbsida"
@@ -4115,6 +4144,11 @@ msgstr "Whitespace avvikelser"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "Whitespace"
+
+# Osäker på var denna visas
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Arbetskopia"
 
 # Osäker på var denna visas
 #: Control-ID:1183

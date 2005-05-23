@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-17 21:15+0100\n"
+"PO-Revision-Date: 2005-05-22 15:40+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -139,6 +139,7 @@ msgid "&Add..."
 msgstr "&Toevoegen..."
 
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "&Geavanceerd..."
 
@@ -155,6 +156,8 @@ msgid "&Browse..."
 msgstr "&Bladeren..."
 
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Intern"
 
@@ -165,6 +168,10 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "Annu&leren"
+
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "Nu &controleren"
 
 #: MenuEntry
 msgid "&Compare Revisions"
@@ -199,6 +206,8 @@ msgid "&Exit"
 msgstr "&Afsluiten"
 
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Extern"
 
@@ -527,10 +536,6 @@ msgstr ""
 msgid "A&dd Folder..."
 msgstr "Ma&p toevoegen..."
 
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "&Geavanceerd..."
-
 #: ID:73
 msgid "Abort"
 msgstr "Afbreken"
@@ -834,10 +839,6 @@ msgstr "Gemiddelde"
 msgid "B&rowse..."
 msgstr "&Bladeren..."
 
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "&Intern"
-
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Maak reservekopie van origineel"
@@ -893,10 +894,6 @@ msgstr "Zoeken naar de externe Diff-applicatie"
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "Bladeren..."
-
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "&Intern"
 
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
@@ -994,10 +991,6 @@ msgstr "Controleer bibliotheek"
 msgid "Check for Modifications"
 msgstr "Kijk of er updates zijn"
 
-#: Control-ID:1215
-msgid "Check now"
-msgstr "Nu controleren"
-
 #: ID:9
 msgid "Check out a working copy from a repository"
 msgstr "Haal een werkkopie op uit een bibliotheek"
@@ -1055,8 +1048,8 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Schonen van onderbroken acties, geblokkeerde bestanden, ..."
 
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "Wis &Auth Cache"
+msgid "Clear &Now"
+msgstr "&Nu schonen"
 
 #: ID:195
 msgid ""
@@ -1222,6 +1215,10 @@ msgid ""
 msgstr ""
 "Kopieer de selectie en plaats op het klembord\n"
 "Kopiëren"
+
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Naar klembord kopiëren"
 
 #: ID:103
 msgid "Copy to working copy"
@@ -1505,6 +1502,10 @@ msgstr "Wilt u de wijzigingen opslaan?"
 msgid "Documentation - Simon Large"
 msgstr "Documentatie - Simon Large"
 
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "Geen status ophalen voor het contextmenu"
+
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Deze boodschap niet meer tonen"
@@ -1516,10 +1517,6 @@ msgstr "Type station"
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Afsluiten"
-
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "E&xtern"
 
 #: ID:3697
 msgid "EXT"
@@ -1609,10 +1606,6 @@ msgstr "Fout"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "Fout bij het valideren van servercertificaat voor %s:"
-
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "E&xtern"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -1868,6 +1861,16 @@ msgstr "Iconen/Ontw./Code: Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Activeer deze optie om geen overlays te tonen in de \"Opslaan als...\" en \"Open...\" dialogen"
+
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Het contextmenu wordt sneller getoond met deze optie.\n"
+"Maar sommige opties in het menu worden dan getoond als ze niet gebruikt kunnen worden.\n"
+"Bijvoorbeeld: de \"Toon logboek\" optie wordt dan ook bij nieuwe mappen getoond."
 
 #: ID:95
 msgid ""
@@ -3279,6 +3282,10 @@ msgid "Subversion"
 msgstr "Subversion"
 
 #: Control-ID:65535
+msgid "Subversion authenticaton data:"
+msgstr "Subversion authenticatie gegevens:"
+
+#: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Subversion configuratiebestand:"
 
@@ -3670,6 +3677,7 @@ msgstr ""
 
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
