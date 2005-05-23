@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-23 10:26+0100\n"
+"PO-Revision-Date: 2005-05-23 13:36+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1228,17 +1228,17 @@ msgstr "Während Sie an Ihrem Projekt arbeiten müssen Sie oft wissen, welche Da
 #: source/en/tsvn_dug/dug_wcstatus.xml:13
 #: (title)
 msgid "Icon Overlays"
-msgstr "Überlagerte Icons"
+msgstr "Überlagerte Symbole"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:15
 #: (primary)
 msgid "overlays"
-msgstr "Überlagerte Icons"
+msgstr "Symbole"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:19
 #: (title)
 msgid "Explorer showing icon overlays"
-msgstr "Explorer zeigt überlagerte Icons"
+msgstr "Explorer mit überlagerten Symbolen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:23
 #: (para)
@@ -1248,14 +1248,14 @@ msgstr "Nun da Sie eine frisch ausgescheckte Arbeitskopie eines Subversion Proje
 #: source/en/tsvn_dug/dug_wcstatus.xml:31
 #: (para)
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>."
-msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Eine frisch ausgecheckte Arbeitskopie hat nur überlagerte Icons mit grünem Haken. Dies bedeutet dass der Subversion Status <literal>normal</literal> ist."
+msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Eine frisch ausgecheckte Arbeitskopie hat nur überlagerte Symbole mit grünem Haken. Dies bedeutet dass der Subversion Status <literal>normal</literal> ist."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:36
 #: (para)
 msgid "<graphic fileref=\"images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
 msgstr ""
 "<graphic fileref=\"images/ModifiedIcon.png\"/>\n"
-"Sobald Sie eine Datei ändern, ändert sich auch der Status der Datei auf <literal>verändert</literal> und das überlagerte Icon ändert sich zu einem roten Ausrufezeichen. Auf diese Weise können Sie mit einem Blick feststellen, welche Dateien Sie geändert haben und noch nicht in das Projektarchiv übertragen worden sind."
+"Sobald Sie eine Datei ändern, ändert sich auch der Status der Datei auf <literal>verändert</literal> und das überlagerte Symbol ändert sich in ein rotes Ausrufezeichen. Auf diese Weise können Sie mit einem Blick feststellen, welche Dateien Sie geändert und noch nicht in das Projektarchiv übertragen haben."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:44
 #: (para)
@@ -1279,7 +1279,7 @@ msgstr "<graphic fileref=\"images/LockedIcon.png\"/> Wenn Sie die Sperre für ei
 msgid "<graphic fileref=\"images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <literal>deleted</literal> from version control or a file under version control is missing in a folder."
 msgstr ""
 "<graphic fileref=\"images/DeletedIcon.png\"/>\n"
-"Dieses überlagerte Icon zeigt, dass Dateien oder Ordner zum <literal>Löschen</literal> aus der Versionskontrolle markiert wurden oder dass TortoiseSVN eine Datei unter Versionskontrolle vermisst."
+"Dieses überlagerte Symbol zeigt, dass Dateien oder Ordner zum <literal>Löschen</literal> aus der Versionskontrolle markiert wurden oder dass TortoiseSVN eine Datei unter Versionskontrolle vermisst."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:69
 #: (para)
@@ -1291,7 +1291,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_wcstatus.xml:74
 #: (para)
 msgid "Unlike TortoiseCVS (the CVS shell integration) no overlay icon for unversioned files is shown. We do this because the number of icon overlays are limited system wide and should be used economically."
-msgstr "Anders als TortoiseCVS zeigt TortoiseSVN keine überlagerten Symbole für Dateien an, welche nicht unter Versionskontrolle stehen. Wir tun dies nicht weil die Anzahl von überlagerten Icons systemweit limitiert sind und wir nicht andere Programme dadurch blockieren wollen."
+msgstr "Anders als TortoiseCVS zeigt TortoiseSVN keine überlagerten Symbole für Dateien an, welche nicht unter Versionskontrolle stehen. Wir tun dies nicht weil die Anzahl von überlagerten Symbolen systemweit limitiert sind und wir nicht andere Programme dadurch blockieren wollen."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:80
 #: (para)
@@ -1336,7 +1336,7 @@ msgstr "Explorer Spalten"
 #: source/en/tsvn_dug/dug_wcstatus.xml:134
 #: (para)
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Explorer's Detailed View."
-msgstr "Dieselben Informationen, die durch die überlagerten Icons angezeigt werden, können auch als zusätzliche Spalten in der Detail-Explorer-Ansicht dargestellt werden."
+msgstr "Die Informationen, die durch die überlagerten Symbole angezeigt werden, können auch als zusätzliche Spalten in der Explorer Detailansicht dargestellt werden."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:139
 #: (para)
@@ -1498,7 +1498,7 @@ msgstr "Der Fortschrittsdialog verwendet eine Farbcodierung, um verschiedene Akt
 #: source/en/tsvn_dug/dug_update.xml:67
 #: (para)
 msgid "If you get any <literal>conflicts</literal> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
-msgstr "Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierung erhalten (Dies kann passieren wenn jemand anders dieselbe Stelle in einer Datei geändert hat wie Sie und diese Änderungen nicht zusammenpassen) dann zeigt der Fortschritts-Dialog diese Dateien rot markiert an. Ein <action>Doppelklick</action> auf diese roten Einträge öffnet ein sogenanntes Merge-Programm, mit dem Sie solche Konflikte ganz einfach von Hand auflösen können."
+msgstr "Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierung erhalten (Dies kann passieren wenn jemand anders dieselbe Stelle in einer Datei geändert hat wie Sie und diese Änderungen nicht zusammenpassen) dann zeigt der Fortschritts-Dialog diese Dateien rot markiert an. Ein <action>Doppelklick</action> auf diese roten Einträge öffnet ein so genanntes Merge-Programm, mit dem Sie solche Konflikte ganz einfach von Hand auflösen können."
 
 #: source/en/tsvn_dug/dug_update.xml:75
 #: (para)
@@ -2028,17 +2028,17 @@ msgstr "Standardmäßig werden die überlagerten Symbole in allen Öffnen/Speich
 #: source/en/tsvn_dug/dug_settings.xml:181
 #: (para)
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which paths <emphasis>not</emphasis> to show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
-msgstr "Die <guilabel>Ausschluss Pfade</guilabel> sagen TortoiseSVN für welche Pfade die überlagerten Icons <emphasis>nicht</emphasis> gezeichnet werden sollen. Dies ist nützlich wenn Sie zum Beispiel sehr große Arbeitskopien haben, welche große externe Bibliotheken, welche Sie selbst nie ändern werden enthalten. Sie können dann diese Pfade ausschließen. Zum Beispiel:"
+msgstr "Die <guilabel>Ausschluss Pfade</guilabel> sagen TortoiseSVN für welche Pfade die überlagerten Symbole <emphasis>nicht</emphasis> gezeichnet werden sollen. Dies ist nützlich wenn Sie zum Beispiel sehr große Arbeitskopien haben, welche große externe Bibliotheken, welche Sie selbst nie ändern werden enthalten. Sie können dann diese Pfade ausschließen. Zum Beispiel:"
 
 #: source/en/tsvn_dug/dug_settings.xml:188
 #: (para)
 msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays on <emphasis>only</emphasis> that specific folder. You still can see the overlays on all files and folder inside that folder."
-msgstr "<filename>f:\\development\\SVN\\Subversion</filename> deaktiviert die überlagerten Icons <emphasis>nur</emphasis> für diesen speziellen Ordner. Sie können die Icons noch immer für alle Dateien und Ordner innerhalb sehen."
+msgstr "<filename>f:\\development\\SVN\\Subversion</filename> deaktiviert die überlagerten Symbole <emphasis>nur</emphasis> für diesen speziellen Ordner. Sie können die Symbole noch immer für alle Dateien und Ordner innerhalb sehen."
 
 #: source/en/tsvn_dug/dug_settings.xml:193
 #: (para)
 msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
-msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> deaktiviert die überlagerten Icons für <emphasis>alle</emphasis> Dateien und Ordner, deren Pfad mit <filename>f:\\development\\SVN\\Subversion</filename> beginnt. Das bedeutet dass auch für alle Dateien und Ordner innerhalb keine überlagerten Icons angezeigt werden."
+msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> deaktiviert die überlagerten Symbole für <emphasis>alle</emphasis> Dateien und Ordner, deren Pfad mit <filename>f:\\development\\SVN\\Subversion</filename> beginnt. Das bedeutet dass auch für alle Dateien und Ordner innerhalb keine überlagerten Symbole angezeigt werden."
 
 #: source/en/tsvn_dug/dug_settings.xml:200
 #: (para)
@@ -2544,7 +2544,7 @@ msgstr "Projektarchiv-Betrachter"
 #: source/en/tsvn_dug/dug_repobrowser.xml:8
 #: (para)
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. What the explorer and the icon overlays are for your working copy is the Repository Browser for the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
-msgstr "Vielleicht möchten Sie manchmal direkt im Projektarchiv Änderungen vornehmen, ohne eine Arbeitskopie zu haben oder gar auschecken zu müssen. In solchen Situationen kommt der Projektarchiv-Betrachter zum Einsatz. Was der Explorer und die überlagerten Icons für Ihre Arbeitskopie sind,  ist der Projektarchiv-Betrachter für das Projektarchiv."
+msgstr "Vielleicht möchten Sie manchmal direkt im Projektarchiv Änderungen vornehmen, ohne eine Arbeitskopie zu haben oder gar auschecken zu müssen. In solchen Situationen kommt der Projektarchiv-Betrachter zum Einsatz. Was der Explorer und die überlagerten Symbole für Ihre Arbeitskopie sind,  ist der Projektarchiv-Betrachter für das Projektarchiv."
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:20
 #: (para)
@@ -2691,7 +2691,7 @@ msgstr "Subversion Eigenschaftsseite"
 msgid "<placeholder-1/> Sometimes you want to have a more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control."
 msgstr ""
 "<placeholder-1/>\n"
-"Manchmal ist es notwendig, detailliertere Informationen über eine Datei oder Ordner zu haben als mit den überlagerten Icons möglich ist. Sie können diese zusätzlichen Informationen über den Eigenschaftsdialog des Explorers anzeigen. Wählen Sie dazu die Datei oder den Ordner aus, öffnen Sie das Kontextmenü mit der rechten Maustaste und wählen Sie den Eintrag <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus. (Beachten Sie: dies ist der normale Eintrag im Kontextmenü des Explorers und <emphasis>nicht</emphasis> der Eintrag im TortoiseSVN Untermenü!). Im darauffolgenden Eigenschaften-Dialog wählen Sie dann die Seite <guilabel>TortoiseSVN</guilabel> aus."
+"Manchmal ist es notwendig, detailliertere Informationen über eine Datei oder Ordner zu haben als mit den überlagerten Symbole möglich ist. Sie können diese zusätzlichen Informationen über den Eigenschaftsdialog des Explorers anzeigen. Wählen Sie dazu die Datei oder den Ordner aus, öffnen Sie das Kontextmenü mit der rechten Maustaste und wählen Sie den Eintrag <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus. (Beachten Sie: dies ist der normale Eintrag im Kontextmenü des Explorers und <emphasis>nicht</emphasis> der Eintrag im TortoiseSVN Untermenü!). Im darauffolgenden Eigenschaften-Dialog wählen Sie dann die Seite <guilabel>TortoiseSVN</guilabel> aus."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:26
 #: (para)
@@ -3138,7 +3138,7 @@ msgstr "Wenn Sie für eine Datei <firstterm>Eine Sperre holen</firstterm>, könn
 #: source/en/tsvn_dug/dug_locking.xml:52
 #: (para)
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
-msgstr "Andere Anwender werden nicht unbedingt wissen, dass Sie eine Datei gesperrt haben. Wenn sie nicht regelmäßig den Sperr-Status überprüfen, werden sie es frühestens merken, wenn ihre Übertragung fehlschlägt, was in den meisten Fällen nicht sehr nützlich ist. Damit es einfacher ist, Sperren zu verwalten, gibt es die neue <literal>svn:needs-lock</literal> Eigenschaft von Subversion. Wenn diese Eigenschaft (auf einen beliebigen Wert) gesetzt ist, wird beim Auschecken oder Aktualisieren die Datei in der Arbeitskopie auf <literal>Nur-Lesen</literal> gesetzt, <emphasis>es sei denn</emphasis> die Arbeitskopie besitzt die Sperre für die Datei. Dies dient als Warnung, dass Sie die Datei nicht bearbeiten sollen, bevor Sie nicht die Sperre für die Datei besitzen. Dateien unter Versionskontrolle, die mit <literal>Nur-Lesen</literal> markiert sind, erhalten von TortoiseSVN ein überlagertes Symbol, das anzeigt, dass Sie erst eine Sperre besitzen müssen, bevor Sie die Datei bearbeiten."
+msgstr "Andere Anwender werden nicht unbedingt wissen, dass Sie eine Datei gesperrt haben. Wenn sie nicht regelmäßig den Sperr-Status überprüfen, werden sie es frühestens merken, wenn ihre Übertragung fehlschlägt, was in den meisten Fällen nicht sehr nützlich ist. Damit es einfacher ist, Sperren zu verwalten, gibt es die neue <literal>svn:needs-lock</literal> Eigenschaft von Subversion. Wenn diese Eigenschaft (auf einen beliebigen Wert) gesetzt ist, wird beim Auschecken oder Aktualisieren die Datei in der Arbeitskopie mit einem <literal>Schreibschutz</literal> versehen, <emphasis>es sei denn</emphasis> die Arbeitskopie besitzt die Sperre für die Datei. Dies dient als Warnung, dass Sie die Datei nicht bearbeiten sollen, bevor Sie nicht die Sperre für die Datei besitzen. Dateien unter Versionskontrolle, die mit <literal>Schreibschutz</literal> versehen sind, erhalten von TortoiseSVN ein überlagertes Symbol, das anzeigt, dass Sie erst eine Sperre holen müssen, bevor Sie die Datei bearbeiten."
 
 #: source/en/tsvn_dug/dug_locking.xml:68
 #: (para)
@@ -3168,7 +3168,7 @@ msgstr "Der Sperren-Dialog"
 #: source/en/tsvn_dug/dug_locking.xml:93
 #: (para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
-msgstr ""
+msgstr "Markieren Sie die Datei(en) in Ihrer Arbeitskopie, für die Sie eine Sperre erhalten möchten und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Sperre holen...</guimenuitem> </menuchoice>. <placeholder-1/> Ein Dialog erscheint, in dem Sie einen Sperrkommentar eingeben können, damit andere wissen, warum Sie die Datei für sich reservieren. Der Kommentar ist optional und wird derzeit nur bei svnserve basierten Projektarchiven genutzt. Wenn (und <emphasis>nur</emphasis> wenn) sie eine Sperre von jemand anderem stehlen wollen, markieren Sie die <guilabel>Sperren stehlen</guilabel> Option bevor Sie auf <guibutton>OK</guibutton> klicken."
 
 #: source/en/tsvn_dug/dug_locking.xml:115
 #: (title)
@@ -3178,12 +3178,12 @@ msgstr "Eine Sperre freigeben"
 #: source/en/tsvn_dug/dug_locking.xml:116
 #: (para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
-msgstr ""
+msgstr "Um sicherzustellen, dass Sie nicht vergessen, Sperren freizugeben, werden gesperrte Dateien im Übertragen Dialog angezeigt und sind standardmäßig gewählt. Wenn Sie die Übertragung durchführen, werden die Sperren der markierten Dateien freigegeben, auch wenn die Dateien selbst sich nicht geändert haben. Wenn Sie die Dateisperren nicht freigeben wollen, können Sie die entsprechenden Dateien abwählen, vorausgesetzt, dass sie nicht modifiziert sind. Wenn Sie die Sperre für veränderte Dateien behalten wollen, müssen Sie vor der Übertragung die <guilabel>Sperren behalten</guilabel> Option markieren."
 
 #: source/en/tsvn_dug/dug_locking.xml:127
 #: (para)
 msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks."
-msgstr ""
+msgstr "Um eine Sperre von Hand freizugeben, markieren Sie die gewünschten Datei(en) in Ihrer Arbeitskopie und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Sperre freigeben</guimenuitem> </menuchoice>. TortoiseSVN wird das Projektarchiv kontaktieren und die Sperren dort freigeben."
 
 #: source/en/tsvn_dug/dug_locking.xml:139
 #: (title)
@@ -3198,12 +3198,12 @@ msgstr "Auf Änderungen überprüfen"
 #: source/en/tsvn_dug/dug_locking.xml:140
 #: (para)
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
-msgstr ""
+msgstr "<placeholder-1/> Um zu sehen, welche Sperren Sie oder andere Personen besitzen, können Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen prüfen...</guimenuitem> </menuchoice> aufrufen. Lokale Sperren werden sofort angezeigt. Damit Sie sehen können, welche Sperren von anderen gehalten werden und um festzustellen, ob Ihre Sperren aufgebrochen oder gestohlen wurden, müssen Sie <guibutton>Projektarchiv prüfen</guibutton> wählen."
 
 #: source/en/tsvn_dug/dug_locking.xml:155
 #: (para)
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
-msgstr ""
+msgstr "Aus dem Kontextmenü dieses Dialogs heraus können Sie Sperren holen oder freigeben und auch Sperren von anderen stehlen oder aufbrechen."
 
 #: source/en/tsvn_dug/dug_locking.xml:160
 #: (title)
@@ -3213,22 +3213,22 @@ msgstr "Vermeiden Sie es Sperren aufzubrechen oder zu stehlen"
 #: source/en/tsvn_dug/dug_locking.xml:161
 #: (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
-msgstr ""
+msgstr "Wenn Sie die Sperre eines Kollegen stehlen oder aufbrechen, ohne ihm dies mitzuteilen, können Sie doppelte Arbeit verursachen. Falls Sie mit nicht zusammenführbaren Dateien arbeiten und eine Sperre stehlen, kann derjenige der die Sperre vorher besaß Ihre Daten überschreiben, sobald Sie die Sperre freigeben. Subversion verliert zwar keine Daten, aber Sie haben den gegenseitigen Schutz bei de Zusammenarbeit, den Sperren bieten, verloren."
 
 #: source/en/tsvn_dug/dug_locking.xml:173
 #: (title)
 msgid "Making Non-locked Files Read-Only"
-msgstr ""
+msgstr "Nicht gesperrte Dateien mit Schreibschutz versehen"
 
 #: source/en/tsvn_dug/dug_locking.xml:174
 #: (para)
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
-msgstr ""
+msgstr "Wie bereits erwähnt ist der einfachste Weg dazu, die <literal>svn:needs-lock</literal> Eigenschaft der Datei zu setzen. Lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/>, um zu erfahren, wie man Eigenschaften setzt. Dateien mit dieser Eigenschaft werden beim Aktualisieren und Auschecken stets mit einem Schreibschutz versehen, wenn die Arbeitskopie keine Sperre für die Datei besitzt. <graphic fileref=\"images/ReadOnlyIcon.png\"/> Als Erinnerung zeigt TortoiseSVN dieses Symbol dafür an."
 
 #: source/en/tsvn_dug/dug_locking.xml:184
 #: (para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
-msgstr ""
+msgstr "Wenn Sie ein Entwicklungsverfahren nutzen, das stets Dateisperren erfordert, ist es einfacher Subversions <literal>auto-props</literal> Eigenschaft zu nutzen, um die Dateieigenschaften automatisch zu setzen, sobald Sie Dateien zum Projektarchiv hinzufügen. Lesen Sie <xref linkend=\"tsvn-DUG-settings\"/> für weitere Information."
 
 #: source/en/tsvn_dug/dug_locking.xml:192
 #: (title)
@@ -3238,17 +3238,17 @@ msgstr "Aktionsskripte für Sperren"
 #: source/en/tsvn_dug/dug_locking.xml:193
 #: (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
-msgstr ""
+msgstr "Wenn Sie ein neues Projektarchiv mit Subversion 1.2 anlegen, werden vier Schablonen für Aktionsskripte im <filename>hooks</filename> Verzeichnis des Projektarchivs angelegt. Diese Aktionsskripte werden aufgerufen, bevor und nachdem eine Sperre geholt, bzw. freigegeben wird."
 
 #: source/en/tsvn_dug/dug_locking.xml:199
 #: (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
-msgstr ""
+msgstr "Es ist eine gute Idee, ein <literal>post-lock</literal> und ein <literal>post-unlock</literal> Aktionsskript auf dem Server zu installieren, die eine Benachrichtiguns e-mail verschicken. Mit solch einem Skript können alle betroffenen Personen darüber informiert werden, wenn eine Datei gesperrt wurde. Sie finden ein Beispiel <filename>hooks/post-lock.tmpl</filename> Skript in Ihrem Projektarchiv."
 
 #: source/en/tsvn_dug/dug_locking.xml:207
 #: (para)
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
-msgstr ""
+msgstr "Vielleicht möchten Sie mit Aktionsskripten auch verhindern, dass jemand Sperren stiehlt oder aufbricht oder Sie möchten diese Möglichkeit auf Administratoren beschränken. Sie können mit einem Skript auch den Eigner der Sperre per e-mail darüber informieren, wenn seine Sperre gestohlen wurde."
 
 #: source/en/tsvn_dug/dug_locking.xml:213
 #: (para)
@@ -3498,7 +3498,7 @@ msgstr "Machmal ist es notwendig, eine Datei unter Versionskontrolle zu haben, d
 #: source/en/tsvn_dug/dug_import.xml:231
 #: (para)
 msgid "In such cases we suggest to use <literal>template</literal> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
-msgstr "In solchen Fällen empfehlen wir die Verwendung von sogenannten <literal>Schablonen</literal>. Eine Schablone ist nichts anderes als eine normale Datei, welche entweder einen anderen Dateinamen oder eine andere Dateiendung hat als die Datei, welche schlussendlich verwendet wird."
+msgstr "In solchen Fällen empfehlen wir die Verwendung von so genannten <literal>Schablonen</literal>. Eine Schablone ist nichts anderes als eine normale Datei, welche entweder einen anderen Dateinamen oder eine andere Dateiendung hat als die Datei, welche schlussendlich verwendet wird."
 
 #: source/en/tsvn_dug/dug_import.xml:239
 #: (para)
@@ -4300,7 +4300,7 @@ msgstr "Eine andere wichtige Funktion ist die Möglichkeit, bestimmte Zustände 
 #: source/en/tsvn_dug/dug_branchtag.xml:30
 #: (para)
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <literal>cheap copies</literal> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr "Subversion kennt keinen speziellen Befehl für das Verzweigen oder Markieren. Subversion benutzt stattdessen sogenannte <literal>billige Kopien</literal>. Diese funktionieren ähnlich wie Links, d.h. es wird keine richtige Kopie erstellt sondern nur eine Verknüpfung auf eine bestimmte Revision. Daraus ergibt sich, dass Verzweigungen oder Markierungen schnell zu erstellen sind und nahezu keinen zusätzlichen Platz im Projektarchiv benötigen."
+msgstr "Subversion kennt keinen speziellen Befehl für das Verzweigen oder Markieren. Subversion benutzt stattdessen so genannte <literal>billige Kopien</literal>. Diese funktionieren ähnlich wie Links, d.h. es wird keine richtige Kopie erstellt sondern nur eine Verknüpfung auf eine bestimmte Revision. Daraus ergibt sich, dass Verzweigungen oder Markierungen schnell zu erstellen sind und nahezu keinen zusätzlichen Platz im Projektarchiv benötigen."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:40
 #: (title)
@@ -4530,7 +4530,7 @@ msgstr "<placeholder-1/> Wenn Sie neue Dateien und/oder Ordner während Ihrer Ar
 #: source/en/tsvn_dug/dug_add.xml:22
 #: (para)
 msgid "After you added the files/directories to source control the file appears with a <literal>added</literal> icon overlay which means you first have to commit your working copy to make those files/directories available to other developers. Adding a file/directory does <emphasis>not</emphasis> affect the repository!"
-msgstr "Nachdem Sie die Dateien/Ordner zur Versionskontrolle hinzugefügt haben, erscheinen diese mit einem Pluszeichen als überlagertes Icon im  Explorer. Dies bedeutet, dass diese bei der nächsten Übertragung mit in das Projektarchiv aufgenommen werden. Beachten Sie, dass das Hinzufügen alleine die Dateien/Ordner <emphasis>nicht</emphasis> im Projektarchiv speichert."
+msgstr "Nachdem Sie die Dateien/Ordner zur Versionskontrolle hinzugefügt haben, erscheinen diese mit einem Pluszeichen als überlagertes Symbol im  Explorer. Dies bedeutet, dass diese bei der nächsten Übertragung mit in das Projektarchiv aufgenommen werden. Beachten Sie, dass das Hinzufügen alleine die Dateien/Ordner <emphasis>nicht</emphasis> im Projektarchiv speichert."
 
 #: source/en/tsvn_dug/dug_add.xml:31
 #: (title)
@@ -4885,17 +4885,17 @@ msgstr "<indexterm> <primary>Windows Shell</primary> </indexterm> <indexterm> <p
 #: source/en/tsvn_introduction.xml:104
 #: (para)
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "Und dabei sind Sie nicht einmal gezwungen, den Windows Explorer zu benutzen. Auch in anderen Dateimanagern stehen Ihnen prinzipiell das Kontextmenü und die anderen Funktionen von TortoiseSVN jederzeit zur Verfügung. Wobei allerdings zu beachten ist, dass TortoiseSVN speziell als Erweiterung des Windows Explorers entwickelt wird. Daher kann es sein, dass in anderen Programmen die Integration nicht vollständig ist und beispielsweise die überlagerten Icons nicht angezeigt werden."
+msgstr "Und dabei sind Sie nicht einmal gezwungen, den Windows Explorer zu benutzen. Auch in anderen Dateimanagern stehen Ihnen prinzipiell das Kontextmenü und die anderen Funktionen von TortoiseSVN jederzeit zur Verfügung. Wobei allerdings zu beachten ist, dass TortoiseSVN speziell als Erweiterung des Windows Explorers entwickelt wird. Daher kann es sein, dass in anderen Programmen die Integration nicht vollständig ist und beispielsweise die überlagerten Symbole nicht angezeigt werden."
 
 #: source/en/tsvn_introduction.xml:118
 #: (term)
 msgid "Icon overlays"
-msgstr "Überlagerte Icons"
+msgstr "Überlagerte Symbole"
 
 #: source/en/tsvn_introduction.xml:120
 #: (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
-msgstr "Der Status von jeder Datei unter Versionskontrolle wird durch ein kleines überlagerndes Icon angezeigt. Auf diese Weise können Sie sofort den Zustand Ihrer Arbeitskopie erkennen."
+msgstr "Der Status von jeder Datei unter Versionskontrolle wird durch ein kleines überlagertes Symbol angezeigt. Auf diese Weise können Sie sofort den Zustand Ihrer Arbeitskopie erkennen."
 
 #: source/en/tsvn_introduction.xml:128
 #: (term)
@@ -6159,7 +6159,7 @@ msgstr "Übersicht"
 #: source/en/tme_ch01.xml:14
 #: (para)
 msgid "TortoiseMerge is a free/open-source application. It lets you see differences in text files, merge those changes and even review and apply unified diff files, often called <firstterm>patches</firstterm>."
-msgstr "TortoiseMerge ist ein freies Open-Source Programm. Sie können damit Unterschiede in Textdateien zeigen, diese Unterschiede zusammenführen und sogar sogenannte Patchdateien anwenden."
+msgstr "TortoiseMerge ist ein freies Open-Source Programm. Sie können damit Unterschiede in Textdateien zeigen, diese Unterschiede zusammenführen und sogar so genannte Patchdateien anwenden."
 
 #: source/en/tme_ch01.xml:19
 #: (para)
@@ -6214,7 +6214,7 @@ msgstr " Da TortoiseSVN schon die Subversion Funktionsbibliothek benutzt welche 
 #: source/en/tme_ch00.xml:9
 #: (para)
 msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your sourcecode, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
-msgstr "Wann immer Sie an einem Projekt arbeiten, sei es ein Open-Source  Projekt wo mehrere Leute den Sourcecode einsehen, oder sei es ein kommerzielles Projekt, in dem Sie eine Komponente mit Sourcecode verkaufen, wird es immer Leute und Kunden geben, die Fehler finden oder Ihr Projekt verbessern wollen. Sie tun dies indem sie Ihnen sogenannte  Patchdateien senden. Sie müssen dann diese Patchdateien durchsehen und entscheiden ob Sie die Änderungen in Ihr Projekt übernehmen oder nicht."
+msgstr "Wann immer Sie an einem Projekt arbeiten, sei es ein Open-Source  Projekt wo mehrere Leute den Sourcecode einsehen, oder sei es ein kommerzielles Projekt, in dem Sie eine Komponente mit Sourcecode verkaufen, wird es immer Leute und Kunden geben, die Fehler finden oder Ihr Projekt verbessern wollen. Sie tun dies indem sie Ihnen so genannte  Patchdateien senden. Sie müssen dann diese Patchdateien durchsehen und entscheiden ob Sie die Änderungen in Ihr Projekt übernehmen oder nicht."
 
 #: source/en/tme_ch00.xml:21
 #: (para)
@@ -6229,7 +6229,7 @@ msgstr "Patchdateien anwenden"
 #: source/en/tme_ch00.xml:17
 #: (para)
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
-msgstr "TortoiseMerge hilft Ihnenen bei diesen beiden Aufgaben: <placeholder-1/>"
+msgstr "TortoiseMerge hilft Ihnen bei diesen beiden Aufgaben: <placeholder-1/>"
 
 #: source/en/tme_ch00.xml:32
 #: (para)
