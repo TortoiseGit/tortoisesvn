@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-13 15:33+0100\n"
+"PO-Revision-Date: 2005-05-23 16:43+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -173,6 +173,7 @@ msgid "&Add..."
 msgstr "&Legg til..."
 
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "&Avansert..."
 
@@ -189,6 +190,8 @@ msgid "&Browse..."
 msgstr "&Bla gjennom..."
 
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Innebygget"
 
@@ -201,7 +204,11 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Avbryt"
 
-#: ID:76
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "&Kryss nå"
+
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "&Sammenlign revisjoner"
 
@@ -235,6 +242,8 @@ msgid "&Exit"
 msgstr "&Avslutt"
 
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Ekstern"
 
@@ -261,8 +270,8 @@ msgstr "&Fra AK på adressen:"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
-msgstr "&Hovedrevisjon"
+msgid "&HEAD Revision"
+msgstr "&Hoved-revisjon"
 
 #: Control-ID:57670
 #: MenuEntry
@@ -420,7 +429,7 @@ msgstr "&Angre"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Angre\tCtrl+Z"
 
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "&Enhetlig diff"
 
@@ -575,10 +584,6 @@ msgstr ""
 #: ID:101
 msgid "A&dd Folder..."
 msgstr "&Legg til mappe..."
-
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "A&vansert..."
 
 #: ID:73
 msgid "Abort"
@@ -890,10 +895,6 @@ msgstr "Gjenomsnitt"
 msgid "B&rowse..."
 msgstr "&Utforsk..."
 
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "I&nnebygget"
-
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Sikkerhetskoppiér orginalfilen"
@@ -951,10 +952,6 @@ msgstr "Bla gjennom etter eksternt diff-program"
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "Utforsk..."
-
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "Inne&bygget"
 
 # Control-ID:1119,#:
 # Control-ID:1119,
@@ -1029,6 +1026,10 @@ msgstr "Bytt vinduposisjon"
 msgid "Change the window size"
 msgstr "Forandre vindu-størrelse"
 
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "Endrede filer"
+
 #: ID:163
 msgid "Changed files: %d"
 msgstr "Endrede filer: %d"
@@ -1052,10 +1053,6 @@ msgstr "Undersøk depot"
 #: ID:13
 msgid "Check for Modifications"
 msgstr "Se etter oppdateringer"
-
-#: Control-ID:1215
-msgid "Check now"
-msgstr "Kryss nå"
 
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1117,8 +1114,8 @@ msgstr "Rensker opp avbrutte operasjoner, låste filer, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "&Slett autentisering fra mellomlager"
+msgid "Clear &Now"
+msgstr "Blank ut &nå"
 
 # ID:195,
 #: ID:195
@@ -1193,6 +1190,10 @@ msgstr "Innsendinger hver uke:"
 #: ID:9
 msgid "Commits your changes to the repository"
 msgstr "Sender forandringene inn til depoet"
+
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "&Sammenlign hovedrevisjoner"
 
 #: Control-ID:1019
 msgid "Compare Whitespaces"
@@ -1273,6 +1274,11 @@ msgstr "Kopier fra sti"
 msgid "Copy To Working Copy..."
 msgstr "Kopi til arbeidskopi..."
 
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "Kopier til utklippstavlen"
+
 #: ID:13
 msgid "Copy files in Subversion to here"
 msgstr "Kopier filer i Subversion hit"
@@ -1284,6 +1290,11 @@ msgid ""
 msgstr ""
 "Kopiér det som er merket til utklippstavlen\n"
 "Kopiér"
+
+# ID:257,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Kopier til uklippstavlen"
 
 #: ID:103
 msgid "Copy to working copy"
@@ -1570,6 +1581,11 @@ msgstr "Vil du lagre dine endringer?"
 msgid "Documentation - Simon Large"
 msgstr "Dokumentasjon- Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "Ikke hent status for sammenhengsmenyen"
+
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Ikke vis denne beskjeden igjen"
@@ -1581,10 +1597,6 @@ msgstr "Stasjonstyper"
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Avslutt"
-
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "E&kstern"
 
 # ID:3697,
 #: ID:3697
@@ -1679,10 +1691,6 @@ msgstr "Feil"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "Feil mens sertifikatet %s ble sjekket:"
-
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "Ek&stern"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -1910,8 +1918,8 @@ msgid "Graph type:"
 msgstr "Graftype:"
 
 #: Control-ID:1032
-msgid "H&ead Revision"
-msgstr "&Hovedrevisjon"
+msgid "H&EAD Revision"
+msgstr "&Hoved-revisjon"
 
 #: Control-ID:1182
 msgid "HEAD revision in the repository"
@@ -1948,6 +1956,17 @@ msgstr "Ikoner/design/kode:     Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Forhindrer ikonlag fra å vises i \"lagre som..\" eller \"åpne\"-dialoger"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Sammenhengsmenyen vises raskere hvis aktivert.\n"
+"Men noen poster i menyen som ikke kan brukes, vil vises.\n"
+"Posten \"vis logg\" vil f.eks. vises på mappes som nettopp er lagt til."
 
 #: ID:95
 msgid ""
@@ -2260,8 +2279,8 @@ msgstr "Laveste revisjon: %ld - Høyeste revisjon: %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr "Laveste revisjon: %ld - Høyeste revisjon: %ld - Hoved-(HEAD) revisjon: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
+msgstr "Laveste revisjon: %ld - Høyeste revisjon: %ld - Hoved-evisjon: %ld"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
@@ -3429,6 +3448,10 @@ msgid "Subversion"
 msgstr "Subversion"
 
 #: Control-ID:65535
+msgid "Subversion authentication data:"
+msgstr "Autentiseringsdata for Subversion"
+
+#: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Innstillingsfil for Subversion:"
 
@@ -3837,6 +3860,7 @@ msgstr ""
 
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -3971,6 +3995,10 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Uventet filformat."
+
+#: MenuEntry
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "Enhetlige &differ fra hoved-revisjoner"
 
 #: ID:81
 msgid ""
