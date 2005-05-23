@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-23 18:11+0100\n"
+"PO-Revision-Date: 2005-05-23 19:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5788,62 +5788,62 @@ msgstr ""
 #: source/en/tsvn_app_howto.xml:304
 #: (title)
 msgid "Include a common sub-project"
-msgstr ""
+msgstr "Ein gemeinsames Unter-Projekt einbinden"
 
 #: source/en/tsvn_app_howto.xml:306
 #: (primary)
 msgid "common projects"
-msgstr ""
+msgstr "gemeinsame projekte"
 
 #: source/en/tsvn_app_howto.xml:308
 #: (para)
 msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
-msgstr ""
+msgstr "Manchmal ist es notwendig, ein anderes Projekt in Ihre Arbeitskopie einzubinden, zum Beispiel ein externes library. Sie möchten aber keine Kopie davon in Ihr Projektarchiv aufnehmen da Sie dann die Verbindung zum Original verlieren. Oder Sie haben mehrere Projekte welche Code-Teile gemeinsam haben.Es gibt mindestens 3 verschiedene Wege um diese Situation zu meistern."
 
 #: source/en/tsvn_app_howto.xml:318
 #: (title)
 msgid "Use svn:externals"
-msgstr ""
+msgstr "Die Eigenschaft <literal>svn:externals</literal>"
 
 #: source/en/tsvn_app_howto.xml:319
 #: (para)
 msgid "Create a new folder within your project to contain the common code, and <action>Add</action> it to Subversion"
-msgstr ""
+msgstr "Erstellen Sie einen neuen Ordner in Ihrem Projekt, welcher den gemeinsamen Code enthalten soll, und fügen Sie diesen zu Subversion hinzu."
 
 #: source/en/tsvn_app_howto.xml:323
 #: (para)
 msgid "Set the <literal>svn:externals</literal> property on that folder. The property value should be the repository URL of the code you want to include. Of course it has to reside in a Subversion repository, although it does not have to be the same one."
-msgstr ""
+msgstr "Setzen sie die <literal>svn:externals</literal> Eigenschaft für diesen Ordner. Der Wert der Eigenschaft sollte die Projektarchiv-URL des gemeinsamen Codes sein. Selbstverständlich muss dieser gemeinsame Code ebenfalls in einem Subversion Projektarchiv gepseichert sein, aber es muss nicht unbedingt im selben Projektarchiv wie ihr eigenes Projekt sein."
 
 #: source/en/tsvn_app_howto.xml:330
 #: (para)
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. Each time you update, you will also receive the latest version of that project. Changes you make to the common project will be committed back."
-msgstr ""
+msgstr "Übertragen Sie diese Änderungen. Nun, wenn Sie Ihre Arbeitskopie aktualisieren wird Subversion eine Kopie dieses externen Projektes in Ihre Arbeitskopie einfügen. Jedesmal wenn Sie eine Aktualisierung vornehmen, wird automatisch auch das externe Projekt aktualisiert. Änderungen, welche Sie am gemeinsamen Code vornehmen werden ebenfalls in das externe Projektarchiv mit-übertragen."
 
 #: source/en/tsvn_app_howto.xml:339
 #: (title)
 msgid "Use a nested working copy"
-msgstr ""
+msgstr "Verschachtelte Arbeitskopien"
 
 #: source/en/tsvn_app_howto.xml:340
 #: (para)
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
-msgstr ""
+msgstr "Erstellen Sie einen neuen Ordner in Ihrem Projekt, welcher den gemeinsamen Code enthalten soll, aber fügen Sie diesen nicht zu Ihrer Arbeitskopie hinzu."
 
 #: source/en/tsvn_app_howto.xml:344
 #: (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
-msgstr ""
+msgstr "Wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Auschecken</guimenuitem></menuchoice> auf dem neuen Ordner und checken Sie eine Kopie des gemeinsamen Codes in diesen Ordner aus. Sie haben nun eine separate Arbeitskopie innerhalb Ihrer eigenen Arbeitskopie."
 
 #: source/en/tsvn_app_howto.xml:354
 #: (para)
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are not committed. Likewise when you update the parent, the nested WC is not updated."
-msgstr ""
+msgstr "Diese beiden Arbeitskopien sind komplett unabhängig voneinander. Wenn Sie Änderungen übertragen möchten, so werden Änderungen in der zweiten Arbeitskopie nicht mit erfasst. Ebenfalls wird die zweite Arbeitskopie bei einer Aktualisierung nicht mit-aktualisiert. Sie müssen die zweite Arbeitskopie jeweils getrennt aktualisieren oder Änderungen darin übertragen."
 
 #: source/en/tsvn_app_howto.xml:361
 #: (title)
 msgid "Use a relative location"
-msgstr ""
+msgstr "Relative Pfade"
 
 #: source/en/tsvn_app_howto.xml:362
 #: (para)
@@ -5855,6 +5855,12 @@ msgid ""
 "C:\\Projects\\Common\n"
 "</screen> and refer to the common code using a relative path, eg. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr ""
+"Wenn Sie denselben Code in mehreren Projekten benutzen und Sie nicht für jedes Projekt das diesen gemeinsamen Code benutzt eine Kopie davon haben möchten, dann können Sie diesen Code auch an eine ganz bestimmte Stelle auschecken, auf welche von allen Projekten welche den Code benutzen zugegriffen werden kann. Zum Beispiel:<screen>\n"
+"C:\\Projekte\\Proj1\n"
+"C:\\Projekte\\Proj2\n"
+"C:\\Projekte\\Proj3\n"
+"C:\\Projekte\\Gemeinsamer_Code\n"
+"</screen>dann können Sie in Ihren Projekten mittels relativer Pfade auf diesen Code zugreifen, zum Beispiel <filename>..\\..\\Gemeinsamer_code\\DSPCore</filename>."
 
 #: source/en/tsvn_app_howto.xml:377
 #: (para)
@@ -5865,11 +5871,16 @@ msgid ""
 "#include \"X:\\superio\\superio.h\"\n"
 "</screen>"
 msgstr ""
+"Wenn Ihre Projekte jedoch überall verstreut an verschiedenen Orten sind, dann können Sie eine Variante hiervon benutzen: den gemeinsamen Code an einem Ort speichern und diesen Ort dann mittels Laufwerks-Substitution an einen fixen Ort binden. Dann können Sie diesen fixen Pfad in Ihren Projekten direkt einbinden. Zum Beispiel können Sie den gemeinsamen Code an <filename>D:\\Dokumente\\Framework</filename> oder <filename>C:\\Dokumente und Einstellungen\\{login}\\Eigene Dateien\\Framework</filename> auschecken und dann mittels<screen>\n"
+"SUBST X: \"D:\\Dokumente\\Framework\"\n"
+"</screen>mit dem Laufwerksbuchstaben X verbinden. In Ihrem Sourcecode können Sie dann auf diese absolute Position zugreifen, zum Beispiel<screen>\n"
+"#include \"X:\\superio.h\\superio.h\"\n"
+"</screen>"
 
 #: source/en/tsvn_app_howto.xml:395
 #: (para)
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
-msgstr ""
+msgstr "Diese Methode funktioniert jedoch nur in einer PC-Umgebung, und Sie müssen genau dokumentieren wie die Laufwerks-Verbindung gemacht werden muss damit die Team-Mitglieder die Projekte auch Kompilieren können und die gemeinsamen Dateien auch finden.Diese Methode ist wirklich nur in geschlossene Umgebungen anwendbar und nicht für die normale Verwendung empfohlen."
 
 #: source/en/tortoisesvn.xml:5
 #: (subtitle)
