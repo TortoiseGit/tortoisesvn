@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-21 22:47Westeuropäische Normalzeit\n"
+"POT-Creation-Date: 2005-05-23 22:37GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1194,71 +1194,71 @@ msgid "Selects your user interface language. What else did you expect?"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_settings.xml:34(term) 
-msgid "Exclude/Ignore pattern"
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:37(primary) source/en/tsvn_dug/dug_import.xml:198(primary) 
-msgid "exclude pattern"
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:40(primary) 
-msgid "global ignore"
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:42(para) 
-msgid "Exclude patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Exclude files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the other four to files."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:52(para) 
-msgid "Note that the exclude patterns you specify here will also affect other Subversion clients running on your PC, including the command line client."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:59(literal) 
-msgid "global-ignores"
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:62(guibutton) 
-msgid "Edit"
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:57(caution) 
-msgid "If you use the Subversion configuration file to set a <placeholder-1/> pattern, it will override the settings you made here. The Subversion configuration file is accessed using the <placeholder-2/> as described below."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:64(para) 
-msgid "This exclude pattern will affect all your projects. It is not versioned, so it will not affect other users. By contrast you can also use the versioned <literal>svn:ignore</literal> property to exclude files or directories from version control. Read <xref linkend=\"tsvn-DUG-ignore\"/> for more information."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:76(term) 
-msgid "Set filedates to the \"last commit time\""
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:78(para) 
-msgid "This option tells TortoiseSVN to set the filedates to the last commit time when doing a checkout or an update. Otherwise TortoiseSVN will use the current date. If you are developing software it is generally best to use the current date because build systems normally look at the datestamps to decide which files need compiling. If you use \"last commit time\" and revert to an older file revision, your project may not compile as you expect it to."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:92(term) 
-msgid "Edit..."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:94(para) 
-msgid "... the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Subversion Manual</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:112(term) 
-msgid "Clear Auth Cache"
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:114(para) 
-msgid "When you authenticate with a subversion server, the username and password are cached locally so you don't have to keep entering them. To clear everything from that cache, use this button."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:123(term) 
 msgid "Automatically check for newer versions every week"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:125(para) 
+#: source/en/tsvn_dug/dug_settings.xml:36(para) 
 msgid "If checked, TortoiseSVN will contact its download site once a week to see if there is a newer version of the program available."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:43(term) 
+msgid "Exclude/Ignore pattern"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:46(primary) source/en/tsvn_dug/dug_import.xml:198(primary) 
+msgid "exclude pattern"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:49(primary) 
+msgid "global ignore"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:51(para) 
+msgid "Exclude patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Exclude files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the other four to files."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:61(para) 
+msgid "Note that the exclude patterns you specify here will also affect other Subversion clients running on your PC, including the command line client."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:68(literal) 
+msgid "global-ignores"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:71(guibutton) 
+msgid "Edit"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:66(caution) 
+msgid "If you use the Subversion configuration file to set a <placeholder-1/> pattern, it will override the settings you made here. The Subversion configuration file is accessed using the <placeholder-2/> as described below."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:73(para) 
+msgid "This exclude pattern will affect all your projects. It is not versioned, so it will not affect other users. By contrast you can also use the versioned <literal>svn:ignore</literal> property to exclude files or directories from version control. Read <xref linkend=\"tsvn-DUG-ignore\"/> for more information."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:85(term) 
+msgid "Set filedates to the \"last commit time\""
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:87(para) 
+msgid "This option tells TortoiseSVN to set the filedates to the last commit time when doing a checkout or an update. Otherwise TortoiseSVN will use the current date. If you are developing software it is generally best to use the current date because build systems normally look at the datestamps to decide which files need compiling. If you use \"last commit time\" and revert to an older file revision, your project may not compile as you expect it to."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:101(term) 
+msgid "Edit..."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:103(para) 
+msgid "... the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Subversion Manual</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:121(term) 
+msgid "Clear Auth Cache"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:123(para) 
+msgid "When you authenticate with a subversion server, the username and password are cached locally so you don't have to keep entering them. To clear everything from that cache, use this button."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_settings.xml:134(title) 
