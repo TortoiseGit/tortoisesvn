@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-23 13:36+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-05-23 18:11+0100\n"
+"Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5934,7 +5934,7 @@ msgstr "Hinzufügen"
 #: source/en/tme_glossary.xml:9
 #: (para)
 msgid "An <command>svn</command> command that is used to add a file or directory to a repository."
-msgstr ""
+msgstr "Ein <command>svn</command> Kommande welches zum hinzufügen von Dateien oder Ordnern zu einen Projektarchiv benutzt wird."
 
 #: source/en/tme_ch02.xml:3
 #: (title)
@@ -6059,32 +6059,32 @@ msgstr "<guibutton>Öffnen</guibutton> Startet den Datei Öffnen Dialog. Was son
 #: source/en/tme_ch02.xml:159
 #: (para)
 msgid "<guibutton>Save</guibutton> saves any changes you have made. If you have selected <guilabel>Resolve conflicted Subversion status on save</guilabel> in the settings dialog, then Subversion's conflict working files will be deleted automatically if all conflicts were resolved."
-msgstr ""
+msgstr "<guibutton>Speichern</guibutton> Speichert alle Änderungen welche Sie gemacht haben. Wenn Sie <guilabel>Konflikte beim Speichern als gelöst markieren</guilabel> im Einstellungs-Dialog aktiviert haben, dann werden die Konflikt-Dateien automatisch gelöscht, sofern keine Konflikte mehr vorhanden sind."
 
 #: source/en/tme_ch02.xml:170
 #: (para)
 msgid "<guibutton>Reload</guibutton> discards any changes you have made and reloads the original files."
-msgstr ""
+msgstr "<guibutton>Aktualisieren</guibutton> Lädt die Dateien erneut und verwirft alle Änderungen, welche Sie bisher gemacht haben."
 
 #: source/en/tme_ch02.xml:177
 #: (para)
 msgid "<guibutton>Show Spaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr ""
+msgstr "<guibutton>Zeige Leerzeichen</guibutton> Zeigt Leerzeichen als Symbole an so dass Sie einfach zwischen Leerzeichen/Tabulatoren unterscheiden können."
 
 #: source/en/tme_ch02.xml:184
 #: (para)
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
-msgstr ""
+msgstr "<guibutton>Vorherige/Nächste Differenz</guibutton> springt direkt zum vorherigen/nächsten Ort Unterschied besteht."
 
 #: source/en/tme_ch02.xml:192
 #: (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
-msgstr ""
+msgstr "<guibutton>Vorheriger/Nächster Konflikt</guibutton> springt direkt zum vorherigen/nächsten Ort in der Datei wo ein Konflikt besteht und aufgelöst werden muss."
 
 #: source/en/tme_ch02.xml:199
 #: (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
-msgstr ""
+msgstr "<guibutton>Wechlse Ansicht</guibutton> wechselt zwischen Ein- und Zweifenster-Ansicht. Dieses Werkzeug ist im 3-Fenster-Modus deaktiviert."
 
 #: source/en/tme_ch02.xml:206
 #: (para)
@@ -6094,17 +6094,17 @@ msgstr "<guibutton>einstellungen</guibutton> öffnet den Einstellungsdialog von 
 #: source/en/tme_ch02.xml:148
 #: (para)
 msgid "Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-1/>"
-msgstr ""
+msgstr "Unterhalb der Menuleiste befindet sich die Werkzeugleiste. Diese stellt einen einfachen Zugang zu den am meisten verwendeten Befehlen dar, welche sind <placeholder-1>"
 
 #: source/en/tme_ch02.xml:213
 #: (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
-msgstr ""
+msgstr "Auf der linken Seite ist eine kleine Ortungsleiste. Diese zeigt einen schnellen Überblick wo Änderungen in der Datei vorhanden sind. Die Leiste hat drei Spalten. Die linke Spalte entspricht dem linken Fenster, die rechte Spalte dem rechten Fenster, die mittlere Spalte dem unteren Fenster (falls angezeigt). In der Ein-Fenster-Ansicht wird nur die linke Spalte benutzt.Die Ortungsleiste kann auch alls Scrollleiste benutzt werden, wobei dann jeweils alle drei Fenster gleichzeitig scrollen."
 
 #: source/en/tme_ch02.xml:222
 #: (para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Yours</literal>, and the number of unresolved conflicts remaining. The left side of the status bar is used to display hints when you hover the mouse over a control."
-msgstr ""
+msgstr "Unterhalb des unteren Fenters ist die Statusleiste. Diese zeigt die Anzahl von hinzugefügten und entfernten Zeilen in <literal>Deren</literal> und <literal>Ihrer</literal> Datei, sowie die Anzahl ungelöster Konflikte. Die linke Seite der Statusleiste zeigt Hilfetexte wenn Sie den Mauszeiger über Objekte führen."
 
 #: source/en/tme_ch02.xml:236
 #: (title)
