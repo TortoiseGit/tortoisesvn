@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-23 19:33+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2005-05-24 00:13+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1573,7 +1573,7 @@ msgstr "Der oberste Abschnitt zeigt eine liste von Revisionen in welchen Änderu
 #: source/en/tsvn_dug/dug_showlog.xml:29
 #: (para)
 msgid "Lines shown in blue indicate that something has been copied to this development line (perhaps from a branch)."
-msgstr "Zeilen in blau zeigen an, dass etwas in dieser Revision kopiert/verschoben/umbenannt wurde (vielleicht von einem anderen Zweig). "
+msgstr "Zeilen in blau zeigen an, dass etwas in dieser Revision kopiert/verschoben/umbenannt wurde (vielleicht von einem anderen Ast). "
 
 #: source/en/tsvn_dug/dug_showlog.xml:35
 #: (para)
@@ -1653,7 +1653,7 @@ msgstr "Den Projektarchiv Browser zu öffnen. Nur möglich wenn der Log-Dialog f
 #: source/en/tsvn_dug/dug_showlog.xml:125
 #: (para)
 msgid "Create a branch/tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr "Einen Zweig oder eine Markierung für die gewählte Revision zu erstellen. Dies ist nützlich für den Fall dass sie vergessen haben eine bestimmte Version Ihres Projektes zu markieren und Sie seitdem bereits weitere Änderungen in das Projektarchiv übertragen haben."
+msgstr "Einen Ast oder eine Markierung für die gewählte Revision zu erstellen. Dies ist nützlich für den Fall dass sie vergessen haben eine bestimmte Version Ihres Projektes zu markieren und Sie seitdem bereits weitere Änderungen in das Projektarchiv übertragen haben."
 
 #: source/en/tsvn_dug/dug_showlog.xml:133
 #: (para)
@@ -1766,7 +1766,7 @@ msgstr "Bei einem großen Projektarchiv können hunderte oder gar tausende von �
 #: source/en/tsvn_dug/dug_showlog.xml:273
 #: (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr "Wenn die Option <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, werden keine weiteren Log-Meldungen mehr geholt, falls der Ordner / die Datei von einer anderen Stelle des Projektarchivs kopiert wurde. Dies ist insbesondere dann von Nutzen, wenn man Verzweigungen oder Markierungen betrachtet und nur die Änderungen innerhalb der Verzweigung sehen möchte."
+msgstr "Wenn die Option <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, werden keine weiteren Log-Meldungen mehr geholt, falls der Ordner / die Datei von einer anderen Stelle des Projektarchivs kopiert wurde. Dies ist insbesondere dann von Nutzen, wenn man Äste oder Marken betrachtet und nur die Änderungen innerhalb des Astes sehen möchte."
 
 #: source/en/tsvn_dug/dug_showlog.xml:282
 #: (para)
@@ -2003,7 +2003,7 @@ msgstr "Der Einstellungsdialog, Anzeige"
 #: source/en/tsvn_dug/dug_settings.xml:135
 #: (para)
 msgid "<placeholder-1/> This page allows you to specify which of the TortoiseSVN context menu entries will show up in the main context menu, and which will appear in the TortoiseSVN submenu. By default most items are checked and appear in the submenu."
-msgstr "<placeholder-1/> Auf dieser Seite können Sie einstellen, welche Einträge des TortoiseSVN Kobntextmenüs im Hauptmenü und welche im TortoiseSVN Untermenü erscheinen sollen. Standardmäßig sind die meisten Einträge markiert und erscheinen im Untermenü."
+msgstr "<placeholder-1/> Auf dieser Seite können Sie einstellen, welche Einträge des TortoiseSVN Kontextmenüs im Hauptmenü und welche im TortoiseSVN Untermenü erscheinen sollen. Standardmäßig sind die meisten Einträge markiert und erscheinen im Untermenü."
 
 #: source/en/tsvn_dug/dug_settings.xml:145
 #: (para)
@@ -2430,12 +2430,12 @@ msgstr "Ein Revisionsgraph"
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
 msgstr ""
 "<placeholder-1/>\n"
-"Manchmal möchten Sie wissen, wann Zweige oder Markierungen von trunk abgespalten wurden. Der ideale Weg, um dies zu untersuchen, ist ein Graph oder eine Baumstruktur. Dafür ist gibt es den <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Revisionsgraph</guimenuitem>. </menuchoice>"
+"Manchmal möchten Sie wissen, wann Äste oder Markierungen von trunk abgespalten wurden. Der ideale Weg, um dies zu untersuchen, ist ein Graph oder eine Baumstruktur. Dafür ist gibt es den <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Revisionsgraph</guimenuitem>. </menuchoice>"
 
 #: source/en/tsvn_dug/dug_revgraph.xml:24
 #: (para)
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted. Please note: It can take several minutes to retrieve all the data needed to create the revision graph, depending on how much the project has changed and of course your network connection to the repository."
-msgstr "Dieser Befehl analysiert die Revisionsgeschichte und versucht eine Baumstruktur mit den Punkten, in denen Kopien oder Zweige/Markierungen erstellt bzw. gelöscht wurden, darzustellen. Bitte beachten Sie das es mehrere Minuten dauern kann, bis alle Daten, die zur Erstellung des Graphen nötig sind geladen wurden. Dies ist abhängig von der Größe Ihres Projekts und natürlich von Ihrer Netzwerkverbindung zum Projektarchiv."
+msgstr "Dieser Befehl analysiert die Revisionsgeschichte und versucht eine Baumstruktur mit den Punkten, in denen Kopien oder Äste/Markierungen erstellt bzw. gelöscht wurden, darzustellen. Bitte beachten Sie das es mehrere Minuten dauern kann, bis alle Daten, die zur Erstellung des Graphen nötig sind geladen wurden. Dies ist abhängig von der Größe Ihres Projekts und natürlich von Ihrer Netzwerkverbindung zum Projektarchiv."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:36
 #: (term)
@@ -2455,7 +2455,7 @@ msgstr "Datei / Ordner gelöscht"
 #: source/en/tsvn_dug/dug_revgraph.xml:47
 #: (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off)."
-msgstr "Gelöschte Elemente wie z.B. ein Zweig, der nicht länger benötigt wird, wird als Achteck dargestellt."
+msgstr "Gelöschte Elemente wie z.B. ein Ast der nicht länger benötigt wird, wird als Achteck dargestellt."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:54
 #: (term)
@@ -2483,7 +2483,7 @@ msgstr "Das Datum, der Autor und die Log-Meldung der Revision werden in einem Hi
 #: source/en/tsvn_dug/dug_revgraph.xml:72
 #: (para)
 msgid "If you select two revisions, you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
-msgstr "Wenn Sie zwei Revisionen markieren, können Sie sich über das Kontextmenü die Unterschiede zwischen diesen Revisionen anzeigen lassen. Sie können wählen, ob Sie die Unterschiede am Anfang der Zweige anzeigen wollen. Normalerweise werden Sie die Unterschiede an den Enden, sprich die HEAD Revisionen vergleichen wollen."
+msgstr "Wenn Sie zwei Revisionen markieren, können Sie sich über das Kontextmenü die Unterschiede zwischen diesen Revisionen anzeigen lassen. Sie können wählen, ob Sie die Unterschiede am Anfang der Äste anzeigen wollen. Normalerweise werden Sie die Unterschiede an den Enden, sprich die HEAD Revisionen vergleichen wollen."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:78
 #: (para)
@@ -2611,7 +2611,7 @@ msgstr "Lassen Sie die rechte Maustaste los."
 #: source/en/tsvn_dug/dug_rename.xml:58
 #: (para)
 msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move files in Subversion to here</guimenuitem></menuchoice>"
-msgstr "Wählen Sie den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Verschiebe Datei(en) in Subversion hierher</guimenuitem> </menuchoice>"
+msgstr "Wählen Sie den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Im Projektarchiv hierher verschieben</guimenuitem> </menuchoice>"
 
 #: source/en/tsvn_dug/dug_rename.xml:37
 #: (para)
@@ -2898,7 +2898,7 @@ msgstr "Merge"
 #: source/en/tsvn_dug/dug_merge.xml:8
 #: (para)
 msgid "Where branches are used to maintain separate lines of development, at some stage you will want to merge the changes made on one branch back into the trunk, or vice versa."
-msgstr "Wenn Zweige für verschiedene Entwicklungslinien verwendet werden, werden Sie an einem bestimmten Punkt die Änderungen die Sie in einem Zweig gemacht haben wieder mit dem Hauptast zusammenführen wollen, oder umgekehrt."
+msgstr "Wenn Äste für verschiedene Entwicklungslinien verwendet werden, werden Sie an einem bestimmten Punkt die Änderungen die Sie in einem Ast gemacht haben wieder mit dem Stamm zusammenführen wollen, oder umgekehrt."
 
 #: source/en/tsvn_dug/dug_merge.xml:13
 #: (para)
@@ -2928,7 +2928,7 @@ msgstr "Einen Bereich von Revisionen zusammenführen"
 #: source/en/tsvn_dug/dug_merge.xml:53
 #: (para)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr "Diese Methode wird benutzt wenn Sie Änderungen an einem Zweig (branch) oder Stamm (trunk) der Entwicklung gemacht haben und diese nun in einem anderen Zweig (bzw. Stamm) zusammenführen möchten."
+msgstr "Diese Methode wird benutzt wenn Sie Änderungen an einem Ast (branch) oder Stamm (trunk) der Entwicklung gemacht haben und diese nun mit einem anderen Ast (bzw. Stamm) zusammenführen möchten."
 
 #: source/en/tsvn_dug/dug_merge.xml:60
 #: (title)
@@ -2938,7 +2938,7 @@ msgstr "Der Zusammenführen Dialog"
 #: source/en/tsvn_dug/dug_merge.xml:73
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
-msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des Zweiges an welcher die Änderungen enthält welche Sie mit der Arbeitskopie zusammenführen möchten. Sie können auch auf <guibutton>...</guibutton> klicken, um den gewünschten Zweig zu finden."
+msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des Astes an, der die Änderungen enthält welche Sie mit der Arbeitskopie zusammenführen möchten. Sie können auch auf <guibutton>...</guibutton> klicken, um den gewünschten Ast zu finden."
 
 #: source/en/tsvn_dug/dug_merge.xml:86
 #: (para)
@@ -2962,15 +2962,13 @@ msgstr ""
 "Im <guilabel>Von Revision</guilabel> Feld geben Sie die Anfangsrevision an. Dies ist die Revision <emphasis>vor</emphasis> den Änderungen, welche Sie mit der Arbeitskopie zusammenführen möchten. Revisionsnummern werden automatisch bei jeder Übertragung um eins erhöht. Deshalb ist es notwendig, die Revisionsnummer vor der eigentlichen Übertragung der Änderung hier anzugeben. Zum Beispiel, wenn Ihre Log-Meldungen etwa so aussehen:\n"
 "<screen>\n"
 "Rev Log-Meldung\n"
-"39. Arbeit an MeinZweig\n"
-"38. Arbeit am Hauptast (trunk)\n"
-"37. Arbeit an MeinZweig\n"
-"36. Erstelle Zweig \"MeinZweig\"\n"
-"35. Arbeit am Hauptast\n"
-"34. Arbeit am Hauptast\n"
-" ...\n"
+"39. Arbeit an MeinAst\n"
+"38. Arbeit am Stamm (trunk)\n"
+"37. Arbeit an MeinAst\n"
+"36. Erstelle Ast \"MeinAst\"\n"
+"35. Arbeit am Stamm 34. Arbeit am Stamm  ...\n"
 "</screen>\n"
-"Wenn Sie nun die Änderungen, welche Sie an MeinZweig gemacht haben, mit dem Hauptast zusammenführen möchten, müssen Sie die Revisionsnummer 36 als Anfangsrevision angeben, nicht die 37 wie Sie vielleicht denken. Wenn Sie Revision 37 als Startrevision wählen, wird die Differenzenbildung ab dieser Revision beginnen und die Änderungen aus Revision 37 nicht mitbekommen. Keine Sorge, wenn Ihnen das jetzt kopliziert vorkommt. Es gibt in TortoiseSVN einen einfachenen Weg ..."
+"Wenn Sie nun die Änderungen, welche Sie an MeinAst gemacht haben, mit dem Stamm zusammenführen möchten, müssen Sie die Revisionsnummer 36 als Anfangsrevision angeben, nicht die 37 wie Sie vielleicht denken. Wenn Sie Revision 37 als Startrevision wählen, wird die Differenzenbildung ab dieser Revision beginnen und die Änderungen aus Revision 37 nicht mitbekommen. Keine Sorge, wenn Ihnen das jetzt kopliziert vorkommt. Es gibt in TortoiseSVN einen einfachenen Weg ..."
 
 #: source/en/tsvn_dug/dug_merge.xml:122
 #: (para)
@@ -2980,7 +2978,7 @@ msgstr "Der einfachste Weg um die Revisionsnummern herauszufinden ist ein Klick 
 #: source/en/tsvn_dug/dug_merge.xml:135
 #: (para)
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Use the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 39."
-msgstr "Wenn Sie bereits Änderungen aus diesem Zweig zusammengeführt haben, so haben Sie hoffentlich auch in der Log-Meldung notiert, welche Revisionen das waren. In diesem Fall können Sie einfach mit Hilfe der <guibutton>Zeige Log</guibutton> Schaltfläche nachschauen. Verwenden Sie die Endrevision des letzten Zusammenführens als Startrevision der geplanten Aktion. Wenn Sie zum Beispiel zuletzt die Revisionen 37 bis 39 mit Ihrer Arbeitskopie zusammengeführt haben, sollte die Startrevision für die aktuelle Aktion 39 sein."
+msgstr "Wenn Sie bereits Änderungen aus diesem Ast zusammengeführt haben, so haben Sie hoffentlich auch in der Log-Meldung notiert, welche Revisionen das waren. In diesem Fall können Sie einfach mit Hilfe der <guibutton>Zeige Log</guibutton> Schaltfläche nachschauen. Verwenden Sie die Endrevision des letzten Zusammenführens als Startrevision der geplanten Aktion. Wenn Sie zum Beispiel zuletzt die Revisionen 37 bis 39 mit Ihrer Arbeitskopie zusammengeführt haben, sollte die Startrevision für die aktuelle Aktion 39 sein."
 
 #: source/en/tsvn_dug/dug_merge.xml:148
 #: (para)
@@ -3004,9 +3002,9 @@ msgstr "Klicken Sie auf <guibutton>OK</guibutton>, um das Zusammenführen anzust
 msgid "<placeholder-1/> To merge revisions you need to go to a working copy of the branch in which you want to receive the changes, often the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-2/> The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
 msgstr ""
 "<placeholder-1/>\n"
-"Um Revisionen mit einem Zweig zusammenzuführen, müssen Sie eine Arbeitskopie des Ziel-Zweiges haben, meist ist dies der Stamm. Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zusammenführen...</guimenuitem> </menuchoice> aus dem Kontext-Menu.\n"
+"Um Revisionen mit einem Ast zusammenzuführen, müssen Sie eine Arbeitskopie des Ziel-Astes haben, meist ist dies der Stamm. Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zusammenführen...</guimenuitem> </menuchoice> aus dem Kontextmenü.\n"
 "<placeholder-2/>\n"
-"Das Zusammenführen ist nun beendet. Es ist nun empfehlenswert nicht nur die Meldungen des Vorgangs zu studieren sondern auch die Arbeitskopie zu überprüfen, ob der Vorgang auch wie gewünscht ausgefallen ist. Zusammenführen von Änderungen ist für gewöhnlich ein bisschen kompliziert, und Konflikte können vor allem dann auftreten, wenn der Zweig sich zu weit vom Hauptstamm entfernt hat."
+"Das Zusammenführen ist nun beendet. Es ist nun empfehlenswert nicht nur die Meldungen des Vorgangs zu studieren sondern auch die Arbeitskopie zu überprüfen, ob der Vorgang auch wie gewünscht ausgefallen ist. Zusammenführen von Änderungen ist für gewöhnlich ein bisschen kompliziert, und Konflikte können vor allem dann auftreten, wenn der Ast sich zu weit vom Stamm entfernt hat."
 
 #: source/en/tsvn_dug/dug_merge.xml:173
 #: (para)
@@ -3016,7 +3014,7 @@ msgstr "Wenn Sie die Änderungen überprüft haben und diese nun übertragen mö
 #: source/en/tsvn_dug/dug_merge.xml:189
 #: (para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
-msgstr "Das Verfolgen von Verzweigungen ist wichtig. Falls Sie Ihren Zweig stets mit dem Stamm synchron halten wollen, stellen Sie sicher, dass Sie Änderungen häufig zusammenführen, damit Stamm und Zweig nicht zu weit auseinanderdriften. Wie bereits erklärt sollten Sie wiederholtes Zusammenführen der gleichen Änderungen vermeiden."
+msgstr "Das Verfolgen von Verzweigungen ist wichtig. Falls Sie Ihren Ast stets mit dem Stamm synchron halten wollen, stellen Sie sicher, dass Sie Änderungen häufig zusammenführen, damit Stamm und Ast nicht zu weit auseinanderdriften. Wie bereits erklärt sollten Sie wiederholtes Zusammenführen der gleichen Änderungen vermeiden."
 
 #: source/en/tsvn_dug/dug_merge.xml:196
 #: (para)
@@ -3026,22 +3024,22 @@ msgstr "Subversion kann keine Datei mit einem Ordner zusammenführen und umgekeh
 #: source/en/tsvn_dug/dug_merge.xml:207
 #: (title)
 msgid "Merging Two Different Trees"
-msgstr "Zusammenführen zweier Zweige"
+msgstr "Zusammenführen zweier Bäume"
 
 #: source/en/tsvn_dug/dug_merge.xml:208
 #: (para)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Diese Methode behandelt den Fall dass Sie einen Funktionszweig (feature branch), wie im Subversion Buch behandelt, haben. Alle Änderungen am Hauptast wurden mit dem Zweig Woche für Woche zusammengeführt, und nun möchten Sie, da die Funktion im Funktionszweig fertig ist diese mit dem Hauptast zusammenführen. Weil Sie den Funktionszweig immer mit dem Hauptast synchronisiert haben, sind die letzten Versionen des Funktionszweiges und des Hauptstamms, mit Ausnahme der auf dem Funktionszweig implementierten Funktion identisch. In diesem speziellen Fall können Sie das Zusammenführen durch einen Vergleich des Funktionszweigs mit dem Hauptstamm durchführen."
+msgstr "Diese Methode behandelt den Fall dass Sie einen Funktionszweig (feature branch), wie im Subversion Buch behandelt, haben. Alle Änderungen am Stamm wurden mit dem Ast Woche für Woche zusammengeführt, und nun möchten Sie, da die Funktion im Funktionszweig fertig ist, diese mit dem Stamm zusammenführen. Weil Sie den Funktionszweig immer mit dem Stamm synchronisiert haben, sind die letzten Versionen des Funktionszweiges und des Stammes, mit Ausnahme der auf dem Funktionszweig implementierten Funktion identisch. In diesem speziellen Fall können Sie das Zusammenführen durch einen Vergleich des Funktionszweigs mit dem Stamm durchführen."
 
 #: source/en/tsvn_dug/dug_merge.xml:229
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des <emphasis>Hauptstamms</emphasis> an (trunk). Dies mag Ihnen jetzt vielleicht falsch vorkommen, aber bedenken Sie dass der Hauptstamm der Ausgangspunkt ist von dem aus Sie die Änderungen des Funktionszweigs zusammenführen möchten. Sie können auch auf <guibutton>...</guibutton> klicken um die URL besser zu finden."
+msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des <emphasis>Stammes</emphasis> an (trunk). Dies mag Ihnen jetzt vielleicht falsch vorkommen, aber bedenken Sie dass der Stamm der Ausgangspunkt ist von dem aus Sie die Änderungen des Funktionszweigs zusammenführen möchten. Sie können auch auf <guibutton>...</guibutton> klicken um die URL besser zu finden."
 
 #: source/en/tsvn_dug/dug_merge.xml:240
 #: (para)
 msgid "Because you are comparing two different trees, make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is <emphasis>not</emphasis> checked."
-msgstr "Weil Sie zwei unterschiedliche Zweige (Funktionszweig und Hauptstamm) vergleichen, stellen Sie sicher dass die Option <guilabel>Nutze <quote>Von:</quote> URL</guilabel> <emphasis>nicht</emphasis> gewählt ist."
+msgstr "Weil Sie zwei unterschiedliche Äste (Funktionszweig und Stamm) vergleichen, stellen Sie sicher dass die Option <guilabel>Nutze <quote>Von:</quote> URL</guilabel> <emphasis>nicht</emphasis> gewählt ist."
 
 #: source/en/tsvn_dug/dug_merge.xml:247
 #: (para)
@@ -3051,7 +3049,7 @@ msgstr "Im <guilabel>Zu:</guilabel> Feld geben Sie die URL des Funktionszweiges 
 #: source/en/tsvn_dug/dug_merge.xml:253
 #: (para)
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
-msgstr "Sowohl im <guilabel>Von Revision</guilabel> Feld als auch im <guilabel>Zu Revision</guilabel> Feld geben Sie die letzte Revision an in der die beiden Zweige synchron waren. Wenn Sie sicher sind dass niemand anders seit Ihrer letzen Synchronisation eine Übertragung gemacht hat, können Sie in beiden Feldern die <literal>HEAD</literal> Revision angeben. Falls jedoch in der Zwischenzeit die Möglichkeit einer Übertragung besteht, geben Sie die letzte Revision ihrer Synchronisation an."
+msgstr "Sowohl im <guilabel>Von Revision</guilabel> Feld als auch im <guilabel>Zu Revision</guilabel> Feld geben Sie die letzte Revision an in der die beiden Äste synchron waren. Wenn Sie sicher sind dass niemand anders seit Ihrer letzen Synchronisation eine Übertragung gemacht hat, können Sie in beiden Feldern die <literal>HEAD</literal> Revision angeben. Falls jedoch in der Zwischenzeit die Möglichkeit einer Übertragung besteht, geben Sie die letzte Revision ihrer Synchronisation an."
 
 #: source/en/tsvn_dug/dug_merge.xml:263
 #: (para)
@@ -3062,13 +3060,13 @@ msgstr "Sie können ebenfalls <guibutton>Zeige Log</guibutton> verwenden, um die
 #: (para)
 msgid "To merge the feature branch back into the trunk you need to go to a working copy of the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-1/>"
 msgstr ""
-"Um den Funktionszweig mit dem Stamm zusammenzuführen, müssen Sie erst zur Arbeitskopie des Stamms gehen. Dann wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zusammenführen...</guimenuitem> </menuchoice> aus dem Kontext-Menu.\n"
+"Um den Funktionszweig mit dem Stamm zusammenzuführen, müssen Sie erst zur Arbeitskopie des Stamms gehen. Dann wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zusammenführen...</guimenuitem> </menuchoice> aus dem Kontextmenü.\n"
 "<placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_merge.xml:278
 #: (para)
 msgid "In this case you will not need the feature branch again because the new feature is now integrated into the trunk. The feature branch is redundant and can be deleted from the repository if required."
-msgstr "In diesem Falle werden Sie den Funktionszweig kaum mehr benötigen weil die Funktion jetzt ja im Hauptstamm integriert ist. Der Funktionszweig ist also nicht mehr nötig und kann deshalb gelöscht werden."
+msgstr "In diesem Falle werden Sie den Funktionszweig kaum mehr benötigen weil die Funktion jetzt ja im Stamm integriert ist. Der Funktionszweig ist also nicht mehr nötig und kann deshalb gelöscht werden."
 
 #: source/en/tsvn_dug/dug_merge.xml:287
 #: (title)
@@ -3283,7 +3281,7 @@ msgstr "Bevor Sie Daten in das Projektarchiv importieren sollten Sie sich Gedank
 #: source/en/tsvn_dug/dug_import.xml:19
 #: (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the \"main line\" of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr "Es gibt ein paar empfohlene Standards um die Daten innerhalb eines Projektarchivs zu organisieren. Die meisten Leute erstellen einen <filename>trunk</filename> Ordner, der den Stamm der Entwicklung enthält, einen <filename>branches</filename> Ordner, welcher Sonder-Entwicklungszweige (Äste) enthält und einen <filename>tags</filename> Ordner, der markierte Zustände enthält. Wenn ein Projektarchiv nur ein einziges Projekt enthält ist die folgende Struktur zu empfehlen:"
+msgstr "Es gibt ein paar empfohlene Standards um die Daten innerhalb eines Projektarchivs zu organisieren. Die meisten Leute erstellen einen <filename>trunk</filename> Ordner, der den Stamm der Entwicklung enthält, einen <filename>branches</filename> Ordner, welcher Entwicklungszweige (Äste) enthält und einen <filename>tags</filename> Ordner, der markierte Zustände enthält. Wenn ein Projektarchiv nur ein einziges Projekt enthält ist die folgende Struktur zu empfehlen:"
 
 #: source/en/tsvn_dug/dug_import.xml:28
 #: (screen)
@@ -3612,7 +3610,7 @@ msgstr "Kontextmenü für einen Ordner unter Versionskontrolle"
 #: source/en/tsvn_dug/dug_general.xml:9
 #: (para)
 msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context menu of the windows explorer. Most are directly visible, when you <action>right click</action> on a file or folder. The commands that are available depend on whether the file or folder or its parent folder is under version control or not."
-msgstr "<placeholder-1/> Alle Befehle von TortoiseSVN werden über das Kontext-Menü des Windows  Explorers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie einen <action>Recht-Klick</action> auf eine Datei oder Ordner machen. Welche Befehle angezeigt werden, hängt davon ab ob Sie auf eine Datei oder einen Ordner geklickt haben und ob der übergeordnete Ordner unter Versionskontrolle steht oder nicht."
+msgstr "<placeholder-1/> Alle Befehle von TortoiseSVN werden über das Kontextmenü des Windows  Explorers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie einen <action>Recht-Klick</action> auf eine Datei oder Ordner machen. Welche Befehle angezeigt werden, hängt davon ab ob Sie auf eine Datei oder einen Ordner geklickt haben und ob der übergeordnete Ordner unter Versionskontrolle steht oder nicht."
 
 #: source/en/tsvn_dug/dug_general.xml:21
 #: (title)
@@ -4105,7 +4103,7 @@ msgstr "Es kommt vor dass Sie eine Kopie Ihres Projektes möchten, aber ohne die
 #: source/en/tsvn_dug/dug_checkout.xml:65
 #: (para)
 msgid "Another way to do an export is by right-dragging a working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
-msgstr " Eine andere Möglichkeit zu exportieren geht durch <action>Rechts-ziehen<action> eines Arbeitskopieordners an einen anderen Ort. Dann einfach im Kontextmenü <menuchoice> <guimenu>Context Menu</guimenu> <guimenuitem>Subversion hier exportieren</guimenuitem> </menuchoice> oder  <menuchoice> <guimenu>Context Menu</guimenu> <guimenuitem>Subversion hier alle exportieren</guimenuitem> </menuchoice> wählen."
+msgstr " Eine andere Möglichkeit zu exportieren geht durch <action>Rechts-ziehen<action> eines Arbeitskopieordners an einen anderen Ort. Dann einfach <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Subversion hier exportieren</guimenuitem> </menuchoice> oder  <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Subversion hier alle exportieren</guimenuitem> </menuchoice> wählen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:3
 #: (title)
@@ -4290,7 +4288,7 @@ msgstr "copy"
 #: source/en/tsvn_dug/dug_branchtag.xml:14
 #: (para)
 msgid "One of the features of version control systems is the ability to isolate changes onto a separate line of development. This line is known as a <firstterm>branch</firstterm>. Branches are often used to try out new features without disturbing the main line of development with compiler errors and bugs. As soon as the new feature is stable enough then the development branch is <firstterm>merged</firstterm> back into the main branch (trunk)."
-msgstr "Eine der Funktionen von Versionskontrollsystemen ist die Möglichkeit bestimmte isolierte Änderungen auf einer separaten Entwicklungslinie zu machen. Solche Linien werden <literal>Zweige</literal> genannt. Zweige werden üblicherweise dazu benutzt, um neue Funktionen auszutesten, ohne dadurch die normale Entwicklung am Projekt zu stören. Sobald dann eine solche neue Funktion stabil genug ist, wird der Zweig mit dem Hauptstamm (<filename>trunk</filename>) zusammengeführt."
+msgstr "Eine der Funktionen von Versionskontrollsystemen ist die Möglichkeit bestimmte isolierte Änderungen auf einer separaten Entwicklungslinie zu machen. Solche Linien werden <literal>Äste</literal> genannt. Äste werden üblicherweise dazu benutzt, um neue Funktionen auszutesten, ohne dadurch die normale Entwicklung am Projekt zu stören. Sobald dann eine solche neue Funktion stabil genug ist, wird der Ast mit dem Stamm (<filename>trunk</filename>) zusammengeführt."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:24
 #: (para)
@@ -4300,7 +4298,7 @@ msgstr "Eine andere wichtige Funktion ist die Möglichkeit, bestimmte Zustände 
 #: source/en/tsvn_dug/dug_branchtag.xml:30
 #: (para)
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <literal>cheap copies</literal> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr "Subversion kennt keinen speziellen Befehl für das Verzweigen oder Markieren. Subversion benutzt stattdessen so genannte <literal>billige Kopien</literal>. Diese funktionieren ähnlich wie Links, d.h. es wird keine richtige Kopie erstellt sondern nur eine Verknüpfung auf eine bestimmte Revision. Daraus ergibt sich, dass Verzweigungen oder Markierungen schnell zu erstellen sind und nahezu keinen zusätzlichen Platz im Projektarchiv benötigen."
+msgstr "Subversion kennt keinen speziellen Befehl für das Verzweigen oder Markieren. Subversion benutzt stattdessen so genannte <literal>billige Kopien</literal>. Diese funktionieren ähnlich wie Verweise, d.h. es wird keine richtige Kopie erstellt sondern nur eine Verweis auf eine bestimmte Revision. Daraus ergibt sich, dass Verzweigungen oder Markierungen schnell zu erstellen sind und nahezu keinen zusätzlichen Platz im Projektarchiv benötigen."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:40
 #: (title)
@@ -4340,7 +4338,7 @@ msgstr "HEAD Revision im Projektarchiv"
 #: source/en/tsvn_dug/dug_branchtag.xml:77
 #: (listitem)
 msgid "The new branch is copied directly in the repository from the HEAD revision. No data needs to be transferred from your working copy, and the branch is created very quickly."
-msgstr "Der neue Zweig wird direkt im Projektarchiv als Kopie der HEAD Revision erstellt. Dabei werden keine Daten von Ihrer Arbeitskopie in das Projektarchiv übertragen und der Zweig kann sehr schnell erzeugt werden."
+msgstr "Der neue Ast wird direkt im Projektarchiv als Kopie der HEAD Revision erstellt. Dabei werden keine Daten von Ihrer Arbeitskopie in das Projektarchiv übertragen und der Ast kann sehr schnell erzeugt werden."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:85
 #: (term)
@@ -4350,7 +4348,7 @@ msgstr "Revisionsnummer im Projektarchiv"
 #: source/en/tsvn_dug/dug_branchtag.xml:86
 #: (listitem)
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
-msgstr "Der neue Zweig wird direkt im Projektarchiv kopiert, Sie können aber auch eine ältere Revision auswählen. Das ist dann nützlich, wenn Sie z.B. vergessen haben eine Markierung zu erstellen, als das Release in der letzen Woche erstellt wurde. Wenn Sie sich nicht mehr an die Revisionsnummer erinnern können, dann klicken Sie auf die Schaltfläche rechts und wählen die Revisionsnummer aus. Auch dabei werden keine Daten aus Ihrer Arbeitskopie an das Projektarchiv übertragen, so dass der Zweig sehr schnell erstellt werden kann."
+msgstr "Der neue Ast wird direkt im Projektarchiv kopiert, Sie können aber auch eine ältere Revision auswählen. Das ist dann nützlich, wenn Sie z.B. vergessen haben eine Markierung zu erstellen, als das Release in der letzen Woche erstellt wurde. Wenn Sie sich nicht mehr an die Revisionsnummer erinnern können, dann klicken Sie auf die Schaltfläche rechts und wählen die Revisionsnummer aus. Auch dabei werden keine Daten aus Ihrer Arbeitskopie an das Projektarchiv übertragen, so dass der Ast sehr schnell erstellt werden kann."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:98
 #: (term)
@@ -4360,7 +4358,7 @@ msgstr "Arbeitskopie"
 #: source/en/tsvn_dug/dug_branchtag.xml:99
 #: (listitem)
 msgid "The new branch is an identical copy of your local working copy. If you have updated some files to an older revision in your WC, or if you have made local changes, that is exactly what goes into the copy. Naturally this sort of complex tag may involve transferring data from your WC back to the repository if it does not exist there already."
-msgstr "Der neue Zweig ist eine identische Kopie Ihrer lokalen Arbeitskopie. Egal ob Sie einige Dateien durch die einer älteren Revision ersetzt haben, oder sie geändert haben, diese Dateien sind genau die, die in diesen Zweig kopiert werden. Natürlich erfordert diese aufwändige Markierung, dass Daten von Ihrer Arbeitskopie zurück in das Projektarchiv übertragen werden müssen, sofern sie dort noch nicht existieren. "
+msgstr "Der neue Ast ist eine identische Kopie Ihrer lokalen Arbeitskopie. Egal ob Sie einige Dateien durch die einer älteren Revision ersetzt haben, oder sie geändert haben, diese Dateien sind genau die, die in diesen Ast kopiert werden. Natürlich erfordert diese aufwändige Markierung, dass Daten von Ihrer Arbeitskopie zurück in das Projektarchiv übertragen werden müssen, sofern sie dort noch nicht existieren. "
 
 #: source/en/tsvn_dug/dug_branchtag.xml:71
 #: (para)
@@ -4375,7 +4373,7 @@ msgstr "Klicken Sie <guibutton>OK</guibutton>, um die neue Kopie in das Projekta
 #: source/en/tsvn_dug/dug_branchtag.xml:116
 #: (para)
 msgid "Note that creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you copy your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified."
-msgstr "Beachten Sie, dass das Anlegen eines Zweiges oder einer Markierung sich <emphasis>nicht</emphasis> auf ihre Arbeitskopie auswirkt. Auch wenn Sie eine Kopie der Arbeitskopie erstellen, werden die Änderungen darin in den neuen Zweig übertragen und nicht in den Hauptzweig. Die geänderten Dateien ihrer Arbeitskopie bleiben als geändert markiert."
+msgstr "Beachten Sie, dass das Anlegen eines Astes oder einer Markierung sich <emphasis>nicht</emphasis> auf ihre Arbeitskopie auswirkt. Auch wenn Sie eine Kopie der Arbeitskopie erstellen, werden die Änderungen darin in den neuen Ast übertragen und nicht in den Stamm. Die geänderten Dateien ihrer Arbeitskopie bleiben als geändert markiert."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:125
 #: (title)
@@ -4390,27 +4388,27 @@ msgstr "switch"
 #: source/en/tsvn_dug/dug_branchtag.xml:130
 #: (para)
 msgid "...that is (not really) the question. While a checkout checks out everything from the desired branch into your working directory, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> only transfers the changed data to your working copy. Good for the network load, good for your patience. :-)"
-msgstr "...das ist hier (eigentlich nicht) die Frage. Während beim Auschecken eine neue Arbeitskopie erstellt wird (z.B. des neu estellten Zweiges) verändert der Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> Ihre bestehende Arbeitskopie so, dass diese genau wie auf dem erstellten Zweig aussieht. Dabei werden nur die Unterschiede zwischen Ihrer bestehenden Arbeitskopie und dem Zweig des Projektarchivs übertragen, was natürlich günstig auf die Netzwerkauslastung und Ihre Geduld auswirkt."
+msgstr "...das ist hier (eigentlich nicht) die Frage. Während beim Auschecken eine neue Arbeitskopie erstellt wird (z.B. des neu estellten Astes) verändert der Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> Ihre bestehende Arbeitskopie so, dass diese genau wie der erstellte Ast aussieht. Dabei werden nur die Unterschiede zwischen Ihrer bestehenden Arbeitskopie und dem Ast des Projektarchivs übertragen, was sich natürlich günstig auf die Netzwerkauslastung und Ihre Geduld auswirkt."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:146
 #: (para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> to make a fresh checkout in an empty folder. You can check out to any location on your local disk and you can create as many working copies from your repository as you like."
-msgstr ""
+msgstr "<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auschecken</guimenuitem> </menuchoice>, um eine neue Arbeitskopie in einem leeren Verzeichnis zu erstellen. Sie können von einem Projektarchiv so viele Arbeitskopien erstellen, wie Sie möchten."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:158
 #: (para)
 msgid "Switch your current working copy to the newly created copy in the repository. Again select the top level folder of your project and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
-msgstr "Wechseln Sie mit Ihrer Arbeitskopie zu ihrer neuen Kopie im Projektarchive. Dazu wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> aus dem Kontextmenü."
+msgstr "Wechseln Sie mit Ihrer Arbeitskopie zu ihrer neuen Kopie im Projektarchiv. Dazu wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> aus dem Kontextmenü."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:168
 #: (para)
 msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch/tag."
-msgstr ""
+msgstr "Im folgenden Dialog geben Sie die URL des Astes an URL den Sie gerade erzeugt haben. Wählen Sie die <guilabel>HEAD Revision</guilabel> Option und bestätigen Sie mit <guibutton>OK</guibutton>. Ihre Arbeitskopie wird nun auf den neuen Ast / die neue Markierung umgestellt."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:176
 #: (para)
 msgid "Switch works just like Update in that it never discards your local changes. Any changes you have made to your working copy which have not yet been committed will be merged when you do the Switch. If you do not want this to happen then you must either commit the changes before switching, or revert your working copy to an already-committed revision (typically HEAD)."
-msgstr ""
+msgstr "<quote>Wechseln zu</quote> wird genau so wie <quote>Aktualisieren</quote> niemals lokale Änderungen verwerfen. Sämtliche noch nicht übertragene Änderungen werden beim Wechseln mit den Daten aus dem Projektarchiv zusammengeführt. Wenn Sie das nicht wünschen, müssen Sie entweder die Änderungen übertragen oder verwerfen, bevor Sie <quote>Wechseln zu</quote> aufrufen."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:187
 #: (title)
@@ -4420,22 +4418,22 @@ msgstr "Der Wechseln-Zu Dialog"
 #: source/en/tsvn_dug/dug_branchtag.xml:141
 #: (para)
 msgid "To be able to work with your freshly generated copy you have several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
-msgstr ""
+msgstr "Es gibt mehrere Möglichkeiten, mit Ihrer neuen Kopie weiterzuarbeiten. Sie können: <placeholder-1/><placeholder-2/>"
 
 #: source/en/tsvn_dug/dug_branchtag.xml:196
 #: (para)
 msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr ""
+msgstr "Tags (=Marken) werden typischerweise dafür verwendet, einen Entwicklungszeitpunkt einzufrieren . Als solche werden sie normalerweise nicht für die Weiterentwicklung genutzt. Dafür sind <literal>branches</literal> gedacht. Das ist auch der Hauptgrund, warum wir die <filename>/trunk /branches /tags</filename> Struktur für Projektarchive empfehlen. Änderungen an einer markierten Revision vorzunehmen ist <emphasis>keine gute Idee</emphasis>, aber da die Daten in Ihrer Arbeitskopie nicht schreibgeschützt sind, kann es aus Versehen doch passieren. TortoiseSVN wird Sie jedoch warnen, wenn Sie versuchen, Änderungen in einem Pfad im Projektarchiv zu übertragen, den die Zeichenfolge <literal>/tags</literal> enthält."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:212
 #: (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
-msgstr ""
+msgstr "Möglicherweise wollen Sie doch weitere Änderungen an einer Revision vornehmen, die Sie bereits markiert haben. Die korrekte Vorgehensweise ist, zunächst per Verzweigen/Markieren einen neuen Ast aus der Marke (z.B. <filename>/branches/Version_1.0.x</filename> aus <filename>/tags/Version_1.0</filename>) zu erzeugen und die Änderungen auf dem Ast durchzuführen. Wenn Sie Ihre Änderungen durchgeführt haben, erzeugen Sie eine neue Marke z.B. <filename>/tags/Version_1.0.1</filename> aus dem Ast an dem Sie gearbeitet haben."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:222
 #: (para)
 msgid "If you modify a working copy created from a branch and commit, then all changes go to the new branch and <emphasis>not</emphasis> the trunk. Only the modifications are stored. The rest remains a cheap copy."
-msgstr ""
+msgstr "Wenn Sie eine Arbeitskopie, die auf einem Ast basiert verändern und die Änderungen übertragen, gehen diese in den neuen Ast und <emphasis>nicht</emphasis> in trunk. Nur die Unterschiede werden gespeichert. Der Rest bleibt eine billige Kopie."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:191
 #: (para)
@@ -4550,7 +4548,7 @@ msgstr "Wählen Sie die Dateien zum hinzufügen"
 #: source/en/tsvn_dug/dug_add.xml:61
 #: (para)
 msgid "select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Add files to Subversion here</guimenuitem></menuchoice>. The files will then be copied to the working copy and added to version control."
-msgstr "Im erscheinenden Popupmenü wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Dateien zu Subversion hier hinzufügen</guimenuitem> </menuchoice>. Die Dateien werden dann in die Arbeitskopie kopiert und zur Versionskontrolle hinzugefügt."
+msgstr "Wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Dateien zu Subversion hier hinzufügen</guimenuitem> </menuchoice>. Die Dateien werden dann in die Arbeitskopie kopiert und zur Versionskontrolle hinzugefügt."
 
 #: source/en/tsvn_dug/dug_add.xml:40
 #: (para)
@@ -4970,7 +4968,7 @@ msgstr "Effizientes Verzweigen und Markieren"
 #: source/en/tsvn_introduction.xml:214
 #: (para)
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
-msgstr "Die Kosten für Verzweigen und Markieren müssen nicht proportional zur Projektgröße sein. Subversion erstellt Verzweigungen und Markierungen durch einfaches Kopieren des Projektes. Dabei wird ein Mechanismus ähnlich dem eines Links verwendet. Diese Operationen benötigen deshalb nur wenig Zeit und Speicherplatz."
+msgstr "Die Kosten für Verzweigen und Markieren müssen nicht proportional zur Projektgröße sein. Subversion erstellt Verzweigungen und Markierungen durch einfaches Kopieren des Projektes. Dabei wird ein Mechanismus ähnlich dem eines Verweises verwendet. Diese Operationen benötigen deshalb nur wenig Zeit und Speicherplatz."
 
 #: source/en/tsvn_introduction.xml:225
 #: (term)
@@ -5578,32 +5576,32 @@ msgstr "Wie kann ich..."
 #: source/en/tsvn_app_howto.xml:5
 #: (para)
 msgid "This appendix contains solutions to problems/questions you might have when using TortoiseSVN."
-msgstr ""
+msgstr "Dieser Anhang enthält Lösungen zu einigen Problemen / Fragen, die bei der Arbeit mit TortoiseSVN auftreten können."
 
 #: source/en/tsvn_app_howto.xml:12
 #: (title)
 msgid "Move/copy a lot of files at once"
-msgstr ""
+msgstr "Viele Dateien auf einmal verschieben / kopieren"
 
 #: source/en/tsvn_app_howto.xml:14
 #: (primary)
 msgid "moving"
-msgstr ""
+msgstr "Verschieben"
 
 #: source/en/tsvn_app_howto.xml:16
 #: (para)
 msgid "Moving/Copying single files can be done by using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rename...</guimenuitem></menuchoice>. But if you want to move/copy a lot of files, this way is just too slow and too much work."
-msgstr ""
+msgstr "Einzelne Dateien können auch mit Hilfe des <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Umbenennen...</guimenuitem> </menuchoice> Befehls verschoben werden, aber wenn Sie viele Dateien verschieben wollen, ist das zu langsam und zu viel Arbeit."
 
 #: source/en/tsvn_app_howto.xml:25
 #: (para)
 msgid "The recommended way is by <action>right-dragging</action> the files to the new location. Simply <action>right-click</action> on the files you want to move/copy without releasing the mouse button. Then drag the files to the new location and release the mouse button. A context menu will appear where you can either choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy in Subversion to here</guimenuitem></menuchoice>. or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move in Subversion to here</guimenuitem>. </menuchoice>."
-msgstr ""
+msgstr "Der empfohlene Wegn ist die Dateien mittels <action>Rechts-Ziehen</action> an den gewünschten Ort zu befördern. Machen Sie einen <action>Rechts-Klick</action> auf die Dateien, die Sie verschieben / kopieren wollen, ohne die rechte Maustaste loszulassen. Dann ziehen Sie die Dateien an den neuen Ort und lassen die rechte Maustaste los. Ein Kontextmenü erscheint, aus dem Sie entweder <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Im Projektarchiv hierher kopieren</guimenuitem> </menuchoice> oder <menuchoice> <guimenu>Kontextmenü</guimenu><guimenuitem>Im Projektarchiv hierher verschieben</guimenuitem> </menuchoice> wählen können."
 
 #: source/en/tsvn_app_howto.xml:44
 #: (title)
 msgid "Force users to enter a log message"
-msgstr "Zwinge Anwender eine Log-Meldung einzugeben"
+msgstr "Anwender zwingen eine Log-Meldung einzugeben"
 
 #: source/en/tsvn_app_howto.xml:46
 #: (primary)
@@ -5613,127 +5611,127 @@ msgstr "Log-Meldung"
 #: source/en/tsvn_app_howto.xml:48
 #: (para)
 msgid "There are two ways to prevent users from committing with an empty log message. One is specific to TortoiseSVN, the other works for all Subversion clients, but requires access to the server directly."
-msgstr ""
+msgstr "Es gibt zwei Wege, die Anwender dazu zu bringen, eine Log-Meldung einzugeben. Eine Methode geht nur mit TortoiseSVN, die andere funktioniert mit allen Subversion Clients, erfordert jedoch direkten Zugriff auf den Server."
 
 #: source/en/tsvn_app_howto.xml:54
 #: (title)
 msgid "Hook-script on the server"
-msgstr ""
+msgstr "Aktionsskript auf dem Server"
 
 #: source/en/tsvn_app_howto.xml:55
 #: (para)
 msgid "If you have direct access to the repository server, you can install a pre-commit hook script which rejects all commits with an empty or too short log message."
-msgstr ""
+msgstr "Wenn Sie direkten Zugriff auf den Subversion Server haben, können Sie ein <literal>pre-commit</literal> Aktionsskript installieren, das alle Übertragungen mit leeren oder zu kurzen Log-Meldungen ablehnt."
 
 #: source/en/tsvn_app_howto.xml:60
 #: (para)
 msgid "In the repository folder on the server, there's a subfolder <filename>hooks</filename> which contains some example hook scripts you can use. The file <filename>pre-commit.tmpl</filename> contains a sample script which will reject commits if no log message is supplied, or the message is too short. The file also contains comments on how to install/use this script. Just follow the instructions in that file."
-msgstr ""
+msgstr "Im Projektarchivordner auf dem Server gibt es einen Unterordner namens <filename>hooks</filename>, der die Aktionsskripte enthält. Die Datei <filename>pre-commit.tmpl</filename> enthält ein Beispielskript, das leere Log-Meldungen verwirft. Diese Datei enthält auch Hinweise zur Installation des Skriptes. Folgen Sie den Anweisungen in dieser Datei."
 
 #: source/en/tsvn_app_howto.xml:70
 #: (para)
 msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled until the log message is long enough then please use the method described below."
-msgstr ""
+msgstr "Diese Methode wird empfohlen, wenn Ihre Anwender auch ander Subversion Clients als TortoiseSVN benutzen. Der Nachteil ist, dass die Übertragung vom Server abgelehnt wird und das die Anwender eine Fehlermeldung erhalten. Das Clientprogramm kann vor der Übertragung nicht wissen, dass diese abgelehnt werden wird. Wenn Sie möchten, dass TortoiseSVN die <guibutton>OK</guibutton> Schaltfläche deaktiviert, wenn die Log-Meldung nicht lang genug ist, benutzen Sie die untenstehende Methode."
 
 #: source/en/tsvn_app_howto.xml:81
 #: (title)
 msgid "Project properties"
-msgstr "Projekteigenschaften"
+msgstr "Projekteigenschaft setzen"
 
 #: source/en/tsvn_app_howto.xml:82
 #: (para)
 msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:minlogsize</literal> property."
-msgstr ""
+msgstr "TortoiseSVN verwendet Eigenschaften, um einige seiner Funktionen zu steuern. Eine davon ist die <literal>tsvn:minlogsize</literal> Eigenschaft."
 
 #: source/en/tsvn_app_howto.xml:86
 #: (para)
 msgid "If you set that property on a folder, then TortoiseSVN will disable the <guibutton>OK</guibutton> button in all commit dialogs until the user has entered a log message with at least the length specified in the property."
-msgstr ""
+msgstr "Wenn Sie diese Eigenschaft eines Ordners auf einen Zahlenwert setzen, deaktiviert TortoiseSVN so lange die <guibutton>OK</guibutton> Schaltfläche im allen Übertragen Dialogen, bis der Anwender eine Log-Meldung eingegeben hat, die mindestens so lang wie der angegebene Zahlenwert ist."
 
 #: source/en/tsvn_app_howto.xml:91
 #: (para)
 msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-DUG-propertypage\"/>"
-msgstr ""
+msgstr "Für detaillierte Informationen über Projekteigenschaften schlagen Sie bitte in <xref linkend=\"tsvn-DUG-propertypage\"/> nach."
 
 #: source/en/tsvn_app_howto.xml:99
 #: (title)
 msgid "Update selected files from the repository"
-msgstr "Aktualisiere gewählte Dateien aus dem Projektarchiv"
+msgstr "Gezielt Dateien aus dem Projektarchiv aktualisieren"
 
 #: source/en/tsvn_app_howto.xml:103
 #: (para)
 msgid "Normally you update your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. But if you only want to pick up some new files that a colleague has added without merging in any changes to other files at the same time, you need a different approach."
-msgstr ""
+msgstr "Normalerweise bringen Sie Ihre Arbeitskopie mit <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Aktualisieren</guimenuitem> </menuchoice> auf den neuesten Stand. Wenn Sie aber nur ein paar Dateien aktualisieren wollen, ohne Änderungen in anderen Dateien zu übernehmen, müssen Sie anders vorgehen."
 
 #: source/en/tsvn_app_howto.xml:113
 #: (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice>. and click on <guibutton>Check repository</guibutton> to see what has changed in the repository. Select the files you want to update locally, then use the context menu to update just those files."
-msgstr ""
+msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen prüfen</guimenuitem> </menuchoice> und Klicken Sie auf <guibutton>Projektarchiv prüfen</guibutton>, um zu sehen, was sich dort geändert hat. Markieren Sie die Dateien, die Sie aktualisieren wollen und Aktualisieren Sie diese aus dem Kontextmenü des Dialogs."
 
 #: source/en/tsvn_app_howto.xml:126
 #: (title)
 msgid "Roll back revisions in the repository"
-msgstr ""
+msgstr "Revisionen im Projektarchiv rückgängig machen"
 
 #: source/en/tsvn_app_howto.xml:128
 #: (primary)
 msgid "rollback"
-msgstr ""
+msgstr "Rückgängig"
 
 #: source/en/tsvn_app_howto.xml:131
 #: (title)
 msgid "Use the revision log dialog"
-msgstr ""
+msgstr "Mit Hilfe des Log-Dialogs"
 
 #: source/en/tsvn_app_howto.xml:132
 #: (para)
 msgid "The easiest way to revert the changes from a single revision is to use the revision log dialog."
-msgstr ""
+msgstr "Es gibt mehrere Methoden, das Projektarchiv in einen früheren Zustand zurück zu versetzen.Der einfachste Weg, Änderungen einer einzelnen Revision rückgängig zu machen nutzt den Log-Dialog."
 
 #: source/en/tsvn_app_howto.xml:138
 #: (para)
 msgid "Select the file or folder in which you need to revert the changes. If you want to revert all changes, this should be the top level folder."
-msgstr ""
+msgstr "Markiere Sie den Ordner, in dem Sie die Änderungen rückgängig machen wollen. Wenn Sie alle Änderungen rückgängig machen wollen, ist das der oberste Ordner."
 
 #: source/en/tsvn_app_howto.xml:145
 #: (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to display a list of revisions. You may need to use <guibutton>Get All</guibutton> or <guibutton>Next 100</guibutton> to show the revision you are interested in."
-msgstr ""
+msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice>, um eine Liste der Revisionen anzuzeigen. Eventuell müssen Sie <guibutton>Zeige Alle</guibutton> oder <guibutton>Nächste 100</guibutton> wählen, um die gewünschte Revision angezeigt zu bekommen."
 
 #: source/en/tsvn_app_howto.xml:158
 #: (para)
 msgid "<action>right click</action> on the revision you wish to undo, then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Machen Sie einen <action>Rechts-Klick</action> auf die Revision, die Sie rückgängig machen wollen und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem> </menuchoice>."
 
 #: source/en/tsvn_app_howto.xml:168
 #: (para) source/en/tsvn_app_howto.xml:225
 msgid "You have reverted the changes within your working copy. Check the results, then commit the changes."
-msgstr ""
+msgstr "Sie haben nun die Änderungen in Ihrer Arbeitskopie rückgängig gemacht. Prüfen Sie die Ergebnisse und übertragen Sie die Änderungn."
 
 #: source/en/tsvn_app_howto.xml:174
 #: (title)
 msgid "Use the merge dialog"
-msgstr ""
+msgstr "Mit Hilfe des Zusammenführen Dialogs"
 
 #: source/en/tsvn_app_howto.xml:175
 #: (para)
 msgid "To undo a larger range of revisions, you can use the Merge dialog. The previous method uses merging behind the scenes; this method uses it explicitly."
-msgstr ""
+msgstr "Einen größeren Revisionsbereich machen Sie mit Hilfe des Zusammenführen Dialogs rückgängig. Die vorherige Methode nutzt das Zusammenführen verdeckt; diese Methode nutzt es explizit, in dem ein Revisionsbereich <emphasis>rückwärts</emphasis> mit der Arbeitskopie zusammengeführt wird."
 
 #: source/en/tsvn_app_howto.xml:182
 #: (para)
 msgid "In our working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zusammenführen</guimenuitem> </menuchoice> in Ihrer Arbeitskopie."
 
 #: source/en/tsvn_app_howto.xml:191
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
-msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des Zweiges an, der die Änderungen enthält, die Sie in Ihrer Arbeitskopie rückgängig machen wollen. "
+msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des Astes an, der die Änderungen enthält, die Sie in Ihrer Arbeitskopie rückgängig machen wollen. "
 
 #: source/en/tsvn_app_howto.xml:199
 #: (para)
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
-msgstr ""
+msgstr "In der <guilabel>Von Revision</guilabel> tragen Sie die aktuelle Revisionsnummer ein. Wenn Sie sicher sein können, dass niemand anders in der Zwischenzeit Änderungen überträgt, können Sie die HEAD Revision verwenden."
 
 #: source/en/tsvn_app_howto.xml:207
 #: (para)
@@ -5743,22 +5741,24 @@ msgstr "Stellen Sie sicher dass die <guilabel>Nutze <quote>Von:</quote> URL</gui
 #: source/en/tsvn_app_howto.xml:213
 #: (para)
 msgid "In the <guilabel>To Revision</guilabel> field enter the revision number that you want to revert to, ie. the one <emphasis>before</emphasis> the first revision to be reverted."
-msgstr ""
+msgstr "In die <guilabel>Bis Revision</guilabel> tragen Sie die Revisionsnummer ein bis zu der Sie Änderungen rückgängig machen wollen, das heisst die Nummer <emphasis>vor</emphasis> der ersten rückgängig zu machenden Revision."
 
 #: source/en/tsvn_app_howto.xml:231
 #: (title)
 msgid "Use svndumpfilter"
-msgstr ""
+msgstr "Mit Hilfe von svndumpfilter"
 
 #: source/en/tsvn_app_howto.xml:232
 #: (para)
+#, fuzzy
 msgid "If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
-msgstr ""
+msgstr "Da Subversion niemals Daten verliert und alle Änderungen protokolliert sind Ihre <quote>rückgängig gemachten</quote> Revisionen noch als Zwischenstände im Projektarchiv enthalten. Das kann bei versehentlich übertragenen vertraulichen Daten ein großes Problem darstellen.Wenn Sie möchten, dass Ihre Revisionen vollständig aus dem Projektarchiv verschwinden, müssen Sie recht extreme Maßnahmen ergreifen. Solange es keinen wirklich guten Grund dafür gibt, <emphasis>raten wir dringend davon ab</emphasis>."
 
 #: source/en/tsvn_app_howto.xml:240
 #: (para)
+#, fuzzy
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin&gt;</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3\"><citetitle>Subversion Book</citetitle></ulink>."
-msgstr ""
+msgstr "Der einzige Weg, Daten komplett aus dem Projektarchiv zu entfernen nutzt das Subversion Kommandozeilen Programm <application>svnadmin</application>. Eine Anwendungsbeschreibung findet sich im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3\"><citetitle>Subversion Buch</citetitle></ulink>."
 
 #: source/en/tsvn_app_howto.xml:252
 #: (title)
