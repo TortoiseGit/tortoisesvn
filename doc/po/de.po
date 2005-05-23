@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-23 00:31+0100\n"
+"PO-Revision-Date: 2005-05-23 10:26+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1171,22 +1171,22 @@ msgstr "Wenn Sie noch kein Subversion Projektarchiv erstellt haben, tun Sie dies
 #: source/en/tsvn_repository/checkout_links.xml:3
 #: (title)
 msgid "Checkout Links"
-msgstr ""
+msgstr "Auschecken aus Webseiten"
 
 #: source/en/tsvn_repository/checkout_links.xml:5
 #: (primary)
 msgid "checkout link"
-msgstr ""
+msgstr "Auscheck Verweis"
 
 #: source/en/tsvn_repository/checkout_links.xml:7
 #: (para)
 msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TSVN users."
-msgstr ""
+msgstr "Wenn Sie Ihr Subversion Projektarchiv anderen Entwicklern zugängig machen wollen, möchten Sie vielleicht von Ihrer Webseite aus direkt darauf verweisen. Eine Möglichkeit besteht darin, einen <firstterm>Auscheck Verweis</firstterm> für andere TortoiseSVN Nutzer dort zu platzieren."
 
 #: source/en/tsvn_repository/checkout_links.xml:13
 #: (para)
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
-msgstr ""
+msgstr "Wenn Sie TortoiseSVN installieren, registriert es ein neues <literal>tsvn:</literal> Protokoll auf Ihrem Rechner. Sobald ein Anwender auf solch einen Verweis klickt, öffnet sich der Auschecken Dialog mit der bereits ausgefüllten URL des Projektarchivs."
 
 #: source/en/tsvn_repository/checkout_links.xml:19
 #: (para)
@@ -1195,6 +1195,8 @@ msgid ""
 "&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;&lt;/a&gt;\n"
 "</screen>"
 msgstr ""
+"Um einen solchen Verweis auf Ihrer Webseite zu platzieren, müssen Sie entsprechende Code hinzufügen. Hier ein Beispiel für TortoiseSVN:\n"
+"<screen>&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;&lt;/a&gt;</screen>"
 
 #: source/en/tsvn_repository/checkout_links.xml:26
 #: (para)
@@ -1204,6 +1206,8 @@ msgid ""
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 "</screen>"
 msgstr ""
+"Selbstverständlich würde es noch besser aussehen, wenn der Verweis ein passendes Bild enthielte. Sie können folgendes Bild verwenden <ulink url=\"https://svn.collab.net/repos/tortoisesvn/trunk/doc/logo/TortoiseCheckout.png\"> <citetitle>TortoiseSVN Logo</citetitle> </ulink> oder Ihr eigenes Bild angeben. <screen>&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;\n"
+"&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;</screen>"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:3
 #: (title)
@@ -3099,57 +3103,57 @@ msgstr "locking"
 #: source/en/tsvn_dug/dug_locking.xml:15
 #: (para)
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
-msgstr ""
+msgstr "Sie arbeiten mit <quote>nicht zusammenführbaren</quote> Dateien, z.B. Grafiken. Wenn zwei Personen dieselbe Datei modifizieren, ist ein Zusammenführen nicht möglich, so dass einer der beiden seine Änderungen verlieren wird."
 
 #: source/en/tsvn_dug/dug_locking.xml:23
 #: (para)
 msgid "Your company has always used a locking VCS in the past and there has been a management decision that <quote>locking is best</quote>."
-msgstr ""
+msgstr "Ihre Firma hat bisher immer ein sperrendes Versionskontrollsystem eingesetzt und es gibt eine Management Entscheidung, dass <quote>Sperren das Beste</quote> ist."
 
 #: source/en/tsvn_dug/dug_locking.xml:7
 #: (para)
 msgid "Subversion generally works best without locking, using the <quote>Copy-Modify-Merge</quote> methods described earlier in <xref linkend=\"tsvn-ch-2-sect-2.3\"/>. However there are a few instances when you may need to implement some form of locking policy. <placeholder-1/>"
-msgstr ""
+msgstr "Subversion funktioniert im Allgemeinen am besten ohne Sperren, da es den in <xref linkend=\"tsvn-ch-2-sect-2.3\"/> besprochenen Ansatz verfolgt. Es gibt jedoch einige Fälle, in denen es erforderlich ist, Dateien zu sperren. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_locking.xml:31
 #: (para)
 msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <filename>file:///</filename> access, then of course only your client needs to be updated."
-msgstr ""
+msgstr "Zunächst müssen Sie sicherstellen, dass Ihr Subversion Server zumindest mit Version 1.2 arbeitet. Frühere Versionen unterstützen Sperren überhaupt nicht. Wenn Sie ausschließlich den <filename>file:///</filename> Zugriff nutzen, müssen nur Ihre Clients aktualisiert werden."
 
 #: source/en/tsvn_dug/dug_locking.xml:38
 #: (title)
 msgid "How Locking Works in Subversion"
-msgstr ""
+msgstr "Sperren von Dateien in Subversion"
 
 #: source/en/tsvn_dug/dug_locking.xml:39
 #: (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
-msgstr ""
+msgstr "In der Grundeinstellung sind keine Objekte gesperrt und jeder, der die entsprechende Berechtigung hat, kann seine Änderungen in das Projektarchiv übertragen. Andere werden ihre Arbeitskopien regelmäßig aktualisieren und Änderungen im Projektarchiv werden mit den lokalen Änderungen zusammengeführt."
 
 #: source/en/tsvn_dug/dug_locking.xml:45
 #: (para)
 msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
-msgstr ""
+msgstr "Wenn Sie für eine Datei <firstterm>Eine Sperre holen</firstterm>, können nur Sie Änderungen an dieser Datei übertragen. Übertragungen von anderen werden so lange verhindert, bis Sie die Sperre wieder freigeben. Eine gesperrte Datei kann auf keine Weise im Projektarchiv verändert, umbenannt oder gelöscht werden. Dies ist nur dem Eigner der Sperre möglich."
 
 #: source/en/tsvn_dug/dug_locking.xml:52
 #: (para)
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
-msgstr ""
+msgstr "Andere Anwender werden nicht unbedingt wissen, dass Sie eine Datei gesperrt haben. Wenn sie nicht regelmäßig den Sperr-Status überprüfen, werden sie es frühestens merken, wenn ihre Übertragung fehlschlägt, was in den meisten Fällen nicht sehr nützlich ist. Damit es einfacher ist, Sperren zu verwalten, gibt es die neue <literal>svn:needs-lock</literal> Eigenschaft von Subversion. Wenn diese Eigenschaft (auf einen beliebigen Wert) gesetzt ist, wird beim Auschecken oder Aktualisieren die Datei in der Arbeitskopie auf <literal>Nur-Lesen</literal> gesetzt, <emphasis>es sei denn</emphasis> die Arbeitskopie besitzt die Sperre für die Datei. Dies dient als Warnung, dass Sie die Datei nicht bearbeiten sollen, bevor Sie nicht die Sperre für die Datei besitzen. Dateien unter Versionskontrolle, die mit <literal>Nur-Lesen</literal> markiert sind, erhalten von TortoiseSVN ein überlagertes Symbol, das anzeigt, dass Sie erst eine Sperre besitzen müssen, bevor Sie die Datei bearbeiten."
 
 #: source/en/tsvn_dug/dug_locking.xml:68
 #: (para)
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
-msgstr ""
+msgstr "Sperren gehören sowohl zu einer Arbeitskopie als auch zu einer Person. Wenn Sie mehrere Arbeitskopien desselben Projekts (bei der Arbeit, daheim) haben, können Sie eine Datei nur in <emphasis>einer</emphasis> dieser Arbeitskopien sperren."
 
 #: source/en/tsvn_dug/dug_locking.xml:74
 #: (para)
 msgid "If one of your co-workers acquires a lock and then goes on holiday without releasing it, what do you do? Subversion provides a means to force locks. Releasing a lock held by someone else is referred to as <firstterm>Breaking</firstterm> the lock, and forcibly acquiring a lock which someone else already holds is referred to as <firstterm>Stealing</firstterm> the lock. Naturally these are not things you should do lightly if you want to remain friends with your co-workers."
-msgstr ""
+msgstr "Wenn einer Ihrer Kollegen eine Datei sperrt und in Urlaub geht, ohne die Sperre vorher freizugeben, was dann? Subversion bietet Ihnen eine Möglichkeit, Sperren auszuhebeln. Eine Sperre freizugeben, die jemand anders besitzt, wird auch <firstterm>Sperre aufbrechen</firstterm> genannt. Sich eine Sperre zu holen, die jemand anders besitzt, wird auch <firstterm>Sperre stehlen</firstterm> genannt. Selbstverständlich sollten Sie dies nicht leichtfertig tun, wenn Sie sich weiterhin mit Ihren Kollegen gut stellen wollen."
 
 #: source/en/tsvn_dug/dug_locking.xml:84
 #: (para)
 msgid "Locks are recorded in the repository, and a lock token is created in your local working copy. If there is a discrepancy, for example if someone else has broken the lock, the local lock token becomes invalid. The repository is always the definitive reference."
-msgstr ""
+msgstr "Sperren werden im Projektarchiv verwaltet und eine Sperrmarke wird zusätzlich in Ihrer Arbeitskopie angelegt. Wenn es einen Unterschied zwischen diesen Werte gibt, z.B. weil jemand eine Sperre aufgebrochen hat, wird die lokale Sperrmarke ungültig. Der Sperrstatus im Projektarchiv ist stets maßgeblich."
 
 #: source/en/tsvn_dug/dug_locking.xml:92
 #: (title)
@@ -3169,7 +3173,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_locking.xml:115
 #: (title)
 msgid "Releasing a Lock"
-msgstr ""
+msgstr "Eine Sperre freigeben"
 
 #: source/en/tsvn_dug/dug_locking.xml:116
 #: (para)
@@ -3184,7 +3188,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_locking.xml:139
 #: (title)
 msgid "Checking Lock Status"
-msgstr ""
+msgstr "Den Sperrstatus prüfen"
 
 #: source/en/tsvn_dug/dug_locking.xml:142
 #: (title)
@@ -3204,7 +3208,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_locking.xml:160
 #: (title)
 msgid "Avoid Breaking and Stealing Locks"
-msgstr ""
+msgstr "Vermeiden Sie es Sperren aufzubrechen oder zu stehlen"
 
 #: source/en/tsvn_dug/dug_locking.xml:161
 #: (para)
@@ -3981,7 +3985,7 @@ msgstr "Zu viele Dateien werden angezeigt"
 #: source/en/tsvn_dug/dug_commit.xml:63
 #: (para)
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
-msgstr "diese Dateien im Eigenschaftsdialog in die Liste der auszuschließenden Dateienaufnehmen. Dies hat Einfluss auf <emphasis>alle</emphasis> Arbeitskopien gleichzeitig."
+msgstr "diese Dateien im Eigenschaftsdialog in die Liste der auszuschließenden Dateien aufnehmen. Dies hat Einfluss auf <emphasis>alle</emphasis> Arbeitskopien gleichzeitig."
 
 #: source/en/tsvn_dug/dug_commit.xml:70
 #: (para)
@@ -3996,7 +4000,7 @@ msgstr "Falls Sie das Gefühl haben dass TortoiseSVN Ihnen viel zu viele Dateien
 #: source/en/tsvn_dug/dug_commit.xml:37
 #: (para)
 msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit. <tip><placeholder-1/><placeholder-2/></tip><tip><placeholder-3/><placeholder-4/></tip>"
-msgstr "Der Dialog zeigt alle geänderten Dateien einschließlich hinzugefügter, gelöschter ode nicht versionierter Dateien an. Wenn Sie bestimmte Dateien nicht übertragen wollen, wählen Sie diese einfach ab. Dateien, die noch nicht unter Versionskontrolle stehen, können Sie durch Markieren vor dem Übertragen hinzufügen. <tip><placeholder-1/><placeholder-2/></tip><tip><placeholder-3/><placeholder-4/></tip>"
+msgstr "Der Dialog zeigt alle geänderten Dateien einschließlich hinzugefügter, gelöschter oder nicht versionierter Dateien an. Wenn Sie bestimmte Dateien nicht übertragen wollen, wählen Sie diese einfach ab. Dateien, die noch nicht unter Versionskontrolle stehen, können Sie durch Markieren vor dem Übertragen hinzufügen. <tip><placeholder-1/><placeholder-2/></tip><tip><placeholder-3/><placeholder-4/></tip>"
 
 #: source/en/tsvn_dug/dug_commit.xml:88
 #: (para)
@@ -4161,7 +4165,7 @@ msgstr "bugtraq:url"
 #: source/en/tsvn_dug/dug_bugtracker.xml:61
 #: (para)
 msgid "Set this property to the url of your bugtracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issuenumber you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bugtracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issuenumber and not the link to it. e.g the TortoiseSVN project is using <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
-msgstr "Hier geben Sie die URL zu Ihrem Bugtracking Programm ein.  Die URL muss gültige (sprich URI codiert) URL sein und <literal>%BUGID%</literal> enthalten. <literal>%BUGID%</literal> wird später durch die Eintragsnummer ersetzt. Dies ermöglicht es TortoiseSVN einen direkten Verweis auf die Revision im Log Dialog anzuzeigen, so dass Sie direkt dort hinspringen können.Sie müssen diese Eigenschaft nicht setzen, aber wenn Sie sie weglassen, zeigt TortoiseSVN später nur die Eintragsnummer an und keinen Verweis.  Ein Beispiel für TortoiseSVN wäre <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
+msgstr "Hier geben Sie die URL zu Ihrem Bugtracking Programm ein.  Die URL muss gültige (sprich URI codiert) URL sein und <literal>%BUGID%</literal> enthalten. <literal>%BUGID%</literal> wird später durch die Eintragsnummer ersetzt. Dies ermöglicht es TortoiseSVN einen direkten Verweis auf die Revision im Log Dialog anzuzeigen, so dass Sie direkt dorthin springen können. Sie müssen diese Eigenschaft nicht setzen, aber wenn Sie sie weglassen, zeigt TortoiseSVN später nur die Eintragsnummer an und keinen Verweis.  Ein Beispiel für TortoiseSVN wäre <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:79
 #: (term)
@@ -4191,7 +4195,7 @@ msgstr "bugtraq:append"
 #: source/en/tsvn_dug/dug_bugtracker.xml:122
 #: (para)
 msgid "This property defines if the bug-ID is appended (true) to the end of the log message or inserted (false) at the start of the log message. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed, so that existing projects don't break. </emphasis>"
-msgstr "Diese Eigenschaft definiert ob die Eintragsnummer an das Ende angehängt oder vor der Logmeldung eingefügt wird. Gütige Werte sind: <literal>true/false</literal>.  Wenn keine Eigenschaft definiert ist, wird <literal>true</literal> angenommen."
+msgstr "Diese Eigenschaft definiert ob die Eintragsnummer an das Ende angehängt oder vor der Log-Meldung eingefügt wird. Gütige Werte sind: <literal>true/false</literal>.  Wenn keine Eigenschaft definiert ist, wird <literal>true</literal> angenommen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:135
 #: (term)
@@ -4241,7 +4245,7 @@ msgstr "Wenn zwei reguläre Ausdrüke gesetzt sind, wird der erste Ausdruck verw
 #: source/en/tsvn_dug/dug_bugtracker.xml:196
 #: (para)
 msgid "If you want to catch every pattern \"issue #XXX\" and \"issue #890, #789\" inside a log message you could use the following regex strings: <literal>[Ii]ssue #?(\\d+)(,? ?#'(\\d+))+</literal> and the second expression as <literal>(\\d+)</literal>"
-msgstr "Wenn Sie alle Zeichenketten \"issue #XXX\" und \"issue #123, #456\" in einer Logmeldung finden möchten, können Sie folgende beiden regulären Ausdrücke verwenden: <literal>[Ii]ssue #?(\\d+)(,? ?#'(\\d+))+</literal> mit dem zweiten Ausruck <literal>(\\d+)</literal>"
+msgstr "Wenn Sie alle Zeichenketten \"issue #XXX\" und \"issue #123, #456\" in einer Log-Meldung finden möchten, können Sie folgende beiden regulären Ausdrücke verwenden: <literal>[Ii]ssue #?(\\d+)(,? ?#'(\\d+))+</literal> mit dem zweiten Ausruck <literal>(\\d+)</literal>"
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:202
 #: (para)
@@ -4261,7 +4265,7 @@ msgstr "Die obigen Eigenschaften müssen auf Ordner gesetzt sein, damit das Syst
 #: source/en/tsvn_dug/dug_bugtracker.xml:53
 #: (para)
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/> In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-2/> In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! <tip><placeholder-3/></tip><placeholder-4/><placeholder-5/><important><placeholder-6/><placeholder-7/><placeholder-8/></important>"
-msgstr "Es gibt zwei verschiedene Wege um TortoiseSVN mit einem Bugtracker zu verbinden. Ein Weg basiert auf einfachen Zeichenketten, der andere basiert auf <literal>Regulären Ausdrücken</literal>. Die Eigenschaften welche von beiden Methoden benutzt werden sind: <placeholder-1/>  Mit dem einfachen Weg zeigt TortoiseSVN dem  Benutzer ein zusätzliches Eingabefeld für die Eintragsnummer. Es wird dann eine zusätzliche Zeile der Log-Meldung angehängt oder vorangestellt. <placeholder-2/>  Beim Weg mit den <literal>Regulären Ausdrücken</literal> zeigt TortoiseSVN kein separates Eingabefeld an sondern hebt den Teil der Logmeldung hervor, der von dem Aktionsskript als Eintragsnummer erkannt wird. Die Hervorhebung erfolgt während der Benutzer die Logmeldung eingibt. Dies bedeutet auch, dass die Eintragsnummer irgendwo in der Log-Meldung stehen kann und nicht nur in einer separaten Zeile! <tip><placeholder-3/></tip><placeholder-4/><placeholder-5/><important><placeholder-6/><placeholder-7/><placeholder-8/></important>"
+msgstr "Es gibt zwei verschiedene Wege um TortoiseSVN mit einem Bugtracker zu verbinden. Ein Weg basiert auf einfachen Zeichenketten, der andere basiert auf <literal>Regulären Ausdrücken</literal>. Die Eigenschaften welche von beiden Methoden benutzt werden sind: <placeholder-1/>  Mit dem einfachen Weg zeigt TortoiseSVN dem  Benutzer ein zusätzliches Eingabefeld für die Eintragsnummer. Es wird dann eine zusätzliche Zeile der Log-Meldung angehängt oder vorangestellt. <placeholder-2/>  Beim Weg mit den <literal>Regulären Ausdrücken</literal> zeigt TortoiseSVN kein separates Eingabefeld an sondern hebt den Teil der Log-Meldung hervor, der von dem Aktionsskript als Eintragsnummer erkannt wird. Die Hervorhebung erfolgt während der Benutzer die Logmeldung eingibt. Dies bedeutet auch, dass die Eintragsnummer irgendwo in der Log-Meldung stehen kann und nicht nur in einer separaten Zeile! <tip><placeholder-3/></tip><placeholder-4/><placeholder-5/><important><placeholder-6/><placeholder-7/><placeholder-8/></important>"
 
 #: source/en/tsvn_dug/dug_branchtag.xml:3
 #: (title)
@@ -5141,12 +5145,12 @@ msgstr "<emphasis>Sperren kann ein falsches Gefühl von Sicherheit erzeugen.</em
 #: source/en/tsvn_basics.xml:177
 #: (title) source/en/tsvn_basics.xml:205
 msgid "The Copy-Modify-Merge Solution"
-msgstr "Die Kopie-Ändern-Zusammenführen Lösung"
+msgstr "Die Kopieren-Ändern-Zusammenführen Lösung"
 
 #: source/en/tsvn_basics.xml:178
 #: (para)
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
-msgstr "Subversion, CVS und andere Versionskontrollsysteme nutzen ein Kopie-Ändern-Zusammenführen Modell als Alternative zur Sperr-Lösung. In diesem Modell hat jeder Benutzer eine persönliche <firstterm> Arbeitskopie</firstterm> des Projekts. Die Benutzer arbeiten dann parallel und ändern jeweils ihre persönliche Arbeitskopie. Schließlich werden diese privaten Arbeitskopien zu einer endgültigen  Version zusammengeführt. Das Versionskontrollsystem hilft beim   Zusammenführen, überlässt die endgültige Kontrolle aber dem Benutzer selbst."
+msgstr "Subversion, CVS und andere Versionskontrollsysteme nutzen ein Kopieren-Ändern-Zusammenführen Modell als Alternative zur Sperr-Lösung. In diesem Modell hat jeder Benutzer eine persönliche <firstterm> Arbeitskopie</firstterm> des Projekts. Die Benutzer arbeiten dann parallel und ändern jeweils ihre persönliche Arbeitskopie. Schließlich werden diese privaten Arbeitskopien zu einer endgültigen  Version zusammengeführt. Das Versionskontrollsystem hilft beim   Zusammenführen, überlässt die endgültige Kontrolle aber dem Benutzer selbst."
 
 #: source/en/tsvn_basics.xml:190
 #: (para)
@@ -5156,7 +5160,7 @@ msgstr "Hier ein Beispiel. Angenommen, Harry und Sally haben jeder eine private 
 #: source/en/tsvn_basics.xml:209
 #: (title)
 msgid "...Copy-Modify-Merge Continued"
-msgstr "...Kopie-Ändern-Zusammenführen fortgesetzt"
+msgstr "...Kopieren-Ändern-Zusammenführen fortgesetzt"
 
 #: source/en/tsvn_basics.xml:212
 #: (para)
@@ -5166,7 +5170,7 @@ msgstr "<indexterm> <primary>Konflikt</primary> </indexterm> Aber was, wenn die 
 #: source/en/tsvn_basics.xml:230
 #: (para)
 msgid "The copy-modify-merge model may sound a bit chaotic, but in practice, it runs extremely smoothly. Users can work in parallel, never waiting for one another. When they work on the same files, it turns out that most of their concurrent changes don't overlap at all; conflicts are infrequent. And the amount of time it takes to resolve conflicts is far less than the time lost by a locking system."
-msgstr "Das Kopie-Ändern-Zusammenführen Modell mag ein wenig chaotisch aussehen, aber in der Praxis bewährt es sich sehr gut. Benutzer können parallel arbeiten, müssen niemals aufeinander warten. Wenn sie an denselben Dateien arbeiten, stellt sich heraus, dass die meiste Zeit keine Konflikte auftreten. Und die Zeit, die benötigt wird, um einen der wirklich seltenen Konflikte zu lösen, ist viel kleiner als die Zeit, welche auf die Freigabe einer gesperrten Datei gewartet wird."
+msgstr "Das Kopieren-Ändern-Zusammenführen Modell mag ein wenig chaotisch aussehen, aber in der Praxis bewährt es sich sehr gut. Benutzer können parallel arbeiten, müssen niemals aufeinander warten. Wenn sie an denselben Dateien arbeiten, stellt sich heraus, dass die meiste Zeit keine Konflikte auftreten. Und die Zeit, die benötigt wird, um einen der wirklich seltenen Konflikte zu lösen, ist viel kleiner als die Zeit, welche auf die Freigabe einer gesperrten Datei gewartet wird."
 
 #: source/en/tsvn_basics.xml:239
 #: (para)
@@ -5186,7 +5190,7 @@ msgstr "Was macht Subversion?"
 #: source/en/tsvn_basics.xml:260
 #: (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr "Subversion verwendet standardmäßig das Kopie-Ändern-Zusammenführen Modell, und in den meisten Fällen wird das alles sein, was Sie jemals benötigen werden. Mit der Einführung von Version 1.2 unterstützt Subversion auch das Sperren von Dateien, so dass Ihnen diese Möglichkeit ebenfalls zur Verfügung steht."
+msgstr "Subversion verwendet standardmäßig das Kopieren-Ändern-Zusammenführen Modell, und in den meisten Fällen wird das alles sein, was Sie jemals benötigen werden. Mit der Einführung von Version 1.2 unterstützt Subversion auch das Sperren von Dateien, so dass Ihnen diese Möglichkeit ebenfalls zur Verfügung steht."
 
 #: source/en/tsvn_basics.xml:272
 #: (title)
@@ -5559,7 +5563,7 @@ msgstr "Wir haben den Begriff des zentralen Projektarchivs, der Arbeitskopie und
 #: source/en/tsvn_basics.xml:691
 #: (para)
 msgid "We've seen some simple examples of how two collaborators can use Subversion to publish and receive changes from one another, using the 'copy-modify-merge' model."
-msgstr "Wir haben einige einfache Beispiele gezeigt, wie zwei Mitarbeiter Subversion benutzen können, um Änderungen zur Verfügung zu stellen und Änderungen von anderen zu übernehmen mittels des Kopie-Ändern-Zusammenführen Modells."
+msgstr "Wir haben einige einfache Beispiele gezeigt, wie zwei Mitarbeiter Subversion mittels des Kopieren-Ändern-Zusammenführen Modells benutzen können, um Änderungen zur Verfügung zu stellen und Änderungen von anderen zu übernehmen."
 
 #: source/en/tsvn_basics.xml:698
 #: (para)
