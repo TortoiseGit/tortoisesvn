@@ -258,6 +258,7 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 
 	m_currentChangedArray = paths;
 
+	m_LogMsgCtrl.SetRedraw(FALSE);
 	if (m_currentChangedArray)
 	{
 		m_LogMsgCtrl.SetItemCountEx(m_currentChangedArray->GetCount());
@@ -272,8 +273,10 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 	for (int col = 0; col <= maxcol; col++)
 	{
 		m_LogMsgCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+		int width = m_LogMsgCtrl.GetColumnWidth(col);
+		m_LogMsgCtrl.SetColumnWidth(col, width+5);
 	}
-	m_LogMsgCtrl.SetRedraw();
+	m_LogMsgCtrl.SetRedraw(TRUE);
 }
 
 void CLogDlg::OnBnClickedGetall()
