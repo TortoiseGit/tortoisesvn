@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-20 19:11+0100\n"
+"PO-Revision-Date: 2005-05-23 23:17+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -477,7 +477,6 @@ msgstr ""
 # ID:145,
 # Hur översätter man bäst "shell extension"?
 #: ID:145
-#, fuzzy
 msgid ""
 "<b>TortoiseSVN</b> is a shell extension.\n"
 "That means it is integrated into the Windows explorer.\n"
@@ -485,7 +484,7 @@ msgid ""
 "to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
 "And <u>read the manual!</u>"
 msgstr ""
-"<b>TortoiseSVN</b> är en shell extension.\n"
+"<b>TortoiseSVN</b> är en Utforskarutökning.\n"
 "Det betyder att den är integrerad med Utforskaren.\n"
 "För att använda <b>TortoiseSVN</b> öppna ett utforskarfönster och högerklicka på \n"
 "valfri mapp, i menyn som visas så finns alla <b>TortoiseSVN</b> kommandon.\n"
@@ -1254,6 +1253,11 @@ msgstr ""
 "Kopiera markeringen till urklipp\n"
 "Kopiera"
 
+# ID:101,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Kopiera till urklipp"
+
 # Osäker på var denna visas
 #: ID:103
 msgid "Copy to working copy"
@@ -1621,7 +1625,6 @@ msgstr "Skriv in URL"
 
 # ID:313,
 #: ID:313
-#, fuzzy
 msgid "Enter a lock message (optional):"
 msgstr "Ange ett låsmeddelande (valfritt):"
 
@@ -1823,7 +1826,6 @@ msgstr "Skapar patchfil..."
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "Get Lock..."
 msgstr "Skaffa lås..."
 
@@ -1900,7 +1902,6 @@ msgstr "Hjälp"
 
 # ???
 #: Control-ID:1127
-#, fuzzy
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Tips: Tryck F5 för att uppdatera valt underträd och Ctrl-F5 för att också ladda in alla barnnoder"
 
@@ -1967,7 +1968,6 @@ msgstr ""
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
 msgstr "Om du vill bryta låset, använd \"Leta efter ändringar\" dialogen. "
 
@@ -3164,7 +3164,6 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-#, fuzzy
 msgid "Select the behaviour of the progress dialog at the end of the operation."
 msgstr "Välj dialogrutans beteende efter avklarad operation."
 
@@ -3406,7 +3405,7 @@ msgid "Subversion"
 msgstr "Subversion"
 
 #: Control-ID:65535
-msgid "Subversion authenticaton data:"
+msgid "Subversion authentication data:"
 msgstr "Subversion autentiseringsdata:"
 
 #: Control-ID:65535
@@ -4497,7 +4496,6 @@ msgstr ""
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
