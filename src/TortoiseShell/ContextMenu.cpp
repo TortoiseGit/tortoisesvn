@@ -301,20 +301,23 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					if (askedpath.HasAdminDir())
 						status = svn_wc_status_normal;
 				}
-				try
+				else
 				{
-					SVNStatus stat;
-					stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
-					if (stat.status)
+					try
 					{
-						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-						if ((stat.status->entry)&&(stat.status->entry->lock_token))
-							isLocked = (stat.status->entry->lock_token[0] != 0);
+						SVNStatus stat;
+						stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+						if (stat.status)
+						{
+							status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+							if ((stat.status->entry)&&(stat.status->entry->lock_token))
+								isLocked = (stat.status->entry->lock_token[0] != 0);
+						}
 					}
-				}
-				catch ( ... )
-				{
-					ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+					catch ( ... )
+					{
+						ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+					}
 				}
 			}
 			else
