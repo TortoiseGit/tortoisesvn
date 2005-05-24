@@ -27,6 +27,7 @@
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
 #include "FileDiffDlg.h"
+#include "SVNInfo.h"
 #include ".\revisiongraphdlg.h"
 
 #ifdef _DEBUG
@@ -1347,6 +1348,21 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot)
 	CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
 	CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
 	
+	// find out if m_sPath points to a file or a folder
+	bool bIsFolder = true;
+	if (SVN::PathIsURL(m_sPath))
+	{
+		SVNInfo info;
+		const SVNInfoData * infodata = info.GetFirstFileInfo(CTSVNPath(m_sPath), SVNRev::REV_HEAD, SVNRev::REV_HEAD);
+		if (infodata)
+		{
+			bIsFolder = (infodata->kind == svn_node_dir);
+		}
+	}
+	else
+	{
+		bIsFolder = CTSVNPath(m_sPath).IsDirectory();
+	}
 	
 	SVN svn;
 	CString sRepoRoot;
@@ -1354,7 +1370,6 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot)
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
 	else
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(svn.GetURLFromPath(CTSVNPath(m_sPath))));
-		
 
 	CTSVNPath url1;
 	CTSVNPath url2;
@@ -1368,9 +1383,12 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot)
 		;
 	while (url1_temp.GetSVNPathString().GetLength()>i)
 		url1_temp = url1_temp.GetContainingDirectory();
+
+	if (bIsFolder)
+		sRoot = url1_temp.GetSVNPathString();
+	else
+		sRoot = url1_temp.GetContainingDirectory().GetSVNPathString();
 	
-	sRoot = url1_temp.GetSVNPathString();
-		
 	if (url1.IsEquivalentTo(url2))
 	{
 		if (!svn.PegDiff(url1, SVNRev(entry1->revision), 
