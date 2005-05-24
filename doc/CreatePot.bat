@@ -36,9 +36,6 @@ FOR /D %%D IN (*) DO (
   )
 )
 
-echo !CHAPTERS!
-pause
-
 cd ..\..
 
 xml2po.py -o po/doc.pot !CHAPTERS!

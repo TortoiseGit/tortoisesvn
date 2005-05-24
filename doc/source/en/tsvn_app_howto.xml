@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <appendix id="tsvn-howto" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>How Do I...</title>
 	<simplesect>
@@ -7,7 +7,6 @@
 			have when using TortoiseSVN.
 		</para>
 	</simplesect>
-
 	<sect1 id="tsvn-howto-move">
 		<title>Move/copy a lot of files at once</title>
 		<indexterm>
@@ -39,7 +38,6 @@
 			</menuchoice>.
 		</para>
 	</sect1>
-	
 	<sect1 id="tsvn-howto-minlogmsgsize">
 		<title>Force users to enter a log message</title>
 		<indexterm>
@@ -94,7 +92,6 @@
 			</para>
 		</sect2>
 	</sect1>
-
 	<sect1 id="tsvn-howto-selective-update">
 		<title>Update selected files from the repository</title>
 		<indexterm>
@@ -121,7 +118,6 @@
 			the context menu to update just those files.
 		</para>
 	</sect1>
-
 	<sect1 id="tsvn-howto-rollback">
 		<title>Roll back revisions in the repository</title>
 		<indexterm>
@@ -230,6 +226,9 @@
 		<sect2 id="tsvn-howto-rollback-dumpload">
 			<title>Use svndumpfilter</title>
 			<para>
+				Since TortoiseSVN never loses data, your <quote>rolled back</quote>
+				revisions still exist as intermediate revisions in the repository. Only 
+				the HEAD revision was changed to a previous state.
 				If you want to make revisions disappear completely from your
 				repository, erasing all trace that they ever existed, you have
 				to use more extreme measures. Unless there is a really good reason
@@ -239,7 +238,7 @@
 			</para>
 			<para>
 				The only way to remove data from the repository is to use the
-				Subversion command line tool <literal>svnadmin></literal>.
+				Subversion command line tool <literal>svnadmin</literal>.
 				You can find a description of how this works in the
 				<ulink url="http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3">
 					<citetitle>Subversion Book</citetitle>
@@ -247,7 +246,6 @@
 			</para>
 		</sect2>
 	</sect1>
-
 	<sect1 id="tsvn-howto-compare">
 		<title>Compare two revisions of a file</title>
 		<indexterm>
@@ -299,7 +297,6 @@
 			to see a summary of all differences, with minimal context.
 		</para>
 	</sect1>
-
 	<sect1 id="tsvn-howto-common-projects">
 		<title>Include a common sub-project</title>
 		<indexterm>
