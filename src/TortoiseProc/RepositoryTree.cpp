@@ -648,11 +648,21 @@ void CRepositoryTree::Refresh(HTREEITEM hItem)
 {
 	hItem = GetNextItem(hItem, RVGN_PARENT);
 	if (hItem != 0)
+	{
+		SVN svn;
+		m_locks.clear();
+		svn.GetLocks(CTSVNPath(m_strReposRoot), &m_locks);
 		LoadChildItems(hItem, GetKeyState(VK_CONTROL)&0x8000);
+	}
 }
 
 void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 {
 	if (hItem != 0)
+	{
+		SVN svn;
+		m_locks.clear();
+		svn.GetLocks(CTSVNPath(m_strReposRoot), &m_locks);
 		LoadChildItems(hItem, (GetKeyState(VK_CONTROL)&0x8000)!=0);
+	}
 }
