@@ -199,6 +199,7 @@ private:
 	int					m_limit;
 	int					m_limitcounter;
 	CBitmapButton		m_cFilterCancelButton;
+	CBitmapButton		m_cFilterIcon;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 

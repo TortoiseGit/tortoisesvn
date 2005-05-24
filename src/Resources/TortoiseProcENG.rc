@@ -49,7 +49,6 @@ IDI_DRIVES              ICON                    "Drives.ico"
 IDI_SSH                 ICON                    "ssh.ico"
 IDI_PROXY               ICON                    "proxy.ico"
 IDI_MISC                ICON                    "misc.ico"
-IDI_LOGFILTER           ICON                    "logfilter.ico"
 IDI_SET_OVERLAYS        ICON                    "Overlays.ico"
 IDI_GENERAL             ICON                    "general.ico"
 IDI_LOOKANDFEEL         ICON                    "lookandfeel.ico"
@@ -63,6 +62,7 @@ IDI_DIALOGS             ICON                    "dialogs.ico"
 
 IDB_LOGOFLIPPED         BITMAP                  "tortoisesvn_logoflipped.bmp"
 IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
+IDB_LOGFILTER           BITMAP                  "logfilter.bmp"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -243,8 +243,6 @@ BEGIN
     EDITTEXT        IDC_SEARCHEDIT,202,7,172,14,ES_AUTOHSCROLL
     CONTROL         "",IDC_FILTERCANCEL,"Button",BS_OWNERDRAW | BS_ICON | 
                     NOT WS_VISIBLE | WS_TABSTOP,317,0,14,14
-    ICON            IDI_LOGFILTER,IDC_FILTERICON,353,7,20,20,SS_NOTIFY | 
-                    SS_CENTERIMAGE | SS_REALSIZEIMAGE,WS_EX_TRANSPARENT
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | 
                     WS_BORDER | WS_TABSTOP,7,24,367,103
@@ -264,6 +262,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,265,333,52,14
     PUSHBUTTON      "&Help",IDHELP,324,333,50,14
     PUSHBUTTON      "&Next 100",IDC_NEXTHUNDRED,65,333,50,14
+    CONTROL         "",IDC_FILTERICON,"Button",BS_OWNERDRAW | BS_ICON | 
+                    BS_FLAT | WS_TABSTOP,367,0,14,14,WS_EX_TRANSPARENT
 END
 
 IDD_LOGPROMPT DIALOGEX 0, 0, 300, 279

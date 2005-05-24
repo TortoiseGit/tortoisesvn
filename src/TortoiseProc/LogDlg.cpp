@@ -85,6 +85,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DATEFROM, m_DateFrom);
 	DDX_Control(pDX, IDC_DATETO, m_DateTo);
 	DDX_Control(pDX, IDC_FILTERCANCEL, m_cFilterCancelButton);
+	DDX_Control(pDX, IDC_FILTERICON, m_cFilterIcon);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -202,6 +203,8 @@ BOOL CLogDlg::OnInitDialog()
 	
 	m_cFilterCancelButton.LoadBitmaps(IDB_CANCELNORMAL, IDB_CANCELPRESSED, IDB_CANCELHIGHLIGHT, 0);
 	m_cFilterCancelButton.SizeToContent();
+	m_cFilterIcon.LoadBitmaps(IDB_LOGFILTER);
+	m_cFilterIcon.SizeToContent();
 	
 	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
 	AddAnchor(IDC_DATEFROM, TOP_LEFT);
