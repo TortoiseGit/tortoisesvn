@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-23 16:06+0100\n"
+"PO-Revision-Date: 2005-05-25 08:58+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -813,15 +813,15 @@ msgstr "Auteurs:"
 
 #: ID:222
 msgid "Auto-close if no conflicts"
-msgstr "Sluiten indien er geen conflicten zijn"
+msgstr "Behalve na conflicten"
 
 #: ID:222
 msgid "Auto-close if no errors"
-msgstr "Sluiten indien geen fouten"
+msgstr "Behalve na fouten"
 
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Sluiten indien geen toevoegingen, samenvoegingen of verwijderingen"
+msgstr "Behalve na samenvoegen, verwijderen of toevoegen"
 
 #: Control-ID:65535
 msgid "Autoclose:"
@@ -1073,7 +1073,7 @@ msgstr "Klembord"
 
 #: ID:222
 msgid "Close manually"
-msgstr "Handmatig sluiten"
+msgstr "Niet automatisch sluiten"
 
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1145,15 +1145,15 @@ msgstr "Gereed"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
-msgstr "Configureer het programma dat wordt gebruikt om verschillende revisies van bestanden te vergelijken."
+msgstr "Programma voor het vergelijken van verschillende revisies van bestanden."
 
 #: Control-ID:65535
 msgid "Configure the program used to resolve conflicted files."
-msgstr "Configureer het programma dat wordt gebruikt om conflicten in bestanden op te lossen."
+msgstr "Programma voor het oplossen van conflicten in bestanden."
 
 #: Control-ID:65535
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Configureer het programma voor het bekijken van GNU diff-bestanden (patchbestanden)."
+msgstr "Programma voor het bekijken van GNU diff-bestanden (patchbestanden)."
 
 #: ID:263
 #: Control-ID:65535
@@ -1504,7 +1504,7 @@ msgstr "Documentatie - Simon Large"
 
 #: Control-ID:1217
 msgid "Don't fetch status for context menu"
-msgstr "Geen status ophalen voor het contextmenu"
+msgstr "Geen status ophalen voor het tonen van het contextmenu"
 
 #: ID:73
 msgid "Don't show this message again"
@@ -2140,7 +2140,7 @@ msgstr "Logboek boodschappen"
 
 #: Dlg-ID:195
 msgid "Look and Feel"
-msgstr "Uitzicht en Gedrag"
+msgstr "Beeld en Gedrag"
 
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"

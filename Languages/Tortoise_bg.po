@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-13 10:46+0200\n"
+"PO-Revision-Date: 2005-05-24 19:31+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -198,6 +198,7 @@ msgstr "&Добавяне..."
 
 # Control-ID:1090,
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "&Допълнителни..."
 
@@ -218,6 +219,8 @@ msgstr "&Избор..."
 
 # Control-ID:1091,
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Вградена"
 
@@ -232,8 +235,14 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Отказ"
 
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "&Незабавна проверка"
+
 # ID:76,
-#: ID:76
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "&Сравняване на ревизии"
 
@@ -276,6 +285,8 @@ msgstr "&Изход"
 
 # Control-ID:1092,
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Външна"
 
@@ -309,8 +320,8 @@ msgstr "&От работното копие към URL:"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
-msgstr "&Главна ревизия:"
+msgid "&HEAD Revision"
+msgstr "&Главна ревизия"
 
 # Control-ID:57670,#:
 # MenuEntry#:
@@ -508,7 +519,7 @@ msgid "&Undo\tCtrl+Z"
 msgstr "&Отмяна"
 
 # Control-ID:1013,
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "&Unified Diff"
 
@@ -692,11 +703,6 @@ msgstr ""
 #: ID:101
 msgid "A&dd Folder..."
 msgstr "&Добавяне на папка..."
-
-# Control-ID:1093,
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "&Допълнителни..."
 
 # ID:73,
 #: ID:73
@@ -1086,11 +1092,6 @@ msgstr "Средно"
 msgid "B&rowse..."
 msgstr "И&збор..."
 
-# Control-ID:1094,
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "В&градена"
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -1160,11 +1161,6 @@ msgstr "Избор на външна програма за сравняване"
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "Избор..."
-
-# Control-ID:1096,
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "Вг&радена"
 
 # Control-ID:1119,#:
 # Control-ID:1119,
@@ -1253,8 +1249,8 @@ msgstr "Промяна на позицията на прозореца"
 msgid "Change the window size"
 msgstr "Промяна на размера на прозореца"
 
-# Dlg-ID:158,
-#: Dlg-ID:158
+# ID:163,
+#: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Променени файлове"
 
@@ -1288,12 +1284,6 @@ msgstr "Проверка в хранилището"
 #: ID:13
 msgid "Check for Modifications"
 msgstr "Проверка за промени"
-
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "Check now"
-msgstr "Незабавна проверка"
 
 # ID:9,
 #: ID:9
@@ -1366,8 +1356,8 @@ msgstr "Почиства недовършени операции, блокира
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "Изчистване на &кеш-паметта за удостоверения"
+msgid "Clear &Now"
+msgstr "&Незабавно изчистване"
 
 # ID:195,
 #: ID:195
@@ -1453,6 +1443,11 @@ msgstr "Поверявания всяка седмица:"
 #: ID:9
 msgid "Commits your changes to the repository"
 msgstr "Поверява промените Ви на хранилището"
+
+# ID:76,
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "Сравняване на &главните ревизии"
 
 # Control-ID:1019,
 #: Control-ID:1019
@@ -1550,6 +1545,11 @@ msgstr "Копиране от път"
 msgid "Copy To Working Copy..."
 msgstr "Копиране в работно копие..."
 
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "Копиране на URL в системния буфер"
+
 # ID:13,
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -1563,6 +1563,11 @@ msgid ""
 msgstr ""
 "Копира селекция и я поставя в системния буфер\n"
 "Копиране"
+
+# ID:101,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Копиране в системния буфер"
 
 # ID:151,
 #: ID:103
@@ -1911,6 +1916,11 @@ msgstr "Желаете ли да запишете промените си?"
 msgid "Documentation - Simon Large"
 msgstr "Документация - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "Да не се извлича състояние заради контекстното меню"
+
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
@@ -1924,11 +1934,6 @@ msgstr "Тип устройства"
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Изход"
-
-# Control-ID:1095,
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "&Външна"
 
 # ID:3697,
 #: ID:3697
@@ -2039,11 +2044,6 @@ msgstr "Грешка"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "Грешка при проверката на сървърния сертификат на %s:"
-
-# Control-ID:1097,
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "&Външна"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2321,7 +2321,7 @@ msgstr "Тип на графиката:"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
-msgid "H&ead Revision"
+msgid "H&EAD Revision"
 msgstr "&Главна ревизия:"
 
 # ID:12,
@@ -2366,6 +2366,17 @@ msgstr "Иконки/дизайн/програмиране:     Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Ако е включено, предотвратява появата на модификациите на иконките в диалозите \"Запиши като..\" или \"Отвори\"."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Ако е включено, контекстното меню ще се появява по-бързо.\n"
+"Но тогава ще се показват и такива команди, които са неизползваеми в контекста.\n"
+"Например: командата \"Дневник\" ще се показва дори и за току-що добавени папки."
 
 # ID:95,
 #: ID:95
@@ -2718,7 +2729,7 @@ msgstr "Най-стара ревизия: %ld - най-нова ревизия: 
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
 msgstr "Най-стара ревизия: %ld - Най-нова ревизия: %ld - Главна ревизия: %ld"
 
 # ID:3866,#:
@@ -4140,6 +4151,12 @@ msgstr "Спиране при копиране/преименуване"
 msgid "Subversion"
 msgstr "Subversion"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:65535
+msgid "Subversion authentication data:"
+msgstr "Удостоверения в Subversion:"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -4602,6 +4619,7 @@ msgstr ""
 # ID:80,
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -4761,6 +4779,10 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Неочакван файлов формат."
+
+#: MenuEntry
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "Unified &Diff на главните ревизии"
 
 # ID:81,
 #: ID:81
@@ -4993,6 +5015,11 @@ msgstr "Сравняване на празни символи"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "&Празни символи"
+
+# ID:151,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Работно копие"
 
 # ID:151,
 #: Control-ID:1183
