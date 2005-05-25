@@ -98,7 +98,9 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
 
 	//set up the language selecting combobox
-	m_LanguageCombo.AddString(_T("English"));
+	TCHAR buf[MAX_PATH];
+	GetLocaleInfo(1033, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
+	m_LanguageCombo.AddString(buf);
 	m_LanguageCombo.SetItemData(0, 1033);
 	CString path = CUtils::GetAppParentDirectory();
 	path = path + _T("Languages\\");
