@@ -243,7 +243,9 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 		DispatchMessage(&msg);
 	}
 
+	CSVNStatusCache::Instance().WaitToWrite();
 	CSVNStatusCache::Destroy();
+	CSVNStatusCache::Instance().Done();
 	apr_terminate();
 
 	return 0;
@@ -296,21 +298,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_CLOSE:
 		{
 			bRun = false;
-			// now connect to the pipe so that the running thread can exit
-			HANDLE hPipe = CreateFile( 
-				TSVN_CACHE_PIPE_NAME,   // pipe name 
-				GENERIC_READ |  // read and write access 
-				GENERIC_WRITE, 
-				0,              // no sharing 
-				NULL,           // default security attributes
-				OPEN_EXISTING,  // opens existing pipe 
-				0,              // default attributes 
-				NULL);          // no template file 
-
-			CloseHandle(hPipe);
 			Sleep(1500);
 			Shell_NotifyIcon(NIM_DELETE,&niData);
-			PostQuitMessage(0);
 			ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
 			return 0;
 		}
