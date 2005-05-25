@@ -335,8 +335,9 @@ third-party/skins  http://skins.red-bean.com/repositories/skinproj
 			<para>
 				Each time you update your main working copy, you will also
 				receive the latest version of the external project. Changes
-				you make to the external project will be committed when you
-				commit the main project.
+				you make to the external project will be notified when you
+				commit the main project, although you have to commit those
+				external changes separately.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-howto-common-nested">
@@ -357,7 +358,7 @@ third-party/skins  http://skins.red-bean.com/repositories/skinproj
 			</para>
 			<para>
 				The two working copies are independent. When you commit
-				changes to the parent, changes to the nested WC are not committed.
+				changes to the parent, changes to the nested WC are ignored.
 				Likewise when you update the parent, the nested WC is not updated.
 			</para>
 		</sect2>
