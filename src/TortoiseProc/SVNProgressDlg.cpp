@@ -141,18 +141,18 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_update_add:
 		m_bMergesAddsDeletesOccurred = true;
 		data->sActionColumnText.LoadString(IDS_SVNACTION_ADD);
-		data->color = GetSysColor(COLOR_HIGHLIGHT);
+		data->color = RGB(49, 106, 197);
 		break;
 	case svn_wc_notify_commit_added:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
-		data->color = GetSysColor(COLOR_HIGHLIGHT);
+		data->color = RGB(49, 106, 197);
 		break;
 	case svn_wc_notify_copy:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_COPY);
 		break;
 	case svn_wc_notify_commit_modified:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_MODIFIED);
-		data->color = GetSysColor(COLOR_HIGHLIGHT);
+		data->color = RGB(49, 106, 197);
 		break;
 	case svn_wc_notify_delete:
 	case svn_wc_notify_update_delete:

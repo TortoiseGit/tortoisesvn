@@ -68,6 +68,13 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_SETLEXER, SCLEX_CONTAINER);
 	Call(SCI_SETCODEPAGE, SC_CP_UTF8);
 	Call(SCI_AUTOCSETFILLUPS, 0, (LPARAM)"([");
+	//Set the default windows colors for edit controls
+	Call(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
+	Call(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
+	Call(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
+	Call(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
+	Call(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+	
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
 	if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))

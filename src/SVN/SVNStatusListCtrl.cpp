@@ -2073,7 +2073,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 			switch (entry->status)
 			{
 			case svn_wc_status_added:
-				crText = GetSysColor(COLOR_HIGHLIGHT);
+				crText = RGB(49, 106, 197);
 				break;
 			case svn_wc_status_missing:
 			case svn_wc_status_deleted:
@@ -2081,7 +2081,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 				crText = RGB(100,0,0);
 				break;
 			case svn_wc_status_modified:
-				crText = GetSysColor(COLOR_HIGHLIGHT);
+				crText = RGB(49, 106, 197);
 				break;
 			case svn_wc_status_merged:
 				crText = RGB(0, 100, 0);
