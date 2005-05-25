@@ -160,7 +160,10 @@ UINT CCacheDlg::TestThread()
 	srand(GetTickCount());
 	for (int i=0; i < 100000; ++i)
 	{
-		CString filepath = m_filelist.GetAt(rand() % m_filelist.GetCount());
+		CString filepath;
+		do {
+			filepath = m_filelist.GetAt(rand() % m_filelist.GetCount());
+		} while(filepath.Find(_T(".svn"))>=0);
 		GetDlgItem(IDC_FILEPATH)->SetWindowText(filepath);
 		GetStatusFromRemoteCache(CTSVNPath(filepath), true);
 		sNumber.Format(_T("%d"), i);
