@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-24 22:22GMT Daylight Time\n"
+"POT-Creation-Date: 2005-05-25 16:19GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4169,46 +4169,46 @@ msgid "Use svn:externals"
 msgstr ""
 
 #: source/en/tsvn_app_howto.xml:316(para) 
-msgid "Create a new folder within your project to contain the common code, and <action>Add</action> it to Subversion"
+msgid "Set the <literal>svn:externals</literal> property on for a folder in your project. The property value should be the name of a subfolder which you want the common code checked into, and the repository URL that you want to be checked out there. You can add multiple folder/URL pairs to one folder. For example: <screen>\nthird-party/sounds http://sounds.red-bean.com/repos\nthird-party/skins  http://skins.red-bean.com/repositories/skinproj\n</screen> Of course this code has to reside in a Subversion repository, although it does not have to be the same one."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:320(para) 
-msgid "Set the <literal>svn:externals</literal> property on that folder. The property value should be the repository URL of the code you want to include. Of course it has to reside in a Subversion repository, although it does not have to be the same one."
+#: source/en/tsvn_app_howto.xml:329(para) 
+msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The subfolders will be created automatically if required."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:327(para) 
-msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. Each time you update, you will also receive the latest version of that project. Changes you make to the common project will be committed back."
+#: source/en/tsvn_app_howto.xml:335(para) 
+msgid "Each time you update your main working copy, you will also receive the latest version of the external project. Changes you make to the external project will be committed when you commit the main project."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:336(title) 
+#: source/en/tsvn_app_howto.xml:343(title) 
 msgid "Use a nested working copy"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:337(para) 
+#: source/en/tsvn_app_howto.xml:344(para) 
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:341(para) 
+#: source/en/tsvn_app_howto.xml:348(para) 
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:351(para) 
+#: source/en/tsvn_app_howto.xml:358(para) 
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are not committed. Likewise when you update the parent, the nested WC is not updated."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:358(title) 
+#: source/en/tsvn_app_howto.xml:365(title) 
 msgid "Use a relative location"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:359(para) 
+#: source/en/tsvn_app_howto.xml:366(para) 
 msgid "If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen> and refer to the common code using a relative path, eg. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:374(para) 
+#: source/en/tsvn_app_howto.xml:381(para) 
 msgid "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:392(para) 
+#: source/en/tsvn_app_howto.xml:399(para) 
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr ""
 

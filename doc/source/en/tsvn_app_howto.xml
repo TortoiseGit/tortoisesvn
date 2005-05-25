@@ -314,22 +314,29 @@
 		<sect2 id="tsvn-howto-common-externals">
 			<title>Use svn:externals</title>
 			<para>
-				Create a new folder within your project to contain the
-				common code, and <action>Add</action> it to Subversion
-			</para>
-			<para>
-				Set the <literal>svn:externals</literal> property on that
-				folder. The property value should be the repository URL
-				of the code you want to include. Of course it has to reside
-				in a Subversion repository, although it does not have to
-				be the same one.
+				Set the <literal>svn:externals</literal> property on for a folder
+				in your project. The property value should be the name of a
+				subfolder which you want the common code checked into, and the
+				repository URL that you want to be checked out there. You can
+				add multiple folder/URL pairs to one folder. For example:
+<screen>
+third-party/sounds http://sounds.red-bean.com/repos
+third-party/skins  http://skins.red-bean.com/repositories/skinproj
+</screen>
+				Of course this code has to reside in a Subversion repository,
+				although it does not have to be the same one.
 			</para>
 			<para>
 				Commit the new folder. Now when you update, Subversion
 				will pull a copy of that project from its repository
-				into your working copy. Each time you update, you will also
-				receive the latest version of that project. Changes you
-				make to the common project will be committed back.
+				into your working copy. The subfolders will be created
+				automatically if required.
+			</para>
+			<para>
+				Each time you update your main working copy, you will also
+				receive the latest version of the external project. Changes
+				you make to the external project will be committed when you
+				commit the main project.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-howto-common-nested">
