@@ -321,14 +321,14 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		if (!PathFileExists(src))
 		{
-			_tprintf(_T("file %s does not exist\n"), src);
+			_tprintf(_T("File '%s' does not exist\n"), src);
 			return ERR_FNF;		// file does not exist
 		}
 	}
 
 	if (!PathFileExists(wc))
 	{
-		_tprintf(_T("directory or file %s does not exist\n"), wc);
+		_tprintf(_T("Directory or file '%s' does not exist\n"), wc);
 		return ERR_FNF;			// dir does not exist
 	}
 	char * pBuf = NULL;
@@ -342,30 +342,30 @@ int _tmain(int argc, _TCHAR* argv[])
 		hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
 		if (hFile == INVALID_HANDLE_VALUE)
 		{
-			_tprintf(_T("unable to open input file %s\n"), src);
+			_tprintf(_T("Unable to open input file '%s'\n"), src);
 			return ERR_OPEN;		// error opening file
 		}
 		filelength = GetFileSize(hFile, NULL);
 		if (filelength == INVALID_FILE_SIZE)
 		{
-			_tprintf(_T("could not determine filesize of %s\n"), src);
+			_tprintf(_T("Could not determine filesize of '%s'\n"), src);
 			return ERR_READ;
 		}
 		maxlength = filelength+4096;	// We might be increasing filesize.
 		pBuf = new char[maxlength];
 		if (pBuf == NULL)
 		{
-			_tprintf(_T("could not allocate enough memory!\n"));
+			_tprintf(_T("Could not allocate enough memory!\n"));
 			return ERR_ALLOC;
 		}
 		if (!ReadFile(hFile, pBuf, filelength, &readlength, NULL))
 		{
-			_tprintf(_T("could not read the file %s\n"), src);
+			_tprintf(_T("Could not read the file '%s'\n"), src);
 			return ERR_READ;
 		}
 		if (readlength != filelength)
 		{
-			_tprintf(_T("could not read the file %s to the end!\n"), src);
+			_tprintf(_T("Could not read the file '%s' to the end!\n"), src);
 			return ERR_READ;
 		}
 		CloseHandle(hFile);
@@ -472,7 +472,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	hFile = CreateFile(dst, GENERIC_WRITE|GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
-		_tprintf(_T("unable to open output file %s for writing\n"), dst);
+		_tprintf(_T("Unable to open output file '%s' for writing\n"), dst);
 		return ERR_OPEN;
 	}
 
@@ -484,12 +484,12 @@ int _tmain(int argc, _TCHAR* argv[])
 		char * pBufExisting = new char[filelength];
 		if (!ReadFile(hFile, pBufExisting, filelengthExisting, &readlengthExisting, NULL))
 		{
-			_tprintf(_T("could not read the file %s\n"), dst);
+			_tprintf(_T("Could not read the file '%s'\n"), dst);
 			return ERR_READ;
 		}
 		if (readlengthExisting != filelengthExisting)
 		{
-			_tprintf(_T("could not read the file %s to the end!\n"), dst);
+			_tprintf(_T("Could not read the file '%s' to the end!\n"), dst);
 			return ERR_READ;
 		}
 		sameFileContent = (memcmp(pBuf, pBufExisting, filelength) == 0);
@@ -505,13 +505,13 @@ int _tmain(int argc, _TCHAR* argv[])
 		WriteFile(hFile, pBuf, filelength, &readlength, NULL);
 		if (readlength != filelength)
 		{
-			_tprintf(_T("could not write the file %s to the end!\n"), dst);
+			_tprintf(_T("Could not write the file '%s' to the end!\n"), dst);
 			return ERR_READ;
 		}
 
 		if (!SetEndOfFile(hFile))
 		{
-			_tprintf(_T("could not truncate the file %s to the end!\n"), dst);
+			_tprintf(_T("Could not truncate the file '%s' to the end!\n"), dst);
 			return ERR_READ;
 		}
 	}
