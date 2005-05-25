@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISE SVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-13 15:16+0100\n"
+"PO-Revision-Date: 2005-05-25 10:37+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -163,6 +163,7 @@ msgstr "&Dodaj..."
 
 # Control-ID:1090,
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "Z&aawansowane..."
 
@@ -183,6 +184,8 @@ msgstr "&Przeglądaj..."
 
 # Control-ID:1091,
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Wbud."
 
@@ -197,8 +200,14 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Anuluj"
 
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "&Sprawdź teraz"
+
 # ID:76,
-#: ID:76
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "&Porównaj wersje"
 
@@ -241,6 +250,8 @@ msgstr "Za&kończ"
 
 # Control-ID:1092,
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Zewn."
 
@@ -275,8 +286,8 @@ msgstr "Z &kopii roboczej pod adresem URL:"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
-msgstr "&Główna wersja"
+msgid "&HEAD Revision"
+msgstr "&Główna wersja (HEAD)"
 
 # Control-ID:9,#:
 # Control-ID:57670,#:
@@ -472,7 +483,7 @@ msgid "&Undo\tCtrl+Z"
 msgstr "&Cofnij\tCtrl+Z"
 
 # Control-ID:1013,
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "&Plik różnicowy"
 
@@ -661,11 +672,6 @@ msgstr ""
 #: ID:101
 msgid "A&dd Folder..."
 msgstr "Dodaj &folder..."
-
-# Control-ID:1093,
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "Zaawan&sowane..."
 
 # ID:73,
 #: ID:73
@@ -1058,11 +1064,6 @@ msgstr "Średnia"
 msgid "B&rowse..."
 msgstr "Prze&glądaj..."
 
-# Control-ID:1094,
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "W&bud."
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -1132,11 +1133,6 @@ msgstr "Wskaż zewnętrzny program do porównywania plików "
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "Przeglądaj..."
-
-# Control-ID:1096,
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "Wb&ud."
 
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1225,6 +1221,11 @@ msgid "Change the window size"
 msgstr "Zmień rozmiar okna"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "Zmienione pliki"
+
+# ID:163,
 #: ID:163
 msgid "Changed files: %d"
 msgstr "Zmienione pliki: %d"
@@ -1254,12 +1255,6 @@ msgstr "Sprawdź w repozytorium"
 #: ID:13
 msgid "Check for Modifications"
 msgstr "Sprawdź zmiany"
-
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "Check now"
-msgstr "Sprawdź teraz"
 
 # ID:9,
 #: ID:9
@@ -1332,8 +1327,8 @@ msgstr "Porządkuje przerwane operacje, zablokowane pliki, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "Wyczyść param. &uwierzyt."
+msgid "Clear &Now"
+msgstr "Wyczyść &Teraz"
 
 # ID:195,
 #: ID:195
@@ -1419,6 +1414,11 @@ msgstr "Liczba zwrotów w każdym tygodniu:"
 #: ID:9
 msgid "Commits your changes to the repository"
 msgstr "Zatwierdza twoje zmiany w repozytorium"
+
+# ID:76,
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "Porównaj wersje &główne (HEAD)"
 
 # Control-ID:1019,
 #: Control-ID:1019
@@ -1538,6 +1538,11 @@ msgid ""
 msgstr ""
 "Kopiuje zaznaczenie i umieszcza w schowku\n"
 "Kopiuj"
+
+# ID:101,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Kupiuj do schowka"
 
 # ID:151,
 #: ID:103
@@ -1886,6 +1891,11 @@ msgstr "Czy chcesz zapisać zmiany?"
 msgid "Documentation - Simon Large"
 msgstr "Dokumentacja - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "Nie pobieraj statusu dla menu kontekstowego"
+
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
@@ -1899,11 +1909,6 @@ msgstr "Typy dysków"
 #: MenuEntry
 msgid "E&xit"
 msgstr "Za&mknij"
-
-# Control-ID:1095,
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "Z&ewn."
 
 # ID:3697,
 #: ID:3697
@@ -1932,9 +1937,8 @@ msgstr "Edytuj program do scalania plików (zależny od typu plików)"
 
 # Dlg-ID:135,
 #: ID:113
-#, fuzzy
 msgid "Edit Log Message"
-msgstr "Wprowadź tekst komunikatu w logu"
+msgstr "Wprowadź komunikat logu"
 
 # ID:115,
 #: ID:115
@@ -1943,9 +1947,8 @@ msgstr "Wprowadź nazwę autora"
 
 # Dlg-ID:135,
 #: ID:115
-#, fuzzy
 msgid "Edit log message"
-msgstr "Wprowadź tekst komunikatu w logu"
+msgstr "Wprowadź komunikat logu"
 
 # ID:79,
 #: ID:79
@@ -2016,11 +2019,6 @@ msgstr "Błąd"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "Błąd sprawdzania certyfikatu serwera dla %s:"
-
-# Control-ID:1097,
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "Zew&n."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2302,14 +2300,14 @@ msgstr "Typ wykresu:"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
-msgid "H&ead Revision"
-msgstr "&Główna wersja"
+msgid "H&EAD Revision"
+msgstr "&Główna wersja (HEAD)"
 
 # ID:12,
 # Tłumaczenie dosłowne.
 #: Control-ID:1182
 msgid "HEAD revision in the repository"
-msgstr "Bieżąca (HEAD) wersja repozytorium"
+msgstr "Główna (HEAD) wersja repozytorium"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -2348,6 +2346,17 @@ msgstr "Ikony/Wygląd/Kod:   Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Włączenie opcji zapobiega pojawianiu się ikon nakładkowych w oknach dialogowych \"zapisz jako...\" lub \"otwórz\"."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Jeżeli opcja jest włączona, menu kontektowe będzie pojawiać się szybciej.\n"
+"Jednak pojawiać się będą pozycje menu, które nie mogą tak naprawdę być użyte.\n"
+"Na przykład: pozycja \"Pokaż log\" będzie się pojawiać nawet dla właśnie dodanych folderów."
 
 # ID:95,
 #: ID:95
@@ -2705,8 +2714,8 @@ msgstr "Najniższa wersja: %ld - Najwyższa wersja: %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr "Lowest Revision: %ld - Highest Revision: %ld - Główna wersja: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
+msgstr "Najniższa wersja: %ld - Najwyższa wersja: %ld - Główna (HEAD) wersja: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -4137,6 +4146,12 @@ msgstr "Zatrzymaj na kopii/zmianie nazwy"
 msgid "Subversion"
 msgstr "Subversion"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:65535
+msgid "Subversion authentication data:"
+msgstr "&Parametry uwierzytelnienia Subversion:"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -4600,6 +4615,7 @@ msgstr ""
 # ID:80,
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -4759,6 +4775,14 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Nieodpowiedni format pliku."
+
+# Control-ID:1032,#:
+# Control-ID:1115,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: MenuEntry
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "Plik różnicowy &głównych (HEAD) wersji"
 
 # ID:81,
 #: ID:81
