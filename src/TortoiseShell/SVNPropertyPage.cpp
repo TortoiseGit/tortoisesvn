@@ -249,7 +249,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 			//    
 			if (wParam == IDC_PROPLIST)
 			{
-				if ((code == NM_CLICK)||(code == LVN_ITEMACTIVATE))
+				if ((code == NM_CLICK)||(code == LVN_ITEMACTIVATE)||(code == LVN_ITEMCHANGED))
 				{
 					//enable the remove button if a row in the listcontrol is selected
 					//if no row is selected then disable the remove button
