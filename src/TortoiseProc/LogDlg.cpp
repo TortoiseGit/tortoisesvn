@@ -2018,7 +2018,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		if (m_arShownList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
 			if (m_arCopies.GetAt(m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec)))
-				crText = RGB(49, 106, 197);
+				crText = CUtils::MyColor(CUtils::MyColors::BLUE);
 		}
 		// Store the color back in the NMLVCUSTOMDRAW struct.
 		pLVCD->clrText = crText;

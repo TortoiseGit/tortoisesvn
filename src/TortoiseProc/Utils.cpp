@@ -866,3 +866,27 @@ CString CUtils::GetAppParentDirectory()
 	path = path.Left(path.ReverseFind('\\')+1);
 	return path;
 }
+
+COLORREF CUtils::MyColor(int nIndex)
+{
+	COLORREF crWin = GetSysColor(COLOR_WINDOW);
+
+	if (GetRValue(crWin) + GetGValue(crWin) + GetBValue(crWin) < 50)
+	{
+		// Dark window - use default colour for everything.
+		return GetSysColor(COLOR_WINDOWTEXT);
+	}
+	else
+	{
+		switch (nIndex)
+		{
+			case MyColors::BLUE:
+				return RGB(49, 106, 197);
+			case MyColors::RED:
+				return RGB(100, 0, 0);
+			case MyColors::GREEN:
+				return RGB(0, 100, 0);
+		}
+	}	
+	return GetSysColor(COLOR_WINDOWTEXT);
+}

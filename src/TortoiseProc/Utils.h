@@ -173,4 +173,11 @@ public:
 	 */
 	static CString GetAppParentDirectory();
 
+	enum MyColors
+	{
+		BLUE = 0,
+		RED,
+		GREEN
+	};
+	static COLORREF MyColor(int nIndex);
 };
