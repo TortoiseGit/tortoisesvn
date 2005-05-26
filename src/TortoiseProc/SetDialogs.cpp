@@ -142,7 +142,8 @@ BOOL CSetDialogs::OnInitDialog()
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSECOMBO, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.AddTool(IDC_OLDAPILOGS, IDS_SETTINGS_OLDLOGAPIS_TT);
-	
+	m_tooltips.AddTool(IDC_AUTOCOMPLETION, IDS_SETTINGS_AUTOCOMPLETION_TT);
+
 	int count = 0;
 	for (int i=6; i<32; i=i+2)
 	{

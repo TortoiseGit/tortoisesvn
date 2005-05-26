@@ -1841,6 +1841,8 @@ BEGIN
                             "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
     IDS_SETTINGS_SIMPLECONTEXT_TT 
                             "If activated, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the ""Show Log"" entry will show even for just added folders."
+    IDS_SETTINGS_AUTOCOMPLETION_TT 
+                            "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
 END
 
 STRINGTABLE 
