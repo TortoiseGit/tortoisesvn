@@ -320,6 +320,8 @@ UINT CLogPromptDlg::StatusThread()
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
 	m_bBlock = TRUE;
+	m_bThreadRunning = TRUE;	// so the main thread knows that this thread is still running
+	m_bRunThread = TRUE;		// if this is set to FALSE, the thread should stop
 	GetDlgItem(IDCANCEL)->EnableWindow(false);
 	GetDlgItem(IDOK)->EnableWindow(false);
 
@@ -393,8 +395,6 @@ UINT CLogPromptDlg::StatusThread()
 	m_autolist.RemoveAll();
 	// we don't have to block the commit dialog while we fetch the
 	// auto completion list.
-	m_bThreadRunning = TRUE;	// so the main thread knows that this thread is still running
-	m_bRunThread = TRUE;		// if this is set to FALSE, the thread should stop
 	m_bBlock = FALSE;
 	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE)==TRUE)
 		GetAutocompletionList();
@@ -582,19 +582,17 @@ void CLogPromptDlg::GetAutocompletionList()
 	// (MULTILINE|NOCASE) .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
 	// .cpp = (?<=[^\s]::)\b\w+\b
 	
-	CStringArray arExtensions;
-	CStringArray arRegexes;
+	CMapStringToString mapRegex;
 	CString sRegexFile = CUtils::GetAppDirectory();
 	sRegexFile += _T("autolist.txt");
 	if (!m_bRunThread)
 		return;
 	REGEX_FLAGS rflags = NOFLAGS;
-	DWORD timeout = GetTickCount()+5000;		// stop parsing after 5 seconds.
 	try
 	{
 		CString strLine;
 		CStdioFile file(sRegexFile, CFile::typeText | CFile::modeRead);
-		while (m_bRunThread && (GetTickCount()<timeout) && file.ReadString(strLine))
+		while (m_bRunThread && file.ReadString(strLine))
 		{
 			CString sRegex = strLine.Mid(strLine.Find('=')+1).Trim();
 			CString sFlags = (strLine[0] == '(' ? strLine.Left(strLine.Find(')')+1).Trim(_T(" ()")) : _T(""));
@@ -610,14 +608,13 @@ void CLogPromptDlg::GetAutocompletionList()
 			int pos = -1;
 			while ((pos = strLine.Find(','))>=0)
 			{
-				arExtensions.Add(strLine.Left(pos));
-				arRegexes.Add(sRegex);
+				mapRegex[strLine.Left(pos)] = sRegex;
 				strLine = strLine.Mid(pos+1).Trim();
 			}
-			arExtensions.Add(strLine.Left(strLine.Find('=')).Trim());
-			arRegexes.Add(sRegex);						
+			mapRegex[strLine.Left(strLine.Find('=')).Trim()] = sRegex;
 		}
 		file.Close();
+		DWORD timeout = GetTickCount()+5000;		// stop parsing after 5 seconds.
 		
 		// now we have two arrays of strings, where the first array contains all
 		// file extensions we can use and the second the corresponding regex strings
@@ -646,16 +643,14 @@ void CLogPromptDlg::GetAutocompletionList()
 				CString sExt = entry->GetPath().GetFileExtension();
 				CString sRegex;
 				// find the regex string which corresponds to the file extension
-				for (int j=0; (m_bRunThread && (j<arExtensions.GetCount())); ++j)
-				{
-					if (sExt.CompareNoCase(arExtensions.GetAt(j))==0)
-					{
-						sRegex = arRegexes.GetAt(j);
-						break;
-					}
-				}
+				sRegex = mapRegex[sExt];
 				if (!sRegex.IsEmpty())
+				{
 					ScanFile(entry->GetPath().GetWinPathString(), sRegex, rflags);
+					CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
+					if (!basePath.IsEmpty())
+						ScanFile(basePath.GetWinPathString(), sRegex, rflags);
+				}
 			}
 		}
 	}
