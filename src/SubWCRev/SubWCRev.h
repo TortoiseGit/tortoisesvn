@@ -27,6 +27,7 @@ typedef struct SubWCRev_t
 	svn_revnum_t CmtRev;	// Highest commit revision found
 	apr_time_t CmtDate;		// Date of highest commit revision
 	BOOL HasMods;			// True if local modifications found
+	BOOL bFolders;			// If TRUE, status of folders is included
 	char Url[URL_BUF];		// URL of working copy
 } SubWCRev_t;
 

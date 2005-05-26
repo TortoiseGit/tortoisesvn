@@ -260,7 +260,7 @@ int _tmain(int argc, _TCHAR* argv[])
 					TSVN_VERMAJOR, TSVN_VERMINOR,
 					TSVN_VERMICRO, TSVN_VERBUILD);
 		_putts(
-			_T("Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]\n")
+			_T("Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmdf]\n")
 			_T("\n")
 			_T("Params:\n")
 			_T("WorkingCopyPath    :   path to a Subversion working copy\n")
@@ -272,6 +272,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			_T("                       copy contains mixed revisions\n")
 			_T("-d                 :   if given, then SubWCRev will only do its job if\n")
 			_T("                       DstVersionFile does not exist\n")
+			_T("-f                 :   if given, then SubWCRev will include the\n")
+			_T("                       last-changed revision of folders. Default is to\n")
+			_T("                       use only files to get the revision numbers\n")
+			_T("                       This only affects $WCREV$ and $WCDATE$\n")
 			_T("\n")
 			_T("SubWCRev reads the Subversion status of all files in a working copy\n")
 			_T("excluding externals. If SrcVersionFile is specified, it is scanned\n")
@@ -298,6 +302,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	BOOL bErrOnMods = FALSE;
 	BOOL bErrOnMixed = FALSE;
 	SubWCRev_t SubStat;
+	SubStat.bFolders = FALSE;
 	memset (&SubStat, 0, sizeof (SubStat));
 	if (argc == 2)
 	{
@@ -318,6 +323,15 @@ int _tmain(int argc, _TCHAR* argv[])
 			if (_tcschr(argv[4], 'd') != 0)
 				if (PathFileExists(dst))
 					return ERR_OUT_EXISTS;
+			// the 'f' option is useful to keep the revision which is inserted in
+			// the file constant, even if there are commits on other branches.
+			// For example, if you tag your working copy, then half a year later
+			// do a fresh checkout of that tag, the folder in your working copy of
+			// that tag will get the HEAD revision of the time you check out (or
+			// do an update). The files alone however won't have their last-committed
+			// revision changed at all.
+			if (_tcschr(argv[4], 'f') != 0)
+				SubStat.bFolders = TRUE;
 		}
 		if (!PathFileExists(src))
 		{

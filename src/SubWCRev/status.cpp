@@ -31,10 +31,13 @@ void getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
 	if ((status)&&(status->entry))
 	{
 		SubWCRev_t * SubStat = (SubWCRev_t *) baton;
-		if (SubStat->CmtRev < status->entry->cmt_rev)
+		if ((status->entry->kind == svn_node_file)||(SubStat->bFolders))
 		{
-			SubStat->CmtRev = status->entry->cmt_rev;
-			SubStat->CmtDate = status->entry->cmt_date;
+			if (SubStat->CmtRev < status->entry->cmt_rev)
+			{
+				SubStat->CmtRev = status->entry->cmt_rev;
+				SubStat->CmtDate = status->entry->cmt_date;
+			}
 		}
 		if (SubStat->MaxRev < status->entry->revision)
 		{
