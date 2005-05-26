@@ -2220,7 +2220,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	//Create a pointer to the item
 	LV_ITEM* pItem= &(pDispInfo)->item;
 
-	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(pItem->iItem >= m_arShownList.GetCount()))
+	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(pItem->iItem > m_arShownList.GetCount()))
 	{
 		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		*pResult = 0;
@@ -2262,7 +2262,7 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	LV_ITEM* pItem= &(pDispInfo)->item;
 
 	*pResult = 0;
-	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(m_currentChangedArray==NULL)||(pItem->iItem >= m_currentChangedArray->GetCount()))
+	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(m_currentChangedArray==NULL)||(pItem->iItem > m_currentChangedArray->GetCount()))
 	{
 		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		return;
