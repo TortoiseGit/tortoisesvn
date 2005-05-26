@@ -252,13 +252,12 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 	pMsgView->SetWindowText(msg);
 	m_ProjectProperties.FindBugID(msg, pMsgView);
 
+	m_LogMsgCtrl.SetRedraw(FALSE);
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
-	m_LogMsgCtrl.SetRedraw(FALSE);
 
 	m_currentChangedArray = paths;
 
-	m_LogMsgCtrl.SetRedraw(FALSE);
 	if (m_currentChangedArray)
 	{
 		m_LogMsgCtrl.SetItemCountEx(m_currentChangedArray->GetCount());
