@@ -2078,7 +2078,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 			case svn_wc_status_missing:
 			case svn_wc_status_deleted:
 			case svn_wc_status_replaced:
-				crText = CUtils::MyColor(CUtils::MyColors::RED);
+				crText = CUtils::MyColor(CUtils::MyColors::BROWN);
 				break;
 			case svn_wc_status_modified:
 				crText = CUtils::MyColor(CUtils::MyColors::BLUE);

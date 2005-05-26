@@ -882,8 +882,10 @@ COLORREF CUtils::MyColor(int nIndex)
 		{
 			case MyColors::BLUE:
 				return RGB(49, 106, 197);
-			case MyColors::RED:
+			case MyColors::BROWN:
 				return RGB(100, 0, 0);
+			case MyColors::RED:
+				return RGB(255, 0, 0);
 			case MyColors::GREEN:
 				return RGB(0, 100, 0);
 		}

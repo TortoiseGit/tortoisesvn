@@ -176,6 +176,7 @@ public:
 	enum MyColors
 	{
 		BLUE = 0,
+		BROWN,
 		RED,
 		GREEN
 	};

@@ -158,11 +158,11 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_update_delete:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETE);
 		m_bMergesAddsDeletesOccurred = true;
-		data->color = CUtils::MyColor(CUtils::MyColors::RED);
+		data->color = CUtils::MyColor(CUtils::MyColors::BROWN);
 		break;
 	case svn_wc_notify_commit_deleted:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETING);
-		data->color = CUtils::MyColor(CUtils::MyColors::RED);
+		data->color = CUtils::MyColor(CUtils::MyColors::BROWN);
 		break;
 	case svn_wc_notify_restore:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_RESTORE);
@@ -175,7 +175,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		break;
 	case svn_wc_notify_commit_replaced:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
-		data->color = CUtils::MyColor(CUtils::MyColors::RED);
+		data->color = CUtils::MyColor(CUtils::MyColors::BROWN);
 		break;
 	case svn_wc_notify_update_update:
 		// if this is an inoperative dir change, don't show the nofification.
