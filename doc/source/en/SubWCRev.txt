@@ -17,6 +17,10 @@ DstVersionFile     :   path to where to save the resulting header file
                        copy contains mixed revisions
 -d                 :   if given, then SubWCRev will only do its job if
                        DstVersionFile does not exist
+-f                 :   if given, then SubWCRev will include the
+                       last-changed revision of folders. Default is to
+                       use only files to get the revision numbers
+                       This only affects $WCREV$ and $WCDATE$
 
 
 SubWCRev reads the Subversion status of all files in a working copy, excluding
@@ -60,7 +64,7 @@ mixed update revisions.
 The -d switch causes SubWCRev to abort with ERRORLEVEL 9 if the destination
 file already exists.
 
-These 3 switches should be combined if more than one is required, eg. -nm.
+The switches should be combined if more than one is required, eg. -nm.
 
 -------------------------------------------------------------------------------
 SubWCRev was written by Stefan Küng for the TortoiseSVN project.
