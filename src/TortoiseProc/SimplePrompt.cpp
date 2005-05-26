@@ -29,6 +29,7 @@ CSimplePrompt::CSimplePrompt(CWnd* pParent /*=NULL*/)
 	, m_sUsername(_T(""))
 	, m_sPassword(_T(""))
 	, m_bSaveAuthentication(FALSE)
+	, m_sRealm(_T(""))
 {
 }
 
@@ -42,6 +43,7 @@ void CSimplePrompt::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_USEREDIT, m_sUsername);
 	DDX_Text(pDX, IDC_PASSEDIT, m_sPassword);
 	DDX_Check(pDX, IDC_SAVECHECK, m_bSaveAuthentication);
+	DDX_Text(pDX, IDC_REALM, m_sRealm);
 }
 
 

@@ -331,6 +331,7 @@
 #define IDC_FILTERCANCEL                1218
 #define IDS_LOGPROMPT_ASKADD            1219
 #define IDS_LOGPROMPT_NOTHINGTOCOMMIT   1220
+#define IDC_REALM                       1220
 #define IDS_PROGRS_ATREV                1221
 #define IDS_PROGRS_ACTION               1222
 #define IDS_PROGRS_PATH                 1223
@@ -642,7 +643,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        205
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1220
+#define _APS_NEXT_CONTROL_VALUE         1221
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

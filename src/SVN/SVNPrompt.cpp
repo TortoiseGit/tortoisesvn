@@ -123,10 +123,11 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
 	return FALSE;
 }
 
-BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, BOOL& may_save) 
+BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString& Realm, BOOL& may_save) 
 {
 	CSimplePrompt dlg;
 	dlg.m_hParentWnd = m_hParentWnd;
+	dlg.m_sRealm = Realm;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
@@ -179,13 +180,14 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
 	return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char * /*realm*/, const char *username, svn_boolean_t may_save, apr_pool_t *pool)
+svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char * realm, const char *username, svn_boolean_t may_save, apr_pool_t *pool)
 {
 	SVNPrompt * svn = (SVNPrompt *)baton;
 	svn_auth_cred_simple_t *ret = (svn_auth_cred_simple_t *)apr_pcalloc (pool, sizeof (*ret));
 	CString UserName = CUnicodeUtils::GetUnicode(username);
 	CString PassWord;
-	if (svn->SimplePrompt(UserName, PassWord, may_save))
+	CString Realm = CUnicodeUtils::GetUnicode(realm);
+	if (svn->SimplePrompt(UserName, PassWord, Realm, may_save))
 	{
 		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(UserName));
 		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(PassWord));

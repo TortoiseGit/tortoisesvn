@@ -43,6 +43,7 @@ protected:
 public:
 	CString		m_sUsername;
 	CString		m_sPassword;
+	CString		m_sRealm;
 	BOOL		m_bSaveAuthentication;
 	HWND		m_hParentWnd;
 
