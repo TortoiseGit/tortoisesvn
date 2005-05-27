@@ -201,7 +201,7 @@ BOOL CLogDlg::OnInitDialog()
 
 	SetSplitterRange();
 	
-	m_cFilterCancelButton.LoadBitmaps(IDB_CANCELNORMAL, IDB_CANCELPRESSED, IDB_CANCELHIGHLIGHT, 0);
+	m_cFilterCancelButton.LoadBitmaps(IDB_CANCELNORMAL, IDB_CANCELPRESSED, 0, 0);
 	m_cFilterCancelButton.SizeToContent();
 	m_cFilterIcon.LoadBitmaps(IDB_LOGFILTER);
 	m_cFilterIcon.SizeToContent();
