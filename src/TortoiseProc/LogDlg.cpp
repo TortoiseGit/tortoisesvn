@@ -2308,10 +2308,18 @@ void CLogDlg::OnBnClickedFiltercancel()
 	FillLogMessageCtrl(_T(""), NULL);
 	m_bNoDispUpdates = true;
 	m_arShownList.RemoveAll();
+
+	// reset the time filter too
+	__time64_t rt = m_tFrom;
+	CTime tim(rt);
+	m_DateFrom.SetTime(&tim);
+	rt = m_tTo;
+	tim = rt;
+	m_DateTo.SetTime(&tim);
+
 	for (INT_PTR i=0; i<m_arLogMessages.GetCount(); ++i)
 	{
-		if (IsEntryInDateRange(i))
-			m_arShownList.Add(i);
+		m_arShownList.Add(i);
 	}
 	m_bNoDispUpdates = false;
 	m_LogList.SetItemCountEx(m_arShownList.GetCount());
