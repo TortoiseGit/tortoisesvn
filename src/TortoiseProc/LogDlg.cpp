@@ -2520,6 +2520,7 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 			m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 		}
 		m_LogList.SetRedraw(true);
+		m_LogList.Invalidate();
 		theApp.DoWaitCursor(-1);
 		m_cFilterCancelButton.ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
