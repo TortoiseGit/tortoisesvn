@@ -245,7 +245,6 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 	CSVNStatusCache::Instance().WaitToWrite();
 	CSVNStatusCache::Destroy();
-	CSVNStatusCache::Instance().Done();
 	apr_terminate();
 
 	return 0;
@@ -299,6 +298,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		{
 			bRun = false;
 			Sleep(1500);
+			CSVNStatusCache::Instance().SaveCache();
 			Shell_NotifyIcon(NIM_DELETE,&niData);
 			ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
 			return 0;
