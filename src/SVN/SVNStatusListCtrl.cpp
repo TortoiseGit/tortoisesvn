@@ -1487,14 +1487,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_DELETE:
 					{
+						CTSVNPathList pathlist;
+						FillListOfSelectedItemPaths(pathlist);
+						pathlist.RemoveChildren();
 						CString filelist;
-						POSITION pos = GetFirstSelectedItemPosition();
-						int index;
-						while ((index = GetNextSelectedItem(pos)) >= 0)
+						for (INT_PTR i=0; i<pathlist.GetCount(); ++i)
 						{
-							filelist += GetListEntry(index)->path.GetWinPathString();
+							filelist += pathlist[i].GetWinPathString();
 							filelist += _T("|");
-						}
+						}						
 						filelist += _T("|");
 						int len = filelist.GetLength();
 						TCHAR * buf = new TCHAR[len+2];
