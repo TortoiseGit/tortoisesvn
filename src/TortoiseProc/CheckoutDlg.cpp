@@ -173,7 +173,7 @@ void CCheckoutDlg::OnOK()
 	if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
 	{
 		CString message(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY));
-		if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDNO)
+		if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
 			return;		//don't dismiss the dialog
 	}
 	UpdateData(FALSE);
