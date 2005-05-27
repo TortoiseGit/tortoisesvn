@@ -156,6 +156,8 @@ public:
 	*/
 	static bool PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right);
 
+	static bool CheckChild(const CTSVNPath &parent, const CTSVNPath& child);
+
 	/**
 	 * appends a string to this path. 
 	 *\remark - missing slashes are not added - this is just a string concatenation, but with
@@ -296,6 +298,12 @@ public:
 	void DeleteAllFiles();
 	/** Remove duplicate entries from the list (sorts the list as a side-effect */
 	void RemoveDuplicates();
+	/** 
+	 * Removes all child items and leaves only the top folders. Useful if you
+	 * create the list to remove them (i.e. if you remove a parent folder, the
+	 * child files and folders don't have to be deleted anymore)
+	 */
+	void RemoveChildren();
 
 private:
 	typedef std::vector<CTSVNPath> PathVector;

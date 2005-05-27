@@ -444,11 +444,6 @@ bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs) const
 bool 
 CTSVNPath::IsAncestorOf(const CTSVNPath& possibleDescendant) const
 {
-	if(!IsDirectory())
-	{
-		// If we're not a directory, then we can't be an ancestor of anybody
-		return false;
-	}
 	possibleDescendant.EnsureBackslashPathSet();
 	EnsureBackslashPathSet();
 
@@ -494,6 +489,11 @@ bool
 CTSVNPath::PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right)
 {
 	return left.IsEquivalentTo(right);
+}
+
+bool CTSVNPath::CheckChild(const CTSVNPath &parent, const CTSVNPath& child)
+{
+	return parent.IsAncestorOf(child);
 }
 
 void CTSVNPath::AppendRawString(const CString& sAppend)
@@ -751,6 +751,12 @@ void CTSVNPathList::RemoveDuplicates()
 	m_paths.erase(std::unique(m_paths.begin(), m_paths.end(), &CTSVNPath::PredLeftEquivalentToRight), m_paths.end());
 }
 
+void CTSVNPathList::RemoveChildren()
+{
+	SortByPathname();
+	m_paths.erase(std::unique(m_paths.begin(), m_paths.end(), &CTSVNPath::CheckChild), m_paths.end());
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 
@@ -766,6 +772,7 @@ public:
 		RawAppendTest();
 		PathAppendTest();
 		RemoveDuplicatesTest();
+		RemoveChildrenTest();
 		ContainingDirectoryTest();
 		AncestorTest();
 		SubversionPathTest();
@@ -869,6 +876,31 @@ private:
 		ATLASSERT(list[0].GetWinPathString() == _T("A"));
 		ATLASSERT(list[1].GetWinPathString().CompareNoCase(_T("e")) == 0);
 		ATLASSERT(list[2].GetWinPathString() == _T("Z"));
+	}
+	
+	void RemoveChildrenTest()
+	{
+		CTSVNPathList list;
+		list.AddPath(CTSVNPath(_T("c:\\test")));
+		list.AddPath(CTSVNPath(_T("c:\\test\\file")));
+		list.AddPath(CTSVNPath(_T("c:\\testfile")));
+		list.AddPath(CTSVNPath(_T("c:\\parent")));
+		list.AddPath(CTSVNPath(_T("c:\\parent\\child")));
+		list.AddPath(CTSVNPath(_T("c:\\parent\\child1")));
+		list.AddPath(CTSVNPath(_T("c:\\parent\\child2")));
+		
+		ATLASSERT(list.GetCount() == 7);
+
+		list.RemoveChildren();
+		
+		ATLTRACE("count = %d\n", list.GetCount());
+		ATLASSERT(list.GetCount() == 3);
+
+		list.SortByPathname();
+
+		ATLASSERT(list[0].GetWinPathString().CompareNoCase(_T("c:\\parent")) == 0);
+		ATLASSERT(list[1].GetWinPathString().CompareNoCase(_T("c:\\test")) == 0);
+		ATLASSERT(list[2].GetWinPathString().CompareNoCase(_T("c:\\testfile")) == 0);
 	}
 
 #if defined(_MFC_VER)
