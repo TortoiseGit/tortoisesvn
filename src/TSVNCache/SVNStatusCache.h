@@ -45,6 +45,7 @@ public:
 	static CSVNStatusCache& Instance();
 	static void Create();
 	static void Destroy();
+	static bool SaveCache();
 
 public:
 	/// Clear the entire cache

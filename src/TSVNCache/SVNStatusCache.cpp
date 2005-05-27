@@ -94,7 +94,8 @@ error:
 	m_pInstance = new CSVNStatusCache;
 	ATLTRACE("cache not loaded from disk\n");
 }
-void CSVNStatusCache::Destroy()
+
+bool CSVNStatusCache::SaveCache()
 {
 #define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) goto error;
 	DWORD written = 0;
@@ -129,16 +130,19 @@ void CSVNStatusCache::Destroy()
 						goto error;
 				}
 			}
+			CloseHandle(hFile);
 		}
 	}
-
+	ATLTRACE("cache saved to disk at %ws\n", path);
+	return true;
+error:
 	delete m_pInstance;
 	m_pInstance = NULL;
-	ATLTRACE("cache saved to disk at %ws\n", path);
-	return;
-error:
-	CloseHandle(hFile);
-	DeleteFile(path);
+	return false;
+}
+
+void CSVNStatusCache::Destroy()
+{
 	delete m_pInstance;
 	m_pInstance = NULL;
 }
