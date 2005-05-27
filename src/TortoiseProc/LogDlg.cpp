@@ -2301,10 +2301,14 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnBnClickedFiltercancel()
 {
+	KillTimer(LOGFILTER_TIMER);
+	int selIndex = m_LogList.GetSelectionMark();
+	if (selIndex >= 0)
+		selIndex = m_arShownList.GetAt(selIndex);
+	
 	m_sFilterText.Empty();
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(1);
-	KillTimer(LOGFILTER_TIMER);
 	FillLogMessageCtrl(_T(""), NULL);
 	m_bNoDispUpdates = true;
 	m_arShownList.RemoveAll();
@@ -2330,6 +2334,15 @@ void CLogDlg::OnBnClickedFiltercancel()
 	{
 		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
+	
+	if (selIndex >= 0)
+	{
+		// restore the previous selected log message
+		m_LogList.SetSelectionMark(selIndex);
+		m_LogList.SetItemState(selIndex, LVIS_SELECTED, LVIS_SELECTED);
+		m_LogList.EnsureVisible(selIndex, FALSE);
+	}
+	
 	m_LogList.SetRedraw(true);
 	theApp.DoWaitCursor(-1);
 	m_cFilterCancelButton.ShowWindow(SW_HIDE);
