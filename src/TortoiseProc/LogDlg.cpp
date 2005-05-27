@@ -1973,6 +1973,8 @@ void CLogDlg::OnBnClickedStatbutton()
 {
 	if (m_bThreadRunning)
 		return;
+	if (m_arShownList.IsEmpty())
+		return;		// nothing is shown, so no statistics.
 	// create arrays which are aware of the current filter
 	CStringArray m_arAuthorsFiltered;
 	CDWordArray m_arDatesFiltered;
