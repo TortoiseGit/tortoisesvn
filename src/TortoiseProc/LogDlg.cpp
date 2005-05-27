@@ -655,6 +655,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 	if (pWnd == &m_LogList)
 	{
 		int selIndex = m_LogList.GetSelectionMark();
+		if (selIndex < 0)
+			return;
 		if ((point.x == -1) && (point.y == -1))
 		{
 			CRect rect;
