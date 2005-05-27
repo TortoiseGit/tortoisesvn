@@ -122,7 +122,7 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 				GetWindowRect(hwnd, &rect);
 				OffsetRect(&rect, -rect.left, -rect.top);
 				rect.left = rect.right;
-				rect.left = rect.left - pDataRight->m_uControlWidth;
+				rect.left = rect.left - pDataRight->m_uControlWidth - 2;
 				// erase the background of the NC area.
 				HDC hdc = GetWindowDC(hwnd);
 				FillRect(hdc, &rect, GetSysColorBrush(COLOR_WINDOW));    
@@ -136,7 +136,7 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 				GetWindowRect(hwnd, &rect);
 				OffsetRect(&rect, -rect.left, -rect.top);
 				rect.right = rect.left;
-				rect.right = rect.left + pDataLeft->m_uControlWidth;
+				rect.right = rect.left + pDataLeft->m_uControlWidth + 2;
 				// erase the background of the NC area.
 				HDC hdc = GetWindowDC(hwnd);
 				FillRect(hdc, &rect, GetSysColorBrush(COLOR_WINDOW));    
