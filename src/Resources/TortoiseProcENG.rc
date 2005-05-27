@@ -920,7 +920,11 @@ BEGIN
     GROUPBOX        "Commit",IDC_COMMITGROUP,7,147,286,63
     CONTROL         "Use autocompletion of filepaths and keywords",
                     IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,174,271,10
+                    13,165,271,10
+    LTEXT           "Timeout in seconds to stop the autocompletion parsing",
+                    IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,185,231,8,SS_NOTIFY
+    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,182,31,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER,WS_EX_RIGHT
 END
 
 
@@ -1843,6 +1847,8 @@ BEGIN
                             "If activated, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the ""Show Log"" entry will show even for just added folders."
     IDS_SETTINGS_AUTOCOMPLETION_TT 
                             "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
+    IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT 
+                            "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
 END
 
 STRINGTABLE 

@@ -39,6 +39,7 @@ CSetDialogs::CSetDialogs()
 	, m_dwFontSize(0)
 	, m_sFontName(_T(""))
 	, m_bInitialized(FALSE)
+	, m_dwAutocompletionTimeout(0)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -47,6 +48,7 @@ CSetDialogs::CSetDialogs()
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 	m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
 	m_regOldLogAPIs = CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
+	m_regAutocompletionTimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
 }
 
 CSetDialogs::~CSetDialogs()
@@ -69,6 +71,7 @@ void CSetDialogs::SaveData()
 	m_regFontSize = m_dwFontSize;
 	m_regAutocompletion = m_bAutocompletion;
 	m_regOldLogAPIs = m_bOldLogAPIs;
+	m_regAutocompletionTimeout = m_dwAutocompletionTimeout;
 }
 
 void CSetDialogs::DoDataExchange(CDataExchange* pDX)
@@ -88,6 +91,8 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
 	DDX_Check(pDX, IDC_AUTOCOMPLETION, m_bAutocompletion);
 	DDX_Check(pDX, IDC_OLDAPILOGS, m_bOldLogAPIs);
+	DDX_Text(pDX, IDC_AUTOCOMPLETIONTIMEOUT, m_dwAutocompletionTimeout);
+	DDV_MinMaxUInt(pDX, m_dwAutocompletionTimeout, 1, 100);
 }
 
 
@@ -99,6 +104,7 @@ BEGIN_MESSAGE_MAP(CSetDialogs, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
 	ON_BN_CLICKED(IDC_AUTOCOMPLETION, OnBnClickedAutocompletion)
 	ON_BN_CLICKED(IDC_OLDAPILOGS, OnBnClickedOldapilogs)
+	ON_EN_CHANGE(IDC_AUTOCOMPLETIONTIMEOUT, OnEnChangeAutocompletiontimeout)
 END_MESSAGE_MAP()
 
 
@@ -129,6 +135,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_dwFontSize = m_regFontSize;
 	m_bAutocompletion = m_regAutocompletion;
 	m_bOldLogAPIs = m_regOldLogAPIs;
+	m_dwAutocompletionTimeout = m_regAutocompletionTimeout;
 
 	for (int i=0; i<m_cAutoClose.GetCount(); ++i)
 		if (m_cAutoClose.GetItemData(i)==m_dwAutoClose)
@@ -143,6 +150,8 @@ BOOL CSetDialogs::OnInitDialog()
 	m_tooltips.AddTool(IDC_AUTOCLOSECOMBO, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.AddTool(IDC_OLDAPILOGS, IDS_SETTINGS_OLDLOGAPIS_TT);
 	m_tooltips.AddTool(IDC_AUTOCOMPLETION, IDS_SETTINGS_AUTOCOMPLETION_TT);
+	m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUT, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
+	m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUTLABEL, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
 
 	int count = 0;
 	for (int i=6; i<32; i=i+2)
@@ -189,6 +198,11 @@ void CSetDialogs::OnEnChangeDefaultlog()
 	SetModified();
 }
 
+void CSetDialogs::OnEnChangeAutocompletiontimeout()
+{
+	SetModified();
+}
+
 void CSetDialogs::OnCbnSelchangeFontsizes()
 {
 	SetModified();
@@ -225,6 +239,7 @@ void CSetDialogs::OnCbnSelchangeAutoclosecombo()
 	}
 	SetModified();
 }
+
 
 
 

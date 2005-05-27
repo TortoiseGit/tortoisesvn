@@ -584,6 +584,8 @@ void CLogPromptDlg::GetAutocompletionList()
 	
 	CMapStringToString mapRegex;
 	CString sRegexFile = CUtils::GetAppDirectory();
+	CRegDWORD regtimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
+	DWORD timeoutvalue = regtimeout*1000;
 	sRegexFile += _T("autolist.txt");
 	if (!m_bRunThread)
 		return;
@@ -614,7 +616,7 @@ void CLogPromptDlg::GetAutocompletionList()
 			mapRegex[strLine.Left(strLine.Find('=')).Trim()] = sRegex;
 		}
 		file.Close();
-		DWORD timeout = GetTickCount()+5000;		// stop parsing after 5 seconds.
+		DWORD timeout = GetTickCount()+timeoutvalue;		// stop parsing after timeout
 		
 		// now we have two arrays of strings, where the first array contains all
 		// file extensions we can use and the second the corresponding regex strings

@@ -73,6 +73,8 @@ private:
 	BOOL			m_bAutocompletion;
 	CRegDWORD		m_regOldLogAPIs;
 	BOOL			m_bOldLogAPIs;
+	CRegDWORD		m_regAutocompletionTimeout;
+	DWORD			m_dwAutocompletionTimeout;
 	
 	BOOL			m_bInitialized;
 
@@ -88,4 +90,5 @@ public:
 	afx_msg void OnCbnSelchangeAutoclosecombo();
 	afx_msg void OnBnClickedAutocompletion();
 	afx_msg void OnBnClickedOldapilogs();
+	afx_msg void OnEnChangeAutocompletiontimeout();
 };
