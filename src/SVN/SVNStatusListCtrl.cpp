@@ -1646,6 +1646,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									entry->checked = true;
 									entry->inexternal = false;
 									entry->direct = false;
+									entry->isfolder = true;
 									if (s->entry)
 									{
 										if (s->entry->url)
@@ -1758,6 +1759,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								entry->checked = true;
 								entry->inexternal = false;
 								entry->direct = false;
+								entry->isfolder = true;
 								if (s->entry)
 								{
 									if (s->entry->url)
