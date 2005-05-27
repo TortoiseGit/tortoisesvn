@@ -881,7 +881,7 @@ COLORREF CUtils::MyColor(int nIndex)
 		switch (nIndex)
 		{
 			case MyColors::BLUE:
-				return RGB(49, 106, 197);
+				return RGB(0, 50, 160);
 			case MyColors::BROWN:
 				return RGB(100, 0, 0);
 			case MyColors::RED:
