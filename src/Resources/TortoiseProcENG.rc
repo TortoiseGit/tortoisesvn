@@ -911,7 +911,7 @@ BEGIN
     CONTROL         "Short &date/time format in log messages",
                     IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,63,271,10
-    CONTROL         "Use old API's to fetch log messages",IDC_OLDAPILOGS,
+    CONTROL         "Use old APIs to fetch log messages",IDC_OLDAPILOGS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,79,271,8
     GROUPBOX        "Progress",IDC_STATIC,7,100,286,38
     LTEXT           "Autoclose:",IDC_STATIC,13,119,87,8
