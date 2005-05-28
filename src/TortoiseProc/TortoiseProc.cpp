@@ -1248,7 +1248,17 @@ BOOL CTortoiseProcApp::InitInstance()
 			BOOL bFile = FALSE;
 			SVN svn;
 			if (!cmdLinePath.IsEmpty())
-				url = svn.GetURLFromPath(cmdLinePath);
+			{
+				if (svn.IsRepository(cmdLinePath.GetWinPathString()))
+				{
+					// The path points to a local repository.
+					// Add 'file:///' so the repository browser recognizes
+					// it as an URL to the local repository.
+					url = _T("file:///")+cmdLinePath.GetWinPathString();
+				}
+				else
+					url = svn.GetURLFromPath(cmdLinePath);
+			}
 			if (cmdLinePath.GetUIPathString().Left(8).CompareNoCase(_T("file:///"))==0)
 			{
 				cmdLinePath.SetFromUnknown(cmdLinePath.GetUIPathString().Mid(8));
