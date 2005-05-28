@@ -72,6 +72,9 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 		m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_strUrl));
 		m_strReposRoot = SVNUrl::Unescape(m_strReposRoot);
 		svn.GetLocks(CTSVNPath(m_strReposRoot), &m_locks);
+		m_Revision = SVNRev::REV_HEAD;
+		if (m_pRepositoryBar)
+			m_pRepositoryBar->SetRevision(m_Revision);
 	}
 
 	DeleteAllItems();

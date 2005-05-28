@@ -95,6 +95,8 @@ public:
 	 * Saves the URL history of the HistoryCombo.
 	 */
 	void SaveHistory();
+	
+	void SetRevision(SVNRev rev);
 
 protected:
 	afx_msg void OnCbnSelEndOK();
