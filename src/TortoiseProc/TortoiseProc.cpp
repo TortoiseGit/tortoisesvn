@@ -655,6 +655,24 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			else
 			{
+				// after the cleanup has finished, crawl the path downwards and send a change
+				// notification for every directory to the shell. This will update the
+				// overlays in the left treeview of the explorer.
+				CDirFileEnum crawler(cmdLinePath.GetWinPathString());
+				CString sAdminDir = _T("\\");
+				sAdminDir += _T(SVN_WC_ADM_DIR_NAME);
+				sAdminDir += _T("\\");
+				CString sPath;
+				bool bDir = false;
+				while (crawler.NextFile(sPath, &bDir)) 
+				{
+					if ((bDir)&&(sPath.Find(sAdminDir)<0))
+					{
+						SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, (LPCTSTR)sPath, NULL);
+					}
+				}
+				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, cmdLinePath.GetWinPath(), NULL);
+				
 				progress.Stop();
 				CMessageBox::Show(EXPLORERHWND, IDS_PROC_CLEANUPFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
 			}
