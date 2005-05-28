@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-29 00:21GMT Daylight Time\n"
+"POT-Creation-Date: 2005-05-29 00:50GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2994,6 +2994,10 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:53(para) 
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/> In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-2/> In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! <tip><placeholder-3/></tip><placeholder-4/><placeholder-5/><important><placeholder-6/><placeholder-7/><placeholder-8/></important>"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_bugtracker.xml:242(para) 
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://svn.collab.net/repos/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:3(title) 
