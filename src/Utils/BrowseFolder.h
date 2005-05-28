@@ -65,6 +65,7 @@ public:
 	 * then no checkbox is added.
 	 */
 	void SetCheckBoxText(LPCTSTR checktext);
+	void SetCheckBoxText2(LPCTSTR checktext);
 	/**
 	 * Shows the Dialog. 
 	 * \param parent [in] window handle of the parent window.
@@ -74,17 +75,21 @@ public:
 	CBrowseFolder::retVal Show(HWND parent, CString& path);
 	CBrowseFolder::retVal Show(HWND parent, LPTSTR path);
 	static BOOL m_bCheck;		///< state of the checkbox on closing the dialog
+	static BOOL m_bCheck2;
 	TCHAR m_title[200];
 protected:
 	static void SetFont(HWND hwnd,LPTSTR FontName,int FontSize);
 
 	static int CALLBACK BrowseCallBackProc(HWND  hwnd,UINT  uMsg,LPARAM  lParam,LPARAM  lpData);
 	static LRESULT APIENTRY CheckBoxSubclassProc(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
+	static LRESULT APIENTRY CheckBoxSubclassProc2(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
 		
 	static WNDPROC CBProc;
 	static HWND checkbox;
+	static HWND checkbox2;
 	static HWND ListView;
 	TCHAR m_displayName[200];
 	LPITEMIDLIST m_root;
-	static TCHAR m_CheckText[200];	
+	static TCHAR m_CheckText[200];
+	static TCHAR m_CheckText2[200];
 };
