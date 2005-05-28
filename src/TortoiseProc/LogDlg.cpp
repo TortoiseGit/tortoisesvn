@@ -1101,21 +1101,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						int selIndex = m_arShownList.GetAt(m_LogList.GetSelectionMark());
 						long rev = m_arRevs.GetAt(selIndex);
 						CString url = m_path.GetSVNPathString();
-						if (m_hasWC)
-						{
-							url = GetURLFromPath(m_path);
-							if (url.IsEmpty())
-							{
-								CString temp;
-								temp.Format(IDS_ERR_NOURLOFFILE, m_path);
-								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
-								break;
-							}
-						}
-
-						CRepositoryBrowser dlg(SVNUrl(url, SVNRev(rev)));
-						dlg.DoModal();
+						CString sCmd;
+						sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%ld /notempfile"),
+									CUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
+									url, rev);
+						
+						CUtils::LaunchApplication(sCmd, NULL, false);
 					}
 					break;
 				case ID_EDITLOG:
