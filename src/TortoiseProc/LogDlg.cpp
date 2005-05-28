@@ -716,15 +716,18 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 					if (m_hasWC)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
+					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
 				else if (m_LogList.GetSelectedCount() >= 2)
 				{
+					bool bAddSeparator = false;
 					if (m_LogList.GetSelectedCount() == 2)
 					{
 						temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
+						bAddSeparator = true;
 					}
 					// reverting revisions only works (in one merge!) when the selected
 					// revisions are continuous. So check first if that's the case before
@@ -744,9 +747,13 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					}					
 					temp.LoadString(IDS_LOG_POPUP_REVERTREVS);
 					if ((m_hasWC)&&(bContinuous))
+					{
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
+						bAddSeparator = true;
+					}
+					if (bAddSeparator)
+						popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
-				popup.AppendMenu(MF_SEPARATOR, NULL);
 				
 				if (m_LogList.GetSelectedCount() == 1)
 				{
@@ -754,9 +761,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, temp);
 					temp.LoadString(IDS_LOG_POPUP_EDITLOG);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
+					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
 				
-				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYCLIPBOARD, temp);
 				temp.LoadString(IDS_LOG_POPUP_FIND);
