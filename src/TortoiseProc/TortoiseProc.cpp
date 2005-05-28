@@ -755,6 +755,8 @@ BOOL CTortoiseProcApp::InitInstance()
 				folderBrowser.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_VALIDATE;
 				strTemp.LoadString(IDS_PROC_EXPORT_2);
 				folderBrowser.SetCheckBoxText(strTemp);
+				strTemp.LoadString(IDS_PROC_OMMITEXTERNALS);
+				folderBrowser.SetCheckBoxText2(strTemp);
 				CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
 				CBrowseFolder::m_bCheck = regExtended;
 				if (folderBrowser.Show(EXPLORERHWND, saveto)==CBrowseFolder::OK)
@@ -769,7 +771,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 					progDlg.FormatNonPathLine(1, IDS_PROC_EXPORT_3);
 					SVN svn;
-					if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, FALSE, &progDlg, folderBrowser.m_bCheck))
+					if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, folderBrowser.m_bCheck2, &progDlg, folderBrowser.m_bCheck))
 					{
 						progDlg.Stop();
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);

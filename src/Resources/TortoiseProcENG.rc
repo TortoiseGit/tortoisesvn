@@ -1775,6 +1775,7 @@ BEGIN
     IDS_PROC_CASERENAME     "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
     IDS_PROC_UNIGNORESUCCESS "Removed the file(s)\n%s\nfrom the ignored list."
     IDS_PROC_FORCEMOVE      "The file or folder\n%s\nhas local modifications. Do you really want to move this file?"
+    IDS_PROC_OMMITEXTERNALS "Omit externals"
 END
 
 STRINGTABLE 

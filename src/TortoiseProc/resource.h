@@ -511,6 +511,7 @@
 #define IDS_PROC_UnIGNORESUCCESS        2311
 #define IDS_PROC_UNIGNORESUCCESS        2311
 #define IDS_PROC_FORCEMOVE              2312
+#define IDS_PROC_OMMITEXTERNALS         2313
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_DIFF_WORKINGCOPY            2402
