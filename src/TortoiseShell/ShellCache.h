@@ -41,6 +41,7 @@ public:
 		simplecontext = CRegStdWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
 		recursiveticker = GetTickCount();
 		folderoverlayticker = GetTickCount();
+		externalCacheTicker = recursiveticker;
 		driveticker = recursiveticker;
 		drivetypeticker = recursiveticker;
 		langticker = recursiveticker;
@@ -371,6 +372,7 @@ private:
 	CRegStdString includelist;
 	stdstring includeliststr;
 	std::vector<stdstring> invector;
+	DWORD externalCacheTicker;
 	DWORD recursiveticker;
 	DWORD folderoverlayticker;
 	DWORD driveticker;

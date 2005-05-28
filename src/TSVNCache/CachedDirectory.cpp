@@ -225,12 +225,15 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 				// To keep recursive status up to date, we'll request that children are all crawled again
 				// This will be very quick if nothing's changed, because it will all be cache hits
-				AutoLocker lock(m_critSec);
-				ChildDirStatus::const_iterator it;
-				for(it = dirEntry->m_childDirectories.begin(); it != dirEntry->m_childDirectories.end(); ++it)
+				if (bRecursive)
 				{
-					CTSVNPath childPath = it->first;
-					CSVNStatusCache::Instance().AddFolderForCrawling(it->first);
+					AutoLocker lock(m_critSec);
+					ChildDirStatus::const_iterator it;
+					for(it = dirEntry->m_childDirectories.begin(); it != dirEntry->m_childDirectories.end(); ++it)
+					{
+						CTSVNPath childPath = it->first;
+						CSVNStatusCache::Instance().AddFolderForCrawling(it->first);
+					}
 				}
 
 				return dirEntry->GetOwnStatus(bRecursive);
@@ -290,7 +293,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		m_entryCache.clear();
 		m_bCurrentFullStatusValid = false;
 		m_ownStatus.SetStatus(NULL);
-
+		m_bRecursive = bRecursive;
 		if(!bThisDirectoryIsUnversioned)
 		{
 			ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
@@ -413,8 +416,11 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		{
 			if(!svnPath.IsEquivalentTo(pThis->m_directoryPath))
 			{
-				// Add any versioned directory, which is not our 'self' entry, to the list for having its status updated
-				CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
+				if (pThis->m_bRecursive)
+				{
+					// Add any versioned directory, which is not our 'self' entry, to the list for having its status updated
+					CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
+				}
 
 				// Make sure we know about this child directory
 				// This initial status value is likely to be overwritten from below at some point
@@ -559,10 +565,10 @@ CStatusCacheEntry CCachedDirectory::GetOwnStatus(bool bRecursive)
 	}
 }
 
-void CCachedDirectory::RefreshStatus()
+void CCachedDirectory::RefreshStatus(bool bRecursive)
 {
 	// Make sure that our own status is up-to-date
-	GetStatusForMember(m_directoryPath,true);
+	GetStatusForMember(m_directoryPath,bRecursive);
 
 	// We also need to check if all our file members have the right date on them
 	CacheEntryMap::iterator itMembers;
@@ -580,13 +586,13 @@ void CCachedDirectory::RefreshStatus()
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{
 					// We need to request this item as well
-					GetStatusForMember(filePath,true);
+					GetStatusForMember(filePath,bRecursive);
 					// GetStatusForMember now has recreated the m_entryCache map.
 					// So we have to get out of this for-loop since the iterator now
 					// is invalid!
 					break;
 				}
-				else if (itMembers->second.IsDirectory())
+				else if ((bRecursive)&&(itMembers->second.IsDirectory()))
 				{
 					// crawl all subfolders too! Otherwise a change deep inside the
 					// tree which has changed won't get propagated up the tree.

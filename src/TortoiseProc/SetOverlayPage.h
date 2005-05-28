@@ -92,6 +92,8 @@ private:
 	CString			m_sExcludePaths;
 	CRegString		m_regIncludePaths;
 	CString			m_sIncludePaths;
+	CRegDWORD		m_regRecursive;
+	BOOL			m_bRecursive;
 
 	BOOL			m_bModified;
 
@@ -107,4 +109,5 @@ public:
 	afx_msg void OnBnClickedOnlyexplorer();
 	afx_msg void OnEnChangeExcludepaths();
 	afx_msg void OnEnChangeIncludepaths();
+	afx_msg void OnBnClickedRecursivecheck();
 };

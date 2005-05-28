@@ -40,7 +40,7 @@ public:
 	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive);
 	CStatusCacheEntry GetOwnStatus(bool bRecursive);
 	bool IsOwnStatusValid() const;
-	void RefreshStatus();
+	void RefreshStatus(bool bRecursive);
 	BOOL SaveToDisk(HANDLE hFile);
 	BOOL LoadFromDisk(HANDLE hFile);
 private:
@@ -89,6 +89,7 @@ private:
 	// The most important status from all our file entries
 	svn_wc_status_kind m_mostImportantFileStatus;
 
+	bool m_bRecursive;		// used in the status callback
 		//	friend class CSVNStatusCache;		
 };
 
