@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-27 19:14GMT Daylight Time\n"
+"POT-Creation-Date: 2005-05-29 00:21GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2800,6 +2800,30 @@ msgstr ""
 msgid "If you have activated the bugtracking system, you could set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues should be comma separated. Learn more <xref linkend=\"tsvn-DUG-bugtracker\"/>."
 msgstr ""
 
+#: source/en/tsvn_dug/dug_cleanup.xml:3(title) 
+msgid "Cleanup"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_cleanup.xml:5(primary) 
+msgid "cleanup"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_cleanup.xml:7(para) 
+msgid "If a subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_cleanup.xml:18(para) 
+msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to repond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_cleanup.xml:29(title) 
+msgid "Use Commit Timestamps"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_cleanup.xml:30(para) 
+msgid "Some earlier releases of Subversion were affected by a bug which caused timestamp mismatch when you check out with the <guilabel>Use commit timestamps</guilabel> option checked. Use the Cleanup command to speed up these working copies."
+msgstr ""
+
 #: source/en/tsvn_dug/dug_checkout.xml:3(title) 
 msgid "Checking Out A Working Copy"
 msgstr ""
@@ -3228,7 +3252,7 @@ msgstr ""
 msgid "You should have set up a server and/or have access to a Subversion repository."
 msgstr ""
 
-#: source/en/tsvn_dug/dug.xml:84(title) 
+#: source/en/tsvn_dug/dug.xml:85(title) 
 msgid "Final Step"
 msgstr ""
 
@@ -4214,6 +4238,18 @@ msgstr ""
 
 #: source/en/tsvn_app_howto.xml:406(para) 
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:416(title) 
+msgid "Create a shortcut to a repository"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:418(primary) 
+msgid "shortcut"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:420(para) 
+msgid "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\nTortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n</screen> Of course you need to include the real repository URL."
 msgstr ""
 
 #: source/en/tortoisesvn.xml:5(subtitle) 

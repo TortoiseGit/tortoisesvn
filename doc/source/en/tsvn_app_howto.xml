@@ -412,4 +412,20 @@ SUBST X: "D:\Documents\framework"
 			</para>
 		</sect2>
 	</sect1>
+	<sect1 id="tsvn-howto-repo-shortcut">
+		<title>Create a shortcut to a repository</title>
+		<indexterm>
+			<primary>shortcut</primary>
+		</indexterm>
+		<para>
+			If you frequently need to open the repository browser at a
+			particular location, you can create a desktop shortcut
+			using the automation interface to TortoiseProc. Just
+			create a new shortcut and set the target to:
+<screen>
+TortoiseProc.exe /command:repobrowser /path:"url/to/repository" /notempfile
+</screen>
+			Of course you need to include the real repository URL.
+		</para>
+	</sect1>
 </appendix>
