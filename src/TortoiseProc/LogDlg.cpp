@@ -282,6 +282,11 @@ void CLogDlg::OnBnClickedGetall()
 {
 	UpdateData();
 
+	m_LogMsgCtrl.SetItemCountEx(0);
+	m_LogMsgCtrl.Invalidate();
+	m_LogList.SetItemCountEx(0);
+	m_LogList.Invalidate();
+
 	for (INT_PTR i=0; i<m_arLogPaths.GetCount(); ++i)
 	{
 		LogChangedPathArray * patharray = m_arLogPaths.GetAt(i);
