@@ -85,11 +85,6 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOO
 CRepositoryBrowser::~CRepositoryBrowser()
 {
 	m_templist.DeleteAllFiles();
-	for (int i=0; i<m_arLogDialogs.GetCount(); ++i)
-	{
-		if (!m_arLogDialogs.GetAt(i)->IsThreadRunning())
-			delete m_arLogDialogs.GetAt(i);
-	}
 }
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
@@ -498,13 +493,18 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPSHOWLOG:
 				{
-					CLogDlg * pDlg = new CLogDlg();
-					m_arLogDialogs.Add(pDlg);
-					int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-					pDlg->SetParams(CTSVNPath(url), GetRevision(), 1, limit, FALSE);
-					pDlg->m_ProjectProperties = m_ProjectProperties;
-					pDlg->Create(IDD_LOGMESSAGE, NULL);
-					pDlg->ShowWindow(SW_SHOW);
+					CString sCmd;
+					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /rev:%ld"), 
+								CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), url, GetRevision());
+
+					if (!m_path.IsUrl())
+					{
+						sCmd += _T(" /propspath:\"");
+						sCmd += m_path.GetWinPathString();
+						sCmd += _T("\"");
+					}	
+
+					CUtils::LaunchApplication(sCmd, NULL, false);
 				}
 				break;
 			case ID_POPCHECKOUT:

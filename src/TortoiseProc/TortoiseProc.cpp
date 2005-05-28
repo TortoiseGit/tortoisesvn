@@ -481,6 +481,9 @@ BOOL CTortoiseProcApp::InitInstance()
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
 			dlg.SetParams(cmdLinePath, revstart, revend, limit, parser.HasKey(_T("strict")));
+			val = parser.GetVal(_T("propspath"));
+			if (!val.IsEmpty())
+				dlg.SetProjectPropertiesPath(CTSVNPath(val));
 			dlg.DoModal();			
 		}
 		//#endregion
@@ -1248,6 +1251,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVNRev rev(val);
 			CRepositoryBrowser dlg(SVNUrl(url, rev), bFile);
 			dlg.m_ProjectProperties.ReadProps(cmdLinePath);
+			dlg.m_path = cmdLinePath;
 			dlg.DoModal();
 		}
 		//#endregion 

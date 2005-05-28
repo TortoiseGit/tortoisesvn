@@ -71,6 +71,7 @@ public:
 	enum { IDD = IDD_REPOSITORY_BROWSER };
 
 	ProjectProperties m_ProjectProperties;
+	CTSVNPath m_path;
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
@@ -103,7 +104,6 @@ private:
 	bool m_bStandAlone;
 	SVNUrl m_InitialSvnUrl;
 	static const UINT	m_AfterInitMessage;
-	CArray<CLogDlg *, CLogDlg *> m_arLogDialogs;
 public:
 };
 static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));

@@ -135,6 +135,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	void SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict = FALSE);
+	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
 	bool IsThreadRunning() {return !!m_bThreadRunning;}
 
 private:
