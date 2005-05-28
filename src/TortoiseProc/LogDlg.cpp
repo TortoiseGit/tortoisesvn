@@ -2171,7 +2171,7 @@ void CLogDlg::OnStnClickedFiltericon()
 	CPoint point;
 	CString temp;
 	GetDlgItem(IDC_FILTERICON)->GetWindowRect(rect);
-	point = rect.CenterPoint();
+	point = CPoint(rect.left, rect.bottom);
 #define LOGMENUFLAGS(x) (MF_STRING | MF_ENABLED | (m_nSelectedFilter == x ? MF_CHECKED : MF_UNCHECKED))
 	CMenu popup;
 	if (popup.CreatePopupMenu())
