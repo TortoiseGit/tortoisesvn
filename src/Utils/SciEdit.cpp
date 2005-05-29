@@ -162,29 +162,39 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 		{
 			pChecker = new MySpell(CStringA(sFolderUp + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("dic\\") + sFile + _T(".dic")));
 		}
+		else if ((PathFileExists(sFolderUp + _T("Languages\\") + sFile + _T(".aff"))) &&
+			(PathFileExists(sFolderUp + _T("Languages\\") + sFile + _T(".dic"))))
+		{
+			pChecker = new MySpell(CStringA(sFolderUp + _T("Languages\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("Languages\\") + sFile + _T(".dic")));
+		}
 	}
 #if THESAURUS
 	if (pThesaur==NULL)
 	{
-		if ((PathFileExists(sFolder + _T("th_") + sFile + _T(".idx"))) &&
-			(PathFileExists(sFolder + _T("th_") + sFile + _T(".dat"))))
+		if ((PathFileExists(sFolder + _T("th_") + sFile + _T("_v2.idx"))) &&
+			(PathFileExists(sFolder + _T("th_") + sFile + _T("_v2.dat"))))
 		{
-			pThesaur = new MyThes(CStringA(sFolder + sFile + _T(".idx")), CStringA(sFolder + sFile + _T(".dat")));
+			pThesaur = new MyThes(CStringA(sFolder + sFile + _T("_v2.idx")), CStringA(sFolder + sFile + _T("_v2.dat")));
 		}
-		else if ((PathFileExists(sFolder + _T("dic\\th_") + sFile + _T(".idx"))) &&
-			(PathFileExists(sFolder + _T("dic\\th_") + sFile + _T(".dat"))))
+		else if ((PathFileExists(sFolder + _T("dic\\th_") + sFile + _T("_v2.idx"))) &&
+			(PathFileExists(sFolder + _T("dic\\th_") + sFile + _T("_v2.dat"))))
 		{
-			pThesaur = new MyThes(CStringA(sFolder + _T("dic\\") + sFile + _T(".idx")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dat")));
+			pThesaur = new MyThes(CStringA(sFolder + _T("dic\\") + sFile + _T("_v2.idx")), CStringA(sFolder + _T("dic\\") + sFile + _T("_v2.dat")));
 		}
-		else if ((PathFileExists(sFolderUp + _T("th_") + sFile + _T(".idx"))) &&
-			(PathFileExists(sFolderUp + _T("th_") + sFile + _T(".dat"))))
+		else if ((PathFileExists(sFolderUp + _T("th_") + sFile + _T("_v2.idx"))) &&
+			(PathFileExists(sFolderUp + _T("th_") + sFile + _T("_v2.dat"))))
 		{
-			pThesaur = new MyThes(CStringA(sFolderUp + _T("th_") + sFile + _T(".idx")), CStringA(sFolderUp + _T("th_") + sFile + _T(".dat")));
+			pThesaur = new MyThes(CStringA(sFolderUp + _T("th_") + sFile + _T("_v2.idx")), CStringA(sFolderUp + _T("th_") + sFile + _T("_v2.dat")));
 		}
-		else if ((PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T(".idx"))) &&
-			(PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T(".dat"))))
+		else if ((PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T("_v2.idx"))) &&
+			(PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T("_v2.dat"))))
 		{
-			pThesaur = new MyThes(CStringA(sFolderUp + _T("dic\\th_") + sFile + _T(".idx")), CStringA(sFolderUp + _T("dic\\th_") + sFile + _T(".dat")));
+			pThesaur = new MyThes(CStringA(sFolderUp + _T("dic\\th_") + sFile + _T("_v2.idx")), CStringA(sFolderUp + _T("dic\\th_") + sFile + _T("_v2.dat")));
+		}
+		else if ((PathFileExists(sFolderUp + _T("Languages\\th_") + sFile + _T("_v2.idx"))) &&
+			(PathFileExists(sFolderUp + _T("Languages\\th_") + sFile + _T("_v2.dat"))))
+		{
+			pThesaur = new MyThes(CStringA(sFolderUp + _T("Languages\\th_") + sFile + _T("_v2.idx")), CStringA(sFolderUp + _T("Languages\\th_") + sFile + _T("_v2.dat")));
 		}
 	}
 #endif
@@ -677,6 +687,13 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			}
 #endif
 		}
+#ifdef THESAURUS
+		for (INT_PTR index = 0; index < menuArray.GetCount(); ++index)
+		{
+			CMenu * pMenu = (CMenu*)menuArray[index];
+			delete pMenu;
+		}
+#endif
 	}
 	// restore the anchor and cursor position
 	Call(SCI_SETCURRENTPOS, currentpos);
