@@ -592,6 +592,7 @@ void CLogPromptDlg::GetAutocompletionList()
 	REGEX_FLAGS rflags = NOFLAGS;
 	try
 	{
+		ATLTRACE("start parsing regex file for autocompletion\n");
 		CString strLine;
 		CStdioFile file(sRegexFile, CFile::typeText | CFile::modeRead);
 		while (m_bRunThread && file.ReadString(strLine))
@@ -635,6 +636,7 @@ void CLogPromptDlg::GetAutocompletionList()
 			{
 				// add the path parts to the autocompletion list too
 				CString sPartPath = entry->GetRelativeSVNPath();
+				ATLTRACE("parse file %ws for autocompletion\n", (LPCTSTR)sPartPath);
 				m_autolist.AddSorted(sPartPath);
 				int pos = 0;
 				while ((pos = sPartPath.Find('/', pos)) >= 0)
@@ -643,6 +645,7 @@ void CLogPromptDlg::GetAutocompletionList()
 					m_autolist.AddSorted(sPartPath.Mid(pos));
 				}
 				CString sExt = entry->GetPath().GetFileExtension();
+				sExt.MakeLower();
 				CString sRegex;
 				// find the regex string which corresponds to the file extension
 				sRegex = mapRegex[sExt];
@@ -687,6 +690,7 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex, RE
 		if (opts & IS_TEXT_UNICODE_NULL_BYTES)
 		{
 			delete buffer;
+			ATLTRACE("file %ws is either binary or unicode\n", (LPCTSTR)sFilePath);
 			return;
 		}
 		if (opts & IS_TEXT_UNICODE_UNICODE_MASK)
@@ -702,7 +706,10 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex, RE
 		delete buffer;
 	}
 	if (sFileContent.IsEmpty()|| !m_bRunThread)
+	{
+		ATLTRACE("file %ws is empty\n", (LPCTSTR)sFilePath);
 		return;
+	}
 	match_results results;
 	int offset = 0;
 	try
@@ -726,8 +733,8 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex, RE
 		} while((br.matched)&&(m_bRunThread));
 		sFileContent.ReleaseBuffer();
 	}
-	catch (bad_alloc) {}
-	catch (bad_regexpr) {}
+	catch (bad_alloc) {ATLTRACE("bad alloc exception when parsing file %ws\n", (LPCTSTR)sFilePath);}
+	catch (bad_regexpr) {ATLTRACE("bad regexp exception when parsing file %ws\n", (LPCTSTR)sFilePath);}
 }
 
 // CSciEditContextMenuInterface
