@@ -81,8 +81,6 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 
 	/* Build an authentication baton to give to libsvn_client. */
 	svn_auth_open (&auth_baton, providers, pool);
-	svn_auth_set_parameter(auth_baton, SVN_AUTH_PARAM_DONT_STORE_PASSWORDS, NULL);
-	svn_auth_set_parameter(auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
 	ctx->auth_baton = auth_baton;
 }
 
