@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3445
+# Based on r3506
 #
 msgid ""
 msgstr ""
@@ -169,9 +169,8 @@ msgid "&Browse..."
 msgstr "&Gennemse..."
 
 #: Control-ID:1091,#: Control-ID:1094,#: Control-ID:1096,
-#Der er ikke plads til at skrive "indbygget", derfor "intern".
 msgid "&Builtin"
-msgstr "&Intern"
+msgstr "&Indbygget"
 
 #: Control-ID:1051,
 msgid "&CD-ROM"
@@ -226,7 +225,6 @@ msgid "&File"
 msgstr "&Fil"
 
 #: Control-ID:1050,
-#, fuzzy
 msgid "&Fixed drives"
 msgstr "&Faste drev"
 
@@ -235,7 +233,6 @@ msgid "&From Revision"
 msgstr "&Fra revision"
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "&From URL:"
 msgstr "&Fra URL:"
 
@@ -269,7 +266,7 @@ msgstr "&Flet"
 
 #: Control-ID:1,#: MenuEntry
 msgid "&Merge"
-msgstr "&Flet ændringer ind i den nuværende arbejdskopi med URL:"
+msgstr "&Flet"
 
 #: Control-ID:1012,
 msgid "&Merging"
@@ -305,7 +302,7 @@ msgstr "&Åbn Ctrl-O"
 
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "&Password:"
-msgstr "&Adgangskode:"
+msgstr "Adgangs&kode:"
 
 #: ID:376,
 msgid "&Paste"
@@ -369,7 +366,6 @@ msgid "&To Revision"
 msgstr "&Til revision"
 
 #: Control-ID:65535,#: Control-ID:65535,
-#, fuzzy
 msgid "&To URL:"
 msgstr "&Til URL:"
 
@@ -747,7 +743,12 @@ msgstr "Luk automatisk, hvis intet flettet, tilføjet eller slettet"
 
 #: Control-ID:65535,
 msgid "Autoclose:"
-msgstr "Auto-luk:"
+msgstr "Automatisk lukning:"
+
+#: ID:195,
+#, fuzzy
+msgid "Autocomplete suggests words (usually class or member names)\nfrom the files that you have changed as you type a log message."
+msgstr "Forslå automatisk ord (normalt klasse- og element-navne)\nfra filerne, som du har ændret, når du skriver en logbesked."
 
 #: Control-ID:1073,
 msgid "Automatically check for newer versions every week"
@@ -2270,7 +2271,7 @@ msgstr "Programmer (*.exe)|*.*|Alle filer (*.*)|*.*||"
 
 #: Control-ID:65535,
 msgid "Progress"
-msgstr "Fremskridt"
+msgstr "Fremskridts-dialog"
 
 #: Control-ID:65535,#: Dlg-ID:177,
 msgid "Properties"
@@ -2315,7 +2316,7 @@ msgstr "REC"
 
 #: Control-ID:1048,
 msgid "Re&movable drives"
-msgstr "&Flytbare drev"
+msgstr "F&lytbare drev"
 
 #: ID:12,
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -2670,7 +2671,7 @@ msgstr "Vælg &alle"
 
 #: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
 msgid "Select / Deselect &All"
-msgstr "Vælg/fravælg &alle"
+msgstr "&Vælg/fravælg alle"
 
 #: ID:78,
 msgid "Select Diff Application"
@@ -2734,7 +2735,7 @@ msgstr "Sender indhold"
 
 #: Control-ID:65535,
 msgid "Server &address:"
-msgstr "Server-&adresse:"
+msgstr "&Server-adresse:"
 
 #: Control-ID:1088,
 msgid "Set filedates to the \"last commit time\""
@@ -3347,7 +3348,7 @@ msgid "Use autocompletion of filepaths and keywords"
 msgstr "Brug automatisk udfyldning af stier og nøgleord"
 
 #: Control-ID:1214,
-msgid "Use old API's to fetch log messages"
+msgid "Use old APIs to fetch log messages"
 msgstr "Brug gammel API til at hente logbeskeder"
 
 #: Control-ID:1024,
@@ -3629,6 +3630,10 @@ msgstr "re&kursiv"
 #: ID:10,
 msgid "replaced"
 msgstr "erstattet"
+
+#: Control-ID:65535,
+msgid "requests a username and a password"
+msgstr "spørger efter brugernavn og adgangskode"
 
 #: Control-ID:1023,
 msgid "save authentication"

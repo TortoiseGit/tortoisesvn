@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-23 23:17+0100\n"
+"PO-Revision-Date: 2005-05-29 16:35+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -818,7 +818,6 @@ msgid "Author:                        Stefan Kueng"
 msgstr "Upphovsman: Stefan Kueng"
 
 #: ID:116
-#, fuzzy
 msgid "Authors"
 msgstr "Ändrad av"
 
@@ -828,21 +827,30 @@ msgstr "Ändrad av:"
 
 #: ID:222
 msgid "Auto-close if no conflicts"
-msgstr "Stäng inte vid konflikter"
+msgstr "Automatiskt om inga konflikter"
 
 # ID:222,
 #: ID:222
 msgid "Auto-close if no errors"
-msgstr "Stäng automatiskt om inga fel uppstod"
+msgstr "Automatiskt om inga fel uppstod"
 
 # ID:222,
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Stäng automatiskt om inga föreningar, tillläggningar eller borttagningar"
+msgstr "Automatiskt om inga föreningar, tillläggningar eller borttagningar"
 
 #: Control-ID:65535
 msgid "Autoclose:"
-msgstr "Stäng automatiskt:"
+msgstr "Automatisk stängning:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"Automatisk ifyllning föreslår ord (vanligtvis klass- eller medlemsnamn)\n"
+"från filer som har ändrats medans du skriver logmeddelanden."
 
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1050,7 +1058,7 @@ msgstr "Hämta ut"
 
 #: Control-ID:1074
 msgid "Checkout &directory:"
-msgstr "Mapp för &uthämtning:"
+msgstr "&Mapp för uthämtning:"
 
 #: ID:8
 msgid "Checkout..."
@@ -1463,6 +1471,15 @@ msgstr "Kontrollerar avvikelser"
 #: Control-ID:65535
 msgid "Directory:"
 msgstr "Mapp:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"Stäng av det här valet om du har riktigt stora arbetskopior och upplever\n"
+"för mycket diskanvändning när du utforskar arbetskopian."
 
 #: ID:3867
 msgid "Disk full while accessing %1."
@@ -1947,7 +1964,7 @@ msgstr ""
 
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "Om markerad, skapar TortoiseSVN en temporär fil för järmförelsen utan att expandera nyckelord"
+msgstr "Avänd en temporär fil för järmförelsen utan att expandera nyckelord"
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -1956,15 +1973,15 @@ msgstr "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare ver
 # ID:195,
 #: ID:195
 msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Om aktiverat, snabbar upp hämtningen av loggmeddelanden från arkivservrar med äldre version än 1.2"
+msgstr "Snabbar upp hämtningen av loggmeddelanden från arkivservrar med äldre version än 1.2"
 
 #: ID:195
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"Om valt, kommer TortoiseSVN sätta datum/tid för filer till den tid då\n"
-"de senast arkiverades. Om inte valt, används aktuell tid."
+"Om valt kommer TortoiseSVN sätta datum/tid för filer till den tid då\n"
+"de senast arkiverades. Annars används aktuell tid."
 
 # ID:251,
 #: ID:251
@@ -2014,7 +2031,7 @@ msgstr "Importera mappen till ett arkiv"
 
 #: Control-ID:65535
 msgid "Include paths:"
-msgstr "Inkluderingsfiler:"
+msgstr "Inkludera sökvägar:"
 
 #: ID:76
 msgid "Initial Import"
@@ -2171,7 +2188,7 @@ msgstr "Lås brutet!"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Lock creation date:"
-msgstr "Låset skapades:"
+msgstr "Låset skaffades:"
 
 #: ID:263
 msgid "Lock failed"
@@ -2250,7 +2267,7 @@ msgstr "Lägsta revisionen: %ld - Högsta revisionen: %ld - HEAD revision: %ld"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
-msgstr "Felaktig DLL för mailsystem."
+msgstr "Felaktig DLL för e-post systemet."
 
 # ID:2051,
 #: ID:2051
@@ -2464,6 +2481,7 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "Hoppa över externa"
@@ -3113,7 +3131,7 @@ msgstr "Markera &allt"
 
 #: Control-ID:1067
 msgid "Select / Deselect &All"
-msgstr "Markera / avmarkera &allt"
+msgstr "&Markera / avmarkera allt"
 
 # Hur översätta "diff"
 #: ID:78
@@ -3281,6 +3299,10 @@ msgid ""
 msgstr ""
 "Visa eller dölj verktygsrad\n"
 "Växla verktygsrad"
+
+#: Control-ID:1223
+msgid "Show overlay status icons recursive"
+msgstr "Visa ikonsymboler rekursivt"
 
 #: ID:2049
 msgid ""
@@ -3687,6 +3709,17 @@ msgstr ""
 "Målmappen är inte tom!\n"
 "Är du säker på att du vill hämta ut till den mappen?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"Tid i sekunder efter vilket inläsningen av valda filer stoppas.\n"
+"Ett lägre värde gör automatisk ifyllningslistan tillänglig snabbbare,\n"
+"men alla filer kanske inte läses av."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -3775,6 +3808,11 @@ msgstr "Den här egenskapen får inte innehålla mer än en rad. "
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "3-filershantering av avvikelser"
+
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Timeout i sekunder för inläsningen till den automatiska ifyllningen"
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -4044,8 +4082,8 @@ msgstr "Använd automatisk ifyllning av filsökvägar och nyckelord"
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
-msgstr "Hämta loggmeddelanden med det gamla APIt"
+msgid "Use old APIs to fetch log messages"
+msgstr "Hämta loggmeddelanden med det gamla APIet"
 
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -4427,6 +4465,11 @@ msgstr "re&kursivt"
 #: ID:10
 msgid "replaced"
 msgstr "ersatt"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "begär ett användarnamn och ett lösenord"
 
 #: Control-ID:1023
 msgid "save authentication"

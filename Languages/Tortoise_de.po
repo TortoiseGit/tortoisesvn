@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-23 13:26+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-05-29 17:01+0100\n"
+"Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -837,6 +837,15 @@ msgstr "Falls kein Löschen, Hinzufügen oder Zusammenführen"
 msgid "Autoclose:"
 msgstr "Schließen:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"Automatisch Vervollständigen schlägt Wörter (üblicherweise Klassen- oder Membernamen) vor\n"
+"von den Dateien aus der Liste im Übertragungsdialog."
+
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
 msgstr "Wöchentlich auf eine neuere Version prüfen"
@@ -1451,6 +1460,15 @@ msgstr "Vergleiche"
 #: Control-ID:65535
 msgid "Directory:"
 msgstr "Verzeichnis:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"Deaktivieren Sie diese Option wenn Sie wirklich grosse Arbeitskopien haben\n"
+"und zudem die Festplatte konstant beschäftigt ist."
 
 #: ID:3867
 msgid "Disk full while accessing %1."
@@ -2449,6 +2467,7 @@ msgstr "OK"
 msgid "OVR"
 msgstr "ÜB"
 
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "Externals auslassen"
@@ -3263,6 +3282,10 @@ msgstr ""
 "Zeigt oder versteckt die Werkzeugleiste\n"
 "Werkzeugleiste umschalten"
 
+#: Control-ID:1223
+msgid "Show overlay status icons recursive"
+msgstr "Zeige überlagerte Symbole rekursiv"
+
 #: ID:2049
 msgid ""
 "Show special characters for whitespaces\n"
@@ -3667,6 +3690,17 @@ msgstr ""
 "Der Zielordner ist nicht leer!\n"
 "Sind Sie sicher, dass Sie in diesen Ordner auschecken/exportieren wollen?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"Die Zeit in Sekunden nachder die Analyse der ausgewählten Dateien angehalten wird.\n"
+"Ein kleiner Wert stellt die Liste für's automatische Vervollständigen schneller zur Verfügung,\n"
+"wird aber manchmal nicht alle Dateien analysieren."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -3758,6 +3792,11 @@ msgstr "Diese Eigenschaft darf nur eine Zeile haben."
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Leerzeichen Diff"
+
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Timeout in Sekunden zum Stop der Datei-Analyse für's automatisch vervollständigen"
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -4026,7 +4065,7 @@ msgstr "Dateinamen und Schlüsselwörter automatisch vervollständigen"
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
+msgid "Use old APIs to fetch log messages"
 msgstr "&Alte API verwenden, um Meldungen zu holen"
 
 #: Control-ID:1024
@@ -4411,6 +4450,11 @@ msgstr "Re&kursiv"
 #: ID:10
 msgid "replaced"
 msgstr "Ersetzt"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "fragt nach einem Benutzernamen und Passwort"
 
 #: Control-ID:1023
 msgid "save authentication"
