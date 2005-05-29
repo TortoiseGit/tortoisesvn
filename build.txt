@@ -11,6 +11,10 @@ First, you need to install some utilities/programs:
 - Install Perl. Get it from http://www.activestate.com/Products/ActivePerl/
 - Get the WiX tools from http://wix.sourceforge.net and unzip them. Then add
   it to the PATH environement variable.
+- If you want to include the dictionary and thesaurus in the installer/languagepacks,
+  then you have to download those from http://lingucomponent.openoffice.org/.
+  Important: Only the thesaurus in the format for OO2 will work! Earlier versions
+  will crash TSVN!!
 
 You may have to logoff/logon to make the new environement variables take effect!
 
@@ -36,6 +40,10 @@ You may have to logoff/logon to make the new environement variables take effect!
   the folder from openssl-0.9.xx to openssl
 - Download the zlib source from 
   http://www.gzip.org/zlib/ and unzip it to SVN\common\zlib
+- The thesaurus and dictionary files should be placed in SVN\common\Spell_Thes
+  Note: the names of the files are important! They have to be
+  en_US.aff, en_US.dic for the spellchecker, and 
+  th_en_US_v2.idx, th_en_US_v2.dat for the thesaurus.
 - Download the newest neon source from 
   http://www.webdav.org/neon/ and unzip it into SVN\Subversion
   then rename the folder neon-0.xx.x to neon.

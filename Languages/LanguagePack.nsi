@@ -54,6 +54,9 @@ Proceed:
   File "..\doc\output\TortoiseSVN_${CountryCode}.chm"
 !endif
   StrCpy $INSTDIR "$0\Languages"
+  SetOutPath "$INSTDIR"
+  File /nonfatal "..\..\Common\Spell_Thes\${CountryCode}*.*"
+  File /nonfatal "..\..\Common\Spell_Thes\th_${CountryCode}*.*"
   !insertmacro UpgradeDLL "..\bin\TortoiseProc${CountryID}.dll" "$INSTDIR\TortoiseProc${CountryID}.dll" "$INSTDIR"
   !insertmacro UpgradeDLL "..\bin\TortoiseMerge${CountryID}.dll" "$INSTDIR\TortoiseMerge${CountryID}.dll" "$INSTDIR"
 !ifdef MoFile
