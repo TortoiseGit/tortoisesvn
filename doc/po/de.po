@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-25 09:07+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-05-29 17:43+0100\n"
+"Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4060,6 +4060,36 @@ msgstr "Integration mit Bugtracking Systemen"
 msgid "If you have activated the bugtracking system, you could set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues should be comma separated. Learn more <xref linkend=\"tsvn-DUG-bugtracker\"/>."
 msgstr "Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei <guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n) Ihres Bugtracking Programms eingeben. Falls Sie mehrere eingeben, müssen Sie diese dann durch Kommata trennen. Mehr dazu können Sie in <xref linkend=\"tsvn-DUG-bugtracker\"/> lesen. "
 
+#: source/en/tsvn_dug/dug_cleanup.xml:3
+#: (title)
+msgid "Cleanup"
+msgstr "Bereinigen"
+
+#: source/en/tsvn_dug/dug_cleanup.xml:5
+#: (primary)
+msgid "cleanup"
+msgstr "bereinigen"
+
+#: source/en/tsvn_dug/dug_cleanup.xml:7
+#: (para)
+msgid "If a subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
+msgstr "Wenn ein Subversion Befehl nicht erfolgreich abgeschlossen werden kann, vielleicht durch ein Serverproblem, kann die Arbeitskopie in einem Inkonsitenten Zustand zurückgelassen werden. In diesem Fall müssen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Bereinigen</guimenuitem></menuchoice> auf dem Ordner ausführen. Am besten tun Sie das auf dem obersten Ordner Ihrer Arbeitskopie."
+
+#: source/en/tsvn_dug/dug_cleanup.xml:18
+#: (para)
+msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to repond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
+msgstr "Bereinigen hat einen weiteren Nebeneffekt. Falls ein Dateidatum geändert wurde aber der Inhalt der Datei dennoch gleich geblieben ist, kann Subversion nicht gleich feststellen ob sich die Datei geändert hat, sondern muss dann die Datei Byte für Byte mit der Basiskopie der Datei vergleichen. Wenn Sie eine Menge solcher Dateien haben, ist das Feststellen des Subversion Status sehr langsam, was viele Dialoge/Befehle sehr verlangsamt. Ein Ausführen des Bereinigen-Befehls repariert diese <quote>falschen<quote> Zeitstempel wieder und stellt die volle Geschwindikeit des Status-Checks wieder her."
+
+#: source/en/tsvn_dug/dug_cleanup.xml:29
+#: (title)
+msgid "Use Commit Timestamps"
+msgstr "Nutze Übertragungs-Zeitstempel"
+
+#: source/en/tsvn_dug/dug_cleanup.xml:30
+#: (para)
+msgid "Some earlier releases of Subversion were affected by a bug which caused timestamp mismatch when you check out with the <guilabel>Use commit timestamps</guilabel> option checked. Use the Cleanup command to speed up these working copies."
+msgstr "Einige frühere Versionen von Subversion hatten einen Fehler welcher die Zeitstempel der Dateien falsch gesetzt hat wenn Sie ein Projekt mit <guilabel>Dateidatum auf \"Datum der letzten Übertragung\" setzen</guilabel> benutzt haben. Führen Sie den Bereinigen-Befehl aus um die Arbeitskopie mit korrekten Datei-Zeitstempeln zu versehen und damit die Geschwindigkeit von Subversion-Befehlen erhöhen."
+
 #: source/en/tsvn_dug/dug_checkout.xml:3
 #: (title)
 msgid "Checking Out A Working Copy"
@@ -4274,6 +4304,11 @@ msgstr "Die obigen Eigenschaften müssen auf Ordner gesetzt sein, damit das Syst
 #: (para)
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <literal>regular expressions</literal>. The properties used by both approaches are: <placeholder-1/> In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-2/> In the approach with <literal>regular expressions</literal>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! <tip><placeholder-3/></tip><placeholder-4/><placeholder-5/><important><placeholder-6/><placeholder-7/><placeholder-8/></important>"
 msgstr "Es gibt zwei verschiedene Wege um TortoiseSVN mit einem Bugtracker zu verbinden. Ein Weg basiert auf einfachen Zeichenketten, der andere basiert auf <literal>Regulären Ausdrücken</literal>. Die Eigenschaften welche von beiden Methoden benutzt werden sind: <placeholder-1/>  Mit dem einfachen Weg zeigt TortoiseSVN dem  Benutzer ein zusätzliches Eingabefeld für die Eintragsnummer. Es wird dann eine zusätzliche Zeile der Log-Meldung angehängt oder vorangestellt. <placeholder-2/>  Beim Weg mit den <literal>Regulären Ausdrücken</literal> zeigt TortoiseSVN kein separates Eingabefeld an sondern hebt den Teil der Log-Meldung hervor, der von dem Aktionsskript als Eintragsnummer erkannt wird. Die Hervorhebung erfolgt während der Benutzer die Log-meldung eingibt. Dies bedeutet auch, dass die Eintragsnummer irgendwo in der Log-Meldung stehen kann und nicht nur in einer separaten Zeile! <tip><placeholder-3/></tip><placeholder-4/><placeholder-5/><important><placeholder-6/><placeholder-7/><placeholder-8/></important>"
+
+#: source/en/tsvn_dug/dug_bugtracker.xml:242
+#: (para)
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://svn.collab.net/repos/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
+msgstr "Die Integration mit Issuetrackern ist nicht limitiert auf TortoiseSVN: Sie kann von jedem Subversion Client benutzt werden. Für mehr Informationen hierzu lesen Sie bitte die <ulink url=\"http://svn.collab.net/repos/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:3
 #: (title)
@@ -4605,7 +4640,7 @@ msgstr "Sie kennen die Grundlagen von Subversion."
 msgid "You should have set up a server and/or have access to a Subversion repository."
 msgstr "Sie haben einen Server installiert und/oder haben Zugriff auf ein Subversion Projektarchiv."
 
-#: source/en/tsvn_dug/dug.xml:84
+#: source/en/tsvn_dug/dug.xml:85
 #: (title)
 msgid "Final Step"
 msgstr "Letzter Schritt"
@@ -5815,45 +5850,58 @@ msgstr "Die Eigenschaft <literal>svn:externals</literal>"
 
 #: source/en/tsvn_app_howto.xml:316
 #: (para)
-msgid "Create a new folder within your project to contain the common code, and <action>Add</action> it to Subversion"
-msgstr "Erstellen Sie einen neuen Ordner in Ihrem Projekt, welcher den gemeinsamen Code enthalten soll, und fügen Sie diesen zu Subversion hinzu."
+msgid ""
+"Set the <literal>svn:externals</literal> property for a folder in your project. The property value should be the name of a subfolder which you want the common code checked into, and the repository URL that you want to be checked out there. You can add multiple folder/URL pairs to one folder. For example: <screen>\n"
+"third-party/sounds http://sounds.red-bean.com/repos\n"
+"third-party/skins  http://skins.red-bean.com/repositories/skinproj\n"
+"</screen> Of course this code has to reside in a Subversion repository, although it does not have to be the same one."
+msgstr ""
+"Setzen Sie die <literal>svn:externals</literal> Eigenschaft auf einen Ordner in Ihrem Projekt. Der Eigenschaftswert ist der Name eines Unterordners in welchem Sie das externe Projekt haben möchten, und die URL zum Ordner im Projektarchiv. Sie können mehrere Ordner/URL Paare angeben. Zum Beispiel: <screen>\n"
+"extern/Klänge http://sounds.red-bean.com/repos\n"
+"extern/Skins http://skins.red-bean.com/repositories/skinproj\n"
+"</screen>Selbstverständlich muss der Sourcecode in einem Subversion-Projektarchiv abgelegt sein, es muss aber nicht dasselbe sein wie Ihr Hauptprojekt."
 
-#: source/en/tsvn_app_howto.xml:320
+#: source/en/tsvn_app_howto.xml:329
 #: (para)
-msgid "Set the <literal>svn:externals</literal> property on that folder. The property value should be the repository URL of the code you want to include. Of course it has to reside in a Subversion repository, although it does not have to be the same one."
-msgstr "Setzen sie die <literal>svn:externals</literal> Eigenschaft für diesen Ordner. Der Wert der Eigenschaft sollte die Projektarchiv-URL des gemeinsamen Codes sein. Selbstverständlich muss dieser gemeinsame Code ebenfalls in einem Subversion Projektarchiv gespeichert sein, aber es muss nicht unbedingt im selben Projektarchiv wie ihr eigenes Projekt sein."
-
-#: source/en/tsvn_app_howto.xml:327
-#: (para)
-msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. Each time you update, you will also receive the latest version of that project. Changes you make to the common project will be committed back."
+msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The subfolders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
 msgstr "Übertragen Sie diese Änderungen. Nun, wenn Sie Ihre Arbeitskopie aktualisieren wird Subversion eine Kopie dieses externen Projektes in Ihre Arbeitskopie einfügen. Jedesmal wenn Sie eine Aktualisierung vornehmen, wird automatisch auch das externe Projekt aktualisiert. Änderungen, welche Sie am gemeinsamen Code vornehmen werden ebenfalls in das externe Projektarchiv mit-übertragen."
 
-#: source/en/tsvn_app_howto.xml:336
+#: source/en/tsvn_app_howto.xml:337
+#: (para)
+msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
+msgstr "Wenn das externe Projekt im selben Projektarchiv ist, werden alle Änderungen in diesem externen Projekt im Übertragungsdialog mit aufgelistet und auch mit dem Hauptprojekt übertragen."
+
+#: source/en/tsvn_app_howto.xml:342
+#: (para)
+msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
+msgstr "Wenn ein externes Projekt in einem anderen Projektarchiv ist, werden Sie zwar über Änderungen im externen Projekt informiert, Sie müssen diese jedoch separat übertragen."
+
+#: source/en/tsvn_app_howto.xml:350
 #: (title)
 msgid "Use a nested working copy"
 msgstr "Verschachtelte Arbeitskopien"
 
-#: source/en/tsvn_app_howto.xml:337
+#: source/en/tsvn_app_howto.xml:351
 #: (para)
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
 msgstr "Erstellen Sie einen neuen Ordner in Ihrem Projekt, welcher den gemeinsamen Code enthalten soll, aber fügen Sie diesen nicht zu Ihrer Arbeitskopie hinzu."
 
-#: source/en/tsvn_app_howto.xml:341
+#: source/en/tsvn_app_howto.xml:355
 #: (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
 msgstr "Wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Auschecken</guimenuitem></menuchoice> auf dem neuen Ordner und checken Sie eine Kopie des gemeinsamen Codes in diesen Ordner aus. Sie haben nun eine separate Arbeitskopie innerhalb Ihrer eigenen Arbeitskopie."
 
-#: source/en/tsvn_app_howto.xml:351
+#: source/en/tsvn_app_howto.xml:365
 #: (para)
-msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are not committed. Likewise when you update the parent, the nested WC is not updated."
+msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are ignored. Likewise when you update the parent, the nested WC is not updated."
 msgstr "Diese beiden Arbeitskopien sind komplett unabhängig voneinander. Wenn Sie Änderungen übertragen möchten, so werden Änderungen in der zweiten Arbeitskopie nicht mit erfasst. Ebenfalls wird die zweite Arbeitskopie bei einer Aktualisierung nicht mit-aktualisiert. Sie müssen die zweite Arbeitskopie jeweils getrennt aktualisieren oder Änderungen darin übertragen."
 
-#: source/en/tsvn_app_howto.xml:358
+#: source/en/tsvn_app_howto.xml:372
 #: (title)
 msgid "Use a relative location"
 msgstr "Relative Pfade"
 
-#: source/en/tsvn_app_howto.xml:359
+#: source/en/tsvn_app_howto.xml:373
 #: (para)
 msgid ""
 "If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\n"
@@ -5870,7 +5918,7 @@ msgstr ""
 "C:\\Projekte\\Gemeinsamer_Code\n"
 "</screen>dann können Sie in Ihren Projekten mittels relativer Pfade auf diesen Code zugreifen, zum Beispiel <filename>..\\..\\Gemeinsamer_code\\DSPCore</filename>."
 
-#: source/en/tsvn_app_howto.xml:374
+#: source/en/tsvn_app_howto.xml:388
 #: (para)
 msgid ""
 "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\n"
@@ -5885,10 +5933,31 @@ msgstr ""
 "#include \"X:\\superio.h\\superio.h\"\n"
 "</screen>"
 
-#: source/en/tsvn_app_howto.xml:392
+#: source/en/tsvn_app_howto.xml:406
 #: (para)
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr "Diese Methode funktioniert jedoch nur in einer PC-Umgebung, und Sie müssen genau dokumentieren wie die Laufwerks-Verbindung gemacht werden muss damit die Team-Mitglieder die Projekte auch Kompilieren können und die gemeinsamen Dateien auch finden.Diese Methode ist wirklich nur in geschlossene Umgebungen anwendbar und nicht für die normale Verwendung empfohlen."
+
+#: source/en/tsvn_app_howto.xml:416
+#: (title)
+msgid "Create a shortcut to a repository"
+msgstr "Eine Verknüpfung zu einem Projektarchiv erstellen"
+
+#: source/en/tsvn_app_howto.xml:418
+#: (primary)
+msgid "shortcut"
+msgstr "Tastaturkürzel"
+
+#: source/en/tsvn_app_howto.xml:420
+#: (para)
+msgid ""
+"If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
+"TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n"
+"</screen> Of course you need to include the real repository URL."
+msgstr ""
+"Wenn Sie den Projektarchivbrowser immer wieder benötigen um ein bestimmtes Projektarchiv anzuzeigen, dann können Sie auch eine Verknüpfung auf dem Desktop erstellen und die benötigten Parameter direkt an TortoiseProc.exe übergeben.Erstellen Sie einfach eine Verknüpfung und setzen Sie das Ziel auf: <screen>\n"
+"TortoiseProc.exe /command:repobrowser /path:\"url/zum/projektarchiv\" /notempfile\n"
+"</screen>Natürlich müssen Sie eine echte URL eingeben."
 
 #: source/en/tortoisesvn.xml:5
 #: (subtitle)

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-03 23:53+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2005-05-29 16:53+0100\n"
+"Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -135,6 +135,7 @@ msgstr "&Añadir..."
 
 # Control-ID:1090,
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "&Avanzado..."
 
@@ -152,6 +153,8 @@ msgstr "&Explorar..."
 
 # Control-ID:1091,
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Integrado"
 
@@ -164,7 +167,11 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Cancelar"
 
-#: ID:76
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "&Comprobar Ahora"
+
+#: MenuEntry
 msgid "&Compare Revisions"
 msgstr "&Comparar revisiones"
 
@@ -173,8 +180,8 @@ msgid "&Copy To..."
 msgstr "&Copiar a..."
 
 #: ID:101
-msgid "&Delete"
-msgstr "&Eliminar"
+msgid "&Delete..."
+msgstr "&Eliminar..."
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -199,6 +206,8 @@ msgid "&Exit"
 msgstr "&Salir"
 
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Externo"
 
@@ -225,8 +234,8 @@ msgstr "&Desde WC en URL:"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
-msgstr "Revisión &Principal"
+msgid "&HEAD Revision"
+msgstr "Revisión &HEAD"
 
 #: Control-ID:57670
 #: MenuEntry
@@ -305,11 +314,6 @@ msgstr "&Puerto:"
 msgid "&Previous Difference"
 msgstr "Diferencia &Anterior"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Recurse into folders to fetch the status"
-msgstr "&Buscar en subcarpetas para obtener el estado"
-
 #: ID:376
 msgid "&Redo"
 msgstr "&Rehacer"
@@ -347,11 +351,6 @@ msgstr "&Guardar Gráfico como..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Guardar autenticación"
-
-# Control-ID:1132,
-#: Control-ID:1132
-msgid "&Select Overlay Set"
-msgstr "&Seleccionar Conjunto de Sobreimpresiones"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -391,7 +390,7 @@ msgstr "&Deshacer"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Deshacer\tCtrl+Z"
 
-#: Control-ID:1180
+#: MenuEntry
 msgid "&Unified Diff"
 msgstr "&Diff Unificado"
 
@@ -454,10 +453,10 @@ msgstr "- %d"
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1187
+#: Control-ID:1104
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
-#: Control-ID:1104
 msgid "..."
 msgstr "..."
 
@@ -556,11 +555,6 @@ msgstr ""
 msgid "A&dd Folder..."
 msgstr "Aña&dir carpeta..."
 
-# Control-ID:1093,
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "A&vanzado..."
-
 #: ID:73
 msgid "Abort"
 msgstr "Abortar"
@@ -596,16 +590,6 @@ msgstr "Acción"
 #: ID:3826
 msgid "Activate Task List"
 msgstr "Activar Lista de Tareas"
-
-#: ID:78
-msgid ""
-"Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Active esta opción si desea que la sobreimpresión de carpeta\n"
-"muestren el estado en subversion de los siguientes archivos.\n"
-"<ct=0x0000ff><b>Aviso:</b> esto puede enlentecer el Explorador de Windows</ct>"
 
 #: ID:8
 #: ID:209
@@ -871,6 +855,24 @@ msgstr "Auto-cerrar si no hay errores"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Auto-cerrar si no hay mezclas, adiciones o eliminaciones"
 
+#: Control-ID:65535
+msgid "Autoclose:"
+msgstr "Autocerrar:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"Autocompletar le sugiere palabras (usualmente nombres de clases o miembros)\n"
+"contenidos en los ficheros que ha cambiado mientras escribe un mensaje de registro."
+
+# ID:201,
+#: Control-ID:1073
+msgid "Automatically check for newer versions every week"
+msgstr "Comprobar automáticamente si hay nuevas versiones todas las semanas"
+
 #: Control-ID:1157
 msgid "Average"
 msgstr "Media"
@@ -878,11 +880,6 @@ msgstr "Media"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "E&xplorar..."
-
-# Control-ID:1094,
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "I&ntegrado"
 
 #: Control-ID:1015
 msgid "Backup original file"
@@ -941,11 +938,6 @@ msgstr "Buscar el programa de diferencias externo"
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "Buscar..."
-
-# Control-ID:1096,
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "In&tegrado"
 
 # Control-ID:1119,#:
 # Control-ID:1119,
@@ -1020,7 +1012,7 @@ msgstr "Cambiar la posición de la ventana"
 msgid "Change the window size"
 msgstr "Cambiar el tamaño de la ventana"
 
-#: Dlg-ID:158
+#: Dlg-ID:199
 msgid "Changed Files"
 msgstr "Archivos modificados"
 
@@ -1048,11 +1040,6 @@ msgstr "Comprobar Repositorio"
 msgid "Check for Modifications"
 msgstr "Comprobar Modificaciones"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Check for newer &versions"
-msgstr "Comprobar si hay nuevas &versiones"
-
 #: ID:9
 msgid "Check out a working copy from a repository"
 msgstr "Obtiene una copia de trabajo desde un repositorio"
@@ -1071,8 +1058,8 @@ msgid "Check the path and/or URL you've entered."
 msgstr "Verifique la ruta y/o URL que ha introducido"
 
 #: ID:194
-msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "Marque las entradas de menú que desea que aparezcan en el menú principal de contexto en lugar de en el submenú"
+msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
+msgstr "Marque las entradas de menú que desea que aparezcan en el submenú en vez de en el menú contextual principal"
 
 # ID:80,
 #: ID:80
@@ -1115,8 +1102,8 @@ msgstr "Limpia operaciones interrumpidas, archivos bloqueados, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "Borrar &Auth Cache"
+msgid "Clear &Now"
+msgstr "Limpiar &Ahora"
 
 # ID:195,
 #: ID:195
@@ -1164,6 +1151,10 @@ msgstr "Colores"
 msgid "Command failed."
 msgstr "El Comando falló."
 
+#: Control-ID:1083
+msgid "Commit"
+msgstr "Confirmar"
+
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Confirmar en:"
@@ -1190,9 +1181,9 @@ msgstr "Confirmaciones cada semana:"
 msgid "Commits your changes to the repository"
 msgstr "Confirma sus cambios al repositorio"
 
-#: Control-ID:1083
-msgid "Committing"
-msgstr "Confirmando"
+#: MenuEntry
+msgid "Compare &HEAD Revisions"
+msgstr "Comparar revisiones &HEAD"
 
 #: Control-ID:1019
 msgid "Compare Whitespaces"
@@ -1213,6 +1204,19 @@ msgstr "Compara el archivo con la última versión confirmada para mostrarle los
 #: ID:74
 msgid "Completed"
 msgstr "Completado"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Configure the program used for comparing different revisions of files."
+msgstr "Configura el programa utilizado para comparar revisiones diferentes de ficheros."
+
+#: Control-ID:65535
+msgid "Configure the program used to resolve conflicted files."
+msgstr "Configura el programa usado para resolver ficheros en conflicto."
+
+#: Control-ID:65535
+msgid "Configure viewer program for GNU diff files (patch files)."
+msgstr "Configura el programa visor para archivos diff GNU (archivos de parches)."
 
 #: ID:263
 #: Control-ID:65535
@@ -1261,6 +1265,11 @@ msgstr "Copiar De Ruta"
 msgid "Copy To Working Copy..."
 msgstr "Copiando a copia de trabajo"
 
+# ID:101,
+#: ID:101
+msgid "Copy URL to clipboard"
+msgstr "Copiar URL al portapapeles"
+
 #: ID:13
 msgid "Copy files in Subversion to here"
 msgstr "Copiar archivos en Subversion aqui"
@@ -1272,6 +1281,11 @@ msgid ""
 msgstr ""
 "Copiar la selección y la coloca en el Portapapeles\n"
 "Copiar"
+
+# ID:257,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "Copiar al portapapeles"
 
 #: ID:103
 msgid "Copy to working copy"
@@ -1460,11 +1474,6 @@ msgstr "Eliminando"
 msgid "Destination disk drive is full."
 msgstr "La unidad de disco de destino está llena."
 
-# Dlg-ID:184,
-#: Dlg-ID:184
-msgid "Dialog"
-msgstr "Diálogo"
-
 #: ID:12
 msgid "Diff"
 msgstr "Diferenciar"
@@ -1473,18 +1482,6 @@ msgstr "Diferenciar"
 msgid "Diff File:"
 msgstr "Archivo Diferencias:"
 
-#: Control-ID:65535
-msgid "Diff Program"
-msgstr "Programa de Diferencias"
-
-#: Control-ID:65535
-msgid "Diff Viewer"
-msgstr "Visor de Diferencias:"
-
-#: Dlg-ID:163
-msgid "Diff/Merge"
-msgstr "Diferencia/Combinación"
-
 #: Control-ID:1022
 msgid "Diffing"
 msgstr "Calculo de diferencias"
@@ -1492,6 +1489,15 @@ msgstr "Calculo de diferencias"
 #: Control-ID:65535
 msgid "Directory:"
 msgstr "Directorio:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"Deshabilite esta opción si tiene copias de trabajo realmente grandes y nota\n"
+"demasiados accesos a disco cuando navega por su copia de trabajo."
 
 #: ID:3867
 msgid "Disk full while accessing %1."
@@ -1576,6 +1582,11 @@ msgstr "¿Desea guardar sus cambios?"
 msgid "Documentation - Simon Large"
 msgstr "Documentación - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "No obtener el estado para el menú contextual"
+
 #: ID:73
 msgid "Don't show this message again"
 msgstr "No mostrar este mensaje de nuevo"
@@ -1587,10 +1598,6 @@ msgstr "Tipos de Unidad"
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Salir"
-
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "E&xterno"
 
 # ID:3697,
 #: ID:3697
@@ -1658,6 +1665,11 @@ msgstr "Introduzca URL"
 msgid "Enter a lock message (optional):"
 msgstr "Introduzca un mensaje de bloqueo (opcional):"
 
+# Control-ID:1213,
+#: Control-ID:1213
+msgid "Enter a message describing why you lock the file(s)."
+msgstr "Introduzca un mensaje que describa por qué bloque el/los fichero(s)."
+
 #: ID:3603
 msgid ""
 "Erase everything\n"
@@ -1682,10 +1694,6 @@ msgstr "Error"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "Error validando el certificado de servidor para %s:"
-
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "Ex&terno"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -1742,6 +1750,18 @@ msgstr "Externo"
 msgid "External Program:"
 msgstr "Programa Externo:"
 
+#: Dlg-ID:192
+msgid "External Programs::Diff Viewer"
+msgstr "Programas Externos::Visor de Diferencias"
+
+#: Dlg-ID:193
+msgid "External Programs::Merge Tool"
+msgstr "Programas Externos::Herramienta de Combinación"
+
+#: Dlg-ID:194
+msgid "External Programs::Unified Diff Viewer"
+msgstr "Programas Externos::Visor de Diffs Unificados"
+
 #: ID:74
 msgid "Failed Revert"
 msgstr "Reversión fallida"
@@ -1776,6 +1796,10 @@ msgstr "Obteniendo revisión %s del archivo:"
 #: ID:207
 msgid "File"
 msgstr "Archivo"
+
+#: ID:376
+msgid "File Diffs"
+msgstr "Diferencias de Ficheros"
 
 #: ID:376
 #: Dlg-ID:135
@@ -1830,6 +1854,7 @@ msgstr "¡No se puede inicializar GDI+!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ no puede crear un objeto bitmap. Probablemente no haya suficiente memoria."
 
+#: Dlg-ID:143
 #: Dlg-ID:107
 msgid "General"
 msgstr "General"
@@ -1898,8 +1923,8 @@ msgid "Graph type:"
 msgstr "Tipo de gráfico:"
 
 #: Control-ID:1032
-msgid "H&ead Revision"
-msgstr "Revisión &Principal"
+msgid "H&EAD Revision"
+msgstr "Revisión &HEAD"
 
 #: Control-ID:1182
 msgid "HEAD revision in the repository"
@@ -1937,6 +1962,17 @@ msgstr "Iconos/Diseño/Codigo:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Si activado, previene la aparición de iconos de superposición en los diálogos de guardar o abrir archivo"
 
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Si se activa, el menú contextual se mostrará más rápido.\n"
+"Pero se mostrarán algunas entradas del menú contextual que no se pueden utilizar.\n"
+"Por ejemplo, se mostrará la entrada \"Mostrar Registro\" incluso para carpetas recién añadidas."
+
 #: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
@@ -1953,6 +1989,11 @@ msgstr "Si está marcada, TortoiseSVN creará un archivo temporal para realizar 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Si habilitado, TortoiseSVN comprueba una vez a la semana si está disponible una versión más actualizada"
+
+# ID:195,
+#: ID:195
+msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
+msgstr "Si se habilita, acelera la obtención de mensajes de registro de servidores de repositorios pre-1.2."
 
 # ID:195,
 #: ID:195
@@ -2010,17 +2051,6 @@ msgstr "Importa el directorio a un repositorio"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "Incluir rutas:"
-
-# ID:79,
-#: ID:79
-msgid ""
-"Indicates the status of a folder with the overlay icon.\n"
-"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
-"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
-msgstr ""
-"Indica el estado de una carpeta con la sobreimpresión de carpeta.\n"
-"Si se desactiva, una carpeta versionada siempre se mostrará con la sobreimpresión 'normal'.\n"
-"<ct=0x0000ff><b>¡Si el explorer parece ir lento, desactive esta característica!</b></ct>"
 
 #: ID:76
 msgid "Initial Import"
@@ -2169,6 +2199,10 @@ msgstr "Bloquear"
 msgid "Lock Comment"
 msgstr "Comentario del Bloqueo"
 
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "Bloquear Ficheros"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -2220,13 +2254,29 @@ msgid "Log Message History:"
 msgstr "Historial de Mensajes de Registro:"
 
 #: Dlg-ID:130
+#: Control-ID:65535
 msgid "Log Messages"
 msgstr "Registro de Mensajes"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
+#: Dlg-ID:195
 msgid "Look and Feel"
 msgstr "Aspecto visual"
+
+# Dlg-ID:106,
+#: Dlg-ID:196
+msgid "Look and Feel::Dialogs"
+msgstr "Aspecto Visual::Diálogos"
+
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel::Icon Overlays"
+msgstr "Aspecto Visual::Iconos Sobreimpresionados"
+
+# Dlg-ID:106,
+#: Dlg-ID:184
+msgid "Look and Feel::Icon Set"
+msgstr "Aspecto Visual::Conjunto de Iconos"
 
 # ID:238,
 #: ID:238
@@ -2235,16 +2285,12 @@ msgstr "Revisión Mínima: %ld - Revisión Máxima: %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr "Revisión Mínima: %ld - Revisión Máxima: %ld - Revisión Principal: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
+msgstr "Revisión Mínima: %ld - Revisión Máxima: %ld - Revisión HEAD: %ld"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "La DLL del sistema de correo no es válida."
-
-#: Dlg-ID:143
-msgid "Main"
-msgstr "Principal"
 
 # ID:2051,
 #: ID:2051
@@ -2263,10 +2309,6 @@ msgstr "Máx"
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "Combinar"
-
-#: Control-ID:65535
-msgid "Merge Program"
-msgstr "Programa de Combinación"
 
 #: ID:9
 msgid "Merge..."
@@ -2307,7 +2349,6 @@ msgstr "Mín"
 
 # Control-ID:1023,#:
 # Control-ID:1082,
-#: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
 msgstr "Miscelánea"
@@ -2468,6 +2509,7 @@ msgstr "Aceptar"
 msgid "OVR"
 msgstr "SOB"
 
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "Omitir externos"
@@ -2507,6 +2549,10 @@ msgstr "Abrir archivo de certificado de cliente"
 #: ID:3601
 msgid "Open file"
 msgstr "Abrir archivo"
+
+#: ID:113
+msgid "Open with..."
+msgstr "Abrir con..."
 
 #: ID:3605
 msgid ""
@@ -2672,10 +2718,9 @@ msgstr "Programa"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 
-# Control-ID:65535,
 #: Control-ID:65535
-msgid "Progress dialog:"
-msgstr "Diálogo de progreso:"
+msgid "Progress"
+msgstr "Progreso"
 
 #: Control-ID:65535
 #: Dlg-ID:177
@@ -2905,6 +2950,10 @@ msgstr "Reintentar"
 msgid "Revert"
 msgstr "Revertir"
 
+#: ID:114
+msgid "Revert changes from these revisions"
+msgstr "Revertir los cambios desde estas revisiones"
+
 #: ID:8
 msgid "Revert..."
 msgstr "Revertir..."
@@ -3105,6 +3154,7 @@ msgstr "Guardando archivo de parche en:"
 #: Control-ID:1014
 #: Control-ID:1017
 #: Control-ID:1064
+#: Control-ID:1212
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3271,10 +3321,6 @@ msgstr "Mostrar números de línea"
 msgid "Show Log"
 msgstr "Mostrar Registro"
 
-#: Control-ID:1169
-msgid "Show folderstatus"
-msgstr "Mostrar estado de las carpetas"
-
 #: ID:3713
 msgid ""
 "Show or hide the status bar\n"
@@ -3290,6 +3336,11 @@ msgid ""
 msgstr ""
 "Mostrar u ocultar la barra de herramientas\n"
 "Mostrar barra de herramientas"
+
+# Control-ID:1088,
+#: Control-ID:1223
+msgid "Show overlay status icons recursive"
+msgstr "M&ostrar iconos de estado sobreimpresionados recursivamente"
 
 #: ID:2049
 msgid ""
@@ -3395,6 +3446,11 @@ msgstr "Robar Bloqueo"
 msgid "Steal the lock"
 msgstr "Roba el bloqueo"
 
+# ID:313,
+#: Control-ID:1211
+msgid "Steal the locks"
+msgstr "Robar los bloqueos"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Stefan Küng, Lübbe Onken"
@@ -3404,6 +3460,14 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:1130
 msgid "Stop On Copy/Rename"
 msgstr "Parar en Copia/Cambio de Nombre"
+
+#: Control-ID:65535
+msgid "Subversion"
+msgstr "Subversion"
+
+#: Control-ID:65535
+msgid "Subversion authentication data:"
+msgstr "Datos de autentificación de Subversion:"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3685,6 +3749,17 @@ msgstr ""
 "¡La carpeta de destino no está vacía!\n"
 "¿Está seguro de querer obtener/exportar en esa carpeta?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"El tiempo en segundos tras el que se para el parseado de los ficheros seleccionados.\n"
+"Un valor bajo hará que la lista de autocompletar esté disponible antes,\n"
+"pero puede que no escanée todos los ficheros."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -3775,6 +3850,11 @@ msgstr "Esta propiedad no puede tener múltiples líneas. Sólo se permite una l
 msgid "Three File Diff"
 msgstr "Diferencia de tres Archivos"
 
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Límite en segundos para parar el parseado de autocompletar"
+
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "Para ver los cambios que ha realizado, haga doble clic en los archivos situados encima."
@@ -3803,13 +3883,13 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3817,6 +3897,7 @@ msgstr ""
 
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -3828,7 +3909,7 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3838,7 +3919,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3954,6 +4035,10 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Formato de archivo no esperado."
 
+#: MenuEntry
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "&Diff Unificado de las Revisiones HEAD"
+
 #: ID:81
 msgid ""
 "Unknown certificate issuer.\n"
@@ -4045,6 +4130,11 @@ msgstr "Usar \"Desde:\" URL"
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "Usar autocompletado de rutas de ficheros y palabras clave"
 
+# Control-ID:1214,
+#: Control-ID:1214
+msgid "Use old APIs to fetch log messages"
+msgstr "Utilizar las APIs antiguas para obtener los mensajes de registro"
+
 #: Control-ID:1024
 msgid "Use one-pane view as default"
 msgstr "Utilizar vista de un sólo panel por defecto"
@@ -4068,7 +4158,7 @@ msgstr "Utilizar bloque de texto de \"e&llos\" antes del \"suyo\""
 
 #: ID:251
 msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Utilizar bloque de texto de \"s&uyo\" antes del de   \"ellos\""
+msgstr "Utilizar bloque de texto \"s&uyo\" antes del de \"ellos\""
 
 #: ID:251
 msgid "Use th&is text block"
@@ -4085,15 +4175,6 @@ msgstr "Utilizar si ha cambiado la URL del repositorio"
 #: ID:251
 msgid "Use whole other &file"
 msgstr "Utilizar el otro &fichero completo"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Used for comparing different revisions of files."
-msgstr "Usado para comparar distintas revisiones de archivos"
-
-#: Control-ID:65535
-msgid "Used to resolve conflicted files."
-msgstr "Usado para resolver archivos en conflicto."
 
 #: ID:74
 msgid "User cancelled"
@@ -4129,12 +4210,6 @@ msgstr "Valor"
 msgid "Version"
 msgstr "Versión"
 
-#: Control-ID:65535
-msgid "Viewer program for GNU diff files (patch files)."
-msgstr ""
-"Un programa visor para archivos diff GNU (archivos de parches).\n"
-"Si no tiene ninguno utilice el Bloc de Notas."
-
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Visite nuestro sitio web"
@@ -4156,6 +4231,10 @@ msgstr "Diferencia de Espacios"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "Espacios"
+
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Copia de Trabajo"
 
 #: Control-ID:1183
 msgid "Working copy"
@@ -4447,6 +4526,11 @@ msgstr "re&cursivo"
 #: ID:10
 msgid "replaced"
 msgstr "reemplazado"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "pide un usuario y una contraseña"
 
 #: Control-ID:1023
 msgid "save authentication"
