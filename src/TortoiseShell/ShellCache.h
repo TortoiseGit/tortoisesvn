@@ -23,6 +23,7 @@
 #define ADMINDIRTIMEOUT 10000
 #define DRIVETYPETIMEOUT 300000		// 5 min
 #define NUMBERFMTTIMEOUT 300000
+#define MENUTIMEOUT 100
 class ShellCache
 {
 public:
@@ -68,6 +69,8 @@ public:
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer));
 		columnrevformat.NegativeOrder = _ttoi(szBuffer);
 		sAdminDirCacheKey.reserve(MAX_PATH);		// MAX_PATH as buffer reservation ok.
+		bMenuInserted = false;
+		insertedmenu = NULL;
 	}
 	DWORD BlockStatus()
 	{
@@ -290,6 +293,23 @@ public:
 		delete buf2;
 		return hasAdminDir;
 	}
+	bool IsMenuInserted(HMENU hMenu)
+	{
+		if (hMenu != insertedmenu)
+			return false;
+		if ((GetTickCount() - MENUTIMEOUT)>menuinsertedticker)
+		{
+			menuinsertedticker = GetTickCount();
+			bMenuInserted = false;
+		}
+		return bMenuInserted;
+	}
+	void SetMenuInserted(HMENU hMenu, bool bVal)
+	{
+		bMenuInserted = bVal;
+		insertedmenu = hMenu;
+		menuinsertedticker = GetTickCount();
+	}
 private:
 	void DriveValid()
 	{
@@ -392,4 +412,7 @@ private:
 	std::map<stdstring, BOOL> admindircache;
 	stdstring sAdminDirCacheKey;
 	DWORD admindirticker;
+	bool bMenuInserted;
+	DWORD menuinsertedticker;
+	HMENU insertedmenu;
 };

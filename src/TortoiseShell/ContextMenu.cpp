@@ -33,6 +33,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                    LPDATAOBJECT pDataObj,
                                    HKEY /* hRegKey */)
 {
+	ATLTRACE("Shell :: Initialize\n");
 	files_.clear();
 	folder_.erase();	
 	isOnlyOneItemSelected = false;
@@ -350,6 +351,7 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 		_tcscpy(menutextbuffer, _T("SVN "));
 	}
 	_tcscat(menutextbuffer, stringtablebuffer);
+	ATLTRACE("Shell :: Insert Menu %ws\n", menutextbuffer);
 	if (ownerdrawn==1) 
 	{
 		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING | MF_OWNERDRAW, id, menutextbuffer);
@@ -484,6 +486,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
                                          UINT /*idCmdLast*/,
                                          UINT uFlags)
 {
+	ATLTRACE("Shell :: QueryContextMenu\n");
 	//first check if our drophandler is called
 	//and then (if true) provide the context menu for the
 	//drop handler
@@ -581,6 +584,32 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if ((folder_.length() > sAdm.length())&&(folder_.compare(folder_.length()-sAdm.length(), sAdm.length(), sAdm)==0))
 		return NOERROR;
 
+	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), 1);
+	//check if we already added our menu entries.
+	//we check that by iterating through all menu entries and compare the first
+	//few chars with 'SVN ' - since that's what we add in front of our menu entries
+	if (ownerdrawn == 1)
+	{
+		if (g_ShellCache.IsMenuInserted(hMenu))
+		{
+			ATLTRACE("menu insertion blocked\n");
+			return NOERROR;
+		}
+	}
+	else
+	{
+		TCHAR menubuf[MAX_PATH];
+		int count = GetMenuItemCount(hMenu);
+		for (int i=0; i<count; ++i)
+		{
+			GetMenuString(hMenu, i, menubuf, sizeof(menubuf)-1, MF_BYPOSITION);
+			if (_tcsncmp(menubuf, _T("SVN "), 4) == 0)
+				return NOERROR;
+			if (_tcsncmp(menubuf, _T("TortoiseSVN"), 11) == 0)
+				return NOERROR;
+		}
+	}
+
 	LoadLangDll();
 	//bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
 	UINT idCmd = idCmdFirst;
@@ -597,8 +626,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 #define ISTOP(x) (topmenu &(x))
 	//---- separator before
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
-
-	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE);
+	g_ShellCache.SetMenuInserted(hMenu, true);
 	//now fill in the entries 
 	if ((!isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCHECKOUT), HMENU(MENUCHECKOUT), INDEXMENU(MENUCHECKOUT), idCmd++, IDS_MENUCHECKOUT, IDI_CHECKOUT, idCmdFirst, Checkout);
@@ -1448,6 +1476,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM /*wParam*/, LPARAM lPar
 	{
 		case WM_MEASUREITEM:
 		{
+			ATLTRACE("Shell :: WM_MEASUREITEM\n");
 			MEASUREITEMSTRUCT* lpmis = (MEASUREITEMSTRUCT*)lParam;
 			if (lpmis==NULL)
 				break;
@@ -1490,6 +1519,8 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM /*wParam*/, LPARAM lPar
 			if (resource == NULL)
 				return S_OK;
 			szItem = stringtablebuffer;
+			g_ShellCache.SetMenuInserted(NULL, false);	// now the menu is shown, no more menu's get inserted.
+			ATLTRACE("Shell :: WM_DRAWITEM\n");
 			if (lpdis->itemAction & (ODA_DRAWENTIRE|ODA_SELECT))
 			{
 				int ix, iy;
