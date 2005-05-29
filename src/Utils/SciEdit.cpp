@@ -68,6 +68,7 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_SETLEXER, SCLEX_CONTAINER);
 	Call(SCI_SETCODEPAGE, SC_CP_UTF8);
 	Call(SCI_AUTOCSETFILLUPS, 0, (LPARAM)"([");
+	Call(SCI_AUTOCSETMAXWIDTH, 0);
 	//Set the default windows colors for edit controls
 	Call(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
 	Call(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
@@ -396,8 +397,8 @@ void CSciEdit::SuggestSpellingAlternatives()
 		if (suggestions.IsEmpty())
 			return;
 		Call(SCI_AUTOCSETSEPARATOR, (WPARAM)CStringA(m_separator).GetAt(0));
-		Call(SCI_AUTOCSHOW, 0, (LPARAM)(LPCSTR)StringForControl(suggestions));
 		Call(SCI_AUTOCSETDROPRESTOFWORD, 1);
+		Call(SCI_AUTOCSHOW, 0, (LPARAM)(LPCSTR)StringForControl(suggestions));
 	}
 
 }
