@@ -144,18 +144,19 @@ CAPTION "Checkout"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC,7,7,286,90
-    LTEXT           "&URL of repository:",IDC_STATIC,13,18,80,8
+    LTEXT           "&URL of repository:",IDC_STATIC,13,18,223,8
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,28,255,95
     PUSHBUTTON      "...",IDC_BROWSE,273,28,14,14
-    LTEXT           "Checkout &directory:",IDC_EXPORT_CHECKOUTDIR,13,42,80,8
+    LTEXT           "Checkout &directory:",IDC_EXPORT_CHECKOUTDIR,13,42,223,
+                    8
     EDITTEXT        IDC_CHECKOUTDIRECTORY,13,52,255,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_CHECKOUTDIRECTORY_BROWSE,273,52,14,14
     CONTROL         "Only check out the top folder",IDC_NON_RECURSIVE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,70,274,10
     GROUPBOX        "Revision",IDC_STATIC,7,100,286,48
     CONTROL         "H&EAD Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON,13,112,76,10
+                    BS_AUTORADIOBUTTON,13,112,123,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,128,74,10
     EDITTEXT        IDC_REVISION_NUM,100,127,136,14,ES_AUTOHSCROLL | 
@@ -174,7 +175,7 @@ CAPTION "Copy (Branch / Tag)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC,7,7,286,122
-    LTEXT           "&From WC at URL:",IDC_STATIC,13,18,80,8
+    LTEXT           "&From WC at URL:",IDC_STATIC,13,18,223,8
     EDITTEXT        IDC_FROMURL,13,28,255,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     LTEXT           "&To URL:",IDC_STATIC,13,42,80,8
@@ -196,9 +197,9 @@ BEGIN
     EDITTEXT        IDC_BUGID,238,137,49,14,ES_AUTOHSCROLL
     CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,13,153,
                     274,78,WS_EX_STATICEDGE
-    LTEXT           "Log Message History:",IDC_CHIST,13,239,96,8
+    LTEXT           "Log Message History:",IDC_CHIST,13,237,99,17
     CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
-                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,236,171,104
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,119,236,168,104
     DEFPUSHBUTTON   "&OK",IDOK,129,270,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,187,270,50,14
     PUSHBUTTON      "&Help",IDHELP,243,270,50,14
@@ -227,7 +228,7 @@ BEGIN
     PUSHBUTTON      "&Help",IDHELP,243,169,50,14
 END
 
-IDD_LOGMESSAGE DIALOGEX 0, 0, 382, 354
+IDD_LOGMESSAGE DIALOGEX 0, 0, 407, 354
 STYLE DS_SETFONT | DS_SETFOREGROUND | DS_FIXEDSYS | WS_MINIMIZEBOX | 
     WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
@@ -240,30 +241,30 @@ BEGIN
     LTEXT           "To:",IDC_TOLABEL,106,9,12,8
     CONTROL         "",IDC_DATETO,"SysDateTimePick32",DTS_RIGHTALIGN | 
                     DTS_APPCANPARSE | WS_TABSTOP,129,7,61,15
-    EDITTEXT        IDC_SEARCHEDIT,202,7,172,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SEARCHEDIT,203,7,196,14,ES_AUTOHSCROLL
     CONTROL         "",IDC_FILTERCANCEL,"Button",BS_OWNERDRAW | BS_ICON | 
-                    NOT WS_VISIBLE | WS_TABSTOP,317,0,14,14
+                    NOT WS_VISIBLE | WS_TABSTOP,342,0,14,14
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | 
-                    WS_BORDER | WS_TABSTOP,7,24,367,103
-    CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,126,367,5
+                    WS_BORDER | WS_TABSTOP,7,24,392,103
+    CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,126,392,5
     CONTROL         "",IDC_MSGVIEW,"RichEdit20A",ES_MULTILINE | ES_READONLY | 
                     ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,
-                    131,367,96
-    CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,227,367,4
+                    131,392,96
+    CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,227,392,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
-                    LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,231,367,77
+                    LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,231,392,77
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",NOT WS_VISIBLE | 
-                    WS_BORDER,7,314,310,9
-    PUSHBUTTON      "Statistics",IDC_STATBUTTON,324,312,50,14
+                    WS_BORDER,7,314,335,9
+    PUSHBUTTON      "Statistics",IDC_STATBUTTON,349,312,50,14
     PUSHBUTTON      "Show &All",IDC_GETALL,7,333,50,14
     CONTROL         "Stop On Copy/Rename",IDC_CHECK_STOPONCOPY,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,127,335,113,10
-    DEFPUSHBUTTON   "&OK",IDOK,265,333,52,14
-    PUSHBUTTON      "&Help",IDHELP,324,333,50,14
-    PUSHBUTTON      "&Next 100",IDC_NEXTHUNDRED,65,333,50,14
+                    BS_AUTOCHECKBOX | WS_TABSTOP,139,334,145,10
+    DEFPUSHBUTTON   "&OK",IDOK,290,333,52,14
+    PUSHBUTTON      "&Help",IDHELP,349,333,50,14
+    PUSHBUTTON      "&Next 100",IDC_NEXTHUNDRED,65,333,62,14
     CONTROL         "",IDC_FILTERICON,"Button",BS_OWNERDRAW | BS_ICON | 
-                    BS_FLAT | WS_TABSTOP,367,0,14,14,WS_EX_TRANSPARENT
+                    BS_FLAT | WS_TABSTOP,392,0,14,14,WS_EX_TRANSPARENT
 END
 
 IDD_LOGPROMPT DIALOGEX 0, 0, 300, 279
@@ -280,9 +281,9 @@ BEGIN
                     NOT WS_BORDER | NOT WS_TABSTOP
     CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,6,34,
                     287,78,WS_EX_STATICEDGE
-    LTEXT           "Log Message History:",IDC_CHIST,6,122,101,8
+    LTEXT           "Log Message History:",IDC_CHIST,6,122,139,8
     CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
-                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,119,177,104
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,149,119,144,104
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,6,136,287,66
@@ -318,7 +319,7 @@ BEGIN
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
                     13,63,44,10
     EDITTEXT        IDC_REVISION_START,63,60,51,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,124,60,50,14
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,124,60,67,14
     GROUPBOX        "To: (end URL and revision of the range to merge)",
                     IDC_STATIC,7,89,331,74
     CONTROL         "Use ""From:"" URL",IDC_USEFROMURL,"Button",
@@ -331,17 +332,17 @@ BEGIN
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,144,45,10
     EDITTEXT        IDC_REVISION_END,63,142,51,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,124,142,50,14
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,124,142,67,14
     GROUPBOX        "",IDC_STATIC,7,168,331,71
     LTEXT           "The result of the merge is stored in the working copy at:",
                     IDC_STATIC,13,182,318,8
-    EDITTEXT        IDC_WCPATH,13,194,261,14,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_WCPATH,13,194,246,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     LTEXT           "which points to the repository at URL:",IDC_STATIC,13,
                     207,262,8
     EDITTEXT        IDC_WCURL,13,219,318,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    PUSHBUTTON      "Sh&ow Log",IDC_WCLOG,281,194,50,14
+    PUSHBUTTON      "Sh&ow Log",IDC_WCLOG,266,194,65,14
     DEFPUSHBUTTON   "&Merge",IDOK,7,246,70,14
     PUSHBUTTON      "&Dry Run",IDC_DRYRUNBUTTON,81,246,70,14
     PUSHBUTTON      "&Unified Diff",IDC_DIFFBUTTON,154,246,70,14
@@ -427,7 +428,7 @@ BEGIN
     PUSHBUTTON      "Clear &Now",IDC_CLEARAUTH,212,171,72,14
     CONTROL         "Automatically check for newer versions every week",
                     IDC_CHECKNEWERVERSION,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,11,34,195,20
+                    BS_VCENTER | BS_MULTILINE | WS_TABSTOP,11,34,195,26
     PUSHBUTTON      "&Check Now",IDC_CHECKNEWERBUTTON,212,38,72,14
     GROUPBOX        "Subversion",IDC_STATIC,7,92,286,118
     CONTROL         "Set filedates to the ""last commit time""",
@@ -488,7 +489,8 @@ BEGIN
     EDITTEXT        IDC_USERNAME,118,52,101,14,ES_AUTOHSCROLL
     LTEXT           "&Password:",IDC_STATIC,17,74,101,8
     EDITTEXT        IDC_PASSWORD,118,70,101,14,ES_PASSWORD | ES_AUTOHSCROLL
-    LTEXT           "Proxy &timeout in seconds:",IDC_STATIC,17,101,101,8
+    LTEXT           "Proxy &timeout in seconds:",IDC_STATIC,17,93,101,24,
+                    SS_CENTERIMAGE
     EDITTEXT        IDC_TIMEOUT,118,98,101,14,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "Exceptions:",IDC_STATIC,17,126,94,8
     EDITTEXT        IDC_EXCEPTIONS,118,123,101,14,ES_AUTOHSCROLL
@@ -506,11 +508,11 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    PUSHBUTTON      "Show &Log...",IDC_LOGBUTTON,183,130,60,14,NOT 
+    PUSHBUTTON      "Show &Log...",IDC_LOGBUTTON,164,130,79,14,NOT 
                     WS_VISIBLE
     DEFPUSHBUTTON   "&OK",IDOK,250,130,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,307,130,50,14
-    LTEXT           "",IDC_INFOTEXT,7,124,168,20
+    LTEXT           "",IDC_INFOTEXT,7,124,153,20
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 300, 129
@@ -543,7 +545,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Revision",IDC_STATIC,7,7,189,51
     CONTROL         "&HEAD Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
-                    13,21,106,10
+                    13,21,90,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,85,10
     EDITTEXT        IDC_REVNUM,105,36,85,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -553,7 +555,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,63,189,10
     CONTROL         "Omit externals",IDC_NOEXTERNALS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,77,189,10
-    PUSHBUTTON      "Show &Log",IDC_LOG,139,18,50,14
+    PUSHBUTTON      "Show &Log",IDC_LOG,105,18,84,14
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 114
@@ -843,7 +845,7 @@ BEGIN
     EDITTEXT        IDC_EXTDIFF,7,41,263,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,279,41,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
-                    IDC_STATIC,7,70,160,19
+                    IDC_STATIC,7,70,160,30
     PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,206,73,87,14
     CONTROL         "Convert files when diffing against BASE",
                     IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
@@ -864,7 +866,7 @@ BEGIN
     EDITTEXT        IDC_EXTMERGE,7,41,263,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,279,41,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
-                    IDC_STATIC,7,70,160,19
+                    IDC_STATIC,7,70,160,33
     PUSHBUTTON      "&Advanced...",IDC_EXTMERGEADVANCED,206,73,87,14
 END
 
@@ -905,7 +907,8 @@ BEGIN
     LTEXT           "Default &number of log messages",IDC_STATIC,13,20,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,20,55,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
-    LTEXT           "Font for log messages:",IDC_STATIC,13,44,116,8
+    LTEXT           "Font for log messages:",IDC_STATIC,13,36,92,23,
+                    SS_CENTERIMAGE
     COMBOBOX        IDC_FONTNAMES,107,41,136,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
@@ -917,8 +920,8 @@ BEGIN
     CONTROL         "Use old APIs to fetch log messages",IDC_OLDAPILOGS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,79,271,8
     GROUPBOX        "Progress",IDC_STATIC,7,100,286,38
-    LTEXT           "Autoclose:",IDC_STATIC,13,119,87,8
-    COMBOBOX        IDC_AUTOCLOSECOMBO,107,116,177,75,CBS_DROPDOWNLIST | 
+    LTEXT           "Autoclose:",IDC_STATIC,13,112,54,21,SS_CENTERIMAGE
+    COMBOBOX        IDC_AUTOCLOSECOMBO,71,116,213,75,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Commit",IDC_COMMITGROUP,7,147,286,63
     CONTROL         "Use autocompletion of filepaths and keywords",
@@ -1009,9 +1012,9 @@ BEGIN
     IDD_LOGMESSAGE, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 374
-        VERTGUIDE, 265
-        VERTGUIDE, 317
+        RIGHTMARGIN, 399
+        VERTGUIDE, 284
+        VERTGUIDE, 342
         TOPMARGIN, 7
         BOTTOMMARGIN, 347
     END
@@ -1033,6 +1036,7 @@ BEGIN
         VERTGUIDE, 13
         VERTGUIDE, 63
         VERTGUIDE, 124
+        VERTGUIDE, 191
         VERTGUIDE, 302
         VERTGUIDE, 331
         TOPMARGIN, 7
