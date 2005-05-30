@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISE SVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-25 10:37+0100\n"
+"PO-Revision-Date: 2005-05-30 12:00+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1049,6 +1049,15 @@ msgstr "Automatyczne zamknięcie, jeśli nie ma scaleń, dodań lub usunięć"
 msgid "Autoclose:"
 msgstr "Auto-zamykanie:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"Podpowiadanie sugeruje w trakcie pisania komunikatu logu słowa\n"
+"(zwykle nazwy klas lub członków) z plików które zmieniłeś."
+
 # ID:201,
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1792,6 +1801,15 @@ msgstr "Porównywanie"
 #: Control-ID:65535
 msgid "Directory:"
 msgstr "Katalog:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"Wyłącz tą opcję, jeżeli posiadasz naprawdę duże kopie robocze i występuje\n"
+"zbyt duż pracy dysku w trakcie przeglądania kopii roboczej."
 
 # ID:3867,#:
 # ID:3867,
@@ -2982,8 +3000,8 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:145
 #: Control-ID:1202
-#, fuzzy
 msgid "Omit externals"
 msgstr "Pomiń zewnętrzne"
 
@@ -4002,6 +4020,11 @@ msgstr ""
 "Pokazuje lub ukrywa pasek narzędzi\n"
 "Przełącz pasek narzędzi"
 
+# Control-ID:1088,
+#: Control-ID:1223
+msgid "Show overlay status icons recursive"
+msgstr "Pokazuj nakładkowe ikony statusu rekursywnie"
+
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -4467,6 +4490,17 @@ msgstr ""
 "Folder docelowy nie jest pusty!\n"
 "Czy na pewno chcesz pobrać/wyeksportować dane do tego folderu?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"Czas w sekundach po którym zatrzymauje się parsowanie wybranych plików.\n"
+"Mniejsza wartość spowoduje, że lista podpowiedzi będzie dostępna wcześniej,\n"
+"jednak mogą nie zostać zeskanowane wszystkie pliki."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -4566,6 +4600,11 @@ msgstr "Ta właściwość nie może mieć wielu linii. Dozwolona jest tylko jedn
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Porównanie trzech plików"
+
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Czas w sekundach przed zatrzymaniem parsowania dla podpowiadania "
 
 # Control-ID:1052,
 #: Control-ID:1052
@@ -4897,8 +4936,8 @@ msgstr "Używaj podpowiadania ścieżek plików i słów kluczowych"
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
-msgstr "Użyj starego API do pobierania komunikatów logu"
+msgid "Use old APIs to fetch log messages"
+msgstr "Użyj starych API do pobierania komunikatów logu"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -5347,6 +5386,11 @@ msgstr "re&kurencja"
 #: ID:10
 msgid "replaced"
 msgstr "Zastąpiono"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "żąda nazwy użytkownika i hasła"
 
 # Control-ID:1023,#:
 # Control-ID:1023,

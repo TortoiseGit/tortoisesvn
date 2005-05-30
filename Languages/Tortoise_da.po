@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3506
+# Based on r3543
 #
 msgid ""
 msgstr ""
@@ -1110,7 +1110,7 @@ msgstr "Kopier (Lav forgrening/mærkat)"
 
 #: ID:76,
 msgid "Copy From Path"
-msgstr "Kopier fra sti"
+msgstr "Kopi fra sti"
 
 #: ID:101,
 msgid "Copy To Working Copy..."
@@ -1291,6 +1291,10 @@ msgstr "Sammenligner"
 #: Control-ID:65535,
 msgid "Directory:"
 msgstr "Mappe:"
+
+#: ID:195,
+msgid "Disable this option if you have really big working copies and experience\ntoo much disk access when browsing the working copy."
+msgstr "Fravælg denne, hvis har meget store arbejdskopier og oplever\nat der for meget disk-adgang, når du bruger arbejdskopien."
 
 #: ID:3867,#: ID:3867,
 msgid "Disk full while accessing %1."
@@ -2088,7 +2092,7 @@ msgstr "Ok"
 msgid "OVR"
 msgstr "OVR"
 
-#: Control-ID:1202,#: Control-ID:1202,
+#: ID:145,#: Control-ID:1202,#: Control-ID:1202,
 msgid "Omit externals"
 msgstr "Udelad externals"
 
@@ -2818,6 +2822,10 @@ msgstr "Vis eller skjul statuslinjen\nVis/skjul statuslinje"
 msgid "Show or hide the toolbar\nToggle ToolBar"
 msgstr "Vis eller skjul værktøjslinjen\nVis/skjul værktøjslinje"
 
+#: Control-ID:1223,
+msgid "Show overlay status icons recursive"
+msgstr "Vis status-overdækningsikoner rekursivt"
+
 #: ID:2049,
 msgid "Show special characters for whitespaces\nShow Whitespaces"
 msgstr "Vis specielle tegn for blanktegn\nVis blanktegn"
@@ -3089,6 +3097,10 @@ msgstr "Den valgte fil ser ud til stadig at indeholde en eller flere konfliktmar
 msgid "The target folder is not empty!\nAre you sure you want to checkout/export into that folder?"
 msgstr "Den valgte mappe er ikke tom!\nEr du sikker på, at du vil hente en arbejdskopi eller eksportere til denne mappe?"
 
+#: ID:195,
+msgid "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
+msgstr "Antallet af sekunder, der højst bruges på læse de valgte filer.\nEn lavere værdi vil gøre automatisk udfyldning hurtigere tilgængelig,\nmen måske skannes ikke alle filer."
+
 #: ID:16,
 msgid "The user who owns the lock of the file"
 msgstr "Den bruger, som ejer låsen på filen"
@@ -3146,6 +3158,10 @@ msgstr "Denne egenskab må ikke indeholde flere linjer. Der tillades kun én lin
 #: Control-ID:65535,
 msgid "Three File Diff"
 msgstr "Tre-fils-sammenligning"
+
+#: Control-ID:1222,
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Timeout i sekunder før stop af filanalyse til automatisk udfyldning"
 
 #: Control-ID:1052,
 msgid "To see the changes you made, double click on the files above."
