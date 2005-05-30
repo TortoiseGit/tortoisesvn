@@ -273,22 +273,24 @@ CString CSciEdit::GetText()
 
 CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
 {
-	char textbuffer[100];
 	TEXTRANGEA textrange;
-	textrange.lpstrText = textbuffer;	
 	int pos = Call(SCI_GETCURRENTPOS);
 	textrange.chrg.cpMin = Call(SCI_WORDSTARTPOSITION, pos, TRUE);
 	if ((pos == textrange.chrg.cpMin)||(textrange.chrg.cpMin < 0))
 		return CString();
 	textrange.chrg.cpMax = Call(SCI_WORDENDPOSITION, textrange.chrg.cpMin, TRUE);
-	if (textrange.chrg.cpMax - textrange.chrg.cpMin >= 100)
-		return CString();
+	
+	char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
+
+	textrange.lpstrText = textbuffer;	
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 	if (bSelectWord)
 	{
 		Call(SCI_SETSEL, textrange.chrg.cpMin, textrange.chrg.cpMax);
 	}
-	return StringFromControl(textbuffer);
+	CString sRet = StringFromControl(textbuffer);
+	delete textbuffer;
+	return sRet;
 }
 
 void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
@@ -322,9 +324,7 @@ void CSciEdit::CheckSpelling()
 	if (pChecker == NULL)
 		return;
 	
-	char textbuffer[100];
 	TEXTRANGEA textrange;
-	textrange.lpstrText = textbuffer;	
 	
 	LRESULT firstline = Call(SCI_GETFIRSTVISIBLELINE);
 	LRESULT lastline = firstline + Call(SCI_LINESONSCREEN);
@@ -344,33 +344,29 @@ void CSciEdit::CheckSpelling()
 			textrange.chrg.cpMax++;
 			continue;
 		}
-		if (textrange.chrg.cpMax - textrange.chrg.cpMin < 100)
+		char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
+		textrange.lpstrText = textbuffer;
+		Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
+		if (strlen(textrange.lpstrText) > 3)
 		{
-			Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
-			if (strlen(textrange.lpstrText) > 3)
+			if (!pChecker->spell(CStringA(StringFromControl(textrange.lpstrText))))
 			{
-				if (!pChecker->spell(CStringA(StringFromControl(textrange.lpstrText))))
-				{
-					//mark word as misspelled
-					Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
-					Call(SCI_SETSTYLING, textrange.chrg.cpMax - textrange.chrg.cpMin, INDIC1_MASK);	
-				}
-				else
-				{
-					//mark word as correct (remove the squiggle line)
-					Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
-					Call(SCI_SETSTYLING, textrange.chrg.cpMax - textrange.chrg.cpMin, 0);			
-				}
+				//mark word as misspelled
+				Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
+				Call(SCI_SETSTYLING, textrange.chrg.cpMax - textrange.chrg.cpMin, INDIC1_MASK);	
 			}
 			else
 			{
-				textrange.chrg.cpMin = textrange.chrg.cpMax;
+				//mark word as correct (remove the squiggle line)
+				Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
+				Call(SCI_SETSTYLING, textrange.chrg.cpMax - textrange.chrg.cpMin, 0);			
 			}
 		}
 		else
 		{
 			textrange.chrg.cpMin = textrange.chrg.cpMax;
 		}
+		delete textbuffer;
 	}
 }
 
