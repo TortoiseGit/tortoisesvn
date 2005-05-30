@@ -155,7 +155,7 @@ CAPTION "TortoiseMerge"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "&Merging",IDC_MERGERADIO,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,14,18,41,10
+                    WS_GROUP,14,18,75,10
     CONTROL         "&Apply Unified Diff",IDC_APPLYRADIO,"Button",
                     BS_AUTORADIOBUTTON,96,18,152,10
     EDITTEXT        IDC_BASEFILEEDIT,96,45,152,14,ES_AUTOHSCROLL
