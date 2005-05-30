@@ -579,7 +579,6 @@ UINT CSVNProgressDlg::ProgressThread()
 
 	CString temp;
 	CString sWindowTitle;
-	CString sTempWindowTitle;
 
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
@@ -592,8 +591,8 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Checkout:			//no tempfile!
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
-			sTempWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
-			SetWindowText(sTempWindowTitle);
+			sWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+			SetWindowText(sWindowTitle);
 			if (!m_pSvn->Checkout(m_url, m_targetPathList[0], m_Revision, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
@@ -602,8 +601,8 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Import:			//no tempfile!
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
-			sTempWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
-			SetWindowText(sTempWindowTitle);
+			sWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+			SetWindowText(sWindowTitle);
 			if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, true))
 			{
 				ReportSVNError();
@@ -711,8 +710,8 @@ UINT CSVNProgressDlg::ProgressThread()
 				}
 				if (m_targetPathList.GetCount()==1)
 				{
-					sTempWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
-					SetWindowText(sTempWindowTitle);
+					sWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+					SetWindowText(sWindowTitle);
 				}
 				BOOL isTag = FALSE;
 				BOOL bURLFetched = FALSE;
@@ -834,8 +833,8 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Export:
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
-			sTempWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
-			SetWindowText(sTempWindowTitle);
+			sWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+			SetWindowText(sWindowTitle);
 			if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
