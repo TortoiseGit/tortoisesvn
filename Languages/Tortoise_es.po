@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-29 16:53+0100\n"
+"PO-Revision-Date: 2005-05-30 00:10+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,15 +221,15 @@ msgstr "Unidades &Fijas"
 
 #: Control-ID:65535
 msgid "&From Revision"
-msgstr "&Desde Revisión"
+msgstr "&Desde la Revisión"
 
 #: Control-ID:65535
 msgid "&From URL:"
-msgstr "&Desde URL:"
+msgstr "&Desde la URL:"
 
 #: Control-ID:65535
 msgid "&From WC at URL:"
-msgstr "&Desde WC en URL:"
+msgstr "&Desde la Copia de Trabajo en la URL:"
 
 #: Control-ID:1032
 #: Control-ID:1115
@@ -362,15 +362,15 @@ msgstr "&Barra de Estado"
 
 #: Control-ID:65535
 msgid "&To Revision"
-msgstr "&Ir a Revisión"
+msgstr "&Hasta la Revisión"
 
 #: Control-ID:65535
 msgid "&To URL:"
-msgstr "&Ir a URL:"
+msgstr "&A la URL:"
 
 #: Control-ID:65535
 msgid "&To URL: "
-msgstr "&Ir a URL:"
+msgstr "&A la URL: "
 
 #: MenuEntry
 msgid "&Toolbar"
@@ -853,7 +853,7 @@ msgstr "Auto-cerrar si no hay errores"
 # ID:222,
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Auto-cerrar si no hay mezclas, adiciones o eliminaciones"
+msgstr "Auto-cerrar si no hay combinaciones, adiciones o eliminaciones"
 
 #: Control-ID:65535
 msgid "Autoclose:"
@@ -1064,7 +1064,7 @@ msgstr "Marque las entradas de menú que desea que aparezcan en el submenú en v
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Pruebe a usar un formato de fecha/hora menos redundante en mensajes del archivo de registro"
+msgstr "Pruebe a usar un formato de fecha/hora menos redundante en mensajes de registro"
 
 # ID:270,
 #: ID:270
@@ -1452,7 +1452,7 @@ msgstr "Fecha"
 
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr "&Número por defecto de mensajes del archivo de registro"
+msgstr "&Número por defecto de mensajes de registro"
 
 #: ID:11
 msgid "Delete"
@@ -1668,7 +1668,7 @@ msgstr "Introduzca un mensaje de bloqueo (opcional):"
 # Control-ID:1213,
 #: Control-ID:1213
 msgid "Enter a message describing why you lock the file(s)."
-msgstr "Introduzca un mensaje que describa por qué bloque el/los fichero(s)."
+msgstr "Introduzca un mensaje que describa por qué bloquea el/los fichero(s)."
 
 #: ID:3603
 msgid ""
@@ -1842,7 +1842,7 @@ msgstr "Desde:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "De: (URL y revisión del inicio del rango a mezclar)"
+msgstr "De: (URL y revisión del inicio del rango a combinar)"
 
 # ID:273,
 #: ID:273
@@ -1928,7 +1928,7 @@ msgstr "Revisión &HEAD"
 
 #: Control-ID:1182
 msgid "HEAD revision in the repository"
-msgstr "La revisión PRINCIPAL en el repositorio"
+msgstr "La revisión HEAD en el repositorio"
 
 #: ID:12
 #: Control-ID:1004
@@ -1938,7 +1938,7 @@ msgstr "Ayuda"
 # Control-ID:1127,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Pulse F5 para refrescar la subestructura seleccionada y Ctrl-F5 para también cargar todos las subnodos."
+msgstr "Pista: Pulse F5 para refrescar el subárbol seleccionado y Ctrl-F5 para cargar también todos los hijos."
 
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -1960,7 +1960,7 @@ msgstr "Iconos/Diseño/Codigo:     Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Si activado, previene la aparición de iconos de superposición en los diálogos de guardar o abrir archivo"
+msgstr "Si activado, previene la aparición de iconos sobreimpresos en los diálogos de guardar o abrir archivo"
 
 # ID:195,
 #: ID:195
@@ -3216,7 +3216,7 @@ msgid ""
 "You might need to create a new folder before performing this export."
 msgstr ""
 "Seleccione la carpeta donde desea exportar.\n"
-"Puede que necesite crear una carpeta nueva entes de realizar esta importación."
+"Puede que necesite crear una carpeta nueva antes de realizar esta importación."
 
 # ID:79,
 #: ID:79
@@ -3271,7 +3271,7 @@ msgstr "&Propiedades"
 
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "Formato abreviado &fecha/hora en mensajes del archivo de registro"
+msgstr "Formato abreviado &fecha/hora en mensajes de registro"
 
 #: ID:12
 msgid "Short Url of Subversion items"
@@ -3290,20 +3290,20 @@ msgstr "Mostrar &diferencias"
 #: Control-ID:1034
 #: Control-ID:1132
 msgid "Show &Log"
-msgstr "Mostrar &archivo de registro"
+msgstr "Mostrar &registro"
 
 #: Control-ID:1031
 msgid "Show &Log..."
-msgstr "Mostrar &archivo de registro..."
+msgstr "Mostrar &registro..."
 
 #: Control-ID:1016
 msgid "Show &log"
-msgstr "Mostrar &archivo de registro"
+msgstr "Mostrar &registro"
 
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Show &overlays only in explorer"
-msgstr "M&ostrar iconos superpuestos sólo en el explorador"
+msgstr "M&ostrar iconos sobreimpresos sólo en el explorador"
 
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -3410,7 +3410,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Specify the revision range which you want to merge:"
-msgstr "Especifique el rango de revisiones que desea mezclar:"
+msgstr "Especifique el rango de revisiones que desea combinar:"
 
 #: ID:3604
 msgid ""
@@ -3444,7 +3444,7 @@ msgstr "Robar Bloqueo"
 # ID:313,
 #: ID:313
 msgid "Steal the lock"
-msgstr "Roba el bloqueo"
+msgstr "Robar el bloqueo"
 
 # ID:313,
 #: Control-ID:1211
@@ -3729,7 +3729,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "The result of the merge is stored in the working copy at:"
-msgstr "El resultado de la mezcla se ha almacenado en la copia de trabajo en:"
+msgstr "El resultado de la combinación se ha almacenado en la copia de trabajo en:"
 
 # ID:78,
 #: ID:78
@@ -3793,7 +3793,7 @@ msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Hay cambios dentro de uno o más directorios que han sido incluidos con svn:externals.\n"
+"xHay cambios dentro de uno o más directorios que han sido incluidos con svn:externals.\n"
 "Esos archivos <b>NO</b> son listados para confirmar. Necesita confirmar esos archivos separadamente."
 
 # ID:66,
@@ -3857,7 +3857,7 @@ msgstr "Límite en segundos para parar el parseado de autocompletar"
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
-msgstr "Para ver los cambios que ha realizado, haga doble clic en los archivos situados encima."
+msgstr "Para ver los cambios que ha realizado, haga doble clic en los archivos."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -3867,7 +3867,7 @@ msgstr "A:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "A: (URL y revisión del fin del rango a mezclar)"
+msgstr "A: (URL y revisión del fin del rango a combinar)"
 
 #: ID:7
 #: ID:3585

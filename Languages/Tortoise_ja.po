@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-19 15:55+0900\n"
+"PO-Revision-Date: 2005-05-27 00:10+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -167,6 +167,7 @@ msgstr "追加(&A) ..."
 
 # Control-ID:1090,
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "高度な設定(&A) ..."
 
@@ -187,6 +188,8 @@ msgstr "参照(&B) ..."
 
 # Control-ID:1091,
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "内蔵(&B)"
 
@@ -200,6 +203,12 @@ msgstr "CD-ROM ドライブ(&C)"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "キャンセル(&C)"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "今すぐチェック(&C)"
 
 # ID:76,
 #: MenuEntry
@@ -245,6 +254,8 @@ msgstr "終了(&E)"
 
 # Control-ID:1092,
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "外部(&E)"
 
@@ -399,7 +410,7 @@ msgstr "名前を変更／移動 (&R) ..."
 # ID:113,
 #: ID:113
 msgid "&Revert changes from this revision"
-msgstr "このリビジョンによる変更を元に戻す(&R)"
+msgstr "このリビジョンにおける変更を元に戻す(&R)"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -661,11 +672,6 @@ msgstr ""
 #: ID:101
 msgid "A&dd Folder..."
 msgstr "フォルダを追加(&D) ..."
-
-# Control-ID:1093,
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "高度な設定(&D) ..."
 
 # ID:73,
 #: ID:73
@@ -1040,6 +1046,15 @@ msgstr "マージ、追加、削除が無い場合は自動的に閉じる"
 msgid "Autoclose:"
 msgstr "処理終了後の動作:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"ログメッセージを入力する際に、変更したファイル内の単語\n"
+"（たいていクラスやメンバの名前）が自動動補完はにより提示されます。"
+
 # ID:201,
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1054,11 +1069,6 @@ msgstr "平均"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "参照(&R) ..."
-
-# Control-ID:1094,
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "内蔵(&U)"
 
 # Control-ID:1015,
 #: Control-ID:1015
@@ -1129,11 +1139,6 @@ msgstr "外部差分ツールを参照"
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "参照 ..."
-
-# Control-ID:1096,
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "内蔵(&I)"
 
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1257,12 +1262,6 @@ msgstr "リポジトリをチェック"
 msgid "Check for Modifications"
 msgstr "変更をチェック"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "Check now"
-msgstr "今すぐチェック"
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1332,8 +1331,8 @@ msgstr "中断した処理、ロックファイル、... をクリーンアッ�
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "認証用キャッシュのクリア(&A)"
+msgid "Clear &Now"
+msgstr "今すぐチェック(&N)"
 
 # ID:195,
 #: ID:195
@@ -1539,6 +1538,11 @@ msgid ""
 msgstr ""
 "選択範囲をクリップボードへコピーする\n"
 "コピー"
+
+# ID:101,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "クリップボードにコピー"
 
 # ID:151,
 #: ID:103
@@ -1885,6 +1889,11 @@ msgstr "変更を保存しますか？"
 msgid "Documentation - Simon Large"
 msgstr "ドキュメント - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "コンテキストメニュー用に状態を取得しない"
+
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
@@ -1898,11 +1907,6 @@ msgstr "ドライブの種類"
 #: MenuEntry
 msgid "E&xit"
 msgstr "終了(&X)"
-
-# Control-ID:1095,
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "外部(&X)"
 
 # ID:3697,
 #: ID:3697
@@ -2013,11 +2017,6 @@ msgstr "エラー"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "サーバー証明書 %s の確認エラー:"
-
-# Control-ID:1097,
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "外部(&T)"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2340,6 +2339,17 @@ msgstr "アイコン／デザイン／コード:     Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "有効にした場合、\"名前をつけて保存\" や \"開く\" ダイアログ内でのオーバーレイを非表示にする"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"有効にすると、コンテキストメニューの表示が速くなります。\n"
+"しかし、いくつかのコンテキストメニューは Subversion の状態を取得しないと表示されません。\n"
+"例えば: \"ログを表示\" は追加したばかりのフォルダに対しても表示されます。"
 
 # ID:95,
 #: ID:95
@@ -3493,7 +3503,7 @@ msgstr "元に戻す"
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
-msgstr "これらリビジョン以降の変更を元に戻す"
+msgstr "これらのリビジョンにおける変更を元に戻す"
 
 # ID:77,
 #: ID:8
@@ -4109,6 +4119,12 @@ msgstr "コピー／名前の変更が発生したら止める"
 msgid "Subversion"
 msgstr "Subversion"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:65535
+msgid "Subversion authentication data:"
+msgstr "Subversion の認証データ:"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -4571,6 +4587,7 @@ msgstr ""
 # ID:80,
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -5294,6 +5311,11 @@ msgstr "再帰的(&C)"
 #: ID:10
 msgid "replaced"
 msgstr "置換"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "ユーザー名とパスワードを要求"
 
 # Control-ID:1023,#:
 # Control-ID:1023,

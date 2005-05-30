@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-16 09:45+0800\n"
+"PO-Revision-Date: 2005-05-30 10:14+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -160,6 +160,7 @@ msgstr "加入(&A)..."
 
 # Control-ID:1090,
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "進階設定(&A)..."
 
@@ -180,6 +181,8 @@ msgstr "瀏覽(&B)..."
 
 # Control-ID:1091,
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "內建(&B)"
 
@@ -193,6 +196,12 @@ msgstr "光碟機(&R)"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "取消(&C)"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "立刻檢查(&C)"
 
 # ID:76,
 #: MenuEntry
@@ -238,6 +247,8 @@ msgstr "離開(&E)"
 
 # Control-ID:1092,
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "外部(&E)"
 
@@ -271,7 +282,7 @@ msgstr "從工作複本 URL(&F):"
 #: Control-ID:1032
 #: Control-ID:1115
 #: Control-ID:1019
-msgid "&Head Revision"
+msgid "&HEAD Revision"
 msgstr "最新版本(&H)"
 
 # Control-ID:57670,#:
@@ -655,11 +666,6 @@ msgstr ""
 msgid "A&dd Folder..."
 msgstr "加入資料夾(&D)..."
 
-# Control-ID:1093,
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "進階設定(&D)..."
-
 # ID:73,
 #: ID:73
 msgid "Abort"
@@ -1032,6 +1038,15 @@ msgstr "無合併, 新增, 刪除時自動關閉"
 msgid "Autoclose:"
 msgstr "自動關閉:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"在輸入記錄訊息時, 自動完成這次有修改的\n"
+"檔案名稱."
+
 # ID:201,
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1046,11 +1061,6 @@ msgstr "平均"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "瀏覽(&R)..."
-
-# Control-ID:1094,
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "內建(&U)"
 
 # Control-ID:1015,
 #: Control-ID:1015
@@ -1121,11 +1131,6 @@ msgstr "尋找外部比對差異工具"
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "瀏覽..."
-
-# Control-ID:1096,
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "內建(&I)"
 
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1249,12 +1254,6 @@ msgstr "檢查檔案庫"
 msgid "Check for Modifications"
 msgstr "檢查異動"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "Check now"
-msgstr "立刻檢查"
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1326,8 +1325,8 @@ msgstr "清理未完成的作業, 鎖定檔等..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "清除認證快取(&A)"
+msgid "Clear &Now"
+msgstr "立即清除(&N)"
 
 # ID:195,
 #: ID:195
@@ -1417,11 +1416,6 @@ msgstr "將你所做的修改送交至檔案庫"
 # ID:76,
 #: MenuEntry
 msgid "Compare &HEAD Revisions"
-msgstr "比對最新版本(&C)"
-
-# ID:76,
-#: ID:274
-msgid "Compare &Head Revisions"
 msgstr "比對最新版本(&C)"
 
 # Control-ID:1019,
@@ -1538,6 +1532,11 @@ msgid ""
 msgstr ""
 "將選擇的區塊複製至剪貼簿\n"
 "複製"
+
+# ID:101,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "複製至剪貼簿"
 
 # ID:151,
 #: ID:103
@@ -1787,6 +1786,15 @@ msgstr "比對差異"
 msgid "Directory:"
 msgstr "目錄:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"如果你有很大的工作複本, 在瀏覽工作複本目錄時\n"
+"曾經發生過大量磁碟動作. 建議取消此選項."
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -1884,6 +1892,11 @@ msgstr "是否要儲存你所做的異動?"
 msgid "Documentation - Simon Large"
 msgstr "文件 - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "不抓取右鍵選單的狀態"
+
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
@@ -1897,11 +1910,6 @@ msgstr "磁碟機類型"
 #: MenuEntry
 msgid "E&xit"
 msgstr "離開(&X)"
-
-# Control-ID:1095,
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "外部(&X)"
 
 # ID:3697,
 #: ID:3697
@@ -2012,11 +2020,6 @@ msgstr "錯誤"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "%s 伺服器憑證檢核錯誤:"
-
-# Control-ID:1097,
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "外部(&T)"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2294,7 +2297,7 @@ msgstr "圖型類別:"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
-msgid "H&ead Revision"
+msgid "H&EAD Revision"
 msgstr "最新版本(&E)"
 
 # ID:12,
@@ -2339,6 +2342,17 @@ msgstr "圖示 / 設計 / 程式:     Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "勾選此選項時, 在\"另存新檔\"或是\"開啟\"的對話盒中不顯示圖示覆蓋."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"勾選此選項時, 右鍵選單會比較快出現.\n"
+"但是某些顯示出來的功能不一定可以使用.\n"
+"例如: \"顯示記錄\" 在新加入的資料夾也會出現."
 
 # ID:95,
 #: ID:95
@@ -2691,7 +2705,7 @@ msgstr "最低版本: %ld - 最高版本: %ld"
 
 # ID:238,
 #: ID:238
-msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
 msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 
 # ID:3866,#:
@@ -2957,6 +2971,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "忽略外部設定"
@@ -3973,6 +3988,11 @@ msgstr ""
 "顯示或隱藏工具列\n"
 "開關工具列"
 
+# Control-ID:1088,
+#: Control-ID:1223
+msgid "Show overlay status icons recursive"
+msgstr "遞迴顯示圖示覆蓋(&O)"
+
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -4113,6 +4133,12 @@ msgstr "複製/更名時停止"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:65535
+msgid "Subversion authentication data:"
+msgstr "Subversion 認證資料:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4427,6 +4453,17 @@ msgstr ""
 "目的資料夾裡有其它檔案!\n"
 "確定要取出/匯出檔案至那個資料夾嗎?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"搜尋選定檔案的時間上限(單位是秒).\n"
+"設定較低的值能讓自動完成列表較快出現,\n"
+"但不一定包括所有檔案."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -4527,6 +4564,11 @@ msgstr "這個性質不能有分行. 只能輸入單行資料."
 msgid "Three File Diff"
 msgstr "三檔差異"
 
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "停止自動完成列表處理的時間上限"
+
 # Control-ID:1052,
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -4575,6 +4617,7 @@ msgstr ""
 # ID:80,
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -4739,8 +4782,8 @@ msgstr "預期外的檔案格式."
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: MenuEntry
-msgid "Unified &Diff Of Head Revisions"
-msgstr "最新版本單一差異檔(%D)"
+msgid "Unified &Diff Of HEAD Revisions"
+msgstr "最新版本的單一差異檔(&D)"
 
 # ID:81,
 #: ID:81
@@ -4855,7 +4898,7 @@ msgstr "自動完成檔案名稱及關鍵字"
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
+msgid "Use old APIs to fetch log messages"
 msgstr "使用舊的 API 取得紀錄訊息"
 
 # Control-ID:1024,
@@ -5302,6 +5345,11 @@ msgstr "遞迴(&C)"
 #: ID:10
 msgid "replaced"
 msgstr "取代"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "要求帳號和密碼"
 
 # Control-ID:1023,#:
 # Control-ID:1023,
