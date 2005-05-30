@@ -68,7 +68,7 @@ IDB_LOGFILTER           BITMAP                  "logfilter.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -467,8 +467,9 @@ BEGIN
     EDITTEXT        IDC_INCLUDEPATHS,101,124,185,22,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
-    CONTROL         "Show overlay status icons recursive",IDC_RECURSIVECHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,34,268,10
+    CONTROL         "Show overlay status icons recursively",
+                    IDC_RECURSIVECHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    18,34,268,10
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 217
@@ -2044,12 +2045,12 @@ BEGIN
     IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of HEAD Revisions"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -2136,7 +2137,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
