@@ -1384,11 +1384,14 @@ BOOL SVN::IsRepository(const CString& strUrl)
 	while ((pos = url.ReverseFind('/'))>=0)
 	{
 		url = url.Left(pos);
-		Err = svn_repos_open (&pRepos, MakeSVNUrlOrPath(url), pool);
-		if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
-			return TRUE;
-		if (Err == NULL)
-			return TRUE;
+		if (PathFileExists(url))
+		{
+			Err = svn_repos_open (&pRepos, MakeSVNUrlOrPath(url), pool);
+			if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
+				return TRUE;
+			if (Err == NULL)
+				return TRUE;
+		}
 	}
 
 	return Err == NULL;
