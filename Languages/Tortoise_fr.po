@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-23 09:22+0100\n"
+"PO-Revision-Date: 2005-05-30 11:06+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -848,6 +848,15 @@ msgstr "Fermeture automatique s'il n'y a pas de fusions, ajouts ou suppressions"
 msgid "Autoclose:"
 msgstr "Fermeture automatique:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"Autocomplete suggère des mots (usuellement classes ou noms de membres)\n"
+"tirés des fichiers que vous avez changés lorsque vous tapez un commentaire."
+
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
 msgstr "Vérifier automatiquement  les nouvelles versions chaque semaine"
@@ -1460,6 +1469,15 @@ msgstr "Voir différence"
 #: Control-ID:65535
 msgid "Directory:"
 msgstr "Répertoire:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"Désactivez cette option si vous avez de réellement grosses copies de travail et rencontrez\n"
+"trop d'accès disque lors du parcours de la copie de travail."
 
 #: ID:3867
 msgid "Disk full while accessing %1."
@@ -2458,6 +2476,7 @@ msgstr "OK"
 msgid "OVR"
 msgstr "RFP"
 
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "Omettre les externes"
@@ -3273,6 +3292,10 @@ msgstr ""
 "Voir ou cacher la barre d'outils\n"
 "Barre d'outils"
 
+#: Control-ID:1223
+msgid "Show overlay status icons recursive"
+msgstr "Afficher les icônes de recouvrement de statut recursif"
+
 #: ID:2049
 msgid ""
 "Show special characters for whitespaces\n"
@@ -3678,6 +3701,17 @@ msgstr ""
 "Le répertoire cible n'est pas vide!\n"
 "Etes vous sûr de vouloir extraire/exporter dans ce répertoire?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"Le temps en secondes après lequel le filtrage des fichiers sélectionnés s'arrête.\n"
+"Une valeur plus basse rendra la liste d'autocomplétion disponible plus rapidement.\n"
+"mais ne scannera peut-être pas tous les fichiers."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -3766,6 +3800,11 @@ msgstr "Cette propriété ne doit pas avoir de multiples lignes. Seule une ligne
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Différence sur trois fichiers"
+
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Délais en secondes pour arrêter le filtrage d'autocomplétion"
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -4036,8 +4075,8 @@ msgstr "Utiliser l'autocompletion des chemins de fichiers ou de mots-clé"
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
-msgstr "Utiliser l'ancienne API pour récuperer les messages de journal"
+msgid "Use old APIs to fetch log messages"
+msgstr "Utiliser les anciennes APIs pour récuperer les messages de journal"
 
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -4423,6 +4462,11 @@ msgstr "ré&cusif"
 #: ID:10
 msgid "replaced"
 msgstr "remplacé"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "requiert un nom d'utilisateur et un mot de passe"
 
 #: Control-ID:1023
 msgid "save authentication"

@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-24 19:31+0200\n"
+"PO-Revision-Date: 2005-05-30 11:42+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1077,6 +1077,13 @@ msgstr "Автоматично затваряне, ако няма сливан�
 msgid "Autoclose:"
 msgstr "Автоматично затваряне:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr "Автоматичното дописване подсказва думи (обикновено имена на класове или членове) от файловете, които сте променили, докато пишете съобщение за дневника."
+
 # ID:201,
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1818,6 +1825,13 @@ msgstr "Сравняване"
 #: Control-ID:65535
 msgid "Directory:"
 msgstr "Директория:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr "Изключете тази опция, ако имате огромни работни копия и изпитвате твърде чест достъп до диска докато разглеждате работно копие."
 
 # ID:3867,#:
 # ID:3867,
@@ -2995,6 +3009,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "Пропускане на външните"
@@ -4010,6 +4025,11 @@ msgstr ""
 "Показване или скриване лентата с инструменти\n"
 "Превключване на лентата с инструменти"
 
+# Control-ID:1088,
+#: Control-ID:1223
+msgid "Show overlay status icons recursive"
+msgstr "Рекурсивно показване на модификациите на иконките"
+
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -4471,6 +4491,17 @@ msgstr ""
 "Целевата папка не е празна!\n"
 "Сигурни ли сте, че желаете да изпишете/изнесете в тази папка?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"Време (в секунди), след изтичането на което спира преглеждането на избраните файлове.\n"
+"По-малка стойност ще покаже списъка за автоматично дописване по-скоро,\n"
+"но вероятно без да са прегледани всички файлове."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -4570,6 +4601,11 @@ msgstr "Това свойство не е многоредово. Позволе
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Сравняване с три файла"
+
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Изчакване (в секунди) на преглеждането за автоматично дописване"
 
 # Control-ID:1052,
 #: Control-ID:1052
@@ -4897,8 +4933,8 @@ msgstr "Автоматично дописване на имена на файл�
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
-msgstr "Използва стария приложен програмен интерфейс, за да изтегли съобщенията от дневника"
+msgid "Use old APIs to fetch log messages"
+msgstr "Използване на стария приложен програмен интерфейс при изтегляне на съобщенията от дневника"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -5343,6 +5379,11 @@ msgstr "&рекурсивно"
 #: ID:10
 msgid "replaced"
 msgstr "заменени"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "изисква потребителско име и парола"
 
 # Control-ID:1023,#:
 # Control-ID:1023,
