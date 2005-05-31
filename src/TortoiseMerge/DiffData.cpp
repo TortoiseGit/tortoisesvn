@@ -163,18 +163,25 @@ BOOL CDiffData::Load()
 	m_arTheirFile.RemoveAll();
 	m_arDiffYourBaseBoth.RemoveAll();
 	m_arStateYourBaseBoth.RemoveAll();
+	m_arLinesYourBaseBoth.RemoveAll();
 	m_arDiffYourBaseLeft.RemoveAll();
 	m_arStateYourBaseLeft.RemoveAll();
+	m_arLinesYourBaseLeft.RemoveAll();
 	m_arDiffYourBaseRight.RemoveAll();
 	m_arStateYourBaseRight.RemoveAll();
+	m_arLinesYourBaseRight.RemoveAll();
 	m_arDiffTheirBaseBoth.RemoveAll();
 	m_arStateTheirBaseBoth.RemoveAll();
+	m_arLinesTheirBaseBoth.RemoveAll();
 	m_arDiffTheirBaseLeft.RemoveAll();
 	m_arStateTheirBaseLeft.RemoveAll();
+	m_arLinesTheirBaseLeft.RemoveAll();
 	m_arDiffTheirBaseRight.RemoveAll();
 	m_arStateTheirBaseRight.RemoveAll();
+	m_arLinesTheirBaseRight.RemoveAll();
 	m_arDiff3.RemoveAll();
 	m_arStateDiff3.RemoveAll();
+	m_arLinesDiff3.RemoveAll();
 
 	CTempFiles tempfiles;
 	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
