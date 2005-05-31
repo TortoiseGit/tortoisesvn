@@ -582,11 +582,11 @@ STRINGTABLE
 BEGIN
     IDS_VIEWCONTEXTMENU_USETHISBLOCK "Use th&is text block"
     IDS_VIEWCONTEXTMENU_USETHEIRBLOCK "Use text block from ""&theirs"""
-    IDS_VIEWCONTEXTMENU_USEYOURBLOCK "Use text block from ""&yours"""
+    IDS_VIEWCONTEXTMENU_USEYOURBLOCK "Use text block from ""&mine"""
     IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK 
-                            "Use text block from ""t&heirs"" before ""yours"""
+                            "Use text block from ""t&heirs"" before ""mine"""
     IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK 
-                            "Use text block from ""y&ours"" before ""theirs"""
+                            "Use text block from ""m&ine"" before ""theirs"""
     IDS_VIEWCONTEXTMENU_USETHISFILE "Use this &whole file"
     IDS_VIEWCONTEXTMENU_USEOTHERBLOCK "Use &other text block"
     IDS_VIEWCONTEXTMENU_USEOTHERFILE "Use whole other &file"
@@ -595,7 +595,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SAVEASTITLE         "Save as..."
-    IDS_COMMANDLINEHELP     "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/yours:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
+    IDS_COMMANDLINEHELP     "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/mine:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
     IDS_OPENDIFFFILETITLE   "Select diff file..."
     IDS_GETVERSIONOFFILETITLE "Fetching File..."
     IDS_GETVERSIONOFFILE    "Fetching revision %s of file:"
