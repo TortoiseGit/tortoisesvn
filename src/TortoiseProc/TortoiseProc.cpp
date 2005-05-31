@@ -56,6 +56,7 @@
 #include "Utils.h"
 #include "SoundUtils.h"
 #include "libintl.h"
+#include "ShellUpdater.h"
 
 #include "..\version.h"
 
@@ -664,14 +665,15 @@ BOOL CTortoiseProcApp::InitInstance()
 				sAdminDir += _T("\\");
 				CString sPath;
 				bool bDir = false;
-				while (crawler.NextFile(sPath, &bDir)) 
+				while (crawler.NextFile(sPath, &bDir))
 				{
 					if ((bDir)&&(sPath.Find(sAdminDir)<0))
 					{
-						SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, (LPCTSTR)sPath, NULL);
+						CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(sPath));
 					}
 				}
-				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, cmdLinePath.GetWinPath(), NULL);
+				CShellUpdater::Instance().AddPathForUpdate(cmdLinePath);
+				CShellUpdater::Instance().Flush();
 				
 				progress.Stop();
 				CMessageBox::Show(EXPLORERHWND, IDS_PROC_CLEANUPFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
