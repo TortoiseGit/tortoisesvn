@@ -78,7 +78,8 @@ BOOL CLockDlg::OnInitDialog()
 		m_pThread->ResumeThread();
 	}
 	m_bBlock = TRUE;
-
+	
+	GetDlgItem(IDC_LOCKMESSAGE)->SetFocus();
 	return FALSE;
 }
 
