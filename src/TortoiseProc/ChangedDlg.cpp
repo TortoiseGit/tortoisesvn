@@ -99,6 +99,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
+	GetDlgItem(IDC_SHOWUNMODIFIED)->EnableWindow(FALSE);
 
 	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote))
 	{
@@ -130,6 +131,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
+	GetDlgItem(IDC_SHOWUNMODIFIED)->EnableWindow(TRUE);
 	m_bBlock = FALSE;
 	return 0;
 }
