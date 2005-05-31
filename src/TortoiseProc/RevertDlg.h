@@ -40,6 +40,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
@@ -61,5 +62,6 @@ private:
 	BOOL			m_bThreadRunning;
 	CSVNStatusListCtrl	m_RevertList;
 	CButton			m_SelectAll;
+public:
 };
 

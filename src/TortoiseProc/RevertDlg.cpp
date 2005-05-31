@@ -22,6 +22,7 @@
 #include "Revertdlg.h"
 #include "SVN.h"
 #include "Registry.h"
+#include ".\revertdlg.h"
 
 
 // CRevertDlg dialog
@@ -185,4 +186,25 @@ void CRevertDlg::OnBnClickedSelectall()
 	theApp.DoWaitCursor(1);
 	m_RevertList.SelectAll(state == BST_CHECKED);
 	theApp.DoWaitCursor(-1);
+}
+
+BOOL CRevertDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_RETURN:
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					PostMessage(WM_COMMAND, IDOK);
+					return TRUE;
+				}
+			}
+			break;
+		}
+	}
+
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }

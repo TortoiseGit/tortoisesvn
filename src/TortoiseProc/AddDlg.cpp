@@ -23,6 +23,7 @@
 #include "AddDlg.h"
 #include "SVNConfig.h"
 #include "Registry.h"
+#include ".\adddlg.h"
 
 
 // CAddDlg dialog
@@ -146,6 +147,27 @@ UINT CAddDlg::AddThread()
 void CAddDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+BOOL CAddDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_RETURN:
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					PostMessage(WM_COMMAND, IDOK);
+					return TRUE;
+				}
+			}
+			break;
+		}
+	}
+
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 

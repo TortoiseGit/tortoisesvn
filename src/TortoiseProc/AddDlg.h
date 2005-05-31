@@ -60,6 +60,7 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
