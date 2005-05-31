@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-30 18:14+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2005-05-31 09:01+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -843,8 +843,8 @@ msgid ""
 "Autocomplete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
-"Automatisch Vervollständigen schlägt Wörter (üblicherweise Klassen- oder Membernamen) vor\n"
-"von den Dateien aus der Liste im Übertragungsdialog."
+"Automatisch Vervollständigen schlägt bei der Eingabe der Log-Meldung\n"
+"Wörter (üblicherweise Klassen- oder Membernamen) aus den geänderten Dateien vor."
 
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1467,8 +1467,8 @@ msgid ""
 "Disable this option if you have really big working copies and experience\n"
 "too much disk access when browsing the working copy."
 msgstr ""
-"Deaktivieren Sie diese Option wenn Sie wirklich grosse Arbeitskopien haben\n"
-"und zudem die Festplatte konstant beschäftigt ist."
+"Deaktivieren Sie diese Option wenn Sie wirklich große Arbeitskopien haben\n"
+"und die Festplatte beim Anzeigen von Arbeitskopien konstant beschäftigt ist."
 
 #: ID:3867
 msgid "Disk full while accessing %1."
@@ -3697,9 +3697,9 @@ msgid ""
 "A lower value will make the autocompletion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
-"Die Zeit in Sekunden nachder die Analyse der ausgewählten Dateien angehalten wird.\n"
-"Ein kleiner Wert stellt die Liste für's automatische Vervollständigen schneller zur Verfügung,\n"
-"wird aber manchmal nicht alle Dateien analysieren."
+"Die Zeit in Sekunden nach der die Analyse der ausgewählten Dateien angehalten wird.\n"
+"Ein kleiner Wert stellt die Liste zum automatischen Vervollständigen schneller\n"
+"zur Verfügung, wird aber manchmal nicht alle Dateien analysieren."
 
 # ID:16,
 #: ID:16
@@ -3796,7 +3796,7 @@ msgstr "Leerzeichen Diff"
 # Control-ID:1222,
 #: Control-ID:1222
 msgid "Timeout in seconds to stop the autocompletion parsing"
-msgstr "Timeout in Sekunden zum Stop der Datei-Analyse für's automatisch vervollständigen"
+msgstr "Timeout in Sekunden zum Stop der Datei-Analyse zum automatischen Vervollständigen"
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
