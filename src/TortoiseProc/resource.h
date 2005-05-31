@@ -339,6 +339,7 @@
 #define IDS_PROGRS_PATH                 1223
 #define IDC_RECURSIVECHECK              1223
 #define IDS_PROGRS_TITLEFIN             1224
+#define IDC_SPELL                       1224
 #define IDS_PROGRS_TITLE_CHECKOUT       1225
 #define IDS_PROGRS_TITLE_IMPORT         1226
 #define IDS_PROGRS_TITLE_UPDATE         1227
@@ -650,7 +651,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        205
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1224
+#define _APS_NEXT_CONTROL_VALUE         1225
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

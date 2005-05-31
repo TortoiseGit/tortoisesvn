@@ -926,11 +926,14 @@ BEGIN
     GROUPBOX        "Commit",IDC_COMMITGROUP,7,147,286,63
     CONTROL         "Use autocompletion of filepaths and keywords",
                     IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,165,271,10
+                    13,160,271,10
     LTEXT           "Timeout in seconds to stop the autocompletion parsing",
-                    IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,185,231,8,SS_NOTIFY
-    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,182,31,14,ES_AUTOHSCROLL | 
+                    IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,175,231,8,SS_NOTIFY
+    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,172,31,14,ES_AUTOHSCROLL | 
                     ES_NUMBER,WS_EX_RIGHT
+    CONTROL         "Don't use spellchecker if tsvn:projectlanguage is not set",
+                    IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,188,
+                    271,10
 END
 
 

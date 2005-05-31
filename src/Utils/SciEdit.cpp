@@ -21,6 +21,7 @@
 #include "Utils.h"
 #include <string>
 #include "regexpr2.h"
+#include "registry.h"
 #include ".\sciedit.h"
 
 using namespace std;
@@ -78,22 +79,26 @@ void CSciEdit::Init(LONG lLanguage)
 	
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
-	if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
+
+	if ((lLanguage != 0)||(((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\NoSpellchecker"), FALSE))==FALSE))
 	{
-		do
+		if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
 		{
-			LoadDictionaries(langId);
-			DWORD lid = SUBLANGID(langId);
-			lid--;
-			if (lid > 0)
+			do
 			{
-				langId = MAKELANGID(PRIMARYLANGID(langId), lid);
-			}
-			else if (langId == 1033)
-				langId = 0;
-			else
-				langId = 1033;
-		} while ((langId)&&((pChecker==NULL)||(pThesaur==NULL)));
+				LoadDictionaries(langId);
+				DWORD lid = SUBLANGID(langId);
+				lid--;
+				if (lid > 0)
+				{
+					langId = MAKELANGID(PRIMARYLANGID(langId), lid);
+				}
+				else if (langId == 1033)
+					langId = 0;
+				else
+					langId = 1033;
+			} while ((langId)&&((pChecker==NULL)||(pThesaur==NULL)));
+		}
 	}
 	Call(SCI_SETEDGEMODE, EDGE_NONE);
 	Call(SCI_SETWRAPMODE, SC_WRAP_WORD);

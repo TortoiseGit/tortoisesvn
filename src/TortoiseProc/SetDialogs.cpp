@@ -40,6 +40,7 @@ CSetDialogs::CSetDialogs()
 	, m_sFontName(_T(""))
 	, m_bInitialized(FALSE)
 	, m_dwAutocompletionTimeout(0)
+	, m_bSpell(FALSE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -49,6 +50,7 @@ CSetDialogs::CSetDialogs()
 	m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
 	m_regOldLogAPIs = CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
 	m_regAutocompletionTimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
+	m_regSpell = CRegDWORD(_T("Software\\TortoiseSVN\\NoSpellchecker"), FALSE);
 }
 
 CSetDialogs::~CSetDialogs()
@@ -72,6 +74,7 @@ void CSetDialogs::SaveData()
 	m_regAutocompletion = m_bAutocompletion;
 	m_regOldLogAPIs = m_bOldLogAPIs;
 	m_regAutocompletionTimeout = m_dwAutocompletionTimeout;
+	m_regSpell = m_bSpell;
 }
 
 void CSetDialogs::DoDataExchange(CDataExchange* pDX)
@@ -93,6 +96,7 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_OLDAPILOGS, m_bOldLogAPIs);
 	DDX_Text(pDX, IDC_AUTOCOMPLETIONTIMEOUT, m_dwAutocompletionTimeout);
 	DDV_MinMaxUInt(pDX, m_dwAutocompletionTimeout, 1, 100);
+	DDX_Check(pDX, IDC_SPELL, m_bSpell);
 }
 
 
@@ -105,6 +109,7 @@ BEGIN_MESSAGE_MAP(CSetDialogs, CPropertyPage)
 	ON_BN_CLICKED(IDC_AUTOCOMPLETION, OnBnClickedAutocompletion)
 	ON_BN_CLICKED(IDC_OLDAPILOGS, OnBnClickedOldapilogs)
 	ON_EN_CHANGE(IDC_AUTOCOMPLETIONTIMEOUT, OnEnChangeAutocompletiontimeout)
+	ON_BN_CLICKED(IDC_SPELL, OnBnClickedSpell)
 END_MESSAGE_MAP()
 
 
@@ -136,6 +141,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_bAutocompletion = m_regAutocompletion;
 	m_bOldLogAPIs = m_regOldLogAPIs;
 	m_dwAutocompletionTimeout = m_regAutocompletionTimeout;
+	m_bSpell = m_regSpell;
 
 	for (int i=0; i<m_cAutoClose.GetCount(); ++i)
 		if (m_cAutoClose.GetItemData(i)==m_dwAutoClose)
@@ -223,6 +229,11 @@ void CSetDialogs::OnBnClickedOldapilogs()
 	SetModified();
 }
 
+void CSetDialogs::OnBnClickedSpell()
+{
+	SetModified();
+}
+
 BOOL CSetDialogs::OnApply()
 {
 	UpdateData();
@@ -239,6 +250,7 @@ void CSetDialogs::OnCbnSelchangeAutoclosecombo()
 	}
 	SetModified();
 }
+
 
 
 
