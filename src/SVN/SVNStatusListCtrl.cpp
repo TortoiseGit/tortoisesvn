@@ -35,6 +35,7 @@
 #include "Registry.h"
 #include "SVNStatus.h"
 #include "InputDlg.h"
+#include "ShellUpdater.h"
 #include ".\svnstatuslistctrl.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
@@ -1408,6 +1409,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							else
 							{
+								CShellUpdater::Instance().AddPathsForUpdate(targetList);
 								//since the entries got reverted we need to remove
 								//them from the list too, if no remote changes are shown
 								POSITION pos;
@@ -1617,7 +1619,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							svn_wc_status2_t * s;
 							CTSVNPath svnPath;
 							s = status.GetFirstFileStatus(parentFolder, svnPath, FALSE);
-
+							CShellUpdater::Instance().AddPathForUpdate(parentFolder);
 							if (s!=0)
 							{
 								// first check if the folder isn't already present in the list
@@ -1729,7 +1731,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						svn_wc_status2_t * s;
 						CTSVNPath svnPath;
 						s = status.GetFirstFileStatus(parentfolder, svnPath, FALSE);
-
+						CShellUpdater::Instance().AddPathForUpdate(parentfolder);
 						// first check if the folder isn't already present in the list
 						bool bFound = false;
 						int nListboxEntries = GetItemCount();
@@ -1789,6 +1791,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							else
 							{
+								CShellUpdater::Instance().AddPathForUpdate(filepath);
 								entry->status = svn_wc_status_modified;
 								entry->textstatus = svn_wc_status_modified;
 								Show(m_dwShow);
@@ -1819,6 +1822,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								e->status = svn_wc_status_added;
 								SetEntryCheck(e,index,true);
 							}
+							CShellUpdater::Instance().AddPathsForUpdate(itemsToAdd);
 						}
 						else
 						{
