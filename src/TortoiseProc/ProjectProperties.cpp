@@ -258,7 +258,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 #endif
 				if (!val.IsEmpty())
 				{
-					lProjectLanguage = _ttol(val);
+					LPTSTR strEnd;
+					lProjectLanguage = _tcstol(val, &strEnd, 0);
 				}
 				bFoundProjectLanguage = TRUE;
 			}
