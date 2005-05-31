@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-18 06:43+0900\n"
+"PO-Revision-Date: 2005-05-31 10:05+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -160,6 +160,7 @@ msgstr "추가(&A)..."
 
 # Control-ID:1090,
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "고급 설정(&A)"
 
@@ -180,6 +181,8 @@ msgstr "찾아보기(&B)"
 
 # Control-ID:1091,
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "내장(&B)"
 
@@ -193,6 +196,12 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "취소(&C)"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "&Check Now"
+msgstr "지금 확인합니다.(&C)"
 
 # ID:76,
 #: MenuEntry
@@ -236,6 +245,8 @@ msgstr "종료(&E)"
 
 # Control-ID:1092,
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "외부(&E)"
 
@@ -646,11 +657,6 @@ msgstr ""
 msgid "A&dd Folder..."
 msgstr "폴더 추가(&A)"
 
-# Control-ID:1093,
-#: Control-ID:1093
-msgid "A&dvanced..."
-msgstr "고급 설정(&D)"
-
 # ID:73,
 #: ID:73
 msgid "Abort"
@@ -1022,6 +1028,15 @@ msgstr "병합, 추가, 삭제가 되지 않으면 자동으로 닫습니다."
 msgid "Autoclose:"
 msgstr "자동닫기:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"로그 메시지를 작성하는 중에 수정된 파일에서 단어를 찾아\n"
+"자동완성합니다. (클래스명이나 멤버 이름에서)"
+
 # ID:201,
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1036,11 +1051,6 @@ msgstr "평균"
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "찾아보기(&R)"
-
-# Control-ID:1094,
-#: Control-ID:1094
-msgid "B&uiltin"
-msgstr "내장(&U)"
 
 # Control-ID:1015,
 #: Control-ID:1015
@@ -1111,11 +1121,6 @@ msgstr "외부 비교 프로그램 찾아보기..."
 #: Control-ID:1069
 msgid "Browse..."
 msgstr "찾아보기..."
-
-# Control-ID:1096,
-#: Control-ID:1096
-msgid "Bu&iltin"
-msgstr "내장(&I)"
 
 # Control-ID:1119,#:
 # Control-ID:1119,
@@ -1240,12 +1245,6 @@ msgstr "저장소 생성"
 msgid "Check for Modifications"
 msgstr "수정내역 확인 확인"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "Check now"
-msgstr "지금 확인합니다."
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1317,8 +1316,8 @@ msgstr "중단된 명령, 잠긴 파일들을 정리 합니다."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Auth Cache"
-msgstr "인증정보 캐시 삭제(&A)"
+msgid "Clear &Now"
+msgstr "깨끗이 정리(&N)"
 
 # ID:195,
 #: ID:195
@@ -1524,6 +1523,11 @@ msgid ""
 msgstr ""
 "선택한 부분을 복사하고 클립보드에 넣음\n"
 "복사"
+
+# ID:101,
+#: ID:114
+msgid "Copy to clipboard"
+msgstr "클립보드에 복사합니다"
 
 # ID:151,
 #: ID:103
@@ -1770,6 +1774,15 @@ msgstr "비교중"
 msgid "Directory:"
 msgstr "디렉토리:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"매우 큰 작업 사본으로 경험이 많은 사용자라면, 이 기능을 비활성화함으로써\n"
+"작업 사본을 브라우징할 때, 디스크 액세스를 줄이게 됩니다."
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -1867,6 +1880,11 @@ msgstr "바뀐 내용을 저장하시겠습니까?"
 msgid "Documentation - Simon Large"
 msgstr "문서화 - Simon Large"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Don't fetch status for context menu"
+msgstr "컨텍스트 메뉴에 대한 상태를 확인하지 않습니다."
+
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
@@ -1880,11 +1898,6 @@ msgstr "드라이브 종류"
 #: MenuEntry
 msgid "E&xit"
 msgstr "종료(&X)"
-
-# Control-ID:1095,
-#: Control-ID:1095
-msgid "E&xternal"
-msgstr "외부(&X)"
 
 # ID:3697,
 #: ID:3697
@@ -1995,11 +2008,6 @@ msgstr "오류"
 #: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "서버 인증서 확인 오류 %s:"
-
-# Control-ID:1097,
-#: Control-ID:1097
-msgid "Ex&ternal"
-msgstr "외부(&T)"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2324,6 +2332,17 @@ msgstr "아이콘/설계/코딩:     Luebbe Onken"
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "다른 이름으로 저장.. 또는 열기 대화 상자에 겹쳐 나타나는 것을 방지하려면 선택하십시오"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If activated, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"컨텍스트 메뉴를 빠르게 나타내 줍니다.\n"
+"그러나 어떤 메뉴 항목은 사용할 수 없는 데도 보여집니다\n"
+"예를 들어: \"로그 보기\" 항목이 방금 추가된 디렉토리에서 보일 수 있습니다."
 
 # ID:95,
 #: ID:95
@@ -2939,6 +2958,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "외부 경로는 누락시킴"
@@ -3954,6 +3974,11 @@ msgstr ""
 "툴바 보기/숨기기\n"
 "툴바 토글"
 
+# Control-ID:1223,
+#: Control-ID:1223
+msgid "Show overlay status icons recursively"
+msgstr "겹쳐지는 아이콘의 상태를 재귀적으로 보여줍니다."
+
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -4096,6 +4121,12 @@ msgstr "복사/이름변경 시점에서 중지"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:65535
+msgid "Subversion authentication data:"
+msgstr "Subversion 인증 정보:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4409,6 +4440,17 @@ msgstr ""
 "대상 폴더가 비어 있지 않습니다\n"
 "체크 아웃/익스포트를 강제로 진행하시겠습니까?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"선택한 파일들을 분석하는 시간을 설정합니다.\n"
+"작은 값일 수록 자동완성 목록이 바로 만들어지지만,\n"
+"모든 파일을 검사하지 않을 수 있습니다."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -4509,6 +4551,11 @@ msgstr "이 속성은 여러줄로 구성될 수 없습니다. 한 줄로만 가
 msgid "Three File Diff"
 msgstr "세 파일 비교"
 
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "자동 완성기능을 멈추는 시간을 설정합니다."
+
 # Control-ID:1052,
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -4557,6 +4604,7 @@ msgstr ""
 # ID:80,
 #: ID:9
 #: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -4834,8 +4882,8 @@ msgstr "파일 경로와 키워드의 자동 완성기능을 이용합니다."
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
-msgstr "커밋로그를 가져오는데 구버전 API를 사용합니다"
+msgid "Use old APIs to fetch log messages"
+msgstr "구버전 API를 사용하여 커밋로그를 가져옵니다"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -5279,6 +5327,11 @@ msgstr "반복(&C)"
 #: ID:10
 msgid "replaced"
 msgstr "바뀜"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "사용자명과 암호를 요구합니다."
 
 # Control-ID:1023,#:
 # Control-ID:1023,
