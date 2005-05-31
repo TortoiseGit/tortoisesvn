@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-31 17:05GMT Daylight Time\n"
+"POT-Creation-Date: 2005-05-31 17:19GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1842,54 +1842,58 @@ msgid "In the Commit dialog you have the option to paste in the list of changed 
 msgstr ""
 
 #: source/en/tsvn_dug/dug_propertypage.xml:136(para) 
-msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink><literal>true</literal>."
+msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_propertypage.xml:150(para) 
+msgid "The value you have to enter in this property is the decimal value of the language ID found in that page, not the hexadecimal value. You can use Windows calc to convert from hex to decimal. For example, 0x0409 should be entered as 1033."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_propertypage.xml:76(para) 
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:154(para) source/en/tsvn_dug/dug_bugtracker.xml:212(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:159(para) source/en/tsvn_dug/dug_bugtracker.xml:212(para) 
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:161(title) 
+#: source/en/tsvn_dug/dug_propertypage.xml:166(title) 
 msgid "Set the tsvn: properties on folders"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:162(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:167(para) 
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:176(para) source/en/tsvn_dug/dug_bugtracker.xml:234(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:181(para) source/en/tsvn_dug/dug_bugtracker.xml:234(para) 
 msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all subfolders in the hierarchy, without also setting it on all files."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:184(title) 
+#: source/en/tsvn_dug/dug_propertypage.xml:189(title) 
 msgid "Commit properties"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:185(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:190(para) 
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:191(title) 
+#: source/en/tsvn_dug/dug_propertypage.xml:196(title) 
 msgid "Conflicts on properties"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:192(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:197(para) 
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:200(title) 
+#: source/en/tsvn_dug/dug_propertypage.xml:205(title) 
 msgid "Automatic property setting"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:201(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:206(para) 
 msgid "You can configure Subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_propertypage.xml:207(para) 
+#: source/en/tsvn_dug/dug_propertypage.xml:212(para) 
 msgid "TortoiseSVN can integrate with some bugtracking tools. This uses properties, which start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-DUG-bugtracker\"/> for further information."
 msgstr ""
 

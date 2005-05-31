@@ -145,8 +145,13 @@
 					on this page:
 					<ulink url="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp">
 						<citetitle>MSDN: Language Identifiers</citetitle>
-					</ulink>
-					<literal>true</literal>. 
+					</ulink>.
+				</para>
+				<para>
+					The value you have to enter in this property is the decimal
+					value of the language ID found in that page, not the
+					hexadecimal value. You can use Windows calc to convert from
+					hex to decimal. For example, 0x0409 should be entered as 1033.
 				</para>
 			</listitem>
 		</itemizedlist>
