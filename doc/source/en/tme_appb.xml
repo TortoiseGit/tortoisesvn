@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <appendix id="tme-commandline">
 	<title>Command Line Parameters</title>
 	<simplesect>
@@ -8,7 +8,7 @@
 		</para>
 	</simplesect>
 	<sect1 id="tme-commandline-sect-1">
-	<title>Command Line Parameters</title>
+		<title>Command Line Parameters</title>
 		<variablelist>
 			<varlistentry>
 				<term>/?</term>
@@ -31,7 +31,7 @@
 				<term>/basename:name</term>
 				<listitem>
 					<para>
-						Sets the string for the view title.
+						Sets the view title for the base file.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -47,12 +47,12 @@
 				<term>/theirname:name</term>
 				<listitem>
 					<para>
-						Sets the string for the view title.
+						Sets the view title of their file.
 					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>/yours:&quot;path/to/yourfile&quot;</term>
+				<term>/mine:&quot;path/to/yourfile&quot;</term>
 				<listitem>
 					<para>
 						load your file
@@ -60,10 +60,10 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>/yourname:name</term>
+				<term>/minename:name</term>
 				<listitem>
 					<para>
-						Sets the string for the view title.
+						Sets the view title of your file.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -80,7 +80,7 @@
 				<term>/mergedname:name</term>
 				<listitem>
 					<para>
-						Sets the string for the view title.
+						Sets the view title for the result file.
 					</para>
 				</listitem>
 			</varlistentry>

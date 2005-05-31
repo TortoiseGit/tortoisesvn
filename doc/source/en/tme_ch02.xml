@@ -1,12 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <chapter id="tmerge-ch-2">
 	<title>Using TortoiseMerge</title>
 	<simplesect>
 		<para>
 		</para>
 	</simplesect>
-
-
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
@@ -31,13 +29,12 @@
 			Depending on what you choose, the corresponding edit boxes and
 			browse buttons are activated.
 		</para>
-		
 		<sect2 id="tmerge-ch-2-sect-1-1">
 			<title>Viewing / Merging</title>
 			<para>
-				If you want to compare/merge files you have to set at least two 
+				If you want to compare / merge files you have to set at least two 
 				of the three possible paths for <literal>Base</literal>,
-				<literal>Yours</literal> and <literal>Theirs</literal>. 
+				<literal>Mine</literal> and <literal>Theirs</literal>. 
 				If you select only two files, then TortoiseMerge will show 
 				you the differences between those two files, either in a two 
 				pane view or in a one pane view. You can switch between 
@@ -68,9 +65,9 @@
 				The left pane shows you the differences between 
 				<literal>Their</literal> file and the <literal>Base</literal>
 				file, while the right pane shows you the differences between
-				<literal>Your</literal> file and the <literal>Base</literal>
+				<literal>Mine</literal> file and the <literal>Base</literal>
 				file. The bottom pane shows you the result of merging
-				<literal>Base</literal>, <literal>Yours</literal> and 
+				<literal>Base</literal>, <literal>Mine</literal> and 
 				<literal>Theirs</literal> with possible conflicts.
 			</para>
 			<para>
@@ -84,11 +81,11 @@
 			<para>
 				The base file represents the oldest version of a file, from
 				where <literal>You</literal> and <literal>They</literal> start
-				making changes. <literal>Yours</literal> represents 
+				making changes. <literal>Mine</literal> represents 
 				the base file with all the changes <emphasis>you</emphasis> made, 
 				and <literal>Theirs</literal> is the file with all the changes 
 				<emphasis>someone else</emphasis> made to the file.
-			</para>		
+			</para>
 		</sect2>
 		<sect2 id="tmerge-ch-2-sect-1-2">
 			<title>Applying Patches</title>
@@ -126,7 +123,7 @@
 				In fact, TortoiseMerge automatically tries to get that older
 				version of the file and then shows you the diff between
 				<literal>Base</literal> (the older version of the file),
-				<literal>Yours</literal> (your file as it is currently in your
+				<literal>Mine</literal> (the file as it is currently in your
 				working copy) and <literal>Theirs</literal> (the older version
 				of the file with the patch already applied). Then you can
 				resolve possible conflicts manually.
@@ -143,7 +140,6 @@
 	<!-- ======================== SECTION 2 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tmerge-ch-2-sect-1-3">
-	
 		<title>Buttons and Other Controls</title>
 		<para>
 			Below the menu bar lies the tool bar. This provides easy access to
@@ -222,13 +218,12 @@
 		<para>
 			Below the bottom window is the status bar. This shows the number of
 			lines added and deleted in <literal>Theirs</literal> and
-			<literal>Yours</literal>, and the number of unresolved
+			<literal>Mine</literal>, and the number of unresolved
 			conflicts remaining.
 			The left side of the status bar is used to display hints when you
 			hover the mouse over a control.
 		</para>
 	</sect1>
-
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 3 ============================== -->
 	<!-- ================================================================= -->
@@ -237,15 +232,16 @@
 		<para>
 			TortoiseMerge not only <emphasis>shows</emphasis> you the differences
 			between files but also let's you resolve conflicts or apply changes.
-		</para>	
+		</para>
 		<para>
 			If you're in two pane view, then you can only edit the file in the
-			right pane (<literal>Yours</literal>). To apply changes made in the
+			right pane (<literal>Mine</literal>). To apply changes made in the
 			left file (<literal>Theirs</literal>),
 			<action>right-click</action> on the changed lines and select
 			<menuchoice>
 				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Use text block from <quote>theirs</quote></guimenuitem>
+				<guimenuitem>Use text block from <quote>theirs</quote>
+				</guimenuitem>
 			</menuchoice>.
 			Then the changes from the left file are added to the right file.
 		</para>
@@ -257,19 +253,21 @@
 			lines and either select
 			<menuchoice>
 				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Use text block from <quote>theirs</quote></guimenuitem>
+				<guimenuitem>Use text block from <quote>theirs</quote>
+				</guimenuitem>
 			</menuchoice>
 			or
 			<menuchoice>
 				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Use text block from <quote>yours</quote></guimenuitem>
+				<guimenuitem>Use text block from <quote>mine</quote>
+				</guimenuitem>
 			</menuchoice>.
 			In addition, if you want <emphasis>both</emphasis> blocks, you can
 			select
 			<menuchoice>
 				<guimenu>Context Menu</guimenu>
 				<guimenuitem>
-					Use text block from <quote>yours</quote>
+					Use text block from <quote>mine</quote>
 					before <quote>theirs</quote>
 				</guimenuitem>
 			</menuchoice>
@@ -278,7 +276,7 @@
 				<guimenu>Context Menu</guimenu>
 				<guimenuitem>
 					Use text block from <quote>theirs</quote>
-					before <quote>yours</quote>
+					before <quote>mine</quote>
 				</guimenuitem>
 			</menuchoice>.
 			According to the command you've selected, the changes are used
@@ -286,7 +284,7 @@
 		</para>
 		<para>
 			Sometimes the conflict is too difficult to resolve by simply picking
-			<literal>Theirs</literal> and <literal>Yours</literal> and it
+			<literal>Theirs</literal> and <literal>Mine</literal> and it
 			requires hand editing. TortoiseMerge allows you to do all the easy
 			changes visually first and then save the file, leaving only the
 			difficult changes to be resolved by hand-editing.
@@ -301,7 +299,6 @@
 			</para>
 		</important>
 	</sect1>
-
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 4 ============================== -->
 	<!-- ================================================================= -->
