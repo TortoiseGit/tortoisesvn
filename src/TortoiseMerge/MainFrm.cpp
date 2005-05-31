@@ -571,7 +571,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
 			m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
 		}
-		m_pwndRightView->m_sWindowName = _T("Yours - ") + m_Data.m_yourFile.GetWindowName();
+		m_pwndRightView->m_sWindowName = _T("Mine - ") + m_Data.m_yourFile.GetWindowName();
 		m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
 		if (bReload)
 		{

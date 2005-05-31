@@ -160,8 +160,8 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->m_Data.m_baseFile.SetDescriptiveName(parser.GetVal(_T("basename")));
 	pFrame->m_Data.m_theirFile.SetFileName(parser.GetVal(_T("theirs")));
 	pFrame->m_Data.m_theirFile.SetDescriptiveName(parser.GetVal(_T("theirsname")));
-	pFrame->m_Data.m_yourFile.SetFileName(parser.GetVal(_T("yours")));
-	pFrame->m_Data.m_yourFile.SetDescriptiveName(parser.GetVal(_T("yoursname")));
+	pFrame->m_Data.m_yourFile.SetFileName(parser.GetVal(_T("mine")));
+	pFrame->m_Data.m_yourFile.SetDescriptiveName(parser.GetVal(_T("minename")));
 	pFrame->m_Data.m_mergedFile.SetFileName(parser.GetVal(_T("merged")));
 	pFrame->m_Data.m_mergedFile.SetDescriptiveName(parser.GetVal(_T("mergedname")));
 	pFrame->m_Data.m_sPatchPath = parser.GetVal(_T("patchpath"));

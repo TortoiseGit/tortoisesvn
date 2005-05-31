@@ -106,8 +106,8 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 			com += _T("TortoiseMerge.exe");
 		}
 		com = _T("\"") + com + _T("\"");
-		com = com + _T(" /base:%base /theirs:%theirs /yours:%mine /merged:%merged");
-		com = com + _T(" /basename:%bname /theirsname:%tname /yoursname:%yname /mergedname:%mname");
+		com = com + _T(" /base:%base /theirs:%theirs /mine:%mine /merged:%merged");
+		com = com + _T(" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname");
 	}
 	// check if the params are set. If not, just add the files to the command line
 	if ((com.Find(_T("%base"))<0)&&(com.Find(_T("%theirs"))<0)&&(com.Find(_T("%mine"))<0))
@@ -133,7 +133,7 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 		com.Replace(_T("%theirs"), _T("\"") + theirfile.GetWinPathString() + _T("\""));
 	if (yourfile.IsEmpty())
 	{
-		com.Replace(_T("/yours:%mine"), _T(""));
+		com.Replace(_T("/mine:%mine"), _T(""));
 		com.Replace(_T("%mine"), _T(""));
 	}
 	else
@@ -177,7 +177,7 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 	{
 		if (yourfile.IsEmpty())
 		{
-			com.Replace(_T("/yoursname:%yname"), _T(""));
+			com.Replace(_T("/minename:%yname"), _T(""));
 			com.Replace(_T("%yname"), _T(""));
 		}
 		else
@@ -254,7 +254,7 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 		viewer = CUtils::GetAppDirectory();
 		viewer += _T("TortoiseMerge.exe");
 		viewer = _T("\"") + viewer + _T("\"");
-		viewer = viewer + _T(" /base:%base /yours:%mine /basename:%bname /yoursname:%yname");
+		viewer = viewer + _T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
 	}
 	// check if the params are set. If not, just add the files to the command line
 	if ((viewer.Find(_T("%base"))<0)&&(viewer.Find(_T("%mine"))<0))
