@@ -148,10 +148,10 @@
 					</ulink>.
 				</para>
 				<para>
-					The value you have to enter in this property is the decimal
-					value of the language ID found in that page, not the
-					hexadecimal value. You can use Windows calc to convert from
-					hex to decimal. For example, 0x0409 should be entered as 1033.
+					You can enter this value in decimal, or in hexadecimal if
+					prefixed with <literal>0x</literal>.
+					For example English (US) can be entered as
+					<literal>0x0409</literal> or <literal>1033</literal>.
 				</para>
 			</listitem>
 		</itemizedlist>
