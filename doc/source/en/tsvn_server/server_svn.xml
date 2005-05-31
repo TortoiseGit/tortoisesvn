@@ -145,10 +145,10 @@ svn://localhost/TestRepo
 	<sect2 id="tsvn-serversetup-svnserve-4">
 		<title>Authentication with svnserve</title>
 		<para>
-			The default svnserve setup provides anonymous read-only
-			access, so whilst you can use the repo-browser in TortoiseSVN to view a
-			repository using an svn:// Url, you won't be able to perform any
-			normal Subversion operations such as checkout, update or commit.
+			The default svnserve setup provides anonymous read-only access.
+			This means that you can use an <filename>svn://</filename> Url
+			to checkout and update, or use the repo-browser in TortoiseSVN
+			to view the repository, but you won't be able to commit any changes.
 		</para>
 		<para>
 			To enable write access to a repository, you need to edit the

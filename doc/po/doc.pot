@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-05-31 16:41Westeuropäische Sommerzeit\n"
+"POT-Creation-Date: 2005-05-31 17:05GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,7 +90,7 @@ msgid "Authentication with svnserve"
 msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:147(para) 
-msgid "The default svnserve setup provides anonymous read-only access, so whilst you can use the repo-browser in TortoiseSVN to view a repository using an svn:// Url, you won't be able to perform any normal Subversion operations such as checkout, update or commit."
+msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <filename>svn://</filename> Url to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
 msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:153(para) 
