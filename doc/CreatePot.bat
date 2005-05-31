@@ -25,7 +25,7 @@ FOR /F "usebackq" %%F IN (`dir /b /on *.xml`) DO (
   IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! source/en/%%F
 )
 
-FOR /D %%D IN (*) DO (
+FOR /F "usebackq" %%D IN (`dir /B /ON *.`) DO (
   FOR /F "usebackq" %%F IN (`dir /b /on %%D\*.xml`) DO (
 
     SET IGNORED=0
