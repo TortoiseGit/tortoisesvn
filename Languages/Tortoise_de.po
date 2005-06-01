@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-01 10:24+0100\n"
+"PO-Revision-Date: 2005-06-01 11:43+0100\n"
 "Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2123,10 +2123,6 @@ msgstr "Eigner der Sperre:"
 msgid "Lock stolen by %s"
 msgstr "Sperre von %s gestohlen "
 
-#: ID:195
-msgid "Locked"
-msgstr "Gesperrt"
-
 #: ID:263
 msgid "Locked by %s"
 msgstr "Gesperrt durch %s"
@@ -2279,10 +2275,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Eigenes Dateisystem (fsfs)"
-
-#: ID:195
-msgid "Needs Lock"
-msgstr "Benötigt Sperre"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -4259,6 +4251,7 @@ msgid "incomplete"
 msgstr "Unvollständig"
 
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "Gesperrt"
@@ -4298,6 +4291,11 @@ msgstr "Pixel"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "Re&kursiv"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "schreibgeschützt"
 
 #: ID:10
 msgid "replaced"

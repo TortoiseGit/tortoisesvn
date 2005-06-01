@@ -1796,10 +1796,6 @@ msgstr ""
 msgid "Lock stolen by %s"
 msgstr ""
 
-#: ID:195,
-msgid "Locked"
-msgstr ""
-
 #: ID:263,
 msgid "Locked by %s"
 msgstr ""
@@ -1946,10 +1942,6 @@ msgstr ""
 
 #: Control-ID:1129,
 msgid "Native Filesystem (FSFS)"
-msgstr ""
-
-#: ID:195,
-msgid "Needs Lock"
 msgstr ""
 
 #: Dlg-ID:102,
@@ -3512,7 +3504,7 @@ msgstr ""
 msgid "incomplete"
 msgstr ""
 
-#: ID:11,#: Control-ID:1002,
+#: ID:11,#: ID:195,#: Control-ID:1002,
 msgid "locked"
 msgstr ""
 
@@ -3550,6 +3542,10 @@ msgstr ""
 
 #: Control-ID:1018,
 msgid "re&cursive"
+msgstr ""
+
+#: ID:195,
+msgid "readonly"
 msgstr ""
 
 #: ID:10,
