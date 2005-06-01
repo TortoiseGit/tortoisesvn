@@ -428,7 +428,10 @@ void CSciEdit::DoAutoCompletion()
 			sAutoCompleteList += m_autolist[index] + m_separator;
 		}
 		else
+		{
+			ATLTRACE("string before %ws\nstring after %ws\n", m_autolist[index-1], m_autolist[index]);
 			break;
+		}
 	}
 	sAutoCompleteList.TrimRight(m_separator);
 	if (sAutoCompleteList.IsEmpty())
@@ -852,7 +855,7 @@ void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= 
 	while (nMin <= nMax)
 	{
 		UINT nHit = (UINT)(nMin + nMax) >> 1; // fast divide by 2
-		int cmp = elem.Compare(GetAt(nHit));
+		int cmp = elem.CompareNoCase(GetAt(nHit));
 
 		if (cmp > 0)
 			nMin = nHit + 1;
