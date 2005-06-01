@@ -292,7 +292,7 @@ public:
 	bool AreAllPathsFiles() const;
 	bool AreAllPathsFilesInOneDirectory() const;
 	CTSVNPath GetCommonDirectory() const;
-	void SortByPathname();
+	void SortByPathname(bool bReverse = false);
 	/** Delete all the files in the list, then clear the list
 	 */
 	void DeleteAllFiles();

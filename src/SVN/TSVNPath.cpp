@@ -727,9 +727,11 @@ CTSVNPath CTSVNPathList::GetCommonDirectory() const
 }
 
 
-void CTSVNPathList::SortByPathname()
+void CTSVNPathList::SortByPathname(bool bReverse /*= false*/)
 {
 	std::sort(m_paths.begin(), m_paths.end());
+	if (bReverse)
+		std::reverse(m_paths.begin(), m_paths.end());
 }
 
 void CTSVNPathList::DeleteAllFiles()
