@@ -180,6 +180,19 @@
 				<guilabel>Show overlays only in explorer</guilabel> box.
 			</para>
 			<para>
+				Normally the icon overlays act recursively, which means that the
+				overlay for a folder shows the most significant status of all its
+				subfolders. If there is a modified file deep in the hierarchy,
+				the top level folder will also show modified status to remind you
+				that there are buried changes.
+				If you have <emphasis>very</emphasis> large working copies then
+				you may find that the recursive status feature causes too much
+				disk activity and disruption on your system, although this is not
+				usually a problem. In that case you can uncheck
+				<guilabel>Show overlay status icons recursively</guilabel> so
+				that folder status is shown only for the folder itself.
+			</para>
+			<para>
 				The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which
 				paths <emphasis>not</emphasis> to show icon overlays and status columns.
 				This is useful if you have some very big working copies containing
@@ -334,6 +347,27 @@
 							letters of an item in the list, the autocompletion
 							box pops up, and you can press Enter to complete the
 							filename. Check the box to enable this feature.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Timeout in seconds to stop the autocompletion parsing</term>
+					<listitem>
+						<para>
+							The autocompletion parser can be quite slow if there are a lot
+							of large files to check. This timeout stops the commit dialog
+							being held up for too long. If you are missing important
+							autocompletion information, you can extend the timeout.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Don't use spellchecker if tsvn:projectlanguage is not set</term>
+					<listitem>
+						<para>
+							If you don't wish to use the spellchecker for all commits,
+							check this box. The spellchecker will still be enabled where
+							the project properties require it.
 						</para>
 					</listitem>
 				</varlistentry>
