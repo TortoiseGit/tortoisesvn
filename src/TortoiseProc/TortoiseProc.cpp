@@ -665,15 +665,23 @@ BOOL CTortoiseProcApp::InitInstance()
 				sAdminDir += _T("\\");
 				CString sPath;
 				bool bDir = false;
+				CTSVNPathList updateList;
 				while (crawler.NextFile(sPath, &bDir))
 				{
 					if ((bDir)&&(sPath.Find(sAdminDir)<0))
 					{
-						CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(sPath));
+						updateList.AddPath(CTSVNPath(sPath));
 					}
 				}
-				CShellUpdater::Instance().AddPathForUpdate(cmdLinePath);
+				updateList.AddPath(cmdLinePath);
+				CShellUpdater::Instance().AddPathsForUpdate(updateList);
 				CShellUpdater::Instance().Flush();
+				updateList.SortByPathname(true);
+				for (INT_PTR i=0; i<updateList.GetCount(); ++i)
+				{
+					SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[i].GetWinPath(), NULL);
+					ATLTRACE("notify change for path %ws\n", updateList[i].GetWinPath());
+				}
 				
 				progress.Stop();
 				CMessageBox::Show(EXPLORERHWND, IDS_PROC_CLEANUPFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
