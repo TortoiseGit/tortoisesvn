@@ -429,7 +429,6 @@ void CSciEdit::DoAutoCompletion()
 		}
 		else
 		{
-			ATLTRACE("string before %ws\nstring after %ws\n", m_autolist[index-1], m_autolist[index]);
 			break;
 		}
 	}
