@@ -58,6 +58,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 
 CLogDlg::~CLogDlg()
 {
+	m_bNoDispUpdates = true;
 	m_tempFileList.DeleteAllFiles();
 	for (INT_PTR i=0; i<m_arLogPaths.GetCount(); ++i)
 	{
@@ -251,12 +252,16 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 	pMsgView->SetWindowText(_T(" "));
 	pMsgView->SetWindowText(msg);
 	m_ProjectProperties.FindBugID(msg, pMsgView);
-
+	
 	m_LogMsgCtrl.SetRedraw(FALSE);
+	m_bNoDispUpdates = true;
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
 
 	m_currentChangedArray = paths;
+	m_bNoDispUpdates = false;
+	if (paths == NULL)
+		return;
 
 	if (m_currentChangedArray)
 	{
@@ -286,7 +291,7 @@ void CLogDlg::OnBnClickedGetall()
 	m_LogMsgCtrl.Invalidate();
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
-
+	m_bNoDispUpdates = true;
 	for (INT_PTR i=0; i<m_arLogPaths.GetCount(); ++i)
 	{
 		LogChangedPathArray * patharray = m_arLogPaths.GetAt(i);
@@ -321,6 +326,7 @@ void CLogDlg::OnBnClickedGetall()
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+	m_bNoDispUpdates = false;
 }
 
 void CLogDlg::OnBnClickedNexthundred()
@@ -2226,7 +2232,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	//Create a pointer to the item
 	LV_ITEM* pItem= &(pDispInfo)->item;
 
-	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(pItem->iItem > m_arShownList.GetCount()))
+	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(pItem->iItem >= m_arShownList.GetCount()))
 	{
 		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		*pResult = 0;
@@ -2243,16 +2249,28 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		switch (pItem->iSubItem)
 		{
 		case 0:	//revision
-			_stprintf(pItem->pszText, _T("%ld"), m_arRevs.GetAt(itemid));
+			if (itemid < m_arRevs.GetCount())
+				_stprintf(pItem->pszText, _T("%ld"), m_arRevs.GetAt(itemid));
+			else
+				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		case 1: //author
-			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arAuthors.GetAt(itemid));
+			if (itemid < m_arAuthors.GetCount())
+				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arAuthors.GetAt(itemid));
+			else
+				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		case 2: //date
-			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arDateStrings.GetAt(itemid));
+			if (itemid < m_arDateStrings.GetCount())
+				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arDateStrings.GetAt(itemid));
+			else
+				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		case 3: //message
-			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arShortLogMessages.GetAt(itemid));
+			if (itemid < m_arShortLogMessages.GetCount())
+				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_arShortLogMessages.GetAt(itemid));
+			else
+				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		}
 	}
@@ -2268,7 +2286,7 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	LV_ITEM* pItem= &(pDispInfo)->item;
 
 	*pResult = 0;
-	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(m_currentChangedArray==NULL)||(pItem->iItem > m_currentChangedArray->GetCount()))
+	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(m_currentChangedArray==NULL)||(pItem->iItem >= m_currentChangedArray->GetCount()))
 	{
 		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		return;
