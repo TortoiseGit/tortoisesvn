@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-31 10:05+0900\n"
+"PO-Revision-Date: 2005-06-02 19:07+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1890,6 +1890,11 @@ msgstr "컨텍스트 메뉴에 대한 상태를 확인하지 않습니다."
 msgid "Don't show this message again"
 msgstr "이 메시지를 다시 표시하지 않음"
 
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "tsvn:projectlanguage 가 설정되지 않으면 철자검사를 하지 않음"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -2629,12 +2634,6 @@ msgstr "잠금 소유자:"
 msgid "Lock stolen by %s"
 msgstr "잠금 소유자가 %s(으)로 바뀌었습니다."
 
-# ID:11,#:
-# Control-ID:1002,
-#: ID:195
-msgid "Locked"
-msgstr "잠김"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2808,6 +2807,11 @@ msgstr "이동중 %s"
 msgid "Moving..."
 msgstr "이동중..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "My File:"
+msgstr "작업중인 파일:"
+
 # ID:12,
 #: MenuEntry
 msgid "N&ext Conflict"
@@ -2822,11 +2826,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "고유의 파일시스템 (Navtive FS, FSFS)"
-
-# ID:16,
-#: ID:195
-msgid "Needs Lock"
-msgstr "잠금 필요"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -4897,23 +4896,23 @@ msgstr "지워진 행에는 줄 긋기"
 
 # ID:251,
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "작업 사본의 텍스트 블럭 사용(&m)"
+
+# ID:251,
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "저장소의 텍스트 사용(&t)"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "작업사본의 텍스트 블럭을 사용(&y)"
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "저장소 텍스트를 사용하기 전 작업사본의 텍스트 블럭 사용(&i)"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "작업사본 텍스트 앞에 저장소의 텍스트 블럭을 사용(&h)"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "저장소 텍스트 앞에 작업사본의 텍스트 블럭 사용(&o)"
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "작업사본 텍스트를 사용하기 전 저장소의 텍스트 블럭을 사용(&h)"
 
 # ID:251,
 #: ID:251
@@ -4951,18 +4950,18 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
 "가능한 명령행 옵션은 다음과 같습니다:\n"
-"/base:<path to base file>\n"
-"/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
-"/merged:<path to resulting merged file>\n"
-"/diff:<path to unified diff file>\n"
-"/patchpath:<path to folder>"
+"/base:<고치기 전 파일 경로>\n"
+"/theirs:<저장소의 파일 경로>\n"
+"/mine:<작업사본의 파일 경로>\n"
+"/merged:<병합 결과를 저장할 파일 경로>\n"
+"/diff:<unified diff 파일에 대한 파일 경로>\n"
+"/patchpath:<작업할 폴더 경로>"
 
 # ID:11,
 #: ID:11
@@ -5091,11 +5090,6 @@ msgid ""
 msgstr ""
 "아이콘 모음을 <i>%s</i>에서 <i>%s</i>로 바꾸었습니다..\n"
 "변경 내용은 컴퓨터를 재시작하거나, 로그오프후에 다시 로그인하기전까지는 반영되지 않습니다."
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "파일:"
 
 # ID:78,
 #: ID:78
@@ -5273,6 +5267,7 @@ msgstr "미완성"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "잠김"
@@ -5322,6 +5317,11 @@ msgstr "픽셀"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "반복(&C)"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "읽기 전용"
 
 # ID:10,
 #: ID:10

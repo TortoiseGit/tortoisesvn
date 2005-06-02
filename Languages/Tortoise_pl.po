@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISE SVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-30 12:00+0100\n"
+"PO-Revision-Date: 2005-06-02 11:44+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1510,7 +1510,6 @@ msgstr "Skopiowano zdalnie"
 
 # ID:80,
 #: ID:103
-#, fuzzy
 msgid "Copy %s"
 msgstr "Kopiowanie %s"
 
@@ -1919,6 +1918,11 @@ msgstr "Nie pobieraj statusu dla menu kontekstowego"
 msgid "Don't show this message again"
 msgstr "Nie pokazuj więcej tego komunikatu"
 
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "Nie używaj sprawdzania pisowni jeżeli tsvn:projectlanguage nie jest ustawione"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -2171,9 +2175,8 @@ msgstr "Plik:"
 
 # Control-ID:65535,
 #: ID:376
-#, fuzzy
 msgid "File Diffs"
-msgstr "Porównanie dwóch plików"
+msgstr "Różnice plików"
 
 # Dlg-ID:135,
 #: ID:376
@@ -2217,9 +2220,8 @@ msgstr "Aby wyświetlić pomoc, naciśnij F1"
 
 # Control-ID:65535,
 #: Control-ID:1200
-#, fuzzy
 msgid "From:"
-msgstr "&Z adresu URL:"
+msgstr "Z:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2668,12 +2670,6 @@ msgstr "Właściciel blokady:"
 msgid "Lock stolen by %s"
 msgstr "Blokada skradziona przez %s"
 
-# ID:11,#:
-# Control-ID:1002,
-#: ID:195
-msgid "Locked"
-msgstr "Zablokowany"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2848,6 +2844,11 @@ msgstr "Przenoszenie %s"
 msgid "Moving..."
 msgstr "Przenoszenie..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "My File:"
+msgstr "Mój plik:"
+
 # ID:12,
 #: MenuEntry
 msgid "N&ext Conflict"
@@ -2862,11 +2863,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Native Filesystem (FSFS)"
-
-# ID:195,
-#: ID:195
-msgid "Needs Lock"
-msgstr "Wymaga blokady"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -4022,7 +4018,7 @@ msgstr ""
 
 # Control-ID:1088,
 #: Control-ID:1223
-msgid "Show overlay status icons recursive"
+msgid "Show overlay status icons recursively"
 msgstr "Pokazuj nakładkowe ikony statusu rekursywnie"
 
 # ID:2049,
@@ -4951,23 +4947,23 @@ msgstr "Użyj przekreślenia dla usuniętych linii"
 
 # ID:251,
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "Użyj bloku tekstu z \"&mój\""
+
+# ID:251,
+#: ID:251
 msgid "Use text block from \"&theirs\""
-msgstr "Użyj bloku tekstu z <&theirs>"
+msgstr "Użyj bloku tekstu z \"&ich\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "Użyj bloku tekstu z <&yours>"
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Użyj bloku tekstu z \"mó&j\" przed \"ich\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Użyj bloku tekstu z <t&heirs> przed <yours>"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Użyj bloku tekstu z <y&ours> przed <theirs>"
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Użyj bloku tekstu z \"i&ch\" przed \"mój\""
 
 # ID:251,
 #: ID:251
@@ -5006,15 +5002,15 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
 "Poprawne parametry w wierszu poleceń to:\n"
-"/base:<ścieżka do pliku base>\n"
-"/theirs:<ścieżka do pliku their>\n"
-"/yours:<ścieżka do pliku your>\n"
+"/base:<ścieżka do pliku bazowego>\n"
+"/theirs:<ścieżka do pliku \"ich\" (z repozytorium)>\n"
+"/mine:<ścieżka do pliku \"mój\" (z Twoimi zmianami)>\n"
 "/merged:<ścieżka do wynikowego pliku po scaleniu>\n"
 "/diff:<ścieżka do pliku różnicowego Unified diff>\n"
 "/patchpath:<ścieżka do katalogu z poprawkami>"
@@ -5148,11 +5144,6 @@ msgid ""
 msgstr ""
 "Zmieniono zestaw ikon z <i>%s</i> na <i>%s</i>.\n"
 "Zmiana będzie widoczna dopiero po ponownym uruchomieniu komputera lub przelogowaniu użytkownika!"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "Plik <Yours>:"
 
 # ID:78,
 #: ID:78
@@ -5330,6 +5321,7 @@ msgstr "niekompletny"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "zablokowany"
@@ -5381,6 +5373,11 @@ msgstr "piksele"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "re&kurencja"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "tylko do odczytu"
 
 # ID:10,
 #: ID:10
@@ -5468,7 +5465,7 @@ msgid ""
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Typ MIME pliku. Używany by określić, czy można scalić plik oraz w jaki sposób przesłać plik z Apache. Typ MIME zaczynający się od 'text/' (lub brak typu MINE) jest traktowany jako tekst. Każdy inny jest traktowany jako binarny."
+"Typ MIME pliku. Używany by określić, czy można scalić plik oraz w jaki sposób przesłać plik z Apache. Typ MIME zaczynający się od 'text/' (lub brak typu MIME) jest traktowany jako tekst. Każdy inny jest traktowany jako binarny."
 
 # ID:16,
 #: ID:16

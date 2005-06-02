@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-31 10:29+0100\n"
+"PO-Revision-Date: 2005-06-02 10:34+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1571,6 +1571,11 @@ msgstr "Ne pas récupérer le statut pour le menu contextuel"
 msgid "Don't show this message again"
 msgstr "Ne plus afficher ce message"
 
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "Ne pas utiliser le correcteur orthographique si tsvn:projectlanguage n'est pas configuré"
+
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Type de disque"
@@ -2199,10 +2204,6 @@ msgstr "Propriétaire du verrou:"
 msgid "Lock stolen by %s"
 msgstr "Verrou volé par %s"
 
-#: ID:195
-msgid "Locked"
-msgstr "Verrouillé"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2352,6 +2353,10 @@ msgstr "Déplacement de %s"
 msgid "Moving..."
 msgstr "Déplacement..."
 
+#: Control-ID:65535
+msgid "My File:"
+msgstr "Mon Fichier:"
+
 #: MenuEntry
 msgid "N&ext Conflict"
 msgstr "C&onflit Suivant"
@@ -2364,11 +2369,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Système de Fichier Natif (FSFS)"
-
-# ID:16,
-#: ID:195
-msgid "Needs Lock"
-msgstr "A besoin d'un verrou"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -4087,20 +4087,20 @@ msgid "Use strikeout for deleted lines"
 msgstr "Barrer les lignes effacées"
 
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "Utilisez le bloc de texte depuis \"le &mien\""
+
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Utilisez le bloc de texte depuis \"le &leur\""
 
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "Utilisez le bloc de texte depuis \"le &votre\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Utiliser \"m&on\" bloc de texte avant celui des \"autres\""
 
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Utiliser le bloc de texte des \"a&utres\" avant le \"vôtre\""
-
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Utiliser \"v&otre\" bloc de texte avant celui des \"autres\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Utiliser le bloc de texte des \"a&utres\" avant le \"mien\""
 
 #: ID:251
 msgid "Use th&is text block"
@@ -4133,18 +4133,18 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
 "Les options de la ligne de commandes valides sont:\n"
-"/base:<path to base file>\n"
-"/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
-"/merged:<path to resulting merged file>\n"
-"/diff:<path to unified diff file>\n"
-"/patchpath:<path to folder>"
+"/base:<chemin du fichier de base>\n"
+"/theirs:<chemin de leur fichier>\n"
+"/mine:<chemin de mon fichier>\n"
+"/merged:<chemin du fichier fusionné résultant>\n"
+"/diff:<chemin du fichier diff unifié>\n"
+"/patchpath:<chemin du répertoire>"
 
 #: ID:11
 msgid "Value"
@@ -4258,10 +4258,6 @@ msgid ""
 msgstr ""
 "Vous avez changé le jeu d'icônes de <i>%s</i> vers <i>%s</i>.\n"
 "Ce changement ne prendra pas effet tant que vous n'aurez pas redemarré votre ordinateur ou fermé et ré-ouvert une autre session!"
-
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "Votre fichier:"
 
 #: ID:78
 msgid ""
@@ -4419,6 +4415,7 @@ msgid "incomplete"
 msgstr "incomplet"
 
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "Verrouillé"
@@ -4458,6 +4455,11 @@ msgstr "points"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "ré&cusif"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "lecture seule"
 
 #: ID:10
 msgid "replaced"

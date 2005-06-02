@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3543
+# Based on r3591
 #
 msgid ""
 msgstr ""
@@ -1357,6 +1357,10 @@ msgstr "Hent ikke status til kontekstmenu"
 msgid "Don't show this message again"
 msgstr "Vis ikke denne meddelelse igen"
 
+#: Control-ID:1224,
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "Brug ikke stavekontrol, hvis tsvn:projectlanguage ikke er sat"
+
 #: Control-ID:1079,
 msgid "Drive Types"
 msgstr "Drevtyper"
@@ -1693,7 +1697,7 @@ msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere
 
 #: ID:195,
 msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Hvis valgt, så forøges hastigheden, hvormed logbeskeder hentes fra pre-1.2 versionsarkiv-servere"
+msgstr "Hvis valgt, så forøges hastigheden, hvormed logbeskeder hentes fra præ-1.2 versionsarkiv-servere"
 
 #: ID:195,
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
@@ -1860,10 +1864,6 @@ msgstr "Ejer af lås:"
 msgid "Lock stolen by %s"
 msgstr "Låsen er stjålet af %s"
 
-#: ID:195,
-msgid "Locked"
-msgstr "Låst"
-
 #: ID:263,
 msgid "Locked by %s"
 msgstr "Låst af %s"
@@ -1996,6 +1996,10 @@ msgstr "Flytter %s"
 msgid "Moving..."
 msgstr "Flytter..."
 
+#: Control-ID:65535,
+msgid "My File:"
+msgstr "Min fil:"
+
 #: MenuEntry
 msgid "N&ext Conflict"
 msgstr "N&æste konflikt"
@@ -2007,10 +2011,6 @@ msgstr "NUM"
 #: Control-ID:1129,
 msgid "Native Filesystem (FSFS)"
 msgstr "Indbygget filsystem (FSFS)"
-
-#: ID:195,
-msgid "Needs Lock"
-msgstr "Kræver lås"
 
 #: Dlg-ID:102,
 msgid "Network"
@@ -2823,7 +2823,7 @@ msgid "Show or hide the toolbar\nToggle ToolBar"
 msgstr "Vis eller skjul værktøjslinjen\nVis/skjul værktøjslinje"
 
 #: Control-ID:1223,
-msgid "Show overlay status icons recursive"
+msgid "Show overlay status icons recursively"
 msgstr "Vis status-overdækningsikoner rekursivt"
 
 #: ID:2049,
@@ -3377,23 +3377,23 @@ msgstr "Brug overstregning til slettede linjer"
 
 #: ID:251,
 #, fuzzy
+msgid "Use text block from \"&mine\""
+msgstr "Brug tekstblok fra \"&min\""
+
+#: ID:251,
+#, fuzzy
 msgid "Use text block from \"&theirs\""
 msgstr "Brug tekstblok fra \"&deres\""
 
 #: ID:251,
 #, fuzzy
-msgid "Use text block from \"&yours\""
-msgstr "Brug tekstblok fra \"d&in\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Brug tekstblok fra \"m&in\" før \"deres\""
 
 #: ID:251,
 #, fuzzy
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Brug tekstblok fra \"d&eres\" før \"din\""
-
-#: ID:251,
-#, fuzzy
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Brug tekstblok fra \"di&n\" før \"deres\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Brug tekstblok fra \"d&eres\" før \"min\""
 
 #: ID:251,
 msgid "Use th&is text block"
@@ -3421,8 +3421,8 @@ msgid "Username:"
 msgstr "Brugernavn:"
 
 #: ID:313,
-msgid "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/yours:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
-msgstr "Følgende parametre til kommandolinjen kan benyttes:\n/base:<sti til basisfil>\n/theirs:<sti til \"deres\" fil>\n/yours:<sti til din fil>\n/merged:<sti til den resulterende, flettede fil>\n/diff:<sti til \"unified diff\"-filen>\n/patchpath:<sti til mappe>"
+msgid "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/mine:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
+msgstr "Følgende parametre til kommandolinjen kan benyttes:\n/base:<sti til basisfil>\n/theirs:<sti til \"deres\" fil>\n/mine:<sti til din fil>\n/merged:<sti til den resulterende, flettede fil>\n/diff:<sti til \"unified diff\"-filen>\n/patchpath:<sti til mappe>"
 
 #: ID:11,
 msgid "Value"
@@ -3499,10 +3499,6 @@ msgstr "Du har valgt en ikke-versioneret fil.\nFilen vil blive tilføjet version
 #: ID:195,
 msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 msgstr "Du har ændret ikonerne fra <i>%s</i> til <i>%s</i>.\nDenne ændring træder ikke i kraft, før du genstarter computeren eller logger af og på igen!"
-
-#: Control-ID:65535,
-msgid "Your File:"
-msgstr "Din fil:"
 
 #: ID:78,
 msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing."
@@ -3602,7 +3598,7 @@ msgstr "ignoreret"
 msgid "incomplete"
 msgstr "ukomplet"
 
-#: ID:11,#: Control-ID:1002,
+#: ID:11,#: ID:195,#: Control-ID:1002,
 msgid "locked"
 msgstr "låst"
 
@@ -3642,6 +3638,10 @@ msgstr "punkter"
 #: Control-ID:1018,
 msgid "re&cursive"
 msgstr "re&kursiv"
+
+#: ID:195,
+msgid "readonly"
+msgstr "skrivebeskyttet"
 
 #: ID:10,
 msgid "replaced"
