@@ -567,6 +567,7 @@ CStatusCacheEntry CCachedDirectory::GetOwnStatus(bool bRecursive)
 
 void CCachedDirectory::RefreshStatus(bool bRecursive)
 {
+	AutoLocker lock(m_critSec);
 	// Make sure that our own status is up-to-date
 	GetStatusForMember(m_directoryPath,bRecursive);
 
@@ -574,7 +575,6 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 	CacheEntryMap::iterator itMembers;
 	DWORD now = GetTickCount();
 	
-	AutoLocker lock(m_critSec);
 	for(itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{
 		if (itMembers->first)
