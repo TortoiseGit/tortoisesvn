@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-31 17:58+0100\n"
+"PO-Revision-Date: 2005-06-01 00:26+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -466,11 +466,11 @@ msgstr ": Revisión %d"
 
 #: ID:151
 msgid ": working base"
-msgstr ": Base de trabajo"
+msgstr ": base de trabajo"
 
 #: ID:151
 msgid ": working copy"
-msgstr ": Copia de trabajo"
+msgstr ": copia de trabajo"
 
 # ID:88,
 #: ID:88
@@ -521,7 +521,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Indicar en cada linea una ruta para la cual se muestra la sobreimpresión del icono.\n"
+"Indicar en cada linea una ruta para la cual se muestran los iconos sobreimpresionados.\n"
 "Si añade el caracter \"*\" al final de la ruta, también se incluirán los ficheros y subdirectorios."
 
 # ID:194,
@@ -531,9 +531,9 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Indicar en cada linea una ruta para la cual NO se muestra la sobreimpresión del icono.\n"
+"Indicar en cada linea una ruta para la cual NO se muestran los iconos sobreimpresionados.\n"
 "Si añade el caracter \"*\" al final de la ruta, también se incluirán los ficheros y subdirectorios.\n"
-"Una lista vacía permitirá los recubrimientos en todas las rutas."
+"Una lista vacía permitirá las sobreimpresiones en todas las rutas."
 
 #: ID:3843
 msgid "A required resource was unavailable."
@@ -688,7 +688,7 @@ msgstr "Todo"
 
 #: ID:3841
 msgid "All Files (*.*)"
-msgstr "Todos los Archivos (*.*)"
+msgstr "Todos los archivos (*.*)"
 
 #: ID:157
 msgid "All Files (*.*)|*.*||"
@@ -787,7 +787,7 @@ msgstr "Analizar datos de la revisión..."
 
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "Aplica un archivo en formato unified diff a una copia de trabajo"
+msgstr "Aplica un archivo en formato diff unificado a una copia de trabajo"
 
 # ID:15,
 #: ID:15
@@ -804,7 +804,7 @@ msgstr "Aplicar Parche..."
 
 #: Control-ID:65535
 msgid "Apply Unified Diff"
-msgstr "Aplicar Unified Diff"
+msgstr "Aplicar Diff Unificado"
 
 # ID:145,
 #: ID:145
@@ -887,7 +887,7 @@ msgstr "Realizar copia de seguridad del archivo original"
 
 #: Control-ID:65535
 msgid "Base File:"
-msgstr "Archivo Base:"
+msgstr "Fichero Base:"
 
 # Control-ID:1128,
 #: Control-ID:1128
@@ -1426,7 +1426,7 @@ msgstr "Crea una base de datos de repositorio en la localización actual"
 
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
-msgstr "Crea un archivo en formato unified diff con todos los cambios que ha realizado"
+msgstr "Crea un archivo en formato diff unificado con todos los cambios que ha realizado"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1480,7 +1480,7 @@ msgstr "Diferenciar"
 
 #: Control-ID:65535
 msgid "Diff File:"
-msgstr "Archivo Diferencias:"
+msgstr "Fichero de Diferencias:"
 
 #: Control-ID:1022
 msgid "Diffing"
@@ -1592,6 +1592,11 @@ msgstr "No obtener el estado para el menú contextual"
 #: ID:73
 msgid "Don't show this message again"
 msgstr "No mostrar este mensaje de nuevo"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "No utilizar el corrector ortográfico si no se ha establecido tsvn:projectlanguage."
 
 #: Control-ID:1079
 msgid "Drive Types"
@@ -2384,6 +2389,10 @@ msgstr "Moviendo %s"
 msgid "Moving..."
 msgstr "Moviendo..."
 
+#: Control-ID:65535
+msgid "My File:"
+msgstr "Mi Fichero:"
+
 #: MenuEntry
 msgid "N&ext Conflict"
 msgstr "Sigui&ente conflicto"
@@ -2602,7 +2611,7 @@ msgstr "Parchear Todos"
 # ID:157,
 #: ID:157
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "Ficheros de parche (*.diff, *.patch)|*.diff;*.patch|Todos los archivos (*.*)|*.*||"
 
 #: ID:77
 msgid "Path"
@@ -3313,7 +3322,7 @@ msgstr "Mostrar barra de diferencias"
 
 #: ID:113
 msgid "Show Differences as &Unified Diff"
-msgstr "Mostrar diferencias como '&Unified Diff'"
+msgstr "Mostrar diferencias como 'Diff &Unificado'"
 
 #: Control-ID:1063
 msgid "Show Linenumbers"
@@ -3787,7 +3796,7 @@ msgstr ""
 
 #: Control-ID:65535
 msgid "Their File:"
-msgstr "Archivo de \"ellos\":"
+msgstr "Fichero de otros:"
 
 # ID:169,
 #: ID:169
@@ -4147,20 +4156,20 @@ msgid "Use strikeout for deleted lines"
 msgstr "Usar tachado para líneas borradas"
 
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "Utilizar bloque de texto \"mío\""
+
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Utilizar bloque de texto \"de &otros\""
 
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "Utilizar bloque de texto \"&mío\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Utilizar bloque de texto \"&mío\" antes del \"de otros\""
 
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Utilizar bloque de texto de \"e&llos\" antes del \"mío\""
-
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Utilizar bloque de texto \"&mío\" antes del de \"ellos\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Utilizar bloque de texto \"de otros\" antes del \"mío\""
 
 #: ID:251
 msgid "Use th&is text block"
@@ -4191,17 +4200,17 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
 "Las opciones válidas de la línea de comandos son:\n"
 "/base:<ruta al archivo base>\n"
-"/theirs:<ruta al archivo de ellos>\n"
-"/yours:<ruta a su archivo>\n"
+"/theirs:<ruta al archivo de otros>\n"
+"/mine:<ruta al archivo mío>\n"
 "/merged:<ruta al archivo resultado de la combinación>\n"
-"/diff:<ruta al archivo de parche unified diff>\n"
+"/diff:<ruta al archivo de parche diff unificado>\n"
 "/patchpath:<ruta a la carpeta>"
 
 #: ID:11
@@ -4318,10 +4327,6 @@ msgid ""
 msgstr ""
 "Ha cambiado el conjunto de iconos de <i>%s</i> a <i>%s</i>.\n"
 "¡Este cambio no tendrá efecto hasta que reinicie su ordenador o salga de su sesión y entre de nuevo!"
-
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "Su Archivo:"
 
 #: ID:78
 msgid ""

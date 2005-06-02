@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-30 19:35+0900\n"
+"PO-Revision-Date: 2005-06-02 03:35+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1908,6 +1908,11 @@ msgstr "コンテキストメニュー用に状態を取得しない"
 msgid "Don't show this message again"
 msgstr "このメッセージを再び表示しない"
 
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "tsvn:projectlanguage が設定されていない場合はスペルチェッカを利用しない"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -2645,12 +2650,6 @@ msgstr "ロック所持者:"
 msgid "Lock stolen by %s"
 msgstr "%s にロックを奪われました"
 
-# ID:11,#:
-# Control-ID:1002,
-#: ID:195
-msgid "Locked"
-msgstr "ロック"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2755,7 +2754,7 @@ msgstr "分岐を本体にマージする"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Merging"
-msgstr "マージ中"
+msgstr "マージ"
 
 # ID:76,
 #: ID:76
@@ -2824,6 +2823,11 @@ msgstr "%s を移動中"
 msgid "Moving..."
 msgstr "移動中 ..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "My File:"
+msgstr "My ファイル:"
+
 # ID:12,
 #: MenuEntry
 msgid "N&ext Conflict"
@@ -2838,11 +2842,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Native Filesystem (FSFS)"
-
-# ID:195,
-#: ID:195
-msgid "Needs Lock"
-msgstr "ロックを要求"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -3990,8 +3989,8 @@ msgstr ""
 
 # Control-ID:1088,
 #: Control-ID:1223
-msgid "Show overlay status icons recursive"
-msgstr "再帰的に状態のオーバーレイアイコンを表示する"
+msgid "Show overlay status icons recursively"
+msgstr "状態のオーバーレイアイコンを再帰的に表示する"
 
 # ID:2049,
 #: ID:2049
@@ -4914,23 +4913,23 @@ msgstr "削除された行に取り消し線を引く"
 
 # ID:251,
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "\"&mine\" のテキストブロックを利用"
+
+# ID:251,
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "\"&theirs\" のテキストブロックを利用"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "\"&yours\" のテキストブロックを利用"
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "\"theirs\" の前に \"m&ine\" のテキストブロックを利用"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "\"yours\" の前に \"t&heirs\" のテキストブロックを利用"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "\"theirs\" の前に \"y&ours\" のテキストブロックを利用"
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "\"mine\" の前に \"t&heirs\" のテキストブロックを利用"
 
 # ID:251,
 #: ID:251
@@ -4968,7 +4967,7 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
@@ -4976,7 +4975,7 @@ msgstr ""
 "有効なコマンドラインオプションは:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
@@ -5108,11 +5107,6 @@ msgid ""
 msgstr ""
 "アイコンセットを <i>%s</i> から <i>%s</i> に変更しました。\n"
 "この変更は、再起動するか再ログインするまで反映されません！"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "Your ファイル:"
 
 # ID:78,
 #: ID:78
@@ -5288,6 +5282,7 @@ msgstr "未完了"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "ロック"
@@ -5337,6 +5332,11 @@ msgstr "画素"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "再帰的(&C)"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "読み取り専用"
 
 # ID:10,
 #: ID:10

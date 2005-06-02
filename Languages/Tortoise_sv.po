@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-29 16:35+0100\n"
+"PO-Revision-Date: 2005-06-01 12:35+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1573,6 +1573,11 @@ msgstr "Hämta inte status för högerknappsmenyn"
 msgid "Don't show this message again"
 msgstr "Visa inte detta meddelande igen"
 
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "Använd inte rättstavning om tsvn:projectlanguage inte är satt"
+
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Enhetstyper"
@@ -2204,10 +2209,6 @@ msgstr "Ägare av låset:"
 msgid "Lock stolen by %s"
 msgstr "Lås stulet av %s"
 
-#: ID:195
-msgid "Locked"
-msgstr "Låst"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2357,6 +2358,10 @@ msgstr "Flyttar %s"
 msgid "Moving..."
 msgstr "Flyttar..."
 
+#: Control-ID:65535
+msgid "My File:"
+msgstr "Min fil:"
+
 #: MenuEntry
 msgid "N&ext Conflict"
 msgstr "N&ästa konflikt"
@@ -2369,11 +2374,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Lokalt filsystem (FSFS)"
-
-# ID:195,
-#: ID:195
-msgid "Needs Lock"
-msgstr "Behöver lås"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -3301,7 +3301,7 @@ msgstr ""
 "Växla verktygsrad"
 
 #: Control-ID:1223
-msgid "Show overlay status icons recursive"
+msgid "Show overlay status icons recursively"
 msgstr "Visa ikonsymboler rekursivt"
 
 #: ID:2049
@@ -4094,20 +4094,20 @@ msgid "Use strikeout for deleted lines"
 msgstr "Använd överstrykning för borttagna rader"
 
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "Använd \"&mitt\" textblock"
+
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Använd \"&deras\" textblock"
 
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "Använd \"d&itt\" textblock"
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Använd \"mi&tt\" textblock istället för \"deras\""
 
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Använd \"d&eras\" textblock istället för \"ditt\""
-
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Använd \"di&tt\" textblock istället för \"deras\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Använd \"d&eras\" textblock istället för \"mitt\""
 
 #: ID:251
 msgid "Use th&is text block"
@@ -4140,7 +4140,7 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
@@ -4148,7 +4148,7 @@ msgstr ""
 "Tillåtna kommandoradsparametrar är:\n"
 "/base:<sökväg till basfilen>\n"
 "/theirs:<sökväg till deras fil>\n"
-"/yours:<sökväg till din fil>\n"
+"/mine:<sökväg till din fil>\n"
 "/merged:<sökväg till resultatfilen>\n"
 "/diff:<sökväg till fil i \"Unified Diff\"-format>\n"
 "/patchpath:<sökväg till mapp>"
@@ -4264,10 +4264,6 @@ msgid ""
 msgstr ""
 "Du har ändrat statusikonuppsättningen från <i>%s</i> till <i>%s</i>.\n"
 "Det behövs en omstart eller att du loggar ut och sedan in igen för att den ska börja gälla!"
-
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "\"Din\" fil:"
 
 #: ID:78
 msgid ""
@@ -4422,6 +4418,7 @@ msgid "incomplete"
 msgstr "ofullständig"
 
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "låst"
@@ -4461,6 +4458,11 @@ msgstr "pixlar"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "re&kursivt"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "skrivskyddad"
 
 #: ID:10
 msgid "replaced"

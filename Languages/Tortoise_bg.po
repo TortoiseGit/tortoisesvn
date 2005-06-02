@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-30 11:42+0200\n"
+"PO-Revision-Date: 2005-06-02 10:29+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1928,7 +1928,9 @@ msgstr "Желаете ли да запишете промените си?"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Documentation - Simon Large"
-msgstr "Документация - Simon Large"
+msgstr ""
+"Документация - Simon Large\n"
+"Превод - Милен А. Радев"
 
 # Control-ID:1217,
 #: Control-ID:1217
@@ -1939,6 +1941,11 @@ msgstr "Да не се извлича състояние заради конте
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Да не се показва повече това съобщение"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "Не се използва проверка на правописа, ако \"tsvn:projectlanguage\" е установено"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -2679,12 +2686,6 @@ msgstr "Собственик на заключването:"
 msgid "Lock stolen by %s"
 msgstr "Заключването е присвоено от %s"
 
-# ID:11,#:
-# Control-ID:1002,
-#: ID:195
-msgid "Locked"
-msgstr "Заключени"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2858,6 +2859,11 @@ msgstr "Местене на %s"
 msgid "Moving..."
 msgstr "Местене..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "My File:"
+msgstr "Мой файл:"
+
 # ID:12,
 #: MenuEntry
 msgid "N&ext Conflict"
@@ -2872,11 +2878,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Файлова система (FSFS)"
-
-# Control-ID:1203,
-#: ID:195
-msgid "Needs Lock"
-msgstr "Изискване за заключване"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -3036,7 +3037,7 @@ msgstr ""
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only update the top folder"
-msgstr "Обновяване само най-горната папка"
+msgstr "Обновяване само на най-горната папка"
 
 # ID:3841,#:
 # ID:101,#:
@@ -4027,7 +4028,7 @@ msgstr ""
 
 # Control-ID:1088,
 #: Control-ID:1223
-msgid "Show overlay status icons recursive"
+msgid "Show overlay status icons recursively"
 msgstr "Рекурсивно показване на модификациите на иконките"
 
 # ID:2049,
@@ -4948,23 +4949,23 @@ msgstr "Зачеркване за изтритите редове"
 
 # ID:251,
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "Да се използва текстовият блок от \"&Моят\""
+
+# ID:251,
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Използване на текстовият блок от \"&Техният\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "Използване на текстовият блок от \"&Вашият\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Да се използва текстовият блок от \"&Моят\" преди \"Техният\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Използване на текстовият блок от \"Т&ехният\" преди \"Вашият\""
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Използване на текстовият блок от \"В&ашият\" преди \"Техният\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Да се използва текстовият блок от \"&Техният\" преди \"Моят\""
 
 # ID:251,
 #: ID:251
@@ -5002,7 +5003,7 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
@@ -5010,7 +5011,7 @@ msgstr ""
 "Валидни опции за командния ред са:\n"
 "/base:<път до базовия файл>\n"
 "/theirs:<път до \"техния\" файл>\n"
-"/yours:<път до Вашия файл>\n"
+"/mine:<път до Вашия файл>\n"
 "/merged:<път до крайния, слят файл>\n"
 "/diff:<път до Unified Diff файл>\n"
 "/patchpath:<път до папка>"
@@ -5143,11 +5144,6 @@ msgid ""
 msgstr ""
 "Променихте използвания комплект с иконки от <i>%s</i> на <i>%s</i>.\n"
 "Тази промяна няма да влезе в сила, докато не рестартирате компютъра си или не се отпишете и запишете отново!"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "Вашият файл:"
 
 # ID:78,
 #: ID:78
@@ -5325,6 +5321,7 @@ msgstr "недовършен"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "блокиран"
@@ -5374,6 +5371,11 @@ msgstr "точки"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "&рекурсивно"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "само за четене"
 
 # ID:10,
 #: ID:10
