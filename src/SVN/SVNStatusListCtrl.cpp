@@ -605,7 +605,7 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromSVNStatus(svn_wc_status_kind status)
 	return 0;
 }
 
-void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
+void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFolders /* = true */)
 {
 	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
@@ -613,6 +613,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 	if (pApp)
 		pApp->DoWaitCursor(1);
 	m_dwShow = dwShow;
+	m_bShowFolders = bShowFolders;
 	m_nSelected = 0;
 	SetRedraw(FALSE);
 	DeleteAllItems();
@@ -630,6 +631,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 		FileEntry * entry = m_arStatusArray[i];
 		if (entry->inexternal && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
 			continue;
+		if (entry->IsFolder() && (!bShowFolders))
+			continue;	// don't show folders if they're not wanted.
 		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
 		DWORD showFlags = GetShowFlagsFromSVNStatus(status);
 		if (entry->IsLocked())
@@ -800,7 +803,7 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 void CSVNStatusListCtrl::Sort()
 {
 	std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), SortCompare);
-	Show(m_dwShow);
+	Show(m_dwShow, 0, m_bShowFolders);
 }
 
 bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2)
@@ -1428,7 +1431,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									else
 									{
 										SetItemState(index, 0, LVIS_SELECTED);
-										Show(m_dwShow);
+										Show(m_dwShow, 0, m_bShowFolders);
 									}
 								}
 							}
@@ -1794,7 +1797,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								CShellUpdater::Instance().AddPathForUpdate(filepath);
 								entry->status = svn_wc_status_modified;
 								entry->textstatus = svn_wc_status_modified;
-								Show(m_dwShow);
+								Show(m_dwShow, 0, m_bShowFolders);
 							}
 						}
 					}
@@ -1828,7 +1831,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
-						Show(m_dwShow);
+						Show(m_dwShow, 0, m_bShowFolders);
 					}
 					break;
 				case IDSVNLC_LOCK:

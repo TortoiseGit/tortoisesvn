@@ -209,7 +209,7 @@ public:
 	 * \param dwShow mask of file types to show. Use the SVNSLC_SHOWxxx defines.
 	 * \param dwCheck mask of file types to check. Use SVNLC_SHOWxxx defines. Default (0) means 'use the entry's stored check status'
 	 */
-	void Show(DWORD dwShow, DWORD dwCheck = 0);
+	void Show(DWORD dwShow, DWORD dwCheck = 0, bool bShowFolders = true);
 
 	/**
 	 * If during the call to GetStatus() some svn:externals are found from different
@@ -366,6 +366,7 @@ private:
 
 	DWORD						m_dwColumns;
 	DWORD						m_dwShow;
+	bool						m_bShowFolders;
 	DWORD						m_dwContextMenus;
 	BOOL						m_bBlock;
 
