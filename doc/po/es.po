@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-05-31 17:58+0100\n"
+"PO-Revision-Date: 2005-06-01 00:17+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -150,8 +150,8 @@ msgstr "Autentificación con svnserve"
 
 #: source/en/tsvn_server/server_svn.xml:147
 #: (para)
-msgid "The default svnserve setup provides anonymous read-only access, so whilst you can use the repo-browser in TortoiseSVN to view a repository using an svn:// Url, you won't be able to perform any normal Subversion operations such as checkout, update or commit."
-msgstr "La configuración por defecto de svnserve proporciona acceso de sólo-lectura de forma anónima, por lo que aunque podrá utilizar el navegador de repositorios en TortoiseSVN para ver un repositorio utilizando una URL svn://, no podrá realizar ninguna operación normal de Subversion como obtener, actualizar o confirmar."
+msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <filename>svn://</filename> Url to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
+msgstr "La configuración por defecto de svnserve proporciona acceso anónimo de sólo-lectura. Esto significa que puede utilizar una URL de tipo <filename>svn://</filename> para obtener y actualizar, o utilizar el navegador de repositorios en TortoiseSVN para ver el repositorio, pero no podrá confirmar ningún cambio."
 
 #: source/en/tsvn_server/server_svn.xml:153
 #: (para)
@@ -2702,67 +2702,72 @@ msgstr "En el diálogo de Confirmar tiene la opción de pegar la lista de ficher
 
 #: source/en/tsvn_dug/dug_propertypage.xml:136
 #: (para)
-msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink><literal>true</literal>."
-msgstr "TortoiseSVN puede utilizar los módulos de corrector ortográfico que se utilizan también por OpenOffice y Mozilla. Si tiene éstos instalados, esta propiedad determinará qué corrector ortográfico utilizar, es decir, en qué lenguaje deben estar escritos los mensajes de registro para su proyecto. <literal>tsvn:projectlanguage</literal> establece el módulo de idioma que el motor del corrector ortográfico debería utilizar cuando introduzca un mensaje. Puede encontrar los valores para su idioma en esta página: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
+msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
+msgstr "TortoiseSVN puede utilizar los módulos de corrector ortográfico que se utilizan también por OpenOffice y Mozilla. Si tiene éstos instalados, esta propiedad determinará qué corrector ortográfico utilizar, es decir, en qué lenguaje deberían estar escritos los mensajes de registro para su proyecto. <literal>tsvn:projectlanguage</literal> establece el módulo de idioma que el motor del corrector ortográfico debería utilizar cuando introduzca un mensaje de registro. Puede encontrar los valores para su idioma en esta página: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
+
+#: source/en/tsvn_dug/dug_propertypage.xml:150
+#: (para)
+msgid "You can enter this value in decimal, or in hexadecimal if prefixed with <literal>0x</literal>. For example English (US) can be entered as <literal>0x0409</literal> or <literal>1033</literal>."
+msgstr "Puede introducir este valor en decimal, o en hexadecimal si se precede por <literal>0x</literal>. Por ejemplo, Español (España, ordenación tradicional) puede introducirse como <literal>0x040a</literal> or <literal>1034</literal>."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:76
 #: (para)
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
 msgstr "TortoiseSVN tiene unas pocas propiedades especiales para sí mismo, y estas empiezan con <literal>tsvn:</literal>. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:154
+#: source/en/tsvn_dug/dug_propertypage.xml:159
 #: (para)
 #: source/en/tsvn_dug/dug_bugtracker.xml:212
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
 msgstr "Algunas propiedades <literal>tsvn:</literal> necesitan un valor <literal>true/false</literal> (verdad/mentira). TSVN también entiende <literal>yes</literal> (sí) como un sinónimo de <literal>true</literal> y <literal>no</literal> como un sinónimo de <literal>false</literal>."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:161
+#: source/en/tsvn_dug/dug_propertypage.xml:166
 #: (title)
 msgid "Set the tsvn: properties on folders"
 msgstr "Establecer las propiedades tsvn: en carpetas"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:162
+#: source/en/tsvn_dug/dug_propertypage.xml:167
 #: (para)
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Estas propiedades <literal>tsvn:</literal> deben estar establecidas en <emphasis>carpetas</emphasis> para que el sistema funcione. Cuando confirma un fichero o una carpeta, se leen las propiedades de esa carpeta. Si no se encuentran allí las propiedades, TortoiseSVN las buscará hacia arriba en el árbol de carpetas para encontrarlas, hasta que llega a una carpeta sin versionar, o se encuentra la raíz del árbol (por ejemplo, <literal>C:\\</literal>). Si puede estar seguro de que cada usuario obtiene sólo desde por ejemplo <filename>trunk/</filename> y no desde alguna subcarpeta, entonces es suficiente establecer las propiedades en <filename>trunk/</filename>. Si no puede estar seguro, debería establecer las propiedades recursivamente en cada subcarpeta. Una propiedad establecida hacia las profundidades de la jerarquía del proyecto tiene preferencia sobre las propiedades establecidas en niveles más altos (más cerca de <filename>trunk/</filename>)."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:176
+#: source/en/tsvn_dug/dug_propertypage.xml:181
 #: (para)
 #: source/en/tsvn_dug/dug_bugtracker.xml:234
 msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all subfolders in the hierarchy, without also setting it on all files."
 msgstr "Para las propiedades <literal>tsvn:</literal> <emphasis>sólo</emphasis> puede utilizar la casilla <guilabel>Recursivo</guilabel> para establecer la propiedad en todas las subcarpetas de la jerarquía, sin establecera en todos los ficheros."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:184
+#: source/en/tsvn_dug/dug_propertypage.xml:189
 #: (title)
 msgid "Commit properties"
 msgstr "Confirmar propiedades"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:185
+#: source/en/tsvn_dug/dug_propertypage.xml:190
 #: (para)
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
 msgstr "Las propiedades de Subversion están versionadas. Después de que cambie o añada una propiedad tiene que confirmar sus cambios."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:191
+#: source/en/tsvn_dug/dug_propertypage.xml:196
 #: (title)
 msgid "Conflicts on properties"
 msgstr "Conflictos en las propiedades"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:192
+#: source/en/tsvn_dug/dug_propertypage.xml:197
 #: (para)
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
 msgstr "Si hay un conflicto al confirmar los cambios, porque otro usuario ha cambiado la misma propiedad, Subversion genera un fichero <filename>.prej</filename>. Borre este fichero después de que haya resuelto del conflicto."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:200
+#: source/en/tsvn_dug/dug_propertypage.xml:205
 #: (title)
 msgid "Automatic property setting"
 msgstr "Establecer propiedades automáticamente"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:201
+#: source/en/tsvn_dug/dug_propertypage.xml:206
 #: (para)
 msgid "You can configure Subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
 msgstr "Puede configurar Subversion para que establezca propiedades automáticamente en ficheros y carpetas cuando se añaden al repositorio. Para más información, lea <xref linkend=\"tsvn-DUG-settings\"/>."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:207
+#: source/en/tsvn_dug/dug_propertypage.xml:212
 #: (para)
 msgid "TortoiseSVN can integrate with some bugtracking tools. This uses properties, which start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-DUG-bugtracker\"/> for further information."
 msgstr "TortoiseSVN puede integrarse con algunas herramientas de control de errores. Esto utiliza propiedades, que comienzan con <literal>bugtraq:</literal>. Para más información, lea <xref linkend=\"tsvn-DUG-bugtracker\"/>."

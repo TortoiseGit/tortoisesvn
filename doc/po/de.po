@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-01 17:20+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2005-06-02 10:07+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,7 +269,7 @@ msgstr "Das Projektarchiv betrachten"
 #: source/en/tsvn_server/server_apache.xml:34
 #: (para)
 msgid "You can point your browser to the URL of your repository and browse the contents of it without having a Subversion client installed. This gives access to your data to a much wider circle of users."
-msgstr "Sie können Ihren WebBrowser per http:// auf die URL des Projektarchivs zeigen lassen und dessen Inhalt betrachten, ohne einen Subversion Client zu installieren. Dies ermöglicht einem großen Anwenderkreis auf Ihre Daten zuzugreifen."
+msgstr "Sie können Ihren Web-Browser per http:// auf die URL des Projektarchivs zeigen lassen und dessen Inhalt betrachten, ohne einen Subversion Client zu installieren. Dies ermöglicht einem großen Anwenderkreis auf Ihre Daten zuzugreifen."
 
 #: source/en/tsvn_server/server_apache.xml:44
 #: (term)
@@ -316,7 +316,7 @@ msgstr "Sobald Sie den Apache 2 Installer haben, können Sie ihn mit einem Doppe
 #: source/en/tsvn_server/server_apache.xml:113
 #: (para)
 msgid "Now test if the Apache-webserver is running correctly by pointing your webbrowser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up."
-msgstr "Testen Sie nun, ob Apache korrekt installiert ist, indem Sie in Ihren Web Browser die URL <systemitem class=\"url\">http://localhost/</systemitem> eingeben. Eine Standard Webseite sollte angezeigt werden. Wenn Sie bei der Installation eine andere Portnummer als 80 eingestellt haben, müssen Sie diese in der URL übergeben <systemitem class=\"url\">http://localhost:81/</systemitem>."
+msgstr "Testen Sie nun, ob Apache korrekt installiert ist, indem Sie in Ihren Web-Browser die URL <systemitem class=\"url\">http://localhost/</systemitem> eingeben. Eine Standard Webseite sollte angezeigt werden. Wenn Sie bei der Installation eine andere Portnummer als 80 eingestellt haben, müssen Sie diese in der URL übergeben <systemitem class=\"url\">http://localhost:81/</systemitem>."
 
 #: source/en/tsvn_server/server_apache.xml:122
 #: (para)
@@ -449,7 +449,7 @@ msgstr "Starten Sie den Apache-Dienst noch einmal neu."
 #: source/en/tsvn_server/server_apache.xml:274
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (where <filename>MyNewRepository</filename> is the name of the Subversion repository you created before). If all went well you should be prompted for a username and password, then you can see the contents of your repository."
-msgstr "Öffnen Sie mit Ihrem Browser die URL <systemitem class=\"url\">http://MeinServer/svn/MeinNeuesProjektarchiv</systemitem> (wobei <filename>MeinNeuesProjektarchiv</filename> der Name des Subversion-Projektarchives ist, das Sie zuvor erstellt haben). Wenn alles gut gegangen ist, sollten Sie nach einem Benutzernamen und Passwort gefragt werden und können dann den Inhalt Ihrers Projektarchives sehen."
+msgstr "Öffnen Sie mit Ihrem Web-Browser die URL <systemitem class=\"url\">http://MeinServer/svn/MeinNeuesProjektarchiv</systemitem> (wobei <filename>MeinNeuesProjektarchiv</filename> der Name des Subversion-Projektarchives ist, das Sie zuvor erstellt haben). Wenn alles gut gegangen ist, sollten Sie nach einem Benutzernamen und Passwort gefragt werden und können dann den Inhalt Ihrers Projektarchives sehen."
 
 #: source/en/tsvn_server/server_apache.xml:215
 #: (para)
@@ -542,7 +542,7 @@ msgstr ""
 "<entry>zur Anmeldung wird ein einfaches Verfahren mit Name / Passwort verwendet.</entry>\n"
 "</row><row>\n"
 "<entry>AuthName \"Subversion repositories\"</entry>\n"
-"<entry>wird als Information an das Programm (z.B. Web Browser, TortoiseSVN) weitergereicht, mit dem sich der Benutzer am Projektarchiv anmeldet.</entry>\n"
+"<entry>wird als Information an das Programm (z.B. Web-Browser, TortoiseSVN) weitergereicht, mit dem sich der Benutzer am Projektarchiv anmeldet.</entry>\n"
 "</row><row>\n"
 "<entry>AuthUserFile passwd</entry>\n"
 "<entry>gibt die Passwortdatei für die Anmeldung an.</entry>\n"
@@ -583,7 +583,7 @@ msgstr "Index der Projekte"
 #: source/en/tsvn_server/server_apache.xml:441
 #: (para)
 msgid "The advantage of using the SVNParentPath directive is that you don't have to change the Apache config each time you create a new repository, but you also don't have an index of all created and available projects. If you point your browser to the path SVNParentPath points to, you will get a nasty error page showing."
-msgstr "Der Vorteil davon, die <literal>SVNParentPath</literal>-Direktive zu benutzen, ist, dass Sie die Apache-Konfigurationsdatei nicht jedes mal ändern müssen, wenn Sie ein neues Projektarchiv erstellen, aber Sie haben auch keinen Index aller erstellten und verfügbaren Projektarchive. Wenn Sie mit Ihrem Browser den Pfad öffnen, auf den SVNParentPath zeigt, erhalten Sie eine hässliche Fehlerseite."
+msgstr "Der Vorteil davon, die <literal>SVNParentPath</literal>-Direktive zu benutzen, ist, dass Sie die Apache-Konfigurationsdatei nicht jedes mal ändern müssen, wenn Sie ein neues Projektarchiv erstellen, aber Sie haben auch keinen Index aller erstellten und verfügbaren Projektarchive. Wenn Sie mit Ihrem Web-Browser den Pfad öffnen, auf den SVNParentPath zeigt, erhalten Sie eine hässliche Fehlerseite."
 
 #: source/en/tsvn_server/server_apache.xml:449
 #: (para)
@@ -737,7 +737,7 @@ msgstr "Wenn Sie Ihren Server mit SSL sichern und sich über eine Windows Domän
 #: source/en/tsvn_server/server_apache.xml:673
 #: (para)
 msgid "define a separate &lt;Location /path&gt; directive in the apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
-msgstr "Einen separaten &lt;Location /path&gt; Block in der Apache Konfigurationsdatei definieren und fügen den Eintrag<literal>SSPIBasicPreferred On</literal> hinzufügen. Dies ermöglicht IE die Anmeldung wieder, aber andere Browser und Subversion und Subversion können sich an dieser <literal>Location</literal> nicht anmelden."
+msgstr "Einen separaten &lt;Location /path&gt; Block in der Apache Konfigurationsdatei definieren und fügen den Eintrag<literal>SSPIBasicPreferred On</literal> hinzufügen. Dies ermöglicht IE die Anmeldung wieder, aber andere Web-Browser und Subversion können sich an dieser <literal>Location</literal> nicht anmelden."
 
 #: source/en/tsvn_server/server_apache.xml:683
 #: (para)
@@ -900,7 +900,7 @@ msgstr "Starten Sie den Apache Dienst neu."
 #: source/en/tsvn_server/server_apache.xml:874
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
-msgstr "Rufen Sie Ihren Web Browser mit der URL <systemitem class=\"url\">https://servername/svn/project</systemitem> auf."
+msgstr "Rufen Sie Ihren Web-Browser mit der URL <systemitem class=\"url\">https://servername/svn/project</systemitem> auf."
 
 #: source/en/tsvn_server/server_apache.xml:882
 #: (title)
@@ -1133,7 +1133,7 @@ msgstr "Welches Projektarchiv-Format Sie auch immer verwenden, es ist sehr wicht
 #: source/en/tsvn_repository/repository_backup.xml:14
 #: (para)
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
-msgstr "Der einfachste (jedoch nicht empfohlene) Weg ein Backup zu erstellen ist die Projektarchiv-Dateien einfach auf ein Backup-Medium zu kopieren. Wenn Sie dies tun, müssen Sie absolut sicher sein, dass während des Kopiervorgangs niemand auf das Projektarchiv zugreift. Das bedeutet wirklich <emphasis>jeden</emphasis> Zugriff. Auf ein Projektarchiv wird sogar dann geschrieben, wenn die eigentliche Operation nur lesend ist wie zum Beispiel eine Statusanfrage. Wird auf das Projektarchiv während des Kopiervorgangs zugegriffen (Webbrowser offen, WebSVN, Log Anzeigen, ...) dann ist die Kopie (und damit das Backup) wertlos."
+msgstr "Der einfachste (jedoch nicht empfohlene) Weg ein Backup zu erstellen ist die Projektarchiv-Dateien einfach auf ein Backup-Medium zu kopieren. Wenn Sie dies tun, müssen Sie absolut sicher sein, dass während des Kopiervorgangs niemand auf das Projektarchiv zugreift. Das bedeutet wirklich <emphasis>jeden</emphasis> Zugriff. Auf ein Projektarchiv wird sogar dann geschrieben, wenn die eigentliche Operation nur lesend ist wie zum Beispiel eine Statusanfrage. Wird auf das Projektarchiv während des Kopiervorgangs zugegriffen (Web-Browser offen, WebSVN, Log Anzeigen, ...) dann ist die Kopie (und damit das Backup) wertlos."
 
 #: source/en/tsvn_repository/repository_backup.xml:24
 #: (para)
@@ -1648,7 +1648,7 @@ msgstr "Die Datei zu speichern, wie sie in der gewählten Revision ausgesehen ha
 #: source/en/tsvn_dug/dug_showlog.xml:118
 #: (para)
 msgid "Open the repository browser to examine the selected folder. This option is only available when you access the log for a directory."
-msgstr "Den Projektarchiv Browser zu öffnen. Nur möglich wenn der Log-Dialog für ein Verzeichnis gezeigt wird."
+msgstr "Den Projektarchiv-Betrachter zu öffnen. Nur möglich wenn der Log-Dialog für ein Verzeichnis gezeigt wird."
 
 #: source/en/tsvn_dug/dug_showlog.xml:125
 #: (para)
@@ -1726,7 +1726,7 @@ msgstr "Änderungen der gewählten Revision in der gewählten Datei anzuzeigen. 
 #: source/en/tsvn_dug/dug_showlog.xml:222
 #: (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
-msgstr "Öffnen Sie die gewählte Datei entweder mit dem Standardbetrachter für den Dateityp oder mit einem von Ihnen gewählten Programm."
+msgstr "Öffnen Sie die gewählte Datei entweder mit dem Standardprogramm für den Dateityp oder mit einem von Ihnen gewählten Programm."
 
 #: source/en/tsvn_dug/dug_showlog.xml:228
 #: (para)
@@ -1876,7 +1876,7 @@ msgstr "Einstellungen"
 #: source/en/tsvn_dug/dug_settings.xml:7
 #: (para)
 msgid "To find out what the different settings are for, just leave your mouse pointer a second on the editbox/checkbox... and a helpful tooltip will popup."
-msgstr "Um zusätzliche Hilfe für bestimmte Einstellungen zu erhalten, lassen Sie den Mauszeiger eine Sekunde lang über den Eingabefeldern, Optionsfeldern, ... und es wird ein kleiner Tip erscheinen."
+msgstr "Um zusätzliche Hilfe für bestimmte Einstellungen zu erhalten, lassen Sie den Mauszeiger eine Sekunde lang über den Eingabefeldern, Optionsfeldern, ... und es wird ein kleiner Tipp erscheinen."
 
 #: source/en/tsvn_dug/dug_settings.xml:14
 #: (title)
@@ -2028,7 +2028,7 @@ msgstr "Standardmäßig werden die überlagerten Symbole in allen Öffnen/Speich
 #: source/en/tsvn_dug/dug_settings.xml:182
 #: (para)
 msgid "Normally the icon overlays act recursively, which means that the overlay for a folder shows the most significant status of all its subfolders. If there is a modified file deep in the hierarchy, the top level folder will also show modified status to remind you that there are buried changes. If you have <emphasis>very</emphasis> large working copies then you may find that the recursive status feature causes too much disk activity and disruption on your system, although this is not usually a problem. In that case you can uncheck <guilabel>Show overlay status icons recursively</guilabel> so that folder status is shown only for the folder itself."
-msgstr ""
+msgstr "Normalerweise wird der Status mit Hilfe der überlagerten rekursiv dargestellt. Das heißt der wichtigste Status innerhalb einer Ordnerstruktur wird auf dem Ordnersymbol angezeigt. Wenn sich zum Beispiel tief in der Hierarchie modifizierte Dateien befinden, zeigt der oberste Ordner das Symbol für <literal>Geändert</literal> an. Wenn Sie <emphasis>sehr</emphasis> große Arbeitskopien haben, kann das dazu führen, dass die rekursive Statusanzeige zu viel Festplattenaktivität führt. Wenn dieses Verhalten Sie stört, können Sie die Option <guilabel>Zeige überlagerte Symbole rekursiv</guilabel> abschalten, so dass der Ordner nur seinen eigenen Status anzeigt."
 
 #: source/en/tsvn_dug/dug_settings.xml:195
 #: (para)
@@ -2123,7 +2123,7 @@ msgstr "Ab Version 1.2 unterstützen Subversion Server die Möglichkeit eine bes
 #: source/en/tsvn_dug/dug_settings.xml:292
 #: (para)
 msgid "However, if you query a pre-1.2 server using the new API, it will return <emphasis>all</emphasis> log message which the client then filters. This can result in <emphasis>very</emphasis> slow reponses. If you have to work with an older server, you should check this box to avoid the slowdown. The best option of course is to upgrade the server."
-msgstr "Wenn Sie einen Server vor Version 1.2 mit der neuen API ansprechen, wird er <emphasis>alle</emphasis> Log-Meldungen zurückliefern, die der Client dann filtern muss. Dies kann zu <emphasis>sehr</emphasis> langsamen Reaktionen führen. Wenn Sie auf ältere Server zugreifen, sollten Sie diese Option markieren, um die Wartezeit zu vermeiden. Die bessere Option ist natürlich, den Server zu aktuialisieren."
+msgstr "Wenn Sie einen Server vor Version 1.2 mit der neuen API ansprechen, wird er <emphasis>alle</emphasis> Log-Meldungen zurückliefern, die der Client dann filtern muss. Dies kann zu <emphasis>sehr</emphasis> langsamen Reaktionen führen. Wenn Sie auf ältere Server zugreifen, sollten Sie diese Option markieren, um die Wartezeit zu vermeiden. Die bessere Option ist natürlich, den Server zu aktualisieren."
 
 #: source/en/tsvn_dug/dug_settings.xml:303
 #: (term)
@@ -2158,7 +2158,7 @@ msgstr "Dateinamen und Schlüsselwörter automatisch vervollständigen"
 #: source/en/tsvn_dug/dug_settings.xml:344
 #: (para)
 msgid "The commit dialog includes a facility to parse the list of filenames being committed. When you type the first 3 letters of an item in the list, the autocompletion box pops up, and you can press Enter to complete the filename. Check the box to enable this feature."
-msgstr "Der Übertragen Dialog bietet die Möglichkeit, die zu übertragenden Dateien nach Schlüsselwörtern zu durchsuchen. Wenn Sie die ersten drei Zeichen eines gefundenen Eintrags eigegeben haben, erscheint eine automatische Vervollständigungsliste, aus der Sie mittels <keycap>Enter</keycap> einen Eintrag auswählen können."
+msgstr "Der Übertragen Dialog bietet die Möglichkeit, die zu übertragenden Dateien nach Schlüsselwörtern zu durchsuchen. Wenn Sie die ersten drei Zeichen eines gefundenen Eintrags eingegeben haben, erscheint eine automatische Vervollständigungsliste, aus der Sie mittels <keycap>Enter</keycap> einen Eintrag auswählen können."
 
 #: source/en/tsvn_dug/dug_settings.xml:354
 #: (term)
@@ -2168,7 +2168,7 @@ msgstr "Timeout in Sekunden zum Stop der Datei-Analyse für's automatisch Vervol
 #: source/en/tsvn_dug/dug_settings.xml:356
 #: (para)
 msgid "The autocompletion parser can be quite slow if there are a lot of large files to check. This timeout stops the commit dialog being held up for too long. If you are missing important autocompletion information, you can extend the timeout."
-msgstr "Der Parser für's automatische Vervollständigen kann sehr langsam sein wenn Sie sehr viele und grosse Dateien ausgewählt haben. Dieses Timeout stoppt den Parser und übergibt die bisher gefundenen Daten an die Editor-Box. Wenn Sie wichtige Informationen für's automatisch Vervollständigen vermissen, können Sie hier das Timeout erhöhen."
+msgstr "Der Parser für's automatische Vervollständigen kann sehr langsam sein wenn Sie sehr viele und große Dateien ausgewählt haben. Dieser Timeout stoppt den Parser und übergibt die bisher gefundenen Daten an die Editor-Box. Wenn Sie wichtige Informationen für's automatisch Vervollständigen vermissen, können Sie hier das Timeout erhöhen."
 
 #: source/en/tsvn_dug/dug_settings.xml:365
 #: (term)
@@ -2178,7 +2178,7 @@ msgstr "Rechtschreibkorrektur nicht verwenden wenn tsvn:projectlanguage nicht ge
 #: source/en/tsvn_dug/dug_settings.xml:367
 #: (para)
 msgid "If you don't wish to use the spellchecker for all commits, check this box. The spellchecker will still be enabled where the project properties require it."
-msgstr "Wenn Sie die Rechtschreibkorrektur nicht benutzen möchten, aktivieren Sie diese Checkbox. Die Rechtschreibkorrektur wird trotz dieser Einstellung aktiviert wenn das Projekt dies notwendig macht."
+msgstr "Wenn Sie die Rechtschreibkorrektur nicht benutzen möchten, aktivieren Sie diese Option. Die Rechtschreibkorrektur wird trotz dieser Einstellung aktiviert wenn das Projekt dies notwendig macht."
 
 #: source/en/tsvn_dug/dug_settings.xml:379
 #: (title)
@@ -2298,7 +2298,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_settings.xml:477
 #: (para)
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. TSVN can hide this artificial difference by first parsing the files for keywords before doing the diff operation. However, this can take some time, especially with large files, so this behaviour is optional. If <guilabel>Convert files when diffing against BASE</guilabel> is checked then TSVN will pre-process the files."
-msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter zu expandieren, dann wird ein Diff-Programm immer eine Differenz in dieser Zeile anzeigen. Um dies zu verhindern können Sie  ie Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel> aktivieren. Ist diese Option aktiviert, wird TortoiseSVN die Datei in der Arbeitskopie zuerst so konvertieren, dass die Schlüsselwörter nicht mehr expandiert sind. Da dies für große Dateien einige Zeit dauern kann ist diese Funktion optional. Die Standard-Einstellung ist die Dateien nicht zu konvertieren um Zeit zu sparen."
+msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter zu expandieren, dann wird ein Diff-Programm immer eine Differenz in dieser Zeile anzeigen. Um dies zu verhindern können Sie die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel> aktivieren. Ist diese Option aktiviert, wird TortoiseSVN die Datei in der Arbeitskopie zuerst so konvertieren, dass die Schlüsselwörter nicht mehr expandiert sind. Da dies für große Dateien einige Zeit dauern kann ist diese Funktion optional. Die Standard-Einstellung ist die Dateien nicht zu konvertieren um Zeit zu sparen."
 
 #: source/en/tsvn_dug/dug_settings.xml:491
 #: (title)
@@ -2559,7 +2559,7 @@ msgstr "Der <menuchoice> <guimenuitem>Rückgängig</guimenuitem> </menuchoice> B
 #: (title)
 #: source/en/tsvn_dug/dug_repobrowser.xml:14
 msgid "The Repository Browser"
-msgstr "Projektarchiv-Browser"
+msgstr "Projektarchiv-Betrachter"
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:5
 #: (primary)
@@ -3461,7 +3461,7 @@ msgstr ""
 #: source/en/tsvn_dug/dug_import.xml:142
 #: (para)
 msgid "You can also use the repository browser to create new folders directly in the repository."
-msgstr "Sie können auch den Projektarchiv Betrachter benutzen, um neue Ordner direkt im Projektarchiv zu erstellen."
+msgstr "Sie können auch den Projektarchiv-Betrachter benutzen, um neue Ordner direkt im Projektarchiv zu erstellen."
 
 #: source/en/tsvn_dug/dug_import.xml:148
 #: (title)
@@ -3693,7 +3693,7 @@ msgid "If the repository that you are trying to access is password protected, an
 msgstr ""
 "Wenn das Projektarchiv, auf das Sie zugreifen wollen, passwortgeschützt ist, erscheint folgender Anmeldedialog\n"
 "<placeholder-1/>\n"
-"Geben Sie Ihren Benutzernamen und Ihr Kennwort ein. Die Checkbox bewirkt, dass TortoiseSVN die Anmeldeinformationen im Subversions Konfigurationsverzeichnis <filename>$APPDATA\\Subversion\\auth</filename> ablegt. Pro Server, auf den Sie zugreifen, wird in diesem Verzeichnis eine Datei angelegt. Falls Sie wollen, dass TortoiseSVN und Subversion diese Anmeldeinformation wieder vergessen, müssen sie die entsprechende(n) Datei(en) löschen."
+"Geben Sie Ihren Benutzernamen und Ihr Kennwort ein. Die Option bewirkt, dass TortoiseSVN die Anmeldeinformationen im Subversions Konfigurationsverzeichnis <filename>$APPDATA\\Subversion\\auth</filename> ablegt. Pro Server, auf den Sie zugreifen, wird in diesem Verzeichnis eine Datei angelegt. Falls Sie wollen, dass TortoiseSVN und Subversion diese Anmeldeinformation wieder vergessen, müssen sie die entsprechende(n) Datei(en) löschen."
 
 #: source/en/tsvn_dug/dug_general.xml:58
 #: (para)
@@ -4153,12 +4153,12 @@ msgstr "Sie können nur in einen leeren Ordner auschecken. Wenn Sie in einen vor
 #: source/en/tsvn_dug/dug_checkout.xml:38
 #: (para)
 msgid "If you want to check out the top level folder only and omit all sub-folders, use the <guilabel>Only check out the top folder</guilabel> checkbox."
-msgstr "Wenn Sie nur den ersten Ordner auschecken möchten ohne Unterordner, benutzen Sie die <guilabel>Nur den obersten Ordner auschecken</guilabel> Checkbox."
+msgstr "Wenn Sie nur den ersten Ordner auschecken möchten ohne Unterordner, aktivieren Sie die <guilabel>Nur den obersten Ordner auschecken</guilabel> Option."
 
 #: source/en/tsvn_dug/dug_checkout.xml:42
 #: (para)
 msgid "If the project contains references to external projects which you do <emphasis>not</emphasis> want checked out at the same time, use the <guilabel>Omit externals</guilabel> checkbox."
-msgstr "Wenn das Projekt Verweise auf externe Projekte enthält welche Sie <emphasis>nicht</emphasis> mit auschecken möchten, benützen Sie die <guilabel>Externals auslassen</guilabel> checkbox."
+msgstr "Wenn das Projekt Verweise auf externe Projekte enthält welche Sie <emphasis>nicht</emphasis> mit auschecken möchten, aktivieren Sie die <guilabel>Externals auslassen</guilabel> Option."
 
 #: source/en/tsvn_dug/dug_checkout.xml:48
 #: (para)
@@ -4228,7 +4228,7 @@ msgstr "Oder TortoiseSVN kann, während der Benutzer die Log-Meldung eingibt die
 #: source/en/tsvn_dug/dug_bugtracker.xml:39
 #: (para)
 msgid "When the user browses the log messages, TortoiseSVN creates a link out of each bug ID in the log message which fires up the browser to the issue mentioned."
-msgstr "Wenn der Benutzer die Log-Meldungen im Log Dialog ansieht, kann TortoiseSVN einen Verweis zum Eintrag erstellen und damit durch einen Klick den Browser gleich auf die entsprechende Seite führen."
+msgstr "Wenn der Benutzer die Log-Meldungen im Log Dialog ansieht, kann TortoiseSVN einen Verweis zum Eintrag erstellen und damit durch einen Klick den Web-Browser gleich auf die entsprechende Seite führen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:22
 #: (para)
@@ -5038,7 +5038,7 @@ msgstr "Auswahl an Netzwerkschichten"
 #: source/en/tsvn_introduction.xml:182
 #: (para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
-msgstr "Subversion hat einen abstrakten Begriff des Zugriffs auf das Projektarchiv, der es einfach macht, neue Netzwerkschichten zu implementieren. Subversions fortgeschrittenster Netzwerkserver ist ein Modul für den Apache Webserver, welcher eine Variante von HTTP genannt WebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil an Stabilität und Interoperabilität, und stellt verschiedene Schlüsselfunktionen gratis zur Verfügung: Anmeldung, Autorisierung, Netzwerkdatenkompression, Verschlüsselung via SSL und das Betrachten des Projektarchivs in einem Internetbrowser zum Beispiel. Ein kleinerer Subversion Server ist ebenfalls vorhanden. Dieser Server nutzt ein eigenes Netzwerkprotokoll, welches über SSH getunnelt werden kann."
+msgstr "Subversion hat einen abstrakten Begriff des Zugriffs auf das Projektarchiv, der es einfach macht, neue Netzwerkschichten zu implementieren. Subversions fortgeschrittenster Netzwerkserver ist ein Modul für den Apache Webserver, welcher eine Variante von HTTP genannt WebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil an Stabilität und Interoperabilität, und stellt verschiedene Schlüsselfunktionen gratis zur Verfügung: Anmeldung, Autorisierung, Netzwerkdatenkompression, Verschlüsselung via SSL und das Betrachten des Projektarchivs in einem Web-Browser zum Beispiel. Ein kleinerer Subversion Server ist ebenfalls vorhanden. Dieser Server nutzt ein eigenes Netzwerkprotokoll, welches über SSH getunnelt werden kann."
 
 #: source/en/tsvn_introduction.xml:199
 #: (term)
@@ -6000,7 +6000,7 @@ msgid ""
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n"
 "</screen> Of course you need to include the real repository URL."
 msgstr ""
-"Wenn Sie den Projektarchivbrowser immer wieder benötigen um ein bestimmtes Projektarchiv anzuzeigen, dann können Sie auch eine Verknüpfung auf dem Desktop erstellen und die benötigten Parameter direkt an TortoiseProc.exe übergeben.Erstellen Sie einfach eine Verknüpfung und setzen Sie das Ziel auf: <screen>\n"
+"Wenn Sie den Projektarchiv-Betrachter immer wieder benötigen, um ein bestimmtes Projektarchiv anzuzeigen, dann können Sie auch eine Verknüpfung auf dem Desktop erstellen und die benötigten Parameter direkt an TortoiseProc.exe übergeben.Erstellen Sie einfach eine Verknüpfung und setzen Sie das Ziel auf: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/zum/projektarchiv\" /notempfile\n"
 "</screen>Natürlich müssen Sie eine echte URL eingeben."
 
