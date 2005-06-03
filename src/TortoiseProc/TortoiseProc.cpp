@@ -393,7 +393,9 @@ BOOL CTortoiseProcApp::InitInstance()
 
 			time(&now);
 			ptm = localtime(&now);
-			int week = ptm->tm_yday / 7;
+			int week = 0;
+			if (ptm)
+				week = ptm->tm_yday / 7;
 
 			CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
 			if (((DWORD)oldweek) == -1)
