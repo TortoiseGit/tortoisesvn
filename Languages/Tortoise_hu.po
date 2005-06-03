@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN 1.1.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-31 19:24+0100\n"
+"PO-Revision-Date: 2005-06-03 13:53+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: Szente-Varga Bálint <info@bociusz.hu>\n"
 "MIME-Version: 1.0\n"
@@ -1889,6 +1889,11 @@ msgstr "Ne fűzze bele az állapotot a tartalom menübe"
 msgid "Don't show this message again"
 msgstr "Ne mutassa mégegyszer ezt az üzenetet"
 
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "Ne használja a helyesírás ellenőrzőt, ha a tsvn:projectlanguage nem aktív"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -2628,11 +2633,6 @@ msgstr "A zár tulajdonosa:"
 msgid "Lock stolen by %s"
 msgstr "A zárt ellopta %s"
 
-# ID:195,
-#: ID:195
-msgid "Locked"
-msgstr "Zárolva"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2825,11 +2825,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Eredeti Fájlrendszer (FSFS)"
-
-# ID:195,
-#: ID:195
-msgid "Needs Lock"
-msgstr "Zárt igényel"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -5260,6 +5255,7 @@ msgstr "befejezetlen"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "zárolva"
@@ -5309,6 +5305,11 @@ msgstr "képpontok"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "re&krúzív"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "csak olvasható"
 
 # ID:10,
 #: ID:10
