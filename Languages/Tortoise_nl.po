@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-30 15:42+0100\n"
+"PO-Revision-Date: 2005-06-02 20:21+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1528,6 +1528,10 @@ msgstr "Geen status ophalen voor het tonen van het contextmenu"
 msgid "Don't show this message again"
 msgstr "Deze boodschap niet meer tonen"
 
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "Gebruik geen spellingscontrole als tsvn:projectlanguage geen waarde heeft"
+
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Type station"
@@ -2127,10 +2131,6 @@ msgstr "Blokkade-eigenaar:"
 msgid "Lock stolen by %s"
 msgstr "Blokkade gestolen door %s"
 
-#: ID:195
-msgid "Locked"
-msgstr "Geblokkeerd"
-
 #: ID:263
 msgid "Locked by %s"
 msgstr "Geblokkeerd door %s"
@@ -2268,6 +2268,10 @@ msgstr "%s wordt verplaatst"
 msgid "Moving..."
 msgstr "Verplaatsen..."
 
+#: Control-ID:65535
+msgid "My File:"
+msgstr "Mijn bestand:"
+
 #: MenuEntry
 msgid "N&ext Conflict"
 msgstr "&Volgend conflict"
@@ -2279,10 +2283,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Bestandsysteem (FSFS)"
-
-#: ID:195
-msgid "Needs Lock"
-msgstr "Vereist blokkade"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -3187,8 +3187,8 @@ msgstr ""
 "Wissel knoppenbalk"
 
 #: Control-ID:1223
-msgid "Show overlay status icons recursive"
-msgstr "Toon recursieve overlay status"
+msgid "Show overlay status icons recursively"
+msgstr "Toon recursieve status in overlays"
 
 #: ID:2049
 msgid ""
@@ -3947,20 +3947,20 @@ msgid "Use strikeout for deleted lines"
 msgstr "Gebruik doorhalen voor verwijderde regels"
 
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "Gebruik tekstgedeelte uit \"&mijn\""
+
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Gebruik tekstgedeelte van \"h&un\""
 
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "Gebruik tekstgedeelte van \"&jouw\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Gebruik tekstgedeelte uit \"m&ijn\" vóór \"hun\""
 
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Gebruik tekstgedeelte van \"&hun\" voor dat van \"jouw\""
-
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Gebruik tekstgedeelte van \"j&ouw\" voor dat van \"hun\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Gebruik tekstgedeelte uit \"&hun\" vóór  \"mijn\""
 
 #: ID:251
 msgid "Use th&is text block"
@@ -3991,7 +3991,7 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
@@ -3999,7 +3999,7 @@ msgstr ""
 "Geldige parameters zijn:\n"
 "/base:<pad naar basisbestand>\n"
 "/theirs:<pad naar hun bestand>\n"
-"/yours:<pad naar jouw bestand>\n"
+"/mine:<pad naar jouw bestand>\n"
 "/merged:<pad naar resultaatbestand>\n"
 "/diff:<pad naar unified-diff bestand>\n"
 "/patchpath:<pad naar map>"
@@ -4111,10 +4111,6 @@ msgid ""
 msgstr ""
 "De pictogrammenset is gewijzigd van <i>%s</i> in <i>%s</i>.\n"
 "Deze wijziging heeft pas effect nadat u zich opnieuw heeft aangemeld of de computer heeft herstart!"
-
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "Uw bestand:"
 
 #: ID:78
 msgid ""
@@ -4264,6 +4260,7 @@ msgid "incomplete"
 msgstr "onvolledig"
 
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "geblokkeerd"
@@ -4303,6 +4300,10 @@ msgstr "pixels"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "re&cursief"
+
+#: ID:195
+msgid "readonly"
+msgstr "alleen lezen"
 
 #: ID:10
 msgid "replaced"

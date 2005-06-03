@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-23 15:51+0100\n"
+"PO-Revision-Date: 2005-06-02 21:10+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1038,6 +1038,15 @@ msgstr "Chiudi automaticamente se non ci sono fusioni, aggiunte o eliminazioni"
 msgid "Autoclose:"
 msgstr "Chiusora automatica:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"L'autocompletamento suggerisce parole (di solito classi o nomi di membri)\n"
+"dai file che sono stati modificati durante la digitazione dei commenti."
+
 # ID:201,
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1775,6 +1784,15 @@ msgstr "Confronta"
 msgid "Directory:"
 msgstr "Directory:"
 
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"Disabilitare questa opzione se si hanno delle grandi copie di lavoro e se si\n"
+" nota un accesso eccessivo al disco durante la navigazione nella copia di lavoro."
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -1881,6 +1899,11 @@ msgstr "Non recuperare lo stato dei menu contestuali"
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Non visualizzare più questo messaggio"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "Non utilizzare il controllo grammaticale se tsvn:projectlanguage non è impostato"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -2623,12 +2646,6 @@ msgstr "Bloccato da:"
 msgid "Lock stolen by %s"
 msgstr "Blocco forzato da %s"
 
-# ID:11,#:
-# Control-ID:1002,
-#: ID:195
-msgid "Locked"
-msgstr "Bloccato"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2802,6 +2819,11 @@ msgstr "Spostamento di %s"
 msgid "Moving..."
 msgstr "Spostamento..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "My File:"
+msgstr "Mio file:"
+
 # ID:12,
 #: MenuEntry
 msgid "N&ext Conflict"
@@ -2816,11 +2838,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Filesystem nativo (FSFS)"
-
-# Control-ID:1203,
-#: ID:195
-msgid "Needs Lock"
-msgstr "Necessita blocco"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -2953,6 +2970,7 @@ msgid "OVR"
 msgstr "OVR"
 
 # ID:13,
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "Tralascia esterni"
@@ -3970,6 +3988,11 @@ msgstr ""
 "Mostra/Nascondi la barra degli strumenti\n"
 "Barra degli strumenti"
 
+# Control-ID:1223,
+#: Control-ID:1223
+msgid "Show overlay status icons recursively"
+msgstr "Visualizza le icone di stato ricorsivamente"
+
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -4433,6 +4456,17 @@ msgstr ""
 "La cartella non è vuota!\n"
 "Si è sicuri di voler procedere al ritiro o all'esportazione in questa cartella?"
 
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"Il tempo, in secondi, dopo il quale l'analisi del file selezionato viene interrotta.\n"
+"Un valore basso renderà la lista d'autocompletamento disponibile più velocemente,\n"
+"ma potrebbe non analizzare tutti i file."
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -4532,6 +4566,11 @@ msgstr "Questa proprietà deve avere più linee. Una sola non è consentita."
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Confronto su tre file"
+
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Tempo (in secondi) per interrompere l'analisi d'autocompletamento"
 
 # Control-ID:1052,
 #: Control-ID:1052
@@ -4863,8 +4902,8 @@ msgstr "Completa automaticamente percorsi e parole chiave"
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
-msgstr "Itilizza le API vecchie per visualizzare i commenti"
+msgid "Use old APIs to fetch log messages"
+msgstr "Utilizza le API vecchie per visualizzare i commenti"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -4878,23 +4917,23 @@ msgstr "Barra le linee eliminate"
 
 # ID:251,
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "Usa il blocco di testo dal \"&mio\""
+
+# ID:251,
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Usa il blocco di testo dal \"&loro\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "Usa blocco di testo dal \"&tuo\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Usa blocco di testo dal \"m&io\" prima del \"loro\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"tuo\""
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Usa blocco di testo dal \"t&uo\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"mio\""
 
 # ID:251,
 #: ID:251
@@ -4932,15 +4971,15 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
-"Nella linea di comando sono valide le seguenti opzioni:\n"
+"Le opzioni valide della linea di comando sono:\n"
 "/base:<percorso del file base>\n"
 "/theirs:<percorso del loro file>\n"
-"/yours:<percorso del file locale>\n"
+"/mine:<percorso del file locale>\n"
 "/merged:<percorso del file risultato dalla fusione>\n"
 "/diff:<percorso del file di confronto>\n"
 "/patchpath:<percorso della cartella>"
@@ -5071,11 +5110,6 @@ msgid ""
 msgstr ""
 "Hai cambiato il set di icone da <i>%s</i> a <i>%s</i>.\n"
 "Il cambiamento non avrà effetto fino al prossimo riavvio del compiuter o fino alla prossima disconnessione dell'utente."
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "Tuo file:"
 
 # ID:78,
 #: ID:78
@@ -5252,6 +5286,7 @@ msgstr "incompleto"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "bloccato"
@@ -5302,10 +5337,20 @@ msgstr "pixel"
 msgid "re&cursive"
 msgstr "ri&corsivo"
 
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "solo lettura"
+
 # ID:10,
 #: ID:10
 msgid "replaced"
 msgstr "sostituito"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "richiede un nome utente e una password"
 
 # Control-ID:1023,#:
 # Control-ID:1023,

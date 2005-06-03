@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-01 00:26+0100\n"
+"PO-Revision-Date: 2005-06-02 17:11+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2234,10 +2234,6 @@ msgstr "Dueño del bloqueo:"
 msgid "Lock stolen by %s"
 msgstr "Bloqueo robado por %s"
 
-#: ID:195
-msgid "Locked"
-msgstr "Bloqueado"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2406,11 +2402,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Native Filesystem (FSFS)"
-
-# ID:195,
-#: ID:195
-msgid "Needs Lock"
-msgstr "Necesita Bloqueo"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -2756,7 +2747,7 @@ msgstr "Estado de las Propiedades:"
 
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
-msgstr "&Tiempo de espera de Proxy en segundos:"
+msgstr "&Tiempo límite del proxy en segundos:"
 
 #: Control-ID:1080
 msgid "Proxy Settings"
@@ -4157,7 +4148,7 @@ msgstr "Usar tachado para líneas borradas"
 
 #: ID:251
 msgid "Use text block from \"&mine\""
-msgstr "Utilizar bloque de texto \"mío\""
+msgstr "Utilizar bloque de texto \"&mío\""
 
 #: ID:251
 msgid "Use text block from \"&theirs\""
@@ -4165,11 +4156,11 @@ msgstr "Utilizar bloque de texto \"de &otros\""
 
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Utilizar bloque de texto \"&mío\" antes del \"de otros\""
+msgstr "Utilizar bloque de texto \"mío\" &antes del \"de otros\""
 
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Utilizar bloque de texto \"de otros\" antes del \"mío\""
+msgstr "Utilizar bloque de texto \"de o&tros\" antes del \"mío\""
 
 #: ID:251
 msgid "Use th&is text block"
@@ -4487,6 +4478,7 @@ msgid "incomplete"
 msgstr "incompleto"
 
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "bloqueado"
@@ -4529,6 +4521,11 @@ msgstr "píxeles"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "re&cursivo"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "sólo-lectura"
 
 #: ID:10
 msgid "replaced"

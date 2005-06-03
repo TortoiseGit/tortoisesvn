@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-05-30 10:14+0800\n"
+"PO-Revision-Date: 2005-06-03 10:57+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1902,6 +1902,11 @@ msgstr "不抓取右鍵選單的狀態"
 msgid "Don't show this message again"
 msgstr "不再顯示此訊息"
 
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
+msgstr "未設定 tsvn:projectlanguage 時不使用拼字檢查"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -2641,12 +2646,6 @@ msgstr "鎖定持有人:"
 msgid "Lock stolen by %s"
 msgstr "鎖定被 %s 取得"
 
-# ID:11,#:
-# Control-ID:1002,
-#: ID:195
-msgid "Locked"
-msgstr "鎖定"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2820,6 +2819,11 @@ msgstr "正在移動 %s"
 msgid "Moving..."
 msgstr "正在移動..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "My File:"
+msgstr "我的檔案:"
+
 # ID:12,
 #: MenuEntry
 msgid "N&ext Conflict"
@@ -2834,11 +2838,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "原生檔案系統(FSFS)"
-
-# ID:16,
-#: ID:195
-msgid "Needs Lock"
-msgstr "需要鎖定"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -3990,8 +3989,8 @@ msgstr ""
 
 # Control-ID:1088,
 #: Control-ID:1223
-msgid "Show overlay status icons recursive"
-msgstr "遞迴顯示圖示覆蓋(&O)"
+msgid "Show overlay status icons recursively"
+msgstr "遞迴顯示圖示覆蓋"
 
 # ID:2049,
 #: ID:2049
@@ -4913,23 +4912,23 @@ msgstr "用雙刪除線表示已刪除行"
 
 # ID:251,
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "使用本地(&mime)的文字區塊"
+
+# ID:251,
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "使用遠端(&theirs)的文字區塊"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "使用本地檔案(&yours)的文字區塊"
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "優先使用本地(m&ine)的而非遠端(theirs)的文字區塊"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "優先使用遠端(t&heirs)的而非本地(yours)的文字區塊"
-
-# ID:251,
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "優先使用本地(y&ours)的而非遠端(theirs)的文字區塊"
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "優先使用遠端(t&heirs)的而非本地(mine)的文字區塊"
 
 # ID:251,
 #: ID:251
@@ -4967,15 +4966,15 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
 "可用的命令列選項有:\n"
-"/base:<基礎檔的路徑>\n"
+"/base:<基礎檔案的路徑>\n"
 "/theirs:<檔案庫檔案的路徑>\n"
-"/yours:<本地檔案的路徑>\n"
+"/mine:<本地檔案的路徑>\n"
 "/merged:<合併後檔案的路徑>\n"
 "/diff:<單一差異檔的路徑>\n"
 "/patchpath:<資料夾路徑>"
@@ -5108,11 +5107,6 @@ msgid ""
 msgstr ""
 "你已經將圖示組從 <i>%s</i> 變更為 <i>%s</i>.\n"
 "在重新登出登入或是重新開機之前變更並不會生效!"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "本地檔案:"
 
 # ID:78,
 #: ID:78
@@ -5291,6 +5285,7 @@ msgstr "未完成"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "鎖定"
@@ -5340,6 +5335,11 @@ msgstr "圖素"
 #: Control-ID:1018
 msgid "re&cursive"
 msgstr "遞迴(&C)"
+
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "唯讀"
 
 # ID:10,
 #: ID:10
