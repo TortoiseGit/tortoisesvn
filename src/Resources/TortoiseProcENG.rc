@@ -894,8 +894,8 @@ BEGIN
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
                     WS_BORDER | WS_TABSTOP,12,19,274,172
-    CONTROL         "Don't fetch status for context menu",IDC_SIMPLECONTEXT,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,195,274,10
+    CONTROL         "Fetch status for context menu",IDC_SIMPLECONTEXT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,195,274,10
 END
 
 IDD_SETTINGSDIALOGS DIALOGEX 0, 0, 300, 217
@@ -931,7 +931,7 @@ BEGIN
                     IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,175,231,8,SS_NOTIFY
     EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,172,31,14,ES_AUTOHSCROLL | 
                     ES_NUMBER,WS_EX_RIGHT
-    CONTROL         "Don't use spellchecker if tsvn:projectlanguage is not set",
+    CONTROL         "Only use spellchecker when tsvn:projectlanguage is set",
                     IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,188,
                     271,10
 END

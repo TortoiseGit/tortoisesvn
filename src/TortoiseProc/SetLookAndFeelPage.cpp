@@ -29,11 +29,11 @@ IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, CPropertyPage)
 CSetLookAndFeelPage::CSetLookAndFeelPage()
 	: CPropertyPage(CSetLookAndFeelPage::IDD)
 	, m_bInitialized(FALSE)
-	, m_bSimpleContext(FALSE)
+	, m_bSimpleContext(TRUE)
 {
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	m_topmenu = m_regTopmenu;
-	m_regSimpleContext = CRegDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
+	m_regSimpleContext = CRegDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), TRUE);
 	m_bSimpleContext = m_regSimpleContext;
 }
 

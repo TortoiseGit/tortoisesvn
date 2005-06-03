@@ -40,7 +40,7 @@ CSetDialogs::CSetDialogs()
 	, m_sFontName(_T(""))
 	, m_bInitialized(FALSE)
 	, m_dwAutocompletionTimeout(0)
-	, m_bSpell(FALSE)
+	, m_bSpell(TRUE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -50,7 +50,7 @@ CSetDialogs::CSetDialogs()
 	m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
 	m_regOldLogAPIs = CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
 	m_regAutocompletionTimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
-	m_regSpell = CRegDWORD(_T("Software\\TortoiseSVN\\NoSpellchecker"), FALSE);
+	m_regSpell = CRegDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), TRUE);
 }
 
 CSetDialogs::~CSetDialogs()
