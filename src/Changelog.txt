@@ -4,6 +4,9 @@
        selected. See issue #92.
 - BUG: Lock dialog could show folders. See issue #93.
 - BUG: Commit dialog could crash when sorting. See issue #99.
+- BUG: Installation for All Users didn't work properly. (Stefan)
+- BUG: A file:/// path wasn't recognized as a valid windows path
+       and a warning was shown even if the path was valid. (Stefan)
 
 Version 1.2
 

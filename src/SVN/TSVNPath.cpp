@@ -535,7 +535,14 @@ bool CTSVNPath::IsValidOnWindows() const
 	EnsureBackslashPathSet();
 	CString sMatch = m_sBackslashPath + _T("\r\n");
 	rpattern pat;
-	if (IsUrl())
+	// the 'file://' URL is just a normal windows path:
+	if (sMatch.Left(7).CompareNoCase(_T("file:\\\\"))==0)
+	{
+		sMatch = sMatch.Mid(7);
+		sMatch.TrimLeft(_T("\\"));
+		pat.init(_T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
+	}
+	else if (IsUrl())
 	{
 		pat.init(_T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
 	}
@@ -1046,6 +1053,8 @@ private:
 		testPath.SetFromSVN(_T("svn+ssh://www.myserver.com/repos/trunk"));
 		ATLASSERT(testPath.IsValidOnWindows());
 		testPath.SetFromSVN(_T("http://localhost:90/repos/trunk"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("file:///C:/SVNRepos/Tester/Proj1/tags/t2"));
 		ATLASSERT(testPath.IsValidOnWindows());
 		// and some negative URL tests
 		testPath.SetFromSVN(_T("httpp://myserver.com/repos/trunk"));
