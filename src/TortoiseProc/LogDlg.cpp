@@ -350,7 +350,6 @@ void CLogDlg::OnCancel()
 BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies)
 {
 	int found = 0;
-	m_LogList.SetRedraw(FALSE);
 	m_logcounter += 1;
 	if (m_startrev == -1)
 		m_startrev = rev;
@@ -361,8 +360,6 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	}
 	else
 		m_LogProgress.SetPos(m_startrev-rev+m_endrev);
-	int count = m_LogList.GetItemCount();
-	int lastvisible = m_LogList.GetCountPerPage();
 	__time64_t ttime = time/1000000L;
 	if (m_tTo < (DWORD)ttime)
 		m_tTo = (DWORD)ttime;
@@ -428,10 +425,6 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	m_arShownList.Add(pLogItem);
 	
 	m_LogList.SetItemCountEx(m_arShownList.GetCount());
-	if (count < lastvisible)
-	{
-		m_LogList.SetRedraw();
-	}
 	return TRUE;
 }
 
