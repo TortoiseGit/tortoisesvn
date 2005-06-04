@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-06-01 13:46GMT Daylight Time\n"
+"POT-Creation-Date: 2005-06-04 21:57GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1765,11 +1765,15 @@ msgstr ""
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file. Only that way the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and an update of your coworkers won't remove the old file."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:86(title) 
+#: source/en/tsvn_dug/dug_rename.xml:84(para) 
+msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_rename.xml:91(title) 
 msgid "Getting a deleted file or folder back"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:87(para) 
+#: source/en/tsvn_dug/dug_rename.xml:92(para) 
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
 msgstr ""
 

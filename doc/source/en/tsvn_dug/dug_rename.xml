@@ -81,6 +81,11 @@
 			part of the rename/move, it will stay behind in the repository
 			and an update of your coworkers won't remove the old file.
 		</para>
+		<para>
+			You <emphasis>must</emphasis> commit a folder rename before
+			changing any of the files inside the folder, otherwise your
+			working copy can get really messed up.
+		</para>
 	</caution>
 	<tip>
 		<title>Getting a deleted file or folder back</title>
