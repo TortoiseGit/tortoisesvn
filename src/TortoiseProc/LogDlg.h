@@ -122,6 +122,7 @@ protected:
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDtnDatetimechangeDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedNexthundred();
 	virtual void OnCancel();
 	virtual void OnOK();
@@ -150,7 +151,9 @@ private:
 	void SetFilterCueText();
 	BOOL IsEntryInDateRange(int i);
 	void CopySelectionToClipBoard();
-	
+    void SortShownListArray();
+    void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
+	 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
 public:
@@ -170,17 +173,8 @@ private:
 	BOOL				m_bCancelled;
 	BOOL				m_bThreadRunning;
 	BOOL				m_bStrict;
-	CStringArray		m_arLogMessages;
-	CStringArray		m_arShortLogMessages;
-	CArray<LogChangedPathArray*, LogChangedPathArray*> m_arLogPaths;
 	LogChangedPathArray* m_currentChangedArray;
-	CDWordArray			m_arDates;
-	CStringArray		m_arDateStrings;
-	CStringArray		m_arAuthors;
-	CDWordArray			m_arFileChanges;
-	CDWordArray			m_arRevs;
-	CDWordArray			m_arCopies;
-	CDWordArray			m_arShownList;
+	CPtrArray			m_arShownList;
 	BOOL				m_hasWC;
 	int					m_nSearchIndex;
 	static const UINT	m_FindDialogMessage;
@@ -201,6 +195,110 @@ private:
 	int					m_limitcounter;
 	CBitmapButton		m_cFilterCancelButton;
 	CBitmapButton		m_cFilterIcon;
+	int                 m_nSortColumn;
+	BOOL                m_bAscending;
+private:
+    typedef struct LogEntryData
+    {   
+        DWORD dwRev;
+        __time64_t tmDate;
+        CString sDate;
+        CString sAuthor;
+        CString sMessage;
+        CString sShortMessage;
+        DWORD dwFileChanges;
+        LogChangedPathArray* pArChangedPaths;
+        BOOL bCopies;
+    } LOGENTRYDATA, *PLOGENTRYDATA;
+    class CLogDataVector : 
+        public std::vector<PLOGENTRYDATA>
+    {
+    public:
+        // De-allocate log items.
+        void ClearAll()
+        {
+            if(size() > 0)
+            {
+                for(iterator it=begin(); it!=end(); ++it)
+                {
+                    LogChangedPathArray * pPaths = (*it)->pArChangedPaths;
+                    for(INT_PTR j=0; j<pPaths->GetCount(); ++j)
+                    {
+                        delete pPaths->GetAt(j);
+                    }
+                    pPaths->RemoveAll();
+                    delete pPaths;
+                    
+                    delete *it;
+                }     
+                clear();
+            }
+        }
+        // Ascending date sorting.
+        struct AscDateSort
+        {
+            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+            {
+                return pStart->tmDate < pEnd->tmDate;
+            }
+        };
+        // Descending date sorting.
+        struct DescDateSort
+        {
+            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+            {
+                return pStart->tmDate > pEnd->tmDate;
+            }
+        };
+        // Ascending revision sorting.
+        struct AscRevSort
+        {
+            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+            {
+                return pStart->dwRev < pEnd->dwRev;
+            }
+        };
+        // Descending revision sorting.
+        struct DescRevSort
+        {
+            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+            {
+                return pStart->dwRev > pEnd->dwRev;
+            }
+        };
+        // Ascending author sorting.
+        struct AscAuthorSort
+        {
+            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+            {
+                return pStart->sAuthor < pEnd->sAuthor;
+            }
+        };
+        // Descending author sorting.
+        struct DescAuthorSort
+        {
+            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+            {
+                return pStart->sAuthor > pEnd->sAuthor;
+            }
+        };
+        // Ascending message sorting.
+        struct AscMessageSort
+        {
+            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+            {
+                return pStart->sShortMessage < pEnd->sShortMessage;
+            }
+        };
+        // Descending message sorting.
+        struct DescMessageSort
+        {
+            bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+            {
+                return pStart->sShortMessage > pEnd->sShortMessage;
+            }
+        };
+    };
+    CLogDataVector m_logEntries;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
-
