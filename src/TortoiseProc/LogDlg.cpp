@@ -2642,29 +2642,14 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::SortShownListArray()
 {
-    CPtrArray arTempShownList;
-    arTempShownList.SetSize(m_arShownList.GetCount());
-    INT_PTR nSizeCounter = 0;
-    for(std::vector<PLOGENTRYDATA>::iterator it=m_logEntries.begin(); it!=m_logEntries.end(); it++)
-    {
-        for(INT_PTR i=0; i<m_arShownList.GetCount(); i++)
-        {
-            PLOGENTRYDATA pLogEntry = 
-                reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
-            if(*it == pLogEntry)
-            {
-				m_LogList.SetItemState(nSizeCounter, 0, LVIS_SELECTED);
-                arTempShownList[nSizeCounter++] = pLogEntry;
-                break;
-            }
-        }
-    }     
-    m_arShownList.RemoveAll();
-    m_arShownList.SetSize(arTempShownList.GetCount());
-    for(INT_PTR i=0; i<arTempShownList.GetCount(); i++)
-    {
-        m_arShownList[i] = arTempShownList.GetAt(i);
-    }
+	// make sure the shown list still matches the filter after sorting.
+    OnTimer(LOGFILTER_TIMER);
+    // clear the selection states
+	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+	while (pos)
+	{
+		m_LogList.SetItemState(m_LogList.GetNextSelectedItem(pos), 0, LVIS_SELECTED);
+	}    
 	m_LogList.SetSelectionMark(-1);
 }
 
