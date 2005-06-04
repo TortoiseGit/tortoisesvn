@@ -2594,7 +2594,7 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	const int nColumn = pNMLV->iSubItem;
 	m_bAscending = nColumn == m_nSortColumn ? !m_bAscending : TRUE;
-	m_nSortColumn = nColumn;
+	m_nSortColumn = nColumn;	
 	switch(m_nSortColumn)
 	{
 	    case 0: // Revision
@@ -2653,6 +2653,7 @@ void CLogDlg::SortShownListArray()
                 reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
             if(*it == pLogEntry)
             {
+				m_LogList.SetItemState(nSizeCounter, 0, LVIS_SELECTED);
                 arTempShownList[nSizeCounter++] = pLogEntry;
                 break;
             }
@@ -2664,6 +2665,7 @@ void CLogDlg::SortShownListArray()
     {
         m_arShownList[i] = arTempShownList.GetAt(i);
     }
+	m_LogList.SetSelectionMark(-1);
 }
 
 void CLogDlg::SetSortArrow(CListCtrl * control, int nColumn, bool bAscending)
