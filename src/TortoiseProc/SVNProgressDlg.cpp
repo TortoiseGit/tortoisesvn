@@ -711,7 +711,6 @@ UINT CSVNProgressDlg::ProgressThread()
 					GetDlgItem(IDOK)->EnableWindow(TRUE);
 
 					m_bThreadRunning = FALSE;
-					GetDlgItem(IDOK)->EnableWindow(true);
 					break;
 				}
 				if (m_targetPathList.GetCount()==1)
@@ -1185,6 +1184,17 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 {
 	if (pMsg->message == WM_KEYDOWN)
 	{
+		if (pMsg->wParam == VK_ESCAPE)
+		{
+			// pressing the ESC key should close the dialog. But since we disabled the escape
+			// key (so the user doesn't get the idea that he could simply undo an e.g. update)
+			// this won't work.
+			// So if the user presses the ESC key, change it to VK_RETURN so the dialog gets
+			// the impression that the OK button was pressed.
+			if ((!m_bThreadRunning)&&(!GetDlgItem(IDCANCEL)->IsWindowEnabled())
+				&&(GetDlgItem(IDOK)->IsWindowEnabled())&&(GetDlgItem(IDOK)->IsWindowVisible()))
+				pMsg->wParam = VK_RETURN;
+		}
 		if (pMsg->wParam == 'A')
 		{
 			if (GetKeyState(VK_CONTROL)&0x8000)

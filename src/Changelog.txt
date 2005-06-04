@@ -1,4 +1,5 @@
 - ADD: Columns in the log dialog can be sorted. (Boris)
+- CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - BUG: Crash in TSVNCache. See issue #91.
 - BUG: File context menu shown if more than one folder was
        selected. See issue #92.
@@ -7,6 +8,8 @@
 - BUG: Installation for All Users didn't work properly. (Stefan)
 - BUG: A file:/// path wasn't recognized as a valid windows path
        and a warning was shown even if the path was valid. (Stefan)
+- BUG: The log dialog was always started from the repobrowser
+       at HEAD revision instead of the selected revision. (Stefan)
 
 Version 1.2
 
