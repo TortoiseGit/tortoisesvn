@@ -494,8 +494,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			case ID_POPSHOWLOG:
 				{
 					CString sCmd;
-					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /rev:%ld"), 
-								CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), url, GetRevision());
+					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
+								CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), url, (LONG)GetRevision());
 
 					if (!m_path.IsUrl())
 					{

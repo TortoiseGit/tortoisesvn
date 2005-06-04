@@ -1435,7 +1435,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						filepath += changedpath->sPath;
 						
 						CString sCmd;
-						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /rev:%ld"), CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev);
+						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev);
 						
 						CUtils::LaunchApplication(sCmd, NULL, false);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
