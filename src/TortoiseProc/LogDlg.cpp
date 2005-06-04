@@ -105,6 +105,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGMSG, OnLvnGetdispinfoLogmsg)
 	ON_BN_CLICKED(IDC_FILTERCANCEL, OnBnClickedFiltercancel)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGLIST, OnLvnColumnclick)
+	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGMSG, OnLvnColumnclickLogmsg)
 END_MESSAGE_MAP()
 
 
@@ -272,6 +273,7 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 		int width = m_LogMsgCtrl.GetColumnWidth(col);
 		m_LogMsgCtrl.SetColumnWidth(col, width+5);
 	}
+	SetSortArrow(&m_LogMsgCtrl, -1, false);
 	m_LogMsgCtrl.SetRedraw(TRUE);
 }
 
@@ -2684,4 +2686,53 @@ void CLogDlg::SetSortArrow(CListCtrl * control, int nColumn, bool bAscending)
 		HeaderItem.fmt |= (bAscending ? HDF_SORTDOWN : HDF_SORTUP);
 		pHeader->SetItem(nColumn, &HeaderItem);
 	}
+}
+void CLogDlg::OnLvnColumnclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	if (m_bThreadRunning)
+		return;		//no sorting while the arrays are filled
+	if (m_currentChangedArray == NULL)
+		return;
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	const int nColumn = pNMLV->iSubItem;
+	m_bAscendingPathList = nColumn == m_nSortColumnPathList ? !m_bAscendingPathList : TRUE;
+	m_nSortColumnPathList = nColumn;
+	qsort(m_currentChangedArray->GetData(), m_currentChangedArray->GetSize(), sizeof(LogChangedPath*), (GENERICCOMPAREFN)SortCompare);
+
+	SetSortArrow(&m_LogMsgCtrl, m_nSortColumnPathList, m_bAscendingPathList);
+	m_LogMsgCtrl.Invalidate();
+	*pResult = 0;
+}
+
+int CLogDlg::m_nSortColumnPathList = 0;
+bool CLogDlg::m_bAscendingPathList = false;
+
+int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
+{
+	LogChangedPath * cpath1 = *((LogChangedPath**)pElem1);
+	LogChangedPath * cpath2 = *((LogChangedPath**)pElem2);
+	switch (m_nSortColumnPathList)
+	{
+	case 0:		// action
+		if (m_bAscendingPathList)
+			return cpath1->sAction.Compare(cpath2->sAction);
+		else
+			return cpath2->sAction.Compare(cpath1->sAction);
+	case 1:		// path
+		if (m_bAscendingPathList)
+			return cpath1->sPath.Compare(cpath2->sPath);
+		else
+			return cpath2->sPath.Compare(cpath1->sPath);
+	case 2:		// copyfrom path
+		if (m_bAscendingPathList)
+			return cpath1->sCopyFromPath.Compare(cpath2->sCopyFromPath);
+		else
+			return cpath2->sCopyFromPath.Compare(cpath1->sCopyFromPath);
+	case 3:		// copyfrom revision
+		if (m_bAscendingPathList)
+			return cpath1->lCopyFromRev > cpath2->lCopyFromRev;
+		else
+			return cpath2->lCopyFromRev > cpath1->lCopyFromRev;
+	}
+	return 0;
 }

@@ -59,6 +59,8 @@
 
 #define LOGFILTER_TIMER		101
 
+typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
+
 /**
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox. 
@@ -123,6 +125,7 @@ protected:
 	afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDtnDatetimechangeDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnColumnclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedNexthundred();
 	virtual void OnCancel();
 	virtual void OnOK();
@@ -155,6 +158,7 @@ private:
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
 	 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+	static int __cdecl	SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 
 public:
 	CWnd *				m_pNotifyWindow;
@@ -197,6 +201,8 @@ private:
 	CBitmapButton		m_cFilterIcon;
 	int                 m_nSortColumn;
 	BOOL                m_bAscending;
+	static int			m_nSortColumnPathList;
+	static bool			m_bAscendingPathList;
 private:
     typedef struct LogEntryData
     {   
