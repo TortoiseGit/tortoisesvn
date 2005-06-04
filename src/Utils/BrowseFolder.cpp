@@ -206,20 +206,20 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM /*lParam*/, L
 								bSecondCheckbox ? ListViewRect.top+40 : ListViewRect.top+20,
 								(ListViewRect.right-ListViewRect.left),
 								bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20,
-								0);
+								SWP_NOZORDER);
 		//Sets the window positions of checkbox and dialog controls
 		SetWindowPos(checkbox,HWND_BOTTOM,ListViewRect.left,
 								ListViewRect.top,
 								(ListViewRect.right-ListViewRect.left),
 								14,
-								SWP_SHOWWINDOW);
+								SWP_NOZORDER);
 		if (bSecondCheckbox)
 		{
 			SetWindowPos(checkbox2,HWND_BOTTOM,ListViewRect.left,
 							ListViewRect.top+20,
 							(ListViewRect.right-ListViewRect.left),
 							14,
-							SWP_SHOWWINDOW);
+							SWP_NOZORDER);
 		}
 		HWND label = FindWindowEx(hwnd, NULL, _T("STATIC"), NULL);
 		if (label)
