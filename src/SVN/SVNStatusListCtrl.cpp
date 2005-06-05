@@ -1957,13 +1957,16 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		m_tempFileList.AddPath(remotePath);
 	}
 
-	if ((CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), FALSE))&&(SVN::GetTranslatedFile(wcPath, entry->path)))
+	wcPath = entry->path;
+	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
 	{
-		m_tempFileList.AddPath(wcPath);
-	}
-	else
-	{
-		wcPath = entry->path;
+		CTSVNPath temporaryFile = CUtils::GetTempFilePath(wcPath);
+		SVN svn;
+		if (svn.Cat(entry->path, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
+		{
+			basePath = temporaryFile;
+			m_tempFileList.AddPath(basePath);
+		}
 	}
 
 	CString name = entry->path.GetFilename();

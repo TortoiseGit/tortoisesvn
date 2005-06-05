@@ -31,7 +31,7 @@ CSettingsProgsDiff::CSettingsProgsDiff()
 	, m_iExtDiff(0)
 	, m_sDiffPath(_T(""))
 	, m_bInitialized(FALSE)
-	, m_regConvertBase(_T("Software\\TortoiseSVN\\ConvertBase"), FALSE)
+	, m_regConvertBase(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE)
 	, m_bConvertBase(false)
 {
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));

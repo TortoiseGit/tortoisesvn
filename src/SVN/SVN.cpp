@@ -1833,21 +1833,25 @@ void SVN::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 BOOL SVN::DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporaryFile)
 {
 	CTSVNPath basePath(GetPristinePath(filePath));
-	CTSVNPath wcPath;
 	// If necessary, convert the line-endings on the file before diffing
-	if ((CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), FALSE))&&(GetTranslatedFile(wcPath, filePath)))
+	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
 	{
-		temporaryFile = wcPath;
+		temporaryFile = CUtils::GetTempFilePath(filePath);
+		SVN svn;
+		if (!svn.Cat(filePath, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
+		{
+			temporaryFile.Reset();
+			return FALSE;
+		}
+		else
+		{
+			basePath = temporaryFile;
+		}
 	}
-	else
-	{
-		temporaryFile.Reset();
-		wcPath = filePath;
-	}
-	CString name = wcPath.GetFilename();
+	CString name = filePath.GetFilename();
 	CString n1, n2;
 	n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 	n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-	return CUtils::StartExtDiff(basePath, wcPath, n2, n1, TRUE);
+	return CUtils::StartExtDiff(basePath, filePath, n2, n1, TRUE);
 }
 
