@@ -100,7 +100,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
 	GetDlgItem(IDC_SHOWUNMODIFIED)->EnableWindow(FALSE);
-
+	CString temp;
 	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote))
 	{
 		CMessageBox::Show(m_hWnd, m_FileListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
@@ -113,17 +113,17 @@ UINT CChangedDlg::ChangedStatusThread()
 	m_FileListCtrl.GetMinMaxRevisions(lMin, lMax);
 	if (LONG(m_FileListCtrl.m_HeadRev) >= 0)
 	{
-		CString temp;
 		temp.Format(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_HeadRev));
 		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
 	}
 	else
 	{
-		CString temp;
 		temp.Format(IDS_REPOSTATUS_WCINFO, lMin, lMax);
 		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
 	}
-
+	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
+	GetWindowText(temp);
+	SetWindowText(temp + _T(" - ") + commonDir.GetWinPathString());
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	POINT pt;
 	GetCursorPos(&pt);

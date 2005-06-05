@@ -392,6 +392,12 @@ UINT CLogPromptDlg::StatusThread()
 		reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_ListCtrl.m_sUUID);
 		m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 	}
+
+	CTSVNPath commonDir = m_ListCtrl.GetCommonDirectory(false);
+	CString temp;
+	GetWindowText(temp);
+	SetWindowText(temp + _T(" - ") + commonDir.GetWinPathString());
+
 	m_autolist.RemoveAll();
 	// we don't have to block the commit dialog while we fetch the
 	// auto completion list.
