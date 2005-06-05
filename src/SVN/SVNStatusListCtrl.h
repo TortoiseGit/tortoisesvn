@@ -269,6 +269,13 @@ public:
 	 * files/folders in the working copy.
 	 */
 	void GetMinMaxRevisions(LONG& lMin, LONG& lMax);
+	
+	/**
+	 * Returns the parent directory of all entries in the control.
+	 * if \a bStrict is set to false, then the paths passed to the control
+	 * to fetch the status (in GetStatus()) are used if possible.
+	 */
+	CTSVNPath GetCommonDirectory(bool bStrict);
 
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
@@ -353,6 +360,7 @@ private:
 	FileEntryVector				m_arStatusArray;
 	std::vector<DWORD>			m_arListArray;
 	CTSVNPathList				m_tempFileList;
+	CTSVNPathList				m_StatusFileList;
 	CString						m_sLastError;
 
 	LONG						m_nUnversioned;

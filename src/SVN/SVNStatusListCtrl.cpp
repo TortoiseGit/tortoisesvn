@@ -214,6 +214,8 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	// previous GetStatus() calls
 	ClearStatusArray();
 
+	m_StatusFileList = pathList;
+
 	// Since svn_client_status() returns all files, even those in
 	// folders included with svn:externals we need to check if all
 	// files we get here belongs to the same repository.
@@ -2029,6 +2031,36 @@ CString CSVNStatusListCtrl::GetStatisticsString()
 			m_pSelectButton->SetCheck(BST_CHECKED);
 	}
 	return sToolTip;
+}
+
+CTSVNPath CSVNStatusListCtrl::GetCommonDirectory(bool bStrict)
+{
+	if (!bStrict)
+	{
+		// not strict means that the selected folder has priority
+		if (!m_StatusFileList.GetCommonDirectory().IsEmpty())
+			return m_StatusFileList.GetCommonDirectory();
+	}
+
+	CTSVNPath commonBaseDirectory;
+	int nListItems = GetItemCount();
+	for (int i=0; i<nListItems; ++i)
+	{
+		const CTSVNPath& baseDirectory = GetListEntry(i)->GetPath().GetDirectory();
+		if(commonBaseDirectory.IsEmpty())
+		{
+			commonBaseDirectory = baseDirectory;
+		}
+		else 
+		{
+			if (commonBaseDirectory.GetWinPathString().GetLength() > baseDirectory.GetWinPathString().GetLength())
+			{
+				if (baseDirectory.IsAncestorOf(commonBaseDirectory))
+					commonBaseDirectory = baseDirectory;
+			}
+		}
+	}
+	return commonBaseDirectory;
 }
 
 void CSVNStatusListCtrl::SelectAll(bool bSelect)
