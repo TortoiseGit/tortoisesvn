@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-01 11:43+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2005-06-06 11:48+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1512,17 +1512,9 @@ msgstr "Wollen Sie Ihre Änderungen speichern?"
 msgid "Documentation - Simon Large"
 msgstr "Documentation - Simon Large"
 
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "Keine Statusabfrage für Kontextmenü"
-
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Diese Meldung nicht wieder anzeigen"
-
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "Keine Rechtschreibkorrektur wenn tsvn:projectlanguage nicht gesetzt ist."
 
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1705,6 +1697,10 @@ msgstr "Konnte Dokument nicht öffnen."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "Konnte Dokument nicht speichern."
+
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "Statusabfrage für Kontextmenü"
 
 #: ID:313
 msgid "Fetching File..."
@@ -1893,10 +1889,8 @@ msgid ""
 msgstr "Wenn markiert, wird ob ein neuer Ordner im Projektarchiv für den Import erstellt. Andernfalls wird direkt zur angegebenen URL importiert."
 
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr ""
-"Wenn diese Option gewählt ist, erzeugt TortoiseSVN für den Vergleich\n"
-"mit BASE eine Temporärdatei ohne expandierte Schlüsselwörter."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "Wenn diese Option gewählt ist, erzeugt TortoiseSVN eine Temporär BASE Datei in der die Schlüsselwörter expandiert und die Zeilenenden angepasst sind."
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -2403,6 +2397,10 @@ msgstr ""
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Nur den obersten Ordner aktualisieren"
+
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "Verwende Rechtschreibkorrektur nur dann, wenn tsvn:projectlanguage gesetzt ist."
 
 #: ID:3841
 msgid "Open"

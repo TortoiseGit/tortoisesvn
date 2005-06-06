@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-03 10:57+0800\n"
+"PO-Revision-Date: 2005-06-06 15:17+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1892,20 +1892,10 @@ msgstr "是否要儲存你所做的異動?"
 msgid "Documentation - Simon Large"
 msgstr "文件 - Simon Large"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "不抓取右鍵選單的狀態"
-
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
 msgstr "不再顯示此訊息"
-
-# Control-ID:1224,
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "未設定 tsvn:projectlanguage 時不使用拼字檢查"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -2095,17 +2085,17 @@ msgstr "外部程式:"
 # Control-ID:65535,
 #: Dlg-ID:192
 msgid "External Programs::Diff Viewer"
-msgstr "External Programs::Diff Viewer"
+msgstr "外部程式::差異檢視工具"
 
 # Control-ID:65535,
 #: Dlg-ID:193
 msgid "External Programs::Merge Tool"
-msgstr "External Programs::Merge Tool"
+msgstr "外部程式::合併工具"
 
 # Control-ID:65535,
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
-msgstr "External Programs::Unified Diff Viewer"
+msgstr "外部程式::單一補綴檔檢視工具"
 
 # ID:74,
 #: ID:74
@@ -2135,6 +2125,11 @@ msgstr "開啟文件失敗."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "儲存文件失敗."
+
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "抓取右鍵選單的狀態"
 
 # ID:313,
 #: ID:313
@@ -2370,8 +2365,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "勾選此選項時, TortoiseSVN 會建立未展開關鍵字的暫存檔進行差異比對"
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "勾選此選項時, TortoiseSVN 會建立展開關鍵字以及調整換行的暫存檔進行差異比對."
 
 # ID:194,
 #: ID:194
@@ -2685,17 +2680,17 @@ msgstr "視覺樣式"
 # Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
-msgstr "Look and Feel::Dialogs"
+msgstr "視覺樣式::視窗"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
 msgid "Look and Feel::Icon Overlays"
-msgstr "Look and Feel::Icon Overlays"
+msgstr "視覺樣式::圖示覆蓋"
 
 # Dlg-ID:106,
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
-msgstr "Look and Feel::Icon Set"
+msgstr "視覺樣式::圖示集"
 
 # ID:238,
 #: ID:238
@@ -2998,6 +2993,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "僅更新最上層目錄"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "未設定 tsvn:projectlanguage 時不使用拼字檢查"
 
 # ID:3841,#:
 # ID:101,#:

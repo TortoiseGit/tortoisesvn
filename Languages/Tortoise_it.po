@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-02 21:10+0100\n"
+"PO-Revision-Date: 2005-06-06 10:32+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -273,7 +273,7 @@ msgstr "&Da URL:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&From WC at URL:"
-msgstr "&Da WC con URL:"
+msgstr "&Dalla Copia di lavoro con URL:"
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -1036,7 +1036,7 @@ msgstr "Chiudi automaticamente se non ci sono fusioni, aggiunte o eliminazioni"
 # ID:76,
 #: Control-ID:65535
 msgid "Autoclose:"
-msgstr "Chiusora automatica:"
+msgstr "Chiusura automatica:"
 
 # ID:195,
 #: ID:195
@@ -1252,7 +1252,7 @@ msgstr "Controlla Repository"
 # ID:13,
 #: ID:13
 msgid "Check for Modifications"
-msgstr "Controlla se ci sono modifiche"
+msgstr "Controlla l'esistenza di modifiche"
 
 # ID:9,
 #: ID:9
@@ -1281,7 +1281,7 @@ msgstr "Selezionare le voci di menu che si vogliono far apparire direttamente ne
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Seleziona per usare un formato di data e ora meno dettagliato per i commenti"
+msgstr "Seleziona per usare nei commenti un formato di data e ora abbreviato"
 
 # ID:270,
 #: ID:270
@@ -1291,7 +1291,7 @@ msgstr "Verifica dell'esistenza di copie seguenti"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr "Controllo se è disponibile una nuova versione di TortoiseSVN..."
+msgstr "Controllo della disponibilità di una nuova versione di TortoiseSVN..."
 
 # Dlg-ID:133,
 #: Dlg-ID:133
@@ -1790,8 +1790,8 @@ msgid ""
 "Disable this option if you have really big working copies and experience\n"
 "too much disk access when browsing the working copy."
 msgstr ""
-"Disabilitare questa opzione se si hanno delle grandi copie di lavoro e se si\n"
-" nota un accesso eccessivo al disco durante la navigazione nella copia di lavoro."
+"Disabilitare questa opzione se si lavora su grandi copie di lavoro e se si\n"
+"nota un accesso eccessivo al disco durante la navigazione nella copia di lavoro."
 
 # ID:3867,#:
 # ID:3867,
@@ -1890,20 +1890,10 @@ msgstr "Si desidera salvare i cambiamenti?"
 msgid "Documentation - Simon Large"
 msgstr "Documentazione - Simon Large"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "Non recuperare lo stato dei menu contestuali"
-
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Non visualizzare più questo messaggio"
-
-# Control-ID:1224,
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "Non utilizzare il controllo grammaticale se tsvn:projectlanguage non è impostato"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -1994,7 +1984,7 @@ msgstr "Inserisci un messaggio riguardo il blocco (opzionale):"
 # Control-ID:1213,
 #: Control-ID:1213
 msgid "Enter a message describing why you lock the file(s)."
-msgstr "Inserisci un messaggio descrivendo perchè il/i file sono stati bloccati."
+msgstr "Inserisci un messaggio spiegando i motivi del blocco."
 
 # ID:3603,
 #: ID:3603
@@ -2134,6 +2124,11 @@ msgstr "Impossibile aprire il documento."
 msgid "Failed to save document."
 msgstr "Impossibile salvare il documento."
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "Controlla lo stato dei menu contestuali"
+
 # ID:313,
 #: ID:313
 msgid "Fetching File..."
@@ -2234,7 +2229,7 @@ msgstr "Ottenimento Patch..."
 # Control-ID:1203,
 #: ID:16
 msgid "Get Lock..."
-msgstr "Prendi blocco..."
+msgstr "Blocca..."
 
 # ID:119,
 #: ID:119
@@ -2308,7 +2303,7 @@ msgstr "R&evisione di testa"
 # ID:12,
 #: Control-ID:1182
 msgid "HEAD revision in the repository"
-msgstr "Revisione di testa del repository"
+msgstr "Revisione di testa del Repository"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -2370,8 +2365,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "Se selezionato TortoiseSVN crea un file temporaneo per effettuare il confronto con le parole chiave non espanse."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "Se selezionato TortoiseSVN crea un file temporaneo della Base per effettuare il confronto con le parole chiave espanse e i terminatori di riga corretti."
 
 # ID:194,
 #: ID:194
@@ -2395,7 +2390,7 @@ msgstr ""
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "Se vuoi forzare il blocco, usa la finestra di dialogo \"Controlla se ci sono modifiche\"."
+msgstr "Se vuoi forzare il blocco, usa la finestra di dialogo \"Controlla l'esistenza di modifiche\"."
 
 # ID:73,
 #: ID:73
@@ -2917,7 +2912,7 @@ msgstr ""
 "Nessun file è stato modificato o aggiunto dall'ultimo\n"
 "invio. Non c'è niente che\n"
 "TortoiseSVN possa fare qui...\n"
-"Vuoi vedere i file non versionati?"
+"Vuoi vedere i file senza versione?"
 
 # ID:3843,#:
 # ID:3843,
@@ -2998,6 +2993,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Aggiorna solo la cartella principale"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "Usa il controllo grammaticale solo se tsvn:projectlanguage è impostato"
 
 # ID:101,#:
 # ID:3841,#:
@@ -3327,17 +3327,17 @@ msgstr "Rifiuta"
 # Control-ID:1203,
 #: ID:16
 msgid "Release Lock"
-msgstr "Rilascia blocco"
+msgstr "Sblocca"
 
 # ID:16,
 #: ID:16
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "Rilascia il blocco anche se non è il proprio."
+msgstr "Annulla il blocco anche se non se ne è l'autore."
 
 # ID:16,
 #: ID:16
 msgid "Releases locks on files so other users can edit them again."
-msgstr "Rilascia il blocco, in modo che altri utenti possano modificare il/i file in questione."
+msgstr "Annulla il blocco, in modo che altri utenti possano modificare il/i file in questione."
 
 #: MenuEntry
 msgid "Reload"
@@ -3842,7 +3842,7 @@ msgid ""
 "You might need to create a new folder before performing this export."
 msgstr ""
 "Selezionare la cartella in cui esportare.\n"
-"Potreste dover creare una nuova cartella prima di procedere all'esportazione."
+"Potrebbe essere necessario dover creare una nuova cartella prima di procedere all'esportazione."
 
 # ID:79,
 #: ID:79
@@ -3909,7 +3909,7 @@ msgstr "Mostra &proprietà"
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "Usa formato &corto per date e orari nei commenti"
+msgstr "Usa formato &corto per date e orari"
 
 # ID:12,
 #: ID:12
@@ -4055,7 +4055,7 @@ msgstr "Obbiettivo mancate saltato"
 # ID:12,
 #: Control-ID:1185
 msgid "Specific revision in repository"
-msgstr "Revisione specifica nel repository"
+msgstr "Revisione specifica (dal Repository)"
 
 # ID:79,
 #: ID:79
@@ -4538,7 +4538,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
-msgstr "Questo prodotto include software sviluppato da CollabNet(http://www.Collab.Net/)"
+msgstr "Questo prodotto include software sviluppato da CollabNet (http://www.Collab.Net/)"
 
 # ID:3857,#:
 # ID:3857,
@@ -4903,7 +4903,7 @@ msgstr "Completa automaticamente percorsi e parole chiave"
 # Control-ID:1214,
 #: Control-ID:1214
 msgid "Use old APIs to fetch log messages"
-msgstr "Utilizza le API vecchie per visualizzare i commenti"
+msgstr "Utilizza le vecchie API per visualizzare i commenti"
 
 # Control-ID:1024,
 #: Control-ID:1024

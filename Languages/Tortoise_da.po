@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3591
+# Based on r3634
 #
 msgid ""
 msgstr ""
@@ -1349,17 +1349,9 @@ msgstr "Vil du gemme dine ændringer?"
 msgid "Documentation - Simon Large"
 msgstr "Dokumentation - Simon Large, Danish Translation - Jan Normann Nielsen"
 
-#: Control-ID:1217,
-msgid "Don't fetch status for context menu"
-msgstr "Hent ikke status til kontekstmenu"
-
 #: ID:73,
 msgid "Don't show this message again"
 msgstr "Vis ikke denne meddelelse igen"
-
-#: Control-ID:1224,
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "Brug ikke stavekontrol, hvis tsvn:projectlanguage ikke er sat"
 
 #: Control-ID:1079,
 msgid "Drive Types"
@@ -1535,6 +1527,10 @@ msgstr "Det lykkedes ikke at åbne dokumentet."
 msgid "Failed to save document."
 msgstr "Det lykkedes ikke at gemme dokumentet."
 
+#: Control-ID:1217,
+msgid "Fetch status for context menu"
+msgstr "Hent status til kontekstmenu"
+
 #: ID:313,
 msgid "Fetching File..."
 msgstr "Henter fil..."
@@ -1688,8 +1684,8 @@ msgid "If checked then a new folder is created in the repository.\nIf not checke
 msgstr "Hvis valgt, så oprettes en ny mappe i versionsarkivet.\nHvis ikke valgt, så importeres der direkte til den angivne URL."
 
 #: ID:79,
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig fil for at lave sammenligningen uden udfyldte nøgleord"
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig fil af basisfilen for at lave sammenligningen med udfyldte nøgleord og tilpassede linieskift."
 
 #: ID:194,
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -2111,6 +2107,10 @@ msgstr "Kun tal (evt. adskilt af kommaer)\ner tilladt!"
 #: Control-ID:1073,
 msgid "Only update the top folder"
 msgstr "Opdater kun den øverste mappe"
+
+#: Control-ID:1224,
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "Brug kun stavekontrol, hvis tsvn:projectlanguage er sat"
 
 #: ID:3841,#: ID:3841,
 msgid "Open"

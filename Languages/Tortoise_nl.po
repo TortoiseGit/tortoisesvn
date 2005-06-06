@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-02 20:21+0100\n"
+"PO-Revision-Date: 2005-06-05 20:34+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1520,17 +1520,9 @@ msgstr ""
 "Simon Large - documentatie\n"
 "Jean-Marc van Leerdam - nederlandse vertaling"
 
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "Geen status ophalen voor het tonen van het contextmenu"
-
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Deze boodschap niet meer tonen"
-
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "Gebruik geen spellingscontrole als tsvn:projectlanguage geen waarde heeft"
 
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1713,6 +1705,10 @@ msgstr "Openen van document mislukt."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "Opslaan van document mislukt."
+
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "Status ophalen voor het contextmenu"
 
 #: ID:313
 msgid "Fetching File..."
@@ -1903,8 +1899,8 @@ msgstr ""
 "Anders gaat de import direct naar de opgegeven URL."
 
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "Met deze optie maakt TortoiseSVN een tijdelijk bestand om de Diff uit te voeren zonder keyword-expansie"
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "Met deze optie maakt TortoiseSVN een tijdelijk bestand van BASE om de Diff uit te voeren met keyword-expansie en aangepaste regeleinden."
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -2410,6 +2406,10 @@ msgstr ""
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Alleen de bovenste map verversen"
+
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "Gebruik spellingscontrole alleen als tsvn:projectlanguage een waarde heeft"
 
 #: ID:3841
 msgid "Open"
