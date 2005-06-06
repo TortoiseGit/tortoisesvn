@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-06-04 21:57GMT Daylight Time\n"
+"POT-Creation-Date: 2005-06-06 10:38GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1449,7 +1449,7 @@ msgstr ""
 msgid "Diff Viewer"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:424(term) source/en/tsvn_dug/dug_settings.xml:499(term) 
+#: source/en/tsvn_dug/dug_settings.xml:424(term) source/en/tsvn_dug/dug_settings.xml:501(term) 
 msgid "%base"
 msgstr ""
 
@@ -1457,15 +1457,15 @@ msgstr ""
 msgid "The original file without your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:432(term) source/en/tsvn_dug/dug_settings.xml:508(term) 
+#: source/en/tsvn_dug/dug_settings.xml:432(term) source/en/tsvn_dug/dug_settings.xml:510(term) 
 msgid "%bname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:434(para) source/en/tsvn_dug/dug_settings.xml:510(para) 
+#: source/en/tsvn_dug/dug_settings.xml:434(para) source/en/tsvn_dug/dug_settings.xml:512(para) 
 msgid "The window title for the base file"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:440(term) source/en/tsvn_dug/dug_settings.xml:516(term) 
+#: source/en/tsvn_dug/dug_settings.xml:440(term) source/en/tsvn_dug/dug_settings.xml:518(term) 
 msgid "%mine"
 msgstr ""
 
@@ -1473,11 +1473,11 @@ msgstr ""
 msgid "Your own file, with your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:448(term) source/en/tsvn_dug/dug_settings.xml:524(term) 
+#: source/en/tsvn_dug/dug_settings.xml:448(term) source/en/tsvn_dug/dug_settings.xml:526(term) 
 msgid "%yname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:450(para) source/en/tsvn_dug/dug_settings.xml:526(para) 
+#: source/en/tsvn_dug/dug_settings.xml:450(para) source/en/tsvn_dug/dug_settings.xml:528(para) 
 msgid "The window title for your file"
 msgstr ""
 
@@ -1494,102 +1494,102 @@ msgid "For example, with ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base
 msgstr ""
 
 #: source/en/tsvn_dug/dug_settings.xml:477(para) 
-msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. TSVN can hide this artificial difference by first parsing the files for keywords before doing the diff operation. However, this can take some time, especially with large files, so this behaviour is optional. If <guilabel>Convert files when diffing against BASE</guilabel> is checked then TSVN will pre-process the files."
+msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BAsE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:491(title) 
+#: source/en/tsvn_dug/dug_settings.xml:493(title) 
 msgid "Merge Tool"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:501(para) 
+#: source/en/tsvn_dug/dug_settings.xml:503(para) 
 msgid "the original file without your or the others changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:518(para) 
+#: source/en/tsvn_dug/dug_settings.xml:520(para) 
 msgid "your own file, with your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:532(term) 
+#: source/en/tsvn_dug/dug_settings.xml:534(term) 
 msgid "%theirs"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:534(para) 
+#: source/en/tsvn_dug/dug_settings.xml:536(para) 
 msgid "the file as it is in the repository"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:540(term) 
+#: source/en/tsvn_dug/dug_settings.xml:542(term) 
 msgid "%tname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:542(para) 
+#: source/en/tsvn_dug/dug_settings.xml:544(para) 
 msgid "The window title for the file in the repository"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:548(term) 
+#: source/en/tsvn_dug/dug_settings.xml:550(term) 
 msgid "%merged"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:550(para) 
+#: source/en/tsvn_dug/dug_settings.xml:552(para) 
 msgid "the conflicted file, the result of the merge operation"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:557(term) 
+#: source/en/tsvn_dug/dug_settings.xml:559(term) 
 msgid "%mname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:559(para) 
+#: source/en/tsvn_dug/dug_settings.xml:561(para) 
 msgid "The window title for the merged file"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:493(para) 
+#: source/en/tsvn_dug/dug_settings.xml:495(para) 
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:566(para) 
+#: source/en/tsvn_dug/dug_settings.xml:568(para) 
 msgid "For example, with Perforce WinMerge: <screen>\nC:\\Path-To\\P4WinMrg.exe %base %theirs %mine %merged\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:578(title) 
+#: source/en/tsvn_dug/dug_settings.xml:580(title) 
 msgid "Unified Diff Viewer"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:580(para) 
+#: source/en/tsvn_dug/dug_settings.xml:582(para) 
 msgid "A viewer program for unified-diff files (patch files). If you don't have one the builtin option is to use NotePad. No parameters are required."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:585(para) 
+#: source/en/tsvn_dug/dug_settings.xml:587(para) 
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:600(title) 
+#: source/en/tsvn_dug/dug_settings.xml:602(title) 
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:598(para) 
+#: source/en/tsvn_dug/dug_settings.xml:600(para) 
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for .jpg files :-)"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:609(title) 
+#: source/en/tsvn_dug/dug_settings.xml:611(title) 
 msgid "TortoiseSVN's Sounds"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:611(primary) 
+#: source/en/tsvn_dug/dug_settings.xml:613(primary) 
 msgid "sounds"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:616(listitem) 
+#: source/en/tsvn_dug/dug_settings.xml:618(listitem) 
 msgid "Error"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:619(listitem) 
+#: source/en/tsvn_dug/dug_settings.xml:621(listitem) 
 msgid "Notice"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:622(listitem) 
+#: source/en/tsvn_dug/dug_settings.xml:624(listitem) 
 msgid "Warning"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:613(para) 
+#: source/en/tsvn_dug/dug_settings.xml:615(para) 
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel, not the TortoiseSVN settings dialog."
 msgstr ""
 

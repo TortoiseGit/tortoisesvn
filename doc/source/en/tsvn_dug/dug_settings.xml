@@ -478,13 +478,15 @@ C:\Path-To\kdiff3.exe %base %mine --L1 %bname --L2 %yname
 				If you use the <literal>svn:keywords</literal> property to
 				expand keywords, and in particular the <literal>revision</literal>
 				of a file, then there may be a difference between files which
-				is purely due to the current value of the keyword. TSVN can
-				hide this artificial difference by first parsing the files
-				for keywords before doing the diff operation. However, this
-				can take some time, especially with large files, so this
-				behaviour is optional. If
+				is purely due to the current value of the keyword. Also if you use
+				<literal>svn:eol-style = native</literal> the BAsE file will have
+				pure <literal>LF</literal> line endings whereas your file will
+				have <literal>CR-LF</literal> line endings. TSVN will normally hide
+				these differences automatically by first parsing the BASE file to
+				expand keywords and line endings before doing the diff operation.
+				However, this can take a long time with large files. If
 				<guilabel>Convert files when diffing against BASE</guilabel>
-				is checked then TSVN will pre-process the files.
+				is unchecked then TSVN will skip pre-processing the files.
 			</para>
 		</sect3>
 		<sect3 id="tsvn-DUG-settings-Merge">
