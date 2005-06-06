@@ -249,7 +249,9 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM /*lParam*/, L
 			CBProc = (WNDPROC) SetWindowLong(checkbox2,GWL_WNDPROC, (LONG) CheckBoxSubclassProc2); 
 			SendMessage(checkbox2,BM_SETCHECK,(WPARAM)m_bCheck,0);
 		}
-
+		// send a resize message to the resized listview control. Otherwise it won't show
+		// up properly until the user resizes the window!
+		SendMessage(ListView, WM_SIZE, SIZE_RESTORED, MAKELONG(ListViewRect.right-ListViewRect.left, bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20));
 	}
 	
 	return 0;
