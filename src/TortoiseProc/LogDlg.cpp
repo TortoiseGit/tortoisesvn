@@ -239,27 +239,63 @@ BOOL CLogDlg::OnInitDialog()
 	return FALSE;
 }
 
-void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths)
+void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 {
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(" "));
-	pMsgView->SetWindowText(msg);
-	m_ProjectProperties.FindBugID(msg, pMsgView);
-	
 	m_LogMsgCtrl.SetRedraw(FALSE);
 	m_bNoDispUpdates = true;
+	m_currentChangedArray = NULL;
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
+	m_LogMsgCtrl.SetItemCountEx(0);
 
-	m_currentChangedArray = paths;
-	m_bNoDispUpdates = false;
-	if (paths == NULL)
+	if (!bShow)
+	{
+		// empty the log message control
+		m_LogMsgCtrl.Invalidate();
+		m_bNoDispUpdates = false;
+		m_LogMsgCtrl.SetRedraw(TRUE);
 		return;
+	}
 
+	int selIndex = m_LogList.GetSelectionMark();
+	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
+
+	int selCount = m_LogList.GetSelectedCount();
+	if (selCount == 0)
+	{
+		m_bNoDispUpdates = false;
+		m_LogMsgCtrl.SetRedraw(TRUE);
+		return;
+	}
+	else if (selCount == 1)
+	{
+		pMsgView->SetWindowText(pLogEntry->sMessage);
+		m_ProjectProperties.FindBugID(pLogEntry->sMessage, pMsgView);
+		m_currentChangedArray = pLogEntry->pArChangedPaths;
+		if (m_currentChangedArray == NULL)
+		{
+			m_bNoDispUpdates = false;
+			m_LogMsgCtrl.SetRedraw(TRUE);
+			return;
+		}
+	}
+	else
+	{
+		m_currentChangedPathList = GetChangedPathsFromSelectedRevisions(true);
+	}
+	
+	m_bNoDispUpdates = false;
 	if (m_currentChangedArray)
 	{
 		m_LogMsgCtrl.SetItemCountEx(m_currentChangedArray->GetCount());
 		m_LogMsgCtrl.RedrawItems(0, m_currentChangedArray->GetCount());
+	}
+	else if (m_currentChangedPathList.GetCount())
+	{
+		m_LogMsgCtrl.SetItemCountEx(m_currentChangedPathList.GetCount());
+		m_LogMsgCtrl.RedrawItems(0, m_currentChangedPathList.GetCount());
 	}
 	else
 	{
@@ -546,8 +582,7 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					selIndex = m_LogList.GetItemCount()-1;
 			}
 			this->m_nSearchIndex = selIndex;
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
-			FillLogMessageCtrl(pLogEntry->sMessage, pLogEntry->pArChangedPaths);
+			FillLogMessageCtrl();
 			UpdateData(FALSE);
 		}
 		if (pLVKeyDow->wVKey == 'C')
@@ -565,7 +600,7 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			m_LogList.SetSelectionMark(0);
 			m_LogList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED|LVIS_FOCUSED);
-			FillLogMessageCtrl(m_logEntries[0]->sMessage, m_logEntries[0]->pArChangedPaths);
+			FillLogMessageCtrl();
 		}
 		UpdateData(FALSE);
 	}
@@ -1583,8 +1618,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 			m_LogList.SetItemState(m_LogList.GetSelectionMark(), 0, LVIS_SELECTED);
 			m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
 			m_LogList.SetSelectionMark(i);
-			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
-			FillLogMessageCtrl(pLogEntry->sMessage, pLogEntry->pArChangedPaths);
+			FillLogMessageCtrl();
 			UpdateData(FALSE);
 			m_nSearchIndex++;
 			if (m_nSearchIndex >= m_arShownList.GetCount())
@@ -1940,13 +1974,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			return;
 		if (pNMLV->uNewState & LVIS_SELECTED)
 		{
-			if (m_LogList.GetSelectedCount() > 1)
-				FillLogMessageCtrl(_T(" "), NULL);
-			else
-			{
-		        PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
-				FillLogMessageCtrl(pLogEntry->sMessage, pLogEntry->pArChangedPaths);
-			}
+			FillLogMessageCtrl();
 			UpdateData(FALSE);
 		}
 	}
@@ -2280,13 +2308,24 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	LV_ITEM* pItem= &(pDispInfo)->item;
 
 	*pResult = 0;
-	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(m_currentChangedArray==NULL)||(pItem->iItem >= m_currentChangedArray->GetCount()))
+	if ((m_bNoDispUpdates)||(m_bThreadRunning))
 	{
 		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		return;
 	}
-
-	LogChangedPath * lcpath = m_currentChangedArray->GetAt(pItem->iItem);
+	if ((m_currentChangedArray!=NULL)&&(pItem->iItem >= m_currentChangedArray->GetCount()))
+	{
+		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+		return;
+	}
+	if ((m_currentChangedArray==NULL)&&(pItem->iItem >= m_currentChangedPathList.GetCount()))
+	{
+		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+		return;
+	}
+	LogChangedPath * lcpath = NULL;
+	if (m_currentChangedArray)
+		lcpath = m_currentChangedArray->GetAt(pItem->iItem);
 	//Does the list need text information?
 	if (pItem->mask & LVIF_TEXT)
 	{
@@ -2294,16 +2333,25 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 		switch (pItem->iSubItem)
 		{
 		case 0:	//Action
-			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sAction);
+			if (lcpath)
+				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sAction);
+			else
+				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);				
 			break;
 		case 1: //path
-			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sPath);
+			if (lcpath)
+				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sPath);
+			else
+				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)m_currentChangedPathList[pItem->iItem].GetSVNPathString());
 			break;
 		case 2: //copyfrom path
-			pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sCopyFromPath);
+			if (lcpath)
+				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)lcpath->sCopyFromPath);
+			else
+				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
 		case 3: //revision
-			if (lcpath->sCopyFromPath.IsEmpty())
+			if ((lcpath==NULL)||(lcpath->sCopyFromPath.IsEmpty()))
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			else
 				_stprintf(pItem->pszText, _T("%ld"), lcpath->lCopyFromRev);
@@ -2322,7 +2370,7 @@ void CLogDlg::OnBnClickedFiltercancel()
 	m_sFilterText.Empty();
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(1);
-	FillLogMessageCtrl(_T(""), NULL);
+	FillLogMessageCtrl(false);
 	m_bNoDispUpdates = true;
 	m_arShownList.RemoveAll();
 
@@ -2373,7 +2421,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		// clear the filter, i.e. make all entries appear
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
-		FillLogMessageCtrl(_T(""), NULL);
+		FillLogMessageCtrl(false);
 		m_bNoDispUpdates = true;
 		m_arShownList.RemoveAll();
 		for (DWORD i=0; i<m_logEntries.size(); ++i)
@@ -2413,7 +2461,7 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 		}
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
-		FillLogMessageCtrl(_T(""), NULL);
+		FillLogMessageCtrl(false);
 		// now start filter the log list
 		m_bNoDispUpdates = true;
 		
@@ -2580,14 +2628,14 @@ BOOL CLogDlg::IsEntryInDateRange(int i)
 	return FALSE;
 }
 
-CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions()
+CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths /* = false */)
 {
 	CTSVNPathList pathList;
-	if (m_sRepositoryRoot.IsEmpty())
+	if (m_sRepositoryRoot.IsEmpty() && (bRelativePaths == false))
 	{
 		m_sRepositoryRoot = GetRepositoryRoot(m_path);
 	}
-	if (m_sRepositoryRoot.IsEmpty())
+	if (m_sRepositoryRoot.IsEmpty() && (bRelativePaths == false))
 		return pathList;
 	
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
@@ -2600,8 +2648,11 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions()
 			for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 			{
 				LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+				if (cpath == NULL)
+					continue;
 				CTSVNPath path;
-				path.SetFromSVN(m_sRepositoryRoot);
+				if (!bRelativePaths)
+					path.SetFromSVN(m_sRepositoryRoot);
 				path.AppendPathString(cpath->sPath);
 				pathList.AddPath(path);
 			}

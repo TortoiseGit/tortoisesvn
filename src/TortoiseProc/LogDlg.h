@@ -132,7 +132,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
-	void	FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths);
+	void	FillLogMessageCtrl(bool bShow = true);
 	BOOL	StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2, SVNRev pegrevision = SVNRev());
 	void	DoDiffFromLog(int selIndex, long rev);
 
@@ -154,7 +154,7 @@ private:
 	void SetFilterCueText();
 	BOOL IsEntryInDateRange(int i);
 	void CopySelectionToClipBoard();
-	CTSVNPathList GetChangedPathsFromSelectedRevisions();
+	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false);
     void SortShownListArray();
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
 	 
@@ -178,7 +178,8 @@ private:
 	BOOL				m_bCancelled;
 	BOOL				m_bThreadRunning;
 	BOOL				m_bStrict;
-	LogChangedPathArray* m_currentChangedArray;
+	LogChangedPathArray * m_currentChangedArray;
+	CTSVNPathList		m_currentChangedPathList;
 	CPtrArray			m_arShownList;
 	BOOL				m_hasWC;
 	int					m_nSearchIndex;
