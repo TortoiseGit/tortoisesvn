@@ -154,6 +154,7 @@ private:
 	void SetFilterCueText();
 	BOOL IsEntryInDateRange(int i);
 	void CopySelectionToClipBoard();
+	CTSVNPathList GetChangedPathsFromSelectedRevisions();
     void SortShownListArray();
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
 	 

@@ -2580,6 +2580,37 @@ BOOL CLogDlg::IsEntryInDateRange(int i)
 	return FALSE;
 }
 
+CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions()
+{
+	CTSVNPathList pathList;
+	if (m_sRepositoryRoot.IsEmpty())
+	{
+		m_sRepositoryRoot = GetRepositoryRoot(m_path);
+	}
+	if (m_sRepositoryRoot.IsEmpty())
+		return pathList;
+	
+	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+	if (pos != NULL)
+	{
+		while (pos)
+		{
+			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			LogChangedPathArray * cpatharray = pLogEntry->pArChangedPaths;
+			for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+			{
+				LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+				CTSVNPath path;
+				path.SetFromSVN(m_sRepositoryRoot);
+				path.AppendPathString(cpath->sPath);
+				pathList.AddPath(path);
+			}
+		}
+	}
+	pathList.RemoveDuplicates();
+	return pathList;
+}
+
 void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	if (m_bThreadRunning)
