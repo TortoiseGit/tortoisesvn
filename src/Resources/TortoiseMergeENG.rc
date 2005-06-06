@@ -196,7 +196,7 @@ BEGIN
     EDITTEXT        IDC_TABSIZE,80,90,41,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Diffing",IDC_DIFFGROUP,7,142,251,74
     CONTROL         "Ignore Lineendings (recommended)",IDC_IGNORELF,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,151,136,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,151,236,10
     CONTROL         "Compare Whitespaces",IDC_WSCOMPARE,"Button",
                     BS_AUTORADIOBUTTON,15,183,236,10
     CONTROL         "Ignore Leading Whitespaces",IDC_WSIGNORELEADING,"Button",
