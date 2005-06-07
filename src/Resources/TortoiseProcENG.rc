@@ -68,7 +68,7 @@ IDB_LOGFILTER           BITMAP                  "logfilter.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -315,11 +315,11 @@ BEGIN
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,31,289,64
     PUSHBUTTON      "...",IDC_BROWSE,312,30,19,14
     CONTROL         "&HEAD Revision",IDC_REVISION_HEAD1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,13,49,95,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,49,89,10
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
-                    13,63,44,10
-    EDITTEXT        IDC_REVISION_START,63,60,51,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,124,60,67,14
+                    13,63,89,10
+    EDITTEXT        IDC_REVISION_START,102,60,48,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,155,60,67,14
     GROUPBOX        "To: (end URL and revision of the range to merge)",
                     IDC_STATIC,7,89,331,74
     CONTROL         "Use ""From:"" URL",IDC_USEFROMURL,"Button",
@@ -328,11 +328,11 @@ BEGIN
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,113,289,62
     PUSHBUTTON      "...",IDC_BROWSE2,312,113,19,14,WS_DISABLED
     CONTROL         "&HEAD Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,13,131,86,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,131,89,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    13,144,45,10
-    EDITTEXT        IDC_REVISION_END,63,142,51,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,124,142,67,14
+                    13,144,89,10
+    EDITTEXT        IDC_REVISION_END,102,142,48,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,155,142,67,14
     GROUPBOX        "",IDC_STATIC,7,168,331,71
     LTEXT           "The result of the merge is stored in the working copy at:",
                     IDC_STATIC,13,182,318,8
@@ -1037,9 +1037,9 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 338
         VERTGUIDE, 13
-        VERTGUIDE, 63
-        VERTGUIDE, 124
-        VERTGUIDE, 191
+        VERTGUIDE, 102
+        VERTGUIDE, 150
+        VERTGUIDE, 222
         VERTGUIDE, 302
         VERTGUIDE, 331
         TOPMARGIN, 7
@@ -2052,12 +2052,12 @@ BEGIN
     IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of HEAD Revisions"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -2144,7 +2144,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
