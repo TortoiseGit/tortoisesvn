@@ -72,8 +72,8 @@ public:
 	 * \param path [out] the path to the folder which the user has selected 
 	 * \return one of CANCEL, NOPATH or OK
 	 */
-	CBrowseFolder::retVal Show(HWND parent, CString& path);
-	CBrowseFolder::retVal Show(HWND parent, LPTSTR path);
+	CBrowseFolder::retVal Show(HWND parent, CString& path, const CString& sDefaultPath = CString());
+	CBrowseFolder::retVal Show(HWND parent, LPTSTR path, LPCTSTR szDefaultPath = NULL);
 	static BOOL m_bCheck;		///< state of the checkbox on closing the dialog
 	static BOOL m_bCheck2;
 	TCHAR m_title[200];
@@ -88,6 +88,7 @@ protected:
 	static HWND checkbox;
 	static HWND checkbox2;
 	static HWND ListView;
+	static CString m_sDefaultPath;
 	TCHAR m_displayName[200];
 	LPITEMIDLIST m_root;
 	static TCHAR m_CheckText[200];

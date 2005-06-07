@@ -28,6 +28,7 @@ HWND CBrowseFolder::checkbox2 = NULL;
 HWND CBrowseFolder::ListView = NULL;
 TCHAR CBrowseFolder::m_CheckText[200];		
 TCHAR CBrowseFolder::m_CheckText2[200];		
+CString CBrowseFolder::m_sDefaultPath;
 
 
 CBrowseFolder::CBrowseFolder(void)
@@ -44,18 +45,21 @@ CBrowseFolder::~CBrowseFolder(void)
 }
 
 //show the dialog
-CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, LPTSTR path)
+CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, LPTSTR path, LPCTSTR szDefaultPath /* = NULL */)
 {
 	CString temp;
 	temp = path;
-	CBrowseFolder::retVal ret = Show(parent, temp);
+	CString sDefault;
+	if (szDefaultPath)
+		sDefault = szDefaultPath;
+	CBrowseFolder::retVal ret = Show(parent, temp, sDefault);
 	_tcscpy(path, temp);
 	return ret;
 }
-CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path)
+CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CString& sDefaultPath /* = CString() */)
 {
 	retVal ret = OK;		//assume OK
-
+	m_sDefaultPath = sDefaultPath;
 	LPITEMIDLIST itemIDList;
 
 	BROWSEINFO browseInfo;
@@ -144,7 +148,7 @@ void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize)
 
 }
 
-int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM /*lParam*/, LPARAM /*lpData*/)
+int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM /*lpData*/)
 {
 	RECT ListViewRect,Dialog;
 	//Initialization callback message
@@ -252,6 +256,18 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM /*lParam*/, L
 		// send a resize message to the resized listview control. Otherwise it won't show
 		// up properly until the user resizes the window!
 		SendMessage(ListView, WM_SIZE, SIZE_RESTORED, MAKELONG(ListViewRect.right-ListViewRect.left, bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20));
+		
+		// now set the default directory
+		SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)(LPCTSTR)m_sDefaultPath);
+	}
+	if (uMsg == BFFM_SELCHANGED)
+	{
+		// Set the status window to the currently selected path.
+		TCHAR szDir[MAX_PATH];
+		if (SHGetPathFromIDList((LPITEMIDLIST)lParam, szDir))
+		{
+			SendMessage(hwnd,BFFM_SETSTATUSTEXT, 0, (LPARAM)szDir);
+		}
 	}
 	
 	return 0;
