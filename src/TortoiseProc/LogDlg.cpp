@@ -1183,6 +1183,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		int s = m_LogList.GetSelectionMark();
 		if (s < 0)
 			return;
+		if (m_currentChangedArray == NULL)
+			return;		// no commands for multiple revisions selected!
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
 		long rev = pLogEntry->dwRev;
 		LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
