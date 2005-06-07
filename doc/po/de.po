@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-02 10:07+0100\n"
+"PO-Revision-Date: 2005-06-07 09:51+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -259,7 +259,7 @@ msgstr "WebDAV"
 #: source/en/tsvn_server/server_apache.xml:21
 #: (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a \"Webfolder\" in the Windows explorer and then access it like any other folder in the filesystem"
-msgstr "Der Apachebasierte Subversion Server nutzt das WebDAV Protokoll, das auch von vielen anderen Programmen unterstützt wird. Sie können ein solches Verzeichnis zum Beispiel als <quote>Web Ordner</quote> im Windows Explorer einbinden und wie jeden anderen Ordner im Dateisystem benutzen."
+msgstr "Der Apache-basierte Subversion Server nutzt das WebDAV Protokoll, das auch von vielen anderen Programmen unterstützt wird. Sie können ein solches Verzeichnis zum Beispiel als <quote>Web-Ordner</quote> im Windows Explorer einbinden und wie jeden anderen Ordner im Dateisystem benutzen."
 
 #: source/en/tsvn_server/server_apache.xml:32
 #: (term)
@@ -306,7 +306,7 @@ msgstr "Bitte beachten Sie, dass Windows XP ohne Servicepack 1 zu fehlerhaften N
 #: source/en/tsvn_server/server_apache.xml:78
 #: (para)
 msgid "Download the latest version of the Apache webserver from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version &gt; 2.0.54 - the version 1.3.xx won't work! Also, versions lower than 2.0.54 won't work with Subversion 1.2 because of a bug in how Apache &lt; 2.0.54 was built for Windows."
-msgstr "Laden Sie die neueste Version des Apache Webservers von <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Achten Sie darauf, dass Sie Version 2.0.54 oder neuer herunterladen - Die 1.3.xx Versionen unterstützen kein WebDAV und arbeiten deshalb nicht mit Subversion zusammen! Außerdem arbeiten Versionen vor 2.0.54 aufgrund eines Fehlers in Apache für Windows nicht mit Subversion 1.2 zusammen."
+msgstr "Laden Sie die neueste Version des Apache Web-Servers von <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Achten Sie darauf, dass Sie Version 2.0.54 oder neuer herunterladen - Die 1.3.xx Versionen unterstützen kein WebDAV und arbeiten deshalb nicht mit Subversion zusammen! Außerdem arbeiten Versionen vor 2.0.54 aufgrund eines Fehlers in Apache für Windows nicht mit Subversion 1.2 zusammen."
 
 #: source/en/tsvn_server/server_apache.xml:91
 #: (para)
@@ -342,7 +342,7 @@ msgstr "Wenn Apache diese Berechtigung nicht gesetzt hat, werden Ihre Benutzer <
 #: (para)
 msgid "The first thing you need before installing Apache is a computer with either Windows2000 / WinXP+SP1 or Windows2003. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 msgstr ""
-"Für die Installation von Apache unter Window benötigen Sie zumindest Windows2000 / WinXP+SP1 oder Windows2003. Die Installation von Apache unter Linux ist bis auf Kleinigkeiten (Verzeichnisnamen etc.) vorzunehmen wie unter Windows.\n"
+"Für die Installation von Apache unter Windows benötigen Sie zumindest Windows2000 / WinXP+SP1 oder Windows2003. Die Installation von Apache unter Linux ist bis auf Kleinigkeiten (Verzeichnisnamen etc.) vorzunehmen wie unter Windows.\n"
 "<warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 
 #: source/en/tsvn_server/server_apache.xml:147
@@ -449,7 +449,7 @@ msgstr "Starten Sie den Apache-Dienst noch einmal neu."
 #: source/en/tsvn_server/server_apache.xml:274
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (where <filename>MyNewRepository</filename> is the name of the Subversion repository you created before). If all went well you should be prompted for a username and password, then you can see the contents of your repository."
-msgstr "Öffnen Sie mit Ihrem Web-Browser die URL <systemitem class=\"url\">http://MeinServer/svn/MeinNeuesProjektarchiv</systemitem> (wobei <filename>MeinNeuesProjektarchiv</filename> der Name des Subversion-Projektarchives ist, das Sie zuvor erstellt haben). Wenn alles gut gegangen ist, sollten Sie nach einem Benutzernamen und Passwort gefragt werden und können dann den Inhalt Ihrers Projektarchives sehen."
+msgstr "Öffnen Sie mit Ihrem Web-Browser die URL <systemitem class=\"url\">http://MeinServer/svn/MeinNeuesProjektarchiv</systemitem> (wobei <filename>MeinNeuesProjektarchiv</filename> der Name des Subversion-Projektarchivs ist, das Sie zuvor erstellt haben). Wenn alles gut gegangen ist, sollten Sie nach einem Benutzernamen und Passwort gefragt werden und können dann den Inhalt Ihres Projektarchivs sehen."
 
 #: source/en/tsvn_server/server_apache.xml:215
 #: (para)
@@ -503,16 +503,16 @@ msgstr ""
 "Mit einer <filename>passwd</filename> Datei können Sie den Zugriff auf alle Ihre Projektarchive zentral steuern.Wenn Sie genau einstellen wollen, welche Benutzer / Gruppen welche Berechtigungen in Ihren Projektarchiven haben sollen, entfernen Sie das Kommentarzeichen vor\n"
 "<screen>#AuthzSVNAccessFile svnaccessfile</screen> und legen Sie die Subversion Zugriffsdatei <filename>svnaccessfile</filename>an. Apache stellt sicher, dass nur angemeldete Benutzer auf Ihre <filename>/svn</filename> Location zugreifen können und wird dann den Benutzernamen an Subversions AuthzSVNAccessFile Module weiterreichen, das die Benutzerrechte fein gegliedert anhand der Subversion Zugriffsdatei steuert. Eine Beispieldatei:\n"
 "<screen>[groups]\n"
-"developers = user1,user2,user3,user4\n"
-"docs = user5,user6,user7\n"
+"Entwickler = user1,user2,user3,user4\n"
+"Doku = user5,user6,user7\n"
 "#Jeder erhält Lesezugriff\n"
 "[/]\n"
 "* = r\n"
-"#Die Gruppe developers erhält Vollzugriff\n"
-"@developers = rw\n"
-"#Die doc Gruppe erhält Vollzugriff auf das doc Unterverzeichnis\n"
+"#Die Gruppe Entwickler erhält Vollzugriff\n"
+"@Entwickler = rw\n"
+"#Die Doku Gruppe erhält Vollzugriff auf das doc Unterverzeichnis\n"
 "[/project/trunk/doc]\n"
-"@docs = rw\n"
+"@Doku = rw\n"
 "</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:286
@@ -541,7 +541,7 @@ msgstr ""
 "<entry>AuthType Basic</entry>\n"
 "<entry>zur Anmeldung wird ein einfaches Verfahren mit Name / Passwort verwendet.</entry>\n"
 "</row><row>\n"
-"<entry>AuthName \"Subversion repositories\"</entry>\n"
+"<entry>AuthName \"Subversion Projektarchive\"</entry>\n"
 "<entry>wird als Information an das Programm (z.B. Web-Browser, TortoiseSVN) weitergereicht, mit dem sich der Benutzer am Projektarchiv anmeldet.</entry>\n"
 "</row><row>\n"
 "<entry>AuthUserFile passwd</entry>\n"
@@ -553,7 +553,7 @@ msgstr ""
 "<entry>Require valid-user</entry>\n"
 "<entry>legt fest, dass nur Personen, die sich korrekt angemeldet haben, auf die URL zugreifen dürfen.</entry>\n"
 "</row></tbody></tgroup></table>\n"
-"Aber das ist nur ein Beispiel. Der Apache Webserver bietet Ihnen viele weiter Möglichkeiten. <placeholder-2/>"
+"Aber das ist nur ein Beispiel. Der Apache Web-Server bietet Ihnen viele weiter Möglichkeiten. <placeholder-2/>"
 
 #: source/en/tsvn_server/server_apache.xml:417
 #: (title)
@@ -621,7 +621,7 @@ msgstr ""
 #: source/en/tsvn_server/server_apache.xml:503
 #: (para)
 msgid "Save the lines above to a file <filename>svn_index.php</filename> and store that file in your web root folder. Next you have to tell Apache to show that page instead of the error: <placeholder-1/>"
-msgstr "Speichen Sie die oben stehenden Zeilen in <filename>svn_index.php</filename> und legen Sie diese Datei im <literal>DocRoot</literal> Ihres Webservers ab. Als nächstes müssen Sie URLs, die zu einer Fehlermeldung führen, auf diese Datei umleiten: <placeholder-1/>"
+msgstr "Speichen Sie die oben stehenden Zeilen in <filename>svn_index.php</filename> und legen Sie diese Datei im <literal>DocRoot</literal> Ihres Web-Servers ab. Als nächstes müssen Sie URLs, die zu einer Fehlermeldung führen, auf diese Datei umleiten: <placeholder-1/>"
 
 #: source/en/tsvn_server/server_apache.xml:534
 #: (title)
@@ -934,7 +934,7 @@ msgstr ""
 "SVNParentPath D:\\SVN\n"
 "SSLRequireSSL\n"
 "AuthType Basic\n"
-"AuthName \"Subversion repositories\"\n"
+"AuthName \"Subversion Projektarchive\"\n"
 "AuthUserFile passwd\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
 "Require valid-user\n"
@@ -2227,7 +2227,7 @@ msgstr "Diff Betrachter"
 
 #: source/en/tsvn_dug/dug_settings.xml:424
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:499
+#: source/en/tsvn_dug/dug_settings.xml:501
 msgid "%base"
 msgstr "%base"
 
@@ -2238,19 +2238,19 @@ msgstr "Die Originaldatei ohne Ihre Änderungen"
 
 #: source/en/tsvn_dug/dug_settings.xml:432
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:508
+#: source/en/tsvn_dug/dug_settings.xml:510
 msgid "%bname"
 msgstr "%bname"
 
 #: source/en/tsvn_dug/dug_settings.xml:434
 #: (para)
-#: source/en/tsvn_dug/dug_settings.xml:510
+#: source/en/tsvn_dug/dug_settings.xml:512
 msgid "The window title for the base file"
 msgstr "Der Fenstertitel für die Originaldatei"
 
 #: source/en/tsvn_dug/dug_settings.xml:440
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:516
+#: source/en/tsvn_dug/dug_settings.xml:518
 msgid "%mine"
 msgstr "%mine"
 
@@ -2261,13 +2261,13 @@ msgstr "Die Datei mit Ihren eigenen Änderungen"
 
 #: source/en/tsvn_dug/dug_settings.xml:448
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:524
+#: source/en/tsvn_dug/dug_settings.xml:526
 msgid "%yname"
 msgstr "%yname"
 
 #: source/en/tsvn_dug/dug_settings.xml:450
 #: (para)
-#: source/en/tsvn_dug/dug_settings.xml:526
+#: source/en/tsvn_dug/dug_settings.xml:528
 msgid "The window title for your file"
 msgstr "Der Fenstertitel für Ihre Datei"
 
@@ -2297,70 +2297,70 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_settings.xml:477
 #: (para)
-msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. TSVN can hide this artificial difference by first parsing the files for keywords before doing the diff operation. However, this can take some time, especially with large files, so this behaviour is optional. If <guilabel>Convert files when diffing against BASE</guilabel> is checked then TSVN will pre-process the files."
-msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter zu expandieren, dann wird ein Diff-Programm immer eine Differenz in dieser Zeile anzeigen. Um dies zu verhindern können Sie die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel> aktivieren. Ist diese Option aktiviert, wird TortoiseSVN die Datei in der Arbeitskopie zuerst so konvertieren, dass die Schlüsselwörter nicht mehr expandiert sind. Da dies für große Dateien einige Zeit dauern kann ist diese Funktion optional. Die Standard-Einstellung ist die Dateien nicht zu konvertieren um Zeit zu sparen."
+msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BAsE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
+msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter, insbesondere die <literal>Revision</literal> einer Datei, zu expandieren, kann ein Unterschied zwischen Dateien entstehen, der nur aus dem aktuellen Wert des Schlüsselwortes besteht. Ebenso wird, wenn Sie <literal>svn:eol-style = native</literal> setzen, die BASE Datei reine <literal>LF</literal> Zeilenenden haben, während Ihre Datei <literal>CR-LF</literal> Zeilenenden besitzt. TortoiseSVN wird diese Unterschiede normalerweise verbergen, indem es zuerst die Schlüsselwörter und Zeilenenden BASE Datei erweitert, bevor die Diff Operation durchgeführt wird. Dies kann bei großen Dateien viel Zeit beanspruchen. Wenn die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel> nicht gewählt ist, wird TortoiseSVN diese Vorbereitungsarbeiten nicht durchführen und damit Zeit sparen."
 
-#: source/en/tsvn_dug/dug_settings.xml:491
+#: source/en/tsvn_dug/dug_settings.xml:493
 #: (title)
 msgid "Merge Tool"
 msgstr "Merge Programm"
 
-#: source/en/tsvn_dug/dug_settings.xml:501
+#: source/en/tsvn_dug/dug_settings.xml:503
 #: (para)
 msgid "the original file without your or the others changes"
 msgstr "Die Originaldatei ohne irgendwelche Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:518
+#: source/en/tsvn_dug/dug_settings.xml:520
 #: (para)
 msgid "your own file, with your changes"
 msgstr "Die Datei mit Ihren eigenen Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:532
+#: source/en/tsvn_dug/dug_settings.xml:534
 #: (term)
 msgid "%theirs"
 msgstr "%theirs"
 
-#: source/en/tsvn_dug/dug_settings.xml:534
+#: source/en/tsvn_dug/dug_settings.xml:536
 #: (para)
 msgid "the file as it is in the repository"
 msgstr "Die Datei mit den letzten Änderungen im Projektarchiv"
 
-#: source/en/tsvn_dug/dug_settings.xml:540
+#: source/en/tsvn_dug/dug_settings.xml:542
 #: (term)
 msgid "%tname"
 msgstr "%tname"
 
-#: source/en/tsvn_dug/dug_settings.xml:542
+#: source/en/tsvn_dug/dug_settings.xml:544
 #: (para)
 msgid "The window title for the file in the repository"
 msgstr "Der Fenstertitel für die Datei im Projektarchiv"
 
-#: source/en/tsvn_dug/dug_settings.xml:548
+#: source/en/tsvn_dug/dug_settings.xml:550
 #: (term)
 msgid "%merged"
 msgstr "%merged"
 
-#: source/en/tsvn_dug/dug_settings.xml:550
+#: source/en/tsvn_dug/dug_settings.xml:552
 #: (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "Die Konfliktdatei (das Ergebnis der Zusammenführen Operation)"
 
-#: source/en/tsvn_dug/dug_settings.xml:557
+#: source/en/tsvn_dug/dug_settings.xml:559
 #: (term)
 msgid "%mname"
 msgstr "%mname"
 
-#: source/en/tsvn_dug/dug_settings.xml:559
+#: source/en/tsvn_dug/dug_settings.xml:561
 #: (para)
 msgid "The window title for the merged file"
 msgstr "Der Fenstertitel für die Ergebnisdatei"
 
-#: source/en/tsvn_dug/dug_settings.xml:493
+#: source/en/tsvn_dug/dug_settings.xml:495
 #: (para)
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
 msgstr "Ein externes Merge Programm, mit dem Sie Konflikte in Dateien auflösen können. Die Parameterübergabe an das Programm erfolgt genau so wie beim Diff Programm. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_settings.xml:566
+#: source/en/tsvn_dug/dug_settings.xml:568
 #: (para)
 msgid ""
 "For example, with Perforce WinMerge: <screen>\n"
@@ -2374,57 +2374,57 @@ msgstr ""
 "oder für KDiff3:\n"
 "<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine %theirs -o %merged</screen>"
 
-#: source/en/tsvn_dug/dug_settings.xml:578
+#: source/en/tsvn_dug/dug_settings.xml:580
 #: (title)
 msgid "Unified Diff Viewer"
 msgstr "Standard Diff Betrachter"
 
-#: source/en/tsvn_dug/dug_settings.xml:580
+#: source/en/tsvn_dug/dug_settings.xml:582
 #: (para)
 msgid "A viewer program for unified-diff files (patch files). If you don't have one the builtin option is to use NotePad. No parameters are required."
 msgstr "Ein Programm um GNU-Diff Dateien (Patch Dateien) zu betrachten. Als Standard ist Notepad eingestellt. Sie brauchen keine Parameter anzugeben."
 
-#: source/en/tsvn_dug/dug_settings.xml:585
+#: source/en/tsvn_dug/dug_settings.xml:587
 #: (para)
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
 msgstr "Das Original Windows Notepad Programm zeigt Zeilenenden, die nicht dem Windows Standard (CR-LF) entsprechen, nicht korrekt an. Da die meisten GNU Diffdateien Unix Zeilenenden (LF) besitzen ist das Resultat entsprechend. Sie können sich jedoch einen kostenlosen Notepad Ersatz <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"> <citetitle>Notepad2</citetitle> </ulink> herunterladen, der nicht nur die Zeilenenden korrekt anzeigt, sondern auch die hinzugefügten und gelöschten Zeilen farblich hervorhebt."
 
-#: source/en/tsvn_dug/dug_settings.xml:600
+#: source/en/tsvn_dug/dug_settings.xml:602
 #: (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr "Diff/Merge Erweiterte Einstellungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:598
+#: source/en/tsvn_dug/dug_settings.xml:600
 #: (para)
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for .jpg files :-)"
 msgstr "<placeholder-1/> Sie können für jede Dateiendung ein eigenes Diff oder Merge-Programm angeben,wenn Sie möchten. So können Sie z.B. Photoshop als <quote>Diff</quote> Programm für .jpg Dateien festlegen :-)"
 
-#: source/en/tsvn_dug/dug_settings.xml:609
+#: source/en/tsvn_dug/dug_settings.xml:611
 #: (title)
 msgid "TortoiseSVN's Sounds"
 msgstr "TortoiseSVN's Sounds"
 
-#: source/en/tsvn_dug/dug_settings.xml:611
+#: source/en/tsvn_dug/dug_settings.xml:613
 #: (primary)
 msgid "sounds"
 msgstr "sounds"
 
-#: source/en/tsvn_dug/dug_settings.xml:616
+#: source/en/tsvn_dug/dug_settings.xml:618
 #: (listitem)
 msgid "Error"
 msgstr "Fehler"
 
-#: source/en/tsvn_dug/dug_settings.xml:619
+#: source/en/tsvn_dug/dug_settings.xml:621
 #: (listitem)
 msgid "Notice"
 msgstr "Hinweis"
 
-#: source/en/tsvn_dug/dug_settings.xml:622
+#: source/en/tsvn_dug/dug_settings.xml:624
 #: (listitem)
 msgid "Warning"
 msgstr "Warnung"
 
-#: source/en/tsvn_dug/dug_settings.xml:613
+#: source/en/tsvn_dug/dug_settings.xml:615
 #: (para)
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel, not the TortoiseSVN settings dialog."
 msgstr "TortoiseSVN liefert drei eigene Töne mit, die automatisch installiert werden. <placeholder-1/> Sie können andere Töne in der <emphasis>Systemsteuerung</emphasis> unter <emphasis>Sounds und Audiogeräte</emphasis> festlegen oder dort auch deaktivieren. In den Einstellungen von TortoiseSVN ist das nicht möglich."
@@ -2656,12 +2656,17 @@ msgstr "Den übergeordneten Ordner übertragen"
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file. Only that way the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and an update of your coworkers won't remove the old file."
 msgstr "Umbenennen und Verschieben einer Datei führt dazu, dass die alte Datei gelöscht wird und dieselbe an einem neuen Ort und/oder unter einem neuen Namen wieder zur Versionskontrolle hinzugefügt wird. Die alte, gelöschte Datei ist daher zwar nicht mehr im Explorer sichtbar, aber dennoch, als gelöscht markiert, vorhanden. Die gelöschte Datei muss ebenfalls zum Server übertragen werden. Das geschieht am besten, indem der übergeordnete Ordner für die Übertragung ausgewählt wird. Dann erscheint die gelöschte Datei auch im Übertragungsdialog. Wird das nicht gemacht, bleibt die alte Datei im Projektarchiv bestehen!"
 
-#: source/en/tsvn_dug/dug_rename.xml:86
+#: source/en/tsvn_dug/dug_rename.xml:84
+#: (para)
+msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
+msgstr "Sie <emphasis>müssen</emphasis> einen umbenannten Ordner übertragen, bevor Sie Dateien innerhalb des Ordners bearbeiten. Andernfalls kann Ihre Arbeitskopie sehr durcheinander kommen."
+
+#: source/en/tsvn_dug/dug_rename.xml:91
 #: (title)
 msgid "Getting a deleted file or folder back"
 msgstr "Eine gelöschte Datei/Ordner zurückholen"
 
-#: source/en/tsvn_dug/dug_rename.xml:87
+#: source/en/tsvn_dug/dug_rename.xml:92
 #: (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
 msgstr "Wenn Sie eine Datei oder einen Ordner gelöscht und die Löschung bereits ins Projektarchiv übertragen haben, wird ein normaler <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Rückgängig</guimenuitem> </menuchoice> Befehl diese nicht wieder zurückbringen können. Aber die Datei oder der Ordner ist nicht verloren. Wenn Sie die Revisionsnummer kennen, in der sie gelöscht wurde (Benutzen Sie den Log-Dialog um das herauszufinden) öffnen Sie den Projektarchiv-Betrachter. Wechseln Sie dann zu der Revisionsnummer, selektieren Sie die Datei oder den gelöschten Ordner, Rechts-Klick und dann wählen Sie den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Kopieren zu...</guimenuitem> </menuchoice> Als Ziel für diesen Kopierbefehl geben Sie den Pfad zu Ihrer Arbeitskopie an."
@@ -5038,7 +5043,7 @@ msgstr "Auswahl an Netzwerkschichten"
 #: source/en/tsvn_introduction.xml:182
 #: (para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
-msgstr "Subversion hat einen abstrakten Begriff des Zugriffs auf das Projektarchiv, der es einfach macht, neue Netzwerkschichten zu implementieren. Subversions fortgeschrittenster Netzwerkserver ist ein Modul für den Apache Webserver, welcher eine Variante von HTTP genannt WebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil an Stabilität und Interoperabilität, und stellt verschiedene Schlüsselfunktionen gratis zur Verfügung: Anmeldung, Autorisierung, Netzwerkdatenkompression, Verschlüsselung via SSL und das Betrachten des Projektarchivs in einem Web-Browser zum Beispiel. Ein kleinerer Subversion Server ist ebenfalls vorhanden. Dieser Server nutzt ein eigenes Netzwerkprotokoll, welches über SSH getunnelt werden kann."
+msgstr "Subversion hat einen abstrakten Begriff des Zugriffs auf das Projektarchiv, der es einfach macht, neue Netzwerkschichten zu implementieren. Subversions fortgeschrittenster Netzwerkserver ist ein Modul für den Apache Web-Server, welcher eine Variante von HTTP genannt WebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil an Stabilität und Interoperabilität, und stellt verschiedene Schlüsselfunktionen gratis zur Verfügung: Anmeldung, Autorisierung, Netzwerkdatenkompression, Verschlüsselung via SSL und das Betrachten des Projektarchivs in einem Web-Browser zum Beispiel. Ein kleinerer Subversion Server ist ebenfalls vorhanden. Dieser Server nutzt ein eigenes Netzwerkprotokoll, welches über SSH getunnelt werden kann."
 
 #: source/en/tsvn_introduction.xml:199
 #: (term)
@@ -6152,7 +6157,7 @@ msgstr "Patches Anwenden"
 #: source/en/tme_ch02.xml:92
 #: (para)
 msgid "If you want to apply a patchfile you have to set both the path to the patchfile itself and the path to the folder where the patchfile should be applied."
-msgstr "Wenn Sie eine Patchdatei anwenden möchten, müssen Sie sowohl die Patchdatei selbst sowie auch den Zielordner Ordner angeben."
+msgstr "Wenn Sie eine Patchdatei anwenden möchten, müssen Sie sowohl die Patchdatei selbst, als auch den Zielordner angeben."
 
 #: source/en/tme_ch02.xml:98
 #: (para)
@@ -6262,7 +6267,7 @@ msgstr "Wenn Sie in der Drei-Fenster Ansicht sind (auch <emphasis>Zusammenführe
 #: source/en/tme_ch02.xml:285
 #: (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr "Manchmal ist ein Konflikt nicht einfach durch die Auswahl von <literal>Deren</literal> oder <literal>Meinem</literal> Block zu beheben, sondern erfordert Handarbeit. TortoiseMerge erlaubt es Ihnen, die einfachen Änderungen durchzuführen, abzuspeichern und anschließend die schwierigen Konflikte von Hand nachzubearbeiten."
+msgstr "Manchmal ist ein Konflikt nicht einfach durch die Auswahl von <literal>Deren</literal> oder <literal>Meinem</literal> Block zu beheben, sondern erfordert Handarbeit. TortoiseMerge erlaubt es Ihnen, die einfachen Änderungen durchzuführen, abzuspeichern und anschließend die schwierigen Konflikte von Hand nachzuarbeiten."
 
 #: source/en/tme_ch02.xml:293
 #: (para)
