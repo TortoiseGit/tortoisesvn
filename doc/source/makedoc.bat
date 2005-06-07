@@ -87,10 +87,15 @@ set _FO_TARGET=%_HTML_TARGET%\%_APP%.fo
 set _PDF_TARGET=%_OUTPUT%\%_APP%_%_LANG%.pdf
 set _HELP_TARGET=%_OUTPUT%\%_APP%_%_LANG%.chm
 
-if exist ..\..\bin\Release\bin\SubWCRev.exe (
-   ..\..\bin\Release\bin\SubWCRev.exe %_DOC_SRC%%_LANG% %_DOC_SRC%Pubdate.tmpl %_DOC_SRC%%_LANG%\Pubdate.xml
+rem Get revision info only for english docs
+if %_LANG%==en (
+   if exist ..\..\bin\Release\bin\SubWCRev.exe (
+      ..\..\bin\Release\bin\SubWCRev.exe %_DOC_SRC%%_LANG% %_DOC_SRC%Pubdate.tmpl %_DOC_SRC%%_LANG%\Pubdate.xml
+   ) else (
+      copy %_DOC_SRC%Pubdate.none %_DOC_SRC%%_LANG%\Pubdate.xml /Y
+   )
 ) else (
-   copy %_DOC_SRC%Pubdate.tmpl %_DOC_SRC%%_LANG%\Pubdate.xml /Y
+   copy %_DOC_SRC%Pubdate.none %_DOC_SRC%%_LANG%\Pubdate.xml /Y
 )
 
 rem exit if no source exists
