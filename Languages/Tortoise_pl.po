@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISE SVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-02 11:44+0100\n"
+"PO-Revision-Date: 2005-06-07 15:09+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1908,20 +1908,10 @@ msgstr "Czy chcesz zapisać zmiany?"
 msgid "Documentation - Simon Large"
 msgstr "Dokumentacja - Simon Large"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "Nie pobieraj statusu dla menu kontekstowego"
-
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Nie pokazuj więcej tego komunikatu"
-
-# Control-ID:1224,
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "Nie używaj sprawdzania pisowni jeżeli tsvn:projectlanguage nie jest ustawione"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -2151,6 +2141,11 @@ msgstr "Nie udało się otworzyć dokumentu."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "Nie udało się zapisać dokumentu."
+
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "Pobieraj status dla menu kontekstowego"
 
 # ID:313,
 #: ID:313
@@ -2389,8 +2384,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "Jeśli opcja zaznaczona, TortoiseSVN tworzy tymczasowy plik do porównań z nie rozwiniętymi słowami kluczowymi "
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "Jeśli opcja jest zaznaczona, TortoiseSVN tworzy tymczasowy plik zawierający wersję podstawową (BASE) do porównań z rozwiniętymi słowami kluczowymi i ustawionymi końcami linii."
 
 # ID:194,
 #: ID:194
@@ -3022,6 +3017,11 @@ msgstr "Można użyć wyłącznie liczb (ewentualnie oddzielonych przecinkami)!"
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Uaktualnij tylko folder na najwyższym poziomie"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "Używaj sprawdzania pisowni tylko jeżeli tsvn:projectlanguage jest ustawione"
 
 # ID:101,#:
 # ID:3841,#:
