@@ -743,7 +743,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				}
 				if (isTag)
 				{
-					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
+					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_YESNO | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
 						break;
 				}
 				if (!m_pSvn->Commit(m_targetPathList, m_sMessage, (m_Revision == 0), m_options & ProgOptKeeplocks))

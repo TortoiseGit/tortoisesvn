@@ -68,7 +68,7 @@ IDB_LOGFILTER           BITMAP                  "logfilter.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -1490,7 +1490,7 @@ BEGIN
     IDS_PROGRS_MIMETYPE     "Mime Type"
     IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to switch over\nto that copy path. Use the Switch command to do that."
     IDS_PROGRS_COMMITT_TRUNK 
-                            "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing."
+                            "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
     IDS_PROGRS_REVERTMARKERS 
                             "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
     IDS_SETTINGS_SELECTDIFF "Select Diff Application"
@@ -2052,12 +2052,12 @@ BEGIN
     IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of HEAD Revisions"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -2144,7 +2144,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
