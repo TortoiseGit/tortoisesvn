@@ -210,6 +210,11 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	m_nSortedColumn = 0;
 	m_bBlock = TRUE;
 
+	// force the cursor to change
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
+
 	// first clear possible status data left from
 	// previous GetStatus() calls
 	ClearStatusArray();
@@ -265,6 +270,8 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 
 	BuildStatistics();
 	m_bBlock = FALSE;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 	return bRet;
 }
 
