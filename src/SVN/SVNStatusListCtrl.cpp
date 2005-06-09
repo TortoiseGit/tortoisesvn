@@ -1257,17 +1257,23 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (popup.CreatePopupMenu())
 			{
 				CString temp;
-				if ((wcStatus > svn_wc_status_normal)
+				if ((wcStatus >= svn_wc_status_normal)
 					&&(wcStatus != svn_wc_status_missing)&&(wcStatus != svn_wc_status_deleted))
 				{
 					if (GetSelectedCount() == 1)
 					{
 						if (entry->remotestatus <= svn_wc_status_normal)
 						{
-							if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
+							if ((m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)&&(wcStatus > svn_wc_status_normal))
 							{
 								temp.LoadString(IDS_LOG_COMPAREWITHBASE);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+								popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
+							}
+							if ((m_dwContextMenus & SVNSLC_POPGNUDIFF)&&(wcStatus > svn_wc_status_normal))
+							{
+								temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
 							}
 						}
 						else
@@ -1276,11 +1282,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								temp.LoadString(IDS_LOG_POPUP_COMPARE);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+								popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 							}
-						}
-						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
-						if ((wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing))
-						{
 							if (m_dwContextMenus & SVNSLC_POPGNUDIFF)
 							{
 								temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
@@ -1936,7 +1939,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	ASSERT(entry != NULL);
 	if (entry == NULL)
 		return;
-	if (entry->status == svn_wc_status_normal)
+	if ((entry->status == svn_wc_status_normal)&&(entry->remotestatus <= svn_wc_status_normal))
 		return;		//normal files won't show anything interesting in a diff
 	if (entry->status == svn_wc_status_deleted)
 		return;		//we don't compare a deleted file (nothing) with something
