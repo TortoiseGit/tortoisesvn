@@ -87,6 +87,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
+	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkLogmsg)
+	ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETCURSOR()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
@@ -704,6 +706,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (m_hasWC)
 						{
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+							popup.SetDefaultItem(ID_COMPARE, FALSE);
 						}
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
@@ -719,6 +722,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (m_hasWC)
 						{
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+							popup.SetDefaultItem(ID_COMPARE, FALSE);
 						}
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
@@ -1199,6 +1203,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
+					popup.SetDefaultItem(ID_DIFF, FALSE);
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
 				temp.LoadString(IDS_LOG_POPUP_OPEN);
@@ -1489,6 +1494,74 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
 }
 
+void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	int selIndex = pNMLV->iItem;
+	if (selIndex >= 0)
+	{
+		CString temp;
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+		SetPromptApp(&theApp);
+		theApp.DoWaitCursor(1);
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+		long rev = pLogEntry->dwRev;
+		if ((!m_path.IsDirectory())&&(m_hasWC))
+		{
+			CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
+			m_tempFileList.AddPath(tempfile);
+
+			SVN svn;
+			if (!svn.Cat(m_path, SVNRev::REV_WC, rev, tempfile))
+			{
+				CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				GetDlgItem(IDOK)->EnableWindow(TRUE);
+			}
+			else
+			{
+				CString revname, wcname;
+				revname.Format(_T("%s Revision %ld"), (LPCTSTR)m_path.GetFilename(), rev);
+				wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)m_path.GetFilename());
+				CUtils::StartExtDiff(tempfile, m_path, revname, wcname);
+			}
+		} 
+		else
+		{
+			this->m_bCancelled = FALSE;
+			CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
+			m_tempFileList.AddPath(tempfile);
+			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
+			{
+				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			}
+			else
+			{
+				if (CUtils::CheckForEmptyDiff(tempfile))
+				{
+					CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+				}
+				else
+				{
+					if (m_hasWC)
+					{
+						CString sWC, sRev;
+						sWC.LoadString(IDS_DIFF_WORKINGCOPY);
+						sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
+						CUtils::StartExtPatch(tempfile, m_path.GetDirectory(), sWC, sRev, TRUE);
+					}
+					else
+					{
+						CUtils::StartUnifiedDiffViewer(tempfile);
+					}
+				}
+			}
+		}
+		theApp.DoWaitCursor(-1);
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
+}
+
 LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     ASSERT(m_pFindDialog != NULL);
@@ -1664,6 +1737,27 @@ void CLogDlg::OnOK()
 			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
 			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
 		}
+	}
+}
+
+void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+	*pResult = 0;
+	int selIndex = m_LogMsgCtrl.GetSelectionMark();
+	if (selIndex < 0)
+		return;
+	int s = m_LogList.GetSelectionMark();
+	if (s < 0)
+		return;
+	if (m_currentChangedArray == NULL)
+		return;
+	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
+	long rev = pLogEntry->dwRev;
+	LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+
+	if (DiffPossible(changedpath, rev))
+	{
+		DoDiffFromLog(selIndex, rev);
 	}
 }
 
