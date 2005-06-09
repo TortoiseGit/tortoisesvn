@@ -261,9 +261,6 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		return;
 	}
 
-	int selIndex = m_LogList.GetSelectionMark();
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
-
 	int selCount = m_LogList.GetSelectedCount();
 	if (selCount == 0)
 	{
@@ -273,6 +270,10 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	}
 	else if (selCount == 1)
 	{
+		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+		int selIndex = m_LogList.GetNextSelectedItem(pos);
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
+
 		pMsgView->SetWindowText(pLogEntry->sMessage);
 		m_ProjectProperties.FindBugID(pLogEntry->sMessage, pMsgView);
 		m_currentChangedArray = pLogEntry->pArChangedPaths;
@@ -563,48 +564,13 @@ UINT CLogDlg::LogThread()
 void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLVKEYDOWN pLVKeyDow = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
-	int selIndex = m_LogList.GetSelectionMark();
-	if (selIndex >= 0)
+	if (pLVKeyDow->wVKey == 'C')
 	{
-		//check which key was pressed
-		//this is necessary because we get here BEFORE
-		//the selection actually changes, so we have to
-		//adjust the selected index
-		if ((pLVKeyDow->wVKey == VK_UP)||(pLVKeyDow->wVKey == VK_DOWN))
+		if (GetKeyState(VK_CONTROL)&0x8000)
 		{
-			if (pLVKeyDow->wVKey == VK_UP)
-			{
-				if (selIndex > 0)
-					selIndex--;
-			}
-			if (pLVKeyDow->wVKey == VK_DOWN)
-			{
-				selIndex++;		
-				if (selIndex >= m_LogList.GetItemCount())
-					selIndex = m_LogList.GetItemCount()-1;
-			}
-			this->m_nSearchIndex = selIndex;
-			FillLogMessageCtrl();
-			UpdateData(FALSE);
+			//Ctrl-C -> copy to clipboard
+			CopySelectionToClipBoard();
 		}
-		if (pLVKeyDow->wVKey == 'C')
-		{
-			if (GetKeyState(VK_CONTROL)&0x8000)
-			{
-				//Ctrl-C -> copy to clipboard
-				CopySelectionToClipBoard();
-			}
-		}
-	}
-	else
-	{
-		if (m_logEntries.size()>0)
-		{
-			m_LogList.SetSelectionMark(0);
-			m_LogList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED|LVIS_FOCUSED);
-			FillLogMessageCtrl();
-		}
-		UpdateData(FALSE);
 	}
 	*pResult = 0;
 }
@@ -2064,8 +2030,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (pNMLV->iItem >= 0)
 	{
-		int selIndex = pNMLV->iItem;
-		m_nSearchIndex = selIndex;
+		m_nSearchIndex = pNMLV->iItem;
 		if (pNMLV->iSubItem != 0)
 			return;
 		if (pNMLV->uNewState & LVIS_SELECTED)
@@ -2894,3 +2859,4 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 	}
 	return 0;
 }
+
