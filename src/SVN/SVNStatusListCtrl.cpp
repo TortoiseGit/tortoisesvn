@@ -1038,7 +1038,7 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 					continue;
 				if (!testEntry->checked)
 				{
-					if (testEntry->path.IsAncestorOf(folderpath))
+					if (testEntry->path.IsAncestorOf(folderpath) && (!testEntry->path.IsEquivalentTo(folderpath)))
 					{
 						SetEntryCheck(testEntry,i,true);
 						m_nSelected++;
@@ -1065,7 +1065,7 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 					continue;
 				if (!testEntry->checked)
 				{
-					if (testEntry->path.IsAncestorOf(entry->path))
+					if (testEntry->path.IsAncestorOf(entry->path) && (!testEntry->path.IsEquivalentTo(entry->path)))
 					{
 						if (testEntry->status == svn_wc_status_deleted)
 						{

@@ -17,6 +17,8 @@
        at HEAD revision instead of the selected revision. (Stefan)
 - BUG: Wrong rendering/resizing of the listview in the folder
        browser dialog when exporting. (Stefan)
+- BUG: The number of selected items was shown wrong in the commit dialog
+       if an unversioned or deleted item was checked. (Stefan)
 
 Version 1.2
 
