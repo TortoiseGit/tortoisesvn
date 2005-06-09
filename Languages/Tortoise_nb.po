@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-05-23 16:43+0100\n"
+"PO-Revision-Date: 2005-06-09 10:28+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -811,7 +811,7 @@ msgstr "Analyser revisjonsdata..."
 
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "Fletter inn en enhetlig lappefil (diff-fil) i arbeidkopien din"
+msgstr "Fletter inn en enhetlig patch (diff-fil) i arbeidkopien din"
 
 # ID:15,
 #: ID:15
@@ -828,7 +828,7 @@ msgstr "Flett inn patch..."
 
 #: Control-ID:65535
 msgid "Apply Unified Diff"
-msgstr "Flett inn ensartet lappefil (unified diff)"
+msgstr "Flett inn ensartet patch (unified diff)"
 
 # ID:145,
 #: ID:145
@@ -882,6 +882,15 @@ msgstr "Lukk automatisk hvis ingen fletting, sletting eller hvis ingen ting legg
 #: Control-ID:65535
 msgid "Autoclose:"
 msgstr "Lukk automatisk:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Autocomplete suggests words (usually class or member names)\n"
+"from the files that you have changed as you type a log message."
+msgstr ""
+"Autofullføring foreslår ord (vanligvis klasse, eller medlemsnavn)\n"
+"fra filene du har forandret mens du skriver en loggmelding."
 
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1360,7 +1369,7 @@ msgid ""
 "Patching is not possible!"
 msgstr ""
 "Revisjonen %s av filen %s kunne ikke hentes.\n"
-"Lapping (patching) er ikke mulig!"
+"Patching er ikke mulig!"
 
 #: ID:64
 msgid "Could not save the file %s!"
@@ -1434,7 +1443,7 @@ msgstr "Lager et depot på gjeldende plassering"
 
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
-msgstr "Lager en enhetlig lappefil (diff-fil) med forandringene du har gjort"
+msgstr "Lager en enhetlig patch (diff-fil) med forandringene du har gjort"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1488,7 +1497,7 @@ msgstr "Sammenlign"
 
 #: Control-ID:65535
 msgid "Diff File:"
-msgstr "Lappefil (diff file):"
+msgstr "Patch (diff file):"
 
 #: Control-ID:1022
 msgid "Diffing"
@@ -1497,6 +1506,15 @@ msgstr "Forskjellsbehandling"
 #: Control-ID:65535
 msgid "Directory:"
 msgstr "Katalog:"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Disable this option if you have really big working copies and experience\n"
+"too much disk access when browsing the working copy."
+msgstr ""
+"La dette valget være av hvis du har store arbeidskopier og opplever\n"
+"for mye harddisktrafikk når du blar igjennom arbeidskopien."
 
 #: ID:3867
 msgid "Disk full while accessing %1."
@@ -1580,11 +1598,6 @@ msgstr "Vil du lagre dine endringer?"
 #: Control-ID:65535
 msgid "Documentation - Simon Large"
 msgstr "Dokumentasjon- Simon Large"
-
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "Ikke hent status for sammenhengsmenyen"
 
 #: ID:73
 msgid "Don't show this message again"
@@ -1777,6 +1790,11 @@ msgstr "Kunne ikke åpne dokumentet."
 msgid "Failed to save document."
 msgstr "Kunne ikke lagre dokumentet."
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "Hent status for sammenhengsmenyen"
+
 #: ID:313
 msgid "Fetching File..."
 msgstr "Henter fil..."
@@ -1799,7 +1817,7 @@ msgstr "Filforskjeller"
 #: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
-msgstr "Lappefiler"
+msgstr "Fil-patcher (diff-filer)"
 
 # Control-ID:1138,
 #: Control-ID:1138
@@ -1856,7 +1874,7 @@ msgstr "Generelt"
 
 #: ID:144
 msgid "Generating Patchfile..."
-msgstr "Genererer lappefil (patch-fil)..."
+msgstr "Genererer patch-fil..."
 
 # ID:16,
 #: ID:16
@@ -1977,8 +1995,8 @@ msgstr ""
 "Importen går direkte til den angitte nettadressen hvis ingen avkryssning."
 
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "Hvis avkrysset, skaper TortoiseSVN temporær fil for å lage diff-filer hvor nøkkelord ikke er utvidet"
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "Hvis avkrysset, lager TortoiseSVN en temporær fil av BASE til diffen med nøkkelord utvidet og linjeslutt justert"
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -2221,10 +2239,6 @@ msgstr "Sperrens eier:"
 msgid "Lock stolen by %s"
 msgstr "Sperret er stjålet av %s"
 
-#: ID:195
-msgid "Locked"
-msgstr "Sperret"
-
 # ID:263,
 #: ID:263
 msgid "Locked by %s"
@@ -2374,6 +2388,10 @@ msgstr "Flytter %s"
 msgid "Moving..."
 msgstr "Flytter..."
 
+#: Control-ID:65535
+msgid "My File:"
+msgstr "Min fil:"
+
 #: MenuEntry
 msgid "N&ext Conflict"
 msgstr "&Neste konflikt"
@@ -2387,11 +2405,6 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Operativsystemets filsystem (FSFS)"
-
-# Control-ID:1203,
-#: ID:195
-msgid "Needs Lock"
-msgstr "Behøver sperre"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -2504,6 +2517,7 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+#: ID:145
 #: Control-ID:1202
 msgid "Omit externals"
 msgstr "Utelukk eksterne"
@@ -2529,6 +2543,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Oppdater bare den øverste mappen"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "Bruk stavekontroll bare når tsvn:projectlanguage er satt på"
 
 #: ID:3841
 msgid "Open"
@@ -3134,7 +3153,7 @@ msgstr "Lagrer filen %s"
 
 #: ID:144
 msgid "Saving patchfile to:"
-msgstr "Lagrer lappefilen(Patch-filen) til:"
+msgstr "Lagrer patch-filen til:"
 
 # Control-ID:1014,#:
 # Control-ID:1017,#:
@@ -3196,7 +3215,7 @@ msgstr "Velg et objekt du vil ha hjelp om"
 
 #: ID:313
 msgid "Select diff file..."
-msgstr "Velg lappefil (diff file)..."
+msgstr "Velg patch (diff-fil)..."
 
 #: ID:79
 msgid ""
@@ -3324,6 +3343,11 @@ msgid ""
 msgstr ""
 "Vis/skjul verktøylinje\n"
 "Bytt verktøylinje-visning"
+
+# Control-ID:1223,
+#: Control-ID:1223
+msgid "Show overlay status icons recursively"
+msgstr "Vis statusikoner rekursivt"
 
 #: ID:2049
 msgid ""
@@ -3589,7 +3613,7 @@ msgstr "Filen %s eksisterer ikke!"
 
 #: ID:64
 msgid "The file %s was not found in the patch file!"
-msgstr "Filen %s ble ikke funnet i lappefilen (patch-fil)!"
+msgstr "Filen %s ble ikke funnet i patchen (patch-filen)!"
 
 #: ID:3857
 msgid "The file is too large to open."
@@ -3670,11 +3694,11 @@ msgid ""
 "%s\n"
 "do not match!"
 msgstr ""
-"Lappefil (patch) ser ut til å være for gammel! Filninjenummer\n"
+"Patchen (diff-filen) ser ut til å være for gammel. Fil-linjen\n"
 "%s\n"
-"og lappelinje\n"
+"og patchlinjen\n"
 "%s\n"
-"passer ikke sammen!"
+"passer ikke sammen."
 
 # ID:88,
 #: ID:88
@@ -3729,6 +3753,17 @@ msgid ""
 msgstr ""
 "Målmappen er ikke tom!\n"
 "Er du sikker på at du vil sjekke ut/eksportere inn i den mappen?"
+
+# ID:195,
+#: ID:195
+msgid ""
+"The time in seconds after which the parsing of the selected files stops.\n"
+"A lower value will make the autocompletion list available sooner,\n"
+"but maybe not scan all files."
+msgstr ""
+"Tid i sekunder etter at prossessering av valgte filer stopper. En lavere\n"
+"verdi kan gjøre autofullføringslisten tidligere tilgjengelig, men det er da\n"
+"mulig at ikke alle filer skannes."
 
 # ID:16,
 #: ID:16
@@ -3818,6 +3853,11 @@ msgstr "Denne egenskapen kan ikke ha flere linjer. Kun én er tillatt."
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Tre-filers forskjell"
+
+# Control-ID:1222,
+#: Control-ID:1222
+msgid "Timeout in seconds to stop the autocompletion parsing"
+msgstr "Tidsavbrudd i sekunder for å stoppe autofullførings-prossessering"
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -4090,7 +4130,7 @@ msgstr "Bruk automatisk fullføring av fil-stier og nøkkelord"
 
 # Control-ID:1214,
 #: Control-ID:1214
-msgid "Use old API's to fetch log messages"
+msgid "Use old APIs to fetch log messages"
 msgstr "Bruk gamle API-er for å hente loggmeldinger"
 
 #: Control-ID:1024
@@ -4102,20 +4142,20 @@ msgid "Use strikeout for deleted lines"
 msgstr "Bruk overstreking for slettede linjer"
 
 #: ID:251
+msgid "Use text block from \"&mine\""
+msgstr "Bruk tekstblokk fra \"&mine\""
+
+#: ID:251
 msgid "Use text block from \"&theirs\""
 msgstr "Bruk tekstblokk fra \"&deres\""
 
 #: ID:251
-msgid "Use text block from \"&yours\""
-msgstr "Bruke tekstblokk fra \"d&ine\""
+msgid "Use text block from \"m&ine\" before \"theirs\""
+msgstr "Bruk tekstblokk fra \"m&ine\" før \"deres\""
 
 #: ID:251
-msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Bruk tekstblokk fra \"d&eres\" før \"dine\""
-
-#: ID:251
-msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Bruk tekstblokk fra \"di&ne\" før \"deres\""
+msgid "Use text block from \"t&heirs\" before \"mine\""
+msgstr "Bruk tekstblokk fra \"d&eres\" før \"mine\""
 
 #: ID:251
 msgid "Use th&is text block"
@@ -4147,7 +4187,7 @@ msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
 "/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
+"/mine:<path to your file>\n"
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
@@ -4155,10 +4195,10 @@ msgstr ""
 "Gyldige kommandolinjevalg:\n"
 "/base:<sti til basefil>\n"
 "/theirs:<sti til deres fil>\n"
-"/yours:<sti til din fil>\n"
+"/mine:<sti til din fil>\n"
 "/merged:<sti til den endelige flettede filen>\n"
-"/diff:<sti til lappefil (diff file)>\n"
-"/patchpath:<sti til mappe>"
+"/diff:<sti til patch (diff-file)>\n"
+"/patchpath:<sti til katalog>"
 
 #: ID:11
 msgid "Value"
@@ -4273,17 +4313,17 @@ msgstr ""
 "Du har byttet ikonsett fra <i>%s</i> til <i>%s</i>.\n"
 "Du må logge ut og inn igjen eller starte maskinen på nytt for å se forandringene."
 
-#: Control-ID:65535
-msgid "Your File:"
-msgstr "Din fil:"
-
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
 "Din arbeidskopi ser ut til å være i en merket filsti!\n"
-"Du må først bytte til en gren eller hoveddepoet før innsending."
+"Du må først bytte til en gren eller hoveddepoet før innsending.\n"
+"\n"
+"Vil du likevel sende inn?"
 
 # ID:88,
 #: ID:88
@@ -4434,6 +4474,7 @@ msgid "incomplete"
 msgstr "ufullstending"
 
 #: ID:11
+#: ID:195
 #: Control-ID:1002
 msgid "locked"
 msgstr "Låst"
@@ -4474,9 +4515,19 @@ msgstr "piksler"
 msgid "re&cursive"
 msgstr "&Alle undermapper"
 
+# ID:195,
+#: ID:195
+msgid "readonly"
+msgstr "bare lese"
+
 #: ID:10
 msgid "replaced"
 msgstr "byttet"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "requests a username and a password"
+msgstr "ber om et brukernavn og passord"
 
 #: Control-ID:1023
 msgid "save authentication"
