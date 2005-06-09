@@ -296,6 +296,7 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/, BOOL
 	if (m_apFonts[nIndex] == NULL)
 	{
 		m_apFonts[nIndex] = new CFont;
+		m_lfBaseFont.lfCharSet = DEFAULT_CHARSET;
 		m_lfBaseFont.lfWeight = bBold ? FW_BOLD : FW_NORMAL;
 		m_lfBaseFont.lfItalic = (BYTE) bItalic;
 		m_lfBaseFont.lfStrikeOut = (BYTE) bStrikeOut;
