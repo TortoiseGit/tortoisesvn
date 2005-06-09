@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-06-07 23:03GMT Daylight Time\n"
+"POT-Creation-Date: 2005-06-09 21:34GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -758,54 +758,58 @@ msgid "If you want the current layout to be displayed in all your working copies
 msgstr ""
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:159(title) 
-msgid "Status Of The Repository"
+msgid "Local and Remote Status"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:165(title) source/en/tsvn_dug/dug_wcstatus.xml:202(guilabel) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:164(primary) 
+msgid "modifications"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:168(title) source/en/tsvn_dug/dug_wcstatus.xml:212(guilabel) 
 msgid "Check for Modifications"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:163(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:166(para) 
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:180(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:183(para) 
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:188(para) 
-msgid "From the context menu of the dialog you can show a diff of the changes. TortoiseSVN automatically downloads the most recent version from the repository to do the diff."
+#: source/en/tsvn_dug/dug_wcstatus.xml:191(para) 
+msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:194(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:204(para) 
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:204(guilabel) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:214(guilabel) 
 msgid "Show unmodified files"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:199(tip) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:209(tip) 
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <placeholder-1/> dialog is the easiest way to achieve that. Just check the <placeholder-2/> checkbox to show all files in your working copy."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:209(title) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:219(title) 
 msgid "Viewing Diffs"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:211(primary) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:221(primary) 
 msgid "diffing"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:213(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:223(para) 
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:222(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:232(para) 
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:226(para) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:236(para) 
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr ""
 

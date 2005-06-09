@@ -156,9 +156,12 @@
 	</sect2>
 	<sect2 id="tsvn-DUG-wcstatus-2">
 		<?dbhh topicname="HIDD_CHANGEDFILES"?>
-		<title>Status Of The Repository</title>
+		<title>Local and Remote Status</title>
 		<indexterm>
 			<primary>status</primary>
+		</indexterm>
+		<indexterm>
+			<primary>modifications</primary>
 		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-wcstatus-dia-2">
@@ -187,9 +190,16 @@
 		</para>
 		<para>
 			From the context menu of the dialog you can show a diff of the
-			changes. TortoiseSVN automatically
-			downloads the most recent version from the repository to do
-			the diff.
+			changes. Check the local changes <emphasis>you</emphasis> made using
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Compare with Base</guimenuitem>
+			</menuchoice>.
+			Check the changes in the repository made by others using
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Show Differences as Unified Diff</guimenuitem>
+			</menuchoice>.
 		</para>
 		<para>
 			You can also revert changes in individual files. If you have deleted
