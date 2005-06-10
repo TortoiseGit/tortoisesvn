@@ -111,7 +111,6 @@ protected:
 	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedGetall();
 	afx_msg void OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult);
