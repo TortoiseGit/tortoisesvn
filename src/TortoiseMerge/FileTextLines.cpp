@@ -283,7 +283,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= 
 		CString destPath = sFilePath;
 		// now make sure that the destination directory exists
 		int ind = 0;
-		while (destPath.Find('\\', ind)>=0)
+		while (destPath.Find('\\', ind)>=2)
 		{
 			if (!PathIsDirectory(destPath.Left(destPath.Find('\\', ind))))
 			{
