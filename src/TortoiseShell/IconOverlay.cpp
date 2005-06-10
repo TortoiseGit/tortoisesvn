@@ -31,7 +31,8 @@
 
 STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
-    // HACK: Under NT (and 95?), file open dialog crashes apps upon shutdown
+	PreserveChdir preserveChdir;
+
     OSVERSIONINFO osv;
     osv.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
     if( !GetVersionEx(&osv) )

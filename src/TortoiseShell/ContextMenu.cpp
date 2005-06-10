@@ -34,6 +34,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                    HKEY /* hRegKey */)
 {
 	ATLTRACE("Shell :: Initialize\n");
+	PreserveChdir preserveChdir;
 	files_.clear();
 	folder_.erase();	
 	isOnlyOneItemSelected = false;
@@ -489,6 +490,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
                                          UINT uFlags)
 {
 	ATLTRACE("Shell :: QueryContextMenu\n");
+	PreserveChdir preserveChdir;
 	//first check if our drophandler is called
 	//and then (if true) provide the context menu for the
 	//drop handler
@@ -528,8 +530,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 		return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 	}
-
-	PreserveChdir preserveChdir;
 
 	if ((uFlags & CMF_DEFAULTONLY)!=0)
 		return NOERROR;					//we don't change the default action
@@ -1467,6 +1467,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM /*wParam*/, LPARAM lPar
 {
 //a great tutorial on owner drawn menus in shell extension can be found
 //here: http://www.codeproject.com/shell/shellextguide7.asp
+	PreserveChdir preserveChdir;
 
 	LRESULT res;
 	if (pResult == NULL)

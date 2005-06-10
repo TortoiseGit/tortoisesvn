@@ -44,6 +44,7 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
 // IColumnProvider members
 STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
+	PreserveChdir preserveChdir;
 	if (dwIndex > 6)
 		return S_FALSE;
 
@@ -198,10 +199,10 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
 {
+	PreserveChdir preserveChdir;
 	LoadLangDll();
 	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 7) 
 	{
-		PreserveChdir preserveChdir;
 		stdstring szInfo;
 #ifdef UNICODE
 		const TCHAR * path = (TCHAR *)pscd->wszFile;
@@ -274,8 +275,6 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 	}
 	if (pscid->fmtid == FMTID_SummaryInformation)
 	{
-		PreserveChdir preserveChdir;
-
 		stdstring szInfo;
 #ifdef UNICODE
 		const TCHAR * path = pscd->wszFile;
@@ -327,6 +326,7 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 
 void CShellExt::GetColumnStatus(const TCHAR * path, BOOL /*bIsDir*/)
 {
+	PreserveChdir preserveChdir;
 	if (_tcscmp(path, columnfilepath.c_str())==0)
 		return;
 	LoadLangDll();
