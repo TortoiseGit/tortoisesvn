@@ -751,7 +751,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Switch, 0, pathList, dlg.m_URL, _T(""), dlg.Revision);
+				progDlg.SetParams(CSVNProgressDlg::Switch, 0, CTSVNPathList(cmdLinePath), dlg.m_URL, _T(""), dlg.Revision);
 				progDlg.DoModal();
 			}
 		}
