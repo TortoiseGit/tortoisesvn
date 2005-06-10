@@ -576,7 +576,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			CSciEditContextMenuInterface * pHandler = m_arContextHandlers.GetAt(handlerindex);
 			pHandler->InsertMenuItems(popup, nCustoms);
 		}
-		if (nCustoms)
+		if (nCustoms > 1)
 		{
 			// custom menu entries present, so add another separator
 			popup.AppendMenu(MF_SEPARATOR);
@@ -607,6 +607,11 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				sMenuItemText.LoadString(IDS_SPELLEDIT_CORRECTIONS);
 				popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, sMenuItemText);
 				nCorrections = ns;
+			}
+			else
+			{
+				sMenuItemText.LoadString(IDS_SPELLEDIT_NOCORRECTIONS);
+				popup.AppendMenu(MF_DISABLED | MF_STRING, 0, sMenuItemText);
 			}
 		}
 #if THESAURUS
@@ -646,6 +651,11 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, _T("Thesaurus"));
 #endif
 				nThesaurs = menuid;
+			}
+			else
+			{
+				sMenuItemText.LoadString(IDS_SPELLEDIT_NOTHESAURUS);
+				popup.AppendMenu(MF_DISABLED | MF_STRING, 0, sMenuItemText);
 			}
 
 			pThesaur->CleanUpAfterLookup(&pmean, count);
