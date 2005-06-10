@@ -58,7 +58,7 @@ void CSoundUtils::RegisterTSVNSounds()
 	for (pos = schemenames.GetHeadPosition(); pos != NULL;)
 	{
 		CString name = schemenames.GetNext(pos);
-		if (name.CompareNoCase(_T(".none"))!=0)
+		if ((name.CompareNoCase(_T(".none"))!=0)&&(name.CompareNoCase(_T(".nosound"))!=0))
 		{
 			CString errorkey = _T("AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Error\\") + name + _T("\\");
 			CRegString errorkeyval = CRegString(errorkey);
