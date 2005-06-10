@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN 1.1.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-03 13:53+0100\n"
+"PO-Revision-Date: 2005-06-09 22:42+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: Szente-Varga Bálint <info@bociusz.hu>\n"
 "MIME-Version: 1.0\n"
@@ -1879,20 +1879,10 @@ msgstr "Mented a változtatásokat?"
 msgid "Documentation - Simon Large"
 msgstr "Dokumentáció - Simon Large"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "Ne fűzze bele az állapotot a tartalom menübe"
-
 # ID:73,
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Ne mutassa mégegyszer ezt az üzenetet"
-
-# Control-ID:1224,
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "Ne használja a helyesírás ellenőrzőt, ha a tsvn:projectlanguage nem aktív"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -2123,6 +2113,11 @@ msgstr "Nem sikerült a dokumentumot betölteni"
 #: ID:3857
 msgid "Failed to save document."
 msgstr "Nem sikerült a dokumentumot kimenteni"
+
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "Ne fűzze bele az állapotot a tartalom menübe"
 
 # ID:313,
 #: ID:313
@@ -2358,8 +2353,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "Ha be van pipálva, a TortoiseSVN egy ideiglenes fájlt hoz létre a kulcsszavak kiterjesztése nélkül"
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "Ha be van pipálva, a TortoiseSVN egy ideiglenes fájlt hoz létre az ALAP-ból a foltfájlnak a kulcsszavak kiterjesztésével és a sorvégek rendezéséből."
 
 # ID:194,
 #: ID:194
@@ -2984,6 +2979,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Csak a legfölső mappát frissítse"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "Csak akkor használja a helyesírás ellenőrzőt, ha a tsvn:projectlanguage aktív"
 
 # ID:3841,#:
 # ID:3841,
@@ -5085,10 +5085,14 @@ msgstr ""
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
 "A munkapéldányod mellékágon látszik lenni!\n"
-"Elküldés előtt előszőr ki kell választani, hogy milyen ágon legyen."
+"Ajánlott a fő (trunk) ágra váltani beküldés elött\n"
+"\n"
+"Biztos hogy beküldöd?"
 
 # ID:88,
 #: ID:88
