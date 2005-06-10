@@ -4,7 +4,7 @@
 - NEW: 'Open with...' command in the commit dialog. (Stefan)
 - NEW: Columns in the log dialog can be sorted. (Boris)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
-- CHG: Reintroduce the doubleclick actions in the log dialog. (Stefan)
+- CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - BUG: Crash in TSVNCache. See issue #91.
 - BUG: File context menu shown if more than one folder was
        selected. See issue #92.
@@ -25,6 +25,8 @@
 - BUG: The 'Lock' menu was shown for added files. (Stefan)
 - BUG: TortoiseMerge wouldn't save files on UNC paths.
        See issue 108. (Stefan)
+- BUG: The "check for modifications" dialog showed a wrong dialog title
+       when "Check Repository" was clicked. (Stefan)
 
 Version 1.2
 

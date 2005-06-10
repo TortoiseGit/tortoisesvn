@@ -58,6 +58,7 @@ BOOL CChangedDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 	
+	GetWindowText(m_sTitle);
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
@@ -122,8 +123,7 @@ UINT CChangedDlg::ChangedStatusThread()
 		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
 	}
 	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
-	GetWindowText(temp);
-	SetWindowText(temp + _T(" - ") + commonDir.GetWinPathString());
+	SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	POINT pt;
 	GetCursorPos(&pt);
