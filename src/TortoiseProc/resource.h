@@ -435,6 +435,8 @@
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510
 #define IDS_IMPORT_TT_TEMPFILES         1511
 #define IDS_PROC_RENAME                 1550
+#define IDS_PROC_NEWNAM                 1551
+#define IDS_PROC_NEWNAME                1551
 #define IDS_REPOBROWSE_SAVEAS           1600
 #define IDS_REPOBROWSE_SHOWLOG          1601
 #define IDS_REPOBROWSE_OPEN             1602

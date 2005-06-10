@@ -1165,7 +1165,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					// Offer a rename
 					progress.Stop();
 					CRenameDlg dlg;
-					dlg.m_windowtitle.Format(IDS_PROC_RENAME, (LPCTSTR)sourcePath.GetFileOrDirectoryName());
+					dlg.m_windowtitle.Format(IDS_PROC_NEWNAME, (LPCTSTR)sourcePath.GetFileOrDirectoryName());
 					if (dlg.DoModal() != IDOK)
 					{
 						return FALSE;
