@@ -16,15 +16,13 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
-#ifndef __RepositoryTree_h
-#define __RepositoryTree_h
-
 #pragma once
 
 #include "SVN.h"
 #include "SVNUrl.h"
 #include "SVNRev.h"
 #include "ReportCtrl/ReportCtrl.h"
+#include "TSVNPath.h"
 
 
 /**
@@ -119,7 +117,6 @@ public:
 	afx_msg void OnRvnItemSelected(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
-
 	void Init(const SVNRev& revision);
 	CString MakeUrl(HTREEITEM hItem);
 	CString GetFolderUrl(HTREEITEM hItem);
@@ -141,6 +138,11 @@ private:
 	void DeleteChildItems(HTREEITEM hItem);
 	//! Loads the items below \a hItem from repository
 	void LoadChildItems(HTREEITEM hItem, BOOL recursive = FALSE);
+	
+	/// Drag and Drop implementations
+	virtual DROPEFFECT OnDrag(int iItem, int iSubItem, IDataObject * pDataObj, DWORD grfKeyState);
+	virtual void OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DWORD grfKeyState);
+	
 
 private:
 	friend class CRepositoryBar;
@@ -151,10 +153,11 @@ private:
 	BOOL		bInit;
 	SVNRev		m_Revision;
 	BOOL		m_bFile;
+
 public:
 	int			m_nIconFolder;
+	CTSVNPathList m_DroppedPaths;	
 
 	DECLARE_MESSAGE_MAP()
 };
-
-#endif /*__RepositoryTree_h*/
+static UINT WM_FILESDROPPED = RegisterWindowMessage(_T("TORTOISESVN_FILESDROPPED_MSG"));

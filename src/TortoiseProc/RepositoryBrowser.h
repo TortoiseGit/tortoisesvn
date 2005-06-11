@@ -84,7 +84,9 @@ protected:
 	afx_msg void OnBnClickedHelp();
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg LRESULT OnAfterInitDialog(WPARAM wParam, LPARAM lParam);
-	
+	void OnFilesDropped(int iItem, int iSubItem, const CTSVNPathList& droppedPaths);
+	afx_msg LRESULT OnFilesDropped(WPARAM wParam, LPARAM lParam);
+
 	void ShowContextMenu(CPoint pt, LRESULT *pResult);
 	DECLARE_MESSAGE_MAP()
 

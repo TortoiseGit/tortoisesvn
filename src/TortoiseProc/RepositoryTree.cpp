@@ -669,3 +669,59 @@ void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 		LoadChildItems(hItem, (GetKeyState(VK_CONTROL)&0x8000)!=0);
 	}
 }
+
+DROPEFFECT CRepositoryTree::OnDrag(int iItem, int iSubItem, IDataObject * pDataObj, DWORD /*grfKeyState*/)
+{
+	if (iSubItem)
+		return DROPEFFECT_NONE;		// no dropping on subitems
+	RVITEM Item;
+	Item.nMask = RVIM_IMAGE;
+	Item.iItem = iItem;
+	GetItem(&Item);
+	if (Item.iImage != m_nIconFolder)
+		return DROPEFFECT_NONE;		// no dropping on files
+	FORMATETC ftetc={0}; 
+	ftetc.dwAspect = DVASPECT_CONTENT; 
+	ftetc.lindex = -1; 
+	ftetc.tymed = TYMED_HGLOBAL; 
+	ftetc.cfFormat=CF_HDROP; 
+	if (pDataObj->QueryGetData(&ftetc) == S_OK)
+	{
+		return DROPEFFECT_COPY;
+	}
+	return DROPEFFECT_NONE;
+}
+
+void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DWORD /*grfKeyState*/)
+{
+	STGMEDIUM medium;
+	FORMATETC ftetc={0}; 
+	ftetc.dwAspect = DVASPECT_CONTENT; 
+	ftetc.lindex = -1; 
+	ftetc.tymed = TYMED_HGLOBAL; 
+	ftetc.cfFormat=CF_HDROP;
+	
+	m_DroppedPaths.Clear();
+	
+	if (pDataObj->GetData(&ftetc, &medium) == S_OK)
+	{
+		if(ftetc.cfFormat == CF_HDROP && medium.tymed == TYMED_HGLOBAL)
+		{
+			HDROP hDrop = (HDROP)GlobalLock(medium.hGlobal);
+			if(hDrop != NULL)
+			{
+				TCHAR szFileName[MAX_PATH];
+
+				UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0); 
+				for(UINT i = 0; i < cFiles; ++i)
+				{
+					DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
+					m_DroppedPaths.AddPath(CTSVNPath(szFileName));
+				}  
+			}
+			GlobalUnlock(medium.hGlobal);
+			GetParent()->PostMessage(WM_FILESDROPPED, iItem, iSubItem);
+		}
+		ReleaseStgMedium(&medium);
+	}
+}

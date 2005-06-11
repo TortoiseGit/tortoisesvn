@@ -95,6 +95,7 @@ void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
+	ON_REGISTERED_MESSAGE(WM_FILESDROPPED, OnFilesDropped)
 	ON_NOTIFY(RVN_ITEMRCLICK, IDC_REPOS_TREE, OnRVNItemRClickReposTree)
 	ON_NOTIFY(RVN_ITEMRCLICKUP, IDC_REPOS_TREE, OnRVNItemRClickUpReposTree)
 	ON_NOTIFY(RVN_KEYDOWN, IDC_REPOS_TREE, OnRVNKeyDownReposTree)
@@ -1083,4 +1084,60 @@ BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 	SetCursor(hCur);
 	return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
+}
+
+LRESULT CRepositoryBrowser::OnFilesDropped(WPARAM wParam, LPARAM lParam)
+{
+	OnFilesDropped((int)wParam, (int)lParam, m_treeRepository.m_DroppedPaths);
+	return 0;
+}
+
+void CRepositoryBrowser::OnFilesDropped(int iItem, int iSubItem, const CTSVNPathList& droppedPaths)
+{
+	if (iSubItem != 0)
+		return;		// no subitem drop!
+
+	CString url = m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(iItem));
+	if (url.IsEmpty())
+		return;
+
+	if (droppedPaths.GetCount() == 0)
+		return;		
+	if (droppedPaths.GetCount() > 1)
+	{
+		if (CMessageBox::Show(m_hWnd, IDS_REPOBROWSE_MULTIIMPORT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)!=IDYES)
+			return;
+	}
+
+	CInputDlg input(this);
+	SetupInputDlg(&input);
+	input.m_sInputText.LoadString(IDS_INPUT_ADDFILEFOLDERMSG);
+	input.m_sInputText += _T("\r\n\r\n");
+	
+	for (int i=0; i<droppedPaths.GetCount(); ++i)
+	{
+		input.m_sInputText += droppedPaths[i].GetWinPathString() + _T("\r\n");
+	}
+
+	if (input.DoModal() == IDOK)
+	{
+		SVN svn;
+		for (int importindex = 0; importindex<droppedPaths.GetCount(); ++importindex)
+		{
+			CString filename = droppedPaths[importindex].GetFileOrDirectoryName();
+			if (!svn.Import(droppedPaths[importindex], 
+				CTSVNPath(url+_T("/")+filename), 
+				input.m_sInputText, FALSE))
+			{
+				CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				return;
+			}
+			if (droppedPaths[importindex].IsDirectory())
+				m_treeRepository.AddFolder(url+_T("/")+filename);
+			else
+				m_treeRepository.AddFile(url+_T("/")+filename);				
+		}
+	}
+
+	return;
 }

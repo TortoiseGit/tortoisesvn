@@ -3,6 +3,8 @@
 - NEW: Diffing files against their BASE improved. See Issue #94. (Stefan)
 - NEW: 'Open with...' command in the commit dialog. (Stefan)
 - NEW: Columns in the log dialog can be sorted. (Boris)
+- NEW: Files dragged from the explorer to the repository browser will
+       add them to the repository. (Stefan)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - BUG: Crash in TSVNCache. See issue #91.

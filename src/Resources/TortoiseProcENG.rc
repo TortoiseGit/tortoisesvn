@@ -1681,6 +1681,7 @@ BEGIN
     IDS_INPUT_MKDIRLOGMSG   "Created folder remotely"
     IDS_INPUT_MOVELOGMSG    "Moved remotely"
     IDS_INPUT_ADDFOLDERLOGMSG "Added a folder remotely"
+    IDS_INPUT_ADDFILEFOLDERMSG "Added items remotely"
 END
 
 STRINGTABLE 
@@ -2053,6 +2054,12 @@ BEGIN
     IDS_REVGRAPH_POPUP_COMPAREHEADS "Compare &HEAD Revisions"
     IDS_REVGRAPH_POPUP_UNIDIFFREVS "&Unified Diff"
     IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of HEAD Revisions"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_MULTIIMPORT 
+                            "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
 END
 
 #endif    // English (U.S.) resources
