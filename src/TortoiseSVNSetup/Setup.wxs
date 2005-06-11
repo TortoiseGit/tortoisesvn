@@ -62,93 +62,90 @@
       </Component>
 
 		<Component Id="C__shellregistry" Guid="D3F48AA6-A01B-47c5-A314-70319092E89A" >
-			<Registry Root="HKMU" Key="Software\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" KeyPath="yes" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_F9920D9B7AC24A00B3EB165F5443F396" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\Drive\shellex\PropertySheetHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_428E92FA10104428898CD781195E2EE7" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_FB91C533FB924DD5AF9B3C7D11ED96F5" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\DragDropHandlers\TortoiseSVN" Value="{3035134a-7B7D-4fcc-81B4-1E394CA267EB}" Id="_7E90BAAA1EC6477987268183EEE362BE" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\PropertySheetHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_2D85E376087449549EFDFEF3731801BD" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\Directory\Background\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_3B556CB024B747D6958777394D1FA955" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\ColumnHandlers\{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_B4DEDCD9C43D400F906D14B21BAA297E" />
-			<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_CB48DAD85B7B459A9E81C4A82EF4BF2B" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{3035134a-7B7D-4fcc-81B4-1E394CA267EB}" Id="_FD52B6DA67C142CF9827680867DE80AF" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134e-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_ED8D2F572F7B4ebf8F0CFE1505768A33" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134e-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_F2F0FB2D449A4840B64FDEFF86F53316" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134d-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_DFD56DFF0C0B41a68EA51483F49BFB0B" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134d-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_26ABCF593D8B464f80EB7C59D25DFBBC" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134c-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_1AC3643934F64DAA8BD9526D7444678A" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134c-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_9A406BB1F3704CBD81869F7F9A575C90" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351346-7B7D-4fcc-81B4-1E394CA267EB}" Name="*" Id="_5915B62ECE2F4CD5B84BFA1CB973E301" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_353BE23FB73A4C1D9477645477FA6032" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_85AF844B39CD4AF5B08BF5E1122BA0FA" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351346-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_23323DBDB50B423AA8E7BFDEB509FB25" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134b-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_0FEE3EC5B47047EBB31CC528984939A0" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134b-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_C69C06D7BD234F1EA1CF3C2C65314015" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351349-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_0E31B843222F4B6DAB9D17B29A04FECE" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351349-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_752D118885FD49A0A7625B8A2BB911EB" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_05D4B035AC4640969E68CA1118DD1131" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351347-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_0D67AAE7DA084FDF907F646A36DDE2B1" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351347-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_EF88C7762F764A42BAB4315C65805DB6" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351347-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_9ECA7377CDA949FB9BF833069BDE4760" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134a-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_9E928B201B01460BBA74BE139C09FFD1" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134a-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_DA1D1488E3E144678056D6AB0B9ABDFC" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351348-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_DFDD4BC787B24414AC4D68F73D0BAECC" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351348-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_F66E793DF4C24CBB9FE0C269884616DC" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351348-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_6FB49CE1BF484E9DA950FB12BE1522A7" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_E2F0A70A63E84805BBF6781659E1558A" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_734B600DBE1A477C8BFCF38DBE26EA89" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_CA3C804229C5460CA8097C61AD265365" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_ACD2E04AF69A400381700023A1A13B20" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseSVN" Value="{30351347-7B7D-4fcc-81B4-1E394CA267EB}" Id="_EC32293931D84E1EBAAD88D807D05D02" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseSVN" Value="{30351348-7B7D-4fcc-81B4-1E394CA267EB}" Id="_7DECEC1B053B4F6EAB22C71ED39E4EA8" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseSVN" Value="{3035134c-7B7D-4fcc-81B4-1E394CA267EB}" Id="_8E5D806C07CC4AA9BF617C14225CD5C2" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseSVN" Value="{30351346-7B7D-4fcc-81B4-1E394CA267EB}" Id="_8FFBEF9F51C2449EBF549D15949779EA" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseSVN" Value="{3035134b-7B7D-4fcc-81B4-1E394CA267EB}" Id="_BE50C516B3444976864879716C66A602" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseSVN" Value="{3035134d-7B7D-4fcc-81B4-1E394CA267EB}" Id="_25D18C201635477284E55464D240E699" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseSVN" Value="{3035134e-7B7D-4fcc-81B4-1E394CA267EB}" Id="_999586B904944935990B39114DEBC4ED" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" KeyPath="yes" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\Drive\shellex\PropertySheetHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\DragDropHandlers\TortoiseSVN" Value="{3035134a-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\PropertySheetHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\Directory\Background\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\ColumnHandlers\{30351349-7B7D-4fcc-81B4-1E394CA267EB}" />
+			<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{3035134a-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134e-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134e-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134d-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134d-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134c-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134c-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351346-7B7D-4fcc-81B4-1E394CA267EB}" Name="*" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351346-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134b-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134b-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351349-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351349-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351347-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351347-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351347-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134a-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{3035134a-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351348-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351348-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\CLSID\{30351348-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseSVN" Value="{30351347-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseSVN" Value="{30351348-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseSVN" Value="{3035134c-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseSVN" Value="{30351346-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseSVN" Value="{3035134b-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseSVN" Value="{3035134d-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseSVN" Value="{3035134e-7B7D-4fcc-81B4-1E394CA267EB}" Type="string" />
 		</Component>
 		<Component Id="C__machineregistry" Guid="4913F361-DE93-490c-81D0-1FB002EBF141" >
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ReadOnlyIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseReadOnly.ico" KeyPath="yes" Id="_0420474DA5564BCDBDA699049D561034" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseDeleted.ico" Id="_06060DF88EA34CAB9BECB0F277B7D7C6" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_144EF42CC6B14DC8A344CD7656CE7B17" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="CachePath" Value="[TARGETDIR]bin\TSVNCache.exe" Id="_C847099F97C04eadA6ED7C1AE15DCCBA" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseInSubversion.ico" Id="_19FFFCD9435246F78F7F76A285870C72" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[TARGETDIR]bin\TortoiseMerge.exe" Id="_7ABD6ED2AA3E4F869231418117F668E2" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseModified.ico" Id="_B2E8ECE44B6747A384B8D7B4E567DFED" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Value="[TARGETDIR]" Id="_DA13C02D9F0545A19698C64A47B57F5A" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseConflict.ico" Id="_EDA19D325D75468D81C6144482C53F02" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="LockedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseLocked.ico" Id="_AF5B89505F0B43b985F2772FDA47B9FB" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseAdded.ico" Id="_210FB7CC8AD14982A5F56D9A332B9348" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ReadOnlyIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseReadOnly.ico" KeyPath="yes" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseDeleted.ico" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="CachePath" Value="[TARGETDIR]bin\TSVNCache.exe" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseInSubversion.ico" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[TARGETDIR]bin\TortoiseMerge.exe" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseModified.ico" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Value="[TARGETDIR]" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseConflict.ico" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="LockedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseLocked.ico" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseAdded.ico" Type="string" />
 		</Component>
 		<Component Id="C__approveshellcomponents" Guid="A5B89BEC-D213-461d-AACD-8F46477E87D0" >
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351348-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" KeyPath="yes" Id="_1D2348740FDB4E30A124BDDE44B50D1F" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351347-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_38853DF1E1F346FA96EB97587CF36BD7" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134a-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_589DB911811D4C4CABD11886DF656808" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134c-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_B65A97F7A8A64130886483DFECE7E7FA" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351346-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_B8821E6175384DD6BB7A002C2FC18240" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_DA71E1D52B69440B8ED17B3525AE8E4C" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134b-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_F0052C2095E04B12A90D7803CEEE2978" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134d-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_82842FE919AB4f3bB79074B4F9D51075" Type="string" />
-			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134e-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_F5ED360F12D244c28DD4BC7BB7A7F044" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351348-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" KeyPath="yes" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351347-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134a-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134c-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351346-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134b-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134d-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
+			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134e-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Type="string" />
 		</Component>
 		<Component Id="C__svnprotocoll" Guid="02271D5C-3065-4038-AD86-46A271854FA6" >
-			<Registry Root="HKMU" Key="Software\Classes\svn" KeyPath="yes" Value="URL:SVN Protocol" Id="_1A7DD312DA684baaA316AED127286F1A" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\svn" Name="URL Protocol" Id="_67DCDC3D928D4184A22F402F42200334" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\svn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_E769D66E9B064912913A8D182828BE2D" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\svn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Id="_6C99C8E31975426e9CD13E502CE8A247" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\svn" KeyPath="yes" Value="URL:SVN Protocol" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\svn" Name="URL Protocol" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\svn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\svn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Type="string" />
 			
-			<Registry Root="HKMU" Key="Software\Classes\svn+ssh" Value="URL:SVN+SSH Protocol" Id="_A292EBDFAFFC406784B9D90F1E9883D8" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\svn+ssh" Name="URL Protocol" Id="_EC7E2AEE0634419bB4E7040904214BA7" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\svn+ssh\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_3B07731EA68A41bcBC58B7E275862D3A" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\svn+ssh\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Id="_80E38B43490F449f9C1AFBFAF1D335D3" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\svn+ssh" Value="URL:SVN+SSH Protocol" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\svn+ssh" Name="URL Protocol" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\svn+ssh\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\svn+ssh\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Type="string" />
 
-			<Registry Root="HKMU" Key="Software\Classes\tsvn" Value="URL:TSVN Protocol" Id="_0D278C31382F4c719D91F9BA663B7286" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\tsvn" Name="URL Protocol" Id="_88BA4ADF25CF42d79BF7F251D62EC40E" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\tsvn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_D72059B72F5F45c3A1E54A060029452F" Type="string" />
-			<Registry Root="HKMU" Key="Software\Classes\tsvn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:checkout /url:&quot;%1&quot;" Id="_BA71DAF4AF4C46b69BDA7806804A5E8A" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\tsvn" Value="URL:TSVN Protocol" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\tsvn" Name="URL Protocol" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\tsvn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" />
+			<Registry Root="HKMU" Key="Software\Classes\tsvn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:checkout /url:&quot;%1&quot;" Type="string" />
 		</Component>
-		<!-- <Component Id="C_autostart" Guid="A990D83C-0D37-428f-8954-3A7B725009D1" >
-			<Registry Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="TSVNCache" Value="[TARGETDIR]bin\TSVNCache.exe" Id="_DE6679C450FA41159579F317E33D0353" Type="string" />
-		</Component>  -->
 	  <Directory Id="D__Bin" Name="BIN" LongName="bin" >
 	      <Component Id="C__libssl" Guid="53F3D18C-528D-4b08-AB1A-8644BFD3D5F2" >
 	        <File Id="F__libeay32" Name="LIBEAY32.DLL" LongName="libeay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\libeay32.dll" KeyPath="yes" />
