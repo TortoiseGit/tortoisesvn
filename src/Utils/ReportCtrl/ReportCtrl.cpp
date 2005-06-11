@@ -515,7 +515,9 @@ void CReportView::OnSetFocus(CWnd* /*pOldWnd*/)
 
 IMPLEMENT_DYNCREATE(CReportCtrl, CWnd)
 
-CReportCtrl::CReportCtrl()
+CReportCtrl::CReportCtrl() :
+	m_pDropTargetHelper(NULL) ,
+	m_cRefCount(0)
 {
 	WNDCLASS wndclass;
 	HINSTANCE hInst = AfxGetInstanceHandle();
@@ -612,10 +614,15 @@ CReportCtrl::CReportCtrl()
 	m_lParamCompare = 0;
 
 	m_uNotifyMask = RVNM_ALL;
+
+	if(FAILED(CoCreateInstance(CLSID_DragDropHelper,NULL,CLSCTX_INPROC_SERVER,
+		IID_IDropTargetHelper,(LPVOID*)&m_pDropTargetHelper)))
+		m_pDropTargetHelper = NULL;
 }
 
 CReportCtrl::~CReportCtrl()
 {
+	RevokeDragDrop(m_hWnd);
 	m_wndHeader.DestroyWindow();
 	m_wndTip.DestroyWindow();
 
@@ -663,6 +670,7 @@ BOOL CReportCtrl::Create()
 	Layout(rect.Width(), rect.Height());
 
 	GetSysColors();
+	RegisterDragDrop(m_hWnd, this);
 	return TRUE;
 }
 
@@ -6445,6 +6453,125 @@ void CReportCtrl::OnRvnEndItemEdit(NMHDR* pNMHDR, LRESULT* pResult)
 
 	pResult = FALSE;
 }
+
+HRESULT CReportCtrl::QueryInterface(REFIID riid, void __RPC_FAR *__RPC_FAR *ppvObject)
+{
+	*ppvObject = NULL;
+	if (IID_IUnknown==riid || IID_IDropTarget==riid)
+		*ppvObject=this;
+
+	if (*ppvObject != NULL)
+	{
+		((LPUNKNOWN)*ppvObject)->AddRef();
+		return S_OK;
+	}
+	return E_NOINTERFACE;
+}
+
+ULONG CReportCtrl::Release()
+{
+	m_cRefCount--;
+	return m_cRefCount;
+}
+
+HRESULT CReportCtrl::DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
+{
+	if(pDataObj == NULL)
+		return E_INVALIDARG;
+
+	if(m_pDropTargetHelper)
+		m_pDropTargetHelper->DragEnter(m_hWnd, pDataObj, (LPPOINT)&pt, *pdwEffect);
+	
+	m_pDropDataObj = pDataObj;
+
+	if (pdwEffect)
+	{
+		RVHITTESTINFO rvhti;
+		rvhti.point.x = pt.x;
+		rvhti.point.y = pt.y;
+		ScreenToClient(&rvhti.point);
+		HitTest(&rvhti);
+		*pdwEffect = DROPEFFECT_NONE;
+		if ((rvhti.iItem >= 0)&&(rvhti.iSubItem >= 0))
+		{
+			*pdwEffect = OnDrag(rvhti.iItem, rvhti.iSubItem, pDataObj, grfKeyState);
+			if (*pdwEffect != DROPEFFECT_NONE)
+			{
+				// Select the target
+				SetSelection(rvhti.iItem);
+				ATLTRACE("CReportCtrl::DragEnter Item %d, Subitem %d\n", rvhti.iItem, rvhti.iSubItem);
+			}
+		}
+	}
+	return S_OK;
+}
+
+HRESULT CReportCtrl::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
+{
+	if(m_pDropTargetHelper)
+		m_pDropTargetHelper->DragOver((LPPOINT)&pt, *pdwEffect);
+	if (pdwEffect)
+	{
+		RVHITTESTINFO rvhti;
+		rvhti.point.x = pt.x;
+		rvhti.point.y = pt.y;
+		ScreenToClient(&rvhti.point);
+		HitTest(&rvhti);
+		*pdwEffect = DROPEFFECT_NONE;
+		if ((rvhti.iItem >= 0)&&(rvhti.iSubItem >= 0))
+		{
+			*pdwEffect = OnDrag(rvhti.iItem, rvhti.iSubItem, m_pDropDataObj, grfKeyState);
+			if (*pdwEffect != DROPEFFECT_NONE)
+			{
+				// Select the target
+				SetSelection(rvhti.iItem);
+				ATLTRACE("CReportCtrl::DragOver Item %d, Subitem %d\n", rvhti.iItem, rvhti.iSubItem);
+			}
+		}
+	}
+	return S_OK;
+}
+
+HRESULT CReportCtrl::DragLeave()
+{
+	m_pDropDataObj = NULL;
+	if(m_pDropTargetHelper)
+		m_pDropTargetHelper->DragLeave();
+	return S_OK;
+}
+
+HRESULT CReportCtrl::Drop(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
+{
+	if (pDataObj == NULL)
+		return E_INVALIDARG;	
+
+	if(m_pDropTargetHelper)
+		m_pDropTargetHelper->Drop(pDataObj, (LPPOINT)&pt, *pdwEffect);
+
+	if (pdwEffect)
+	{
+		RVHITTESTINFO rvhti;
+		rvhti.point.x = pt.x;
+		rvhti.point.y = pt.y;
+		ScreenToClient(&rvhti.point);
+		HitTest(&rvhti);
+		*pdwEffect = DROPEFFECT_NONE;
+		if ((rvhti.iItem >= 0)&&(rvhti.iSubItem >= 0))
+		{
+			*pdwEffect = OnDrag(rvhti.iItem, rvhti.iSubItem, pDataObj, grfKeyState);
+			if (*pdwEffect != DROPEFFECT_NONE)
+			{
+				// Select the target
+				SetSelection(rvhti.iItem);
+				ATLTRACE("CReportCtrl::Drop Item %d, Subitem %d\n", rvhti.iItem, rvhti.iSubItem);
+				OnDrop(rvhti.iItem, rvhti.iSubItem, pDataObj, grfKeyState);
+			}
+		}
+	}
+	*pdwEffect = DROPEFFECT_NONE;
+	return S_OK;
+}
+
 
 /////////////////////////////////////////////////////////////////////////////
 // CReportSubItemListCtrl

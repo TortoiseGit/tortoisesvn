@@ -620,7 +620,7 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 // CReportCtrl window
 
-class CReportCtrl : public CWnd
+class CReportCtrl : public CWnd, public IDropTarget
 {
 	friend class CReportView;
 	friend class CReportHeaderCtrl;
@@ -796,6 +796,30 @@ public:
 	INT PreviewHeight(CFont* pFont, UINT nLines);
 	INT PreviewHeight(CFont* pFont, LPCTSTR lpszText, LPRECT lpRect = NULL);
 
+// IDropTarget
+public:
+	HRESULT STDMETHODCALLTYPE QueryInterface(/* [in] */ REFIID riid,
+					/* [iid_is][out] */ void __RPC_FAR *__RPC_FAR *ppvObject);
+	ULONG STDMETHODCALLTYPE AddRef( void) { ATLTRACE("CReportCtrl::AddRef\n"); return ++m_cRefCount; }
+	ULONG STDMETHODCALLTYPE Release( void);
+
+	HRESULT STDMETHODCALLTYPE DragEnter(
+			/* [unique][in] */ IDataObject __RPC_FAR *pDataObj,
+			/* [in] */ DWORD grfKeyState,
+			/* [in] */ POINTL pt,
+			/* [out][in] */ DWORD __RPC_FAR *pdwEffect);
+	HRESULT STDMETHODCALLTYPE DragOver( 
+			/* [in] */ DWORD grfKeyState,
+			/* [in] */ POINTL pt,
+			/* [out][in] */ DWORD __RPC_FAR *pdwEffect);
+	HRESULT STDMETHODCALLTYPE DragLeave(void);    
+	HRESULT STDMETHODCALLTYPE Drop(
+			/* [unique][in] */ IDataObject __RPC_FAR *pDataObj,
+			/* [in] */ DWORD grfKeyState,
+			/* [in] */ POINTL pt,
+			/* [out][in] */ DWORD __RPC_FAR *pdwEffect);
+
+
 // Overrides
 public:
 	virtual ~CReportCtrl();
@@ -812,6 +836,9 @@ public:
 	virtual void EndEdit(BOOL bUpdate = TRUE, LPNMRVITEMEDIT lpnmrvie = NULL);
 
 	virtual BOOL Notify(LPNMREPORTVIEW lpnmrv);
+	
+	virtual DROPEFFECT OnDrag(int /*iItem*/, int /*iSubItem*/, IDataObject * /*pDataObj*/, DWORD /*grfKeyState*/) {return DROPEFFECT_NONE;}
+	virtual void OnDrop(int /*iItem*/, int /*iSubItem*/, IDataObject * /*pDataObj*/, DWORD /*grfKeyState*/) {return;}
 
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CReportCtrl)
@@ -921,6 +948,10 @@ protected:
 
 // Implementation
 protected:
+	DWORD m_cRefCount;
+	struct IDropTargetHelper *m_pDropTargetHelper;
+	IDataObject * m_pDropDataObj;
+	
 	BOOL m_bSubclassFromCreate;
 
 	BOOL m_bDoubleBuffer;
