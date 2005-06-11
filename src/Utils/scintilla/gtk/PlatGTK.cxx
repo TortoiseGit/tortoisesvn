@@ -302,6 +302,8 @@ static const char *CharacterSetName(int characterSet) {
 		return "*-*";
 	case SC_CHARSET_THAI:
 		return "*-1";
+	case SC_CHARSET_8859_15:
+		return "iso8859-15";
 	default:
 		return "*-*";
 	}
@@ -758,6 +760,8 @@ const char *CharacterSetID(int characterSet) {
 		return "";
 	case SC_CHARSET_THAI:
 		return "ISO-8859-1";
+	case SC_CHARSET_8859_15:
+		return "ISO-8859-15";
 	default:
 		return "";
 	}
@@ -2343,7 +2347,12 @@ void Menu::Show(Point pt, Window &) {
 	if ((pt.y + requisition.height) > screenHeight) {
 		pt.y = screenHeight - requisition.height;
 	}
-	gtk_item_factory_popup(factory, pt.x - 4, pt.y, 3, 0);
+#if GTK_MAJOR_VERSION >= 2
+	gtk_item_factory_popup(factory, pt.x - 4, pt.y - 4, 3, 
+		gtk_get_current_event_time());
+#else
+	gtk_item_factory_popup(factory, pt.x - 4, pt.y - 4, 3, 0);
+#endif
 }
 
 ElapsedTime::ElapsedTime() {

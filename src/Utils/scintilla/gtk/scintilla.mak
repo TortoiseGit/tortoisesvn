@@ -154,10 +154,12 @@ LEXOBJS=\
 	$(DIR_O)\LexConf.obj \
 	$(DIR_O)\LexCPP.obj \
 	$(DIR_O)\LexCrontab.obj \
+	$(DIR_O)\LexCsound.obj \
 	$(DIR_O)\LexCSS.obj \
 	$(DIR_O)\LexEiffel.obj \
 	$(DIR_O)\LexErlang.obj \
 	$(DIR_O)\LexEScript.obj \
+	$(DIR_O)\LexFlagship.obj \
 	$(DIR_O)\LexForth.obj \
 	$(DIR_O)\LexFortran.obj \
 	$(DIR_O)\LexGui4Cli.obj \
@@ -180,10 +182,13 @@ LEXOBJS=\
 	$(DIR_O)\LexPOV.obj \
 	$(DIR_O)\LexPS.obj \
 	$(DIR_O)\LexPython.obj \
+	$(DIR_O)\LexRebol.obj \
 	$(DIR_O)\LexRuby.obj \
 	$(DIR_O)\LexScriptol.obj \
+	$(DIR_O)\LexSmalltalk.obj \
 	$(DIR_O)\LexSpecman.obj \
 	$(DIR_O)\LexSQL.obj \
+	$(DIR_O)\LexTADS3.obj \
 	$(DIR_O)\LexTeX.obj \
 	$(DIR_O)\LexVB.obj \
 	$(DIR_O)\LexVerilog.obj \
@@ -335,6 +340,8 @@ $(DIR_O)\LexCPP.obj: ..\src\LexCPP.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexCrontab.obj: ..\src\LexCrontab.cxx $(LEX_HEADERS)
 
+$(DIR_O)\LexCsound.obj: ..\src\LexCsound.cxx $(LEX_HEADERS)
+
 $(DIR_O)\LexCSS.obj: ..\src\LexCSS.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexEiffel.obj: ..\src\LexEiffel.cxx $(LEX_HEADERS)
@@ -342,6 +349,8 @@ $(DIR_O)\LexEiffel.obj: ..\src\LexEiffel.cxx $(LEX_HEADERS)
 $(DIR_O)\LexErlang.obj: ..\src\LexErlang.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexEScript.obj: ..\src\LexEScript.cxx $(LEX_HEADERS)
+
+$(DIR_O)\LexFlagship.obj: ..\src\LexFlagship.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexForth.obj: ..\src\LexForth.cxx $(LEX_HEADERS)
 
@@ -387,13 +396,19 @@ $(DIR_O)\LexPS.obj: ..\src\LexPS.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexPython.obj: ..\src\LexPython.cxx $(LEX_HEADERS)
 
+$(DIR_O)\LexRebol.obj: ..\src\LexRebol.cxx $(LEX_HEADERS)
+
 $(DIR_O)\LexRuby.obj: ..\src\LexRuby.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexScriptol.obj: ..\src\LexScriptol.cxx $(LEX_HEADERS)
 
+$(DIR_O)\LexSmalltalk.obj: ..\src\LexSmalltalk.cxx $(LEX_HEADERS)
+
 $(DIR_O)\LexSpecman.obj: ..\src\LexSpecman.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexSQL.obj: ..\src\LexSQL.cxx $(LEX_HEADERS)
+
+$(DIR_O)\LexTADS3.obj: ..\src\LexTADS3.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexTeX.obj: ..\src\LexTeX.cxx $(LEX_HEADERS)
 

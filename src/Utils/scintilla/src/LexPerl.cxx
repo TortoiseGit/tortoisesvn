@@ -2,8 +2,8 @@
 /** @file LexPerl.cxx
  ** Lexer for subset of Perl.
  **/
-// Lexical analysis fixes by Kein-Hong Man <mkh@pl.jaring.my> 2003-2004
-// Copyright 1998-2004 by Neil Hodgson <neilh@scintilla.org>
+// Copyright 1998-2005 by Neil Hodgson <neilh@scintilla.org>
+// Lexical analysis fixes by Kein-Hong Man <mkh@pl.jaring.my>
 // The License.txt file describes the conditions under which this software may be distributed.
 
 #include <stdlib.h>
@@ -497,6 +497,7 @@ static void ColourisePerlDoc(unsigned int startPos, int length, int initStyle,
 					// other styles uses the default, preferRE=false
 					case SCE_PL_WORD:
 					case SCE_PL_POD:
+					case SCE_PL_POD_VERB:
 					case SCE_PL_HERE_Q:
 					case SCE_PL_HERE_QQ:
 					case SCE_PL_HERE_QX:
@@ -519,9 +520,13 @@ static void ColourisePerlDoc(unsigned int startPos, int length, int initStyle,
 				unsigned int fw = i + 1;
 				while (fw < lengthDoc) {
 					char fwch = styler.SafeGetCharAt(fw);
-					if (isEOLChar(fwch) || isspacechar(fwch))
+					if (fwch == ' ') {
+						if (styler.SafeGetCharAt(fw-1) != '\\' ||
+						    styler.SafeGetCharAt(fw-2) != '\\')
 						break;
-					else if (fwch == '>') {
+					} else if (isEOLChar(fwch) || isspacechar(fwch)) {
+						break;
+					} else if (fwch == '>') {
 						if ((fw - i) == 2 &&	// '<=>' case
 						    styler.SafeGetCharAt(fw-1) == '=') {
 							styler.ColourTo(fw, SCE_PL_OPERATOR);
@@ -751,15 +756,25 @@ static void ColourisePerlDoc(unsigned int startPos, int length, int initStyle,
 					}
 					chNext = styler.SafeGetCharAt(i + 1);
 				}
-			} else if (state == SCE_PL_POD) {
-				if (ch == '=' && isEOLChar(chPrev)) {
-					if (isMatch(styler, lengthDoc, i, "=cut")) {
-						styler.ColourTo(i - 1 + 4, state);
-						i += 4;
-						state = SCE_PL_DEFAULT;
-						ch = styler.SafeGetCharAt(i);
-						//chNext = styler.SafeGetCharAt(i + 1);
-						goto restartLexer;
+			} else if (state == SCE_PL_POD
+				|| state == SCE_PL_POD_VERB) {
+				if (isEOLChar(chPrev)) {
+					if (ch ==' ' || ch == '\t') {
+						styler.ColourTo(i - 1, state);
+						state = SCE_PL_POD_VERB;
+					} else {
+						styler.ColourTo(i - 1, state);
+						state = SCE_PL_POD;
+						if (ch == '=') {
+							if (isMatch(styler, lengthDoc, i, "=cut")) {
+								styler.ColourTo(i - 1 + 4, state);
+								i += 4;
+								state = SCE_PL_DEFAULT;
+								ch = styler.SafeGetCharAt(i);
+								//chNext = styler.SafeGetCharAt(i + 1);
+								goto restartLexer;
+							}
+						}
 					}
 				}
 			} else if (state == SCE_PL_SCALAR	// variable names
@@ -921,19 +936,27 @@ static void FoldPerlDoc(unsigned int startPos, int length, int, WordList *[],
                             Accessor &styler) {
 	bool foldComment = styler.GetPropertyInt("fold.comment") != 0;
 	bool foldCompact = styler.GetPropertyInt("fold.compact", 1) != 0;
+	// Custom folding of POD and packages
+	bool foldPOD = styler.GetPropertyInt("fold.perl.pod", 1) != 0;
+	bool foldPackage = styler.GetPropertyInt("fold.perl.package", 1) != 0;
 	unsigned int endPos = startPos + length;
 	int visibleChars = 0;
 	int lineCurrent = styler.GetLine(startPos);
 	int levelPrev = styler.LevelAt(lineCurrent) & SC_FOLDLEVELNUMBERMASK;
 	int levelCurrent = levelPrev;
 	char chNext = styler[startPos];
+	char chPrev = styler.SafeGetCharAt(startPos - 1);
 	int styleNext = styler.StyleAt(startPos);
+	// Used at end of line to determine if the line was a package definition
+	bool isPackageLine = false;
+	bool isPodHeading = false;
 	for (unsigned int i = startPos; i < endPos; i++) {
 		char ch = chNext;
 		chNext = styler.SafeGetCharAt(i + 1);
 		int style = styleNext;
 		styleNext = styler.StyleAt(i + 1);
 		bool atEOL = (ch == '\r' && chNext != '\n') || (ch == '\n');
+		bool atLineStart = isEOLChar(chPrev) || i == 0;
 		if (foldComment && (style == SCE_PL_COMMENTLINE)) {
 			if ((ch == '/') && (chNext == '/')) {
 				char chNext2 = styler.SafeGetCharAt(i + 2);
@@ -951,6 +974,25 @@ static void FoldPerlDoc(unsigned int startPos, int length, int, WordList *[],
 				levelCurrent--;
 			}
 		}
+		// Custom POD folding
+		if (foldPOD && atLineStart) {
+			int stylePrevCh = (i) ? styler.StyleAt(i - 1):SCE_PL_DEFAULT;
+			if (style == SCE_PL_POD) {
+				if (stylePrevCh != SCE_PL_POD && stylePrevCh != SCE_PL_POD_VERB)
+					levelCurrent++;
+				else if (styler.Match(i, "=cut"))
+					levelCurrent--;
+				else if (styler.Match(i, "=head"))
+					isPodHeading = true;
+			}
+		}
+		// Custom package folding
+		if (foldPackage && atLineStart) {
+			if (style == SCE_PL_WORD && styler.Match(i, "package")) {
+				isPackageLine = true;
+			}
+		}
+
 		if (atEOL) {
 			int lev = levelPrev;
 			if (visibleChars == 0 && foldCompact)
@@ -960,12 +1002,26 @@ static void FoldPerlDoc(unsigned int startPos, int length, int, WordList *[],
 			if (lev != styler.LevelAt(lineCurrent)) {
 				styler.SetLevel(lineCurrent, lev);
 			}
+			if (isPodHeading) {
+				lev = styler.LevelAt(lineCurrent) - 1;
+				lev |= SC_FOLDLEVELHEADERFLAG;
+				styler.SetLevel(lineCurrent, lev);
+				isPodHeading = false;
+			}
+			// Check if line was a package declaration
+			// because packages need "special" treatment
+			if (isPackageLine) {
+				styler.SetLevel(lineCurrent, SC_FOLDLEVELBASE | SC_FOLDLEVELHEADERFLAG);
+				levelCurrent = SC_FOLDLEVELBASE + 1;
+				isPackageLine = false;
+			}
 			lineCurrent++;
 			levelPrev = levelCurrent;
 			visibleChars = 0;
 		}
 		if (!isspacechar(ch))
 			visibleChars++;
+		chPrev = ch;
 	}
 	// Fill in the real level of the next line, keeping the current flags as they will be filled in later
 	int flagsNext = styler.LevelAt(lineCurrent) & ~SC_FOLDLEVELNUMBERMASK;

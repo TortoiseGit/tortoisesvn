@@ -29,6 +29,37 @@
 #include "Document.h"
 #include "Editor.h"
 
+/*
+	return whether this modification represents an operation that
+	may reasonably be deferred (not done now OR [possibly] at all)
+*/
+static bool CanDeferToLastStep(const DocModification& mh) {
+	if (mh.modificationType & (SC_MOD_BEFOREINSERT|SC_MOD_BEFOREDELETE))
+		return true;	// CAN skip
+	if (!(mh.modificationType & (SC_PERFORMED_UNDO|SC_PERFORMED_REDO)))
+		return false;	// MUST do
+	if (mh.modificationType & SC_MULTISTEPUNDOREDO)
+		return true;	// CAN skip
+	return false;		// PRESUMABLY must do
+}
+
+static bool CanEliminate(const DocModification& mh) {
+	return
+		(mh.modificationType & (SC_MOD_BEFOREINSERT|SC_MOD_BEFOREDELETE)) != 0;
+}
+
+/*
+	return whether this modification represents the FINAL step
+	in a [possibly lengthy] multi-step Undo/Redo sequence
+*/
+static bool IsLastStep(const DocModification& mh) {
+	return 
+		(mh.modificationType & (SC_PERFORMED_UNDO|SC_PERFORMED_REDO)) != 0
+		&& (mh.modificationType & SC_MULTISTEPUNDOREDO) != 0
+		&& (mh.modificationType & SC_LASTSTEPINUNDOREDO) != 0
+		&& (mh.modificationType & SC_MULTILINEUNDOREDO) != 0;
+}
+
 Caret::Caret() :
 active(false), on(false), period(500) {}
 
@@ -362,7 +393,7 @@ Editor::Editor() {
 	topLine = 0;
 	posTopLine = 0;
 
-	lengthForEncode = 0;
+	lengthForEncode = -1;
 
 	needUpdateUI = true;
 	braces[0] = invalidPosition;
@@ -900,6 +931,13 @@ int Editor::SelectionEnd() {
 	return Platform::Maximum(currentPos, anchor);
 }
 
+void Editor::SetRectangularRange() {
+	if (selType == selRectangle) {
+		xStartSelect = XFromPosition(anchor);
+		xEndSelect = XFromPosition(currentPos);
+	}
+}
+
 void Editor::InvalidateSelection(int currentPos_, int anchor_) {
 	int firstAffected = anchor;
 	if (firstAffected > currentPos)
@@ -927,10 +965,7 @@ void Editor::SetSelection(int currentPos_, int anchor_) {
 		currentPos = currentPos_;
 		anchor = anchor_;
 	}
-	if (selType == selRectangle) {
-		xStartSelect = XFromPosition(anchor);
-		xEndSelect = XFromPosition(currentPos);
-	}
+	SetRectangularRange();
 	ClaimSelection();
 }
 
@@ -940,10 +975,7 @@ void Editor::SetSelection(int currentPos_) {
 		InvalidateSelection(currentPos_, currentPos_);
 		currentPos = currentPos_;
 	}
-	if (selType == selRectangle) {
-		xStartSelect = XFromPosition(anchor);
-		xEndSelect = XFromPosition(currentPos);
-	}
+	SetRectangularRange();
 	ClaimSelection();
 }
 
@@ -2536,35 +2568,34 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 	}
 
 	// Draw indicators
-	int indStart[INDIC_MAX + 1] = {0};
-	for (int indica = 0; indica <= INDIC_MAX; indica++)
-		indStart[indica] = 0;
-
-	for (int indicPos = lineStart; indicPos <= lineEnd; indicPos++) {
-		if ((indicPos == lineStart) || (indicPos == lineEnd) ||
-			(ll->indicators[indicPos] != ll->indicators[indicPos + 1])) {
-			int mask = 1 << pdoc->stylingBits;
-			for (int indicnum = 0; mask < 0x100; indicnum++) {
-				if ((indicPos == lineStart) || (indicPos == lineEnd)) {
-					indStart[indicnum] = ll->positions[indicPos];
-				} else if ((ll->indicators[indicPos + 1] & mask) && !(ll->indicators[indicPos] & mask)) {
-					indStart[indicnum] = ll->positions[indicPos + 1];
-				}
-				if ((ll->indicators[indicPos] & mask) &&
-					((indicPos == lineEnd) || !(ll->indicators[indicPos + 1] & mask))) {
-					int endIndicator = indicPos;
-					if (endIndicator >= lineEnd)
-						endIndicator = lineEnd-1;
+	// foreach indicator...
+	for (int indicnum = 0, mask = 1 << pdoc->stylingBits; mask < 0x100; indicnum++) {
+		int startPos = -1;
+		// foreach style pos in line...
+		for (int indicPos = lineStart; indicPos <= lineEnd; indicPos++) {
+			// look for starts...
+			if (startPos < 0) {
+				// NOT in indicator run, looking for START
+				if (indicPos < lineEnd && (ll->indicators[indicPos] & mask))
+					startPos = indicPos;
+			}
+			// ... or ends
+			if (startPos >= 0) {
+				// IN indicator run, looking for END
+				if (indicPos >= lineEnd || !(ll->indicators[indicPos] & mask)) {
+					// AT end of indicator run, DRAW it!
 					PRectangle rcIndic(
-						indStart[indicnum] + xStart - subLineStart,
+						ll->positions[startPos] + xStart - subLineStart,
 						rcLine.top + vsDraw.maxAscent,
-						ll->positions[endIndicator + 1] + xStart - subLineStart,
+						ll->positions[indicPos] + xStart - subLineStart,
 						rcLine.top + vsDraw.maxAscent + 3);
 					vsDraw.indicators[indicnum].Draw(surface, rcIndic, rcLine);
+					// RESET control var
+					startPos = -1;
 				}
-				mask = mask << 1;
 			}
 		}
+		mask <<= 1;
 	}
 	// End of the drawing of the current line
 	if (!twoPhaseDraw) {
@@ -3386,7 +3417,8 @@ void Editor::Undo() {
 	if (pdoc->CanUndo()) {
 		InvalidateCaret();
 		int newPos = pdoc->Undo();
-		SetEmptySelection(newPos);
+		if (newPos >= 0)
+			SetEmptySelection(newPos);
 		EnsureCaretVisible();
 	}
 }
@@ -3394,7 +3426,8 @@ void Editor::Undo() {
 void Editor::Redo() {
 	if (pdoc->CanRedo()) {
 		int newPos = pdoc->Redo();
-		SetEmptySelection(newPos);
+		if (newPos >= 0)
+			SetEmptySelection(newPos);
 		EnsureCaretVisible();
 	}
 }
@@ -3579,8 +3612,7 @@ void Editor::NotifySavePoint(Document*, void *, bool atSavePoint) {
 }
 
 void Editor::CheckModificationForWrap(DocModification mh) {
-	if ((mh.modificationType & SC_MOD_INSERTTEXT) ||
-	        (mh.modificationType & SC_MOD_DELETETEXT)) {
+	if (mh.modificationType & (SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT)) {
 		llc.Invalidate(LineLayout::llCheckTextAndStyle);
 		if (wrapState != eWrapNone) {
 			int lineDoc = pdoc->LineFromPosition(mh.position);
@@ -3674,7 +3706,7 @@ void Editor::NotifyModified(Document*, DocModification mh, void *) {
 		CheckModificationForWrap(mh);
 		if (mh.linesAdded != 0) {
 			// Avoid scrolling of display if change before current display
-			if (mh.position < posTopLine) {
+			if (mh.position < posTopLine && !CanDeferToLastStep(mh)) {
 				int newTop = Platform::Clamp(topLine + mh.linesAdded, 0, MaxScrollPos());
 				if (newTop != topLine) {
 					SetTopLine(newTop);
@@ -3685,19 +3717,19 @@ void Editor::NotifyModified(Document*, DocModification mh, void *) {
 			//Platform::DebugPrintf("** %x Doc Changed\n", this);
 			// TODO: could invalidate from mh.startModification to end of screen
 			//InvalidateRange(mh.position, mh.position + mh.length);
-			if (paintState == notPainting) {
+			if (paintState == notPainting && !CanDeferToLastStep(mh)) {
 				Redraw();
 			}
 		} else {
 			//Platform::DebugPrintf("** %x Line Changed %d .. %d\n", this,
 			//	mh.position, mh.position + mh.length);
-			if (paintState == notPainting) {
+			if (paintState == notPainting && mh.length && !CanEliminate(mh)) {
 				InvalidateRange(mh.position, mh.position + mh.length);
 			}
 		}
 	}
 
-	if (mh.linesAdded != 0) {
+	if (mh.linesAdded != 0 && !CanDeferToLastStep(mh)) {
 		SetScrollBars();
 	}
 
@@ -3705,6 +3737,12 @@ void Editor::NotifyModified(Document*, DocModification mh, void *) {
 		if (paintState == notPainting) {
 			RedrawSelMargin();
 		}
+	}
+
+	// NOW pay the piper WRT "deferred" visual updates
+	if (IsLastStep(mh)) {
+		SetScrollBars();
+		Redraw();
 	}
 
 	// If client wants to see this modification
@@ -5033,9 +5071,9 @@ void Editor::ButtonDown(Point pt, unsigned int curTime, bool shift, bool ctrl, b
 					SetEmptySelection(newPos);
 				}
 				selType = alt ? selRectangle : selStream;
-				xStartSelect = xEndSelect = pt.x - vs.fixedColumnWidth + xOffset;
 				selectionType = selChar;
 				originalAnchorPos = currentPos;
+				SetRectangularRange();
 			}
 		}
 	}
@@ -5229,9 +5267,7 @@ void Editor::ButtonUp(Point pt, unsigned int curTime, bool ctrl) {
 				SetSelection(newPos);
 			}
 		}
-		// Now we rely on the current pos to compute rectangular selection
-		xStartSelect = XFromPosition(anchor);
-		xEndSelect = XFromPosition(currentPos);
+		SetRectangularRange();
 		lastClickTime = curTime;
 		lastClick = pt;
 		lastXChosen = pt.x;
@@ -5462,8 +5498,8 @@ void Editor::SetDocPointer(Document *document) {
 	NeedWrapping();
 
 	pdoc->AddWatcher(this, 0);
-	Redraw();
 	SetScrollBars();
+	Redraw();
 }
 
 /**
@@ -5692,7 +5728,7 @@ sptr_t Editor::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam) {
 		break;
 
 	case SCI_CANUNDO:
-		return pdoc->CanUndo() ? 1 : 0;
+		return (pdoc->CanUndo() && !pdoc->IsReadOnly()) ? 1 : 0;
 
 	case SCI_EMPTYUNDOBUFFER:
 		pdoc->DeleteUndoHistory();
@@ -6121,7 +6157,7 @@ sptr_t Editor::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam) {
 		}
 
 	case SCI_CANREDO:
-		return pdoc->CanRedo() ? 1 : 0;
+		return (pdoc->CanRedo() && !pdoc->IsReadOnly()) ? 1 : 0;
 
 	case SCI_MARKERLINEFROMHANDLE:
 		return pdoc->LineFromHandle(wParam);

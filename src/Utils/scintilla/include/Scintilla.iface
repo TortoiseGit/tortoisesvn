@@ -267,6 +267,7 @@ val SC_MARK_BACKGROUND=22
 val SC_MARK_DOTDOTDOT=23
 val SC_MARK_ARROWS=24
 val SC_MARK_PIXMAP=25
+val SC_MARK_FULLRECT=26
 
 val SC_MARK_CHARACTER=10000
 
@@ -374,6 +375,7 @@ val SC_CHARSET_HEBREW=177
 val SC_CHARSET_ARABIC=178
 val SC_CHARSET_VIETNAMESE=163
 val SC_CHARSET_THAI=222
+val SC_CHARSET_8859_15=1000
 
 # Clear all the styles and make equivalent to the global default style.
 set void StyleClearAll=2050(,)
@@ -1077,7 +1079,7 @@ set void SetEndAtLastLine=2277(bool endAtLastLine,)
 
 # Retrieve whether the maximum scroll position has the last
 # line at the bottom of the view.
-get int GetEndAtLastLine=2278(,)
+get bool GetEndAtLastLine=2278(,)
 
 # Retrieve the height of a particular line of text in pixels.
 fun int TextHeight=2279(int line,)
@@ -1605,7 +1607,7 @@ fun void Allocate=2446(int bytes,)
 fun int TargetAsUTF8=2447(, stringresult s)
 
 # Set the length of the utf8 argument for calling EncodedFromUTF8.
-# Set to 0 and the string will be measured to the first nul.
+# Set to -1 and the string will be measured to the first nul.
 fun void SetLengthForEncode=2448(int bytes,)
 
 # Translates a UTF8 string into the document encoding.
@@ -1656,6 +1658,17 @@ set void SetLexerLanguage=4006(, string language)
 # Load a lexer library (dll / so).
 fun void LoadLexerLibrary=4007(, string path)
 
+# Retrieve a "property" value previously set with SetProperty.
+fun int GetProperty=4008(string key, stringresult buf)
+
+# Retrieve a "property" value previously set with SetProperty,
+# with "$()" variable replacement on returned buffer.
+fun int GetPropertyExpanded=4009(string key, stringresult buf)
+
+# Retrieve a "property" value previously set with SetProperty,
+# interpreted as an int AFTER any "$()" variable replacement.
+get int GetPropertyInt=4010(string key,)
+
 # Notifications
 # Type of modification and the action which caused the modification.
 # These are defined as a bit mask to make it easy to specify which notifications are wanted.
@@ -1668,11 +1681,13 @@ val SC_MOD_CHANGEFOLD=0x8
 val SC_PERFORMED_USER=0x10
 val SC_PERFORMED_UNDO=0x20
 val SC_PERFORMED_REDO=0x40
+val SC_MULTISTEPUNDOREDO=0x80
 val SC_LASTSTEPINUNDOREDO=0x100
 val SC_MOD_CHANGEMARKER=0x200
 val SC_MOD_BEFOREINSERT=0x400
 val SC_MOD_BEFOREDELETE=0x800
-val SC_MODEVENTMASKALL=0xF77
+val SC_MULTILINEUNDOREDO=0x1000
+val SC_MODEVENTMASKALL=0x1FFF
 
 # For compatibility, these go through the COMMAND notification rather than NOTIFY
 # and should have had exactly the same values as the EN_* constants.
@@ -1781,6 +1796,11 @@ val SCLEX_BLITZBASIC=66
 val SCLEX_PUREBASIC=67
 val SCLEX_HASKELL=68
 val SCLEX_PHPSCRIPT=69
+val SCLEX_TADS3=70
+val SCLEX_REBOL=71
+val SCLEX_SMALLTALK=72
+val SCLEX_FLAGSHIP=73
+val SCLEX_CSOUND=74
 
 # When a lexer specifies its language as SCLEX_AUTOMATIC it receives a
 # value assigned in sequence from SCLEX_AUTOMATIC+1.
@@ -1804,7 +1824,6 @@ val SCE_P_COMMENTBLOCK=12
 val SCE_P_STRINGEOL=13
 # Lexical states for SCLEX_CPP
 lex Cpp=SCLEX_CPP SCE_C_
-lex SQL=SCLEX_SQL SCE_C_
 lex Pascal=SCLEX_PASCAL SCE_C_
 lex TCL=SCLEX_TCL SCE_C_
 lex BullAnt=SCLEX_BULLANT SCE_C_
@@ -1988,6 +2007,7 @@ val SCE_PL_STRING_QQ=27
 val SCE_PL_STRING_QX=28
 val SCE_PL_STRING_QR=29
 val SCE_PL_STRING_QW=30
+val SCE_PL_POD_VERB=31
 # Lexical states for SCLEX_VB, SCLEX_VBSCRIPT, SCLEX_POWERBASIC
 lex VB=SCLEX_VB SCE_B_
 lex VBScript=SCLEX_VBSCRIPT SCE_B_
@@ -2655,6 +2675,157 @@ val SCE_HA_COMMENTLINE=13
 val SCE_HA_COMMENTBLOCK=14
 val SCE_HA_COMMENTBLOCK2=15
 val SCE_HA_COMMENTBLOCK3=16
+# Lexical states of SCLEX_TADS3
+lex TADS3=SCLEX_TADS3 SCE_T3_
+val SCE_T3_DEFAULT=0
+val SCE_T3_PREPROCESSOR=1
+val SCE_T3_BLOCK_COMMENT=2
+val SCE_T3_LINE_COMMENT=3
+val SCE_T3_OPERATOR=4
+val SCE_T3_KEYWORD=5
+val SCE_T3_NUMBER=6
+val SCE_T3_BRACKET=7
+val SCE_T3_HTML_TAG=8
+val SCE_T3_HTML_STRING=9
+val SCE_T3_S_STRING=10
+val SCE_T3_S_LIB_DIRECTIVE=11
+val SCE_T3_S_MSG_PARAM=12
+val SCE_T3_S_H_DEFAULT=13
+val SCE_T3_D_STRING=14
+val SCE_T3_D_LIB_DIRECTIVE=15
+val SCE_T3_D_MSG_PARAM=16
+val SCE_T3_D_H_DEFAULT=17
+val SCE_T3_X_DEFAULT=18
+val SCE_T3_X_PREPROCESSOR=19
+val SCE_T3_X_BLOCK_COMMENT=20
+val SCE_T3_X_LINE_COMMENT=21
+val SCE_T3_X_S_STRING=22
+val SCE_T3_X_S_LIB_DIRECTIVE=23
+val SCE_T3_X_S_MSG_PARAM=24
+val SCE_T3_X_S_H_DEFAULT=25
+val SCE_T3_X_D_STRING=26
+val SCE_T3_X_D_LIB_DIRECTIVE=27
+val SCE_T3_X_D_MSG_PARAM=28
+val SCE_T3_X_D_H_DEFAULT=29
+val SCE_T3_USER1=30
+val SCE_T3_USER2=31
+# Lexical states for SCLEX_REBOL
+lex Rebol=SCLEX_REBOL SCE_REBOL_
+val SCE_REBOL_DEFAULT=0
+val SCE_REBOL_COMMENTLINE=1
+val SCE_REBOL_COMMENTBLOCK=2
+val SCE_REBOL_PREFACE=3
+val SCE_REBOL_OPERATOR=4
+val SCE_REBOL_CHARACTER=5
+val SCE_REBOL_QUOTEDSTRING=6
+val SCE_REBOL_BRACEDSTRING=7
+val SCE_REBOL_NUMBER=8
+val SCE_REBOL_PAIR=9
+val SCE_REBOL_TUPLE=10
+val SCE_REBOL_BINARY=11
+val SCE_REBOL_MONEY=12
+val SCE_REBOL_ISSUE=13
+val SCE_REBOL_TAG=14
+val SCE_REBOL_FILE=15
+val SCE_REBOL_EMAIL=16
+val SCE_REBOL_URL=17
+val SCE_REBOL_DATE=18
+val SCE_REBOL_TIME=19
+val SCE_REBOL_IDENTIFIER=20
+val SCE_REBOL_WORD=21
+val SCE_REBOL_WORD2=22
+val SCE_REBOL_WORD3=23
+val SCE_REBOL_WORD4=24
+val SCE_REBOL_WORD5=25
+val SCE_REBOL_WORD6=26
+val SCE_REBOL_WORD7=27
+val SCE_REBOL_WORD8=28
+# Lexical states for SCLEX_SQL
+lex SQL=SCLEX_SQL SCE_SQL_
+val SCE_SQL_DEFAULT=0
+val SCE_SQL_COMMENT=1
+val SCE_SQL_COMMENTLINE=2
+val SCE_SQL_COMMENTDOC=3
+val SCE_SQL_NUMBER=4
+val SCE_SQL_WORD=5
+val SCE_SQL_STRING=6
+val SCE_SQL_CHARACTER=7
+val SCE_SQL_SQLPLUS=8
+val SCE_SQL_SQLPLUS_PROMPT=9
+val SCE_SQL_OPERATOR=10
+val SCE_SQL_IDENTIFIER=11
+val SCE_SQL_SQLPLUS_COMMENT=13
+val SCE_SQL_COMMENTLINEDOC=15
+val SCE_SQL_WORD2=16
+val SCE_SQL_COMMENTDOCKEYWORD=17
+val SCE_SQL_COMMENTDOCKEYWORDERROR=18
+val SCE_SQL_USER1=19
+val SCE_SQL_USER2=20
+val SCE_SQL_USER3=21
+val SCE_SQL_USER4=22
+# Lexical states for SCLEX_SMALLTALK
+lex Smalltalk=SCLEX_SMALLTALK SCE_ST_
+val SCE_ST_DEFAULT=0
+val SCE_ST_STRING=1
+val SCE_ST_NUMBER=2
+val SCE_ST_COMMENT=3
+val SCE_ST_SYMBOL=4
+val SCE_ST_BINARY=5
+val SCE_ST_BOOL=6
+val SCE_ST_SELF=7
+val SCE_ST_SUPER=8
+val SCE_ST_NIL=9
+val SCE_ST_GLOBAL=10
+val SCE_ST_RETURN=11
+val SCE_ST_SPECIAL=12
+val SCE_ST_KWSEND=13
+val SCE_ST_ASSIGN=14
+val SCE_ST_CHARACTER=15
+val SCE_ST_SPEC_SEL=16
+# Lexical states for SCLEX_FLAGSHIP (clipper)
+lex FlagShip=SCLEX_FLAGSHIP SCE_B_
+val SCE_FS_DEFAULT=0
+val SCE_FS_COMMENT=1
+val SCE_FS_COMMENTLINE=2
+val SCE_FS_COMMENTDOC=3
+val SCE_FS_COMMENTLINEDOC=4
+val SCE_FS_COMMENTDOCKEYWORD=5
+val SCE_FS_COMMENTDOCKEYWORDERROR=6
+val SCE_FS_KEYWORD=7
+val SCE_FS_KEYWORD2=8
+val SCE_FS_KEYWORD3=9
+val SCE_FS_KEYWORD4=10
+val SCE_FS_NUMBER=11
+val SCE_FS_STRING=12
+val SCE_FS_PREPROCESSOR=13
+val SCE_FS_OPERATOR=14
+val SCE_FS_IDENTIFIER=15
+val SCE_FS_DATE=16
+val SCE_FS_STRINGEOL=17
+val SCE_FS_CONSTANT=18
+val SCE_FS_ASM=19
+val SCE_FS_LABEL=20
+val SCE_FS_ERROR=21
+val SCE_FS_HEXNUMBER=22
+val SCE_FS_BINNUMBER=23
+# Lexical states for SCLEX_CSOUND
+lex Csound=SCLEX_CSOUND SCE_CSOUND_
+val SCE_CSOUND_DEFAULT=0
+val SCE_CSOUND_COMMENT=1
+val SCE_CSOUND_NUMBER=2
+val SCE_CSOUND_OPERATOR=3
+val SCE_CSOUND_INSTR=4
+val SCE_CSOUND_IDENTIFIER=5
+val SCE_CSOUND_OPCODE=6
+val SCE_CSOUND_HEADERSTMT=7
+val SCE_CSOUND_USERKEYWORD=8
+val SCE_CSOUND_COMMENTBLOCK=9
+val SCE_CSOUND_PARAM=10
+val SCE_CSOUND_ARATE_VAR=11
+val SCE_CSOUND_KRATE_VAR=12
+val SCE_CSOUND_IRATE_VAR=13
+val SCE_CSOUND_GLOBAL_VAR=14
+val SCE_CSOUND_STRINGEOL=15
 
 # Events
 

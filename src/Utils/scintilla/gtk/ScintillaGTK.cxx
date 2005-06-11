@@ -833,7 +833,7 @@ int ScintillaGTK::TargetAsUTF8(char *text) {
 // Translates a nul terminated UTF8 string into the document encoding.
 // Return the length of the result in bytes.
 int ScintillaGTK::EncodedFromUTF8(char *utf8, char *encoded) {
-	int inputLength = lengthForEncode ? lengthForEncode : strlen(utf8);
+	int inputLength = (lengthForEncode >= 0) ? lengthForEncode : strlen(utf8);
 	if (IsUnicodeMode()) {
 		if (encoded) {
 			memcpy(encoded, utf8, inputLength);
@@ -1458,10 +1458,10 @@ void ScintillaGTK::ReceivedSelection(GtkSelectionData *selection_data) {
 			GetGtkSelectionText(selection_data, selText);
 
 			pdoc->BeginUndoAction();
-			int selStart = SelectionStart();
 			if (selection_data->selection != GDK_SELECTION_PRIMARY) {
 				ClearSelection();
 			}
+			int selStart = SelectionStart();
 
 			if (selText.rectangular) {
 				PasteRectangular(selStart, selText.s, selText.len);

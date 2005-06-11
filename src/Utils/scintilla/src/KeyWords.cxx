@@ -148,11 +148,13 @@ int Scintilla_LinkLexers() {
 	LINK_LEXER(lmCPPNoCase);
 	LINK_LEXER(lmTCL);
 	LINK_LEXER(lmNncrontab);
+	LINK_LEXER(lmCsound);
 	LINK_LEXER(lmCss);
 	LINK_LEXER(lmEiffel);
 	LINK_LEXER(lmEiffelkw);
 	LINK_LEXER(lmErlang);
 	LINK_LEXER(lmESCRIPT);
+	LINK_LEXER(lmFlagShip);
 	LINK_LEXER(lmForth);
 	LINK_LEXER(lmFortran);
 	LINK_LEXER(lmF77);
@@ -187,10 +189,13 @@ int Scintilla_LinkLexers() {
 	LINK_LEXER(lmPOV);
 	LINK_LEXER(lmPS);
 	LINK_LEXER(lmPython);
+	LINK_LEXER(lmREBOL);
 	LINK_LEXER(lmRuby);
 	LINK_LEXER(lmScriptol);
+	LINK_LEXER(lmSmalltalk);
 	LINK_LEXER(lmSpecman);
 	LINK_LEXER(lmSQL);
+	LINK_LEXER(lmTADS3);
 	LINK_LEXER(lmTeX);
 	LINK_LEXER(lmVB);
 	LINK_LEXER(lmVBScript);

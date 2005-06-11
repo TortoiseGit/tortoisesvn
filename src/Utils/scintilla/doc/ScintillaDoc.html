@@ -38,7 +38,7 @@
 
     <h1>Scintilla Documentation</h1>
 
-    <p>Last edited 3/April/2005 NH</p>
+    <p>Last edited 3/June/2005 RBR</p>
 
     <p>There is <a class="jump" href="Design.html">an overview of the internal design of
     Scintilla</a>.<br />
@@ -2583,8 +2583,8 @@ struct TextToFind {
      <code>SC_MARK_CIRCLE</code>, <code>SC_MARK_ROUNDRECT</code>, <code>SC_MARK_ARROW</code>,
     <code>SC_MARK_SMALLRECT</code>, <code>SC_MARK_SHORTARROW</code>, <code>SC_MARK_EMPTY</code>,
     <code>SC_MARK_ARROWDOWN</code>, <code>SC_MARK_MINUS</code>, <code>SC_MARK_PLUS</code>,
-    <code>SC_MARK_ARROWS</code>, <code>SC_MARK_DOTDOTDOT</code>, <code>SC_MARK_EMPTY</code> and
-    <code>SC_MARK_BACKGROUND</code>.</p>
+    <code>SC_MARK_ARROWS</code>, <code>SC_MARK_DOTDOTDOT</code>, <code>SC_MARK_EMPTY</code>,
+    <code>SC_MARK_BACKGROUND</code> and <code>SC_MARK_FULLRECT</code>.</p>
 
     <p><b id="SCI_MARKERDEFINEPIXMAP">SCI_MARKERDEFINEPIXMAP(int markerNumber, const char
     *xpm)</b><br />
@@ -2594,6 +2594,7 @@ struct TextToFind {
     the XPM format <a class="jump" href="http://koala.ilog.fr/lehors/xpm.html">here</a>.</p>
 
     <p>The <code>SC_MARK_BACKGROUND</code> marker changes the background colour of the line only.
+	The <code>SC_MARK_FULLRECT</code> symbol mirrors this, changing only the margin background colour.
     The <code>SC_MARK_EMPTY</code> symbol is invisible, allowing client code to track the movement
     of lines. You would also use it if you changed the folding style and wanted one or more of the
     <code>SC_FOLDERNUM_</code>* markers to have no associated symbol.</p>
@@ -2796,6 +2797,15 @@ struct TextToFind {
     href="#SCI_STARTSTYLING"><code>SCI_STARTSTYLING</code></a> with a <code>INDICS_MASK</code> mask
     and <a class="message" href="#SCI_SETSTYLING"><code>SCI_SETSTYLING</code></a> with the values
     <code>INDIC0_MASK</code>, <code>INDIC1_MASK</code> and <code>INDIC2_MASK</code>.</p>
+	
+	<p>If you are using indicators in a buffer that has a lexer active
+	(see <a class="message" href="#SCI_SETLEXER"><code>SCI_SETLEXER</code></a>),
+	you must save lexing state information before setting any indicators and restore it afterwards.
+	Use <a class="message" href="#SCI_GETENDSTYLED"><code>SCI_GETENDSTYLED</code></a>
+	to retrieve the current "styled to" position and
+	<a class="message" href="#SCI_STARTSTYLING"><code>SCI_STARTSTYLING</code></a>
+	to reset the styling position and mask (<code>0x1f </code> in the default layout of 5 style bits and 3 indicator bits)
+	when you are done.</p>
 
     <p>The number of bits used for styles can be altered with <a class="message"
     href="#SCI_SETSTYLEBITS"><code>SCI_SETSTYLEBITS</code></a> from 0 to 7 bits. The remaining bits
@@ -4277,6 +4287,9 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
     *path)</a><br />
      <a class="message" href="#SCI_COLOURISE">SCI_COLOURISE(int start, int end)</a><br />
      <a class="message" href="#SCI_SETPROPERTY">SCI_SETPROPERTY(const char *key, const char *value)</a><br />
+     <a class="message" href="#SCI_GETPROPERTY">SCI_GETPROPERTY(const char *key, char *value)</a><br />
+     <a class="message" href="#SCI_GETPROPERTYEXPANDED">SCI_GETPROPERTYEXPANDED(const char *key, char *value)</a><br />
+     <a class="message" href="#SCI_GETPROPERTYINT">SCI_GETPROPERTYINT(const char *key)</a><br />
      <a class="message" href="#SCI_SETKEYWORDS">SCI_SETKEYWORDS(int keyWordSet, const char
     *keyWordList)</a><br />
     </code>
@@ -4335,6 +4348,35 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
     setting that determines how to indicate bad indentation. Most keywords have values that are
     interpreted as integers. Search the lexer sources for <code>GetPropertyInt</code> to see how
     properties are used.</p>
+
+    <p><b id="SCI_GETPROPERTY">SCI_GETPROPERTY(const char *key, char *value)</b><br />
+    Lookup a keyword:value pair using the specified key; if found, copy the value to the user-supplied
+    buffer and return the length (not including the terminating 0).  If not found, copy an empty string
+    to the buffer and return 0.</p>
+
+    <p>Note that  "keyword replacement" as described in <a class="message" href="#SCI_SETPROPERTY">
+    <code>SCI_SETPROPERTY</code></a> will not be performed.</p>
+
+    <p>If the value argument is 0 then the length that should be allocated to store the value is returned;
+    again, the terminating 0 is not included.</p>
+
+    <p><b id="SCI_GETPROPERTYEXPANDED">SCI_GETPROPERTYEXPANDED(const char *key, char *value)</b><br />
+    Lookup a keyword:value pair using the specified key; if found, copy the value to the user-supplied
+    buffer and return the length (not including the terminating 0).  If not found, copy an empty string
+    to the buffer and return 0.</p>
+
+    <p>Note that  "keyword replacement" as described in <a class="message" href="#SCI_SETPROPERTY">
+    <code>SCI_SETPROPERTY</code></a> will be performed.</p>
+
+    <p>If the value argument is 0 then the length that should be allocated to store the value (including any indicated keyword replacement)
+    is returned; again, the terminating 0 is not included.</p>
+
+    <p><b id="SCI_GETPROPERTYINT">SCI_GETPROPERTYINT(const char *key)</b><br />
+    Lookup a keyword:value pair using the specified key; if found, interpret the value as an integer and return it.
+    If not found (or the value is not a number) then return 0.</p>
+
+    <p>Note that  "keyword replacement" as described in <a class="message" href="#SCI_SETPROPERTY">
+    <code>SCI_SETPROPERTY</code></a> will be performed before any numeric interpretation.</p>
 
     <p><b id="SCI_SETKEYWORDS">SCI_SETKEYWORDS(int keyWordSet, const char *keyWordList)</b><br />
      You can set up to 9 lists of keywords for use by the current lexer. This was increased from 6
@@ -4661,11 +4703,21 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
         </tr>
 
         <tr>
+          <td align="left"><code>SC_MULTISTEPUNDOREDO</code></td>
+
+          <td align="center">0x80</td>
+
+          <td>This is part of a multi-step Undo or Redo.</td>
+
+          <td>None</td>
+        </tr>
+
+        <tr>
           <td align="left"><code>SC_LASTSTEPINUNDOREDO</code></td>
 
           <td align="center">0x100</td>
 
-          <td>This is the final step in an Undo or Redo that has several sections.</td>
+          <td>This is the final step in an Undo or Redo.</td>
 
           <td>None</td>
         </tr>
@@ -4701,9 +4753,19 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
         </tr>
 
         <tr>
+          <td align="left"><code>SC_MULTILINEUNDOREDO</code></td>
+
+          <td align="center">0x1000</td>
+
+          <td>This is part of an Undo or Redo with multi-line changes.</td>
+
+          <td>None</td>
+        </tr>
+
+        <tr>
           <td align="left"><code>SC_MODEVENTMASKALL</code></td>
 
-          <td align="center">0xf77</td>
+          <td align="center">0x1fff</td>
 
           <td>This is a mask for all valid flags. This is the default mask state set by <a
           class="message" href="#SCI_SETMODEVENTMASK"><code>SCI_SETMODEVENTMASK</code></a>.</td>
@@ -4736,9 +4798,10 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
     used by <code>SCN_MODIFIED</code>: <code>SC_MOD_INSERTTEXT</code>,
     <code>SC_MOD_DELETETEXT</code>, <code>SC_MOD_CHANGESTYLE</code>,
     <code>SC_MOD_CHANGEFOLD</code>, <code>SC_PERFORMED_USER</code>, <code>SC_PERFORMED_UNDO</code>,
-    <code>SC_PERFORMED_REDO</code>, <code>SC_LASTSTEPINUNDOREDO</code>,
-    <code>SC_MOD_CHANGEMARKER</code>, <code>SC_MOD_BEFOREINSERT</code>,
-    <code>SC_MOD_BEFOREDELETE</code>, and <code>SC_MODEVENTMASKALL</code>.</p>
+    <code>SC_PERFORMED_REDO</code>, <code>SC_MULTISTEPUNDOREDO</code>,
+    <code>SC_LASTSTEPINUNDOREDO</code>, <code>SC_MOD_CHANGEMARKER</code>,
+    <code>SC_MOD_BEFOREINSERT</code>, <code>SC_MOD_BEFOREDELETE</code>,
+    <code>SC_MULTILINEUNDOREDO</code>, and <code>SC_MODEVENTMASKALL</code>.</p>
 
     <p><b id="SCEN_SETFOCUS">SCEN_SETFOCUS</b><br />
      <b id="SCEN_KILLFOCUS">SCEN_KILLFOCUS</b><br />

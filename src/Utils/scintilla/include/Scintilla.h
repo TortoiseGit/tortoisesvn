@@ -117,6 +117,7 @@ typedef sptr_t (*SciFnDirect)(sptr_t ptr, unsigned int iMessage, uptr_t wParam, 
 #define SC_MARK_DOTDOTDOT 23
 #define SC_MARK_ARROWS 24
 #define SC_MARK_PIXMAP 25
+#define SC_MARK_FULLRECT 26
 #define SC_MARK_CHARACTER 10000
 #define SC_MARKNUM_FOLDEREND 25
 #define SC_MARKNUM_FOLDEROPENMID 26
@@ -173,6 +174,7 @@ typedef sptr_t (*SciFnDirect)(sptr_t ptr, unsigned int iMessage, uptr_t wParam, 
 #define SC_CHARSET_ARABIC 178
 #define SC_CHARSET_VIETNAMESE 163
 #define SC_CHARSET_THAI 222
+#define SC_CHARSET_8859_15 1000
 #define SCI_STYLECLEARALL 2050
 #define SCI_STYLESETFORE 2051
 #define SCI_STYLESETBACK 2052
@@ -610,6 +612,9 @@ typedef sptr_t (*SciFnDirect)(sptr_t ptr, unsigned int iMessage, uptr_t wParam, 
 #define SCI_SETKEYWORDS 4005
 #define SCI_SETLEXERLANGUAGE 4006
 #define SCI_LOADLEXERLIBRARY 4007
+#define SCI_GETPROPERTY 4008
+#define SCI_GETPROPERTYEXPANDED 4009
+#define SCI_GETPROPERTYINT 4010
 #define SC_MOD_INSERTTEXT 0x1
 #define SC_MOD_DELETETEXT 0x2
 #define SC_MOD_CHANGESTYLE 0x4
@@ -617,11 +622,13 @@ typedef sptr_t (*SciFnDirect)(sptr_t ptr, unsigned int iMessage, uptr_t wParam, 
 #define SC_PERFORMED_USER 0x10
 #define SC_PERFORMED_UNDO 0x20
 #define SC_PERFORMED_REDO 0x40
+#define SC_MULTISTEPUNDOREDO 0x80
 #define SC_LASTSTEPINUNDOREDO 0x100
 #define SC_MOD_CHANGEMARKER 0x200
 #define SC_MOD_BEFOREINSERT 0x400
 #define SC_MOD_BEFOREDELETE 0x800
-#define SC_MODEVENTMASKALL 0xF77
+#define SC_MULTILINEUNDOREDO 0x1000
+#define SC_MODEVENTMASKALL 0x1FFF
 #define SCEN_CHANGE 768
 #define SCEN_SETFOCUS 512
 #define SCEN_KILLFOCUS 256
