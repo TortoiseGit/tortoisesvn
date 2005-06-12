@@ -840,6 +840,8 @@ public:
 	virtual DROPEFFECT OnDrag(int /*iItem*/, int /*iSubItem*/, IDataObject * /*pDataObj*/, DWORD /*grfKeyState*/) {return DROPEFFECT_NONE;}
 	virtual void OnDrop(int /*iItem*/, int /*iSubItem*/, IDataObject * /*pDataObj*/, DWORD /*grfKeyState*/) {return;}
 
+	virtual void OnBeginDrag() {return;}
+
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CReportCtrl)
 	protected:

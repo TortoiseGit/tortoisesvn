@@ -28,6 +28,8 @@
 #include ".\repositorytree.h"
 #include "InputDlg.h"
 #include "Utils.h"
+#include "DragDropImpl.h"
+#include "UnicodeUtils.h"
 
 // CRepositoryTree
 
@@ -730,7 +732,7 @@ void CRepositoryTree::EndEdit(BOOL bUpdate /* = TRUE */, LPNMRVITEMEDIT lpnmrvie
 	CReportCtrl::EndEdit(FALSE, lpnmrvie);
 }
 
-DROPEFFECT CRepositoryTree::OnDrag(int iItem, int iSubItem, IDataObject * pDataObj, DWORD /*grfKeyState*/)
+DROPEFFECT CRepositoryTree::OnDrag(int iItem, int iSubItem, IDataObject * pDataObj, DWORD grfKeyState)
 {
 	if (iSubItem)
 		return DROPEFFECT_NONE;		// no dropping on subitems
@@ -749,10 +751,25 @@ DROPEFFECT CRepositoryTree::OnDrag(int iItem, int iSubItem, IDataObject * pDataO
 	{
 		return DROPEFFECT_COPY;
 	}
+	ftetc.cfFormat = CF_UNICODETEXT;
+	if (pDataObj->QueryGetData(&ftetc) == S_OK)
+	{
+		// user drags a text on us.
+		// we only accept repository urls, but we check for that
+		// when the user finally drops it on us.
+		if (grfKeyState & MK_CONTROL)
+		{
+			ATLTRACE("copy url\n");
+			return DROPEFFECT_COPY;
+		}
+		ATLTRACE("move url\n");
+		return DROPEFFECT_MOVE;
+	}
+	ATLTRACE("no url\n");
 	return DROPEFFECT_NONE;
 }
 
-void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DWORD /*grfKeyState*/)
+void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DWORD grfKeyState)
 {
 	STGMEDIUM medium;
 	FORMATETC ftetc={0}; 
@@ -784,6 +801,195 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 		}
 		ReleaseStgMedium(&medium);
 	}
+	
+	ftetc.cfFormat = CF_UNICODETEXT;
+	if (pDataObj->GetData(&ftetc, &medium) == S_OK)
+	{
+		if(ftetc.cfFormat == CF_UNICODETEXT && medium.tymed == TYMED_HGLOBAL)
+		{
+			CString sDestUrl = MakeUrl(GetItemHandle(iItem));
+			TCHAR* pStr = (TCHAR*)GlobalLock(medium.hGlobal);
+			CString urls;
+			if(pStr != NULL)
+			{
+				urls = pStr;
+			}
+			GlobalUnlock(medium.hGlobal);
+			urls.Replace(_T("\r\n"), _T("*"));
+			CTSVNPathList urlList;
+			urlList.LoadFromAsteriskSeparatedString(urls);
+			// now check if the text dropped on us is a list of URL's
+			bool bAllUrls = true;
+			for (int i=0; i<urlList.GetCount(); ++i)
+			{
+				if (!urlList[i].IsUrl())
+				{
+					bAllUrls = false;
+					break;
+				}
+			}
+			if (bAllUrls)
+			{
+				if (grfKeyState & MK_CONTROL)
+				{
+					// copy the URLs to the new location
+					SVN svn;
+					svn.SetPromptApp(&theApp);
+					CWaitCursorEx wait_cursor;
+					CInputDlg input(this);
+					input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+					CUtils::RemoveAccelerators(input.m_sHintText);
+					input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+					CUtils::RemoveAccelerators(input.m_sTitle);
+					input.m_pProjectProperties = m_pProjectProperties;
+					input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
+					if (input.DoModal() == IDOK)
+					{
+						for (int index=0; index<urlList.GetCount(); ++index)
+						{
+							if (!FindUrl(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()))
+							{
+								if (!svn.Copy(urlList[index], CTSVNPath(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()), m_Revision, input.m_sInputText))
+								{
+									wait_cursor.Hide();
+									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+									break;
+								}
+								if (m_Revision.IsHead())
+								{
+									HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
+									if (hItem)
+									{
+										if (IsFolder(hItem))
+											AddFolder(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+										else
+											AddFile(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+									}
+								}
+							}
+							else
+							{
+								wait_cursor.Hide();
+								CString sMsg;
+								sMsg.Format(IDS_REPOBROWSE_URLALREADYEXISTS, sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+								CMessageBox::Show(m_hWnd, sMsg, _T("TortoiseSVN"), MB_ICONERROR);
+								break;
+							}
+						}
+					} // if (input.DoModal() == IDOK) 
+				}
+				else
+				{
+					// move the URLs to the new location
+					// copy the URLs to the new location
+					SVN svn;
+					svn.SetPromptApp(&theApp);
+					CWaitCursorEx wait_cursor;
+					CInputDlg input(this);
+					input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+					CUtils::RemoveAccelerators(input.m_sHintText);
+					input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+					CUtils::RemoveAccelerators(input.m_sTitle);
+					input.m_pProjectProperties = m_pProjectProperties;
+					input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
+					if (input.DoModal() == IDOK)
+					{
+						for (int index=0; index<urlList.GetCount(); ++index)
+						{
+							if (!FindUrl(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()))
+							{
+								if (!svn.Move(urlList[index], CTSVNPath(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()), m_Revision, input.m_sInputText))
+								{
+									wait_cursor.Hide();
+									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+									break;
+								}
+								if (m_Revision.IsHead())
+								{
+									HTREEITEM hItem = FindUrl(urlList[index].GetSVNPathString());
+									if (hItem)
+									{
+										if (IsFolder(hItem))
+											AddFolder(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+										else
+											AddFile(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+										DeleteItem(hItem);
+									}
+								}
+							}
+							else
+							{
+								wait_cursor.Hide();
+								CString sMsg;
+								sMsg.Format(IDS_REPOBROWSE_URLALREADYEXISTS, sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+								CMessageBox::Show(m_hWnd, sMsg, _T("TortoiseSVN"), MB_ICONERROR);
+								break;
+							}
+						}
+					} // if (input.DoModal() == IDOK) 
+				}
+			} // if (bAllUrls)
+			else
+			{
+				CMessageBox::Show(m_hWnd, IDS_REPOBROWSE_INVALIDDROPDATA, IDS_APPNAME, MB_ICONERROR);
+			}
+		} // if(ftetc.cfFormat == CF_UNICODETEXT && medium.tymed == TYMED_HGLOBAL)
+		ReleaseStgMedium(&medium);
+	} // if (pDataObj->GetData(&ftetc, &medium) == S_OK)
+}
+
+void CRepositoryTree::OnBeginDrag()
+{
+	int si = GetFirstSelectedItem();
+	if (si == RVI_INVALID)
+		return;
+
+	CIDropSource* pdsrc = new CIDropSource;
+	if(pdsrc == NULL)
+		return;
+	pdsrc->AddRef();
+	CIDataObject* pdobj = new CIDataObject(pdsrc);
+	if(pdobj == NULL)
+		return;
+	pdobj->AddRef();
+
+	CTSVNPathList urlList;
+	do
+	{
+		urlList.AddPath(CTSVNPath(MakeUrl(GetItemHandle(si))));
+
+		si = GetNextSelectedItem(si);
+	} while (si != RVI_INVALID);
+
+	// first format: unicode text
+	CString urls;
+	for (int i=0; i<urlList.GetCount(); ++i)
+	{
+		urls += urlList[i].GetSVNPathString() + _T("\r\n");
+	}
+	FORMATETC fmtetc = {0}; 
+	fmtetc.cfFormat = CF_UNICODETEXT; 
+	fmtetc.dwAspect = DVASPECT_CONTENT; 
+	fmtetc.lindex = -1; 
+	fmtetc.tymed = TYMED_HGLOBAL;
+	// Init the medium used
+	STGMEDIUM medium = {0};
+	medium.tymed = TYMED_HGLOBAL;
+
+	medium.hGlobal = GlobalAlloc(GHND, (urls.GetLength()+1)*sizeof(TCHAR));
+	if (medium.hGlobal)
+	{
+		TCHAR* pMem = (TCHAR*)GlobalLock(medium.hGlobal);
+		_tcscpy(pMem, (LPCTSTR)urls);
+		GlobalUnlock(medium.hGlobal);
+
+		pdobj->SetData(&fmtetc, &medium, TRUE);
+	}
+
+	// Initiate the Drag & Drop
+	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE | DROPEFFECT_COPY, &m_dwEffect);
+	pdsrc->Release();
+	pdobj->Release();
 }
 
 BOOL CRepositoryTree::PreTranslateMessage(MSG* pMsg)

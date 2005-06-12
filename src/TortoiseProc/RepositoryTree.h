@@ -123,7 +123,8 @@ public:
 	void Refresh(HTREEITEM hItem);
 	void RefreshMe(HTREEITEM hItem);
 	virtual BOOL BeginEdit(INT iRow, INT iColumn, UINT nKey);
-
+	virtual void OnBeginDrag();
+	
 	CString		m_strReposRoot;
 	std::map<CString, SVN::SVNLock> m_locks;
 protected:
@@ -159,6 +160,7 @@ private:
 	BOOL		bInit;
 	SVNRev		m_Revision;
 	BOOL		m_bFile;
+	DWORD		m_dwEffect;
 public:
 	int			m_nIconFolder;
 	CTSVNPathList m_DroppedPaths;	

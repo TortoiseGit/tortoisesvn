@@ -300,6 +300,7 @@ BOOL CTortoiseProcApp::InitInstance()
     };
     InitCommonControlsEx(&used);
 	AfxOleInit();
+	AfxEnableControlContainer();
 	AfxInitRichEdit2();
 	CWinApp::InitInstance();
 	SetRegistryKey(_T("TortoiseSVN"));

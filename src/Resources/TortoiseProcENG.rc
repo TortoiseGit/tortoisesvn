@@ -2063,6 +2063,12 @@ BEGIN
                             "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_URLALREADYEXISTS "The target url\n%s\nalready exists!"
+    IDS_REPOBROWSE_INVALIDDROPDATA "Invalid data object dropped!"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
