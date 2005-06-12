@@ -23,6 +23,7 @@
 #include "SVNRev.h"
 #include "ReportCtrl/ReportCtrl.h"
 #include "TSVNPath.h"
+#include "ProjectProperties.h"
 
 
 /**
@@ -114,9 +115,6 @@ public:
 	HTREEITEM FindUrl(const CString& url);
 
 public:
-	afx_msg void OnRvnItemSelected(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
 	void Init(const SVNRev& revision);
 	CString MakeUrl(HTREEITEM hItem);
 	CString GetFolderUrl(HTREEITEM hItem);
@@ -124,9 +122,16 @@ public:
 	HTREEITEM ItemExists(HTREEITEM parent, CString item);
 	void Refresh(HTREEITEM hItem);
 	void RefreshMe(HTREEITEM hItem);
+	virtual BOOL BeginEdit(INT iRow, INT iColumn, UINT nKey);
 
 	CString		m_strReposRoot;
 	std::map<CString, SVN::SVNLock> m_locks;
+protected:
+	DECLARE_MESSAGE_MAP()
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnRvnItemSelected(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
 private:
 	//! Finds the tree item corresponding to \a path, starting at \a hParent.
 	HTREEITEM FindPath(const CString& path, HTREEITEM hParent);
@@ -143,6 +148,7 @@ private:
 	virtual DROPEFFECT OnDrag(int iItem, int iSubItem, IDataObject * pDataObj, DWORD grfKeyState);
 	virtual void OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DWORD grfKeyState);
 	
+	virtual void EndEdit(BOOL bUpdate = TRUE, LPNMRVITEMEDIT lpnmrvie = NULL);
 
 private:
 	friend class CRepositoryBar;
@@ -153,11 +159,9 @@ private:
 	BOOL		bInit;
 	SVNRev		m_Revision;
 	BOOL		m_bFile;
-
 public:
 	int			m_nIconFolder;
 	CTSVNPathList m_DroppedPaths;	
-
-	DECLARE_MESSAGE_MAP()
+	ProjectProperties * m_pProjectProperties;
 };
 static UINT WM_FILESDROPPED = RegisterWindowMessage(_T("TORTOISESVN_FILESDROPPED_MSG"));

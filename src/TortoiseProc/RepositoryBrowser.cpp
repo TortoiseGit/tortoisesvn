@@ -186,6 +186,7 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
 
 	m_treeRepository.ChangeToUrl(m_InitialSvnUrl);
 	m_barRepository.GotoUrl(m_InitialSvnUrl);
+	m_treeRepository.m_pProjectProperties = &m_ProjectProperties;
 	m_bInitDone = TRUE;
 	return 0;
 }
@@ -699,30 +700,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPRENAME:
 				{
-					CRenameDlg dlg;
-					CString filename = url.Right(url.GetLength() - url.ReverseFind('\\') - 1);
-					CString filepath = url.Left(url.ReverseFind('\\') + 1);
-					dlg.m_name = filename;
-					if (dlg.DoModal() == IDOK)
-					{
-						filepath =  filepath + dlg.m_name;
-						SVN svn;
-						svn.SetPromptApp(&theApp);
-						CWaitCursorEx wait_cursor;
-						CInputDlg input(this);
-						SetupInputDlg(&input);
-						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
-						if (input.DoModal() == IDOK)
-						{
-							if (!svn.Move(CTSVNPath(url), CTSVNPath(filepath), TRUE, input.m_sInputText))
-							{
-								wait_cursor.Hide();
-								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								return;
-							} // if (!svn.Move(url, filepath, TRUE)) 
-							m_treeRepository.Refresh(hSelItem);
-						} // if (input.DoModal() == IDOK) 
-					} // if (dlg.DoModal() == IDOK) 
+					m_treeRepository.BeginEdit(m_treeRepository.GetItemRow(m_treeRepository.GetItemIndex(hSelItem)), 0, VK_LBUTTON);
 				}
 				break;
 			case ID_POPCOPYTO:

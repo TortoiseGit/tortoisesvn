@@ -25,6 +25,9 @@
 #include "RepositoryBar.h"
 #include "TSVNPath.h"
 #include "SVN.h"
+#include ".\repositorytree.h"
+#include "InputDlg.h"
+#include "Utils.h"
 
 // CRepositoryTree
 
@@ -32,7 +35,8 @@ IMPLEMENT_DYNAMIC(CRepositoryTree, CReportCtrl)
 CRepositoryTree::CRepositoryTree(const CString& strUrl, BOOL bFile) :
 	m_strUrl(strUrl),
 	m_Revision(SVNRev::REV_HEAD),
-	m_bFile(bFile)
+	m_bFile(bFile),
+	m_pProjectProperties(NULL)
 {
 	m_strUrl.TrimRight('/');
 	m_strNoItems.LoadString(IDS_REPOBROWSE_INITWAIT);
@@ -670,6 +674,62 @@ void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 	}
 }
 
+BOOL CRepositoryTree::BeginEdit(INT iRow, INT iColumn, UINT nKey)
+{
+	if (!m_Revision.IsHead())
+		return FALSE;
+	if (iColumn>0)
+		return FALSE;
+	// are we on the root URL?
+	if (MakeUrl(GetItemHandle(iRow)).Compare(m_strReposRoot)==0)
+		return FALSE;
+	if (iColumn < 0)
+		iColumn = 0;
+
+	return CReportCtrl::BeginEdit(iRow, iColumn, nKey);
+}
+
+void CRepositoryTree::EndEdit(BOOL bUpdate /* = TRUE */, LPNMRVITEMEDIT lpnmrvie /* = NULL */)
+{
+	ATLTRACE("EndEdit\n");
+	HTREEITEM hItem = GetItemHandle(m_iEditItem);
+
+	CString sOldName = GetItemText(m_iEditItem, 0);
+	CString sOldUrl = MakeUrl(hItem);
+	CString sNewName = lpnmrvie->lpszText;
+	CString sNewUrl = sOldUrl.Left(sOldUrl.ReverseFind('/')+1) + sNewName;
+	
+	if ((!bUpdate)||(sNewName.FindOneOf(_T("/\\?*\"<>|"))>=0))
+	{
+		CReportCtrl::EndEdit(FALSE, lpnmrvie);
+		return;
+	}
+	
+	SVN svn;
+	svn.SetPromptApp(&theApp);
+	CWaitCursorEx wait_cursor;
+	CInputDlg input(this);
+	input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+	CUtils::RemoveAccelerators(input.m_sHintText);
+	input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+	CUtils::RemoveAccelerators(input.m_sTitle);
+	input.m_pProjectProperties = m_pProjectProperties;
+	input.m_sInputText.LoadString(IDS_INPUT_RENAMELOGMSG);
+	if (input.DoModal() == IDOK)
+	{
+		if (!svn.Move(CTSVNPath(sOldUrl), CTSVNPath(sNewUrl), TRUE, input.m_sInputText))
+		{
+			wait_cursor.Hide();
+			CReportCtrl::EndEdit(FALSE, lpnmrvie);
+			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			return;
+		}
+		CReportCtrl::EndEdit(bUpdate, lpnmrvie);
+		return;
+	}
+	CReportCtrl::EndEdit(FALSE, lpnmrvie);
+}
+
 DROPEFFECT CRepositoryTree::OnDrag(int iItem, int iSubItem, IDataObject * pDataObj, DWORD /*grfKeyState*/)
 {
 	if (iSubItem)
@@ -724,4 +784,20 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 		}
 		ReleaseStgMedium(&medium);
 	}
+}
+
+BOOL CRepositoryTree::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_F2:
+			{
+				BeginEdit(m_iFocusRow, m_iFocusColumn, VK_LBUTTON);
+			}
+			break;
+		}
+	}
+	return CReportCtrl::PreTranslateMessage(pMsg);
 }

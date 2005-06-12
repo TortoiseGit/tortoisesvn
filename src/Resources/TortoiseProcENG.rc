@@ -1599,7 +1599,7 @@ BEGIN
     IDS_REPOBROWSE_COPY     "&Copy To..."
     IDS_REPOBROWSE_DELETE   "&Delete..."
     IDS_REPOBROWSE_IMPORT   "Add &File..."
-    IDS_REPOBROWSE_RENAME   "&Rename/Move..."
+    IDS_REPOBROWSE_RENAME   "&Rename"
     IDS_REPOBROWSE_MKDIR    "C&reate Folder..."
     IDS_REPOBROWSE_IMPORTFOLDER "A&dd Folder..."
     IDS_REPOBROWSE_REFRESH  "Refresh"
@@ -1682,6 +1682,7 @@ BEGIN
     IDS_INPUT_MOVELOGMSG    "Moved remotely"
     IDS_INPUT_ADDFOLDERLOGMSG "Added a folder remotely"
     IDS_INPUT_ADDFILEFOLDERMSG "Added items remotely"
+    IDS_INPUT_RENAMELOGMSG  "Renamed remotely"
 END
 
 STRINGTABLE 
