@@ -836,6 +836,15 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 					SVN svn;
 					svn.SetPromptApp(&theApp);
 					CWaitCursorEx wait_cursor;
+					if (urlList.GetCount() > 1)
+					{
+						if (CMessageBox::Show(m_hWnd, IDS_REPOBROWSE_MULTICOPY, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)!=IDYES)
+						{
+							wait_cursor.Hide();
+							ReleaseStgMedium(&medium);
+							return;
+						}
+					}
 					CInputDlg input(this);
 					input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 					CUtils::RemoveAccelerators(input.m_sHintText);
@@ -881,10 +890,18 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 				else
 				{
 					// move the URLs to the new location
-					// copy the URLs to the new location
 					SVN svn;
 					svn.SetPromptApp(&theApp);
 					CWaitCursorEx wait_cursor;
+					if (urlList.GetCount() > 1)
+					{
+						if (CMessageBox::Show(m_hWnd, IDS_REPOBROWSE_MULTIMOVE, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)!=IDYES)
+						{
+							wait_cursor.Hide();
+							ReleaseStgMedium(&medium);
+							return;
+						}
+					}
 					CInputDlg input(this);
 					input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 					CUtils::RemoveAccelerators(input.m_sHintText);

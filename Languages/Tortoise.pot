@@ -3421,7 +3421,11 @@ msgid "You are trying to access a repository via file:/// on\na shared network d
 msgstr ""
 
 #: ID:105,
-msgid "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
+msgid "You copied more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will copy each file/folde\nindividually, creating a new revision for every copied item.\n\nDo you still want to do this?"
+msgstr ""
+
+#: ID:105,
+msgid "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that in one step, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
 msgstr ""
 
 #: ID:251,
@@ -3430,6 +3434,10 @@ msgstr ""
 
 #: ID:169,
 msgid "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
+msgstr ""
+
+#: ID:105,
+msgid "You moved more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will move each file/folde\nindividually, creating a new revision for every moved item.\n\nDo you still want to do this?"
 msgstr ""
 
 #: ID:77,

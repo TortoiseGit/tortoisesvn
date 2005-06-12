@@ -2060,7 +2060,11 @@ END
 STRINGTABLE 
 BEGIN
     IDS_REPOBROWSE_MULTIIMPORT 
-                            "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
+                            "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that in one step, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
+    IDS_REPOBROWSE_MULTICOPY 
+                            "You copied more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will copy each file/folde\nindividually, creating a new revision for every copied item.\n\nDo you still want to do this?"
+    IDS_REPOBROWSE_MULTIMOVE 
+                            "You moved more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will move each file/folde\nindividually, creating a new revision for every moved item.\n\nDo you still want to do this?"
 END
 
 STRINGTABLE 
