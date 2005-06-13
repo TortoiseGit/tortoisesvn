@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-10 08:35+0100\n"
+"PO-Revision-Date: 2005-06-13 09:53+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -311,8 +311,8 @@ msgid "&Remove"
 msgstr "Ent&fernen"
 
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "U&mbenennen/Verschieben..."
+msgid "&Rename"
+msgstr "&Umbenennen"
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -604,6 +604,10 @@ msgstr "Datei im Projektarchiv hinzugefügt"
 #: ID:126
 msgid "Added a folder remotely"
 msgstr "Ordner im Projektarchiv hinzugefügt"
+
+#: ID:126
+msgid "Added items remotely"
+msgstr "Objekte im Projektarchiv hinzugefügt"
 
 #: ID:145
 msgid ""
@@ -1980,6 +1984,11 @@ msgstr "Zuwenig Speicher um Operation durchzuführen."
 msgid "Internal application error."
 msgstr "Interner Programmfehler."
 
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "Ungültiges Datenobjekt fallen gelassen!"
+
 #: ID:3857
 msgid "Invalid filename."
 msgstr "Ungültiger Dateiname"
@@ -2282,6 +2291,10 @@ msgstr "Neu"
 msgid "New Name:"
 msgstr "Neuer Name:"
 
+#: ID:97
+msgid "New name for %s"
+msgstr "Neuer Name für %s"
+
 #: ID:73
 msgid "No"
 msgstr "Nein"
@@ -2343,6 +2356,15 @@ msgstr "Keine Grafik vorhanden"
 #: ID:273
 msgid "No image encoder found for %s."
 msgstr "Kein Bildkodierer für %s gefunden."
+
+#: ID:188
+msgid "No spell corrections"
+msgstr "Keine Korrekturvorschläge"
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "Keine Thesaurusvorschläge"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -2737,6 +2759,10 @@ msgstr "%s Umbenennen"
 #: ID:11
 msgid "Rename..."
 msgstr "Umbenennen..."
+
+#: ID:126
+msgid "Renamed remotely"
+msgstr "Im Projektarchiv umbenannt"
 
 #: ID:11
 msgid "Renames files / folders inside source control"
@@ -3567,6 +3593,17 @@ msgstr ""
 "Der Zielordner ist nicht leer!\n"
 "Sind Sie sicher, dass Sie in diesen Ordner auschecken/exportieren wollen?"
 
+# ID:102,
+#: ID:102
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Die Ziel URL\n"
+"%s\n"
+"existiert bereits!"
+
 #: ID:195
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
@@ -4072,6 +4109,36 @@ msgstr ""
 "<b>Dies kann zur Zerstörung des Projektarchivs führen!</b>.\n"
 "Möchten Sie dies wirklich tun?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Sie haben mehr als eine Datei/Ordner kopiert.\n"
+"Es ist nicht möglich, das in einem Schritt zu tun. Deshalb wird TortoiseSVN\n"
+"jedes Objekt einzeln kopieren und dafür jeweils eine Revision anlegen.\n"
+"\n"
+"Wollen Sie die Aktion trotzdem durchführen?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Sie haben mehr als eine Datei/Ordner fallen gelassen, um sie zum Projektarchiv hinzuzufügen.\n"
+"Es ist nicht möglich, das in einem Schritt zu tun. Deshalb wird TortoiseSVN\n"
+"jedes Objekt einzeln hinzufügen und dafür jeweils eine Revision anlegen.\n"
+"\n"
+"Wollen Sie die Aktion trotzdem durchführen?"
+
 #: ID:251
 msgid "You have to update your working copy first."
 msgstr "Sie müssen erst Ihre Arbeitskopie aktualisieren."
@@ -4083,6 +4150,21 @@ msgid ""
 msgstr ""
 "Sie haben keine Bugtracker ID angegeben\n"
 "Sind  Sie sicher, daß Sie ohne ID übertragen wollen?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Sie haben mehr als eine Datei/Ordner verschoben.\n"
+"Es ist nicht möglich, das in einem Schritt zu tun. Deshalb wird TortoiseSVN\n"
+"jedes Objekt einzeln verschieben und dafür jeweils eine Revision anlegen.\n"
+"\n"
+"Wollen Sie die Aktion trotzdem durchführen?"
 
 #: ID:77
 msgid ""

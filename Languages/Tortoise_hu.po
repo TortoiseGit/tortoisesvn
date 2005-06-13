@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-09 22:42+0100\n"
+"PO-Revision-Date: 2005-06-12 20:58+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -396,10 +396,10 @@ msgstr "&Újravégez"
 msgid "&Remove"
 msgstr "&Töröl"
 
-# ID:101,
+# Dlg-ID:151,
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "&Átnevez/Áthelyez..."
+msgid "&Rename"
+msgstr "&Átnevez"
 
 # ID:113,
 #: ID:113
@@ -763,6 +763,11 @@ msgstr "Fájl  távolról hozzáadva"
 #: ID:126
 msgid "Added a folder remotely"
 msgstr "Mappa távolról hozzáadva"
+
+# ID:126,
+#: ID:126
+msgid "Added items remotely"
+msgstr "Elemek távolról hozzáadva"
 
 # ID:145,
 #: ID:145
@@ -2469,6 +2474,11 @@ msgstr "Nincs elég memória a művelethez."
 msgid "Internal application error."
 msgstr "Belső programhiba."
 
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "Érvénytelen adat objektum!"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -2840,6 +2850,11 @@ msgstr "Új"
 msgid "New Name:"
 msgstr "Új Név:"
 
+# ID:97,
+#: ID:97
+msgid "New name for %s"
+msgstr "%s új neve"
+
 # ID:73,
 #: ID:73
 msgid "No"
@@ -2911,6 +2926,16 @@ msgstr "Nem érhető el grafikon"
 #: ID:273
 msgid "No image encoder found for %s."
 msgstr "%s nem talált képkódolót."
+
+# ID:188,
+#: ID:188
+msgid "No spell corrections"
+msgstr "Nincs helyesírás-ellenőrzés"
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "Nincs tárház ajánlat"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3417,6 +3442,11 @@ msgstr "%s átnevezése"
 #: ID:11
 msgid "Rename..."
 msgstr "Átnevezés..."
+
+# ID:126,
+#: ID:126
+msgid "Renamed remotely"
+msgstr "Távolról átnevezve"
 
 # ID:11,
 #: ID:11
@@ -4438,6 +4468,16 @@ msgstr ""
 "A célmappa nem üres!\n"
 "Biztos, hogy itt akarsz dolgozni?"
 
+# ID:102,
+#: ID:102
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"%s\n"
+"célcím már létezik!"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -5052,6 +5092,36 @@ msgstr ""
 "Az adatok megsérülhetnek!\n"
 "Biztos, hogy ezt akarod tenni?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folde\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Egynél több fájlt/mappát másoltál.\n"
+"Ez jelenleg nem lehetséges, így a TortoiseSVN mindegyik elemet\n"
+"egyesével másolja, mindegyiknek új verziót létrehozva.\n"
+"\n"
+"Biztos hogy ezt teszed?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Egyszerre több fájlt/könyvtárt adtál a tárházba.\n"
+"Ez jelenleg nem lehetséges, így a TortoiseSVN mindegyik elemet\n"
+"egyesével adja hozzá, mindegyiknek új verziót létrehozva.\n"
+"\n"
+"Biztos hogy ezt teszed?"
+
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
@@ -5065,6 +5135,21 @@ msgid ""
 msgstr ""
 "Nem írtál be ügy-számot!\n"
 "Ügy-szám nélkül akarod beküldeni?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folde\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Egyszerre több fájlt/könyvtárt helyeztél át.\n"
+"Ez jelenleg nem lehetséges, így a TortoiseSVN mindegyik elemet\n"
+"egyesével helyezi át, mindegyiknek új verziót létrehozva.\n"
+"\n"
+"Biztos hogy ezt teszed?"
 
 # ID:77,
 #: ID:77
@@ -5504,4 +5589,5 @@ msgstr "a verziód:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "a verziód: %d.%d.%d.%d"
+
 

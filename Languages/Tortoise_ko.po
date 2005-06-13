@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-02 19:07+0900\n"
+"PO-Revision-Date: 2005-06-13 06:35+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -389,10 +389,10 @@ msgstr "다시실행(&R)"
 msgid "&Remove"
 msgstr "삭제(&R)"
 
-# ID:101,
+# Dlg-ID:151,
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "이름 바꾸기/이동하기(&R)"
+msgid "&Rename"
+msgstr "이름 바꾸기(&R)"
 
 # ID:113,
 #: ID:113
@@ -757,6 +757,11 @@ msgstr "파일 추가됨"
 #: ID:126
 msgid "Added a folder remotely"
 msgstr "원격지에 디렉토리 추가됨"
+
+# ID:126,
+#: ID:126
+msgid "Added items remotely"
+msgstr "원격지에 파일 추가됨"
 
 # ID:13,
 #: ID:145
@@ -1878,22 +1883,12 @@ msgstr "바뀐 내용을 저장하시겠습니까?"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Documentation - Simon Large"
-msgstr "문서화 - Simon Large"
-
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "컨텍스트 메뉴에 대한 상태를 확인하지 않습니다."
+msgstr "문서화 - Simon Large;  한글 번역 - 최호진,이재홍"
 
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
 msgstr "이 메시지를 다시 표시하지 않음"
-
-# Control-ID:1224,
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "tsvn:projectlanguage 가 설정되지 않으면 철자검사를 하지 않음"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -2123,6 +2118,11 @@ msgstr "문서 열기에 실패함."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "문서 저장 실패."
+
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "컨텍스트 메뉴에 대한 상태를 확인합니다."
 
 # ID:313,
 #: ID:313
@@ -2360,8 +2360,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "TortoiseSVN이 svn:keywords 들을 치환하지 않고 차이점을 생성합니다."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "diff를 하기 위해 키워드 확장을 하고, 라인 구분자를 조정하여 BASE 로부터 임시 파일을 생성합니다."
 
 # ID:194,
 #: ID:194
@@ -2472,6 +2472,11 @@ msgstr "명령을 수행하기에 메모리가 충분하지 않습니다."
 #: ID:3857
 msgid "Internal application error."
 msgstr "내부 오류."
+
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "유효하지 않은 데이터를 제거하였습니다."
 
 # ID:3857,#:
 # ID:3857,
@@ -2843,6 +2848,11 @@ msgstr "New"
 msgid "New Name:"
 msgstr "새 이름:"
 
+# ID:97,
+#: ID:97
+msgid "New name for %s"
+msgstr "%s의 새 이름"
+
 # ID:73,
 #: ID:73
 msgid "No"
@@ -2917,6 +2927,16 @@ msgstr "사용할 수 있는 그래프가 없습니다."
 msgid "No image encoder found for %s."
 msgstr "%s의 이미지 인코더를 발견할 수 없습니다."
 
+# ID:188,
+#: ID:188
+msgid "No spell corrections"
+msgstr "철자 교정 하지 않음"
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "시소러스 추천을 하지 않습니다."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Normal"
@@ -2985,6 +3005,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "최상위 폴더만 업데이트"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "tsvn:projectlanguage 가 설정된 경우에만 철자검사를 함"
 
 # ID:3841,#:
 # ID:3841,
@@ -3416,6 +3441,11 @@ msgstr "%s 이름 바꾸기"
 #: ID:11
 msgid "Rename..."
 msgstr "이름 바꾸기..."
+
+# ID:126,
+#: ID:126
+msgid "Renamed remotely"
+msgstr "원격지의 파일이름 수정됨"
 
 # ID:11,
 #: ID:11
@@ -4439,6 +4469,17 @@ msgstr ""
 "대상 폴더가 비어 있지 않습니다\n"
 "체크 아웃/익스포트를 강제로 진행하시겠습니까?"
 
+# ID:102,
+#: ID:102
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"대상 URL\n"
+"%s\n"
+"이(가) 이미 존재합니다."
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -5059,6 +5100,36 @@ msgstr ""
 "이 방법은 보관소를 망가뜨릴 위험이 있습니다.\n"
 "계속 하시겠습니까?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folde\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"한 개 이상의 파일 혹은 폴더를 복사하였습니다.\n"
+"한 번의 커밋으로는 불가능하므로, 여러번 복사를 시켜야하며,\n"
+"각 복사 명령 마다 리비전이 올라가게 됩니다.\n"
+"\n"
+"계속 진행하시겠습니까?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"한 개 이상의 파일 혹은 폴더를 추가하였습니다.\n"
+"한 번의 커밋으로는 불가능하므로, 여러번 추가시켜야하며,\n"
+"각 추가 명령 마다 리비전이 올라가게 됩니다.\n"
+"\n"
+"계속 진행하시겠습니까?"
+
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
@@ -5072,6 +5143,21 @@ msgid ""
 msgstr ""
 "이슈번호를 입력하지 않았습니다!\n"
 "이슈번호 없이 커밋하시겠습니까?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folde\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"한 개 이상의 파일 혹은 폴더를 이동하였습니다.\n"
+"한 번의 커밋으로는 불가능하므로, 여러번 이동을 시켜야하며,\n"
+"각 이동 명령 마다 리비전이 올라가게 됩니다.\n"
+"\n"
+"계속 진행하시겠습니까?"
 
 # ID:77,
 #: ID:77
@@ -5095,10 +5181,14 @@ msgstr ""
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
 "현 작업은 태깅된 URL을 받아서 이루어 졌습니다.\n"
-"브랜치나 주 트렁크로 URL을 전환(switch)한 다음 커밋하시기 바랍니다."
+"브랜치나 주 트렁크로 URL을 전환(switch)한 다음 커밋하시기 바랍니다.\n"
+"\n"
+"강제로 커밋하시겠습니까?"
 
 # ID:88,
 #: ID:88
