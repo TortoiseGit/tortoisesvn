@@ -60,6 +60,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
 #define IDSVNLC_UNLOCK			15
 #define IDSVNLC_UNLOCKFORCE		16
 #define IDSVNLC_OPENWITH		17
+#define IDSVNLC_EXPLORE			18
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1326,6 +1327,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						temp.LoadString(IDS_LOG_POPUP_OPENWITH);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_OPENWITH, temp);
 					}
+					if (m_dwContextMenus & SVNSLC_POPEXPLORE)
+					{
+						temp.LoadString(IDS_STATUSLIST_CONTEXT_EXPLORE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_EXPLORE, temp);
+					}
 				}
 				if (wcStatus == svn_wc_status_unversioned)
 				{
@@ -1511,6 +1517,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
 						cmd += filepath.GetWinPathString();
 						CUtils::LaunchApplication(cmd, NULL, false);
+					}
+					break;
+				case IDSVNLC_EXPLORE:
+					{
+						ShellExecute(this->m_hWnd, _T("explore"), filepath.GetDirectory().GetWinPath(), NULL, NULL, SW_SHOW);
 					}
 					break;
 				case IDSVNLC_DELETE:
