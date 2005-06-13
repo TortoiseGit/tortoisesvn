@@ -755,6 +755,15 @@ DROPEFFECT CRepositoryTree::OnDrag(int iItem, int iSubItem, IDataObject * pDataO
 	if (pDataObj->QueryGetData(&ftetc) == S_OK)
 	{
 		// user drags a text on us.
+		
+		// check if we're over a selected item: dropping on
+		// the source doesn't work
+		for (INT_PTR i=0; i<m_arDraggedIndexes.GetCount(); ++i)
+		{
+			if (m_arDraggedIndexes[i] == iItem)
+				return DROPEFFECT_NONE;
+		}
+		
 		// we only accept repository urls, but we check for that
 		// when the user finally drops it on us.
 		if (grfKeyState & MK_CONTROL)
@@ -970,11 +979,12 @@ void CRepositoryTree::OnBeginDrag()
 		return;
 	pdobj->AddRef();
 
+	m_arDraggedIndexes.RemoveAll();
 	CTSVNPathList urlList;
 	do
 	{
 		urlList.AddPath(CTSVNPath(MakeUrl(GetItemHandle(si))));
-
+		m_arDraggedIndexes.Add(si);
 		si = GetNextSelectedItem(si);
 	} while (si != RVI_INVALID);
 
