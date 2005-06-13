@@ -354,7 +354,9 @@ void CSciEdit::CheckSpelling()
 		Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 		if (strlen(textrange.lpstrText) > 3)
 		{
-			if (!pChecker->spell(CStringA(StringFromControl(textrange.lpstrText))))
+			CString sWord = StringFromControl(textrange.lpstrText);
+			// first check if the word is in our autocompletion list
+			if ((m_autolist.Find(sWord)<0)&&(!pChecker->spell(CStringA(sWord))))
 			{
 				//mark word as misspelled
 				Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
@@ -886,3 +888,26 @@ void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= 
 	return InsertAt(nMin, elem);
 }
 
+INT_PTR CAutoCompletionList::Find(const CString& elem)
+{
+	if (elem.IsEmpty())
+		return -1;
+	if (GetCount()==0)
+		return -1;
+
+	int nMin = 0;
+	int nMax = GetUpperBound();
+	while (nMin <= nMax)
+	{
+		UINT nHit = (UINT)(nMin + nMax) >> 1; // fast divide by 2
+		int cmp = elem.CompareNoCase(GetAt(nHit));
+
+		if (cmp > 0)
+			nMin = nHit + 1;
+		else if (cmp < 0)
+			nMax = nHit - 1;
+		else
+			return nMin;
+	}
+	return -1;
+}

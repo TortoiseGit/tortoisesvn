@@ -49,6 +49,7 @@ class CAutoCompletionList : public CStringArray
 {
 public:
 	void		AddSorted(const CString& elem, bool bNoDuplicates = true);
+	INT_PTR		Find(const CString& elem);
 };
 
 /**
