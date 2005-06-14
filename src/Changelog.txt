@@ -6,6 +6,10 @@
 - NEW: Files dragged from the explorer to the repository browser will
        add them to the repository. (Stefan)
 - NEW: Renaming in the repository browser now happens inline. (Stefan)
+- NEW: Words which are in the autocompletion list aren't spell checked
+       anymore. See issue #102. (Stefan)
+- NEW: "explore to" context menu command in the commit dialog.
+       See issue #105. (Stefan)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - BUG: Crash in TSVNCache. See issue #91.

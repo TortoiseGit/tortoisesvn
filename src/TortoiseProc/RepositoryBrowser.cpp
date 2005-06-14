@@ -1105,7 +1105,7 @@ void CRepositoryBrowser::OnFilesDropped(int iItem, int iSubItem, const CTSVNPath
 			CString filename = droppedPaths[importindex].GetFileOrDirectoryName();
 			if (!svn.Import(droppedPaths[importindex], 
 				CTSVNPath(url+_T("/")+filename), 
-				input.m_sInputText, FALSE))
+				input.m_sInputText, TRUE))
 			{
 				CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return;
