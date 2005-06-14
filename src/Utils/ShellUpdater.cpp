@@ -116,7 +116,11 @@ void CShellUpdater::UpdateShell()
 			for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
 			{
 				ATLTRACE("Cache Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
-
+				if (!m_pathsForUpdating[nPath].IsDirectory())
+				{
+					// send notifications to the shell for changed files - folders are updated by the cache itself.
+					SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_pathsForUpdating[nPath].GetWinPath(), NULL);
+				}
 				DWORD cbWritten; 
 				TSVNCacheCommand cmd;
 				cmd.command = TSVNCACHECOMMAND_CRAWL;

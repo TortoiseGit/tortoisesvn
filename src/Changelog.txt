@@ -34,6 +34,9 @@
        See issue 108. (Stefan)
 - BUG: The "check for modifications" dialog showed a wrong dialog title
        when "Check Repository" was clicked. (Stefan)
+- BUG: TortoiseMerge used the wrong encoding to show the files. (Stefan)
+- BUG: After a commit/update/... the file overlay icons weren't properly
+       refreshed. (Stefan)
 
 Version 1.2
 
