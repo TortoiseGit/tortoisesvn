@@ -98,7 +98,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 		{
 			free((void*)m_pszHelpFilePath);
 			m_pszHelpFilePath=_tcsdup(sHelppath);
-		} // if (PathFileExists(sHelppath))
+		}
 
 		DWORD lid = SUBLANGID(langId);
 		lid--;
@@ -109,6 +109,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 		else
 			langId = 0;
 	} while (langId);
+	setlocale(LC_ALL, ""); 
 
 	// InitCommonControls() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable

@@ -285,6 +285,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		else
 			langId = 0;
 	} while (langId);
+	setlocale(LC_ALL, ""); 
 	
 	// InitCommonControls() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
@@ -1078,7 +1079,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						return FALSE;
 					}
 					destPath.SetFromWin(droppath+_T("\\")+name);
-				} // if (strLine.CompareNoCase(droppath+_T("\\")+name)==0) 
+				} 
 				if (!svn.Move(pathList[nPath], destPath, FALSE))
 				{
 					if (pathList[nPath].IsDirectory()||(SVNStatus::GetAllStatus(pathList[nPath]) > svn_wc_status_normal))
