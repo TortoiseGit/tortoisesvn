@@ -6,13 +6,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3634
+# Based on r3691
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-04-29 16:27+0100\n"
+"PO-Revision-Date: 2005-06-14 10:46+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -325,8 +325,8 @@ msgid "&Remove"
 msgstr "&Fjern"
 
 #: ID:101,
-msgid "&Rename/Move..."
-msgstr "&Omdøb/flyt..."
+msgid "&Rename"
+msgstr "&Omdøb"
 
 #: ID:113,
 msgid "&Revert changes from this revision"
@@ -576,6 +576,10 @@ msgstr "En fil blev tilføjet på server"
 #, fuzzy
 msgid "Added a folder remotely"
 msgstr "En mappe blev tilføjet på server"
+
+#: ID:126,
+msgid "Added items remotely"
+msgstr "Emner blev tilføjet på server"
 
 #: ID:145,
 msgid "Added the file(s)\n%s\nto the ignore list."
@@ -1455,6 +1459,11 @@ msgstr "Udelad stierne:"
 msgid "Exclude/Ignore pattern:"
 msgstr "Mønster for udelad/ignorer:"
 
+#: ID:209,
+#,fuzzy
+msgid "Explore to"
+msgstr "Åbn i Stifinder"
+
 #: ID:94,
 msgid "Export Directory:"
 msgstr "Mappe til eksport:"
@@ -1767,6 +1776,10 @@ msgstr "Der er ikke tilstrækkelig hukommelse til at udføre handlingen."
 msgid "Internal application error."
 msgstr "Intern programfejl."
 
+#: ID:102,
+msgid "Invalid data object dropped!"
+msgstr "Et ugyldigt dataobjekt blev sluppet!"
+
 #: ID:3857,#: ID:3857,
 msgid "Invalid filename."
 msgstr "Filnavnet er ugyldigt."
@@ -2020,6 +2033,10 @@ msgstr "Ny"
 msgid "New Name:"
 msgstr "Nyt navn:"
 
+#: ID:97,
+msgid "New name for %s"
+msgstr "Nyt navn til %s"
+
 #: ID:73,
 msgid "No"
 msgstr "Nej"
@@ -2059,6 +2076,16 @@ msgstr "Der er ingen graf tilgængelig"
 #: ID:273,
 msgid "No image encoder found for %s."
 msgstr "Der blev ikke fundet nogen billed-indkoder til %s."
+
+#: ID:188,
+#,fuzzy
+msgid "No spell corrections"
+msgstr "Ingen stavekontrol-rettelser"
+
+#: ID:188,
+#,fuzzy
+msgid "No thesaurus suggestions"
+msgstr "Ingen forslag fra opslagsværk"
 
 #: Control-ID:65535,
 msgid "Normal"
@@ -2417,6 +2444,10 @@ msgstr "Omdøb %s"
 #: ID:11,
 msgid "Rename..."
 msgstr "Omdøb..."
+
+#: ID:126,
+msgid "Renamed remotely"
+msgstr "Omdøbt på server"
 
 #: ID:11,
 msgid "Renames files / folders inside source control"
@@ -3097,6 +3128,10 @@ msgstr "Den valgte fil ser ud til stadig at indeholde en eller flere konfliktmar
 msgid "The target folder is not empty!\nAre you sure you want to checkout/export into that folder?"
 msgstr "Den valgte mappe er ikke tom!\nEr du sikker på, at du vil hente en arbejdskopi eller eksportere til denne mappe?"
 
+#: ID:102,
+msgid "The target url\n%s\nalready exists!"
+msgstr "URL'en\n%s\nfindes allerede!"
+
 #: ID:195,
 msgid "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
 msgstr "Antallet af sekunder, der højst bruges på læse de valgte filer.\nEn lavere værdi vil gøre automatisk udfyldning hurtigere tilgængelig,\nmen måske skannes ikke alle filer."
@@ -3484,6 +3519,14 @@ msgstr "Du er ved at oprette et versionsarkiv på et netværksdrev.\nDette er he
 msgid "You are trying to access a repository via file:/// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
 msgstr "Du forsøger at opnå adgang til et versionsarkiv via file:/// på\net netværksdrev.\nDette kan forårsage ødelæggelse af versionsarkivet!\nEr du sikker på at du vil fortsætte?"
 
+#: ID:105,
+msgid "You copied more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will copy each file/folder\nindividually, creating a new revision for every copied item.\n\nDo you still want to do this?"
+msgstr "Du kopierede mere end én fil eller mappe.\nDet er ikke muligt at gøre dette i ét skridt, så TortoiseSVN vil kopiere hver fil/mappe\nfor sig selv og dermed lave en ny revision for hver kopieret emne.\n\nVil du stadig gøre dette?"
+
+#: ID:105,
+msgid "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that in one step, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
+msgstr "Du har trukket mere end én fil eller mappe.\nDet er ikke muligt at gøre dette i ét skridt, så TortoiseSVN vil kopiere hver fil/mappe\nfor sig selv og dermed lave en ny revision for hver kopieret emne.\n\nVil du stadig gøre dette?"
+
 #: ID:251,
 msgid "You have to update your working copy first."
 msgstr "Du skal først opdatere din arbejdskopi."
@@ -3491,6 +3534,10 @@ msgstr "Du skal først opdatere din arbejdskopi."
 #: ID:169,
 msgid "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
 msgstr "Du har ikke indtastet et problemnummer!\nEr du sikker på at du vil arkivere uden et problemnummer?"
+
+#: ID:105,
+msgid "You moved more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will move each file/folder\nindividually, creating a new revision for every moved item.\n\nDo you still want to do this?"
+msgstr "Du flyttede mere end én fil eller mappe.\nDet er ikke muligt at gøre dette i ét skridt, så TortoiseSVN vil kopiere hver fil/mappe\nfor sig selv og dermed lave en ny revision for hver kopieret emne.\n\nVil du stadig gøre dette?"
 
 #: ID:77,
 msgid "You selected an unversioned file.\nThe file will be added to version control when you commit."
@@ -3501,8 +3548,8 @@ msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won
 msgstr "Du har ændret ikonerne fra <i>%s</i> til <i>%s</i>.\nDenne ændring træder ikke i kraft, før du genstarter computeren eller logger af og på igen!"
 
 #: ID:78,
-msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing."
-msgstr "Din arbejdskopi ser ud til at befinde sig på stien for et mærkat!\nDu bør først skifte til en forgrening eller hovedstammen før du arkiverer."
+msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
+msgstr "Din arbejdskopi ser ud til at befinde sig på stien for et mærkat!\nDu bør først skifte til en forgrening eller hovedstammen før du arkiverer.\n\nVil du arkivere alligevel?"
 
 #: ID:88,
 msgid "Your working copy has local modifications!\nNote: updating to another revision won't lose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
