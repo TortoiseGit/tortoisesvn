@@ -78,6 +78,8 @@ BOOL CChangedDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("ChangedDlg"));
 
+	m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
+	
 	//first start a thread to obtain the status without
 	//blocking the dialog
 	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)

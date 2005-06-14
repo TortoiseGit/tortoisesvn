@@ -919,21 +919,24 @@ BEGIN
                     WS_TABSTOP,13,63,271,10
     CONTROL         "Use old APIs to fetch log messages",IDC_OLDAPILOGS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,79,271,8
-    GROUPBOX        "Progress",IDC_STATIC,7,100,286,38
-    LTEXT           "Autoclose:",IDC_STATIC,13,112,54,21,SS_CENTERIMAGE
-    COMBOBOX        IDC_AUTOCLOSECOMBO,71,116,213,75,CBS_DROPDOWNLIST | 
+    GROUPBOX        "Progress",IDC_STATIC,7,95,286,32
+    LTEXT           "Autoclose:",IDC_STATIC,13,102,54,21,SS_CENTERIMAGE
+    COMBOBOX        IDC_AUTOCLOSECOMBO,71,106,213,75,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "Commit",IDC_COMMITGROUP,7,147,286,63
+    GROUPBOX        "Commit",IDC_COMMITGROUP,7,127,286,56
     CONTROL         "Use autocompletion of filepaths and keywords",
                     IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,160,271,10
+                    13,140,271,10
     LTEXT           "Timeout in seconds to stop the autocompletion parsing",
-                    IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,175,231,8,SS_NOTIFY
-    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,172,31,14,ES_AUTOHSCROLL | 
+                    IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,155,231,8,SS_NOTIFY
+    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,152,31,14,ES_AUTOHSCROLL | 
                     ES_NUMBER,WS_EX_RIGHT
     CONTROL         "Only use spellchecker when tsvn:projectlanguage is set",
-                    IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,188,
+                    IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,168,
                     271,10
+    GROUPBOX        "Check For Modifications",IDC_STATIC,7,185,286,25
+    CONTROL         "Contact the repository on startup",IDC_REPOCHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,196,271,10
 END
 
 

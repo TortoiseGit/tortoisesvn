@@ -77,7 +77,9 @@ private:
 	DWORD			m_dwAutocompletionTimeout;
 	CRegDWORD		m_regSpell;
 	BOOL			m_bSpell;
-	
+	CRegDWORD		m_regCheckRepo;
+	BOOL			m_bCheckRepo;
+
 	BOOL			m_bInitialized;
 
 public:
@@ -94,4 +96,5 @@ public:
 	afx_msg void OnBnClickedOldapilogs();
 	afx_msg void OnEnChangeAutocompletiontimeout();
 	afx_msg void OnBnClickedSpell();
+	afx_msg void OnBnClickedRepocheck();
 };
