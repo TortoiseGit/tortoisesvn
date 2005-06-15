@@ -105,6 +105,7 @@ protected:
 private:
 	bool m_bStandAlone;
 	SVNUrl m_InitialSvnUrl;
+	bool m_bThreadRunning;
 	static const UINT	m_AfterInitMessage;
 public:
 };

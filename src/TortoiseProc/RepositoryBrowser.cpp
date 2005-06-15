@@ -153,8 +153,10 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	EnableSaveRestore(_T("RepositoryBrowser"));
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	m_bThreadRunning = true;
 	if (AfxBeginThread(InitThreadEntry, this)==NULL)
 	{
+		m_bThreadRunning = false;
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -171,11 +173,16 @@ UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
 //this is the thread function which calls the subversion function
 UINT CRepositoryBrowser::InitThread()
 {
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 	SVN svn;
 	m_treeRepository.m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_InitialSvnUrl.GetPath()));
 	m_treeRepository.m_strReposRoot = SVNUrl::Unescape(m_treeRepository.m_strReposRoot);
 	svn.GetLocks(CTSVNPath(m_treeRepository.m_strReposRoot), &m_treeRepository.m_locks);
 	PostMessage(WM_AFTERINIT);
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
+	m_bThreadRunning = false;
 	return 0;
 }
 
