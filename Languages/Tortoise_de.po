@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-14 11:11+0100\n"
+"PO-Revision-Date: 2005-06-15 08:32+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -562,7 +562,6 @@ msgstr "Aktion"
 msgid "Activate Task List"
 msgstr "Aktiviere die Task-Liste"
 
-#: ID:8
 #: ID:209
 #: Dlg-ID:155
 msgid "Add"
@@ -587,6 +586,10 @@ msgstr "Ignorieren"
 #: ID:12
 msgid "Add files to Subversion here"
 msgstr "Hier zum Projektarchiv hinzufügen"
+
+#: ID:8
+msgid "Add..."
+msgstr "Hinzufügen..."
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -980,6 +983,10 @@ msgstr "Geänderte Dateien: %d"
 msgid "Check"
 msgstr "Wählen"
 
+#: Control-ID:65535
+msgid "Check For Modifications"
+msgstr "Auf Änderungen prüfen"
+
 #: Dlg-ID:174
 msgid "Check For Updates"
 msgstr "Auf Aktualisierungen prüfen"
@@ -1168,6 +1175,10 @@ msgstr "Konflikt"
 #: ID:188
 msgid "Conflicts: %d"
 msgstr "Konflikte: %d"
+
+#: Control-ID:1227
+msgid "Contact the repository on startup"
+msgstr "Projektarchiv beim Start kontaktieren"
 
 #: ID:73
 msgid "Continue"

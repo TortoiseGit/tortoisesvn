@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-06 15:17+0800\n"
+"PO-Revision-Date: 2005-06-15 10:16+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -394,11 +394,10 @@ msgstr "取消復原(&R)"
 msgid "&Remove"
 msgstr "移除(&R)"
 
-# ID:11,#:
-# ID:101,
+# Dlg-ID:151,
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "重新命名/移動(&R)..."
+msgid "&Rename"
+msgstr "重新命名(&R)"
 
 # ID:113,
 #: ID:113
@@ -715,7 +714,6 @@ msgstr "目前工作列表"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:155,
-#: ID:8
 #: ID:209
 #: Dlg-ID:155
 msgid "Add"
@@ -746,6 +744,11 @@ msgstr "加入忽略列表"
 msgid "Add files to Subversion here"
 msgstr "加入檔案至 Subversion"
 
+# Control-ID:1098,
+#: ID:8
+msgid "Add..."
+msgstr "加入..."
+
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -766,6 +769,11 @@ msgstr "遠端加入檔案完成"
 #: ID:126
 msgid "Added a folder remotely"
 msgstr "遠端加入資料夾完成"
+
+# ID:126,
+#: ID:126
+msgid "Added items remotely"
+msgstr "遠端加入檔案完成"
 
 # ID:13,
 #: ID:145
@@ -1234,6 +1242,11 @@ msgstr "變動檔案數: %d"
 msgid "Check"
 msgstr "勾選"
 
+# ID:13,
+#: Control-ID:65535
+msgid "Check For Modifications"
+msgstr "檢查異動"
+
 # Dlg-ID:174,
 #: Dlg-ID:174
 msgid "Check For Updates"
@@ -1468,6 +1481,11 @@ msgstr "衝突"
 #: ID:188
 msgid "Conflicts: %d"
 msgstr "衝突: %d"
+
+# ID:9,
+#: Control-ID:1227
+msgid "Contact the repository on startup"
+msgstr "啟動時連接檔案庫"
 
 # ID:73,
 #: ID:73
@@ -2031,6 +2049,11 @@ msgstr "除外路徑:"
 msgid "Exclude/Ignore pattern:"
 msgstr "除外/忽略樣式:"
 
+# ID:9,
+#: ID:209
+msgid "Explore to"
+msgstr "瀏覽至"
+
 # ID:94,
 #: ID:94
 msgid "Export Directory:"
@@ -2478,6 +2501,11 @@ msgstr "記憶體不足, 無法完成作業."
 msgid "Internal application error."
 msgstr "內部程式錯誤."
 
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "拖曳物件錯誤!"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -2850,6 +2878,11 @@ msgstr "新增"
 msgid "New Name:"
 msgstr "新名稱:"
 
+# ID:97,
+#: ID:97
+msgid "New name for %s"
+msgstr "%s 的新名稱"
+
 # ID:73,
 #: ID:73
 msgid "No"
@@ -2924,6 +2957,16 @@ msgstr "無圖表"
 #: ID:273
 msgid "No image encoder found for %s."
 msgstr "找不到 %s 的圖型編碼程式."
+
+# ID:188,
+#: ID:188
+msgid "No spell corrections"
+msgstr "沒有拼字修正"
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "沒有同義字建議"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3429,6 +3472,11 @@ msgstr "重新命名 %s"
 #: ID:11
 msgid "Rename..."
 msgstr "重新命名..."
+
+# ID:126,
+#: ID:126
+msgid "Renamed remotely"
+msgstr "遠端更名完成"
 
 # ID:11,
 #: ID:11
@@ -4452,6 +4500,17 @@ msgstr ""
 "目的資料夾裡有其它檔案!\n"
 "確定要取出/匯出檔案至那個資料夾嗎?"
 
+# ID:102,
+#: ID:102
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"目的 URL\n"
+"%s\n"
+"已經存在!"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -5076,6 +5135,36 @@ msgstr ""
 "這可能造成嚴重的檔案庫損壞!\n"
 "確定要這樣做嗎?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"你一次複製了多個檔案或目錄.\n"
+"這些動作不能一次完成, TortoiseSVN 會單獨複製每個檔案/目錄,\n"
+"並為每個動作建立新的版號.\n"
+"\n"
+"確定要進行嗎?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"你一次拖曳了多個檔案或目錄加入檔案庫.\n"
+"這些動作不能一次完成, TortoiseSVN 會單獨加入每個檔案/目錄,\n"
+"並為每個動作建立新的版號.\n"
+"\n"
+"確定要進行嗎?"
+
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
@@ -5089,6 +5178,21 @@ msgid ""
 msgstr ""
 "你尚未輸入問題編號!\n"
 "確定要進行提交嗎?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"你一次移動了多個檔案或目錄.\n"
+"這些動作不能一次完成, TortoiseSVN 會單獨移動每個檔案/目錄,\n"
+"並為每個動作建立新的版號.\n"
+"\n"
+"確定要進行嗎?"
 
 # ID:77,
 #: ID:77
@@ -5112,10 +5216,14 @@ msgstr ""
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
-"你的工作複本是位於標記的路徑下!\n"
-"你必須先切換至主幹, 或是分支才能進行送交動作."
+"你的工作複本位於標記(tag)路徑下!\n"
+"建議先切換至分枝(branch)或是主幹(trunk)後再送交.\n"
+"\n"
+"確定要送交嗎？"
 
 # ID:88,
 #: ID:88
