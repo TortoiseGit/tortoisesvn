@@ -64,22 +64,44 @@
 				</para>
 			</listitem>
 		</orderedlist>
+	</para>
+	<para>
 		If a file is deleted via the explorer but not removed from
 		version control (i.e. you delete a file as usual), the commit
 		dialog shows those files and lets you remove them from
-		version control too before the commit. So it doesn't really
-		matter, if you forget to delete the file with TortoiseSVN as
-		you are supposed to do.
+		version control too before the commit. However, if you update
+		your working copy, Subversion will spot the missing file and
+		replace it with the latest version from the repository.
+		If you need to delete a version-controlled file, always use
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Delete</guimenuitem>
+		</menuchoice> so that Subversion doesn't have to guess what
+		you really want to do.
+	</para>
+	<para>
+		If a <emphasis>folder</emphasis> is deleted via explorer but not
+		removed from version control, your working copy will be broken
+		and you will be unable to commit. If you update your working copy,
+		Subversion will replace the missing folder with the latest version
+		from the repository and you can then delete it the correct way
+		using
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Delete</guimenuitem>
+		</menuchoice>.
 	</para>
 	<caution>
 		<title>Commit the parent folder</title>
 		<para>
 			Since renames and moves are done as a delete followed by an
 			add you must commit the parent folder of the renamed/moved
-			file. Only that way the deleted part of the rename/move will
+			file so that the deleted part of the rename/move will
 			show up in the commit dialog. If you don't commit the removed
 			part of the rename/move, it will stay behind in the repository
 			and an update of your coworkers won't remove the old file.
+			i.e. they will have <emphasis>both</emphasis> the old and the
+			new copies.
 		</para>
 		<para>
 			You <emphasis>must</emphasis> commit a folder rename before
