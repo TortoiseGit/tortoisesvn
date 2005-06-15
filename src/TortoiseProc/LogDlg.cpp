@@ -352,6 +352,13 @@ void CLogDlg::OnBnClickedNexthundred()
 {
 	UpdateData();
 	// we have to fetch the next hundred log messages.
+	if (m_logEntries.size() <= 1)
+	{
+		// since there weren't any log messages fetched before, just
+		// fetch all since we don't have an 'anchor' to fetch the 'next'
+		// messages from.
+		return OnBnClickedGetall();
+	}
 	LONG rev = m_logEntries[m_logEntries.size()-1]->dwRev - 1;
 	if (rev < 1)
 		return;		// do nothing! No more revisions to get
