@@ -29,6 +29,44 @@
 #include "SubWCRev.h"
 #include "..\version.h"
 
+// Define the help text as a multi-line macro
+// Every line except the last must be terminated with a backslash
+#define HelpText "\
+Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmdf]\n\
+\n\
+Params:\n\
+WorkingCopyPath    :   path to a Subversion working copy\n\
+SrcVersionFile     :   path to a template header file\n\
+DstVersionFile     :   path to where to save the resulting header file\n\
+-n                 :   if given, then SubWCRev will error if the working\n\
+                       copy contains local modifications\n\
+-m                 :   if given, then SubWCRev will error if the working\n\
+                       copy contains mixed revisions\n\
+-d                 :   if given, then SubWCRev will only do its job if\n\
+                       DstVersionFile does not exist\n\
+-f                 :   if given, then SubWCRev will include the\n\
+                       last-changed revision of folders. Default is to\n\
+                       use only files to get the revision numbers\n\
+                       This only affects $WCREV$ and $WCDATE$\n\
+\n\
+SubWCRev reads the Subversion status of all files in a working copy\n\
+excluding externals. If SrcVersionFile is specified, it is scanned\n\
+for special placeholders of the form \"$WCxxx$\".\n\
+SrcVersionFile is then copied to DstVersionFile but the placeholders\n\
+are replaced with information about the working copy as follows:\n\
+\n\
+$WCREV$      Highest committed revision number\n\
+$WCDATE$     Date of highest committed revision\n\
+$WCRANGE$    Update revision range\n\
+$WCURL$      Repository URL of the working copy\n\
+\n\
+Placeholders of the form \"$WCxxx?TrueText:FalseText$\" are replaced with\n\
+TrueText if the tested condition is true, and FalseText if false.\n\
+\n\
+$WCMODS$     True if local modifications found\n\
+$WCMIXED$    True if mixed update revisions found\n"
+// End of multi-line help text.
+
 #define VERDEF		"$WCREV$"
 #define DATEDEF		"$WCDATE$"
 #define MODDEF		"$WCMODS?"
@@ -259,40 +297,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		_tprintf(_T("SubWCRev %d.%d.%d, Build %d\n\n"),
 					TSVN_VERMAJOR, TSVN_VERMINOR,
 					TSVN_VERMICRO, TSVN_VERBUILD);
-		_putts(
-			_T("Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmdf]\n")
-			_T("\n")
-			_T("Params:\n")
-			_T("WorkingCopyPath    :   path to a Subversion working copy\n")
-			_T("SrcVersionFile     :   path to a template header file\n")
-			_T("DstVersionFile     :   path to where to save the resulting header file\n")
-			_T("-n                 :   if given, then SubWCRev will error if the working\n")
-			_T("                       copy contains local modifications\n")
-			_T("-m                 :   if given, then SubWCRev will error if the working\n")
-			_T("                       copy contains mixed revisions\n")
-			_T("-d                 :   if given, then SubWCRev will only do its job if\n")
-			_T("                       DstVersionFile does not exist\n")
-			_T("-f                 :   if given, then SubWCRev will include the\n")
-			_T("                       last-changed revision of folders. Default is to\n")
-			_T("                       use only files to get the revision numbers\n")
-			_T("                       This only affects $WCREV$ and $WCDATE$\n")
-			_T("\n")
-			_T("SubWCRev reads the Subversion status of all files in a working copy\n")
-			_T("excluding externals. If SrcVersionFile is specified, it is scanned\n")
-			_T("for special placeholders of the form \"$WCxxx$\".\n")
-			_T("SrcVersionFile is then copied to DstVersionFile but the placeholders\n")
-			_T("are replaced with information about the working copy as follows:\n")
-			_T("\n")
-			_T("$WCREV$      Highest committed revision number\n")
-			_T("$WCDATE$     Date of highest committed revision\n")
-			_T("$WCRANGE$    Update revision range\n")
-			_T("$WCURL$      Repository URL of the working copy\n")
-			_T("\n")
-			_T("Placeholders of the form \"$WCxxx?TrueText:FalseText$\" are replaced with\n")
-			_T("TrueText if the tested condition is true, and FalseText if false.\n")
-			_T("\n")
-			_T("$WCMODS$     True if local modifications found\n")
-			_T("$WCMIXED$    True if mixed update revisions found\n"));
+		_putts(_T(HelpText));
 		return ERR_SYNTAX;
 	}
 	// we have three parameters
