@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-rename">
 	<title>Deleting, Renaming And Moving</title>
 	<indexterm>
@@ -66,8 +66,8 @@
 		</orderedlist>
 	</para>
 	<para>
-		If a file is deleted via the explorer but not removed from
-		version control (i.e. you delete a file as usual), the commit
+		If a <emphasis>file</emphasis> is deleted via the explorer instead 
+		of using the TortoiseSVN context menu, the commit
 		dialog shows those files and lets you remove them from
 		version control too before the commit. However, if you update
 		your working copy, Subversion will spot the missing file and
@@ -80,8 +80,8 @@
 		you really want to do.
 	</para>
 	<para>
-		If a <emphasis>folder</emphasis> is deleted via explorer but not
-		removed from version control, your working copy will be broken
+		If a <emphasis>folder</emphasis> is deleted via the explorer instead 
+		of using the TortoiseSVN context menu,  your working copy will be broken
 		and you will be unable to commit. If you update your working copy,
 		Subversion will replace the missing folder with the latest version
 		from the repository and you can then delete it the correct way
