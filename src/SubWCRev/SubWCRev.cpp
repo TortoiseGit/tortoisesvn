@@ -32,22 +32,23 @@
 // Define the help text as a multi-line macro
 // Every line except the last must be terminated with a backslash
 #define HelpText "\
-Usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmdf]\n\
+Usage: SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdf]\n\
 \n\
 Params:\n\
-WorkingCopyPath    :   path to a Subversion working copy\n\
-SrcVersionFile     :   path to a template header file\n\
-DstVersionFile     :   path to where to save the resulting header file\n\
+WorkingCopyPath    :   path to a Subversion working copy.\n\
+SrcVersionFile     :   path to a template file containing keywords.\n\
+DstVersionFile     :   path to save the resulting parsed file.\n\
 -n                 :   if given, then SubWCRev will error if the working\n\
-                       copy contains local modifications\n\
+                       copy contains local modifications.\n\
 -m                 :   if given, then SubWCRev will error if the working\n\
-                       copy contains mixed revisions\n\
+                       copy contains mixed revisions.\n\
 -d                 :   if given, then SubWCRev will only do its job if\n\
-                       DstVersionFile does not exist\n\
+                       DstVersionFile does not exist.\n\
 -f                 :   if given, then SubWCRev will include the\n\
-                       last-changed revision of folders. Default is to\n\
-                       use only files to get the revision numbers\n\
-                       This only affects $WCREV$ and $WCDATE$\n\
+                       last-committed revision of folders. Default is\n\
+                       to use only files to get the revision numbers.\n\
+                       This only affects $WCREV$ and $WCDATE$.\n\
+Switches must be given in a single argument, eg. '-nm' not '-n -m'.\n\
 \n\
 SubWCRev reads the Subversion status of all files in a working copy\n\
 excluding externals. If SrcVersionFile is specified, it is scanned\n\
@@ -292,14 +293,6 @@ int abort_on_pool_failure (int /*retcode*/)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	if ((argc != 4)&&(argc != 2)&&(argc != 5))
-	{
-		_tprintf(_T("SubWCRev %d.%d.%d, Build %d\n\n"),
-					TSVN_VERMAJOR, TSVN_VERMINOR,
-					TSVN_VERMICRO, TSVN_VERBUILD);
-		_putts(_T(HelpText));
-		return ERR_SYNTAX;
-	}
 	// we have three parameters
 	const TCHAR * src = NULL;
 	const TCHAR * dst = NULL;
@@ -309,25 +302,41 @@ int _tmain(int argc, _TCHAR* argv[])
 	SubWCRev_t SubStat;
 	SubStat.bFolders = FALSE;
 	memset (&SubStat, 0, sizeof (SubStat));
-	if (argc == 2)
+	if (argc >= 2 && argc <= 5)
 	{
+		// WC path is always first argument.
 		wc = argv[1];
 	}
-	if (argc >= 4)
+	if (argc == 4 || argc == 5)
 	{
-		wc = argv[1];
+		// SubWCRev Path Tmpl.in Tmpl.out [-params]
 		src = argv[2];
 		dst = argv[3];
-		// Check for flags in argv[4]
-		if ((argc == 5) && (argv[4][0] == '-'))
+		if (!PathFileExists(src))
 		{
-			if (_tcschr(argv[4], 'n') != 0)
+			_tprintf(_T("File '%s' does not exist\n"), src);
+			return ERR_FNF;		// file does not exist
+		}
+	}
+	if (argc == 3 || argc == 5)
+	{
+		// SubWCRev Path -params
+		// SubWCRev Path Tmpl.in Tmpl.out -params
+		const TCHAR * Params = argv[argc-1];
+		if (Params[0] == '-')
+		{
+			if (_tcschr(Params, 'n') != 0)
 				bErrOnMods = TRUE;
-			if (_tcschr(argv[4], 'm') != 0)
+			if (_tcschr(Params, 'm') != 0)
 				bErrOnMixed = TRUE;
-			if (_tcschr(argv[4], 'd') != 0)
-				if (PathFileExists(dst))
+			if (_tcschr(Params, 'd') != 0)
+			{
+				if ((dst != NULL) && PathFileExists(dst))
+				{
+					_tprintf(_T("File '%s' already exists\n"), dst);
 					return ERR_OUT_EXISTS;
+				}
+			}
 			// the 'f' option is useful to keep the revision which is inserted in
 			// the file constant, even if there are commits on other branches.
 			// For example, if you tag your working copy, then half a year later
@@ -335,14 +344,22 @@ int _tmain(int argc, _TCHAR* argv[])
 			// that tag will get the HEAD revision of the time you check out (or
 			// do an update). The files alone however won't have their last-committed
 			// revision changed at all.
-			if (_tcschr(argv[4], 'f') != 0)
+			if (_tcschr(Params, 'f') != 0)
 				SubStat.bFolders = TRUE;
 		}
-		if (!PathFileExists(src))
+		else
 		{
-			_tprintf(_T("File '%s' does not exist\n"), src);
-			return ERR_FNF;		// file does not exist
+			// Bad params - abort and display help.
+			wc = NULL;
 		}
+	}
+	if (wc == NULL)
+	{
+		_tprintf(_T("SubWCRev %d.%d.%d, Build %d\n\n"),
+					TSVN_VERMAJOR, TSVN_VERMINOR,
+					TSVN_VERMICRO, TSVN_VERBUILD);
+		_putts(_T(HelpText));
+		return ERR_SYNTAX;
 	}
 
 	if (!PathFileExists(wc))
@@ -355,7 +372,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	unsigned long filelength = 0;
 	unsigned long maxlength  = 0;
 	HANDLE hFile = INVALID_HANDLE_VALUE;
-	if ((argc == 4)||(argc == 5))
+	if (dst != NULL)
 	{
 		// open the file and read the contents
 		hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
@@ -462,7 +479,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		_tprintf(_T("Local modifications found\n"));
 	}
 
-	if (argc==2)
+	if (dst == NULL)
 	{
 		return 0;
 	}
