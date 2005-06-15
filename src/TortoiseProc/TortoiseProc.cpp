@@ -483,9 +483,14 @@ BOOL CTortoiseProcApp::InitInstance()
 				CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 				limit = (int)(LONG)reg;
 			}
+			BOOL bStrict = (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE);
+			if (parser.HasKey(_T("strict")))
+			{
+				bStrict = TRUE;
+			}
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
-			dlg.SetParams(cmdLinePath, revstart, revend, limit, parser.HasKey(_T("strict")));
+			dlg.SetParams(cmdLinePath, revstart, revend, limit, bStrict);
 			val = parser.GetVal(_T("propspath"));
 			if (!val.IsEmpty())
 				dlg.SetProjectPropertiesPath(CTSVNPath(val));

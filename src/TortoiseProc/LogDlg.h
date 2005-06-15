@@ -22,6 +22,7 @@
 #include "ProjectProperties.h"
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
+#include "registry.h"
 #include "SplitterControl.h"
 #include "afxwin.h"
 #include "afxdtctl.h"
@@ -139,7 +140,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	void SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict = FALSE);
+	void SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE));
 	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
 	bool IsThreadRunning() {return !!m_bThreadRunning;}
 
@@ -206,6 +207,7 @@ private:
 	BOOL                m_bAscending;
 	static int			m_nSortColumnPathList;
 	static bool			m_bAscendingPathList;
+	CRegDWORD			m_regLastStrict;
 private:
     typedef struct LogEntryData
     {   

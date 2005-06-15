@@ -43,13 +43,13 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_startrev(0),
 	m_endrev(0),
 	m_logcounter(0),
-	m_bStrict(FALSE),
 	m_nSearchIndex(0),
 	m_wParam(0),
 	m_nSelectedFilter(LOGFILTER_ALL),
 	m_bNoDispUpdates(false),
 	m_currentChangedArray(NULL),
-	m_nSortColumn(0)
+	m_nSortColumn(0),
+	m_regLastStrict(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -124,6 +124,8 @@ void CLogDlg::SetParams(const CTSVNPath& path, long startrev, long endrev, int l
 BOOL CLogDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+
+	m_bStrict = m_regLastStrict;
 	
 	CUtils::CreateFontForLogs(m_logFont);
 	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
@@ -1640,6 +1642,8 @@ void CLogDlg::OnOK()
 			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
 		}
 	}
+	UpdateData();
+	m_regLastStrict = m_bStrict;
 }
 
 void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
