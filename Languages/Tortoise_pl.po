@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-07 15:09+0100\n"
+"PO-Revision-Date: 2005-06-15 19:33+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -396,11 +396,10 @@ msgstr "&Ponów"
 msgid "&Remove"
 msgstr "&Usuń"
 
-# ID:11,#:
-# ID:101,
+# Dlg-ID:151,
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "Zmień &nazwę / Przenieś..."
+msgid "&Rename"
+msgstr "&Zmień nazwę"
 
 # ID:113,
 #: ID:113
@@ -722,7 +721,6 @@ msgstr "Uaktywnij listę zadań"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:155,
-#: ID:8
 #: ID:209
 #: Dlg-ID:155
 msgid "Add"
@@ -753,6 +751,11 @@ msgstr "Dodaj do listy ignorowanych"
 msgid "Add files to Subversion here"
 msgstr "Dodaj pliki do Subversion"
 
+# Control-ID:1098,
+#: ID:8
+msgid "Add..."
+msgstr "Dodaj..."
+
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -773,6 +776,11 @@ msgstr "Dodano plik zdalnie"
 #: ID:126
 msgid "Added a folder remotely"
 msgstr "Dodano plik zdalnie"
+
+# ID:126,
+#: ID:126
+msgid "Added items remotely"
+msgstr "Dodano pliki/foldery zdalnie"
 
 # ID:13,
 #: ID:145
@@ -1245,6 +1253,11 @@ msgstr "Zmienione pliki: %d"
 msgid "Check"
 msgstr "Sprawdź"
 
+# ID:13,
+#: Control-ID:65535
+msgid "Check For Modifications"
+msgstr "Sprawdź czy są zmiany"
+
 # Dlg-ID:174,
 #: Dlg-ID:174
 msgid "Check For Updates"
@@ -1480,6 +1493,11 @@ msgstr "W stanie konfliktu"
 #: ID:188
 msgid "Conflicts: %d"
 msgstr "Konflikty: %d"
+
+# ID:9,
+#: Control-ID:1227
+msgid "Contact the repository on startup"
+msgstr "Skontaktuj się z repozytorium przy starcie"
 
 # ID:73,
 #: ID:73
@@ -2047,6 +2065,11 @@ msgstr "Pomiń ścieżki:"
 msgid "Exclude/Ignore pattern:"
 msgstr "Pomiń / ignoruj pliki:"
 
+# ID:9,
+#: ID:209
+msgid "Explore to"
+msgstr "Eksploruj do"
+
 # ID:94,
 #: ID:94
 msgid "Export Directory:"
@@ -2500,6 +2523,11 @@ msgstr "Za mało pamięci do wykonania operacji."
 msgid "Internal application error."
 msgstr "Wewnętrzny błąd aplikacji."
 
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "Upuszczono niewłaściwy obiekt danych"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -2875,6 +2903,11 @@ msgstr "Nowy"
 msgid "New Name:"
 msgstr "Nowa nazwa:"
 
+# ID:97,
+#: ID:97
+msgid "New name for %s"
+msgstr "Nowa nazwa dla %s"
+
 # ID:73,
 #: ID:73
 msgid "No"
@@ -2950,6 +2983,16 @@ msgstr "Graf nie jest dostępny"
 #: ID:273
 msgid "No image encoder found for %s."
 msgstr "Nie znaleziono kodeka obrazu dla %s."
+
+# ID:188,
+#: ID:188
+msgid "No spell corrections"
+msgstr "Brak poprawek pisowni"
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "Brak sugestii z tezaurusa"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3457,6 +3500,11 @@ msgstr "Zmień nazwę %s"
 #: ID:11
 msgid "Rename..."
 msgstr "Zmień nazwę..."
+
+# ID:126,
+#: ID:126
+msgid "Renamed remotely"
+msgstr "Zmieniono nazwę zdalnie"
 
 # ID:11,
 #: ID:11
@@ -4486,6 +4534,17 @@ msgstr ""
 "Folder docelowy nie jest pusty!\n"
 "Czy na pewno chcesz pobrać/wyeksportować dane do tego folderu?"
 
+# ID:102,
+#: ID:102
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Docelowy url\n"
+"%s\n"
+"już istnieje!"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -5113,6 +5172,36 @@ msgstr ""
 "Może to doprowadzić do poważnego uszkodzenia repozytorium!\n"
 "Czy na pewno chcesz to zrobić?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Skopiowałeś więcej niż jeden plik lub folder.\n"
+"Nie jest możliwe wykonanie tego w jednym kroku, więc TortoiseSVN skopiuje każdy plik/folder\n"
+"osobno, tworząc nową wersję dla każdego skopiowanego pliku/folderu.\n"
+"\n"
+"Czy nadal chcesz to zrobić?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Wrzuciłeś więcej niż jeden plik lub folder do dodania do repozytorium.\n"
+"Nie jest możliwe wykonanie tego w jednym kroku, więc TortoiseSVN doda każdy plik/folder\n"
+"osobno, tworząc nową wersję dla każdego dodanego pliku/folderu.\n"
+"\n"
+"Czy nadal chcesz to zrobić?"
+
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
@@ -5126,6 +5215,21 @@ msgid ""
 msgstr ""
 "Nie podano numeru zgłoszenia!\n"
 "Czy na pewno chcesz zatwierdzić zmiany bez podania tego numeru?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Przeniosłeś więcej niż jeden plik lub folder.\n"
+"Nie jest możliwe wykonanie tego w jednym kroku, więc TortoiseSVN przeniesie każdy plik/folder\n"
+"osobno, tworząc nową wersję dla każdego przeniesionego pliku/folderu.\n"
+"\n"
+"Czy nadal chcesz to zrobić?"
 
 # ID:77,
 #: ID:77
@@ -5149,10 +5253,14 @@ msgstr ""
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
 "Twoja kopia robocza jest skojarzona z katalogiem obrazu w repozytorium!\n"
-"Przed zatwierdzeniem zmian należy się przełączyć na rozgałęzienie lub główną linię projektu."
+"Przed zatwierdzeniem zmian należy się przełączyć na rozgałęzienie lub główną linię projektu.\n"
+"\n"
+"Czy mimo to chcesz zatwierdzić?"
 
 # ID:88,
 #: ID:88
