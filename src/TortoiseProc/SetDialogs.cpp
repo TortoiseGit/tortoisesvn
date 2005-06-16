@@ -186,6 +186,7 @@ BOOL CSetDialogs::OnInitDialog()
 		temp.Format(_T("%d"), m_dwFontSize);
 		m_cFontSizes.SetWindowText(temp);
 	}
+	m_cFontNames.AdjustHeight(&m_cFontSizes);
 
 	m_bInitialized = TRUE;
 	

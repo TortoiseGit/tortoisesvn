@@ -105,6 +105,14 @@ public:
 	void SetPreviewStyle (PreviewStyle style, bool reinitialize = true);
 	int GetFontHeight (void);
 	void SetFontHeight (int newHeight, bool reinitialize = true);
+	void AdjustHeight(CWnd * heightRefControl)
+	{
+		if (heightRefControl)
+		{
+			int lbItemHeight = heightRefControl->SendMessage(CB_GETITEMHEIGHT, (WPARAM)-1);
+			SendMessage(CB_SETITEMHEIGHT, (WPARAM)-1, lbItemHeight);
+		}
+	}
 	virtual ~CFontPreviewCombo();
 	
 protected:

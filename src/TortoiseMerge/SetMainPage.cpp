@@ -235,6 +235,7 @@ BOOL CSetMainPage::OnInitDialog()
 		temp.Format(_T("%d"), m_dwFontSize);
 		m_cFontSizes.SetWindowText(temp);
 	}
+	m_cFontNames.AdjustHeight(&m_cFontSizes);
 
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
