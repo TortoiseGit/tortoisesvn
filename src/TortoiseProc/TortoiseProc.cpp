@@ -1395,13 +1395,29 @@ BOOL CTortoiseProcApp::InitInstance()
 				value += "\n";
 				value.Remove('\r');
 				value.Replace("\n\n", "\n");
-				if (!props.Add(_T("svn:ignore"), value))
+				CStringA sTrimmedvalue = value;
+				sTrimmedvalue.Trim();
+				if (sTrimmedvalue.IsEmpty())
 				{
-					CString temp;
-					temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, name);
-					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONERROR);
-					err = TRUE;
-					break;
+					if (!props.Remove(_T("svn:ignore")))
+					{
+						CString temp;
+						temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, name);
+						CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONERROR);
+						err = TRUE;
+						break;
+					}
+				}
+				else
+				{
+					if (!props.Add(_T("svn:ignore"), value))
+					{
+						CString temp;
+						temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, name);
+						CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONERROR);
+						err = TRUE;
+						break;
+					}
 				}
 			}
 			if (err == FALSE)
