@@ -339,14 +339,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= 
 			for (int i=0; i< GetCount(); i++)
 			{
 				// Copy CString to 8 bit wihout conversion
-				CStringA sLine;
 				CString sLineT = GetAt(i);
-
-				char *pszLine = sLine.GetBuffer(sLineT.GetLength());
-				for (int l = 0; l < sLineT.GetLength(); ++l)
-					*pszLine++ = LOBYTE(sLineT[l]);
-				*pszLine = 0;
-				sLine.ReleaseBuffer();
+				CStringA sLine = CStringA(sLineT);
 
 				if (bIgnoreWhitespaces)
 				{
