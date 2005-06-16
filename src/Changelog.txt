@@ -44,6 +44,8 @@
 - BUG: Log dialog could crash when clicking "Next 100". (Stefan)
 - BUG: The repository browser could crash if it was cancelled during
        initialization. (Stefan)
+- BUG: If the Subversion config file had some illegal lines in it,
+       TSVN could crash the explorer when the property page was shown. (Stefan)
 
 Version 1.2
 

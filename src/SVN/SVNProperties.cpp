@@ -98,6 +98,7 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 
 	memset (&m_ctx, 0, sizeof (m_ctx));
 
+#ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
 	// set up the configuration
 	if (svn_config_get_config (&(m_ctx.config), NULL, m_pool))
@@ -106,6 +107,7 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 		svn_pool_destroy (m_pool);					// free the allocated memory
 		return;
 	}
+#endif
 	
 	m_path = filepath;
 #ifdef _MFC_VER
