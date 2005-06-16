@@ -4,11 +4,36 @@ HowTo build the docs
 Since you are already reading this, I assume that you have succeeded in checking 
 out the TortoiseSVN or just the doc sources.
 
-The docs are self contained which means that they contain (almost) everything you need 
-(source, dtd, formatting processors, scripts) to build them from scratch.
-Building the context sensitive chm help requires some tools from VS.Net to grab the
-Help IDs from the source. These tools are not included. You can still build the help 
-file to see what it looks like, but pressing F1 in TSVN will not "help" you :-)
+Tools needed:
+=============
+
+There are some tools for processing the XML input that you need to build the docs.
+Scripts and dtd are included, but the executables (formatting processor, microsoft
+help compiler, translation tools) have to be installed separately.
+
+tools\fop\		- the fop processor
+tools\xsl\		- the docbook xsl files from sourceforge
+tools\			- xsl processor, hhc.exe, ...
+
+you can download all the required tools as a zip package from our website:
+http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
+
+Then, make a copy of the file TortoiseVars.tmpl in the TSVN root folder and
+rename that copy to TortoiseVars.bat. Then simply adjust the paths as mentioned
+in that file.
+
+Please note that having spaces in your directory path will (for the time being)
+cause the documentation build process to fail.
+
+To build only the english docs, that's all you need. If you want to build translated
+docs as well, you need:
+- A Python runtime environment
+  (http://www.python.org)
+- The Python libxml2 bindings
+  (http://users.skynet.be/sbi/libxml-python/)
+- Aspell (optional) for spell checking translations
+  (ftp://ftp.gnu.org/gnu/aspell/w32/)
+
 
 Structure:
 ==========
@@ -33,10 +58,7 @@ TranslateDoc.bat:
   will translate into the given language if the po file exists.
   If no parameter is given, all .po files found in doc\po will be
   used to create the corresponding target languages.
-  This script uses xml2po.py and requires a Python runtime
-  environment to be installed.
-  This script makes use of gnu "aspell". Windows binaries and 
-  dictionaries are found at ftp://ftp.gnu.org/gnu/aspell/w32/
+  This script requires python, libxml2 and aspell.
   A log is written to "translatelog.txt"
 
 Example: "TranslateDoc de" will use de.po and the English xml files to
@@ -46,8 +68,7 @@ GenDoc.bat:
   will loop over all known applications and build the docs in
   English plus all .po files it finds inside "doc\po" 
   (so don't place any nonsense or backup .po files there)
-  This script uses xml2po.py and requires a Python runtime
-  environment to be installed.
+  This script requires python and libxml2
   The script retranslates all source files while building, so there's
   no need to run "TranslateDoc" before "GenDoc". "GenDoc" doesn't
   run the spellchecker on the source.
