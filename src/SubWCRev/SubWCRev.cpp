@@ -31,7 +31,7 @@
 
 // Define the help text as a multi-line macro
 // Every line except the last must be terminated with a backslash
-#define HelpText "\
+#define HelpText1 "\
 Usage: SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdf]\n\
 \n\
 Params:\n\
@@ -47,7 +47,8 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
 -f                 :   if given, then SubWCRev will include the\n\
                        last-committed revision of folders. Default is\n\
                        to use only files to get the revision numbers.\n\
-                       This only affects $WCREV$ and $WCDATE$.\n\
+                       This only affects $WCREV$ and $WCDATE$.\n"
+#define HelpText2 "\
 Switches must be given in a single argument, eg. '-nm' not '-n -m'.\n\
 \n\
 SubWCRev reads the Subversion status of all files in a working copy\n\
@@ -358,7 +359,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		_tprintf(_T("SubWCRev %d.%d.%d, Build %d\n\n"),
 					TSVN_VERMAJOR, TSVN_VERMINOR,
 					TSVN_VERMICRO, TSVN_VERBUILD);
-		_putts(_T(HelpText));
+		_putts(_T(HelpText1));
+		_putts(_T(HelpText2));
 		return ERR_SYNTAX;
 	}
 
