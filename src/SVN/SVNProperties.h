@@ -21,6 +21,7 @@
 #ifdef _MFC_VER
 #	include "SVNRev.h"
 #	include "SVNPrompt.h"
+#	include "ShellUpdater.h"
 #endif
 
 #include "UnicodeUtils.h"
