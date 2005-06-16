@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-06 10:32+0100\n"
+"PO-Revision-Date: 2005-06-16 13:12+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -392,11 +392,10 @@ msgstr "&Ripeti"
 msgid "&Remove"
 msgstr "&Elimina"
 
-# ID:11,#:
-# ID:101,
+# Dlg-ID:151,
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "&Rinomina/Sposta..."
+msgid "&Rename"
+msgstr "&Rinomina"
 
 # ID:113,
 #: ID:113
@@ -714,7 +713,6 @@ msgstr "Lista dei Task attivi"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:155,
-#: ID:8
 #: ID:209
 #: Dlg-ID:155
 msgid "Add"
@@ -745,6 +743,11 @@ msgstr "Aggiungi alla lista Ignora"
 msgid "Add files to Subversion here"
 msgstr "Aggiungi qui i file al Repository"
 
+# Control-ID:1098,
+#: ID:8
+msgid "Add..."
+msgstr "Aggiungi..."
+
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -765,6 +768,11 @@ msgstr "File aggiunto in remoto"
 #: ID:126
 msgid "Added a folder remotely"
 msgstr "Cartella aggiunta in remoto"
+
+# ID:126,
+#: ID:126
+msgid "Added items remotely"
+msgstr "Oggetti aggiunti in remoto"
 
 # ID:13,
 #: ID:145
@@ -1234,6 +1242,11 @@ msgstr "File modificati: %d"
 msgid "Check"
 msgstr "Seleziona"
 
+# ID:13,
+#: Control-ID:65535
+msgid "Check For Modifications"
+msgstr "Controlla l'esistenza di modifiche"
+
 # Dlg-ID:174,
 #: Dlg-ID:174
 msgid "Check For Updates"
@@ -1468,6 +1481,11 @@ msgstr "In conflitto"
 #: ID:188
 msgid "Conflicts: %d"
 msgstr "Conflitti: %d"
+
+# Control-ID:65535,
+#: Control-ID:1227
+msgid "Contact the repository on startup"
+msgstr "Contatta il Repository all'avvio"
 
 # ID:73,
 #: ID:73
@@ -2029,6 +2047,11 @@ msgstr "Percorsi da escludere:"
 msgid "Exclude/Ignore pattern:"
 msgstr "Filtro d'esclusione:"
 
+# ID:9,
+#: ID:209
+msgid "Explore to"
+msgstr "Esporta in..."
+
 # ID:94,
 #: ID:94
 msgid "Export Directory:"
@@ -2478,6 +2501,11 @@ msgstr "Memoria insufficiente per completare l'operazione."
 msgid "Internal application error."
 msgstr "Errore interno dell'applicazione."
 
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "Si è tentato di inserire un oggetto non valido!"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -2850,6 +2878,11 @@ msgstr "Nuovo"
 msgid "New Name:"
 msgstr "Nuovo nome:"
 
+# ID:97,
+#: ID:97
+msgid "New name for %s"
+msgstr "Nuovo nome per %s"
+
 # ID:73,
 #: ID:73
 msgid "No"
@@ -2924,6 +2957,16 @@ msgstr "Nessun grafico disponibile"
 #: ID:273
 msgid "No image encoder found for %s."
 msgstr "Non è stato trovato alcun codificatore di immagini per %s."
+
+# ID:188,
+#: ID:188
+msgid "No spell corrections"
+msgstr "Nessuna correzione ortografica"
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "Nessun suggerimento sui sinonimi"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3430,6 +3473,11 @@ msgstr "Rinomina %s"
 #: ID:11
 msgid "Rename..."
 msgstr "Rinomina..."
+
+# ID:126,
+#: ID:126
+msgid "Renamed remotely"
+msgstr "Rinominato in remoto"
 
 # ID:11,
 #: ID:11
@@ -4456,6 +4504,17 @@ msgstr ""
 "La cartella non è vuota!\n"
 "Si è sicuri di voler procedere al ritiro o all'esportazione in questa cartella?"
 
+# ID:102,
+#: ID:102
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"L'Url di destinazione\n"
+"%s\n"
+"esiste già!"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -5079,6 +5138,36 @@ msgstr ""
 "un disco di rete condiviso.\n"
 "Ciò potrebbe portare a gravi perdite di dati nel repository!Si desidera proseguire?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"È stato copiato più di un file o di una cartella.\n"
+"Non è possibile completare questa operazione in un solo passo, quindi TortoiseSVN copierà ogni file/cartella\n"
+"individualmente, creando una nuova revisione per ogni oggetto copiato.\n"
+"\n"
+"Si vuole procedere in questo modo?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"È stato inviato più di un file o di una cartella al repository.\n"
+"Non è possibile completare questa operazione in un solo passo, quindi TortoiseSVN aggiungerà ogni file/cartella\n"
+"individualmente, creando una nuova revisione per ogni oggetto aggiunto.\n"
+"\n"
+"Si vuole procedere in questo modo?"
+
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
@@ -5092,6 +5181,21 @@ msgid ""
 msgstr ""
 "Non è stato specificato un issue-number!\n"
 "Si è sicuri di voler inviare senza specificare tale numero?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"È stato spostato più di un file o di una cartella.\n"
+"Non è possibile completare questa operazione in un solo passo, quindi TortoiseSVN sposterà ogni file/cartella\n"
+"individualmente, creando una nuova revisione per ogni oggetto spostato.\n"
+"\n"
+"Si vuole procedere in questo modo?"
 
 # ID:77,
 #: ID:77
@@ -5115,10 +5219,14 @@ msgstr ""
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
 "La copia di lavoro sembra trovarsi puntare al percorso di un'etichetta!\n"
-"È indispensabile spostarsi su un ramo o sul tronco principale prima di poter inviare."
+"Sarebbe auspicabile spostarsi su un ramo o sul tronco principale prima di poter inviare.\n"
+"\n"
+"Si vuole procedere all'invio comunque?"
 
 # ID:88,
 #: ID:88
