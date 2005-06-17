@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-02 10:34+0100\n"
+"PO-Revision-Date: 2005-06-17 10:56+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -321,8 +321,8 @@ msgid "&Remove"
 msgstr "&Effacer"
 
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "&Renommer/Déplacer..."
+msgid "&Rename"
+msgstr "&Renommer"
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -586,7 +586,6 @@ msgstr "Action"
 msgid "Activate Task List"
 msgstr "Liste des tâches courantes"
 
-#: ID:8
 #: ID:209
 #: Dlg-ID:155
 msgid "Add"
@@ -612,6 +611,10 @@ msgstr "Ajouter à la liste des ignorés"
 msgid "Add files to Subversion here"
 msgstr "Mettres des fichiers sous Subversion ici"
 
+#: ID:8
+msgid "Add..."
+msgstr "Ajouter..."
+
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Ajout/Edition programme de Diff/Fusion par extension"
@@ -628,6 +631,10 @@ msgstr "Ajouté un fichier à distance"
 #: ID:126
 msgid "Added a folder remotely"
 msgstr "Ajouté un répertoire à distance"
+
+#: ID:126
+msgid "Added items remotely"
+msgstr "Eléments ajoutés à distance"
 
 #: ID:145
 msgid ""
@@ -1010,6 +1017,10 @@ msgstr "Fichiers modifiés: %d"
 msgid "Check"
 msgstr "Sélectionner"
 
+#: Control-ID:65535
+msgid "Check For Modifications"
+msgstr "Vérifier Les Modifications"
+
 #: Dlg-ID:174
 msgid "Check For Updates"
 msgstr "Contrôler les mises à jours"
@@ -1207,6 +1218,11 @@ msgstr "En conflit"
 #: ID:188
 msgid "Conflicts: %d"
 msgstr "Conflits: %d"
+
+# Control-ID:65535,
+#: Control-ID:1227
+msgid "Contact the repository on startup"
+msgstr "Contacter le repository au démarrage"
 
 #: ID:73
 msgid "Continue"
@@ -1562,19 +1578,9 @@ msgstr "Voulez-vous sauver vos modifications?"
 msgid "Documentation - Simon Large"
 msgstr "Documentation - Simon Large"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "Ne pas récupérer le statut pour le menu contextuel"
-
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Ne plus afficher ce message"
-
-# Control-ID:1224,
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "Ne pas utiliser le correcteur orthographique si tsvn:projectlanguage n'est pas configuré"
 
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1689,6 +1695,10 @@ msgstr "Chemins exclus:"
 msgid "Exclude/Ignore pattern:"
 msgstr "Filtre d'exclusion/d'indifférence:"
 
+#: ID:209
+msgid "Explore to"
+msgstr "Explorer vers"
+
 #: ID:94
 msgid "Export Directory:"
 msgstr "Exportation répertoire:"
@@ -1761,6 +1771,11 @@ msgstr "Echec d'ouverture du document."
 #: ID:3857
 msgid "Failed to save document."
 msgstr "Echec de sauvegarde du document."
+
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "Récupérer le statut pour le menu contextuel"
 
 #: ID:313
 msgid "Fetching File..."
@@ -1961,8 +1976,8 @@ msgstr ""
 "Si non sélectionné, alors l'importation ira directement dans l'URL spécifié."
 
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "Si sélectionné, TortoiseSVN crée un fichier temporaire pour faire un diff avec les mot-clés non étendus"
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "Si sélectionné, TortoiseSVN crée un fichier temporaire du fichier BASE pour faire un diff avec les mot-clés développés et les fins de ligne ajustées."
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -2055,6 +2070,11 @@ msgstr "Mémoire insuffisante pour exécuter l'opération."
 #: ID:3857
 msgid "Internal application error."
 msgstr "Erreur interne de l'application."
+
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "Objet aux données invalides supprimé !"
 
 #: ID:3857
 msgid "Invalid filename."
@@ -2382,6 +2402,10 @@ msgstr "Nouveau"
 msgid "New Name:"
 msgstr "Nouveau nom:"
 
+#: ID:97
+msgid "New name for %s"
+msgstr "Nouveau nom pour %s"
+
 #: ID:73
 msgid "No"
 msgstr "Non"
@@ -2444,6 +2468,15 @@ msgstr "Aucun graphique disponible"
 msgid "No image encoder found for %s."
 msgstr "Pas d'encodeur d'image trouvé pour %s."
 
+#: ID:188
+msgid "No spell corrections"
+msgstr "Pas de corrections orthographiques"
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "Aucune suggestion du thésaurus"
+
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Normal"
@@ -2502,6 +2535,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Mis à jour seulement du répertoire de tête"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "Utiliser seulement le correcteur orthographique si tsvn:projectlanguage est sélectionné"
 
 #: ID:3841
 msgid "Open"
@@ -2845,6 +2883,10 @@ msgstr "Renomme %s"
 #: ID:11
 msgid "Rename..."
 msgstr "Renommer..."
+
+#: ID:126
+msgid "Renamed remotely"
+msgstr "Renommé à distance"
 
 #: ID:11
 msgid "Renames files / folders inside source control"
@@ -3701,6 +3743,17 @@ msgstr ""
 "Le répertoire cible n'est pas vide!\n"
 "Etes vous sûr de vouloir extraire/exporter dans ce répertoire?"
 
+# ID:102,
+#: ID:102
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"L'url cible\n"
+"%s\n"
+"existe déjà!"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -4228,6 +4281,36 @@ msgstr ""
 "Ceci peut créer de sévère corruption du repository!\n"
 "Voulez vous vraiment faire ceci?"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Vous avez copié plus d'un fichier ou répertoire.\n"
+"Il n'est pas possible de faire cela en une fois, alors TortoiseSVN va copier chaque fichier/répertoire\n"
+"individuellement, en créant une nouvelle révision pour chaque élément copié.\n"
+"\n"
+"Voulez-vous toujours faire cela ?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Vous avez supprimé plus d'un fichier ou répertoire.\n"
+"Il n'est pas possible de faire cela en une fois, alors TortoiseSVN va ajouter chaque fichier/répertoire\n"
+"individuellement, en créant une nouvelle révision pour chaque élément ajouté.\n"
+"\n"
+"Voulez-vous toujours faire cela ?"
+
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
@@ -4241,6 +4324,21 @@ msgid ""
 msgstr ""
 "Vous n'avez pas saisi de numéro d'incident!\n"
 "Etes-vous sûr de vouloir livrer sans un numéro d'incident?"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"Vous avez déplacé plus d'un fichier ou répertoire.\n"
+"Il n'est pas possible de faire cela en une fois, alors TortoiseSVN va déplacer chaque fichier/répertoire\n"
+"individuellement, en créant une nouvelle révision pour chaque élément déplacé.\n"
+"\n"
+"Voulez-vous toujours faire cela ?"
 
 #: ID:77
 msgid ""
@@ -4262,10 +4360,14 @@ msgstr ""
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
 "Votre copie locale semble être sur un chemin étiquetté !\n"
-"Vous devez d'abord vous déplacer sur une branche ou sur tronc principal avant de livrer."
+"Vous devez d'abord vous déplacer sur une branche ou sur tronc principal avant de livrer.\n"
+"\n"
+"Voulez-vous livrer quand même ?"
 
 # ID:88,
 #: ID:88
