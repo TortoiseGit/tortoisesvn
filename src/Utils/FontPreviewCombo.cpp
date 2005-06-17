@@ -53,7 +53,7 @@ CFontPreviewCombo::CFontPreviewCombo()
 	m_iMaxNameWidth = 0;
     m_iMaxSampleWidth = 0;
 	m_style = NAME_THEN_SAMPLE;
-	m_csSample = _T("abcdeABCDE");
+	m_csSample = _T("abcimABCIM");
 	m_clrSample = GetSysColor(COLOR_WINDOWTEXT);
 }
 
