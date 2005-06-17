@@ -148,8 +148,8 @@
 			folders, it can take a long time before the context menu appears
 			when you <action>right click</action> on a folder. This is because
 			Subversion fetches the status for all files when you ask for
-			folder status. To avoid this delay you can check the
-			<guilabel>Don't fetch status for context menu</guilabel>
+			folder status. To avoid this delay you can uncheck the
+			<guilabel>Fetch status for context menu</guilabel>
 			box. Be warned that the context menu for folders will not always
 			be correct, and may include items which should not really be there.
 			For example, you will see
@@ -362,12 +362,24 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Don't use spellchecker if tsvn:projectlanguage is not set</term>
+					<term>Only use spellchecker when tsvn:projectlanguage is set</term>
 					<listitem>
 						<para>
 							If you don't wish to use the spellchecker for all commits,
 							check this box. The spellchecker will still be enabled where
 							the project properties require it.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Contact the repository on startup</term>
+					<listitem>
+						<para>
+							The Check for Modifications dialog checks the working copy
+							by default, and only contacts the repository when you click
+							<guibutton>Check repository</guibutton>. If you always want
+							to check the repository, you can use this setting to make that
+							action happen automatically.
 						</para>
 					</listitem>
 				</varlistentry>
