@@ -968,9 +968,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
 									break;
 								}
-								
 								CFileDiffDlg fdlg;
-								fdlg.SetUnifiedDiff(CTSVNPath(tempfile), CString());
+								if (m_hasWC)
+									fdlg.SetUnifiedDiff(CTSVNPath(tempfile), CString());
+								else
+									fdlg.SetUnifiedDiff(CTSVNPath(tempfile), m_path.GetSVNPathString());
 								fdlg.DoModal();
 							}
 						}
