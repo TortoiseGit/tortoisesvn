@@ -212,6 +212,8 @@ BOOL CResModule::ExtractString(UINT nID)
 			_stprintf(szTempBuf, _T("#: ID:%d,"), nID);
 			RESOURCEENTRY entry = m_StringEntries[str];
 			entry.reference = entry.reference.append(szTempBuf);
+			if (wcschr(str.c_str(), '%'))
+				entry.flag = _T("#, c-format");
 			m_StringEntries[str] = entry;
 		}
 		pp += len;
