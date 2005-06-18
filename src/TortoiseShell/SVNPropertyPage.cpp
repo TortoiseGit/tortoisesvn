@@ -582,15 +582,24 @@ void CSVNPropertyPage::InitWorkfileView()
 			__time64_t	time;
 			if (svn.status->entry != NULL)
 			{
+				LoadLangDll();
 				if (svn.status->entry->kind == svn_node_file)
 				{
 					//disable the 'recursive' checkbox for files
 					HWND recursivewnd = GetDlgItem(m_hwnd, IDC_RECURSIVE);
 					::EnableWindow(recursivewnd, FALSE);					
 				}
-				LoadLangDll();
-				_stprintf(buf, _T("%d"), svn.status->entry->revision);
-				SetDlgItemText(m_hwnd, IDC_REVISION, buf);
+				if (svn.status->text_status == svn_wc_status_added)
+				{
+					// disable the "show log" button for added files
+					HWND showloghwnd = GetDlgItem(m_hwnd, IDC_SHOWLOG);
+					::EnableWindow(showloghwnd, FALSE);
+				}
+				else
+				{
+					_stprintf(buf, _T("%d"), svn.status->entry->revision);
+					SetDlgItemText(m_hwnd, IDC_REVISION, buf);
+				}
 				if (svn.status->entry->url)
 				{
 					Unescape((char*)svn.status->entry->url);
@@ -602,11 +611,14 @@ void CSVNPropertyPage::InitWorkfileView()
 					//Unescape(tbuf);
 					SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
 				} // if (svn.status->entry->url) 
-				_stprintf(buf, _T("%d"), svn.status->entry->cmt_rev);
-				SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
-				time = (__time64_t)svn.status->entry->cmt_date/1000000L;
-				Time64ToTimeString(time, buf);
-				SetDlgItemText(m_hwnd, IDC_CDATE, buf);
+				if (svn.status->text_status != svn_wc_status_added)
+				{
+					_stprintf(buf, _T("%d"), svn.status->entry->cmt_rev);
+					SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
+					time = (__time64_t)svn.status->entry->cmt_date/1000000L;
+					Time64ToTimeString(time, buf);
+					SetDlgItemText(m_hwnd, IDC_CDATE, buf);
+				}
 				if (svn.status->entry->cmt_author)
 #ifdef UNICODE
 					SetDlgItemText(m_hwnd, IDC_AUTHOR, UTF8ToWide(svn.status->entry->cmt_author).c_str());
