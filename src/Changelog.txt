@@ -18,6 +18,9 @@
        possible by right-dragging the item to the new location.
        See issue #112. (Stefan)
 - NEW: Locking files recursively in a folder. See issue #110. (Stefan)
+- NEW: Comparing two URLs in the repository browser now is possible
+       on a file-by-file basis, not just as a unified diff.
+       See issue #104. (Stefan)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - CHG: Merge dialog: if the 'use from url' is activated, the 'show log'

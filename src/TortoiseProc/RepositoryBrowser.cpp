@@ -35,6 +35,7 @@
 #include "Utils.h"
 #include "UnicodeUtils.h"
 #include "BrowseFolder.h"
+#include "FileDiffDlg.h"
 
 #define ID_POPSAVEAS		1
 #define ID_POPSHOWLOG		2
@@ -239,8 +240,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 	CTSVNPath url1;
 	CTSVNPath url2;
 
-	BOOL bFolder1;
-	BOOL bFolder2;
+	BOOL bFolder1 = FALSE;
+	BOOL bFolder2 = FALSE;
 	BOOL hasFolders = FALSE;
 	BOOL bLocked = FALSE;
 
@@ -370,12 +371,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				{
 					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPGNUDIFF, temp);
-				} // if (bFolder1 == bFolder2)	
-				if (!bFolder1 && !bFolder2)
-				{
-					temp.LoadString(IDS_LOG_POPUP_DIFF);
+					temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDIFF, temp);
-				} // if (!bFolder1 && !bFolder2) 
+				}
 			} // if (uSelCount == 2) 
 			if (uSelCount >= 2)
 			{
@@ -896,23 +894,56 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPDIFF:
 				{
-					CTSVNPath tempfile1 = CUtils::GetTempFilePath(url1);
 					SVN svn;
-					if (!svn.Cat(url1, GetRevision(), GetRevision(), CTSVNPath(tempfile1)))
+					if (bFolder1)
 					{
-						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						::DeleteFile(tempfile1.GetWinPath());
-						break;		//exit
+						CTSVNPath tempfile = CUtils::GetTempFilePath();
+						if (!svn.Diff(url1, GetRevision(), url2, GetRevision(), TRUE, TRUE, TRUE, FALSE, CString(), tempfile))
+						{
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							break;		//exit
+						}
+						else
+						{
+							if (CUtils::CheckForEmptyDiff(tempfile))
+							{
+								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+								break;
+							}
+							// now find the common root of both urls
+							CTSVNPath baseDirectory1 = url1.GetDirectory();
+							CTSVNPath baseDirectory2 = url2.GetDirectory();
+							while (!baseDirectory1.IsEquivalentTo(baseDirectory2))
+							{
+								if (baseDirectory1.GetSVNPathString().GetLength() > baseDirectory2.GetSVNPathString().GetLength())
+									baseDirectory1 = baseDirectory1.GetDirectory();
+								else
+									baseDirectory2 = baseDirectory2.GetDirectory();
+							};
+							CFileDiffDlg fdlg;
+							fdlg.SetUnifiedDiff(CTSVNPath(tempfile), baseDirectory2.GetSVNPathString());
+							fdlg.DoModal();
+						}
 					}
-					m_templist.AddPath(tempfile1);
-					CTSVNPath tempfile2 = CUtils::GetTempFilePath(url2);
-					if (!svn.Cat(url2, GetRevision(), GetRevision(), CTSVNPath(tempfile2)))
+					else
 					{
-						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						::DeleteFile(tempfile2.GetWinPath());
-						break;		//exit
+						CTSVNPath tempfile1 = CUtils::GetTempFilePath(url1);
+						if (!svn.Cat(url1, GetRevision(), GetRevision(), CTSVNPath(tempfile1)))
+						{
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							::DeleteFile(tempfile1.GetWinPath());
+							break;		//exit
+						}
+						m_templist.AddPath(tempfile1);
+						CTSVNPath tempfile2 = CUtils::GetTempFilePath(url2);
+						if (!svn.Cat(url2, GetRevision(), GetRevision(), CTSVNPath(tempfile2)))
+						{
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							::DeleteFile(tempfile2.GetWinPath());
+							break;		//exit
+						}
+						CUtils::StartExtDiff(tempfile1, tempfile2, url1.GetUIPathString(), url2.GetUIPathString());	
 					}
-					CUtils::StartExtDiff(tempfile1, tempfile2, url1.GetUIPathString(), url2.GetUIPathString());	
 				}
 				break;
 			case ID_POPPROPS:
