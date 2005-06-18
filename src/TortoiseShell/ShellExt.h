@@ -116,6 +116,7 @@ protected:
 		DropMoveAdd,
 		DropMove,
 		DropCopy,
+		DropCopyRename,
 		DropExport,
 		DropExportExtended,
 		Log,

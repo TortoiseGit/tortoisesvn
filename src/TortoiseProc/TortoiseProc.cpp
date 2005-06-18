@@ -1153,6 +1153,15 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString sDroppath = parser.GetVal(_T("droptarget"));
 			SVN svn;
 			unsigned long count = 0;
+			CString sNewName;
+			if ((parser.HasKey(_T("rename")))&&(pathList.GetCount()==1))
+			{
+				// ask for a new name of the source item
+				CRenameDlg renDlg;
+				renDlg.m_name = pathList[0].GetFileOrDirectoryName();
+				renDlg.DoModal();
+				sNewName = renDlg.m_name;
+			}
 			CProgressDlg progress;
 			if (progress.IsValid())
 			{
@@ -1165,7 +1174,11 @@ BOOL CTortoiseProcApp::InitInstance()
 				const CTSVNPath& sourcePath = pathList[nPath];
 
 				CTSVNPath fullDropPath(sDroppath);
-				fullDropPath.AppendPathString(sourcePath.GetFileOrDirectoryName());
+				if (sNewName.IsEmpty())
+					fullDropPath.AppendPathString(sourcePath.GetFileOrDirectoryName());
+				else
+					fullDropPath.AppendPathString(sNewName);
+				
 				// Check for a drop-on-to-ourselves
 				if (sourcePath.IsEquivalentTo(fullDropPath))
 				{

@@ -79,6 +79,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				}
 
 				int count = DragQueryFile(drop, (UINT)-1, NULL, 0);
+				if (count == 1)
+					isOnlyOneItemSelected = true;
 				for (int i = 0; i < count; i++)
 				{
 					// find the path length in chars
@@ -519,6 +521,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, DropMove);
 		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded))
 			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, DropCopy);
+		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded)&&(isOnlyOneItemSelected))
+			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYRENAMEMENU, 0, idCmdFirst, DropCopyRename);
 		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded))
 			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, DropCopyAdd);
 		if (isInSVN)
@@ -1108,7 +1112,16 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += _T(" /droptarget:\"");
 						svnCmd += folder_;
 						svnCmd += _T("\"";)
-						break;
+							break;
+					case DropCopyRename:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("dropcopy /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\"");
+						svnCmd += _T(" /droptarget:\"");
+						svnCmd += folder_;
+						svnCmd += _T("\" /rename";)
+							break;
 					case DropMove:
 						tempfile = WriteFileListToTempFile();
 						svnCmd += _T("dropmove /path:\"");

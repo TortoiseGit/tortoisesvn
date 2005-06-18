@@ -353,6 +353,7 @@ BEGIN
     IDS_COLTITLEOWNER       "SVN Lock Owner"
     IDS_COLDESCOWNER        "The user who owns the lock of the file"
     IDS_TT_NEEDSLOCK        "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
+    IDS_DROPCOPYRENAMEMENU  "Copy and Rename in Subversion to here"
 END
 
 #endif    // English (U.S.) resources

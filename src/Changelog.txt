@@ -14,8 +14,13 @@
        the repository the first time. See issue #107. (Stefan)
 - NEW: The last used setting for "Stop on copy/rename" in the log dialog
        is remembered (except for the merge dialog). See issue #109. (Stefan)
+- NEW: Copying items and give them a new name at the same time is now
+       possible by right-dragging the item to the new location.
+       See issue #112. (Stefan)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
+- CHG: Merge dialog: if the 'use from url' is activated, the 'show log'
+       button is disabled for the 'to' url too. (Stefan)
 - BUG: Crash in TSVNCache. See issue #91.
 - BUG: File context menu shown if more than one folder was
        selected. See issue #92.
@@ -39,6 +44,7 @@
 - BUG: The "check for modifications" dialog showed a wrong dialog title
        when "Check Repository" was clicked. (Stefan)
 - BUG: TortoiseMerge used the wrong encoding to show the files. (Stefan)
+- BUG: TortoiseMerge patched files with wrong encodings. (Stefan)
 - BUG: After a commit/update/... the file overlay icons weren't properly
        refreshed. (Stefan)
 - BUG: Log dialog could crash when clicking "Next 100". (Stefan)
@@ -46,6 +52,8 @@
        initialization. (Stefan)
 - BUG: If the Subversion config file had some illegal lines in it,
        TSVN could crash the explorer when the property page was shown. (Stefan)
+- BUG: If the log dialog was started from the repobrowser, the diff between
+       two selected revisions didn't work right. (Stefan)
 
 Version 1.2
 
