@@ -992,7 +992,6 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_SAVEAS:
 					{
 						//now first get the revision which is selected
-						//long rev = m_arRevs.GetAt(selIndex);
                         PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
                         long rev = pLogEntry->dwRev;
 						OPENFILENAME ofn;		// common dialog box structure
@@ -1788,7 +1787,8 @@ void CLogDlg::EditAuthor(int index)
 	}
 	name = SVN_PROP_REVISION_AUTHOR;
 
-	CString value = RevPropertyGet(name, url, m_logEntries[index]->dwRev);
+	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
+	CString value = RevPropertyGet(name, url, pLogEntry->dwRev);
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg;
 	dlg.m_sHintText.LoadString(IDS_LOG_AUTHOR);
@@ -1797,13 +1797,13 @@ void CLogDlg::EditAuthor(int index)
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
-		if (!RevPropertySet(name, dlg.m_sInputText, url, m_logEntries[index]->dwRev))
+		if (!RevPropertySet(name, dlg.m_sInputText, url, pLogEntry->dwRev))
 		{
 			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
 		else
 		{
-			m_logEntries[index]->sAuthor = dlg.m_sInputText;
+			pLogEntry->sAuthor = dlg.m_sInputText;
 			m_LogList.Invalidate();
 		}
 	}
@@ -1827,7 +1827,8 @@ void CLogDlg::EditLogMessage(int index)
 	}
 	name = SVN_PROP_REVISION_LOG;
 
-	CString value = RevPropertyGet(name, url, m_logEntries[index]->dwRev);
+	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
+	CString value = RevPropertyGet(name, url, pLogEntry->dwRev);
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg;
 	dlg.m_sHintText.LoadString(IDS_LOG_MESSAGE);
@@ -1837,7 +1838,7 @@ void CLogDlg::EditLogMessage(int index)
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
-		if (!RevPropertySet(name, dlg.m_sInputText, url, m_logEntries[index]->dwRev))
+		if (!RevPropertySet(name, dlg.m_sInputText, url, pLogEntry->dwRev))
 		{
 			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
@@ -1865,7 +1866,7 @@ void CLogDlg::EditLogMessage(int index)
 			}
 			else if (sShortMessage.GetLength() > 80)
 				sShortMessage = sShortMessage.Left(77) + _T("...");
-			m_logEntries[index]->sShortMessage = sShortMessage;
+			pLogEntry->sShortMessage = sShortMessage;
 			//split multiline logentries and concatenate them
 			//again but this time with \r\n as line separators
 			//so that the edit control recognizes them
@@ -1879,7 +1880,7 @@ void CLogDlg::EditLogMessage(int index)
 			} 
 			else
 				dlg.m_sInputText.Empty();
-			m_logEntries[index]->sMessage = dlg.m_sInputText;
+			pLogEntry->sMessage = dlg.m_sInputText;
 			CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 			pMsgView->SetWindowText(_T(" "));
 			pMsgView->SetWindowText(dlg.m_sInputText);

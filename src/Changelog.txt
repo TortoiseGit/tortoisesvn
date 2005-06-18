@@ -58,6 +58,8 @@
        TSVN could crash the explorer when the property page was shown. (Stefan)
 - BUG: If the log dialog was started from the repobrowser, the diff between
        two selected revisions didn't work right. (Stefan)
+- BUG: Editing the author or the log message used the wrong revision if the
+       message filter was active. (Stefan)
 
 Version 1.2
 
