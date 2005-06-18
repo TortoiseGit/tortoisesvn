@@ -8,8 +8,9 @@
 	<para>
 		Sometimes you need to work directly on the repository, without having
 		a working copy. That's what the <firstterm>Repository Browser</firstterm>
-		is for. What the explorer and the icon overlays are for your working
-		copy is the Repository Browser for the repository.
+		is for. Just as the explorer and the icon overlays allow you to view your
+		working copy, so the Repository Browser allows you to view the structure
+		and status of the repository.
 		<figure id="tsvn-DUG-repobrowser-dia-1">
 			<title>The Repository Browser</title>
 			<graphic fileref="images/Repobrowser.png"/>
@@ -28,5 +29,11 @@
 		</menuchoice>
 		command to do that and enter the full working copy path to where
 		you want to recover your deleted file.
+	</para>
+	<para>
+		You can also use the repository browser for drag-and-drop operations.
+		If you drag a folder from explorer into the repo browser, it will be
+		imported into the repository. Note that if you drag multiple items,
+		they will be imported in separate commits.
 	</para>
 </sect1>
