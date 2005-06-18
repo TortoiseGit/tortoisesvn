@@ -689,9 +689,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREVERT), HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, Revert);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCLEANUP), HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, Cleanup);
-	if ((isInSVN)&&(!isFolder)&&(!isLocked)&&(!isAdded))
+	if ((isInSVN)&&(!isLocked)&&(!isAdded))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENULOCK), HMENU(MENULOCK), INDEXMENU(MENULOCK), idCmd++, IDS_MENU_LOCK, IDI_LOCK, idCmdFirst, Lock);
-	if ((isInSVN)&&(!isFolder)&&(isLocked)&&(!(uFlags & CMF_EXTENDEDVERBS)))
+	if ((isInSVN)&&(isLocked)&&(!(uFlags & CMF_EXTENDEDVERBS)))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUUNLOCK), HMENU(MENUUNLOCK), INDEXMENU(MENUUNLOCK), idCmd++, IDS_MENU_UNLOCK, IDI_UNLOCK, idCmdFirst, Unlock);
 	if ((isInSVN)&&(!isFolder)&&(isLocked)&&(uFlags & CMF_EXTENDEDVERBS))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUUNLOCK), HMENU(MENUUNLOCK), INDEXMENU(MENUUNLOCK), idCmd++, IDS_MENU_UNLOCKFORCE, IDI_UNLOCK, idCmdFirst, UnlockForce);

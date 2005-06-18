@@ -119,7 +119,8 @@ UINT CLockDlg::StatusThread()
 	// Initialise the list control with the status of the files/folders below us
 	m_cFileList.GetStatus(m_pathList);
 
-	m_cFileList.Show(SVNSLC_SHOWALL, SVNSLC_SHOWALL, false);
+	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
+	m_cFileList.Show(dwShow, dwShow, false);
 
 	POINT pt;
 	GetCursorPos(&pt);
