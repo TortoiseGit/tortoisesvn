@@ -185,10 +185,17 @@ BOOL CTortoiseMergeApp::InitInstance()
 	if ((!parser.HasKey(_T("patchpath")))&&(parser.HasVal(_T("diff"))))
 	{
 		// a patchfile was given, but not folder path to apply the patch to
-		CBrowseFolder fbrowser;
-		fbrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-		if (fbrowser.Show(NULL, pFrame->m_Data.m_sPatchPath)==CBrowseFolder::CANCEL)
-			return FALSE;
+		// If the patchfile is located inside a working copy, then use the parent directory
+		// of the patchfile as the target directory, otherwise ask the user for a path.
+		if (parser.HasKey(_T("wc")))
+			pFrame->m_Data.m_sPatchPath = pFrame->m_Data.m_sDiffFile.Left(pFrame->m_Data.m_sDiffFile.ReverseFind('\\'));
+		else
+		{
+			CBrowseFolder fbrowser;
+			fbrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+			if (fbrowser.Show(NULL, pFrame->m_Data.m_sPatchPath)==CBrowseFolder::CANCEL)
+				return FALSE;
+		}
 	}
 
 	if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff"))))

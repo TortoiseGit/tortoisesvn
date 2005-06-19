@@ -1214,7 +1214,10 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 								svnCmd += files_.front();
 							else
 								svnCmd += folder_;
-							svnCmd += _T("\"");
+							if (isInVersionedFolder)
+								svnCmd += _T("\" /wc");
+							else
+								svnCmd += _T("\"");
 						}
 						else
 						{
