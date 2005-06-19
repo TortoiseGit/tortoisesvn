@@ -1522,7 +1522,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (lockDlg.DoModal()==IDOK)
 			{
 				CSVNProgressDlg progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Lock, lockDlg.m_bStealLocks ? ProgOptLockForce : 0, pathList, CString(), lockDlg.m_sLockMessage);
+				progDlg.SetParams(CSVNProgressDlg::Lock, lockDlg.m_bStealLocks ? ProgOptLockForce : 0, lockDlg.m_pathList, CString(), lockDlg.m_sLockMessage);
 				progDlg.DoModal();
 			}
 		}
@@ -1530,9 +1530,37 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region unlock
 		if (command == cmdUnlock)
 		{
-			CSVNProgressDlg progDlg;
-			progDlg.SetParams(CSVNProgressDlg::Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, pathList);
-			progDlg.DoModal();
+			// create a pathlist with all locked files in it
+			CTSVNPathList lockedList;
+			for (int i=0; i<pathList.GetCount(); ++i)
+			{
+				if (pathList[i].IsDirectory())
+				{
+					// a folder was selected. Get all files in it and add the ones
+					// with a lock to the locked list.
+					SVNStatus stat;
+					CTSVNPath retPath;
+					svn_wc_status2_t * status;
+					status = stat.GetFirstFileStatus(pathList[i], retPath);
+					do
+					{
+						if (status && status->entry && status->entry->lock_token)
+						{
+							if (status->entry->lock_token[0] != 0)
+								lockedList.AddPath(retPath);
+						}
+						status = stat.GetNextFileStatus(retPath);
+					} while(status && !retPath.IsEmpty());
+				}
+				else
+					lockedList.AddPath(pathList[i]);
+			}
+			if (lockedList.GetCount())
+			{
+				CSVNProgressDlg progDlg;
+				progDlg.SetParams(CSVNProgressDlg::Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, lockedList);
+				progDlg.DoModal();
+			}
 		} 
 		//#endregion
 

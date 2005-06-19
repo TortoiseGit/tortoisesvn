@@ -60,6 +60,8 @@
        two selected revisions didn't work right. (Stefan)
 - BUG: Editing the author or the log message used the wrong revision if the
        message filter was active. (Stefan)
+- BUG: The selection in the lock dialog was ignored. All files selected in the
+       explorer were locked - even those unchecked in the lock dialog. (Stefan)
 
 Version 1.2
 
