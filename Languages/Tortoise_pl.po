@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-15 19:33+0100\n"
+"PO-Revision-Date: 2005-06-20 15:17+0100\n"
 "Last-Translator: Andrzej Rusin <Andrzej.Rusin@interia.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,60 +30,70 @@ msgstr " "
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "! %d"
 msgstr "! %d"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 contained an unexpected object."
 msgstr "%1 zawierał niespodziewany obiekt"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 zawiera niepoprawny schemat."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 contains an invalid path."
 msgstr "%1 zawiera niepoprawną ścieżkę."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be created because the directory is full."
 msgstr "%1 nie może być utworzony. Katalog jest pełny."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be opened because there are too many open files."
 msgstr "%1 nie może być otworzony. Zbyt duża liczba otwartych plików."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be removed because it is the current directory."
 msgstr "%1 nie może być usunięty gdyż znajduje się w bieżącym katalogu."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 has a bad format."
 msgstr "%1 ma niepoprawny format."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 was not found."
 msgstr "%1 nie został znaleziony."
 
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
+#, c-format
 msgid ""
 "%1: %2\n"
 "Continue running script?"
@@ -94,6 +104,7 @@ msgstr ""
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
@@ -105,31 +116,37 @@ msgstr ""
 
 # ID:169,
 #: ID:169
+#, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d plików zaznaczonych, %d plików ogółem"
 
 # ID:77,
 #: ID:226
+#, c-format
 msgid "%s - at revision: %d"
 msgstr "%s - w wersji: %d"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Remote File"
 msgstr "%s : Plik zdalny"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Working Base"
 msgstr "%s : Baza robocza"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Kopia robocza"
 
 # ID:145,
 #: ID:145
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -139,6 +156,7 @@ msgstr ""
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "%s\n"
 "is a directory, not a file!\n"
@@ -535,11 +553,13 @@ msgstr "(tylko zmiana właściwości)"
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "+ %d"
 msgstr "+ %d"
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "- %d"
 msgstr "- %d"
 
@@ -561,6 +581,7 @@ msgstr "..."
 
 # ID:119,
 #: ID:151
+#, c-format
 msgid ": Revision %d"
 msgstr ": Wersja %d"
 
@@ -608,12 +629,14 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "Podczas  dostępu do %1 wystąpił sprzętowy błąd wejścia/wyjścia."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A locking violation occurred while accessing %1."
 msgstr "Podczas dostępu do %1 wystąpiło naruszenie systemu blokad."
 
@@ -655,6 +678,7 @@ msgstr "Żądany zasób nie był dostępny."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A sharing violation occurred while accessing %1."
 msgstr "Podczas dostępu do %1 wystąpiło naruszenie zasad współdzielenia."
 
@@ -705,6 +729,7 @@ msgstr "Zatwierdzaj w sposób ciągły"
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Access to %1 was denied."
 msgstr "Brak dostępu do %1."
 
@@ -784,6 +809,7 @@ msgstr "Dodano pliki/foldery zdalnie"
 
 # ID:13,
 #: ID:145
+#, c-format
 msgid ""
 "Added the file(s)\n"
 "%s\n"
@@ -862,23 +888,27 @@ msgstr "Wszystkie pliki są objete kontrolą wersji. Nie ma nic do dodania!"
 # Nie wiadomo do końca, w jakiej sytuacji taki komunikat się pojawia. Dlatego tłumaczenie ma charakter dosłowny.
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An attempt was made to access %1 past its end."
 msgstr "Wystąpiła próba dostępu do %1 poza jego końcem."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "An attempt was made to read from the writing %1."
 msgstr "Próba odczytu z zapisywanego %1."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "An attempt was made to write to the reading %1."
 msgstr "Próba zapisu do odczytywanego %1."
 
 # ID:78,
 #: ID:78
+#, c-format
 msgid ""
 "An external diff program used\n"
 "for comparing different revisions of files\n"
@@ -896,6 +926,7 @@ msgstr ""
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid ""
 "An external merge program used\n"
 "to resolve conflicted files.\n"
@@ -925,18 +956,21 @@ msgstr "Wystąpił nieprawidłowy parametr."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "An invalid file handle was associated with %1."
 msgstr "Z %1 został skojarzony niepoprawny uchwyt pliku."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while reading %1."
 msgstr "Wystąpił nieoczekiwany błąd podczas odczytu %1."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while writing %1."
 msgstr "Wystąpił nieoczekiwany błąd podczas zapisu %1."
 
@@ -951,11 +985,13 @@ msgstr "Wystąpił błąd nieznanego typu."
 # ID:3868,
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An unknown error occurred while accessing %1."
 msgstr "Wystąpił nieoczekiwany błąd podczas dostępu do %1."
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "W linii %d wystąpił nieznany typ linii."
 
@@ -1007,6 +1043,7 @@ msgstr "Na pewno chcesz wycofać zmiany? Oznacza to utratę <b>wszystkich</b> zm
 
 # ID:77,
 #: ID:77
+#, c-format
 msgid "At revision: %d"
 msgstr "W wersji: %d"
 
@@ -1173,6 +1210,7 @@ msgstr "CAP"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid ""
 "Can't copy \n"
 "%s\n"
@@ -1214,11 +1252,13 @@ msgstr "Certyfikat wygasł lub jeszcze nie zaczął obowiązywać "
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "Certyfikat wygasł. Ważny do: %s"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Certyfikat nie zaczął jeszcze obowiązywać . Ważny od: %s"
 
@@ -1244,6 +1284,7 @@ msgstr "Zmienione pliki"
 
 # ID:163,
 #: ID:163
+#, c-format
 msgid "Changed files: %d"
 msgstr "Zmienione pliki: %d"
 
@@ -1491,6 +1532,7 @@ msgstr "W stanie konfliktu"
 
 # Control-ID:65535,
 #: ID:188
+#, c-format
 msgid "Conflicts: %d"
 msgstr "Konflikty: %d"
 
@@ -1528,6 +1570,7 @@ msgstr "Skopiowano zdalnie"
 
 # ID:80,
 #: ID:103
+#, c-format
 msgid "Copy %s"
 msgstr "Kopiowanie %s"
 
@@ -1552,9 +1595,14 @@ msgid "Copy URL to clipboard"
 msgstr "Kupiuj adres URL do schowka"
 
 # ID:13,
+#: ID:16
+msgid "Copy and Rename in Subversion to here"
+msgstr "Skopiuj i zmień nazwy plików w Subversion do tego miejsca"
+
+# ID:13,
 #: ID:13
 msgid "Copy files in Subversion to here"
-msgstr "Skopiuj tutaj pliki objęte Subversion "
+msgstr "Skopiuj pliki w Subversion do tego miejsca"
 
 # ID:3603,
 #: ID:3603
@@ -1577,6 +1625,7 @@ msgstr "Kopiowanie do kopii roboczej"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid "Copying %s"
 msgstr "Kopiowanie %s"
 
@@ -1592,6 +1641,7 @@ msgstr "Poprawki"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid "Could not add %s to the ignore list!"
 msgstr "Nie można dodać %s do listy ignorowanych!"
 
@@ -1602,6 +1652,7 @@ msgstr "Nie można sprawdzić, czy jest nowsza wersja!"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not copy the files!\n"
 "<hr=100%>\n"
@@ -1618,6 +1669,7 @@ msgstr "Nie można określić stanu!"
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "Could not open the file\n"
 "%s"
@@ -1627,11 +1679,13 @@ msgstr ""
 
 # ID:81,
 #: ID:82
+#, c-format
 msgid "Could not remove %s from the ignored list"
 msgstr "Nie można usunąć %s z listy ignorowanych!"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
@@ -1641,6 +1695,7 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, c-format
 msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
@@ -1650,11 +1705,13 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "Could not save the file %s!"
 msgstr "Nie można zapisać pliku %s!"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%>\n"
@@ -1666,6 +1723,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%>\n"
@@ -1677,6 +1735,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external merge program!\n"
 "<hr=100%>\n"
@@ -1831,6 +1890,7 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Disk full while accessing %1."
 msgstr "Dostęp do %1 - dysk jest pełny."
 
@@ -1838,6 +1898,7 @@ msgstr "Dostęp do %1 - dysk jest pełny."
 # ID:3860,
 # Tłumaczenie dosłowne. Niekoniecznie musi być poprawne...
 #: ID:3860
+#, c-format
 msgid "Dispatch exception: %1"
 msgstr "Wyjątek podczas wysyłania: %1"
 
@@ -1884,6 +1945,7 @@ msgstr "Nie pokazuj więcej tego komunikatu"
 
 # ID:76,
 #: ID:76
+#, c-format
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
@@ -2047,6 +2109,7 @@ msgstr "Błąd"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Błąd sprawdzania certyfikatu serwera dla %s:"
 
@@ -2177,6 +2240,7 @@ msgstr "Ściąganie pliku..."
 
 # ID:313,
 #: ID:313
+#, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Ściąganie wersji %s pliku:"
 
@@ -2274,6 +2338,7 @@ msgstr "Zablokuj..."
 
 # ID:119,
 #: ID:119
+#, c-format
 msgid "Getting File %s"
 msgstr "Pobieranie pliku %s"
 
@@ -2361,6 +2426,7 @@ msgstr "Podpowiedź: Naciśnij F5 aby odświeżyć wybraną gałąź drzewa, Ctr
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "Błąd w nazie hosta (%s)"
 
@@ -2385,40 +2451,40 @@ msgstr "Ikony/Wygląd/Kod:   Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Włączenie opcji zapobiega pojawianiu się ikon nakładkowych w oknach dialogowych \"zapisz jako...\" lub \"otwórz\"."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If activated, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Jeżeli opcja jest włączona, menu kontektowe będzie pojawiać się szybciej.\n"
-"Jednak pojawiać się będą pozycje menu, które nie mogą tak naprawdę być użyte.\n"
-"Na przykład: pozycja \"Pokaż log\" będzie się pojawiać nawet dla właśnie dodanych folderów."
-
 # ID:95,
 #: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Jeśli zaznaczony, w repozytorium jest tworzony nowy folder.\n"
+"Jeśli właczone, w repozytorium jest tworzony nowy folder.\n"
 "Jeśli odznaczony, import przebiega wprost pod podany adres URL."
 
 # ID:79,
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
-msgstr "Jeśli opcja jest zaznaczona, TortoiseSVN tworzy tymczasowy plik zawierający wersję podstawową (BASE) do porównań z rozwiniętymi słowami kluczowymi i ustawionymi końcami linii."
+msgstr "Jeśli właczone, TortoiseSVN tworzy tymczasowy plik zawierający wersję podstawową (BASE) do porównań z rozwiniętymi słowami kluczowymi i ustawionymi końcami linii."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If disabled, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Jeśli wyłączone, menu kontektowe będzie pojawiać się szybciej.\n"
+"Jednak pojawiać się będą pozycje menu, które nie mogą tak naprawdę być użyte.\n"
+"Na przykład: pozycja \"Pokaż log\" będzie się pojawiać nawet dla właśnie dodanych folderów."
 
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Jeśli zaznaczony, TortoiseSVN raz na tydzień sprawdza , czy jest dostępna nowsza wersja"
+msgstr "Jeśli właczone, TortoiseSVN raz na tydzień sprawdza , czy jest dostępna nowsza wersja"
 
 # ID:195,
 #: ID:195
 msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Jeżeli włączone, przyspiesza pobieranie komunikatów logu z serwerów w wersji wcześniejszej niż 1.2"
+msgstr "Jeśli włączone, przyspiesza pobieranie komunikatów logu z serwerów w wersji wcześniejszej niż 1.2"
 
 # ID:195,
 #: ID:195
@@ -2426,7 +2492,7 @@ msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"Jeśli opcja jest włączona, TortoiseSVN ustawi czasy plików w oparciu\n"
+"Jeśli właczone, TortoiseSVN ustawi czasy plików w oparciu\n"
 "o czas ostatniego zatwierdzenia zmian w tych plikach.\n"
 "Jeśli opcja jest wyłączona, TortoiseSVN użyje czasu bieżącego."
 
@@ -2442,6 +2508,7 @@ msgstr "Ignoruj"
 
 # Control-ID:1021,
 #: ID:15
+#, c-format
 msgid "Ignore %d items"
 msgstr "Pomiń %d elementów"
 
@@ -2690,11 +2757,13 @@ msgstr "Właściciel blokady:"
 
 # ID:209,
 #: ID:209
+#, c-format
 msgid "Lock stolen by %s"
 msgstr "Blokada skradziona przez %s"
 
 # ID:263,
 #: ID:263
+#, c-format
 msgid "Locked by %s"
 msgstr "Zablokowane przez %s"
 
@@ -2746,11 +2815,13 @@ msgstr "Wygląd i działanie::Zestaw ikon"
 
 # ID:238,
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
 msgstr "Najniższa wersja: %ld - Najwyższa wersja: %ld"
 
 # ID:238,
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
 msgstr "Najniższa wersja: %ld - Najwyższa wersja: %ld - Główna (HEAD) wersja: %ld"
 
@@ -2859,6 +2930,7 @@ msgstr "Przeniesiono zdalnie"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid "Moving %s"
 msgstr "Przenoszenie %s"
 
@@ -2905,6 +2977,7 @@ msgstr "Nowa nazwa:"
 
 # ID:97,
 #: ID:97
+#, c-format
 msgid "New name for %s"
 msgstr "Nowa nazwa dla %s"
 
@@ -2915,6 +2988,7 @@ msgstr "Nie"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "No command specified!\n"
 "<hr=100%>\n"
@@ -2981,6 +3055,7 @@ msgstr "Graf nie jest dostępny"
 
 # ID:273,
 #: ID:273
+#, c-format
 msgid "No image encoder found for %s."
 msgstr "Nie znaleziono kodeka obrazu dla %s."
 
@@ -3186,6 +3261,7 @@ msgstr "Proszę podać datę."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter a number between %1 and %2."
 msgstr "Proszę podać liczbę pomiędzy %1 i %2."
 
@@ -3210,6 +3286,7 @@ msgstr "Proszę podać czas."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter an integer between %1 and %2."
 msgstr "Proszę podać liczbę całkowitą pomiędzy %1 i %2."
 
@@ -3228,6 +3305,7 @@ msgstr "Proszę podać liczbę całkowitą."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter no more than %1 characters."
 msgstr "Proszę wprowadzić nie więcej niż %1 znaków."
 
@@ -3283,6 +3361,7 @@ msgstr "Proszę czekać..."
 
 # ID:132,
 #: ID:132
+#, c-format
 msgid "Processing revision %d of %d..."
 msgstr "Przetwarzanie wersja %d z %d..."
 
@@ -3471,6 +3550,7 @@ msgstr "Usunięto plik/folder"
 
 # ID:13,
 #: ID:145
+#, c-format
 msgid ""
 "Removed the file(s)\n"
 "%s\n"
@@ -3492,6 +3572,7 @@ msgstr "Zmień nazwę..."
 
 # ID:97,
 #: ID:97
+#, c-format
 msgid "Rename %s"
 msgstr "Zmień nazwę %s"
 
@@ -3617,6 +3698,7 @@ msgstr "Wersja"
 
 # ID:119,
 #: ID:119
+#, c-format
 msgid "Revision %d"
 msgstr "Wersja %d"
 
@@ -3624,6 +3706,7 @@ msgstr "Wersja %d"
 #: ID:269
 #: ID:270
 #: ID:271
+#, c-format
 msgid "Revision %ld"
 msgstr "Wersja %ld"
 
@@ -3800,6 +3883,7 @@ msgstr "Zapisz jako..."
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "Save changes to %1?"
 msgstr "Zapisz zmiany do %1?"
 
@@ -3825,6 +3909,7 @@ msgstr "Zapisywanie plików"
 
 # ID:144,
 #: ID:103
+#, c-format
 msgid "Saving file %s"
 msgstr "Zapisuje plik %s"
 
@@ -3851,6 +3936,7 @@ msgstr "Szukaj w komunikatach w &logu..."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Seek failed on %1"
 msgstr "Przeszukiwanie %1 zakończone niepowodzeniem"
 
@@ -4245,6 +4331,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "<hr=100%>\n"
@@ -4324,6 +4411,7 @@ msgstr "Rozmiar tabulatora:"
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Oznaczenie kopii roboczej jako %s"
 
@@ -4339,6 +4427,7 @@ msgstr "Stan zawartości:"
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "The File\n"
 "%s\n"
@@ -4363,11 +4452,13 @@ msgstr "Rozmiar bloku nie pokrywa się z liczbą dodanych/usuniętych linii!"
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "W linii %d spodziewano się wystąpienia sekwencji startowej \"@@\"!"
 
 # ID:68,
 #: ID:68
+#, c-format
 msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
@@ -4377,11 +4468,13 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "The file %s does not exist!"
 msgstr "Plik %s nie istnieje!"
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Plik %s nie został znaleziony w pliku poprawkowym!"
 
@@ -4393,6 +4486,7 @@ msgstr "Plik jest zbyt duży, by go otworzyć."
 
 # ID:145,
 #: ID:145
+#, c-format
 msgid ""
 "The file or folder\n"
 "%s\n"
@@ -4404,6 +4498,7 @@ msgstr ""
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid ""
 "The file\n"
 "%s\n"
@@ -4415,6 +4510,7 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, c-format
 msgid ""
 "The folder \n"
 "%s\n"
@@ -4428,6 +4524,7 @@ msgstr ""
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr "W linii %d spodziewano się linii \"====\"!"
 
@@ -4442,11 +4539,13 @@ msgstr ""
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "W linii %d oczekiwano linii oznaczającej nowy plik!"
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "W linii %d oczekiwano linii oznaczającej stary plik!"
 
@@ -4466,6 +4565,7 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
 "%s\n"
@@ -4496,6 +4596,7 @@ msgstr ""
 
 # ID:314,
 #: ID:314
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -4536,6 +4637,7 @@ msgstr ""
 
 # ID:102,
 #: ID:102
+#, c-format
 msgid ""
 "The target url\n"
 "%s\n"
@@ -4563,6 +4665,7 @@ msgstr "Użytkownik który posiada blokadę pliku"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "The working copy has changed!\n"
 "<hr=100%>\n"
@@ -4597,6 +4700,7 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, c-format
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "You should resolve those conflicts first before saving.\n"
@@ -4632,12 +4736,14 @@ msgstr "Niniejszy produkt zawiera oprogramowanie stworzone przez CollabNet (http
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "Program jest połączony z brakującym eksportem %s w pliku %s. Ten komputer może mieć niekompatybilną wersję %s."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Ten program wymaga pliku %s, który nie został znaleziony w systemie."
 
@@ -4687,11 +4793,13 @@ msgstr "TortoiseMerge"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -4715,11 +4823,13 @@ msgstr "TortoiseSVN"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -4804,6 +4914,7 @@ msgstr "URL: "
 
 # ID:272,
 #: ID:272
+#, c-format
 msgid ""
 "URL: %s\r\n"
 "Author: %s\r\n"
@@ -4828,6 +4939,7 @@ msgstr "Nie udało się załadować systemu obsługi poczty."
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "Unable to read from %1, it is opened by someone else."
 msgstr "Nie można odczytać %1, jest otwarty przez kogoś innego."
 
@@ -4846,6 +4958,7 @@ msgstr "Nie można zapisać. Jest ustawiona właściwość <tylko do odczytu>."
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Nie można zapisać %1, jest przeznaczony tylko do odczytu lub jest otwarty przez kogoś innego."
 
@@ -4880,6 +4993,7 @@ msgstr "Plik różnicowy &głównych (HEAD) wersji"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %s\n"
@@ -4979,10 +5093,10 @@ msgstr "Użyj lupy na pasku położenia"
 msgid "Use Text viewer to view blames"
 msgstr "Użyj edytora tekstu do przeglądania raportu o autorach zmian"
 
-# Control-ID:65535,
+# Control-ID:1073,
 #: Control-ID:1073
-msgid "Use \"From:\" URL"
-msgstr "Użyj adresu z pola \"Od:\":"
+msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+msgstr "Użyj adresu URL z pola \"Od:\" (zakres wersji jest możliwy do wybrania w powyższym oknie komunikatu logu)"
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -5123,6 +5237,7 @@ msgstr "Kopia robocza"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid ""
 "Working copy relocated to\n"
 "%s"
@@ -5242,6 +5357,7 @@ msgstr ""
 
 # ID:195,
 #: ID:195
+#, c-format
 msgid ""
 "You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
@@ -5338,6 +5454,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
@@ -5358,6 +5475,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
@@ -5390,6 +5508,7 @@ msgstr "aktualna wersja:"
 
 # ID:201,
 #: ID:201
+#, c-format
 msgid "current version is: %s"
 msgstr "aktualna wersja: %s"
 
@@ -5400,6 +5519,7 @@ msgstr "Usunięto"
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid ""
 "exported\n"
 "%s\n"
@@ -5593,6 +5713,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 #: ID:103
+#, c-format
 msgid "to %s"
 msgstr "do %s"
 
@@ -5677,6 +5798,7 @@ msgstr "twoja wersja:"
 
 # ID:201,
 #: ID:201
+#, c-format
 msgid "your version is: %d.%d.%d.%d"
 msgstr "twoja wersja: %d.%d.%d.%d"
 
