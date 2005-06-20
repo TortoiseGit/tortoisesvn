@@ -140,7 +140,8 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	void SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE));
+	void SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, 
+				BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE);
 	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
 	bool IsThreadRunning() {return !!m_bThreadRunning;}
 
@@ -180,6 +181,7 @@ private:
 	BOOL				m_bCancelled;
 	BOOL				m_bThreadRunning;
 	BOOL				m_bStrict;
+	BOOL				m_bSaveStrict;
 	LogChangedPathArray * m_currentChangedArray;
 	CTSVNPathList		m_currentChangedPathList;
 	CPtrArray			m_arShownList;

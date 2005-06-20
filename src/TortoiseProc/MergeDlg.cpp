@@ -410,7 +410,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg = new CLogDlg();
 		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 		int limit = (int)(LONG)reg;
-		m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE);
+		m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 		m_pLogDlg->m_wParam = (m_bUseFromURL ? (MERGE_REVSELECTSTARTEND | MERGE_REVSELECTMINUSONE) : MERGE_REVSELECTSTART);
@@ -437,7 +437,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2 = new CLogDlg();
 		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 		int limit = (int)(LONG)reg;
-		m_pLogDlg2->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE);
+		m_pLogDlg2->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 		m_pLogDlg2->m_wParam = (m_bUseFromURL ? (MERGE_REVSELECTSTARTEND | MERGE_REVSELECTMINUSONE) : MERGE_REVSELECTEND);
@@ -506,7 +506,7 @@ void CMergeDlg::OnBnClickedWCLog()
 	{
 		delete [] m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
-		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE);
+		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE, FALSE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	} // if (!url.IsEmpty()) 

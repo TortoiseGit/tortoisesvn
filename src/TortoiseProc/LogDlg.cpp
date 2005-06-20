@@ -111,13 +111,14 @@ END_MESSAGE_MAP()
 
 
 
-void CLogDlg::SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict /* = FALSE */)
+void CLogDlg::SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
 {
 	m_path = path;
 	m_startrev = startrev;
 	m_endrev = endrev;
 	m_hasWC = !path.IsUrl();
 	m_bStrict = bStrict;
+	m_bSaveStrict = bSaveStrict;
 	m_limit = limit;
 }
 
@@ -1644,7 +1645,8 @@ void CLogDlg::OnOK()
 		}
 	}
 	UpdateData();
-	m_regLastStrict = m_bStrict;
+	if (m_bSaveStrict)
+		m_regLastStrict = m_bStrict;
 }
 
 void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
