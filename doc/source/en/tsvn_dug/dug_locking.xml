@@ -110,6 +110,18 @@
 			<guilabel>Steal lock</guilabel> box, then click on
 			<guibutton>OK</guibutton>.
 		</para>
+		<para>
+			If you select a folder and then use
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Get Lock...</guimenuitem>
+			</menuchoice>
+			the lock dialog will open with <emphasis>every</emphasis> file
+			in <emphasis>every</emphasis> subfolder selected for locking.
+			If you really want to lock an entire hierarchy, that is the way
+			to do it, but you could become very unpopular with your co-workers
+			if you lock them out of the whole project. Use with care ...
+		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-locking-unlock">
 		<title>Releasing a Lock</title>
@@ -132,7 +144,8 @@
 				<guimenuitem>Release Lock</guimenuitem>
 			</menuchoice>
 			There is nothing further to enter so TortoiseSVN will contact
-			the repository and release the locks.
+			the repository and release the locks. You can also use this
+			command on a folder to release all locks recursively.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-locking-status">

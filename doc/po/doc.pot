@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-06-10:10:36GMT Daylight Time\n"
+"POT-Creation-Date: 2005-06-20 22:46GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1714,10 +1714,14 @@ msgid "Sometimes you need to work directly on the repository, without having a w
 msgstr ""
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:21(para) 
-msgid "On the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
+msgid "At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:33(para) 
+msgid "If you select two items, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool. This can be particularly useful for comparing two tags to see what changed."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_repobrowser.xml:39(para) 
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
 msgstr ""
 
@@ -2209,71 +2213,75 @@ msgstr ""
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:115(title) 
+#: source/en/tsvn_dug/dug_locking.xml:113(para) 
+msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> subfolder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_locking.xml:127(title) 
 msgid "Releasing a Lock"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:116(para) 
+#: source/en/tsvn_dug/dug_locking.xml:128(para) 
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:127(para) 
-msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks."
+#: source/en/tsvn_dug/dug_locking.xml:139(para) 
+msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:139(title) 
+#: source/en/tsvn_dug/dug_locking.xml:152(title) 
 msgid "Checking Lock Status"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:142(title) 
+#: source/en/tsvn_dug/dug_locking.xml:155(title) 
 msgid "The Check for Modifications Dialog"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:140(para) 
+#: source/en/tsvn_dug/dug_locking.xml:153(para) 
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:155(para) 
+#: source/en/tsvn_dug/dug_locking.xml:168(para) 
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:160(title) 
+#: source/en/tsvn_dug/dug_locking.xml:173(title) 
 msgid "Avoid Breaking and Stealing Locks"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:161(para) 
+#: source/en/tsvn_dug/dug_locking.xml:174(para) 
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:173(title) 
+#: source/en/tsvn_dug/dug_locking.xml:186(title) 
 msgid "Making Non-locked Files Read-Only"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:174(para) 
+#: source/en/tsvn_dug/dug_locking.xml:187(para) 
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:184(para) 
+#: source/en/tsvn_dug/dug_locking.xml:197(para) 
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:192(title) 
+#: source/en/tsvn_dug/dug_locking.xml:205(title) 
 msgid "The Locking Hook Scripts"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:193(para) 
+#: source/en/tsvn_dug/dug_locking.xml:206(para) 
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:199(para) 
+#: source/en/tsvn_dug/dug_locking.xml:212(para) 
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:207(para) 
+#: source/en/tsvn_dug/dug_locking.xml:220(para) 
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_locking.xml:213(para) 
+#: source/en/tsvn_dug/dug_locking.xml:226(para) 
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
 msgstr ""
 

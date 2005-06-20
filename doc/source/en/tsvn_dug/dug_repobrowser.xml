@@ -19,7 +19,7 @@
 		rename, ... directly on the repository.
 	</para>
 	<para>
-		On the top of the Repository Browser Window you can enter the URL of
+		At the top of the Repository Browser Window you can enter the URL of
 		the repository and the revision you want to browse. Browsing an older
 		revision is useful if you want to e.g. recover a previously deleted
 		file. Use the 
@@ -29,6 +29,12 @@
 		</menuchoice>
 		command to do that and enter the full working copy path to where
 		you want to recover your deleted file.
+	</para>
+	<para>
+		If you select two items, you can view the differences either as a
+		unified-diff, or as a list of files which can be visually diffed
+		using the default diff tool. This can be particularly useful for
+		comparing two tags to see what changed.
 	</para>
 	<para>
 		You can also use the repository browser for drag-and-drop operations.
