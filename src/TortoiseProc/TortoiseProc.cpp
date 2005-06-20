@@ -529,6 +529,11 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				dlg.m_URL = dlg.m_URL.Mid(5);
 			}
+			if (parser.HasKey(_T("revision")))
+			{
+				LONG lRev = parser.GetLongVal(_T("revision"));
+				dlg.Revision = lRev;
+			}
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_URL);

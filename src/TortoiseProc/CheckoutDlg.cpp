@@ -79,7 +79,16 @@ BOOL CCheckoutDlg::OnInitDialog()
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetCurSel(0);
 	// set head revision as default revision
-	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	if (Revision.IsHead())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+	{
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+		GetDlgItem(IDC_REVISION_NUM)->EnableWindow();
+		CString sRev;
+		sRev.Format(_T("%ld"), (LONG)Revision);
+		GetDlgItem(IDC_REVISION_NUM)->SetWindowText(sRev);
+	}
 
 	m_editRevision.SetWindowText(_T(""));
 
