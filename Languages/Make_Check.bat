@@ -50,27 +50,31 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (Languages.txt) DO (
 
   if exist !POFILE! (
     set errors=0
+    set accel=0
     set tra=0
     set unt=0
     set fuz=0
     set obs=0
 
-    FOR /F "usebackq skip=1 " %%p IN (`Check_Accel.bat !POFILE!`) DO SET errors=%%p
+    FOR /F "usebackq" %%p IN (`Check_Errors.bat --check !POFILE!`) DO SET errors=%%p
+    FOR /F "usebackq" %%p IN (`Check_Errors.bat --check_accelerators !POFILE!`) DO SET accel=%%p
     FOR /F "usebackq" %%p IN (`Check_Attrib.bat --translated --no-obsolete !POFILE!`) DO SET tra=%%p
     FOR /F "usebackq" %%p IN (`Check_Attrib.bat --only-fuzzy --no-obsolete !POFILE!`) DO SET fuz=%%p
     FOR /F "usebackq" %%p IN (`Check_Attrib.bat --untranslated --no-obsolete !POFILE!`) DO SET unt=%%p
 
-    SET /A errsum=!fuz!+!unt!+!errors!
-
-    if !errsum! EQU 0 (
+    SET /A errsum=!fuz!+!unt!+!accel!+!errors!
+    if !errors! NEQ 0 (
+      echo !LANGNAME! !total! - BROKEN
+      echo !LANGNAME! !total! - BROKEN >> %LogFile% 
+    ) else if !errsum! EQU 0 (
       echo !LANGNAME! !total! - OK
       echo %%j ^(%%i^) >> %TmpFileDone% 
     ) else (
-      echo !LANGNAME! !tra! - !fuz! - !unt! - !errors!
+      echo !LANGNAME! !tra! - !fuz! - !unt! - !accel!
       if !total! EQU !tra! (
-        echo !LANGNAME! !tra! - !fuz! - !unt! - !errors! >> %TmpFileReview% 
+        echo !LANGNAME! !tra! - !fuz! - !unt! - !accel! >> %TmpFileReview% 
       ) else (
-        echo !LANGNAME! !tra! - !fuz! - !unt! - !errors! >> %LogFile% 
+        echo !LANGNAME! !tra! - !fuz! - !unt! - !accel! >> %LogFile% 
       )
     )
   ) ELSE (
