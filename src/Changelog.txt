@@ -21,6 +21,8 @@
 - NEW: Comparing two URLs in the repository browser now is possible
        on a file-by-file basis, not just as a unified diff.
        See issue #104. (Stefan)
+- NEW: The checkout dialog now has a "show log" button to easier
+       find the revision you want to check out from. (Stefan)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - CHG: Merge dialog: if the 'use from url' is activated, the 'show log'

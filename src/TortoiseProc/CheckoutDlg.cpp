@@ -23,6 +23,7 @@
 #include "Messagebox.h"
 #include "PathUtils.h"
 #include "BrowseFolder.h"
+#include ".\checkoutdlg.h"
 
 
 // CCheckoutDlg dialog
@@ -35,11 +36,14 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
 	, IsExport(FALSE)
 	, m_bNonRecursive(FALSE)
 	, m_bNoExternals(FALSE)
+	, m_pLogDlg(NULL)
 {
 }
 
 CCheckoutDlg::~CCheckoutDlg()
 {
+	if (m_pLogDlg)
+		delete m_pLogDlg;
 }
 
 void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
@@ -57,12 +61,14 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CCheckoutDlg, CStandAloneDialog)
+	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_CHECKOUTDIRECTORY_BROWSE, OnBnClickedCheckoutdirectoryBrowse)
 	ON_EN_CHANGE(IDC_CHECKOUTDIRECTORY, OnEnChangeCheckoutdirectory)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_BN_CLICKED(IDC_SHOW_LOG, OnBnClickedShowlog)
 END_MESSAGE_MAP()
 
 BOOL CCheckoutDlg::OnInitDialog()
@@ -289,4 +295,34 @@ void CCheckoutDlg::OnEnChangeCheckoutdirectory()
 void CCheckoutDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CCheckoutDlg::OnBnClickedShowlog()
+{
+	UpdateData(TRUE);
+	m_URL = m_URLCombo.GetString();
+	if ((m_pLogDlg)&&(m_pLogDlg->IsWindowVisible()))
+		return;
+	AfxGetApp()->DoWaitCursor(1);
+	//now show the log dialog for working copy
+	if (!m_URL.IsEmpty())
+	{
+		delete [] m_pLogDlg;
+		m_pLogDlg = new CLogDlg();
+		m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
+		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->ShowWindow(SW_SHOW);
+		m_pLogDlg->m_pNotifyWindow = this;
+	}
+	AfxGetApp()->DoWaitCursor(-1);
+}
+
+LPARAM CCheckoutDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
+{
+	CString temp;
+	temp.Format(_T("%ld"), lParam);
+	GetDlgItem(IDC_REVISION_NUM)->SetWindowText(temp);
+	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+	GetDlgItem(IDC_REVISION_NUM)->EnableWindow(TRUE);
+	return 0;
 }

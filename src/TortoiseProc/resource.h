@@ -346,6 +346,7 @@
 #define IDS_PROGRS_TITLE_UPDATE         1227
 #define IDC_REPOCHECK                   1227
 #define IDS_PROGRS_TITLE_COMMIT         1228
+#define IDC_SHOW_LOG                    1228
 #define IDS_PROGRS_TITLE_ADD            1229
 #define IDS_PROGRS_TITLE_REVERT         1230
 #define IDS_PROGRS_TITLE_RESOLVE        1231
@@ -664,7 +665,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        207
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1228
+#define _APS_NEXT_CONTROL_VALUE         1229
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

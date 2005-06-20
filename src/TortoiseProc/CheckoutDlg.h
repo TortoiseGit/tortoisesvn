@@ -23,6 +23,7 @@
 #include "Balloon.h"
 #include "HistoryCombo.h"
 #include "FileDropEdit.h"
+#include "LogDlg.h"
 #include "afxwin.h"
 
 /**
@@ -53,7 +54,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CCheckoutDlg : public CStandAloneDialog
+class CCheckoutDlg : public CStandAloneDialog //CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CCheckoutDlg)
 
@@ -76,6 +77,8 @@ protected:
 	afx_msg void OnBnClickedCheckoutdirectoryBrowse();
 	afx_msg void OnEnChangeCheckoutdirectory();
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnBnClickedShowlog();
+	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -92,4 +95,5 @@ public:
 	CEdit			m_editRevision;
 	CString			m_strCheckoutDirectory;
 	CFileDropEdit	m_cCheckoutEdit;
+	CLogDlg	*		m_pLogDlg;
 };
