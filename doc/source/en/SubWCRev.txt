@@ -5,23 +5,24 @@ SubWCRev is Windows console program which can be used to read the status
 of a Subversion working copy and optionally perform keyword substitution
 in a template file.
 
-usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]
+usage: SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdf]
 
 Params:
-WorkingCopyPath    :   path to a Subversion working copy
-SrcVersionFile     :   path to a template header file
-DstVersionFile     :   path to where to save the resulting header file
+WorkingCopyPath    :   path to a Subversion working copy.
+SrcVersionFile     :   path to a template header file containing keywords.
+DstVersionFile     :   path to save the resulting parsed file.
 -n                 :   if given, then SubWCRev will error if the working
-                       copy contains local modifications
+                       copy contains local modifications.
 -m                 :   if given, then SubWCRev will error if the working
-                       copy contains mixed revisions
+                       copy contains mixed revisions.
 -d                 :   if given, then SubWCRev will only do its job if
-                       DstVersionFile does not exist
+                       DstVersionFile does not exist.
 -f                 :   if given, then SubWCRev will include the
                        last-changed revision of folders. Default is to
-                       use only files to get the revision numbers
+                       use only files to get the revision numbers.
                        This only affects $WCREV$ and $WCDATE$
 
+Switches must be given in a single argument, eg. '-nm' not '-n -m'.
 
 SubWCRev reads the Subversion status of all files in a working copy, excluding
 externals. It records the highest commit revision number found, and the commit
@@ -34,20 +35,20 @@ to destination, performing keyword substitution as follows:
 
 $WCREV$ is replaced with the highest commit revision in the working copy.
 
+$WCDATE$ is replaced with the commit date/time of that revision in
+international format, ie. yyyy-mm-dd hh:mm:ss
+
 $WCRANGE$ is replaced with the update revision range in the working copy.
 If the working copy is in a consistent state, this will be a single revision.
 If the working copy contains mixed revisions, either due to being out of date,
 or due to a deliberate update-to-revision, then the range will be shown
 in the form 100:200
 
-$WCDATE$ is replaced with the commit date/time of that revision in
-international format, ie. yyyy-mm-dd hh:mm:ss
+$WCMIXED?TrueText:FalseText$ is replaced with TrueText if there are
+mixed update revisions, or FalseText if not.
 
 $WCMODS?TrueText:FalseText$ is replaced with TrueText if there are
 local modifications, or FalseText if not.
-
-$WCMIXED?TrueText:FalseText$ is replaced with TrueText if there are
-mixed update revisions, or FalseText if not.
 
 $WCURL$ is replaced with the repository URL of the working copy path
 passed to SubWCRev.
@@ -64,10 +65,7 @@ mixed update revisions.
 The -d switch causes SubWCRev to abort with ERRORLEVEL 9 if the destination
 file already exists.
 
-The switches should be combined if more than one is required, eg. -nm.
-
 -------------------------------------------------------------------------------
 SubWCRev was written by Stefan Küng for the TortoiseSVN project.
 Visit our website at http://tortoisesvn.tigris.org
 -------------------------------------------------------------------------------
-
