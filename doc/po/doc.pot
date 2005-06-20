@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-06-17 22:36GMT Daylight Time\n"
+"POT-Creation-Date: 2005-06-10:10:36GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,7 +122,7 @@ msgid "With this approach, svnserve is not run as a daemon process, rather, the 
 msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:228(para) 
-msgid "It is beyond the scope of this documentation to detail the installation and setup of a secure shell, however you can find further information in the <ulink url=\"http://tortoisesvn.berlios.de/faq/index.php?action=artikel&amp;cat=8&amp;id=30&amp;artlang=en\"><citetitle>Subversion / TortoiseSVN SSH HowTo</citetitle></ulink>"
+msgid "It is beyond the scope of this documentation to detail the installation and setup of a secure shell, however you can find further information in the <ulink url=\"http://tortoisesvn.sourceforge.net/?q=search/node/ssh\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>"
 msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:236(para) 
@@ -1701,7 +1701,7 @@ msgstr ""
 msgid "<menuchoice><guimenuitem>Revert</guimenuitem></menuchoice> will only undo your local changes. It does <emphasis>not</emphasis> undo any changes which have already been committed. If you want to undo all the changes which were committed in a particular revision, read <xref linkend=\"tsvn-DUG-showlog\"/> for further information."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_repobrowser.xml:3(title) source/en/tsvn_dug/dug_repobrowser.xml:14(title) 
+#: source/en/tsvn_dug/dug_repobrowser.xml:3(title) source/en/tsvn_dug/dug_repobrowser.xml:15(title) 
 msgid "The Repository Browser"
 msgstr ""
 
@@ -1710,11 +1710,15 @@ msgid "repobrowser"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:8(para) 
-msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. What the explorer and the icon overlays are for your working copy is the Repository Browser for the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
+msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_repobrowser.xml:20(para) 
+#: source/en/tsvn_dug/dug_repobrowser.xml:21(para) 
 msgid "On the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_repobrowser.xml:33(para) 
+msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_rename.xml:3(title) 
