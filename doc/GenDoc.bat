@@ -41,69 +41,7 @@ echo.
 rem do *NOT* create english translation from english :-)
 
 if NOT %1 EQU en (
-  echo.
-  echo Translating: %1
-  echo Ignoring: %IGNORELIST%
-  echo.
-
-  SET POFILE=po\%1.po
-  SET SRCDIR=source\en
-  SET TARGDIR=%2source\%1
-
-  rmdir /s /q !TARGDIR!
-  mkdir !TARGDIR!
-
-  rem --------------------
-  rem Collect files to translate
-  rem No real recursion, only one level deep
-
-  cd !SRCDIR!
-
-  SET CHAPTERS=
-
-  FOR %%F IN (*.xml) DO (
-  
-    SET IGNORED=0
-    FOR %%I IN (%IGNORELIST%) do (
-      IF %%I == %%F SET IGNORED=1
-    )
-    IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! %%F
-  )
-
-  FOR /D %%D IN (*) DO (
-    mkdir !TARGDIR!\%%D
-
-    FOR %%F IN (%%D\*.xml) DO (
-
-      SET IGNORED=0
-      FOR %%I IN (%IGNORELIST%) do (
-        IF %%I == %%F SET IGNORED=1
-      )
-      IF !IGNORED! NEQ 1 SET CHAPTERS=!CHAPTERS! %%F
-    )
-  )
-
-  cd %~dp0
-
-  rem --------------------
-  rem po File has to be copied to the same dir as xml2po.py
-  rem otherwise the path to the po file will be in the translated docs.
-
-  copy !POFILE! . > NUL
-
-  FOR %%F in (!CHAPTERS!) DO (
-    echo %%F
-    xml2po.py -p %1.po !SRCDIR!\%%F > !TARGDIR!\%%F
-  )
-
-  del %1.po
-
-  echo.
-  echo Copying files which should not be translated from english source
-  echo (!IGNORELIST!) 
-
-  FOR %%F in (!IGNORELIST!) DO copy !SRCDIR!\%%F !TARGDIR!
-
+  call TranslateDoc.bat %1
 )
 
 echo ----------------------------------------------------------------------

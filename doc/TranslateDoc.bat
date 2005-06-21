@@ -72,7 +72,7 @@ cd %~dp0
 rem po File has to be copied to the same dir as xml2po.py
 rem otherwise the path to the po file will be in the translated docs.
 
-copy %POFILE% . > NUL
+msgfmt %POFILE% -o %1.mo
 
 FOR %%F in (!CHAPTERS!) DO (
   echo %%F
@@ -82,13 +82,13 @@ FOR %%F in (!CHAPTERS!) DO (
   echo ---------------------------------------------------------------------->>%LOGFILE%
 
   rem Translate file
-  xml2po.py -p %1.po %SRCDIR%\%%F > %TARGDIR%\%%F
+  xml2po.py -t %1.mo %SRCDIR%\%%F > %TARGDIR%\%%F
 
   rem Run spellchecker on file. Uncomment if you don't want it.
   aspell --mode=sgml --encoding=utf-8 -l -d %1 < %TARGDIR%\%%F >>%LOGFILE%
 )
 
-del %1.po
+del %1.mo
 
 echo.
 echo Copying files which should not be translated (%IGNORELIST%) from english source
