@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-20 12:18+0100\n"
+"PO-Revision-Date: 2005-06-21 11:40+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -326,7 +326,7 @@ msgstr "Wenn Sie sich entscheiden, Apache als Dienst zu installieren, beachten S
 #: source/en/tsvn_server/server_apache.xml:128
 #: (para)
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right-click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
-msgstr "Stellen Sie sicher, dass das Konto unter dem der Apache Server läuft, einen eigenen Eintrag in der Zugriffskontrollliste des übergeordneten Verzeichnisses für die Projektarchive hat (rechts-klick Verzeichnis | Eigenschaften | Sicherheit), der dem Konto vollen Zugriff auf das Verzeichnis gestattet. Andernfalls können Anwender keine Änderungen zum Projektarchiv übertragen."
+msgstr "Stellen Sie sicher, dass das Konto unter dem der Apache Server läuft, einen eigenen Eintrag in der Zugriffskontrollliste des übergeordneten Verzeichnisses für die Projektarchive hat <action>(Rechts-Klick Verzeichnis | Eigenschaften | Sicherheit)</action>, der dem Konto vollen Zugriff auf das Verzeichnis gestattet. Andernfalls können Anwender keine Änderungen zum Projektarchiv übertragen."
 
 #: source/en/tsvn_server/server_apache.xml:134
 #: (para)
@@ -1861,7 +1861,7 @@ msgstr "Statistiken"
 #: source/en/tsvn_dug/dug_showlog.xml:371
 #: (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
-msgstr "Die <guibutton>Statistiken</guibutton> Schaltfläche zeigt eine Dialogbox mit interessanten Informationen über die angezeigten Revisionen an. Es zeigt zum Beispiel wieviele Autoren (Personen welche Übertragungen gemacht haben) am Werk waren, wieviele Übertragungen jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt und vieles mehr. Endlich haben Sie die Möglichkeit zu überprüfen, wer fleißig am Projekt mitarbeitet und wer hinterherhängt ;-)"
+msgstr "Die <guibutton>Statistiken</guibutton> Schaltfläche zeigt eine Dialogbox mit interessanten Informationen über die angezeigten Revisionen an. Es zeigt zum Beispiel wie viele Autoren (Personen welche Übertragungen gemacht haben) am Werk waren, wie viele Übertragungen jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt und vieles mehr. Endlich haben Sie die Möglichkeit zu überprüfen, wer fleißig am Projekt mitarbeitet und wer hinterherhängt ;-)"
 
 #: source/en/tsvn_dug/dug_showlog.xml:379
 #: (para)
@@ -2012,9 +2012,8 @@ msgstr "<placeholder-1/> Auf dieser Seite können Sie einstellen, welche Einträ
 
 #: source/en/tsvn_dug/dug_settings.xml:146
 #: (para)
-#, fuzzy
 msgid "If you have a very large number of files in your working copy folders, it can take a long time before the context menu appears when you <action>right click</action> on a folder. This is because Subversion fetches the status for all files when you ask for folder status. To avoid this delay you can uncheck the <guilabel>Fetch status for context menu</guilabel> box. Be warned that the context menu for folders will not always be correct, and may include items which should not really be there. For example, you will see <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> for an <literal>Added</literal> folder, which will not work because the folder is not yet in the repository."
-msgstr "Wenn Sie eine sehr große Anzahl von Dateien in den Ordnern Ihrer Arbeitskopie haben, kann es lange dauern, bis bei einem <action>Rechts-Klick</action> auf einen Ordner das Kontextmenü erscheint. Das liegt daran, dass Subversion in diesem Fall den Status <emphasis>aller</emphasis> Dateien ermitteln muss, die sich in diesem Ordner befinden. Um diese Verzögerung zu vermeiden, können Sie die Option <guilabel>Keine Statusabfrage für Kontextmenü</guilabel> wählen. Beachten Sie, dass das Kontextmenü für Ordner in diesem Fall nicht immer korrekt ist und Einträge enthalten kann, die nicht sinnvoll anwendbar sind. Zum Beispiel können Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Show Log</guimenuitem> </menuchoice> für einen <literal>hinzugefügten</literal> Ordner sehen, was natürlich nicht funktioniert, da sich dieser Ordner noch nicht im Projektarchiv befindet."
+msgstr "Wenn Sie eine sehr große Anzahl von Dateien in den Ordnern Ihrer Arbeitskopie haben, kann es lange dauern, bis bei einem <action>Rechts-Klick</action> auf einen Ordner das Kontextmenü erscheint. Das liegt daran, dass Subversion in diesem Fall den Status <emphasis>aller</emphasis> Dateien ermitteln muss, die sich in diesem Ordner befinden. Um diese Verzögerung zu vermeiden, können Sie die Option <guilabel>Statusabfrage für Kontextmenü</guilabel> deaktivieren. Beachten Sie, dass das Kontextmenü für Ordner in diesem Fall nicht immer korrekt ist und Einträge enthalten kann, die nicht sinnvoll anwendbar sind. Zum Beispiel können Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> für einen <literal>hinzugefügten</literal> Ordner sehen, was natürlich nicht funktioniert, da sich dieser Ordner noch nicht im Projektarchiv befindet."
 
 #: source/en/tsvn_dug/dug_settings.xml:164
 #: (title)
@@ -2189,12 +2188,12 @@ msgstr "Wenn Sie die Rechtschreibkorrektur nicht benutzen möchten, aktivieren S
 #: source/en/tsvn_dug/dug_settings.xml:375
 #: (term)
 msgid "Contact the repository on startup"
-msgstr ""
+msgstr "Projektarchiv beim Start kontaktieren"
 
 #: source/en/tsvn_dug/dug_settings.xml:377
 #: (para)
 msgid "The Check for Modifications dialog checks the working copy by default, and only contacts the repository when you click <guibutton>Check repository</guibutton>. If you always want to check the repository, you can use this setting to make that action happen automatically."
-msgstr ""
+msgstr "Der <quote>Auf Änderungen prüfen</quote> Dialog prüft in der Standardeinstellung die Arbeitskopie und kontaktiert das Projektarchiv nur, wenn Sie die <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche betätigen. Wenn Sie das Projektarchiv immer überprüfen wollen, aktivieren Sie diese Option, damit das beim Start des Dialoges automatisch geschieht."
 
 #: source/en/tsvn_dug/dug_settings.xml:391
 #: (title)
@@ -2514,7 +2513,7 @@ msgid "The revision graph shows several types of node: <placeholder-1/> Note tha
 msgstr ""
 "Der Revisionsgraph zeigt verschiedene Knotentypen:\n"
 "<placeholder-1/>\n"
-"Beachten Sie, dass der Graph nur die Punkte zeigt, an denen Elemente hinzugefügt oder gelöscht wurden. Alle Revisionen eines Projektes anzuzeigen würde einen riesigen Graphen erzeugen. Aus diesem Grund erzeugen einfache Projektstrukturen ohne hinzugefügte oder gelöschte Elemente einen leeren Revisionsgraphen."
+"Beachten Sie, dass der Graph nur die Punkte zeigt, an denen Elemente hinzugefügt oder gelöscht wurden. Alle Revisionen eines Projektes anzuzeigen würde einen riesigen Graphen erzeugen. Aus diesem Grund erzeugen einfache Projektstrukturen ohne hinzugefügte oder gelöschte Elemente einen leeren Revisionsgraph."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:68
 #: (para)
@@ -2584,9 +2583,8 @@ msgstr "Projektarchiv-Betrachter"
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:8
 #: (para)
-#, fuzzy
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
-msgstr "Vielleicht möchten Sie manchmal direkt im Projektarchiv Änderungen vornehmen, ohne eine Arbeitskopie zu haben oder gar auschecken zu müssen. In solchen Situationen kommt der Projektarchiv-Betrachter zum Einsatz. Was der Explorer und die überlagerten Symbole für Ihre Arbeitskopie sind,  ist der Projektarchiv-Betrachter für das Projektarchiv."
+msgstr "Vielleicht möchten Sie manchmal direkt im Projektarchiv Änderungen vornehmen, ohne eine Arbeitskopie zu haben oder gar auschecken zu müssen. In solchen Situationen kommt der <firstterm>Projektarchiv-Betrachter</firstterm> zum Einsatz. Was der Explorer und die überlagerten Symbole für Ihre Arbeitskopie sind, ist der Projektarchiv-Betrachter für das Projektarchiv. <placeholder-1/> Mit dem Projektarchiv-Betrachter können Sie Befehle wie kopieren, löschen, umbenennen, ... direkt im Projektarchiv ausführen."
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:21
 #: (para)
@@ -2596,7 +2594,7 @@ msgstr "Ganz oben im Fenster können Sie die URL des Projektarchivs angeben und 
 #: source/en/tsvn_dug/dug_repobrowser.xml:33
 #: (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
-msgstr ""
+msgstr "Sie können den Prpjektarchiv-Betrachter auch für <action>drag-and-drop</action> Aktionen verwenden. Wenn Sie eine Datei aus dem Explorer in den Projektarchiv-Betrachter ziehen, wird sie in das Projektarchiv importiert. Wenn Sie auf diese Weise mehrere Objekte gleichzeitige importieren, wird jedes Objekt in einer eigenen Revision importiert."
 
 #: source/en/tsvn_dug/dug_rename.xml:3
 #: (title)
@@ -2698,7 +2696,7 @@ msgstr "Eine gelöschte Datei/Ordner zurückholen"
 #: source/en/tsvn_dug/dug_rename.xml:114
 #: (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
-msgstr "Wenn Sie eine Datei oder einen Ordner gelöscht und die Löschung bereits ins Projektarchiv übertragen haben, wird ein normaler <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Rückgängig</guimenuitem> </menuchoice> Befehl diese nicht wieder zurückbringen können. Aber die Datei oder der Ordner ist nicht verloren. Wenn Sie die Revisionsnummer kennen, in der sie gelöscht wurde (Benutzen Sie den Log-Dialog um das herauszufinden) öffnen Sie den Projektarchiv-Betrachter. Wechseln Sie dann zu der Revisionsnummer, selektieren Sie die Datei oder den gelöschten Ordner, Rechts-Klick und dann wählen Sie den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Kopieren zu...</guimenuitem> </menuchoice> Als Ziel für diesen Kopierbefehl geben Sie den Pfad zu Ihrer Arbeitskopie an."
+msgstr "Wenn Sie eine Datei oder einen Ordner gelöscht und die Löschung bereits ins Projektarchiv übertragen haben, wird ein normaler <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Rückgängig</guimenuitem> </menuchoice> Befehl diese nicht wieder zurückbringen können. Aber die Datei oder der Ordner ist nicht verloren. Wenn Sie die Revisionsnummer kennen, in der sie gelöscht wurde (Benutzen Sie den Log-Dialog um das herauszufinden) öffnen Sie den Projektarchiv-Betrachter. Wechseln Sie dann zu der Revisionsnummer, selektieren Sie die Datei oder den gelöschten Ordner, <action>Rechts-Klick</action> und wählen Sie den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Kopieren zu...</guimenuitem> </menuchoice>. Als Ziel für diesen Kopierbefehl geben Sie den Pfad zu Ihrer Arbeitskopie an."
 
 #: source/en/tsvn_dug/dug_relocate.xml:3
 #: (title)
@@ -2765,7 +2763,7 @@ msgstr "Um eine Eigenschaft zu setzen, wählen Sie den Eigenschaftsnamen in dem 
 #: source/en/tsvn_dug/dug_propertypage.xml:46
 #: (para)
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>"
-msgstr "Wenn Sie eine Eigenschaft für mehrere Objekte gleichzeitig setzen wollen, markeiren Sie die Dateien / Ordner im Explorer und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice>."
+msgstr "Wenn Sie eine Eigenschaft für mehrere Objekte gleichzeitig setzen wollen, markieren Sie die Dateien / Ordner im Explorer und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice>."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:54
 #: (para)
@@ -2810,7 +2808,7 @@ msgstr "<literal>tsvn:logtemplate</literal> wird für Projekte benutzt, die Rege
 #: source/en/tsvn_dug/dug_propertypage.xml:125
 #: (para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in english or in the localized language. If the property is not set, the default is <literal>true</literal>."
-msgstr "Im Übertragen Dialog haben Sie die Möglichkeit, die Liste der geänderten Dateien inclusive des Status (hinzugefügt, geändert, etc) einzufügen. <literal>tsvn:logfilelistenglish</literal> legt fest, ob die vordefinierten Log-Meldungen in englisch oder in einer anderen Sprache eingefügt werden sollen. Der Standardwert ist <literal>true</literal>. "
+msgstr "Im Übertragen Dialog haben Sie die Möglichkeit, die Liste der geänderten Dateien inklusive des Status (hinzugefügt, geändert, etc) einzufügen. <literal>tsvn:logfilelistenglish</literal> legt fest, ob die vordefinierten Log-Meldungen in englisch oder in einer anderen Sprache eingefügt werden sollen. Der Standardwert ist <literal>true</literal>. "
 
 #: source/en/tsvn_dug/dug_propertypage.xml:136
 #: (para)
@@ -2927,7 +2925,7 @@ msgstr "Eine Patchdatei anwenden"
 #: source/en/tsvn_dug/dug_patch.xml:53
 #: (para)
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>english</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TSVN will notice and suggest the correct level."
-msgstr "Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet. Dies muss innerhalb des selben Ordners durchgeführt werden, in dem die Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher Ordner das war, schauen Sie in die erste Zeile der Patchdatei. Wenn z.B. die erste bearbeitete Datei <filename>doc/source/english/chapter1.xml</filename> hieß und die erste Zeile in der Patchdatei <filename>Index: english/chapter1.xml</filename> lautet, dann müssen sie den Patch auf den <filename>english</filename> Ordner anwenden. Falls den Patch nicht in der richtigen Arbeitskopie oder im richtigen Ordner anwenden, wird TortoiseSVN das bemerken und den Pfad vorschlagen, den es für richtig hält."
+msgstr "Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet. Dies muss innerhalb des selben Ordners durchgeführt werden, in dem die Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher Ordner das war, schauen Sie in die erste Zeile der Patchdatei. Wenn z.B. die erste bearbeitete Datei <filename>doc/source/deutsch/kapitel1.xml</filename> hieß und die erste Zeile in der Patchdatei <filename>Index: deutsch/kapitel1.xml</filename> lautet, dann müssen sie den Patch auf den <filename>deutsch/</filename> Ordner anwenden. Falls den Patch nicht in der richtigen Arbeitskopie oder im richtigen Ordner anwenden, wird TortoiseSVN das bemerken und den Pfad vorschlagen, den es für richtig hält."
 
 #: source/en/tsvn_dug/dug_patch.xml:67
 #: (para)
@@ -2942,7 +2940,7 @@ msgstr "Vom Kontextmenü des betroffenen Ordners aus wählen Sie <menuchoice> <g
 #: source/en/tsvn_dug/dug_patch.xml:85
 #: (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
-msgstr "Falls die Patchdatei einen <filename>.patch</filename> oder <filename>.diff</filename> Anhang hat, können Sie mit einem <action>Rechtsklick</action> auf die Datei direkt <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> wählen. In diesem Fall werden Sie gebeten, eine Arbeitskopie anzugeben."
+msgstr "Falls die Patchdatei einen <filename>.patch</filename> oder <filename>.diff</filename> Anhang hat, können Sie mit einem <action>Rechts-Klick</action> auf die Datei direkt <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> wählen. In diesem Fall werden Sie gebeten, eine Arbeitskopie anzugeben."
 
 #: source/en/tsvn_dug/dug_patch.xml:95
 #: (para)
@@ -4127,22 +4125,22 @@ msgstr "Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei <guila
 #: source/en/tsvn_dug/dug_cleanup.xml:3
 #: (title)
 msgid "Cleanup"
-msgstr "Bereinigen"
+msgstr "Aufräumen"
 
 #: source/en/tsvn_dug/dug_cleanup.xml:5
 #: (primary)
 msgid "cleanup"
-msgstr "bereinigen"
+msgstr "Aufräumen"
 
 #: source/en/tsvn_dug/dug_cleanup.xml:7
 #: (para)
 msgid "If a subversion command cannot complete successfully, perhaps due to server problems, your working copy can be left in an inconsistent state. In that case you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice> on the folder. It is a good idea to do this at the top level of the working copy."
-msgstr "Wenn ein Subversion Befehl nicht erfolgreich abgeschlossen werden kann, vielleicht durch ein Serverproblem, kann die Arbeitskopie in einem Inkonsitenten Zustand zurückgelassen werden. In diesem Fall müssen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Bereinigen</guimenuitem></menuchoice> auf dem Ordner ausführen. Am besten tun Sie das auf dem obersten Ordner Ihrer Arbeitskopie."
+msgstr "Wenn ein Subversion Befehl nicht erfolgreich abgeschlossen werden kann, vielleicht durch ein Serverproblem, kann die Arbeitskopie in einem inkonsistenten Zustand zurückgelassen werden. In diesem Fall müssen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Arbeitskopie aufräumen</guimenuitem> </menuchoice> auf dem Ordner ausführen. Am besten tun Sie das auf dem obersten Ordner Ihrer Arbeitskopie."
 
 #: source/en/tsvn_dug/dug_cleanup.xml:18
 #: (para)
 msgid "Cleanup has another useful side effect. If a file date changes but its content doesn't, subversion cannot tell whether it has really changed except by doing a byte-by-byte comparison with the pristine copy. If you have a lot of files in this state it makes acquiring status very slow, which will make many dialogs slow to repond. Executing a Cleanup on your working copy will repair these <quote>broken</quote> timestamps and restore status checks to full speed."
-msgstr "Bereinigen hat einen weiteren Nebeneffekt. Falls ein Dateidatum geändert wurde aber der Inhalt der Datei dennoch gleich geblieben ist, kann Subversion nicht gleich feststellen ob sich die Datei geändert hat, sondern muss dann die Datei Byte für Byte mit der Basiskopie der Datei vergleichen. Wenn Sie eine Menge solcher Dateien haben, ist das Feststellen des Subversion Status sehr langsam, was viele Dialoge/Befehle sehr verlangsamt. Ein Ausführen des Bereinigen-Befehls repariert diese <quote>falschen<quote> Zeitstempel wieder und stellt die volle Geschwindikeit des Status-Checks wieder her."
+msgstr "Aufräumen hat einen weiteren Nebeneffekt. Falls ein Dateidatum geändert wurde aber der Inhalt der Datei dennoch gleich geblieben ist, kann Subversion nicht gleich feststellen ob sich die Datei geändert hat, sondern muss dann die Datei Byte für Byte mit der Basiskopie der Datei vergleichen. Wenn Sie eine Menge solcher Dateien haben, ist das Feststellen des Subversion Status sehr langsam, was viele Dialoge/Befehle sehr verlangsamt. Ein Ausführen des Bereinigen-Befehls repariert diese <quote>falschen<quote> Zeitstempel wieder und stellt die volle Geschwindigkeit der Statusprüfung wieder her."
 
 #: source/en/tsvn_dug/dug_cleanup.xml:29
 #: (title)
@@ -4152,7 +4150,7 @@ msgstr "Nutze Übertragungs-Zeitstempel"
 #: source/en/tsvn_dug/dug_cleanup.xml:30
 #: (para)
 msgid "Some earlier releases of Subversion were affected by a bug which caused timestamp mismatch when you check out with the <guilabel>Use commit timestamps</guilabel> option checked. Use the Cleanup command to speed up these working copies."
-msgstr "Einige frühere Versionen von Subversion hatten einen Fehler welcher die Zeitstempel der Dateien falsch gesetzt hat wenn Sie ein Projekt mit <guilabel>Dateidatum auf \"Datum der letzten Übertragung\" setzen</guilabel> benutzt haben. Führen Sie den Bereinigen-Befehl aus um die Arbeitskopie mit korrekten Datei-Zeitstempeln zu versehen und damit die Geschwindigkeit von Subversion-Befehlen erhöhen."
+msgstr "Einige frühere Versionen von Subversion hatten einen Fehler welcher die Zeitstempel der Dateien falsch gesetzt hat wenn Sie ein Projekt mit <guilabel>Dateidatum auf \"Datum der letzten Übertragung\" setzen</guilabel> benutzt haben. Führen Sie den Aufräumen-Befehl aus um die Arbeitskopie mit korrekten Datei-Zeitstempeln zu versehen und damit die Geschwindigkeit von Subversion-Befehlen erhöhen."
 
 #: source/en/tsvn_dug/dug_checkout.xml:3
 #: (title)
@@ -4172,7 +4170,7 @@ msgstr "Um eine Arbeitskopie zu erhalten müssen Sie zunächst die Dateien aus e
 #: source/en/tsvn_dug/dug_checkout.xml:22
 #: (title)
 msgid "The Checkout dialog"
-msgstr "Der Checkout-Dialog"
+msgstr "Der Auschecken-Dialog"
 
 #: source/en/tsvn_dug/dug_checkout.xml:12
 #: (para)
