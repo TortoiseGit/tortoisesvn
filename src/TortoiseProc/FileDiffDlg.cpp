@@ -229,8 +229,17 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	progDlg.Stop();
 
 	CString rev1name, rev2name;
-	rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev1);
-	rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev2);
+	if ((url1.GetFilename().CompareNoCase(url2.GetFilename())!=0)&&(rev1 == rev2))
+	{
+		rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev1);
+		rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev2);
+	}
+	else
+	{
+		// use the full URL's of the files, since the filenames and revisions are the same.
+		rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetSVNPathString(), rev1);
+		rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetSVNPathString(), rev2);
+	}
 	CUtils::StartExtDiff(tempfile, tempfile2, rev1name, rev2name);
 
 }
