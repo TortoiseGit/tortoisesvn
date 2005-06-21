@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-13 06:35+0900\n"
+"PO-Revision-Date: 2005-06-20 06:16+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,60 +27,70 @@ msgstr " "
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "! %d"
 msgstr "! %d"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 contained an unexpected object."
 msgstr "%1에 알 수 없는 객체가 있습니다."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1이 잘못된 스키마를 가지고 있습니다."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 contains an invalid path."
 msgstr "%1이 잘못된 경로를 포함하고 있습니다."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be created because the directory is full."
 msgstr "디렉토리가 꽉차서 %1을 생성할 수 없습니다."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be opened because there are too many open files."
 msgstr "너무 많은 파일이 열린 상태라서, %1을 열 수 없습니다."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be removed because it is the current directory."
 msgstr "현재 디렉토리(%1)는 지울 수 없습니다."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 has a bad format."
 msgstr "%1은 잘못된 포맷입니다."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 was not found."
 msgstr "%1을 찾을 수 없습니다."
 
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
+#, c-format
 msgid ""
 "%1: %2\n"
 "Continue running script?"
@@ -91,6 +101,7 @@ msgstr ""
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
@@ -102,31 +113,37 @@ msgstr ""
 
 # ID:169,
 #: ID:169
+#, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d개 선택, 전체 %d"
 
 # ID:226,
 #: ID:226
+#, c-format
 msgid "%s - at revision: %d"
 msgstr "%s - 리비전: %d"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Remote File"
 msgstr "%s : 원격지 파일"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Working Base"
 msgstr "%s: 작업 베이스"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Working Copy"
 msgstr "%s: 작업 사본"
 
 # ID:145,
 #: ID:145
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -136,6 +153,7 @@ msgstr ""
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "%s\n"
 "is a directory, not a file!\n"
@@ -526,11 +544,13 @@ msgstr "(속성만 변경)"
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "+ %d"
 msgstr "+ %d"
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "- %d"
 msgstr "- %d"
 
@@ -552,6 +572,7 @@ msgstr "..."
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid ": Revision %d"
 msgstr ": 리비전 %d"
 
@@ -597,12 +618,14 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "%1에 접근하는 동안 하드웨어 I/O 오류가 보고 되었습니다."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A locking violation occurred while accessing %1."
 msgstr "%1에 접근하는 동안 잠금 오류가 발생하였습니다."
 
@@ -640,6 +663,7 @@ msgstr "지정하신 자원은 유효하지 않습니다."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A sharing violation occurred while accessing %1."
 msgstr "%1을 접근하는 중에 공유 위반이 발생하였습니다."
 
@@ -690,6 +714,7 @@ msgstr "영구적으로 허용"
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Access to %1 was denied."
 msgstr "%1에 접근하는 것이 거부되었습니다."
 
@@ -706,7 +731,6 @@ msgstr "작업 목록 활성화"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:155,
-#: ID:8
 #: ID:209
 #: Dlg-ID:155
 msgid "Add"
@@ -737,6 +761,11 @@ msgstr "무시 목록에 추가"
 msgid "Add files to Subversion here"
 msgstr "여기에서 Subversion으로 파일을 추가함"
 
+# Control-ID:1098,
+#: ID:8
+msgid "Add..."
+msgstr "추가(&A)..."
+
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -765,6 +794,7 @@ msgstr "원격지에 파일 추가됨"
 
 # ID:13,
 #: ID:145
+#, c-format
 msgid ""
 "Added the file(s)\n"
 "%s\n"
@@ -842,23 +872,27 @@ msgstr "모든 파일들이 이미 버전관리 대상입니다. 추가할 것�
 # ID:3868,
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An attempt was made to access %1 past its end."
 msgstr "%1에 대한 접근이 마지막을 지남"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "An attempt was made to read from the writing %1."
 msgstr "%1에 대해 읽기 시도함"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "An attempt was made to write to the reading %1."
 msgstr "%1에 대해 쓰기 시도함"
 
 # ID:78,
 #: ID:78
+#, c-format
 msgid ""
 "An external diff program used\n"
 "for comparing different revisions of files\n"
@@ -875,6 +909,7 @@ msgstr ""
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid ""
 "An external merge program used\n"
 "to resolve conflicted files.\n"
@@ -902,18 +937,21 @@ msgstr "잘못된 인자를 발견하였습니다."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "An invalid file handle was associated with %1."
 msgstr "%1과 관련하여 잘못된 파일 핸들이 연관되어있습니다."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while reading %1."
 msgstr "%1을 읽는 중에 예기치 않은 오류가 발생하였습니다."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while writing %1."
 msgstr "%1을 쓰는 중에 예기치 않은 오류가 발생하였습니다."
 
@@ -928,11 +966,13 @@ msgstr "알 수 없는 오류가 발생하였습니다."
 # ID:3868,
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An unknown error occurred while accessing %1."
 msgstr "%1을 접근하는 중에 알 수 없는 오류가 발생하였습니다."
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "알 수 없는 라인 종류가 발견되었습니다. 라인번호 %d !"
 
@@ -983,6 +1023,7 @@ msgstr "정말 되돌리시겠습니까? 마지막 업데이트로부터 작업�
 
 # ID:77,
 #: ID:77
+#, c-format
 msgid "At revision: %d"
 msgstr "리비전: %d"
 
@@ -1150,6 +1191,7 @@ msgstr "CAP"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid ""
 "Can't copy \n"
 "%s\n"
@@ -1191,11 +1233,13 @@ msgstr "인증서가 유효기간이 지났거나 아직 유효기간이 되지 
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "인증서가 유효하지 않습니다. 만료일: %s"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "인증서가 유효하지 않습니다. 시작일: %s"
 
@@ -1221,6 +1265,7 @@ msgstr "바뀐 파일들"
 
 # ID:163,
 #: ID:163
+#, c-format
 msgid "Changed files: %d"
 msgstr "바뀐 파일 수: %d"
 
@@ -1229,6 +1274,11 @@ msgstr "바뀐 파일 수: %d"
 #: ID:3887
 msgid "Check"
 msgstr "체크"
+
+# ID:13,
+#: Control-ID:65535
+msgid "Check For Modifications"
+msgstr "수정내역 확인"
 
 # Dlg-ID:174,
 #: Dlg-ID:174
@@ -1462,8 +1512,14 @@ msgstr "충돌"
 
 # Control-ID:65535,
 #: ID:188
+#, c-format
 msgid "Conflicts: %d"
 msgstr "충돌: %d"
+
+# ID:9,
+#: Control-ID:1227
+msgid "Contact the repository on startup"
+msgstr "시작할 때 저장소에 접근함"
 
 # ID:73,
 #: ID:73
@@ -1492,6 +1548,7 @@ msgstr "원격 복사됨"
 
 # ID:80,
 #: ID:103
+#, c-format
 msgid "Copy %s"
 msgstr "복사 %s"
 
@@ -1514,6 +1571,11 @@ msgstr "작업 사본으로 복사..."
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "URL을 클립보드에 복사합니다"
+
+# ID:13,
+#: ID:16
+msgid "Copy and Rename in Subversion to here"
+msgstr "Subversion의 파일들을 여기에 복사하거나 이름을 변경합니다."
 
 # ID:13,
 #: ID:13
@@ -1541,6 +1603,7 @@ msgstr "작업 사본으로 복사"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid "Copying %s"
 msgstr "복사 중 %s"
 
@@ -1556,6 +1619,7 @@ msgstr "수정"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid "Could not add %s to the ignore list!"
 msgstr "무시 목록에 %s를 추가할 수 없습니다!"
 
@@ -1566,6 +1630,7 @@ msgstr "새 버전을 확인할 수 없습니다!"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not copy the files!\n"
 "<hr=100%>\n"
@@ -1582,6 +1647,7 @@ msgstr "상태를 얻을 수 없습니다!"
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "Could not open the file\n"
 "%s"
@@ -1591,11 +1657,13 @@ msgstr ""
 
 # ID:81,
 #: ID:82
+#, c-format
 msgid "Could not remove %s from the ignored list"
 msgstr "무시 목록에서 %s를 제거할 수 없습니다."
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
@@ -1605,6 +1673,7 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, c-format
 msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
@@ -1614,11 +1683,13 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "Could not save the file %s!"
 msgstr "%s 파일을 저장할 수 없습니다!"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%>\n"
@@ -1630,6 +1701,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%>\n"
@@ -1641,6 +1713,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external merge program!\n"
 "<hr=100%>\n"
@@ -1791,12 +1864,14 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Disk full while accessing %1."
 msgstr "%1에 접근하는 동안 디스크 꽉참."
 
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
+#, c-format
 msgid "Dispatch exception: %1"
 msgstr "예외: %1"
 
@@ -1843,6 +1918,7 @@ msgstr "다시는 이 메시지를 표시하지 않음"
 
 # ID:76,
 #: ID:76
+#, c-format
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
@@ -2006,6 +2082,7 @@ msgstr "오류"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "서버 인증서 확인 오류 %s:"
 
@@ -2023,6 +2100,11 @@ msgstr "제외 경로:"
 #: Control-ID:65535
 msgid "Exclude/Ignore pattern:"
 msgstr "제외/무시 패턴:"
+
+# ID:9,
+#: ID:209
+msgid "Explore to"
+msgstr "탐색"
 
 # ID:94,
 #: ID:94
@@ -2131,6 +2213,7 @@ msgstr "파일 가져오기..."
 
 # ID:313,
 #: ID:313
+#, c-format
 msgid "Fetching revision %s of file:"
 msgstr "리비전 %s 가져오기 파일명:"
 
@@ -2228,6 +2311,7 @@ msgstr "잠그기..."
 
 # ID:119,
 #: ID:119
+#, c-format
 msgid "Getting File %s"
 msgstr "파일 읽는 중 %s"
 
@@ -2314,6 +2398,7 @@ msgstr "힌트: 선택된 디렉토리를 새로 고치려면, F5를 누르시�
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "호스트 이름이 다릅니다 (%s)"
 
@@ -2338,17 +2423,6 @@ msgstr "아이콘/설계/코딩:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "다른 이름으로 저장.. 또는 열기 대화 상자에 겹쳐 나타나는 것을 방지하려면 선택하십시오"
 
-# ID:195,
-#: ID:195
-msgid ""
-"If activated, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"컨텍스트 메뉴를 빠르게 나타내 줍니다.\n"
-"그러나 어떤 메뉴 항목은 사용할 수 없는 데도 보여집니다\n"
-"예를 들어: \"로그 보기\" 항목이 방금 추가된 디렉토리에서 보일 수 있습니다."
-
 # ID:95,
 #: ID:95
 msgid ""
@@ -2362,6 +2436,17 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
 msgstr "diff를 하기 위해 키워드 확장을 하고, 라인 구분자를 조정하여 BASE 로부터 임시 파일을 생성합니다."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If disabled, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"기능을 끄면, 컨텍스트 메뉴를 빠르게 나타내 줍니다.\n"
+"그러나 어떤 메뉴 항목은 사용할 수 없는 데도 보여집니다\n"
+"예를 들어: \"로그 보기\" 항목이 방금 추가된 디렉토리에서 보일 수 있습니다."
 
 # ID:194,
 #: ID:194
@@ -2394,6 +2479,7 @@ msgstr "무시"
 
 # Control-ID:1021,
 #: ID:15
+#, c-format
 msgid "Ignore %d items"
 msgstr "%d 개 무시"
 
@@ -2636,11 +2722,13 @@ msgstr "잠금 소유자:"
 
 # ID:263,
 #: ID:209
+#, c-format
 msgid "Lock stolen by %s"
 msgstr "잠금 소유자가 %s(으)로 바뀌었습니다."
 
 # ID:263,
 #: ID:263
+#, c-format
 msgid "Locked by %s"
 msgstr "%s에 의해 잠겼습니다."
 
@@ -2692,11 +2780,13 @@ msgstr "모양::아이콘 모음"
 
 # ID:238,
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
 msgstr "최하위 리비전: %ld - 최상위 리비전: %ld"
 
 # ID:238,
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
 msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - 최신(HEAD) 리비전: %ld"
 
@@ -2804,6 +2894,7 @@ msgstr "옮겨짐"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid "Moving %s"
 msgstr "이동중 %s"
 
@@ -2850,6 +2941,7 @@ msgstr "새 이름:"
 
 # ID:97,
 #: ID:97
+#, c-format
 msgid "New name for %s"
 msgstr "%s의 새 이름"
 
@@ -2860,6 +2952,7 @@ msgstr "아니오"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "No command specified!\n"
 "<hr=100%>\n"
@@ -2924,6 +3017,7 @@ msgstr "사용할 수 있는 그래프가 없습니다."
 
 # ID:273,
 #: ID:273
+#, c-format
 msgid "No image encoder found for %s."
 msgstr "%s의 이미지 인코더를 발견할 수 없습니다."
 
@@ -3130,6 +3224,7 @@ msgstr "날짜를 입력하십시오."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter a number between %1 and %2."
 msgstr "%1 ~ %2사이의 값을 입력하십시오."
 
@@ -3154,6 +3249,7 @@ msgstr "시간을 입력하십시오."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter an integer between %1 and %2."
 msgstr "%1 ~ %2 사이의 정수를 입력하십시오."
 
@@ -3172,6 +3268,7 @@ msgstr "정수를 입력하십시오."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter no more than %1 characters."
 msgstr "글자 %1개까지만 입력하십시오."
 
@@ -3226,6 +3323,7 @@ msgstr "잠시 기다려주십시오..."
 
 # ID:132,
 #: ID:132
+#, c-format
 msgid "Processing revision %d of %d..."
 msgstr "처리중인 리비전 %d / %d..."
 
@@ -3413,6 +3511,7 @@ msgstr "삭제된 파일/폴더"
 
 # ID:13,
 #: ID:145
+#, c-format
 msgid ""
 "Removed the file(s)\n"
 "%s\n"
@@ -3434,6 +3533,7 @@ msgstr "이름 바꾸기"
 
 # ID:97,
 #: ID:97
+#, c-format
 msgid "Rename %s"
 msgstr "%s 이름 바꾸기"
 
@@ -3558,6 +3658,7 @@ msgstr "리비전"
 
 # ID:119,
 #: ID:119
+#, c-format
 msgid "Revision %d"
 msgstr "리비전 %d"
 
@@ -3565,8 +3666,9 @@ msgstr "리비전 %d"
 #: ID:269
 #: ID:270
 #: ID:271
+#, c-format
 msgid "Revision %ld"
-msgstr "리비전 %d"
+msgstr "리비전 %ld"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3737,6 +3839,7 @@ msgstr "다른 이름으로 저장..."
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "Save changes to %1?"
 msgstr "변경된 것을 %1에 저장하시겠습니까?"
 
@@ -3762,8 +3865,9 @@ msgstr "파일 저장중"
 
 # ID:144,
 #: ID:103
+#, c-format
 msgid "Saving file %s"
-msgstr "파일 저장 중: "
+msgstr "파일 저장 중: %s"
 
 # ID:144,
 #: ID:144
@@ -3788,6 +3892,7 @@ msgstr "로그 메시지 검색(&l)..."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Seek failed on %1"
 msgstr "%1 탐색 실패"
 
@@ -4183,6 +4288,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "<hr=100%>\n"
@@ -4262,6 +4368,7 @@ msgstr "탭 크기:"
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid "Tagged the working copy to %s"
 msgstr "현재 작업 사본에 태그를 붙입니다. (%s)"
 
@@ -4277,6 +4384,7 @@ msgstr "텍스트 상태:"
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "The File\n"
 "%s\n"
@@ -4300,11 +4408,13 @@ msgstr "chunk 크기가 추가/제거된 라인수와 일치하지 않습니다.
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "chunk의 시작인  @@ 가 있어야합니다. 행 번호 %d !"
 
 # ID:68,
 #: ID:68
+#, c-format
 msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
@@ -4314,11 +4424,13 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "The file %s does not exist!"
 msgstr "존재하지 않는 파일: %s"
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "패치 파일에 없는 파일입니다.: %s "
 
@@ -4330,6 +4442,7 @@ msgstr "너무 커서 열수가 없습니다."
 
 # ID:145,
 #: ID:145
+#, c-format
 msgid ""
 "The file or folder\n"
 "%s\n"
@@ -4341,6 +4454,7 @@ msgstr ""
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid ""
 "The file\n"
 "%s\n"
@@ -4352,6 +4466,7 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, c-format
 msgid ""
 "The folder \n"
 "%s\n"
@@ -4363,6 +4478,7 @@ msgstr ""
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr "==== 가 있어야 할 라인입니다. : %d"
 
@@ -4377,11 +4493,13 @@ msgstr ""
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "새 파일을 지시하는 곳은 %d 행 입니다."
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "이전 파일을 지시하는 곳은 %d 행 입니다."
 
@@ -4401,6 +4519,7 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
 "%s\n"
@@ -4431,6 +4550,7 @@ msgstr ""
 
 # ID:314,
 #: ID:314
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -4471,6 +4591,7 @@ msgstr ""
 
 # ID:102,
 #: ID:102
+#, c-format
 msgid ""
 "The target url\n"
 "%s\n"
@@ -4498,6 +4619,7 @@ msgstr "파일의 잠금을 소유하고 있는 사용자"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "The working copy has changed!\n"
 "<hr=100%>\n"
@@ -4532,6 +4654,7 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, c-format
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "You should resolve those conflicts first before saving.\n"
@@ -4567,12 +4690,14 @@ msgstr "이 제품은 CollabNet이 개발한 소프트웨어를 포함하고 있
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "이 프로그램이 필요한 파일이 시스템에서 발견할 수 없습니다. : %s"
 
@@ -4622,11 +4747,13 @@ msgstr "TortoiseMerge"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -4650,11 +4777,13 @@ msgstr "TortoiseSVN"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -4739,6 +4868,7 @@ msgstr "URL: "
 
 # ID:272,
 #: ID:272
+#, c-format
 msgid ""
 "URL: %s\r\n"
 "Author: %s\r\n"
@@ -4763,6 +4893,7 @@ msgstr "메일 시스템 지원을 읽을 수 없습니다."
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "Unable to read from %1, it is opened by someone else."
 msgstr "다른 사람이 열고 있어서 파일을 열 수 없습니다. : %1"
 
@@ -4781,6 +4912,7 @@ msgstr "읽기전용 속성이라 쓸 수 없습니다."
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "읽기전용 속성이거나 다른 사람이 열고 있어서 파일에 쓸 수 없습니다."
 
@@ -4811,6 +4943,7 @@ msgstr "HEAD 리비전에 대한 차이를 구합니다.(&D)"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %s\n"
@@ -4912,8 +5045,8 @@ msgstr "수정한 사람을 보기위해 텍스트 뷰어 사용"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "Use \"From:\" URL"
-msgstr "\"시작:\" URL을 사용"
+msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+msgstr "원본 URL을 사용합니다 (리비전 구간은 위 로그 대화상자에서 선택가능합니다.)"
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -5053,6 +5186,7 @@ msgstr "작업 사본"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid ""
 "Working copy relocated to\n"
 "%s"
@@ -5104,7 +5238,7 @@ msgstr ""
 #: ID:105
 msgid ""
 "You copied more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will copy each file/folde\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
 "individually, creating a new revision for every copied item.\n"
 "\n"
 "Do you still want to do this?"
@@ -5148,7 +5282,7 @@ msgstr ""
 #: ID:105
 msgid ""
 "You moved more than one file or folder.\n"
-"It's not possible to do that in one step, so TortoiseSVN will move each file/folde\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
 "individually, creating a new revision for every moved item.\n"
 "\n"
 "Do you still want to do this?"
@@ -5170,6 +5304,7 @@ msgstr ""
 
 # ID:195,
 #: ID:195
+#, c-format
 msgid ""
 "You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
@@ -5266,6 +5401,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
@@ -5286,6 +5422,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
@@ -5318,6 +5455,7 @@ msgstr "최신 버전:"
 
 # ID:201,
 #: ID:201
+#, c-format
 msgid "current version is: %s"
 msgstr "최신 버전: %s"
 
@@ -5328,6 +5466,7 @@ msgstr "삭제됨"
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid ""
 "exported\n"
 "%s\n"
@@ -5515,6 +5654,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 #: ID:103
+#, c-format
 msgid "to %s"
 msgstr "%s"
 
@@ -5597,6 +5737,7 @@ msgstr "현재 설치된 버전:"
 
 # ID:201,
 #: ID:201
+#, c-format
 msgid "your version is: %d.%d.%d.%d"
 msgstr "현재 설치된 버전: %d.%d.%d.%d"
 
