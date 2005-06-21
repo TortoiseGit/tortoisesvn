@@ -68,6 +68,8 @@
        message filter was active. (Stefan)
 - BUG: The selection in the lock dialog was ignored. All files selected in the
        explorer were locked - even those unchecked in the lock dialog. (Stefan)
+- BUG: The status control showed the menus "Get Lock", "Compare with WC" and
+       "unified diff" for added, deleted and missing items too. (Stefan)
 
 Version 1.2
 
