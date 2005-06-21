@@ -184,6 +184,7 @@ public:
 		bool					inexternal;				///< if the item is in an external folder
 		bool					direct;					///< directly included (TRUE) or just a child of a folder
 		bool					isfolder;				///< TRUE if entry refers to a folder
+		bool					isNested;				///< TRUE if the folder from a different repository and/or path
 		LONG					lRevision;				///< the last committed revision
 		friend class CSVNStatusListCtrl;
 	};

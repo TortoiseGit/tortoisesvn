@@ -327,11 +327,6 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 			}
 		}
 
-		// By the time we get here, the workingTarget line should always be a directory
-//WGD - Actually, I think I was wrong on this
-//Doing, for example, an 'Add' on a single target, gets us here with a file in workingTarget
-//		ASSERT(workingTarget.IsDirectory());
-
 		// Is this a versioned item with an associated repos UUID?
 		if ((s->entry)&&(s->entry->uuid))
 		{
@@ -414,6 +409,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->inexternal = bInExternal;
 	entry->direct = bDirectItem;
 	entry->lRevision = 0;
+	entry->isNested = false;
 	if (pSVNStatus->entry)
 	{
 		entry->isfolder = (pSVNStatus->entry->kind == svn_node_dir);
@@ -487,7 +483,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 			entry->direct = false;
 			entry->isfolder = filefinder.IsDirectory(); 
 			entry->lRevision = 0;
-
+			entry->isNested = false;
+			
 			m_arStatusArray.push_back(entry);
 			if (entry->isfolder)
 			{
@@ -515,7 +512,26 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 			// check if the unversioned folder is maybe versioned. This
 			// could happen with nested layouts
 			if (SVNStatus::GetAllStatus(svnPath) != svn_wc_status_unversioned)
-				continue;	//ignore nested layouts
+			{
+				FileEntry * entry = new FileEntry();
+				entry->path = svnPath;
+				entry->basepath = basePath; 
+				entry->status = svn_wc_status_unversioned;
+				entry->textstatus = svn_wc_status_unversioned;
+				entry->propstatus = svn_wc_status_unversioned;
+				entry->remotestatus = svn_wc_status_unversioned;
+				entry->remotetextstatus = svn_wc_status_unversioned;
+				entry->remotepropstatus = svn_wc_status_unversioned;
+				entry->inunversionedfolder = TRUE;
+				entry->checked = false;
+				entry->inexternal = false;
+				entry->direct = false;
+				entry->isfolder = true; 
+				entry->lRevision = 0;
+				entry->isNested = true;
+				m_arStatusArray.push_back(entry);
+				continue;
+			}
 		}
 		bool bDirectoryIsExternal = false;
 
@@ -723,13 +739,21 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	}
 	if (m_dwColumns & SVNSLC_COLSTATUS)
 	{
-		SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
-		if ((entry->status == entry->propstatus)&&
-			(entry->status != svn_wc_status_normal)&&
-			(entry->status != svn_wc_status_unversioned)&&
-			(!SVNStatus::IsImportant(entry->textstatus)))
-			_tcscat(buf, ponly);
-		SetItemText(index, nCol++, buf);
+		if (entry->isNested)
+		{
+			CString sTemp(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
+			SetItemText(index, nCol++, sTemp);			
+		}
+		else
+		{
+			SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			if ((entry->status == entry->propstatus)&&
+				(entry->status != svn_wc_status_normal)&&
+				(entry->status != svn_wc_status_unversioned)&&
+				(!SVNStatus::IsImportant(entry->textstatus)))
+				_tcscat(buf, ponly);
+			SetItemText(index, nCol++, buf);
+		}
 	}
 	if (m_dwColumns & SVNSLC_COLREMOTESTATUS)
 	{
@@ -743,8 +767,16 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	}
 	if (m_dwColumns & SVNSLC_COLTEXTSTATUS)
 	{
-		SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
-		SetItemText(index, nCol++, buf);
+		if (entry->isNested)
+		{
+			CString sTemp(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
+			SetItemText(index, nCol++, sTemp);			
+		}
+		else
+		{
+			SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			SetItemText(index, nCol++, buf);
+		}
 	}
 	if (m_dwColumns & SVNSLC_COLPROPSTATUS)
 	{
@@ -2177,6 +2209,9 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 				crText = GetSysColor(COLOR_WINDOWTEXT);
 				break;
 			}
+			if (entry->isNested)
+				crText = CUtils::MyColor(CUtils::MyColors::GREEN);
+
 			// Store the color back in the NMLVCUSTOMDRAW struct.
 			pLVCD->clrText = crText;
 		}
