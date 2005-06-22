@@ -1,19 +1,32 @@
 @echo off
+
+if [%1]==[--help] (
+  echo.
+  echo Usage: %0 [--spellcheck] [Language]
+  echo.
+  echo Translates docs into the given Language where Language is the ISO-639-1 language code.
+  echo If no language is given, all .po files in the po directory are used for translation.
+  echo.
+  echo   --spellcheck       Uses aspell to spellcheck the translation.
+  exit /B
+)
+
+
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 rem BEWARE, this may cause a "line too long" error if called repeatedly from the same dos box
 rem Try to check, whether these vars are already set
 if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
-
 if "%IGNORELIST%"=="" call IgnoreList.bat
 
-SET LOGFILE=translatelog.txt
+set SPELL=0
+if [%1]==[--spellcheck] (
+  set SPELL=1
+  shift
+)
 
-copy %LOGFILE% %LOGFILE%.bak
-echo.>%LOGFILE%
-
-if "%1"=="" (
+if [%1]==[] (
   FOR %%L IN (po\*.po) DO (
     CALL :doit %%~nL
   )
@@ -25,14 +38,29 @@ Goto :EOF
 rem | End of Batch execution -> Exit script
 rem +----------------------------------------------------------------------
 
+
+rem +----------------------------------------------------------------------
+rem | Main subroutine
+
 :doit
+
 echo.
-echo Translating: %1
-echo Ignoring: %IGNORELIST%
+echo Translating  : %1
+if %SPELL% EQU 1 (
+  echo Spellchecking: activated
+) else (
+  echo Spellchecking: off
+)
+echo Ignoring     : %IGNORELIST%
 echo.
+
 SET POFILE=po\%1.po
 SET SRCDIR=source\en
 SET TARGDIR=%~dp0source\%1
+SET LOGFILE=Translate_%1.log
+
+copy %LOGFILE% %LOGFILE%.bak >NUL
+echo.>%LOGFILE%
 
 rmdir /s /q %TARGDIR% > NUL
 mkdir %TARGDIR% > NUL
@@ -84,8 +112,10 @@ FOR %%F in (!CHAPTERS!) DO (
   rem Translate file
   xml2po.py -t %1.mo %SRCDIR%\%%F > %TARGDIR%\%%F
 
-  rem Run spellchecker on file. Uncomment if you don't want it.
-  aspell --mode=sgml --encoding=utf-8 -l -d %1 < %TARGDIR%\%%F >>%LOGFILE%
+  if %SPELL% EQU 1 (
+    rem Run spellchecker on file. Uncomment if you don't want it.
+    aspell --mode=sgml --encoding=utf-8 -l -d %1 < %TARGDIR%\%%F >>%LOGFILE%
+  )
 )
 
 del %1.mo
