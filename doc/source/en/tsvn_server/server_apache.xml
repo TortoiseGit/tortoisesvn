@@ -395,19 +395,41 @@ Require valid-user
 						pass the username to Subversion's AuthzSVNAccessFile 
 						module so that it can enforce more granular access 
 						based upon rules listed in the Subversion access file.
+						Note that paths are specified either as
+						<literal>repos:path</literal> or simply
+						<literal>path</literal>. If you don't specify a
+						particular repository, that access rule will apply to
+						all repositories under
+						<literal>SVNParentPath</literal>.
 						An example file would look like this:
 <screen>
 [groups]
-developers = user1,user2,user3,user4
-docs = user5,user6,user7
-#to allow everyone read access
+admin = john, kate
+devteam1 = john, rachel, sally
+devteam2 = kate, peter, mark
+docs = bob, jane, mike
+training = zak
+# Default access rule for ALL repositories
+# Everyone can read, admins can write, Dan German is excluded.
 [/]
 * = r
-#allow all developers complete access
-@developers = rw
-#give the doc people write access to the docs folder
-[/project/trunk/doc]
+@admin = rw
+dangerman =
+# Allow developers complete access to their project repos
+[proj1:/]
+@devteam1 = rw
+[proj2:/]
+@devteam2 = rw
+[bigproj:/]
+@devteam1 = rw
+@devteam2 = rw
+trevor = rw
+# Give the doc people write access to all the docs folders
+[/trunk/doc]
 @docs = rw
+# Give trainees write access in the training repository only
+[TrainingRepos:/]
+@training = rw
 </screen>
 					</para>
 				</listitem>
