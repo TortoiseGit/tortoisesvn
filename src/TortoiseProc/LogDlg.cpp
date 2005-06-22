@@ -79,6 +79,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DATETO, m_DateTo);
 	DDX_Control(pDX, IDC_FILTERCANCEL, m_cFilterCancelButton);
 	DDX_Control(pDX, IDC_FILTERICON, m_cFilterIcon);
+	DDX_Control(pDX, IDC_HIDEPATHS, m_cHidePaths);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -107,6 +108,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_FILTERCANCEL, OnBnClickedFiltercancel)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGLIST, OnLvnColumnclick)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGMSG, OnLvnColumnclickLogmsg)
+	ON_BN_CLICKED(IDC_HIDEPATHS, OnBnClickedHidepaths)
 END_MESSAGE_MAP()
 
 
@@ -133,6 +135,8 @@ BOOL CLogDlg::OnInitDialog()
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK);
 	m_LogList.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
+
+	m_cHidePaths.SetCheck(BST_INDETERMINATE);
 
 	m_LogList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
@@ -219,7 +223,8 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_MSGVIEW, ANCHOR(0, 40), ANCHOR(100, 90));
 	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
 	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
-	
+
+	AddAnchor(IDC_HIDEPATHS, BOTTOM_LEFT, BOTTOM_RIGHT);	
 	AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_LEFT);
 	AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
@@ -284,6 +289,21 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 			m_bNoDispUpdates = false;
 			m_LogMsgCtrl.SetRedraw(TRUE);
 			return;
+		}
+		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+		{
+			m_CurrentFilteredChangedArray.RemoveAll();
+			for (INT_PTR c = 0; c < m_currentChangedArray->GetCount(); ++c)
+			{
+				LogChangedPath * cpath = m_currentChangedArray->GetAt(c);
+				if (cpath == NULL)
+					continue;
+				if (m_currentChangedArray->GetAt(c)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+				{
+					m_CurrentFilteredChangedArray.Add(cpath);
+				}
+			}
+			m_currentChangedArray = &m_CurrentFilteredChangedArray;
 		}
 	}
 	else
@@ -2107,15 +2127,18 @@ void CLogDlg::OnNMCustomdrawLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 
 		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
-		if ((m_currentChangedArray)&&((m_currentChangedArray->GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)))
+		if ((m_cHidePaths.GetState() & 0x0003)==BST_INDETERMINATE)
 		{
-			if (m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
-				crText = GetSysColor(COLOR_GRAYTEXT);
-		}
-		else if (m_currentChangedPathList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
-		{
-			if (m_currentChangedPathList[pLVCD->nmcd.dwItemSpec].GetSVNPathString().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
-				crText = GetSysColor(COLOR_GRAYTEXT);
+			if ((m_currentChangedArray)&&((m_currentChangedArray->GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)))
+			{
+				if (m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+					crText = GetSysColor(COLOR_GRAYTEXT);
+			}
+			else if (m_currentChangedPathList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+			{
+				if (m_currentChangedPathList[pLVCD->nmcd.dwItemSpec].GetSVNPathString().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+					crText = GetSysColor(COLOR_GRAYTEXT);
+			}
 		}
 		// Store the color back in the NMLVCUSTOMDRAW struct.
 		pLVCD->clrText = crText;
@@ -2658,7 +2681,7 @@ BOOL CLogDlg::IsEntryInDateRange(int i)
 	return FALSE;
 }
 
-CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths /* = false */)
+CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths /* = false */, bool bUseFilter /* = true */)
 {
 	CTSVNPathList pathList;
 	if (m_sRepositoryRoot.IsEmpty() && (bRelativePaths == false))
@@ -2684,7 +2707,11 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 				if (!bRelativePaths)
 					path.SetFromSVN(m_sRepositoryRoot);
 				path.AppendPathString(cpath->sPath);
-				pathList.AddPath(path);
+				if ((!bUseFilter)||
+					((m_cHidePaths.GetState() & 0x0003)!=BST_CHECKED)||
+					(cpath->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0))
+					pathList.AddPath(path);
+				
 			}
 		}
 	}
@@ -2827,5 +2854,11 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 			return cpath2->lCopyFromRev > cpath1->lCopyFromRev;
 	}
 	return 0;
+}
+
+void CLogDlg::OnBnClickedHidepaths()
+{
+	FillLogMessageCtrl();
+	m_LogMsgCtrl.Invalidate();
 }
 

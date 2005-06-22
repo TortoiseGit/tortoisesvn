@@ -130,6 +130,7 @@ protected:
 	afx_msg void OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnColumnclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedNexthundred();
+	afx_msg void OnBnClickedHidepaths();
 	virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -158,7 +159,7 @@ private:
 	void SetFilterCueText();
 	BOOL IsEntryInDateRange(int i);
 	void CopySelectionToClipBoard();
-	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false);
+	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
     void SortShownListArray();
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
 	 
@@ -184,6 +185,7 @@ private:
 	BOOL				m_bStrict;
 	BOOL				m_bSaveStrict;
 	LogChangedPathArray * m_currentChangedArray;
+	LogChangedPathArray m_CurrentFilteredChangedArray;
 	CTSVNPathList		m_currentChangedPathList;
 	CPtrArray			m_arShownList;
 	BOOL				m_hasWC;
@@ -211,6 +213,7 @@ private:
 	static int			m_nSortColumnPathList;
 	static bool			m_bAscendingPathList;
 	CRegDWORD			m_regLastStrict;
+	CButton				m_cHidePaths;
 private:
     typedef struct LogEntryData
     {   

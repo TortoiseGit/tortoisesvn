@@ -254,7 +254,7 @@ BEGIN
                     131,392,96
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,227,392,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
-                    LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,231,392,77
+                    LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,231,392,67
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",NOT WS_VISIBLE | 
                     WS_BORDER,7,314,335,9
     PUSHBUTTON      "Statistics",IDC_STATBUTTON,349,312,50,14
@@ -266,6 +266,8 @@ BEGIN
     PUSHBUTTON      "&Next 100",IDC_NEXTHUNDRED,69,333,64,14
     CONTROL         "",IDC_FILTERICON,"Button",BS_OWNERDRAW | BS_ICON | 
                     BS_FLAT | WS_TABSTOP,392,0,14,14,WS_EX_TRANSPARENT
+    CONTROL         "Hide unrelated changed paths",IDC_HIDEPATHS,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,7,301,277,10
 END
 
 IDD_LOGPROMPT DIALOGEX 0, 0, 300, 279

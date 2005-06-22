@@ -27,6 +27,8 @@
 - NEW: Nested layouts are shown in the 'Check for Modifications' dialog
        to easier spot accidental moves/copies without using the TSVN
        commands for that. (Stefan)
+- NEW: The log dialog can now hide/grey changed paths which aren't part
+       of the item for which the log is shown. See issue #68. (Stefan)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - CHG: Merge dialog: if the 'use from url' is activated, the 'show log'
