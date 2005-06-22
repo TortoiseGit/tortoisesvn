@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-21 14:17+0100\n"
+"PO-Revision-Date: 2005-06-22 10:47+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2588,13 +2588,18 @@ msgstr "Vielleicht möchten Sie manchmal direkt im Projektarchiv Änderungen vor
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:21
 #: (para)
-msgid "On the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
-msgstr "Ganz oben im Fenster können Sie die URL des Projektarchivs angeben und auch die Revision, welche Sie im Projektarchiv ansehen möchten. Eine ältere Revision im Projektarchiv anzuzeigen ist vor allem dann sehr nützlich, wenn Sie eine alte, gelöschte Datei wiederherstellen möchten. Benutzen Sie dazu den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Kopieren nach...</guimenuitem> </menuchoice> und geben Sie im Dialog dann den vollständigen Pfad in Ihrer Arbeitskopie an, in dem die gelöschte Datei wiederhergestellt werden soll."
+msgid "At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
+msgstr "Ganz oben im Fenster können Sie die URL des Projektarchivs angeben und die Revision, die Sie ansehen möchten. Eine ältere Revision im Projektarchiv anzuzeigen ist vor allem dann sehr nützlich, wenn Sie eine alte, gelöschte Datei wiederherstellen möchten. Benutzen Sie dazu den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Kopieren nach...</guimenuitem> </menuchoice> und geben Sie im Dialog dann den vollständigen Pfad in Ihrer Arbeitskopie an, in dem die gelöschte Datei wiederhergestellt werden soll."
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:33
 #: (para)
+msgid "If you select two items, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool. This can be particularly useful for comparing two tags to see what changed."
+msgstr "Wenn Sie zwei Einträge markieren, können Sie sich die Unterschiede entweder als Standard-Diff oder als Liste der Dateien anzeigen lassen, die Sie dann einzeln miteinander vergleichen. Diese Funktion ist sehr nützlich, wenn Sie z.B. herausfinden wollen, was sich zwischen zwei Markierungen geändert hat."
+
+#: source/en/tsvn_dug/dug_repobrowser.xml:39
+#: (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
-msgstr "Sie können den Prpjektarchiv-Betrachter auch für <action>drag-and-drop</action> Aktionen verwenden. Wenn Sie eine Datei aus dem Explorer in den Projektarchiv-Betrachter ziehen, wird sie in das Projektarchiv importiert. Wenn Sie auf diese Weise mehrere Objekte gleichzeitige importieren, wird jedes Objekt in einer eigenen Revision importiert."
+msgstr "Sie können den Projektarchiv-Betrachter auch für <action>Ziehen und Loslassen</action> Aktionen verwenden. Wenn Sie eine Datei aus dem Explorer in den Projektarchiv-Betrachter ziehen, wird sie in das Projektarchiv importiert. Wenn Sie auf diese Weise mehrere Objekte gleichzeitige importieren, wird jedes Objekt in einer eigenen Revision importiert."
 
 #: source/en/tsvn_dug/dug_rename.xml:3
 #: (title)
@@ -2661,7 +2666,7 @@ msgstr "Wählen Sie den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <gui
 #: source/en/tsvn_dug/dug_rename.xml:37
 #: (para)
 msgid "If you want to move files inside a working copy, use the drag-and-drop handler again: <placeholder-1/>"
-msgstr "Wenn Sie Dateien innerhalb Ihrer Arbeitskopie verschieben möchten, können ebenfalls den drag-and-drop Handler verwenden: <placeholder-1/>"
+msgstr "Wenn Sie Dateien innerhalb Ihrer Arbeitskopie verschieben möchten, können ebenfalls die <action>Ziehen und Loslassen</action> Funktion verwenden: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_rename.xml:68
 #: (para)
@@ -2671,7 +2676,7 @@ msgstr "Wenn eine <emphasis>Datei</emphasis> über den Explorer anstelle des Tor
 #: source/en/tsvn_dug/dug_rename.xml:82
 #: (para)
 msgid "If a <emphasis>folder</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, your working copy will be broken and you will be unable to commit. If you update your working copy, Subversion will replace the missing folder with the latest version from the repository and you can then delete it the correct way using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>."
-msgstr "Wenn ein <emphasis>Ordner</emphasis> über den Explorer anstelle des TortoiseSVN Menüs gelöscht wird, bschädigt das Ihre Arbeitskopie und sie können nicht mehr übertragen. Wenn Sie Ihre Arbeitskopie aktualisieren, wird Subversion den fehlenden Ordner wieder durch die neueste Version aus dem Projektarchiv ersetzen. Sie können den Ordner dann auf die korrekte Art mittels  <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Löschen</guimenuitem> </menuchoice> entfernen."
+msgstr "Wenn ein <emphasis>Ordner</emphasis> über den Explorer anstelle des TortoiseSVN Menüs gelöscht wird, beschädigt das Ihre Arbeitskopie und sie können nicht mehr übertragen. Wenn Sie Ihre Arbeitskopie aktualisieren, wird Subversion den fehlenden Ordner wieder durch die neueste Version aus dem Projektarchiv ersetzen. Sie können den Ordner dann auf die korrekte Art mittels  <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Löschen</guimenuitem> </menuchoice> entfernen."
 
 #: source/en/tsvn_dug/dug_rename.xml:95
 #: (title)
@@ -3240,87 +3245,92 @@ msgstr "Der Sperren-Dialog"
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
 msgstr "Markieren Sie die Datei(en) in Ihrer Arbeitskopie, für die Sie eine Sperre erhalten möchten und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Sperre holen...</guimenuitem> </menuchoice>. <placeholder-1/> Ein Dialog erscheint, in dem Sie einen Sperrkommentar eingeben können, damit andere wissen, warum Sie die Datei für sich reservieren. Der Kommentar ist optional und wird derzeit nur bei svnserve basierten Projektarchiven genutzt. Wenn (und <emphasis>nur</emphasis> wenn) sie eine Sperre von jemand anderem stehlen wollen, markieren Sie die <guilabel>Sperren stehlen</guilabel> Option bevor Sie auf <guibutton>OK</guibutton> klicken."
 
-#: source/en/tsvn_dug/dug_locking.xml:115
+#: source/en/tsvn_dug/dug_locking.xml:113
+#: (para)
+msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> subfolder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
+msgstr "Wenn Sie einen Ordner markieren und <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Sperre Holen...</guimenuitem> </menuchoice> aufrufen, wird der Sperr-Dialog mit <emphasis>jeder</emphasis> Datei in <emphasis>jedem</emphasis> Unterordner, zum Sperren markiert, geöffnet. Wenn Sie wirklich eine ganze Ordnerstruktur sperren wollen, ist das der richtige Weg das zu erreichen. Sie können sich damit allerdings bei Ihren Kollegen sehr unbeliebt machen, wenn Sie diese aus dem gesamten Projekt aussperren..."
+
+#: source/en/tsvn_dug/dug_locking.xml:127
 #: (title)
 msgid "Releasing a Lock"
 msgstr "Eine Sperre freigeben"
 
-#: source/en/tsvn_dug/dug_locking.xml:116
+#: source/en/tsvn_dug/dug_locking.xml:128
 #: (para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
 msgstr "Um sicherzustellen, dass Sie nicht vergessen, Sperren freizugeben, werden gesperrte Dateien im Übertragen Dialog angezeigt und sind standardmäßig gewählt. Wenn Sie die Übertragung durchführen, werden die Sperren der markierten Dateien freigegeben, auch wenn die Dateien selbst sich nicht geändert haben. Wenn Sie die Dateisperren nicht freigeben wollen, können Sie die entsprechenden Dateien abwählen, vorausgesetzt, dass sie nicht modifiziert sind. Wenn Sie die Sperre für veränderte Dateien behalten wollen, müssen Sie vor der Übertragung die <guilabel>Sperren behalten</guilabel> Option markieren."
 
-#: source/en/tsvn_dug/dug_locking.xml:127
-#: (para)
-msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks."
-msgstr "Um eine Sperre von Hand freizugeben, markieren Sie die gewünschten Datei(en) in Ihrer Arbeitskopie und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Sperre freigeben</guimenuitem> </menuchoice>. TortoiseSVN wird das Projektarchiv kontaktieren und die Sperren dort freigeben."
-
 #: source/en/tsvn_dug/dug_locking.xml:139
+#: (para)
+msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
+msgstr "Um eine Sperre von Hand freizugeben, markieren Sie die gewünschten Datei(en) in Ihrer Arbeitskopie und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Sperre freigeben</guimenuitem> </menuchoice>. TortoiseSVN wird das Projektarchiv kontaktieren und die Sperren dort freigeben. Sie können diesen Befehl auch für einen Ordner aufrufen, um alle Sperren rekursiv freizugeben."
+
+#: source/en/tsvn_dug/dug_locking.xml:152
 #: (title)
 msgid "Checking Lock Status"
 msgstr "Den Sperrstatus prüfen"
 
-#: source/en/tsvn_dug/dug_locking.xml:142
+#: source/en/tsvn_dug/dug_locking.xml:155
 #: (title)
 msgid "The Check for Modifications Dialog"
 msgstr "Auf Änderungen überprüfen"
 
-#: source/en/tsvn_dug/dug_locking.xml:140
+#: source/en/tsvn_dug/dug_locking.xml:153
 #: (para)
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
 msgstr "<placeholder-1/> Um zu sehen, welche Sperren Sie oder andere Personen besitzen, können Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen prüfen...</guimenuitem> </menuchoice> aufrufen. Lokale Sperren werden sofort angezeigt. Damit Sie sehen können, welche Sperren von anderen gehalten werden und um festzustellen, ob Ihre Sperren aufgebrochen oder gestohlen wurden, müssen Sie <guibutton>Projektarchiv prüfen</guibutton> wählen."
 
-#: source/en/tsvn_dug/dug_locking.xml:155
+#: source/en/tsvn_dug/dug_locking.xml:168
 #: (para)
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
 msgstr "Aus dem Kontextmenü dieses Dialogs heraus können Sie Sperren holen oder freigeben und auch Sperren von anderen stehlen oder aufbrechen."
 
-#: source/en/tsvn_dug/dug_locking.xml:160
+#: source/en/tsvn_dug/dug_locking.xml:173
 #: (title)
 msgid "Avoid Breaking and Stealing Locks"
 msgstr "Vermeiden Sie es Sperren aufzubrechen oder zu stehlen"
 
-#: source/en/tsvn_dug/dug_locking.xml:161
+#: source/en/tsvn_dug/dug_locking.xml:174
 #: (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
 msgstr "Wenn Sie die Sperre eines Kollegen stehlen oder aufbrechen, ohne ihm dies mitzuteilen, können Sie doppelte Arbeit verursachen. Falls Sie mit nicht zusammenführbaren Dateien arbeiten und eine Sperre stehlen, kann derjenige der die Sperre vorher besaß Ihre Daten überschreiben, sobald Sie die Sperre freigeben. Subversion verliert zwar keine Daten, aber Sie haben den gegenseitigen Schutz bei de Zusammenarbeit, den Sperren bieten, verloren."
 
-#: source/en/tsvn_dug/dug_locking.xml:173
+#: source/en/tsvn_dug/dug_locking.xml:186
 #: (title)
 msgid "Making Non-locked Files Read-Only"
 msgstr "Nicht gesperrte Dateien mit Schreibschutz versehen"
 
-#: source/en/tsvn_dug/dug_locking.xml:174
+#: source/en/tsvn_dug/dug_locking.xml:187
 #: (para)
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
 msgstr "Wie bereits erwähnt ist der einfachste Weg dazu, die <literal>svn:needs-lock</literal> Eigenschaft der Datei zu setzen. Lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/>, um zu erfahren, wie man Eigenschaften setzt. Dateien mit dieser Eigenschaft werden beim Aktualisieren und Auschecken stets mit einem Schreibschutz versehen, wenn die Arbeitskopie keine Sperre für die Datei besitzt. <graphic fileref=\"images/ReadOnlyIcon.png\"/> Als Erinnerung zeigt TortoiseSVN dieses Symbol dafür an."
 
-#: source/en/tsvn_dug/dug_locking.xml:184
+#: source/en/tsvn_dug/dug_locking.xml:197
 #: (para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
 msgstr "Wenn Sie ein Entwicklungsverfahren nutzen, das stets Dateisperren erfordert, ist es einfacher Subversions <literal>auto-props</literal> Eigenschaft zu nutzen, um die Dateieigenschaften automatisch zu setzen, sobald Sie Dateien zum Projektarchiv hinzufügen. Lesen Sie <xref linkend=\"tsvn-DUG-settings\"/> für weitere Information."
 
-#: source/en/tsvn_dug/dug_locking.xml:192
+#: source/en/tsvn_dug/dug_locking.xml:205
 #: (title)
 msgid "The Locking Hook Scripts"
 msgstr "Aktionsskripte für Sperren"
 
-#: source/en/tsvn_dug/dug_locking.xml:193
+#: source/en/tsvn_dug/dug_locking.xml:206
 #: (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
 msgstr "Wenn Sie ein neues Projektarchiv mit Subversion 1.2 anlegen, werden vier Schablonen für Aktionsskripte im <filename>hooks</filename> Verzeichnis des Projektarchivs angelegt. Diese Aktionsskripte werden aufgerufen, bevor und nachdem eine Sperre geholt, bzw. freigegeben wird."
 
-#: source/en/tsvn_dug/dug_locking.xml:199
+#: source/en/tsvn_dug/dug_locking.xml:212
 #: (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
 msgstr "Es ist eine gute Idee, ein <literal>post-lock</literal> und ein <literal>post-unlock</literal> Aktionsskript auf dem Server zu installieren, die eine Benachrichtigungs e-mail verschicken. Mit solch einem Skript können alle betroffenen Personen darüber informiert werden, wenn eine Datei gesperrt wurde. Sie finden ein Beispiel <filename>hooks/post-lock.tmpl</filename> Skript in Ihrem Projektarchiv."
 
-#: source/en/tsvn_dug/dug_locking.xml:207
+#: source/en/tsvn_dug/dug_locking.xml:220
 #: (para)
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
 msgstr "Vielleicht möchten Sie mit Aktionsskripten auch verhindern, dass jemand Sperren stiehlt oder aufbricht oder Sie möchten diese Möglichkeit auf Administratoren beschränken. Sie können mit einem Skript auch den Eigner der Sperre per e-mail darüber informieren, wenn seine Sperre gestohlen wurde."
 
-#: source/en/tsvn_dug/dug_locking.xml:213
+#: source/en/tsvn_dug/dug_locking.xml:226
 #: (para)
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
 msgstr "Lesen Sie <xref linkend=\"tsvn-repository-hooks\"/> für weitere Informationen."
@@ -3687,12 +3697,12 @@ msgstr "<placeholder-1/> Alle Befehle von TortoiseSVN werden über das Kontextme
 #: source/en/tsvn_dug/dug_general.xml:21
 #: (title)
 msgid "Drag and Drop"
-msgstr "Drag und Drop"
+msgstr "Ziehen und Loslassen"
 
 #: source/en/tsvn_dug/dug_general.xml:23
 #: (primary)
 msgid "drag handler"
-msgstr "drag handler"
+msgstr "Drag and Drop"
 
 #: source/en/tsvn_dug/dug_general.xml:26
 #: (primary)
@@ -3707,7 +3717,7 @@ msgstr "Rechts-Zieh-Menü für einen Ordner unter Versionskontrolle"
 #: source/en/tsvn_dug/dug_general.xml:28
 #: (para)
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
-msgstr "<placeholder-1/> Andere Befehle sind als Drag-Handler vorhanden. Wenn Sie Dateien oder Ordner innerhalb einer Arbeitskopie <action>Rechts-Ziehen</action> oder wenn Sie eine nicht versionskontrollierte Datei in eine Arbeitskopie <action>Rechts-Ziehen</action>."
+msgstr "<placeholder-1/> Andere Befehle sind als <action>Ziehen und Loslassen</action> Funktion vorhanden. Wenn Sie Dateien oder Ordner innerhalb einer Arbeitskopie <action>Rechts-Ziehen</action> oder wenn Sie eine nicht versionskontrollierte Datei in eine Arbeitskopie <action>Rechts-Ziehen</action>."
 
 #: source/en/tsvn_dug/dug_general.xml:42
 #: (primary)
@@ -4675,7 +4685,7 @@ msgstr "Wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Da
 #: source/en/tsvn_dug/dug_add.xml:40
 #: (para)
 msgid "To add files from outside your working copy you can use the drag-and-drop handler: <placeholder-1/>"
-msgstr "Wenn Sie Dateien von außerhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie hinzufügen möchten, können Sie auch den drag-and-drop Handler verwenden: <placeholder-1/>"
+msgstr "Wenn Sie Dateien von außerhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie hinzufügen möchten, können Sie auch die <action>Ziehen und Loslassen</action> Funktion verwenden: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug.xml:3
 #: (title)
@@ -5923,7 +5933,7 @@ msgstr "Gemeinsame Projekte"
 #: source/en/tsvn_app_howto.xml:305
 #: (para)
 msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
-msgstr "Manchmal ist es notwendig, ein anderes Projekt in Ihre Arbeitskopie einzubinden, zum Beispiel ein externes library. Sie möchten aber keine Kopie davon in Ihr Projektarchiv aufnehmen da Sie dann die Verbindung zum Original verlieren. Oder Sie haben mehrere Projekte welche Code-Teile gemeinsam haben.Es gibt mindestens 3 verschiedene Wege um diese Situation zu meistern."
+msgstr "Manchmal ist es notwendig, ein anderes Projekt in Ihre Arbeitskopie einzubinden, zum Beispiel eine externe Bibliothek. Sie möchten aber keine Kopie davon in Ihr Projektarchiv aufnehmen, da Sie dann die Verbindung zum Original verlieren. Oder Sie haben mehrere Projekte welche Code-Teile gemeinsam haben.Es gibt mindestens drei verschiedene Wege um diese Situation zu meistern."
 
 #: source/en/tsvn_app_howto.xml:315
 #: (title)
