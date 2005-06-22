@@ -52,7 +52,7 @@ void CSVNStatusCache::Create()
 		if (!PathIsDirectory(path))
 			CreateDirectory(path, NULL);
 		_tcscat(path, _T("\\cache"));
-		hFile = CreateFile(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+		hFile = CreateFile(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
 		if (hFile != INVALID_HANDLE_VALUE)
 		{
 			LOADVALUEFROMFILE(value);
@@ -104,13 +104,13 @@ bool CSVNStatusCache::SaveCache()
 	HANDLE hFile;
 	// find a location to write the cache to
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
-	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
+	if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
 	{
 		_tcscat(path, _T("\\TSVNCache"));
 		if (!PathIsDirectory(path))
 			CreateDirectory(path, NULL);
 		_tcscat(path, _T("\\cache"));
-		hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+		hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL | FILE_ATTRIBUTE_NOT_CONTENT_INDEXED | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
 		if (hFile != INVALID_HANDLE_VALUE)
 		{
 			value = 0;		// 'version'
@@ -119,7 +119,7 @@ bool CSVNStatusCache::SaveCache()
 			WRITEVALUETOFILE(value);
 			for (CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin(); I != m_pInstance->m_directoryCache.end(); ++I)
 			{
-				CString key = I->first.GetWinPathString();
+				const CString& key = I->first.GetWinPathString();
 				value = key.GetLength();
 				WRITEVALUETOFILE(value);
 				if (value)

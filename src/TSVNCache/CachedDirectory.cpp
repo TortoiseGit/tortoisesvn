@@ -41,7 +41,7 @@ BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
 	// now iterate through the maps and save every entry.
 	for (CacheEntryMap::iterator I = m_entryCache.begin(); I != m_entryCache.end(); ++I)
 	{
-		CString key = I->first;
+		const CString& key = I->first;
 		value = key.GetLength();
 		WRITEVALUETOFILE(value);
 		if (value)
@@ -56,7 +56,7 @@ BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
 	WRITEVALUETOFILE(value);
 	for (ChildDirStatus::iterator I = m_childDirectories.begin(); I != m_childDirectories.end(); ++I)
 	{
-		CString path = I->first.GetWinPathString();
+		const CString& path = I->first.GetWinPathString();
 		value = path.GetLength();
 		WRITEVALUETOFILE(value);
 		if (value)
