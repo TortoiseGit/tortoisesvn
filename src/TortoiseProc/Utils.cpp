@@ -888,6 +888,8 @@ COLORREF CUtils::MyColor(int nIndex)
 				return RGB(255, 0, 0);
 			case MyColors::GREEN:
 				return RGB(0, 100, 0);
+			case MyColors::PURPLE:
+				return RGB(100, 0, 100);
 		}
 	}	
 	return GetSysColor(COLOR_WINDOWTEXT);

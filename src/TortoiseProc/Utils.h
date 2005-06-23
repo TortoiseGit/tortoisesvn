@@ -178,7 +178,8 @@ public:
 		BLUE = 0,
 		BROWN,
 		RED,
-		GREEN
+		GREEN,
+		PURPLE
 	};
 	static COLORREF MyColor(int nIndex);
 };

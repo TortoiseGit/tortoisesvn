@@ -141,11 +141,11 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_update_add:
 		m_bMergesAddsDeletesOccurred = true;
 		data->sActionColumnText.LoadString(IDS_SVNACTION_ADD);
-		data->color = CUtils::MyColor(CUtils::MyColors::BLUE);
+		data->color = CUtils::MyColor(CUtils::MyColors::PURPLE);
 		break;
 	case svn_wc_notify_commit_added:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
-		data->color = CUtils::MyColor(CUtils::MyColors::BLUE);
+		data->color = CUtils::MyColor(CUtils::MyColors::PURPLE);
 		break;
 	case svn_wc_notify_copy:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_COPY);
