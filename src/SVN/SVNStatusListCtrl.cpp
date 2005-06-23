@@ -2191,11 +2191,12 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 
 			// coloring
 			// ========
-			// black : unversioned, normal
+			// black  : unversioned, normal
 			// purple : added
-			// brown : missing, deleted, replaced
-			// green : merged (or potential merges)
-			// red : conflicts or sure conflicts
+			// blue   : modified
+			// brown  : missing, deleted, replaced
+			// green  : merged (or potential merges)
+			// red    : conflicts or sure conflicts
 			switch (entry->status)
 			{
 			case svn_wc_status_added:
