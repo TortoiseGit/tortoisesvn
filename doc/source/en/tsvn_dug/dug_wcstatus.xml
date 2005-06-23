@@ -189,6 +189,51 @@
 			updating the whole folder.
 		</para>
 		<para>
+			The dialog uses colour coding to highlight the status.
+			<variablelist>
+				<varlistentry>
+					<term>Blue</term>
+					<listitem>
+						Locally modified items.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Purple</term>
+					<listitem>
+						Added items.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Dark red</term>
+					<listitem>
+						Deleted or missing items.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Green</term>
+					<listitem>
+						Items modified locally and in the repository.
+						The changes will be merged on update.
+						These <emphasis>may</emphasis> produce conflicts on update.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Bright red</term>
+					<listitem>
+						Items modified locally and deleted in repository,
+						or modified in repository and deleted locally.
+						These <emphasis>will</emphasis> produce conflicts on update.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Black</term>
+					<listitem>
+						Unchanged and unversioned items.
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+		<para>
 			From the context menu of the dialog you can show a diff of the
 			changes. Check the local changes <emphasis>you</emphasis> made using
 			<menuchoice>

@@ -31,7 +31,7 @@
 		update actions
 		<variablelist>
 			<varlistentry>
-				<term>Blue</term>
+				<term>Purple</term>
 				<listitem>
 					New item added to your WC.
 				</listitem>
@@ -39,7 +39,8 @@
 			<varlistentry>
 				<term>Dark red</term>
 				<listitem>
-					Redundant item deleted from your WC.
+					Redundant item deleted from your WC,
+					or missing item replaced in your WC.
 				</listitem>
 			</varlistentry>
 			<varlistentry>
@@ -59,7 +60,8 @@
 			<varlistentry>
 				<term>Black</term>
 				<listitem>
-					All other items.
+					Unchanged item in your WC updated with newer version
+					from the repository.
 				</listitem>
 			</varlistentry>
 		</variablelist>
