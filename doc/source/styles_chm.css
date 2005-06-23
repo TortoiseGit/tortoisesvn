@@ -68,21 +68,17 @@ div.figure p {
 
 div.navheader, 
 div.navfooter {
-	background-color: #809BC8;
-	color: white;
-	clear: both;
+  background-color: #809BC8;
+  color: white;
+  clear: both;
+  border: 1px solid black;
+  border-left: 0;
+  border-right: 0;
 }
 
 div.navheader table th {
 	font-size: medium;
 }
-
-div.navheader table, 
-div.navfooter table {
-    border: 1px solid black;
-    border-left: 0;
-    border-right: 0;
-  }
 
 /* normal text in the footer */
 div.navfooter table td {
