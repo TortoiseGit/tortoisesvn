@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-22 10:47+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-06-23 10:11+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -486,33 +486,67 @@ msgstr ""
 msgid ""
 "Using a <filename>passwd</filename> file limits and grants access to all of your repositories as a unit. If you want more control over which users have access each folder inside a repository you can uncomment the line <screen>\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
-"</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's AuthzSVNAccessFile module so that it can enforce more granular access based upon rules listed in the Subversion access file. An example file would look like this: <screen>\n"
+"</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's AuthzSVNAccessFile module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. An example file would look like this: <screen>\n"
 "[groups]\n"
-"developers = user1,user2,user3,user4\n"
-"docs = user5,user6,user7\n"
-"#to allow everyone read access\n"
+"admin = john, kate\n"
+"devteam1 = john, rachel, sally\n"
+"devteam2 = kate, peter, mark\n"
+"docs = bob, jane, mike\n"
+"training = zak\n"
+"# Default access rule for ALL repositories\n"
+"# Everyone can read, admins can write, Dan German is excluded.\n"
 "[/]\n"
 "* = r\n"
-"#allow all developers complete access\n"
-"@developers = rw\n"
-"#give the doc people write access to the docs folder\n"
-"[/project/trunk/doc]\n"
+"@admin = rw\n"
+"dangerman =\n"
+"# Allow developers complete access to their project repos\n"
+"[proj1:/]\n"
+"@devteam1 = rw\n"
+"[proj2:/]\n"
+"@devteam2 = rw\n"
+"[bigproj:/]\n"
+"@devteam1 = rw\n"
+"@devteam2 = rw\n"
+"trevor = rw\n"
+"# Give the doc people write access to all the docs folders\n"
+"[/trunk/doc]\n"
 "@docs = rw\n"
+"# Give trainees write access in the training repository only\n"
+"[TrainingRepos:/]\n"
+"@training = rw\n"
 "</screen>"
 msgstr ""
 "Mit einer <filename>passwd</filename> Datei können Sie den Zugriff auf alle Ihre Projektarchive zentral steuern.Wenn Sie genau einstellen wollen, welche Benutzer / Gruppen welche Berechtigungen in Ihren Projektarchiven haben sollen, entfernen Sie das Kommentarzeichen vor\n"
-"<screen>#AuthzSVNAccessFile svnaccessfile</screen> und legen Sie die Subversion Zugriffsdatei <filename>svnaccessfile</filename>an. Apache stellt sicher, dass nur angemeldete Benutzer auf Ihre <filename>/svn</filename> Location zugreifen können und wird dann den Benutzernamen an Subversions AuthzSVNAccessFile Module weiterreichen, das die Benutzerrechte fein gegliedert anhand der Subversion Zugriffsdatei steuert. Eine Beispieldatei:\n"
+"<screen>#AuthzSVNAccessFile svnaccessfile</screen> und legen Sie die Subversion Zugriffsdatei <filename>svnaccessfile</filename>an. Apache stellt sicher, dass nur angemeldete Benutzer auf Ihre <filename>/svn</filename> Location zugreifen können und wird dann den Benutzernamen an das Subversion AuthzSVNAccessFile Modul weiterreichen, das die Benutzerrechte fein gegliedert anhand der Regeln in der Subversion Zugriffsdatei steuert. Beachten Sie, dass die Pfade entweder als <literal>Projektachiv:Pfad</literal> oder einfach als <literal>Pfad</literal> angegeben werden. Eine Beispieldatei:\n"
 "<screen>[groups]\n"
-"Entwickler = user1,user2,user3,user4\n"
-"Doku = user5,user6,user7\n"
-"#Jeder erhält Lesezugriff\n"
+"Admin = john, kate\n"
+"Entwickler1 = john, rachel, sally\n"
+"Entwickler2 = kate, peter, mark\n"
+"Doku = bob, jane, mike\n"
+"Training = zak\n"
+"# Standardzugriffsrechte für alle Projektarchive\n"
+"# Jeder erhält Lesezugriff, Admins können schreiben,\n"
+"# Karl Napf wird ausgeschlossen\n"
 "[/]\n"
 "* = r\n"
-"#Die Gruppe Entwickler erhält Vollzugriff\n"
-"@Entwickler = rw\n"
-"#Die Doku Gruppe erhält Vollzugriff auf das doc Unterverzeichnis\n"
-"[/project/trunk/doc]\n"
+"@Admin = rw\n"
+"karlnapf =\n"
+"# Die Entwickler erhalten Vollzugriff auf ihre Projektarchive\n"
+"# Hans Dampf arbeitet bei dem großen Projekt noch mit\n"
+"[Projekt1:/]\n"
+"@Entwickler1 = rw\n"
+"[Projekt2:/]\n"
+"@Entwickler2 = rw\n"
+"[Riesenprojekt:/]\n"
+"@Entwickler1 = rw\n"
+"@Entwickler2 = rw\n"
+"hansdampf = rw\n"
+"#Die Doku Gruppe erhält Vollzugriff auf die doc Unterverzeichnise\n"
+"[/trunk/doc]\n"
 "@Doku = rw\n"
+"# Anfänger dürfen nur im Training Projektarchiv wüten\n"
+"[TrainingRepos:/]\n"
+"@Training = rw\n"
 "</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:286
@@ -555,42 +589,42 @@ msgstr ""
 "</row></tbody></tgroup></table>\n"
 "Aber das ist nur ein Beispiel. Der Apache Web-Server bietet Ihnen viele weiter Möglichkeiten. <placeholder-2/>"
 
-#: source/en/tsvn_server/server_apache.xml:417
+#: source/en/tsvn_server/server_apache.xml:439
 #: (title)
 msgid "Use SVNParentPath"
 msgstr "Nutzen Sie SVNParentPath"
 
-#: source/en/tsvn_server/server_apache.xml:419
+#: source/en/tsvn_server/server_apache.xml:441
 #: (primary)
 msgid "SVNParentPath"
 msgstr "SVNParentPath"
 
-#: source/en/tsvn_server/server_apache.xml:421
+#: source/en/tsvn_server/server_apache.xml:443
 #: (para)
 msgid "If you used the SVNParentPath directive then you don't have to change the Apache config file everytime you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
 msgstr "Wenn Sie die <literal>SVNParentPath</literal>-Direktive benutzt haben, brauchen Sie die Apache-Konfigurationsdatei nicht jedes mal zu ändern, wenn Sie ein neues Subversion-Projektarchiv erstellt haben. Erstellen Sie das neue Projektarchiv einfach an der gleichen Stelle wie das erste Projektarchiv und Sie sind fertig! In meiner Firma habe ich über SMB (normaler Windows-Dateizugriff) direkten Zugriff auf diesen speziellen Ordner auf dem Server. Also erstelle ich dort einfach einen neuen Ordner, führe den TortoiseSVN-Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Projektarchiv hier erstellen...</guimenuitem></menuchoice> aus und ein neues Projekt hat ein Zuhause..."
 
-#: source/en/tsvn_server/server_apache.xml:437
+#: source/en/tsvn_server/server_apache.xml:459
 #: (title)
 msgid "Index of projects under SVNParentPath"
 msgstr "Index der Projekte unter SVNParentPath"
 
-#: source/en/tsvn_server/server_apache.xml:439
+#: source/en/tsvn_server/server_apache.xml:461
 #: (primary)
 msgid "Index of projects"
 msgstr "Index der Projekte"
 
-#: source/en/tsvn_server/server_apache.xml:441
+#: source/en/tsvn_server/server_apache.xml:463
 #: (para)
 msgid "The advantage of using the SVNParentPath directive is that you don't have to change the Apache config each time you create a new repository, but you also don't have an index of all created and available projects. If you point your browser to the path SVNParentPath points to, you will get a nasty error page showing."
 msgstr "Der Vorteil davon, die <literal>SVNParentPath</literal>-Direktive zu benutzen, ist, dass Sie die Apache-Konfigurationsdatei nicht jedes mal ändern müssen, wenn Sie ein neues Projektarchiv erstellen, aber Sie haben auch keinen Index aller erstellten und verfügbaren Projektarchive. Wenn Sie mit Ihrem Web-Browser den Pfad öffnen, auf den SVNParentPath zeigt, erhalten Sie eine hässliche Fehlerseite."
 
-#: source/en/tsvn_server/server_apache.xml:449
+#: source/en/tsvn_server/server_apache.xml:471
 #: (para)
 msgid "To avoid that ugly error page and have a nice looking listing of all available projects instead, you can use the following PHP script which generates the index for you automatically. (You will need to install PHP on your server in order to use the below file)."
 msgstr "Um diese hässliche Fehlerseite zu vermeiden und stattdessen eine gut aussehende Liste aller verfügbaren Projekte zu erhalten, können Sie das folgende PHP-Skript benutzen, das den Index automatisch für Sie erstellt. (Sie müssen PHP auf Ihrem Server installieren, um die unten stehende Datei zu benutzen)."
 
-#: source/en/tsvn_server/server_apache.xml:509
+#: source/en/tsvn_server/server_apache.xml:531
 #: (para)
 msgid ""
 "Uncomment (remove the '#' char) from the following line in your Apache config file: <screen>\n"
@@ -600,7 +634,7 @@ msgstr ""
 "Entfernen Sie das Kommentarzeichen (<literal>'#'</literal>) aus der folgenden Zeile Ihrer Apache Konfigurationsdatei:\n"
 "<screen>#LoadModule rewrite_module modules/mod_rewrite.so</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:518
+#: source/en/tsvn_server/server_apache.xml:540
 #: (para)
 msgid ""
 "Add the following lines just below your &lt;Location&gt; block where you define your Subversion stuff: <screen>\n"
@@ -618,47 +652,47 @@ msgstr ""
 "    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
 "</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:503
+#: source/en/tsvn_server/server_apache.xml:525
 #: (para)
 msgid "Save the lines above to a file <filename>svn_index.php</filename> and store that file in your web root folder. Next you have to tell Apache to show that page instead of the error: <placeholder-1/>"
 msgstr "Speichen Sie die oben stehenden Zeilen in <filename>svn_index.php</filename> und legen Sie diese Datei im <literal>DocRoot</literal> Ihres Web-Servers ab. Als nächstes müssen Sie URLs, die zu einer Fehlermeldung führen, auf diese Datei umleiten: <placeholder-1/>"
 
-#: source/en/tsvn_server/server_apache.xml:534
+#: source/en/tsvn_server/server_apache.xml:556
 #: (title)
 msgid "Authentication With A Windows Domain"
 msgstr "Anmeldung an einer Windows Domäne"
 
-#: source/en/tsvn_server/server_apache.xml:536
+#: source/en/tsvn_server/server_apache.xml:558
 #: (primary)
 msgid "Windows domain"
 msgstr "Windows Domäne"
 
-#: source/en/tsvn_server/server_apache.xml:539
+#: source/en/tsvn_server/server_apache.xml:561
 #: (primary)
 msgid "domaincontroller"
 msgstr "Domaincontroller"
 
-#: source/en/tsvn_server/server_apache.xml:541
+#: source/en/tsvn_server/server_apache.xml:563
 #: (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
 msgstr "Wie Sie bestimmt bemerkt haben, benötigen Sie für jeden Anwender einen eigenen Eintrag in der <filename>passwd</filename> Datei. Falls Sie aus Sicherheitsgründen verlangen, dass die Benutzerpasswörter regelmäßig geändert werden, müssen Sie das jedes Mal von Hand machen."
 
-#: source/en/tsvn_server/server_apache.xml:548
+#: source/en/tsvn_server/server_apache.xml:570
 #: (para)
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: mod_auth_sspi!"
 msgstr "Falls Sie auf das Projektarchiv in einem Windowsnetzwerk mit einem Domänencontroller zugreifen, gibt es eine einfache Lösung: mod_auth_sspi!"
 
-#: source/en/tsvn_server/server_apache.xml:553
+#: source/en/tsvn_server/server_apache.xml:575
 #: (para)
 msgid "<indexterm><primary>SSPI</primary></indexterm> The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, including a patch from Vladimir Berezniker. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
 msgstr "<indexterm><primary>SSPI</primary></indexterm>Das Original SSPI Modul wurde von Syneapps inklusive Quellcode zur Verfügung gestellt. Das Modul wurde jedoch nicht mehr weiterentwickelt. Sie können es jedoch immer noch im Internet finden - Suchen Sie einfach mit einer Suchmaschine danach. Wir stellen eine übersetzte Version, mit einem Patch von Vladimir Berezniker, auf unsere Webseite zum Herunterladen bereit. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"> <citetitle>mod_auth_sspi herunterladen</citetitle> </ulink>."
 
-#: source/en/tsvn_server/server_apache.xml:568
+#: source/en/tsvn_server/server_apache.xml:590
 #: (para)
 msgid "Download the module, copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
 msgstr "Laden Sie das Modul herunter und kopieren Sie die Datei <filename>mod_auth_sspi.so</filename> in den Apache <filename>modules</filename> Ordner."
 
-#: source/en/tsvn_server/server_apache.xml:575
+#: source/en/tsvn_server/server_apache.xml:597
 #: (para)
 msgid ""
 "Edit the Apache config file: add the line <screen>\n"
@@ -672,7 +706,7 @@ msgstr ""
 "in den LoadModule Abschnitt ein. Stellen Sie sicher, dass Sie diesen Eintrag <emphasis>vor</emphasis> der Zeile\n"
 "<screen>LoadModule auth_module modules/mod_auth.so</screen> einfügen."
 
-#: source/en/tsvn_server/server_apache.xml:588
+#: source/en/tsvn_server/server_apache.xml:610
 #: (para)
 msgid ""
 "To make the Subversion location use this type of authentication you have to change the line <screen>\n"
@@ -694,57 +728,57 @@ msgstr ""
 "SSPIDomain &lt;domaincontroller&gt;\n"
 "SSPIOfferBasic On</screen> in den <literal>&lt;Location /svn;&gt;</literal> Abschnitt einfügen. Wenn Sie keinen Domänencontroller haben, lassen Sie den Namen <literal>&lt;domaincontroller&gt;<literal> unverändert."
 
-#: source/en/tsvn_server/server_apache.xml:611
+#: source/en/tsvn_server/server_apache.xml:633
 #: (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <filename>AuthUserFile</filename> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
 msgstr "Beachten Sie, dass Sie bei Verwendung von SSPI keine <filename>AuthUserFile</filename> Zeile mehr benötigen, um eine Passwortdatei zu definieren. Apache wird Ihren Namen und Ihr Passwort gegen den Windows Domänencontroller verifizieren. Sie müssen die Benutzerliste in <filename>svnaccessfile</filename> anpassen, um Anmeldungen der Form <literal>DOMAIN\\username</literal> ebenfalls zuzulassen."
 
-#: source/en/tsvn_server/server_apache.xml:621
+#: source/en/tsvn_server/server_apache.xml:643
 #: (para)
 msgid "Subversion AuthzSVNAccessFile files are case sensitive in regard to user names (\"JUser\" is different from \"juser\")."
 msgstr "Subversion AuthzSVNAccessFile Dateien berücksichtigen bei Benutzernamen die Groß- / Kleinschreibung (<literal>JUser</literal> unterscheidet sich von <literal>juser</literal>)."
 
-#: source/en/tsvn_server/server_apache.xml:625
+#: source/en/tsvn_server/server_apache.xml:647
 #: (para)
 msgid "In Microsoft's world, Windows domains and usernames are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. \"JUser\")."
 msgstr "In der Microsoft Welt wird die Schreibweise bei Windows Domänen und Benutzernamen ignoriert. Trotzdem legen viele Administratoren gerne Benutzerkonten wie <literal>JUser</literal> an."
 
-#: source/en/tsvn_server/server_apache.xml:630
+#: source/en/tsvn_server/server_apache.xml:652
 #: (para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
 msgstr "Dieser Unterschied kann schmerzhaft sein, wenn Sie SSPI Anmeldung unter Windows verwenden und der Benutzername in der gleichen Schreibweise an Subversion weitergereicht werden, wie der Anwender ihn eingegeben hat, da <literal>JUser</literal> und <literal>juser</literal> für Subversion verschiedene Personen sind. Der Internet Explorer reicht den Anmeldenamen oft automatisch in der Schreibweise, in der das Konto angelegt wurde, an Apache weiter."
 
-#: source/en/tsvn_server/server_apache.xml:638
+#: source/en/tsvn_server/server_apache.xml:660
 #: (para)
 msgid "The end result is that you may need at least two entries in your AuthzSVNAccessFile for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
 msgstr "Das Ergebnis davon ist, dass Sie für jeden Anwender mindestens zwei Einträge in Ihrer <literal>AuthzSVNAccessFile</literal> Datei benötigen. Einen Eintrag in Kleinbuchstaben und einen Eintrag in der Schreibweise wie das Konto angelegt wurde. Weiterhin müssen Sie Ihre Anwender dahingehend trainieren, dass sie sich immer in Kleinbuchstaben anmelden, wenn sie einen Subversion Client wie TortoiseSVN benutzen."
 
-#: source/en/tsvn_server/server_apache.xml:646
+#: source/en/tsvn_server/server_apache.xml:668
 #: (para)
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's AuthzSVNAccessFile module. You may need to experiment with the exact format of the user string in the svnaccessfile (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
 msgstr "Die Fehler und Zugriffslogs von Apache sind Ihre besten Freunde, wenn es darum geht, Probleme dieser Art zu lokalisieren und zu beseitigen, da Sie Ihnen anzeigen, in welcher Schreibweise ein Anmeldename an das Subversion AuthzSVNAccessFile Modul weitergereicht wurde. Sie müssen eventuell etwas mit dem exakten Format der Anmeldenamen in <filename>svnaccessfile</filename> experimentieren (z.B. <literal>DOMAIN\\user</literal> und <literal>DOMAIN//user</literal>), um alles ans Laufen zu bekommen."
 
-#: source/en/tsvn_server/server_apache.xml:658
+#: source/en/tsvn_server/server_apache.xml:680
 #: (title)
 msgid "SSL and InternetExplorer"
 msgstr "SSL und Internet Explorer"
 
-#: source/en/tsvn_server/server_apache.xml:659
+#: source/en/tsvn_server/server_apache.xml:681
 #: (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
 msgstr "Wenn Sie Ihren Server mit SSL sichern und sich über eine Windows Domäne anmelden, werden Sie feststellen, dass die Anzeige des Projektarchivs im Internet Explorer nicht mehr funktioniert. Das liegt daran, dass sich der Internet Explorer nicht mehr anmelden kann. Andere Web-Browser haben dieses Problem nicht und sowohl TortoiseSVN als auch andere Subversion Clients können sich problemlos anmelden."
 
-#: source/en/tsvn_server/server_apache.xml:673
+#: source/en/tsvn_server/server_apache.xml:695
 #: (para)
 msgid "define a separate &lt;Location /path&gt; directive in the apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
 msgstr "Einen separaten &lt;Location /path&gt; Block in der Apache Konfigurationsdatei definieren und fügen den Eintrag<literal>SSPIBasicPreferred On</literal> hinzufügen. Dies ermöglicht IE die Anmeldung wieder, aber andere Web-Browser und Subversion können sich an dieser <literal>Location</literal> nicht anmelden."
 
-#: source/en/tsvn_server/server_apache.xml:683
+#: source/en/tsvn_server/server_apache.xml:705
 #: (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
 msgstr "Zusätzlich das Betrachten des Projektarchivs ohne Verschlüsselung (ohne SSL) anbieten. Seltsamerweise hat IE kein Problem mit der Anmeldung, wenn die Übertragung nicht verschlüsselt erfolgt."
 
-#: source/en/tsvn_server/server_apache.xml:691
+#: source/en/tsvn_server/server_apache.xml:713
 #: (para)
 msgid ""
 "In the ssl \"standard\" setup there's often the following statement in apache's virtual ssl host: <screen>\n"
@@ -760,37 +794,37 @@ msgstr ""
 "</screen>\n"
 "Es gibt (gab?) gute Gründe für diesen Eintrag. Siehe <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"> <citetitle>ModSSL FAQ</citetitle></ulink>. Wenn Sie allerdings das NTLM Anmeldeverfahren nutzen wollen müssen Sie <literal>keepalive</literal> verwenden. Siehe: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"> <citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle> </ulink>. Wenn Sie den gesamten <quote>SetEnvIf</quote> Block auskommentieren, sollten Sie sich mit dem IE per Windows Anmeldung über SSL und dem eingebundenen mod_auth_sspi Modul am Apache anmelden können."
 
-#: source/en/tsvn_server/server_apache.xml:668
+#: source/en/tsvn_server/server_apache.xml:690
 #: (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
 msgstr "Wenn Sie trotzdem IE verwenden wollen, um Projektarchive zu betrachten, können Sie entweder: <placeholder-1/>"
 
-#: source/en/tsvn_server/server_apache.xml:718
+#: source/en/tsvn_server/server_apache.xml:740
 #: (title)
 msgid "Securing the server with SSL"
 msgstr "Den Server mit SSL sichern"
 
-#: source/en/tsvn_server/server_apache.xml:720
+#: source/en/tsvn_server/server_apache.xml:742
 #: (primary)
 msgid "SSL"
 msgstr "SSL"
 
-#: source/en/tsvn_server/server_apache.xml:722
+#: source/en/tsvn_server/server_apache.xml:744
 #: (para)
 msgid "The apache server doesn't have SSL support installed by default due to US-export restrictions. But you can easily download the required module from somewhere else and install it yourself."
 msgstr "Aufgrund der US Exportbeschränkungen, unterstützt Apache standardmäßig kein SSL. Das für die Verschlüsselung erforderliche SSL Modul können Sie jedoch einfach aus dem Internet herunterladen und selbst installieren."
 
-#: source/en/tsvn_server/server_apache.xml:729
+#: source/en/tsvn_server/server_apache.xml:751
 #: (para)
 msgid "First you need the required files to enable SSL. You can find those in the package available at <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Just unzip the package and then copy <filename>mod_ssl.so</filename> to the <filename>modules</filename> folder of Apache and the file <filename>openssl.exe</filename> to the <filename>bin</filename> folder. Also copy the file <filename>conf/ssl.conf</filename> to the <filename>conf</filename> folder of Apache."
 msgstr "Zunächst benötigen Sie einige Dateien, um SSL zu aktivieren. Sie finden diese in dem Paket das Sie von <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink> herunterladen können. Entpacken Sie das Paket und kopieren Sie die Datei <filename>mod_ssl.so</filename> in den <filename>modules</filename> Ordner von Apache und die Datei <filename>openssl.exe</filename> in den <filename>bin</filename> Ordner. Kopieren Sie <filename>conf/ssl.conf</filename> in den <filename>conf</filename> Ordner von Apache."
 
-#: source/en/tsvn_server/server_apache.xml:745
+#: source/en/tsvn_server/server_apache.xml:767
 #: (para)
 msgid "Open the file <filename>ssl.conf</filename> in the Apache conf folder with a text editor."
 msgstr "Öffnen Die die Datei <filename>ssl.conf</filename> im Apache <filename>conf</filename> Ordner mit einem Texteditor."
 
-#: source/en/tsvn_server/server_apache.xml:752
+#: source/en/tsvn_server/server_apache.xml:774
 #: (para)
 msgid ""
 "Place a comment char (<literal>#</literal>) in front of the following lines: <screen>\n"
@@ -808,7 +842,7 @@ msgstr ""
 "ErrorLog logs/error_log\n"
 "TransferLog logs/access_log</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:765
+#: source/en/tsvn_server/server_apache.xml:787
 #: (para)
 msgid ""
 "change the line <screen>\n"
@@ -837,7 +871,7 @@ msgstr ""
 "in\n"
 "<screen>SSLMutex  default</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:793
+#: source/en/tsvn_server/server_apache.xml:815
 #: (para)
 msgid ""
 "Delete the lines <screen>\n"
@@ -851,7 +885,7 @@ msgstr ""
 "und\n"
 "<screen>&lt;/IfDefine&gt;</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:805
+#: source/en/tsvn_server/server_apache.xml:827
 #: (para)
 msgid ""
 "Open the Apache config file (<filename>httpd.conf</filename>) and uncomment the line <screen>\n"
@@ -861,12 +895,12 @@ msgstr ""
 "Öffnen Sie die Apache Konfigurationsdatei (<filename>httpd.conf</filename>) und entfernen Sie den Kommentar in Zeile\n"
 "<screen>#LoadModule ssl_module modules/mod_ssl.so</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:814
+#: source/en/tsvn_server/server_apache.xml:836
 #: (para)
 msgid "Openssl needs a config file. You can download a working one from <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Save the file to <filename>bin/openssl.cnf</filename>. Please note: the file has the type <filename>*.cnf</filename>. Windows treats such files in a special way but it really is just a text file!"
 msgstr "Openssl benötigt eine Konfigurationsdatei. Sie können eine passende von: <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink> herunterladen. Speichren Sie die Datei unter <filename>bin/openssl.cnf</filename>. Bitte beachten Sie das die Datei die Endung <filename>*.cnf</filename> erhält. Windows behandelt diese Dateien zwar anders, es handelt sich in diesem Fall um eine normale Textdatei!"
 
-#: source/en/tsvn_server/server_apache.xml:828
+#: source/en/tsvn_server/server_apache.xml:850
 #: (para)
 msgid ""
 "Next you need to create an SSL certificate. To do that open a command prompt (DOS-Box) and change to the apache folder (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) and type the following command: <screen>\n"
@@ -892,27 +926,27 @@ msgstr ""
 "                 -outform DER</screen>\n"
 "ein. Dieser Befehl legt einige Dateien im Apache Ordner an: <filename>my-server.der.crt</filename>, <filename>my-server.csr</filename>, <filename>my-server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>my-server.cert</filename>. Kopieren Sie diese in den Ordner <filename>conf/ssl</filename> (z.B. <filename>C:\\Programme\\apache group\\apache2\\conf\\ssl</filename>) - Falls dieser Ordner nicht existiert, müssen Sie ihn vorher anlegen."
 
-#: source/en/tsvn_server/server_apache.xml:869
+#: source/en/tsvn_server/server_apache.xml:891
 #: (para)
 msgid "Restart the apache service."
 msgstr "Starten Sie den Apache Dienst neu."
 
-#: source/en/tsvn_server/server_apache.xml:874
+#: source/en/tsvn_server/server_apache.xml:896
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
 msgstr "Rufen Sie Ihren Web-Browser mit der URL <systemitem class=\"url\">https://servername/svn/project</systemitem> auf."
 
-#: source/en/tsvn_server/server_apache.xml:882
+#: source/en/tsvn_server/server_apache.xml:904
 #: (title)
 msgid "Forcing SSL access"
 msgstr "SSL Zugriff erzwingen"
 
-#: source/en/tsvn_server/server_apache.xml:883
+#: source/en/tsvn_server/server_apache.xml:905
 #: (para)
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-ssl (http) and only allow https access. To do this, you have to add another directive to the Subversion &lt;Location&gt; block: <literal>SSLRequireSSL</literal>."
 msgstr "Wenn Sie SSL eingerichtet haben, um Ihr Projektarchiv abzusichern, möchten Sie vielleicht den normalen, unverschlüsselten http:// Zugriff sperren und nur https:// zulassen. Dafür müssen Sie zusätzlich die Anweisung <literal>SSLRequireSSL</literal> in den Subversion &lt;Location&gt; Block einfügen."
 
-#: source/en/tsvn_server/server_apache.xml:890
+#: source/en/tsvn_server/server_apache.xml:912
 #: (para)
 msgid ""
 "An example &lt;Location&gt; block would look like this: <screen>\n"
