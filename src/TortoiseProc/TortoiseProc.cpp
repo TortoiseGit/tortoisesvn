@@ -389,15 +389,28 @@ BOOL CTortoiseProcApp::InitInstance()
 			hWndExplorer = NULL;
 		}
 		
-		if (cmdLinePath.IsEmpty())
+		// Subversion sometimes writes temp files to the current directory!
+		// so here, we check if we can write to the cwd, and if not, set the cwd
+		// to the temp directory
+		// We use a GUID here for the filename - this should be safe enough to do.
+		HANDLE hFile = ::CreateFile(_T("{E80E91D7-D534-47a6-AEAC-239F5553E173}"), GENERIC_WRITE, NULL, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+		if (hFile == INVALID_HANDLE_VALUE)
 		{
-			TCHAR pathbuf[MAX_PATH];
-			SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf);
-			SetCurrentDirectory(pathbuf);		
+			if (cmdLinePath.IsEmpty())
+			{
+				TCHAR pathbuf[MAX_PATH];
+				GetTempPath(MAX_PATH, pathbuf);
+				SetCurrentDirectory(pathbuf);		
+			}
+			else
+			{
+				SetCurrentDirectory(cmdLinePath.GetDirectory().GetWinPath());
+			}
 		}
 		else
 		{
-			SetCurrentDirectory(cmdLinePath.GetDirectory().GetWinPath());
+			CloseHandle(hFile);
+			DeleteFile(_T("{E80E91D7-D534-47a6-AEAC-239F5553E173}"));
 		}
 
 // check for newer versions
