@@ -1505,7 +1505,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							else
 							{
-								CShellUpdater::Instance().AddPathsForUpdate(targetList);
 								//since the entries got reverted we need to remove
 								//them from the list too, if no remote changes are shown
 								POSITION pos;
@@ -1899,7 +1898,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							else
 							{
-								CShellUpdater::Instance().AddPathForUpdate(filepath);
 								entry->status = svn_wc_status_modified;
 								entry->textstatus = svn_wc_status_modified;
 								Show(m_dwShow, 0, m_bShowFolders);
@@ -1930,7 +1928,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								e->status = svn_wc_status_added;
 								SetEntryCheck(e,index,true);
 							}
-							CShellUpdater::Instance().AddPathsForUpdate(itemsToAdd);
 						}
 						else
 						{

@@ -278,6 +278,7 @@ BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRe
 	{
 		return FALSE;
 	}
+	CShellUpdater::Instance().AddPathForUpdate(destPath);
 
 	return TRUE;
 }
@@ -305,6 +306,7 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 		for (int i=0; i<pathlist.GetCount(); ++i)
 			Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
 
 	return TRUE;
 }
@@ -319,6 +321,8 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 	{
 		return FALSE;
 	}
+	
+	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
 
 	return TRUE;
 }
@@ -338,6 +342,8 @@ BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force)
 		}
 	}
 
+	CShellUpdater::Instance().AddPathsForUpdate(pathList);
+
 	return TRUE;
 }
 
@@ -356,6 +362,8 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, B
 	{
 		return FALSE;
 	}
+
+	CShellUpdater::Instance().AddPathsForUpdate(pathList);
 
 	return TRUE;
 }
@@ -384,6 +392,8 @@ LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, B
 		return commit_info->revision;
 	}
 
+	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
+
 	return -1;
 }
 
@@ -409,6 +419,7 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
+	CShellUpdater::Instance().AddPathForUpdate(destPath);
 	return TRUE;
 }
 
