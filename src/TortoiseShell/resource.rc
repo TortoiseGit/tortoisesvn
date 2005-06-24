@@ -264,7 +264,7 @@ BEGIN
     IDS_MENUDESCIGNORE      "Adds the selected file(s) or the filemask to the 'ignore' list"
     IDS_STATUSINCOMPLETE    "incomplete"
     IDS_STATUSIGNORED       "ignored"
-    IDS_DROPCOPYMENU        "Copy files in Subversion to here"
+    IDS_DROPCOPYMENU        "SVN Copy versioned files here"
     IDS_PROPWAITCANCEL      "Please wait while cancelling..."
     IDS_SETPROPTITLE        "Setting Properties..."
     IDS_MENUREPOBROWSE      "Repo-Browser"
@@ -280,8 +280,8 @@ STRINGTABLE
 BEGIN
     IDS_MENUDIFF            "Diff"
     IDS_MENUDESCDIFF        "Compares the file with the last committed revision to show you the changes you made"
-    IDS_DROPCOPYADDMENU     "Add files to Subversion here"
-    IDS_DROPMOVEMENU        "Move files in Subversion to here"
+    IDS_DROPCOPYADDMENU     "SVN Add files to this WC"
+    IDS_DROPMOVEMENU        "SVN Move versioned files here"
     IDS_MENULOG             "Show Log"
     IDS_MENUDESCLOG         "Shows the log for the selected file / folder"
     IDS_COLTITLEURL         "SVN Url"
@@ -308,8 +308,8 @@ BEGIN
     IDS_TT_EXTERNALS        "svn:externals\nA newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
     IDS_COLTITLEMIMETYPE    "SVN mime-type"
     IDS_COLDESCMIMETYPE     "Shows the mime type of the versioned file"
-    IDS_DROPEXPORTMENU      "Subversion export here"
-    IDS_DROPEXPORTEXTENDEDMENU "Subversion export all here"
+    IDS_DROPEXPORTMENU      "SVN Export to here"
+    IDS_DROPEXPORTEXTENDEDMENU "SVN Export all to here"
     IDS_TT_BQLABEL          "bugtraq:label\nLabel text to show for the edit box where the user enters the issue number."
     IDS_TT_BQMESSAGE        "bugtraq:message\nString which is appended to a log message when an issue number is entered.\nThe string must contain ""%BUGID%"" which gets replaced with the issue number."
     IDS_TT_BQNUMBER         "bugtraq:number\nSet to ""false"" if your bugtracking system has issues which are referenced not by numbers."
@@ -353,7 +353,7 @@ BEGIN
     IDS_COLTITLEOWNER       "SVN Lock Owner"
     IDS_COLDESCOWNER        "The user who owns the lock of the file"
     IDS_TT_NEEDSLOCK        "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
-    IDS_DROPCOPYRENAMEMENU  "Copy and Rename in Subversion to here"
+    IDS_DROPCOPYRENAMEMENU  "SVN Copy and Rename versioned files here"
 END
 
 #endif    // English (U.S.) resources
