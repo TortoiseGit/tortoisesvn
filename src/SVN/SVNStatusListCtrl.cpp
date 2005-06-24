@@ -757,13 +757,21 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	}
 	if (m_dwColumns & SVNSLC_COLREMOTESTATUS)
 	{
-		SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
-		if ((entry->remotestatus == entry->remotepropstatus)&&
-			(entry->status != svn_wc_status_normal)&&
-			(entry->status != svn_wc_status_unversioned)&&
-			(!SVNStatus::IsImportant(entry->remotetextstatus)))
-			_tcscat(buf, ponly);
-		SetItemText(index, nCol++, buf);
+		if (entry->isNested)
+		{
+			CString sTemp(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
+			SetItemText(index, nCol++, sTemp);			
+		}
+		else
+		{
+			SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			if ((entry->remotestatus == entry->remotepropstatus)&&
+				(entry->status != svn_wc_status_normal)&&
+				(entry->status != svn_wc_status_unversioned)&&
+				(!SVNStatus::IsImportant(entry->remotetextstatus)))
+				_tcscat(buf, ponly);
+			SetItemText(index, nCol++, buf);
+		}
 	}
 	if (m_dwColumns & SVNSLC_COLTEXTSTATUS)
 	{
@@ -780,18 +788,39 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	}
 	if (m_dwColumns & SVNSLC_COLPROPSTATUS)
 	{
-		SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
-		SetItemText(index, nCol++, buf);
+		if (entry->isNested)
+		{
+			SetItemText(index, nCol++, _T(""));
+		}
+		else
+		{
+			SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			SetItemText(index, nCol++, buf);
+		}
 	}
 	if (m_dwColumns & SVNSLC_COLREMOTETEXT)
 	{
-		SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
-		SetItemText(index, nCol++, buf);
+		if (entry->isNested)
+		{
+			SetItemText(index, nCol++, _T(""));
+		}
+		else
+		{
+			SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			SetItemText(index, nCol++, buf);
+		}
 	}
 	if (m_dwColumns & SVNSLC_COLREMOTEPROP)
 	{
-		SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
-		SetItemText(index, nCol++, buf);
+		if (entry->isNested)
+		{
+			SetItemText(index, nCol++, _T(""));
+		}
+		else
+		{
+			SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			SetItemText(index, nCol++, buf);
+		}
 	}
 	if (m_dwColumns & SVNSLC_COLURL)
 	{
@@ -2238,8 +2267,6 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 				crText = GetSysColor(COLOR_WINDOWTEXT);
 				break;
 			}
-			if (entry->isNested)
-				crText = CUtils::MyColor(CUtils::MyColors::GREEN);
 
 			// Store the color back in the NMLVCUSTOMDRAW struct.
 			pLVCD->clrText = crText;
