@@ -1187,6 +1187,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 //#region m_LogMsgCtrl
 	if (pWnd == &m_LogMsgCtrl)
 	{
+		if (m_LogMsgCtrl.GetSelectedCount() > 1)
+			return;	//no context menu for multiple selections
 		int selIndex = m_LogMsgCtrl.GetSelectionMark();
 		if ((point.x == -1) && (point.y == -1))
 		{
