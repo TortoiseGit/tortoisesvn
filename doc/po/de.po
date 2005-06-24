@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-23 10:11+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2005-06-24 12:29+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1394,7 +1394,7 @@ msgstr "Änderungen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:168
 #: (title)
-#: source/en/tsvn_dug/dug_wcstatus.xml:212
+#: source/en/tsvn_dug/dug_wcstatus.xml:257
 #: (guilabel)
 msgid "Check for Modifications"
 msgstr "Auf Änderungen überprüfen"
@@ -1409,47 +1409,131 @@ msgstr "<placeholder-1/> Oft ist es nützlich zu wissen, welche Dateien von ande
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
 msgstr "Mit der <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche können Sie das Projektarchiv auf Änderungen prüfen. Auf diese Weise können Sie vor dem Aktualisieren feststellen, ob es möglicherweise Konflikte gibt. Sie können aus diesem Dialog heraus auch einzelne Dateien - ohne den gesamten Ordner - aus dem Projektarchiv aktualisieren."
 
+#: source/en/tsvn_dug/dug_wcstatus.xml:195
+#: (term)
+#: source/en/tsvn_dug/dug_commit.xml:105
+msgid "Blue"
+msgstr "Blau"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:196
+#: (listitem)
+msgid "Locally modified items."
+msgstr "Lokal veränderte Objekte."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:201
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:34
+#: source/en/tsvn_dug/dug_commit.xml:111
+msgid "Purple"
+msgstr "Purpur"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:202
+#: (listitem)
+msgid "Added items."
+msgstr "Hinzugefügte Objekte"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:207
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:40
+#: source/en/tsvn_dug/dug_commit.xml:117
+msgid "Dark red"
+msgstr "Dunkelrot"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:208
+#: (listitem)
+msgid "Deleted or missing items."
+msgstr "Gelöschte oder fehlende Objekte"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:213
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:47
+msgid "Green"
+msgstr "Grün"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:217
+#: (emphasis)
+msgid "may"
+msgstr "können"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:214
+#: (listitem)
+msgid "Items modified locally and in the repository. The changes will be merged on update. These <placeholder-1/> produce conflicts on update."
+msgstr "Objekte, die lokal und im Projektarchiv verändert wurden. Die Änderungen werden beim Aktualisieren zusammengeführt. Diese Objekte <placeholder-1/> Konflikte beim Aktualisieren erzeugen."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:221
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:54
+msgid "Bright red"
+msgstr "Hellrot"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:225
+#: (emphasis)
+msgid "will"
+msgstr "werden"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:222
+#: (listitem)
+msgid "Items modified locally and deleted in repository, or modified in repository and deleted locally. These <placeholder-1/> produce conflicts on update."
+msgstr "Lokal veränderte Objekte, die im Projektarchiv gelöscht wurden oder im Projektarchiv geänderte Objekte, die lokal gelöscht wurden. Diese Objekte <placeholder-1/> Konflikte beim Aktualisieren erzeugen."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:229
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:61
+#: source/en/tsvn_dug/dug_commit.xml:123
+msgid "Black"
+msgstr "Schwarz"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:230
+#: (listitem)
+msgid "Unchanged and unversioned items."
+msgstr "Unveränderte und nicht versionierte Objekte"
+
 #: source/en/tsvn_dug/dug_wcstatus.xml:191
+#: (para)
+msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
+msgstr "Der Dialog verwendet eine Farbcodierung, um verschiedene Status anzuzeigen. <placeholder-1/>"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:236
 #: (para)
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
 msgstr "Aus dem Kontextmenü des Dialoges heraus können Sie sich die Unterschiede anzeigen lassen. Wählen sie die lokalen Änderungen, die <emphasis>Sie</emphasis> gemacht haben, mittels <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleiche mit Basis</guimenuitem> </menuchoice>. Prüfen Sie die Änderungen im Projektarchiv, die andere gemacht haben, mittels <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Unterschiede als Standard Diff</guimenuitem> </menuchoice>."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:204
+#: source/en/tsvn_dug/dug_wcstatus.xml:249
 #: (para)
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
 msgstr "Sie können auch Änderungen in einzelnen Dateien rückgängig machen. Falls Sie aus Versehen eine Datei gelöscht haben, wird sie in diesem Dialog als <literal>Fehlend</literal> angezeigt und kann mittels <literal>Rückgängig</literal> wieder hergestellt werden."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:214
+#: source/en/tsvn_dug/dug_wcstatus.xml:259
 #: (guilabel)
 msgid "Show unmodified files"
 msgstr "Unveränderte Dateien zeigen"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:209
+#: source/en/tsvn_dug/dug_wcstatus.xml:254
 #: (tip)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <placeholder-1/> dialog is the easiest way to achieve that. Just check the <placeholder-2/> checkbox to show all files in your working copy."
 msgstr "Wenn Sie eine flache Ansicht Ihrer Arbeitskopie (also alle Dateien und Ordner in einer Liste) wollen, dann ist der <placeholder-1/> Dialog der einfachste Weg das zu erreichen. Wählen Sie einfach die <placeholder-2/> Option, um alle Dateien in Ihrer Arbeitskopie anzuzeigen."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:219
+#: source/en/tsvn_dug/dug_wcstatus.xml:264
 #: (title)
 msgid "Viewing Diffs"
 msgstr "Unterschiede Anzeigen"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:221
+#: source/en/tsvn_dug/dug_wcstatus.xml:266
 #: (primary)
 msgid "diffing"
 msgstr "vergleichen"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:223
+#: source/en/tsvn_dug/dug_wcstatus.xml:268
 #: (para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
 msgstr "Oft möchten Sie in einer Datei sehen, was Sie geändert haben. Das können Sie durch das auswählen einer Datei und dem Kontextmenübefehl <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN. Dies startet das TortoiseMerge (oder ein externes Diff-Programm), das Ihnen die Änderungen seit dem letzten Auschecken oder Aktualisieren anzeigt."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:232
+#: source/en/tsvn_dug/dug_wcstatus.xml:277
 #: (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr "Auch wenn Sie sich nicht in einer Arbeitskopie befinden oder mehrere Versionen einer Datei haben, können Sie diese vergleichen: "
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:236
+#: source/en/tsvn_dug/dug_wcstatus.xml:281
 #: (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr "Markieren Sie die beiden Dateien, die Sie vergleichen wollen (z.B. mit <keycap>Strg<keycap> und Maus) und wählen Sie <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN im Kontextmenü. Die zuletzt markierte Datei (die mit dem Fokus, der gestrichelte Rahmen) wird als die neuere betrachtet. "
@@ -1475,111 +1559,82 @@ msgstr "Der Fortschritts-Dialog nach Abschluß der Aktualisierung"
 msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
 msgstr "<placeholder-1/> Änderungen von anderen sollten Sie regelmäßig in Ihre eigene Arbeitskopie einfügen. Änderungen von anderen in die eigene Arbeitskopie einfügen wird auch <literal>Aktualisieren</literal> genannt. Sie können einzelne Dateien, mehrere Dateien, ganze Ordner oder gleich die komplette Arbeitskopie aktualisieren. Wählen Sie einfach die Dateien oder Ordner aus, welche Sie aktualisieren möchten und öffnen Sie dann das Kontextmenü durch einen <action>Rechts-Klick</action>. Im Kontextmenü wählen Sie dann den Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren</guimenuitem></menuchoice> aus und eine Dialogbox wird erscheinen welche Ihnen den Fortschritt der Aktualisierung anzeigt. Änderungen von anderen werden in Ihre Arbeitskopie eingefügt, wobei Ihre eigenen Änderungen selbstverständlich beibehalten werden. Das Projektarchiv selbst wird durch eine Aktualisierung nicht verändert."
 
-#: source/en/tsvn_dug/dug_update.xml:34
-#: (term)
-#: source/en/tsvn_dug/dug_commit.xml:105
-msgid "Blue"
-msgstr "Blau"
-
 #: source/en/tsvn_dug/dug_update.xml:35
 #: (listitem)
 msgid "New item added to your WC."
 msgstr "Neues Objekt zur Arbeitskopie hinzugefügt."
 
-#: source/en/tsvn_dug/dug_update.xml:40
-#: (term)
-#: source/en/tsvn_dug/dug_commit.xml:111
-msgid "Dark red"
-msgstr "Dunkelrot"
-
 #: source/en/tsvn_dug/dug_update.xml:41
 #: (listitem)
-msgid "Redundant item deleted from your WC."
-msgstr "Objekt aus Arbeitskopie gelöscht."
+msgid "Redundant item deleted from your WC, or missing item replaced in your WC."
+msgstr "Überflüssiges Objekt das aus der Arbeitskopie gelöscht wurde oder fehlendes Objekt, das in der Arbeitskopie ersetzt wurde."
 
-#: source/en/tsvn_dug/dug_update.xml:46
-#: (term)
-msgid "Green"
-msgstr "Grün"
-
-#: source/en/tsvn_dug/dug_update.xml:47
+#: source/en/tsvn_dug/dug_update.xml:48
 #: (listitem)
 msgid "Changes from repository successfully merged with your local changes."
 msgstr "Änderungen aus dem Projektarchiv wurden erfolgreich mit Ihren lokalen Änderungen zusammengeführt."
 
-#: source/en/tsvn_dug/dug_update.xml:53
-#: (term)
-msgid "Bright red"
-msgstr "Hellrot"
-
-#: source/en/tsvn_dug/dug_update.xml:54
+#: source/en/tsvn_dug/dug_update.xml:55
 #: (listitem)
 msgid "Changes from repository merged with local changes, resulting in conflicts which you need to resolve."
 msgstr "Änderungen aus dem Projektarchiv wurden mit Ihren lokalen Änderungen zusammengeführt. Es gab jedoch Konflikte, die Sie noch auflösen müssen."
 
-#: source/en/tsvn_dug/dug_update.xml:60
-#: (term)
-#: source/en/tsvn_dug/dug_commit.xml:117
-msgid "Black"
-msgstr "Schwarz"
-
-#: source/en/tsvn_dug/dug_update.xml:61
+#: source/en/tsvn_dug/dug_update.xml:62
 #: (listitem)
-#: source/en/tsvn_dug/dug_commit.xml:118
-msgid "All other items."
-msgstr "Alle anderen Objekte."
+msgid "Unchanged item in your WC updated with newer version from the repository."
+msgstr "Unverändertes Objekt in Ihrer Arbeitskopie, das durch ein neueres Objekt aus dem Projektarchiv ersetzt wurde"
 
 #: source/en/tsvn_dug/dug_update.xml:29
 #: (para)
 msgid "The progress dialog uses colour coding to highlight different update actions <placeholder-1/>"
 msgstr "Der Fortschrittsdialog verwendet eine Farbcodierung, um verschiedene Aktionen anzuzeigen <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_update.xml:67
+#: source/en/tsvn_dug/dug_update.xml:69
 #: (para)
 msgid "If you get any <literal>conflicts</literal> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
 msgstr "Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierung erhalten (Dies kann passieren wenn jemand anders dieselbe Stelle in einer Datei geändert hat wie Sie und diese Änderungen nicht zusammenpassen) dann zeigt der Fortschritts-Dialog diese Dateien rot markiert an. Ein <action>Doppelklick</action> auf diese roten Einträge öffnet ein so genanntes Merge-Programm, mit dem Sie solche Konflikte ganz einfach von Hand auflösen können."
 
-#: source/en/tsvn_dug/dug_update.xml:75
+#: source/en/tsvn_dug/dug_update.xml:77
 #: (para)
 msgid "TortoiseSVN also allows you to update your working copy to a specific revision, not only to the most recent one. This command is called <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens a dialog where you can enter the required revision. Say e.g. your working copy is at revision 100, but you want your working copy to reflect the state which it had in revision 50 - then simply update to revision 50. In that dialog, you can also decide if you only want to update the current folder only (without all the subfolders) and/or if you want to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr "TortoiseSVN ermöglicht es Ihnen auch, eine Arbeitskopie auf eine ganz bestimmte Revision zu aktualisieren und nicht nur immer auf die neueste Revision. Dieser Befehl heißt <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> und öffnet zuerst einen Dialog, in dem Sie die Revisionsnummer eingeben können, auf welche die Arbeitskopie aktualisiert werden soll. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision 100, aber sie möchten sie gerne in Revision 50 zurückversetzen - Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch festlegen, ob Sie nur den aktuellen Ordner (ohne Unterordner) aktualisieren wollen und ob Sie externe Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) ignorieren wollen."
 
-#: source/en/tsvn_dug/dug_update.xml:92
+#: source/en/tsvn_dug/dug_update.xml:94
 #: (para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you should use one of the following commands instead. The <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> command from the log dialog will undo only those changes made in the selected revision. Changes made after that revision will be retained. For reverting multiple revisions, you should use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> menu command, where you can specify the range of revisions you want to undo."
 msgstr "Wenn Sie eine Datei oder Ordner auf eine bestimmte Revision aktualisieren, sollten Sie keine Änderungen daran vornehmen. Sie werden <literal>out of date</literal> Fehlermeldungen erhalten sobald Sie versuchen, diese Dateien oder Ordner zu übertragen! Wenn Sie Änderungen an Dateien rückgängig machen und mit einer vorherigen Version weitermachen wollen, dann sollten Sie folgendermaßen vorgehen. Der Befehl <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem></menuchoice> im Log-Dialog wird nur die Änderungen der gewählten Revision rückgängig machen. Änderungen nach dieser Revision werden beibehalten. Um mehrere Revisionen rückgängig zu machen, rufen Sie den <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Zusammenführen...</guimenuitem></menuchoice> Dialog auf, in dem Sie einen Revisionsbereich wählen können."
 
-#: source/en/tsvn_dug/dug_update.xml:113
+#: source/en/tsvn_dug/dug_update.xml:115
 #: (para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
 msgstr "Der Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Aktualisieren zu Revision</guimenuitem> </menuchoice> kann manchmal nützlich sein, um zu überprüfen, wie Ihr Projekt zu einem früheren Zeitpunkt aussah. Im Allgemeinen ist es jedoch keine gute Idee, einzelne Dateien in einen früheren Zustand zu versetzen, da dadurch Ihre Arbeitskopie inkonsistent wird. Wenn die Datei, die sie aktualisieren umbenannt wurde, kann es sogar passieren, dass die Datei aus Ihrer Arbeitskopie verschwindet, da zu einem früheren Zeitpunkt keine Datei dieses Namens im Projektarchiv existierte. Wenn Sie lediglich eine lokale Kopie einer alten Version einer Datei haben wollen, ist es besser, den <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Revision speichern unter...</guimenuitem> </menuchoice> Befehl aus dem Log-Dialog dafür zu verwenden."
 
-#: source/en/tsvn_dug/dug_update.xml:132
+#: source/en/tsvn_dug/dug_update.xml:134
 #: (title)
 msgid "Multiple Files/Folders"
 msgstr "Mehrere Dateien/Ordner"
 
-#: source/en/tsvn_dug/dug_update.xml:133
+#: source/en/tsvn_dug/dug_update.xml:135
 #: (para)
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
 msgstr "Wenn Sie mehrere Dateien und Ordner im Explorer auswählen und dann <menuchoice><guimenuitem>Aktualisieren...</guimenuitem></menuchoice> ausführen, so werden alle Dateien und Ordner auf dieselbe Revision aktualisiert, sogar dann wenn zwischen den einzelnen Aktualisierungen jemand anders Änderungen zum Projektarchiv übertragen hat."
 
-#: source/en/tsvn_dug/dug_update.xml:145
+#: source/en/tsvn_dug/dug_update.xml:147
 #: (title)
 msgid "Local File Already Exists"
 msgstr "Lokale Datei existiert bereits"
 
-#: source/en/tsvn_dug/dug_update.xml:146
+#: source/en/tsvn_dug/dug_update.xml:148
 #: (para)
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
 msgstr "Manchmal wird die Aktualisierung mit einer Fehlermeldung abbrechen welche besagt dass eine Datei mit demselben Namen bereits existiert. Dies passiert wenn Subversion eine neu versionierte Datei auschecken möchte, aber eine Datei mit demselben Namen und Pfad bereits in Ihrer Arbeitskopie vorhanden ist. Subversion wird niemals eine solche Datei überschreiben - Sie könnten dadurch ja wichtige Daten verlieren."
 
-#: source/en/tsvn_dug/dug_update.xml:155
+#: source/en/tsvn_dug/dug_update.xml:157
 #: (para)
 msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
 msgstr "Wenn Sie diese Fehlermeldung erhalten ist die Lösung sehr einfach: Benennen Sie die unversionierte Datei in Ihrer Arbeitskopie um. Danach führen Sie die Aktualisierung nochmals durch."
 
-#: source/en/tsvn_dug/dug_update.xml:160
+#: source/en/tsvn_dug/dug_update.xml:162
 #: (para)
 msgid "If you keep getting error messages, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> instead to list all the problem files. That way you can deal with them all at once."
 msgstr "Wenn Sie diese Fehlermeldung immer wieder erhalten, benutzen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Auf Aktualisierungen prüfen</guimenuitem></menuchoice>, um eine Liste von allen problematischen Dateien zu erhalten. Dadurch können Sie alle möglichen Konflikte im Vorfeld erkennen. "
@@ -4038,11 +4093,11 @@ msgid ""
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
 "Manchmal werden Sie einen <emphasis>Konflikt</emphasis> erhalten wenn Sie Ihre Arbeitskopie aktualisieren. Ein Konflikt tritt dann auf wenn mehrere Personen die gleiche(n) Stelle(n) in derselben Datei verändert haben. Da Subversion nichts über Ihr Projekt weiss, überlässt es in solchen Fällen Ihnen, den Konflikt aufzulösen. Wann immer ein Konflikt auftritt können Sie die entsprechende Datei öffnen und nach Zeilen suchen welche beginnen mit: <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Die Zeile in Konflikt ist so markiert:<screen>\n"
-"&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"    your changes\n"
+"&lt;&lt;&lt;&lt;&lt;&lt;&lt; Dateiname\n"
+"    Ihre Änderungen\n"
 "=======\n"
-"    code merged from repository\n"
-"&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"    Code aus dem Projektarchiv\n"
+"&gt;&gt;&gt;&gt;&gt;&gt;&gt; Revision\n"
 "</screen>\n"
 "Außerdem werden für jede Datei in Konflikt drei weitere Dateien erstellt: <placeholder-1/>"
 
@@ -4133,35 +4188,45 @@ msgstr "Wenn Sie schlussendlich auf <guibutton>OK</guibutton> klicken wird die �
 
 #: source/en/tsvn_dug/dug_commit.xml:106
 #: (listitem)
-msgid "Committing a modification or a new item."
-msgstr "Übertragen einer Änderung oder eines neuen Objekts."
+msgid "Committing a modification."
+msgstr "Übertrage eine Änderung"
 
 #: source/en/tsvn_dug/dug_commit.xml:112
 #: (listitem)
+msgid "Committing a new addition."
+msgstr "Übertragen eines neuen Objekts."
+
+#: source/en/tsvn_dug/dug_commit.xml:118
+#: (listitem)
 msgid "Committing a deletion or a replacement."
 msgstr "Übertragen einer Löschung oder Ersetzen eines Objekts."
+
+#: source/en/tsvn_dug/dug_commit.xml:124
+#: (listitem)
+msgid "All other items."
+msgstr "Alle anderen Objekte."
 
 #: source/en/tsvn_dug/dug_commit.xml:100
 #: (para)
 msgid "The progress dialog uses colour coding to highlight different commit actions <placeholder-1/>"
 msgstr "Der Fortschrittsdialog verwendet eine Farbcodierung, um verschiedene Aktionen anzuzeigen <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_commit.xml:125
+#: source/en/tsvn_dug/dug_commit.xml:131
 #: (title)
 msgid "Special Folder Properties"
 msgstr "Spezielle Ordner-Eigenschaften"
 
-#: source/en/tsvn_dug/dug_commit.xml:126
+#: source/en/tsvn_dug/dug_commit.xml:132
 #: (para)
 msgid "There are several special folder properties which can be used to help give more control over the formatting of commit log messages and the language used by the spellchecker module. Read <xref linkend=\"tsvn-DUG-propertypage\"/> for further information."
 msgstr "Es gibt mehrere spezielle Ordner-Eigenschaften welche z.B. für die Formatierung von Log-Meldungen und die Rechtschreibkorrektur verwendet werden können. Sehen Sie dazu <xref linkend=\"tsvn-DUG-propertypage\"/>."
 
-#: source/en/tsvn_dug/dug_commit.xml:134
+#: source/en/tsvn_dug/dug_commit.xml:140
 #: (title)
 msgid "Integration with Bugtracking Tools"
 msgstr "Integration mit Bugtracking Systemen"
 
-#: source/en/tsvn_dug/dug_commit.xml:135
+#: source/en/tsvn_dug/dug_commit.xml:141
 #: (para)
 msgid "If you have activated the bugtracking system, you could set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues should be comma separated. Learn more <xref linkend=\"tsvn-DUG-bugtracker\"/>."
 msgstr "Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei <guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n) Ihres Bugtracking Programms eingeben. Falls Sie mehrere eingeben, müssen Sie diese dann durch Kommata trennen. Mehr dazu können Sie in <xref linkend=\"tsvn-DUG-bugtracker\"/> lesen. "
@@ -5234,7 +5299,7 @@ msgstr "Obwohl die hier gezeigten Beispiele Personen zeigen, die mit Quellcode a
 #: source/en/tsvn_basics.xml:36
 #: (primary)
 msgid "repository"
-msgstr "repository"
+msgstr "Projektarchiv"
 
 #: source/en/tsvn_basics.xml:38
 #: (para)
