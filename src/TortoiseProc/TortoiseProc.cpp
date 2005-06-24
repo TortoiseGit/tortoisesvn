@@ -225,6 +225,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	bindtextdomain("subversion", (LPCSTR)langpath);
 	bind_textdomain_codeset("subversion", "UTF-8");
 	HINSTANCE hInst = NULL;
+	
 	do
 	{
 		langDll.Format(_T("..\\Languages\\TortoiseProc%d.dll"), langId);
@@ -387,6 +388,18 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			hWndExplorer = NULL;
 		}
+		
+		if (cmdLinePath.IsEmpty())
+		{
+			TCHAR pathbuf[MAX_PATH];
+			SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf);
+			SetCurrentDirectory(pathbuf);		
+		}
+		else
+		{
+			SetCurrentDirectory(cmdLinePath.GetDirectory().GetWinPath());
+		}
+
 // check for newer versions
 		if (CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE) != FALSE)
 		{
