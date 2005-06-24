@@ -1187,8 +1187,6 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 //#region m_LogMsgCtrl
 	if (pWnd == &m_LogMsgCtrl)
 	{
-		if (m_LogMsgCtrl.GetSelectedCount() > 1)
-			return;	//no context menu for multiple selections
 		int selIndex = m_LogMsgCtrl.GetSelectionMark();
 		if ((point.x == -1) && (point.y == -1))
 		{
@@ -1207,6 +1205,24 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
 		long rev = pLogEntry->dwRev;
 		LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+		
+		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+		{
+			// some items are hidden! So find out which item the user really clicked on
+			int selRealIndex = -1;
+			for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
+			{
+				if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+					selRealIndex++;
+				if (selRealIndex == selIndex)
+				{
+					selIndex = hiddenindex;
+					changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+					break;
+				}
+			}
+		}
+		
 		//entry is selected, now show the popup menu
 		CMenu popup;
 		if (popup.CreatePopupMenu())
