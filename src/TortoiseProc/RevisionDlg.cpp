@@ -51,9 +51,19 @@ BOOL CRevisionDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// set head revision as default revision
-	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
-	GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
+	if (IsHead())
+	{
+		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+		GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
+	}
+	else
+	{
+		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+		GetDlgItem(IDC_REVNUM)->EnableWindow(TRUE);
+		CString sRev;
+		sRev.Format(_T("%ld"), (LONG)(*this));
+		GetDlgItem(IDC_REVNUM)->SetWindowText(sRev);
+	}
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
