@@ -1268,7 +1268,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					const NotificationData * data = m_arData[selIndex];
 					if ((data)&&(!data->path.IsDirectory()))
 					{
-						if (data->action == svn_wc_notify_update_update)
+						if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command)))
 						{
 							temp.LoadString(IDS_LOG_POPUP_COMPARE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
