@@ -33,6 +33,7 @@
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - CHG: Merge dialog: if the 'use from url' is activated, the 'show log'
        button is disabled for the 'to' url too. (Stefan)
+- CHG: The "diff" context menu is now shown for conflicted files too. (Stefan)
 - BUG: Crash in TSVNCache. See issue #91.
 - BUG: File context menu shown if more than one folder was
        selected. See issue #92.
