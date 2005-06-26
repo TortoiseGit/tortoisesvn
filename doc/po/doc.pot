@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-06-24 00:30GMT Daylight Time\n"
+"POT-Creation-Date: 2005-06-26 23:17GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 msgid "You can also increase security and save time entering Url's with svnserve by using the -r switch to set the root location and restrict access to a specified directory on the server: <screen>\nsvnserve.exe -d -r drive:\\path\\to\\repository\n</screen> Using the previous test as a guide, svnserve would now run as: <screen>\nsvnserve.exe -d -r c:\\repos\n</screen> And in TortoiseSVN our repo-browser Url is now shortened to: <screen>\nsvn://localhost/TestRepo\n</screen> Note that the -r switch is also needed if your repository is located on a different partition or drive than the location of svnserve on your server."
 msgstr ""
 
-#: source/en/tsvn_server/server_svn.xml:110(para) source/en/tsvn_repository/repository_create.xml:127(para) 
+#: source/en/tsvn_server/server_svn.xml:110(para) source/en/tsvn_repository/repository_create.xml:127(para) source/en/tsvn_basics.xml:448(para) 
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
 msgstr ""
 
@@ -617,7 +617,7 @@ msgstr ""
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 msgstr ""
 
-#: source/en/tsvn_repository/repository.xml:3(title) source/en/tsvn_basics.xml:34(title) source/en/tsvn_basics.xml:522(title) 
+#: source/en/tsvn_repository/repository.xml:3(title) source/en/tsvn_basics.xml:34(title) source/en/tsvn_basics.xml:540(title) 
 msgid "The Repository"
 msgstr ""
 
@@ -1649,7 +1649,7 @@ msgstr ""
 msgid "Revision Graphs"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_revgraph.xml:6(primary) source/en/tsvn_basics.xml:487(primary) 
+#: source/en/tsvn_dug/dug_revgraph.xml:6(primary) source/en/tsvn_basics.xml:505(primary) 
 msgid "revision"
 msgstr ""
 
@@ -3921,11 +3921,11 @@ msgid "Access Method"
 msgstr ""
 
 #: source/en/tsvn_basics.xml:364(literal) 
-msgid "file:///"
+msgid "file://"
 msgstr ""
 
 #: source/en/tsvn_basics.xml:366(entry) 
-msgid "Direct repository access on local disk."
+msgid "Direct repository access on local or network drive."
 msgstr ""
 
 #: source/en/tsvn_basics.xml:372(literal) source/en/tsvn_basics.xml:383(literal) 
@@ -3961,174 +3961,178 @@ msgid "authenticated, encrypted TCP/IP access via custom protocol to an <placeho
 msgstr ""
 
 #: source/en/tsvn_basics.xml:408(para) 
-msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. Remember that the <literal>file:</literal> access method is valid only for locations on the same server as the client - in fact, in accordance with convention, the server name portion of the URL is required to be either absent or <literal>localhost</literal>. Take great care that the <literal>file:</literal> access method is not used to access BDB repositories located on drives shared over the network!"
+msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file:</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <literal>file://hostname/path/to/repos</literal>. For the local machine, the hostname portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <literal>file:///path/to/repos</literal>."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:419(para) 
+#: source/en/tsvn_basics.xml:421(para) 
 msgid "Also, users of the <literal>file:</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:429(screen) 
+#: source/en/tsvn_basics.xml:431(screen) 
 #, no-wrap
 msgid "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n...\n"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:435(para) 
+#: source/en/tsvn_basics.xml:437(para) 
 msgid "Note that a URL uses ordinary slashes even though the native (non-URL) form of a path on Windows uses backslashes."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:440(para) 
+#: source/en/tsvn_basics.xml:441(para) 
+msgid "You can safely access an FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
+msgstr ""
+
+#: source/en/tsvn_basics.xml:458(para) 
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:450(para) 
+#: source/en/tsvn_basics.xml:468(para) 
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:454(para) 
+#: source/en/tsvn_basics.xml:472(para) 
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:460(para) 
+#: source/en/tsvn_basics.xml:478(para) 
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:468(para) 
+#: source/en/tsvn_basics.xml:486(para) 
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:476(para) 
+#: source/en/tsvn_basics.xml:494(para) 
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:485(title) 
+#: source/en/tsvn_basics.xml:503(title) 
 msgid "Revisions"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:489(para) 
+#: source/en/tsvn_basics.xml:507(para) 
 msgid "An <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:497(para) 
+#: source/en/tsvn_basics.xml:515(para) 
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commit's changes take place, or none of them take place. Subversion tries to retain this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:504(para) 
+#: source/en/tsvn_basics.xml:522(para) 
 msgid "Each time the repository accepts a commit, this creates a new state of the filesystem tree, called a <firstterm>revision</firstterm>. Each revision is assigned a unique natural number, one greater than the number of the previous revision. The initial revision of a freshly created repository is numbered zero, and consists of nothing but an empty root directory."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:513(para) 
+#: source/en/tsvn_basics.xml:531(para) 
 msgid "A nice way to visualize the repository is as a series of trees. Imagine an array of revision numbers, starting at 0, stretching from left to right. Each revision number has a filesystem tree hanging below it, and each tree is a <quote>snapshot</quote> of the way the repository looked after each commit."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:526(title) 
+#: source/en/tsvn_basics.xml:544(title) 
 msgid "Global Revision Numbers"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:527(para) 
+#: source/en/tsvn_basics.xml:545(para) 
 msgid "Unlike those of many other version control systems, Subversion's revision numbers apply to <emphasis>entire trees</emphasis>, not individual files. Each revision number selects an entire tree, a particular state of the repository after some committed change. Another way to think about it is that revision N represents the state of the repository filesystem after the Nth commit. When a Subversion user talks about ``revision 5 of <filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> as it appears in revision 5.'' Notice that in general, revisions N and M of a file do <emphasis>not</emphasis> necessarily differ!"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:542(para) 
+#: source/en/tsvn_basics.xml:560(para) 
 msgid "It's important to note that working copies do not always correspond to any single revision in the repository; they may contain files from several different revisions. For example, suppose you check out a working copy from a repository whose most recent revision is 4:"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:549(screen) 
+#: source/en/tsvn_basics.xml:567(screen) 
 #, no-wrap
 msgid "\ncalc/Makefile:4\n     integer.c:4\n     button.c:4\n"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:554(para) 
+#: source/en/tsvn_basics.xml:572(para) 
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:562(screen) 
+#: source/en/tsvn_basics.xml:580(screen) 
 #, no-wrap
 msgid "\ncalc/Makefile:4\n     integer.c:4\n     button.c:5\n"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:567(para) 
+#: source/en/tsvn_basics.xml:585(para) 
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:573(screen) 
+#: source/en/tsvn_basics.xml:591(screen) 
 #, no-wrap
 msgid "\ncalc/Makefile:6\n     integer.c:6\n     button.c:6\n"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:578(para) 
+#: source/en/tsvn_basics.xml:596(para) 
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:591(title) 
+#: source/en/tsvn_basics.xml:609(title) 
 msgid "How Working Copies Track the Repository"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:592(para) 
+#: source/en/tsvn_basics.xml:610(para) 
 msgid "For each file in a working directory, Subversion records two essential pieces of information in the <filename>.svn/</filename> administrative area:"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:598(para) 
+#: source/en/tsvn_basics.xml:616(para) 
 msgid "what revision your working file is based on (this is called the file's <firstterm>working revision</firstterm>), and"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:605(para) 
+#: source/en/tsvn_basics.xml:623(para) 
 msgid "a timestamp recording when the local copy was last updated by the repository."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:611(para) 
+#: source/en/tsvn_basics.xml:629(para) 
 msgid "Given this information, by talking to the repository, Subversion can tell which of the following four states a working file is in:"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:618(term) 
+#: source/en/tsvn_basics.xml:636(term) 
 msgid "Unchanged, and current"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:620(para) 
+#: source/en/tsvn_basics.xml:638(para) 
 msgid "The file is unchanged in the working directory, and no changes to that file have been committed to the repository since its working revision. A <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will do nothing."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:631(term) 
+#: source/en/tsvn_basics.xml:649(term) 
 msgid "Locally changed, and current"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:633(para) 
+#: source/en/tsvn_basics.xml:651(para) 
 msgid "The file has been changed in the working directory, and no changes to that file have been committed to the repository since its base revision. There are local changes that have not been committed to the repository, thus an <command>commit</command> of the file will succeed in publishing your changes, and an <command>update</command> of the file will do nothing."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:645(term) 
+#: source/en/tsvn_basics.xml:663(term) 
 msgid "Unchanged, and out-of-date"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:647(para) 
+#: source/en/tsvn_basics.xml:665(para) 
 msgid "The file has not been changed in the working directory, but it has been changed in the repository. The file should eventually be updated, to make it current with the public revision. An <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will fold the latest changes into your working copy."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:659(term) 
+#: source/en/tsvn_basics.xml:677(term) 
 msgid "Locally changed, and out-of-date"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:661(para) 
+#: source/en/tsvn_basics.xml:679(para) 
 msgid "The file has been changed both in the working directory, and in the repository. An <command>commit </command> of the file will fail with an \"out-of-date\" error. The file should be updated first; an <command>update </command> command will attempt to merge the public changes with the local changes. If Subversion can't complete the merge in a plausible way automatically, it leaves it to the user to resolve the conflict."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:678(title) 
+#: source/en/tsvn_basics.xml:696(title) 
 msgid "Summary"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:679(para) 
+#: source/en/tsvn_basics.xml:697(para) 
 msgid "We've covered a number of fundamental Subversion concepts in this chapter:"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:685(para) 
+#: source/en/tsvn_basics.xml:703(para) 
 msgid "We've introduced the notions of the central repository, the client working copy, and the array of repository revision trees."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:691(para) 
+#: source/en/tsvn_basics.xml:709(para) 
 msgid "We've seen some simple examples of how two collaborators can use Subversion to publish and receive changes from one another, using the 'copy-modify-merge' model."
 msgstr ""
 
-#: source/en/tsvn_basics.xml:698(para) 
+#: source/en/tsvn_basics.xml:716(para) 
 msgid "We've talked a bit about the way Subversion tracks and manages information in a working copy."
 msgstr ""
 
