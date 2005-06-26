@@ -25,8 +25,8 @@ You may have to logoff/logon to make the new environement variables take effect!
   then right-click into the SVN folder and select "checkout".
   In the dialog enter the URL and add "\Subversion" to
   the checkout path.
-  Make sure you check out the Subversion source from either the 1.1.x branch or
-  one of the 1.1.x tags!
+  Make sure you check out the Subversion source from either the 1.2.x branch or
+  one of the 1.2.x tags!
 - Download the newest source of the apache server
   for windows from http://httpd.apache.org/download.cgi
   Unzip the sources into SVN\Subversion
@@ -34,6 +34,10 @@ You may have to logoff/logon to make the new environement variables take effect!
   SVN\Subversion\httpd-2.0.xx\srclib\apr to SVN\Subversion\apr
   SVN\Subversion\httpd-2.0.xx\srclib\apr-iconv to SVN\Subversion\apr-iconv
   SVN\Subversion\httpd-2.0.xx\srclib\apr-util to SVN\Subversion\apr-util
+- Download the newest neon source from 
+  http://www.webdav.org/neon/ and unzip it into SVN\Subversion
+  then rename the folder neon-0.24.x to neon. (neon-0.25.x doesn't work with
+  Subversion 1.2 yet)
 - create a new folder in SVN called 'common'
 - Download the openssl source package from
   http://www.openssl.org/source/ and unzip it to SVN\common, then rename
@@ -44,9 +48,6 @@ You may have to logoff/logon to make the new environement variables take effect!
   Note: the names of the files are important! They have to be
   en_US.aff, en_US.dic for the spellchecker, and 
   th_en_US_v2.idx, th_en_US_v2.dat for the thesaurus.
-- Download the newest neon source from 
-  http://www.webdav.org/neon/ and unzip it into SVN\Subversion
-  then rename the folder neon-0.xx.x to neon.
 - Checkout the TortoiseSVN sources from the Subversion repository into
   SVN\TortoiseSVN
 - Download the tools to build the TSVN docs from 
