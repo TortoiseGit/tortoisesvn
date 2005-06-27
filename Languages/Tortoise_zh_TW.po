@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-15 10:16+0800\n"
+"PO-Revision-Date: 2005-06-27 10:30+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,60 +27,70 @@ msgstr " "
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "! %d"
 msgstr "! %d"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 contained an unexpected object."
 msgstr "%1 含有預期外的物件."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 含有不正確的綱要."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 contains an invalid path."
 msgstr "%1 含有不正確的路徑."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be created because the directory is full."
 msgstr "因為目錄已滿, %1  無法建立."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be opened because there are too many open files."
 msgstr "無法開啟 %1, 因為已經開啟過多的檔案."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be removed because it is the current directory."
 msgstr "%1 是目前目錄, 無法移除."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 has a bad format."
 msgstr "%1 格式錯誤."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 was not found."
 msgstr "找不到 %1."
 
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
+#, c-format
 msgid ""
 "%1: %2\n"
 "Continue running script?"
@@ -91,6 +101,7 @@ msgstr ""
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
@@ -102,31 +113,37 @@ msgstr ""
 
 # ID:169,
 #: ID:169
+#, c-format
 msgid "%d files selected, %d files total"
 msgstr "選擇了 %d 個檔案, 共有 %d 個檔案"
 
 # ID:77,
 #: ID:226
+#, c-format
 msgid "%s - at revision: %d"
 msgstr "%s - 於版本: %d"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Remote File"
 msgstr "%s : 遠端檔案"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Working Base"
 msgstr "%s : 工作基礎版本"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Working Copy"
 msgstr "%s : 工作複本"
 
 # ID:145,
 #: ID:145
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -136,6 +153,7 @@ msgstr ""
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "%s\n"
 "is a directory, not a file!\n"
@@ -533,11 +551,13 @@ msgstr "(僅性質改變)"
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "+ %d"
 msgstr "+ %d"
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "- %d"
 msgstr "- %d"
 
@@ -559,6 +579,7 @@ msgstr "..."
 
 # ID:119,
 #: ID:151
+#, c-format
 msgid ": Revision %d"
 msgstr ": 版本 %d"
 
@@ -605,12 +626,14 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "存取 %1 時發生硬體 I/O 錯誤."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A locking violation occurred while accessing %1."
 msgstr "存取 %1 時發生鎖定錯誤."
 
@@ -648,6 +671,7 @@ msgstr "找不到需要的資源檔."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A sharing violation occurred while accessing %1."
 msgstr "存取 %1 時發生共享錯誤."
 
@@ -698,6 +722,7 @@ msgstr "永久接受"
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Access to %1 was denied."
 msgstr "拒絕存取 %1."
 
@@ -739,11 +764,6 @@ msgstr "根據副檔名加入合併程式"
 msgid "Add To Ignore List"
 msgstr "加入忽略列表"
 
-# ID:12,
-#: ID:12
-msgid "Add files to Subversion here"
-msgstr "加入檔案至 Subversion"
-
 # Control-ID:1098,
 #: ID:8
 msgid "Add..."
@@ -777,6 +797,7 @@ msgstr "遠端加入檔案完成"
 
 # ID:13,
 #: ID:145
+#, c-format
 msgid ""
 "Added the file(s)\n"
 "%s\n"
@@ -854,23 +875,27 @@ msgstr "所有檔案都已在版本控制下. 沒有可以新增的項目!"
 # ID:3868,
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An attempt was made to access %1 past its end."
 msgstr "試圖存取超過 %1 長度的部分."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "An attempt was made to read from the writing %1."
 msgstr "試圖讀取寫入中的 %1."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "An attempt was made to write to the reading %1."
 msgstr "試圖寫入讀取中的 %1."
 
 # ID:78,
 #: ID:78
+#, c-format
 msgid ""
 "An external diff program used\n"
 "for comparing different revisions of files\n"
@@ -887,6 +912,7 @@ msgstr ""
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid ""
 "An external merge program used\n"
 "to resolve conflicted files.\n"
@@ -915,18 +941,21 @@ msgstr "發現不正確的參數."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "An invalid file handle was associated with %1."
 msgstr "%1 關聯到不正確的檔案代碼."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while reading %1."
 msgstr "讀取 %1 時發生預期外的錯誤."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while writing %1."
 msgstr "寫入 %1 時發生預期外的錯誤."
 
@@ -941,11 +970,13 @@ msgstr "發生不明錯誤."
 # ID:3868,
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An unknown error occurred while accessing %1."
 msgstr "存取 %1 時發生不明錯誤."
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "在第 %d 行發現不明型態資料!"
 
@@ -996,6 +1027,7 @@ msgstr "是否確定要復原? 從上次更新之後的<b>所有</b>變更都會
 
 # ID:77,
 #: ID:77
+#, c-format
 msgid "At revision: %d"
 msgstr "於版本: %d"
 
@@ -1162,6 +1194,7 @@ msgstr "CAP"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid ""
 "Can't copy \n"
 "%s\n"
@@ -1203,11 +1236,13 @@ msgstr "憑證已到期或尚未生效."
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "憑證已到期. 有效期限: %s"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "憑證尚未生效. 起始日期: %s"
 
@@ -1233,6 +1268,7 @@ msgstr "異動過的檔案"
 
 # ID:163,
 #: ID:163
+#, c-format
 msgid "Changed files: %d"
 msgstr "變動檔案數: %d"
 
@@ -1479,6 +1515,7 @@ msgstr "衝突"
 
 # Control-ID:65535,
 #: ID:188
+#, c-format
 msgid "Conflicts: %d"
 msgstr "衝突: %d"
 
@@ -1514,6 +1551,7 @@ msgstr "遠端複製完成"
 
 # ID:80,
 #: ID:103
+#, c-format
 msgid "Copy %s"
 msgstr "複製 %s"
 
@@ -1537,11 +1575,6 @@ msgstr "複製至工作複本..."
 msgid "Copy URL to clipboard"
 msgstr "複製URL至剪貼簿"
 
-# ID:13,
-#: ID:13
-msgid "Copy files in Subversion to here"
-msgstr "將 Subversion 中的檔案複製至此處"
-
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -1563,6 +1596,7 @@ msgstr "複製至工作複本"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid "Copying %s"
 msgstr "正在複製 %s"
 
@@ -1578,6 +1612,7 @@ msgstr "修正"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid "Could not add %s to the ignore list!"
 msgstr "無法加入 %s 至忽略列表!"
 
@@ -1588,6 +1623,7 @@ msgstr "無法檢查新版!"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not copy the files!\n"
 "<hr=100%>\n"
@@ -1604,6 +1640,7 @@ msgstr "無法取得狀態!"
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "Could not open the file\n"
 "%s"
@@ -1613,11 +1650,13 @@ msgstr ""
 
 # ID:81,
 #: ID:82
+#, c-format
 msgid "Could not remove %s from the ignored list"
 msgstr "無法從忽略列表中移除 %s!"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
@@ -1627,6 +1666,7 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, c-format
 msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
@@ -1636,11 +1676,13 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "Could not save the file %s!"
 msgstr "無法儲存檔案 %s!"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%>\n"
@@ -1652,6 +1694,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%>\n"
@@ -1663,6 +1706,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external merge program!\n"
 "<hr=100%>\n"
@@ -1816,12 +1860,14 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Disk full while accessing %1."
 msgstr "存取 %1 時磁碟已滿."
 
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
+#, c-format
 msgid "Dispatch exception: %1"
 msgstr "分派異常: %1"
 
@@ -1868,6 +1914,7 @@ msgstr "不再顯示此訊息"
 
 # ID:76,
 #: ID:76
+#, c-format
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
@@ -2031,6 +2078,7 @@ msgstr "錯誤"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "%s 伺服器憑證檢核錯誤:"
 
@@ -2161,6 +2209,7 @@ msgstr "正在取得檔案..."
 
 # ID:313,
 #: ID:313
+#, c-format
 msgid "Fetching revision %s of file:"
 msgstr "正在取得第 %s 版的:"
 
@@ -2257,6 +2306,7 @@ msgstr "取得鎖定..."
 
 # ID:119,
 #: ID:119
+#, c-format
 msgid "Getting File %s"
 msgstr "正在取得檔案 %s"
 
@@ -2335,6 +2385,11 @@ msgstr "伺服器上最新版本"
 msgid "Help"
 msgstr "說明"
 
+# Control-ID:1229,
+#: Control-ID:1229
+msgid "Hide unrelated changed paths"
+msgstr "隱藏無關的異動路徑"
+
 # Control-ID:65535,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -2342,6 +2397,7 @@ msgstr "小提示: 按下 F5 可以重新整理選擇的子樹, 而 Ctrl-F5 可�
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "站臺名稱不符 (%s)"
 
@@ -2366,17 +2422,6 @@ msgstr "圖示 / 設計 / 程式:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "勾選此選項時, 在\"另存新檔\"或是\"開啟\"的對話盒中不顯示圖示覆蓋."
 
-# ID:195,
-#: ID:195
-msgid ""
-"If activated, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"勾選此選項時, 右鍵選單會比較快出現.\n"
-"但是某些顯示出來的功能不一定可以使用.\n"
-"例如: \"顯示記錄\" 在新加入的資料夾也會出現."
-
 # ID:95,
 #: ID:95
 msgid ""
@@ -2390,6 +2435,17 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
 msgstr "勾選此選項時, TortoiseSVN 會建立展開關鍵字以及調整換行的暫存檔進行差異比對."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If disabled, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"取消此選項時, 右鍵選單會比較快出現.\n"
+"但是某些顯示出來的功能不能真的使用.\n"
+"例如: \"顯示記錄\" 在新加入的資料夾也會出現."
 
 # ID:194,
 #: ID:194
@@ -2422,6 +2478,7 @@ msgstr "忽略"
 
 # Control-ID:1021,
 #: ID:15
+#, c-format
 msgid "Ignore %d items"
 msgstr "忽略 %d 項"
 
@@ -2666,11 +2723,13 @@ msgstr "鎖定持有人:"
 
 # ID:263,
 #: ID:209
+#, c-format
 msgid "Lock stolen by %s"
 msgstr "鎖定被 %s 取得"
 
 # ID:263,
 #: ID:263
+#, c-format
 msgid "Locked by %s"
 msgstr "由 %s 鎖定"
 
@@ -2722,11 +2781,13 @@ msgstr "視覺樣式::圖示集"
 
 # ID:238,
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
 msgstr "最低版本: %ld - 最高版本: %ld"
 
 # ID:238,
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
 msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 
@@ -2822,11 +2883,6 @@ msgstr "異動"
 msgid "Most active author:"
 msgstr "最活躍作者:"
 
-# ID:12,
-#: ID:12
-msgid "Move files in Subversion to here"
-msgstr "將 Subversion 中的檔案移至此處"
-
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -2834,6 +2890,7 @@ msgstr "遠端移動完成"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid "Moving %s"
 msgstr "正在移動 %s"
 
@@ -2862,6 +2919,11 @@ msgstr "NUM"
 msgid "Native Filesystem (FSFS)"
 msgstr "原生檔案系統(FSFS)"
 
+# ID:73,
+#: ID:210
+msgid "Nested"
+msgstr "多層次"
+
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
@@ -2880,6 +2942,7 @@ msgstr "新名稱:"
 
 # ID:97,
 #: ID:97
+#, c-format
 msgid "New name for %s"
 msgstr "%s 的新名稱"
 
@@ -2890,6 +2953,7 @@ msgstr "否"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "No command specified!\n"
 "<hr=100%>\n"
@@ -2955,6 +3019,7 @@ msgstr "無圖表"
 
 # ID:273,
 #: ID:273
+#, c-format
 msgid "No image encoder found for %s."
 msgstr "找不到 %s 的圖型編碼程式."
 
@@ -3162,6 +3227,7 @@ msgstr "請輸入日期."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter a number between %1 and %2."
 msgstr "請輸入介於 %1 與 %2 之間的數字."
 
@@ -3186,6 +3252,7 @@ msgstr "請輸入時間."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter an integer between %1 and %2."
 msgstr "請輸入介於 %1 與 %2 之間的整數."
 
@@ -3204,6 +3271,7 @@ msgstr "請輸入整數."
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter no more than %1 characters."
 msgstr "請勿輸入超過 %1 個字."
 
@@ -3258,6 +3326,7 @@ msgstr "請稍候..."
 
 # ID:132,
 #: ID:132
+#, c-format
 msgid "Processing revision %d of %d..."
 msgstr "正在處理版本 %d 於 %d..."
 
@@ -3443,6 +3512,7 @@ msgstr "已移除檔案/資料夾"
 
 # ID:13,
 #: ID:145
+#, c-format
 msgid ""
 "Removed the file(s)\n"
 "%s\n"
@@ -3464,6 +3534,7 @@ msgstr "重新命名"
 
 # ID:97,
 #: ID:97
+#, c-format
 msgid "Rename %s"
 msgstr "重新命名 %s"
 
@@ -3589,6 +3660,7 @@ msgstr "版本"
 
 # ID:119,
 #: ID:119
+#, c-format
 msgid "Revision %d"
 msgstr "版本 %d"
 
@@ -3596,6 +3668,7 @@ msgstr "版本 %d"
 #: ID:269
 #: ID:270
 #: ID:271
+#, c-format
 msgid "Revision %ld"
 msgstr "版本 %ld"
 
@@ -3635,6 +3708,11 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+# ID:12,
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN 加入檔案至工作複本"
+
 # ID:77,
 #: ID:77
 msgid "SVN Add..."
@@ -3655,10 +3733,30 @@ msgstr "SVN Checkout..."
 msgid "SVN Commit..."
 msgstr "SVN Commit..."
 
+# Control-ID:1073,
+#: ID:16
+msgid "SVN Copy and Rename versioned files here"
+msgstr "SVN 複製與更名檔案至此"
+
+# Control-ID:1073,
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN 複製檔案至此"
+
 # ID:78,
 #: ID:78
 msgid "SVN Copy..."
 msgstr "SVN Copy..."
+
+# ID:13,
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN 全部匯出至此"
+
+# ID:78,
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN 匯出至此"
 
 # ID:78,
 #: ID:78
@@ -3679,6 +3777,11 @@ msgstr "SVN 鎖定持有人"
 #: ID:78
 msgid "SVN Merge..."
 msgstr "SVN Merge..."
+
+# Control-ID:1073,
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN 移動檔案至此"
 
 # Dlg-ID:134,
 #: Dlg-ID:134
@@ -3771,6 +3874,7 @@ msgstr "另存新檔..."
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "Save changes to %1?"
 msgstr "是否儲存 %1 的變動?"
 
@@ -3796,6 +3900,7 @@ msgstr "正在儲存檔案"
 
 # ID:144,
 #: ID:103
+#, c-format
 msgid "Saving file %s"
 msgstr "儲存檔案 %s"
 
@@ -3822,6 +3927,7 @@ msgstr "搜尋記錄訊息(&L)..."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Seek failed on %1"
 msgstr "搜尋錯誤: %1"
 
@@ -3976,6 +4082,7 @@ msgstr "顯示差異(&D)"
 # Control-ID:1031,#:
 # Control-ID:1034,
 #: ID:101
+#: Control-ID:1228
 #: Control-ID:1031
 #: Control-ID:1034
 #: Control-ID:1132
@@ -4192,16 +4299,6 @@ msgstr "Subversion 認證資料:"
 msgid "Subversion configuration file:"
 msgstr "Subversion 設定檔:"
 
-# ID:13,
-#: ID:14
-msgid "Subversion export all here"
-msgstr "Subversion 全部匯出至此"
-
-# ID:13,
-#: ID:14
-msgid "Subversion export here"
-msgstr "在此匯出 Subversion"
-
 # ID:79,
 #: ID:79
 msgid ""
@@ -4213,6 +4310,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "<hr=100%>\n"
@@ -4292,6 +4390,7 @@ msgstr "Tab 寬度:"
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid "Tagged the working copy to %s"
 msgstr "標記工作複本為 %s"
 
@@ -4307,6 +4406,7 @@ msgstr "文字狀態:"
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "The File\n"
 "%s\n"
@@ -4330,11 +4430,13 @@ msgstr "區塊大小與加入/移除的行數不符!"
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "區塊起始標記 \"@@\" 應該位於第 %d 行!"
 
 # ID:68,
 #: ID:68
+#, c-format
 msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
@@ -4344,11 +4446,13 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "The file %s does not exist!"
 msgstr "檔案 %s 不存在!"
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "補綴檔中找不到檔案: %s!"
 
@@ -4360,6 +4464,7 @@ msgstr "檔案過大, 無法開啟."
 
 # ID:145,
 #: ID:145
+#, c-format
 msgid ""
 "The file or folder\n"
 "%s\n"
@@ -4371,6 +4476,7 @@ msgstr ""
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid ""
 "The file\n"
 "%s\n"
@@ -4382,6 +4488,7 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, c-format
 msgid ""
 "The folder \n"
 "%s\n"
@@ -4395,6 +4502,7 @@ msgstr ""
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr "\"====\" 行應該出現在第 %d 行!"
 
@@ -4409,11 +4517,13 @@ msgstr ""
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "新檔案的標示行應該位於第 %d 行!"
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "舊檔案的標示行應該位於第 %d 行!"
 
@@ -4433,6 +4543,7 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
 "%s\n"
@@ -4462,6 +4573,7 @@ msgstr ""
 
 # ID:314,
 #: ID:314
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -4502,6 +4614,7 @@ msgstr ""
 
 # ID:102,
 #: ID:102
+#, c-format
 msgid ""
 "The target url\n"
 "%s\n"
@@ -4529,6 +4642,7 @@ msgstr "檔案鎖定持有人"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "The working copy has changed!\n"
 "<hr=100%>\n"
@@ -4563,6 +4677,7 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, c-format
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "You should resolve those conflicts first before saving.\n"
@@ -4598,12 +4713,14 @@ msgstr "本產品包含由 CollabNet(http;//www.Collab.Net/) 所開發的軟體"
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "找不到本程式連結的 %s (包含於 %s). 可能安裝了不相容版本的 %s."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "系統中找不到本程式需要的 %s."
 
@@ -4653,11 +4770,13 @@ msgstr "TortoiseMerge"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, 組建 %d"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -4681,11 +4800,13 @@ msgstr "TortoiseSVN"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, 組建 %d"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -4770,6 +4891,7 @@ msgstr "URL: "
 
 # ID:272,
 #: ID:272
+#, c-format
 msgid ""
 "URL: %s\r\n"
 "Author: %s\r\n"
@@ -4794,6 +4916,7 @@ msgstr "無法載入郵件系統功能."
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "Unable to read from %1, it is opened by someone else."
 msgstr "無法讀取 %1, 因為另外有人開啟."
 
@@ -4812,6 +4935,7 @@ msgstr "無法寫入唯讀性質."
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "無法寫入 %1, 它可能被設為唯讀或另有人開啟."
 
@@ -4845,6 +4969,7 @@ msgstr "最新版本的單一差異檔(&D)"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %s\n"
@@ -4944,10 +5069,10 @@ msgstr "在定位列上使用放大鏡"
 msgid "Use Text viewer to view blames"
 msgstr "使用文字編輯器檢視譴責"
 
-# Control-ID:65535,
+# Control-ID:1073,
 #: Control-ID:1073
-msgid "Use \"From:\" URL"
-msgstr "使用 \"從:\" 的URL"
+msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+msgstr "使用 \"從:\" URL(版本範圍可以從上面的視窗選擇)"
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -5087,6 +5212,7 @@ msgstr "工作複本"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid ""
 "Working copy relocated to\n"
 "%s"
@@ -5205,6 +5331,7 @@ msgstr ""
 
 # ID:195,
 #: ID:195
+#, c-format
 msgid ""
 "You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
@@ -5302,6 +5429,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
@@ -5322,6 +5450,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
@@ -5354,6 +5483,7 @@ msgstr "目前版本是:"
 
 # ID:201,
 #: ID:201
+#, c-format
 msgid "current version is: %s"
 msgstr "目前版本是: %s"
 
@@ -5364,6 +5494,7 @@ msgstr "刪除"
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid ""
 "exported\n"
 "%s\n"
@@ -5551,6 +5682,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 #: ID:103
+#, c-format
 msgid "to %s"
 msgstr "至 %s"
 
@@ -5633,6 +5765,7 @@ msgstr "你的版本是:"
 
 # ID:201,
 #: ID:201
+#, c-format
 msgid "your version is: %d.%d.%d.%d"
 msgstr "你的版本是: %d.%d.%d.%d"
 

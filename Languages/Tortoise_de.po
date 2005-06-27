@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-23 09:14+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2005-06-27 09:40+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -607,10 +607,6 @@ msgstr "Merge Programm für Dateityp hinzufügen"
 #: ID:13
 msgid "Add To Ignore List"
 msgstr "Ignorieren"
-
-#: ID:12
-msgid "Add files to Subversion here"
-msgstr "Hier zum Projektarchiv hinzufügen"
 
 #: ID:8
 msgid "Add..."
@@ -1262,14 +1258,6 @@ msgstr "Kopiere zur Arbeitskopie.."
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "URL in Zwischenablage kopieren"
-
-#: ID:16
-msgid "Copy and Rename in Subversion to here"
-msgstr "Im Projektarchiv hierher kopieren und umbenennen"
-
-#: ID:13
-msgid "Copy files in Subversion to here"
-msgstr "Im Projektarchiv hierher kopieren"
 
 #: ID:3603
 msgid ""
@@ -2337,10 +2325,6 @@ msgstr "Verändert"
 msgid "Most active author:"
 msgstr "Aktivster Autor:"
 
-#: ID:12
-msgid "Move files in Subversion to here"
-msgstr "Im Projektarchiv hierher verschieben"
-
 #: ID:126
 msgid "Moved remotely"
 msgstr "Im Projektarchiv verschoben"
@@ -2993,6 +2977,11 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+# ID:12,
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN Zu dieser Arbeitskopie hinzufügen"
+
 #: ID:77
 msgid "SVN Add..."
 msgstr "SVN Hinzufügen..."
@@ -3009,9 +2998,25 @@ msgstr "SVN Auschecken..."
 msgid "SVN Commit..."
 msgstr "SVN Übertragen..."
 
+#: ID:16
+msgid "SVN Copy and Rename versioned files here"
+msgstr "SVN Dateien hierher kopieren und umbenennen"
+
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN Dateien hierher kopieren"
+
 #: ID:78
 msgid "SVN Copy..."
 msgstr "SVN Kopieren..."
+
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN Alles hierher exportieren"
+
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN Hierher exportieren"
 
 #: ID:78
 msgid "SVN Export..."
@@ -3028,6 +3033,10 @@ msgstr "SVN Sperreigner:"
 #: ID:78
 msgid "SVN Merge..."
 msgstr "SVN Zusammenführen..."
+
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN Dateien hierher verschieben"
 
 #: Dlg-ID:134
 msgid "SVN Progress"
@@ -3438,14 +3447,6 @@ msgstr "Subversion Anmeldedaten:"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Subversion Konfigurationsdatei:"
-
-#: ID:14
-msgid "Subversion export all here"
-msgstr "Alle Subversion Objekte hier exportieren"
-
-#: ID:14
-msgid "Subversion export here"
-msgstr "Subversion Export hier"
 
 #: ID:79
 msgid ""

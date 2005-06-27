@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-20 06:16+0900\n"
+"PO-Revision-Date: 2005-06-26 22:00+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -755,11 +755,6 @@ msgstr "확장자에 따른 병합 프로그램 등록"
 #: ID:13
 msgid "Add To Ignore List"
 msgstr "무시 목록에 추가"
-
-# ID:12,
-#: ID:12
-msgid "Add files to Subversion here"
-msgstr "여기에서 Subversion으로 파일을 추가함"
 
 # Control-ID:1098,
 #: ID:8
@@ -1572,16 +1567,6 @@ msgstr "작업 사본으로 복사..."
 msgid "Copy URL to clipboard"
 msgstr "URL을 클립보드에 복사합니다"
 
-# ID:13,
-#: ID:16
-msgid "Copy and Rename in Subversion to here"
-msgstr "Subversion의 파일들을 여기에 복사하거나 이름을 변경합니다."
-
-# ID:13,
-#: ID:13
-msgid "Copy files in Subversion to here"
-msgstr "Subversion의 파일들을 여기에 복사합니다"
-
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2391,6 +2376,11 @@ msgstr "저장소의 최신 리비전"
 msgid "Help"
 msgstr "도움말"
 
+# Control-ID:1229,
+#: Control-ID:1229
+msgid "Hide unrelated changed paths"
+msgstr "관련없는 변경된 경로를 숨기기"
+
 # Control-ID:65535,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -2882,11 +2872,6 @@ msgstr "수정됨"
 msgid "Most active author:"
 msgstr "가장 활동이 많은 작성자:"
 
-# ID:12,
-#: ID:12
-msgid "Move files in Subversion to here"
-msgstr "Subversion 에 있는 파일을 여기로 옮김"
-
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -2922,6 +2907,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "고유의 파일시스템 (Navtive FS, FSFS)"
+
+# ID:73,
+#: ID:210
+msgid "Nested"
+msgstr "중첩됨"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -3706,6 +3696,11 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+# ID:12,
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN 파일을 본 작업사본에 추가"
+
 # ID:77,
 #: ID:77
 msgid "SVN Add..."
@@ -3726,10 +3721,30 @@ msgstr "SVN 체크아웃..."
 msgid "SVN Commit..."
 msgstr "SVN 커밋..."
 
+# ID:13,
+#: ID:16
+msgid "SVN Copy and Rename versioned files here"
+msgstr "SVN 버전관리 파일을 복사하거나 이름을 바꿉니다."
+
+# Control-ID:1073,
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN 버전관리 대상 파일을 복사합니다"
+
 # ID:78,
 #: ID:78
 msgid "SVN Copy..."
 msgstr "SVN 복사..."
+
+# ID:14,
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN 모든 파일을 여기에 익스포트합니다"
+
+# ID:78,
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN 파일을 익스포트합니다"
 
 # ID:78,
 #: ID:78
@@ -3750,6 +3765,11 @@ msgstr "SVN 잠금 소유자"
 #: ID:78
 msgid "SVN Merge..."
 msgstr "SVN 병합..."
+
+# Control-ID:1073,
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN 버전관리 대상인 파일을 이동"
 
 # Dlg-ID:134,
 #: Dlg-ID:134
@@ -4048,6 +4068,7 @@ msgstr "바뀐점 보기(&D)"
 # Control-ID:1031,#:
 # Control-ID:1034,
 #: ID:101
+#: Control-ID:1228
 #: Control-ID:1031
 #: Control-ID:1034
 #: Control-ID:1132
@@ -4266,16 +4287,6 @@ msgstr "Subversion 인증 정보:"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Subversion 설정 파일:"
-
-# ID:14,
-#: ID:14
-msgid "Subversion export all here"
-msgstr "Subversion은 모두 여기에 익스포트합니다"
-
-# ID:14,
-#: ID:14
-msgid "Subversion export here"
-msgstr "Subversion은 여기에 익스포트합니다"
 
 # ID:79,
 #: ID:79
