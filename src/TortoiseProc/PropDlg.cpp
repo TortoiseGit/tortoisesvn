@@ -111,14 +111,25 @@ UINT CPropDlg::PropThread()
 	SVNProperties props(m_Path, m_rev);
 
 	m_proplist.SetRedraw(false);
+	int row = 0;
 	for (int i=0; i<props.GetCount(); ++i)
 	{
 		CString name = props.GetItemName(i).c_str();
 		CString val = CUnicodeUtils::GetUnicode((char *)props.GetItemValue(i).c_str());
-		val.Replace('\n', ' ');
-		val.Replace('\r', ' ');
-		m_proplist.InsertItem(i, name);
-		m_proplist.SetItemText(i, 1, val);
+
+		int nFound = -1;
+		do 
+		{
+			nFound = val.FindOneOf(_T("\r\n"));
+			m_proplist.InsertItem(row, name);
+			if (nFound >= 0)
+				m_proplist.SetItemText(row++, 1, val.Left(nFound));
+			else
+				m_proplist.SetItemText(row++, 1, val);
+			val = val.Mid(nFound);
+			val.Trim();
+			name.Empty();
+		} while (!val.IsEmpty()&&(nFound>=0));
 	}
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_proplist.GetDlgItem(0)))->GetItemCount()-1;

@@ -37,6 +37,8 @@
 - CHG: In the repository browser, when a different revision than HEAD is
        set and the revision button is pressed, the set revision is pre-filled
        in the revision selection dialog instead of HEAD. (Stefan)
+- CHG: Remote properties are shown in multiple lines instead of all squeezed
+       into one single line when shown from the repository browser. (Stefan)
 - BUG: Crash in TSVNCache. See issue #91.
 - BUG: File context menu shown if more than one folder was
        selected. See issue #92.
