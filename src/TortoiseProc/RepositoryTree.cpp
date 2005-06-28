@@ -517,6 +517,8 @@ static INT CALLBACK SortCallback(INT iItem1, INT iSubItem1, INT iItem2, INT iSub
 		if (rvi2.Param64 < rvi1.Param64)
 			return 1;
 		return 0;
+	case 5:
+		return _tcsicmp(szText1, szText2);
 	}
 
 	return 0;
@@ -760,7 +762,7 @@ DROPEFFECT CRepositoryTree::OnDrag(int iItem, int iSubItem, IDataObject * pDataO
 		// the source doesn't work
 		for (INT_PTR i=0; i<m_arDraggedIndexes.GetCount(); ++i)
 		{
-			if (m_arDraggedIndexes[i] == iItem)
+			if (m_arDraggedIndexes[i] == (DWORD)iItem)
 				return DROPEFFECT_NONE;
 		}
 		
