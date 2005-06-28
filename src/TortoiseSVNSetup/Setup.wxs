@@ -469,6 +469,17 @@
 				<File Id="F__ClassicAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseAdded.ico" />
 			</Component>
 		</Directory>
+		<Directory Id="D__iconscvsclassic" Name="CVSClass" LongName="CVSClassic" >
+			<Component Id="C__iconscvsclassic" Guid="B96586EC-BE4C-4ccb-B88B-D4CD77CE66FB" >
+				<File Id="F__CVSClassicConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseConflict.ico" KeyPath="yes" />
+				<File Id="F__CVSClassicInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseInSubversion.ico" />
+				<File Id="F__CVSClassicModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseModified.ico" />
+				<File Id="F__CVSClassicReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseReadOnly.ico" />
+				<File Id="F__CVSClassicDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseDeleted.ico" />
+				<File Id="F__CVSClassicLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseLocked.ico" />
+				<File Id="F__CVSClassicAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseAdded.ico" />
+			</Component>
+		</Directory>
 		<Directory Id="D__iconsmodern" Name="Modern" >
 			<Component Id="C__iconsmodern" Guid="09F2C74B-E4DF-428b-8366-7C0346F7309C" >
 				<File Id="F__ModernConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseConflict.ico" KeyPath="yes" />
@@ -528,6 +539,7 @@
       <ComponentRef Id="C__CRuntimeSTLMFC" />
       <ComponentRef Id="C__iconv" />
       <ComponentRef Id="C__iconsclassic" />
+      <ComponentRef Id="C__iconscvsclassic" />
       <ComponentRef Id="C__iconsmodern" />
       <ComponentRef Id="C__iconsxpstyle" />
       <ComponentRef Id="C__iconsmarkphippard" />
