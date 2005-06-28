@@ -48,12 +48,6 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 	if (dwIndex > 6)
 		return S_FALSE;
 
-	// Read and select the system's locale settings.
-	// There seems to be no easy way to update this info (after the user
-	// changed her settings). Hence, we set it once and for all.
-
-	setlocale (LC_ALL, "");
-
 	LoadLangDll();
 	wide_string ws;
 	switch (dwIndex)
