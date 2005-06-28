@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-06-26 23:17GMT Daylight Time\n"
+"POT-Creation-Date: 2005-06-28 19:38Westeuropäische Normalzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgid "Run the Subversion installer. If you run the installer on your server you
 msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:39(para) 
-msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb42.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
+msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb43.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
 msgstr ""
 
 #: source/en/tsvn_server/server_svn.xml:56(title) 
@@ -234,7 +234,7 @@ msgid "Using the windows explorer, go to the installation directory of Subversio
 msgstr ""
 
 #: source/en/tsvn_server/server_apache.xml:184(para) 
-msgid "Copy the file <filename>/bin/libdb42.dll</filename> from the Subversion installation directory to the Apache modules directory."
+msgid "Copy the file <filename>/bin/libdb43.dll</filename> from the Subversion installation directory to the Apache modules directory."
 msgstr ""
 
 #: source/en/tsvn_server/server_apache.xml:191(para) 
@@ -2333,7 +2333,7 @@ msgstr ""
 msgid "import"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:8(primary) 
+#: source/en/tsvn_dug/dug_import.xml:8(primary) source/en/glossary.xml:40(glossterm) 
 msgid "Repository"
 msgstr ""
 
@@ -4424,18 +4424,6 @@ msgstr ""
 msgid "A diff/merge tool for Windows"
 msgstr ""
 
-#: source/en/tme_glossary.xml:3(title) 
-msgid "Glossary"
-msgstr ""
-
-#: source/en/tme_glossary.xml:7(term) 
-msgid "Add"
-msgstr ""
-
-#: source/en/tme_glossary.xml:9(para) 
-msgid "An <command>svn</command> command that is used to add a file or directory to a repository."
-msgstr ""
-
 #: source/en/tme_ch02.xml:3(title) 
 msgid "Using TortoiseMerge"
 msgstr ""
@@ -4896,8 +4884,40 @@ msgstr ""
 msgid "Toggles between showing whitespaces or not"
 msgstr ""
 
+#: source/en/glossary.xml:7(title) 
+msgid "Glossary"
+msgstr ""
+
+#: source/en/glossary.xml:10(glossterm) 
+msgid "Add"
+msgstr ""
+
+#: source/en/glossary.xml:12(para) 
+msgid "A Subversion command that is used to add a file or directory to a repository."
+msgstr ""
+
+#: source/en/glossary.xml:20(glossterm) 
+msgid "BDB"
+msgstr ""
+
+#: source/en/glossary.xml:22(para) 
+msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
+msgstr ""
+
+#: source/en/glossary.xml:30(glossterm) 
+msgid "FSFS"
+msgstr ""
+
+#: source/en/glossary.xml:32(para) 
+msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr ""
+
+#: source/en/glossary.xml:42(para) 
+msgid "Ã¶aseijmcyliselriu"
+msgstr ""
+
 #. Put one translator per line, in the form of NAME <EMAIL>.
-#: source/en/tme_appa.xml:0(None) 
+#: source/en/glossary.xml:0(None) 
 msgid "translator-credits"
 msgstr ""
 
