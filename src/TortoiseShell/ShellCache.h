@@ -115,7 +115,7 @@ public:
 			simplecontextticker = GetTickCount();
 			simplecontext.read();
 		}
-		return (simplecontext);
+		return (simplecontext==0);
 	}
 	BOOL IsRemote()
 	{
