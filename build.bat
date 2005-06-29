@@ -76,13 +76,13 @@ if DEFINED _DEBUG (
   copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
   rmdir /s /q Debug > NUL
   rmdir /s /q apr-util\Debug > NUL
-  devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__"
+  devenv subversion_vcnet.sln /useenv /rebuild debug /project "__ALL__"
   ren Debug\subversion subversion_netless
   del subversion\svn_private_config.h
   del subversion\svn_private_config.hw
   ren subversion\svn_private_config_copy.h svn_private_config.h
   ren subversion\svn_private_config_copy.hw svn_private_config.hw
-  devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__"
+  devenv subversion_vcnet.sln /useenv /rebuild debug /project "__ALL__"
 )
 if DEFINED _RELEASE (
   rem first, compile without any network/repository support
@@ -92,13 +92,13 @@ if DEFINED _RELEASE (
   copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
   rmdir /s /q apr-util\Release > NUL
   rmdir /s /q Release > NUL
-  devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
+  devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__"
   ren Release\subversion subversion_netless
   del subversion\svn_private_config.h
   del subversion\svn_private_config.hw
   ren subversion\svn_private_config_copy.h svn_private_config.h
   ren subversion\svn_private_config_copy.hw svn_private_config.hw
-  devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
+  devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__"
 )
 @echo off
 rem TortoiseSVN
