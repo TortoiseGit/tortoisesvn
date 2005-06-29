@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-27 10:52+0100\n"
+"PO-Revision-Date: 2005-06-29 09:40+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -68,8 +68,8 @@ msgstr "Starten Sie das Subversion Installationsprogramm. Wenn Sie die Installat
 
 #: source/en/tsvn_server/server_svn.xml:39
 #: (para)
-msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb42.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr "Öffnen Sie das Installationsverzeichnis von Subversion im Windows Explorer, (normalerweise <filename>C:\\Programme\\Subversion</filename>) aus dem <filename>bin</filename> Verzeichnis kopieren Sie die Dateien <filename>svnserve.exe</filename>, <filename>libdb42.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> in das Verzeichnis in dem Ihr Server installiert ist z.B. <filename>c:\\svnserve</filename>."
+msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb43.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
+msgstr "Öffnen Sie das Installationsverzeichnis von Subversion im Windows Explorer, (normalerweise <filename>C:\\Programme\\Subversion</filename>) aus dem <filename>bin</filename> Verzeichnis kopieren Sie die Dateien <filename>svnserve.exe</filename>, <filename>libdb43.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> in das Verzeichnis in dem Ihr Server installiert ist z.B. <filename>c:\\svnserve</filename>."
 
 #: source/en/tsvn_server/server_svn.xml:56
 #: (title)
@@ -373,8 +373,8 @@ msgstr "Gehen Sie mit dem Windows Explorer ins Installationsverzeichnis von Subv
 
 #: source/en/tsvn_server/server_apache.xml:184
 #: (para)
-msgid "Copy the file <filename>/bin/libdb42.dll</filename> from the Subversion installation directory to the Apache modules directory."
-msgstr "Kopieren Sie die Datei <filename>/bin/libdb42.dll</filename> aus dem Subversion-Installationsverzeichnis ins Apache-Modul-Verzeichnis."
+msgid "Copy the file <filename>/bin/libdb43.dll</filename> from the Subversion installation directory to the Apache modules directory."
+msgstr "Kopieren Sie die Datei <filename>/bin/libdb43.dll</filename> aus dem Subversion-Installationsverzeichnis ins Apache-Modul-Verzeichnis."
 
 #: source/en/tsvn_server/server_apache.xml:191
 #: (para)
@@ -3436,7 +3436,8 @@ msgid "import"
 msgstr "import"
 
 #: source/en/tsvn_dug/dug_import.xml:8
-#: (primary)
+#: (primary) source/en/glossary.xml:40
+#: (glossterm)
 msgid "Repository"
 msgstr "Projektarchiv"
 
@@ -6206,21 +6207,6 @@ msgstr "TortoiseMerge"
 msgid "A diff/merge tool for Windows"
 msgstr "Ein Diff / Merge Programm für Windows"
 
-#: source/en/tme_glossary.xml:3
-#: (title)
-msgid "Glossary"
-msgstr "Glossar"
-
-#: source/en/tme_glossary.xml:7
-#: (term)
-msgid "Add"
-msgstr "Hinzufügen"
-
-#: source/en/tme_glossary.xml:9
-#: (para)
-msgid "An <command>svn</command> command that is used to add a file or directory to a repository."
-msgstr "Ein <command>svn</command> Kommando welches zum hinzufügen von Dateien oder Ordnern zu einen Projektarchiv benutzt wird."
-
 #: source/en/tme_ch02.xml:3
 #: (title)
 msgid "Using TortoiseMerge"
@@ -6796,8 +6782,48 @@ msgstr "Strg-T"
 msgid "Toggles between showing whitespaces or not"
 msgstr "Zeigt Platzhalter für Unsichtbare Zeichen an oder nicht"
 
+#: source/en/glossary.xml:7
+#: (title)
+msgid "Glossary"
+msgstr "Glossar"
+
+#: source/en/glossary.xml:10
+#: (glossterm)
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: source/en/glossary.xml:12
+#: (para)
+msgid "A Subversion command that is used to add a file or directory to a repository."
+msgstr "Ein Subversin Befehl, der zum Hinzufügen von Dateien oder Ordnern zu einem Projektarchiv benutzt wird."
+
+#: source/en/glossary.xml:20
+#: (glossterm)
+msgid "BDB"
+msgstr "BDB"
+
+#: source/en/glossary.xml:22
+#: (para)
+msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
+msgstr ""
+
+#: source/en/glossary.xml:30
+#: (glossterm)
+msgid "FSFS"
+msgstr "FSFS"
+
+#: source/en/glossary.xml:32
+#: (para)
+msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr ""
+
+#: source/en/glossary.xml:42
+#: (para)
+msgid "öaseijmcyliselriu"
+msgstr ""
+
 #. Put one translator per line, in the form of NAME <EMAIL>.
-#: source/en/tme_appa.xml:0
+#: source/en/glossary.xml:0
 #: (None)
 msgid "translator-credits"
 msgstr ""
