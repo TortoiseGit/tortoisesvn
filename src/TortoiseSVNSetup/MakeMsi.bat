@@ -1,4 +1,6 @@
 @echo off
+@if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
+if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 SETLOCAL ENABLEDELAYEDEXPANSION
 ..\..\bin\release\bin\SubWCRev.exe ..\.. Setup.wxs Setup_good.wxs
 if NOT EXIST Setup_good.wxs (copy Setup.wxs Setup_good.wxs)
