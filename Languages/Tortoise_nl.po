@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-05 20:34+0100\n"
+"PO-Revision-Date: 2005-06-29 21:16+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,42 +35,52 @@ msgid " "
 msgstr " "
 
 #: ID:188
+#, c-format
 msgid "! %d"
 msgstr "! %d"
 
 #: ID:3868
+#, c-format
 msgid "%1 contained an unexpected object."
 msgstr "%1 bevatte een onverwacht object."
 
 #: ID:3868
+#, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 bevat een onjuist schema."
 
 #: ID:3867
+#, c-format
 msgid "%1 contains an invalid path."
 msgstr "%1 bevat een ongeldig pad."
 
 #: ID:3867
+#, c-format
 msgid "%1 could not be created because the directory is full."
 msgstr "%1 kan niet gemaakt worden omdat de map vol is."
 
 #: ID:3867
+#, c-format
 msgid "%1 could not be opened because there are too many open files."
 msgstr "%1 kan niet worden geopend omdat er teveel bestanden open zijn."
 
 #: ID:3867
+#, c-format
 msgid "%1 could not be removed because it is the current directory."
 msgstr "%1 kan niet verwijderd worden omdat het de huidige map is."
 
 #: ID:3868
+#, c-format
 msgid "%1 has a bad format."
 msgstr "%1 heeft een verkeerd formaat."
 
 #: ID:3867
+#, c-format
 msgid "%1 was not found."
 msgstr "%1 is niet gevonden."
 
 #: ID:3860
+#, c-format
 msgid ""
 "%1: %2\n"
 "Continue running script?"
@@ -79,6 +89,7 @@ msgstr ""
 "Doorgaan met uitvoeren van script?"
 
 #: ID:3859
+#, c-format
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
@@ -89,26 +100,32 @@ msgstr ""
 "Controleer of het juiste pad en bestandsnaam zijn opgegeven."
 
 #: ID:169
+#, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d bestanden geselecteerd, %d bestanden totaal"
 
 #: ID:226
+#, c-format
 msgid "%s - at revision: %d"
 msgstr "%s - huidige revisie: %d"
 
 #: ID:151
+#, c-format
 msgid "%s : Remote File"
 msgstr "%s : remote bestand"
 
 #: ID:151
+#, c-format
 msgid "%s : Working Base"
 msgstr "%s : Werkbasis"
 
 #: ID:151
+#, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Werkkopie"
 
 #: ID:145
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -117,6 +134,7 @@ msgstr ""
 "Wilt u het toch verwijderen?"
 
 #: ID:69
+#, c-format
 msgid ""
 "%s\n"
 "is a directory, not a file!\n"
@@ -322,8 +340,8 @@ msgid "&Remove"
 msgstr "&Verwijderen"
 
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "He&rnoemen/Verplaatsen..."
+msgid "&Rename"
+msgstr "&Hernoemen"
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -429,10 +447,12 @@ msgid "(property change only)"
 msgstr "(alleen eigenschapswijzigingen)"
 
 #: ID:188
+#, c-format
 msgid "+ %d"
 msgstr "+ %d"
 
 #: ID:188
+#, c-format
 msgid "- %d"
 msgstr "- %d"
 
@@ -447,6 +467,7 @@ msgid "..."
 msgstr "..."
 
 #: ID:151
+#, c-format
 msgid ": Revision %d"
 msgstr ": Revisie %d"
 
@@ -487,10 +508,12 @@ msgstr ""
 "Voor meer informatie: <u>Raadpleeg de handleiding!</u>"
 
 #: ID:3867
+#, c-format
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "Een fysieke I/O fout is opgetreden bij het benaderen van %1."
 
 #: ID:3867
+#, c-format
 msgid "A locking violation occurred while accessing %1."
 msgstr "Bestand %1 kan niet exclusief geopend worden."
 
@@ -521,6 +544,7 @@ msgid "A required resource was unavailable."
 msgstr "Een vereiste bron is niet beschikbaar."
 
 #: ID:3867
+#, c-format
 msgid "A sharing violation occurred while accessing %1."
 msgstr "Bestand %1 kan niet gedeeld geopend worden."
 
@@ -561,6 +585,7 @@ msgid "Accept Permanently"
 msgstr "Accepteer voor altijd"
 
 #: ID:3867
+#, c-format
 msgid "Access to %1 was denied."
 msgstr "Toegang tot %1 geweigerd."
 
@@ -572,7 +597,6 @@ msgstr "Actie"
 msgid "Activate Task List"
 msgstr "Takenlijst activeren"
 
-#: ID:8
 #: ID:209
 #: Dlg-ID:155
 msgid "Add"
@@ -594,9 +618,9 @@ msgstr "Voeg een extensie-specifiek Merge-programma toe"
 msgid "Add To Ignore List"
 msgstr "Voeg toe aan Negeerlijst"
 
-#: ID:12
-msgid "Add files to Subversion here"
-msgstr "Voeg hier bestanden toe aan Subversion"
+#: ID:8
+msgid "Add..."
+msgstr "Toevoegen..."
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -615,7 +639,12 @@ msgstr "Bestand op afstand toegevoegd"
 msgid "Added a folder remotely"
 msgstr "Bestand op afstand toegevoegd"
 
+#: ID:126
+msgid "Added items remotely"
+msgstr "Objecten op afstand toegevoegd"
+
 #: ID:145
+#, c-format
 msgid ""
 "Added the file(s)\n"
 "%s\n"
@@ -675,18 +704,22 @@ msgstr "Alle bestanden zijn reeds opgenomen in versiebeheer. Er is niets toe te 
 
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An attempt was made to access %1 past its end."
 msgstr "Poging om voorbij het einde van %1 te lezen."
 
 #: ID:3868
+#, c-format
 msgid "An attempt was made to read from the writing %1."
 msgstr "Poging om te lezen van het voor schrijven geopende %1."
 
 #: ID:3868
+#, c-format
 msgid "An attempt was made to write to the reading %1."
 msgstr "Poging om te schrijven naar het voor lezen geopende %1."
 
 #: ID:78
+#, c-format
 msgid ""
 "An external diff program used\n"
 "for comparing different revisions of files\n"
@@ -703,6 +736,7 @@ msgstr ""
 "%mine\thet gewijzigde bestand"
 
 #: ID:79
+#, c-format
 msgid ""
 "An external merge program used\n"
 "to resolve conflicted files.\n"
@@ -726,14 +760,17 @@ msgid "An invalid argument was encountered."
 msgstr "Ongeldig argument aangetroffen."
 
 #: ID:3867
+#, c-format
 msgid "An invalid file handle was associated with %1."
 msgstr "Er was een ongeldige bestands-handle geassocieerd met %1."
 
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while reading %1."
 msgstr "Er is een onverwachte fout opgetreden bij het lezen van %1."
 
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while writing %1."
 msgstr "Er is een onverwachte fout opgetreden bij het schrijven van %1."
 
@@ -743,10 +780,12 @@ msgstr "Er is een onbekende fout opgetreden."
 
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An unknown error occurred while accessing %1."
 msgstr "Een onbekende fout bij het benaderen van %1."
 
 #: ID:63
+#, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Een onbekend soort regel aangetroffen op regel %d !"
 
@@ -787,6 +826,7 @@ msgid "Are you sure you want to revert? You will lose <b>all</b> changes since t
 msgstr "Weet u zeker dat u wilt herstellen? U raakt <b>alle</b> wijzigingen sinds de laatste verversing kwijt!"
 
 #: ID:77
+#, c-format
 msgid "At revision: %d"
 msgstr "Huidige revisie: %d"
 
@@ -920,6 +960,7 @@ msgid "CAP"
 msgstr "CAP"
 
 #: ID:82
+#, c-format
 msgid ""
 "Can't copy \n"
 "%s\n"
@@ -952,10 +993,12 @@ msgid "Certificate expired or not yet valid"
 msgstr "Certificaat is verlopen of nog niet geldig"
 
 #: ID:82
+#, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "Certificaat verlopen. Geldig tot: %s"
 
 #: ID:82
+#, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Certificaat nog niet geldig. Geldig vanaf: %s"
 
@@ -976,12 +1019,17 @@ msgid "Changed Files"
 msgstr "Gewijzigde bestanden"
 
 #: ID:163
+#, c-format
 msgid "Changed files: %d"
 msgstr "Gewijzigde bestanden: %d"
 
 #: ID:3887
 msgid "Check"
 msgstr "Markeren"
+
+#: Control-ID:65535
+msgid "Check For Modifications"
+msgstr "Kijk of er wijzigingen zijn"
 
 #: Dlg-ID:174
 msgid "Check For Updates"
@@ -1169,8 +1217,13 @@ msgid "Conflicted"
 msgstr "In conflict"
 
 #: ID:188
+#, c-format
 msgid "Conflicts: %d"
 msgstr "In conflict: %d"
+
+#: Control-ID:1227
+msgid "Contact the repository on startup"
+msgstr "Raadpleeg de bibliotheek bij opstarten"
 
 #: ID:73
 msgid "Continue"
@@ -1193,6 +1246,7 @@ msgid "Copied remotely"
 msgstr "Op afstand gekopiëerd"
 
 #: ID:103
+#, c-format
 msgid "Copy %s"
 msgstr "Kopieer %s"
 
@@ -1212,10 +1266,6 @@ msgstr "Kopiëer naar werkkopie..."
 msgid "Copy URL to clipboard"
 msgstr "URL naar klembord kopiëren"
 
-#: ID:13
-msgid "Copy files in Subversion to here"
-msgstr "Kopiëer bestanden in Subversion hierheen"
-
 #: ID:3603
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
@@ -1233,6 +1283,7 @@ msgid "Copy to working copy"
 msgstr "Kopiëer naar werkkopie"
 
 #: ID:80
+#, c-format
 msgid "Copying %s"
 msgstr ""
 "%s\n"
@@ -1247,6 +1298,7 @@ msgid "Corrections"
 msgstr "Correcties"
 
 #: ID:81
+#, c-format
 msgid "Could not add %s to the ignore list!"
 msgstr "%s kon niet aan de negeer-lijst worden toegevoegd!"
 
@@ -1255,6 +1307,7 @@ msgid "Could not check for a newer version!"
 msgstr "Controle voor nieuwe versie niet gelukt."
 
 #: ID:81
+#, c-format
 msgid ""
 "Could not copy the files!\n"
 "<hr=100%>\n"
@@ -1269,16 +1322,19 @@ msgid "Could not get the status!"
 msgstr "Kon de status niet ophalen!"
 
 #: ID:69
+#, c-format
 msgid ""
 "Could not open the file\n"
 "%s"
 msgstr "Kan bestand %s niet openen"
 
 #: ID:82
+#, c-format
 msgid "Could not remove %s from the ignored list"
 msgstr "%s kon niet uit de negeerlijst worden verwijderd"
 
 #: ID:81
+#, c-format
 msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
@@ -1287,6 +1343,7 @@ msgstr ""
 "%s"
 
 #: ID:66
+#, c-format
 msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
@@ -1295,10 +1352,12 @@ msgstr ""
 "Patchen is niet mogelijk!"
 
 #: ID:64
+#, c-format
 msgid "Could not save the file %s!"
 msgstr "Kon bestand %s niet opslaan!"
 
 #: ID:81
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%>\n"
@@ -1309,6 +1368,7 @@ msgstr ""
 "%s"
 
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%>\n"
@@ -1319,6 +1379,7 @@ msgstr ""
 "%s"
 
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external merge program!\n"
 "<hr=100%>\n"
@@ -1437,10 +1498,12 @@ msgstr ""
 "van te hoog schrijfgebruik bij het bladeren door de werkkopie."
 
 #: ID:3867
+#, c-format
 msgid "Disk full while accessing %1."
 msgstr "Schijf vol bij benaderen van %1."
 
 #: ID:3860
+#, c-format
 msgid "Dispatch exception: %1"
 msgstr "Verstuur-uitzondering: %1"
 
@@ -1481,6 +1544,7 @@ msgid "Do not show this message again"
 msgstr "Deze boodschap niet meer tonen"
 
 #: ID:76
+#, c-format
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
@@ -1618,6 +1682,7 @@ msgid "Error"
 msgstr "Fout"
 
 #: ID:81
+#, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Fout bij het valideren van servercertificaat voor %s:"
 
@@ -1632,6 +1697,10 @@ msgstr "Te negeren paden:"
 #: Control-ID:65535
 msgid "Exclude/Ignore pattern:"
 msgstr "Te negeren patroon:"
+
+#: ID:209
+msgid "Explore to"
+msgstr "Verkennen naar"
 
 #: ID:94
 msgid "Export Directory:"
@@ -1715,6 +1784,7 @@ msgid "Fetching File..."
 msgstr "Bestand ophalen..."
 
 #: ID:313
+#, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Revisie %s van bestand ophalen:"
 
@@ -1792,6 +1862,7 @@ msgid "Get Lock..."
 msgstr "Plaats blokkade..."
 
 #: ID:119
+#, c-format
 msgid "Getting File %s"
 msgstr "Bestand %s ophalen"
 
@@ -1856,11 +1927,16 @@ msgstr "HEAD revisie van de bibliotheek"
 msgid "Help"
 msgstr "Help"
 
+#: Control-ID:1229
+msgid "Hide unrelated changed paths"
+msgstr "Verberg ongerelateerde wijzigingspaden"
+
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Hint: Druk F5 om de geselecteerde tak te verversen"
 
 #: ID:82
+#, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "Verschil in hostnamen (%s)"
 
@@ -1880,16 +1956,6 @@ msgstr "Iconen/Ontw./Code: Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Activeer deze optie om geen overlays te tonen in de \"Opslaan als...\" en \"Open...\" dialogen"
 
-#: ID:195
-msgid ""
-"If activated, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"Het contextmenu wordt sneller getoond met deze optie.\n"
-"Maar sommige opties in het menu worden dan getoond als ze niet gebruikt kunnen worden.\n"
-"Bijvoorbeeld: de \"Toon logboek\" optie wordt dan ook bij nieuwe mappen getoond."
-
 #: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
@@ -1901,6 +1967,16 @@ msgstr ""
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
 msgstr "Met deze optie maakt TortoiseSVN een tijdelijk bestand van BASE om de Diff uit te voeren met keyword-expansie en aangepaste regeleinden."
+
+#: ID:195
+msgid ""
+"If disabled, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"Het contextmenu wordt sneller getoond zonder deze optie.\n"
+"Maar sommige opties in het menu worden dan getoond als ze niet gebruikt kunnen worden.\n"
+"Bijvoorbeeld: de \"Toon logboek\" optie wordt dan ook bij nieuwe mappen getoond."
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -1927,6 +2003,7 @@ msgid "Ignore"
 msgstr "Negeren"
 
 #: ID:15
+#, c-format
 msgid "Ignore %d items"
 msgstr "%d zaken negeren"
 
@@ -1989,6 +2066,10 @@ msgstr "Onvoldoende geheugen om de opdracht uit te voeren."
 #: ID:3857
 msgid "Internal application error."
 msgstr "Interne applicatiefout."
+
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "Ongeldig dataobject geplaatst!"
 
 #: ID:3857
 msgid "Invalid filename."
@@ -2124,10 +2205,12 @@ msgid "Lock owner:"
 msgstr "Blokkade-eigenaar:"
 
 #: ID:209
+#, c-format
 msgid "Lock stolen by %s"
 msgstr "Blokkade gestolen door %s"
 
 #: ID:263
+#, c-format
 msgid "Locked by %s"
 msgstr "Geblokkeerd door %s"
 
@@ -2169,10 +2252,12 @@ msgid "Look and Feel::Icon Set"
 msgstr "Beeld en Gedrag::Iconen set"
 
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
 msgstr "Laagste revisie: %ld - Hoogste revisie: %ld"
 
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
 msgstr "Laagste revisie: %ld - Hoogste revisie: %ld - HEAD revisie: %ld"
 
@@ -2248,15 +2333,12 @@ msgstr "Gewijzigd"
 msgid "Most active author:"
 msgstr "Meest actieve auteur:"
 
-#: ID:12
-msgid "Move files in Subversion to here"
-msgstr "Verplaats bestanden in Subversion hierheen"
-
 #: ID:126
 msgid "Moved remotely"
 msgstr "Op afstand verplaatst"
 
 #: ID:80
+#, c-format
 msgid "Moving %s"
 msgstr "%s wordt verplaatst"
 
@@ -2280,6 +2362,10 @@ msgstr "NUM"
 msgid "Native Filesystem (FSFS)"
 msgstr "Bestandsysteem (FSFS)"
 
+#: ID:210
+msgid "Nested"
+msgstr "Genest"
+
 #: Dlg-ID:102
 msgid "Network"
 msgstr "Netwerk"
@@ -2292,11 +2378,17 @@ msgstr "Nieuw"
 msgid "New Name:"
 msgstr "Nieuwe naam:"
 
+#: ID:97
+#, c-format
+msgid "New name for %s"
+msgstr "Nieuwe naam voor %s"
+
 #: ID:73
 msgid "No"
 msgstr "Nee"
 
 #: ID:81
+#, c-format
 msgid ""
 "No command specified!\n"
 "<hr=100%>\n"
@@ -2350,8 +2442,17 @@ msgid "No graph available"
 msgstr "Geen plaatje beschikbaar."
 
 #: ID:273
+#, c-format
 msgid "No image encoder found for %s."
 msgstr "Geen beeldvertaler gevonden voor %s."
+
+#: ID:188
+msgid "No spell corrections"
+msgstr "Geen spellingscorrecties"
+
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "Geen suggesties"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -2500,6 +2601,7 @@ msgid "Please enter a date."
 msgstr "Geef een datum."
 
 #: ID:3858
+#, c-format
 msgid "Please enter a number between %1 and %2."
 msgstr "Geef een getal tussen %1 en %2."
 
@@ -2516,6 +2618,7 @@ msgid "Please enter a time."
 msgstr "Geef een tijd."
 
 #: ID:3858
+#, c-format
 msgid "Please enter an integer between %1 and %2."
 msgstr "Geef een geheel getal tusesn %1 en %2."
 
@@ -2528,6 +2631,7 @@ msgid "Please enter an integer."
 msgstr "Geef een geheel getal."
 
 #: ID:3858
+#, c-format
 msgid "Please enter no more than %1 characters."
 msgstr "Geef niet meer dan %1 tekens."
 
@@ -2572,6 +2676,7 @@ msgid "Please wait..."
 msgstr "Even geduld..."
 
 #: ID:132
+#, c-format
 msgid "Processing revision %d of %d..."
 msgstr "Revisie %d van %d verwerken..."
 
@@ -2723,6 +2828,7 @@ msgid "Removed file/folder"
 msgstr "Bestand/map verwijderd"
 
 #: ID:145
+#, c-format
 msgid ""
 "Removed the file(s)\n"
 "%s\n"
@@ -2741,12 +2847,17 @@ msgid "Rename"
 msgstr "Hernoemen"
 
 #: ID:97
+#, c-format
 msgid "Rename %s"
 msgstr "Hernoem %s"
 
 #: ID:11
 msgid "Rename..."
 msgstr "Hernoemen..."
+
+#: ID:126
+msgid "Renamed remotely"
+msgstr "Op afstand hernoemd"
 
 #: ID:11
 msgid "Renames files / folders inside source control"
@@ -2832,12 +2943,14 @@ msgid "Revision"
 msgstr "Revisie"
 
 #: ID:119
+#, c-format
 msgid "Revision %d"
 msgstr "Revisie %d"
 
 #: ID:269
 #: ID:270
 #: ID:271
+#, c-format
 msgid "Revision %ld"
 msgstr "Revisie %ld"
 
@@ -2871,6 +2984,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN Toevoegen aan deze werkkopie"
+
 #: ID:77
 msgid "SVN Add..."
 msgstr "SVN Toevoegen..."
@@ -2887,9 +3004,25 @@ msgstr "SVN Ophalen..."
 msgid "SVN Commit..."
 msgstr "SVN Vastleggen..."
 
+#: ID:16
+msgid "SVN Copy and Rename versioned files here"
+msgstr "SVN Kopiëer en Hernoem bestanden hierheen"
+
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN Kopiëer bestanden hierheen"
+
 #: ID:78
 msgid "SVN Copy..."
 msgstr "SVN Kopiëren..."
+
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN Exporteer alles hierheen"
+
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN Exporteer hierheen"
 
 #: ID:78
 msgid "SVN Export..."
@@ -2906,6 +3039,10 @@ msgstr "SVN Blokkade-eigenaar"
 #: ID:78
 msgid "SVN Merge..."
 msgstr "SVN Samenvoegen..."
+
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN Verplaats bestanden hierheen"
 
 #: Dlg-ID:134
 msgid "SVN Progress"
@@ -2976,6 +3113,7 @@ msgid "Save as..."
 msgstr "Opslaan als..."
 
 #: ID:3857
+#, c-format
 msgid "Save changes to %1?"
 msgstr "Wijzigingen in %1 opslaan?"
 
@@ -2996,6 +3134,7 @@ msgid "Saving Files"
 msgstr "Opslaan bestanden"
 
 #: ID:103
+#, c-format
 msgid "Saving file %s"
 msgstr "Opslaan van bestand %s"
 
@@ -3015,6 +3154,7 @@ msgid "Search &log messages..."
 msgstr "Doorzoek &logboekberichten..."
 
 #: ID:3867
+#, c-format
 msgid "Seek failed on %1"
 msgstr "Positioneren mislukt in %1"
 
@@ -3136,6 +3276,7 @@ msgid "Show &Differences"
 msgstr "Toon vers&chillen"
 
 #: ID:101
+#: Control-ID:1228
 #: Control-ID:1031
 #: Control-ID:1034
 #: Control-ID:1132
@@ -3312,14 +3453,6 @@ msgstr "Subversion authenticatie gegevens:"
 msgid "Subversion configuration file:"
 msgstr "Subversion configuratiebestand:"
 
-#: ID:14
-msgid "Subversion export all here"
-msgstr "Exporteer alles uit Subversion hierheen"
-
-#: ID:14
-msgid "Subversion export here"
-msgstr "Kopiëer bestanden uit Subversion hierheen"
-
 #: ID:79
 msgid ""
 "Subversion reported an error while creating a repository!\n"
@@ -3329,6 +3462,7 @@ msgstr ""
 "Controleer of de map leeg is en niet beveiligd tegen schrijven."
 
 #: ID:81
+#, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "<hr=100%>\n"
@@ -3395,6 +3529,7 @@ msgid "Tab Size:"
 msgstr "Tabstop:"
 
 #: ID:79
+#, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Werkkopie opgenomen als label %s"
 
@@ -3407,6 +3542,7 @@ msgid "Text Status:"
 msgstr "Status Tekst:"
 
 #: ID:69
+#, c-format
 msgid ""
 "The File\n"
 "%s\n"
@@ -3427,10 +3563,12 @@ msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "De afmeting van het brokstuk komt niet overeen met het aantal toegevoegde/verwijderde regels!"
 
 #: ID:63
+#, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "Het begin van een brokstuk '@@' niet aangetroffen op regel %d !"
 
 #: ID:68
+#, c-format
 msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
@@ -3439,10 +3577,12 @@ msgstr ""
 "%s"
 
 #: ID:64
+#, c-format
 msgid "The file %s does not exist!"
 msgstr "Bestand %s bestaat niet!"
 
 #: ID:64
+#, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Bestand %s niet aangetroffen in het patch-bestand!"
 
@@ -3451,6 +3591,7 @@ msgid "The file is too large to open."
 msgstr "Het bestand is te groot om te openen."
 
 #: ID:145
+#, c-format
 msgid ""
 "The file or folder\n"
 "%s\n"
@@ -3461,6 +3602,7 @@ msgstr ""
 "bevat lokale wijzigingen. Wilt u dit bestand echt verplaatsen?"
 
 #: ID:80
+#, c-format
 msgid ""
 "The file\n"
 "%s\n"
@@ -3471,6 +3613,7 @@ msgstr ""
 "bestaat al! Wilt u het overschrijven?"
 
 #: ID:88
+#, c-format
 msgid ""
 "The folder \n"
 "%s\n"
@@ -3483,6 +3626,7 @@ msgstr ""
 "Wilt u de map eerst aanmaken?"
 
 #: ID:63
+#, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr "De regel '====' niet aangetroffen op regel %d !"
 
@@ -3495,10 +3639,12 @@ msgstr ""
 "Dit is geen diff-bestand, of de diff is leeg."
 
 #: ID:63
+#, c-format
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "De regel met de indicatie voor het nieuwe bestand is niet aangetroffen op regel %d !"
 
 #: ID:63
+#, c-format
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "De regel met de indicatie voor het oude bestand is niet aangetroffen op regel %d !"
 
@@ -3515,6 +3661,7 @@ msgstr ""
 "Hernoemen van bestanden wordt (nog) niet ondersteund!"
 
 #: ID:64
+#, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
 "%s\n"
@@ -3543,6 +3690,7 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: ID:314
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -3578,6 +3726,17 @@ msgstr ""
 "De doelmap is niet leeg!\n"
 "Weet u zeker dat u naar die map wilt ophalen?"
 
+#: ID:102
+#, c-format
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"De doel-URL\n"
+"%s\n"
+"bestaat al!"
+
 #: ID:195
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
@@ -3593,6 +3752,7 @@ msgid "The user who owns the lock of the file"
 msgstr "De gebruiker die het bestand geblokkeerd heeft"
 
 #: ID:81
+#, c-format
 msgid ""
 "The working copy has changed!\n"
 "<hr=100%>\n"
@@ -3623,6 +3783,7 @@ msgstr ""
 "Deze bestanden worden <b>niet</b> vastgelegd. U moet deze bestanden apart vastleggen."
 
 #: ID:66
+#, c-format
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "You should resolve those conflicts first before saving.\n"
@@ -3653,10 +3814,12 @@ msgid "This product includes software developed by CollabNet (http://www.Collab.
 msgstr "Dit product gebruikt software ontwikkeld door CollabNet (http://www.Collab.Net/)"
 
 #: ID:3857
+#, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "Dit programma is gekoppeld aan de ontbrekende %s in bestand %s. Deze computer heeft mogelijk een incompatibele versie van %s."
 
 #: ID:3857
+#, c-format
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Voor dit programma is het bestand %s vereist, maar dat ontbreekt op deze computer."
 
@@ -3695,10 +3858,12 @@ msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
 #: ID:107
+#, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -3719,10 +3884,12 @@ msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
 #: ID:107
+#, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -3794,6 +3961,7 @@ msgid "URL: "
 msgstr "URL:"
 
 #: ID:272
+#, c-format
 msgid ""
 "URL: %s\r\n"
 "Author: %s\r\n"
@@ -3814,6 +3982,7 @@ msgid "Unable to load mail system support."
 msgstr "Mailsysteemondersteuning kan niet geladen worden."
 
 #: ID:3859
+#, c-format
 msgid "Unable to read from %1, it is opened by someone else."
 msgstr "Kan niet lezen uit %1, het is geopend door iemand anders."
 
@@ -3826,6 +3995,7 @@ msgid "Unable to write read-only property."
 msgstr "Alleen-lezen eigenschap kan niet geschreven worden."
 
 #: ID:3859
+#, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Kan niet schrijven naar %1, het is geopend door iemand anders of als alleen-lezen gemarkeerd."
 
@@ -3850,6 +4020,7 @@ msgid "Unified &Diff Of HEAD Revisions"
 msgstr "GNU &Diff van HEAD revisies"
 
 #: ID:81
+#, c-format
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %s\n"
@@ -3927,8 +4098,8 @@ msgid "Use Text viewer to view blames"
 msgstr "Gebruik tekst editor om verklaringen te bekijken"
 
 #: Control-ID:1073
-msgid "Use \"From:\" URL"
-msgstr "Gebruik \"Van:\" URL"
+msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+msgstr "Gebruik \"Van:\" URL (het revisiebereik kan in de bovenliggende dialoog gekozen worden)"
 
 #: Control-ID:1184
 msgid "Use autocompletion of filepaths and keywords"
@@ -4041,6 +4212,7 @@ msgid "Working copy"
 msgstr "Werkkopie"
 
 #: ID:80
+#, c-format
 msgid ""
 "Working copy relocated to\n"
 "%s"
@@ -4084,6 +4256,34 @@ msgstr ""
 "Dit kan leiden tot ernstige beschadiging van de bibliotheek!\n"
 "Wilt u dit echt doen?"
 
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"U heeft meer dan één bestand of map gekopiëerd.\n"
+"Dat kan niet in een stap, dus TortoiseSVN zal elk bestand/map\n"
+"los kopiëren, waarbij telkens een nieuwe revisie ontstaat.\n"
+"\n"
+"Wilt u hiermee doorgaan?"
+
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"U heeft meer dan één bestand of map geplaatst om toe te voegen.\n"
+"Dat kan niet in een stap, dus TortoiseSVN zal elk bestand/map\n"
+"los toevoegen, waarbij telkens een nieuwe revisie ontstaat.\n"
+"\n"
+"Wilt u hiermee doorgaan?"
+
 #: ID:251
 msgid "You have to update your working copy first."
 msgstr "U dient uw werkkopie eerst te verversen."
@@ -4096,6 +4296,20 @@ msgstr ""
 "U heeft geen issue nummer ingevuld.\n"
 "Weet u zeker dat u wilt vastleggen zonder een issue number?"
 
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"U heeft meer dan één bestand of map verplaatst.\n"
+"Dat kan niet in een stap, dus TortoiseSVN zal elk bestand/map\n"
+"los verplaatsen, waarbij telkens een nieuwe revisie ontstaat.\n"
+"\n"
+"Wilt u hiermee doorgaan?"
+
 #: ID:77
 msgid ""
 "You selected an unversioned file.\n"
@@ -4105,6 +4319,7 @@ msgstr ""
 "Het bestand wordt toegevoegd aan het versiebeheer voordat wordt vastgelegd."
 
 #: ID:195
+#, c-format
 msgid ""
 "You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
@@ -4115,10 +4330,14 @@ msgstr ""
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
 "Uw werkkopie lijkt op een <b>label</b> gericht te zijn!\n"
-"U hoort eerst te wisselen naar een tak of de basislijn voordat u gaat vastleggen."
+"U hoort eerst te wisselen naar een tak of de basislijn voordat u gaat vastleggen.\n"
+"\n"
+"Wilt u toch vastleggen?"
 
 #: ID:88
 msgid ""
@@ -4185,6 +4404,7 @@ msgstr ""
 "De eerste expressie wordt gebruikt om een tekenreeks te vinden die naar een issue refereert, de tweede expressie wordt gebruikt om het bigID uit die tekenreeks te extraheren."
 
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
@@ -4203,6 +4423,7 @@ msgstr ""
 "Zet op \"false\" indien uw bugtracking systeem geen numerieke issue-identificaties hanteert."
 
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
@@ -4229,6 +4450,7 @@ msgid "current version is:"
 msgstr "huidige versie is:"
 
 #: ID:201
+#, c-format
 msgid "current version is: %s"
 msgstr "huidige versie is: %s"
 
@@ -4237,6 +4459,7 @@ msgid "deleted"
 msgstr "verwijderd"
 
 #: ID:79
+#, c-format
 msgid ""
 "exported\n"
 "%s\n"
@@ -4396,6 +4619,7 @@ msgstr ""
 
 #: ID:80
 #: ID:103
+#, c-format
 msgid "to %s"
 msgstr "naar %s"
 
@@ -4469,6 +4693,7 @@ msgid "your version is:"
 msgstr "uw versie is:"
 
 #: ID:201
+#, c-format
 msgid "your version is: %d.%d.%d.%d"
 msgstr "uw versie is: %d.%d.%d.%d."
 
