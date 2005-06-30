@@ -352,6 +352,11 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "E&xit",                       ID_APP_EXIT
     END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM "&Find",                       ID_EDIT_FIND
+    END
     POPUP "&View"
     BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
@@ -390,10 +395,9 @@ END
 IDR_MAINFRAME ACCELERATORS 
 BEGIN
     "Q",            ID_APP_EXIT,            VIRTKEY, CONTROL, NOINVERT
+    VK_ESCAPE,      ID_APP_EXIT,            VIRTKEY, NOINVERT
     VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
     "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
-    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
-    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
     "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
     VK_F3,          ID_EDIT_FINDNEXT,       VIRTKEY, NOINVERT
@@ -419,7 +423,6 @@ BEGIN
     VK_UP,          ID_VIEW_LINEUP,         VIRTKEY, CONTROL, NOINVERT
     "D",            ID_VIEW_ONEWAYDIFF,     VIRTKEY, CONTROL, NOINVERT
     "T",            ID_VIEW_WHITESPACES,    VIRTKEY, CONTROL, NOINVERT
-    VK_ESCAPE,      ID_APP_EXIT,            VIRTKEY, NOINVERT
 END
 
 

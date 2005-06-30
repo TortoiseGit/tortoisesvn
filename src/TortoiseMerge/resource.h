@@ -162,7 +162,7 @@
 #define ID_VIEW_                        32781
 #define ID_VIEW_OPTIONS                 32782
 #define ID_BUTTON32783                  32783
-#define ID_EDIT_FINDNEXT                32789
+#define ID_EDIT_FINDNEXT                32790
 #define ID_FILE_RELOAD                  32794
 #define ID_BUTTON32797                  32797
 #define ID_VIEW_LINEDOWN                32799
@@ -176,7 +176,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
-#define _APS_NEXT_COMMAND_VALUE         32809
+#define _APS_NEXT_COMMAND_VALUE         32811
 #define _APS_NEXT_CONTROL_VALUE         1070
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

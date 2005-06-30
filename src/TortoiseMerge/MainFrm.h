@@ -73,6 +73,7 @@ protected:
 	afx_msg void	OnMergeMarkasresolved();
 	afx_msg void	OnUpdateMergeNextconflict(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateMergePreviousconflict(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateEditCopy(CCmdUI *pCmdUI);
 	afx_msg void	OnMoving(UINT fwSide, LPRECT pRect);
 
 	DECLARE_MESSAGE_MAP()

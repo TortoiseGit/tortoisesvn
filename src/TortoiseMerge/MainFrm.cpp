@@ -71,6 +71,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_MERGE_PREVIOUSCONFLICT, OnUpdateMergePreviousconflict)
 	ON_WM_MOVE()
 	ON_WM_MOVING()
+	ON_UPDATE_COMMAND_UI(ID_EDIT_COPY, OnUpdateEditCopy)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1307,4 +1308,16 @@ void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
 		}
 	}
 	__super::OnMoving(fwSide, pRect);
+}
+
+void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
+{
+	BOOL bShow = FALSE;
+	if ((m_pwndBottomView)&&(m_pwndBottomView->HasSelection()))
+		bShow = TRUE;
+	if ((m_pwndRightView)&&(m_pwndRightView->HasSelection()))
+		bShow = TRUE;
+	if ((m_pwndLeftView)&&(m_pwndLeftView->HasSelection()))
+		bShow = TRUE;
+	pCmdUI->Enable(bShow);
 }
