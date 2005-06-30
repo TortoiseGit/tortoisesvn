@@ -440,6 +440,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
 						dlg.Stop();
 						delete [] buf;
+						CShellUpdater::Instance().Flush();
 						InitWorkfileView();
 						return TRUE;
 					}
@@ -488,6 +489,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 							}
 						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
 						dlg.Stop();
+						CShellUpdater::Instance().Flush();
 						InitWorkfileView();
 						delete name;
 						delete value;
