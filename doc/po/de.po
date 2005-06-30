@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-29 09:40+0100\n"
+"PO-Revision-Date: 2005-06-30 09:32+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6805,7 +6805,7 @@ msgstr "BDB"
 #: source/en/glossary.xml:22
 #: (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
+msgstr "Berkeley DB. Ein bewährtes Datenbanksystem für Projektarchive. Kann nicht über Netzwerkfreigaben genutzt werden. Standard für Projektarchive von Subversion vor Version 1.2."
 
 #: source/en/glossary.xml:30
 #: (glossterm)
@@ -6815,12 +6815,12 @@ msgstr "FSFS"
 #: source/en/glossary.xml:32
 #: (para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr ""
+msgstr "FS Dateisystem. Ein proprietäres Subversion-Dateisystem für Projektarchive. Kann über Netzwerkfreigaben genutzt werden. Seit Version 1.2 Standard für neue Projektarchive."
 
 #: source/en/glossary.xml:42
 #: (para)
-msgid "öaseijmcyliselriu"
-msgstr ""
+msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
+msgstr "Ein Projektarchiv ist ein zentraler Platz in dem Daten gespeichert und verwaltet werden. Das Projektarchiv kann sowohl auf einem Server liegen und über das Netzwerk angesprochen werden, als auch auf der lokalen Platte liegen."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/en/glossary.xml:0
