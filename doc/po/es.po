@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-06-20 18:51+0100\n"
+"PO-Revision-Date: 2005-06-29 17:42+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -63,8 +63,8 @@ msgstr "Ejecute el instalador de Subversion. Si ejecuta el instalador en su serv
 
 #: source/en/tsvn_server/server_svn.xml:39
 #: (para)
-msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb42.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr "Abra el explorador de Windows, vaya al directorio de instalación de Subversion (usualmente <filename>C:\\Archivos de programa\\Subversion</filename>) y en el directorio <filename>bin</filename>, localice los ficheros <filename>svnserve.exe</filename>, <filename>libdb42.dll</filename>, <filename>libeay32.dll</filename> y <filename>ssleay32.dll</filename> - copie estos ficheros en un directorio de su servidor, por ejemplo <filename>c:\\svnserve</filename>"
+msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb43.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
+msgstr "Abra el explorador de Windows, vaya al directorio de instalación de Subversion (usualmente <filename>C:\\Archivos de programa\\Subversion</filename>) y en el directorio <filename>bin</filename>, localice los ficheros <filename>svnserve.exe</filename>, <filename>libdb43.dll</filename>, <filename>libeay32.dll</filename> y <filename>ssleay32.dll</filename> - copie estos ficheros en un directorio de su servidor, por ejemplo <filename>c:\\svnserve</filename>"
 
 #: source/en/tsvn_server/server_svn.xml:56
 #: (title)
@@ -125,6 +125,7 @@ msgstr ""
 #: source/en/tsvn_server/server_svn.xml:110
 #: (para)
 #: source/en/tsvn_repository/repository_create.xml:127
+#: source/en/tsvn_basics.xml:448
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
 msgstr "No cree o acceda a un repositorio Berkeley DB en una unidad de red compartida. <emphasis>No</emphasis> puede existir en un sistema de archivos remoto. Ni siquiera si tiene la unidad de red mapeada a una letra de unidad. Si intenta usar Berkeley DB en una unidad de red compartida, los resultados son imprevisibles - puede ver desde el principio errores misteriosos, o pueden pasar meses antes de que descubra que su base de datos del repositorio está corrupta de una forma inimaginable."
 
@@ -362,8 +363,8 @@ msgstr "Utilizando el explorador de Windows, vaya al directorio de instalación 
 
 #: source/en/tsvn_server/server_apache.xml:184
 #: (para)
-msgid "Copy the file <filename>/bin/libdb42.dll</filename> from the Subversion installation directory to the Apache modules directory."
-msgstr "Copie el fichero <filename>/bin/libdb42.dll</filename> desde el directorio de instalación de Subversion al directorio de módulos de Apache."
+msgid "Copy the file <filename>/bin/libdb43.dll</filename> from the Subversion installation directory to the Apache modules directory."
+msgstr "Copie el fichero <filename>/bin/libdb43.dll</filename> desde el directorio de instalación de Subversion al directorio de módulos de Apache."
 
 #: source/en/tsvn_server/server_apache.xml:191
 #: (para)
@@ -474,34 +475,68 @@ msgstr ""
 msgid ""
 "Using a <filename>passwd</filename> file limits and grants access to all of your repositories as a unit. If you want more control over which users have access each folder inside a repository you can uncomment the line <screen>\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
-"</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's AuthzSVNAccessFile module so that it can enforce more granular access based upon rules listed in the Subversion access file. An example file would look like this: <screen>\n"
+"</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's AuthzSVNAccessFile module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. An example file would look like this: <screen>\n"
 "[groups]\n"
-"developers = user1,user2,user3,user4\n"
-"docs = user5,user6,user7\n"
-"#to allow everyone read access\n"
+"admin = john, kate\n"
+"devteam1 = john, rachel, sally\n"
+"devteam2 = kate, peter, mark\n"
+"docs = bob, jane, mike\n"
+"training = zak\n"
+"# Default access rule for ALL repositories\n"
+"# Everyone can read, admins can write, Dan German is excluded.\n"
 "[/]\n"
 "* = r\n"
-"#allow all developers complete access\n"
-"@developers = rw\n"
-"#give the doc people write access to the docs folder\n"
-"[/project/trunk/doc]\n"
+"@admin = rw\n"
+"dangerman =\n"
+"# Allow developers complete access to their project repos\n"
+"[proj1:/]\n"
+"@devteam1 = rw\n"
+"[proj2:/]\n"
+"@devteam2 = rw\n"
+"[bigproj:/]\n"
+"@devteam1 = rw\n"
+"@devteam2 = rw\n"
+"trevor = rw\n"
+"# Give the doc people write access to all the docs folders\n"
+"[/trunk/doc]\n"
 "@docs = rw\n"
+"# Give trainees write access in the training repository only\n"
+"[TrainingRepos:/]\n"
+"@training = rw\n"
 "</screen>"
 msgstr ""
 "Utilizando un fichero <filename>passwd</filename> se limita y se otorga acceso a todos sus repositorios como una unidad. Si desea más control sobre qué usuarios tienen acceso a cada carpeta dentro de un repositorio, puede descomentar la línea <screen>\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
-"</screen> y crear un fichero de acceso de Subversion. Apache se asegurará que sólo los usuarios válidos pueden acceder su ruta <filename>/svn</filename>, y luego pasará el nombre de usuario al módulo de Subversion AuthzSVNAccessFile para que pueda forzar un acceso más granularizado basado en las reglas que se especifican en el fichero de acceso de Subversion. Esto sería un fichero de ejemplo: <screen>\n"
+"</screen> y crear un fichero de acceso de Subversion. Apache se asegurará que sólo los usuarios válidos pueden acceder su ruta <filename>/svn</filename>, y luego pasará el nombre de usuario al módulo de Subversion AuthzSVNAccessFile para que pueda forzar un acceso más granularizado basado en las reglas que se especifican en el fichero de acceso de Subversion. Tenga en cuenta que las rutas se especifican o bien como <literal>repos:ruta</literal> o símplemente <literal>ruta</literal>. Si no especifica un repositorio particular, la regla de acceso se aplicará a todos los repositorios bajo <literal>SVNParentPath</literal>. Esto sería un fichero de ejemplo: <screen>\n"
 "[groups]\n"
-"developers = usuario1,usuario2,usuario3,usuario4\n"
-"docs = usuario5,usuario6,usuario7\n"
-"#permitir a todo el mundo acceso de lectura\n"
+"admin = john, kate\n"
+"devteam1 = john, rachel, sally\n"
+"devteam2 = kate, peter, mark\n"
+"docs = bob, jane, miguel\n"
+"training = zak\n"
+"# Regla de acceso por defecto para TODOS los repositorios\n"
+"# Todo el mundo puede leer, los administradores pueden escribir,\n"
+"# Dan German está exluído.\n"
 "[/]\n"
 "* = r\n"
-"#permitir a todos los desarrolladores acceso completo\n"
-"@developers = rw\n"
-"#los documentadores pueden escribir en la carpeta docs\n"
-"[/project/trunk/doc]\n"
+"@admin = rw\n"
+"dangerman =\n"
+"# Permitir a los desarrolladores aceso completo al repositorio de su proyecto\n"
+"[proj1:/]\n"
+"@devteam1 = rw\n"
+"[proj2:/]\n"
+"@devteam2 = rw\n"
+"[bigproj:/]\n"
+"@devteam1 = rw\n"
+"@devteam2 = rw\n"
+"trevor = rw\n"
+"# Dar a los documentarios acceso de escritura\n"
+"# a todas las carpetas de documentación\n"
+"[/trunk/doc]\n"
 "@docs = rw\n"
+"# Dar a los becarios acceso de escritura sólo al repositorio de pruebas\n"
+"[TrainingRepos:/]\n"
+"@training = rw\n"
 "</screen>"
 
 #: source/en/tsvn_server/server_apache.xml:286
@@ -509,42 +544,42 @@ msgstr ""
 msgid "A short explanation of what you just entered: <indexterm><primary>SVNPath</primary></indexterm><indexterm><primary>SVNParentPath</primary></indexterm><table id=\"tsvn-serversetup-apache-4-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1.5*\"/><colspec colnum=\"2\" colwidth=\"3*\"/><thead><row><entry>Setting</entry><entry>Explanation</entry></row></thead><tbody><row><entry>&lt;Location /svn&gt;</entry><entry> means that the Subversion repositories are available from the URL <systemitem class=\"url\">http://MyServer/svn/</systemitem></entry></row><row><entry>DAV svn</entry><entry> tells Apache which module will be responsible to serve that URL - in this case the Subversion module. </entry></row><row><entry>SVNParentPath D:\\SVN</entry><entry> tells Subversion to look for repositories below <filename>D:\\SVN</filename></entry></row><row><entry>AuthType Basic</entry><entry> is to activate basic authentication, i.e. Username/password </entry></row><row><entry>AuthName \"Subversion repositories\"</entry><entry> is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for </entry></row><row><entry>AuthUserFile passwd</entry><entry> specifies which password file to use for authentication </entry></row><row><entry>AuthzSVNAccessFile</entry><entry> Location of the Access file for paths inside a Subversion repository </entry></row><row><entry>Require valid-user</entry><entry> specifies that only users who entered a correct username/password are allowed to access the URL </entry></row></tbody></tgroup></table> But that's just an example. There are many, many more possibilities of what you can do with the Apache webserver. <placeholder-2/>"
 msgstr "Una explicación corta de lo que acaba de escribir: <indexterm><primary>SVNPath</primary></indexterm><indexterm><primary>SVNParentPath</primary></indexterm><table id=\"tsvn-serversetup-apache-4-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1.5*\"/><colspec colnum=\"2\" colwidth=\"3*\"/><thead><row><entry>Opción</entry><entry>Explicación</entry></row></thead><tbody><row><entry>&lt;Location /svn&gt;</entry><entry> significa que los repositorios de Subversion están disponibles desde la URL <systemitem class=\"url\">http://MiServidor/svn/</systemitem></entry></row><row><entry>DAV svn</entry><entry> le dice a Apache qué módulo debe ser responsable de servir dicha URL - en este caso el módulo de Subversion. </entry></row><row><entry>SVNParentPath D:\\SVN</entry><entry> le dice a Subversion que busque los repositorios bajo <filename>D:\\SVN</filename></entry></row><row><entry>AuthType Basic</entry><entry> activa la autentificación básica, es decir, Usuario/contraseña </entry></row><row><entry>AuthName \"Repositorios de Subversion\"</entry><entry> se utiliza como una información cuando aparece un diálogo de autentificación que le comunica al usuario para qué es la autentificación </entry></row><row><entry>AuthUserFile passwd</entry><entry> especifica qué fichero de contraseñas debe utilizarse para la autentificación </entry></row><row><entry>AuthzSVNAccessFile</entry><entry> Ruta del fichero de acceso para las rutas dentro de un repositorio de Subversion </entry></row><row><entry>Require valid-user</entry><entry> indica que sólo a los usuarios que hayan introducido un usuario/contraseña correctos se les permite el acceso a la URL </entry></row></tbody></tgroup></table> Pero esto es sólo un ejemplo. Hay muchas, muchas más posibilidades de lo que puede hacer con el servidor web Apache. <placeholder-2/>"
 
-#: source/en/tsvn_server/server_apache.xml:417
+#: source/en/tsvn_server/server_apache.xml:439
 #: (title)
 msgid "Use SVNParentPath"
 msgstr "Use SVNParentPath"
 
-#: source/en/tsvn_server/server_apache.xml:419
+#: source/en/tsvn_server/server_apache.xml:441
 #: (primary)
 msgid "SVNParentPath"
 msgstr "SVNParentPath"
 
-#: source/en/tsvn_server/server_apache.xml:421
+#: source/en/tsvn_server/server_apache.xml:443
 #: (para)
 msgid "If you used the SVNParentPath directive then you don't have to change the Apache config file everytime you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
 msgstr "Si ha utilizado la directiva SVNParentPath no necesita cambiar el fichero de configuración de Apache cada vez que añada un nuevo repositorios de Subversion. ¡Simplemente cree el nuevo repositorio bajo la misma ruta que el primer repositorio y ya está! En mi compañía yo tengo acceso directo a esa carpeta específica via SMB (el acceso normal de ficheros de Windows). Por lo que simplemente creo una nueva carpeta allí, ejecuto el comando de TortoiseSVN <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Crear repositorio aquí...</guimenuitem></menuchoice> y un nuevo proyecto que ya tiene hogar..."
 
-#: source/en/tsvn_server/server_apache.xml:437
+#: source/en/tsvn_server/server_apache.xml:459
 #: (title)
 msgid "Index of projects under SVNParentPath"
 msgstr "Índice de proyectos bajo SVNParentPath"
 
-#: source/en/tsvn_server/server_apache.xml:439
+#: source/en/tsvn_server/server_apache.xml:461
 #: (primary)
 msgid "Index of projects"
 msgstr "Índice de proyectos"
 
-#: source/en/tsvn_server/server_apache.xml:441
+#: source/en/tsvn_server/server_apache.xml:463
 #: (para)
 msgid "The advantage of using the SVNParentPath directive is that you don't have to change the Apache config each time you create a new repository, but you also don't have an index of all created and available projects. If you point your browser to the path SVNParentPath points to, you will get a nasty error page showing."
 msgstr "La ventaja de utilizar la directiva SVNParentPath es que no tiene que cambiar el fichero de configuración cada vez que cree un nuevo repositorio, pero tampoco tendrá un índice de todos los proyectos creados y disponibles. Si apunta su navegador a la ruta que indica SVNParentPath, obtendrá una fastidiosa página de error."
 
-#: source/en/tsvn_server/server_apache.xml:449
+#: source/en/tsvn_server/server_apache.xml:471
 #: (para)
 msgid "To avoid that ugly error page and have a nice looking listing of all available projects instead, you can use the following PHP script which generates the index for you automatically. (You will need to install PHP on your server in order to use the below file)."
 msgstr "Para evitar esa horrible página de error y tener una bonita página mostrando todos los proyectos disponibles, puede utilizar el siguiente script PHP que genera el índice por usted automáticamente. (Necesitará instalar PHP en su servidor para utilizar el siguiente fichero)."
 
-#: source/en/tsvn_server/server_apache.xml:509
+#: source/en/tsvn_server/server_apache.xml:531
 #: (para)
 msgid ""
 "Uncomment (remove the '#' char) from the following line in your Apache config file: <screen>\n"
@@ -555,7 +590,7 @@ msgstr ""
 "#LoadModule rewrite_module modules/mod_rewrite.so\n"
 "</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:518
+#: source/en/tsvn_server/server_apache.xml:540
 #: (para)
 msgid ""
 "Add the following lines just below your &lt;Location&gt; block where you define your Subversion stuff: <screen>\n"
@@ -572,47 +607,47 @@ msgstr ""
 "    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
 "</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:503
+#: source/en/tsvn_server/server_apache.xml:525
 #: (para)
 msgid "Save the lines above to a file <filename>svn_index.php</filename> and store that file in your web root folder. Next you have to tell Apache to show that page instead of the error: <placeholder-1/>"
 msgstr "Grabe las líneas anteriores en un fichero <filename>svn_index.php</filename> y grabe dicho fichero en su directorio web raíz. Ahora debe decirle a Apache que muestre dicha página en vez del error: <placeholder-1/>"
 
-#: source/en/tsvn_server/server_apache.xml:534
+#: source/en/tsvn_server/server_apache.xml:556
 #: (title)
 msgid "Authentication With A Windows Domain"
 msgstr "Autentificación con un Dominio de Windows"
 
-#: source/en/tsvn_server/server_apache.xml:536
+#: source/en/tsvn_server/server_apache.xml:558
 #: (primary)
 msgid "Windows domain"
 msgstr "dominio de Windows"
 
-#: source/en/tsvn_server/server_apache.xml:539
+#: source/en/tsvn_server/server_apache.xml:561
 #: (primary)
 msgid "domaincontroller"
 msgstr "controlador de dominio"
 
-#: source/en/tsvn_server/server_apache.xml:541
+#: source/en/tsvn_server/server_apache.xml:563
 #: (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
 msgstr "Como habrá notado necesita introducir una entrada usuario/contraseña en el fichero <filename>passwd</filename> para cada usuario de forma separada. Y si (por razones de seguridad) quiere que sus usuarios cambien periódicamente sus contraseñas tendrá que hacer el cambio de forma manual."
 
-#: source/en/tsvn_server/server_apache.xml:548
+#: source/en/tsvn_server/server_apache.xml:570
 #: (para)
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: mod_auth_sspi!"
 msgstr "Pero hay una solución a este problema - al menos si accede al repositorio desde dentro de una LAN con un controlador de dominio de Windows: mod_auth_sspi!"
 
-#: source/en/tsvn_server/server_apache.xml:553
+#: source/en/tsvn_server/server_apache.xml:575
 #: (para)
 msgid "<indexterm><primary>SSPI</primary></indexterm> The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, including a patch from Vladimir Berezniker. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
 msgstr "<indexterm><primary>SSPI</primary></indexterm> El módulo original de SSPI lo ofreció Syneapps incluyendo el código fuente. Pero su desarrollo se paró. Todavía puede buscar dicho módulo en Internet - haga una búsqueda en Google para encontrarlo. Nosotros también tenemos una versión compilada en nuestro sitio web, incluyendo un parche de Vladimir Berezniker. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Obtenga el módulo mod_auth_sspi</citetitle></ulink>."
 
-#: source/en/tsvn_server/server_apache.xml:568
+#: source/en/tsvn_server/server_apache.xml:590
 #: (para)
 msgid "Download the module, copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
 msgstr "Descargue el módulo, copie el fichero <filename>mod_auth_sspi.so</filename> en la carpeta de módulos de Apache."
 
-#: source/en/tsvn_server/server_apache.xml:575
+#: source/en/tsvn_server/server_apache.xml:597
 #: (para)
 msgid ""
 "Edit the Apache config file: add the line <screen>\n"
@@ -627,7 +662,7 @@ msgstr ""
 "LoadModule auth_module modules/mod_auth.so\n"
 "</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:588
+#: source/en/tsvn_server/server_apache.xml:610
 #: (para)
 msgid ""
 "To make the Subversion location use this type of authentication you have to change the line <screen>\n"
@@ -652,57 +687,57 @@ msgstr ""
 "SSPIOfferBasic On\n"
 "</screen> dentro del bloque &lt;Location /svn&gt;. Si no tiene un controlador de dominio, deje el nombre del control de cominio como &lt;domaincontroller&gt;."
 
-#: source/en/tsvn_server/server_apache.xml:611
+#: source/en/tsvn_server/server_apache.xml:633
 #: (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <filename>AuthUserFile</filename> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
 msgstr "Tenga en cuenta que si se autentifica utilizando SSPI, ya no necesitará la línea <filename>AuthUserFile</filename> para definir un fichero de contraseñas. En su lugar, Apache autentifica su usuario y contraseña contra su dominio de Windows. También necesitará actualizar la lista de usuarios en su <filename>svnaccessfile</filename> para referirse a <literal>DOMINIO\\usuario</literal>."
 
-#: source/en/tsvn_server/server_apache.xml:621
+#: source/en/tsvn_server/server_apache.xml:643
 #: (para)
 msgid "Subversion AuthzSVNAccessFile files are case sensitive in regard to user names (\"JUser\" is different from \"juser\")."
 msgstr "Los ficheros AuthzSVNAccessFile de Subversion distinguen mayúsculas y minúsculas respecto a los nombres de usuario (\"JuanPerez\" es diferente de \"juanperez\")."
 
-#: source/en/tsvn_server/server_apache.xml:625
+#: source/en/tsvn_server/server_apache.xml:647
 #: (para)
 msgid "In Microsoft's world, Windows domains and usernames are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. \"JUser\")."
 msgstr "En el mundo de Microsoft, los dominios y nombres de usuarios de Windows no distinguen mayúsculas y minúsculas. Incluso así, a algunos administradores de redes les gusta crear las cuentas de usuario en \"CamelCase\" (por ejemplo, \"JuanPerez\")."
 
-#: source/en/tsvn_server/server_apache.xml:630
+#: source/en/tsvn_server/server_apache.xml:652
 #: (para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
 msgstr "La diferencia puede morderle cuando utilice la autentificación SSPI ya que el dominio de Windows y los nombres de usuario se pasan a Subversion exactamente como los haya tecleado el usuario en la ventana. Internet Explorer a menudo pasa el nombre de usuario a Apache automáticamente utilizando el formato con el que se creó la cuenta."
 
-#: source/en/tsvn_server/server_apache.xml:638
+#: source/en/tsvn_server/server_apache.xml:660
 #: (para)
 msgid "The end result is that you may need at least two entries in your AuthzSVNAccessFile for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
 msgstr "El resultado final es que puede necesitar al menos dos entradas en su fichero AuthzSVNAccessFile para cada usuario -- una entrada en minúsculas y una entrada con el formato que Internet Explorer pasa a Apache. También tendrá que aleccionar a sus usuarios para que escriban sus credenciales en minúsculas cuando accedan a los repositorios utilizando TortoiseSVN."
 
-#: source/en/tsvn_server/server_apache.xml:646
+#: source/en/tsvn_server/server_apache.xml:668
 #: (para)
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's AuthzSVNAccessFile module. You may need to experiment with the exact format of the user string in the svnaccessfile (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
 msgstr "Los registros de Error y Acceso de Apache son su mejor aliado para descifrar problemas como estos, ya que le ayudarán a determinar la cadena de nombre de usuario pasada al módulo AuthzSVNAccessFile de Subversion. Puede que necesite experimentar con el formato exacto de la cadena del usuario en el svnaccessfile (por ejemplo, <literal>DOMINIO\\usuario</literal> contra <literal>DOMINIO//usuario</literal>) para conseguir que todo funcione."
 
-#: source/en/tsvn_server/server_apache.xml:658
+#: source/en/tsvn_server/server_apache.xml:680
 #: (title)
 msgid "SSL and InternetExplorer"
 msgstr "SSL e Internet Explorer"
 
-#: source/en/tsvn_server/server_apache.xml:659
+#: source/en/tsvn_server/server_apache.xml:681
 #: (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
 msgstr "Si está asegurando su servidor con SSL y utiliza la autentificación contra un dominio de Windows se encontrará que la navegación de repositorios con el Internet Explorer ya no funcionará. No se preocupe - es sólo que Internet Explorer no se puede autentificar. Los demás navegadores no tienen ese problema y tanto TortoiseSVN como cualquier otro cliente de Subversion todavía podrán autentificarse."
 
-#: source/en/tsvn_server/server_apache.xml:673
+#: source/en/tsvn_server/server_apache.xml:695
 #: (para)
 msgid "define a separate &lt;Location /path&gt; directive in the apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
 msgstr "defina una directiva separada &lt;Location /ruta&gt; en el fichero de configuración de apache, y añada <literal>SSPIBasicPreferred On</literal>. Esto permitirá que IE se autentifique de nuevo, pero los demás navegadores y Subversion no se podrán autentificar contra esa ruta."
 
-#: source/en/tsvn_server/server_apache.xml:683
+#: source/en/tsvn_server/server_apache.xml:705
 #: (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
 msgstr "Ofrezca también la navegación sin autentificación encriptada (sin SSL). Extrañamente, IE no tiene ningún problema para autentificarse si la conexión no está asegurada con SSL."
 
-#: source/en/tsvn_server/server_apache.xml:691
+#: source/en/tsvn_server/server_apache.xml:713
 #: (para)
 msgid ""
 "In the ssl \"standard\" setup there's often the following statement in apache's virtual ssl host: <screen>\n"
@@ -717,37 +752,37 @@ msgstr ""
 "             downgrade-1.0 force-response-1.0\n"
 "</screen> Hay (¿había?) buenas razones para esta configuración, lea <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> Pero si desea autentificación NTLM deberá utilizar keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> Si descomenta todo el \"SetEnvIf\" debería ser capaz de autentificar IE con la autentificación de Windows sobre SSL contra un Apache sobre Win32 con el módulo incluído mod_auth_sspi."
 
-#: source/en/tsvn_server/server_apache.xml:668
+#: source/en/tsvn_server/server_apache.xml:690
 #: (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
 msgstr "Si todavía quiere utilizar IE para navegar en el repositorio, puede: <placeholder-1/>"
 
-#: source/en/tsvn_server/server_apache.xml:718
+#: source/en/tsvn_server/server_apache.xml:740
 #: (title)
 msgid "Securing the server with SSL"
 msgstr "Asegurando el servidor con SSL"
 
-#: source/en/tsvn_server/server_apache.xml:720
+#: source/en/tsvn_server/server_apache.xml:742
 #: (primary)
 msgid "SSL"
 msgstr "SSL"
 
-#: source/en/tsvn_server/server_apache.xml:722
+#: source/en/tsvn_server/server_apache.xml:744
 #: (para)
 msgid "The apache server doesn't have SSL support installed by default due to US-export restrictions. But you can easily download the required module from somewhere else and install it yourself."
 msgstr "El servidor Apache no tiene soporte SSL instalado por defecto por culpa de las restricciones de exportación de EE.UU. Pero puede descargar el módulo necesario de algún otro lugar e instalarlo usted mismo."
 
-#: source/en/tsvn_server/server_apache.xml:729
+#: source/en/tsvn_server/server_apache.xml:751
 #: (para)
 msgid "First you need the required files to enable SSL. You can find those in the package available at <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Just unzip the package and then copy <filename>mod_ssl.so</filename> to the <filename>modules</filename> folder of Apache and the file <filename>openssl.exe</filename> to the <filename>bin</filename> folder. Also copy the file <filename>conf/ssl.conf</filename> to the <filename>conf</filename> folder of Apache."
 msgstr "Primero necesitará los ficheros necesarios para habilitar SSL. Puede encontrarlos en el paquete disponible en <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Simplemente descomprima el paquete y luego copie el fichero <filename>mod_ssl.so</filename> a la carpeta <filename>modules</filename> de Apache, y el fichero <filename>openssl.exe</filename> a la carpeta <filename>bin</filename>. También debe copiar el fichero <filename>conf/ssl.conf</filename> a la carpeta <filename>conf</filename> de Apache."
 
-#: source/en/tsvn_server/server_apache.xml:745
+#: source/en/tsvn_server/server_apache.xml:767
 #: (para)
 msgid "Open the file <filename>ssl.conf</filename> in the Apache conf folder with a text editor."
 msgstr "Abra el fichero <filename>ssl.conf</filename> en la carpeta de configuración del Apache con un editor de texto."
 
-#: source/en/tsvn_server/server_apache.xml:752
+#: source/en/tsvn_server/server_apache.xml:774
 #: (para)
 msgid ""
 "Place a comment char (<literal>#</literal>) in front of the following lines: <screen>\n"
@@ -766,7 +801,7 @@ msgstr ""
 "TransferLog logs/access_log\n"
 "</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:765
+#: source/en/tsvn_server/server_apache.xml:787
 #: (para)
 msgid ""
 "change the line <screen>\n"
@@ -797,7 +832,7 @@ msgstr ""
 "SSLMutex  default\n"
 "</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:793
+#: source/en/tsvn_server/server_apache.xml:815
 #: (para)
 msgid ""
 "Delete the lines <screen>\n"
@@ -812,7 +847,7 @@ msgstr ""
 "&lt;/IfDefine&gt;\n"
 "</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:805
+#: source/en/tsvn_server/server_apache.xml:827
 #: (para)
 msgid ""
 "Open the Apache config file (<filename>httpd.conf</filename>) and uncomment the line <screen>\n"
@@ -823,12 +858,12 @@ msgstr ""
 "#LoadModule ssl_module modules/mod_ssl.so\n"
 "</screen>"
 
-#: source/en/tsvn_server/server_apache.xml:814
+#: source/en/tsvn_server/server_apache.xml:836
 #: (para)
 msgid "Openssl needs a config file. You can download a working one from <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Save the file to <filename>bin/openssl.cnf</filename>. Please note: the file has the type <filename>*.cnf</filename>. Windows treats such files in a special way but it really is just a text file!"
 msgstr "Openssl necesita un fichero de configuración. Puede descargar uno que funciona desde <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Grabe el fichero en <filename>bin/openssl.cnf</filename>. Por favor, tenga en cuenta que el fichero debe ser de tipo <filename>*.cnf</filename>. Windows trata dichos ficheros de una forma especial, ¡pero realmente es simplemente un fichero de texto!"
 
-#: source/en/tsvn_server/server_apache.xml:828
+#: source/en/tsvn_server/server_apache.xml:850
 #: (para)
 msgid ""
 "Next you need to create an SSL certificate. To do that open a command prompt (DOS-Box) and change to the apache folder (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) and type the following command: <screen>\n"
@@ -854,27 +889,27 @@ msgstr ""
 "\t my-server.der.crt -outform DER\n"
 "</screen> Estos comandos crearán algunos ficheros en la carpeta Apache (<filename>my-server.der.crt</filename>, <filename>my-server.csr</filename>, <filename>my-server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>my-server.cert</filename>). Copie los ficheros a la carpeta <filename>conf/ssl</filename> (por ejemplo, <filename>C:\\Archivos de programa\\Apache Group\\Apache2\\conf\\ssl</filename>) - si esta carpeta no existe deberá crearla antes."
 
-#: source/en/tsvn_server/server_apache.xml:869
+#: source/en/tsvn_server/server_apache.xml:891
 #: (para)
 msgid "Restart the apache service."
 msgstr "Reinicie el servicio de Apache."
 
-#: source/en/tsvn_server/server_apache.xml:874
+#: source/en/tsvn_server/server_apache.xml:896
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
 msgstr "Apunte su navegador a <systemitem class=\"url\">https://nombredelservidor/svn/project</systemitem> ..."
 
-#: source/en/tsvn_server/server_apache.xml:882
+#: source/en/tsvn_server/server_apache.xml:904
 #: (title)
 msgid "Forcing SSL access"
 msgstr "Forzando el acceso SSL"
 
-#: source/en/tsvn_server/server_apache.xml:883
+#: source/en/tsvn_server/server_apache.xml:905
 #: (para)
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-ssl (http) and only allow https access. To do this, you have to add another directive to the Subversion &lt;Location&gt; block: <literal>SSLRequireSSL</literal>."
 msgstr "Cuando haya preparado SSL para hacer su repositorio más seguro, puede que desee deshabilitar el acceso normal via no-ssl (http) y sólo permitir el acceso https. Para hacer esto, debería añadir otra directiva al bloque &lt;Location&gt; de Subversion: <literal>SSLRequireSSL</literal>."
 
-#: source/en/tsvn_server/server_apache.xml:890
+#: source/en/tsvn_server/server_apache.xml:912
 #: (para)
 msgid ""
 "An example &lt;Location&gt; block would look like this: <screen>\n"
@@ -1117,7 +1152,7 @@ msgstr "La herramienta <literal>svnadmin</literal> se instala automáticamente c
 #: source/en/tsvn_repository/repository.xml:3
 #: (title)
 #: source/en/tsvn_basics.xml:34
-#: source/en/tsvn_basics.xml:522
+#: source/en/tsvn_basics.xml:540
 msgid "The Repository"
 msgstr "El Repositorio"
 
@@ -1318,7 +1353,7 @@ msgstr "modificaciones"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:168
 #: (title)
-#: source/en/tsvn_dug/dug_wcstatus.xml:212
+#: source/en/tsvn_dug/dug_wcstatus.xml:257
 #: (guilabel)
 msgid "Check for Modifications"
 msgstr "Comprobar Modificaciones"
@@ -1333,47 +1368,131 @@ msgstr "<placeholder-1/> A menudo es muy útil saber qué ficheros ha cambiado y
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder."
 msgstr "Si pulsa en el botón <guibutton>Comprobar Repositorio</guibutton> también puede comprobar los cambios en el repositorio. De esa forma puede comprobar antes de hacer una actualización si es posible que haya un conflicto. También puede actualizar los ficheros seleccionados desde el repositorio sin actualizar la carpeta completa."
 
+#: source/en/tsvn_dug/dug_wcstatus.xml:195
+#: (term)
+#: source/en/tsvn_dug/dug_commit.xml:105
+msgid "Blue"
+msgstr "Azul"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:196
+#: (listitem)
+msgid "Locally modified items."
+msgstr "Ítems modificados localmente."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:201
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:34
+#: source/en/tsvn_dug/dug_commit.xml:111
+msgid "Purple"
+msgstr "Púrpura"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:202
+#: (listitem)
+msgid "Added items."
+msgstr "Ítems añadidos."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:207
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:40
+#: source/en/tsvn_dug/dug_commit.xml:117
+msgid "Dark red"
+msgstr "Rojo oscuro"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:208
+#: (listitem)
+msgid "Deleted or missing items."
+msgstr "Ítems faltantes o borrados."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:213
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:47
+msgid "Green"
+msgstr "Verde"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:217
+#: (emphasis)
+msgid "may"
+msgstr "puede"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:214
+#: (listitem)
+msgid "Items modified locally and in the repository. The changes will be merged on update. These <placeholder-1/> produce conflicts on update."
+msgstr "Items modificados localmente y en el repositorio. Los cambios se combinarán al actualizar. Ésto <placeholder-1/> producir conflictos al actualizar."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:221
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:54
+msgid "Bright red"
+msgstr "Rojo brillante"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:225
+#: (emphasis)
+msgid "will"
+msgstr "seguro"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:222
+#: (listitem)
+msgid "Items modified locally and deleted in repository, or modified in repository and deleted locally. These <placeholder-1/> produce conflicts on update."
+msgstr "Items modificados localmente y borrados en el repositorio, o modificados en el repositorio y borrados localmente. Esto producirá <placeholder-1/> conflictos al actualizar."
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:229
+#: (term)
+#: source/en/tsvn_dug/dug_update.xml:61
+#: source/en/tsvn_dug/dug_commit.xml:123
+msgid "Black"
+msgstr "Negro"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:230
+#: (listitem)
+msgid "Unchanged and unversioned items."
+msgstr "Ítems sin cambios y sin versionar."
+
 #: source/en/tsvn_dug/dug_wcstatus.xml:191
+#: (para)
+msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
+msgstr "El diálogo utiliza un código de colores para resaltar el estado. <placeholder-1/>"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:236
 #: (para)
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
 msgstr "Desde el menú contextual del diálogo puede mostrar un resumen de los cambios. Compruebe los cambios locales que <emphasis>usted</emphasis> ha hecho utilizando <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Comparar con Base</guimenuitem></menuchoice>. Compruebe los cambios en el repositorio hechos por los demás utilizando <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Mostrar Diferencias como Diff Unificado</guimenuitem></menuchoice>."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:204
+#: source/en/tsvn_dug/dug_wcstatus.xml:249
 #: (para)
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
 msgstr "También puede revertir cambios en ficheros individuales. Si ha borrado un fichero de forma accidental, se mostrará como <literal>Falta</literal> y puede utilizar <literal>Revertir</literal> para recuperarlo."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:214
+#: source/en/tsvn_dug/dug_wcstatus.xml:259
 #: (guilabel)
 msgid "Show unmodified files"
 msgstr "Mostrar archivos no modificados"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:209
+#: source/en/tsvn_dug/dug_wcstatus.xml:254
 #: (tip)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <placeholder-1/> dialog is the easiest way to achieve that. Just check the <placeholder-2/> checkbox to show all files in your working copy."
 msgstr "Si quiere una vista llana de su copia de trabajo, por ejemplo mostrando todos los ficheros y carpetas en todos los niveles de su jerarquía de carpetas, entonces el diálogo <placeholder-1/> es la forma más sencilla de conseguirlo. Símplemente seleccione la casilla <placeholder-2/> para ver todos los ficheros de su copia de trabajo."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:219
+#: source/en/tsvn_dug/dug_wcstatus.xml:264
 #: (title)
 msgid "Viewing Diffs"
 msgstr "Viendo Diferencias"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:221
+#: source/en/tsvn_dug/dug_wcstatus.xml:266
 #: (primary)
 msgid "diffing"
 msgstr "diferenciando"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:223
+#: source/en/tsvn_dug/dug_wcstatus.xml:268
 #: (para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
 msgstr "A menudo querrá mirar dentro de sus ficheros, para echar un vistazo a lo que ha cambiado. Puede llevar esto a cabo seleccionando un fichero que haya cambiado, y seleccionando <guimenuitem>Diferenciar</guimenuitem> del menú contextual de TortoiseSVN's. Esto inicia el visor externo de diferencias, que comparará el fichero actual con sus contenidos tal y como estaba después de la última actualización o de su obtención."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:232
+#: source/en/tsvn_dug/dug_wcstatus.xml:277
 #: (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr "Puede mostrar diferencias incluso cuando no está dentro de una copia de trabajo, o cuando tiene múltiples versiones del fichero alrededor:"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:236
+#: source/en/tsvn_dug/dug_wcstatus.xml:281
 #: (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr "Seleecione los dos ficheros que desea comparar en el explorador (por ejemplo, utilizando la tecla <keycap>Ctrl</keycap> y el ratón) y seleccione <guimenuitem>Diferenciar</guimenuitem> del menú contextual de TortoiseSVN. El fichero que haya pulsado en último lugar (el que tiene el foco, es decir, el rectángulo con puntos) será tomado como más nuevo."
@@ -1399,111 +1518,82 @@ msgstr "Diálogo de progreso mostrando una actualización terminada"
 msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
 msgstr "<placeholder-1/> Periódicamente, debería asegurarse que los cambios que hacen los demás se incorporen en su copia de trabajo local. El proceso de incorporar los cambios desde el servidor a su copia de trabajo local se conoce como <literal>actualización</literal>. La actualización puede hacerse en ficheros sueltos, en un conjunto de ficheros, o recursivamente en jerarquías completas de directorios. Para actualizar, seleccione los ficheros y/o directorios que desee, <action>haga click con el botón derecho</action> y seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice> en el menú contextual del explorador. Aparecerá una ventana con el progreso de la actualización según se ejecuta. Los cambios que los demás hayan hecho se combinarán con sus ficheros, guardando cualquier cambio que usted haya hecho en los mismos ficheros. El repositorio <emphasis>no</emphasis> se ve afectado por una actualización."
 
-#: source/en/tsvn_dug/dug_update.xml:34
-#: (term)
-#: source/en/tsvn_dug/dug_commit.xml:105
-msgid "Blue"
-msgstr "Azul"
-
 #: source/en/tsvn_dug/dug_update.xml:35
 #: (listitem)
 msgid "New item added to your WC."
 msgstr "Nuevo ítem añadido a su copia de trabajo"
 
-#: source/en/tsvn_dug/dug_update.xml:40
-#: (term)
-#: source/en/tsvn_dug/dug_commit.xml:111
-msgid "Dark red"
-msgstr "Rojo oscuro"
-
 #: source/en/tsvn_dug/dug_update.xml:41
 #: (listitem)
-msgid "Redundant item deleted from your WC."
-msgstr "Ítem redundante borrado de su copia de trabajo"
+msgid "Redundant item deleted from your WC, or missing item replaced in your WC."
+msgstr "Ítem redundante borrado de su copia de trabajo, o ítem faltante reemplazado en su copia de trabajo."
 
-#: source/en/tsvn_dug/dug_update.xml:46
-#: (term)
-msgid "Green"
-msgstr "Verde"
-
-#: source/en/tsvn_dug/dug_update.xml:47
+#: source/en/tsvn_dug/dug_update.xml:48
 #: (listitem)
 msgid "Changes from repository successfully merged with your local changes."
 msgstr "Cambios del repositorio que se han combinado satisfactoriamente con sus cambios locales."
 
-#: source/en/tsvn_dug/dug_update.xml:53
-#: (term)
-msgid "Bright red"
-msgstr "Rojo brillante"
-
-#: source/en/tsvn_dug/dug_update.xml:54
+#: source/en/tsvn_dug/dug_update.xml:55
 #: (listitem)
 msgid "Changes from repository merged with local changes, resulting in conflicts which you need to resolve."
 msgstr "Cambios del repositorio combinados con sus cambios locales, pero que han dado lugar a conflictos que debe resolver."
 
-#: source/en/tsvn_dug/dug_update.xml:60
-#: (term)
-#: source/en/tsvn_dug/dug_commit.xml:117
-msgid "Black"
-msgstr "Negro"
-
-#: source/en/tsvn_dug/dug_update.xml:61
+#: source/en/tsvn_dug/dug_update.xml:62
 #: (listitem)
-#: source/en/tsvn_dug/dug_commit.xml:118
-msgid "All other items."
-msgstr "Todos los demás ítems."
+msgid "Unchanged item in your WC updated with newer version from the repository."
+msgstr "Items sin cambios en su copia de trabajo actualizados con una versión más nueva desde el repositorio."
 
 #: source/en/tsvn_dug/dug_update.xml:29
 #: (para)
 msgid "The progress dialog uses colour coding to highlight different update actions <placeholder-1/>"
 msgstr "El diálogo de progreso utiliza un código de colores para resaltar diferentes acciones de actualización <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_update.xml:67
+#: source/en/tsvn_dug/dug_update.xml:69
 #: (para)
 msgid "If you get any <literal>conflicts</literal> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
 msgstr "Si obtiene algún <literal>conflicto</literal> durante una actualización (esto puede suceder si los demás han cambiado las mismas líneas del mismo fichero a la vez que usted y esos cambios no concuerdan), el diálogo muestra esos conflictos en rojo. Puede <action>hacer doble click</action> en esas líneas para iniciar la herramienta de combinación externa para resolver los conflictos."
 
-#: source/en/tsvn_dug/dug_update.xml:75
+#: source/en/tsvn_dug/dug_update.xml:77
 #: (para)
 msgid "TortoiseSVN also allows you to update your working copy to a specific revision, not only to the most recent one. This command is called <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens a dialog where you can enter the required revision. Say e.g. your working copy is at revision 100, but you want your working copy to reflect the state which it had in revision 50 - then simply update to revision 50. In that dialog, you can also decide if you only want to update the current folder only (without all the subfolders) and/or if you want to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr "TortoiseSVN también le permite actualizar su copia de trabajo a una revisión específica, no sólo a la más actual. Este comando se llama <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar a la revisión...</guimenuitem></menuchoice> y primero abre un diálogo donde puede introducir la revisión en cuestión. Por ejemplo, digamos que su copia de trabajo está en la revisión 100, pero quiere que su copia de trabajo refleje el estado que tenía en la revisión 50 - entonces símplemente actualice a la revisión 50. En ese diálogo, también puede decidir si desea actualizar sólo la carpeta actual (sin sus subcarpetas) y/o si desea ignorar todos los proyectos externos en la actualización (por ejemplo, los proyectos referenciados utilizando <literal>svn:externals</literal>)."
 
-#: source/en/tsvn_dug/dug_update.xml:92
+#: source/en/tsvn_dug/dug_update.xml:94
 #: (para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you should use one of the following commands instead. The <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> command from the log dialog will undo only those changes made in the selected revision. Changes made after that revision will be retained. For reverting multiple revisions, you should use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> menu command, where you can specify the range of revisions you want to undo."
 msgstr "Si actualiza un fichero o una carpeta a una revisión en concreto, no debería cambiar esos ficheros. ¡Obtendrá mensajes <literal>out of date</literal> (desactualizado) cuando intente confirmarlos! Si desea deshacer los cambios de un fichero y empezar de nuevo desde una revisión anterior, debería utilizar alguno de los siguientes comandos en vez de éste. El comando <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Revertir los cambios de esta revisión</guimenuitem></menuchoice> del diálogo de registro deshará únicamente los cambios hechos en la revisión seleccionada. Los cambios que se hicieron después se mantendrán. Para revertir múltiples revisiones, debería utilizar el comando del menú <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Combinar...</guimenuitem></menuchoice>, donde puede especificar el rango de revisiones que desea deshacer."
 
-#: source/en/tsvn_dug/dug_update.xml:113
+#: source/en/tsvn_dug/dug_update.xml:115
 #: (para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
 msgstr "<menuchoice><guimenuitem>Actualizar a la revisión</guimenuitem></menuchoice> puede ser útil a veces para ver cómo estaba su proyecto en un momento anterior en su historia. Pero en general, actualizar ficheros individuales a una revisión anterior no es una buena idea, ya que deja su copia de trabajo en un estado inconsistente. Si el fichero que está actualizando ha cambiado de nombre, incluso puede encontrar que ese fichero ha desaparecido de su copia de trabajo porque en esa revisión no había ningún fichero con ese nombre. Si simplemente desea una copia local de una versión antigua de un fichero, es mejor utilizar para ese fichero el comando <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Grabar la revisión como...</guimenuitem></menuchoice> desde el diálogo de registro."
 
-#: source/en/tsvn_dug/dug_update.xml:132
+#: source/en/tsvn_dug/dug_update.xml:134
 #: (title)
 msgid "Multiple Files/Folders"
 msgstr "Múltiples Ficheros/Carpetas"
 
-#: source/en/tsvn_dug/dug_update.xml:133
+#: source/en/tsvn_dug/dug_update.xml:135
 #: (para)
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
 msgstr "Si selecciona múltiples ficheros y carpetas en el explorador y luego selecciona <menuchoice><guimenuitem>Actualizar</guimenuitem></menuchoice>, todos esos ficheros/carpetas se actualizan uno a uno. ¡TortoiseSVN se asegura de que todos los ficheros/carpetas del mismo repositorio se actualicen exactamente a la misma revisión! Incluso si entre esas actualizaciones ocurrió alguna confirmación."
 
-#: source/en/tsvn_dug/dug_update.xml:145
+#: source/en/tsvn_dug/dug_update.xml:147
 #: (title)
 msgid "Local File Already Exists"
 msgstr "El Fichero Local Ya Existe"
 
-#: source/en/tsvn_dug/dug_update.xml:146
+#: source/en/tsvn_dug/dug_update.xml:148
 #: (para)
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
 msgstr "A veces cuando intente actualizar, la actualización falla con un mensaje para decir que ya existe un fichero local con el mismo nombre. Esto típicamente ocurre cuando Subversion intenta obtener un fichero recién versionado, y se encuentra un fichero no versionado del mismo nombre en su copia de trabajo. Subversion nunca sobreescribirá un fichero no versionado - puede contener algo en lo que está trabajando, y que casualmente tiene el mismo nombre de fichero que otro desarrollador ha utilizado para su recién confirmado fichero."
 
-#: source/en/tsvn_dug/dug_update.xml:155
+#: source/en/tsvn_dug/dug_update.xml:157
 #: (para)
 msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
 msgstr "Si obtiene este mensaje de error, la solución es simplemente renombrar el fichero local sin versionar. Tras completar la actualización, puede comprobar si el fichero renombrado sigue siendo necesario."
 
-#: source/en/tsvn_dug/dug_update.xml:160
+#: source/en/tsvn_dug/dug_update.xml:162
 #: (para)
 msgid "If you keep getting error messages, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> instead to list all the problem files. That way you can deal with them all at once."
 msgstr "Si sigue obteniendo mensajes de error, utilize mejor el comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comprobar modificacioness</guimenuitem></menuchoice> para mostrar todos los ficheros con problemas. De esa forma puede lidiar con ellos de un golpe."
@@ -2408,7 +2498,7 @@ msgstr "Gráficos de Revisión"
 
 #: source/en/tsvn_dug/dug_revgraph.xml:6
 #: (primary)
-#: source/en/tsvn_basics.xml:487
+#: source/en/tsvn_basics.xml:505
 msgid "revision"
 msgstr "revisión"
 
@@ -2540,10 +2630,15 @@ msgstr "A veces necesitará trabajar directamente en el repositorio, sin tener u
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:21
 #: (para)
-msgid "On the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
+msgid "At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
 msgstr "En la parte superior de la Ventana del Navegador de Repositorios puede introducir la URL del repositorio y la revisión a la que desea navegar. Navegar a una versión más antigua es útil si por ejemplo desea recuperar un fichero borrado anteriormente. Use el comando <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Copiar a...</guimenuitem></menuchoice> para hacerlo e introduzca la ruta completa de la copia de trabajo donde desea recuperar su fichero borrado."
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:33
+#: (para)
+msgid "If you select two items, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool. This can be particularly useful for comparing two tags to see what changed."
+msgstr "Si selecciona dos ítems, puede ver las diferencias bien como diff unificado, o bien como una lista de ficheros que pueden diferenciarse visualmente utilizando la herramienta de diferencias por defecto. Esto puede ser particularmente útil para comparar dos etiquetas y ver qué ha cambiado."
+
+#: source/en/tsvn_dug/dug_repobrowser.xml:39
 #: (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
 msgstr "También puede utilizar el navegador de repositorios para operaciones de arrastrar-y-soltar. Si arrastra una carpeta desde el Explorador al navegador de repositorios, se importará esa carpeta en el repositorios. Tenga en cuenta que si arrastra múltiples items, se importarán en confirmaciones separadas."
@@ -3184,87 +3279,92 @@ msgstr "El Diálogo Bloquear"
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
 msgstr "Seleccione el fichero o ficheros en su copia de trabajo para los que desee obtener un bloqueo, y seleccione el comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtener Bloqueo...</guimenuitem></menuchoice>. <placeholder-1/> Aparece un diálogo, que le permite introducir un comentario, para que los demás vean por qué ha bloqueado el fichero. El comentario es opcional, y de momento sólo se utiliza con repositorios basados en Svnserve. Si (y <emphasis>sólo</emphasis> si) necesita robar el bloqueo de alguien, marque la casilla <guilabel>Robar bloqueo</guilabel>, y luego pulse <guibutton>Aceptar</guibutton>."
 
-#: source/en/tsvn_dug/dug_locking.xml:115
+#: source/en/tsvn_dug/dug_locking.xml:113
+#: (para)
+msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> subfolder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
+msgstr "Si selecciona una carpeta y luego utiliza <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtener Bloqueo...</guimenuitem></menuchoice> se abrirá el diálogo de bloquear con <emphasis>todos</emphasis> los ficheros en <emphasis>todas</emphasis> las subcarpetas seleccionados para bloquearlos. Si realmente quiere bloquear una jerarquía completa, ésta es la forma de conseguirlo, pero puede convertirse en persona non grata para sus compañeros de trabajo si les bloquea todo el proyecto. Utilícelo con cuidado..."
+
+#: source/en/tsvn_dug/dug_locking.xml:127
 #: (title)
 msgid "Releasing a Lock"
 msgstr "Quitando un Bloqueo"
 
-#: source/en/tsvn_dug/dug_locking.xml:116
+#: source/en/tsvn_dug/dug_locking.xml:128
 #: (para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
 msgstr "Para asegurarse de que no se olvida de quitar un bloqueo que no necesita más, los ficheros bloqueados se muestran en el diálogo de confirmar y se seleccionan por defecto. Si continúa con la confirmación, los bloqueos que tenga sobre los ficheros seleccionados se quitan, incluso si los ficheros no se han modificado. Si no desea quitar el bloqueo en algunos ficheros, puede desmarcarlos (si no están modificados). Si desea mantener los bloqueos en un fichero que ha modificado, tiene que habilitar la casilla <guilabel>Mantener bloqueos</guilabel> antes de confirmar sus cambios."
 
-#: source/en/tsvn_dug/dug_locking.xml:127
-#: (para)
-msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks."
-msgstr "Para quitar un bloqueo manualmente, seleccione el fichero o ficheros de su copia de trabajo para los que desee quitar el bloqueo, y luego seleccione el comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Quitar Bloqueo</guimenuitem></menuchoice>. No hay nada más que introducir por lo que TortoiseSVN contactará con el repositorio y quita los bloqueos."
-
 #: source/en/tsvn_dug/dug_locking.xml:139
+#: (para)
+msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
+msgstr "Para quitar un bloqueo manualmente, seleccione el fichero o ficheros de su copia de trabajo para los que desee quitar el bloqueo, y luego seleccione el comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Quitar Bloqueo</guimenuitem></menuchoice>. No hay nada más que introducir por lo que TortoiseSVN contactará con el repositorio y quita los bloqueos. También puede utilizar este comando en una carpeta para quitar todos los bloqueos recursivamente."
+
+#: source/en/tsvn_dug/dug_locking.xml:152
 #: (title)
 msgid "Checking Lock Status"
 msgstr "Comprobando el Estado de los Bloqueos"
 
-#: source/en/tsvn_dug/dug_locking.xml:142
+#: source/en/tsvn_dug/dug_locking.xml:155
 #: (title)
 msgid "The Check for Modifications Dialog"
 msgstr "El Diálogo Comprobar Modificaciones"
 
-#: source/en/tsvn_dug/dug_locking.xml:140
+#: source/en/tsvn_dug/dug_locking.xml:153
 #: (para)
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
 msgstr "<placeholder-1/> Para ver qué bloqueos tiene usted y los de los demás, puede utilizar el comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comprobar Modificaciones...</guimenuitem></menuchoice>. Los tokens de bloqueos que se tienen localmente se muestran inmediatamente. Para comprobar los bloqueos que tienen los demás (y para ver si alguno de sus bloqueos se han roto o han sido robados) necesita pulsar <guibutton>Comprobar Repositorio</guibutton>."
 
-#: source/en/tsvn_dug/dug_locking.xml:155
+#: source/en/tsvn_dug/dug_locking.xml:168
 #: (para)
 msgid "From the context menu here, you can also get and release locks, as well as breaking and stealing locks held by others."
 msgstr "Desde el menú contextual aquí, también puede obtener y quitar bloqueos, además de romper y robar bloqueos que tienen otros."
 
-#: source/en/tsvn_dug/dug_locking.xml:160
+#: source/en/tsvn_dug/dug_locking.xml:173
 #: (title)
 msgid "Avoid Breaking and Stealing Locks"
 msgstr "Evite Romper y Robar Bloqueos"
 
-#: source/en/tsvn_dug/dug_locking.xml:161
+#: source/en/tsvn_dug/dug_locking.xml:174
 #: (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
 msgstr "Si ha roto o robado el bloqueo de otro sin decírselo, puede causar una pérdida potencial de trabajo. Si está trabajando con tipos de ficheros incombinables y roba el bloqueo de otro, una vez que usted quite el bloqueo ellos son libres de confirmar sus cambios y sobreescribir los suyos. Subversion no pierde datos, pero ha perdido la protección para trabajo en equipo que el bloqueo le proporcionaba."
 
-#: source/en/tsvn_dug/dug_locking.xml:173
+#: source/en/tsvn_dug/dug_locking.xml:186
 #: (title)
 msgid "Making Non-locked Files Read-Only"
 msgstr "Haciendo Ficheros No-Bloqueados como Sólo-Lectura"
 
-#: source/en/tsvn_dug/dug_locking.xml:174
+#: source/en/tsvn_dug/dug_locking.xml:187
 #: (para)
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
 msgstr "Como se menciona arriba, la manera más efectiva de utilizar los bloqueos es establecer la propiedad <literal>svn:needs-lock</literal> en los ficheros. Consulte <xref linkend=\"tsvn-DUG-propertypage\"/> para obtener instrucciones sobre cómo establecer propiedades. Los ficheros con esta propiedad establecida siempre se obtendrá y actualizará con la marca de sólo-lectura a menos que su copia de trabajo tenga un bloqueo. <graphic fileref=\"images/ReadOnlyIcon.png\"/> Como recordatorio, TortoiseSVN utiliza un icono de sobreimpresión especial para indicarlo."
 
-#: source/en/tsvn_dug/dug_locking.xml:184
+#: source/en/tsvn_dug/dug_locking.xml:197
 #: (para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
 msgstr "Si opera una política donde todos los ficheros han de ser bloqueados, puede que encuentre más fácil utilizar la característica de Subversion auto-props para establecer la propiedad automáticamente cada vez que añada nuevos ficheros. Para más información, lea <xref linkend=\"tsvn-DUG-settings\"/>."
 
-#: source/en/tsvn_dug/dug_locking.xml:192
+#: source/en/tsvn_dug/dug_locking.xml:205
 #: (title)
 msgid "The Locking Hook Scripts"
 msgstr "Los Scripts Ganchos de Bloqueo"
 
-#: source/en/tsvn_dug/dug_locking.xml:193
+#: source/en/tsvn_dug/dug_locking.xml:206
 #: (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
 msgstr "Cuando crea un nuevo respositorio con Subversion 1.2 o superior, se crean cuatro plantillas en el directorio <filename>hooks</filename> del repositorio. Éstos se llaman antes y después de obtener un bloqueo, y antes y después de quitar un bloqueo."
 
-#: source/en/tsvn_dug/dug_locking.xml:199
+#: source/en/tsvn_dug/dug_locking.xml:212
 #: (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
 msgstr "Es una buena idea instalar un script gancho <literal>post-lock</literal> y <literal>post-unlock</literal> en el servidor que envíe un email indicando el fichero que se ha bloqueado. Poniendo este script en su sitio, todos sus usuarios serán informados si alguien bloquea/quita el bloqueo de un fichero. Puede encontrar un script gancho de ejemplo <filename>hooks/post-lock.tmpl</filename> en su carpeta del repositorio."
 
-#: source/en/tsvn_dug/dug_locking.xml:207
+#: source/en/tsvn_dug/dug_locking.xml:220
 #: (para)
 msgid "You might also use hooks to disallow breaking or stealing of locks, or perhaps limit it to a named administrator. Or maybe you want to email the owner when one of their locks is broken or stolen."
 msgstr "También puede utilizar ganchos para no permitir romper o robar bloqueos, o quizás para limitarlo a un administrador designado para ello. O quizás desea enviar un email al propietario cuando uno de sus bloqueos se haya roto o robado."
 
-#: source/en/tsvn_dug/dug_locking.xml:213
+#: source/en/tsvn_dug/dug_locking.xml:226
 #: (para)
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
 msgstr "Para más información, lea la <xref linkend=\"tsvn-repository-hooks\"/>."
@@ -3280,7 +3380,8 @@ msgid "import"
 msgstr "importar"
 
 #: source/en/tsvn_dug/dug_import.xml:8
-#: (primary)
+#: (primary) source/en/glossary.xml:40
+#: (glossterm)
 msgid "Repository"
 msgstr "repositorio"
 
@@ -4029,35 +4130,45 @@ msgstr "Tras pulsar <guibutton>Aceptar</guibutton> aparece un diálogo mostrando
 
 #: source/en/tsvn_dug/dug_commit.xml:106
 #: (listitem)
-msgid "Committing a modification or a new item."
-msgstr "Confirmando una modificación o un ítem nuevo."
+msgid "Committing a modification."
+msgstr "Confirmando una modificación."
 
 #: source/en/tsvn_dug/dug_commit.xml:112
 #: (listitem)
+msgid "Committing a new addition."
+msgstr "Confirmando un ítem añadido."
+
+#: source/en/tsvn_dug/dug_commit.xml:118
+#: (listitem)
 msgid "Committing a deletion or a replacement."
 msgstr "Confirmando un borrado o un reemplazo."
+
+#: source/en/tsvn_dug/dug_commit.xml:124
+#: (listitem)
+msgid "All other items."
+msgstr "Todos los demás ítems."
 
 #: source/en/tsvn_dug/dug_commit.xml:100
 #: (para)
 msgid "The progress dialog uses colour coding to highlight different commit actions <placeholder-1/>"
 msgstr "El diálogo de progreso utiliza una codificación de colores para resaltar las diferentes acciones de confirmación <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_commit.xml:125
+#: source/en/tsvn_dug/dug_commit.xml:131
 #: (title)
 msgid "Special Folder Properties"
 msgstr "Propiedades Especiales de Carpetas"
 
-#: source/en/tsvn_dug/dug_commit.xml:126
+#: source/en/tsvn_dug/dug_commit.xml:132
 #: (para)
 msgid "There are several special folder properties which can be used to help give more control over the formatting of commit log messages and the language used by the spellchecker module. Read <xref linkend=\"tsvn-DUG-propertypage\"/> for further information."
 msgstr "Hay diversas propiedades especiales de carpeta que pueden usarse para darle mayor control sobre el formato de los mensajes de registro de las confirmaciones y el idioma que utiliza el módulo del corrector ortográfico. Para más información, lea <xref linkend=\"tsvn-DUG-propertypage\"/>."
 
-#: source/en/tsvn_dug/dug_commit.xml:134
+#: source/en/tsvn_dug/dug_commit.xml:140
 #: (title)
 msgid "Integration with Bugtracking Tools"
 msgstr "Integración con Herramientas de Control de Errores"
 
-#: source/en/tsvn_dug/dug_commit.xml:135
+#: source/en/tsvn_dug/dug_commit.xml:141
 #: (para)
 msgid "If you have activated the bugtracking system, you could set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues should be comma separated. Learn more <xref linkend=\"tsvn-DUG-bugtracker\"/>."
 msgstr "Si ha activado el sistema de control de errores, puede poner una o más Incidencias en el cuatro de texto <guilabel>Bug-ID / Issue-Nr:</guilabel>. Se pueden introducir varias incidencias separándolas por comas. Si desea saber más, vea <xref linkend=\"tsvn-DUG-bugtracker\"/>."
@@ -5339,13 +5450,13 @@ msgstr "Método de acceso"
 
 #: source/en/tsvn_basics.xml:364
 #: (literal)
-msgid "file:///"
-msgstr "file:///"
+msgid "file://"
+msgstr "file://"
 
 #: source/en/tsvn_basics.xml:366
 #: (entry)
-msgid "Direct repository access on local disk."
-msgstr "Acceso directo al repositorio en el disco local."
+msgid "Direct repository access on local or network drive."
+msgstr "Acceso directo al repositorio en el disco local o de red."
 
 #: source/en/tsvn_basics.xml:372
 #: (literal) source/en/tsvn_basics.xml:383
@@ -5389,15 +5500,15 @@ msgstr "acceso TCP/IP autentificado y encriptado utilizando un protocolo propio 
 
 #: source/en/tsvn_basics.xml:408
 #: (para)
-msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. Remember that the <literal>file:</literal> access method is valid only for locations on the same server as the client - in fact, in accordance with convention, the server name portion of the URL is required to be either absent or <literal>localhost</literal>. Take great care that the <literal>file:</literal> access method is not used to access BDB repositories located on drives shared over the network!"
-msgstr "En la mayor parte, las URLs de Subversion utilizan la sintaxis estándar, permitiendo que se especifiquen nombres de servidor y números de puertos como parte de la URL. Recuerde que el método de acceso <literal>file:</literal> es válido sólo para rutas en el mismo servidor que el cliente - de hecho, de acuerdo con la convención, la parte del nombre del servidor en la URL necesita estar o bien ausente o bien ser <literal>localhost</literal>. ¡Tenga mucho cuidado en NO utilizar el método de acceso <literal>file:</literal> para acceder a repositorios BDB que estén en unidades compartidas en la red!"
+msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file:</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <literal>file://hostname/path/to/repos</literal>. For the local machine, the hostname portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <literal>file:///path/to/repos</literal>."
+msgstr "En su mayoría, las URLs de Subversion utilizan la sintaxis estándar, permitiendo que se especifiquen nombres de servidor y números de puertos como parte de la URL. El método de acceso <literal>file:</literal> se utiliza normalmente para el acceso local, aunque puede utilizarse con rutas UNC a equipos en red. La URL entonces toma la forma <literal>file://nombredeequipo/ruta/al/repositorio</literal>. Para la máquina local, la parte del nombre de equipo en la URL debe estar o ausente o ser <literal>localhost</literal>. Por esa razón, las rutas locales normalmente aparecen con tres barras, <literal>file:///ruta/al/repositorio</literal>."
 
-#: source/en/tsvn_basics.xml:419
+#: source/en/tsvn_basics.xml:421
 #: (para)
 msgid "Also, users of the <literal>file:</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
 msgstr "Además, los usuarios del esquema <literal>file:</literal> en las plataformas Windows necesitarán utilizar una sintaix <quote>estándar</quote> no oficial para acceder a los repositorios que están en la misma máquina, pero en una letra de unidad diferente de la unidad actual del cliente. Cualquiera de las siguientes sintaxis de URL funcionarán, donde <literal>X</literal> es la unidad en la que reside el repositorio:"
 
-#: source/en/tsvn_basics.xml:429
+#: source/en/tsvn_basics.xml:431
 #: (screen)
 #, no-wrap
 msgid ""
@@ -5413,82 +5524,87 @@ msgstr ""
 "file:///X|/ruta/al/repositorio\n"
 "...\n"
 
-#: source/en/tsvn_basics.xml:435
+#: source/en/tsvn_basics.xml:437
 #: (para)
 msgid "Note that a URL uses ordinary slashes even though the native (non-URL) form of a path on Windows uses backslashes."
 msgstr "Tenga en cuenta que las URLs utilizan las barras hacia delante (las de dividir) incluso aunque la forma nativa (no-URL) de una ruta en Windows utiliza las barras contrarias."
 
-#: source/en/tsvn_basics.xml:440
+#: source/en/tsvn_basics.xml:441
+#: (para)
+msgid "You can safely access an FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
+msgstr "Puede acceder con seguridad a un repositorio FSFS utilizando una carpeta compartida de red, pero <emphasis>no</emphasis> puede acceder a un repositorio BDB de esta forma."
+
+#: source/en/tsvn_basics.xml:458
 #: (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
 msgstr "Suponga que ha hecho cambios a <filename>button.c</filename>. Dado que el directorio <filename>.svn</filename> recuerda la fecha de modificación y los contenidos originales del fichero, Subversion puede decirle que ha cambiado el fichero. Sin embargo, Subversion no hace públicos sus cambios hasta que explícitamente se lo pida. El acto de publicar sus cambios se conoce más comúnmente como <firstterm>confirmar</firstterm> (o <firstterm>enviar</firstterm>) los cambios al repositorio."
 
-#: source/en/tsvn_basics.xml:450
+#: source/en/tsvn_basics.xml:468
 #: (para)
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
 msgstr "Para publicar sus cambios para los demás, puede utilizar el comando de Subversion <command>commit</command>."
 
-#: source/en/tsvn_basics.xml:454
+#: source/en/tsvn_basics.xml:472
 #: (para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
 msgstr "Ahora que sus cambios a <filename>button.c</filename> se han confirmado en el respositorio, si cualquier otro usuario obtiene una copia de trabajo de <filename>/calc</filename>, verán sus cambios en la última versión del fichero."
 
-#: source/en/tsvn_basics.xml:460
+#: source/en/tsvn_basics.xml:478
 #: (para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
 msgstr "Suponga que tiene un colaborador, Sally, que obtuvo una copia de trabajo de <filename>/calc</filename> al mismo tiempo que usted. Cuando ha confirmado sus cambios en <filename>button.c</filename>, la copia de trabajo de Sally se queda sin cambios; Subversion sólo modifica las copias de trabajo cuando lo pide el usuario."
 
-#: source/en/tsvn_basics.xml:468
+#: source/en/tsvn_basics.xml:486
 #: (para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
 msgstr "Para poner al día su proyecto, Sally puede pedirle a Subversion <firstterm>actualizar</firstterm> su copia de trabajo, utilizando el comando de Subversion <command>actualizar</command>. Esto incorporará sus cambios en la copia de trabajo de Sally, junto con cualquier otro que se haya confirmado desde que ella lo obtuvo."
 
-#: source/en/tsvn_basics.xml:476
+#: source/en/tsvn_basics.xml:494
 #: (para)
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
 msgstr "Tenga en cuenta que Sally no necesita especificar qué ficheros actualizar; Subversion utiliza la información en el directorio <filename>.svn</filename>, y más información desde el repositorio, para decidir qué ficheros deben ponerse al día."
 
-#: source/en/tsvn_basics.xml:485
+#: source/en/tsvn_basics.xml:503
 #: (title)
 msgid "Revisions"
 msgstr "Revisiones"
 
-#: source/en/tsvn_basics.xml:489
+#: source/en/tsvn_basics.xml:507
 #: (para)
 msgid "An <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
 msgstr "Una operación <command>svn commit</command> puede publicar los cambios de cualquier número de ficheros y carpetas como una única transacción atómica. En su copia de trabajo, puede cambiar el contenido de los ficheros, crear, borrar, renombrar y copiar ficheros y directorios, y luego confirmar el conjunto completo de cambios como una unidad."
 
-#: source/en/tsvn_basics.xml:497
+#: source/en/tsvn_basics.xml:515
 #: (para)
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commit's changes take place, or none of them take place. Subversion tries to retain this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
 msgstr "En el repositorio, cada confirmación se trata como una transacción atómica: o bien todos los cambios de la confirmación se llevan a cabo, o bien ninguno de ellos se realiza. Subversion intenta retener esta atomicidad en caso de errores en el programa, errores del sistema, probleams de red, y otras acciones del usuario."
 
-#: source/en/tsvn_basics.xml:504
+#: source/en/tsvn_basics.xml:522
 #: (para)
 msgid "Each time the repository accepts a commit, this creates a new state of the filesystem tree, called a <firstterm>revision</firstterm>. Each revision is assigned a unique natural number, one greater than the number of the previous revision. The initial revision of a freshly created repository is numbered zero, and consists of nothing but an empty root directory."
 msgstr "Cada vez que el repositorio acepta una confirmación, crea un nuevo estado del árbol de ficheros, llamado <firstterm>revisión</firstterm>. A cada revisión se le asigna un número natural único, un número mayor que la revisión anterior. La revisión inicial de un repositorio recién creado se numera como cero, y consiste únicamente en un directorio raíz vacío."
 
-#: source/en/tsvn_basics.xml:513
+#: source/en/tsvn_basics.xml:531
 #: (para)
 msgid "A nice way to visualize the repository is as a series of trees. Imagine an array of revision numbers, starting at 0, stretching from left to right. Each revision number has a filesystem tree hanging below it, and each tree is a <quote>snapshot</quote> of the way the repository looked after each commit."
 msgstr "Una buena forma de visualizar el repositorio es como una serie de árboles. Imagine una fila de números de revisiones, empezando en 0, de izquierda a derecha. Cada número de revisión tiene un árbol colgando debajo, y cada árbol es una <quote>foto</quote> de cómo estaba el repositorio tras cada confirmación."
 
-#: source/en/tsvn_basics.xml:526
+#: source/en/tsvn_basics.xml:544
 #: (title)
 msgid "Global Revision Numbers"
 msgstr "Números Globales de Revisión"
 
-#: source/en/tsvn_basics.xml:527
+#: source/en/tsvn_basics.xml:545
 #: (para)
 msgid "Unlike those of many other version control systems, Subversion's revision numbers apply to <emphasis>entire trees</emphasis>, not individual files. Each revision number selects an entire tree, a particular state of the repository after some committed change. Another way to think about it is that revision N represents the state of the repository filesystem after the Nth commit. When a Subversion user talks about ``revision 5 of <filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> as it appears in revision 5.'' Notice that in general, revisions N and M of a file do <emphasis>not</emphasis> necessarily differ!"
 msgstr "Al contrario que la mayoría del resto de sistemas de control de versiones, los números de revisión de Subversion se aplican a <emphasis>árboles completos</emphasis>, no a los ficheros individuales. Cada número de revisión selecciona un árbol entero, un estado particular del repositorio tras algún cambio confirmado. Otra forma de verlo es pensar que la revisión N representa el estado del repositorio tras la confirmación N-ésima. Cuando un usuario de Subversion habla de la \"revision 5 de <filename>foo.c</filename>\", realmente quieren decir \"<filename>foo.c</filename> tal y como estaba en la revisión 5\". ¡Tenga en cuenta que, en general, las revisiones N y M de un fichero <emphasis>no</emphasis> tienen por qué ser diferentes!"
 
-#: source/en/tsvn_basics.xml:542
+#: source/en/tsvn_basics.xml:560
 #: (para)
 msgid "It's important to note that working copies do not always correspond to any single revision in the repository; they may contain files from several different revisions. For example, suppose you check out a working copy from a repository whose most recent revision is 4:"
 msgstr "Es importante que tenga en cuenta que las copias de trabajo no siempre se corresponden a una única revisión en el repositorio; pueden contener ficheros de varias revisiones.Por ejemplo, suonga que obtiene una copia de trabajo de un repositorio cuya revisión más reciente es la 4:"
 
-#: source/en/tsvn_basics.xml:549
+#: source/en/tsvn_basics.xml:567
 #: (screen)
 #, no-wrap
 msgid ""
@@ -5502,12 +5618,12 @@ msgstr ""
 "     integer.c:4\n"
 "     button.c:4\n"
 
-#: source/en/tsvn_basics.xml:554
+#: source/en/tsvn_basics.xml:572
 #: (para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
 msgstr "En este momento, esta copia de trabajo corresopnde exactamente a la revisión 4 en el respositorio. Sin embargo, suponga que ha hecho cambios al fichero <filename>button.c</filename>, y confirme ese cambio. Asumiendo que no se haya llevado a cambio ninguna otra confirmación, su confirmación creará la revisión 5 en el repositorio, y su copia de trabajo quedará así:"
 
-#: source/en/tsvn_basics.xml:562
+#: source/en/tsvn_basics.xml:580
 #: (screen)
 #, no-wrap
 msgid ""
@@ -5521,12 +5637,12 @@ msgstr ""
 "     integer.c:4\n"
 "     button.c:5\n"
 
-#: source/en/tsvn_basics.xml:567
+#: source/en/tsvn_basics.xml:585
 #: (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
 msgstr "Suponga que, en este punto, Sally hace un cambio a <filename>integer.c</filename>, creando la revisión 6. Si utiliza <command>svn update</command> para actualizar su copia de trabajo, obtendrá ésto:"
 
-#: source/en/tsvn_basics.xml:573
+#: source/en/tsvn_basics.xml:591
 #: (screen)
 #, no-wrap
 msgid ""
@@ -5540,97 +5656,97 @@ msgstr ""
 "     integer.c:6\n"
 "     button.c:6\n"
 
-#: source/en/tsvn_basics.xml:578
+#: source/en/tsvn_basics.xml:596
 #: (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
 msgstr "Los cambios de Sally a <filename>integer.c</filename> aparecerán en su copia de trabajo, y su cambio estará aún presente en <filename>button.c</filename>. En este ejemplo, el texto de <filename>Makefile</filename> es idéntico en las revisiones 4, 5, y 6, pero Subversion marcará su copia de trabajo de <filename>Makefile</filename> con la revisión 6 para indicar que aún está actualizado. Por lo que, después de que haga una actualización limpia en la parte superior de su copia de trabajo, generalmente obtendrá exactamente una revisión del repositorio."
 
-#: source/en/tsvn_basics.xml:591
+#: source/en/tsvn_basics.xml:609
 #: (title)
 msgid "How Working Copies Track the Repository"
 msgstr "Cómo se unen las Copias de Trabajo al Repositorio"
 
-#: source/en/tsvn_basics.xml:592
+#: source/en/tsvn_basics.xml:610
 #: (para)
 msgid "For each file in a working directory, Subversion records two essential pieces of information in the <filename>.svn/</filename> administrative area:"
 msgstr "Por cada fichero en un directorio de trabajo, Subversion grabará dos piezas esenciales de información en el área administrativa <filename>.svn/</filename>:"
 
-#: source/en/tsvn_basics.xml:598
+#: source/en/tsvn_basics.xml:616
 #: (para)
 msgid "what revision your working file is based on (this is called the file's <firstterm>working revision</firstterm>), and"
 msgstr "en qué revisión se basa su fichero de trabajo (lo que se denomina la <firstterm>revisión de trabajo</firstterm>), y"
 
-#: source/en/tsvn_basics.xml:605
+#: source/en/tsvn_basics.xml:623
 #: (para)
 msgid "a timestamp recording when the local copy was last updated by the repository."
 msgstr "una fecha que indica cuándo se actualizó por última vez la copia local por el repositorio."
 
-#: source/en/tsvn_basics.xml:611
+#: source/en/tsvn_basics.xml:629
 #: (para)
 msgid "Given this information, by talking to the repository, Subversion can tell which of the following four states a working file is in:"
 msgstr "Con esta información, hablando con el repositorio, Subversion puede decirle en cuál de los siguientes cuatro estados está un fichero de trabajo:"
 
-#: source/en/tsvn_basics.xml:618
+#: source/en/tsvn_basics.xml:636
 #: (term)
 msgid "Unchanged, and current"
 msgstr "Sin cambios, y actualizado"
 
-#: source/en/tsvn_basics.xml:620
+#: source/en/tsvn_basics.xml:638
 #: (para)
 msgid "The file is unchanged in the working directory, and no changes to that file have been committed to the repository since its working revision. A <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will do nothing."
 msgstr "El fichero no se ha cambiado en el directorio de trabajo, y no se han confirmado cambios a ese fichero en el repositorio desde su revisión de trabajo. Una <command>confirmación</command> de ese fichero no hará nada, y una <command>actualización</command> de ese fichero no hará nada."
 
-#: source/en/tsvn_basics.xml:631
+#: source/en/tsvn_basics.xml:649
 #: (term)
 msgid "Locally changed, and current"
 msgstr "Cambiado localmente, y actualizado"
 
-#: source/en/tsvn_basics.xml:633
+#: source/en/tsvn_basics.xml:651
 #: (para)
 msgid "The file has been changed in the working directory, and no changes to that file have been committed to the repository since its base revision. There are local changes that have not been committed to the repository, thus an <command>commit</command> of the file will succeed in publishing your changes, and an <command>update</command> of the file will do nothing."
 msgstr "El fichero ha sido cambiado en el directorio de trabajo, y no se ha confirmado ningún cambio a ese fichero en el repositorio desde su revisión base. Hay cambios locales que no se han confirmado al repositorio, por lo que al <command>confirmar</command> el fichero se conseguirá publicar sus cambios, y al <command>actualizar</command> el fichero no se realizará nada."
 
-#: source/en/tsvn_basics.xml:645
+#: source/en/tsvn_basics.xml:663
 #: (term)
 msgid "Unchanged, and out-of-date"
 msgstr "Sin cambios, y desactualizado"
 
-#: source/en/tsvn_basics.xml:647
+#: source/en/tsvn_basics.xml:665
 #: (para)
 msgid "The file has not been changed in the working directory, but it has been changed in the repository. The file should eventually be updated, to make it current with the public revision. An <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will fold the latest changes into your working copy."
 msgstr "El fichero no ha sido cambiado en el directorio de trabajo, pero ha sido cambiado en el repositorio. El fichero deberá ser actualizado en algún momento, para actualizarlo con la revisión pública. Un comando <command>confirmar</command> sobre el fichero no hará nada, y al <command>actualizar</command> el fichero se traerán los últimos cambios a su copia de trabajo."
 
-#: source/en/tsvn_basics.xml:659
+#: source/en/tsvn_basics.xml:677
 #: (term)
 msgid "Locally changed, and out-of-date"
 msgstr "Localmente cambiado, y desactualizado"
 
-#: source/en/tsvn_basics.xml:661
+#: source/en/tsvn_basics.xml:679
 #: (para)
 msgid "The file has been changed both in the working directory, and in the repository. An <command>commit </command> of the file will fail with an \"out-of-date\" error. The file should be updated first; an <command>update </command> command will attempt to merge the public changes with the local changes. If Subversion can't complete the merge in a plausible way automatically, it leaves it to the user to resolve the conflict."
 msgstr "El fichero se ha cambiado tanto en el directorio de trabajo como en el repositorio. Un comando <command>confirmar</command> sobre el fichero fallará con un error \"desactualizado\". El fichero debería actualizarse primero; al <command>actualizar</command> se intentará combinar los cambios públicos con los cambios locales. Si Subversion no puede completar la combinación de una forma plausible automáticamente, le dejará al usuario la tarea de resolver el conflicto."
 
-#: source/en/tsvn_basics.xml:678
+#: source/en/tsvn_basics.xml:696
 #: (title)
 msgid "Summary"
 msgstr "Sumario"
 
-#: source/en/tsvn_basics.xml:679
+#: source/en/tsvn_basics.xml:697
 #: (para)
 msgid "We've covered a number of fundamental Subversion concepts in this chapter:"
 msgstr "Hemos cubierto un número de conceptos fundamentales de Subversion en este capítulo:"
 
-#: source/en/tsvn_basics.xml:685
+#: source/en/tsvn_basics.xml:703
 #: (para)
 msgid "We've introduced the notions of the central repository, the client working copy, and the array of repository revision trees."
 msgstr "Hemos introducido las nociones de un repositorio central, la copia de trabajo del cliente, y la lista de árboles de revisiones del repositorio."
 
-#: source/en/tsvn_basics.xml:691
+#: source/en/tsvn_basics.xml:709
 #: (para)
 msgid "We've seen some simple examples of how two collaborators can use Subversion to publish and receive changes from one another, using the 'copy-modify-merge' model."
 msgstr "Hemos visto algunos ejemplos simples sobre cómo dos colaboradores pueden utilizar Subversion para publicar y recibir los cambios de uno a otro, utilizando el modelo 'copiar-modificar-combinar'."
 
-#: source/en/tsvn_basics.xml:698
+#: source/en/tsvn_basics.xml:716
 #: (para)
 msgid "We've talked a bit about the way Subversion tracks and manages information in a working copy."
 msgstr "Hemos hablado un poco sobre la forma en la que Subversion controla y maneja la información en una copia de trabajo."
@@ -6030,21 +6146,6 @@ msgstr "TortoiseMerge"
 #: (subtitle)
 msgid "A diff/merge tool for Windows"
 msgstr "Una herramienta de diferencias/combinación para Windows"
-
-#: source/en/tme_glossary.xml:3
-#: (title)
-msgid "Glossary"
-msgstr "Glosario"
-
-#: source/en/tme_glossary.xml:7
-#: (term)
-msgid "Add"
-msgstr "Añadir"
-
-#: source/en/tme_glossary.xml:9
-#: (para)
-msgid "An <command>svn</command> command that is used to add a file or directory to a repository."
-msgstr "Un comando <command>svn</command> que se usa para añadir un fichero o un directorio a un repositorio."
 
 #: source/en/tme_ch02.xml:3
 #: (title)
@@ -6621,8 +6722,48 @@ msgstr "Ctrl-T"
 msgid "Toggles between showing whitespaces or not"
 msgstr "Cambia entre mostrar espacios en blanco o no"
 
+#: source/en/glossary.xml:7
+#: (title)
+msgid "Glossary"
+msgstr "Glosario"
+
+#: source/en/glossary.xml:10
+#: (glossterm)
+msgid "Add"
+msgstr "Añadir"
+
+#: source/en/glossary.xml:12
+#: (para)
+msgid "A Subversion command that is used to add a file or directory to a repository."
+msgstr "Un comando de Subversion que se utiliza para añadir un fichero o un directorio al repositorio."
+
+#: source/en/glossary.xml:20
+#: (glossterm)
+msgid "BDB"
+msgstr "BDB"
+
+#: source/en/glossary.xml:22
+#: (para)
+msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
+msgstr "Base de datos Berkeley. Un soporte de base de datos muy probado para los repositorios, que no puede utilizarse en unidades compartidas de red. Por defecto para repositorios anteriores a la versión 1.2."
+
+#: source/en/glossary.xml:30
+#: (glossterm)
+msgid "FSFS"
+msgstr "FSFS"
+
+#: source/en/glossary.xml:32
+#: (para)
+msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr "Sistema de ficheros FS. Un sistema de ficheros propietario de Subversion que se utiliza como soporte de los repositorios. Se puede utilizar en unidades compartidas de red. Por defecto para los repositorios a partir de la versión 1.2."
+
+#: source/en/glossary.xml:42
+#: (para)
+msgid "öaseijmcyliselriu"
+msgstr ""
+
 #. Put one translator per line, in the form of NAME <EMAIL>.
-#: source/en/tme_appa.xml:0
+#: source/en/glossary.xml:0
 #: (None)
 msgid "translator-credits"
 msgstr "Fernando P. Najera Cano <yo@FernandoNajera.com>"
