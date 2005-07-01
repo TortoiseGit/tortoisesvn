@@ -41,11 +41,11 @@ CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64
 	m_bReadOnly = bReadOnly;
 }
 
-bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
+bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
 {
-#define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) return false;
-#define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (!WriteFile(hFile, x, value, &written, NULL)) return false;}
-	DWORD written = 0;
+#define WRITEVALUETOFILE(x) if (!fwrite(&x, sizeof(x), 1, pFile)) return false;
+#define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (!fwrite(x, sizeof(char), value, pFile)) return false;}
+
 	int value = 3;
 	WRITEVALUETOFILE(value); // 'version' of this save-format
 	WRITEVALUETOFILE(m_highestPriorityLocalStatus);
@@ -70,10 +70,10 @@ bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
 	return true;
 }
 
-bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
+bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 {
-#define LOADVALUEFROMFILE(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) return false;
-	DWORD read = 0;
+#define LOADVALUEFROMFILE(x) if (!fread(&x, sizeof(x), 1, pFile)) return false;
+
 	int value = 0;
 	LOADVALUEFROMFILE(value);
 	if (value != 3)
@@ -88,7 +88,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	{
 		if (value > INTERNET_MAX_URL_LENGTH)
 			return false;		// invalid length for an url
-		if (!ReadFile(hFile, m_sUrl.GetBuffer(value), value, &read, NULL))
+		if (!fread(m_sUrl.GetBuffer(value), sizeof(char), value, pFile))
 		{
 			m_sUrl.ReleaseBuffer(0);
 			return false;
@@ -98,7 +98,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
 	{
-		if (!ReadFile(hFile, m_sOwner.GetBuffer(value), value, &read, NULL))
+		if (!fread(m_sOwner.GetBuffer(value), sizeof(char), value, pFile))
 		{
 			m_sOwner.ReleaseBuffer(0);
 			return false;
@@ -108,7 +108,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
 	{
-		if (!ReadFile(hFile, m_sAuthor.GetBuffer(value), value, &read, NULL))
+		if (!fread(m_sAuthor.GetBuffer(value), sizeof(char), value, pFile))
 		{
 			m_sAuthor.ReleaseBuffer(0);
 			return false;

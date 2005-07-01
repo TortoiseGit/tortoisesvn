@@ -38,12 +38,10 @@ void CSVNStatusCache::Create()
 	ATLASSERT(m_pInstance == NULL);
 	m_pInstance = new CSVNStatusCache;
 
-#define LOADVALUEFROMFILE(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) goto exit;
-#define LOADVALUEFROMFILE2(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) goto error;
-	DWORD read = 0;
+#define LOADVALUEFROMFILE(x) if (!fread(&x, sizeof(x), 1, pFile)) goto exit;
+#define LOADVALUEFROMFILE2(x) if (!fread(&x, sizeof(x), 1, pFile)) goto error;
 	int value = -1;
-
-	HANDLE hFile = INVALID_HANDLE_VALUE;
+	FILE * pFile = NULL;
 	// find the location of the cache
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
 	if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
@@ -52,8 +50,8 @@ void CSVNStatusCache::Create()
 		if (!PathIsDirectory(path))
 			CreateDirectory(path, NULL);
 		_tcscat(path, _T("\\cache"));
-		hFile = CreateFile(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
-		if (hFile != INVALID_HANDLE_VALUE)
+		pFile = _tfopen(path, _T("rb"));
+		if (pFile)
 		{
 			LOADVALUEFROMFILE(value);
 			if (value != 0)
@@ -68,14 +66,14 @@ void CSVNStatusCache::Create()
 				if (value)
 				{
 					CString sKey;
-					if (!ReadFile(hFile, sKey.GetBuffer(value), value*sizeof(TCHAR), &read, NULL))
+					if (!fread(sKey.GetBuffer(value), sizeof(TCHAR), value, pFile))
 					{
 						sKey.ReleaseBuffer(0);
 						goto error;
 					}
 					sKey.ReleaseBuffer(value);
 					CCachedDirectory * cacheddir = new CCachedDirectory();
-					if (!cacheddir->LoadFromDisk(hFile))
+					if (!cacheddir->LoadFromDisk(pFile))
 						goto error;
 					m_pInstance->m_directoryCache[CTSVNPath(sKey)] = cacheddir;
 				}
@@ -83,12 +81,12 @@ void CSVNStatusCache::Create()
 		}
 	}
 exit:
-	CloseHandle(hFile);
+	fclose(pFile);
 	DeleteFile(path);
 	ATLTRACE("cache loaded from disk successfully!\n");
 	return;
 error:
-	CloseHandle(hFile);
+	fclose(pFile);
 	DeleteFile(path);
 	delete m_pInstance;
 	m_pInstance = new CSVNStatusCache;
@@ -97,11 +95,10 @@ error:
 
 bool CSVNStatusCache::SaveCache()
 {
-#define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) goto error;
-	DWORD written = 0;
+#define WRITEVALUETOFILE(x) if (!fwrite(&x, sizeof(x), 1, pFile)) goto error;
 	int value = 0;
 	// save the cache to disk
-	HANDLE hFile;
+	FILE * pFile = NULL;
 	// find a location to write the cache to
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
 	if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
@@ -110,8 +107,8 @@ bool CSVNStatusCache::SaveCache()
 		if (!PathIsDirectory(path))
 			CreateDirectory(path, NULL);
 		_tcscat(path, _T("\\cache"));
-		hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL | FILE_ATTRIBUTE_NOT_CONTENT_INDEXED | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
-		if (hFile != INVALID_HANDLE_VALUE)
+		pFile = _tfopen(path, _T("wb"));
+		if (pFile)
 		{
 			value = 0;		// 'version'
 			WRITEVALUETOFILE(value);
@@ -124,18 +121,19 @@ bool CSVNStatusCache::SaveCache()
 				WRITEVALUETOFILE(value);
 				if (value)
 				{
-					if (!WriteFile(hFile, key, value*sizeof(TCHAR), &written, NULL))
+					if (!fwrite(key, sizeof(TCHAR), value, pFile))
 						goto error;
-					if (!I->second->SaveToDisk(hFile))
+					if (!I->second->SaveToDisk(pFile))
 						goto error;
 				}
 			}
-			CloseHandle(hFile);
+			fclose(pFile);
 		}
 	}
 	ATLTRACE("cache saved to disk at %ws\n", path);
 	return true;
 error:
+	fclose(pFile);
 	delete m_pInstance;
 	m_pInstance = NULL;
 	return false;

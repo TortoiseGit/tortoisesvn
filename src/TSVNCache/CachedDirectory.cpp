@@ -29,11 +29,11 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_bCurrentFullStatusValid = false;
 }
 
-BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
+BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 {
 	AutoLocker lock(m_critSec);
-#define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) return false;
-	DWORD written = 0;
+#define WRITEVALUETOFILE(x) if (!fwrite(&x, sizeof(x), 1, pFile)) return false;
+
 	int value = 0;
 	WRITEVALUETOFILE(value);	// 'version' of this save-format
 	value = (int)m_entryCache.size();
@@ -46,9 +46,9 @@ BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
 		WRITEVALUETOFILE(value);
 		if (value)
 		{
-			if (!WriteFile(hFile, key, value*sizeof(TCHAR), &written, NULL))
+			if (!fwrite(key, sizeof(TCHAR), value, pFile))
 				return false;
-			if (!I->second.SaveToDisk(hFile))
+			if (!I->second.SaveToDisk(pFile))
 				return false;
 		}
 	}
@@ -61,7 +61,7 @@ BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
 		WRITEVALUETOFILE(value);
 		if (value)
 		{
-			if (!WriteFile(hFile, path, value*sizeof(TCHAR), &written, NULL))
+			if (!fwrite(path, sizeof(TCHAR), value, pFile))
 				return false;
 			svn_wc_status_kind status = I->second;
 			WRITEVALUETOFILE(status);
@@ -73,10 +73,10 @@ BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
 	WRITEVALUETOFILE(value);
 	if (value)
 	{
-		if (!WriteFile(hFile, m_directoryPath.GetWinPathString(), value*sizeof(TCHAR), &written, NULL))
+		if (!fwrite(m_directoryPath.GetWinPathString(), sizeof(TCHAR), value, pFile))
 			return false;
 	}
-	if (!m_ownStatus.SaveToDisk(hFile))
+	if (!m_ownStatus.SaveToDisk(pFile))
 		return false;
 	WRITEVALUETOFILE(m_currentFullStatus);
 	WRITEVALUETOFILE(m_bCurrentFullStatusValid);
@@ -84,11 +84,11 @@ BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
 	return true;
 }
 
-BOOL CCachedDirectory::LoadFromDisk(HANDLE hFile)
+BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 {
 	AutoLocker lock(m_critSec);
-#define LOADVALUEFROMFILE(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) return false;
-	DWORD read = 0;
+#define LOADVALUEFROMFILE(x) if (!fread(&x, sizeof(x), 1, pFile)) return false;
+
 	int value = 0;
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
@@ -101,14 +101,14 @@ BOOL CCachedDirectory::LoadFromDisk(HANDLE hFile)
 		if (value)
 		{
 			CString sKey;
-			if (!ReadFile(hFile, sKey.GetBuffer(value), value*sizeof(TCHAR), &read, NULL))
+			if (!fread(sKey.GetBuffer(value), sizeof(TCHAR), value, pFile))
 			{
 				sKey.ReleaseBuffer(0);
 				return false;
 			}
 			sKey.ReleaseBuffer(value);
 			CStatusCacheEntry entry;
-			if (!entry.LoadFromDisk(hFile))
+			if (!entry.LoadFromDisk(pFile))
 				return false;
 			m_entryCache[sKey] = entry;
 		}
@@ -120,7 +120,7 @@ BOOL CCachedDirectory::LoadFromDisk(HANDLE hFile)
 		if (value)
 		{
 			CString sPath;
-			if (!ReadFile(hFile, sPath.GetBuffer(value), value*sizeof(TCHAR), &read, NULL))
+			if (!fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile))
 			{
 				sPath.ReleaseBuffer(0);
 				return false;
@@ -137,7 +137,7 @@ BOOL CCachedDirectory::LoadFromDisk(HANDLE hFile)
 	if (value)
 	{
 		CString sPath;
-		if (!ReadFile(hFile, sPath.GetBuffer(value), value*sizeof(TCHAR), &read, NULL))
+		if (!fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile))
 		{
 			sPath.ReleaseBuffer(0);
 			return false;
@@ -145,7 +145,7 @@ BOOL CCachedDirectory::LoadFromDisk(HANDLE hFile)
 		sPath.ReleaseBuffer(value);
 		m_directoryPath.SetFromWin(sPath);
 	}
-	if (!m_ownStatus.LoadFromDisk(hFile))
+	if (!m_ownStatus.LoadFromDisk(pFile))
 		return false;
 
 	LOADVALUEFROMFILE(m_currentFullStatus);

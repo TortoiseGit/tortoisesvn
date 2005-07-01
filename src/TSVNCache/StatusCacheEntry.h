@@ -40,8 +40,8 @@ public:
 	void SetStatus(const svn_wc_status2_t* pSVNStatus);
 	bool HasBeenSet() const;
 	bool IsDirectory() const {return m_kind == svn_node_dir;}
-	bool SaveToDisk(HANDLE hFile);
-	bool LoadFromDisk(HANDLE hFile);
+	bool SaveToDisk(FILE * pFile);
+	bool LoadFromDisk(FILE * pFile);
 private:
 	void SetAsUnversioned();
 
