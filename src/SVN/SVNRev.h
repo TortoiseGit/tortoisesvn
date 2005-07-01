@@ -63,7 +63,7 @@ public:
 	SVNRev(LONG nRev);
 	SVNRev(CString sRev);
 	SVNRev(svn_opt_revision_t revision) {rev = revision;}
-	SVNRev(){rev.kind = svn_opt_revision_unspecified;}
+	SVNRev(){rev.kind = svn_opt_revision_unspecified;m_bIsValid = FALSE;}
 	~SVNRev();
 
 	BOOL IsValid() const {return m_bIsValid;}
