@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-20 10:36+0100\n"
+"PO-Revision-Date: 2005-07-01 11:49+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -190,6 +190,11 @@ msgstr "&Vérifier Maintenant"
 msgid "&Compare Revisions"
 msgstr "&Comparer les révisions"
 
+# ID:376,
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Copier"
+
 #: ID:101
 msgid "&Copy To..."
 msgstr "&Copier vers..."
@@ -204,6 +209,7 @@ msgid "&Dry Run"
 msgstr "&Exécution Fictive"
 
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "&Editer"
 
@@ -229,6 +235,10 @@ msgstr "&Externe"
 #: MenuEntry
 msgid "&File"
 msgstr "&Fichier"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Rechercher"
 
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -631,10 +641,6 @@ msgstr "Ajout programme de fusion selon extension"
 #: ID:13
 msgid "Add To Ignore List"
 msgstr "Ajouter à la liste des ignorés"
-
-#: ID:12
-msgid "Add files to Subversion here"
-msgstr "Mettres des fichiers sous Subversion ici"
 
 #: ID:8
 msgid "Add..."
@@ -1309,14 +1315,6 @@ msgstr "Copier vers la Copie locale..."
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "Copier l'URL dans le presse-papier"
-
-#: ID:16
-msgid "Copy and Rename in Subversion to here"
-msgstr "Copier et Renommer dans Subversion vers ici"
-
-#: ID:13
-msgid "Copy files in Subversion to here"
-msgstr "Copier les fichiers dans Subversion ici"
 
 #: ID:3603
 msgid ""
@@ -1994,6 +1992,11 @@ msgstr "Révision HEAD dans le repository"
 msgid "Help"
 msgstr "Aide"
 
+# Control-ID:1229,
+#: Control-ID:1229
+msgid "Hide unrelated changed paths"
+msgstr "Cacher les chemins changés sans relation"
+
 # Control-ID:65535,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -2427,10 +2430,6 @@ msgstr "Modifié"
 msgid "Most active author:"
 msgstr "Auteur le plus actif:"
 
-#: ID:12
-msgid "Move files in Subversion to here"
-msgstr "Déplacer des fichiers sous Subversion ici"
-
 #: ID:126
 msgid "Moved remotely"
 msgstr "Déplacé à distance"
@@ -2460,6 +2459,10 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Système de Fichier Natif (FSFS)"
+
+#: ID:210
+msgid "Nested"
+msgstr "Niché"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -3094,6 +3097,11 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+# ID:12,
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN Ajouter des fichiers a cette CT"
+
 #: ID:77
 msgid "SVN Add..."
 msgstr "SVN Ajout..."
@@ -3110,9 +3118,25 @@ msgstr "SVN Extraction..."
 msgid "SVN Commit..."
 msgstr "SVN Livraison..."
 
+#: ID:16
+msgid "SVN Copy and Rename versioned files here"
+msgstr "SVN Copier et Renommer les fichiers versionnés ici"
+
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN Copier les fichiers versionnés ici"
+
 #: ID:78
 msgid "SVN Copy..."
 msgstr "SVN Copie..."
+
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN Exporter tous les fichiers à cet endroit"
+
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN Exporter ici"
 
 #: ID:78
 msgid "SVN Export..."
@@ -3130,6 +3154,10 @@ msgstr "Propriétaire du verrou SVN"
 #: ID:78
 msgid "SVN Merge..."
 msgstr "SVN Fusion..."
+
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN Déplacer les fichiers versionnés ici"
 
 #: Dlg-ID:134
 msgid "SVN Progress"
@@ -3369,6 +3397,7 @@ msgid "Show &Differences"
 msgstr "Voir les &différences"
 
 #: ID:101
+#: Control-ID:1228
 #: Control-ID:1031
 #: Control-ID:1034
 #: Control-ID:1132
@@ -3552,14 +3581,6 @@ msgstr "Données d'authentification Subversion:"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Fichier de configuration de Subversion:"
-
-#: ID:14
-msgid "Subversion export all here"
-msgstr "Exporter tous les fichiers à cet endroit"
-
-#: ID:14
-msgid "Subversion export here"
-msgstr "Exporter les fichiers de Subversion à cet endroit"
 
 #: ID:79
 msgid ""
