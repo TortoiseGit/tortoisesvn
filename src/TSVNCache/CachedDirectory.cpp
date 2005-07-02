@@ -32,7 +32,7 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 {
 	AutoLocker lock(m_critSec);
-#define WRITEVALUETOFILE(x) if (!fwrite(&x, sizeof(x), 1, pFile)) return false;
+#define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) return false;
 
 	int value = 0;
 	WRITEVALUETOFILE(value);	// 'version' of this save-format
@@ -46,7 +46,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 		WRITEVALUETOFILE(value);
 		if (value)
 		{
-			if (!fwrite(key, sizeof(TCHAR), value, pFile))
+			if (fwrite(key, sizeof(TCHAR), value, pFile)!=value)
 				return false;
 			if (!I->second.SaveToDisk(pFile))
 				return false;
@@ -61,7 +61,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 		WRITEVALUETOFILE(value);
 		if (value)
 		{
-			if (!fwrite(path, sizeof(TCHAR), value, pFile))
+			if (fwrite(path, sizeof(TCHAR), value, pFile)!=value)
 				return false;
 			svn_wc_status_kind status = I->second;
 			WRITEVALUETOFILE(status);
@@ -73,7 +73,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 	WRITEVALUETOFILE(value);
 	if (value)
 	{
-		if (!fwrite(m_directoryPath.GetWinPathString(), sizeof(TCHAR), value, pFile))
+		if (fwrite(m_directoryPath.GetWinPathString(), sizeof(TCHAR), value, pFile)!=value)
 			return false;
 	}
 	if (!m_ownStatus.SaveToDisk(pFile))
@@ -87,7 +87,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 {
 	AutoLocker lock(m_critSec);
-#define LOADVALUEFROMFILE(x) if (!fread(&x, sizeof(x), 1, pFile)) return false;
+#define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) return false;
 
 	int value = 0;
 	LOADVALUEFROMFILE(value);
@@ -101,7 +101,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 		if (value)
 		{
 			CString sKey;
-			if (!fread(sKey.GetBuffer(value), sizeof(TCHAR), value, pFile))
+			if (fread(sKey.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
 			{
 				sKey.ReleaseBuffer(0);
 				return false;
@@ -120,7 +120,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 		if (value)
 		{
 			CString sPath;
-			if (!fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile))
+			if (fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
 			{
 				sPath.ReleaseBuffer(0);
 				return false;
@@ -137,7 +137,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 	if (value)
 	{
 		CString sPath;
-		if (!fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile))
+		if (fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
 		{
 			sPath.ReleaseBuffer(0);
 			return false;

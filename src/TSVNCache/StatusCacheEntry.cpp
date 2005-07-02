@@ -43,8 +43,8 @@ CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64
 
 bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
 {
-#define WRITEVALUETOFILE(x) if (!fwrite(&x, sizeof(x), 1, pFile)) return false;
-#define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (!fwrite(x, sizeof(char), value, pFile)) return false;}
+#define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) return false;
+#define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (fwrite(x, sizeof(char), value, pFile)!=value) return false;}
 
 	int value = 3;
 	WRITEVALUETOFILE(value); // 'version' of this save-format
@@ -72,7 +72,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
 
 bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 {
-#define LOADVALUEFROMFILE(x) if (!fread(&x, sizeof(x), 1, pFile)) return false;
+#define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) return false;
 
 	int value = 0;
 	LOADVALUEFROMFILE(value);
@@ -88,7 +88,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	{
 		if (value > INTERNET_MAX_URL_LENGTH)
 			return false;		// invalid length for an url
-		if (!fread(m_sUrl.GetBuffer(value), sizeof(char), value, pFile))
+		if (fread(m_sUrl.GetBuffer(value), sizeof(char), value, pFile)!=value)
 		{
 			m_sUrl.ReleaseBuffer(0);
 			return false;
@@ -98,7 +98,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
 	{
-		if (!fread(m_sOwner.GetBuffer(value), sizeof(char), value, pFile))
+		if (fread(m_sOwner.GetBuffer(value), sizeof(char), value, pFile)!=value)
 		{
 			m_sOwner.ReleaseBuffer(0);
 			return false;
@@ -108,7 +108,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
 	{
-		if (!fread(m_sAuthor.GetBuffer(value), sizeof(char), value, pFile))
+		if (fread(m_sAuthor.GetBuffer(value), sizeof(char), value, pFile)!=value)
 		{
 			m_sAuthor.ReleaseBuffer(0);
 			return false;

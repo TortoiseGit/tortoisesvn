@@ -38,8 +38,8 @@ void CSVNStatusCache::Create()
 	ATLASSERT(m_pInstance == NULL);
 	m_pInstance = new CSVNStatusCache;
 
-#define LOADVALUEFROMFILE(x) if (!fread(&x, sizeof(x), 1, pFile)) goto exit;
-#define LOADVALUEFROMFILE2(x) if (!fread(&x, sizeof(x), 1, pFile)) goto error;
+#define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) goto exit;
+#define LOADVALUEFROMFILE2(x) if (fread(&x, sizeof(x), 1, pFile)!=1) goto error;
 	int value = -1;
 	FILE * pFile = NULL;
 	// find the location of the cache
@@ -66,7 +66,7 @@ void CSVNStatusCache::Create()
 				if (value)
 				{
 					CString sKey;
-					if (!fread(sKey.GetBuffer(value), sizeof(TCHAR), value, pFile))
+					if (fread(sKey.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
 					{
 						sKey.ReleaseBuffer(0);
 						goto error;
@@ -81,7 +81,8 @@ void CSVNStatusCache::Create()
 		}
 	}
 exit:
-	fclose(pFile);
+	if (pFile)
+		fclose(pFile);
 	DeleteFile(path);
 	ATLTRACE("cache loaded from disk successfully!\n");
 	return;
@@ -95,7 +96,7 @@ error:
 
 bool CSVNStatusCache::SaveCache()
 {
-#define WRITEVALUETOFILE(x) if (!fwrite(&x, sizeof(x), 1, pFile)) goto error;
+#define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) goto error;
 	int value = 0;
 	// save the cache to disk
 	FILE * pFile = NULL;
@@ -121,7 +122,7 @@ bool CSVNStatusCache::SaveCache()
 				WRITEVALUETOFILE(value);
 				if (value)
 				{
-					if (!fwrite(key, sizeof(TCHAR), value, pFile))
+					if (fwrite(key, sizeof(TCHAR), value, pFile)!=value)
 						goto error;
 					if (!I->second->SaveToDisk(pFile))
 						goto error;
