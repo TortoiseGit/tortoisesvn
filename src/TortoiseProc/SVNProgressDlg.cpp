@@ -449,17 +449,9 @@ void CSVNProgressDlg::ResizeColumns()
 {
 	m_ProgList.SetRedraw(FALSE);
 
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
-
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		m_ProgList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
+	CUtils::ResizeAllListCtrlCols(&m_ProgList);
 	
-	m_ProgList.SetRedraw(TRUE);
-	
+	m_ProgList.SetRedraw(TRUE);	
 }
 
 

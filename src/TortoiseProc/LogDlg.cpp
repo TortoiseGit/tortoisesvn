@@ -152,11 +152,7 @@ BOOL CLogDlg::OnInitDialog()
 	temp.LoadString(IDS_LOG_MESSAGE);
 	m_LogList.InsertColumn(3, temp);
 	m_LogList.SetRedraw(false);
-	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-	for (int col = 0; col <= maxcol; col++)
-	{
-		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
+	CUtils::ResizeAllListCtrlCols(&m_LogList);
 	m_LogList.SetRedraw(true);
 
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
@@ -173,11 +169,7 @@ BOOL CLogDlg::OnInitDialog()
 	temp.LoadString(IDS_LOG_REVISION);
 	m_LogMsgCtrl.InsertColumn(3, temp);
 	m_LogMsgCtrl.SetRedraw(false);
-	maxcol = ((CHeaderCtrl*)(m_LogMsgCtrl.GetDlgItem(0)))->GetItemCount()-1;
-	for (int col = 0; col <= maxcol; col++)
-	{
-		m_LogMsgCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
+	CUtils::ResizeAllListCtrlCols(&m_LogMsgCtrl);
 	m_LogMsgCtrl.SetRedraw(true);
 
 	if (m_hasWC)
@@ -327,13 +319,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		m_LogMsgCtrl.SetItemCountEx(0);
 		m_LogMsgCtrl.Invalidate();
 	}
-	int maxcol = ((CHeaderCtrl*)(m_LogMsgCtrl.GetDlgItem(0)))->GetItemCount()-1;
-	for (int col = 0; col <= maxcol; col++)
-	{
-		m_LogMsgCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-		int width = m_LogMsgCtrl.GetColumnWidth(col);
-		m_LogMsgCtrl.SetColumnWidth(col, width+5);
-	}
+	CUtils::ResizeAllListCtrlCols(&m_LogMsgCtrl);
 	SetSortArrow(&m_LogMsgCtrl, -1, false);
 	m_LogMsgCtrl.SetRedraw(TRUE);
 }
@@ -578,11 +564,7 @@ UINT CLogDlg::LogThread()
 	m_bThreadRunning = FALSE;
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
-	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-	for (int col = 0; col <= maxcol; col++)
-	{
-		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
+	CUtils::ResizeAllListCtrlCols(&m_LogList);
 	m_LogList.SetRedraw(true);
 	POINT pt;
 	GetCursorPos(&pt);
@@ -2479,11 +2461,7 @@ void CLogDlg::OnBnClickedFiltercancel()
 	m_LogList.SetItemCountEx(m_arShownList.GetCount());
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
-	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-	for (int col = 0; col <= maxcol; col++)
-	{
-		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
+	CUtils::ResizeAllListCtrlCols(&m_LogList);
 	
 	if (selIndex >= 0)
 	{
@@ -2522,11 +2500,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
-		int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-		for (int col = 0; col <= maxcol; col++)
-		{
-			m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-		}
+		CUtils::ResizeAllListCtrlCols(&m_LogList);
 		m_LogList.SetRedraw(true);
 		theApp.DoWaitCursor(-1);
 		m_cFilterCancelButton.ShowWindow(SW_HIDE);
@@ -2667,11 +2641,7 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
-		int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-		for (int col = 0; col <= maxcol; col++)
-		{
-			m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-		}
+		CUtils::ResizeAllListCtrlCols(&m_LogList);
 		m_LogList.SetRedraw(true);
 		m_LogList.Invalidate();
 		theApp.DoWaitCursor(-1);
