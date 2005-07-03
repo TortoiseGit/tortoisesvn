@@ -46,6 +46,7 @@ rem ZLIB
 echo ================================================================================
 echo building ZLib
 cd ..\zlib
+del *.obj
 copy /Y win32\Makefile.msc Makefile.msc > NUL
 call nmake -f Makefile.msc
 copy zlib.lib zlibstat.lib > NUL
@@ -55,15 +56,11 @@ rem Subversion
 echo ================================================================================
 echo building Subversion
 cd ..\..\Subversion
-rem perl apr-util\build\w32locatedb.pl dll .\db4-win32\include .\db4-win32\lib
-copy build\generator\vcnet_sln.ezt build\generator\vcnet_sln7.ezt
-copy %startdir%\vcnet_sln.ezt build\generator\vcnet_sln.ezt
 xcopy /Q /Y /I /E %startdir%\ext\berkeley-db\db4.3-win32 db4-win32
 rmdir /s /q build\win32\vcnet-vcproj
-call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls --enable-bdb-in-apr-util
+call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls --enable-bdb-in-apr-util --vsnet-version=2003
 copy /Y %startdir%\ext\libaprutil.vcproj apr-util\libaprutil.vcproj
 
-copy build\generator\vcnet_sln7.ezt build\generator\vcnet_sln.ezt /Y
 del neon\config.h
 del neon\config.hw
 copy %startdir%\neonconfig.hw neon\config.hw
