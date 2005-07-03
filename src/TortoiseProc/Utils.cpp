@@ -894,3 +894,26 @@ COLORREF CUtils::MyColor(int nIndex)
 	}	
 	return GetSysColor(COLOR_WINDOWTEXT);
 }
+
+void CUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
+{
+	int maxcol = ((CHeaderCtrl*)(pListCtrl->GetDlgItem(0)))->GetItemCount()-1;
+	TCHAR textbuf[MAX_PATH];
+	for (int col = 0; col <= maxcol; col++)
+	{
+		HDITEM hdi = {0};
+		hdi.mask = HDI_TEXT;
+		hdi.pszText = textbuf;
+		hdi.cchTextMax = sizeof(textbuf);
+		((CHeaderCtrl*)(pListCtrl->GetDlgItem(0)))->GetItem(col, &hdi);
+		int cx = pListCtrl->GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
+		for (int index = 0; index<pListCtrl->GetItemCount(); ++index)
+		{
+			// get the width of the string and add 12 pixels for the column separator and margins
+			int linewidth = pListCtrl->GetStringWidth(pListCtrl->GetItemText(index, col)) + 12;
+			if (cx < linewidth)
+				cx = linewidth;
+		}
+		pListCtrl->SetColumnWidth(col, cx);
+	}
+}

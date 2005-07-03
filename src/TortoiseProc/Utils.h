@@ -173,6 +173,9 @@ public:
 	 */
 	static CString GetAppParentDirectory();
 
+	static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
+
+
 	enum MyColors
 	{
 		BLUE = 0,
