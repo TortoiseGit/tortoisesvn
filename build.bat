@@ -46,7 +46,7 @@ rem ZLIB
 echo ================================================================================
 echo building ZLib
 cd ..\zlib
-copy win32\Makefile.msc Makefile.msc > NUL
+copy /Y win32\Makefile.msc Makefile.msc > NUL
 call nmake -f Makefile.msc
 copy zlib.lib zlibstat.lib > NUL
 @echo off
