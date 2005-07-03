@@ -20,6 +20,12 @@ call docserverlogin.bat
 
 cd output
 del docs.zip
+if "%1"=="" (
+  FOR /F %%L IN ('DIR /AD /B') DO (
+    move /Y %%L\images\backgrounddraft.png %%L\images\background.png
+  )
+)
+
 %ZIP% a -r -tzip docs.zip *
 
 %PSCP% -r -l %USERNAME% -pw %PASSWORD% docs.zip shell.sourceforge.net:/home/groups/t/to/tortoisesvn/htdocs/docs
