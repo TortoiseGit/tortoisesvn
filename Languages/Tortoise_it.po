@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-29 19:12+0100\n"
+"PO-Revision-Date: 2005-07-01 18:39+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -225,6 +225,12 @@ msgstr "&Controlla adesso"
 msgid "&Compare Revisions"
 msgstr "&Confronta revisioni"
 
+# ID:376,
+#: MenuEntry
+#, fuzzy
+msgid "&Copy"
+msgstr "&Copia"
+
 # ID:101,
 #: ID:101
 msgid "&Copy To..."
@@ -244,6 +250,7 @@ msgstr "&Simulazione"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "&Modifica"
 
@@ -272,6 +279,10 @@ msgstr "&Esterno"
 #: MenuEntry
 msgid "&File"
 msgstr "&File"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Trova"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -2921,7 +2932,6 @@ msgstr "Filesystem nativo (FSFS)"
 
 # ID:73,
 #: ID:210
-#, fuzzy
 msgid "Nested"
 msgstr "Annidato"
 

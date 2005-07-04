@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-19 11:17+0100\n"
+"PO-Revision-Date: 2005-07-02 12:37+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -230,6 +230,11 @@ msgstr "&Ellerőrzés most"
 msgid "&Compare Revisions"
 msgstr "&Verziók összehasonlítása"
 
+# ID:376,
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Másol"
+
 # ID:101,
 #: ID:101
 msgid "&Copy To..."
@@ -247,6 +252,7 @@ msgstr "&Száraz futás"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "&Szerkeszt"
 
@@ -277,6 +283,10 @@ msgstr "&Külső"
 #: MenuEntry
 msgid "&File"
 msgstr "&Fájl"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Keres"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -760,11 +770,6 @@ msgstr "Kiterjesztésfüggő Foltbeépítő program hozzáadáasa"
 #: ID:13
 msgid "Add To Ignore List"
 msgstr "A elutasító listához adás"
-
-# ID:12,
-#: ID:12
-msgid "Add files to Subversion here"
-msgstr "Fájlok hozzáadása a Subversionhoz"
 
 # Control-ID:1098,
 #: ID:8
@@ -1577,16 +1582,6 @@ msgstr "A munkamásolatba másol"
 msgid "Copy URL to clipboard"
 msgstr "A cím másolása a vágólapra"
 
-# ID:13,
-#: ID:16
-msgid "Copy and Rename in Subversion to here"
-msgstr "Másol és Átnevez a Subversionben ide"
-
-# ID:13,
-#: ID:13
-msgid "Copy files in Subversion to here"
-msgstr "Subversion fájlok másolása ide"
-
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -2393,6 +2388,11 @@ msgstr "FŐ verzió a Tárházban"
 msgid "Help"
 msgstr "Súgó"
 
+# Control-ID:1229,
+#: Control-ID:1229
+msgid "Hide unrelated changed paths"
+msgstr "Nem kapcsolódó változó útvonalak elrejtése"
+
 # Control-ID:1127,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -2885,11 +2885,6 @@ msgstr "Megváltoztatva"
 msgid "Most active author:"
 msgstr "Legszorgosabb fejlesztő:"
 
-# ID:12,
-#: ID:12
-msgid "Move files in Subversion to here"
-msgstr "Fájlok áthelyezése a Subversion-ban ide"
-
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -2924,6 +2919,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Eredeti Fájlrendszer (FSFS)"
+
+# ID:73,
+#: ID:210
+msgid "Nested"
+msgstr "Letelepedett"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -3708,6 +3708,11 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+# ID:12,
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN Fájlok hozzáadása ehhez a WC-hez"
+
 # ID:77,
 #: ID:77
 msgid "SVN Add..."
@@ -3728,10 +3733,31 @@ msgstr "SVN Kitekintés..."
 msgid "SVN Commit..."
 msgstr "SVN Beküldés..."
 
+# ID:13,
+#: ID:16
+msgid "SVN Copy and Rename versioned files here"
+msgstr "SVN Verziókezelt fájlok Másolása és Átnevezése ide"
+
+# Control-ID:1073,#:
+# Control-ID:1073,
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN Verziókezelt fájlok idemásolása"
+
 # ID:78,
 #: ID:78
 msgid "SVN Copy..."
 msgstr "SVN másolás..."
+
+# ID:14,
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN Export mindent ide"
+
+# ID:78,
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN Exportálás ide"
 
 # ID:78,
 #: ID:78
@@ -3752,6 +3778,12 @@ msgstr "SVN Kulcs Tulajdonosa"
 #: ID:78
 msgid "SVN Merge..."
 msgstr "SVN Beépít..."
+
+# Control-ID:1073,#:
+# Control-ID:1073,
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN Verziókezelt fájlok idehelyezése"
 
 # Dlg-ID:134,
 #: Dlg-ID:134
@@ -4051,6 +4083,7 @@ msgstr "&Különbségeket mutat"
 # Control-ID:1034,#:
 # Control-ID:1132,
 #: ID:101
+#: Control-ID:1228
 #: Control-ID:1031
 #: Control-ID:1034
 #: Control-ID:1132
@@ -4267,16 +4300,6 @@ msgstr "Subversion hitelesítései adat:"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Subversion beállításfájl:"
-
-# ID:14,
-#: ID:14
-msgid "Subversion export all here"
-msgstr "Subversion export ide mind"
-
-# ID:14,
-#: ID:14
-msgid "Subversion export here"
-msgstr "Subversion export ide"
 
 # ID:79,
 #: ID:79
