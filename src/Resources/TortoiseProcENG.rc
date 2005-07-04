@@ -320,7 +320,7 @@ BEGIN
     CONTROL         "&HEAD Revision",IDC_REVISION_HEAD1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,13,49,89,10
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
-                    13,63,89,10
+                    13,63,82,10
     EDITTEXT        IDC_REVISION_START,102,60,48,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,155,60,67,14
     GROUPBOX        "To: (end URL and revision of the range to merge)",
@@ -334,7 +334,7 @@ BEGIN
     CONTROL         "&HEAD Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,13,131,89,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    13,144,89,10
+                    13,144,81,10
     EDITTEXT        IDC_REVISION_END,102,142,48,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,155,142,67,14
     GROUPBOX        "",IDC_STATIC,7,168,331,71
