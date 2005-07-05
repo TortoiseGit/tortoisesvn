@@ -245,6 +245,19 @@ void CStatGraphDlg::ShowCommitsByDate()
 	}
 
 	int week = 0;
+	int numweeks = 0;
+	// how many weeks do we cover here?
+	for (int weekindex = 0; weekindex<m_parDates->GetCount(); ++weekindex)
+	{
+		if (week != GetWeek(CTime((__time64_t)m_parDates->GetAt(weekindex))))
+		{
+			week = GetWeek(CTime((__time64_t)m_parDates->GetAt(weekindex)));
+			numweeks++;
+		}
+	}
+
+	week = 0;
+	int weekcount = 0;
 
 	std::map<stdstring, LONG> authorcommits;
 
@@ -259,6 +272,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 		int timeweek = GetWeek(time);
 		if (week != timeweek)
 		{
+			weekcount++;
 			std::map<stdstring, LONG>::iterator iter;
 			MyGraphSeries * graphData = new MyGraphSeries();
 			iter = authors.begin();
@@ -270,8 +284,12 @@ void CStatGraphDlg::ShowCommitsByDate()
 					graphData->SetData(iter->second, 0);
 				iter++;
 			}
-			temp.Format(_T("%d"), week);
-			graphData->SetLabel(temp);
+			// If there are too many weeks, only show labels for some of them
+			if ((numweeks < 10)||((numweeks%10) == (weekcount % (numweeks/10))))
+			{
+				temp.Format(_T("%d"), week);
+				graphData->SetLabel(temp);
+			}
 			m_graph.AddSeries(*graphData);
 			m_graphDataArray.Add(graphData);
 			
