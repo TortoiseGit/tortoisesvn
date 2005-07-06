@@ -907,40 +907,44 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel::Dialogs"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Log Messages",IDC_STATIC,7,7,286,79
+    GROUPBOX        "Log Messages",IDC_STATIC,7,7,286,72
     LTEXT           "Default &number of log messages",IDC_STATIC,13,20,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,20,55,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
-    LTEXT           "Font for log messages:",IDC_STATIC,13,33,92,23,
+    LTEXT           "Font for log messages:",IDC_STATIC,13,32,92,23,
                     SS_CENTERIMAGE
-    COMBOBOX        IDC_FONTNAMES,107,38,136,90,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_FONTNAMES,107,37,136,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,253,38,31,47,CBS_DROPDOWN | WS_VSCROLL | 
+    COMBOBOX        IDC_FONTSIZES,253,37,31,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     CONTROL         "Short &date/time format in log messages",
                     IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,56,271,10
     CONTROL         "Use old APIs to fetch log messages",IDC_OLDAPILOGS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,70,271,8
-    GROUPBOX        "Progress",IDC_STATIC,7,90,286,37
-    LTEXT           "Autoclose:",IDC_STATIC,13,102,54,21,SS_CENTERIMAGE
-    COMBOBOX        IDC_AUTOCLOSECOMBO,71,106,213,75,CBS_DROPDOWNLIST | 
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,67,271,8
+    GROUPBOX        "Progress",IDC_STATIC,7,81,286,35
+    LTEXT           "Autoclose:",IDC_STATIC,13,91,54,19,SS_CENTERIMAGE
+    COMBOBOX        IDC_AUTOCLOSECOMBO,71,95,213,75,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "Commit",IDC_COMMITGROUP,7,127,286,56
+    GROUPBOX        "Commit",IDC_COMMITGROUP,7,118,286,48
     CONTROL         "Use autocompletion of filepaths and keywords",
                     IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,140,271,10
+                    13,128,271,10
     LTEXT           "Timeout in seconds to stop the autocompletion parsing",
-                    IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,155,231,8,SS_NOTIFY
-    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,152,31,14,ES_AUTOHSCROLL | 
+                    IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,140,231,8,SS_NOTIFY
+    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,136,31,14,ES_AUTOHSCROLL | 
                     ES_NUMBER,WS_EX_RIGHT
     CONTROL         "Only use spellchecker when tsvn:projectlanguage is set",
-                    IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,168,
+                    IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,152,
                     271,10
-    GROUPBOX        "Check For Modifications",IDC_STATIC,7,185,286,25
+    GROUPBOX        "Check For Modifications",IDC_STATIC,7,166,286,21
     CONTROL         "Contact the repository on startup",IDC_REPOCHECK,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,196,271,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,175,271,10
+    GROUPBOX        "Merge",IDC_STATIC,7,187,286,23
+    CONTROL         "Use URL of WC as the default ""From:"" URL",
+                    IDC_WCURLFROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
+                    197,271,10
 END
 
 
@@ -1874,6 +1878,8 @@ BEGIN
                             "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
     IDS_SETTINGS_RECURSIVE_TT 
                             "Disable this option if you have really big working copies and experience\ntoo much disk access when browsing the working copy."
+    IDS_SETTINGS_USEWCURL_TT 
+                            "If enabled, the Merge dialog initializes the ""From:"" URL with the URL of the selected working copy\ninstead of the last used URL."
 END
 
 STRINGTABLE 

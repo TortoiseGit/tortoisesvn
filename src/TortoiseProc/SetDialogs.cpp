@@ -42,6 +42,7 @@ CSetDialogs::CSetDialogs()
 	, m_dwAutocompletionTimeout(0)
 	, m_bSpell(TRUE)
 	, m_bCheckRepo(FALSE)
+	, m_bUseWCURL(FALSE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -53,6 +54,7 @@ CSetDialogs::CSetDialogs()
 	m_regAutocompletionTimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
 	m_regSpell = CRegDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), TRUE);
 	m_regCheckRepo = CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
+	m_regUseWCURL = CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE);
 }
 
 CSetDialogs::~CSetDialogs()
@@ -78,6 +80,7 @@ void CSetDialogs::SaveData()
 	m_regAutocompletionTimeout = m_dwAutocompletionTimeout;
 	m_regSpell = m_bSpell;
 	m_regCheckRepo = m_bCheckRepo;
+	m_regUseWCURL = m_bUseWCURL;
 }
 
 void CSetDialogs::DoDataExchange(CDataExchange* pDX)
@@ -101,6 +104,7 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDV_MinMaxUInt(pDX, m_dwAutocompletionTimeout, 1, 100);
 	DDX_Check(pDX, IDC_SPELL, m_bSpell);
 	DDX_Check(pDX, IDC_REPOCHECK, m_bCheckRepo);
+	DDX_Check(pDX, IDC_WCURLFROM, m_bUseWCURL);
 }
 
 
@@ -115,6 +119,7 @@ BEGIN_MESSAGE_MAP(CSetDialogs, CPropertyPage)
 	ON_EN_CHANGE(IDC_AUTOCOMPLETIONTIMEOUT, OnEnChangeAutocompletiontimeout)
 	ON_BN_CLICKED(IDC_SPELL, OnBnClickedSpell)
 	ON_BN_CLICKED(IDC_REPOCHECK, OnBnClickedRepocheck)
+	ON_BN_CLICKED(IDC_WCURLFROM, OnBnClickedWcurlfrom)
 END_MESSAGE_MAP()
 
 
@@ -148,6 +153,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_dwAutocompletionTimeout = m_regAutocompletionTimeout;
 	m_bSpell = m_regSpell;
 	m_bCheckRepo = m_regCheckRepo;
+	m_bUseWCURL = m_regUseWCURL;
 
 	for (int i=0; i<m_cAutoClose.GetCount(); ++i)
 		if (m_cAutoClose.GetItemData(i)==m_dwAutoClose)
@@ -164,6 +170,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_tooltips.AddTool(IDC_AUTOCOMPLETION, IDS_SETTINGS_AUTOCOMPLETION_TT);
 	m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUT, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
 	m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUTLABEL, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
+	m_tooltips.AddTool(IDC_WCURLFROM, IDS_SETTINGS_USEWCURL_TT);
 
 	int count = 0;
 	for (int i=6; i<32; i=i+2)
@@ -246,6 +253,11 @@ void CSetDialogs::OnBnClickedRepocheck()
 	SetModified();
 }
 
+void CSetDialogs::OnBnClickedWcurlfrom()
+{
+	SetModified();
+}
+
 BOOL CSetDialogs::OnApply()
 {
 	UpdateData();
@@ -262,6 +274,7 @@ void CSetDialogs::OnCbnSelchangeAutoclosecombo()
 	}
 	SetModified();
 }
+
 
 
 

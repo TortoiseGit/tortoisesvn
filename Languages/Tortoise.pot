@@ -1714,6 +1714,10 @@ msgid "If enabled, speeds up fetching log messages from pre-1.2 repository serve
 msgstr ""
 
 #: ID:195,
+msgid "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\ninstead of the last used URL."
+msgstr ""
+
+#: ID:195,
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
 
@@ -1946,7 +1950,7 @@ msgstr ""
 msgid "Max"
 msgstr ""
 
-#: Dlg-ID:141,
+#: Dlg-ID:141,#: Control-ID:65535,
 msgid "Merge"
 msgstr ""
 
@@ -3439,6 +3443,10 @@ msgstr ""
 
 #: Control-ID:1126,
 msgid "Use Text viewer to view blames"
+msgstr ""
+
+#: Control-ID:1230,
+msgid "Use URL of WC as the default \"From:\" URL"
 msgstr ""
 
 #: Control-ID:1073,

@@ -31,6 +31,9 @@
        of the item for which the log is shown. See issue #68. (Stefan)
 - NEW: New menu "Edit" in TortoiseMerge with the entries "Copy" and
        "Find" (Ctrl-C and Ctrl-F still work). (Stefan)
+- NEW: Option to make the Merge dialog default the "From:" URL to
+       the URL of the selected working copy instead of the last used
+       URL in the merge. (Stefan)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - CHG: Merge dialog: if the 'use from url' is activated, the 'show log'
@@ -82,6 +85,8 @@
        "unified diff" for added, deleted and missing items too. (Stefan)
 - BUG: Some characters weren't properly escaped to create a valid URL. (Stefan)
 - BUG: The 'locks' column in the repository browser wasn't sortable.
+- BUG: Files with a '%' char in their name weren't shown correctly in the
+       repository browser. (Stefan)
 
 Version 1.2
 

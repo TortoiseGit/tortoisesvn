@@ -111,7 +111,8 @@ BOOL CMergeDlg::OnInitDialog()
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
-	m_URLCombo.SetCurSel(0);
+	if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
+		m_URLCombo.SetCurSel(0);
 	if ((m_URLCombo.GetString().IsEmpty())||bRepeating)
 		m_URLCombo.SetWindowText(m_URLFrom);
 	m_URLCombo2.SetURLHistory(TRUE);

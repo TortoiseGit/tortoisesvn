@@ -79,6 +79,8 @@ private:
 	BOOL			m_bSpell;
 	CRegDWORD		m_regCheckRepo;
 	BOOL			m_bCheckRepo;
+	CRegDWORD		m_regUseWCURL;
+	BOOL			m_bUseWCURL;
 
 	BOOL			m_bInitialized;
 
@@ -97,4 +99,5 @@ public:
 	afx_msg void OnEnChangeAutocompletiontimeout();
 	afx_msg void OnBnClickedSpell();
 	afx_msg void OnBnClickedRepocheck();
+	afx_msg void OnBnClickedWcurlfrom();
 };
