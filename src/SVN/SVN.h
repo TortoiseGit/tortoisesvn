@@ -416,7 +416,7 @@ public:
 	 * \param extended Set to TRUE for entries in extended format (see above)
 	 * \param recursive Set this to TRUE to get all entries recursively
 	 */
-	BOOL Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE);
+	BOOL Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE, BOOL escaped = FALSE);
 
 	/**
 	 * Relocates a working copy to a new/changes repository URL. Use this function

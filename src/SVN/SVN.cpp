@@ -1323,7 +1323,7 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 	return SVN_NO_ERROR;
 }
 
-BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
+BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive, BOOL escaped)
 {
 	entries.RemoveAll();
 	SVNPool subpool(pool);
@@ -1345,6 +1345,7 @@ BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray&
 	apr_hash_index_t *hi;
     svn_dirent_t* val;
 	const char* key;
+	CStringA sKey;
     for (hi = apr_hash_first(pool, hash); hi; hi = apr_hash_next(hi)) 
 	{
         apr_hash_this(hi, (const void**)&key, NULL, (void**)&val);
@@ -1355,7 +1356,18 @@ BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray&
 			temp = "f";
 		else
 			temp = "u";
-		temp = temp + MakeUIUrlOrPath(key);
+		if (escaped)
+		{
+			sKey = key;
+			// the '%' char isn't automatically escaped by CUtils::PathEscape(),
+			// so we have to do that here manually.
+			sKey.Replace("%", "%25");
+			temp = temp + CUnicodeUtils::GetUnicode(CUtils::PathEscape(sKey));
+		}
+		else
+		{
+			temp = temp + MakeUIUrlOrPath(key);
+		}
 		if (extended)
 		{
 			CString author, revnum, size, dateval;
