@@ -37,7 +37,7 @@ rem OpenSSL
 echo ================================================================================
 echo building OpenSSL
 cd ..\common\openssl
-perl Configure VC-WIN32 > NUL
+perl Configure VC-WIN32 enable-rc5 enable-mdc2 > NUL
 call ms\do_masm
 call nmake -f ms\ntdll.mak
 @echo off
