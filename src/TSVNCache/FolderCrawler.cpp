@@ -159,7 +159,7 @@ void CFolderCrawler::WorkerThread()
 			{
 				ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
 				CSVNStatusCache::Instance().WaitToRead();
-				bool bRecursive = (bool)(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
+				bool bRecursive = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
 				// Now, we need to visit this folder, to make sure that we know its 'most important' status
 				CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
 				CSVNStatusCache::Instance().Done();

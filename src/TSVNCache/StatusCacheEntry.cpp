@@ -46,7 +46,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
 #define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) return false;
 #define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (fwrite(x, sizeof(char), value, pFile)!=value) return false;}
 
-	int value = 3;
+	unsigned int value = 3;
 	WRITEVALUETOFILE(value); // 'version' of this save-format
 	WRITEVALUETOFILE(m_highestPriorityLocalStatus);
 	WRITEVALUETOFILE(m_lastWriteTime);
@@ -74,7 +74,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 {
 #define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) return false;
 
-	int value = 0;
+	unsigned int value = 0;
 	LOADVALUEFROMFILE(value);
 	if (value != 3)
 		return false;		// not the correct version

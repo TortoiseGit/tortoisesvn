@@ -34,7 +34,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 	AutoLocker lock(m_critSec);
 #define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) return false;
 
-	int value = 0;
+	unsigned int value = 0;
 	WRITEVALUETOFILE(value);	// 'version' of this save-format
 	value = (int)m_entryCache.size();
 	WRITEVALUETOFILE(value);	// size of the cache map
@@ -89,7 +89,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 	AutoLocker lock(m_critSec);
 #define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) return false;
 
-	int value = 0;
+	unsigned int value = 0;
 	LOADVALUEFROMFILE(value);
 	if (value != 0)
 		return false;		// not the correct version

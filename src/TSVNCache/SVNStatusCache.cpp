@@ -40,7 +40,7 @@ void CSVNStatusCache::Create()
 
 #define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) goto exit;
 #define LOADVALUEFROMFILE2(x) if (fread(&x, sizeof(x), 1, pFile)!=1) goto error;
-	int value = -1;
+	unsigned int value = (unsigned int)-1;
 	FILE * pFile = NULL;
 	// find the location of the cache
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
@@ -97,7 +97,7 @@ error:
 bool CSVNStatusCache::SaveCache()
 {
 #define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) goto error;
-	int value = 0;
+	unsigned int value = 0;
 	// save the cache to disk
 	FILE * pFile = NULL;
 	// find a location to write the cache to
