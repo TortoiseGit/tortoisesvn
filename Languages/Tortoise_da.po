@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3776
+# Based on r3812
 #
 msgid ""
 msgstr ""
@@ -207,6 +207,10 @@ msgstr "&Check nu"
 msgid "&Compare Revisions"
 msgstr "&Sammenlign revisioner"
 
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Kopier"
+
 #: ID:101,
 msgid "&Copy To..."
 msgstr "&Kopier til..."
@@ -219,7 +223,7 @@ msgstr "&Slet..."
 msgid "&Dry Run"
 msgstr "&Testkørsel"
 
-#: Control-ID:1031,
+#: Control-ID:1031,#: MenuEntry
 msgid "&Edit"
 msgstr "&Rediger"
 
@@ -242,6 +246,10 @@ msgstr "&Ekstern"
 #: MenuEntry#: MenuEntry
 msgid "&File"
 msgstr "&Fil"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Find"
 
 #: Control-ID:1050,
 msgid "&Fixed drives"
@@ -898,9 +906,8 @@ msgid "Cancelling operation..."
 msgstr "Annullerer handling..."
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "Cascaded Context Menu"
-msgstr "Cascaded kontekstmenu"
+msgstr "Sekundær kontekstmenu"
 
 #: ID:82,
 msgid "Certificate expired or not yet valid"
@@ -1523,7 +1530,7 @@ msgid "Exclude/Ignore pattern:"
 msgstr "Mønster for udelad/ignorer:"
 
 #: ID:209,
-#,fuzzy
+#, fuzzy
 msgid "Explore to"
 msgstr "Åbn i Stifinder"
 
@@ -2159,12 +2166,12 @@ msgid "No image encoder found for %s."
 msgstr "Der blev ikke fundet nogen billed-indkoder til %s."
 
 #: ID:188,
-#,fuzzy
+#, fuzzy
 msgid "No spell corrections"
 msgstr "Ingen stavekontrol-rettelser"
 
 #: ID:188,
-#,fuzzy
+#, fuzzy
 msgid "No thesaurus suggestions"
 msgstr "Ingen forslag fra opslagsværk"
 
@@ -3274,7 +3281,6 @@ msgid "The working copy is not up to date!\nPlease Update first."
 msgstr "Arbejdskopien er ikke up to date!\nDu skal først opdatere den."
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "Their File:"
 msgstr "Deres fil:"
 
@@ -3547,22 +3553,18 @@ msgid "Use strikeout for deleted lines"
 msgstr "Brug overstregning til slettede linjer"
 
 #: ID:251,
-#, fuzzy
 msgid "Use text block from \"&mine\""
 msgstr "Brug tekstblok fra \"&min\""
 
 #: ID:251,
-#, fuzzy
 msgid "Use text block from \"&theirs\""
 msgstr "Brug tekstblok fra \"&deres\""
 
 #: ID:251,
-#, fuzzy
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Brug tekstblok fra \"m&in\" før \"deres\""
 
 #: ID:251,
-#, fuzzy
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Brug tekstblok fra \"d&eres\" før \"min\""
 
