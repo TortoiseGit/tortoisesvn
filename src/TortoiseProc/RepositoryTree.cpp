@@ -621,6 +621,14 @@ CString CRepositoryTree::MakeUrl(HTREEITEM hItem)
 		strUrl.Insert(0, GetItemText(GetItemIndex(hParent), 0) + _T("/"));
 		hParent = GetNextItem(hParent, RVGN_PARENT);
 	} // while (hParent != NULL)
+	
+	// since we *know* that '%' chars which we get here aren't used
+	// as escaping chars, we must escape them here.
+	// Otherwise, if we don't escape them here, other functions
+	// might treat them as escaping chars.
+	
+	strUrl.Replace(_T("%"), _T("%25"));
+	
 	return strUrl;
 }
 
