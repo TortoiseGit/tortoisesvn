@@ -1512,13 +1512,23 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								{
 									int index;
 									index = GetNextSelectedItem(pos);
-									const FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+									FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
 									if (fentry->remotestatus <= svn_wc_status_normal)
 									{
-										m_nTotal--;
-										if (GetCheck(index))
-											m_nSelected--;
-										RemoveListEntry(index);
+										if (fentry->textstatus == svn_wc_status_added)
+										{
+											fentry->textstatus = svn_wc_status_unversioned;
+											fentry->status = svn_wc_status_unversioned;
+											SetItemState(index, 0, LVIS_SELECTED);
+											Show(m_dwShow, 0, m_bShowFolders);
+										}
+										else
+										{
+											m_nTotal--;
+											if (GetCheck(index))
+												m_nSelected--;
+											RemoveListEntry(index);
+										}
 									}
 									else
 									{

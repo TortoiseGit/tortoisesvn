@@ -89,6 +89,8 @@
        repository browser. (Stefan)
 - BUG: SubWCRev could crash if a path was given where no working copy
        is stored. (Stefan)
+- BUG: Reverting an added item removed it from the "Check for modifications"
+       dialog instead of marking it as unversioned again. (Stefan)
 
 Version 1.2
 
