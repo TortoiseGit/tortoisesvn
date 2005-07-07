@@ -437,7 +437,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	if (svnerr)
 	{
-		svn_handle_error(svnerr, stderr, FALSE);
+		svn_handle_error2(svnerr, stderr, FALSE, "SubWCRev : ");
 	}
 	TCHAR wcfullpath[MAX_PATH];
 	LPTSTR dummy;

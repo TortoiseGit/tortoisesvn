@@ -87,6 +87,8 @@
 - BUG: The 'locks' column in the repository browser wasn't sortable.
 - BUG: Files with a '%' char in their name weren't shown correctly in the
        repository browser. (Stefan)
+- BUG: SubWCRev could crash if a path was given where no working copy
+       is stored. (Stefan)
 
 Version 1.2
 
