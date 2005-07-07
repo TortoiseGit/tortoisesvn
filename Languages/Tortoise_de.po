@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-01 10:01+0100\n"
+"PO-Revision-Date: 2005-07-07 10:37+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1986,6 +1986,15 @@ msgstr "Bei Aktivierung überprüft TortoiseSVN einmal wöchentlich, ob Aktualis
 msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
 msgstr "Beschleunigt den Zugriff auf Log-Meldungen bei Subversion Servern vor Version 1.2"
 
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Mit dieser Option wird im Zusammenführen Dialog anstelle der zuletzt verwendeten\n"
+" URL die URL der Arbeitskopie als Vorgabe für die \"Von:\" URL eingestellt."
+
 #: ID:195
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
@@ -2279,6 +2288,7 @@ msgid "Max"
 msgstr "Maximum"
 
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "Zusammenführen"
 
@@ -4100,6 +4110,11 @@ msgstr "Lupe auf Positionsleiste anzeigen"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "Betrachte Annotierungen im Texteditor"
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Nutze die URL der Arbeitskopie als \"Von:\" URL"
 
 # Control-ID:1073,
 #: Control-ID:1073

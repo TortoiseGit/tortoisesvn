@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-29 21:16+0100\n"
+"PO-Revision-Date: 2005-07-06 20:08+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -195,6 +195,10 @@ msgstr "Nu &controleren"
 msgid "&Compare Revisions"
 msgstr "Ver&gelijk revisies"
 
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Kopiëren"
+
 #: ID:101
 msgid "&Copy To..."
 msgstr "&Kopiëren naar..."
@@ -208,6 +212,7 @@ msgid "&Dry Run"
 msgstr "&Proefrun"
 
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "Wijzig&en"
 
@@ -232,6 +237,10 @@ msgstr "&Extern"
 #: MenuEntry
 msgid "&File"
 msgstr "&Bestand"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Zoeken"
 
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -1988,6 +1997,14 @@ msgstr "Activeer deze optie om het ophalen van logboodschappen te versnellen bij
 
 #: ID:195
 msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Indien geselecteerd, dan initialiseert de Samenvoegdialoog de \"Van:\" URL met de URL van de\n"
+"geselecteerde werkkopie in plaats van de meest recent gebruikte URL."
+
+#: ID:195
+msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
@@ -2278,6 +2295,7 @@ msgid "Max"
 msgstr "Max"
 
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "Samenvoegen"
 
@@ -4096,6 +4114,10 @@ msgstr "Toon vergrootglas op Zoekwerkbalk"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "Gebruik tekst editor om verklaringen te bekijken"
+
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Gebruik URL van werkkopie als standaard \"Van:\" URL"
 
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
