@@ -569,6 +569,9 @@ UINT CLogDlg::LogThread()
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
+	// make sure the filter is applied (if any) now, after we refreshed/fetched
+	// the log messages
+	PostMessage(WM_TIMER, LOGFILTER_TIMER);
 	return 0;
 }
 
