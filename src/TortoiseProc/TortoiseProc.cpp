@@ -1833,6 +1833,30 @@ void CTortoiseProcApp::CheckUpgrade()
 		CRegDWORD(_T("Software\\TortoiseSVN\\ExternalCache")).removeValue();
 	}
 	
+	// set the custom diff scripts for every user
+	CString scriptsdir = CUtils::GetAppParentDirectory();
+	scriptsdir += _T("Diff-Scripts");
+	CSimpleFileFind files(scriptsdir);
+	while (files.FindNextFileNoDirectories())
+	{
+		CString file = files.GetFilePath();
+		CString filename = files.GetFileName();
+		CString ext = file.Mid(file.ReverseFind('-')+1);
+		ext = _T(".")+ext.Left(ext.ReverseFind('.'));
+		if (filename.Left(5).CompareNoCase(_T("diff-"))==0)
+		{
+			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
+			if (((CString)diffreg).IsEmpty())
+				diffreg = file + _T(" %base %mine");
+		}
+		if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
+		{
+			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
+			if (((CString)diffreg).IsEmpty())
+				diffreg = file + _T(" %merged %theirs %mine %base");
+		}
+	}
+
 	// set the current version so we don't come here again until the next update!
 	regVersion = _T(STRPRODUCTVER);	
 }

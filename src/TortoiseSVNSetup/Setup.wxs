@@ -444,7 +444,13 @@
           <RemoveFile Id="F__Languages" Name="*.*" LongName="*.*" On="uninstall" />
         </Component>
       </Directory>
-
+      
+      <Directory Id="D__DiffScripts" Name="Diff" LongName="Diff-Scripts" >
+        <Component Id="C__DiffScripts" Guid="6CD104D3-986D-4fa8-A5C8-8F63C320DC5F" >
+          <File Id="F__doc" Name="diff-doc.vbs" LongName="diff-doc.vbs" src="..\..\contrib\other\diff-scripts\diff-doc.vbs" DiskId="1" KeyPath="yes" />
+        </Component>
+      </Directory>
+      
       <Directory Id="ProgramMenuFolder" Name="." SourceName="USER'S" LongSource="User's Programs Menu">
         <Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="TortoiseSVN">
           <Component Id="C__WebsiteLink" Guid="3FBF0894-22EF-49fe-A1C3-A2ADCEA4B7CA" >
@@ -553,7 +559,7 @@
       <ComponentRef Id="C__TortoiseBlame" />
       <ComponentRef Id="C__Languages" />
       <ComponentRef Id="C__Sounds" />
-      <!-- <ComponentRef Id="C_autostart" /> -->
+      <ComponentRef Id="C__DiffScripts" />
     </Feature>
     <?if $(env.MYBUILD) = 1 ?>
       <Feature Id="CrashReporter" Level="1" ConfigurableDirectory="TARGETDIR">
