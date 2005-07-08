@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-26 22:00+0900\n"
+"PO-Revision-Date: 2005-07-08 13:14+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -226,6 +226,11 @@ msgstr "지금 확인합니다.(&C)"
 msgid "&Compare Revisions"
 msgstr "리비전 비교(&C)"
 
+# ID:376,
+#: MenuEntry
+msgid "&Copy"
+msgstr "복사(&C)"
+
 # ID:101,
 #: ID:101
 msgid "&Copy To..."
@@ -243,6 +248,7 @@ msgstr "가상 실행(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "편집(&E)"
 
@@ -271,6 +277,10 @@ msgstr "외부(&E)"
 #: MenuEntry
 msgid "&File"
 msgstr "파일(&F)"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "찾기(&F)"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -2451,6 +2461,13 @@ msgstr "pre-1.2 저장소 서버이후부터 커밋로그를 가져오는데 속
 # ID:195,
 #: ID:195
 msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr "병합 대화상자에서 원본의 URL을 마지막 사용했던 URL대신 선택한 작업사본의 URL로 초기화합니다."
+
+# ID:195,
+#: ID:195
+msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
@@ -2802,6 +2819,7 @@ msgstr "최대"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "병합"
 
@@ -5053,6 +5071,11 @@ msgstr "위치 막대에서 돋보기 사용"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "수정한 사람을 보기위해 텍스트 뷰어 사용"
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용"
 
 # Control-ID:1073,
 #: Control-ID:1073
