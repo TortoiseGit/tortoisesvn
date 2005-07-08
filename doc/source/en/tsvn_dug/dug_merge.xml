@@ -133,6 +133,14 @@ Rev Comments
 						<emphasis>both</emphasis> be filled in for you.
 					</para>
 					<para>
+						When the <guilabel>Use "From:" URL</guilabel> checkbox is
+						checked, only one <guibutton>Show Log</guibutton> button
+						is enabled. This is because the Show Log dialog sets both
+						<guilabel>From:</guilabel> and <guilabel>To:</guilabel>
+						revisions, so you need to use the multiple selection method
+						outlined above.
+					</para>
+					<para>
 						If you have already merged some changes from this branch,
 						hopefully you will have made a note of the last revision
 						merged in the log message when you committed the change.

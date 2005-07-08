@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-06-30 08:54Westeuropäische Sommerzeit\n"
+"POT-Creation-Date: 2005-07-08 13:59GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1085,123 +1085,127 @@ msgstr ""
 msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and gives you fewer options: <placeholder-2/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:209(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:207(para) 
+msgid "If you select multiple consecutive revisions (using the usual <keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers), the context menu will include an entry to Revert all changes which were made in that range of revisions. This is the easiest way to rollback a group of revisions in one go."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:216(title) 
 msgid "The Log Dialog Bottom Pane with Context Menu"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:215(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:222(para) 
 msgid "Show differences made in the selected revision for the selected file. This context menu is only available for files shown as <literal>Modified</literal>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:222(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:229(para) 
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:228(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:235(para) 
 msgid "Revert the changes made to the selected file in that revision."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:233(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:240(para) 
 msgid "View the Subversion properties for the selected item."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:238(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:245(para) 
 msgid "Show the revision log for the selected single file."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:243(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:250(para) 
 msgid "Save the selected revision to a file so you have an older version of that file."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:207(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:214(para) 
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:252(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:259(title) 
 msgid "Getting more log messages"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:258(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:265(para) 
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-DUG-settings\"/>),"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:273(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:280(para) 
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:282(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:289(para) 
 msgid "This option is normally unchecked by default, except when the Show Log dialog is invoked from within the Merge dialog."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:287(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:294(para) 
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:253(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:260(para) 
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:296(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:303(para) 
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:301(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:308(para) 
 msgid "If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Get All</guibutton>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:307(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:314(title) 
 msgid "Changing the Log Message and Author"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:309(primary) 
+#: source/en/tsvn_dug/dug_showlog.xml:316(primary) 
 msgid "edit log/author"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:311(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:318(para) 
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:318(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:325(para) 
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:331(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:338(para) 
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:337(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:344(para) 
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:347(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:354(title) 
 msgid "Filtering Log Messages"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:349(primary) 
+#: source/en/tsvn_dug/dug_showlog.xml:356(primary) 
 msgid "filter"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:351(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:358(para) 
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:360(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:367(para) 
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:367(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:374(title) 
 msgid "Statistical Information"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:369(primary) 
+#: source/en/tsvn_dug/dug_showlog.xml:376(primary) 
 msgid "statistics"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:371(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:378(para) 
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:379(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:386(para) 
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
 msgstr ""
 
@@ -1465,183 +1469,191 @@ msgstr ""
 msgid "The Check for Modifications dialog checks the working copy by default, and only contacts the repository when you click <guibutton>Check repository</guibutton>. If you always want to check the repository, you can use this setting to make that action happen automatically."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:391(title) 
+#: source/en/tsvn_dug/dug_settings.xml:387(term) 
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:389(para) 
+msgid "In the merge dialog, the default behaviour is for the <guilabel>From:</guilabel> URL to be remembered between merges. However, some people like to perform merges from many different points in their hierarchy, and find it easier to start out with the URL of the current working copy. This can then be edited to refer to a parallel path on another branch."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:405(title) 
 msgid "Network Settings"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:393(primary) 
+#: source/en/tsvn_dug/dug_settings.xml:407(primary) 
 msgid "proxy server"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:397(title) 
+#: source/en/tsvn_dug/dug_settings.xml:411(title) 
 msgid "The Settings Dialog, Network Page"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:395(para) 
+#: source/en/tsvn_dug/dug_settings.xml:409(para) 
 msgid "<placeholder-1/> Here you can configure your proxy server, if you need one to get through your company's firewall."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:403(para) 
+#: source/en/tsvn_dug/dug_settings.xml:417(para) 
 msgid "You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository. We recommend that you use TortoisePlink.exe. This is a version of the popular Plink program, and is included with TortoiseSVN."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:411(title) 
+#: source/en/tsvn_dug/dug_settings.xml:425(title) 
 msgid "External Program Settings"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:414(title) 
+#: source/en/tsvn_dug/dug_settings.xml:428(title) 
 msgid "The Settings Dialog, Diff Viewer Page"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:412(para) 
+#: source/en/tsvn_dug/dug_settings.xml:426(para) 
 msgid "<placeholder-1/> Here you can define your own diff/merge programs that TortoiseSVN should use. The basic setting is to use the builtin TortoiseMerge which is installed alongside TortoiseSVN."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:423(title) 
+#: source/en/tsvn_dug/dug_settings.xml:437(title) 
 msgid "Diff Viewer"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:436(term) source/en/tsvn_dug/dug_settings.xml:513(term) 
+#: source/en/tsvn_dug/dug_settings.xml:450(term) source/en/tsvn_dug/dug_settings.xml:527(term) 
 msgid "%base"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:438(para) 
+#: source/en/tsvn_dug/dug_settings.xml:452(para) 
 msgid "The original file without your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:444(term) source/en/tsvn_dug/dug_settings.xml:522(term) 
+#: source/en/tsvn_dug/dug_settings.xml:458(term) source/en/tsvn_dug/dug_settings.xml:536(term) 
 msgid "%bname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:446(para) source/en/tsvn_dug/dug_settings.xml:524(para) 
+#: source/en/tsvn_dug/dug_settings.xml:460(para) source/en/tsvn_dug/dug_settings.xml:538(para) 
 msgid "The window title for the base file"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:452(term) source/en/tsvn_dug/dug_settings.xml:530(term) 
+#: source/en/tsvn_dug/dug_settings.xml:466(term) source/en/tsvn_dug/dug_settings.xml:544(term) 
 msgid "%mine"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:454(para) 
+#: source/en/tsvn_dug/dug_settings.xml:468(para) 
 msgid "Your own file, with your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:460(term) source/en/tsvn_dug/dug_settings.xml:538(term) 
+#: source/en/tsvn_dug/dug_settings.xml:474(term) source/en/tsvn_dug/dug_settings.xml:552(term) 
 msgid "%yname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:462(para) source/en/tsvn_dug/dug_settings.xml:540(para) 
+#: source/en/tsvn_dug/dug_settings.xml:476(para) source/en/tsvn_dug/dug_settings.xml:554(para) 
 msgid "The window title for your file"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:425(para) 
+#: source/en/tsvn_dug/dug_settings.xml:439(para) 
 msgid "An external diff program may be used for comparing different revisions of files. The external program will need to obtain the filenames from the command line, along with any other command line options. TortoiseSVN uses substitution parameters prefixed with <literal>%</literal>. When it encounters one of these it will substitute the appropriate value. The order of the parameters will depend on the Diff program you use. <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:469(para) 
+#: source/en/tsvn_dug/dug_settings.xml:483(para) 
 msgid "The window titles are not pure filenames. TortoiseSVN treats that as a name to display and creates the names accordingly. So e.g. if you're doing a diff from a file in revision 123 with a file in your working copy, the names will be <filename>filename : revision 123</filename> and <filename>filename : working copy</filename>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:479(para) 
+#: source/en/tsvn_dug/dug_settings.xml:493(para) 
 msgid "For example, with ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:489(para) 
+#: source/en/tsvn_dug/dug_settings.xml:503(para) 
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BAsE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:505(title) 
+#: source/en/tsvn_dug/dug_settings.xml:519(title) 
 msgid "Merge Tool"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:515(para) 
+#: source/en/tsvn_dug/dug_settings.xml:529(para) 
 msgid "the original file without your or the others changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:532(para) 
+#: source/en/tsvn_dug/dug_settings.xml:546(para) 
 msgid "your own file, with your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:546(term) 
+#: source/en/tsvn_dug/dug_settings.xml:560(term) 
 msgid "%theirs"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:548(para) 
+#: source/en/tsvn_dug/dug_settings.xml:562(para) 
 msgid "the file as it is in the repository"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:554(term) 
+#: source/en/tsvn_dug/dug_settings.xml:568(term) 
 msgid "%tname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:556(para) 
+#: source/en/tsvn_dug/dug_settings.xml:570(para) 
 msgid "The window title for the file in the repository"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:562(term) 
+#: source/en/tsvn_dug/dug_settings.xml:576(term) 
 msgid "%merged"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:564(para) 
+#: source/en/tsvn_dug/dug_settings.xml:578(para) 
 msgid "the conflicted file, the result of the merge operation"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:571(term) 
+#: source/en/tsvn_dug/dug_settings.xml:585(term) 
 msgid "%mname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:573(para) 
+#: source/en/tsvn_dug/dug_settings.xml:587(para) 
 msgid "The window title for the merged file"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:507(para) 
+#: source/en/tsvn_dug/dug_settings.xml:521(para) 
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:580(para) 
+#: source/en/tsvn_dug/dug_settings.xml:594(para) 
 msgid "For example, with Perforce WinMerge: <screen>\nC:\\Path-To\\P4WinMrg.exe %base %theirs %mine %merged\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:592(title) 
+#: source/en/tsvn_dug/dug_settings.xml:606(title) 
 msgid "Unified Diff Viewer"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:594(para) 
+#: source/en/tsvn_dug/dug_settings.xml:608(para) 
 msgid "A viewer program for unified-diff files (patch files). If you don't have one the builtin option is to use NotePad. No parameters are required."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:599(para) 
+#: source/en/tsvn_dug/dug_settings.xml:613(para) 
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:614(title) 
+#: source/en/tsvn_dug/dug_settings.xml:628(title) 
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:612(para) 
+#: source/en/tsvn_dug/dug_settings.xml:626(para) 
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for .jpg files :-)"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:623(title) 
+#: source/en/tsvn_dug/dug_settings.xml:637(title) 
 msgid "TortoiseSVN's Sounds"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:625(primary) 
+#: source/en/tsvn_dug/dug_settings.xml:639(primary) 
 msgid "sounds"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:630(listitem) 
+#: source/en/tsvn_dug/dug_settings.xml:644(listitem) 
 msgid "Error"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:633(listitem) 
+#: source/en/tsvn_dug/dug_settings.xml:647(listitem) 
 msgid "Notice"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:636(listitem) 
+#: source/en/tsvn_dug/dug_settings.xml:650(listitem) 
 msgid "Warning"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:627(para) 
+#: source/en/tsvn_dug/dug_settings.xml:641(para) 
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel, not the TortoiseSVN settings dialog."
 msgstr ""
 
@@ -2106,18 +2118,22 @@ msgid "The easiest way to select the range of revisions you need is to click on 
 msgstr ""
 
 #: source/en/tsvn_dug/dug_merge.xml:135(para) 
+msgid "When the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked, only one <guibutton>Show Log</guibutton> button is enabled. This is because the Show Log dialog sets both <guilabel>From:</guilabel> and <guilabel>To:</guilabel> revisions, so you need to use the multiple selection method outlined above."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_merge.xml:143(para) 
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Use the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 39."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:148(para) 
+#: source/en/tsvn_dug/dug_merge.xml:156(para) 
 msgid "If you have not used <guibutton>Show Log</guibutton> to select the revision range, then you will need to set the <guilabel>To Revision</guilabel> manually. Enter the last revision number in the range you want to merge. Often this will be the HEAD revision, although it doesn't need to be - you may just want to merge a single revision."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:156(para) 
+#: source/en/tsvn_dug/dug_merge.xml:164(para) 
 msgid "If other people may be committing changes then be careful about using the HEAD revision. It may not refer to the revision you think it does if someone else made a commit after your last update."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:164(para) source/en/tsvn_dug/dug_merge.xml:272(para) source/en/tsvn_app_howto.xml:216(para) 
+#: source/en/tsvn_dug/dug_merge.xml:172(para) source/en/tsvn_dug/dug_merge.xml:280(para) source/en/tsvn_app_howto.xml:216(para) 
 msgid "Click <guibutton>OK</guibutton> to complete the merge."
 msgstr ""
 
@@ -2125,67 +2141,67 @@ msgstr ""
 msgid "<placeholder-1/> To merge revisions you need to go to a working copy of the branch in which you want to receive the changes, often the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-2/> The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:173(para) 
+#: source/en/tsvn_dug/dug_merge.xml:181(para) 
 msgid "When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. Unfortunately merge information is not stored by Subversion. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:189(para) 
+#: source/en/tsvn_dug/dug_merge.xml:197(para) 
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:196(para) 
+#: source/en/tsvn_dug/dug_merge.xml:204(para) 
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder url for the merge."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:207(title) 
+#: source/en/tsvn_dug/dug_merge.xml:215(title) 
 msgid "Merging Two Different Trees"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:208(para) 
+#: source/en/tsvn_dug/dug_merge.xml:216(para) 
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:229(para) 
+#: source/en/tsvn_dug/dug_merge.xml:237(para) 
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:240(para) 
+#: source/en/tsvn_dug/dug_merge.xml:248(para) 
 msgid "Because you are comparing two different trees, make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is <emphasis>not</emphasis> checked."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:247(para) 
+#: source/en/tsvn_dug/dug_merge.xml:255(para) 
 msgid "In the <guilabel>To:</guilabel> field enter the full folder url of the feature branch."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:253(para) 
+#: source/en/tsvn_dug/dug_merge.xml:261(para) 
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:263(para) 
+#: source/en/tsvn_dug/dug_merge.xml:271(para) 
 msgid "You can also use <guibutton>Show Log</guibutton> to select the revision. Note that in this case you are not selecting a range of revisions, so the revision you select there is what will actually appear in the <guilabel>Revision</guilabel> field."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:218(para) 
+#: source/en/tsvn_dug/dug_merge.xml:226(para) 
 msgid "To merge the feature branch back into the trunk you need to go to a working copy of the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:278(para) 
+#: source/en/tsvn_dug/dug_merge.xml:286(para) 
 msgid "In this case you will not need the feature branch again because the new feature is now integrated into the trunk. The feature branch is redundant and can be deleted from the repository if required."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:287(title) 
+#: source/en/tsvn_dug/dug_merge.xml:295(title) 
 msgid "Previewing Merge Results"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:288(para) 
+#: source/en/tsvn_dug/dug_merge.xml:296(para) 
 msgid "If you are uncertain about the merge operation, you may want to preview what will happen do before you allow it to change your working copy. There are two additional buttons to help you."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:293(para) 
+#: source/en/tsvn_dug/dug_merge.xml:301(para) 
 msgid "<guibutton>Unified Diff</guibutton> creates the diff file (remember that merge is based on diff) and shows you which lines will be changed in your working copy files. As this is a unified diff (patch) file it is not always easy to read out of context, but for small scale changes it is often helpful."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:300(para) 
+#: source/en/tsvn_dug/dug_merge.xml:308(para) 
 msgid "<guibutton>Dry Run</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
 msgstr ""
 

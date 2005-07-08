@@ -205,6 +205,13 @@
 			</itemizedlist>
 		</para>
 		<para>
+			If you select multiple consecutive revisions (using the usual
+			<keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers),
+			the context menu will include an entry to Revert all changes
+			which were made in that range of revisions. This is the easiest
+			way to rollback a group of revisions in one go.
+		</para>
+		<para>
 			<figure id="tsvn-DUG-showlog-2-dia-2">
 				<title>The Log Dialog Bottom Pane with Context Menu</title>
 				<graphic fileref="images/LogContextMenu2.png"/>

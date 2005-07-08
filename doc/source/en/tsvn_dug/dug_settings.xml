@@ -383,6 +383,20 @@
 						</para>
 					</listitem>
 				</varlistentry>
+				<varlistentry>
+					<term>Use URL of WC as the default "From:" URL</term>
+					<listitem>
+						<para>
+							In the merge dialog, the default behaviour is for the
+							<guilabel>From:</guilabel> URL to be remembered between
+							merges. However, some people like to perform merges from
+							many different points in their hierarchy, and find it easier
+							to start out with the URL of the current working copy.
+							This can then be edited to refer to a parallel path on
+							another branch.
+						</para>
+					</listitem>
+				</varlistentry>
 			</variablelist>
 		</sect3>
 	</sect2>
