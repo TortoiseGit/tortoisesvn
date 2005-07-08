@@ -91,6 +91,8 @@
        is stored. (Stefan)
 - BUG: Reverting an added item removed it from the "Check for modifications"
        dialog instead of marking it as unversioned again. (Stefan)
+- BUG: if a filter was active in the log dialog, the "Next 100" would show
+       all additional messages, ignoring the active filter. (Stefan)
 
 Version 1.2
 

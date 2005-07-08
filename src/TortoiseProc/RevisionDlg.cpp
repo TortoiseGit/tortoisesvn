@@ -90,6 +90,7 @@ void CRevisionDlg::OnOK()
 	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
 	{
 		SVNRev::Create(_T("HEAD"));
+		m_sRevision = _T("HEAD");
 	}
 	if (!IsValid())
 	{
