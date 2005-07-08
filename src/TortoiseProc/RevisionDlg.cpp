@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "RevisionDlg.h"
 #include "Balloon.h"
+#include ".\revisiondlg.h"
 
 
 // CRevisionDlg dialog
@@ -43,8 +44,7 @@ void CRevisionDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CRevisionDlg, CDialog)
-	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
-	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
+	ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
 END_MESSAGE_MAP()
 
 BOOL CRevisionDlg::OnInitDialog()
@@ -54,30 +54,18 @@ BOOL CRevisionDlg::OnInitDialog()
 	if (IsHead())
 	{
 		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
-		GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
 	}
 	else
 	{
 		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
-		GetDlgItem(IDC_REVNUM)->EnableWindow(TRUE);
 		CString sRev;
 		sRev.Format(_T("%ld"), (LONG)(*this));
 		GetDlgItem(IDC_REVNUM)->SetWindowText(sRev);
 	}
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
-}
-
-void CRevisionDlg::OnBnClickedNewest()
-{
-	GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
-}
-
-void CRevisionDlg::OnBnClickedRevisionN()
-{
-	GetDlgItem(IDC_REVNUM)->EnableWindow();
+	GetDlgItem(IDC_REVNUM)->SetFocus();
+	return FALSE;
 }
 
 void CRevisionDlg::OnOK()
@@ -104,4 +92,18 @@ void CRevisionDlg::OnOK()
 	UpdateData(FALSE);
 
 	CDialog::OnOK();
+}
+
+void CRevisionDlg::OnEnChangeRevnum()
+{
+	CString sText;
+	GetDlgItem(IDC_REVNUM)->GetWindowText(sText);
+	if (sText.IsEmpty())
+	{
+		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+	}
+	else
+	{
+		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+	}
 }
