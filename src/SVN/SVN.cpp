@@ -1849,6 +1849,10 @@ void SVN::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 		{
 			mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
 		}
+		else
+		{
+			mine = merge;
+		}
 	}
 	CUtils::StartExtMerge(base,theirs,mine,merge);
 }
