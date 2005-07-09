@@ -361,7 +361,7 @@ void CLogDlg::OnBnClickedNexthundred()
 {
 	UpdateData();
 	// we have to fetch the next hundred log messages.
-	if (m_logEntries.size() <= 1)
+	if (m_logEntries.size() < 1)
 	{
 		// since there weren't any log messages fetched before, just
 		// fetch all since we don't have an 'anchor' to fetch the 'next'
