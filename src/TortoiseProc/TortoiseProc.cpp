@@ -1847,13 +1847,13 @@ void CTortoiseProcApp::CheckUpgrade()
 		{
 			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
 			if (((CString)diffreg).IsEmpty())
-				diffreg = file + _T(" %base %mine");
+				diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine");
 		}
 		if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
 		{
 			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
 			if (((CString)diffreg).IsEmpty())
-				diffreg = file + _T(" %merged %theirs %mine %base");
+				diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base");
 		}
 	}
 
