@@ -478,7 +478,6 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	m_logEntries.push_back(pLogItem);
 	m_arShownList.Add(pLogItem);
 	
-	m_LogList.SetItemCountEx(m_arShownList.GetCount());
 	return TRUE;
 }
 
@@ -544,6 +543,7 @@ UINT CLogDlg::LogThread()
 	{
 		CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
+	m_LogList.SetItemCountEx(m_arShownList.GetCount());
 
 	__time64_t rt = m_tFrom;
 	CTime tim(rt);
@@ -1694,6 +1694,8 @@ void CLogDlg::OnOK()
 void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	*pResult = 0;
+	if (m_bThreadRunning)
+		return;
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
@@ -2033,6 +2035,8 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
+	if (m_bThreadRunning)
+		return;
 	if (pNMLV->iItem >= 0)
 	{
 		m_nSearchIndex = pNMLV->iItem;
