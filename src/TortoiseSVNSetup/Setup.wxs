@@ -447,7 +447,10 @@
       
       <Directory Id="D__DiffScripts" Name="Diff" LongName="Diff-Scripts" >
         <Component Id="C__DiffScripts" Guid="6CD104D3-986D-4fa8-A5C8-8F63C320DC5F" >
-          <File Id="F__doc" Name="diff-doc.vbs" LongName="diff-doc.vbs" src="..\..\contrib\other\diff-scripts\diff-doc.vbs" DiskId="1" KeyPath="yes" />
+          <File Id="F__diffdoc" Name="diff-doc.vbs" LongName="diff-doc.vbs" src="..\..\contrib\other\diff-scripts\diff-doc.vbs" DiskId="1" KeyPath="yes" />
+          <File Id="F__mergedoc" Name="mergedoc.vbs" LongName="merge-doc.vbs" src="..\..\contrib\other\diff-scripts\merge-doc.vbs" DiskId="1" />
+          <File Id="F__diffsxw" Name="diff-sxw.vbs" LongName="diff-sxw.vbs" src="..\..\contrib\other\diff-scripts\diff-sxw.vbs" DiskId="1" />
+          <File Id="F__mergesxw" Name="mergesxw.vbs" LongName="merge-sxw.vbs" src="..\..\contrib\other\diff-scripts\merge-sxw.vbs" DiskId="1" />
         </Component>
       </Directory>
       
