@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-02 20:35+0900\n"
+"PO-Revision-Date: 2005-07-10 14:27+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,60 +34,70 @@ msgstr " "
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "! %d"
 msgstr "! %d"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 contained an unexpected object."
 msgstr "%1 は予期せぬオブジェクトを含んでいます。"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 は不正確なスキーマを含んでいます。"
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 contains an invalid path."
 msgstr "%1 は無効なパスを含んでいます。"
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be created because the directory is full."
 msgstr "ディレクトリがいっぱいなので %1 を作成できません。"
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be opened because there are too many open files."
 msgstr "非常に多くのファイルを開いているため、%1 を開くことができません。"
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 could not be removed because it is the current directory."
 msgstr "%1 はカレントディレクトリのため削除出来ません。"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "%1 has a bad format."
 msgstr "%1 は不完全なフォーマットです。"
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "%1 was not found."
 msgstr "%1 は見つかりませんでした。"
 
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
+#, c-format
 msgid ""
 "%1: %2\n"
 "Continue running script?"
@@ -98,6 +108,7 @@ msgstr ""
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
@@ -109,31 +120,37 @@ msgstr ""
 
 # ID:169,
 #: ID:169
+#, c-format
 msgid "%d files selected, %d files total"
 msgstr "選択ファイル数 %d 、全体ファイル数 %d"
 
 # ID:77,
 #: ID:226
+#, c-format
 msgid "%s - at revision: %d"
 msgstr "%s - リビジョン: %d"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Remote File"
 msgstr "%s : リモートファイル"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Working Base"
 msgstr "%s : 作業ベース"
 
 # ID:151,
 #: ID:151
+#, c-format
 msgid "%s : Working Copy"
 msgstr "%s : 作業コピー"
 
 # ID:145,
 #: ID:145
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -143,6 +160,7 @@ msgstr ""
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "%s\n"
 "is a directory, not a file!\n"
@@ -215,6 +233,11 @@ msgstr "今すぐチェック(&C)"
 msgid "&Compare Revisions"
 msgstr "リビジョンを比較(&C)"
 
+# ID:376,
+#: MenuEntry
+msgid "&Copy"
+msgstr "コピー(&C)"
+
 # ID:101,
 #: ID:101
 msgid "&Copy To..."
@@ -234,6 +257,7 @@ msgstr "動作チェック(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "編集(&E)"
 
@@ -262,6 +286,10 @@ msgstr "外部(&E)"
 #: MenuEntry
 msgid "&File"
 msgstr "ファイル(&F)"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "検索(&F)"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -401,11 +429,10 @@ msgstr "やり直し(&R)"
 msgid "&Remove"
 msgstr "削除(&R)"
 
-# ID:11,#:
-# ID:101,
+# Dlg-ID:151,
 #: ID:101
-msgid "&Rename/Move..."
-msgstr "名前を変更／移動 (&R) ..."
+msgid "&Rename"
+msgstr "名前の変更(&R)"
 
 # ID:113,
 #: ID:113
@@ -541,11 +568,13 @@ msgstr "（属性の変更のみ）"
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "+ %d"
 msgstr "+ %d"
 
 # ID:188,
 #: ID:188
+#, c-format
 msgid "- %d"
 msgstr "- %d"
 
@@ -567,6 +596,7 @@ msgstr "..."
 
 # ID:119,
 #: ID:151
+#, c-format
 msgid ": Revision %d"
 msgstr ": リビジョン %d"
 
@@ -613,12 +643,14 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "%1 にアクセス中にハードウェア I/O エラーが通知されました。"
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A locking violation occurred while accessing %1."
 msgstr "%1 にアクセス中にロック違反が発生しました。"
 
@@ -656,6 +688,7 @@ msgstr "要求されたリソースは利用できませんでした。"
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "A sharing violation occurred while accessing %1."
 msgstr "%1 にアクセス中に共有違反が発生しました。"
 
@@ -706,6 +739,7 @@ msgstr "永久に受理する"
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Access to %1 was denied."
 msgstr "%1 へのアクセスは拒否されました。"
 
@@ -722,7 +756,6 @@ msgstr "タスクリストをアクティブにする"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:155,
-#: ID:8
 #: ID:209
 #: Dlg-ID:155
 msgid "Add"
@@ -748,10 +781,10 @@ msgstr "拡張子に対応したマージプログラムを追加"
 msgid "Add To Ignore List"
 msgstr "無視リストに追加"
 
-# ID:12,
-#: ID:12
-msgid "Add files to Subversion here"
-msgstr "ここのバージョン管理にファイルを追加"
+# Control-ID:1098,
+#: ID:8
+msgid "Add..."
+msgstr "追加 ..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -774,8 +807,14 @@ msgstr "リモート操作によるファイルの追加"
 msgid "Added a folder remotely"
 msgstr "リモート操作によるフォルダの追加"
 
+# ID:126,
+#: ID:126
+msgid "Added items remotely"
+msgstr "リモート操作による項目の追加"
+
 # ID:13,
 #: ID:145
+#, c-format
 msgid ""
 "Added the file(s)\n"
 "%s\n"
@@ -853,23 +892,27 @@ msgstr "全てのファイルはすでにバージョン管理下にあります
 # ID:3868,
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An attempt was made to access %1 past its end."
 msgstr "%1 へのアクセスがその終わりを通り越して行われました。"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "An attempt was made to read from the writing %1."
 msgstr "書き込み中の %1 から読み込もうとしました。"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
+#, c-format
 msgid "An attempt was made to write to the reading %1."
 msgstr "読み取り中の %1 へ書き込みが行われました。"
 
 # ID:78,
 #: ID:78
+#, c-format
 msgid ""
 "An external diff program used\n"
 "for comparing different revisions of files\n"
@@ -887,6 +930,7 @@ msgstr ""
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid ""
 "An external merge program used\n"
 "to resolve conflicted files.\n"
@@ -915,18 +959,21 @@ msgstr "無効な引数に遭遇しました。"
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "An invalid file handle was associated with %1."
 msgstr "無効なファイルハンドルが %1 に関連付けられています。"
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while reading %1."
 msgstr "%1 の読み込み中に予期せぬエラーが発生しました。"
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "An unexpected error occurred while writing %1."
 msgstr "%1 の書き込み中に予期せぬエラーが発生しました。"
 
@@ -941,11 +988,13 @@ msgstr "未知のエラーが発生しました。"
 # ID:3868,
 #: ID:3867
 #: ID:3868
+#, c-format
 msgid "An unknown error occurred while accessing %1."
 msgstr "%1 にアクセス中に未知のエラーが発生しました。"
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "未知の改行コードが、行 %d で見つかりました！"
 
@@ -996,6 +1045,7 @@ msgstr "本当に元に戻してもよろしいですか？ 最後の更新以�
 
 # ID:77,
 #: ID:77
+#, c-format
 msgid "At revision: %d"
 msgstr "リビジョン: %d"
 
@@ -1162,6 +1212,7 @@ msgstr "CAP"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid ""
 "Can't copy \n"
 "%s\n"
@@ -1203,11 +1254,13 @@ msgstr "証明書が期限切れか、もしくは無効です。"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Certificate expired. Valid until: %s"
 msgstr "証明書は期限切れです。 有効期限： %s"
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "証明書は有効ではありません。 有効： %s"
 
@@ -1233,6 +1286,7 @@ msgstr "変更されたファイル"
 
 # ID:163,
 #: ID:163
+#, c-format
 msgid "Changed files: %d"
 msgstr "変更されたファイル: %d"
 
@@ -1241,6 +1295,11 @@ msgstr "変更されたファイル: %d"
 #: ID:3887
 msgid "Check"
 msgstr "チェック"
+
+# ID:13,
+#: Control-ID:65535
+msgid "Check For Modifications"
+msgstr "変更をチェック"
 
 # Dlg-ID:174,
 #: Dlg-ID:174
@@ -1472,8 +1531,14 @@ msgstr "衝突"
 
 # Control-ID:65535,
 #: ID:188
+#, c-format
 msgid "Conflicts: %d"
 msgstr "衝突: %d"
+
+# ID:9,
+#: Control-ID:1227
+msgid "Contact the repository on startup"
+msgstr "スタートアップ時にリポジトリへアクセスする"
 
 # ID:73,
 #: ID:73
@@ -1502,6 +1567,7 @@ msgstr "リモート操作によるコピー"
 
 # ID:80,
 #: ID:103
+#, c-format
 msgid "Copy %s"
 msgstr "%s をコピー"
 
@@ -1525,11 +1591,6 @@ msgstr "作業コピーへコピー ..."
 msgid "Copy URL to clipboard"
 msgstr "URLをクリップボードにコピー"
 
-# ID:13,
-#: ID:13
-msgid "Copy files in Subversion to here"
-msgstr "バージョン管理されたファイルをここにコピー"
-
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -1551,6 +1612,7 @@ msgstr "作業コピーへコピー"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid "Copying %s"
 msgstr "%s をコピー中"
 
@@ -1566,6 +1628,7 @@ msgstr "訂正"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid "Could not add %s to the ignore list!"
 msgstr "%s を無視リストに追加できませんでした！"
 
@@ -1576,6 +1639,7 @@ msgstr "最新のバージョンのチェックができませんでした！"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not copy the files!\n"
 "<hr=100%>\n"
@@ -1592,6 +1656,7 @@ msgstr "状態を取得できませんでした！"
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "Could not open the file\n"
 "%s"
@@ -1601,11 +1666,13 @@ msgstr ""
 
 # ID:81,
 #: ID:82
+#, c-format
 msgid "Could not remove %s from the ignored list"
 msgstr "%s を無視リストから削除できませんでした"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
@@ -1615,6 +1682,7 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, c-format
 msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
@@ -1624,11 +1692,13 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "Could not save the file %s!"
 msgstr "ファイル %s を保存できません！"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%>\n"
@@ -1640,6 +1710,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%>\n"
@@ -1651,6 +1722,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Could not start external merge program!\n"
 "<hr=100%>\n"
@@ -1804,12 +1876,14 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Disk full while accessing %1."
 msgstr "%1 にアクセス中にディスクがいっぱいになりました。"
 
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
+#, c-format
 msgid "Dispatch exception: %1"
 msgstr "ディスパッチ例外: %1"
 
@@ -1856,6 +1930,7 @@ msgstr "このメッセージを再び表示しない"
 
 # ID:76,
 #: ID:76
+#, c-format
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
@@ -1898,20 +1973,10 @@ msgstr "変更を保存しますか？"
 msgid "Documentation - Simon Large"
 msgstr "ドキュメント - Simon Large"
 
-# Control-ID:1217,
-#: Control-ID:1217
-msgid "Don't fetch status for context menu"
-msgstr "コンテキストメニュー用の状態を取得しない"
-
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
 msgstr "このメッセージを再び表示しない"
-
-# Control-ID:1224,
-#: Control-ID:1224
-msgid "Don't use spellchecker if tsvn:projectlanguage is not set"
-msgstr "tsvn:projectlanguage が未設定の場合はスペルチェッカを利用しない"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -2029,6 +2094,7 @@ msgstr "エラー"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "サーバー証明書 %s の確認エラー:"
 
@@ -2046,6 +2112,11 @@ msgstr "除外するパス:"
 #: Control-ID:65535
 msgid "Exclude/Ignore pattern:"
 msgstr "除外／無視するパターン:"
+
+# ID:9,
+#: ID:209
+msgid "Explore to"
+msgstr "調査する"
 
 # ID:94,
 #: ID:94
@@ -2142,6 +2213,11 @@ msgstr "ドキュメントを開くことができませんでした。"
 msgid "Failed to save document."
 msgstr "ドキュメントを保存できませんでした。"
 
+# Control-ID:1217,
+#: Control-ID:1217
+msgid "Fetch status for context menu"
+msgstr "コンテキストメニュー用に状態を取得する"
+
 # ID:313,
 #: ID:313
 msgid "Fetching File..."
@@ -2149,6 +2225,7 @@ msgstr "ファイルを取り出す ..."
 
 # ID:313,
 #: ID:313
+#, c-format
 msgid "Fetching revision %s of file:"
 msgstr "ファイルのリビジョン %s 取得中:"
 
@@ -2245,6 +2322,7 @@ msgstr "ロックを取得 ..."
 
 # ID:119,
 #: ID:119
+#, c-format
 msgid "Getting File %s"
 msgstr "取得ファイル %s"
 
@@ -2323,6 +2401,11 @@ msgstr "リポジトリ内で最新のリビジョン"
 msgid "Help"
 msgstr "ヘルプ"
 
+# Control-ID:1229,
+#: Control-ID:1229
+msgid "Hide unrelated changed paths"
+msgstr "変更されたパスで無関係なものは表示しない"
+
 # Control-ID:65535,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -2330,6 +2413,7 @@ msgstr "ヒント: 選択している部分以降の階層を更新するには 
 
 # ID:82,
 #: ID:82
+#, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "ホスト名が合いません (%s)"
 
@@ -2354,17 +2438,6 @@ msgstr "アイコン／デザイン／コード:     Luebbe Onken"
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "有効にした場合、\"名前をつけて保存\" や \"開く\" ダイアログ内でのオーバーレイを非表示にする"
 
-# ID:195,
-#: ID:195
-msgid ""
-"If activated, then the context menu will show up faster.\n"
-"But some context menu entries will show up which can't really be used.\n"
-"For example: the \"Show Log\" entry will show even for just added folders."
-msgstr ""
-"有効にすると、コンテキストメニューの表示が速くなります。\n"
-"しかし、いくつかのコンテキストメニューは Subversion の状態を取得しないと表示されません。\n"
-"例えば: \"ログを表示\" は追加したばかりのフォルダに対しても表示されます。"
-
 # ID:95,
 #: ID:95
 msgid ""
@@ -2376,8 +2449,19 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
-msgstr "チェックすると、TortoiseSVN は展開していないキーワードと差分をとるためにテンポラリファイルを作成する"
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgstr "チェックすると、TortoiseSVN はキーワード展開後のファイルとの差分や、改行コードの調整を行うために、ベースファイルの一時コピーを作成する"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If disabled, then the context menu will show up faster.\n"
+"But some context menu entries will show up which can't really be used.\n"
+"For example: the \"Show Log\" entry will show even for just added folders."
+msgstr ""
+"無効にすると、コンテキストメニューの表示が速くなります。\n"
+"しかし、いくつかのコンテキストメニューが使用できないのに表示されてしまいます。\n"
+"例えば: \"ログを表示\" は追加したばかりのフォルダに対しても表示されます。"
 
 # ID:194,
 #: ID:194
@@ -2388,6 +2472,15 @@ msgstr "チェックすると、TortoiseSVN は最新のバージョンが利用
 #: ID:195
 msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
 msgstr "有効にすると、バージョン 1.2 以前のリポジトリサーバからログメッセージを取得するスピードが速くなります"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"有効にすると、マージダイアログは最後に利用したURLの代わりに、\n"
+"選択されている作業コピーのURLで \"元:\" URL を初期化します。"
 
 # ID:195,
 #: ID:195
@@ -2410,6 +2503,7 @@ msgstr "無視"
 
 # Control-ID:1021,
 #: ID:15
+#, c-format
 msgid "Ignore %d items"
 msgstr "%d 個の項目を無視する"
 
@@ -2488,6 +2582,11 @@ msgstr "操作を行うのに、十分なメモリがありません。"
 #: ID:3857
 msgid "Internal application error."
 msgstr "内部アプリケーションエラー。"
+
+# ID:102,
+#: ID:102
+msgid "Invalid data object dropped!"
+msgstr "無効なデータオブジェクトがドロップされました！"
 
 # ID:3857,#:
 # ID:3857,
@@ -2647,11 +2746,13 @@ msgstr "ロック所持者:"
 
 # ID:263,
 #: ID:209
+#, c-format
 msgid "Lock stolen by %s"
 msgstr "%s にロックを奪われました"
 
 # ID:263,
 #: ID:263
+#, c-format
 msgid "Locked by %s"
 msgstr "%s がロックしています"
 
@@ -2703,11 +2804,13 @@ msgstr "外観::アイコンセット"
 
 # ID:238,
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
 msgstr "リビジョンの範囲: %ld - %ld"
 
 # ID:238,
 #: ID:238
+#, c-format
 msgid "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
 msgstr "開始リビジョン: %ld - 最終リビジョン: %ld - 最新リビジョン: %ld"
 
@@ -2733,6 +2836,7 @@ msgstr "最大"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "マージ"
 
@@ -2803,11 +2907,6 @@ msgstr "変更"
 msgid "Most active author:"
 msgstr "最も活発な作者:"
 
-# ID:12,
-#: ID:12
-msgid "Move files in Subversion to here"
-msgstr "バージョン管理されたファイルをここに移動"
-
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -2815,6 +2914,7 @@ msgstr "リモート操作による移動"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid "Moving %s"
 msgstr "%s を移動中"
 
@@ -2843,6 +2943,11 @@ msgstr "NUM"
 msgid "Native Filesystem (FSFS)"
 msgstr "Native Filesystem (FSFS)"
 
+# ID:73,
+#: ID:210
+msgid "Nested"
+msgstr "入れ子"
+
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
@@ -2859,6 +2964,12 @@ msgstr "新規"
 msgid "New Name:"
 msgstr "新しい名前:"
 
+# ID:97,
+#: ID:97
+#, c-format
+msgid "New name for %s"
+msgstr "%s の新しい名前"
+
 # ID:73,
 #: ID:73
 msgid "No"
@@ -2866,6 +2977,7 @@ msgstr "いいえ"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "No command specified!\n"
 "<hr=100%>\n"
@@ -2929,8 +3041,19 @@ msgstr "グラフは利用できません"
 
 # ID:273,
 #: ID:273
+#, c-format
 msgid "No image encoder found for %s."
 msgstr "%s に対する画像エンコーダが見つかりません。"
+
+# ID:188,
+#: ID:188
+msgid "No spell corrections"
+msgstr "スペルの訂正はありません"
+
+# ID:188,
+#: ID:188
+msgid "No thesaurus suggestions"
+msgstr "シソーラスからの提案はありません"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2998,6 +3121,11 @@ msgstr "数値のみ（コンマで分割可能）が入力可能です！"
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "トップフォルダのみ更新する"
+
+# Control-ID:1224,
+#: Control-ID:1224
+msgid "Only use spellchecker when tsvn:projectlanguage is set"
+msgstr "tsvn:projectlanguage が設定されている場合はスペルチェッカを利用する"
 
 # ID:3841,#:
 # ID:101,#:
@@ -3119,6 +3247,7 @@ msgstr "日付を入力してください。"
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter a number between %1 and %2."
 msgstr "%1 ～ %2 の間の数値を入力してください。"
 
@@ -3143,6 +3272,7 @@ msgstr "時刻を入力してください。"
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter an integer between %1 and %2."
 msgstr "%1 ～ %2 の間の整数値を入力してください。"
 
@@ -3161,6 +3291,7 @@ msgstr "整数値を入力してください。"
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
+#, c-format
 msgid "Please enter no more than %1 characters."
 msgstr "%1 文字以上を入力してください。"
 
@@ -3215,6 +3346,7 @@ msgstr "しばらくお待ちください ..."
 
 # ID:132,
 #: ID:132
+#, c-format
 msgid "Processing revision %d of %d..."
 msgstr "処理中のリビジョン %d / %d ..."
 
@@ -3400,6 +3532,7 @@ msgstr "ファイル／フォルダを削除"
 
 # ID:13,
 #: ID:145
+#, c-format
 msgid ""
 "Removed the file(s)\n"
 "%s\n"
@@ -3421,6 +3554,7 @@ msgstr "名前の変更"
 
 # ID:97,
 #: ID:97
+#, c-format
 msgid "Rename %s"
 msgstr "%s の名前を変更"
 
@@ -3429,6 +3563,11 @@ msgstr "%s の名前を変更"
 #: ID:11
 msgid "Rename..."
 msgstr "名前を変更 ..."
+
+# ID:126,
+#: ID:126
+msgid "Renamed remotely"
+msgstr "リモート操作による名前の変更"
 
 # ID:11,
 #: ID:11
@@ -3541,6 +3680,7 @@ msgstr "リビジョン"
 
 # ID:119,
 #: ID:119
+#, c-format
 msgid "Revision %d"
 msgstr "リビジョン %d"
 
@@ -3548,6 +3688,7 @@ msgstr "リビジョン %d"
 #: ID:269
 #: ID:270
 #: ID:271
+#, c-format
 msgid "Revision %ld"
 msgstr "リビジョン %ld"
 
@@ -3587,6 +3728,11 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+# ID:12,
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN この作業コピーにファイルを追加する"
+
 # ID:77,
 #: ID:77
 msgid "SVN Add..."
@@ -3607,10 +3753,30 @@ msgstr "SVN チェックアウト中 ..."
 msgid "SVN Commit..."
 msgstr "SVN コミット中 ..."
 
+# Control-ID:1073,
+#: ID:16
+msgid "SVN Copy and Rename versioned files here"
+msgstr "SVN バージョン管理ファイルをここにコピーし名前を変更する"
+
+# Control-ID:1073,
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN バージョン管理ファイルをここにコピーする"
+
 # ID:78,
 #: ID:78
 msgid "SVN Copy..."
 msgstr "SVN コピー中 ..."
+
+# ID:13,
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN ここに全てをエクスポートする"
+
+# ID:78,
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN ここにエクスポートする"
 
 # ID:78,
 #: ID:78
@@ -3631,6 +3797,11 @@ msgstr "SVN ロック所持者"
 #: ID:78
 msgid "SVN Merge..."
 msgstr "SVN マージ中 ..."
+
+# Control-ID:1073,
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN バージョン管理ファイルをここに移動する"
 
 # Dlg-ID:134,
 #: Dlg-ID:134
@@ -3723,6 +3894,7 @@ msgstr "名前をつけて保存 ..."
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "Save changes to %1?"
 msgstr "変更を %1 へ保存しますか？"
 
@@ -3748,6 +3920,7 @@ msgstr "ファイルを保存中"
 
 # ID:144,
 #: ID:103
+#, c-format
 msgid "Saving file %s"
 msgstr "ファイル %s を保存中"
 
@@ -3774,6 +3947,7 @@ msgstr "ログメッセージを検索(&L) ..."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
+#, c-format
 msgid "Seek failed on %1"
 msgstr "%1 のシークに失敗しました。"
 
@@ -3928,6 +4102,7 @@ msgstr "差分を表示(&D)"
 # Control-ID:1031,#:
 # Control-ID:1034,
 #: ID:101
+#: Control-ID:1228
 #: Control-ID:1031
 #: Control-ID:1034
 #: Control-ID:1132
@@ -4144,16 +4319,6 @@ msgstr "Subversion の認証データ:"
 msgid "Subversion configuration file:"
 msgstr "Subversion の設定ファイル:"
 
-# ID:13,
-#: ID:14
-msgid "Subversion export all here"
-msgstr "バージョン管理されたファイルを全てここにエクスポート"
-
-# ID:13,
-#: ID:14
-msgid "Subversion export here"
-msgstr "バージョン管理されたファイルをここにエクスポート"
-
 # ID:79,
 #: ID:79
 msgid ""
@@ -4165,6 +4330,7 @@ msgstr ""
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "<hr=100%>\n"
@@ -4244,6 +4410,7 @@ msgstr "タブ幅:"
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid "Tagged the working copy to %s"
 msgstr "作業コピーを %s へタグ付けしました。"
 
@@ -4259,6 +4426,7 @@ msgstr "テキストの状態:"
 
 # ID:69,
 #: ID:69
+#, c-format
 msgid ""
 "The File\n"
 "%s\n"
@@ -4282,11 +4450,13 @@ msgstr "チャンクのサイズは追加／削除した行数と合いません
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "\"@@\" で始まる部分は、行 %d だと思われます！"
 
 # ID:68,
 #: ID:68
+#, c-format
 msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
@@ -4296,11 +4466,13 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "The file %s does not exist!"
 msgstr "ファイル %s は存在していません！"
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "ファイル %s はパッチファイル内で見つかりませんでした！"
 
@@ -4312,6 +4484,7 @@ msgstr "ファイルが大きすぎて開けません。"
 
 # ID:145,
 #: ID:145
+#, c-format
 msgid ""
 "The file or folder\n"
 "%s\n"
@@ -4323,6 +4496,7 @@ msgstr ""
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid ""
 "The file\n"
 "%s\n"
@@ -4334,6 +4508,7 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, c-format
 msgid ""
 "The folder \n"
 "%s\n"
@@ -4347,6 +4522,7 @@ msgstr ""
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr "行 \"====\" は行 %d だと思われます！"
 
@@ -4361,11 +4537,13 @@ msgstr ""
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "新しいファイルを示している行は、行 %d だと思われます！"
 
 # ID:63,
 #: ID:63
+#, c-format
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "古いファイルを示している行は、行 %d だと思われます！"
 
@@ -4385,6 +4563,7 @@ msgstr ""
 
 # ID:64,
 #: ID:64
+#, c-format
 msgid ""
 "The patch seems outdated! The file line\n"
 "%s\n"
@@ -4415,6 +4594,7 @@ msgstr ""
 
 # ID:314,
 #: ID:314
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -4453,6 +4633,18 @@ msgstr ""
 "ターゲットフォルダは空ではありません！\n"
 "本当にそのフォルダにチェックアウト／エクスポートしてもよろしいですか？"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target url\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"ターゲットのURL\n"
+"%s\n"
+"はすでに存在しています！"
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -4471,6 +4663,7 @@ msgstr "ファイルのロックを所持しているユーザ"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "The working copy has changed!\n"
 "<hr=100%>\n"
@@ -4505,6 +4698,7 @@ msgstr ""
 
 # ID:66,
 #: ID:66
+#, c-format
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "You should resolve those conflicts first before saving.\n"
@@ -4540,12 +4734,14 @@ msgstr "本製品は、CollabNet (http://www.Collab.Net/) で開発されたソ�
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "このプログラムは %s （ファイル %s）へリンクされています。 この計算機は %s とは互換性のないバージョンの可能性があります。"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
+#, c-format
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "このプログラムはファイル %s を必要としますが、このシステム上で見つけることができませんでした。"
 
@@ -4595,11 +4791,13 @@ msgstr "TortoiseMerge"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -4623,11 +4821,13 @@ msgstr "TortoiseSVN"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
+#, c-format
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -4712,6 +4912,7 @@ msgstr "URL: "
 
 # ID:272,
 #: ID:272
+#, c-format
 msgid ""
 "URL: %s\r\n"
 "Author: %s\r\n"
@@ -4736,6 +4937,7 @@ msgstr "メールシステムサポートをロードできません。"
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "Unable to read from %1, it is opened by someone else."
 msgstr "%1 から読み込めません。他の誰かが開いています。"
 
@@ -4754,6 +4956,7 @@ msgstr "読み込み専用属性のため書き込めません。"
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
+#, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "%1 に書き込めません。読み取り専用か、他の誰かが開いています。"
 
@@ -4787,6 +4990,7 @@ msgstr "最新のリビジョンに対するUnified形式での差分(&D)"
 
 # ID:81,
 #: ID:81
+#, c-format
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %s\n"
@@ -4886,10 +5090,15 @@ msgstr "位置指定バー上の拡大ツールを利用する"
 msgid "Use Text viewer to view blames"
 msgstr "変更履歴を見るためにテキストビューアを用いる"
 
-# Control-ID:65535,
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "作業コピーのURLを \"元:\" のデフォルトURLとして利用する"
+
+# Control-ID:1073,
 #: Control-ID:1073
-msgid "Use \"From:\" URL"
-msgstr "\"From:\" の URL を利用する"
+msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+msgstr "\"元:\" URLを利用する（ログダイアログでリビジョン範囲の選択が可能）"
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -5029,6 +5238,7 @@ msgstr "作業コピー"
 
 # ID:80,
 #: ID:80
+#, c-format
 msgid ""
 "Working copy relocated to\n"
 "%s"
@@ -5076,6 +5286,36 @@ msgstr ""
 "これは、リポジトリを破壊する可能性があります！！\n"
 "本当に実行しますか？"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You copied more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
+"individually, creating a new revision for every copied item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"１つ以上のファイルもしくはフォルダをコピーしました。\n"
+"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル／フォルダを\n"
+"別々にコピーし、コピーされた項目毎に新しいリビジョンを作成します。\n"
+"\n"
+"この処理を実行してもよろしいですか？"
+
+# ID:105,
+#: ID:105
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"リポジトリへ追加するために１つ以上のファイルもしくはフォルダがドロップされました。\n"
+"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル／フォルダを\n"
+"別々に追加し、追加された項目毎に新しいリビジョンを作成します。\n"
+"\n"
+"この処理を実行してもよろしいですか？"
+
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
@@ -5090,6 +5330,21 @@ msgstr ""
 "issue 番号が入力されていません！\n"
 "issue 番号無しでコミットを行ってもよろしいですか？"
 
+# ID:105,
+#: ID:105
+msgid ""
+"You moved more than one file or folder.\n"
+"It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
+"individually, creating a new revision for every moved item.\n"
+"\n"
+"Do you still want to do this?"
+msgstr ""
+"１つ以上のファイルもしくはフォルダを移動しました。\n"
+"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル／フォルダを\n"
+"別々に移動し、移動された項目毎に新しいリビジョンを作成します。\n"
+"\n"
+"この処理を実行してもよろしいですか？"
+
 # ID:77,
 #: ID:77
 msgid ""
@@ -5101,6 +5356,7 @@ msgstr ""
 
 # ID:195,
 #: ID:195
+#, c-format
 msgid ""
 "You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
@@ -5112,10 +5368,14 @@ msgstr ""
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
-"You should first switch to a branch or the main trunk before committing."
+"You should first switch to a branch or the main trunk before committing.\n"
+"\n"
+"Do you want to commit anyway?"
 msgstr ""
-"作業コピーが tag パスを指しています！\n"
-"まず、コミットする前に分岐もしくは本体へ切り替えてください。"
+"作業コピーがタグのパスを指しています！\n"
+"まず、コミットする前に分岐もしくは本体へ切り替えてください。\n"
+"\n"
+"本当にコミットしてもよろしいですか？"
 
 # ID:88,
 #: ID:88
@@ -5191,6 +5451,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
@@ -5211,6 +5472,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
@@ -5243,6 +5505,7 @@ msgstr "最新のバージョン:"
 
 # ID:201,
 #: ID:201
+#, c-format
 msgid "current version is: %s"
 msgstr "最新のバージョン: %s"
 
@@ -5253,6 +5516,7 @@ msgstr "削除"
 
 # ID:79,
 #: ID:79
+#, c-format
 msgid ""
 "exported\n"
 "%s\n"
@@ -5440,6 +5704,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 #: ID:103
+#, c-format
 msgid "to %s"
 msgstr "%s へ"
 
@@ -5521,6 +5786,7 @@ msgstr "現在使用中のバージョン:"
 
 # ID:201,
 #: ID:201
+#, c-format
 msgid "your version is: %d.%d.%d.%d"
 msgstr "現在使用中のバージョン: %d.%d.%d.%d"
 

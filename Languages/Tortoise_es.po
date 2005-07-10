@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-27 16:13+0100\n"
+"PO-Revision-Date: 2005-07-09 16:32+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -193,6 +193,11 @@ msgstr "&Comprobar Ahora"
 msgid "&Compare Revisions"
 msgstr "&Comparar revisiones"
 
+# ID:376,
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Copiar"
+
 #: ID:101
 msgid "&Copy To..."
 msgstr "&Copiar a..."
@@ -207,6 +212,7 @@ msgid "&Dry Run"
 msgstr "&Simular"
 
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "&Editar"
 
@@ -232,6 +238,10 @@ msgstr "&Externo"
 #: MenuEntry
 msgid "&File"
 msgstr "&Archivo"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Buscar"
 
 #: Control-ID:1050
 msgid "&Fixed drives"
@@ -2077,6 +2087,15 @@ msgstr "Si se habilita, acelera la obtención de mensajes de registro de servido
 # ID:195,
 #: ID:195
 msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Si se habilita, el diálogo Combinar inicializa la URL \"Desde:\" con la URL de la copia de trabajo seleccionada\n"
+"en vez de la URL que utilizó la última vez."
+
+# ID:195,
+#: ID:195
+msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr "Si está marcado, TortoiseSVN asignará a los ficheros la hora de la última Actualización. Si no esta marcado TortoiseSVN utilizará la hora actual."
@@ -2392,6 +2411,7 @@ msgid "Max"
 msgstr "Máx"
 
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "Combinar"
 
@@ -4298,6 +4318,11 @@ msgstr "Usar Ampliador en Barra de Localización"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "Usar visor de texto para ver autorías"
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Utilizar URL de la Copia de Trabajo como la URL \"Desde:\" por defecto"
 
 # Control-ID:1073,
 #: Control-ID:1073
