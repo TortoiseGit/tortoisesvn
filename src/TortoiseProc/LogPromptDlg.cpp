@@ -644,7 +644,7 @@ void CLogPromptDlg::GetAutocompletionList()
 			if ((!m_bRunThread)||(GetTickCount()>timeout))
 				return;
 			const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
-			if ((entry)&&(entry->IsChecked()))
+			if (entry)
 			{
 				// add the path parts to the autocompletion list too
 				CString sPartPath = entry->GetRelativeSVNPath();
@@ -656,17 +656,20 @@ void CLogPromptDlg::GetAutocompletionList()
 					pos++;
 					m_autolist.AddSorted(sPartPath.Mid(pos));
 				}
-				CString sExt = entry->GetPath().GetFileExtension();
-				sExt.MakeLower();
-				CString sRegex;
-				// find the regex string which corresponds to the file extension
-				sRegex = mapRegex[sExt];
-				if (!sRegex.IsEmpty())
+				if (entry->IsChecked())
 				{
-					ScanFile(entry->GetPath().GetWinPathString(), sRegex, rflags);
-					CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
-					if (!basePath.IsEmpty())
-						ScanFile(basePath.GetWinPathString(), sRegex, rflags);
+					CString sExt = entry->GetPath().GetFileExtension();
+					sExt.MakeLower();
+					CString sRegex;
+					// find the regex string which corresponds to the file extension
+					sRegex = mapRegex[sExt];
+					if (!sRegex.IsEmpty())
+					{
+						ScanFile(entry->GetPath().GetWinPathString(), sRegex, rflags);
+						CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
+						if (!basePath.IsEmpty())
+							ScanFile(basePath.GetWinPathString(), sRegex, rflags);
+					}
 				}
 			}
 		}
