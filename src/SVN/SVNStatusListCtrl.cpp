@@ -1404,7 +1404,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (m_dwContextMenus & SVNSLC_POPDELETE)
 					{
-						temp.LoadString(IDS_REPOBROWSE_DELETE);
+						temp.LoadString(IDS_MENUREMOVE);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
 					}
 					if (m_dwContextMenus & SVNSLC_POPADD)
