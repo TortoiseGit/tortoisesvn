@@ -1260,7 +1260,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					const NotificationData * data = m_arData[selIndex];
 					if ((data)&&(!data->path.IsDirectory()))
 					{
-						if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command)))
+						if (data->action == svn_wc_notify_update_update)
 						{
 							temp.LoadString(IDS_LOG_POPUP_COMPARE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
@@ -1270,7 +1270,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITCONFLICT, temp);
 								popup.SetDefaultItem(ID_EDITCONFLICT, FALSE);
 							}
-							else
+							else if ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command))
 								popup.SetDefaultItem(ID_COMPARE, FALSE);
 
 							temp.LoadString(IDS_MENULOG);
