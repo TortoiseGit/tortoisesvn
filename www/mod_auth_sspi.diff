@@ -1,0 +1,49 @@
+Index: interface.c
+===================================================================
+--- interface.c	(revision 7)
++++ interface.c	(revision 8)
+@@ -238,14 +238,38 @@
+ {
+     char *decoded;
+ 
+-    *decodelength = apr_base64_decode_len(data);
+-    decoded = apr_palloc(p, *decodelength);
++    /* -VB- 04/15/2003
++       Bug fix.  Old code calculated length of the decoded string incorrectly, because 
++       apr_base64_decode_len seems to be designed to estimate memory necessary for a decoding
++       buffer and so over estimates the needed size. The proof is the last line of apr_base64_decode_len 
++       "return nbytesdecoded + 1;" which means we always get the extra byte at the end.
++       
++       This explains why SSPI token authentication worked while basic authentication was extremely flaky.
++       
++       The code would work fine for SSPI token authentications because those tokens usually have
++       either predetermined sizes or length is specified inside the token itself.  However, for 
++       basic authentication the string of the form "username:password" would end up looking
++       "username:password{up to 3 bytes of random data}". If the first character happened to be '\0'
++       everything worked fine and would fail otherwise, as the password would not be correct.
++    */
++       
++       
++    // -VB- 04/15/2003 
++    // Initialize value, just in case
++    *decodelength = 0;
++    
++    // -VB- 04/15/2003
++    // Make sure to allocate enough memory plus a byte for terminating '\0'
++    // Don't rely on apr_base64_decode_len to allocate that extra byte since
++    // nowhere in documentation is guaranties that.
++    decoded = apr_palloc(p, apr_base64_decode_len(data) + 1);
+ 
+     if (decoded != NULL) {
+-        if (apr_base64_decode_binary(decoded, data) > 0) {
+-            decoded[(*decodelength) - 1] = '\0';
+-            return decoded;
+-        }
++        // -VB- 04/15/2003
++        // Now save the read decoded size and add a terminating 0
++        *decodelength = apr_base64_decode_binary(decoded, data);
++        decoded[(*decodelength)] = '\0';
++        return decoded;
+     }
+ 
+     return NULL;
