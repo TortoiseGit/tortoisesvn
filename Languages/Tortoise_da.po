@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3812
+# Based on r3838
 #
 msgid ""
 msgstr ""
@@ -1783,6 +1783,10 @@ msgid "If enabled, speeds up fetching log messages from pre-1.2 repository serve
 msgstr "Hvis valgt, så forøges hastigheden, hvormed logbeskeder hentes fra præ-1.2 versionsarkiv-servere"
 
 #: ID:195,
+msgid "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\ninstead of the last used URL."
+msgstr "Hvis valgt, så vil Flet-dialogen initialisere \"Fra:\"-URL'en med URL'en for den valgte arbejdskopi\ni stedet for den sidst brugte URL."
+
+#: ID:195,
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
 msgstr "Hvis valgt, så vil TortoiseSVN sætte tidsstemplerne på filerne til det tidspunkt,\nhvor de sidst blev arkiveret. Hvis ikke valgt, vil TortoiseSVN anvende den aktuelle tid."
 
@@ -2016,7 +2020,7 @@ msgstr "Markerer en fil med konflikter som løst i Subversion\nMarker som løst"
 msgid "Max"
 msgstr "Maks"
 
-#: Dlg-ID:141,
+#: Dlg-ID:141,#: Control-ID:65535,
 msgid "Merge"
 msgstr "Flet"
 
@@ -3531,6 +3535,10 @@ msgstr "Brug forstørrer på lokationslinje"
 #: Control-ID:1126,
 msgid "Use Text viewer to view blames"
 msgstr "Brug et tekst-fremvisningsprogram til at vise ændringsfordelinger"
+
+#: Control-ID:1230,
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Brug URL for arbejdskopi som standard \"Fra:\"-URL"
 
 #: Control-ID:1073,
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"

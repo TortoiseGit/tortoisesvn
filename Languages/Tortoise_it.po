@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-05 10:19+0100\n"
+"PO-Revision-Date: 2005-07-11 21:30+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2465,7 +2465,16 @@ msgstr "Se selezionato TortoiseSVN controlla, una volta alla settimana, la dispo
 # ID:195,
 #: ID:195
 msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Se attivato, velocizza il recupero dei commenti dai server pre-1.2"
+msgstr "Se selezionato, velocizza il recupero dei commenti dai server pre-1.2"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Se selezionato, il dialogo \"Fondi\" proporrà nel campo \"Da:\" l'URL della Copia di lavoro selezionata\n"
+"invece dell'ultimo URL usato. "
 
 # ID:195,
 #: ID:195
@@ -2823,6 +2832,7 @@ msgstr "Massimo"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "Fondi"
 
@@ -5083,6 +5093,11 @@ msgstr "Usa la lente sulla barra di posizionamento"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "Usa l'editor di testo per visualizzare le revisioni non validate"
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Usa l'URL della Copia di lavoro come predefinito per il campo \"Da:\""
 
 # Control-ID:1073,
 #: Control-ID:1073
