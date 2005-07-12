@@ -34,6 +34,10 @@
 - NEW: Option to make the Merge dialog default the "From:" URL to
        the URL of the selected working copy instead of the last used
        URL in the merge. (Stefan)
+- NEW: Separate Explorer column to show the Author. TSVN still uses the
+       normal "Author" column, but since other apps also use this
+       column (e.g. Word, Excel, ...) a separate column is added. (Stefan)
+- NEW: Scripts to diff/merge Word and OO-Write files (Mark Phippard, Stefan)
 - CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
 - CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
 - CHG: Merge dialog: if the 'use from url' is activated, the 'show log'

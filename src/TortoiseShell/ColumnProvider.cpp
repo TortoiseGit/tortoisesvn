@@ -45,7 +45,7 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
 STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
 	PreserveChdir preserveChdir;
-	if (dwIndex > 6)
+	if (dwIndex > 7)
 		return S_FALSE;
 
 	LoadLangDll();
@@ -186,6 +186,27 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
 #endif
 			break;
+		case 7:
+			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
+			psci->scid.pid = dwIndex;
+			psci->vt = VT_BSTR;
+			psci->fmt = LVCFMT_LEFT;
+			psci->cChars = 30;
+			psci->csFlags = ColumnFlags;
+
+			MAKESTRING(IDS_COLTITLEAUTHOR);
+#ifdef UNICODE
+			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
+#else
+			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
+#endif
+			MAKESTRING(IDS_COLDESCAUTHOR);
+#ifdef UNICODE
+			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+#else
+			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
+#endif
+			break;
 	}
 
 	return S_OK;
@@ -267,7 +288,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		V_BSTR(pvarData) = SysAllocString(wsInfo);
 		return S_OK;
 	}
-	if (pscid->fmtid == FMTID_SummaryInformation)
+	if ((pscid->fmtid == FMTID_SummaryInformation)||(pscid->pid == 7))
 	{
 		stdstring szInfo;
 #ifdef UNICODE
@@ -280,6 +301,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		switch (pscid->pid)
 		{
 		case PIDSI_AUTHOR:			// author
+		case 7:
 			GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 			szInfo = columnauthor;
 			break;
