@@ -570,7 +570,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "&Username:",IDC_STATIC,7,38,62,8
     EDITTEXT        IDC_USEREDIT,69,35,144,14,ES_AUTOHSCROLL
-    LTEXT           "&Password:",IDC_STATIC,7,59,34,8
+    LTEXT           "&Password:",IDC_STATIC,7,59,58,8
     EDITTEXT        IDC_PASSEDIT,69,56,144,14,ES_PASSWORD | ES_AUTOHSCROLL
     CONTROL         "save authentication",IDC_SAVECHECK,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,77,206,10
