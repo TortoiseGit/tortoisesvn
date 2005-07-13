@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-09 16:32+0100\n"
+"PO-Revision-Date: 2005-07-14 00:39+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3160,6 +3160,10 @@ msgstr "SVN Añadir ficheros a esta Copia de Trabajo"
 msgid "SVN Add..."
 msgstr "SVN Añadir..."
 
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Autor"
+
 #: ID:132
 msgid "SVN Blame"
 msgstr "SVN Autoria"
@@ -3945,6 +3949,11 @@ msgstr ""
 "El tiempo en segundos tras el que se para el parseado de los ficheros seleccionados.\n"
 "Un valor bajo hará que la lista de autocompletar esté disponible antes,\n"
 "pero puede que no escanée todos los ficheros."
+
+# ID:16,
+#: ID:16
+msgid "The user who did the last commit"
+msgstr "El usuario que hizo la última confirmación"
 
 # ID:16,
 #: ID:16
