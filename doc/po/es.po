@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-09 16:30+0100\n"
+"PO-Revision-Date: 2005-07-14 00:46+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6344,7 +6344,8 @@ msgstr "Combinando / Editando Conflictos"
 
 #: source/en/tme_ch02.xml:232
 #: (para)
-msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also let's you resolve conflicts or apply changes."
+#, fuzzy
+msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
 msgstr "TortoiseMerge no sólo le <emphasis>muestra</emphasis> las diferencias entre los ficheros sino que le permite resolver conflictos o aplicar cambios."
 
 #: source/en/tme_ch02.xml:236
@@ -6367,17 +6368,22 @@ msgstr "A veces el conflicto es demasiado dificil de resolver simplemente eligie
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
 msgstr "Tenga en cuenta que si utiliza TortoiseMerge sobre los mismos ficheros otra vez, cualquier cambio en su copia de trabajo, tanto si se hizo por TortoiseMerge o editándolo a mano, <emphasis>se descartará</emphasis> y el fichero aparecerá tal y como lo hizo cuando se inició por primera vez la edición de conflictos."
 
-#: source/en/tme_ch02.xml:306
+#: source/en/tme_ch02.xml:301
+#: (para)
+msgid "If you need to copy lines of text to insert in another file using your favourite text editor, you can select multiple lines to copy within TortoiseMerge. <action>Click</action> on the first line of the block, then <action>Shift+Click</action> on the last line of the block. As usual, <action>Ctrl+C</action> can be used to copy the selected lines to the clipboard."
+msgstr "Si necesita copiar líneas de texto para insertarlas en otro fichero utilizando su editor de texto favorito, puede seleccionar múltiples líneas en TortoiseMerge para copiarlas. <action>Haga click</action> en la primera línea del bloque, y luego <action>Mayúsculas+Click</action> en la última línea del bloque. Como siempre, puede utilizar <action>Control+C</action> para copiar las líneas seleccionadas al portapapeles."
+
+#: source/en/tme_ch02.xml:314
 #: (title)
 msgid "Settings"
 msgstr "Configuración"
 
-#: source/en/tme_ch02.xml:310
+#: source/en/tme_ch02.xml:318
 #: (title)
 msgid "The Settings Main Page"
 msgstr "La Página de Configuración Principal"
 
-#: source/en/tme_ch02.xml:314
+#: source/en/tme_ch02.xml:322
 #: (title)
 msgid "The Settings Color Page"
 msgstr "La Página de Configuración de Colores"
