@@ -269,6 +269,19 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		}
 	}
 
+	for (INT_PTR cind = 0; cind < m_ConflictFileList.GetCount(); ++cind)
+	{
+		for (size_t i=0; i < m_arStatusArray.size(); i++)
+		{
+			if (m_arStatusArray[i]->GetPath().IsEquivalentTo(m_ConflictFileList[cind]))
+			{
+				delete m_arStatusArray[i];
+				m_arStatusArray.erase(m_arStatusArray.begin()+i);
+				break;
+			}
+		}
+	}
+	
 	BuildStatistics();
 	m_bBlock = FALSE;
 	GetCursorPos(&pt);
@@ -410,6 +423,33 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->direct = bDirectItem;
 	entry->lRevision = 0;
 	entry->isNested = false;
+	
+	if (entry->status == svn_wc_status_conflicted)
+	{
+		if (pSVNStatus->entry)
+		{
+			CTSVNPath cpath;
+			if (pSVNStatus->entry->conflict_wrk)
+			{
+				cpath = path.GetDirectory();
+				cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_wrk));
+				m_ConflictFileList.AddPath(cpath);
+			}
+			if (pSVNStatus->entry->conflict_old)
+			{
+				cpath = path.GetDirectory();
+				cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_old));
+				m_ConflictFileList.AddPath(cpath);
+			}
+			if (pSVNStatus->entry->conflict_new)
+			{
+				cpath = path.GetDirectory();
+				cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_new));
+				m_ConflictFileList.AddPath(cpath);
+			}
+		}
+	}
+	
 	if (pSVNStatus->entry)
 	{
 		entry->isfolder = (pSVNStatus->entry->kind == svn_node_dir);

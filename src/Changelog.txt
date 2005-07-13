@@ -48,6 +48,8 @@
        in the revision selection dialog instead of HEAD. (Stefan)
 - CHG: Remote properties are shown in multiple lines instead of all squeezed
        into one single line when shown from the repository browser. (Stefan)
+- CHG: The conflicted helper files (*.rXXX) are not shown anymore as 
+       unversioned in the status list control. See issue #114. (Stefan)
 - BUG: Crash in TSVNCache. See issue #91.
 - BUG: File context menu shown if more than one folder was
        selected. See issue #92.
