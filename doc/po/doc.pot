@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-12 20:44GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-13 23:50GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4398,6 +4398,46 @@ msgstr ""
 
 #: source/en/tsvn_app_howto.xml:420(para) 
 msgid "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\nTortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n</screen> Of course you need to include the real repository URL."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:3(title) 
+msgid "Command Line Interface Cross Reference"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:5(primary) 
+msgid "command line client"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:8(primary) 
+msgid "CLI"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:11(para) 
+msgid "Sometimes this manual refers you to the main Subversion documentation, which describes subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:19(para) 
+msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TSVN issues from Subversion issues. This reference tells you which command to try."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:27(title) 
+msgid "Conventions and Basic Rules"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:28(para) 
+msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:37(important) 
+msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:45(title) 
+msgid "TortoiseSVN Commands"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:47(title) 
+msgid "Checkout"
 msgstr ""
 
 #: source/en/tortoisesvn.xml:5(subtitle) 

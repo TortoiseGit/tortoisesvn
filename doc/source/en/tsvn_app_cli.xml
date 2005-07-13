@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appendix id="tsvn-cli" xmlns:xi="http://www.w3.org/2003/XInclude">
+	<title>Command Line Interface Cross Reference</title>
+	<indexterm>
+		<primary>command line client</primary>
+	</indexterm>
+	<indexterm>
+		<primary>CLI</primary>
+	</indexterm>
+	<simplesect>
+		<para>
+			Sometimes this manual refers you to the main Subversion
+			documentation, which describes subversion in terms of the
+			Command Line Interface (CLI). To help you understand what
+			TortoiseSVN is doing behind the scenes, we have compiled
+			a list showing the equivalent CLI commands for each of
+			TortoiseSVN's GUI operations.
+		</para>
+		<para>
+			If you think you have found a bug in TortoiseSVN, we
+			may ask you to try to reproduce it using the CLI, so
+			that we can distinguish TSVN issues from Subversion
+			issues. This reference tells you which command to try.
+		</para>
+	</simplesect>
+	<sect1 id="tsvn-cli-basics">
+		<title>Conventions and Basic Rules</title>
+		<para>
+			In the descriptions which follow, the URL for a repository
+			location is shown simply as
+			<literal>URL</literal>, and an example might be
+			<literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>.
+			The working copy path is shown simply as
+			<literal>PATH</literal>, and an example might be
+			<literal>C:\TortoiseSVN\trunk</literal>.
+		</para>
+		<important>
+			Because TortoiseSVN is a Windows Shell Extension, it is not able
+			to use the notion of a current working directory. All working
+			copy paths must be given using the absolute path, not a relative
+			path.
+		</important>
+	</sect1>
+	<sect1 id="tsvn-cli-main">
+		<title>TortoiseSVN Commands</title>
+		<sect2 id="tsvn-cli-checkout">
+			<title>Checkout</title>
+		</sect2>
+<!--
+		<sect2 id="tsvn-cli-update">
+			<title>Update</title>
+		</sect2>
+		<sect2 id="tsvn-cli-commit">
+			<title>Commit</title>
+		</sect2>
+		<sect2 id="tsvn-cli-diff">
+			<title>Diff</title>
+		</sect2>
+		<sect2 id="tsvn-cli-showlog">
+			<title>Show Log</title>
+		</sect2>
+		<sect2 id="tsvn-cli-checkmods">
+			<title>Check for Modifications</title>
+		</sect2>
+		<sect2 id="tsvn-cli-revgraph">
+			<title>Revision Graph</title>
+		</sect2>
+		<sect2 id="tsvn-cli-repobrowser">
+			<title>Repo Browser</title>
+		</sect2>
+		<sect2 id="tsvn-cli-editconflicts">
+			<title>Edit Conflicts</title>
+		</sect2>
+		<sect2 id="tsvn-cli-resolved">
+			<title>Resolved</title>
+		</sect2>
+		<sect2 id="tsvn-cli-updaterev">
+			<title>Update to Revision</title>
+		</sect2>
+		<sect2 id="tsvn-cli-rename">
+			<title>Rename</title>
+		</sect2>
+		<sect2 id="tsvn-cli-delete">
+			<title>Delete</title>
+		</sect2>
+		<sect2 id="tsvn-cli-revert">
+			<title>Revert</title>
+		</sect2>
+		<sect2 id="tsvn-cli-cleanup">
+			<title>Cleanup</title>
+		</sect2>
+		<sect2 id="tsvn-cli-getlock">
+			<title>Get Lock</title>
+		</sect2>
+		<sect2 id="tsvn-cli-release">
+			<title>Release Lock</title>
+		</sect2>
+		<sect2 id="tsvn-cli-branchtag">
+			<title>Branch/Tag</title>
+		</sect2>
+		<sect2 id="tsvn-cli-switch">
+			<title>Switch</title>
+		</sect2>
+		<sect2 id="tsvn-cli-merge">
+			<title>Merge</title>
+		</sect2>
+		<sect2 id="tsvn-cli-export">
+			<title>Export</title>
+		</sect2>
+		<sect2 id="tsvn-cli-relocate">
+			<title>Relocate</title>
+		</sect2>
+		<sect2 id="tsvn-cli-createrepos">
+			<title>Create Repository Here</title>
+		</sect2>
+		<sect2 id="tsvn-cli-add">
+			<title>Add</title>
+		</sect2>
+		<sect2 id="tsvn-cli-import">
+			<title>Import</title>
+		</sect2>
+		<sect2 id="tsvn-cli-blame">
+			<title>Blame</title>
+		</sect2>
+		<sect2 id="tsvn-cli-addignore">
+			<title>Add to Ignore List</title>
+		</sect2>
+		<sect2 id="tsvn-cli-createpatch">
+			<title>Create Patch</title>
+		</sect2>
+		<sect2 id="tsvn-cli-applypatch">
+			<title>Apply Patch</title>
+		</sect2>
+-->
+	</sect1>
+</appendix>
+<!--
+local variables: 
+sgml-parent-document: ("book.xml" "appendix")
+end:
+-->
