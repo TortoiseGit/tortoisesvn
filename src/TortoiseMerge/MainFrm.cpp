@@ -1208,16 +1208,8 @@ void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
 			{
 				bEnable = TRUE;
 			} 
-		} // if (m_pwndBottomView) 
-		if (m_pwndRightView)
-		{
-			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
-			{
-				if (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(_T(": patched"))==0))
-					bEnable = TRUE;
-			} 
-		} // if (m_pwndRightView)
-	} // if (!this->m_Data.m_sMergedFile.IsEmpty())
+		}
+	}
 	pCmdUI->Enable(bEnable);
 }
 
