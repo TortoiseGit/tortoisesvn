@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-13 23:50GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-14 23:23GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4432,12 +4432,89 @@ msgstr ""
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:45(title) 
+#: source/en/tsvn_app_cli.xml:43(para) 
+msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:50(title) 
 msgid "TortoiseSVN Commands"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:47(title) 
+#: source/en/tsvn_app_cli.xml:52(title) 
 msgid "Checkout"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:53(screen) 
+#, no-wrap
+msgid "\nsvn checkout [-N] [--ignore-externals] URL[@rev] PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:56(para) 
+msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:60(para) 
+msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:64(para) 
+msgid "If you are checking out a specific revision, specify that after the URL using <literal>@rev</literal>."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:70(title) 
+msgid "Update"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:71(screen) 
+#, no-wrap
+msgid "\nsvn update PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:74(para) 
+msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers further options."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:81(title) 
+msgid "Commit"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:82(para) 
+msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:89(screen) 
+#, no-wrap
+msgid "\nsvn status PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:92(para) 
+msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:100(para) 
+msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:104(screen) 
+#, no-wrap
+msgid "\nsvn add PATH...\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:107(para) 
+msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:115(screen) 
+#, no-wrap
+msgid "\nsvn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:118(para) 
+msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:122(para) 
+msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
 msgstr ""
 
 #: source/en/tortoisesvn.xml:5(subtitle) 

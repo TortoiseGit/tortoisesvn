@@ -40,19 +40,91 @@
 			copy paths must be given using the absolute path, not a relative
 			path.
 		</important>
+		<para>
+			Certain items are optional, and these are often controlled by
+			checkboxes or radio buttons in TortoiseSVN. These options are
+			shown in [square brackets] in the command line definitions.
+		</para>
 	</sect1>
 	<sect1 id="tsvn-cli-main">
 		<title>TortoiseSVN Commands</title>
 		<sect2 id="tsvn-cli-checkout">
 			<title>Checkout</title>
+<screen>
+svn checkout [-N] [--ignore-externals] URL[@rev] PATH
+</screen>
+			<para>
+				If <guilabel>Only checkout the top folder</guilabel> is checked,
+				use the <literal>-N</literal> switch.
+			</para>
+			<para>
+				If <guilabel>Omit externals</guilabel> is checked,
+				use the <literal>--ignore-externals</literal> switch.
+			</para>
+			<para>
+				If you are checking out a specific revision, specify that
+				after the URL using <literal>@rev</literal>.
+			</para>
 		</sect2>
-<!--
 		<sect2 id="tsvn-cli-update">
 			<title>Update</title>
+<screen>
+svn update PATH
+</screen>
+			<para>
+				No command line options are used here.
+				<guilabel>Update to revision</guilabel> also implements
+				the update command, but offers further options.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-commit">
 			<title>Commit</title>
+			<para>
+				In TortoiseSVN, the commit dialog uses several Subversion commands.
+				The first stage is a status check which determines the items
+				in your working copy which can potentially be committed. You can
+				review the list, diff files against BASE and select the items you
+				want to be included in the commit.
+			</para>
+<screen>
+svn status PATH
+</screen>
+			<para>
+				If <guilabel>Show unversioned files</guilabel> is checked,
+				TortoiseSVN will also show all unversioned files and folders in
+				the working copy hierarchy, taking account of the ignore rules.
+				This particular feature has no direct equivalent in Subversion,
+				as the <literal>svn status</literal> command does not descend into
+				unversioned folders.
+			</para>
+			<para>
+				If you check any unversioned files and folders, those items will
+				first be added to your working copy.
+			</para>
+<screen>
+svn add PATH...
+</screen>
+			<para>
+				When you click on OK, the Subversion commit takes place. If you have
+				left all the file selection checkboxes in their default state,
+				TortoiseSVN uses a single recursive commit of the working copy.
+				If you deselect some files, then a non-recursive commit
+				(<literal>-N</literal>) must be used, and every path must be
+				specified individually on the commit command line.
+			</para>
+<screen>
+svn commit -m "LogMessage" [-N] [--no-unlock] PATH...
+</screen>
+			<para>
+				<literal>LogMessage</literal> here represents the contents of the
+				log message edit box. This can be empty.
+			</para>
+			<para>
+				If <guilabel>Keep locks</guilabel> is checked,
+				use the <literal>--no-unlock</literal> switch.
+			</para>
 		</sect2>
+<!--
 		<sect2 id="tsvn-cli-diff">
 			<title>Diff</title>
 		</sect2>
