@@ -1,0 +1,1692 @@
+Version 1.2.1
+- NEW: The path of the working copy is shown in the dialog title for
+       "check for modifications" and commit dialog. See Issue 98. (Stefan)
+- NEW: Diffing files against their BASE improved. See Issue #94. (Stefan)
+- NEW: 'Open with...' command in the commit dialog. (Stefan)
+- NEW: Columns in the log dialog can be sorted. (Boris)
+- NEW: Files dragged from the explorer to the repository browser will
+       add them to the repository. (Stefan)
+- NEW: Renaming in the repository browser now happens inline. (Stefan)
+- NEW: Words which are in the autocompletion list aren't spell checked
+       anymore. See issue #102. (Stefan)
+- NEW: "explore to" context menu command in the commit dialog.
+       See issue #105. (Stefan)
+- NEW: Option to make the "Check for modifications" dialog contact
+       the repository the first time. See issue #107. (Stefan)
+- NEW: The last used setting for "Stop on copy/rename" in the log dialog
+       is remembered (except for the merge dialog). See issue #109. (Stefan)
+- NEW: Copying items and give them a new name at the same time is now
+       possible by right-dragging the item to the new location.
+       See issue #112. (Stefan)
+- NEW: Locking files recursively in a folder. See issue #110. (Stefan)
+- NEW: Comparing two URLs in the repository browser now is possible
+       on a file-by-file basis, not just as a unified diff.
+       See issue #104. (Stefan)
+- NEW: The checkout dialog now has a "show log" button to easier
+       find the revision you want to check out from. (Stefan)
+- NEW: Command to check out a specific revision from the log dialog. (Stefan)
+- NEW: Nested layouts are shown in the 'Check for Modifications' dialog
+       to easier spot accidental moves/copies without using the TSVN
+       commands for that. (Stefan)
+- NEW: The log dialog can now hide/grey changed paths which aren't part
+       of the item for which the log is shown. See issue #68. (Stefan)
+- NEW: New menu "Edit" in TortoiseMerge with the entries "Copy" and
+       "Find" (Ctrl-C and Ctrl-F still work). (Stefan)
+- NEW: Option to make the Merge dialog default the "From:" URL to
+       the URL of the selected working copy instead of the last used
+       URL in the merge. (Stefan)
+- NEW: Separate Explorer column to show the Author. TSVN still uses the
+       normal "Author" column, but since other apps also use this
+       column (e.g. Word, Excel, ...) a separate column is added. (Stefan)
+- NEW: Scripts to diff/merge Word and OO-Write files (Mark Phippard, Stefan)
+- CHG: The ESC key closes the progress dialog. See Issue #96. (Stefan)
+- CHG: Reintroduce the doubleclick action in the log dialog. (Stefan)
+- CHG: Merge dialog: if the 'use from url' is activated, the 'show log'
+       button is disabled for the 'to' url too. (Stefan)
+- CHG: The "diff" context menu is now shown for conflicted files too. (Stefan)
+- CHG: In the repository browser, when a different revision than HEAD is
+       set and the revision button is pressed, the set revision is pre-filled
+       in the revision selection dialog instead of HEAD. (Stefan)
+- CHG: Remote properties are shown in multiple lines instead of all squeezed
+       into one single line when shown from the repository browser. (Stefan)
+- CHG: The conflicted helper files (*.rXXX) are not shown anymore as 
+       unversioned in the status list control. See issue #114. (Stefan)
+- BUG: Crash in TSVNCache. See issue #91.
+- BUG: File context menu shown if more than one folder was
+       selected. See issue #92.
+- BUG: Lock dialog could show folders. See issue #93.
+- BUG: Commit dialog could crash when sorting. See issue #99.
+- BUG: Installation for All Users didn't work properly. (Stefan)
+- BUG: A file:/// path wasn't recognized as a valid windows path
+       and a warning was shown even if the path was valid. (Stefan)
+- BUG: The log dialog was always started from the repobrowser
+       at HEAD revision instead of the selected revision. (Stefan)
+- BUG: Wrong rendering/resizing of the listview in the folder
+       browser dialog when exporting. (Stefan)
+- BUG: The number of selected items was shown wrong in the commit dialog
+       if an unversioned or deleted item was checked. (Stefan)
+- BUG: Add 'Compare with WC/BASE' options to 'Check for Modification'.
+       See issue #106. (Stefan)
+- BUG: The switch command didn't work and crashed. (Stefan)
+- BUG: The 'Lock' menu was shown for added files. (Stefan)
+- BUG: TortoiseMerge wouldn't save files on UNC paths.
+       See issue 108. (Stefan)
+- BUG: The "check for modifications" dialog showed a wrong dialog title
+       when "Check Repository" was clicked. (Stefan)
+- BUG: TortoiseMerge used the wrong encoding to show the files. (Stefan)
+- BUG: TortoiseMerge patched files with wrong encodings. (Stefan)
+- BUG: After a commit/update/... the file overlay icons weren't properly
+       refreshed. (Stefan)
+- BUG: Log dialog could crash when clicking "Next 100". (Stefan)
+- BUG: The repository browser could crash if it was cancelled during
+       initialization. (Stefan)
+- BUG: If the Subversion config file had some illegal lines in it,
+       TSVN could crash the explorer when the property page was shown. (Stefan)
+- BUG: If the log dialog was started from the repobrowser, the diff between
+       two selected revisions didn't work right. (Stefan)
+- BUG: Editing the author or the log message used the wrong revision if the
+       message filter was active. (Stefan)
+- BUG: The selection in the lock dialog was ignored. All files selected in the
+       explorer were locked - even those unchecked in the lock dialog. (Stefan)
+- BUG: The status control showed the menus "Get Lock", "Compare with WC" and
+       "unified diff" for added, deleted and missing items too. (Stefan)
+- BUG: Some characters weren't properly escaped to create a valid URL. (Stefan)
+- BUG: The 'locks' column in the repository browser wasn't sortable.
+- BUG: Files with a '%' char in their name weren't shown correctly in the
+       repository browser. (Stefan)
+- BUG: SubWCRev could crash if a path was given where no working copy
+       is stored. (Stefan)
+- BUG: Reverting an added item removed it from the "Check for modifications"
+       dialog instead of marking it as unversioned again. (Stefan)
+- BUG: if a filter was active in the log dialog, the "Next 100" would show
+       all additional messages, ignoring the active filter. (Stefan)
+
+Version 1.2
+
+Please first look at the release notes:
+http://tortoisesvn.tigris.org/tsvn_1.2_releasenotes.html
+
+- NEW: New commands to lock/unlock files. (Stefan)
+- NEW: Locked files are listed in the commit dialog so the user
+       won't forget to unlock them again. (Stefan)
+- NEW: Filter for the log dialog. (Stefan)
+- NEW: The three parts (log list, message, change-files-list) in the
+       log dialog can now be individually resized. (Stefan)
+- NEW: Files not part of the selected file/folder are shown grayed out
+       in the log dialogs changed-file-list. (Stefan)
+- NEW: New, much improved overlay cache. (Will Dean, Stefan)
+- NEW: Option to resolve a conflicted file in the status list control. (Stefan)
+- NEW: TortoiseSVN now uses its own sound files for errors, warnings
+       and notifications in the progress dialog. (Stefan)
+- NEW: Allow diffing of renamed/copied files in the log dialog. (George Wieggers)
+- NEW: A website link starting with "tsvn:" starts TortoiseSVN with the
+       checkout dialog. A link starting with "svn:" will start the
+       repository browser. (Stefan)
+- NEW: TortoiseMerge can ignore case-only changes when diffing. (Stefan)
+- NEW: Autocompletion for language-dependent keywords (usually class/method/
+       variable names) in the commit dialog. (Stefan)
+- NEW: Bugtracking integration extended with regular expressions. (Stefan)
+- NEW: The autocompletion feature can be deactivated in the settings. (Stefan)
+- NEW: Paths are checked if they're valid on Windows and an error/warning
+       is shown if they're not to avoid problems later. (Stefan)
+- NEW: "Remove from ignore list" from the context menu. (Stefan)
+- NEW: If not all overlays can be shown due to not enough free overlay
+       slots, TSVN now uses one of the available overlays instead. (Stefan)
+- NEW: Export and Checkout from the repository browser. (Stefan)
+- NEW: The revision graph can now be saved as a wmf file. (Stefan)
+- NEW: New overlay icons for 'locked' and 'readonly' files. (Lübbe)
+- NEW: New keywords for SubWCRev: $WCURL$, $WCMIXED?TrueText:FalseText$. (Simon)
+- CHG: Improved look of the settings dialog. (Stefan)
+- CHG: TortoiseMerge is now built as UNICODE. (Norbert Unterberg)
+- CHG: High color toolbar for TortoiseMerge. (Lübbe)
+- CHG: Several new Icons for the context menu. (Lübbe)
+- CHG: It's possible to select multiple items in the commit dialog. (Stefan)
+- CHG: Searching the log messages is now done with regular expressions. (Stefan)
+- CHG: When an entry from the log message history combo is selected, it isn't
+       inserted at the beginning of an existing text anymore but at the
+       current cursor location. A text which is selected is automatically
+       replaced with the history text. (Stefan)
+- CHG: When doing a merge dry-run, the window title in the progress dialog
+       indicates that. (Stefan)
+- CHG: The 'recursive' checkbox is now disabled when the property page is
+       shown for files since there the recursive option doesn't make sense
+       anyway. (Stefan)
+- CHG: When updating a working copy, the progress dialog doesn't show inoperable
+       updates to folders anymore. This makes it look more consistent with the
+       command line client. (Stefan)
+- CHG: Rework of the merge dialog. (Stefan)
+- CHG: Errors which occur in the progress dialog are now shown as new entries
+       instead of an interrupting dialog box. (Stefan)
+- CHG: The URL history is now kept per working copy. Only checkout/import still
+       use a global history of the URL's. (Stefan)
+- CHG: The properties page now only shows those properties in the combobox
+       which you can really use, depending on if you've selected a file
+       or a folder. (Stefan)
+- BUG: Using the '/logmessage' command line param made TSVN crash (Stefan)
+- BUG: Issue 11: TortoiseMerge now shows the real linenumbers when diffing. (Stefan)
+- BUG: Executing a command with multiple selected files/folders didn't work
+       correctly. (Stefan)
+
+Version 1.1.7
+       The 1.1.6 build was corrupt due to harddisk trouble.
+
+Version 1.1.6
+- BUG: A word longer than 100 chars entered in the edit control made
+       TortoiseSVN crash.
+
+Version 1.1.5
+- BUG: Diffing from the modified list in the log dialog didn't work. (Stefan)
+- BUG: Searching case-insensitive in the log dialog would 
+       convert all paths to lowercase which prevents their 
+       further use for e.g. diffing. (Stefan)
+- BUG: Right-drag exporting files would create intermediate
+       folders and throw an error message. (Stefan)
+
+Version 1.1.4
+- BUG: The revision graph didn't work for paths/URLs with spaces in it. (Stefan)
+- BUG: The revision graph could crash when saving the graph as a picture. (Stefan)
+- BUG: Changes in externals from the same repository were shown in the commit
+       dialog, but not committed even if checked. (Stefan)
+- BUG: When comparing a file with both local and remote modifications in the
+       "check for modifications" dialog the BASE was used instead of the 
+       working copy file. (Stefan)
+- BUG: Searching in the log dialog for changed paths only worked the first
+       time. Subsequent searches produced a result off by one. (Stefan)
+- BUG: The statistics from the log dialog could crash if no logs were
+       available. (Stefan)
+- BUG: The explorer context menu showed the wrong entries for nested layouts. (Stefan)
+- BUG: 'extended export' would also copy all the .svn folders. (Stefan)
+- BUG: the progress dialog wouldn't close by clicking on the 'X'. (Stefan)
+- BUG: Special/Invalid chars could be entered for log messages. (Stefan)
+- BUG: Deleting more than one file at the time made TSVN crash. (Stefan/Will)
+- BUG: Autocompletion could crash TSVN. (Stefan)
+- BUG: URL's which need escaping (e.g. if they have spaces) didn't work and
+       could even make TSVN crash. (Stefan)
+- BUG: The icon set chooser dialog sometimes showed the overlays only in part. (Stefan)
+
+Version 1.1.3
+- NEW: Autocompletion for paths/filenames in the commit dialog. (Stefan)
+- NEW: Spell checker suggestions when pressing Ctrl-Tab. (Stefan)
+- NEW: New Menuentry/Toolbarbutton in TortoiseMerge to mark a conflicted
+       file as resolved. (Stefan)
+- CHG: Improved refreshing of icons after a TSVN operation. (Will)
+- CHG: Major code cleanup throughout the whole project. (Will)
+- CHG: Use the same colors for the authors in all graphs. (Stefan)
+- BUG: Merging from a deleted branch failed. (Stefan)
+- BUG: The coloring of 'copied' revisions in the log dialog didn't work
+       correctly after a "Show All". (Stefan)
+- BUG: The revision graph got confused with renames. (Stefan)
+- BUG: The focused item was lost in the repository browser when closing
+       a tree item. (George Wieggers)
+- BUG: If a folder was deleted from the commit dialog, its children weren't
+       removed from the list shown. (Stefan)
+- BUG: if more than one file or filemask were ignored, the parent folder was
+       added to the list every time instead of just once. (Stefan)
+- BUG: The apr-iconv library wasn't patched. (Stefan)
+- BUG: Fix wrong axis labels in the 'commits by author' graph. (Stefan)
+- BUG: The "select all" checkbox behave three state even when clicking it. (Will)
+- BUG: Some dialogs were resizable even though they shouldn't be. (Stefan)
+- BUG: Adding and committing of files with a reversed sort order of
+       the files in the add/commit dialog didn't work correctly. (Will)
+- BUG: The drive type wasn't recognized correctly on Win98. (Will)
+- BUG: the log message history was truncated if the log message exceeded the
+       combobox limit. (Stefan)
+- BUG: The number of selected files was shown wrong in the commit dialog. (Stefan)
+
+Version 1.1.2
+- NEW: Many speed improvements throughout the whole program. (Will Dean & Stefan)
+- NEW: XPStyle & Straight icon sets (Lübbe)
+- NEW: Subclipse icon set (Mark Phippard)
+- NEW: A revision graph. (Stefan)
+- NEW: Dialog to choose an icon overlay set. (Stefan)
+- NEW: A warning is shown if you try to update a locally
+       modified working copy to another (earlier) revision. (Stefan)
+- NEW: Statistic graphs, generated from the log dialog. (Stefan)
+- NEW: It's possible to save the created patch directly to the
+       clipboard. (Will Dean)
+- NEW: Column header for TortoiseBlame. (Stefan)
+- NEW: The status file list shows file/folder icons for each item. (Stefan)
+- NEW: The log dialog is a lot faster when fetching the logs, and
+       revisions where a rename/move of one or more files/folders was
+       done are shown highlighted. (Stefan)
+- NEW: The progress dialog shows some statistics info after the operation
+       has finished. (Stefan)
+- NEW: TortoiseMerge shows inline diffs in the diffbar. (Jörg Mann)
+- NEW: TortoiseBlame shows linenumbers and the revision date. (Simon Large)
+- NEW: All 'status' dialogs now show the file/folder icon left of the
+       filename. (Stefan)
+- CHG: The view titles in TortoiseMerge are colored. (Stefan)
+- CHG: The context menu entries shown on the top level menu have
+       now an "SVN" prepended. (Stefan)
+- CHG: Too long error messages are split up into multiple lines so
+       the messagebox won't get bigger than the screen anymore. (Stefan)
+- CHG: An "are you sure" dialog is shown before marking a 
+       file as resolved. (Stefan)
+- CHG: The log message history is kept separately by repository. (Stefan)
+- CHG: The 'check for updates' dialog now is called
+       'check for modifications' and doesn't contact the repository
+       on startup but only on request. (Stefan)
+- CHG: The log dialog has now a checkbox for stop-on-copy
+       instead of a messagebox question. (Stefan)
+- CHG: Removed the _tsvnexcluderecursive and _tsvnexcludethis
+       filehandling. Use the paths in the settings dialog
+       instead. (Stefan)
+- CHG: The log message history isn't limited to 255 chars
+       for each entry anymore. (Stefan)
+- CHG: Updated TortoisePlink to Plink Version 0.56. (Stefan)
+- BUG: If diffing a file against the base, it was saved with the base
+       lineendings instead of its own. (Stefan)
+- BUG: Creating a patch for a single file produced a patch 
+       of the parent folder. (Stefan)
+- BUG: When copying lines to the clipboard in TortoiseMerge, LF lineendings
+       were used instead of CRLF. (Stefan)
+- BUG: Patchfiles with binaries in it could crash TortoiseMerge. (Stefan)
+- BUG: Explorer could crash when setting properties with
+       illegal values. (Stefan)
+- BUG: After a merge dry-run, the wc URL wasn't shown
+       correctly. This bug didn't affect the actual
+       merge, only the UI. (Stefan)
+- BUG: The right-drag "move/copy in Subversion here" menu
+       entries were missing. (Stefan)
+- BUG: Showing the list of modified files in the commit and
+       check-for-updates dialog sometimes showed files and
+       folders from externals too even if not told to. (Stefan)
+
+Version 1.1.1
+- NEW: The path to client certificates and the client
+       certificate password can now be saved. (Stefan)
+- NEW: New bugtracking property "bugtraq:append". If set to
+       "false", then the bug-ID is inserted at the top of
+       the log message. If set to "true" or not set at all,
+       then the bug-ID is appended to the log message
+       like before. (Stefan)
+- NEW: The "check for updates" dialog now shows the
+       HEAD revision of the repository. (Stefan)
+- NEW: Setting bugtraq: and tsvn: properties recursively
+       now makes sure that the properties are only set
+       on subfolder and skipped for files, i.e. you
+       can set those properties on the /trunk folder with
+       the "recursive" checkbox activated and all subfolders
+       will have the props set too, without having the files
+       set those properties too. (Stefan)
+- NEW: When an update is finished, a click on an updated
+       file shows a context menu with an entry to compare
+       the file in the revision as it was before the update
+       with the working copy. (Stefan)
+- CHG: improved dialog for creating repositories. (Stefan)
+- CHG: The "paste log template in english" setting is now
+       a project property (tsvn:logfilelistenglish). Set
+       this property to "false" if you want that template
+       pasted in your local language. (Stefan)
+- CHG: When doing a dry-run merge, after the merge is done
+       the merge dialog is shown again with the same settings
+       as before so the real merge can be done right away. (Stefan)
+- BUG: The log message history in the commit dialog could
+       get emptied when no log message was entered. (Stefan)
+
+Version 1.1.0
+- NEW: Width marker for log messages. (Stefan)
+- NEW: Log message templates. (Stefan)
+- NEW: Possibility to delete mutliple selected files at
+       once in the repository browser. (Stefan)
+- NEW: new keywords $WCDATE$ and $WCMODS? for the
+       SubWCRev-tool. (Simon Large)
+- CHG: Better colorization in the blame viewer. (Simon Large)
+- BUG: Some dialogs in the repobrowser had the accelerator
+       ampersand char in their title. (Stefan)
+
+Version 1.1.0 RC2
+- NEW: "dry-run" option for the merge command. This solves
+       issue 92. (Stefan)
+- NEW: TortoiseBlame for viewing blames. Issue 95. (Stefan)
+- NEW: Integration with bug/issuetrackers. (Stefan)
+- NEW: The commit dialog got a log history combobox. (Stefan)
+- NEW: Finish message when ignoring files. (Stefan)
+- CHG: TortoiseMerge doesn't complain anymore when doing diffs
+       of files which have/have not the keywords expanded. (Stefan)
+- CHG: The repository browser closes the connection after each
+       ls command to prevent too many svnserve processes on
+       the server hanging around. (Stefan)
+- BUG: TortoiseMerge showed bad view titles in merge view. (Stefan)
+- BUG: TortoiseMerge parsed diff files which had binary files
+       mentioned in it poorly and could crash. (Stefan)
+- BUG: the patched apr-iconv couldn't find our so files. (Stefan)
+- BUG: Diffing files without a file extension but with the
+       path/URL having a dot in it could lead to a crash. (Stefan)
+- BUG: The language packs weren't used, even if checked in
+       the settings dialog. (Stefan)
+- BUG: On NT4, the auth data wasn't saved correctly. (Stefan)
+
+Version 1.1.0 RC1
+- NEW: New button in the commit dialog which will 
+       fill the log message box with the status
+       and filename of all selected files. (Stefan)
+- NEW: Option to exclude/include specific paths from showing
+       icon overlays. (Stefan)
+- NEW: On Win2k and later, the authentication data is now
+       encrypted before saved. The encryption is not available
+       for the other OS's. (Stefan)
+- NEW: When creating branches/tags, you now can choose if
+       you want to use the working copy as the source or
+       just to a repo->repo copy. (Stefan)
+- NEW: If the "check for updates" can't connect to the
+       repository, just show the local status. (Stefan)
+- NEW: The "Add to ignore list" now has a submenu with
+       the filename and the filemask (e.g. "*.tmp")
+       as its entries. (Stefan)
+- NEW: Show hints about some error messages, e.g. for
+       the "out-of-date" error tell the user to 
+       update first. (Stefan)
+- CHG: Updated TortoisePlink to version 0.55. (Stefan)
+- CHG: The Repository Browser now sorts the date column
+       by the real date, not the text. (Stefan)
+- CHG: The foldername for which an update is done for is
+       shown in the progress dialog title. (Stefan)
+- CHG: Temporary files created for diffing retain their 
+       original file extensions so that external tools
+       can determine the file type for the diff. (Stefan)
+- BUG: When an URL to a file was entered in the repository
+       browser, it was treated as a folder. (Stefan)
+- BUG: Right-drag export of more than one folder made the
+       additional folders exported inside the previous
+       ones. (Stefan)
+- BUG: Authentication when viewing remote properties lead
+       to a crash. (Stefan)
+- BUG: Even if no entries are added to the right-drag context
+       menu, the separator was still added. (Stefan)
+- BUG: TortoiseMerge could crash when parsing invalid, corrupted
+       or unsupported patchfiles. (Stefan)
+- DEV: Patched the libintl library to use the apr-iconv library
+       instead of its own iconv library. Those libs are basically
+       the same, and with that patch we save 800KB for the additional
+       iconv library. (Stefan)
+- DEV: Patched apr-iconv to first check in the modules path for the
+       *.so files so we don't get into conflicts with the APR_ICONV_PATH
+       environment variable anymore.
+
+Version 1.0.8
+- CHG: The OK button in the commit dialog is enabled by default,
+       the default minimum logsize is now zero. (Stefan)
+- BUG: Some IE proxy settings weren't used correctly. This
+       lead to TSVN not able to connect to repositories. (Stefan)
+
+Version 1.0.7
+- NEW: in the "check for updates" dialog a new
+       context menu command to show the log. (Stefan)
+- NEW: New option to specify the minimum size of a
+       log message. (Stefan)
+- NEW: It's possible to turn off the context menu
+       icons completely with a registry setting. (Stefan)
+- NEW: Performance is now much better throughout the
+       whole application. (Stefan)
+- NEW: Merging of two instead of just one URL. (Stefan)
+- NEW: Paths with short filenames now work too when
+       starting TortoiseProc from external programs. (Stefan)
+- NEW: Comparing an older revision with the working copy
+       on folders. TME is started for this in patch mode
+       to avoid "ugly" unified diffs. (Stefan)
+- NEW: TortoiseMerge can now resolve a conflicted file
+       in Subversion automatically when saving. (Stefan)
+- NEW: In the log dialog you now can select log messages
+       and copy them to the clipboard. (Stefan)
+- NEW: The overlay/columns can be disabled for specific
+       folders by placing special files in them. (Stefan)
+- NEW: A "Copy to..." command for the repository browser
+       which (if not showing HEAD) shows the "save as"
+       dialog and then copies the file to the working copy.
+       This is the recommended way to recover a deleted
+       file. (Stefan)
+- NEW: Option to disable the overlays in applications
+       other than explorer. (Stefan)
+- NEW: Reverting got its own dialog where you can select
+       and deselect files/folders from reverting. (Stefan)
+- NEW: Sortable columns in the "check for updates" 
+       dialog. (Stefan)
+- NEW: The default proxy settings from the IE are used
+       automatically. (Stefan)
+- NEW: Command to show the properties in the repository
+       browser. (Stefan)
+- NEW: New "export here" command in the right-drag
+       context menu. (Stefan)
+- NEW: New "export" function which exports unversioned
+       files and folders too. (Stefan)
+- NEW: If a folder is expanded in the repository browser
+       while the Ctrl-key is down then the directory
+       tree is fetched and filled in recursively. (Stefan)
+- CHG: Searching in the log dialog now also searches
+       the changed paths. (Stefan)
+- CHG: The locatorbar in TME shows the current view range
+       with a blue background for better indication. (Stefan)
+- CHG: When showing the log in the merge dialog, it will
+       stop on the first copy. (Stefan)
+- CHG: The check for newer versions of TSVN is now
+       done in the background. The dialog only shows
+       up if a newer version is actually found. (Stefan)
+- CHG: Creating a patch is now possible from single files
+       too and not just folders. (Stefan)
+- CHG: when setting properties fails, the error message
+       is shown and not dropped as before. (Stefan)
+- CHG: Don't use the %APPDATA% env but the shell API to
+       get the path to the config file in the settings
+       dialog. (Stefan)
+- CHG: The property page shows now newlines as spaces
+       instead of as illegal chars in the listview. (Stefan)
+- CHG: Always do a WC->URL copy, even if there are no local
+       modifcations. (Stefan)
+- BUG: TortoiseMerge could hang when diffing certain files
+       and the "ignore leading whitespaces" option turned
+       on and only in two pane view. (Stefan)
+- BUG: TortoiseMerge could save merges to the wrong file
+       if the app wasn't quit between diffs/merges. (Stefan)
+- BUG: The context menu key didn't work in the
+       repository browser. (Stefan)
+- BUG: TSVN could crash if a revprop did not exist. (Stefan)
+- BUG: Newlines weren't shown correctly when editing
+       the revprops. (Stefan)
+- BUG: The default settings for the icon overlays weren't
+       shown in the settings dialog. (Stefan)
+
+Version 1.0.6
+- NEW: A warning is shown if a file with local modifications
+       should be removed. (Stefan)
+- NEW: Changing of log-messages and author of any revision
+       is possible from the log dialog - if the server has
+       the required hooks set up to change revprops. (Stefan)
+- NEW: Document the command line params of TSVN. (Stefan)
+- NEW: The add and revert command can now be cancelled
+       during operation. (Stefan)
+- CHG: Performance improvement when committing a lot of 
+       deleted/renamed/moved files. (Stefan)
+- CHG: The "add before commit" option in the settings dialog is
+       gone, this option is now in the commit dialog where it
+       belongs. (Stefan)
+- CHG: The check for newer versions is now started as an
+       separate process to not disturb normal operation. (Stefan)
+- BUG: The installer didn't work in non-gui mode, and the
+       shortcuts in the program menu weren't set correctly. (Stefan)
+- BUG: Fixed a memory leak when committing. (Stefan)
+- BUG: Pressing the "Find" button in the merge dialog lead
+       to an error message about the path being invalid. (Stefan)
+- BUG: ignore patterns _not_ starting with * weren't correctly
+       used inside unversioned folders. (Stefan)
+
+Version 1.0.5
+- NEW: Automatic check for newer version. (Stefan)
+- NEW: The log dialog shows a progress bar while fetching
+       the log messages. (Stefan)
+- NEW: TortoiseMerge remembers its last size and window state. (Stefan)
+- NEW: If all versioned files are selected in the commit dialog, and
+       only one target was selected in the explorer for commit then
+       commit recursively instead of committing the file list. (Stefan)
+- NEW: Hitting F5 in the log dialog does the same as the "fetch all"
+       button. (Stefan)
+- CHG: Removed the info picture in the commit dialog. The statistics
+       are now shown in the tooltip for the info line just below
+       the filelist. (Stefan)
+- BUG: Some files were not ignored when adding or committing, even
+       if they matched the ignore patterns. (Stefan)
+- BUG: The option "Don't convert files when diffing against BASE"
+       was ignored due to wrong brackets in the code. (Stefan)
+- BUG: The added icon overlay wasn't shown due to a wrong registry
+       entry set during installation. (Stefan Fuhrmann)
+- BUG: The revision column wasn't sorted correctly. (Stefan Fuhrmann)
+- BUG: The locatorbar in TortoiseMerge shrank continuously whith every
+       reload. (Stefan)
+- BUG: TortoiseMerge calculated the size of the scrollbars wrong for
+       files with many tabs in it. (Stefan)
+- BUG: The cache for the drivetypes were initialized wrong. This
+       lead to access to the diskette drive even if overlays
+       for removable drives was disabled. (Stefan)
+- BUG: Merging used always the HEAD revision, as did Blame. (Stefan)
+
+Version 1.0.4
+- NEW: Before a commit, TSVN scans all files in the working copy
+       and adjusts the case if it got changed. (Stefan)
+- NEW: Enhanced repository browser by a set of controls which allow
+       changing of URL and revision from within the browser (Thomas)
+- NEW: Actions like delete and copy in repo browser now immediately
+       refresh the repository tree (Thomas)
+- NEW: Added a "Refresh" entry to the repo browser's menu (Thomas)
+- NEW: The resizable dialogs remember their sizes. (Stefan)
+- NEW: The "check for updates" dialog shows a "+" after
+       a added/deleted filestatus if it was actually a
+       rename/move/copy. (Stefan)
+- NEW: TortoiseMerge indicates the found diff (when using
+       the commands "go to next/previous diff") by selecting
+       them. (Stefan)
+- NEW: TortoiseMerge has a new command to reload the files
+       which reverts all changes you've made. (Stefan)
+- NEW: New icon for the "Add to ignore list" command
+       from Stéphane Becker (whirly@noos.fr).
+- NEW: Info-Tooltip in the commit dialog showing the
+       number of files with a specific status. (Stefan)
+- NEW: Non-recursive checkouts and updates. (Stefan)
+- NEW: The TortoiseProc.exe can now be started by other
+       applications much easier. No temp files are required
+       anymore if the param /notempfile is given on the
+       command line. (Stefan)
+- NEW: The ignore patterns work on unversioned folders. (Stefan)
+- NEW: TortoiseMerge allows to keep both "yours" and "theirs"
+       changes when resolving a conflict. (Stefan)
+- NEW: New command in the commit dialog to ignore unversioned
+       files before a commit. (Stefan)
+- NEW: The "Resolve" command checks first if there are
+       still some conflict markers in the file. (Stefan)
+- NEW: All edit boxes where a log message can be entered
+       support now spell checking and a thesaurus. (Stefan)
+- NEW: Revision numbers can now be entered the same way
+       as the command line client. That means you can
+       enter a revision number as before, but you can
+       also enter "HEAD", "BASE", "PREV", "COMMITTED", "WC"
+       or a date as the revision number. (Stefan)
+- NEW: A doubleclick on the patchfile child dialog minimizes/
+       restores the dialog. (Stefan)
+- NEW: New column in the explorer detail view to show
+       the mime-type of the file. (Stefan)
+- CHG: The revision column now sorts by number, not
+       string and is nicely formatted. (Stefan Fuhrmann)
+- CHG: During cleanup a dialog box is shown to indicate
+       that somethings going on. (Stefan)
+- BUG: TortoiseMerge skipped diffs of one line with the
+       "Next Diff" or "Previous Diff" commands. (Stefan)
+- BUG: Fixed some formatting issues in the dialogs
+       "commit", "add" and "check for updates" if those
+       dialogs were started for selected files (not folders)
+       and a folder with svn:externals is in the same
+       directory as the selected file(s). (Stefan Fuhrmann)
+
+Version 1.0.3
+- NEW: It's now possible to invoke the add command on
+       already versioned folders to add unversioned 
+       files inside that folder. (Stefan)
+- CHG: The URL entry field now looks and behaves much more
+       like the one in Internet Explorer (Thomas)
+- CHG: TortoiseMerge now works on NT4 as well. (Thomas Girard)
+- BUG: The overlay icons did not work on some machines
+       correctly or not at all. (Stefan)
+- BUG: committing a renamed directory didn't work. (Stefan)
+
+Version 1.0.2
+- NEW: Find dialog for TortoiseMerge. (Stefan)
+- CHG: Improved checking for correctness of revision
+       number fields (Thomas Epting)
+- CHG: When "Ignore all whitespaces" is active and 
+       "don't show whitespaces" then the line diff bar
+       doesn't show those whitespaces. (Stefan)
+- CHG: The context menus can now be activated by
+       either a right-click or the special
+       windows key or shift-F10. (Stefan)
+- BUG: Remove compiler optimizations which lead 
+       to a crash in the repo browser. (Stefan)
+- BUG: Applying a patch which had the whole file
+       deleted lead to a crash. (Stefan)
+- BUG: TortoiseMerge showed error when the mousepointer
+       moved past the last line in one-pane view. (Stefan)
+- BUG: When sorting the files/folders in the commit dialog
+       the "(P only)" mark got lost. (Stefan)
+
+Version 1.0.1
+- NEW: The dialog asking the user to enter an URL (e.g.
+       for the repo browser) has now a history of
+       the last used URL's for the user to select from. (Stefan)
+- NEW: New option to use a short version of the date
+       for log messages. (Thomas Epting)
+- NEW: The property page now shows the subversion
+       properties in a combobox. 
+       There's also a tooltip showing additional
+       information about the svn: properties. (Stefan)
+- NEW: Ability to use different merge/diff programs
+       for different filetypes. (Thomas Epting)
+- NEW: Warn the user before creating a repository
+       on a network share. (Stefan)
+- NEW: Warn the user if (s)he tries to checkout/import
+       via file to a repository on a network share. (Stefan)
+- NEW: TortoiseMerge shows the line numbers 
+       in the views. (Stefan)
+- NEW: Autopatch function to patch all files 
+       automatically. (Stefan)
+- NEW: Line diff bar at the bottom of the two pane
+       view, showing the two lines above each other
+       (if the lines are different). Issue 88. (Stefan)
+- NEW: A magnifier for the locatorbar in TME. (Stefan)
+- CHG: Many cosmetic changes to the UI. (Stefan)
+- CHG: The log dialog shows now the log messages
+       in the fourth column (a short version) so
+       you can see the logs without clicking on
+       the revision. (Thomas Epting)
+- CHG: The font combobox now only shows each font
+       once. (Stefan)
+- CHG: Updated TortoisePlink to 0.53b - now 
+       includes proxy support. 
+- BUG: If the "Check for updates" dialog is started
+       for a file (not for a folder), the filename
+       wasn't shown. (Stefan)
+- BUG: Fix various bugs with svn:externals and the
+       commit/add dialogs. (Stefan)
+- BUG: The shell part didn't have the APR_ICONV_PATH
+       environement variable set. (Stefan)
+- BUG: Various bugfixes for TortoiseMerge. (Stefan)
+
+Version 1.0
+- NEW: New option in the settings dialog to set the 
+       filetimes to the last commit time. This solves
+       issue 83. (Stefan)
+- NEW: From the log dialog it's now possible to start
+       the repository browser so it browses the
+       selected revision. (Stefan)
+- NEW: New button in the settings dialog to open
+       the subversion config file with the default
+       text editor. (Stefan)
+- NEW: Implement Issue 87. TortoiseMerge shows now
+       the filename and the revision in the viewtitle.
+       TME gets this information from TSVN. (Stefan)
+- NEW: The repository browser now allows the selection
+       of more than one item. With this, the user can
+       now select two files/folders from different
+       urls (e.g. trunk and tags) and request a diff
+       from them. (Stefan)
+- NEW: Implement a "Delete" command in the context menu of 
+       the commit dialog for unversioned files. (Stefan)
+- NEW: TortoiseMerge can now handle UTF8 files. (Stefan)
+- NEW: Selecting of lines and copying them to the
+       clipboard in TortoiseMerge. (Stefan)
+- CHG: Use of an iterator to gather all the files
+       needed for import/commit/add. This saves a lot
+       of memory and is also a big speedup for large
+       directories. (Jon Foster)
+- CHG: The log message editboxes now do "soft-wrap",
+       i.e. the logmessage is wrapped at the right
+       end of the dialog box. (Stefan)
+- CHG: "Show unversioned files before committing" is now
+       enabled by default. (Stefan)
+- BUG: In TME it was not possible to select a diff block
+       completely if it started at the first line. (Stefan)
+- BUG: Creating a branch/tag from a modified working
+       copy did not include the changes from the
+       working copy! (Stefan)
+- BUG: In the Commit and the Add dialog: if a file was
+       selected then only the topmost parentfolder was
+       automatically selected instead of all intermediant
+       parentfolders. (Stefan)
+- BUG: Export always used HEAD, even if another revision
+       was specified in the dialog. (Stefan)
+- BUG: Showing diffs for changed files from the list in
+       the log dialog was done with the wrong revisions. (Stefan)
+- BUG: When adding files in a directory with svn:externals
+       in it already controlled files got shown in
+       the add dialog. (Stefan)
+- BUG: Some patchfiles were not parsed correctly. (Stefan)
+- BUG: Fixed a massive memory leak when showing logs,
+       also reduced memory consumption when 
+       committing. (Stefan)
+- BUG: If the config file was messed up with TSVN just
+       crashed instead of showing the error and exit. (Stefan)
+- BUG: When sorting by a column in the commit dialog
+       the selections (checkboxes) got lost. (Stefan)
+- BUG: When the recursive overlay was activated, the
+       overlays for folders weren't shown recursive if
+       the explorer columns weren't sorted by name. (Stefan)
+
+Version 0.26
+- NEW: The columns in the progress and the commit dialog 
+       are now sortable. (Stefan)
+- NEW: It's possible now to drag on the locatorbar
+       in TME. (Stefan)
+- NEW: TME now shows ToolTips for the filenames in
+       each view to make it easier to see the
+       full path. (Stefan)
+- NEW: New context menu to open files with the
+       default application in the commit dialog. (Stefan)
+- NEW: By placing a '#' in front of the paths for the
+       external diff/merge programs make TSVN use
+       it's own program TortoiseMerge. This helps
+       users who want to switch easily between
+       two different programs. (Stefan)
+- NEW: german translation of the TSVN docs. (Stefan)
+- NEW: the helpfile is chosen according to the
+       selected language. (Stefan)
+- NEW: Configurable font and fontsize in TME. (Stefan)
+- NEW: Configurable font and fontsize for log messages
+       in TSVN. (Stefan)
+- BUG: Log messages could be shown with an additional
+       empty line between the normal lines. (Stefan)
+- BUG: The filepaths in the log messages were
+       shown twice. (Stefan)       
+- BUG: If a difference was only one line then
+       TME skipped that when it should have gone
+       there on file load. (Stefan)
+- BUG: Filenames with ";" in it could not be
+       committed. (Stefan)
+- BUG: The groupbox text was shown black in the
+       settings dialog on some systems. (Stefan)
+
+Version 0.25
+- NEW: TME shows the differences in whitespaces
+       inside a line too. (Stefan)
+- NEW: New option to not convert files before
+       diffing with BASE. (Stefan)
+- NEW: By pressing F5 in the commit dialog you
+       can refresh the file list. (Stefan)
+- CHG: Enable the left view on loading files
+       in TME. (Stefan)
+- CHG: Use a fixed width font for log messages as
+       default, selectable in the settings dialog. (Stefan)
+- BUG: Fixed a bug in LogDlg, where Double-click 
+       and right-click behaved differently. 
+       Double-Click tried to fetch the log for 
+       a wrong revision. (Luebbe)
+- BUG: Fixed a crash if the patchfile to apply contained
+       a new but empty file. (Stefan)
+- BUG: Don't try to show the context menu in TME for
+       the view title. (Stefan)
+- BUG: Bring the progress window to front even after
+       a confirmation dialog. (Stefan)
+- BUG: Pressing a key while the log dialog fetches
+       all messages (or even after that) could
+       throw an error. (Stefan)
+       
+Version 0.24
+- NEW: A new separate program to apply patches,
+       showing diffs and resolving conflicts.
+       The program is called TortoiseMerge.
+       (Stefan)
+- NEW: New command to create patchfiles in
+       unified diff format from a modified
+       working copy. (Stefan)
+- NEW: New command to apply patchfiles in
+       unified diff format to a working
+       copy. (Stefan)
+- NEW: New checkbox to select/deselect all entries
+       in the commit dialog. (Stefan)
+- NEW: A doubleclick on a file/entry in the log dialog
+       starts the diff viewer. (Stefan)
+- NEW: Doubleclicking on merged files in the update
+       progress dialog starts the diff viewer. (Stefan)
+- CHG: The settings dialog got a facelift. (Stefan)
+- CHG: The layout in our installation folder
+       is more organized. (Stefan)
+- CHG: The about box got a facelift: it finally
+       has the correct TSVN logo in it. (Stefan)
+- CHG: Don't show an error if a temporary file
+       can't get deleted because of a stupid
+       virus scanner. (Stefan)
+- CHG: The log dialog now shows the file/foldername
+       for which the log is requested in the
+       window title. (Stefan)
+- BUG: Convert the Subversion error messages
+       properly from UTF8 to UNICODE/MBCS. (Stefan)
+       
+Version 0.23
+- NEW: Most dialogs now have the "F1"-help
+       working. (Stefan)
+- NEW: The commit dialog now shows a busy cursor
+       while the status of the working copy files
+       is checked. (Stefan)
+- BUG: The property page and the repo browser showed
+       some garbage characters instead of clean
+       Unicode chars. (Stefan)
+- BUG: Folders with a "d" at the beginning could
+       be shown wrong in the repository browser. (Stefan)
+- BUG: In the property page the properties were
+       not set to the selected value in the
+       list-control. (Stefan)
+- BUG: Fixed a registry handle leak in the shell
+       extension. (Stefan)
+       
+Version 0.22
+- NEW: A lot of improved icons. (Luebbe)
+- NEW: Hint text for the setting "don't remove
+       log messages when cancelling a commit". (Stefan)
+- NEW: The "Add before commit" option allows now
+       to add whole unversioned folders to be
+       added before a commit. (Stefan)
+- NEW: The commit dialog has a context menu from
+       where its possible to revert changes
+       in listed files. (Stefan)
+- NEW: Doubleclicking on a locally modified entry
+       in the "Check For Updates" dialog opens
+       the diff-viewer. (Stefan)
+- NEW: Reduce memory footprint of the status
+       cache. (Stefan Fuhrmann)
+- BUG: If the log dialog already showed all
+       revisions the first time then disable
+       the "Get All" button. (Stefan)
+- BUG: TSVN could crash during authentication
+       when fetching the remote status. (Stefan)
+- BUG: After an update, the "Show Log..." 
+       only showed the last revision instead
+       of all revisions since the last
+       update. (Stefan)
+- BUG: When looking for the associated program
+       for a specific filetype (e.g. *.txt)
+       the environement variables weren't
+       expanded. (Stefan)
+- BUG: TSVN could crash in the log dialog if
+       the status of a file or folder could
+       not be read. (Stefan)
+- BUG: The status strings weren't localized
+       in the commit and "Check for Updates"
+       dialog. (Stefan)
+- BUG: Menu settings could be ignored if 
+       the first settings change is to put
+       all menu entries in the submenu. If
+       any other setting was made first then
+       everything was ok. (Stefan)
+- BUG: When creating a folder on the repository
+       root in the browser the refresh function
+       went too far up. (Stefan)
+- BUG: If no log entry was selected a right-click
+       or a left-click on the message area below
+       crashed the log dialog.
+       The log dialog crashed if a key was pressed
+       before any log messages got received. (Stefan)
+- BUG: The repository browser handled the "+" sign
+       in e.g svn+ssh:// url incorrectly.
+       Also the "+" sign was missing in the
+       explorer property page. (Stefan)
+- BUG: svn+ssh didn't work at all until now. Thanks
+       to Bjoern Kuenstig we were able to make
+       it work. (Stefan)
+- BUG: The dialog presented before an export had
+       some labels/title mention "Checkout" instead
+       of "Export" which confused some people. (Stefan)
+- BUG: Deleting the temp files in the import dialog
+       did not work if a file _and_ the parent
+       folder were selected for deletion. (Stefan)
+
+       
+Version 0.21
+- NEW: If multiple targets are selected for
+       update the all targets which belong to
+       the same repository (have the same uuid)
+       are updated to the same revision, no matter
+       if another commit happened in between
+       those updates. (Stefan)
+- NEW: Subversion got a new command: "Blame".
+       TSVN has it too :) What it does?
+       It shows you for each line in a file
+       the revision it was last changed and
+       the author (so you can blame a bug
+       on that author :). (Stefan)
+- NEW: The show log command now only shows
+       the last 100 revisions, configurable
+       in the settings dialog. A new "Get All"
+       button then fetches the rest of the log
+       messages if needed. (Stefan)
+- CHG: Rewrite of the status cache. The time
+       for sorting a by a column should now
+       take much less time and scale much
+       better than before. (Stefan)
+- CHG: Don't error out when doing a merge 
+       if the wc has been changed. (Stefan)
+- BUG: Empty lines were not shown in log
+       messages. (Stefan)
+- BUG: Temp files weren't deleted before an
+       import even if they were marked for
+       deletion. (Stefan)
+- BUG: The log message when creating a new
+       folder was always the same. (Stefan)
+- BUG: Changes made on folders in the repo-
+       browser weren't shown (refresh did
+       not work). (Stefan)
+- BUG: "An invalid argument was encountered"
+       in the log-dialog when working only
+       with keyboard got fixed. (Stefan)
+
+Version 0.20.2
+- BUG: crash bug not fixed in 0.20.1 (one Ctrl-Z
+       to remove debugging code too much :)
+       (Stefan)
+       
+Version 0.20.1
+- BUG: A crash occured if the ssh settings were
+       not empty. (Stefan)
+- BUG: Main page in the settings dialog lost
+       the language settings if the combo-box
+       wasn't touched. (Stefan)
+
+Version 0.20
+- BUG: The property page was always shown in english,
+       no matter what language was set. (Stefan)
+- BUG: The repository browser didn't work for file:///
+       URLs which had escaped chars in it. (Stefan)
+- BUG: If the "X"-Button of the progress window was
+       pressed twice the window just hang. (Stefan)
+- BUG: The external merge program was started
+       with the filenames only instead of the
+       full filepaths. (Stefan)
+- BUG: The status cache wasn't thread-safe and
+       also not process-safe. Thanks to Luebbe
+       for reminding me. (Stefan)
+- BUG: Clicking on certain Links/Folders/Files
+       and trying to show the subversion
+       properties could crash the explorer.
+       (Stefan)
+- CHG: The context menu is disabled for ".svn"
+       directories. (Stefan)
+- CHG: The balloon tooltips have now the standard
+       color of windows as the background. (Stefan)
+- NEW: Branch/Tag is available for single files
+       too, not just folders. (Stefan)
+- NEW: Several new commands for the repository
+       browser. Also a new command in the context
+       menu to start the repo browser. (Stefan)
+- NEW: If a conflict occurs during an update/merge
+       operation you can now just doubleclick on
+       the conflicted entry to start the external
+       merge program. (Stefan)
+- NEW: New option to close the progress window
+       automatically after the command is
+       finished. (Stefan)
+- NEW: Import and Add dialog got a "select/deselect all"
+       button. (Stefan)
+- NEW: TortoisePlink (SSH-Client) and settings entry
+       for the SVN_SSH variable. (Stefan)
+       
+Version 0.19
+- BUG: The conflicted files weren't always determined
+       correctly. (Stefan)
+- BUG: The settings page for the menu layout set the
+       settings to the default values if the page
+       wasn't selected. (Dimentiy)
+- BUG: File-entries in the log dialog could not be
+       selected if the message contained more than
+       three lines. (Stefan)
+- BUG: Issue 67: Show Log + Escape = crash. fixed. (Stefan)
+- BUG: There was a memory leak which made explorer use
+       a huge amount of RAM over time. (Stefan)
+- BUG: The cache timeout wasn't calculated correctly.
+       This lead to wrong icon overlays and needed
+       several "F5" to get the right ones. (Stefan)
+- CHG: The "rename" command now uses the --force option
+       by default so that modified files can be renamed
+       too. (Stefan)
+- CHG: The log dialog got minimize/maximize buttons. (Stefan)
+- NEW: Log messages selectable to copy them to the
+       clipboard (with Ctrl-C). Issue 64. (Stefan)
+- NEW: Search function for log messages. (Stefan)
+- NEW: Properties can be set/removed recursively. (Stefan)
+- NEW: "Find" button in the merge dialog for finding
+       the revision at which the branch occurred.
+       Also the log dialog is shown to help decide
+       which revisions should be merged in.
+       Please note: this works only correct if the
+       server has subversion 0.28 and higher! (Stefan)
+- NEW: Commands "diff", "gnudiff" in the "Changed Files"
+       dialog work now for wc-changes too.
+       Also added a "revert" command. (Stefan)
+- NEW: The "show log" button is activated not only
+       after updates but also after switch (if the
+       revision number after the switch is higher
+       than before). (Stefan)
+- NEW: The property page is now shown for multiple
+       files too (without the information about
+       a file, since every file has different
+       status, dates, names, ...). This allows
+       to set/remove properties on multiple files
+       at once. (Stefan)
+
+Version 0.18
+- BUG: The repository browser didn't escape the url
+       sequences. (Stefan)
+- BUG: Explorer could crash when doing a column sort
+       on really big working copies. Thanks a lot
+       to Lübbe for helping in finding this bug. (Stefan)
+- BUG: Some parts of the log message itself were selectable
+       in the log dialog. (Stefan)
+- CHG: Removed the limitation for property lengths
+       in the property page. (Stefan)
+- CHG: Status text from "unversioned" to "non-versioned".
+       (Stefan)
+- NEW: A new entry in the main settings page can be
+       used to tell TSVN to reuse the entered log-message
+       in the commit dialog even if the user cancelles
+       the dialog. This was a user request. (Stefan)
+- NEW: New right-drag command to copy files/folders
+       inside a working copy. (Stefan)
+- NEW: Ask the user for external programs if none
+       is specified in the settings. Also if no WinDiff
+       like program is found do a unified diff and show
+       that in a text-editor. (Stefan)
+- NEW: The context menu layout is configurable from
+       the settings dialog. (Stefan)
+- NEW: Use of the new prompting providers of subversion,
+       this means TSVN now uses more specific dialogs
+       to ask questions about authentication and
+       ssl certificates. (Stefan)
+
+Version 0.17
+- BUG: the "Add" and "Add to ignore list" commands were
+       shown even if there was no working copy. (Stefan)
+- CHG: URL's are shown unescaped now, at least everywhere
+       where they can't be edited. (Stefan)
+- CHG: Follow the drive type settings: don't access
+       drives which are not used. (Stefan)
+- CHG: If there's nothing to commit, a dialog box
+       pops up telling that. After that the main
+       dialog is also closed so no more pressing
+       "OK" or "Cancel" for nothing. (Stefan)
+- CHG: The property page uses the XP visual styles
+       on windows XP. (Stefan)
+- NEW: The "Browse..." Button in the relocate dialog
+       works now. (Stefan)
+- NEW: Maximize button on the progress window. (Stefan)
+- NEW: The resulting revision number is shown when
+       doing commits, copies/tags, ... (Stefan)
+- NEW: You can now enter a log message when doing an
+       branch/tag. Fixes issue 63. (Stefan)
+- NEW: Information about a successful tag in the log
+       dialog. (Stefan)
+- NEW: Exporting directly from an URL. (Stefan)
+       
+Version 0.16
+- BUG: The "open" command in the repository browser
+       was always active, even for URL's which 
+       can't be opened. (Stefan)
+- BUG: Two more dialogs (Updates and Commit) were
+       missing the new subversion statuses. (Stefan)
+- BUG: The proxy parameters were stored under the wrong
+       key in the registry. (Stefan)
+- BUG: In Import, if no temporary files were found
+       or all deselected then an error message
+       was shown. (Stefan)
+- BUG: In the log dialog if more than 500 files were
+       changed in a revision then it showed "and 0 more"
+       instead of the real remaining files. (Stefan)
+- CHG: Changed the behaviour of the Log and Updates
+       dialog if a network timeout occured. (Stefan)
+- CHG: If the option "recursive overlays" is not set
+       then the status for folders is always set to
+       "normal" to speed things up a little. (Stefan)
+- CHG: Added a timeout to the status cache. This
+       is a workaround so that refreshing (pressing
+       F5) isn't needed that much. (Stefan)
+- CHG: Improved the status caching. (Stefan)
+- CHG: if only the properties were modified then
+       this is indicated by a "(P only)" in
+       the status text in the commit dialog. (Stefan)
+- NEW: The column provider uses now it's own status
+       cache. (Stefan)
+- NEW: Norwegian translation. (Jostein Andersen)
+
+Version 0.15.2
+- BUG: The "Check for updates" dialog could
+       crash for unversioned items. (Stefan)
+- BUG: Subversion got new statuses which I
+       completely missed. (Stefan)
+- BUG: in the changed dialog if an entry was selected
+       but no menu entry chosen then the 
+       OK button stayed disabled. (Stefan)
+- BUG: It wasn't possible to add more than two files
+       to the ignore list. (Stefan)
+- NEW: New context menu in the "Check for updates"
+       dialog: compare with working copy. (Stefan)
+
+Version 0.15.1
+- BUG: Making a copy didn't always work. Some 
+       Pre-Commit-Hooks prevent too short
+       log messages. (Stefan)
+- BUG: Wrong error message was shown if the
+       external diff viewer could not be
+       started. (Stefan)
+- NEW: In the "Check for updates" dialog two context
+       menus for showing a diff and updating files
+       and folders. (Stefan)
+- NEW: The proxy-settings are saved even if they
+       are disabled. That way you can enable/disable
+       those settings without the need to always
+       reenter the data. (Stefan)
+
+Version 0.15
+- BUG: right-dragging a single file/folder resulted
+       in error message "cannot copy path ... into
+       its own child ...". (Stefan)
+- BUG: The log dialog could crash if not enough
+       memory is available. (Stefan)
+- NEW: Select the files you want to delete before
+       importing a project. (Stefan)
+- NEW: New command "ignore" to set the svn:ignore
+       property for selected files. This addition also
+       includes the necessary changes for other 
+       commands to respect the ignored status of
+       subversioned files. This fixes 
+       issues 38 and 60. (Stefan)
+- NEW: While moving files inside a working copy
+       a progress dialog is shown. (Stefan)
+
+Version 0.14
+- BUG: A Path inside a local repository wasn't recognized
+       as a valid repo path in the repository browser. 
+       Fixes Issue 56. (Stefan)
+- BUG: Fixed issue 54. (Stefan)
+- BUG: The dependency of SHGetFolderPathA in shell32.dll
+       is removed so TSVN works again on NT4/Win98. (Stefan)
+- BUG: renaming didn't work. (Stefan)
+- BUG: The drag'n'drop-handler didn't work. (Stefan)
+- BUG: The log for a renamed file/folder was shown
+       as two deletes instead of a delete and an add. (Stefan)
+- BUG: URL were not escaped. Issue 58. (Stefan)
+- CHG: Some icons are changed, some new. (Lübbe)
+- CHG: If a file is deleted from the filesystem but not
+       removed from version control the icon overlay
+       shows the "deleted" icon. (Stefan)
+- NEW: In the log dialog a new context menu entry
+       for creating a tag from a specific revision.
+       This solves issue 53. (Stefan)
+- NEW: In the log dialog there's a context menu
+       in the list of changed files to show the
+       changes you made to that file in that
+       revision. Solves issue 55. (Stefan)
+- NEW: Added another context menu entry to the
+       log dialog for creating a unified diff
+       file (patch file) and showing that
+       inside an external viewer. (Stefan)
+- NEW: revert changes of a specific revision in
+       the log dialog. (Stefan)
+- NEW: New command to check for updates on the
+       server. (Stefan)
+
+Version 0.12.1
+- BUG: If an error occurred while executing a command
+       in the log dialog the ok button wasn't reenabled
+       again. (Stefan)
+- BUG: Some with the file:/// prefix paths could crash 
+       the repository browser. (Stefan)
+- BUG: Fixed typo in the conflict editor hint box. (Stefan)
+- CHG: Changed some german translations. (Stefan)
+- CHG: The Language Combo in the settings page is
+       increased in size for all languages. (Stefan)
+- CHG: reorganized the submenu. (Stefan)
+- CHG: The installer doesn't contain the debug symbols
+       and the crashhandler anymore. They can be downloaded
+       separately. (Stefan)
+- NEW: The About dialog shows which version of TSVN is
+       installed (UNICODE or MBCS) in the window title. (Stefan)
+- NEW: A new command which starts the default browser
+       with the daily use guide. (Stefan)
+              
+Version 0.12
+- BUG: hopefully fixed the bug in the repository-
+       browser when using paths with four/five
+       slashes. (Stefan)
+- BUG: fixed some bugs in the repository browser. (Stefan)
+- BUG: deselecting a file inside a folder in the
+       add dialog lead to deactivation of _all_
+       files which started with the same path, even
+       if they weren't in the same folder. (Stefan)
+- BUG: menu entries were shown twice for "link" files
+       like .lnk and .rdp. This solves issue 52. (Stefan)
+- BUG: the merge function wasn't working correctly since
+       no revisions were used. (Stefan)
+- CHG: the log command now has the strict-option
+       set to false instead of true. (Stefan)
+- CHG: time/date is now shown using the local
+       format. This solves issue 49. (Stefan)
+- CHG: removed dependency to msimg32.dll. (Stefan)
+- CHG: the commit dialog shows the modified files
+       with path. (Stefan)
+- CHG: the rename dialog allows only to rename and
+       not to move anymore. To move files do a right
+       drag in explorer. (Stefan)
+- CHG: in the show-log dialog only the first 50
+       files that were changed are listed to reduce
+       memory consumption. (Stefan)
+- NEW: repository browser works with svn://
+       svn+ssl:// (Stefan)
+- NEW: enhanced the repository browser with a
+       popup-menu containing commands like
+       "show log", "save as..." and "open". (Stefan)
+- NEW: new menu entry to start an external merge
+       program, including parameters. (Stefan)
+- NEW: the "temporary file mask" can now contain
+       folders (marked with a backslash at the end)
+       and has a positive list (marked with a 
+       plus sign "+" in front). So you are now
+       able to specify something like
+       "+readme.txt;*.txt;cvs\" which will allow
+       the file readme.txt but deny all other *.txt
+       files, and will deny all folders and files within
+       a folder named "cvs". 
+       Please note that the order is from left
+       to right - so "*.txt;+readme.txt" will deny
+       all *.txt files, the readme.txt will also
+       be denied since it has lower priority than
+       the *.txt match. (Stefan)
+- NEW: before doing a merge TSVN checks if the
+       working copy has uncommitted changes
+       and shows an error message if it has. (Stefan)
+- NEW: if a file has been deleted in the explorer but
+       not in version control then the commit dialog
+       lets the user select those files and they
+       will be deleted from version control before
+       the commit. (Stefan)
+- NEW: better caching of subversion statuses. (Stefan)
+- NEW: two new icon overlays for status "deleted"
+       and for status "added". (Stefan)
+- NEW: new command "relocate". (Stefan)
+
+Version 0.11.2
+- BUG: entering the settings page without
+       activating the icon overlay page
+       resulted in complete loss of 
+       overlay settings if other changes
+       were saved. (Stefan)
+- BUG: in our own caching provider the
+       username/password wasn't initialized
+       on the first attempt - this lead to
+       undetermined behaviour and crashes!
+       (Stefan)
+- CHG: some minor GUI changes in the property
+       page for the explorer, according to
+       the hint from Dimentiy. (Stefan)
+- CHG: the url in the property page is no
+       longer compacted. (Stefan)
+
+Version 0.11.0
+- BUG: if all files were deselected in the commit
+       dialog then the progress dialog couldn't be
+       closed anymore. (Stefan)
+- BUG: Resizing of dialogs didn't work correctly
+       so I changed the resizing system (Stefan)
+- BUG: corrected tooltip in the checkout dialog (Stefan)
+- BUG: for network paths TSVN created a file:// path
+       with five instead of four slashes. (Stefan)
+- CHG: Repository browser now has a minimal size
+       so that resizing works better. (Stefan)
+- CHG: if the checkout directory is left empty
+       then the OK button is now disabled (Stefan)
+- CHG: if no valid path is given then the
+       repository browser opens now on the
+       desktop by default. (Stefan)
+- CHG: unified interface elements. Issue 45. (Stefan)
+- CHG: made the menu entries align with others. (Stefan)
+- CHG: the menu icons are still ownerdrawn, but
+       if the registry entry 
+       (DWORD)HKCU\Software\TortoiseSVN\OwnerdrawnMenus
+       is set to 0 (zero) then TortoiseSVN uses
+       the system to draw the icons. (Stefan)       
+- NEW: Translation to russian language added (Dimentiy).
+- NEW: in the property page it's now possible to
+       select and copy/paste the information. This
+       fixes issue 46. (Stefan)
+- NEW: After creating a repository now a messagebox
+       appears to inform the user of the finished
+       command. (Stefan)
+- NEW: new menu entry in the log dialog: it's now
+       possible to "update to revision" with a
+       right click on a specific revision log
+       entry. Issue 44. (Stefan)
+- NEW: the about box now contains the version
+       of subversion TortoiseSVN is linked
+       against. Issue 43. (Stefan)
+- NEW: TSVN now has it's own caching provider.
+       That means that username/password are
+       cached during an active session, i.e.
+       as long as a dialog is open. This prevents
+       the user from entering username/password
+       multiple times in the repository browser. (Stefan)
+- NEW: the repository browser now always shows
+       the full path so the user can select
+       elements "above" the one initially entered.
+       This fixes issue 47 (but not with an "up"
+       button). (Stefan)
+       
+Version 0.10.0
+- BUG: if several files are selected for committing
+       and the first one is unversioned or just
+       added a crash occured (Stefan)
+- BUG: if a folder was renamed in a working copy
+       with a system rename (not a 'svn rename')
+       then explorer crashed. Issue 39. (Stefan)
+- BUG: if an error occured while reading the
+       config file it wasn't reported. (Stefan)
+- BUG: the settings page crashed if not all pages
+       were selected before hitting "ok". (Stefan)
+- BUG: copy/paste and drag'n'drop of unversioned
+       files could crash explorer. (Stefan)
+- BUG: import with "use foldername as modulename"
+       didn't work, the modulename was some random
+       characters. (Stefan)
+- BUG: The check for temporary files when doing an
+       import wasn't able to delete those. (Stefan)
+- BUG: The disk drive now shouldn't be scanned
+       anymore if (in the settings) the icon
+       overlays for removable drives is turned off.
+       (Stefan)
+- BUG: Pathnames weren't correctly converted for
+       checkouts. (Stefan)
+- NEW: in the settings page there's now an option
+       if the user wants to have unversioned files
+       shown before a commit so (s)he can add it
+       before the commit. (Stefan)
+- NEW: the add dialog now shows the files with
+       the relative path so the user can better
+       check if a file needs to be added or not.
+       This is especially usefull if folders
+       are added. (Stefan)
+- NEW: Two new column providers: one for the URL
+       of subversion files/folders and the other
+       for a shortened URL without the server
+       and file part. (Stefan)
+- NEW: new icons (Luebbe)
+- CHG: before obtaining a subversion status we
+       now first check if an .svn directory
+       exists - this should speed up things
+       a little. (Stefan)
+- CHG: In the commit dialog the focus is now
+       set to the edit control where the user
+       enters the log message. (Stefan)
+- CHG: adjusted the messagebox colors to system
+       colors. (Stefan)
+- CHG: The green color in the progress dialog
+       got replaced with the system color for
+       selection background. The red color is
+       still hardcoded - I think users who set
+       the dialog background to red are crazy
+       anyway :) (Stefan)
+- CHG: exchanged positions of the ok and 
+       cancel button on popular request (Stefan).
+
+Version 0.9.2
+- BUG: In the Add dialog unversioned folders
+       with items in it lead to a crash (Stefan)
+- BUG: removed the unused "Help" button from the 
+       settings page (Stefan)
+- BUG: The coloring in the progress dialog was wrong 
+       if the wc contained svn:externals (Stefan)
+- BUG: TortoiseSVN wasn't working on Win98-based
+       systems anymore 'cause we now use UNICODE.
+       So changed the code to compile for either
+       MBCS _or_ UNICODE. This means we have
+       to provide two binary versions of TSVN 
+       from now on (Stefan)
+- CHG: The menu items now are properly aligned
+       for both with and without icons (Stefan)
+- CHG: merge/tag uses again an url->url copy
+       command instead of a wc->url copy since
+       this doesn't work for working copy root
+       folders. (Stefan)
+
+Version 0.9.1
+- BUG: the zlib dll lead to some crashes, so
+       I went back to statically linked zlib (Stefan)
+- BUG: The prompt dialog for log messages wasn't
+       resized properly. (Stefan)
+- BUG: The check for temp files was case aware (Stefan)
+       
+Version 0.9 (Subversion 0.21, rev 5631)
+- BUG: in some dialog the repository browser button
+       was disabled (Stefan)
+- BUG: the "show log" menu was shown even if there
+       were multiple files selected (Stefan)
+- BUG: icon overlays weren't shown correctly if only
+       the properties changed (Stefan)
+- BUG: revision numbers weren't correct for HEAD (Stefan)
+- BUG: workaround for strange apr behaviour when 
+       opening a file with WRITE|CREATE (Stefan)
+- BUG: import dialog ignored the "use foldername
+       as modulename" checkbox (Stefan)
+- BUG: repository browser now works for https URLs (Stefan)
+- BUG: import and commit log messages were limited
+       in number of lines (Stefan)
+- BUG: files matching the temporary extensions were
+       not added even if the user explicitely selected
+       them for adding. (Stefan)
+- BUG: The folder icon overlay dissapeared if the
+       svn:ignored property was set and an ignored
+       file was in the folder (Stefan)
+- NEW: in the commit dialog (logprompt) there's now
+       a label showing to where the commit goes so
+       the user can see if (s)he committing to
+       a branch or trunk (or worse: to a tag) (Stefan)
+- NEW: in the "show log" dialog its now possible to
+       select two revisions and the context menu then
+       allows to compare those two revisions (Stefan)
+- NEW: browse button for merge dialog (Stefan)
+- NEW: log messages now have a list of the changed/added
+       removed and moved files added (Stefan)
+- NEW: tooltips for import and checkout dialog (Stefan)
+- NEW: the user can now decide for each authentication
+       prompt if (s)he wants to save it or not (Stefan)
+- NEW: if import or commit get interrupted 'cause of
+       an error the log message is preserved (Stefan)
+- NEW: a doubleclick on the file list in the commit
+       dialog starts the external diff program so you
+       can see the changes you made to the files
+       before committing (Stefan)
+- NEW: The temporary file mask now can have wildcards
+       like ? and * too. (Stefan)
+- NEW: Icon overlays can now be disabled for different
+       drive types (Stefan)
+- CHG: the ok button is disabled in the show log dialog
+       while popup-commands are executed (Stefan)
+- CHG: when committing, only files in versioned dirs are
+       shown to the user for adding before the commit
+       occurs (Stefan)
+- CHG: order in which the files are passed to the diff
+       program (Stefan)
+- CHG: the icon overlay should now be faster. This 
+       affects mostly big directories but smaller ones
+       should profit from it too. (Stefan)
+- CHG: converted both projects (shell and main part)
+       to UNICODE. This to support non-ANSI characters
+       both for viewing and entering. This also solves
+       Issue 37. (Stefan)
+- CHG: the temp file mask is now stored under HKCU
+       instead of HKLM (Stefan)
+
+Version 0.8.1
+- BUG: the add menu was missing for single files (Stefan)
+- BUG: the "update to revision" command updated always to HEAD
+       (Stefan)
+- BUG: if the user selected unversioned items for updating
+       then TSVN could crash (Stefan)
+- BUG: in the copy dialog the error message from subversion
+       was not shown (only the beep was heard). (Stefan)
+- BUG: if the user pressed "Cancel" in the authentication
+       dialog then still another retry was made (Stefan)
+- BUG: if the URL in the combobox was deleted then the
+       repository browser button was disabled forever. (Stefan)
+- BUG: if the repository browser was used a second time then
+       the icons of the items were gone. (Stefan)
+- BUG: the history combo now works as expected (Stefan)
+- CHG: in the switch dialog now the 'switch to branch'
+       checkbox is removed since the 'update to revision'
+       command does exactly this. (Stefan)
+- CHG: the copy command now uses the progess dialog (Stefan)
+- CHG: use always wc->url in copy command (Stefan)
+- NEW: the progress dialog now shows the different actions
+       in color. Also it now shows directly if during an
+       update a file gets conflicted or merged. (Stefan)
+- NEW: cancellation for the log command. (Stefan)
+- NEW: the branch/tag dialog now shows from which URL the
+       branch/tag is made. (Stefan)
+- NEW: a 'browse repository' button in the switch dialog (Stefan)
+- NEW: "show log" now in the TSVN submenu too (Stefan)
+
+Version 0.8
+- CHG: most used commands are now in the top context menu and
+       not in the submenu anymore (Stefan)
+- CHG: Modified the SVN Progress dialog so that the columns are
+       resized before any data is added. Also ensured that all
+       items are *entirely* visible even if the horizontal scroll
+       bar is visible. (Damian)
+- CHG: icon for cleanup command (Stefan)
+- NEW: drag and drop handler for adding files to a working copy
+       and for moving files inside a working copy (Stefan)
+- NEW: the commit dialog now shows all unversioned files
+       and lets the user select them to add before committing,
+       issue #22 (Stefan)
+- NEW: A browse for folder button to the Checkout dialog.
+       Modified the initial value of the checkout directory field
+       contain the current working directory (InitInstanceMade
+       method of the CTortoiseProcApp class). (Damian)
+- NEW: If the user selects two files then there's now a "Diff"
+       entry in the submenu which starts the external diff program
+       on those two files. It's not required that the two files
+       be under version control - it works on every two files.
+       This is a handy and fast way to see the diff. (Stefan)
+- NEW: delete and rename command has now an own menu icon (Stefan)
+- BUG: the "save as..." dialog didn't show up under NT4 'cause
+       of the changed size of OPENFILENAME structure (Stefan)
+- BUG: the property page wasn't shown in the selected language
+       but in the system default language (Stefan)
+
+Version 0.7
+- BUG: log messages were not converted back from utf8 before 
+       showing them to the user (Stefan)
+- BUG: copy dialog did not work properly (Stefan)
+- BUG: revert wasn't shown for folders (Stefan)
+- BUG: context menu on the start-button wasn't shown
+       correctly - it's disabled there now (Stefan)
+- BUG: submenu entry on older system wasn't shown (Stefan)
+- CHG: the watcher process is now disabled. I.e. renames/moves
+       and copy operations don't work anymore directly in 
+       explorer (Stefan)
+- NEW: in the import dialog it's now possible to specify if
+       the foldername should be used as the new module name
+       or (if not checked) if the contents of the folder 
+       should be imported directly to the url. (Stefan)
+- NEW: if the user selects a directory for "Add" then
+       a dialog shows up showing all unversioned items
+       recursively in that folder. (Stefan)
+- NEW: internationalization (i18l) of TortoiseProc part. (Stefan)
+- NEW: runtime switching of languages (Stefan)
+- NEW: german language (Stefan)
+- NEW: italian language (Federico Barbieri)
+
+Version 0.6.1 (Subversion 0.18.1)
+- BUG: the log message was not utf8 converted. (Stefan)
+- CHG: in the update dialog when pressing "Show Log..." the logs
+       are now shown in reverse order like the normal log dialog.
+       (Stefan)
+- NEW: several commands which take longer to finish can now be
+       cancelled thanks to new API in Subversion. (Stefan)
+- NEW: before committing a check is done on the urlpath if a 
+       "/tags/" is in there which will generate now a warning.
+       (Stefan)
+- NEW: the apr-iconv modules for UTF8 conversion are now included
+       (Stefan)
+
+Version 0.6 (Subversion 0.18)
+- BUG: authentication did not work (Stefan)
+- BUG: if in commit no file was selected then subversion crashed
+       (Stefan)
+- CHG: the external diff program is now called differently so we
+       get greater compatibility with other diff programs. (Stefan)
+- ENH: the repository browser now uses the correct icons from the
+       system icon list for folders and files. (Stefan)
+- NEW: after an update of a working copy a "show log..." button
+       is shown which will (if pressed) get the logs for the
+       revisions since the last update. (Stefan)
+
+Version 0.5.1 (Subversion rev: 4753)
+- BUG: the width and height of the context menu is now calculated
+       correctly according to the length of the string and the
+       selected system font. (Stefan)
+- BUG: columnprovider crashed for unversioned files inside a working
+       copy. (Stefan)
+- BUG: committing of several selected files resulted in several
+       separate commits instead of only one. (Stefan)
+- BUG: the modulename in checkout was ignored. (Stefan)
+- ENH: resizable dialogs now have a resize grip on the bottom right
+       corner to show the user that they are resizable. (Stefan)
+- NEW: a diff command exists now in the context menu for comparing
+       the changes to the text-base (changes since last commit).
+       (Stefan)
+- NEW: when doing a commit TSVN now determines first which files
+       need a commit and let the user select which of these
+       are actually needed for a commit. This makes it also easier
+       to write log messages since its visible which files have
+       changed. (Stefan)
+       
+Version 0.5
+- BUG: two separators could appear together in submenu (Tim)
+- BUG: changed the projects to using the berkeley db
+       built with VC.NET instead of VC6.
+       This inconsistency caused heap corruption when accessing
+       the db. Solved different bugs related to local repository
+       access. (Stefan)
+- BUG: the "browse for external diff program" dialog wouldn't
+       show up 'cause the stringbuffer must be initialized to zero
+       (Stefan)
+- BUG: in the explorer file menu the TortoiseSVN menu entry got
+       added every time the file menu was selected which lead to
+       multiple menu entries. (Stefan)
+- BUG: selecting a link and choosing "properties" caused explorer 
+       to crash. (Stefan)
+- BUG: when no status of a file could be obtained (wc locked, ...)
+       then the commands copy, merge and switch crashed. (Stefan)
+- BUG: if an older revision could not get checked out (subversion
+       throws an error) then the command "compare with working copy"
+       would crash. (Stefan)
+- BUG: the changewatcher process didn't check for svn_wc_status_none.
+       (Stefan)
+- BUG: renaming files didn't work (via menu, not via changewatcher)
+       Issue 12 (Stefan)
+- BUG: the call of the external diff failed when the filename 
+       contained spaces. Issue 11 (Stefan)
+- BUG: hopefully fixed the icon spacing in the submenu (modelled it
+       on the new menu in windows. (Tim)
+- CHG: made the required API changes in the authentication subversion
+       uses. (Stefan)
+- ENH: issue #4 done. Urls have now a dropdown combobox with the
+       last entered values. (Stefan)
+- ENH: issue 10 done. Save revision of a file now works in the
+       log dialog from the context menu. (Stefan)
+- ENH: issue 2: update to a specific revision is now possible through
+       the shift-right-click context menu. Then the command "update"
+       changes to "update to revision...". (Stefan)
+- ENH: issue #6 done. you can now sepcify a revision in the checkout 
+       dialog (Tim)
+- NEW: issue #7 done. You can now browse the local filesystem for a 
+       local repository. You can also browse a repository (local and 
+       remote) for paths (Tim)
+- NEW: the settings dialog contains now a page for proxy settings.
+       (Stefan)
+- NEW: two new column providers: one for the revision number and
+       the second overrides the predefined "author" column. (Stefan)
+- NEW: added browse button to the Import dialog. You can now browse 
+       the local filesystem for a local repository. You can also 
+       browse a repository (local and remote) for paths. (Tim)
+
+Version 0.4
+- BUG: errors were not displayed to the user for commit and add 
+       (Stefan)
+- BUG: in the log dialog the wrong log entries were shown when
+       the selection was changed with the up/down key (Stefan)
+- BUG: fixed HKLM and HKCU discrepancies in the registry settings
+       (Stefan)
+- BUG: now the watcher checks first if the file actually WAS under
+       subversion control before trying to redo the action (Stefan)
+- ENH: Revert now asks an "are you sure?" to prevent unintentional
+       data loss (Stefan)
+- ENH: added context menu icons (Stefan)
+- ENH: added a check for temporary files when doing import/add (Stefan)
+- ENH: added a crashhandler for better bug tracking - does NOT work
+       with the shell integration part (sad, but true) (Stefan)
+- ENH: improved speed of the column handler (Stefan)
+- ENH: show messagebox when 'cleanup' has finished (Stefan)
+- ENH: improved speed for icon overlay by adding small cache (Stefan)
+- CHG: while receiving log messages display them so the user can
+       see that something is going on (Stefan)
+- CHG: overlay for anything else than 'normal' is now shown as 
+       'modified'. 'obstructed' and 'conflicted' are shown as
+       'conflicted' as before. (Stefan)
+
+Version 0.3
+- ENH: log messages are now received from the HEAD of the repository
+  and not from the workingcopy revision on. (Stefan)
+- BUG: properties page in explorer crashed when a non versioned item
+  inside a versioned directory was selected. (Tim)
+- BUG: crash in Win95/98/Me because of 'normal' parameter instead of
+  unicode. (Stefan)
+- ENH: new command in log window to compare the working copy with an
+  older revision. (Stefan)
+
+Version 0.2
+- basic functions are working (Tim/Stefan)
+- removed WxWindows part and changed to MFC (Stefan)
+
+Version 0.1
+starting, very few thing are working and even more crashing. (Tim)
