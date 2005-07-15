@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-27 03:14+0200\n"
+"PO-Revision-Date: 2005-07-15 11:32+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -264,6 +264,11 @@ msgstr "&Незабавна проверка"
 msgid "&Compare Revisions"
 msgstr "&Сравняване на ревизии"
 
+# ID:376,
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Копиране"
+
 # ID:101,
 #: ID:101
 msgid "&Copy To..."
@@ -283,6 +288,7 @@ msgstr "&Симулация"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "&Редакция"
 
@@ -311,6 +317,10 @@ msgstr "&Външна"
 #: MenuEntry
 msgid "&File"
 msgstr "&Файл"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Търсене"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -1368,7 +1378,7 @@ msgstr "Изберете тези команди, които желаете да
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Включете, за да се показва по-кратък формат за час и дата в дневника"
+msgstr "Включете за по-кратък формат за час и дата в дневника"
 
 # ID:270,
 #: ID:270
@@ -2500,6 +2510,15 @@ msgstr "Ако е включено, ускорява изтеглянето на
 # ID:195,
 #: ID:195
 msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Ако тази опция е включена, диалогът за сливане инициализира \"От:\" URL с URL на избраното работно копие\n"
+"вместо с последно използвания URL."
+
+# ID:195,
+#: ID:195
+msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
@@ -2853,6 +2872,7 @@ msgstr "Макс"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "Сливане"
 
@@ -3478,7 +3498,7 @@ msgstr "Отхвърляне"
 # Control-ID:1203,
 #: ID:16
 msgid "Release Lock"
-msgstr "Освобождава заключване"
+msgstr "Освобождаване на заключване"
 
 # ID:16,
 #: ID:16
@@ -3757,6 +3777,11 @@ msgstr "SVN добавяне на файлове към това работно 
 msgid "SVN Add..."
 msgstr "SVN добавяне..."
 
+# ID:76,
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Автор:"
+
 # ID:132,
 #: ID:132
 msgid "SVN Blame"
@@ -3775,12 +3800,12 @@ msgstr "SVN поверяване..."
 # ID:13,
 #: ID:16
 msgid "SVN Copy and Rename versioned files here"
-msgstr "SVN Копиране и преименуване на контролирани файлове до тук"
+msgstr "SVN копиране и преименуване на контролирани файлове до тук"
 
 # Control-ID:1073,
 #: ID:13
 msgid "SVN Copy versioned files here"
-msgstr "SVN Копиране на контролирани файлове тук"
+msgstr "SVN копиране на контролирани файлове тук"
 
 # ID:78,
 #: ID:78
@@ -3790,7 +3815,7 @@ msgstr "SVN копиране..."
 # ID:13,
 #: ID:14
 msgid "SVN Export all to here"
-msgstr "SVN Износ на всичко тук"
+msgstr "SVN износ на всичко тук"
 
 # ID:78,
 #: ID:14
@@ -3810,7 +3835,7 @@ msgstr "SVN внос..."
 # Control-ID:65535,
 #: ID:16
 msgid "SVN Lock Owner"
-msgstr "SVN Собственик на заключването"
+msgstr "SVN собственик на заключването"
 
 # ID:78,
 #: ID:78
@@ -4677,6 +4702,11 @@ msgstr ""
 
 # ID:16,
 #: ID:16
+msgid "The user who did the last commit"
+msgstr "Потребителят с последеното поверяваване"
+
+# ID:16,
+#: ID:16
 msgid "The user who owns the lock of the file"
 msgstr "Потребителят, който е заключил файла"
 
@@ -5105,6 +5135,11 @@ msgstr "Използване на лупа в Локатора"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "Използване на текстов редактор за разглеждане на отговорните"
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Използване на URL на работното копие за \"От:\" URL по подразбиране"
 
 # Control-ID:1073,
 #: Control-ID:1073

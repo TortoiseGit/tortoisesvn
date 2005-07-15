@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3838
+# Based on r3879
 #
 msgid ""
 msgstr ""
@@ -2666,6 +2666,10 @@ msgstr "SVN Tilføj filer i denne arbejdskopi"
 msgid "SVN Add..."
 msgstr "SVN Tilføj..."
 
+#: ID:16,
+msgid "SVN Author"
+msgstr "SVN Forfatter"
+
 #: ID:132,
 msgid "SVN Blame"
 msgstr "SVN Ændringsfordeling"
@@ -3270,6 +3274,10 @@ msgstr "URL'en\n%s\nfindes allerede!"
 #: ID:195,
 msgid "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
 msgstr "Antallet af sekunder, der højst bruges på læse de valgte filer.\nEn lavere værdi vil gøre automatisk udfyldning hurtigere tilgængelig,\nmen måske skannes ikke alle filer."
+
+#: ID:16,
+msgid "The user who did the last commit"
+msgstr "Den bruger, som lavede sidste arkivering"
 
 #: ID:16,
 msgid "The user who owns the lock of the file"
