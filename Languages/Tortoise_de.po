@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-12 10:44+0100\n"
+"PO-Revision-Date: 2005-07-15 09:22+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3005,6 +3005,10 @@ msgstr "SVN Zu dieser Arbeitskopie hinzufügen"
 msgid "SVN Add..."
 msgstr "SVN Hinzufügen..."
 
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Autor"
+
 #: ID:132
 msgid "SVN Blame"
 msgstr "SVN Annotieren..."
@@ -3759,6 +3763,10 @@ msgstr ""
 "Die Zeit in Sekunden nach der die Analyse der ausgewählten Dateien angehalten wird.\n"
 "Ein kleiner Wert stellt die Liste zum automatischen Vervollständigen schneller\n"
 "zur Verfügung, wird aber manchmal nicht alle Dateien analysieren."
+
+#: ID:16
+msgid "The user who did the last commit"
+msgstr "Der Autor der letzten Änderung"
 
 #: ID:16
 msgid "The user who owns the lock of the file"

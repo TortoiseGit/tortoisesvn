@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-06-27 10:30+0800\n"
+"PO-Revision-Date: 2005-07-15 10:07+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -226,6 +226,11 @@ msgstr "立刻檢查(&C)"
 msgid "&Compare Revisions"
 msgstr "比對版本差異(&C)"
 
+# ID:376,
+#: MenuEntry
+msgid "&Copy"
+msgstr "複製(&C)"
+
 # ID:101,
 #: ID:101
 msgid "&Copy To..."
@@ -245,6 +250,7 @@ msgstr "試演(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "編輯(&E)"
 
@@ -273,6 +279,10 @@ msgstr "外部(&E)"
 #: MenuEntry
 msgid "&File"
 msgstr "檔案(&F)"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "搜尋(&F)"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -2460,6 +2470,15 @@ msgstr "啟用時, 可以提高從 1.2版之前的伺服器取得紀錄訊息的
 # ID:195,
 #: ID:195
 msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"啟用時, 合併視窗使用工作複本的URL做為一開始的來源URL.\n"
+"否則使用前一次使用的URL."
+
+# ID:195,
+#: ID:195
+msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
@@ -2813,6 +2832,7 @@ msgstr "最大"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "合併"
 
@@ -3717,6 +3737,11 @@ msgstr "SVN 加入檔案至工作複本"
 #: ID:77
 msgid "SVN Add..."
 msgstr "SVN Add..."
+
+# ID:76,
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN 作者"
 
 # ID:132,
 #: ID:132
@@ -4637,6 +4662,11 @@ msgstr ""
 
 # ID:16,
 #: ID:16
+msgid "The user who did the last commit"
+msgstr "上次送交的使用者"
+
+# ID:16,
+#: ID:16
 msgid "The user who owns the lock of the file"
 msgstr "檔案鎖定持有人"
 
@@ -5068,6 +5098,11 @@ msgstr "在定位列上使用放大鏡"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "使用文字編輯器檢視譴責"
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "使用工作複本的URL做為預設的來源URL"
 
 # Control-ID:1073,
 #: Control-ID:1073
