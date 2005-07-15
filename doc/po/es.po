@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-14 00:46+0100\n"
+"PO-Revision-Date: 2005-07-15 18:05+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6117,6 +6117,171 @@ msgstr ""
 "TortoiseProc.exe /command:repobrowser /path:\"url/al/repositorio\" /notempfile\n"
 "</screen> Por supuesto necesitará incluir la URL real del repositorio."
 
+#: source/en/tsvn_app_cli.xml:3
+#: (title)
+msgid "Command Line Interface Cross Reference"
+msgstr "Referencia Cruzada del Interface de Línea de Comandos"
+
+#: source/en/tsvn_app_cli.xml:5
+#: (primary)
+msgid "command line client"
+msgstr "cliente de línea de comandos"
+
+#: source/en/tsvn_app_cli.xml:8
+#: (primary)
+msgid "CLI"
+msgstr "CLI"
+
+#: source/en/tsvn_app_cli.xml:11
+#: (para)
+msgid "Sometimes this manual refers you to the main Subversion documentation, which describes subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
+msgstr "A veces este manual hace referencia a la documentación principal de Subversion, que describe subversion en términos del Interfaz de Línea de Comandos (CLI). Para ayudarle a entener lo que TortoiseSVN hace tras el escenario, hemos compilado una lista mostrando los comandos CLI equivalentes a cada operación en la Interfaz de Usuario de TortoiseSVN."
+
+#: source/en/tsvn_app_cli.xml:19
+#: (para)
+msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TSVN issues from Subversion issues. This reference tells you which command to try."
+msgstr "Si cree que ha encontrado un error en TortoiseSVN, puede que le pidamos que intente reproducirlo utilizando el CLI, para que podamos distinguir los problemas de TSVN de los problemas de Subversion. Esta referencia le dice qué comando debe probar."
+
+#: source/en/tsvn_app_cli.xml:27
+#: (title)
+msgid "Conventions and Basic Rules"
+msgstr "Convenciones y reglas básicas"
+
+#: source/en/tsvn_app_cli.xml:28
+#: (para)
+msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
+msgstr "En las descripciones que aparecen a continuación, la URL con el lugar de un repositorio se muestra simplemente como <literal>URL</literal>, que corresponde por ejemplo a <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. La ruta de la copia de trabajo se muestra simplemente como <literal>RUTA</literal>, que corresponde por ejemplo a <literal>C:\\TortoiseSVN\\trunk</literal>."
+
+#: source/en/tsvn_app_cli.xml:37
+#: (important)
+msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
+msgstr "Dado que TortoiseSVN es una Extensión del Shell de Windows, no es capaz de utilizar la noción de directorio de trabajo actua. Todas las rutas de las copias de trabajo se deben especificar con rutas absolutas, no relativas."
+
+#: source/en/tsvn_app_cli.xml:43
+#: (para)
+msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
+msgstr "Algunos ítems son opcionales, y a menudo se controlan con casillas o botones de opciones en TortoiseSVN. Estas opciones se muestran [entre corchetes] en las definiciones de la línea de comandos."
+
+#: source/en/tsvn_app_cli.xml:50
+#: (title)
+msgid "TortoiseSVN Commands"
+msgstr "Comandos de TortoiseSVN"
+
+#: source/en/tsvn_app_cli.xml:52
+#: (title)
+msgid "Checkout"
+msgstr "Obtener"
+
+#: source/en/tsvn_app_cli.xml:53
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn checkout [-N] [--ignore-externals] URL[@rev] PATH\n"
+msgstr ""
+"\n"
+"svn checkout [-N] [--ignore-externals] URL[@rev] RUTA\n"
+
+#: source/en/tsvn_app_cli.xml:56
+#: (para)
+msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+msgstr "Si se marca <guilabel>Sólo obtener la carpeta superior</guilabel>, utilice la opción <literal>-N</literal>."
+
+#: source/en/tsvn_app_cli.xml:60
+#: (para)
+msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
+msgstr "Si se marca <guilabel>Omitir externos</guilabel>, utilice la opción <literal>--ignore-externals</literal>."
+
+#: source/en/tsvn_app_cli.xml:64
+#: (para)
+msgid "If you are checking out a specific revision, specify that after the URL using <literal>@rev</literal>."
+msgstr "Si está obteniendo una revisión concreta, especifíquela detrás de la URL utilizando <literal>@rev</literal>."
+
+#: source/en/tsvn_app_cli.xml:70
+#: (title)
+msgid "Update"
+msgstr "Actualizar"
+
+#: source/en/tsvn_app_cli.xml:71
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn update PATH\n"
+msgstr ""
+"\n"
+"svn update RUTA\n"
+
+#: source/en/tsvn_app_cli.xml:74
+#: (para)
+msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers further options."
+msgstr "Aquí no se utilizan opciones en la línea de comandos. <guilabel>Actualizar a la Revisión</guilabel> también implementa el comando actualizar, pero ofrece más opciones."
+
+#: source/en/tsvn_app_cli.xml:81
+#: (title)
+msgid "Commit"
+msgstr "Confirmar"
+
+#: source/en/tsvn_app_cli.xml:82
+#: (para)
+msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
+msgstr "En TortoiseSVN, el diálogo de confirmación utiliza varios comandos Subversion. La primera fase es una comprobación del estado que determina los ítems de su copia de trabajo que potencialmente pueden ser confirmados. Puede revisar la lista, comparar los ficheros contra BASE y seleccionar los ítems que desea incluir en la confirmación."
+
+#: source/en/tsvn_app_cli.xml:89
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn status PATH\n"
+msgstr ""
+"\n"
+"svn status RUTA\n"
+
+#: source/en/tsvn_app_cli.xml:92
+#: (para)
+msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
+msgstr "Si se marca <guilabel>Mostrar archivos no versionados</guilabel>, TortoiseSVN le mostrará también todos los ficheros y carpetas no versionados en su jerarquía de la copia de trabajo, teniendo en cuenta las reglas de ignorar. Esta característica en concreto no tiene equivalente directo en Subversion, ya que el comando <literal>svn status</literal> no entra en carpetas no versionadas."
+
+#: source/en/tsvn_app_cli.xml:100
+#: (para)
+msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
+msgstr "Si selecciona cualquier fichero o carpeta no versionado, esos ítems primero se añadirán a su copia de trabajo."
+
+#: source/en/tsvn_app_cli.xml:104
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn add PATH...\n"
+msgstr ""
+"\n"
+"svn add RUTA...\n"
+
+#: source/en/tsvn_app_cli.xml:107
+#: (para)
+msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
+msgstr "Cuando pulsa Aceptar, tiene lugar la confirmación en Subversion. Si ha dejado todas las casillas de selección de ficheros sin tocar tal y como aparecieron, TortoiseSVN utilizará una única confirmación recursiva en la copia de trabajo. Si ha deseleccionado algún fichero, entonces se debe utilizar una confirmación no-recursiva (<literal>-N</literal>), y se debe especificar individualmente cada ruta en la línea de comandos de la confirmación."
+
+#: source/en/tsvn_app_cli.xml:115
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+msgstr ""
+"\n"
+"svn commit -m \"Mensaje de registro\" [-N] [--no-unlock] RUTA...\n"
+
+#: source/en/tsvn_app_cli.xml:118
+#: (para)
+msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
+msgstr "<literal>Mensaje de registro</literal> aquí representa los contenidos del cuadro de texto Mensaje de Registro. Puede estar vacío."
+
+#: source/en/tsvn_app_cli.xml:122
+#: (para)
+msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
+msgstr "Si se marca <guilabel>Mantener Bloqueos</guilabel>, utilice la opción <literal>--no-unlock</literal>."
+
 #: source/en/tortoisesvn.xml:5
 #: (subtitle)
 msgid "A Subversion client for Windows"
@@ -6344,9 +6509,8 @@ msgstr "Combinando / Editando Conflictos"
 
 #: source/en/tme_ch02.xml:232
 #: (para)
-#, fuzzy
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
-msgstr "TortoiseMerge no sólo le <emphasis>muestra</emphasis> las diferencias entre los ficheros sino que le permite resolver conflictos o aplicar cambios."
+msgstr "TortoiseMerge no sólo le <emphasis>muestra</emphasis> las diferencias entre los ficheros, sino que también le permite resolver conflictos o aplicar cambios."
 
 #: source/en/tme_ch02.xml:236
 #: (para)
