@@ -56,8 +56,16 @@
 		<sect2 id="tsvn-cli-checkout">
 			<title>Checkout</title>
 <screen>
+svn info URL
 svn checkout [-N] [--ignore-externals] [-r par] URL PATH
 </screen>
+			<para>
+				Because checkout is not an atomic operation, TortoiseSVN first
+				finds the HEAD revision of the repository, and then checks out
+				that particular revision number. If someone else commits changes
+				in the middle of your checkout, you won't get a mixed revision
+				working copy.
+			</para>
 			<para>
 				If <guilabel>Only checkout the top folder</guilabel> is checked,
 				use the <literal>-N</literal> switch.
@@ -74,8 +82,15 @@ svn checkout [-N] [--ignore-externals] [-r par] URL PATH
 		<sect2 id="tsvn-cli-update">
 			<title>Update</title>
 <screen>
+svn info URL
 svn update [-r par] PATH
 </screen>
+			<para>
+				Update is not currently an atomic operation in Subversion.
+				TortoiseSVN first finds the HEAD revision of the repository,
+				and then updates to that particular revision number to
+				avoid creating a mixed revision working copy.
+			</para>
 			<para>
 				No command line options are used here.
 				<guilabel>Update to revision</guilabel> also implements
@@ -129,13 +144,46 @@ svn commit -m "LogMessage" [-N] [--no-unlock] PATH...
 				use the <literal>--no-unlock</literal> switch.
 			</para>
 		</sect2>
-<!--
 		<sect2 id="tsvn-cli-diff">
 			<title>Diff</title>
+<screen>
+svn diff PATH
+</screen>
+			<para>
+				If you use Diff from the main context menu, you are diffing
+				a modified file against its BASE revision. The output from
+				the CLI command above also does this and produces output
+				in unified-diff format. However, this is not what TortoiseSVN
+				is using. TortoiseSVN uses TortoiseMerge (or a diff program of
+				your choosing) to display differences visually between
+				fulltext files, so there is no direct CLI equivalent.
+			</para>
+			<para>
+				You can also diff any 2 files using TortoiseSVN, whether or
+				not they are version controlled. TortoiseSVN just feeds the
+				two files into the chosen diff program and lets it work out
+				where the differences lie.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-showlog">
 			<title>Show Log</title>
+<screen>
+svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH
+  or
+svn log -v -r M:N [--stop-on-copy] PATH
+</screen>
+			<para>
+				By default, TortoiseSVN tries to fetch 100 log messages
+				using the --limit method. If the settings instruct it to
+				use old APIs, then the second form is used to fetch the
+				log messages for 100 repository revisions.
+			</para>
+			<para>
+				If <guilabel>Stop on copy/rename</guilabel> is checked,
+				use the <literal>--stop-on-copy</literal> switch.
+			</para>
 		</sect2>
+<!--
 		<sect2 id="tsvn-cli-checkmods">
 			<title>Check for Modifications</title>
 		</sect2>

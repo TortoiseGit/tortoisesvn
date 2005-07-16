@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-14 23:23GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-16 23:52GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3409,7 +3409,7 @@ msgid "While working on TortoiseSVN we love to listen to music. And since we spe
 msgstr ""
 
 #: source/en/Version.xml:2(subtitle) 
-msgid "Version 1.2.0"
+msgid "Version 1.2.1"
 msgstr ""
 
 #: source/en/tsvn_preface.xml:3(title) source/en/tme_ch00.xml:3(title) 
@@ -4416,105 +4416,155 @@ msgstr ""
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:19(para) 
+#: source/en/tsvn_app_cli.xml:21(emphasis) 
+msgid "not"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:19(note) 
+msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <placeholder-1/> call the CLI but uses the Subversion library directly."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:24(para) 
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TSVN issues from Subversion issues. This reference tells you which command to try."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:27(title) 
+#: source/en/tsvn_app_cli.xml:32(title) 
 msgid "Conventions and Basic Rules"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:28(para) 
+#: source/en/tsvn_app_cli.xml:33(para) 
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:37(important) 
+#: source/en/tsvn_app_cli.xml:42(important) 
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:43(para) 
+#: source/en/tsvn_app_cli.xml:48(para) 
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:50(title) 
+#: source/en/tsvn_app_cli.xml:55(title) 
 msgid "TortoiseSVN Commands"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:52(title) 
+#: source/en/tsvn_app_cli.xml:57(title) 
 msgid "Checkout"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:53(screen) 
+#: source/en/tsvn_app_cli.xml:58(screen) 
 #, no-wrap
-msgid "\nsvn checkout [-N] [--ignore-externals] URL[@rev] PATH\n"
+msgid "\nsvn info URL\nsvn checkout [-N] [--ignore-externals] [-r par] URL PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:56(para) 
+#: source/en/tsvn_app_cli.xml:62(para) 
+msgid "Because checkout is not an atomic operation, TortoiseSVN first finds the HEAD revision of the repository, and then checks out that particular revision number. If someone else commits changes in the middle of your checkout, you won't get a mixed revision working copy."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:69(para) 
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:60(para) 
+#: source/en/tsvn_app_cli.xml:73(para) 
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:64(para) 
-msgid "If you are checking out a specific revision, specify that after the URL using <literal>@rev</literal>."
+#: source/en/tsvn_app_cli.xml:77(para) 
+msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:70(title) 
+#: source/en/tsvn_app_cli.xml:83(title) 
 msgid "Update"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:71(screen) 
+#: source/en/tsvn_app_cli.xml:84(screen) 
 #, no-wrap
-msgid "\nsvn update PATH\n"
+msgid "\nsvn info URL\nsvn update [-r par] PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:74(para) 
-msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers further options."
+#: source/en/tsvn_app_cli.xml:88(para) 
+msgid "Update is not currently an atomic operation in Subversion. TortoiseSVN first finds the HEAD revision of the repository, and then updates to that particular revision number to avoid creating a mixed revision working copy."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:81(title) 
+#: source/en/tsvn_app_cli.xml:94(para) 
+msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but uses the <literal>-r</literal> option."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:101(title) 
 msgid "Commit"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:82(para) 
+#: source/en/tsvn_app_cli.xml:102(para) 
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:89(screen) 
+#: source/en/tsvn_app_cli.xml:109(screen) 
 #, no-wrap
-msgid "\nsvn status PATH\n"
+msgid "\nsvn status -v PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:92(para) 
+#: source/en/tsvn_app_cli.xml:112(para) 
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:100(para) 
+#: source/en/tsvn_app_cli.xml:120(para) 
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:104(screen) 
+#: source/en/tsvn_app_cli.xml:124(screen) 
 #, no-wrap
 msgid "\nsvn add PATH...\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:107(para) 
+#: source/en/tsvn_app_cli.xml:127(para) 
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:115(screen) 
+#: source/en/tsvn_app_cli.xml:135(screen) 
 #, no-wrap
 msgid "\nsvn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:118(para) 
+#: source/en/tsvn_app_cli.xml:138(para) 
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:122(para) 
+#: source/en/tsvn_app_cli.xml:142(para) 
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:148(title) 
+msgid "Diff"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:149(screen) 
+#, no-wrap
+msgid "\nsvn diff PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:152(para) 
+msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between fulltext files, so there is no direct CLI equivalent."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:161(para) 
+msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:169(title) 
+msgid "Show Log"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:170(screen) 
+#, no-wrap
+msgid "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n  or\nsvn log -v -r M:N [--stop-on-copy] PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:175(para) 
+msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:181(para) 
+msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
 msgstr ""
 
 #: source/en/tortoisesvn.xml:5(subtitle) 
