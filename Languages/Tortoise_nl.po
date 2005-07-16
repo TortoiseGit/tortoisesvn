@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-06 20:08+0100\n"
+"PO-Revision-Date: 2005-07-16 17:50+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3010,6 +3010,10 @@ msgstr "SVN Toevoegen aan deze werkkopie"
 msgid "SVN Add..."
 msgstr "SVN Toevoegen..."
 
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Auteur"
+
 #: ID:132
 msgid "SVN Blame"
 msgstr "SVN Verklaren"
@@ -3764,6 +3768,10 @@ msgstr ""
 "De maximale tijd in seconden om de bestanden te doorzoeken.\n"
 "Een lagere waarde zorgt voor het snel beschikbaar zijn van de lijst,\n"
 "maar mogelijk zijn niet alle bestanden doorzocht."
+
+#: ID:16
+msgid "The user who did the last commit"
+msgstr "De gebruiker die het laatst heeft vastgelegd"
 
 #: ID:16
 msgid "The user who owns the lock of the file"
