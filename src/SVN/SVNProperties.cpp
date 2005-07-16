@@ -27,6 +27,7 @@
 #	include "SVN.h"
 #	include "UnicodeUtils.h"
 #	include "registry.h"
+#	include "Utils.h"
 #else
 #include "registry.h"
 extern	HINSTANCE			g_hResInst;
@@ -117,6 +118,8 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
+	if (tsvn_ssh.IsEmpty())
+		tsvn_ssh = CUtils::GetAppDirectory() + _T("TortoisePlink.exe");
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
