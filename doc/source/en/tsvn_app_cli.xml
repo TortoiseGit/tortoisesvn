@@ -16,6 +16,11 @@
 			a list showing the equivalent CLI commands for each of
 			TortoiseSVN's GUI operations.
 		</para>
+		<note>
+			Even though there are CLI equivalents to what TortoiseSVN
+			does, remember that TortoiseSVN does <emphasis>not</emphasis>
+			call the CLI but uses the Subversion library directly.
+		</note>
 		<para>
 			If you think you have found a bug in TortoiseSVN, we
 			may ask you to try to reproduce it using the CLI, so
@@ -51,7 +56,7 @@
 		<sect2 id="tsvn-cli-checkout">
 			<title>Checkout</title>
 <screen>
-svn checkout [-N] [--ignore-externals] URL[@rev] PATH
+svn checkout [-N] [--ignore-externals] [-r par] URL PATH
 </screen>
 			<para>
 				If <guilabel>Only checkout the top folder</guilabel> is checked,
@@ -63,18 +68,18 @@ svn checkout [-N] [--ignore-externals] URL[@rev] PATH
 			</para>
 			<para>
 				If you are checking out a specific revision, specify that
-				after the URL using <literal>@rev</literal>.
+				after the URL using <literal>-r</literal> switch.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-update">
 			<title>Update</title>
 <screen>
-svn update PATH
+svn update [-r par] PATH
 </screen>
 			<para>
 				No command line options are used here.
 				<guilabel>Update to revision</guilabel> also implements
-				the update command, but offers further options.
+				the update command, but uses the <literal>-r</literal> option.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-commit">
@@ -87,7 +92,7 @@ svn update PATH
 				want to be included in the commit.
 			</para>
 <screen>
-svn status PATH
+svn status -v PATH
 </screen>
 			<para>
 				If <guilabel>Show unversioned files</guilabel> is checked,
