@@ -21,7 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\SubVersion\subversion\include;..\..\ext\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -34,7 +34,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Debug\libapr.lib ../../../Subversion\apr-util\Debug\libaprutil.lib ../../../Subversion\apr-iconv\Debug\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../ext/Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../ext/apr\Debug\libapr.lib ../../ext/apr-util\Debug\libaprutil.lib ../../ext/apr-iconv\Debug\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -79,7 +79,7 @@
 				Optimization="3"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="FALSE"
 				RuntimeLibrary="2"
@@ -91,7 +91,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../ext/Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../ext/apr\Release\libapr.lib ../../ext/apr-util\Release\libaprutil.lib ../../ext/apr-iconv\Release\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"

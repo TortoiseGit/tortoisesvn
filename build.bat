@@ -31,7 +31,8 @@ shift
 if NOT "%1"=="" goto :getparam
 
 rem patch apr-iconv
-copy ext\apr-iconv_patch\lib\iconv_module.c ..\Subversion\apr-iconv\lib /Y
+copy ext\apr-iconv\lib\iconv_module.c ext\apr-iconv\lib\iconv_module_original.c /Y
+copy ext\apr-iconv_patch\lib\iconv_module.c ext\apr-iconv\lib /Y
 
 rem OpenSSL
 echo ================================================================================
@@ -42,61 +43,56 @@ call ms\do_masm
 call nmake -f ms\ntdll.mak
 @echo off
 
-rem ZLIB
-echo ================================================================================
-echo building ZLib
-cd ..\zlib
-del *.obj
-copy /Y win32\Makefile.msc Makefile.msc > NUL
-call nmake -f Makefile.msc
-copy zlib.lib zlibstat.lib > NUL
-@echo off
-
 rem Subversion
 echo ================================================================================
 echo building Subversion
-cd ..\..\Subversion
+cd %startdir%\ext\Subversion
 xcopy /Q /Y /I /E %startdir%\ext\berkeley-db\db4.3-win32 db4-win32
 rmdir /s /q build\win32\vcnet-vcproj
-call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls --enable-bdb-in-apr-util --vsnet-version=2003
-copy /Y %startdir%\ext\libaprutil.vcproj apr-util\libaprutil.vcproj
+del build\win32\build_*.bat
+call python gen-make.py -t vcproj --with-openssl=..\..\..\Common\openssl --with-zlib=..\..\..\Common\zlib --with-neon=..\neon --with-apr=..\apr --with-apr-util=..\apr-util --with-apr-iconv=..\apr-iconv --enable-nls --enable-bdb-in-apr-util --vsnet-version=2003
+copy /Y %startdir%\ext\libaprutil.vcproj %startdir%\ext\apr-util\libaprutil.vcproj
 
-del neon\config.h
-del neon\config.hw
-copy %startdir%\neonconfig.hw neon\config.hw
+del ..\neon\config.h
+del ..\neon\config.hw
+copy %startdir%\neonconfig.hw ..\neon\config.hw
 del build\generator\vcnet_sln7.ezt
 if DEFINED _DEBUG (
   rem first, compile without any network/repository support
+  echo building netless Subversion
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
   copy %startdir%\svn_private_config.h subversion\svn_private_config.h
   copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
-  rmdir /s /q Debug > NUL
-  rmdir /s /q apr-util\Debug > NUL
   devenv subversion_vcnet.sln /useenv /rebuild debug /project "__ALL__"
   ren Debug\subversion subversion_netless
+  echo building Subversion
   del subversion\svn_private_config.h
   del subversion\svn_private_config.hw
   ren subversion\svn_private_config_copy.h svn_private_config.h
   ren subversion\svn_private_config_copy.hw svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /rebuild debug /project "__ALL__"
 )
+
 if DEFINED _RELEASE (
   rem first, compile without any network/repository support
+  echo building netless Subversion
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
   copy %startdir%\svn_private_config.h subversion\svn_private_config.h
   copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
-  rmdir /s /q apr-util\Release > NUL
-  rmdir /s /q Release > NUL
   devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__"
   ren Release\subversion subversion_netless
+  echo building Subversion
   del subversion\svn_private_config.h
   del subversion\svn_private_config.hw
   ren subversion\svn_private_config_copy.h svn_private_config.h
   ren subversion\svn_private_config_copy.hw svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__"
 )
+copy ext\apr-iconv\lib\iconv_module_original.c ext\apr-iconv\lib\iconv_module.c /Y
+del ext\apr-iconv\lib\iconv_module_original.c
+
 @echo off
 rem TortoiseSVN
 echo ================================================================================
@@ -105,28 +101,28 @@ cd %startdir%
 if DEFINED _DEBUG (
   if EXIST bin\debug\iconv rmdir /S /Q bin\debug\iconv > NUL
   mkdir bin\debug\iconv > NUL
-  copy ..\Subversion\apr-iconv\Debug\iconv\*.so bin\debug\iconv > NUL
+  copy .\ext\apr-iconv\Debug\iconv\*.so bin\debug\iconv > NUL
   if EXIST bin\debug\bin rmdir /S /Q bin\debug\bin > NUL
   mkdir bin\debug\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\debug\bin /Y > NUL
   copy .\ext\svn-win32-libintl\bin\intl3_svn.dll bin\debug\bin /Y > NUL
-  copy ..\Subversion\db4-win32\bin\libdb43d.dll bin\debug\bin /Y > NUL
-  copy ..\Subversion\apr\Debug\libapr.dll bin\Debug\bin /Y > NUL 
-  copy ..\Subversion\apr-util\Debug\libaprutil.dll bin\Debug\bin /Y > NUL 
-  copy ..\Subversion\apr-iconv\Debug\libapriconv.dll bin\Debug\bin /Y > NUL 
+  copy .\ext\Subversion\db4-win32\bin\libdb43d.dll bin\debug\bin /Y > NUL
+  copy .\ext\apr\Debug\libapr.dll bin\Debug\bin /Y > NUL 
+  copy .\ext\apr-util\Debug\libaprutil.dll bin\Debug\bin /Y > NUL 
+  copy .\ext\apr-iconv\Debug\libapriconv.dll bin\Debug\bin /Y > NUL 
 )
 if DEFINED _RELEASE (
   if EXIST bin\release\iconv rmdir /S /Q bin\release\iconv > NUL
   mkdir bin\release\iconv > NUL
-  copy ..\Subversion\apr-iconv\Release\iconv\*.so bin\release\iconv > NUL
+  copy .\ext\apr-iconv\Release\iconv\*.so bin\release\iconv > NUL
   if EXIST bin\release\bin rmdir /S /Q bin\release\bin > NUL
   mkdir bin\release\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\release\bin /Y > NUL
   copy .\ext\svn-win32-libintl\bin\intl3_svn.dll bin\release\bin /Y > NUL
-  copy ..\Subversion\db4-win32\bin\libdb43.dll bin\release\bin /Y > NUL
-  copy ..\Subversion\apr\Release\libapr.dll bin\Release\bin /Y > NUL 
-  copy ..\Subversion\apr-util\Release\libaprutil.dll bin\Release\bin /Y > NUL 
-  copy ..\Subversion\apr-iconv\Release\libapriconv.dll bin\Release\bin /Y > NUL 
+  copy .\ext\Subversion\db4-win32\bin\libdb43.dll bin\release\bin /Y > NUL
+  copy .\ext\apr\Release\libapr.dll bin\Release\bin /Y > NUL 
+  copy .\ext\apr-util\Release\libaprutil.dll bin\Release\bin /Y > NUL 
+  copy .\ext\apr-iconv\Release\libapriconv.dll bin\Release\bin /Y > NUL 
 )
 echo ================================================================================
 echo building TortoiseSVN

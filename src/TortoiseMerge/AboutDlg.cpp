@@ -21,9 +21,9 @@
 #include "AboutDlg.h"
 #include "svn_version.h"
 #include "svn_diff.h"
-#include "..\..\..\Subversion\apr\include\apr_version.h"
-#include "..\..\..\Subversion\apr-iconv\include\api_version.h"
-#include "..\..\..\Subversion\apr-util\include\apu_version.h"
+#include "..\..\\apr\include\apr_version.h"
+#include "..\..\apr-iconv\include\api_version.h"
+#include "..\..\apr-util\include\apu_version.h"
 #include "..\version.h"
 
 // CAboutDlg dialog

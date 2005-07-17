@@ -20,24 +20,6 @@ You may have to logoff/logon to make the new environement variables take effect!
 
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
   1.5 GB of free space left!!!
-- Now checkout the subversion source into SVN\Subversion.
-  If you're using TortoiseSVN to checkout the sources
-  then right-click into the SVN folder and select "checkout".
-  In the dialog enter the URL and add "\Subversion" to
-  the checkout path.
-  Make sure you check out the Subversion source from either the 1.2.x branch or
-  one of the 1.2.x tags!
-- Download the newest source of the apache server
-  for windows from http://httpd.apache.org/download.cgi
-  Unzip the sources into SVN\Subversion
-  Then copy (not move) the folders
-  SVN\Subversion\httpd-2.0.xx\srclib\apr to SVN\Subversion\apr
-  SVN\Subversion\httpd-2.0.xx\srclib\apr-iconv to SVN\Subversion\apr-iconv
-  SVN\Subversion\httpd-2.0.xx\srclib\apr-util to SVN\Subversion\apr-util
-- Download the newest neon source from 
-  http://www.webdav.org/neon/ and unzip it into SVN\Subversion
-  then rename the folder neon-0.24.x to neon. (neon-0.25.x doesn't work with
-  Subversion 1.2 yet)
 - create a new folder in SVN called 'common'
 - Download the openssl source package from
   http://www.openssl.org/source/ and unzip it to SVN\common, then rename

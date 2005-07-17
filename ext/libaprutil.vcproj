@@ -35,7 +35,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib mswsock.lib ..\db4-win32\lib\libdb43.lib"
+				AdditionalDependencies="ws2_32.lib mswsock.lib ..\Subversion\db4-win32\lib\libdb43.lib"
 				OutputFile=".\Debug/libaprutil.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -102,7 +102,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib mswsock.lib ..\db4-win32\lib\libdb43.lib"
+				AdditionalDependencies="ws2_32.lib mswsock.lib ..\Subversion\db4-win32\lib\libdb43.lib"
 				OutputFile=".\Release/libaprutil.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"

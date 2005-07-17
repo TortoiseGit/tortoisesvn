@@ -19,7 +19,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -31,7 +31,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../../Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Debug\libapr.lib ../../../Subversion\apr-util\Debug\libaprutil.lib ../../../Subversion\apr-iconv\Debug\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibD\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
+				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../ext/Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../ext/apr\Debug\libapr.lib ../../ext/apr-util\Debug\libaprutil.lib ../../ext/apr-iconv\Debug\libapriconv.lib ../../ext/apr-util\xml\expat\lib\LibD\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				OutputFile="$(OutDir)/SubWCRev.exe"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="LIBC.lib"
@@ -72,7 +72,7 @@
 				Optimization="1"
 				GlobalOptimizations="TRUE"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				BufferSecurityCheck="FALSE"
@@ -83,7 +83,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
+				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../ext/Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../ext/apr\Release\libapr.lib ../../ext/apr-util\Release\libaprutil.lib ../../ext/apr-iconv\Release\libapriconv.lib ../../ext/apr-util\xml\expat\lib\LibR\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				OutputFile="$(OutDir)/SubWCRev.exe"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
