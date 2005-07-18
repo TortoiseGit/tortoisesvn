@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-16 17:50+0100\n"
+"PO-Revision-Date: 2005-07-18 20:51+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1987,6 +1987,14 @@ msgstr ""
 "Maar sommige opties in het menu worden dan getoond als ze niet gebruikt kunnen worden.\n"
 "Bijvoorbeeld: de \"Toon logboek\" optie wordt dan ook bij nieuwe mappen getoond."
 
+#: ID:195
+msgid ""
+"If enabled and the tsvn:projectlanguage property is not set,\n"
+"the spellchecker is disabled."
+msgstr ""
+"Met deze optie werkt de spellingscontrole alleen als de\n"
+"tsvn:projectlanguage is opgegeven."
+
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
@@ -2913,6 +2921,10 @@ msgstr "Bibliotheek"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Biblio-bladeraar"
+
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "Vraagt om een gebruikersnaam en wachtwoord"
 
 #: ID:8
 #: ID:74
@@ -4561,14 +4573,6 @@ msgstr "alleen lezen"
 #: ID:10
 msgid "replaced"
 msgstr "vervangen"
-
-#: Control-ID:65535
-msgid "requests a username and a password"
-msgstr "vraagt om een gebruikersnaam en wachtwoord"
-
-#: Control-ID:1023
-msgid "save authentication"
-msgstr "authenticatie opslaan"
 
 #: ID:14
 msgid ""
