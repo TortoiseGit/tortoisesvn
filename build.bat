@@ -93,6 +93,8 @@ if DEFINED _RELEASE (
 copy ext\apr-iconv\lib\iconv_module_original.c ext\apr-iconv\lib\iconv_module.c /Y
 del ext\apr-iconv\lib\iconv_module_original.c
 
+svn revert -R ext\apr-util
+
 @echo off
 rem TortoiseSVN
 echo ================================================================================
