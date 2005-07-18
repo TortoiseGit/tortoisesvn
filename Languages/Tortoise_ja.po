@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-10 14:27+0900\n"
+"PO-Revision-Date: 2005-07-16 15:04+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3738,6 +3738,11 @@ msgstr "SVN この作業コピーにファイルを追加する"
 msgid "SVN Add..."
 msgstr "SVN 追加中 ..."
 
+# ID:76,
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN 作者"
+
 # ID:132,
 #: ID:132
 msgid "SVN Blame"
@@ -4655,6 +4660,11 @@ msgstr ""
 "選択ファイルの構文解析が停止してからの時間（秒）。\n"
 "小さい値を指定すると、すぐに自動補完リストが利用可能になります。\n"
 "しかし、すべてのファイルのスキャンが終了しないかもしれません。"
+
+# ID:16,
+#: ID:16
+msgid "The user who did the last commit"
+msgstr "最後にコミットを行ったユーザ"
 
 # ID:16,
 #: ID:16
