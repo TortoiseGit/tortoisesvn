@@ -68,7 +68,7 @@ IDB_LOGFILTER           BITMAP                  "logfilter.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -933,7 +933,7 @@ BEGIN
                     13,127,271,10
     LTEXT           "Timeout in seconds to stop the autocompletion parsing",
                     IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,140,231,8,SS_NOTIFY
-    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,136,31,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,138,31,12,ES_AUTOHSCROLL | 
                     ES_NUMBER,WS_EX_RIGHT
     CONTROL         "Only use spellchecker when tsvn:projectlanguage is set",
                     IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,153,
@@ -1880,6 +1880,8 @@ BEGIN
                             "Disable this option if you have really big working copies and experience\ntoo much disk access when browsing the working copy."
     IDS_SETTINGS_USEWCURL_TT 
                             "If enabled, the Merge dialog initializes the ""From:"" URL with the URL of the selected working copy\ninstead of the last used URL."
+    IDS_SETTINGS_SPELLCHECKER_TT 
+                            "If enabled and the tsvn:projectlanguage property is not set,\nthe spellchecker is disabled."
 END
 
 STRINGTABLE 
@@ -2092,12 +2094,12 @@ BEGIN
     IDS_STATUSLIST_NESTED   "Nested"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -2184,7 +2186,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

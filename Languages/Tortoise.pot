@@ -326,7 +326,7 @@ msgstr ""
 msgid "&Save Graph As..."
 msgstr ""
 
-#: Control-ID:1023,
+#: Control-ID:1023,#: Control-ID:1023,
 msgid "&Save authentication"
 msgstr ""
 
@@ -1705,6 +1705,10 @@ msgstr ""
 msgid "If disabled, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the \"Show Log\" entry will show even for just added folders."
 msgstr ""
 
+#: ID:195,
+msgid "If enabled and the tsvn:projectlanguage property is not set,\nthe spellchecker is disabled."
+msgstr ""
+
 #: ID:194,
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr ""
@@ -2498,6 +2502,10 @@ msgstr ""
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Requests a username and a password"
 msgstr ""
 
 #: ID:8,#: ID:74,
@@ -3757,10 +3765,6 @@ msgstr ""
 
 #: ID:10,
 msgid "replaced"
-msgstr ""
-
-#: Control-ID:65535,
-msgid "Requests a username and a password"
 msgstr ""
 
 #: ID:14,
