@@ -83,6 +83,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
 	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 // CLogPromptDlg message handlers
@@ -358,7 +359,7 @@ UINT CLogPromptDlg::StatusThread()
 		CMessageBox::Show(m_hWnd, m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 		GetDlgItem(IDCANCEL)->EnableWindow(true);
 		m_bBlock = FALSE;
-		EndDialog(0);
+		SetTimer(ENDDIALOGTIMER, 100, NULL);
 		return (DWORD)-1;
 	}
 	if ((m_ListCtrl.GetItemCount()==0)&&(!m_ListCtrl.HasUnversionedItems()))
@@ -367,7 +368,7 @@ UINT CLogPromptDlg::StatusThread()
 		GetDlgItem(IDCANCEL)->EnableWindow(true);
 		m_bRunThread = FALSE;
 		m_bThreadRunning = FALSE;
-		EndDialog(0);
+		SetTimer(ENDDIALOGTIMER, 100, NULL);
 		return (DWORD)-1;
 	}
 	else
@@ -386,7 +387,7 @@ UINT CLogPromptDlg::StatusThread()
 				GetDlgItem(IDCANCEL)->EnableWindow(true);
 				m_bRunThread = FALSE;
 				m_bThreadRunning = FALSE;
-				EndDialog(0);
+				SetTimer(ENDDIALOGTIMER, 100, NULL);
 				return (DWORD)-1;
 			}
 		}
@@ -548,7 +549,7 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 	{
 		CMessageBox::Show(*this, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
 		GetDlgItem(IDCANCEL)->EnableWindow(true);
-		EndDialog(0);
+		SetTimer(ENDDIALOGTIMER, 100, NULL);
 	}
 	else
 	{
@@ -564,7 +565,7 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 			else
 			{
 				GetDlgItem(IDCANCEL)->EnableWindow(true);
-				EndDialog(0);
+				SetTimer(ENDDIALOGTIMER, 100, NULL);
 			}
 		}
 	}
@@ -796,4 +797,11 @@ bool CLogPromptDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
 		return true;
 	}
 	return false;
+}
+
+void CLogPromptDlg::OnTimer(UINT nIDEvent)
+{
+	if (nIDEvent == ENDDIALOGTIMER)
+		EndDialog(0);
+	__super::OnTimer(nIDEvent);
 }
