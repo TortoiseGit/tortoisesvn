@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-02 12:37+0100\n"
+"PO-Revision-Date: 2005-07-18 11:50+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2462,6 +2462,15 @@ msgstr "Ha engedélyezve van felgyorsítja a naplóüzenetek összefűzését az
 # ID:195,
 #: ID:195
 msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Ha be van kapcsolva, az Beépítő ablak a kiválasztott munkapéldány címét használja a\n"
+"legutoljára használt cím helyett."
+
+# ID:195,
+#: ID:195
+msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
@@ -2816,6 +2825,7 @@ msgstr "Max"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "Beépít"
 
@@ -3717,6 +3727,11 @@ msgstr "SVN Fájlok hozzáadása ehhez a WC-hez"
 #: ID:77
 msgid "SVN Add..."
 msgstr "SVN Hozzáadás..."
+
+# ID:76,
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Fejlesztő"
 
 # ID:132,
 #: ID:132
@@ -4635,6 +4650,11 @@ msgstr ""
 
 # ID:16,
 #: ID:16
+msgid "The user who did the last commit"
+msgstr "A fejlesztő aki a legutolsó beküldést tette"
+
+# ID:16,
+#: ID:16
 msgid "The user who owns the lock of the file"
 msgstr "A zár tulajdonosa"
 
@@ -5058,6 +5078,11 @@ msgstr "Nagyító használata a poziciósávon"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "Szövegszerkesztő használata a szemrehányáskor"
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "A WC címként használd az alap \"Innen:\" címet"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -5753,5 +5778,4 @@ msgstr "a verziód:"
 #, c-format
 msgid "your version is: %d.%d.%d.%d"
 msgstr "a verziód: %d.%d.%d.%d"
-
 
