@@ -365,6 +365,8 @@ UINT CLogPromptDlg::StatusThread()
 	{
 		CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
 		GetDlgItem(IDCANCEL)->EnableWindow(true);
+		m_bRunThread = FALSE;
+		m_bThreadRunning = FALSE;
 		EndDialog(0);
 		return (DWORD)-1;
 	}
@@ -382,6 +384,8 @@ UINT CLogPromptDlg::StatusThread()
 			else
 			{
 				GetDlgItem(IDCANCEL)->EnableWindow(true);
+				m_bRunThread = FALSE;
+				m_bThreadRunning = FALSE;
 				EndDialog(0);
 				return (DWORD)-1;
 			}
