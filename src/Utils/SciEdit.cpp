@@ -80,7 +80,7 @@ void CSciEdit::Init(LONG lLanguage)
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
 
-	if ((lLanguage != 0)||(((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\Spellchecker"), TRUE))!=FALSE))
+	if ((lLanguage != 0)||(((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\Spellchecker"), TRUE))==FALSE))
 	{
 		if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
 		{
