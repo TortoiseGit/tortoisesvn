@@ -617,7 +617,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 
 		if (s->text_status == svn_wc_status_external)
 			m_bHasExternals = TRUE;
-		if (wcFileStatus == svn_wc_status_unversioned)
+		if ((wcFileStatus == svn_wc_status_unversioned)&&(!bDirectoryIsExternal))
 			m_bHasUnversionedItems = TRUE;
 
 		const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal);
