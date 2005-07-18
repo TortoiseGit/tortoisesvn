@@ -57,7 +57,7 @@
 			<title>Checkout</title>
 <screen>
 svn info URL
-svn checkout [-N] [--ignore-externals] [-r par] URL PATH
+svn checkout [-N] [--ignore-externals] -r par URL PATH
 </screen>
 			<para>
 				Because checkout is not an atomic operation, TortoiseSVN first
@@ -83,7 +83,7 @@ svn checkout [-N] [--ignore-externals] [-r par] URL PATH
 			<title>Update</title>
 <screen>
 svn info URL
-svn update [-r par] PATH
+svn update -r par PATH
 </screen>
 			<para>
 				Update is not currently an atomic operation in Subversion.
@@ -94,7 +94,7 @@ svn update [-r par] PATH
 			<para>
 				No command line options are used here.
 				<guilabel>Update to revision</guilabel> also implements
-				the update command, but uses the <literal>-r</literal> option.
+				the update command, but offers more options.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-commit">
@@ -183,37 +183,128 @@ svn log -v -r M:N [--stop-on-copy] PATH
 				use the <literal>--stop-on-copy</literal> switch.
 			</para>
 		</sect2>
-<!--
 		<sect2 id="tsvn-cli-checkmods">
 			<title>Check for Modifications</title>
+<screen>
+svn status -v PATH
+  or
+svn status -u -v PATH
+</screen>
+			<para>
+				The initial status check looks only at your working copy.
+				If you click on <guibutton>Check repository</guibutton>
+				then the repository is also checked to see which files
+				would be changed by an update, which requires the
+				<literal>-u</literal> switch.
+			</para>
+			<para>
+				If <guilabel>Show unversioned files</guilabel> is checked,
+				TortoiseSVN will also show all unversioned files and folders in
+				the working copy hierarchy, taking account of the ignore rules.
+				This particular feature has no direct equivalent in Subversion,
+				as the <literal>svn status</literal> command does not descend into
+				unversioned folders.
+			</para>
 		</sect2>
+<!--
 		<sect2 id="tsvn-cli-revgraph">
 			<title>Revision Graph</title>
+			I have no idea what to put in here ...
 		</sect2>
+-->
 		<sect2 id="tsvn-cli-repobrowser">
 			<title>Repo Browser</title>
+<screen>
+svn info URL
+svn list -r rev -v URL
+</screen>
+			<para>
+				You can use <literal>svn info</literal> to determine the repository
+				root, which is the top level shown in the repository browser. You
+				cannot navigate <literal>Up</literal> above this level.
+			</para>
+			<para>
+				The <literal>svn list</literal> call will list the contents of a
+				directory, given a URL and revision.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-editconflicts">
 			<title>Edit Conflicts</title>
+			<para>
+				This command has no CLI equivalent. It invokes TortoiseMerge or
+				an external 3-way diff/merge tool to look at the files involved
+				in the conflict and sort out which lines to use.
+			</para> 
 		</sect2>
 		<sect2 id="tsvn-cli-resolved">
 			<title>Resolved</title>
+<screen>
+svn resolved PATH
+</screen>
 		</sect2>
 		<sect2 id="tsvn-cli-updaterev">
 			<title>Update to Revision</title>
+<screen>
+svn info URL
+svn update -r rev [-N] [--ignore-externals] PATH
+</screen>
+			<para>
+				Update is not currently an atomic operation in Subversion.
+				If you request update to the HEAD revision,
+				TortoiseSVN first finds the HEAD revision of the repository,
+				and then updates to that particular revision number to
+				avoid creating a mixed revision working copy.
+			</para>
+			<para>
+				If <guilabel>Only update the top folder</guilabel> is checked,
+				use the <literal>-N</literal> switch.
+			</para>
+			<para>
+				If <guilabel>Omit externals</guilabel> is checked,
+				use the <literal>--ignore-externals</literal> switch.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-rename">
 			<title>Rename</title>
+<screen>
+svn rename CURR_PATH NEW_PATH
+</screen>
 		</sect2>
 		<sect2 id="tsvn-cli-delete">
 			<title>Delete</title>
+<screen>
+svn delete PATH
+</screen>
 		</sect2>
 		<sect2 id="tsvn-cli-revert">
 			<title>Revert</title>
+<screen>
+svn status -v PATH
+</screen>
+			<para>
+				The first stage is a status check which determines the items
+				in your working copy which can potentially be reverted. You can
+				review the list, diff files against BASE and select the items you
+				want to be included in the revert.
+			</para>
+			<para>
+				When you click on OK, the Subversion revert takes place. If you have
+				left all the file selection checkboxes in their default state,
+				TortoiseSVN uses a single recursive (<literal>-R</literal>)
+				revert of the working copy. If you deselect some files, then
+				every path must be specified individually on the revert command line.
+			</para>
+<screen>
+svn revert [-R] PATH...
+</screen>
 		</sect2>
 		<sect2 id="tsvn-cli-cleanup">
 			<title>Cleanup</title>
+<screen>
+svn cleanup PATH
+</screen>
 		</sect2>
+<!--
 		<sect2 id="tsvn-cli-getlock">
 			<title>Get Lock</title>
 		</sect2>

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-16 23:52GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-18 23:27GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -765,7 +765,7 @@ msgstr ""
 msgid "modifications"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:168(title) source/en/tsvn_dug/dug_wcstatus.xml:257(guilabel) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:168(title) source/en/tsvn_dug/dug_wcstatus.xml:257(guilabel) source/en/tsvn_app_cli.xml:187(title) 
 msgid "Check for Modifications"
 msgstr ""
 
@@ -2924,7 +2924,7 @@ msgstr ""
 msgid "If you have activated the bugtracking system, you could set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues should be comma separated. Learn more <xref linkend=\"tsvn-DUG-bugtracker\"/>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_cleanup.xml:3(title) 
+#: source/en/tsvn_dug/dug_cleanup.xml:3(title) source/en/tsvn_app_cli.xml:302(title) 
 msgid "Cleanup"
 msgstr ""
 
@@ -4454,7 +4454,7 @@ msgstr ""
 
 #: source/en/tsvn_app_cli.xml:58(screen) 
 #, no-wrap
-msgid "\nsvn info URL\nsvn checkout [-N] [--ignore-externals] [-r par] URL PATH\n"
+msgid "\nsvn info URL\nsvn checkout [-N] [--ignore-externals] -r par URL PATH\n"
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:62(para) 
@@ -4465,7 +4465,7 @@ msgstr ""
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:73(para) 
+#: source/en/tsvn_app_cli.xml:73(para) source/en/tsvn_app_cli.xml:262(para) 
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr ""
 
@@ -4479,7 +4479,7 @@ msgstr ""
 
 #: source/en/tsvn_app_cli.xml:84(screen) 
 #, no-wrap
-msgid "\nsvn info URL\nsvn update [-r par] PATH\n"
+msgid "\nsvn info URL\nsvn update -r par PATH\n"
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:88(para) 
@@ -4487,7 +4487,7 @@ msgid "Update is not currently an atomic operation in Subversion. TortoiseSVN fi
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:94(para) 
-msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but uses the <literal>-r</literal> option."
+msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:101(title) 
@@ -4498,12 +4498,12 @@ msgstr ""
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:109(screen) 
+#: source/en/tsvn_app_cli.xml:109(screen) source/en/tsvn_app_cli.xml:281(screen) 
 #, no-wrap
 msgid "\nsvn status -v PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:112(para) 
+#: source/en/tsvn_app_cli.xml:112(para) source/en/tsvn_app_cli.xml:200(para) 
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
 msgstr ""
 
@@ -4565,6 +4565,106 @@ msgstr ""
 
 #: source/en/tsvn_app_cli.xml:181(para) 
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:188(screen) 
+#, no-wrap
+msgid "\nsvn status -v PATH\n  or\nsvn status -u -v PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:193(para) 
+msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:216(title) 
+msgid "Repo Browser"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:217(screen) 
+#, no-wrap
+msgid "\nsvn info URL\nsvn list -r rev -v URL\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:221(para) 
+msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:226(para) 
+msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:232(title) 
+msgid "Edit Conflicts"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:233(para) 
+msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:240(title) 
+msgid "Resolved"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:241(screen) 
+#, no-wrap
+msgid "\nsvn resolved PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:246(title) 
+msgid "Update to Revision"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:247(screen) 
+#, no-wrap
+msgid "\nsvn info URL\nsvn update -r rev [-N] [--ignore-externals] PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:251(para) 
+msgid "Update is not currently an atomic operation in Subversion. If you request update to the HEAD revision, TortoiseSVN first finds the HEAD revision of the repository, and then updates to that particular revision number to avoid creating a mixed revision working copy."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:258(para) 
+msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:268(title) 
+msgid "Rename"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:269(screen) 
+#, no-wrap
+msgid "\nsvn rename CURR_PATH NEW_PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:274(title) 
+msgid "Delete"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:275(screen) 
+#, no-wrap
+msgid "\nsvn delete PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:280(title) 
+msgid "Revert"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:284(para) 
+msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:290(para) 
+msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:297(screen) 
+#, no-wrap
+msgid "\nsvn revert [-R] PATH...\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:303(screen) 
+#, no-wrap
+msgid "\nsvn cleanup PATH\n"
 msgstr ""
 
 #: source/en/tortoisesvn.xml:5(subtitle) 
