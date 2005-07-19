@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-15 11:31+0100\n"
+"PO-Revision-Date: 2005-07-19 10:07+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2029,6 +2029,15 @@ msgstr "Il nome o l'indirizzo IP del server proxy"
 msgid "Empty"
 msgstr "Vuoto"
 
+# Control-ID:1224,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set.\n"
+msgstr ""
+"Attiva il controllo grammaticale solo se\n"
+" la proprietà tsvn:projectlanguage è impostata.\n"
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -3615,6 +3624,11 @@ msgstr "Repository"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Repository Browser"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "Richiede un nome utente e una password"
 
 # ID:8,
 #: ID:8
@@ -5620,17 +5634,6 @@ msgstr "solo lettura"
 #: ID:10
 msgid "replaced"
 msgstr "sostituito"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "requests a username and a password"
-msgstr "richiede un nome utente e una password"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "save authentication"
-msgstr "salva l'autenticazione"
 
 # ID:14,
 #: ID:14
