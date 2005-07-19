@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3879
+# Based on r3923
 #
 msgid ""
 msgstr ""
@@ -54,6 +54,7 @@ msgstr ""
 # Explorer = Windows Stifinder - done
 # Item = emne
 # Viewer = fremvisningsprogram
+# Nested = indlejret
 #
 # Bemærkninger:
 # ! skal kun bruges ved meget vigtige beskeder og fejl.
@@ -375,7 +376,7 @@ msgstr "&Gem Ctrl-S"
 msgid "&Save Graph As..."
 msgstr "Gem graf &som..."
 
-#: Control-ID:1023,
+#: Control-ID:1023,#: Control-ID:1023,
 msgid "&Save authentication"
 msgstr "&Gem adgangskoder"
 
@@ -1475,6 +1476,10 @@ msgstr "Navn eller IP-adresse på proxyserveren"
 msgid "Empty"
 msgstr "Tom"
 
+#: ID:195,
+msgid "Enables the spellchecker only if the\ntsvn:projectlanguage property is set.\n"
+msgstr "Slår kun stavekontrollen til, hvis\negenskaben tsvn:projectlanguage er sat.\n"
+
 #: ID:3825,
 msgid "Enlarge the window to full size"
 msgstr "Maksimer vinduet"
@@ -1530,7 +1535,6 @@ msgid "Exclude/Ignore pattern:"
 msgstr "Mønster for udelad/ignorer:"
 
 #: ID:209,
-#, fuzzy
 msgid "Explore to"
 msgstr "Åbn i Stifinder"
 
@@ -2106,9 +2110,8 @@ msgid "Native Filesystem (FSFS)"
 msgstr "Indbygget filsystem (FSFS)"
 
 #: ID:210,
-#, fuzzy
 msgid "Nested"
-msgstr "I undermapper"
+msgstr "Indlejret"
 
 #: Dlg-ID:102,
 msgid "Network"
@@ -2576,6 +2579,10 @@ msgstr "Versionsarkiv"
 msgid "Repository Browser"
 msgstr "Versionsarkivsøger"
 
+#: Control-ID:65535,
+msgid "Requests a username and a password"
+msgstr "Spørger efter brugernavn og adgangskode"
+
 #: ID:8,#: ID:74,
 msgid "Resolved"
 msgstr "Løst"
@@ -3029,7 +3036,6 @@ msgid "Skipped"
 msgstr "Oversprunget"
 
 #: ID:263,
-#, fuzzy
 msgid "Skipped missing target"
 msgstr "Sprang over manglende element"
 
@@ -3529,7 +3535,7 @@ msgstr "Url:"
 #: ID:251,
 #, fuzzy
 msgid "Use &other text block"
-msgstr "Brug en an&den tekstblok"
+msgstr "Brug den an&den tekstblok"
 
 #: ID:195,
 msgid "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
@@ -3599,7 +3605,7 @@ msgstr "Brug denne, hvis URL'en til versionsarkivet er blevet ændret"
 #: ID:251,
 #, fuzzy
 msgid "Use whole other &file"
-msgstr "Brug en anden, hel &fil"
+msgstr "Brug hele den anden &fil"
 
 #: ID:74,
 msgid "User cancelled"
@@ -3834,7 +3840,6 @@ msgid "normal"
 msgstr "normal"
 
 #: ID:11,
-#, fuzzy
 msgid "obstructed"
 msgstr "spærret"
 
@@ -3853,14 +3858,6 @@ msgstr "skrivebeskyttet"
 #: ID:10,
 msgid "replaced"
 msgstr "erstattet"
-
-#: Control-ID:65535,
-msgid "requests a username and a password"
-msgstr "spørger efter brugernavn og adgangskode"
-
-#: Control-ID:1023,
-msgid "save authentication"
-msgstr "gem adgangskontrol"
 
 #: ID:14,
 msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
