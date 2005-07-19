@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-07-15 18:29+0900\n"
+"PO-Revision-Date: 2005-07-19 10:14+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2020,6 +2020,15 @@ msgstr "프록시의 이름이나 IP를 입력하십시오."
 msgid "Empty"
 msgstr "비어있음"
 
+# Control-ID:1224,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set.\n"
+msgstr ""
+"tsvn:projectlanguage 가 설정된 경우에만\n"
+"철자검사를 수행합니다.\n"
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -3600,6 +3609,11 @@ msgstr "저장소"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "저장소 브라우저"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "사용자명과 암호를 요구합니다."
 
 # ID:8,
 #: ID:8
@@ -5600,17 +5614,6 @@ msgstr "읽기 전용"
 #: ID:10
 msgid "replaced"
 msgstr "바뀜"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "requests a username and a password"
-msgstr "사용자명과 암호를 요구합니다."
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "save authentication"
-msgstr "인증 저장"
 
 # ID:14,
 #: ID:14
