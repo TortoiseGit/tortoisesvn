@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-15 12:10+0100\n"
+"PO-Revision-Date: 2005-07-19 10:05+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -208,7 +208,7 @@ msgstr ""
 #: source/en/tsvn_server/server_svn.xml:198
 #: (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
-msgstr "Falls Sie mehrere Projektarchive mit derselben Passwortdatenbank verwalten, wird die Einrichtung eines Anmeldebereichs das Leben für die Anwender vereinfachen, weil TortoiseSVN Anmeldeinformationen speichern kann, so dass sie nur einmal eingegeben werden müssen.Weitere Informationen finden sich in folgenden Abschnitten des Subversion Buchs: <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"> <citetitle>Create a 'users' file and realm</citetitle> </ulink> und <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"> <citetitle>Client Credentials Caching</citetitle> </ulink>."
+msgstr "Falls Sie mehrere Projektarchive mit derselben Passwortdatenbank verwalten, wird die Einrichtung eines Anmeldebereichs das Leben für die Anwender vereinfachen, weil TortoiseSVN Anmeldeinformationen speichern kann, so dass sie nur einmal eingegeben werden müssen. Weitere Informationen finden sich in folgenden Abschnitten des Subversion Buchs: <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"> <citetitle>Create a 'users' file and realm</citetitle> </ulink> und <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"> <citetitle>Client Credentials Caching</citetitle> </ulink>."
 
 #: source/en/tsvn_server/server_svn.xml:216
 #: (title)
@@ -1397,6 +1397,7 @@ msgstr "Änderungen"
 #: (title)
 #: source/en/tsvn_dug/dug_wcstatus.xml:257
 #: (guilabel)
+#: source/en/tsvn_app_cli.xml:187
 msgid "Check for Modifications"
 msgstr "Auf Änderungen überprüfen"
 
@@ -4254,7 +4255,7 @@ msgid "If you have activated the bugtracking system, you could set one or more I
 msgstr "Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei <guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n) Ihres Bugtracking Programms eingeben. Falls Sie mehrere eingeben, müssen Sie diese dann durch Kommata trennen. Mehr dazu können Sie in <xref linkend=\"tsvn-DUG-bugtracker\"/> lesen. "
 
 #: source/en/tsvn_dug/dug_cleanup.xml:3
-#: (title)
+#: (title) source/en/tsvn_app_cli.xml:302
 msgid "Cleanup"
 msgstr "Aufräumen"
 
@@ -4870,8 +4871,8 @@ msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne 
 
 #: source/en/Version.xml:2
 #: (subtitle)
-msgid "Version 1.2.0"
-msgstr "Version 1.2.0"
+msgid "Version 1.2.1"
+msgstr "Version 1.2.1"
 
 #: source/en/tsvn_preface.xml:3
 #: (title) source/en/tme_ch00.xml:3
@@ -6197,117 +6198,141 @@ msgstr "CLI"
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
 msgstr "Manchmal finden sich in diesem Handbuch Verweise auf die allgemeine Subversion Dokumentation, die die Bedienung mit dem Kommandozeilen-Client (CLI) beschreibt. Um Ihnen zu verdeutlichen, welche Funktionen TortoiseSVN im verborgenen aufruft, haben wir eine Liste der Kommandozeilenbefehle zusammengestellt, die den Funktionen der grafischen Oberfläche von TortoiseSVN entsprechen."
 
+#: source/en/tsvn_app_cli.xml:21
+#: (emphasis)
+msgid "not"
+msgstr "nicht"
+
 #: source/en/tsvn_app_cli.xml:19
+#: (note)
+msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <placeholder-1/> call the CLI but uses the Subversion library directly."
+msgstr "Obwohl es äquivalente Kommandozeilenbefehle gibt, beachten Sie bitte dass TortoiseSVN die Kommandozeile <placeholder-1/> aufruft, sondern direkt auf die Subversion Bibliotheken zugreift."
+
+#: source/en/tsvn_app_cli.xml:24
 #: (para)
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TSVN issues from Subversion issues. This reference tells you which command to try."
 msgstr "Wenn Sie einen Fehler von TortoiseSVN berichten, kann es vorkommen, dass wir Sie auffordern, dieses Fehlverhalten mit dem Kommandozeilen-Client zu reproduzieren, damit wir TortoiseSVN Probleme von Subversion Problemen unterscheiden können. Diese Kurzreferenz zeigt Ihnen, welche Befehle Sie verwenden können."
 
-#: source/en/tsvn_app_cli.xml:27
+#: source/en/tsvn_app_cli.xml:32
 #: (title)
 msgid "Conventions and Basic Rules"
 msgstr "Grundregeln und Konventionen"
 
-#: source/en/tsvn_app_cli.xml:28
+#: source/en/tsvn_app_cli.xml:33
 #: (para)
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
 msgstr "In der folgenden Beschreibung wird die URL eines Projektarchivs einfach als <literal>URL</literal> geschrieben. Ein Beispiel wäre <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. Der Pfad der Arbeitskopie wird stets als <literal>PFAD</literal> geschrieben. Ein Beispiel wäre <literal>C:\\TortoiseSVN\\trunk</literal>."
 
-#: source/en/tsvn_app_cli.xml:37
+#: source/en/tsvn_app_cli.xml:42
 #: (important)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
 msgstr "Da es sich bei TortoiseSVN um eine Windows Shell Erweiterung handelt, kennt es das Konzept eines Arbeitsverzeichnisses nicht. Beim entsprechenden Aufruf der Kommandozeile müssen deshalb alle Pfade zu Arbeitskopien als absolute, nicht als relative Pfade angegeben werden."
 
-#: source/en/tsvn_app_cli.xml:43
+#: source/en/tsvn_app_cli.xml:48
 #: (para)
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
 msgstr "Einige Kommandozeilenbefehle besitzen Optionen. Diese werden in TortoiseSVN durch Optionsfelder gesteuert. In der Kommandozeilennotation werden diese optionalen Parameter durch [eckige Klammern] dargestellt."
 
-#: source/en/tsvn_app_cli.xml:50
+#: source/en/tsvn_app_cli.xml:55
 #: (title)
 msgid "TortoiseSVN Commands"
 msgstr "TortoiseSVN Befehle"
 
-#: source/en/tsvn_app_cli.xml:52
+#: source/en/tsvn_app_cli.xml:57
 #: (title)
 msgid "Checkout"
 msgstr "Auschecken"
 
-#: source/en/tsvn_app_cli.xml:53
+#: source/en/tsvn_app_cli.xml:58
 #: (screen)
 #, no-wrap
 msgid ""
 "\n"
-"svn checkout [-N] [--ignore-externals] URL[@rev] PATH\n"
+"svn info URL\n"
+"svn checkout [-N] [--ignore-externals] -r par URL PATH\n"
 msgstr ""
 "\n"
-"svn checkout [-N] [--ignore-externals] URL[@rev] PFAD\n"
+"svn info URL\n"
+"svn checkout [-N] [--ignore-externals] -r par URL PFAD\n"
 
-#: source/en/tsvn_app_cli.xml:56
+#: source/en/tsvn_app_cli.xml:62
+#: (para)
+msgid "Because checkout is not an atomic operation, TortoiseSVN first finds the HEAD revision of the repository, and then checks out that particular revision number. If someone else commits changes in the middle of your checkout, you won't get a mixed revision working copy."
+msgstr "Da das Auschecken keine atomare Operation ist, sucht TortoiseSVN zunächst die neueste Revision (HEAD) im Projektarchiv und checkt diese Revisionsnummer dann aus. Wenn jemand während Sie auschecken Änderungen in das Projektarchiv überträgt, erhalten Sie deshalb keine aus zwei Revisionen gemischte Arbeitskopie."
+
+#: source/en/tsvn_app_cli.xml:69
 #: (para)
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr "Wenn <guilabel>Nur den obersten Ordner auschecken</guilabel> gewählt ist, verwenden Sie die <literal>-N</literal> Option."
 
-#: source/en/tsvn_app_cli.xml:60
-#: (para)
+#: source/en/tsvn_app_cli.xml:73
+#: (para) source/en/tsvn_app_cli.xml:262
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "Wenn <guilabel>Externals auslassen</guilabel> gewählt ist, verwenden Sie die <literal>--ignore-externals</literal> Option."
 
-#: source/en/tsvn_app_cli.xml:64
+#: source/en/tsvn_app_cli.xml:77
 #: (para)
-msgid "If you are checking out a specific revision, specify that after the URL using <literal>@rev</literal>."
-msgstr "Wenn Sie eine bestimmte Revision auschecken, geben Sie diese nach der URL mittels <literal>@rev</literal> an."
+msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
+msgstr "Wenn Sie eine bestimmte Revision auschecken, geben Sie diese nach der URL mittels <literal>-r</literal> an."
 
-#: source/en/tsvn_app_cli.xml:70
+#: source/en/tsvn_app_cli.xml:83
 #: (title)
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: source/en/tsvn_app_cli.xml:71
+#: source/en/tsvn_app_cli.xml:84
 #: (screen)
 #, no-wrap
 msgid ""
 "\n"
-"svn update PATH\n"
+"svn info URL\n"
+"svn update -r par PATH\n"
 msgstr ""
 "\n"
-"svn update PFAD\n"
+"svn info URL\n"
+"svn update -r par PFAD\n"
 
-#: source/en/tsvn_app_cli.xml:74
+#: source/en/tsvn_app_cli.xml:88
 #: (para)
-msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers further options."
+msgid "Update is not currently an atomic operation in Subversion. TortoiseSVN first finds the HEAD revision of the repository, and then updates to that particular revision number to avoid creating a mixed revision working copy."
+msgstr "Aktualisieren ist keine atomare Operation. TortoiseSVN zunächst die neueste Revision (HEAD) im Projektarchiv und aktualisiert dann zu dieser Revisionsnummer, damit Sie keine keine gemischte Arbeitskopie aus zwei Revisionen erhalten."
+
+#: source/en/tsvn_app_cli.xml:94
+#: (para)
+msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
 msgstr "An diese Stelle werden keine Kommandozeilenoptionen verwendet. <guilabel>Aktualisiere zu Revision</guilabel> implementiert ebenfalls den Aktualisieren Befehl, bietet jedoch weitere Optionen."
 
-#: source/en/tsvn_app_cli.xml:81
+#: source/en/tsvn_app_cli.xml:101
 #: (title)
 msgid "Commit"
 msgstr "Übertragen"
 
-#: source/en/tsvn_app_cli.xml:82
+#: source/en/tsvn_app_cli.xml:102
 #: (para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr "In TortoiseSVN nutzt der Übertragen Dialog mehrere Subversion Befehle. Der erste Schritt ist eine Statusprüfung, die die Objekte in Ihrer Arbeitskopie ermittelt, die übertragen werden können. Sie können diese Liste überprüfen, Dateien mit dem Original (BASE) vergleichen und die Objekte, die Sie übertragen wollen, auswählen."
 
-#: source/en/tsvn_app_cli.xml:89
-#: (screen)
+#: source/en/tsvn_app_cli.xml:109
+#: (screen) source/en/tsvn_app_cli.xml:281
 #, no-wrap
 msgid ""
 "\n"
-"svn status PATH\n"
+"svn status -v PATH\n"
 msgstr ""
 "\n"
-"svn status PFAD\n"
+"svn status -v PFAD\n"
 
-#: source/en/tsvn_app_cli.xml:92
-#: (para)
+#: source/en/tsvn_app_cli.xml:112
+#: (para) source/en/tsvn_app_cli.xml:200
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
 msgstr "Wenn <guilabel>Zeige nicht versionierte Dateien</guilabel> gewählt ist, wird TortoiseSVN alle nicht versionierten Dateien und Ordner in der Arbeitskopie unter Berücksichtigung der Ausschluß- / Ignorier-Regeln. Diese Funktion besitzt in Subversion kein Äquivalent, da der <literal>svn status</literal> Befehl nicht in unversionierte Ordner hinabsteigt."
 
-#: source/en/tsvn_app_cli.xml:100
+#: source/en/tsvn_app_cli.xml:120
 #: (para)
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr "Wenn Sie nicht versionierte Dateien oder Ordner auswählen, werden diese vor dem Übertragen zur Arbeitskopie hinzugefügt."
 
-#: source/en/tsvn_app_cli.xml:104
+#: source/en/tsvn_app_cli.xml:124
 #: (screen)
 #, no-wrap
 msgid ""
@@ -6317,12 +6342,12 @@ msgstr ""
 "\n"
 "svn add PFAD...\n"
 
-#: source/en/tsvn_app_cli.xml:107
+#: source/en/tsvn_app_cli.xml:127
 #: (para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
-msgstr "Wenn Sie auf OK klicken, wird die Übertragung zum Projektarchiv durchgeführt. Wenn Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, wird TortoiseSVN die Daten in einem Schrit rekursiv übertragen. Sobald Sie einzelne Dateien abwählen, muss eine nicht-rekursive (<literal>-N</literal>) Übertragung durchgeführt werden. Dabei muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
+msgstr "Sobald Sie auf OK klicken, wird die Übertragung zum Projektarchiv durchgeführt. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, wird TortoiseSVN die Daten in einem Schrit rekursiv übertragen. Sobald Sie einzelne Objekte abwählen, muss eine nicht-rekursive (<literal>-N</literal>) Übertragung durchgeführt werden. Dabei muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
 
-#: source/en/tsvn_app_cli.xml:115
+#: source/en/tsvn_app_cli.xml:135
 #: (screen)
 #, no-wrap
 msgid ""
@@ -6332,15 +6357,232 @@ msgstr ""
 "\n"
 "svn commit -m \"Log-Meldung\" [-N] [--no-unlock] PFAD...\n"
 
-#: source/en/tsvn_app_cli.xml:118
+#: source/en/tsvn_app_cli.xml:138
 #: (para)
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr "Die <literal>Log-Meldung</literal> entspricht dem Inhalt des Eingabefeldes für Log-Meldungen und kann leer gelassen werden."
 
-#: source/en/tsvn_app_cli.xml:122
+#: source/en/tsvn_app_cli.xml:142
 #: (para)
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
 msgstr "Wenn <guilabel>Sperren behalten</guilabel> gewählt ist, verwenden Sie die <literal>--no-unlock</literal> Option."
+
+#: source/en/tsvn_app_cli.xml:148
+#: (title)
+msgid "Diff"
+msgstr "Diff"
+
+#: source/en/tsvn_app_cli.xml:149
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn diff PATH\n"
+msgstr ""
+"\n"
+"svn diff PFAD\n"
+
+#: source/en/tsvn_app_cli.xml:152
+#: (para)
+msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between fulltext files, so there is no direct CLI equivalent."
+msgstr "Wenn Sie Diff aus dem Kontextmenü heraus aufrufen, bilden Sie die Differenzen zwischen einer geänderten Datei und deren BASE Revision. Die Subversion Kommandozeile tut dies auch, liefert jedoch die Ausgabe in einem standard (unified) Diff Format. TortoiseSVN hingegen verwendet TortoiseMerge (oder ein Diff Programm Ihrer Wahl), um die Unterschiede zwischen Textdateien graphisch anzuzeigen. Aus diesem Grunde gibt es keinen äquivalenten Befehl auf der Kommandozeile."
+
+#: source/en/tsvn_app_cli.xml:161
+#: (para)
+msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
+msgstr "Sie können auch die Differenzen von zwei beliebigen anderen Dateien anzeigen lassen, ob diese unter Versionskontrolle stehen oder nicht. TortoiseSVN reicht die markierten Dateien einfach an das gewählte Diff Programm weiter und lässt dieses die Änderungen ermitteln."
+
+#: source/en/tsvn_app_cli.xml:169
+#: (title)
+msgid "Show Log"
+msgstr "Zeige Log"
+
+#: source/en/tsvn_app_cli.xml:170
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
+"  or\n"
+"svn log -v -r M:N [--stop-on-copy] PATH\n"
+msgstr ""
+"\n"
+"svn log -v -r 0:N --limit 100 [--stop-on-copy] PFAD\n"
+"  or\n"
+"svn log -v -r M:N [--stop-on-copy] PFAD\n"
+
+#: source/en/tsvn_app_cli.xml:175
+#: (para)
+msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
+msgstr "Standardmäßig versucht TortoiseSVN 100 Log-Meldungen mittels der <literal>--limit</literal> Option zu holen. Falls die Einstellungen jedoch den Einsatz der alten API für die Log-Meldungen erfordern, wird die zweite Variante genutzt, um die Log-Meldungen für 100 Revisionen im Projektarchiv zu holen."
+
+#: source/en/tsvn_app_cli.xml:181
+#: (para)
+msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
+msgstr "Wenn <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, verwenden Sie die <literal>--stop-on-copy</literal> Option."
+
+#: source/en/tsvn_app_cli.xml:188
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn status -v PATH\n"
+"  or\n"
+"svn status -u -v PATH\n"
+msgstr ""
+"\n"
+"svn status -v PFAD\n"
+"  or\n"
+"svn status -u -v PFAD\n"
+
+#: source/en/tsvn_app_cli.xml:193
+#: (para)
+msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
+msgstr "Die erste Statusprüfung betrachtet nur Ihre lokale Arbeitskopie. Wenn Sie auf die <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche klicken, wird im Projektarchiv nachgeschaut, welche Dateien durch eine Aktualisierung betroffen wären. Dies erfordert die Verwendung der <literal>-u</literal> Option."
+
+#: source/en/tsvn_app_cli.xml:216
+#: (title)
+msgid "Repo Browser"
+msgstr "Projektarchiv-Betrachter"
+
+#: source/en/tsvn_app_cli.xml:217
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn info URL\n"
+"svn list -r rev -v URL\n"
+msgstr ""
+"\n"
+"svn info URL\n"
+"svn list -r rev -v URL\n"
+
+#: source/en/tsvn_app_cli.xml:221
+#: (para)
+msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level."
+msgstr "Sie können <literal>svn info</literal> verwenden, um die Basis des Projektarchivs bestimmen. Dies ist die oberste, im Projektarchiv-Betrachter angezeigte Ebene. Sie können von dort aus nicht weiter nach <literal>Oben</literal> navigieren."
+
+#: source/en/tsvn_app_cli.xml:226
+#: (para)
+msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
+msgstr "Der <literal>svn list</literal> Befehl listet bei Angabe einer URL und einer Revision den Inhalt eines Verzeichnisses auf."
+
+#: source/en/tsvn_app_cli.xml:232
+#: (title)
+msgid "Edit Conflicts"
+msgstr "Konflikt bearbeiten"
+
+#: source/en/tsvn_app_cli.xml:233
+#: (para)
+msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
+msgstr "Hierfür gibt es keinen entsprechenden Kommandozeilenbefehl. Es wird TortoiseMerge oder ein externes drei-Wege Diff/Merge Programm aufgerufen, um die in den Konflikt verwickelten Dateien zu betrachten und den Konflikt aufzulösen."
+
+#: source/en/tsvn_app_cli.xml:240
+#: (title)
+msgid "Resolved"
+msgstr "Konflikt aufgelöst"
+
+#: source/en/tsvn_app_cli.xml:241
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn resolved PATH\n"
+msgstr ""
+"\n"
+"svn resolved PFAD\n"
+
+#: source/en/tsvn_app_cli.xml:246
+#: (title)
+msgid "Update to Revision"
+msgstr "Aktualisieren zu Revision"
+
+#: source/en/tsvn_app_cli.xml:247
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn info URL\n"
+"svn update -r rev [-N] [--ignore-externals] PATH\n"
+msgstr ""
+"\n"
+"svn info URL\n"
+"svn update -r rev [-N] [--ignore-externals] PFAD\n"
+
+#: source/en/tsvn_app_cli.xml:251
+#: (para)
+msgid "Update is not currently an atomic operation in Subversion. If you request update to the HEAD revision, TortoiseSVN first finds the HEAD revision of the repository, and then updates to that particular revision number to avoid creating a mixed revision working copy."
+msgstr "Aktualisieren ist keine atomare Operation in Subversion. Wenn Sie eine Aktualisierung zur neuesten Revision (HEAD) anfordern, wird TortoiseSVN diese im Projektarchiv suchen und dann zu der gefundenen Revisionsnummer aktualisieren, damit Sie keine keine gemischte Arbeitskopie aus zwei Revisionen erhalten."
+
+#: source/en/tsvn_app_cli.xml:258
+#: (para)
+msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+msgstr "Wenn <guilabel>Nur den obersten Ordner auschecken</guilabel> gewählt ist, verwenden Sie die <literal>-N</literal> Option."
+
+#: source/en/tsvn_app_cli.xml:268
+#: (title)
+msgid "Rename"
+msgstr "Umbenennen"
+
+#: source/en/tsvn_app_cli.xml:269
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn rename CURR_PATH NEW_PATH\n"
+msgstr ""
+"\n"
+"svn rename PFAD_AKT PFAD_NEU\n"
+
+#: source/en/tsvn_app_cli.xml:274
+#: (title)
+msgid "Delete"
+msgstr "Löschen"
+
+#: source/en/tsvn_app_cli.xml:275
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn delete PATH\n"
+msgstr ""
+"\n"
+"svn delete PFAD\n"
+
+#: source/en/tsvn_app_cli.xml:280
+#: (title)
+msgid "Revert"
+msgstr "Rückgängig"
+
+#: source/en/tsvn_app_cli.xml:284
+#: (para)
+msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
+msgstr "Der erste Schritt ist eine Statusprüfung, die die Objekte in Ihrer Arbeitskopie ermittelt, die rückgängig gemacht werden können. Sie können diese Liste überprüfen, Dateien mit dem Original (BASE) vergleichen und die Objekte, die Sie rückgängig machen wollen, auswählen."
+
+#: source/en/tsvn_app_cli.xml:290
+#: (para)
+msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
+msgstr "Sobald Sie auf OK klicken, werden Ihre Änderungen rückgängig gemacht. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, führt TortoiseSVN die Aktion in einem Schrit rekursiv (<literal>-R</literal>) durch. Sobald Sie einzelne Objekte abwählen, muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
+
+#: source/en/tsvn_app_cli.xml:297
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn revert [-R] PATH...\n"
+msgstr ""
+"\n"
+"svn revert [-R] PFAD...\n"
+
+#: source/en/tsvn_app_cli.xml:303
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"svn cleanup PATH\n"
+msgstr ""
+"\n"
+"svn cleanup PFAD\n"
 
 #: source/en/tortoisesvn.xml:5
 #: (subtitle)
