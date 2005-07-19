@@ -2,7 +2,7 @@
 
 if [%1]==[--help] (
   echo.
-  echo Usage: %0 [--spellcheck] [Language]
+  echo Usage: %0 [-s | --spellcheck] [Language]
   echo.
   echo Translates docs into the given Language where Language is the ISO-639-1 language code.
   echo If no language is given, all .po files in the po directory are used for translation.
@@ -21,6 +21,10 @@ if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 if "%IGNORELIST%"=="" call IgnoreList.bat
 
 set SPELL=0
+if [%1]==[-s] (
+  set SPELL=1
+  shift
+)
 if [%1]==[--spellcheck] (
   set SPELL=1
   shift
