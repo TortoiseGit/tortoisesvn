@@ -56,7 +56,7 @@
 		<sect2 id="tsvn-cli-checkout">
 			<title>Checkout</title>
 <screen>
-svn info URL
+svn info URL_of_WC
 svn checkout [-N] [--ignore-externals] -r par URL PATH
 </screen>
 			<para>
@@ -82,7 +82,7 @@ svn checkout [-N] [--ignore-externals] -r par URL PATH
 		<sect2 id="tsvn-cli-update">
 			<title>Update</title>
 <screen>
-svn info URL
+svn info URL_of_WC
 svn update -r par PATH
 </screen>
 			<para>
@@ -215,7 +215,7 @@ svn status -u -v PATH
 		<sect2 id="tsvn-cli-repobrowser">
 			<title>Repo Browser</title>
 <screen>
-svn info URL
+svn info URL_of_WC
 svn list -r rev -v URL
 </screen>
 			<para>
@@ -245,7 +245,7 @@ svn resolved PATH
 		<sect2 id="tsvn-cli-updaterev">
 			<title>Update to Revision</title>
 <screen>
-svn info URL
+svn info URL_of_WC
 svn update -r rev [-N] [--ignore-externals] PATH
 </screen>
 			<para>
@@ -304,28 +304,128 @@ svn revert [-R] PATH...
 svn cleanup PATH
 </screen>
 		</sect2>
-<!--
 		<sect2 id="tsvn-cli-getlock">
 			<title>Get Lock</title>
+<screen>
+svn status -v PATH
+</screen>
+			<para>
+				The first stage is a status check which determines the files
+				in your working copy which can potentially be locked. You can
+				select the items you want to be included in the revert.
+			</para>
+<screen>
+svn lock -m "LockMessage" [--force] PATH...
+</screen>
+			<para>
+				<literal>LockMessage</literal> here represents the contents of the
+				lock message edit box. This can be empty.
+			</para>
+			<para>
+				If <guilabel>Steal the locks</guilabel> is checked,
+				use the <literal>--force</literal> switch.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-release">
 			<title>Release Lock</title>
+<screen>
+svn unlock PATH
+</screen>
 		</sect2>
 		<sect2 id="tsvn-cli-branchtag">
 			<title>Branch/Tag</title>
+<screen>
+svn copy -m "LogMessage" URL URL
+  or
+svn copy [-r rev] -m "LogMessage" URL URL
+  or
+svn copy -m "LogMessage" PATH URL
+</screen>
+			<para>
+				The Branch/Tag dialog performs a copy to the repository.
+				There are 3 radio button options:
+				<itemizedlist>
+					<listitem>HEAD revision in the repository</listitem>
+					<listitem>Specific revision in repository</listitem>
+					<listitem>Working copy</listitem>
+				</itemizedlist>
+				which correspond to the 3 command line variants above.
+			</para>
+			<para>
+				<literal>LogMessage</literal> here represents the contents of the
+				log message edit box. This can be empty.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-switch">
 			<title>Switch</title>
+<screen>
+svn info URL_of_WC
+svn switch -r rev URL PATH
+</screen>
+			<para>
+				Switch is not currently an atomic operation in Subversion.
+				If you request a switch to the HEAD revision,
+				TortoiseSVN first finds the HEAD revision of the repository,
+				and then updates to that particular revision number to
+				avoid creating a mixed revision working copy.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-merge">
 			<title>Merge</title>
+<screen>
+svn merge [--dry-run] From_URL@revN To_URL@revM PATH
+</screen>
+			<para>
+				The <guibutton>Dry run</guibutton> performs the same merge
+				with the <literal>--dry-run</literal> switch.
+			</para>
+<screen>
+svn diff From_URL@revN To_URL@revM
+</screen>
+			<para>
+				The <guibutton>Unified diff</guibutton> shows the diff
+				operation which will be used to do the merge.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-export">
 			<title>Export</title>
+<screen>
+svn export [--ignore-externals] PATH Export_PATH
+</screen>
+			<para>
+				This form is used when accessed from a versioned folder,
+				and the folder is used as the export source.
+			</para>
+			<para>
+				TortoiseSVN has an option to export unversioned items,
+				which is not supported by the CLI.
+			</para>
+<screen>
+svn info URL
+svn export -r rev [--ignore-externals] URL Export_PATH
+</screen>
+			<para>
+				This form is used when accessed from an unversioned folder,
+				and the folder is used as the destination.
+				Export is not currently an atomic operation in Subversion.
+				If you request an export from the HEAD revision,
+				TortoiseSVN first finds the HEAD revision of the repository,
+				and then exports that particular revision number to
+				avoid creating a mixed revision export.
+			</para>
+			<para>
+				In both cases,
+				if <guilabel>Omit externals</guilabel> is checked,
+				use the <literal>--ignore-externals</literal> switch.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-relocate">
 			<title>Relocate</title>
+<screen>
+svn switch --relocate From_URL To_URL
+</screen>
 		</sect2>
+<!--
 		<sect2 id="tsvn-cli-createrepos">
 			<title>Create Repository Here</title>
 		</sect2>

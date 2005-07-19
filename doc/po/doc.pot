@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-18 23:27GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-19 23:09GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3180,7 +3180,7 @@ msgstr ""
 msgid "The default destination URL for the new branch will be the source URL on which your working copy is based. You will need to edit that URL to the new path for your branch/tag. So instead of <screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> you might now use something like <screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_branchtag.xml:76(term) 
+#: source/en/tsvn_dug/dug_branchtag.xml:76(term) source/en/tsvn_app_cli.xml:348(listitem) 
 msgid "HEAD revision in the repository"
 msgstr ""
 
@@ -3196,7 +3196,7 @@ msgstr ""
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_branchtag.xml:98(term) 
+#: source/en/tsvn_dug/dug_branchtag.xml:98(term) source/en/tsvn_app_cli.xml:350(listitem) 
 msgid "Working copy"
 msgstr ""
 
@@ -4454,7 +4454,7 @@ msgstr ""
 
 #: source/en/tsvn_app_cli.xml:58(screen) 
 #, no-wrap
-msgid "\nsvn info URL\nsvn checkout [-N] [--ignore-externals] -r par URL PATH\n"
+msgid "\nsvn info URL_of_WC\nsvn checkout [-N] [--ignore-externals] -r par URL PATH\n"
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:62(para) 
@@ -4479,7 +4479,7 @@ msgstr ""
 
 #: source/en/tsvn_app_cli.xml:84(screen) 
 #, no-wrap
-msgid "\nsvn info URL\nsvn update -r par PATH\n"
+msgid "\nsvn info URL_of_WC\nsvn update -r par PATH\n"
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:88(para) 
@@ -4498,7 +4498,7 @@ msgstr ""
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:109(screen) source/en/tsvn_app_cli.xml:281(screen) 
+#: source/en/tsvn_app_cli.xml:109(screen) source/en/tsvn_app_cli.xml:281(screen) source/en/tsvn_app_cli.xml:309(screen) 
 #, no-wrap
 msgid "\nsvn status -v PATH\n"
 msgstr ""
@@ -4525,7 +4525,7 @@ msgstr ""
 msgid "\nsvn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:138(para) 
+#: source/en/tsvn_app_cli.xml:138(para) source/en/tsvn_app_cli.xml:354(para) 
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr ""
 
@@ -4582,7 +4582,7 @@ msgstr ""
 
 #: source/en/tsvn_app_cli.xml:217(screen) 
 #, no-wrap
-msgid "\nsvn info URL\nsvn list -r rev -v URL\n"
+msgid "\nsvn info URL_of_WC\nsvn list -r rev -v URL\n"
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:221(para) 
@@ -4616,7 +4616,7 @@ msgstr ""
 
 #: source/en/tsvn_app_cli.xml:247(screen) 
 #, no-wrap
-msgid "\nsvn info URL\nsvn update -r rev [-N] [--ignore-externals] PATH\n"
+msgid "\nsvn info URL_of_WC\nsvn update -r rev [-N] [--ignore-externals] PATH\n"
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:251(para) 
@@ -4665,6 +4665,127 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:303(screen) 
 #, no-wrap
 msgid "\nsvn cleanup PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:308(title) 
+msgid "Get Lock"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:312(para) 
+msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be included in the revert."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:317(screen) 
+#, no-wrap
+msgid "\nsvn lock -m \"LockMessage\" [--force] PATH...\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:320(para) 
+msgid "<literal>LockMessage</literal> here represents the contents of the lock message edit box. This can be empty."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:324(para) 
+msgid "If <guilabel>Steal the locks</guilabel> is checked, use the <literal>--force</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:330(title) 
+msgid "Release Lock"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:331(screen) 
+#, no-wrap
+msgid "\nsvn unlock PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:336(title) 
+msgid "Branch/Tag"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:337(screen) 
+#, no-wrap
+msgid "\nsvn copy -m \"LogMessage\" URL URL\n  or\nsvn copy [-r rev] -m \"LogMessage\" URL URL\n  or\nsvn copy -m \"LogMessage\" PATH URL\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:349(listitem) 
+msgid "Specific revision in repository"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:344(para) 
+msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:360(title) 
+msgid "Switch"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:361(screen) 
+#, no-wrap
+msgid "\nsvn info URL_of_WC\nsvn switch -r rev URL PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:365(para) 
+msgid "Switch is not currently an atomic operation in Subversion. If you request a switch to the HEAD revision, TortoiseSVN first finds the HEAD revision of the repository, and then updates to that particular revision number to avoid creating a mixed revision working copy."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:374(title) 
+msgid "Merge"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:375(screen) 
+#, no-wrap
+msgid "\nsvn merge [--dry-run] From_URL@revN To_URL@revM PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:378(para) 
+msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:382(screen) 
+#, no-wrap
+msgid "\nsvn diff From_URL@revN To_URL@revM\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:385(para) 
+msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:391(title) 
+msgid "Export"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:392(screen) 
+#, no-wrap
+msgid "\nsvn export [--ignore-externals] PATH Export_PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:395(para) 
+msgid "This form is used when accessed from a versioned folder, and the folder is used as the export source."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:399(para) 
+msgid "TortoiseSVN has an option to export unversioned items, which is not supported by the CLI."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:403(screen) 
+#, no-wrap
+msgid "\nsvn info URL\nsvn export -r rev [--ignore-externals] URL Export_PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:407(para) 
+msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination. Export is not currently an atomic operation in Subversion. If you request an export from the HEAD revision, TortoiseSVN first finds the HEAD revision of the repository, and then exports that particular revision number to avoid creating a mixed revision export."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:416(para) 
+msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:423(title) 
+msgid "Relocate"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:424(screen) 
+#, no-wrap
+msgid "\nsvn switch --relocate From_URL To_URL\n"
 msgstr ""
 
 #: source/en/tortoisesvn.xml:5(subtitle) 
