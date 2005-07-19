@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-18 11:50+0100\n"
+"PO-Revision-Date: 2005-07-19 09:07+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1637,6 +1637,14 @@ msgstr "Entweder der Name oder die IP Adresse des Proxy Servers"
 msgid "Empty"
 msgstr "Leer"
 
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set.\n"
+msgstr ""
+"Verwende Rechtschreibkorrektur nur,\n"
+"wenn tsvn:projectlanguage gesetzt ist.\n"
+
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "Vergrössert das Fenster auf Bildschirmgrösse"
@@ -2907,6 +2915,10 @@ msgstr "Projektarchiv"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Projektarchiv"
+
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "Erfragt Anwendername und Passwort"
 
 #: ID:8
 #: ID:74
@@ -4562,10 +4574,6 @@ msgstr "schreibgeschützt"
 #: ID:10
 msgid "replaced"
 msgstr "Ersetzt"
-
-#: Control-ID:65535
-msgid "Requests a username and a password"
-msgstr "Erfragt Anwendername und Passwort"
 
 #: ID:14
 msgid ""
