@@ -460,7 +460,7 @@ CString ProjectProperties::GetBugIDUrl(const CString& sBugID)
 
 BOOL ProjectProperties::CheckBugID(const CString& sID)
 {
-	if (!sCheckRe.IsEmpty()&&(!bNumber))
+	if (!sCheckRe.IsEmpty()&&(!bNumber)&&!sID.IsEmpty())
 	{
 		CString sBugID = sID;
 		sBugID.Replace(_T(", "), _T(","));
