@@ -1,7 +1,12 @@
+- NEW: Navigating to the previous/next difference in TortoiseMerge also
+       shows the first line of the difference in the detailed diff at
+       the bottom. (Stefan)
 - BUG: The default ssh client (TortoisePlink) wasn't used in some
        places, e.g. the revision graph. (Stefan)
 - BUG: The option "Only use spellchecker when tsvn:projectlanguage is set"
        was inversed. (Stefan)
+- BUG: The bugtraq: and tsvn: property values weren't correctly handled if
+       they contained non-ASCII chars. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for

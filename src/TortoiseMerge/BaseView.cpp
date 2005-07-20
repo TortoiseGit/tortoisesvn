@@ -1537,6 +1537,7 @@ void CBaseView::OnMergeNextdifference()
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
 		Invalidate();
+		ShowDiffLines(m_nDiffBlockStart);
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
@@ -1583,6 +1584,7 @@ void CBaseView::OnMergePreviousdifference()
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
 		Invalidate();
+		ShowDiffLines(m_nDiffBlockStart);
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
@@ -1837,33 +1839,7 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 {
 	int nMouseLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 	nMouseLine--;		//we need the index
-	if ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount()))
-	{
-		if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates)&&(!m_pMainFrame->m_bOneWay))
-		{
-			nMouseLine = (nMouseLine > m_pwndRight->m_arLineStates->GetCount() ? -1 : nMouseLine);
-			nMouseLine = (nMouseLine > m_pwndLeft->m_arLineStates->GetCount() ? -1 : nMouseLine);
-			
-			if (nMouseLine >= 0)
-			{
-				CDiffData::DiffStates state1 = (CDiffData::DiffStates)m_pwndRight->m_arLineStates->GetAt(nMouseLine);
-				CDiffData::DiffStates state2 = (CDiffData::DiffStates)m_pwndLeft->m_arLineStates->GetAt(nMouseLine);
-
-				if ((state1 == CDiffData::DIFFSTATE_EMPTY) ||
-					(state1 == CDiffData::DIFFSTATE_NORMAL) ||
-					(state2 == CDiffData::DIFFSTATE_EMPTY) ||
-					(state2 == CDiffData::DIFFSTATE_NORMAL))
-				{
-					nMouseLine = -1;
-				} // iffData::DIFFSTATE_NORMAL)) 
-				if (nMouseLine != m_nMouseLine)
-				{
-					m_nMouseLine = nMouseLine;
-					m_pwndLineDiffBar->ShowLines(nMouseLine);
-				} // if (nMouseLine != m_nMouseLine) 
-			}
-		} // if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates)) 
-	} // if ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())) 
+	ShowDiffLines(nMouseLine);
 	CView::OnMouseMove(nFlags, point);
 }
 
@@ -1876,6 +1852,36 @@ void CBaseView::SelectLines(int nLine1, int nLine2)
 	Invalidate();
 }
 
+void CBaseView::ShowDiffLines(int nLine)
+{
+	if ((nLine >= m_nTopLine)&&(nLine < GetLineCount()))
+	{
+		if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates)&&(!m_pMainFrame->m_bOneWay))
+		{
+			nLine = (nLine > m_pwndRight->m_arLineStates->GetCount() ? -1 : nLine);
+			nLine = (nLine > m_pwndLeft->m_arLineStates->GetCount() ? -1 : nLine);
+
+			if (nLine >= 0)
+			{
+				CDiffData::DiffStates state1 = (CDiffData::DiffStates)m_pwndRight->m_arLineStates->GetAt(nLine);
+				CDiffData::DiffStates state2 = (CDiffData::DiffStates)m_pwndLeft->m_arLineStates->GetAt(nLine);
+
+				if ((state1 == CDiffData::DIFFSTATE_EMPTY) ||
+					(state1 == CDiffData::DIFFSTATE_NORMAL) ||
+					(state2 == CDiffData::DIFFSTATE_EMPTY) ||
+					(state2 == CDiffData::DIFFSTATE_NORMAL))
+				{
+					nLine = -1;
+				}
+				if (nLine != m_nMouseLine)
+				{
+					m_nMouseLine = nLine;
+					m_pwndLineDiffBar->ShowLines(nLine);
+				}
+			}
+		}
+	}
+}
 
 
 
