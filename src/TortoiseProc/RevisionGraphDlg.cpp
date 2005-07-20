@@ -1320,24 +1320,41 @@ void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 void CRevisionGraphDlg::CompareRevs(bool bHead)
 {
 	CString sRoot;
-	CTSVNPath tempfile = DoUnifiedDiff(bHead, sRoot);
+	bool bIsFolder = true;
+	CTSVNPath tempfile = DoUnifiedDiff(bHead, sRoot, bIsFolder);
 	if (tempfile.IsEmpty())
 		return;
+
 	CFileDiffDlg dlg;
-	dlg.SetUnifiedDiff(tempfile, sRoot);
+	if (bIsFolder)
+	{
+		dlg.SetUnifiedDiff(tempfile, sRoot);
+	}
+	else
+	{
+		CFileDiffDlg::FileDiff filediff;
+		CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
+		CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+		filediff.rev1 = entry1->revision;
+		filediff.rev2 = entry2->revision;
+		filediff.url1 = sRoot+CUnicodeUtils::GetUnicode(entry1->url);
+		filediff.url2 = sRoot+CUnicodeUtils::GetUnicode(entry2->url);
+		dlg.AddFile(filediff);
+	}
 	dlg.DoModal();
 }
 
 void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
 {
 	CString dummy;
-	CTSVNPath tempfile = DoUnifiedDiff(bHead, dummy);
+	bool bIsFolder = true;
+	CTSVNPath tempfile = DoUnifiedDiff(bHead, dummy, bIsFolder);
 	if (tempfile.IsEmpty())
 		return;
 	CUtils::StartUnifiedDiffViewer(tempfile);
 }
 
-CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot)
+CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder)
 {
 	theApp.DoWaitCursor(1);
 	CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("test.diff")));
@@ -1349,7 +1366,6 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot)
 	CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
 	
 	// find out if m_sPath points to a file or a folder
-	bool bIsFolder = true;
 	if (SVN::PathIsURL(m_sPath))
 	{
 		SVNInfo info;

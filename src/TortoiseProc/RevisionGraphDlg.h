@@ -129,7 +129,7 @@ protected:
 private:
 	void			CompareRevs(bool bHead);
 	void			UnifiedDiffRevs(bool bHead);
-	CTSVNPath		DoUnifiedDiff(bool bHead, CString& sRoot);
+	CTSVNPath		DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder);
 	INT_PTR			GetIndexOfRevision(LONG rev) const;
 	void			SetScrollbars(int nVert = 0, int nHorz = 0);
 	CRect *			GetViewSize();
