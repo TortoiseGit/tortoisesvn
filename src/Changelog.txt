@@ -1,5 +1,5 @@
-- BUG: The default ssh client (TortoisePlink) wasn't used to show the
-       properties in the repository browser. (Stefan)
+- BUG: The default ssh client (TortoisePlink) wasn't used in some
+       places, e.g. the revision graph. (Stefan)
 - BUG: The option "Only use spellchecker when tsvn:projectlanguage is set"
        was inversed. (Stefan)
 
