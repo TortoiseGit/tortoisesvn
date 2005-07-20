@@ -289,3 +289,8 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		pLVCD->clrText = crText;
 	}
 }
+
+void CFileDiffDlg::AddFile(FileDiff filediff)
+{
+	m_arFileList.Add(filediff);
+}

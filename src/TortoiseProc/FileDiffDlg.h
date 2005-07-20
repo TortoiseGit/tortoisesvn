@@ -39,6 +39,7 @@ public:
 	virtual ~CFileDiffDlg();
 
 	bool	SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRepoRoot);
+	void	AddFile(FileDiff filediff);
 
 // Dialog Data
 	enum { IDD = IDD_DIFFFILES };
