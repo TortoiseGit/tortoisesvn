@@ -425,29 +425,79 @@ svn export -r rev [--ignore-externals] URL Export_PATH
 svn switch --relocate From_URL To_URL
 </screen>
 		</sect2>
-<!--
 		<sect2 id="tsvn-cli-createrepos">
 			<title>Create Repository Here</title>
+<screen>
+svnadmin create --fs-type fsfs PATH
+  or
+svnadmin create --fs-type bdb PATH
+</screen>
 		</sect2>
 		<sect2 id="tsvn-cli-add">
 			<title>Add</title>
+<screen>
+svn add PATH...
+</screen>
+			<para>
+				If you selected a folder, TortoiseSVN first scans it
+				recursively for items which can be added.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-import">
 			<title>Import</title>
+<screen>
+svn import -m LogMessage PATH URL
+</screen>
+			<para>
+				<literal>LogMessage</literal> here represents the contents of the
+				log message edit box. This can be empty.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-blame">
 			<title>Blame</title>
+<screen>
+svn blame -r N:M -v PATH
+svn log -r N:M PATH
+</screen>
+			<para>
+				If you use TortoiseBlame to view the blame info, the file
+				log is also required to show log messages in a tooltip.
+				If you view blame as a textfile, this information is not
+				required.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-addignore">
 			<title>Add to Ignore List</title>
+<screen>
+svn propget svn:ignore PATH > tempfile
+{edit new ignore item into tempfile}
+svn propset svn:ignore -F tempfile PATH
+</screen>
+			<para>
+				Because the svn:ignore property is often a multi-line value,
+				it is shown here as being changed via a text file rather than
+				directly on the command line.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-createpatch">
 			<title>Create Patch</title>
+<screen>
+svn diff PATH > patchfile
+</screen>
+			<para>
+				TortoiseSVN creates a patchfile in unified diff format
+				by comparing the working copy with its BASE version.
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-applypatch">
 			<title>Apply Patch</title>
+			<para>
+				Applying patches is a tricky business unless the patch
+				and working copy are at the same revision. Luckily for
+				you, you can use TortoiseMerge, which has no direct
+				equivalent in Subversion.
+			</para>
 		</sect2>
--->
 	</sect1>
 </appendix>
 <!--

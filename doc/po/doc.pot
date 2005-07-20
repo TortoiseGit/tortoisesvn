@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-19 23:09GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-20 22:58GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2432,7 +2432,7 @@ msgstr ""
 msgid "You can also use the repository browser to create new folders directly in the repository."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:148(title) 
+#: source/en/tsvn_dug/dug_import.xml:148(title) source/en/tsvn_app_cli.xml:447(title) 
 msgid "Import"
 msgstr ""
 
@@ -4511,7 +4511,7 @@ msgstr ""
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:124(screen) 
+#: source/en/tsvn_app_cli.xml:124(screen) source/en/tsvn_app_cli.xml:438(screen) 
 #, no-wrap
 msgid "\nsvn add PATH...\n"
 msgstr ""
@@ -4525,7 +4525,7 @@ msgstr ""
 msgid "\nsvn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:138(para) source/en/tsvn_app_cli.xml:354(para) 
+#: source/en/tsvn_app_cli.xml:138(para) source/en/tsvn_app_cli.xml:354(para) source/en/tsvn_app_cli.xml:451(para) 
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr ""
 
@@ -4786,6 +4786,75 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:424(screen) 
 #, no-wrap
 msgid "\nsvn switch --relocate From_URL To_URL\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:429(title) 
+msgid "Create Repository Here"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:430(screen) 
+#, no-wrap
+msgid "\nsvnadmin create --fs-type fsfs PATH\n  or\nsvnadmin create --fs-type bdb PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:437(title) source/en/glossary.xml:10(glossterm) 
+msgid "Add"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:441(para) 
+msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:448(screen) 
+#, no-wrap
+msgid "\nsvn import -m LogMessage PATH URL\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:457(title) 
+msgid "Blame"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:458(screen) 
+#, no-wrap
+msgid "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:462(para) 
+msgid "If you use TortoiseBlame to view the blame info, the file log is also required to show log messages in a tooltip. If you view blame as a textfile, this information is not required."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:470(title) 
+msgid "Add to Ignore List"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:471(screen) 
+#, no-wrap
+msgid "\nsvn propget svn:ignore PATH &gt; tempfile\n{edit new ignore item into tempfile}\nsvn propset svn:ignore -F tempfile PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:476(para) 
+msgid "Because the svn:ignore property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:483(title) 
+msgid "Create Patch"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:484(screen) 
+#, no-wrap
+msgid "\nsvn diff PATH &gt; patchfile\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:487(para) 
+msgid "TortoiseSVN creates a patchfile in unified diff format by comparing the working copy with its BASE version."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:493(title) 
+msgid "Apply Patch"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:494(para) 
+msgid "Applying patches is a tricky business unless the patch and working copy are at the same revision. Luckily for you, you can use TortoiseMerge, which has no direct equivalent in Subversion."
 msgstr ""
 
 #: source/en/tortoisesvn.xml:5(subtitle) 
@@ -5294,10 +5363,6 @@ msgstr ""
 
 #: source/en/glossary.xml:7(title) 
 msgid "Glossary"
-msgstr ""
-
-#: source/en/glossary.xml:10(glossterm) 
-msgid "Add"
 msgstr ""
 
 #: source/en/glossary.xml:12(para) 
