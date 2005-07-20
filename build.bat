@@ -90,6 +90,7 @@ if DEFINED _RELEASE (
   ren subversion\svn_private_config_copy.hw svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__"
 )
+cd %startdir%
 copy ext\apr-iconv\lib\iconv_module_original.c ext\apr-iconv\lib\iconv_module.c /Y
 del ext\apr-iconv\lib\iconv_module_original.c
 
