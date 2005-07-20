@@ -78,33 +78,21 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 		for (int i=0; i<props.GetCount(); ++i)
 		{
 			CString sPropName = props.GetItemName(i).c_str();
-			stdstring sPropVal = props.GetItemValue(i);
+			CString sPropVal = CString(((char *)props.GetItemValue(i).c_str()));
 			if ((!bFoundBugtraqLabel)&&(sPropName.Compare(BUGTRAQPROPNAME_LABEL)==0))
 			{
-#ifdef UNICODE
-				sLabel = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				sLabel = sPropVal.c_str();
-#endif
+				sLabel = sPropVal;
 				bFoundBugtraqLabel = TRUE;
 			}
 			if ((!bFoundBugtraqMessage)&&(sPropName.Compare(BUGTRAQPROPNAME_MESSAGE)==0))
 			{
-#ifdef UNICODE
-				sMessage = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				sMessage = sPropVal.c_str();
-#endif
+				sMessage = sPropVal;
 				bFoundBugtraqMessage = TRUE;
 			}
 			if ((!bFoundBugtraqNumber)&&(sPropName.Compare(BUGTRAQPROPNAME_NUMBER)==0))
 			{
 				CString val;
-#ifdef UNICODE
-				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				val = sPropVal.c_str();
-#endif
+				val = sPropVal;
 				if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
 					bNumber = FALSE;
 				else
@@ -113,11 +101,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			}
 			if ((!bFoundBugtraqLogRe)&&(sPropName.Compare(BUGTRAQPROPNAME_LOGREGEX)==0))
 			{
-#ifdef UNICODE
-				sCheckRe = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				sCheckRe = sPropVal.c_str();
-#endif
+				sCheckRe = sPropVal;
 				if (sCheckRe.Find('\n')>=0)
 				{
 					sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
@@ -146,21 +130,13 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			}
 			if ((!bFoundBugtraqURL)&&(sPropName.Compare(BUGTRAQPROPNAME_URL)==0))
 			{
-#ifdef UNICODE
-				sUrl = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				sUrl = sPropVal.c_str();
-#endif
+				sUrl = sPropVal;
 				bFoundBugtraqURL = TRUE;
 			}
 			if ((!bFoundBugtraqWarnIssue)&&(sPropName.Compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0))
 			{
 				CString val;
-#ifdef UNICODE
-				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				val = sPropVal.c_str();
-#endif
+				val = sPropVal;
 				if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
 					bWarnIfNoIssue = TRUE;
 				else
@@ -170,11 +146,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			if ((!bFoundBugtraqAppend)&&(sPropName.Compare(BUGTRAQPROPNAME_APPEND)==0))
 			{
 				CString val;
-#ifdef UNICODE
-				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				val = sPropVal.c_str();
-#endif
+				val = sPropVal;
 				if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
 					bAppend = TRUE;
 				else
@@ -184,11 +156,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			if ((!bFoundLogWidth)&&(sPropName.Compare(PROJECTPROPNAME_LOGWIDTHLINE)==0))
 			{
 				CString val;
-#ifdef UNICODE
-				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				val = sPropVal.c_str();
-#endif
+				val = sPropVal;
 				if (!val.IsEmpty())
 				{
 					nLogWidthMarker = _ttoi(val);
@@ -197,11 +165,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			}
 			if ((!bFoundLogTemplate)&&(sPropName.Compare(PROJECTPROPNAME_LOGTEMPLATE)==0))
 			{
-#ifdef UNICODE
-				sLogTemplate = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				sLogTemplate = sPropVal.c_str();
-#endif
+				sLogTemplate = sPropVal;
 				sLogTemplate.Replace(_T("\r"), _T(""));
 				sLogTemplate.Replace(_T("\n"), _T("\r\n"));
 				bFoundLogTemplate = TRUE;
@@ -209,11 +173,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			if ((!bFoundMinLogSize)&&(sPropName.Compare(PROJECTPROPNAME_LOGMINSIZE)==0))
 			{
 				CString val;
-#ifdef UNICODE
-				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				val = sPropVal.c_str();
-#endif
+				val = sPropVal;
 				if (!val.IsEmpty())
 				{
 					nMinLogSize = _ttoi(val);
@@ -223,11 +183,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			if ((!bFoundMinLockMsgSize)&&(sPropName.Compare(PROJECTPROPNAME_LOCKMSGMINSIZE)==0))
 			{
 				CString val;
-#ifdef UNICODE
-				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				val = sPropVal.c_str();
-#endif
+				val = sPropVal;
 				if (!val.IsEmpty())
 				{
 					nMinLockMsgSize = _ttoi(val);
@@ -237,11 +193,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			if ((!bFoundFileListEnglish)&&(sPropName.Compare(PROJECTPROPNAME_LOGFILELISTLANG)==0))
 			{
 				CString val;
-#ifdef UNICODE
-				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				val = sPropVal.c_str();
-#endif
+				val = sPropVal;
 				if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
 					bFileListInEnglish = TRUE;
 				else
@@ -251,11 +203,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			if ((!bFoundProjectLanguage)&&(sPropName.Compare(PROJECTPROPNAME_PROJECTLANGUAGE)==0))
 			{
 				CString val;
-#ifdef UNICODE
-				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
-#else
-				val = sPropVal.c_str();
-#endif
+				val = sPropVal;
 				if (!val.IsEmpty())
 				{
 					LPTSTR strEnd;
