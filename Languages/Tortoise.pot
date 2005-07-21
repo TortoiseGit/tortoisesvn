@@ -594,10 +594,6 @@ msgstr ""
 msgid "Advanced Merge Settings"
 msgstr ""
 
-#: Control-ID:65535,
-msgid "All"
-msgstr ""
-
 #: ID:3841,#: ID:3841,
 msgid "All Files (*.*)"
 msgstr ""
@@ -1607,7 +1603,7 @@ msgstr ""
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr ""
 
-#: Dlg-ID:143,#: Dlg-ID:107,
+#: Dlg-ID:143,#: Dlg-ID:107,#: Control-ID:65535,
 msgid "General"
 msgstr ""
 
@@ -1778,6 +1774,10 @@ msgstr ""
 msgid "Initial Import"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Inline Whitespace Diff"
+msgstr ""
+
 #: Dlg-ID:161,
 msgid "Input"
 msgstr ""
@@ -1840,6 +1840,10 @@ msgstr ""
 
 #: ID:188,
 msgid "Left View: "
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Line with whitespace diff"
 msgstr ""
 
 #: ID:3605,
@@ -2885,12 +2889,12 @@ msgstr ""
 msgid "Show &overlays only in explorer"
 msgstr ""
 
-#: Control-ID:1065,
-msgid "Show Diff Bar"
-msgstr ""
-
 #: ID:113,
 msgid "Show Differences as &Unified Diff"
+msgstr ""
+
+#: Control-ID:1065,
+msgid "Show Line Diff Bar"
 msgstr ""
 
 #: Control-ID:1063,
@@ -3257,10 +3261,6 @@ msgstr ""
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr ""
 
-#: Control-ID:65535,
-msgid "Three File Diff"
-msgstr ""
-
 #: Control-ID:1222,
 msgid "Timeout in seconds to stop the autocompletion parsing"
 msgstr ""
@@ -3327,10 +3327,6 @@ msgstr ""
 
 #: ID:10,
 msgid "Tweak TortoiseSVN"
-msgstr ""
-
-#: Control-ID:65535,
-msgid "Two File Diff"
 msgstr ""
 
 #: MenuEntry
@@ -3478,7 +3474,7 @@ msgid "Use old APIs to fetch log messages"
 msgstr ""
 
 #: Control-ID:1024,
-msgid "Use one-pane view as default"
+msgid "Use one-pane view as default for 2-file diff"
 msgstr ""
 
 #: Control-ID:1066,
@@ -3551,10 +3547,6 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Whitespace diff"
-msgstr ""
-
-#: Control-ID:65535,
-msgid "Whitespaces"
 msgstr ""
 
 #: Dlg-ID:158,
