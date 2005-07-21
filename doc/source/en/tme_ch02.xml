@@ -323,6 +323,40 @@
 				<title>The Settings Main Page</title>
 				<graphic fileref="images/SettingsGeneral.png"/>
 			</figure>
+			<para>
+				Most of the options here are self-explanatory, but a few
+				points need clarifying.
+			</para>
+			<para>
+				<guilabel>Backup original file</guilabel>
+				renames the original file in the WC to <literal>filename.bak</literal>
+				before saving the modified version.
+			</para>
+			<para>
+				<guilabel>Ignore lineendings</guilabel>
+				hides changes which are due solely to difference in line-end style.
+			</para>
+			<para>
+				<guilabel>Ignore case changes</guilabel>
+				hides changes which are due solely to case changes within the text.
+				This can be useful with apps such as Visual Basic, which changes
+				case in variables without warning.
+			</para>
+			<para>
+				<guilabel>Compare Whitespaces</guilabel>
+				shows all changes in indentation and inline whitespace as
+				added/removed lines (which is how subversion treats such changes).
+			</para>
+			<para>
+				<guilabel>Ignore Leading Whitespaces</guilabel>
+				hides changes which are due solely to leading whitespace
+				(indentation). Other whitespace changes within a line are
+				shown <quote>inline</quote> rather than as added/removed lines.
+			</para>
+			<para>
+				<guilabel>Ignore All Whitespaces</guilabel>
+				hides all whitespace-only changes.
+			</para>
 		</sect2>
 		<sect2 id="tmerge-DUG-settings-color">
 			<?dbhh topicname="HIDD_SETCOLORPAGE"?>
@@ -330,6 +364,59 @@
 				<title>The Settings Color Page</title>
 				<graphic fileref="images/SettingsColors.png"/>
 			</figure>
+			<para>
+				This dialog allows you to select the background color coding
+				used to highlight the different line changes.
+			</para>
+			<variablelist>
+				<varlistentry>
+					<term>Normal</term>
+					<listitem>
+						All lines which are unchanged, or where changes are hidden.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Removed</term>
+					<listitem>
+						Lines which have been deleted.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Added</term>
+					<listitem>
+						Lines which have been added.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Empty</term>
+					<listitem>
+						Where lines have been added in the opposite pane,
+						and no such line existed in this pane.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Conflicted</term>
+					<listitem>
+						Where the same line has been changed in both files.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Line with whitespace diff</term>
+					<listitem>
+						Lines which contain whitespace differences other than
+						leading whitespace. Only appears when
+						<guilabel>Ignore leading whitespace</guilabel>
+						is selected.
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Whitespace diff</term>
+					<listitem>
+						In the case above, the actual whitespace difference is
+						highlighted using this color.
+					</listitem>
+				</varlistentry>
+			</variablelist>
 		</sect2>
 	</sect1>
 </chapter>
