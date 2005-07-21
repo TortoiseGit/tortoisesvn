@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-18 20:51+0100\n"
+"PO-Revision-Date: 2005-07-21 21:06+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -694,10 +694,6 @@ msgstr "Geavanceerde Diff/Merge instellingen"
 #: ID:110
 msgid "Advanced Merge Settings"
 msgstr "Geavanceerde Merge-instellingen"
-
-#: Control-ID:65535
-msgid "All"
-msgstr "Alle"
 
 #: ID:3841
 msgid "All Files (*.*)"
@@ -1645,6 +1641,14 @@ msgstr "De naam of het IP-adres van de proxyserver"
 msgid "Empty"
 msgstr "Leeg"
 
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr ""
+"Activeert spellingscontrole alleen als\n"
+"tsvn:projectlanguage een waarde heeft"
+
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "Maximaliseer het venster"
@@ -1859,6 +1863,7 @@ msgstr "GDI+ kon geen bitmap object maken. Er is waarschijnlijk te weinig geheug
 
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "Algemeen"
 
@@ -1987,14 +1992,6 @@ msgstr ""
 "Maar sommige opties in het menu worden dan getoond als ze niet gebruikt kunnen worden.\n"
 "Bijvoorbeeld: de \"Toon logboek\" optie wordt dan ook bij nieuwe mappen getoond."
 
-#: ID:195
-msgid ""
-"If enabled and the tsvn:projectlanguage property is not set,\n"
-"the spellchecker is disabled."
-msgstr ""
-"Met deze optie werkt de spellingscontrole alleen als de\n"
-"tsvn:projectlanguage is opgegeven."
-
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
@@ -2071,6 +2068,10 @@ msgstr "Op te nemen paden:"
 #: ID:76
 msgid "Initial Import"
 msgstr "Initiële import"
+
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "Verschil in spaties in een regel"
 
 #: Dlg-ID:161
 msgid "Input"
@@ -2175,6 +2176,10 @@ msgstr "Minst actieve auteur:"
 #: ID:188
 msgid "Left View: "
 msgstr "Linker beeld:"
+
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "Regel met verschillen in spaties en tabs"
 
 #: ID:3605
 msgid ""
@@ -3329,13 +3334,13 @@ msgstr "Toon &logboek"
 msgid "Show &overlays only in explorer"
 msgstr "Toon &overlays alleen in verkenner"
 
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "Toon Diff werkbalk"
-
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "Toon verschillen als &Unified Diff"
+
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "Toon verschillen op een regel"
 
 #: Control-ID:1063
 msgid "Show Linenumbers"
@@ -3869,10 +3874,6 @@ msgstr "Deze eigenschap is alleen geldig voor mappen, niet voor bestanden."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Deze eigenschap mag geen meerdere regels bevatten. Slechts één regel toegestaan."
 
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "Diff van drie bestanden"
-
 #: Control-ID:1222
 msgid "Timeout in seconds to stop the autocompletion parsing"
 msgstr "Maximale tijd voor het zoeken naar automatische aanvullingen"
@@ -3972,10 +3973,6 @@ msgstr "Probeer een \"Schoning\". Indien het probleem blijft dient u opnieuw op 
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN tweaken"
-
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "Diff van twee bestanden"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -4152,8 +4149,8 @@ msgid "Use old APIs to fetch log messages"
 msgstr "Gebruik de oude manier van logboekboodschappen ophalen"
 
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "Enkel-venster als standaard instellen"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Enkel-venster als standaard instellen voor 2-weg Diff"
 
 #: Control-ID:1066
 msgid "Use strikeout for deleted lines"
@@ -4240,10 +4237,6 @@ msgstr "Waarschuwing!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Diff van spaties en witregels"
-
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "Spaties en lege regels"
 
 #: Dlg-ID:158
 msgid "Working Copy"
