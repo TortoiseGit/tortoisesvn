@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-21 12:36Westeuropäische Sommerzeit\n"
+"POT-Creation-Date: 2005-07-21 22:03GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -765,7 +765,7 @@ msgstr ""
 msgid "modifications"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:168(title) source/en/tsvn_dug/dug_wcstatus.xml:257(guilabel) source/en/tsvn_app_cli.xml:187(title) 
+#: source/en/tsvn_dug/dug_wcstatus.xml:168(title) source/en/tsvn_dug/dug_wcstatus.xml:257(guilabel) source/en/tsvn_app_cli.xml:200(title) 
 msgid "Check for Modifications"
 msgstr ""
 
@@ -2432,7 +2432,7 @@ msgstr ""
 msgid "You can also use the repository browser to create new folders directly in the repository."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:148(title) source/en/tsvn_app_cli.xml:447(title) 
+#: source/en/tsvn_dug/dug_import.xml:148(title) source/en/tsvn_app_cli.xml:436(title) 
 msgid "Import"
 msgstr ""
 
@@ -2924,7 +2924,7 @@ msgstr ""
 msgid "If you have activated the bugtracking system, you could set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues should be comma separated. Learn more <xref linkend=\"tsvn-DUG-bugtracker\"/>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_cleanup.xml:3(title) source/en/tsvn_app_cli.xml:302(title) 
+#: source/en/tsvn_dug/dug_cleanup.xml:3(title) source/en/tsvn_app_cli.xml:305(title) 
 msgid "Cleanup"
 msgstr ""
 
@@ -3180,7 +3180,7 @@ msgstr ""
 msgid "The default destination URL for the new branch will be the source URL on which your working copy is based. You will need to edit that URL to the new path for your branch/tag. So instead of <screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> you might now use something like <screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_branchtag.xml:76(term) source/en/tsvn_app_cli.xml:348(listitem) 
+#: source/en/tsvn_dug/dug_branchtag.xml:76(term) source/en/tsvn_app_cli.xml:351(listitem) 
 msgid "HEAD revision in the repository"
 msgstr ""
 
@@ -3196,7 +3196,7 @@ msgstr ""
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_branchtag.xml:98(term) source/en/tsvn_app_cli.xml:350(listitem) 
+#: source/en/tsvn_dug/dug_branchtag.xml:98(term) source/en/tsvn_app_cli.xml:353(listitem) 
 msgid "Working copy"
 msgstr ""
 
@@ -4454,406 +4454,405 @@ msgstr ""
 
 #: source/en/tsvn_app_cli.xml:58(screen) 
 #, no-wrap
-msgid "\nsvn info URL_of_WC\nsvn checkout [-N] [--ignore-externals] -r par URL PATH\n"
+msgid "\nsvn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:62(para) 
-msgid "Because checkout is not an atomic operation, TortoiseSVN first finds the HEAD revision of the repository, and then checks out that particular revision number. If someone else commits changes in the middle of your checkout, you won't get a mixed revision working copy."
-msgstr ""
-
-#: source/en/tsvn_app_cli.xml:69(para) 
+#: source/en/tsvn_app_cli.xml:61(para) 
 msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:73(para) source/en/tsvn_app_cli.xml:262(para) 
+#: source/en/tsvn_app_cli.xml:65(para) source/en/tsvn_app_cli.xml:108(para) 
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:77(para) 
+#: source/en/tsvn_app_cli.xml:69(para) 
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:83(title) 
+#: source/en/tsvn_app_cli.xml:75(title) 
 msgid "Update"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:84(screen) 
+#: source/en/tsvn_app_cli.xml:76(screen) 
 #, no-wrap
-msgid "\nsvn info URL_of_WC\nsvn update -r par PATH\n"
+msgid "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:88(para) 
-msgid "Update is not currently an atomic operation in Subversion. TortoiseSVN first finds the HEAD revision of the repository, and then updates to that particular revision number to avoid creating a mixed revision working copy."
+#: source/en/tsvn_app_cli.xml:80(para) 
+msgid "Updating multiple items is currently not an atomic operation in Subversion. So TortoiseSVN first finds the HEAD revision of the repository, and then updates all items to that particular revision number to avoid creating a mixed revision working copy."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:94(para) 
+#: source/en/tsvn_app_cli.xml:87(para) 
+msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:92(para) 
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:101(title) 
+#: source/en/tsvn_app_cli.xml:99(title) 
+msgid "Update to Revision"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:100(screen) 
+#, no-wrap
+msgid "\nsvn info URL_of_WC\nsvn update [-r rev] [-N] [--ignore-externals] PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:104(para) 
+msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:114(title) 
 msgid "Commit"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:102(para) 
+#: source/en/tsvn_app_cli.xml:115(para) 
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:109(screen) source/en/tsvn_app_cli.xml:281(screen) source/en/tsvn_app_cli.xml:309(screen) 
+#: source/en/tsvn_app_cli.xml:122(screen) source/en/tsvn_app_cli.xml:284(screen) source/en/tsvn_app_cli.xml:312(screen) 
 #, no-wrap
 msgid "\nsvn status -v PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:112(para) source/en/tsvn_app_cli.xml:200(para) 
+#: source/en/tsvn_app_cli.xml:125(para) source/en/tsvn_app_cli.xml:213(para) 
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:120(para) 
+#: source/en/tsvn_app_cli.xml:133(para) 
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:124(screen) source/en/tsvn_app_cli.xml:438(screen) 
+#: source/en/tsvn_app_cli.xml:137(screen) source/en/tsvn_app_cli.xml:427(screen) 
 #, no-wrap
 msgid "\nsvn add PATH...\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:127(para) 
+#: source/en/tsvn_app_cli.xml:140(para) 
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:135(screen) 
+#: source/en/tsvn_app_cli.xml:148(screen) 
 #, no-wrap
 msgid "\nsvn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:138(para) source/en/tsvn_app_cli.xml:354(para) source/en/tsvn_app_cli.xml:451(para) 
+#: source/en/tsvn_app_cli.xml:151(para) source/en/tsvn_app_cli.xml:357(para) source/en/tsvn_app_cli.xml:440(para) 
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:142(para) 
+#: source/en/tsvn_app_cli.xml:155(para) 
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:148(title) 
+#: source/en/tsvn_app_cli.xml:161(title) 
 msgid "Diff"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:149(screen) 
+#: source/en/tsvn_app_cli.xml:162(screen) 
 #, no-wrap
 msgid "\nsvn diff PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:152(para) 
+#: source/en/tsvn_app_cli.xml:165(para) 
 msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between fulltext files, so there is no direct CLI equivalent."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:161(para) 
+#: source/en/tsvn_app_cli.xml:174(para) 
 msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:169(title) 
+#: source/en/tsvn_app_cli.xml:182(title) 
 msgid "Show Log"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:170(screen) 
+#: source/en/tsvn_app_cli.xml:183(screen) 
 #, no-wrap
 msgid "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n  or\nsvn log -v -r M:N [--stop-on-copy] PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:175(para) 
+#: source/en/tsvn_app_cli.xml:188(para) 
 msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:181(para) 
+#: source/en/tsvn_app_cli.xml:194(para) 
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:188(screen) 
+#: source/en/tsvn_app_cli.xml:201(screen) 
 #, no-wrap
 msgid "\nsvn status -v PATH\n  or\nsvn status -u -v PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:193(para) 
+#: source/en/tsvn_app_cli.xml:206(para) 
 msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:216(title) 
+#: source/en/tsvn_app_cli.xml:223(title) 
+msgid "Revision Graph"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:224(para) 
+msgid "The revision graph is a feature of TortoiseSVN only. There's no equivalent in the command line client."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:228(para) 
+msgid "What TortoiseSVN does is an <screen>\nsvn info URL_of_WC\nsvn log -v URL\n</screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:239(title) 
 msgid "Repo Browser"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:217(screen) 
+#: source/en/tsvn_app_cli.xml:240(screen) 
 #, no-wrap
-msgid "\nsvn info URL_of_WC\nsvn list -r rev -v URL\n"
+msgid "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:221(para) 
-msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level."
+#: source/en/tsvn_app_cli.xml:244(para) 
+msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level. Also, this command returns all the locking information shown in the repository browser."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:226(para) 
+#: source/en/tsvn_app_cli.xml:251(para) 
 msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:232(title) 
+#: source/en/tsvn_app_cli.xml:257(title) 
 msgid "Edit Conflicts"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:233(para) 
+#: source/en/tsvn_app_cli.xml:258(para) 
 msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:240(title) 
+#: source/en/tsvn_app_cli.xml:265(title) 
 msgid "Resolved"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:241(screen) 
+#: source/en/tsvn_app_cli.xml:266(screen) 
 #, no-wrap
 msgid "\nsvn resolved PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:246(title) 
-msgid "Update to Revision"
-msgstr ""
-
-#: source/en/tsvn_app_cli.xml:247(screen) 
-#, no-wrap
-msgid "\nsvn info URL_of_WC\nsvn update -r rev [-N] [--ignore-externals] PATH\n"
-msgstr ""
-
-#: source/en/tsvn_app_cli.xml:251(para) 
-msgid "Update is not currently an atomic operation in Subversion. If you request update to the HEAD revision, TortoiseSVN first finds the HEAD revision of the repository, and then updates to that particular revision number to avoid creating a mixed revision working copy."
-msgstr ""
-
-#: source/en/tsvn_app_cli.xml:258(para) 
-msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
-msgstr ""
-
-#: source/en/tsvn_app_cli.xml:268(title) 
+#: source/en/tsvn_app_cli.xml:271(title) 
 msgid "Rename"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:269(screen) 
+#: source/en/tsvn_app_cli.xml:272(screen) 
 #, no-wrap
 msgid "\nsvn rename CURR_PATH NEW_PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:274(title) 
+#: source/en/tsvn_app_cli.xml:277(title) 
 msgid "Delete"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:275(screen) 
+#: source/en/tsvn_app_cli.xml:278(screen) 
 #, no-wrap
 msgid "\nsvn delete PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:280(title) 
+#: source/en/tsvn_app_cli.xml:283(title) 
 msgid "Revert"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:284(para) 
+#: source/en/tsvn_app_cli.xml:287(para) 
 msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:290(para) 
+#: source/en/tsvn_app_cli.xml:293(para) 
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:297(screen) 
+#: source/en/tsvn_app_cli.xml:300(screen) 
 #, no-wrap
 msgid "\nsvn revert [-R] PATH...\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:303(screen) 
+#: source/en/tsvn_app_cli.xml:306(screen) 
 #, no-wrap
 msgid "\nsvn cleanup PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:308(title) 
+#: source/en/tsvn_app_cli.xml:311(title) 
 msgid "Get Lock"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:312(para) 
+#: source/en/tsvn_app_cli.xml:315(para) 
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:317(screen) 
+#: source/en/tsvn_app_cli.xml:320(screen) 
 #, no-wrap
 msgid "\nsvn lock -m \"LockMessage\" [--force] PATH...\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:320(para) 
+#: source/en/tsvn_app_cli.xml:323(para) 
 msgid "<literal>LockMessage</literal> here represents the contents of the lock message edit box. This can be empty."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:324(para) 
+#: source/en/tsvn_app_cli.xml:327(para) 
 msgid "If <guilabel>Steal the locks</guilabel> is checked, use the <literal>--force</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:330(title) 
+#: source/en/tsvn_app_cli.xml:333(title) 
 msgid "Release Lock"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:331(screen) 
+#: source/en/tsvn_app_cli.xml:334(screen) 
 #, no-wrap
 msgid "\nsvn unlock PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:336(title) 
+#: source/en/tsvn_app_cli.xml:339(title) 
 msgid "Branch/Tag"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:337(screen) 
+#: source/en/tsvn_app_cli.xml:340(screen) 
 #, no-wrap
-msgid "\nsvn copy -m \"LogMessage\" URL URL\n  or\nsvn copy [-r rev] -m \"LogMessage\" URL URL\n  or\nsvn copy -m \"LogMessage\" PATH URL\n"
+msgid "\nsvn copy -m \"LogMessage\" URL URL\n  or\nsvn copy -m \"LogMessage\" URL@rev URL@rev\n  or\nsvn copy -m \"LogMessage\" PATH URL\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:349(listitem) 
+#: source/en/tsvn_app_cli.xml:352(listitem) 
 msgid "Specific revision in repository"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:344(para) 
+#: source/en/tsvn_app_cli.xml:347(para) 
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:360(title) 
+#: source/en/tsvn_app_cli.xml:363(title) 
 msgid "Switch"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:361(screen) 
+#: source/en/tsvn_app_cli.xml:364(screen) 
 #, no-wrap
-msgid "\nsvn info URL_of_WC\nsvn switch -r rev URL PATH\n"
+msgid "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:365(para) 
-msgid "Switch is not currently an atomic operation in Subversion. If you request a switch to the HEAD revision, TortoiseSVN first finds the HEAD revision of the repository, and then updates to that particular revision number to avoid creating a mixed revision working copy."
-msgstr ""
-
-#: source/en/tsvn_app_cli.xml:374(title) 
+#: source/en/tsvn_app_cli.xml:370(title) 
 msgid "Merge"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:375(screen) 
+#: source/en/tsvn_app_cli.xml:371(screen) 
 #, no-wrap
 msgid "\nsvn merge [--dry-run] From_URL@revN To_URL@revM PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:378(para) 
+#: source/en/tsvn_app_cli.xml:374(para) 
 msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:382(screen) 
+#: source/en/tsvn_app_cli.xml:378(screen) 
 #, no-wrap
 msgid "\nsvn diff From_URL@revN To_URL@revM\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:385(para) 
+#: source/en/tsvn_app_cli.xml:381(para) 
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:391(title) 
+#: source/en/tsvn_app_cli.xml:387(title) 
 msgid "Export"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:392(screen) 
+#: source/en/tsvn_app_cli.xml:388(screen) 
 #, no-wrap
-msgid "\nsvn export [--ignore-externals] PATH Export_PATH\n"
+msgid "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n"
+msgstr ""
+
+#: source/en/tsvn_app_cli.xml:391(para) 
+msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination."
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:395(para) 
-msgid "This form is used when accessed from a versioned folder, and the folder is used as the export source."
+msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:399(para) 
-msgid "TortoiseSVN has an option to export unversioned items, which is not supported by the CLI."
+#: source/en/tsvn_app_cli.xml:400(para) 
+msgid "What TortoiseSVN does is to copy all files to the new location while showing you the progress of the operation. Unversioned files/folders can optionally be exported too."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:403(screen) 
-#, no-wrap
-msgid "\nsvn info URL\nsvn export -r rev [--ignore-externals] URL Export_PATH\n"
-msgstr ""
-
-#: source/en/tsvn_app_cli.xml:407(para) 
-msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination. Export is not currently an atomic operation in Subversion. If you request an export from the HEAD revision, TortoiseSVN first finds the HEAD revision of the repository, and then exports that particular revision number to avoid creating a mixed revision export."
-msgstr ""
-
-#: source/en/tsvn_app_cli.xml:416(para) 
+#: source/en/tsvn_app_cli.xml:405(para) 
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:423(title) 
+#: source/en/tsvn_app_cli.xml:412(title) 
 msgid "Relocate"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:424(screen) 
+#: source/en/tsvn_app_cli.xml:413(screen) 
 #, no-wrap
 msgid "\nsvn switch --relocate From_URL To_URL\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:429(title) 
+#: source/en/tsvn_app_cli.xml:418(title) 
 msgid "Create Repository Here"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:430(screen) 
+#: source/en/tsvn_app_cli.xml:419(screen) 
 #, no-wrap
 msgid "\nsvnadmin create --fs-type fsfs PATH\n  or\nsvnadmin create --fs-type bdb PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:437(title) source/en/glossary.xml:10(glossterm) 
+#: source/en/tsvn_app_cli.xml:426(title) source/en/glossary.xml:10(glossterm) 
 msgid "Add"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:441(para) 
+#: source/en/tsvn_app_cli.xml:430(para) 
 msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:448(screen) 
+#: source/en/tsvn_app_cli.xml:437(screen) 
 #, no-wrap
 msgid "\nsvn import -m LogMessage PATH URL\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:457(title) 
+#: source/en/tsvn_app_cli.xml:446(title) 
 msgid "Blame"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:458(screen) 
+#: source/en/tsvn_app_cli.xml:447(screen) 
 #, no-wrap
 msgid "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:462(para) 
+#: source/en/tsvn_app_cli.xml:451(para) 
 msgid "If you use TortoiseBlame to view the blame info, the file log is also required to show log messages in a tooltip. If you view blame as a textfile, this information is not required."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:470(title) 
+#: source/en/tsvn_app_cli.xml:459(title) 
 msgid "Add to Ignore List"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:471(screen) 
+#: source/en/tsvn_app_cli.xml:460(screen) 
 #, no-wrap
 msgid "\nsvn propget svn:ignore PATH &gt; tempfile\n{edit new ignore item into tempfile}\nsvn propset svn:ignore -F tempfile PATH\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:476(para) 
+#: source/en/tsvn_app_cli.xml:465(para) 
 msgid "Because the svn:ignore property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:483(title) 
+#: source/en/tsvn_app_cli.xml:472(title) 
 msgid "Create Patch"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:484(screen) 
+#: source/en/tsvn_app_cli.xml:473(screen) 
 #, no-wrap
 msgid "\nsvn diff PATH &gt; patchfile\n"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:487(para) 
+#: source/en/tsvn_app_cli.xml:476(para) 
 msgid "TortoiseSVN creates a patchfile in unified diff format by comparing the working copy with its BASE version."
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:493(title) 
+#: source/en/tsvn_app_cli.xml:482(title) 
 msgid "Apply Patch"
 msgstr ""
 
-#: source/en/tsvn_app_cli.xml:494(para) 
+#: source/en/tsvn_app_cli.xml:483(para) 
 msgid "Applying patches is a tricky business unless the patch and working copy are at the same revision. Luckily for you, you can use TortoiseMerge, which has no direct equivalent in Subversion."
 msgstr ""
 
@@ -5009,15 +5008,19 @@ msgstr ""
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
 msgstr ""
 
-#: source/en/tme_ch02.xml:188(para) 
+#: source/en/tme_ch02.xml:186(para) 
+msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
+msgstr ""
+
+#: source/en/tme_ch02.xml:193(para) 
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
 msgstr ""
 
-#: source/en/tme_ch02.xml:195(para) 
+#: source/en/tme_ch02.xml:200(para) 
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr ""
 
-#: source/en/tme_ch02.xml:202(para) 
+#: source/en/tme_ch02.xml:207(para) 
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr ""
 
@@ -5025,52 +5028,144 @@ msgstr ""
 msgid "Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-1/>"
 msgstr ""
 
-#: source/en/tme_ch02.xml:209(para) 
+#: source/en/tme_ch02.xml:214(para) 
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
 msgstr ""
 
-#: source/en/tme_ch02.xml:218(para) 
+#: source/en/tme_ch02.xml:223(para) 
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. The left side of the status bar is used to display hints when you hover the mouse over a control."
 msgstr ""
 
-#: source/en/tme_ch02.xml:231(title) 
+#: source/en/tme_ch02.xml:236(title) 
 msgid "Merging / Editing Conflicts"
 msgstr ""
 
-#: source/en/tme_ch02.xml:232(para) 
+#: source/en/tme_ch02.xml:237(para) 
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
 msgstr ""
 
-#: source/en/tme_ch02.xml:236(para) 
+#: source/en/tme_ch02.xml:241(para) 
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
 msgstr ""
 
-#: source/en/tme_ch02.xml:248(para) 
+#: source/en/tme_ch02.xml:253(para) 
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
 msgstr ""
 
-#: source/en/tme_ch02.xml:285(para) 
+#: source/en/tme_ch02.xml:290(para) 
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
 msgstr ""
 
-#: source/en/tme_ch02.xml:293(para) 
+#: source/en/tme_ch02.xml:298(para) 
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
 msgstr ""
 
-#: source/en/tme_ch02.xml:301(para) 
+#: source/en/tme_ch02.xml:306(para) 
 msgid "If you need to copy lines of text to insert in another file using your favourite text editor, you can select multiple lines to copy within TortoiseMerge. <action>Click</action> on the first line of the block, then <action>Shift+Click</action> on the last line of the block. As usual, <action>Ctrl+C</action> can be used to copy the selected lines to the clipboard."
 msgstr ""
 
-#: source/en/tme_ch02.xml:314(title) 
+#: source/en/tme_ch02.xml:319(title) 
 msgid "Settings"
 msgstr ""
 
-#: source/en/tme_ch02.xml:318(title) 
+#: source/en/tme_ch02.xml:323(title) 
 msgid "The Settings Main Page"
 msgstr ""
 
-#: source/en/tme_ch02.xml:322(title) 
+#: source/en/tme_ch02.xml:326(para) 
+msgid "Most of the options here are self-explanatory, but a few points need clarifying."
+msgstr ""
+
+#: source/en/tme_ch02.xml:330(para) 
+msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
+msgstr ""
+
+#: source/en/tme_ch02.xml:335(para) 
+msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
+msgstr ""
+
+#: source/en/tme_ch02.xml:339(para) 
+msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
+msgstr ""
+
+#: source/en/tme_ch02.xml:345(para) 
+msgid "<guilabel>Compare Whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how subversion treats such changes)."
+msgstr ""
+
+#: source/en/tme_ch02.xml:350(para) 
+msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
+msgstr ""
+
+#: source/en/tme_ch02.xml:356(para) 
+msgid "<guilabel>Ignore All Whitespaces</guilabel> hides all whitespace-only changes."
+msgstr ""
+
+#: source/en/tme_ch02.xml:364(title) 
 msgid "The Settings Color Page"
+msgstr ""
+
+#: source/en/tme_ch02.xml:367(para) 
+msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
+msgstr ""
+
+#: source/en/tme_ch02.xml:373(term) 
+msgid "Normal"
+msgstr ""
+
+#: source/en/tme_ch02.xml:374(listitem) 
+msgid "All lines which are unchanged, or where changes are hidden."
+msgstr ""
+
+#: source/en/tme_ch02.xml:379(term) 
+msgid "Removed"
+msgstr ""
+
+#: source/en/tme_ch02.xml:380(listitem) 
+msgid "Lines which have been deleted."
+msgstr ""
+
+#: source/en/tme_ch02.xml:385(term) 
+msgid "Added"
+msgstr ""
+
+#: source/en/tme_ch02.xml:386(listitem) 
+msgid "Lines which have been added."
+msgstr ""
+
+#: source/en/tme_ch02.xml:391(term) 
+msgid "Empty"
+msgstr ""
+
+#: source/en/tme_ch02.xml:392(listitem) 
+msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
+msgstr ""
+
+#: source/en/tme_ch02.xml:398(term) 
+msgid "Conflicted"
+msgstr ""
+
+#: source/en/tme_ch02.xml:399(listitem) 
+msgid "Where the same line has been changed in both files."
+msgstr ""
+
+#: source/en/tme_ch02.xml:404(term) 
+msgid "Line with whitespace diff"
+msgstr ""
+
+#: source/en/tme_ch02.xml:408(guilabel) 
+msgid "Ignore leading whitespace"
+msgstr ""
+
+#: source/en/tme_ch02.xml:405(listitem) 
+msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
+msgstr ""
+
+#: source/en/tme_ch02.xml:413(term) 
+msgid "Whitespace diff"
+msgstr ""
+
+#: source/en/tme_ch02.xml:414(listitem) 
+msgid "In the case above, the actual whitespace difference is highlighted using this color."
 msgstr ""
 
 #: source/en/tme_ch01.xml:13(title) 

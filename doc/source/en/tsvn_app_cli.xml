@@ -56,7 +56,7 @@
 		<sect2 id="tsvn-cli-checkout">
 			<title>Checkout</title>
 <screen>
-svn checkout [-N] [--ignore-externals] -r par URL PATH
+svn checkout [-N] [--ignore-externals] [-r rev] URL PATH
 </screen>
 			<para>
 				If <guilabel>Only checkout the top folder</guilabel> is checked,
@@ -75,7 +75,7 @@ svn checkout [-N] [--ignore-externals] -r par URL PATH
 			<title>Update</title>
 <screen>
 svn info URL_of_WC
-svn update -r par PATH
+svn update [-r rev] PATH
 </screen>
 			<para>
 				Updating multiple items is currently not an atomic operation
@@ -85,8 +85,8 @@ svn update -r par PATH
 				avoid creating a mixed revision working copy.
 			</para>
 			<para>
-			If only one item is selected for updating or the selected items are
-			not all from the same repository, TortoiseSVN just updates
+				If only one item is selected for updating or the selected items are
+				not all from the same repository, TortoiseSVN just updates
 			to HEAD.
 			</para>
 			<para>
@@ -99,7 +99,7 @@ svn update -r par PATH
 			<title>Update to Revision</title>
 <screen>
 svn info URL_of_WC
-svn update -r rev [-N] [--ignore-externals] PATH
+svn update [-r rev] [-N] [--ignore-externals] PATH
 </screen>
 			<para>
 				If <guilabel>Only update the top folder</guilabel> is checked,
@@ -110,7 +110,6 @@ svn update -r rev [-N] [--ignore-externals] PATH
 				use the <literal>--ignore-externals</literal> switch.
 			</para>
 		</sect2>
-		<sect2 id="tsvn-cli-rename">
 		<sect2 id="tsvn-cli-commit">
 			<title>Commit</title>
 			<para>
@@ -223,24 +222,24 @@ svn status -u -v PATH
 		<sect2 id="tsvn-cli-revgraph">
 			<title>Revision Graph</title>
 			<para>
-			The revision graph is a feature of TortoiseSVN only. There's no equivalent
-			in the command line client.
+				The revision graph is a feature of TortoiseSVN only. There's no
+				equivalent in the command line client.
 			</para>
 			<para>
-			What TortoiseSVN does is an
+				What TortoiseSVN does is an
 <screen>
 svn info URL_of_WC
 svn log -v URL
 </screen>
-			where URL is the repository <emphasis>root</emphasis> and then analyzes
-			the data returned.
+				where URL is the repository <emphasis>root</emphasis> and then
+				analyzes the data returned.
 			</para>
-			</sect2>
+		</sect2>
 		<sect2 id="tsvn-cli-repobrowser">
 			<title>Repo Browser</title>
 <screen>
 svn info URL_of_WC
-svn list -r rev -v URL
+svn list [-r rev] -v URL
 </screen>
 			<para>
 				You can use <literal>svn info</literal> to determine the repository
@@ -268,6 +267,7 @@ svn list -r rev -v URL
 svn resolved PATH
 </screen>
 		</sect2>
+		<sect2 id="tsvn-cli-rename">
 			<title>Rename</title>
 <screen>
 svn rename CURR_PATH NEW_PATH
@@ -363,7 +363,7 @@ svn copy -m "LogMessage" PATH URL
 			<title>Switch</title>
 <screen>
 svn info URL_of_WC
-svn switch -r rev URL PATH
+svn switch [-r rev] URL PATH
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-merge">
@@ -386,21 +386,21 @@ svn diff From_URL@revN To_URL@revM
 		<sect2 id="tsvn-cli-export">
 			<title>Export</title>
 <screen>
-svn export -r rev [--ignore-externals] URL Export_PATH
+svn export [-r rev] [--ignore-externals] URL Export_PATH
 </screen>
 			<para>
 				This form is used when accessed from an unversioned folder,
 				and the folder is used as the destination.
 			</para>
 			<para>
-			Exporting a working copy to a different location is done without
-			using the Subversion library, so there's no matching command
-			line equivalent.
+				Exporting a working copy to a different location is done without
+				using the Subversion library, so there's no matching command
+				line equivalent.
 			</para>
 			<para>
-			What TortoiseSVN does is to copy all files to the new location
-			while showing you the progress of the operation. Unversioned files/folders
-			can optionally be exported too.
+				What TortoiseSVN does is to copy all files to the new location
+				while showing you the progress of the operation. Unversioned
+				files/folders can optionally be exported too.
 			</para>
 			<para>
 				In both cases,
