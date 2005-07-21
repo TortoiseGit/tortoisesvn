@@ -433,13 +433,13 @@
       <Directory Id="D__Languages" Name="Language" LongName="Languages" >
         <Component Id="C__Languages" Guid="B51E466F-725F-41a1-A26A-D0EDD2936933" >
           <File Id="F__websiteurl2" Name="WEBSITE.URL" LongName="Website.url" src="Website.url" DiskId="1" KeyPath="yes"/>
-          <?if $(env.ENSPELL) = 1 ?>
-		    <File Id="F__ENSPELLAFF" Name="en_US.aff" LongName="en_US.aff" src="..\..\..\Common\Spell_Thes\en_US.aff" DiskId="1" />
-		    <File Id="F__ENSPELLDIC" Name="en_US.dic" LongName="en_US.dic" src="..\..\..\Common\Spell_Thes\en_US.dic" DiskId="1" />
+          <?if $(env.ENGBSPELL) = 1 ?>
+		    <File Id="F__ENGBSPELLAFF" Name="en_GB.aff" LongName="en_GB.aff" src="..\..\..\Common\Spell\en_GB.aff" DiskId="1" />
+		    <File Id="F__ENGBSPELLDIC" Name="en_GB.dic" LongName="en_GB.dic" src="..\..\..\Common\Spell\en_GB.dic" DiskId="1" />
           <?endif ?>
-          <?if $(env.ENTHES) = 1 ?>
-            <File Id="F__ENTHESDAT" Name="th_en_1.dat" LongName="th_en_US_v2.dat" src="..\..\..\Common\Spell_Thes\th_en_US_v2.dat" DiskId="1" />
-            <File Id="F__ENTHESIDX" Name="th_en_2.idx" LongName="th_en_US_v2.idx" src="..\..\..\Common\Spell_Thes\th_en_us_v2.idx" DiskId="1" />
+          <?if $(env.ENSPELL) = 1 ?>
+		    <File Id="F__ENSPELLAFF" Name="en_US.aff" LongName="en_US.aff" src="..\..\..\Common\Spell\en_US.aff" DiskId="1" />
+		    <File Id="F__ENSPELLDIC" Name="en_US.dic" LongName="en_US.dic" src="..\..\..\Common\Spell\en_US.dic" DiskId="1" />
           <?endif ?>
           <RemoveFile Id="F__Languages" Name="*.*" LongName="*.*" On="uninstall" />
         </Component>

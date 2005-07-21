@@ -26,10 +26,9 @@ You may have to logoff/logon to make the new environement variables take effect!
   the folder from openssl-0.9.xx to openssl
 - Download the zlib source from 
   http://www.gzip.org/zlib/ and unzip it to SVN\common\zlib
-- The thesaurus and dictionary files should be placed in SVN\common\Spell_Thes
+- The dictionary files should be placed in SVN\common\Spell
   Note: the names of the files are important! They have to be
-  en_US.aff, en_US.dic for the spellchecker, and 
-  th_en_US_v2.idx, th_en_US_v2.dat for the thesaurus.
+  en_US.aff, en_US.dic, en_GB.aff and en_GB.dic.
 - Checkout the TortoiseSVN sources from the Subversion repository into
   SVN\TortoiseSVN
 - Download the tools to build the TSVN docs from 
