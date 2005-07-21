@@ -56,16 +56,8 @@
 		<sect2 id="tsvn-cli-checkout">
 			<title>Checkout</title>
 <screen>
-svn info URL_of_WC
 svn checkout [-N] [--ignore-externals] -r par URL PATH
 </screen>
-			<para>
-				Because checkout is not an atomic operation, TortoiseSVN first
-				finds the HEAD revision of the repository, and then checks out
-				that particular revision number. If someone else commits changes
-				in the middle of your checkout, you won't get a mixed revision
-				working copy.
-			</para>
 			<para>
 				If <guilabel>Only checkout the top folder</guilabel> is checked,
 				use the <literal>-N</literal> switch.
@@ -86,10 +78,16 @@ svn info URL_of_WC
 svn update -r par PATH
 </screen>
 			<para>
-				Update is not currently an atomic operation in Subversion.
+				Updating multiple items is currently not an atomic operation
+				in Subversion. So
 				TortoiseSVN first finds the HEAD revision of the repository,
-				and then updates to that particular revision number to
+				and then updates all items to that particular revision number to
 				avoid creating a mixed revision working copy.
+			</para>
+			<para>
+			If only one item is selected for updating or the selected items are
+			not all from the same repository, TortoiseSVN just updates
+			to HEAD.
 			</para>
 			<para>
 				No command line options are used here.
@@ -97,6 +95,22 @@ svn update -r par PATH
 				the update command, but offers more options.
 			</para>
 		</sect2>
+		<sect2 id="tsvn-cli-updaterev">
+			<title>Update to Revision</title>
+<screen>
+svn info URL_of_WC
+svn update -r rev [-N] [--ignore-externals] PATH
+</screen>
+			<para>
+				If <guilabel>Only update the top folder</guilabel> is checked,
+				use the <literal>-N</literal> switch.
+			</para>
+			<para>
+				If <guilabel>Omit externals</guilabel> is checked,
+				use the <literal>--ignore-externals</literal> switch.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-cli-rename">
 		<sect2 id="tsvn-cli-commit">
 			<title>Commit</title>
 			<para>
@@ -206,12 +220,22 @@ svn status -u -v PATH
 				unversioned folders.
 			</para>
 		</sect2>
-<!--
 		<sect2 id="tsvn-cli-revgraph">
 			<title>Revision Graph</title>
-			I have no idea what to put in here ...
-		</sect2>
--->
+			<para>
+			The revision graph is a feature of TortoiseSVN only. There's no equivalent
+			in the command line client.
+			</para>
+			<para>
+			What TortoiseSVN does is an
+<screen>
+svn info URL_of_WC
+svn log -v URL
+</screen>
+			where URL is the repository <emphasis>root</emphasis> and then analyzes
+			the data returned.
+			</para>
+			</sect2>
 		<sect2 id="tsvn-cli-repobrowser">
 			<title>Repo Browser</title>
 <screen>
@@ -222,6 +246,8 @@ svn list -r rev -v URL
 				You can use <literal>svn info</literal> to determine the repository
 				root, which is the top level shown in the repository browser. You
 				cannot navigate <literal>Up</literal> above this level.
+				Also, this command returns all the locking information shown in
+				the repository browser.
 			</para>
 			<para>
 				The <literal>svn list</literal> call will list the contents of a
@@ -242,29 +268,6 @@ svn list -r rev -v URL
 svn resolved PATH
 </screen>
 		</sect2>
-		<sect2 id="tsvn-cli-updaterev">
-			<title>Update to Revision</title>
-<screen>
-svn info URL_of_WC
-svn update -r rev [-N] [--ignore-externals] PATH
-</screen>
-			<para>
-				Update is not currently an atomic operation in Subversion.
-				If you request update to the HEAD revision,
-				TortoiseSVN first finds the HEAD revision of the repository,
-				and then updates to that particular revision number to
-				avoid creating a mixed revision working copy.
-			</para>
-			<para>
-				If <guilabel>Only update the top folder</guilabel> is checked,
-				use the <literal>-N</literal> switch.
-			</para>
-			<para>
-				If <guilabel>Omit externals</guilabel> is checked,
-				use the <literal>--ignore-externals</literal> switch.
-			</para>
-		</sect2>
-		<sect2 id="tsvn-cli-rename">
 			<title>Rename</title>
 <screen>
 svn rename CURR_PATH NEW_PATH
@@ -337,7 +340,7 @@ svn unlock PATH
 <screen>
 svn copy -m "LogMessage" URL URL
   or
-svn copy [-r rev] -m "LogMessage" URL URL
+svn copy -m "LogMessage" URL@rev URL@rev
   or
 svn copy -m "LogMessage" PATH URL
 </screen>
@@ -362,13 +365,6 @@ svn copy -m "LogMessage" PATH URL
 svn info URL_of_WC
 svn switch -r rev URL PATH
 </screen>
-			<para>
-				Switch is not currently an atomic operation in Subversion.
-				If you request a switch to the HEAD revision,
-				TortoiseSVN first finds the HEAD revision of the repository,
-				and then updates to that particular revision number to
-				avoid creating a mixed revision working copy.
-			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-merge">
 			<title>Merge</title>
@@ -390,28 +386,21 @@ svn diff From_URL@revN To_URL@revM
 		<sect2 id="tsvn-cli-export">
 			<title>Export</title>
 <screen>
-svn export [--ignore-externals] PATH Export_PATH
-</screen>
-			<para>
-				This form is used when accessed from a versioned folder,
-				and the folder is used as the export source.
-			</para>
-			<para>
-				TortoiseSVN has an option to export unversioned items,
-				which is not supported by the CLI.
-			</para>
-<screen>
-svn info URL
 svn export -r rev [--ignore-externals] URL Export_PATH
 </screen>
 			<para>
 				This form is used when accessed from an unversioned folder,
 				and the folder is used as the destination.
-				Export is not currently an atomic operation in Subversion.
-				If you request an export from the HEAD revision,
-				TortoiseSVN first finds the HEAD revision of the repository,
-				and then exports that particular revision number to
-				avoid creating a mixed revision export.
+			</para>
+			<para>
+			Exporting a working copy to a different location is done without
+			using the Subversion library, so there's no matching command
+			line equivalent.
+			</para>
+			<para>
+			What TortoiseSVN does is to copy all files to the new location
+			while showing you the progress of the operation. Unversioned files/folders
+			can optionally be exported too.
 			</para>
 			<para>
 				In both cases,
