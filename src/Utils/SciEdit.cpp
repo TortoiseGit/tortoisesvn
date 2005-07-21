@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "resource.h"
 #include "Utils.h"
+#include "UnicodeUtils.h"
 #include <string>
 #include "regexpr2.h"
 #include "registry.h"
@@ -107,8 +108,8 @@ void CSciEdit::Init(LONG lLanguage)
 void CSciEdit::Init(const ProjectProperties& props)
 {
 	Init(props.lProjectLanguage);
-	m_sCommand = props.sCheckRe;
-	m_sBugID = props.sBugIDRe;
+	m_sCommand = CStringA(CUnicodeUtils::GetUTF8(props.sCheckRe));
+	m_sBugID = CStringA(CUnicodeUtils::GetUTF8(props.sBugIDRe));
 	try
 	{
 		if (!m_sBugID.IsEmpty())
@@ -745,7 +746,7 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 	textrange.chrg.cpMin = start_pos;
 	textrange.chrg.cpMax = end_pos;
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
-	CString msg = StringFromControl(textbuffer);
+	CString msg = CString(textbuffer);
 	delete textbuffer;
 	int offset1 = 0;
 	int offset2 = 0;
