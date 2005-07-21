@@ -8,6 +8,8 @@
 - BUG: The bugtraq: and tsvn: property values weren't correctly handled if
        they contained non-ASCII chars. (Stefan)
 - BUG: Comparing two files from the revision graph didn't work. (Stefan)
+- BUG: When adding a folder, nested folders were shown as unversioned
+       and checked to add. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for

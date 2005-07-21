@@ -697,7 +697,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	for (int i=0; i< (int)m_arStatusArray.size(); ++i)
 	{
 		FileEntry * entry = m_arStatusArray[i];
-		if (entry->inexternal && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
+		if ((entry->inexternal || entry->isNested) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
 			continue;
 		if (entry->IsFolder() && (!bShowFolders))
 			continue;	// don't show folders if they're not wanted.
