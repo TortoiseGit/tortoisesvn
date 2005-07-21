@@ -312,7 +312,7 @@ svn status -v PATH
 			<para>
 				The first stage is a status check which determines the files
 				in your working copy which can potentially be locked. You can
-				select the items you want to be included in the revert.
+				select the items you want to be locked.
 			</para>
 <screen>
 svn lock -m "LockMessage" [--force] PATH...
