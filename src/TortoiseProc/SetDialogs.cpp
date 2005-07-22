@@ -52,7 +52,7 @@ CSetDialogs::CSetDialogs()
 	m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
 	m_regOldLogAPIs = CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
 	m_regAutocompletionTimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
-	m_regSpell = CRegDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), TRUE);
+	m_regSpell = CRegDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), FALSE);
 	m_regCheckRepo = CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
 	m_regUseWCURL = CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE);
 }

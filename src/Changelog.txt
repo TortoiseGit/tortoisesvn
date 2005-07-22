@@ -1,6 +1,9 @@
 - NEW: Navigating to the previous/next difference in TortoiseMerge also
        shows the first line of the difference in the detailed diff at
        the bottom. (Stefan)
+- CHG: The spellchecker now checks text pasted in the edit control
+       immediately, without the need to enter text manually first.
+       See issue #116. (Stefan)
 - BUG: The default ssh client (TortoisePlink) wasn't used in some
        places, e.g. the revision graph. (Stefan)
 - BUG: The option "Only use spellchecker when tsvn:projectlanguage is set"

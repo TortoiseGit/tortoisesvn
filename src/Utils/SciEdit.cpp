@@ -77,11 +77,11 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
 	Call(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
 	Call(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
-	
+	Call(SCI_SETMODEVENTMASK, SC_MOD_INSERTTEXT | SC_MOD_DELETETEXT | SC_PERFORMED_UNDO | SC_PERFORMED_REDO);
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
 
-	if ((lLanguage != 0)||(((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\Spellchecker"), TRUE))==FALSE))
+	if ((lLanguage != 0)||(((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\Spellchecker"), FALSE))==FALSE))
 	{
 		if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
 		{
@@ -460,13 +460,13 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 				Call(SCI_DELETEBACK);
 			else
 			{
-				CheckSpelling();
 				DoAutoCompletion();
 			}
 			return TRUE;
 			break;
 		case SCN_STYLENEEDED:
 			MarkEnteredBugID(lpnmhdr);
+			CheckSpelling();
 			return TRUE;
 			break;
 		}
