@@ -30,13 +30,13 @@
 # overlays -- пометки (на значках)
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 3877: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 3958: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-07-20 11:33+0300\n"
+"PO-Revision-Date: 2005-07-22 14:55+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -149,7 +149,7 @@ msgstr "%d файлов выбрано, %d файлов всего"
 #: ID:226
 #, c-format
 msgid "%s - at revision: %d"
-msgstr "%s - на ревизию: %d"
+msgstr "%s - до ревизии: %d"
 
 # ID:151,
 #: ID:151
@@ -815,7 +815,7 @@ msgstr "Добавить/Править программу различий/сл
 #: ID:73
 #: Control-ID:65535
 msgid "Added"
-msgstr "Добавлено"
+msgstr "Добавленное"
 
 # ID:126,
 #: ID:126
@@ -883,11 +883,6 @@ msgstr "Дополнительные настройки программ Раз�
 #: ID:110
 msgid "Advanced Merge Settings"
 msgstr "Дополнительные настройки программы слияния"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "All"
-msgstr "Все"
 
 # ID:3841,#:
 # ID:3841,
@@ -1068,7 +1063,7 @@ msgstr "Вы действительно хотите вернуть в преж�
 #: ID:77
 #, c-format
 msgid "At revision: %d"
-msgstr "На ревизию: %d"
+msgstr "До ревизии: %d"
 
 # Dlg-ID:131,#:
 # Dlg-ID:160,
@@ -1341,7 +1336,7 @@ msgstr "Проверить Хранилище"
 # ID:13,
 #: ID:13
 msgid "Check for Modifications"
-msgstr "Проверка на наличие изменений"
+msgstr "Проверить на наличие изменений"
 
 # ID:9,
 #: ID:9
@@ -1552,7 +1547,7 @@ msgstr "Настройка программы для просмотра GNU diff
 #: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
-msgstr "Конфликт"
+msgstr "Конфликтующее"
 
 # ID:188,
 #: ID:188
@@ -2344,6 +2339,7 @@ msgstr "GDI+ не может создать рисунок. Вероятно о�
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "Общее"
 
@@ -2596,6 +2592,11 @@ msgstr "Включить пути:"
 msgid "Initial Import"
 msgstr "Первоначальный импорт"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "Внутристрочные различия в непечатаемых знаках"
+
 # Dlg-ID:161,
 #: Dlg-ID:161
 msgid "Input"
@@ -2718,6 +2719,11 @@ msgstr "Наименее активный автор:"
 #: ID:188
 msgid "Left View: "
 msgstr "Вид слева:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "Строки с различ. в непеч.знаках"
 
 # ID:3605,
 #: ID:3605
@@ -3100,9 +3106,10 @@ msgstr "Нет предложений из словаря"
 
 # Род?
 # Control-ID:65535,
+# (Цвет незатронутых строк)
 #: Control-ID:65535
 msgid "Normal"
-msgstr "Нормально"
+msgstr "Нормальное"
 
 # ID:3857,#:
 # ID:3857,
@@ -3571,7 +3578,7 @@ msgstr "Удалить из списка игнорирования"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
-msgstr "Удалено"
+msgstr "Удалённое"
 
 # ID:126,
 #: ID:126
@@ -4190,15 +4197,15 @@ msgstr "Показать &лог"
 msgid "Show &overlays only in explorer"
 msgstr "Показывать &пометки только в проводнике"
 
-# Control-ID:1065,
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "Показывать строку различий"
-
 # ID:113,
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "Показать различия как &патч-файл"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "Показывать панель строковых  различий"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -4835,11 +4842,6 @@ msgstr "У файла не может быть этого свойства. То
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Для этого свойства разрешена только одна строка."
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "Трехфайловые различия"
-
 # Control-ID:1222,
 #: Control-ID:1222
 msgid "Timeout in seconds to stop the autocompletion parsing"
@@ -4958,11 +4960,6 @@ msgstr "Попробуйте \"Очистку\". Если не помогло, �
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "Подстроить TortoiseSVN"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "Двухфайловые различия"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -5162,7 +5159,7 @@ msgstr ""
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
-msgstr "Использовать Увеличитель в полосе Локатора."
+msgstr "Использовать Увеличитель в полосе Локатора"
 
 # Control-ID:1126,
 #: Control-ID:1126
@@ -5192,8 +5189,8 @@ msgstr "Использовать старые API для получения ло
 
 # Control-ID:1024,
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "Использовать однопанельный вид по умолчанию"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Однопанельный вид по умолчанию для двуфайловых различий"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5299,12 +5296,7 @@ msgstr "Предупреждение!"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespace diff"
-msgstr "Разн. в непеч.знаках"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "Непечатаемые знаки"
+msgstr "Различия в непеч. знаках"
 
 # ID:151,
 #: Dlg-ID:158
@@ -5482,7 +5474,7 @@ msgstr "Уме&ньшить\tCtrl--"
 # ID:10,
 #: ID:10
 msgid "added"
-msgstr "добавлено"
+msgstr "добавлен"
 
 # ID:3841,#:
 # ID:3841,
@@ -5582,7 +5574,7 @@ msgstr "фиксации"
 # ID:11,
 #: ID:11
 msgid "conflicted"
-msgstr "конфликтный"
+msgstr "конфликт"
 
 # Control-ID:1113,
 #: Control-ID:1113
@@ -5617,7 +5609,7 @@ msgstr ""
 # ID:13,
 #: ID:13
 msgid "external"
-msgstr "внешний(яя)"
+msgstr "внешний"
 
 # ID:13,
 #: ID:13
