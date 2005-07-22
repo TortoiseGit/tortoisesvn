@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-21 22:03GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-22 11:19GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3728,27 +3728,31 @@ msgstr ""
 msgid "TortoiseSVN comes with an easy to use installer. Doubleclick on the installer file and follow the instructions. The installer will take care of the rest. Make sure to select the <literal>Install for all users</literal> option, unless you <emphasis>really</emphasis> want to restrict its use to the current user only."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:281(citetitle) 
-msgid "http://lingucomponent.openoffice.org/spell_dic.html"
-msgstr ""
-
 #: source/en/tsvn_introduction.xml:261(para) 
-msgid "<indexterm><primary>spellchecker</primary></indexterm> If you want to use a spell checker for your log messages then you have to download the required dictionaries yourself. You can use the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> use. You can find the required dictionary files in various places: <placeholder-1/> You can also use the dictionaries which get installed with Mozilla. They're located in the installation folder of Mozilla."
+msgid "<indexterm><primary>spellchecker</primary></indexterm><indexterm><primary>dictionary</primary></indexterm> TortoiseSVN includes the <literal>Aspell</literal> spell checker, which is also used by <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:296(para) 
+#: source/en/tsvn_introduction.xml:278(para) 
+msgid "The installer automatically adds the US and UK english dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the translation and dictionary will be available. You can find the language packs on our Translations page at <ulink url=\"http://tortoisesvn.sourceforge.net/?q=translation_status\"><citetitle>http://tortoisesvn.sourceforge.net/?q=translation_status</citetitle></ulink>"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:290(para) 
+msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://lingucomponent.openoffice.org/spell_dic.html\"><citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle></ulink>"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:306(para) 
 msgid "en_US.aff"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:301(para) 
+#: source/en/tsvn_introduction.xml:311(para) 
 msgid "en_US.dic"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:289(para) 
+#: source/en/tsvn_introduction.xml:299(para) 
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:315(para) 
+#: source/en/tsvn_introduction.xml:325(para) 
 msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
 msgstr ""
 
