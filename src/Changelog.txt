@@ -1,6 +1,9 @@
 - NEW: Navigating to the previous/next difference in TortoiseMerge also
        shows the first line of the difference in the detailed diff at
        the bottom. (Stefan)
+- NEW: Marking multiple files as resolved at once. Selecting a folder
+       will show a dialog with all conflicted files below to be marked
+       as resolved. See issue #117. (Stefan)
 - CHG: The spellchecker now checks text pasted in the edit control
        immediately, without the need to enter text manually first.
        See issue #116. (Stefan)

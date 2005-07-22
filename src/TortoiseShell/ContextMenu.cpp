@@ -673,7 +673,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	}
 
-	if ((isInSVN)&&(isConflicted)&&(isOnlyOneItemSelected))
+	if (((isInSVN)&&(isConflicted)&&(isOnlyOneItemSelected))||(isInSVN && isFolder))
 	{
 		if(!isFolder)
 			InsertSVNMenu(ownerdrawn, ISTOP(MENUCONFLICTEDITOR), HMENU(MENUCONFLICTEDITOR), INDEXMENU(MENUCONFLICTEDITOR), idCmd++, IDS_MENUCONFLICT, IDI_CONFLICT, idCmdFirst, ConflictEditor);
@@ -1010,11 +1010,9 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += _T("\"");
 						break;
 					case Resolve:
+						tempfile = WriteFileListToTempFile();
 						svnCmd += _T("resolve /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
+						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						break;
 					case Switch:

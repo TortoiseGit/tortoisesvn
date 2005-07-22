@@ -770,20 +770,23 @@ UINT CSVNProgressDlg::ProgressThread()
 				BOOL bMarkers = FALSE;
 				try
 				{
-					if (!m_targetPathList[0].IsDirectory())
+					for (INT_PTR fileindex=0; (fileindex<m_targetPathList.GetCount()) && (bMarkers==FALSE); ++fileindex)
 					{
-						CStdioFile file(m_targetPathList[0].GetWinPath(), CFile::typeBinary | CFile::modeRead);
-						CString strLine = _T("");
-						while (file.ReadString(strLine))
+						if (!m_targetPathList[fileindex].IsDirectory())
 						{
-							if (strLine.Find(_T("<<<<<<<"))==0)
+							CStdioFile file(m_targetPathList[fileindex].GetWinPath(), CFile::typeBinary | CFile::modeRead);
+							CString strLine = _T("");
+							while (file.ReadString(strLine))
 							{
-								bMarkers = TRUE;
-								break;
+								if (strLine.Find(_T("<<<<<<<"))==0)
+								{
+									bMarkers = TRUE;
+									break;
+								}
 							}
+							file.Close();
 						}
-						file.Close();
-					} // if (!PathIsDirectory(m_sPath)) 
+					}
 				} 
 				catch (CFileException* pE)
 				{
@@ -796,10 +799,16 @@ UINT CSVNProgressDlg::ProgressThread()
 				if (bMarkers)
 				{
 					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
-						m_pSvn->Resolve(m_targetPathList[0], true);
-				} // if (bMarkers)
+					{
+						for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
+							m_pSvn->Resolve(m_targetPathList[fileindex], true);
+					}
+				}
 				else
-					m_pSvn->Resolve(m_targetPathList[0], true);
+				{
+					for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
+						m_pSvn->Resolve(m_targetPathList[fileindex], true);
+				}
 			}
 			break;
 		case Switch:

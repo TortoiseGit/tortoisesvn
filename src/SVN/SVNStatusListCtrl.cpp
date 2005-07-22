@@ -1490,7 +1490,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					if (m_dwContextMenus & SVNSLC_POPRESOLVE)
 					{
-						temp.LoadString(IDS_MENURESOLVE);
+						temp.LoadString(IDS_STATUSLIST_CONTEXT_RESOLVED);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
 					}
 				}

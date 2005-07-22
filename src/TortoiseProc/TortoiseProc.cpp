@@ -33,6 +33,7 @@
 #include "UpdateDlg.h"
 #include "LogPromptDlg.h"
 #include "AddDlg.h"
+#include "ResolveDlg.h"
 #include "RevertDlg.h"
 #include "RepoCreateDlg.h"
 #include "RenameDlg.h"
@@ -145,7 +146,7 @@ static const struct CommandInfo
 	{	cmdAdd,				_T("add"),				true	},
 	{	cmdRevert,			_T("revert"),			true	},
 	{	cmdCleanup,			_T("cleanup"),			false	},
-	{	cmdResolve,			_T("resolve"),			false	},
+	{	cmdResolve,			_T("resolve"),			true	},
 	{	cmdRepoCreate,		_T("repocreate"),		false	},
 	{	cmdSwitch,			_T("switch"),			false	},
 	{	cmdExport,			_T("export"),			false	},
@@ -731,15 +732,14 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region resolve
 		if (command == cmdResolve)
 		{
-			UINT ret = IDYES;
-			if (!parser.HasKey(_T("noquestion")))
-				ret = CMessageBox::Show(EXPLORERHWND, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO);
-			if (ret==IDYES)
+			CResolveDlg dlg;
+			dlg.m_pathList = pathList;
+			if (dlg.DoModal() == IDOK)
 			{
 				CSVNProgressDlg progDlg(PWND);
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Resolve, 0, pathList);
+				progDlg.SetParams(CSVNProgressDlg::Resolve, 0, dlg.m_pathList);
 				progDlg.DoModal();
 			}
 		}

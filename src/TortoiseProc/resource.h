@@ -67,6 +67,7 @@
 #define IDB_BITMAP1                     203
 #define IDB_CANCELPRESSED               203
 #define IDB_LOGFILTER                   204
+#define IDD_RESOLVE                     207
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -352,6 +353,7 @@
 #define IDS_PROGRS_TITLE_REVERT         1230
 #define IDC_WCURLFROM                   1230
 #define IDS_PROGRS_TITLE_RESOLVE        1231
+#define IDC_RESOLVELIST                 1231
 #define IDS_PROGRS_TITLE_SWITCH         1232
 #define IDS_PROGRS_TITLE_EXPORT         1233
 #define IDS_PROGRS_TITLE_MERGE          1234
@@ -587,6 +589,7 @@
 #define IDS_STATUSLIST_PROPONLY         3321
 #define IDS_STATUSLIST_CONTEXT_ADD      3330
 #define IDS_STATUSLIST_CONTEXT_EXPLORE  3331
+#define IDS_STATUSLIST_CONTEXT_RESOLVED 3332
 #define IDS_STATUSLIST_LOCKBROKEN       3340
 #define IDS_STATUSLIST_LOCKSTOLEN       3341
 #define IDS_STATUSLIST_NESTED           3350
@@ -668,9 +671,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        207
+#define _APS_NEXT_RESOURCE_VALUE        208
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1231
+#define _APS_NEXT_CONTROL_VALUE         1232
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
