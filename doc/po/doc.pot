@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-22 11:19GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-22 19:05GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2784,48 +2784,56 @@ msgstr ""
 msgid "Read <xref linkend=\"tsvn-DUG-settings-progs\"/> for information on how to set up TortoiseSVN to use these tools."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:3(title) 
+#: source/en/tsvn_dug/dug_conflicts.xml:4(title) 
 msgid "Resolving Conflicts"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:5(primary) 
+#: source/en/tsvn_dug/dug_conflicts.xml:6(primary) 
 msgid "conflict"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:28(term) 
+#: source/en/tsvn_dug/dug_conflicts.xml:29(term) 
 msgid "filename.ext.mine"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:30(para) 
+#: source/en/tsvn_dug/dug_conflicts.xml:31(para) 
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:39(term) 
+#: source/en/tsvn_dug/dug_conflicts.xml:40(term) 
 msgid "filename.ext.rOLDREV"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:41(para) 
+#: source/en/tsvn_dug/dug_conflicts.xml:42(para) 
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:50(term) 
+#: source/en/tsvn_dug/dug_conflicts.xml:51(term) 
 msgid "filename.ext.rNEWREV"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:52(para) 
+#: source/en/tsvn_dug/dug_conflicts.xml:53(para) 
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:7(para) 
+#: source/en/tsvn_dug/dug_conflicts.xml:8(para) 
 msgid "Once in a while, you will get a <emphasis>conflict</emphasis> when you update your files from the repository. A conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n    your changes\n=======\n    code merged from repository\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:62(para) 
+#: source/en/tsvn_dug/dug_conflicts.xml:63(para) 
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_conflicts.xml:73(para) 
+#: source/en/tsvn_dug/dug_conflicts.xml:74(para) 
 msgid "Afterwards execute the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved</guimenuitem></menuchoice> and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_conflicts.xml:87(para) 
+msgid "If you have conflicts with binary files, Subversion does not attempt to merge the files itself. The local file remains unchanged (exactly as you last changed it) and you have <filename>filename.ext.r*</filename> files. If you want to discard your changes and keep the repository version, just use the Revert command. If you want to keep your version and overwrite the repository version, use the Resolved command, then commit your version."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_conflicts.xml:97(para) 
+msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_commit.xml:3(title) 

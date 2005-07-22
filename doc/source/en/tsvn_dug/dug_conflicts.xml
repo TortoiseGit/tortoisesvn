@@ -84,4 +84,25 @@
 		<filename>filename.ext.r*</filename> files,
 		to allow you to commit your changes.
 	</para>
+	<para>
+		If you have conflicts with binary files, Subversion does
+		not attempt to merge the files itself. The local file remains
+		unchanged (exactly as you last changed it) and you have
+		<filename>filename.ext.r*</filename> files.
+		If you want to discard your changes and keep the repository
+		version, just use the Revert command. If you want to keep
+		your version and overwrite the repository version, use the
+		Resolved command, then commit your version.
+	</para>
+	<para>
+		You can use the Resolved command for multiple files
+		if you right click on the parent folder and select
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Resolved...</guimenuitem>
+		</menuchoice>
+		This will bring up a dialog listing all conflicted files
+		in that folder, and you can select which ones to mark
+		as resolved.
+	</para>
 </sect1>
