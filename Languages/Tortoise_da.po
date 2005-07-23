@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on r3933
+# Based on Tortoise.pot r3968
 #
 msgid ""
 msgstr ""
@@ -196,7 +196,7 @@ msgstr "&Indbygget"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
-#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "&Cancel"
 msgstr "&Annuller"
 
@@ -297,8 +297,9 @@ msgid "&Merge"
 msgstr "&Flet"
 
 #: Control-ID:1012,
+#Overskrift i dialog
 msgid "&Merging"
-msgstr "&Fletter"
+msgstr "&Fletning"
 
 #: Control-ID:1049,
 msgid "&Network drives"
@@ -316,7 +317,7 @@ msgstr "&Næste 100"
 msgid "&Next Difference"
 msgstr "&Næste forskel"
 
-#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
 msgstr "&Ok"
 
@@ -649,10 +650,6 @@ msgstr "Avancerede indstillinger for sammenligning/flet"
 msgid "Advanced Merge Settings"
 msgstr "Avancerede indstillinger for fletning"
 
-#: Control-ID:65535,
-msgid "All"
-msgstr "Alle"
-
 #: ID:3841,#: ID:3841,
 msgid "All Files (*.*)"
 msgstr "Alle filer (*.*)"
@@ -819,7 +816,7 @@ msgstr "Lav sikkerhedskopi af oprindelig fil"
 
 #: Control-ID:65535,
 msgid "Base File:"
-msgstr "Basisfil:"
+msgstr "Basis-fil:"
 
 #: Control-ID:1128,
 msgid "Berkeley Database (BDB)"
@@ -1347,6 +1344,10 @@ msgstr "Sletter"
 msgid "Destination disk drive is full."
 msgstr "Destinationsdisken er fyldt op."
 
+#: Dlg-ID:207,
+msgid "Dialog"
+msgstr "Dialog"
+
 #: ID:12,
 msgid "Diff"
 msgstr "Sammenlign"
@@ -1675,7 +1676,7 @@ msgstr "GDI+ kunne ikke initialiseres!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ kunne ikke oprette bitmap-objekt. Der er formodentlig ikke hukommelse nok."
 
-#: Dlg-ID:143,#: Dlg-ID:107,
+#: Dlg-ID:143,#: Dlg-ID:107,#: Control-ID:65535,
 msgid "General"
 msgstr "Generelt"
 
@@ -1772,7 +1773,7 @@ msgstr "Hvis valgt, så oprettes en ny mappe i versionsarkivet.\nHvis ikke valgt
 
 #: ID:79,
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
-msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig fil af basisfilen for at lave sammenligningen med udfyldte nøgleord og tilpassede linieskift."
+msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig fil af basisfilen for at lave sammenligningen med udfyldte nøgleord og tilpassede linjeskift."
 
 #: ID:195,
 msgid "If disabled, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the \"Show Log\" entry will show even for just added folders."
@@ -1847,6 +1848,11 @@ msgstr "Inkluder stierne:"
 msgid "Initial Import"
 msgstr "Oprindelig import"
 
+#: Control-ID:65535,
+#, fuzzy
+msgid "Inline Whitespace Diff"
+msgstr "Sammenligning af blanktegn"
+
 #: Dlg-ID:161,
 msgid "Input"
 msgstr "Indtast"
@@ -1910,6 +1916,11 @@ msgstr "Mindst aktive forfatter:"
 #: ID:188,
 msgid "Left View: "
 msgstr "Venstre visning: "
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Line with whitespace diff"
+msgstr "Linje med forskel i blanktegn"
 
 #: ID:3605,
 msgid "List Help topics\nHelp Topics"
@@ -2041,8 +2052,9 @@ msgid "Merges a branch into the main trunk"
 msgstr "Fletter en forgrening ind i hovedstammen"
 
 #: Control-ID:65535,
+#Dette er overskrift i en dialog
 msgid "Merging"
-msgstr "Fletter"
+msgstr "Fletning"
 
 #: ID:76,
 msgid "Message"
@@ -2583,9 +2595,13 @@ msgstr "Versionsarkivsøger"
 msgid "Requests a username and a password"
 msgstr "Spørger efter brugernavn og adgangskode"
 
-#: ID:8,#: ID:74,
+#: ID:74,#: ID:209,
 msgid "Resolved"
 msgstr "Løst"
+
+#: ID:8,
+msgid "Resolved..."
+msgstr "Løst..."
 
 #: ID:9,
 msgid "Resolves conflicted files"
@@ -2842,7 +2858,7 @@ msgstr "Søgning mislykkedes på %1"
 msgid "Select &All"
 msgstr "Vælg &alle"
 
-#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
+#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
 msgid "Select / Deselect &All"
 msgstr "&Vælg/fravælg alle"
 
@@ -2966,13 +2982,13 @@ msgstr "Vis &log"
 msgid "Show &overlays only in explorer"
 msgstr "Vis kun &overdækninger i Windows Stifinder"
 
-#: Control-ID:1065,
-msgid "Show Diff Bar"
-msgstr "Vis differenslinje"
-
 #: ID:113,
 msgid "Show Differences as &Unified Diff"
 msgstr "Vis forskelle i \"&unified diff\"-format"
+
+#: Control-ID:1065,
+msgid "Show Line Diff Bar"
+msgstr "Vis område med linje-sammenligning"
 
 #: Control-ID:1063,
 msgid "Show Linenumbers"
@@ -3342,10 +3358,6 @@ msgstr "Denne egenskab er kun tilgængelig for mapper, ikke for filer."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Denne egenskab må ikke indeholde flere linjer. Der tillades kun én linje."
 
-#: Control-ID:65535,
-msgid "Three File Diff"
-msgstr "Tre-fils-sammenligning"
-
 #: Control-ID:1222,
 msgid "Timeout in seconds to stop the autocompletion parsing"
 msgstr "Timeout i sekunder før stop af filanalyse til automatisk udfyldning"
@@ -3413,10 +3425,6 @@ msgstr "Prøv at udføre \"Ryd op\". Hvis det ikke hjælper, så er det nødvend
 #: ID:10,
 msgid "Tweak TortoiseSVN"
 msgstr "Optimer TortoiseSVN"
-
-#: Control-ID:65535,
-msgid "Two File Diff"
-msgstr "To-fils-sammenligning"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -3567,8 +3575,8 @@ msgid "Use old APIs to fetch log messages"
 msgstr "Brug gammel API til at hente logbeskeder"
 
 #: Control-ID:1024,
-msgid "Use one-pane view as default"
-msgstr "Brug enkelt-panel-visning som standard"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Brug enkelt-panel-visning som standard for 2-fil-sammenligning"
 
 #: Control-ID:1066,
 msgid "Use strikeout for deleted lines"
@@ -3641,11 +3649,7 @@ msgstr "Advarsel!"
 
 #: Control-ID:65535,
 msgid "Whitespace diff"
-msgstr "Sammenligning af blanktegn"
-
-#: Control-ID:65535,
-msgid "Whitespaces"
-msgstr "Blanktegn"
+msgstr "Forskel i blanktegn"
 
 #: Dlg-ID:158,
 msgid "Working Copy"
@@ -3752,7 +3756,7 @@ msgstr "bugtraq:label\nMærkattekst der vises i redigeringsfeltet, hvor brugeren
 
 #: ID:15,
 msgid "bugtraq:logregex\ntwo regular expressions separated by a newline\nThe first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
-msgstr "bugtraq:logregex\nTo regulære udtryk, adskilt af linieskift\nDet første udtryk benyttes til at finde en streng, der refererer til et problm, det andet udtryk benyttes til at udtrække fejl-ID'et fra denne streng."
+msgstr "bugtraq:logregex\nTo regulære udtryk, adskilt af linjeskift\nDet første udtryk benyttes til at finde en streng, der refererer til et problm, det andet udtryk benyttes til at udtrække fejl-ID'et fra denne streng."
 
 #: ID:14,
 #, c-format
