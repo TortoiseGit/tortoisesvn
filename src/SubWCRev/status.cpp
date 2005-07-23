@@ -27,7 +27,7 @@
 #pragma warning(push)
 #pragma warning(disable:4127)	//conditional expression is constant (cause of SVN_ERR)
 
-void getallstatus(void * baton, const char * path, svn_wc_status_t * status)
+void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 {
 	SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
 	if ((status)&&(sb->SubStat->bExternals)&&(status->text_status == svn_wc_status_external))
@@ -169,7 +169,7 @@ svn_status (	const char *path,
 
   	// Need to lock the tree as even a non-recursive status requires the
 	// immediate directories to be locked.
-	SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, path, FALSE, 0, pool));
+	SVN_ERR (svn_wc_adm_probe_open3 (&adm_access, NULL, path, FALSE, 0, NULL, NULL, pool));
 
 	// Get the entry for this path so we can determine our anchor and
 	// target.  If the path is unversioned, and the caller requested
@@ -194,11 +194,11 @@ svn_status (	const char *path,
 
 	// Need to lock the tree as even a non-recursive status requires the
 	// immediate directories to be locked.
-	SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, anchor, FALSE, -1, pool));
+	SVN_ERR (svn_wc_adm_probe_open3 (&adm_access, NULL, anchor, FALSE, -1, NULL, NULL, pool));
 
 	// Get the status edit, and use our wrapping status function/baton
 	// as the callback pair.
-	SVN_ERR (svn_wc_get_status_editor (&editor, &edit_baton, &edit_revision,
+	SVN_ERR (svn_wc_get_status_editor2 (&editor, &edit_baton, NULL, &edit_revision,
 									   adm_access, target, ctx->config, TRUE,
 									   TRUE, no_ignore, getallstatus, &sb,
 									   ctx->cancel_func, ctx->cancel_baton,

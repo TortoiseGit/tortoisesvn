@@ -4,6 +4,8 @@
 - NEW: Marking multiple files as resolved at once. Selecting a folder
        will show a dialog with all conflicted files below to be marked
        as resolved. See issue #117. (Stefan)
+- NEW: SubWCRev has a new option '-e' to include externals if they're from
+       the same repository. See issue #132. (Stefan)
 - CHG: The spellchecker now checks text pasted in the edit control
        immediately, without the need to enter text manually first.
        See issue #116. (Stefan)
