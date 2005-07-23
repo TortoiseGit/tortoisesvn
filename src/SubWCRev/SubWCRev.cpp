@@ -43,12 +43,16 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
 -m                 :   if given, then SubWCRev will error if the working\n\
                        copy contains mixed revisions.\n\
 -d                 :   if given, then SubWCRev will only do its job if\n\
-                       DstVersionFile does not exist.\n\
+                       DstVersionFile does not exist.\n"
+#define HelpText2 "\
 -f                 :   if given, then SubWCRev will include the\n\
                        last-committed revision of folders. Default is\n\
                        to use only files to get the revision numbers.\n\
-                       This only affects $WCREV$ and $WCDATE$.\n"
-#define HelpText2 "\
+                       This only affects $WCREV$ and $WCDATE$.\n\
+-e                 :   if given, also include dirs which are included\n\
+                       with svn:externals, but only if they're from the\n\
+                       same repository.\n"
+#define HelpText3 "\
 Switches must be given in a single argument, eg. '-nm' not '-n -m'.\n\
 \n\
 SubWCRev reads the Subversion status of all files in a working copy\n\
@@ -301,8 +305,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	BOOL bErrOnMods = FALSE;
 	BOOL bErrOnMixed = FALSE;
 	SubWCRev_t SubStat;
-	SubStat.bFolders = FALSE;
 	memset (&SubStat, 0, sizeof (SubStat));
+	SubStat.bFolders = FALSE;
 	if (argc >= 2 && argc <= 5)
 	{
 		// WC path is always first argument.
@@ -347,6 +351,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			// revision changed at all.
 			if (_tcschr(Params, 'f') != 0)
 				SubStat.bFolders = TRUE;
+			if (_tcschr(Params, 'e') != 0)
+				SubStat.bExternals = TRUE;
 		}
 		else
 		{
@@ -361,6 +367,7 @@ int _tmain(int argc, _TCHAR* argv[])
 					TSVN_VERMICRO, TSVN_VERBUILD);
 		_putts(_T(HelpText1));
 		_putts(_T(HelpText2));
+		_putts(_T(HelpText3));
 		return ERR_SYNTAX;
 	}
 

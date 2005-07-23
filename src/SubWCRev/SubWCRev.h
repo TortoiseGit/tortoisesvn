@@ -15,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#pragma once
+#include <vector>
 
 #define URL_BUF	2048
 
@@ -28,9 +30,17 @@ typedef struct SubWCRev_t
 	apr_time_t CmtDate;		// Date of highest commit revision
 	BOOL HasMods;			// True if local modifications found
 	BOOL bFolders;			// If TRUE, status of folders is included
+	BOOL bExternals;		// If TRUE, status of externals is included
 	char Url[URL_BUF];		// URL of working copy
+	char UUID[1024];	// The repository UUID of the working copy
 } SubWCRev_t;
 
+typedef struct SubWCRev_StatusBaton_t
+{
+	SubWCRev_t * SubStat;
+	std::vector<const char *> * extarray;
+	apr_pool_t *pool;
+} SubWCRev_StatusBaton_t;
 
 svn_error_t *
 svn_status (       const char *path,

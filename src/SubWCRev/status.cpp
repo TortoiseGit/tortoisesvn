@@ -25,39 +25,51 @@
 #include "SubWCRev.h"
 
 #pragma warning(push)
-#pragma warning(disable:4127)	//conditional expression is constant (cause of SVN_ERR
-void getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
+#pragma warning(disable:4127)	//conditional expression is constant (cause of SVN_ERR)
+
+void getallstatus(void * baton, const char * path, svn_wc_status_t * status)
 {
+	SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
+	if ((status)&&(sb->SubStat->bExternals)&&(status->text_status == svn_wc_status_external))
+	{
+		const char * copypath = apr_pstrdup(sb->pool, path);
+		sb->extarray->push_back(copypath);
+	}
 	if ((status)&&(status->entry))
 	{
-		SubWCRev_t * SubStat = (SubWCRev_t *) baton;
-		if ((status->entry->kind == svn_node_file)||(SubStat->bFolders))
+		if (sb->SubStat->UUID[0] == 0)
 		{
-			if (SubStat->CmtRev < status->entry->cmt_rev)
+			strncpy(sb->SubStat->UUID, status->entry->uuid, MAX_PATH);
+		}
+		if (strncmp(sb->SubStat->UUID, status->entry->uuid, MAX_PATH) != 0)
+			return;
+		if ((status->entry->kind == svn_node_file)||(sb->SubStat->bFolders))
+		{
+			if (sb->SubStat->CmtRev < status->entry->cmt_rev)
 			{
-				SubStat->CmtRev = status->entry->cmt_rev;
-				SubStat->CmtDate = status->entry->cmt_date;
+				sb->SubStat->CmtRev = status->entry->cmt_rev;
+				sb->SubStat->CmtDate = status->entry->cmt_date;
 			}
 		}
-		if (SubStat->MaxRev < status->entry->revision)
+		if (sb->SubStat->MaxRev < status->entry->revision)
 		{
-			SubStat->MaxRev = status->entry->revision;
+			sb->SubStat->MaxRev = status->entry->revision;
 		}
-		if (SubStat->MinRev > status->entry->revision || SubStat->MinRev == 0)
+		if (sb->SubStat->MinRev > status->entry->revision || sb->SubStat->MinRev == 0)
 		{
-			SubStat->MinRev = status->entry->revision;
+			sb->SubStat->MinRev = status->entry->revision;
 		}
 		switch (status->text_status)
 		{
+		case svn_wc_status_external:
 		case svn_wc_status_none:
 		case svn_wc_status_unversioned:
 		case svn_wc_status_ignored:
-		case svn_wc_status_external:
 		case svn_wc_status_incomplete:
 		case svn_wc_status_normal:
 			break;
 		default:
-			SubStat->HasMods = TRUE;
+			sb->SubStat->HasMods = TRUE;
 			break;			
 		}
 		switch (status->prop_status)
@@ -70,7 +82,7 @@ void getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
 		case svn_wc_status_normal:
 			break;
 		default:
-			SubStat->HasMods = TRUE;
+			sb->SubStat->HasMods = TRUE;
 			break;			
 		}
 	}
@@ -148,7 +160,11 @@ svn_status (	const char *path,
 	void *edit_baton;
 	const svn_wc_entry_t *entry;
 	svn_revnum_t edit_revision = SVN_INVALID_REVNUM;
-
+	SubWCRev_StatusBaton_t sb;
+	std::vector<const char *> * extarray = new std::vector<const char *>;
+	sb.SubStat = (SubWCRev_t *)status_baton;
+	sb.extarray = extarray;
+	sb.pool = pool;
 	svn_utf_initialize(pool);
 
   	// Need to lock the tree as even a non-recursive status requires the
@@ -184,18 +200,23 @@ svn_status (	const char *path,
 	// as the callback pair.
 	SVN_ERR (svn_wc_get_status_editor (&editor, &edit_baton, &edit_revision,
 									   adm_access, target, ctx->config, TRUE,
-									   TRUE, no_ignore, getallstatus, status_baton,
+									   TRUE, no_ignore, getallstatus, &sb,
 									   ctx->cancel_func, ctx->cancel_baton,
 									   traversal_info, pool));
 
 	SVN_ERR (editor->close_edit (edit_baton, pool));
 
-
-	// Close the access baton here, as svn_client__do_external_status()
-	// calls back into this function and thus will be re-opening the
-	// working copy.
 	SVN_ERR (svn_wc_adm_close (adm_access));
 
+	// now crawl through all externals
+	for (std::vector<const char *>::iterator I = extarray->begin(); I != extarray->end(); ++I)
+	{
+		OutputDebugStringA((const char *)*I);
+		OutputDebugStringA("\n");
+		svn_status (*I, sb.SubStat, no_ignore, ctx, pool);
+	}
+
+	delete extarray;
 
 	return SVN_NO_ERROR;
 }
