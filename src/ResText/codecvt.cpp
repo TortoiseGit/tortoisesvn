@@ -1,4 +1,3 @@
-
 #include "codecvt.h"
 
 using namespace std;
@@ -93,7 +92,8 @@ utf8_conversion::do_in(mbstate_t&,
 				*to_next = *to_next << 6  |  uchar(*from_next) & 63;
 			}
 		}
-	}	
+	}	
+
 	return ok;
 }
 
