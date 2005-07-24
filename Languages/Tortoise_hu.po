@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-18 15:26+0100\n"
+"PO-Revision-Date: 2005-07-24 18:43+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -853,11 +853,6 @@ msgstr "Speciális Készítési/Beépítési Beállítások"
 #: ID:110
 msgid "Advanced Merge Settings"
 msgstr "Speciális Beépítési Beállítások"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "All"
-msgstr "Összes"
 
 # ID:3841,#:
 # ID:3841,
@@ -1829,6 +1824,11 @@ msgstr "Törlés"
 msgid "Destination disk drive is full."
 msgstr "A célmeghajtó tele van."
 
+# Dlg-ID:207,
+#: Dlg-ID:207
+msgid "Dialog"
+msgstr "Ablak"
+
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -2021,6 +2021,13 @@ msgstr "Írd be a proxy IP-jét vagy nevét"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Üres"
+
+# Control-ID:1224,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr "Bekapcsolja a helyesírás ellenőrzőt, ha a tsvn:projectlanguage aktív"
 
 # ID:3825,
 #: ID:3825
@@ -2296,6 +2303,7 @@ msgstr "A GDI+ nem tudott képelemet létrehozni. Valószínűleg nincs elég me
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "Általános"
 
@@ -2543,6 +2551,11 @@ msgstr "Útvonalak belevétele:"
 msgid "Initial Import"
 msgstr "Első import"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "Sorközi láthatatlan karakter különbség"
+
 # Dlg-ID:161,
 #: Dlg-ID:161
 msgid "Input"
@@ -2665,6 +2678,11 @@ msgstr "Leglustább fejlesztő:"
 #: ID:188
 msgid "Left View: "
 msgstr "Bal oldali nézet:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "Láthatatlan karakter különbség a sorban"
 
 # ID:3605,
 #: ID:3605
@@ -3604,12 +3622,23 @@ msgstr "Tárház"
 msgid "Repository Browser"
 msgstr "Tárház Böngésző"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "Felhasználónevet és jelszót igényel"
+
+# ID:8,#:
+# ID:74,
+#: ID:74
+#: ID:209
+msgid "Resolved"
+msgstr "Megoldva"
+
 # ID:8,#:
 # ID:74,
 #: ID:8
-#: ID:74
-msgid "Resolved"
-msgstr "Megoldva"
+msgid "Resolved..."
+msgstr "Megoldva..."
 
 # ID:9,
 #: ID:9
@@ -4120,15 +4149,15 @@ msgstr "&Naplót mutat"
 msgid "Show &overlays only in explorer"
 msgstr "&Feliratok csak az Intézőben"
 
-# Control-ID:1065,
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "Küldönbség csík"
-
 # ID:113,
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "Különbségek mutatása mint &Egyesített Folt"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "Sorkülönbség csík mutatása"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -4752,11 +4781,6 @@ msgstr "Tulajdonságai csak a mappáknak vannak."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "A tulajdonság csak egy sort tartalmazhat."
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "Három Fájlos Folt"
-
 # Control-ID:1222,
 #: Control-ID:1222
 msgid "Timeout in seconds to stop the autocompletion parsing"
@@ -4876,11 +4900,6 @@ msgstr "Próbáld a \"Takarítást\"! Ha nem működik újra le kell tölteni eg
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN Finomhangolása"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "Kát Fájlos Folt"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -5101,8 +5120,8 @@ msgstr "Régi eljárásokkal történő napló összevágás"
 
 # Control-ID:1024,
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "Egypaneles nézet alapból"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Egypaneles nézet alapból különbségkeresésnél"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5209,11 +5228,6 @@ msgstr "Figyelem!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Láthatatlan karakter különbség"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "Láthatatlan karakterek"
 
 # Dlg-ID:158,
 #: Dlg-ID:158
@@ -5594,11 +5608,6 @@ msgstr "csak olvasható"
 #: ID:10
 msgid "replaced"
 msgstr "lecserléve"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Requests a username and a password"
-msgstr "Felhasználónevet és jelszót igényel"
 
 # ID:14,
 #: ID:14
