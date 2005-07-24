@@ -21,6 +21,9 @@
 - BUG: Comparing two files from the revision graph didn't work. (Stefan)
 - BUG: When adding a folder, nested folders were shown as unversioned
        and checked to add. (Stefan)
+- BUG: The same line was shown twice in TortoiseMerge if 'ignore leading
+       whitespace' option was turned on and the line differed only
+       in whitespaces. See issue #121. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for

@@ -308,7 +308,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 			if (tempdiff->type == svn_diff__type_common)
 			{
 				const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
-				m_arDiffYourBaseBoth.Add(sCurrentYourLine);
+				m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
 				if (sCurrentBaseLine != sCurrentYourLine)
 				{
 					if (dwIgnoreWS == 2)
