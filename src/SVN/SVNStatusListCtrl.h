@@ -340,6 +340,9 @@ private:
 	/// Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
 	void FillListOfSelectedItemPaths(CTSVNPathList& pathList);
 
+	void CheckEntry(int index, int nListItems);
+	void UncheckEntry(int index, int nListItems);
+
 	afx_msg void OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
