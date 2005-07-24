@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-20 11:40+0100\n"
-"Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
+"PO-Revision-Date: 2005-07-24 18:22+0100\n"
+"Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -856,11 +856,6 @@ msgstr "Impostazioni avanzate di fusione / confronto"
 #: ID:110
 msgid "Advanced Merge Settings"
 msgstr "Impostazioni avanzate di fusione"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "All"
-msgstr "Tutti"
 
 # ID:3841,#:
 # ID:3841,
@@ -1836,6 +1831,11 @@ msgstr "Eliminazione"
 msgid "Destination disk drive is full."
 msgstr "Il disco di destinazione è pieno."
 
+# Dlg-ID:207,
+#: Dlg-ID:207
+msgid "Dialog"
+msgstr "Finestra di dialogo"
+
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -2309,6 +2309,7 @@ msgstr "GDI+ non riesce a creare un oggetto bitmap. Probabilmente la memoria è 
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "Generale"
 
@@ -2439,7 +2440,7 @@ msgstr "Icone/Design/Codice:     Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Se attivata previene la visualizzazione delle icone di stato nei dialoghi \"Salva come...\" e \"Apri\""
+msgstr "Se attivata previene la visualizzazione delle icone di stato nelle finestre di dialogho \"Salva come...\" e \"Apri\""
 
 # ID:95,
 #: ID:95
@@ -2482,7 +2483,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr ""
-"Se selezionato, il dialogo \"Fondi\" proporrà nel campo \"Da:\" l'URL della Copia di lavoro selezionata\n"
+"Se selezionato, la finestra di dialogo \"Fondi\" proporrà nel campo \"Da:\" l'URL della Copia di lavoro selezionata\n"
 "invece dell'ultimo URL usato. "
 
 # ID:195,
@@ -2559,6 +2560,11 @@ msgstr "Percorsi da includere:"
 #: ID:76
 msgid "Initial Import"
 msgstr "Importazione iniziale"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "Confronta spazi all'interno delle linee"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
@@ -2683,6 +2689,11 @@ msgstr "Ultimo autore attivo:"
 msgid "Left View: "
 msgstr "Vista sinistra:"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "Confronta linee con spazi bianchi"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -2795,7 +2806,7 @@ msgstr "Impostazioni grafiche"
 # Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
-msgstr "Impostazioni grafiche::Dialoghi"
+msgstr "Impostazioni grafiche::Finestre di dialogo"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3631,10 +3642,15 @@ msgid "Requests a username and a password"
 msgstr "Richiede un nome utente e una password"
 
 # ID:8,
-#: ID:8
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "Risolto"
+
+# ID:8,
+#: ID:8
+msgid "Resolved..."
+msgstr "Risolto..."
 
 # ID:9,
 #: ID:9
@@ -4040,7 +4056,7 @@ msgstr ""
 # ID:79,
 #: ID:79
 msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "Selezionare come si vuole che si comporti la barra di avanzamento al termine dell'operazione."
+msgstr "Selezionare come si vuole che si comporti la finestra di avanzamento al termine dell'operazione."
 
 # ID:3603,
 #: ID:3603
@@ -4144,15 +4160,15 @@ msgstr "Visualizza &log"
 msgid "Show &overlays only in explorer"
 msgstr "Visualizza le icone di &stato solo in explorer"
 
-# Control-ID:1065,
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "Mostra la barra di confronto"
-
 # ID:113,
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "Visualizza le differenze come confronto &unificato"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "Mostra la barra di confronto delle linee"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -4782,11 +4798,6 @@ msgstr "Questa proprietà è disponibile solo per le cartelle, non per i file."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Questa proprietà deve avere più linee. Una sola non è consentita."
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "Confronto su tre file"
-
 # Control-ID:1222,
 #: Control-ID:1222
 msgid "Timeout in seconds to stop the autocompletion parsing"
@@ -4905,11 +4916,6 @@ msgstr "Prova a pulire. Se non funziona è necessario ritirare nuovamente i file
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "Personalizza TortoiseSVN"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "Confronto su due file"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -5126,7 +5132,7 @@ msgstr "Usa l'URL della Copia di lavoro come predefinito per il campo \"Da:\""
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "Utilizzare l'Url \"Da:\" (l'intervallo delle revisioni è selezionabile attraverso il soprastante Log)"
+msgstr "Utilizzare l'Url \"Da:\" (l'intervallo delle revisioni è selezionabile attraverso la finestra di dialogo soprastante)"
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -5140,8 +5146,8 @@ msgstr "Utilizza le vecchie API per visualizzare i commenti"
 
 # Control-ID:1024,
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "Usa  come predefinita la vista ad un solo pannello"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Usa la vista ad un solo pannello come predefinita per il confronto tra due file"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5248,11 +5254,6 @@ msgstr "Attenzione!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Confronta spaziature"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "Spaziature"
 
 # ID:151,
 #: Dlg-ID:158
