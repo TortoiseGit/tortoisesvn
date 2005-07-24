@@ -75,7 +75,7 @@ public:
 		if (m_hDll)
 		{
 			pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
-			m_lpvState = (pfnInstallEx)(NULL, lpTo, lpSubject);
+			m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject);
 		}
 	}
 	~CCrashReport()
@@ -84,7 +84,7 @@ public:
 		if ((m_hDll)&&(m_lpvState))
 		{
 			pfnUninstallEx = (UninstallEx)GetProcAddress(m_hDll, "UninstallEx");
-			(UninstallEx)(m_lpvState);
+			pfnUninstallEx(m_lpvState);
 		}
 		FreeLibrary(m_hDll);
 	}
