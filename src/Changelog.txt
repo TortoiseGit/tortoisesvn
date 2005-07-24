@@ -6,6 +6,9 @@
        as resolved. See issue #117. (Stefan)
 - NEW: SubWCRev has a new option '-e' to include externals if they're from
        the same repository. See issue #132. (Stefan)
+- NEW: Checking/Unchecking multiple items at once: select multiple files and
+       checking/unchecking one of them unchecks/checks all of them.
+       See issue 118. (Stefan)
 - CHG: The spellchecker now checks text pasted in the edit control
        immediately, without the need to enter text manually first.
        See issue #116. (Stefan)

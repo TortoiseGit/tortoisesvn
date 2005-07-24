@@ -1125,99 +1125,113 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 	//was the item checked?
 	if (GetCheck(pNMLV->iItem))
 	{
-		// if an unversioned item was checked, then we need to check if
-		// the parent folders are unversioned too. If the parent folders actually
-		// are unversioned, then check those too.
-		if (entry->status == svn_wc_status_unversioned)
+		POSITION pos = GetFirstSelectedItemPosition();
+		int index;
+		while ((index = GetNextSelectedItem(pos)) >= 0)
 		{
-			//we need to check the parent folder too
-			const CTSVNPath& folderpath = entry->path;
-			for (int i=0; i< nListItems; ++i)
+			SetCheck(index, TRUE);
+			entry = GetListEntry(index);
+			// if an unversioned item was checked, then we need to check if
+			// the parent folders are unversioned too. If the parent folders actually
+			// are unversioned, then check those too.
+			if (entry->status == svn_wc_status_unversioned)
 			{
-				FileEntry * testEntry = GetListEntry(i);
-				ASSERT(testEntry != NULL);
-				if (testEntry == NULL)
-					continue;
-				if (!testEntry->checked)
+				//we need to check the parent folder too
+				const CTSVNPath& folderpath = entry->path;
+				for (int i=0; i< nListItems; ++i)
 				{
-					if (testEntry->path.IsAncestorOf(folderpath) && (!testEntry->path.IsEquivalentTo(folderpath)))
+					FileEntry * testEntry = GetListEntry(i);
+					ASSERT(testEntry != NULL);
+					if (testEntry == NULL)
+						continue;
+					if (!testEntry->checked)
 					{
-						SetEntryCheck(testEntry,i,true);
-						m_nSelected++;
-					} 
-				}
-			}
-		}
-		if (entry->status == svn_wc_status_deleted)
-		{
-			// if a deleted folder gets checked, we have to check all
-			// children of that folder too.
-			if (entry->path.IsDirectory())
-			{
-				SetCheckOnAllDescendentsOf(entry, true);
-			}
-
-			// if a deleted file or folder gets checked, we have to
-			// check all parents of this item too.
-			for (int i=0; i<nListItems; ++i)
-			{
-				FileEntry * testEntry = GetListEntry(i);
-				ASSERT(testEntry != NULL);
-				if (testEntry == NULL)
-					continue;
-				if (!testEntry->checked)
-				{
-					if (testEntry->path.IsAncestorOf(entry->path) && (!testEntry->path.IsEquivalentTo(entry->path)))
-					{
-						if (testEntry->status == svn_wc_status_deleted)
+						if (testEntry->path.IsAncestorOf(folderpath) && (!testEntry->path.IsEquivalentTo(folderpath)))
 						{
 							SetEntryCheck(testEntry,i,true);
 							m_nSelected++;
-							//now we need to check all children of this parent folder
-							SetCheckOnAllDescendentsOf(testEntry, true);
-						}
+						} 
 					}
-				} // if (!GetCheck(i)) 
-			} // for (int i=0; i<GetItemCount(); ++i)
-		} // if (entry->status == svn_wc_status_deleted) 
-		entry->checked = TRUE;
-		m_nSelected++;
+				}
+			}
+			if (entry->status == svn_wc_status_deleted)
+			{
+				// if a deleted folder gets checked, we have to check all
+				// children of that folder too.
+				if (entry->path.IsDirectory())
+				{
+					SetCheckOnAllDescendentsOf(entry, true);
+				}
+
+				// if a deleted file or folder gets checked, we have to
+				// check all parents of this item too.
+				for (int i=0; i<nListItems; ++i)
+				{
+					FileEntry * testEntry = GetListEntry(i);
+					ASSERT(testEntry != NULL);
+					if (testEntry == NULL)
+						continue;
+					if (!testEntry->checked)
+					{
+						if (testEntry->path.IsAncestorOf(entry->path) && (!testEntry->path.IsEquivalentTo(entry->path)))
+						{
+							if (testEntry->status == svn_wc_status_deleted)
+							{
+								SetEntryCheck(testEntry,i,true);
+								m_nSelected++;
+								//now we need to check all children of this parent folder
+								SetCheckOnAllDescendentsOf(testEntry, true);
+							}
+						}
+					} // if (!GetCheck(i)) 
+				} // for (int i=0; i<GetItemCount(); ++i)
+			} // if (entry->status == svn_wc_status_deleted) 
+			entry->checked = TRUE;
+			m_nSelected++;
+		}
 	} // if (GetCheck(pNMLV->iItem)) 
 	else
 	{
-		//item was unchecked
-		if (entry->path.IsDirectory())
+		POSITION pos = GetFirstSelectedItemPosition();
+		int index;
+		while ((index = GetNextSelectedItem(pos)) >= 0)
 		{
-			//disable all files within an unselected folder
-			SetCheckOnAllDescendentsOf(entry, false);
-		}
-		else if (entry->status == svn_wc_status_deleted)
-		{
-			//a "deleted" file was unchecked, so uncheck all parent folders
-			//and all children of those parents
-			for (int i=0; i<nListItems; i++)
+			SetCheck(index, FALSE);
+			entry = GetListEntry(index);
+			//item was unchecked
+			if (entry->path.IsDirectory())
 			{
-				FileEntry * testEntry = GetListEntry(i);
-				ASSERT(testEntry != NULL);
-				if (testEntry == NULL)
-					continue;
-				if (testEntry->checked)
+				//disable all files within an unselected folder
+				SetCheckOnAllDescendentsOf(entry, false);
+			}
+			else if (entry->status == svn_wc_status_deleted)
+			{
+				//a "deleted" file was unchecked, so uncheck all parent folders
+				//and all children of those parents
+				for (int i=0; i<nListItems; i++)
 				{
-					if (testEntry->path.IsAncestorOf(entry->path))
+					FileEntry * testEntry = GetListEntry(i);
+					ASSERT(testEntry != NULL);
+					if (testEntry == NULL)
+						continue;
+					if (testEntry->checked)
 					{
-						if (testEntry->status == svn_wc_status_deleted)
+						if (testEntry->path.IsAncestorOf(entry->path))
 						{
-							SetEntryCheck(testEntry,i,false);
-							m_nSelected--;
+							if (testEntry->status == svn_wc_status_deleted)
+							{
+								SetEntryCheck(testEntry,i,false);
+								m_nSelected--;
 
-							SetCheckOnAllDescendentsOf(testEntry, false);
+								SetCheckOnAllDescendentsOf(testEntry, false);
+							}
 						}
 					}
-				}
-			} // for (int i=0; i<GetItemCount(); i++)
-		} // else if (entry->status == svn_wc_status_deleted)
-		entry->checked = FALSE;
-		m_nSelected--;
+				} // for (int i=0; i<GetItemCount(); i++)
+			} // else if (entry->status == svn_wc_status_deleted)
+			entry->checked = FALSE;
+			m_nSelected--;
+		}
 	} // else -> from if (GetCheck(pNMLV->iItem)) 
 	GetStatisticsString();
 	m_bBlock = FALSE;
