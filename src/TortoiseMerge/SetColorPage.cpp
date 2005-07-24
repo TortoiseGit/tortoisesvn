@@ -73,10 +73,20 @@ void CSetColorPage::SaveData()
 		cBk = m_cBkEmpty.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_EMPTY, cBk, cFg);
 
+		// there are three different colors for conflicted lines
+		// conflicted, conflicted added, conflicted removed
+		// but only one colorchooser for all three of them
+		// so try to adjust the conflicted added and conflicted removed
+		// colors a little so they look different.
 		cBk = m_cBkConflict.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_CONFLICTED, cBk, cFg);
-		diffdata.SetColors(CDiffData::DIFFSTATE_CONFLICTADDED, cBk, cFg);
-		diffdata.SetColors(CDiffData::DIFFSTATE_CONFLICTEMPTY, cBk, cFg);
+		COLORREF adjustedcolor = cBk;
+		if (GetRValue(cBk)-155 > 0)
+			adjustedcolor = RGB(GetRValue(cBk), GetRValue(cBk)-155, 0);
+		diffdata.SetColors(CDiffData::DIFFSTATE_CONFLICTADDED, adjustedcolor, cFg);
+		if (GetRValue(cBk)-205 > 0)
+			adjustedcolor = RGB(GetRValue(cBk), GetRValue(cBk)-205, GetRValue(cBk)-205);
+		diffdata.SetColors(CDiffData::DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
 	}
 }
 

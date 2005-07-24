@@ -935,6 +935,12 @@ void CMainFrame::OnViewOptions()
 		return;
 	} // if (dlg.IsReloadNeeded())
 	m_Data.LoadRegistry();
+	if (m_pwndBottomView)
+		m_pwndBottomView->Invalidate();
+	if (m_pwndLeftView)
+		m_pwndLeftView->Invalidate();
+	if (m_pwndRightView)
+		m_pwndRightView->Invalidate();
 }
 
 void CMainFrame::OnClose()
