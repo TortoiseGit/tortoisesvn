@@ -240,16 +240,25 @@
 	<sect1 id="tsvn-ch-1-sect-4">
 		<title>Installing TortoiseSVN</title>
 		<sect2>
-			<indexterm>
-				<primary>install</primary>
-			</indexterm>
 			<title>System requirements</title>
 			<para>
 				TortoiseSVN runs on Win2k SP2, WinXP or higher.
+				Windows 98, Windows ME and Windows NT4 are no longer supported
+				in current versions of TortoiseSVN, but you can still download
+				the older versions if you really need them.
+			</para>
+			<para>
+				If you encounter any problems during or after installing
+				TortoiseSVN please refer to
+				<xref linkend="tsvn-faq"/>
+				first.
 			</para>
 		</sect2>
 		<sect2>
 			<title>Installation</title>
+			<indexterm>
+				<primary>install</primary>
+			</indexterm>
 			<para>
 				TortoiseSVN comes with an easy to use installer. Doubleclick on
 				the installer file and follow the instructions. The installer
@@ -258,6 +267,37 @@
 				option, unless you <emphasis>really</emphasis> want to restrict
 				its use to the current user only.
 			</para>
+		</sect2>
+		<sect2 id="tsvn-ch-1-install-lang">
+			<title>Language Packs</title>
+			<indexterm>
+				<primary>language packs</primary>
+			</indexterm>
+			<indexterm>
+				<primary>translations</primary>
+			</indexterm>
+			<para>
+				The TortoiseSVN user interface has been translated into many
+				different languages, so you may be able to download a language
+				pack to suit your needs.
+				You can find the language packs on our Translations page at
+				<ulink url="http://tortoisesvn.sourceforge.net/?q=translation_status">
+					<citetitle>http://tortoisesvn.sourceforge.net/?q=translation_status</citetitle>
+				</ulink>.
+				And if there is no language pack available yet, why not join
+				the team and submit your own translation ;-)
+			</para>
+			<para>
+				You can find the language packs on our Translations page at
+				<ulink url="http://tortoisesvn.sourceforge.net/?q=translation_status">
+					<citetitle>http://tortoisesvn.sourceforge.net/?q=translation_status</citetitle>
+				</ulink>.
+				Each language pack is packaged as a <literal>.exe</literal> installer.
+				Just run the install program and follow the instructions.
+				Next time you restart, the translation will be available.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-ch-1-install-spell">
 			<para>
 				<indexterm>
 					<primary>spellchecker</primary>
@@ -274,18 +314,16 @@
 				<ulink url="http://mozilla.org">
 					<citetitle>Mozilla</citetitle>
 				</ulink>.
+				This allows you to spell check your commit messages, especially
+				useful if the project language is not your native language.
 			</para>
 			<para>
 				The installer automatically adds the US and UK english dictionaries.
 				If you want other languages, the easiest option is simply to
 				install one of TortoiseSVN's language packs. This will install
 				the appropriate dictionary files as well as the TortoiseSVN local
-				user interface. Next time you restart, the translation and dictionary
-				will be available.
-				You can find the language packs on our Translations page at
-				<ulink url="http://tortoisesvn.sourceforge.net/?q=translation_status">
-					<citetitle>http://tortoisesvn.sourceforge.net/?q=translation_status</citetitle>
-				</ulink>
+				user interface.
+				Next time you restart, the dictionary will be available too.
 			</para>
 			<para>
 				Or you can install the dictionaries yourself. If you have OpenOffice or
@@ -323,10 +361,29 @@
 				The next time you start TortoiseSVN, the spell checker will be available.
 			</para>
 			<para>
-				If you encounter any problems during or after installing
-				TortoiseSVN please refer to
-				<xref linkend="tsvn-faq"/>
-				first.
+				If you install multiple dictionaries, TortoiseSVN uses these rules
+				to select which one to use.
+				<orderedlist>
+					<listitem>
+						Check the <literal>tsvn:projectlanguage</literal> setting.
+						Refer to <xref linkend="tsvn-DUG-propertypage"/> for information
+						about setting project properties.
+					</listitem>
+					<listitem>
+						If no project language is set, or that language is not
+						installed, try the language corresponding to the Windows locale.
+					</listitem>
+					<listitem>
+						If the exact Windows locale doesn't work, try the
+						<quote>Base</quote> language, eg.
+						<literal>de_CH</literal> (Swiss-German) falls back to
+						<literal>de_DE</literal> (German).
+					</listitem>
+					<listitem>
+						If none of the above works, then the default language
+						is english, which is included with the standard installation.
+					</listitem>
+				</orderedlist>
 			</para>
 		</sect2>
 	</sect1>

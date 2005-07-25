@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-22 19:05GMT Daylight Time\n"
+"POT-Creation-Date: 2005-07-25 22:52GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3716,52 +3716,108 @@ msgstr ""
 msgid "Installing TortoiseSVN"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:244(primary) 
-msgid "install"
-msgstr ""
-
-#: source/en/tsvn_introduction.xml:246(title) 
+#: source/en/tsvn_introduction.xml:243(title) 
 msgid "System requirements"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:247(para) 
-msgid "TortoiseSVN runs on Win2k SP2, WinXP or higher."
+#: source/en/tsvn_introduction.xml:244(para) 
+msgid "TortoiseSVN runs on Win2k SP2, WinXP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported in current versions of TortoiseSVN, but you can still download the older versions if you really need them."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:252(title) 
+#: source/en/tsvn_introduction.xml:250(para) 
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:258(title) 
 msgid "Installation"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:253(para) 
+#: source/en/tsvn_introduction.xml:260(primary) 
+msgid "install"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:262(para) 
 msgid "TortoiseSVN comes with an easy to use installer. Doubleclick on the installer file and follow the instructions. The installer will take care of the rest. Make sure to select the <literal>Install for all users</literal> option, unless you <emphasis>really</emphasis> want to restrict its use to the current user only."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:261(para) 
-msgid "<indexterm><primary>spellchecker</primary></indexterm><indexterm><primary>dictionary</primary></indexterm> TortoiseSVN includes the <literal>Aspell</literal> spell checker, which is also used by <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+#: source/en/tsvn_introduction.xml:272(title) 
+msgid "Language Packs"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:278(para) 
-msgid "The installer automatically adds the US and UK english dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the translation and dictionary will be available. You can find the language packs on our Translations page at <ulink url=\"http://tortoisesvn.sourceforge.net/?q=translation_status\"><citetitle>http://tortoisesvn.sourceforge.net/?q=translation_status</citetitle></ulink>"
+#: source/en/tsvn_introduction.xml:274(primary) 
+msgid "language packs"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:277(primary) 
+msgid "translations"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:279(para) 
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our Translations page at <ulink url=\"http://tortoisesvn.sourceforge.net/?q=translation_status\"><citetitle>http://tortoisesvn.sourceforge.net/?q=translation_status</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
 msgstr ""
 
 #: source/en/tsvn_introduction.xml:290(para) 
+msgid "You can find the language packs on our Translations page at <ulink url=\"http://tortoisesvn.sourceforge.net/?q=translation_status\"><citetitle>http://tortoisesvn.sourceforge.net/?q=translation_status</citetitle></ulink>. Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:301(para) 
+msgid "<indexterm><primary>spellchecker</primary></indexterm><indexterm><primary>dictionary</primary></indexterm> TortoiseSVN includes the <literal>Aspell</literal> spell checker, which is also used by <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>. This allows you to spell check your commit messages, especially useful if the project language is not your native language."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:320(para) 
+msgid "The installer automatically adds the US and UK english dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:328(para) 
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://lingucomponent.openoffice.org/spell_dic.html\"><citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle></ulink>"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:306(para) 
+#: source/en/tsvn_introduction.xml:344(para) 
 msgid "en_US.aff"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:311(para) 
+#: source/en/tsvn_introduction.xml:349(para) 
 msgid "en_US.dic"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:299(para) 
+#: source/en/tsvn_introduction.xml:337(para) 
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:325(para) 
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
+#: source/en/tsvn_introduction.xml:368(literal) 
+msgid "tsvn:projectlanguage"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:367(listitem) 
+msgid "Check the <placeholder-1/> setting. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for information about setting project properties."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:372(listitem) 
+msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:378(quote) 
+msgid "Base"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:379(literal) 
+msgid "de_CH"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:380(literal) 
+msgid "de_DE"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:376(listitem) 
+msgid "If the exact Windows locale doesn't work, try the <placeholder-1/> language, eg. <placeholder-2/> (Swiss-German) falls back to <placeholder-3/> (German)."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:382(listitem) 
+msgid "If none of the above works, then the default language is english, which is included with the standard installation."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:363(para) 
+msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
 msgstr ""
 
 #: source/en/tsvn_basics.xml:6(title) 
