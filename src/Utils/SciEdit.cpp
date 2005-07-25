@@ -465,8 +465,8 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 			return TRUE;
 			break;
 		case SCN_STYLENEEDED:
-			MarkEnteredBugID(lpnmhdr);
 			CheckSpelling();
+			MarkEnteredBugID(lpnmhdr);
 			return TRUE;
 			break;
 		}
