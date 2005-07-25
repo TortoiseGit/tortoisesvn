@@ -30,13 +30,13 @@
 # overlays -- пометки (на значках)
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 3958: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 3982: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-07-22 14:55+0300\n"
+"PO-Revision-Date: 2005-07-25 12:46+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1860,6 +1860,12 @@ msgstr "Удаление"
 msgid "Destination disk drive is full."
 msgstr "Диск назначения полон."
 
+# Dlg-ID:207,
+#: Dlg-ID:207
+#, fuzzy
+msgid "Dialog"
+msgstr "Решённые файлы"
+
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -3676,10 +3682,16 @@ msgstr "Запрашивает имя пользователя и пароль"
 
 # ID:8,#:
 # ID:74,
-#: ID:8
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "Пометить решённым"
+
+# ID:8,#:
+# ID:74,
+#: ID:8
+msgid "Resolved..."
+msgstr "Решённые файлы..."
 
 # Или "Разрешает конфликтующие файлы"?
 # ID:9,
