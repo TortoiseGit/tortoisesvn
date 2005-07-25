@@ -35,7 +35,7 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 		const char * copypath = apr_pstrdup(sb->pool, path);
 		sb->extarray->push_back(copypath);
 	}
-	if ((status)&&(status->entry))
+	if ((status)&&(status->entry)&&(status->entry->uuid))
 	{
 		if (sb->SubStat->UUID[0] == 0)
 		{
