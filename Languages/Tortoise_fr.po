@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-01 11:49+0100\n"
+"PO-Revision-Date: 2005-07-24 18:29+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -709,10 +709,6 @@ msgstr "Configuration avancée Diff/Fusion"
 #: ID:110
 msgid "Advanced Merge Settings"
 msgstr "Configuration avancée de la fusion"
-
-#: Control-ID:65535
-msgid "All"
-msgstr "Tout"
 
 #: ID:3841
 msgid "All Files (*.*)"
@@ -1526,6 +1522,11 @@ msgstr "Supprime"
 msgid "Destination disk drive is full."
 msgstr "Le disque de destination est plein."
 
+# Dlg-ID:207,
+#: Dlg-ID:207
+msgid "Dialog"
+msgstr "Dialogue"
+
 #: ID:12
 msgid "Diff"
 msgstr "Voir différence"
@@ -1689,6 +1690,15 @@ msgstr "Le nom ou l'adresse IP du serveur de proxy"
 #: Control-ID:65535
 msgid "Empty"
 msgstr "Vide"
+
+# Control-ID:1224,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr ""
+"Utiliser seulement le correcteur orthographique\n"
+"si la propriété tsvn:projectlanguage est mise."
 
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -1912,6 +1922,7 @@ msgstr "GDI+ ne peut créer un objet bitmap. Vous n'avez probablement plus assez
 
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "Général"
 
@@ -2059,6 +2070,15 @@ msgstr "Si activé, accélère la récupération des messages de journal depuis 
 # ID:195,
 #: ID:195
 msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Si activé, le dialogue Fusionner initialise l'URL \"Depuis:\" avec l'URL de la copie de travail sélectionnée\n"
+"au lieu de la dernière URL utilisée."
+
+# ID:195,
+#: ID:195
+msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
@@ -2119,6 +2139,10 @@ msgstr "Chemins inclus:"
 #: ID:76
 msgid "Initial Import"
 msgstr "Importation initiale"
+
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "Différence d'espacements en ligne"
 
 #: Dlg-ID:161
 msgid "Input"
@@ -2228,6 +2252,10 @@ msgstr "Auteur le moins actif:"
 #: ID:188
 msgid "Left View: "
 msgstr "Vue de Gauche:"
+
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "Ligne avec différence d'espacements"
 
 #: ID:3605
 msgid ""
@@ -2373,8 +2401,9 @@ msgid "Max"
 msgstr "Max"
 
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
-msgstr "Fusionnner"
+msgstr "Fusionner"
 
 #: ID:9
 msgid "Merge..."
@@ -3008,10 +3037,19 @@ msgstr "Repository navigation"
 msgid "Repository Browser"
 msgstr "Navigateur de Repository"
 
-#: ID:8
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "Requiert un nom d'utilisateur et un mot de passe"
+
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "Résoudre"
+
+#: ID:8
+msgid "Resolved..."
+msgstr "Résolu..."
 
 #: ID:9
 msgid "Resolves conflicted files"
@@ -3105,6 +3143,10 @@ msgstr "SVN Ajouter des fichiers a cette CT"
 #: ID:77
 msgid "SVN Add..."
 msgstr "SVN Ajout..."
+
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Auteur"
 
 #: ID:132
 msgid "SVN Blame"
@@ -3416,13 +3458,13 @@ msgstr "Voir &journal"
 msgid "Show &overlays only in explorer"
 msgstr "V&oir le recouvrement seulement dans l'explorateur"
 
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "Voir la barre de différence"
-
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "Voir les différences en mode diff &unifié"
+
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "Voir la barre de différence de ligne"
 
 #: Control-ID:1063
 msgid "Show Linenumbers"
@@ -3889,6 +3931,11 @@ msgstr ""
 
 # ID:16,
 #: ID:16
+msgid "The user who did the last commit"
+msgstr "L'utilisateur qui a fait la dernière livraison"
+
+# ID:16,
+#: ID:16
 msgid "The user who owns the lock of the file"
 msgstr "L'utilisateur qui détient le verrou sur le fichier"
 
@@ -3975,10 +4022,6 @@ msgstr "Cette propriété est seulement admise sur les répertoires, pas sur les
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Cette propriété ne doit pas avoir de multiples lignes. Seule une ligne est autorisée. "
-
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "Différence sur trois fichiers"
 
 # Control-ID:1222,
 #: Control-ID:1222
@@ -4085,10 +4128,6 @@ msgstr "Essayez un \"Nettoyer\". Si cela ne fonctionne pas vous devrez faire une
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "Ajuster TortoiseSVN"
-
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "Deux fichiers différents"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -4251,6 +4290,11 @@ msgstr "Utiliser la mise en évidence sur la barre de positionnement"
 msgid "Use Text viewer to view blames"
 msgstr "Utiliser le visualisateur texte pour voir les condamnations"
 
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Utiliser l'URL de la copie de travail comme défaut pour l'URL \"Depuis:\""
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -4267,8 +4311,8 @@ msgid "Use old APIs to fetch log messages"
 msgstr "Utiliser les anciennes APIs pour récuperer les messages de journal"
 
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "Utiliser un seul carreau de fenêtre par défaut"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Utiliser la vue panneau unique par défaut pour les différences de 2 fichiers"
 
 #: Control-ID:1066
 msgid "Use strikeout for deleted lines"
@@ -4359,10 +4403,6 @@ msgstr "Avertissement!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Différence d'espacements"
-
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "Espacements"
 
 #: Dlg-ID:158
 msgid "Working Copy"
@@ -4707,15 +4747,6 @@ msgstr "lecture seule"
 #: ID:10
 msgid "replaced"
 msgstr "remplacé"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "requests a username and a password"
-msgstr "requiert un nom d'utilisateur et un mot de passe"
-
-#: Control-ID:1023
-msgid "save authentication"
-msgstr "Sauver authentication"
 
 #: ID:14
 msgid ""
