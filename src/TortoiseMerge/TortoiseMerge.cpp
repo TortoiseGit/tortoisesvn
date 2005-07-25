@@ -42,7 +42,7 @@ CTortoiseMergeApp::CTortoiseMergeApp()
 
 // The one and only CTortoiseMergeApp object
 CTortoiseMergeApp theApp;
-CCrashReport g_crasher("crashreports@tortoisesvn.tigris.org", "Crashreport for TortoiseMerge : " STRPRODUCTVER);
+CCrashReport g_crasher("crashreports@tortoisesvn.tigris.org", "Crashreport for TortoiseMerge : " STRPRODUCTVER, TRUE);
 
 // CTortoiseMergeApp initialization
 BOOL CTortoiseMergeApp::InitInstance()

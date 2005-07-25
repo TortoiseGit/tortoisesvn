@@ -204,7 +204,7 @@ CTortoiseProcApp::~CTortoiseProcApp()
 CTortoiseProcApp theApp;
 HWND hWndExplorer;
 
-CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TortoiseSVN : " STRPRODUCTVER);// crash
+CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TortoiseSVN : " STRPRODUCTVER, TRUE);// crash
 
 // CTortoiseProcApp initialization
 

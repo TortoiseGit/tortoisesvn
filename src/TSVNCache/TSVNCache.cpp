@@ -32,7 +32,7 @@
 
 #define BUFSIZE 4096
 
-CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TSVNCache : " STRPRODUCTVER);// crash
+CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TSVNCache : " STRPRODUCTVER, TRUE);// crash
 
 DWORD WINAPI 		InstanceThread(LPVOID); 
 DWORD WINAPI		PipeThread(LPVOID);
