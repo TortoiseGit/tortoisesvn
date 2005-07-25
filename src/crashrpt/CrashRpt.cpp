@@ -30,12 +30,12 @@ CRASHRPTAPI LPVOID GetInstance()
    return pImpl;
 }
 
-CRASHRPTAPI LPVOID InstallEx(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject)
+CRASHRPTAPI LPVOID InstallEx(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
 	OutputDebugString("InstallEx\n");
    CCrashHandler *pImpl = CCrashHandler::GetInstance();
    CRASH_ASSERT(pImpl);
-   pImpl->Install(pfn, lpcszTo, lpcszSubject);
+   pImpl->Install(pfn, lpcszTo, lpcszSubject, bUseUI);
 
    return pImpl;
 }
@@ -46,6 +46,20 @@ CRASHRPTAPI void UninstallEx(LPVOID lpState)
    CRASH_ASSERT(pImpl);
 
    delete pImpl;
+}
+
+CRASHRPTAPI void EnableUIEx(LPVOID lpState)
+{
+	CCrashHandler *pImpl = (CCrashHandler*)lpState;
+	CRASH_ASSERT(pImpl);
+	pImpl->EnableUI();
+}
+
+CRASHRPTAPI void DisableUIEx(LPVOID lpState)
+{
+	CCrashHandler *pImpl = (CCrashHandler*)lpState;
+	CRASH_ASSERT(pImpl);
+	pImpl->DisableUI();
 }
 
 CRASHRPTAPI void AddFileEx(LPVOID lpState, LPCTSTR lpFile, LPCTSTR lpDesc)
@@ -114,16 +128,28 @@ CRASHRPTAPI void StackTrace ( int numSkip, int depth, TraceCallbackFunction pFun
 
 // DLL Entry Points usable from Visual Basic
 //  explicit export is required to export undecorated names.
-#pragma comment(linker, "/export:InstallExVB=_InstallExVB@12")
-extern "C" LPVOID  __stdcall InstallExVB(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject)
+#pragma comment(linker, "/export:InstallExVB=_InstallExVB@16")
+extern "C" LPVOID  __stdcall InstallExVB(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
-   return InstallEx(pfn, lpcszTo, lpcszSubject);
+   return InstallEx(pfn, lpcszTo, lpcszSubject, bUseUI);
 }
 
 #pragma comment(linker, "/export:UninstallExVB=_UninstallExVB@4")
 extern "C" void __stdcall UninstallExVB(LPVOID lpState)
 {
    UninstallEx(lpState);
+}
+
+#pragma comment(linker, "/export:EnableUIVB=_EnableUIVB@0")
+extern "C" void __stdcall EnableUIVB(void)
+{
+	EnableUI();
+}
+
+#pragma comment(linker, "/export:DisableUIVB=_DisableUIVB@0")
+extern "C" void __stdcall DisableUIVB()
+{
+	DisableUI();
 }
 
 #pragma comment(linker, "/export:AddFileExVB=_AddFileExVB@12")
@@ -163,14 +189,24 @@ extern "C" void  __stdcall StackTraceVB(int numSkip, int depth, TraceCallbackFun
 }
 
 // Compatiblity interfaces
-CRASHRPTAPI void Install(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject)
+CRASHRPTAPI void Install(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
-	(void) InstallEx(pfn, lpcszTo, lpcszSubject);
+	(void) InstallEx(pfn, lpcszTo, lpcszSubject, bUseUI);
 }
 
 CRASHRPTAPI void Uninstall()
 {
 	UninstallEx(CCrashHandler::GetInstance());
+}
+
+CRASHRPTAPI void EnableUI()
+{
+	EnableUIEx(CCrashHandler::GetInstance());
+}
+
+CRASHRPTAPI void DisableUI()
+{
+	DisableUIEx(CCrashHandler::GetInstance());
 }
 
 CRASHRPTAPI void AddFile(LPCTSTR lpFile, LPCTSTR lpDesc)
@@ -207,10 +243,10 @@ CRASHRPTAPI void GenerateErrorReport(BSTR message)
    GenerateErrorReportEx(CCrashHandler::GetInstance(), NULL, message);
 }
 
-#pragma comment(linker, "/export:InstallVB=_InstallVB@12")
-extern "C" void __stdcall InstallVB(LPGETLOGFILE pfn, LPCTSTR lpTo, LPCTSTR lpSubject)
+#pragma comment(linker, "/export:InstallVB=_InstallVB@16")
+extern "C" void __stdcall InstallVB(LPGETLOGFILE pfn, LPCTSTR lpTo, LPCTSTR lpSubject, BOOL bUseUI)
 {
-	Install(pfn, lpTo, lpSubject);
+	Install(pfn, lpTo, lpSubject, bUseUI);
 }
 
 #pragma comment(linker, "/export:UninstallVB=_UninstallVB@0")

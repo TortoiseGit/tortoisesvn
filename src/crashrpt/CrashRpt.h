@@ -87,14 +87,16 @@ void
 Install(
    IN LPGETLOGFILE pfn OPTIONAL,               // client crash callback
    IN LPCSTR lpTo OPTIONAL,                    // Email:to
-   IN LPCSTR lpSubject OPTIONAL                // Email:subject
+   IN LPCSTR lpSubject OPTIONAL,               // Email:subject
+   IN BOOL bUseUI OPTIONAL                     // UI or console
    );
 CRASHRPTAPI 
 LPVOID 
 InstallEx(
    IN LPGETLOGFILE pfn OPTIONAL,               // client crash callback
    IN LPCSTR lpTo OPTIONAL,                    // Email:to
-   IN LPCSTR lpSubject OPTIONAL                // Email:subject
+   IN LPCSTR lpSubject OPTIONAL,               // Email:subject
+   IN BOOL bUseUI OPTIONAL                     // UI or console
    );
 
 //-----------------------------------------------------------------------------
@@ -119,6 +121,8 @@ UninstallEx(
    IN LPVOID lpState                            // State from Install()
    );
 
+CRASHRPTAPI void EnableUI();
+CRASHRPTAPI void DisableUI();
 //-----------------------------------------------------------------------------
 // AddFile, AddFileEx
 //    Adds a file to the crash report.
@@ -361,7 +365,8 @@ __stdcall
 InstallExVB(
    IN LPGETLOGFILE pfn OPTIONAL,                // client crash callback
    IN LPCSTR lpTo OPTIONAL,                    // Email:to
-   IN LPCSTR lpSubject OPTIONAL                // Email:subject
+   IN LPCSTR lpSubject OPTIONAL,               // Email:subject
+   IN BOOL bUseUI OPTIONAL                     // UI or console
    );
 
 
@@ -371,6 +376,17 @@ __stdcall
 UninstallExVB(
    IN LPVOID lpState                            // State from InstallVB()
    );
+
+
+extern "C"
+void
+__stdcall
+EnableUIVB();
+
+extern "C"
+void
+__stdcall
+DisableUIVB();
 
 extern "C"
 void
@@ -426,7 +442,7 @@ StackTraceVB(
    IN LPVOID data OPTIONAL
    );
 
-extern "C" void __stdcall InstallVB(IN LPGETLOGFILE pfn OPTIONAL, IN LPCSTR lpTo OPTIONAL, IN LPCSTR lpSubject OPTIONAL);
+extern "C" void __stdcall InstallVB(IN LPGETLOGFILE pfn OPTIONAL, IN LPCSTR lpTo OPTIONAL, IN LPCSTR lpSubject OPTIONAL, IN BOOL bUseUI OPTIONAL);
 extern "C" void __stdcall UninstallVB();
 extern "C" void __stdcall AddFileVB(LPCSTR file, LPCSTR desc);
 extern "C" void __stdcall RemoveFileVB(LPCSTR file);

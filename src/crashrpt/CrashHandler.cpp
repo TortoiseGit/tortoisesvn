@@ -72,7 +72,7 @@ CCrashHandler::CCrashHandler():
    _crashStateMap.Add(m_pid, this);
 }
 
-void CCrashHandler::Install(LPGETLOGFILE lpfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject)
+void CCrashHandler::Install(LPGETLOGFILE lpfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
 	OutputDebugString("::Install\n");
 	if (m_installed) {
@@ -83,7 +83,7 @@ void CCrashHandler::Install(LPGETLOGFILE lpfn, LPCTSTR lpcszTo, LPCTSTR lpcszSub
    // save optional email info
    m_sTo = lpcszTo;
    m_sSubject = lpcszSubject;
-
+   m_bUseUI = bUseUI;
 
    // add this filter in the exception callback chain
    m_oldFilter = SetUnhandledExceptionFilter(CustomUnhandledExceptionFilter);
@@ -98,6 +98,16 @@ void CCrashHandler::Uninstall()
    // reset exception callback (to previous filter, which can be NULL)
    SetUnhandledExceptionFilter(m_oldFilter);
    m_installed = false;
+}
+
+void CCrashHandler::EnableUI()
+{
+	m_bUseUI = TRUE;
+}
+
+void CCrashHandler::DisableUI()
+{
+	m_bUseUI = FALSE;
 }
 
 CCrashHandler::~CCrashHandler()
@@ -383,18 +393,49 @@ BOOL CCrashHandler::GenerateErrorReport(PEXCEPTION_POINTERS pExInfo, BSTR messag
  
    //remove the crashhandler, just in case the dialog crashes...
    Uninstall();
-   // Start a new thread to display the dialog, and then wait
-   // until it completes
-   m_ipc_event = ::CreateEvent(NULL, FALSE, FALSE, "ACrashHandlerEvent");
-   if (m_ipc_event == NULL)
-	   return m_wantDebug;
-   DWORD threadId;
-   if (::CreateThread(NULL, 0, DialogThreadExecute,
-	   reinterpret_cast<LPVOID>(this), 0, &threadId) == NULL)
-	   return m_wantDebug;
-   ::WaitForSingleObject(m_ipc_event, INFINITE);
-   CloseHandle(m_ipc_event);
+   if (m_bUseUI)
+   {
+	   // Start a new thread to display the dialog, and then wait
+	   // until it completes
+	   m_ipc_event = ::CreateEvent(NULL, FALSE, FALSE, "ACrashHandlerEvent");
+	   if (m_ipc_event == NULL)
+		   return m_wantDebug;
+	   DWORD threadId;
+	   if (::CreateThread(NULL, 0, DialogThreadExecute,
+		   reinterpret_cast<LPVOID>(this), 0, &threadId) == NULL)
+		   return m_wantDebug;
+	   ::WaitForSingleObject(m_ipc_event, INFINITE);
+	   CloseHandle(m_ipc_event);
+   }
+   else
+   {
+	   CString sTempFileName = CUtility::getTempFileName();
+	   CZLib             zlib;
 
+	   sTempFileName += _T(".zip");
+	   // delete existing copy, if any
+	   DeleteFile(sTempFileName);
+
+	   // zip the report
+	   if (!zlib.Open(sTempFileName))
+		   return TRUE;
+
+	   // add report files to zip
+	   TStrStrVector::iterator cur = m_files.begin();
+	   for (cur = m_files.begin(); cur != m_files.end(); cur++)
+		   if (PathFileExists((*cur).first))
+			   zlib.AddFile((*cur).first);
+	   zlib.Close();
+	   fprintf(stderr, "a zipped crashreport has been saved to\n");
+	   _ftprintf(stderr, sTempFileName);
+	   fprintf(stderr, "\n");
+	   if (!m_sTo.IsEmpty())
+	   {
+		 fprintf(stderr, "please send the report to ");
+		 _ftprintf(stderr, (LPCTSTR)m_sTo);
+		 fprintf(stderr, "\n");
+	   }
+   }
    // clean up - delete files we created
    ::DeleteFile(crashFile);
    ::DeleteFile(crashLog);

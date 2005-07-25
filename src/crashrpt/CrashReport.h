@@ -8,8 +8,10 @@ typedef void (*TraceCallbackFunction)(DWORD address, const char *ImageName,
 									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
 									  void *data);
 
-typedef LPVOID (*InstallEx)(LPGETLOGFILE pfn, LPCSTR lpcszTo, LPCSTR lpcszSubject);
+typedef LPVOID (*InstallEx)(LPGETLOGFILE pfn, LPCSTR lpcszTo, LPCSTR lpcszSubject, BOOL bUseUI);
 typedef void (*UninstallEx)(LPVOID lpState);
+typedef void (*EnableUI)(void);
+typedef void (*DisableUI)(void);
 typedef void (*AddFileEx)(LPVOID lpState, LPCSTR lpFile, LPCSTR lpDesc);
 typedef void (*AddRegistryEx)(LPVOID lpState, LPCSTR lpRegistry, LPCSTR lpDesc);
 typedef void (*AddEventLogEx)(LPVOID lpState, LPCSTR lpEventLog, LPCSTR lpDesc);
@@ -68,14 +70,14 @@ public:
 	 * \param lpTo the mail address the crash report should be sent to
 	 * \param lpSubject the mail subject
 	 */
-	CCrashReport(LPCSTR lpTo = NULL, LPCSTR lpSubject = NULL)
+	CCrashReport(LPCSTR lpTo = NULL, LPCSTR lpSubject = NULL, BOOL bUseUI = TRUE)
 	{
 		InstallEx pfnInstallEx;
 		m_hDll = LoadLibrary(_T("CrashRpt"));
 		if (m_hDll)
 		{
 			pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
-			m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject);
+			m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject, bUseUI);
 		}
 	}
 	~CCrashReport()

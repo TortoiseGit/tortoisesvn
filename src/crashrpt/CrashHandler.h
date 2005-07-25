@@ -85,7 +85,8 @@ public:
    void Install(
       LPGETLOGFILE lpfn = NULL,           // Client crash callback
       LPCTSTR lpcszTo = NULL,             // EMail:To
-      LPCTSTR lpcszSubject = NULL         // EMail:Subject
+      LPCTSTR lpcszSubject = NULL,        // EMail:Subject
+      BOOL bUseUI = TRUE
       );
 
    //-----------------------------------------------------------------------------
@@ -102,6 +103,36 @@ public:
    //    none
    //
    void Uninstall();
+
+   //-----------------------------------------------------------------------------
+   // EnableUI
+   //    Enables the UI part
+   //
+   // Parameters
+   //    none
+   //
+   // Return Values
+   //    none
+   //
+   // Remarks
+   //    none
+   //
+   void EnableUI();
+
+   //-----------------------------------------------------------------------------
+   // DisableUI
+   //    Disables the UI part
+   //
+   // Parameters
+   //    none
+   //
+   // Return Values
+   //    none
+   //
+   // Remarks
+   //    none
+   //
+   void DisableUI();
 
    //-----------------------------------------------------------------------------
    // ~CCrashHandler
@@ -357,6 +388,7 @@ protected:
    HMODULE                       m_hModule;        // Module handle for loading resource strings
    CString						 m_userDataFile;   // file to save user input when m_sTo is empty
    bool                          m_wantDebug;      // user pushed Debug button
+   BOOL							 m_bUseUI;		   // use an UI or print to the error output
 };
 
 #endif	// #ifndef _CRASHHANDLER_H_
