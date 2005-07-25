@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-06-28 18:33-0300\n"
-"Last-Translator: João Marcelo Falcão de Araujo <jmarcelo_df@yahoo.com.br>\n"
+"PO-Revision-Date: 2005-07-24 13:08-0300\n"
+"Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,6 +24,7 @@ msgstr ""
 # ID:126,#:
 # ID:10,
 #: ID:10
+#: ID:126
 msgid " "
 msgstr " "
 
@@ -180,6 +181,7 @@ msgstr "&Adicionar..."
 
 # Control-ID:1090,
 #: Control-ID:1090
+#: Control-ID:1093
 msgid "&Advanced..."
 msgstr "&Avançado..."
 
@@ -200,6 +202,8 @@ msgstr "&Navegar..."
 
 # Control-ID:1091,
 #: Control-ID:1091
+#: Control-ID:1094
+#: Control-ID:1096
 msgid "&Builtin"
 msgstr "&Integrado"
 
@@ -224,6 +228,11 @@ msgstr "&Verificar Agora"
 msgid "&Compare Revisions"
 msgstr "&Comparar Revisões"
 
+# ID:376,
+#: MenuEntry
+msgid "&Copy"
+msgstr "&Copiar"
+
 # ID:101,
 #: ID:101
 msgid "&Copy To..."
@@ -243,6 +252,7 @@ msgstr "&Simulação"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: MenuEntry
 msgid "&Edit"
 msgstr "&Editar"
 
@@ -263,11 +273,18 @@ msgstr "Sai&r"
 
 # Control-ID:1092,
 #: Control-ID:1092
+#: Control-ID:1095
+#: Control-ID:1097
 msgid "&External"
 msgstr "&Externo"
 
+#: MenuEntry
 msgid "&File"
 msgstr "&Arquivo"
+
+#: MenuEntry
+msgid "&Find"
+msgstr "&Localizar"
 
 # Control-ID:1050,
 #: Control-ID:1050
@@ -293,6 +310,8 @@ msgstr "&Da Cópia de Trabalho na URL:"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
+#: Control-ID:1115
+#: Control-ID:1019
 msgid "&HEAD Revision"
 msgstr "&Revisão Mais Recente"
 
@@ -300,6 +319,8 @@ msgstr "&Revisão Mais Recente"
 # MenuEntry#:
 # Control-ID:9,#:
 # Control-ID:57670,
+#: Control-ID:57670
+#: MenuEntry
 msgid "&Help"
 msgstr "&Ajuda"
 
@@ -323,6 +344,7 @@ msgid "&Mark as resolved"
 msgstr "&Marcar como resolvido"
 
 #: Control-ID:1
+#: MenuEntry
 msgid "&Merge"
 msgstr "&Combinar"
 
@@ -361,6 +383,7 @@ msgstr "&OK"
 # ID:101,#:
 # ID:3841,
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "&Abrir"
 
@@ -397,6 +420,7 @@ msgstr "&Refazer"
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: Control-ID:1013
+#: Control-ID:1100
 msgid "&Remove"
 msgstr "&Remover"
 
@@ -414,6 +438,7 @@ msgstr "&Reverter as alterações desta revisão"
 # Control-ID:1116,#:
 # Control-ID:1033,
 #: Control-ID:1033
+#: Control-ID:1116
 msgid "&Revision"
 msgstr "&Revisão"
 
@@ -471,6 +496,7 @@ msgstr "&Barra de Ferramentas"
 # Control-ID:65535,#:
 # Control-ID:1058,
 #: Control-ID:65535
+#: Control-ID:1058
 msgid "&URL of repository:"
 msgstr "&URL do repositório:"
 
@@ -502,9 +528,11 @@ msgstr "At&ualizar Item Para Revisão"
 # Control-ID:1005,#:
 # Control-ID:65535,
 #: Control-ID:65535
+#: Control-ID:1005
 msgid "&Username:"
 msgstr "&Usuário:"
 
+#: MenuEntry
 msgid "&View"
 msgstr "&Exibir"
 
@@ -552,6 +580,12 @@ msgstr "- %d"
 # Control-ID:1089,#:
 # Control-ID:1104,
 #: Control-ID:1035
+#: Control-ID:1036
+#: Control-ID:1187
+#: Control-ID:1104
+#: Control-ID:1021
+#: Control-ID:1022
+#: Control-ID:1089
 msgid "..."
 msgstr "..."
 
@@ -718,6 +752,7 @@ msgstr "Ativar Lista de Tarefas"
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:209
+#: Dlg-ID:155
 msgid "Add"
 msgstr "Adicionar"
 
@@ -741,11 +776,6 @@ msgstr "Adicionar de Programa de Combinação para Extensão Específica"
 msgid "Add To Ignore List"
 msgstr "Adicionar à Lista de Ignorados"
 
-# ID:12,
-#: ID:12
-msgid "Add files to Subversion here"
-msgstr "Adicionar arquivos ao Subversion aqui"
-
 # Control-ID:1098,
 #: ID:8
 msgid "Add..."
@@ -758,6 +788,7 @@ msgstr "Adicionar/Editar Programa de Comparação/Combinação para Extensão Es
 
 # Control-ID:65535,
 #: ID:73
+#: Control-ID:65535
 msgid "Added"
 msgstr "Adicionado"
 
@@ -855,6 +886,7 @@ msgstr "Todos os arquivos já estão sob o controle de versões. Não há nada a
 # ID:3868,#:
 # ID:3868,
 #: ID:3867
+#: ID:3868
 #, c-format
 msgid "An attempt was made to access %1 past its end."
 msgstr "Tentativa de acessar %1 feita depois de seu término."
@@ -951,6 +983,7 @@ msgstr "Ocorreu um erro desconhecido."
 # ID:3868,#:
 # ID:3868,
 #: ID:3867
+#: ID:3868
 #, c-format
 msgid "An unknown error occurred while accessing %1."
 msgstr "Ocorreu um erro desconhecido ao acessar %1."
@@ -1016,6 +1049,7 @@ msgstr "Na revisão: %d"
 # Dlg-ID:131,#:
 # Dlg-ID:160,
 #: Dlg-ID:131
+#: Dlg-ID:160
 msgid "Authentication"
 msgstr "Autenticação"
 
@@ -1193,6 +1227,7 @@ msgstr ""
 # ID:73,#:
 # Control-ID:2,
 #: ID:73
+#: Control-ID:2
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1493,6 +1528,7 @@ msgstr "Configure o programa de visualização para arquivos arquivos de compara
 
 # Control-ID:65535,
 #: ID:263
+#: Control-ID:65535
 msgid "Conflicted"
 msgstr "Conflitante"
 
@@ -1557,16 +1593,6 @@ msgstr "Copiar para a Cópia de Trabalho..."
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "Copiar URL para a área de transferência"
-
-# ID:16,
-#: ID:16
-msgid "Copy and Rename in Subversion to here"
-msgstr "Copia e Renomeia no Subversion para cá"
-
-# ID:13,
-#: ID:13
-msgid "Copy files in Subversion to here"
-msgstr "Copiar arquivos no Subversion para cá"
 
 # ID:3603,
 #: ID:3603
@@ -2027,6 +2053,7 @@ msgstr "Insira Mensagem de Log"
 # ID:126,#:
 # Control-ID:1065,
 #: ID:126
+#: Control-ID:1065
 msgid "Enter Log Message:"
 msgstr "Insira Mensagem de Log:"
 
@@ -2122,6 +2149,7 @@ msgstr "Exporta um repositório para uma cópia de trabalho limpa sem as pastas 
 
 # ID:74,
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "Extensão"
 
@@ -2209,6 +2237,9 @@ msgstr "Obtendo revisão %s do arquivo:"
 # ID:74,#:
 # ID:77,
 #: ID:63
+#: ID:74
+#: ID:77
+#: ID:207
 msgid "File"
 msgstr "Arquivo"
 
@@ -2219,6 +2250,7 @@ msgstr "Diferenças entre arquivos"
 
 # Dlg-ID:135,
 #: ID:376
+#: Dlg-ID:135
 msgid "File Patches"
 msgstr "Correções de Arquivo"
 
@@ -2278,6 +2310,7 @@ msgstr "GDI+ não pôde criar um objeto bitmap. Você provavelmente não possui 
 
 # Dlg-ID:107,
 #: Dlg-ID:143
+#: Dlg-ID:107
 msgid "General"
 msgstr "Geral"
 
@@ -2368,8 +2401,14 @@ msgstr "Revisão HEAD no repositório"
 # Control-ID:1004,#:
 # ID:12,
 #: ID:12
+#: Control-ID:1004
 msgid "Help"
 msgstr "Ajuda"
+
+# Control-ID:1229,
+#: Control-ID:1229
+msgid "Hide unrelated changed paths"
+msgstr "Ocultar os caminhos alterados não relacionados"
 
 # Control-ID:1127,
 #: Control-ID:1127
@@ -2438,6 +2477,15 @@ msgstr "Se habilitado, o TortoiseSVN verifica uma vez por semana se uma nova ver
 #: ID:195
 msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
 msgstr "Se habilitado, faz com que a obtenção das mensagens de log de repositórios em servidores pré-1.2 seja mais rápida"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr ""
+"Se habilitado, o diálogo de Combinação inicia a URL \"De:\" com a URL da cópia de trabalho selecionada\n"
+"e não com a última URL utilizada. "
 
 # ID:195,
 #: ID:195
@@ -2669,6 +2717,7 @@ msgstr ""
 # ID:11,#:
 # Control-ID:1002,
 #: ID:207
+#: ID:221
 msgid "Lock"
 msgstr "Trava"
 
@@ -2737,6 +2786,7 @@ msgstr "Histórico da Mensagem de Log:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
+#: Control-ID:65535
 msgid "Log Messages"
 msgstr "Mensagens de Log"
 
@@ -2794,6 +2844,7 @@ msgstr "Máx"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "Combinar"
 
@@ -2864,11 +2915,6 @@ msgstr "Modificado"
 msgid "Most active author:"
 msgstr "Autor mais ativo:"
 
-# ID:12,
-#: ID:12
-msgid "Move files in Subversion to here"
-msgstr "Mover arquivos no Subversion pra cá"
-
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -2904,6 +2950,11 @@ msgstr "NUM"
 #: Control-ID:1129
 msgid "Native Filesystem (FSFS)"
 msgstr "Sistema de Arquivos Nativo (FSFS)"
+
+# ID:73,
+#: ID:210
+msgid "Nested"
+msgstr "Aninhado"
 
 # Dlg-ID:102,
 #: Dlg-ID:102
@@ -2964,6 +3015,7 @@ msgstr "Nenhuma messagem de erro."
 # ID:3868,#:
 # ID:3868,
 #: ID:3867
+#: ID:3868
 msgid "No error occurred."
 msgstr "Não ocorreu nenhum erro."
 
@@ -3043,6 +3095,7 @@ msgstr "Número de semanas:"
 # ID:73,#:
 # Control-ID:1,
 #: ID:73
+#: Control-ID:1
 msgid "OK"
 msgstr "OK"
 
@@ -3053,6 +3106,7 @@ msgstr "OVR"
 
 # ID:13,
 #: ID:145
+#: Control-ID:1202
 msgid "Omit externals"
 msgstr "Omitir externos"
 
@@ -3325,6 +3379,7 @@ msgstr "Progresso"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "Propriedades"
 
@@ -3404,6 +3459,7 @@ msgstr "Reduz a janela a um ícone"
 # ID:101,#:
 # ID:135,
 #: ID:101
+#: ID:135
 msgid "Refresh"
 msgstr "Atualizar"
 
@@ -3462,6 +3518,7 @@ msgstr "Status Remoto da Propriedade"
 
 # ID:63,
 #: ID:63
+#: ID:207
 msgid "Remote Status"
 msgstr "Status Remoto"
 
@@ -3562,6 +3619,7 @@ msgstr "Repo-Browser"
 # Control-ID:1055,#:
 # Control-ID:65535,
 #: Control-ID:65535
+#: Control-ID:1055
 msgid "Repository"
 msgstr "Repositório"
 
@@ -3572,6 +3630,7 @@ msgstr "Navegador de Repositório"
 
 # ID:8,
 #: ID:8
+#: ID:74
 msgid "Resolved"
 msgstr "Resolvido"
 
@@ -3628,6 +3687,7 @@ msgstr "Reverter todas as alterações que você fez desde a última atualizaç�
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: ID:76
+#: Control-ID:65535
 msgid "Revision"
 msgstr "Revisão"
 
@@ -3639,6 +3699,8 @@ msgstr "Revisão %d"
 
 # ID:119,
 #: ID:269
+#: ID:270
+#: ID:271
 #, c-format
 msgid "Revision %ld"
 msgstr "Revisão %ld"
@@ -3650,6 +3712,8 @@ msgstr "Revisão / Autor:"
 
 # ID:75,
 #: ID:15
+#: ID:269
+#: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Gráfico de Revisões"
 
@@ -3677,10 +3741,20 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+# ID:12,
+#: ID:12
+msgid "SVN Add files to this WC"
+msgstr "SVN Adicionar arquivos a essa Cópia de Trabalho"
+
 # ID:77,
 #: ID:77
 msgid "SVN Add..."
 msgstr "SVN Adicionar..."
+
+# ID:76,
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Autor"
 
 # ID:132,
 #: ID:132
@@ -3697,10 +3771,30 @@ msgstr "SVN Obter..."
 msgid "SVN Commit..."
 msgstr "SVN Submeter..."
 
+# ID:16,
+#: ID:16
+msgid "SVN Copy and Rename versioned files here"
+msgstr "SVN Copiar e Renomear arquivos com controle de versão para cá"
+
+# Control-ID:1073,
+#: ID:13
+msgid "SVN Copy versioned files here"
+msgstr "SVN Copiar arquivos com controle de versão para cá"
+
 # ID:78,
 #: ID:78
 msgid "SVN Copy..."
 msgstr "SVN Copiar..."
+
+# Control-ID:65535,
+#: ID:14
+msgid "SVN Export all to here"
+msgstr "SVN Exportar tudo pra cá"
+
+# ID:78,
+#: ID:14
+msgid "SVN Export to here"
+msgstr "SVN Exportar para cá"
 
 # ID:78,
 #: ID:78
@@ -3721,6 +3815,11 @@ msgstr "SVN Proprietário da Trava"
 #: ID:78
 msgid "SVN Merge..."
 msgstr "SVN Combinar..."
+
+# Control-ID:1073,
+#: ID:12
+msgid "SVN Move versioned files here"
+msgstr "SVN Mover arquivos com controle de versão para cá"
 
 # XXX: Onde aparece isso? -- jr
 # Dlg-ID:134,
@@ -3853,6 +3952,9 @@ msgstr "Salvando arquivo de correção para:"
 # Control-ID:1017,#:
 # Control-ID:1064,
 #: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+#: Control-ID:1212
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3983,6 +4085,7 @@ msgstr "Ajuste de Propriedades..."
 # ID:107,#:
 # ID:9,
 #: ID:9
+#: ID:107
 msgid "Settings"
 msgstr "Preferências"
 
@@ -4019,6 +4122,10 @@ msgstr "Visualizar &Diferenças"
 # Control-ID:1031,#:
 # Control-ID:1034,
 #: ID:101
+#: Control-ID:1228
+#: Control-ID:1031
+#: Control-ID:1034
+#: Control-ID:1132
 msgid "Show &Log"
 msgstr "Exibir &Histórico"
 
@@ -4172,12 +4279,16 @@ msgstr ""
 # ID:74,#:
 # ID:77,
 #: ID:245
+#: Control-ID:1132
+#: Dlg-ID:179
 msgid "Statistics"
 msgstr "Estatísticas"
 
 # ID:74,#:
 # ID:77,
 #: ID:74
+#: ID:77
+#: ID:207
 msgid "Status"
 msgstr "Status"
 
@@ -4227,16 +4338,6 @@ msgstr "Dados de autenticação do Subversion:"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Arquivo de configuração do Subversion:"
-
-# Control-ID:65535,
-#: ID:14
-msgid "Subversion export all here"
-msgstr "Exportar tudo do Subversion pra cá"
-
-# ID:13,
-#: ID:14
-msgid "Subversion export here"
-msgstr "Exportar do Subversion pra cá"
 
 # ID:79,
 #: ID:79
@@ -4577,6 +4678,11 @@ msgstr ""
 
 # ID:16,
 #: ID:16
+msgid "The user who did the last commit"
+msgstr "O usuário que fez a útima submissão"
+
+# ID:16,
+#: ID:16
 msgid "The user who owns the lock of the file"
 msgstr "O usuário ao qual pertence a trava do arquivo"
 
@@ -4704,6 +4810,8 @@ msgstr "Para: (revisão e URL finais do intervalo para combinar)"
 # ID:3585,#:
 # Dlg-ID:130,
 #: ID:7
+#: ID:3585
+#: Dlg-ID:130
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -4732,6 +4840,8 @@ msgstr ""
 # ID:9,#:
 # ID:80,
 #: ID:9
+#: ID:80
+#: Control-ID:65535
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -4817,6 +4927,7 @@ msgstr "URL dos itens do Subversion"
 # Control-ID:65535,#:
 # Control-ID:1076,
 #: Control-ID:65535
+#: Control-ID:1076
 msgid "URL:"
 msgstr "URL:"
 
@@ -4940,6 +5051,7 @@ msgstr "Sem Título"
 # ID:74,#:
 # Dlg-ID:152,
 #: ID:8
+#: Dlg-ID:152
 msgid "Update"
 msgstr "Atualizar"
 
@@ -5000,6 +5112,11 @@ msgstr "Usar Lente de Aumento na Barra de Localização"
 #: Control-ID:1126
 msgid "Use Text viewer to view blames"
 msgstr "Use um visualizador de textos para ver as responsabilidades"
+
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Usa a URL da Cópia de Trabalho como a URL \"De:\" padrão"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -5401,6 +5518,7 @@ msgstr "limpando"
 
 # ID:8,
 #: ID:244
+#: ID:245
 msgid "commits"
 msgstr "submissões"
 
@@ -5457,6 +5575,8 @@ msgstr "incompleto"
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
+#: ID:195
+#: Control-ID:1002
 msgid "locked"
 msgstr "bloqueado"
 
@@ -5613,6 +5733,7 @@ msgstr ""
 
 # ID:80,
 #: ID:80
+#: ID:103
 #, c-format
 msgid "to %s"
 msgstr "para %s"
