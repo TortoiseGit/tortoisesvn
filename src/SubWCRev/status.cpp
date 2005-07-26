@@ -211,9 +211,10 @@ svn_status (	const char *path,
 	// now crawl through all externals
 	for (std::vector<const char *>::iterator I = extarray->begin(); I != extarray->end(); ++I)
 	{
-		OutputDebugStringA((const char *)*I);
-		OutputDebugStringA("\n");
-		svn_status (*I, sb.SubStat, no_ignore, ctx, pool);
+		if (strcmp(path, *I))
+		{
+			svn_status (*I, sb.SubStat, no_ignore, ctx, pool);
+		}
 	}
 
 	delete extarray;
