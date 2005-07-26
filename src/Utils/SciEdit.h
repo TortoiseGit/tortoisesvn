@@ -165,6 +165,7 @@ private:
 	LRESULT		m_DirectPointer;
 	MySpell *	pChecker;
 	MyThes *	pThesaur;
+	UINT		m_spellcodepage;
 	CAutoCompletionList m_autolist;
 	TCHAR		m_separator;
 	CString		m_sCommand;

@@ -24,6 +24,8 @@
 - BUG: The same line was shown twice in TortoiseMerge if 'ignore leading
        whitespace' option was turned on and the line differed only
        in whitespaces. See issue #121. (Stefan)
+- BUG: UNICODE chars weren't shown correctly in the log message
+       middle view. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for

@@ -37,6 +37,28 @@ bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit *) {return 
 #define STYLE_BOLD			11
 #define STYLE_BOLDITALIC	12
 
+struct loc_map {
+	const char * cp;
+	const char * def_enc;
+};
+
+struct loc_map enc2locale[] = {
+	{"28591","ISO8859-1"},
+	{"28592","ISO8859-2"},
+	{"28593","ISO8859-3"},
+	{"28594","ISO8859-4"},
+	{"28595","ISO8859-5"},
+	{"28596","ISO8859-6"},
+	{"28597","ISO8859-7"},
+	{"28598","ISO8859-8"},
+	{"28599","ISO8859-9"},
+	{"28605","ISO8859-15"},
+	{"20866","KOI8-R"},
+	{"21866","KOI8-U"},
+	{"1251","microsoft-cp1251"},
+	};
+
+
 IMPLEMENT_DYNAMIC(CSciEdit, CWnd)
 
 CSciEdit::CSciEdit(void)
@@ -205,6 +227,21 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 		}
 	}
 #endif
+	if (pChecker)
+	{
+		const char * encoding = pChecker->get_dic_encoding();
+		ATLTRACE(encoding);
+		int n = sizeof(enc2locale) / sizeof(enc2locale[0]);
+		m_spellcodepage = 0;
+		for (int i = 0; i < n; i++) 
+		{
+			if (strcmp(encoding,enc2locale[i].def_enc) == 0)
+			{
+				m_spellcodepage = atoi(enc2locale[i].cp);
+			}
+		}
+
+	}
 	if ((pThesaur)||(pChecker))
 		return TRUE;
 	return FALSE;
@@ -356,8 +393,20 @@ void CSciEdit::CheckSpelling()
 		if (strlen(textrange.lpstrText) > 3)
 		{
 			CString sWord = StringFromControl(textrange.lpstrText);
+			// convert the string from the control to the encoding of the spell checker
+			// module.
+			CStringA sWordA;
+			if (m_spellcodepage)
+			{
+				char * buf;
+				buf = sWordA.GetBuffer(sWord.GetLength()*4 + 1);
+				int lengthIncTerminator = WideCharToMultiByte(m_spellcodepage, 0, sWord, -1, buf, sWord.GetLength()*4, NULL, NULL);
+				sWordA.ReleaseBuffer(lengthIncTerminator-1);
+			}
+			else
+				sWordA = CStringA(sWord);
 			// first check if the word is in our autocompletion list
-			if ((m_autolist.Find(sWord)<0)&&(!pChecker->spell(CStringA(sWord))))
+			if ((m_autolist.Find(sWord)<0)&&(!pChecker->spell(sWordA)))
 			{
 				//mark word as misspelled
 				Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
