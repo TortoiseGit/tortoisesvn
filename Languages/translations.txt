@@ -1,9 +1,8 @@
 ﻿Translations
 ------------
 
-TortoiseSVN is still in development so
-translations of all resources is also
-a work 'in progress'.
+TortoiseSVN is still in development so translations of all resources is 
+also a work 'in progress'.
 
 General
 -------
@@ -22,10 +21,10 @@ Getting started
 If you want to implement a new language for TortoiseSVN do the following.
 
 1) Use TortoiseSVN (or any other SubVersion client) to check out: 
-   http://svn.collab.net/repos/tortoisesvn/trunk/Languages/
+   http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages/
    (You will get more than one file)
    or point your browser to:
-   http://svn.collab.net/repos/tortoisesvn/trunk/Languages/
+   http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/Languages/
    right-click on Tortoise.pot and save this file to your local harddisk.
    Tortoise.pot is the portable object template (hence .pot) for the 
    translation.
@@ -69,9 +68,14 @@ If you want to implement a new language for TortoiseSVN do the following.
    # label        Marke / Markierung
  
 5) Make sure your file is saved in UTF-8 encoding and that it does *not*
-	 begin with UTF-8 BOMs (Byte Order Marks)
+   begin with UTF-8 BOMs (Byte Order Marks)
 
 6) Send your Tortoise_xx.po to the mailing list (patches@tortoisesvn.tigris.org).
+   or, if you have a Tigris ID (http://www.tigris.org/servlets/Join) and
+   request a role in the project
+   (http://tortoisesvn.tigris.org/servlets/ProjectMembershipRequest),
+   and is granted the role by the project admins, you may commit your
+   translations directory to the TortoiseSVN repository.
 
 	 
 Adding to an existing translation
@@ -105,7 +109,7 @@ them, you need four things:
   http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=1847
   and pick your language dlls e.g. Languages_1.0.8.zip for TortoiseSVN 1.0.8.
 - The pot file for your version of TortoiseSVN e.g:
-  http://svn.collab.net/repos/tortoisesvn/tags/version_1.0.8/...
+  http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.0.8/...
 - Any po file for your language. Either pick one from tags or the latest
   po file from trunk
 - The ResText utility that is used to insert the data from the po file
