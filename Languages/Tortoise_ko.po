@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-07-25 17:59+0900\n"
+"PO-Revision-Date: 2005-07-26 13:49+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1822,11 +1822,6 @@ msgstr "삭제"
 msgid "Destination disk drive is full."
 msgstr "목적지 디스크가 꽉 찼습니다."
 
-# Dlg-ID:207,
-#: Dlg-ID:207
-msgid "Dialog"
-msgstr "대화상자"
-
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -3625,6 +3620,11 @@ msgstr "저장소 브라우저"
 #: Control-ID:65535
 msgid "Requests a username and a password"
 msgstr "사용자명과 암호를 요구합니다."
+
+# ID:8,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "충돌 해결함"
 
 # ID:8,
 #: ID:74
