@@ -301,8 +301,10 @@
 				<indexterm>
 					<primary>dictionary</primary>
 				</indexterm>
-				TortoiseSVN includes the <literal>Aspell</literal> spell checker,
-				which is also used by 
+				TortoiseSVN includes a spell checker which allows you to check your
+				commit log messages. This is especially useful if the project language
+				is not your native language.
+				The spell checker uses the same dictionary files as
 				<ulink url="http://openoffice.org">
 					<citetitle>OpenOffice</citetitle>
 				</ulink>
@@ -310,8 +312,6 @@
 				<ulink url="http://mozilla.org">
 					<citetitle>Mozilla</citetitle>
 				</ulink>.
-				This allows you to spell check your commit messages, especially
-				useful if the project language is not your native language.
 			</para>
 			<para>
 				The installer automatically adds the US and UK english dictionaries.
