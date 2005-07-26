@@ -106,7 +106,7 @@ UINT CRevertDlg::RevertThread()
 
 	if (m_RevertList.GetItemCount()==0)
 	{
-		CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
+		CMessageBox::Show(m_hWnd, IDS_ERR_NOTHINGTOREVERT, IDS_APPNAME, MB_ICONINFORMATION);
 		GetDlgItem(IDCANCEL)->EnableWindow(true);
 		m_bThreadRunning = FALSE;
 		EndDialog(0);
