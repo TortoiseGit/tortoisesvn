@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-26 12:22+0100\n"
+"PO-Revision-Date: 2005-07-27 10:21+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4138,12 +4138,12 @@ msgstr "Anschließend müssen Sie Subversion noch mitteilen, dass Sie den Konfli
 #: source/en/tsvn_dug/dug_conflicts.xml:87
 #: (para)
 msgid "If you have conflicts with binary files, Subversion does not attempt to merge the files itself. The local file remains unchanged (exactly as you last changed it) and you have <filename>filename.ext.r*</filename> files. If you want to discard your changes and keep the repository version, just use the Revert command. If you want to keep your version and overwrite the repository version, use the Resolved command, then commit your version."
-msgstr ""
+msgstr "Falls ein Konflikt zwischen Binärdaten besteht, versucht Subversion nicht, die Daten selbst zusammenzuführen. Die lokale Datei bleibt unverändert (exakt so, wie sie Ihrer letzten Änderung entspricht) und Sie erhalten <filename>Dateiname.ext.r*</filename> Dateien. Wenn Sie Ihre eigenen Änderungen verwerfen wollen, tun Sie das mit dem <guimenuitem>Rückgängig</guimenuitem> Befehl. Wenn Sie Ihre Version beibehalten und die Version im Projektarchiv überschreiben wollen, verwenden Sie den <guimenuitem>Konflikt aufgelöst</guimenuitem> Befehl und übertragen anschließend die Daten ins Projektarchiv"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:97
 #: (para)
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
-msgstr ""
+msgstr "Sie können den <guimenuitem>Konflikt aufgelöst</guimenuitem> Befehl für mehrere Dateien verwenden, indem Sie den übergeordneten Ordner markieren und <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem> Konflikt aufgelöst...</guimenuitem> </menuchoice> aus dem Kontextmenü wählen. Dies öffnet einen Auswahldialog, in dem alle konfliktbehafteten Dateien aufgelistet sind. Wählen Sie die Dateien, die sie als aufgelöst markieren wollen."
 
 #: source/en/tsvn_dug/dug_commit.xml:3
 #: (title)
@@ -5316,8 +5316,8 @@ msgstr "Jedes Sprachpaket ist in einem <literal>.exe</literal> Installer enthalt
 
 #: source/en/tsvn_introduction.xml:297
 #: (para)
-msgid "<indexterm><primary>spellchecker</primary></indexterm><indexterm><primary>dictionary</primary></indexterm> TortoiseSVN includes the <literal>Aspell</literal> spell checker, which is also used by <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>. This allows you to spell check your commit messages, especially useful if the project language is not your native language."
-msgstr "<indexterm><primary>Rechtschreibprüfung</primary></indexterm> <indexterm><primary>Wörterbuch</primary></indexterm> TortoiseSVN enthält eine Rechtschreibprüfung, die auch von <ulink url=\"http://openoffice.org\"> <citetitle>OpenOffice</citetitle> </ulink> und <ulink url=\"http://mozilla.org\"> <citetitle>Mozilla</citetitle> </ulink> verwendet wird. Sie erlaubt Ihnen, die Log-Meldungen zu prüfen. Dies ist besonders dann nützlich, wenn die Projektsprache nicht Ihre Muttersprache ist."
+msgid "<indexterm><primary>spellchecker</primary></indexterm><indexterm><primary>dictionary</primary></indexterm> TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgstr "<indexterm><primary>Rechtschreibprüfung</primary></indexterm> <indexterm><primary>Wörterbuch</primary></indexterm> TortoiseSVN enthält eine Rechtschreibprüfung, die es Ihnen ermöglicht, die Log-Meldungen zu prüfen. Dies ist besonders dann nützlich, wenn die Projektsprache nicht Ihre Muttersprache ist.Die Rechtschreibprüfung verwendet die gleichen Wörterbücher wie <ulink url=\"http://openoffice.org\"> <citetitle>OpenOffice</citetitle> </ulink> und <ulink url=\"http://mozilla.org\"> <citetitle>Mozilla</citetitle> </ulink>."
 
 #: source/en/tsvn_introduction.xml:316
 #: (para)
@@ -6383,7 +6383,7 @@ msgstr "Das Aktualisieren mehrerer Dateien ist keine atomare Operation. Tortoise
 #: source/en/tsvn_app_cli.xml:87
 #: (para)
 msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
-msgstr ""
+msgstr "Wenn nur ein Objekt zur Aktualisierung ausgewählt ist oder die gewählten Objekte aus verschiedenen Projektarchiven stammen, aktualisiert TortoiseSVN zur neuesten Revision (HEAD)."
 
 #: source/en/tsvn_app_cli.xml:92
 #: (para)
@@ -6560,7 +6560,7 @@ msgstr "Revisionsgraph"
 #: source/en/tsvn_app_cli.xml:224
 #: (para)
 msgid "The revision graph is a feature of TortoiseSVN only. There's no equivalent in the command line client."
-msgstr ""
+msgstr "Der Revisionsgraph ist eine Funktionalität, die nur in TortoiseSVN zur Verfügung steht und für die es kein Äquivalent in der Kommandozeile gibt."
 
 #: source/en/tsvn_app_cli.xml:228
 #: (para)
@@ -6570,6 +6570,11 @@ msgid ""
 "svn log -v URL\n"
 "</screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
 msgstr ""
+"TortoiseSVN führt die Schritte\n"
+"<screen>svn info URL_der_AK\n"
+"svn log -v URL\n"
+"</screen>\n"
+"aus, wobei URL die <emphasis>Basis</emphasis> des Projektarchivs ist, und analysiert anschließend die zurückgegebenen Daten."
 
 #: source/en/tsvn_app_cli.xml:239
 #: (title)
@@ -6841,12 +6846,12 @@ msgstr "Dieser Dialog wird für nicht versionierte Ordner aufgerufen. Der Ordner
 #: source/en/tsvn_app_cli.xml:395
 #: (para)
 msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
-msgstr ""
+msgstr "Der Export einer Arbeitskopie an einen anderen Ort wird ohne die Subversion Bibliotheken durchgeführt. Deshalb gibt es auch keinen entsprechenden Kommandozeilenbefehl."
 
 #: source/en/tsvn_app_cli.xml:400
 #: (para)
 msgid "What TortoiseSVN does is to copy all files to the new location while showing you the progress of the operation. Unversioned files/folders can optionally be exported too."
-msgstr ""
+msgstr "TortoiseSVN kopiert alle Dateien an den neuen Ort und zeigt Ihnen derweil den Fortschritt an. Nicht versionierte Dateien oder Ordner können ebenfalls exportiert werden."
 
 #: source/en/tsvn_app_cli.xml:405
 #: (para)
