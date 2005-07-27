@@ -41,8 +41,8 @@ extern "C" {
  */
 #define	DB_VERSION_MAJOR	4
 #define	DB_VERSION_MINOR	3
-#define	DB_VERSION_PATCH	27
-#define	DB_VERSION_STRING	"Sleepycat Software: Berkeley DB 4.3.27: (December 22, 2004)"
+#define	DB_VERSION_PATCH	28
+#define	DB_VERSION_STRING	"Sleepycat Software: Berkeley DB 4.3.28: (April 22, 2005)"
 
 /*
  * !!!
@@ -1123,7 +1123,8 @@ typedef enum {
 #define	DB_QAMOLDVER	3		/* Oldest queue version supported. */
 #define	DB_QAMMAGIC	0x042253
 
-#define	DB_SEQUENCE_VERSION 1		/* Current sequence version. */
+#define	DB_SEQUENCE_VERSION 2		/* Current sequence version. */
+#define	DB_SEQUENCE_OLDVER  1		/* Oldest queue version supported. */
 
 /*
  * DB access method and cursor operation values.  Each value is an operation
