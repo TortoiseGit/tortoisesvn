@@ -31,6 +31,9 @@
 - BUG: The spell checker codepage was ignored but the local codepage
        was used instead. This lead to problems e.g. with the russian
        spell check dictionary. (Stefan)
+- BUG: Manual edits of URLs in the repository browser weren't reflected
+       if the repobrowser was used to find URLs from other dialogs.
+       See issue #139. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for

@@ -21,6 +21,7 @@
 #include "RepositoryBar.h"
 #include "RepositoryTree.h"
 #include "RevisionDlg.h"
+#include ".\repositorybar.h"
 
 #define IDC_URL_COMBO     10000
 #define IDC_REVISION_BTN  10001
@@ -47,6 +48,7 @@ CRepositoryBar::~CRepositoryBar()
 BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
 	ON_CBN_SELENDOK(IDC_URL_COMBO, OnCbnSelEndOK)
 	ON_BN_CLICKED(IDC_REVISION_BTN, OnBnClicked)
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -301,3 +303,17 @@ void CRepositoryBarCnr::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 	CStatic::OnKeyDown(nChar, nRepCnt, nFlags);
 }
+
+void CRepositoryBar::OnDestroy()
+{
+	int idx = m_cbxUrl.GetCurSel();
+	if (idx >= 0)
+	{
+		CString path, revision;
+		m_cbxUrl.GetLBText(idx, path);
+		m_btnRevision.GetWindowText(revision);
+		m_SvnUrl = SVNUrl(path, revision);
+	}
+	CReBarCtrl::OnDestroy();
+}
+

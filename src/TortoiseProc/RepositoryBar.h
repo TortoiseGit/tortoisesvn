@@ -101,6 +101,7 @@ public:
 protected:
 	afx_msg void OnCbnSelEndOK();
 	afx_msg void OnBnClicked();
+	afx_msg void OnDestroy();
 
 	DECLARE_MESSAGE_MAP()
 
