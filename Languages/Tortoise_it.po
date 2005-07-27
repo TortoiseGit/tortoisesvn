@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-24 18:22+0100\n"
+"PO-Revision-Date: 2005-07-27 14:38+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1831,11 +1831,6 @@ msgstr "Eliminazione"
 msgid "Destination disk drive is full."
 msgstr "Il disco di destinazione è pieno."
 
-# Dlg-ID:207,
-#: Dlg-ID:207
-msgid "Dialog"
-msgstr "Finestra di dialogo"
-
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -3028,6 +3023,11 @@ msgid "No error occurred."
 msgstr "Nessun errore rilevato."
 
 # ID:77,
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "Nessun file o cartella è stato modificato. Non c'è niente da ripristinare per TortoiseSVN."
+
+# ID:77,
 #: ID:77
 msgid ""
 "No files were changed or added since\n"
@@ -3640,6 +3640,11 @@ msgstr "Repository Browser"
 #: Control-ID:65535
 msgid "Requests a username and a password"
 msgstr "Richiede un nome utente e una password"
+
+# ID:8,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Risolvi"
 
 # ID:8,
 #: ID:74
