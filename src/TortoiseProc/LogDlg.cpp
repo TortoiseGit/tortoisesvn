@@ -49,6 +49,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_bNoDispUpdates(false),
 	m_currentChangedArray(NULL),
 	m_nSortColumn(0),
+	m_bShowedAll(false),
 	m_regLastStrict(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE)
 {
 	m_pFindDialog = NULL;
@@ -355,6 +356,10 @@ void CLogDlg::OnBnClickedGetall()
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 	m_bNoDispUpdates = false;
+	
+	// TODO: once svn_client_log takes a peg revision, we must only set
+	// m_bShowedAll to true if m_bStrict is false!
+	m_bShowedAll = true;
 }
 
 void CLogDlg::OnBnClickedNexthundred()
@@ -556,7 +561,9 @@ UINT CLogDlg::LogThread()
 	GetDlgItem(IDOK)->SetWindowText(temp);
 
 	GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
-	GetDlgItem(IDC_NEXTHUNDRED)->EnableWindow(TRUE);
+	
+	if (!m_bShowedAll)
+		GetDlgItem(IDC_NEXTHUNDRED)->EnableWindow(TRUE);
 	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(TRUE);
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);

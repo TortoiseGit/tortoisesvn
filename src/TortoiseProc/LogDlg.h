@@ -214,6 +214,7 @@ private:
 	static bool			m_bAscendingPathList;
 	CRegDWORD			m_regLastStrict;
 	CButton				m_cHidePaths;
+	bool				m_bShowedAll;
 private:
     typedef struct LogEntryData
     {   

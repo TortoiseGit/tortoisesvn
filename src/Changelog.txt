@@ -12,6 +12,8 @@
 - CHG: The spellchecker now checks text pasted in the edit control
        immediately, without the need to enter text manually first.
        See issue #116. (Stefan)
+- CHG: In the log dialog, the "next 100" button is disabled once the
+       "Show All" button was pressed. See issue #138. (Stefan)
 - BUG: The default ssh client (TortoisePlink) wasn't used in some
        places, e.g. the revision graph. (Stefan)
 - BUG: The option "Only use spellchecker when tsvn:projectlanguage is set"
@@ -26,6 +28,9 @@
        in whitespaces. See issue #121. (Stefan)
 - BUG: UNICODE chars weren't shown correctly in the log message
        middle view. (Stefan)
+- BUG: The spell checker codepage was ignored but the local codepage
+       was used instead. This lead to problems e.g. with the russian
+       spell check dictionary. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for
