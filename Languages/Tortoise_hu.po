@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-24 18:43+0100\n"
+"PO-Revision-Date: 2005-07-27 22:22+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1824,11 +1824,6 @@ msgstr "Törlés"
 msgid "Destination disk drive is full."
 msgstr "A célmeghajtó tele van."
 
-# Dlg-ID:207,
-#: Dlg-ID:207
-msgid "Dialog"
-msgstr "Ablak"
-
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -3017,6 +3012,11 @@ msgid "No error occurred."
 msgstr "Nem történt hiba."
 
 # ID:77,
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "Sem fájl sem mappa nem módosult. Nincs mit visszaállítania a TortoiseSVN-nek!"
+
+# ID:77,
 #: ID:77
 msgid ""
 "No files were changed or added since\n"
@@ -3626,6 +3626,12 @@ msgstr "Tárház Böngésző"
 #: Control-ID:65535
 msgid "Requests a username and a password"
 msgstr "Felhasználónevet és jelszót igényel"
+
+# ID:8,#:
+# ID:74,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Megold"
 
 # ID:8,#:
 # ID:74,
