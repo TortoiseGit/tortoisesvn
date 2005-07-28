@@ -60,6 +60,7 @@ del build\generator\vcnet_sln7.ezt
 if DEFINED _DEBUG (
   rem first, compile without any network/repository support
   echo building netless Subversion
+  rmdir /s /q Debug\Subversion_netless
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
   copy %startdir%\svn_private_config.h subversion\svn_private_config.h
@@ -77,6 +78,7 @@ if DEFINED _DEBUG (
 if DEFINED _RELEASE (
   rem first, compile without any network/repository support
   echo building netless Subversion
+  rmdir /s /q Release\Subversion_netless
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
   copy %startdir%\svn_private_config.h subversion\svn_private_config.h
