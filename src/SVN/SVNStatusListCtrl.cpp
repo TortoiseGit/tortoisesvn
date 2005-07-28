@@ -262,6 +262,10 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	{
 		for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
 		{
+			// note:
+			// if a target specified multiple times (either directly or included
+			// in the status of a parent item) it will also show up multiple
+			// times in the list!
 			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false))
 			{
 				bRet = FALSE;
@@ -269,6 +273,8 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		}
 	}
 
+	// remove the 'helper' files of conflicted items from the list.
+	// otherwise they would appear as unversioned files.
 	for (INT_PTR cind = 0; cind < m_ConflictFileList.GetCount(); ++cind)
 	{
 		for (size_t i=0; i < m_arStatusArray.size(); i++)
@@ -283,6 +289,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	}
 	
 	BuildStatistics();
+
 	m_bBlock = FALSE;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
@@ -707,12 +714,12 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 			showFlags |= SVNSLC_SHOWLOCKS;
 			
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
-		if(status != svn_wc_status_ignored || (entry->direct))
+		if (status != svn_wc_status_ignored || (entry->direct))
 		{
-			if(dwShow & showFlags)
+			if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 			{
 				m_arListArray.push_back(i);
-				if(dwCheck & showFlags)
+				if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 				{
 					entry->checked = true;
 				}
