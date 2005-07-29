@@ -1436,7 +1436,6 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 	const TCHAR * desc = stringtablebuffer;
 	switch(uFlags)
 	{
-#ifdef UNICODE
 	case GCS_HELPTEXTA:
 		{
 			std::string help = WideToMultibyte(desc);
@@ -1451,22 +1450,6 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 			hr = S_OK;
 			break; 
 		}
-#else
-	case GCS_HELPTEXTA:
-		{
-			std::string help = desc;
-			lstrcpynA(pszName, help.c_str(), cchMax);
-			hr = S_OK;
-			break; 
-		}
-	case GCS_HELPTEXTW: 
-		{
-			wide_string help = MultibyteToWide(desc);
-			lstrcpynW((LPWSTR)pszName, help.c_str(), cchMax); 
-			hr = S_OK;
-			break; 
-		}
-#endif
 	}
 	return hr;
 }

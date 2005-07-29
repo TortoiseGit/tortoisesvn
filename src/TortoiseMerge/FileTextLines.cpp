@@ -219,7 +219,6 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 				break;
 			case CFileTextLines::UTF8:
 				{
-#ifdef UNICODE
 					char * buf;
 					buf = new char[sLine.GetLength()*4 + 1];
 					ZeroMemory(buf, (sLine.GetLength()*4 + 1)*sizeof(char));
@@ -232,9 +231,6 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 					*bufcopy = 0;
 					Add(CUnicodeUtils::GetUnicode(CStringA(buf)));
 					delete [] buf;
-#else
-					Add(CUnicodeUtils::GetUnicode(CStringA(sLine)));
-#endif
 				}
 				break;
 			default:

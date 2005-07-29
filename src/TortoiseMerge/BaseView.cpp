@@ -1615,23 +1615,13 @@ BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 
 	if (pNMHDR->code == TTN_NEEDTEXTA)
 	{
-#ifdef UNICODE
 		pTTTA->lpszText = m_szTip;
 		WideCharToMultiByte(CP_ACP, 0, strTipText, -1, m_szTip, strTipText.GetLength()+1, 0, 0);
-#else
-		lstrcpyn(m_szTip, strTipText, strTipText.GetLength()+1);
-		pTTTA->lpszText = m_szTip;
-#endif
-	} // if (pNMHDR->code == TTN_NEEDTEXTA)
+	}
 	else
 	{
-#ifdef UNICODE
 		lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
 		pTTTW->lpszText = m_wszTip;
-#else
-		pTTTW->lpszText = m_wszTip;
-		::MultiByteToWideChar( CP_ACP , 0, strTipText, -1, m_wszTip, strTipText.GetLength()+1 );
-#endif
 	}
 
 	return TRUE;    // message was handled

@@ -62,11 +62,6 @@
 
 #include "..\version.h"
 
-#ifndef UNICODE
-#define COMPILE_MULTIMON_STUBS
-#include "multimon.h"
-#endif
-
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif

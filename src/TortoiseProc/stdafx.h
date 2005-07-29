@@ -7,33 +7,14 @@
 
 // Modify the following defines if you have to target a platform prior to the ones specified below.
 // Refer to MSDN for the latest info on corresponding values for different platforms.
-#ifdef UNICODE
-#	ifndef WINVER
-#		define WINVER 0x0501
-#	endif
-#	ifndef _WIN32_WINNT
-#		define _WIN32_WINNT 0x0501
-#	endif						
-#	ifndef _WIN32_WINDOWS
-#		define _WIN32_WINDOWS 0x0501
-#	endif
-#else
-#	ifndef WINVER
-#		define WINVER 0x0410
-#	endif
-#	ifndef _WIN32_WINNT
-#		define _WIN32_WINNT 0x0500
-#	endif						
-#	ifndef _WIN32_WINDOWS
-#		define _WIN32_WINDOWS 0x0410
-#	endif
-// some defines which are missing if WINVER < 0x0500
-#define MB_CANCELTRYCONTINUE		0x00000006L
-#define DFCS_TRANSPARENT			0x0800
-#define DFCS_HOT					0x1000
-#define IDC_HAND					MAKEINTRESOURCE(32649)
-#define IDTRYAGAIN					10
-#define IDCONTINUE					11
+#ifndef WINVER
+#	define WINVER 0x0501
+#endif
+#ifndef _WIN32_WINNT
+#	define _WIN32_WINNT 0x0501
+#endif						
+#ifndef _WIN32_WINDOWS
+#	define _WIN32_WINDOWS 0x0501
 #endif
 
 
@@ -58,10 +39,6 @@
 #include <afxctl.h>
 #include <afxtempl.h>
 #include <afxmt.h>
-
-#ifndef UNICODE
-#include "multimon.h"
-#endif
 
 #ifndef LVS_EX_DOUBLEBUFFER
 #define LVS_EX_DOUBLEBUFFER     0x00010000

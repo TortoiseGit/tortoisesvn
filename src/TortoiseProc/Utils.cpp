@@ -23,11 +23,6 @@
 #include "Registry.h"
 #include "TSVNPath.h"
 
-#ifndef COMPILE_NEWAPIS_STUBS
-#	define COMPILE_NEWAPIS_STUBS
-#endif
-#define WANT_GETLONGPATHNAME_WRAPPER
-#include "NewAPIs.h"
 
 CUtils::CUtils(void)
 {

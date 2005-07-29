@@ -450,11 +450,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						TCHAR * value = NULL;
 						GetDlgItemTextEx(m_hwnd, IDC_EDITNAME, name);
 						GetDlgItemTextEx(m_hwnd, IDC_EDITVALUE, value);
-#ifdef UNICODE
 						std::string t = WideToMultibyte(value);
-#else
-						std::string t = std::string(value);
-#endif
 						HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
 						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
 						ULONGLONG all = filenames.size();
@@ -605,14 +601,10 @@ void CSVNPropertyPage::InitWorkfileView()
 				if (svn.status->entry->url)
 				{
 					Unescape((char*)svn.status->entry->url);
-#ifdef UNICODE
 					_tcsncpy(tbuf, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
-#else
-					_tcsncpy(tbuf, svn.status->entry->url, 4095);
-#endif
 					//Unescape(tbuf);
 					SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
-				} // if (svn.status->entry->url) 
+				}
 				if (svn.status->text_status != svn_wc_status_added)
 				{
 					_stprintf(buf, _T("%d"), svn.status->entry->cmt_rev);
@@ -622,11 +614,7 @@ void CSVNPropertyPage::InitWorkfileView()
 					SetDlgItemText(m_hwnd, IDC_CDATE, buf);
 				}
 				if (svn.status->entry->cmt_author)
-#ifdef UNICODE
 					SetDlgItemText(m_hwnd, IDC_AUTHOR, UTF8ToWide(svn.status->entry->cmt_author).c_str());
-#else
-					SetDlgItemText(m_hwnd, IDC_AUTHOR, svn.status->entry->cmt_author);
-#endif
 				SVNStatus::GetStatusString(g_hResInst, svn.status->text_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 				SetDlgItemText(m_hwnd, IDC_TEXTSTATUS, buf);
 				SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
@@ -684,11 +672,7 @@ void CSVNPropertyPage::InitWorkfileView()
 						ListView_InsertItem(lvh, &lvitem);
 						temp = props.GetItemValue(i);
 						//treat values as normal text even if they're not
-#ifdef UNICODE
 						stemp = MultibyteToWide((char *)temp.c_str());
-#else
-						stemp = temp;
-#endif
 						propmap[props.GetItemName(i)] = stemp;
 						for (int ii=0; ii<(int)stemp.length(); ++ii)
 						{
@@ -704,11 +688,7 @@ void CSVNPropertyPage::InitWorkfileView()
 				ListView_SetColumnWidth(lvh, 0, LVSCW_AUTOSIZE_USEHEADER);
 				ListView_SetColumnWidth(lvh, 1, LVSCW_AUTOSIZE_USEHEADER);
 				if (svn.status->entry->lock_owner)
-#ifdef UNICODE
 					SetDlgItemText(m_hwnd, IDC_LOCKOWNER, UTF8ToWide(svn.status->entry->lock_owner).c_str());
-#else
-					SetDlgItemText(m_hwnd, IDC_LOCKOWNER, svn.status->entry->lock_owner);
-#endif
 				time = (__time64_t)svn.status->entry->lock_creation_date/1000000L;
 				Time64ToTimeString(time, buf);
 				SetDlgItemText(m_hwnd, IDC_LOCKDATE, buf);
@@ -738,7 +718,7 @@ void CSVNPropertyPage::InitWorkfileView()
 			MAKESTRING(IDS_PROPVALUE);
 			lcol2.pszText = stringtablebuffer;
 			ListView_InsertColumn(lvh, 1, &lcol2);
-		} // if (Header_GetItemCount(header)<=0)
+		}
 		if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
 		{
 			if (svn.status->entry != NULL)
@@ -747,22 +727,17 @@ void CSVNPropertyPage::InitWorkfileView()
 				if (svn.status->entry->url)
 				{
 					Unescape((char*)svn.status->entry->url);
-#ifdef UNICODE
 					_tcsncpy(tbuf, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
-#else
-					_tcsncpy(tbuf, svn.status->entry->url, 4095);
-#endif
-					//Unescape(tbuf);
 					TCHAR * ptr = _tcsrchr(tbuf, '/');
 					if (ptr != 0)
 					{
 						*ptr = 0;
 					}
 					SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
-				} // if (svn.status->entry->url) 
+				}
 				SetDlgItemText(m_hwnd, IDC_LOCKED, _T(""));
-			} // if (svn.status->entry != NULL)
-		} // if (svn.GetStatus(filenames.front().c_str())>(-2))
+			}
+		}
 
 		//read all properties of all selected files
 		//compare the properties and show _only_ those
@@ -777,11 +752,7 @@ void CSVNPropertyPage::InitWorkfileView()
 				prop.name = props.GetItemName(i);
 				prop.value = props.GetItemValue(i);
 				stdstring stemp;
-#ifdef UNICODE
 				stemp = MultibyteToWide((char *)prop.value.c_str());
-#else
-				stemp = prop.value;
-#endif
 				prop.value = stemp;
 				prop.count = 1;
 				BOOL found = FALSE;

@@ -98,22 +98,14 @@ stdstring SVNStatus::GetLastErrorMsg()
 		svn_error_t * ErrPtr = m_err;
 		if (ErrPtr->message)
 		{
-#ifdef UNICODE
 			msg = CUnicodeUtils::StdGetUnicode(ErrPtr->message);
-#else
-			msg = ErrPtr->message;
-#endif
 		}
 		else
 		{
 			/* Is this a Subversion-specific error code? */
 			if ((ErrPtr->apr_err > APR_OS_START_USEERR)
 				&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-#ifdef UNICODE
 				msg = CUnicodeUtils::StdGetUnicode(svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)));
-#else
-				msg = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
-#endif
 			/* Otherwise, this must be an APR error code. */
 			else
 			{
@@ -127,11 +119,7 @@ stdstring SVNStatus::GetLastErrorMsg()
 				}
 				else
 				{
-#ifdef UNICODE
 					msg = CUnicodeUtils::StdGetUnicode(err_string);
-#else
-					msg = err_string;
-#endif
 				}
 			}
 
@@ -141,12 +129,8 @@ stdstring SVNStatus::GetLastErrorMsg()
 		{
 			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
-#ifdef UNICODE
 			msg += CUnicodeUtils::StdGetUnicode(ErrPtr->message);
-#else
-			msg += ErrPtr->message;
-#endif
-		} // while (m_err->child)
+		}
 		return msg;
 	} // if (m_err != NULL)
 	return msg;
@@ -485,13 +469,8 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
 	ULONG nResourceSize;
 	HGLOBAL hGlobal;
 	UINT iIndex;
-#ifndef UNICODE
-	BOOL defaultCharUsed;
-#endif
 	int ret;
-#ifdef UNICODE
-	UNREFERENCED_PARAMETER(nBufferMax);
-#endif
+
 	HRSRC hResource =  FindResourceEx(hInstance, RT_STRING, MAKEINTRESOURCE(((uID>>4)+1)), wLanguage);
 	if (!hResource)
 	{
@@ -521,14 +500,17 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
 	if (pImage->nLength == 0)
 		return 0;
 
-#ifdef UNICODE
 	ret = pImage->nLength;
-	wcsncpy(lpBuffer, pImage->achString, pImage->nLength);
-	lpBuffer[ret] = 0;
-#else
-	ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);
-	lpBuffer[ret] = 0;
-#endif
+	if (pImage->nLength > nBufferMax)
+	{
+		wcsncpy(lpBuffer, pImage->achString, pImage->nLength-1);
+		lpBuffer[nBufferMax-1] = 0;
+	}
+	else
+	{
+		wcsncpy(lpBuffer, pImage->achString, pImage->nLength);
+		lpBuffer[ret] = 0;
+	}
 	return ret;
 }
 

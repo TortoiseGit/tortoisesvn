@@ -464,7 +464,6 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 			{
 				if (PatchLines.GetUnicodeType()==CFileTextLines::UTF8)
 				{
-#ifdef UNICODE
 					// convert the UTF-8 contents in CString sPatchLine into a CStringA
 					CStringA sPatchLineA;
 					char *pszPatchLine = sPatchLineA.GetBuffer(sPatchLine.GetLength());
@@ -475,9 +474,6 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 					*pszPatchLine = 0;
 					sPatchLineA.ReleaseBuffer();
 					sPatchLine = CUnicodeUtils::GetUnicode(sPatchLineA);
-#else
-					sPatchLine = CUnicodeUtils::GetUnicode(sPatchLine);
-#endif
 				}
 			}
 			int nPatchState = (int)chunk->arLinesStates.GetAt(j);

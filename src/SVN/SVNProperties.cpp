@@ -254,11 +254,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 #else
 		TCHAR string[1024];
 		LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-#ifdef UNICODE
 		std::string stringA = WideToMultibyte(wide_string(string));
-#else
-		std::string stringA = std::string(string);
-#endif
 		m_error = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
 		return FALSE;
@@ -278,11 +274,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 #else
 				TCHAR string[1024];
 				LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-#ifdef UNICODE
 				std::string stringA = WideToMultibyte(wide_string(string));
-#else
-				std::string stringA = std::string(string);
-#endif
 				m_error = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
 				return FALSE;

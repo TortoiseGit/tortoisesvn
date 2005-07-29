@@ -429,11 +429,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	memset (&ctx, 0, sizeof (ctx));
 
 	char *wc_utf8;
-#ifdef UNICODE
 	wc_utf8 = Utf16ToUtf8(wc, pool);
-#else
-	wc_utf8 = AnsiToUtf8(wc, pool);
-#endif
 	internalpath = svn_path_internal_style (wc_utf8, pool);
 
 	svnerr = svn_status(	internalpath,	//path

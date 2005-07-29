@@ -61,17 +61,9 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->csFlags = ColumnFlags;
 
 			MAKESTRING(IDS_COLTITLESTATUS);
-#ifdef UNICODE
 			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-#else
-			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
-#endif
 			MAKESTRING(IDS_COLDESCSTATUS);
-#ifdef UNICODE
 			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
-#else
-			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
-#endif
 			break;
 		case 1:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
@@ -82,17 +74,9 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->csFlags = SHCOLSTATE_TYPE_INT | SHCOLSTATE_ONBYDEFAULT;
 
 			MAKESTRING(IDS_COLTITLEREV);
-#ifdef UNICODE
 			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-#else
-			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
-#endif
 			MAKESTRING(IDS_COLDESCREV);
-#ifdef UNICODE
 			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
-#else
-			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
-#endif
 			break;
 		case 2:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
@@ -103,17 +87,9 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->csFlags = ColumnFlags;
 
 			MAKESTRING(IDS_COLTITLEURL);
-#ifdef UNICODE
 			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-#else
-			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
-#endif
 			MAKESTRING(IDS_COLDESCURL);
-#ifdef UNICODE
 			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
-#else
-			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
-#endif
 			break;
 		case 3:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
@@ -124,17 +100,9 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->csFlags = ColumnFlags;
 
 			MAKESTRING(IDS_COLTITLESHORTURL);
-#ifdef UNICODE
 			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-#else
-			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
-#endif
 			MAKESTRING(IDS_COLDESCSHORTURL);
-#ifdef UNICODE
 			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
-#else
-			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
-#endif
 			break;
 		case 4:
 			psci->scid.fmtid = FMTID_SummaryInformation;	// predefined FMTID
@@ -153,17 +121,9 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->csFlags = ColumnFlags;
 
 			MAKESTRING(IDS_COLTITLEMIMETYPE);
-#ifdef UNICODE
 			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-#else
-			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
-#endif
 			MAKESTRING(IDS_COLDESCMIMETYPE);
-#ifdef UNICODE
 			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
-#else
-			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
-#endif
 			break;
 		case 6:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
@@ -174,17 +134,9 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->csFlags = ColumnFlags;
 
 			MAKESTRING(IDS_COLTITLEOWNER);
-#ifdef UNICODE
 			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-#else
-			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
-#endif
 			MAKESTRING(IDS_COLDESCOWNER);
-#ifdef UNICODE
 			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
-#else
-			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
-#endif
 			break;
 		case 7:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
@@ -195,17 +147,9 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->csFlags = ColumnFlags;
 
 			MAKESTRING(IDS_COLTITLEAUTHOR);
-#ifdef UNICODE
 			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
-#else
-			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
-#endif
 			MAKESTRING(IDS_COLDESCAUTHOR);
-#ifdef UNICODE
 			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
-#else
-			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
-#endif
 			break;
 	}
 
@@ -219,12 +163,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 7) 
 	{
 		stdstring szInfo;
-#ifdef UNICODE
 		const TCHAR * path = (TCHAR *)pscd->wszFile;
-#else
-		std::string stdpath = WideToMultibyte(pscd->wszFile);
-		const TCHAR * path = stdpath.c_str();
-#endif
 
 		// reserve for the path + trailing \0
 
@@ -262,11 +201,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 					{
 						if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
 						{
-#ifdef UNICODE
 							szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
-#else
-							szInfo = props.GetItemValue(i);
-#endif
 						}
 					}
 				}
@@ -278,12 +213,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 			default:
 				return S_FALSE;
 		}
-#ifdef UNICODE
 		const WCHAR * wsInfo = szInfo.c_str();
-#else
-		wide_string stdwsInfo = MultibyteToWide(szInfo);
-		const WCHAR * wsInfo = stdwsInfo.c_str();
-#endif
 		V_VT(pvarData) = VT_BSTR;
 		V_BSTR(pvarData) = SysAllocString(wsInfo);
 		return S_OK;
@@ -291,12 +221,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 	if ((pscid->fmtid == FMTID_SummaryInformation)||(pscid->pid == 7))
 	{
 		stdstring szInfo;
-#ifdef UNICODE
 		const TCHAR * path = pscd->wszFile;
-#else
-		std::string stdpath = WideToMultibyte(pscd->wszFile);
-		const TCHAR * path = stdpath.c_str();
-#endif
 
 		switch (pscid->pid)
 		{
@@ -308,11 +233,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		default:
 			return S_FALSE;
 		}
-#ifdef UNICODE
 		wide_string wsInfo = szInfo;
-#else
-		wide_string wsInfo = MultibyteToWide(szInfo);
-#endif
 		V_VT(pvarData) = VT_BSTR;
 		V_BSTR(pvarData) = SysAllocString(wsInfo.c_str());
 		return S_OK;
@@ -327,11 +248,7 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 	// Should check to see if its a "SVN" folder and if not return E_FAIL
 
 	PreserveChdir preserveChdir;
-#ifdef UNICODE
 	std::wstring path = psci->wszFolder;
-#else
-	std::string path = WideToMultibyte(psci->wszFolder);
-#endif
 	if (!path.empty())
 	{
 		if (! g_ShellCache.HasSVNAdminDir(path.c_str(), TRUE))
@@ -358,22 +275,10 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL /*bIsDir*/)
 	else
 		return;	
 
-#ifdef UNICODE
 	columnauthor = UTF8ToWide(itemStatus.m_author);
-#else
-	columnauthor = itemStatus.m_author;
-#endif
 	columnrev = itemStatus.m_entry.cmt_rev;
-#ifdef UNICODE
 	itemurl = UTF8ToWide(itemStatus.m_url);
-#else
-	itemurl = itemStatus.m_url;
-#endif
-#ifdef UNICODE
 	owner = UTF8ToWide(itemStatus.m_owner);
-#else
-	owner = itemStatus.m_owner;
-#endif
 	TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
 
 	URL_COMPONENTS urlComponents;

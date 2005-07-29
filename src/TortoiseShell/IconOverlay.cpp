@@ -131,11 +131,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 
     // Add name of appropriate icon
     if (icon.empty() == false)
-#ifdef UNICODE
         wcsncpy (pwszIconFile, icon.c_str(), cchMax);
-#else
-        wcsncpy (pwszIconFile, MultibyteToWide(icon.c_str()).c_str(), cchMax);
-#endif		
     else
         return S_FALSE;
 
@@ -207,12 +203,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	bool lockedoverlay = false;
 	if (pwszPath == NULL)
 		return S_FALSE;
-#ifdef UNICODE
 	const TCHAR* pPath = pwszPath;
-#else
-	std::string snPath = WideToUTF8(std::basic_string<wchar_t>(pwszPath));
-	const TCHAR* pPath = snPath.c_str();
-#endif
 
 	// since the shell calls each and every overlay handler with the same filepath
 	// we use a small 'fast' cache of just one path here.
