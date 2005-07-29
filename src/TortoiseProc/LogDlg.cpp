@@ -33,6 +33,7 @@
 #include "Utils.h"
 #include "InsertControl.h"
 #include "FileDiffDlg.h"
+#include "SVNInfo.h"
 #include ".\logdlg.h"
 
 // CLogDlg dialog
@@ -956,7 +957,18 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_COMPARETWO:
 					{
 						//user clicked on the menu item "compare revisions"
-						if ((m_path.IsDirectory())||(!m_hasWC))
+						bool bIsDir = false;
+						if (SVN::PathIsURL(m_path.GetSVNPathString()))
+						{
+							POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+							PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+							SVNInfo info;
+							const SVNInfoData * data = info.GetFirstFileInfo(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), pLogEntry->dwRev, false);
+							bIsDir = (data->kind == svn_node_dir);
+						}
+						else
+							bIsDir = m_path.IsDirectory();
+						if (bIsDir)
 						{
 							POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 							PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
