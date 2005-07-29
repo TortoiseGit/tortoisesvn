@@ -406,7 +406,8 @@ void CSciEdit::CheckSpelling()
 			else
 				sWordA = CStringA(sWord);
 			// first check if the word is in our autocompletion list
-			if ((m_autolist.Find(sWord)<0)&&(!pChecker->spell(sWordA)))
+			if (((m_autolist.Find(sWord)<0)&&(!pChecker->spell(sWordA)))&&
+				(!_istdigit(sWord.GetAt(0))))
 			{
 				//mark word as misspelled
 				Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
