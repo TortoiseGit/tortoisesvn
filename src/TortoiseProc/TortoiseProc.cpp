@@ -58,6 +58,7 @@
 #include "SoundUtils.h"
 #include "libintl.h"
 #include "ShellUpdater.h"
+#include "SVNDiff.h"
 
 #include "..\version.h"
 
@@ -1005,7 +1006,8 @@ BOOL CTortoiseProcApp::InitInstance()
 				else
 				{
 					CTSVNPath temporaryFile;
-					SVN::DiffFileAgainstBase(cmdLinePath, temporaryFile);
+					SVNDiff diff;
+					diff.DiffFileAgainstBase(cmdLinePath, temporaryFile);
 				}
 			} 
 			else
@@ -1251,7 +1253,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region conflicteditor
 		if (command == cmdConflictEditor)
 		{
-			SVN::StartConflictEditor(cmdLinePath);
+			SVNDiff::StartConflictEditor(cmdLinePath);
 		} 
 		//#endregion
 		//#region relocate

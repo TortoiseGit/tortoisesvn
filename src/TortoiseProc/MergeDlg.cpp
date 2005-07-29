@@ -25,6 +25,7 @@
 #include "MessageBox.h"
 #include "registry.h"
 #include "Utils.h"
+#include "SVNDiff.h"
 #include ".\mergedlg.h"
 
 IMPLEMENT_DYNAMIC(CMergeDlg, CStandAloneDialog)
@@ -228,27 +229,9 @@ void CMergeDlg::OnBnClickedDiffbutton()
 		return;
 	AfxGetApp()->DoWaitCursor(1);
 	// create a unified diff of the merge
-	SVN svn;
-	CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("test.diff")));
-	if (m_bUseFromURL)
-	{
-		if (!svn.PegDiff(CTSVNPath(m_URLFrom), StartRev, StartRev, EndRev, TRUE, FALSE, FALSE, FALSE, CString(), tempfile))
-		{
-			CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			AfxGetApp()->DoWaitCursor(-1);
-			return;
-		}
-	}
-	else
-	{
-		if (!svn.Diff(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, TRUE, FALSE, FALSE, FALSE, CString(), tempfile))
-		{
-			CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			AfxGetApp()->DoWaitCursor(-1);
-			return;
-		}
-	}
-	CUtils::StartUnifiedDiffViewer(tempfile);
+	SVNDiff diff(NULL, this->m_hWnd);
+	diff.ShowUnifiedDiff(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, StartRev);
+	
 	AfxGetApp()->DoWaitCursor(-1);
 }
 

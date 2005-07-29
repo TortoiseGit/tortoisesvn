@@ -137,7 +137,6 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 	void	FillLogMessageCtrl(bool bShow = true);
-	BOOL	StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2, SVNRev pegrevision = SVNRev());
 	void	DoDiffFromLog(int selIndex, long rev);
 
 	DECLARE_MESSAGE_MAP()

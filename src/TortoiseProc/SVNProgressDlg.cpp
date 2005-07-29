@@ -27,7 +27,7 @@
 #include "Utils.h"
 #include "UnicodeUtils.h"
 #include "SoundUtils.h"
-
+#include "SVNDiff.h"
 
 // CSVNProgressDlg dialog
 
@@ -1062,14 +1062,15 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	if (data->bConflictedActionItem)
 	{
 		// We've double-clicked on a conflicted item - do a three-way merge on it
-		SVN::StartConflictEditor(data->path);
+		SVNDiff::StartConflictEditor(data->path);
 	}
 	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command)))
 	{
 		// This is a modified file which has been merged on update
 		// Diff it against base
 		CTSVNPath temporaryFile;
-		SVN::DiffFileAgainstBase(data->path, temporaryFile);
+		SVNDiff diff(this);
+		diff.DiffFileAgainstBase(data->path, temporaryFile);
 		if(!temporaryFile.IsEmpty())
 		{
 			m_templist.AddPath(temporaryFile);
@@ -1314,7 +1315,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							break;
 						case ID_EDITCONFLICT:
 							{
-								SVN::StartConflictEditor(data->path);
+								SVNDiff::StartConflictEditor(data->path);
 							}
 							break;
 						case ID_LOG:

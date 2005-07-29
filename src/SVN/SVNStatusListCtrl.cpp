@@ -27,6 +27,7 @@
 #include "SVNConfig.h"
 #include "SVNProperties.h"
 #include "SVN.h"
+#include "SVNDiff.h"
 #include "LogDlg.h"
 #include "SVNProgressDlg.h"
 #include "SysImageList.h"
@@ -34,6 +35,7 @@
 #include "TSVNPath.h"
 #include "Registry.h"
 #include "SVNStatus.h"
+#include "SVNDiff.h"
 #include "InputDlg.h"
 #include "ShellUpdater.h"
 #include ".\svnstatuslistctrl.h"
@@ -1623,26 +1625,12 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_GNUDIFF1:
 					{
-						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
-						m_tempFileList.AddPath(tempfile);
-						SVN svn;
+						SVNDiff diff(NULL, this->m_hWnd, &m_tempFileList);
+						
 						if (entry->remotestatus <= svn_wc_status_normal)
-						{
-							if (!svn.Diff(entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
-							{
-								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								break;		//exit
-							}
-						}
+							diff.ShowUnifiedDiff(entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC);
 						else
-						{
-							if (!svn.PegDiff(entry->path, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
-							{
-								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								break;		//exit
-							}
-						}
-						CUtils::StartUnifiedDiffViewer(tempfile);
+							diff.ShowUnifiedDiff(entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD);
 					}
 					break;
 				case IDSVNLC_UPDATE:
@@ -1971,7 +1959,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					break;
 				case IDSVNLC_EDITCONFLICT:
-					SVN::StartConflictEditor(filepath);
+					SVNDiff::StartConflictEditor(filepath);
 					break;
 				case IDSVNLC_RESOLVECONFLICT:
 					{

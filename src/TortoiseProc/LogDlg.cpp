@@ -32,8 +32,8 @@
 #include "Registry.h"
 #include "Utils.h"
 #include "InsertControl.h"
-#include "FileDiffDlg.h"
 #include "SVNInfo.h"
+#include "SVNDiff.h"
 #include ".\logdlg.h"
 
 // CLogDlg dialog
@@ -790,22 +790,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
 						long rev = pLogEntry->dwRev;
 						this->m_bCancelled = FALSE;
-						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
-						m_tempFileList.AddPath(tempfile);
-						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
-						{
-							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							break;		//exit
-						}
-						else
-						{
-							if (CUtils::CheckForEmptyDiff(tempfile))
-							{
-								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
-								break;
-							}
-							CUtils::StartUnifiedDiffViewer(tempfile);
-						}
+						SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+						
+						diff.ShowUnifiedDiff(m_path, rev-1, m_path, rev);
 					}
 					break;
 				case ID_GNUDIFF2:
@@ -816,22 +803,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 						long rev2 = pLogEntry->dwRev;
 						this->m_bCancelled = FALSE;
-						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
-						m_tempFileList.AddPath(tempfile);
-						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
-						{
-							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							break;		//exit
-						}
-						else
-						{
-							if (CUtils::CheckForEmptyDiff(tempfile))
-							{
-								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
-								break;
-							}
-							CUtils::StartUnifiedDiffViewer(tempfile);
-						}
+
+						SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+						diff.ShowUnifiedDiff(m_path, rev2, m_path, rev1);
 					}
 					break;
 				case ID_REVERTREV:
@@ -908,112 +882,24 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						//now first get the revision which is selected
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
 						long rev = pLogEntry->dwRev;
-						if ((m_path.IsDirectory())||(!m_hasWC))
-						{
-							this->m_bCancelled = FALSE;
-							CTSVNPath tempfile = CUtils::GetTempFilePath();
-							m_tempFileList.AddPath(tempfile);
-							tempfile.AppendRawString(_T(".diff"));
-							m_tempFileList.AddPath(tempfile);
-							if (!PegDiff(m_path, SVNRev(rev), SVNRev::REV_WC, rev, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
-							{
-								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								break;		//exit
-							} 
-							else
-							{
-								if (CUtils::CheckForEmptyDiff(tempfile))
-								{
-									CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
-									break;
-								}
-								CString sWC, sRev;
-								sWC.LoadString(IDS_DIFF_WORKINGCOPY);
-								sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
-								CUtils::StartExtPatch(tempfile, m_path.GetDirectory(), sWC, sRev, TRUE);
-							}
-						}
-						else
-						{
-							CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
-							m_tempFileList.AddPath(tempfile);
-							SVN svn;
-							if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
-							{
-								CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
-								break;
-							} 
-							else
-							{
-								CString revname, wcname;
-								revname.Format(_T("%s Revision %ld"), (LPCTSTR)m_path.GetFilename(), rev);
-								wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)m_path.GetFilename());
-								CUtils::StartExtDiff(tempfile, m_path, revname, wcname);
-							}
-						}
+						this->m_bCancelled = FALSE;
+						SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, rev);
 					}
 					break;
 				case ID_COMPARETWO:
 					{
 						//user clicked on the menu item "compare revisions"
-						bool bIsDir = false;
-						if (SVN::PathIsURL(m_path.GetSVNPathString()))
-						{
-							POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-							PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-							SVNInfo info;
-							const SVNInfoData * data = info.GetFirstFileInfo(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), pLogEntry->dwRev, false);
-							bIsDir = (data->kind == svn_node_dir);
-						}
-						else
-							bIsDir = m_path.IsDirectory();
-						if (bIsDir)
-						{
-							POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-							PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-						    long rev1 = pLogEntry->dwRev;
-						    pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-						    long rev2 = pLogEntry->dwRev;
-						
-							this->m_bCancelled = FALSE;
-							CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
-							m_tempFileList.AddPath(tempfile);
-							
-							// Instead of doing a full diff here, we maybe could just use the changed paths from all the
-							// log messages between the two selected revisions? Of course, we then would need to ask
-							// for the repository root to get full URL's to the changed files, and filter out folders
-							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
-							{
-								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								break;		//exit
-							}
-							else
-							{
-								if (CUtils::CheckForEmptyDiff(tempfile))
-								{
-									CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
-									break;
-								}
-								CFileDiffDlg fdlg;
-								if (m_hasWC)
-									fdlg.SetUnifiedDiff(CTSVNPath(tempfile), CString());
-								else
-									fdlg.SetUnifiedDiff(CTSVNPath(tempfile), m_path.GetSVNPathString());
-								fdlg.DoModal();
-							}
-						}
-						else
-						{
-							//now first get the revisions which are selected
-							POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-                            PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-						    long rev1 = pLogEntry->dwRev;
-						    pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-						    long rev2 = pLogEntry->dwRev;
-						    
-							StartDiff(m_path, rev1, m_path, rev2, SVNRev::REV_HEAD);
-						}
+						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long rev1 = pLogEntry->dwRev;
+						pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long rev2 = pLogEntry->dwRev;
+						m_bCancelled = FALSE;
+
+						SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+
+						diff.ShowCompare(m_path, rev2, m_path, rev1);
 					}
 					break;
 				case ID_SAVEAS:
@@ -1798,60 +1684,11 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	firstfile = filepath + firstfile.Trim();
 	secondfile = filepath + secondfile.Trim();
 
-	StartDiff(CTSVNPath(firstfile), rev, CTSVNPath(secondfile), fromrev);
+	SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev);
+
 	theApp.DoWaitCursor(-1);
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
-}
-
-BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2, SVNRev pegrevision /*= SVNRev()*/)
-{
-	CTSVNPath tempfile1 = CUtils::GetTempFilePath(path1);
-	// The mere process of asking for a temp file creates it as a zero length file
-	// We need to clean these up after us
-	m_tempFileList.AddPath(tempfile1); 
-	CTSVNPath tempfile2 = CUtils::GetTempFilePath(path2);
-	m_tempFileList.AddPath(tempfile2);
-
-	CProgressDlg progDlg;
-	if (progDlg.IsValid())
-	{
-		progDlg.SetTitle(IDS_PROGRESSWAIT);
-		progDlg.ShowModeless(this);
-		progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)path1.GetUIPathString());
-		progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev1);
-	}
-	m_bCancelled = FALSE;
-	SetPromptApp(&theApp);
-	theApp.DoWaitCursor(1);
-	if (!Cat(path1, pegrevision.IsValid() ? pegrevision : rev1, rev1, tempfile1))
-	{
-		theApp.DoWaitCursor(-1);
-		CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-		return FALSE;
-	}
-	if (progDlg.IsValid())
-	{
-		progDlg.SetProgress(1, 2);
-		progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)path2.GetUIPathString());
-		progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
-	}
-
-	if (!Cat(path2, pegrevision.IsValid() ? pegrevision : rev2, rev2, tempfile2))
-	{
-		theApp.DoWaitCursor(-1);
-		CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-		return FALSE;
-	}
-	if (progDlg.IsValid())
-	{
-		progDlg.SetProgress(2,2);
-		progDlg.Stop();
-	}
-	theApp.DoWaitCursor(-1);
-	CString revname1, revname2;
-	revname1.Format(_T("%s Revision %ld"), (LPCTSTR)path1.GetFileOrDirectoryName(), rev1);
-	revname2.Format(_T("%s Revision %ld"), (LPCTSTR)path2.GetFileOrDirectoryName(), rev2);
-	return CUtils::StartExtDiff(tempfile2, tempfile1, revname2, revname1);
 }
 
 void CLogDlg::EditAuthor(int index)

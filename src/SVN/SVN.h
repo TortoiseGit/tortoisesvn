@@ -566,17 +566,6 @@ public:
 	* Set the MFC Application object for a prompt dialog
 	*/
 	void SetPromptApp(CWinApp* pWinApp);
-	/**
-	* Do the conflict-resolving 3-way merge on the specified file
-	*/
-	static void StartConflictEditor(const CTSVNPath& conflictedFilePath);
-
-	/**
-	* Diff a single file against its text-base
-    *\param filePath The file to diff
-	*\param temporaryFile If the function creates a temporary file, the name will be returned here
-	*/
-	static BOOL DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporaryFile);
 
 	static CString GetErrorString(svn_error_t * Err);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);

@@ -26,8 +26,8 @@
 #include "Utils.h"
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
-#include "FileDiffDlg.h"
 #include "SVNInfo.h"
+#include "SVNDiff.h"
 #include ".\revisiongraphdlg.h"
 
 #ifdef _DEBUG
@@ -1319,39 +1319,54 @@ void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 void CRevisionGraphDlg::CompareRevs(bool bHead)
 {
-	CString sRoot;
-	bool bIsFolder = true;
-	CTSVNPath tempfile = DoUnifiedDiff(bHead, sRoot, bIsFolder);
-	if (tempfile.IsEmpty())
-		return;
+	ASSERT(m_lSelectedRev1 >= 0);
+	ASSERT(m_lSelectedRev2 >= 0);
 
-	CFileDiffDlg dlg;
-	if (bIsFolder)
-	{
-		dlg.SetUnifiedDiff(tempfile, sRoot);
-	}
+	CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
+	CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+
+	SVN svn;
+	CString sRepoRoot;
+	if (SVN::PathIsURL(m_sPath))
+		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
 	else
-	{
-		CFileDiffDlg::FileDiff filediff;
-		CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
-		CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
-		filediff.rev1 = entry1->revision;
-		filediff.rev2 = entry2->revision;
-		filediff.url1 = sRoot+CUnicodeUtils::GetUnicode(entry1->url);
-		filediff.url2 = sRoot+CUnicodeUtils::GetUnicode(entry2->url);
-		dlg.AddFile(filediff);
-	}
-	dlg.DoModal();
+		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(svn.GetURLFromPath(CTSVNPath(m_sPath))));
+
+	CTSVNPath url1;
+	CTSVNPath url2;
+	url1.SetFromSVN(sRepoRoot+CString(entry1->url));
+	url2.SetFromSVN(sRepoRoot+CString(entry2->url));
+
+	SVNDiff diff(&svn, this->m_hWnd);
+	diff.ShowCompare(url1, (bHead ? SVNRev::REV_HEAD : entry1->revision),
+		url2, (bHead ? SVNRev::REV_HEAD : entry2->revision),
+		entry1->revision);
 }
 
 void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
 {
-	CString dummy;
-	bool bIsFolder = true;
-	CTSVNPath tempfile = DoUnifiedDiff(bHead, dummy, bIsFolder);
-	if (tempfile.IsEmpty())
-		return;
-	CUtils::StartUnifiedDiffViewer(tempfile);
+	ASSERT(m_lSelectedRev1 >= 0);
+	ASSERT(m_lSelectedRev2 >= 0);
+
+	CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
+	CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+
+	SVN svn;
+	CString sRepoRoot;
+	if (SVN::PathIsURL(m_sPath))
+		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
+	else
+		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(svn.GetURLFromPath(CTSVNPath(m_sPath))));
+
+	CTSVNPath url1;
+	CTSVNPath url2;
+	url1.SetFromSVN(sRepoRoot+CString(entry1->url));
+	url2.SetFromSVN(sRepoRoot+CString(entry2->url));
+
+	SVNDiff diff(&svn, this->m_hWnd);
+	diff.ShowUnifiedDiff(url1, (bHead ? SVNRev::REV_HEAD : entry1->revision),
+						 url2, (bHead ? SVNRev::REV_HEAD : entry2->revision),
+						 entry1->revision);
 }
 
 CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder)
