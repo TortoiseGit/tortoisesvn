@@ -23,6 +23,7 @@
 #include ".\checkforupdatesdlg.h"
 #include "Registry.h"
 #include "Utils.h"
+#include "TempFile.h"
 
 
 // CCheckForUpdatesDlg dialog
@@ -95,7 +96,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
 	m_bThreadRunning = TRUE;
 
 	CString temp;
-	CString tempfile = CUtils::GetTempFile();
+	CString tempfile = CTempFiles::Instance().GetTempFilePath(true).GetWinPathString();
 
 	HRESULT res = URLDownloadToFile(NULL, _T("http://tortoisesvn.tigris.org/version.txt"), tempfile, 0, NULL);
 	if (res == S_OK)

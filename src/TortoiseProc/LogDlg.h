@@ -191,7 +191,6 @@ private:
 	int					m_nSearchIndex;
 	static const UINT	m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
-	CTSVNPathList		m_tempFileList;
 	CFont				m_logFont;
 	CString				m_sMessageBuf;
 	CSplitterControl	m_wndSplitter1;

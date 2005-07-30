@@ -24,6 +24,7 @@
 #include "MessageBox.h"
 #include "SVN.h"
 #include "Utils.h"
+#include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
 #include "SVNInfo.h"
@@ -1362,7 +1363,7 @@ void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
 CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder)
 {
 	theApp.DoWaitCursor(1);
-	CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("test.diff")));
+	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(_T("test.diff")));
 	// find selected objects
 	ASSERT(m_lSelectedRev1 >= 0);
 	ASSERT(m_lSelectedRev2 >= 0);

@@ -20,6 +20,7 @@
 #include "resource.h"
 #include "..\TortoiseShell\resource.h"
 #include "utils.h"
+#include "TempFile.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"
 #include "UnicodeUtils.h"
@@ -29,11 +30,11 @@
 #include "ProgressDlg.h"
 #include ".\svndiff.h"
 
-SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, CTSVNPathList * pTempFileList /* = NULL */) :
+SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */) :
 	m_bDeleteSVN(false),
 	m_pSVN(NULL),
 	m_hWnd(NULL),
-	m_pTempFileList(NULL)
+	m_bRemoveTempFiles(false)
 {
 	if (pSVN)
 		m_pSVN = pSVN;
@@ -43,7 +44,7 @@ SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, CTSVNPathList 
 		m_bDeleteSVN = true;
 	}
 	m_hWnd = hWnd;
-	m_pTempFileList = pTempFileList;
+	m_bRemoveTempFiles = bRemoveTempFiles;
 }
 
 SVNDiff::~SVNDiff(void)
@@ -87,15 +88,13 @@ bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 	return !!CUtils::StartExtMerge(base,theirs,mine,merge);
 }
 
-bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporaryFile)
+bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath)
 {
 	CTSVNPath basePath(SVN::GetPristinePath(filePath));
 	// If necessary, convert the line-endings on the file before diffing
 	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
 	{
-		temporaryFile = CUtils::GetTempFilePath(filePath);
-		if (m_pTempFileList)
-			m_pTempFileList->AddPath(temporaryFile);
+		CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath);
 		if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
 		{
 			temporaryFile.Reset();
@@ -115,9 +114,7 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporar
 
 bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev() */)
 {
-	tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
-	if (m_pTempFileList)
-		m_pTempFileList->AddPath(tempfile);
+	tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(_T("Test.diff")));
 	bool bIsUrl = !!SVN::PathIsURL(url1.GetSVNPathString());
 	
 	if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
@@ -164,7 +161,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 	{
 		// no working copy path!
 		
-		tempfile = CUtils::GetTempFilePath(url1);		
+		tempfile = CTempFiles::Instance().GetTempFilePath(true, url1);		
 		// first find out if the url points to a file or dir
 		SVNInfo info;
 		const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : SVNRev::REV_HEAD), rev1, false);
@@ -226,14 +223,8 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		else
 		{
 			// diffing two revs of a file, so cat two files
-			CTSVNPath tempfile1 = CUtils::GetTempFilePath(url1);
-			CTSVNPath tempfile2 = CUtils::GetTempFilePath(url2);
-
-			if (m_pTempFileList)
-			{
-				m_pTempFileList->AddPath(tempfile1);
-				m_pTempFileList->AddPath(tempfile2);
-			}
+			CTSVNPath tempfile1 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1);
+			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url2);
 
 			CProgressDlg progDlg;
 			progDlg.SetTitle(IDS_PROGRESSWAIT);
@@ -279,9 +270,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		else
 		{
 			ASSERT(rev1.IsWorking());
-			tempfile = CUtils::GetTempFilePath(url1);
-			if (m_pTempFileList)
-				m_pTempFileList->AddPath(tempfile);
+			tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1);
 			if (!m_pSVN->Cat(url1, (peg.IsValid() ? peg : SVNRev::REV_WC), rev2, tempfile))
 			{
 				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

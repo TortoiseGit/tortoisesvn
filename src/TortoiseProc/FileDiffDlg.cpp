@@ -21,6 +21,7 @@
 #include "UnicodeUtils.h"
 #include "MessageBox.h"
 #include "Utils.h"
+#include "TempFile.h"
 #include "ProgressDlg.h"
 #include ".\filediffdlg.h"
 
@@ -35,7 +36,6 @@ CFileDiffDlg::CFileDiffDlg(CWnd* pParent /*=NULL*/)
 
 CFileDiffDlg::~CFileDiffDlg()
 {
-	m_tempFileList.DeleteAllFiles();
 }
 
 void CFileDiffDlg::DoDataExchange(CDataExchange* pDX)
@@ -201,8 +201,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		rev1 = 0;
 	if (rev2 < 0)
 		rev2 = 0;
-	CTSVNPath tempfile = CUtils::GetTempFilePath(url1);
-	m_tempFileList.AddPath(tempfile);
+	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, url1);
 	CString sTemp;
 	CProgressDlg progDlg;
 	progDlg.SetTitle(IDS_PROGRESSWAIT);
@@ -218,8 +217,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	progDlg.SetProgress(1, 2);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
 	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
-	CTSVNPath tempfile2 = CUtils::GetTempFilePath(url2);
-	m_tempFileList.AddPath(tempfile2);
+	CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, url2);
 	if ((rev2 > 0)&&(!m_SVN.Cat(url2, fd.rev2, fd.rev2, tempfile2)))
 	{
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

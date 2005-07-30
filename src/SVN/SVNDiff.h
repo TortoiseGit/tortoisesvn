@@ -31,7 +31,7 @@
 class SVNDiff
 {
 public:
-	SVNDiff(SVN * pSVN = NULL, HWND hWnd = NULL, CTSVNPathList * pTempFileList = NULL);
+	SVNDiff(SVN * pSVN = NULL, HWND hWnd = NULL, bool bRemoveTempFiles = false);
 	~SVNDiff(void);
 
 	/**
@@ -42,9 +42,8 @@ public:
 	/**
 	 * Diff a single file against its text-base
 	 *\param filePath The file to diff
-	 *\param temporaryFile If the function creates a temporary file, the name will be returned here
 	 */
-	bool DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporaryFile);
+	bool DiffFileAgainstBase(const CTSVNPath& filePath);
 
 	/**
 	 * Produces a unified diff of the \a url1 in \a rev1 and \a url2 in \a rev2 and shows
@@ -88,5 +87,5 @@ private:
 	SVN *			m_pSVN;
 	bool			m_bDeleteSVN;
 	HWND			m_hWnd;
-	CTSVNPathList * m_pTempFileList;
+	bool			m_bRemoveTempFiles;
 };

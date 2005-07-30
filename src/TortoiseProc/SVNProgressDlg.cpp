@@ -25,6 +25,7 @@
 #include "Registry.h"
 #include "SVNStatus.h"
 #include "Utils.h"
+#include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "SoundUtils.h"
 #include "SVNDiff.h"
@@ -54,7 +55,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 
 CSVNProgressDlg::~CSVNProgressDlg()
 {
-	m_templist.DeleteAllFiles();
 	for (size_t i=0; i<m_arData.size(); i++)
 	{
 		delete m_arData[i];
@@ -1069,12 +1069,8 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		// This is a modified file which has been merged on update
 		// Diff it against base
 		CTSVNPath temporaryFile;
-		SVNDiff diff(this);
-		diff.DiffFileAgainstBase(data->path, temporaryFile);
-		if(!temporaryFile.IsEmpty())
-		{
-			m_templist.AddPath(temporaryFile);
-		}
+		SVNDiff diff(this, this->m_hWnd, true);
+		diff.DiffFileAgainstBase(data->path);
 	}
 }
 
@@ -1295,8 +1291,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 						case ID_COMPARE:
 							{
-								CTSVNPath tempfile = CUtils::GetTempFilePath(data->path);
-								m_templist.AddPath(tempfile);
+								CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, data->path);
 								SVN svn;
 								if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), m_nUpdateStartRev, tempfile))
 								{

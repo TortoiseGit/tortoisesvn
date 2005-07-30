@@ -32,46 +32,6 @@ CUtils::~CUtils(void)
 {
 }
 
-CString CUtils::GetTempFile(const CString& origfilename)
-{
-	DWORD len = ::GetTempPath(0, NULL);
-	TCHAR * path = new TCHAR[len+1];
-	TCHAR * tempF = new TCHAR[len+50];
-	::GetTempPath (len+1, path);
-	CString tempfile;
-	if (origfilename.IsEmpty())
-	{
-		::GetTempFileName (path, TEXT("svn"), 0, tempF);
-		tempfile = CString(tempF);
-	}
-	else
-	{
-		int i=0;
-		do
-		{
-			tempfile.Format(_T("%ssvn%3.3x.tmp%s"), path, i, (LPCTSTR)CUtils::GetFileExtFromPath(origfilename));
-			i++;
-		} while (PathFileExists(tempfile));
-	}
-	//now create the tempfile, so that subsequent calls to GetTempFile() return
-	//different filenames.
-	HANDLE hFile = CreateFile(tempfile, GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
-	CloseHandle(hFile);
-	delete path;
-	delete tempF;
-	return tempfile;
-}
-
-CTSVNPath CUtils::GetTempFilePath(const CTSVNPath& origfilename)
-{
-	return CTSVNPath(GetTempFile(origfilename.GetWinPathString()));
-}
-CTSVNPath CUtils::GetTempFilePath()
-{
-	return CTSVNPath(GetTempFile());
-}
-
-
 BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
 						   		const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname)
 {

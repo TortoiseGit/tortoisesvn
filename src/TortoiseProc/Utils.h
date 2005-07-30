@@ -83,13 +83,6 @@ public:
 	static BOOL StartTextViewer(CString file);
 
 	/**
-	 * Returns a path to a temporary file
-	 */
-	static CString GetTempFile(const CString& origfilename = CString());
-	static CTSVNPath GetTempFilePath(const CTSVNPath& origfilename);
-	static CTSVNPath GetTempFilePath();
-
-	/**
 	 * Replaces escaped sequences with the corresponding characters in a string.
 	 */
 	static void Unescape(char * psz);

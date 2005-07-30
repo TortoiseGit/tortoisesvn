@@ -31,6 +31,7 @@
 #include "SVNHelpers.h"
 #include "SVNStatus.h"
 #include "Utils.h"
+#include "TempFile.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -795,7 +796,7 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 	CTSVNPath workingErrorFile;
 	if (errorfile.IsEmpty())
 	{
-		workingErrorFile = CUtils::GetTempFilePath();
+		workingErrorFile = CTempFiles::Instance().GetTempFilePath(true);
 		del = TRUE;
 	}
 	else
@@ -858,7 +859,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 	CTSVNPath workingErrorFile;
 	if (errorfile.IsEmpty())
 	{
-		workingErrorFile = CUtils::GetTempFilePath();
+		workingErrorFile = CTempFiles::Instance().GetTempFilePath(true);
 		del = TRUE;
 	}
 	else

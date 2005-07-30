@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 #include "UnicodeUtils.h"
 #include "Utils.h"
+#include "TempFile.h"
 #include "StringUtils.h"
 #include "DirFileEnum.h"
 #include "SVNConfig.h"
@@ -93,7 +94,6 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 
 CSVNStatusListCtrl::~CSVNStatusListCtrl()
 {
-	m_tempFileList.DeleteAllFiles();
 	ClearStatusArray();
 }
 
@@ -1623,7 +1623,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_GNUDIFF1:
 					{
-						SVNDiff diff(NULL, this->m_hWnd, &m_tempFileList);
+						SVNDiff diff(NULL, this->m_hWnd, true);
 						
 						if (entry->remotestatus <= svn_wc_status_normal)
 							diff.ShowUnifiedDiff(entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC);
@@ -2109,7 +2109,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 
 	if (entry->remotestatus > svn_wc_status_normal)
 	{
-		remotePath = CUtils::GetTempFilePath(entry->path);
+		remotePath = CTempFiles::Instance().GetTempFilePath(true, entry->path);
 
 		SVN svn;
 		if (!svn.Cat(entry->path, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD, remotePath))
@@ -2117,18 +2117,16 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 			CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;
 		}
-		m_tempFileList.AddPath(remotePath);
 	}
 
 	wcPath = entry->path;
 	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
 	{
-		CTSVNPath temporaryFile = CUtils::GetTempFilePath(wcPath);
+		CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(true, wcPath);
 		SVN svn;
 		if (svn.Cat(entry->path, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
 		{
 			basePath = temporaryFile;
-			m_tempFileList.AddPath(basePath);
 		}
 	}
 

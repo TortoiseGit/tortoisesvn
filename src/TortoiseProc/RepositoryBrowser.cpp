@@ -33,6 +33,7 @@
 #include "CheckoutDlg.h"
 #include "SVNProgressDlg.h"
 #include "Utils.h"
+#include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "BrowseFolder.h"
 #include "SVNDiff.h"
@@ -574,7 +575,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							break;
 						}
 					}
-					CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(url));
+					CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(url));
 					CWaitCursorEx wait_cursor;
 					SVN svn;
 					svn.SetPromptApp(&theApp);

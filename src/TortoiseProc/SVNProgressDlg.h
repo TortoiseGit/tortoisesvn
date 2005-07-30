@@ -227,7 +227,6 @@ private:
 	CTSVNPathList m_targetPathList;
 	CTSVNPath	m_url;
 	CString		m_sMessage;
-	CTSVNPathList m_templist;
 	SVNRev		m_Revision;
 	LONG		m_nUpdateStartRev;
 	BOOL		m_bCancelled;

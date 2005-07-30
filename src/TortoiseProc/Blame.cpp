@@ -24,6 +24,7 @@
 #include "Registry.h"
 #include "Utils.h"
 #include "UnicodeUtils.h"
+#include "TempFile.h"
 
 
 void CStdioFileA::WriteString(LPCSTR lpsz)
@@ -126,7 +127,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 {
 	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	CString temp;
-	m_sSavePath = CUtils::GetTempFile();
+	m_sSavePath = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
 	if (m_sSavePath.IsEmpty())
 		return _T("");
 	temp = path.GetFileExtension();
@@ -163,7 +164,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	{
 		m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSLOGSTART);
 		m_progressDlg.SetProgress(0, m_highestrev);
-		logfile = CUtils::GetTempFile();
+		logfile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
 		if (!m_saveLog.Open(logfile, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate))
 		{
 			logfile.Empty();

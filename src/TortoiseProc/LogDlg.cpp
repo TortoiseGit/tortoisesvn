@@ -31,6 +31,7 @@
 #include "MessageBox.h"
 #include "Registry.h"
 #include "Utils.h"
+#include "TempFile.h"
 #include "InsertControl.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
@@ -63,7 +64,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 CLogDlg::~CLogDlg()
 {
 	m_bNoDispUpdates = true;
-	m_tempFileList.DeleteAllFiles();
 	m_logEntries.ClearAll();
 }
 
@@ -790,7 +790,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
 						long rev = pLogEntry->dwRev;
 						this->m_bCancelled = FALSE;
-						SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+						SVNDiff diff(this, this->m_hWnd, true);
 						
 						diff.ShowUnifiedDiff(m_path, rev-1, m_path, rev);
 					}
@@ -804,7 +804,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev2 = pLogEntry->dwRev;
 						this->m_bCancelled = FALSE;
 
-						SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+						SVNDiff diff(this, this->m_hWnd, true);
 						diff.ShowUnifiedDiff(m_path, rev2, m_path, rev1);
 					}
 					break;
@@ -883,7 +883,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
 						long rev = pLogEntry->dwRev;
 						this->m_bCancelled = FALSE;
-						SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+						SVNDiff diff(this, this->m_hWnd, true);
 						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, rev);
 					}
 					break;
@@ -897,7 +897,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev2 = pLogEntry->dwRev;
 						m_bCancelled = FALSE;
 
-						SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+						SVNDiff diff(this, this->m_hWnd, true);
 
 						diff.ShowCompare(m_path, rev2, m_path, rev1);
 					}
@@ -975,8 +975,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
                         long rev = pLogEntry->dwRev;
                         
-						CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
-						m_tempFileList.AddPath(tempfile);
+						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, m_path);
 						SVN svn;
 						if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
 						{
@@ -1347,8 +1346,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
 						filepath += changedpath->sPath;
 
-						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(filepath));
-						m_tempFileList.AddPath(tempfile);
+						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath));
 						SVN svn;
 						if (!svn.Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
 						{
@@ -1684,7 +1682,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	firstfile = filepath + firstfile.Trim();
 	secondfile = filepath + secondfile.Trim();
 
-	SVNDiff diff(this, this->m_hWnd, &m_tempFileList);
+	SVNDiff diff(this, this->m_hWnd, true);
 	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev);
 
 	theApp.DoWaitCursor(-1);

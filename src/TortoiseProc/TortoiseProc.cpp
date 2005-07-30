@@ -55,6 +55,7 @@
 #include "SVNStatus.h"
 #include "SVNInfo.h"
 #include "Utils.h"
+#include "TempFile.h"
 #include "SoundUtils.h"
 #include "libintl.h"
 #include "ShellUpdater.h"
@@ -1002,7 +1003,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					CTSVNPath temporaryFile;
 					SVNDiff diff;
-					diff.DiffFileAgainstBase(cmdLinePath, temporaryFile);
+					diff.DiffFileAgainstBase(cmdLinePath);
 				}
 			} 
 			else
@@ -1649,7 +1650,7 @@ CTortoiseProcApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, 
 	{
 		HWND hFileDialog = GetParent(hDlg);
 		
-		CString strFilename = CUtils::GetTempFile() + PATCH_TO_CLIPBOARD_PSEUDO_FILENAME;
+		CString strFilename = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString() + PATCH_TO_CLIPBOARD_PSEUDO_FILENAME;
 
 		CommDlg_OpenSave_SetControlText(hFileDialog, edt1, (LPCTSTR)strFilename);   
 
@@ -1742,7 +1743,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLi
 
 	CTSVNPath tempPatchFilePath;
 	if (bToClipboard)
-		tempPatchFilePath = CUtils::GetTempFilePath();
+		tempPatchFilePath = CTempFiles::Instance().GetTempFilePath(true);
 	else
 		tempPatchFilePath = savePath;
 
@@ -1786,10 +1787,6 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLi
 	}
 
 	progDlg.Stop();
-	if (bToClipboard)
-	{
-		DeleteFile(tempPatchFilePath.GetWinPath());
-	}
 	return TRUE;
 }
 

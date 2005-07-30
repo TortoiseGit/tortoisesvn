@@ -365,7 +365,6 @@ private:
 	FileEntryVector				m_arStatusArray;
 	std::vector<DWORD>			m_arListArray;
 	CTSVNPathList				m_ConflictFileList;
-	CTSVNPathList				m_tempFileList;
 	CTSVNPathList				m_StatusFileList;
 	CString						m_sLastError;
 

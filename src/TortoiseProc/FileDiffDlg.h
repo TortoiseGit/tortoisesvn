@@ -57,5 +57,4 @@ private:
 	CListCtrl			m_cFileList;
 	SVN					m_SVN;
 	CArray<FileDiff, FileDiff> m_arFileList;
-	CTSVNPathList		m_tempFileList;
 };
