@@ -33,6 +33,7 @@ CExceptionReport::CExceptionReport(PEXCEPTION_POINTERS ExceptionInfo, BSTR messa
    TCHAR szModName[_MAX_FNAME + 1];
    GetModuleFileName(NULL, szModName, _MAX_FNAME);
    m_sModule = szModName;
+   m_sCommandLine = GetCommandLine();
 }
 
 
@@ -340,6 +341,8 @@ CExceptionReport::CreateExceptionRecordNode(MSXML::IXMLDOMDocument* pDoc,
    BSTR codeName                    = ::SysAllocString(L"ExceptionCode");
    BSTR descName                    = ::SysAllocString(L"ExceptionDescription");
    BSTR addrName                    = ::SysAllocString(L"ExceptionAddress");
+   BSTR commandlineName				= ::SysAllocString(L"CommandLine");
+   
    VARIANT v;
    CString sAddr;
 
@@ -355,6 +358,15 @@ CExceptionReport::CreateExceptionRecordNode(MSXML::IXMLDOMDocument* pDoc,
    V_VT(&v)    = VT_BSTR;
    V_BSTR(&v)  = A2BSTR(m_sModule);
    pElement->setAttribute(modName, v);
+   // Recycle variant
+   SysFreeString(V_BSTR(&v));
+
+   //
+   // Set command line name attribute
+   //
+   V_VT(&v)    = VT_BSTR;
+   V_BSTR(&v)  = A2BSTR(m_sCommandLine);
+   pElement->setAttribute(commandlineName, v);
    // Recycle variant
    SysFreeString(V_BSTR(&v));
 

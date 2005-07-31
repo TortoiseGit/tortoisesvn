@@ -61,6 +61,7 @@ public:
    CString getExceptionAddr() { return m_sAddress; };
 
 private:
+   CString m_sCommandLine;
    CString m_sModule;
    CString m_sException;
    CString m_sAddress;
