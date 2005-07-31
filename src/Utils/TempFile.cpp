@@ -26,6 +26,7 @@ CTempFiles::CTempFiles(void)
 
 CTempFiles::~CTempFiles(void)
 {
+	m_TempFileList.DeleteAllFiles();
 }
 
 CTempFiles& CTempFiles::Instance()
@@ -52,7 +53,7 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
 		int i=0;
 		do
 		{
-			possibletempfile.Format(_T("%ssvn%3.3x.tmp%s"), path, i, (LPCTSTR)path.GetFileExtension());
+			possibletempfile.Format(_T("%ssvn%3.3x.tmp%s"), temppath, i, (LPCTSTR)path.GetFileExtension());
 			tempfile.SetFromWin(possibletempfile);
 			i++;
 		} while (PathFileExists(tempfile.GetWinPath()));
