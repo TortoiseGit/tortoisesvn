@@ -159,6 +159,10 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
 {
 	PreserveChdir preserveChdir;
+	if (!g_ShellCache.IsPathAllowed((TCHAR *)pscd->wszFile))
+	{
+		return S_FALSE;
+	}
 	LoadLangDll();
 	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 7) 
 	{
