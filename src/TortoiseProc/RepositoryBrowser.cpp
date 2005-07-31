@@ -86,7 +86,6 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOO
 
 CRepositoryBrowser::~CRepositoryBrowser()
 {
-	m_templist.DeleteAllFiles();
 }
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
@@ -877,13 +876,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPGNUDIFF:
 				{
-					SVNDiff diff(NULL, this->m_hWnd, &m_templist);
+					SVNDiff diff(NULL, this->m_hWnd, true);
 					diff.ShowUnifiedDiff(url1, GetRevision(), url2, GetRevision());
 				}
 				break;
 			case ID_POPDIFF:
 				{
-					SVNDiff diff(NULL, this->m_hWnd, &m_templist);
+					SVNDiff diff(NULL, this->m_hWnd, true);
 					diff.ShowCompare(url1, GetRevision(), url2, GetRevision(), SVNRev(), true, true);
 				}
 				break;

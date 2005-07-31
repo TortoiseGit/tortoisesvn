@@ -100,7 +100,6 @@ protected:
 	CRepositoryTree		m_treeRepository;
 	CRepositoryBar		m_barRepository;
 	CRepositoryBarCnr	m_cnrRepositoryBar;
-	CTSVNPathList		m_templist;
 
 private:
 	bool m_bStandAlone;
