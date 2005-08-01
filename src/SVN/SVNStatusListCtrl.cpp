@@ -1121,6 +1121,7 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 	if (m_bBlock)
 		return;
 
+	bool bSelected = (ListView_GetItemState(m_hWnd, pNMLV->iItem, LVIS_SELECTED) & LVIS_SELECTED);
 	int nListItems = GetItemCount();
 
 	m_bBlock = TRUE;
@@ -1128,21 +1129,27 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 	if (GetCheck(pNMLV->iItem))
 	{
 		CheckEntry(pNMLV->iItem, nListItems);
-		POSITION pos = GetFirstSelectedItemPosition();
-		int index;
-		while ((index = GetNextSelectedItem(pos)) >= 0)
+		if (bSelected)
 		{
-			CheckEntry(index, nListItems);
+			POSITION pos = GetFirstSelectedItemPosition();
+			int index;
+			while ((index = GetNextSelectedItem(pos)) >= 0)
+			{
+				CheckEntry(index, nListItems);
+			}
 		}
 	}
 	else
 	{
 		UncheckEntry(pNMLV->iItem, nListItems);
-		POSITION pos = GetFirstSelectedItemPosition();
-		int index;
-		while ((index = GetNextSelectedItem(pos)) >= 0)
+		if (bSelected)
 		{
-			UncheckEntry(index, nListItems);
+			POSITION pos = GetFirstSelectedItemPosition();
+			int index;
+			while ((index = GetNextSelectedItem(pos)) >= 0)
+			{
+				UncheckEntry(index, nListItems);
+			}
 		}
 	}
 	GetStatisticsString();

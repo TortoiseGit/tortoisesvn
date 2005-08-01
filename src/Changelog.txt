@@ -38,6 +38,8 @@
        See issue #139. (Stefan)
 - BUG: In the log dialog, 'Compare Revisions' didn't work if the log dialog
        was started from the repository browser for a single file. (Stefan)
+- BUG: The messageboxes didn't use the system colors which could make
+       them unreadable in high contrast color schemes. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for
