@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-27 10:21+0100\n"
+"PO-Revision-Date: 2005-08-01 12:15+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6456,7 +6456,7 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:140
 #: (para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
-msgstr "Sobald Sie auf OK klicken, wird die Übertragung zum Projektarchiv durchgeführt. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, wird TortoiseSVN die Daten in einem Schrit rekursiv übertragen. Sobald Sie einzelne Objekte abwählen, muss eine nicht-rekursive (<literal>-N</literal>) Übertragung durchgeführt werden. Dabei muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
+msgstr "Sobald Sie auf OK klicken, wird die Übertragung zum Projektarchiv durchgeführt. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, wird TortoiseSVN die Daten in einem Schritt rekursiv übertragen. Sobald Sie einzelne Objekte abwählen, muss eine nicht-rekursive (<literal>-N</literal>) Übertragung durchgeführt werden. Dabei muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
 
 #: source/en/tsvn_app_cli.xml:148
 #: (screen)
@@ -6671,7 +6671,7 @@ msgstr "Der erste Schritt ist eine Statusprüfung, die die Objekte in Ihrer Arbe
 #: source/en/tsvn_app_cli.xml:293
 #: (para)
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
-msgstr "Sobald Sie auf OK klicken, werden Ihre Änderungen rückgängig gemacht. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, führt TortoiseSVN die Aktion in einem Schrit rekursiv (<literal>-R</literal>) durch. Sobald Sie einzelne Objekte abwählen, muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
+msgstr "Sobald Sie auf OK klicken, werden Ihre Änderungen rückgängig gemacht. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, führt TortoiseSVN die Aktion in einem Schritt rekursiv (<literal>-R</literal>) durch. Sobald Sie einzelne Objekte abwählen, muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
 
 #: source/en/tsvn_app_cli.xml:300
 #: (screen)
@@ -6769,7 +6769,7 @@ msgstr "Revisionsnummer im Projektarchiv"
 #: source/en/tsvn_app_cli.xml:347
 #: (para)
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
-msgstr "Der Verzweigen/Markieren Dialog erzeugt eine Kopie im Projektarchiv. Es gibt drei options: <placeholder-1/>, die den drei Kommandozeilenparametern entsprechen."
+msgstr "Der Verzweigen/Markieren Dialog erzeugt eine Kopie im Projektarchiv. Es gibt drei Optionen: <placeholder-1/>, die den drei Kommandozeilenparametern entsprechen."
 
 #: source/en/tsvn_app_cli.xml:363
 #: (title)
@@ -6821,7 +6821,7 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:381
 #: (para)
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
-msgstr "Die <guibutton>Standard Diff</guibutton> Schaltfläche zeight die Diff Operation, die zum Zusammenführen verwendet wird."
+msgstr "Die <guibutton>Standard Diff</guibutton> Schaltfläche zeigt die Diff Operation, die zum Zusammenführen verwendet wird."
 
 #: source/en/tsvn_app_cli.xml:387
 #: (title)
@@ -6861,7 +6861,7 @@ msgstr "In beiden Fällen gilt: wenn <guilabel>Externals auslassen</guilabel> ge
 #: source/en/tsvn_app_cli.xml:412
 #: (title)
 msgid "Relocate"
-msgstr "Umplaztieren"
+msgstr "Umplatzieren"
 
 #: source/en/tsvn_app_cli.xml:413
 #: (screen)
@@ -6901,7 +6901,7 @@ msgstr "Hinzufügen"
 #: source/en/tsvn_app_cli.xml:430
 #: (para)
 msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
-msgstr "Wenn Sie einen Ordner makriert haben, durchsucht TortoiseSVN diesen rekursiv nach Objekten, die hinzugefügt werden können."
+msgstr "Wenn Sie einen Ordner markiert haben, durchsucht TortoiseSVN diesen rekursiv nach Objekten, die hinzugefügt werden können."
 
 #: source/en/tsvn_app_cli.xml:437
 #: (screen)
@@ -7072,7 +7072,7 @@ msgstr "Anzeigen / Zusammenführen"
 #: source/en/tme_ch02.xml:34
 #: (para)
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view. You can switch between those two views with the menu command <menuchoice><guimenu>View</guimenu><guimenuitem>Oneway Diff</guimenuitem></menuchoice>"
-msgstr "Wenn Sie Dateien vergleichen / zusammenführen möchten müssen Sie mindestens zwei der drei möglichen Pfade für <literal>Basis</literal>, <literal>Meiner</literal> und <literal>Deren</literal> eingeben. Wenn Sie nur zwei Dateien auswählen, wird TortoiseMerge ihnen die Unterschiede zwischen diesen Dateien anzeigen. Entweder in einem Fenster oder in zwei Fenstern nebeneinander. Sie können mit dem Menübefehl <menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Ein Fenster Diff</guimenuitem></menuchoice> zwischen den beiden Ansichts hin und her schalten."
+msgstr "Wenn Sie Dateien vergleichen / zusammenführen möchten müssen Sie mindestens zwei der drei möglichen Pfade für <literal>Basis</literal>, <literal>Meiner</literal> und <literal>Deren</literal> eingeben. Wenn Sie nur zwei Dateien auswählen, wird TortoiseMerge ihnen die Unterschiede zwischen diesen Dateien anzeigen. Entweder in einem Fenster oder in zwei Fenstern nebeneinander. Sie können mit dem Menübefehl <menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Ein Fenster Diff</guimenuitem></menuchoice> zwischen den beiden Ansichten hin und her schalten."
 
 #: source/en/tme_ch02.xml:48
 #: (title)
@@ -7182,7 +7182,7 @@ msgstr "<guibutton>Vorherige/Nächste Differenz</guibutton> springt direkt zum v
 #: source/en/tme_ch02.xml:186
 #: (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
-msgstr ""
+msgstr "Wenn Sie das in der zwei-Fenster Ansicht machen, wird Ihnen die Detailanzeige unten im Fenster, die Unterschiede innerhalb der ersten Zeile anzeigen, unabhängig davon, über welcher Zeile sich der Mauszeiger gerade befindet."
 
 #: source/en/tme_ch02.xml:193
 #: (para)
@@ -7192,17 +7192,17 @@ msgstr "<guibutton>Vorheriger/Nächster Konflikt</guibutton> springt direkt zum 
 #: source/en/tme_ch02.xml:200
 #: (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
-msgstr "<guibutton>Wechlse Ansicht</guibutton> wechselt zwischen Ein- und Zwei-Fenster Ansicht. Dieses Werkzeug ist im Drei-Fenster-Modus deaktiviert."
+msgstr "<guibutton>Wechsle Ansicht</guibutton> wechselt zwischen Ein- und Zwei-Fenster Ansicht. Diese Funktion ist im Drei-Fenster-Modus deaktiviert."
 
 #: source/en/tme_ch02.xml:207
 #: (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
-msgstr "<guibutton>einstellungen</guibutton> öffnet den Einstellungsdialog von TortoiseMerge's."
+msgstr "<guibutton>Einstellungen</guibutton> öffnet den Einstellungsdialog von TortoiseMerge."
 
 #: source/en/tme_ch02.xml:144
 #: (para)
 msgid "Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-1/>"
-msgstr "Unterhalb der Menüleiste befindet sich die Werkzeugleiste. Diese stellt einen einfachen Zugang zu den am meisten verwendeten Befehlen dar: <placeholder-1>"
+msgstr "Unterhalb der Menüleiste befindet sich die Werkzeugleiste. Diese stellt einen einfachen Zugang zu den am meisten verwendeten Befehlen dar: <placeholder-1/>"
 
 #: source/en/tme_ch02.xml:214
 #: (para)
@@ -7262,37 +7262,37 @@ msgstr "Einstellungen Hauptseite"
 #: source/en/tme_ch02.xml:326
 #: (para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
-msgstr ""
+msgstr "Die meisten Optionen auf dieser Seite sind selbsterklärend. Ein paar benötigen jedoch ergänzende Informationen."
 
 #: source/en/tme_ch02.xml:330
 #: (para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
-msgstr ""
+msgstr "<guilabel>Erstelle Sicherheitskopie</guilabel> benennt die Originaldatei in der Arbeitskopie in <literal>dateiname.bak</literal> um, bevor die Änderungen gespeichert werden."
 
 #: source/en/tme_ch02.xml:335
 #: (para)
 msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>Ignoriere Zeilenende</guilabel> verbirgt Änderungen, die nur in unterschiedlichen Zeilenumbrüchen bestehen."
 
 #: source/en/tme_ch02.xml:339
 #: (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
-msgstr ""
+msgstr "<guilabel>Ignoriere Groß- / Kleinschreibung</guilabel> verbirgt Groß- / Kleinbuchstaben Änderungen. Dies ist besonders nützlich bei Anwendungen wie Visual Basic, die die Schreibweise von Variablen ohne Warnung ändern."
 
 #: source/en/tme_ch02.xml:345
 #: (para)
 msgid "<guilabel>Compare Whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how subversion treats such changes)."
-msgstr ""
+msgstr "<guilabel>Vergleiche Leerzeichen</guilabel> hebt alle Änderungen in Leerzeichen und Einrückung als gelöschte / hinzugefügte Zeilen hervor (Subversion behandelt Änderungen in Leerzeichen so)."
 
 #: source/en/tme_ch02.xml:350
 #: (para)
 msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
-msgstr ""
+msgstr "<guilabel>Ignoriere führende Leerzeichen</guilabel> verbirgt Änderungen die nur aus Leerzeichen am Zeilenanfang bestehen. Leerzeichen-Änderungen innerhalb einer Zeile werden dort markiert und nicht als gelöschte / hinzugefügte Zeilen angezeigt."
 
 #: source/en/tme_ch02.xml:356
 #: (para)
 msgid "<guilabel>Ignore All Whitespaces</guilabel> hides all whitespace-only changes."
-msgstr ""
+msgstr "<guilabel>Ignoriere alle Leerzeichen</guilabel> verbirgt sämtliche Änderungen, die nur aus Leerzeichen bestehen."
 
 #: source/en/tme_ch02.xml:364
 #: (title)
@@ -7302,7 +7302,7 @@ msgstr "Einstellungen Farben"
 #: source/en/tme_ch02.xml:367
 #: (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
-msgstr ""
+msgstr "Auf dieser Seite können Sie die Hintergrundfarben zum Hervorheben der verschiedenen Änderungen einstellen."
 
 #: source/en/tme_ch02.xml:373
 #: (term)
@@ -7312,7 +7312,7 @@ msgstr "Normal"
 #: source/en/tme_ch02.xml:374
 #: (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
-msgstr ""
+msgstr "Alle nicht veränderten Zeilen oder Zeilen deren Änderungen verborgen wurden"
 
 #: source/en/tme_ch02.xml:379
 #: (term)
@@ -7342,7 +7342,7 @@ msgstr "Leer"
 #: source/en/tme_ch02.xml:392
 #: (listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr ""
+msgstr "Zeilen wurden in der gegenüberliegenden Seite hinzugefügt und keine entsprechende Zeile existiert in dieser Seite."
 
 #: source/en/tme_ch02.xml:398
 #: (term)
@@ -7352,7 +7352,7 @@ msgstr "Konflikt"
 #: source/en/tme_ch02.xml:399
 #: (listitem)
 msgid "Where the same line has been changed in both files."
-msgstr ""
+msgstr "Dieselbe Zeile wurde in beiden Dateien geändert."
 
 #: source/en/tme_ch02.xml:404
 #: (term)
@@ -7367,7 +7367,7 @@ msgstr "Ignoriere führende Leerzeichen"
 #: source/en/tme_ch02.xml:405
 #: (listitem)
 msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
-msgstr ""
+msgstr "Zeilen, die noch andere Unterschiede in Leerzeichen außer führenden Leerzeichen enthalten. Erscheint nur, wenn <placeholder-1/> gewählt ist."
 
 #: source/en/tme_ch02.xml:413
 #: (term)
@@ -7377,7 +7377,7 @@ msgstr "Leerzeichen Diff"
 #: source/en/tme_ch02.xml:414
 #: (listitem)
 msgid "In the case above, the actual whitespace difference is highlighted using this color."
-msgstr ""
+msgstr "Die Leerzeichen Differenzen aus dem vorstehenden Fall werden in dieser Farbe hervorgehoben."
 
 #: source/en/tme_ch01.xml:13
 #: (title)
