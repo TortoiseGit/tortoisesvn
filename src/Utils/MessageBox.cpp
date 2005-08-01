@@ -574,7 +574,9 @@ void CMessageBox::OnPaint()
 	
 	memDC.BitBlt(rect.left, rect.top, rect.Width(), rect.Height(), &dc, 0,0, SRCCOPY);
 
-	memDC.SetBkMode(TRANSPARENT); 
+	memDC.SetBkMode(TRANSPARENT);
+	memDC.SetBkColor(GetSysColor(COLOR_WINDOW));
+	memDC.SetTextColor(GetSysColor(COLOR_WINDOWTEXT)); 
 
 	//OnDrawBackground();
 	drawrect.DeflateRect(MESSAGEBOX_BORDERMARGINX, MESSAGEBOX_BORDERMARGINY);
