@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-24 13:08-0300\n"
+"PO-Revision-Date: 2005-08-02 09:57-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -859,11 +859,6 @@ msgstr "Opções de Comparação/Combinação Avançadas"
 #: ID:110
 msgid "Advanced Merge Settings"
 msgstr "Opções de Combinação (Merge) Avançadas"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "All"
-msgstr "Todos"
 
 # ID:3841,#:
 # ID:3841,
@@ -2040,6 +2035,15 @@ msgstr "Nome ou IP do servidor proxy"
 msgid "Empty"
 msgstr "Vazio"
 
+# Control-ID:1224,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr ""
+"Habilita o verificador ortográfico apenas quando\n"
+"a propriedade tsvn:projectlanguage estiver ativa."
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -2311,6 +2315,7 @@ msgstr "GDI+ não pôde criar um objeto bitmap. Você provavelmente não possui 
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "Geral"
 
@@ -2563,6 +2568,12 @@ msgstr "Incluir caminhos:"
 msgid "Initial Import"
 msgstr "Importação Inicial"
 
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Inline Whitespace Diff"
+msgstr "Comparação de espaços em branco"
+
 # Dlg-ID:161,
 #: Dlg-ID:161
 msgid "Input"
@@ -2685,6 +2696,12 @@ msgstr "Autor menos ativo:"
 #: ID:188
 msgid "Left View: "
 msgstr "Visão da Esquerda:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Line with whitespace diff"
+msgstr "Comparação de espaços em branco"
 
 # ID:3605,
 #: ID:3605
@@ -3018,6 +3035,11 @@ msgstr "Nenhuma messagem de erro."
 #: ID:3868
 msgid "No error occurred."
 msgstr "Não ocorreu nenhum erro."
+
+# ID:77,
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "Nenhum arquivo ou pasta foi alterado. Não há nada para ser revertido pelo TortoiseSVN!"
 
 # ID:77,
 #: ID:77
@@ -3628,11 +3650,27 @@ msgstr "Repositório"
 msgid "Repository Browser"
 msgstr "Navegador de Repositório"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "Solicita um nome de usuário e uma senha"
+
 # ID:8,
-#: ID:8
+#: Dlg-ID:207
+#, fuzzy
+msgid "Resolve"
+msgstr "Resolvido"
+
+# ID:8,
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "Resolvido"
+
+# ID:8,
+#: ID:8
+msgid "Resolved..."
+msgstr "Resolvido..."
 
 # ID:9,
 #: ID:9
@@ -4144,15 +4182,16 @@ msgstr "Exibir &histórico..."
 msgid "Show &overlays only in explorer"
 msgstr "Visualizar s&obreposições apenas no explorer"
 
-# Control-ID:1065,
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "Mostrar Barra de Comparação"
-
 # ID:113,
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "Mostrar Diferenças como Comparação &Unificada"
+
+# Control-ID:1065,
+#: Control-ID:1065
+#, fuzzy
+msgid "Show Line Diff Bar"
+msgstr "Mostrar Barra de Comparação em Linha"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -4781,11 +4820,6 @@ msgstr "Essa propriedade é permitida apenas para pastas, não em arquivos."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Essa propriedade não deve possuir múltiplas linhas. Apenas uma linha é permitida."
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "Comparação de Três Arquivos"
-
 # Control-ID:1222,
 #: Control-ID:1222
 msgid "Timeout in seconds to stop the autocompletion parsing"
@@ -4904,11 +4938,6 @@ msgstr "Tente uma \"Limpeza\". Se isso não funcionar, você precisa obter o mó
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "Ajustar o TortoiseSVN"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "Diferenças entre dois arquivos"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -5135,8 +5164,9 @@ msgstr "Use as APIs antigas para obter comentários"
 
 # Control-ID:1024,
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "Usar visualização em um painel por padrão"
+#, fuzzy
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Usar visualização em um painel por padrão para comparação de 2 arquivos"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5243,11 +5273,6 @@ msgstr "Aviso!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Comparação de espaços em branco"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "Espaços em Branco"
 
 # ID:151,
 #: Dlg-ID:158
@@ -5635,17 +5660,6 @@ msgstr "somente-leitura"
 #: ID:10
 msgid "replaced"
 msgstr "substituído"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "requests a username and a password"
-msgstr "solicita um nome de usuário e senha"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "save authentication"
-msgstr "salvar autenticação"
 
 # ID:14,
 #: ID:14
