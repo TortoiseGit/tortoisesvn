@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-07-26 13:49+0900\n"
+"PO-Revision-Date: 2005-08-02 12:40+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3008,6 +3008,11 @@ msgstr "에러 메시지가 유효하지 않습니다."
 #: ID:3868
 msgid "No error occurred."
 msgstr "오류 발생하지 않음."
+
+# ID:77,
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "마지막 커밋 이후로 추가되거나 변경된 것이 없으므로, 아무것도 되돌리지 않습니다."
 
 # ID:77,
 #: ID:77
