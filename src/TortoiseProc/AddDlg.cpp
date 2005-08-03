@@ -128,7 +128,7 @@ UINT CAddDlg::AddThread()
 	GetDlgItem(IDCANCEL)->EnableWindow(false);
 
 	m_addListCtrl.GetStatus(m_pathList);
-	m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS);
+	m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES, SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES);
 
 	GetDlgItem(IDOK)->EnableWindow(true);
 	GetDlgItem(IDCANCEL)->EnableWindow(true);
