@@ -564,7 +564,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateTheirBaseBoth;
 			m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesTheirBaseBoth;
 		}
-		m_pwndLeftView->m_sWindowName = _T("Theirs - ") + m_Data.m_theirFile.GetWindowName();
+		m_pwndLeftView->m_sWindowName.LoadString(IDS_VIEWTITLE_THEIRS);
+		m_pwndLeftView->m_sWindowName += _T(" - ") + m_Data.m_theirFile.GetWindowName();
 		m_pwndLeftView->m_sFullFilePath = m_Data.m_theirFile.GetFilename();
 		if (bReload)
 		{
@@ -572,7 +573,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
 			m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
 		}
-		m_pwndRightView->m_sWindowName = _T("Mine - ") + m_Data.m_yourFile.GetWindowName();
+		m_pwndRightView->m_sWindowName.LoadString(IDS_VIEWTITLE_MINE);
+		m_pwndRightView->m_sWindowName += _T(" - ") + m_Data.m_yourFile.GetWindowName();
 		m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
 		if (bReload)
 		{
@@ -580,7 +582,8 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndBottomView->m_arLineStates = &m_Data.m_arStateDiff3;
 			m_pwndBottomView->m_arLineLines = &m_Data.m_arLinesDiff3;
 		}
-		m_pwndBottomView->m_sWindowName = _T("Merged - ") + m_Data.m_mergedFile.GetWindowName();
+		m_pwndBottomView->m_sWindowName.LoadString(IDS_VIEWTITLE_MERGED);
+		m_pwndBottomView->m_sWindowName += _T(" - ") + m_Data.m_mergedFile.GetWindowName();
 		m_pwndBottomView->m_sFullFilePath = m_Data.m_mergedFile.GetFilename();
 		if (m_wndSplitter2.IsColumnHidden(1))
 			m_wndSplitter2.ShowColumn();
