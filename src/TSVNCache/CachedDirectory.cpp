@@ -211,7 +211,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			// We don't have directory status in our cache
 			// Ask the directory if it knows its own status
 			CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
-			if(dirEntry->IsOwnStatusValid())
+			if ((dirEntry->IsOwnStatusValid())&&(dirEntry->m_FileTime == path.GetLastWriteTime()))
 			{
 				// This directory knows its own status
 				// but is it still versioned?
@@ -347,7 +347,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 		if(dirEntry->IsOwnStatusValid())
 		{
-			CSVNStatusCache::Instance().AddFolderForCrawling(path);
 			return dirEntry->GetOwnStatus(bRecursive);
 		}
 
@@ -414,6 +413,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 
 		if(svnPath.IsDirectory())
 		{
+			pThis->m_FileTime = svnPath.GetLastWriteTime();
 			if(!svnPath.IsEquivalentTo(pThis->m_directoryPath))
 			{
 				if (pThis->m_bRecursive)
