@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4007
+# Based on Tortoise.pot r4057
 #
 msgid ""
 msgstr ""
@@ -2039,7 +2039,7 @@ msgstr "Flet"
 msgid "Merge..."
 msgstr "Flet..."
 
-#: ID:263,
+#: ID:263,#: ID:263,
 msgid "Merged"
 msgstr "Flettet"
 
@@ -2070,6 +2070,10 @@ msgstr "Mime-type"
 
 #: Control-ID:1158,
 msgid "Min"
+msgstr "Min"
+
+#: ID:263,
+msgid "Mine"
 msgstr "Min"
 
 #: Control-ID:1023,
@@ -3282,7 +3286,7 @@ msgstr "Stien\n<i>%s</i>\nlader ikke til at stemme overens med korrekturfilen.\n
 
 #: Control-ID:65535,
 msgid "The result of the merge is stored in the working copy at:"
-msgstr "Resultatet af fletningen er gemt i din arbejdskopi på:"
+msgstr "Resultatet af fletningen er gemt i din arbejdskopi i:"
 
 #: ID:78,
 msgid "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
@@ -3321,6 +3325,10 @@ msgstr "Arbejdskopien er ikke up to date!\nDu skal først opdatere den."
 #: Control-ID:65535,
 msgid "Their File:"
 msgstr "Deres fil:"
+
+#: ID:263,
+msgid "Theirs"
+msgstr "Deres"
 
 #: ID:169,
 msgid "There are changes inside one or more directories which you have included with svn:externals.\nThose files are <b>not</b> listed for commit. You need to commit those files separately."
@@ -3930,7 +3938,7 @@ msgstr "uge"
 
 #: Control-ID:65535,
 msgid "which points to the repository at URL:"
-msgstr "som peger til versionsarkivet med URL:"
+msgstr "som peger på versionsarkivet med URL:"
 
 #: Control-ID:1112,
 msgid "your version is:"
