@@ -780,8 +780,13 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 
 void CMainFrame::OnFileSave()
 {
+	FileSave();
+}
+
+bool CMainFrame::FileSave()
+{
 	if (!this->m_Data.m_mergedFile.InUse())
-		return OnFileSaveAs();
+		return FileSaveAs();
 	int nConflictLine = CheckResolved();
 	if (nConflictLine >= 0)
 	{
@@ -791,7 +796,7 @@ void CMainFrame::OnFileSave()
 		{
 			if (m_pwndBottomView)
 				m_pwndBottomView->GoToLine(nConflictLine);
-			return;
+			return false;
 		}
 	}
 	if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
@@ -800,9 +805,15 @@ void CMainFrame::OnFileSave()
 		MoveFile(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"));
 	}
 	SaveFile(this->m_Data.m_mergedFile.GetFilename());
+	return true;
 }
 
 void CMainFrame::OnFileSaveAs()
+{
+	FileSaveAs();
+}
+
+bool CMainFrame::FileSaveAs()
 {
 	int nConflictLine = CheckResolved();
 	if (nConflictLine >= 0)
@@ -813,7 +824,7 @@ void CMainFrame::OnFileSaveAs()
 		{
 			if (m_pwndBottomView)
 				m_pwndBottomView->GoToLine(nConflictLine);
-			return;
+			return false;
 		}
 	}
 	OPENFILENAME ofn;		// common dialog box structure
@@ -851,8 +862,11 @@ void CMainFrame::OnFileSaveAs()
 	{
 		sFile = CString(ofn.lpstrFile);
 		SaveFile(sFile);
+		delete [] pszFilters;
+		return true;
 	} // if (GetSaveFileName(&ofn)==TRUE)
 	delete [] pszFilters;
+	return false;
 }
 
 void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
@@ -954,7 +968,8 @@ void CMainFrame::OnClose()
 		ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
 		if (ret == IDYES)
 		{
-			OnFileSave();
+			if (!FileSave())
+				return;
 		}
 	}
 	if ((ret == IDNO)||(ret == IDYES))
