@@ -20,7 +20,7 @@
 # Tag -- Тег
 # Patch -- Патч
 # Blame -- Авторы файла
-# revert -- убрать изменения / вернуть (вернуть в прежнее состояние)
+# revert -- убрать изменения / вернуть в прежнее состояние
 # whitespaces -- непечатаемые знаки (было: пустые символы)
 # locking (files) -- блокирование (файлов)
 # file handle -- файловый дескриптор
@@ -31,13 +31,13 @@
 # resolve -- улаживать
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 4007: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 4057: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-07-27 10:35+0300\n"
+"PO-Revision-Date: 2005-08-04 09:45+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -816,7 +816,7 @@ msgstr "Добавить/Править программу различий/сл
 #: ID:73
 #: Control-ID:65535
 msgid "Added"
-msgstr "Добавленное"
+msgstr "Добавлено"
 
 # ID:126,
 #: ID:126
@@ -1843,7 +1843,7 @@ msgstr "Удалить"
 # ID:73,
 #: ID:73
 msgid "Deleted"
-msgstr "Удален"
+msgstr "Удалено"
 
 # ID:11,
 #: ID:11
@@ -2897,7 +2897,7 @@ msgstr "Слить..."
 # ID:263,
 #: ID:263
 msgid "Merged"
-msgstr "Слито"
+msgstr "Слитый"
 
 # ID:10,
 #: ID:10
@@ -2934,6 +2934,11 @@ msgstr "Mime-тип"
 msgid "Min"
 msgstr "Min"
 
+# Control-ID:1158,
+#: ID:263
+msgid "Mine"
+msgstr "Мой"
+
 # Control-ID:1082,#:
 # Control-ID:1023,
 #: Control-ID:1023
@@ -2949,7 +2954,7 @@ msgstr "Смешанное"
 # ID:74,
 #: ID:74
 msgid "Modified"
-msgstr "Изменен"
+msgstr "Изменено"
 
 # Control-ID:1136,
 #: Control-ID:1136
@@ -3356,7 +3361,7 @@ msgstr "Пожалуйста, введите не более %1 символов
 # ID:251,
 #: ID:251
 msgid "Please execute the \"Cleanup\" command."
-msgstr "Пожалуйста,  выполите команду \"Очистка\"."
+msgstr "Пожалуйста,  выполите команду \"Очистить\"."
 
 # ID:78,
 #: ID:78
@@ -3584,7 +3589,7 @@ msgstr "Удалить из списка игнорирования"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
-msgstr "Удалённое"
+msgstr "Удалено"
 
 # ID:126,
 #: ID:126
@@ -3691,7 +3696,7 @@ msgstr "Уладить"
 #: ID:74
 #: ID:209
 msgid "Resolved"
-msgstr "Улажен"
+msgstr "Улажено"
 
 # ID:8,#:
 # ID:74,
@@ -3713,7 +3718,7 @@ msgstr "Восстановить окно до нормальных размер
 # ID:73,
 #: ID:73
 msgid "Restored"
-msgstr "Восстановлен"
+msgstr "Восстановлено"
 
 # ID:73,
 #: ID:73
@@ -3740,7 +3745,7 @@ msgstr "Убрать изменения..."
 # ID:73,
 #: ID:73
 msgid "Reverted"
-msgstr "Возвращён"
+msgstr "Возвращено"
 
 # ID:9,
 #: ID:9
@@ -4315,7 +4320,7 @@ msgstr "Размер"
 # ID:74,
 #: ID:74
 msgid "Skipped"
-msgstr "Пропущен"
+msgstr "Пропущено"
 
 # ID:263,
 #: ID:263
@@ -4793,6 +4798,11 @@ msgstr ""
 msgid "Their File:"
 msgstr "Их файл:"
 
+# ID:188,
+#: ID:263
+msgid "Theirs"
+msgstr "Их"
+
 # ID:169,
 #: ID:169
 msgid ""
@@ -4973,7 +4983,7 @@ msgstr "Попробуйте еще раз"
 # ID:251,
 #: ID:251
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "Попробуйте \"Очистку\". Если не помогло, Вам надо заново сделать комманду \"Извлечь\""
+msgstr "Попробуйте команду \"Очистить\". Если не помогло, Вам надо заново сделать комманду \"Извлечь\""
 
 # ID:10,
 #: ID:10
