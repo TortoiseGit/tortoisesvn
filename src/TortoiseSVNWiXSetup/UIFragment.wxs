@@ -1,0 +1,1021 @@
+<?xml version="1.0"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+	<?include Includes.wxi?>
+	<Fragment Id="UIFragment">
+		<Property Id="AdminWelcomeForm_NextArgs">AdminFolderForm</Property>
+		<Property Id="AdminFolderForm_PrevArgs">AdminWelcomeForm</Property>
+		<Property Id="AdminFolderForm_NextArgs">AdminConfirmInstallForm</Property>
+		<Property Id="AdminConfirmInstallForm_PrevArgs">AdminFolderForm</Property>
+		<Property Id="WelcomeForm_NextArgs">FolderForm</Property>
+		<Property Id="FolderForm_PrevArgs">WelcomeForm</Property>
+		<Property Id="FolderForm_NextArgs">ConfirmInstallForm</Property>
+		<Property Id="ConfirmInstallForm_PrevArgs">FolderForm</Property>
+
+		<Property Id="FolderForm_AllUsers">ME</Property>
+
+		<Property Id="MaintenanceForm_Action">Repair</Property>
+		<Property Id="AdminMaintenanceForm_Action">Repair</Property>
+
+		<Binary Id="UpFldrBtn" src="include\UpFldrBtn.bmp" />
+		<Binary Id="NewFldrBtn" src="include\NewFldrBtn.bmp" />
+		<Binary Id="TSVNBanner" src="include\tortoisesvn_logo.jpg" />
+
+		<UI>
+			<TextStyle Id="Sans_Serif13" FaceName="MS Sans Serif" Size="9" Red="0" Green="0" Blue="0" />
+			<TextStyle Id="Sans_Serif16" FaceName="MS Sans Serif" Size="12" Red="0" Green="0" Blue="0" Bold="yes" />
+			<TextStyle Id="Shell_Dlg13" FaceName="MS Shell Dlg" Size="9" Red="0" Green="0" Blue="0" />
+			<TextStyle Id="DefaultUIFont" FaceName="MS Sans Serif" Size="9" Red="0" Green="0" Blue="0" />
+
+			<Property Id="ErrorDialog">ErrorDialog</Property>
+			<Property Id="DefaultUIFont">DefaultUIFont</Property>
+
+			<Dialog Id="UserExitForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="CloseButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}&amp;Close</Text>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Installation Interrupted</Text>
+				</Control>
+				<Control Id="BodyTextRemove" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer was interrupted before $(var.ProductName) could be removed. You need to restart the installer to try again.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+				<Control Id="BodyTextInstall" Type="Text" X="18" Y="63" Width="342" Height="24">
+					<Text>{\Sans_Serif13}The installation was interrupted before $(var.ProductName) could be installed. You need to restart the installer to try again.</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="FatalErrorForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="CloseButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}&amp;Close</Text>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Installation Incomplete</Text>
+				</Control>
+				<Control Id="BodyTextRemove" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer was interrupted before $(var.ProductName) could be installed. You need to restart the installer to try again.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BodyTextInstall" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer was interrupted before $(var.ProductName) could be removed. You need to restart the installer to try again.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="MaintenanceForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="FinishButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Finish</Text>
+					<Publish Property="REINSTALL" Value="ALL">MaintenanceForm_Action="Repair"</Publish>
+					<Publish Event="Reinstall" Value="ALL">MaintenanceForm_Action="Repair"</Publish>
+					<Publish Property="REMOVE" Value="ALL">MaintenanceForm_Action="Remove"</Publish>
+					<Publish Event="Remove" Value="ALL">MaintenanceForm_Action="Remove"</Publish>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="RepairRadioGroup" Type="RadioButtonGroup" X="18" Y="108" Width="348" Height="48" Property="MaintenanceForm_Action">
+					<Text>{\Sans_Serif13}MsiRadioButtonGroup</Text>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Welcome to the $(var.ProductName) Setup Wizard</Text>
+				</Control>
+				<Control Id="BodyText" Type="Text" X="9" Y="63" Width="354" Height="42">
+					<Text>{\Sans_Serif13}Select whether you want to repair or remove $(var.ProductName).</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="ResumeForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="FinishButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Finish</Text>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Welcome to the $(var.ProductName) Setup Wizard</Text>
+				</Control>
+				<Control Id="BodyText" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer will resume the installation of $(var.ProductName) on your computer.
+
+Click "Finish" to continue.
+</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminUserExitForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="CloseButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}&amp;Close</Text>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Installation Interrupted</Text>
+				</Control>
+				<Control Id="BodyTextRemove" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer was interrupted before $(var.ProductName) could be removed. You need to restart the installer to try again.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+				<Control Id="BodyTextInstall" Type="Text" X="18" Y="63" Width="342" Height="24">
+					<Text>{\Sans_Serif13}The installation was interrupted before $(var.ProductName) could be installed. You need to restart the installer to try again.</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminFatalErrorForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="CloseButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}&amp;Close</Text>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Installation Incomplete</Text>
+				</Control>
+				<Control Id="BodyTextRemove" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer was interrupted before $(var.ProductName) could be installed. You need to restart the installer to try again.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BodyTextInstall" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer was interrupted before $(var.ProductName) could be removed. You need to restart the installer to try again.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminMaintenanceForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="FinishButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Finish</Text>
+					<Publish Property="REINSTALL" Value="ALL">AdminMaintenanceForm_Action="Repair"</Publish>
+					<Publish Event="Reinstall" Value="ALL">AdminMaintenanceForm_Action="Repair"</Publish>
+					<Publish Property="REMOVE" Value="ALL">AdminMaintenanceForm_Action="Remove"</Publish>
+					<Publish Event="Remove" Value="ALL">AdminMaintenanceForm_Action="Remove"</Publish>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="RepairRadioGroup" Type="RadioButtonGroup" X="18" Y="108" Width="348" Height="48" Property="AdminMaintenanceForm_Action">
+					<Text>{\Sans_Serif13}MsiRadioButtonGroup</Text>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Welcome to the $(var.ProductName) Setup Wizard</Text>
+				</Control>
+				<Control Id="BodyText" Type="Text" X="9" Y="63" Width="354" Height="42">
+					<Text>{\Sans_Serif13}Select whether you want to repair or remove $(var.ProductName).</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminResumeForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="FinishButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Finish</Text>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Welcome to the $(var.ProductName) Setup Wizard</Text>
+				</Control>
+				<Control Id="BodyText" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer will resume the installation of $(var.ProductName) on your computer.
+
+Click "Finish" to continue.
+</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="ProgressForm" Width="373" Height="287" Title="$(var.ProductName)" Modeless="yes">
+				<Control Id="NextButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&amp;Next &gt;</Text>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="ProgressBar" Type="ProgressBar" X="18" Y="108" Width="336" Height="15">
+					<Text>{\Sans_Serif13}MsiProgressBar</Text>
+					<Subscribe Event="StopServices" Attribute="Progress" />
+					<Subscribe Event="DeleteServices" Attribute="Progress" />
+					<Subscribe Event="RemoveRegistryValues" Attribute="Progress" />
+					<Subscribe Event="RemoveFiles" Attribute="Progress" />
+					<Subscribe Event="MoveFiles" Attribute="Progress" />
+					<Subscribe Event="InstallFiles" Attribute="Progress" />
+					<Subscribe Event="WriteRegistryValues" Attribute="Progress" />
+					<Subscribe Event="WriteIniValues" Attribute="Progress" />
+					<Subscribe Event="StartServices" Attribute="Progress" />
+					<Subscribe Event="InstallAdminPackage" Attribute="Progress" />
+					<Subscribe Event="UnmoveFiles" Attribute="Progress" />
+					<Subscribe Event="SetProgress" Attribute="Progress" />
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="ProgressLabel" Type="Text" X="18" Y="96" Width="336" Height="12">
+					<Text>{\Sans_Serif13}Please wait...</Text>
+				</Control>
+				<Control Id="InstalledBody" Type="Text" X="9" Y="63" Width="354" Height="12">
+					<Text>{\Sans_Serif13}$(var.ProductName) is being installed.</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="RemovedBody" Type="Text" X="18" Y="63" Width="336" Height="12">
+					<Text>{\Sans_Serif13}$(var.ProductName) is being removed.</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+				<Control Id="RemoveBannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Removing $(var.ProductName)</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+				<Control Id="InstalledBannerText" Type="Text" X="9" Y="9" Width="255" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Installing $(var.ProductName)</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="Cancel" Width="271" Height="78" Title="$(var.ProductName)" NoMinimize="yes">
+				<Control Id="NoButton" Type="PushButton" X="198" Y="48" Width="65" Height="21" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}&amp;No</Text>
+					<Publish Event="EndDialog" Value="Return" />
+				</Control>
+				<Control Id="YesButton" Type="PushButton" X="126" Y="48" Width="65" Height="21">
+					<Text>{\Sans_Serif13}&amp;Yes</Text>
+					<Publish Event="EndDialog" Value="Exit" />
+				</Control>
+				<Control Id="BodyText" Type="Text" X="6" Y="9" Width="258" Height="24">
+					<Text>{\Sans_Serif13}The installation is not yet complete. Are you sure you want to exit?</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="FinishedForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="CloseButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}&amp;Close</Text>
+					<Publish Event="DoAction" Value="ShowChangelogAction">ShowChangelog="Yes"</Publish>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Installation Complete</Text>
+				</Control>
+				<Control Id="BodyTextRemove" Type="Text" X="9" Y="63" Width="354" Height="100">
+					<Text>{\Sans_Serif13}$(var.ProductName) has been successfully removed.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+				<Control Id="UpdateText" Type="Text" X="9" Y="180" Width="354" Height="36">
+					<Text>{\Sans_Serif13}</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BodyText" Type="Text" X="9" Y="63" Width="354" Height="100">
+					<Text>{\Sans_Serif13}$(var.ProductName) has been successfully installed.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="ShowChangelogBox" Type="CheckBox" Property="ShowChangelog" X="9" Y="220" Width="354" Height="32" CheckBoxValue="yes" >
+					<Text>{\Sans_Serif13}Show the changelog after installation is complete</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="ErrorDialog" Width="330" Height="101" Title="$(var.ProductName)" ErrorDialog="yes">
+				<Control Id="ErrorText" Type="Text" X="6" Y="9" Width="318" Height="48" Disabled="yes" TabSkip="no">
+					<Text>{\Sans_Serif13}</Text>
+				</Control>
+				<Control Id="N" Type="PushButton" X="120" Y="72" Width="81" Height="21" TabSkip="yes">
+					<Text>{\Sans_Serif13}&amp;No</Text>
+					<Publish Event="EndDialog" Value="ErrorNo" />
+				</Control>
+				<Control Id="Y" Type="PushButton" X="240" Y="72" Width="81" Height="21" TabSkip="yes">
+					<Text>{\Sans_Serif13}&amp;Yes</Text>
+					<Publish Event="EndDialog" Value="ErrorYes" />
+				</Control>
+				<Control Id="A" Type="PushButton" X="0" Y="72" Width="81" Height="21" TabSkip="yes">
+					<Text>{\Sans_Serif13}E&amp;xit Installation</Text>
+					<Publish Event="EndDialog" Value="ErrorAbort" />
+				</Control>
+				<Control Id="C" Type="PushButton" X="42" Y="72" Width="81" Height="21" TabSkip="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="EndDialog" Value="ErrorCancel" />
+				</Control>
+				<Control Id="I" Type="PushButton" X="81" Y="72" Width="81" Height="21" TabSkip="yes">
+					<Text>{\Sans_Serif13}C&amp;ontinue</Text>
+					<Publish Event="EndDialog" Value="ErrorIgnore" />
+				</Control>
+				<Control Id="O" Type="PushButton" X="159" Y="72" Width="81" Height="21" TabSkip="yes">
+					<Text>{\Sans_Serif13}OK</Text>
+					<Publish Event="EndDialog" Value="ErrorOk" />
+				</Control>
+				<Control Id="R" Type="PushButton" X="198" Y="72" Width="81" Height="21" TabSkip="yes">
+					<Text>{\Sans_Serif13}&amp;Try Again</Text>
+					<Publish Event="EndDialog" Value="ErrorRetry" />
+				</Control>
+			</Dialog>
+
+			<Dialog Id="ConfirmRemoveDialog" Width="271" Height="78" Title="Remove $(var.ProductName)" NoMinimize="yes">
+				<Control Id="NoButton" Type="PushButton" X="198" Y="48" Width="65" Height="21" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}&amp;No</Text>
+					<Publish Property="WelcomeForm_ConfirmRemove" Value="No" />
+					<Publish Event="EndDialog" Value="Return" />
+				</Control>
+				<Control Id="YesButton" Type="PushButton" X="126" Y="48" Width="65" Height="21">
+					<Text>{\Sans_Serif13}&amp;Yes</Text>
+					<Publish Property="WelcomeForm_ConfirmRemove" Value="Yes" />
+					<Publish Event="EndDialog" Value="Return" />
+				</Control>
+				<Control Id="BodyText" Type="Text" X="6" Y="9" Width="258" Height="24">
+					<Text>{\Sans_Serif13}You have chosen to remove $(var.ProductName) from your computer. Are you sure you want to remove it?</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="DiskCost" Width="361" Height="192" Title="$(var.ProductName) Disk Space" NoMinimize="yes" TrackDiskSpace="yes">
+				<Control Id="OKButton" Type="PushButton" X="288" Y="165" Width="66" Height="18" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}OK</Text>
+					<Publish Event="EndDialog" Value="Return" />
+				</Control>
+				<Control Id="VolumeCostList1" Type="VolumeCostList" X="6" Y="39" Width="348" Height="114" Sunken="yes" Removable="yes" Fixed="yes" Remote="yes" TabSkip="no">
+					<Text>{\Sans_Serif13}{116}{80}{80}{80}{80}</Text>
+				</Control>
+				<Control Id="AvailableBodyText" Type="Text" X="6" Y="9" Width="348" Height="24">
+					<Text>{\Sans_Serif13}The list below includes the drives you can install $(var.ProductName) to, along with each drive's available and required disk space.</Text>
+					<Condition Action="show">OutOfDiskSpace&lt;&gt;1</Condition>
+					<Condition Action="hide">OutOfDiskSpace=1</Condition>
+				</Control>
+				<Control Id="RequiredBodyText" Type="Text" X="6" Y="9" Width="348" Height="24">
+					<Text>{\Sans_Serif13}The amount of required disk space exceeds the amount of available disk space. The highlighted items indicate the drives with insufficient disk space.</Text>
+					<Condition Action="show">OutOfDiskSpace=1</Condition>
+					<Condition Action="hide">OutOfDiskSpace&lt;&gt;1</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="FilesInUse" Width="361" Height="177" Title="$(var.ProductName) Files in Use" NoMinimize="yes">
+				<Control Id="RetryButton" Type="PushButton" X="99" Y="150" Width="81" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Try Again</Text>
+					<Publish Event="EndDialog" Value="Retry" />
+				</Control>
+				<Control Id="ContinueButton" Type="PushButton" X="186" Y="150" Width="81" Height="18">
+					<Text>{\Sans_Serif13}&amp;Continue</Text>
+					<Publish Event="EndDialog" Value="Ignore" />
+				</Control>
+				<Control Id="ExitButton" Type="PushButton" X="273" Y="150" Width="81" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}E&amp;xit Installation</Text>
+					<Publish Event="EndDialog" Value="Exit" />
+				</Control>
+				<Control Id="ListFilesInUse" Type="ListBox" X="6" Y="51" Width="348" Height="90" Property="FileInUseProcess" Sunken="yes" Sorted="yes">
+					<Text>{\Sans_Serif13}MsiFilesInUse</Text>
+				</Control>
+				<Control Id="InstallBodyText" Type="Text" X="6" Y="9" Width="345" Height="36">
+					<Text>{\Sans_Serif13}The following applications are using files which the installer must update. You can either close the applications and click "Try Again", or click "Continue" so that the installer continues the installation, and replaces these files when your system restarts.</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="RemoveBodyText" Type="Text" X="6" Y="9" Width="345" Height="36">
+					<Text>{\Sans_Serif13}The following applications are using files which the installer must remove. You can either close the applications and click "Try Again", or click "Continue" so that the installer continues the installation, and replaces these files when your system restarts.</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="SelectFolderDialog" Width="313" Height="223" Title="Browse for Folder" NoMinimize="yes">
+				<Control Id="OKButton" Type="PushButton" X="168" Y="198" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}OK</Text>
+					<Publish Event="SetTargetPath" Value="[SelectFolderDialog_Property]">1</Publish>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="240" Y="198" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="Reset" Value="{}">1</Publish>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="BrowseText" Type="Text" X="6" Y="9" Width="60" Height="12" TabSkip="no">
+					<Text>{\Sans_Serif13}&amp;Browse:</Text>
+				</Control>
+				<Control Id="FolderCombo" Type="DirectoryCombo" X="66" Y="6" Width="198" Height="120" Property="SelectFolderDialog_Property" Indirect="yes" Removable="yes" Fixed="yes" Remote="yes" RAMDisk="yes" Floppy="yes">
+					<Text>{\Sans_Serif13}MsiDirectoryCombo</Text>
+				</Control>
+				<Control Id="FolderUpButton" Type="PushButton" X="270" Y="6" Width="18" Height="18" Icon="yes" FixedSize="yes" IconSize="16" Text="UpFldrBtn">
+					<Publish Event="DirectoryListUp" Value="{}">1</Publish>
+				</Control>
+				<Control Id="NewFolderButton" Type="PushButton" X="288" Y="6" Width="18" Height="18" Icon="yes" FixedSize="yes" IconSize="16" Text="NewFldrBtn">
+					<Publish Event="DirectoryListNew" Value="{}">1</Publish>
+				</Control>
+				<Control Id="FolderList" Type="DirectoryList" X="6" Y="30" Width="300" Height="129" Property="SelectFolderDialog_Property" Sunken="yes" Indirect="yes" TabSkip="no">
+					<Text>{\Sans_Serif13}MsiDirectoryList</Text>
+				</Control>
+				<Control Id="FolderText" Type="Text" X="6" Y="171" Width="60" Height="12" TabSkip="no">
+					<Text>{\Sans_Serif13}&amp;Folder:</Text>
+				</Control>
+				<Control Id="FolderPathEdit" Type="PathEdit" X="66" Y="168" Width="240" Height="18" Property="SelectFolderDialog_Property" Sunken="yes" Indirect="yes">
+					<Text>{\Sans_Serif13}MsiPathEdit</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminProgressForm" Width="373" Height="287" Title="$(var.ProductName)" Modeless="yes">
+				<Control Id="NextButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&amp;Next &gt;</Text>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="ProgressBar" Type="ProgressBar" X="18" Y="108" Width="336" Height="15">
+					<Text>{\Sans_Serif13}MsiProgressBar</Text>
+					<Subscribe Event="StopServices" Attribute="Progress" />
+					<Subscribe Event="DeleteServices" Attribute="Progress" />
+					<Subscribe Event="RemoveRegistryValues" Attribute="Progress" />
+					<Subscribe Event="RemoveFiles" Attribute="Progress" />
+					<Subscribe Event="MoveFiles" Attribute="Progress" />
+					<Subscribe Event="InstallFiles" Attribute="Progress" />
+					<Subscribe Event="WriteRegistryValues" Attribute="Progress" />
+					<Subscribe Event="WriteIniValues" Attribute="Progress" />
+					<Subscribe Event="StartServices" Attribute="Progress" />
+					<Subscribe Event="InstallAdminPackage" Attribute="Progress" />
+					<Subscribe Event="UnmoveFiles" Attribute="Progress" />
+					<Subscribe Event="SetProgress" Attribute="Progress" />
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="ProgressLabel" Type="Text" X="18" Y="96" Width="336" Height="12">
+					<Text>{\Sans_Serif13}Please wait...</Text>
+				</Control>
+				<Control Id="InstalledBody" Type="Text" X="9" Y="63" Width="354" Height="12">
+					<Text>{\Sans_Serif13}$(var.ProductName) is being installed.</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="RemovedBody" Type="Text" X="18" Y="63" Width="336" Height="12">
+					<Text>{\Sans_Serif13}$(var.ProductName) is being removed.</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+				<Control Id="RemoveBannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Removing $(var.ProductName)</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+				<Control Id="InstalledBannerText" Type="Text" X="9" Y="9" Width="255" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Installing $(var.ProductName)</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminFinishedForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="CloseButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes" Cancel="yes">
+					<Text>{\Sans_Serif13}&amp;Close</Text>
+					<Publish Event="EndDialog" Value="Return">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18" Disabled="yes">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Installation Complete</Text>
+				</Control>
+				<Control Id="BodyText" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>
+						{\Sans_Serif13}$(var.ProductName) has been successfully removed.
+
+						Click "Close" to exit.
+					</Text>
+					<Condition Action="show">REMOVE&lt;&gt;""</Condition>
+					<Condition Action="hide">REMOVE=""</Condition>
+				</Control>
+				<Control Id="BodyTextInstall" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}A network image of $(var.ProductName) has been successfully created.
+
+Click "Close" to exit.
+</Text>
+					<Condition Action="show">REMOVE=""</Condition>
+					<Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminWelcomeForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="NextButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Next &gt;</Text>
+					<Publish Event="EndDialog" Value="Return">AdminWelcomeForm_NextArgs=""</Publish>
+					<Publish Event="NewDialog" Value="[AdminWelcomeForm_NextArgs]">AdminWelcomeForm_NextArgs&lt;&gt;""</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+					<Publish Event="NewDialog" Value="[AdminWelcomeForm_PrevArgs]">AdminWelcomeForm_PrevArgs&lt;&gt;""</Publish>
+					<Condition Action="disable">AdminWelcomeForm_PrevArgs=""</Condition>
+					<Condition Action="enable">AdminWelcomeForm_PrevArgs&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Welcome to the $(var.ProductName) Network Setup Wizard</Text>
+				</Control>
+				<Control Id="CopyrightWarningText" Type="Text" X="9" Y="186" Width="354" Height="66">
+					<Text>{\Sans_Serif13}This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. This product includes software developed by CollabNet (http://www.Collab.Net/)</Text>
+				</Control>
+				<Control Id="WelcomeText" Type="Text" X="9" Y="63" Width="354" Height="114">
+					<Text>{\Sans_Serif13}The installer will guide you through the steps required to install $(var.ProductName) on your computer.</Text>
+					<Condition Action="show">Installed="" AND NOT RESUME</Condition>
+					<Condition Action="hide">Installed&lt;&gt;"" OR RESUME</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminConfirmInstallForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="NextButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Next &gt;</Text>
+					<Publish Event="EndDialog" Value="Return">AdminConfirmInstallForm_NextArgs=""</Publish>
+					<Publish Event="NewDialog" Value="[AdminConfirmInstallForm_NextArgs]">AdminConfirmInstallForm_NextArgs&lt;&gt;""</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+					<Publish Event="NewDialog" Value="[AdminConfirmInstallForm_PrevArgs]">AdminConfirmInstallForm_PrevArgs&lt;&gt;""</Publish>
+					<Condition Action="disable">AdminConfirmInstallForm_PrevArgs=""</Condition>
+					<Condition Action="enable">AdminConfirmInstallForm_PrevArgs&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Confirm Installation</Text>
+				</Control>
+				<Control Id="BodyText1" Type="Text" X="9" Y="63" Width="354" Height="180">
+					<Text>{\Sans_Serif13}The installer is ready to install $(var.ProductName) on your computer.
+
+Click "Next" to start the installation.
+</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="AdminFolderForm" Width="373" Height="287" Title="$(var.ProductName)" TrackDiskSpace="yes">
+				<Control Id="NextButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Next &gt;</Text>
+					<Publish Event="SetTargetPath" Value="TARGETDIR">1</Publish>
+					<Publish Event="SpawnDialog" Value="DiskCost">OutOfDiskSpace=1</Publish>
+					<Publish Event="EndDialog" Value="Return">AdminFolderForm_NextArgs="" AND OutOfDiskSpace&lt;&gt;1</Publish>
+					<Publish Event="NewDialog" Value="[AdminFolderForm_NextArgs]">AdminFolderForm_NextArgs&lt;&gt;"" AND OutOfDiskSpace&lt;&gt;1</Publish>
+					<Publish Property="ALLUSERS" Value="2">AdminFolderForm_AllUsers="ALL"</Publish>
+				</Control>
+				<Control Id="FolderLabel" Type="Text" X="18" Y="114" Width="348" Height="12" TabSkip="no">
+					<Text>{\Sans_Serif13}&amp;Folder:</Text>
+				</Control>
+				<Control Id="FolderEdit" Type="PathEdit" X="18" Y="126" Width="258" Height="18" Property="TARGETDIR" Sunken="yes">
+					<Text>{\Sans_Serif13}MsiPathEdit</Text>
+				</Control>
+				<Control Id="BrowseButton" Type="PushButton" X="282" Y="126" Width="84" Height="18">
+					<Text>{\Sans_Serif13}B&amp;rowse...</Text>
+					<Publish Property="SelectFolderDialog_Property" Value="TARGETDIR">1</Publish>
+					<Publish Event="SpawnDialog" Value="SelectFolderDialog">1</Publish>
+				</Control>
+				<Control Id="DiskCostButton" Type="PushButton" X="282" Y="150" Width="84" Height="18">
+					<Text>{\Sans_Serif13}&amp;Disk Cost...</Text>
+					<Publish Event="SetTargetPath" Value="TARGETDIR">1</Publish>
+					<Publish Event="SpawnDialog" Value="DiskCost">1</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+					<Publish Event="NewDialog" Value="[AdminFolderForm_PrevArgs]">AdminFolderForm_PrevArgs&lt;&gt;""</Publish>
+					<Condition Action="disable">AdminFolderForm_PrevArgs=""</Condition>
+					<Condition Action="enable">AdminFolderForm_PrevArgs&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Network Location</Text>
+				</Control>
+				<Control Id="Body" Type="Text" X="9" Y="63" Width="354" Height="48">
+					<Text>{\Sans_Serif13}The installer will create a network image at the following location.
+
+To create an image in this folder, click "Next". To use a different folder, enter it below or click "Browse".
+</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="FolderForm" Width="373" Height="287" Title="$(var.ProductName)" TrackDiskSpace="yes">
+				<Control Id="NextButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Next &gt;</Text>
+					<Publish Event="SetTargetPath" Value="TARGETDIR">1</Publish>
+					<Publish Event="SpawnDialog" Value="DiskCost">OutOfDiskSpace=1</Publish>
+					<Publish Event="EndDialog" Value="Return">FolderForm_NextArgs="" AND OutOfDiskSpace&lt;&gt;1</Publish>
+					<Publish Event="NewDialog" Value="[FolderForm_NextArgs]">FolderForm_NextArgs&lt;&gt;"" AND OutOfDiskSpace&lt;&gt;1</Publish>
+					<Publish Property="ALLUSERS" Value="2">FolderForm_AllUsers="ALL"</Publish>
+					<Publish Event="DoAction" Value="FindRelatedProducts">1</Publish>
+				</Control>
+				<Control Id="FolderLabel" Type="Text" X="18" Y="114" Width="348" Height="12" TabSkip="no">
+					<Text>{\Sans_Serif13}&amp;Folder:</Text>
+				</Control>
+				<Control Id="FolderEdit" Type="PathEdit" X="18" Y="126" Width="252" Height="18" Property="TARGETDIR" Sunken="yes">
+					<Text>{\Sans_Serif13}MsiPathEdit</Text>
+				</Control>
+				<Control Id="BrowseButton" Type="PushButton" X="276" Y="126" Width="90" Height="18">
+					<Text>{\Sans_Serif13}B&amp;rowse...</Text>
+					<Publish Property="SelectFolderDialog_Property" Value="TARGETDIR">1</Publish>
+					<Publish Event="SpawnDialog" Value="SelectFolderDialog">1</Publish>
+				</Control>
+				<Control Id="DiskCostButton" Type="PushButton" X="276" Y="150" Width="90" Height="18">
+					<Text>{\Sans_Serif13}&amp;Disk Cost...</Text>
+					<Publish Event="SetTargetPath" Value="TARGETDIR">1</Publish>
+					<Publish Event="SpawnDialog" Value="DiskCost">1</Publish>
+				</Control>
+				<Control Id="AllUsersRadioGroup" Type="RadioButtonGroup" X="24" Y="210" Width="342" Height="42" Property="FolderForm_AllUsers">
+					<Text>{\Sans_Serif13}MsiRadioButtonGroup</Text>
+					<Condition Action="show">VersionNT&gt;=400 AND Privileged=1</Condition>
+					<Condition Action="hide">NOT (VersionNT&gt;=400 AND Privileged=1)</Condition>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+					<Publish Event="NewDialog" Value="[FolderForm_PrevArgs]">FolderForm_PrevArgs&lt;&gt;""</Publish>
+					<Condition Action="disable">FolderForm_PrevArgs=""</Condition>
+					<Condition Action="enable">FolderForm_PrevArgs&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Select Installation Folder</Text>
+				</Control>
+				<Control Id="Body" Type="Text" X="9" Y="63" Width="354" Height="48">
+					<Text>{\Sans_Serif13}The installer will install $(var.ProductName) to the following folder.
+
+To install in this folder, click "Next". To install to a different folder, enter it below or click "Browse".
+</Text>
+				</Control>
+				<Control Id="AllUsersText" Type="Text" X="18" Y="186" Width="348" Height="24">
+					<Text>{\Shell_Dlg13}Install $(var.ProductName) for yourself, or for anyone who uses this computer:</Text>
+					<Condition Action="show">VersionNT&gt;=400 AND Privileged=1</Condition>
+					<Condition Action="hide">NOT (VersionNT&gt;=400 AND Privileged=1)</Condition>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="ConfirmInstallForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="NextButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Next &gt;</Text>
+					<Publish Event="EndDialog" Value="Return">ConfirmInstallForm_NextArgs=""</Publish>
+					<Publish Event="NewDialog" Value="[ConfirmInstallForm_NextArgs]">ConfirmInstallForm_NextArgs&lt;&gt;""</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+					<Publish Event="NewDialog" Value="[ConfirmInstallForm_PrevArgs]">ConfirmInstallForm_PrevArgs&lt;&gt;""</Publish>
+					<Condition Action="disable">ConfirmInstallForm_PrevArgs=""</Condition>
+					<Condition Action="enable">ConfirmInstallForm_PrevArgs&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Confirm Installation</Text>
+				</Control>
+				<Control Id="BodyText1" Type="Text" X="9" Y="63" Width="354" Height="100">
+					<Text>{\Sans_Serif13}The installer is ready to install $(var.ProductName) on your computer.
+
+Click "Next" to start the installation.
+</Text>
+				</Control>
+			</Dialog>
+
+			<Dialog Id="WelcomeForm" Width="373" Height="287" Title="$(var.ProductName)">
+				<Control Id="NextButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes">
+					<Text>{\Sans_Serif13}&amp;Next &gt;</Text>
+					<Publish Event="EndDialog" Value="Return">WelcomeForm_NextArgs=""</Publish>
+					<Publish Event="NewDialog" Value="[WelcomeForm_NextArgs]">WelcomeForm_NextArgs&lt;&gt;""</Publish>
+				</Control>
+				<Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Cancel="yes">
+					<Text>{\Sans_Serif13}Cancel</Text>
+					<Publish Event="SpawnDialog" Value="Cancel" />
+				</Control>
+				<Control Id="PreviousButton" Type="PushButton" X="228" Y="261" Width="66" Height="18">
+					<Text>{\Sans_Serif13}&lt; &amp;Back</Text>
+					<Publish Event="NewDialog" Value="[WelcomeForm_PrevArgs]">WelcomeForm_PrevArgs&lt;&gt;""</Publish>
+					<Condition Action="disable">WelcomeForm_PrevArgs=""</Condition>
+					<Condition Action="enable">WelcomeForm_PrevArgs&lt;&gt;""</Condition>
+				</Control>
+				<Control Id="BannerBmp" Type="Bitmap" X="0" Y="0" Width="375" Height="52" TabSkip="no">
+					<Text>TSVNBanner</Text>
+				</Control>
+				<Control Id="Line1" Type="Line" X="0" Y="52" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="Line2" Type="Line" X="0" Y="252" Width="375" Height="6">
+					<Text>{\Sans_Serif13}MsiHorizontalLine</Text>
+				</Control>
+				<Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
+					<Text>{\Sans_Serif16}Welcome to the $(var.ProductName) Setup Wizard</Text>
+				</Control>
+				<Control Id="CopyrightWarningText" Type="Text" X="9" Y="186" Width="354" Height="66">
+					<Text>{\Sans_Serif13}This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. This product includes software developed by CollabNet (http://www.Collab.Net/)</Text>
+				</Control>
+				<Control Id="WelcomeText" Type="Text" X="9" Y="63" Width="354" Height="114">
+					<Text>{\Sans_Serif13}The installer will guide you through the steps required to install $(var.ProductName) on your computer.</Text>
+				</Control>
+			</Dialog>
+
+			<RadioButtonGroup Property="MaintenanceForm_Action">
+				<RadioButton Value="Repair" Text="{\Sans_Serif13}&amp;Repair $(var.ProductName)" X="0" Y="0" Width="348" Height="17" />
+				<RadioButton Value="Remove" Text="{\Sans_Serif13}Re&amp;move $(var.ProductName)" X="0" Y="18" Width="348" Height="17" />
+			</RadioButtonGroup>
+
+			<RadioButtonGroup Property="AdminMaintenanceForm_Action">
+				<RadioButton Value="Repair" Text="{\Sans_Serif13}&amp;Repair $(var.ProductName)" X="0" Y="0" Width="348" Height="17" />
+				<RadioButton Value="Remove" Text="{\Sans_Serif13}Re&amp;move $(var.ProductName)" X="0" Y="18" Width="348" Height="17" />
+			</RadioButtonGroup>
+
+			<RadioButtonGroup Property="FolderForm_AllUsers">
+				<RadioButton Value="ALL" Text="{\Sans_Serif13}&amp;Everyone" X="0" Y="0" Width="342" Height="17" />
+				<RadioButton Value="ME" Text="{\Sans_Serif13}Just &amp;me" X="0" Y="18" Width="342" Height="17" />
+			</RadioButtonGroup>
+
+			<UIText Id="MenuLocal">Will be installed on local hard drive</UIText>
+			<UIText Id="SelParentCostNegNeg">This feature frees up [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures free up [4] on your hard drive.</UIText>
+			<UIText Id="SelNetworkNetwork">This feature will remain to be run from the network</UIText>
+			<UIText Id="SelNetworkLocal">This feature will change from run from network state to be installed on the local hard drive</UIText>
+			<UIText Id="SelNetworkAdvertise">This feature will change from run from network state to set to be installed when required</UIText>
+			<UIText Id="SelNetworkAbsent">This feature will be uninstalled completely, you won't be able to run it from the network</UIText>
+			<UIText Id="SelAbsentAbsent">This feature will remain uninstalled</UIText>
+			<UIText Id="ScriptInProgress">Gathering required information...</UIText>
+			<UIText Id="MenuCD">Will be installed to run from CD</UIText>
+			<UIText Id="SelChildCostNeg">This feature frees up [1] on your hard drive.</UIText>
+			<UIText Id="SelCDLocal">This feature will change from run from CD state to be installed on the local hard drive</UIText>
+			<UIText Id="MenuAbsent">Entire feature will be unavailable</UIText>
+			<UIText Id="SelCDAdvertise">This feature will change from run from CD state to set to be installed when required</UIText>
+			<UIText Id="MenuAllNetwork">Entire feature will be installed to run from network</UIText>
+			<UIText Id="SelLocalNetwork">This feature will be removed from your local hard drive, but will be still available to run from the network</UIText>
+			<UIText Id="SelAdvertiseNetwork">This feature will be available to run from the network</UIText>
+			<UIText Id="MenuAllLocal">Entire feature will be installed on local hard drive</UIText>
+			<UIText Id="SelAdvertiseLocal">This feature will be installed on your local hard drive</UIText>
+			<UIText Id="MenuAllCD">Entire feature will be installed to run from CD</UIText>
+			<UIText Id="SelCDAbsent">This feature will be uninstalled completely, you won't be able to run it from CD</UIText>
+			<UIText Id="MenuAdvertise">Feature will be installed when required</UIText>
+			<UIText Id="SelAdvertiseCD">This feature will be available to run from CD</UIText>
+			<UIText Id="bytes">bytes</UIText>
+			<UIText Id="SelAdvertiseAdvertise">Will be installed when required</UIText>
+			<UIText Id="AbsentPath" />
+			<UIText Id="MB">MB</UIText>
+			<UIText Id="SelAdvertiseAbsent">This feature will become unavailable</UIText>
+			<UIText Id="KB">KB</UIText>
+			<UIText Id="GB">GB</UIText>
+			<UIText Id="SelAbsentNetwork">This feature will be installed to run from the network</UIText>
+			<UIText Id="SelAbsentCD">This feature will be installed to run from CD</UIText>
+			<UIText Id="SelAbsentAdvertise">This feature will be set to be installed when required</UIText>
+			<UIText Id="SelAbsentLocal">This feature will be installed on the local hard drive</UIText>
+			<UIText Id="SelCDCD">This feature will remain to be run from CD</UIText>
+			<UIText Id="NewFolder">Folder|New Folder</UIText>
+			<UIText Id="MenuNetwork">Will be installed to run from network</UIText>
+			<UIText Id="SelLocalCD">This feature will be removed from your local hard drive, but will be still available to run from CD</UIText>
+			<UIText Id="SelLocalAbsent">This feature will be completely removed</UIText>
+			<UIText Id="SelCostPending">Compiling cost for this feature...</UIText>
+			<UIText Id="SelLocalLocal">This feature will remain on you local hard drive</UIText>
+			<UIText Id="SelChildCostPos">This feature requires [1] on your hard drive.</UIText>
+			<UIText Id="SelLocalAdvertise">This feature will be removed from your local hard drive, but will be set to be installed when required</UIText>
+			<UIText Id="SelParentCostNegPos">This feature frees up [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures require [4] on your hard drive.</UIText>
+			<UIText Id="SelParentCostPosNeg">This feature requires [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures free up [4] on your hard drive.</UIText>
+			<UIText Id="SelParentCostPosPos">This feature requires [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures require [4] on your hard drive.</UIText>
+			<UIText Id="TimeRemaining">Time remaining: {[1] minutes }{[2] seconds}</UIText>
+			<UIText Id="VolumeCostAvailable">Available</UIText>
+			<UIText Id="VolumeCostDifference">Difference</UIText>
+			<UIText Id="VolumeCostRequired">Required</UIText>
+			<UIText Id="VolumeCostSize">Disk Size</UIText>
+			<UIText Id="VolumeCostVolume">Volume</UIText>
+		</UI>
+	</Fragment>
+</Wix>

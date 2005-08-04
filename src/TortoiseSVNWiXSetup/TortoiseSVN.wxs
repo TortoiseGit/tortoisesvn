@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+	<?include Includes.wxi?>
+	<Product 	
+		UpgradeCode="$(var.UpgradeGuid)" 
+  	Name="$(var.ProductName)" 
+		Id="????????-????-????-????-????????????"
+		Version="$(var.VersionNumber)"
+		Manufacturer="TortoiseSVN" 
+		Language="1033">
+		<Package
+			Id="????????-????-????-????-????????????"
+			Keywords="$(var.PackageKeywords)" 
+			Description="$(var.PackageDescription)" 
+			Comments="$(var.PackageComments)" 
+			Manufacturer="$(var.PackageManufacturer)" 
+			InstallerVersion="200" 
+			Platforms="Intel" 
+			Languages="1033" 
+			Compressed="yes" 
+			SummaryCodepage="1252" />
+
+		<Upgrade Id="$(var.UpgradeGuid)" >
+			<UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" />
+		</Upgrade>
+
+		<Media Id="1" Cabinet="TSVN.cab" EmbedCab="yes" CompressionLevel="high" />
+
+		<!-- Add/Remove Programs (ARP) related properties ........................................................................ -->
+		<Icon Id="TSVNIcon" src="..\Resources\Tortoise.ico" />
+		<Property Id="ARPHELPLINK">$(var.TortoiseSvnOrg)</Property>
+		<Property Id="ARPCONTACT">$(var.PackageManufacturer)</Property>
+		<Property Id="ARPCOMMENTS">$(var.PackageComments)</Property>
+		<Property Id="ARPURLINFOABOUT">$(var.TortoiseSvnOrg)</Property>
+		<Property Id="ARPPRODUCTICON">TSVNIcon</Property>
+
+		<!-- Launch Condition related properties ................................................................................. -->
+		<Property Id="VERSIONIE">
+			<RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="raw" />
+		</Property>
+		<Condition Message="$(var.ProductName) needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
+
+		<Property Id="VERSIONSHELL">
+			<DirectorySearch Id="DirSearchShellDll" Path="[SystemFolder]">
+				<FileSearch Id="DirSearchShellDll" Name="shell32.dll" MinVersion="4.72.0.0" />
+			</DirectorySearch>
+		</Property>
+		<Condition Message="$(var.ProductName) needs at least shell32.dll version 4.72">(NOT (""=VERSIONSHELL)) OR (Installed)</Condition>
+
+		<Condition Message="This installer requires an NT based OS">(VersionNT)</Condition>
+
+		<!-- Show/Don't-show changelog related properties and custom actions ..................................................... -->
+		<Property Id="TEXTEDITOR">
+			<DirectorySearch Id="FileSearchTextEditorExe" Path="[WindowsFolder]">
+				<FileSearch Id="FileSearchTextEditorExe" Name="notepad.exe" />
+			</DirectorySearch>
+		</Property>
+		<CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" />
+		<CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[TARGETDIR]changelog.txt" Return="check" />
+
+		<!-- Unsafe-check properties and custom actions .......................................................................... -->
+		<Property Id="VSDUIANDADVERTISED">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
+		<CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" />
+
+		<CustomAction Id="DIRCA_TARGETDIR" Property="TARGETDIR" Value="[ProgramFilesFolder]\$(var.ProductName)" Execute="firstSequence" />
+
+		<FragmentRef Id="StructureFragment"/>
+
+		<FragmentRef Id="FeaturesFragment" />
+
+		<FragmentRef Id="UIFragment" />
+
+		<!-- Execute Sequencing ................................................................................................. -->
+		<AdminExecuteSequence>
+			<Custom Action="DIRCA_TARGETDIR" Before="CostInitialize">TARGETDIR=""</Custom>
+		</AdminExecuteSequence>
+		<InstallExecuteSequence>
+			<AppSearch Before="LaunchConditions" />
+			<RemoveExistingProducts After="FindRelatedProducts">PREVIOUSVERSIONSINSTALLED</RemoveExistingProducts>
+			<Custom Action="DIRCA_TARGETDIR" After="ValidateProductID">TARGETDIR=""</Custom>
+			<ScheduleReboot After="RegisterProduct" />
+		</InstallExecuteSequence>
+
+		<!-- UI Sequencing  ..................................................................................................... -->
+		<AdminUISequence>
+			<Show Dialog="AdminFatalErrorForm" OnExit="error" />
+			<Show Dialog="AdminUserExitForm" OnExit="cancel" />
+			<Show Dialog="AdminFinishedForm" OnExit="success" />
+			<Custom Action="DIRCA_TARGETDIR" Before="CostInitialize">TARGETDIR=""</Custom>
+			<Show Dialog="AdminResumeForm" After="FileCost">Installed="" AND RESUME</Show>
+			<Show Dialog="AdminMaintenanceForm" After="AdminResumeForm">Installed&lt;&gt;""</Show>
+			<Show Dialog="AdminWelcomeForm" After="CostFinalize">Installed="" AND NOT RESUME</Show>
+			<Show Dialog="AdminProgressForm" After="AdminWelcomeForm" />
+		</AdminUISequence>
+		<InstallUISequence>
+			<Show Dialog="FatalErrorForm" OnExit="error">NOT HideFatalErrorForm</Show>
+			<Show Dialog="UserExitForm" OnExit="cancel" />
+			<Show Dialog="FinishedForm" OnExit="success" />
+			<Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
+			<Custom Action="DIRCA_TARGETDIR" After="ValidateProductID">TARGETDIR=""</Custom>
+			<Show Dialog="ResumeForm" After="IsolateComponents">Installed="" AND RESUME</Show>
+			<Show Dialog="MaintenanceForm" After="ResumeForm">Installed&lt;&gt;""</Show>
+			<Show Dialog="WelcomeForm" After="CostFinalize">Installed="" AND NOT RESUME</Show>
+			<Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
+			<Show Dialog="ProgressForm" After="WelcomeForm" />
+		</InstallUISequence>
+	</Product>
+</Wix>
+

@@ -1,0 +1,38 @@
+﻿<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+	<?include Includes.wxi?>
+	<Fragment Id="FeaturesFragment">
+		<Feature Id="DefaultFeature" Level="1" ConfigurableDirectory="TARGETDIR">
+			<ComponentRef Id="C__infofiles" />
+			<ComponentRef Id="C__libssl" />
+			<ComponentRef Id="C__berkeleydb" />
+			<ComponentRef Id="C__apr" />
+			<ComponentRef Id="C__gettext" />
+			<ComponentRef Id="C__help_en" />
+			<ComponentRef Id="C__TortoiseSVN" />
+			<ComponentRef Id="C__TortoiseMerge" />
+			<ComponentRef Id="C__CRuntimeSTLMFC" />
+			<ComponentRef Id="C__iconv" />
+			<ComponentRef Id="C__iconsclassic" />
+			<ComponentRef Id="C__iconscvsclassic" />
+			<ComponentRef Id="C__iconsmodern" />
+			<ComponentRef Id="C__iconsxpstyle" />
+			<ComponentRef Id="C__iconsmarkphippard" />
+			<ComponentRef Id="C__iconsstraight" />
+			<ComponentRef Id="C__WebsiteLink" />
+			<ComponentRef Id="C__shellregistry" />
+			<ComponentRef Id="C__machineregistry" />
+			<ComponentRef Id="C__svnprotocoll" />
+			<ComponentRef Id="C__approveshellcomponents" />
+			<ComponentRef Id="C__ProgramMenuFolder" />
+			<ComponentRef Id="C__TortoiseBlame" />
+			<ComponentRef Id="C__Languages" />
+			<ComponentRef Id="C__Sounds" />
+			<ComponentRef Id="C__DiffScripts" />
+		</Feature>
+		<?if $(var.IncludeCrashReportDll) = 1 ?>
+		<Feature Id="CrashReporter" Level="1" ConfigurableDirectory="TARGETDIR">
+			<ComponentRef Id="C__crash" />
+		</Feature>
+		<?endif ?>
+	</Fragment>
+</Wix>
