@@ -319,7 +319,7 @@ void CSetOverlayIcons::SaveData()
 			m_regDeleted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseDeleted.ico");
 			m_regLocked = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseLocked.ico");
 			m_regAdded = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseAdded.ico");
-			CShellUpdater::RebuildIcons();
+			//CShellUpdater::RebuildIcons();
 		}
 		m_sOriginalIconSet = m_sIconSet;
 	}
