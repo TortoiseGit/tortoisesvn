@@ -7,4 +7,4 @@ light -out ..\..\bin\TortoiseSVN-1.2.1.$WCREV$-dev-svn-1.2.1.msi ..\..\bin\Torto
 cd ..\..\bin
 del *.wixobj
 md5 -omd5.txt TortoiseSVN-1.2.1.$WCREV$-dev-svn-1.2.1.msi
-cd ..\src\TortoiseSVNWiXSetup
+cd ..\src\TortoiseSVNSetup
