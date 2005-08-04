@@ -184,6 +184,7 @@ public:
 		svn_wc_status_kind		remotestatus;			///< remote status
 		svn_wc_status_kind		remotetextstatus;		///< remote text status
 		svn_wc_status_kind		remotepropstatus;		///< remote property status
+		bool					copied;					///< if the file/folder is added-with-history
 		bool					checked;				///< if the file is checked in the list control
 		bool					inunversionedfolder;	///< if the file is inside an unversioned folder
 		bool					inexternal;				///< if the item is in an external folder

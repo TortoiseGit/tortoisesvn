@@ -432,6 +432,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->direct = bDirectItem;
 	entry->lRevision = 0;
 	entry->isNested = false;
+	entry->copied = !!pSVNStatus->copied;
 	
 	if (entry->status == svn_wc_status_conflicted)
 	{
@@ -533,6 +534,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 			entry->isfolder = filefinder.IsDirectory(); 
 			entry->lRevision = 0;
 			entry->isNested = false;
+			entry->copied = false;
 			
 			m_arStatusArray.push_back(entry);
 			if (entry->isfolder)
@@ -578,6 +580,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				entry->isfolder = true; 
 				entry->lRevision = 0;
 				entry->isNested = true;
+				entry->copied = false;
 				m_arStatusArray.push_back(entry);
 				continue;
 			}
@@ -1416,10 +1419,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (GetSelectedCount() == 1)
 					{
+						bool bEntryAdded = false;
 						if (entry->remotestatus <= svn_wc_status_normal)
 						{
 							if ((wcStatus > svn_wc_status_normal)
-								&&(wcStatus != svn_wc_status_added)
+								&&(!((wcStatus == svn_wc_status_added)&&(!entry->copied)))
 								&&(wcStatus != svn_wc_status_missing)
 								&&(wcStatus != svn_wc_status_deleted))
 							{
@@ -1428,11 +1432,13 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									temp.LoadString(IDS_LOG_COMPAREWITHBASE);
 									popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
 									popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
+									bEntryAdded = true;
 								}
 								if (m_dwContextMenus & SVNSLC_POPGNUDIFF)
 								{
 									temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 									popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
+									bEntryAdded = true;
 								}
 							}
 						}
@@ -1443,14 +1449,17 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.LoadString(IDS_LOG_POPUP_COMPARE);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
 								popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
+								bEntryAdded = true;
 							}
 							if (m_dwContextMenus & SVNSLC_POPGNUDIFF)
 							{
 								temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
+								bEntryAdded = true;
 							}
 						}
-						popup.AppendMenu(MF_SEPARATOR);
+						if (bEntryAdded)
+							popup.AppendMenu(MF_SEPARATOR);
 					}
 				}
 				if (wcStatus > svn_wc_status_normal)

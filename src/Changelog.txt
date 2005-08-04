@@ -16,6 +16,7 @@
        See issue #116. (Stefan)
 - CHG: In the log dialog, the "next 100" button is disabled once the
        "Show All" button was pressed. See issue #138. (Stefan)
+- CHG: Enabled diffing of copied/moved files in the commit dialog. (Stefan)
 - BUG: The default ssh client (TortoisePlink) wasn't used in some
        places, e.g. the revision graph. (Stefan)
 - BUG: The option "Only use spellchecker when tsvn:projectlanguage is set"
