@@ -731,7 +731,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CResolveDlg dlg;
 			dlg.m_pathList = pathList;
-			if (dlg.DoModal() == IDOK)
+			INT_PTR ret = IDOK;
+			if (!parser.HasKey(_T("noquestion")))
+				ret = dlg.DoModal();
+			if (ret == IDOK)
 			{
 				CSVNProgressDlg progDlg(PWND);
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
