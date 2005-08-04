@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-07-15 10:07+0800\n"
+"PO-Revision-Date: 2005-08-04 13:21+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -857,11 +857,6 @@ msgstr "進階差異比對/合併設定"
 #: ID:110
 msgid "Advanced Merge Settings"
 msgstr "進階合併設定"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "All"
-msgstr "全部"
 
 # ID:3841,#:
 # ID:3841,
@@ -2031,6 +2026,15 @@ msgstr "輸入 proxy 伺服器的 IP 或名稱"
 msgid "Empty"
 msgstr "空的"
 
+# Control-ID:1224,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr ""
+"設定 tsvn:projectlanguage 時\n"
+"才啟動拼字檢查."
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -2301,6 +2305,7 @@ msgstr "GDI+ 無法建立點陣圖物件. 你可能沒有足夠的記憶體."
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "一般設定"
 
@@ -2551,6 +2556,11 @@ msgstr "包含路徑:"
 msgid "Initial Import"
 msgstr "初次匯入"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "行內空白字元差異"
+
 # Dlg-ID:161,
 #: Dlg-ID:161
 msgid "Input"
@@ -2673,6 +2683,11 @@ msgstr "最不活躍作者:"
 #: ID:188
 msgid "Left View: "
 msgstr "左側檢視:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "單行空白字元差異"
 
 # ID:3605,
 #: ID:3605
@@ -2881,6 +2896,11 @@ msgstr "MIME 類型"
 msgid "Min"
 msgstr "最小"
 
+# Dlg-ID:143,
+#: ID:263
+msgid "Mine"
+msgstr "我的"
+
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1023
@@ -3006,6 +3026,11 @@ msgstr "沒有錯誤訊息."
 #: ID:3868
 msgid "No error occurred."
 msgstr "沒有發生錯誤."
+
+# ID:77,
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "沒有修改過檔案或目錄, 不需要 TortoiseSVN 復原!"
 
 # ID:77,
 #: ID:77
@@ -3615,11 +3640,26 @@ msgstr "檔案庫"
 msgid "Repository Browser"
 msgstr "檔案庫瀏覽器"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "需要帳號和密碼"
+
 # ID:8,
-#: ID:8
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "解決"
+
+# ID:8,
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "已解決"
+
+# ID:8,
+#: ID:8
+msgid "Resolved..."
+msgstr "已解決..."
 
 # ID:9,
 #: ID:9
@@ -4129,15 +4169,15 @@ msgstr "顯示記錄(&L)"
 msgid "Show &overlays only in explorer"
 msgstr "僅在檔案總管中顯示圖示覆蓋(&O)"
 
-# Control-ID:1065,
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "顯示差異列"
-
 # ID:113,
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "以單一異動檔顯示異動(&U)"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "顯示單行差異列"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -4696,6 +4736,11 @@ msgstr ""
 msgid "Their File:"
 msgstr "遠端檔案:"
 
+# ID:188,
+#: ID:263
+msgid "Theirs"
+msgstr "對方的"
+
 # ID:169,
 #: ID:169
 msgid ""
@@ -4763,11 +4808,6 @@ msgstr "這個性質只能設置在資料夾上, 檔案不能."
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "這個性質不能有分行. 只能輸入單行資料."
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "三檔差異"
 
 # Control-ID:1222,
 #: Control-ID:1222
@@ -4887,11 +4927,6 @@ msgstr "試試 \"清理\". 如果它沒有效, 你需要重新取出檔案."
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "調校 TortoiseSVN"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "兩檔差異"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -5121,8 +5156,8 @@ msgstr "使用舊的 API 取得紀錄訊息"
 
 # Control-ID:1024,
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "預設使用單區檢視"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "雙檔案比較時, 預設使用單區檢視"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5229,11 +5264,6 @@ msgstr "警告!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "空白字元差異"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "空白字元"
 
 # ID:151,
 #: Dlg-ID:158
@@ -5619,17 +5649,6 @@ msgstr "唯讀"
 #: ID:10
 msgid "replaced"
 msgstr "取代"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "requests a username and a password"
-msgstr "要求帳號和密碼"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "save authentication"
-msgstr "儲存認證"
 
 # ID:14,
 #: ID:14
