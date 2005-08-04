@@ -1265,7 +1265,7 @@ BOOL CMainFrame::MarkAsResolved()
 		(*end) = 0;
 		_tcscat(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
 		_tcscat(buf, this->m_Data.m_mergedFile.GetFilename());
-		_tcscat(buf, _T("\" /closeonend /noquestion"));
+		_tcscat(buf, _T("\" /closeonend:1 /noquestion /notempfile"));
 		STARTUPINFO startup;
 		PROCESS_INFORMATION process;
 		memset(&startup, 0, sizeof(startup));
