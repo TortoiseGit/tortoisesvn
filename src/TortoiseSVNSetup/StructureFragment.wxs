@@ -10,92 +10,92 @@
 			</Component>
 
 			<Component Id="C__shellregistry" Guid="D3F48AA6-A01B-47C5-A314-70319092E89A" >
-				<Registry Root="HKMU" Key="Software\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" KeyPath="yes" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\Drive\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidMark)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\Directory\Background\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\ColumnHandlers\{$(var.GuidJeff)}" />
-				<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidMark)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJohn)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJohn)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDave)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDave)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAnne)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAnne)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+				<Registry Root="HKMU" Key="Software\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" KeyPath="yes" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\Drive\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidMark)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\Directory\Background\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\ColumnHandlers\{$(var.GuidJeff)}" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidMark)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJohn)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJohn)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDave)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDave)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAnne)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAnne)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
 				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidPete)}" Action="createKeyAndRemoveKeyOnUninstall" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidPete)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidPete)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidPete)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidRobb)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidRobb)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJeff)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJeff)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJeff)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJill)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJill)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJill)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidMark)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidMark)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidStef)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidStef)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidStef)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseSVN" Value="{$(var.GuidJill)}" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseSVN" Value="{$(var.GuidStef)}" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseSVN" Value="{$(var.GuidAnne)}" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseSVN" Value="{$(var.GuidPete)}" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseSVN" Value="{$(var.GuidRobb)}" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseSVN" Value="{$(var.GuidDave)}" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseSVN" Value="{$(var.GuidJohn)}" Type="string" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidPete)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidPete)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidPete)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidRobb)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidRobb)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJeff)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJeff)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJeff)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJill)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJill)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidJill)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidMark)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidMark)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidStef)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidStef)}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidStef)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidJeff)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseSVN" Value="{$(var.GuidJill)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseSVN" Value="{$(var.GuidStef)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseSVN" Value="{$(var.GuidAnne)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseSVN" Value="{$(var.GuidPete)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseSVN" Value="{$(var.GuidRobb)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseSVN" Value="{$(var.GuidDave)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseSVN" Value="{$(var.GuidJohn)}" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
 			</Component>
 			
 			<Component Id="C__machineregistry" Guid="4913F361-DE93-490C-81D0-1FB002EBF141" >
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ReadOnlyIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseReadOnly.ico" KeyPath="yes" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseDeleted.ico" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="CachePath" Value="[TARGETDIR]bin\TSVNCache.exe" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseInSubversion.ico" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[TARGETDIR]bin\TortoiseMerge.exe" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseModified.ico" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Value="[TARGETDIR]" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseConflict.ico" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="LockedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseLocked.ico" Type="string" />
-				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseAdded.ico" Type="string" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ReadOnlyIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseReadOnly.ico" KeyPath="yes" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseDeleted.ico" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="CachePath" Value="[TARGETDIR]bin\TSVNCache.exe" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseInSubversion.ico" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[TARGETDIR]bin\TortoiseMerge.exe" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseModified.ico" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Value="[TARGETDIR]" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseConflict.ico" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="LockedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseLocked.ico" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseAdded.ico" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
 			</Component>
 			
 			<Component Id="C__approveshellcomponents" Guid="A5B89BEC-D213-461D-AACD-8F46477E87D0" >
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidStef)}" Value="TortoiseSVN" KeyPath="yes" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidJill)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidMark)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidAnne)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidPete)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidJeff)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidRobb)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidDave)}" Value="TortoiseSVN" Type="string" />
-				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidJohn)}" Value="TortoiseSVN" Type="string" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidStef)}" Value="TortoiseSVN" KeyPath="yes" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidJill)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidMark)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidAnne)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidPete)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidJeff)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidRobb)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidDave)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidJohn)}" Value="TortoiseSVN" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
 			</Component>
 			
 			<Component Id="C__svnprotocoll" Guid="02271D5C-3065-4038-AD86-46A271854FA6" >
-				<Registry Root="HKMU" Key="Software\Classes\svn" KeyPath="yes" Value="URL:SVN Protocol" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\svn" Name="URL Protocol" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\svn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\svn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Type="string" />
+				<Registry Root="HKMU" Key="Software\Classes\svn" KeyPath="yes" Value="URL:SVN Protocol" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\svn" Name="URL Protocol" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\svn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\svn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
 
-				<Registry Root="HKMU" Key="Software\Classes\svn+ssh" Value="URL:SVN+SSH Protocol" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\svn+ssh" Name="URL Protocol" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\svn+ssh\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\svn+ssh\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Type="string" />
+				<Registry Root="HKMU" Key="Software\Classes\svn+ssh" Value="URL:SVN+SSH Protocol" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\svn+ssh" Name="URL Protocol" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\svn+ssh\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\svn+ssh\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
 
-				<Registry Root="HKMU" Key="Software\Classes\tsvn" Value="URL:TSVN Protocol" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\tsvn" Name="URL Protocol" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\tsvn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" />
-				<Registry Root="HKMU" Key="Software\Classes\tsvn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:checkout /url:&quot;%1&quot;" Type="string" />
+				<Registry Root="HKMU" Key="Software\Classes\tsvn" Value="URL:TSVN Protocol" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\tsvn" Name="URL Protocol" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\tsvn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
+				<Registry Root="HKMU" Key="Software\Classes\tsvn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:checkout /url:&quot;%1&quot;" Type="string" Action="createKeyAndRemoveKeyOnUninstall" />
 			</Component>
 			
 			<Directory Id="D__Bin" Name="BIN" LongName="bin" >
@@ -391,6 +391,7 @@
 			<Directory Id="D__Languages" Name="Language" LongName="Languages" >
 				<Component Id="C__Languages" Guid="B51E466F-725F-41A1-A26A-D0EDD2936933" >
 					<File Id="F__websiteurl2" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" KeyPath="yes"/>
+					
 					<?if $(var.DictionaryENGB) = 1 ?>
 						<File Id="F__ENGBSPELLAFF" Name="en_GB.aff" LongName="en_GB.aff" src="..\..\..\Common\Spell\en_GB.aff" DiskId="1" />
 						<File Id="F__ENGBSPELLDIC" Name="en_GB.dic" LongName="en_GB.dic" src="..\..\..\Common\Spell\en_GB.dic" DiskId="1" />
