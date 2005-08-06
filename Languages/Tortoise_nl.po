@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-21 21:06+0100\n"
+"PO-Revision-Date: 2005-08-06 15:02+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2348,6 +2348,10 @@ msgstr "Mime-type"
 msgid "Min"
 msgstr "Min"
 
+#: ID:263
+msgid "Mine"
+msgstr "Van mij"
+
 #: Control-ID:1023
 msgid "Misc"
 msgstr "Divers"
@@ -2445,6 +2449,10 @@ msgstr "Geen foutmelding beschikbaar."
 #: ID:3868
 msgid "No error occurred."
 msgstr "Geen fouten opgetreden."
+
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "Er zijn geen bestanden of mappen gewijzigd. TortoiseSVN hoeft niets terug te zetten!"
 
 #: ID:77
 msgid ""
@@ -2931,10 +2939,18 @@ msgstr "Biblio-bladeraar"
 msgid "Requests a username and a password"
 msgstr "Vraagt om een gebruikersnaam en wachtwoord"
 
-#: ID:8
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Oplossen"
+
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "Opgelost"
+
+#: ID:8
+msgid "Resolved..."
+msgstr "Opgelost..."
 
 #: ID:9
 msgid "Resolves conflicted files"
@@ -3816,6 +3832,10 @@ msgstr ""
 #: Control-ID:65535
 msgid "Their File:"
 msgstr "Hun bestand:"
+
+#: ID:263
+msgid "Theirs"
+msgstr "Van hun"
 
 #: ID:169
 msgid ""
