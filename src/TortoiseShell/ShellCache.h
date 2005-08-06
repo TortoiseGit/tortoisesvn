@@ -24,6 +24,9 @@
 #define DRIVETYPETIMEOUT 300000		// 5 min
 #define NUMBERFMTTIMEOUT 300000
 #define MENUTIMEOUT 100
+
+typedef CComCritSecLock<CComCriticalSection> AutoLocker;
+
 class ShellCache
 {
 public:
@@ -71,6 +74,7 @@ public:
 		sAdminDirCacheKey.reserve(MAX_PATH);		// MAX_PATH as buffer reservation ok.
 		bMenuInserted = false;
 		insertedmenu = NULL;
+		m_critSec.Init();
 	}
 	DWORD BlockStatus()
 	{
@@ -149,6 +153,7 @@ public:
 	}
 	BOOL IsPathAllowed(LPCTSTR path)
 	{
+		AutoLocker lock(m_critSec);
 		IncludeListValid();
 		for (std::vector<stdstring>::iterator I = invector.begin(); I != invector.end(); ++I)
 		{
@@ -287,7 +292,7 @@ public:
 		_tcscat(buf2, _T(SVN_WC_ADM_DIR_NAME));
 		hasAdminDir = PathFileExists(buf2);
 		admindirticker = GetTickCount();
-		admindircache.clear();
+		AutoLocker lock(m_critSec);
 		admindircache[buf] = hasAdminDir;
 		delete buf;
 		delete buf2;
@@ -326,6 +331,7 @@ private:
 	{
 		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>excludelistticker)
 		{
+			AutoLocker lock(m_critSec);
 			excludelistticker = GetTickCount();
 			excludelist.read();
 			if (excludeliststr.compare((stdstring)excludelist)==0)
@@ -352,6 +358,7 @@ private:
 	{
 		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>includelistticker)
 		{
+			AutoLocker lock(m_critSec);
 			includelistticker = GetTickCount();
 			includelist.read();
 			if (includeliststr.compare((stdstring)includelist)==0)
@@ -415,4 +422,5 @@ private:
 	bool bMenuInserted;
 	DWORD menuinsertedticker;
 	HMENU insertedmenu;
+	CComCriticalSection m_critSec;
 };
