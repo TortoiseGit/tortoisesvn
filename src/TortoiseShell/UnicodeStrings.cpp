@@ -42,8 +42,14 @@ std::string WideToUTF8(const wide_string& wide)
 
 wide_string MultibyteToWide(const std::string& multibyte)
 {
+	int length = multibyte.length();
+	if (length == 0)
+		return wide_string();
+
 	wchar_t * wide = new wchar_t[multibyte.length()*2+2];
-	int ret = (int)MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)multibyte.length()*2 - 1);
+	if (wide == NULL)
+		return wide_string();
+	int ret = (int)MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)length*2 - 1);
 	wide[ret] = 0;
 	wide_string str = wide;
 	delete[] wide;
@@ -52,8 +58,14 @@ wide_string MultibyteToWide(const std::string& multibyte)
 
 wide_string UTF8ToWide(const std::string& multibyte)
 {
-	wchar_t * wide = new wchar_t[multibyte.length()*2+2];
-	int ret = (int)MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)multibyte.length()*2 - 1);
+	int length = multibyte.length();
+	if (length == 0)
+		return wide_string();
+		
+	wchar_t * wide = new wchar_t[length*2+2];
+	if (wide == NULL)
+		return wide_string();
+	int ret = (int)MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)length*2 - 1);
 	wide[ret] = 0;
 	wide_string str = wide;
 	delete[] wide;
