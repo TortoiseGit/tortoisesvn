@@ -30,8 +30,12 @@ public:
 	{
 	public:
 		CString url1;
+		CString middle1;
+		CString relative1;
 		SVNRev	rev1;
 		CString url2;
+		CString middle2;
+		CString relative2;
 		SVNRev	rev2;
 	};
 public:

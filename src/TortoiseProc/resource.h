@@ -652,6 +652,10 @@
 #define IDS_REVGRAPH_POPUP_UNIDIFFHEADS 4383
 #define IDS_LOCK_MESSAGEHINT            5000
 #define IDS_LOCK_STEALCHECK             5001
+#define IDS_FILEDIFF_FILE               5100
+#define IDS_FILEDIFF_COMMENT            5101
+#define IDS_FILEDIFF_COMMENTCOPY        5102
+#define IDS_FILEDIFF_COMMENTRENAMED     5103
 #define IDS_SCIEDIT_UNDO                6000
 #define IDS_SCIEDIT_REDO                6001
 #define IDS_SCIEDIT_CUT                 6002

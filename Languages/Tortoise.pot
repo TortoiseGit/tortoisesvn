@@ -997,6 +997,10 @@ msgstr ""
 msgid "Command failed."
 msgstr ""
 
+#: ID:319,
+msgid "Comment"
+msgstr ""
+
 #: Control-ID:1083,
 msgid "Commit"
 msgstr ""
@@ -1551,7 +1555,7 @@ msgstr ""
 msgid "Fetching revision %s of file:"
 msgstr ""
 
-#: ID:63,#: ID:74,#: ID:77,#: ID:207,
+#: ID:63,#: ID:74,#: ID:77,#: ID:207,#: ID:319,
 msgid "File"
 msgstr ""
 
@@ -2162,6 +2166,11 @@ msgstr ""
 msgid "Only check out the top folder"
 msgstr ""
 
+#: ID:319,
+#, c-format
+msgid "Only in %s"
+msgstr ""
+
 #: ID:169,
 msgid "Only numbers (optionally separated by commas)\nare allowed!"
 msgstr ""
@@ -2482,6 +2491,11 @@ msgstr ""
 
 #: ID:11,
 msgid "Rename..."
+msgstr ""
+
+#: ID:319,
+#, c-format
+msgid "Renamed from %s"
 msgstr ""
 
 #: ID:126,

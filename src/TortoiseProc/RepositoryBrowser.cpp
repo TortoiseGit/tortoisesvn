@@ -883,7 +883,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			case ID_POPDIFF:
 				{
 					SVNDiff diff(NULL, this->m_hWnd, true);
-					diff.ShowCompare(url1, GetRevision(), url2, GetRevision(), SVNRev(), true, true);
+					diff.ShowCompare(url1, GetRevision(), url2, GetRevision());
 				}
 				break;
 			case ID_POPPROPS:

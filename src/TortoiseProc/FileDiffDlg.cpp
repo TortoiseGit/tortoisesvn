@@ -66,13 +66,39 @@ BOOL CFileDiffDlg::OnInitDialog()
 	while (c>=0)
 		m_cFileList.DeleteColumn(c--);
 	CString temp;
-	temp.LoadString(IDS_LOGPROMPT_FILE);
+	temp.LoadString(IDS_FILEDIFF_FILE);
 	m_cFileList.InsertColumn(0, temp);
+	temp.LoadString(IDS_FILEDIFF_COMMENT);
+	m_cFileList.InsertColumn(1, temp);
 
 	m_cFileList.SetRedraw(false);
 	for (INT_PTR i=0; i<m_arFileList.GetCount(); ++i)
 	{
-		m_cFileList.InsertItem(i, m_arFileList.GetAt(i).url1);
+		FileDiff diff = m_arFileList.GetAt(i);
+		if (diff.relative1.IsEmpty())
+		{
+			m_cFileList.InsertItem(i, diff.url1);
+		}
+		else
+		{
+			m_cFileList.InsertItem(i, diff.relative1);
+		}
+		if (!diff.rev1.IsValid())
+		{
+			if (diff.middle2.IsEmpty())
+				temp.Format(IDS_FILEDIFF_COMMENTCOPY, diff.url2);
+			else
+				temp.Format(IDS_FILEDIFF_COMMENTCOPY, diff.middle2);
+			m_cFileList.SetItemText(i, 1, temp);
+		}
+		if (!diff.rev2.IsValid())
+		{
+			if (diff.middle1.IsEmpty())
+				temp.Format(IDS_FILEDIFF_COMMENTCOPY, diff.url1);
+			else
+				temp.Format(IDS_FILEDIFF_COMMENTCOPY, diff.middle1);
+			m_cFileList.SetItemText(i, 1, temp);
+		}
 	}
 
 	int mincol = 0;
@@ -140,13 +166,18 @@ bool CFileDiffDlg::SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRep
 				// sometimes the paths here still have a '(.../path/path)
 				// appended. This is when the diff isn't done from the
 				// repository root.
+				CString middle1, middle2, relative1, relative2;
 				if (strLine.Find(_T("(...")) >= 0)
 				{
-					strLine = strLine.Mid(strLine.Find(_T("(..."))+4).TrimRight(_T(" )")) + _T("/") + strLine.Left(strLine.Find(_T("(..."))-1);
+					middle1 = strLine.Mid(strLine.Find(_T("(..."))+4).TrimRight(_T(" )"));
+					relative1 = strLine.Left(strLine.Find(_T("(..."))-1);
+					strLine = middle1 + _T("/") + relative1;
 				}
 				if (sAddedLine.Find(_T("(...")) >= 0)
 				{
-					sAddedLine = sAddedLine.Mid(sAddedLine.Find(_T("(..."))+4).TrimRight(_T(" )")) + _T("/") + sAddedLine.Left(sAddedLine.Find(_T("(..."))-1);
+					middle2 = sAddedLine.Mid(sAddedLine.Find(_T("(..."))+4).TrimRight(_T(" )"));
+					relative2 = sAddedLine.Left(sAddedLine.Find(_T("(..."))-1);
+					sAddedLine = middle2 + _T("/") + relative2;
 				}
 				if (!m_sRepoRoot.IsEmpty())
 				{
@@ -165,11 +196,19 @@ bool CFileDiffDlg::SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRep
 							sAddedLine = m_sRepoRoot + _T("/") + sAddedLine;
 					}
 				}
+				if ((rev1.IsWorking())&&(SVN::PathIsURL(strLine)))
+					rev1 = SVNRev();
+				if ((rev2.IsWorking())&&(SVN::PathIsURL(sAddedLine)))
+					rev2 = SVNRev();
 				CFileDiffDlg::FileDiff fd;
 				fd.rev1 = rev1;
 				fd.rev2 = rev2;
 				fd.url1 = strLine;
+				fd.middle1 = middle1;
+				fd.relative1 = relative1;
 				fd.url2 = sAddedLine;
+				fd.middle2 = middle2;
+				fd.relative2 = relative2;
 				m_arFileList.Add(fd);
 			}
 		}
@@ -230,13 +269,21 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	if ((url1.GetFilename().CompareNoCase(url2.GetFilename())!=0)&&(rev1 == rev2))
 	{
 		rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev1);
-		rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev2);
+		rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url2.GetFilename(), rev2);
 	}
 	else
 	{
-		// use the full URL's of the files, since the filenames and revisions are the same.
-		rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetSVNPathString(), rev1);
-		rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetSVNPathString(), rev2);
+		// use the relative URL's of the files, since the filenames and revisions are the same.
+		if ((fd.middle1.IsEmpty())||(fd.relative1.IsEmpty()))
+		{
+			rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), rev1);
+			rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)url2.GetFilename(), rev2);
+		}
+		else
+		{
+			rev1name.Format(_T("%s Revision %ld"), (LPCTSTR)(fd.middle1 +_T("/") + fd.relative1), rev1);
+			rev2name.Format(_T("%s Revision %ld"), (LPCTSTR)(fd.middle2 + _T("/") + fd.relative2), rev2);
+		}
 	}
 	CUtils::StartExtDiff(tempfile, tempfile2, rev1name, rev2name);
 

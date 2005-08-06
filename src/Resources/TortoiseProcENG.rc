@@ -249,9 +249,8 @@ BEGIN
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | 
                     WS_BORDER | WS_TABSTOP,7,24,392,103
     CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,126,392,5
-    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",ES_MULTILINE | ES_READONLY | 
-                    ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,
-                    131,392,96
+    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",WS_BORDER | WS_VSCROLL | 
+                    WS_TABSTOP | 0x1804,7,131,392,96
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,227,392,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
                     LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,231,392,67
@@ -2120,6 +2119,14 @@ BEGIN
     IDS_STATUSLIST_NESTED   "Nested"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_FILEDIFF_FILE       "File"
+    IDS_FILEDIFF_COMMENT    "Comment"
+    IDS_FILEDIFF_COMMENTCOPY "Only in %s"
+    IDS_FILEDIFF_COMMENTRENAMED "Renamed from %s"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -2146,7 +2153,7 @@ IDB_CANCELPRESSED       BITMAP                  "cancel-pressed.bmp"
 // Dialog
 //
 
-IDD_DIFFFILES DIALOGEX 0, 0, 228, 218
+IDD_DIFFFILES DIALOGEX 0, 0, 427, 218
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Changed Files"
@@ -2154,7 +2161,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,
-                    7,214,204
+                    7,413,204
 END
 
 
@@ -2169,7 +2176,7 @@ BEGIN
     IDD_DIFFFILES, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 221
+        RIGHTMARGIN, 420
         TOPMARGIN, 7
         BOTTOMMARGIN, 211
     END
