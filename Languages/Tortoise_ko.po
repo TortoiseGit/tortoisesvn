@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-03 10:21+0900\n"
+"PO-Revision-Date: 2005-08-07 16:46+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1425,6 +1425,11 @@ msgid "Command failed."
 msgstr "명령 오류."
 
 # ID:8,
+#: ID:319
+msgid "Comment"
+msgstr "커밋 로그"
+
+# ID:8,
 #: Control-ID:1083
 msgid "Commit"
 msgstr "커밋"
@@ -2224,6 +2229,7 @@ msgstr "리비전 %s 가져오기 파일명:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "파일"
 
@@ -2883,6 +2889,11 @@ msgstr "Mime 종류"
 msgid "Min"
 msgstr "최소"
 
+# Dlg-ID:143,
+#: ID:263
+msgid "Mine"
+msgstr "작업 사본"
+
 # Control-ID:1082,#:
 # Control-ID:1023,
 #: Control-ID:1023
@@ -3113,6 +3124,12 @@ msgstr "한 개 이상의 파일이 충돌 상태입니다."
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "최상위 폴더만 체크아웃"
+
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "%s에만 존재"
 
 # ID:169,
 #: ID:169
@@ -3569,6 +3586,12 @@ msgstr "%s 이름 바꾸기"
 #: ID:11
 msgid "Rename..."
 msgstr "이름 바꾸기..."
+
+# ID:97,
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "%s의 이름을 바꿈"
 
 # ID:126,
 #: ID:126
@@ -4716,6 +4739,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "Their File:"
 msgstr "저장소 파일:"
+
+# ID:188,
+#: ID:263
+msgid "Theirs"
+msgstr "저장소"
 
 # ID:169,
 #: ID:169
