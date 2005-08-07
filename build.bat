@@ -139,11 +139,11 @@ if NOT EXIST ..\bin\release\bin\SubWCRev.exe devenv TortoiseSVN.sln /rebuild rel
 devenv TortoiseSVN.sln /rebuild release /project SubWCRev
 if DEFINED _RELEASE (
   devenv TortoiseSVN.sln /rebuild release
-  copy TortoiseSVNSetup\autolist.txt ..\bin\release\bin
+  copy TortoiseSVNSetup\include\autolist.txt ..\bin\release\bin
 )
 if DEFINED _DEBUG (
   devenv TortoiseSVN.sln /rebuild debug
-  copy TortoiseSVNSetup\autolist.txt ..\bin\debug\bin
+  copy TortoiseSVNSetup\include\autolist.txt ..\bin\debug\bin
 )
 
 echo ================================================================================
