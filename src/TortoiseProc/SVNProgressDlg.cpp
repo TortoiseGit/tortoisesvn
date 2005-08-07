@@ -887,8 +887,19 @@ UINT CSVNProgressDlg::ProgressThread()
 				ReportSVNError();
 				break;
 			}
-			CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_WARNING));
-			ReportNotification(sMsg);
+			if (m_options & ProgOptSwitchAfterCopy)
+			{
+				if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, true))
+				{
+					ReportSVNError();
+					break;
+				}
+			}
+			else
+			{
+				CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_WARNING));
+				ReportNotification(sMsg);
+			}
 		}
 		break;
 		case Rename:

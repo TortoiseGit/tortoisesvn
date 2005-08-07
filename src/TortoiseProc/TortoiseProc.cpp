@@ -891,7 +891,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				TRACE(_T("copy %s to %s\n"), (LPCTSTR)cmdLinePath.GetWinPathString(), (LPCTSTR)dlg.m_URL);
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-				progDlg.SetParams(CSVNProgressDlg::Copy, 0, pathList, dlg.m_URL, dlg.m_sLogMessage, dlg.m_CopyRev);
+				progDlg.SetParams(CSVNProgressDlg::Copy, dlg.m_bDoSwitch ? ProgOptSwitchAfterCopy : 0, pathList, dlg.m_URL, dlg.m_sLogMessage, dlg.m_CopyRev);
 				progDlg.DoModal();
 			}
 		}

@@ -355,6 +355,7 @@
 #define IDS_PROGRS_TITLE_RESOLVE        1231
 #define IDC_RESOLVELIST                 1231
 #define IDS_PROGRS_TITLE_SWITCH         1232
+#define IDC_DOSWITCH                    1232
 #define IDS_PROGRS_TITLE_EXPORT         1233
 #define IDS_PROGRS_TITLE_MERGE          1234
 #define IDS_PROGRS_TITLE_COPY           1235
@@ -678,7 +679,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        208
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1232
+#define _APS_NEXT_CONTROL_VALUE         1233
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

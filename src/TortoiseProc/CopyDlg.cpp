@@ -37,6 +37,7 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	, m_sLogMessage(_T(""))
 	, m_sBugID(_T(""))
 	, m_CopyRev(SVNRev::REV_HEAD)
+	, m_bDoSwitch(false)
 {
 	m_pLogDlg = NULL;
 }
@@ -55,6 +56,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
+	DDX_Check(pDX, IDC_DOSWITCH, m_bDoSwitch);
 }
 
 

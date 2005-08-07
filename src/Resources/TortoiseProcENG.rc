@@ -205,6 +205,9 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,187,270,50,14
     PUSHBUTTON      "&Help",IDHELP,243,270,50,14
     PUSHBUTTON      "...",IDC_BROWSEFROM,254,92,14,14
+    CONTROL         "Switch working copy to new branch/tag",IDC_DOSWITCH,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,7,
+                    261,112,23
 END
 
 IDD_IMPORT DIALOGEX 0, 0, 300, 190

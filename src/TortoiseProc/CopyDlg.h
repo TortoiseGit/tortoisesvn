@@ -83,6 +83,7 @@ public:
 	CTSVNPath m_path;
 	CString m_sLogMessage;
 	SVNRev m_CopyRev;
+	BOOL m_bDoSwitch;
 private:
 	CLogDlg *	m_pLogDlg;
 	CSciEdit	m_cLogMessage;

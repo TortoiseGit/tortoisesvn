@@ -11,6 +11,11 @@
        See issue 118. (Stefan)
 - NEW: The Spellchecker ignores now numbers and doesn't mark them
        as missspelled anymore. See issue #145. (Stefan)
+- NEW: The context menu is now shown for shortcuts too. Once for the shortcut
+       (*.lnk) file itself and once for the target the shortcut points to.
+       See issue #146. (Stefan)
+- NEW: Option to switch to the newly created branch/tag in the branch/tag
+       dialog. See issue #150. (Stefan)
 - CHG: The spellchecker now checks text pasted in the edit control
        immediately, without the need to enter text manually first.
        See issue #116. (Stefan)

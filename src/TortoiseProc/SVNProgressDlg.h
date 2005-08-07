@@ -37,7 +37,8 @@ typedef enum
 	ProgOptIgnoreExternals = 0x08,
 	ProgOptKeeplocks = 0x10,
 	/// for locking this means steal the lock, for unlocking it means breaking the lock
-	ProgOptLockForce = 0x20
+	ProgOptLockForce = 0x20,
+	ProgOptSwitchAfterCopy = 0x40
 } ProgressOptions;
 
 typedef enum
