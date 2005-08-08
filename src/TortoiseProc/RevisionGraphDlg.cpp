@@ -1483,7 +1483,8 @@ void CRevisionGraphDlg::OnViewZoomout()
 
 void CRevisionGraphDlg::OnMenuexit()
 {
-	EndDialog(IDOK);
+	if (!m_bThreadRunning)
+		EndDialog(IDOK);
 }
 
 void CRevisionGraphDlg::OnMenuhelp()
@@ -1509,6 +1510,12 @@ void CRevisionGraphDlg::OnViewUnifieddiff()
 void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
 {
 	UnifiedDiffRevs(true);
+}
+
+void CRevisionGraphDlg::OnCancel()
+{
+	if (!m_bThreadRunning)
+		__super::OnCancel();
 }
 
 #ifdef DEBUG
@@ -1698,6 +1705,7 @@ void CRevisionGraphDlg::FillTestData()
 	m_arEntryPtrs.Add(e);
 }
 #endif //DEBUG
+
 
 
 

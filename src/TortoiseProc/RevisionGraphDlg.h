@@ -124,6 +124,7 @@ protected:
 	afx_msg void	OnViewComparerevisions();
 	afx_msg void	OnViewUnifieddiff();
 	afx_msg void	OnViewUnifieddiffofheadrevisions();
+	virtual void	OnCancel();
 
 	DECLARE_MESSAGE_MAP()
 private:

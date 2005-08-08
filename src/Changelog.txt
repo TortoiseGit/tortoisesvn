@@ -51,6 +51,8 @@
 - BUG: The 'resolve' function in TortoiseMerge didn't resolve the file. (Stefan)
 - BUG: The repository browser crashed if an item was edited and then
        the view was scrolled. (Stefan)
+- BUG: The revision graph could be exited without the thread being stopped
+       which could lead to a crash. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for
