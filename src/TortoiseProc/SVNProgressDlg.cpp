@@ -943,11 +943,6 @@ UINT CSVNProgressDlg::ProgressThread()
 
 	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 	GetDlgItem(IDOK)->EnableWindow(TRUE);	
-	m_bCancelled = TRUE;
-	m_bThreadRunning = FALSE;
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
 
 	CString info = BuildInfoString();
 	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
@@ -955,6 +950,12 @@ UINT CSVNProgressDlg::ProgressThread()
 	m_ProgList.EnsureVisible(m_ProgList.GetItemCount(), FALSE);
 	SendMessage(DM_SETDEFID, IDOK);
 	GetDlgItem(IDOK)->SetFocus();	
+
+	m_bCancelled = TRUE;
+	m_bThreadRunning = FALSE;
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 
 	DWORD dwAutoClose = CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	if (m_options & ProgOptDryRun)
