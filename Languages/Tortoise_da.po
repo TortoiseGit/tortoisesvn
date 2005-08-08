@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4057
+# Based on Tortoise.pot r4090
 #
 msgid ""
 msgstr ""
@@ -1062,6 +1062,10 @@ msgstr "Farver"
 msgid "Command failed."
 msgstr "Kommandoen mislykkedes."
 
+#: ID:319,
+msgid "Comment"
+msgstr "Kommentar"
+
 #: Control-ID:1083,
 msgid "Commit"
 msgstr "Arkivér"
@@ -1620,7 +1624,7 @@ msgstr "Henter fil..."
 msgid "Fetching revision %s of file:"
 msgstr "Henter revision %s af filen:"
 
-#: ID:63,#: ID:74,#: ID:77,#: ID:207,
+#: ID:63,#: ID:74,#: ID:77,#: ID:207,#: ID:319,
 msgid "File"
 msgstr "Fil"
 
@@ -2238,6 +2242,11 @@ msgstr "En eller flere filer indeholder konflikter."
 msgid "Only check out the top folder"
 msgstr "Hent kun den øverste mappe"
 
+#: ID:319,
+#, c-format
+msgid "Only in %s"
+msgstr "Kun i %s"
+
 #: ID:169,
 msgid "Only numbers (optionally separated by commas)\nare allowed!"
 msgstr "Kun tal (evt. adskilt af kommaer)\ner tilladt!"
@@ -2561,6 +2570,11 @@ msgstr "Omdøb %s"
 #: ID:11,
 msgid "Rename..."
 msgstr "Omdøb..."
+
+#: ID:319,
+#, c-format
+msgid "Renamed from %s"
+msgstr "Omdøbt fra %s"
 
 #: ID:126,
 msgid "Renamed remotely"
@@ -3159,6 +3173,10 @@ msgstr "Skift til foregående dokumentvindue"
 #: ID:9,
 msgid "Switch working copy to another branch / tag"
 msgstr "Skift arbejdskopi til en anden forgrening/mærkat"
+
+#: Control-ID:1232,
+msgid "Switch working copy to new branch/tag"
+msgstr "Skift arbejdskopi til ny forgrening/mærkat"
 
 #: ID:9,
 msgid "Switch..."
