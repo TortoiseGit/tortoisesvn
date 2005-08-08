@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-08-04 09:19+0100\n"
+"PO-Revision-Date: 2005-08-08 09:01+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1145,6 +1145,10 @@ msgstr "Farben"
 msgid "Command failed."
 msgstr "Befehl konnte nicht ausgeführt werden."
 
+#: ID:319
+msgid "Comment"
+msgstr "Kommentar"
+
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Übertragen"
@@ -1797,6 +1801,7 @@ msgstr "Hole Revision %s der Datei:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "Datei"
 
@@ -2532,6 +2537,12 @@ msgstr "Eine oder mehrere Dateien befinden sich in einem Konfliktzustand."
 msgid "Only check out the top folder"
 msgstr "Nur den obersten Ordner auschecken"
 
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "Nur in %s"
+
 #: ID:169
 msgid ""
 "Only numbers (optionally separated by commas)\n"
@@ -2889,6 +2900,11 @@ msgstr "%s Umbenennen"
 #: ID:11
 msgid "Rename..."
 msgstr "Umbenennen..."
+
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "Umbenannt von %s"
 
 #: ID:126
 msgid "Renamed remotely"
@@ -3564,6 +3580,10 @@ msgstr "Wechsle zum vorherigen Dokument"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Die Arbeitskopie zu anderem Zweig / anderer Markierung wechseln"
+
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "Die Arbeitskopie zum neuen Zweig / Markierung wechseln"
 
 #: ID:9
 msgid "Switch..."
