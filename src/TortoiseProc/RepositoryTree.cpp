@@ -704,6 +704,9 @@ BOOL CRepositoryTree::BeginEdit(INT iRow, INT iColumn, UINT nKey)
 void CRepositoryTree::EndEdit(BOOL bUpdate /* = TRUE */, LPNMRVITEMEDIT lpnmrvie /* = NULL */)
 {
 	ATLTRACE("EndEdit\n");
+	if ((lpnmrvie == NULL)||(lpnmrvie->lpszText == NULL))
+		CReportCtrl::EndEdit(FALSE, lpnmrvie);
+	
 	HTREEITEM hItem = GetItemHandle(m_iEditItem);
 
 	CString sOldName = GetItemText(m_iEditItem, 0);

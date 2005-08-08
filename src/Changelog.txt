@@ -49,6 +49,8 @@
        them unreadable in high contrast color schemes. (Stefan)
 - BUG: See issue #148. (Stefan)
 - BUG: The 'resolve' function in TortoiseMerge didn't resolve the file. (Stefan)
+- BUG: The repository browser crashed if an item was edited and then
+       the view was scrolled. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for
