@@ -2123,53 +2123,9 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		return;		//we don't compare a missing file (nothing) with something
 	if (entry->status == svn_wc_status_unversioned)
 		return;		//we don't compare new files with nothing
-	if (entry->path.IsDirectory())
-		return;		//we also don't compare folders
-	CTSVNPath wcPath;
-	CTSVNPath basePath;
-	CTSVNPath remotePath;
 
-	if (entry->status > svn_wc_status_normal)
-		basePath = SVN::GetPristinePath(entry->path);
-
-	if (entry->remotestatus > svn_wc_status_normal)
-	{
-		remotePath = CTempFiles::Instance().GetTempFilePath(true, entry->path);
-
-		SVN svn;
-		if (!svn.Cat(entry->path, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD, remotePath))
-		{
-			CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			return;
-		}
-	}
-
-	wcPath = entry->path;
-	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
-	{
-		CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(true, wcPath);
-		SVN svn;
-		if (svn.Cat(entry->path, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
-		{
-			basePath = temporaryFile;
-		}
-	}
-
-	CString name = entry->path.GetFilename();
-	CString n1, n2, n3;
-	n1.Format(IDS_DIFF_WCNAME, name);
-	n2.Format(IDS_DIFF_BASENAME, name);
-	n3.Format(IDS_DIFF_REMOTENAME, name);
-
-	if (basePath.IsEmpty())
-		// Hasn't changed locally - diff remote against WC
-		CUtils::StartExtDiff(wcPath, remotePath, n1, n3);
-	else if (remotePath.IsEmpty())
-		// Diff WC against its base
-		CUtils::StartExtDiff(basePath, wcPath, n2, n1);
-	else
-		// Three-way diff
-		CUtils::StartExtMerge(basePath, remotePath, wcPath, CTSVNPath(), n2, n3, n1);
+	SVNDiff diff(NULL, m_hWnd, true);
+	diff.DiffWCFile(entry->path, entry->textstatus, entry->propstatus, entry->remotetextstatus, entry->remotepropstatus);
 }
 
 CString CSVNStatusListCtrl::GetStatisticsString()

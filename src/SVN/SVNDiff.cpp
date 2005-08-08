@@ -23,6 +23,7 @@
 #include "TempFile.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"
+#include "SVNProperties.h"
 #include "UnicodeUtils.h"
 #include "registry.h"
 #include "MessageBox.h"
@@ -53,6 +54,58 @@ SVNDiff::~SVNDiff(void)
 		delete m_pSVN;
 }
 
+bool SVNDiff::DiffWCFile(const CTSVNPath& filePath, 
+						svn_wc_status_kind text_status /* = svn_wc_status_none */, 
+						svn_wc_status_kind prop_status /* = svn_wc_status_none */, 
+						svn_wc_status_kind remotetext_status /* = svn_wc_status_none */, 
+						svn_wc_status_kind remoteprop_status /* = svn_wc_status_none */)
+{
+	CTSVNPath basePath;
+	CTSVNPath remotePath;
+	
+	// first diff the remote properties against the wc props
+	// TODO: should we attempt to do a three way diff with the properties too
+	// if they're modified locally and remotely?
+	if (remoteprop_status > svn_wc_status_normal)
+	{
+		DiffProps(filePath, SVNRev::REV_HEAD, SVNRev::REV_WC);
+	}
+
+	if (text_status > svn_wc_status_normal)
+		basePath = SVN::GetPristinePath(filePath);
+
+	if (remotetext_status > svn_wc_status_normal)
+	{
+		remotePath = CTempFiles::Instance().GetTempFilePath(true, filePath);
+
+		if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD, remotePath))
+		{
+			CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			return false;
+		}
+	}
+
+	CString name = filePath.GetFileOrDirectoryName();
+	CString n1, n2, n3;
+	n1.Format(IDS_DIFF_WCNAME, name);
+	n2.Format(IDS_DIFF_BASENAME, name);
+	n3.Format(IDS_DIFF_REMOTENAME, name);
+
+	if ((text_status <= svn_wc_status_normal)&&(prop_status <= svn_wc_status_normal))
+	{
+		// Hasn't changed locally - diff remote against WC
+		return !!CUtils::StartExtDiff(filePath, remotePath, n1, n3);
+	}
+	else if (remotePath.IsEmpty())
+	{
+		return DiffFileAgainstBase(filePath, text_status, prop_status);
+	}
+	else
+	{
+		// Three-way diff
+		return !!CUtils::StartExtMerge(basePath, remotePath, filePath, CTSVNPath(), n2, n3, n1);
+	}
+}
 
 bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 {
@@ -66,6 +119,8 @@ bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 	//now look for the other required files
 	SVNStatus stat;
 	stat.GetStatus(merge);
+	if (stat.status->text_status != svn_wc_status_conflicted)
+		return false;
 	if (stat.status && stat.status->entry)
 	{
 		if (stat.status->entry->conflict_new)
@@ -88,28 +143,45 @@ bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 	return !!CUtils::StartExtMerge(base,theirs,mine,merge);
 }
 
-bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath)
+bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind text_status /* = svn_wc_status_none */, svn_wc_status_kind prop_status /* = svn_wc_status_none */)
 {
-	CTSVNPath basePath(SVN::GetPristinePath(filePath));
-	// If necessary, convert the line-endings on the file before diffing
-	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
+	bool retvalue = false;
+	if ((text_status == svn_wc_status_none)||(prop_status == svn_wc_status_none))
 	{
-		CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath);
-		if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
-		{
-			temporaryFile.Reset();
-			return FALSE;
-		}
-		else
-		{
-			basePath = temporaryFile;
-		}
+		SVNStatus stat;
+		stat.GetStatus(filePath);
+		text_status = stat.status->text_status;
+		prop_status = stat.status->prop_status;
 	}
-	CString name = filePath.GetFilename();
-	CString n1, n2;
-	n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
-	n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-	return !!CUtils::StartExtDiff(basePath, filePath, n2, n1, TRUE);
+	if (prop_status > svn_wc_status_normal)
+	{
+		DiffProps(filePath, SVNRev::REV_WC, SVNRev::REV_BASE);
+	}
+
+	if (text_status > svn_wc_status_normal)
+	{
+		CTSVNPath basePath(SVN::GetPristinePath(filePath));
+		// If necessary, convert the line-endings on the file before diffing
+		if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
+		{
+			CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath);
+			if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
+			{
+				temporaryFile.Reset();
+				return FALSE;
+			}
+			else
+			{
+				basePath = temporaryFile;
+			}
+		}
+		CString name = filePath.GetFilename();
+		CString n1, n2;
+		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
+		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
+		retvalue = !!CUtils::StartExtDiff(basePath, filePath, n2, n1, TRUE);
+	}
+	return retvalue;
 }
 
 bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev() */)
@@ -286,4 +358,71 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		}
 	}
 	return false;
+}
+
+bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
+{
+	bool retvalue = false;
+	// diff the properties
+	SVNProperties propswc(filePath, rev1);
+	SVNProperties propsbase(filePath, rev2);
+
+	for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
+	{
+		stdstring wcname = propswc.GetItemName(wcindex);
+		stdstring wcvalue = CUnicodeUtils::StdGetUnicode((char *)propswc.GetItemValue(wcindex).c_str());
+		stdstring basevalue;
+		bool bDiffRequired = true;
+		for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)
+		{
+			if (propsbase.GetItemName(baseindex).compare(wcname)==0)
+			{
+				basevalue = CUnicodeUtils::StdGetUnicode((char *)propsbase.GetItemValue(baseindex).c_str());
+				if (basevalue.compare(wcvalue)==0)
+				{
+					// name and value are identical
+					bDiffRequired = false;
+					break;
+				}
+			}
+		}
+		if (bDiffRequired)
+		{
+			// write both property values to temporary files
+			CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(true);
+			CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(true);
+			FILE * pFile = _tfopen(wcpropfile.GetWinPath(), _T("wb"));
+			if (pFile)
+			{
+				fputs(CUnicodeUtils::StdGetUTF8(wcvalue).c_str(), pFile);
+				fclose(pFile);
+				pFile = _tfopen(basepropfile.GetWinPath(), _T("wb"));
+				if (pFile)
+				{
+					fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile);
+					fclose(pFile);
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+
+			CString n1, n2;
+			if (rev1.IsWorking())
+				n1.Format(IDS_DIFF_WCNAME, wcname.c_str());
+			if (rev1.IsBase())
+				n1.Format(IDS_DIFF_BASENAME, wcname.c_str());
+			if (rev1.IsHead())
+				n1.Format(IDS_DIFF_REMOTENAME, wcname.c_str());
+			if (rev2.IsWorking())
+				n2.Format(IDS_DIFF_WCNAME, wcname.c_str());
+			if (rev2.IsBase())
+				n2.Format(IDS_DIFF_BASENAME, wcname.c_str());
+			if (rev2.IsHead())
+				n2.Format(IDS_DIFF_REMOTENAME, wcname.c_str());
+			retvalue = !!CUtils::StartExtDiff(basepropfile, wcpropfile, n2, n1, TRUE);
+		}
+	}
+	return retvalue;
 }

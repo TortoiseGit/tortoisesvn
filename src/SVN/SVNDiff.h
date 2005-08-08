@@ -38,12 +38,19 @@ public:
 	 * Do the conflict-resolving 3-way merge on the specified file
 	 */
 	static bool StartConflictEditor(const CTSVNPath& conflictedFilePath);
-
 	/**
 	 * Diff a single file against its text-base
 	 *\param filePath The file to diff
 	 */
-	bool DiffFileAgainstBase(const CTSVNPath& filePath);
+	bool DiffFileAgainstBase(const CTSVNPath& filePath, 
+							svn_wc_status_kind text_status = svn_wc_status_none, 
+							svn_wc_status_kind prop_status = svn_wc_status_none);
+
+	bool DiffWCFile(const CTSVNPath& filePath, 
+					svn_wc_status_kind text_status = svn_wc_status_none, 
+					svn_wc_status_kind prop_status = svn_wc_status_none,
+					svn_wc_status_kind remotetext_status = svn_wc_status_none, 
+					svn_wc_status_kind remoteprop_status = svn_wc_status_none);
 
 	/**
 	 * Produces a unified diff of the \a url1 in \a rev1 and \a url2 in \a rev2 and shows
@@ -82,6 +89,7 @@ public:
 					 const SVNRev& peg = SVNRev(),
 					 bool ignoreancestry = false, bool nodiffdeleted = false);
 
+	bool DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2);
 protected:
 private:
 	SVN *			m_pSVN;
