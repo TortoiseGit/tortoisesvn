@@ -29,10 +29,10 @@
 			<ComponentRef Id="C__Sounds" />
 			<ComponentRef Id="C__DiffScripts" />
 		</Feature>
-		<?if $(var.IncludeCrashReportDll) = 1 ?>
-		<Feature Id="CrashReporter" Level="1" ConfigurableDirectory="TARGETDIR">
-			<ComponentRef Id="C__crash" />
-		</Feature>
+		<?if $(env.IncludeCrashReportDll) = 1 ?>
+			<Feature Id="CrashReporter" Level="1" ConfigurableDirectory="TARGETDIR">
+				<ComponentRef Id="C__crash" />
+			</Feature>
 		<?endif ?>
 	</Fragment>
 </Wix>

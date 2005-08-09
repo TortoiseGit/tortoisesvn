@@ -117,11 +117,11 @@
 					<File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-win32-libintl\bin\intl3_svn.dll" KeyPath="yes" />
 				</Component>
 
-				<?if $(var.IncludeCrashReportDll) = 1 ?>
-				<Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
-					<File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="include\dbghelp.dll" />
-					<File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\release\bin\CrashRpt.dll" KeyPath="yes" />
-				</Component>
+				<?if $(env.IncludeCrashReportDll) = 1 ?>
+					<Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
+						<File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="include\dbghelp.dll" />
+						<File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\release\bin\CrashRpt.dll" KeyPath="yes" />
+					</Component>
 				<?endif ?>
 
 				<Component Id="C__help_en" Guid="012FDAFF-53D4-420B-87A2-72C88B859D09" >
@@ -392,12 +392,12 @@
 				<Component Id="C__Languages" Guid="B51E466F-725F-41A1-A26A-D0EDD2936933" >
 					<File Id="F__websiteurl2" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" KeyPath="yes"/>
 					
-					<?if $(var.DictionaryENGB) = 1 ?>
+					<?if $(env.DictionaryENGB) = 1 ?>
 						<File Id="F__ENGBSPELLAFF" Name="en_GB.aff" LongName="en_GB.aff" src="..\..\..\Common\Spell\en_GB.aff" DiskId="1" />
 						<File Id="F__ENGBSPELLDIC" Name="en_GB.dic" LongName="en_GB.dic" src="..\..\..\Common\Spell\en_GB.dic" DiskId="1" />
 					<?endif ?>
 					
-					<?if $(var.DictionaryEN) = 1 ?>
+					<?if $(env.DictionaryENUS) = 1 ?>
 						<File Id="F__ENSPELLAFF" Name="en_US.aff" LongName="en_US.aff" src="..\..\..\Common\Spell\en_US.aff" DiskId="1" />
 						<File Id="F__ENSPELLDIC" Name="en_US.dic" LongName="en_US.dic" src="..\..\..\Common\Spell\en_US.dic" DiskId="1" />
 					<?endif ?>

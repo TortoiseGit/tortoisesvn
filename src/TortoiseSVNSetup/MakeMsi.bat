@@ -4,13 +4,39 @@ rem Check the environment
 if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 SETLOCAL ENABLEDELAYEDEXPANSION
 
+
+rem Check for the existence of dictionaries, and set env variables appropriately.
+rem Note to refactorers - the ELSE must occur on the same line as the command preceding.  All Hail DOS!
+ECHO MakeMsi.bat: Setting Environment Variables
+if EXIST ..\..\..\Common\Spell\en_US.aff ( 
+	SET DictionaryENUS=1 
+) ELSE ( 
+	SET DictionaryENUS=0 
+)
+if EXIST ..\..\..\Common\Spell\en_GB.aff ( 
+	SET DictionaryENGB=1 
+) ELSE ( 
+	SET DictionaryENGB=0 
+)
+if EXIST ..\..\..\OWNBUILD ( 
+	SET IncludeCrashReportDll=1 
+) ELSE ( 
+	SET IncludeCrashReportDll=0
+)
+
+
 rem Do the SubWCRev substitution for revision numbers in the two necessary files.
+ECHO MakeMsi.bat: Calling SubWCRev
 ..\..\bin\release\bin\SubWCRev.exe ..\.. VersionNumberInclude.in.wxi VersionNumberInclude.wxi
 if NOT EXIST VersionNumberInclude.wxi (copy VersionNumberInclude.in.wxi VersionNumberInclude.wxi)
 ..\..\bin\release\bin\SubWCRev.exe ..\.. MakeMsiSub.in.bat MakeMsiSub.bat
 if NOT EXIST MakeMsiSub.bat (copy MakeMsiSub.in.bat MakeMsiSub.bat)
 
+
 rem Build the actual setup package.
+ECHO MakeMsi.bat: calling MakeMsiSub.bat
 call MakeMsiSub.bat
+ECHO MakeMsi.bat: Cleaning up...
 del MakeMsiSub.bat
 del VersionNumberInclude.wxi
+ECHO MakeMsi.bat: Done.
