@@ -154,6 +154,8 @@ public:
 	 */
 	void SetParams(Command cmd, int options, const CTSVNPathList& pathList, const CString& url = CString(), const CString& message = CString(), SVNRev revision = -1); 
 
+	void SetPegRevision(SVNRev pegrev = SVNRev()) {m_pegRev = pegrev;}
+	
 	CString BuildInfoString();
 
 // Dialog Data
@@ -229,6 +231,7 @@ private:
 	CTSVNPath	m_url;
 	CString		m_sMessage;
 	SVNRev		m_Revision;
+	SVNRev		m_pegRev;
 	LONG		m_nUpdateStartRev;
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
