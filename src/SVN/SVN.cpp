@@ -921,6 +921,7 @@ BOOL SVN::Cat(const CTSVNPath& url, SVNRev pegrevision, SVNRev revision, const C
 	apr_file_t * file;
 	svn_stream_t * stream;
 	apr_status_t status;
+	SVNPool localpool(pool);
 
 	CTSVNPath fullLocalPath(localpath);
 	if (fullLocalPath.IsDirectory())
@@ -929,15 +930,15 @@ BOOL SVN::Cat(const CTSVNPath& url, SVNRev pegrevision, SVNRev revision, const C
 	}
 	::DeleteFile(fullLocalPath.GetWinPath());
 
-	status = apr_file_open(&file, fullLocalPath.GetSVNApiPath(), APR_WRITE | APR_CREATE | APR_TRUNCATE, APR_OS_DEFAULT, pool);
+	status = apr_file_open(&file, fullLocalPath.GetSVNApiPath(), APR_WRITE | APR_CREATE | APR_TRUNCATE, APR_OS_DEFAULT, localpool);
 	if (status)
 	{
 		Err = svn_error_wrap_apr(status, NULL);
 		return FALSE;
 	}
-	stream = svn_stream_from_aprfile(file, pool);
+	stream = svn_stream_from_aprfile(file, localpool);
 
-	Err = svn_client_cat2(stream, url.GetSVNApiPath(), pegrevision, revision, m_pctx, pool);
+	Err = svn_client_cat2(stream, url.GetSVNApiPath(), pegrevision, revision, m_pctx, localpool);
 
 	apr_file_close(file);
 	if (Err != NULL)
