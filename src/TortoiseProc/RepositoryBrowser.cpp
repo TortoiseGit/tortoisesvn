@@ -584,14 +584,18 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						break;;
 					}
+					if (!bOpenWith)
+					{
+						int ret = (int)ShellExecute(NULL, _T("open"), tempfile.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
+						if (ret <= HINSTANCE_ERROR)
+							bOpenWith = true;
+					}
 					if (bOpenWith)
 					{
 						CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
 						cmd += tempfile.GetWinPathString();
 						CUtils::LaunchApplication(cmd, NULL, false);
 					}
-					else
-						ShellExecute(NULL, _T("open"), tempfile.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
 				}
 				break;
 			case ID_POPDELETE:

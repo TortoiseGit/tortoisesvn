@@ -53,6 +53,9 @@
        the view was scrolled. (Stefan)
 - BUG: The revision graph could be exited without the thread being stopped
        which could lead to a crash. (Stefan)
+- BUG: Showing diffs of multiple files (> 30) from the same log dialog
+       could lead to stalled network connections. Closing the log dialog
+       restored the network again. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for

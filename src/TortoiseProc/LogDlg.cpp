@@ -702,6 +702,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 						temp.LoadString(IDS_LOG_POPUP_OPEN);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+						temp.LoadString(IDS_LOG_POPUP_OPENWITH);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
 					}
 					else
 					{
@@ -783,6 +785,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				GetDlgItem(IDOK)->EnableWindow(FALSE);
 				SetPromptApp(&theApp);
 				theApp.DoWaitCursor(1);
+				bool bOpenWith = false;
 				switch (cmd)
 				{
 				case ID_GNUDIFF1:
@@ -969,6 +972,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						delete [] pszFilters;
 					}
 					break;
+				case ID_OPENWITH:
+					bOpenWith = true;
 				case ID_OPEN:
 					{
 						//now first get the revision which is selected
@@ -976,16 +981,23 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                         long rev = pLogEntry->dwRev;
                         
 						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, m_path);
-						SVN svn;
-						if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
+						if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
 						{
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);
 							break;
-						} // if (!svn.Cat(m_path, rev, tempfile))
+						}
 						else
 						{
-							ShellExecute(this->m_hWnd, _T("open"), tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+							int ret = 0;
+							if (!bOpenWith)
+								ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+							if ((ret <= HINSTANCE_ERROR)||bOpenWith)
+							{
+								CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+								cmd += tempfile.GetWinPathString();
+								CUtils::LaunchApplication(cmd, NULL, false);
+							}
 						}
 					}
 					break;
@@ -1355,14 +1367,18 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							theApp.DoWaitCursor(-1);
 							break;
 						}
+						if (!bOpenWith)
+						{
+							int ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+							if (ret <= HINSTANCE_ERROR)
+								bOpenWith = true;
+						}
 						if (bOpenWith)
 						{
 							CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
 							cmd += tempfile.GetWinPathString();
 							CUtils::LaunchApplication(cmd, NULL, false);
 						}
-						else
-							ShellExecute(this->m_hWnd, _T("open"), tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);
 					}

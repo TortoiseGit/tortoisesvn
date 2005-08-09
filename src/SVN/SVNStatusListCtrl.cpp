@@ -1675,7 +1675,13 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_OPEN:
 					{
-						ShellExecute(this->m_hWnd, _T("open"), filepath.GetWinPath(), NULL, NULL, SW_SHOW);
+						int ret = (int)ShellExecute(this->m_hWnd, NULL, filepath.GetWinPath(), NULL, NULL, SW_SHOW);
+						if (ret <= HINSTANCE_ERROR)
+						{
+							CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+							cmd += filepath.GetWinPathString();
+							CUtils::LaunchApplication(cmd, NULL, false);
+						}
 					}
 					break;
 				case IDSVNLC_OPENWITH:
