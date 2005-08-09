@@ -1293,12 +1293,19 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
 							temp.LoadString(IDS_MENULOG);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);
+							
+							popup.AppendMenu(MF_SEPARATOR, NULL);
+							temp.LoadString(IDS_LOG_POPUP_OPEN);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+							temp.LoadString(IDS_LOG_POPUP_OPENWITH);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
 						}
 
 						int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 						GetDlgItem(IDOK)->EnableWindow(FALSE);
 						this->SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
+						bool bOpenWith = false;
 						switch (cmd)
 						{
 						case ID_COMPARE:
@@ -1334,6 +1341,20 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								dlg.DoModal();
 							}
 							break;
+						case ID_OPENWITH:
+							bOpenWith = true;
+						case ID_OPEN:
+							{
+								int ret = 0;
+								if (!bOpenWith)
+									ret = (int)ShellExecute(this->m_hWnd, NULL, data->path.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+								if ((ret <= HINSTANCE_ERROR)||bOpenWith)
+								{
+									CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+									cmd += data->path.GetWinPathString();
+									CUtils::LaunchApplication(cmd, NULL, false);
+								}
+							}
 						}
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);
