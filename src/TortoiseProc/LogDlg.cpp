@@ -1197,10 +1197,23 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
 						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 						{
-							CSVNProgressDlg dlg;
-							dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev);		//use the message as the second url
-							dlg.m_RevisionEnd = rev-1;
-							dlg.DoModal();
+							CString sAction;
+							sAction.LoadString(IDS_SVNACTION_DELETE);
+							if (changedpath->sAction.Compare(sAction)==0)
+							{
+								// a deleted path! Since the path isn't there anymore, merge
+								// won't work. So just do a copy url->wc
+								CSVNProgressDlg dlg;
+								dlg.SetParams(CSVNProgressDlg::Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev-1);
+								dlg.DoModal();
+							}
+							else
+							{
+								CSVNProgressDlg dlg;
+								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev);		//use the message as the second url
+								dlg.m_RevisionEnd = rev;
+								dlg.DoModal();
+							}
 						}
 						theApp.DoWaitCursor(-1);
 					}
