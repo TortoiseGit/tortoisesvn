@@ -1513,7 +1513,10 @@ void CBaseView::OnMergeNextdifference()
 		{
 			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
 			if ((linestate != CDiffData::DIFFSTATE_NORMAL) &&
-				(linestate != CDiffData::DIFFSTATE_UNKNOWN))
+				(linestate != CDiffData::DIFFSTATE_UNKNOWN) &&
+				(linestate != CDiffData::DIFFSTATE_ADDEDWHITESPACE) &&
+				(linestate != CDiffData::DIFFSTATE_REMOVEDWHITESPACE) &&
+				(linestate != CDiffData::DIFFSTATE_WHITESPACE_DIFF))
 				break;
 			nCenterPos++;
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
@@ -1560,7 +1563,10 @@ void CBaseView::OnMergePreviousdifference()
 		{
 			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
 			if ((linestate != CDiffData::DIFFSTATE_NORMAL) &&
-				(linestate != CDiffData::DIFFSTATE_UNKNOWN))
+				(linestate != CDiffData::DIFFSTATE_UNKNOWN) &&
+				(linestate != CDiffData::DIFFSTATE_ADDEDWHITESPACE) &&
+				(linestate != CDiffData::DIFFSTATE_REMOVEDWHITESPACE) &&
+				(linestate != CDiffData::DIFFSTATE_WHITESPACE_DIFF))
 				break;
 			nCenterPos--;
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
