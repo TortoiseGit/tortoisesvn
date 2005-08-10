@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-04 13:21+0800\n"
+"PO-Revision-Date: 2005-08-10 13:51+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1433,6 +1433,11 @@ msgid "Command failed."
 msgstr "命令失敗."
 
 # ID:8,
+#: ID:319
+msgid "Comment"
+msgstr "註記"
+
+# ID:8,
 #: Control-ID:1083
 msgid "Commit"
 msgstr "送交"
@@ -2234,6 +2239,7 @@ msgstr "正在取得第 %s 版的:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "檔案"
 
@@ -3133,6 +3139,12 @@ msgstr "尚有一個以上的檔案處於衝突狀態."
 msgid "Only check out the top folder"
 msgstr "僅取出最上層目錄"
 
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "僅在 %s"
+
 # ID:169,
 #: ID:169
 msgid ""
@@ -3588,6 +3600,12 @@ msgstr "重新命名 %s"
 #: ID:11
 msgid "Rename..."
 msgstr "重新命名..."
+
+# ID:97,
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "原名是 %s"
 
 # ID:126,
 #: ID:126
@@ -4431,6 +4449,11 @@ msgstr "切換至前一個文件視窗"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "切換工作複本至其他分支/標記"
+
+# ID:9,
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "切換工作複本至新分支/標記"
 
 # ID:9,
 #: ID:9
