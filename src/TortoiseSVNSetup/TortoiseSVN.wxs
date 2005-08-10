@@ -50,14 +50,17 @@
 			</DirectorySearch>
 		</Property>
 		<CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" />
-		<CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[TARGETDIR]changelog.txt" Return="check" />
+		<CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[INSTALLDIR]changelog.txt" Return="asyncNoWait" />
 
 		<!-- Unsafe-check properties and custom actions .......................................................................... -->
 		<Property Id="VSDUIANDADVERTISED">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
 		<CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" />
 
-		<CustomAction Id="DIRCA_TARGETDIR" Property="TARGETDIR" Value="[ProgramFilesFolder]\$(var.ProductName)" Execute="firstSequence" />
-
+		<!-- Figure out where a previous installation was, if any ................................................................ -->
+		<Property Id="INSTALLDIR">
+			<RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="InstallDir" Type="raw" />
+		</Property>
+		
 		<FragmentRef Id="StructureFragment"/>
 
 		<FragmentRef Id="FeaturesFragment" />
@@ -65,13 +68,10 @@
 		<FragmentRef Id="UIFragment" />
 
 		<!-- Execute Sequencing ................................................................................................. -->
-		<AdminExecuteSequence>
-			<Custom Action="DIRCA_TARGETDIR" Before="CostInitialize">TARGETDIR=""</Custom>
-		</AdminExecuteSequence>
+		<AdminExecuteSequence />
 		<InstallExecuteSequence>
 			<LaunchConditions After="AppSearch" />
 			<RemoveExistingProducts After="FindRelatedProducts">PREVIOUSVERSIONSINSTALLED</RemoveExistingProducts>
-			<Custom Action="DIRCA_TARGETDIR" After="ValidateProductID">TARGETDIR=""</Custom>
 			<ScheduleReboot After="RegisterProduct" />
 		</InstallExecuteSequence>
 	</Product>

@@ -23,7 +23,6 @@
 				<Show Dialog="ProgressDlg" After="MaintenanceWelcomeDlg" />
 
 				<Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
-				<Custom Action="DIRCA_TARGETDIR" After="ValidateProductID">TARGETDIR=""</Custom>
 				<Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
 			</InstallUISequence>
 
@@ -402,7 +401,7 @@
 			</Dialog>
 
 			<Dialog Id="LicenseAgreementDlg" Width="370" Height="270" Title="[ProductName] License Agreement" NoMinimize="yes">
-				<Control Id="Buttons" Type="RadioButtonGroup" X="20" Y="187" Width="330" Height="40" Property="IAgree" />
+				<Control Id="Buttons" Type="RadioButtonGroup" X="10" Y="187" Width="330" Height="40" Property="IAgree" />
 				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="[ButtonText_Back]">
 					<Publish Event="NewDialog" Value="WelcomeDlg">1</Publish>
 				</Control>
@@ -417,10 +416,10 @@
 					<Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
 				</Control>
 				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
-				<Control Id="AgreementText" Type="ScrollableText" X="20" Y="60" Width="330" Height="120" Sunken="yes" TabSkip="no">
+				<Control Id="AgreementText" Type="ScrollableText" X="5" Y="60" Width="360" Height="120" Sunken="yes" TabSkip="no">
 					<Text src="include\subversion license.rtf" />
 				</Control>
-				<Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
+				<Control Id="Description" Type="Text" X="15" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
 					<Text>Please read the following license agreement carefully</Text>
 				</Control>
 				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
