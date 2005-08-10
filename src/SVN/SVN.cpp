@@ -31,6 +31,7 @@
 #include "SVNHelpers.h"
 #include "SVNStatus.h"
 #include "Utils.h"
+#include "StringUtils.h"
 #include "TempFile.h"
 
 #ifdef _DEBUG
@@ -189,33 +190,13 @@ CString SVN::GetErrorString(svn_error_t * Err)
 				}
 			}
 		}
+		msg = CStringUtils::WordWrap(msg);
 		while (ErrPtr->child)
 		{
 			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
 			temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
-			while (temp.GetLength() > 80)
-			{
-				int pos=0;
-				while ((pos>=0)&&(temp.Find(' ', pos)<80))
-				{
-					pos = temp.Find(' ', pos+1);
-				}
-				if (pos==0)
-					pos = temp.Find(' ');
-				if (pos<0)
-				{
-					msg += temp;
-					temp.Empty();
-				}
-				else
-				{
-					msg += temp.Left(pos+1);
-					temp = temp.Mid(pos+1);
-				}
-				msg += _T("\n");
-			}
-			msg += temp;
+			temp = CStringUtils::WordWrap(temp);
 		}
 		temp.Empty();
 		switch (Err->apr_err)
