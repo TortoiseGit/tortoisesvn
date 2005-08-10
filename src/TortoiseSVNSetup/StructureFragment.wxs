@@ -5,7 +5,7 @@
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Component Id="C__infofiles" Guid="625A2E1E-90D3-4107-8AE8-C5C37975FEA0" >
 				<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
-				<File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="include\Subversion license.txt" />
+				<File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
 				<File Id="F__tortoisesvnlicense" Name="LICENSE.TXT" LongName="TortoiseSVN License.txt" DiskId="1" src="..\gpl.txt" />
 			</Component>
 
