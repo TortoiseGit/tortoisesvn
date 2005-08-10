@@ -498,14 +498,14 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				revstart = SVNRev::REV_HEAD;
 			}
-			if (revend == 0)
-			{
-				revend = 1;
-			}
-			if (limit == 0)
+			if ((limit == 0)&&(revend == 0))
 			{
 				CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 				limit = (int)(LONG)reg;
+			}
+			if (revend == 0)
+			{
+				revend = 1;
 			}
 			BOOL bStrict = (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE);
 			if (parser.HasKey(_T("strict")))
