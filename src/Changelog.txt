@@ -1,3 +1,6 @@
+- NEW: Icon sets (except for the default one) are now optional features; 
+       the user can choose whether or not to install them, during setup. 
+       (Pete)
 - NEW: Navigating to the previous/next difference in TortoiseMerge also
        shows the first line of the difference in the detailed diff at
        the bottom. (Stefan)
@@ -18,6 +21,12 @@
        dialog. See issue #150. (Stefan)
 - NEW: Diffing of properties. See issue #133. (Stefan)
 - NEW: 'Open' and 'Open with...' commands in the progress dialog. (Stefan)
+- CHG: Setup UI changed from the dark'd code from the VS-generated package
+       to a standardised framework from the WiX tutorial. 
+       See issue #147.(Pete)
+- CHG: Refactored WiX setup code into fragments and started to use include
+       files for variables that are needed more than once. 
+       See issues #127 and #128. (Pete)
 - CHG: The spellchecker now checks text pasted in the edit control
        immediately, without the need to enter text manually first.
        See issue #116. (Stefan)
