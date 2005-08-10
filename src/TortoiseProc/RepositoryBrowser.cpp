@@ -374,6 +374,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDIFF, temp);
 				}
+				temp.LoadString(IDS_MENULOG);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);
 			} // if (uSelCount == 2) 
 			if (uSelCount >= 2)
 			{
@@ -500,18 +502,65 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPSHOWLOG:
 				{
-					CString sCmd;
-					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
-								CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), url, (LONG)GetRevision());
-
-					if (!m_path.IsUrl())
+					if (uSelCount == 2)
 					{
-						sCmd += _T(" /propspath:\"");
-						sCmd += m_path.GetWinPathString();
-						sCmd += _T("\"");
-					}	
+						// get log of first URL
+						CString sCopyFrom1, sCopyFrom2;
+						LogHelper helper;
+						SVNRev rev1 = helper.GetCopyFromRev(url1, sCopyFrom1);
+						if (!rev1.IsValid())
+						{
+							CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							break;
+						}
+						SVNRev rev2 = helper.GetCopyFromRev(url2, sCopyFrom2);
+						if (!rev2.IsValid())
+						{
+							CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							break;
+						}
+						if ((sCopyFrom1.IsEmpty())||(sCopyFrom1.Compare(sCopyFrom2)!=0))
+						{
+							// no common copyfrom URL, so showing a log between
+							// the two urls is not possible.
+							CMessageBox::Show(m_hWnd, IDS_ERR_NOCOMMONCOPYFROM, IDS_APPNAME, MB_ICONERROR);
+							break;							
+						}
+						if ((LONG)rev1 < (LONG)rev2)
+						{
+							SVNRev temp = rev1;
+							rev1 = rev2;
+							rev2 = temp;
+						}
+						CString sCmd;
+						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld /revend:%ld"),
+							CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), sCopyFrom1, (LONG)rev1, (LONG)rev2);
 
-					CUtils::LaunchApplication(sCmd, NULL, false);
+						ATLTRACE(sCmd);
+						if (!m_path.IsUrl())
+						{
+							sCmd += _T(" /propspath:\"");
+							sCmd += m_path.GetWinPathString();
+							sCmd += _T("\"");
+						}	
+
+						CUtils::LaunchApplication(sCmd, NULL, false);
+					}
+					else
+					{
+						CString sCmd;
+						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
+							CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), url, (LONG)GetRevision());
+
+						if (!m_path.IsUrl())
+						{
+							sCmd += _T(" /propspath:\"");
+							sCmd += m_path.GetWinPathString();
+							sCmd += _T("\"");
+						}	
+
+						CUtils::LaunchApplication(sCmd, NULL, false);
+					}
 				}
 				break;
 			case ID_POPCHECKOUT:

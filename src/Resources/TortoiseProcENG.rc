@@ -1707,6 +1707,8 @@ BEGIN
     IDS_ERR_NOVALIDPATH     "This is not a valid path!\nA valid path must not contain '<>|""?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
     IDS_ERR_FAILEDUNIGNOREPROPERTY "Could not remove %s from the ignored list"
     IDS_ERR_NOTHINGTOREVERT "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+    IDS_ERR_NOCOMMONCOPYFROM 
+                            "The two selected URL's are not created from the same root.\nIt's not possible to show the log messages between them!"
 END
 
 STRINGTABLE 

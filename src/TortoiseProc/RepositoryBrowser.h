@@ -108,5 +108,47 @@ private:
 	static const UINT	m_AfterInitMessage;
 public:
 };
+
+/**
+ * \ingroup TortoiseProc
+ * helper class to find the copyfrom revision of a tag/branch
+ * and the corresponding copyfrom URL.
+ */
+class LogHelper : public SVN
+{
+public:
+	virtual BOOL Log(LONG rev, const CString& /*author*/, const CString& /*date*/, const CString& /*message*/, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/)
+	{
+		m_rev = rev;
+		for (int i=0; i<cpaths->GetCount(); ++i)
+		{
+			LogChangedPath * cpath = cpaths->GetAt(i);
+			if (m_relativeurl.Compare(cpath->sPath)== 0)
+			{
+				m_copyfromurl = m_reposroot + cpath->sCopyFromPath;
+			}
+			delete cpath;
+		}
+		delete cpaths;
+		return TRUE;
+	}
+	
+	SVNRev GetCopyFromRev(CTSVNPath url, CString& copyfromURL)
+	{
+		SVNRev rev;
+		m_reposroot = GetRepositoryRoot(url);
+		m_relativeurl = url.GetSVNPathString().Mid(m_reposroot.GetLength());
+		if (ReceiveLog(CTSVNPathList(url), SVNRev::REV_HEAD, 1, 0, TRUE, TRUE))
+		{
+			rev = m_rev;
+			copyfromURL = m_copyfromurl;
+		}
+		return rev;
+	}
+	CString m_reposroot;
+	CString m_relativeurl;
+	SVNRev m_rev;
+	CString m_copyfromurl;
+};
 static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));
 
