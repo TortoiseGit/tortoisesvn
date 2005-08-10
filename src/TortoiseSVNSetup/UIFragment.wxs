@@ -148,7 +148,7 @@
 					<Publish Event="SpawnDialog" Value="AdminBrowseDlg">1</Publish>
 				</Control>
 				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="[ButtonText_Back]">
-					<Publish Event="NewDialog" Value="AdminRegistrationDlg">1</Publish>
+					<Publish Event="NewDialog" Value="AdminWelcomeDlg">1</Publish>
 				</Control>
 				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
 					<Publish Event="SetTargetPath" Value="TARGETDIR">1</Publish>
@@ -168,36 +168,11 @@
 				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
 			</Dialog>
 
-			<Dialog Id="AdminRegistrationDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
-				<Control Id="OrganizationLabel" Type="Text" X="45" Y="71" Width="285" Height="30" TabSkip="no">
-					<Text>&amp;Please enter the name of your organization in the box below. This will be used as default company name for subsequent installations of [ProductName]:</Text>
-				</Control>
-				<Control Id="OrganizationEdit" Type="Edit" X="45" Y="105" Width="220" Height="18" Property="COMPANYNAME" Text="{80}" />
-				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Image="yes" Text="[ButtonText_Back]">
-					<Publish Event="NewDialog" Value="AdminWelcomeDlg">1</Publish>
-				</Control>
-				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
-					<Publish Event="ValidateProductID" Value="0">0</Publish>
-					<Publish Event="NewDialog" Value="AdminInstallPointDlg">ProductID</Publish>
-				</Control>
-				<Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
-					<Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
-				</Control>
-				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
-				<Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>Please enter your company information</Text>
-				</Control>
-				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
-				<Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>[DlgTitleFont]Company Information</Text>
-				</Control>
-				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
-			</Dialog>
-
 			<Dialog Id="AdminWelcomeDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
 				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
 					<Publish Property="InstallMode" Value="Server Image">1</Publish>
-					<Publish Event="NewDialog" Value="AdminRegistrationDlg">1</Publish>
+					<Publish Event="ValidateProductID" Value="0">0</Publish>
+					<Publish Event="NewDialog" Value="AdminInstallPointDlg">ProductID</Publish>
 				</Control>
 				<Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
 					<Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
@@ -276,7 +251,7 @@
 				</Control>
 				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="[ButtonText_Back]">
 					<Publish Event="NewDialog" Value="MaintenanceTypeDlg"><![CDATA[InstallMode = "Change"]]></Publish>
-					<Publish Event="NewDialog" Value="SetupTypeDlg"><![CDATA[InstallMode = "Custom"]]></Publish>
+					<Publish Event="NewDialog" Value="LicenseAgreementDlg"><![CDATA[InstallMode = "Custom"]]></Publish>
 				</Control>
 				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
 					<Publish Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
@@ -298,11 +273,11 @@
 				</Control>
 				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
 				<Control Id="Box" Type="GroupBox" X="210" Y="81" Width="140" Height="98" />
-				<Control Id="ItemDescription" Type="Text" X="215" Y="90" Width="131" Height="30">
+				<Control Id="ItemDescription" Type="Text" X="215" Y="90" Width="140" Height="30">
 					<Text>Multiline description of the currently selected item.</Text>
 					<Subscribe Event="SelectionDescription" Attribute="Text" />
 				</Control>
-				<Control Id="ItemSize" Type="Text" X="215" Y="130" Width="131" Height="45">
+				<Control Id="ItemSize" Type="Text" X="215" Y="130" Width="140" Height="45">
 					<Text>The size of the currently selected item.</Text>
 					<Subscribe Event="SelectionSize" Attribute="Text" />
 				</Control>
@@ -335,7 +310,7 @@
 				</Control>
 				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
 				<Control Id="VolumeList" Type="VolumeCostList" X="20" Y="100" Width="330" Height="120" Sunken="yes" Fixed="yes" Remote="yes">
-					<Text>{120}{70}{70}{70}{70}</Text>
+					<Text>{120}{55}{55}{55}{55}</Text>
 				</Control>
 			</Dialog>
 
@@ -432,9 +407,9 @@
 					<Publish Event="NewDialog" Value="WelcomeDlg">1</Publish>
 				</Control>
 				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
-					<Publish Event="NewDialog" Value="UserRegistrationDlg"><![CDATA[IAgree = "Yes" AND ShowUserRegistrationDlg = 1]]></Publish>
 					<Publish Event="SpawnWaitDialog" Value="WaitForCostingPopup">CostingComplete = 1</Publish>
-					<Publish Event="NewDialog" Value="SetupTypeDlg"><![CDATA[IAgree = "Yes" AND ShowUserRegistrationDlg <> 1]]></Publish>
+					<Publish Event="NewDialog" Value="CustomizeDlg"><![CDATA[IAgree = "Yes"]]></Publish>
+					<Publish Property="InstallMode" Value="Custom">1</Publish>
 					<Condition Action="disable"><![CDATA[IAgree <> "Yes"]]></Condition>
 					<Condition Action="enable">IAgree = "Yes"</Condition>
 				</Control>
@@ -443,7 +418,7 @@
 				</Control>
 				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
 				<Control Id="AgreementText" Type="ScrollableText" X="20" Y="60" Width="330" Height="120" Sunken="yes" TabSkip="no">
-					<Text src="include\License.rtf" />
+					<Text src="include\subversion license.rtf" />
 				</Control>
 				<Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
 					<Text>Please read the following license agreement carefully</Text>
@@ -651,58 +626,6 @@
 				</Control>
 			</Dialog>
 
-			<Dialog Id="SetupTypeDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
-				<Control Id="TypicalLabel" Type="Text" X="105" Y="65" Width="100" Height="10" TabSkip="no">
-					<Text>[DlgTitleFont]&amp;Typical</Text>
-				</Control>
-				<Control Id="TypicalButton" Type="PushButton" X="50" Y="65" Width="38" Height="38" ToolTip="Typical Installation" Default="yes" Icon="yes" FixedSize="yes" IconSize="32" Text="[InstallerIcon]">
-					<Publish Property="InstallMode" Value="Typical">1</Publish>
-					<Publish Event="SetInstallLevel" Value="3">1</Publish>
-					<Publish Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
-				</Control>
-				<Control Id="CustomLabel" Type="Text" X="105" Y="118" Width="100" Height="10" TabSkip="no">
-					<Text>[DlgTitleFont]C&amp;ustom</Text>
-				</Control>
-				<Control Id="CustomButton" Type="PushButton" X="50" Y="118" Width="38" Height="38" ToolTip="Custom Installation" Icon="yes" FixedSize="yes" IconSize="32" Text="[CustomSetupIcon]">
-					<Publish Property="InstallMode" Value="Custom">1</Publish>
-					<Publish Event="NewDialog" Value="CustomizeDlg">1</Publish>
-				</Control>
-				<Control Id="CompleteLabel" Type="Text" X="105" Y="171" Width="100" Height="10" TabSkip="no">
-					<Text>[DlgTitleFont]C&amp;omplete</Text>
-				</Control>
-				<Control Id="CompleteButton" Type="PushButton" X="50" Y="171" Width="38" Height="38" ToolTip="Complete Installation" Icon="yes" FixedSize="yes" IconSize="32" Text="[CompleteSetupIcon]">
-					<Publish Property="InstallMode" Value="Complete">1</Publish>
-					<Publish Event="SetInstallLevel" Value="1000">1</Publish>
-					<Publish Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
-				</Control>
-				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="[ButtonText_Back]">
-					<Publish Event="NewDialog" Value="LicenseAgreementDlg"><![CDATA[ShowUserRegistrationDlg <> 1]]></Publish>
-					<Publish Event="NewDialog" Value="UserRegistrationDlg">ShowUserRegistrationDlg = 1</Publish>
-				</Control>
-				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Disabled="yes" Text="[ButtonText_Next]" />
-				<Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
-					<Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
-				</Control>
-				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
-				<Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>Choose the setup type that best suits your needs</Text>
-				</Control>
-				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
-				<Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>[DlgTitleFont]Choose Setup Type</Text>
-				</Control>
-				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
-				<Control Id="CompleteText" Type="Text" X="105" Y="184" Width="230" Height="20">
-					<Text>All program features will be installed. (Requires most disk space)</Text>
-				</Control>
-				<Control Id="CustomText" Type="Text" X="105" Y="131" Width="230" Height="30">
-					<Text>Allows users to choose which program features will be installed and where they will be installed. Recommended for advanced users.</Text>
-				</Control>
-				<Control Id="TypicalText" Type="Text" X="105" Y="78" Width="230" Height="20">
-					<Text>Installs the most common program features. Recommended for most users.</Text>
-				</Control>
-			</Dialog>
-
 			<Dialog Id="UserExit" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
 				<Control Id="Finish" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Cancel="yes" Text="[ButtonText_Finish]">
 					<Publish Event="EndDialog" Value="Exit">1</Publish>
@@ -722,33 +645,6 @@
 				</Control>
 			</Dialog>
 
-			<Dialog Id="UserRegistrationDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
-				<Control Id="NameLabel" Type="Text" X="45" Y="73" Width="100" Height="15" TabSkip="no" Text="&amp;User Name:" />
-				<Control Id="NameEdit" Type="Edit" X="45" Y="85" Width="220" Height="18" Property="USERNAME" Text="{80}" />
-				<Control Id="OrganizationLabel" Type="Text" X="45" Y="110" Width="100" Height="15" TabSkip="no" Text="&amp;Organization:" />
-				<Control Id="OrganizationEdit" Type="Edit" X="45" Y="122" Width="220" Height="18" Property="COMPANYNAME" Text="{80}" />
-				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="[ButtonText_Back]">
-					<Publish Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
-				</Control>
-				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
-					<Publish Event="ValidateProductID" Value="0">0</Publish>
-					<Publish Event="SpawnWaitDialog" Value="WaitForCostingPopup">CostingComplete = 1</Publish>
-					<Publish Event="NewDialog" Value="SetupTypeDlg">ProductID</Publish>
-				</Control>
-				<Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
-					<Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
-				</Control>
-				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
-				<Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>Please enter your customer information</Text>
-				</Control>
-				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
-				<Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>[DlgTitleFont]Customer Information</Text>
-				</Control>
-				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
-			</Dialog>
-
 			<Dialog Id="VerifyReadyDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes" TrackDiskSpace="yes">
 				<Control Id="Install" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Install]">
 					<Publish Event="EndDialog" Value="Return"><![CDATA[OutOfDiskSpace <> 1]]></Publish>
@@ -765,7 +661,6 @@
 					<Publish Event="NewDialog" Value="AdminInstallPointDlg"><![CDATA[InstallMode = "Server Image"]]></Publish>
 					<Publish Event="NewDialog" Value="CustomizeDlg"><![CDATA[InstallMode = "Custom" OR InstallMode = "Change"]]></Publish>
 					<Publish Event="NewDialog" Value="MaintenanceTypeDlg"><![CDATA[InstallMode = "Repair"]]></Publish>
-					<Publish Event="NewDialog" Value="SetupTypeDlg"><![CDATA[InstallMode = "Typical" OR InstallMode = "Complete"]]></Publish>
 				</Control>
 				<Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
 					<Text>The [Wizard] is ready to begin the [InstallMode] installation</Text>
