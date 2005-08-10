@@ -24,7 +24,7 @@
 			<ComponentRef Id="C__DiffScripts" />
 			<ComponentRef Id="C__WebsiteLink" />
 
-			<ComponentRef Id="C__iconsclassic" />
+			<ComponentRef Id="C__iconsxpstyle" />
 
 			<Feature Id="CVSIcons" Level="1" Title="'TCVS' icon set" Description="'TortoiseCVS' style icon overlays" TypicalDefault="install">
 				<ComponentRef Id="C__iconscvsclassic" />
@@ -32,8 +32,8 @@
 			<Feature Id="ModernIcons" Level="1" Title="'Modern' icon set" Description="'Modern' style icon overlays" TypicalDefault="install">
 				<ComponentRef Id="C__iconsmodern" />
 			</Feature>
-			<Feature Id="XPIcons" Level="1" Title="'XP' icon set" Description="'XP' style icon overlays" TypicalDefault="install">
-				<ComponentRef Id="C__iconsxpstyle" />
+			<Feature Id="ClassicIcons" Level="1" Title="'Classic' icon set" Description="'Classic' style icon overlays" TypicalDefault="install">
+				<ComponentRef Id="C__iconsclassic" />
 			</Feature>
 			<Feature Id="SubClipseIcons" Level="1" Title="'SubClipse' icon set" Description="'SubClipse' style icon overlays" TypicalDefault="install">
 				<ComponentRef Id="C__iconsmarkphippard" />
@@ -48,6 +48,7 @@
 					<ComponentRef Id="C__crash" />
 				</Feature>
 			<?endif ?>
+			
 			</Feature>
 	</Fragment>
 </Wix>
