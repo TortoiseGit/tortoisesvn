@@ -1,3 +1,7 @@
+- NEW: Tool added to build process; Text2RTF for converting the plain
+       text subversion license to RTF for the setup package to display.
+       We now convert the external's license directly, instead of using
+       a plain text copy. (Pete)
 - NEW: Icon sets (except for the default one) are now optional features; 
        the user can choose whether or not to install them, during setup. 
        (Pete)
@@ -23,7 +27,7 @@
 - NEW: 'Open' and 'Open with...' commands in the progress dialog. (Stefan)
 - CHG: Setup UI changed from the dark'd code from the VS-generated package
        to a standardised framework from the WiX tutorial. 
-       See issue #147.(Pete)
+       See issue #147. (Pete)
 - CHG: Refactored WiX setup code into fragments and started to use include
        files for variables that are needed more than once. 
        See issues #127 and #128. (Pete)
