@@ -1210,7 +1210,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								CSVNProgressDlg dlg;
 								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev);		//use the message as the second url
-								dlg.m_RevisionEnd = rev;
+								dlg.m_RevisionEnd = rev-1;
 								dlg.DoModal();
 							}
 						}
