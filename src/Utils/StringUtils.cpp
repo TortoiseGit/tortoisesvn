@@ -111,3 +111,76 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 	}
 	return !*wild;
 }
+
+CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
+{
+	CString retString;
+	CStringArray arWords;
+	if (longstring.GetLength() < limit)
+		return longstring;	// no wrapping needed.
+	// now start breaking the string into words
+
+	CString temp = longstring;
+	while (temp.GetLength() > limit)
+	{
+		int pos=0;
+		while ((pos>=0)&&(temp.Find(' ', pos)<limit))
+		{
+			pos = temp.Find(' ', pos+1);
+		}
+		if (pos==0)
+			pos = temp.Find(' ');
+		if (pos<0)
+		{
+			if ((bCompactPaths)&&(temp.GetLength() < MAX_PATH))
+			{
+				if ((!PathIsFileSpec(temp))||(PathIsURL(temp)))
+				{
+					TCHAR buf[MAX_PATH];
+					PathCompactPathEx(buf, temp, limit, 0);
+					temp = buf;
+				}				
+			}
+			retString += temp;
+			temp.Empty();
+		}
+		else
+		{
+			CString longline = temp.Left(pos+1);
+			if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+			{
+				if ((!PathIsFileSpec(longline))||(PathIsURL(longline)))
+				{
+					TCHAR buf[MAX_PATH];
+					PathCompactPathEx(buf, longline, limit, 0);
+					longline = buf;
+				}				
+			}
+
+			retString += longline;
+			temp = temp.Mid(pos+1);
+		}
+		retString += _T("\n");
+	}
+	retString += temp;
+	return retString;
+}
+
+#if defined(_DEBUG)
+// Some test cases for these classes
+static class StringUtilsTest
+{
+public:
+	StringUtilsTest()
+	{
+		CString longline = _T("this is a test of how a string can be splitted into several lines");
+		CString splittedline = CStringUtils::WordWrap(longline, 10);
+		longline = _T("c:\\this_is_a_very_long\\path_on_windows and of course some other words added to make the line longer");
+		splittedline = CStringUtils::WordWrap(longline, 10);
+		longline = _T("and of course some c:\\this_is_a_very_long\\path_on_windows\\file other words added to make the line longer");
+		splittedline = CStringUtils::WordWrap(longline, 10);
+		ATLTRACE(splittedline);
+	}
+} StringUtilsTest;
+
+#endif
