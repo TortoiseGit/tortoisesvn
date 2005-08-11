@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4090
+# Based on Tortoise.pot r4120
 #
 msgid ""
 msgstr ""
@@ -3322,6 +3322,10 @@ msgstr "URL'en\n%s\nfindes allerede!"
 #: ID:195,
 msgid "The time in seconds after which the parsing of the selected files stops.\nA lower value will make the autocompletion list available sooner,\nbut maybe not scan all files."
 msgstr "Antallet af sekunder, der højst bruges på læse de valgte filer.\nEn lavere værdi vil gøre automatisk udfyldning hurtigere tilgængelig,\nmen måske skannes ikke alle filer."
+
+#: ID:82,
+msgid "The two selected URL's are not created from the same root.\nIt's not possible to show the log messages between them!"
+msgstr "De to valgte URL'er er ikke oprettet fra samme rod.\nDet er ikke muligt at vise logbeskederne mellem dem."
 
 #: ID:16,
 msgid "The user who did the last commit"
