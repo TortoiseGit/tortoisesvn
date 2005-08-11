@@ -72,6 +72,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_WM_MOVE()
 	ON_WM_MOVING()
 	ON_UPDATE_COMMAND_UI(ID_EDIT_COPY, OnUpdateEditCopy)
+	ON_COMMAND(ID_VIEW_SWITCHLEFT, OnViewSwitchleft)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_SWITCHLEFT, OnUpdateViewSwitchleft)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1336,4 +1338,23 @@ void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
 	if ((m_pwndLeftView)&&(m_pwndLeftView->HasSelection()))
 		bShow = TRUE;
 	pCmdUI->Enable(bShow);
+}
+
+void CMainFrame::OnViewSwitchleft()
+{
+	CWorkingFile file = m_Data.m_baseFile;
+	m_Data.m_baseFile = m_Data.m_yourFile;
+	m_Data.m_yourFile = file;
+	LoadViews();
+}
+
+void CMainFrame::OnUpdateViewSwitchleft(CCmdUI *pCmdUI)
+{
+	BOOL bEnable = TRUE;
+	if (m_pwndBottomView)
+	{
+		if (m_pwndBottomView->IsWindowVisible())
+			bEnable = FALSE;
+	}
+	pCmdUI->Enable(bEnable);
 }

@@ -142,7 +142,6 @@
 #define IDS_VIEWCONTEXTMENU_USEOTHERBLOCK 4006
 #define IDS_VIEWCONTEXTMENU_USEOTHERFILE 4007
 #define IDS_VIEWTITLE_THEIRS            4200
-#define IDS_VIEWTITLE_YOURS             4201
 #define IDS_VIEWTITLE_MERGED            4201
 #define IDS_VIEWTITLE_MINE              4202
 #define IDS_SAVEASTITLE                 5000
@@ -174,13 +173,15 @@
 #define ID_MERGE_NEXTCONFLICT           32804
 #define ID_BUTTON32807                  32807
 #define ID_MERGE_MARKASRESOLVED         32808
+#define ID_VIEW_SWITCHLEFT              32811
+#define ID_BUTTON32812                  32812
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
-#define _APS_NEXT_COMMAND_VALUE         32811
+#define _APS_NEXT_COMMAND_VALUE         32813
 #define _APS_NEXT_CONTROL_VALUE         1070
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

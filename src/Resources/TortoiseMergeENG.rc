@@ -320,6 +320,7 @@ BEGIN
     BUTTON      ID_FILE_RELOAD
     BUTTON      ID_EDIT_UNDO
     BUTTON      ID_VIEW_WHITESPACES
+    BUTTON      ID_VIEW_SWITCHLEFT
     SEPARATOR
     BUTTON      ID_MERGE_PREVIOUSDIFFERENCE
     BUTTON      ID_MERGE_NEXTDIFFERENCE
@@ -365,6 +366,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Whitespaces",                ID_VIEW_WHITESPACES
         MENUITEM "Two-way &Diff",               ID_VIEW_ONEWAYDIFF
+        MENUITEM "Switch Left<->Right",         ID_VIEW_SWITCHLEFT
         MENUITEM SEPARATOR
         MENUITEM "S&ettings",                   ID_VIEW_OPTIONS
     END
@@ -659,6 +661,7 @@ BEGIN
     ID_MERGE_PREVIOUSCONFLICT "Go to the previous conflict\nprevious conflict"
     ID_MERGE_NEXTCONFLICT   "Go to the next conflict\nnext conflict"
     ID_MERGE_MARKASRESOLVED "Marks a file as resolved in Subversion\nMark as resolved"
+    ID_VIEW_SWITCHLEFT      "Switch the contents of the left and right view\nSwitch left and right view"
 END
 
 STRINGTABLE 

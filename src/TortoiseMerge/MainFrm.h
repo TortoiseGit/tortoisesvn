@@ -31,7 +31,7 @@ class CLeftView;
 class CRightView;
 class CBottomView;
 
-class CMainFrame : public CNewFrameWnd, public CPatchFilesDlgCallBack
+class CMainFrame : public CNewFrameWnd, public CPatchFilesDlgCallBack //CNewFrameWnd
 {
 	
 public:
@@ -75,6 +75,8 @@ protected:
 	afx_msg void	OnUpdateMergePreviousconflict(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateEditCopy(CCmdUI *pCmdUI);
 	afx_msg void	OnMoving(UINT fwSide, LPRECT pRect);
+	afx_msg void	OnViewSwitchleft();
+	afx_msg void	OnUpdateViewSwitchleft(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:
