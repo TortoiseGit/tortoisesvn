@@ -254,36 +254,6 @@
 				<Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
 					<Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
 				</Control>
-
-				<Control Id="Text" Type="Text" X="25" Y="55" Width="320" Height="20">
-					<Text>Click on the icons in the tree below to change the way features will be installed.</Text>
-				</Control>
-				<Control Id="Tree" Type="SelectionTree" X="25" Y="85" Width="175" Height="95" Property="_BrowseProperty" Sunken="yes" TabSkip="no" Text="Tree of selections" />
-				<Control Id="Box" Type="GroupBox" X="210" Y="81" Width="140" Height="98" />
-				<Control Id="ItemDescription" Type="Text" X="215" Y="90" Width="140" Height="30">
-					<Text>Multiline description of the currently selected item.</Text>
-					<Subscribe Event="SelectionDescription" Attribute="Text" />
-				</Control>
-				<Control Id="ItemSize" Type="Text" X="215" Y="130" Width="140" Height="45">
-					<Text>The size of the currently selected item.</Text>
-					<Subscribe Event="SelectionSize" Attribute="Text" />
-				</Control>
-
-				<Control Id="LocationLabel" Type="Text" X="25" Y="200" Width="50" Height="10" Text="Location:">
-					<Subscribe Event="SelectionPathOn" Attribute="Visible" />
-					<Condition Action="hide">Installed</Condition>
-				</Control>
-				<Control Id="Location" Type="Text" X="75" Y="200" Width="215" Height="20">
-					<Text>&lt;The selection's path&gt;</Text>
-					<Subscribe Event="SelectionPath" Attribute="Text" />
-					<Subscribe Event="SelectionPathOn" Attribute="Visible" />
-					<Condition Action="hide">Installed</Condition>
-				</Control>
-				<Control Id="Browse" Type="PushButton" X="304" Y="200" Width="56" Height="17" Text="[ButtonText_Browse]">
-					<Publish Event="SelectionBrowse" Value="BrowseDlg">1</Publish>
-					<Condition Action="hide">Installed</Condition>
-				</Control>
-
 				<Control Id="Reset" Type="PushButton" X="42" Y="243" Width="56" Height="17" Text="[ButtonText_Reset]">
 					<Publish Event="Reset" Value="0">1</Publish>
 					<Subscribe Event="SelectionNoItems" Attribute="Enabled" />
@@ -294,13 +264,43 @@
 					<Subscribe Event="SelectionNoItems" Attribute="Enabled" />
 				</Control>
 
+				<Control Id="Text" Type="Text" X="25" Y="72" Width="320" Height="12">
+					<Text>Click on the icons in the tree below to change the way features will be installed.</Text>
+				</Control>
+				<Control Id="Tree" Type="SelectionTree" X="25" Y="90" Width="175" Height="110" Property="_BrowseProperty" Sunken="yes" TabSkip="no" Text="Tree of selections" />
+				<Control Id="DescriptionBox" X="205" Y="85" Width="140" Height="45" Type="GroupBox" Text="Feature Description" />
+				<Control Id="ItemDescription" X="210" Y="95" Width="130" Height="30" Text="Multiline description of the currently selected item." Type="Text">
+					<Text>Multiline description of the currently selected item.</Text>
+					<Subscribe Event="SelectionDescription" Attribute="Text" />
+				</Control>
+				<Control Id="SizeBox" X="205" Y="135" Width="140" Height="65" Type="GroupBox" Text="Feature Size" />
+				<Control Id="ItemSize" Type="Text" X="210" Y="145" Width="130" Height="50">
+					<Text>The size of the currently selected item.</Text>
+					<Subscribe Event="SelectionSize" Attribute="Text" />
+				</Control>
+
+				<Control Id="LocationLabel" Type="Text" X="25" Y="210" Width="50" Height="10" Text="Location:">
+					<Subscribe Event="SelectionPathOn" Attribute="Visible" />
+					<Condition Action="hide">Installed</Condition>
+				</Control>
+				<Control Id="Location" Type="Text" X="75" Y="210" Width="215" Height="20">
+					<Text>&lt;The selection's path&gt;</Text>
+					<Subscribe Event="SelectionPath" Attribute="Text" />
+					<Subscribe Event="SelectionPathOn" Attribute="Visible" />
+					<Condition Action="hide">Installed</Condition>
+				</Control>
+				<Control Id="Browse" Type="PushButton" X="304" Y="210" Width="56" Height="17" Text="[ButtonText_Browse]">
+					<Publish Event="SelectionBrowse" Value="BrowseDlg">1</Publish>
+					<Condition Action="hide">Installed</Condition>
+				</Control>
+
 				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
 				<Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
 					<Text>[DlgTitleFont]Custom Setup</Text>
 				</Control>
 				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
-				<Control Id="DialogDescription" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>Select the way you want features to be installed.</Text>
+				<Control Id="DialogDescription" Type="Text" X="25" Y="23" Width="300" Height="15" Transparent="yes" NoPrefix="yes">
+					<Text>Decide where to install [ProductName], for whom, and which features.</Text>
 				</Control>
 				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
 			</Dialog>
@@ -314,7 +314,7 @@
 					<Text>The highlighted volumes (if any) do not have enough disk space available for the currently selected features. You can either remove some files from the highlighted volumes, or choose to install less features onto local drive(s), or select different destination drive(s).</Text>
 				</Control>
 				<Control Id="VolumeList" Type="VolumeCostList" X="20" Y="100" Width="330" Height="120" Sunken="yes" Fixed="yes" Remote="yes">
-					<Text>{120}{55}{55}{55}{55}</Text>
+					<Text>{100}{55}{55}{50}{55}</Text>
 				</Control>
 
 				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
