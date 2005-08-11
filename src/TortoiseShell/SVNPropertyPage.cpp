@@ -161,7 +161,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				if (filenames.size() == 1)
 				{
 					if (PathIsDirectory(filenames.front().c_str()))
-						iShowProps = FOLDERPROPS;
+						iShowProps = FOLDERPROPS | FILEPROPS;		// show fileprops on folders too (for recursive prop setting)
 					else
 						iShowProps = FILEPROPS;
 				}
@@ -469,6 +469,20 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 							dlg.SetLine(1, I->c_str(), TRUE);
 							SVNProperties props = SVNProperties(CTSVNPath(I->c_str()));
 							CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
+							if ((!checked)&&(all == 1)&&(PathIsDirectory(I->c_str())))
+							{
+								if ((_tcscmp(name, _T("svn:eol-style"))==0)||
+									(_tcscmp(name, _T("svn:executable"))==0)||
+									(_tcscmp(name, _T("svn:keywords"))==0)||
+									(_tcscmp(name, _T("svn:needs-lock"))==0)||
+									(_tcscmp(name, _T("svn:mime-type"))==0))
+								{
+									TCHAR msg[2048];
+									LoadString(g_hResInst, IDS_FILEPROPONFOLDER, msg, 2048);
+									::MessageBox(m_hwnd, msg, _T("TortoiseSVN"), MB_ICONERROR);
+									break;
+								}
+							}
 							if (!props.Add(name, t.c_str(), checked))
 							{
 								::MessageBox(m_hwnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);

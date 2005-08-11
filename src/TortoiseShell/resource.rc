@@ -356,6 +356,7 @@ BEGIN
     IDS_DROPCOPYRENAMEMENU  "SVN Copy and Rename versioned files here"
     IDS_COLTITLEAUTHOR      "SVN Author"
     IDS_COLDESCAUTHOR       "The user who did the last commit"
+    IDS_FILEPROPONFOLDER    "You can't set this property on folders, only on files!\nIf you want to set it on all files within that folder,\nyou must activate the 'recursive' checkbox."
 END
 
 #endif    // English (U.S.) resources

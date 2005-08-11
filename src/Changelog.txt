@@ -40,6 +40,10 @@
 - CHG: In the log dialog, the "next 100" button is disabled once the
        "Show All" button was pressed. See issue #138. (Stefan)
 - CHG: Enabled diffing of copied/moved files in the commit dialog. (Stefan)
+- CHG: In the property dialog, the svn: properties which can only be set on
+       files are now shown on folders too in the combobox. An error message
+       is then shown if the user tries to set such a property on the folder
+       without the 'recursive' checkbox activated. (Stefan)
 - BUG: The default ssh client (TortoisePlink) wasn't used in some
        places, e.g. the revision graph. (Stefan)
 - BUG: The option "Only use spellchecker when tsvn:projectlanguage is set"
