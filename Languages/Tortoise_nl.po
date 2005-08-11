@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-06 15:02+0100\n"
+"PO-Revision-Date: 2005-08-11 20:31+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1152,6 +1152,10 @@ msgstr "Kleuren"
 msgid "Command failed."
 msgstr "Opdracht mislukt."
 
+#: ID:319
+msgid "Comment"
+msgstr "Opmerking"
+
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Vastleggen"
@@ -1805,6 +1809,7 @@ msgstr "Revisie %s van bestand ophalen:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "Bestand"
 
@@ -2535,6 +2540,11 @@ msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
 msgid "Only check out the top folder"
 msgstr "Alleen de bovenste map ophalen"
 
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "Alleen in %s"
+
 #: ID:169
 msgid ""
 "Only numbers (optionally separated by commas)\n"
@@ -2893,6 +2903,11 @@ msgstr "Hernoem %s"
 #: ID:11
 msgid "Rename..."
 msgstr "Hernoemen..."
+
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "Hernoemd van %s"
 
 #: ID:126
 msgid "Renamed remotely"
@@ -3527,6 +3542,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Wissel links <-> rechts"
+
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
 msgstr "Wissel naar tak/label"
@@ -3547,6 +3566,14 @@ msgstr ""
 "Wissel tussen enkelvoudig en dubbel venster\n"
 "Wissel tussen enkelvoudig en dubbel venster"
 
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Wissel de inhoud van het linker en rechter venster\n"
+"Wissel linker en rechter venster"
+
 #: ID:3825
 msgid "Switch to the next document window"
 msgstr "Ga naar het volgende documentvenster"
@@ -3566,6 +3593,10 @@ msgstr "Ga naar het vorige documentvenster"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Schakel werkkopie naar een andere tak/label"
+
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "Schakel werkkopie naar de nieuwe tak/label"
 
 #: ID:9
 msgid "Switch..."
@@ -3801,6 +3832,14 @@ msgstr ""
 "De maximale tijd in seconden om de bestanden te doorzoeken.\n"
 "Een lagere waarde zorgt voor het snel beschikbaar zijn van de lijst,\n"
 "maar mogelijk zijn niet alle bestanden doorzocht."
+
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"De twee geselecteerde URLs zijn niet gebaseerd op dezelfde basis.\n"
+"Het is niet mogelijk om logboodschappen tussen deze twee te tonen!"
 
 #: ID:16
 msgid "The user who did the last commit"
@@ -4310,6 +4349,16 @@ msgstr ""
 "file:/// te benaderen.\n"
 "Dit kan leiden tot ernstige beschadiging van de bibliotheek!\n"
 "Wilt u dit echt doen?"
+
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"Deze eigenschap kan alleen op bestanden worden gezet, niet op mappen!\n"
+"Als u hem op alle bestanden in de map wilt zetten, gebruik\n"
+"dan de optie 'recursief'."
 
 #: ID:105
 msgid ""
