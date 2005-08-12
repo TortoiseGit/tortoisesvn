@@ -253,6 +253,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return;
 	} 
+	SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 	progDlg.SetProgress(1, 2);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
 	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
@@ -261,7 +262,8 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return;
-	} 
+	}
+	SetFileAttributes(tempfile2.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 	progDlg.SetProgress(2,2);
 	progDlg.Stop();
 

@@ -633,6 +633,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						break;;
 					}
+					SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 					if (!bOpenWith)
 					{
 						int ret = (int)ShellExecute(NULL, _T("open"), tempfile.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);

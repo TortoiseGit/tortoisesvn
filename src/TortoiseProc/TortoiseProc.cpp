@@ -1628,6 +1628,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						__int64 createtime = (((_int64)createtime_.dwHighDateTime)<<32) | ((__int64)createtime_.dwLowDateTime);
 						if ((createtime + 864000000000) < systime)		//only delete files older than a day
 						{
+							::SetFileAttributes(filepath, FILE_ATTRIBUTE_NORMAL);
 							::DeleteFile(filepath);
 						}
 					}

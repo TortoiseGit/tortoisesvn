@@ -1323,6 +1323,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 								else
 								{
+									SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 									CString revname, wcname;
 									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), m_nUpdateStartRev);
 									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());

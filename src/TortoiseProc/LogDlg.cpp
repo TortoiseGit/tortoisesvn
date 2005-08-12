@@ -989,6 +989,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						else
 						{
+							SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 							int ret = 0;
 							if (!bOpenWith)
 								ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
@@ -1376,6 +1377,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							theApp.DoWaitCursor(-1);
 							break;
 						}
+						SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 						if (!bOpenWith)
 						{
 							int ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);

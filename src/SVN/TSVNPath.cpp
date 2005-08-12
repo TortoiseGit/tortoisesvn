@@ -747,6 +747,7 @@ void CTSVNPathList::DeleteAllFiles()
 	for(it = m_paths.begin(); it != m_paths.end(); ++it)
 	{
 		ATLASSERT(!it->IsDirectory());
+		::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
 		::DeleteFile(it->GetWinPath());
 	}
 	Clear();

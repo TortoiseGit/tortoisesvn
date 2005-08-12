@@ -83,6 +83,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 			CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return false;
 		}
+		SetFileAttributes(remotePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 	}
 
 	CString name = filePath.GetFileOrDirectoryName();
@@ -173,6 +174,7 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 			else
 			{
 				basePath = temporaryFile;
+				SetFileAttributes(basePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			}
 		}
 		CString name = filePath.GetFilename();
@@ -308,6 +310,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return false;
 			}
+			SetFileAttributes(tempfile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			progDlg.SetProgress(1, 2);
 			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
 			progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
@@ -317,6 +320,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return false;
 			}
+			SetFileAttributes(tempfile2.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			progDlg.SetProgress(2,2);
 			progDlg.Stop();
 
@@ -350,6 +354,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			} 
 			else
 			{
+				SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 				CString revname, wcname;
 				revname.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)rev2);
 				wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
@@ -407,7 +412,8 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 			}
 			else
 				return false;
-
+			SetFileAttributes(wcpropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+			SetFileAttributes(basepropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			CString n1, n2;
 			if (rev1.IsWorking())
 				n1.Format(IDS_DIFF_WCNAME, wcname.c_str());
