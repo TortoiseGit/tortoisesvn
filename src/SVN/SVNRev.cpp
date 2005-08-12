@@ -86,7 +86,7 @@ void SVNRev::Create(CString sRev)
 	else
 	{
 		LONG nRev = _ttol(sRev);
-		if (nRev != 0)
+		if (nRev > 0)
 		{
 			rev.kind = svn_opt_revision_number;
 			rev.value.number = nRev;
