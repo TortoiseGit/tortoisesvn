@@ -58,7 +58,7 @@
 
 		<!-- Figure out where a previous installation was, if any ................................................................ -->
 		<Property Id="INSTALLDIR">
-			<RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="InstallDir" Type="raw" />
+			<RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" />
 		</Property>
 		
 		<FragmentRef Id="StructureFragment"/>

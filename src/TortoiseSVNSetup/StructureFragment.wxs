@@ -76,7 +76,6 @@
 						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseConflict.ico" Type="string" />
 						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="LockedIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseLocked.ico" Type="string" />
 						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseAdded.ico" Type="string" />
-						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InstallDir" Value="[INSTALLDIR]" Action="write" Type="string" />
 					</Component>
 
 					<Component Id="C__approveshellcomponents" Guid="A5B89BEC-D213-461D-AACD-8F46477E87D0" >
