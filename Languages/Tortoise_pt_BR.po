@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-02 09:57-0300\n"
+"PO-Revision-Date: 2005-08-12 15:37-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1442,6 +1442,11 @@ msgid "Command failed."
 msgstr "Comando falhou."
 
 # ID:8,
+#: ID:319
+msgid "Comment"
+msgstr "Comentário"
+
+# ID:8,
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Submeter"
@@ -2244,6 +2249,7 @@ msgstr "Obtendo revisão %s do arquivo:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "Arquivo"
 
@@ -2910,6 +2916,11 @@ msgstr "Tipo MIME"
 msgid "Min"
 msgstr "Mín"
 
+# Dlg-ID:143,
+#: ID:263
+msgid "Mine"
+msgstr "Meu"
+
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1023
@@ -3141,6 +3152,12 @@ msgstr "Um ou mais arquivos estão em estado de conflito."
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Obter apenas a pasta raiz"
+
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "Apenas em %s"
 
 # ID:169,
 #: ID:169
@@ -3599,6 +3616,12 @@ msgstr "Renomear %s"
 msgid "Rename..."
 msgstr "Renomear..."
 
+# ID:97,
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "Renomeado de %s"
+
 # ID:126,
 #: ID:126
 msgid "Renamed remotely"
@@ -3659,7 +3682,7 @@ msgstr "Solicita um nome de usuário e uma senha"
 #: Dlg-ID:207
 #, fuzzy
 msgid "Resolve"
-msgstr "Resolvido"
+msgstr "Resolver"
 
 # ID:8,
 #: ID:74
@@ -4399,6 +4422,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Alternar Esquerda<->Direita"
+
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
@@ -4421,6 +4448,16 @@ msgid ""
 msgstr ""
 "Alternar entre visão de painel simples e dupla\n"
 "Alterna entre visão de painel simples e dupla"
+
+# ID:2051,
+#: ID:2051
+#, fuzzy
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Alternar os cunteúdos da visão da esquerda para a direita\n"
+"Alternar visão esquerda e direita"
 
 # ID:3825,
 #: ID:3825
@@ -4445,6 +4482,11 @@ msgstr "Voltar à janela de documento anterior"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Alternar a cópia de trabalho para outra uma ramificação / rótulo"
+
+# ID:9,
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "Alternar a cópia de trabalho para um novo ramo/rótulo"
 
 # ID:9,
 #: ID:9
@@ -4715,6 +4757,16 @@ msgstr ""
 "Um valor menor tornará a lista de autocompletamento disponível mais cedo,\n"
 "mas talvez sem interpretar todos os arquivos."
 
+# ID:82,
+#: ID:82
+#, fuzzy
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"As duas URL's selecionadas não foram criadas a partir da mesma raiz.\n"
+"Não é possível mostrar as mensagens de log entre elas!"
+
 # ID:16,
 #: ID:16
 msgid "The user who did the last commit"
@@ -4750,6 +4802,12 @@ msgstr ""
 #: Control-ID:65535
 msgid "Their File:"
 msgstr "Arquivo Deles:"
+
+# ID:188,
+#: ID:263
+#, fuzzy
+msgid "Theirs"
+msgstr "Dêles"
 
 # ID:169,
 #: ID:169
@@ -5334,6 +5392,18 @@ msgstr ""
 "em um compartilhamento de rede.\n"
 "Isso pode causar sérios danos ao repositório!\n"
 "Você deseja realmente fazer isso?"
+
+# ID:16,
+#: ID:16
+#, fuzzy
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"Essa propriedade não pode ser atribuida a diretórios, somente a arquivos!\n"
+"Se deseja atribuí-la aos arquivos que pertencem a esse diretório, \n"
+"deve ativar a caixa de seleção 'recursivo'."
 
 # ID:105,
 #: ID:105
