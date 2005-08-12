@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4120
+# Based on Tortoise.pot r4126
 #
 msgid ""
 msgstr ""
@@ -3146,6 +3146,10 @@ msgstr "Subversion meldte fejl under oprettelsen af versionsarkivet!\nVær sikke
 msgid "Subversion reported an error while doing a cleanup!\n<hr=100%>\n%s"
 msgstr "Subversion meldte fejl under oprydningen!\n<hr=100%>\n%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Ombyt Venstre<->Højre"
+
 #: Dlg-ID:140,
 msgid "Switch To Branch / Tag"
 msgstr "Skift til forgrening/mærkat"
@@ -3157,6 +3161,10 @@ msgstr "Skift til foregående vinduespanel\nForegående Panel"
 #: ID:2049,
 msgid "Switch between single and double pane view\nSwitch between single and double pane view"
 msgstr "Skift mellem enkelt- og dobbeltpanel-visning\nSkift mellem enkelt- og dobbeltpanel-visning"
+
+#: ID:2051,
+msgid "Switch the contents of the left and right view\nSwitch left and right view"
+msgstr "Ombyt indholdet af den venstre og højre visning\nOmbyt venstre og højre visning"
 
 #: ID:3825,
 msgid "Switch to the next document window"
@@ -3717,6 +3725,10 @@ msgstr "Du er ved at oprette et versionsarkiv på et netværksdrev.\nDette er he
 #: ID:88,
 msgid "You are trying to access a repository via file:/// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
 msgstr "Du forsøger at opnå adgang til et versionsarkiv via file:/// på\net netværksdrev.\nDette kan forårsage ødelæggelse af versionsarkivet!\nEr du sikker på at du vil fortsætte?"
+
+#: ID:16,
+msgid "You can't set this property on folders, only on files!\nIf you want to set it on all files within that folder,\nyou must activate the 'recursive' checkbox."
+msgstr "Du kan ikke sætte denne egenskab på mapper, kun på filer.\nHvis du vil sætte den på alle filer i mappen,\nskal du afkrydse feltet 'rekursiv'."
 
 #: ID:105,
 msgid "You copied more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will copy each file/folder\nindividually, creating a new revision for every copied item.\n\nDo you still want to do this?"
