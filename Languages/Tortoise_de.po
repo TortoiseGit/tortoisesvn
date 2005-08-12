@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-08-11 11:57+0100\n"
+"PO-Revision-Date: 2005-08-12 10:06+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3541,6 +3541,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Tausche Links <-> Rechts"
+
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
 msgstr "Wechsle zu Verzweigung / Markierung"
@@ -3560,6 +3564,15 @@ msgid ""
 msgstr ""
 "Zwischen Einzel- und Doppelansicht umschalten\n"
 "Zwischen Einzel- und Doppelansicht umschalten"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Vertauscht die Inhalte des rechten und des linken Fensters\n"
+"Tauscht die Fenster"
 
 #: ID:3825
 msgid "Switch to the next document window"
@@ -4337,6 +4350,17 @@ msgstr ""
 "Sie versuchen auf ein Projektarchiv mittels file:/// zuzugreifen, welches auf einer Netzwerkfreigabe liegt.\n"
 "<b>Dies kann zur Zerstörung des Projektarchivs führen!</b>.\n"
 "Möchten Sie dies wirklich tun?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"Sie können diese Eigenschaft nicht auf Ordner setzen, nur auf Dateien!\n"
+"Wenn Sie die Eigenschaft auf alle Dateien dieses Ordners setzen wollen,\n"
+"markieren Sie die 'Rekursiv' Option."
 
 # ID:105,
 #: ID:105
