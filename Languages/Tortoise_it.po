@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-09 11:38+0100\n"
-"Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
+"PO-Revision-Date: 2005-08-13 14:51+0100\n"
+"Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4072,6 +4072,11 @@ msgstr "Seleziona l'oggetto su cui si desidera ottenere aiuto"
 msgid "Select diff file..."
 msgstr "Seleziona file di confronto..."
 
+# Dlg-ID:173,
+#: ID:276
+msgid "Select end revision"
+msgstr "Seleziona fine revisione"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4080,6 +4085,16 @@ msgid ""
 msgstr ""
 "Selezionare la cartella in cui esportare.\n"
 "Potrebbe essere necessario dover creare una nuova cartella prima di procedere all'esportazione."
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select revision range"
+msgstr "Seleziona l'intervallo di revisione"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select start revision"
+msgstr "Seleziona inizio revisione"
 
 # ID:79,
 #: ID:79
@@ -4406,6 +4421,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Inverti Sinistra<->Destra"
+
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
@@ -4428,6 +4447,15 @@ msgid ""
 msgstr ""
 "Cambia visualizzazione da singolo a doppio pannello\n"
 "Cambia visualizzazione da singolo a doppio pannello"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Inverte i contenuti della vista di destra e di quella di sinistra\n"
+"Inverti colonne"
 
 # ID:3825,
 #: ID:3825
@@ -4726,6 +4754,15 @@ msgstr ""
 "Il tempo, in secondi, dopo il quale l'analisi del file selezionato viene interrotta.\n"
 "Un valore basso renderà la lista d'autocompletamento disponibile più velocemente,\n"
 "ma potrebbe non analizzare tutti i file."
+
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"I due URL selezionati non sono stati creati dalla stessa radice.\n"
+"Non è possibile visualizzare i commenti per entrambi!"
 
 # ID:16,
 #: ID:16
@@ -5351,6 +5388,17 @@ msgstr ""
 "Si sta cercando di accedere al repository attraverso \"file:///\" su\n"
 "un disco di rete condiviso.\n"
 "Ciò potrebbe portare a gravi perdite di dati nel repository!Si desidera proseguire?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"È possibile impostare questa proprietà solo per i file e non per le cartelle!\n"
+"Se si desidera impostare tale proprietà su tutti i file contenuti nella cartella,\n"
+"bisogna attivare l'opzione 'ricorsivo'."
 
 # ID:105,
 #: ID:105
