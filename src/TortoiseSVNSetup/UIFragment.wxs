@@ -31,8 +31,8 @@
 			<Property Id="ARPCONTACT">$(var.PackageManufacturer)</Property>
 			<Property Id="ARPHELPLINK">$(var.TortoiseSvnOrg)</Property>
 			<Property Id="ARPPRODUCTICON">TSVNIcon</Property>
-			<Property Id="ARPNOMODIFY"><![CDATA[1]]></Property>
-			<Property Id="ARPNOREPAIR"><![CDATA[1]]></Property>
+			<Property Id="ARPNOMODIFY">1</Property>
+			<Property Id="ARPNOREPAIR">1</Property>
 			<Property Id="ARPURLINFOABOUT">$(var.TortoiseSvnOrg)</Property>
 
 			<!-- UI Button Texts ............................................................. -->
@@ -54,37 +54,37 @@
 			<Property Id="ButtonText_Return"><![CDATA[&Return]]></Property>
 			<Property Id="ButtonText_Yes"><![CDATA[&Yes]]></Property>
 
-			<!-- UI Texts .................................................................... -->
-			<Property Id="IAgree"><![CDATA[No]]></Property>
-			<Property Id="InstallMode"><![CDATA[Complete]]></Property>
-			<Property Id="Setup"><![CDATA[Setup]]></Property>
-			<Property Id="Progress1"><![CDATA[Installing]]></Property>
-			<Property Id="Progress2"><![CDATA[installs]]></Property>
-			<Property Id="Wizard"><![CDATA[Setup Wizard]]></Property>
+			<!-- UI Variables ................................................................ -->
+			<Property Id="IAgree">No</Property>
+			<Property Id="InstallMode">Complete</Property>
+			<Property Id="Setup">Setup</Property>
+			<Property Id="Progress1">Installing</Property>
+			<Property Id="Progress2">installs</Property>
+			<Property Id="Wizard">Setup Wizard</Property>
 
 			<!-- UI Icons .................................................................... -->
-			<Property Id="CompleteSetupIcon"><![CDATA[completi]]></Property>
-			<Property Id="CustomSetupIcon"><![CDATA[custicon]]></Property>
-			<Property Id="ExclamationIcon"><![CDATA[exclamic]]></Property>
-			<Property Id="InfoIcon"><![CDATA[info]]></Property>
-			<Property Id="InstallerIcon"><![CDATA[insticon]]></Property>
-			<Property Id="RemoveIcon"><![CDATA[removico]]></Property>
-			<Property Id="RepairIcon"><![CDATA[repairic]]></Property>
+			<Property Id="CompleteSetupIcon">completi</Property>
+			<Property Id="CustomSetupIcon">custicon</Property>
+			<Property Id="ExclamationIcon">exclamic</Property>
+			<Property Id="InfoIcon">info</Property>
+			<Property Id="InstallerIcon">insticon</Property>
+			<Property Id="RemoveIcon">removico</Property>
+			<Property Id="RepairIcon">repairic</Property>
 
 			<!-- UI Bitmaps .................................................................. -->
-			<Property Id="BannerBitmap"><![CDATA[bannrbmp]]></Property>
-			<Property Id="DialogBitmap"><![CDATA[dlgbmp]]></Property>
+			<Property Id="BannerBitmap">bannrbmp</Property>
+			<Property Id="DialogBitmap">dlgbmp</Property>
 
 			<!-- UI Fonts .................................................................... -->
-			<Property Id="DefaultUIFont"><![CDATA[DlgFont8]]></Property>
+			<Property Id="DefaultUIFont">DlgFont8</Property>
 			<Property Id="DlgTitleFont"><![CDATA[{&DlgFontBold8}]]></Property>
 
 			<!-- UI Other .................................................................... -->
-			<Property Id="ALLUSERS"><![CDATA[1]]></Property> <!-- Who to install for http://www.appdeploy.com/faq/detail.asp?id=69  -->
-			<Property Id="ErrorDialog"><![CDATA[ErrorPopup]]></Property>
-			<Property Id="INSTALLLEVEL"><![CDATA[3]]></Property> <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/installlevel.asp -->
-			<Property Id="ProductID"><![CDATA[none]]></Property> <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/productid.asp -->
-			<Property Id="PROMPTROLLBACKCOST"><![CDATA[P]]></Property> <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/promptrollbackcost.asp -->
+			<Property Id="ALLUSERS" Value="1"></Property> <!-- Who to install for http://www.appdeploy.com/faq/detail.asp?id=69  --> 
+			<Property Id="ErrorDialog">ErrorPopup</Property>
+			<Property Id="INSTALLLEVEL">3</Property> <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/installlevel.asp -->
+			<Property Id="ProductID">none</Property> <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/productid.asp -->
+			<Property Id="PROMPTROLLBACKCOST">P</Property> <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/promptrollbackcost.asp -->
 
 			<!-- UI Binaries ................................................................. -->
 			<Binary Id="Up" src="include\Up.ico" />
@@ -250,6 +250,7 @@
 				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
 					<Publish Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
 					<Subscribe Event="SelectionNoItems" Attribute="Enabled" />
+					<Publish Property="ALLUSERS" Value="2"><![CDATA[VersionNT>=400 AND Privileged=1]]></Publish>
 				</Control>
 				<Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
 					<Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
@@ -264,17 +265,17 @@
 					<Subscribe Event="SelectionNoItems" Attribute="Enabled" />
 				</Control>
 
-				<Control Id="Text" Type="Text" X="25" Y="72" Width="320" Height="12">
+				<Control Id="Text" Type="Text" X="25" Y="50" Width="320" Height="12">
 					<Text>Click on the icons in the tree below to change the way features will be installed.</Text>
 				</Control>
-				<Control Id="Tree" Type="SelectionTree" X="25" Y="90" Width="175" Height="110" Property="_BrowseProperty" Sunken="yes" TabSkip="no" Text="Tree of selections" />
-				<Control Id="DescriptionBox" X="205" Y="85" Width="140" Height="45" Type="GroupBox" Text="Feature Description" />
-				<Control Id="ItemDescription" X="210" Y="95" Width="130" Height="30" Text="Multiline description of the currently selected item." Type="Text">
+				<Control Id="Tree" Type="SelectionTree" X="25" Y="70" Width="175" Height="130" Property="_BrowseProperty" Sunken="yes" TabSkip="no" Text="Tree of selections" />
+				<Control Id="DescriptionBox" X="205" Y="66" Width="140" Height="48" Type="GroupBox" Text="Feature Description" />
+				<Control Id="ItemDescription" X="210" Y="76" Width="130" Height="33" Text="Multiline description of the currently selected item." Type="Text">
 					<Text>Multiline description of the currently selected item.</Text>
 					<Subscribe Event="SelectionDescription" Attribute="Text" />
 				</Control>
-				<Control Id="SizeBox" X="205" Y="135" Width="140" Height="65" Type="GroupBox" Text="Feature Size" />
-				<Control Id="ItemSize" Type="Text" X="210" Y="145" Width="130" Height="50">
+				<Control Id="SizeBox" X="205" Y="116" Width="140" Height="85" Type="GroupBox" Text="Feature Size" />
+				<Control Id="ItemSize" Type="Text" X="210" Y="126" Width="130" Height="70">
 					<Text>The size of the currently selected item.</Text>
 					<Subscribe Event="SelectionSize" Attribute="Text" />
 				</Control>
@@ -300,7 +301,7 @@
 				</Control>
 				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
 				<Control Id="DialogDescription" Type="Text" X="25" Y="23" Width="300" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>Decide where to install [ProductName], for whom, and which features.</Text>
+					<Text>Pick an install location and which features you want.</Text>
 				</Control>
 				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
 			</Dialog>
@@ -427,7 +428,7 @@
 				</Control>
 				<Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
 					<Publish Event="SpawnWaitDialog" Value="WaitForCostingPopup">CostingComplete = 1</Publish>
-					<Publish Event="NewDialog" Value="CustomizeDlg"><![CDATA[IAgree = "Yes"]]></Publish>
+					<Publish Event="NewDialog" Value="CustomizeDlg">"Yes"</Publish>
 					<Publish Property="InstallMode" Value="Custom">1</Publish>
 					<Condition Action="disable"><![CDATA[IAgree <> "Yes"]]></Condition>
 					<Condition Action="enable">IAgree = "Yes"</Condition>
