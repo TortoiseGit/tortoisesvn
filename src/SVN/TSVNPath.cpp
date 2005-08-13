@@ -453,7 +453,9 @@ CTSVNPath::IsAncestorOf(const CTSVNPath& possibleDescendant) const
 		return bPathStringsEqual;		
 	}
 	
-	return (bPathStringsEqual && (possibleDescendant.m_sBackslashPath[m_sBackslashPath.GetLength()] == '\\'));
+	return (bPathStringsEqual && 
+			((possibleDescendant.m_sBackslashPath[m_sBackslashPath.GetLength()] == '\\')||
+			(m_sBackslashPath.GetLength()==3 && m_sBackslashPath[1]==':')));
 }
 
 // Get a string representing the file path, optionally with a base 
