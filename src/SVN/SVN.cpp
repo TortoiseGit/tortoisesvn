@@ -289,6 +289,13 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 			Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
 	}
 	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
+	for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
+	{
+		if (!pathlist[nPath].IsDirectory())
+		{
+			SHChangeNotify(SHCNE_DELETE, SHCNF_PATH | SHCNF_FLUSHNOWAIT, pathlist[nPath].GetWinPath(), NULL);
+		}
+	}
 
 	return TRUE;
 }
