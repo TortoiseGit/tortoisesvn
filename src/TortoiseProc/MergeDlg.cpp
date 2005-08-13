@@ -398,6 +398,10 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 		m_pLogDlg->m_wParam = (m_bUseFromURL ? (MERGE_REVSELECTSTARTEND | MERGE_REVSELECTMINUSONE) : MERGE_REVSELECTSTART);
+		if (m_bUseFromURL)
+			m_pLogDlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
+		else
+			m_pLogDlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTSTARTREVISION)));
 		m_pLogDlg->m_pNotifyWindow = this;
 	}
 	AfxGetApp()->DoWaitCursor(-1);
@@ -425,6 +429,10 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 		m_pLogDlg2->m_wParam = (m_bUseFromURL ? (MERGE_REVSELECTSTARTEND | MERGE_REVSELECTMINUSONE) : MERGE_REVSELECTEND);
+		if (m_bUseFromURL)
+			m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
+		else
+			m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTENDREVISION)));		
 		m_pLogDlg2->m_pNotifyWindow = this;
 	}
 	AfxGetApp()->DoWaitCursor(-1);

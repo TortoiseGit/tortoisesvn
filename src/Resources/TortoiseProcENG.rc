@@ -2132,6 +2132,13 @@ BEGIN
     IDS_FILEDIFF_COMMENTRENAMED "Renamed from %s"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_MERGE_SELECTRANGE   "Select revision range"
+    IDS_MERGE_SELECTENDREVISION "Select end revision"
+    IDS_MERGE_SELECTSTARTREVISION "Select start revision"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

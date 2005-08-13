@@ -184,15 +184,15 @@ BOOL CLogDlg::OnInitDialog()
 	m_logcounter = 0;
 	m_sMessageBuf.Preallocate(100000);
 
-	CString sTitle;
-	GetWindowText(sTitle);
+	if (m_sTitle.IsEmpty())
+		GetWindowText(m_sTitle);
 	if(m_path.IsDirectory())
 	{
-		SetWindowText(sTitle + _T(" - ") + m_path.GetWinPathString());
+		SetWindowText(m_sTitle + _T(" - ") + m_path.GetWinPathString());
 	}
 	else
 	{
-		SetWindowText(sTitle + _T(" - ") + m_path.GetFilename());
+		SetWindowText(m_sTitle + _T(" - ") + m_path.GetFilename());
 	}
 
 	SetSplitterRange();

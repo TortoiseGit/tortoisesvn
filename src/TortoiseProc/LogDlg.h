@@ -145,6 +145,7 @@ public:
 				BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE);
 	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
 	bool IsThreadRunning() {return !!m_bThreadRunning;}
+	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
@@ -213,6 +214,7 @@ private:
 	CRegDWORD			m_regLastStrict;
 	CButton				m_cHidePaths;
 	bool				m_bShowedAll;
+	CString				m_sTitle;
 private:
     typedef struct LogEntryData
     {   
