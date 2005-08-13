@@ -861,7 +861,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				if (m_url.IsEquivalentTo(urlTo))
 				{
 					if (!m_pSvn->PegMerge(m_url, m_Revision, m_RevisionEnd, 
-						m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_Revision : SVNRev(SVNRev::REV_WC)),
+						m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)),
 						m_targetPathList[0], true, true, false, !!(m_options & ProgOptDryRun)))
 					{
 						ReportSVNError();
