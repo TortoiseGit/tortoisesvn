@@ -6,7 +6,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 rem Generate the RTF version of subversion license.txt for the setup package to use.
 ECHO MakeMsi.bat: Generating RTF License file from subversion license at ..\..\ext\Subversion\subversion\LICENSE
-Text2RTF.exe -tO "..\..\ext\Subversion\subversion\LICENSE" > "include\subversion license.rtf"
+..\..\Tools\Text2RTF.exe -cO "..\..\ext\Subversion\subversion\LICENSE" > "include\subversion license.rtf"
 
 
 rem Check for the existence of dictionaries, and set env variables appropriately.
