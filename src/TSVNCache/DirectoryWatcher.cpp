@@ -21,8 +21,33 @@
 
 CDirectoryWatcher::CDirectoryWatcher(void) :
 	m_hCompPort(NULL) ,
-	m_bRunning(true)
+	m_bRunning(true),
+	m_FolderCrawler(NULL)
 {
+	// enable the required privileges for this process
+	
+	LPCTSTR arPrivelegeNames[] = {	SE_BACKUP_NAME,
+									SE_RESTORE_NAME,
+									SE_CHANGE_NOTIFY_NAME
+								 };
+
+	for (int i=0; i<(sizeof(arPrivelegeNames)/sizeof(LPCTSTR)); ++i)
+	{
+		HANDLE hToken;    
+		if (OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, &hToken)) 	
+		{        
+			TOKEN_PRIVILEGES tp = { 1 };        
+
+			if ( LookupPrivilegeValue(NULL, arPrivelegeNames[i],  &tp.Privileges[0].Luid))
+			{
+				tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+
+				AdjustTokenPrivileges(hToken, FALSE, &tp, sizeof(tp), NULL, NULL);
+			}
+			CloseHandle(hToken);	
+		}	
+	}
+
 	unsigned int threadId;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
 }
@@ -35,14 +60,26 @@ CDirectoryWatcher::~CDirectoryWatcher(void)
 	ClearInfoMap();
 }
 
+void CDirectoryWatcher::Stop()
+{
+	m_bRunning = false;
+	CloseHandle(m_hThread);
+	CloseHandle(m_hCompPort);
+}
+
+void CDirectoryWatcher::SetFolderCrawler(CFolderCrawler * crawler)
+{
+	m_FolderCrawler = crawler;
+}
+
 bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 {
-	ATLASSERT(path.IsDirectory());
 	for (int i=0; i<watchedPaths.GetCount(); ++i)
 	{
 		if (watchedPaths[i].IsAncestorOf(path))
 			return false;		// already watched (recursively)
 	}
+	
 	// now check if with the new path we might have a new root
 	CTSVNPath newroot;
 	for (int i=0; i<watchedPaths.GetCount(); ++i)
@@ -104,10 +141,12 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 	AutoLocker lock(m_critSec);
 	if (!newroot.IsEmpty())
 	{
+		ATLTRACE("add path to watch %ws\n", newroot.GetWinPath());
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
 		return true;
 	}
+	ATLTRACE("add path to watch %ws\n", path.GetWinPath());
 	watchedPaths.AddPath(path);
 	return true;
 }
@@ -134,6 +173,8 @@ void CDirectoryWatcher::WorkerThread()
 											&lpOverlapped,
 											INFINITE))
 			{
+				// Error retrieving changes
+				// Clear the list of watched objects and recreate that list
 				AutoLocker lock(m_critSec);
 				CloseHandle(m_hCompPort);
 				ClearInfoMap();
@@ -149,6 +190,7 @@ void CDirectoryWatcher::WorkerThread()
 											NULL);
 					if (hDir == INVALID_HANDLE_VALUE)
 					{
+						// this could happen if a watched folder has been removed/renamed
 						ATLTRACE("CDirectoryWatcher: CreateFile failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
 						CloseHandle(m_hCompPort);
 						watchedPaths.RemovePath(watchedPaths[i]);
@@ -180,10 +222,14 @@ void CDirectoryWatcher::WorkerThread()
 						break;
 					}
 					watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
+					ATLTRACE("watching path %ws\n", pDirInfo->m_DirName.GetWinPath());
 				}
 			}
 			else
 			{
+				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
+				// is called again, the higher the chance that we miss some
+				// changes in the filesystem! 
 				if (pdi)
 				{
 					PFILE_NOTIFY_INFORMATION pnotify = (PFILE_NOTIFY_INFORMATION)pdi->m_Buffer;
@@ -214,6 +260,8 @@ void CDirectoryWatcher::WorkerThread()
 						_tcsncat(buf, pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength));
 						buf[min(MAX_PATH-1, pdi->m_DirPath.GetLength()+pnotify->FileNameLength)] = 0;
 						ATLTRACE("%ws\n", buf);
+						if (m_FolderCrawler)
+							m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
 						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
 							break;
@@ -228,6 +276,10 @@ void CDirectoryWatcher::WorkerThread()
 												&pdi->m_Overlapped,
 												NULL))	//no completion routine!
 					{
+						// Since the call to ReadDirectoryChangesW failed, just
+						// wait a while. We don't want to have this thread
+						// running using 100% CPU if something goes completely
+						// wrong.
 						Sleep(200);
 					}
 				}
@@ -288,31 +340,3 @@ bool CDirectoryWatcher::CDirWatchInfo::CloseDirectoryHandle()
 
 
 
-static class DirectoryWatcherTest
-{
-public:
-	DirectoryWatcherTest()
-	{
-		CDirectoryWatcher watcher;
-		ATLASSERT(watcher.AddPath(CTSVNPath(_T("D:\\Development\\SVN\\TortoiseSVN"))));
-		ATLASSERT(!watcher.AddPath(CTSVNPath(_T("D:\\Development\\SVN\\TortoiseSVN\\"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==1);
-		ATLASSERT(watcher.AddPath(CTSVNPath(_T("D:\\Development\\SVN\\older_versions\\"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==2);
-		ATLASSERT(watcher.AddPath(CTSVNPath(_T("D:\\Development\\SVN"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==1);
-		ATLASSERT(!watcher.AddPath(CTSVNPath(_T("D:\\Development\\SVN\\SubversionGUIProgress"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==1);
-		ATLASSERT(watcher.AddPath(CTSVNPath(_T("D:\\Development\\apr-iconv"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==2);
-		ATLASSERT(watcher.AddPath(CTSVNPath(_T("D:\\Development\\CrashFinder"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==3);
-		ATLASSERT(watcher.AddPath(CTSVNPath(_T("D:\\Development\\Flock"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==4);
-		ATLASSERT(watcher.AddPath(CTSVNPath(_T("D:\\Development\\RegExpTest"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==5);
-		ATLASSERT(watcher.AddPath(CTSVNPath(_T("D:\\"))));
-		ATLASSERT(!watcher.AddPath(CTSVNPath(_T("D:"))));
-		ATLASSERT(watcher.GetNumberOfWatchedPaths()==1);
-	}
-} DirectoryWatcherTest;

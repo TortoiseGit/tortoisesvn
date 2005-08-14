@@ -38,6 +38,7 @@ void CSVNStatusCache::Create()
 	ATLASSERT(m_pInstance == NULL);
 	m_pInstance = new CSVNStatusCache;
 
+	m_pInstance->watcher.SetFolderCrawler(&m_pInstance->m_folderCrawler);
 #define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) goto exit;
 #define LOADVALUEFROMFILE2(x) if (fread(&x, sizeof(x), 1, pFile)!=1) goto error;
 	unsigned int value = (unsigned int)-1;
@@ -76,6 +77,7 @@ void CSVNStatusCache::Create()
 					if (!cacheddir->LoadFromDisk(pFile))
 						goto error;
 					m_pInstance->m_directoryCache[CTSVNPath(sKey)] = cacheddir;
+					m_pInstance->watcher.AddPath(CTSVNPath(sKey));
 				}
 			}
 		}
@@ -142,6 +144,8 @@ error:
 
 void CSVNStatusCache::Destroy()
 {
+	if (m_pInstance)
+		m_pInstance->watcher.Stop();
 	delete m_pInstance;
 	m_pInstance = NULL;
 }
@@ -198,7 +202,10 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 	else
 	{
 		// We don't know anything about this directory yet - lets add it to our cache
-		return m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, new CCachedDirectory(path)))->second;
+		CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, new CCachedDirectory(path)))->second;
+		if (!path.IsEmpty())
+			watcher.AddPath(path);
+		return cdir;		
 	}
 }
 

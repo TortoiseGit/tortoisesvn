@@ -23,6 +23,7 @@
 #include "StatusCacheEntry.h"
 #include "CachedDirectory.h"
 #include "FolderCrawler.h"
+#include "DirectoryWatcher.h"
 #include "ShellUpdater.h"
 #include "RWSection.h"
 #include "atlcoll.h"
@@ -92,6 +93,8 @@ private:
 	CTSVNPath m_mostRecentPath;
 	CStatusCacheEntry m_mostRecentStatus;
 	long m_mostRecentExpiresAt;
+
+	CDirectoryWatcher watcher;
 
 	friend class CCachedDirectory;  // Needed for access to the SVN helpers
 };

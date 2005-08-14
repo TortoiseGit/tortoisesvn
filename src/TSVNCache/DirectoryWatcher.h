@@ -18,18 +18,54 @@
 //
 #pragma once
 #include "TSVNPath.h"
+#include "FolderCrawler.h"
 
 #define READ_DIR_CHANGE_BUFFER_SIZE 32768
 
-
+/**
+ * \ingroup TSVNCache
+ * Watches the filesystem for changes.
+ * When changes are detected, those changes are reported back to the CFolderCrawler
+ * which then can update the status cache.
+ *
+ * When a CDirectoryWatcher object is created, a new thread is started which
+ * waits for filesystem change notifications.
+ * To add folders to the list of watched folders, call \c AddPath().
+ *
+ * The folders are watched recursively. To prevent having too many folders watched,
+ * children of already watched folders are automatically removed from watching.
+ * This leads to having only the roots of filesystems watched (e.g. C:\, D:\,...)
+ * after a few paths have been added to the watched list (at least, when the
+ * CSVNStatusCache adds those paths).
+ */
 class CDirectoryWatcher
 {
 public:
 	CDirectoryWatcher(void);
 	~CDirectoryWatcher(void);
 	
+	/**
+	 * Adds a new path to be watched. The path \b must point to a directory.
+	 * If the path is already watched because a parent of that path is already
+	 * watched recursively, then the new path is just ignored and the method
+	 * returns false.
+	 */
 	bool AddPath(const CTSVNPath& path);
+	
+	/**
+	 * Returns the number of recursively watched paths.
+	 */
 	int GetNumberOfWatchedPaths() {return watchedPaths.GetCount();}
+	
+	/**
+	 * Sets the CFolderCrawler object which the change notifications are sent to.
+	 */
+	void SetFolderCrawler(CFolderCrawler * crawler);
+	
+	/**
+	 * Stops the watching thread.
+	 */
+	void Stop();
 
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
@@ -42,9 +78,15 @@ private:
 	HANDLE					m_hThread;
 	HANDLE					m_hCompPort;
 	bool					m_bRunning;
-	
-	CTSVNPathList			watchedPaths;
 
+	CFolderCrawler *		m_FolderCrawler;	///< where the change reports go to
+	
+	CTSVNPathList			watchedPaths;	///< list of watched paths.
+
+	/**
+	 * \ingroup TSVNCache
+	 * Helper class: provides information about watched directories.
+	 */
 	class CDirWatchInfo 
 	{
 	private:

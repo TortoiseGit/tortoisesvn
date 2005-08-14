@@ -19,7 +19,7 @@
 #pragma once
 
 #include "TSVNPath.h"
-
+#include "CacheInterface.h"
 //////////////////////////////////////////////////////////////////////////
 
 
@@ -40,6 +40,7 @@ public:
 public:
 	void Initialise();
 	void AddDirectoryForUpdate(const CTSVNPath& path);
+	void AddPathForUpdate(const CTSVNPath& path);
 
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
@@ -50,6 +51,7 @@ private:
 	CComAutoCriticalSection m_critSec;
 	HANDLE m_hThread;
 	std::deque<CTSVNPath> m_foldersToUpdate;
+	std::deque<CTSVNPath> m_pathsToUpdate;
 	HANDLE m_hTerminationEvent;
 	HANDLE m_hWakeEvent;
 	
@@ -64,6 +66,7 @@ private:
 	// a bit of quiet time has elapsed
 	long m_crawlHoldoffReleasesAt;
 	bool m_bItemsAddedSinceLastCrawl;
+	bool m_bPathsAddedSinceLastCrawl;
 
 
 	friend class CCrawlInhibitor;

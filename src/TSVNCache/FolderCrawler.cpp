@@ -68,10 +68,19 @@ void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 		// with the worker thread
 		m_bItemsAddedSinceLastCrawl = true;
 	}
-
+	SetHoldoff();
 	SetEvent(m_hWakeEvent);
 }
 
+void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
+{
+	{
+		AutoLocker lock(m_critSec);
+		m_pathsToUpdate.push_back(path);
+		m_bPathsAddedSinceLastCrawl = true;
+	}
+	SetEvent(m_hWakeEvent);
+}
 
 unsigned int CFolderCrawler::ThreadEntry(void* pContext)
 {
@@ -87,6 +96,8 @@ void CFolderCrawler::WorkerThread()
 
 	for(;;)
 	{
+		bool bRecursive = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
+
 		DWORD waitResult = WaitForMultipleObjects(sizeof(hWaitHandles)/sizeof(hWaitHandles[0]), hWaitHandles, FALSE, INFINITE);
 		
 		// exit event/working loop if the first event (m_hTerminationEvent)
@@ -128,44 +139,83 @@ void CFolderCrawler::WorkerThread()
 				continue;
 			}
 	
+			if ((m_foldersToUpdate.empty())&&(m_pathsToUpdate.empty()))
 			{
-				if(m_foldersToUpdate.empty())
-				{
-					// Nothing left to do 
-					break;
-				}
-
-				AutoLocker lock(m_critSec);
-				if(m_bItemsAddedSinceLastCrawl)
-				{
-					// The queue has changed - it's worth sorting and de-duping
-					std::sort(m_foldersToUpdate.begin(), m_foldersToUpdate.end());
-					m_foldersToUpdate.erase(std::unique(m_foldersToUpdate.begin(), m_foldersToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_foldersToUpdate.end());
-					m_bItemsAddedSinceLastCrawl = false;
-				}
-
-				workingPath = m_foldersToUpdate.front();
-				m_foldersToUpdate.pop_front();
+				// Nothing left to do 
+				break;
 			}
 			
-			if (!PathFileExists(workingPath.GetWinPath()))
+			if (!m_pathsToUpdate.empty())
 			{
-				// the path doesn't exist anymore (e.g. directory deleted, renamed, moved)
-				CSVNStatusCache::Instance().WaitToWrite();
-				CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-				CSVNStatusCache::Instance().Done();
-			}
-			else
-			{
-				ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
-				CSVNStatusCache::Instance().WaitToRead();
-				bool bRecursive = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
-				// Now, we need to visit this folder, to make sure that we know its 'most important' status
-				CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
-				CSVNStatusCache::Instance().Done();
-			}
+				{
+					AutoLocker lock(m_critSec);
 
-			Sleep(10);
+					if (m_bPathsAddedSinceLastCrawl)
+					{
+						// The queue has changed - it's worth sorting and de-duping
+						std::sort(m_pathsToUpdate.begin(), m_pathsToUpdate.end());
+						m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_pathsToUpdate.end());
+						m_bPathsAddedSinceLastCrawl = false;
+					}
+
+					workingPath = m_pathsToUpdate.front();
+					m_pathsToUpdate.pop_front();
+				}
+				// check if the changed path is inside an .svn folder
+				if (workingPath.IsAdminDir())
+				{
+					do 
+					{
+						workingPath = workingPath.GetContainingDirectory();	
+					} while(workingPath.IsAdminDir());
+
+					ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
+					CSVNStatusCache::Instance().WaitToRead();
+					// Now, we need to visit this folder, to make sure that we know its 'most important' status
+					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
+					CSVNStatusCache::Instance().Done();
+				}
+				else
+				{
+					ATLTRACE("Updating path: %ws\n", workingPath.GetWinPath());
+					CSVNStatusCache::Instance().WaitToRead();
+					CSVNStatusCache::Instance().GetStatusForPath(workingPath, bRecursive ? TSVNCACHE_FLAGS_RECUSIVE_STATUS : 0);
+					CSVNStatusCache::Instance().Done();
+				}
+			}
+			else if (!m_foldersToUpdate.empty())
+			{
+				{
+					AutoLocker lock(m_critSec);
+
+					if (m_bItemsAddedSinceLastCrawl)
+					{
+						// The queue has changed - it's worth sorting and de-duping
+						std::sort(m_foldersToUpdate.begin(), m_foldersToUpdate.end());
+						m_foldersToUpdate.erase(std::unique(m_foldersToUpdate.begin(), m_foldersToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_foldersToUpdate.end());
+						m_bItemsAddedSinceLastCrawl = false;
+					}
+
+					workingPath = m_foldersToUpdate.front();
+					m_foldersToUpdate.pop_front();
+				}
+
+				if (!PathFileExists(workingPath.GetWinPath()))
+				{
+					// the path doesn't exist anymore (e.g. directory deleted, renamed, moved)
+					CSVNStatusCache::Instance().WaitToWrite();
+					CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+					CSVNStatusCache::Instance().Done();
+				}
+				else
+				{
+					ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
+					CSVNStatusCache::Instance().WaitToRead();
+					// Now, we need to visit this folder, to make sure that we know its 'most important' status
+					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
+					CSVNStatusCache::Instance().Done();
+				}
+			}
 		}
 	}
 	_endthread();
