@@ -763,6 +763,19 @@ void CTSVNPathList::RemoveDuplicates()
 	m_paths.erase(std::unique(m_paths.begin(), m_paths.end(), &CTSVNPath::PredLeftEquivalentToRight), m_paths.end());
 }
 
+void CTSVNPathList::RemovePath(const CTSVNPath& path)
+{
+	PathVector::iterator it;
+	for(it = m_paths.begin(); it != m_paths.end(); ++it)
+	{
+		if (it->IsEquivalentTo(path))
+		{
+			m_paths.erase(it);
+			return;
+		}
+	}
+}
+
 void CTSVNPathList::RemoveChildren()
 {
 	SortByPathname();

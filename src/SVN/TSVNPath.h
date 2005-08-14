@@ -298,6 +298,7 @@ public:
 	void DeleteAllFiles();
 	/** Remove duplicate entries from the list (sorts the list as a side-effect */
 	void RemoveDuplicates();
+	void RemovePath(const CTSVNPath& path);
 	/** 
 	 * Removes all child items and leaves only the top folders. Useful if you
 	 * create the list to remove them (i.e. if you remove a parent folder, the
