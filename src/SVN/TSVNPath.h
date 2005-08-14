@@ -187,6 +187,11 @@ public:
 	 * contains an admin directory.
 	 */
 	bool HasAdminDir() const;
+	
+	/**
+	 * Checks if the path point to or below a Subversion admin directory (.svn).
+	 */
+	bool IsAdminDir() const;
 
 #if defined(_MFC_VER)
 	/**
@@ -238,6 +243,8 @@ private:
 	mutable bool m_bHasAdminDir;
 	mutable bool m_bIsValidOnWindowsKnown;
 	mutable bool m_bIsValidOnWindows;
+	mutable bool m_bIsAdminDirKnown;
+	mutable bool m_bIsAdminDir;
 
 	friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };

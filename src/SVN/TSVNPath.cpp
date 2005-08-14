@@ -35,7 +35,9 @@ CTSVNPath::CTSVNPath(void) :
 	m_bURLKnown(false),
 	m_bHasAdminDirKnown(false),
 	m_bIsValidOnWindowsKnown(false),
-	m_bIsReadOnly(false)
+	m_bIsReadOnly(false),
+	m_bIsAdminDirKnown(false),
+	m_bIsAdminDir(false)
 {
 }
 
@@ -50,7 +52,9 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
 	m_bURLKnown(false),
 	m_bHasAdminDirKnown(false),
 	m_bIsValidOnWindowsKnown(false),
-	m_bIsReadOnly(false)
+	m_bIsReadOnly(false),
+	m_bIsAdminDirKnown(false),
+	m_bIsAdminDir(false)
 {
 	SetFromUnknown(sUnknownPath);
 }
@@ -317,6 +321,7 @@ void CTSVNPath::Reset()
 	m_bLastWriteTimeKnown = false;
 	m_bHasAdminDirKnown = false;
 	m_bIsValidOnWindowsKnown = false;
+	m_bIsAdminDirKnown = false;
 
 	m_sBackslashPath.Empty();
 	m_sFwdslashPath.Empty();
@@ -523,6 +528,28 @@ bool CTSVNPath::HasAdminDir() const
 	m_bHasAdminDir = !!PathFileExists(GetDirectory().GetWinPathString() + _T("\\") + _T(SVN_WC_ADM_DIR_NAME));
 	m_bHasAdminDirKnown = true;
 	return m_bHasAdminDir;
+}
+
+bool CTSVNPath::IsAdminDir() const
+{
+	if (m_bIsAdminDirKnown)
+		return m_bIsAdminDir;
+	m_bIsAdminDir = false;
+	EnsureBackslashPathSet();
+	int ind = m_sBackslashPath.Find(_T(SVN_WC_ADM_DIR_NAME));
+	if (ind >= 0)
+	{
+		if (ind == (m_sBackslashPath.GetLength() - (int)strlen(SVN_WC_ADM_DIR_NAME)))
+		{
+			m_bIsAdminDir = true;
+		}
+		else if (m_sBackslashPath.Find(_T(SVN_WC_ADM_DIR_NAME)_T("\\"))>=0)
+		{
+			m_bIsAdminDir = true;
+		}
+	}
+	m_bIsAdminDirKnown = true;
+	return m_bIsAdminDir;
 }
 
 #if defined(_MFC_VER)
@@ -793,6 +820,7 @@ public:
 	CPathTests()
 	{
 		GetDirectoryTest();
+		AdminDirTest();
 		SortTest();
 		RawAppendTest();
 		PathAppendTest();
@@ -832,6 +860,19 @@ private:
 		ATLASSERT(testPath.GetContainingDirectory().GetWinPathString().GetLength() < sWinDir.GetLength());
 	}
 
+	void AdminDirTest()
+	{
+		CTSVNPath testPath;
+		testPath.SetFromUnknown(_T("c:\\.svndir"));
+		ATLASSERT(!testPath.IsAdminDir());
+		testPath.SetFromUnknown(_T("c:\\.svn"));
+		ATLASSERT(testPath.IsAdminDir());
+		testPath.SetFromUnknown(_T("c:\\.svndir\\test"));
+		ATLASSERT(!testPath.IsAdminDir());
+		testPath.SetFromUnknown(_T("c:\\.svn\\test"));
+		ATLASSERT(testPath.IsAdminDir());
+	}
+	
 	void SortTest()
 	{
 		CTSVNPathList testList;
