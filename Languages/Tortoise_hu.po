@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-04 22:44+0100\n"
+"PO-Revision-Date: 2005-08-14 23:43+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1430,6 +1430,11 @@ msgid "Command failed."
 msgstr "Sikertelen parancs."
 
 # Control-ID:1083,
+#: ID:319
+msgid "Comment"
+msgstr "Megjegyzés"
+
+# Control-ID:1083,
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Beküldés"
@@ -2225,6 +2230,7 @@ msgstr "%s verzió hozzáfűzése a fájlhoz:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "Fájl"
 
@@ -3121,6 +3127,12 @@ msgstr "Egy vagy több fájl ellentmondó"
 msgid "Only check out the top folder"
 msgstr "Csak a legfölső mappát ellenőrizze"
 
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "Csak ebben: %s"
+
 # ID:169,
 #: ID:169
 msgid ""
@@ -3575,6 +3587,12 @@ msgstr "%s átnevezése"
 #: ID:11
 msgid "Rename..."
 msgstr "Átnevezés..."
+
+# ID:97,
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "%s-ról átnevezve"
 
 # ID:126,
 #: ID:126
@@ -4042,6 +4060,11 @@ msgstr "Válassz egy elemet, aminek a súgója kell"
 msgid "Select diff file..."
 msgstr "Válassz foltfájlt..."
 
+# Dlg-ID:173,
+#: ID:276
+msgid "Select end revision"
+msgstr "Válassz vég-verziót"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4050,6 +4073,16 @@ msgid ""
 msgstr ""
 "Válassz egy mappát ahová exportálsz.\n"
 "Új mappát is létrehozhatsz."
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select revision range"
+msgstr "Válassz verzió-intervalumot"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select start revision"
+msgstr "Válassz kezdeti-verziót"
 
 # ID:79,
 #: ID:79
@@ -4377,6 +4410,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Balra <-> Jobbra vált"
+
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
@@ -4399,6 +4436,15 @@ msgid ""
 msgstr ""
 "Egy- és kétpaneles mód közötti váltás\n"
 "Egy- és kétpaneles mód közötti váltás"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Megcseréli a bal és a jobb oldal tartalmát\n"
+"Bal és jobb nézet váltása"
 
 # ID:3825,
 #: ID:3825
@@ -4423,6 +4469,11 @@ msgstr "Az előző dokumentumablakra ugrk"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Munkapéldány átállítása mellékágra"
+
+# ID:9,
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "A munkapéldány átállítása egy új mellékágra"
 
 # ID:9,
 #: ID:9
@@ -4687,6 +4738,15 @@ msgstr ""
 "Másodpercek, ami után a fájlelemzés leáll.\n"
 "Kisebb érték, gyorsabb, de lehet, hogy nem ellenőrzni,\n"
 "az összes fájlt."
+
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"A két kiválasztott cím nem azonos gyökérből származik,\n"
+"így a naplójuk megtekintése lehetetlen!"
 
 # ID:16,
 #: ID:16
@@ -5303,6 +5363,17 @@ msgstr ""
 "A Tárházat hálózati megosztáson akarod elérni.\n"
 "Az adatok megsérülhetnek!\n"
 "Biztos, hogy ezt akarod tenni?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"Nem állíthatod ezt az értéket mappákra, csak fájlokra!\n"
+"Ha minden fájlra be akarod ezt állítani a mappában,\n"
+"akkor pipáld be az 'Ismétlődő' négyzetet."
 
 # ID:105,
 #: ID:105
