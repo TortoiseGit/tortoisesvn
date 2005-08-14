@@ -135,7 +135,11 @@ cd src
 rem Build SubWCRev twice to include its own version info
 copy /y version.none version.h
 if NOT EXIST ..\bin\release\bin\SubWCRev.exe devenv TortoiseSVN.sln /rebuild release /project SubWCRev
-..\bin\release\bin\SubWCRev.exe .. version.in version.h
+
+:: now we can create all files with version numbers in them
+cd ..
+call version.bat
+cd src
 devenv TortoiseSVN.sln /rebuild release /project SubWCRev
 if DEFINED _RELEASE (
   devenv TortoiseSVN.sln /rebuild release

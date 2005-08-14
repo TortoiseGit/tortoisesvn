@@ -30,10 +30,15 @@ if EXIST ..\..\..\MYBUILD (
 
 
 rem Do the SubWCRev substitution for revision numbers in the two necessary files.
-ECHO MakeMsi.bat: Calling SubWCRev
-..\..\bin\release\bin\SubWCRev.exe ..\.. VersionNumberInclude.in.wxi VersionNumberInclude.wxi
+ECHO MakeMsi.bat: checking version information
+if NOT EXIST VersionNumberInclude.wxi (
+cd ..\..\
+call version.bat
+cd src\TortoiseSVNSetup
+)
+echo checking files
 if NOT EXIST VersionNumberInclude.wxi (copy VersionNumberInclude.in.wxi VersionNumberInclude.wxi)
-..\..\bin\release\bin\SubWCRev.exe ..\.. MakeMsiSub.in.bat MakeMsiSub.bat
+if NOT EXIST MakeMsiSub.bat (SubWCRev.exe ..\.. MakeMsiSub.in.bat MakeMsiSub.bat)
 if NOT EXIST MakeMsiSub.bat (copy MakeMsiSub.in.bat MakeMsiSub.bat)
 
 

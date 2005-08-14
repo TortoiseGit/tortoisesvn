@@ -14,10 +14,7 @@ Then, on the release branch:
 
 - Check the latest versions of Apache, openssl, zlib, neon and of course
   download any newer versions available.
-- increment the version number in the installer script
-- increment the version number in the version.in file
-- increment the version number in LanguagePack.nsi
-- increment the version number in doc\source\en\Version.xml
+- increment the version number in version.in file
 - finish the changelog.txt file, i.e. add the version title
 - run the build.bat script
 

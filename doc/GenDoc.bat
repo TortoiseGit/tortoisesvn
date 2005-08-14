@@ -14,6 +14,10 @@ if "%IGNORELIST%"=="" call IgnoreList.bat
 rmdir /s /q output > NUL
 mkdir output > NUL
 
+rem check if the version.bat script has been run (i.e. if the version.xml file
+rem is present). If not, just copy version.in to version.xml
+if NOT EXIST source\en\Version.xml (copy source\en\Version.in source\en\Version.xml)
+
 rem Determine available languages for documentation by looking for the .po files
 
 if "%1"=="" (

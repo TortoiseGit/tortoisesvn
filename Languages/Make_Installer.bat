@@ -44,6 +44,7 @@ FOR /F "eol=# tokens=1,2,3,4,5,6 delims=	;" %%i IN (Languages.txt) DO (
       if EXIST subversion.mo echo ^^!define MoFile "subversion.mo" >> %OFile%
     )
 
+	if NOT EXIST LanguagePack.nsi (copy LanguagePack.in LanguagePack.nsi)
     MakeNSIS /V1 LanguagePack.nsi
     del ..\bin\TortoiseProc%%j.dll
     del ..\bin\TortoiseMerge%%j.dll
