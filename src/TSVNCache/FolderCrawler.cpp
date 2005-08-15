@@ -175,11 +175,15 @@ void CFolderCrawler::WorkerThread()
 					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
 					CSVNStatusCache::Instance().Done();
 				}
-				else
+				else if (workingPath.HasAdminDir())
 				{
 					ATLTRACE("Updating path: %ws\n", workingPath.GetWinPath());
+					// HasAdminDir() already checks if the path points to a dir
+					DWORD flags = TSVNCACHE_FLAGS_FOLDERISKNOWN;
+					flags |= (workingPath.IsDirectory() ? TSVNCACHE_FLAGS_ISFOLDER : 0);
+					flags |= (bRecursive ? TSVNCACHE_FLAGS_RECUSIVE_STATUS : 0);
 					CSVNStatusCache::Instance().WaitToRead();
-					CSVNStatusCache::Instance().GetStatusForPath(workingPath, bRecursive ? TSVNCACHE_FLAGS_RECUSIVE_STATUS : 0);
+					CSVNStatusCache::Instance().GetStatusForPath(workingPath, flags);
 					CSVNStatusCache::Instance().Done();
 				}
 			}
