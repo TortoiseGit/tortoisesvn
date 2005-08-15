@@ -78,7 +78,7 @@ void CShellUpdater::Flush()
 void CShellUpdater::UpdateShell()
 {
 	// Tell the shell extension to purge its cache
-	ATLTRACE("Setting cache invalidation event %d\n", GetTickCount());
+/*	ATLTRACE("Setting cache invalidation event %d\n", GetTickCount());
 	SetEvent(m_hInvalidationEvent);
 
 	// We use the SVN 'notify' call-back to add items to the list
@@ -162,7 +162,7 @@ void CShellUpdater::UpdateShell()
 			ATLTRACE("SetNamedPipeHandleState failed"); 
 			CloseHandle(hPipe);
 		}
-	}
+	} */
 }
 
 void CShellUpdater::RebuildIcons()
