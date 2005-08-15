@@ -1555,9 +1555,12 @@ BOOL CTortoiseProcApp::InitInstance()
 			lockDlg.m_pathList = pathList;
 			if (lockDlg.DoModal()==IDOK)
 			{
-				CSVNProgressDlg progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Lock, lockDlg.m_bStealLocks ? ProgOptLockForce : 0, lockDlg.m_pathList, CString(), lockDlg.m_sLockMessage);
-				progDlg.DoModal();
+				if (lockDlg.m_pathList.GetCount() != 0)
+				{
+					CSVNProgressDlg progDlg;
+					progDlg.SetParams(CSVNProgressDlg::Lock, lockDlg.m_bStealLocks ? ProgOptLockForce : 0, lockDlg.m_pathList, CString(), lockDlg.m_sLockMessage);
+					progDlg.DoModal();
+				}
 			}
 		}
 		//#endregion
