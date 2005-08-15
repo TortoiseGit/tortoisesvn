@@ -11,6 +11,8 @@
 				<Show Dialog="PrepareDlg" Before="CostInitialize"><![CDATA[]]></Show>
 				<Show Dialog="AdminWelcomeDlg" After="CostFinalize" />
 				<Show Dialog="ProgressDlg" After="AdminWelcomeDlg" />
+
+				<Custom Action="DefaultTargetDir" After="LaunchConditions" />
 			</AdminUISequence>
 			<InstallUISequence>
 				<Show Dialog="FatalErrorDlg" OnExit="error" />
@@ -22,6 +24,7 @@
 				<Show Dialog="MaintenanceWelcomeDlg" After="ResumeDlg"><![CDATA[Installed AND NOT RESUME AND NOT Preselected]]></Show>
 				<Show Dialog="ProgressDlg" After="MaintenanceWelcomeDlg" />
 
+				<Custom Action="DefaultTargetDir" After="LaunchConditions" />
 				<Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
 				<Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
 			</InstallUISequence>

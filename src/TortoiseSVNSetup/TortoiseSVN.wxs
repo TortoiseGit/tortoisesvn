@@ -61,7 +61,8 @@
 		<Property Id="INSTALLDIR">
 			<RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" />
 		</Property>
-		
+		<CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]\[ProductName]" Execute="immediate" />
+
 		<FragmentRef Id="StructureFragment"/>
 
 		<FragmentRef Id="FeaturesFragment" />
