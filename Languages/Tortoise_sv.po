@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-04 19:32+0100\n"
+"PO-Revision-Date: 2005-08-13 17:41+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -707,10 +707,6 @@ msgstr "Avancerade avvikelse-/föreningsinställningar"
 msgid "Advanced Merge Settings"
 msgstr "Avancerade föreningsinställningar"
 
-#: Control-ID:65535
-msgid "All"
-msgstr "Alla"
-
 #: ID:3841
 msgid "All Files (*.*)"
 msgstr "Alla filer (*.*)"
@@ -1184,6 +1180,10 @@ msgstr "Färger"
 #: ID:3857
 msgid "Command failed."
 msgstr "Kommandot misslyckades."
+
+#: ID:319
+msgid "Comment"
+msgstr "Kommentar"
 
 #: Control-ID:1083
 msgid "Commit"
@@ -1692,6 +1692,15 @@ msgstr "Ange antingen namnet på eller IP-adressen till proxyservern."
 msgid "Empty"
 msgstr "Tom"
 
+# Control-ID:1224,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr ""
+"Använd rättstavning endast om \n"
+"tsvn:projectlanguage är satt."
+
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "Maximera fönstret till full storlek"
@@ -1852,6 +1861,7 @@ msgstr "Hämtar revision %s av filen:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "Filnamn"
 
@@ -1914,6 +1924,7 @@ msgstr "GDI+ kunde inte skapa ett bitmap objekt. Du har antagligen inte tillräc
 
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "Generella inställningar"
 
@@ -2062,6 +2073,13 @@ msgstr "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare ver
 msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
 msgstr "Snabbar upp hämtningen av loggmeddelanden från arkivservrar med äldre version än 1.2"
 
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"instead of the last used URL."
+msgstr "Om ikryssad så initieras Förenings dialogens \"Från:\" URL med den valda arbetskopians URL istället för den senast använda."
+
 #: ID:195
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
@@ -2124,6 +2142,11 @@ msgstr "Inkludera sökvägar:"
 #: ID:76
 msgid "Initial Import"
 msgstr "Första importen"
+
+# Hur översätta "diff" och "whitespace"
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "Radvis whitespace avvikelser"
 
 #: Dlg-ID:161
 msgid "Input"
@@ -2233,6 +2256,11 @@ msgstr "Minst aktiv:"
 #: ID:188
 msgid "Left View: "
 msgstr "Vänster vy:"
+
+# Hur översätta "diff" och "whitespace"
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "Rad med whitespace avvikelser"
 
 #: ID:3605
 msgid ""
@@ -2377,6 +2405,7 @@ msgid "Max"
 msgstr "Max"
 
 #: Dlg-ID:141
+#: Control-ID:65535
 msgid "Merge"
 msgstr "Förena"
 
@@ -2415,6 +2444,10 @@ msgstr "Mime-typ"
 
 #: Control-ID:1158
 msgid "Min"
+msgstr "Min"
+
+#: ID:263
+msgid "Mine"
 msgstr "Min"
 
 #: Control-ID:1023
@@ -2517,6 +2550,10 @@ msgstr "Felmeddelande saknas."
 msgid "No error occurred."
 msgstr "Inga fel inträffade."
 
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "Inga filer eller mappar har ändrats. Det finns inget för TortoiseSvn att återställa!"
+
 #: ID:77
 msgid ""
 "No files were changed or added since\n"
@@ -2544,9 +2581,9 @@ msgstr "Ingan graf tillgänglig"
 
 # ID:273,
 #: ID:273
-#, fuzzy, c-format
+#, c-format
 msgid "No image encoder found for %s."
-msgstr "Ingen bild encoder hittat för %s."
+msgstr "Ingen bildkodare hittad för %s."
 
 #: ID:188
 msgid "No spell corrections"
@@ -2601,6 +2638,12 @@ msgstr "En eller flera filer innehåller konflikter."
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Hämta endast översta mappen"
+
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "Endast i %s"
 
 #: ID:169
 msgid ""
@@ -2967,6 +3010,11 @@ msgstr "Döp om %s"
 msgid "Rename..."
 msgstr "Byt namn..."
 
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "Döptes om från %s"
+
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Bytte namn på i arkivet"
@@ -3008,10 +3056,23 @@ msgstr "Arkiv"
 msgid "Repository Browser"
 msgstr "Arkivutforskaren"
 
-#: ID:8
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "Begär ett användarnamn och ett lösenord"
+
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Markera konflikt som löst"
+
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "Markera konflikt som löst"
+
+#: ID:8
+msgid "Resolved..."
+msgstr "Konflikten är markerad som löst.."
 
 #: ID:9
 msgid "Resolves conflicted files"
@@ -3104,6 +3165,10 @@ msgstr "SVN Lägg till filer till den här arbetskopian"
 #: ID:77
 msgid "SVN Add..."
 msgstr "SVN Lägg till..."
+
+#: ID:16
+msgid "SVN Author"
+msgstr "SVN Ändrad av"
 
 #: ID:132
 msgid "SVN Blame"
@@ -3325,6 +3390,10 @@ msgstr "Markera ett objekt för att få hjälp"
 msgid "Select diff file..."
 msgstr "Välj avvikelsefil..."
 
+#: ID:276
+msgid "Select end revision"
+msgstr "Välj slutrevision"
+
 #: ID:79
 msgid ""
 "Select folder to export to.\n"
@@ -3332,6 +3401,14 @@ msgid ""
 msgstr ""
 "Välj mapp att exportera till.\n"
 "Du kan behöva skapa en ny mapp innan du kan genomföra den här exporten."
+
+#: ID:276
+msgid "Select revision range"
+msgstr "Välj revisioner"
+
+#: ID:276
+msgid "Select start revision"
+msgstr "Välj startrevision"
 
 # ID:79,
 #: ID:79
@@ -3420,15 +3497,15 @@ msgstr "Visa &logg"
 msgid "Show &overlays only in explorer"
 msgstr "Visa &ikonsymboler endast i Utforskaren"
 
-# Hur översätta "diff"
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "Visa avvikelserad"
-
 # Hur översätta "diff" och "Unified diff"
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "Visa avvikelser &som \"Unified Diff\""
+
+# Hur översätta "diff"
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "Visa avvikelserad"
 
 #: Control-ID:1063
 msgid "Show Linenumbers"
@@ -3607,6 +3684,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Växla vänster<->höger"
+
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
 msgstr "Växla till gren / märke"
@@ -3627,6 +3708,15 @@ msgstr ""
 "Växla mellan enkel och dubbel vy\n"
 "Växla mellan enkel och bubbel vy"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Växla innehållet i det högra och vänstra fönstret\n"
+"Växla den vänstra och högra vyn"
+
 #: ID:3825
 msgid "Switch to the next document window"
 msgstr "Växla till nästa dokumentfönster"
@@ -3646,6 +3736,10 @@ msgstr "Växla till föregående dokumentfönster"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Växlar över arbetskopian till en annan gren / märke"
+
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "Växlar arbetskopian till en ny gren/märke"
 
 #: ID:9
 msgid "Switch..."
@@ -3893,6 +3987,20 @@ msgstr ""
 "Ett lägre värde gör automatisk ifyllningslistan tillänglig snabbbare,\n"
 "men alla filer kanske inte läses av."
 
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"De två valda URL:erna är inte skapade från samma rot.\n"
+"Det går inte att visa loggmeddelandena mellan dem."
+
+# ID:16,
+#: ID:16
+msgid "The user who did the last commit"
+msgstr "Användaren som gjorde den senaste arkiveringen"
+
 # ID:16,
 #: ID:16
 msgid "The user who owns the lock of the file"
@@ -3920,6 +4028,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "Their File:"
 msgstr "\"Deras\" fil:"
+
+# ID:188,
+#: ID:263
+msgid "Theirs"
+msgstr "Deras"
 
 #: ID:169
 msgid ""
@@ -3981,10 +4094,6 @@ msgstr "Den här egenskapen är endast tillåten på mappar, inte filer."
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Den här egenskapen får inte innehålla mer än en rad. "
-
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "3-filershantering av avvikelser"
 
 # Control-ID:1222,
 #: Control-ID:1222
@@ -4090,10 +4199,6 @@ msgstr "Pröva \"Rensa\". Om det inte fungerar måste du en ny uthämtning."
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "Ändra inställningar för TortoiseSVN"
-
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "2-filers avvikelsehantering"
 
 # Hur översätta "diff"
 #: MenuEntry
@@ -4256,6 +4361,11 @@ msgstr "Använd förstoring på översikten"
 msgid "Use Text viewer to view blames"
 msgstr "Använd en texteditor för att visa radvisa ändringar"
 
+# Control-ID:1230,
+#: Control-ID:1230
+msgid "Use URL of WC as the default \"From:\" URL"
+msgstr "Använd arbetskopians URL som default \"Från\" URL"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
@@ -4272,8 +4382,8 @@ msgid "Use old APIs to fetch log messages"
 msgstr "Hämta loggmeddelanden med det gamla APIet"
 
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "Använd enkel vy som standard"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Använd enkel vy som standard för tvåfilsavvikelse."
 
 #: Control-ID:1066
 msgid "Use strikeout for deleted lines"
@@ -4364,10 +4474,6 @@ msgstr "Varning!"
 msgid "Whitespace diff"
 msgstr "Whitespace avvikelser"
 
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "Whitespace"
-
 # Osäker på var denna visas
 #: Dlg-ID:158
 msgid "Working Copy"
@@ -4422,6 +4528,16 @@ msgstr ""
 "en delad nätverksenhet.\n"
 "Detta kan leda till att ditt arkiv förstörs!\n"
 "Vill du verkligen göra det?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"Den här egenskapen går bara att sätta på filer, inte på mappar!\n"
+"Kryssa i 'rekursivt' för att sätta den på alla filer i mappen."
 
 # ID:105,
 #: ID:105
@@ -4708,15 +4824,6 @@ msgstr "skrivskyddad"
 #: ID:10
 msgid "replaced"
 msgstr "ersatt"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "requests a username and a password"
-msgstr "begär ett användarnamn och ett lösenord"
-
-#: Control-ID:1023
-msgid "save authentication"
-msgstr "spara autentisering"
 
 #: ID:14
 msgid ""
