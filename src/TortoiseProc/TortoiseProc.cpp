@@ -1315,7 +1315,17 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVN svn;
 			if (!cmdLinePath.IsEmpty())
 			{
+				if (cmdLinePath.GetSVNPathString().Left(4).CompareNoCase(_T("svn:"))==0)
+				{
+					// If the path starts with "svn:" and there is another protocol
+					// found in the path (a "://" found after the "svn:") then
+					// remove "svn:" from the beginning of the path.
+					if (cmdLinePath.GetSVNPathString().Find(_T("://"), 4)>=0)
+						cmdLinePath.SetFromSVN(cmdLinePath.GetSVNPathString().Mid(4));
+				}
+
 				url = svn.GetURLFromPath(cmdLinePath);
+
 				if (url.IsEmpty())
 				{
 					if (SVN::PathIsURL(cmdLinePath.GetSVNPathString()))
