@@ -41,7 +41,7 @@ public:
 	void Initialise();
 	void AddDirectoryForUpdate(const CTSVNPath& path);
 	void AddPathForUpdate(const CTSVNPath& path);
-
+	void Stop();
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
 	void WorkerThread();

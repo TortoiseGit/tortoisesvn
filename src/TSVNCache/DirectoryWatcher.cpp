@@ -64,7 +64,9 @@ void CDirectoryWatcher::Stop()
 {
 	m_bRunning = false;
 	CloseHandle(m_hThread);
+	m_hThread = INVALID_HANDLE_VALUE;
 	CloseHandle(m_hCompPort);
+	m_hCompPort = INVALID_HANDLE_VALUE;
 }
 
 void CDirectoryWatcher::SetFolderCrawler(CFolderCrawler * crawler)
@@ -175,6 +177,8 @@ void CDirectoryWatcher::WorkerThread()
 			{
 				// Error retrieving changes
 				// Clear the list of watched objects and recreate that list
+				if (!m_bRunning)
+					return;
 				AutoLocker lock(m_critSec);
 				CloseHandle(m_hCompPort);
 				ClearInfoMap();
@@ -227,6 +231,8 @@ void CDirectoryWatcher::WorkerThread()
 			}
 			else
 			{
+				if (!m_bRunning)
+					return;
 				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
 				// is called again, the higher the chance that we miss some
 				// changes in the filesystem! 

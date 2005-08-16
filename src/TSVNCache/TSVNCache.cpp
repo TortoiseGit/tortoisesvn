@@ -297,6 +297,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_CLOSE:
 		{
 			bRun = false;
+			CSVNStatusCache::Instance().Stop();
 			Sleep(1500);
 			CSVNStatusCache::Instance().SaveCache();
 			Shell_NotifyIcon(NIM_DELETE,&niData);

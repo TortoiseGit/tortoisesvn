@@ -150,6 +150,12 @@ void CSVNStatusCache::Destroy()
 	m_pInstance = NULL;
 }
 
+void CSVNStatusCache::Stop()
+{
+	m_folderCrawler.Stop();
+	m_shellUpdater.Stop();
+	watcher.Stop();
+}
 
 CSVNStatusCache::CSVNStatusCache(void)
 {

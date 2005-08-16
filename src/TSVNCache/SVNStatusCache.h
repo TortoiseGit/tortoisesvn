@@ -74,6 +74,8 @@ public:
 	/// in the list of handled shell requests to avoid deadlocks.
 	void UpdateShell(const CTSVNPath& path);
 
+	void Stop();
+
 	void WaitToRead() {m_rwSection.WaitToRead();}
 	void WaitToWrite() {m_rwSection.WaitToWrite();}
 	void Done() {m_rwSection.Done();}

@@ -30,14 +30,22 @@ CShellUpdater::CShellUpdater(void)
 
 CShellUpdater::~CShellUpdater(void)
 {
+	Stop();
+}
+
+void CShellUpdater::Stop()
+{
 	SetEvent(m_hTerminationEvent);
-	if(WaitForSingleObject(m_hThread, 5000) != WAIT_OBJECT_0)
+	if(WaitForSingleObject(m_hThread, 200) != WAIT_OBJECT_0)
 	{
 		ATLTRACE("Error terminating shellupdater thread\n");
 	}
 	CloseHandle(m_hThread);
+	m_hThread = INVALID_HANDLE_VALUE;
 	CloseHandle(m_hTerminationEvent);
+	m_hTerminationEvent = INVALID_HANDLE_VALUE;
 	CloseHandle(m_hWakeEvent);
+	m_hWakeEvent = INVALID_HANDLE_VALUE;
 }
 
 void CShellUpdater::Initialise()
@@ -119,8 +127,10 @@ void CShellUpdater::WorkerThread()
 			}
 
 			ATLTRACE("Update notifications for: %ws\n", workingPath.GetWinPath());
-
-			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+			if (workingPath.IsDirectory())
+				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+			else
+				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
 		}
 	}
 	_endthread();

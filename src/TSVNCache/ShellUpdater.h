@@ -34,6 +34,7 @@ public:
 public:
 	void Initialise();
 	void AddPathForUpdate(const CTSVNPath& path);
+	void Stop();
 
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
