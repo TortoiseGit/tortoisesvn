@@ -1828,7 +1828,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							svn_wc_status2_t * s;
 							CTSVNPath svnPath;
 							s = status.GetFirstFileStatus(parentFolder, svnPath, FALSE);
-							CShellUpdater::Instance().AddPathForUpdate(parentFolder);
+							//CShellUpdater::Instance().AddPathForUpdate(parentFolder);
 							if (s!=0)
 							{
 								// first check if the folder isn't already present in the list
@@ -1940,7 +1940,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						svn_wc_status2_t * s;
 						CTSVNPath svnPath;
 						s = status.GetFirstFileStatus(parentfolder, svnPath, FALSE);
-						CShellUpdater::Instance().AddPathForUpdate(parentfolder);
+						//CShellUpdater::Instance().AddPathForUpdate(parentfolder);
 						// first check if the folder isn't already present in the list
 						bool bFound = false;
 						int nListboxEntries = GetItemCount();

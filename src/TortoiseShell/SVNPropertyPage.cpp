@@ -431,7 +431,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						{
 							dlg.SetLine(1, I->c_str(), TRUE);
 							SVNProperties props = SVNProperties(CTSVNPath(I->c_str()));
-							CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
+							//CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
 							props.Remove(buf, checked);
 							count++;
 							dlg.SetProgress64(count, all);
@@ -440,7 +440,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
 						dlg.Stop();
 						delete [] buf;
-						CShellUpdater::Instance().Flush();
+						//CShellUpdater::Instance().Flush();
 						InitWorkfileView();
 						return TRUE;
 					}
@@ -468,7 +468,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						{
 							dlg.SetLine(1, I->c_str(), TRUE);
 							SVNProperties props = SVNProperties(CTSVNPath(I->c_str()));
-							CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
+							//CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
 							if ((!checked)&&(all == 1)&&(PathIsDirectory(I->c_str())))
 							{
 								if ((_tcscmp(name, _T("svn:eol-style"))==0)||
@@ -499,7 +499,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 							}
 						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
 						dlg.Stop();
-						CShellUpdater::Instance().Flush();
+						//CShellUpdater::Instance().Flush();
 						InitWorkfileView();
 						delete name;
 						delete value;
@@ -544,7 +544,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 					break;
 			} // switch (HIWORD(wParam)) 
 	} // switch (uMessage) 
-	CShellUpdater::Instance().Flush();
+	//CShellUpdater::Instance().Flush();
 	return FALSE;
 }
 void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
