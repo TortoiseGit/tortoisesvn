@@ -133,6 +133,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), svn.GetUUIDFromPath(m_pathList[0]));
 	m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 	
+	GetWindowText(m_sWindowTitle);
+	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
 	AddAnchor(IDC_BUGID, TOP_RIGHT);
@@ -400,9 +402,7 @@ UINT CLogPromptDlg::StatusThread()
 	}
 
 	CTSVNPath commonDir = m_ListCtrl.GetCommonDirectory(false);
-	CString temp;
-	GetWindowText(temp);
-	SetWindowText(temp + _T(" - ") + commonDir.GetWinPathString());
+	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
 
 	m_autolist.RemoveAll();
 	// we don't have to block the commit dialog while we fetch the
