@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-10 13:51+0800\n"
+"PO-Revision-Date: 2005-08-16 11:32+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4071,6 +4071,11 @@ msgstr "選擇要查詢說明的物件"
 msgid "Select diff file..."
 msgstr "選擇差異檔..."
 
+# Dlg-ID:173,
+#: ID:276
+msgid "Select end revision"
+msgstr "選擇結束版本"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4079,6 +4084,16 @@ msgid ""
 msgstr ""
 "選擇要匯出至的資料夾.\n"
 "你可能需要在進行匯出之前先建立新資料夾."
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select revision range"
+msgstr "選擇版本範圍"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select start revision"
+msgstr "選擇開始版本"
 
 # ID:79,
 #: ID:79
@@ -4403,6 +4418,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "左右切換"
+
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
@@ -4425,6 +4444,15 @@ msgid ""
 msgstr ""
 "在單區塊與雙區塊檢視模式間切換\n"
 "切換單/雙區塊模式"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"切換顯示在左半與右半的內容\n"
+"切換左右顯示"
 
 # ID:3825,
 #: ID:3825
@@ -4722,6 +4750,15 @@ msgstr ""
 "搜尋選定檔案的時間上限(單位是秒).\n"
 "設定較低的值能讓自動完成列表較快出現,\n"
 "但不一定包括所有檔案."
+
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"選擇的兩個 URL 不是由同樣的來源建立的.\n"
+"無法顯示兩者之間的紀錄訊息."
 
 # ID:16,
 #: ID:16
@@ -5348,6 +5385,17 @@ msgstr ""
 "協定存取檔案庫.\n"
 "這可能造成嚴重的檔案庫損壞!\n"
 "確定要這樣做嗎?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"這個性質不能設定在資料夾上, 只能設定在檔案上!\n"
+"如果你想要套用在資料夾內的所有檔案,\n"
+"請勾選「遞迴」."
 
 # ID:105,
 #: ID:105
