@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-27 11:55+0100\n"
+"PO-Revision-Date: 2005-08-16 09:45+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1187,6 +1187,10 @@ msgstr "Couleurs"
 msgid "Command failed."
 msgstr "Echec de la commande."
 
+#: ID:319
+msgid "Comment"
+msgstr "Commentaire"
+
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Livrer"
@@ -1855,6 +1859,7 @@ msgstr "Récupération de la révision %s du fichier:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "Fichier"
 
@@ -2437,6 +2442,10 @@ msgstr "Type Mime"
 msgid "Min"
 msgstr "Min"
 
+#: ID:263
+msgid "Mine"
+msgstr "A moi"
+
 #: Control-ID:1023
 msgid "Misc"
 msgstr "Divers"
@@ -2627,6 +2636,12 @@ msgstr "Un ou plusieurs fichiers sont en état de conflit."
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Extraire seulement le répertoire de tête"
+
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "Seulement dans %s"
 
 # ID:169,
 #: ID:169
@@ -2994,6 +3009,11 @@ msgstr "Renomme %s"
 #: ID:11
 msgid "Rename..."
 msgstr "Renommer..."
+
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "Renommé depuis %s"
 
 #: ID:126
 msgid "Renamed remotely"
@@ -3366,6 +3386,10 @@ msgstr "Sélectionner l'objet sur lequel vous désirer l'aide"
 msgid "Select diff file..."
 msgstr "Sélectionner le fichier de différence..."
 
+#: ID:276
+msgid "Select end revision"
+msgstr "Sélectionner la révision de fin"
+
 #: ID:79
 msgid ""
 "Select folder to export to.\n"
@@ -3373,6 +3397,14 @@ msgid ""
 msgstr ""
 "Sélectionnez le répertoire vers lequel réaliser l'exportation.\n"
 "Il est possible que vous deviez créer le répertoire avant d'effectuer cette exportation."
+
+#: ID:276
+msgid "Select revision range"
+msgstr "Sélectionner la plage de révisions"
+
+#: ID:276
+msgid "Select start revision"
+msgstr "Sélectionner la révision de départ"
 
 # ID:79,
 #: ID:79
@@ -3646,6 +3678,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Changer Gauche<->Droite"
+
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
 msgstr "Se déplacer sur la Branche / Etiquette"
@@ -3666,6 +3702,15 @@ msgstr ""
 "Commuter entre la vue simple et double fenêtre\n"
 "Commuter entre la vue simple et double fenêtre"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Echanger les contenus des vues de gauche et de droite\n"
+"Echanger vues de gauche et de droite"
+
 #: ID:3825
 msgid "Switch to the next document window"
 msgstr "Changer pour la prochaine fenêtre"
@@ -3685,6 +3730,10 @@ msgstr "Changer pour la précédante fenêtre"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Déplacer la copie locale sur une nouvelle branche / étiquette"
+
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "Déplacer la copie locale vers une nouvelle branche/étiquette"
 
 #: ID:9
 msgid "Switch..."
@@ -3932,6 +3981,15 @@ msgstr ""
 "Une valeur plus basse rendra la liste d'autocomplétion disponible plus rapidement.\n"
 "mais ne scannera peut-être pas tous les fichiers."
 
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"LEs deux URL sélectionnées ne sont pas créées avec la même racine.\n"
+"Il n'est pas possible d'afficher les journaux d'historique entre eux!"
+
 # ID:16,
 #: ID:16
 msgid "The user who did the last commit"
@@ -3964,6 +4022,10 @@ msgstr ""
 #: Control-ID:65535
 msgid "Their File:"
 msgstr "Leur fichier:"
+
+#: ID:263
+msgid "Theirs"
+msgstr "A eux"
 
 #: ID:169
 msgid ""
@@ -4459,6 +4521,17 @@ msgstr ""
 "un partage réseau.\n"
 "Ceci peut créer de sévère corruption du repository!\n"
 "Voulez vous vraiment faire ceci?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"Vous ne pouvez mettre cette propriété sur les répertoires, seulement sur les fichiers!\n"
+"Si vous voulez mettre cela sur tous les fichiers contenus dans ce répertoire,\n"
+"vous devez activer la case à cocher 'récursif'"
 
 # ID:105,
 #: ID:105
