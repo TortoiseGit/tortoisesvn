@@ -52,6 +52,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_currentChangedArray(NULL),
 	m_nSortColumn(0),
 	m_bShowedAll(false),
+	m_bSelect(false),
 	m_regLastStrict(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE)
 {
 	m_pFindDialog = NULL;
@@ -225,11 +226,26 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	SetPromptParentWindow(m_hWnd);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("LogDlg"));
+	
+	if (m_bSelect)
+	{
+		// the dialog is used to select revisions
+		GetDlgItem(IDOK)->EnableWindow(m_LogList.GetSelectedCount()!=0);
+	}
+	else
+	{
+		// the dialog is used to just view log messages
+		GetDlgItem(IDOK)->GetWindowText(temp);
+		GetDlgItem(IDCANCEL)->SetWindowText(temp);
+		GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
+	}
+	
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
@@ -1914,6 +1930,10 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (m_bThreadRunning)
 		return;
+	if (m_bSelect)
+	{
+		GetDlgItem(IDOK)->EnableWindow(m_LogList.GetSelectedCount()!=0);
+	}
 	if (pNMLV->iItem >= 0)
 	{
 		m_nSearchIndex = pNMLV->iItem;

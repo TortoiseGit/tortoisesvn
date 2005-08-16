@@ -146,6 +146,7 @@ public:
 	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
 	bool IsThreadRunning() {return !!m_bThreadRunning;}
 	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
+	void SetSelect(bool bSelect) {m_bSelect = bSelect;}
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
@@ -215,6 +216,7 @@ private:
 	CButton				m_cHidePaths;
 	bool				m_bShowedAll;
 	CString				m_sTitle;
+	bool				m_bSelect;
 private:
     typedef struct LogEntryData
     {   

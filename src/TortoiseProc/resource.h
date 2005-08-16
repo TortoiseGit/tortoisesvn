@@ -358,6 +358,7 @@
 #define IDC_DOSWITCH                    1232
 #define IDS_PROGRS_TITLE_EXPORT         1233
 #define IDS_PROGRS_TITLE_MERGE          1234
+#define IDC_BUTTON1                     1234
 #define IDS_PROGRS_TITLE_COPY           1235
 #define IDS_PROGRS_MIMETYPE             1236
 #define IDS_PROGRS_COPY_WARNING         1238
@@ -683,7 +684,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        208
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1233
+#define _APS_NEXT_CONTROL_VALUE         1235
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
