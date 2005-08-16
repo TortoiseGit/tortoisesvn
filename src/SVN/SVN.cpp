@@ -197,6 +197,7 @@ CString SVN::GetErrorString(svn_error_t * Err)
 			msg += _T("\n");
 			temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
 			temp = CStringUtils::WordWrap(temp);
+			msg += temp;
 		}
 		temp.Empty();
 		switch (Err->apr_err)
