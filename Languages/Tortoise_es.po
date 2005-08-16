@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-19 16:37+0100\n"
+"PO-Revision-Date: 2005-08-16 23:45+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -721,10 +721,6 @@ msgstr "Ajustes avanzados de diferencias/combinación"
 msgid "Advanced Merge Settings"
 msgstr "Preferencias Avanzadas de Combinación"
 
-#: Control-ID:65535
-msgid "All"
-msgstr "Todo"
-
 #: ID:3841
 msgid "All Files (*.*)"
 msgstr "Todos los archivos (*.*)"
@@ -1208,6 +1204,10 @@ msgstr "Colores"
 #: ID:3857
 msgid "Command failed."
 msgstr "El Comando falló."
+
+#: ID:319
+msgid "Comment"
+msgstr "Comentario"
 
 #: Control-ID:1083
 msgid "Commit"
@@ -1718,10 +1718,10 @@ msgstr "Vacío"
 #: ID:195
 msgid ""
 "Enables the spellchecker only if the\n"
-"tsvn:projectlanguage property is set.\n"
+"tsvn:projectlanguage property is set."
 msgstr ""
 "Habilita el corrector ortográfico únicamente\n"
-"si se ha establecido la propiedad tsvn:projectlanguage\n"
+"si la propiedad tsvn:projectlanguage se ha establecido"
 
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -1885,6 +1885,7 @@ msgstr "Obteniendo revisión %s del archivo:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "Archivo"
 
@@ -1947,6 +1948,7 @@ msgstr "GDI+ no puede crear un objeto bitmap. Probablemente no haya suficiente m
 
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "General"
 
@@ -2164,6 +2166,10 @@ msgstr "Incluir rutas:"
 msgid "Initial Import"
 msgstr "Importación Inicial"
 
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "Diferencia de Espacios dentro de la línea"
+
 # Dlg-ID:161,
 #: Dlg-ID:161
 msgid "Input"
@@ -2275,6 +2281,10 @@ msgstr "Autor menos activo:"
 #: ID:188
 msgid "Left View: "
 msgstr "Panel izquierdo:"
+
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "Línea con diferencia en los espacios"
 
 #: ID:3605
 msgid ""
@@ -2461,6 +2471,10 @@ msgstr "Tipo Mime"
 msgid "Min"
 msgstr "Mín"
 
+#: ID:263
+msgid "Mine"
+msgstr "Mío"
+
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1023
@@ -2565,6 +2579,10 @@ msgstr "No hay mensaje de error disponible."
 msgid "No error occurred."
 msgstr "No ocurrió ningún error."
 
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "No ha habido cambios en carpetas ni archivos. No hay nada que TortoiseSVN pueda revertir!"
+
 #: ID:77
 msgid ""
 "No files were changed or added since\n"
@@ -2653,6 +2671,12 @@ msgstr "Unos o más archivos están en estado en conflicto."
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Sólo obtener la carpeta superior"
+
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "Sólo en %s."
 
 # ID:169,
 #: ID:169
@@ -3029,6 +3053,11 @@ msgstr "Renombrar %s"
 msgid "Rename..."
 msgstr "Renombrar..."
 
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "Renombrado desde %s"
+
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Renombrado de forma remota"
@@ -3075,10 +3104,18 @@ msgstr "Navegador de Repositorio"
 msgid "Requests a username and a password"
 msgstr "Pide un usuario y una contraseña"
 
-#: ID:8
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Resolver"
+
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "Resuelto"
+
+#: ID:8
+msgid "Resolved..."
+msgstr "Resuelto..."
 
 #: ID:9
 msgid "Resolves conflicted files"
@@ -3394,6 +3431,10 @@ msgstr "Seleccione un objeto para obtener Ayuda acerca de él"
 msgid "Select diff file..."
 msgstr "Seleccionar archivo de diferencias..."
 
+#: ID:276
+msgid "Select end revision"
+msgstr "Seleccione revisión final"
+
 #: ID:79
 msgid ""
 "Select folder to export to.\n"
@@ -3401,6 +3442,14 @@ msgid ""
 msgstr ""
 "Seleccione la carpeta donde desea exportar.\n"
 "Puede que necesite crear una carpeta nueva antes de realizar esta importación."
+
+#: ID:276
+msgid "Select revision range"
+msgstr "Seleccione rango de revisiones"
+
+#: ID:276
+msgid "Select start revision"
+msgstr "Seleccione revisión de inicio"
 
 # ID:79,
 #: ID:79
@@ -3490,13 +3539,13 @@ msgstr "Mostrar &registro"
 msgid "Show &overlays only in explorer"
 msgstr "M&ostrar iconos sobreimpresos sólo en el explorador"
 
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "Mostrar barra de diferencias"
-
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "Mostrar diferencias como 'Diff &Unificado'"
+
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "Mostrar barra de diferencias de línea"
 
 #: Control-ID:1063
 msgid "Show Linenumbers"
@@ -3677,6 +3726,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Cambiar Izquierda<->Derecha"
+
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
 msgstr "Cambiar a Rama / Etiqueta"
@@ -3697,6 +3750,15 @@ msgstr ""
 "Cambiar entre vista de panel simple o doble\n"
 "Cambiar entre vista de panel simple o doble"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Intercambia los contenidos de la vista izquierda y derecha\n"
+"Intercambia la vista izquierda y derecha"
+
 #: ID:3825
 msgid "Switch to the next document window"
 msgstr "Cambiar a la siguiente ventana de documento"
@@ -3716,6 +3778,10 @@ msgstr "Cambiar a la ventana de documento previa"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Cambia la copia de trabajo a otra rama / etiqueta"
+
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "Cambia la copia de trabajo a una rama / etiqueta nueva"
 
 #: ID:9
 msgid "Switch..."
@@ -3964,6 +4030,15 @@ msgstr ""
 "Un valor bajo hará que la lista de autocompletar esté disponible antes,\n"
 "pero puede que no escanée todos los ficheros."
 
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"Las dos URLs seleccionadas no están creadas desde la misma raíz.\n"
+"¡No es posible mostrar los mensajes de registro entre ellas!"
+
 # ID:16,
 #: ID:16
 msgid "The user who did the last commit"
@@ -3996,6 +4071,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "Their File:"
 msgstr "Fichero de otros:"
+
+# ID:188,
+#: ID:263
+msgid "Theirs"
+msgstr "De ellos"
 
 # ID:169,
 #: ID:169
@@ -4058,10 +4138,6 @@ msgstr "Esta propiedad solo está disponible en carpetas, no en ficheros"
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Esta propiedad no puede tener múltiples líneas. Sólo se permite una línea."
-
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "Diferencia de tres Archivos"
 
 # Control-ID:1222,
 #: Control-ID:1222
@@ -4172,10 +4248,6 @@ msgstr "Intente un \"Cleanup\". Si esto no funciona necesita efectuar una Obtenc
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "Manipula TortoiseSVN"
-
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "Diferencia de dos Archivos"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -4363,8 +4435,8 @@ msgid "Use old APIs to fetch log messages"
 msgstr "Utilizar las APIs antiguas para obtener los mensajes de registro"
 
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "Utilizar vista de un sólo panel por defecto"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "Utilizar vista de un sólo panel por defecto para las diferencias entre 2 ficheros"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -4455,10 +4527,6 @@ msgstr "¡ Atención !"
 msgid "Whitespace diff"
 msgstr "Diferencia de Espacios"
 
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "Espacios"
-
 #: Dlg-ID:158
 msgid "Working Copy"
 msgstr "Copia de Trabajo"
@@ -4513,6 +4581,17 @@ msgstr ""
 "Está intentando acceder a un repositorio en una carpeta compartida en red  vía file:///.\n"
 "¡Esto puede llegar a corromper sus datos severamente!\n"
 "¿Está seguro de querer hacer esto?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"¡No puede establecer esta propiedad en carpetas, sólo puede en ficheros!\n"
+"Si desea establecerla en todos los ficheros dentro de esa carpeta,\n"
+"debe activar la casilla 'recursivo'."
 
 # ID:105,
 #: ID:105
