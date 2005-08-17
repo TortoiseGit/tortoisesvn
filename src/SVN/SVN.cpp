@@ -332,7 +332,7 @@ BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force)
 		}
 	}
 
-	//CShellUpdater::Instance().AddPathsForUpdate(pathList);
+	CShellUpdater::Instance().AddPathsForUpdate(pathList);
 
 	return TRUE;
 }
@@ -382,7 +382,7 @@ LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, B
 		return commit_info->revision;
 	}
 
-	//CShellUpdater::Instance().AddPathsForUpdate(pathlist);
+	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
 
 	return -1;
 }
