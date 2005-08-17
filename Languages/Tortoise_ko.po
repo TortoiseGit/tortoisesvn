@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-07 16:46+0900\n"
+"PO-Revision-Date: 2005-08-17 11:07+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4054,6 +4054,11 @@ msgstr "도움말을 보기 선택 "
 msgid "Select diff file..."
 msgstr "Diff 파일 선택..."
 
+# Dlg-ID:173,
+#: ID:276
+msgid "Select end revision"
+msgstr "종료 리비전 선택"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4062,6 +4067,16 @@ msgid ""
 msgstr ""
 "익스포트할 폴더 선택.\n"
 "익스포트하기 전에 폴더를 새로 만들어야 할 수도 있습니다."
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select revision range"
+msgstr "리비전 구간 선택"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select start revision"
+msgstr "시작 리비전 선택"
 
 # ID:79,
 #: ID:79
@@ -4390,6 +4405,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "좌우 전환"
+
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
@@ -4413,6 +4432,15 @@ msgstr ""
 "단일 또는 이중 윈도우로 보는 방식을 전환\n"
 "단일 또는 이중 윈도우로 보는 방식을 전환"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"왼쪽과 오른쪽의 내용을 바꿉니다.\n"
+"왼쪽과 오른쪽 창을 바꿈"
+
 # ID:3825,
 #: ID:3825
 msgid "Switch to the next document window"
@@ -4435,6 +4463,11 @@ msgstr "이전 문서창으로 전환"
 # ID:9,
 #: ID:9
 msgid "Switch working copy to another branch / tag"
+msgstr "현재 작업 사본을 다른 브랜치나 태그로 전환"
+
+# ID:9,
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
 msgstr "현재 작업 사본을 다른 브랜치나 태그로 전환"
 
 # ID:9,
@@ -4703,6 +4736,15 @@ msgstr ""
 "선택한 파일들을 분석하는 시간을 설정합니다.\n"
 "작은 값일 수록 자동완성 목록이 바로 만들어지지만,\n"
 "모든 파일을 검사하지 않을 수 있습니다."
+
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"선택된 두 URL은 같은 루트로부터 생성된것이 아닙니다.\n"
+"둘 간의 로그를 보는 것은 불가능합니다."
 
 # ID:16,
 #: ID:16
@@ -5325,6 +5367,17 @@ msgstr ""
 "네트워크 공유 드라이브에 있는 저장소에 file:/// 로 접근하고 있습니다. \n"
 "이 방법은 보관소를 망가뜨릴 위험이 있습니다.\n"
 "계속 하시겠습니까?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"속성을 폴더아닌 파일에만 설정할 수 있습니다.\n"
+"폴더안의 모든 파일에 설정하시려면,\n"
+"재귀적으로 적용하도록 설정해야합니다."
 
 # ID:105,
 #: ID:105
