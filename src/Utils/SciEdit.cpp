@@ -390,7 +390,7 @@ void CSciEdit::CheckSpelling()
 		char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
 		textrange.lpstrText = textbuffer;
 		Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
-		if (strlen(textrange.lpstrText) > 3)
+		if (strlen(textrange.lpstrText) > 0)
 		{
 			CString sWord = StringFromControl(textrange.lpstrText);
 			// convert the string from the control to the encoding of the spell checker
