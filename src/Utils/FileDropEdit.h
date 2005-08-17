@@ -79,9 +79,7 @@ public:
 				for(UINT i = 0; i < cFiles; ++i)
 				{
 					DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)); 
-					int nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
-					::SendMessage(m_hTargetWnd, EM_SETSEL, nLen, -1);
-					::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)szFileName);
+					::SendMessage(m_hTargetWnd, WM_SETTEXT, 0, (LPARAM)szFileName);
 				}  
 				//DragFinish(hDrop); // base class calls ReleaseStgMedium
 			}
