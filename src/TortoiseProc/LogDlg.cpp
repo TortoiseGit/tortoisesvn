@@ -917,8 +917,13 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						m_bCancelled = FALSE;
 
 						SVNDiff diff(this, this->m_hWnd, true);
+						CTSVNPath url = m_path;
+						if (!PathIsURL(m_path.GetSVNPathString()))
+						{
+							url.SetFromSVN(GetURLFromPath(m_path));
+						}
 
-						diff.ShowCompare(m_path, rev2, m_path, rev1);
+						diff.ShowCompare(url, rev2, url, rev1);
 					}
 					break;
 				case ID_SAVEAS:
