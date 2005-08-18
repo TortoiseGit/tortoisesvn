@@ -21,7 +21,11 @@
 			SummaryCodepage="1252" />
 
 		<Upgrade Id="$(var.UpgradeGuid)" >
-			<UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" Maximum="$(var.VersionNumber)" />
+			<!-- upgrade is flagged if current-install is newer than or equal to package - TODO: should make a dialog appear asking user to confirm downgrade.  -->
+			<UpgradeVersion Property="NEWERVERSIONDETECTED" Minimum="$(var.ProductVersion)" OnlyDetect="yes" />
+
+			<!-- flag is set if the install will trigger an upgrade of an existing install -->
+			<UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" Maximum="$(var.VersionNumber)" IncludeMaximum="no" />
 		</Upgrade>
 
 		<Media Id="1" Cabinet="TSVN.cab" EmbedCab="yes" CompressionLevel="high" />
