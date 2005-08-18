@@ -21,7 +21,7 @@
 			SummaryCodepage="1252" />
 
 		<Upgrade Id="$(var.UpgradeGuid)" >
-			<UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" />
+			<UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" Maximum="$(var.VersionNumber)" />
 		</Upgrade>
 
 		<Media Id="1" Cabinet="TSVN.cab" EmbedCab="yes" CompressionLevel="high" />
