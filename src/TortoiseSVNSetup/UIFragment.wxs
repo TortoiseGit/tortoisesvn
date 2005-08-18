@@ -24,7 +24,7 @@
 				<Show Dialog="MaintenanceWelcomeDlg" After="ResumeDlg"><![CDATA[Installed AND NOT RESUME AND NOT Preselected]]></Show>
 				<Show Dialog="ProgressDlg" After="MaintenanceWelcomeDlg" />
 
-				<Custom Action="DefaultTargetDir" After="LaunchConditions" />
+				<Custom Action="DefaultTargetDir" After="PrepareDlg" />
 				<Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
 				<Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
 			</InstallUISequence>
