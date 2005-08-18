@@ -792,9 +792,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
-				
-				temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYCLIPBOARD, temp);
+				if (m_LogList.GetSelectedCount() != 0)
+				{
+					temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYCLIPBOARD, temp);
+				}
 				temp.LoadString(IDS_LOG_POPUP_FIND);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
 
