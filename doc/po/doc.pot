@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-26 11:51GMT Daylight Time\n"
+"POT-Creation-Date: 2005-08-18 23:46GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3417,7 +3417,7 @@ msgid "While working on TortoiseSVN we love to listen to music. And since we spe
 msgstr ""
 
 #: source/en/Version.xml:2(subtitle) 
-msgid "Version 1.2.1"
+msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
 msgstr ""
 
 #: source/en/tsvn_preface.xml:3(title) source/en/tme_ch00.xml:3(title) 
@@ -3469,118 +3469,118 @@ msgid "TortoiseSVN is free. You don't have to pay for it, you can use it any way
 msgstr ""
 
 #: source/en/tsvn_preface.xml:78(para) 
-msgid "TortoiseSVN is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>. The most recent version (where we're working on) is located under <emphasis><filename>/trunk/</filename></emphasis>, the released versions are located under <emphasis><filename>/tags/</filename></emphasis>."
+msgid "TortoiseSVN is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, password:guest) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:99(title) 
+#: source/en/tsvn_preface.xml:97(title) 
 msgid "Community"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:100(para) 
+#: source/en/tsvn_preface.xml:98(para) 
 msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world and joined together to create wonderful programs."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:111(title) source/en/tme_ch00.xml:64(title) 
+#: source/en/tsvn_preface.xml:109(title) source/en/tme_ch00.xml:67(title) 
 msgid "Acknowledgments"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:114(term) 
+#: source/en/tsvn_preface.xml:112(term) 
 msgid "Tim Kemp"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:116(para) 
+#: source/en/tsvn_preface.xml:114(para) 
 msgid "for founding the TortoiseSVN project"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:122(term) source/en/tme_ch00.xml:68(term) 
+#: source/en/tsvn_preface.xml:120(term) source/en/tme_ch00.xml:71(term) 
 msgid "Stefan Küng"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:124(para) 
+#: source/en/tsvn_preface.xml:122(para) 
 msgid "for the hard work to get TortoiseSVN to what it is now"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:130(term) source/en/tme_ch00.xml:78(term) 
+#: source/en/tsvn_preface.xml:128(term) source/en/tme_ch00.xml:81(term) 
 msgid "Lübbe Onken"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:132(para) source/en/tme_ch00.xml:82(para) 
+#: source/en/tsvn_preface.xml:130(para) source/en/tme_ch00.xml:85(para) 
 msgid "for the beautiful icons, logo, bughunting and taking care of the documentation"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:139(term) 
+#: source/en/tsvn_preface.xml:137(term) 
 msgid "The Subversion Book"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:141(para) 
+#: source/en/tsvn_preface.xml:139(para) 
 msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:148(term) source/en/tme_ch00.xml:89(term) 
+#: source/en/tsvn_preface.xml:146(term) source/en/tme_ch00.xml:92(term) 
 msgid "The Tigris Style project"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:150(para) source/en/tme_ch00.xml:93(para) 
+#: source/en/tsvn_preface.xml:148(para) source/en/tme_ch00.xml:96(para) 
 msgid "for some of the styles which are reused in this documentation"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:156(term) source/en/tme_ch00.xml:100(term) 
+#: source/en/tsvn_preface.xml:154(term) source/en/tme_ch00.xml:103(term) 
 msgid "Our Contributors"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:158(para) 
+#: source/en/tsvn_preface.xml:156(para) source/en/tme_ch00.xml:107(para) 
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:165(term) 
+#: source/en/tsvn_preface.xml:163(term) source/en/tme_ch00.xml:114(term) 
 msgid "Our Donators"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:167(para) source/en/tme_ch00.xml:104(para) 
+#: source/en/tsvn_preface.xml:165(para) source/en/tme_ch00.xml:118(para) 
 msgid "for many hours of joy with the music they sent us"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:178(title) 
+#: source/en/tsvn_preface.xml:176(title) 
 msgid "Terminology used in this document"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:179(para) 
+#: source/en/tsvn_preface.xml:177(para) 
 msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:184(para) 
+#: source/en/tsvn_preface.xml:182(para) 
 msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:193(para) 
+#: source/en/tsvn_preface.xml:191(para) 
 msgid "Where a local context menu appears within one of the TortoiseSVN dialogs, it is shown like this: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
 msgstr ""
 
-#: source/en/tsvn_preface.xml:201(para) 
+#: source/en/tsvn_preface.xml:199(para) 
 msgid "User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton> to continue."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:205(para) 
+#: source/en/tsvn_preface.xml:203(para) 
 msgid "User Actions are indicated using a bold font. <action>ALT+A</action>: press the <keycap>ALT</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:213(para) 
+#: source/en/tsvn_preface.xml:211(para) 
 msgid "System output and keyboard input is indicated with a <literal>different</literal> font as well."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:218(para) 
+#: source/en/tsvn_preface.xml:216(para) 
 msgid "Important notes are marked with an icon."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:223(para) 
+#: source/en/tsvn_preface.xml:221(para) 
 msgid "Tips that make your life easier."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:228(para) 
+#: source/en/tsvn_preface.xml:226(para) 
 msgid "Places where you have to be careful what you are doing."
 msgstr ""
 
-#: source/en/tsvn_preface.xml:233(para) 
+#: source/en/tsvn_preface.xml:231(para) 
 msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
 msgstr ""
 
@@ -5313,10 +5313,10 @@ msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any w
 msgstr ""
 
 #: source/en/tme_ch00.xml:47(para) 
-msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://svn.collab.net/repos/tortoisesvn/\"><citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle></ulink>. The most recent version (where we're working) is located under <filename>/trunk/</filename>, the released versions are located under <filename>/tags/</filename>."
+msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, password:guest) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
 msgstr ""
 
-#: source/en/tme_ch00.xml:72(para) 
+#: source/en/tme_ch00.xml:75(para) 
 msgid "for the hard work on TortoiseMerge"
 msgstr ""
 
