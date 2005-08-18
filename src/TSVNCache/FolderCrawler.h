@@ -45,7 +45,7 @@ public:
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
 	void WorkerThread();
-	void SetHoldoff();
+	bool SetHoldoff();
 
 private:
 	CComAutoCriticalSection m_critSec;

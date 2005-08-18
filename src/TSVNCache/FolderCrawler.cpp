@@ -76,8 +76,8 @@ void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 		// with the worker thread
 		m_bItemsAddedSinceLastCrawl = true;
 	}
-	SetHoldoff();
-	SetEvent(m_hWakeEvent);
+	if (SetHoldoff())
+		SetEvent(m_hWakeEvent);
 }
 
 void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
@@ -87,7 +87,8 @@ void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
 		m_pathsToUpdate.push_back(path);
 		m_bPathsAddedSinceLastCrawl = true;
 	}
-	SetEvent(m_hWakeEvent);
+	if (SetHoldoff())
+		SetEvent(m_hWakeEvent);
 }
 
 unsigned int CFolderCrawler::ThreadEntry(void* pContext)
@@ -172,6 +173,8 @@ void CFolderCrawler::WorkerThread()
 				// check if the changed path is inside an .svn folder
 				if (workingPath.IsAdminDir())
 				{
+					if (workingPath.GetWinPathString().Find(_T("/tmp/"))<0)
+						continue;
 					do 
 					{
 						workingPath = workingPath.GetContainingDirectory();	
@@ -233,7 +236,10 @@ void CFolderCrawler::WorkerThread()
 	_endthread();
 }
 
-void CFolderCrawler::SetHoldoff()
+bool CFolderCrawler::SetHoldoff()
 {
-	m_crawlHoldoffReleasesAt = (long)GetTickCount() + 100;
+	long tick = (long)GetTickCount();
+	bool ret = ((tick - m_crawlHoldoffReleasesAt) > 0);
+	m_crawlHoldoffReleasesAt = tick + 100;
+	return ret;
 }
