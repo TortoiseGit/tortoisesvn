@@ -358,7 +358,6 @@
 #define IDC_DOSWITCH                    1232
 #define IDS_PROGRS_TITLE_EXPORT         1233
 #define IDS_PROGRS_TITLE_MERGE          1234
-#define IDC_BUTTON1                     1234
 #define IDS_PROGRS_TITLE_COPY           1235
 #define IDS_PROGRS_MIMETYPE             1236
 #define IDS_PROGRS_COPY_WARNING         1238
@@ -496,6 +495,7 @@
 #define IDS_LOG_FILTER_PATHS            1851
 #define IDS_LOG_FILTER_AUTHORS          1852
 #define IDS_LOG_FILTER_MESSAGES         1853
+#define IDS_LOG_FILTER_REVS             1854
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902

@@ -2197,6 +2197,8 @@ void CLogDlg::OnStnClickedFiltericon()
 		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_PATHS), LOGFILTER_PATHS, temp);
 		temp.LoadString(IDS_LOG_FILTER_AUTHORS);
 		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_AUTHORS), LOGFILTER_AUTHORS, temp);
+		temp.LoadString(IDS_LOG_FILTER_REVS);
+		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_REVS), LOGFILTER_REVS, temp);
 		int oldfilter = m_nSelectedFilter;
 		m_nSelectedFilter = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		if (m_nSelectedFilter == 0)
@@ -2451,6 +2453,7 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 		catch (bad_alloc) {}
 		catch (bad_regexpr) {}
 		
+		CString sRev;
 		for (DWORD i=0; i<m_logEntries.size(); ++i)
 		{
 			if (bRegex)
@@ -2489,10 +2492,22 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 							continue;
 						}
 					}
+					if (!bGoing)
+						continue;
 				}
 				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
 				{
 					br = pat.match( (LPCTSTR)m_logEntries[i]->sAuthor, results );
+					if ((br.matched)&&(IsEntryInDateRange(i)))
+					{
+						m_arShownList.Add(m_logEntries[i]);
+						continue;
+					}
+				}
+				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
+				{
+					sRev.Format(_T("%ld"), m_logEntries[i]->dwRev);
+					br = pat.match( (LPCTSTR)sRev, results );
 					if ((br.matched)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(m_logEntries[i]);
@@ -2541,6 +2556,15 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 					CString msg = m_logEntries[i]->sAuthor;
 					msg = msg.MakeLower();
 					if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
+					{
+						m_arShownList.Add(m_logEntries[i]);
+						continue;
+					}
+				}
+				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
+				{
+					sRev.Format(_T("%ld"), m_logEntries[i]->dwRev);
+					if ((sRev.Find(find) >= 0)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(m_logEntries[i]);
 						continue;
