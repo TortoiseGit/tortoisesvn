@@ -37,7 +37,10 @@ call version.bat
 cd src\TortoiseSVNSetup
 )
 echo checking files
-if NOT EXIST VersionNumberInclude.wxi (copy VersionNumberInclude.in.wxi VersionNumberInclude.wxi)
+if NOT EXIST VersionNumberInclude.wxi (
+echo No version information!
+exit /b
+)
 if NOT EXIST MakeMsiSub.bat (SubWCRev.exe ..\.. MakeMsiSub.in.bat MakeMsiSub.bat)
 if NOT EXIST MakeMsiSub.bat (copy MakeMsiSub.in.bat MakeMsiSub.bat)
 
