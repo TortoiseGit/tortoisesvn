@@ -112,6 +112,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGLIST, OnLvnColumnclick)
 	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LOGMSG, OnLvnColumnclickLogmsg)
 	ON_BN_CLICKED(IDC_HIDEPATHS, OnBnClickedHidepaths)
+	ON_NOTIFY(LVN_ODFINDITEM, IDC_LOGLIST, OnLvnOdfinditemLoglist)
 END_MESSAGE_MAP()
 
 
@@ -2777,3 +2778,66 @@ void CLogDlg::OnBnClickedHidepaths()
 	m_LogMsgCtrl.Invalidate();
 }
 
+
+void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLVFINDITEM pFindInfo = reinterpret_cast<LPNMLVFINDITEM>(pNMHDR);
+	*pResult = -1;
+	
+	if (pFindInfo->lvfi.flags & LVFI_PARAM)
+		return;	
+	if ((pFindInfo->iStart < 0)||(pFindInfo->iStart >= m_arShownList.GetCount()))
+		return;
+	if (pFindInfo->lvfi.psz == 0)
+		return;
+		
+	CString sCmp = pFindInfo->lvfi.psz;
+	CString sRev;	
+	for (int i=pFindInfo->iStart; i<m_arShownList.GetCount(); ++i)
+	{
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
+		sRev.Format(_T("%ld"), pLogEntry->dwRev);
+		if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
+		{
+			if (sCmp.Compare(sRev.Left(sCmp.GetLength()))==0)
+			{
+				*pResult = i;
+				return;
+			}
+		}
+		else
+		{
+			if (sCmp.Compare(sRev)==0)
+			{
+				*pResult = i;
+				return;
+			}
+		}
+	}
+	if (pFindInfo->lvfi.flags & LVFI_WRAP)
+	{
+		for (int i=0; i<pFindInfo->iStart; ++i)
+		{
+			PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
+			sRev.Format(_T("%ld"), pLogEntry->dwRev);
+			if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
+			{
+				if (sCmp.Compare(sRev.Left(sCmp.GetLength()))==0)
+				{
+					*pResult = i;
+					return;
+				}
+			}
+			else
+			{
+				if (sCmp.Compare(sRev)==0)
+				{
+					*pResult = i;
+					return;
+				}
+			}
+		}
+	}
+
+	*pResult = -1;
+}
