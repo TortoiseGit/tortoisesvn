@@ -109,6 +109,14 @@
 			</variablelist>
 		</para>
 		<para>
+			If you want your working copy to be switched to the newly created
+			branch automatically, use the
+			<guilabel>Switch working copy to new branch/tag</guilabel> checkbox.
+			But if you do that, first make sure that your working copy does not
+			contain modifications. If it does, those changes will be merged into
+			the branch WC when you switch.
+		</para>
+		<para>
 			Press <guibutton>OK</guibutton> to commit the new copy to the
 			repository. Don't forget to supply a log message. Note that the
 			copy is created <emphasis>inside the repository</emphasis>.
