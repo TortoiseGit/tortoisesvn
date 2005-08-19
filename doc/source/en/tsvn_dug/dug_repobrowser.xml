@@ -37,6 +37,15 @@
 		comparing two tags to see what changed.
 	</para>
 	<para>
+		If you select 2 tags which are copied from the same root
+		(typically <literal>/trunk/</literal>), you can use
+		<menuchoice>
+			<guimenu>Context Menu</guimenu>
+			<guimenuitem>Show Log...</guimenuitem>
+		</menuchoice>
+		to view the list of revisions between the two tag points.
+	</para>
+	<para>
 		You can also use the repository browser for drag-and-drop operations.
 		If you drag a folder from explorer into the repo browser, it will be
 		imported into the repository. Note that if you drag multiple items,
