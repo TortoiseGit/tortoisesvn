@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-08-19 09:50+0100\n"
+"PO-Revision-Date: 2005-08-19 16:26+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2704,6 +2704,11 @@ msgstr "Wenn Sie zwei Einträge markieren, können Sie sich die Unterschiede ent
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:39
 #: (para)
+msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
+msgstr "Wenn Sie zwei Markierungen wählen, die von derselben Basis erstellt wurden (typischerweise <literal>/trunk/</literal>), können Sie <menuchoice> <guimenu>Kontext Menü</guimenu> <guimenuitem>Zeige Log...</guimenuitem> </menuchoice> verwenden, um sich die Unterschiede zwischen den beiden Marken anzeigen zu lassen."
+
+#: source/en/tsvn_dug/dug_repobrowser.xml:48
+#: (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
 msgstr "Sie können den Projektarchiv-Betrachter auch für <action>Ziehen und Loslassen</action> Aktionen verwenden. Wenn Sie eine Datei aus dem Explorer in den Projektarchiv-Betrachter ziehen, wird sie in das Projektarchiv importiert. Wenn Sie auf diese Weise mehrere Objekte gleichzeitige importieren, wird jedes Objekt in einer eigenen Revision importiert."
 
@@ -2896,99 +2901,104 @@ msgstr "Wenn Sie eine vorhandene Eigenschaft bearbeiten wollen, wählen Sie die 
 msgid "If you wish to remove an existing property, select that property from the list of existing properties, so that it appears in the edit area. Then click on <guibutton>Remove</guibutton>."
 msgstr "Um eine Eigenschaft zu löschen,  wählen Sie die Eigenschaft zunächst aus der Liste aus, so dass sie im Bearbeitungsfeld angezeigt wird. Klicken Sie anschließend auf <guibutton>Löschen</guibutton>."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:81
+#: source/en/tsvn_dug/dug_propertypage.xml:76
+#: (para)
+msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-DUG-import-4\"/>."
+msgstr "Die <literal>svn:externals</literal> Eigenschaft kann genutzt werden, um andere Projekte aus dem gleichen oder einem anderen Projektarchiv in die Arbeitskopie einzubinden.Weitere Informationen finden sich in <xref linkend=\"tsvn-DUG-import-4\"/>."
+
+#: source/en/tsvn_dug/dug_propertypage.xml:87
 #: (para)
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
 msgstr "<literal>tsvn:logminsize</literal> Setzt die minimale Länge einer Log-Meldung für eine Übertragung. Wenn Sie eine Log-Meldung eingeben welche kürzer ist als mit dieser Eigenschaft festgelegt, dann bleibt die Übertragung deaktiviert. Dies ist nützlich wenn Sie die Benutzer dazu anhalten möchten, für jede Übertragung eine gute Log-Meldung zu schreiben. Wenn diese Eigenschaft nicht gesetzt ist, sind leere Log-Meldungen erlaubt."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:90
+#: source/en/tsvn_dug/dug_propertypage.xml:96
 #: (para)
 msgid "<literal>tsvn:lockmsgminsize</literal> sets the minimum length of a lock message. If you enter a shorter message than specified here, the lock is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every lock you get. If this property is not set, or the value is zero, empty lock messages are allowed."
 msgstr "<literal>tsvn:lockminsize</literal> Setzt die minimale Länge einer Sperrmeldung. Wenn Sie eine Meldung eingeben, die kürzer ist als mit dieser Eigenschaft festgelegt, dann bleibt die Sperrung deaktiviert. Dies ist nützlich, wenn Sie die Benutzer dazu anhalten möchten, für jede Sperrung eine Beschreibung anzugeben. Wenn diese Eigenschaft nicht gesetzt ist, sind leere Sperrmeldungen erlaubt."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:101
+#: source/en/tsvn_dug/dug_propertypage.xml:107
 #: (para)
 msgid "<literal>tsvn:logwidthmarker</literal> is used with projects which require log messages to be formatted with some maximum width (typically 80 characters) before a line break. Setting this property to a non-zero will do 2 things in the log message entry dialog: it places a marker to indicate the maximum width, and it disables word wrap in the display, so that you can see whether the text you entered is too long. Note: this feature will only work correctly if you have a fixed-width font selected for log messages."
 msgstr "<literal>tsvn:logwidthmarker</literal> kann für Projekte benutzt werden, welche Log-Meldungen mit einer maximalen Zeilenlänge (typischerweise 80 Zeichen) haben möchten. Wenn diese Eigenschaft auf einen Wert ungleich 0 gesetzt wird, wird einerseits der Wortumbruch für die Log-Meldung abgeschaltet und andererseits eine vertikale Linie gezeichnet um die maximale Zeilenlänge anzuzeigen. Auf diese Weise können Sie jederzeit sehen, ob Ihre Log-Meldung die maximale Zeilenlänge schon  überschreitet oder nicht. Beachten Sie: dies funktioniert nur korrekt, wenn Sie einen Font mit fester Breite für die Log-Meldungsbox ausgewählt haben."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:114
+#: source/en/tsvn_dug/dug_propertypage.xml:120
 #: (para)
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
 msgstr "<literal>tsvn:logtemplate</literal> wird für Projekte benutzt, die Regeln für die Formatierung der Log-Meldungen haben. Diese Eigenschaft enthält einen  mehrzeiligen Text, der automatisch im Übertragungsdialog in die Textbox eingefügt wird. Sie können dann diesen Text bei der Übertragung bearbeiten. Wenn Sie gleichzeitig <literal>tsvn:logminsize</literal> verwenden, stellen Sie sicher dass diese Wert größer als die Länge der Schablone ist, da sonst dieser Schutz wegfällt"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:125
+#: source/en/tsvn_dug/dug_propertypage.xml:131
 #: (para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in english or in the localized language. If the property is not set, the default is <literal>true</literal>."
 msgstr "Im Übertragen Dialog haben Sie die Möglichkeit, die Liste der geänderten Dateien inklusive des Status (hinzugefügt, geändert, etc) einzufügen. <literal>tsvn:logfilelistenglish</literal> legt fest, ob die vordefinierten Log-Meldungen in englisch oder in einer anderen Sprache eingefügt werden sollen. Der Standardwert ist <literal>true</literal>. "
 
-#: source/en/tsvn_dug/dug_propertypage.xml:136
+#: source/en/tsvn_dug/dug_propertypage.xml:142
 #: (para)
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
 msgstr "TortoiseSVN kann zur Rechtschreibprüfung die Wörterbücher benutzen, welche auch von OpenOffice oder Mozilla verwendet werden. Wenn Sie ein solches installiert haben, legt diese Eigenschaft fest, welches Sprachmodul für das Projekt benutzt werden soll.<literal>tsvn:projectlanguage</literal> setzt die Sprache des zu benutzenden Wörterbuchs. Die Werte für die Sprache können Sie hier nachschlagen: <ulink url=\"http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp\"> <citetitle>MSDN: Language Identifiers</citetitle> </ulink>"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:150
+#: source/en/tsvn_dug/dug_propertypage.xml:156
 #: (para)
 msgid "You can enter this value in decimal, or in hexadecimal if prefixed with <literal>0x</literal>. For example English (US) can be entered as <literal>0x0409</literal> or <literal>1033</literal>."
 msgstr "Sie können diesen Wert als Dezimalzahl, oder wenn Sie das bevorzugen als Hexadezimalzahl angeben mit dem Prefix <literal>0x</literal>. Zum Beispiel Englisch (US) kann als <literal>0x0409</literal> oder <literal>1033</literal> eingegeben werden."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:76
+#: source/en/tsvn_dug/dug_propertypage.xml:82
 #: (para)
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
 msgstr "TortoiseSVN besitzt ein paar eigene spezielle Eigenschaften, die mit <literal>tsvn:</literal> beginnen. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:159
+#: source/en/tsvn_dug/dug_propertypage.xml:165
 #: (para)
 #: source/en/tsvn_dug/dug_bugtracker.xml:212
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
 msgstr "Manche <literal>tsvn:</literal> Eigenschaften erfordern einen <literal>true/false</literal> Wert. TortoiseSVN versteht auch <literal>yes</literal> als Synonym für <literal>true</literal> und <literal>no</literal> als Synonym für <literal>false</literal>."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:166
+#: source/en/tsvn_dug/dug_propertypage.xml:172
 #: (title)
 msgid "Set the tsvn: properties on folders"
 msgstr "Setzen Sie die tsvn: Eigenschaften für Ordner"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:167
+#: source/en/tsvn_dug/dug_propertypage.xml:173
 #: (para)
 msgid "These <literal>tsvn:</literal> properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
 msgstr "Die <literal>tsvn:</literal> Eigenschaften müssen für Ordner und nicht für Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner übertragen dann werden die Eigenschaften aus eben diesem Ordner gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie gefunden wurde. Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie diese Eigenschaften auch auf den Unterordnern Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf Unterordnern gesetzt ist überschreibt dieselbe Eigenschaft für  übergeordnete Ordner."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:181
+#: source/en/tsvn_dug/dug_propertypage.xml:187
 #: (para)
 #: source/en/tsvn_dug/dug_bugtracker.xml:234
 msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all subfolders in the hierarchy, without also setting it on all files."
 msgstr "<emphasis>Ausschließlich</emphasis> für <literal>tsvn:</literal> Eigenschaften <emphasis>only</emphasis> können Sie die <guilabel>Rekursiv</guilabel> Option wählen, um die Eigenschaft auf alle Unterordner zu setzen ohne sie gleichzeitig auch für alle die Dateien zu setzen."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:189
+#: source/en/tsvn_dug/dug_propertypage.xml:195
 #: (title)
 msgid "Commit properties"
 msgstr "Übertrage Eigenschaften"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:190
+#: source/en/tsvn_dug/dug_propertypage.xml:196
 #: (para)
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
 msgstr "Subversion Eigenschaften sind auch unter Versionskontrolle.  Nachdem Sie eine Eigenschaft geändert haben, müssen Sie die Änderungen  zum Projektarchiv übertragen. "
 
-#: source/en/tsvn_dug/dug_propertypage.xml:196
+#: source/en/tsvn_dug/dug_propertypage.xml:202
 #: (title)
 msgid "Conflicts on properties"
 msgstr "Konflikte in Eigenschaften"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:197
+#: source/en/tsvn_dug/dug_propertypage.xml:203
 #: (para)
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
 msgstr "Sollte es zu einem Konflikt beim übertragen zum Server kommen, weil ein anderer Benutzer die gleiche Eigenschaft geändert hat, generiert Subversion eine <filename>.prej</filename> Datei. Löschen Sie diese Datei, nachdem Sie den  Konflikt aufgelöst haben. "
 
-#: source/en/tsvn_dug/dug_propertypage.xml:205
+#: source/en/tsvn_dug/dug_propertypage.xml:211
 #: (title)
 msgid "Automatic property setting"
 msgstr "Automatisches setzen von Eigenschaften"
 
-#: source/en/tsvn_dug/dug_propertypage.xml:206
+#: source/en/tsvn_dug/dug_propertypage.xml:212
 #: (para)
 msgid "You can configure Subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-DUG-settings\"/> for further information."
 msgstr "Sie können Subversion so einrichten, dass Eigenschaften für Dateien und Ordner automatisch gesetzt werden, wenn Sie zum Projektarchiv hinzugefügt werden.Lesen Sir <xref linkend=\"tsvn-DUG-settings\"/> für weitere Information."
 
-#: source/en/tsvn_dug/dug_propertypage.xml:212
+#: source/en/tsvn_dug/dug_propertypage.xml:218
 #: (para)
 msgid "TortoiseSVN can integrate with some bugtracking tools. This uses properties, which start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-DUG-bugtracker\"/> for further information."
 msgstr "TortoiseSVN kann Bugtracking Programme in Subversion integrieren. Dies geschieht über Eigenschaften, die mit <literal>bugtraq:</literal> beginnen. Wie Sie mit diesen Eigenschaften umgehen ist in <xref linkend=\"tsvn-DUG-bugtracker\"/> erklärt. "
@@ -3726,15 +3736,26 @@ msgstr "Manchmal ist es nützlich eine Arbeitskopie zu haben, die aus mehreren a
 #: source/en/tsvn_dug/dug_import.xml:274
 #: (para)
 msgid ""
-"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal>. For example <screen>\n"
+"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal>. You can add multiple external projects, 1 per line. Note that URLs and filenames must be properly escaped or they will not work properly. For example you must replace each space with <literal>%20</literal>. For example <screen>\n"
 "subversion http://svn.collab.net/repos/svn/trunk\n"
+"quick%20graphs http://graphics.collab.net/repos/fast%20graphics\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. If a user updates their working copy the external project is checked out, too."
-msgstr "Nehmen wir an Sie erstellen eine Arbeitskopie von /project1 in <filename>D:\\dev\\project1</filename>. Selektieren Sie den Ordner <filename>D:\\dev\\project1</filename>, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Eigenschaften Dialog erscheint; gehen Sie zu dem Tab Subversion. Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die <literal>svn:externals</literal> Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu referenzierende Projektarchiv URL in dem Format <literal>Name URL</literal> in das Textfeld. Zum Beispiel <literal>subversion http://svn.collab.net/repos/svn/trunk</literal>, wenn Sie das Subversion Projektarchiv einbinden wollen. Klicken Sie jetzt auf <guibutton>Setzen</guibutton> und übertragen Sie die Änderungen in das Projektarchiv. Wenn jetzt ein Benutzer seine Arbeitskopie aktualisiert, wird das eingebundene Projektarchiv auch ausgecheckt bzw. aktualisiert."
+msgstr ""
+"Nehmen wir an Sie erstellen eine Arbeitskopie von <filename>/projekt1</filename> in <filename>D:\\dev\\projekt1</filename>. Selektieren Sie den Ordner <filename>D:\\dev\\projekt1</filename>, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Eigenschaften Dialog erscheint; gehen Sie zu dem Tab Subversion. Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die <literal>svn:externals</literal> Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu referenzierende Projektarchiv URL in dem Format <literal>Name URL</literal> in das Textfeld. Sie können mehrere externe Projekte - eines pro Zeile - hinzufügen. Beachten Sie, dass Sonderzeichen in URLs korrekt ersetzt werden müssen (Leerzeichen z.B. durch <literal>%20</literal>), damit die externen Verweise funktionieren. Zum Beispiel:\n"
+"<screen>subversion http://svn.collab.net/repos/svn/trunk\n"
+"quick%20graphs http://graphics.collab.net/repos/fast%20graphics\n"
+"</screen>.\n"
+"Klicken Sie jetzt auf <guibutton>Setzen</guibutton> und übertragen Sie die Änderungen in das Projektarchiv. Wenn jetzt ein Benutzer seine Arbeitskopie aktualisiert, wird das eingebundene Projektarchiv auch ausgecheckt bzw. aktualisiert."
 
-#: source/en/tsvn_dug/dug_import.xml:297
+#: source/en/tsvn_dug/dug_import.xml:302
 #: (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-DUG-propertypage\"/>."
 msgstr "Wenn sie mehr Informationen brauchen, wie TortoiseSVN Eigenschaften behandelt lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/>."
+
+#: source/en/tsvn_dug/dug_import.xml:306
+#: (para)
+msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
+msgstr "Um sich über verschiedene Methoden zum Zugriff auf gemeinsame Unterprojekte zun informieren, lesen Sie <xref linkend=\"tsvn-howto-common-projects\"/>."
 
 #: source/en/tsvn_dug/dug_ignore.xml:3
 #: (title)
@@ -4636,75 +4657,80 @@ msgstr "Nun haben Sie mehrere Möglichkeiten, die Quelle der Kopie auszuwählen:
 
 #: source/en/tsvn_dug/dug_branchtag.xml:111
 #: (para)
+msgid "If you want your working copy to be switched to the newly created branch automatically, use the <guilabel>Switch working copy to new branch/tag</guilabel> checkbox. But if you do that, first make sure that your working copy does not contain modifications. If it does, those changes will be merged into the branch WC when you switch."
+msgstr "Wenn Sie wollen, dass Ihre Arbeitskopie sofort zur neuen Verzweigung / Markierung wechselt, markieren Sie die <guilabel>Arbeitskopie zum neuen Zweig / Markierung wechseln</guilabel> Option. Wenn Sie das tun, stellen Sie bitte vorher sicher, dass Ihre Arbeitskopie keine Änderungen enthält. Wenn sie Änderungen enthält, werden diese beim Wechseln mit der Verzweigung zusammengeführt."
+
+#: source/en/tsvn_dug/dug_branchtag.xml:119
+#: (para)
 msgid "Press <guibutton>OK</guibutton> to commit the new copy to the repository. Don't forget to supply a log message. Note that the copy is created <emphasis>inside the repository</emphasis>."
 msgstr "Klicken Sie <guibutton>OK</guibutton>, um die neue Kopie in das Projektarchiv zu übertragen und vergessen Sie dabei nicht, eine Log-Meldung anzugeben. Beachten Sie, dass diese Kopie <emphasis>innerhalb des Projektarchivs</emphasis> angelegt wird."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:116
+#: source/en/tsvn_dug/dug_branchtag.xml:124
 #: (para)
 msgid "Note that creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you copy your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified."
 msgstr "Beachten Sie, dass das Anlegen eines Astes oder einer Markierung sich <emphasis>nicht</emphasis> auf ihre Arbeitskopie auswirkt. Auch wenn Sie eine Kopie der Arbeitskopie erstellen, werden die Änderungen darin in den neuen Ast übertragen und nicht in den Stamm. Die geänderten Dateien ihrer Arbeitskopie bleiben als geändert markiert."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:125
+#: source/en/tsvn_dug/dug_branchtag.xml:133
 #: (title)
 msgid "To Checkout or to Switch..."
 msgstr "Auschecken oder Wechseln..."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:128
+#: source/en/tsvn_dug/dug_branchtag.xml:136
 #: (primary)
 msgid "switch"
 msgstr "switch"
 
-#: source/en/tsvn_dug/dug_branchtag.xml:130
+#: source/en/tsvn_dug/dug_branchtag.xml:138
 #: (para)
 msgid "...that is (not really) the question. While a checkout checks out everything from the desired branch into your working directory, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> only transfers the changed data to your working copy. Good for the network load, good for your patience. :-)"
 msgstr "...das ist hier (eigentlich nicht) die Frage. Während beim Auschecken eine neue Arbeitskopie erstellt wird (z.B. des neu erstellten Astes) verändert der Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> Ihre bestehende Arbeitskopie so, dass diese genau wie der erstellte Ast aussieht. Dabei werden nur die Unterschiede zwischen Ihrer bestehenden Arbeitskopie und dem Ast des Projektarchivs übertragen, was sich natürlich günstig auf die Netzwerkauslastung und Ihre Geduld auswirkt."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:146
+#: source/en/tsvn_dug/dug_branchtag.xml:154
 #: (para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> to make a fresh checkout in an empty folder. You can check out to any location on your local disk and you can create as many working copies from your repository as you like."
 msgstr "<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auschecken</guimenuitem> </menuchoice>, um eine neue Arbeitskopie in einem leeren Verzeichnis zu erstellen. Sie können von einem Projektarchiv so viele Arbeitskopien erstellen, wie Sie möchten."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:158
+#: source/en/tsvn_dug/dug_branchtag.xml:166
 #: (para)
 msgid "Switch your current working copy to the newly created copy in the repository. Again select the top level folder of your project and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu."
 msgstr "Wechseln Sie mit Ihrer Arbeitskopie zu ihrer neuen Kopie im Projektarchiv. Dazu wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> aus dem Kontextmenü."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:168
+#: source/en/tsvn_dug/dug_branchtag.xml:176
 #: (para)
 msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch/tag."
 msgstr "Im folgenden Dialog geben Sie die URL des Astes an URL den Sie gerade erzeugt haben. Wählen Sie die <guilabel>HEAD Revision</guilabel> Option und bestätigen Sie mit <guibutton>OK</guibutton>. Ihre Arbeitskopie wird nun auf den neuen Ast / die neue Markierung umgestellt."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:176
+#: source/en/tsvn_dug/dug_branchtag.xml:184
 #: (para)
 msgid "Switch works just like Update in that it never discards your local changes. Any changes you have made to your working copy which have not yet been committed will be merged when you do the Switch. If you do not want this to happen then you must either commit the changes before switching, or revert your working copy to an already-committed revision (typically HEAD)."
 msgstr "<quote>Wechseln zu</quote> wird genau so wie <quote>Aktualisieren</quote> niemals lokale Änderungen verwerfen. Sämtliche noch nicht übertragene Änderungen werden beim Wechseln mit den Daten aus dem Projektarchiv zusammengeführt. Wenn Sie das nicht wünschen, müssen Sie entweder die Änderungen übertragen oder verwerfen, bevor Sie <quote>Wechseln zu</quote> aufrufen."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:187
+#: source/en/tsvn_dug/dug_branchtag.xml:195
 #: (title)
 msgid "The Switch Dialog"
 msgstr "Der Wechseln-Zu Dialog"
 
-#: source/en/tsvn_dug/dug_branchtag.xml:141
+#: source/en/tsvn_dug/dug_branchtag.xml:149
 #: (para)
 msgid "To be able to work with your freshly generated copy you have several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
 msgstr "Es gibt mehrere Möglichkeiten, mit Ihrer neuen Kopie weiterzuarbeiten. Sie können: <placeholder-1/><placeholder-2/>"
 
-#: source/en/tsvn_dug/dug_branchtag.xml:196
+#: source/en/tsvn_dug/dug_branchtag.xml:204
 #: (para)
 msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
 msgstr "Tags (=Marken) werden typischerweise dafür verwendet, einen Entwicklungszeitpunkt einzufrieren . Als solche werden sie normalerweise nicht für die Weiterentwicklung genutzt. Dafür sind <literal>branches</literal> gedacht. Das ist auch der Hauptgrund, warum wir die <filename>/trunk /branches /tags</filename> Struktur für Projektarchive empfehlen. Änderungen an einer markierten Revision vorzunehmen ist <emphasis>keine gute Idee</emphasis>, aber da die Daten in Ihrer Arbeitskopie nicht schreibgeschützt sind, kann es aus Versehen doch passieren. TortoiseSVN wird Sie jedoch warnen, wenn Sie versuchen, Änderungen in einem Pfad im Projektarchiv zu übertragen, den die Zeichenfolge <literal>/tags</literal> enthält."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:212
+#: source/en/tsvn_dug/dug_branchtag.xml:220
 #: (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
 msgstr "Möglicherweise wollen Sie doch weitere Änderungen an einer Revision vornehmen, die Sie bereits markiert haben. Die korrekte Vorgehensweise ist, zunächst per Verzweigen/Markieren einen neuen Ast aus der Marke (z.B. <filename>/branches/Version_1.0.x</filename> aus <filename>/tags/Version_1.0</filename>) zu erzeugen und die Änderungen auf dem Ast durchzuführen. Wenn Sie Ihre Änderungen durchgeführt haben, erzeugen Sie eine neue Marke z.B. <filename>/tags/Version_1.0.1</filename> aus dem Ast an dem Sie gearbeitet haben."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:222
+#: source/en/tsvn_dug/dug_branchtag.xml:230
 #: (para)
 msgid "If you modify a working copy created from a branch and commit, then all changes go to the new branch and <emphasis>not</emphasis> the trunk. Only the modifications are stored. The rest remains a cheap copy."
 msgstr "Wenn Sie eine Arbeitskopie, die auf einem Ast basiert verändern und die Änderungen übertragen, gehen diese in den neuen Ast und <emphasis>nicht</emphasis> in trunk. Nur die Unterschiede werden gespeichert. Der Rest bleibt eine billige Kopie."
 
-#: source/en/tsvn_dug/dug_branchtag.xml:191
+#: source/en/tsvn_dug/dug_branchtag.xml:199
 #: (para)
 msgid "Although Subversion itself makes no distinction between tags and branches, the way they are typically used differs a bit. <placeholder-1/>"
 msgstr "Obwohl Subversion keine Unterscheidung zwischen <literal>tags</literal> und <literal>branches</literal> macht, werden sie normalerweise unterschiedlich genutzt. <placeholder-1/>"
@@ -7176,25 +7202,30 @@ msgstr "<guibutton>Zeige Leerzeichen</guibutton> Zeigt Leerzeichen als Symbole a
 
 #: source/en/tme_ch02.xml:180
 #: (para)
+msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
+msgstr "<guibutton>Tausche Links <-> Rechts</guibutton> In der Zwei-Fenster Ansicht wird das rechte mit dem linken Fenster vertauscht. Wenn Sie zwei Dateien in verschiedenen Bäumen vergleichen, weiss TortoiseSVN im Gegensatz zu zwei verschiedenen Revisionen derselben Datei nicht, welche Version als <quote>Original/Basis</quote> Version im linken Fenster angezeigt werden soll. Falls TortoiseSVN falsch rät können Sie somit einfach die Anzeige tauschen."
+
+#: source/en/tme_ch02.xml:191
+#: (para)
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
 msgstr "<guibutton>Vorherige/Nächste Differenz</guibutton> springt direkt zum vorherigen/nächsten Ort Unterschied besteht."
 
-#: source/en/tme_ch02.xml:186
+#: source/en/tme_ch02.xml:197
 #: (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
 msgstr "Wenn Sie das in der zwei-Fenster Ansicht machen, wird Ihnen die Detailanzeige unten im Fenster, die Unterschiede innerhalb der ersten Zeile anzeigen, unabhängig davon, über welcher Zeile sich der Mauszeiger gerade befindet."
 
-#: source/en/tme_ch02.xml:193
+#: source/en/tme_ch02.xml:204
 #: (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
 msgstr "<guibutton>Vorheriger/Nächster Konflikt</guibutton> springt direkt zum vorherigen/nächsten Ort in der Datei wo ein Konflikt besteht und aufgelöst werden muss."
 
-#: source/en/tme_ch02.xml:200
+#: source/en/tme_ch02.xml:211
 #: (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr "<guibutton>Wechsle Ansicht</guibutton> wechselt zwischen Ein- und Zwei-Fenster Ansicht. Diese Funktion ist im Drei-Fenster-Modus deaktiviert."
 
-#: source/en/tme_ch02.xml:207
+#: source/en/tme_ch02.xml:218
 #: (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Einstellungen</guibutton> öffnet den Einstellungsdialog von TortoiseMerge."
@@ -7204,177 +7235,177 @@ msgstr "<guibutton>Einstellungen</guibutton> öffnet den Einstellungsdialog von 
 msgid "Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-1/>"
 msgstr "Unterhalb der Menüleiste befindet sich die Werkzeugleiste. Diese stellt einen einfachen Zugang zu den am meisten verwendeten Befehlen dar: <placeholder-1/>"
 
-#: source/en/tme_ch02.xml:214
+#: source/en/tme_ch02.xml:225
 #: (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
 msgstr "Auf der linken Seite ist eine kleine Navigationsleiste. Diese zeigt in einem schnellen Überblick, wo Änderungen in der Datei vorhanden sind. Die Leiste hat drei Spalten. Die linke Spalte entspricht dem linken Fenster, die rechte Spalte dem rechten Fenster, die mittlere Spalte, falls angezeigt, dem unteren Fenster. In der Ein-Fenster-Ansicht wird nur die linke Spalte benutzt. Die Navigationsleiste kann auch als Bildlaufleiste benutzt werden, wobei dann jeweils alle drei Fenster gleichzeitig rollen."
 
-#: source/en/tme_ch02.xml:223
+#: source/en/tme_ch02.xml:234
 #: (para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. The left side of the status bar is used to display hints when you hover the mouse over a control."
 msgstr "Unterhalb des unteren Fensters ist die Statusleiste. Diese zeigt die Anzahl der hinzugefügten und entfernten Zeilen in <literal>Deren</literal> und <literal>Meiner</literal> Datei, sowie die Anzahl ungelöster Konflikte an. Die linke Seite der Statusleiste zeigt Hilfetexte wenn Sie den Mauszeiger über Objekte führen."
 
-#: source/en/tme_ch02.xml:236
+#: source/en/tme_ch02.xml:247
 #: (title)
 msgid "Merging / Editing Conflicts"
 msgstr "Zusammenführen / Konflikte bearbeiten"
 
-#: source/en/tme_ch02.xml:237
+#: source/en/tme_ch02.xml:248
 #: (para)
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
 msgstr "TortoiseMerge <emphasis>zeigt</emphasis> Ihnen nicht nur die  Unterschiede zwischen Dateien an, sondern lässt Sie diese Änderungen auch übernehmen und Konflikte lösen."
 
-#: source/en/tme_ch02.xml:241
+#: source/en/tme_ch02.xml:252
 #: (para)
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
 msgstr "Wenn Sie in der Zwei-Fenster Ansicht sind, dann können nur Sie die Datei im rechten Fenster (<literal>Meiner</literal> Version) ändern. Um Unterschiede aus der linken Datei in die rechte zu übernehmen, machen Sie einen <action>Rechts-Klick</action> auf die unterschiedliche Zeile und wählen Sie den gewünschten Befehl aus dem Kontextmenü aus."
 
-#: source/en/tme_ch02.xml:253
+#: source/en/tme_ch02.xml:264
 #: (para)
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
 msgstr "Wenn Sie in der Drei-Fenster Ansicht sind (auch <emphasis>Zusammenführen-Ansicht</emphasis> oder <emphasis>Konflikt-Ansicht</emphasis> genannt), können Sie nur die Ergebnis-Datei im unteren Fenster bearbeiten. Wie auch in der Zwei-Fenster Ansicht können Sie durch <action>Rechts-Klicken</action> auf Zeilen im Konflikt ein Kontextmenü anzeigen lassen und dann auswählen, wie Sie den Konflikt auflösen möchten."
 
-#: source/en/tme_ch02.xml:290
+#: source/en/tme_ch02.xml:301
 #: (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
 msgstr "Manchmal ist ein Konflikt nicht einfach durch die Auswahl von <literal>Deren</literal> oder <literal>Meinem</literal> Block zu beheben, sondern erfordert Handarbeit. TortoiseMerge erlaubt es Ihnen, die einfachen Änderungen durchzuführen, abzuspeichern und anschließend die schwierigen Konflikte von Hand nachzuarbeiten."
 
-#: source/en/tme_ch02.xml:298
+#: source/en/tme_ch02.xml:309
 #: (para)
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
 msgstr "Beachten Sie, dass wenn TortoiseMerge nochmals mit den selben Dateien aufgerufen wird, alle Änderungen der Ergebnisdatei <emphasis>verworfen werden</emphasis>, egal ob durch TortoiseMerge oder manuelles Bearbeiten und die Ergebnisdatei im Ursprungszustand wieder hergestellt wird."
 
-#: source/en/tme_ch02.xml:306
+#: source/en/tme_ch02.xml:317
 #: (para)
 msgid "If you need to copy lines of text to insert in another file using your favourite text editor, you can select multiple lines to copy within TortoiseMerge. <action>Click</action> on the first line of the block, then <action>Shift+Click</action> on the last line of the block. As usual, <action>Ctrl+C</action> can be used to copy the selected lines to the clipboard."
 msgstr "Wenn Sie Textzeilen mit einem Editor austauschen möchten, können Sie mehrere Zeilen zum Kopieren in TortoiseMerge auswählen.<action>Klicken</action> Sie auf die erste Zeile des Blocks und markieren Sie mit <action>Umsch+Klick</action> dessen letzte Zeile. Wie üblich können Sie mit <action>Strg+C</action> den markierten Bereich in die Zwischenablage kopieren."
 
-#: source/en/tme_ch02.xml:319
+#: source/en/tme_ch02.xml:330
 #: (title)
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: source/en/tme_ch02.xml:323
+#: source/en/tme_ch02.xml:334
 #: (title)
 msgid "The Settings Main Page"
 msgstr "Einstellungen Hauptseite"
 
-#: source/en/tme_ch02.xml:326
+#: source/en/tme_ch02.xml:337
 #: (para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
 msgstr "Die meisten Optionen auf dieser Seite sind selbsterklärend. Ein paar benötigen jedoch ergänzende Informationen."
 
-#: source/en/tme_ch02.xml:330
+#: source/en/tme_ch02.xml:341
 #: (para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
 msgstr "<guilabel>Erstelle Sicherheitskopie</guilabel> benennt die Originaldatei in der Arbeitskopie in <literal>dateiname.bak</literal> um, bevor die Änderungen gespeichert werden."
 
-#: source/en/tme_ch02.xml:335
+#: source/en/tme_ch02.xml:346
 #: (para)
 msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
 msgstr "<guilabel>Ignoriere Zeilenende</guilabel> verbirgt Änderungen, die nur in unterschiedlichen Zeilenumbrüchen bestehen."
 
-#: source/en/tme_ch02.xml:339
+#: source/en/tme_ch02.xml:350
 #: (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
 msgstr "<guilabel>Ignoriere Groß- / Kleinschreibung</guilabel> verbirgt Groß- / Kleinbuchstaben Änderungen. Dies ist besonders nützlich bei Anwendungen wie Visual Basic, die die Schreibweise von Variablen ohne Warnung ändern."
 
-#: source/en/tme_ch02.xml:345
+#: source/en/tme_ch02.xml:356
 #: (para)
 msgid "<guilabel>Compare Whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how subversion treats such changes)."
 msgstr "<guilabel>Vergleiche Leerzeichen</guilabel> hebt alle Änderungen in Leerzeichen und Einrückung als gelöschte / hinzugefügte Zeilen hervor (Subversion behandelt Änderungen in Leerzeichen so)."
 
-#: source/en/tme_ch02.xml:350
+#: source/en/tme_ch02.xml:361
 #: (para)
 msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
 msgstr "<guilabel>Ignoriere führende Leerzeichen</guilabel> verbirgt Änderungen die nur aus Leerzeichen am Zeilenanfang bestehen. Leerzeichen-Änderungen innerhalb einer Zeile werden dort markiert und nicht als gelöschte / hinzugefügte Zeilen angezeigt."
 
-#: source/en/tme_ch02.xml:356
+#: source/en/tme_ch02.xml:367
 #: (para)
 msgid "<guilabel>Ignore All Whitespaces</guilabel> hides all whitespace-only changes."
 msgstr "<guilabel>Ignoriere alle Leerzeichen</guilabel> verbirgt sämtliche Änderungen, die nur aus Leerzeichen bestehen."
 
-#: source/en/tme_ch02.xml:364
+#: source/en/tme_ch02.xml:375
 #: (title)
 msgid "The Settings Color Page"
 msgstr "Einstellungen Farben"
 
-#: source/en/tme_ch02.xml:367
+#: source/en/tme_ch02.xml:378
 #: (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
 msgstr "Auf dieser Seite können Sie die Hintergrundfarben zum Hervorheben der verschiedenen Änderungen einstellen."
 
-#: source/en/tme_ch02.xml:373
+#: source/en/tme_ch02.xml:384
 #: (term)
 msgid "Normal"
 msgstr "Normal"
 
-#: source/en/tme_ch02.xml:374
+#: source/en/tme_ch02.xml:385
 #: (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
 msgstr "Alle nicht veränderten Zeilen oder Zeilen deren Änderungen verborgen wurden"
 
-#: source/en/tme_ch02.xml:379
+#: source/en/tme_ch02.xml:390
 #: (term)
 msgid "Removed"
 msgstr "Entfernt"
 
-#: source/en/tme_ch02.xml:380
+#: source/en/tme_ch02.xml:391
 #: (listitem)
 msgid "Lines which have been deleted."
 msgstr "Zeilen, die gelöscht wurden"
 
-#: source/en/tme_ch02.xml:385
+#: source/en/tme_ch02.xml:396
 #: (term)
 msgid "Added"
 msgstr "Hinzugefügt"
 
-#: source/en/tme_ch02.xml:386
+#: source/en/tme_ch02.xml:397
 #: (listitem)
 msgid "Lines which have been added."
 msgstr "Zeilen, die hinzugefügt wurden"
 
-#: source/en/tme_ch02.xml:391
+#: source/en/tme_ch02.xml:402
 #: (term)
 msgid "Empty"
 msgstr "Leer"
 
-#: source/en/tme_ch02.xml:392
+#: source/en/tme_ch02.xml:403
 #: (listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
 msgstr "Zeilen wurden in der gegenüberliegenden Seite hinzugefügt und keine entsprechende Zeile existiert in dieser Seite."
 
-#: source/en/tme_ch02.xml:398
+#: source/en/tme_ch02.xml:409
 #: (term)
 msgid "Conflicted"
 msgstr "Konflikt"
 
-#: source/en/tme_ch02.xml:399
+#: source/en/tme_ch02.xml:410
 #: (listitem)
 msgid "Where the same line has been changed in both files."
 msgstr "Dieselbe Zeile wurde in beiden Dateien geändert."
 
-#: source/en/tme_ch02.xml:404
+#: source/en/tme_ch02.xml:415
 #: (term)
 msgid "Line with whitespace diff"
 msgstr "Zeile mit Leerzeichen Diff"
 
-#: source/en/tme_ch02.xml:408
+#: source/en/tme_ch02.xml:419
 #: (guilabel)
 msgid "Ignore leading whitespace"
 msgstr "Ignoriere führende Leerzeichen"
 
-#: source/en/tme_ch02.xml:405
+#: source/en/tme_ch02.xml:416
 #: (listitem)
 msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
 msgstr "Zeilen, die noch andere Unterschiede in Leerzeichen außer führenden Leerzeichen enthalten. Erscheint nur, wenn <placeholder-1/> gewählt ist."
 
-#: source/en/tme_ch02.xml:413
+#: source/en/tme_ch02.xml:424
 #: (term)
 msgid "Whitespace diff"
 msgstr "Leerzeichen Diff"
 
-#: source/en/tme_ch02.xml:414
+#: source/en/tme_ch02.xml:425
 #: (listitem)
 msgid "In the case above, the actual whitespace difference is highlighted using this color."
 msgstr "Die Leerzeichen Differenzen aus dem vorstehenden Fall werden in dieser Farbe hervorgehoben."
