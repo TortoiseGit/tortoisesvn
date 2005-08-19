@@ -120,49 +120,56 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, 
 		return longstring;	// no wrapping needed.
 	// now start breaking the string into words
 
-	CString temp = longstring;
-	while (temp.GetLength() > limit)
+	int linepos = 0;
+	int lineposold = 0;
+	while ((linepos = longstring.Find('\n', linepos)) >= 0)
 	{
-		int pos=0;
-		while ((pos>=0)&&(temp.Find(' ', pos)<limit))
+		CString temp = longstring.Mid(lineposold, linepos-lineposold);
+		if (temp.IsEmpty())
+			break;
+		lineposold = linepos;
+		if ((linepos+1)<longstring.GetLength())
+			linepos++;
+		
+		while (temp.GetLength() > limit)
 		{
-			pos = temp.Find(' ', pos+1);
-		}
-		if (pos==0)
-			pos = temp.Find(' ');
-		if (pos<0)
-		{
-			if ((bCompactPaths)&&(temp.GetLength() < MAX_PATH))
+			int pos=0;
+			int oldpos=0;
+			while ((pos>=0)&&(temp.Find(' ', pos)<limit))
 			{
-				if ((!PathIsFileSpec(temp))||(PathIsURL(temp)))
-				{
-					TCHAR buf[MAX_PATH];
-					PathCompactPathEx(buf, temp, limit, 0);
-					temp = buf;
-				}				
+				oldpos = pos;
+				pos = temp.Find(' ', pos+1);
 			}
-			retString += temp;
-			temp.Empty();
-		}
-		else
-		{
-			CString longline = temp.Left(pos+1);
-			if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+			if (oldpos==0)
+				oldpos = temp.Find(' ');
+			if (pos<0)
 			{
-				if ((!PathIsFileSpec(longline))||(PathIsURL(longline)))
-				{
-					TCHAR buf[MAX_PATH];
-					PathCompactPathEx(buf, longline, limit, 0);
-					longline = buf;
-				}				
+				retString += temp;
+				temp.Empty();
 			}
+			else
+			{
+				CString longline = temp.Left(oldpos+1);
+				if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+				{
+					if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+					{
+						TCHAR buf[MAX_PATH];
+						PathCompactPathEx(buf, longline, limit+1, 0);
+						longline = buf;
+					}				
+				}
 
-			retString += longline;
-			temp = temp.Mid(pos+1);
+				retString += longline;
+				temp = temp.Mid(oldpos+1);
+			}
+			retString += _T("\n");
+			pos = oldpos;
 		}
-		retString += _T("\n");
+		retString += temp;
 	}
-	retString += temp;
+	retString.Trim();
+	retString.Replace(_T("\n\n"), _T("\n"));
 	return retString;
 }
 
@@ -177,8 +184,8 @@ public:
 		CString splittedline = CStringUtils::WordWrap(longline, 10);
 		longline = _T("c:\\this_is_a_very_long\\path_on_windows and of course some other words added to make the line longer");
 		splittedline = CStringUtils::WordWrap(longline, 10);
-		longline = _T("and of course some c:\\this_is_a_very_long\\path_on_windows\\file other words added to make the line longer");
-		splittedline = CStringUtils::WordWrap(longline, 10);
+		longline = _T("Forced failure in https://myserver.com/a_long_url_to_split PROPFIND error");
+		splittedline = CStringUtils::WordWrap(longline);
 		ATLTRACE(splittedline);
 	}
 } StringUtilsTest;
