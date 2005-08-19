@@ -176,7 +176,7 @@
 			<orderedlist>
 				<listitem>
 					<para>
-						In our working copy select
+						In your working copy select
 						<menuchoice>
 							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Merge</guimenuitem>
@@ -426,6 +426,63 @@ SUBST X: "D:\Documents\framework"
 TortoiseProc.exe /command:repobrowser /path:"url/to/repository" /notempfile
 </screen>
 			Of course you need to include the real repository URL.
+		</para>
+	</sect1>
+	<sect1 id="tsvn-howto-unversion">
+		<title>Ignore files which are already versioned</title>
+		<indexterm>
+			<primary>unversion</primary>
+		</indexterm>
+		<para>
+			If you accidentally added some files which should have been
+			ignored, how do you get them out of version control without
+			losing them? Maybe you have your own IDE configuration file
+			which is not part of the project, but which took you a long
+			time to set up just the way you like it.
+		</para>
+		<para>
+			If you have not yet committed the add, then all you have to do
+			is use
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Revert...</guimenuitem>
+			</menuchoice>
+			to undo the add. You should then add the file(s) to the ignore
+			list so they don't get added again later by mistake.
+		</para>
+		<para>
+			If the files are already in the repository, you have to do
+			a little more work.
+			<orderedlist>
+				<listitem>
+					<para>
+						Move the file to somewhere safe, not inside your
+						working copy.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Commit</guimenuitem>
+						</menuchoice>
+						the parent folder. TortoiseSVN will see that the file
+						is missing and automatically schedule it for deletion
+						from the repository.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Move the file back to its original location.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Add the file to the ignore list so you don't get
+						into the same trouble again.
+					</para>
+				</listitem>
+			</orderedlist>
 		</para>
 	</sect1>
 </appendix>

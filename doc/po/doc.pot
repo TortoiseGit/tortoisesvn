@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-08-19 13:44GMT Daylight Time\n"
+"POT-Creation-Date: 2005-08-19 19:26GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4357,7 +4357,7 @@ msgid "To undo a larger range of revisions, you can use the Merge dialog. The pr
 msgstr ""
 
 #: source/en/tsvn_app_howto.xml:178(para) 
-msgid "In our working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
+msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
 msgstr ""
 
 #: source/en/tsvn_app_howto.xml:187(para) 
@@ -4482,6 +4482,42 @@ msgstr ""
 
 #: source/en/tsvn_app_howto.xml:420(para) 
 msgid "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\nTortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n</screen> Of course you need to include the real repository URL."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:432(title) 
+msgid "Ignore files which are already versioned"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:434(primary) 
+msgid "unversion"
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:436(para) 
+msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:443(para) 
+msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:458(para) 
+msgid "Move the file to somewhere safe, not inside your working copy."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:464(para) 
+msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and automatically schedule it for deletion from the repository."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:475(para) 
+msgid "Move the file back to its original location."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:480(para) 
+msgid "Add the file to the ignore list so you don't get into the same trouble again."
+msgstr ""
+
+#: source/en/tsvn_app_howto.xml:453(para) 
+msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
 msgstr ""
 
 #: source/en/tsvn_app_cli.xml:3(title) 
