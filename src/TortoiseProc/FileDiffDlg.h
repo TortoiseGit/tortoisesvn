@@ -54,8 +54,11 @@ protected:
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-
+	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
+	
 	DECLARE_MESSAGE_MAP()
+
+	void DoDiff(int selIndex);
 private:
 	CString				m_sRepoRoot;
 	CListCtrl			m_cFileList;

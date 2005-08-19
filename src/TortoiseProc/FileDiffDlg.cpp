@@ -25,6 +25,7 @@
 #include "ProgressDlg.h"
 #include ".\filediffdlg.h"
 
+#define ID_COMPARE 1
 
 // CFileDiffDlg dialog
 
@@ -49,6 +50,7 @@ BEGIN_MESSAGE_MAP(CFileDiffDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
 	ON_NOTIFY(LVN_GETINFOTIP, IDC_FILELIST, OnLvnGetInfoTipFilelist)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_FILELIST, OnNMCustomdrawFilelist)
+	ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 
@@ -220,18 +222,11 @@ bool CFileDiffDlg::SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRep
 	}
 	return bRet;
 }
-void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+
+void CFileDiffDlg::DoDiff(int selIndex)
 {
-	*pResult = 0;
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-	int selIndex = pNMLV->iItem;
-	if (selIndex < 0)
-		return;
-	if (selIndex >= m_arFileList.GetCount())
-		return;	
-	
 	CFileDiffDlg::FileDiff fd = m_arFileList.GetAt(selIndex);
-	
+
 	CTSVNPath url1 = CTSVNPath(fd.url1);
 	CTSVNPath url2 = CTSVNPath(fd.url2);
 	LONG rev1 = fd.rev1;
@@ -247,7 +242,7 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	progDlg.ShowModeless(this);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetUIPathString());
 	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev1);
-	
+
 	if ((rev1 > 0)&&(!m_SVN.Cat(url1, SVNRev(rev1), rev1, tempfile)))
 	{
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -288,7 +283,19 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 	}
 	CUtils::StartExtDiff(tempfile, tempfile2, rev1name, rev2name);
+}
 
+void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	*pResult = 0;
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	int selIndex = pNMLV->iItem;
+	if (selIndex < 0)
+		return;
+	if (selIndex >= m_arFileList.GetCount())
+		return;	
+	
+	DoDiff(selIndex);
 }
 
 void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -340,4 +347,29 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 void CFileDiffDlg::AddFile(FileDiff filediff)
 {
 	m_arFileList.Add(filediff);
+}
+
+void CFileDiffDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
+{
+	CMenu popup;
+	if (popup.CreatePopupMenu())
+	{
+		CString temp;
+		temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		switch (cmd)
+		{
+		case ID_COMPARE:
+			{
+				POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+				while (pos)
+				{
+					int index = m_cFileList.GetNextSelectedItem(pos);
+					DoDiff(index);
+				}					
+			}
+			break;
+		}
+	}
 }
