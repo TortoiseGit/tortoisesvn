@@ -4,10 +4,6 @@ rem Check the environment
 if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-rem Generate the RTF version of subversion license.txt for the setup package to use.
-ECHO MakeMsi.bat: Generating RTF License file from subversion license at ..\..\ext\Subversion\subversion\LICENSE
-..\..\Tools\Text2RTF.exe -cO "..\..\ext\Subversion\subversion\LICENSE" > "include\subversion license.rtf"
-
 
 rem Check for the existence of dictionaries, and set env variables appropriately.
 rem Note to refactorers - the ELSE must occur on the same line as the command preceding.  All Hail DOS!
@@ -51,5 +47,4 @@ call MakeMsiSub.bat
 ECHO MakeMsi.bat: Cleaning up...
 del MakeMsiSub.bat
 del VersionNumberInclude.wxi
-del "include\subversion license.rtf"
 ECHO MakeMsi.bat: Done.
