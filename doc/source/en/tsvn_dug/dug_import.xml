@@ -287,9 +287,14 @@ C:\Temp\New\tags
 			<literal>svn:externals</literal> property from the combobox and
 			write in the edit box the repository url in the format
 			<literal>name url</literal>.
+			You can add multiple external projects, 1 per line.
+			Note that URLs and filenames must be properly escaped or they will
+			not work properly. For example you must replace each space with
+			<literal>%20</literal>.
 			For example
 <screen>
 subversion http://svn.collab.net/repos/svn/trunk
+quick%20graphs http://graphics.collab.net/repos/fast%20graphics
 </screen>
 			Now click <guibutton>Set</guibutton> and commit your changes. 
 			If a user updates their working copy the external project is checked out, too.
@@ -297,6 +302,10 @@ subversion http://svn.collab.net/repos/svn/trunk
 		<para>
 			If you need more information how TortoiseSVN
 			handles Properties read <xref linkend="tsvn-DUG-propertypage"/>.
+		</para>
+		<para>
+			To find out about different methods of accessing common sub-projects
+			read <xref linkend="tsvn-howto-common-projects"/>.
 		</para>
 	</sect2>
 </sect1>

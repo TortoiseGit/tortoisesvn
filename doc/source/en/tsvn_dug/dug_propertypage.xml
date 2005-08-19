@@ -74,6 +74,12 @@
 		area. Then click on <guibutton>Remove</guibutton>.
 	</para>
 	<para>
+		The <literal>svn:externals</literal> property can be used to
+		pull in other projects from the same repository or a completely
+		different repository. For more information, read
+		<xref linkend="tsvn-DUG-import-4"/>.
+	</para>
+	<para>
 		TortoiseSVN has a few special properties of its own, and these begin
 		with <literal>tsvn:</literal>.
 		<itemizedlist>
