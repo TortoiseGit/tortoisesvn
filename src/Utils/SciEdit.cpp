@@ -388,6 +388,7 @@ void CSciEdit::CheckSpelling()
 			textrange.chrg.cpMax++;
 			continue;
 		}
+		ATLASSERT(textrange.chrg.cpMax >= textrange.chrg.cpMin);
 		char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
 		textrange.lpstrText = textbuffer;
 		Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
@@ -785,12 +786,18 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 	SCNotification* notify = (SCNotification*)nmhdr;
 	// get the text between the start and end position we have to style
 	const int line_number = Call(SCI_LINEFROMPOSITION, Call(SCI_GETENDSTYLED));
-	const int start_pos = Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
-	const int end_pos = notify->position;
+	int start_pos = Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
+	int end_pos = notify->position;
 
 	if (start_pos == end_pos)
 		return FALSE;
-	
+	if (start_pos > end_pos)
+	{
+		int switchtemp = start_pos;
+		start_pos = end_pos;
+		end_pos = switchtemp;
+	}
+
 	char * textbuffer = new char[end_pos - start_pos + 2];
 	TEXTRANGEA textrange;
 	textrange.lpstrText = textbuffer;
