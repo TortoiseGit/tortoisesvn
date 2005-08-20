@@ -1091,7 +1091,7 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
 	int nLength = nCount;
 
 	int nTabCount = 0;
-	for (i=0; i<nLength; i++)
+	for (int i=0; i<nLength; i++)
 	{
 		if (pszChars[i] == _T('\t'))
 			nTabCount ++;
@@ -1101,7 +1101,7 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
 	int nCurPos = 0;
 	if (nTabCount > 0 || m_bViewWhitespace)
 	{
-		for (i=0; i<nLength; i++)
+		for (int i=0; i<nLength; i++)
 		{
 			if (pszChars[i] == _T('\t'))
 			{

@@ -144,7 +144,8 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 	}
 	// insert other columns text
 	CString temp;
-	for (int col=1; col<GetActiveSubItemCount()-1; col++)
+	int col = 0;
+	for (col=1; col<GetActiveSubItemCount()-1; col++)
 	{
 		if (AfxExtractSubString(temp, folder, col, '\t'))
 			SetItemText(GetItemIndex(hItem), col, temp);
@@ -200,7 +201,8 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 
 	// insert other columns text
 	CString temp;
-	for (int col=1; col<GetActiveSubItemCount()-1; col++)
+	int col = 0;
+	for (col=1; col<GetActiveSubItemCount()-1; col++)
 	{
 		if (AfxExtractSubString(temp, file, col, '\t'))
 			SetItemText(GetItemIndex(hItem), col, temp);

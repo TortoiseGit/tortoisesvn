@@ -190,7 +190,7 @@ void CHistoryCombo::SaveHistory()
 		regkey = m_arEntries.GetAt(n);
 	}
 	//remove items exceeding the max number of history items
-	for (n = nMax; ; n++)
+	for (int n = nMax; ; n++)
 	{
 		CString sKey;
 		sKey.Format(_T("%s\\%s%d"), (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n);

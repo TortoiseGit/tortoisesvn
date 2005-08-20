@@ -1050,7 +1050,8 @@ void CMainFrame::OnEditFindnext()
 		CString left;
 		CString right;
 		CString bottom;
-		for (int i=m_nSearchIndex; i<m_pwndLeftView->m_arDiffLines->GetCount(); i++)
+		int i = 0;
+		for (i=m_nSearchIndex; i<m_pwndLeftView->m_arDiffLines->GetCount(); i++)
 		{
 			left = m_pwndLeftView->m_arDiffLines->GetAt(i);
 			if ((m_pwndRightView)&&(m_pwndRightView->m_arDiffLines))
