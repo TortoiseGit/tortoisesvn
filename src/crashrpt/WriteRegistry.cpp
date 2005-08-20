@@ -36,7 +36,7 @@ static void WriteFileString(HANDLE hFile, const char *string);
 
 bool WriteRegistryTreeToFile(const char *key, const char *filename)
 {
-	char *cp = strchr(key, '\\');
+	const char *cp = strchr(key, '\\');
 	if (cp == NULL) {
 		return false;
 	}

@@ -134,7 +134,7 @@ static void PrintAddress (DWORD address, const char *ImageName,
     pCurrPos += _snprintf ( pCurrPos ,  sizeof buffer - (pCurrPos - buffer), ( "0x%08X " ) , address ) ;
 
 	if (ImageName != NULL) {
-		LPTSTR szName = strchr ( ImageName ,  ( '\\' ) ) ;
+		LPCTSTR szName = strchr ( ImageName ,  ( '\\' ) ) ;
 		if ( NULL != szName ) {
 			szName++ ;
 		} else {

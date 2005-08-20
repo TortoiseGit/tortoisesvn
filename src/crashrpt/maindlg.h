@@ -24,7 +24,7 @@
 //
 // RTF load callback
 //
-DWORD CALLBACK LoadRTFString(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *pcb)
+DWORD CALLBACK LoadRTFString(DWORD_PTR dwCookie, LPBYTE pbBuff, LONG cb, LONG *pcb)
 {
    CString *sText = (CString*)dwCookie;
    LONG lLen = sText->GetLength();
