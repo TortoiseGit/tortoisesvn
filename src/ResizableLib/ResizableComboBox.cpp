@@ -170,9 +170,9 @@ int CResizableComboBox::MakeIntegralHeight(const int height)
 	if (dwStyle & CBS_OWNERDRAWVARIABLE)
 	{
 		inth = 0;	// try to reach availh by integral steps
-
+		int i = 0;
 		// use items below the first visible
-		for (int i=GetTopIndex(); availh>0 && i<n; i++)
+		for (i=GetTopIndex(); availh>0 && i<n; i++)
 		{
 			int h = GetItemHeight(i);
 			if (h == CB_ERR)
