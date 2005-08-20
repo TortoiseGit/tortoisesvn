@@ -400,8 +400,8 @@ void CUtils::Unescape(char * psz)
 			}
 
 			char nValue = '?';
-			char * pszLow = NULL;
-			char * pszHigh = NULL;
+			const char * pszLow = NULL;
+			const char * pszHigh = NULL;
 			pszSource++;
 
 			*pszSource = (char) toupper(*pszSource);
@@ -835,15 +835,15 @@ COLORREF CUtils::MyColor(int nIndex)
 	{
 		switch (nIndex)
 		{
-			case MyColors::BLUE:
+			case BLUE:
 				return RGB(0, 50, 160);
-			case MyColors::BROWN:
+			case BROWN:
 				return RGB(100, 0, 0);
-			case MyColors::RED:
+			case RED:
 				return RGB(255, 0, 0);
-			case MyColors::GREEN:
+			case GREEN:
 				return RGB(0, 100, 0);
-			case MyColors::PURPLE:
+			case PURPLE:
 				return RGB(100, 0, 100);
 		}
 	}	

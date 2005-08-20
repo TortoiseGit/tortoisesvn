@@ -21,7 +21,7 @@
 void TortoiseBlame::SetupLexer(LPCSTR filename)
 {
 	char line[20];
-	char * lineptr = _tcsrchr(filename, '.');
+	const char * lineptr = _tcsrchr(filename, '.');
 
 	if (lineptr)
 	{

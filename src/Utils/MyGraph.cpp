@@ -316,7 +316,7 @@ INT_PTR MyGraph::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 	// This works around the problem of the tip remaining visible when you move 
 	// the mouse to various positions over this control.
 	INT_PTR nReturn(0);
-	static bTipPopped(false);
+	static bool bTipPopped(false);
 	static CPoint ptPrev(-1,-1);
 
 	if (point != ptPrev) {
