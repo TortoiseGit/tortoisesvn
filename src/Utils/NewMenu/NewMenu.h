@@ -638,6 +638,7 @@ template<class baseClass>
 class GUILIBDLLEXPORT CNewFrame : public baseClass
 {
   typedef CNewFrame<baseClass> MyNewFrame;
+  typedef MyNewFrame ThisClass;
 public:
   CNewMenu m_DefaultNewMenu;
   CNewMenu m_SystemNewMenu;
@@ -781,9 +782,15 @@ protected:
     baseClass::OnDestroy();
   }
 
+#if _MSC_VER < 1400
   afx_msg UINT OnNcHitTest(CPoint point)
   {
     UINT nHitCode = baseClass::OnNcHitTest(point);
+#else
+  afx_msg LRESULT OnNcHitTest(CPoint point)
+  {
+    LRESULT nHitCode = baseClass::OnNcHitTest(point);
+#endif
     // Test Win95/98/me and Win NT 4.0
     if(g_Shell<Win2000 || bRemoteSession)
     {

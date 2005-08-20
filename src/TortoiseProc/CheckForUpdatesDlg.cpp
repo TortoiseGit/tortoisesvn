@@ -177,7 +177,7 @@ void CCheckForUpdatesDlg::OnStnClickedCheckresult()
 	}
 }
 
-void CCheckForUpdatesDlg::OnTimer(UINT nIDEvent)
+void CCheckForUpdatesDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	if (nIDEvent == 100)
 	{

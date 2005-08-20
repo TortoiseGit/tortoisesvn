@@ -110,7 +110,7 @@ END_MESSAGE_MAP()
 
 // CSetColorPage message handlers
 
-LONG CSetColorPage::OnSelEndOK(UINT /*lParam*/, LONG /*wParam*/)
+LRESULT CSetColorPage::OnSelEndOK(WPARAM /*lParam*/, LPARAM /*wParam*/)
 {
 	SetModified();
 	return 0;

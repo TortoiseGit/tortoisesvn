@@ -171,7 +171,7 @@ void CDirectoryWatcher::WorkerThread()
 		{
 			if (!GetQueuedCompletionStatus(m_hCompPort,
 											&numBytes,
-											(LPDWORD) &pdi,
+											(PULONG_PTR) &pdi,
 											&lpOverlapped,
 											INFINITE))
 			{

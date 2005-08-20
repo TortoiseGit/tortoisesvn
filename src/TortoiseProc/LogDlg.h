@@ -125,7 +125,7 @@ protected:
 	afx_msg void OnStnClickedFiltericon();
 	afx_msg void OnBnClickedFiltercancel();
 	afx_msg void OnEnChangeSearchedit();
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDtnDatetimechangeDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult);

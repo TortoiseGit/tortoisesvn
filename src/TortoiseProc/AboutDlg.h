@@ -78,7 +78,7 @@ private:
 	CHyperLink m_cWebLink;
 	CHyperLink m_cSupportLink;
 public:
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnBnClickedUpdate();
 };

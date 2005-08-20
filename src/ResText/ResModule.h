@@ -75,9 +75,9 @@ public:
 	void	SetLanguage(WORD wLangID) {m_wTargetLang = wLangID;}
 
 private:
-	static  BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam);
-	static  BOOL CALLBACK EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam);
-	static  BOOL CALLBACK EnumResWriteLangCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG lParam);
+	static  BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
+	static  BOOL CALLBACK EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
+	static  BOOL CALLBACK EnumResWriteLangCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG_PTR lParam);
 	BOOL	ExtractString(UINT nID);
 	BOOL	ExtractDialog(UINT nID);
 	BOOL	ExtractMenu(UINT nID);

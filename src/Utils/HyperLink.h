@@ -69,7 +69,7 @@ protected:
     afx_msg HBRUSH CtlColor(CDC* pDC, UINT nCtlColor);
     afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
     afx_msg void OnClicked();
     DECLARE_MESSAGE_MAP()

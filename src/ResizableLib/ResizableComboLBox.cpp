@@ -162,7 +162,11 @@ void CResizableComboLBox::OnLButtonUp(UINT nFlags, CPoint point)
 	EndSizing();
 }
 
+#if _MSC_VER < 1400
 UINT CResizableComboLBox::OnNcHitTest(CPoint point) 
+#else
+LRESULT CResizableComboLBox::OnNcHitTest(CPoint point) 
+#endif
 {
 	CRect rcClient;
 	GetClientRect(&rcClient);

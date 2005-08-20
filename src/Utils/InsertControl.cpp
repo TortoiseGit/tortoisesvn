@@ -43,7 +43,7 @@ static LRESULT CALLBACK SubClassedWndProc(HWND hwnd, UINT message, WPARAM wParam
 	case WM_NCDESTROY:
 		{
 			// Restore the old window procedure and clean up our props
-			SetWindowLong(hwnd, GWL_WNDPROC, (LONG)WndProc);
+			SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR)WndProc);
 			RemoveProp(hwnd, g_szOldWndProc);
 			RemoveProp(hwnd, g_szDataLeft);
 			RemoveProp(hwnd, g_szDataRight);
@@ -163,7 +163,7 @@ bool InsertControl(HWND hwndEdit, HWND hwndControl, UINT uStyle)
 			if (WndProc == 0)
 			{
 				// Subclass the edit control so we can catch the messages we need
-				FARPROC lpfnWndProc = reinterpret_cast<FARPROC>(SetWindowLong( hwndEdit, GWL_WNDPROC, (LONG) SubClassedWndProc));
+				FARPROC lpfnWndProc = reinterpret_cast<FARPROC>(SetWindowLongPtr( hwndEdit, GWLP_WNDPROC, (LONG_PTR) SubClassedWndProc));
 				ASSERT(lpfnWndProc != NULL);
 				VERIFY(::SetProp(hwndEdit, g_szOldWndProc, reinterpret_cast<HANDLE>(lpfnWndProc)));
 			}

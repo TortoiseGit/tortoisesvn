@@ -89,7 +89,7 @@ BOOL CAboutDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CAboutDlg::OnTimer(UINT nIDEvent)
+void CAboutDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	if (nIDEvent == ID_EFFECTTIMER)
 	{

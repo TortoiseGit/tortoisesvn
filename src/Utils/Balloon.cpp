@@ -465,7 +465,7 @@ void CBalloon::SetNewToolTip(CWnd * pWnd, CPoint * /*pt*/ /* = NULL */)
 	SetTimer(BALLOON_SHOW, m_nTimeInitial, NULL);
 }
 
-void CBalloon::OnTimer(UINT nIDEvent) 
+void CBalloon::OnTimer(UINT_PTR nIDEvent) 
 {
 	CPoint pt, point;
 	CString str;

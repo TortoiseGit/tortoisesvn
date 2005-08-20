@@ -86,7 +86,7 @@ protected:
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg LRESULT OnAutoListReady(WPARAM, LPARAM);
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void Refresh();
 	void GetAutocompletionList();
 	void ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags);

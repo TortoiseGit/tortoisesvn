@@ -569,7 +569,7 @@ protected:
 
 	virtual void PostNcDestroy();
 	afx_msg void OnPaint();
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnDestroy();
 	afx_msg void OnKillFocus(CWnd* pNewWnd);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);

@@ -65,7 +65,7 @@ BOOL CALLBACK LoginDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
    {
       LoginDialog* pDlg = (LoginDialog*) lParam;
       pDlg->_hdlg = hwndDlg;
-      SetWindowLong(hwndDlg, GWL_USERDATA, lParam);
+      SetWindowLongPtr(hwndDlg, GWLP_USERDATA, lParam);
       // Set prompt text
       SendDlgItemMessage(hwndDlg, IDC_LOGIN_PROMPT, WM_SETTEXT,
                          pDlg->myPrompt.length(), (LPARAM) pDlg->myPrompt.c_str());
@@ -80,14 +80,14 @@ BOOL CALLBACK LoginDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
    }
    else if (uMsg == WM_COMMAND && LOWORD(wParam) == IDCANCEL && HIWORD(wParam) == BN_CLICKED)
    {
-      LoginDialog* pDlg = (LoginDialog*) GetWindowLong(hwndDlg, GWL_USERDATA);
+      LoginDialog* pDlg = (LoginDialog*) GetWindowLongPtr(hwndDlg, GWLP_USERDATA);
       pDlg->myOK = false;
       EndDialog(hwndDlg, IDCANCEL);
       return 1;
    }
    else if (uMsg == WM_COMMAND && LOWORD(wParam) == IDOK && HIWORD(wParam) == BN_CLICKED)
    {
-      LoginDialog* pDlg = (LoginDialog*) GetWindowLong(hwndDlg, GWL_USERDATA);
+      LoginDialog* pDlg = (LoginDialog*) GetWindowLongPtr(hwndDlg, GWLP_USERDATA);
       pDlg->myOK = true;
       pDlg->RetrieveValues();
       EndDialog(hwndDlg, IDOK);

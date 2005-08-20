@@ -34,7 +34,7 @@ public:
 
 protected:
 	afx_msg void OnStnClickedCheckresult();
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();

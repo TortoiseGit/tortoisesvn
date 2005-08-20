@@ -89,7 +89,11 @@ protected:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+#if _MSC_VER < 1400
 	afx_msg UINT OnNcHitTest(CPoint point);
+#else
+	afx_msg LRESULT OnNcHitTest(CPoint point);
+#endif
 	afx_msg void OnCaptureChanged(CWnd *pWnd);
 	afx_msg void OnWindowPosChanging(WINDOWPOS FAR* lpwndpos);
 	afx_msg void OnWindowPosChanged(WINDOWPOS FAR* lpwndpos);

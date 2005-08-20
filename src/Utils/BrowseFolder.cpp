@@ -245,12 +245,12 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
 		}
 
 		// Subclass the checkbox control. 
-		CBProc = (WNDPROC) SetWindowLong(checkbox,GWL_WNDPROC, (LONG) CheckBoxSubclassProc); 
+		CBProc = (WNDPROC) SetWindowLongPtr(checkbox,GWLP_WNDPROC, (LONG_PTR) CheckBoxSubclassProc); 
 		//Sets the checkbox to checked position
 		SendMessage(checkbox,BM_SETCHECK,(WPARAM)m_bCheck,0);
 		if (bSecondCheckbox)
 		{
-			CBProc = (WNDPROC) SetWindowLong(checkbox2,GWL_WNDPROC, (LONG) CheckBoxSubclassProc2); 
+			CBProc = (WNDPROC) SetWindowLongPtr(checkbox2,GWLP_WNDPROC, (LONG_PTR) CheckBoxSubclassProc2); 
 			SendMessage(checkbox2,BM_SETCHECK,(WPARAM)m_bCheck,0);
 		}
 		// send a resize message to the resized listview control. Otherwise it won't show

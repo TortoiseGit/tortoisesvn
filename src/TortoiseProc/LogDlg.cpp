@@ -2426,7 +2426,7 @@ void CLogDlg::OnEnChangeSearchedit()
 	SetTimer(LOGFILTER_TIMER, 1000, NULL);
 }
 
-void CLogDlg::OnTimer(UINT nIDEvent)
+void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	if (nIDEvent == LOGFILTER_TIMER)
 	{

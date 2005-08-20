@@ -1230,7 +1230,7 @@ const WORD* CResModule::ReplaceControlInfo(const WORD * res, int * wordcount, WO
 	return (const WORD *)((((long)res) + 3) & ~3);
 }
 
-BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam)
+BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
 {
 	CResModule* lpResModule = (CResModule*)lParam;
 
@@ -1263,14 +1263,14 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszT
 
 #pragma warning(push)
 #pragma warning(disable: 4189)
-BOOL CALLBACK CResModule::EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam)
+BOOL CALLBACK CResModule::EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
 {
 	CResModule* lpResModule = (CResModule*)lParam;
 	return EnumResourceLanguages(hModule, lpszType, lpszName, (ENUMRESLANGPROC)&lpResModule->EnumResWriteLangCallback, lParam);
 }
 #pragma warning(pop)
 
-BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG lParam)
+BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG_PTR lParam)
 {
 	BOOL bRes = FALSE;
 	CResModule* lpResModule = (CResModule*)lParam;

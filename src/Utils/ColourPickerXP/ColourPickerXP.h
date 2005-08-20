@@ -382,9 +382,9 @@ protected:
 	//{{AFX_MSG(CColourPickerXP)
     afx_msg BOOL OnClicked();
     afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg LONG OnSelEndOK(UINT lParam, LONG wParam);
-    afx_msg LONG OnSelEndCancel(UINT lParam, LONG wParam);
-    afx_msg LONG OnSelChange(UINT lParam, LONG wParam);
+	afx_msg LRESULT OnSelEndOK(WPARAM lParam, LPARAM wParam);
+    afx_msg LRESULT OnSelEndCancel(WPARAM lParam, LPARAM wParam);
+    afx_msg LRESULT OnSelChange(WPARAM lParam, LPARAM wParam);
 	afx_msg void OnNMThemeChanged(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg LRESULT OnMouseLeave(WPARAM wParam, LPARAM lParam);

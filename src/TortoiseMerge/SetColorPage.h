@@ -46,7 +46,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual BOOL OnApply();
 
-	afx_msg LONG OnSelEndOK(UINT lParam, LONG wParam);
+	afx_msg LRESULT OnSelEndOK(WPARAM lParam, LPARAM wParam);
 	DECLARE_MESSAGE_MAP()
 
 protected:

@@ -929,7 +929,7 @@ void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	__super::OnLButtonDown(nFlags, point);
 }
 
-int CRevisionGraphDlg::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CRevisionGraphDlg::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	for (INT_PTR i=0; i<m_arNodeList.GetCount(); ++i)
 	{

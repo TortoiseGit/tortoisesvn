@@ -110,7 +110,7 @@ protected:
 	afx_msg void	OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void	OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
-	afx_msg int		OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	afx_msg INT_PTR	OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg BOOL	OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnFileSavegraphas();

@@ -799,7 +799,7 @@ bool CLogPromptDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
 	return false;
 }
 
-void CLogPromptDlg::OnTimer(UINT nIDEvent)
+void CLogPromptDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	if (nIDEvent == ENDDIALOGTIMER)
 		EndDialog(0);

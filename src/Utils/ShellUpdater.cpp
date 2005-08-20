@@ -173,7 +173,7 @@ void CShellUpdater::RebuildIcons()
 	DWORD dwRegValue;
 	DWORD dwRegValueTemp;
 	DWORD dwSize;
-	DWORD dwResult;
+	DWORD_PTR dwResult;
 	LONG lRegResult;
 	stdstring sFilename;
 	stdstring sRegValueName;

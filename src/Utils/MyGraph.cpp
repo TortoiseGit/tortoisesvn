@@ -186,7 +186,7 @@ int MyGraphSeries::GetDataTotal() const
 }
 
 // Returns which group (if any) the sent point lies within in this series.
-int MyGraphSeries::HitTest(const CPoint& pt) const
+INT_PTR MyGraphSeries::HitTest(const CPoint& pt) const
 {
 	VALIDATE;
 
@@ -309,13 +309,13 @@ BOOL MyGraph::OnNeedText(UINT /*uiId*/, NMHDR* pNMHDR, LRESULT* pResult)
 
 // The framework calls this member function to detemine whether a point is in
 // the bounding rectangle of the specified tool.
-int MyGraph::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR MyGraph::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	_ASSERTE(pTI  &&  "Bad parameter passed");
 
 	// This works around the problem of the tip remaining visible when you move 
 	// the mouse to various positions over this control.
-	int nReturn(0);
+	INT_PTR nReturn(0);
 	static bTipPopped(false);
 	static CPoint ptPrev(-1,-1);
 
