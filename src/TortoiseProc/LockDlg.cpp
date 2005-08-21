@@ -13,6 +13,7 @@ IMPLEMENT_DYNAMIC(CLockDlg, CResizableStandAloneDialog)
 CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CLockDlg::IDD, pParent)
 	, m_bStealLocks(FALSE)
+	, m_pThread(NULL)
 {
 }
 
