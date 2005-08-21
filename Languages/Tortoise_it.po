@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-13 14:51+0100\n"
+"PO-Revision-Date: 2005-08-21 13:33+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3669,6 +3669,16 @@ msgstr "Richiede un nome utente e una password"
 msgid "Resolve"
 msgstr "Risolvi"
 
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using mine"
+msgstr "Risolvi conflitto utilizzando la mia versione"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using theirs"
+msgstr "Risolvi conflitto utilizzando la loro versione"
+
 # ID:8,
 #: ID:74
 #: ID:209
@@ -3679,6 +3689,16 @@ msgstr "Risolto"
 #: ID:8
 msgid "Resolved..."
 msgstr "Risolto..."
+
+# ID:8,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Risolto:\n"
+"%s"
 
 # ID:9,
 #: ID:9
@@ -3767,6 +3787,13 @@ msgstr "Grafico delle revisioni"
 #: ID:75
 msgid "Revision: "
 msgstr "Revisione:"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:116
+msgid "Revisions"
+msgstr "Revisioni"
 
 # ID:188,
 #: ID:188
