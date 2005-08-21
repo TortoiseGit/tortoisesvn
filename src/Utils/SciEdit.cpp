@@ -806,9 +806,12 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 	CString msg = CString(textbuffer);
 	delete textbuffer;
-	int offset1 = 0;
-	int offset2 = 0;
-	
+	size_t offset1 = 0;
+	size_t offset2 = 0;
+
+	// used for pattern matching by GRETA
+	restring reMsg = (LPCTSTR)msg;
+
 	Call(SCI_STARTSTYLING, start_pos, 0x1f);
 
 	if (!m_sBugID.IsEmpty())
@@ -819,7 +822,7 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 			match_results::backref_type br;
 			do 
 			{
-				br = m_patCommand.match( (LPCTSTR)msg.Mid(offset1), results );
+				br = m_patCommand.match( reMsg, results, offset1 );
 				if( br.matched ) 
 				{
 					// clear the styles up to the match position
@@ -827,15 +830,15 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0)-offset1);
 					offset1 += results.rstart(0);
 					offset2 = offset1 + results.rlength(0);
-					ATLTRACE("matched string : %ws\n", msg.Mid(offset1, offset2-offset1));
+					ATLTRACE("matched string : %ws\n", results.backref(0).str().c_str());
 					{
-						int idoffset1=offset1;
-						int idoffset2=offset2;
+						size_t idoffset1=offset1;
+						size_t idoffset2=offset2;
 						match_results idresults;
 						match_results::backref_type idbr;
 						do 
 						{
-							idbr = m_patBugID.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
+							idbr = m_patBugID.match( reMsg, idresults, idoffset1, offset2-idoffset1);
 							if (idbr.matched)
 							{
 								// bold style up to the id match
@@ -843,7 +846,7 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 									Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_BOLD);
 								idoffset1 += idresults.rstart(0);
 								idoffset2 = idoffset1 + idresults.rlength(0);
-								ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
+								ATLTRACE("matched id : %ws\n", idresults.backref(0).str().c_str());
 								// bold and recursive style for the bug ID itself
 								if (idoffset2-idoffset1 > 0)
 									Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_BOLDITALIC);
@@ -877,10 +880,10 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 		{
 			match_results results;
 			match_results::backref_type br;
-			TCHAR * szMsg = msg.GetBuffer(msg.GetLength()+1);
 			do 
 			{
-				br = m_patCommand.match( &szMsg[offset1], results );
+				br = m_patCommand.match( reMsg, results, offset1 );
+
 				if( br.matched ) 
 				{
 					// clear the styles up to the match position
@@ -891,16 +894,19 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 					{
 						for (size_t i=1; i<results.cbackrefs(); ++i)
 						{
-							if (results.backref(i).begin()-szMsg-offset1 > 0)
+							if (results.rstart(i) > 0)
 							{
-								Call(SCI_SETSTYLING, results.backref(i).begin()-szMsg-offset1, STYLE_BOLD);
-								ATLTRACE("STYLE_BOLD %d chars\n", results.backref(i).begin()-szMsg-offset1);
+								Call(SCI_SETSTYLING, results.rstart(i), STYLE_BOLD);
+								ATLTRACE("STYLE_BOLD %d chars\n", results.rstart(i)-offset1);
 							}
-							offset1 = results.backref(i).end()-szMsg;
-							if (results.backref(i).end()-results.backref(i).begin() > 0)
+
+							offset1 += results.rstart(i);
+							offset1 += results.rlength(i);
+
+							if (results.rlength(i) > 0)
 							{
-								Call(SCI_SETSTYLING, results.backref(i).end()-results.backref(i).begin(), STYLE_BOLDITALIC);
-								ATLTRACE("STYLE_BOLDITALIC %d chars\n", results.backref(i).end()-results.backref(i).begin());
+								Call(SCI_SETSTYLING, results.rlength(i), STYLE_BOLDITALIC);
+								ATLTRACE("STYLE_BOLDITALIC %d chars\n", results.rlength(i));
 							}
 						}
 					}

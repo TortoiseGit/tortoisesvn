@@ -579,7 +579,12 @@ bool CTSVNPath::IsValidOnWindows() const
 	{
 		pat.init(_T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
 	}
-	br = pat.match((LPCTSTR)sMatch, results);
+
+	// we need this temporary instance to last as long as 
+	// substrings are read from the result
+	restring temp = (LPCTSTR)sMatch;
+
+	br = pat.match (temp, results);
 	if (br.matched)
 	{
 		CString sMatched = results.backref(0).str().c_str();
@@ -592,7 +597,8 @@ bool CTSVNPath::IsValidOnWindows() const
 	{
 		// now check for illegal filenames
 		pat.init(_T("\\\\(lpt\\d|com\\d|aux|nul|prn|con|clock\\$)(\\\\|$)"), MULTILINE | NOCASE);
-		br = pat.match((LPCTSTR)sMatch, results);
+
+		br = pat.match(restring ((LPCTSTR)sMatch), results);
 		if (br.matched)
 			m_bIsValidOnWindows = false;
 	}

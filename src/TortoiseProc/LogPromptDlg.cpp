@@ -736,10 +736,10 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex, RE
 	{
 		rpattern pat( (LPCTSTR)sRegex, rflags ); 
 		match_results::backref_type br;
-		TCHAR * szFileContent = sFileContent.GetBuffer(sFileContent.GetLength()+1);
+		restring reFileContent = (LPCTSTR)sFileContent;
 		do 
 		{
-			br = pat.match( &szFileContent[offset], results );
+			br = pat.match( reFileContent, results, offset );
 			if( br.matched ) 
 			{
 				for (size_t i=1; i<results.cbackrefs(); ++i)
