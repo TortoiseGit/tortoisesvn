@@ -335,7 +335,8 @@ BOOL CReportData::GetSubItem(INT iSubItem, LPINT lpiImage, LPINT lpiOverlay, LPI
 	lpsz = _tcspbrk(lpsz, _T(")"))+1;
 	if(lpsz && lpszText)
 	{
-		for(INT iTextSize=0;iTextSize<(*lpiTextMax)-1 && *lpsz!=g_cSeparator;iTextSize++)
+		INT iTextSize=0;
+		for(iTextSize=0;iTextSize<(*lpiTextMax)-1 && *lpsz!=g_cSeparator;iTextSize++)
 			lpszText[iTextSize] = *lpsz++;
 
 		lpszText[iTextSize] = 0;
@@ -4477,7 +4478,8 @@ void CReportCtrl::EnsureVisibleColumn(INT iColumn)
 		HDITEM hdi;
 		hdi.mask = HDI_WIDTH|HDI_LPARAM;
 
-		for(INT i=0;i<iColumn;i++)
+		INT i = 0;
+		for(i=0;i<iColumn;i++)
 		{
 			m_wndHeader.GetItem(m_arrayColumns[i], &hdi);
 			iOffset += hdi.cxy;
@@ -7472,7 +7474,7 @@ BOOL CReportTipCtrl::PreTranslateMessage(MSG* pMsg)
 	return CWnd::PreTranslateMessage(pMsg);
 }
 
-void CReportTipCtrl::OnTimer(UINT nIDEvent) 
+void CReportTipCtrl::OnTimer(UINT_PTR nIDEvent) 
 {
 	if(nIDEvent == 1 )
 	{

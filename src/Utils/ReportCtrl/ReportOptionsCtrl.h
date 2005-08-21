@@ -76,8 +76,8 @@ public:
 public:
 	virtual ~CReportOptionsEdit();
 
-	virtual GetWindowStyle() { return WS_VISIBLE|WS_CHILD|ES_LEFT|ES_AUTOHSCROLL; };
-	virtual GetWidth() { return 100; };
+	virtual int GetWindowStyle() { return WS_VISIBLE|WS_CHILD|ES_LEFT|ES_AUTOHSCROLL; };
+	virtual int GetWidth() { return 100; };
 
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CReportOptionsEdit)
@@ -120,9 +120,9 @@ public:
 public:
 	virtual ~CReportOptionsCombo();
 
-	virtual GetWindowStyle() { return WS_CHILD|WS_VISIBLE|WS_VSCROLL|CBS_DROPDOWNLIST; };
-	virtual GetWidth() { return 100; };
-	virtual GetHeight() { return 100; };
+	virtual int GetWindowStyle() { return WS_CHILD|WS_VISIBLE|WS_VSCROLL|CBS_DROPDOWNLIST; };
+	virtual int GetWidth() { return 100; };
+	virtual int GetHeight() { return 100; };
 
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CReportOptionsCombo)

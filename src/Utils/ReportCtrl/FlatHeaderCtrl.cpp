@@ -1193,9 +1193,9 @@ INT CFlatHeaderCtrl::DrawArrow(CDC* pDC, CRect rect, BOOL bSortAscending, BOOL b
 	return iWidth;
 }
 
-INT CFlatHeaderCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CFlatHeaderCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
-	INT iResult = (INT)CHeaderCtrl::OnToolHitTest(point, pTI);
+	INT_PTR iResult = (INT)CHeaderCtrl::OnToolHitTest(point, pTI);
 	if(iResult != -1)
 		return iResult;
 
@@ -1439,7 +1439,11 @@ void CFlatHeaderCtrl::OnPaint()
 	}
 }
 
+#if _MSC_VER < 1400
 UINT CFlatHeaderCtrl::OnNcHitTest(CPoint point) 
+#else
+LRESULT CFlatHeaderCtrl::OnNcHitTest(CPoint point) 
+#endif
 {
 	m_hdhtiHotItem.pt = point;
 	ScreenToClient(&m_hdhtiHotItem.pt);

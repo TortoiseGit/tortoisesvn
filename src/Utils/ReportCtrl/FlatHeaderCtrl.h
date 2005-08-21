@@ -118,7 +118,7 @@ public:
 	virtual void DrawItem(LPDRAWITEMSTRUCT);
 	virtual void DrawItem(CDC* pDC, CRect rect, LPHDITEM lphdi, BOOL bSort, BOOL bSortAscending);
 
-	virtual int OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CFlatHeaderCtrl)
@@ -191,7 +191,11 @@ protected:
 	afx_msg LRESULT OnSetImageList(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnSetHotDivider(WPARAM wparam, LPARAM lparam);
 	afx_msg LRESULT OnLayout(WPARAM wparam, LPARAM lparam);
+#if _MSC_VER < 1400
 	afx_msg UINT OnNcHitTest(CPoint point);
+#else
+	afx_msg LRESULT OnNcHitTest(CPoint point);
+#endif
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
