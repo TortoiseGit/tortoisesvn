@@ -190,13 +190,13 @@ CString SVN::GetErrorString(svn_error_t * Err)
 				}
 			}
 		}
-		msg = CStringUtils::WordWrap(msg);
+		msg = CStringUtils::LinesWrap(msg);
 		while (ErrPtr->child)
 		{
 			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
 			temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
-			temp = CStringUtils::WordWrap(temp);
+			temp = CStringUtils::LinesWrap(temp);
 			msg += temp;
 		}
 		temp.Empty();

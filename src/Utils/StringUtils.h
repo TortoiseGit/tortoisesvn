@@ -55,6 +55,7 @@ class CStringUtils
 {
 public:
 	static BOOL WildCardMatch(const CString& wildcard, const CString& string);
+	static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = true);
 	static CString WordWrap(const CString& longstring, int limit = 80, bool bCompactPaths = true);
 };
 

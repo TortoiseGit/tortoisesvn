@@ -112,13 +112,16 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 	return !*wild;
 }
 
-CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
+CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
 {
 	CString retString;
 	CStringArray arWords;
 	if (longstring.GetLength() < limit)
 		return longstring;	// no wrapping needed.
 	// now start breaking the string into words
+
+	if (longstring.Find('\n')<0)
+		return WordWrap(longstring, limit, bCompactPaths);
 
 	int linepos = 0;
 	int lineposold = 0;
@@ -130,46 +133,56 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, 
 		lineposold = linepos;
 		if ((linepos+1)<longstring.GetLength())
 			linepos++;
-		
-		while (temp.GetLength() > limit)
-		{
-			int pos=0;
-			int oldpos=0;
-			while ((pos>=0)&&(temp.Find(' ', pos)<limit))
-			{
-				oldpos = pos;
-				pos = temp.Find(' ', pos+1);
-			}
-			if (oldpos==0)
-				oldpos = temp.Find(' ');
-			if (pos<0)
-			{
-				retString += temp;
-				temp.Empty();
-			}
-			else
-			{
-				CString longline = temp.Left(oldpos+1);
-				if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
-				{
-					if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
-					{
-						TCHAR buf[MAX_PATH];
-						PathCompactPathEx(buf, longline, limit+1, 0);
-						longline = buf;
-					}				
-				}
-
-				retString += longline;
-				temp = temp.Mid(oldpos+1);
-			}
-			retString += _T("\n");
-			pos = oldpos;
-		}
-		retString += temp;
+		retString += WordWrap(temp, limit, bCompactPaths);
 	}
 	retString.Trim();
 	retString.Replace(_T("\n\n"), _T("\n"));
+	return retString;
+}
+
+CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
+{
+	CString retString;
+	if (longstring.GetLength() < limit)
+		return longstring;	// no wrapping needed.
+	CString temp = longstring;
+	while (temp.GetLength() > limit)
+	{
+		int pos=0;
+		int oldpos=0;
+		while ((pos>=0)&&(temp.Find(' ', pos)<limit))
+		{
+			oldpos = pos;
+			pos = temp.Find(' ', pos+1);
+		}
+		if (oldpos==0)
+			oldpos = temp.Find(' ');
+		if (pos<0)
+		{
+			retString += temp;
+			temp.Empty();
+		}
+		else
+		{
+			CString longline = temp.Left(oldpos+1);
+			if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+			{
+				if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+				{
+					TCHAR buf[MAX_PATH];
+					PathCompactPathEx(buf, longline, limit+1, 0);
+					longline = buf;
+				}				
+			}
+
+			retString += longline;
+			temp = temp.Mid(oldpos+1);
+		}
+		retString += _T("\n");
+		pos = oldpos;
+	}
+	retString += temp;
+	retString.Trim();
 	return retString;
 }
 
@@ -182,10 +195,16 @@ public:
 	{
 		CString longline = _T("this is a test of how a string can be splitted into several lines");
 		CString splittedline = CStringUtils::WordWrap(longline, 10);
+		splittedline = CStringUtils::LinesWrap(longline, 10);
 		longline = _T("c:\\this_is_a_very_long\\path_on_windows and of course some other words added to make the line longer");
 		splittedline = CStringUtils::WordWrap(longline, 10);
+		splittedline = CStringUtils::LinesWrap(longline, 10);
 		longline = _T("Forced failure in https://myserver.com/a_long_url_to_split PROPFIND error");
+		splittedline = CStringUtils::WordWrap(longline, 20);
+		splittedline = CStringUtils::LinesWrap(longline, 20);
+		longline = _T("Forced\nfailure in https://myserver.com/a_long_url_to_split PROPFIND\nerror");
 		splittedline = CStringUtils::WordWrap(longline);
+		splittedline = CStringUtils::LinesWrap(longline);
 		ATLTRACE(splittedline);
 	}
 } StringUtilsTest;
