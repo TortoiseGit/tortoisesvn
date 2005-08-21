@@ -180,8 +180,8 @@ void CResizableLayout::ArrangeLayout() const
 	UINT uFlags;
 	LAYOUTINFO layout;
 	CRect rectParent, rectChild;
-	int count = m_listLayout.GetCount();
-	int countCB = m_listLayoutCB.GetCount();
+	INT_PTR count = m_listLayout.GetCount();
+	INT_PTR countCB = m_listLayoutCB.GetCount();
 
 	if (count + countCB == 0)
 		return;

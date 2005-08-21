@@ -112,6 +112,6 @@ LRESULT CResizableFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 // We definitely need pluggable message handlers ala WTL!
 void CResizableFrame::OnWindowPosChanging(WINDOWPOS FAR* lpwndpos) 
 {
-	if (lpwndpos->flags & (SWP_NOSIZE|SWP_NOMOVE) != (SWP_NOSIZE|SWP_NOMOVE))
+	if ((lpwndpos->flags & (SWP_NOSIZE|SWP_NOMOVE)) != (SWP_NOSIZE|SWP_NOMOVE))
 		CFrameWnd::OnWindowPosChanging(lpwndpos);
 }
