@@ -30,6 +30,7 @@
 //#include "UnicodeUtils.h"
 
 class CTSVNPath;
+class CTSVNPathList;
 
 /**
  * \ingroup TortoiseProc
@@ -78,7 +79,7 @@ public:
 
 private:
 	static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
-	BOOL CreatePatch(const CTSVNPath& path, const CTSVNPath& savepath);
+	BOOL CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, const CTSVNPath& savepath);
 
 
 	DECLARE_MESSAGE_MAP()

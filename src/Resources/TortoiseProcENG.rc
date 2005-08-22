@@ -966,6 +966,31 @@ BEGIN
     PUSHBUTTON      "&Help",IDHELP,187,133,50,14
 END
 
+IDD_DIFFFILES DIALOGEX 0, 0, 427, 218
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Changed Files"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,413,204
+END
+
+IDD_CREATEPATCH DIALOGEX 0, 0, 266, 204
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Create Patch"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,93,183,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,151,183,50,14
+    CONTROL         "",IDC_PATCHLIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,252,158
+    CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,7,169,252,10
+    PUSHBUTTON      "&Help",IDHELP,209,183,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1380,6 +1405,22 @@ BEGIN
         RIGHTMARGIN, 237
         TOPMARGIN, 7
         BOTTOMMARGIN, 146
+    END
+
+    IDD_DIFFFILES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 420
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_CREATEPATCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 259
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 197
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -2168,41 +2209,6 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 
 IDB_CANCELNORMAL        BITMAP                  "cancel-normal.bmp"
 IDB_CANCELPRESSED       BITMAP                  "cancel-pressed.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_DIFFFILES DIALOGEX 0, 0, 427, 218
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Changed Files"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
-                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,413,204
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
-BEGIN
-    IDD_DIFFFILES, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 420
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 211
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

@@ -760,12 +760,12 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 	return TRUE;
 }
 
-BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile)
+BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile)
 {
-	return Diff(path1, revision1, path2, revision2, recurse, ignoreancestry, nodiffdeleted, ignorecontenttype, options, outputfile, CTSVNPath());
+	return Diff(path1, revision1, path2, revision2, recurse, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
 }
 
-BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -776,8 +776,13 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
+	apr_int32_t flags = APR_WRITE | APR_CREATE | APR_BINARY;
+	if (bAppend)
+		flags |= APR_APPEND;
+	else
+		flags |= APR_TRUNCATE;
 	Err = svn_io_file_open (&outfile, outputfile.GetSVNApiPath(),
-							APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
+							flags,
 							APR_OS_DEFAULT, localpool);
 	if (Err)
 		return FALSE;

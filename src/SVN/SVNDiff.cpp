@@ -193,7 +193,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	
 	if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
 	{
-		if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
+		if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), false, tempfile))
 		{
 			CMessageBox::Show(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return false;
@@ -257,7 +257,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			}
 			else
 			{
-				if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, ignoreancestry, nodiffdeleted, FALSE, _T(""), tempfile))
+				if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, ignoreancestry, nodiffdeleted, FALSE, _T(""), false, tempfile))
 				{
 					CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					return false;

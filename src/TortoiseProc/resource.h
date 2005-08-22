@@ -68,6 +68,7 @@
 #define IDB_CANCELPRESSED               203
 #define IDB_LOGFILTER                   204
 #define IDD_RESOLVE                     207
+#define IDD_CREATEPATCH                 208
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -359,7 +360,9 @@
 #define IDS_PROGRS_TITLE_EXPORT         1233
 #define IDS_PROGRS_TITLE_MERGE          1234
 #define IDS_PROGRS_TITLE_COPY           1235
+#define IDC_PATCHLIST                   1235
 #define IDS_PROGRS_MIMETYPE             1236
+#define IDC_BUTTON1                     1236
 #define IDS_PROGRS_COPY_WARNING         1238
 #define IDS_PROGRS_COMMITT_TRUNK        1239
 #define IDS_PROGRS_REVERTMARKERS        1240
@@ -685,9 +688,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        208
+#define _APS_NEXT_RESOURCE_VALUE        209
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1235
+#define _APS_NEXT_CONTROL_VALUE         1237
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

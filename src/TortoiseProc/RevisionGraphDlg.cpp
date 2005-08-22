@@ -1427,7 +1427,7 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	{
 		if (!svn.Diff(url1, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry1->revision), 
 			url2, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry2->revision), 
-			TRUE, TRUE, FALSE, FALSE, CString(), tempfile))
+			TRUE, TRUE, FALSE, FALSE, CString(), false, tempfile))
 		{
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);		
 			theApp.DoWaitCursor(-1);

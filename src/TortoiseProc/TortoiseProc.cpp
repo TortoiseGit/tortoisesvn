@@ -60,6 +60,7 @@
 #include "libintl.h"
 #include "ShellUpdater.h"
 #include "SVNDiff.h"
+#include "CreatePatch.h"
 
 #include "..\version.h"
 
@@ -1538,7 +1539,12 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdCreatePatch)
 		{
 			CString savepath = CUtils::GetLongPathname(parser.GetVal(_T("savepath")));
-			CreatePatch(cmdLinePath, CTSVNPath(savepath));
+			CCreatePatch dlg;
+			dlg.m_pathList = CTSVNPathList(cmdLinePath);
+			if (dlg.DoModal()==IDOK)
+			{
+				CreatePatch(cmdLinePath, dlg.m_pathList, CTSVNPath(savepath));
+			}
 		}
 		//#endregion
 		//#region updatecheck
@@ -1676,7 +1682,7 @@ CTortoiseProcApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, 
 	return 0;
 }
 
-BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLineSavePath)
+BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, const CTSVNPath& cmdLineSavePath)
 {
 	OPENFILENAME ofn;		// common dialog box structure
 	CString temp;
@@ -1764,23 +1770,33 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLi
 	else
 		tempPatchFilePath = savePath;
 
-	CTSVNPath sDir;
-	if (!path.IsDirectory())
+	::DeleteFile(tempPatchFilePath.GetWinPath());
+	
+	CTSVNPath sDir = path.GetCommonRoot();
+	if (!root.IsEmpty())
+		sDir = root;
+	if (!sDir.IsDirectory())
 	{
-		::SetCurrentDirectory(path.GetDirectory().GetWinPath());
-		sDir.SetFromWin(path.GetFilename());
+		::SetCurrentDirectory(sDir.GetDirectory().GetWinPath());
 	}
 	else
 	{
-		::SetCurrentDirectory(path.GetWinPath());
+		::SetCurrentDirectory(sDir.GetWinPath());
 	}
 
 	SVN svn;
-	if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, FALSE, _T(""), tempPatchFilePath))
+	for (int fileindex = 0; fileindex < path.GetCount(); ++fileindex)
 	{
-		progDlg.Stop();
-		::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-		return FALSE;
+		// use the relative path
+		CString sRelativePath = path[fileindex].GetWinPathString().Mid(sDir.GetWinPathString().GetLength());
+		sRelativePath.Trim(_T("/\\"));
+		CTSVNPath diffpath = CTSVNPath(sRelativePath);
+		if (!svn.Diff(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, TRUE, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
+		{
+			progDlg.Stop();
+			::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			return FALSE;
+		}
 	}
 
 	if(bToClipboard)
