@@ -77,9 +77,38 @@
 		<AdminExecuteSequence />
 		<InstallExecuteSequence>
 			<LaunchConditions After="AppSearch" />
-			<RemoveExistingProducts After="FindRelatedProducts">PREVIOUSVERSIONSINSTALLED</RemoveExistingProducts>
+			<RemoveExistingProducts After="FindRelatedProducts"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
 			<ScheduleReboot After="RegisterProduct" />
 		</InstallExecuteSequence>
+		
+		<!-- UI Sequencing ...................................................................................................... -->
+		<AdminUISequence>
+			<Show Dialog="FatalErrorDlg" OnExit="error" />
+			<Show Dialog="UserExit" OnExit="cancel" />
+			<Show Dialog="ExitDlg" OnExit="success" />
+			<Show Dialog="PrepareDlg" Before="CostInitialize"><![CDATA[]]></Show>
+			<Show Dialog="AdminWelcomeDlg" After="CostFinalize" />
+			<Show Dialog="ProgressDlg" After="AdminWelcomeDlg" />
+
+			<Custom Action="DefaultTargetDir" After="LaunchConditions" />
+		</AdminUISequence>
+		<InstallUISequence>
+			<Show Dialog="FatalErrorDlg" OnExit="error" />
+			<Show Dialog="UserExit" OnExit="cancel" />
+			<Show Dialog="ExitDlg" OnExit="success" />
+			<Show Dialog="PrepareDlg" After="LaunchConditions" />
+			<Show Dialog="WelcomeDlg" After="MigrateFeatureStates"><![CDATA[NOT Installed]]></Show>
+			<Show Dialog="ResumeDlg" After="WelcomeDlg"><![CDATA[Installed AND (RESUME OR Preselected)]]></Show>
+			<Show Dialog="MaintenanceWelcomeDlg" After="ResumeDlg"><![CDATA[Installed AND NOT RESUME AND NOT Preselected]]></Show>
+			<Show Dialog="ProgressDlg" After="MaintenanceWelcomeDlg" />
+
+			<FindRelatedProducts Suppress="no">1</FindRelatedProducts>
+			<!--<RemoveExistingProducts After="FindRelatedProducts"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>-->
+
+			<Custom Action="DefaultTargetDir" After="PrepareDlg" />
+			<Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
+			<Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
+		</InstallUISequence>
 	</Product>
 </Wix>
 
