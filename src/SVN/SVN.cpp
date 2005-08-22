@@ -394,7 +394,7 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 	svn_client_commit_info_t *commit_info = NULL;
 	logmsg.Replace(_T("\r"), _T(""));
 	if (logmsg.IsEmpty())
-		m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")));
+		m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(CString(_T("made a copy"))));
 	else
 		m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg));
 	Err = svn_client_copy (&commit_info,
