@@ -252,9 +252,8 @@ BEGIN
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | 
                     WS_BORDER | WS_TABSTOP,7,24,393,103
     CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,126,393,5
-    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",ES_MULTILINE | ES_READONLY | 
-                    ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,
-                    131,393,96
+    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",WS_BORDER | WS_VSCROLL | 
+                    WS_TABSTOP | 0x1804,7,131,393,96
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,227,393,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
                     LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,231,393,67
@@ -2144,8 +2143,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SVNPROGRESS_MENUUSETHEIRS "Resolve conflict using theirs"
-    IDS_SVNPROGRESS_MENUUSEMINE "Resolve conflict using mine"
+    IDS_SVNPROGRESS_MENUUSETHEIRS "Resolve conflict using ""theirs"""
+    IDS_SVNPROGRESS_MENUUSEMINE "Resolve conflict using ""mine"""
     IDS_SVNPROGRESS_RESOLVED "Resolved:\n%s"
 END
 
