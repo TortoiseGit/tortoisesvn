@@ -8,4 +8,9 @@
 #define TSVN_VERMICRO             $MicroVersion$
 #define TSVN_VERBUILD			  $WCREV$
 
+#ifdef _WIN64
+#define TSVN_PLATFORM		"Experimental 64 Bit Build"
+#else
+#define TSVN_PLATFORM		"32 Bit"
+#endif
 

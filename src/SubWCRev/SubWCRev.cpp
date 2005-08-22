@@ -362,9 +362,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	if (wc == NULL)
 	{
-		_tprintf(_T("SubWCRev %d.%d.%d, Build %d\n\n"),
+		_tprintf(_T("SubWCRev %d.%d.%d, Build %d - %s\n\n"),
 					TSVN_VERMAJOR, TSVN_VERMINOR,
-					TSVN_VERMICRO, TSVN_VERBUILD);
+					TSVN_VERMICRO, TSVN_VERBUILD,
+					_T(TSVN_PLATFORM));
 		_putts(_T(HelpText1));
 		_putts(_T(HelpText2));
 		_putts(_T(HelpText3));
