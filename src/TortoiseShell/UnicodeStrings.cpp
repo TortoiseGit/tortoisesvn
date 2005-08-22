@@ -42,7 +42,7 @@ std::string WideToUTF8(const wide_string& wide)
 
 wide_string MultibyteToWide(const std::string& multibyte)
 {
-	int length = multibyte.length();
+	size_t length = multibyte.length();
 	if (length == 0)
 		return wide_string();
 
@@ -58,7 +58,7 @@ wide_string MultibyteToWide(const std::string& multibyte)
 
 wide_string UTF8ToWide(const std::string& multibyte)
 {
-	int length = multibyte.length();
+	size_t length = multibyte.length();
 	if (length == 0)
 		return wide_string();
 		

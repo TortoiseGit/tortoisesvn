@@ -86,13 +86,13 @@ private:
 	BOOL	ReplaceMenu(UINT nID, WORD wLanguage);
 
 	const WORD*	ParseMenuResource(const WORD * res);
-	const WORD*	CountMemReplaceMenuResource(const WORD * res, int * wordcount, WORD * newMenu);
+	const WORD*	CountMemReplaceMenuResource(const WORD * res, size_t * wordcount, WORD * newMenu);
 	const WORD* GetControlInfo(const WORD* p, LPDLGITEMINFO lpDlgItemInfo, BOOL dialogEx, LPBOOL bIsID);
 	const WORD*	GetDialogInfo(const WORD * pTemplate, LPDIALOGINFO lpDlgInfo);
-	const WORD*	CountMemReplaceDialogResource(const WORD * res, int * wordcount, WORD * newMenu);
-	const WORD* ReplaceControlInfo(const WORD * res, int * wordcount, WORD * newDialog, BOOL bEx);
+	const WORD*	CountMemReplaceDialogResource(const WORD * res, size_t * wordcount, WORD * newMenu);
+	const WORD* ReplaceControlInfo(const WORD * res, size_t * wordcount, WORD * newDialog, BOOL bEx);
 
-	void	ReplaceStr(LPCWSTR src, WORD * dest, int * count, int * translated, int * def);
+	void	ReplaceStr(LPCWSTR src, WORD * dest, size_t * count, int * translated, int * def);
 
 	HMODULE			m_hResDll;
 	HANDLE			m_hUpdateRes;

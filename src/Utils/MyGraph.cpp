@@ -270,7 +270,7 @@ BOOL MyGraph::OnNeedText(UINT /*uiId*/, NMHDR* pNMHDR, LRESULT* pResult)
 	_ASSERTE(pResult  &&  "Bad parameter passed");
 
 	bool bReturn(false);
-	UINT uiID(pNMHDR->idFrom);
+	UINT_PTR uiID(pNMHDR->idFrom);
 
 	// Notification in NT from automatically created tooltip.
 	if (0U != uiID) {
@@ -376,7 +376,7 @@ CString MyGraph::GetTipText() const
 			MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 			ASSERT_VALID(pSeries);
 
-			int nGroup(pSeries->HitTest(pt));
+			INT_PTR nGroup(pSeries->HitTest(pt));
 
 			if (-1 != nGroup) {
 				sTip = m_saLegendLabels.GetAt(nGroup) + _T(": ");

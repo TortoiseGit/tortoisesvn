@@ -226,7 +226,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 	m_graph.SetGraphTitle(temp);
 
 	//first find the number of authors available
-	int numAuthors = 0;
+	size_t numAuthors = 0;
 
 	std::map<stdstring, LONG> authors;
 	for (int i=0; i<m_parAuthors->GetCount(); ++i)

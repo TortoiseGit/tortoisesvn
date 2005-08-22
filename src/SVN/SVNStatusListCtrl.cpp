@@ -706,7 +706,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	SetItemCount(m_arStatusArray.size());
 
 	int listIndex = 0;
-	for (int i=0; i< (int)m_arStatusArray.size(); ++i)
+	for (size_t i=0; i < m_arStatusArray.size(); ++i)
 	{
 		FileEntry * entry = m_arStatusArray[i];
 		if ((entry->inexternal || entry->isNested) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))

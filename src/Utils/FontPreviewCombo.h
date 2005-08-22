@@ -109,7 +109,7 @@ public:
 	{
 		if (heightRefControl)
 		{
-			int lbItemHeight = heightRefControl->SendMessage(CB_GETITEMHEIGHT, (WPARAM)-1);
+			LRESULT lbItemHeight = heightRefControl->SendMessage(CB_GETITEMHEIGHT, (WPARAM)-1);
 			SendMessage(CB_SETITEMHEIGHT, (WPARAM)-1, lbItemHeight);
 		}
 	}

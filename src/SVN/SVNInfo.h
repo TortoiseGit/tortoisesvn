@@ -79,7 +79,7 @@ public:
 	 * for all children of \a path.
 	 */
 	const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, bool recurse = false);
-	unsigned int GetFileCount() {return m_arInfo.size();}
+	size_t GetFileCount() {return m_arInfo.size();}
 	/**
 	 * Returns the info of the next file in the filelist. If no more files are in the list then NULL is returned.
 	 * See GetFirstFileInfo() for details.

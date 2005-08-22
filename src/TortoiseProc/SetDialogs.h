@@ -59,7 +59,7 @@ private:
 	BOOL			m_bShortDateFormat;
 	CRegDWORD		m_regShortDateFormat;
 	CRegDWORD		m_regAutoClose;
-	DWORD			m_dwAutoClose;
+	DWORD_PTR		m_dwAutoClose;
 	CRegDWORD		m_regDefaultLogs;
 	CString			m_sDefaultLogs;
 	CFontPreviewCombo	m_cFontNames;

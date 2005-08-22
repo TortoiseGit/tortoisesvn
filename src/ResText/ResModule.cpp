@@ -41,7 +41,7 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
 		if (m_hResDll == NULL)
 			MYERROR;
 
-		int nEntries = m_StringEntries.size();
+		size_t nEntries = m_StringEntries.size();
 		// fill in the std::map with all translatable entries
 
 		if (!m_bQuiet)
@@ -85,7 +85,7 @@ BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFile
 	if (m_hResDll == NULL)
 		MYERROR;
 	
-	int nEntries = 0;
+	size_t nEntries = 0;
 	// fill in the std::map with all translatable entries
 
 	if (!m_bQuiet)
@@ -250,12 +250,12 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 */
 	
 	//first check how much memory we need
-	int nMem = 0;
+	size_t nMem = 0;
 	LPWSTR pp = p;
 	for (int i=0; i<16; ++i)
 	{
 		nMem++;
-		int len = GET_WORD(pp);
+		size_t len = GET_WORD(pp);
 		pp++;
 		std::wstring msgid = std::wstring(pp, len);
 		WCHAR szBuf[2048*2];
@@ -268,7 +268,7 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 		resEntry = m_StringEntries[msgid];
 		wcscpy(szBuf, resEntry.msgstr.c_str());
 		CUtils::StringCollapse(szBuf);
-		int newlen = wcslen(szBuf);
+		size_t newlen = wcslen(szBuf);
 		if (newlen)
 			nMem += newlen;
 		else
@@ -279,7 +279,7 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 	WORD * newTable = new WORD[nMem + (nMem % 2)];
 	ZeroMemory(newTable, (nMem + (nMem % 2))*2);
 
-	int index = 0;
+	size_t index = 0;
 	for (int i=0; i<16; ++i)
 	{
 		int len = GET_WORD(p);
@@ -295,7 +295,7 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 		resEntry = m_StringEntries[msgid];
 		wcscpy(szBuf, resEntry.msgstr.c_str());
 		CUtils::StringCollapse(szBuf);
-		int newlen = wcslen(szBuf);
+		size_t newlen = wcslen(szBuf);
 		if (newlen)
 		{
 			newTable[index++] = (WORD)newlen;
@@ -315,7 +315,7 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 		p += len;
 	}
 
-	if (!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newTable, (nMem + (nMem % 2))*2))
+	if (!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newTable, (DWORD)(nMem + (nMem % 2))*2))
 	{
 		delete [] newTable;
 		goto DONE_ERROR;
@@ -425,19 +425,19 @@ BOOL CResModule::ReplaceMenu(UINT nID, WORD wLanguage)
 			offset = GET_WORD(p);
 			p += offset;
 			p++;
-			int nMem = 0;
+			size_t nMem = 0;
 			if (!CountMemReplaceMenuResource((WORD *)p, &nMem, NULL))
 				goto DONE_ERROR;
 			WORD * newMenu = new WORD[nMem + (nMem % 2)+2];
 			ZeroMemory(newMenu, (nMem + (nMem % 2)+2)*2);
-			int index = 2;		// MenuHeader has 2 WORDs zero
+			size_t index = 2;		// MenuHeader has 2 WORDs zero
 			if (!CountMemReplaceMenuResource((WORD *)p, &index, newMenu))
 			{
 				delete [] newMenu;
 				goto DONE_ERROR;
 			} 
 
-			if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, (nMem + (nMem % 2)+2)*2))
+			if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, (DWORD)(nMem + (nMem % 2)+2)*2))
 			{
 				delete [] newMenu;
 				goto DONE_ERROR;
@@ -494,7 +494,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 			id = (WORD)-1;			//popup menu item
 
 		str = (LPCWSTR)res;
-		int l = wcslen(str)+1;
+		size_t l = wcslen(str)+1;
 		res += l;
 
 		if (flags & MF_POPUP)
@@ -530,7 +530,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 	return res;
 }
 
-const WORD* CResModule::CountMemReplaceMenuResource(const WORD * res, int * wordcount, WORD * newMenu)
+const WORD* CResModule::CountMemReplaceMenuResource(const WORD * res, size_t * wordcount, WORD * newMenu)
 {
 	WORD		flags;
 	WORD		id = 0;
@@ -683,21 +683,21 @@ BOOL CResModule::ReplaceDialog(UINT nID, WORD wLanguage)
 	if (lpDlg == NULL)
 		MYERROR;
 
-	int nMem = 0;
+	size_t nMem = 0;
 	const WORD * p = lpDlg;
 	if (!CountMemReplaceDialogResource(p, &nMem, NULL))
 		goto DONE_ERROR;
 	WORD * newDialog = new WORD[nMem + (nMem % 2)];
 	ZeroMemory(newDialog, (nMem + (nMem % 2))*2);
 
-	int index = 0;
+	size_t index = 0;
 	if (!CountMemReplaceDialogResource(lpDlg, &index, newDialog))
 	{
 		delete [] newDialog;
 		goto DONE_ERROR;
 	}
 	
-	if (!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newDialog, (nMem + (nMem % 2))*2))
+	if (!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newDialog, (DWORD)(nMem + (nMem % 2))*2))
 	{
 		delete [] newDialog;
 		goto DONE_ERROR;
@@ -910,7 +910,7 @@ const WORD* CResModule::GetControlInfo(const WORD* p, LPDLGITEMINFO lpDlgItemInf
 	return (const WORD *)((((long)p) + 3) & ~3);
 }
 
-const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, int * wordcount, WORD * newDialog)
+const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t * wordcount, WORD * newDialog)
 {
 	BOOL bEx = FALSE;
 	DWORD style = GET_DWORD(res);
@@ -1101,7 +1101,7 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, int * w
 	return res;
 }
 
-const WORD* CResModule::ReplaceControlInfo(const WORD * res, int * wordcount, WORD * newDialog, BOOL bEx)
+const WORD* CResModule::ReplaceControlInfo(const WORD * res, size_t * wordcount, WORD * newDialog, BOOL bEx)
 {
 	if (bEx)
 	{
@@ -1304,7 +1304,7 @@ BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCTSTR 
 
 }
 
-void CResModule::ReplaceStr(LPCWSTR src, WORD * dest, int * count, int * translated, int * def)
+void CResModule::ReplaceStr(LPCWSTR src, WORD * dest, size_t * count, int * translated, int * def)
 {
 	TCHAR szBuf[2048];
 	ZeroMemory(szBuf, sizeof(szBuf));

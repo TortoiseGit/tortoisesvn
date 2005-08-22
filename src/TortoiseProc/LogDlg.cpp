@@ -1135,7 +1135,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
 		{
 			// some items are hidden! So find out which item the user really clicked on
-			int selRealIndex = -1;
+			INT_PTR selRealIndex = -1;
 			for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
 			{
 				if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)

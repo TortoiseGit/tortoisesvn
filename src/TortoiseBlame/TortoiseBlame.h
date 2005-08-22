@@ -101,6 +101,6 @@ protected:
 	COLORREF					m_textcolor;
 	COLORREF					m_texthighlightcolor;
 
-	int							m_directFunction;
-	int							m_directPointer;
+	LRESULT						m_directFunction;
+	LRESULT						m_directPointer;
 };

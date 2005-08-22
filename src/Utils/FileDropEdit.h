@@ -41,7 +41,7 @@ public:
 				if( SUCCEEDED(hr) && cbRead > 0 && cbRead < BUF_SIZE)
 				{
 					buff[cbRead]=0;
-					int nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
+					LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
 					::SendMessage(m_hTargetWnd, EM_SETSEL, nLen, -1);
 					::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)buff);
 				}
@@ -49,7 +49,7 @@ public:
 					for(;(hr==S_OK && cbRead >0) && SUCCEEDED(hr) ;)
 					{
 						buff[cbRead]=0;
-						int nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
+						LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
 						::SendMessage(m_hTargetWnd, EM_SETSEL, nLen, -1);
 						::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)buff);
 						cbRead=0;
@@ -62,7 +62,7 @@ public:
 			TCHAR* pStr = (TCHAR*)GlobalLock(medium.hGlobal);
 			if(pStr != NULL)
 			{
-				int nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
+				LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
 				::SendMessage(m_hTargetWnd, EM_SETSEL, nLen, -1);
 				::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)pStr);
 			}

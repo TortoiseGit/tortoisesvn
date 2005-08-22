@@ -255,7 +255,7 @@ void TortoiseBlame::InitialiseEditor()
 		((stdstring)(CRegStdString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New")))).c_str());
 	SendEditor(SCI_SETTABWIDTH, (DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\TabSize"), 4));
 	SendEditor(SCI_SETREADONLY, TRUE);
-	int pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)_T("_99999"));
+	LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)_T("_99999"));
 	if (ShowLine)
 		SendEditor(SCI_SETMARGINWIDTHN, 0, pix);
 	else
@@ -358,15 +358,15 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 	if (m_font == NULL)
 		return;
 	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
-	LONG line = SendEditor(SCI_GETFIRSTVISIBLELINE);
-	LONG linesonscreen = SendEditor(SCI_LINESONSCREEN);
-	int heigth = SendEditor(SCI_TEXTHEIGHT);
-	int Y = 0;
+	LONG_PTR line = SendEditor(SCI_GETFIRSTVISIBLELINE);
+	LONG_PTR linesonscreen = SendEditor(SCI_LINESONSCREEN);
+	LONG_PTR heigth = SendEditor(SCI_TEXTHEIGHT);
+	LONG_PTR Y = 0;
 	TCHAR buf[MAX_PATH];
 	RECT rc;
 	BOOL sel = FALSE;
 	GetClientRect(wBlame, &rc);
-	for (int i=line; i<(line+linesonscreen); ++i)
+	for (LRESULT i=line; i<(line+linesonscreen); ++i)
 	{
 		sel = FALSE;
 		if (i < (int)revs.size())
@@ -819,8 +819,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				POINT point;
 				::GetCursorPos(&point);
 				::ScreenToClient(app.wBlame, &point);
-				LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
-				int heigth = app.SendEditor(SCI_TEXTHEIGHT);
+				LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
+				LONG_PTR heigth = app.SendEditor(SCI_TEXTHEIGHT);
 				line = line + (point.y/heigth);
 				if (line >= (LONG)app.revs.size())
 					break;
@@ -896,8 +896,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				app.ttVisible = TRUE;
 			}
 			int y = ((int)(short)HIWORD(lParam));
-			LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
-			int heigth = app.SendEditor(SCI_TEXTHEIGHT);
+			LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
+			LONG_PTR heigth = app.SendEditor(SCI_TEXTHEIGHT);
 			line = line + (y/heigth);
 			if (line < (LONG)app.revs.size())
 			{
@@ -921,8 +921,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 	case WM_LBUTTONDOWN:
 		{
 			int y = ((int)(short)HIWORD(lParam));
-			LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
-			int heigth = app.SendEditor(SCI_TEXTHEIGHT);
+			LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
+			LONG_PTR heigth = app.SendEditor(SCI_TEXTHEIGHT);
 			line = line + (y/heigth);
 			if (line < (LONG)app.revs.size())
 			{

@@ -253,7 +253,7 @@ void CLineDiffBar::BinDiff(CDWordArray & result, CString & base, CString & your)
 	const TCHAR * match = NULL;
 	size_t match_length = 0;
 	BOOL bInsert = FALSE;
-	for (int i = 0; i < your.GetLength(); i += match_length) {
+	for (size_t i = 0; i < your.GetLength(); i += match_length) {
 		match = Search(base.GetBuffer(), base.GetLength(), 
 			           your.GetBuffer() + i, your.GetLength() - i, &match_length);
 		if (match == NULL || match_length <= 3) {

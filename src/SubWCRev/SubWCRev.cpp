@@ -116,9 +116,9 @@ char *Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool)
 	return pch;
 }
 
-int FindPlaceholder(char *def, char *pBuf, unsigned long & index, unsigned long filelength)
+int FindPlaceholder(char *def, char *pBuf, size_t & index, size_t filelength)
 {
-	int deflen = strlen(def);
+	size_t deflen = strlen(def);
 	while (index + deflen <= filelength)
 	{
 		if (memcmp(pBuf + index, def, deflen) == 0)
@@ -128,8 +128,8 @@ int FindPlaceholder(char *def, char *pBuf, unsigned long & index, unsigned long 
 	return FALSE;
 }
 
-int InsertRevision(char * def, char * pBuf, unsigned long & index,
-					unsigned long & filelength, unsigned long maxlength,
+int InsertRevision(char * def, char * pBuf, size_t & index,
+					size_t & filelength, size_t maxlength,
 					long MinRev, long MaxRev)
 {
 	// Search for first occurrence of def in the buffer, starting at index.
@@ -150,24 +150,24 @@ int InsertRevision(char * def, char * pBuf, unsigned long & index,
 	}
 	// Replace the $WCxxx$ string with the actual revision number
 	char * pBuild = pBuf + index;
-	int Expansion = strlen(destbuf) - strlen(def);
+	size_t Expansion = strlen(destbuf) - strlen(def);
 	if (Expansion < 0)
 	{
-		memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
+		memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
 	}
 	else if (Expansion > 0)
 	{
 		// Check for buffer overflow
-		if ((int)(maxlength - filelength) < Expansion) return FALSE;
-		memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
+		if (maxlength < Expansion + filelength) return FALSE;
+		memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
 	}
 	memmove(pBuild, destbuf, strlen(destbuf));
 	filelength += Expansion;
 	return TRUE;
 }
 
-int InsertDate(char * def, char * pBuf, unsigned long & index,
-				unsigned long & filelength, unsigned long maxlength,
+int InsertDate(char * def, char * pBuf, size_t & index,
+				size_t & filelength, size_t maxlength,
 				apr_time_t date_svn)
 { 
 	// Search for first occurrence of def in the buffer, starting at index.
@@ -192,24 +192,24 @@ int InsertDate(char * def, char * pBuf, unsigned long & index,
 			newtime->tm_sec);
 	// Replace the $WCDATE$ string with the actual commit date
 	char * pBuild = pBuf + index;
-	int Expansion = strlen(destbuf) - strlen(def);
+	size_t Expansion = strlen(destbuf) - strlen(def);
 	if (Expansion < 0)
 	{
-		memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
+		memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
 	}
 	else if (Expansion > 0)
 	{
 		// Check for buffer overflow
-		if ((int)(maxlength - filelength) < Expansion) return FALSE;
-		memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
+		if (maxlength < Expansion + filelength) return FALSE;
+		memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
 	}
 	memmove(pBuild, destbuf, strlen(destbuf));
 	filelength += Expansion;
 	return TRUE;
 }
 
-int InsertUrl(char * def, char * pBuf, unsigned long & index,
-					unsigned long & filelength, unsigned long maxlength,
+int InsertUrl(char * def, char * pBuf, size_t & index,
+					size_t & filelength, size_t maxlength,
 					char * pUrl)
 {
 	// Search for first occurrence of def in the buffer, starting at index.
@@ -220,23 +220,23 @@ int InsertUrl(char * def, char * pBuf, unsigned long & index,
 	}
 	// Replace the $WCURL$ string with the actual URL
 	char * pBuild = pBuf + index;
-	int Expansion = strlen(pUrl) - strlen(def);
+	size_t Expansion = strlen(pUrl) - strlen(def);
 	if (Expansion < 0)
 	{
-		memmove(pBuild, pBuild - Expansion, filelength - (long)((pBuild - Expansion) - pBuf));
+		memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
 	}
 	else if (Expansion > 0)
 	{
 		// Check for buffer overflow
-		if ((int)(maxlength - filelength) < Expansion) return FALSE;
-		memmove(pBuild + Expansion, pBuild, filelength - (long)(pBuild - pBuf));
+		if (maxlength < Expansion + filelength) return FALSE;
+		memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
 	}
 	memmove(pBuild, pUrl, strlen(pUrl));
 	filelength += Expansion;
 	return TRUE;
 }
 
-int InsertBoolean(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL isTrue)
+int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, BOOL isTrue)
 { 
 	// Search for first occurrence of def in the buffer, starting at index.
 	if (!FindPlaceholder(def, pBuf, index, filelength))
@@ -250,7 +250,7 @@ int InsertBoolean(char * def, char * pBuf, unsigned long & index, unsigned long 
 	while (*pEnd != '$')
 	{
 		pEnd++;
-		if (pEnd - pBuf >= (int)filelength)
+		if (pEnd - pBuf >= (__int64)filelength)
 			return FALSE;	// No terminator - malformed so give up.
 	}
 	
@@ -267,22 +267,22 @@ int InsertBoolean(char * def, char * pBuf, unsigned long & index, unsigned long 
 	{
 		// Replace $WCxxx?TrueText:FalseText$ with TrueText
 		// Remove :FalseText$
-		memmove(pSplit, pEnd + 1, filelength - (long)(pEnd + 1 - pBuf));
-		filelength -= (long)(pEnd + 1 - pSplit);
+		memmove(pSplit, pEnd + 1, filelength - (pEnd + 1 - pBuf));
+		filelength -= (pEnd + 1 - pSplit);
 		// Remove $WCxxx?
-		int deflen = strlen(def);
-		memmove(pBuild, pBuild + deflen, filelength - (long)(pBuild + deflen - pBuf));
+		size_t deflen = strlen(def);
+		memmove(pBuild, pBuild + deflen, filelength - (pBuild + deflen - pBuf));
 		filelength -= deflen;
 	}
 	else
 	{
 		// Replace $WCxxx?TrueText:FalseText$ with FalseText
 		// Remove terminating $
-		memmove(pEnd, pEnd + 1, filelength - (long)(pEnd + 1 - pBuf));
+		memmove(pEnd, pEnd + 1, filelength - (pEnd + 1 - pBuf));
 		filelength--;
 		// Remove $WCxxx?TrueText:
-		memmove(pBuild, pSplit + 1, filelength - (long)(pSplit + 1 - pBuf));
-		filelength -= (long)(pSplit + 1 - pBuild);
+		memmove(pBuild, pSplit + 1, filelength - (pSplit + 1 - pBuf));
+		filelength -= (pSplit + 1 - pBuild);
 	} // if (isTrue)
 	return TRUE;
 }
@@ -378,9 +378,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		return ERR_FNF;			// dir does not exist
 	}
 	char * pBuf = NULL;
-	unsigned long readlength = 0;
-	unsigned long filelength = 0;
-	unsigned long maxlength  = 0;
+	DWORD readlength = 0;
+	size_t filelength = 0;
+	size_t maxlength  = 0;
 	HANDLE hFile = INVALID_HANDLE_VALUE;
 	if (dst != NULL)
 	{
@@ -492,7 +492,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	// now parse the filecontents for version defines.
 	
-	unsigned long index = 0;
+	size_t index = 0;
 	
 	while (InsertRevision(VERDEF, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev));
 	
@@ -518,11 +518,11 @@ int _tmain(int argc, _TCHAR* argv[])
 		return ERR_OPEN;
 	}
 
-	unsigned long filelengthExisting = GetFileSize(hFile, NULL);
+	size_t filelengthExisting = GetFileSize(hFile, NULL);
 	BOOL sameFileContent = FALSE;
 	if (filelength == filelengthExisting)
 	{
-		unsigned long readlengthExisting = 0;
+		DWORD readlengthExisting = 0;
 		char * pBufExisting = new char[filelength];
 		if (!ReadFile(hFile, pBufExisting, filelengthExisting, &readlengthExisting, NULL))
 		{

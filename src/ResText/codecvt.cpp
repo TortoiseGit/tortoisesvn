@@ -7,9 +7,9 @@ ucs2_conversion::do_in(mbstate_t&,
 					   const char*  from, const char* from_end, const char*& from_next,
 					   wchar_t* to, wchar_t* to_limit, wchar_t*& to_next) const
 {
-	int max_input = (from_end - from) & ~1;
-	int max_output = (to_limit - to);
-	int count = min(max_input/2, max_output);
+	size_t max_input = (from_end - from) & ~1;
+	size_t max_output = (to_limit - to);
+	size_t count = min(max_input/2, max_output);
 
 	result res = ok;
 
@@ -28,9 +28,9 @@ ucs2_conversion::do_out(mbstate_t&,
 				  const wchar_t* from, const wchar_t* from_end, const wchar_t*& from_next,
 				  char* to, char* to_limit, char*& to_next) const
 {
-	int max_input = (from_end - from);
-	int max_output = (to_limit - to) & ~1;
-	int count = min(max_input, max_output/2);
+	size_t max_input = (from_end - from);
+	size_t max_output = (to_limit - to) & ~1;
+	size_t count = min(max_input, max_output/2);
 
 	from_next = from;
 	to_next = to;
@@ -80,8 +80,8 @@ utf8_conversion::do_in(mbstate_t&,
 		else {
 
 			// 111zxxxx : z = 0 xxxx are data bits
-			int zero_bit_pos = most_signifant_bit_position(~*from_next);
-			int extra_bytes  = 7 - zero_bit_pos;
+			size_t zero_bit_pos = most_signifant_bit_position(~*from_next);
+			size_t extra_bytes  = 7 - zero_bit_pos;
 
 			if (from_end - from_next < extra_bytes + 1) 
 				return partial;
@@ -118,7 +118,7 @@ utf8_conversion::do_out(mbstate_t&,
 			} else {
 
 				size_t msb_pos = most_signifant_bit_position(symbol);
-				int extra_bytes = msb_pos / 6;
+				size_t extra_bytes = msb_pos / 6;
 
 				if (to_limit - to_next >= extra_bytes + 1) {
 
