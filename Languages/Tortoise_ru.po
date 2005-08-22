@@ -31,13 +31,13 @@
 # resolve -- улаживать
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 4057: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 4224: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-04 09:45+0300\n"
+"PO-Revision-Date: 2005-08-22 14:51+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1464,6 +1464,11 @@ msgid "Command failed."
 msgstr "Сбой в комманде."
 
 # ID:8,
+#: ID:319
+msgid "Comment"
+msgstr "Комментарий"
+
+# ID:8,
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Фиксация"
@@ -2268,6 +2273,7 @@ msgstr "Выборка ревизии %s файла:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "Файл"
 
@@ -3173,6 +3179,12 @@ msgstr "Один или более файлов имеют конфликты."
 msgid "Only check out the top folder"
 msgstr "Извлечь только папку верхнего уровня"
 
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "Только в %s"
+
 # ID:169,
 #: ID:169
 msgid ""
@@ -3629,6 +3641,12 @@ msgstr "Переименовать %s"
 msgid "Rename..."
 msgstr "Переименовать..."
 
+# ID:97,
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "Переименовано из %s"
+
 # ID:126,
 #: ID:126
 msgid "Renamed remotely"
@@ -3691,6 +3709,16 @@ msgstr "Запрашивает имя пользователя и пароль"
 msgid "Resolve"
 msgstr "Уладить"
 
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using mine"
+msgstr "Использовать мой файл при улаживании конфликта"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using theirs"
+msgstr "Использовать их файл при улаживании конфликта"
+
 # ID:8,#:
 # ID:74,
 #: ID:74
@@ -3703,6 +3731,17 @@ msgstr "Улажено"
 #: ID:8
 msgid "Resolved..."
 msgstr "Уладить..."
+
+# ID:8,#:
+# ID:74,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Улажено:\n"
+"%s"
 
 # Или "Разрешает конфликтующие файлы"?
 # ID:9,
@@ -3794,6 +3833,13 @@ msgstr "Граф Ревизии"
 #: ID:75
 msgid "Revision: "
 msgstr "Ревизия:"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:116
+msgid "Revisions"
+msgstr "Ревизии"
 
 # ID:188,
 #: ID:188
@@ -4096,12 +4142,17 @@ msgstr "Выбрать программу просмотра файлов раз
 # ID:3585,
 #: ID:3585
 msgid "Select an object on which to get Help"
-msgstr "Выберите объект по которому получать помощь"
+msgstr "Выберите объект, по которому надо получить помощь"
 
 # ID:313,
 #: ID:313
 msgid "Select diff file..."
 msgstr "Выбрать файл различий..."
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select end revision"
+msgstr "Выберите конечную ревизию"
 
 # ID:79,
 #: ID:79
@@ -4111,6 +4162,16 @@ msgid ""
 msgstr ""
 "Выберите папку для экспорта.\n"
 "Вам может понадобится создать новую папку перед выполнением этого экспорта."
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select revision range"
+msgstr "Выберите ряд ревизий"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select start revision"
+msgstr "Выберите начальную ревизию"
 
 # ID:79,
 #: ID:79
@@ -4443,6 +4504,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "Поменять левую и правую"
+
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
@@ -4465,6 +4530,15 @@ msgid ""
 msgstr ""
 "Переключает из однопанельного вида в двухпанельный и наоборот\n"
 "Переключение между однопанельным и двухпанельным видами"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"Поменять местами левую и правую панель\n"
+"Поменять левую панель с правой"
 
 # ID:3825,
 #: ID:3825
@@ -4489,6 +4563,11 @@ msgstr "Переключиться на предыдущее окно докум
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Переключить рабочую копию на другое ответвление / тег"
+
+# ID:9,
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "Переключить рабочую копию на новое ответвление / тег"
 
 # ID:9,
 #: ID:9
@@ -4760,6 +4839,15 @@ msgstr ""
 "Время в секундах, после которого прекращается разбор выбранных файлов.\n"
 "Меньшее значение сделает доступным список автозавершения раньше,\n"
 "но при этом могут быть просмотрены не все файлы."
+
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"Выбранные URL не были созданы из общей основы.\n"
+"Невозможно показать лог-сообщения между ними!"
 
 # ID:16,
 #: ID:16
@@ -5389,6 +5477,17 @@ msgstr ""
 "Вы пытаетесь обратится к Хранилищу посредством file:/// на сетевом диске.\n"
 "Это может привести к сильному повреждению Хранилища!\n"
 "Вы действительно хотите это сделать?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"Это свойство применимо к файлам, а не папкам!\n"
+"Если Вы желаете установить его на всех файлах в этой папке,\n"
+"необходимо отметить опцию 'рекурсивно'."
 
 # ID:105,
 #: ID:105
