@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-17 11:07+0900\n"
+"PO-Revision-Date: 2005-08-22 14:21+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3654,6 +3654,16 @@ msgstr "사용자명과 암호를 요구합니다."
 msgid "Resolve"
 msgstr "충돌 해결함"
 
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using mine"
+msgstr "작업 사본의 내용으로 충돌 파일을 해결하기"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using theirs"
+msgstr "저장소의 내용으로 충돌 파일을 해결하기"
+
 # ID:8,
 #: ID:74
 #: ID:209
@@ -3664,6 +3674,16 @@ msgstr "충돌 해결됨"
 #: ID:8
 msgid "Resolved..."
 msgstr "충돌 해결됨"
+
+# ID:8,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"충돌 해결됨:\n"
+"%s"
 
 # ID:9,
 #: ID:9
@@ -3752,6 +3772,13 @@ msgstr "리비전 그래프"
 #: ID:75
 msgid "Revision: "
 msgstr "리비전:"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:116
+msgid "Revisions"
+msgstr "리비전"
 
 # ID:188,
 #: ID:188
