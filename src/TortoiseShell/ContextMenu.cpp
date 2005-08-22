@@ -192,7 +192,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 										fetchedstatus = status;
 										if ((stat.status->entry)&&(stat.status->entry->lock_token))
 											isLocked = (stat.status->entry->lock_token[0] != 0);
-										if (stat.status->entry->kind == svn_node_dir)
+										if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
 											isFolder = true;
 									}	
 									statfetched = TRUE;
