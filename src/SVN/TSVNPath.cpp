@@ -765,9 +765,47 @@ CTSVNPath CTSVNPathList::GetCommonDirectory() const
 			}
 		}
 	}
+	// since we only checked strings, not paths,
+	// we have to make sure now that we really return a *path* here
+	PathVector::const_iterator iter;
+	for(iter = m_paths.begin(); iter != m_paths.end(); ++iter)
+	{
+		if (!m_commonBaseDirectory.IsAncestorOf(*iter))
+		{
+			m_commonBaseDirectory = m_commonBaseDirectory.GetContainingDirectory();
+			break;
+		}
+	}	
 	return m_commonBaseDirectory;
 }
 
+CTSVNPath CTSVNPathList::GetCommonRoot() const
+{
+	PathVector::const_iterator it;
+	CString sRoot, sTempRoot;
+	bool bEqual = true;
+
+	for (int i=0; i<MAX_PATH; ++i)
+	{
+		sTempRoot.Empty();
+		for (it = m_paths.begin(); it != m_paths.end(); ++it)
+		{
+			const CString& sPath = it->GetWinPathString();
+			if (sTempRoot.IsEmpty())
+				sTempRoot = sPath.Left(i);
+			if (sTempRoot.CompareNoCase(sPath.Left(i))!=0)
+			{
+				bEqual = false;
+				break;
+			}
+		}
+		if (bEqual)
+			sRoot = sTempRoot;
+		else
+			break;
+	}
+	return CTSVNPath(sRoot);
+}
 
 void CTSVNPathList::SortByPathname(bool bReverse /*= false*/)
 {
@@ -986,6 +1024,12 @@ private:
 		ATLASSERT(testList[0].GetWinPathString() == _T("Path1"));
 		ATLASSERT(testList[1].GetWinPathString() == _T("c:\\path2 with spaces and stuff"));
 		ATLASSERT(testList[2].GetWinPathString() == _T("\\funnypath"));
+		
+		ATLASSERT(testList.GetCommonRoot().GetWinPathString() == _T(""));
+		testList.Clear();
+		sPathList = _T("c:\\path2 with spaces and stuff*c:\\funnypath\\*");
+		testList.LoadFromAsteriskSeparatedString(sPathList);
+		ATLASSERT(testList.GetCommonRoot().GetWinPathString() == _T("c:\\"));
 	}
 #endif 
 
