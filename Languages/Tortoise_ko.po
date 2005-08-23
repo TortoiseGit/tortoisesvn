@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-22 14:21+0900\n"
+"PO-Revision-Date: 2005-08-23 16:28+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1728,6 +1728,11 @@ msgstr "프린트 작업을 시작할 수 없습니다."
 #: ID:81
 msgid "Could not start thread!"
 msgstr "쓰레드를 시작시킬 수 없습니다!"
+
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "패치 생성"
 
 # ID:13,
 #: ID:13
@@ -3656,12 +3661,12 @@ msgstr "충돌 해결함"
 
 # ID:9,
 #: ID:282
-msgid "Resolve conflict using mine"
+msgid "Resolve conflict using \"mine\""
 msgstr "작업 사본의 내용으로 충돌 파일을 해결하기"
 
 # ID:9,
 #: ID:282
-msgid "Resolve conflict using theirs"
+msgid "Resolve conflict using \"theirs\""
 msgstr "저장소의 내용으로 충돌 파일을 해결하기"
 
 # ID:8,
@@ -4914,20 +4919,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, 빌드번호 %d -%s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, 빌드번호 %d\r\n"
+"TortoiseMerge %d.%d.%d, 빌드번호 %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4944,14 +4949,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, 빌드번호 %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4961,7 +4966,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, 빌드번호%d\r\n"
+"TortoiseSVN %d.%d.%d, 빌드번호 %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
