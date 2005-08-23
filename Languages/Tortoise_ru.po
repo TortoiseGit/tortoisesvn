@@ -31,13 +31,13 @@
 # resolve -- улаживать
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 4224: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 4242: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-22 14:51+0300\n"
+"PO-Revision-Date: 2005-08-23 19:00+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1769,6 +1769,11 @@ msgstr "Невозможно начать процесс печати."
 #: ID:81
 msgid "Could not start thread!"
 msgstr "Невозможно запустить поток!"
+
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Создать Патч"
 
 # ID:13,
 #: ID:13
@@ -3711,13 +3716,13 @@ msgstr "Уладить"
 
 # ID:9,
 #: ID:282
-msgid "Resolve conflict using mine"
-msgstr "Использовать мой файл при улаживании конфликта"
+msgid "Resolve conflict using \"mine\""
+msgstr "Уладить конфликт, используя \"мой\" файл"
 
 # ID:9,
 #: ID:282
-msgid "Resolve conflict using theirs"
-msgstr "Использовать их файл при улаживании конфликта"
+msgid "Resolve conflict using \"theirs\""
+msgstr "Уладить конфликт, используя \"их\" файл"
 
 # ID:8,#:
 # ID:74,
@@ -4991,20 +4996,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Сборка %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Сборка %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Сборка %d\r\n"
+"TortoiseMerge %d.%d.%d, Сборка %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5021,14 +5026,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Сборка %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Сборка %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5038,7 +5043,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Сборка %d\r\n"
+"TortoiseSVN %d.%d.%d, Сборка %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
