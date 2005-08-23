@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-16 11:32+0800\n"
+"PO-Revision-Date: 2005-08-23 09:46+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1736,6 +1736,11 @@ msgstr "無法啟動列印工作."
 #: ID:81
 msgid "Could not start thread!"
 msgstr "無法啟動執行緒!"
+
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "建立補綴"
 
 # ID:13,
 #: ID:13
@@ -3668,6 +3673,16 @@ msgstr "需要帳號和密碼"
 msgid "Resolve"
 msgstr "解決"
 
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "使用本地端(mine)解決衝突"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "使用遠端(theirs)解決衝突"
+
 # ID:8,
 #: ID:74
 #: ID:209
@@ -3678,6 +3693,16 @@ msgstr "已解決"
 #: ID:8
 msgid "Resolved..."
 msgstr "已解決..."
+
+# ID:8,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"已解決:\n"
+"%s"
 
 # ID:9,
 #: ID:9
@@ -3766,6 +3791,13 @@ msgstr "版本圖"
 #: ID:75
 msgid "Revision: "
 msgstr "版本: "
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:116
+msgid "Revisions"
+msgstr "版本"
 
 # ID:188,
 #: ID:188
@@ -4901,20 +4933,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, 組建 %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, 組建 %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, 組建 %d\r\n"
+"TortoiseMerge %d.%d.%d, 組建 %d -%s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4931,14 +4963,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, 組建 %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, 組建 %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4948,7 +4980,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, 組建 %d\r\n"
+"TortoiseSVN %d.%d.%d, 組建 %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
