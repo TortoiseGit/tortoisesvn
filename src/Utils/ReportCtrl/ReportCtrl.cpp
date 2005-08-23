@@ -5834,6 +5834,16 @@ void CReportCtrl::OnRButtonDown(UINT nFlags, CPoint point)
 		return;
 	}
 
+	int si = GetFirstSelectedItem();
+	bool bClickedSelected = false;
+	do 
+	{
+		if (si == rvhti.iItem)
+			bClickedSelected = true;
+	} while ((si = GetNextSelectedItem(si))!=RVI_INVALID);
+	if (bClickedSelected)
+		OnBeginDrag();
+
 	if(rvhti.iItem != RVI_INVALID)
 	{
 		INT iRow = GetRowFromItem(rvhti.iItem);

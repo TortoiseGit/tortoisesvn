@@ -161,6 +161,7 @@ private:
 	SVNRev		m_Revision;
 	BOOL		m_bFile;
 	DWORD		m_dwEffect;
+	bool		m_bRightDrag;
 	CDWordArray m_arDraggedIndexes;
 public:
 	int			m_nIconFolder;

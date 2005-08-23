@@ -30,6 +30,7 @@
 #include "Utils.h"
 #include "DragDropImpl.h"
 #include "UnicodeUtils.h"
+#include "RenameDlg.h"
 
 // CRepositoryTree
 
@@ -751,6 +752,7 @@ DROPEFFECT CRepositoryTree::OnDrag(int iItem, int iSubItem, IDataObject * pDataO
 {
 	if (iSubItem)
 		return DROPEFFECT_NONE;		// no dropping on subitems
+		
 	RVITEM Item;
 	Item.nMask = RVIM_IMAGE;
 	Item.iItem = iItem;
@@ -841,6 +843,7 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 			GlobalUnlock(medium.hGlobal);
 			urls.Replace(_T("\r\n"), _T("*"));
 			CTSVNPathList urlList;
+			CTSVNPathList destUrlList;
 			urlList.LoadFromAsteriskSeparatedString(urls);
 			// now check if the text dropped on us is a list of URL's
 			bool bAllUrls = true;
@@ -854,6 +857,28 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 			}
 			if (bAllUrls)
 			{
+				if (m_bRightDrag)
+				{
+					// right drag, offer to rename the URL
+					for (int i=0; i<urlList.GetCount(); ++i)
+					{
+						CRenameDlg renDlg;
+						renDlg.m_name = urlList[i].GetFileOrDirectoryName();
+						if (renDlg.DoModal()==IDOK)
+						{
+							CTSVNPath tempUrl = urlList[i];
+							tempUrl = tempUrl.GetContainingDirectory();
+							tempUrl.AppendPathString(renDlg.m_name);
+							destUrlList.AddPath(tempUrl);
+						}
+						else
+							return;
+					}
+				}
+				else
+				{
+					destUrlList = urlList;
+				}
 				if (grfKeyState & MK_CONTROL)
 				{
 					// copy the URLs to the new location
@@ -882,7 +907,7 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 						{
 							if (!FindUrl(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()))
 							{
-								if (!svn.Copy(urlList[index], CTSVNPath(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()), m_Revision, input.m_sInputText))
+								if (!svn.Copy(urlList[index], CTSVNPath(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()), m_Revision, input.m_sInputText))
 								{
 									wait_cursor.Hide();
 									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -894,9 +919,9 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 									if (hItem)
 									{
 										if (IsFolder(hItem))
-											AddFolder(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
 										else
-											AddFile(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
 									}
 								}
 							}
@@ -939,7 +964,7 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 						{
 							if (!FindUrl(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()))
 							{
-								if (!svn.Move(urlList[index], CTSVNPath(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()), m_Revision, input.m_sInputText))
+								if (!svn.Move(urlList[index], CTSVNPath(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()), m_Revision, input.m_sInputText))
 								{
 									wait_cursor.Hide();
 									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -951,9 +976,9 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 									if (hItem)
 									{
 										if (IsFolder(hItem))
-											AddFolder(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
 										else
-											AddFile(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName());
+											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
 										DeleteItem(hItem);
 									}
 								}
@@ -1028,6 +1053,7 @@ void CRepositoryTree::OnBeginDrag()
 		pdobj->SetData(&fmtetc, &medium, TRUE);
 	}
 
+	m_bRightDrag = !!(GetKeyState(VK_RBUTTON)&0x8000);
 	// Initiate the Drag & Drop
 	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE | DROPEFFECT_COPY, &m_dwEffect);
 	pdsrc->Release();
