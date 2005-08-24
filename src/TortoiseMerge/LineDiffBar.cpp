@@ -135,7 +135,7 @@ void CLineDiffBar::OnPaint()
 	{
 		m_pCacheBitmap = new CBitmap;
 		VERIFY(m_pCacheBitmap->CreateCompatibleBitmap(&dc, width, height));
-	} // if (m_pCacheBitmap == NULL) 
+	}
 	CBitmap *pOldBitmap = cacheDC.SelectObject(m_pCacheBitmap);
 
 	CRect upperrect = CRect(rect.left, rect.top, rect.right, rect.bottom/2);
@@ -150,9 +150,9 @@ void CLineDiffBar::OnPaint()
 			{
 				m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = TRUE;
 				m_pMainFrm->m_pwndRightView->m_bViewWhitespace = TRUE;
-			} // if ((1 != m_nIgnoreWS)||(!bViewWhiteSpace)) 
+			}
 			if (m_bBinaryDiff) {
-				DrawBinaryDiff(cacheDC, &upperrect, &lowerrect, m_nLineIndex);
+				DrawInlineDiff(cacheDC, &upperrect, &lowerrect, m_nLineIndex);
 			} else {
 				// Use left and right view to display lines next to each other
 				m_pMainFrm->m_pwndLeftView->DrawSingleLine(&cacheDC, &upperrect, m_nLineIndex);
@@ -161,7 +161,7 @@ void CLineDiffBar::OnPaint()
 			m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = bViewWhiteSpace;
 			m_pMainFrm->m_pwndRightView->m_bViewWhitespace = bViewWhiteSpace;
 		}
-	} // if (m_pSourceView) 
+	} 
 
 	VERIFY(dc.BitBlt(rect.left, rect.top, width, height, &cacheDC, 0, 0, SRCCOPY));
 
@@ -170,106 +170,74 @@ void CLineDiffBar::OnPaint()
 }
 
 
-/**
-  Find longest match of needle in haystack
-
-  This is an adapted version of the search routine used in bdiff --- 
-  see bdiff.sourceforge.net. The routine has been converted to use 
-  windows TCHAR. The bdiff version only found matches longer than sizeof(int32_t).
-
-   \param haystack string to be searched.
-   \param haystacklen, length of string.
-   \param needle, string to be found in haystack.
-   \param needlelen, length of needle.
-   \param max here the length of the match is supplied.
-   \returns pointer to match.
-
- */
-const TCHAR *CLineDiffBar::Search(const TCHAR *haystack, size_t haystacklen, 
-								  const TCHAR *needle, size_t needlelen, 
+const TCHAR *CLineDiffBar::Search(const TCHAR *wholestring, size_t wholestringlen, 
+								  const TCHAR *longeststring, size_t longeststringlen, 
 								  size_t *max) 
 {
-  const TCHAR *start, *s, *n, *maxp;
+	const TCHAR *start, *s, *n, *maxp;
+	if (wholestringlen == -1)
+		wholestringlen = _tcslen(wholestring);
+	if (longeststringlen == -1)
+		longeststringlen = _tcslen(longeststring);
 
-  maxp=0;
-  *max=0;
-  for (start=haystack; start<=haystack+haystacklen; start++) {
-    if (*start != *needle)
-		continue;
-	s = start;
-	n = needle;
-    while (*s==*n && *s != _T('\0') && *n != _T('\0')) {
-      s++;
-      n++;
-    }
-    if (*max<(size_t)(s-start)) {
-      *max=s-start;
-      maxp=start;
-    }
-    if ((size_t)(n-needle) >=needlelen)
-      break;
-  }
-  return(maxp);
+	maxp=0;
+	*max=0;
+	for (start=wholestring; start<=wholestring+wholestringlen; start++)
+	{
+		// if the string doesn't match, try again
+		if (*start != *longeststring)
+			continue;
+
+		s = start;
+		n = longeststring;
+		while (*s==*n && *s != '\0' && *n != '\0')
+		{
+			s++;
+			n++;
+		}
+		if (*max<(size_t)(s-start))
+		{
+			*max=s-start;
+			maxp=start;
+		}
+		if ((size_t)(n-longeststring) >=longeststringlen)
+			break;
+	}
+	return(maxp);
 }
 
 
-#define BDIFF_COPY   (1 << 8)
-#define BDIFF_INSERT (2 << 8)
+#define DIFF_COPY   1
+#define DIFF_INSERT 2
 
-/**
- Binary Diff the two string "base" and "your"
-
- Uses a copy/insert algorithm to diff the two strings base and your. 
- I.e. "your" is written as a sequence of copy or insert operations, each operation 
- is stored in the result array as a sequence of 3 DWORDs. 
- First DWORD encodes the operation (BDIFF_COPY or BDIFF_INSERT), second gives position 
- in "base" or "your" respectively and third gives length. 
-
- E.g.
-
- base = acacacacacababab
- your = abababxyxyxyxyacacacacac
-
- yields as result BDIFF_COPY 9 6 BDIFF_INSERT 6 8 BDIFF_COPY 0 10
- 
- The algorithm uses the longest match for copy, and tries to keep insertion 
- to a minimum. For better visual display copy operations containing less then 4 
- characters are discarded, though. It is "greedy" in the sense, that once a match 
- is found, it advances to the position after the match and does not consider 
- positions in between for matching.
-
- \param base string (in), this is the "from" string
- \param your string (in), this is the "to" string
- \param result (out), array containing binary diff of the two strings, encoded as 
-        explained above.
-  
- */
-void CLineDiffBar::BinDiff(CDWordArray & result, CString & base, CString & your) 
+void CLineDiffBar::InLineDiff(CDWordArray & result, CString & base, CString & your) 
 {
-	// We use brute force, ie. this is O(N^2)
-	// One could use a suffix tree, of O(N) + O(N) (build + search), but as 
-	// we would discard the tree after each search, ...
-
 	const TCHAR * match = NULL;
 	size_t match_length = 0;
 	BOOL bInsert = FALSE;
-	for (size_t i = 0; i < your.GetLength(); i += match_length) {
+	for (size_t i = 0; i < (size_t)your.GetLength(); i += match_length) 
+	{
 		match = Search(base.GetBuffer(), base.GetLength(), 
 			           your.GetBuffer() + i, your.GetLength() - i, &match_length);
-		if (match == NULL || match_length <= 3) {
-			// ... use an insert operation
+		if (match == NULL || match_length <= 5) 
+		{
 			match_length = 1;
-			if (!bInsert) {
-				result.Add(BDIFF_INSERT);
+			if (!bInsert)
+			{
+				result.Add(DIFF_INSERT);
 				result.Add(your.GetLength() - i);
 				result.Add(match_length);
 				bInsert = TRUE;
-			} else {
+			} 
+			else
+			{
 				result[result.GetSize() - 1] += match_length;
 			}
-		} else {
+		}
+		else
+		{
 			bInsert = FALSE;
-			result.Add(BDIFF_COPY);
+			result.Add(DIFF_COPY);
 			result.Add(match - base.GetBuffer());
 			result.Add(match_length);
 		}
@@ -278,12 +246,7 @@ void CLineDiffBar::BinDiff(CDWordArray & result, CString & base, CString & your)
 }
 
 
-/**
-  Color code the differences between two lines
-
-  Use the result of a binary diff to determine what to color.
- */
-void CLineDiffBar::DrawBinaryDiff(CDC &dc, const CRect *upperrect, const CRect *lowerrect, int line)
+void CLineDiffBar::DrawInlineDiff(CDC &dc, const CRect *upperrect, const CRect *lowerrect, int line)
 {
 	ASSERT(m_pMainFrm);
 	ASSERT(m_pMainFrm->m_pwndLeftView);
@@ -318,24 +281,9 @@ void CLineDiffBar::DrawBinaryDiff(CDC &dc, const CRect *upperrect, const CRect *
     m_pMainFrm->m_pwndRightView->ExpandChars(ptstr, 0, m_pMainFrm->m_pwndRightView->GetLineLength(line), rline);
 
 	// Determine binary diff operations
-	CDWordArray bdiff;
-	bdiff.SetSize(0, 30); // Prohibit excessive reallocation (grow for 10 operations each).
-	BinDiff(bdiff, lline, rline);
-
-#ifdef _DEBUG 
-	// Display operations and check result
-	ASSERT(bdiff.GetSize() % 3 == 0);
-	for (int i = 0; i < bdiff.GetSize(); i+=3) {
-		ASSERT(bdiff[i] == BDIFF_COPY || bdiff[i] == BDIFF_INSERT);
-		ASSERT(bdiff[i+1] >= 0);
-		ASSERT(bdiff[i+2] > 0);
-		TRACE("Op : %c\n", (bdiff[i] == BDIFF_COPY) ? 'C' : 'I' );
-		TRACE("Pos: %d\n", bdiff[i+1]);
-		TRACE("Cnt: %d\n", bdiff[i+2]);
-	}
-	TRACE("Left : %s\n", lline);
-	TRACE("Right: %s\n", rline); 
-#endif
+	CDWordArray inlinediff;
+	inlinediff.SetSize(0, 30); // Prohibit excessive reallocation (grow for 10 operations each).
+	InLineDiff(inlinediff, lline, rline);
 
 	// Prepare for drawing
 	dc.SelectObject(m_pMainFrm->m_pwndLeftView->GetFont(FALSE, FALSE, FALSE));
@@ -355,19 +303,23 @@ void CLineDiffBar::DrawBinaryDiff(CDC &dc, const CRect *upperrect, const CRect *
 	dc.SetTextColor(r_txtcol);
 	dc.ExtTextOut(u_origin.x, u_origin.y, ETO_CLIPPED, upperrect, lline, lline.GetLength(), NULL);
 	int pos = 0;
-	for (int i = 0; i < bdiff.GetSize(); i += 3) {
-		if (bdiff[i] == BDIFF_COPY) {
+	for (int i = 0; i < inlinediff.GetSize(); i += 3) 
+	{
+		if (inlinediff[i] == DIFF_COPY) 
+		{
 			dc.SetBkColor(m_BinDiffColors[ (i/3) % (sizeof(m_BinDiffColors)/sizeof(COLORREF)) ]);
 			dc.SetTextColor(txtcol);
-			dc.ExtTextOut(u_origin.x + bdiff[i+1] * m_pMainFrm->m_pwndLeftView->GetCharWidth(), u_origin.y, ETO_CLIPPED, upperrect,
-				          lline.Mid(bdiff[i+1], bdiff[i+2]), bdiff[i+2], NULL);
-		} else {
+			dc.ExtTextOut(u_origin.x + inlinediff[i+1] * m_pMainFrm->m_pwndLeftView->GetCharWidth(), u_origin.y, ETO_CLIPPED, upperrect,
+				          lline.Mid(inlinediff[i+1], inlinediff[i+2]), inlinediff[i+2], NULL);
+		} 
+		else 
+		{
 			dc.SetBkColor(a_col);
 			dc.SetTextColor(a_txtcol);
 		}
 		dc.ExtTextOut(l_origin.x + pos * m_pMainFrm->m_pwndLeftView->GetCharWidth(), l_origin.y, ETO_CLIPPED, lowerrect, 
-			          rline.Mid(pos, bdiff[i+2]), bdiff[i+2], NULL);
-		pos += bdiff[i+2];
+			          rline.Mid(pos, inlinediff[i+2]), inlinediff[i+2], NULL);
+		pos += inlinediff[i+2];
 	}
 }
 
