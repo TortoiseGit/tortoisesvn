@@ -150,7 +150,7 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
 	}
 	// Replace the $WCxxx$ string with the actual revision number
 	char * pBuild = pBuf + index;
-	size_t Expansion = strlen(destbuf) - strlen(def);
+    ptrdiff_t Expansion = strlen(destbuf) - strlen(def);
 	if (Expansion < 0)
 	{
 		memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
@@ -192,7 +192,7 @@ int InsertDate(char * def, char * pBuf, size_t & index,
 			newtime->tm_sec);
 	// Replace the $WCDATE$ string with the actual commit date
 	char * pBuild = pBuf + index;
-	size_t Expansion = strlen(destbuf) - strlen(def);
+	ptrdiff_t Expansion = strlen(destbuf) - strlen(def);
 	if (Expansion < 0)
 	{
 		memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
@@ -220,7 +220,7 @@ int InsertUrl(char * def, char * pBuf, size_t & index,
 	}
 	// Replace the $WCURL$ string with the actual URL
 	char * pBuild = pBuf + index;
-	size_t Expansion = strlen(pUrl) - strlen(def);
+	ptrdiff_t Expansion = strlen(pUrl) - strlen(def);
 	if (Expansion < 0)
 	{
 		memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
