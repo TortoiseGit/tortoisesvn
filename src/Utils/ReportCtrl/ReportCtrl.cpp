@@ -717,6 +717,7 @@ BEGIN_MESSAGE_MAP(CReportCtrl, CWnd)
 	ON_WM_HSCROLL()
 	ON_WM_VSCROLL()
 	ON_WM_LBUTTONDOWN()
+	ON_WM_LBUTTONUP()
 	ON_WM_SETCURSOR()
 	ON_WM_KEYDOWN()
 	ON_WM_GETDLGCODE()
@@ -5747,6 +5748,8 @@ void CReportCtrl::OnLButtonDown(UINT nFlags, CPoint point)
 
 	HitTest(&rvhti);
 
+	m_lastLClickPos = point;
+
 	if(m_dwStyle&RVS_TREEMASK && rvhti.nFlags&RVHT_ONITEMTREEBOX)
 	{
 		if(!Notify(RVN_ITEMEXPANDING, rvhti.iItem, rvhti.iSubItem))
@@ -5775,16 +5778,6 @@ void CReportCtrl::OnLButtonDown(UINT nFlags, CPoint point)
 		m_iFocusColumn = rvhti.iColumn;
 	else
 		m_iFocusColumn = -1;
-
-	int si = GetFirstSelectedItem();
-	bool bClickedSelected = false;
-	do 
-	{
-		if (si == rvhti.iItem)
-			bClickedSelected = true;
-	} while ((si = GetNextSelectedItem(si))!=RVI_INVALID);
-	if (bClickedSelected)
-		OnBeginDrag();
 	
 	if(rvhti.iItem != RVI_INVALID)
 	{
@@ -5818,6 +5811,11 @@ void CReportCtrl::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 }
 
+void CReportCtrl::OnLButtonUp(UINT /*nFlags*/, CPoint /*point*/)
+{
+	m_lastLClickPos = CPoint(0, 0);
+}
+
 void CReportCtrl::OnRButtonDown(UINT nFlags, CPoint point)
 {
 	SetFocus();
@@ -5827,22 +5825,14 @@ void CReportCtrl::OnRButtonDown(UINT nFlags, CPoint point)
 	rvhti.point = point;
 
 	HitTest(&rvhti);
+	
+	m_lastRClickPos = point;
 
 	if(Notify(RVN_ITEMRCLICK, nFlags, &rvhti))
 	{
 		CWnd::OnRButtonDown(nFlags, point);
 		return;
 	}
-
-	int si = GetFirstSelectedItem();
-	bool bClickedSelected = false;
-	do 
-	{
-		if (si == rvhti.iItem)
-			bClickedSelected = true;
-	} while ((si = GetNextSelectedItem(si))!=RVI_INVALID);
-	if (bClickedSelected)
-		OnBeginDrag();
 
 	if(rvhti.iItem != RVI_INVALID)
 	{
@@ -5873,6 +5863,8 @@ void CReportCtrl::OnRButtonUp(UINT nFlags, CPoint point)
 	rvhti.point = point;
 
 	HitTest(&rvhti);
+
+	m_lastRClickPos = CPoint(0, 0);
 
 	if(Notify(RVN_ITEMRCLICKUP, nFlags, &rvhti))
 	{
@@ -6266,6 +6258,39 @@ BOOL CReportCtrl::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 void CReportCtrl::OnMouseMove(UINT nFlags, CPoint point)
 {
 	BOOL bHide = TRUE;
+
+	if ((nFlags & MK_RBUTTON)&&(!((m_lastRClickPos.x == 0)&&(m_lastRClickPos.y == 0))))
+	{
+		// check if we have to start a drag operation
+		if (abs(m_lastRClickPos.x - point.x) > GetSystemMetrics(SM_CXDRAG))
+		{
+			OnBeginDrag();
+			m_lastRClickPos = CPoint(0, 0);
+		}
+		else if (abs(m_lastRClickPos.y - point.y) > GetSystemMetrics(SM_CYDRAG))
+		{
+			OnBeginDrag();
+			m_lastRClickPos = CPoint(0, 0);
+		}
+	}
+	else
+		m_lastRClickPos = CPoint(0, 0);
+	if ((nFlags & MK_LBUTTON)&&(!((m_lastLClickPos.x == 0)&&(m_lastLClickPos.y == 0))))
+	{
+		// check if we have to start a drag operation
+		if (abs(m_lastLClickPos.x - point.x) > GetSystemMetrics(SM_CXDRAG))
+		{
+			OnBeginDrag();
+			m_lastLClickPos = CPoint(0, 0);
+		}
+		else if (abs(m_lastLClickPos.y - point.y) > GetSystemMetrics(SM_CYDRAG))
+		{
+			OnBeginDrag();
+			m_lastLClickPos = CPoint(0, 0);
+		}
+	}
+	else
+		m_lastLClickPos = CPoint(0, 0);
 
 	if(m_bFocus && !nFlags && m_dwStyle&RVS_EXPANDSUBITEMS && m_hEditWnd == NULL)
 	{

@@ -1054,6 +1054,9 @@ protected:
 	SIZE m_sizeBitmap;
 
 	ULONG m_uNotifyMask;
+	
+	CPoint m_lastRClickPos;
+	CPoint m_lastLClickPos;
 
 	virtual BOOL Create();
 
@@ -1155,6 +1158,7 @@ protected:
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg UINT OnGetDlgCode();
