@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-08-19 19:26GMT Daylight Time\n"
+"POT-Creation-Date: 2005-08-26 11:13GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1781,6 +1781,10 @@ msgstr ""
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
 msgstr ""
 
+#: source/en/tsvn_dug/dug_repobrowser.xml:54(para) 
+msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right-drag</action> the item instead of just drag it. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
+msgstr ""
+
 #: source/en/tsvn_dug/dug_rename.xml:3(title) 
 msgid "Deleting, Renaming And Moving"
 msgstr ""
@@ -2017,55 +2021,67 @@ msgstr ""
 msgid "patch"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:8(para) 
+#: source/en/tsvn_dug/dug_patch.xml:9(para) 
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:19(para) 
+#: source/en/tsvn_dug/dug_patch.xml:20(para) 
 msgid "Patch files are simply Unified-Diff files showing the differences between your working copy and the base revision."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:24(title) 
+#: source/en/tsvn_dug/dug_patch.xml:25(title) 
 msgid "Creating a Patch File"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:25(para) 
-msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice> This will produce a single file containing a summary of all the changes you have made since the last update from the repository. If you create a patch file, make some more changes and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
+#: source/en/tsvn_dug/dug_patch.xml:26(para) 
+msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:42(para) 
+#: source/en/tsvn_dug/dug_patch.xml:40(title) 
+msgid "The Create Patch dialog"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_patch.xml:43(para) 
+msgid "you can now select the files you want included in the patch, just as you would with a full commit. This will produce a single file containing a summary of all the changes you have made to the selected files since the last update from the repository."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_patch.xml:49(para) 
+msgid "You can produce separate patches containing changes to different sets of files. Of course, if you create a patch file, make some more changes to the <emphasis>same</emphasis> files and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_patch.xml:55(para) 
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:52(title) 
+#: source/en/tsvn_dug/dug_patch.xml:65(title) 
 msgid "Applying a Patch File"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:53(para) 
+#: source/en/tsvn_dug/dug_patch.xml:66(para) 
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>english</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TSVN will notice and suggest the correct level."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:67(para) 
+#: source/en/tsvn_dug/dug_patch.xml:80(para) 
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:74(para) 
+#: source/en/tsvn_dug/dug_patch.xml:87(para) 
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for \"All files\"."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:85(para) 
+#: source/en/tsvn_dug/dug_patch.xml:98(para) 
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:95(para) 
+#: source/en/tsvn_dug/dug_patch.xml:108(para) 
 msgid "These two methods just offer different ways of doing the same thing. With the first method you select the WC and browse to the patch file. With the second you select the patch file and browse to the WC."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:100(para) 
+#: source/en/tsvn_dug/dug_patch.xml:113(para) 
 msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_patch.xml:107(para) 
+#: source/en/tsvn_dug/dug_patch.xml:120(para) 
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
 msgstr ""
 

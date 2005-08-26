@@ -35,9 +35,21 @@
 				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Create Patch...</guimenuitem>
 			</menuchoice>
-			This will produce a single file containing a summary of all the changes
-			you have made since the last update from the repository. If you create a
-			patch file, make some more changes and then create another patch, the
+		</para>
+		<figure id="tsvn-DUG-patch-dia-1">
+			<title>The Create Patch dialog</title>
+			<graphic fileref="images/CreatePatch.png"/>
+		</figure>
+		<para>
+			you can now select the files you want included in the patch,
+			just as you would with a full commit. This will produce a single
+			file containing a summary of all the changes you have made to the
+			selected files since the last update from the repository.
+		</para>
+		<para>
+			You can produce separate patches containing changes to different
+			sets of files. Of course, if you create a patch file, make some more changes
+			to the <emphasis>same</emphasis> files and then create another patch, the
 			second patch file will include <emphasis>both</emphasis> sets of changes.
 		</para>
 		<para>
