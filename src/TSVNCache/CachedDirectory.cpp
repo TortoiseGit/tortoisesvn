@@ -480,6 +480,11 @@ CCachedDirectory::IsOwnStatusValid() const
 		   m_ownStatus.GetEffectiveStatus()!=svn_wc_status_external;
 }
 
+void CCachedDirectory::Invalidate()
+{
+	m_ownStatus.Invalidate();
+}
+
 svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
 {
 	// Combine our OWN folder status with the most important of our *FILES'* status.

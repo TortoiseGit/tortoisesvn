@@ -242,3 +242,8 @@ CStatusCacheEntry::HasBeenSet() const
 {
 	return m_bSet;
 }
+
+void CStatusCacheEntry::Invalidate()
+{
+	m_bSet = false;
+}

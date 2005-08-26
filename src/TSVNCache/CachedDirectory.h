@@ -40,6 +40,7 @@ public:
 	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive);
 	CStatusCacheEntry GetOwnStatus(bool bRecursive);
 	bool IsOwnStatusValid() const;
+	void Invalidate();
 	void RefreshStatus(bool bRecursive);
 	BOOL SaveToDisk(FILE * pFile);
 	BOOL LoadFromDisk(FILE * pFile);

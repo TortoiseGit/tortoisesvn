@@ -171,22 +171,29 @@ void CFolderCrawler::WorkerThread()
 					m_pathsToUpdate.pop_front();
 				}
 				// check if the changed path is inside an .svn folder
-				if (workingPath.IsAdminDir())
+				if (workingPath.HasAdminDir()||workingPath.IsAdminDir())
 				{
-					if (workingPath.GetWinPathString().Find(_T("/tmp/"))<0)
+					// we don't crawl for paths changed in a tmp folder inside an .svn folder.
+					// Because we also get notifications for those even if we just ask for the status!
+					// And changes there don't affect the file status at all, so it's safe
+					// to ignore notifications on those paths.
+					if (workingPath.GetWinPathString().Find(_T("\\tmp\\"))>0)
+						continue;
+					if (workingPath.GetWinPathString().Find(_T("\\tmp")) == (workingPath.GetWinPathString().GetLength()-4))
 						continue;
 					do 
 					{
 						workingPath = workingPath.GetContainingDirectory();	
 					} while(workingPath.IsAdminDir());
 
-					ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
+					ATLTRACE("Invalidating and refreshing folder: %ws\n", workingPath.GetWinPath());
 					CSVNStatusCache::Instance().WaitToRead();
-					// Now, we need to visit this folder, to make sure that we know its 'most important' status
+					// Invalidate the cache of this folder, to make sure its status is fetched again.
+					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->Invalidate();
 					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
 					CSVNStatusCache::Instance().Done();
 				}
-				else if (workingPath.HasAdminDir())
+				else
 				{
 					ATLTRACE("Updating path: %ws\n", workingPath.GetWinPath());
 					// HasAdminDir() already checks if the path points to a dir
@@ -194,6 +201,11 @@ void CFolderCrawler::WorkerThread()
 					flags |= (workingPath.IsDirectory() ? TSVNCACHE_FLAGS_ISFOLDER : 0);
 					flags |= (bRecursive ? TSVNCACHE_FLAGS_RECUSIVE_STATUS : 0);
 					CSVNStatusCache::Instance().WaitToRead();
+					// Invalidate the cache of folders manually. The cache of files is invalidated
+					// automatically if the status is asked for it and the filetimes don't match
+					// anymore, so we don't need to manually invalidate those.
+					if (workingPath.IsDirectory())
+						CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->Invalidate();
 					CSVNStatusCache::Instance().GetStatusForPath(workingPath, flags);
 					CSVNStatusCache::Instance().Done();
 				}
