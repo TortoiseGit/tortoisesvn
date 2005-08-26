@@ -873,6 +873,10 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 		}
 		catch (bad_alloc) {}
 		catch (bad_regexpr){}
+		catch ( ... )
+		{
+			ATLTRACE("exception occurred! most likely a bad regex!\n");
+		}
 	}
 	else
 	{
@@ -892,19 +896,21 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0));
 					offset1 += results.rstart(0);
 					{
+						ATLTRACE("matched results : %ld\n", results.cbackrefs());
 						for (size_t i=1; i<results.cbackrefs(); ++i)
 						{
-							if (results.rstart(i) > 0)
+							if ((results.rstart(i) < 0)||(results.rstart(i) >= msg.GetLength()))
+							{
+								continue;
+							}
+							else
 							{
 								Call(SCI_SETSTYLING, results.rstart(i), STYLE_BOLD);
 								ATLTRACE("STYLE_BOLD %d chars\n", results.rstart(i)-offset1);
-							}
 
-							offset1 += results.rstart(i);
-							offset1 += results.rlength(i);
+								offset1 += results.rstart(i);
+								offset1 += results.rlength(i);
 
-							if (results.rlength(i) > 0)
-							{
 								Call(SCI_SETSTYLING, results.rlength(i), STYLE_BOLDITALIC);
 								ATLTRACE("STYLE_BOLDITALIC %d chars\n", results.rlength(i));
 							}
@@ -914,7 +920,7 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 				else
 				{
 					// bold style for the rest of the string which isn't matched
-					if (end_pos > offset1)
+					if (end_pos > (int)offset1)
 						Call(SCI_SETSTYLING, end_pos-offset1, STYLE_DEFAULT);
 				}
 			} while(br.matched);
@@ -923,6 +929,10 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 		}
 		catch (bad_alloc) {}
 		catch (bad_regexpr){}
+		catch ( ... )
+		{
+			ATLTRACE("exception occurred! most likely a bad regex!\n");
+		}
 	}
 	return FALSE;
 }
