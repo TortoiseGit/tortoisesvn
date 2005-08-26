@@ -174,6 +174,11 @@ UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
 //this is the thread function which calls the subversion function
 UINT CRepositoryBrowser::InitThread()
 {
+	// force the cursor to change
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
+
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 	SVN svn;
@@ -183,7 +188,11 @@ UINT CRepositoryBrowser::InitThread()
 	PostMessage(WM_AFTERINIT);
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
+	
 	m_bThreadRunning = false;
+
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 	return 0;
 }
 
