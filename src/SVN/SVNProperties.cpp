@@ -22,6 +22,7 @@
 #include "SVNProperties.h"
 #include "SVNStatus.h"
 #include "UnicodeStrings.h"
+#include "SVNHelpers.h"
 
 #ifdef _MFC_VER
 #	include "SVN.h"
@@ -234,12 +235,14 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 	std::string		pname_utf8;
 	m_error = NULL;
 
-	pval = svn_string_create (Value, m_pool);
+	SVNPool subpool(m_pool);
+
+	pval = svn_string_create (Value, subpool);
 
 	pname_utf8 = StringToUTF8(Name);
 	if ((svn_prop_needs_translation (pname_utf8.c_str()))||(strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))
 	{
-		m_error = svn_subst_translate_string (&pval, pval, NULL, m_pool);
+		m_error = svn_subst_translate_string (&pval, pval, NULL, subpool);
 		if (m_error != NULL)
 			return FALSE;
 	}
@@ -295,7 +298,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 				if ((status->entry)&&(status->entry->kind == svn_node_dir))
 				{
 					// a versioned folder, so set the property!
-					m_error = svn_client_propset2 (pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, false, &m_ctx, m_pool);
+					m_error = svn_client_propset2 (pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, false, &m_ctx, subpool);
 #ifdef _MFC_VER
 					//CShellUpdater::Instance().AddPathForUpdate(path);
 #endif
@@ -306,7 +309,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 	}
 	else 
 	{
-		m_error = svn_client_propset2 (pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, false, &m_ctx, m_pool);
+		m_error = svn_client_propset2 (pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, false, &m_ctx, subpool);
 #ifdef _MFC_VER
 		//CShellUpdater::Instance().AddPathForUpdate(m_path);
 #endif
