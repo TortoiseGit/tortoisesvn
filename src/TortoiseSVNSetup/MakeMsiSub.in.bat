@@ -2,7 +2,7 @@ echo MakeMsiSub.bat: candle (WiX compilation)
 candle -nologo -out ..\..\bin\ TortoiseSVN.wxs FeaturesFragment.wxs StructureFragment.wxs UIFragment.wxs
 
 echo MakeMsiSub.bat: light (WiX linking)
-light -out ..\..\bin\TortoiseSVN-$MajorVersion$.$MinorVersion$.$MicroVersion$.$WCREV$-dev-svn-1.2.1.msi ..\..\bin\TortoiseSVN.wixobj ..\..\bin\FeaturesFragment.wixobj ..\..\bin\StructureFragment.wixobj ..\..\bin\UIFragment.wixobj
+light -out ..\..\bin\TortoiseSVN-$MajorVersion$.$MinorVersion$.$MicroVersion$.$WCREV$-dev-svn-1.2.3.msi ..\..\bin\TortoiseSVN.wixobj ..\..\bin\FeaturesFragment.wixobj ..\..\bin\StructureFragment.wixobj ..\..\bin\UIFragment.wixobj
 
 echo MakeMsiSub.bat: Cleaning up
 cd ..\..\bin
