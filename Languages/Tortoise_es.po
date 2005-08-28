@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-16 23:45+0100\n"
+"PO-Revision-Date: 2005-08-28 16:05+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1466,6 +1466,10 @@ msgstr "No se pudo iniciar el trabajo de impresión."
 #: ID:81
 msgid "Could not start thread!"
 msgstr "¡No se puede iniciar el thread!"
+
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Crear Parche"
 
 #: ID:13
 msgid "Create Patch..."
@@ -3108,6 +3112,14 @@ msgstr "Pide un usuario y una contraseña"
 msgid "Resolve"
 msgstr "Resolver"
 
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "Resuelve el conflicto usando \"mío\""
+
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "Resuelve el conflicto usando \"de otros\""
+
 #: ID:74
 #: ID:209
 msgid "Resolved"
@@ -3116,6 +3128,15 @@ msgstr "Resuelto"
 #: ID:8
 msgid "Resolved..."
 msgstr "Resuelto..."
+
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Resuelto:\n"
+"%s"
 
 #: ID:9
 msgid "Resolves conflicted files"
@@ -3183,6 +3204,10 @@ msgstr "Gráfico de Revisiones"
 #: ID:75
 msgid "Revision: "
 msgstr "Revisión:"
+
+#: ID:116
+msgid "Revisions"
+msgstr "Revisiones"
 
 # ID:188,
 #: ID:188
@@ -4083,8 +4108,8 @@ msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"xHay cambios dentro de uno o más directorios que han sido incluidos con svn:externals.\n"
-"Esos archivos <b>NO</b> son listados para confirmar. Necesita confirmar esos archivos separadamente."
+"Hay cambios dentro de uno o más directorios que han sido incluidos con svn:externals.\n"
+"Esos archivos <b>NO</b> se muestran para su confirmación. Necesita confirmar esos ficheros de forma separada."
 
 # ID:66,
 #: ID:66
@@ -4167,20 +4192,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4195,14 +4220,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4212,7 +4237,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
