@@ -146,9 +146,9 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 	// insert other columns text
 	CString temp;
 	int col = 0;
-	for (col=1; col<GetActiveSubItemCount()-1; col++)
+	for (col=2; col<GetActiveSubItemCount()-1; col++)
 	{
-		if (AfxExtractSubString(temp, folder, col, '\t'))
+		if (AfxExtractSubString(temp, folder, col-1, '\t'))
 			SetItemText(GetItemIndex(hItem), col, temp);
 	}
 	// get the time value and store that in the Param64
@@ -161,7 +161,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 		rvi.Param64 = _ttoi64(temp);
 		SetItem(&rvi);
 	}
-	SetItemText(GetItemIndex(hItem), 5, _T(""));
+	SetItemText(GetItemIndex(hItem), 6, _T(""));
 	return hItem;
 }
 
@@ -203,9 +203,9 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 	// insert other columns text
 	CString temp;
 	int col = 0;
-	for (col=1; col<GetActiveSubItemCount()-1; col++)
+	for (col=2; col<GetActiveSubItemCount()-1; col++)
 	{
-		if (AfxExtractSubString(temp, file, col, '\t'))
+		if (AfxExtractSubString(temp, file, col-1, '\t'))
 			SetItemText(GetItemIndex(hItem), col, temp);
 	}
 	// get the time value and store that in the Param64
@@ -219,7 +219,13 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 		SetItem(&rvi);
 	}
 	CString file_path_stripped = file_path.Mid(m_strReposRoot.GetLength());
-	SetItemText(GetItemIndex(hItem), 5, m_locks[file_path_stripped].owner);
+	SetItemText(GetItemIndex(hItem), 6, m_locks[file_path_stripped].owner);
+	CString sExt;
+	int dotPos = file_path_stripped.ReverseFind('.');
+	int slashPos = file_path_stripped.ReverseFind('/');
+	if ((dotPos > slashPos)&&(dotPos <= file_path_stripped.GetLength()))
+		sExt = file_path_stripped.Mid(dotPos+1);
+	SetItemText(GetItemIndex(hItem), 1, sExt);
 	return hItem;
 }
 
@@ -499,6 +505,7 @@ static INT CALLBACK SortCallback(INT iItem1, INT iSubItem1, INT iItem2, INT iSub
 	switch (iSubItem1)
 	{
 	case 0:
+	case 1:
 		if (rvi1.iImage == rctrl->m_nIconFolder)
 		{
 			if (rvi2.iImage != rctrl->m_nIconFolder)
@@ -509,18 +516,18 @@ static INT CALLBACK SortCallback(INT iItem1, INT iSubItem1, INT iItem2, INT iSub
 			return 1;
 		}
 		// fall through
-	case 2:
-		return _tcsicmp(szText1, szText2);
-	case 1:
 	case 3:
-		return _tstoi(szText1) - _tstoi(szText2);
+		return _tcsicmp(szText1, szText2);
+	case 2:
 	case 4:
+		return _tstoi(szText1) - _tstoi(szText2);
+	case 5:
 		if (rvi2.Param64 > rvi1.Param64)
 			return -11;
 		if (rvi2.Param64 < rvi1.Param64)
 			return 1;
 		return 0;
-	case 5:
+	case 6:
 		return _tcsicmp(szText1, szText2);
 	}
 
@@ -549,49 +556,58 @@ void CRepositoryTree::Init(const SVNRev& revision)
 	DefineSubItem(0, &rvs);
 	ActivateSubItem(0, 0);
 	//
-	// column 1: revision number
+	// column 1: file extension
+	temp.LoadString(IDS_STATUSLIST_COLEXT);
+	rvs.lpszText = temp;
+	rvs.iWidth = 65;
+	rvs.iMinWidth = 25;
+	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
+	DefineSubItem(1, &rvs);
+	ActivateSubItem(1, 1);
+	//
+	// column 2: revision number
 	temp.LoadString(IDS_LOG_REVISION);
 	rvs.lpszText = temp;
 	rvs.iWidth = 65;
 	rvs.iMinWidth = 25;
 	rvs.nFormat = RVCF_RIGHT|RVCF_TEXT;
-	DefineSubItem(1, &rvs);
-	ActivateSubItem(1, 1);
+	DefineSubItem(2, &rvs);
+	ActivateSubItem(2, 2);
 	//
-	// column 2: author
+	// column 3: author
 	temp.LoadString(IDS_LOG_AUTHOR);
 	rvs.lpszText = temp;
 	rvs.iWidth = 85;
 	rvs.iMinWidth = 25;
 	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
-	DefineSubItem(2, &rvs);
-	ActivateSubItem(2, 2);
+	DefineSubItem(3, &rvs);
+	ActivateSubItem(3, 3);
 	//
-	// column 3: size
+	// column 4: size
 	temp.LoadString(IDS_LOG_SIZE);
 	rvs.iWidth = 65;
 	rvs.iMinWidth = 25;
 	rvs.nFormat = RVCF_RIGHT|RVCF_TEXT;
-	DefineSubItem(3, &rvs);
-	ActivateSubItem(3, 3);
-	//
-	// column 4: date
-	temp.LoadString(IDS_LOG_DATE);
-	rvs.lpszText = temp;
-	rvs.iWidth = 125;
-	rvs.iMinWidth = 25;
-	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
 	DefineSubItem(4, &rvs);
 	ActivateSubItem(4, 4);
 	//
-	// column 5: lock owner
-	temp.LoadString(IDS_STATUSLIST_COLLOCK);
+	// column 5: date
+	temp.LoadString(IDS_LOG_DATE);
 	rvs.lpszText = temp;
 	rvs.iWidth = 125;
 	rvs.iMinWidth = 25;
 	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
 	DefineSubItem(5, &rvs);
 	ActivateSubItem(5, 5);
+	//
+	// column 6: lock owner
+	temp.LoadString(IDS_STATUSLIST_COLLOCK);
+	rvs.lpszText = temp;
+	rvs.iWidth = 125;
+	rvs.iMinWidth = 25;
+	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
+	DefineSubItem(6, &rvs);
+	ActivateSubItem(6, 6);
 
 	SVNUrl svn_url(m_strUrl, m_Revision);
 
