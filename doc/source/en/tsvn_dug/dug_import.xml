@@ -300,6 +300,16 @@ quick%20graphs http://graphics.collab.net/repos/fast%20graphics
 			If a user updates their working copy the external project is checked out, too.
 		</para>
 		<para>
+			Note that if you change the URL in an <literal>svn:externals</literal>
+			property, then next time you update your working copy Subversion will
+			delete the old external folder and make a fresh checkout, so you
+			will see files being <literal>Added</literal>, rather than being
+			<literal>Updated</literal> as you might have expected. This
+			situation might occur if you reference a tag from another
+			project. When a new version of that project is released, you
+			change your external reference to point to the new tag.
+		</para>
+		<para>
 			If you need more information how TortoiseSVN
 			handles Properties read <xref linkend="tsvn-DUG-propertypage"/>.
 		</para>
