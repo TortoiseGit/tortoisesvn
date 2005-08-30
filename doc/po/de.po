@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-08-19 16:26+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-08-30 20:29+0100\n"
+"Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2712,6 +2712,11 @@ msgstr "Wenn Sie zwei Markierungen wählen, die von derselben Basis erstellt wur
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
 msgstr "Sie können den Projektarchiv-Betrachter auch für <action>Ziehen und Loslassen</action> Aktionen verwenden. Wenn Sie eine Datei aus dem Explorer in den Projektarchiv-Betrachter ziehen, wird sie in das Projektarchiv importiert. Wenn Sie auf diese Weise mehrere Objekte gleichzeitige importieren, wird jedes Objekt in einer eigenen Revision importiert."
 
+#: source/en/tsvn_dug/dug_repobrowser.xml:54
+#: (para)
+msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right-drag</action> the item instead of just drag it. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
+msgstr "Wenn Sie eine Datei oder einen Ordner an einen anderen Platz kopieren/verschieben möchten und gleichzeitig einen neuen Namen vergeben möchten, können Sie die Datei oder den Ordner <action>rechts-ziehen</action> statt einfach zu verschieben. In diesem Falle wird ein Umbenennen-Dialog angezeigt, wo Sie den neuen Namen eingeben können für die Datei oder den Ordner."
+
 #: source/en/tsvn_dug/dug_rename.xml:3
 #: (title)
 msgid "Deleting, Renaming And Moving"
@@ -3013,67 +3018,82 @@ msgstr "Erzeugen und Anwenden von Patches"
 msgid "patch"
 msgstr "patch"
 
-#: source/en/tsvn_dug/dug_patch.xml:8
+#: source/en/tsvn_dug/dug_patch.xml:9
 #: (para)
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
 msgstr "In Open Source Projekten (wie diesem) hat jedermann Lesezugriff auf das Projektarchiv, und jeder kann einen Beitrag zum Projekt leisten. Wie sollen diese Beiträge nun kontrolliert werden? Wenn jeder stets seine Änderungen in das Projektarchiv übertragen würde, wäre das Projekt permanent unstabil und wahrscheinlich sogar nicht funktionsfähig. Dieses Problem wird gelöst, indem ein <firstterm>Patch</firstterm> an das Entwicklerteam geschickt wird. Die Entwickler können den Patch überprüfen und dann entweder in das Projektarchiv übertragen oder verwerfen und an den Autor zurückschicken."
 
-#: source/en/tsvn_dug/dug_patch.xml:19
+#: source/en/tsvn_dug/dug_patch.xml:20
 #: (para)
 msgid "Patch files are simply Unified-Diff files showing the differences between your working copy and the base revision."
 msgstr "Bei Patchdateien handelt es sich um einfache Standard-Diff Dateien, die die Unterschiede zwischen Ihrer Arbeitskopie und der Basisrevision beinhalten."
 
-#: source/en/tsvn_dug/dug_patch.xml:24
+#: source/en/tsvn_dug/dug_patch.xml:25
 #: (title)
 msgid "Creating a Patch File"
 msgstr "Eine Patch-Datei erstellen"
 
-#: source/en/tsvn_dug/dug_patch.xml:25
+#: source/en/tsvn_dug/dug_patch.xml:26
 #: (para)
-msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice> This will produce a single file containing a summary of all the changes you have made since the last update from the repository. If you create a patch file, make some more changes and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
-msgstr "Zunächst müssen Sie Ihre Änderungen selbstverständlich selber <emphasis>testen</emphasis>. Anstatt den übergeordneten Ordner zum Projektarchiv zu <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen...</guimenuitem> </menuchoice>, wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch erzeugen...</guimenuitem> </menuchoice> Diese Funktion erzeugt eine einzelne Datei, welche eine Zusammenfassung aller Änderungen enthält, die Sie seit der letzten Aktualisierung vorgenommen haben. Wenn Sie eine Patchdatei erzeugen, weitere Änderungen vornehmen und nochmals eine Patchdatei erstellen, so enthält die zweite Patchdatei <emphasis>beide</emphasis> Sätze von Änderungen."
+msgid "First you need to make <emphasis>and test</emphasis> your changes. Then instead of using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice> on the parent folder, you select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>"
+msgstr "Zunächst müssen Sie Ihre Änderungen selbstverständlich selber <emphasis>testen</emphasis>. Anstatt den übergeordneten Ordner zum Projektarchiv zu <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen...</guimenuitem> </menuchoice>, wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch erzeugen...</guimenuitem> </menuchoice>"
 
-#: source/en/tsvn_dug/dug_patch.xml:42
+#: source/en/tsvn_dug/dug_patch.xml:40
+#: (title)
+msgid "The Create Patch dialog"
+msgstr "Der \"Erzeuge Patch\" Dialog."
+
+#: source/en/tsvn_dug/dug_patch.xml:43
+#: (para)
+msgid "you can now select the files you want included in the patch, just as you would with a full commit. This will produce a single file containing a summary of all the changes you have made to the selected files since the last update from the repository."
+msgstr "Sie können nun die Dateien auswählen, welche Sie in dem Patch drin haben möchten. Genauso wie wenn sie die Dateien übertragen würden. Dies wird eine Datei erstellen mit all den Änderungen seit der letzten Übertragung der ausgewählten Dateien."
+
+#: source/en/tsvn_dug/dug_patch.xml:49
+#: (para)
+msgid "You can produce separate patches containing changes to different sets of files. Of course, if you create a patch file, make some more changes to the <emphasis>same</emphasis> files and then create another patch, the second patch file will include <emphasis>both</emphasis> sets of changes."
+msgstr "Sie können separate Patches erzeugen für die verschiedenen Änderungen an den Dateien. Wenn Sie jedoch eine Patchdatei erstellen, dann weitere Änderungen an <emphasis>denselben</emphasis> Dateien vornehmen und eine weitere Patchdatei erstellen, wird die zweite Patchdatei auch die ersten Änderungen mitenthalten."
+
+#: source/en/tsvn_dug/dug_patch.xml:55
 #: (para)
 msgid "Just save the file using a filename of your choice. Patch files can have any extension you like, but by convention they should use the <filename>.patch</filename> or <filename>.diff</filename> extension. You are now ready to submit your patch file."
 msgstr "Speichern Sie die Datei unter einem Namen Ihrer Wahl. Patchdateien können jede beliebige Dateiendung haben. Eine Konvention ist jedoch,  <filename>.patch</filename> dafür zu verwenden.  Nun Sind Sie so weit. Sie können Ihre Patchdatei an die Entwickler schicken."
 
-#: source/en/tsvn_dug/dug_patch.xml:52
+#: source/en/tsvn_dug/dug_patch.xml:65
 #: (title)
 msgid "Applying a Patch File"
 msgstr "Eine Patchdatei anwenden"
 
-#: source/en/tsvn_dug/dug_patch.xml:53
+#: source/en/tsvn_dug/dug_patch.xml:66
 #: (para)
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patchfile is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>english</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TSVN will notice and suggest the correct level."
 msgstr "Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet. Dies muss innerhalb des selben Ordners durchgeführt werden, in dem die Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher Ordner das war, schauen Sie in die erste Zeile der Patchdatei. Wenn z.B. die erste bearbeitete Datei <filename>doc/source/deutsch/kapitel1.xml</filename> hieß und die erste Zeile in der Patchdatei <filename>Index: deutsch/kapitel1.xml</filename> lautet, dann müssen sie den Patch auf den <filename>deutsch/</filename> Ordner anwenden. Falls den Patch nicht in der richtigen Arbeitskopie oder im richtigen Ordner anwenden, wird TortoiseSVN das bemerken und den Pfad vorschlagen, den es für richtig hält."
 
-#: source/en/tsvn_dug/dug_patch.xml:67
+#: source/en/tsvn_dug/dug_patch.xml:80
 #: (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
 msgstr "Um den Patch anwenden zu können, benötigen Sie zumindest Lesezugriff auf das Projektarchiv, denn das Programm zum Zusammenführen (Patchen) der Daten muss eventuell auf dieses zurückgreifen, um die Änderungen auf die Revision im Projektarchiv zurückzuführen, auf der sie basieren."
 
-#: source/en/tsvn_dug/dug_patch.xml:74
+#: source/en/tsvn_dug/dug_patch.xml:87
 #: (para)
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for \"All files\"."
 msgstr "Vom Kontextmenü des betroffenen Ordners aus wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die  anzuwendende Patchdatei auswählen können. Standardmäßig werden nur  <filename>.patch</filename> Dateien angezeigt, aber sie können auch  <literal>Alle Dateien</literal> auswählen."
 
-#: source/en/tsvn_dug/dug_patch.xml:85
+#: source/en/tsvn_dug/dug_patch.xml:98
 #: (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
 msgstr "Falls die Patchdatei einen <filename>.patch</filename> oder <filename>.diff</filename> Anhang hat, können Sie mit einem <action>Rechts-Klick</action> auf die Datei direkt <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Patch anwenden...</guimenuitem> </menuchoice> wählen. In diesem Fall werden Sie gebeten, eine Arbeitskopie anzugeben."
 
-#: source/en/tsvn_dug/dug_patch.xml:95
+#: source/en/tsvn_dug/dug_patch.xml:108
 #: (para)
 msgid "These two methods just offer different ways of doing the same thing. With the first method you select the WC and browse to the patch file. With the second you select the patch file and browse to the WC."
 msgstr "Dies sind zwei verschiedene Wege, um dasselbe Ziel zu erreichen. Mit der ersten Methode geben Sie die Arbeitskopie vor und suchen die Patchdatei. Mit der zweiten Methode geben Sie die Patchdatei vor und suchen die Arbeitskopie."
 
-#: source/en/tsvn_dug/dug_patch.xml:100
+#: source/en/tsvn_dug/dug_patch.xml:113
 #: (para)
 msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
 msgstr "Sobald Sie eine Datei gewählt haben, wird TortoiseMerge gestartet, um die Änderungen in Ihrer Arbeitskopie zusammenführen. Ein kleines Fenster zeigt die die Liste der Dateien an, die durch die Patchdatei geändert würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie zusammengeführt. Prüfen Sie die  Änderungen und speichern Sie die geänderten Dateien."
 
-#: source/en/tsvn_dug/dug_patch.xml:107
+#: source/en/tsvn_dug/dug_patch.xml:120
 #: (para)
 msgid "The remote developer's patch has now been applied to your working copy, so you need to commit to allow everyone else to access the changes from the repository."
 msgstr "Die Patchdatei wurde nun in Ihrer Arbeitskopie angewendet, so dass die Veränderungen nun zum Projektarchiv übertragen werden müssen, um anderen  Projekteilnehmern zur Verfügung zu stehen."
@@ -3749,10 +3769,15 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_import.xml:302
 #: (para)
+msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
+msgstr "Beachten Sie dass wenn Sie die URL in einer <literal>svn:externals</literal> Eigenschaft ändern, Subversion bei der nächsten Aktualisierung den alten externen Ordner löschen wird und den Ordner erneut auschecken statt wie Sie vielleicht vermuten würden nur aktualisieren wird. Diese Situation entsteht zum Beispiel, wenn Sie eine Markierung (tag) eines externes Projektes einbeziehen und dann zur nächsten Markierung wechseln."
+
+#: source/en/tsvn_dug/dug_import.xml:312
+#: (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-DUG-propertypage\"/>."
 msgstr "Wenn sie mehr Informationen brauchen, wie TortoiseSVN Eigenschaften behandelt lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/>."
 
-#: source/en/tsvn_dug/dug_import.xml:306
+#: source/en/tsvn_dug/dug_import.xml:316
 #: (para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr "Um sich über verschiedene Methoden zum Zugriff auf gemeinsame Unterprojekte zun informieren, lesen Sie <xref linkend=\"tsvn-howto-common-projects\"/>."
@@ -4912,8 +4937,8 @@ msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne 
 
 #: source/en/Version.xml:2
 #: (subtitle)
-msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
+msgid "Version 1.2.1"
+msgstr "Version 1.2.1"
 
 #: source/en/tsvn_preface.xml:3
 #: (title) source/en/tme_ch00.xml:3
@@ -6100,7 +6125,7 @@ msgstr "Einen größeren Revisionsbereich machen Sie mit Hilfe des Zusammenführ
 
 #: source/en/tsvn_app_howto.xml:178
 #: (para)
-msgid "In our working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
+msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
 msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zusammenführen</guimenuitem> </menuchoice> in Ihrer Arbeitskopie."
 
 #: source/en/tsvn_app_howto.xml:187
@@ -6293,6 +6318,51 @@ msgstr ""
 "Wenn Sie den Projektarchiv-Betrachter immer wieder benötigen, um ein bestimmtes Projektarchiv anzuzeigen, dann können Sie auch eine Verknüpfung auf dem Desktop erstellen und die benötigten Parameter direkt an TortoiseProc.exe übergeben.Erstellen Sie einfach eine Verknüpfung und setzen Sie das Ziel auf: <screen>\n"
 "TortoiseProc.exe /command:repobrowser /path:\"url/zum/projektarchiv\" /notempfile\n"
 "</screen>Natürlich müssen Sie eine echte URL eingeben."
+
+#: source/en/tsvn_app_howto.xml:432
+#: (title)
+msgid "Ignore files which are already versioned"
+msgstr "Ignoriere Dateien welche bereits unter Versionskontrolle sind"
+
+#: source/en/tsvn_app_howto.xml:434
+#: (primary)
+msgid "unversion"
+msgstr "unversionieren"
+
+#: source/en/tsvn_app_howto.xml:436
+#: (para)
+msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
+msgstr "Wenn Sie fälschlicherweise Dateien hinzugefügt haben welche eigentlich nicht ins Projektarchiv gehören, wie kriegen Sie diese Dateien wieder aus der Versionskontrolle, ohne die Dateien selbst zu löschen? Vielleicht haben Sie ihre eigene IDE Konfigurationsdatei welche zwar nicht Teil des Projekts ist, aber was Sie dennoch einige Zeit gekostet hat es so zu konfigurieren wie Sie es gerne möchten."
+
+#: source/en/tsvn_app_howto.xml:443
+#: (para)
+msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
+msgstr "Wenn Sie die hinzugefügte Datei noch nicht übertragen haben, dann müssen Sie nur den Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rückgängig...</guimenuitem></menuchoice> ausführen. Sie sollten dann die Datei(en) zur Liste der ignorierten Dateien hinzufügen damit dies nicht nochmals fälschlicherweise hinzugefügt werden können."
+
+#: source/en/tsvn_app_howto.xml:458
+#: (para)
+msgid "Move the file to somewhere safe, not inside your working copy."
+msgstr "Kopieren Sie die Datei an einen sicheren Ort, nicht innerhalb der Arbeitskopie."
+
+#: source/en/tsvn_app_howto.xml:464
+#: (para)
+msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and automatically schedule it for deletion from the repository."
+msgstr "<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen...</guimenuitem> </menuchoice> Sie den Übergeordneten Ordner. TortoiseSVN wird erkennen, dass die Datei fehlt und diese automatisch bei der Übertragung löschen."
+
+#: source/en/tsvn_app_howto.xml:475
+#: (para)
+msgid "Move the file back to its original location."
+msgstr "Verschieben Sie die Datei zurück an den ursprünglichen Ort."
+
+#: source/en/tsvn_app_howto.xml:480
+#: (para)
+msgid "Add the file to the ignore list so you don't get into the same trouble again."
+msgstr "Fügen Sie die Datei zur Liste der ignorierten Dateien hinzu damit Sie nicht nochmals in die gleiche Situation geraten."
+
+#: source/en/tsvn_app_howto.xml:453
+#: (para)
+msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
+msgstr "Wenn die Dateien jedoch schon im Projektarchiv gespeichert sind, ist ein wenig mehr Arbeit notwendig. <placeholder-1/>"
 
 #: source/en/tsvn_app_cli.xml:3
 #: (title)
