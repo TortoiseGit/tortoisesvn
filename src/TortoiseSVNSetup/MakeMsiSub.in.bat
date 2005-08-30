@@ -9,7 +9,7 @@ cd ..\..\bin
 del *.wixobj
 
 echo MakeMsiSub.bat: md5
-md5 -omd5.txt TortoiseSVN-$MajorVersion$.$MinorVersion$.$MicroVersion$.$WCREV$-dev-svn-1.2.1.msi
+md5 -omd5.txt TortoiseSVN-$MajorVersion$.$MinorVersion$.$MicroVersion$.$WCREV$-dev-svn-1.2.3.msi
 cd ..\src\TortoiseSVNSetup
 
 echo MakeMsiSub.bat: Done
