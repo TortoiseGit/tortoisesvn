@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-08-28 16:00+0100\n"
+"PO-Revision-Date: 2005-08-30 13:30+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6832,7 +6832,7 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:374
 #: (para)
 msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
-msgstr ""
+msgstr "<guibutton>Simular</guibutton> hace la misma combinación con la opción <literal>--dry-run</literal>."
 
 #: source/en/tsvn_app_cli.xml:378
 #: (screen)
@@ -6847,7 +6847,7 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:381
 #: (para)
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
-msgstr ""
+msgstr "<guibutton>Diff unificado</guibutton> muestra la operación de diferenciación que se utilizará para hacer la combinación."
 
 #: source/en/tsvn_app_cli.xml:387
 #: (title)
@@ -7203,7 +7203,7 @@ msgstr "<guibutton>Mostrar espacios</guibutton> cambia la opción para mostrar l
 #: source/en/tme_ch02.xml:180
 #: (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
-msgstr ""
+msgstr "<guibutton>Cambiar Vistas Izquierda y Derecha</guibutton> En la vista de dos paneles, intercambia las ventanas izquierda y derecha. Cuando está comparando un fichero en 2 árboles diferentes, en vez de comparar 2 revisiones del mismo fichero, TortoiseSVN no sabe cuál debería ir en el panel izquierdo como versión <quote>original/base</quote>. Si lo hace mal, puede cambiarlo para verlo más fácilmente."
 
 #: source/en/tme_ch02.xml:191
 #: (para)
@@ -7213,7 +7213,7 @@ msgstr "<guibutton>Siguiente/Anterior Diferencia</guibutton> salta directamente 
 #: source/en/tme_ch02.xml:197
 #: (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
-msgstr ""
+msgstr "Cuando hace esto en el modo de diferencias de 2 paneles, la barra de detalles en la parte inferior de la pantalla le mostrará las diferencias dentro de la primera línea, sin importar sobre dónde esté el ratón."
 
 #: source/en/tme_ch02.xml:204
 #: (para)
@@ -7298,32 +7298,32 @@ msgstr "Muchas de estas opciones son autoexplicativas, pero hay algunos pocos pu
 #: source/en/tme_ch02.xml:341
 #: (para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
-msgstr ""
+msgstr "<guilabel>Realizar copia de seguridad del archivo original</guilabel> renombra el fichero original en la copia de trabajo a <literal>nombre.bak</literal> antes de guardar la versión modificada."
 
 #: source/en/tme_ch02.xml:346
 #: (para)
 msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>Ignorar Fines de Línea</guilabel> oculta los cambios que se deben únicamente a la diferencia en el estilo de las terminaciones de las líneas."
 
 #: source/en/tme_ch02.xml:350
 #: (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
-msgstr ""
+msgstr "<guilabel>Ignorar cambios de mayúsculas/minúsculas</guilabel> oculta los cambios que se deben únicamente a cambiar mayúsculas por minúsculas o viceversa dentro del texto. Esto puede ser útil con aplicaciones como Visual Basic, que cambia las mayúsculas en las variables sin avisar."
 
 #: source/en/tme_ch02.xml:356
 #: (para)
 msgid "<guilabel>Compare Whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how subversion treats such changes)."
-msgstr ""
+msgstr "<guilabel>Comparar espacios</guilabel> muestra todos los cambios en la indentación y en los espacios dentro de las líneas como si fueran líneas añadidas/eliminadas (que es como subversion trata estos cambios)."
 
 #: source/en/tme_ch02.xml:361
 #: (para)
 msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
-msgstr ""
+msgstr "<guilabel>Ignorar Espacios al inicio de línea</guilabel> oculta los cambios que se deben únicamente a los espacios al inicio de las líneas (la indentación). Dentro de una línea, el resto de cambios en los espacios en blanco se muestran <quote>dentro de la línea</quote> en vez de como líneas añadidas/eliminadas."
 
 #: source/en/tme_ch02.xml:367
 #: (para)
 msgid "<guilabel>Ignore All Whitespaces</guilabel> hides all whitespace-only changes."
-msgstr ""
+msgstr "<guilabel>Ignorar todos los espacios</guilabel> oculta todos los cambios que sólo se deben a espacios en blanco."
 
 #: source/en/tme_ch02.xml:375
 #: (title)
@@ -7393,22 +7393,22 @@ msgstr "Línea con diferencias en los espacios en blanco"
 #: source/en/tme_ch02.xml:419
 #: (guilabel)
 msgid "Ignore leading whitespace"
-msgstr ""
+msgstr "Ignorar Espacios al inicio de línea"
 
 #: source/en/tme_ch02.xml:416
 #: (listitem)
 msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
-msgstr ""
+msgstr "Líneas que contienen otras diferencias que no sean espacios en blanco. Sólo aparece cuando se selecciona <placeholder-1/>."
 
 #: source/en/tme_ch02.xml:424
 #: (term)
 msgid "Whitespace diff"
-msgstr ""
+msgstr "Diferencia de espacios"
 
 #: source/en/tme_ch02.xml:425
 #: (listitem)
 msgid "In the case above, the actual whitespace difference is highlighted using this color."
-msgstr ""
+msgstr "En el caso anterior, la diferencia existente en los espacios se remarca utilizando este color."
 
 #: source/en/tme_ch01.xml:13
 #: (title)
