@@ -17,6 +17,8 @@
 						<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
 						<File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
 						<File Id="F__tortoisesvnlicense" Name="LICENSE.TXT" LongName="TortoiseSVN License.txt" DiskId="1" src="..\gpl.txt" />
+						<File Id="F__openssllicense" Name="OSSL_LIC.TXT" LongName="OpenSSL License.txt" DiskId="1" src="include\OpenSSL_License.txt" />
+						<File Id="F__aprlicense" Name="APR_LIC.TXT" LongName="apr License.txt" DiskId="1" src="..\..\ext\apr\LICENSE" />
 					</Component>
 
 					<Component Id="C__shellregistry" Guid="D3F48AA6-A01B-47C5-A314-70319092E89A" >
