@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-16 15:04+0900\n"
+"PO-Revision-Date: 2005-08-30 21:26+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -865,11 +865,6 @@ msgstr "差分／マージ の高度な設定"
 msgid "Advanced Merge Settings"
 msgstr "マージに関する高度な設定"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "All"
-msgstr "全体"
-
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -1444,6 +1439,11 @@ msgid "Command failed."
 msgstr "コマンドの実行に失敗しました。"
 
 # ID:8,
+#: ID:319
+msgid "Comment"
+msgstr "コメント"
+
+# ID:8,
 #: Control-ID:1083
 msgid "Commit"
 msgstr "コミット"
@@ -1744,6 +1744,11 @@ msgid "Could not start thread!"
 msgstr "スレッドを開始できません！"
 
 # ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "パッチを作成"
+
+# ID:13,
 #: ID:13
 msgid "Create Patch..."
 msgstr "パッチを作成 ..."
@@ -2037,6 +2042,15 @@ msgstr "プロクシサーバの名前もしくは IP を入力"
 msgid "Empty"
 msgstr "空"
 
+# Control-ID:1224,
+#: ID:195
+msgid ""
+"Enables the spellchecker only if the\n"
+"tsvn:projectlanguage property is set."
+msgstr ""
+"tsvn:projectlanguage 属性が設定され\n"
+"ている場合のみスペルチェッカを有効にする。"
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -2236,6 +2250,7 @@ msgstr "ファイルのリビジョン %s 取得中:"
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "ファイル"
 
@@ -2307,6 +2322,7 @@ msgstr "GDI+ はビットマップオブジェクトを作成できませんで�
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
+#: Control-ID:65535
 msgid "General"
 msgstr "一般"
 
@@ -2557,6 +2573,11 @@ msgstr "含めるパス:"
 msgid "Initial Import"
 msgstr "初期インポート"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Inline Whitespace Diff"
+msgstr "行内での空白の相違"
+
 # Dlg-ID:161,
 #: Dlg-ID:161
 msgid "Input"
@@ -2679,6 +2700,11 @@ msgstr "活発でない作者:"
 #: ID:188
 msgid "Left View: "
 msgstr "左ビュー: "
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Line with whitespace diff"
+msgstr "空白の相違を含む行"
 
 # ID:3605,
 #: ID:3605
@@ -2885,6 +2911,11 @@ msgstr "Mime タイプ"
 msgid "Min"
 msgstr "最小"
 
+# Dlg-ID:143,
+#: ID:263
+msgid "Mine"
+msgstr "Mine"
+
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1023
@@ -3012,6 +3043,13 @@ msgid "No error occurred."
 msgstr "エラーは何も起きませんでした。"
 
 # ID:77,
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr ""
+"ファイルやフォルダは何も変更されていません。\n"
+"TortoiseSVN が元に戻すものは何もありません！"
+
+# ID:77,
 #: ID:77
 msgid ""
 "No files were changed or added since\n"
@@ -3109,6 +3147,12 @@ msgstr "１つ以上のファイルが衝突の状態にあります。"
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "トップフォルダのみチェックアウトする"
+
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "%s 内のみ"
 
 # ID:169,
 #: ID:169
@@ -3564,6 +3608,12 @@ msgstr "%s の名前を変更"
 msgid "Rename..."
 msgstr "名前を変更 ..."
 
+# ID:97,
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "%s から名前を変更"
+
 # ID:126,
 #: ID:126
 msgid "Renamed remotely"
@@ -3615,11 +3665,46 @@ msgstr "リポジトリ"
 msgid "Repository Browser"
 msgstr "リポジトリブラウザ"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Requests a username and a password"
+msgstr "ユーザー名とパスワードを要求"
+
 # ID:8,
-#: ID:8
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "問題の解消"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "\"mine\" を利用して衝突を解消する"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "\"theirs\" を利用して衝突を解消する"
+
+# ID:8,
 #: ID:74
+#: ID:209
 msgid "Resolved"
 msgstr "問題の解消"
+
+# ID:8,
+#: ID:8
+msgid "Resolved..."
+msgstr "問題の解消 ..."
+
+# ID:8,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"問題の解消:\n"
+"%s"
 
 # ID:9,
 #: ID:9
@@ -3708,6 +3793,13 @@ msgstr "リビジョングラフ"
 #: ID:75
 msgid "Revision: "
 msgstr "リビジョン:"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:116
+msgid "Revisions"
+msgstr "リビジョン"
 
 # ID:188,
 #: ID:188
@@ -4013,6 +4105,11 @@ msgstr "ヘルプを表示するために、オブジェクトを選択する"
 msgid "Select diff file..."
 msgstr "差分ファイルを選択 ..."
 
+# Dlg-ID:173,
+#: ID:276
+msgid "Select end revision"
+msgstr "終了リビジョンを選択"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4021,6 +4118,16 @@ msgid ""
 msgstr ""
 "エクスポートするフォルダを選択してください。\n"
 "これを実行する前に新しいフォルダを生成する必要があるかもしれません。"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select revision range"
+msgstr "リビジョンの範囲を選択"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select start revision"
+msgstr "開始リビジョンを選択"
 
 # ID:79,
 #: ID:79
@@ -4129,15 +4236,15 @@ msgstr "ログを表示(&L)"
 msgid "Show &overlays only in explorer"
 msgstr "エクスプローラ上でのみオーバーレイを表示する(&O)"
 
-# Control-ID:1065,
-#: Control-ID:1065
-msgid "Show Diff Bar"
-msgstr "差分バーを表示"
-
 # ID:113,
 #: ID:113
 msgid "Show Differences as &Unified Diff"
 msgstr "&Unified Diff 形式で差分を表示"
+
+# Control-ID:1065,
+#: Control-ID:1065
+msgid "Show Line Diff Bar"
+msgstr "行差分バーを表示"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -4345,6 +4452,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "左右を切り替える"
+
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
@@ -4367,6 +4478,15 @@ msgid ""
 msgstr ""
 "シングルビューとダブルビューを切り替える\n"
 "シングルビューとダブルビューの切り替え"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"左と右のビューの内容を入れ替える\n"
+"左と右のビューを入れ替え"
 
 # ID:3825,
 #: ID:3825
@@ -4391,6 +4511,11 @@ msgstr "前のドキュメントウィンドウに切り替える"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "他の分岐／タグへ作業コピーを切り替え"
+
+# ID:9,
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "作業コピーを新しい分岐／タグへ切り替える"
 
 # ID:9,
 #: ID:9
@@ -4661,6 +4786,15 @@ msgstr ""
 "小さい値を指定すると、すぐに自動補完リストが利用可能になります。\n"
 "しかし、すべてのファイルのスキャンが終了しないかもしれません。"
 
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"選択された2つのURLは同じルートから作成されたものではありません。\n"
+"そのため、これら2つの間のログメッセージを表示することはできません。"
+
 # ID:16,
 #: ID:16
 msgid "The user who did the last commit"
@@ -4696,6 +4830,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "Their File:"
 msgstr "Their ファイル:"
+
+# ID:188,
+#: ID:263
+msgid "Theirs"
+msgstr "Theirs"
 
 # ID:169,
 #: ID:169
@@ -4765,11 +4904,6 @@ msgstr "このプロパティはフォルダに対してのみ有効で、ファ
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "この属性に複数行入力することはできません。１行のみにしてください。"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Three File Diff"
-msgstr "3つのファイルの差分"
-
 # Control-ID:1222,
 #: Control-ID:1222
 msgid "Timeout in seconds to stop the autocompletion parsing"
@@ -4802,20 +4936,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4832,14 +4966,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4849,7 +4983,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4888,11 +5022,6 @@ msgstr "\"クリーンアップ\" を試してみてください。もしうま�
 #: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN を調整"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Two File Diff"
-msgstr "2つのファイルの差分"
 
 #: MenuEntry
 msgid "Two-way &Diff"
@@ -5122,8 +5251,8 @@ msgstr "ログメッセージの取得に従来のAPIを利用する"
 
 # Control-ID:1024,
 #: Control-ID:1024
-msgid "Use one-pane view as default"
-msgstr "デフォルトで１画面表示を利用する"
+msgid "Use one-pane view as default for 2-file diff"
+msgstr "2つのファイルの差分に、デフォルトで１画面表示を利用する"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5231,11 +5360,6 @@ msgstr "警告！"
 msgid "Whitespace diff"
 msgstr "空白の相違"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Whitespaces"
-msgstr "空白を表示"
-
 # ID:151,
 #: Dlg-ID:158
 msgid "Working Copy"
@@ -5295,6 +5419,16 @@ msgstr ""
 "file:/// 経由で共有ネットワークドライブ上のリポジトリにアクセスしようとしています。\n"
 "これは、リポジトリを破壊する可能性があります！！\n"
 "本当に実行しますか？"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"この属性をファイルに対してのみ設定可能であり、フォルダに対して設定することはできません！\n"
+"フォルダ内のすべてのファイルに設定したい場合は、'再帰' チェックボックスをアクティブにしてください。"
 
 # ID:105,
 #: ID:105
@@ -5616,17 +5750,6 @@ msgstr "読み取り専用"
 #: ID:10
 msgid "replaced"
 msgstr "置換"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "requests a username and a password"
-msgstr "ユーザー名とパスワードを要求"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "save authentication"
-msgstr "認証を保存"
 
 # ID:14,
 #: ID:14

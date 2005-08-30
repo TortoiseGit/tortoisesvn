@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-13 17:41+0100\n"
+"PO-Revision-Date: 2005-08-30 13:45+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1445,6 +1445,10 @@ msgstr "Kunde inte starta utskrift."
 #: ID:81
 msgid "Could not start thread!"
 msgstr "Kunde inte starta tråd!"
+
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Skapa patch"
 
 #: ID:13
 msgid "Create Patch..."
@@ -3065,6 +3069,14 @@ msgstr "Begär ett användarnamn och ett lösenord"
 msgid "Resolve"
 msgstr "Markera konflikt som löst"
 
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "Använd \"min\" för att lösa konflikten"
+
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "Använd \"deras\" för att lösa konflikten"
+
 #: ID:74
 #: ID:209
 msgid "Resolved"
@@ -3073,6 +3085,15 @@ msgstr "Markera konflikt som löst"
 #: ID:8
 msgid "Resolved..."
 msgstr "Konflikten är markerad som löst.."
+
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Löstar:\n"
+"%s"
 
 #: ID:9
 msgid "Resolves conflicted files"
@@ -3140,6 +3161,10 @@ msgstr "Revisionsgraf"
 #: ID:75
 msgid "Revision: "
 msgstr "Revision:"
+
+#: ID:116
+msgid "Revisions"
+msgstr "Revisioner"
 
 #: ID:188
 msgid "Right View: "
@@ -4122,19 +4147,19 @@ msgstr "TortoiseMerge"
 
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4148,13 +4173,13 @@ msgstr "TortoiseSVN"
 
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4164,7 +4189,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
