@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-08-26 11:13GMT Daylight Time\n"
+"POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2545,10 +2545,14 @@ msgid "Let's say you check out a working copy of <filename>/project1</filename> 
 msgstr ""
 
 #: source/en/tsvn_dug/dug_import.xml:302(para) 
+msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:312(para) 
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-DUG-propertypage\"/>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:306(para) 
+#: source/en/tsvn_dug/dug_import.xml:316(para) 
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr ""
 
