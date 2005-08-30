@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-28 16:05+0100\n"
+"PO-Revision-Date: 2005-08-30 21:12+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -289,11 +289,11 @@ msgstr "&Marcar como resuelto"
 #: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
-msgstr "&Combinar"
+msgstr "&Fusionar"
 
 #: Control-ID:1012
 msgid "&Merging"
-msgstr "&Combinando"
+msgstr "&Fusionando"
 
 #: Control-ID:1049
 msgid "&Network drives"
@@ -643,7 +643,7 @@ msgstr "Añadir programa de diferencias especificando la extensión"
 # ID:110,
 #: ID:110
 msgid "Add Extension Specific Merge Program"
-msgstr "Añadir programa de combinación especificando la extensión"
+msgstr "Añadir programa de fusión según la extensión"
 
 #: ID:13
 msgid "Add To Ignore List"
@@ -656,7 +656,7 @@ msgstr "Añadir..."
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "Añadir programa de diferencias/combinación especificando la extensión"
+msgstr "Añadir programa de diferencias/fusión según la extensión"
 
 #: ID:73
 #: Control-ID:65535
@@ -714,12 +714,12 @@ msgstr "Preferencias Avanzadas de Diferenciación"
 # Dlg-ID:170,
 #: Dlg-ID:170
 msgid "Advanced Diff/Merge Settings"
-msgstr "Ajustes avanzados de diferencias/combinación"
+msgstr "Ajustes avanzados de diferencias/fusión"
 
 # ID:110,
 #: ID:110
 msgid "Advanced Merge Settings"
-msgstr "Preferencias Avanzadas de Combinación"
+msgstr "Preferencias Avanzadas de Fusión"
 
 #: ID:3841
 msgid "All Files (*.*)"
@@ -779,7 +779,7 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"Un programa de combinación externo utilizado\n"
+"Un programa de fusión externo utilizado\n"
 "para resolver archivos en conflicto.\n"
 "<hr=100%>\n"
 "Puede especificar los siguientes parámetros en la ruta:\n"
@@ -899,7 +899,7 @@ msgstr "Auto-cerrar si no hay errores"
 # ID:222,
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Auto-cerrar si no hay combinaciones, adiciones o eliminaciones"
+msgstr "Auto-cerrar si no hay fusiones, adiciones o eliminaciones"
 
 #: Control-ID:65535
 msgid "Autoclose:"
@@ -1176,7 +1176,7 @@ msgstr "Haga clic en \"Avanzado\" para especificar programas de diferencias alte
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Haga clic en \"Avanzado\" para especificar programas de combinación alternativos basándose en la extensión del archivo"
+msgstr "Haga clic en \"Avanzado\" para especificar programas de fusión alternativos basándose en la extensión del archivo"
 
 # ID:257,
 #: ID:257
@@ -1455,7 +1455,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"¡No se puede iniciar el programa de combinación externo!\n"
+"¡No se puede iniciar el programa de fusión externo!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1695,7 +1695,7 @@ msgstr "Modificar programa de diferencias según la extensión"
 # ID:110,
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
-msgstr "Modificar programa de combinación según la extensión"
+msgstr "Modificar programa de fusión según la extensión"
 
 #: ID:113
 msgid "Edit Log Message"
@@ -1845,7 +1845,7 @@ msgstr "Programas Externos::Visor de Diferencias"
 
 #: Dlg-ID:193
 msgid "External Programs::Merge Tool"
-msgstr "Programas Externos::Herramienta de Combinación"
+msgstr "Programas Externos::Herramienta de Fusión"
 
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
@@ -1938,7 +1938,7 @@ msgstr "Desde:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "De: (URL y revisión del inicio del rango a combinar)"
+msgstr "De: (URL y revisión del inicio del rango a fusionar)"
 
 # ID:273,
 #: ID:273
@@ -2105,7 +2105,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr ""
-"Si se habilita, el diálogo Combinar inicializa la URL \"Desde:\" con la URL de la copia de trabajo seleccionada\n"
+"Si se habilita, el diálogo Fusión inicializa la URL \"Desde:\" con la URL de la copia de trabajo seleccionada\n"
 "en vez de la URL que utilizó la última vez."
 
 # ID:195,
@@ -2274,7 +2274,7 @@ msgstr "Última revisión almacenada del item"
 
 #: ID:12
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "Lanza la aplicación externa de diferencias / combinación para resolver los conflictos"
+msgstr "Lanza la aplicación externa de diferencias / fusión para resolver los conflictos"
 
 # Control-ID:1137,
 #: Control-ID:1137
@@ -2436,23 +2436,23 @@ msgstr "Máx"
 #: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
-msgstr "Combinar"
+msgstr "Fusionar"
 
 #: ID:9
 msgid "Merge..."
-msgstr "Combinar..."
+msgstr "Fusionar..."
 
 #: ID:263
 msgid "Merged"
-msgstr "Combinado"
+msgstr "Fusionado"
 
 #: ID:10
 msgid "Merges a branch into the main trunk"
-msgstr "Combina una rama en el tronco principal"
+msgstr "Fusiona una rama en el tronco principal"
 
 #: Control-ID:65535
 msgid "Merging"
-msgstr "Combinando"
+msgstr "Fusionando"
 
 #: ID:76
 msgid "Message"
@@ -3287,7 +3287,7 @@ msgstr "SVN Dueño del Bloqueo"
 
 #: ID:78
 msgid "SVN Merge..."
-msgstr "SVN Combinar..."
+msgstr "SVN Fusionar..."
 
 #: ID:12
 msgid "SVN Move versioned files here"
@@ -3430,7 +3430,7 @@ msgstr "Seleccionar Archivo..."
 
 #: ID:78
 msgid "Select Merge Application"
-msgstr "Seleccione aplicación de combinación"
+msgstr "Seleccione Aplicación de Fusión"
 
 #: Dlg-ID:173
 msgid "Select Revision"
@@ -3669,7 +3669,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Specify the revision range which you want to merge:"
-msgstr "Especifique el rango de revisiones que desea combinar:"
+msgstr "Especifique el rango de revisiones que desea fusionar:"
 
 #: ID:3604
 msgid ""
@@ -4012,7 +4012,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "The result of the merge is stored in the working copy at:"
-msgstr "El resultado de la combinación se ha almacenado en la copia de trabajo en:"
+msgstr "El resultado de la fusión se ha almacenado en la copia de trabajo en:"
 
 # ID:78,
 #: ID:78
@@ -4144,6 +4144,10 @@ msgstr ""
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Este producto incluye software desarrollado por CollabNet (http://www.Collab.Net/)"
 
+#: Control-ID:65535
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Este producto incluye software desarrollado por el Proyecto OpenSSL para su uso en el OpenSSL Toolkit (http://www.openssl.org/)"
+
 #: ID:3857
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
@@ -4181,7 +4185,7 @@ msgstr "A:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "A: (URL y revisión del fin del rango a combinar)"
+msgstr "A: (URL y revisión del fin del rango a fusionar)"
 
 #: ID:7
 #: ID:3585
@@ -4522,7 +4526,7 @@ msgstr ""
 "/base:<ruta al archivo base>\n"
 "/theirs:<ruta al archivo de otros>\n"
 "/mine:<ruta al archivo mío>\n"
-"/merged:<ruta al archivo resultado de la combinación>\n"
+"/merged:<ruta al archivo resultado de la fusión>\n"
 "/diff:<ruta al archivo de parche diff unificado>\n"
 "/patchpath:<ruta a la carpeta>"
 
@@ -4869,7 +4873,7 @@ msgstr "bloqueado"
 
 #: ID:11
 msgid "merged"
-msgstr "combinado"
+msgstr "fusionado"
 
 #: ID:10
 msgid "missing"
@@ -4981,7 +4985,7 @@ msgid ""
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"El tipo MIME del archivo. Usado para determinar si combinar el archivo. y cómo servirlo desde Apache. Un tipo MIME comenzando con 'text/' (o una  ausencia de tipo) es tratado como texto. Cualquier otra cosa es tratada como binario."
+"El tipo MIME del archivo. Usado para determinar si se podrá fusionar el archivo. y cómo servirlo desde Apache. Un tipo MIME comenzando con 'text/' (o una  ausencia de tipo) es tratado como texto. Cualquier otra cosa es tratada como binario."
 
 # ID:16,
 #: ID:16

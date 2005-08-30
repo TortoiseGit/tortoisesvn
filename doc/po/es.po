@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-08-30 13:30+0100\n"
+"PO-Revision-Date: 2005-08-30 21:14+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1418,7 +1418,7 @@ msgstr "puede"
 #: source/en/tsvn_dug/dug_wcstatus.xml:214
 #: (listitem)
 msgid "Items modified locally and in the repository. The changes will be merged on update. These <placeholder-1/> produce conflicts on update."
-msgstr "Items modificados localmente y en el repositorio. Los cambios se combinarán al actualizar. Ésto <placeholder-1/> producir conflictos al actualizar."
+msgstr "Items modificados localmente y en el repositorio. Los cambios se fusionarán al actualizar. Ésto <placeholder-1/> producir conflictos al actualizar."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:221
 #: (term)
@@ -1517,7 +1517,7 @@ msgstr "Diálogo de progreso mostrando una actualización terminada"
 #: source/en/tsvn_dug/dug_update.xml:7
 #: (para)
 msgid "<placeholder-1/> Periodically, you should ensure that changes done by others get incorporated in your local working copy. The process of getting changes from the server to your local copy is known as <literal>updating</literal>. Updating may be done on single files, a set of selected files, or recursively on entire directory hierarchies. To update, select the files and/or directories you want, <action>right click</action> and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu. A window will pop up displaying the progress of the update as it runs. Changes done by others will be merged into your files, keeping any changes you may have done to the same files. The repository is <emphasis>not</emphasis> affected by an update."
-msgstr "<placeholder-1/> Periódicamente, debería asegurarse que los cambios que hacen los demás se incorporen en su copia de trabajo local. El proceso de incorporar los cambios desde el servidor a su copia de trabajo local se conoce como <literal>actualización</literal>. La actualización puede hacerse en ficheros sueltos, en un conjunto de ficheros, o recursivamente en jerarquías completas de directorios. Para actualizar, seleccione los ficheros y/o directorios que desee, <action>haga click con el botón derecho</action> y seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice> en el menú contextual del explorador. Aparecerá una ventana con el progreso de la actualización según se ejecuta. Los cambios que los demás hayan hecho se combinarán con sus ficheros, guardando cualquier cambio que usted haya hecho en los mismos ficheros. El repositorio <emphasis>no</emphasis> se ve afectado por una actualización."
+msgstr "<placeholder-1/> Periódicamente, debería asegurarse que los cambios que hacen los demás se incorporen en su copia de trabajo local. El proceso de incorporar los cambios desde el servidor a su copia de trabajo local se conoce como <literal>actualización</literal>. La actualización puede hacerse en ficheros sueltos, en un conjunto de ficheros, o recursivamente en jerarquías completas de directorios. Para actualizar, seleccione los ficheros y/o directorios que desee, <action>haga click con el botón derecho</action> y seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice> en el menú contextual del explorador. Aparecerá una ventana con el progreso de la actualización según se ejecuta. Los cambios que los demás hayan hecho se fusionarán con sus ficheros, guardando cualquier cambio que usted haya hecho en los mismos ficheros. El repositorio <emphasis>no</emphasis> se ve afectado por una actualización."
 
 #: source/en/tsvn_dug/dug_update.xml:35
 #: (listitem)
@@ -1532,12 +1532,12 @@ msgstr "Ítem redundante borrado de su copia de trabajo, o ítem faltante reempl
 #: source/en/tsvn_dug/dug_update.xml:48
 #: (listitem)
 msgid "Changes from repository successfully merged with your local changes."
-msgstr "Cambios del repositorio que se han combinado satisfactoriamente con sus cambios locales."
+msgstr "Cambios del repositorio que se han fusionado satisfactoriamente con sus cambios locales."
 
 #: source/en/tsvn_dug/dug_update.xml:55
 #: (listitem)
 msgid "Changes from repository merged with local changes, resulting in conflicts which you need to resolve."
-msgstr "Cambios del repositorio combinados con sus cambios locales, pero que han dado lugar a conflictos que debe resolver."
+msgstr "Cambios del repositorio fusionados con sus cambios locales, pero que han dado lugar a conflictos que debe resolver."
 
 #: source/en/tsvn_dug/dug_update.xml:62
 #: (listitem)
@@ -1552,7 +1552,7 @@ msgstr "El diálogo de progreso utiliza un código de colores para resaltar dife
 #: source/en/tsvn_dug/dug_update.xml:69
 #: (para)
 msgid "If you get any <literal>conflicts</literal> during an update (this can happen if others changed the same lines in the same file as you did and those changes don't match) then the dialog shows those conflicts in red. You can <action>double click</action> on these lines to start the external merge tool to resolve the conflicts."
-msgstr "Si obtiene algún <literal>conflicto</literal> durante una actualización (esto puede suceder si los demás han cambiado las mismas líneas del mismo fichero a la vez que usted y esos cambios no concuerdan), el diálogo muestra esos conflictos en rojo. Puede <action>hacer doble click</action> en esas líneas para iniciar la herramienta de combinación externa para resolver los conflictos."
+msgstr "Si obtiene algún <literal>conflicto</literal> durante una actualización (esto puede suceder si los demás han cambiado las mismas líneas del mismo fichero a la vez que usted y esos cambios no concuerdan), el diálogo muestra esos conflictos en rojo. Puede <action>hacer doble click</action> en esas líneas para iniciar la herramienta de fusión externa para resolver los conflictos."
 
 #: source/en/tsvn_dug/dug_update.xml:77
 #: (para)
@@ -1562,7 +1562,7 @@ msgstr "TortoiseSVN también le permite actualizar su copia de trabajo a una rev
 #: source/en/tsvn_dug/dug_update.xml:94
 #: (para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you should use one of the following commands instead. The <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> command from the log dialog will undo only those changes made in the selected revision. Changes made after that revision will be retained. For reverting multiple revisions, you should use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> menu command, where you can specify the range of revisions you want to undo."
-msgstr "Si actualiza un fichero o una carpeta a una revisión en concreto, no debería cambiar esos ficheros. ¡Obtendrá mensajes <literal>out of date</literal> (desactualizado) cuando intente confirmarlos! Si desea deshacer los cambios de un fichero y empezar de nuevo desde una revisión anterior, debería utilizar alguno de los siguientes comandos en vez de éste. El comando <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Revertir los cambios de esta revisión</guimenuitem></menuchoice> del diálogo de registro deshará únicamente los cambios hechos en la revisión seleccionada. Los cambios que se hicieron después se mantendrán. Para revertir múltiples revisiones, debería utilizar el comando del menú <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Combinar...</guimenuitem></menuchoice>, donde puede especificar el rango de revisiones que desea deshacer."
+msgstr "Si actualiza un fichero o una carpeta a una revisión en concreto, no debería cambiar esos ficheros. ¡Obtendrá mensajes <literal>out of date</literal> (desactualizado) cuando intente confirmarlos! Si desea deshacer los cambios de un fichero y empezar de nuevo desde una revisión anterior, debería utilizar alguno de los siguientes comandos en vez de éste. El comando <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Revertir los cambios de esta revisión</guimenuitem></menuchoice> del diálogo de registro deshará únicamente los cambios hechos en la revisión seleccionada. Los cambios que se hicieron después se mantendrán. Para revertir múltiples revisiones, debería utilizar el comando del menú <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionar...</guimenuitem></menuchoice>, donde puede especificar el rango de revisiones que desea deshacer."
 
 #: source/en/tsvn_dug/dug_update.xml:115
 #: (para)
@@ -1827,7 +1827,7 @@ msgstr "Cuando se marca la casilla <guilabel>Parar en copia/renombrado</guilabel
 #: source/en/tsvn_dug/dug_showlog.xml:289
 #: (para)
 msgid "This option is normally unchecked by default, except when the Show Log dialog is invoked from within the Merge dialog."
-msgstr "Esta opción está normalmente sin marcar por defecto, excepto cuando el diálogo Mostrar Registro se invoca desde el diálogo Combinar."
+msgstr "Esta opción está normalmente sin marcar por defecto, excepto cuando el diálogo Mostrar Registro se invoca desde el diálogo Fusionar."
 
 #: source/en/tsvn_dug/dug_showlog.xml:294
 #: (para)
@@ -2194,12 +2194,12 @@ msgstr "TortoiseSVN puede cerrar automáticamente todos los diálogos de progres
 #: source/en/tsvn_dug/dug_settings.xml:316
 #: (para)
 msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that the progress dialog will close if there were simple updates, but if changes from the repository were merged with yours, or if any files were added or deleted, the dialog will remain open."
-msgstr "<guilabel>Auto-cerrar si no hay combinaciones, añadidos o borrados</guilabel> significa que el diálogo de progreso se cerrará si ha habido actualizaciones simples, pero si algún cambio del repositorio se ha combinado con los suyos, o si se añadió o borró algún fichero, el diálogo seguirá abierto."
+msgstr "<guilabel>Auto-cerrar si no hay fusiones, añadidos o borrados</guilabel> significa que el diálogo de progreso se cerrará si ha habido actualizaciones simples, pero si algún cambio del repositorio se ha fusionado con los suyos, o si se añadió o borró algún fichero, el diálogo seguirá abierto."
 
 #: source/en/tsvn_dug/dug_settings.xml:323
 #: (para)
 msgid "<guilabel>Auto-close if no conflicts</guilabel> relaxes the criteria further and will close the dialog even if there were merges, adds or deletes. However, if there were any conflicts or errors, the dialog remains open."
-msgstr "<guilabel>Auto-cerrar si no hay conflictos</guilabel> relaja el criterio y cerrará el diálogo incluso si ha habido combinaciones, adiciones o borrados. Sin embargo, si hay algún conflicto o error, el diálogo continuará abierto."
+msgstr "<guilabel>Auto-cerrar si no hay conflictos</guilabel> relaja el criterio y cerrará el diálogo incluso si ha habido fusiones, adiciones o borrados. Sin embargo, si hay algún conflicto o error, el diálogo continuará abierto."
 
 #: source/en/tsvn_dug/dug_settings.xml:330
 #: (para)
@@ -2254,7 +2254,7 @@ msgstr "Utilizar URL de la Copia de Trabajo como la URL \"Desde:\" por defecto"
 #: source/en/tsvn_dug/dug_settings.xml:389
 #: (para)
 msgid "In the merge dialog, the default behaviour is for the <guilabel>From:</guilabel> URL to be remembered between merges. However, some people like to perform merges from many different points in their hierarchy, and find it easier to start out with the URL of the current working copy. This can then be edited to refer to a parallel path on another branch."
-msgstr "En el diálogo de combinación, el comportamiento por defecto es que la URL <guilabel>Desde:</guilabel> se mantenga entre combinaciones. Sin embargo, algunas personas quieren realizar combinaciones desde diferentes puntos en su jerarquía, y les resulta más cómodo empezar con la URl de la copia de trabajo actual. Esto puede luego cambiarse para referirse a una ruta paralela en otra rama."
+msgstr "En el diálogo de fusión, el comportamiento por defecto es que la URL <guilabel>Desde:</guilabel> se mantenga entre fusiones. Sin embargo, algunas personas quieren realizar fusiones desde diferentes puntos en su jerarquía, y les resulta más cómodo empezar con la URl de la copia de trabajo actual. Esto puede luego cambiarse para referirse a una ruta paralela en otra rama."
 
 #: source/en/tsvn_dug/dug_settings.xml:405
 #: (title)
@@ -2294,7 +2294,7 @@ msgstr "El Diálogo Opciones, Página de Visor de Diferencias"
 #: source/en/tsvn_dug/dug_settings.xml:426
 #: (para)
 msgid "<placeholder-1/> Here you can define your own diff/merge programs that TortoiseSVN should use. The basic setting is to use the builtin TortoiseMerge which is installed alongside TortoiseSVN."
-msgstr "<placeholder-1/> Aquí puede definir sus propios programas de diferencias/combinación que debe utilizar TortoiseSVN. La configuración básica es utilizar el TortoiseMerge integrado que se instala con TortoiseSVN."
+msgstr "<placeholder-1/> Aquí puede definir sus propios programas de diferencias/fusión que debe utilizar TortoiseSVN. La configuración básica es utilizar el TortoiseMerge integrado que se instala con TortoiseSVN."
 
 #: source/en/tsvn_dug/dug_settings.xml:437
 #: (title)
@@ -2380,7 +2380,7 @@ msgstr "Si utiliza la propiedad <literal>svn:keywords</literal> para expandir pa
 #: source/en/tsvn_dug/dug_settings.xml:519
 #: (title)
 msgid "Merge Tool"
-msgstr "Herramienta de Combinación"
+msgstr "Herramienta de Fusión"
 
 #: source/en/tsvn_dug/dug_settings.xml:529
 #: (para)
@@ -2420,7 +2420,7 @@ msgstr "%merged"
 #: source/en/tsvn_dug/dug_settings.xml:578
 #: (para)
 msgid "the conflicted file, the result of the merge operation"
-msgstr "el fichero en conflicto, el resultado de la operación de combinación"
+msgstr "el fichero en conflicto, el resultado de la operación de fusión"
 
 #: source/en/tsvn_dug/dug_settings.xml:585
 #: (term)
@@ -2430,12 +2430,12 @@ msgstr "%mname"
 #: source/en/tsvn_dug/dug_settings.xml:587
 #: (para)
 msgid "The window title for the merged file"
-msgstr "El título de la ventana para el fichero combinado"
+msgstr "El título de la ventana para el fichero fusionado"
 
 #: source/en/tsvn_dug/dug_settings.xml:521
 #: (para)
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
-msgstr "Un programa de combinación externo que se utiliza para resolver ficheros en conflicto. La sustitución de parámetros se utiliza de la misma forma que el Programa de Diferencias. <placeholder-1/>"
+msgstr "Un programa de fusión externo que se utiliza para resolver ficheros en conflicto. La sustitución de parámetros se utiliza de la misma forma que el Programa de Diferencias. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_settings.xml:594
 #: (para)
@@ -2470,12 +2470,12 @@ msgstr "El programa Bloc de Notas original de Windows no se comporta bien con lo
 #: source/en/tsvn_dug/dug_settings.xml:628
 #: (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
-msgstr "El Diálogo Opciones, Pestaña Diferencias/Combinación Avanzadas"
+msgstr "El Diálogo Opciones, Pestaña Diferencias/Fusión Avanzadas"
 
 #: source/en/tsvn_dug/dug_settings.xml:626
 #: (para)
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for .jpg files :-)"
-msgstr "<placeholder-1/> En las opciones avanzadas, puede definir un programa de diferencias y combinación diferente por cada extensión de fichero. Por ejemplo, podría asociar Photoshop como el Programa de <quote>Diferencias</quote> para ficheros .jpg :-)"
+msgstr "<placeholder-1/> En las opciones avanzadas, puede definir un programa de diferencias y fusión diferente por cada extensión de fichero. Por ejemplo, podría asociar Photoshop como el Programa de <quote>Diferencias</quote> para ficheros .jpg :-)"
 
 #: source/en/tsvn_dug/dug_settings.xml:637
 #: (title)
@@ -3021,7 +3021,7 @@ msgstr "Los ficheros de parches se aplican en su copia de trabajo. Esto debe hac
 #: source/en/tsvn_dug/dug_patch.xml:80
 #: (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
-msgstr "Para aplicar un fichero de parche en su copia de trabajo, necesita al menos acceso de lectura al repositorio. La razón para esto es que el programa de combinación debe referenciar los cambios sobre la revisión contra la que se hicieron por el desarrollador remoto."
+msgstr "Para aplicar un fichero de parche en su copia de trabajo, necesita al menos acceso de lectura al repositorio. La razón para esto es que el programa de fusión debe referenciar los cambios sobre la revisión contra la que se hicieron por el desarrollador remoto."
 
 #: source/en/tsvn_dug/dug_patch.xml:87
 #: (para)
@@ -3041,7 +3041,7 @@ msgstr "Estos dos métodos le ofrecen formas diferentes de hacer lo mismo. Con e
 #: source/en/tsvn_dug/dug_patch.xml:113
 #: (para)
 msgid "Once you have selected the patch file and working copy location, TortoiseMerge runs to merge the changes from the patch file with your working copy. A small window lists the files which have been changed. Double click on each one in turn, review the changes and save the merged files."
-msgstr "Una vez que haya seleccionado el fichero de parche y la ruta de la copia de trabajo, se ejecuta TortoiseMerge para combinar los cambios del fichero de parche contra su copia de trabajo. Una pequeña ventana le muestra los ficheros que han sido cambiados. Haga doble click por turnos en cada uno de ellos, compruebe los cambios y grabe los ficheros combinados."
+msgstr "Una vez que haya seleccionado el fichero de parche y la ruta de la copia de trabajo, se ejecuta TortoiseMerge para fusionar los cambios del fichero de parche contra su copia de trabajo. Una pequeña ventana le muestra los ficheros que han sido cambiados. Haga doble click por turnos en cada uno de ellos, compruebe los cambios y grabe los ficheros fusionados."
 
 #: source/en/tsvn_dug/dug_patch.xml:120
 #: (para)
@@ -3051,17 +3051,17 @@ msgstr "El parche del desarrollador remoto ya ha sido aplicado a su copia de tra
 #: source/en/tsvn_dug/dug_merge.xml:3
 #: (title)
 msgid "Merging"
-msgstr "Combinando"
+msgstr "Fusionando"
 
 #: source/en/tsvn_dug/dug_merge.xml:6
 #: (primary)
 msgid "merge"
-msgstr "combinar"
+msgstr "fusionar"
 
 #: source/en/tsvn_dug/dug_merge.xml:8
 #: (para)
 msgid "Where branches are used to maintain separate lines of development, at some stage you will want to merge the changes made on one branch back into the trunk, or vice versa."
-msgstr "Mientras que las ramas se utilizan para mantener líneas de desarrollo separadas, en alguna etapa tendrá que combinar los cambios hechos en una rama de vuelta en el tronco, o viceversa."
+msgstr "Mientras que las ramas se utilizan para mantener líneas de desarrollo separadas, en alguna etapa tendrá que fusionar los cambios hechos en una rama de vuelta en el tronco, o viceversa."
 
 #: source/en/tsvn_dug/dug_merge.xml:13
 #: (para)
@@ -3071,22 +3071,22 @@ msgstr "Es importante entender cómo funcionan las ramas y la mezcla en Subversi
 #: source/en/tsvn_dug/dug_merge.xml:26
 #: (para)
 msgid "An important point to remember is that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. For example if you want to merge the changes made in revision N then you have to compare revision N with revision (N-1). Novices often ask <quote>Why do I have to subtract 1 from the start revision.</quote> Think of the underlying Diff process and it will become clearer. TO make this easier, when you use <guibutton>Show Log</guibutton> to select a range of revisions to merge, TortoiseSVN makes this adjustment for you automatically."
-msgstr "Un punto importante a recordar es que Combinar está muy relacionado con Diferenciar. El proceso de combinación trabaja generando una lista de diferencias entre dos puntos del repositorio, y aplicando esas diferencias a su copia de trabajo. Por ejemplo, si desea combinar los cambios hechos en la revisión N, entonces tendrá que comparar la revisión N con la revisión (N-1). Los novatos a menudo preguntan <quote>Por qué tengo que restar 1 a la revisión de inicio.</quote> Recuerde el proceso de Diferenciación que hay por debajo y se hará más claro. Para hacerlo más sencillo, cuando utilice <guibutton>Mostrar Registro</guibutton> para seleccionar un rango de revisiones a combinar, TortoiseSVN hará el ajuste automáticamente por usted."
+msgstr "Un punto importante a recordar es que Fusionar está muy relacionado con Diferenciar. El proceso de fusión trabaja generando una lista de diferencias entre dos puntos del repositorio, y aplicando esas diferencias a su copia de trabajo. Por ejemplo, si desea fusionar los cambios hechos en la revisión N, entonces tendrá que comparar la revisión N con la revisión (N-1). Los novatos a menudo preguntan <quote>Por qué tengo que restar 1 a la revisión de inicio.</quote> Recuerde el proceso de Diferenciación que hay por debajo y se hará más claro. Para hacerlo más sencillo, cuando utilice <guibutton>Mostrar Registro</guibutton> para seleccionar un rango de revisiones a fusionar, TortoiseSVN hará el ajuste automáticamente por usted."
 
 #: source/en/tsvn_dug/dug_merge.xml:39
 #: (para)
 msgid "In general it is a good idea to perform a merge into an unmodified working copy. If you have made other changes in your WC, commit those first. If the merge does not go as you expect, you may want to revert the changes, and the <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> changes including any you made before the merge."
-msgstr "En general es una buena idea realizar combinaciones en una copia de trabajo sin modificar. Si ha hecho otros cambios en su copia de trabajo, confírmelos primero. Si la combinación no funciona como espera, puede querer revertir los cambios, y el comando <guilabel>Revertir</guilabel> descartará <emphasis>todos</emphasis> los cambios, incluidos cualquiera que haya hecho antes de la combinación."
+msgstr "En general es una buena idea realizar fusiones en una copia de trabajo sin modificar. Si ha hecho otros cambios en su copia de trabajo, confírmelos primero. Si la fusión no funciona como espera, puede querer revertir los cambios, y el comando <guilabel>Revertir</guilabel> descartará <emphasis>todos</emphasis> los cambios, incluidos cualquiera que haya hecho antes de la fusión."
 
 #: source/en/tsvn_dug/dug_merge.xml:46
 #: (para)
 msgid "There are two common use cases for merging which are handled in slightly different ways, as described below."
-msgstr "Hay dos casos de uso comunes para combinar que se manejan de formas ligeramente diferentes, como se describen a continuación."
+msgstr "Hay dos casos de uso comunes para fusionar que se manejan de formas ligeramente diferentes, como se describen a continuación."
 
 #: source/en/tsvn_dug/dug_merge.xml:52
 #: (title)
 msgid "Merging a Range of Revisions"
-msgstr "Combinando un Rango de Revisiones"
+msgstr "Fusionando un Rango de Revisiones"
 
 #: source/en/tsvn_dug/dug_merge.xml:53
 #: (para)
@@ -3096,12 +3096,12 @@ msgstr "Este método cubre el caso en el que ha hecho una o más revisiones a un
 #: source/en/tsvn_dug/dug_merge.xml:60
 #: (title)
 msgid "The Merge Dialog"
-msgstr "El Diálogo Combinar"
+msgstr "El Diálogo Fusionar"
 
 #: source/en/tsvn_dug/dug_merge.xml:73
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
-msgstr "En el campo <guilabel>Desde:</guilabel> introduzca la URL completa de la carpeta de la rama o la etiqueta que contiene los cambios que desea portar a su copia de trabajo. También puede pulsar <guibutton>...</guibutton> para navegar el repositorio y encontrar la rama deseada. Si ha combinado desde esta rama antes, entonces utilice la lista desplegable que le muestra una historia de las URLs utilizadas anteriormente."
+msgstr "En el campo <guilabel>Desde:</guilabel> introduzca la URL completa de la carpeta de la rama o la etiqueta que contiene los cambios que desea portar a su copia de trabajo. También puede pulsar <guibutton>...</guibutton> para navegar el repositorio y encontrar la rama deseada. Si ha fusionado desde esta rama antes, entonces utilice la lista desplegable que le muestra una historia de las URLs utilizadas anteriormente."
 
 #: source/en/tsvn_dug/dug_merge.xml:86
 #: (para)
@@ -3122,7 +3122,7 @@ msgid ""
 "         ...\n"
 "</screen> If you now want to merge all the changes from MyBranch into the trunk you have to choose 36 as the <guilabel>From Revision</guilabel>, not 37 as you might think. If you select revision 37 as the start point, then the difference engine compares the end point with revision 37, and will miss the changes made in revision 37 itself. If that sounds complicated, don't worry, there is an easier way in TortoiseSVN ..."
 msgstr ""
-"En el campo <guilabel>Desde la Revisión</guilabel> introduzca el número de revisión inicial. Esta es la revisión <emphasis>anterior</emphasis> a los cambios que desea combinar. Recuerde que Subversion creará un fichero de diferencias para realizar la combinación, por lo que el punto de inicio debe estar justo antes del primer cambio en el que está interesado. Por ejemplo, sus mensajes de registro pueden ser parecidos a estos: <screen>\n"
+"En el campo <guilabel>Desde la Revisión</guilabel> introduzca el número de revisión inicial. Esta es la revisión <emphasis>anterior</emphasis> a los cambios que desea fusionar. Recuerde que Subversion creará un fichero de diferencias para realizar la fusión, por lo que el punto de inicio debe estar justo antes del primer cambio en el que está interesado. Por ejemplo, sus mensajes de registro pueden ser parecidos a estos: <screen>\n"
 "Rev Comentarios\n"
 "39. Trabajando en MiRama\n"
 "38. Trabajando en trunk\n"
@@ -3131,12 +3131,12 @@ msgstr ""
 "35. Trabajando en trunk\n"
 "34. Trabajando entrunk\n"
 "         ...\n"
-"</screen> Si ahora desea combinar todos los cambios de MiRama en el tronco, deberá elegir 36 como valor de <guilabel>Desde la Revisión</guilabel>, no 37 como podría pensar. Si selecciona la revisión 37 como punto de inicio, entonces el motor de diferencias compara el punto final con la revisión 37, y se perderá los cambios que hizo en la propia revisión 37. Si esto suena complicado, no se preocupe, hay una forma más fácil en TortoiseSVN..."
+"</screen> Si ahora desea fusionar todos los cambios de MiRama en el tronco, deberá elegir 36 como valor de <guilabel>Desde la Revisión</guilabel>, no 37 como podría pensar. Si selecciona la revisión 37 como punto de inicio, entonces el motor de diferencias compara el punto final con la revisión 37, y se perderá los cambios que hizo en la propia revisión 37. Si esto suena complicado, no se preocupe, hay una forma más fácil en TortoiseSVN..."
 
 #: source/en/tsvn_dug/dug_merge.xml:122
 #: (para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the revision numbers of the <guilabel>From revision</guilabel> and <guilabel>To revision</guilabel> in the Merge dialog will <emphasis>both</emphasis> be filled in for you."
-msgstr "La manera más fácil de seleccionar el rango de revisiones que necesita es pulsar en <guibutton>Mostrar Registro</guibutton>, dado que esto mostrará los cambios recientes con sus comentarios de registro. Si desea combinar los cambios de una única revisión, seleccione esa revisión. Si desea combinar los cambios de varias revisiones, entonces seleccione ese rango (utilizando el modificador habitual <keycap>Mayúsculast</keycap>). Pulse <guibutton>Aceptar</guibutton> y <emphasis>los dos</emphasis> números de revisión <guilabel>Desde la Revisión</guilabel> y <guilabel>Hasta la Revisión</guilabel> se rellenarán por usted en el diálogo Combinar."
+msgstr "La manera más fácil de seleccionar el rango de revisiones que necesita es pulsar en <guibutton>Mostrar Registro</guibutton>, dado que esto mostrará los cambios recientes con sus comentarios de registro. Si desea fusionar los cambios de una única revisión, seleccione esa revisión. Si desea fusionar los cambios de varias revisiones, entonces seleccione ese rango (utilizando el modificador habitual <keycap>Mayúsculast</keycap>). Pulse <guibutton>Aceptar</guibutton> y <emphasis>los dos</emphasis> números de revisión <guilabel>Desde la Revisión</guilabel> y <guilabel>Hasta la Revisión</guilabel> se rellenarán por usted en el diálogo Fusionar."
 
 #: source/en/tsvn_dug/dug_merge.xml:135
 #: (para)
@@ -3146,12 +3146,12 @@ msgstr "Cuando se marca la casilla <guilabel>Utilizar URL \"Desde:\"</guilabel>,
 #: source/en/tsvn_dug/dug_merge.xml:143
 #: (para)
 msgid "If you have already merged some changes from this branch, hopefully you will have made a note of the last revision merged in the log message when you committed the change. In that case, you can use <guibutton>Show Log</guibutton> for the Working Copy to trace that log message. Use the end point of the last merge as the start point for this merge. For example, if you have merged revisions 37 to 39 last time, then the start point for this merge should be revision 39."
-msgstr "Si ya ha combinado algunos cambios desde esta rama, esperemos que haya apuntado la última revisión combinada en el mensaje de registro cuando confirmó ese cambio. En ese caso, puede utilizar <guibutton>Mostrar Registro</guibutton> en la Copia de Trabajo para buscar ese mensaje de registro. Utilize el punto final de la última combinación como punto de inicio de esta combinación. Por ejemlpo, si la última vez combinó las revisiones de la 37 a la 39, entonces el punto de inicio de esta combinación sería la revisión 39."
+msgstr "Si ya ha fusionado algunos cambios desde esta rama, esperemos que haya apuntado la última revisión fusionada en el mensaje de registro cuando confirmó ese cambio. En ese caso, puede utilizar <guibutton>Mostrar Registro</guibutton> en la Copia de Trabajo para buscar ese mensaje de registro. Utilize el punto final de la última fusión como punto de inicio de esta fusión. Por ejemplo, si la última vez fusionó las revisiones de la 37 a la 39, entonces el punto de inicio de esta fusión sería la revisión 39."
 
 #: source/en/tsvn_dug/dug_merge.xml:156
 #: (para)
 msgid "If you have not used <guibutton>Show Log</guibutton> to select the revision range, then you will need to set the <guilabel>To Revision</guilabel> manually. Enter the last revision number in the range you want to merge. Often this will be the HEAD revision, although it doesn't need to be - you may just want to merge a single revision."
-msgstr "Si no ha utilizado <guibutton>Mostrar Registro</guibutton> para seleccionar el rango de revisiones, necesitará establecer el campo <guilabel>Hasta la Revisión</guilabel> manualmente. Introduzca el número de la última revisión del rango que desea combinar. A menudo ésta será la revisión HEAD, aunque no necesita serlo - puede querer combinar únicamente una única revisión."
+msgstr "Si no ha utilizado <guibutton>Mostrar Registro</guibutton> para seleccionar el rango de revisiones, necesitará establecer el campo <guilabel>Hasta la Revisión</guilabel> manualmente. Introduzca el número de la última revisión del rango que desea fusionar. A menudo ésta será la revisión HEAD, aunque no necesita serlo - puede querer fusionar únicamente una única revisión."
 
 #: source/en/tsvn_dug/dug_merge.xml:164
 #: (para)
@@ -3163,37 +3163,37 @@ msgstr "Si hay otras personas que puedan estar confirmando cambios, entonces ten
 #: source/en/tsvn_dug/dug_merge.xml:280
 #: source/en/tsvn_app_howto.xml:216
 msgid "Click <guibutton>OK</guibutton> to complete the merge."
-msgstr "Pulse <guibutton>Aceptar</guibutton> para completar la combinación."
+msgstr "Pulse <guibutton>Aceptar</guibutton> para completar la fusión."
 
 #: source/en/tsvn_dug/dug_merge.xml:58
 #: (para)
 msgid "<placeholder-1/> To merge revisions you need to go to a working copy of the branch in which you want to receive the changes, often the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-2/> The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
-msgstr "<placeholder-1/> Para combinar revisiones necesita ir a una copia de trabajo de la rama en la que desee recibir los cambios, a menudo el tronco. Seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Combinar...</guimenuitem></menuchoice> desde el menú contextual. <placeholder-2/> La combinación ya está completa. Es una buena idea observar la combinación y ver si está como se esperaba. Las combinaciones son usualmente bastante complicadas. A menudo aparecen conflictos si la rama se ha desviado mucho del tronco."
+msgstr "<placeholder-1/> Para fusionar revisiones necesita ir a una copia de trabajo de la rama en la que desee recibir los cambios, a menudo el tronco. Seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionar...</guimenuitem></menuchoice> desde el menú contextual. <placeholder-2/> La fusión ya está completa. Es una buena idea observar la fusión y ver si está como se esperaba. Las fusiones son normalmente bastante complicadas. A menudo aparecen conflictos si la rama se ha desviado mucho del tronco."
 
 #: source/en/tsvn_dug/dug_merge.xml:181
 #: (para)
 msgid "When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. Unfortunately merge information is not stored by Subversion. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> in the <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Subversion Book</citetitle></ulink>"
-msgstr "Cuando haya comprobado los cambios y vaya a confirmar esta revisión, su mensaje de registro debería incluir <emphasis>siempre</emphasis> los números de revisión que han sido portados en la combinación. Si desea aplicar otra combinación más tarde, necesitará saber lo que ya ha combinado, porque no querrá portar un cambio más de una vez. Desafortunadamente, Subversion no almacena la información de combinaciones. Para más información sobre esto, consulte <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> en el <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Libro de Subversion</citetitle></ulink>"
+msgstr "Cuando haya comprobado los cambios y vaya a confirmar esta revisión, su mensaje de registro debería incluir <emphasis>siempre</emphasis> los números de revisión que han sido portados en la fusión. Si desea aplicar otra fusión más tarde, necesitará saber lo que ya ha fusionado, porque no querrá portar un cambio más de una vez. Desafortunadamente, Subversion no almacena la información de fusiones. Para más información sobre esto, consulte <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.2.1\"><citetitle>Tracking Merges Manually</citetitle></ulink> en el <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Libro de Subversion</citetitle></ulink>"
 
 #: source/en/tsvn_dug/dug_merge.xml:197
 #: (para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
-msgstr "El manejo de las ramas es importante. Si desea mantener esta rama actualizada respecto al tronco, debería asegurarse de combinar a menudo para que la rama y el tronco no se alejen mucho. Por supuesto, sigue debiendo evitar combinaciones repetidas de cambios, como se explicó anteriormente."
+msgstr "El manejo de las ramas es importante. Si desea mantener esta rama actualizada respecto al tronco, debería asegurarse de fusionar a menudo para que la rama y el tronco no se alejen mucho. Por supuesto, sigue debiendo evitar fusiones repetidas de cambios, como se explicó anteriormente."
 
 #: source/en/tsvn_dug/dug_merge.xml:204
 #: (para)
 msgid "Subversion can't merge a file with a folder and vice versa - only folders to folders and files to files. If you click on a file and open up the merge dialog, then you have to give a path to a file in that dialog. If you select a folder and bring up the dialog, then you must specify a folder url for the merge."
-msgstr "Subversion no puede combinar un fichero con una carpeta, y viceversa - sólo carpetas con carpetas y ficheros con ficheros. Si pulsa en un fichero y abre el diálogo de combinar, entonces deberá darle una ruta a un fichero en ese diálogo. Si selecciona una carpeta y saca el diálogo, debe especificar una URL de una carpeta para la combinación."
+msgstr "Subversion no puede fusionar un fichero con una carpeta, y viceversa - sólo carpetas con carpetas y ficheros con ficheros. Si pulsa en un fichero y abre el diálogo de fusionar, entonces deberá darle una ruta a un fichero en ese diálogo. Si selecciona una carpeta y saca el diálogo, debe especificar una URL de una carpeta para la fusión."
 
 #: source/en/tsvn_dug/dug_merge.xml:215
 #: (title)
 msgid "Merging Two Different Trees"
-msgstr "Combinando Dos Árboles Diferentes"
+msgstr "Fusionando Dos Árboles Diferentes"
 
 #: source/en/tsvn_dug/dug_merge.xml:216
 #: (para)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Este método cubre el caso cuando ha realizado una rama de funcionalidad como se discute en el libro de Subversion. Todos los cambios del tronco han sido portados a la rama de la funcionalidad, semana a semana, y ahora que la funcionalidad está completa desea combinarla de nuevo en el tronco. Dado que ha mantenido la rama de la funcionalidad sincronizada con el tronco, las últimas versiones de la rama y del tronco serán absolutamente iguales excepto por sus cambios en la rama. En este caso especial, combinaría comparando la rama con el tronco."
+msgstr "Este método cubre el caso cuando ha realizado una rama de funcionalidad como se discute en el libro de Subversion. Todos los cambios del tronco han sido portados a la rama de la funcionalidad, semana a semana, y ahora que la funcionalidad está completa desea fusionarla de nuevo en el tronco. Dado que ha mantenido la rama de la funcionalidad sincronizada con el tronco, las últimas versiones de la rama y del tronco serán absolutamente iguales excepto por sus cambios en la rama. En este caso especial, fusionaría comparando la rama con el tronco."
 
 #: source/en/tsvn_dug/dug_merge.xml:237
 #: (para)
@@ -3223,32 +3223,32 @@ msgstr "También puede utilizar <guibutton>Mostrar Registro</guibutton> para sel
 #: source/en/tsvn_dug/dug_merge.xml:226
 #: (para)
 msgid "To merge the feature branch back into the trunk you need to go to a working copy of the trunk. Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu. <placeholder-1/>"
-msgstr "Para combinar la rama de la característica en el tronco necesita ir a una copia de trabajo del tronco. Seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Combinar..</guimenuitem></menuchoice> desde el menú contextual. <placeholder-1/>"
+msgstr "Para fusionar la rama de la característica en el tronco necesita ir a una copia de trabajo del tronco. Seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionar..</guimenuitem></menuchoice> desde el menú contextual. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_merge.xml:286
 #: (para)
 msgid "In this case you will not need the feature branch again because the new feature is now integrated into the trunk. The feature branch is redundant and can be deleted from the repository if required."
-msgstr "En este caso no necesitará la rama de la característica de nuevo porque la característica ya está combinada en el tronco. La rama de la característica es redundante y puede ser borrada del repositorio si se necesita."
+msgstr "En este caso no necesitará la rama de la característica de nuevo porque la característica ya está fusionada en el tronco. La rama de la característica es redundante y puede ser borrada del repositorio si se necesita."
 
 #: source/en/tsvn_dug/dug_merge.xml:295
 #: (title)
 msgid "Previewing Merge Results"
-msgstr "Previsualizando Resultados de Combinación"
+msgstr "Previsualizando Resultados de Fusión"
 
 #: source/en/tsvn_dug/dug_merge.xml:296
 #: (para)
 msgid "If you are uncertain about the merge operation, you may want to preview what will happen do before you allow it to change your working copy. There are two additional buttons to help you."
-msgstr "Si no está seguro sobre la operación de combinación, puede querer previsualizar qué ocurrirá antes de que le permita hacer cambios en su copia de trabajo. Hay dos botones adicionales para ayudarle."
+msgstr "Si no está seguro sobre la operación de fusión, puede querer previsualizar qué ocurrirá antes de que le permita hacer cambios en su copia de trabajo. Hay dos botones adicionales para ayudarle."
 
 #: source/en/tsvn_dug/dug_merge.xml:301
 #: (para)
 msgid "<guibutton>Unified Diff</guibutton> creates the diff file (remember that merge is based on diff) and shows you which lines will be changed in your working copy files. As this is a unified diff (patch) file it is not always easy to read out of context, but for small scale changes it is often helpful."
-msgstr "<guibutton>Diff Unificado</guibutton> crea el fichero de diferencias (recuerde que la combinación se basa en la diferenciación) y le muestra qué lineas se cambiarán en los ficheros de su copia de trabajo. Este fichero de diferencias unificado (fichero de parche) no siempre es fácil de leer fuera de contexto, pero para cambios a pequeña escala a menudo es útil."
+msgstr "<guibutton>Diff Unificado</guibutton> crea el fichero de diferencias (recuerde que la fusión se basa en la diferenciación) y le muestra qué lineas se cambiarán en los ficheros de su copia de trabajo. Este fichero de diferencias unificado (fichero de parche) no siempre es fácil de leer fuera de contexto, pero para cambios a pequeña escala a menudo es útil."
 
 #: source/en/tsvn_dug/dug_merge.xml:308
 #: (para)
 msgid "<guibutton>Dry Run</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
-msgstr "<guibutton>Simular</guibutton> realiza la operación de combinación, pero <emphasis>no</emphasis> modifica la copia de trabajo en absoluto. Le muestra una lista de ficheros que se combinarán con una combinación real, y especifica esas áreas donde ocurrirán conflictos."
+msgstr "<guibutton>Simular</guibutton> realiza la operación de fusión, pero <emphasis>no</emphasis> modifica la copia de trabajo en absoluto. Le muestra una lista de ficheros que se fusionarán con una fusión real, y especifica esas áreas donde ocurrirán conflictos."
 
 #: source/en/tsvn_dug/dug_locking.xml:3
 #: (title)
@@ -3263,7 +3263,7 @@ msgstr "bloqueando"
 #: source/en/tsvn_dug/dug_locking.xml:15
 #: (para)
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
-msgstr "Está utilizando ficheros <quote>incombinables</quote>, por ejemplo, ficheros de imagen. Si dos personas cambian el mismo fichero, la combinación no es posible, así que alguno de ellos perderá sus cambios."
+msgstr "Está utilizando ficheros <quote>no fusionables</quote>, por ejemplo, ficheros de imagen. Si dos personas cambian el mismo fichero, la fusión no es posible, así que alguno de ellos perderá sus cambios."
 
 #: source/en/tsvn_dug/dug_locking.xml:23
 #: (para)
@@ -3273,7 +3273,7 @@ msgstr "Su compañía ha utilizado en el pasado un SCV bloqueante, y la direcci�
 #: source/en/tsvn_dug/dug_locking.xml:7
 #: (para)
 msgid "Subversion generally works best without locking, using the <quote>Copy-Modify-Merge</quote> methods described earlier in <xref linkend=\"tsvn-ch-2-sect-2.3\"/>. However there are a few instances when you may need to implement some form of locking policy. <placeholder-1/>"
-msgstr "Subversion generalmente trabaja mejor sin bloqueos, utilizando los métodos <quote>Copiar-Modificar-Combinar</quote> que se describieron anteriormente en el <xref linkend=\"tsvn-ch-2-sect-2.3\"/>. Sin embargo, hay algunas pocas situaciones en las que puede querer implementar alguna forma de política de bloqueo. <placeholder-1/>"
+msgstr "Subversion generalmente trabaja mejor sin bloqueos, utilizando los métodos <quote>Copiar-Modificar-Fusionar</quote> que se describieron anteriormente en el <xref linkend=\"tsvn-ch-2-sect-2.3\"/>. Sin embargo, hay algunas pocas situaciones en las que puede querer implementar alguna forma de política de bloqueo. <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_locking.xml:31
 #: (para)
@@ -3288,7 +3288,7 @@ msgstr "Cómo Trabaja el Bloqueo en Subversion"
 #: source/en/tsvn_dug/dug_locking.xml:39
 #: (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
-msgstr "Por defecto, nada se bloquea y todo el mundo que tiene acceso de confirmación puede confirmar cambios a cualquier fichero en cualquier momento. Los demás actualizarán sus copias de trabajo periódicamente y los cambios en el repositorio se combinarán con los cambios locales."
+msgstr "Por defecto, nada se bloquea y todo el mundo que tiene acceso de confirmación puede confirmar cambios a cualquier fichero en cualquier momento. Los demás actualizarán sus copias de trabajo periódicamente y los cambios en el repositorio se fusionarán con los cambios locales."
 
 #: source/en/tsvn_dug/dug_locking.xml:45
 #: (para)
@@ -3378,7 +3378,7 @@ msgstr "Evite Romper y Robar Bloqueos"
 #: source/en/tsvn_dug/dug_locking.xml:174
 #: (para)
 msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
-msgstr "Si ha roto o robado el bloqueo de otro sin decírselo, puede causar una pérdida potencial de trabajo. Si está trabajando con tipos de ficheros incombinables y roba el bloqueo de otro, una vez que usted quite el bloqueo ellos son libres de confirmar sus cambios y sobreescribir los suyos. Subversion no pierde datos, pero ha perdido la protección para trabajo en equipo que el bloqueo le proporcionaba."
+msgstr "Si ha roto o robado el bloqueo de otro sin decírselo, puede causar una pérdida potencial de trabajo. Si está trabajando con tipos de ficheros no fusionables y roba el bloqueo de otro, una vez que usted quite el bloqueo ellos son libres de confirmar sus cambios y sobreescribir los suyos. Subversion no pierde datos, pero ha perdido la protección para trabajo en equipo que el bloqueo le proporcionaba."
 
 #: source/en/tsvn_dug/dug_locking.xml:186
 #: (title)
@@ -3709,10 +3709,15 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_import.xml:302
 #: (para)
+msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
+msgstr "Tenga en cuenta que si cambia la URL en una propiedad <literal>svn:externals</literal>, la siguiente vez que actualice su copia de trabajo Subversion borrará la carpeta externa antigua y obtendrá una copia de trabajo nueva, por lo que verá que los ficheros serán <literal>Añadidos</literal>, en vez de ser <literal>Actualizados</literal> como podría esperarse. Esta situación puede ocurrir si se refiere a una etiqueta de otro proyecto. Cuando se lanza una nueva versión de ese proyecto, cambia su referencia externa para apuntar a la nueva rama."
+
+#: source/en/tsvn_dug/dug_import.xml:312
+#: (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-DUG-propertypage\"/>."
 msgstr "Si necesita más información sobre cómo TortoiseSVN maneja las Propiedades, lea <xref linkend=\"tsvn-DUG-propertypage\"/>."
 
-#: source/en/tsvn_dug/dug_import.xml:306
+#: source/en/tsvn_dug/dug_import.xml:316
 #: (para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr "Para averiguar los diferentes métodos para acceder a subproyectos comunes lea <xref linkend=\"tsvn-howto-common-projects\"/>."
@@ -3921,7 +3926,7 @@ msgstr "Las herramientas proporcionadas con TortoiseSVN no le permiten ver las d
 #: source/en/tsvn_dug/dug_diff.xml:100
 #: (title)
 msgid "External Diff/Merge Tools"
-msgstr "Herramientas Externas de Diferencias/Combinación"
+msgstr "Herramientas Externas de Diferencias/Fusión"
 
 #: source/en/tsvn_dug/dug_diff.xml:102
 #: (primary)
@@ -3931,7 +3936,7 @@ msgstr "herramientas de diferenciación"
 #: source/en/tsvn_dug/dug_diff.xml:105
 #: (primary)
 msgid "merge tools"
-msgstr "herramientas de combinación"
+msgstr "herramientas de fusión"
 
 #: source/en/tsvn_dug/dug_diff.xml:107
 #: (para)
@@ -3946,7 +3951,7 @@ msgstr "WinMerge"
 #: source/en/tsvn_dug/dug_diff.xml:117
 #: (para)
 msgid "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is a great open-source diff viewer and merge tool."
-msgstr "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> es un muy buen visor de diferencias y herramienta de combinación de código abierto."
+msgstr "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> es un muy buen visor de diferencias y herramienta de fusión de código abierto."
 
 #: source/en/tsvn_dug/dug_diff.xml:126
 #: (term)
@@ -3956,7 +3961,7 @@ msgstr "Perforce WinDiff"
 #: source/en/tsvn_dug/dug_diff.xml:128
 #: (para)
 msgid "Perforce is a commercial RCS, but you can download the diff/merge tool for free. Download the full installer from <ulink url=\"http://www.perforce.com/perforce/loadprog.html\"><citetitle>Perforce</citetitle></ulink>."
-msgstr "Perforce es un RCS comercial, pero puede descargar la herramienta de diferencias/combinaciones gratuitamente. Descarge el instalador completo desde <ulink url=\"http://www.perforce.com/perforce/loadprog.html\"><citetitle>Perforce</citetitle></ulink>."
+msgstr "Perforce es un RCS comercial, pero puede descargar la herramienta de diferencias/fusiones gratuitamente. Descarge el instalador completo desde <ulink url=\"http://www.perforce.com/perforce/loadprog.html\"><citetitle>Perforce</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:138
 #: (term)
@@ -3996,7 +4001,7 @@ msgstr "Araxis Merge"
 #: source/en/tsvn_dug/dug_diff.xml:182
 #: (para)
 msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparision in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
-msgstr "Araxis Merge es una útil herramienta comercial para ver diferencias y combinar tanto ficheros como carpetas. Hace comparaciones a tres bandas en las combinaciones y tiene vínculos de sincronización para utilizar si ha cambiado el orden las funciones. Descárgelo desde <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
+msgstr "Araxis Merge es una útil herramienta comercial para ver diferencias y fusionar tanto ficheros como carpetas. Hace comparaciones a tres bandas en las fusiones y tiene vínculos de sincronización para utilizar si ha cambiado el orden las funciones. Descárgelo desde <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:194
 #: (term)
@@ -4026,7 +4031,7 @@ msgstr "TkDiff"
 #: source/en/tsvn_dug/dug_diff.xml:223
 #: (para)
 msgid "A free diff/merge tool which uses TCL/TK. Download it <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>here</citetitle></ulink>."
-msgstr "Una herramienta gratuita de diferencias/combinaciones que utiliza TCL/TK. Descárgela <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>aquí</citetitle></ulink>."
+msgstr "Una herramienta gratuita de diferencias/fusiones que utiliza TCL/TK. Descárgela <ulink url=\"http://www.accurev.com/free/tkdiff/\"><citetitle>aquí</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:233
 #: (term)
@@ -4036,7 +4041,7 @@ msgstr "CVSConflictEditor"
 #: source/en/tsvn_dug/dug_diff.xml:235
 #: (para)
 msgid "This open source merge tool is buggy, but has potential. Download it <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>here</citetitle></ulink>."
-msgstr "Esta herramienta de combinación de código abierto tiene fallos, pero tiene potencial. Descárgela <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>aquí</citetitle></ulink>."
+msgstr "Esta herramienta de fusión de código abierto tiene fallos, pero tiene potencial. Descárgela <ulink url=\"http://sourceforge.net/projects/conflicteditor/\"><citetitle>aquí</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_diff.xml:245
 #: (para)
@@ -4098,14 +4103,14 @@ msgstr ""
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; nombre-del-fichero\n"
 "    sus cambios\n"
 "=======\n"
-"    código combinado del repositorio\n"
+"    código fusionado del repositorio\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revisión\n"
 "</screen> Además, para cada fichero en conflicto Subversion deja tres ficheros adicionales en su directorio: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_conflicts.xml:63
 #: (para)
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
-msgstr "Puede o bien lanzar una herramienta externa de combinaciones / editor de conflictos con el menú contextual <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Editar Conflictos</guimenuitem></menuchoice> o bien utilizar otro editor manualmente para resolver el conflicto. Debe decidir cómo tiene que quedar el código, hacer los cambios necesarios, y grabar el fichero."
+msgstr "Puede o bien lanzar una herramienta externa de fusiones / editor de conflictos con el menú contextual <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Editar Conflictos</guimenuitem></menuchoice> o bien utilizar otro editor manualmente para resolver el conflicto. Debe decidir cómo tiene que quedar el código, hacer los cambios necesarios, y grabar el fichero."
 
 #: source/en/tsvn_dug/dug_conflicts.xml:74
 #: (para)
@@ -4530,7 +4535,7 @@ msgstr "copiar"
 #: source/en/tsvn_dug/dug_branchtag.xml:14
 #: (para)
 msgid "One of the features of version control systems is the ability to isolate changes onto a separate line of development. This line is known as a <firstterm>branch</firstterm>. Branches are often used to try out new features without disturbing the main line of development with compiler errors and bugs. As soon as the new feature is stable enough then the development branch is <firstterm>merged</firstterm> back into the main branch (trunk)."
-msgstr "Una de las características de los sistemas de control de versiones es la posibilidad de aislar cambios en una línea separada de desarrollo. Esto se conoce como una <firstterm>rama</firstterm>. Las ramas se utilizan a menudo para probar nuevas características sin molestar la línea principal del desarrollo con errores de compilación y errores. Tan pronto como la nueva característica es lo suficiente estable, la rama de desarrollo se <firstterm>combina</firstterm> de nuevo en la rama principal (trunk, troncal)."
+msgstr "Una de las características de los sistemas de control de versiones es la posibilidad de aislar cambios en una línea separada de desarrollo. Esto se conoce como una <firstterm>rama</firstterm>. Las ramas se utilizan a menudo para probar nuevas características sin molestar la línea principal del desarrollo con errores de compilación y errores. Tan pronto como la nueva característica es lo suficiente estable, la rama de desarrollo se <firstterm>fusiona</firstterm> de nuevo en la rama principal (trunk, troncal)."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:24
 #: (para)
@@ -4659,7 +4664,7 @@ msgstr "En el siguiente diálogo, introduzca la URL de la rama que acaba de crea
 #: source/en/tsvn_dug/dug_branchtag.xml:184
 #: (para)
 msgid "Switch works just like Update in that it never discards your local changes. Any changes you have made to your working copy which have not yet been committed will be merged when you do the Switch. If you do not want this to happen then you must either commit the changes before switching, or revert your working copy to an already-committed revision (typically HEAD)."
-msgstr "Cambiar trabaja igual que Actualizar, en el sentido de que nunca pierde sus cambios locales. Cualquier cambio que haya hecho a su copia de trabajo que todavía no se hayan confirmado se combinarán cuando haga el Cambio. Si no desea que esto ocurra, entonces debe o bien confirmar los cambios antes de cambiar, o revertir su copia de trabajo a una revisión ya-confirmada (típicamente HEAD)."
+msgstr "Cambiar trabaja igual que Actualizar, en el sentido de que nunca pierde sus cambios locales. Cualquier cambio que haya hecho a su copia de trabajo que todavía no se hayan confirmado se fusionarán cuando haga el Cambio. Si no desea que esto ocurra, entonces debe o bien confirmar los cambios antes de cambiar, o revertir su copia de trabajo a una revisión ya-confirmada (típicamente HEAD)."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:195
 #: (title)
@@ -5464,7 +5469,7 @@ msgstr "<emphasis>El bloqueo causa muchos problemas administrativos.</emphasis> 
 #: source/en/tsvn_basics.xml:147
 #: (para)
 msgid "<emphasis>Locking may cause unnecessary serialization.</emphasis> What if Harry is editing the beginning of a text file, and Sally simply wants to edit the end of the same file? These changes don't overlap at all. They could easily edit the file simultaneously, and no great harm would come, assuming the changes were properly merged together. There's no need for them to take turns in this situation."
-msgstr "<emphasis>El bloqueo puede causar procesos en serie innecesarios.</emphasis> ¿Qué ocurre si Harry está editando el inicio de un fichero de texto, y Sally simplemente quiere cambiar la parte final del mismo fichero? Esos cambios no se superponen en absoluto. Ellos podrían fácilmente editar el fichero de forma simultánea, y no habría ningún daño, asumiendo que los cambios se combinaran correctamente. No hay necesidad de que se turnen en esta situación."
+msgstr "<emphasis>El bloqueo puede causar procesos en serie innecesarios.</emphasis> ¿Qué ocurre si Harry está editando el inicio de un fichero de texto, y Sally simplemente quiere cambiar la parte final del mismo fichero? Esos cambios no se superponen en absoluto. Ellos podrían fácilmente editar el fichero de forma simultánea, y no habría ningún daño, asumiendo que los cambios se fusionaran correctamente. No hay necesidad de que se turnen en esta situación."
 
 #: source/en/tsvn_basics.xml:159
 #: (para)
@@ -5474,32 +5479,32 @@ msgstr "<emphasis>El bloqueo puede causar una falsa sensación de seguridad.</em
 #: source/en/tsvn_basics.xml:177
 #: (title) source/en/tsvn_basics.xml:205
 msgid "The Copy-Modify-Merge Solution"
-msgstr "La Solución Copiar-Modificar-Combinar"
+msgstr "La Solución Copiar-Modificar-Fusionar"
 
 #: source/en/tsvn_basics.xml:178
 #: (para)
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
-msgstr "Subversion, CVS y otros sistemas de control de versiones utilizan un modelo <firstterm>copiar-modificar-combinar</firstterm> como alternativa al bloqueo. En este modelo, el cliente de cada usuario lee el repositorio y crea una <firstterm>copia de trabajo</firstterm> personal del fichero o del proyecto. Luego, los usuarios trabajan en paralelo, modificando sus copias privadas. Finalmente, las copias privadas se combinan juntas en una nueva versión final. El sistema de control de versiones a menudo ofrece ayuda en la combinación, pero al final la persona es la responsable de hacer que ocurra correctamente."
+msgstr "Subversion, CVS y otros sistemas de control de versiones utilizan un modelo <firstterm>copiar-modificar-fusionar</firstterm> como alternativa al bloqueo. En este modelo, el cliente de cada usuario lee el repositorio y crea una <firstterm>copia de trabajo</firstterm> personal del fichero o del proyecto. Luego, los usuarios trabajan en paralelo, modificando sus copias privadas. Finalmente, las copias privadas se fusionan juntas en una nueva versión final. El sistema de control de versiones a menudo ofrece ayuda en la fusión, pero al final la persona es la responsable de hacer que ocurra correctamente."
 
 #: source/en/tsvn_basics.xml:190
 #: (para)
 msgid "Here's an example. Say that Harry and Sally each create working copies of the same project, copied from the repository. They work concurrently, and make changes to the same file \"A\" within their copies. Sally saves her changes to the repository first. When Harry attempts to save his changes later, the repository informs him that his file A is <firstterm>out-of-date</firstterm>. In other words, that file A in the repository has somehow changed since he last copied it. So Harry asks his client to <firstterm>merge</firstterm> any new changes from the repository into his working copy of file A. Chances are that Sally's changes don't overlap with his own; so once he has both sets of changes integrated, he saves his working copy back to the repository."
-msgstr "Aquí hay un ejemplo. Digamos que Harry y Sally cada uno crean copias de trabajo del mismo proyecto, copiado del repositorio. Ellos trabajan concurrentemente, y hacen los cambios al mismo fichero \"A\" dentro de sus copias. Sally graba sus cambios al repositorio primero. Cuando Harry intenta grabar sus cambios más tarde, el repositorio le informa que su fichero A está <firstterm>desactualizado</firstterm>. En otras palabras, que el fichero A en el repositorio ha cambiado de alguna forma desde la última vez que lo copió. Por lo que Harry le pide a su cliente que <firstterm>combine</firstterm> cualquier cambio nuevo del repositorio dentro de su copia de trabajo del fichero A. Lo más seguro es que los cambios de Sally no se superpongan a los suyos; por lo que una vez que ambos conjuntos de cambios se han integrado, él graba su copia de trabajo de nuevo en el repositorio."
+msgstr "Aquí hay un ejemplo. Digamos que Harry y Sally cada uno crean copias de trabajo del mismo proyecto, copiado del repositorio. Ellos trabajan concurrentemente, y hacen los cambios al mismo fichero \"A\" dentro de sus copias. Sally graba sus cambios al repositorio primero. Cuando Harry intenta grabar sus cambios más tarde, el repositorio le informa que su fichero A está <firstterm>desactualizado</firstterm>. En otras palabras, que el fichero A en el repositorio ha cambiado de alguna forma desde la última vez que lo copió. Por lo que Harry le pide a su cliente que <firstterm>fusione</firstterm> cualquier cambio nuevo del repositorio dentro de su copia de trabajo del fichero A. Lo más seguro es que los cambios de Sally no se superpongan a los suyos; por lo que una vez que ambos conjuntos de cambios se han integrado, él graba su copia de trabajo de nuevo en el repositorio."
 
 #: source/en/tsvn_basics.xml:209
 #: (title)
 msgid "...Copy-Modify-Merge Continued"
-msgstr "...Copiar-Modificar-Combinar Continuado"
+msgstr "...Copiar-Modificar-Fusionar Continuado"
 
 #: source/en/tsvn_basics.xml:212
 #: (para)
 msgid "<indexterm><primary>conflict</primary></indexterm> But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
-msgstr "<indexterm><primary>conflicto</primary></indexterm> ¿Pero qué ocurre si los cambios de Sally <emphasis>sí</emphasis> se superponen a los cambios de Harry? ¿Qué hacemos entonces? La situación se denomina un <firstterm>conflicto</firstterm>, y normalmente no es mucho problema. Cuando Harry le pide a su cliente que combine los últimos cambios del repositorio en su copia de trabajo, si copia del fichero A se marca de alguna forma como que está en un estado de conflicto: él será capaz de ver ambos conjuntos de cambios conflictivos, y manualmente podrá elegir entre ellos. Tenga en cuenta que el software no puede resolver conflictos automáticamente; sólo los humanos son capaces de entender y hacer las elecciones necesarias de forma inteligente. Una vez que Harry haya resuelto manualmente los cambios que se superponían (¡quizás discutiendo el conflicto con Sally!), puede grabar de forma segura el fichero de nuevo al repositorio."
+msgstr "<indexterm><primary>conflicto</primary></indexterm> ¿Pero qué ocurre si los cambios de Sally <emphasis>sí</emphasis> se superponen a los cambios de Harry? ¿Qué hacemos entonces? La situación se denomina un <firstterm>conflicto</firstterm>, y normalmente no es mucho problema. Cuando Harry le pide a su cliente que fusione los últimos cambios del repositorio en su copia de trabajo, si copia del fichero A se marca de alguna forma como que está en un estado de conflicto: él será capaz de ver ambos conjuntos de cambios conflictivos, y manualmente podrá elegir entre ellos. Tenga en cuenta que el software no puede resolver conflictos automáticamente; sólo los humanos son capaces de entender y hacer las elecciones necesarias de forma inteligente. Una vez que Harry haya resuelto manualmente los cambios que se superponían (¡quizás discutiendo el conflicto con Sally!), puede grabar de forma segura el fichero de nuevo al repositorio."
 
 #: source/en/tsvn_basics.xml:230
 #: (para)
 msgid "The copy-modify-merge model may sound a bit chaotic, but in practice, it runs extremely smoothly. Users can work in parallel, never waiting for one another. When they work on the same files, it turns out that most of their concurrent changes don't overlap at all; conflicts are infrequent. And the amount of time it takes to resolve conflicts is far less than the time lost by a locking system."
-msgstr "El modelo copiar-modificar-combinar puede sonar un poco caótico, pero en la práctica, funciona extremadamente bien. Los usuarios pueden trabajar en paralelo, sin que tengan que esperar nunca uno por otro. Cuando trabajan en los mismos ficheros, resulta que la mayoría de los cambios concurrentes no se superponen en absoluto; los conflictos no son frecuentes. Y el tiempo que lleva resolver conflictos es mucho menor que el tiempo perdido por un sistema bloqueante."
+msgstr "El modelo copiar-modificar-fusionar puede sonar un poco caótico, pero en la práctica, funciona extremadamente bien. Los usuarios pueden trabajar en paralelo, sin que tengan que esperar nunca uno por otro. Cuando trabajan en los mismos ficheros, resulta que la mayoría de los cambios concurrentes no se superponen en absoluto; los conflictos no son frecuentes. Y el tiempo que lleva resolver conflictos es mucho menor que el tiempo perdido por un sistema bloqueante."
 
 #: source/en/tsvn_basics.xml:239
 #: (para)
@@ -5509,7 +5514,7 @@ msgstr "Al final, todo se reduce a un factor crítico: la comunicación entre us
 #: source/en/tsvn_basics.xml:249
 #: (para)
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have un-mergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
-msgstr "Hay una situación común donde el modelo bloquear-modificar-desbloquear resulta mejor, y es cuando tiene ficheros no-combinables. Por ejemplo si su repositorio contiene algunas imágenes gráficas, y dos personas cambian la imagen a la vez, no hay forma de combinar esos cambios. O Harry o Sally perderán sus cambios."
+msgstr "Hay una situación común donde el modelo bloquear-modificar-desbloquear resulta mejor, y es cuando tiene ficheros no-fusionables. Por ejemplo si su repositorio contiene algunas imágenes gráficas, y dos personas cambian la imagen a la vez, no hay forma de fusionar esos cambios. O Harry o Sally perderán sus cambios."
 
 #: source/en/tsvn_basics.xml:259
 #: (title)
@@ -5519,7 +5524,7 @@ msgstr "¿Qué hace Subversion?"
 #: source/en/tsvn_basics.xml:260
 #: (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr "Subversion utiliza la solución copiar-modificar-mezclar por defecto, y en muchos casos esto es todo lo que necesitará. Sin embargo, desde la Versión 1.2, Subversion también admite bloqueo de ficheros, por lo que si tiene ficheros no-combinables, o si simplemente está forzado a una política de bloqueo por la dirección, Subversion seguirá teniendo las características que necesita."
+msgstr "Subversion utiliza la solución copiar-modificar-mezclar por defecto, y en muchos casos esto es todo lo que necesitará. Sin embargo, desde la Versión 1.2, Subversion también admite bloqueo de ficheros, por lo que si tiene ficheros no-fusionables, o si simplemente está forzado a una política de bloqueo por la dirección, Subversion seguirá teniendo las características que necesita."
 
 #: source/en/tsvn_basics.xml:272
 #: (title)
@@ -5544,7 +5549,7 @@ msgstr "Una copia de trabajo de Subversion es un árbol de directorios ordinario
 #: source/en/tsvn_basics.xml:293
 #: (para)
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to \"publish\" your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr "Después de que haya hecho algunos cambios en los ficheros dentro de su copia de trabajo y verifique que funcionan correctamente, Subversion le provee de comandos para \"publicar\" sus cambios para los demás que trabajan con usted en su proyecto (escribiendo en el repositorio). Si los demás publican sus propios cambios, Subversion le provee de comandos para combinar esos cambios dentro de su copia de trabajo (leyendo desde el repositorio)."
+msgstr "Después de que haya hecho algunos cambios en los ficheros dentro de su copia de trabajo y verifique que funcionan correctamente, Subversion le provee de comandos para \"publicar\" sus cambios para los demás que trabajan con usted en su proyecto (escribiendo en el repositorio). Si los demás publican sus propios cambios, Subversion le provee de comandos para fusionar esos cambios dentro de su copia de trabajo (leyendo desde el repositorio)."
 
 #: source/en/tsvn_basics.xml:303
 #: (para)
@@ -5877,7 +5882,7 @@ msgstr "Localmente cambiado, y desactualizado"
 #: source/en/tsvn_basics.xml:679
 #: (para)
 msgid "The file has been changed both in the working directory, and in the repository. An <command>commit </command> of the file will fail with an \"out-of-date\" error. The file should be updated first; an <command>update </command> command will attempt to merge the public changes with the local changes. If Subversion can't complete the merge in a plausible way automatically, it leaves it to the user to resolve the conflict."
-msgstr "El fichero se ha cambiado tanto en el directorio de trabajo como en el repositorio. Un comando <command>confirmar</command> sobre el fichero fallará con un error \"desactualizado\". El fichero debería actualizarse primero; al <command>actualizar</command> se intentará combinar los cambios públicos con los cambios locales. Si Subversion no puede completar la combinación de una forma plausible automáticamente, le dejará al usuario la tarea de resolver el conflicto."
+msgstr "El fichero se ha cambiado tanto en el directorio de trabajo como en el repositorio. Un comando <command>confirmar</command> sobre el fichero fallará con un error \"desactualizado\". El fichero debería actualizarse primero; al <command>actualizar</command> se intentará fusionar los cambios públicos con los cambios locales. Si Subversion no puede completar la fusión de una forma plausible automáticamente, le dejará al usuario la tarea de resolver el conflicto."
 
 #: source/en/tsvn_basics.xml:696
 #: (title)
@@ -5897,7 +5902,7 @@ msgstr "Hemos introducido las nociones de un repositorio central, la copia de tr
 #: source/en/tsvn_basics.xml:709
 #: (para)
 msgid "We've seen some simple examples of how two collaborators can use Subversion to publish and receive changes from one another, using the 'copy-modify-merge' model."
-msgstr "Hemos visto algunos ejemplos simples sobre cómo dos colaboradores pueden utilizar Subversion para publicar y recibir los cambios de uno a otro, utilizando el modelo 'copiar-modificar-combinar'."
+msgstr "Hemos visto algunos ejemplos simples sobre cómo dos colaboradores pueden utilizar Subversion para publicar y recibir los cambios de uno a otro, utilizando el modelo 'copiar-modificar-fusionar'."
 
 #: source/en/tsvn_basics.xml:716
 #: (para)
@@ -5997,7 +6002,7 @@ msgstr "Actualizar los ficheros seleccionados desde el repositorio"
 #: source/en/tsvn_app_howto.xml:100
 #: (para)
 msgid "Normally you update your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. But if you only want to pick up some new files that a colleague has added without merging in any changes to other files at the same time, you need a different approach."
-msgstr "Normalmente actualizará su copia de trabajo utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. Pero si sólo desea obtener algunos ficheros nuevos que un colega ha añadido sin combinar ningún cambio en los demás ficheros a la vez, necesitará otra forma de actuación."
+msgstr "Normalmente actualizará su copia de trabajo utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. Pero si sólo desea obtener algunos ficheros nuevos que un colega ha añadido sin fusionar ningún cambio en los demás ficheros a la vez, necesitará otra forma de actuación."
 
 #: source/en/tsvn_app_howto.xml:110
 #: (para)
@@ -6047,17 +6052,17 @@ msgstr "Ha revertido los cambios dentro de su copia de trabajo. Compruebe los re
 #: source/en/tsvn_app_howto.xml:170
 #: (title)
 msgid "Use the merge dialog"
-msgstr "Use el diálogo combinar"
+msgstr "Use el diálogo fusionar"
 
 #: source/en/tsvn_app_howto.xml:171
 #: (para)
 msgid "To undo a larger range of revisions, you can use the Merge dialog. The previous method uses merging behind the scenes; this method uses it explicitly."
-msgstr "Para deshacer un rango grande de revisiones, puede utilizar el diálogo Combinar. El método anterior utiliza la combinación por detrás; este método la utiliza explícitamente."
+msgstr "Para deshacer un rango grande de revisiones, puede utilizar el diálogo Fusionar. El método anterior utiliza la fusión por detrás; este método la utiliza explícitamente."
 
 #: source/en/tsvn_app_howto.xml:178
 #: (para)
 msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
-msgstr "En su copia de trabajo seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Combinar</guimenuitem></menuchoice>."
+msgstr "En su copia de trabajo seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionar</guimenuitem></menuchoice>."
 
 #: source/en/tsvn_app_howto.xml:187
 #: (para)
@@ -6637,7 +6642,7 @@ msgstr "Editar Conflictos"
 #: source/en/tsvn_app_cli.xml:258
 #: (para)
 msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
-msgstr "Este comando no tiene equivalente CLI. Invoca TortoiseMerge o una herramienta externa de combinación/comparación en 3 paneles para mirar los ficheros en conflictos y ver qué líneas hay que utilizar."
+msgstr "Este comando no tiene equivalente CLI. Invoca TortoiseMerge o una herramienta externa de fusión/comparación en 3 paneles para mirar los ficheros en conflictos y ver qué líneas hay que utilizar."
 
 #: source/en/tsvn_app_cli.xml:265
 #: (title)
@@ -6817,7 +6822,7 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:370
 #: (title)
 msgid "Merge"
-msgstr "Combinar"
+msgstr "Fusionar"
 
 #: source/en/tsvn_app_cli.xml:371
 #: (screen)
@@ -6832,7 +6837,7 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:374
 #: (para)
 msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
-msgstr "<guibutton>Simular</guibutton> hace la misma combinación con la opción <literal>--dry-run</literal>."
+msgstr "<guibutton>Simular</guibutton> hace la misma fusión con la opción <literal>--dry-run</literal>."
 
 #: source/en/tsvn_app_cli.xml:378
 #: (screen)
@@ -6847,7 +6852,7 @@ msgstr ""
 #: source/en/tsvn_app_cli.xml:381
 #: (para)
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
-msgstr "<guibutton>Diff unificado</guibutton> muestra la operación de diferenciación que se utilizará para hacer la combinación."
+msgstr "<guibutton>Diff unificado</guibutton> muestra la operación de diferenciación que se utilizará para hacer la fusión."
 
 #: source/en/tsvn_app_cli.xml:387
 #: (title)
@@ -7063,7 +7068,7 @@ msgstr "TortoiseMerge"
 #: source/en/tortoisemerge.xml:6
 #: (subtitle)
 msgid "A diff/merge tool for Windows"
-msgstr "Una herramienta de diferencias/combinación para Windows"
+msgstr "Una herramienta de diferencias/fusión para Windows"
 
 #: source/en/tme_ch02.xml:3
 #: (title)
@@ -7088,17 +7093,17 @@ msgstr "El Diálogo Abrir"
 #: source/en/tme_ch02.xml:26
 #: (para)
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patchfile. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
-msgstr "Lo primero que tiene que hacer es decidir si sólo quiere comparar/combinar ficheros, o si quiere aplicar un fichero de parche. Dependiendo de su elección, se activan las casillas de texto y los botones de navegación correspondientes."
+msgstr "Lo primero que tiene que hacer es decidir si sólo quiere comparar/fusionar ficheros, o si quiere aplicar un fichero de parche. Dependiendo de su elección, se activan las casillas de texto y los botones de navegación correspondientes."
 
 #: source/en/tme_ch02.xml:33
 #: (title)
 msgid "Viewing / Merging"
-msgstr "Viendo / Combinando"
+msgstr "Viendo / Fusionando"
 
 #: source/en/tme_ch02.xml:34
 #: (para)
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view. You can switch between those two views with the menu command <menuchoice><guimenu>View</guimenu><guimenuitem>Oneway Diff</guimenuitem></menuchoice>"
-msgstr "Si quiere comparar/combinar ficheros necesita establecer al menos dos de las tres posibles rutas para <literal>Base</literal>, <literal>Mío</literal> and <literal>De otros</literal>. Si sólo selecciona dos ficheros, TortoiseMerge le mostrará las diferencias entre esos dos ficheros, en dos paneles o en un único panel. Puede cambiar entre estas dos vistas con el comando de menú <menuchoice><guimenu>Ver</guimenu><guimenuitem>Diferencia en un Solo Sentido</guimenuitem></menuchoice>"
+msgstr "Si quiere comparar/fusionar ficheros necesita establecer al menos dos de las tres posibles rutas para <literal>Base</literal>, <literal>Mío</literal> and <literal>De otros</literal>. Si sólo selecciona dos ficheros, TortoiseMerge le mostrará las diferencias entre esos dos ficheros, en dos paneles o en un único panel. Puede cambiar entre estas dos vistas con el comando de menú <menuchoice><guimenu>Ver</guimenu><guimenuitem>Diferencia en un Solo Sentido</guimenuitem></menuchoice>"
 
 #: source/en/tme_ch02.xml:48
 #: (title)
@@ -7113,7 +7118,7 @@ msgstr "Vista de Dos Paneles"
 #: source/en/tme_ch02.xml:55
 #: (para)
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
-msgstr "Si quiere comparar/combinar tres ficheros, TortoiseMerge le mostrará las diferencias en una vista de tres paneles. Esta vista también se utiliza si necesita resolver ficheros en conflicto."
+msgstr "Si quiere comparar/fusionar tres ficheros, TortoiseMerge le mostrará las diferencias en una vista de tres paneles. Esta vista también se utiliza si necesita resolver ficheros en conflicto."
 
 #: source/en/tme_ch02.xml:61
 #: (title)
@@ -7123,7 +7128,7 @@ msgstr "Vista de Tres Paneles"
 #: source/en/tme_ch02.xml:64
 #: (para)
 msgid "The left pane shows you the differences between <literal>Their</literal> file and the <literal>Base</literal> file, while the right pane shows you the differences between <literal>Mine</literal> file and the <literal>Base</literal> file. The bottom pane shows you the result of merging <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal> with possible conflicts."
-msgstr "El panel izquierdo le muestra las diferencias entre el fichero <literal>De otros</literal> y el fichero <literal>Base</literal>, mientras que el panel derecho le muestra las diferencias entre el fichero <literal>Mío</literal> y el fichero <literal>Base</literal>. El panel inferior le muestra el resultado de combinar los ficheros <literal>Base</literal>, <literal>Mío</literal> y el <literal>De otros</literal> con posibles conflictos."
+msgstr "El panel izquierdo le muestra las diferencias entre el fichero <literal>De otros</literal> y el fichero <literal>Base</literal>, mientras que el panel derecho le muestra las diferencias entre el fichero <literal>Mío</literal> y el fichero <literal>Base</literal>. El panel inferior le muestra el resultado de fusionar los ficheros <literal>Base</literal>, <literal>Mío</literal> y el <literal>De otros</literal> con posibles conflictos."
 
 #: source/en/tme_ch02.xml:73
 #: (para)
@@ -7248,7 +7253,7 @@ msgstr "Bajo la ventana inferior está la barra de estado. Esta barra muestra el
 #: source/en/tme_ch02.xml:247
 #: (title)
 msgid "Merging / Editing Conflicts"
-msgstr "Combinando / Editando Conflictos"
+msgstr "Fusionando / Editando Conflictos"
 
 #: source/en/tme_ch02.xml:248
 #: (para)
@@ -7263,7 +7268,7 @@ msgstr "Si está en la vista de dos paneles, sólo podrá editar el fichero en e
 #: source/en/tme_ch02.xml:264
 #: (para)
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Si está en la vista de tres paneles (a veces llamada <emphasis>vista de combinación</emphasis>) sólo podrá editar el fichero en la vista inferior (<literal>Combinado</literal>). Como en la vista de dos paneles, <action>haga click con el botón derecho</action> en las líneas con conflictos y seleccione <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Utilizar bloque de texto <quote>de otros</quote></guimenuitem></menuchoice> o <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Utilizar bloque de texto <quote>mío</quote></guimenuitem></menuchoice>. Además, si quiere <emphasis>ambos</emphasis> bloques, puede seleccionar <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Utilizar bloque de texto <quote>mío</quote> antes del  <quote>de ellos</quote></guimenuitem></menuchoice> o <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Utilizar bloque de texto <quote>de ellos</quote> antes del <quote>mío</quote></guimenuitem></menuchoice>. Dependiendo del comando que haya seleccionado, se utilizarán los cambios en el fichero <literal>Combinado</literal> resultante."
+msgstr "Si está en la vista de tres paneles (a veces llamada <emphasis>vista de fusión</emphasis>) sólo podrá editar el fichero en la vista inferior (<literal>Fusionado</literal>). Como en la vista de dos paneles, <action>haga click con el botón derecho</action> en las líneas con conflictos y seleccione <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Utilizar bloque de texto <quote>de otros</quote></guimenuitem></menuchoice> o <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Utilizar bloque de texto <quote>mío</quote></guimenuitem></menuchoice>. Además, si quiere <emphasis>ambos</emphasis> bloques, puede seleccionar <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Utilizar bloque de texto <quote>mío</quote> antes del  <quote>de ellos</quote></guimenuitem></menuchoice> o <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Utilizar bloque de texto <quote>de ellos</quote> antes del <quote>mío</quote></guimenuitem></menuchoice>. Dependiendo del comando que haya seleccionado, se utilizarán los cambios en el fichero <literal>Fusionado</literal> resultante."
 
 #: source/en/tme_ch02.xml:301
 #: (para)
@@ -7418,7 +7423,7 @@ msgstr "Descripción"
 #: source/en/tme_ch01.xml:14
 #: (para)
 msgid "TortoiseMerge is a free/open-source application. It lets you see differences in text files, merge those changes and even review and apply unified diff files, often called <firstterm>patches</firstterm>."
-msgstr "TortoiseMerge es una aplicación gratuita/de código abierto. Le permite ver las diferencias entre ficheros de texto, combinar esos cambios e incluso revisar y aplicar ficheros de diff unificados, a menudo llamados <firstterm>parches</firstterm>."
+msgstr "TortoiseMerge es una aplicación gratuita/de código abierto. Le permite ver las diferencias entre ficheros de texto, fusionar esos cambios e incluso revisar y aplicar ficheros de diff unificados, a menudo llamados <firstterm>parches</firstterm>."
 
 #: source/en/tme_ch01.xml:19
 #: (para)
@@ -7598,12 +7603,12 @@ msgstr "Establece el título de la ventana de su fichero."
 #: source/en/tme_appb.xml:71
 #: (term)
 msgid "/merged:\"path/to/mergedfile\""
-msgstr "/merged:\"ruta/al/fichero/combinado\""
+msgstr "/merged:\"ruta/al/fichero/fusionado\""
 
 #: source/en/tme_appb.xml:73
 #: (para)
 msgid "Specifies the merged file where the result of the merge is saved to."
-msgstr "Especifica el fichero combinado donde se guardarán los resultados de la combinación."
+msgstr "Especifica el fichero fusionado donde se guardarán los resultados de la fusión."
 
 #: source/en/tme_appb.xml:80
 #: (term)
@@ -7698,7 +7703,7 @@ msgstr "Ctrl-O"
 #: source/en/tme_appa.xml:39
 #: (para)
 msgid "Open files to diff/merge"
-msgstr "Abre los ficheros para ver las diferencias/combinar"
+msgstr "Abre los ficheros para ver las diferencias/fusionar"
 
 #: source/en/tme_appa.xml:45
 #: (term)
