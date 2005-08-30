@@ -41,6 +41,7 @@ ScintillaBase::ScintillaBase() {
 	maxListWidth = 0;
 #ifdef SCI_LEXER
 	lexLanguage = SCLEX_CONTAINER;
+	performingStyle = false;
 	lexCurrent = 0;
 	for (int wl = 0;wl < numWordLists;wl++)
 		keyWordLists[wl] = new WordList;
@@ -441,29 +442,38 @@ void ScintillaBase::SetLexerLanguage(const char *languageName) {
 }
 
 void ScintillaBase::Colourise(int start, int end) {
-	int lengthDoc = pdoc->Length();
-	if (end == -1)
-		end = lengthDoc;
-	int len = end - start;
+	if (!performingStyle) {
+		// Protect against reentrance, which may occur, for example, when
+		// fold points are discovered while performing styling and the folding
+		// code looks for child lines which may trigger styling.
+		performingStyle = true;
 
-	PLATFORM_ASSERT(len >= 0);
-	PLATFORM_ASSERT(start + len <= lengthDoc);
+		int lengthDoc = pdoc->Length();
+		if (end == -1)
+			end = lengthDoc;
+		int len = end - start;
 
-	//WindowAccessor styler(wMain.GetID(), props);
-	DocumentAccessor styler(pdoc, props, wMain.GetID());
+		PLATFORM_ASSERT(len >= 0);
+		PLATFORM_ASSERT(start + len <= lengthDoc);
 
-	int styleStart = 0;
-	if (start > 0)
-		styleStart = styler.StyleAt(start - 1);
-	styler.SetCodePage(pdoc->dbcsCodePage);
+		//WindowAccessor styler(wMain.GetID(), props);
+		DocumentAccessor styler(pdoc, props, wMain.GetID());
 
-	if (lexCurrent && (len > 0)) {	// Should always succeed as null lexer should always be available
-		lexCurrent->Lex(start, len, styleStart, keyWordLists, styler);
-		styler.Flush();
-		if (styler.GetPropertyInt("fold")) {
-			lexCurrent->Fold(start, len, styleStart, keyWordLists, styler);
+		int styleStart = 0;
+		if (start > 0)
+			styleStart = styler.StyleAt(start - 1);
+		styler.SetCodePage(pdoc->dbcsCodePage);
+
+		if (lexCurrent && (len > 0)) {	// Should always succeed as null lexer should always be available
+			lexCurrent->Lex(start, len, styleStart, keyWordLists, styler);
 			styler.Flush();
+			if (styler.GetPropertyInt("fold")) {
+				lexCurrent->Fold(start, len, styleStart, keyWordLists, styler);
+				styler.Flush();
+			}
 		}
+
+		performingStyle = false;
 	}
 }
 #endif

@@ -904,7 +904,7 @@ sptr_t ScintillaWin::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam
 			}
 			CharacterRange *pCR = reinterpret_cast<CharacterRange *>(lParam);
 			selType = selStream;
-			if (pCR->cpMax == 0 && pCR->cpMax == -1) {
+			if (pCR->cpMin == 0 && pCR->cpMax == -1) {
 				SetSelection(pCR->cpMin, pdoc->Length());
 			} else {
 				SetSelection(pCR->cpMin, pCR->cpMax);
@@ -1832,6 +1832,8 @@ void ScintillaWin::HorizontalScrollMessage(WPARAM wParam) {
 void ScintillaWin::RealizeWindowPalette(bool inBackGround) {
 	RefreshStyleData();
 	HDC hdc = ::GetDC(MainHWND());
+	// Select a stock font to prevent warnings from BoundsChecker
+	::SelectObject(hdc, GetStockFont(DEFAULT_GUI_FONT));
 	AutoSurface surfaceWindow(hdc, this);
 	if (surfaceWindow) {
 		int changes = surfaceWindow->SetPalette(&palette, inBackGround);

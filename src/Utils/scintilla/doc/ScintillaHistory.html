@@ -202,6 +202,13 @@
 	<li>Andre</li>
 	<li>Randy Butler</li>
 	<li>Georg Ritter</li>
+	<li>Michael Goffioul</li>
+	<li>Ben Harper</li>
+	<li>Adam Strzelecki</li>
+	<li>Kamen Stanev</li>
+	<li>Steve Menard</li>
+	<li>Oliver Yeoh</li>
+	<li>Eric Promislow</li>
     </ul>
     <p>
        Images used in GTK+ version
@@ -213,7 +220,173 @@
       </li>
     </ul>
     <h3>
-       <a href="http://prdownloads.sourceforge.net/scintilla/scite163.zip?download">Release 1.64</a>
+       <a href="http://prdownloads.sourceforge.net/scintilla/scite166.zip?download">Release 1.66</a>
+    </h3>
+    <ul>
+	<li>
+	Released on 26 August 2005.
+	</li>
+	<li>
+	New, more ambitious Ruby lexer.
+	</li>
+	<li>
+	SciTE Find in Files dialog has options for matching case and whole words which are
+	enabled when the internal find command is used.
+	</li>
+	<li>
+	SciTE output pane can display automatic completion after "$(" typed. 
+	An initial ">" on a line is ignored when Enter pressed.
+	</li>
+	<li>
+	C++ lexer recognises keywords within line doc comments. It continues styles over line
+	end characters more consistently so that eolfilled style can be used for preprocessor lines
+	and line comments.
+	</li>
+	<li>
+	VB lexer improves handling of file numbers and date literals.
+	</li>
+	<li>
+	Lua folder handles repeat until, nested comments and nested strings.
+	</li>
+	<li>
+	POV lexer improves handling of comment lines.
+	</li>
+	<li>
+	AU3 lexer and folder updated. COMOBJ style added.
+	</li>
+	<li>
+	Bug fixed with text display on GTK+ with Pango 1.8.
+	</li>
+	<li>
+	Caret painting avoided when not focused.
+	</li>
+	<li>
+	SciTE on GTK+ handles file names used to reference properties as case-sensitive.
+	</li>
+	<li>
+	SciTE on GTK+ Save As and Export commands set the file name field. 
+	On GTK+ the Export commands modify the file name in the same way as on Windows.
+	</li>
+	<li>
+	Fixed SciTE problem where confirmation was not displaying when closing a file where all
+	contents had been deleted.
+	</li>
+	<li>
+	Middle click on SciTE tab now closes correct buffer on Windows when tool bar is visible.
+	</li>
+	<li>
+	SciTE bugs fixed where files contained in directory that includes '.' character.
+	</li>
+	<li>
+	SciTE bug fixed where import in user options was reading file from directory of 
+	global options.
+	</li>
+	<li>
+	SciTE calltip bug fixed where single line calltips had arrow displayed incorrectly.
+	</li>
+	<li>
+	SciTE folding bug fixed where empty lines were shown for no reason.
+	</li>
+	<li>
+	Bug fixed where 2 byte per pixel XPM images caused crash although they are still not 
+	displayed.
+	</li>
+	<li>
+	Autocompletion list size tweaked.
+	</li>
+    </ul>
+    <h3>
+       <a href="http://prdownloads.sourceforge.net/scintilla/scite165.zip?download">Release 1.65</a>
+    </h3>
+    <ul>
+	<li>
+	Released on 1 August 2005.
+	</li>
+	<li>
+	FreeBasic support.
+	</li>
+	<li>
+	SciTE on Windows handles command line arguments 
+	"-" (read standard input into buffer), 
+	"--" (read standard input into output pane) and 
+	"-@" (read file names from standard input and open each). 
+	</li>
+	<li>
+	SciTE includes a simple implementation of Find in Files which is used if no find.command is set.
+	</li>
+	<li>
+	SciTE can close tabs with a mouse middle click.
+	</li>
+	<li>
+	SciTE includes a save.all.for.build setting.
+	</li>
+	<li>
+	Folder for MSSQL.
+	</li>
+	<li>
+	Batch file lexer understands more of the syntax and the behaviour of built in commands.
+	</li>
+	<li>
+	Perl lexer handles here docs better; disambiguates barewords, quote-like delimiters, and repetition operators;
+	handles Pods after __END__; recognises numbers better; and handles some typeglob special variables.
+	</li>
+	<li>
+	Lisp adds more lexical states.
+	</li>
+	<li>
+	PHP allows spaces after &lt;&lt;&lt;.
+	</li>
+	<li>
+	TADS3 has a simpler set of states and recognizes identifiers.
+	</li>
+	<li>
+	Avenue elseif folds better.
+	</li>
+	<li>
+	Errorlist lexer treats lines starting with '+++' and '---' as separate
+	styles from '+' and '-' as they indicate file names in diffs.
+	</li>
+	<li>
+	SciTE error recogniser handles file paths in extra explanatory lines from MSVC
+	and in '+++' and '---' lines from diff.
+	</li>
+	<li>
+	Bugs fixed in SciTE and Scintilla folding behaviour when text pasted before 
+	folded text caused unnecessary 
+	unfolding and cutting text could lead to text being irretrievably hidden.
+	</li>
+	<li>
+	SciTE on Windows uses correct font for dialogs and better font for tab bar 
+	allowing better localisation
+	</li>
+	<li>
+	When Windows is used with a secondary monitor before the primary
+	monitor, autocompletion lists are not forced onto the primary monitor.
+	</li>
+	<li>
+	Scintilla calltip bug fixed where down arrow setting wrong value in notification
+	if not in first line. SciTE bug fixed where second arrow only shown on multiple line
+	calltip and was therefore misinterpreting the notification value.
+	</li>
+	<li>
+	Lexers will no longer be re-entered recursively during, for example, fold level setting.
+	</li>
+	<li>
+	Undo of typing in overwrite mode undoes one character at a time rather than requiring a removal 
+	and addition step for each character.
+	</li>
+	<li>
+	EM_EXSETSEL(0,-1) fixed.
+	</li>
+	<li>
+	Bug fixed where part of a rectangular selection was not shown as selected.
+	</li>
+	<li>
+	Autocomplete window size fixed.
+	</li>
+    </ul>
+    <h3>
+       <a href="http://prdownloads.sourceforge.net/scintilla/scite164.zip?download">Release 1.64</a>
     </h3>
     <ul>
 	<li>
@@ -278,7 +451,7 @@
 	Undo and redo can cause SCN_MODIFYATTEMPTRO notifications.
 	</li>
 	<li>
-	Indicators display correctly when they atrt at the second character on a line.
+	Indicators display correctly when they start at the second character on a line.
 	</li>
 	<li>
 	SciTE Export As HTML uses standards compliant CSS.
@@ -291,6 +464,9 @@
 	</li>
 	<li>
 	Fixed problem with character set conversion when pasting on GTK+.
+	</li>
+	<li>
+	SciTE default character set changed from ANSI_CHARSET to DEFAULT_CHARSET.
 	</li>
 	<li>
 	Fixed crash when creating empty autocompletion list.
@@ -357,7 +533,7 @@
 	SQL lexer gains second set of keywords.
 	</li>
 	<li>
-	ErrorList lexer recognises Borland Delphi error messages.
+	Errorlist lexer recognises Borland Delphi error messages.
 	</li>
 	<li>
 	Method added for determining number of visual lines occupied by a document

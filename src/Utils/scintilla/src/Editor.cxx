@@ -452,6 +452,7 @@ void Editor::DropGraphics() {
 	pixmapSelMargin->Release();
 	pixmapSelPattern->Release();
 	pixmapIndentGuide->Release();
+	pixmapIndentGuideHighlight->Release();
 }
 
 void Editor::InvalidateStyleData() {
@@ -3243,15 +3244,21 @@ void Editor::AddChar(char ch) {
 void Editor::AddCharUTF(char *s, unsigned int len, bool treatAsDBCS) {
 	bool wasSelection = currentPos != anchor;
 	ClearSelection();
+	bool charReplaceAction = false;
 	if (inOverstrike && !wasSelection && !RangeContainsProtected(currentPos, currentPos + 1)) {
 		if (currentPos < (pdoc->Length())) {
 			if (!IsEOLChar(pdoc->CharAt(currentPos))) {
+				charReplaceAction = true;
+				pdoc->BeginUndoAction();
 				pdoc->DelChar(currentPos);
 			}
 		}
 	}
 	if (pdoc->InsertString(currentPos, s, len)) {
 		SetEmptySelection(currentPos + len);
+	}
+	if (charReplaceAction) {
+		pdoc->EndUndoAction();
 	}
 	EnsureCaretVisible();
 	// Avoid blinking during rapid typing:
@@ -3688,7 +3695,7 @@ void Editor::NotifyModified(Document*, DocModification mh, void *) {
 			// Some lines are hidden so may need shown.
 			// TODO: check if the modified area is hidden.
 			if (mh.modificationType & SC_MOD_BEFOREINSERT) {
-				NotifyNeedShown(mh.position, mh.length);
+				NotifyNeedShown(mh.position, 0);
 			} else if (mh.modificationType & SC_MOD_BEFOREDELETE) {
 				NotifyNeedShown(mh.position, mh.length);
 			}
@@ -5291,7 +5298,9 @@ void Editor::Tick() {
 		if (timer.ticksToWait <= 0) {
 			caret.on = !caret.on;
 			timer.ticksToWait = caret.period;
-			InvalidateCaret();
+			if (caret.active) {
+				InvalidateCaret();
+			}
 		}
 	}
 	if ((dwellDelay < SC_TIME_FOREVER) &&

@@ -38,7 +38,7 @@
 
     <h1>Scintilla Documentation</h1>
 
-    <p>Last edited 3/June/2005 RBR</p>
+    <p>Last edited 31/July/2005 RBR</p>
 
     <p>There is <a class="jump" href="Design.html">an overview of the internal design of
     Scintilla</a>.<br />
@@ -1080,12 +1080,10 @@ struct TextToFind {
     last line), the return value is the end of the document.</p>
 
     <p><b id="SCI_GETLINEENDPOSITION">SCI_GETLINEENDPOSITION(int line)</b><br />
-     This returns the position at the end of the line, before any line end characters. If
-    <code>line</code> is negative, the result is 0. If <code>line</code> is the last line in the
-    document, (which does not have any end of line characters), the result is the size of the
-    document. If <code>line</code> is negative, the result is -1. If <code>line</code> is &gt;=
-    <code>SCI_GETLINECOUNT()</code>, the result is currently <code>SCI_GETLENGTH()-1</code>...
-    (undefined?).</p>
+     This returns the position at the end of the line, before any line end characters. If <code>line</code>
+    is the last line in the document (which does not have any end of line characters), the result is the size of the
+    document. If <code>line</code> is negative or <code>line</code> &gt;= <a class="message"
+    href="#SCI_GETLINECOUNT"><code>SCI_GETLINECOUNT()</code></a>, the result is undefined.</p>
 
     <p><b id="SCI_LINELENGTH">SCI_LINELENGTH(int line)</b><br />
      This returns the length of the line, including any line end characters. If <code>line</code>
@@ -1125,9 +1123,9 @@ struct TextToFind {
     <p><b id="SCI_SETSELECTIONMODE">SCI_SETSELECTIONMODE(int mode)</b><br />
     <b id="SCI_GETSELECTIONMODE">SCI_GETSELECTIONMODE</b><br />
     The two functions set and get the selection mode, which can be
-     stream (<code>SC_SEL_STREAM</code>=1) or
-     rectangular (<code>SC_SEL_RECTANGLE</code>=2)
-     or by lines (<code>SC_SEL_LINES</code>=3).
+     stream (<code>SC_SEL_STREAM</code>=0) or
+     rectangular (<code>SC_SEL_RECTANGLE</code>=1)
+     or by lines (<code>SC_SEL_LINES</code>=2).
      When set in these modes, regular caret moves will extend or reduce the selection,
      until the mode is cancelled by a call with same value or with <code>SCI_CANCEL</code>.
      The get function returns the current mode even if the selection was made by mouse
@@ -2013,7 +2011,7 @@ struct TextToFind {
     <code>SCI_STYLESETCHARACTERSET(SCE_C_STRING, SC_CHARSET_RUSSIAN)</code> would ensure that
     strings in Russian would display correctly in C and C++ (<code>SCE_C_STRING</code> is the style
     number used by the C and C++ lexer to display literal strings; it has the value 6). This
-    feature currently only works fully on Windows.</p>
+    feature works differently on Windows and GTK+.</p>
 
     <p>The character sets supported on Windows are:<br />
      <code>SC_CHARSET_ANSI</code>, <code>SC_CHARSET_ARABIC</code>, <code>SC_CHARSET_BALTIC</code>,
@@ -2021,13 +2019,16 @@ struct TextToFind {
     <code>SC_CHARSET_EASTEUROPE</code>, <code>SC_CHARSET_GB2312</code>,
     <code>SC_CHARSET_GREEK</code>, <code>SC_CHARSET_HANGUL</code>, <code>SC_CHARSET_HEBREW</code>,
     <code>SC_CHARSET_JOHAB</code>, <code>SC_CHARSET_MAC</code>, <code>SC_CHARSET_OEM</code>,
+    <code>SC_CHARSET_RUSSIAN</code> (code page 1251),
     <code>SC_CHARSET_SHIFTJIS</code>, <code>SC_CHARSET_SYMBOL</code>, <code>SC_CHARSET_THAI</code>,
     <code>SC_CHARSET_TURKISH</code>, and <code>SC_CHARSET_VIETNAMESE</code>.</p>
 
     <p>The character sets supported on GTK+ are:<br />
-     <code>SC_CHARSET_ANSI</code>, <code>SC_CHARSET_EASTEUROPE</code>,
-    <code>SC_CHARSET_GB2312</code>, <code>SC_CHARSET_HANGUL</code>, and
-    <code>SC_CHARSET_SHIFTJIS</code>.</p>
+     <code>SC_CHARSET_ANSI</code>, <code>SC_CHARSET_CYRILLIC</code> (code page 1251), 
+     <code>SC_CHARSET_EASTEUROPE</code>,
+    <code>SC_CHARSET_GB2312</code>, <code>SC_CHARSET_HANGUL</code>,
+    <code>SC_CHARSET_RUSSIAN</code> (KOI8-R), <code>SC_CHARSET_SHIFTJIS</code>, and
+    <code>SC_CHARSET_8859_15</code>.</p>
 
     <p><b id="SCI_STYLESETCASE">SCI_STYLESETCASE(int styleNumber, int caseMode)</b><br />
      The value of caseMode determines how text is displayed. You can set upper case
@@ -4289,7 +4290,7 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
      <a class="message" href="#SCI_SETPROPERTY">SCI_SETPROPERTY(const char *key, const char *value)</a><br />
      <a class="message" href="#SCI_GETPROPERTY">SCI_GETPROPERTY(const char *key, char *value)</a><br />
      <a class="message" href="#SCI_GETPROPERTYEXPANDED">SCI_GETPROPERTYEXPANDED(const char *key, char *value)</a><br />
-     <a class="message" href="#SCI_GETPROPERTYINT">SCI_GETPROPERTYINT(const char *key)</a><br />
+     <a class="message" href="#SCI_GETPROPERTYINT">SCI_GETPROPERTYINT(const char *key, int default)</a><br />
      <a class="message" href="#SCI_SETKEYWORDS">SCI_SETKEYWORDS(int keyWordSet, const char
     *keyWordList)</a><br />
     </code>
@@ -4371,9 +4372,10 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
     <p>If the value argument is 0 then the length that should be allocated to store the value (including any indicated keyword replacement)
     is returned; again, the terminating 0 is not included.</p>
 
-    <p><b id="SCI_GETPROPERTYINT">SCI_GETPROPERTYINT(const char *key)</b><br />
+    <p><b id="SCI_GETPROPERTYINT">SCI_GETPROPERTYINT(const char *key, int default)</b><br />
     Lookup a keyword:value pair using the specified key; if found, interpret the value as an integer and return it.
-    If not found (or the value is not a number) then return 0.</p>
+    If not found (or the value is an empty string) then return the supplied default.  If the keyword:value pair is found but is not
+    a number, then return 0.</p>
 
     <p>Note that  "keyword replacement" as described in <a class="message" href="#SCI_SETPROPERTY">
     <code>SCI_SETPROPERTY</code></a> will be performed before any numeric interpretation.</p>

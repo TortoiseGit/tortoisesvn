@@ -771,11 +771,21 @@ void Window::SetPositionRelative(PRectangle rc, Window w) {
 		RECT rcOther;
 		::GetWindowRect(reinterpret_cast<HWND>(w.GetID()), &rcOther);
 		rc.Move(rcOther.left, rcOther.top);
-		if (rc.left < 0) {
-			rc.Move(-rc.left,0);
+
+		// Retrieve desktop bounds and make sure window popup's origin isn't left-top of the screen.
+		RECT rcDesktop = {0, 0, 0, 0};
+#ifdef SM_XVIRTUALSCREEN
+		rcDesktop.left = ::GetSystemMetrics(SM_XVIRTUALSCREEN);
+		rcDesktop.top = ::GetSystemMetrics(SM_YVIRTUALSCREEN);
+		rcDesktop.right = rcDesktop.left + ::GetSystemMetrics(SM_CXVIRTUALSCREEN);
+		rcDesktop.bottom = rcDesktop.top + ::GetSystemMetrics(SM_CYVIRTUALSCREEN);
+#endif
+
+		if (rc.left < rcDesktop.left) {
+			rc.Move(rcDesktop.left - rc.left,0);
 		}
-		if (rc.top < 0) {
-			rc.Move(0,-rc.top);
+		if (rc.top < rcDesktop.top) {
+			rc.Move(0,rcDesktop.top - rc.top);
 		}
 	}
 	SetPosition(rc);
@@ -1325,7 +1335,7 @@ void ListBoxX::SetList(const char *list, char separator, char typesep) {
 		int count = lti.Count();
 		::SendMessage(lb, LB_INITSTORAGE, count, 0);
 		for (int j=0; j<count; j++) {
-			::SendMessage(lb, LB_ADDSTRING, 0, 0);
+			::SendMessage(lb, LB_ADDSTRING, 0, j+1);
 		}
 	}
 	SetRedraw(true);
@@ -1355,7 +1365,10 @@ Point ListBoxX::MinTrackSize() const {
 }
 
 Point ListBoxX::MaxTrackSize() const {
-	PRectangle rc(0, 0, maxCharWidth * maxItemCharacters, ItemHeight() * lti.Count());
+	PRectangle rc(0, 0, 
+		maxCharWidth * maxItemCharacters + TextInset.x * 2 +
+		 TextOffset() + ::GetSystemMetrics(SM_CXVSCROLL), 
+		ItemHeight() * lti.Count());
 	AdjustWindowRect(&rc);
 	return Point(rc.Width(), rc.Height());
 }
@@ -1531,7 +1544,7 @@ void ListBoxX::Paint(HDC hDC) {
 	Point extent = GetClientExtent();
 	HBITMAP hBitmap = ::CreateCompatibleBitmap(hDC, extent.x, extent.y);
 	HDC bitmapDC = ::CreateCompatibleDC(hDC);
-	SelectBitmap(bitmapDC, hBitmap);
+	HBITMAP hBitmapOld = SelectBitmap(bitmapDC, hBitmap);
 	// The list background is mainly erased during painting, but can be a small
 	// unpainted area when at the end of a non-integrally sized list with a
 	// vertical scroll bar
@@ -1540,6 +1553,9 @@ void ListBoxX::Paint(HDC hDC) {
 	// Paint the entire client area and vertical scrollbar
 	::SendMessage(lb, WM_PRINT, reinterpret_cast<WPARAM>(bitmapDC), PRF_CLIENT|PRF_NONCLIENT);
 	::BitBlt(hDC, 0, 0, extent.x, extent.y, bitmapDC, 0, 0, SRCCOPY);
+	// Select a stock brush to prevent warnings from BoundsChecker
+	::SelectObject(bitmapDC, GetStockFont(WHITE_BRUSH));
+	SelectBitmap(bitmapDC, hBitmapOld);
 	::DeleteDC(bitmapDC);
 	::DeleteObject(hBitmap);
 }
