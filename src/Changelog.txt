@@ -83,6 +83,8 @@
        restored the network again. (Stefan)
 - BUG: the dialog title of the commit dialog expanded with every F5 key
        pressed. (Stefan)
+- BUG: When right-dragging a file for moving and the target already exists,
+       the automatic renaming didn't work. (Stefan)
 
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for

@@ -1117,7 +1117,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					{
 						return FALSE;
 					}
-					destPath.SetFromWin(droppath+_T("\\")+name);
+					destPath.SetFromWin(droppath+_T("\\")+dlg.m_name);
 				} 
 				if (!svn.Move(pathList[nPath], destPath, FALSE))
 				{
