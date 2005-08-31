@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-31 09:55+0900\n"
+"PO-Revision-Date: 2005-08-31 20:40+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -260,7 +260,7 @@ msgstr "편집(&E)..."
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Enable Proxy Server"
-msgstr "프록시 서버 활성화(&E)"
+msgstr "프록시 서버 사용(&E)"
 
 # Control-ID:1031,
 #: MenuEntry
@@ -1014,7 +1014,7 @@ msgstr "Unified Diff 적용"
 # ID:145,
 #: ID:145
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "충돌난 파일들을 해결되었음으로 처리하는 것이 확실합니까?"
+msgstr "충돌한 파일들을 해결되었음으로 처리하는 것이 확실합니까?"
 
 # ID:79,
 #: ID:79
@@ -1057,7 +1057,7 @@ msgstr "작성자:"
 # Control-ID:1123,
 #: ID:222
 msgid "Auto-close if no conflicts"
-msgstr "충돌나지 않았으면 자동으로 닫습니다."
+msgstr "충돌하지 않았으면 자동으로 닫습니다."
 
 # ID:222,
 #: ID:222
@@ -1386,7 +1386,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "파일 확장자별로 차이점 만드는 프로그램을 등록하려면 고급 설정을 누르십시오."
+msgstr "파일 확장자별로 diff 프로그램을 등록하려면 고급 설정을 누르십시오."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1502,7 +1502,7 @@ msgstr "두 리비전의 차이점을 찾는 프로그램에 대한 설정을 �
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used to resolve conflicted files."
-msgstr "충돌난 파일을 해결하는 프로그램을 설정합니다."
+msgstr "충돌한 파일을 해결하는 프로그램을 설정합니다."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1524,7 +1524,7 @@ msgstr "충돌: %d"
 # ID:9,
 #: Control-ID:1227
 msgid "Contact the repository on startup"
-msgstr "시작할 때 저장소에 접근함"
+msgstr "시작할 때 저장소에 합니다."
 
 # ID:73,
 #: ID:73
@@ -1873,7 +1873,7 @@ msgstr "%1에 접근하는 동안 디스크 꽉참."
 #: ID:3860
 #, c-format
 msgid "Dispatch exception: %1"
-msgstr "예외: %1"
+msgstr "가져오기 예외: %1"
 
 # ID:3605,
 #: ID:3605
@@ -2098,7 +2098,7 @@ msgstr "서버 인증서 확인 오류 %s:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Exceptions:"
-msgstr "예외:"
+msgstr "가져오기 예외:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2804,7 +2804,7 @@ msgstr "모양::대화상자"
 # Dlg-ID:106,
 #: Dlg-ID:106
 msgid "Look and Feel::Icon Overlays"
-msgstr "모양::아이콘 덧붙이기"
+msgstr "모양::아이콘 오버레이"
 
 # Dlg-ID:106,
 #: Dlg-ID:184
@@ -3153,7 +3153,7 @@ msgstr "최상위 폴더만 업데이트"
 # Control-ID:1224,
 #: Control-ID:1224
 msgid "Only use spellchecker when tsvn:projectlanguage is set"
-msgstr "tsvn:projectlanguage 가 설정된 경우에만 철자검사를 함"
+msgstr "tsvn:projectlanguage 가 설정된 경우에만 철자검사를 합니다."
 
 # ID:3841,#:
 # ID:3841,
@@ -4148,7 +4148,7 @@ msgstr "서버 주소(&A):"
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
-msgstr "마지막에 커밋 시간으로 파일 날짜 설정"
+msgstr "마지막에 커밋 시간으로 파일의 날짜를 설정합니다."
 
 # ID:13,
 #: ID:13
@@ -4175,7 +4175,7 @@ msgstr "속성 보기(&W)"
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "로그 메시지에 짧은 형태의 날짜/시간 형식 사용(&D)"
+msgstr "로그 메시지에 짧은 형태의 날짜/시간 형식을 사용합니다.(&D)"
 
 # ID:12,
 #: ID:12
@@ -4217,7 +4217,7 @@ msgstr "로그 보기(&L)"
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Show &overlays only in explorer"
-msgstr "탐색기에서만 오버레이 보기(&O)"
+msgstr "탐색기에서만 오버레이를 보입니다.(&O)"
 
 # ID:113,
 #: ID:113
@@ -4510,7 +4510,7 @@ msgstr "브랜치/태그 전환..."
 # Control-ID:1173,
 #: Control-ID:1173
 msgid "Symbol View"
-msgstr "심볼 보기"
+msgstr "아이콘 뷰"
 
 # ID:3857,#:
 # ID:3857,
@@ -4837,9 +4837,9 @@ msgid ""
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"%d 행에 아직 해결되지 않은 충돌이 있습니다.\n"
-"저장하기 전에 먼저 충돌난 것들을 해결해야합니다.\n"
-"만약 충돌난 것을 그대로 유지하여 저장하고 싶으면\n"
+"%d 행에 아직 해결되지 않은 충돌이 발생 하였습니다.\n"
+"저장하기 전에 먼저 해결해야합니다.\n"
+"만약 충돌한 것을 그대로 유지하여 저장하고 싶으면\n"
 "'확인'을 누르고, 다른 에디터를 사용하여 수동으로 해결해야합니다."
 
 # ID:188,
@@ -5217,7 +5217,7 @@ msgstr "수정한 사람을 보기위해 텍스트 뷰어 사용"
 # Control-ID:1230,
 #: Control-ID:1230
 msgid "Use URL of WC as the default \"From:\" URL"
-msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용"
+msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용합니다."
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -5232,7 +5232,7 @@ msgstr "파일 경로와 키워드의 자동 완성기능을 이용합니다."
 # Control-ID:1214,
 #: Control-ID:1214
 msgid "Use old APIs to fetch log messages"
-msgstr "구버전 API를 사용하여 커밋로그를 가져옵니다"
+msgstr "구버전 API를 사용하여 커밋로그를 가져옵니다."
 
 # Control-ID:1024,
 #: Control-ID:1024
