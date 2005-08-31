@@ -1,3 +1,92 @@
+Version 1.2.2
+- NEW: Display a summary of our own license at start of install,
+       instead of the Subversion license. (Simon)
+- NEW: Icon sets (except for the default one) are now optional features; 
+       the user can choose whether or not to install them, during setup. 
+       (Pete)
+- NEW: Navigating to the previous/next difference in TortoiseMerge also
+       shows the first line of the difference in the detailed diff at
+       the bottom. (Stefan)
+- NEW: Marking multiple files as resolved at once. Selecting a folder
+       will show a dialog with all conflicted files below to be marked
+       as resolved. See issue #117. (Stefan)
+- NEW: SubWCRev has a new option '-e' to include externals if they're from
+       the same repository. See issue #132. (Stefan)
+- NEW: Checking/Unchecking multiple items at once: select multiple files and
+       checking/unchecking one of them unchecks/checks all of them.
+       See issue 118. (Stefan)
+- NEW: The Spellchecker ignores now numbers and doesn't mark them
+       as missspelled anymore. See issue #145. (Stefan)
+- NEW: The context menu is now shown for shortcuts too. Once for the shortcut
+       (*.lnk) file itself and once for the target the shortcut points to.
+       See issue #146. (Stefan)
+- NEW: Option to switch to the newly created branch/tag in the branch/tag
+       dialog. See issue #150. (Stefan)
+- NEW: Button in TortoiseMerge to switch the left and right view.
+       See issue #152. (Stefan)
+- NEW: Diffing of properties. See issue #133. (Stefan)
+- NEW: 'Open' and 'Open with...' commands in the progress dialog. (Stefan)
+- NEW: Showing the log messages between two tags. See issue #111. (Stefan)
+- NEW: The "Create Patch" feature now allows to select which changes to
+       include in the generated patchfile. See issue #135. (Stefan)
+- NEW: Right-dragging in the repository browser allows to rename the file
+       or folder with the move/copy. (Stefan)
+- NEW: New column in the repository browser with the file extensions to make
+       it possible to sort by those file extensions. See issue #142. (Stefan)
+- CHG: Setup UI changed from the dark'd code from the VS-generated package
+       to a standardised framework from the WiX tutorial. 
+       See issue #147. (Pete)
+- CHG: Refactored WiX setup code into fragments and started to use include
+       files for variables that are needed more than once. 
+       See issues #127 and #128. (Pete)
+- CHG: The spellchecker now checks text pasted in the edit control
+       immediately, without the need to enter text manually first.
+       See issue #116. (Stefan)
+- CHG: In the log dialog, the "next 100" button is disabled once the
+       "Show All" button was pressed. See issue #138. (Stefan)
+- CHG: Enabled diffing of copied/moved files in the commit dialog. (Stefan)
+- CHG: In the property dialog, the svn: properties which can only be set on
+       files are now shown on folders too in the combobox. An error message
+       is then shown if the user tries to set such a property on the folder
+       without the 'recursive' checkbox activated. (Stefan)
+- BUG: The default ssh client (TortoisePlink) wasn't used in some
+       places, e.g. the revision graph. (Stefan)
+- BUG: The option "Only use spellchecker when tsvn:projectlanguage is set"
+       was inversed. (Stefan)
+- BUG: The bugtraq: and tsvn: property values weren't correctly handled if
+       they contained non-ASCII chars. (Stefan)
+- BUG: Comparing two files from the revision graph didn't work. (Stefan)
+- BUG: When adding a folder, nested folders were shown as unversioned
+       and checked to add. (Stefan)
+- BUG: The same line was shown twice in TortoiseMerge if 'ignore leading
+       whitespace' option was turned on and the line differed only
+       in whitespaces. See issue #121. (Stefan)
+- BUG: UNICODE chars weren't shown correctly in the log message
+       middle view. (Stefan)
+- BUG: The spell checker codepage was ignored but the local codepage
+       was used instead. This lead to problems e.g. with the russian
+       spell check dictionary. (Stefan)
+- BUG: Manual edits of URLs in the repository browser weren't reflected
+       if the repobrowser was used to find URLs from other dialogs.
+       See issue #139. (Stefan)
+- BUG: In the log dialog, 'Compare Revisions' didn't work if the log dialog
+       was started from the repository browser for a single file. (Stefan)
+- BUG: The messageboxes didn't use the system colors which could make
+       them unreadable in high contrast color schemes. (Stefan)
+- BUG: See issue #148. (Stefan)
+- BUG: The 'resolve' function in TortoiseMerge didn't resolve the file. (Stefan)
+- BUG: The repository browser crashed if an item was edited and then
+       the view was scrolled. (Stefan)
+- BUG: The revision graph could be exited without the thread being stopped
+       which could lead to a crash. (Stefan)
+- BUG: Showing diffs of multiple files (> 30) from the same log dialog
+       could lead to stalled network connections. Closing the log dialog
+       restored the network again. (Stefan)
+- BUG: the dialog title of the commit dialog expanded with every F5 key
+       pressed. (Stefan)
+- BUG: When right-dragging a file for moving and the target already exists,
+       the automatic renaming didn't work. (Stefan)
+
 Version 1.2.1
 - NEW: The path of the working copy is shown in the dialog title for
        "check for modifications" and commit dialog. See Issue 98. (Stefan)
