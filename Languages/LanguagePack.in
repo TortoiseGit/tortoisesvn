@@ -52,6 +52,7 @@ Proceed:
   StrCpy $INSTDIR "$0\bin"
   SetOutPath "$INSTDIR"
   File "..\doc\output\TortoiseSVN_${CountryCode}.chm"
+  File "..\doc\output\TortoiseMerge_${CountryCode}.chm"
 !endif
   StrCpy $INSTDIR "$0\Languages"
   SetOutPath "$INSTDIR"
