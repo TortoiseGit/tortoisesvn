@@ -13,8 +13,10 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 set OFile=product.nsh
 
-del ..\bin\Tortoise*.dll
-del ..\bin\LanguagePack*.exe
+if "%1"=="" (
+  del ..\bin\Tortoise*.dll
+  del ..\bin\LanguagePack*.exe
+)
 
 rem !!! ATTENTION 
 rem !!! There is a real TAB key inside "delims=	;"
