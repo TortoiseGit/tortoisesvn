@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-15 21:13+0100\n"
+"PO-Revision-Date: 2005-09-01 19:49+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1405,6 +1405,10 @@ msgstr "Afdrukopdracht kan niet gestart worden."
 #: ID:81
 msgid "Could not start thread!"
 msgstr "Kon geen thread starten!"
+
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Maak patch"
 
 #: ID:13
 msgid "Create Patch..."
@@ -2958,6 +2962,14 @@ msgstr "Vraagt om een gebruikersnaam en wachtwoord"
 msgid "Resolve"
 msgstr "Oplossen"
 
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "Los conflict op met \"mijn\""
+
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "Los conflict op met \"hun\""
+
 #: ID:74
 #: ID:209
 msgid "Resolved"
@@ -2966,6 +2978,15 @@ msgstr "Opgelost"
 #: ID:8
 msgid "Resolved..."
 msgstr "Opgelost..."
+
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Opgelost:\n"
+"%s"
 
 #: ID:9
 msgid "Resolves conflicted files"
@@ -3033,6 +3054,10 @@ msgstr "Revisie Schema"
 #: ID:75
 msgid "Revision: "
 msgstr "Revisie:"
+
+#: ID:116
+msgid "Revisions"
+msgstr "Revisies"
 
 #: ID:188
 msgid "Right View: "
@@ -3927,6 +3952,10 @@ msgstr ""
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Dit product gebruikt software ontwikkeld door CollabNet (http://www.Collab.Net/)"
 
+#: Control-ID:65535
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Dit product gebruikt software ontwikkeld door het OpenSSL Project voor gebruik in de OpenSSL Toolkit (http://www.openssl.org/)"
+
 #: ID:3857
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
@@ -3969,19 +3998,19 @@ msgstr "TortoiseMerge"
 
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, \r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3995,13 +4024,13 @@ msgstr "TortoiseSVN"
 
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4011,7 +4040,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
