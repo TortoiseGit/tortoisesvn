@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>TortoiseSVN</title>
+<link rel="stylesheet" href="styles_html.css" type="text/css">
+</head>
+<center>
+	<h2>TortoiseSVN Release FAQ</h2>
+</center>
+<h2>How often is TortoiseSVN released</h2>
+
+<p>Normally there is a new release of TortoiseSVN every time there is
+a new release of Subversion. This means that we are always using the
+latest bug-fixed Subversion libraries. Occasionally, if a major bug
+is found in TortoiseSVN, there may be an additional release to
+fix that.</p>
+
+<h2>Why are the version numbers of Subversion and TortoiseSVN different?</h2>
+
+<p>Because TortoiseSVN is usually released soon after Subversion,
+the version numbers are often the same. But they are independent projects
+and version numbers are not always aligned.</p>
+
+<h2>Does TortoiseSVN follow the same release procedure as Subversion?</h2>
+
+<p>No. Releases are almost always cut from a tag taken directly from the trunk
+rather than using a release branch. This is competely different from the
+much more conservative approach taken by the Subversion project.</p>
+
+<p>Subversion provides the access to and management of the version control
+database. It is absolutely critical that the Subversion libraries are
+well tested and reliable, so they adopt a very careful and controlled
+release strategy in order to maximise data safety.</p>
+
+<p>TortoiseSVN is a client which uses the Subversion libraries to do
+all the work. If there is a bug in TortoiseSVN it may be inconvenient,
+but it should not compromise data safety, so we do not require the
+same stringent release procedure. This also allows for much a more
+dynamic development process, and less administrative overhead.</p>
+
+<h2>What are Major and Minor releases?</h2>
+
+<p>We define a major release as one which adds significant new
+features. Normally this happens when Subversion adds a new
+feature, and TSVN grows some new UI to support it.</p>
+
+<p>A minor release includes bugfixes and some new features,
+but not large scale changes. There may still be a lot of
+small changes.</p>
+
+<h2>How are releases stabilised?</h2>
+
+<p>We have a nightly build site which allows many people to test the
+current trunk build. We announce each planned release about a week
+beforehand and encourage people to test the nightly builds. During
+this testing period, only 'safe' changes are committed to trunk.
+This will include bugfixes and doc updates, but no new features.</p>
+
+<p>Before each major release, we normally produce at least one
+release candidate (RC) to allow for more extensive testing.
+Release Candidates are announced in the same way as full releases
+and allow even more people to get on with testing.</p>
+
+<h2>Why don't you use a stabilising branch for releases?</h2>
+
+<p>We did that at one time, but it created a lot of additional
+work, and the stability was not noticeably better.
+TortoiseSVN is developed by a very much smaller team than
+Subversion, and there just aren't enough hours in the day.</p>
+
+</html>

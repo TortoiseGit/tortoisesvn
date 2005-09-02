@@ -1,16 +1,24 @@
-- about a week or two before a new release, which can be initiated by 
-  any dev, we create a branch from /trunk for that release
-- the nightly builds switch from /trunk to that branch so that from this
-  time on users can test the release candidate
-- bugs found and fixed during that time are fixed on /trunk, and 
-  mentioned in a Backport.txt file on the branch
-- the dev who fixed that bug decides himself if it should be backportet 
-  or not, and if yes merges it to the release branch right away
-- if another dev then objects to that merge (of course always with an 
-  explanation why) that fix get's undone on the branch. I don't think 
-  that will happen very often though.
+TSVN releases are generally cut directly from the trunk, unless there is
+a particular reason to do otherwise, eg. bugfix-only branch for older OS.
 
-Then, on the release branch:
+The rationale for this is described in www/release_info.html
+
+- about a week before the release, an announcement is made on the
+  mailing list, indicating the expected release date and encouraging
+  users to download and test the nightly builds.
+
+- during this period, only 'safe' changes are committed, ie. bugfixes,
+  resource and doc updates, and trivial changes.
+
+A major release (one which adds significant new features) is usually
+preceded by a few release candidates. These are created in the same
+way as the full release, but the requirement for 1 week's stabilisation
+may be relaxed. Release candidates are created simply to allow more
+widespread testing than can be achieved with the nightly builds.
+They are announced in the same way as a full release to encourage
+more users to take part in testing.
+
+These steps are required to generate the release:
 
 - Check the latest versions of Apache, openssl, zlib, neon and of course
   download any newer versions available.
