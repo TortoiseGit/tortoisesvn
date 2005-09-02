@@ -304,7 +304,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			progDlg.SetTitle(IDS_PROGRESSWAIT);
 			progDlg.ShowModeless(m_hWnd);
 			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetUIPathString());
-			progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev1);
+			progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, (LONG)rev1);
 			if (!m_pSVN->Cat(url1, peg.IsValid() ? peg : rev1, rev1, tempfile1))
 			{
 				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -313,7 +313,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			SetFileAttributes(tempfile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			progDlg.SetProgress(1, 2);
 			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
-			progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
+			progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, (LONG)rev2);
 
 			if (!m_pSVN->Cat(url2, peg.IsValid() ? peg : rev2, rev2, tempfile2))
 			{

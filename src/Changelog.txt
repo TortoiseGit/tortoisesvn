@@ -1,3 +1,7 @@
+- BUG: When fetching files to diff, the progress dialog shown while fetching
+       the files from the repository always showed revision 1 instead of the
+       real revision where the file was fetched from. (Stefan)
+
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,
        instead of the Subversion license. (Simon)
