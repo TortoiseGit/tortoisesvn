@@ -171,7 +171,7 @@ void CFolderCrawler::WorkerThread()
 					m_pathsToUpdate.pop_front();
 				}
 				// check if the changed path is inside an .svn folder
-				if (workingPath.HasAdminDir()||workingPath.IsAdminDir())
+				if ((workingPath.HasAdminDir()&&workingPath.IsDirectory())||workingPath.IsAdminDir())
 				{
 					// we don't crawl for paths changed in a tmp folder inside an .svn folder.
 					// Because we also get notifications for those even if we just ask for the status!
@@ -193,7 +193,7 @@ void CFolderCrawler::WorkerThread()
 					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
 					CSVNStatusCache::Instance().Done();
 				}
-				else
+				else if (workingPath.HasAdminDir())
 				{
 					ATLTRACE("Updating path: %ws\n", workingPath.GetWinPath());
 					// HasAdminDir() already checks if the path points to a dir

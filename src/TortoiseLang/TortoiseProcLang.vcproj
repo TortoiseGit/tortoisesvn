@@ -115,27 +115,30 @@ Make_Pot.bat
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Resources\bin167.avi">
-		</File>
-		<File
 			RelativePath="..\Languages\res\bin167.avi">
 		</File>
 		<File
-			RelativePath="..\Resources\bin168.avi">
+			RelativePath="..\Resources\bin167.avi">
 		</File>
 		<File
 			RelativePath="..\Languages\res\bin168.avi">
 		</File>
 		<File
-			RelativePath="..\Resources\search.avi">
+			RelativePath="..\Resources\bin168.avi">
 		</File>
 		<File
-			RelativePath="..\Resources\TortoiseProc.manifest">
+			RelativePath="..\Resources\search.avi">
 		</File>
 		<File
 			RelativePath="..\Languages\res\TortoiseProc.manifest">
 		</File>
+		<File
+			RelativePath="..\Resources\TortoiseProc.manifest">
+		</File>
 	</Files>
 	<Globals>
+		<Global
+			Name="DevPartner_IsInstrumented"
+			Value="0"/>
 	</Globals>
 </VisualStudioProject>

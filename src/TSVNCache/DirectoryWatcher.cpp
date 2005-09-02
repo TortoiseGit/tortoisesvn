@@ -165,6 +165,8 @@ void CDirectoryWatcher::WorkerThread()
 	DWORD numBytes;
 	CDirWatchInfo * pdi = NULL;
 	LPOVERLAPPED lpOverlapped;
+	WCHAR buf[MAX_PATH] = {0};
+	WCHAR * pFound = NULL;
 	while (m_bRunning)
 	{
 		if (watchedPaths.GetCount())
@@ -245,32 +247,44 @@ void CDirectoryWatcher::WorkerThread()
 						nOffset = pnotify->NextEntryOffset;
 						switch (pnotify->Action)
 						{
-						case FILE_ACTION_ADDED:
-							ATLTRACE("added    : ");
-							break;
 						case FILE_ACTION_REMOVED:
-							ATLTRACE("removed  : ");
-							break;
-						case FILE_ACTION_MODIFIED:
-							ATLTRACE("modified : ");
-							break;
 						case FILE_ACTION_RENAMED_OLD_NAME:
-							ATLTRACE("old name : ");
-							break;
-						case FILE_ACTION_RENAMED_NEW_NAME:
-							ATLTRACE("new name : ");
+							{
+								pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
+								if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+									break;
+								continue;
+							}
 							break;
 						}
-						WCHAR buf[MAX_PATH] = {0};
-						_tcsncpy(buf, pdi->m_DirPath, MAX_PATH);
-						_tcsncat(buf, pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength));
-						buf[min(MAX_PATH-1, pdi->m_DirPath.GetLength()+pnotify->FileNameLength)] = 0;
-						ATLTRACE("%ws\n", buf);
 						if (m_FolderCrawler)
+						{
+							ZeroMemory(buf, MAX_PATH*sizeof(TCHAR));
+							_tcsncpy(buf, pdi->m_DirPath, MAX_PATH);
+							_tcsncat(buf+pdi->m_DirPath.GetLength(), pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength));
+							buf[min(MAX_PATH-1, pdi->m_DirPath.GetLength()+pnotify->FileNameLength)] = 0;
+							pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
+							if ((pFound = wcsstr(buf, L"\\tmp"))!=NULL)
+							{
+								pFound += 4;
+								if ((*pFound)=='\\')
+								{
+									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+										break;
+									continue;
+								}
+								if (size_t(pFound-buf) == _tcslen(buf))
+								{
+									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+										break;
+									continue;
+								}
+							}
+							ATLTRACE("change notification: %ws\n", buf);
 							m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
-						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-						if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-							break;
+							if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+								break;
+						}
 					} while (nOffset);
 					ZeroMemory(pdi->m_Buffer, sizeof(pdi->m_Buffer));
 					if (!ReadDirectoryChangesW(pdi->m_hDir,

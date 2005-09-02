@@ -43,7 +43,8 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				CommandLine="cd ..\..\Languages
-Make_Pot.bat"/>
+Make_Pot.bat
+"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool
@@ -92,5 +93,8 @@ Make_Pot.bat"/>
 		</File>
 	</Files>
 	<Globals>
+		<Global
+			Name="DevPartner_IsInstrumented"
+			Value="0"/>
 	</Globals>
 </VisualStudioProject>
