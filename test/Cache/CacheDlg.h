@@ -26,8 +26,11 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
-	DECLARE_MESSAGE_MAP()
 	afx_msg void OnBnClickedOk();
+	afx_msg void OnBnClickedWatchtestbutton();
+
+	DECLARE_MESSAGE_MAP()
+
 	CString m_sRootPath;
 	CStringArray m_filelist;
 	HANDLE m_hPipe;
@@ -40,4 +43,10 @@ protected:
 	bool EnsurePipeOpen();
 	bool GetStatusFromRemoteCache(const CTSVNPath& Path, bool bRecursive);
 	void RemoveFromCache(const CString& path);
+
+	void TouchFile(const CString& path);
+	
+	static UINT WatchTestThreadEntry(LPVOID pVoid);
+	UINT WatchTestThread();
+public:
 };

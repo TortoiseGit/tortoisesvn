@@ -75,6 +75,7 @@ BEGIN_MESSAGE_MAP(CCacheDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDOK, OnBnClickedOk)
+	ON_BN_CLICKED(IDC_WATCHTESTBUTTON, OnBnClickedWatchtestbutton)
 END_MESSAGE_MAP()
 
 
@@ -416,4 +417,73 @@ void CCacheDlg::RemoveFromCache(const CString& path)
 			CloseHandle(hPipe);
 		}
 	}
+}
+void CCacheDlg::OnBnClickedWatchtestbutton()
+{
+	UpdateData();
+	AfxBeginThread(WatchTestThreadEntry, this);
+}
+
+UINT CCacheDlg::WatchTestThreadEntry(LPVOID pVoid)
+{
+	return ((CCacheDlg*)pVoid)->WatchTestThread();
+}
+
+//this is the thread function which calls the subversion function
+UINT CCacheDlg::WatchTestThread()
+{
+	CDirFileEnum direnum(m_sRootPath);
+	m_filelist.RemoveAll();
+	CString filepath;
+	bool bIsDir = false;
+	while (direnum.NextFile(filepath, &bIsDir))
+		m_filelist.Add(filepath);
+
+	CTime starttime = CTime::GetCurrentTime();
+	GetDlgItem(IDC_STARTTIME)->SetWindowText(starttime.Format(_T("%H:%M:%S")));
+	int filecounter = 0;
+
+	DWORD startticks = GetTickCount();
+
+	CString sNumber;
+	srand(GetTickCount());
+	filepath = m_filelist.GetAt(rand() % m_filelist.GetCount());
+	GetStatusFromRemoteCache(CTSVNPath(m_sRootPath), false);
+	for (int i=0; i < 30000; ++i)
+	{
+		filepath = m_filelist.GetAt(rand() % m_filelist.GetCount());
+		GetDlgItem(IDC_FILEPATH)->SetWindowText(filepath);
+		TouchFile(filepath);
+		sNumber.Format(_T("%d"), i);
+		GetDlgItem(IDC_DONE)->SetWindowText(sNumber);
+	}
+	CTime endtime = CTime::GetCurrentTime();
+	CString sEnd = endtime.Format(_T("%H:%M:%S"));
+
+	DWORD endticks = GetTickCount();
+
+	CString sEndText;
+	sEndText.Format(_T("%s  - %d ms"), sEnd, endticks-startticks);
+
+	GetDlgItem(IDC_ENDTIME)->SetWindowText(sEndText);
+
+	return 0;
+}
+
+void CCacheDlg::TouchFile(const CString& path)
+{
+	SetFileAttributes(path, FILE_ATTRIBUTE_NORMAL);
+	HANDLE hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hFile == INVALID_HANDLE_VALUE)
+		return;
+
+	FILETIME ft;
+	SYSTEMTIME st;
+
+	GetSystemTime(&st);              // gets current time
+	SystemTimeToFileTime(&st, &ft);  // converts to file time format
+	SetFileTime(hFile,           // sets last-write time for file
+		(LPFILETIME) NULL, (LPFILETIME) NULL, &ft);
+
+	CloseHandle(hFile);
 }
