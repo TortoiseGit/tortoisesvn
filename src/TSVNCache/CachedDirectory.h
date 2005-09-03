@@ -75,7 +75,7 @@ private:
 	// The timestamp of the .SVN\entries file.  For an unversioned directory, this will be zero
 	__int64 m_entriesFileTime;
 	// The timestamp of the .SVN\props dir.  For an unversioned directory, this will be zero
-	__int64 m_propsDirTime;
+	__int64 m_propsFileTime;
 	
 	// The path of the directory with this object looks after
 	CTSVNPath	m_directoryPath;

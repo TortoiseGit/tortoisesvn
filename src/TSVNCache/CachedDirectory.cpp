@@ -7,7 +7,7 @@
 CCachedDirectory::CCachedDirectory(void)
 {
 	m_entriesFileTime = 0;
-	m_propsDirTime = 0;
+	m_propsFileTime = 0;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 	m_bCurrentFullStatusValid = false;
 }
@@ -24,7 +24,7 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 
 	m_directoryPath = directoryPath;
 	m_entriesFileTime = 0;
-	m_propsDirTime = 0;
+	m_propsFileTime = 0;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 	m_bCurrentFullStatusValid = false;
 }
@@ -68,7 +68,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 		}
 	}
 	WRITEVALUETOFILE(m_entriesFileTime);
-	WRITEVALUETOFILE(m_propsDirTime);
+	WRITEVALUETOFILE(m_propsFileTime);
 	value = m_directoryPath.GetWinPathString().GetLength();
 	WRITEVALUETOFILE(value);
 	if (value)
@@ -132,7 +132,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 		}
 	}
 	LOADVALUEFROMFILE(m_entriesFileTime);
-	LOADVALUEFROMFILE(m_propsDirTime);
+	LOADVALUEFROMFILE(m_propsFileTime);
 	LOADVALUEFROMFILE(value);
 	if (value)
 	{
@@ -172,8 +172,8 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	CTSVNPath entriesFilePath(m_directoryPath);
 	entriesFilePath.AppendPathString(_T(SVN_WC_ADM_DIR_NAME) _T("\\entries"));
 	CTSVNPath propsDirPath(m_directoryPath);
-	propsDirPath.AppendPathString(_T(SVN_WC_ADM_DIR_NAME) _T("\\props"));
-	if(m_entriesFileTime == entriesFilePath.GetLastWriteTime() && m_propsDirTime == propsDirPath.GetLastWriteTime())
+	propsDirPath.AppendPathString(_T(SVN_WC_ADM_DIR_NAME) _T("\\dir-props"));
+	if(m_entriesFileTime == entriesFilePath.GetLastWriteTime() && m_propsFileTime == propsDirPath.GetLastWriteTime())
 	{
 		if(m_entriesFileTime == 0)
 		{
@@ -265,7 +265,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	{
 		AutoLocker lock(m_critSec);
 		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
-		m_propsDirTime = propsDirPath.GetLastWriteTime();
+		m_propsFileTime = propsDirPath.GetLastWriteTime();
 		m_entryCache.clear();
 		strCacheKey = GetCacheKey(path);
 	}
