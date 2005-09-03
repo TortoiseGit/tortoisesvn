@@ -152,6 +152,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 	}
 	ATLTRACE("add path to watch %ws\n", path.GetWinPath());
 	watchedPaths.AddPath(path);
+	ClearInfoMap();
 	return true;
 }
 
