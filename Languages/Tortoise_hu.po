@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-14 23:43+0100\n"
+"PO-Revision-Date: 2005-09-03 20:29+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1735,6 +1735,11 @@ msgid "Could not start thread!"
 msgstr "A feladat nem indítható el!"
 
 # ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Folt készítése"
+
+# ID:13,
 #: ID:13
 msgid "Create Patch..."
 msgstr "Folt készítése..."
@@ -1976,6 +1981,11 @@ msgstr "&Kilépés"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
+
+# Control-ID:1031,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Szerkeszt"
 
 # ID:113,
 #: ID:113
@@ -3656,6 +3666,16 @@ msgstr "Felhasználónevet és jelszót igényel"
 msgid "Resolve"
 msgstr "Megold"
 
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "Javítás a saját verzió szerint"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "Javítás a másik verzió szerint"
+
 # ID:8,#:
 # ID:74,
 #: ID:74
@@ -3668,6 +3688,17 @@ msgstr "Megoldva"
 #: ID:8
 msgid "Resolved..."
 msgstr "Megoldva..."
+
+# ID:8,#:
+# ID:74,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Megoldva:\n"
+"%s"
 
 # ID:9,
 #: ID:9
@@ -3756,6 +3787,13 @@ msgstr "Verzió Grafikon"
 #: ID:75
 msgid "Revision: "
 msgstr "Verzió:"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:116
+msgid "Revisions"
+msgstr "Verziók"
 
 # ID:188,
 #: ID:188
@@ -4410,6 +4448,11 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Subversion szerverfájl:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Balra <-> Jobbra vált"
@@ -4833,6 +4876,11 @@ msgstr ""
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Ez a termék a CollabNet által fejlesztett részeket tartalmaz (http://www.Collab.Net/)"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Ez a termék az OpenSSL Project által készített programkódot tartalmaz, az OpenSSL Toolkit számára (http://www.openssl.org/)"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -4889,20 +4937,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4920,14 +4968,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4937,7 +4985,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
