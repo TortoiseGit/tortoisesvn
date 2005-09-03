@@ -1018,6 +1018,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdDropCopyAdd)
 		{
 			CString droppath = parser.GetVal(_T("droptarget"));
+			if (CTSVNPath(droppath).IsAdminDir())
+				return FALSE;
 
 			pathList.RemoveAdminPaths();
 			CTSVNPathList copiedFiles;
@@ -1095,6 +1097,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdDropMove)
 		{
 			CString droppath = parser.GetVal(_T("droptarget"));
+			if (CTSVNPath(droppath).IsAdminDir())
+				return FALSE;
 			SVN svn;
 			unsigned long count = 0;
 			CProgressDlg progress;
@@ -1164,6 +1168,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdDropExport)
 		{
 			CString droppath = parser.GetVal(_T("droptarget"));
+			if (CTSVNPath(droppath).IsAdminDir())
+				return FALSE;
 			SVN svn;
 			CProgressDlg progDlg;
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
@@ -1187,6 +1193,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdDropCopy)
 		{
 			CString sDroppath = parser.GetVal(_T("droptarget"));
+			if (CTSVNPath(sDroppath).IsAdminDir())
+				return FALSE;
 			SVN svn;
 			unsigned long count = 0;
 			CString sNewName;
