@@ -227,21 +227,11 @@ void CFolderCrawler::WorkerThread()
 					m_foldersToUpdate.pop_front();
 				}
 
-				if (!PathFileExists(workingPath.GetWinPath()))
-				{
-					// the path doesn't exist anymore (e.g. directory deleted, renamed, moved)
-					CSVNStatusCache::Instance().WaitToWrite();
-					CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-					CSVNStatusCache::Instance().Done();
-				}
-				else
-				{
-					ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
-					CSVNStatusCache::Instance().WaitToRead();
-					// Now, we need to visit this folder, to make sure that we know its 'most important' status
-					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
-					CSVNStatusCache::Instance().Done();
-				}
+				ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
+				CSVNStatusCache::Instance().WaitToRead();
+				// Now, we need to visit this folder, to make sure that we know its 'most important' status
+				CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
+				CSVNStatusCache::Instance().Done();
 			}
 		}
 	}
