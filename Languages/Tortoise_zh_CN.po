@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-07-23 12:31+0800\n"
-"Last-Translator: NetCobra <netcobra@gmail.com>\n"
+"PO-Revision-Date: 2005-09-03 14:04+0800\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@ikang.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -665,8 +665,8 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"以换行分隔的列表, 列出的目录不显示图标覆盖.\n"
-"如果你在路径后面加上 \"*\", 那么此路径下的所有文件及子目录也都不会显示.\n"
+"以换行分隔的列表，列出的目录不显示图标覆盖。\n"
+"如果你在路径后面加上 \"*\"， 那么此路径下的所有文件及子目录也都不会显示。\n"
 "列表为空时表示所有路径都显示图标覆盖。"
 
 # ID:3843,#:
@@ -1337,7 +1337,7 @@ msgstr "选中可在日志信息中使用较简短的日期及时间"
 # ID:270,
 #: ID:270
 msgid "Checking for forward copies"
-msgstr "Checking for forward copies"
+msgstr "正在检查更新的版本"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1416,7 +1416,7 @@ msgstr "关闭当前窗口并提示保存文件"
 # Control-ID:1163,
 #: Control-ID:1068
 msgid "Color code in-line changes"
-msgstr "Color code in-line changes"
+msgstr "用颜色标记行内改变"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
@@ -1428,6 +1428,11 @@ msgstr "颜色"
 #: ID:3857
 msgid "Command failed."
 msgstr "命令失败。"
+
+# ID:8,
+#: ID:319
+msgid "Comment"
+msgstr "注释"
 
 # ID:8,
 #: Control-ID:1083
@@ -1730,6 +1735,11 @@ msgid "Could not start thread!"
 msgstr "无法启动线程！"
 
 # ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "创建补丁"
+
+# ID:13,
 #: ID:13
 msgid "Create Patch..."
 msgstr "创建补丁..."
@@ -1826,11 +1836,6 @@ msgstr "正在删除"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "目标磁盘已满。"
-
-# Dlg-ID:207,
-#: Dlg-ID:207
-msgid "Dialog"
-msgstr "对话框"
 
 # ID:12,
 #: ID:12
@@ -2229,6 +2234,7 @@ msgstr "正在取得文件的 %s 版本："
 #: ID:74
 #: ID:77
 #: ID:207
+#: ID:319
 msgid "File"
 msgstr "文件"
 
@@ -2895,6 +2901,11 @@ msgstr "MIME 类型"
 msgid "Min"
 msgstr "最小"
 
+# Dlg-ID:143,
+#: ID:263
+msgid "Mine"
+msgstr "我的"
+
 # Control-ID:1082,#:
 # Control-ID:1023,
 #: Control-ID:1023
@@ -3021,6 +3032,11 @@ msgid "No error occurred."
 msgstr "没有发生错误。"
 
 # ID:77,
+#: ID:82
+msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
+msgstr "从上次提交以来没有任何文件修改或加入。TortoiseSVN 不需要进行复原！"
+
+# ID:77,
 #: ID:77
 msgid ""
 "No files were changed or added since\n"
@@ -3120,6 +3136,12 @@ msgstr "至少还有一个的文件处于冲突状态。"
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "仅取出最上层目录"
+
+# ID:319,
+#: ID:319
+#, c-format
+msgid "Only in %s"
+msgstr "仅在 %s"
 
 # ID:169,
 #: ID:169
@@ -3575,6 +3597,12 @@ msgstr "重命名 %s"
 msgid "Rename..."
 msgstr "重命名..."
 
+# ID:97,
+#: ID:319
+#, c-format
+msgid "Renamed from %s"
+msgstr "重命名 %s"
+
 # ID:126,
 #: ID:126
 msgid "Renamed remotely"
@@ -3632,6 +3660,21 @@ msgid "Requests a username and a password"
 msgstr "需要用户名和密码"
 
 # ID:8,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "解决"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "使用本地端解决有冲突的文件"
+
+# ID:9,
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "使用远端解决有冲突的文件"
+
+# ID:8,
 #: ID:74
 #: ID:209
 msgid "Resolved"
@@ -3641,6 +3684,16 @@ msgstr "解决"
 #: ID:8
 msgid "Resolved..."
 msgstr "已解决的..."
+
+# ID:8,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"解决：\n"
+"%s"
 
 # ID:9,
 #: ID:9
@@ -3729,6 +3782,13 @@ msgstr "版本分支图"
 #: ID:75
 msgid "Revision: "
 msgstr "版本: "
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:116
+msgid "Revisions"
+msgstr "版本"
 
 # ID:188,
 #: ID:188
@@ -4031,6 +4091,11 @@ msgstr "选择要查询帮助的对象"
 msgid "Select diff file..."
 msgstr "选择补丁文件..."
 
+# Dlg-ID:173,
+#: ID:276
+msgid "Select end revision"
+msgstr "选择结束版本"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4039,6 +4104,16 @@ msgid ""
 msgstr ""
 "选择要导出至的文件夹.\n"
 "你可能需要在进行导出之前先创建新文件夹。"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select revision range"
+msgstr "选择版本范围"
+
+# Dlg-ID:173,
+#: ID:276
+msgid "Select start revision"
+msgstr "选择开始版本"
 
 # ID:79,
 #: ID:79
@@ -4337,7 +4412,7 @@ msgstr "Subversion"
 # Control-ID:1023,
 #: Control-ID:65535
 msgid "Subversion authentication data:"
-msgstr "Subversion认证数据："
+msgstr "Subversion 认证数据："
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4365,6 +4440,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: MenuEntry
+msgid "Switch Left<->Right"
+msgstr "左右切换"
+
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
@@ -4387,6 +4466,15 @@ msgid ""
 msgstr ""
 "在单区块与双区块查看模式间切换\n"
 "切换单/双区块模式"
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Switch the contents of the left and right view\n"
+"Switch left and right view"
+msgstr ""
+"交换左右内容\n"
+"左右交换"
 
 # ID:3825,
 #: ID:3825
@@ -4411,6 +4499,11 @@ msgstr "切换至前一个文件窗口"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "切换工作复本至其它分支/标记"
+
+# ID:9,
+#: Control-ID:1232
+msgid "Switch working copy to new branch/tag"
+msgstr "切换工作复本至新分支/标记"
 
 # ID:9,
 #: ID:9
@@ -4681,6 +4774,15 @@ msgstr ""
 "如果设置得比较低，会使得自动完成列表很快显示出来，\n"
 "但是可能并没有扫描所有的文件。"
 
+# ID:82,
+#: ID:82
+msgid ""
+"The two selected URL's are not created from the same root.\n"
+"It's not possible to show the log messages between them!"
+msgstr ""
+"选择的两个URL不是从相同的来源建立的。\n"
+"不能显示它们之间的日志！"
+
 # ID:16,
 #: ID:16
 msgid "The user who did the last commit"
@@ -4716,6 +4818,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "Their File:"
 msgstr "远程文件："
+
+# ID:188,
+#: ID:263
+msgid "Theirs"
+msgstr "对方的"
 
 # ID:169,
 #: ID:169
@@ -4760,6 +4867,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "本产品包含由 CollabNet(http://www.Collab.Net/) 所开发的软体"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "本产品包含了由 OpenSSL项目开发的 OpenSSL Toolkit(http://www.openssl.org/)"
 
 # ID:3857,#:
 # ID:3857,
@@ -4817,20 +4929,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4847,14 +4959,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4864,7 +4976,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5298,6 +5410,17 @@ msgstr ""
 "协议存取文件库。\n"
 "这可能造成严重的文件库损坏！\n"
 "确定要这样做吗？"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You can't set this property on folders, only on files!\n"
+"If you want to set it on all files within that folder,\n"
+"you must activate the 'recursive' checkbox."
+msgstr ""
+"你不能在文件夹上设置该属性，它只能设置在文件上！\n"
+"如果你要为该文件夹中所有文件设置该属性，\n"
+"你必须选择“递归”选项。"
 
 # ID:105,
 #: ID:105
