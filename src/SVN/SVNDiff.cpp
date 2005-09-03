@@ -151,6 +151,8 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 	{
 		SVNStatus stat;
 		stat.GetStatus(filePath);
+		if (stat.status == NULL)
+			return false;
 		text_status = stat.status->text_status;
 		prop_status = stat.status->prop_status;
 	}
