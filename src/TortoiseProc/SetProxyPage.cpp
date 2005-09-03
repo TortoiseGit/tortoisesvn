@@ -20,6 +20,8 @@
 #include "TortoiseProc.h"
 #include "SetProxyPage.h"
 #include "Utils.h"
+#include "SVN.h"
+#include ".\setproxypage.h"
 
 // CSetProxyPage dialog
 
@@ -127,6 +129,7 @@ BEGIN_MESSAGE_MAP(CSetProxyPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_SSHCLIENT, OnEnChangeSshclient)
 	ON_EN_CHANGE(IDC_EXCEPTIONS, OnEnChangeExceptions)
 	ON_BN_CLICKED(IDC_SSHBROWSE, OnBnClickedSshbrowse)
+	ON_BN_CLICKED(IDC_EDITSERVERS, OnBnClickedEditservers)
 END_MESSAGE_MAP()
 
 
@@ -309,4 +312,14 @@ void CSetProxyPage::OnBnClickedSshbrowse()
 		SetModified();
 	}
 	delete [] pszFilters;
+}
+
+void CSetProxyPage::OnBnClickedEditservers()
+{
+	TCHAR buf[MAX_PATH];
+	SVN::EnsureConfigFile();
+	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
+	CString path = buf;
+	path += _T("\\Subversion\\servers");
+	CUtils::StartTextViewer(path);
 }

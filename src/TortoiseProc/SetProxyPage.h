@@ -82,6 +82,7 @@ protected:
 	afx_msg void OnEnChangeExceptions();
 	afx_msg void OnEnChangeSshclient();
 	afx_msg void OnBnClickedSshbrowse();
+	afx_msg void OnBnClickedEditservers();
 
 	void EnableGroup(BOOL b);
 
