@@ -834,6 +834,19 @@ void CTSVNPathList::RemoveDuplicates()
 	m_paths.erase(std::unique(m_paths.begin(), m_paths.end(), &CTSVNPath::PredLeftEquivalentToRight), m_paths.end());
 }
 
+void CTSVNPathList::RemoveAdminPaths()
+{
+	PathVector::iterator it;
+	for(it = m_paths.begin(); it != m_paths.end(); ++it)
+	{
+		if (it->IsAdminDir())
+		{
+			m_paths.erase(it);
+			it = m_paths.begin();
+		}
+	}
+}
+
 void CTSVNPathList::RemovePath(const CTSVNPath& path)
 {
 	PathVector::iterator it;
@@ -915,6 +928,18 @@ private:
 		ATLASSERT(!testPath.IsAdminDir());
 		testPath.SetFromUnknown(_T("c:\\.svn\\test"));
 		ATLASSERT(testPath.IsAdminDir());
+		
+		CTSVNPathList pathList;
+		pathList.AddPath(CTSVNPath(_T("c:\\.svndir")));
+		pathList.AddPath(CTSVNPath(_T("c:\\.svn")));
+		pathList.AddPath(CTSVNPath(_T("c:\\.svn\\test")));
+		pathList.AddPath(CTSVNPath(_T("c:\\test")));
+		pathList.RemoveAdminPaths();
+		ATLASSERT(pathList.GetCount()==2);
+		pathList.Clear();
+		pathList.AddPath(CTSVNPath(_T("c:\\test")));
+		pathList.RemoveAdminPaths();
+		ATLASSERT(pathList.GetCount()==1);
 	}
 	
 	void SortTest()

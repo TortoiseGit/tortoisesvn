@@ -306,6 +306,8 @@ public:
 	void DeleteAllFiles();
 	/** Remove duplicate entries from the list (sorts the list as a side-effect */
 	void RemoveDuplicates();
+	/** Removes all paths which are on or in a Subversion admin directory */
+	void RemoveAdminPaths();
 	void RemovePath(const CTSVNPath& path);
 	/** 
 	 * Removes all child items and leaves only the top folders. Useful if you
