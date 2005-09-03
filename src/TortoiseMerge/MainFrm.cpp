@@ -1254,6 +1254,17 @@ void CMainFrame::OnMergeMarkasresolved()
 			return;
 		}
 	}
+	// now check if the file has already been saved and if not, save it.
+	if (this->m_Data.m_mergedFile.InUse())
+	{
+		if (m_pwndBottomView)
+		{
+			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
+			{
+				FileSave();
+			} 
+		}
+	}	
 	MarkAsResolved();
 }
 
