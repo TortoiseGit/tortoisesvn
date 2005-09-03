@@ -19,8 +19,9 @@
 #pragma once
 #include "TSVNPath.h"
 #include "FolderCrawler.h"
+#include "ShellCache.h"
 
-#define READ_DIR_CHANGE_BUFFER_SIZE 32768
+#define READ_DIR_CHANGE_BUFFER_SIZE 4096
 
 /**
  * \ingroup TSVNCache
@@ -82,6 +83,7 @@ private:
 	CFolderCrawler *		m_FolderCrawler;	///< where the change reports go to
 	
 	CTSVNPathList			watchedPaths;	///< list of watched paths.
+	ShellCache				m_shellCache;
 
 	/**
 	 * \ingroup TSVNCache

@@ -76,6 +76,8 @@ void CDirectoryWatcher::SetFolderCrawler(CFolderCrawler * crawler)
 
 bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 {
+	if (!m_shellCache.IsPathAllowed(path.GetWinPath()))
+		return false;
 	for (int i=0; i<watchedPaths.GetCount(); ++i)
 	{
 		if (watchedPaths[i].IsAncestorOf(path))

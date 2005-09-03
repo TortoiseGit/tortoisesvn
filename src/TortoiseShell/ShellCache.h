@@ -17,6 +17,8 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
+#include "registry.h"
+#include "Globals.h"
 
 #define REGISTRYTIMEOUT 2000
 #define EXCLUDELISTTIMEOUT 5000
@@ -25,7 +27,7 @@
 #define NUMBERFMTTIMEOUT 300000
 #define MENUTIMEOUT 100
 
-typedef CComCritSecLock<CComCriticalSection> AutoLocker;
+typedef CComCritSecLock<CComCriticalSection> Locker;
 
 class ShellCache
 {
@@ -153,7 +155,7 @@ public:
 	}
 	BOOL IsPathAllowed(LPCTSTR path)
 	{
-		AutoLocker lock(m_critSec);
+		Locker lock(m_critSec);
 		IncludeListValid();
 		for (std::vector<stdstring>::iterator I = invector.begin(); I != invector.end(); ++I)
 		{
@@ -292,7 +294,7 @@ public:
 		_tcscat(buf2, _T(SVN_WC_ADM_DIR_NAME));
 		hasAdminDir = PathFileExists(buf2);
 		admindirticker = GetTickCount();
-		AutoLocker lock(m_critSec);
+		Locker lock(m_critSec);
 		admindircache[buf] = hasAdminDir;
 		delete buf;
 		delete buf2;
@@ -331,7 +333,7 @@ private:
 	{
 		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>excludelistticker)
 		{
-			AutoLocker lock(m_critSec);
+			Locker lock(m_critSec);
 			excludelistticker = GetTickCount();
 			excludelist.read();
 			if (excludeliststr.compare((stdstring)excludelist)==0)
@@ -358,7 +360,7 @@ private:
 	{
 		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>includelistticker)
 		{
-			AutoLocker lock(m_critSec);
+			Locker lock(m_critSec);
 			includelistticker = GetTickCount();
 			includelist.read();
 			if (includeliststr.compare((stdstring)includelist)==0)
