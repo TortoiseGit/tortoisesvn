@@ -244,13 +244,14 @@ void CDirectoryWatcher::WorkerThread()
 				if (pdi)
 				{
 					PFILE_NOTIFY_INFORMATION pnotify = (PFILE_NOTIFY_INFORMATION)pdi->m_Buffer;
+					if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+						break;
 					DWORD nOffset = pnotify->NextEntryOffset;
 					do 
 					{
 						nOffset = pnotify->NextEntryOffset;
 						switch (pnotify->Action)
 						{
-						case FILE_ACTION_REMOVED:
 						case FILE_ACTION_RENAMED_OLD_NAME:
 							{
 								pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
