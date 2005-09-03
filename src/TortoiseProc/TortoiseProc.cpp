@@ -1019,6 +1019,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString droppath = parser.GetVal(_T("droptarget"));
 
+			pathList.RemoveAdminPaths();
 			CTSVNPathList copiedFiles;
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 			{
@@ -1097,6 +1098,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVN svn;
 			unsigned long count = 0;
 			CProgressDlg progress;
+			pathList.RemoveAdminPaths();
 			if (progress.IsValid())
 			{
 				progress.SetTitle(IDS_PROC_MOVING);
@@ -1188,6 +1190,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVN svn;
 			unsigned long count = 0;
 			CString sNewName;
+			pathList.RemoveAdminPaths();
 			if ((parser.HasKey(_T("rename")))&&(pathList.GetCount()==1))
 			{
 				// ask for a new name of the source item
