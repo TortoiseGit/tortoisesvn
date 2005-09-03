@@ -128,7 +128,10 @@ void CShellUpdater::WorkerThread()
 
 			ATLTRACE("Update notifications for: %ws\n", workingPath.GetWinPath());
 			if (workingPath.IsDirectory())
+			{
+				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
 				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+			}
 			else
 				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
 		}
