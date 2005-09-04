@@ -64,6 +64,8 @@ const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
 #define IDSVNLC_UNLOCKFORCE		16
 #define IDSVNLC_OPENWITH		17
 #define IDSVNLC_EXPLORE			18
+#define IDSVNLC_RESOLVETHEIRS	19
+#define IDSVNLC_RESOLVEMINE		20
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1553,6 +1555,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_RESOLVED);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
+						temp.LoadString(IDS_SVNPROGRESS_MENUUSETHEIRS);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVETHEIRS, temp);
+						temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVEMINE, temp);
 					}
 				}
 				if ((!entry->IsFolder())&&(wcStatus >= svn_wc_status_normal)
@@ -1993,6 +1999,76 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
 						{
+							SVN svn;
+							if (!svn.Resolve(filepath, FALSE))
+							{
+								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							}
+							else
+							{
+								entry->status = svn_wc_status_modified;
+								entry->textstatus = svn_wc_status_modified;
+								Show(m_dwShow, 0, m_bShowFolders);
+							}
+						}
+					}
+					break;
+				case IDSVNLC_RESOLVETHEIRS:
+					{
+						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
+						{
+							CTSVNPath theirs(filepath.GetDirectory());
+							SVNStatus stat;
+							stat.GetStatus(filepath);
+							if (stat.status)
+							{
+								if ((stat.status->entry)&&(stat.status->entry->conflict_new))
+								{
+									theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
+								}
+								else break;
+							}
+							else
+							{
+								CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+								break;
+							}
+							CopyFile(theirs.GetWinPath(), filepath.GetWinPath(), FALSE);
+							SVN svn;
+							if (!svn.Resolve(filepath, FALSE))
+							{
+								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							}
+							else
+							{
+								entry->status = svn_wc_status_modified;
+								entry->textstatus = svn_wc_status_modified;
+								Show(m_dwShow, 0, m_bShowFolders);
+							}
+						}
+					}
+					break;
+				case IDSVNLC_RESOLVEMINE:
+					{
+						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
+						{
+							CTSVNPath mine(filepath.GetDirectory());
+							SVNStatus stat;
+							stat.GetStatus(filepath);
+							if (stat.status)
+							{
+								if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
+								{
+									mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+								}
+								else break;
+							}
+							else
+							{
+								CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+								break;
+							}
+							CopyFile(mine.GetWinPath(), filepath.GetWinPath(), FALSE);
 							SVN svn;
 							if (!svn.Resolve(filepath, FALSE))
 							{
