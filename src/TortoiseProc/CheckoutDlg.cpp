@@ -319,6 +319,9 @@ void CCheckoutDlg::OnBnClickedShowlog()
 		delete [] m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
 		m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
+		m_pLogDlg->m_wParam = 1;
+		m_pLogDlg->SetSelect(true);
+		m_pLogDlg->m_pNotifyWindow = this;
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 		m_pLogDlg->m_pNotifyWindow = this;
