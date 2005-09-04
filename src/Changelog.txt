@@ -9,6 +9,8 @@
        folders it should have. (Stefan)
 - BUG: Fixed a crash when showing a diff against BASE and the status of the
        file couldn't be read. (Stefan)
+- BUG: If an invalid URL was entered, an assertion would throw in some
+       places. (Stefan)
 
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,
