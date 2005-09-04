@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4276
+# Based on Tortoise.pot r4318
 #
 msgid ""
 msgstr ""
@@ -1444,6 +1444,10 @@ msgstr "&Afslut"
 #, fuzzy
 msgid "EXT"
 msgstr "EXT"
+
+#: Control-ID:1237,
+msgid "Edit"
+msgstr "Rediger"
 
 #: ID:113,
 msgid "Edit Author"
@@ -3178,6 +3182,10 @@ msgstr "Subversion meldte fejl under oprettelsen af versionsarkivet!\nVær sikke
 #, c-format
 msgid "Subversion reported an error while doing a cleanup!\n<hr=100%>\n%s"
 msgstr "Subversion meldte fejl under oprydningen!\n<hr=100%>\n%s"
+
+#: Control-ID:65535,
+msgid "Subversion server file:"
+msgstr "Subversion server-fil:"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
