@@ -1127,7 +1127,10 @@ BOOL CTortoiseProcApp::InitInstance()
 				} 
 				if (!svn.Move(pathList[nPath], destPath, FALSE))
 				{
-					if (pathList[nPath].IsDirectory()||(SVNStatus::GetAllStatus(pathList[nPath]) > svn_wc_status_normal))
+					svn_wc_status_kind itemstatus = SVNStatus::GetAllStatus(pathList[nPath]);
+					if ((itemstatus != svn_wc_status_unversioned)&&
+						(itemstatus != svn_wc_status_external)&&
+						(pathList[nPath].IsDirectory()||(itemstatus > svn_wc_status_normal)))
 					{
 						// file/folder seems to have local modifications. Ask the user if
 						// a force is requested.
