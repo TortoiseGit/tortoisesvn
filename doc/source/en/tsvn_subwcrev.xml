@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter id="tsvn_subwcrev">
+	<title>The SubWCRev Program</title>
+	<indexterm>
+		<primary>version extraction</primary>
+	</indexterm>
+	<simplesect>
+		<para>
+			SubWCRev is Windows console program which can be used to read
+			the status of a Subversion working copy and optionally perform
+			keyword substitution in a template file.
+			This is often used as part of the build process as a means of
+			incorporating working copy information into the object you
+			are building. Typically it might be used to include the
+			revision number in an <quote>About</quote> box.
+		</para>
+	</simplesect>
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 1 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-subwcrev-cli">
+		<title>The SubWCRev Command Line</title>
+		<para>
+			SubWCRev reads the Subversion status of all files in a working
+			copy, excluding externals by default. It records the highest commit
+			revision number found, and the commit timestamp of that revision,
+			It also records whether there are local modifications in the working
+			copy, or mixed update revisions. The revision number, update
+			revision range and modification status are displayed on stdout.
+		</para>
+		<para>
+			SubWCRev.exe is called from the command line or a script, and
+			is controlled using the command line parameters.
+<screen>
+SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
+</screen>
+		</para>
+		<para>
+			<literal>WorkingCopyPath</literal> is the path to the working
+			copy being checked. You can only use SubWCRev on working copies,
+			not directly on the repository. The path may be absolute or
+			relative to the current working directory.
+		</para>
+		<para>
+			If you want SubWCRev to perform keyword substitution, so that
+			fields like repository revision and URL are saved to a text
+			file, you need to supply a template file
+			<literal>SrcVersionFile</literal>
+			and an output file
+			<literal>DstVersionFile</literal>
+			which contains the substituted version of the template.
+		</para>
+		<para>
+			There are a number of optional switches which affect the way
+			SubWCRev works. If you use more than one, they must be specified
+			as a single group, eg.
+			<literal>-nm</literal>, not
+			<literal>-n -m</literal>.
+			<table id="tsvn-subwcrev-switch-table">
+				<title>List of available command line switches</title>
+				<tgroup cols="2">
+					<colspec colnum="1" colwidth="1*"/>
+					<colspec colnum="2" colwidth="10*"/>
+					<thead>
+						<row>
+							<entry>Switch</entry>
+							<entry>Description</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>-n</entry>
+							<entry>
+								If this switch is given, SubWCRev will exit with
+								ERRORLEVEL 7 if the working copy contains
+								local modifications. This may be used to prevent
+								building with uncommitted changes present.
+							</entry>
+						</row>
+						<row>
+							<entry>-m</entry>
+							<entry>
+								If this switch is given, SubWCRev will exit with
+								ERRORLEVEL 8 if the working copy contains
+								mixed revisions. This may be used to prevent
+								building with a partially updated working copy.
+							</entry>
+						</row>
+						<row>
+							<entry>-d</entry>
+							<entry>
+								If this switch is given, SubWCRev will exit with
+								ERRORLEVEL 9 if the destination file already
+								exists.
+							</entry>
+						</row>
+						<row>
+							<entry>-f</entry>
+							<entry>
+								If this switch is given, SubWCRev will include
+								the last-changed revision of folders. The default
+								behaviour is to use only files when getting the
+								revision numbers.
+							</entry>
+						</row>
+						<row>
+							<entry>-e</entry>
+							<entry>
+								If this switch is given, SubWCRev will examine
+								directories which are included with svn:externals,
+								but only if they are from the same repository.
+								The default behaviour is to ignore externals.
+							</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+		</para>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 2 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-subwcrev-keywords">
+		<title>Keyword Substitution</title>
+		<para>
+			If a source and destination files are supplied, SubWCRev copies
+			source to destination, performing keyword substitution as follows:
+			<table id="tsvn-subwcrev-switch-table">
+				<title>List of available command line switches</title>
+				<tgroup cols="2">
+					<colspec colnum="1" colwidth="1*"/>
+					<colspec colnum="2" colwidth="4*"/>
+					<thead>
+						<row>
+							<entry>Keyword</entry>
+							<entry>Description</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>$WCREV$</entry>
+							<entry>
+								Replaced with the highest commit revision
+								in the working copy.
+							</entry>
+						</row>
+						<row>
+							<entry>$WCDATE$</entry>
+							<entry>
+								Replaced with the commit date/time of the
+								highest commit revision. To avoid confusion,
+								international format is used, ie.
+								<literal>yyyy-mm-dd hh:mm:ss</literal>
+							</entry>
+						</row>
+						<row>
+							<entry>$WCRANGE$</entry>
+							<entry>
+								Replaced with the update revision range in
+								the working copy. If the working copy is in a
+								consistent state, this will be a single revision.
+								If the working copy contains mixed revisions,
+								either due to being out of date, or due to a
+								deliberate update-to-revision, then the range
+								will be shown in the form 100:200
+							</entry>
+						</row>
+						<row>
+							<entry>$WCMIXED?TText:FText$</entry>
+							<entry>
+								Replaced with TText if there are mixed update
+								revisions, or FText if not.
+							</entry>
+						</row>
+						<row>
+							<entry>$WCMODS?TText:FText$</entry>
+							<entry>
+								Replaced with TText if there are local
+								modifications, or FText if not.
+							</entry>
+						</row>
+						<row>
+							<entry>$WCURL$</entry>
+							<entry>
+								Replaced with the repository URL of the working
+								copy path passed to SubWCRev.
+							</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+		</para>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 3 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-subwcrev-example">
+		<title>Keyword Example</title>
+		<para>
+			The example below shows how keywords in a template file are
+			substituted in the output file.
+		</para>
+<screen>
+// Test file for SubWCRev
+
+char *Revision = "$WCREV$";
+char *Modified = "$WCMODS?Modified:Not modified$";
+char *Date     = "$WCDATE$";
+char *RevRange = "$WCRANGE$";
+char *Mixed    = "$WCMIXED?Mixed revision WC:Not mixed$";
+char *URL      = "$WCURL$";
+
+#if $WCMODS?1:0$
+#error Source is modified
+#endif
+
+// EndOfFile
+</screen>
+		<para>
+			After running SubWCRev.exe, the output file looks like this:
+		</para>
+<screen>
+// Test file for SubWCRev
+
+char *Revision = "3701";
+char *Modified = "Modified";
+char *Date     = "2005/06/15 11:15:12";
+char *RevRange = "3699:3701";
+char *Mixed    = "Mixed revision WC";
+char *URL      = "http://svn.collab.net/repos/tortoisesvn/trunk/src/SubWCRev";
+
+#if 1
+#error Source is modified
+#endif
+
+// EndOfFile
+</screen>
+	</sect1>
+</chapter>
+<!--
+local variables:
+sgml-parent-document: ("book.xml" "chapter")
+end:
+-->
