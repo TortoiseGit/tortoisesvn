@@ -2195,6 +2195,11 @@ BEGIN
     IDS_SVNPROGRESS_RESOLVED "Resolved:\n%s"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_ERR_GDIPLUS_MISSING "GDI+ is required to save the revision graph as a picture.\nYou can get GDI+ from\n<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
