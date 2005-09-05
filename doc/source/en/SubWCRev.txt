@@ -21,6 +21,9 @@ DstVersionFile     :   path to save the resulting parsed file.
                        last-changed revision of folders. Default is to
                        use only files to get the revision numbers.
                        This only affects $WCREV$ and $WCDATE$
+-e                 :   if given, also include dirs which are included
+                       with svn:externals, but only if they are from the
+                       same repository.
 
 Switches must be given in a single argument, eg. '-nm' not '-n -m'.
 
