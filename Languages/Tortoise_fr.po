@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-16 09:45+0100\n"
+"PO-Revision-Date: 2005-09-05 11:10+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1448,6 +1448,10 @@ msgstr "Ne peut pas démarrer l'impression."
 msgid "Could not start thread!"
 msgstr "Ne peut pas démarrer l'unité d'exécution(thread)!"
 
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Créer un patch"
+
 #: ID:13
 msgid "Create Patch..."
 msgstr "Créer un patch..."
@@ -1652,6 +1656,10 @@ msgstr "&Quitter"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
+
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Editer"
 
 #: ID:113
 msgid "Edit Author"
@@ -3065,6 +3073,14 @@ msgstr "Requiert un nom d'utilisateur et un mot de passe"
 msgid "Resolve"
 msgstr "Résoudre"
 
+#: ID:282
+msgid "Resolve conflict using \"mine\""
+msgstr "Résoudre le conflit en utilisant \"A moi\""
+
+#: ID:282
+msgid "Resolve conflict using \"theirs\""
+msgstr "Résoudre le conflit en utilisant \"A eux\""
+
 #: ID:74
 #: ID:209
 msgid "Resolved"
@@ -3073,6 +3089,15 @@ msgstr "Résoudre"
 #: ID:8
 msgid "Resolved..."
 msgstr "Résolu..."
+
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Résolu:\n"
+"%s"
 
 #: ID:9
 msgid "Resolves conflicted files"
@@ -3140,6 +3165,10 @@ msgstr "Graphique de révision "
 #: ID:75
 msgid "Revision: "
 msgstr "Révision: "
+
+#: ID:116
+msgid "Revisions"
+msgstr "Révisions"
 
 # ID:188,
 #: ID:188
@@ -3678,6 +3707,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Fichier du serveur Subversion:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Changer Gauche<->Droite"
@@ -4068,6 +4101,10 @@ msgstr ""
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Ce produit inclut des logiciels développés par CollabNet (http://www.Collab.Net/)"
 
+#: Control-ID:65535
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Ce produit inclut des logiciels développés par OpenSSL Project pour usage dans le OpenSSL Toolkit (http://www.openssl.org/)"
+
 #: ID:3857
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
@@ -4115,19 +4152,19 @@ msgstr "TortoiseMerge"
 
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Compilation %d - %s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Compilation %d\r\n"
+"TortoiseMerge %d.%d.%d, Compilation %d -%s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4141,13 +4178,13 @@ msgstr "TortoiseSVN"
 
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Compilation %d -%s"
 
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4157,7 +4194,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Compilation %d\r\n"
+"TortoiseSVN %d.%d.%d, Compilation %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
