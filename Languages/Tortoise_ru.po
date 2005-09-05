@@ -31,13 +31,13 @@
 # resolve -- улаживать
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 4276: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 4318: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-30 19:49+0300\n"
+"PO-Revision-Date: 2005-09-05 18:58+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2020,6 +2020,11 @@ msgstr "В&ыход"
 msgid "EXT"
 msgstr "EXT"
 
+# Control-ID:1031,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Редактировать"
+
 # ID:76,
 # Вариант:Автор редакции 
 #: ID:113
@@ -2908,7 +2913,7 @@ msgstr "Слить..."
 # ID:263,
 #: ID:263
 msgid "Merged"
-msgstr "Слитый"
+msgstr "Слито"
 
 # ID:10,
 #: ID:10
@@ -4508,6 +4513,12 @@ msgstr ""
 "Subversion сообщила об ошибке при выполении очистки!\n"
 "<hr=100%>\n"
 "%s"
+
+# Control-ID:65535,
+# В оригинале файл называется 'servers'
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Файл серверов Subversion:"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
