@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-09-05 22:59GMT Daylight Time\n"
+"POT-Creation-Date: 2005-09-05 23:21GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3690,8 +3690,12 @@ msgstr ""
 msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:5(para) 
-msgid "<indexterm><primary>version control</primary></indexterm> Version control is the art of managing changes to information. It has long been a critical tool for programmers, who typically spend their time making small changes to software and then undoing those changes the next day. Imagine a team of these programmers working concurrently - and perhaps even simultaneously at the very same files! - and you can see why a good system is needed to manage the potential chaos."
+#: source/en/tsvn_introduction.xml:5(primary) 
+msgid "version control"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:8(para) 
+msgid "Version control is the art of managing changes to information. It has long been a critical tool for programmers, who typically spend their time making small changes to software and then undoing those changes the next day. Imagine a team of these programmers working concurrently - and perhaps even simultaneously at the very same files! - and you can see why a good system is needed to manage the potential chaos."
 msgstr ""
 
 #: source/en/tsvn_introduction.xml:22(title) 
@@ -3866,63 +3870,75 @@ msgstr ""
 msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:297(para) 
-msgid "<indexterm><primary>spellchecker</primary></indexterm><indexterm><primary>dictionary</primary></indexterm> TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+#: source/en/tsvn_introduction.xml:297(title) 
+msgid "Spellchecker"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:316(para) 
+#: source/en/tsvn_introduction.xml:299(primary) 
+msgid "spellchecker"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:302(primary) 
+msgid "dictionary"
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:304(para) 
+msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgstr ""
+
+#: source/en/tsvn_introduction.xml:317(para) 
 msgid "The installer automatically adds the US and UK english dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:324(para) 
+#: source/en/tsvn_introduction.xml:325(para) 
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://lingucomponent.openoffice.org/spell_dic.html\"><citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle></ulink>"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:340(para) 
+#: source/en/tsvn_introduction.xml:341(para) 
 msgid "en_US.aff"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:345(para) 
+#: source/en/tsvn_introduction.xml:346(para) 
 msgid "en_US.dic"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:333(para) 
+#: source/en/tsvn_introduction.xml:334(para) 
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:364(literal) 
+#: source/en/tsvn_introduction.xml:365(literal) 
 msgid "tsvn:projectlanguage"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:363(listitem) 
+#: source/en/tsvn_introduction.xml:364(listitem) 
 msgid "Check the <placeholder-1/> setting. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for information about setting project properties."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:368(listitem) 
+#: source/en/tsvn_introduction.xml:369(listitem) 
 msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:374(quote) 
+#: source/en/tsvn_introduction.xml:375(quote) 
 msgid "Base"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:375(literal) 
+#: source/en/tsvn_introduction.xml:376(literal) 
 msgid "de_CH"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:376(literal) 
+#: source/en/tsvn_introduction.xml:377(literal) 
 msgid "de_DE"
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:372(listitem) 
+#: source/en/tsvn_introduction.xml:373(listitem) 
 msgid "If the exact Windows locale doesn't work, try the <placeholder-1/> language, eg. <placeholder-2/> (Swiss-German) falls back to <placeholder-3/> (German)."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:378(listitem) 
+#: source/en/tsvn_introduction.xml:379(listitem) 
 msgid "If none of the above works, then the default language is english, which is included with the standard installation."
 msgstr ""
 
-#: source/en/tsvn_introduction.xml:359(para) 
+#: source/en/tsvn_introduction.xml:360(para) 
 msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
 msgstr ""
 
@@ -3930,8 +3946,12 @@ msgstr ""
 msgid "Basic Concepts"
 msgstr ""
 
-#: source/en/tsvn_basics.xml:8(para) 
-msgid "<indexterm><primary>Subversion book</primary></indexterm> This chapter is a slightly modified version of the same chapter in the Subversion book. You can read the Subversion book here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
+#: source/en/tsvn_basics.xml:8(primary) 
+msgid "Subversion book"
+msgstr ""
+
+#: source/en/tsvn_basics.xml:11(para) 
+msgid "This chapter is a slightly modified version of the same chapter in the Subversion book. You can read the Subversion book here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
 msgstr ""
 
 #: source/en/tsvn_basics.xml:18(para) 

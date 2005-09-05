@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter id="tsvn_introduction">
 	<title>Introduction</title>
+	<indexterm>
+		<primary>version control</primary>
+	</indexterm>
 	<simplesect>
 		<para>
-			<indexterm>
-				<primary>version control</primary>
-			</indexterm>
 			Version control is the art of managing changes to
 			information. It has long been a critical tool for programmers,
 			who typically spend their time making small changes to software
@@ -294,13 +294,14 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-ch-1-install-spell">
+			<title>Spellchecker</title>
+			<indexterm>
+				<primary>spellchecker</primary>
+			</indexterm>
+			<indexterm>
+				<primary>dictionary</primary>
+			</indexterm>
 			<para>
-				<indexterm>
-					<primary>spellchecker</primary>
-				</indexterm>
-				<indexterm>
-					<primary>dictionary</primary>
-				</indexterm>
 				TortoiseSVN includes a spell checker which allows you to check your
 				commit log messages. This is especially useful if the project language
 				is not your native language.
