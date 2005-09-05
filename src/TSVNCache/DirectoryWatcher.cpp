@@ -238,6 +238,8 @@ void CDirectoryWatcher::WorkerThread()
 			{
 				if (!m_bRunning)
 					return;
+				if (numBytes == 0)
+					break;
 				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
 				// is called again, the higher the chance that we miss some
 				// changes in the filesystem! 
