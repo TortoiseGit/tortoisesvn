@@ -57,7 +57,7 @@
 			<Property Id="DlgTitleFont"><![CDATA[{&DlgFontBold8}]]></Property>
 
 			<!-- UI Other .................................................................... -->
-			<Property Id="ALLUSERS" Value="1"></Property> <!-- Who to install for http://www.appdeploy.com/faq/detail.asp?id=69  --> 
+			<Property Id="ALLUSERS" Value="2"></Property> <!-- Who to install for http://www.appdeploy.com/faq/detail.asp?id=69  --> 
 			<Property Id="ErrorDialog">ErrorPopup</Property>
 			<Property Id="INSTALLLEVEL">3</Property> <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/installlevel.asp -->
 			<Property Id="ProductID">none</Property> <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/productid.asp -->
