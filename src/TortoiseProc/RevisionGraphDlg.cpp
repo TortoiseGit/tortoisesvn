@@ -261,7 +261,9 @@ CFont* CRevisionGraphDlg::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE
 		m_lfBaseFont.lfItalic = (BYTE) bItalic;
 		m_lfBaseFont.lfStrikeOut = (BYTE) FALSE;
 		m_lfBaseFont.lfHeight = -MulDiv(m_nFontSize, GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
-		_tcsncpy(m_lfBaseFont.lfFaceName, _T("Times New Roman"), 32);
+		// use the empty font name, so GDI takes the first font which matches
+		// the specs. Maybe this will help render chinese/japanese chars correctly.
+		_tcsncpy(m_lfBaseFont.lfFaceName, _T(""), 32);
 		if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
 		{
 			delete m_apFonts[nIndex];
