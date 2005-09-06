@@ -43,6 +43,7 @@ IMPLEMENT_DYNAMIC(CLogDlg, CResizableStandAloneDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CLogDlg::IDD, pParent),
 	m_startrev(0),
+	m_LogRevision(0),
 	m_endrev(0),
 	m_logcounter(0),
 	m_nSearchIndex(0),
@@ -121,6 +122,7 @@ void CLogDlg::SetParams(const CTSVNPath& path, long startrev, long endrev, int l
 {
 	m_path = path;
 	m_startrev = startrev;
+	m_LogRevision = startrev;
 	m_endrev = endrev;
 	m_hasWC = !path.IsUrl();
 	m_bStrict = bStrict;
@@ -363,7 +365,7 @@ void CLogDlg::OnBnClickedGetall()
 	
 	m_logcounter = 0;
 	m_endrev = 1;
-	m_startrev = -1;
+	m_startrev = m_LogRevision;
 	m_bCancelled = FALSE;
 	m_limit = 0;
 	m_tTo = 0;
@@ -906,7 +908,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev = pLogEntry->dwRev;
 						this->m_bCancelled = FALSE;
 						SVNDiff diff(this, this->m_hWnd, true);
-						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, rev);
+						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, m_LogRevision);
 					}
 					break;
 				case ID_COMPARETWO:

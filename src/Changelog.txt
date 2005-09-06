@@ -11,6 +11,8 @@
        file couldn't be read. (Stefan)
 - BUG: If an invalid URL was entered, an assertion would throw in some
        places. (Stefan)
+- BUG: Comparing a file to the working copy from the log dialog didn't work
+       past renames. (Stefan)
 
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,

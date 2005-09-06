@@ -183,6 +183,7 @@ private:
 	CProgressCtrl		m_LogProgress;
 	CTSVNPath			m_path;
 	long				m_startrev;
+	long				m_LogRevision;
 	long				m_endrev;
 	long				m_logcounter;
 	BOOL				m_bCancelled;
