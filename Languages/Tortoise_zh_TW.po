@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-23 09:46+0800\n"
+"PO-Revision-Date: 2005-09-06 10:11+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1991,6 +1991,11 @@ msgstr "離開(&X)"
 msgid "EXT"
 msgstr "EXT"
 
+# Control-ID:1031,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "編輯"
+
 # ID:76,
 #: ID:113
 msgid "Edit Author"
@@ -2313,6 +2318,17 @@ msgstr "無法初始化 GDI+ !"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ 無法建立點陣圖物件. 你可能沒有足夠的記憶體."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"需要 GDI+ 才能將版本圖儲存為圖形.\n"
+"下載 GDI+ :\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
@@ -2491,6 +2507,15 @@ msgid ""
 msgstr ""
 "啟用時, 合併視窗使用工作複本的URL做為一開始的來源URL.\n"
 "否則使用前一次使用的URL."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"啟用時, 對話窗出現時會連接檔案庫.\n"
+"不需要再點選「檢查檔案庫」."
 
 # ID:195,
 #: ID:195
@@ -4450,6 +4475,11 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Subversion 伺服器檔:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "左右切換"
@@ -4876,6 +4906,11 @@ msgstr ""
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "本產品包含由 CollabNet(http;//www.Collab.Net/) 所開發的軟體"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "本產品包含由 OpenSSL 計劃所開發的軟體. 使用 OpenSSL Toolkit (http://www.openssl.org/)"
 
 # ID:3857,#:
 # ID:3857,
