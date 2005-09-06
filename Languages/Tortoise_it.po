@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-01 00:26+0100\n"
+"PO-Revision-Date: 2005-09-06 14:13+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1989,6 +1989,11 @@ msgstr "&Esci"
 msgid "EXT"
 msgstr "EXT"
 
+# Control-ID:1031,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Modifica"
+
 # ID:76,
 #: ID:113
 msgid "Edit Author"
@@ -2312,6 +2317,17 @@ msgstr "Impossibile inizializzare GDI+!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ non riesce a creare un oggetto bitmap. Probabilmente la memoria è insufficente."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"Per poter salvare il grafico delle revisioni come immagine è richiesto GDI+.\n"
+"GDI+ si può ottenere all'indirizzo\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
@@ -2491,6 +2507,15 @@ msgid ""
 msgstr ""
 "Se selezionato, la finestra di dialogo \"Fondi\" proporrà nel campo \"Da:\" l'URL della Copia di lavoro selezionata\n"
 "invece dell'ultimo URL usato. "
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Se selezionato, il Reposiorty verrà contattato al momento dell'apertura della finestra di dialogo.\n"
+"Non sarà quindi più necessario cliccare su \"Controlla Repository\"."
 
 # ID:195,
 #: ID:195
@@ -4452,6 +4477,11 @@ msgstr ""
 "Subversion ha generato un errore durante la pulizia!\n"
 "<hr=100%>\n"
 "%s"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "File di configurazione del server Subversion"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
