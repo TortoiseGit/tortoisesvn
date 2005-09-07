@@ -17,6 +17,9 @@
        places. (Stefan)
 - BUG: Comparing a file to the working copy from the log dialog didn't work
        past renames. (Stefan)
+- BUG: Added files inside external folders weren't recognized and no warning
+       was shown in the commit dialog that these changes must be committed
+       separately. (Stefan)
 
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,

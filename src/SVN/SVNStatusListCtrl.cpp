@@ -611,6 +611,23 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 						}
 					}
 				}
+			}
+			else
+			{
+				// we don't have an UUID - maybe an added file/folder
+				if (!strCurrentRepositoryUUID.IsEmpty())
+				{
+					if (SVNStatus::IsImportant(wcFileStatus))
+						m_bHasExternalsFromDifferentRepos = TRUE;
+					if (s->entry->kind == svn_node_dir)
+					{
+						if ((lastexternalpath.IsEmpty())||(!lastexternalpath.IsAncestorOf(svnPath)))
+						{
+							arExtPaths.AddPath(svnPath);
+							lastexternalpath = svnPath;
+						}
+					}
+				}
 			} 
 		} // if (s->entry)
 
