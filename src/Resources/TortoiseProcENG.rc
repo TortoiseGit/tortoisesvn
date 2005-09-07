@@ -54,6 +54,7 @@ IDI_GENERAL             ICON                    "general.ico"
 IDI_LOOKANDFEEL         ICON                    "lookandfeel.ico"
 IDI_ICONSET             ICON                    "iconset.ico"
 IDI_DIALOGS             ICON                    "dialogs.ico"
+IDI_EXTERNALWARNING     ICON                    "lineconflicted.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -307,6 +308,8 @@ BEGIN
     PUSHBUTTON      "&Help",IDHELP,243,258,50,14
     CONTROL         "Keep Locks",IDC_KEEPLOCK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,6,260,117,10
+    ICON            IDI_EXTERNALWARNING,IDC_EXTERNALWARNING,272,213,21,20,
+                    NOT WS_VISIBLE | WS_DISABLED,WS_EX_TRANSPARENT
 END
 
 IDD_MERGE DIALOGEX 0, 0, 345, 267

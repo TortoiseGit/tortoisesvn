@@ -69,6 +69,8 @@
 #define IDB_LOGFILTER                   204
 #define IDD_RESOLVE                     207
 #define IDD_CREATEPATCH                 208
+#define IDI_WARN                        209
+#define IDI_EXTERNALWARNING             209
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -364,6 +366,7 @@
 #define IDS_PROGRS_MIMETYPE             1236
 #define IDC_EDITSERVERS                 1237
 #define IDS_PROGRS_COPY_WARNING         1238
+#define IDC_EXTERNALWARNING             1238
 #define IDS_PROGRS_COMMITT_TRUNK        1239
 #define IDS_PROGRS_REVERTMARKERS        1240
 #define IDS_SETTINGS_SELECTDIFF         1241
@@ -690,9 +693,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        209
+#define _APS_NEXT_RESOURCE_VALUE        210
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1238
+#define _APS_NEXT_CONTROL_VALUE         1239
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

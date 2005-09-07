@@ -108,6 +108,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_cLogMessage.RegisterContextMenuHandler(this);
 
 	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_EXTERNALWARNING, IDS_LOGPROMPT_EXTERNALS, (UINT)IDI_WARNING);
+	
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	
 	if (m_ProjectProperties.sMessage.IsEmpty())
@@ -145,6 +147,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_EXTERNALWARNING, BOTTOM_RIGHT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HINTLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_KEEPLOCK, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -328,6 +331,8 @@ UINT CLogPromptDlg::StatusThread()
 	GetDlgItem(IDCANCEL)->EnableWindow(false);
 	GetDlgItem(IDOK)->EnableWindow(false);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(false);
+	GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_EXTERNALWARNING)->EnableWindow(false);
 
 	// Initialise the list control with the status of the files/folders below us
 	BOOL success = m_ListCtrl.GetStatus(m_pathList);
@@ -338,8 +343,9 @@ UINT CLogPromptDlg::StatusThread()
 
 	if (m_ListCtrl.HasExternalsFromDifferentRepos())
 	{
-		CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_EXTERNALS, IDS_APPNAME, MB_ICONINFORMATION);
-	} // if (bHasExternalsFromDifferentRepos) 
+		GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_EXTERNALWARNING)->EnableWindow();
+	}
 	GetDlgItem(IDC_COMMIT_TO)->SetWindowText(m_ListCtrl.m_sURL);
 	m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 	POINT pt;
