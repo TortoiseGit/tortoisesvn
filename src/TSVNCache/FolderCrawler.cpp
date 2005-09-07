@@ -190,7 +190,10 @@ void CFolderCrawler::WorkerThread()
 					CSVNStatusCache::Instance().WaitToRead();
 					// Invalidate the cache of this folder, to make sure its status is fetched again.
 					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->Invalidate();
-					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
+					if (PathFileExists(workingPath.GetWinPath()))
+						CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
+					else
+						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
 					CSVNStatusCache::Instance().Done();
 				}
 				else if (workingPath.HasAdminDir())
