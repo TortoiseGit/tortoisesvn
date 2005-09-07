@@ -1127,15 +1127,14 @@ BOOL CTortoiseProcApp::InitInstance()
 				} 
 				if (!svn.Move(pathList[nPath], destPath, FALSE))
 				{
-					svn_wc_status_kind itemstatus = SVNStatus::GetAllStatus(pathList[nPath]);
-					if ((itemstatus != svn_wc_status_unversioned)&&
-						(itemstatus != svn_wc_status_external)&&
-						(pathList[nPath].IsDirectory()||(itemstatus > svn_wc_status_normal)))
+					if (svn.Err && (svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE ||
+						svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
 					{
 						// file/folder seems to have local modifications. Ask the user if
 						// a force is requested.
-						CString temp;
-						temp.Format(IDS_PROC_FORCEMOVE, pathList[nPath].GetWinPathString());
+						CString temp = svn.GetLastErrorMessage();
+						CString sQuestion(MAKEINTRESOURCE(IDS_PROC_FORCEMOVE));
+						temp += _T("\n") + sQuestion;
 						if (CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_YESNO)==IDYES)
 						{
 							if (!svn.Move(pathList[nPath], destPath, TRUE))
