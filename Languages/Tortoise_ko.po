@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-31 20:40+0900\n"
+"PO-Revision-Date: 2005-09-08 13:25+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1293,7 +1293,7 @@ msgstr "업데이트 확인..."
 # ID:8,
 #: Control-ID:1132
 msgid "Check Repository"
-msgstr "저장소 생성"
+msgstr "저장소 확인"
 
 # ID:13,
 #: ID:13
@@ -1916,6 +1916,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "다시는 이 메시지를 표시하지 않음"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "이 파일/폴더를 정말 이동하시겠습니까?"
+
 # ID:76,
 #: ID:76
 #, c-format
@@ -1979,6 +1984,11 @@ msgstr "종료(&X)"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
+
+# Control-ID:1031,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "편집"
 
 # ID:76,
 #: ID:113
@@ -2303,6 +2313,17 @@ msgstr "GDI+의 초기화에 실패하였습니다!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+가 비트맵 개체를 만들 수 없습니다. 메모리 충분하지 않습니다."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"그래프를 그림파일로 저장하려면 GDI+가 필요합니다.\n"
+"GDI+는 다음 사이트에서 구할 수 있습니다.\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
@@ -2480,6 +2501,15 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr "병합 대화상자에서 원본의 URL을 마지막 사용했던 URL대신 선택한 작업사본의 URL로 초기화합니다."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"시작시에 저장소에 접근하게 됩니다.\n"
+"\"저장소 확인\"을 더 이상 누를 필요가 없습니다."
 
 # ID:195,
 #: ID:195
@@ -4437,6 +4467,11 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Subversion 서버 파일:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "좌우 전환"
@@ -4596,18 +4631,6 @@ msgstr "패치 파일에 없는 파일입니다.: %s "
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "너무 커서 열수가 없습니다."
-
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"파일 또는 폴더\n"
-"%s\n"
-"에 수정된 것이 있습니다. 정말 이동시키시겠습니까?"
 
 # ID:80,
 #: ID:80
