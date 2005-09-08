@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-03 20:29+0100\n"
+"PO-Revision-Date: 2005-09-08 17:10+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1918,6 +1918,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "Ne mutassa többször ezt az üzenetet"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "Biztos áthelyeted ezt a fájlt vagy mappát?"
+
 # ID:76,
 #: ID:76
 #, c-format
@@ -2310,6 +2315,17 @@ msgstr "A GDI+ nem indítható el!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "A GDI+ nem tudott képelemet létrehozni. Valószínűleg nincs elég memória."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"A GDI+ szükséges, hogy a verzió grafikont képként elmenthessed.\n"
+"A GDI+ letölthető az alábbi címről:\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 # Dlg-ID:143,#:
 # Dlg-ID:107,
 #: Dlg-ID:143
@@ -2486,6 +2502,15 @@ msgid ""
 msgstr ""
 "Ha be van kapcsolva, az Beépítő ablak a kiválasztott munkapéldány címét használja a\n"
 "legutoljára használt cím helyett."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Ha be van kapcsolva, akkor a tárházhoz kapcsolódik, amikor az ablak feljön.\n"
+"Így nem kell többé a \"Tárházról frissítés\"-re kattintani."
 
 # ID:195,
 #: ID:195
@@ -4611,18 +4636,6 @@ msgstr "%s fájl nem található a foltfájlban"
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "A fájl túl nagy a megnyitáshoz."
-
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"A %s\n"
-"fájl vagy könyvtár helyi módosítasokat tartalmaz!\n"
-"Biztos, hogy álthelyezed?"
 
 # ID:80,
 #: ID:80
