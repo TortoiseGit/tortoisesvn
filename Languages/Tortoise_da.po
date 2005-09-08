@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4335
+# Based on Tortoise.pot r4348
 #
 msgid ""
 msgstr ""
@@ -1402,6 +1402,10 @@ msgstr "Vis programinformation, versionsnummer og copyright\nOm"
 #: ID:80,
 msgid "Do not show this message again"
 msgstr "Vis ikke denne meddelelse igen"
+
+#: ID:145,
+msgid "Do you really want to move this file or folder?"
+msgstr "Er du sikker på, at du vil flytte denne fil eller mappe?"
 
 #: ID:76,
 #, c-format
@@ -3302,11 +3306,6 @@ msgstr "Filen %s blev ikke fundet i korrekturfilen!"
 #: ID:3857,#: ID:3857,
 msgid "The file is too large to open."
 msgstr "Filen er for stor til at blive åbnet."
-
-#: ID:145,
-#, c-format
-msgid "The file or folder\n%s\nhas local modifications. Do you really want to move this file?"
-msgstr "Filen eller mappen\n%s\nhar lokale ændringer. Er du sikker på, at du vil flytte denne fil?"
 
 #: ID:80,
 #, c-format
