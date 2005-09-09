@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-09-06 13:05GMT Daylight Time\n"
+"POT-Creation-Date: 2005-09-09 10:00GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -877,7 +877,7 @@ msgstr ""
 msgid "Update Your Working Copy With Changes From Others"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_update.xml:5(primary) source/en/tsvn_app_howto.xml:98(primary) 
+#: source/en/tsvn_dug/dug_update.xml:5(primary) source/en/tsvn_app_howto.xml:103(primary) 
 msgid "update"
 msgstr ""
 
@@ -1837,31 +1837,39 @@ msgstr ""
 msgid "If you want to move files inside a working copy, use the drag-and-drop handler again: <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:68(para) 
+#: source/en/tsvn_dug/dug_rename.xml:69(title) 
+msgid "Do Not SVN Move Externals"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_rename.xml:70(para) 
+msgid "You should <emphasis>not</emphasis> use the TortoiseSVN <guilabel>Move</guilabel> or <guilabel>Rename</guilabel> commands on a folder which has been created using <literal>svn:externals</literal>. This action would cause the external item to be deleted from its parent repository, probably upsetting many other people. If you need to move an externals folder you should use an ordinary shell move, then adjust the <literal>svn:externals</literal> properties of the source and destination parent folders."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_rename.xml:83(para) 
 msgid "If a <emphasis>file</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, the commit dialog shows those files and lets you remove them from version control too before the commit. However, if you update your working copy, Subversion will spot the missing file and replace it with the latest version from the repository. If you need to delete a version-controlled file, always use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> so that Subversion doesn't have to guess what you really want to do."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:82(para) 
+#: source/en/tsvn_dug/dug_rename.xml:97(para) 
 msgid "If a <emphasis>folder</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, your working copy will be broken and you will be unable to commit. If you update your working copy, Subversion will replace the missing folder with the latest version from the repository and you can then delete it the correct way using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:95(title) 
+#: source/en/tsvn_dug/dug_rename.xml:110(title) 
 msgid "Commit the parent folder"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:96(para) 
+#: source/en/tsvn_dug/dug_rename.xml:111(para) 
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file so that the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and an update of your coworkers won't remove the old file. i.e. they will have <emphasis>both</emphasis> the old and the new copies."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:106(para) 
+#: source/en/tsvn_dug/dug_rename.xml:121(para) 
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:113(title) 
+#: source/en/tsvn_dug/dug_rename.xml:128(title) 
 msgid "Getting a deleted file or folder back"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_rename.xml:114(para) 
+#: source/en/tsvn_dug/dug_rename.xml:129(para) 
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
 msgstr ""
 
@@ -2157,7 +2165,7 @@ msgstr ""
 msgid "If other people may be committing changes then be careful about using the HEAD revision. It may not refer to the revision you think it does if someone else made a commit after your last update."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_merge.xml:172(para) source/en/tsvn_dug/dug_merge.xml:280(para) source/en/tsvn_app_howto.xml:216(para) 
+#: source/en/tsvn_dug/dug_merge.xml:172(para) source/en/tsvn_dug/dug_merge.xml:280(para) source/en/tsvn_app_howto.xml:221(para) 
 msgid "Click <guibutton>OK</guibutton> to complete the merge."
 msgstr ""
 
@@ -3501,7 +3509,7 @@ msgid "Keyword Substitution"
 msgstr ""
 
 #: source/en/tsvn_subwcrev.xml:125(para) 
-msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <table id=\"tsvn-subwcrev-switch-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"4*\"/><thead><row><entry>Keyword</entry><entry>Description</entry></row></thead><tbody><row><entry>$WCREV$</entry><entry> Replaced with the highest commit revision in the working copy. </entry></row><row><entry>$WCDATE$</entry><entry> Replaced with the commit date/time of the highest commit revision. To avoid confusion, international format is used, ie. <literal>yyyy-mm-dd hh:mm:ss</literal></entry></row><row><entry>$WCRANGE$</entry><entry> Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200 </entry></row><row><entry>$WCMIXED?TText:FText$</entry><entry> Replaced with TText if there are mixed update revisions, or FText if not. </entry></row><row><entry>$WCMODS?TText:FText$</entry><entry> Replaced with TText if there are local modifications, or FText if not. </entry></row><row><entry>$WCURL$</entry><entry> Replaced with the repository URL of the working copy path passed to SubWCRev. </entry></row></tbody></tgroup></table>"
+msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <table id=\"tsvn-subwcrev-switch-table2\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"4*\"/><thead><row><entry>Keyword</entry><entry>Description</entry></row></thead><tbody><row><entry>$WCREV$</entry><entry> Replaced with the highest commit revision in the working copy. </entry></row><row><entry>$WCDATE$</entry><entry> Replaced with the commit date/time of the highest commit revision. To avoid confusion, international format is used, ie. <literal>yyyy-mm-dd hh:mm:ss</literal></entry></row><row><entry>$WCRANGE$</entry><entry> Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200 </entry></row><row><entry>$WCMIXED?TText:FText$</entry><entry> Replaced with TText if there are mixed update revisions, or FText if not. </entry></row><row><entry>$WCMODS?TText:FText$</entry><entry> Replaced with TText if there are local modifications, or FText if not. </entry></row><row><entry>$WCURL$</entry><entry> Replaced with the repository URL of the working copy path passed to SubWCRev. </entry></row></tbody></tgroup></table>"
 msgstr ""
 
 #: source/en/tsvn_subwcrev.xml:198(title) 
@@ -4370,263 +4378,263 @@ msgstr ""
 msgid "The recommended way is by <action>right-dragging</action> the files to the new location. Simply <action>right-click</action> on the files you want to move/copy without releasing the mouse button. Then drag the files to the new location and release the mouse button. A context menu will appear where you can either choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy in Subversion to here</guimenuitem></menuchoice>. or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move in Subversion to here</guimenuitem>. </menuchoice>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:42(title) 
+#: source/en/tsvn_app_howto.xml:47(title) 
 msgid "Force users to enter a log message"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:44(primary) 
+#: source/en/tsvn_app_howto.xml:49(primary) 
 msgid "log message"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:46(para) 
+#: source/en/tsvn_app_howto.xml:51(para) 
 msgid "There are two ways to prevent users from committing with an empty log message. One is specific to TortoiseSVN, the other works for all Subversion clients, but requires access to the server directly."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:52(title) 
+#: source/en/tsvn_app_howto.xml:57(title) 
 msgid "Hook-script on the server"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:53(para) 
+#: source/en/tsvn_app_howto.xml:58(para) 
 msgid "If you have direct access to the repository server, you can install a pre-commit hook script which rejects all commits with an empty or too short log message."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:58(para) 
+#: source/en/tsvn_app_howto.xml:63(para) 
 msgid "In the repository folder on the server, there's a subfolder <filename>hooks</filename> which contains some example hook scripts you can use. The file <filename>pre-commit.tmpl</filename> contains a sample script which will reject commits if no log message is supplied, or the message is too short. The file also contains comments on how to install/use this script. Just follow the instructions in that file."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:68(para) 
+#: source/en/tsvn_app_howto.xml:73(para) 
 msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled until the log message is long enough then please use the method described below."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:79(title) 
+#: source/en/tsvn_app_howto.xml:84(title) 
 msgid "Project properties"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:80(para) 
+#: source/en/tsvn_app_howto.xml:85(para) 
 msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:minlogsize</literal> property."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:84(para) 
+#: source/en/tsvn_app_howto.xml:89(para) 
 msgid "If you set that property on a folder, then TortoiseSVN will disable the <guibutton>OK</guibutton> button in all commit dialogs until the user has entered a log message with at least the length specified in the property."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:89(para) 
+#: source/en/tsvn_app_howto.xml:94(para) 
 msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-DUG-propertypage\"/>"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:96(title) 
+#: source/en/tsvn_app_howto.xml:101(title) 
 msgid "Update selected files from the repository"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:100(para) 
+#: source/en/tsvn_app_howto.xml:105(para) 
 msgid "Normally you update your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. But if you only want to pick up some new files that a colleague has added without merging in any changes to other files at the same time, you need a different approach."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:110(para) 
+#: source/en/tsvn_app_howto.xml:115(para) 
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice>. and click on <guibutton>Check repository</guibutton> to see what has changed in the repository. Select the files you want to update locally, then use the context menu to update just those files."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:122(title) 
+#: source/en/tsvn_app_howto.xml:127(title) 
 msgid "Roll back revisions in the repository"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:124(primary) 
+#: source/en/tsvn_app_howto.xml:129(primary) 
 msgid "rollback"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:127(title) 
+#: source/en/tsvn_app_howto.xml:132(title) 
 msgid "Use the revision log dialog"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:128(para) 
+#: source/en/tsvn_app_howto.xml:133(para) 
 msgid "The easiest way to revert the changes from a single revision is to use the revision log dialog."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:134(para) 
+#: source/en/tsvn_app_howto.xml:139(para) 
 msgid "Select the file or folder in which you need to revert the changes. If you want to revert all changes, this should be the top level folder."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:141(para) 
+#: source/en/tsvn_app_howto.xml:146(para) 
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to display a list of revisions. You may need to use <guibutton>Get All</guibutton> or <guibutton>Next 100</guibutton> to show the revision you are interested in."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:154(para) 
+#: source/en/tsvn_app_howto.xml:159(para) 
 msgid "<action>right click</action> on the revision you wish to undo, then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:164(para) source/en/tsvn_app_howto.xml:221(para) 
+#: source/en/tsvn_app_howto.xml:169(para) source/en/tsvn_app_howto.xml:226(para) 
 msgid "You have reverted the changes within your working copy. Check the results, then commit the changes."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:170(title) 
+#: source/en/tsvn_app_howto.xml:175(title) 
 msgid "Use the merge dialog"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:171(para) 
+#: source/en/tsvn_app_howto.xml:176(para) 
 msgid "To undo a larger range of revisions, you can use the Merge dialog. The previous method uses merging behind the scenes; this method uses it explicitly."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:178(para) 
+#: source/en/tsvn_app_howto.xml:183(para) 
 msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:187(para) 
+#: source/en/tsvn_app_howto.xml:192(para) 
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:195(para) 
+#: source/en/tsvn_app_howto.xml:200(para) 
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:203(para) 
+#: source/en/tsvn_app_howto.xml:208(para) 
 msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:209(para) 
+#: source/en/tsvn_app_howto.xml:214(para) 
 msgid "In the <guilabel>To Revision</guilabel> field enter the revision number that you want to revert to, ie. the one <emphasis>before</emphasis> the first revision to be reverted."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:227(title) 
+#: source/en/tsvn_app_howto.xml:232(title) 
 msgid "Use svndumpfilter"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:228(para) 
+#: source/en/tsvn_app_howto.xml:233(para) 
 msgid "Since TortoiseSVN never loses data, your <quote>rolled back</quote> revisions still exist as intermediate revisions in the repository. Only the HEAD revision was changed to a previous state. If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:239(para) 
+#: source/en/tsvn_app_howto.xml:244(para) 
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3\"><citetitle>Subversion Book</citetitle></ulink>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:250(title) 
+#: source/en/tsvn_app_howto.xml:255(title) 
 msgid "Compare two revisions of a file"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:252(primary) 
+#: source/en/tsvn_app_howto.xml:257(primary) 
 msgid "compare files"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:254(para) 
+#: source/en/tsvn_app_howto.xml:259(para) 
 msgid "If you want to compare two revisions in a file's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:268(para) 
+#: source/en/tsvn_app_howto.xml:273(para) 
 msgid "If you want to compare the same file in two different trees, for example the trunk and a branch, you can use the repository browser to open up both trees, select the file in both places, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:278(para) 
+#: source/en/tsvn_app_howto.xml:283(para) 
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:301(title) 
+#: source/en/tsvn_app_howto.xml:306(title) 
 msgid "Include a common sub-project"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:303(primary) 
+#: source/en/tsvn_app_howto.xml:308(primary) 
 msgid "common projects"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:305(para) 
+#: source/en/tsvn_app_howto.xml:310(para) 
 msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:315(title) 
+#: source/en/tsvn_app_howto.xml:320(title) 
 msgid "Use svn:externals"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:316(para) 
+#: source/en/tsvn_app_howto.xml:321(para) 
 msgid "Set the <literal>svn:externals</literal> property for a folder in your project. The property value should be the name of a subfolder which you want the common code checked into, and the repository URL that you want to be checked out there. You can add multiple folder/URL pairs to one folder. For example: <screen>\nthird-party/sounds http://sounds.red-bean.com/repos\nthird-party/skins  http://skins.red-bean.com/repositories/skinproj\n</screen> Of course this code has to reside in a Subversion repository, although it does not have to be the same one."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:329(para) 
+#: source/en/tsvn_app_howto.xml:334(para) 
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The subfolders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:337(para) 
+#: source/en/tsvn_app_howto.xml:342(para) 
 msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:342(para) 
+#: source/en/tsvn_app_howto.xml:347(para) 
 msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:350(title) 
+#: source/en/tsvn_app_howto.xml:355(title) 
 msgid "Use a nested working copy"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:351(para) 
+#: source/en/tsvn_app_howto.xml:356(para) 
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:355(para) 
+#: source/en/tsvn_app_howto.xml:360(para) 
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:365(para) 
+#: source/en/tsvn_app_howto.xml:370(para) 
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are ignored. Likewise when you update the parent, the nested WC is not updated."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:372(title) 
+#: source/en/tsvn_app_howto.xml:377(title) 
 msgid "Use a relative location"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:373(para) 
+#: source/en/tsvn_app_howto.xml:378(para) 
 msgid "If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen> and refer to the common code using a relative path, eg. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:388(para) 
+#: source/en/tsvn_app_howto.xml:393(para) 
 msgid "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:406(para) 
+#: source/en/tsvn_app_howto.xml:411(para) 
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:416(title) 
+#: source/en/tsvn_app_howto.xml:421(title) 
 msgid "Create a shortcut to a repository"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:418(primary) 
+#: source/en/tsvn_app_howto.xml:423(primary) 
 msgid "shortcut"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:420(para) 
+#: source/en/tsvn_app_howto.xml:425(para) 
 msgid "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\nTortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n</screen> Of course you need to include the real repository URL."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:432(title) 
+#: source/en/tsvn_app_howto.xml:437(title) 
 msgid "Ignore files which are already versioned"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:434(primary) 
+#: source/en/tsvn_app_howto.xml:439(primary) 
 msgid "unversion"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:436(para) 
+#: source/en/tsvn_app_howto.xml:441(para) 
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:443(para) 
+#: source/en/tsvn_app_howto.xml:448(para) 
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:458(para) 
+#: source/en/tsvn_app_howto.xml:463(para) 
 msgid "Move the file to somewhere safe, not inside your working copy."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:464(para) 
+#: source/en/tsvn_app_howto.xml:469(para) 
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and automatically schedule it for deletion from the repository."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:475(para) 
+#: source/en/tsvn_app_howto.xml:480(para) 
 msgid "Move the file back to its original location."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:480(para) 
+#: source/en/tsvn_app_howto.xml:485(para) 
 msgid "Add the file to the ignore list so you don't get into the same trouble again."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:453(para) 
+#: source/en/tsvn_app_howto.xml:458(para) 
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
 msgstr ""
 
