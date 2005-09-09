@@ -837,6 +837,8 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		else
 		{
 			SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			if ((entry->copied)&&(_tcslen(buf)>1))
+				_tcscat(buf, _T("+"));
 			if ((entry->status == entry->propstatus)&&
 				(entry->status != svn_wc_status_normal)&&
 				(entry->status != svn_wc_status_unversioned)&&
@@ -855,6 +857,8 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		else
 		{
 			SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			if ((entry->copied)&&(_tcslen(buf)>1))
+				_tcscat(buf, _T("+"));
 			if ((entry->remotestatus == entry->remotepropstatus)&&
 				(entry->status != svn_wc_status_normal)&&
 				(entry->status != svn_wc_status_unversioned)&&
@@ -873,6 +877,8 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		else
 		{
 			SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			if ((entry->copied)&&(_tcslen(buf)>1))
+				_tcscat(buf, _T("+"));
 			SetItemText(index, nCol++, buf);
 		}
 	}
@@ -885,6 +891,8 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		else
 		{
 			SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+			if ((entry->copied)&&(_tcslen(buf)>1))
+				_tcscat(buf, _T("+"));
 			SetItemText(index, nCol++, buf);
 		}
 	}
