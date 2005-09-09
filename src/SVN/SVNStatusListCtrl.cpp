@@ -80,6 +80,8 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_WM_GETDLGCODE()
 	ON_NOTIFY_REFLECT(NM_RETURN, OnNMReturn)
 	ON_WM_KEYDOWN()
+	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipText)
+	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipText)
 END_MESSAGE_MAP()
 
 
@@ -2592,4 +2594,186 @@ void CSVNStatusListCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 
 	CListCtrl::OnKeyDown(nChar, nRepCnt, nFlags);
+}
+
+void CSVNStatusListCtrl::PreSubclassWindow()
+{
+	CListCtrl::PreSubclassWindow();
+	EnableToolTips(TRUE);
+}
+
+INT_PTR CSVNStatusListCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+{
+	int row, col;
+	RECT cellrect;
+	row = CellRectFromPoint(point, &cellrect, &col );
+
+	if (row == -1) 
+		return -1;
+
+	
+	pTI->hwnd = m_hWnd;
+	pTI->uId = (UINT)((row<<10)+(col&0x3ff)+1);
+	pTI->lpszText = LPSTR_TEXTCALLBACK;
+
+	pTI->rect = cellrect;
+
+	return pTI->uId;
+}
+
+int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const
+{
+	int colnum;
+
+	// Make sure that the ListView is in LVS_REPORT
+	if ((GetWindowLong(m_hWnd, GWL_STYLE) & LVS_TYPEMASK) != LVS_REPORT)
+		return -1;
+
+	// Get the top and bottom row visible
+	int row = GetTopIndex();
+	int bottom = row + GetCountPerPage();
+	if (bottom > GetItemCount())
+		bottom = GetItemCount();
+
+	// Get the number of columns
+	CHeaderCtrl* pHeader = (CHeaderCtrl*)GetDlgItem(0);
+	int nColumnCount = pHeader->GetItemCount();
+
+	// Loop through the visible rows
+	for ( ;row <=bottom;row++)
+	{
+		// Get bounding rect of item and check whether point falls in it.
+		CRect rect;
+		GetItemRect(row, &rect, LVIR_BOUNDS);
+		if (rect.PtInRect(point))
+		{
+			// Now find the column
+			for (colnum = 0; colnum < nColumnCount; colnum++)
+			{
+				int colwidth = GetColumnWidth(colnum);
+				if (point.x >= rect.left && point.x <= (rect.left + colwidth))
+				{
+					RECT rectClient;
+					GetClientRect(&rectClient);
+					if (col) 
+						*col = colnum;
+					rect.right = rect.left + colwidth;
+
+					// Make sure that the right extent does not exceed
+					// the client area
+					if (rect.right > rectClient.right)
+						rect.right = rectClient.right;
+					*cellrect = rect;
+					return row;
+				}
+				rect.left += colwidth;
+			}
+		}
+	}
+	return -1;
+}
+
+BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
+{
+	TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
+	CString strTipText;
+	UINT nID = pNMHDR->idFrom;
+
+	if (nID == 0)
+		return FALSE;
+
+	int row = ((nID-1) >> 10) & 0x3fffff;
+	int col = (nID-1) & 0x3ff;
+	
+	if (col == 0)
+		return FALSE;	// no custom tooltip for the path, we use the infotip there!
+
+	// get the internal column from the visible columns
+	int internalcol = 0;
+	int currentcol = 0;
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLEXT)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLSTATUS)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLREMOTESTATUS)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLTEXTSTATUS)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLPROPSTATUS)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLREMOTETEXT)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLREMOTEPROP)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLURL)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLLOCK)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
+		if (m_dwColumns & SVNSLC_COLLOCKCOMMENT)
+			currentcol++;
+	}
+
+	AFX_MODULE_THREAD_STATE* pModuleThreadState = AfxGetModuleThreadState();
+	CToolTipCtrl* pToolTip = pModuleThreadState->m_pToolTip;
+	pToolTip->SendMessage(TTM_SETMAXTIPWIDTH, 0, 300);
+
+	*pResult = 0;
+	if ((internalcol == 2)||(internalcol == 4))
+	{
+		FileEntry *fentry = GetListEntry(row);
+		if (fentry)
+		{
+			if (fentry->copied)
+			{
+				CStringA url;
+				url.Format(IDS_STATUSLIST_COPYFROM, CUnicodeUtils::GetUTF8(fentry->copyfrom_url), fentry->copyfrom_rev);
+				CUtils::Unescape(url.GetBuffer());
+				url.ReleaseBuffer();
+				CString urlW = CUnicodeUtils::GetUnicode(url);
+				lstrcpyn(pTTTW->szText, urlW, 80);
+				return TRUE;
+			}
+		}
+	}
+
+	return FALSE;
 }

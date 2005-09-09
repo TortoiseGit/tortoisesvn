@@ -69,7 +69,6 @@
 #define IDB_LOGFILTER                   204
 #define IDD_RESOLVE                     207
 #define IDD_CREATEPATCH                 208
-#define IDI_WARN                        209
 #define IDI_EXTERNALWARNING             209
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
@@ -599,6 +598,7 @@
 #define IDS_STATUSLIST_COLLOCKCOMMENT   3310
 #define IDS_STATUSLIST_MULTIPLETARGETS  3320
 #define IDS_STATUSLIST_PROPONLY         3321
+#define IDS_STATUSLIST_COPYFROM         3322
 #define IDS_STATUSLIST_CONTEXT_ADD      3330
 #define IDS_STATUSLIST_CONTEXT_EXPLORE  3331
 #define IDS_STATUSLIST_CONTEXT_RESOLVED 3332

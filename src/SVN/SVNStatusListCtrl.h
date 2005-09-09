@@ -351,6 +351,11 @@ private:
 	void CheckEntry(int index, int nListItems);
 	void UncheckEntry(int index, int nListItems);
 
+	int CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const;
+
+	virtual void PreSubclassWindow();
+	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	afx_msg BOOL OnToolTipText(UINT id, NMHDR *pNMHDR, LRESULT *pResult);	
 	afx_msg void OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
