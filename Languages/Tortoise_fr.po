@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-05 11:10+0100\n"
+"PO-Revision-Date: 2005-09-09 21:02+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1601,6 +1601,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "Ne pas voir ce message à nouveau"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "Voulez-vous vraiment déplacer ce fichier ou ce répertoire?"
+
 #: ID:76
 #, c-format
 msgid ""
@@ -1928,6 +1933,17 @@ msgstr "GDI+ ne peut être initialisé!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ ne peut créer un objet bitmap. Vous n'avez probablement plus assez de mémoire."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"GDI+ est requis pour sauvegarder le graphe de révision comme une image.\n"
+"Vous pouvez obtenir GDI+ depuis\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 #: Dlg-ID:143
 #: Dlg-ID:107
 #: Control-ID:65535
@@ -2083,6 +2099,15 @@ msgid ""
 msgstr ""
 "Si activé, le dialogue Fusionner initialise l'URL \"Depuis:\" avec l'URL de la copie de travail sélectionnée\n"
 "au lieu de la dernière URL utilisée."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Si activé, le repository est contacté quand le dialogue démarre.\n"
+"Vous n'aurez plus a cliquer sur \"Vérifier le repository\"."
 
 # ID:195,
 #: ID:195
@@ -3847,18 +3872,6 @@ msgstr "Le fichier %s n'a pas été trouvé dans le patch!"
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Le fichier est tros volumineux pour l'ouvrir."
-
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"Le fichier ou répertoire\n"
-"%s\n"
-"a des modifications locales. Voulez-vous vraiment déplacer ce fichier?"
 
 #: ID:80
 #, c-format
