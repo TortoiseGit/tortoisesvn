@@ -67,7 +67,7 @@ div.figure p {
 
 div.navheader, 
 div.navfooter {
-  background-color: #809BC8;
+  width:100%; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#809BC8', endColorstr='#FFFFFF', gradientType='0');
   color: white;
   clear: both;
   border: 1px solid black;
@@ -81,12 +81,12 @@ div.navheader table th {
 
 /* normal text in the footer */
 div.navfooter table td {
-	color: white;
+	color: black;
 }
     
 div.navheader table td a,
 div.navfooter table td a {
-	color: #fff5b0;
+	color: #black;
 	text-decoration: none;
 }
 
@@ -99,7 +99,7 @@ div.navfooter table td a:hover {
 
 div.navheader table td a:visited,
 div.navfooter table td a:visited {
-	color: #fff5b0;
+	color: black;
 }
 
 div.navheader hr, div.navfooter hr{
