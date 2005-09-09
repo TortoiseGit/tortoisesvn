@@ -472,6 +472,14 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			CUtils::Unescape((char *)pSVNStatus->entry->url);
 			entry->url = CUnicodeUtils::GetUnicode(pSVNStatus->entry->url);
 		}
+		if (pSVNStatus->entry->copyfrom_url)
+		{
+			CUtils::Unescape((char *)pSVNStatus->entry->url);
+			entry->copyfrom_url = CUnicodeUtils::GetUnicode(pSVNStatus->entry->copyfrom_url);
+			entry->copyfrom_rev = pSVNStatus->entry->copyfrom_rev;
+		}
+		else
+			entry->copyfrom_rev = 0;
 
 		if(bDirectItem)
 		{
@@ -537,6 +545,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 			entry->lRevision = 0;
 			entry->isNested = false;
 			entry->copied = false;
+			entry->copyfrom_rev = 0;
 			
 			m_arStatusArray.push_back(entry);
 			if (entry->isfolder)
@@ -583,6 +592,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				entry->lRevision = 0;
 				entry->isNested = true;
 				entry->copied = false;
+				entry->copyfrom_rev = 0;
 				m_arStatusArray.push_back(entry);
 				continue;
 			}

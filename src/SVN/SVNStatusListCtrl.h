@@ -176,6 +176,8 @@ public:
 		CString					lock_remoteowner;		///< the username which owns the lock in the repository
 		CString					lock_remotetoken;		///< the unique URI in the repository of the lock
 		CString					lock_comment;			///< the message for the lock
+		CString					copyfrom_url;			///< the copied-from URL (if available, i.e. \a copied is true)
+		LONG					copyfrom_rev;			///< the copied-from revision
 	public:
 		svn_wc_status_kind		status;					///< local status
 	private:
