@@ -154,7 +154,6 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	wcex.hIconSm		= 0;
 	RegisterClassEx(&wcex);
 	hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 0, 0, NULL, 0, hInstance, 0);
-	msg.hwnd = hWnd;	
 	
 	if (hWnd == NULL)
 	{
@@ -236,13 +235,20 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 
 	// loop to handle window messages.
+	BOOL bLoopRet;
 	while (bRun)
 	{
-		GetMessage(&msg, NULL, 0, 0);
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
+		bLoopRet = GetMessage(&msg, NULL, 0, 0);
+		if (bLoopRet != -1)
+		{
+			DispatchMessage(&msg);
+		}
 	}
 
+	Sleep(1500);
+	CSVNStatusCache::Instance().SaveCache();
+	ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
+	Shell_NotifyIcon(NIM_DELETE,&niData);
 	CSVNStatusCache::Instance().WaitToWrite();
 	CSVNStatusCache::Destroy();
 	apr_terminate();
@@ -296,13 +302,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_QUIT:
 	case WM_CLOSE:
 		{
-			bRun = false;
-			CSVNStatusCache::Instance().Stop();
-			Sleep(1500);
-			CSVNStatusCache::Instance().SaveCache();
-			Shell_NotifyIcon(NIM_DELETE,&niData);
-			ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
-			return 0;
+			if (bRun)
+			{
+				bRun = false;
+				CSVNStatusCache::Instance().Stop();
+				PostMessage(hWnd, WM_QUIT, 0, 0); 
+			}
 		}
 	default:
 		break;
