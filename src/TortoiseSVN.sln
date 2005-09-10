@@ -48,6 +48,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TSVNCache", "TSVNCache\TSVN
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomActions", "TortoiseSVNSetup\CustomActions\CustomActions.vcproj", "{454D5FCC-E25A-4B45-9CA2-01ABB0FA5181}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -100,6 +104,10 @@ Global
 		{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}.Debug.Build.0 = Debug|Win32
 		{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}.Release.ActiveCfg = Release|Win32
 		{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}.Release.Build.0 = Release|Win32
+		{454D5FCC-E25A-4B45-9CA2-01ABB0FA5181}.Debug.ActiveCfg = Release|Win32
+		{454D5FCC-E25A-4B45-9CA2-01ABB0FA5181}.Debug.Build.0 = Release|Win32
+		{454D5FCC-E25A-4B45-9CA2-01ABB0FA5181}.Release.ActiveCfg = Release|Win32
+		{454D5FCC-E25A-4B45-9CA2-01ABB0FA5181}.Release.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionItems) = postSolution
 		TortoiseSVNSetup\autolist.txt = TortoiseSVNSetup\autolist.txt
