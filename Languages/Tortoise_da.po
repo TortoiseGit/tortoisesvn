@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4348
+# Based on Tortoise.pot r4367
 #
 msgid ""
 msgstr ""
@@ -3882,6 +3882,11 @@ msgstr "arkiveringer"
 #: ID:11,
 msgid "conflicted"
 msgstr "konflikter"
+
+#: ID:208,
+#, c-format
+msgid "copied from\r\n%s - revision %ld"
+msgstr "kopieret fra\r\n%s - revision %ld"
 
 #: Control-ID:1113,
 msgid "current version is:"
