@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-09 21:02+0100\n"
+"PO-Revision-Date: 2005-09-10 08:53+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4784,6 +4784,15 @@ msgstr "livraisons"
 #: ID:11
 msgid "conflicted"
 msgstr "en conflit"
+
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"copié depuis\r\n"
+"%s - à la révision %ld"
 
 #: Control-ID:1113
 msgid "current version is:"
