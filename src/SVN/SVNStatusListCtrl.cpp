@@ -600,7 +600,6 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 			}
 		}
 		bool bDirectoryIsExternal = false;
-
 		if (s->entry)
 		{
 			if (s->entry->uuid)
@@ -629,15 +628,11 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				// we don't have an UUID - maybe an added file/folder
 				if (!strCurrentRepositoryUUID.IsEmpty())
 				{
-					if (SVNStatus::IsImportant(wcFileStatus))
-						m_bHasExternalsFromDifferentRepos = TRUE;
-					if (s->entry->kind == svn_node_dir)
+					if ((SVNStatus::IsImportant(wcFileStatus))&&
+						(s->entry->kind == svn_node_dir)&&
+						(lastexternalpath.IsAncestorOf(svnPath)))
 					{
-						if ((lastexternalpath.IsEmpty())||(!lastexternalpath.IsAncestorOf(svnPath)))
-						{
-							arExtPaths.AddPath(svnPath);
-							lastexternalpath = svnPath;
-						}
+						m_bHasExternalsFromDifferentRepos = TRUE;
 					}
 				}
 			} 
