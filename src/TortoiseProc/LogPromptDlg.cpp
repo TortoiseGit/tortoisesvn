@@ -620,7 +620,8 @@ void CLogPromptDlg::GetAutocompletionList()
 		CStdioFile file(sRegexFile, CFile::typeText | CFile::modeRead);
 		while (m_bRunThread && file.ReadString(strLine))
 		{
-			CString sRegex = strLine.Mid(strLine.Find('=')+1).Trim();
+			int eqpos = strLine.Find('=');
+			CString sRegex = strLine.Mid(eqpos+1).Trim();
 			CString sFlags = (strLine[0] == '(' ? strLine.Left(strLine.Find(')')+1).Trim(_T(" ()")) : _T(""));
 			rflags |= sFlags.Find(_T("GLOBAL"))>=0 ? GLOBAL : NOFLAGS;
 			rflags |= sFlags.Find(_T("MULTILINE"))>=0 ? MULTILINE : NOFLAGS;
@@ -632,7 +633,7 @@ void CLogPromptDlg::GetAutocompletionList()
 			if (!sFlags.IsEmpty())
 				strLine = strLine.Mid(strLine.Find(')')+1).Trim();
 			int pos = -1;
-			while ((pos = strLine.Find(','))>=0)
+			while (((pos = strLine.Find(','))>=0)&&(pos < eqpos))
 			{
 				mapRegex[strLine.Left(pos)] = sRegex;
 				strLine = strLine.Mid(pos+1).Trim();
