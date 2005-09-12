@@ -31,13 +31,13 @@
 # resolve -- улаживать
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 4318: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 4367: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-09-05 18:58+0300\n"
+"PO-Revision-Date: 2005-09-12 10:54+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1955,6 +1955,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "Больше не показывать это сообщение"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "Вы действительно хотите переместить этот файл или папку?"
+
 # ID:76,
 #: ID:76
 #, c-format
@@ -2353,6 +2358,17 @@ msgstr "Невозможно инициализировать GDI+"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ не может создать рисунок. Вероятно очень мало памяти."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"Для сохранения графа ревизий как картинки необходима GDI+.\n"
+"Вы можете получить GDI+ по следующей ссылке:\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
@@ -2531,6 +2547,15 @@ msgid ""
 msgstr ""
 "Если включено, диалог слияния подставляет в поле \"Из:\" URL выбранной рабочей копии,\n"
 "а не последний использованный URL."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Если отмечено, при начале диалога программа сама связывается с Хранилищем.\n"
+"Вам больше не надо нажимать на кнопку \"Проверить Хранилище\"."
 
 # ID:195,
 #: ID:195
@@ -4681,18 +4706,6 @@ msgstr "Файл %s не найден в патч-файле!"
 msgid "The file is too large to open."
 msgstr "Файл слишком большой для открытия."
 
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"В файле или папке\n"
-"%s\n"
-"есть локальные изменения. Вы действительно хотите переместить этот объект?"
-
 # ID:80,
 #: ID:80
 #, c-format
@@ -5724,6 +5737,16 @@ msgstr "фиксации"
 #: ID:11
 msgid "conflicted"
 msgstr "конфликт"
+
+# ID:226,
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"скопировано из\r\n"
+"%s - ревизия %ld"
 
 # Control-ID:1113,
 #: Control-ID:1113
