@@ -245,11 +245,12 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 		}
 	}
 
+	CSVNStatusCache::Instance().WaitToWrite();
+	CSVNStatusCache::Instance().Stop();
 	Sleep(1500);
 	CSVNStatusCache::Instance().SaveCache();
 	ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
 	Shell_NotifyIcon(NIM_DELETE,&niData);
-	CSVNStatusCache::Instance().WaitToWrite();
 	CSVNStatusCache::Destroy();
 	apr_terminate();
 

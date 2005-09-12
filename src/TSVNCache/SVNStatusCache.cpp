@@ -145,16 +145,16 @@ error:
 void CSVNStatusCache::Destroy()
 {
 	if (m_pInstance)
-		m_pInstance->watcher.Stop();
+		m_pInstance->Stop();
 	delete m_pInstance;
 	m_pInstance = NULL;
 }
 
 void CSVNStatusCache::Stop()
 {
+	watcher.Stop();
 	m_folderCrawler.Stop();
 	m_shellUpdater.Stop();
-	watcher.Stop();
 }
 
 CSVNStatusCache::CSVNStatusCache(void)
