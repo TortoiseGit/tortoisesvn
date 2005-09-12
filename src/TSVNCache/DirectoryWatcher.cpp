@@ -57,6 +57,7 @@ CDirectoryWatcher::~CDirectoryWatcher(void)
 	m_bRunning = false;
 	CloseHandle(m_hThread);
 	CloseHandle(m_hCompPort);
+	AutoLocker lock(m_critSec);
 	ClearInfoMap();
 }
 
