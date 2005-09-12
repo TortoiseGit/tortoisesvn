@@ -1496,8 +1496,7 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, LONG& rev)
 	else
 	{
 		// make sure the url is canonical.
-		const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(), localpool);
-		urla = goodurl;
+		urla = svn_path_canonicalize(path.GetSVNApiPath(), localpool);
 	}
 
 	if (urla == NULL)
