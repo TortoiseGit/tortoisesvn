@@ -721,6 +721,10 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	m_dwShow = dwShow;
 	m_bShowFolders = bShowFolders;
 	m_nSelected = 0;
+	POSITION posSelectedEntry = GetFirstSelectedItemPosition();
+	int nSelectedEntry = 0;
+	if (posSelectedEntry)
+		nSelectedEntry = GetNextSelectedItem(posSelectedEntry);
 	SetRedraw(FALSE);
 	DeleteAllItems();
 
@@ -794,6 +798,12 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 		pHeader->GetItem(m_nSortedColumn, &HeaderItem);
 		HeaderItem.fmt |= (m_bAscending ? HDF_SORTDOWN : HDF_SORTUP);
 		pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+	}
+
+	if (nSelectedEntry)
+	{
+		SetItemState(nSelectedEntry, LVIS_SELECTED, LVIS_SELECTED);
+		EnsureVisible(nSelectedEntry, false);
 	}
 
 	if (pApp)
