@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-09-06 10:11+0800\n"
+"PO-Revision-Date: 2005-09-13 12:15+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1926,6 +1926,11 @@ msgstr ""
 #: ID:80
 msgid "Do not show this message again"
 msgstr "不再顯示此訊息"
+
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "確定要移動這個檔案或資料夾嗎?"
 
 # ID:76,
 #: ID:76
@@ -4640,18 +4645,6 @@ msgstr "補綴檔中找不到檔案: %s!"
 msgid "The file is too large to open."
 msgstr "檔案過大, 無法開啟."
 
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"檔案或目錄\n"
-"%s\n"
-"已經被修改過. 確定要移動嗎?"
-
 # ID:80,
 #: ID:80
 #, c-format
@@ -5678,6 +5671,16 @@ msgstr "送交紀錄"
 #: ID:11
 msgid "conflicted"
 msgstr "衝突"
+
+# ID:77,
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"複製自\r\n"
+"%s - 版本 %ld"
 
 # Control-ID:1113,
 #: Control-ID:1113
