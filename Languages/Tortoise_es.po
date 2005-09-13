@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-31 11:11+0100\n"
+"PO-Revision-Date: 2005-09-13 18:04+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1620,6 +1620,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "No mostrar este mensaje de nuevo"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "¿Realmente desea mover este fichero o carpeta?"
+
 #: ID:76
 #, c-format
 msgid ""
@@ -1678,6 +1683,10 @@ msgstr "&Salir"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
+
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Editar"
 
 #: ID:113
 msgid "Edit Author"
@@ -1950,6 +1959,17 @@ msgstr "¡No se puede inicializar GDI+!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ no puede crear un objeto bitmap. Probablemente no haya suficiente memoria."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"Se necesita GDI+ para grabar el gráfico de revisiones como una imagen.\n"
+"Puede obtener GDI+ desde\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 #: Dlg-ID:143
 #: Dlg-ID:107
 #: Control-ID:65535
@@ -2107,6 +2127,15 @@ msgid ""
 msgstr ""
 "Si se habilita, el diálogo Fusión inicializa la URL \"Desde:\" con la URL de la copia de trabajo seleccionada\n"
 "en vez de la URL que utilizó la última vez."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Si se habilita, se contacta con el repositorio cuando se lanza el diálogo.\n"
+"No tiene que pulsar más el botón \"Comprobar Repositorio\"."
 
 # ID:195,
 #: ID:195
@@ -3751,6 +3780,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Archivo de servidores de Subversion:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Cambiar Izquierda<->Derecha"
@@ -3887,18 +3920,6 @@ msgstr "¡El archivo %s no se encontró en el archivo de parche!"
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "El archivo es demasiado grande para ser abierto."
-
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"El fichero o carpeta\n"
-"%s\n"
-"tiene modificaciones locales. ¿Está seguro de querer mover este fichero?"
 
 #: ID:80
 #, c-format
@@ -4824,6 +4845,15 @@ msgstr "confirmaciones"
 #: ID:11
 msgid "conflicted"
 msgstr "en conflicto"
+
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"copiado de\r\n"
+"%s - revisión: %ld"
 
 # Control-ID:1113,
 #: Control-ID:1113
