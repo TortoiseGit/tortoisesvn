@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-08-30 21:14+0100\n"
+"PO-Revision-Date: 2005-09-13 21:16+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1505,7 +1505,7 @@ msgstr "Actualice Su Copia de Trabajo con los Cambios de Otros"
 
 #: source/en/tsvn_dug/dug_update.xml:5
 #: (primary)
-#: source/en/tsvn_app_howto.xml:98
+#: source/en/tsvn_app_howto.xml:103
 msgid "update"
 msgstr "actualizar"
 
@@ -2736,37 +2736,47 @@ msgstr "en el menú contextual seleccione <menuchoice><guimenu>Menú Contextual<
 msgid "If you want to move files inside a working copy, use the drag-and-drop handler again: <placeholder-1/>"
 msgstr "Si quiere mover ficheros dentro de una copia de trabajo, puede usar de nuevo el manejador de arrastrar-y-soltar: <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_rename.xml:68
+#: source/en/tsvn_dug/dug_rename.xml:69
+#: (title)
+msgid "Do Not SVN Move Externals"
+msgstr "No SVN Mover Externos"
+
+#: source/en/tsvn_dug/dug_rename.xml:70
+#: (para)
+msgid "You should <emphasis>not</emphasis> use the TortoiseSVN <guilabel>Move</guilabel> or <guilabel>Rename</guilabel> commands on a folder which has been created using <literal>svn:externals</literal>. This action would cause the external item to be deleted from its parent repository, probably upsetting many other people. If you need to move an externals folder you should use an ordinary shell move, then adjust the <literal>svn:externals</literal> properties of the source and destination parent folders."
+msgstr "<emphasis>NO</emphasis> debería utilizar los comandos TortoiseSVN <guilabel>Mover</guilabel> o <guilabel>Renombrar</guilabel> en una carpeta que ha sido creada utilizando <literal>svn:externals</literal>. Esta acción puede provocar que el ítem externo se elimine de su repositorio padre, probablemente molestando a muchas otras personas. Si necesita mover una carpeta externa, debería moverla como lo hace con el resto de ficheros sin versionar, y luego ajustar las propiedades <literal>svn:externals</literal> de las carpetas padres origen y destino."
+
+#: source/en/tsvn_dug/dug_rename.xml:83
 #: (para)
 msgid "If a <emphasis>file</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, the commit dialog shows those files and lets you remove them from version control too before the commit. However, if you update your working copy, Subversion will spot the missing file and replace it with the latest version from the repository. If you need to delete a version-controlled file, always use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> so that Subversion doesn't have to guess what you really want to do."
 msgstr "Si se borra un <emphasis>fichero</emphasis> utilizando el Explorador en vez de usar el menú contextual de TortoiseSVN, el diálogo de confirmación le muestra esos ficheros y le deja eliminarlos del control de versiones antes de confirmar. Sin embargo, si actualiza su copia de trabajo, Subversion se dará cuenta de que falta un fichero y lo reemplazará con la última versión del repositorio. Si necesita borrar un fichero bajo control de versiones, utilice siempre <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Eliminar</guimenuitem></menuchoice> para que Subversion no tenga que averiguar qué es lo que realmente quiere hacer usted."
 
-#: source/en/tsvn_dug/dug_rename.xml:82
+#: source/en/tsvn_dug/dug_rename.xml:97
 #: (para)
 msgid "If a <emphasis>folder</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, your working copy will be broken and you will be unable to commit. If you update your working copy, Subversion will replace the missing folder with the latest version from the repository and you can then delete it the correct way using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>."
 msgstr "Si se borra una <emphasis>carpeta</emphasis> utilizando el Explorador en vez de utilizar el menú contextual de TortoiseSVN, su copia de trabajo se romperá y no podrá confirmar. Si actualiza su copia de trabajo, Subversion reemplazará la carpeta que falta con la última versión del repositorio, y luego podrá eliminarla de la forma correcta, utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Eliminar</guimenuitem></menuchoice>."
 
-#: source/en/tsvn_dug/dug_rename.xml:95
+#: source/en/tsvn_dug/dug_rename.xml:110
 #: (title)
 msgid "Commit the parent folder"
 msgstr "Confirmar la carpeta padre"
 
-#: source/en/tsvn_dug/dug_rename.xml:96
+#: source/en/tsvn_dug/dug_rename.xml:111
 #: (para)
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file so that the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and an update of your coworkers won't remove the old file. i.e. they will have <emphasis>both</emphasis> the old and the new copies."
 msgstr "Dado que las operaciones mover y renombrar se realizan como un borrado seguido de un añadir, debe confirmar la carpeta padre de los ficheros movidos/renombrados para que se muestre la parte de borrado de la operación en el diálogo de confirmación. Si no confirma la parte eliminada de los ficheros movidos/renombrados, se quedarán en el repositorio y cuando sus compañeros se actualicen no se eliminará el fichero antiguo, es decir, que ellos tendrán <emphasis>ambas</emphasis> copias, la antigua y la nueva."
 
-#: source/en/tsvn_dug/dug_rename.xml:106
+#: source/en/tsvn_dug/dug_rename.xml:121
 #: (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
 msgstr "Usted <emphasis>debe</emphasis> confirmar un cambio de nombre de carpeta antes de cambiar cualquier fichero dentro de la carpeta; si no, su copia de trabajo realmente puede quedar estropeada."
 
-#: source/en/tsvn_dug/dug_rename.xml:113
+#: source/en/tsvn_dug/dug_rename.xml:128
 #: (title)
 msgid "Getting a deleted file or folder back"
 msgstr "Recuperando un fichero o una carpeta borrados"
 
-#: source/en/tsvn_dug/dug_rename.xml:114
+#: source/en/tsvn_dug/dug_rename.xml:129
 #: (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
 msgstr "Si ha borrado un fichero o una carpeta y ya ha confirmado esa operación de borrado en el repositorio, entonces un comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revertir</guimenuitem></menuchoice> normal no los podrá recuperar. Pero el fichero o la carpeta borrados no están perdidos para siempre. Si sabe la revisión en la que se borraron el fichero o la carpeta (si no lo sabe, utilice el diálogo de registro para averiguarlo), abra el navegador de repositorios y cambie a esa revisión. Luego seleccione el fichero o la carpeta que ha borrado, haga click con el botón derecho y seleccione <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Copiar a...</guimenuitem></menuchoice>, y como destino de esa operación de copia seleccione la ruta de su copia de trabajo."
@@ -3161,7 +3171,7 @@ msgstr "Si hay otras personas que puedan estar confirmando cambios, entonces ten
 #: source/en/tsvn_dug/dug_merge.xml:172
 #: (para)
 #: source/en/tsvn_dug/dug_merge.xml:280
-#: source/en/tsvn_app_howto.xml:216
+#: source/en/tsvn_app_howto.xml:221
 msgid "Click <guibutton>OK</guibutton> to complete the merge."
 msgstr "Pulse <guibutton>Aceptar</guibutton> para completar la fusión."
 
@@ -4876,6 +4886,159 @@ msgstr "Nos encanta escuchar música mientras trabajamos en TortoiseSVN. Y dado 
 msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
 msgstr "Versión $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
+#: source/en/tsvn_subwcrev.xml:3
+#: (title)
+msgid "The SubWCRev Program"
+msgstr "El programa SubWCRev"
+
+#: source/en/tsvn_subwcrev.xml:5
+#: (primary)
+msgid "version extraction"
+msgstr "extracción de versión"
+
+#: source/en/tsvn_subwcrev.xml:8
+#: (para)
+msgid "SubWCRev is Windows console program which can be used to read the status of a Subversion working copy and optionally perform keyword substitution in a template file. This is often used as part of the build process as a means of incorporating working copy information into the object you are building. Typically it might be used to include the revision number in an <quote>About</quote> box."
+msgstr "SubWCRev es un programa de consola para Windows que puede utilizarse para leer el estado de una copia de trabajo local y opcionalmente realizar sustituciones de palabras clave en un fichero plantilla. A menudo se utiliza como parte del proceso de compilación como una forma de incorporar información de la copia de trabajo en el objeto que está construyendo. Típicamente, se puede utilizar para incluir el número de revisión en un diálogo <quote>Acerca de</quote>."
+
+#: source/en/tsvn_subwcrev.xml:22
+#: (title)
+msgid "The SubWCRev Command Line"
+msgstr "La línea de comandos de SubWCRev"
+
+#: source/en/tsvn_subwcrev.xml:23
+#: (para)
+msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
+msgstr "SubWCRev lee el estado de Subversion de todos los ficheros en una copia de trabajo, excluyendo los externos por defecto. Apunta el número de revisión de confirmación más alto que encuentra, y la fecha de esa confirmación. También apunta si hay modificaciones locales en la copia de trabajo, o revisiones de actualización mezcladas. El número de revisión, el rango de revisiones de actualización y el estado de las modificaciones se muestra por la salida estandar stdout."
+
+#: source/en/tsvn_subwcrev.xml:31
+#: (para)
+msgid ""
+"SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\n"
+"SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
+"</screen>"
+msgstr ""
+"SubWCRev.exe se llama desde la línea de comandos o desde un script, y se controla utilizando parámetros de la línea de comandos. <screen>\n"
+"SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
+"</screen>"
+
+#: source/en/tsvn_subwcrev.xml:38
+#: (para)
+msgid "<literal>WorkingCopyPath</literal> is the path to the working copy being checked. You can only use SubWCRev on working copies, not directly on the repository. The path may be absolute or relative to the current working directory."
+msgstr "<literal>WorkingCopyPath</literal> es la ruta a la copia de trabajo que se va a comprobar. Sólo puede utilizar SubWCRev en copias de trabajo, no directamente en el repositorio. La ruta puede ser absoluta o relativa al directorio actual."
+
+#: source/en/tsvn_subwcrev.xml:44
+#: (para)
+msgid "If you want SubWCRev to perform keyword substitution, so that fields like repository revision and URL are saved to a text file, you need to supply a template file <literal>SrcVersionFile</literal> and an output file <literal>DstVersionFile</literal> which contains the substituted version of the template."
+msgstr "Si quiere que SubWCRev realice sustituciones de palabras clave, para que se graben los campos como la revisión del repositorio y la URL a un fichero de texto, debe proporcionar un fichero plantilla <literal>SrcVersionFile</literal> y un fichero de salida <literal>DstVersionFile</literal> que contendrá la versión sustituida de la plantilla."
+
+#: source/en/tsvn_subwcrev.xml:60
+#: (title) source/en/tsvn_subwcrev.xml:129
+msgid "List of available command line switches"
+msgstr "Lista de opciones de línea de comandos disponible"
+
+#: source/en/tsvn_subwcrev.xml:53
+#: (para)
+msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <table id=\"tsvn-subwcrev-switch-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"10*\"/><thead><row><entry>Switch</entry><entry>Description</entry></row></thead><tbody><row><entry>-n</entry><entry> If this switch is given, SubWCRev will exit with ERRORLEVEL 7 if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present. </entry></row><row><entry>-m</entry><entry> If this switch is given, SubWCRev will exit with ERRORLEVEL 8 if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy. </entry></row><row><entry>-d</entry><entry> If this switch is given, SubWCRev will exit with ERRORLEVEL 9 if the destination file already exists. </entry></row><row><entry>-f</entry><entry> If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers. </entry></row><row><entry>-e</entry><entry> If this switch is given, SubWCRev will examine directories which are included with svn:externals, but only if they are from the same repository. The default behaviour is to ignore externals. </entry></row></tbody></tgroup></table>"
+msgstr "Hay un número de opciones optativas que pueden afectar a la forma en la que funciona SubWCRev. Si utiliza más de una, deben especificarse en un único grupo, por ejemplo, <literal>-nm</literal>, no <literal>-n -m</literal>. <table id=\"tsvn-subwcrev-switch-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"10*\"/><thead><row><entry>Opción</entry><entry>Descripción</entry></row></thead><tbody><row><entry>-n</entry><entry> Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 7 si la copia de trabajo contiene modificaciones locales. Esto puede utilizarse para evitar compilaciones que tengan cambios sin confirmar. </entry></row><row><entry>-m</entry><entry> Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 8 si la copia de trabajo contiene revisiones mezcladas. Esto puede utilizarse para evitar compilaciones con una copia de trabajo parcialmente actualizada. </entry></row><row><entry>-d</entry><entry> Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 9 si el fichero de destino ya existe. </entry></row><row><entry>-f</entry><entry> Si se especifica esta opción, SubWCRev incluirá las revisiones del último cambio de las carpetas. El comportamiento por defecto es utilizar sólo los ficheros cuando se obtienen los números de revisión. </entry></row><row><entry>-e</entry><entry> Si se especifica esta opción, SubWCRev examinará los directorios que están incluídos con svn:externals, pero sólo si son del mismo repositorio. El comportamiento por defecto es ignorar los externos. </entry></row></tbody></tgroup></table>"
+
+#: source/en/tsvn_subwcrev.xml:124
+#: (title)
+msgid "Keyword Substitution"
+msgstr "Sustitución de palabras clave"
+
+#: source/en/tsvn_subwcrev.xml:125
+#: (para)
+msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <table id=\"tsvn-subwcrev-switch-table2\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"4*\"/><thead><row><entry>Keyword</entry><entry>Description</entry></row></thead><tbody><row><entry>$WCREV$</entry><entry> Replaced with the highest commit revision in the working copy. </entry></row><row><entry>$WCDATE$</entry><entry> Replaced with the commit date/time of the highest commit revision. To avoid confusion, international format is used, ie. <literal>yyyy-mm-dd hh:mm:ss</literal></entry></row><row><entry>$WCRANGE$</entry><entry> Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200 </entry></row><row><entry>$WCMIXED?TText:FText$</entry><entry> Replaced with TText if there are mixed update revisions, or FText if not. </entry></row><row><entry>$WCMODS?TText:FText$</entry><entry> Replaced with TText if there are local modifications, or FText if not. </entry></row><row><entry>$WCURL$</entry><entry> Replaced with the repository URL of the working copy path passed to SubWCRev. </entry></row></tbody></tgroup></table>"
+msgstr "Si se especifican los ficheros de origen y destino, SubWCRev copia el fichero origen al destino, realizando la sustitución de palabras clave como sigue: <table id=\"tsvn-subwcrev-switch-table2\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"4*\"/><thead><row><entry>Palabra clave</entry><entry>Descripción</entry></row></thead><tbody><row><entry>$WCREV$</entry><entry> Se reemplaza con el número de revisión de confirmación más alto de la copia de trabajo. </entry></row><row><entry>$WCDATE$</entry><entry> Se reemplaza con la fecha/hora de la confirmación más alta. Para evitar confusiones, se utiliza el formato internacional, es decir, <literal>yyyy-mm-dd hh:mm:ss</literal></entry></row><row><entry>$WCRANGE$</entry><entry> Se reemplaza con el rango de revisiones de actualización en la copia de trabajo. Si la copia de trabajo está en un estado consistente, esto será una única revisión. Si la copia de trabajo contiene revisiones mezcladas, bien por no estar actualizada, o bien porque se ha actualizado deliberadamente a una revisión en concreto, entonces se mostrará el rango de la forma 100:200 </entry></row><row><entry>$WCMIXED?TText:FText$</entry><entry> Se reemplaza con TText si hay revisiones mezcladas, o FText si no las hay. </entry></row><row><entry>$WCMODS?TText:FText$</entry><entry> Se reemplaza con TText si hay modificaciones locales, o FText si no las hay. </entry></row><row><entry>$WCURL$</entry><entry> Se reemplaza con la URL del repositorio de la ruta de la copia de trabajo que se le pasa a SubWCRev. </entry></row></tbody></tgroup></table>"
+
+#: source/en/tsvn_subwcrev.xml:198
+#: (title)
+msgid "Keyword Example"
+msgstr "Palabra clave Ejemplo"
+
+#: source/en/tsvn_subwcrev.xml:199
+#: (para)
+msgid "The example below shows how keywords in a template file are substituted in the output file."
+msgstr "El siguiente ejemplo le muestra cómo se sustituyen las palabras clave de un fichero plantilla en el fichero resultado."
+
+#: source/en/tsvn_subwcrev.xml:203
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"// Test file for SubWCRev\n"
+"\n"
+"char *Revision = \"$WCREV$\";\n"
+"char *Modified = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Date     = \"$WCDATE$\";\n"
+"char *RevRange = \"$WCRANGE$\";\n"
+"char *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *URL      = \"$WCURL$\";\n"
+"\n"
+"#if $WCMODS?1:0$\n"
+"#error Source is modified\n"
+"#endif\n"
+"\n"
+"// EndOfFile\n"
+msgstr ""
+"\n"
+"// Test file for SubWCRev\n"
+"\n"
+"char *Revision = \"$WCREV$\";\n"
+"char *Modified = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Date     = \"$WCDATE$\";\n"
+"char *RevRange = \"$WCRANGE$\";\n"
+"char *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *URL      = \"$WCURL$\";\n"
+"\n"
+"#if $WCMODS?1:0$\n"
+"#error Source is modified\n"
+"#endif\n"
+"\n"
+"// EndOfFile\n"
+
+#: source/en/tsvn_subwcrev.xml:219
+#: (para)
+msgid "After running SubWCRev.exe, the output file looks like this:"
+msgstr "Tras ejecutar SubWCRev.exe, el fichero de salida será similar a este:"
+
+#: source/en/tsvn_subwcrev.xml:222
+#: (screen)
+#, no-wrap
+msgid ""
+"\n"
+"// Test file for SubWCRev\n"
+"\n"
+"char *Revision = \"3701\";\n"
+"char *Modified = \"Modified\";\n"
+"char *Date     = \"2005/06/15 11:15:12\";\n"
+"char *RevRange = \"3699:3701\";\n"
+"char *Mixed    = \"Mixed revision WC\";\n"
+"char *URL      = \"http://svn.collab.net/repos/tortoisesvn/trunk/src/SubWCRev\";\n"
+"\n"
+"#if 1\n"
+"#error Source is modified\n"
+"#endif\n"
+"\n"
+"// EndOfFile\n"
+msgstr ""
+"\n"
+"// Test file for SubWCRev\n"
+"\n"
+"char *Revision = \"3701\";\n"
+"char *Modified = \"Modified\";\n"
+"char *Date     = \"2005/06/15 11:15:12\";\n"
+"char *RevRange = \"3699:3701\";\n"
+"char *Mixed    = \"Mixed revision WC\";\n"
+"char *URL      = \"http://svn.collab.net/repos/tortoisesvn/trunk/src/SubWCRev\";\n"
+"\n"
+"#if 1\n"
+"#error Source is modified\n"
+"#endif\n"
+"\n"
+"// EndOfFile\n"
+
 #: source/en/tsvn_preface.xml:3
 #: (title) source/en/tme_ch00.xml:3
 msgid "Preface"
@@ -5082,9 +5245,14 @@ msgid "Where extreme care has to be taken, data corruption or other nasty things
 msgstr "Donde hay que tener un cuidado extremo, porque puede ocurrir corrupción de datos u otras cosas horribles si se ignoran estas advertencias."
 
 #: source/en/tsvn_introduction.xml:5
+#: (primary)
+msgid "version control"
+msgstr "control de versiones"
+
+#: source/en/tsvn_introduction.xml:8
 #: (para)
-msgid "<indexterm><primary>version control</primary></indexterm> Version control is the art of managing changes to information. It has long been a critical tool for programmers, who typically spend their time making small changes to software and then undoing those changes the next day. Imagine a team of these programmers working concurrently - and perhaps even simultaneously at the very same files! - and you can see why a good system is needed to manage the potential chaos."
-msgstr "<indexterm><primary>control de versiones</primary></indexterm> El control de versiones es el arte de manejar cambios en la información. Ha sido desde siempre una herramienta crítica para los programadores, quienes típicamente emplean su tiempo haciendo pequeños cambios al software y luego deshaciendo esos cambios al día siguiente. Imagine un equipo de estos programadores trabajando concurrentemente - ¡y quizás también simultáneamente en los mismos ficheros! - y podrá ver por qué se necesita un buen sistema para manejar el caos potencial."
+msgid "Version control is the art of managing changes to information. It has long been a critical tool for programmers, who typically spend their time making small changes to software and then undoing those changes the next day. Imagine a team of these programmers working concurrently - and perhaps even simultaneously at the very same files! - and you can see why a good system is needed to manage the potential chaos."
+msgstr "El control de versiones es el arte de manejar cambios en la información. Ha sido desde siempre una herramienta crítica para los programadores, quienes típicamente emplean su tiempo haciendo pequeños cambios al software y luego deshaciendo esos cambios al día siguiente. Imagine un equipo de estos programadores trabajando concurrentemente - ¡y quizás también simultáneamente en los mismos ficheros! - y podrá ver por qué se necesita un buen sistema para manejar el caos potencial."
 
 #: source/en/tsvn_introduction.xml:22
 #: (title)
@@ -5302,76 +5470,91 @@ msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Ju
 msgstr "Cada pack de idioma está empaquetado como un instalador <literal>.exe</literal>. Sólo tiene que ejecutar el programa de instalación y seguir las instrucciones. La siguiente vez que reinicie, tendrá disponible la traducción."
 
 #: source/en/tsvn_introduction.xml:297
-#: (para)
-msgid "<indexterm><primary>spellchecker</primary></indexterm><indexterm><primary>dictionary</primary></indexterm> TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr "<indexterm><primary>corrector ortográfico</primary></indexterm><indexterm><primary>diccionario</primary></indexterm> TortoiseSVN incluye un corrector ortográfico que le permite comprobar sus mensajes de registro en las confirmaciones. Esto es especialmente útil si el idioma del proyecto no es su lengua materna. El corrector ortográfico utiliza los mismos diccionarios que <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> y <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+#: (title)
+msgid "Spellchecker"
+msgstr "Corrector ortográfico"
 
-#: source/en/tsvn_introduction.xml:316
+#: source/en/tsvn_introduction.xml:299
+#: (primary)
+msgid "spellchecker"
+msgstr "corrector ortográfico"
+
+#: source/en/tsvn_introduction.xml:302
+#: (primary)
+msgid "dictionary"
+msgstr "diccionario"
+
+#: source/en/tsvn_introduction.xml:304
+#: (para)
+msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgstr "TortoiseSVN incluye un corrector ortográfico que le permite comprobar sus mensajes de registro en las confirmaciones. Esto es especialmente útil si el idioma del proyecto no es su lengua materna. El corrector ortográfico utiliza los mismos diccionarios que <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> y <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+
+#: source/en/tsvn_introduction.xml:317
 #: (para)
 msgid "The installer automatically adds the US and UK english dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
 msgstr "El instalador automáticamente añade los diccionarios de inglés de EE.UU. y de Reino Unido. Si desea tenerlos en otros idiomas. la opción más sencilla es símplemente instalar uno de los packs de idiomas de TortoiseSVN. Eso instalará los ficheros de diccionario adecuados junto con el interface de usuario de TortoiseSVN en ese idioma. La siguiente vez que reinicie, el diccionario también estará disponible."
 
-#: source/en/tsvn_introduction.xml:324
+#: source/en/tsvn_introduction.xml:325
 #: (para)
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://lingucomponent.openoffice.org/spell_dic.html\"><citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle></ulink>"
 msgstr "O puede instalar los diccionarios usted mismo. Si tiene OpenOffice o Mozilla instalados, puede copiar esos diccionarios, que se encuentran en las carpetas de instalación de esas aplicaciones. Si no, deberá descargar los ficheros de diccionario necesarios desde <ulink url=\"http://lingucomponent.openoffice.org/spell_dic.html\"><citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle></ulink>"
 
-#: source/en/tsvn_introduction.xml:340
+#: source/en/tsvn_introduction.xml:341
 #: (para)
 msgid "en_US.aff"
 msgstr "es_ES.aff"
 
-#: source/en/tsvn_introduction.xml:345
+#: source/en/tsvn_introduction.xml:346
 #: (para)
 msgid "en_US.dic"
 msgstr "es_ES.dic"
 
-#: source/en/tsvn_introduction.xml:333
+#: source/en/tsvn_introduction.xml:334
 #: (para)
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
 msgstr "Una vez que tenga los ficheros de diccionario, seguramente deberá cambiarlos de nombre para que los nombres de los ficheros sólo contengan los caracteres del idioma. Por ejemplo: <placeholder-1/> Luego sólo tiene que copiarlos en la subcarpeta <literal>bin</literal> de la carpeta de instalación de TortoiseSVN. Normalmente ésta será <filename>C:\\Archivos de programa\\TortoiseSVN\\bin</filename>. Si no desea jugar con la subcarpeta <literal>bin</literal>, también puede poner los ficheros del corrector ortográfico en <filename>C:\\Archivos de programa\\TortoiseSVN\\Languages</filename>. Si esa carpeta no está ahí, tendrá que crearla primero. La siguiente vez que inicie TortoiseSVN, podrá utilizar el corrector ortográfico."
 
-#: source/en/tsvn_introduction.xml:364
+#: source/en/tsvn_introduction.xml:365
 #: (literal)
 msgid "tsvn:projectlanguage"
 msgstr "tsvn:projectlanguage"
 
-#: source/en/tsvn_introduction.xml:363
+#: source/en/tsvn_introduction.xml:364
 #: (listitem)
 msgid "Check the <placeholder-1/> setting. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for information about setting project properties."
 msgstr "Compruebe la configuración <placeholder-1/>. Lea <xref linkend=\"tsvn-DUG-propertypage\"/> para encontrar información sobre cómo se establecen propiedades de proyecto."
 
-#: source/en/tsvn_introduction.xml:368
+#: source/en/tsvn_introduction.xml:369
 #: (listitem)
 msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
 msgstr "Si no se ha establecido un idioma del proyecto, o ese idioma no está instalado, inténtelo con el idioma que corresponde al de Windows."
 
-#: source/en/tsvn_introduction.xml:374
+#: source/en/tsvn_introduction.xml:375
 #: (quote)
 msgid "Base"
 msgstr "Base"
 
-#: source/en/tsvn_introduction.xml:375
+#: source/en/tsvn_introduction.xml:376
 #: (literal)
 msgid "de_CH"
 msgstr "es_MX"
 
-#: source/en/tsvn_introduction.xml:376
+#: source/en/tsvn_introduction.xml:377
 #: (literal)
 msgid "de_DE"
 msgstr "es_ES"
 
-#: source/en/tsvn_introduction.xml:372
+#: source/en/tsvn_introduction.xml:373
 #: (listitem)
 msgid "If the exact Windows locale doesn't work, try the <placeholder-1/> language, eg. <placeholder-2/> (Swiss-German) falls back to <placeholder-3/> (German)."
 msgstr "Si no funciona el idioma exacto de Windows, pruebe el idioma <placeholder-1/>, por ejemplo, <placeholder-2/> (Español-México) se transformaría en <placeholder-3/> (Español)."
 
-#: source/en/tsvn_introduction.xml:378
+#: source/en/tsvn_introduction.xml:379
 #: (listitem)
 msgid "If none of the above works, then the default language is english, which is included with the standard installation."
 msgstr "Si nada de lo anterior funciona, entonces el idioma por defecto es el Inglés, que se incluye con la instalación estándar."
 
-#: source/en/tsvn_introduction.xml:359
+#: source/en/tsvn_introduction.xml:360
 #: (para)
 msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
 msgstr "Si instala múltiples diccionarios, TortoiseSVN utilizará estas reglas para seleccionar cuál utilizar. <placeholder-1/>"
@@ -5382,9 +5565,14 @@ msgid "Basic Concepts"
 msgstr "Conceptos Básicos"
 
 #: source/en/tsvn_basics.xml:8
+#: (primary)
+msgid "Subversion book"
+msgstr "Libro de Subversion"
+
+#: source/en/tsvn_basics.xml:11
 #: (para)
-msgid "<indexterm><primary>Subversion book</primary></indexterm> This chapter is a slightly modified version of the same chapter in the Subversion book. You can read the Subversion book here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
-msgstr "<indexterm><primary>libro de Subversion</primary></indexterm> Este capítulo es una versión ligeramente modificada del mismo capítulo en el libro de Subversion. Puede leer el libro de Subversion aquí: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
+msgid "This chapter is a slightly modified version of the same chapter in the Subversion book. You can read the Subversion book here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
+msgstr "Este capítulo es una versión ligeramente modificada del mismo capítulo en el libro de Subversion. Puede leer el libro de Subversion aquí: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
 
 #: source/en/tsvn_basics.xml:18
 #: (para)
@@ -5939,212 +6127,212 @@ msgstr "Se puede Mover/Copiar ficheros de uno en uno utilizando <menuchoice><gui
 msgid "The recommended way is by <action>right-dragging</action> the files to the new location. Simply <action>right-click</action> on the files you want to move/copy without releasing the mouse button. Then drag the files to the new location and release the mouse button. A context menu will appear where you can either choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy in Subversion to here</guimenuitem></menuchoice>. or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move in Subversion to here</guimenuitem>. </menuchoice>."
 msgstr "La forma recomendada es <action>arrastrar con el botón derecho</action> los ficheros a su nuevo destino. Simplemente <action>haga click con el botón derecho</action> en los ficheros que desea mover o copiar sin soltar el botón del ratón. Luego arrastre los ficheros a su nuevo destino y suelte el botón del ratón. Aparecerá un menú contextual donde puede elegir <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Copiar en Subversion aquí</guimenuitem></menuchoice> o <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Mover en Subversion aquí</guimenuitem></menuchoice>."
 
-#: source/en/tsvn_app_howto.xml:42
+#: source/en/tsvn_app_howto.xml:47
 #: (title)
 msgid "Force users to enter a log message"
 msgstr "Obligar a los usuarios a introducir un mensaje de registro"
 
-#: source/en/tsvn_app_howto.xml:44
+#: source/en/tsvn_app_howto.xml:49
 #: (primary)
 msgid "log message"
 msgstr "mensaje de registro"
 
-#: source/en/tsvn_app_howto.xml:46
+#: source/en/tsvn_app_howto.xml:51
 #: (para)
 msgid "There are two ways to prevent users from committing with an empty log message. One is specific to TortoiseSVN, the other works for all Subversion clients, but requires access to the server directly."
 msgstr "Hay dos formas de evitar que los usuarios puedan confirmar con un mensaje de registro vacío. Uno es específico de TortoiseSVN, el otro funciona con todos los clientes de Subversion, pero necesita acceso directo al servidor."
 
-#: source/en/tsvn_app_howto.xml:52
+#: source/en/tsvn_app_howto.xml:57
 #: (title)
 msgid "Hook-script on the server"
 msgstr "Script-gancho en el servidor"
 
-#: source/en/tsvn_app_howto.xml:53
+#: source/en/tsvn_app_howto.xml:58
 #: (para)
 msgid "If you have direct access to the repository server, you can install a pre-commit hook script which rejects all commits with an empty or too short log message."
 msgstr "Si tiene acceso directo al servidor del repositorio, puede instalar un script gancho pre-commit que rechace todas las confirmaciones con mensajes de registro cortos o vacíos."
 
-#: source/en/tsvn_app_howto.xml:58
+#: source/en/tsvn_app_howto.xml:63
 #: (para)
 msgid "In the repository folder on the server, there's a subfolder <filename>hooks</filename> which contains some example hook scripts you can use. The file <filename>pre-commit.tmpl</filename> contains a sample script which will reject commits if no log message is supplied, or the message is too short. The file also contains comments on how to install/use this script. Just follow the instructions in that file."
 msgstr "En la carpeta del repositorio en el servidor, hay una subcarpeta <filename>hooks</filename> que contiene algunos scripts ganchos de ejemplo que puede utilizar. El fichero <filename>pre-commit.tmpl</filename> contiene un script de ejemplo que rechaza las confirmaciones si no se ha introducido un mensaje de registro, o si ese mensaje es demasiado corto. El fichero también tiene comentarios sobre cómo instalar/utilizar este script. Simplemente siga las instrucciones de ese fichero."
 
-#: source/en/tsvn_app_howto.xml:68
+#: source/en/tsvn_app_howto.xml:73
 #: (para)
 msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled until the log message is long enough then please use the method described below."
 msgstr "Este método es la forma recomendada si sus usuarios también utilizan otros clientes de Subversion además de TortoiseSVN. La parte negativa es que la confirmación se rechaza por el servidor, y por tanto los usuarios obtendrán un mensaje de error. El cliente no puede saber antes de realizar la confirmación que se rechazará. Si desea que TortoiseSVN deshabilite el botón <guibutton>Aceptar</guibutton> mientras el mensaje de registro sea demasiado corto, utilice el método descrito a continuación."
 
-#: source/en/tsvn_app_howto.xml:79
+#: source/en/tsvn_app_howto.xml:84
 #: (title)
 msgid "Project properties"
 msgstr "Propiedades del proyecto"
 
-#: source/en/tsvn_app_howto.xml:80
+#: source/en/tsvn_app_howto.xml:85
 #: (para)
 msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:minlogsize</literal> property."
 msgstr "TortoiseSVN utiliza propiedades para controlar algunas de sus funciones. Una de esas propiedades es la propiedad <literal>tsvn:minlogsize</literal>."
 
-#: source/en/tsvn_app_howto.xml:84
+#: source/en/tsvn_app_howto.xml:89
 #: (para)
 msgid "If you set that property on a folder, then TortoiseSVN will disable the <guibutton>OK</guibutton> button in all commit dialogs until the user has entered a log message with at least the length specified in the property."
 msgstr "Si establece esa propiedad en una carpeta, TortoiseSVN deshabilitará el botón <guibutton>Aceptar</guibutton> en todos los diálogos de confirmación hasta que el usuario introduzca un mensaje de registro con al menos la longitud especificada en la propiedad."
 
-#: source/en/tsvn_app_howto.xml:89
+#: source/en/tsvn_app_howto.xml:94
 #: (para)
 msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-DUG-propertypage\"/>"
 msgstr "Para obtener información más detallada sobre estas propiedades de proyectos, por favor lea <xref linkend=\"tsvn-DUG-propertypage\"/>"
 
-#: source/en/tsvn_app_howto.xml:96
+#: source/en/tsvn_app_howto.xml:101
 #: (title)
 msgid "Update selected files from the repository"
 msgstr "Actualizar los ficheros seleccionados desde el repositorio"
 
-#: source/en/tsvn_app_howto.xml:100
+#: source/en/tsvn_app_howto.xml:105
 #: (para)
 msgid "Normally you update your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. But if you only want to pick up some new files that a colleague has added without merging in any changes to other files at the same time, you need a different approach."
 msgstr "Normalmente actualizará su copia de trabajo utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. Pero si sólo desea obtener algunos ficheros nuevos que un colega ha añadido sin fusionar ningún cambio en los demás ficheros a la vez, necesitará otra forma de actuación."
 
-#: source/en/tsvn_app_howto.xml:110
+#: source/en/tsvn_app_howto.xml:115
 #: (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice>. and click on <guibutton>Check repository</guibutton> to see what has changed in the repository. Select the files you want to update locally, then use the context menu to update just those files."
 msgstr "Utilice <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Comprobar Modificaciones</guimenuitem></menuchoice>. y pulse en <guibutton>Comprobar repositorio</guibutton> para ver lo que se cambió en el repositorio. Seleccione los ficheros que desea actualizar localmente, y utilice el menú contextual para actualizar sólo esos ficheros."
 
-#: source/en/tsvn_app_howto.xml:122
+#: source/en/tsvn_app_howto.xml:127
 #: (title)
 msgid "Roll back revisions in the repository"
 msgstr "Deshacer revisiones en el repositorio"
 
-#: source/en/tsvn_app_howto.xml:124
+#: source/en/tsvn_app_howto.xml:129
 #: (primary)
 msgid "rollback"
 msgstr "deshacer"
 
-#: source/en/tsvn_app_howto.xml:127
+#: source/en/tsvn_app_howto.xml:132
 #: (title)
 msgid "Use the revision log dialog"
 msgstr "Utilice el diálogo de registro de revisiones"
 
-#: source/en/tsvn_app_howto.xml:128
+#: source/en/tsvn_app_howto.xml:133
 #: (para)
 msgid "The easiest way to revert the changes from a single revision is to use the revision log dialog."
 msgstr "La forma más sencilla de revertir los cambios de una única revisión es utilizar el diálogo de registro de revisiones."
 
-#: source/en/tsvn_app_howto.xml:134
+#: source/en/tsvn_app_howto.xml:139
 #: (para)
 msgid "Select the file or folder in which you need to revert the changes. If you want to revert all changes, this should be the top level folder."
 msgstr "Seleccione el fichero o la carpeta en la que desea revertir los cambios. Si desea revertir todos los cambios, esta debería ser la carpeta más alta."
 
-#: source/en/tsvn_app_howto.xml:141
+#: source/en/tsvn_app_howto.xml:146
 #: (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to display a list of revisions. You may need to use <guibutton>Get All</guibutton> or <guibutton>Next 100</guibutton> to show the revision you are interested in."
 msgstr "Seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mostrar Registro</guimenuitem></menuchoice> para mostrar una lista de revisiones. Puede que necesite utilizar <guibutton>Obtener Todas</guibutton> o <guibutton>Siguientes 100</guibutton> para mostrar la revisión que le interesa."
 
-#: source/en/tsvn_app_howto.xml:154
+#: source/en/tsvn_app_howto.xml:159
 #: (para)
 msgid "<action>right click</action> on the revision you wish to undo, then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
 msgstr "<action>haga click con el botón derecho</action> sobre la revisión que desea deshacer, y seleccione <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Revertir los cambios de esta revisión</guimenuitem></menuchoice>."
 
-#: source/en/tsvn_app_howto.xml:164
-#: (para) source/en/tsvn_app_howto.xml:221
+#: source/en/tsvn_app_howto.xml:169
+#: (para) source/en/tsvn_app_howto.xml:226
 msgid "You have reverted the changes within your working copy. Check the results, then commit the changes."
 msgstr "Ha revertido los cambios dentro de su copia de trabajo. Compruebe los resultados, y luego confirme los cambios."
 
-#: source/en/tsvn_app_howto.xml:170
+#: source/en/tsvn_app_howto.xml:175
 #: (title)
 msgid "Use the merge dialog"
 msgstr "Use el diálogo fusionar"
 
-#: source/en/tsvn_app_howto.xml:171
+#: source/en/tsvn_app_howto.xml:176
 #: (para)
 msgid "To undo a larger range of revisions, you can use the Merge dialog. The previous method uses merging behind the scenes; this method uses it explicitly."
 msgstr "Para deshacer un rango grande de revisiones, puede utilizar el diálogo Fusionar. El método anterior utiliza la fusión por detrás; este método la utiliza explícitamente."
 
-#: source/en/tsvn_app_howto.xml:178
+#: source/en/tsvn_app_howto.xml:183
 #: (para)
 msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
 msgstr "En su copia de trabajo seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionar</guimenuitem></menuchoice>."
 
-#: source/en/tsvn_app_howto.xml:187
+#: source/en/tsvn_app_howto.xml:192
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
 msgstr "En el campo <guilabel>Desde:</guilabel> introduzca la URL completa de la carpeta de la rama o la etiqueta que contiene los cambios que desea revertir en su copia de trabajo. Debería aparecer como la URL por defecto."
 
-#: source/en/tsvn_app_howto.xml:195
+#: source/en/tsvn_app_howto.xml:200
 #: (para)
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
 msgstr "En el campo <guilabel>Desde la Revisión</guilabel> introduzca el número de revisión en la que está actualmente. Si está seguro de que nadie más está haciendo cambios, puede utilizar la revisión HEAD."
 
-#: source/en/tsvn_app_howto.xml:203
+#: source/en/tsvn_app_howto.xml:208
 #: (para)
 msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
 msgstr "asegúrese de que la casilla <guilabel>Usar la URL \"Desde:\"</guilabel> esté marcada."
 
-#: source/en/tsvn_app_howto.xml:209
+#: source/en/tsvn_app_howto.xml:214
 #: (para)
 msgid "In the <guilabel>To Revision</guilabel> field enter the revision number that you want to revert to, ie. the one <emphasis>before</emphasis> the first revision to be reverted."
 msgstr "En el campo <guilabel>Hasta la Revisión</guilabel> introduzca el número de revisión a la que desea revertir, esto es, justo la <emphasis>anterior</emphasis> a la primera revisión que va a ser revertida."
 
-#: source/en/tsvn_app_howto.xml:227
+#: source/en/tsvn_app_howto.xml:232
 #: (title)
 msgid "Use svndumpfilter"
 msgstr "Use svndumpfilter"
 
-#: source/en/tsvn_app_howto.xml:228
+#: source/en/tsvn_app_howto.xml:233
 #: (para)
 msgid "Since TortoiseSVN never loses data, your <quote>rolled back</quote> revisions still exist as intermediate revisions in the repository. Only the HEAD revision was changed to a previous state. If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
 msgstr "Dado que TortoiseSVN nunca pierde datos, sus revisiones <quote>deshechas</quote> aún existen como revisiones intermedias en el repositorio. Sólo se ha cambiado la revisión HEAD a su estado previo. Si desea hacer que las revisiones desaparezcan completamente de su repositorio, borrando toda traza de que alguna vez existieran, deberá utilizar medidas más extremas. A menos de que haya una buena razón para hacer esto,  <emphasis>no se recomienda</emphasis>. Una razón posible sería que alguien haya confirmado un documento confidencial en un repositorio público."
 
-#: source/en/tsvn_app_howto.xml:239
+#: source/en/tsvn_app_howto.xml:244
 #: (para)
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3\"><citetitle>Subversion Book</citetitle></ulink>."
 msgstr "La única forma de quitar datos de un repositorio es utilizar la herramienta de línea de comandos de Subversion <literal>svnadmin</literal>. Puede encontrar una descripción sobre cómo funciona en el <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s03.html#svn-ch-5-sect-3.1.3\"><citetitle>Libro de Subversion</citetitle></ulink>."
 
-#: source/en/tsvn_app_howto.xml:250
+#: source/en/tsvn_app_howto.xml:255
 #: (title)
 msgid "Compare two revisions of a file"
 msgstr "Comparar dos revisiones de un fichero"
 
-#: source/en/tsvn_app_howto.xml:252
+#: source/en/tsvn_app_howto.xml:257
 #: (primary)
 msgid "compare files"
 msgstr "comparar ficheros"
 
-#: source/en/tsvn_app_howto.xml:254
+#: source/en/tsvn_app_howto.xml:259
 #: (para)
 msgid "If you want to compare two revisions in a file's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
 msgstr "Si desea comparar dos revisiones en la historia de un fichero, por ejemplo las revisiones 100 y 200 del mismo fichero, utilice <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mostrar Registro</guimenuitem></menuchoice> para ver la historia de revisiones de ese fichero. Seleccione las dos revisiones que desea comparar y luego utilice <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Comparar Revisiones</guimenuitem></menuchoice>."
 
-#: source/en/tsvn_app_howto.xml:268
+#: source/en/tsvn_app_howto.xml:273
 #: (para)
 msgid "If you want to compare the same file in two different trees, for example the trunk and a branch, you can use the repository browser to open up both trees, select the file in both places, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
 msgstr "Si desea comparar el mismo fichero en dos árboles diferentes, por ejemplo el troncal y una rama, puede utilizar el navegador de repositorios para abrir ambas ramas, seleccionar el fichero en ambos lugares, y utilizar <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Comparar Revisiones</guimenuitem></menuchoice>."
 
-#: source/en/tsvn_app_howto.xml:278
+#: source/en/tsvn_app_howto.xml:283
 #: (para)
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
 msgstr "Si desea comparar dos árboles para ver lo que ha cambiado, por ejemplo la troncal y una versión etiquetada, puede utilizar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Gráfico de Revisiones</guimenuitem></menuchoice> Seleccione los dos nodos a comparar, y luego utilice <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Comparar Revisiones HEAD</guimenuitem></menuchoice>. Esto le mostrará una lista de los ficheros cambiados, y luego podrá seleccionar los ficheros individuales para ver los cambios en detalle. Alternativamente, puede utilizar <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Diff Unificado de las Revisiones HEAD</guimenuitem></menuchoice> para ver un sumario de todas las diferencias, con un contexto mínimo."
 
-#: source/en/tsvn_app_howto.xml:301
+#: source/en/tsvn_app_howto.xml:306
 #: (title)
 msgid "Include a common sub-project"
 msgstr "Incluir un sub-proyecto común"
 
-#: source/en/tsvn_app_howto.xml:303
+#: source/en/tsvn_app_howto.xml:308
 #: (primary)
 msgid "common projects"
 msgstr "proyectos comunes"
 
-#: source/en/tsvn_app_howto.xml:305
+#: source/en/tsvn_app_howto.xml:310
 #: (para)
 msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
 msgstr "A veces querrá incluir otro proyecto en su copia de trabajo, quizás el código de alguna librería. No quiere hacer un duplicado de ese código en su repositorio, porque perdería la conexión con el código original (y mantenido). O quizás tiene varios proyectos que comparten el núcleo de código. Hay al menos 3 formas de lidiar con esto."
 
-#: source/en/tsvn_app_howto.xml:315
+#: source/en/tsvn_app_howto.xml:320
 #: (title)
 msgid "Use svn:externals"
 msgstr "Use svn:externals"
 
-#: source/en/tsvn_app_howto.xml:316
+#: source/en/tsvn_app_howto.xml:321
 #: (para)
 msgid ""
 "Set the <literal>svn:externals</literal> property for a folder in your project. The property value should be the name of a subfolder which you want the common code checked into, and the repository URL that you want to be checked out there. You can add multiple folder/URL pairs to one folder. For example: <screen>\n"
@@ -6157,47 +6345,47 @@ msgstr ""
 "third-party/skins  http://skins.red-bean.com/repositories/skinproj\n"
 "</screen> Por supuesto este código tiene que residir en un repositorio de Subversion, aunque no tiene por qué ser el mismo."
 
-#: source/en/tsvn_app_howto.xml:329
+#: source/en/tsvn_app_howto.xml:334
 #: (para)
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The subfolders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
 msgstr "Confirme la nueva carpeta. Ahora, cuando actualice, Subversion tirará una copia de ese proyecto desde su repositorio en su copia de trabajo. Las subcarpetas se crearán automáticamente si es necesario. Cada vez que actualice su copia de trabajo, también recibirá la última versión de todos los proyectos externos."
 
-#: source/en/tsvn_app_howto.xml:337
+#: source/en/tsvn_app_howto.xml:342
 #: (para)
 msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
 msgstr "Si los proyectos externos están en el mismo repositorio, cualquier cambio que haga allí se incluirá en la lista de confirmación cuando confirme su proyecto principal."
 
-#: source/en/tsvn_app_howto.xml:342
+#: source/en/tsvn_app_howto.xml:347
 #: (para)
 msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
 msgstr "Si los proyectos externos están en repositorios diferentes, cualquier cambio que haga en el proyecto externo se notificará cuando cnofirme el proyecto principal, pero tendrá que confirmar esos cambios externos de forma separada."
 
-#: source/en/tsvn_app_howto.xml:350
+#: source/en/tsvn_app_howto.xml:355
 #: (title)
 msgid "Use a nested working copy"
 msgstr "Use una copia de trabajo anidada"
 
-#: source/en/tsvn_app_howto.xml:351
+#: source/en/tsvn_app_howto.xml:356
 #: (para)
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
 msgstr "Cree una nueva carpeta dentro de su proyecto para contener el código común, pero no la añada a Subversion"
 
-#: source/en/tsvn_app_howto.xml:355
+#: source/en/tsvn_app_howto.xml:360
 #: (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
 msgstr "Seleccione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtener</guimenuitem></menuchoice> en la nueva carpeta, y obtenga una copia del código común en ella. Ahora tiene anidada una copia de trabajo separada dentro de su copia de trabajo principal."
 
-#: source/en/tsvn_app_howto.xml:365
+#: source/en/tsvn_app_howto.xml:370
 #: (para)
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are ignored. Likewise when you update the parent, the nested WC is not updated."
 msgstr "Las dos copias de trabajo son independientes. Cuando confirme los cambios de la padre, los cambios en la copia de trabajo anidada se ignoran. De la misma forma, cuando actualice el padre, la copia de trabajo anidada no se actualiza."
 
-#: source/en/tsvn_app_howto.xml:372
+#: source/en/tsvn_app_howto.xml:377
 #: (title)
 msgid "Use a relative location"
 msgstr "Use una ruta relativa"
 
-#: source/en/tsvn_app_howto.xml:373
+#: source/en/tsvn_app_howto.xml:378
 #: (para)
 msgid ""
 "If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\n"
@@ -6214,7 +6402,7 @@ msgstr ""
 "C:\\Proyectos\\Comun\n"
 "</screen> y refiérase al código común con una ruta relativa, por ejemplo <filename>..\\..\\Comun\\DSPcore</filename>."
 
-#: source/en/tsvn_app_howto.xml:388
+#: source/en/tsvn_app_howto.xml:393
 #: (para)
 msgid ""
 "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\n"
@@ -6229,22 +6417,22 @@ msgstr ""
 "#include \"X:\\superio\\superio.h\"\n"
 "</screen>"
 
-#: source/en/tsvn_app_howto.xml:406
+#: source/en/tsvn_app_howto.xml:411
 #: (para)
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr "Este método sólo funcionará en un entorno de todo-PCs, y necesitará documentar los mapeos de unidades requeridos para que su equipo sepa dónde están esos ficheros misteriosos. Este método debería utilizarse estrictamente en entornos de desarrollo cerrados, y no se recomienda para su uso generalizado."
 
-#: source/en/tsvn_app_howto.xml:416
+#: source/en/tsvn_app_howto.xml:421
 #: (title)
 msgid "Create a shortcut to a repository"
 msgstr "Crear un acceso directo a un repositorio"
 
-#: source/en/tsvn_app_howto.xml:418
+#: source/en/tsvn_app_howto.xml:423
 #: (primary)
 msgid "shortcut"
 msgstr "acceso directo"
 
-#: source/en/tsvn_app_howto.xml:420
+#: source/en/tsvn_app_howto.xml:425
 #: (para)
 msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
@@ -6255,50 +6443,70 @@ msgstr ""
 "TortoiseProc.exe /command:repobrowser /path:\"url/al/repositorio\" /notempfile\n"
 "</screen> Por supuesto necesitará incluir la URL real del repositorio."
 
-#: source/en/tsvn_app_howto.xml:432
+#: source/en/tsvn_app_howto.xml:437
 #: (title)
 msgid "Ignore files which are already versioned"
 msgstr "Ignorar ficheros que ya están versionados"
 
-#: source/en/tsvn_app_howto.xml:434
+#: source/en/tsvn_app_howto.xml:439
 #: (primary)
 msgid "unversion"
 msgstr "desversionar"
 
-#: source/en/tsvn_app_howto.xml:436
+#: source/en/tsvn_app_howto.xml:441
 #: (para)
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
 msgstr "Si accidentalmente añadió algunos ficheros que deberían haber sido ignorados, ¿cómo puede sacarlos del control de versiones sin perderlos? Quizás tiene su propio fichero de configuración IDE que no es parte del proyecto, pero que le costó bastante tiempo ajustar a su gusto."
 
-#: source/en/tsvn_app_howto.xml:443
+#: source/en/tsvn_app_howto.xml:448
 #: (para)
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
 msgstr "Si aún no ha confirmado los ficheros añadidos, todo lo que debe hacer es utilizar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revertir...</guimenuitem></menuchoice> para deshacer la operación. Entonces debería añadir los ficheros a la lista de ignorados para que no se añadan de nuevo por error."
 
-#: source/en/tsvn_app_howto.xml:458
+#: source/en/tsvn_app_howto.xml:463
 #: (para)
 msgid "Move the file to somewhere safe, not inside your working copy."
 msgstr "Mueva el fichero a algún lugar seguro, fuera de su copia de trabajo."
 
-#: source/en/tsvn_app_howto.xml:464
+#: source/en/tsvn_app_howto.xml:469
 #: (para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and automatically schedule it for deletion from the repository."
 msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Confirmar</guimenuitem></menuchoice> la carpeta padre. TortoiseSVN verá que el fichero falta y automáticamente lo programará para que sea borrado del repositorio."
 
-#: source/en/tsvn_app_howto.xml:475
+#: source/en/tsvn_app_howto.xml:480
 #: (para)
 msgid "Move the file back to its original location."
 msgstr "Mueva el fichero de nuevo a su lugar original."
 
-#: source/en/tsvn_app_howto.xml:480
+#: source/en/tsvn_app_howto.xml:485
 #: (para)
 msgid "Add the file to the ignore list so you don't get into the same trouble again."
 msgstr "Añada el fichero a la lista de ignorados para que no vuelva a tener este problema en el futuro."
 
-#: source/en/tsvn_app_howto.xml:453
+#: source/en/tsvn_app_howto.xml:458
 #: (para)
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
 msgstr "Si los ficheros ya están en el repositorio, tendrá que trabajar un poco más. <placeholder-1/>"
+
+#: source/en/tsvn_app_faq.xml:3
+#: (title)
+msgid "Frequently Asked Questions (FAQ)"
+msgstr "Preguntas Más Frecuentes (FAQ)"
+
+#: source/en/tsvn_app_faq.xml:5
+#: (para)
+msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an interactive online FAQ at <ulink url=\"http://tortoisesvn.sourceforge.net?q=node/1\"><citetitle>Sourceforge.net</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing list <email>dev@tortoisesvn.tigris.org</email>."
+msgstr "Dado que el desarrollo de TortoiseSVN es continuo, a veces es complicado mantener la documentación completamente al día. Mantenemos un FAQ interactivo online en <ulink url=\"http://tortoisesvn.sourceforge.net?q=node/1\"><citetitle>Sourceforge.net</citetitle></ulink> que contiene una selección de las preguntas más frecuentes que recibimos en la lista de correo de TortoiseSVN <email>dev@tortoisesvn.tigris.org</email>."
+
+#: source/en/tsvn_app_faq.xml:16
+#: (para)
+msgid "We also maintain a project Issue Tracker at <ulink url=\"http://tortoisesvn.berlios.de/issues/index.php?order=id&amp;sort=desc&amp;status=all\"><citetitle>Berlios.de</citetitle></ulink> which tells you about some of the things we have on our To-Do list, and bugs which have already been fixed. If you think you have found a bug, or want to request a new feature, check here first to see if someone else got there before you."
+msgstr "También mantenemos un Gestor de Incidencias en <ulink url=\"http://tortoisesvn.berlios.de/issues/index.php?order=id&amp;sort=desc&amp;status=all\"><citetitle>Berlios.de</citetitle></ulink> que le puede informar de algunas de las cosas que tenemos en nuestra lista Para-Hacer, y errores que ya han sido corregidos. Si cree que ha encontrado un error, o quiere pedir una nueva funcionalidad, mire aquí primero para ver si alguien se le adelantó."
+
+#: source/en/tsvn_app_faq.xml:26
+#: (para)
+msgid "If you have a question which is not answered anywhere else, the best place to ask it is on the mailing list."
+msgstr "Si tiene una pregunta que no está respondida en ningún otro lado, el mejor lugar para preguntar es en la lista de correo."
 
 #: source/en/tsvn_app_cli.xml:3
 #: (title)
