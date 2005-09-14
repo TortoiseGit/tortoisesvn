@@ -6,7 +6,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN\n"
+"Project-Id-Version: Tortoise SVN 1.2.1 (4367) Georgian\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
 "PO-Revision-Date: 2005-09-07 21:55+0300\n"
@@ -3787,6 +3787,11 @@ msgstr "ფიქსაცია..."
 msgid "conflicted"
 msgstr "კონფლიქტური"
 
+#: ID:208,
+#, c-format
+msgid "copied from\r\n%s - revision %ld"
+msgstr "დაკოპირდა აქედან\r\n%s - ვერსია %ld"
+
 #: Control-ID:1113,
 msgid "current version is:"
 msgstr "მიმდინარე ვერსიაა:"
@@ -3867,7 +3872,7 @@ msgstr "ჩანაცლებულია"
 
 #: ID:14,
 msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
-msgstr "svn:eol-style\nეღერთეი 'native'-დან, 'LF', 'CR', 'CRLF'."
+msgstr "svn:eol-style\nერთერთი 'native'-დან, 'LF', 'CR', 'CRLF'."
 
 #: ID:14,
 msgid "svn:executable\nIf present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
@@ -3912,7 +3917,7 @@ msgstr "tsvn:logtemplate\nტექსტი, რომელიც ჩაემ
 
 #: ID:15,
 msgid "tsvn:logwidthmarker\nSet this to the number of chars the log message should not exceed its width.\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
-msgstr "tsvn:logwidthmarker\nსიმბოლოთა რაოდენობა, რომელსაც არ შეიძლება გადააჭარბოს შეტყობინების სიგრძემ.\nამ ადგილას ფიქსაციის დიალოგში მქრქალი ხაზი გამოჩნდება.  საწყისიია - 80 სიმბოლო."
+msgstr "tsvn:logwidthmarker\nსიმბოლოთა რაოდენობა, რომელსაც არ შეიძლება გადააჭარბოს შეტყობინების სიგრძემ.\nამ ადგილას ფიქსაციის დიალოგში მქრქალი ხაზი გამოჩნდება.  საწყისია - 80 სიმბოლო."
 
 #: ID:15,
 msgid "tsvn:projectlanguage\nSet this to the language number you want your log messages written in.\nTortoiseSVN will then load the appropriate spell checker module if available."
