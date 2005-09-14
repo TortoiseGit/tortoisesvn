@@ -69,7 +69,6 @@
 #define IDB_LOGFILTER                   204
 #define IDD_RESOLVE                     207
 #define IDD_CREATEPATCH                 208
-#define IDI_ICON1                       210
 #define IDI_EXTERNALWARNING             210
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
@@ -438,6 +437,7 @@
 #define IDS_ERR_NOTHINGTOREVERT         1310
 #define IDS_ERR_NOCOMMONCOPYFROM        1311
 #define IDS_ERR_GDIPLUS_MISSING         1312
+#define IDS_ERR_NOTENOUGHMEMORY         1313
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402

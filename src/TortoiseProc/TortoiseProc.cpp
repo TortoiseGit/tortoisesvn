@@ -833,21 +833,13 @@ BOOL CTortoiseProcApp::InitInstance()
 					CString saveplace = CString(saveto);
 					saveplace += _T("\\") + cmdLinePath.GetFileOrDirectoryName();
 					TRACE(_T("export %s to %s\n"), (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
-					CProgressDlg progDlg;
-					progDlg.SetTitle(IDS_PROC_EXPORT_3);
-					progDlg.SetShowProgressBar(true);
-					progDlg.SetAnimation(IDR_ANIMATION);
-					progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
-					progDlg.FormatNonPathLine(1, IDS_PROC_EXPORT_3);
 					SVN svn;
-					if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, folderBrowser.m_bCheck2, &progDlg, folderBrowser.m_bCheck))
+					if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, folderBrowser.m_bCheck2, EXPLORERHWND, folderBrowser.m_bCheck))
 					{
-						progDlg.Stop();
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 					}
 					else
 					{
-						progDlg.Stop();
 						CString strMessage;
 						strMessage.Format(IDS_PROC_EXPORT_4, (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveplace);
 						CMessageBox::Show(EXPLORERHWND, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
@@ -1173,22 +1165,14 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (CTSVNPath(droppath).IsAdminDir())
 				return FALSE;
 			SVN svn;
-			CProgressDlg progDlg;
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 			{
-				progDlg.SetTitle(IDS_PROC_EXPORT_3);
-				progDlg.SetShowProgressBar(true);
-				progDlg.SetAnimation(IDR_ANIMATION);
-				progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
-				progDlg.FormatNonPathLine(1, IDS_PROC_EXPORT_3);
 				CString dropper = droppath + _T("\\") + pathList[nPath].GetFileOrDirectoryName();
-				if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, FALSE, &progDlg, parser.HasKey(_T("extended"))))
+				if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, FALSE, EXPLORERHWND, parser.HasKey(_T("extended"))))
 				{
-					progDlg.Stop();
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 				}
 			}
-			progDlg.Stop();
 		}
 		//#endregion
 		//#region dropcopy

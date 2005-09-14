@@ -2,6 +2,8 @@
        Subversion servers file. (Stefan)
 - NEW: Context menu entries to resolve a conflicted file inside the commit
        dialog by using either "mine" or "theirs" directly. (Stefan)
+- NEW: Exporting now warns before overwriting existing files.
+       See issue #165. (Stefan)
 - CHG: The commit dialog doesn't interrupt the user entering a log message
        anymore with a dialog box popping up about modifications inside
        an external folder. Instead, a warning icon is shown in that case below
@@ -20,6 +22,8 @@
 - BUG: Added files inside external folders weren't recognized and no warning
        was shown in the commit dialog that these changes must be committed
        separately. (Stefan)
+- BUG: The cache could end up in an endless loop which made it consume
+       around 20% CPU all the time. (Stefan)
 
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,
