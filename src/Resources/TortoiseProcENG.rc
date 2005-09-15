@@ -2206,6 +2206,12 @@ BEGIN
     IDS_ERR_NOTENOUGHMEMORY "Not enough memory to complete operation."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_PROC_NEWNAMECOPY    "Copy: New name for %s"
+    IDS_PROC_NEWNAMEMOVE    "Move: New name for %s"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
