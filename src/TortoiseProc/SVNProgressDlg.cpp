@@ -111,7 +111,9 @@ void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 	
 		// Make sure the item is *entirely* visible even if the horizontal
 		// scroll bar is visible.
-		m_ProgList.EnsureVisible(iInsertedAt, false);
+		int count = m_ProgList.GetCountPerPage();
+		if (iInsertedAt <= (m_ProgList.GetTopIndex() + count))
+			m_ProgList.EnsureVisible(iInsertedAt, false);
 	}
 }
 BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
