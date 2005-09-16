@@ -31,13 +31,13 @@
 # resolve -- улаживать
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 4391: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 4396: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-09-15 19:50+0300\n"
+"PO-Revision-Date: 2005-09-16 09:30+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1637,6 +1637,12 @@ msgstr "Копировать в буфер обмена"
 msgid "Copy to working copy"
 msgstr "Копировать в рабочую копию"
 
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "Копирование: Новое имя для %s"
+
 # ID:80,
 #: ID:80
 #, c-format
@@ -3001,6 +3007,12 @@ msgstr "Изменено"
 #: Control-ID:1136
 msgid "Most active author:"
 msgstr "Наиболее активный автор:"
+
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr "Перемещение: Новое имя для %s"
 
 # ID:126,
 #: ID:126
