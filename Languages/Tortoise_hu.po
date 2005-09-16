@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-08 17:10+0100\n"
+"PO-Revision-Date: 2005-09-16 20:17+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1601,6 +1601,12 @@ msgstr "Másolás a vágólapra"
 msgid "Copy to working copy"
 msgstr "A munkamásolatba másol"
 
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "Másolás: %s új neve"
+
 # ID:80,
 #: ID:80
 #, c-format
@@ -2954,6 +2960,12 @@ msgstr "Megváltoztatva"
 msgid "Most active author:"
 msgstr "Legszorgosabb fejlesztő:"
 
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr "Áthelyezés: %s új neve"
+
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -3115,6 +3127,12 @@ msgstr "Normál"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nem lett az összes bejegyzés (vagy INI fájl) eltávolítva."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "Nincs elég memória a művelet végrehajtásához."
 
 # ID:88,
 #: ID:88
@@ -5648,6 +5666,16 @@ msgstr "beküldések"
 #: ID:11
 msgid "conflicted"
 msgstr "ellentmondó"
+
+# ID:226,
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"másolva innen:\r\n"
+"%s - %ld verzió"
 
 # Control-ID:1113,
 #: Control-ID:1113
