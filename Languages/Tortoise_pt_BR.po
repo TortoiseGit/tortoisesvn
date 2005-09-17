@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-13 19:11-0300\n"
+"PO-Revision-Date: 2005-09-17 18:51-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -760,6 +760,12 @@ msgstr "Adicionar"
 #: ID:101
 msgid "Add &File..."
 msgstr "Adicionar &Arquivo..."
+
+# ID:376,
+#: ID:376
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "Adicionar '%s' ao dicionário"
 
 # ID:110,
 #: ID:110
@@ -1613,6 +1619,12 @@ msgstr "Copiar para a área de transferência"
 msgid "Copy to working copy"
 msgstr "Copiar para a cópia de trabalho"
 
+# ID:97,
+#: ID:98
+#, fuzzy, c-format
+msgid "Copy: New name for %s"
+msgstr "Copiar: Novo nome para %s"
+
 # ID:80,
 #: ID:80
 #, c-format
@@ -1747,6 +1759,11 @@ msgid "Could not start thread!"
 msgstr "Não foi possível iniciar a thread!"
 
 # ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Criar Correção"
+
+# ID:13,
 #: ID:13
 msgid "Create Patch..."
 msgstr "Criar Correção..."
@@ -1849,8 +1866,9 @@ msgstr "O disco de destino está cheio."
 
 # ID:12,
 #: ID:12
+#, fuzzy
 msgid "Diff"
-msgstr "Comparação"
+msgstr "Comparar"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1931,6 +1949,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "Não exiba essa mensagem novamente"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "Você realmente deseja mover esse arquivo ou pasta?"
+
 # ID:76,
 #: ID:76
 #, c-format
@@ -1994,6 +2017,11 @@ msgstr "Sai&r"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
+
+# Control-ID:1031,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Editar"
 
 # ID:76,
 #: ID:113
@@ -2318,6 +2346,18 @@ msgstr "GDI+ não pôde ser iniciado!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ não pôde criar um objeto bitmap. Você provavelmente não possui memória suficiente."
 
+# ID:83,
+#: ID:83
+#, fuzzy
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"É necessário possuir o GDI+ para salvar esse gráfico de revisão como uma imagem.\n"
+"Você pode adquirí-lo em \n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
@@ -2497,6 +2537,15 @@ msgid ""
 msgstr ""
 "Se habilitado, o diálogo de Combinação inicia a URL \"De:\" com a URL da cópia de trabalho selecionada\n"
 "e não com a última URL utilizada. "
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Se habilitado, o repositório é cantactado quando o diálogo inicia.\n"
+"Você não precisará mais clicar em \"Verificar Repositório\"."
 
 # ID:195,
 #: ID:195
@@ -2707,7 +2756,7 @@ msgstr "Visão da Esquerda:"
 #: Control-ID:65535
 #, fuzzy
 msgid "Line with whitespace diff"
-msgstr "Comparação de espaços em branco"
+msgstr "Linha com comparação de espaços em branco"
 
 # ID:3605,
 #: ID:3605
@@ -2943,6 +2992,12 @@ msgstr "Modificado"
 msgid "Most active author:"
 msgstr "Autor mais ativo:"
 
+# ID:97,
+#: ID:98
+#, fuzzy, c-format
+msgid "Move: New name for %s"
+msgstr "Mover: Novo nome para %s"
+
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -3108,6 +3163,12 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nem todas as entradas de registro (ou arquivo INI) foram removidas."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "Memória insuficiente para completar a operação."
 
 # ID:88,
 #: ID:88
@@ -3684,6 +3745,18 @@ msgstr "Solicita um nome de usuário e uma senha"
 msgid "Resolve"
 msgstr "Resolver"
 
+# ID:9,
+#: ID:282
+#, fuzzy
+msgid "Resolve conflict using \"mine\""
+msgstr "Resolver conflito usando \"meu\""
+
+# ID:9,
+#: ID:282
+#, fuzzy
+msgid "Resolve conflict using \"theirs\""
+msgstr "Resolver conflito usando \"deles\""
+
 # ID:8,
 #: ID:74
 #: ID:209
@@ -3694,6 +3767,16 @@ msgstr "Resolvido"
 #: ID:8
 msgid "Resolved..."
 msgstr "Resolvido..."
+
+# ID:8,
+#: ID:282
+#, c-format
+msgid ""
+"Resolved:\n"
+"%s"
+msgstr ""
+"Resolvido:\n"
+"%s"
 
 # ID:9,
 #: ID:9
@@ -3782,6 +3865,13 @@ msgstr "Gráfico de Revisões"
 #: ID:75
 msgid "Revision: "
 msgstr "Revisão:"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:116
+msgid "Revisions"
+msgstr "Revisões"
 
 # ID:188,
 #: ID:188
@@ -4440,6 +4530,12 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Subversion server file:"
+msgstr "Arquivo do servidor do Subversion:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Alternar Esquerda<->Direita"
@@ -4600,18 +4696,6 @@ msgstr "O arquivo %s não foi encontrado no arquivo de correção!"
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "O arquivo é muito grande para ser aberto."
-
-# ID:80,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"O arquivo ou pasta\n"
-"%s\n"
-"possui modificações locais. Você deseja mesmo mover este arquivo?"
 
 # ID:80,
 #: ID:80
@@ -4825,7 +4909,7 @@ msgstr "Arquivo Deles:"
 #: ID:263
 #, fuzzy
 msgid "Theirs"
-msgstr "Dêles"
+msgstr "Deles"
 
 # ID:169,
 #: ID:169
@@ -4870,6 +4954,12 @@ msgstr ""
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Esse produto inclui software desenvolvido por CollabNet (http://www.collab.Net/)"
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Esse produto inclui software desenvolvido pelo Projeto OpenSSL para uso no OpenSSL Toolkit (http://www.openssl.org/)"
 
 # missing export ???
 # ID:3857,#:
@@ -4928,20 +5018,20 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Compilação %d"
+msgid "TortoiseMerge %d.%d.%d, Build %d - %s"
+msgstr "TortoiseMerge %d.%d.%d, Compilação %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Compilação %d\r\n"
+"TortoiseMerge %d.%d.%d, Compilação %d - %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4958,14 +5048,14 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Compilação %d"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s"
+msgstr "TortoiseSVN %d.%d.%d, Compilação %d - %s"
 
 # ID:107,
 #: ID:107
 #, c-format
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
+"TortoiseSVN %d.%d.%d, Build %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -4975,7 +5065,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Compilação %d\r\n"
+"TortoiseSVN %d.%d.%d, Compilação %d - %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -5639,6 +5729,16 @@ msgstr "submissões"
 #: ID:11
 msgid "conflicted"
 msgstr "em conflito"
+
+# ID:77,
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"copiado de\r\n"
+"%s - revisão %ld"
 
 # Control-ID:1113,
 #: Control-ID:1113
