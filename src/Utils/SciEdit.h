@@ -22,6 +22,7 @@
 #include "myspell\\myspell.hxx"
 #include "myspell\\mythes.hxx"
 #include "ProjectProperties.h"
+#include "PersonalDictionary.h"
 
 //forward declaration
 class CSciEdit;
@@ -173,6 +174,7 @@ private:
 	rpattern	m_patCommand;
 	rpattern	m_patBugID;
 	CArray<CSciEditContextMenuInterface *, CSciEditContextMenuInterface *> m_arContextHandlers;
+	CPersonalDictionary m_personalDict;
 protected:
 	virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
 	void		CheckSpelling(void);

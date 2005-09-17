@@ -682,6 +682,7 @@
 #define IDS_SCIEDIT_COPY                6003
 #define IDS_SCIEDIT_PASTE               6004
 #define IDS_SCIEDIT_SELECTALL           6005
+#define IDS_SCIEDIT_ADDWORD             6006
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773

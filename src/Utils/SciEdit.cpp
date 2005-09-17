@@ -37,6 +37,8 @@ bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit *) {return 
 #define STYLE_BOLD			11
 #define STYLE_BOLDITALIC	12
 
+#define SCI_ADDWORD			2000
+
 struct loc_map {
 	const char * cp;
 	const char * def_enc;
@@ -72,6 +74,7 @@ CSciEdit::CSciEdit(void)
 
 CSciEdit::~CSciEdit(void)
 {
+	m_personalDict.Save();
 	if (m_hModule)
 		::FreeLibrary(m_hModule);
 	if (pChecker)
@@ -241,7 +244,7 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 				m_spellcodepage = atoi(enc2locale[i].cp);
 			}
 		}
-
+		m_personalDict.Init(lLanguageID);
 	}
 	if ((pThesaur)||(pChecker))
 		return TRUE;
@@ -409,7 +412,7 @@ void CSciEdit::CheckSpelling()
 				sWordA = CStringA(sWord);
 			// first check if the word is in our autocompletion list
 			if (((m_autolist.Find(sWord)<0)&&(!pChecker->spell(sWordA)))&&
-				(!_istdigit(sWord.GetAt(0))))
+				(!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
 			{
 				//mark word as misspelled
 				Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
@@ -637,10 +640,18 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			popup.AppendMenu(MF_SEPARATOR);
 		}
 		int menuid = nCustoms;
+		
+		CString sWord = GetWordUnderCursor();
+		CStringA worda = CStringA(sWord);
+		if ((pChecker)&&((m_autolist.Find(sWord)<0)&&(!pChecker->spell(worda)))&&
+			(!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
+		{
+			sMenuItemText.Format(IDS_SCIEDIT_ADDWORD, sWord);
+			popup.AppendMenu(uEnabledMenu, SCI_ADDWORD, sMenuItemText);
+		}
 
 		CMenu corrections;
 		corrections.CreatePopupMenu();
-		CStringA worda = CStringA(GetWordUnderCursor());
 		int nCorrections = nCustoms;
 		if ((pChecker)&&(!worda.IsEmpty()))
 		{
@@ -738,6 +749,10 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case SCI_PASTE:
 		case SCI_SELECTALL:
 			Call(cmd);
+			break;
+		case SCI_ADDWORD:
+			m_personalDict.AddWord(sWord);
+			CheckSpelling();
 			break;
 		default:
 			if (cmd < nCustoms)
@@ -899,7 +914,7 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 						ATLTRACE("matched results : %ld\n", results.cbackrefs());
 						for (size_t i=1; i<results.cbackrefs(); ++i)
 						{
-							if ((results.rstart(i) < 0)||(results.rstart(i) >= msg.GetLength()))
+							if ((results.rstart(i) < 0)||(results.rstart(i) >= (size_t)msg.GetLength()))
 							{
 								continue;
 							}
