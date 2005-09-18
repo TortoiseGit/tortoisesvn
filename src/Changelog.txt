@@ -26,6 +26,7 @@
        separately. (Stefan)
 - BUG: The cache could end up in an endless loop which made it consume
        around 20% CPU all the time. (Stefan)
+- BUG: The context menu leaked one GDI object. (Stefan)
 
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,

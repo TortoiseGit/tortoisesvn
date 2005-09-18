@@ -438,6 +438,7 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 
 	// Restore settings
 	::SelectObject(dst_hdc, old_dst_bmp);
+	::DeleteObject(bmp);
 	::DeleteDC(dst_hdc);
 	::ReleaseDC(desktop, screen_dev); 
 	DestroyIcon(hIcon);
