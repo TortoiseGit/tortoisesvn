@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-13 18:04+0100\n"
+"PO-Revision-Date: 2005-09-18 23:07+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -634,6 +634,12 @@ msgstr "Añadir"
 #: ID:101
 msgid "Add &File..."
 msgstr "&Añadir archivo..."
+
+# ID:376,
+#: ID:376
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "Añadir '%s' al diccionario"
 
 # ID:110,
 #: ID:110
@@ -1350,6 +1356,11 @@ msgstr "Copiar al portapapeles"
 #: ID:103
 msgid "Copy to working copy"
 msgstr "Copiar a la copia de trabajo"
+
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "Copiar: Nuevo nombre para %s"
 
 #: ID:80
 #, c-format
@@ -2527,6 +2538,11 @@ msgstr "Modificado"
 msgid "Most active author:"
 msgstr "Autor más activo:"
 
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr "Mover: Nuevo nombre para %s"
+
 #: ID:126
 msgid "Moved remotely"
 msgstr "Movido de forma remota"
@@ -2665,6 +2681,10 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "No se eliminaron todas las entradas del registro del sistema (o del archivo INI)."
+
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "No hay memoria suficiente para completar la operación."
 
 # ID:88,
 #: ID:88
