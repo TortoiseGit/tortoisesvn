@@ -19,6 +19,8 @@
 #pragma once
 #include <set>
 
+#define PDICT_MAX_WORD_LENGTH 50
+
 class CPersonalDictionary
 {
 public:

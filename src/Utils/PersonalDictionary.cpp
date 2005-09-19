@@ -33,7 +33,7 @@ CPersonalDictionary::~CPersonalDictionary()
 bool CPersonalDictionary::Load()
 {
 	CString sWord;
-	TCHAR line[100*1024];
+	TCHAR line[PDICT_MAX_WORD_LENGTH + 1];
 
 	if (m_bLoaded)
 		return true;
@@ -76,6 +76,8 @@ bool CPersonalDictionary::Load()
 
 bool CPersonalDictionary::AddWord(const CString& sWord)
 {
+	if (sWord.GetLength() >= PDICT_MAX_WORD_LENGTH)
+		return false;
 	dict.insert(sWord);
 	return true;
 }

@@ -643,7 +643,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		
 		CString sWord = GetWordUnderCursor();
 		CStringA worda = CStringA(sWord);
-		if ((pChecker)&&((m_autolist.Find(sWord)<0)&&(!pChecker->spell(worda)))&&
+		if ((sWord.GetLength()<PDICT_MAX_WORD_LENGTH)&&((pChecker)&&(m_autolist.Find(sWord)<0)&&(!pChecker->spell(worda)))&&
 			(!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
 		{
 			sMenuItemText.Format(IDS_SCIEDIT_ADDWORD, sWord);
