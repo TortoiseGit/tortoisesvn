@@ -296,7 +296,45 @@ char *do_select(SOCKET skt, int startup)
 
 int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
 {
+	char buf1[MAX_PATH] = {0};
+	char buf2[MAX_PATH] = {0};
+	char buf3[MAX_PATH] = {0};
+	DWORD errsize = 0;
+	HANDLE instdhandle, outstdhandle, errstdhandle;
+	GetTempPath(MAX_PATH, buf1);
+	strcpy(buf2, buf1);
+	strcpy(buf3, buf1);
+	strcat(buf1, "TPlink.in");
+	strcat(buf2, "TPlink.out");
+	strcat(buf3, "TPlink.err");
+	instdhandle = CreateFile(buf1, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+	outstdhandle = CreateFile(buf2, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+	errstdhandle = CreateFile(buf3, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+	SetStdHandle(STD_INPUT_HANDLE, instdhandle);
+	SetStdHandle(STD_OUTPUT_HANDLE, outstdhandle);
+	SetStdHandle(STD_ERROR_HANDLE, errstdhandle);
 	main(__argc,__argv);
+	errsize = GetFileSize(errstdhandle, NULL);
+	if (errsize)
+	{
+		CloseHandle(errstdhandle);
+		errstdhandle = CreateFile(buf3, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_TEMPORARY, NULL);
+		if (errstdhandle != INVALID_HANDLE_VALUE)
+		{
+			DWORD r;
+			char * rbuf = malloc(errsize+1);
+			ReadFile(errstdhandle, rbuf, errsize, &r, NULL);
+			rbuf[errsize] = 0;
+			MessageBox(GetParentHwnd(), rbuf, "TortoisePlink", MB_ICONERROR);
+			free(rbuf);
+		}
+	}
+	CloseHandle(instdhandle);
+	CloseHandle(outstdhandle);
+	CloseHandle(errstdhandle);
+	DeleteFile(buf1);
+	DeleteFile(buf2);
+	DeleteFile(buf3);
 }
 
 int main(int argc, char **argv)
@@ -305,14 +343,14 @@ int main(int argc, char **argv)
     HANDLE handles[4];
     DWORD in_threadid, out_threadid, err_threadid;
     struct input_data idata;
-    int reading;
-    int sending;
+    int reading = 0;
+    int sending = 0;
     int portnumber = -1;
-    SOCKET *sklist;
+    SOCKET *sklist = NULL;
     int skcount, sksize;
-    int connopen;
-    int exitcode;
-    int errors;
+    int connopen = 0;
+    int exitcode = 0;
+    int errors = 0;
     int use_subsystem = 0;
 
     ssh_get_line = console_get_line;
