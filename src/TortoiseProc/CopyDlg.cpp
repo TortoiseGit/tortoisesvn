@@ -129,6 +129,9 @@ BOOL CCopyDlg::OnInitDialog()
 			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
+	
+	if (!m_CopyRev.IsHead())
+		GetDlgItem(IDC_DOSWITCH)->ShowWindow(SW_HIDE);
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
