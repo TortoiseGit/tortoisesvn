@@ -72,7 +72,10 @@ public:
 	BOOL IsWorking() const {return (rev.kind == svn_opt_revision_working);}
 	BOOL IsPrev() const {return (rev.kind == svn_opt_revision_previous);}
 	BOOL IsCommitted() const {return (rev.kind == svn_opt_revision_committed);}
+	BOOL IsDate() const {return (rev.kind == svn_opt_revision_date);}
 
+	CString GetDateString() const {return sDate;}
+	
 	operator LONG () const;
 	operator svn_opt_revision_t * ();
 	enum
@@ -87,4 +90,5 @@ protected:
 private:
 	svn_opt_revision_t rev;
 	BOOL m_bIsValid;
+	CString sDate;
 };

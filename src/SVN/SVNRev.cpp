@@ -30,6 +30,7 @@ SVNRev::SVNRev(CString sRev)
 
 void SVNRev::Create(CString sRev)
 {
+	sDate.Empty();
 	m_bIsValid = FALSE;
 	memset (&rev, 0, sizeof (rev));
 	if (sRev.Left(1).Compare(_T("{"))==0)
@@ -50,7 +51,8 @@ void SVNRev::Create(CString sRev)
 				rev.kind = svn_opt_revision_date;
 				rev.value.date = tm;
 				m_bIsValid = TRUE;
-			} // if (svn_parse_date(&matched, &tm, sRevA, apr_time_now(), pool))
+				sDate = sRev;
+			}
 		}
 	} // if (sRev.Left(1).Compare(_T("{"))==0)
 	else if (sRev.CompareNoCase(_T("HEAD"))==0)

@@ -177,7 +177,7 @@ void CRepositoryBar::GotoUrl(const SVNUrl& svn_url)
 
 void CRepositoryBar::SetRevision(SVNRev rev)
 {
-	m_btnRevision.SetWindowText(SVNUrl::GetTextFromRev(SVNRev(rev)));
+	m_btnRevision.SetWindowText(SVNUrl::GetTextFromRev(rev));
 	m_SvnUrl = SVNUrl(m_SvnUrl.GetPath(), rev);
 }
 

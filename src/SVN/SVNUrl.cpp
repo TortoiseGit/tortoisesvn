@@ -222,6 +222,10 @@ CString SVNUrl::GetTextFromRev(const SVNRev& revision)
 	{
 		rev_text = _T("COMMITTED");
 	}
+	else if (revision.IsDate())
+	{
+		rev_text = revision.GetDateString();
+	}
 	else
 	{
 		rev_text.Format(_T("%u"), (LONG)revision);

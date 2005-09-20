@@ -59,7 +59,10 @@ BOOL CRevisionDlg::OnInitDialog()
 	{
 		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
 		CString sRev;
-		sRev.Format(_T("%ld"), (LONG)(*this));
+		if (IsDate())
+			sRev = GetDateString();
+		else
+			sRev.Format(_T("%ld"), (LONG)(*this));
 		GetDlgItem(IDC_REVNUM)->SetWindowText(sRev);
 	}
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
