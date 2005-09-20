@@ -921,7 +921,7 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 					{
 						for (int index=0; index<urlList.GetCount(); ++index)
 						{
-							if (!FindUrl(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()))
+							if (!FindUrl(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()))
 							{
 								if (!svn.Copy(urlList[index], CTSVNPath(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()), m_Revision, input.m_sInputText))
 								{
@@ -978,7 +978,7 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 					{
 						for (int index=0; index<urlList.GetCount(); ++index)
 						{
-							if (!FindUrl(sDestUrl+_T("/")+urlList[index].GetFileOrDirectoryName()))
+							if (!FindUrl(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()))
 							{
 								if (!svn.Move(urlList[index], CTSVNPath(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName()), m_Revision, input.m_sInputText))
 								{
