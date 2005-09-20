@@ -27,6 +27,11 @@
 - BUG: The cache could end up in an endless loop which made it consume
        around 20% CPU all the time. (Stefan)
 - BUG: The context menu leaked one GDI object. (Stefan)
+- BUG: Date revisions weren't shown correctly in the repository browser. (Stefan)
+- BUG: Right-dragging with rename in the repository browser checked with the
+       old name if the target exists instead of the new name. (Stefan)
+- BUG: The revert dialog showed modified files inside externals too, but those
+       must be reverted separately. (Stefan)
 
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,
