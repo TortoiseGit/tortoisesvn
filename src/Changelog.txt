@@ -32,6 +32,10 @@
        old name if the target exists instead of the new name. (Stefan)
 - BUG: The revert dialog showed modified files inside externals too, but those
        must be reverted separately. (Stefan)
+- BUG: The 'revert changes from all revisions' context menu in the log dialog
+       was shown even if a filter was applied and the selected revisions
+       were not continuous. That lead to revisions reverted which weren't
+       really selected. (Stefan)
 
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,

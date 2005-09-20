@@ -764,18 +764,21 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					// revisions are continuous. So check first if that's the case before
 					// we show the context menu.
 					POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-					bool bContinuous = true;
-					int itemindex = m_LogList.GetNextSelectedItem(pos);
-					while (pos)
+					bool bContinuous = (m_arShownList.GetCount() == (INT_PTR)m_logEntries.size());
+					if (bContinuous)
 					{
-						int nextindex = m_LogList.GetNextSelectedItem(pos);
-						if (nextindex - itemindex > 1)
+						int itemindex = m_LogList.GetNextSelectedItem(pos);
+						while (pos)
 						{
-							bContinuous = false;
-							break;
+							int nextindex = m_LogList.GetNextSelectedItem(pos);
+							if (nextindex - itemindex > 1)
+							{
+								bContinuous = false;
+								break;
+							}
+							itemindex = nextindex;
 						}
-						itemindex = nextindex;
-					}					
+					}
 					temp.LoadString(IDS_LOG_POPUP_REVERTREVS);
 					if ((m_hasWC)&&(bContinuous))
 					{
