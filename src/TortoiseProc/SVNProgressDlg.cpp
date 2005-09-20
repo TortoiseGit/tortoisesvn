@@ -49,7 +49,8 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_nUpdateStartRev = -1;
 	m_pThread = NULL;
 	m_options = ProgOptNone;
-
+	m_dwCloseOnEnd = 0;
+	
 	m_pSvn = this;
 }
 
