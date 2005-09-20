@@ -892,7 +892,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			if (m_options & ProgOptSwitchAfterCopy)
 			{
-				if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, true))
+				if (!m_pSvn->Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, true))
 				{
 					ReportSVNError();
 					break;
