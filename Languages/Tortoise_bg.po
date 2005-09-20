@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-08-30 20:59+0200\n"
+"PO-Revision-Date: 2005-09-20 11:03+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -796,6 +796,12 @@ msgstr "Добавяне"
 #: ID:101
 msgid "Add &File..."
 msgstr "Добавяне на &файл..."
+
+# ID:376,
+#: ID:376
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "Добавяне на '%s' в речника"
 
 # ID:110,
 #: ID:110
@@ -1642,6 +1648,12 @@ msgstr "Копиране в системния буфер"
 msgid "Copy to working copy"
 msgstr "Копиране в работно копие"
 
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "Копиране: ново име за %s"
+
 # ID:80,
 #: ID:80
 #, c-format
@@ -1965,6 +1977,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "Да не се показва повече това съобщение"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "Наистина ли желаете да преместите този файл или папка?"
+
 # ID:76,
 #: ID:76
 #, c-format
@@ -2030,6 +2047,11 @@ msgstr "&Изход"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
+
+# Control-ID:1031,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Редакция"
 
 # ID:76,
 #: ID:113
@@ -2351,6 +2373,17 @@ msgstr "Грешка при инициализация на GDI+!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "Грешка при създаване на обект побитова карта от GDI+. Най-вероятно липсва достатъчно свободна памет."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"За запис на графика на ревизиите като изображение, е нужен GDI+.\n"
+"GDI+ може да изтеглите от\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
@@ -2529,6 +2562,15 @@ msgid ""
 msgstr ""
 "Ако тази опция е включена, диалогът за сливане инициализира \"От:\" URL с URL на избраното работно копие\n"
 "вместо с последно използвания URL."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Ако е включена, при стартиране на диалога се прави проверка в хранилището.\n"
+"В този случай вече няма нужда да се ползва бутона \"Проверка в хранилището\"."
 
 # ID:195,
 #: ID:195
@@ -2972,6 +3014,12 @@ msgstr "Променен"
 msgid "Most active author:"
 msgstr "Най-активен автор:"
 
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr "Преместване: ново име за %s"
+
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -3137,6 +3185,12 @@ msgstr "Нормален"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Не всички записи в системния регистър (или INI файлът) са премахнати."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "Недостиг на оперативна памет за извършването на тази операция."
 
 # ID:88,
 #: ID:88
@@ -4487,9 +4541,14 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Файл със съвъри на Subversion:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
-msgstr "Размени ляво с дясно"
+msgstr "Размяна на ляво с дясно"
 
 # Dlg-ID:140,
 #: Dlg-ID:140
@@ -4646,18 +4705,6 @@ msgstr "Файлът %s не бе открит във файлът с кръпк
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Този файл е прекалено голям, за да бъде отворен."
-
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"Този файл или директорияThe file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
 
 # ID:80,
 #: ID:80
@@ -5678,6 +5725,16 @@ msgstr "поверявания"
 #: ID:11
 msgid "conflicted"
 msgstr "с конфликти"
+
+# ID:77,
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"копиран от\r\n"
+"%s - ревизия %ld"
 
 # Control-ID:1113,
 #: Control-ID:1113
