@@ -47,7 +47,7 @@ class docbookXmlMode:
     def __init__(self):
         self.lists = ['itemizedlist', 'orderedlist', 'variablelist',
                       'segmentedlist', 'simplelist', 'calloutlist', 'varlistentry' ]
-        self.objects = [ 'figure', 'textobject', 'imageobject', 'mediaobject',
+        self.objects = [ 'table', 'figure', 'textobject', 'imageobject', 'mediaobject',
                          'screenshot' ]
         
     def getIgnoredTags(self):
