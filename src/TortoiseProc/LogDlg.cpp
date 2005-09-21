@@ -931,7 +931,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							url.SetFromSVN(GetURLFromPath(m_path));
 						}
 
-						diff.ShowCompare(url, rev2, url, rev1);
+						diff.ShowCompare(url, rev2, url, rev1, SVNRev::REV_HEAD);
 					}
 					break;
 				case ID_SAVEAS:
