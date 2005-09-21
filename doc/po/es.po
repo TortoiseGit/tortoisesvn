@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-09-13 21:16+0100\n"
+"PO-Revision-Date: 2005-09-21 23:59+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -451,6 +451,106 @@ msgstr "Ahora ya ha preparado Apache y Subversion, pero Apache aún no sabe cóm
 msgid "Apache httpd.conf Settings"
 msgstr "Opciones del fichero httpd.conf de Apache"
 
+#: source/en/tsvn_server/server_apache.xml:301
+#: (entry)
+msgid "Setting"
+msgstr "Configuración"
+
+#: source/en/tsvn_server/server_apache.xml:302
+#: (entry)
+msgid "Explanation"
+msgstr "Explicación"
+
+#: source/en/tsvn_server/server_apache.xml:307
+#: (entry)
+msgid "&lt;Location /svn&gt;"
+msgstr "&lt;Location /svn&gt;"
+
+#: source/en/tsvn_server/server_apache.xml:310
+#: (systemitem)
+msgid "http://MyServer/svn/"
+msgstr "http://MiServidor/svn/"
+
+#: source/en/tsvn_server/server_apache.xml:308
+#: (entry)
+msgid "means that the Subversion repositories are available from the URL <placeholder-1/>"
+msgstr "significa que los repositorios de Subversion están disponibles en la URL <placeholder-1/>"
+
+#: source/en/tsvn_server/server_apache.xml:314
+#: (entry)
+msgid "DAV svn"
+msgstr "DAV svn"
+
+#: source/en/tsvn_server/server_apache.xml:315
+#: (entry)
+msgid "tells Apache which module will be responsible to serve that URL - in this case the Subversion module."
+msgstr "le dice a Apache qué módulo será responsable de servir esa URL - en este caso, el módulo de Subversion."
+
+#: source/en/tsvn_server/server_apache.xml:321
+#: (entry)
+msgid "SVNParentPath D:\\SVN"
+msgstr "SVNParentPath D:\\SVN"
+
+#: source/en/tsvn_server/server_apache.xml:324
+#: (filename)
+msgid "D:\\SVN"
+msgstr "D:\\SVN"
+
+#: source/en/tsvn_server/server_apache.xml:322
+#: (entry)
+msgid "tells Subversion to look for repositories below <placeholder-1/>"
+msgstr "le dice a Subversion que busque repositorios bajo <placeholder-1/>"
+
+#: source/en/tsvn_server/server_apache.xml:328
+#: (entry)
+msgid "AuthType Basic"
+msgstr "AuthType Basic"
+
+#: source/en/tsvn_server/server_apache.xml:329
+#: (entry)
+msgid "is to activate basic authentication, i.e. Username/password"
+msgstr "se utiliza para activar la autentificación básica, es decir, Usuario/contraseña"
+
+#: source/en/tsvn_server/server_apache.xml:335
+#: (entry)
+msgid "AuthName \"Subversion repositories\""
+msgstr "AuthName \"Repositorios de Subversion\""
+
+#: source/en/tsvn_server/server_apache.xml:336
+#: (entry)
+msgid "is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for"
+msgstr "se utiliza cuando le aparezca un diálogo de autentificación al usuario como información para decirle para qué se necesita su autentificación"
+
+#: source/en/tsvn_server/server_apache.xml:342
+#: (entry)
+msgid "AuthUserFile passwd"
+msgstr "AuthUserFile passwd"
+
+#: source/en/tsvn_server/server_apache.xml:343
+#: (entry)
+msgid "specifies which password file to use for authentication"
+msgstr "especifica qué fichero de contraseñas se utiliza para la autentificación"
+
+#: source/en/tsvn_server/server_apache.xml:348
+#: (entry)
+msgid "AuthzSVNAccessFile"
+msgstr "AuthzSVNAccessFile"
+
+#: source/en/tsvn_server/server_apache.xml:349
+#: (entry)
+msgid "Location of the Access file for paths inside a Subversion repository"
+msgstr "Lugar del fichero de Acceso para las rutas dentro del repositorio de Subversion"
+
+#: source/en/tsvn_server/server_apache.xml:355
+#: (entry)
+msgid "Require valid-user"
+msgstr "Require valid-user"
+
+#: source/en/tsvn_server/server_apache.xml:356
+#: (entry)
+msgid "specifies that only users who entered a correct username/password are allowed to access the URL"
+msgstr "especifica que sólo los usuarios que hayan introducido un par usuario/contraseña válido podrán acceder a la URL"
+
 #: source/en/tsvn_server/server_apache.xml:368
 #: (para)
 msgid ""
@@ -541,8 +641,8 @@ msgstr ""
 
 #: source/en/tsvn_server/server_apache.xml:286
 #: (para)
-msgid "A short explanation of what you just entered: <indexterm><primary>SVNPath</primary></indexterm><indexterm><primary>SVNParentPath</primary></indexterm><table id=\"tsvn-serversetup-apache-4-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1.5*\"/><colspec colnum=\"2\" colwidth=\"3*\"/><thead><row><entry>Setting</entry><entry>Explanation</entry></row></thead><tbody><row><entry>&lt;Location /svn&gt;</entry><entry> means that the Subversion repositories are available from the URL <systemitem class=\"url\">http://MyServer/svn/</systemitem></entry></row><row><entry>DAV svn</entry><entry> tells Apache which module will be responsible to serve that URL - in this case the Subversion module. </entry></row><row><entry>SVNParentPath D:\\SVN</entry><entry> tells Subversion to look for repositories below <filename>D:\\SVN</filename></entry></row><row><entry>AuthType Basic</entry><entry> is to activate basic authentication, i.e. Username/password </entry></row><row><entry>AuthName \"Subversion repositories\"</entry><entry> is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for </entry></row><row><entry>AuthUserFile passwd</entry><entry> specifies which password file to use for authentication </entry></row><row><entry>AuthzSVNAccessFile</entry><entry> Location of the Access file for paths inside a Subversion repository </entry></row><row><entry>Require valid-user</entry><entry> specifies that only users who entered a correct username/password are allowed to access the URL </entry></row></tbody></tgroup></table> But that's just an example. There are many, many more possibilities of what you can do with the Apache webserver. <placeholder-2/>"
-msgstr "Una explicación corta de lo que acaba de escribir: <indexterm><primary>SVNPath</primary></indexterm><indexterm><primary>SVNParentPath</primary></indexterm><table id=\"tsvn-serversetup-apache-4-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1.5*\"/><colspec colnum=\"2\" colwidth=\"3*\"/><thead><row><entry>Opción</entry><entry>Explicación</entry></row></thead><tbody><row><entry>&lt;Location /svn&gt;</entry><entry> significa que los repositorios de Subversion están disponibles desde la URL <systemitem class=\"url\">http://MiServidor/svn/</systemitem></entry></row><row><entry>DAV svn</entry><entry> le dice a Apache qué módulo debe ser responsable de servir dicha URL - en este caso el módulo de Subversion. </entry></row><row><entry>SVNParentPath D:\\SVN</entry><entry> le dice a Subversion que busque los repositorios bajo <filename>D:\\SVN</filename></entry></row><row><entry>AuthType Basic</entry><entry> activa la autentificación básica, es decir, Usuario/contraseña </entry></row><row><entry>AuthName \"Repositorios de Subversion\"</entry><entry> se utiliza como una información cuando aparece un diálogo de autentificación que le comunica al usuario para qué es la autentificación </entry></row><row><entry>AuthUserFile passwd</entry><entry> especifica qué fichero de contraseñas debe utilizarse para la autentificación </entry></row><row><entry>AuthzSVNAccessFile</entry><entry> Ruta del fichero de acceso para las rutas dentro de un repositorio de Subversion </entry></row><row><entry>Require valid-user</entry><entry> indica que sólo a los usuarios que hayan introducido un usuario/contraseña correctos se les permite el acceso a la URL </entry></row></tbody></tgroup></table> Pero esto es sólo un ejemplo. Hay muchas, muchas más posibilidades de lo que puede hacer con el servidor web Apache. <placeholder-2/>"
+msgid "A short explanation of what you just entered: <indexterm><primary>SVNPath</primary></indexterm><indexterm><primary>SVNParentPath</primary></indexterm><placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache webserver. <placeholder-2/>"
+msgstr "Una explicación corta de lo que acaba de introducir:<indexterm><primary>SVNPath</primary></indexterm><indexterm><primary>SVNParentPath</primary></indexterm><placeholder-1/> Pero eso es sólo un ejemplo. Hay muchas, muchas más posibilidades de lo que puede hacer con el servidor web Apache. <placeholder-2/>"
 
 #: source/en/tsvn_server/server_apache.xml:439
 #: (title)
@@ -4883,8 +4983,8 @@ msgstr "Nos encanta escuchar música mientras trabajamos en TortoiseSVN. Y dado 
 
 #: source/en/Version.xml:2
 #: (subtitle)
-msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr "Versión $MajorVersion$.$MinorVersion$.$MicroVersion$"
+msgid "Version 1.2.2"
+msgstr "Versión 1.2.2"
 
 #: source/en/tsvn_subwcrev.xml:3
 #: (title)
@@ -4937,20 +5037,151 @@ msgstr "Si quiere que SubWCRev realice sustituciones de palabras clave, para que
 msgid "List of available command line switches"
 msgstr "Lista de opciones de línea de comandos disponible"
 
+#: source/en/tsvn_subwcrev.xml:66
+#: (entry) source/en/tsvn_app_cli.xml:363
+#: (title)
+msgid "Switch"
+msgstr "Cambiar"
+
+#: source/en/tsvn_subwcrev.xml:67
+#: (entry) source/en/tsvn_subwcrev.xml:136
+msgid "Description"
+msgstr "Descripción"
+
+#: source/en/tsvn_subwcrev.xml:72
+#: (entry)
+msgid "-n"
+msgstr "-n"
+
+#: source/en/tsvn_subwcrev.xml:73
+#: (entry)
+msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 7 if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
+msgstr "Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 7 si la copia de trabajo tiene modificaciones locales. Esto puede utilizarse para evitar compilaciones cuando hay presentes cambios sin confirmar."
+
+#: source/en/tsvn_subwcrev.xml:81
+#: (entry)
+msgid "-m"
+msgstr "-m"
+
+#: source/en/tsvn_subwcrev.xml:82
+#: (entry)
+msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 8 if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
+msgstr "Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 8 si la copia de trabajo contiene revisiones mezcladas. Esto puede utilizarse para evitar compilaciones de una copia de trabajo parcialmente actualizada."
+
+#: source/en/tsvn_subwcrev.xml:90
+#: (entry)
+msgid "-d"
+msgstr "-d"
+
+#: source/en/tsvn_subwcrev.xml:91
+#: (entry)
+msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 9 if the destination file already exists."
+msgstr "Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 9 si el fichero de destino ya existe."
+
+#: source/en/tsvn_subwcrev.xml:98
+#: (entry)
+msgid "-f"
+msgstr "-f"
+
+#: source/en/tsvn_subwcrev.xml:99
+#: (entry)
+msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
+msgstr "Si se especifica esta opción, SubWCRev incluirá la revisión del último cambio de las carpetas. El comportamiento por defecto es utilizar únicamente los ficheros cuando se obtienen los números de revisión."
+
+#: source/en/tsvn_subwcrev.xml:107
+#: (entry)
+msgid "-e"
+msgstr "-e"
+
+#: source/en/tsvn_subwcrev.xml:108
+#: (entry)
+msgid "If this switch is given, SubWCRev will examine directories which are included with svn:externals, but only if they are from the same repository. The default behaviour is to ignore externals."
+msgstr "Si se especifica esta opción, SubWCRev examinará los directorios que se han incluído con svn:externals, pero sólo si son del mismo repositorio. El comportamiento por defecto es ignorar los externos."
+
 #: source/en/tsvn_subwcrev.xml:53
 #: (para)
-msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <table id=\"tsvn-subwcrev-switch-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"10*\"/><thead><row><entry>Switch</entry><entry>Description</entry></row></thead><tbody><row><entry>-n</entry><entry> If this switch is given, SubWCRev will exit with ERRORLEVEL 7 if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present. </entry></row><row><entry>-m</entry><entry> If this switch is given, SubWCRev will exit with ERRORLEVEL 8 if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy. </entry></row><row><entry>-d</entry><entry> If this switch is given, SubWCRev will exit with ERRORLEVEL 9 if the destination file already exists. </entry></row><row><entry>-f</entry><entry> If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers. </entry></row><row><entry>-e</entry><entry> If this switch is given, SubWCRev will examine directories which are included with svn:externals, but only if they are from the same repository. The default behaviour is to ignore externals. </entry></row></tbody></tgroup></table>"
-msgstr "Hay un número de opciones optativas que pueden afectar a la forma en la que funciona SubWCRev. Si utiliza más de una, deben especificarse en un único grupo, por ejemplo, <literal>-nm</literal>, no <literal>-n -m</literal>. <table id=\"tsvn-subwcrev-switch-table\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"10*\"/><thead><row><entry>Opción</entry><entry>Descripción</entry></row></thead><tbody><row><entry>-n</entry><entry> Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 7 si la copia de trabajo contiene modificaciones locales. Esto puede utilizarse para evitar compilaciones que tengan cambios sin confirmar. </entry></row><row><entry>-m</entry><entry> Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 8 si la copia de trabajo contiene revisiones mezcladas. Esto puede utilizarse para evitar compilaciones con una copia de trabajo parcialmente actualizada. </entry></row><row><entry>-d</entry><entry> Si se especifica esta opción, SubWCRev terminará con ERRORLEVEL 9 si el fichero de destino ya existe. </entry></row><row><entry>-f</entry><entry> Si se especifica esta opción, SubWCRev incluirá las revisiones del último cambio de las carpetas. El comportamiento por defecto es utilizar sólo los ficheros cuando se obtienen los números de revisión. </entry></row><row><entry>-e</entry><entry> Si se especifica esta opción, SubWCRev examinará los directorios que están incluídos con svn:externals, pero sólo si son del mismo repositorio. El comportamiento por defecto es ignorar los externos. </entry></row></tbody></tgroup></table>"
+msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
+msgstr "Hay un número de modificadores opcionales que afectan la forma en la que SubWCRev trabaja. Si utiliza más de una, debe especificarlos como un único grupo, por ejemplo, <literal>-nm</literal> y no <literal>-n -m</literal>. <placeholder-1/>"
 
 #: source/en/tsvn_subwcrev.xml:124
 #: (title)
 msgid "Keyword Substitution"
 msgstr "Sustitución de palabras clave"
 
+#: source/en/tsvn_subwcrev.xml:135
+#: (entry)
+msgid "Keyword"
+msgstr "Palabra clave"
+
+#: source/en/tsvn_subwcrev.xml:141
+#: (entry)
+msgid "$WCREV$"
+msgstr "$WCREV$"
+
+#: source/en/tsvn_subwcrev.xml:142
+#: (entry)
+msgid "Replaced with the highest commit revision in the working copy."
+msgstr "Se reemplaza con la revisión de confirmación más alta de la copia de trabajo."
+
+#: source/en/tsvn_subwcrev.xml:148
+#: (entry)
+msgid "$WCDATE$"
+msgstr "$WCDATE$"
+
+#: source/en/tsvn_subwcrev.xml:153
+#: (literal)
+msgid "yyyy-mm-dd hh:mm:ss"
+msgstr "yyyy-mm-dd hh:mm:ss"
+
+#: source/en/tsvn_subwcrev.xml:149
+#: (entry)
+msgid "Replaced with the commit date/time of the highest commit revision. To avoid confusion, international format is used, ie. <placeholder-1/>"
+msgstr "Se reemplaza con la fecha y hora de la confirmación de la revisión de confirmación más alta de la copia de trabajo. Para evitar confusiones, se utiliza el formato internacional, es decir, <placeholder-1/>"
+
+#: source/en/tsvn_subwcrev.xml:157
+#: (entry)
+msgid "$WCRANGE$"
+msgstr "$WCRANGE$"
+
+#: source/en/tsvn_subwcrev.xml:158
+#: (entry)
+msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
+msgstr "Se reemplaza con el rango de revisiones de actualización de la copia de trabajo. Si la copia de trabajo está en un estado consistente, esto será una única revisión. Si la copia de trabajo contiene revisiones mezcladas, bien por estar desactualizada, o bien porque se ha realizado deliberadamente una actualización a una revisión concreta, se mostrará el rango de la forma 100:200."
+
+#: source/en/tsvn_subwcrev.xml:169
+#: (entry)
+msgid "$WCMIXED?TText:FText$"
+msgstr "$WCMIXED?TText:FText$"
+
+#: source/en/tsvn_subwcrev.xml:170
+#: (entry)
+msgid "Replaced with TText if there are mixed update revisions, or FText if not."
+msgstr "Se reemplaza por TText si hay revisiones de actualización mezcladas, o por FText si no las hay."
+
+#: source/en/tsvn_subwcrev.xml:176
+#: (entry)
+msgid "$WCMODS?TText:FText$"
+msgstr "$WCMODS?TText:FText$"
+
+#: source/en/tsvn_subwcrev.xml:177
+#: (entry)
+msgid "Replaced with TText if there are local modifications, or FText if not."
+msgstr "Se reemplaza por TText si hay modificaciones locales, o por FText si no las hay."
+
+#: source/en/tsvn_subwcrev.xml:183
+#: (entry)
+msgid "$WCURL$"
+msgstr "$WCURL$"
+
+#: source/en/tsvn_subwcrev.xml:184
+#: (entry)
+msgid "Replaced with the repository URL of the working copy path passed to SubWCRev."
+msgstr "Se reemplaza con la URL del repositorio de la copia de trabajo pasada a SubWCRev."
+
 #: source/en/tsvn_subwcrev.xml:125
 #: (para)
-msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <table id=\"tsvn-subwcrev-switch-table2\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"4*\"/><thead><row><entry>Keyword</entry><entry>Description</entry></row></thead><tbody><row><entry>$WCREV$</entry><entry> Replaced with the highest commit revision in the working copy. </entry></row><row><entry>$WCDATE$</entry><entry> Replaced with the commit date/time of the highest commit revision. To avoid confusion, international format is used, ie. <literal>yyyy-mm-dd hh:mm:ss</literal></entry></row><row><entry>$WCRANGE$</entry><entry> Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200 </entry></row><row><entry>$WCMIXED?TText:FText$</entry><entry> Replaced with TText if there are mixed update revisions, or FText if not. </entry></row><row><entry>$WCMODS?TText:FText$</entry><entry> Replaced with TText if there are local modifications, or FText if not. </entry></row><row><entry>$WCURL$</entry><entry> Replaced with the repository URL of the working copy path passed to SubWCRev. </entry></row></tbody></tgroup></table>"
-msgstr "Si se especifican los ficheros de origen y destino, SubWCRev copia el fichero origen al destino, realizando la sustitución de palabras clave como sigue: <table id=\"tsvn-subwcrev-switch-table2\"><placeholder-1/><tgroup cols=\"2\"><colspec colnum=\"1\" colwidth=\"1*\"/><colspec colnum=\"2\" colwidth=\"4*\"/><thead><row><entry>Palabra clave</entry><entry>Descripción</entry></row></thead><tbody><row><entry>$WCREV$</entry><entry> Se reemplaza con el número de revisión de confirmación más alto de la copia de trabajo. </entry></row><row><entry>$WCDATE$</entry><entry> Se reemplaza con la fecha/hora de la confirmación más alta. Para evitar confusiones, se utiliza el formato internacional, es decir, <literal>yyyy-mm-dd hh:mm:ss</literal></entry></row><row><entry>$WCRANGE$</entry><entry> Se reemplaza con el rango de revisiones de actualización en la copia de trabajo. Si la copia de trabajo está en un estado consistente, esto será una única revisión. Si la copia de trabajo contiene revisiones mezcladas, bien por no estar actualizada, o bien porque se ha actualizado deliberadamente a una revisión en concreto, entonces se mostrará el rango de la forma 100:200 </entry></row><row><entry>$WCMIXED?TText:FText$</entry><entry> Se reemplaza con TText si hay revisiones mezcladas, o FText si no las hay. </entry></row><row><entry>$WCMODS?TText:FText$</entry><entry> Se reemplaza con TText si hay modificaciones locales, o FText si no las hay. </entry></row><row><entry>$WCURL$</entry><entry> Se reemplaza con la URL del repositorio de la ruta de la copia de trabajo que se le pasa a SubWCRev. </entry></row></tbody></tgroup></table>"
+msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <placeholder-1/>"
+msgstr "Si se especifican ficheros de origen y destino, SubWCRev copia el fichero origen al destino, realizando las siguientes sustituciones de palabras clave: <placeholder-1/>"
 
 #: source/en/tsvn_subwcrev.xml:198
 #: (title)
@@ -7009,11 +7240,6 @@ msgstr "Revisión específica en el repositorio"
 #: (para)
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
 msgstr "El diálogo Rama/Etiqueta hace una copia en el repositorio. Hay 3 botones de opciones: <placeholder-1/> que corresponden a las 3 variantes de línea de comandos anteriores."
-
-#: source/en/tsvn_app_cli.xml:363
-#: (title)
-msgid "Switch"
-msgstr "Cambiar"
 
 #: source/en/tsvn_app_cli.xml:364
 #: (screen)
