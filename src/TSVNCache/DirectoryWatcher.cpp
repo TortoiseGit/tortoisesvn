@@ -79,6 +79,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 {
 	if (!m_shellCache.IsPathAllowed(path.GetWinPath()))
 		return false;
+	AutoLocker lock(m_critSec);
 	for (int i=0; i<watchedPaths.GetCount(); ++i)
 	{
 		if (watchedPaths[i].IsAncestorOf(path))
@@ -143,7 +144,6 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 			}
 		}
 	}
-	AutoLocker lock(m_critSec);
 	if (!newroot.IsEmpty())
 	{
 		ATLTRACE("add path to watch %ws\n", newroot.GetWinPath());
