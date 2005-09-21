@@ -324,7 +324,6 @@ void CCheckoutDlg::OnBnClickedShowlog()
 		m_pLogDlg->m_pNotifyWindow = this;
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
-		m_pLogDlg->m_pNotifyWindow = this;
 	}
 	AfxGetApp()->DoWaitCursor(-1);
 }

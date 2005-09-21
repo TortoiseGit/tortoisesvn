@@ -36,6 +36,7 @@
        was shown even if a filter was applied and the selected revisions
        were not continuous. That lead to revisions reverted which weren't
        really selected. (Stefan)
+- BUG: When unlocking multiple folders, TSVN could crash. (Stefan)
 
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,
