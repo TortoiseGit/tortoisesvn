@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-09-08 13:25+0900\n"
+"PO-Revision-Date: 2005-09-21 10:42+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -750,6 +750,12 @@ msgstr "추가"
 #: ID:101
 msgid "Add &File..."
 msgstr "파일 추가(&F)..."
+
+# ID:376,
+#: ID:376
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "'%s' 를 사전에 추가"
 
 # ID:110,
 #: ID:110
@@ -1595,6 +1601,12 @@ msgstr "클립보드에 복사합니다"
 #: ID:103
 msgid "Copy to working copy"
 msgstr "작업 사본으로 복사"
+
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "복사: %s의 새 이름"
 
 # ID:80,
 #: ID:80
@@ -2951,6 +2963,12 @@ msgstr "수정됨"
 msgid "Most active author:"
 msgstr "가장 활동이 많은 작성자:"
 
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr "이동: %s의 새 이름"
+
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -3115,6 +3133,12 @@ msgstr "보통"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "일부 레지스트리(혹은 INI파일)이 삭제되지 않았습니다."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "명령을 수행하기에 메모리가 충분하지 않습니다."
 
 # ID:88,
 #: ID:88
@@ -5652,6 +5676,16 @@ msgstr "커밋"
 #: ID:11
 msgid "conflicted"
 msgstr "충돌"
+
+# ID:226,
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"복사됨\r\n"
+"원본: %s - 리비전: %ld"
 
 # Control-ID:1113,
 #: Control-ID:1113
