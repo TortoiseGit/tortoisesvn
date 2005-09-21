@@ -1857,6 +1857,22 @@ void CTortoiseProcApp::CheckUpgrade()
 		CRegDWORD(_T("Software\\TortoiseSVN\\ExternalCache")).removeValue();
 	}
 	
+	if (lVersion <= 0x01020200)
+	{
+		// upgrade to > 1.2.3 means the doc diff scripts changed from vbs to js
+		// so remove the diff/merge scripts if they're the defaults
+		CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\.doc"));
+		CString sDiff = diffreg;
+		CString sCL = _T("wscript.exe \"") + CUtils::GetAppParentDirectory()+_T("Diff-Scripts\\diff-doc.vbs\"");
+		if (sDiff.Left(sCL.GetLength()).CompareNoCase(sCL)==0)
+			diffreg = _T("");
+		CRegString mergereg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\.doc"));
+		sDiff = mergereg;
+		sCL = _T("wscript.exe \"") + CUtils::GetAppParentDirectory()+_T("Diff-Scripts\\merge-doc.vbs\"");
+		if (sDiff.Left(sCL.GetLength()).CompareNoCase(sCL)==0)
+			mergereg = _T("");
+	}
+	
 	// set the custom diff scripts for every user
 	CString scriptsdir = CUtils::GetAppParentDirectory();
 	scriptsdir += _T("Diff-Scripts");
@@ -1867,17 +1883,27 @@ void CTortoiseProcApp::CheckUpgrade()
 		CString filename = files.GetFileName();
 		CString ext = file.Mid(file.ReverseFind('-')+1);
 		ext = _T(".")+ext.Left(ext.ReverseFind('.'));
+		CString kind;
+		if (file.Right(3).CompareNoCase(_T("vbs"))==0)
+		{
+			kind = _T(" //E:vbscript");
+		}
+		if (file.Right(2).CompareNoCase(_T("js"))==0)
+		{
+			kind = _T(" //E:javascript");
+		}
+		
 		if (filename.Left(5).CompareNoCase(_T("diff-"))==0)
 		{
 			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
 			if (((CString)diffreg).IsEmpty())
-				diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine");
+				diffreg = _T("wscript.exe \"") + file + _T("\" %base %mine") + kind;
 		}
 		if (filename.Left(6).CompareNoCase(_T("merge-"))==0)
 		{
-			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\")+ext);
+			CRegString diffreg = CRegString(_T("Software\\TortoiseSVN\\MergeTools\\")+ext);
 			if (((CString)diffreg).IsEmpty())
-				diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base");
+				diffreg = _T("wscript.exe \"") + file + _T("\" %merged %theirs %mine %base") + kind;
 		}
 	}
 
