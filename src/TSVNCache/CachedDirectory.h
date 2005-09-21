@@ -44,6 +44,8 @@ public:
 	void RefreshStatus(bool bRecursive);
 	BOOL SaveToDisk(FILE * pFile);
 	BOOL LoadFromDisk(FILE * pFile);
+	/// Get the current full status of this folder
+	svn_wc_status_kind GetCurrentFullStatus() {return m_currentFullStatus;}
 private:
 	static void GetStatusCallback(void *baton, const char *path, svn_wc_status2_t *status);
 	void AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus);
@@ -58,8 +60,6 @@ private:
 	// Update our composite status and deal with things if it's changed
 	void UpdateCurrentStatus();
 
-	// Get the current full status of this folder, recalculating if necessary
-	svn_wc_status_kind GetCurrentFullStatus();
 
 private:
 	CComAutoCriticalSection m_critSec;

@@ -189,11 +189,25 @@ void CFolderCrawler::WorkerThread()
 					ATLTRACE("Invalidating and refreshing folder: %ws\n", workingPath.GetWinPath());
 					CSVNStatusCache::Instance().WaitToRead();
 					// Invalidate the cache of this folder, to make sure its status is fetched again.
-					CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->Invalidate();
-					if (PathFileExists(workingPath.GetWinPath()))
-						CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
-					else
-						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+					CCachedDirectory * pCachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
+					if (pCachedDir)
+					{
+						svn_wc_status_kind status = pCachedDir->GetCurrentFullStatus();
+						pCachedDir->Invalidate();
+						if (PathFileExists(workingPath.GetWinPath()))
+						{
+							pCachedDir->RefreshStatus(bRecursive);
+							// if the previous status wasn't normal and now it is, then
+							// send a notification too.
+							// We do this here because GetCurrentFullStatus() doesn't send
+							// notifications for 'normal' status - if it would, we'd get tons
+							// of notifications when crawling a working copy not yet in the cache.
+							if ((status != svn_wc_status_normal)&&(pCachedDir->GetCurrentFullStatus() != status))
+								CSVNStatusCache::Instance().UpdateShell(workingPath);
+						}
+						else
+							CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+					}
 					CSVNStatusCache::Instance().Done();
 				}
 				else if (workingPath.HasAdminDir())
