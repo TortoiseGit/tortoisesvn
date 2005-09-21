@@ -1599,7 +1599,8 @@ BOOL CTortoiseProcApp::InitInstance()
 							if (status->entry->lock_token[0] != 0)
 								lockedList.AddPath(retPath);
 						}
-						status = stat.GetNextFileStatus(retPath);
+						if (status)
+							status = stat.GetNextFileStatus(retPath);
 					} while(status && !retPath.IsEmpty());
 				}
 				else
