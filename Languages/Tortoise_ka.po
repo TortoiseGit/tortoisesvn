@@ -525,6 +525,11 @@ msgstr "დამატება"
 msgid "Add &File..."
 msgstr "&ფაილის დამატება..."
 
+#: ID:376,
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "ლექსიკონში დამატება - '%s'"
+
 #: ID:110,
 msgid "Add Extension Specific Diff Program"
 msgstr "შედარების პროგრამის გაფართოების დამატება"
@@ -1130,6 +1135,11 @@ msgstr "ბუფერში კოპირება"
 #: ID:103,
 msgid "Copy to working copy"
 msgstr "კოპირება სამუშაო ასლში..."
+
+#: ID:98,
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "კოპირება: %s - ახალი სახელი"
 
 #: ID:80,
 #, c-format
@@ -2042,6 +2052,11 @@ msgstr "შეცვლილი"
 msgid "Most active author:"
 msgstr "ყველაზე აქტიური ავტორი:"
 
+#: ID:98,
+#, c-format
+msgid "Move: New name for %s"
+msgstr "გადატანა: %s - ახალი სახელი"
+
 #: ID:126,
 msgid "Moved remotely"
 msgstr "დაშორებული გადატანა"
@@ -2153,6 +2168,10 @@ msgstr "ჩვეულებრივი"
 #: ID:3857,#: ID:3857,
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "სისტემური რეგისტრის (ან INI ფაილის) ყველა ელემენტი არ ამოღებულა."
+
+#: ID:83,
+msgid "Not enough memory to complete operation."
+msgstr "ოპერაციის დასასრულებლად მეხსიერება საკმარისი არაა"
 
 #: ID:88,
 msgid "Notice"
