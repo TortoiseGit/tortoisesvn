@@ -31,7 +31,7 @@
 		</menuchoice>.
 		<figure id="tsvn-DUG-commit-dia-1">
 			<title>The Commit dialog</title>
-			<graphic fileref="images/CommitContextMenu.png"/>
+			<graphic fileref="images/Commit.png"/>
 		</figure>
 	</para>
 	<para>
@@ -40,6 +40,7 @@
 		want a changed file to be committed, just uncheck that
 		file. If you want to include an unversioned file,
 		just check that file to add it to the commit.
+	</para>
 		<tip>
 			<title>Commit files or folders?</title>
 			<para>
@@ -52,6 +53,13 @@
 				your life easier by doing more work for you.
 			</para>
 		</tip>
+	<para>
+		If you have modified files which have been included from a different
+		repository using <literal>svn:externals</literal>, those changes cannot
+		be included in the same atomic commit. A warning symbol below the file
+		list tells you if this has happened, and the tooltip explains that
+		those external files have to be committed separately.
+	</para>
 		<tip>
 			<title>Many unversioned files in the commit dialog</title>
 			<para>
@@ -84,10 +92,30 @@
 				Read <xref linkend="tsvn-DUG-ignore"/> for more information. 
 			</para>
 		</tip>
-	</para>
 	<para>
 		<action>Doubleclicking</action> on any modified file in the commit
 		dialog will launch the external diff tool to show your changes.
+		The context menu will give you more options, as shown in the screenshot.
+	</para>
+	<para>
+		Be sure to enter a log message which describes the changes you are
+		committing. This will help you to see what happened and when, as you
+		browse through the project log messages at a later date. The message
+		can be as long or as brief as you like; many projects have guidelines
+		for what should be included, the language to use, and sometimes even
+		a strict format.
+	</para>
+	<para>
+		<figure id="tsvn-DUG-commit-dia-2">
+			<title>The Commit Dialog Spellchecker</title>
+			<graphic fileref="images/CommitSpellchecker.png"/>
+		</figure>
+		TortoiseSVN includes a spellchecker to help you get your log messages
+		right. This will highlight any mis-spelled words. Use the context menu
+		to access the suggested corrections. Of course, it doesn't know
+		<emphasis>every</emphasis> technical term that you do, so correctly
+		spelt words will sometimes show up as errors. But don't worry. You can
+		just add them to your personal dictionary using the context menu.
 	</para>
 	<para>
 		After pressing <guibutton>OK</guibutton>, a dialog appears displaying
