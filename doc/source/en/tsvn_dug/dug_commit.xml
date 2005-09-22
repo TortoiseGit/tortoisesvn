@@ -41,18 +41,18 @@
 		file. If you want to include an unversioned file,
 		just check that file to add it to the commit.
 	</para>
-		<tip>
-			<title>Commit files or folders?</title>
-			<para>
-				When you commit files, the commit dialog shows only
-				the files you have selected. When you commit a folder
-				the commit dialog will select the changed files automatically.
-				If you forget about a new file you created, committing the
-				folder will find it anyway. Committing a folder does <emphasis>not</emphasis>
-				mean that every file gets marked as changed; It just makes
-				your life easier by doing more work for you.
-			</para>
-		</tip>
+	<tip>
+		<title>Commit files or folders?</title>
+		<para>
+			When you commit files, the commit dialog shows only
+			the files you have selected. When you commit a folder
+			the commit dialog will select the changed files automatically.
+			If you forget about a new file you created, committing the
+			folder will find it anyway. Committing a folder does <emphasis>not</emphasis>
+			mean that every file gets marked as changed; It just makes
+			your life easier by doing more work for you.
+		</para>
+	</tip>
 	<para>
 		If you have modified files which have been included from a different
 		repository using <literal>svn:externals</literal>, those changes cannot
@@ -60,38 +60,38 @@
 		list tells you if this has happened, and the tooltip explains that
 		those external files have to be committed separately.
 	</para>
-		<tip>
-			<title>Many unversioned files in the commit dialog</title>
-			<para>
-				If you think that the TSVN commit dialog shows you too
-				many unversioned (e.g. compiler generated or editor backup)
-				files, there are several ways to handle this. You can:
-				<itemizedlist>
-					<listitem>
-						<para>
-							add the file (or a wildcard extension)
-							to the list of files to exclude on the settings page.
-							This will affect every working copy you have.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							add the file to the <literal>svn:ignore</literal> list
-							using
-							<menuchoice>
-								<guimenu>TortoiseSVN</guimenu>
-								<guimenuitem>Add to ignore list</guimenuitem>
-							</menuchoice>
-							This will only affect the directory on
-							which you set the <literal>svn:ignore</literal> property.
-							Using the SVN Property Dialog, you can alter the
-							<literal>svn:ignore</literal> property for a directory.
-						</para>
-					</listitem>
-				</itemizedlist>
-				Read <xref linkend="tsvn-DUG-ignore"/> for more information. 
-			</para>
-		</tip>
+	<tip>
+		<title>Many unversioned files in the commit dialog</title>
+		<para>
+			If you think that the TSVN commit dialog shows you too
+			many unversioned (e.g. compiler generated or editor backup)
+			files, there are several ways to handle this. You can:
+			<itemizedlist>
+				<listitem>
+					<para>
+						add the file (or a wildcard extension)
+						to the list of files to exclude on the settings page.
+						This will affect every working copy you have.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						add the file to the <literal>svn:ignore</literal> list
+						using
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Add to ignore list</guimenuitem>
+						</menuchoice>
+						This will only affect the directory on
+						which you set the <literal>svn:ignore</literal> property.
+						Using the SVN Property Dialog, you can alter the
+						<literal>svn:ignore</literal> property for a directory.
+					</para>
+				</listitem>
+			</itemizedlist>
+			Read <xref linkend="tsvn-DUG-ignore"/> for more information. 
+		</para>
+	</tip>
 	<para>
 		<action>Doubleclicking</action> on any modified file in the commit
 		dialog will launch the external diff tool to show your changes.
