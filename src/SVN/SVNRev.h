@@ -80,9 +80,10 @@ public:
 	operator svn_opt_revision_t * ();
 	enum
 	{
-		REV_HEAD = -1,		///< head revision
-		REV_BASE = -2,		///< base revision
-		REV_WC = -3,		///< revision of the working copy
+		REV_HEAD = -1,			///< head revision
+		REV_BASE = -2,			///< base revision
+		REV_WC = -3,			///< revision of the working copy
+		REV_UNSPECIFIED = -4,	///< unspecified revision
 	};
 protected:
 	void Create(LONG nRev);

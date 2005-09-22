@@ -118,6 +118,11 @@ void SVNRev::Create(LONG nRev)
 	{
 		rev.kind = svn_opt_revision_working;
 	}
+	else if (nRev == SVNRev::REV_UNSPECIFIED)
+	{
+		rev.kind = svn_opt_revision_unspecified;
+		m_bIsValid = FALSE;
+	}
 	else
 	{
 		rev.kind = svn_opt_revision_number;
@@ -137,9 +142,8 @@ SVNRev::operator LONG() const
 	case svn_opt_revision_base:		return SVNRev::REV_BASE;
 	case svn_opt_revision_working:	return SVNRev::REV_WC;
 	case svn_opt_revision_number:	return rev.value.number;
+	case svn_opt_revision_unspecified: return SVNRev::REV_UNSPECIFIED;
 	}
-
-	ASSERT(true);
 	return SVNRev::REV_HEAD;
 }
 
