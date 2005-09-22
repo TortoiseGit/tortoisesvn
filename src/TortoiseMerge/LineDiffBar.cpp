@@ -41,7 +41,7 @@ CLineDiffBar::CLineDiffBar()
 {
 	m_pMainFrm = NULL;
 	m_pCacheBitmap = NULL;
-	m_nLineIndex = 0;
+	m_nLineIndex = -1;
 	m_nLineHeight = 0;
 
 	m_bBinaryDiff = TRUE;
