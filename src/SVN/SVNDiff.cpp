@@ -243,8 +243,12 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : SVNRev::REV_HEAD), rev1, false);
 		if (data == NULL)
 		{
-			CMessageBox::Show(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-			return false;
+			data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, false);
+			if (data == NULL)
+			{
+				CMessageBox::Show(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+				return false;
+			}
 		}
 		
 		if (data->kind == svn_node_dir)
