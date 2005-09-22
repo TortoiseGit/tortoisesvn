@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-09-22 09:18+0100\n"
+"PO-Revision-Date: 2005-09-22 17:18+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1460,7 +1460,7 @@ msgstr "Änderungen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:168
 #: (title)
-#: source/en/tsvn_dug/dug_wcstatus.xml:257
+#: source/en/tsvn_dug/dug_wcstatus.xml:261
 #: (guilabel)
 #: source/en/tsvn_app_cli.xml:200
 msgid "Check for Modifications"
@@ -1478,7 +1478,7 @@ msgstr "Mit der <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche könn
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:195
 #: (term)
-#: source/en/tsvn_dug/dug_commit.xml:105
+#: source/en/tsvn_dug/dug_commit.xml:133
 msgid "Blue"
 msgstr "Blau"
 
@@ -1490,67 +1490,77 @@ msgstr "Lokal veränderte Objekte."
 #: source/en/tsvn_dug/dug_wcstatus.xml:201
 #: (term)
 #: source/en/tsvn_dug/dug_update.xml:34
-#: source/en/tsvn_dug/dug_commit.xml:111
+#: source/en/tsvn_dug/dug_commit.xml:139
 msgid "Purple"
 msgstr "Purpur"
 
+#: source/en/tsvn_dug/dug_wcstatus.xml:205
+#: (literal)
+msgid "+"
+msgstr "+"
+
+#: source/en/tsvn_dug/dug_wcstatus.xml:206
+#: (guilabel)
+msgid "Text status"
+msgstr "Text Status"
+
 #: source/en/tsvn_dug/dug_wcstatus.xml:202
 #: (listitem)
-msgid "Added items."
-msgstr "Hinzugefügte Objekte"
+msgid "Added items. Items which have been added with history have a <placeholder-1/> sign in the <placeholder-2/> column, and a tooltip shows where the item was copied from."
+msgstr "Hinzugefügte Objekte. Objekte, die mit Historie hinzugefügt wurden, erhalten ein <placeholder-1/> Zeichen in der <placeholder-2/> Spalte und ein Hinweistext zeigt an woher die Kopie stammt."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:207
+#: source/en/tsvn_dug/dug_wcstatus.xml:211
 #: (term)
 #: source/en/tsvn_dug/dug_update.xml:40
-#: source/en/tsvn_dug/dug_commit.xml:117
+#: source/en/tsvn_dug/dug_commit.xml:145
 msgid "Dark red"
 msgstr "Dunkelrot"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:208
+#: source/en/tsvn_dug/dug_wcstatus.xml:212
 #: (listitem)
 msgid "Deleted or missing items."
 msgstr "Gelöschte oder fehlende Objekte"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:213
+#: source/en/tsvn_dug/dug_wcstatus.xml:217
 #: (term)
 #: source/en/tsvn_dug/dug_update.xml:47
 msgid "Green"
 msgstr "Grün"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:217
+#: source/en/tsvn_dug/dug_wcstatus.xml:221
 #: (emphasis)
 msgid "may"
 msgstr "können"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:214
+#: source/en/tsvn_dug/dug_wcstatus.xml:218
 #: (listitem)
 msgid "Items modified locally and in the repository. The changes will be merged on update. These <placeholder-1/> produce conflicts on update."
 msgstr "Objekte, die lokal und im Projektarchiv verändert wurden. Die Änderungen werden beim Aktualisieren zusammengeführt. Diese Objekte <placeholder-1/> Konflikte beim Aktualisieren erzeugen."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:221
+#: source/en/tsvn_dug/dug_wcstatus.xml:225
 #: (term)
 #: source/en/tsvn_dug/dug_update.xml:54
 msgid "Bright red"
 msgstr "Hellrot"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:225
+#: source/en/tsvn_dug/dug_wcstatus.xml:229
 #: (emphasis)
 msgid "will"
 msgstr "werden"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:222
+#: source/en/tsvn_dug/dug_wcstatus.xml:226
 #: (listitem)
 msgid "Items modified locally and deleted in repository, or modified in repository and deleted locally. These <placeholder-1/> produce conflicts on update."
 msgstr "Lokal veränderte Objekte, die im Projektarchiv gelöscht wurden oder im Projektarchiv geänderte Objekte, die lokal gelöscht wurden. Diese Objekte <placeholder-1/> Konflikte beim Aktualisieren erzeugen."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:229
+#: source/en/tsvn_dug/dug_wcstatus.xml:233
 #: (term)
 #: source/en/tsvn_dug/dug_update.xml:61
-#: source/en/tsvn_dug/dug_commit.xml:123
+#: source/en/tsvn_dug/dug_commit.xml:151
 msgid "Black"
 msgstr "Schwarz"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:230
+#: source/en/tsvn_dug/dug_wcstatus.xml:234
 #: (listitem)
 msgid "Unchanged and unversioned items."
 msgstr "Unveränderte und nicht versionierte Objekte"
@@ -1560,47 +1570,47 @@ msgstr "Unveränderte und nicht versionierte Objekte"
 msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "Der Dialog verwendet eine Farbcodierung, um verschiedene Status anzuzeigen. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:236
+#: source/en/tsvn_dug/dug_wcstatus.xml:240
 #: (para)
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
 msgstr "Aus dem Kontextmenü des Dialoges heraus können Sie sich die Unterschiede anzeigen lassen. Wählen sie die lokalen Änderungen, die <emphasis>Sie</emphasis> gemacht haben, mittels <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleiche mit Basis</guimenuitem> </menuchoice>. Prüfen Sie die Änderungen im Projektarchiv, die andere gemacht haben, mittels <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Unterschiede als Standard Diff</guimenuitem> </menuchoice>."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:249
+#: source/en/tsvn_dug/dug_wcstatus.xml:253
 #: (para)
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <literal>Missing</literal> and you can use <literal>Revert</literal> to recover it."
 msgstr "Sie können auch Änderungen in einzelnen Dateien rückgängig machen. Falls Sie aus Versehen eine Datei gelöscht haben, wird sie in diesem Dialog als <literal>Fehlend</literal> angezeigt und kann mittels <literal>Rückgängig</literal> wieder hergestellt werden."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:259
+#: source/en/tsvn_dug/dug_wcstatus.xml:263
 #: (guilabel)
 msgid "Show unmodified files"
 msgstr "Unveränderte Dateien zeigen"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:254
+#: source/en/tsvn_dug/dug_wcstatus.xml:258
 #: (tip)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <placeholder-1/> dialog is the easiest way to achieve that. Just check the <placeholder-2/> checkbox to show all files in your working copy."
 msgstr "Wenn Sie eine flache Ansicht Ihrer Arbeitskopie (also alle Dateien und Ordner in einer Liste) wollen, dann ist der <placeholder-1/> Dialog der einfachste Weg das zu erreichen. Wählen Sie einfach die <placeholder-2/> Option, um alle Dateien in Ihrer Arbeitskopie anzuzeigen."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:264
+#: source/en/tsvn_dug/dug_wcstatus.xml:268
 #: (title)
 msgid "Viewing Diffs"
 msgstr "Unterschiede Anzeigen"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:266
+#: source/en/tsvn_dug/dug_wcstatus.xml:270
 #: (primary)
 msgid "diffing"
 msgstr "vergleichen"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:268
+#: source/en/tsvn_dug/dug_wcstatus.xml:272
 #: (para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
 msgstr "Oft möchten Sie in einer Datei sehen, was Sie geändert haben. Das können Sie durch das auswählen einer Datei und dem Kontextmenübefehl <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN. Dies startet das TortoiseMerge (oder ein externes Diff-Programm), das Ihnen die Änderungen seit dem letzten Auschecken oder Aktualisieren anzeigt."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:277
+#: source/en/tsvn_dug/dug_wcstatus.xml:281
 #: (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr "Auch wenn Sie sich nicht in einer Arbeitskopie befinden oder mehrere Versionen einer Datei haben, können Sie diese vergleichen: "
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:281
+#: source/en/tsvn_dug/dug_wcstatus.xml:285
 #: (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr "Markieren Sie die beiden Dateien, die Sie vergleichen wollen (z.B. mit <keycap>Strg<keycap> und Maus) und wählen Sie <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN im Kontextmenü. Die zuletzt markierte Datei (die mit dem Fokus, der gestrichelte Rahmen) wird als die neuere betrachtet. "
@@ -2388,86 +2398,91 @@ msgstr "<placeholder-1/> Hier können Sie Einstellungen für einen Proxyserver v
 
 #: source/en/tsvn_dug/dug_settings.xml:417
 #: (para)
+msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <literal>servers</literal> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Subversion Manual</citetitle></ulink> for details on how to use this file."
+msgstr "Wenn Sie Proxy Einstellungen für jedes Projektarchiv vornehmen wollen, müssen Sie das in der Subversion <literal>servers</literal> Datei einstellen. Über die <guibutton>Bearbeiten</guibutton> Schaltfläche kommen Sie direkt dort hin. Lesen Sie im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Subversion Buch</citetitle></ulink> nach, wie die Datei aufgebaut ist."
+
+#: source/en/tsvn_dug/dug_settings.xml:427
+#: (para)
 msgid "You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository. We recommend that you use TortoisePlink.exe. This is a version of the popular Plink program, and is included with TortoiseSVN."
 msgstr "Sie können hier auch angeben, welches Programm TortoiseSVN benutzen soll, um eine sichere Verbindung zum Projektarchiv via SSH herzustellen. Wir empfehlen Ihnen, dass Sie dazu TortoisePlink.exe verwenden. Dabei handelt es sich um eine für TortoiseSVN angepasste Version des bekannten Plink, die mit TortoiseSVN zusammen installiert wird."
 
-#: source/en/tsvn_dug/dug_settings.xml:425
+#: source/en/tsvn_dug/dug_settings.xml:435
 #: (title)
 msgid "External Program Settings"
 msgstr "Einstellungen für externe Programme"
 
-#: source/en/tsvn_dug/dug_settings.xml:428
+#: source/en/tsvn_dug/dug_settings.xml:438
 #: (title)
 msgid "The Settings Dialog, Diff Viewer Page"
 msgstr "Der Einstellungsdialog, Externe Programme"
 
-#: source/en/tsvn_dug/dug_settings.xml:426
+#: source/en/tsvn_dug/dug_settings.xml:436
 #: (para)
 msgid "<placeholder-1/> Here you can define your own diff/merge programs that TortoiseSVN should use. The basic setting is to use the builtin TortoiseMerge which is installed alongside TortoiseSVN."
 msgstr "<placeholder-1/> Hier können Sie Ihre eigenen Diff/Merge Programme definieren, die TortoiseSVN benutzen soll. In der Standardeinstellung wird das mitgelieferte Programm TortoiseMerge benutzt."
 
-#: source/en/tsvn_dug/dug_settings.xml:437
+#: source/en/tsvn_dug/dug_settings.xml:447
 #: (title)
 msgid "Diff Viewer"
 msgstr "Diff Betrachter"
 
-#: source/en/tsvn_dug/dug_settings.xml:450
+#: source/en/tsvn_dug/dug_settings.xml:460
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:527
+#: source/en/tsvn_dug/dug_settings.xml:537
 msgid "%base"
 msgstr "%base"
 
-#: source/en/tsvn_dug/dug_settings.xml:452
+#: source/en/tsvn_dug/dug_settings.xml:462
 #: (para)
 msgid "The original file without your changes"
 msgstr "Die Originaldatei ohne Ihre Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:458
+#: source/en/tsvn_dug/dug_settings.xml:468
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:536
+#: source/en/tsvn_dug/dug_settings.xml:546
 msgid "%bname"
 msgstr "%bname"
 
-#: source/en/tsvn_dug/dug_settings.xml:460
+#: source/en/tsvn_dug/dug_settings.xml:470
 #: (para)
-#: source/en/tsvn_dug/dug_settings.xml:538
+#: source/en/tsvn_dug/dug_settings.xml:548
 msgid "The window title for the base file"
 msgstr "Der Fenstertitel für die Originaldatei"
 
-#: source/en/tsvn_dug/dug_settings.xml:466
+#: source/en/tsvn_dug/dug_settings.xml:476
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:544
+#: source/en/tsvn_dug/dug_settings.xml:554
 msgid "%mine"
 msgstr "%mine"
 
-#: source/en/tsvn_dug/dug_settings.xml:468
+#: source/en/tsvn_dug/dug_settings.xml:478
 #: (para)
 msgid "Your own file, with your changes"
 msgstr "Die Datei mit Ihren eigenen Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:474
+#: source/en/tsvn_dug/dug_settings.xml:484
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:552
+#: source/en/tsvn_dug/dug_settings.xml:562
 msgid "%yname"
 msgstr "%yname"
 
-#: source/en/tsvn_dug/dug_settings.xml:476
+#: source/en/tsvn_dug/dug_settings.xml:486
 #: (para)
-#: source/en/tsvn_dug/dug_settings.xml:554
+#: source/en/tsvn_dug/dug_settings.xml:564
 msgid "The window title for your file"
 msgstr "Der Fenstertitel für Ihre Datei"
 
-#: source/en/tsvn_dug/dug_settings.xml:439
+#: source/en/tsvn_dug/dug_settings.xml:449
 #: (para)
 msgid "An external diff program may be used for comparing different revisions of files. The external program will need to obtain the filenames from the command line, along with any other command line options. TortoiseSVN uses substitution parameters prefixed with <literal>%</literal>. When it encounters one of these it will substitute the appropriate value. The order of the parameters will depend on the Diff program you use. <placeholder-1/>"
 msgstr "Ein externes Diff Programm, mit dem Sie verschiedene Revisionen einer Datei vergleichen können. Die Dateinamen müssen gemeinsam mit anderen Parametern per Kommandozeile übergeben werden. TortoiseSVN verwendet dazu Platzhalter, denen ein <literal>%</literal> vorangestellt wird. Die Reihenfolge der Parameter auf der Kommandozeile hängt von dem von Ihnen verwendeten Diff Programm ab. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_settings.xml:483
+#: source/en/tsvn_dug/dug_settings.xml:493
 #: (para)
 msgid "The window titles are not pure filenames. TortoiseSVN treats that as a name to display and creates the names accordingly. So e.g. if you're doing a diff from a file in revision 123 with a file in your working copy, the names will be <filename>filename : revision 123</filename> and <filename>filename : working copy</filename>"
 msgstr "Bei den Fenstertiteln handelt es sich nicht um reine Dateinamen. TortoiseSVN behandelt sie als Anzeigenamen und stellt den Titel entsprechend zusammen. Wenn Sie z.B. ein Diff zwischen einer Datei in Revision 123 und der Arbeitskopie machen, werden die Titel <filename>Dateiname : Revision 123</filename> und <filename>Dateiname : Arbeitskopie</filename> sein."
 
-#: source/en/tsvn_dug/dug_settings.xml:493
+#: source/en/tsvn_dug/dug_settings.xml:503
 #: (para)
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
@@ -2481,72 +2496,72 @@ msgstr ""
 "oder für KDiff3:\n"
 "<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine --L1 %bname --L2 %yname</screen>"
 
-#: source/en/tsvn_dug/dug_settings.xml:503
+#: source/en/tsvn_dug/dug_settings.xml:513
 #: (para)
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BAsE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
 msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter, insbesondere die <literal>Revision</literal> einer Datei, zu expandieren, kann ein Unterschied zwischen Dateien entstehen, der nur aus dem aktuellen Wert des Schlüsselwortes besteht. Ebenso wird, wenn Sie <literal>svn:eol-style = native</literal> setzen, die BASE Datei reine <literal>LF</literal> Zeilenenden haben, während Ihre Datei <literal>CR-LF</literal> Zeilenenden besitzt. TortoiseSVN wird diese Unterschiede normalerweise verbergen, indem es zuerst die Schlüsselwörter und Zeilenenden BASE Datei erweitert, bevor die Diff Operation durchgeführt wird. Dies kann bei großen Dateien viel Zeit beanspruchen. Wenn die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel> nicht gewählt ist, wird TortoiseSVN diese Vorbereitungsarbeiten nicht durchführen und damit Zeit sparen."
 
-#: source/en/tsvn_dug/dug_settings.xml:519
+#: source/en/tsvn_dug/dug_settings.xml:529
 #: (title)
 msgid "Merge Tool"
 msgstr "Merge Programm"
 
-#: source/en/tsvn_dug/dug_settings.xml:529
+#: source/en/tsvn_dug/dug_settings.xml:539
 #: (para)
 msgid "the original file without your or the others changes"
 msgstr "Die Originaldatei ohne irgendwelche Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:546
+#: source/en/tsvn_dug/dug_settings.xml:556
 #: (para)
 msgid "your own file, with your changes"
 msgstr "Die Datei mit Ihren eigenen Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:560
+#: source/en/tsvn_dug/dug_settings.xml:570
 #: (term)
 msgid "%theirs"
 msgstr "%theirs"
 
-#: source/en/tsvn_dug/dug_settings.xml:562
+#: source/en/tsvn_dug/dug_settings.xml:572
 #: (para)
 msgid "the file as it is in the repository"
 msgstr "Die Datei mit den letzten Änderungen im Projektarchiv"
 
-#: source/en/tsvn_dug/dug_settings.xml:568
+#: source/en/tsvn_dug/dug_settings.xml:578
 #: (term)
 msgid "%tname"
 msgstr "%tname"
 
-#: source/en/tsvn_dug/dug_settings.xml:570
+#: source/en/tsvn_dug/dug_settings.xml:580
 #: (para)
 msgid "The window title for the file in the repository"
 msgstr "Der Fenstertitel für die Datei im Projektarchiv"
 
-#: source/en/tsvn_dug/dug_settings.xml:576
+#: source/en/tsvn_dug/dug_settings.xml:586
 #: (term)
 msgid "%merged"
 msgstr "%merged"
 
-#: source/en/tsvn_dug/dug_settings.xml:578
+#: source/en/tsvn_dug/dug_settings.xml:588
 #: (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "Die Konfliktdatei (das Ergebnis der Zusammenführen Operation)"
 
-#: source/en/tsvn_dug/dug_settings.xml:585
+#: source/en/tsvn_dug/dug_settings.xml:595
 #: (term)
 msgid "%mname"
 msgstr "%mname"
 
-#: source/en/tsvn_dug/dug_settings.xml:587
+#: source/en/tsvn_dug/dug_settings.xml:597
 #: (para)
 msgid "The window title for the merged file"
 msgstr "Der Fenstertitel für die Ergebnisdatei"
 
-#: source/en/tsvn_dug/dug_settings.xml:521
+#: source/en/tsvn_dug/dug_settings.xml:531
 #: (para)
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
 msgstr "Ein externes Merge Programm, mit dem Sie Konflikte in Dateien auflösen können. Die Parameterübergabe an das Programm erfolgt genau so wie beim Diff Programm. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_settings.xml:594
+#: source/en/tsvn_dug/dug_settings.xml:604
 #: (para)
 msgid ""
 "For example, with Perforce WinMerge: <screen>\n"
@@ -2560,57 +2575,57 @@ msgstr ""
 "oder für KDiff3:\n"
 "<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine %theirs -o %merged</screen>"
 
-#: source/en/tsvn_dug/dug_settings.xml:606
+#: source/en/tsvn_dug/dug_settings.xml:616
 #: (title)
 msgid "Unified Diff Viewer"
 msgstr "Standard Diff Betrachter"
 
-#: source/en/tsvn_dug/dug_settings.xml:608
+#: source/en/tsvn_dug/dug_settings.xml:618
 #: (para)
 msgid "A viewer program for unified-diff files (patch files). If you don't have one the builtin option is to use NotePad. No parameters are required."
 msgstr "Ein Programm um GNU-Diff Dateien (Patch Dateien) zu betrachten. Als Standard ist Notepad eingestellt. Sie brauchen keine Parameter anzugeben."
 
-#: source/en/tsvn_dug/dug_settings.xml:613
+#: source/en/tsvn_dug/dug_settings.xml:623
 #: (para)
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
 msgstr "Das Original Windows Notepad Programm zeigt Zeilenenden, die nicht dem Windows Standard (CR-LF) entsprechen, nicht korrekt an. Da die meisten GNU Diffdateien Unix Zeilenenden (LF) besitzen ist das Resultat entsprechend. Sie können sich jedoch einen kostenlosen Notepad Ersatz <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"> <citetitle>Notepad2</citetitle> </ulink> herunterladen, der nicht nur die Zeilenenden korrekt anzeigt, sondern auch die hinzugefügten und gelöschten Zeilen farblich hervorhebt."
 
-#: source/en/tsvn_dug/dug_settings.xml:628
+#: source/en/tsvn_dug/dug_settings.xml:638
 #: (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr "Diff/Merge Erweiterte Einstellungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:626
+#: source/en/tsvn_dug/dug_settings.xml:636
 #: (para)
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for .jpg files :-)"
 msgstr "<placeholder-1/> Sie können für jede Dateiendung ein eigenes Diff oder Merge-Programm angeben,wenn Sie möchten. So können Sie z.B. Photoshop als <quote>Diff</quote> Programm für .jpg Dateien festlegen :-)"
 
-#: source/en/tsvn_dug/dug_settings.xml:637
+#: source/en/tsvn_dug/dug_settings.xml:647
 #: (title)
 msgid "TortoiseSVN's Sounds"
 msgstr "TortoiseSVN's Sounds"
 
-#: source/en/tsvn_dug/dug_settings.xml:639
+#: source/en/tsvn_dug/dug_settings.xml:649
 #: (primary)
 msgid "sounds"
 msgstr "sounds"
 
-#: source/en/tsvn_dug/dug_settings.xml:644
+#: source/en/tsvn_dug/dug_settings.xml:654
 #: (listitem)
 msgid "Error"
 msgstr "Fehler"
 
-#: source/en/tsvn_dug/dug_settings.xml:647
+#: source/en/tsvn_dug/dug_settings.xml:657
 #: (listitem)
 msgid "Notice"
 msgstr "Hinweis"
 
-#: source/en/tsvn_dug/dug_settings.xml:650
+#: source/en/tsvn_dug/dug_settings.xml:660
 #: (listitem)
 msgid "Warning"
 msgstr "Warnung"
 
-#: source/en/tsvn_dug/dug_settings.xml:641
+#: source/en/tsvn_dug/dug_settings.xml:651
 #: (para)
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel, not the TortoiseSVN settings dialog."
 msgstr "TortoiseSVN liefert drei eigene Töne mit, die automatisch installiert werden. <placeholder-1/> Sie können andere Töne in der <emphasis>Systemsteuerung</emphasis> unter <emphasis>Sounds und Audiogeräte</emphasis> festlegen oder dort auch deaktivieren. In den Einstellungen von TortoiseSVN ist das nicht möglich."
@@ -4291,97 +4306,117 @@ msgstr "Der Übertragen-Dialog"
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
 msgstr "Wenn Ihre Arbeitskopie auf dem neuesten Stand ist und keine Konflikte vorhanden sind, können Sie Ihre Änderungen übertragen. Wählen Sie die Dateien/Ordner aus die Sie übertragen wollen und wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen...</guimenuitem> </menuchoice>. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_commit.xml:44
+#: source/en/tsvn_dug/dug_commit.xml:37
+#: (para)
+msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit."
+msgstr "Der Dialog zeigt alle geänderten Dateien einschließlich hinzugefügter, gelöschter oder nicht versionierter Dateien an. Wenn Sie bestimmte Dateien nicht übertragen wollen, wählen Sie diese einfach ab. Dateien, die noch nicht unter Versionskontrolle stehen, können Sie durch Markieren vor dem Übertragen hinzufügen."
+
+#: source/en/tsvn_dug/dug_commit.xml:45
 #: (title)
 msgid "Commit files or folders?"
 msgstr "Dateien oder Ordner übertragen?"
 
-#: source/en/tsvn_dug/dug_commit.xml:45
+#: source/en/tsvn_dug/dug_commit.xml:46
 #: (para)
 msgid "When you commit files, the commit dialog shows only the files you have selected. When you commit a folder the commit dialog will select the changed files automatically. If you forget about a new file you created, committing the folder will find it anyway. Committing a folder does <emphasis>not</emphasis> mean that every file gets marked as changed; It just makes your life easier by doing more work for you."
 msgstr "Wenn Sie Dateien übertragen zeigt der Dialog <emphasis>nur</emphasis> die gewählten Dateien an. Wenn Sie Ordner übertragen, werden die geänderten Dateien automatisch selektiert. Übertragen eines Ordners bedeutet <emphasis>nicht</emphasis>, dass jede Datei in diesem Ordner übertragen wird. Es nimmt Ihnen lediglich die Arbeit ab, alle Dateien vorher auszuwählen."
 
 #: source/en/tsvn_dug/dug_commit.xml:56
+#: (para)
+msgid "If you have modified files which have been included from a different repository using <literal>svn:externals</literal>, those changes cannot be included in the same atomic commit. A warning symbol below the file list tells you if this has happened, and the tooltip explains that those external files have to be committed separately."
+msgstr "Wenn Sie geänderte Dateien in Ihrer Arbeitskopie haben, die mittels <literal>svn:externals</literal> aus einem anderen Projektarchiv eingebunden wurden, können diese Änderungen nicht gleichzeitig übertragen werden.Ein Warnsymbol erscheint unterhalb der Dateiliste, wenn das der Fall ist und ein Hinweistext erklärt, dass diese externen Dateien separat übertragen werden müssen."
+
+#: source/en/tsvn_dug/dug_commit.xml:64
 #: (title)
 msgid "Many unversioned files in the commit dialog"
 msgstr "Zu viele Dateien werden angezeigt"
 
-#: source/en/tsvn_dug/dug_commit.xml:63
+#: source/en/tsvn_dug/dug_commit.xml:71
 #: (para)
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
 msgstr "diese Dateien im Eigenschaftsdialog in die Liste der auszuschließenden Dateien aufnehmen. Dies hat Einfluss auf <emphasis>alle</emphasis> Arbeitskopien gleichzeitig."
 
-#: source/en/tsvn_dug/dug_commit.xml:70
+#: source/en/tsvn_dug/dug_commit.xml:78
 #: (para)
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
 msgstr "Fügen Sie diese Dateien mit dem Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Ignorieren</guimenuitem> </menuchoice> zur Liste der ignorierten Dateien hinzu .Dadurch werden diese Dateien in die <literal>svn:ignore</literal> Eigenschaft des Ordners aufgenommen, in dem Sie den Befehl aufgerufen haben. Mit dem SVN Eigenschaften Dialog können Sie die <literal>svn:ignore</literal> eines Verzeichnisses ändern."
 
-#: source/en/tsvn_dug/dug_commit.xml:57
+#: source/en/tsvn_dug/dug_commit.xml:65
 #: (para)
 msgid "If you think that the TSVN commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-DUG-ignore\"/> for more information."
 msgstr "Falls Sie das Gefühl haben dass TortoiseSVN Ihnen viel zu viele Dateien im Übertragungsdialog anzeigt die nicht unter Versionskontrolle stehen (z.B. vom Compiler erzeugte Dateien oder Sicherungsdateien vom Editor), haben Sie mehrere Möglichkeiten dies einzugrenzen. Sie können: <placeholder-1/> Siehe <xref linkend=\"tsvn-DUG-ignore\"/> für weitere Information."
 
-#: source/en/tsvn_dug/dug_commit.xml:37
+#: source/en/tsvn_dug/dug_commit.xml:95
 #: (para)
-msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit. <tip><placeholder-1/><placeholder-2/></tip><tip><placeholder-3/><placeholder-4/></tip>"
-msgstr "Der Dialog zeigt alle geänderten Dateien einschließlich hinzugefügter, gelöschter oder nicht versionierter Dateien an. Wenn Sie bestimmte Dateien nicht übertragen wollen, wählen Sie diese einfach ab. Dateien, die noch nicht unter Versionskontrolle stehen, können Sie durch Markieren vor dem Übertragen hinzufügen. <tip><placeholder-1/><placeholder-2/></tip><tip><placeholder-3/><placeholder-4/></tip>"
+msgid "<action>Doubleclicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot."
+msgstr "Durch einen <action>Doppelklick</action> auf eine Datei im Übertragungsdialog wird das Diff-Programm gestartet so dass Sie die Änderungen, welche Sie vorgenommen haben, genauer ansehen können. Das Kontextmenü bietet, wie Sie im Bild sehen können, weitere Optionen."
 
-#: source/en/tsvn_dug/dug_commit.xml:88
+#: source/en/tsvn_dug/dug_commit.xml:100
 #: (para)
-msgid "<action>Doubleclicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes."
-msgstr "Durch einen <action>Doppelklick</action> auf eine Datei im Übertragungsdialog wird das Diff-Programm gestartet so dass Sie die Änderungen, welche Sie vorgenommen haben, genauer ansehen können."
+msgid "Be sure to enter a log message which describes the changes you are committing. This will help you to see what happened and when, as you browse through the project log messages at a later date. The message can be as long or as brief as you like; many projects have guidelines for what should be included, the language to use, and sometimes even a strict format."
+msgstr "Geben Sie eine Log-Meldung ein, die die Änderungen, die Sie übertragen genau beschreibt. Das vereinfacht es Ihnen später erheblich, Ihre Änderungen nachzuvollziehen, wenn Sie das Projekt durchsuchen. Die Log-Meldung kann so lang oder so knapp sein wie sie möchten. Manche Projekte haben sogar genaue Richtlinien, in welcher Sprache und in welchem Format Log-Meldungen verfasst werden müssen."
 
-#: source/en/tsvn_dug/dug_commit.xml:96
+#: source/en/tsvn_dug/dug_commit.xml:110
+#: (title)
+msgid "The Commit Dialog Spellchecker"
+msgstr "Rechtschreibprüfung beim Eingeben einer Log-Meldung"
+
+#: source/en/tsvn_dug/dug_commit.xml:108
+#: (para)
+msgid "<placeholder-1/> TortoiseSVN includes a spellchecker to help you get your log messages right. This will highlight any mis-spelled words. Use the context menu to access the suggested corrections. Of course, it doesn't know <emphasis>every</emphasis> technical term that you do, so correctly spelt words will sometimes show up as errors. But don't worry. You can just add them to your personal dictionary using the context menu."
+msgstr "<placeholder-1/> TortoiseSVN enthält eine Rechtschreibprüfung die Sie bei der Korrektur Ihrer Log-Meldungen unterstützt. Sie hebt sämtliche falsch geschriebenen Wörter hervor. Verwenden Sie das Kontextmenü, um auf die Korrekturvorschläge zuzugreifen. Verständlicherweise kennt die Rechtschreibprüfung nicht <emphasis>jeden</emphasis> technischen Ausdruck, den Sie verwenden, so dass manchmal korrekt geschriebene Wörter als fehlerhaft markiert werden. Aber keine Sorge. Sie können Diese Wörter über das Kontextmenü zu Ihrem persönlichen Wörterbuch hinzufügen."
+
+#: source/en/tsvn_dug/dug_commit.xml:124
 #: (title)
 msgid "The Progress dialog showing a commit in progress"
 msgstr "Eine laufende Übertragung im Fortschritts-Dialog"
 
-#: source/en/tsvn_dug/dug_commit.xml:92
+#: source/en/tsvn_dug/dug_commit.xml:120
 #: (para)
 msgid "After pressing <guibutton>OK</guibutton>, a dialog appears displaying the progress of the commit. <placeholder-1/>"
 msgstr "Wenn Sie schlussendlich auf <guibutton>OK</guibutton> klicken wird die Übertragung gestartet und der Fortschrittsdialog angezeigt. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_commit.xml:106
+#: source/en/tsvn_dug/dug_commit.xml:134
 #: (listitem)
 msgid "Committing a modification."
 msgstr "Übertrage eine Änderung"
 
-#: source/en/tsvn_dug/dug_commit.xml:112
+#: source/en/tsvn_dug/dug_commit.xml:140
 #: (listitem)
 msgid "Committing a new addition."
 msgstr "Übertragen eines neuen Objekts."
 
-#: source/en/tsvn_dug/dug_commit.xml:118
+#: source/en/tsvn_dug/dug_commit.xml:146
 #: (listitem)
 msgid "Committing a deletion or a replacement."
 msgstr "Übertragen einer Löschung oder Ersetzen eines Objekts."
 
-#: source/en/tsvn_dug/dug_commit.xml:124
+#: source/en/tsvn_dug/dug_commit.xml:152
 #: (listitem)
 msgid "All other items."
 msgstr "Alle anderen Objekte."
 
-#: source/en/tsvn_dug/dug_commit.xml:100
+#: source/en/tsvn_dug/dug_commit.xml:128
 #: (para)
 msgid "The progress dialog uses colour coding to highlight different commit actions <placeholder-1/>"
 msgstr "Der Fortschrittsdialog verwendet eine Farbcodierung, um verschiedene Aktionen anzuzeigen <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_commit.xml:131
+#: source/en/tsvn_dug/dug_commit.xml:159
 #: (title)
 msgid "Special Folder Properties"
 msgstr "Spezielle Ordner-Eigenschaften"
 
-#: source/en/tsvn_dug/dug_commit.xml:132
+#: source/en/tsvn_dug/dug_commit.xml:160
 #: (para)
 msgid "There are several special folder properties which can be used to help give more control over the formatting of commit log messages and the language used by the spellchecker module. Read <xref linkend=\"tsvn-DUG-propertypage\"/> for further information."
 msgstr "Es gibt mehrere spezielle Ordner-Eigenschaften welche z.B. für die Formatierung von Log-Meldungen und die Rechtschreibkorrektur verwendet werden können. Sehen Sie dazu <xref linkend=\"tsvn-DUG-propertypage\"/>."
 
-#: source/en/tsvn_dug/dug_commit.xml:140
+#: source/en/tsvn_dug/dug_commit.xml:168
 #: (title)
 msgid "Integration with Bugtracking Tools"
 msgstr "Integration mit Bugtracking Systemen"
 
-#: source/en/tsvn_dug/dug_commit.xml:141
+#: source/en/tsvn_dug/dug_commit.xml:169
 #: (para)
 msgid "If you have activated the bugtracking system, you could set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues should be comma separated. Learn more <xref linkend=\"tsvn-DUG-bugtracker\"/>."
 msgstr "Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei <guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n) Ihres Bugtracking Programms eingeben. Falls Sie mehrere eingeben, müssen Sie diese dann durch Kommata trennen. Mehr dazu können Sie in <xref linkend=\"tsvn-DUG-bugtracker\"/> lesen. "
@@ -5012,8 +5047,8 @@ msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne 
 
 #: source/en/Version.xml:2
 #: (subtitle)
-msgid "Version 1.2.2"
-msgstr "Version 1.2.2"
+msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
+msgstr "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #: source/en/tsvn_subwcrev.xml:3
 #: (title)
@@ -5114,7 +5149,7 @@ msgstr "-f"
 #: source/en/tsvn_subwcrev.xml:99
 #: (entry)
 msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
-msgstr "Wenn diese Option gewählt ist, wird SubWCRev die <quote>last-changed</quote>	Revision von Ordnern beachten. Die Vorgabe ist, dass nur Dateien zum Ermitteln der Revisionsnummern herangezogen werden."
+msgstr "Wenn diese Option gewählt ist, wird SubWCRev die <quote>last-changed</quote>\tRevision von Ordnern beachten. Die Vorgabe ist, dass nur Dateien zum Ermitteln der Revisionsnummern herangezogen werden."
 
 #: source/en/tsvn_subwcrev.xml:107
 #: (entry)
@@ -5129,7 +5164,7 @@ msgstr "Wenn diese Option gewählt ist, wird SubWCRev Verzeichnisse überprüfen
 #: source/en/tsvn_subwcrev.xml:53
 #: (para)
 msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
-msgstr "Es gibt mehrere Kommandozeilenoptionen, die die Arbeitsweise von SubWCRev beeinflussen. Wenn Sie mehr als einen verwenden, müssen die Optionen in einer einzelnen Gruppe angegeben werden, z.B.	<literal>-nm</literal>, nicht <literal>-n -m</literal>. <placeholder-1/>"
+msgstr "Es gibt mehrere Kommandozeilenoptionen, die die Arbeitsweise von SubWCRev beeinflussen. Wenn Sie mehr als einen verwenden, müssen die Optionen in einer einzelnen Gruppe angegeben werden, z.B.\t<literal>-nm</literal>, nicht <literal>-n -m</literal>. <placeholder-1/>"
 
 #: source/en/tsvn_subwcrev.xml:124
 #: (title)
