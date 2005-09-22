@@ -1346,10 +1346,12 @@ void CRevisionGraphDlg::CompareRevs(bool bHead)
 	url1.SetFromSVN(sRepoRoot+CString(entry1->url));
 	url2.SetFromSVN(sRepoRoot+CString(entry2->url));
 
+	SVNRev peg = (SVNRev)(bHead ? entry1->revision : SVNRev());
+
 	SVNDiff diff(&svn, this->m_hWnd);
 	diff.ShowCompare(url1, (bHead ? SVNRev::REV_HEAD : entry1->revision),
 		url2, (bHead ? SVNRev::REV_HEAD : entry2->revision),
-		entry1->revision);
+		peg);
 }
 
 void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
