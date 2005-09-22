@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-02 16:26+0900\n"
+"PO-Revision-Date: 2005-09-22 16:08+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -765,6 +765,12 @@ msgstr "追加"
 #: ID:101
 msgid "Add &File..."
 msgstr "ファイルを追加(&F) ..."
+
+# ID:376,
+#: ID:376
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "'%s' を辞書に追加"
 
 # ID:110,
 #: ID:110
@@ -1610,6 +1616,12 @@ msgstr "クリップボードにコピー"
 msgid "Copy to working copy"
 msgstr "作業コピーへコピー"
 
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "コピー: %s の新しい名前"
+
 # ID:80,
 #: ID:80
 #, c-format
@@ -1933,6 +1945,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "このメッセージを再び表示しない"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "本当にこのファイルもしくはフォルダを移動させてもよろしいですか？"
+
 # ID:76,
 #: ID:76
 #, c-format
@@ -1996,6 +2013,11 @@ msgstr "終了(&X)"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
+
+# Control-ID:1031,
+#: Control-ID:1237
+msgid "Edit"
+msgstr "編集"
 
 # ID:76,
 #: ID:113
@@ -2319,6 +2341,17 @@ msgstr "GDI+ を初期化できませんでした！"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ はビットマップオブジェクトを作成できませんでした。おそらく十分なメモリが無いと思われます。"
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"GDI+ はリビジョングラフを画像として保存するために必要です。\n"
+"GDI+ は以下から入手することができます。\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 # Dlg-ID:107,
 #: Dlg-ID:143
 #: Dlg-ID:107
@@ -2497,6 +2530,15 @@ msgid ""
 msgstr ""
 "有効にすると、マージダイアログは最後に利用したURLの代わりに、\n"
 "選択されている作業コピーのURLで \"元:\" URL を初期化します。"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"有効にすると、ダイアログを表示する際にリポジトリにアクセスします。\n"
+"本チェックにより、\"リポジトリをチェック\" をクリックする必要はなくなります。"
 
 # ID:195,
 #: ID:195
@@ -2938,6 +2980,12 @@ msgstr "変更"
 msgid "Most active author:"
 msgstr "最も活発な作者:"
 
+# ID:97,
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr "移動: %s の新しい名前"
+
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
@@ -3103,6 +3151,12 @@ msgstr "通常"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "システムレジストリのエントリ（INIファイル）が全て削除されたわけではありません。"
+
+# ID:3857,#:
+# ID:3857,
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "操作を完了するのに、十分なメモリがありません。"
 
 # ID:88,
 #: ID:88
@@ -4452,6 +4506,11 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Subversion サーバファイル:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "左右を入れ替える"
@@ -4611,18 +4670,6 @@ msgstr "ファイル %s はパッチファイル内で見つかりませんで�
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "ファイルが大きすぎて開けません。"
-
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"次のファイルもしくはフォルダはローカルで変更されています。\n"
-"%s\n"
-"このファイルを移動してもよろしいですか？"
 
 # ID:80,
 #: ID:80
@@ -5646,6 +5693,16 @@ msgstr "コミット"
 #: ID:11
 msgid "conflicted"
 msgstr "衝突"
+
+# ID:77,
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"コピー元\r\n"
+"%s - リビジョン %ld"
 
 # Control-ID:1113,
 #: Control-ID:1113
