@@ -4,19 +4,23 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors(s):
-# 1.7.2005 Pekka Järvinen <pekka.jarvinen@gmail.com>
-# 1.6.2005 Pekka Järvinen <pekka.jarvinen@gmail.com>
+# 27.08.2005 Pekka Järvinen <pekka.jarvinen@gmail.com> 
+# 02.07.2005 Pekka Järvinen <pekka.jarvinen@gmail.com>
+# 01.07.2005 Pekka Järvinen <pekka.jarvinen@gmail.com>
+# 01.06.2005 Pekka Järvinen <pekka.jarvinen@gmail.com>
 #
 # Comments:
-# 1.7.2005 Added more translations. I'm still not sure what I should call "revision" and "repository" in Finnish.
-# 1.6.2005 It's a start :)
+# 27.08.2005 Some words are still missing and fuzzy, but I'm getting there.
+# 02.07.2005 Revision = Revisio | Commit = Toimitus | Repository = Varasto
+# 01.07.2005 Added more translations. I'm still not sure what I should call "revision" and "repository" in Finnish.
+# 01.06.2005 It's a start :)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: pekka.jarvinen@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-07-01 08:11+0200\n"
+"PO-Revision-Date: 2005-08-27 15:15+0200\n"
 "Last-Translator: Pekka Järvinen <pekka.jarvinen@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +45,7 @@ msgstr "%1 sisälsi odottamattoman objektin."
 #: ID:3868,#:
 #: ID:3868,
 msgid "%1 contains an incorrect schema."
-msgstr ""
+msgstr "%1 sisältää väärän skeeman."
 
 #: ID:3867,#:
 #: ID:3867,
@@ -56,12 +60,12 @@ msgstr "Ei voitu luoda: %1, koska hakemisto on täysi."
 #: ID:3867,#:
 #: ID:3867,
 msgid "%1 could not be opened because there are too many open files."
-msgstr ""
+msgstr "Tiedostoa %1 ei voitu avata, koska liian monta tiedostoa on auki."
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "%1 could not be removed because it is the current directory."
-msgstr ""
+msgstr "Hakemistoa %1 ei voitu poistaa, koska sitä käytetään."
 
 #: ID:3868,#:
 #: ID:3868,
@@ -90,15 +94,15 @@ msgstr ""
 
 #: ID:169,
 msgid "%d files selected, %d files total"
-msgstr ""
+msgstr "%d tiedostoa valittu, %d tiedostoa yhteensä"
 
 #: ID:226,
 msgid "%s - at revision: %d"
-msgstr ""
+msgstr "%s on revisiossa %d"
 
 #: ID:151,
 msgid "%s : Remote File"
-msgstr ""
+msgstr "%s : Etätiedosto"
 
 #: ID:151,
 msgid "%s : Working Base"
@@ -109,10 +113,13 @@ msgid "%s : Working Copy"
 msgstr ""
 
 #: ID:145,
+#, fuzzy
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"Haluatko poistaa sen kaikesta huolimatta?"
 
 #: ID:69,
 msgid ""
@@ -144,7 +151,7 @@ msgstr ""
 
 #: ID:138,
 msgid "&Browse Repository"
-msgstr ""
+msgstr "Selaa "
 
 #: Control-ID:1011,
 msgid "&Browse..."
@@ -171,7 +178,7 @@ msgstr "Tarkista nyt"
 
 #: MenuEntry
 msgid "&Compare Revisions"
-msgstr ""
+msgstr "Vertaile revisioneita"
 
 #: ID:101,
 msgid "&Copy To..."
@@ -183,7 +190,7 @@ msgstr "Poista.."
 
 #: Control-ID:1179,
 msgid "&Dry Run"
-msgstr ""
+msgstr "Testiajo"
 
 #: Control-ID:1031,
 msgid "&Edit"
@@ -195,7 +202,7 @@ msgstr "Muokkaa.."
 
 #: Control-ID:1023,
 msgid "&Enable Proxy Server"
-msgstr ""
+msgstr "Käännä välityspalvelintuki päälle"
 
 #: MenuEntry
 msgid "&Exit"
@@ -214,11 +221,11 @@ msgstr "Tiedosto"
 
 #: Control-ID:1050,
 msgid "&Fixed drives"
-msgstr ""
+msgstr "Asemat"
 
 #: Control-ID:65535,
 msgid "&From Revision"
-msgstr ""
+msgstr "Revisiosta"
 
 #: Control-ID:65535,
 msgid "&From URL:"
@@ -233,7 +240,7 @@ msgstr ""
 #: Control-ID:1019,#:
 #: Control-ID:1019,
 msgid "&HEAD Revision"
-msgstr ""
+msgstr "Uusin revisio"
 
 #: MenuEntry#:
 #: Control-ID:57670,#:
@@ -243,7 +250,7 @@ msgstr "Apua"
 
 #: MenuEntry
 msgid "&Help Topics"
-msgstr ""
+msgstr "Ohje"
 
 #: ID:3842,#:
 #: ID:3842,
@@ -256,7 +263,7 @@ msgstr "Kieli:"
 
 #: MenuEntry
 msgid "&Mark as resolved"
-msgstr ""
+msgstr "Merkkaa ratkaistuksi"
 
 #: Control-ID:1,#:
 #: MenuEntry
@@ -336,7 +343,7 @@ msgstr ""
 #: Control-ID:1116,#:
 #: Control-ID:1033,
 msgid "&Revision"
-msgstr ""
+msgstr "Revisio"
 
 #: Control-ID:65535,
 msgid "&SSH client:"
@@ -352,9 +359,8 @@ msgid "&Save Graph As..."
 msgstr "Tallenna graafi nimellä.."
 
 #: Control-ID:1023,
-#, fuzzy
 msgid "&Save authentication"
-msgstr "Tallenna autentikaatiotiedot"
+msgstr "Tallenna tunnistetiedot"
 
 #: Control-ID:1012,
 msgid "&Set"
@@ -366,7 +372,7 @@ msgstr "Tilarivi"
 
 #: Control-ID:65535,
 msgid "&To Revision"
-msgstr ""
+msgstr "Revisioon"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
@@ -384,7 +390,7 @@ msgstr "Työkalurivi"
 #: Control-ID:65535,#:
 #: Control-ID:1058,
 msgid "&URL of repository:"
-msgstr ""
+msgstr "varaston URL:"
 
 #: ID:376,
 msgid "&Undo"
@@ -404,7 +410,7 @@ msgstr "Tuntemattomat asemat"
 
 #: ID:76,
 msgid "&Update Item To Revision"
-msgstr ""
+msgstr "Päivitä revisioon"
 
 #: Control-ID:65535,#:
 #: Control-ID:1005,#:
@@ -419,11 +425,11 @@ msgstr "Näytä"
 
 #: MenuEntry
 msgid "&Whitespaces"
-msgstr ""
+msgstr "Tyhjeet"
 
 #: ID:219,
 msgid "(dry run)"
-msgstr ""
+msgstr "(testiajo)"
 
 #: ID:208,
 msgid "(multiple targets selected)"
@@ -457,7 +463,7 @@ msgstr ".."
 
 #: ID:151,
 msgid ": Revision %d"
-msgstr ""
+msgstr ": Revisio %d"
 
 #: ID:151,
 msgid ": working base"
@@ -492,12 +498,13 @@ msgstr ""
 
 #: ID:3867,#:
 #: ID:3867,
+#, fuzzy
 msgid "A locking violation occurred while accessing %1."
-msgstr ""
+msgstr "Lukitusvirhe luettaessa %1."
 
 #: ID:201,
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr ""
+msgstr "Uudempi versio on saatavilla. Mene osoitteeseen http://tortoisesvn.tigris.org ja lataa uusin versio!"
 
 #: ID:195,
 msgid ""
@@ -514,13 +521,15 @@ msgstr ""
 
 #: ID:3843,#:
 #: ID:3843,
+#, fuzzy
 msgid "A required resource was unavailable."
-msgstr ""
+msgstr "Pyytämäsi resurssi oli saavuttamattomissa."
 
 #: ID:3867,#:
 #: ID:3867,
+#, fuzzy
 msgid "A sharing violation occurred while accessing %1."
-msgstr ""
+msgstr "Jakovirhe luettaessa %1."
 
 #: ID:79,
 msgid ""
@@ -593,8 +602,9 @@ msgid "Add To Ignore List"
 msgstr "Lisää hylkäyslistaan"
 
 #: ID:12,
+#, fuzzy
 msgid "Add files to Subversion here"
-msgstr ""
+msgstr "Lisää tiedostoja Subversioniin"
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -628,7 +638,7 @@ msgstr "Lisää"
 
 #: ID:9,
 msgid "Adds file(s) to Subversion control"
-msgstr ""
+msgstr "Lisää tiedosto(t/n) versionhallintaan"
 
 #: ID:13,
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
@@ -752,7 +762,7 @@ msgstr ""
 
 #: ID:269,
 msgid "Analyze revision data..."
-msgstr ""
+msgstr "Anylysoi revision-dataa"
 
 #: ID:14,
 msgid "Applies a unified diff file to the working copy"
@@ -782,7 +792,7 @@ msgstr ""
 
 #: ID:77,
 msgid "At revision: %d"
-msgstr ""
+msgstr "Versiossa: %d"
 
 #: Dlg-ID:131,#:
 #: Dlg-ID:160,
@@ -873,11 +883,11 @@ msgstr ""
 
 #: ID:9,
 msgid "Branch/Tag..."
-msgstr ""
+msgstr "Haara/Tagi.."
 
 #: ID:16,
 msgid "Break Lock"
-msgstr ""
+msgstr "Riko lukko"
 
 #: Control-ID:1009,
 msgid "Bro&wse..."
@@ -898,7 +908,7 @@ msgstr "Selaa.."
 #: Control-ID:1119,#:
 #: Control-ID:1119,
 msgid "Bug-ID / Issue-Nr:"
-msgstr ""
+msgstr "Bugi-ID / Ongelmanumero:"
 
 #: ID:101,
 msgid "C&reate Folder..."
@@ -906,7 +916,7 @@ msgstr "Luo hakemisto.."
 
 #: ID:77,
 msgid "C&reate Tag From Revision"
-msgstr ""
+msgstr "Luo tagi versiosta"
 
 #: ID:3697,
 msgid "CAP"
@@ -932,7 +942,7 @@ msgstr "Peruuta"
 
 #: ID:132,
 msgid "Cancelling SVN Blame..."
-msgstr ""
+msgstr "Perutetaan toiminto SVN Syytä.."
 
 #: ID:270,
 msgid "Cancelling operation..."
@@ -948,15 +958,16 @@ msgstr "Sertifikaatti on vanhentunut tai ei ole vielä voimassaoleva"
 
 #: ID:82,
 msgid "Certificate expired. Valid until: %s"
-msgstr ""
+msgstr "Sertifikaatti on vanhentunut. Voimassaolopäivä:"
 
 #: ID:82,
+#, fuzzy
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr ""
+msgstr "Sertifikaatti on kelpaamaton. Kelpaa: %s"
 
 #: ID:157,
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
-msgstr ""
+msgstr "Sertifikaatit|*.p12;*.pkcs12;*.pfx|All|*.*||"
 
 #: ID:3825,
 msgid "Change the window position"
@@ -989,7 +1000,7 @@ msgstr "Tarkista päivitykset.."
 
 #: Control-ID:1132,
 msgid "Check Repository"
-msgstr ""
+msgstr "Tarkista varasto"
 
 #: ID:13,
 msgid "Check for Modifications"
@@ -1007,7 +1018,7 @@ msgstr ""
 
 #: ID:251,
 msgid "Check the path and/or URL you've entered."
-msgstr ""
+msgstr "Tarkista antamasi polku ja/tai URL."
 
 #: ID:194,
 msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
@@ -1023,19 +1034,19 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr ""
+msgstr "Tarkistetaan onko ohelmasta uutta versiota.."
 
 #: Dlg-ID:133,
 msgid "Checkout"
-msgstr ""
+msgstr "Liity"
 
 #: Control-ID:1074,
 msgid "Checkout &directory:"
-msgstr ""
+msgstr "Liittymishakemisto:"
 
 #: ID:8,
 msgid "Checkout..."
-msgstr ""
+msgstr "Liity.."
 
 #: ID:8,
 msgid "Clean Up"
@@ -1051,7 +1062,7 @@ msgstr ""
 
 #: Control-ID:1059,
 msgid "Clear &Now"
-msgstr ""
+msgstr "Tyhjennä nyt"
 
 #: ID:195,
 msgid ""
@@ -1081,7 +1092,7 @@ msgstr ""
 
 #: Control-ID:1068,
 msgid "Color code in-line changes"
-msgstr ""
+msgstr "Väritä rivin sisäiset muutokset"
 
 #: Dlg-ID:138,
 msgid "Colors"
@@ -1090,43 +1101,43 @@ msgstr "Värit"
 #: ID:3857,#:
 #: ID:3857,
 msgid "Command failed."
-msgstr ""
+msgstr "Komento epäonnistui."
 
 #: Control-ID:1083,
 msgid "Commit"
-msgstr ""
+msgstr "Toimita"
 
 #: Control-ID:1110,
 msgid "Commit to:"
-msgstr ""
+msgstr "Toimituspaikka:"
 
 #: ID:8,
 msgid "Commit..."
-msgstr ""
+msgstr "Toimita.."
 
 #: ID:244,
 msgid "Commits by author"
-msgstr ""
+msgstr "Toimitukset tekijän mukaan"
 
 #: ID:244,
 msgid "Commits by week"
-msgstr ""
+msgstr "Toimitukset viikon mukaan"
 
 #: Control-ID:1135,
 msgid "Commits each week:"
-msgstr ""
+msgstr "Toimitukset per viikko:"
 
 #: ID:9,
 msgid "Commits your changes to the repository"
-msgstr ""
+msgstr "Toimita muutokset varastoon"
 
 #: MenuEntry
 msgid "Compare &HEAD Revisions"
-msgstr ""
+msgstr "Vertaile uusimpia revisioita"
 
 #: Control-ID:1019,
 msgid "Compare Whitespaces"
-msgstr ""
+msgstr "Vertaile tyhjeitä"
 
 #: ID:138,
 msgid "Compare With B&ase"
@@ -1183,7 +1194,7 @@ msgstr "Kopioitu"
 
 #: ID:126,
 msgid "Copied remotely"
-msgstr ""
+msgstr "Kopioitu etänä"
 
 #: ID:103,
 msgid "Copy %s"
@@ -1191,7 +1202,7 @@ msgstr "Kopioi %s"
 
 #: Dlg-ID:142,
 msgid "Copy (Branch / Tag)"
-msgstr ""
+msgstr "Kopioi (Haara/Tagi)"
 
 #: ID:76,
 msgid "Copy From Path"
@@ -1306,23 +1317,23 @@ msgstr ""
 #: ID:3857,#:
 #: ID:3857,
 msgid "Could not start print job."
-msgstr ""
+msgstr "Ei pystytty aloittamaan tulostamista."
 
 #: ID:81,
 msgid "Could not start thread!"
-msgstr ""
+msgstr "Säiettä ei voitu käynnistää!"
 
 #: ID:13,
 msgid "Create Patch..."
-msgstr ""
+msgstr "Luo korjaustiedosto.."
 
 #: Dlg-ID:178,
 msgid "Create Repository"
-msgstr ""
+msgstr "Luo varasto"
 
 #: ID:8,
 msgid "Create Repository here..."
-msgstr ""
+msgstr "Luo varasto tähän.."
 
 #: Control-ID:65535,
 msgid "Create copy in the repository from:"
@@ -1376,7 +1387,7 @@ msgstr "Poistettu"
 
 #: ID:11,
 msgid "Deletes files / folders from source control"
-msgstr ""
+msgstr "Tuhoa tiedostoja / hakemistoja versionhallinnasta"
 
 #: ID:263,
 msgid "Deleting"
@@ -1385,7 +1396,7 @@ msgstr "Poistetaan"
 #: ID:3859,#:
 #: ID:3859,
 msgid "Destination disk drive is full."
-msgstr ""
+msgstr "Kohteen levytila on täynnä."
 
 #: ID:12,
 msgid "Diff"
@@ -1474,7 +1485,7 @@ msgstr ""
 
 #: ID:313,
 msgid "Do you want to save your changes?"
-msgstr ""
+msgstr "Haluatko tallentaa muutokset?"
 
 #: Control-ID:65535,
 msgid "Documentation - Simon Large"
@@ -1570,6 +1581,8 @@ msgid ""
 "Erase everything\n"
 "Erase All"
 msgstr ""
+"Tuhoa kaikki\n"
+"Tuhoa kaikki"
 
 #: ID:3603,
 msgid ""
@@ -1619,16 +1632,18 @@ msgstr ""
 
 #: ID:74,#:
 #: ID:207,
+#, fuzzy
 msgid "Extension"
-msgstr ""
+msgstr "Pääte"
 
 #: Control-ID:65535,
 msgid "Extension specific programs"
 msgstr ""
 
 #: Control-ID:65535,
+#, fuzzy
 msgid "Extension:"
-msgstr ""
+msgstr "Pääte:"
 
 #: ID:74,
 msgid "External"
@@ -1662,7 +1677,7 @@ msgstr "Tyhjän tiedoston luominen epäonnistui"
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to launch help."
-msgstr ""
+msgstr "Ohjetta ei voitu käynnistää."
 
 #: ID:3857,#:
 #: ID:3857,
@@ -1742,7 +1757,7 @@ msgstr "GDI+:aa ei voitu alustaa!"
 
 #: ID:273,
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
-msgstr ""
+msgstr "GDI+ ei voinut luoda bittikarttaobjektia. Sinulla ei todennäköisesti ole riittävästi muistia."
 
 #: Dlg-ID:143,#:
 #: Dlg-ID:107,
@@ -1751,7 +1766,7 @@ msgstr "Yleistä"
 
 #: ID:144,
 msgid "Generating Patchfile..."
-msgstr ""
+msgstr "Luodaan korjaustiedosto.."
 
 # vai lukitus?
 #: ID:16,
@@ -1763,12 +1778,13 @@ msgid "Getting File %s"
 msgstr "Haetaan tiedostoa %s"
 
 #: ID:132,
+#, fuzzy
 msgid "Getting file info..."
-msgstr ""
+msgstr "Haetaan tiedoston tietoja.."
 
 #: ID:269,
 msgid "Getting information from repository..."
-msgstr ""
+msgstr "Haetaan tietoa varastosta"
 
 #: ID:132,
 msgid "Getting log info..."
@@ -1809,11 +1825,11 @@ msgstr "Graafin tyyppi:"
 
 #: Control-ID:1032,
 msgid "H&EAD Revision"
-msgstr ""
+msgstr "Uusin revisio"
 
 #: Control-ID:1182,
 msgid "HEAD revision in the repository"
-msgstr ""
+msgstr "Uusin revisio varastossa"
 
 #: ID:12,#:
 #: Control-ID:1004,
@@ -1834,11 +1850,11 @@ msgstr ""
 
 #: Control-ID:1170,
 msgid "Icon Set:"
-msgstr ""
+msgstr "Ikonit:"
 
 #: Control-ID:65535,
 msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr ""
+msgstr "Ikonit/Suunnittelu/Koodi:     Luebbe Onken"
 
 #: ID:194,
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
@@ -1881,7 +1897,7 @@ msgstr ""
 
 #: ID:73,
 msgid "Ignore"
-msgstr ""
+msgstr "Hylkää"
 
 #: ID:15,
 msgid "Ignore %d items"
@@ -1889,11 +1905,11 @@ msgstr ""
 
 #: Control-ID:1021,
 msgid "Ignore All Whitespaces"
-msgstr ""
+msgstr "Älä välitä tyhjeistä"
 
 #: Control-ID:1020,
 msgid "Ignore Leading Whitespaces"
-msgstr ""
+msgstr "Älä välitä tyhjeillä alkavista.."
 
 #: Control-ID:1018,
 msgid "Ignore Lineendings (recommended)"
@@ -1983,9 +1999,11 @@ msgstr ""
 msgid "Jump to first difference when loading"
 msgstr ""
 
+# vai lukitukset?
 #: Control-ID:1203,
+#, fuzzy
 msgid "Keep Locks"
-msgstr ""
+msgstr "Pidä lukot"
 
 #: Control-ID:65535,
 msgid "Language:"
@@ -1993,7 +2011,7 @@ msgstr "Kieli:"
 
 #: Control-ID:65535,
 msgid "Last commit revision:"
-msgstr ""
+msgstr "Viimeisin toimitusrevisioni:"
 
 #: ID:11,
 msgid "Last saved revision of item"
@@ -2005,11 +2023,11 @@ msgstr ""
 
 #: Control-ID:1137,
 msgid "Least active author:"
-msgstr ""
+msgstr "Vähiten aktiivisin tekijä:"
 
 #: ID:188,
 msgid "Left View: "
-msgstr ""
+msgstr "Vasen näkymä:"
 
 #: ID:3605,
 msgid ""
@@ -2090,7 +2108,7 @@ msgstr "Lokiviesti"
 #: Control-ID:1125,#:
 #: Control-ID:1125,
 msgid "Log Message History:"
-msgstr ""
+msgstr "Lokiviestien historia:"
 
 #: Dlg-ID:130,#:
 #: Control-ID:65535,
@@ -2103,15 +2121,16 @@ msgstr ""
 
 #: Dlg-ID:196,
 msgid "Look and Feel::Dialogs"
-msgstr ""
+msgstr "::Dialogit"
 
 #: Dlg-ID:106,
 msgid "Look and Feel::Icon Overlays"
 msgstr ""
 
 #: Dlg-ID:184,
+#, fuzzy
 msgid "Look and Feel::Icon Set"
-msgstr ""
+msgstr "::Ikonit"
 
 #: ID:238,
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
@@ -2124,7 +2143,7 @@ msgstr ""
 #: ID:3866,#:
 #: ID:3866,
 msgid "Mail system DLL is invalid."
-msgstr ""
+msgstr "Sähköpostijärjestelmän DLL-kirjasto ei kelpaa."
 
 #: ID:2051,
 msgid ""
@@ -2166,7 +2185,7 @@ msgstr "Viestejä"
 
 #: ID:116,
 msgid "Messages, Authors And Paths"
-msgstr ""
+msgstr "Viestit, tekijät ja polut"
 
 #: ID:78,
 msgid "Mime Type"
@@ -2182,8 +2201,9 @@ msgstr "Muuta"
 
 #: ID:3887,#:
 #: ID:3887,
+#, fuzzy
 msgid "Mixed"
-msgstr ""
+msgstr "Sekoitettu"
 
 #: ID:74,
 msgid "Modified"
@@ -2195,11 +2215,11 @@ msgstr "Aktiivisin tekijä:"
 
 #: ID:12,
 msgid "Move files in Subversion to here"
-msgstr ""
+msgstr "Siirrä tiedostoja Subverionista tänne"
 
 #: ID:126,
 msgid "Moved remotely"
-msgstr ""
+msgstr "Siirretty etänä"
 
 #: ID:80,
 msgid "Moving %s"
@@ -2338,7 +2358,7 @@ msgstr ""
 
 #: Control-ID:1073,
 msgid "Only check out the top folder"
-msgstr ""
+msgstr "Tarkista vain ylin hakemisto"
 
 #: ID:169,
 msgid ""
@@ -2347,8 +2367,9 @@ msgid ""
 msgstr ""
 
 #: Control-ID:1073,
+#, fuzzy
 msgid "Only update the top folder"
-msgstr ""
+msgstr "Päivitä vain ylin hakemisto"
 
 #: ID:3841,#:
 #: ID:3841,
@@ -2404,12 +2425,12 @@ msgstr "Liitä tiedostonimilista"
 
 #: ID:376,
 msgid "Patch All"
-msgstr ""
+msgstr "Korjaa kaikki"
 
 #: ID:157,#:
 #: ID:157,
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr ""
+msgstr "Patch-tiedostot (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 #: ID:77,
 msgid "Path"
@@ -2482,7 +2503,7 @@ msgstr "Syötä kokonaisluku."
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter no more than %1 characters."
-msgstr ""
+msgstr "Älä lisää merkkejä enempää kuin %1."
 
 #: ID:251,
 msgid "Please execute the \"Cleanup\" command."
@@ -2532,7 +2553,7 @@ msgstr "Ohjelma"
 
 #: ID:157,
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Ohjelmat (*.exe)|*.exe|Kaikki tiedostot (*.*)|*.*||"
 
 #: Control-ID:65535,
 msgid "Progress"
@@ -2576,7 +2597,7 @@ msgstr ""
 
 #: Control-ID:1073,
 msgid "R&AM drives"
-msgstr ""
+msgstr "RAM-asemat"
 
 #: ID:3697,
 msgid "REC"
@@ -2635,15 +2656,15 @@ msgstr ""
 
 #: Dlg-ID:157,
 msgid "Relocate"
-msgstr ""
+msgstr "Siirrä"
 
 #: ID:12,
 msgid "Relocate..."
-msgstr ""
+msgstr "Siirrä.."
 
 #: ID:80,
 msgid "Relocating..."
-msgstr ""
+msgstr "Siirretään.."
 
 #: ID:207,
 msgid "Remote Property Status"
@@ -2660,7 +2681,7 @@ msgstr ""
 
 #: ID:15,
 msgid "Remove From Ignore List"
-msgstr ""
+msgstr "Siirrä hylättyjen listalta"
 
 #: Control-ID:65535,
 msgid "Removed"
@@ -2668,7 +2689,7 @@ msgstr "Poistettu"
 
 #: ID:126,
 msgid "Removed file/folder"
-msgstr ""
+msgstr "Poistettu tiedosto/hakemisto"
 
 #: ID:145,
 msgid ""
@@ -2718,17 +2739,17 @@ msgstr "Korvaa"
 
 #: ID:13,
 msgid "Repo-Browser"
-msgstr ""
+msgstr "Varastoselain"
 
 #: Control-ID:65535,#:
 #: Control-ID:1055,#:
 #: Control-ID:65535,
 msgid "Repository"
-msgstr ""
+msgstr "Varasto"
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
-msgstr ""
+msgstr "Varastoselain"
 
 #: ID:8,#:
 #: ID:74,
@@ -2736,8 +2757,9 @@ msgid "Resolved"
 msgstr "Ratkaistu"
 
 #: ID:9,
+#, fuzzy
 msgid "Resolves conflicted files"
-msgstr ""
+msgstr "Ratkaisee riistiriitaiset tiedostot"
 
 #: ID:3826,
 msgid "Restore the window to normal size"
@@ -2775,31 +2797,32 @@ msgstr ""
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "Revision"
-msgstr ""
+msgstr "Revisio"
 
 #: ID:119,
 msgid "Revision %d"
-msgstr ""
+msgstr "Revisio %d"
 
 #: ID:269,#:
 #: ID:270,#:
 #: ID:271,
 msgid "Revision %ld"
-msgstr ""
+msgstr "Revisio %ld"
 
 #: Control-ID:65535,
 msgid "Revision / Author:"
-msgstr ""
+msgstr "Revisio / Tekijä:"
 
 #: ID:15,#:
 #: ID:269,#:
 #: Dlg-ID:182,
+#, fuzzy
 msgid "Revision Graph"
-msgstr ""
+msgstr "Revisio-graafi"
 
 #: ID:75,
 msgid "Revision: "
-msgstr ""
+msgstr "Revisio:"
 
 #: ID:188,
 msgid "Right View: "
@@ -2827,11 +2850,11 @@ msgstr "SVN Syytä"
 
 #: ID:77,
 msgid "SVN Checkout..."
-msgstr ""
+msgstr "SVN Synkronisoi.."
 
 #: ID:77,
 msgid "SVN Commit..."
-msgstr ""
+msgstr "SVN Toimita.."
 
 #: ID:78,
 msgid "SVN Copy..."
@@ -2851,7 +2874,7 @@ msgstr ""
 
 #: ID:78,
 msgid "SVN Merge..."
-msgstr ""
+msgstr "SVN Yhdistä"
 
 #: Dlg-ID:134,
 msgid "SVN Progress"
@@ -2859,11 +2882,11 @@ msgstr "SVN Edistyminen"
 
 #: ID:221,
 msgid "SVN Rename/Move"
-msgstr ""
+msgstr "SVN Uudelleennimeä/Siirrä"
 
 #: ID:77,
 msgid "SVN Resolve..."
-msgstr ""
+msgstr "SVN Ratkaise.."
 
 #: ID:77,
 msgid "SVN Revert..."
@@ -2871,7 +2894,7 @@ msgstr "SVN Palauta.."
 
 #: ID:11,
 msgid "SVN Revision"
-msgstr ""
+msgstr "SVN Revisio"
 
 #: ID:11,
 msgid "SVN Status"
@@ -2879,7 +2902,7 @@ msgstr "SVN Tila"
 
 #: ID:78,
 msgid "SVN Switch..."
-msgstr ""
+msgstr "SVN Vaihda.."
 
 #: ID:77,
 msgid "SVN Update..."
@@ -2912,7 +2935,7 @@ msgstr "Tallenna graafi nimellä.."
 
 #: ID:76,
 msgid "Save Revision &To..."
-msgstr ""
+msgstr "Tallenna revisio nimellä.."
 
 #: Control-ID:1132,
 msgid "Save To Clipboard"
@@ -2925,7 +2948,7 @@ msgstr "Tallenna nimellä.."
 #: ID:3857,#:
 #: ID:3857,
 msgid "Save changes to %1?"
-msgstr ""
+msgstr "Tallennetaanko muutokset %1?"
 
 #: ID:232,
 #, fuzzy
@@ -2992,7 +3015,7 @@ msgstr "Valitse yhdistämisohjelma"
 
 #: Dlg-ID:173,
 msgid "Select Revision"
-msgstr ""
+msgstr "Valitse revisio"
 
 #: ID:78,
 msgid "Select SSH Client"
@@ -3178,7 +3201,7 @@ msgstr "Koko"
 
 #: ID:74,
 msgid "Skipped"
-msgstr ""
+msgstr "Hypätty yli"
 
 #: ID:263,
 msgid "Skipped missing target"
@@ -3186,7 +3209,7 @@ msgstr ""
 
 #: Control-ID:1185,
 msgid "Specific revision in repository"
-msgstr ""
+msgstr "Tietty versio varastossa"
 
 #: ID:79,
 msgid ""
@@ -3245,7 +3268,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 
 #: Control-ID:1130,
 msgid "Stop On Copy/Rename"
-msgstr ""
+msgstr "Pysähdy kopioinnin / uudelleennimeämisen kohdalla"
 
 #: Control-ID:65535,
 msgid "Subversion"
@@ -3261,11 +3284,11 @@ msgstr "Subversionin asetustiedosto:"
 
 #: ID:14,
 msgid "Subversion export all here"
-msgstr ""
+msgstr "Subversion tuo kaikki tähän"
 
 #: ID:14,
 msgid "Subversion export here"
-msgstr ""
+msgstr "Subversio tuo tähän"
 
 #: ID:79,
 msgid ""
@@ -3282,7 +3305,7 @@ msgstr ""
 
 #: Dlg-ID:140,
 msgid "Switch To Branch / Tag"
-msgstr ""
+msgstr "Vaihda haaraan / tagiin"
 
 #: ID:3606,
 msgid ""
@@ -3353,7 +3376,7 @@ msgstr ""
 
 #: ID:80,
 msgid "The Repository was successfully created."
-msgstr ""
+msgstr "Varasto luotiin onnistuneesti."
 
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -3502,7 +3525,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Their File:"
-msgstr ""
+msgstr "Heidän tiedosto:"
 
 #: ID:169,
 msgid ""
@@ -3553,7 +3576,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Three File Diff"
-msgstr ""
+msgstr "Kolmen tiedoston vertaus"
 
 #: Control-ID:1222,
 msgid "Timeout in seconds to stop the autocompletion parsing"
@@ -3633,7 +3656,7 @@ msgstr "TortoiseSVN:n asetukset"
 
 #: Control-ID:1162,
 msgid "Total commits analyzed:"
-msgstr ""
+msgstr "Analysoidut toimitusmäärät:"
 
 #: Control-ID:1163,
 msgid "Total file changes:"
@@ -3649,15 +3672,15 @@ msgstr ""
 
 #: ID:10,
 msgid "Tweak TortoiseSVN"
-msgstr ""
+msgstr "Viritä TortoiseSVN:ää"
 
 #: Control-ID:65535,
 msgid "Two File Diff"
-msgstr ""
+msgstr "Kahden tiedoston vertaus"
 
 #: MenuEntry
 msgid "Two-way &Diff"
-msgstr ""
+msgstr "Kaksisuuntainen vertaus"
 
 #: Dlg-ID:164,
 msgid "URL"
@@ -3722,11 +3745,13 @@ msgid ""
 "Undo the last action\n"
 "Undo"
 msgstr ""
+"Peru viimeksi tehty komento\n"
+"Peru"
 
 #: ID:3859,#:
 #: ID:3859,
 msgid "Unexpected file format."
-msgstr ""
+msgstr "Odottamaton tiedostomuoto."
 
 #: MenuEntry
 msgid "Unified &Diff Of HEAD Revisions"
@@ -3745,9 +3770,10 @@ msgstr ""
 msgid "Unlock"
 msgstr "Avaa lukko"
 
+# vai lukituksen?
 #: ID:264,
 msgid "Unlock failed"
-msgstr ""
+msgstr "Lukon poistaminen epäonnistui."
 
 # Vai lukitus?
 #: ID:263,
@@ -3766,7 +3792,7 @@ msgstr "Päivitä"
 
 #: ID:11,
 msgid "Update To Revision..."
-msgstr ""
+msgstr "Synkronisoi revisioon.."
 
 #: ID:74,
 msgid "Updated"
@@ -3790,7 +3816,7 @@ msgstr "URL:"
 
 #: ID:251,
 msgid "Use &other text block"
-msgstr ""
+msgstr "Käytä toista tekstilohkoa"
 
 #: ID:195,
 msgid ""
@@ -3813,7 +3839,7 @@ msgstr ""
 
 #: Control-ID:1184,
 msgid "Use autocompletion of filepaths and keywords"
-msgstr ""
+msgstr "Käytä automaattistatekstiennustajaa tiedostoille ja avainsanoille"
 
 #: Control-ID:1214,
 msgid "Use old APIs to fetch log messages"
@@ -3825,7 +3851,7 @@ msgstr ""
 
 #: Control-ID:1066,
 msgid "Use strikeout for deleted lines"
-msgstr ""
+msgstr "Käytä yliviivausta tuhottujen rivien kohdalla"
 
 #: ID:251,
 msgid "Use text block from \"&mine\""
@@ -3906,7 +3932,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Whitespaces"
-msgstr ""
+msgstr "Tyhjeet"
 
 #: Dlg-ID:158,
 msgid "Working Copy"
@@ -3967,6 +3993,8 @@ msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
+"Valitsit versioimattoman tiedoston.\n"
+"Tiedosto lisätään versionhallintaan kun toimitat sen."
 
 #: ID:195,
 msgid ""
@@ -3989,11 +4017,11 @@ msgstr ""
 
 #: MenuEntry
 msgid "Zoom &In\tCtrl-+"
-msgstr "Tarkenna\tCtrl-+"
+msgstr "Zoom +\tCtrl-+"
 
 #: MenuEntry
 msgid "Zoom &Out\tCtrl--"
-msgstr ""
+msgstr "Zoom -\tCtrl--"
 
 #: ID:10,
 msgid "added"
@@ -4061,7 +4089,7 @@ msgstr "siivotaan"
 #: ID:244,#:
 #: ID:245,
 msgid "commits"
-msgstr ""
+msgstr "toimitukset"
 
 #: ID:11,
 msgid "conflicted"
@@ -4086,14 +4114,18 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
+"viety\n"
+"%s\n"
+"paikkaan\n"
+"%s"
 
 #: ID:13,
 msgid "external"
-msgstr ""
+msgstr "ulkoinen"
 
 #: ID:13,
 msgid "ignored"
-msgstr ""
+msgstr "hylätty"
 
 #: ID:13,
 #, fuzzy
@@ -4119,11 +4151,11 @@ msgstr "muokattu"
 
 #: ID:10,
 msgid "no description for this command is available"
-msgstr ""
+msgstr "Tälle komennolle ei ole kuvausta"
 
 #: ID:10,
 msgid "non-versioned"
-msgstr ""
+msgstr "versioimaton"
 
 #: ID:10,
 msgid "normal"
@@ -4160,6 +4192,8 @@ msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
+"svn:eol-style\n"
+"Rivinvaihto, 'LF', 'CR', 'CRLF'."
 
 #: ID:14,
 msgid ""
@@ -4191,6 +4225,13 @@ msgid ""
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
+"svn:keywords\n"
+"Avainsanoja lisätään myöhemmin. Avainsanat ovat:\n"
+"URL, HeadURL\t\t\tURL uusimpaan versioon.\n"
+"Author, LastChangedBy\t\tViimeisin henkilö, joka muokkasi tiedostoa.\n"
+"Date, LastChangedDate\t\tPäiväys jolloin tiedostoa muokattiin viimeksi.\n"
+"Rev, LastChangedRevision\tMissä versiossa tiedostoa muokattiin viimeksi.\n"
+"Id\t\t\t\tLyhyt yhteenveto kaikista neljästä."
 
 #: ID:14,
 msgid ""
@@ -4211,7 +4252,7 @@ msgstr ""
 #: ID:103,#:
 #: ID:103,
 msgid "to %s"
-msgstr ""
+msgstr "%s"
 
 #: ID:15,
 msgid ""
@@ -4259,7 +4300,7 @@ msgstr "viikko"
 
 #: Control-ID:65535,
 msgid "which points to the repository at URL:"
-msgstr ""
+msgstr "joka osoittaa varaston URL-osoitteeseen:"
 
 #: Control-ID:1112,
 msgid "your version is:"
