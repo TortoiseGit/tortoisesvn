@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-17 18:51-0300\n"
+"PO-Revision-Date: 2005-09-23 11:21-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1621,7 +1621,7 @@ msgstr "Copiar para a cópia de trabalho"
 
 # ID:97,
 #: ID:98
-#, fuzzy, c-format
+#, c-format
 msgid "Copy: New name for %s"
 msgstr "Copiar: Novo nome para %s"
 
@@ -1866,7 +1866,6 @@ msgstr "O disco de destino está cheio."
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Diff"
 msgstr "Comparar"
 
@@ -2348,7 +2347,6 @@ msgstr "GDI+ não pôde criar um objeto bitmap. Você provavelmente não possui 
 
 # ID:83,
 #: ID:83
-#, fuzzy
 msgid ""
 "GDI+ is required to save the revision graph as a picture.\n"
 "You can get GDI+ from\n"
@@ -2625,7 +2623,6 @@ msgstr "Importação Inicial"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Inline Whitespace Diff"
 msgstr "Comparação de espaços em branco"
 
@@ -2754,7 +2751,6 @@ msgstr "Visão da Esquerda:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Line with whitespace diff"
 msgstr "Linha com comparação de espaços em branco"
 
@@ -2994,7 +2990,7 @@ msgstr "Autor mais ativo:"
 
 # ID:97,
 #: ID:98
-#, fuzzy, c-format
+#, c-format
 msgid "Move: New name for %s"
 msgstr "Mover: Novo nome para %s"
 
@@ -3741,19 +3737,16 @@ msgstr "Solicita um nome de usuário e uma senha"
 
 # ID:8,
 #: Dlg-ID:207
-#, fuzzy
 msgid "Resolve"
 msgstr "Resolver"
 
 # ID:9,
 #: ID:282
-#, fuzzy
 msgid "Resolve conflict using \"mine\""
 msgstr "Resolver conflito usando \"meu\""
 
 # ID:9,
 #: ID:282
-#, fuzzy
 msgid "Resolve conflict using \"theirs\""
 msgstr "Resolver conflito usando \"deles\""
 
@@ -4180,7 +4173,6 @@ msgstr "Selecionar arquivo de comparação..."
 
 # Dlg-ID:173,
 #: ID:276
-#, fuzzy
 msgid "Select end revision"
 msgstr "Selecionar revisão final"
 
@@ -4195,13 +4187,11 @@ msgstr ""
 
 # Dlg-ID:173,
 #: ID:276
-#, fuzzy
 msgid "Select revision range"
 msgstr "Selecionar intervalo de revisões"
 
 # Dlg-ID:173,
 #: ID:276
-#, fuzzy
 msgid "Select start revision"
 msgstr "Selecionar revisão inicial"
 
@@ -4320,7 +4310,6 @@ msgstr "Mostrar Diferenças como Comparação &Unificada"
 
 # Control-ID:1065,
 #: Control-ID:1065
-#, fuzzy
 msgid "Show Line Diff Bar"
 msgstr "Mostrar Barra de Comparação em Linha"
 
@@ -4532,9 +4521,8 @@ msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Subversion server file:"
-msgstr "Arquivo do servidor do Subversion:"
+msgstr "Arquivo de servidor do Subversion:"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -4565,7 +4553,6 @@ msgstr ""
 
 # ID:2051,
 #: ID:2051
-#, fuzzy
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -4861,7 +4848,6 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
@@ -4907,7 +4893,6 @@ msgstr "Arquivo Deles:"
 
 # ID:188,
 #: ID:263
-#, fuzzy
 msgid "Theirs"
 msgstr "Deles"
 
@@ -4957,7 +4942,6 @@ msgstr "Esse produto inclui software desenvolvido por CollabNet (http://www.coll
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
 msgstr "Esse produto inclui software desenvolvido pelo Projeto OpenSSL para uso no OpenSSL Toolkit (http://www.openssl.org/)"
 
@@ -5204,7 +5188,7 @@ msgstr "Formato de arquivo inesperado."
 
 #: MenuEntry
 msgid "Unified &Diff Of HEAD Revisions"
-msgstr "Comparação Unificada das Revisões Mais Recentes"
+msgstr "&Comparação Unificada das Revisões Mais Recentes"
 
 # ID:81,
 #: ID:81
@@ -5330,7 +5314,6 @@ msgstr "Use as APIs antigas para obter comentários"
 
 # Control-ID:1024,
 #: Control-ID:1024
-#, fuzzy
 msgid "Use one-pane view as default for 2-file diff"
 msgstr "Usar visualização em um painel por padrão para comparação de 2 arquivos"
 
@@ -5503,7 +5486,6 @@ msgstr ""
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid ""
 "You can't set this property on folders, only on files!\n"
 "If you want to set it on all files within that folder,\n"
