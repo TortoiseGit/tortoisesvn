@@ -57,7 +57,7 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (Languages.txt) DO (
     set obs=0
 
     FOR /F "usebackq" %%p IN (`Check_Errors.bat --check !POFILE!`) DO SET errors=%%p
-    FOR /F "usebackq" %%p IN (`Check_Errors.bat --check_accelerators !POFILE!`) DO SET accel=%%p
+    FOR /F "usebackq" %%p IN (`Check_Errors.bat --check-accelerators !POFILE!`) DO SET accel=%%p
     FOR /F "usebackq" %%p IN (`Check_Attrib.bat --translated --no-obsolete !POFILE!`) DO SET tra=%%p
     FOR /F "usebackq" %%p IN (`Check_Attrib.bat --only-fuzzy --no-obsolete !POFILE!`) DO SET fuz=%%p
     FOR /F "usebackq" %%p IN (`Check_Attrib.bat --untranslated --no-obsolete !POFILE!`) DO SET unt=%%p
