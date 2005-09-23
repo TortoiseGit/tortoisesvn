@@ -1,3 +1,44 @@
+Version 1.2.3
+- NEW: In the settings dialog, network page. A new button to edit the
+       Subversion servers file. (Stefan)
+- NEW: Context menu entries to resolve a conflicted file inside the commit
+       dialog by using either "mine" or "theirs" directly. (Stefan)
+- NEW: Exporting now warns before overwriting existing files.
+       See issue #165. (Stefan)
+- NEW: The progress dialog doesn't scroll automatically anymore if the
+       user scrolls up. See issue #169. (Stefan)
+- CHG: The commit dialog doesn't interrupt the user entering a log message
+       anymore with a dialog box popping up about modifications inside
+       an external folder. Instead, a warning icon is shown in that case below
+       the file list control. (Stefan)
+- BUG: When fetching files to diff, the progress dialog shown while fetching
+       the files from the repository always showed revision 1 instead of the
+       real revision where the file was fetched from. (Stefan)
+- BUG: The file system watcher in the status cache wasn't monitoring all
+       folders it should have. (Stefan)
+- BUG: Fixed a crash when showing a diff against BASE and the status of the
+       file couldn't be read. (Stefan)
+- BUG: If an invalid URL was entered, an assertion would throw in some
+       places. (Stefan)
+- BUG: Comparing a file to the working copy from the log dialog didn't work
+       past renames. (Stefan)
+- BUG: Added files inside external folders weren't recognized and no warning
+       was shown in the commit dialog that these changes must be committed
+       separately. (Stefan)
+- BUG: The cache could end up in an endless loop which made it consume
+       around 20% CPU all the time. (Stefan)
+- BUG: The context menu leaked one GDI object. (Stefan)
+- BUG: Date revisions weren't shown correctly in the repository browser. (Stefan)
+- BUG: Right-dragging with rename in the repository browser checked with the
+       old name if the target exists instead of the new name. (Stefan)
+- BUG: The revert dialog showed modified files inside externals too, but those
+       must be reverted separately. (Stefan)
+- BUG: The 'revert changes from all revisions' context menu in the log dialog
+       was shown even if a filter was applied and the selected revisions
+       were not continuous. That lead to revisions reverted which weren't
+       really selected. (Stefan)
+- BUG: When unlocking multiple folders, TSVN could crash. (Stefan)
+
 Version 1.2.2
 - NEW: Display a summary of our own license at start of install,
        instead of the Subversion license. (Simon)
