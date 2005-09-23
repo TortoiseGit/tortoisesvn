@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-08-30 13:45+0100\n"
+"PO-Revision-Date: 2005-09-23 10:11+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -621,6 +621,12 @@ msgstr "Lägg till"
 #: ID:101
 msgid "Add &File..."
 msgstr "&Lägg till fil..."
+
+# ID:376,
+#: ID:376
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "Lägg till '%s' till ordlistan"
 
 # Hur översätta "diff"
 #: ID:110
@@ -1331,6 +1337,11 @@ msgstr "Kopiera till urklipp"
 msgid "Copy to working copy"
 msgstr "Kopiera till arbetskopia"
 
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "Kopiera: Nytt namn för %s"
+
 #: ID:80
 #, c-format
 msgid "Copying %s"
@@ -1602,6 +1613,11 @@ msgstr ""
 msgid "Do not show this message again"
 msgstr "Visa inte detta meddelande igen"
 
+# ID:145,
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "Vill du verkligen flytta den här filen eller mappen?"
+
 #: ID:76
 #, c-format
 msgid ""
@@ -1657,6 +1673,10 @@ msgstr "&Avsluta"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
+
+#: Control-ID:1237
+msgid "Edit"
+msgstr "Redigera"
 
 #: ID:113
 msgid "Edit Author"
@@ -1926,6 +1946,17 @@ msgstr "Det gick inte att initiera GDI+!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ kunde inte skapa ett bitmap objekt. Du har antagligen inte tillräckligt med ledigt minne."
 
+# ID:83,
+#: ID:83
+msgid ""
+"GDI+ is required to save the revision graph as a picture.\n"
+"You can get GDI+ from\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+msgstr ""
+"GDI+ krävs för att kunna spara revisionsgrafen som en bild.\n"
+"Du kan hämta GDI+ från\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+
 #: Dlg-ID:143
 #: Dlg-ID:107
 #: Control-ID:65535
@@ -2083,6 +2114,15 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr "Om ikryssad så initieras Förenings dialogens \"Från:\" URL med den valda arbetskopians URL istället för den senast använda."
+
+# ID:195,
+#: ID:195
+msgid ""
+"If enabled, the repository is contacted when the dialog starts up.\n"
+"You don't have to click on \"Check Repository\" anymore."
+msgstr ""
+"Kontakta arkivet när dialogen visas.\n"
+"Man behöver inte längre klicka på \"Kontrollera arkiv\"."
 
 #: ID:195
 msgid ""
@@ -2471,6 +2511,11 @@ msgstr "Ändrad"
 msgid "Most active author:"
 msgstr "Mest aktiv:"
 
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr "Flytta: Nytt namn för %s"
+
 #: ID:126
 msgid "Moved remotely"
 msgstr "Flyttades i arkivet"
@@ -2605,6 +2650,10 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Alla registryinställningar eller .ini-filen togs inte bort."
+
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "Otillräckligt minne för att utföra åtgärden."
 
 # ID:88,
 #: ID:88
@@ -3709,6 +3758,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: Control-ID:65535
+msgid "Subversion server file:"
+msgstr "Serverkonfigurationsfil för Subversion:"
+
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Växla vänster<->höger"
@@ -3845,18 +3898,6 @@ msgstr "Filen %s kunde inte hittas i patchfilen!"
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Filen är för stor för att öppna."
-
-# ID:145,
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"Filen eller mappen\n"
-"%s\n"
-"har lokala ändringar. Vill du verkligen flytta den här filen?"
 
 #: ID:80
 #, c-format
@@ -4099,6 +4140,10 @@ msgstr ""
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Den här produkten innehåller programvara utvecklad av CollabNet (http://www.Collab.Net/)"
+
+#: Control-ID:65535
+msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr "Den här produkten innehåller programvara utvecklad av OpenSSL Project för användning i OpenSSL Toolkit (http://www.openssl.org/)"
 
 #: ID:3857
 #, c-format
@@ -4760,6 +4805,15 @@ msgstr "arkiveringar"
 #: ID:11
 msgid "conflicted"
 msgstr "i konflikt"
+
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"kopierad från\r\n"
+"%s - revision %ld"
 
 #: Control-ID:1113
 msgid "current version is:"
