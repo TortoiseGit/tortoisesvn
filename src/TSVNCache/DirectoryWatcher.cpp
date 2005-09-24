@@ -149,11 +149,16 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 		ATLTRACE("add path to watch %ws\n", newroot.GetWinPath());
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
+		ClearInfoMap();
+		CloseHandle(m_hCompPort);
+		m_hCompPort = INVALID_HANDLE_VALUE;
 		return true;
 	}
 	ATLTRACE("add path to watch %ws\n", path.GetWinPath());
 	watchedPaths.AddPath(path);
 	ClearInfoMap();
+	CloseHandle(m_hCompPort);
+	m_hCompPort = INVALID_HANDLE_VALUE;
 	return true;
 }
 
@@ -186,8 +191,13 @@ void CDirectoryWatcher::WorkerThread()
 				if (!m_bRunning)
 					return;
 				AutoLocker lock(m_critSec);
-				CloseHandle(m_hCompPort);
 				ClearInfoMap();
+				if (m_hCompPort != INVALID_HANDLE_VALUE)
+					CloseHandle(m_hCompPort);
+				// Since we pass m_hCompPort to CreateIoCompletionPort, we
+				// have to set this to NULL to have that API create a new
+				// handle.
+				m_hCompPort = NULL;
 				for (int i=0; i<watchedPaths.GetCount(); ++i)
 				{
 					HANDLE hDir = CreateFile(watchedPaths[i].GetWinPath(), 
@@ -211,6 +221,7 @@ void CDirectoryWatcher::WorkerThread()
 					if (m_hCompPort == NULL)
 					{
 						ATLTRACE("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
+						ClearInfoMap();
 						CloseHandle(m_hCompPort);
 						pDirInfo->DeleteSelf();
 						watchedPaths.RemovePath(watchedPaths[i]);
@@ -226,6 +237,7 @@ void CDirectoryWatcher::WorkerThread()
 												NULL))	//no completion routine!
 					{
 						ATLTRACE("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
+						ClearInfoMap();
 						CloseHandle(m_hCompPort);
 						pDirInfo->DeleteSelf();
 						watchedPaths.RemovePath(watchedPaths[i]);
@@ -240,7 +252,9 @@ void CDirectoryWatcher::WorkerThread()
 				if (!m_bRunning)
 					return;
 				if (numBytes == 0)
-					break;
+				{
+					continue;
+				}
 				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
 				// is called again, the higher the chance that we miss some
 				// changes in the filesystem! 
