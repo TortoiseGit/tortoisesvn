@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-05 21:04+0100\n"
+"PO-Revision-Date: 2005-09-24 09:53+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -614,6 +614,11 @@ msgstr "Toevoegen"
 #: ID:101
 msgid "Add &File..."
 msgstr "&Bestand toevoegen..."
+
+#: ID:376
+#, c-format
+msgid "Add '%s' to dictionary"
+msgstr "Voeg '%s' toe aan woordenboek"
 
 #: ID:110
 msgid "Add Extension Specific Diff Program"
@@ -1291,6 +1296,11 @@ msgstr "Naar klembord kopiëren"
 msgid "Copy to working copy"
 msgstr "Kopiëer naar werkkopie"
 
+#: ID:98
+#, c-format
+msgid "Copy: New name for %s"
+msgstr "Kopie: Nieuwe naam voor %s"
+
 #: ID:80
 #, c-format
 msgid "Copying %s"
@@ -1555,6 +1565,10 @@ msgstr ""
 #: ID:80
 msgid "Do not show this message again"
 msgstr "Deze boodschap niet meer tonen"
+
+#: ID:145
+msgid "Do you really want to move this file or folder?"
+msgstr "Wilt u dit bestand of deze map echt verplaatsen?"
 
 #: ID:76
 #, c-format
@@ -2399,6 +2413,11 @@ msgstr "Gewijzigd"
 msgid "Most active author:"
 msgstr "Meest actieve auteur:"
 
+#: ID:98
+#, c-format
+msgid "Move: New name for %s"
+msgstr "Verplaatsen: Nieuwe naam voor %s"
+
 #: ID:126
 msgid "Moved remotely"
 msgstr "Op afstand verplaatst"
@@ -2531,6 +2550,10 @@ msgstr "Normaal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Niet alle registersleutels (of INI bestand) zijn verwijderd."
+
+#: ID:83
+msgid "Not enough memory to complete operation."
+msgstr "Onvoldoende geheugen om de opdracht uit te voeren."
 
 #: ID:88
 msgid "Notice"
@@ -3739,17 +3762,6 @@ msgstr "Bestand %s niet aangetroffen in het patch-bestand!"
 msgid "The file is too large to open."
 msgstr "Het bestand is te groot om te openen."
 
-#: ID:145
-#, c-format
-msgid ""
-"The file or folder\n"
-"%s\n"
-"has local modifications. Do you really want to move this file?"
-msgstr ""
-"Bestand of map\n"
-"%s\n"
-"bevat lokale wijzigingen. Wilt u dit bestand echt verplaatsen?"
-
 #: ID:80
 #, c-format
 msgid ""
@@ -4615,6 +4627,15 @@ msgstr "vastleggingen"
 #: ID:11
 msgid "conflicted"
 msgstr "geconflicteerd"
+
+#: ID:208
+#, c-format
+msgid ""
+"copied from\r\n"
+"%s - revision %ld"
+msgstr ""
+"gekopieerd van\r\n"
+"%s - revisie %ld"
 
 #: Control-ID:1113
 msgid "current version is:"
