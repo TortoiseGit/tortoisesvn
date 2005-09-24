@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-09-20 22:54+0800\n"
-"Last-Translator: Lixinfeng <lixinfeng@hotmailcom>\n"
+"PO-Revision-Date: 2005-09-24 16:32+0800\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -288,7 +288,7 @@ msgstr "查找(&F)"
 # Control-ID:1050,
 #: Control-ID:1050
 msgid "&Fixed drives"
-msgstr "固定磁盘(&F)"
+msgstr "本地硬盘(&F)"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -760,7 +760,7 @@ msgstr "加入文件(&F)…"
 #: ID:376
 #, c-format
 msgid "Add '%s' to dictionary"
-msgstr "将“%s”添加到目录"
+msgstr "添加“%s”到目录"
 
 # ID:110,
 #: ID:110
@@ -1068,7 +1068,7 @@ msgstr "作者："
 # Control-ID:1123,
 #: ID:222
 msgid "Auto-close if no conflicts"
-msgstr "无冲突时自动关闭窗口(&O)"
+msgstr "无冲突时自动关闭窗口"
 
 # ID:222,
 #: ID:222
@@ -1078,7 +1078,7 @@ msgstr "如无错误，自动关闭"
 # ID:222,
 #: ID:222
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "如无合并，添加，删除，自动关闭"
+msgstr "如无合并、添加、删除操作，自动关闭"
 
 # ID:76,
 #: Control-ID:65535
@@ -1611,7 +1611,7 @@ msgstr "复制至工作复本…"
 #: ID:98
 #, c-format
 msgid "Copy: New name for %s"
-msgstr "复制：%s 的新名称"
+msgstr "复制： %s 的新名称"
 
 # ID:80,
 #: ID:80
@@ -1934,7 +1934,7 @@ msgstr "不再显示此信息"
 # ID:145,
 #: ID:145
 msgid "Do you really want to move this file or folder?"
-msgstr "你确定要移动文件/文件夹吗？"
+msgstr "你确认要移动这个文件或目录吗？"
 
 # ID:76,
 #: ID:76
@@ -2332,8 +2332,9 @@ msgid ""
 "You can get GDI+ from\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 msgstr ""
-"要将版本分支图保存为图片需要 GDI+ 的支持。\n"
-"你可以从<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>获取 GDI+。"
+"需要GDI+才能将版本图保存成图片格式。\n"
+"你可以从以下地址下载GDI+\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 # Dlg-ID:107,
 #: Dlg-ID:143
@@ -2522,8 +2523,8 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"如果选中该项，则在对话框打开时自动连接文件库，\n"
-"不需要再点击“检查仓库”。"
+"如果设置改选项，当对话框出现时自动检查文件库。\n"
+"你不必再设置“检查文件库”选项。"
 
 # ID:195,
 #: ID:195
@@ -2973,7 +2974,7 @@ msgstr "最活跃作者："
 #: ID:98
 #, c-format
 msgid "Move: New name for %s"
-msgstr "移动：%s 的新名称"
+msgstr "移动：%s  的新名称"
 
 # ID:126,
 #: ID:126
@@ -3481,7 +3482,7 @@ msgstr "属性状态："
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
-msgstr "超时设置(秒)(&T)："
+msgstr "超时设置(&T)："
 
 # Control-ID:1080,
 #: Control-ID:1080
@@ -3500,7 +3501,7 @@ msgstr ""
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "R&AM drives"
-msgstr "虚拟磁盘(&A)"
+msgstr "内存虚拟磁盘(&A)"
 
 # ID:3697,
 #: ID:3697
@@ -4497,7 +4498,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion server file:"
-msgstr "Subversion 服务器文件："
+msgstr "Subversion 服务器设置："
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -5357,7 +5358,7 @@ msgid ""
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
-"可用的命令行选项有:\n"
+"可用的命令行选项有：\n"
 "/base：<基础文件的路径>\n"
 "/theirs：<远程文件的路径>\n"
 "/yours：<本地文件的路径>\n"
@@ -5690,8 +5691,8 @@ msgid ""
 "copied from\r\n"
 "%s - revision %ld"
 msgstr ""
-"复制自\r\n"
-"%s - 版本：%ld"
+"复制自 \n"
+"%s 版本： %ld"
 
 # Control-ID:1113,
 #: Control-ID:1113
