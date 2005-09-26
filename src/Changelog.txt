@@ -1,4 +1,10 @@
+- NEW: The settings dialog now has a button to open the system sound
+       dialog where the TSVN sounds can be configured.
+       See issue #167. (Stefan)
 - BUG: The status cache didn't watch all required paths. (Stefan)
+- BUG: When files were added to the ignore list, a choice of 
+       File.ext or *.ext is given. If the *.ext is chosen the dialog 
+       box told that File.ext was successfully added instead of *.ext. (Stefan)
 
 Version 1.2.4
 - BUG: TortoisePlink was unable to connect to svn+ssh. (Stefan)

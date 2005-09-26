@@ -1373,11 +1373,11 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				//strLine = _T("F:\\Development\\DirSync\\DirSync.cpp");
 				CString name = pathList[nPath].GetFileOrDirectoryName();
-				filelist += name + _T("\n");
 				if (parser.HasKey(_T("onlymask")))
 				{
 					name = _T("*")+pathList[nPath].GetFileExtension();
 				}
+				filelist += name + _T("\n");
 				CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
 				SVNProperties props(parentfolder);
 				CStringA value;

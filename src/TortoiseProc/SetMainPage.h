@@ -78,4 +78,5 @@ public:
 	afx_msg void OnBnClickedClearauth();
 	afx_msg void OnBnClickedChecknewerbutton();
 	afx_msg void OnBnClickedCommitfiletimes();
+	afx_msg void OnBnClickedSounds();
 };

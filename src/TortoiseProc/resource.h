@@ -367,6 +367,8 @@
 #define IDS_PROGRS_COPY_WARNING         1238
 #define IDC_EXTERNALWARNING             1238
 #define IDS_PROGRS_COMMITT_TRUNK        1239
+#define IDC_BUTTON1                     1239
+#define IDC_SOUNDS                      1239
 #define IDS_PROGRS_REVERTMARKERS        1240
 #define IDS_SETTINGS_SELECTDIFF         1241
 #define IDS_SETTINGS_SELECTDIFFVIEWER   1242
@@ -699,7 +701,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        211
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1239
+#define _APS_NEXT_CONTROL_VALUE         1240
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
