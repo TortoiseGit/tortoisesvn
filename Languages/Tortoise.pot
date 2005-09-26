@@ -1264,6 +1264,15 @@ msgstr ""
 msgid "Cu&t"
 msgstr ""
 
+#: Control-ID:1113,
+msgid "Current version is:"
+msgstr ""
+
+#: ID:201,
+#, c-format
+msgid "Current version is: %s"
+msgstr ""
+
 #: ID:3603,
 msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr ""
@@ -3736,6 +3745,15 @@ msgstr ""
 msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 msgstr ""
 
+#: Control-ID:1112,
+msgid "Your version is:"
+msgstr ""
+
+#: ID:201,
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr ""
+
 #: ID:78,
 msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
 msgstr ""
@@ -3809,15 +3827,6 @@ msgstr ""
 #: ID:208,
 #, c-format
 msgid "copied from\r\n%s - revision %ld"
-msgstr ""
-
-#: Control-ID:1113,
-msgid "current version is:"
-msgstr ""
-
-#: ID:201,
-#, c-format
-msgid "current version is: %s"
 msgstr ""
 
 #: ID:10,
@@ -3952,14 +3961,5 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "which points to the repository at URL:"
-msgstr ""
-
-#: Control-ID:1112,
-msgid "your version is:"
-msgstr ""
-
-#: ID:201,
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
 msgstr ""
 

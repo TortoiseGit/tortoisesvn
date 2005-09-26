@@ -698,8 +698,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,65,95,50,14
     LTEXT           "Checking if a newer version of TortoiseSVN is available...",
                     IDC_STATIC,7,7,172,19
-    LTEXT           "your version is:",IDC_YOURVERSION,7,28,172,8
-    LTEXT           "current version is:",IDC_CURRENTVERSION,7,40,172,8
+    LTEXT           "Your version is:",IDC_YOURVERSION,7,28,172,8
+    LTEXT           "Current version is:",IDC_CURRENTVERSION,7,40,172,8
     LTEXT           "",IDC_CHECKRESULT,7,55,172,37,SS_NOTIFY
 END
 
@@ -1897,8 +1897,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CHECKNEWER_YOURVERSION "your version is: %d.%d.%d.%d"
-    IDS_CHECKNEWER_CURRENTVERSION "current version is: %s"
+    IDS_CHECKNEWER_YOURVERSION "Your version is: %d.%d.%d.%d"
+    IDS_CHECKNEWER_CURRENTVERSION "Current version is: %s"
     IDS_CHECKNEWER_YOURUPTODATE 
                             "You already have the latest version installed."
     IDS_CHECKNEWER_NEWERVERSIONAVAILABLE 
