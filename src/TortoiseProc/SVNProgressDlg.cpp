@@ -1303,7 +1303,16 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
 							temp.LoadString(IDS_MENULOG);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);
-							
+						}
+						if ((data->action == svn_wc_notify_add)||
+							(data->action == svn_wc_notify_update_add)||
+							(data->action == svn_wc_notify_commit_added)||
+							(data->action == svn_wc_notify_commit_modified)||
+							(data->action == svn_wc_notify_restore)||
+							(data->action == svn_wc_notify_revert)||
+							(data->action == svn_wc_notify_resolved)||
+							(data->action == svn_wc_notify_commit_replaced))
+						{
 							popup.AppendMenu(MF_SEPARATOR, NULL);
 							temp.LoadString(IDS_LOG_POPUP_OPEN);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
