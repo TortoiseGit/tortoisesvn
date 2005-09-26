@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-23 11:21-0300\n"
+"PO-Revision-Date: 2005-09-26 16:23-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1517,6 +1517,11 @@ msgstr "Compara o arquivo com a última revisão submetida para mostrar-lhe as a
 msgid "Completed"
 msgstr "Concluído"
 
+# ID:73,
+#: Control-ID:1239
+msgid "Configure"
+msgstr "Configurar"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -1812,6 +1817,17 @@ msgstr "Créditos:"
 #: ID:376
 msgid "Cu&t"
 msgstr "Recor&tar"
+
+# Control-ID:1113,
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "A versão atual é:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "A versão atual é: %s"
 
 # ID:3603,
 #: ID:3603
@@ -4599,6 +4615,11 @@ msgstr "Alternar..."
 msgid "Symbol View"
 msgstr "Visão de Símbolos"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System Sounds"
+msgstr "Sons do Sistema"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -5576,6 +5597,17 @@ msgstr ""
 "Você alterou o conjunto de ícones de <i>%s</i> para <i>%s</i>.\n"
 "Essa alteração não terá efeito até que você reinicie seu computador ou efetue logoff e logon novamente!"
 
+# Control-ID:1112,
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "Sua versão é:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "Sua versão é: %d.%d.%d.%d"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -5721,17 +5753,6 @@ msgid ""
 msgstr ""
 "copiado de\r\n"
 "%s - revisão %ld"
-
-# Control-ID:1113,
-#: Control-ID:1113
-msgid "current version is:"
-msgstr "a versão atual é:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "current version is: %s"
-msgstr "a versão atual é: %s"
 
 # ID:10,
 #: ID:10
@@ -5993,15 +6014,4 @@ msgstr "semana"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "que aponta para o repositório na URL:"
-
-# Control-ID:1112,
-#: Control-ID:1112
-msgid "your version is:"
-msgstr "sua versão é:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "sua versão é: %d.%d.%d.%d"
 
