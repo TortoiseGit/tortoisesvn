@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-18 14:27+0100\n"
-"Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
+"PO-Revision-Date: 2005-09-27 13:23+0100\n"
+"Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1508,6 +1508,11 @@ msgstr "Confronta il file con l'ultima revisione inviata in modo da mostrare i c
 msgid "Completed"
 msgstr "Completato"
 
+# ID:73,
+#: Control-ID:1239
+msgid "Configure"
+msgstr "Configura"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -1801,6 +1806,17 @@ msgstr "Crediti:"
 #: ID:376
 msgid "Cu&t"
 msgstr "&Taglia"
+
+# Control-ID:1113,
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "La versione corrente è:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "La versione corrente è: %s"
 
 # ID:3603,
 #: ID:3603
@@ -4587,6 +4603,11 @@ msgstr "Cambia..."
 msgid "Symbol View"
 msgstr "Simboli"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System Sounds"
+msgstr "Suoni di sistema"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -5562,6 +5583,17 @@ msgstr ""
 "Hai cambiato il set di icone da <i>%s</i> a <i>%s</i>.\n"
 "Il cambiamento non avrà effetto fino al prossimo riavvio del compiuter o fino alla prossima disconnessione dell'utente."
 
+# Control-ID:1112,
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "La verisione installata è:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "La versione installata è: %d.%d.%d.%d"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -5706,17 +5738,6 @@ msgid ""
 msgstr ""
 "copiato da \r\n"
 "%s - revisione %ld"
-
-# Control-ID:1113,
-#: Control-ID:1113
-msgid "current version is:"
-msgstr "la versione corrente è:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "current version is: %s"
-msgstr "la versione corrente è: %s"
 
 # ID:10,
 #: ID:10
@@ -5977,15 +5998,4 @@ msgstr "settimana"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "che punta al Repository all'indirizzo:"
-
-# Control-ID:1112,
-#: Control-ID:1112
-msgid "your version is:"
-msgstr "la vostra verisione è:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "la vostra versione è: %d.%d.%d.%d"
 
