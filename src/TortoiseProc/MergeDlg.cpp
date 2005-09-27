@@ -394,7 +394,6 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg = new CLogDlg();
 		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 		int limit = (int)(LONG)reg;
-		m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
 		m_pLogDlg->m_wParam = (m_bUseFromURL ? (MERGE_REVSELECTSTARTEND | MERGE_REVSELECTMINUSONE) : MERGE_REVSELECTSTART);
 		if (m_bUseFromURL)
 			m_pLogDlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
@@ -403,6 +402,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg->SetSelect(true);
 		m_pLogDlg->m_pNotifyWindow = this;
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	}
 	AfxGetApp()->DoWaitCursor(-1);
@@ -426,7 +426,6 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2 = new CLogDlg();
 		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 		int limit = (int)(LONG)reg;
-		m_pLogDlg2->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
 		m_pLogDlg2->m_wParam = (m_bUseFromURL ? (MERGE_REVSELECTSTARTEND | MERGE_REVSELECTMINUSONE) : MERGE_REVSELECTEND);
 		if (m_bUseFromURL)
 			m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
@@ -435,6 +434,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2->SetSelect(true);
 		m_pLogDlg2->m_pNotifyWindow = this;
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg2->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 	}
 	AfxGetApp()->DoWaitCursor(-1);
