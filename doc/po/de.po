@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-09-23 18:04+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2005-09-27 13:36+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1441,7 +1441,7 @@ msgstr "Die Informationen, die durch die überlagerten Symbole angezeigt werden,
 #: source/en/tsvn_dug/dug_wcstatus.xml:139
 #: (para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the \"Detailed View\". Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr "Klicken Sie einfach eine der vorhandenen Spalten mit der rechten Maustaste an und wählen Sie <guimenuitem>Weitere...</guimenuitem> aus dem Kontextmenü. In diesem Dialog können Sie die Spalten festlegen, die in der Ansicht <quote>Details</quote> angezeigt werden sollen. Die Einträge, die mit SVN beginnen gehören zu TortoiseSVN. Setzen Sie den Haken vor jeden Eintrag, den Sie wünschen. Klicken Sie dann auf <guibutton>OK</guibutton>. Die Spalten werden rechts an die bestehenden angehängt. Nutzen Sie Klicken und Ziehen, um Sie an die gewünschte Position zu bekommen. "
+msgstr "Klicken Sie einfach eine der vorhandenen Spalten mit der rechten Maustaste an und wählen Sie <guimenuitem>Weitere...</guimenuitem> aus dem Kontextmenü. In diesem Dialog können Sie die Spalten festlegen, die in der Ansicht <quote>Details</quote> angezeigt werden sollen. Die Einträge, die mit SVN beginnen gehören zu TortoiseSVN. Setzen Sie den Haken vor jeden Eintrag, den Sie wünschen. Klicken Sie dann auf <guibutton>OK</guibutton>. Die Spalten werden rechts an die bestehenden angehängt. Nutzen Sie Ziehen und Ablegen, um Sie an die gewünschte Position zu bekommen. "
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:151
 #: (para)
@@ -2790,12 +2790,12 @@ msgstr "Wenn Sie zwei Markierungen wählen, die von derselben Basis erstellt wur
 #: source/en/tsvn_dug/dug_repobrowser.xml:48
 #: (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
-msgstr "Sie können den Projektarchiv-Betrachter auch für <action>Ziehen und Loslassen</action> Aktionen verwenden. Wenn Sie eine Datei aus dem Explorer in den Projektarchiv-Betrachter ziehen, wird sie in das Projektarchiv importiert. Wenn Sie auf diese Weise mehrere Objekte gleichzeitige importieren, wird jedes Objekt in einer eigenen Revision importiert."
+msgstr "Sie können den Projektarchiv-Betrachter auch für <action>Ziehen und Ablegen</action> Aktionen verwenden. Wenn Sie eine Datei aus dem Explorer in den Projektarchiv-Betrachter ziehen, wird sie in das Projektarchiv importiert. Wenn Sie auf diese Weise mehrere Objekte gleichzeitige importieren, wird jedes Objekt in einer eigenen Revision importiert."
 
 #: source/en/tsvn_dug/dug_repobrowser.xml:54
 #: (para)
 msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right-drag</action> the item instead of just drag it. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
-msgstr "Wenn Sie eine Datei oder einen Ordner an einen anderen Platz kopieren/verschieben möchten und gleichzeitig einen neuen Namen vergeben möchten, können Sie die Datei oder den Ordner <action>rechts-ziehen</action> statt einfach zu verschieben. In diesem Falle wird ein Umbenennen-Dialog angezeigt, wo Sie den neuen Namen eingeben können für die Datei oder den Ordner."
+msgstr "Wenn Sie eine Datei oder einen Ordner an einen anderen Platz kopieren/verschieben möchten und gleichzeitig einen neuen Namen vergeben möchten, können Sie die Datei oder den Ordner <action>Rechts-Ziehen</action> statt einfach zu verschieben. In diesem Falle wird ein Umbenennen-Dialog angezeigt, in dem Sie den neuen Namen für die Datei oder den Ordner eingeben können."
 
 #: source/en/tsvn_dug/dug_rename.xml:3
 #: (title)
@@ -2862,7 +2862,7 @@ msgstr "Wählen Sie den Befehl <menuchoice> <guimenu>Kontextmenü</guimenu> <gui
 #: source/en/tsvn_dug/dug_rename.xml:37
 #: (para)
 msgid "If you want to move files inside a working copy, use the drag-and-drop handler again: <placeholder-1/>"
-msgstr "Wenn Sie Dateien innerhalb Ihrer Arbeitskopie verschieben möchten, können ebenfalls die <action>Ziehen und Loslassen</action> Funktion verwenden: <placeholder-1/>"
+msgstr "Wenn Sie Dateien innerhalb Ihrer Arbeitskopie verschieben möchten, können ebenfalls die <action>Ziehen und Ablegen</action> Funktion verwenden: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug_rename.xml:69
 #: (title)
@@ -3946,7 +3946,7 @@ msgstr "<placeholder-1/> Alle Befehle von TortoiseSVN werden über das Kontextme
 #: source/en/tsvn_dug/dug_general.xml:21
 #: (title)
 msgid "Drag and Drop"
-msgstr "Ziehen und Loslassen"
+msgstr "Ziehen und Ablegen"
 
 #: source/en/tsvn_dug/dug_general.xml:23
 #: (primary)
@@ -3966,7 +3966,7 @@ msgstr "Rechts-Zieh-Menü für einen Ordner unter Versionskontrolle"
 #: source/en/tsvn_dug/dug_general.xml:28
 #: (para)
 msgid "<placeholder-1/> Other commands are available as drag handlers, when you <action>right drag</action> files or folders to a new location inside working copies or when you <action>right drag</action> a non-versioned file or folder into a directory which is under version control."
-msgstr "<placeholder-1/> Andere Befehle sind als <action>Ziehen und Loslassen</action> Funktion vorhanden. Wenn Sie Dateien oder Ordner innerhalb einer Arbeitskopie <action>Rechts-Ziehen</action> oder wenn Sie eine nicht versionskontrollierte Datei in eine Arbeitskopie <action>Rechts-Ziehen</action>."
+msgstr "<placeholder-1/> Andere Befehle sind als <action>Ziehen und Ablegen</action> Funktion vorhanden. Wenn Sie Dateien oder Ordner innerhalb einer Arbeitskopie <action>Rechts-Ziehen</action> oder wenn Sie eine nicht versionskontrollierte Datei in eine Arbeitskopie <action>Rechts-Ziehen</action>."
 
 #: source/en/tsvn_dug/dug_general.xml:42
 #: (primary)
@@ -4519,7 +4519,7 @@ msgstr "Es kommt vor dass Sie eine Kopie Ihres Projektes möchten, aber ohne die
 #: source/en/tsvn_dug/dug_checkout.xml:92
 #: (para)
 msgid "Another way to do an export is by right-dragging a working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
-msgstr "Eine andere Möglichkeit zu exportieren geht durch <action>Rechts-ziehen<action> eines Arbeitskopieordners an einen anderen Ort. Dann einfach <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Subversion hier exportieren</guimenuitem> </menuchoice> oder  <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Subversion hier alle exportieren</guimenuitem> </menuchoice> wählen."
+msgstr "Eine andere Möglichkeit zu exportieren geht durch <action>Rechts-Ziehen<action> eines Arbeitskopieordners an einen anderen Ort. Dann einfach <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Subversion hier exportieren</guimenuitem> </menuchoice> oder  <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Subversion hier alle exportieren</guimenuitem> </menuchoice> wählen."
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:3
 #: (title)
@@ -4983,7 +4983,7 @@ msgstr "Wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Da
 #: source/en/tsvn_dug/dug_add.xml:40
 #: (para)
 msgid "To add files from outside your working copy you can use the drag-and-drop handler: <placeholder-1/>"
-msgstr "Wenn Sie Dateien von außerhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie hinzufügen möchten, können Sie auch die <action>Ziehen und Loslassen</action> Funktion verwenden: <placeholder-1/>"
+msgstr "Wenn Sie Dateien von außerhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie hinzufügen möchten, können Sie auch die <action>Ziehen und Ablegen</action> Funktion verwenden: <placeholder-1/>"
 
 #: source/en/tsvn_dug/dug.xml:3
 #: (title)
