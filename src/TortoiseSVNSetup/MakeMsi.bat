@@ -18,7 +18,7 @@ if EXIST ..\..\..\Common\Spell\en_GB.aff (
 ) ELSE ( 
 	SET DictionaryENGB=0 
 )
-if EXIST ..\..\..\MYBUILD ( 
+if EXIST ..\..\MYBUILD ( 
 	SET IncludeCrashReportDll=1 
 ) ELSE ( 
 	SET IncludeCrashReportDll=0
