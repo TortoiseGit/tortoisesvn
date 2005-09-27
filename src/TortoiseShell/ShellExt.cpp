@@ -49,6 +49,12 @@ CShellExt::CShellExt(FileState state)
 
 CShellExt::~CShellExt()
 {
+	std::map<UINT, HBITMAP>::iterator it;
+	for (it = bitmaps.begin(); it != bitmaps.end(); ++it)
+	{
+		::DeleteObject(it->second);
+	}
+	bitmaps.clear();
 	g_cRefThisDll--;
 	apr_terminate();
 }

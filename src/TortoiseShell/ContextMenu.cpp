@@ -380,6 +380,8 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 
 HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 {
+	if (bitmaps.find(uIcon) != bitmaps.end())
+		return bitmaps[uIcon];
 	HICON hIcon = (HICON)LoadImage(g_hResInst, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 10, 10, LR_DEFAULTCOLOR);
 	if (!hIcon)
 		return NULL;
@@ -438,10 +440,10 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 
 	// Restore settings
 	::SelectObject(dst_hdc, old_dst_bmp);
-	::DeleteObject(bmp);
 	::DeleteDC(dst_hdc);
 	::ReleaseDC(desktop, screen_dev); 
 	DestroyIcon(hIcon);
+	bitmaps[uIcon] = bmp;
 	return bmp;
 }
 
@@ -494,6 +496,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 {
 	ATLTRACE("Shell :: QueryContextMenu\n");
 	PreserveChdir preserveChdir;
+	
 	//first check if our drophandler is called
 	//and then (if true) provide the context menu for the
 	//drop handler
