@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-09-21 10:42+0900\n"
+"PO-Revision-Date: 2005-09-27 10:27+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1500,6 +1500,11 @@ msgstr "작업한 내용을 마지막 커밋된 버전과 비교하여 보여줍
 msgid "Completed"
 msgstr "완료"
 
+# ID:73,
+#: Control-ID:1239
+msgid "Configure"
+msgstr "설정"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -1795,6 +1800,17 @@ msgstr "만든이들:"
 #: ID:376
 msgid "Cu&t"
 msgstr "잘라내기(&T)"
+
+# Control-ID:1113,
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "최신 버전:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "최신 버전: %s"
 
 # ID:3603,
 #: ID:3603
@@ -4571,6 +4587,11 @@ msgstr "브랜치/태그 전환..."
 msgid "Symbol View"
 msgstr "아이콘 뷰"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System Sounds"
+msgstr "시스템 소리"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -5541,6 +5562,17 @@ msgstr ""
 "아이콘 모음을 <i>%s</i>에서 <i>%s</i>로 바꾸었습니다..\n"
 "변경 내용은 컴퓨터를 재시작하거나, 로그오프후에 다시 로그인하기전까지는 반영되지 않습니다."
 
+# Control-ID:1112,
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "현재 설치된 버전:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "현재 설치된 버전: %d.%d.%d.%d"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -5686,17 +5718,6 @@ msgid ""
 msgstr ""
 "복사됨\r\n"
 "원본: %s - 리비전: %ld"
-
-# Control-ID:1113,
-#: Control-ID:1113
-msgid "current version is:"
-msgstr "최신 버전:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "current version is: %s"
-msgstr "최신 버전: %s"
 
 # ID:10,
 #: ID:10
@@ -5957,15 +5978,4 @@ msgstr "주"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "작업사본의 저장소 URL:"
-
-# Control-ID:1112,
-#: Control-ID:1112
-msgid "your version is:"
-msgstr "현재 설치된 버전:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "현재 설치된 버전: %d.%d.%d.%d"
 
