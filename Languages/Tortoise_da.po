@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4403
+# Based on Tortoise.pot r4492
 #
 msgid ""
 msgstr ""
@@ -1123,6 +1123,10 @@ msgstr "Sammenligner filen med den sidst arkiverede revision og viser de ændrin
 msgid "Completed"
 msgstr "Afsluttet"
 
+#: Control-ID:1239,
+msgid "Configure"
+msgstr "Konfigurer"
+
 #: Control-ID:65535,
 msgid "Configure the program used for comparing different revisions of files."
 msgstr "Indstil programmet, der bruges til at sammenligne forskellige revisioner af filer."
@@ -1329,6 +1333,15 @@ msgstr "Credits:"
 #: ID:376,
 msgid "Cu&t"
 msgstr "Kli&p"
+
+#: Control-ID:1113,
+msgid "Current version is:"
+msgstr "Aktuelle version er:"
+
+#: ID:201,
+#, c-format
+msgid "Current version is: %s"
+msgstr "Aktuelle version er: %s"
 
 #: ID:3603,
 msgid "Cut the selection and put it on the Clipboard\nCut"
@@ -1554,8 +1567,9 @@ msgid "Exclude paths:"
 msgstr "Udelad stierne:"
 
 #: Control-ID:65535,
+#Der er ikke plads til at skrive "Mønster for udelad/ignorer:"
 msgid "Exclude/Ignore pattern:"
-msgstr "Mønster for udelad/ignorer:"
+msgstr "Udelad/ignorer-mønster:"
 
 #: ID:209,
 msgid "Explore to"
@@ -3266,6 +3280,10 @@ msgstr "Skift..."
 msgid "Symbol View"
 msgstr "Vis som symboler"
 
+#: Control-ID:65535,
+msgid "System Sounds"
+msgstr "System-lyde"
+
 #: ID:3857,#: ID:3857,
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Elementer i registreringsdatabasen er blevet fjernet og en evt. INI-fil blev slettet."
@@ -3830,6 +3848,15 @@ msgstr "Du har valgt en ikke-versioneret fil.\nFilen vil blive tilføjet version
 msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 msgstr "Du har ændret ikonerne fra <i>%s</i> til <i>%s</i>.\nDenne ændring træder ikke i kraft, før du genstarter computeren eller logger af og på igen!"
 
+#: Control-ID:1112,
+msgid "Your version is:"
+msgstr "Din version er:"
+
+#: ID:201,
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "Din version er: %d.%d.%d.%d"
+
 #: ID:78,
 msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
 msgstr "Din arbejdskopi ser ud til at befinde sig på stien for et mærkat!\nDu bør først skifte til en forgrening eller hovedstammen før du arkiverer.\n\nVil du arkivere alligevel?"
@@ -3906,15 +3933,6 @@ msgstr "konflikter"
 #, c-format
 msgid "copied from\r\n%s - revision %ld"
 msgstr "kopieret fra\r\n%s - revision %ld"
-
-#: Control-ID:1113,
-msgid "current version is:"
-msgstr "aktuelle version er:"
-
-#: ID:201,
-#, c-format
-msgid "current version is: %s"
-msgstr "aktuelle version er: %s"
 
 #: ID:10,
 msgid "deleted"
@@ -4049,13 +4067,3 @@ msgstr "uge"
 #: Control-ID:65535,
 msgid "which points to the repository at URL:"
 msgstr "som peger på versionsarkivet med URL:"
-
-#: Control-ID:1112,
-msgid "your version is:"
-msgstr "din version er:"
-
-#: ID:201,
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "din version er: %d.%d.%d.%d"
-
