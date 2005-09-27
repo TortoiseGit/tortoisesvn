@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-09-19 09:31+0100\n"
+"PO-Revision-Date: 2005-09-27 09:19+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1207,6 +1207,10 @@ msgstr "Vergleicht die Datei mit der letzten übertragenen Revision, um Ihre Än
 msgid "Completed"
 msgstr "Fertig"
 
+#: Control-ID:1239
+msgid "Configure"
+msgstr "Einrichten"
+
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
 msgstr "Konfigurieren Sie das Programm zum Betrachten verschiedener Dateirevisionen."
@@ -1454,6 +1458,15 @@ msgstr "Danksagung:"
 #: ID:376
 msgid "Cu&t"
 msgstr "Ausschnei&den"
+
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "Aktuelle Version ist:"
+
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "Aktuelle Version ist: %s"
 
 #: ID:3603
 msgid ""
@@ -3696,6 +3709,11 @@ msgstr "Wechseln zu..."
 msgid "Symbol View"
 msgstr "Symbolansicht"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System Sounds"
+msgstr "TortoiseSVN Töne"
+
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "System Registry Einträge wurden gelöscht und die INI Datei (falls vorhanden) wurde gelöscht."
@@ -4519,6 +4537,15 @@ msgstr ""
 "Sie haben den Symbolsatz von <i>%s</i> in <i>%s</i> geändert.\n"
 "Die Änderungen werden erst wirksam, nachdem Sie den Rechner neu gestartet oder sich ab- und wieder angemeldet haben!"
 
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "Ihre Version ist:"
+
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "Ihre Version ist: %d.%d.%d.%d"
+
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
@@ -4646,15 +4673,6 @@ msgid ""
 msgstr ""
 "Kopiert von\r\n"
 "%s - revision %ld"
-
-#: Control-ID:1113
-msgid "current version is:"
-msgstr "Aktuelle Version ist:"
-
-#: ID:201
-#, c-format
-msgid "current version is: %s"
-msgstr "Aktuelle Version ist: %s"
 
 #: ID:10
 msgid "deleted"
@@ -4882,13 +4900,4 @@ msgstr "Woche"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "die auf folgendes Projektarchiv zeigt:"
-
-#: Control-ID:1112
-msgid "your version is:"
-msgstr "Ihre Version ist:"
-
-#: ID:201
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "Ihre Version ist: %d.%d.%d.%d"
 
