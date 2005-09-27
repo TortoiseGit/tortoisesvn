@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-09-20 10:34+0800\n"
+"PO-Revision-Date: 2005-09-27 15:00+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1508,6 +1508,11 @@ msgstr "比對此檔案與上次送交的版本並列出你所做的異動"
 msgid "Completed"
 msgstr "完畢"
 
+# ID:73,
+#: Control-ID:1239
+msgid "Configure"
+msgstr "設定"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -1803,6 +1808,17 @@ msgstr "作者:"
 #: ID:376
 msgid "Cu&t"
 msgstr "剪下(&T)"
+
+# Control-ID:1113,
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "目前版本是:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "目前版本是: %s"
 
 # ID:3603,
 #: ID:3603
@@ -4584,6 +4600,11 @@ msgstr "切換..."
 msgid "Symbol View"
 msgstr "符號檢視"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System Sounds"
+msgstr "系統音效"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -5559,6 +5580,17 @@ msgstr ""
 "你已經將圖示組從 <i>%s</i> 變更為 <i>%s</i>.\n"
 "在重新登出登入或是重新開機之前變更並不會生效!"
 
+# Control-ID:1112,
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "你的版本是:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "你的版本是: %d.%d.%d.%d"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -5705,17 +5737,6 @@ msgid ""
 msgstr ""
 "複製自\r\n"
 "%s - 版本 %ld"
-
-# Control-ID:1113,
-#: Control-ID:1113
-msgid "current version is:"
-msgstr "目前版本是:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "current version is: %s"
-msgstr "目前版本是: %s"
 
 # ID:10,
 #: ID:10
@@ -5976,15 +5997,4 @@ msgstr "週"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "指向檔案庫URL:"
-
-# Control-ID:1112,
-#: Control-ID:1112
-msgid "your version is:"
-msgstr "你的版本是:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "你的版本是: %d.%d.%d.%d"
 
