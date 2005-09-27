@@ -73,6 +73,7 @@ private:
 	void WorkerThread();
 
 	void ClearInfoMap();
+	void CloseInfoMap();
 
 private:
 	CComAutoCriticalSection	m_critSec;
@@ -96,10 +97,7 @@ private:
 		CDirWatchInfo & operator=(const CDirWatchInfo & rhs);//so that they're aren't accidentally used. -- you'll get a linker error
 	public:
 		CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName);
-	private:
-		~CDirWatchInfo();	// only I can delete myself....use DeleteSelf()
-	public:
-		void	DeleteSelf();
+		~CDirWatchInfo();
 
 	protected:
 	public:

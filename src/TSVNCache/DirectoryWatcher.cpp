@@ -149,14 +149,14 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 		ATLTRACE("add path to watch %ws\n", newroot.GetWinPath());
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
-		ClearInfoMap();
+		CloseInfoMap();
 		CloseHandle(m_hCompPort);
 		m_hCompPort = INVALID_HANDLE_VALUE;
 		return true;
 	}
 	ATLTRACE("add path to watch %ws\n", path.GetWinPath());
 	watchedPaths.AddPath(path);
-	ClearInfoMap();
+	CloseInfoMap();
 	CloseHandle(m_hCompPort);
 	m_hCompPort = INVALID_HANDLE_VALUE;
 	return true;
@@ -223,7 +223,8 @@ void CDirectoryWatcher::WorkerThread()
 						ATLTRACE("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
 						ClearInfoMap();
 						CloseHandle(m_hCompPort);
-						pDirInfo->DeleteSelf();
+						delete pDirInfo;
+						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPaths[i]);
 						break;
 					}
@@ -239,7 +240,8 @@ void CDirectoryWatcher::WorkerThread()
 						ATLTRACE("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
 						ClearInfoMap();
 						CloseHandle(m_hCompPort);
-						pDirInfo->DeleteSelf();
+						delete pDirInfo;
+						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPaths[i]);
 						break;
 					}
@@ -335,10 +337,20 @@ void CDirectoryWatcher::ClearInfoMap()
 {
 	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 	{
-		I->second->DeleteSelf();
+		CDirectoryWatcher::CDirWatchInfo * info = I->second;
+		delete info;
 	}
 	watchInfoMap.clear();
+}
 
+void CDirectoryWatcher::CloseInfoMap()
+{
+	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+	{
+		CDirectoryWatcher::CDirWatchInfo * info = I->second;
+		info->CloseDirectoryHandle();
+	}
+	watchInfoMap.clear();
 }
 
 CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName) :
@@ -356,11 +368,6 @@ CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& Di
 CDirectoryWatcher::CDirWatchInfo::~CDirWatchInfo()
 {
 	CloseDirectoryHandle();
-}
-
-void CDirectoryWatcher::CDirWatchInfo::DeleteSelf()
-{
-	delete this;
 }
 
 bool CDirectoryWatcher::CDirWatchInfo::CloseDirectoryHandle()
