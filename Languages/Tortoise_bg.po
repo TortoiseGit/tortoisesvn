@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-09-20 11:03+0200\n"
+"PO-Revision-Date: 2005-09-27 10:48+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1546,6 +1546,11 @@ msgstr "Сравнява файла със последната поверена
 msgid "Completed"
 msgstr "Завършено"
 
+# ID:73,
+#: Control-ID:1239
+msgid "Configure"
+msgstr "Конфигуриране"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -1843,6 +1848,17 @@ msgstr "Заслуги:"
 #: ID:376
 msgid "Cu&t"
 msgstr "&Изрязване"
+
+# Control-ID:1113,
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "Текущата версия е:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "Текущата версия е: %s"
 
 # ID:3603,
 #: ID:3603
@@ -4621,6 +4637,11 @@ msgstr "Превключване..."
 msgid "Symbol View"
 msgstr "Символен изглед"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System Sounds"
+msgstr "Системни звуци"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -5591,6 +5612,17 @@ msgstr ""
 "Променихте използвания комплект с иконки от <i>%s</i> на <i>%s</i>.\n"
 "Тази промяна няма да влезе в сила, докато не рестартирате компютъра си или не се отпишете и запишете отново!"
 
+# Control-ID:1112,
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "Вашата версия е:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "Вашата версия е: %d.%d.%d.%d"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -5735,17 +5767,6 @@ msgid ""
 msgstr ""
 "копиран от\r\n"
 "%s - ревизия %ld"
-
-# Control-ID:1113,
-#: Control-ID:1113
-msgid "current version is:"
-msgstr "текущата версия е:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "current version is: %s"
-msgstr "текущата версия е: %s"
 
 # ID:10,
 #: ID:10
@@ -6005,15 +6026,4 @@ msgstr "седмица"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "което сочи към хранилище с URL:"
-
-# Control-ID:1112,
-#: Control-ID:1112
-msgid "your version is:"
-msgstr "Вашата версия е:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "Вашата версия е: %d.%d.%d.%d"
 
