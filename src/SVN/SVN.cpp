@@ -1391,7 +1391,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(), localpool);
 	
 	/* use subpool to create a temporary RA session */
-	if (svn_client__open_ra_session (&ra_session, goodurl, NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool))
+	if (svn_client_open_ra_session (&ra_session, goodurl, m_pctx, localpool))
 		return _T("");
 	
 	if (svn_ra_get_repos_root(ra_session, &returl, localpool))
@@ -1419,7 +1419,7 @@ LONG SVN::GetHEADRevision(const CTSVNPath& url)
 		return -1;
 
 	/* use subpool to create a temporary RA session */
-	if (svn_client__open_ra_session (&ra_session, urla, NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool))
+	if (svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool))
 		return -1;
 
 	if (svn_ra_get_latest_revnum(ra_session, &rev, localpool))
@@ -1446,7 +1446,7 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, LONG& rev)
 		return FALSE;
 
 	/* use subpool to create a temporary RA session */
-	if (svn_client__open_ra_session (&ra_session, urla, NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool))
+	if (svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool))
 		return FALSE;
 
 	if (svn_ra_get_latest_revnum(ra_session, &rev, localpool))
@@ -1468,7 +1468,7 @@ BOOL SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 	apr_hash_t * hash = apr_hash_make(localpool);
 
 	/* use subpool to create a temporary RA session */
-	Err = svn_client__open_ra_session (&ra_session, url.GetSVNApiPath(), NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool);
+	Err = svn_client_open_ra_session (&ra_session, url.GetSVNApiPath(), m_pctx, localpool);
 	if (Err != NULL)
 		return FALSE;
 

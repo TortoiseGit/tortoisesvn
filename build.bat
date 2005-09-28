@@ -50,13 +50,15 @@ cd %startdir%\ext\Subversion
 xcopy /Q /Y /I /E %startdir%\ext\berkeley-db\db4.3-win32 db4-win32
 rmdir /s /q build\win32\vcnet-vcproj
 del build\win32\build_*.bat
+echo 0.25.3> %startdir%\ext\neon\.version
 call python gen-make.py -t vcproj --with-openssl=..\..\..\Common\openssl --with-zlib=..\..\..\Common\zlib --with-neon=..\neon --with-apr=..\apr --with-apr-util=..\apr-util --with-apr-iconv=..\apr-iconv --enable-nls --enable-bdb-in-apr-util --vsnet-version=2003
 copy /Y %startdir%\ext\libaprutil.vcproj %startdir%\ext\apr-util\libaprutil.vcproj
+rem the expat.h.in doesn't have the version information correctly set :(
+copy %startdir%\ext\apr-util\xml\expat\lib\expat.h.in %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy
+copy %startdir%\expat.h.in %startdir%\ext\apr-util\xml\expat\lib\expat.h.in /Y
+rem the neon tarball contains config.hw, but the source tag doesn't
+copy %startdir%\neonconfig.hw %startdir%\ext\neon\config.hw /Y
 
-del ..\neon\config.h
-del ..\neon\config.hw
-copy %startdir%\neonconfig.hw ..\neon\config.hw
-del build\generator\vcnet_sln7.ezt
 if DEFINED _DEBUG (
   rem first, compile without any network/repository support
   echo building netless Subversion
@@ -95,6 +97,8 @@ if DEFINED _RELEASE (
 cd %startdir%
 copy ext\apr-iconv\lib\iconv_module_original.c ext\apr-iconv\lib\iconv_module.c /Y
 del ext\apr-iconv\lib\iconv_module_original.c
+copy %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy %startdir%\ext\apr-util\xml\expat\lib\expat.h.in /Y
+del %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy
 
 svn revert -R ext\apr-util
 

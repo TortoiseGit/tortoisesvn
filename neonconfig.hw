@@ -1,7 +1,7 @@
-/* 
+/*                                                      -*- c -*-
    Win32 config.h
    Copyright (C) 1999-2000, Peter Boos <pedib@colorfullife.com>
-   Copyright (C) 2002, Joe Orton <joe@manyfish.co.uk>
+   Copyright (C) 2002-2005, Joe Orton <joe@manyfish.co.uk>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -25,21 +25,21 @@
 
 #ifdef WIN32
 
-#define NEON_VERSION "0.24.7"
-#define NEON_VERSION_MAJOR (0)
-#define NEON_VERSION_MINOR (24)
+#define NEON_VERSION "0.25.3"
+#define NE_VERSION_MAJOR (0)
+#define NE_VERSION_MINOR (25)
 
 #define HAVE_ERRNO_H
 #define HAVE_LIMITS_H
 #define HAVE_STDLIB_H
 #define HAVE_STRING_H
-#define HAVE_SETSOCKOPT 1
 
 #define HAVE_MEMCPY
+#define HAVE_SETSOCKOPT
 
-#ifndef NEON_NODAV
-#define USE_DAV_LOCKS
-#endif
+#define HAVE_SSPI
+
+#define USE_GETADDRINFO
 
 #define NE_FMT_SIZE_T "u"
 #define NE_FMT_SSIZE_T "d"
