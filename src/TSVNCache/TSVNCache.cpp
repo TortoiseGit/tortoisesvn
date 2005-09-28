@@ -307,6 +307,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (message != WM_QUIT)
 				PostQuitMessage(0);
 			bRun = false;
+			return 1;
 		}
 		break;
 	default:
