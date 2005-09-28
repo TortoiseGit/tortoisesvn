@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-25 20:37+0100\n"
+"PO-Revision-Date: 2005-09-28 21:26+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1504,6 +1504,11 @@ msgstr "Összehasonlítja a fájlt a legutolsó beküldött verzióval és mutat
 msgid "Completed"
 msgstr "Teljesítve"
 
+# ID:73,
+#: Control-ID:1239
+msgid "Configure"
+msgstr "Beállítás"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -1800,6 +1805,17 @@ msgstr "Készítők:"
 #: ID:376
 msgid "Cu&t"
 msgstr "&Kivágás"
+
+# Control-ID:1113,
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "Jelenlegi verzió:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "Jelenlegi verzió: %s"
 
 # ID:3603,
 #: ID:3603
@@ -4577,6 +4593,11 @@ msgstr "Átállás"
 msgid "Symbol View"
 msgstr "Szimbólikus megjelenés"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System Sounds"
+msgstr "Rendszerhangok"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -5538,6 +5559,17 @@ msgstr ""
 "Megváltoztattad a <i>%s</i> ikonokat <i>%s</i> típusúra.\n"
 "Az érvénybe léptetéshez újra kell indítani a Windowst!"
 
+# Control-ID:1112,
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "A verziód:"
+
+# ID:201,
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "A verziód: %d.%d.%d.%d"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -5682,17 +5714,6 @@ msgid ""
 msgstr ""
 "másolva innen:\r\n"
 "%s - %ld verzió"
-
-# Control-ID:1113,
-#: Control-ID:1113
-msgid "current version is:"
-msgstr "jelenlegi verzió:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "current version is: %s"
-msgstr "jelenlegi verzió: %s"
 
 # ID:10,
 #: ID:10
@@ -5953,15 +5974,4 @@ msgstr "hét"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "ami a Tárházra mutat ezen az URL-en:"
-
-# Control-ID:1112,
-#: Control-ID:1112
-msgid "your version is:"
-msgstr "a verziód:"
-
-# ID:201,
-#: ID:201
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "a verziód: %d.%d.%d.%d"
 
