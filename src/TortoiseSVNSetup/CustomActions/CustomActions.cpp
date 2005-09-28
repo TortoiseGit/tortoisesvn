@@ -25,7 +25,7 @@ UINT __stdcall TerminateCache(MSIHANDLE hModule)
 			RegDeleteValue(hKey, _T("CachePath"));
 			RegCloseKey(hKey);
 		}
-		SendMessage(hWnd, WM_CLOSE, NULL, NULL);
+		PostMessage(hWnd, WM_CLOSE, NULL, NULL);
 		Sleep(1500);
 		if (!IsWindow(hWnd))
 		{
