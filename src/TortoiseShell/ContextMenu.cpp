@@ -152,8 +152,6 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 
 				int count = cida->cidl;
 				BOOL statfetched = FALSE;
-				stdstring sAdm = _T("\\");
-				sAdm += _T(SVN_WC_ADM_DIR_NAME);
 				for (int i = 0; i < count; ++i)
 				{
 					ItemIDList child (GetPIDLItem (cida, i), &parent);
@@ -161,7 +159,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					if (str.empty() == false)
 					{
 						//check if our menu is requested for a subversion admin directory
-						if ((str.length() > sAdm.length())&&(str.compare(str.length()-sAdm.length(), sAdm.length(), sAdm)==0))
+						if (g_SVNAdminDir.IsAdminDirPath(str.c_str()))
 							continue;
 
 						files_.push_back(str);
@@ -586,9 +584,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 	
 	//check if our menu is requested for a subversion admin directory
-	stdstring sAdm = _T("\\");
-	sAdm += _T(SVN_WC_ADM_DIR_NAME);
-	if ((folder_.length() > sAdm.length())&&(folder_.compare(folder_.length()-sAdm.length(), sAdm.length(), sAdm)==0))
+	if (g_SVNAdminDir.IsAdminDirPath(folder_.c_str()))
 		return NOERROR;
 
 	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), 1);

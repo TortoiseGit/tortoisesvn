@@ -19,6 +19,7 @@
 #pragma once
 #include "registry.h"
 #include "Globals.h"
+#include "SVNAdminDir.h"
 
 #define REGISTRYTIMEOUT 2000
 #define EXCLUDELISTTIMEOUT 5000
@@ -268,7 +269,6 @@ public:
 	{
 		size_t len = _tcslen(path);
 		TCHAR * buf = new TCHAR[len+1];
-		BOOL hasAdminDir = FALSE;
 		_tcscpy(buf, path);
 		if (! bIsDir)
 		{
@@ -288,16 +288,11 @@ public:
 				return iter->second;
 			}
 		}
-		TCHAR * buf2 = new TCHAR[len+10];		//BUGBUG: what if SVN_WC_ADM_DIR_NAME suddenly is bigger than 10 chars?
-		_tcscpy(buf2, buf);
-		_tcscat(buf2, _T("\\"));
-		_tcscat(buf2, _T(SVN_WC_ADM_DIR_NAME));
-		hasAdminDir = PathFileExists(buf2);
+		BOOL hasAdminDir = g_SVNAdminDir.HasAdminDir(buf, true);
 		admindirticker = GetTickCount();
 		Locker lock(m_critSec);
 		admindircache[buf] = hasAdminDir;
 		delete buf;
-		delete buf2;
 		return hasAdminDir;
 	}
 	bool IsMenuInserted(HMENU hMenu)

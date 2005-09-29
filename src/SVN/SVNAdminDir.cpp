@@ -1,0 +1,102 @@
+// TortoiseSVN - a Windows shell extension for easy version control
+
+// Copyright (C) 2003-2005 - Stefan Kueng
+
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#include "StdAfx.h"
+#include "UnicodeUtils.h"
+#include "SVNAdminDir.h"
+
+SVNAdminDir g_SVNAdminDir;
+
+SVNAdminDir::SVNAdminDir()
+{
+	m_bVSNETHack = false;
+	apr_initialize();
+	m_pool = svn_pool_create(NULL);
+	if (getenv ("SVN_ASP_DOT_NET_HACK"))
+	{
+		svn_wc_set_adm_dir("_svn", m_pool);
+		m_bVSNETHack = true;
+	}
+}
+
+SVNAdminDir::~SVNAdminDir()
+{
+	svn_pool_destroy(m_pool);
+	apr_terminate();
+}
+
+bool SVNAdminDir::IsAdminDirName(const CString& name)
+{
+	CStringA nameA = CUnicodeUtils::GetUTF8(name);
+	return !!svn_wc_is_adm_dir(nameA, m_pool);
+}
+
+bool SVNAdminDir::HasAdminDir(const CString& path)
+{
+	return HasAdminDir(path, !!PathIsDirectory(path));
+}
+
+bool SVNAdminDir::HasAdminDir(const CString& path, bool bDir)
+{
+	bool bHasAdminDir = false;
+	CString sDirName = path;
+	if (!bDir)
+	{
+		sDirName = path.Left(path.ReverseFind('\\'));
+	}
+	bHasAdminDir = !!PathFileExists(path + _T("\\.svn"));
+	if (!bHasAdminDir && m_bVSNETHack)
+		bHasAdminDir = !!PathFileExists(path + _T("\\_svn"));
+	return bHasAdminDir;
+}
+
+bool SVNAdminDir::IsAdminDirPath(const CString& path)
+{
+	bool bIsAdminDir = false;
+	int ind = path.Find(_T(".svn"));
+	if (ind >= 0)
+	{
+		if (ind == (path.GetLength() - 4))
+		{
+			bIsAdminDir = true;
+		}
+		else if (path.Find(_T(".svn\\"))>=0)
+		{
+			bIsAdminDir = true;
+		}
+	}
+	if (!bIsAdminDir && m_bVSNETHack)
+	{
+		ind = path.Find(_T("_svn"));
+		if (ind >= 0)
+		{
+			if (ind == (path.GetLength() - 4))
+			{
+				bIsAdminDir = true;
+			}
+			else if (path.Find(_T("_svn\\"))>=0)
+			{
+				bIsAdminDir = true;
+			}
+		}
+	}
+	return bIsAdminDir;
+}
+
+
+
+

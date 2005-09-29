@@ -39,6 +39,7 @@
 #include "SVNDiff.h"
 #include "InputDlg.h"
 #include "ShellUpdater.h"
+#include "SVNAdminDir.h"
 #include ".\svnstatuslistctrl.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
@@ -552,7 +553,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 			m_arStatusArray.push_back(entry);
 			if (entry->isfolder)
 			{
-				if (!PathFileExists(entry->path.GetWinPathString() + _T("\\") + _T(SVN_WC_ADM_DIR_NAME)))
+				if (!g_SVNAdminDir.HasAdminDir(entry->path.GetWinPathString(), true))
 					AddUnversionedFolder(entry->path, basePath, pIgnorePatterns);
 			}
 		}

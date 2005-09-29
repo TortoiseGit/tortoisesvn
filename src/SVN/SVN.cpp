@@ -34,6 +34,7 @@
 #include "StringUtils.h"
 #include "TempFile.h"
 #include "ShellFileOp.h"
+#include "SVNAdminDir.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -513,14 +514,12 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 			CString srcfile;
 			CShellFileOp fop;
 			CDirFileEnum lister(srcPath.GetWinPathString());
-			CString sSVN_ADMIN_DIR = _T("\\");
-			sSVN_ADMIN_DIR += _T(SVN_WC_ADM_DIR_NAME);
 			fop.AddSourceFile(srcPath.GetWinPath());
 			fop.AddDestFile(destPath.GetWinPath());
 			while (lister.NextFile(srcfile, NULL))
 			{
-				if ((srcfile.Find(sSVN_ADMIN_DIR+_T("\\"))>=0)||(srcfile.Right(sSVN_ADMIN_DIR.GetLength()).Compare(sSVN_ADMIN_DIR)==0))
-					continue;	// exclude everything inside an admin directory
+				if (g_SVNAdminDir.IsAdminDirPath(srcfile))
+					continue;
 				if (!fop.AddSourceFile(srcfile))
 				{
 					Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_ERR_NOTENOUGHMEMORY)));

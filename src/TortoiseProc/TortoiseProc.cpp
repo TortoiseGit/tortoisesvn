@@ -61,6 +61,7 @@
 #include "ShellUpdater.h"
 #include "SVNDiff.h"
 #include "CreatePatch.h"
+#include "SVNAdminDir.h"
 
 #include "..\version.h"
 
@@ -175,8 +176,6 @@ static const struct CommandInfo
 };
 
 //////////////////////////////////////////////////////////////////////////
-
-
 
 CTortoiseProcApp::CTortoiseProcApp()
 {
@@ -699,15 +698,12 @@ BOOL CTortoiseProcApp::InitInstance()
 				// notification for every directory to the shell. This will update the
 				// overlays in the left treeview of the explorer.
 				CDirFileEnum crawler(cmdLinePath.GetWinPathString());
-				CString sAdminDir = _T("\\");
-				sAdminDir += _T(SVN_WC_ADM_DIR_NAME);
-				sAdminDir += _T("\\");
 				CString sPath;
 				bool bDir = false;
 				CTSVNPathList updateList;
 				while (crawler.NextFile(sPath, &bDir))
 				{
-					if ((bDir)&&(sPath.Find(sAdminDir)<0))
+					if ((bDir) && (!g_SVNAdminDir.IsAdminDirPath(sPath)))
 					{
 						updateList.AddPath(CTSVNPath(sPath));
 					}

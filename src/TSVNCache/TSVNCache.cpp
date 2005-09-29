@@ -24,7 +24,7 @@
 #include "registry.h"
 #include "..\crashrpt\CrashReport.h"
 #include "SecAttribs.h"
-
+#include "SVNAdminDir.h"
 
 #include "..\version.h"
 
