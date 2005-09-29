@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-09-23 10:11+0100\n"
+"PO-Revision-Date: 2005-09-29 19:27+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1246,6 +1246,10 @@ msgstr "Jämför filen med den senaste arkiverade revisionen och visar de ändri
 msgid "Completed"
 msgstr "Klar"
 
+#: Control-ID:1239
+msgid "Configure"
+msgstr "Konfigurera"
+
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
 msgstr "Konfigurera programmet som används för att jämföra olika revisioner av filer."
@@ -1503,6 +1507,15 @@ msgstr "Credits:"
 #: ID:376
 msgid "Cu&t"
 msgstr "&Klipp ut"
+
+#: Control-ID:1113
+msgid "Current version is:"
+msgstr "Nuvarande version är:"
+
+#: ID:201
+#, c-format
+msgid "Current version is: %s"
+msgstr "Nuvarande version är: %s"
 
 #: ID:3603
 msgid ""
@@ -3828,6 +3841,11 @@ msgstr "Växla till..."
 msgid "Symbol View"
 msgstr "Symbol vy"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "System Sounds"
+msgstr "System ljud"
+
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Registryinställningar och eventuell .ini-fil har tagits bort."
@@ -4684,6 +4702,15 @@ msgstr ""
 "Du har ändrat statusikonuppsättningen från <i>%s</i> till <i>%s</i>.\n"
 "Det behövs en omstart eller att du loggar ut och sedan in igen för att den ska börja gälla!"
 
+#: Control-ID:1112
+msgid "Your version is:"
+msgstr "Din version är:"
+
+#: ID:201
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "Din version är: %d.%d.%d.%d"
+
 #: ID:78
 msgid ""
 "Your working copy appears to be on a tag path!\n"
@@ -4814,15 +4841,6 @@ msgid ""
 msgstr ""
 "kopierad från\r\n"
 "%s - revision %ld"
-
-#: Control-ID:1113
-msgid "current version is:"
-msgstr "nuvarande version är:"
-
-#: ID:201
-#, c-format
-msgid "current version is: %s"
-msgstr "nuvarande version är: %s"
 
 #: ID:10
 msgid "deleted"
@@ -5054,13 +5072,4 @@ msgstr "vecka"
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
 msgstr "som pekar till arkivet på URL:"
-
-#: Control-ID:1112
-msgid "your version is:"
-msgstr "din version är:"
-
-#: ID:201
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "din version är: %d.%d.%d.%d"
 
