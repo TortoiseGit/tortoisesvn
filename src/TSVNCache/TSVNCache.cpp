@@ -249,6 +249,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 	Shell_NotifyIcon(NIM_DELETE,&niData);
 	CSVNStatusCache::Destroy();
+	g_SVNAdminDir.Close();
 	apr_terminate();
 
 	return 0;

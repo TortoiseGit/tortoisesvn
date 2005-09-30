@@ -21,7 +21,8 @@
 
 SVNAdminDir g_SVNAdminDir;
 
-SVNAdminDir::SVNAdminDir()
+SVNAdminDir::SVNAdminDir() :
+	m_bInit(false)
 {
 	m_bVSNETHack = false;
 	apr_initialize();
@@ -31,12 +32,26 @@ SVNAdminDir::SVNAdminDir()
 		svn_wc_set_adm_dir("_svn", m_pool);
 		m_bVSNETHack = true;
 	}
+	m_bInit = true;
 }
 
 SVNAdminDir::~SVNAdminDir()
 {
+	if (m_bInit)
+	{
+		svn_pool_destroy(m_pool);
+		apr_terminate();
+	}
+}
+
+bool SVNAdminDir::Close()
+{
+	if (!m_bInit)
+		return false;
 	svn_pool_destroy(m_pool);
 	apr_terminate();
+	m_bInit = false;
+	return true;
 }
 
 bool SVNAdminDir::IsAdminDirName(const CString& name)

@@ -188,6 +188,10 @@ CTortoiseProcApp::CTortoiseProcApp()
 
 CTortoiseProcApp::~CTortoiseProcApp()
 {
+	// since it is undefined *when* the global object SVNAdminDir is
+	// destroyed, we tell it to destroy the memory pools and terminate apr
+	// *now* instead of later when the object itself is destroyed.
+	g_SVNAdminDir.Close();
 	apr_terminate();
 	// seems that apr_initialize() is called every time the dll is loaded,
 	// but since the dll isn't forcibly unloaded the apr_terminate() has
