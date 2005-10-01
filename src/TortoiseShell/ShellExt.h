@@ -146,6 +146,7 @@ protected:
 	ULONG	m_cRef;
 	//std::map<int,std::string> verbMap;
 	std::map<UINT_PTR, int>	myIDMap;
+	std::map<UINT_PTR, int>	mySubMenuMap;
 	stdstring	folder_;
 	std::vector<stdstring> files_;
 	bool isOnlyOneItemSelected;

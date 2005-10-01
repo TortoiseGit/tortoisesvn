@@ -30,11 +30,18 @@ CSetLookAndFeelPage::CSetLookAndFeelPage()
 	: CPropertyPage(CSetLookAndFeelPage::IDD)
 	, m_bInitialized(FALSE)
 	, m_bSimpleContext(TRUE)
+	, m_OwnerDrawn(1)
 {
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	m_topmenu = m_regTopmenu;
 	m_regSimpleContext = CRegDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), TRUE);
 	m_bSimpleContext = m_regSimpleContext;
+	m_regOwnerDrawn = CRegDWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), 1);
+	m_OwnerDrawn = m_regOwnerDrawn;
+	if (m_OwnerDrawn == 0)
+		m_OwnerDrawn = 1;
+	else if (m_OwnerDrawn == 1)
+		m_OwnerDrawn = 0;
 }
 
 CSetLookAndFeelPage::~CSetLookAndFeelPage()
@@ -46,12 +53,14 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
 	DDX_Check(pDX, IDC_SIMPLECONTEXT, m_bSimpleContext);
+	DDX_Check(pDX, IDC_ENABLEACCELERATORS, m_OwnerDrawn);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetLookAndFeelPage, CPropertyPage)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
 	ON_BN_CLICKED(IDC_SIMPLECONTEXT, OnBnClickedSimplecontext)
+	ON_BN_CLICKED(IDC_ENABLEACCELERATORS, OnBnClickedOwnerdrawn)
 END_MESSAGE_MAP()
 
 
@@ -61,6 +70,12 @@ void CSetLookAndFeelPage::SaveData()
 	{
 		m_regTopmenu = m_topmenu;
 		m_regSimpleContext = m_bSimpleContext;
+		if (m_OwnerDrawn == 1)
+			m_regOwnerDrawn = 0;
+		else if (m_OwnerDrawn == 0)
+			m_regOwnerDrawn = 1;
+		else
+			m_regOwnerDrawn = 2;
 	}
 }
 
@@ -71,6 +86,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
 	m_tooltips.AddTool(IDC_SIMPLECONTEXT, IDS_SETTINGS_SIMPLECONTEXT_TT);
+	m_tooltips.AddTool(IDC_ENABLEACCELERATORS, IDS_SETTINGS_OWNERDRAWN_TT);
 
 	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
@@ -202,6 +218,11 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
 }
 
 void CSetLookAndFeelPage::OnBnClickedSimplecontext()
+{
+	SetModified();
+}
+
+void CSetLookAndFeelPage::OnBnClickedOwnerdrawn()
 {
 	SetModified();
 }

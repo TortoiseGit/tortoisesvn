@@ -901,17 +901,20 @@ BEGIN
     PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,279,41,14,14
 END
 
-IDD_SETTINGSLOOKANDFEEL DIALOGEX 0, 0, 300, 217
+IDD_SETTINGSLOOKANDFEEL DIALOGEX 0, 0, 300, 225
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Cascaded Context Menu",IDC_STATIC,7,7,286,202
+    GROUPBOX        "Cascaded Context Menu",IDC_STATIC,7,7,286,210
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
                     WS_BORDER | WS_TABSTOP,12,19,274,172
     CONTROL         "Fetch status for context menu",IDC_SIMPLECONTEXT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,12,195,274,10
+    CONTROL         "Enable Accelerators on the top level menu",
+                    IDC_ENABLEACCELERATORS,"Button",BS_AUTO3STATE | 
+                    WS_TABSTOP,12,207,274,10
 END
 
 IDD_SETTINGSDIALOGS DIALOGEX 0, 0, 300, 217
@@ -1396,7 +1399,7 @@ BEGIN
         VERTGUIDE, 12
         VERTGUIDE, 286
         TOPMARGIN, 7
-        BOTTOMMARGIN, 209
+        BOTTOMMARGIN, 217
     END
 
     IDD_SETTINGSDIALOGS, DIALOG
@@ -2213,6 +2216,12 @@ STRINGTABLE
 BEGIN
     IDS_PROC_NEWNAMECOPY    "Copy: New name for %s"
     IDS_PROC_NEWNAMEMOVE    "Move: New name for %s"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SETTINGS_OWNERDRAWN_TT 
+                            "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
 END
 
 #endif    // English (U.S.) resources

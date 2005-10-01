@@ -2167,6 +2167,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					FillListOfSelectedItemPaths(itemsToLock);
 					CInputDlg inpDlg;
 					inpDlg.m_sTitle.LoadString(IDS_MENU_LOCK);
+					CUtils::RemoveAccelerators(inpDlg.m_sTitle);
 					inpDlg.m_sHintText.LoadString(IDS_LOCK_MESSAGEHINT);
 					inpDlg.m_sCheckText.LoadString(IDS_LOCK_STEALCHECK);
 					ProjectProperties props;
