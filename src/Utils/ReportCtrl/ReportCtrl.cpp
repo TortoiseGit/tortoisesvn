@@ -3113,7 +3113,15 @@ BOOL CReportCtrl::ExpandAll(HTREEITEM hItem, UINT nCode, INT iLevels)
 	if(!(m_dwStyle&RVS_TREEMASK))
 		return FALSE;
 
-	LPTREEITEM lpti;
+	LPTREEITEM lpti = (LPTREEITEM)hItem;;
+
+	if (nCode == RVE_TOGGLE)
+	{
+		if (lpti->bOpen)
+			nCode = RVE_COLLAPSE;
+		else
+			nCode = RVE_EXPAND;
+	}
 	
 	if(hItem == RVTI_ROOT)
 	{
@@ -5756,7 +5764,10 @@ void CReportCtrl::OnLButtonDown(UINT nFlags, CPoint point)
 	{
 		if(!Notify(RVN_ITEMEXPANDING, rvhti.iItem, rvhti.iSubItem))
 		{
-			Expand((HTREEITEM)m_arrayItems[rvhti.iItem].lptiItem, RVE_TOGGLE);
+			if (GetKeyState(VK_CONTROL)&0x8000)
+				ExpandAll((HTREEITEM)m_arrayItems[rvhti.iItem].lptiItem, RVE_TOGGLE);
+			else
+				Expand((HTREEITEM)m_arrayItems[rvhti.iItem].lptiItem, RVE_TOGGLE);
 
 			Notify(RVN_ITEMEXPANDED, rvhti.iItem, rvhti.iSubItem);
 			return;
