@@ -152,7 +152,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 			SetItemText(GetItemIndex(hItem), col, temp);
 	}
 	// get the time value and store that in the Param64
-	if (AfxExtractSubString(temp, folder, col, '\t'))
+	if (AfxExtractSubString(temp, folder, col-1, '\t'))
 	{
 		RVITEM rvi;
 		rvi.nMask = RVIM_PARAM64;
@@ -209,7 +209,7 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 			SetItemText(GetItemIndex(hItem), col, temp);
 	}
 	// get the time value and store that in the Param64
-	if (AfxExtractSubString(temp, file, col, '\t'))
+	if (AfxExtractSubString(temp, file, col-1, '\t'))
 	{
 		RVITEM rvi;
 		rvi.nMask = RVIM_PARAM64;
@@ -523,7 +523,7 @@ static INT CALLBACK SortCallback(INT iItem1, INT iSubItem1, INT iItem2, INT iSub
 		return _tstoi(szText1) - _tstoi(szText2);
 	case 5:
 		if (rvi2.Param64 > rvi1.Param64)
-			return -11;
+			return -1;
 		if (rvi2.Param64 < rvi1.Param64)
 			return 1;
 		return 0;
