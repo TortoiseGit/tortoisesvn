@@ -3887,6 +3887,8 @@ BOOL CReportCtrl::LoadItemData(LPITEM lpItem, INT iItem, INT iSubItem, UINT nMas
 		lpItem->nPreview =	nmrvic.item.nMask&RVIM_PREVIEW ? nmrvic.item.nPreview:0;
 		lpItem->nState =	nmrvic.item.nMask&RVIM_STATE ? nmrvic.item.nState:0;
 		lpItem->iIndent =	nmrvic.item.nMask&RVIM_INDENT ? nmrvic.item.iIndent:-1;
+		lpItem->lParam =	nmrvic.item.nMask&RVIM_LPARAM ? nmrvic.item.lParam:-1;
+		lpItem->Param64 =	nmrvic.item.nMask&RVIM_PARAM64 ? nmrvic.item.Param64:-1;
 
 		return TRUE;
 	}
@@ -6388,7 +6390,7 @@ void CReportCtrl::OnHdnItemClick(NMHDR* pNMHDR, LRESULT* pResult)
 			if(iNew == iOld)
 				bAscending = !bAscending;
 			else
-				bAscending = TRUE;
+				bAscending = FALSE;
 
 			SortItems(nmrvhdr.iSubItem, bAscending);
 		}
