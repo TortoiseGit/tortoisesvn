@@ -1192,7 +1192,8 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 			int index;
 			while ((index = GetNextSelectedItem(pos)) >= 0)
 			{
-				CheckEntry(index, nListItems);
+				if (index != pNMLV->iItem)
+					CheckEntry(index, nListItems);
 			}
 		}
 	}
@@ -1205,7 +1206,8 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 			int index;
 			while ((index = GetNextSelectedItem(pos)) >= 0)
 			{
-				UncheckEntry(index, nListItems);
+				if (index != pNMLV->iItem)
+					UncheckEntry(index, nListItems);
 			}
 		}
 	}
