@@ -73,9 +73,9 @@ bool SVNAdminDir::HasAdminDir(const CString& path, bool bDir)
 	{
 		sDirName = path.Left(path.ReverseFind('\\'));
 	}
-	bHasAdminDir = !!PathFileExists(path + _T("\\.svn"));
+	bHasAdminDir = !!PathFileExists(sDirName + _T("\\.svn"));
 	if (!bHasAdminDir && m_bVSNETHack)
-		bHasAdminDir = !!PathFileExists(path + _T("\\_svn"));
+		bHasAdminDir = !!PathFileExists(sDirName + _T("\\_svn"));
 	return bHasAdminDir;
 }
 
