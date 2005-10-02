@@ -318,10 +318,13 @@
 							</entry>
 						</row>
 						<row>
-							<entry>unlock</entry>
+							<entry>rebuildiconcache</entry>
 							<entry>
-								Unlocks a file.
-								<option>/path</option>
+								Rebuilds the windows icon cache. Only use this in
+								case the windows icons are corrupted. A side effect
+								of this (which can't be avoided) is that the icons
+								on the desktop get rearranged.
+								<option>/noquestion</option>
 							</entry>
 						</row>
 					</tbody>

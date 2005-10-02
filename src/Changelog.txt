@@ -3,6 +3,7 @@
        See issue #167. (Stefan)
 - NEW: Keyboard accelerators for the shell context menu. 
        See issue #171. (Stefan)
+- NEW: Command line command to rebuild the windows icon cache. (Leon Zandman)
 - BUG: The status cache didn't watch all required paths. (Stefan)
 - BUG: When files were added to the ignore list, a choice of 
        File.ext or *.ext is given. If the *.ext is chosen the dialog 

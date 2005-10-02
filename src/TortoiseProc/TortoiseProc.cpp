@@ -122,7 +122,8 @@ typedef enum
 	cmdUpdateCheck,
 	cmdRevisionGraph,
 	cmdLock,
-	cmdUnlock
+	cmdUnlock,
+	cmdRebuildIconCache
 } TSVNCommand;
 
 static const struct CommandInfo
@@ -173,6 +174,7 @@ static const struct CommandInfo
 	{	cmdRevisionGraph,	_T("revisiongraph"),	false	},
 	{	cmdLock,			_T("lock"),				true	},
 	{	cmdUnlock,			_T("unlock"),			true	},
+	{	cmdRebuildIconCache,_T("rebuildiconcache"),	false	},
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -1611,6 +1613,22 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.SetParams(CSVNProgressDlg::Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, lockedList);
 				progDlg.DoModal();
+			}
+		} 
+		//#endregion
+		//#region rebuildiconcache
+		if (command == cmdRebuildIconCache)
+		{
+			bool bQuiet = parser.HasKey(_T("noquestion"));
+			if (CShellUpdater::RebuildIcons())
+			{
+				if (!bQuiet)
+					CMessageBox::Show(EXPLORERHWND, IDS_PROC_ICONCACHEREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+			}
+			else
+			{
+				if (!bQuiet)
+					CMessageBox::Show(EXPLORERHWND, IDS_PROC_ICONCACHENOTREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
 			}
 		} 
 		//#endregion
