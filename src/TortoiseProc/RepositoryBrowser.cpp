@@ -259,7 +259,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 	{
 		if (m_treeRepository.IsFolder(m_treeRepository.GetItemHandle(si)))
 			hasFolders = TRUE;
-		if (!m_treeRepository.GetItemText(si, 5).IsEmpty())
+		if (!m_treeRepository.GetItemText(si, 6).IsEmpty())
 			bLocked = TRUE;
 		si = m_treeRepository.GetNextSelectedItem(si);
 	} while (si != RVI_INVALID);
