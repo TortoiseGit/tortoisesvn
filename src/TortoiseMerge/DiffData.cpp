@@ -23,6 +23,7 @@
 #include "Resource.h"
 #include "Diffdata.h"
 #include "UnicodeUtils.h"
+#include "SVNAdminDir.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4702) // unreachable code
@@ -36,6 +37,7 @@ int CDiffData::abort_on_pool_failure (int /*retcode*/)
 CDiffData::CDiffData(void)
 {
 	apr_initialize();
+	g_SVNAdminDir.Init();
 	//	m_diffYourBase = NULL;
 	//	m_diffTheirBase = NULL;
 	//	m_diffTheirYourBase = NULL;
@@ -84,6 +86,7 @@ CDiffData::CDiffData(void)
 
 CDiffData::~CDiffData(void)
 {
+	g_SVNAdminDir.Close();
 	apr_terminate();
 }
 

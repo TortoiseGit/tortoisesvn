@@ -47,6 +47,7 @@ class SVNAdminDir
 public:
 	SVNAdminDir();
 	~SVNAdminDir();
+	bool Init();
 	/**
 	 * Clears the memory pool. Call this before you clear *all* pools
 	 * with apr_pool_terminate(). If you don't use apr_pool_terminate(), then

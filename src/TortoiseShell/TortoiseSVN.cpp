@@ -72,6 +72,8 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		if (g_hmodThisDll == NULL)
 		{
 			g_csCacheGuard.Init();
+			apr_initialize();
+			g_SVNAdminDir.Init();
 		}
 
         // Extension DLL one-time initialization
@@ -80,6 +82,8 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     else if (dwReason == DLL_PROCESS_DETACH)
     {
 		g_csCacheGuard.Term();
+		g_SVNAdminDir.Close();
+		apr_terminate();
     }
     return 1;   // ok
 }

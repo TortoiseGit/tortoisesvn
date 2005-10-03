@@ -24,24 +24,28 @@ SVNAdminDir g_SVNAdminDir;
 SVNAdminDir::SVNAdminDir() :
 	m_bInit(false)
 {
-	m_bVSNETHack = false;
-	apr_initialize();
-	m_pool = svn_pool_create(NULL);
-	if (getenv ("SVN_ASP_DOT_NET_HACK"))
-	{
-		svn_wc_set_adm_dir("_svn", m_pool);
-		m_bVSNETHack = true;
-	}
-	m_bInit = true;
 }
 
 SVNAdminDir::~SVNAdminDir()
 {
 	if (m_bInit)
-	{
 		svn_pool_destroy(m_pool);
-		apr_terminate();
+}
+
+bool SVNAdminDir::Init()
+{
+	if (!m_bInit)
+	{
+		m_bVSNETHack = false;
+		m_pool = svn_pool_create(NULL);
+		if (getenv ("SVN_ASP_DOT_NET_HACK"))
+		{
+			svn_wc_set_adm_dir("_svn", m_pool);
+			m_bVSNETHack = true;
+		}
+		m_bInit = true;
 	}
+	return true;
 }
 
 bool SVNAdminDir::Close()
@@ -49,7 +53,6 @@ bool SVNAdminDir::Close()
 	if (!m_bInit)
 		return false;
 	svn_pool_destroy(m_pool);
-	apr_terminate();
 	m_bInit = false;
 	return true;
 }

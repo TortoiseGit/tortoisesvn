@@ -186,6 +186,7 @@ CTortoiseProcApp::CTortoiseProcApp()
 	const char* const * argv = NULL;
 	apr_app_initialize(&argc, &argv, NULL);
 	SYS_IMAGE_LIST();
+	g_SVNAdminDir.Init();
 }
 
 CTortoiseProcApp::~CTortoiseProcApp()
@@ -194,13 +195,8 @@ CTortoiseProcApp::~CTortoiseProcApp()
 	// destroyed, we tell it to destroy the memory pools and terminate apr
 	// *now* instead of later when the object itself is destroyed.
 	g_SVNAdminDir.Close();
-	apr_terminate();
-	// seems that apr_initialize() is called every time the dll is loaded,
-	// but since the dll isn't forcibly unloaded the apr_terminate() has
-	// a count of > 1 and therefore doesn't clean up allocated memory.
-	// So clean up the memory by force here.
-	apr_pool_terminate();
 	SYS_IMAGE_LIST().Cleanup();
+	apr_terminate();
 }
 
 // The one and only CTortoiseProcApp object

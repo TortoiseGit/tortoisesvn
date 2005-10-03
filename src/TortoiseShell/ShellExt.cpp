@@ -44,7 +44,6 @@ CShellExt::CShellExt(FileState state)
     };
     InitCommonControlsEx(&used);
 	LoadLangDll();
-	apr_initialize();
 }
 
 CShellExt::~CShellExt()
@@ -56,7 +55,6 @@ CShellExt::~CShellExt()
 	}
 	bitmaps.clear();
 	g_cRefThisDll--;
-	apr_terminate();
 }
 
 void LoadLangDll()
