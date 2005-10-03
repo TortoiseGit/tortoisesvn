@@ -1528,13 +1528,14 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						temp.LoadString(IDS_MENUUPDATE);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UPDATE, temp);
 					}
-					if (GetSelectedCount() == 1)
+				}
+				if ((GetSelectedCount() == 1)&&(wcStatus >= svn_wc_status_normal)
+					&&(wcStatus != svn_wc_status_missing)&&(wcStatus != svn_wc_status_ignored))
+				{
+					if (m_dwContextMenus & SVNSLC_POPSHOWLOG)
 					{
-						if (m_dwContextMenus & SVNSLC_POPSHOWLOG)
-						{
-							temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
-						}
+						temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
 					}
 				}
 				if ((wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing) && (GetSelectedCount() == 1))
