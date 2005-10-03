@@ -67,6 +67,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
 #define IDSVNLC_EXPLORE			18
 #define IDSVNLC_RESOLVETHEIRS	19
 #define IDSVNLC_RESOLVEMINE		20
+#define IDSVNLC_REMOVE			21
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1553,13 +1554,18 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_EXPLORE, temp);
 					}
 				}
+				if ((wcStatus == svn_wc_status_unversioned)&&(m_dwContextMenus & SVNSLC_POPDELETE))
+				{
+					temp.LoadString(IDS_MENUREMOVE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
+				}
+				if ((wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_deleted)&&(m_dwContextMenus & SVNSLC_POPDELETE))
+				{
+					temp.LoadString(IDS_MENUREMOVE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVE, temp);
+				}
 				if (wcStatus == svn_wc_status_unversioned)
 				{
-					if (m_dwContextMenus & SVNSLC_POPDELETE)
-					{
-						temp.LoadString(IDS_MENUREMOVE);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
-					}
 					if (m_dwContextMenus & SVNSLC_POPADD)
 					{
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD);
@@ -1750,6 +1756,37 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				case IDSVNLC_EXPLORE:
 					{
 						ShellExecute(this->m_hWnd, _T("explore"), filepath.GetDirectory().GetWinPath(), NULL, NULL, SW_SHOW);
+					}
+					break;
+				case IDSVNLC_REMOVE:
+					{
+						SVN svn;
+						CTSVNPathList itemsToRemove;
+						FillListOfSelectedItemPaths(itemsToRemove);
+
+						// We must sort items before removing, so that files are always removed
+						// *before* their parents
+						itemsToRemove.SortByPathname(true);
+
+						if (svn.Remove(itemsToRemove, FALSE))
+						{
+							// The remove went ok, but we now need to run through the selected items again
+							// and update their status
+							POSITION pos = GetFirstSelectedItemPosition();
+							int index;
+							while ((index = GetNextSelectedItem(pos)) >= 0)
+							{
+								FileEntry * e = GetListEntry(index);
+								e->textstatus = svn_wc_status_deleted;
+								e->status = svn_wc_status_deleted;
+								SetEntryCheck(e,index,true);
+							}
+						}
+						else
+						{
+							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+						Show(m_dwShow, 0, m_bShowFolders);
 					}
 					break;
 				case IDSVNLC_DELETE:
