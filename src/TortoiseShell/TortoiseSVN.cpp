@@ -42,6 +42,8 @@ bool				g_lockedovlloaded = false;
 bool				g_addedovlloaded = false;
 CComCriticalSection	g_csCacheGuard;
 
+std::set<CShellExt *> g_exts;
+
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 {
@@ -81,6 +83,16 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
+		// sometimes an application doesn't release all COM objects
+		// but still unloads the dll.
+		// in that case, we do it ourselves
+		if (g_cRefThisDll > 0)
+		{
+			for (std::set<CShellExt *>::iterator it = g_exts.begin(); it!=g_exts.end(); ++it)
+			{
+				delete *it;
+			}
+		}
 		g_csCacheGuard.Term();
 		g_SVNAdminDir.Close();
 		apr_terminate();

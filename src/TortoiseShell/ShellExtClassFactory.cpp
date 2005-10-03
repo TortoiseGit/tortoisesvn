@@ -20,6 +20,8 @@
 #include "ShellExt.h"
 #include "ShellExtClassFactory.h"
 
+extern std::set<CShellExt *> g_exts;
+
 CShellExtClassFactory::CShellExtClassFactory(FileState state)
 {
     m_StateToMake = state;
@@ -62,7 +64,7 @@ STDMETHODIMP_(ULONG) CShellExtClassFactory::Release()
 {
     if (--m_cRef)
         return m_cRef;
-	
+
     delete this;
 	
     return 0L;
@@ -84,6 +86,8 @@ STDMETHODIMP CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter,
     // initialized.
 	
     CShellExt* pShellExt = new CShellExt(m_StateToMake);  //Create the CShellExt object
+	
+	g_exts.insert(pShellExt);
 	
     if (NULL == pShellExt)
         return E_OUTOFMEMORY;
