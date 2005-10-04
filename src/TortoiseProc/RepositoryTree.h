@@ -126,7 +126,6 @@ public:
 	virtual void OnBeginDrag();
 	
 	CString		m_strReposRoot;
-	std::map<CString, SVN::SVNLock> m_locks;
 protected:
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL PreTranslateMessage(MSG* pMsg);

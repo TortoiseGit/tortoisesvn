@@ -1269,8 +1269,10 @@ BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray&
 	SVNPool subpool(pool);
 
 	apr_hash_t* hash = apr_hash_make(subpool);
+	apr_hash_t* lockhash = apr_hash_make(subpool);
 
-	Err = svn_client_ls2(&hash, 
+	Err = svn_client_ls3(&hash,
+						&lockhash,
 						url.GetSVNApiPath(),
 						pegrev,
 						revision,
@@ -1319,6 +1321,21 @@ BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray&
 			formatDate(date_native, val->time, true);
 			dateval.Format(_T("%I64u"), val->time);
 			temp = temp + _T("\t") + revnum + _T("\t") + author + _T("\t") + size + _T("\t") + date_native + _T("\t") + dateval;;
+			svn_lock_t * lock = (svn_lock_t *)apr_hash_get(lockhash, key, APR_HASH_KEY_STRING);
+			if (lock)
+			{
+				// we have lock information for this item.
+				temp += _T("\t");
+				if (lock->owner)
+				{
+					temp += lock->owner;
+				}
+				temp += _T("\t");
+				if (lock->comment)
+				{
+					temp += lock->comment;
+				}
+			}
 		}
 		entries.Add(temp);
     }

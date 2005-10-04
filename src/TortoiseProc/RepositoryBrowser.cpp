@@ -184,7 +184,6 @@ UINT CRepositoryBrowser::InitThread()
 	SVN svn;
 	m_treeRepository.m_strReposRoot = svn.GetRepositoryRoot(CTSVNPath(m_InitialSvnUrl.GetPath()));
 	m_treeRepository.m_strReposRoot = SVNUrl::Unescape(m_treeRepository.m_strReposRoot);
-	svn.GetLocks(CTSVNPath(m_treeRepository.m_strReposRoot), &m_treeRepository.m_locks);
 	PostMessage(WM_AFTERINIT);
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
@@ -671,9 +670,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return;
 					}
-					m_treeRepository.SetItemText(m_treeRepository.GetItemIndex(hSelItem), 5, _T(""));
-					CString file_path_stripped = url.Mid(m_treeRepository.m_strReposRoot.GetLength());
-					m_treeRepository.m_locks.erase(file_path_stripped);
+					m_treeRepository.SetItemText(m_treeRepository.GetItemIndex(hSelItem), 6, _T(""));
 				}
 				break;
 			case ID_POPIMPORTFOLDER:
