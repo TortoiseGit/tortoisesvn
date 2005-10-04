@@ -746,7 +746,7 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 	if (Err)
 		return FALSE;
 
-	Err = svn_client_diff2 (opts,
+	Err = svn_client_diff3 (opts,
 						   path1.GetSVNApiPath(),
 						   revision1,
 						   path2.GetSVNApiPath(),
@@ -755,6 +755,7 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 						   ignoreancestry,
 						   nodiffdeleted,
 						   ignorecontenttype,
+						   APR_LOCALE_CHARSET,
 						   outfile,
 						   errfile,
 						   m_pctx,
@@ -809,7 +810,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 	if (Err)
 		return FALSE;
 
-	Err = svn_client_diff_peg2 (opts,
+	Err = svn_client_diff_peg3 (opts,
 		path.GetSVNApiPath(),
 		pegrevision,
 		startrev,
@@ -818,6 +819,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 		ignoreancestry,
 		nodiffdeleted,
 		ignorecontenttype,
+		APR_LOCALE_CHARSET,
 		outfile,
 		errfile,
 		m_pctx,
