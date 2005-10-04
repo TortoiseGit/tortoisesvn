@@ -70,8 +70,8 @@ SVN::SVN(void)
 	// set up authentication
 	m_prompt.Init(parentpool, m_pctx);
 
-	m_pctx->log_msg_func = svn_cl__get_log_message;
-	m_pctx->log_msg_baton = logMessage("");
+	m_pctx->log_msg_func2 = svn_cl__get_log_message;
+	m_pctx->log_msg_baton2 = logMessage("");
 	m_pctx->notify_func2 = notify;
 	m_pctx->notify_baton2 = this;
 	m_pctx->notify_func = NULL;
@@ -144,7 +144,7 @@ BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CStrin
 BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 #pragma warning(pop)
 
-struct log_msg_baton
+struct log_msg_baton2
 {
   const char *message;  /* the message. */
   const char *message_encoding; /* the locale/encoding of the message. */
@@ -270,17 +270,17 @@ BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRe
 
 BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 {
-	svn_client_commit_info_t *commit_info = NULL;
-	message.Replace(_T("\r"), _T(""));
-	m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
-
 	// svn_client_delete needs to run on a sub-pool, so that after it's run, the pool
 	// cleanups get run.  For example, after a failure do to an unforced delete on 
 	// a modified file, if you don't do a cleanup, the WC stays locked
 	SVNPool subPool(pool);
-	Err = svn_client_delete (&commit_info, MakePathArray(pathlist), force,
-							m_pctx,
-							subPool);
+	svn_commit_info_t *commit_info = svn_create_commit_info(subPool);
+	message.Replace(_T("\r"), _T(""));
+	m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(message));
+
+	Err = svn_client_delete2 (&commit_info, MakePathArray(pathlist), force,
+							  m_pctx,
+							  subPool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -362,17 +362,17 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, B
 
 LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, BOOL keep_locks)
 {
-	svn_client_commit_info_t *commit_info = NULL;
+	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
 
 	message.Replace(_T("\r"), _T(""));
-	m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_commit2 (&commit_info, 
+	m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(message));
+	Err = svn_client_commit3 (&commit_info, 
 							MakePathArray(pathlist), 
 							recurse,
 							keep_locks,
 							m_pctx,
 							pool);
-	m_pctx->log_msg_baton = logMessage("");
+	m_pctx->log_msg_baton2 = logMessage("");
 	if(Err != NULL)
 	{
 		return 0;
@@ -393,13 +393,13 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 {
 	SVNPool subpool(pool);
 
-	svn_client_commit_info_t *commit_info = NULL;
+	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	logmsg.Replace(_T("\r"), _T(""));
 	if (logmsg.IsEmpty())
-		m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(CString(_T("made a copy"))));
+		m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(CString(_T("made a copy"))));
 	else
-		m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg));
-	Err = svn_client_copy (&commit_info,
+		m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(logmsg));
+	Err = svn_client_copy2 (&commit_info,
 							srcPath.GetSVNApiPath(),
 							revision,
 							destPath.GetSVNApiPath(),
@@ -415,16 +415,15 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 	return TRUE;
 }
 
-BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message, SVNRev rev)
+BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message)
 {
 	SVNPool subpool(pool);
 
-	svn_client_commit_info_t *commit_info = NULL;
+	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	message.Replace(_T("\r"), _T(""));
-	m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_move (&commit_info,
+	m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(message));
+	Err = svn_client_move3 (&commit_info,
 							srcPath.GetSVNApiPath(),
-							rev,
 							destPath.GetSVNApiPath(),
 							force,
 							m_pctx,
@@ -444,13 +443,13 @@ BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, 
 
 BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 {
-	svn_client_commit_info_t *commit_info = NULL;
+	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
 	message.Replace(_T("\r"), _T(""));
-	m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_mkdir (&commit_info,
-							MakePathArray(pathlist),
-							m_pctx,
-							pool);
+	m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(message));
+	Err = svn_client_mkdir2 (&commit_info,
+							 MakePathArray(pathlist),
+							 m_pctx,
+							 pool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -635,18 +634,19 @@ BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, B
 	return TRUE;
 }
 
-BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, BOOL recurse)
+BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, BOOL recurse, BOOL no_ignore)
 {
-	svn_client_commit_info_t *commit_info = NULL;
+	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
 	message.Replace(_T("\r"), _T(""));
-	m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_import (&commit_info,
+	m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(message));
+	Err = svn_client_import2 (&commit_info,
 							path.GetSVNApiPath(),
 							url.GetSVNApiPath(),
 							!recurse,
+							no_ignore,
 							m_pctx,
 							pool);
-	m_pctx->log_msg_baton = logMessage("");
+	m_pctx->log_msg_baton2 = logMessage("");
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -1128,7 +1128,7 @@ svn_error_t* SVN::cancel(void *baton)
 
 void * SVN::logMessage (const char * message, char * baseDirectory)
 {
-	log_msg_baton* baton = (log_msg_baton *) apr_palloc (pool, sizeof (*baton));
+	log_msg_baton2* baton = (log_msg_baton2 *) apr_palloc (pool, sizeof (*baton));
 	baton->message = apr_pstrdup(pool, message);
 	baton->base_dir = baseDirectory ? baseDirectory : "";
 
@@ -1184,11 +1184,11 @@ void	SVN::preparePath(CString &path)
 
 svn_error_t* svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
-									apr_array_header_t * /*commit_items*/,
+									const apr_array_header_t * /*commit_items*/,
 									void *baton, 
 									apr_pool_t * pool)
 {
-	log_msg_baton *lmb = (log_msg_baton *) baton;
+	log_msg_baton2 *lmb = (log_msg_baton2 *) baton;
 	*tmp_file = NULL;
 	if (lmb->message)
 	{

@@ -693,7 +693,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						input.m_sInputText.LoadString(IDS_INPUT_ADDFOLDERLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
+							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE, TRUE))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -753,7 +753,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
+							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE, TRUE))
 							{
 								delete [] pszFilters;
 								wait_cursor.Hide();
@@ -1146,7 +1146,7 @@ void CRepositoryBrowser::OnFilesDropped(int iItem, int iSubItem, const CTSVNPath
 			CString filename = droppedPaths[importindex].GetFileOrDirectoryName();
 			if (!svn.Import(droppedPaths[importindex], 
 				CTSVNPath(url+_T("/")+filename), 
-				input.m_sInputText, TRUE))
+				input.m_sInputText, TRUE, TRUE))
 			{
 				CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return;

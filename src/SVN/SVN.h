@@ -27,7 +27,7 @@ class CTSVNPathList;
 
 svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
-									apr_array_header_t * commit_items,
+									const apr_array_header_t * commit_items,
 									void *baton, apr_pool_t * pool);
 
 /**
@@ -220,10 +220,9 @@ public:
 	 * 
 	 * \param srcPath source path
 	 * \param destPath destination path
-	 * \param revision 
 	 * \param force 
 	 */
-	BOOL Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message = _T(""), SVNRev rev = SVNRev::REV_HEAD);
+	BOOL Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message = _T(""));
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the
@@ -300,8 +299,9 @@ public:
 	 * \param url		the url to import to
 	 * \param message	log message used for the 'commit'
 	 * \param recurse 
+	 * \param no_ignore	If no_ignore is FALSE, don't add files or directories that match ignore patterns.
 	 */
-	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, CString message, BOOL recurse);
+	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, CString message, BOOL recurse, BOOL no_ignore);
 	/**
 	 * Merge changes from path1/revision1 to path2/revision2 into the
 	 * working-copy path localPath.  path1 and path2 can be either
