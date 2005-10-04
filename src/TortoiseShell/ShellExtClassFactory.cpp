@@ -86,9 +86,7 @@ STDMETHODIMP CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter,
     // initialized.
 	
     CShellExt* pShellExt = new CShellExt(m_StateToMake);  //Create the CShellExt object
-	
-	g_exts.insert(pShellExt);
-	
+		
     if (NULL == pShellExt)
         return E_OUTOFMEMORY;
 	

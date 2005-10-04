@@ -42,7 +42,7 @@ bool				g_lockedovlloaded = false;
 bool				g_addedovlloaded = false;
 CComCriticalSection	g_csCacheGuard;
 
-std::set<CShellExt *> g_exts;
+extern std::set<CShellExt *> g_exts;
 
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
@@ -88,9 +88,11 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		// in that case, we do it ourselves
 		if (g_cRefThisDll > 0)
 		{
-			for (std::set<CShellExt *>::iterator it = g_exts.begin(); it!=g_exts.end(); ++it)
+			std::set<CShellExt *>::iterator it = g_exts.begin();
+			while (it != g_exts.end())
 			{
 				delete *it;
+				it = g_exts.begin();
 			}
 		}
 		g_csCacheGuard.Term();
