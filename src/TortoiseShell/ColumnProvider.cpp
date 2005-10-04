@@ -252,6 +252,8 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 	// Should check to see if its a "SVN" folder and if not return E_FAIL
 
 	PreserveChdir preserveChdir;
+	if (g_ShellCache.IsColumnsEveryWhere())
+		return S_OK;
 	std::wstring path = psci->wszFolder;
 	if (!path.empty())
 	{

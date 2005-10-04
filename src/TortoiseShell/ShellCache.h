@@ -56,9 +56,11 @@ public:
 		excludelistticker = recursiveticker;
 		includelistticker = recursiveticker;
 		admindirticker = recursiveticker;
+		columnseverywhereticker = recursiveticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
+		columnseverywhere = CRegStdWORD(_T("Software\\TortoiseSVN\\ColumnsEveryWhere"), FALSE);
 		for (int i=0; i<27; i++)
 		{
 			drivetypecache[i] = (UINT)-1;
@@ -312,6 +314,15 @@ public:
 		insertedmenu = hMenu;
 		menuinsertedticker = GetTickCount();
 	}
+	bool IsColumnsEveryWhere()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT) > columnseverywhereticker)
+		{
+			columnseverywhereticker = GetTickCount();
+			columnseverywhere.read();
+		} 
+		return !!(DWORD)columnseverywhere;
+	}
 private:
 	void DriveValid()
 	{
@@ -391,6 +402,7 @@ private:
 	CRegStdWORD menulayout;
 	CRegStdWORD simplecontext;
 	CRegStdString excludelist;
+	CRegStdWORD columnseverywhere;
 	stdstring excludeliststr;
 	std::vector<stdstring> exvector;
 	CRegStdString includelist;
@@ -408,6 +420,7 @@ private:
 	DWORD excludelistticker;
 	DWORD includelistticker;
 	DWORD simplecontextticker;
+	DWORD columnseverywhereticker;
 	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];		// MAX_PATH ok.
 	NUMBERFMT columnrevformat;
