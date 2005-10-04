@@ -750,7 +750,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Add:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Add(m_targetPathList, false))
+			if (!m_pSvn->Add(m_targetPathList, false, FALSE, TRUE))
 			{
 				ReportSVNError();
 			}

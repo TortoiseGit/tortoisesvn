@@ -2180,7 +2180,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						// *before* any of their children
 						itemsToAdd.SortByPathname();
 
-						if (svn.Add(itemsToAdd, FALSE, TRUE))
+						if (svn.Add(itemsToAdd, FALSE, TRUE, TRUE))
 						{
 							// The add went ok, but we now need to run through the selected items again
 							// and update their status

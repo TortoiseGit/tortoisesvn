@@ -151,8 +151,9 @@ public:
 	 * \param recurse 
 	 * \param force if TRUE, then an adding an already versioned folder will add
 	 *              all unversioned files in it (in combination with \a recurse)
+	 * \param no_ignore if FALSE, then don't add ignored files.
 	 */
-	BOOL Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force = FALSE);
+	BOOL Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force = FALSE, BOOL no_ignore = FALSE);
 	/**
 	 * Update working tree path to revision.
 	 * \param pathList the files/directories to update
