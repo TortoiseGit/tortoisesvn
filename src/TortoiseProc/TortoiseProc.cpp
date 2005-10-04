@@ -1615,7 +1615,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region rebuildiconcache
 		if (command == cmdRebuildIconCache)
 		{
-			bool bQuiet = parser.HasKey(_T("noquestion"));
+			bool bQuiet = !!parser.HasKey(_T("noquestion"));
 			if (CShellUpdater::RebuildIcons())
 			{
 				if (!bQuiet)
