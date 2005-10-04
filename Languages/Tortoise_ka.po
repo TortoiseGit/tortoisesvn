@@ -118,7 +118,7 @@ msgstr "&?"
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge &შესახებ..."
 
-#: Control-ID:1098,
+#: ID:8,#: Control-ID:1098,
 msgid "&Add..."
 msgstr "&დამატება..."
 
@@ -129,6 +129,10 @@ msgstr "&დეტალები..."
 #: Control-ID:1013,
 msgid "&Apply Unified Diff"
 msgstr "&ბებკი ფაილის გამოყენება"
+
+#: ID:13,
+msgid "&Blame..."
+msgstr "&ავტორები..."
 
 #: ID:138,
 msgid "&Browse Repository"
@@ -154,6 +158,14 @@ msgstr "&გაუქმება"
 msgid "&Check Now"
 msgstr "&შემოწმება ახლავე"
 
+#: ID:8,
+msgid "&Clean Up"
+msgstr "გასუ&ფთავება"
+
+#: ID:8,
+msgid "&Commit..."
+msgstr "&ფიქსირება..."
+
 #: MenuEntry
 msgid "&Compare Revisions"
 msgstr "ვერსიების &შედარება"
@@ -166,9 +178,17 @@ msgstr "&კოპირება"
 msgid "&Copy To..."
 msgstr "&კოპირება აქ..."
 
+#: ID:11,
+msgid "&Delete"
+msgstr "&წაშლა"
+
 #: ID:101,
 msgid "&Delete..."
 msgstr "&წაშლა..."
+
+#: ID:12,
+msgid "&Diff"
+msgstr "&შედარება"
 
 #: Control-ID:1179,
 msgid "&Dry Run"
@@ -177,6 +197,10 @@ msgstr "&საცდელი"
 #: Control-ID:1031,#: MenuEntry
 msgid "&Edit"
 msgstr "&რედაქტირება"
+
+#: ID:12,
+msgid "&Edit Conflicts"
+msgstr "კონფლიქტების &რედაქტირება"
 
 #: Control-ID:1099,
 msgid "&Edit..."
@@ -234,6 +258,15 @@ msgstr "&დახმარების თემები"
 msgid "&Hide"
 msgstr "&დამალვა"
 
+#: ID:15,
+#, c-format
+msgid "%d ელემენტის &იგნორირება"
+msgstr ""
+
+#: ID:9,
+msgid "&იმპორტი..."
+msgstr ""
+
 #: Control-ID:65535,
 msgid "&Language:"
 msgstr "&ენა:"
@@ -244,6 +277,10 @@ msgstr "&მონიშვნა მოგვარებულად"
 
 #: Control-ID:1,#: MenuEntry
 msgid "&Merge"
+msgstr "&შერწყმა"
+
+#: ID:9,
+msgid "&Merge..."
 msgstr "&შერწყმა"
 
 #: Control-ID:1012,
@@ -334,6 +371,10 @@ msgstr "&აუთენტიფიკაციის შენახვა"
 msgid "&Set"
 msgstr "&გამართვა"
 
+#: ID:9,
+msgid "&პარამეტრებიs"
+msgstr ""
+
 #: MenuEntry
 msgid "&Status Bar"
 msgstr "&სტატუსი"
@@ -353,6 +394,10 @@ msgstr "&მისამართი: "
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "&პულტი"
+
+#: ID:9,
+msgid "&TortoiseSVN"
+msgstr "&TortoiseSVN"
 
 #: Control-ID:65535,#: Control-ID:1058,
 msgid "&URL of repository:"
@@ -374,9 +419,17 @@ msgstr "&უნიფიცირებული ბებკი"
 msgid "&Unknown drives"
 msgstr "&უცნობი დისკები"
 
+#: ID:8,
+msgid "&Update"
+msgstr "გან&ახლება"
+
 #: ID:76,
 msgid "&Update Item To Revision"
-msgstr "&ვერსიის ელემენტის განახლება"
+msgstr "&ელემენტის განახლება ვერსიამდე"
+
+#: ID:11,
+msgid "&Update To Revision..."
+msgstr "&ვერსიამდე განახლება..."
 
 #: Control-ID:65535,#: Control-ID:1005,#: Control-ID:65535,
 msgid "&Username:"
@@ -476,6 +529,10 @@ msgstr "საზიარო უფლებების დარღვევ�
 msgid "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
 msgstr "GNU შედარების (ბებკი) ფაილების ჩვენების პროგრამა.\nთუ ამგვარი არ გაქვთ, შეგიძლიათ NotePad გამოიყენოთ."
 
+#: ID:9,
+msgid "A&bout"
+msgstr "&შესახებ"
+
 #: ID:101,
 msgid "A&dd Folder..."
 msgstr "&დასტის დამატება..."
@@ -483,10 +540,6 @@ msgstr "&დასტის დამატება..."
 #: ID:73,
 msgid "Abort"
 msgstr "შეწყვეტა"
-
-#: ID:9,
-msgid "About"
-msgstr "პროგრამის შესახებ"
 
 #: Dlg-ID:136,
 msgid "About TortoiseMerge"
@@ -539,12 +592,8 @@ msgid "Add Extension Specific Merge Program"
 msgstr "შერწყმის პროგრამის გაფართოების დამატება"
 
 #: ID:13,
-msgid "Add To Ignore List"
-msgstr "იგნორირების სიაში დამატება"
-
-#: ID:8,
-msgid "Add..."
-msgstr "&დამატება..."
+msgid "Add To &Ignore List"
+msgstr "&იგნორირების სიაში დამატება"
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -772,11 +821,7 @@ msgstr "ბერკლის მონაცემთა ბაზა (BDB)"
 
 #: Dlg-ID:162,
 msgid "Blame"
-msgstr "ფაილის ავტორები"
-
-#: ID:13,
-msgid "Blame..."
-msgstr "ფაილის ავტორები..."
+msgstr "ავტორები"
 
 #: ID:13,
 msgid "Blames each line of a file on an author"
@@ -886,6 +931,10 @@ msgstr "შეცვლილი ფაილები"
 msgid "Changed files: %d"
 msgstr "შეცვლილი ფაილები: %d"
 
+#: ID:8,
+msgid "Chec&kout..."
+msgstr "&გადმოტანა..."
+
 #: ID:3887,#: ID:3887,
 msgid "Check"
 msgstr "შემოწმება"
@@ -946,14 +995,6 @@ msgstr "გადმოტანა"
 msgid "Checkout &directory:"
 msgstr "&გადმოსატანი დასტა:"
 
-#: ID:8,
-msgid "Checkout..."
-msgstr "გადმოტანა..."
-
-#: ID:8,
-msgid "Clean Up"
-msgstr "გასუფთავება"
-
 #: ID:79,
 msgid "Cleanup has finished"
 msgstr "დასუფთავება დასრულდა"
@@ -1012,11 +1053,7 @@ msgstr "ფიქსირება..."
 
 #: Control-ID:1110,
 msgid "Commit to:"
-msgstr "ფიქსირება აქ:"
-
-#: ID:8,
-msgid "Commit..."
-msgstr "ფიქსირება..."
+msgstr "ფიქსირება აქ"
 
 #: ID:244,
 msgid "Commits by author"
@@ -1057,6 +1094,10 @@ msgstr "ფაილის შედარება ბოლო დაფიქ
 #: ID:74,
 msgid "Completed"
 msgstr "დასრულდა"
+
+#: Control-ID:1239,
+msgid "Configure"
+msgstr "გამართვა"
 
 #: Control-ID:65535,
 msgid "Configure the program used for comparing different revisions of files."
@@ -1220,21 +1261,21 @@ msgstr "ვერ ვიწყებ ბეჭდვას."
 msgid "Could not start thread!"
 msgstr "ვერ ვქმნი საქაღალდეს!"
 
+#: ID:13,
+msgid "Create &Patch..."
+msgstr "&ბებკის შექმნა..."
+
 #: Dlg-ID:208,
 msgid "Create Patch"
 msgstr "გეზის შექმნა"
 
-#: ID:13,
-msgid "Create Patch..."
-msgstr "ბებკის შექმნა..."
+#: ID:8,
+msgid "Create Repositor&y here..."
+msgstr "სა&ცავის შექმნა აქ..."
 
 #: Dlg-ID:178,
 msgid "Create Repository"
 msgstr "საცავის შექმნა"
-
-#: ID:8,
-msgid "Create Repository here..."
-msgstr "საცავის შექმნა აქ"
 
 #: Control-ID:65535,
 msgid "Create copy in the repository from:"
@@ -1264,6 +1305,15 @@ msgstr "მადლობები:"
 msgid "Cu&t"
 msgstr "&ამოჭრა"
 
+#: Control-ID:1113,
+msgid "Current version is:"
+msgstr "მიმდინარე ვერსიაა:"
+
+#: ID:201,
+#, c-format
+msgid "Current version is: %s"
+msgstr "მიმდინარე ვერსიაა: %s"
+
 #: ID:3603,
 msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr "მონიშნულის ამოჭრა და ბუფერში გადატანა\nამოჭრა"
@@ -1274,11 +1324,7 @@ msgstr "თარიღი"
 
 #: Control-ID:65535,
 msgid "Default &number of log messages"
-msgstr "ჟურნალის შეტყობინებათა &რაოდენობა"
-
-#: ID:11,
-msgid "Delete"
-msgstr "წაშლა"
+msgstr "ჟურნალის ჩანაწერთა &რაოდენობა"
 
 #: ID:73,
 msgid "Deleted"
@@ -1294,11 +1340,7 @@ msgstr "წაშლა"
 
 #: ID:3859,#: ID:3859,
 msgid "Destination disk drive is full."
-msgstr "სამიზნე დისკი სავსეა."
-
-#: ID:12,
-msgid "Diff"
-msgstr "შედარება"
+msgstr "დანიშნულების დისკი სავსეა"
 
 #: Control-ID:65535,
 msgid "Diff File:"
@@ -1387,6 +1429,10 @@ msgstr "დისკების ტიპები"
 msgid "E&xit"
 msgstr "&გასვლა"
 
+#: ID:9,
+msgid "E&xport..."
+msgstr "ე&ქსპორტი"
+
 #: ID:3697,
 msgid "EXT"
 msgstr "EXT"
@@ -1398,10 +1444,6 @@ msgstr "რედაქტირება"
 #: ID:113,
 msgid "Edit Author"
 msgstr "ავტორის რედაქტირება"
-
-#: ID:12,
-msgid "Edit Conflicts"
-msgstr "კონფლიქტების რედაქტირება"
 
 #: ID:110,
 msgid "Edit Extension Specific Diff Program"
@@ -1430,6 +1472,14 @@ msgstr "პროქსი სერვერის სახელი ან IP
 #: Control-ID:65535,
 msgid "Empty"
 msgstr "ცარიელი"
+
+#: Control-ID:1240,
+msgid "Enable Accelerators on the top level menu"
+msgstr "მთავარ მენიუში მალმხმობების გააქტივება"
+
+#: ID:196,
+msgid "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
+msgstr "გაააქტივეთ თუ გსურთ კლავიატურის მალმხმობების მთავარ მენიუში გამოყენება.\nგაითვალისწინეთ, რომ მენიუ მათ გარეშე უკეთესად გამოიყურება."
 
 #: ID:195,
 msgid "Enables the spellchecker only if the\ntsvn:projectlanguage property is set."
@@ -1471,6 +1521,10 @@ msgstr "მონიშნულის წაშლა\nწაშლა"
 msgid "Error"
 msgstr "შეცდომა"
 
+#: ID:145,
+msgid "Error rebuilding Shell Icon Cache!"
+msgstr "გარსის პიქტოგრამის განახლების შეცდომა!"
+
 #: ID:81,
 #, c-format
 msgid "Error validating server certificate for %s:"
@@ -1499,10 +1553,6 @@ msgstr "საექსპორტო დასტა:"
 #: ID:79,
 msgid "Export unversioned files too"
 msgstr "არავერსიული ფაილების ექსპორტი"
-
-#: ID:9,
-msgid "Export..."
-msgstr "ექსპორტი..."
 
 #: ID:79,
 msgid "Exporting..."
@@ -1690,7 +1740,7 @@ msgstr "&მთავარი ვერსია"
 msgid "HEAD revision in the repository"
 msgstr "საცავის HEAD ვერსია"
 
-#: ID:12,#: Control-ID:1004,
+#: Control-ID:1004,
 msgid "Help"
 msgstr "კარნახი"
 
@@ -1763,11 +1813,6 @@ msgstr "თუ ბლოკირების მოხსნა გსურთ
 msgid "Ignore"
 msgstr "იგნორირება"
 
-#: ID:15,
-#, c-format
-msgid "Ignore %d items"
-msgstr "%d ელემენტის იგნორირება"
-
 #: Control-ID:1021,
 msgid "Ignore All Whitespaces"
 msgstr "ყველა ხარეს იგნორირება"
@@ -1791,10 +1836,6 @@ msgstr "იმპორტი"
 #: Control-ID:1056,
 msgid "Import &Message"
 msgstr "&შეტყობინების იმპორტი"
-
-#: ID:9,
-msgid "Import..."
-msgstr "იმპორტი..."
 
 #: ID:10,
 msgid "Imports the directory to a repository"
@@ -1995,10 +2036,6 @@ msgstr "მაქსიმუმი"
 #: Dlg-ID:141,#: Control-ID:65535,
 msgid "Merge"
 msgstr "შერწყმა"
-
-#: ID:9,
-msgid "Merge..."
-msgstr "შერწყმა..."
 
 #: ID:263,#: ID:263,
 msgid "Merged"
@@ -2434,6 +2471,14 @@ msgstr "REC"
 msgid "Re&movable drives"
 msgstr "&მობილური დისკები"
 
+#: ID:11,
+msgid "Re&name..."
+msgstr "გადარ&ქმევა..."
+
+#: ID:8,
+msgid "Re&vert..."
+msgstr "ა&ღდგენა"
+
 #: ID:12,
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "სანამ ჩაეფლობით გადაიკითხეთ 'Daily Use Guide'..."
@@ -2466,6 +2511,10 @@ msgstr "დაბლოკვის მაშინაც თუ მისი �
 msgid "Releases locks on files so other users can edit them again."
 msgstr "ფაილების დაბლოკვის მოხსნა, რათა სხვა მონაწილეებს მათი რედაქტირება კვლავაც შეეძლოთ."
 
+#: ID:12,
+msgid "Relo&cate..."
+msgstr "გადაადგი&ლება..."
+
 #: MenuEntry
 msgid "Reload"
 msgstr "კვლავჩატვირთვა"
@@ -2477,10 +2526,6 @@ msgstr "გახსნილი ფაილების ხელახლა 
 #: Dlg-ID:157,
 msgid "Relocate"
 msgstr "გადაადგილება"
-
-#: ID:12,
-msgid "Relocate..."
-msgstr "გადაადგილება..."
 
 #: ID:80,
 msgid "Relocating..."
@@ -2528,10 +2573,6 @@ msgstr "გადარქმევა"
 msgid "Rename %s"
 msgstr "გადარქმევა - %s"
 
-#: ID:11,
-msgid "Rename..."
-msgstr "გადარქმევა..."
-
 #: ID:319,
 #, c-format
 msgid "Renamed from %s"
@@ -2573,6 +2614,10 @@ msgstr "საცავის გზამკვლევი"
 msgid "Requests a username and a password"
 msgstr "მონაწილის სახელისა და პაროლის მოთხოვნა"
 
+#: ID:8,
+msgid "Res&olved..."
+msgstr "&მოგვარდა..."
+
 #: Dlg-ID:207,
 msgid "Resolve"
 msgstr "მოგვარება"
@@ -2588,10 +2633,6 @@ msgstr "კონფლიქტების მოგვერება \"მ�
 #: ID:74,#: ID:209,
 msgid "Resolved"
 msgstr "მოგვარებულია"
-
-#: ID:8,
-msgid "Resolved..."
-msgstr "მოგვარდა..."
 
 #: ID:282,
 #, c-format
@@ -2622,10 +2663,6 @@ msgstr "აღდგენა"
 msgid "Revert changes from these revisions"
 msgstr "ცვლილებების აღდგენა ამ ვერსიებიდან"
 
-#: ID:8,
-msgid "Revert..."
-msgstr "აღდგენა..."
-
 #: ID:73,
 msgid "Reverted"
 msgstr "აღდგენილი"
@@ -2648,11 +2685,15 @@ msgstr "ვერსია %d"
 msgid "Revision %ld"
 msgstr "ვერსია %ld"
 
+#: ID:15,
+msgid "Revision &Graph"
+msgstr "ვერსიის &დიაგრამა"
+
 #: Control-ID:65535,
 msgid "Revision / Author:"
 msgstr "ვერსია / ავტორი:"
 
-#: ID:15,#: ID:269,#: Dlg-ID:182,
+#: ID:269,#: Dlg-ID:182,
 msgid "Revision Graph"
 msgstr "ვერსიის დიაგრამა"
 
@@ -2671,6 +2712,10 @@ msgstr "მარჯვენა ხედი"
 #: MenuEntry
 msgid "S&ettings"
 msgstr "&პარამეტრები"
+
+#: ID:9,
+msgid "S&witch..."
+msgstr "გა&დართვა..."
 
 #: ID:3697,
 msgid "SCRL"
@@ -2943,13 +2988,17 @@ msgstr "ფაილების თარიღებისთვის \"ბ�
 msgid "Setting Properties..."
 msgstr "პარამეტრების მითითება..."
 
-#: ID:9,#: ID:107,
+#: ID:107,
 msgid "Settings"
 msgstr "პარამეტრები"
 
 #: Control-ID:1132,
 msgid "Sh&ow Log"
 msgstr "&ჟურნალის ჩვენება"
+
+#: ID:145,
+msgid "Shell Icon Cache was rebuilt!"
+msgstr "გარსის პიქტოგრამის ქეში განახლდა"
 
 #: ID:101,
 msgid "Sho&w Properties"
@@ -2971,7 +3020,7 @@ msgstr "&ყველას ჩვენება"
 msgid "Show &Differences"
 msgstr "&სხვაობების ჩვენება"
 
-#: ID:101,#: Control-ID:1228,#: Control-ID:1031,#: Control-ID:1034,#: Control-ID:1132,
+#: ID:12,#: ID:101,#: Control-ID:1228,#: Control-ID:1031,#: Control-ID:1034,#: Control-ID:1132,
 msgid "Show &Log"
 msgstr "&ჟურნალის ჩვენება"
 
@@ -2998,10 +3047,6 @@ msgstr "სტრიქონების შედარების პან�
 #: Control-ID:1063,
 msgid "Show Linenumbers"
 msgstr "სტრიქონების ნომრების ჩვენება"
-
-#: ID:12,
-msgid "Show Log"
-msgstr "ჟურნალის ჩვენება"
 
 #: ID:3713,
 msgid "Show or hide the status bar\nToggle StatusBar"
@@ -3172,13 +3217,13 @@ msgstr "სამუშაო ასლის სხვა შტოზე/ჭ�
 msgid "Switch working copy to new branch/tag"
 msgstr "სამუშაო ვერსიის ახალ შტოზე/ჭდეზე გადართვა"
 
-#: ID:9,
-msgid "Switch..."
-msgstr "გადართვა..."
-
 #: Control-ID:1173,
 msgid "Symbol View"
 msgstr "სიმბოლოების დაფა"
+
+#: Control-ID:65535,
+msgid "System Sounds"
+msgstr "სისტემური ხმები"
 
 #: ID:3857,#: ID:3857,
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
@@ -3412,7 +3457,7 @@ msgstr "TortoiseMerge %d.%d.%d, გამოშვება - %s"
 msgid "TortoiseMerge %d.%d.%d, Build %d - %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
 msgstr "TortoiseMerge %d.%d.%d, გამოშვება %d - %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
 
-#: ID:9,#: ID:80,#: Control-ID:65535,
+#: ID:80,#: Control-ID:65535,
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
@@ -3534,13 +3579,9 @@ msgstr "დაბლოკვის მოხსნილია"
 msgid "Untitled"
 msgstr "უსახელო"
 
-#: ID:8,#: Dlg-ID:152,
+#: Dlg-ID:152,
 msgid "Update"
 msgstr "განახლება"
-
-#: ID:11,
-msgid "Update To Revision..."
-msgstr "განახლება ვერსიამდე..."
 
 #: ID:74,
 msgid "Updated"
@@ -3736,6 +3777,15 @@ msgstr "თქვენ აირჩიეთ არავერსიული 
 msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 msgstr "თქვენ პიქტოგრამების ნაკრები <i>%s</i> შეცვალეტ ახლით - <i>%s</i>.\nცვლილება ძალაში შევა კომპიუტერის გადატვირთვის ან გამოსვლისა და ხელახლა შესვლის შემდეგ!"
 
+#: Control-ID:1112,
+msgid "Your version is:"
+msgstr "თქვენი ვერსიაა:"
+
+#: ID:201,
+#, c-format
+msgid "Your version is: %d.%d.%d.%d"
+msgstr "თქვენი ვერსიაა: %d.%d.%d.%d"
+
 #: ID:78,
 msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
 msgstr "ჩანს თქვენი სამიშაო ასლი იმყოფება <b>ჭდის</b> გეზზე!\nფიქსაციამდე უნდა გადაერთოთ მთავარი მაგისტრალის განშტოებაზე.\n\nმაინც გსურთ ფიქსაცია?"
@@ -3810,15 +3860,6 @@ msgstr "კონფლიქტური"
 #, c-format
 msgid "copied from\r\n%s - revision %ld"
 msgstr "დაკოპირდა აქედან\r\n%s - ვერსია %ld"
-
-#: Control-ID:1113,
-msgid "current version is:"
-msgstr "მიმდინარე ვერსიაა:"
-
-#: ID:201,
-#, c-format
-msgid "current version is: %s"
-msgstr "მიმდინარე ვერსია: %s"
 
 #: ID:10,
 msgid "deleted"
@@ -3953,13 +3994,4 @@ msgstr "კვირა"
 #: Control-ID:65535,
 msgid "which points to the repository at URL:"
 msgstr "თქვენი ცვლილებების დაფიქსირება საცავში:"
-
-#: Control-ID:1112,
-msgid "your version is:"
-msgstr "თქვენი ვერსიაა:"
-
-#: ID:201,
-#, c-format
-msgid "your version is: %d.%d.%d.%d"
-msgstr "თქვენი ვერსიებია: %d.%d.%d.%d"
 
