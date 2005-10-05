@@ -109,13 +109,13 @@ END
 IDD_ADD DIALOGEX 0, 0, 244, 154
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Add"
+CAPTION "TortoiseSVN : Add"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_ADDLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,7,230,107
-    CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
+    CONTROL         "Select / deselect &all",IDC_SELECTALL,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,7,119,230,10
     DEFPUSHBUTTON   "&OK",IDOK,73,133,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,131,133,50,14
@@ -125,27 +125,28 @@ END
 IDD_CHANGEDFILES DIALOGEX 0, 0, 446, 222
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Working Copy"
+CAPTION "TortoiseSVN : Working Copy"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_CHANGEDLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,7,432,171
-    DEFPUSHBUTTON   "&OK",IDOK,389,201,50,14
-    LTEXT           "",IDC_SUMMARYTEXT,7,203,281,12
-    PUSHBUTTON      "Check Repository",IDC_CHECKREPO,294,201,87,14
     CONTROL         "Show unversioned files",IDC_SHOWUNVERSIONED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,181,260,10
     CONTROL         "Show unmodified files",IDC_SHOWUNMODIFIED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,192,262,10
+    LTEXT           "",IDC_SUMMARYTEXT,7,203,281,12
+    PUSHBUTTON      "Check repository",IDC_CHECKREPO,294,201,87,14
+    DEFPUSHBUTTON   "&OK",IDOK,389,201,50,14
 END
 
 IDD_CHECKOUT DIALOGEX 0, 0, 300, 177
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Checkout"
+CAPTION "TortoiseSVN : Checkout"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
+    GROUPBOX        "Repository",IDC_STATIC,7,7,286,90
     LTEXT           "&URL of repository:",IDC_STATIC,13,18,223,8
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,28,255,95
@@ -154,28 +155,27 @@ BEGIN
                     8
     EDITTEXT        IDC_CHECKOUTDIRECTORY,13,52,255,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_CHECKOUTDIRECTORY_BROWSE,273,52,14,14
-    CONTROL         "Only check out the top folder",IDC_NON_RECURSIVE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,70,274,10
-    CONTROL         "Omit externals",IDC_NOEXTERNALS,"Button",
+    CONTROL         "Only check out the &top folder",IDC_NON_RECURSIVE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,70,274,10
+    CONTROL         "Omit &externals",IDC_NOEXTERNALS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,82,274,10
-    CONTROL         "H&EAD Revision",IDC_REVISION_HEAD,"Button",
+    GROUPBOX        "Revision",IDC_STATIC,7,100,286,48
+    CONTROL         "&HEAD revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,13,112,123,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,128,74,10
     EDITTEXT        IDC_REVISION_NUM,100,127,96,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
-    PUSHBUTTON      "Show &Log",IDC_SHOW_LOG,201,126,86,14
+    PUSHBUTTON      "Show &log",IDC_SHOW_LOG,201,126,86,14
     DEFPUSHBUTTON   "&OK",IDOK,129,156,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,189,156,48,14
     PUSHBUTTON      "&Help",IDHELP,243,156,50,14
-    GROUPBOX        "Repository",IDC_STATIC,7,7,286,90
-    GROUPBOX        "Revision",IDC_STATIC,7,100,286,48
 END
 
 IDD_COPY DIALOGEX 0, 0, 300, 291
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Copy (Branch / Tag)"
+CAPTION "TortoiseSVN : Copy (Branch / Tag)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC,7,7,286,122
@@ -188,35 +188,35 @@ BEGIN
     PUSHBUTTON      "...",IDC_BROWSE,273,52,14,14
     GROUPBOX        "Create copy in the repository from:",IDC_STATIC,13,69,
                     267,55
-    CONTROL         "HEAD revision in the repository",IDC_COPYHEAD,"Button",
+    CONTROL         "&HEAD revision in the repository",IDC_COPYHEAD,"Button",
                     BS_AUTORADIOBUTTON,19,81,249,10
-    CONTROL         "Specific revision in repository",IDC_COPYREV,"Button",
+    CONTROL         "&Specific revision in repository",IDC_COPYREV,"Button",
                     BS_AUTORADIOBUTTON,19,94,174,10
-    CONTROL         "Working copy",IDC_COPYWC,"Button",BS_AUTORADIOBUTTON,19,
-                    108,249,10
+    CONTROL         "&Working copy",IDC_COPYWC,"Button",BS_AUTORADIOBUTTON,
+                    19,108,249,10
     EDITTEXT        IDC_COPYREVTEXT,198,92,51,14,ES_AUTOHSCROLL
-    GROUPBOX        "Log Message",IDC_STATIC,7,132,286,126
-    LTEXT           "Bug-ID / Issue-Nr:",IDC_BUGIDLABEL,143,140,87,8,0,
+    PUSHBUTTON      "...",IDC_BROWSEFROM,254,92,14,14
+    GROUPBOX        "Log message",IDC_STATIC,7,132,286,126
+    LTEXT           "Bug-&ID / Issue-Nr:",IDC_BUGIDLABEL,143,140,87,8,0,
                     WS_EX_RIGHT
     EDITTEXT        IDC_BUGID,238,137,49,14,ES_AUTOHSCROLL
     CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,13,153,
                     274,78,WS_EX_STATICEDGE
-    LTEXT           "Log Message History:",IDC_CHIST,13,237,99,17
+    LTEXT           "&Log message history:",IDC_CHIST,13,237,99,17
     CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP,119,236,168,104
+    CONTROL         "Sw&itch working copy to new branch/tag",IDC_DOSWITCH,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,8,
+                    261,112,23
     DEFPUSHBUTTON   "&OK",IDOK,129,270,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,187,270,50,14
     PUSHBUTTON      "&Help",IDHELP,243,270,50,14
-    PUSHBUTTON      "...",IDC_BROWSEFROM,254,92,14,14
-    CONTROL         "Switch working copy to new branch/tag",IDC_DOSWITCH,
-                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,7,
-                    261,112,23
 END
 
 IDD_IMPORT DIALOGEX 0, 0, 300, 190
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Import"
+CAPTION "TortoiseSVN : Import"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC1,7,7,286,43
@@ -224,10 +224,10 @@ BEGIN
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,28,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,28,14,14
-    GROUPBOX        "Import &Message",IDC_STATIC2,7,55,286,104
+    GROUPBOX        "Import &message",IDC_STATIC2,7,55,286,104
     CONTROL         "Scintilla",IDC_MESSAGE,"Scintilla",WS_TABSTOP,13,65,274,
                     67,WS_EX_STATICEDGE
-    LTEXT           "Log Message History:",IDC_CHIST,13,140,97,8
+    LTEXT           "Log message h&istory:",IDC_CHIST,13,140,97,8
     CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,138,171,104
     DEFPUSHBUTTON   "&OK",IDOK,129,169,50,14
@@ -239,7 +239,7 @@ IDD_LOGMESSAGE DIALOGEX 0, 0, 408, 362
 STYLE DS_SETFONT | DS_SETFOREGROUND | DS_FIXEDSYS | WS_MINIMIZEBOX | 
     WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "Log Messages"
+CAPTION "TortoiseSVN : Log Messages"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "From:",IDC_FROMLABEL,7,10,20,8
@@ -251,35 +251,36 @@ BEGIN
     EDITTEXT        IDC_SEARCHEDIT,204,7,196,14,ES_AUTOHSCROLL
     CONTROL         "",IDC_FILTERCANCEL,"Button",BS_OWNERDRAW | BS_ICON | 
                     NOT WS_VISIBLE | WS_TABSTOP,342,0,14,14
+    CONTROL         "",IDC_FILTERICON,"Button",BS_OWNERDRAW | BS_ICON | 
+                    BS_FLAT | WS_TABSTOP,393,0,14,14,WS_EX_TRANSPARENT
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | 
                     WS_BORDER | WS_TABSTOP,7,24,393,103
     CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,126,393,5
-    CONTROL         "",IDC_MSGVIEW,"RichEdit20W",WS_BORDER | WS_VSCROLL | 
-                    WS_TABSTOP | 0x1804,7,131,393,96
+    CONTROL         "",IDC_MSGVIEW,"RichEdit20A",ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,
+                    131,393,96
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,227,393,4
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
                     LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,231,393,67
+    CONTROL         "H&ide unrelated changed paths",IDC_HIDEPATHS,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,7,304,277,10
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",NOT WS_VISIBLE | 
                     WS_BORDER,7,322,335,9
-    PUSHBUTTON      "Statistics",IDC_STATBUTTON,350,302,50,14
     PUSHBUTTON      "Show &All",IDC_GETALL,7,341,54,14
-    CONTROL         "Stop On Copy/Rename",IDC_CHECK_STOPONCOPY,"Button",
+    PUSHBUTTON      "&Next 100",IDC_NEXTHUNDRED,69,341,64,14
+    CONTROL         "&Stop On copy/rename",IDC_CHECK_STOPONCOPY,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,141,342,145,10
     DEFPUSHBUTTON   "&OK",IDOK,290,341,52,14
+    PUSHBUTTON      "S&tatistics",IDC_STATBUTTON,350,302,50,14
     PUSHBUTTON      "&Help",IDHELP,350,321,50,14
-    PUSHBUTTON      "&Next 100",IDC_NEXTHUNDRED,69,341,64,14
-    CONTROL         "",IDC_FILTERICON,"Button",BS_OWNERDRAW | BS_ICON | 
-                    BS_FLAT | WS_TABSTOP,393,0,14,14,WS_EX_TRANSPARENT
-    CONTROL         "Hide unrelated changed paths",IDC_HIDEPATHS,"Button",
-                    BS_AUTO3STATE | WS_TABSTOP,7,304,277,10
     PUSHBUTTON      "&Cancel",IDCANCEL,350,341,50,14
 END
 
 IDD_LOGPROMPT DIALOGEX 0, 0, 300, 279
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Enter Log Message"
+CAPTION "TortoiseSVN : Enter Log Message"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "Commit to:",IDC_COMMITLABEL,6,6,134,8
@@ -290,7 +291,7 @@ BEGIN
                     NOT WS_BORDER | NOT WS_TABSTOP
     CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,6,34,
                     287,78,WS_EX_STATICEDGE
-    LTEXT           "Log Message History:",IDC_CHIST,6,122,139,8
+    LTEXT           "Log message &history:",IDC_CHIST,6,122,139,8
     CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP,149,119,144,104
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
@@ -299,16 +300,16 @@ BEGIN
     CONTROL         "Show unversioned files",IDC_SHOWUNVERSIONED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,6,203,143,10
     LTEXT           "",IDC_STATISTICS,149,202,144,8,0,WS_EX_RIGHT
-    CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
+    CONTROL         "Select / deselect &All",IDC_SELECTALL,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,6,213,143,10
     LTEXT           "To see the changes you made, double click on the files above.",
                     IDC_HINTLABEL,6,232,287,18
     DEFPUSHBUTTON   "&OK",IDOK,129,258,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,187,258,50,14
     PUSHBUTTON      "&Help",IDHELP,243,258,50,14
-    CONTROL         "Keep Locks",IDC_KEEPLOCK,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Keep &locks",IDC_KEEPLOCK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,6,260,117,10
-    ICON            IDI_EXTERNALWARNING,IDC_EXTERNALWARNING,272,213,21,20,
+    ICON            IDI_EXTERNALWARNING,IDC_EXTERNALWARNING,272,213,20,20,
                     SS_REALSIZEIMAGE | NOT WS_VISIBLE | WS_DISABLED,
                     WS_EX_TRANSPARENT
 END
@@ -316,7 +317,7 @@ END
 IDD_MERGE DIALOGEX 0, 0, 345, 267
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Merge"
+CAPTION "TortoiseSVN : Merge"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "Specify the revision range which you want to merge:",
@@ -331,7 +332,7 @@ BEGIN
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
                     13,63,82,10
     EDITTEXT        IDC_REVISION_START,102,60,48,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,155,60,67,14
+    PUSHBUTTON      "Show &log",IDC_FINDBRANCHSTART,155,60,67,14
     GROUPBOX        "To: (end URL and revision of the range to merge)",
                     IDC_STATIC,7,89,331,74
     CONTROL         "Use ""From:"" URL (revision range is selectable in the above log dialog)",
@@ -345,7 +346,7 @@ BEGIN
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,144,81,10
     EDITTEXT        IDC_REVISION_END,102,142,48,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,155,142,67,14
+    PUSHBUTTON      "Show &log",IDC_FINDBRANCHEND,155,142,67,14
     GROUPBOX        "",IDC_STATIC,7,168,331,71
     LTEXT           "The result of the merge is stored in the working copy at:",
                     IDC_STATIC,13,182,318,8
@@ -355,10 +356,10 @@ BEGIN
                     207,262,8
     EDITTEXT        IDC_WCURL,13,219,318,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    PUSHBUTTON      "Sh&ow Log",IDC_WCLOG,266,194,65,14
+    PUSHBUTTON      "Sh&ow log",IDC_WCLOG,266,194,65,14
     DEFPUSHBUTTON   "&Merge",IDOK,7,246,70,14
-    PUSHBUTTON      "&Dry Run",IDC_DRYRUNBUTTON,81,246,70,14
-    PUSHBUTTON      "&Unified Diff",IDC_DIFFBUTTON,154,246,70,14
+    PUSHBUTTON      "&Dry run",IDC_DRYRUNBUTTON,81,246,70,14
+    PUSHBUTTON      "&Unified diff",IDC_DIFFBUTTON,154,246,70,14
     PUSHBUTTON      "&Cancel",IDCANCEL,234,246,50,14
     PUSHBUTTON      "&Help",IDHELP,288,246,50,14
 END
@@ -367,7 +368,7 @@ IDD_PROMPT DIALOGEX 0, 0, 241, 54
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_TOPMOST
-CAPTION "Authentication"
+CAPTION "TortoiseSVN : Authentication"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "&Username:",IDC_INFOTEXT,7,9,64,9
@@ -381,7 +382,7 @@ END
 IDD_RELOCATE DIALOGEX 0, 0, 300, 89
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Relocate"
+CAPTION "TortoiseSVN : Relocate"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "&From URL:",IDC_STATIC,7,7,120,8
@@ -399,10 +400,10 @@ END
 IDD_RENAME DIALOGEX 0, 0, 234, 55
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Rename"
+CAPTION "TortoiseSVN : Rename"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "New Name:",IDC_LABEL,7,14,67,8
+    LTEXT           "New &name:",IDC_LABEL,7,14,67,8
     EDITTEXT        IDC_NAME,79,11,148,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&OK",IDOK,120,34,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,177,34,50,14
@@ -411,18 +412,18 @@ END
 IDD_REPOSITORY_BROWSER DIALOGEX 0, 0, 415, 279
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Repository Browser"
+CAPTION "TortoiseSVN : Repository Browser"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
+    CONTROL         "",IDC_REPOS_BAR_CNR,"Static",SS_OWNERDRAW | WS_TABSTOP,
+                    7,6,401,16
     CONTROL         "",IDC_REPOS_TREE,"MFCReportCtrl",WS_BORDER | WS_TABSTOP | 
                     0xa002,7,26,401,224
+    LTEXT           "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too",
+                    IDC_F5HINT,7,255,217,17
     DEFPUSHBUTTON   "&OK",IDOK,246,258,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,302,258,50,14
     PUSHBUTTON      "&Help",IDHELP,358,258,50,14
-    CONTROL         "",IDC_REPOS_BAR_CNR,"Static",SS_OWNERDRAW | WS_TABSTOP,
-                    7,6,401,16
-    LTEXT           "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too",
-                    IDC_F5HINT,7,255,217,17
 END
 
 IDD_SETTINGSMAIN DIALOGEX 0, 0, 300, 217
@@ -519,22 +520,22 @@ END
 IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 152
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "SVN Progress"
+CAPTION "TortoiseSVN : Progress"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    PUSHBUTTON      "Show &Log...",IDC_LOGBUTTON,164,130,79,14,NOT 
+    LTEXT           "",IDC_INFOTEXT,7,124,153,20
+    PUSHBUTTON      "Show &log...",IDC_LOGBUTTON,164,130,79,14,NOT 
                     WS_VISIBLE
     DEFPUSHBUTTON   "&OK",IDOK,250,130,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,307,130,50,14
-    LTEXT           "",IDC_INFOTEXT,7,124,153,20
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 300, 129
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Switch To Branch / Tag"
+CAPTION "TortoiseSVN : Switch To Branch / Tag"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "&To URL: ",IDC_STATIC,7,10,44,8
@@ -542,7 +543,7 @@ BEGIN
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,20,268,53
     PUSHBUTTON      "...",IDC_BROWSE,279,20,14,14
     GROUPBOX        "Revision",IDC_STATIC,7,47,286,51
-    CONTROL         "&HEAD Revision",IDC_REVISION_HEAD,"Button",
+    CONTROL         "&HEAD revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,13,60,80,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,76,73,10
@@ -556,30 +557,33 @@ END
 IDD_UPDATE DIALOGEX 0, 0, 203, 118
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Update"
+CAPTION "TortoiseSVN : Update"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Revision",IDC_STATIC,7,7,189,51
-    CONTROL         "&HEAD Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
+    CONTROL         "&HEAD revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
                     13,21,90,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,85,10
+    PUSHBUTTON      "Show &log",IDC_LOG,105,18,84,14
     EDITTEXT        IDC_REVNUM,105,36,85,14,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "Only update the &top folder",IDC_NON_RECURSIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,63,189,10
+    CONTROL         "Omit e&xternals",IDC_NOEXTERNALS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,77,189,10
     DEFPUSHBUTTON   "&OK",IDOK,89,97,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,146,97,50,14
-    CONTROL         "Only update the top folder",IDC_NON_RECURSIVE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,63,189,10
-    CONTROL         "Omit externals",IDC_NOEXTERNALS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,77,189,10
-    PUSHBUTTON      "Show &Log",IDC_LOG,105,18,84,14
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 114
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
-CAPTION "Authentication"
+CAPTION "TortoiseSVN : Authentication"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
+    CTEXT           "",IDC_REALM,7,7,206,15
+    CTEXT           "Requests a username and a password",IDC_STATIC,7,23,206,
+                    8
     LTEXT           "&Username:",IDC_STATIC,7,38,79,8
     EDITTEXT        IDC_USEREDIT,94,35,119,14,ES_AUTOHSCROLL
     LTEXT           "&Password:",IDC_STATIC,7,59,79,8
@@ -588,46 +592,43 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,77,206,10
     DEFPUSHBUTTON   "&OK",IDOK,106,93,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,163,93,50,14
-    CTEXT           "",IDC_REALM,7,7,206,15
-    CTEXT           "Requests a username and a password",IDC_STATIC,7,23,206,
-                    8
 END
 
 IDD_INPUTDLG DIALOGEX 0, 0, 237, 113
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-CAPTION "Input"
+CAPTION "TortoiseSVN : Input"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "Enter Log Message:",IDC_HINTTEXT,7,7,223,11
-    DEFPUSHBUTTON   "&OK",IDOK,121,92,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,180,92,50,14
+    LTEXT           "Enter log &message:",IDC_HINTTEXT,7,7,223,11
     CONTROL         "Scintilla",IDC_INPUTTEXT,"Scintilla",WS_TABSTOP,7,19,
                     223,68,WS_EX_STATICEDGE
     CONTROL         "",IDC_CHECKBOX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
                     96,104,10
+    DEFPUSHBUTTON   "&OK",IDOK,121,92,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,180,92,50,14
 END
 
 IDD_BLAME DIALOGEX 0, 0, 311, 94
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Blame"
+CAPTION "TortoiseSVN : Blame"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    GROUPBOX        "&From Revision",IDC_STATIC,7,7,123,46
+    GROUPBOX        "&From revision",IDC_STATIC,7,7,123,46
     EDITTEXT        IDC_REVISON_START,13,24,105,14,ES_AUTOHSCROLL
     GROUPBOX        "&To Revision",IDC_STATIC,139,7,165,46
-    CONTROL         "&HEAD Revision",IDC_REVISION_HEAD,"Button",
+    CONTROL         "&HEAD revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,145,18,81,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     145,34,63,10
     EDITTEXT        IDC_REVISION_END,215,31,79,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
+    CONTROL         "Use &text viewer to view blames",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,57,297,10
     DEFPUSHBUTTON   "&OK",IDOK,140,73,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,197,73,50,14
     PUSHBUTTON      "&Help",IDHELP,254,73,50,14
-    CONTROL         "Use Text viewer to view blames",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,57,297,10
 END
 
 IDD_SETTINGSPROGSADV DIALOGEX 0, 0, 319, 217
@@ -650,14 +651,14 @@ END
 IDD_URL DIALOGEX 0, 0, 234, 55
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "URL"
+CAPTION "TortoiseSVN : URL"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "URL:",IDC_LABEL,7,14,35,8
-    DEFPUSHBUTTON   "&OK",IDOK,120,34,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,177,34,50,14
+    LTEXT           "&URL:",IDC_LABEL,7,14,35,8
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,49,12,178,66
+    DEFPUSHBUTTON   "&OK",IDOK,120,34,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,177,34,50,14
 END
 
 IDD_TOOLASSOC DIALOGEX 0, 0, 383, 79
@@ -678,11 +679,11 @@ END
 IDD_REVISION DIALOGEX 0, 0, 203, 94
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Select Revision"
+CAPTION "TortoiseSVN : Select Revision"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Revision",IDC_STATIC,7,7,189,51
-    CONTROL         "&HEAD Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
+    CONTROL         "&HEAD revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
                     13,21,106,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,85,10
@@ -694,49 +695,49 @@ END
 IDD_CHECKFORUPDATES DIALOGEX 0, 0, 186, 116
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Check For Updates"
+CAPTION "TortoiseSVN : Check For Updates"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,65,95,50,14
     LTEXT           "Checking if a newer version of TortoiseSVN is available...",
                     IDC_STATIC,7,7,172,19
     LTEXT           "Your version is:",IDC_YOURVERSION,7,28,172,8
     LTEXT           "Current version is:",IDC_CURRENTVERSION,7,40,172,8
     LTEXT           "",IDC_CHECKRESULT,7,55,172,37,SS_NOTIFY
+    DEFPUSHBUTTON   "&OK",IDOK,65,95,50,14
 END
 
 IDD_REVERT DIALOGEX 0, 0, 279, 225
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Revert"
+CAPTION "TortoiseSVN : Revert"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,101,204,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,161,204,50,14
-    PUSHBUTTON      "&Help",IDHELP,221,204,50,14
     CONTROL         "",IDC_REVERTLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,7,265,180
-    CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
+    CONTROL         "Select / deselect &All",IDC_SELECTALL,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,192,265,10
+    DEFPUSHBUTTON   "&OK",IDOK,101,203,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,161,203,50,14
+    PUSHBUTTON      "&Help",IDHELP,221,203,50,14
 END
 
 IDD_PROPERTIES DIALOGEX 0, 0, 246, 105
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Properties"
+CAPTION "TortoiseSVN : Properties"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,97,84,50,14
     CONTROL         "",IDC_PROPERTYLIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | 
                     LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,232,71
+    DEFPUSHBUTTON   "OK",IDOK,97,84,50,14
 END
 
 IDD_STATGRAPH DIALOGEX 0, 0, 364, 211
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | 
     WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Statistics"
+CAPTION "TortoiseSVN : Statistics"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "Graph type:",IDC_GRAPHTYPELABEL,7,9,112,8
@@ -779,18 +780,18 @@ END
 IDD_REPOCREATE DIALOGEX 0, 0, 186, 90
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Create Repository"
+CAPTION "TortoiseSVN : Create Repository"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
+    LTEXT           "Select the type of repository you want to create:",
+                    IDC_STATIC,7,7,172,20
+    CONTROL         "&Native filesystem (FSFS)",IDC_RADIOFSFS,"Button",
+                    BS_AUTORADIOBUTTON,7,33,172,10
+    CONTROL         "&Berkeley database (BDB)",IDC_RADIOBDB,"Button",
+                    BS_AUTORADIOBUTTON,7,45,172,10
     DEFPUSHBUTTON   "OK",IDOK,7,69,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,68,69,50,14
     PUSHBUTTON      "&Help",IDHELP,129,69,50,14
-    LTEXT           "Select the type of repository you want to create:",
-                    IDC_STATIC,7,7,172,20
-    CONTROL         "Berkeley Database (BDB)",IDC_RADIOBDB,"Button",
-                    BS_AUTORADIOBUTTON,7,45,172,10
-    CONTROL         "Native Filesystem (FSFS)",IDC_RADIOFSFS,"Button",
-                    BS_AUTORADIOBUTTON,7,33,172,10
 END
 
 IDD_PATCH_FILE_OPEN_CUSTOM DIALOGEX 0, 0, 122, 28
@@ -798,13 +799,13 @@ STYLE DS_SETFONT | DS_3DLOOK | DS_FIXEDSYS | DS_CONTROL | WS_CHILD |
     WS_CLIPSIBLINGS | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    PUSHBUTTON      "Save To Clipboard",IDC_PATCH_TO_CLIPBOARD,7,7,108,14
+    PUSHBUTTON      "Save to clipboard",IDC_PATCH_TO_CLIPBOARD,7,7,108,14
 END
 
 IDD_REVISIONGRAPH DIALOGEX 0, 0, 264, 230
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | 
     WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Revision Graph"
+CAPTION "TortoiseSVN : Revision Graph"
 MENU IDR_REVISIONGRAPH
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
@@ -815,36 +816,36 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CAPTION
 CAPTION "Look and Feel::Icon Set"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "Icon Set:",IDC_ICONSETLABEL,7,9,77,8
+    LTEXT           "&Icon Set:",IDC_ICONSETLABEL,7,9,77,8
     COMBOBOX        IDC_ICONSETCOMBO,137,7,158,70,CBS_DROPDOWNLIST | 
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_ICONLIST,"SysListView32",LVS_LIST | 
                     LVS_AUTOARRANGE | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
                     WS_BORDER | WS_TABSTOP,7,28,288,156
-    CONTROL         "List View",IDC_LISTRADIO,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "&List View",IDC_LISTRADIO,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,7,191,118,10
-    CONTROL         "Symbol View",IDC_SYMBOLRADIO,"Button",
+    CONTROL         "&Symbol View",IDC_SYMBOLRADIO,"Button",
                     BS_AUTORADIOBUTTON,138,191,157,10
 END
 
 IDD_LOCK DIALOGEX 0, 0, 303, 169
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Lock Files"
+CAPTION "TortoiseSVN : Lock Files"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,132,148,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,189,148,50,14
-    PUSHBUTTON      "&Help",IDHELP,246,148,50,14
+    LTEXT           "&Enter a message describing why you lock the file(s).",
+                    IDC_LOCKTITLELABEL,7,7,289,8
     CONTROL         "Scintilla",IDC_LOCKMESSAGE,"Scintilla",WS_TABSTOP,7,17,
                     289,39,WS_EX_STATICEDGE
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,60,289,85
-    CONTROL         "Steal the locks",IDC_STEALLOCKS,"Button",
+    CONTROL         "&Steal the locks",IDC_STEALLOCKS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,150,117,10
-    LTEXT           "Enter a message describing why you lock the file(s).",
-                    IDC_LOCKTITLELABEL,7,7,289,8
+    DEFPUSHBUTTON   "OK",IDOK,132,148,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,189,148,50,14
+    PUSHBUTTON      "&Help",IDHELP,246,148,50,14
 END
 
 IDD_SETTINGSPROGSDIFF DIALOGEX 0, 0, 300, 217
@@ -863,7 +864,7 @@ BEGIN
     LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
                     IDC_STATIC,7,70,160,30
     PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,206,73,87,14
-    CONTROL         "Convert files when diffing against BASE",
+    CONTROL         "&Convert files when diffing against BASE",
                     IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
                     105,286,10
 END
@@ -906,15 +907,15 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Cascaded Context Menu",IDC_STATIC,7,7,286,210
+    GROUPBOX        "Cascaded context menu",IDC_STATIC,7,7,286,210
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
                     WS_BORDER | WS_TABSTOP,12,19,274,172
-    CONTROL         "Fetch status for context menu",IDC_SIMPLECONTEXT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,12,195,274,10
-    CONTROL         "Enable Accelerators on the top level menu",
+    CONTROL         "Fetch &status for context menu",IDC_SIMPLECONTEXT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,195,274,10
+    CONTROL         "Enable &accelerators on the top level menu",
                     IDC_ENABLEACCELERATORS,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,12,207,274,10
+                    WS_TABSTOP,11,207,274,10
 END
 
 IDD_SETTINGSDIALOGS DIALOGEX 0, 0, 300, 217
@@ -922,42 +923,42 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel::Dialogs"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Log Messages",IDC_STATIC,7,7,286,72
+    GROUPBOX        "Log messages",IDC_STATIC,7,7,286,72
     LTEXT           "Default &number of log messages",IDC_STATIC,13,20,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,20,55,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
-    LTEXT           "Font for log messages:",IDC_STATIC,13,32,92,23,
+    LTEXT           "&Font for log messages:",IDC_STATIC,13,32,92,23,
                     SS_CENTERIMAGE
     COMBOBOX        IDC_FONTNAMES,107,37,136,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_FONTSIZES,253,37,31,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
-    CONTROL         "Short &date/time format in log messages",
+    CONTROL         "&Short &date/time format in log messages",
                     IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,56,271,10
-    CONTROL         "Use old APIs to fetch log messages",IDC_OLDAPILOGS,
+    CONTROL         "Use &old APIs to fetch log messages",IDC_OLDAPILOGS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,67,271,8
     GROUPBOX        "Progress",IDC_STATIC,7,81,286,35
-    LTEXT           "Autoclose:",IDC_STATIC,13,91,54,19,SS_CENTERIMAGE
+    LTEXT           "&Autoclose:",IDC_STATIC,13,91,54,19,SS_CENTERIMAGE
     COMBOBOX        IDC_AUTOCLOSECOMBO,71,95,213,75,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Commit",IDC_COMMITGROUP,7,118,286,48
-    CONTROL         "Use autocompletion of filepaths and keywords",
+    CONTROL         "&Use autocompletion of filepaths and keywords",
                     IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,127,271,10
-    LTEXT           "Timeout in seconds to stop the autocompletion parsing",
+                    12,127,271,10
+    LTEXT           "&Timeout in seconds to stop the autocompletion parsing",
                     IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,140,231,8,SS_NOTIFY
     EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,138,31,12,ES_AUTOHSCROLL | 
                     ES_NUMBER,WS_EX_RIGHT
-    CONTROL         "Only use spellchecker when tsvn:projectlanguage is set",
-                    IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,153,
+    CONTROL         "Only use s&pellchecker when tsvn:projectlanguage is set",
+                    IDC_SPELL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,153,
                     271,10
-    GROUPBOX        "Check For Modifications",IDC_STATIC,7,166,286,21
-    CONTROL         "Contact the repository on startup",IDC_REPOCHECK,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,175,271,10
+    GROUPBOX        "Check for modifications",IDC_STATIC,7,166,286,21
+    CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,175,271,10
     GROUPBOX        "Merge",IDC_STATIC,7,187,286,23
-    CONTROL         "Use URL of WC as the default ""From:"" URL",
+    CONTROL         "Use URL of &WC as the default ""From:"" URL",
                     IDC_WCURLFROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
                     197,271,10
 END
@@ -965,13 +966,13 @@ END
 IDD_RESOLVE DIALOGEX 0, 0, 244, 153
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Resolve"
+CAPTION "TortoiseSVN : Resolve"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_RESOLVELIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,7,230,107
-    CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
+    CONTROL         "Select / deselect &All",IDC_SELECTALL,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,7,119,230,10
     DEFPUSHBUTTON   "&OK",IDOK,73,133,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,131,133,50,14
@@ -981,7 +982,7 @@ END
 IDD_DIFFFILES DIALOGEX 0, 0, 427, 218
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Changed Files"
+CAPTION "TortoiseSVN : Changed Files"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
@@ -991,15 +992,15 @@ END
 IDD_CREATEPATCH DIALOGEX 0, 0, 266, 204
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Create Patch"
+CAPTION "TortoiseSVN : Create Patch"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,93,183,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,151,183,50,14
     CONTROL         "",IDC_PATCHLIST,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,252,158
-    CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
+    CONTROL         "Select / deselect &All",IDC_SELECTALL,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,7,169,252,10
+    DEFPUSHBUTTON   "OK",IDOK,93,183,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,151,183,50,14
     PUSHBUTTON      "&Help",IDHELP,209,183,50,14
 END
 
@@ -1298,7 +1299,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 272
         TOPMARGIN, 7
-        BOTTOMMARGIN, 218
+        BOTTOMMARGIN, 217
     END
 
     IDD_PROPERTIES, DIALOG
@@ -1501,7 +1502,7 @@ BEGIN
     IDS_MSGBOX_RETRY        "Retry"
     IDS_MSGBOX_IGNORE       "Ignore"
     IDS_MSGBOX_CANCEL       "Cancel"
-    IDS_MSGBOX_TRYAGAIN     "Try Again"
+    IDS_MSGBOX_TRYAGAIN     "Try again"
     IDS_MSGBOX_CONTINUE     "Continue"
     IDS_MSGBOX_OK           "OK"
     IDS_MSGBOX_YES          "Yes"
@@ -1521,8 +1522,8 @@ BEGIN
     IDS_SVNACTION_EXTERNAL  "External"
     IDS_SVNACTION_MODIFIED  "Modified"
     IDS_SVNACTION_REPLACED  "Replacing"
-    IDS_SVNACTION_POSTFIX   "Sending Content"
-    IDS_SVNACTION_FAILEDREVERT "Failed Revert"
+    IDS_SVNACTION_POSTFIX   "Sending content"
+    IDS_SVNACTION_FAILEDREVERT "Failed revert"
     IDS_SVNACTION_STATUS    "Status"
     IDS_SVNACTION_SKIP      "Skipped"
     IDS_PROGS_EXTCOL        "Extension"
@@ -1539,22 +1540,22 @@ BEGIN
     IDS_SSL_CLIENTCERTIFICATEFILENAME "Open client certificate file"
     IDS_SSL_PEM             "PEM"
     IDS_SSL_PKCS12          "PKCS12"
-    IDS_IMPORT_DEFAULTMSG   "Initial Import"
-    IDS_LOG_COPYFROM        "Copy From Path"
+    IDS_IMPORT_DEFAULTMSG   "Initial import"
+    IDS_LOG_COPYFROM        "Copy from path"
     IDS_LOG_MESSAGE         "Message"
     IDS_LOG_REVISION        "Revision"
     IDS_LOG_AUTHOR          "Author"
     IDS_LOG_DATE            "Date"
     IDS_LOG_REVERT_CONFIRM  "Do you really want to revert all changes to\n%s\nwhich were made in this revision?"
     IDS_LOG_POPUP_COMPARE   "Compare with &working copy"
-    IDS_LOG_POPUP_SAVE      "Save Revision &To..."
-    IDS_LOG_POPUP_COMPARETWO "&Compare Revisions"
-    IDS_LOG_POPUP_UPDATE    "&Update Item To Revision"
+    IDS_LOG_POPUP_SAVE      "Save revision &to..."
+    IDS_LOG_POPUP_COMPARETWO "&Compare revisions"
+    IDS_LOG_POPUP_UPDATE    "&Update item to revision"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_POPUP_COPY      "C&reate Tag From Revision"
+    IDS_LOG_POPUP_COPY      "C&reate tag from revision"
     IDS_LOGPROMPT_FILE      "File"
     IDS_LOGPROMPT_STATUS    "Status"
     IDS_LOGPROMPT_ASKADD    "You selected an unversioned file.\nThe file will be added to version control when you commit."
@@ -1564,31 +1565,31 @@ BEGIN
     IDS_PROGRS_ACTION       "Action"
     IDS_PROGRS_PATH         "Path"
     IDS_PROGRS_TITLEFIN     "Finished!"
-    IDS_PROGRS_TITLE_CHECKOUT "SVN Checkout..."
-    IDS_PROGRS_TITLE_IMPORT "SVN Import..."
-    IDS_PROGRS_TITLE_UPDATE "SVN Update..."
-    IDS_PROGRS_TITLE_COMMIT "SVN Commit..."
-    IDS_PROGRS_TITLE_ADD    "SVN Add..."
-    IDS_PROGRS_TITLE_REVERT "SVN Revert..."
-    IDS_PROGRS_TITLE_RESOLVE "SVN Resolve..."
+    IDS_PROGRS_TITLE_CHECKOUT "TortoiseSVN Checkout..."
+    IDS_PROGRS_TITLE_IMPORT "TortoiseSVN Import..."
+    IDS_PROGRS_TITLE_UPDATE "TortoiseSVN Update..."
+    IDS_PROGRS_TITLE_COMMIT "TortoiseSVN Commit..."
+    IDS_PROGRS_TITLE_ADD    "TortoiseSVN Add..."
+    IDS_PROGRS_TITLE_REVERT "TortoiseSVN Revert..."
+    IDS_PROGRS_TITLE_RESOLVE "TortoiseSVN Resolve..."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROGRS_TITLE_SWITCH "SVN Switch..."
-    IDS_PROGRS_TITLE_EXPORT "SVN Export..."
-    IDS_PROGRS_TITLE_MERGE  "SVN Merge..."
-    IDS_PROGRS_TITLE_COPY   "SVN Copy..."
-    IDS_PROGRS_MIMETYPE     "Mime Type"
+    IDS_PROGRS_TITLE_SWITCH "TortoiseSVN Switch..."
+    IDS_PROGRS_TITLE_EXPORT "TortoiseSVN Export..."
+    IDS_PROGRS_TITLE_MERGE  "TortoiseSVN Merge..."
+    IDS_PROGRS_TITLE_COPY   "TortoiseSVN Copy..."
+    IDS_PROGRS_MIMETYPE     "Mime type"
     IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to switch over\nto that copy path. Use the Switch command to do that."
     IDS_PROGRS_COMMITT_TRUNK 
                             "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
     IDS_PROGRS_REVERTMARKERS 
                             "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
-    IDS_SETTINGS_SELECTDIFF "Select Diff Application"
-    IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
-    IDS_SETTINGS_SELECTMERGE "Select Merge Application"
-    IDS_SETTINGS_SELECTSSH  "Select SSH Client"
+    IDS_SETTINGS_SELECTDIFF "Select diff application"
+    IDS_SETTINGS_SELECTDIFFVIEWER "Select viewer for diff-files"
+    IDS_SETTINGS_SELECTMERGE "Select merge application"
+    IDS_SETTINGS_SELECTSSH  "Select SSH client"
     IDS_SETTINGS_EXTDIFF_TT "An external diff program used\nfor comparing different revisions of files\n<hr=100%>\nYou can specify the following parameters to the path:\n%base\tthe base file\n%mine\tthe modified file"
     IDS_SETTINGS_EXTDIFFBROWSE_TT "Browse for the external diff program"
 END
@@ -1604,7 +1605,7 @@ BEGIN
                             "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
     IDS_SETTINGS_AUTOCLOSE_TT 
                             "Select the behaviour of the progress dialog at the end of the operation."
-    IDS_UTILS_SELECTTEXTVIEWER "Select Text Editor Application"
+    IDS_UTILS_SELECTTEXTVIEWER "Select text editor application"
     IDS_SETTINGS_CONVERTBASE_TT 
                             "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
     IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
@@ -1673,7 +1674,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_CHECKOUT_TT_DIR     "Location where the contents of the\nrepository URL will be saved to."
-    IDS_CHECKOUT_EXPORTDIR  "Export Directory:"
+    IDS_CHECKOUT_EXPORTDIR  "Export directory:"
 END
 
 STRINGTABLE 
@@ -1685,18 +1686,18 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOBROWSE_SAVEAS   "Save &As..."
-    IDS_REPOBROWSE_SHOWLOG  "Show &Log"
+    IDS_REPOBROWSE_SAVEAS   "Save &as..."
+    IDS_REPOBROWSE_SHOWLOG  "Show &log"
     IDS_REPOBROWSE_OPEN     "&Open"
-    IDS_REPOBROWSE_COPY     "&Copy To..."
+    IDS_REPOBROWSE_COPY     "&Copy to..."
     IDS_REPOBROWSE_DELETE   "&Delete..."
-    IDS_REPOBROWSE_IMPORT   "Add &File..."
+    IDS_REPOBROWSE_IMPORT   "Add &file..."
     IDS_REPOBROWSE_RENAME   "&Rename"
-    IDS_REPOBROWSE_MKDIR    "C&reate Folder..."
-    IDS_REPOBROWSE_IMPORTFOLDER "A&dd Folder..."
+    IDS_REPOBROWSE_MKDIR    "C&reate folder..."
+    IDS_REPOBROWSE_IMPORTFOLDER "A&dd folder..."
     IDS_REPOBROWSE_REFRESH  "Refresh"
-    IDS_REPOBROWSE_SHOWPROP "Sho&w Properties"
-    IDS_REPOBROWSE_COPYTOWC "Copy To Working Copy..."
+    IDS_REPOBROWSE_SHOWPROP "Sho&w properties"
+    IDS_REPOBROWSE_COPYTOWC "Copy to working copy..."
     IDS_REPOBROWSE_URLTOCLIPBOARD "Copy URL to clipboard"
 END
 
@@ -1708,19 +1709,19 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_POPUP_DIFF      "Show &Differences"
+    IDS_LOG_POPUP_DIFF      "Show &differences"
     IDS_LOG_POPUP_REVERTREV "&Revert changes from this revision"
-    IDS_LOG_POPUP_GNUDIFF   "Show Differences as &Unified Diff"
+    IDS_LOG_POPUP_GNUDIFF   "Show differences as &unified diff"
     IDS_LOG_POPUP_FIND      "Search &log messages..."
     IDS_LOG_POPUP_OPEN      "&Open"
-    IDS_LOG_POPUP_EDITAUTHOR "Edit Author"
-    IDS_LOG_POPUP_EDITLOG   "Edit Log Message"
+    IDS_LOG_POPUP_EDITAUTHOR "Edit author"
+    IDS_LOG_POPUP_EDITLOG   "Edit log message"
     IDS_LOG_POPUP_OPENWITH  "Open with..."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROGRESSGETFILE     "Getting File %s"
+    IDS_PROGRESSGETFILE     "Getting file %s"
     IDS_PROGRESSREVISION    "Revision %d"
     IDS_PROGRESSWAIT        "Please wait..."
 END
@@ -1728,13 +1729,13 @@ END
 STRINGTABLE 
 BEGIN
     IDS_CHSTAT_FILECOL      "File"
-    IDS_CHSTAT_WCCOL        "Local Status"
-    IDS_CHSTAT_REPOCOL      "Remote Status"
+    IDS_CHSTAT_WCCOL        "Local status"
+    IDS_CHSTAT_REPOCOL      "Remote status"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_COPY_SUCCESS    "Branch / Tag created successfully!"
+    IDS_LOG_COPY_SUCCESS    "Branch / tag created successfully!"
     IDS_LOG_MESSAGEEDITTITLE "Edit log message"
     IDS_LOG_AUTHOREDITTITLE "Edit author name"
 END
@@ -1749,8 +1750,8 @@ STRINGTABLE
 BEGIN
     IDS_ERR_SSL_CNMISMATCH  "Hostname mismatch (%s)"
     IDS_ERR_SSL_EXPIREDORNOTYETVALID "Certificate expired or not yet valid"
-    IDS_SSL_ACCEPTALWAYS    "Accept Permanently"
-    IDS_SSL_ACCEPTTEMP      "Accept Once"
+    IDS_SSL_ACCEPTALWAYS    "Accept permanently"
+    IDS_SSL_ACCEPTTEMP      "Accept once"
     IDS_SSL_REJECT          "Reject"
     IDS_ERR_SSL_NOTYETVALID "Certificate not yet valid. Valid from: %s"
     IDS_ERR_SSL_EXPIRED     "Certificate expired. Valid until: %s"
@@ -1768,7 +1769,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_INPUT_ENTERLOG      "Enter Log Message:"
+    IDS_INPUT_ENTERLOG      "Enter log message:"
     IDS_INPUT_LOGTITLE      "Log"
     IDS_INPUT_REMOVELOGMSG  "Removed file/folder"
     IDS_INPUT_ADDLOGMSG     "Added a file remotely"
@@ -1782,9 +1783,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_BLAME_PROGRESSTITLE "SVN Blame"
+    IDS_BLAME_PROGRESSTITLE "TortoiseSVN Blame"
     IDS_BLAME_PROGRESSINFO  "Please wait - this can take several minutes. Seriously!"
-    IDS_BLAME_PROGRESSCANCEL "Cancelling SVN Blame..."
+    IDS_BLAME_PROGRESSCANCEL "Cancelling TortoiseSVN Blame..."
     IDS_BLAME_PROGRESSINFO2 "Processing revision %d of %d..."
     IDS_BLAME_PROGRESSINFOSTART "Getting file info..."
     IDS_BLAME_PROGRESSLOGSTART "Getting log info..."
@@ -1792,14 +1793,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_COMPAREWITHBASE "Compare With B&ase"
-    IDS_LOG_BROWSEREPO      "&Browse Repository"
+    IDS_LOG_COMPAREWITHBASE "Compare with b&ase"
+    IDS_LOG_BROWSEREPO      "&Browse repository"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_PROC_ENTERURLLABEL  "Url:"
-    IDS_PROC_PATCHTITLE     "Generating Patchfile..."
+    IDS_PROC_PATCHTITLE     "Generating patchfile..."
     IDS_PROC_SAVEPATCHTO    "Saving patchfile to:"
     IDS_PROC_REPOCREATESHAREWARN 
                             "You are creating a repository on a network share.\nThis is safe, but once the repository is created you must access it by some other means.\nAccessing a repository via file:/// on a network share may corrupt your data!\nCreate the repository anyway?"
@@ -1822,7 +1823,7 @@ BEGIN
     IDS_DIFF_BASENAME       "%s : Working Base"
     IDS_DIFF_WORKINGCOPY    ": working copy"
     IDS_DIFF_REVISIONPATCHED ": Revision %d"
-    IDS_DIFF_REMOTENAME     "%s : Remote File"
+    IDS_DIFF_REMOTENAME     "%s : Remote file"
     IDS_DIFF_WORKINGBASE    ": working base"
 END
 
@@ -1843,12 +1844,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_DLGTITLE_ADD_DIFF_TOOL "Add Extension Specific Diff Program"
-    IDS_DLGTITLE_ADD_MERGE_TOOL "Add Extension Specific Merge Program"
-    IDS_DLGTITLE_EDIT_DIFF_TOOL "Edit Extension Specific Diff Program"
-    IDS_DLGTITLE_EDIT_MERGE_TOOL "Edit Extension Specific Merge Program"
-    IDS_DLGTITLE_ADV_DIFF   "Advanced Diff Settings"
-    IDS_DLGTITLE_ADV_MERGE  "Advanced Merge Settings"
+    IDS_DLGTITLE_ADD_DIFF_TOOL "Add extension specific diff program"
+    IDS_DLGTITLE_ADD_MERGE_TOOL "Add extension specific merge program"
+    IDS_DLGTITLE_EDIT_DIFF_TOOL "Edit extension specific diff program"
+    IDS_DLGTITLE_EDIT_MERGE_TOOL "Edit extension specific merge program"
+    IDS_DLGTITLE_ADV_DIFF   "Advanced diff settings"
+    IDS_DLGTITLE_ADV_MERGE  "Advanced merge settings"
 END
 
 STRINGTABLE 
@@ -1878,7 +1879,7 @@ STRINGTABLE
 BEGIN
     IDS_PROC_CLEANUP        "cleaning up"
     IDS_PROC_REMOVEFORCE    "%s\nDo you want to remove it anyway?"
-    IDS_PROC_YESTOALL       "Yes To All"
+    IDS_PROC_YESTOALL       "Yes to all"
     IDS_PROC_IGNORESUCCESS  "Added the file(s)\n%s\nto the ignore list."
     IDS_PROC_RESOLVE        "Are you sure you want to mark the conflicted file(s) as resolved?"
     IDS_PROC_RTFM           "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
@@ -1917,15 +1918,15 @@ STRINGTABLE
 BEGIN
     IDS_STATUSLIST_COLFILE  "File"
     IDS_STATUSLIST_COLSTATUS "Status"
-    IDS_STATUSLIST_COLREMOTESTATUS "Remote Status"
-    IDS_STATUSLIST_COLTEXTSTATUS "Text Status"
-    IDS_STATUSLIST_COLPROPSTATUS "Property Status"
-    IDS_STATUSLIST_COLREMOTETEXTSTATUS "Remote Text Status"
-    IDS_STATUSLIST_COLREMOTEPROPSTATUS "Remote Property Status"
+    IDS_STATUSLIST_COLREMOTESTATUS "Remote status"
+    IDS_STATUSLIST_COLTEXTSTATUS "Text status"
+    IDS_STATUSLIST_COLPROPSTATUS "Property status"
+    IDS_STATUSLIST_COLREMOTETEXTSTATUS "Remote text status"
+    IDS_STATUSLIST_COLREMOTEPROPSTATUS "Remote property status"
     IDS_STATUSLIST_COLURL   "Url"
     IDS_STATUSLIST_COLEXT   "Extension"
     IDS_STATUSLIST_COLLOCK  "Lock"
-    IDS_STATUSLIST_COLLOCKCOMMENT "Lock Comment"
+    IDS_STATUSLIST_COLLOCKCOMMENT "Lock comment"
 END
 
 STRINGTABLE 
@@ -1998,8 +1999,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOSTATUS_HEADREV  "Lowest Revision: %ld - Highest Revision: %ld - HEAD revision: %ld"
-    IDS_REPOSTATUS_WCINFO   "Lowest Revision: %ld - Highest Revision: %ld"
+    IDS_REPOSTATUS_HEADREV  "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
+    IDS_REPOSTATUS_WCINFO   "Lowest revision: %ld - Highest revision: %ld"
 END
 
 STRINGTABLE 
@@ -2036,7 +2037,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REVGRAPH_PROGTITLE  "Revision Graph"
+    IDS_REVGRAPH_PROGTITLE  "Revision graph"
     IDS_REVGRAPH_PROGGETREVS "Getting information from repository..."
     IDS_REVGRAPH_PROGCURRENTREV "Revision %ld"
     IDS_REVGRAPH_PROGANALYZE "Analyze revision data..."
@@ -2058,7 +2059,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_REVGRAPH_BOXTOOLTIP "URL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
-    IDS_REVGRAPH_SAVEPIC    "Save Graph as..."
+    IDS_REVGRAPH_SAVEPIC    "Save graph as..."
 END
 
 STRINGTABLE 
@@ -2098,7 +2099,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROGRS_TITLE_RENAME "SVN Rename/Move"
+    IDS_PROGRS_TITLE_RENAME "TortoiseSVN Rename/move"
     IDS_PROGRS_TITLE_LOCK   "Lock"
     IDS_PROGRS_TITLE_UNLOCK "Unlock"
 END
@@ -2118,7 +2119,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_FILTER_ALL      "Messages, Authors And Paths"
+    IDS_LOG_FILTER_ALL      "Messages, authors and paths"
     IDS_LOG_FILTER_PATHS    "Paths"
     IDS_LOG_FILTER_AUTHORS  "Authors"
     IDS_LOG_FILTER_MESSAGES "Messages"
@@ -2138,7 +2139,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOBROWSE_SAVEASPROGTITLE "Saving Files"
+    IDS_REPOBROWSE_SAVEASPROGTITLE "Saving files"
     IDS_REPOBROWSE_SAVEAS_LINE1 "Saving file %s"
     IDS_REPOBROWSE_SAVEAS_LINE2 "to %s"
     IDS_REPOBROWSE_COPYTOWCPROGTITLE "Copy to working copy"
@@ -2159,10 +2160,10 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REVGRAPH_POPUP_COMPAREREVS "&Compare Revisions"
-    IDS_REVGRAPH_POPUP_COMPAREHEADS "Compare &HEAD Revisions"
-    IDS_REVGRAPH_POPUP_UNIDIFFREVS "&Unified Diff"
-    IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &Diff Of HEAD Revisions"
+    IDS_REVGRAPH_POPUP_COMPAREREVS "&Compare revisions"
+    IDS_REVGRAPH_POPUP_COMPAREHEADS "Compare &HEAD revisions"
+    IDS_REVGRAPH_POPUP_UNIDIFFREVS "&Unified diff"
+    IDS_REVGRAPH_POPUP_UNIDIFFHEADS "Unified &diff of HEAD revisions"
 END
 
 STRINGTABLE 

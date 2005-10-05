@@ -80,7 +80,7 @@ END
 IDD_FILEPATCHES DIALOGEX 0, 0, 132, 206
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_THICKFRAME
 EXSTYLE WS_EX_TOOLWINDOW
-CAPTION "File Patches"
+CAPTION "File patches"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
@@ -156,7 +156,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "&Merging",IDC_MERGERADIO,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,14,18,75,10
-    CONTROL         "&Apply Unified Diff",IDC_APPLYRADIO,"Button",
+    CONTROL         "&Apply unified diff",IDC_APPLYRADIO,"Button",
                     BS_AUTORADIOBUTTON,96,18,152,10
     EDITTEXT        IDC_BASEFILEEDIT,96,45,152,14,ES_AUTOHSCROLL
     PUSHBUTTON      "B&rowse...",IDC_BASEFILEBROWSE,260,46,50,14
@@ -171,13 +171,13 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,188,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,127,188,50,14
     PUSHBUTTON      "Help",IDC_HELPBUTTON,268,188,50,14
-    LTEXT           "Base File:",IDC_STATIC,14,48,82,8
-    LTEXT           "Their File:",IDC_STATIC,14,69,82,8
-    LTEXT           "My File:",IDC_STATIC,14,91,82,8
+    LTEXT           "Base file:",IDC_STATIC,14,48,82,8
+    LTEXT           "Their file:",IDC_STATIC,14,69,82,8
+    LTEXT           "My file:",IDC_STATIC,14,91,82,8
     LTEXT           "",IDC_VERSIONSTRING,7,7,311,8,SS_CENTERIMAGE
     GROUPBOX        "Merging",IDC_STATIC,7,34,311,77
-    GROUPBOX        "Apply Unified Diff",IDC_STATIC,7,117,311,59
-    LTEXT           "Diff File:",IDC_STATIC,14,134,82,8
+    GROUPBOX        "Apply unified diff",IDC_STATIC,7,117,311,59
+    LTEXT           "Diff file:",IDC_STATIC,14,134,82,8
     LTEXT           "Directory:",IDC_STATIC,14,153,82,8
 END
 
@@ -186,47 +186,47 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "General"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,251,133
-    CONTROL         "Backup original file",IDC_BACKUP,"Button",
+    CONTROL         "&Backup original file",IDC_BACKUP,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,17,236,10
-    CONTROL         "Jump to first difference when loading",
+    CONTROL         "&Jump to first difference when loading",
                     IDC_FIRSTDIFFONLOAD,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,15,27,236,10
-    LTEXT           "Tab Size:",IDC_STATIC,15,93,54,8
-    EDITTEXT        IDC_TABSIZE,80,90,41,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Diffing",IDC_DIFFGROUP,7,142,251,74
-    CONTROL         "Ignore Lineendings (recommended)",IDC_IGNORELF,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,151,236,10
-    CONTROL         "Compare Whitespaces",IDC_WSCOMPARE,"Button",
-                    BS_AUTORADIOBUTTON,15,183,236,10
-    CONTROL         "Ignore Leading Whitespaces",IDC_WSIGNORELEADING,"Button",
-                    BS_AUTORADIOBUTTON,15,193,236,10
-    CONTROL         "Ignore All Whitespaces",IDC_WSIGNOREALL,"Button",
-                    BS_AUTORADIOBUTTON,15,203,236,10
-    CONTROL         "Use one-pane view as default for 2-file diff",
+    CONTROL         "Use &one-pane view as default for 2-file diff",
                     IDC_ONEPANE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,37,
                     236,10
-    LTEXT           "Language:",IDC_STATIC,15,124,66,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,122,171,58,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Font:",IDC_STATIC,15,108,52,8
+    CONTROL         "Show linenumber&s",IDC_LINENUMBERS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,47,236,10
+    CONTROL         "Use &magnifier on locatorbar",IDC_MAGNIFIER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,57,236,10
+    CONTROL         "Show li&ne diff bar",IDC_DIFFBAR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,67,236,10
+    CONTROL         "Use stri&keout for deleted lines",IDC_STRIKEOUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,77,236,10
+    LTEXT           "&Tab size:",IDC_STATIC,15,93,54,8
+    EDITTEXT        IDC_TABSIZE,80,90,41,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "&Font:",IDC_STATIC,15,108,52,8
     COMBOBOX        IDC_FONTNAMES,80,106,122,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_FONTSIZES,211,106,40,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
-    CONTROL         "Show Linenumbers",IDC_LINENUMBERS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,47,236,10
-    CONTROL         "Use Magnifier on Locatorbar",IDC_MAGNIFIER,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,57,236,10
-    CONTROL         "Show Line Diff Bar",IDC_DIFFBAR,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,67,236,10
-    CONTROL         "Use strikeout for deleted lines",IDC_STRIKEOUT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,77,236,10
-    CONTROL         "Color code in-line changes",IDC_USEBDIFF,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,172,236,10
-    CONTROL         "Ignore case changes",IDC_CASEINSENSITIVE,"Button",
+    LTEXT           "&Language:",IDC_STATIC,15,124,66,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,122,171,58,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,251,133
+    CONTROL         "Ignore line&endings (recommended)",IDC_IGNORELF,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,151,236,10
+    CONTROL         "Ignore &case changes",IDC_CASEINSENSITIVE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,161,236,10
+    CONTROL         "Color co&de in-line changes",IDC_USEBDIFF,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,172,236,10
+    CONTROL         "&Compare whitespaces",IDC_WSCOMPARE,"Button",
+                    BS_AUTORADIOBUTTON,15,183,236,10
+    CONTROL         "&Ignore leading whitespaces",IDC_WSIGNORELEADING,"Button",
+                    BS_AUTORADIOBUTTON,15,193,236,10
+    CONTROL         "Ignore &all whitespaces",IDC_WSIGNOREALL,"Button",
+                    BS_AUTORADIOBUTTON,15,203,236,10
+    GROUPBOX        "Diffing",IDC_DIFFGROUP,7,142,251,74
 END
 
 IDD_SETCOLORPAGE DIALOGEX 0, 0, 265, 223
@@ -246,7 +246,7 @@ BEGIN
     PUSHBUTTON      "",IDC_BKWHITESPACES,152,170,50,14
     LTEXT           "Whitespace diff",IDC_STATIC,15,193,113,8,0,WS_EX_RIGHT
     PUSHBUTTON      "",IDC_BKWHITESPACEDIFF,152,190,50,14
-    GROUPBOX        "Inline Whitespace Diff",IDC_STATIC,7,151,251,65
+    GROUPBOX        "Inline whitespace diff",IDC_STATIC,7,151,251,65
     LTEXT           "Empty",IDC_STATIC,15,79,113,8,0,WS_EX_RIGHT
     LTEXT           "Conflicted",IDC_STATIC,15,98,113,8,0,WS_EX_RIGHT
     PUSHBUTTON      "",IDC_BKEMPTY,152,76,50,14
@@ -603,7 +603,7 @@ BEGIN
     IDS_SAVEASTITLE         "Save as..."
     IDS_COMMANDLINEHELP     "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/mine:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
     IDS_OPENDIFFFILETITLE   "Select diff file..."
-    IDS_GETVERSIONOFFILETITLE "Fetching File..."
+    IDS_GETVERSIONOFFILETITLE "Fetching file..."
     IDS_GETVERSIONOFFILE    "Fetching revision %s of file:"
     IDS_WARNMODIFIEDLOOSECHANGES 
                             "Do you want to reload the documents?\nYou will lose all changes you've made!"
@@ -646,9 +646,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PATCH_ALL           "Patch All"
-    IDS_PATCH_TITLE         "File Patches"
-    IDS_DIFF_TITLE          "File Diffs"
+    IDS_PATCH_ALL           "Patch all"
+    IDS_PATCH_TITLE         "File patches"
+    IDS_DIFF_TITLE          "File diffs"
 END
 
 STRINGTABLE 
