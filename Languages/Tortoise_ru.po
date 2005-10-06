@@ -31,13 +31,13 @@
 # resolve -- улаживать
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 4560: Stanislav Petrakov <stannic@yandex.ru>
+# Исправлено и дополнено до версии 4567: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-06 19:33+0300\n"
+"PO-Revision-Date: 2005-10-06 20:18+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,6 @@ msgstr ""
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,-1,57,-1,-1\n"
 
 #: ID:10
 #: ID:126
@@ -644,11 +643,6 @@ msgstr "&Установить"
 msgid "&Settings"
 msgstr "&Настройки"
 
-# Control-ID:1105,
-#: Control-ID:1105
-msgid "&Short &date/time format in log messages"
-msgstr "Короткий формат &даты/времени в лог-сообщениях"
-
 # ID:238,
 # д.б. согласовано с "из ..."
 #: Control-ID:1185
@@ -666,7 +660,7 @@ msgstr "Перехватить &блокировки"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "&Stop On copy/rename"
+msgid "&Stop on copy/rename"
 msgstr "О&становиться на копировании/переименовании"
 
 # Control-ID:1173,
@@ -2118,11 +2112,6 @@ msgstr ""
 "Показывает информацию о программе, номер версии и авторские права\n"
 "О программе"
 
-# ID:80,
-#: ID:80
-msgid "Do not show this message again"
-msgstr "Больше не показывать это сообщение"
-
 # ID:145,
 #: ID:145
 msgid "Do you really want to move this file or folder?"
@@ -2176,6 +2165,7 @@ msgstr "Документация - Simon Large"
 
 # ID:73,
 #: ID:73
+#: ID:80
 msgid "Don't show this message again"
 msgstr "Больше не показывать это сообщение"
 
@@ -3305,12 +3295,6 @@ msgstr "OVR"
 # Род?
 # ID:13,
 #: Control-ID:1202
-msgid "Omit &externals"
-msgstr "Пропустить в&нешние"
-
-# Род?
-# ID:13,
-#: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Пропустить в&нешние"
 
@@ -4176,13 +4160,6 @@ msgstr "Выбрать &все"
 # Control-ID:1067,#:
 # Control-ID:1067,
 #: Control-ID:1067
-msgid "Select / deselect &All"
-msgstr "Отметить / Разотметить &все"
-
-# Выбрать / Убрать &все
-# Control-ID:1067,#:
-# Control-ID:1067,
-#: Control-ID:1067
 msgid "Select / deselect &all"
 msgstr "Отметить / Разотметить &все"
 
@@ -4315,6 +4292,11 @@ msgstr "Кэш значков оболочки восстановлен!"
 #: ID:101
 msgid "Sho&w properties"
 msgstr "Показа&ть свойства"
+
+# Control-ID:1105,
+#: Control-ID:1105
+msgid "Short &date/time format in log messages"
+msgstr "Короткий формат &даты/времени в лог-сообщениях"
 
 # ID:12,
 #: ID:12
@@ -5528,11 +5510,11 @@ msgstr "Использовать программу просмотра &текс
 # ID:195,
 #: ID:195
 msgid ""
-"Use '*' as a wildcard character when specifying an exception\n"
+"Use '*' as a wildcard character when specifying an exception.\n"
 "To separate multiple exceptions, use commas (',').\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"Используйте '*' для обозначения групп при указании исключений\n"
+"Используйте '*' для обозначения групп при указании исключений.\n"
 "Для разделения нескольких исключений используйте запятые (',').\n"
 "Например: *.mylan.com, *.company.com"
 
@@ -5793,6 +5775,15 @@ msgid ""
 msgstr ""
 "Вы изменили набор значков с <i>%s</i> на <i>%s</i>.\n"
 "Эти изменения вступят в силу только после перезагрузки, или после нового входа в операционную систему!"
+
+# ID:338,
+#: ID:338
+msgid ""
+"You've selected added folders. The patch won't contain added files within such added folders.\n"
+"Do you want to proceed anyway?"
+msgstr ""
+"Вы отметили добавленные папки. Заплатка не будет содержать добавленные файлы из этих добавленных папок.\n"
+"Вы всё равно хотите продолжить?"
 
 # Control-ID:1112,
 #: Control-ID:1112
