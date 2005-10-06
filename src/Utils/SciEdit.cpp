@@ -578,6 +578,9 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
 	int anchor = Call(SCI_GETANCHOR);
 	int currentpos = Call(SCI_GETCURRENTPOS);
+	int selstart = Call(SCI_GETSELECTIONSTART);
+	int selend = Call(SCI_GETSELECTIONEND);
+	int pointpos = 0;
 	if ((point.x == -1) && (point.y == -1))
 	{
 		CRect rect;
@@ -591,9 +594,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		// right-clicked.
 		CPoint clientpoint = point;
 		ScreenToClient(&clientpoint);
-		int pointpos = Call(SCI_POSITIONFROMPOINT, clientpoint.x, clientpoint.y);
-		Call(SCI_SETANCHOR, pointpos);
-		Call(SCI_SETCURRENTPOS, pointpos);
+		pointpos = Call(SCI_POSITIONFROMPOINT, clientpoint.x, clientpoint.y);
 	}
 	CString sMenuItemText;
 	CMenu popup;
@@ -601,7 +602,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	{
 		bool bCanUndo = !!Call(SCI_CANUNDO);
 		bool bCanRedo = !!Call(SCI_CANREDO);
-		bool bHasSelection = (Call(SCI_GETANCHOR) != Call(SCI_GETCURRENTPOS));
+		bool bHasSelection = (selend-selstart > 0);
 		bool bCanPaste = !!Call(SCI_CANPASTE);
 		UINT uEnabledMenu = MF_STRING | MF_ENABLED;
 		UINT uDisabledMenu = MF_STRING | MF_GRAYED;
@@ -640,8 +641,20 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			popup.AppendMenu(MF_SEPARATOR);
 		}
 		int menuid = nCustoms;
-		
-		CString sWord = GetWordUnderCursor();
+
+		CString sWord;		
+		if (pointpos)
+		{
+			// setting the cursor clears the selection
+			Call(SCI_SETANCHOR, pointpos);
+			Call(SCI_SETCURRENTPOS, pointpos);
+			sWord = GetWordUnderCursor();
+			// restore the selection
+			Call(SCI_SETSELECTIONSTART, selstart);
+			Call(SCI_SETSELECTIONEND, selend);
+		}
+		else
+			sWord = GetWordUnderCursor();
 		CStringA worda = CStringA(sWord);
 		if ((sWord.GetLength()<PDICT_MAX_WORD_LENGTH)&&((pChecker)&&(m_autolist.Find(sWord)<0)&&(!pChecker->spell(worda)))&&
 			(!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
