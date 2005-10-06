@@ -157,7 +157,7 @@ BEGIN
     PUSHBUTTON      "...",IDC_CHECKOUTDIRECTORY_BROWSE,273,52,14,14
     CONTROL         "Only check out the &top folder",IDC_NON_RECURSIVE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,70,274,10
-    CONTROL         "Omit &externals",IDC_NOEXTERNALS,"Button",
+    CONTROL         "Omit e&xternals",IDC_NOEXTERNALS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,82,274,10
     GROUPBOX        "Revision",IDC_STATIC,7,100,286,48
     CONTROL         "&HEAD revision",IDC_REVISION_HEAD,"Button",
@@ -715,7 +715,7 @@ BEGIN
     CONTROL         "",IDC_REVERTLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,7,265,180
-    CONTROL         "Select / deselect &All",IDC_SELECTALL,"Button",
+    CONTROL         "Select / deselect &all",IDC_SELECTALL,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,192,265,10
     DEFPUSHBUTTON   "&OK",IDOK,101,203,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,161,203,50,14
@@ -972,7 +972,7 @@ BEGIN
     CONTROL         "",IDC_RESOLVELIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,7,230,107
-    CONTROL         "Select / deselect &All",IDC_SELECTALL,"Button",
+    CONTROL         "Select / deselect &all",IDC_SELECTALL,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,7,119,230,10
     DEFPUSHBUTTON   "&OK",IDOK,73,133,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,131,133,50,14
@@ -997,7 +997,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_PATCHLIST,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,252,158
-    CONTROL         "Select / deselect &All",IDC_SELECTALL,"Button",
+    CONTROL         "Select / deselect &all",IDC_SELECTALL,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,7,169,252,10
     DEFPUSHBUTTON   "OK",IDOK,93,183,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,151,183,50,14
@@ -1630,7 +1630,7 @@ BEGIN
     IDS_PROC_MOVING         "Moving..."
     IDS_PROC_RELOCATING     "Relocating..."
     IDS_APPNAME             "TortoiseSVN"
-    IDS_MSGBOX_DONOTSHOW    "Do not show this message again"
+    IDS_MSGBOX_DONOTSHOW    "Don't show this message again"
     IDS_PROC_COPYING        "Copying..."
     IDS_PROC_COPYINGPROG    "Copying %s"
     IDS_PROC_MOVINGPROG     "Moving %s"
