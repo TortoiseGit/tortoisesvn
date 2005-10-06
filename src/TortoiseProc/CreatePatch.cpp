@@ -149,6 +149,46 @@ void CCreatePatch::OnOK()
 	if (m_bThreadRunning)
 		return;
 
+	int nAddedFolders = 0;
+	int nListItems = m_PatchList.GetItemCount();
+
+	for (int j=0; j<nListItems; j++)
+	{
+		const CSVNStatusListCtrl::FileEntry * entry = m_PatchList.GetListEntry(j);
+		if (entry->IsChecked())
+		{
+			if (entry->status == svn_wc_status_added)
+			{
+				if (entry->IsFolder())
+					nAddedFolders++;
+				else
+				{
+					// an added file. Is it inside an added folder?
+					for (int i=0; i<nListItems; ++i)
+					{
+						const CSVNStatusListCtrl::FileEntry * parententry = m_PatchList.GetListEntry(i);
+						if (parententry->status == svn_wc_status_added)
+						{
+							CTSVNPath checkpath = entry->GetPath().GetContainingDirectory();
+							while (!checkpath.IsEmpty())
+							{
+								if (checkpath.IsEquivalentTo(parententry->GetPath()))
+									nAddedFolders++;
+								checkpath = checkpath.GetContainingDirectory();
+							}
+						}
+					}
+				}	
+			}
+		}
+	}
+
+	if (nAddedFolders != 0)
+	{
+		if (CMessageBox::Show(m_hWnd, IDS_CREATEPATCH_ADDEDFOLDERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)!=IDYES)
+			return;
+	}
+
 	//save only the files the user has selected into the pathlist
 	m_PatchList.WriteCheckedNamesToPathList(m_pathList);
 

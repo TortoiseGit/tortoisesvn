@@ -2229,6 +2229,12 @@ BEGIN
                             "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_CREATEPATCH_ADDEDFOLDERS 
+                            "You've selected added folders. The patch won't contain added files within such added folders.\nDo you want to proceed anyway?"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

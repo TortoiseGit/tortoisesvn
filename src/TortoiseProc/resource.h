@@ -683,6 +683,7 @@
 #define IDS_FILEDIFF_COMMENT            5101
 #define IDS_FILEDIFF_COMMENTCOPY        5102
 #define IDS_FILEDIFF_COMMENTRENAMED     5103
+#define IDS_CREATEPATCH_ADDEDFOLDERS    5400
 #define IDS_SCIEDIT_UNDO                6000
 #define IDS_SCIEDIT_REDO                6001
 #define IDS_SCIEDIT_CUT                 6002
