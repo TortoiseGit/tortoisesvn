@@ -447,10 +447,6 @@ msgstr ""
 msgid "&Settings"
 msgstr ""
 
-#: Control-ID:1105,
-msgid "&Short &date/time format in log messages"
-msgstr ""
-
 #: Control-ID:1185,
 msgid "&Specific revision in repository"
 msgstr ""
@@ -464,7 +460,7 @@ msgid "&Steal the locks"
 msgstr ""
 
 #: Control-ID:1130,
-msgid "&Stop On copy/rename"
+msgid "&Stop on copy/rename"
 msgstr ""
 
 #: Control-ID:1173,
@@ -1456,10 +1452,6 @@ msgstr ""
 msgid "Display program information, version number and copyright\nAbout"
 msgstr ""
 
-#: ID:80,
-msgid "Do not show this message again"
-msgstr ""
-
 #: ID:145,
 msgid "Do you really want to move this file or folder?"
 msgstr ""
@@ -1489,7 +1481,7 @@ msgstr ""
 msgid "Documentation - Simon Large"
 msgstr ""
 
-#: ID:73,
+#: ID:73,#: ID:80,
 msgid "Don't show this message again"
 msgstr ""
 
@@ -2246,11 +2238,7 @@ msgstr ""
 msgid "OVR"
 msgstr ""
 
-#: Control-ID:1202,
-msgid "Omit &externals"
-msgstr ""
-
-#: Control-ID:1202,
+#: Control-ID:1202,#: Control-ID:1202,
 msgid "Omit e&xternals"
 msgstr ""
 
@@ -2856,11 +2844,7 @@ msgstr ""
 msgid "Select &All"
 msgstr ""
 
-#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
-msgid "Select / deselect &All"
-msgstr ""
-
-#: Control-ID:1067,#: Control-ID:1067,
+#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
 msgid "Select / deselect &all"
 msgstr ""
 
@@ -2958,6 +2942,10 @@ msgstr ""
 
 #: ID:101,
 msgid "Sho&w properties"
+msgstr ""
+
+#: Control-ID:1105,
+msgid "Short &date/time format in log messages"
 msgstr ""
 
 #: ID:12,
@@ -3708,7 +3696,7 @@ msgid "Use &text viewer to view blames"
 msgstr ""
 
 #: ID:195,
-msgid "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
+msgid "Use '*' as a wildcard character when specifying an exception.\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
 msgstr ""
 
 #: Control-ID:1230,

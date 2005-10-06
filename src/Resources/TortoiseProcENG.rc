@@ -269,7 +269,7 @@ BEGIN
                     WS_BORDER,7,322,335,9
     PUSHBUTTON      "Show &All",IDC_GETALL,7,341,54,14
     PUSHBUTTON      "&Next 100",IDC_NEXTHUNDRED,69,341,64,14
-    CONTROL         "&Stop On copy/rename",IDC_CHECK_STOPONCOPY,"Button",
+    CONTROL         "&Stop on copy/rename",IDC_CHECK_STOPONCOPY,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,141,342,145,10
     DEFPUSHBUTTON   "&OK",IDOK,290,341,52,14
     PUSHBUTTON      "S&tatistics",IDC_STATBUTTON,350,302,50,14
@@ -934,7 +934,7 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_FONTSIZES,253,37,31,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
-    CONTROL         "&Short &date/time format in log messages",
+    CONTROL         "Short &date/time format in log messages",
                     IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,56,271,10
     CONTROL         "Use &old APIs to fetch log messages",IDC_OLDAPILOGS,
@@ -1954,7 +1954,7 @@ BEGIN
     IDS_SETTINGS_ICONSETCHANGED 
                             "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
     IDS_SETTINGS_PROXYEXCEPTIONS_TT 
-                            "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
+                            "Use '*' as a wildcard character when specifying an exception.\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
     IDS_SETTINGS_READONLYNAME "readonly"
     IDS_SETTINGS_LOCKEDNAME "locked"
     IDS_SETTINGS_OLDLOGAPIS_TT 
