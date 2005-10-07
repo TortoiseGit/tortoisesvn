@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-06 11:28+0100\n"
+"PO-Revision-Date: 2005-10-07 09:36+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -613,11 +613,6 @@ msgstr "&Imposta"
 msgid "&Settings"
 msgstr "&Impostazioni"
 
-# Control-ID:1105,
-#: Control-ID:1105
-msgid "&Short &date/time format in log messages"
-msgstr "Usa formato &corto per date e orari"
-
 # ID:12,
 #: Control-ID:1185
 msgid "&Specific revision in repository"
@@ -634,7 +629,7 @@ msgstr "&Ruba il blocco"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "&Stop On copy/rename"
+msgid "&Stop on copy/rename"
 msgstr "&Sospendi durante la copia/la rinomina"
 
 # Control-ID:1173,
@@ -2082,11 +2077,6 @@ msgstr ""
 "Visualizza le informazioni sul programma, sulla versione e sul copyright\n"
 "Riguardo a"
 
-# ID:80,
-#: ID:80
-msgid "Do not show this message again"
-msgstr "Non visualizzare più questo messaggio"
-
 # ID:145,
 #: ID:145
 msgid "Do you really want to move this file or folder?"
@@ -2139,6 +2129,7 @@ msgstr "Documentazione - Simon Large"
 
 # ID:80,
 #: ID:73
+#: ID:80
 msgid "Don't show this message again"
 msgstr "Non visualizzare più questo messaggio"
 
@@ -3256,11 +3247,6 @@ msgstr "OVR"
 
 # ID:13,
 #: Control-ID:1202
-msgid "Omit &externals"
-msgstr "Tralascia &esterni"
-
-# ID:13,
-#: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "Tralascia &esterni"
 
@@ -4113,12 +4099,6 @@ msgstr "Seleziona &tutti"
 # Control-ID:1067,#:
 # Control-ID:1067,
 #: Control-ID:1067
-msgid "Select / deselect &All"
-msgstr "Seleziona / disseleziona &tutti"
-
-# Control-ID:1067,#:
-# Control-ID:1067,
-#: Control-ID:1067
 msgid "Select / deselect &all"
 msgstr "Seleziona / disseleziona &tutti"
 
@@ -4251,6 +4231,11 @@ msgstr "La cache delle icone di stato è stata ricostruita!"
 #: ID:101
 msgid "Sho&w properties"
 msgstr "Mostra &proprietà"
+
+# Control-ID:1105,
+#: Control-ID:1105
+msgid "Short &date/time format in log messages"
+msgstr "Usa formato corto per &date e orari"
 
 # ID:12,
 #: ID:12
@@ -5459,11 +5444,11 @@ msgstr "Usa l'editor di &testo per visualizzare le revisioni biasimate"
 # ID:195,
 #: ID:195
 msgid ""
-"Use '*' as a wildcard character when specifying an exception\n"
+"Use '*' as a wildcard character when specifying an exception.\n"
 "To separate multiple exceptions, use commas (',').\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"Utilizzare '*' come carattere jolly quando si specifica un'eccezione\n"
+"Utilizzare '*' come carattere jolly quando si specifica un'eccezione.\n"
 "In caso di eccezioni multiple, separarle usando delle virgole (',').\n"
 "Esempio: *.mylan.com, *.company.com"
 
@@ -5720,6 +5705,15 @@ msgid ""
 msgstr ""
 "Hai cambiato il set di icone da <i>%s</i> a <i>%s</i>.\n"
 "Il cambiamento non avrà effetto fino al prossimo riavvio del compiuter o fino alla prossima disconnessione dell'utente."
+
+# ID:338,
+#: ID:338
+msgid ""
+"You've selected added folders. The patch won't contain added files within such added folders.\n"
+"Do you want to proceed anyway?"
+msgstr ""
+"Si sono selezionate cartelle aggiunte. La patch non contiene file aggiunti all'interno di queste cartelle.\n"
+"Continuare comunque?"
 
 # Control-ID:1112,
 #: Control-ID:1112
