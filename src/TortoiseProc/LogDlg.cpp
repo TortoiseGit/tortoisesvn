@@ -890,6 +890,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							dlg.m_CopyRev = SVNRev(rev);
 							if (dlg.DoModal() == IDOK)
 							{
+								// should we show here a progress dialog? Copies are done really fast
+								// and without much network traffic.
 								SVN svn;
 								if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_sLogMessage))
 								{
@@ -899,7 +901,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								{
 									CMessageBox::Show(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
 								}
-							} // if (dlg.DoModal() == IDOK) 
+							}
 						}
 					} 
 					break;
@@ -990,14 +992,25 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							tempfile.SetFromWin(ofn.lpstrFile);
 							SVN svn;
+							CProgressDlg progDlg;
+							progDlg.SetTitle(IDS_APPNAME);
+							CString sInfoLine;
+							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), (LONG)rev);
+							progDlg.SetLine(1, sInfoLine);
+							svn.SetAndClearProgressInfo(&progDlg);
+							progDlg.ShowModeless(m_hWnd);
 							if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
 							{
+								progDlg.Stop();
+								svn.SetAndClearProgressInfo((HWND)NULL);
 								delete [] pszFilters;
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								GetDlgItem(IDOK)->EnableWindow(TRUE);
 								break;
-							} // if (!svn.Cat(m_path, rev, tempfile)) 
-						} // if (GetSaveFileName(&ofn)==TRUE)
+							}
+							progDlg.Stop();
+							svn.SetAndClearProgressInfo((HWND)NULL);
+						}
 						delete [] pszFilters;
 					}
 					break;
@@ -1009,15 +1022,26 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
                         long rev = pLogEntry->dwRev;
                         
+						CProgressDlg progDlg;
+						progDlg.SetTitle(IDS_APPNAME);
+						CString sInfoLine;
+						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), (LONG)rev);
+						progDlg.SetLine(1, sInfoLine);
+						SetAndClearProgressInfo(&progDlg);
+						progDlg.ShowModeless(m_hWnd);
 						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, m_path);
 						if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
 						{
+							progDlg.Stop();
+							SetAndClearProgressInfo((HWND)NULL);
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);
 							break;
 						}
 						else
 						{
+							progDlg.Stop();
+							SetAndClearProgressInfo((HWND)NULL);
 							SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 							int ret = 0;
 							if (!bOpenWith)
@@ -1037,12 +1061,22 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
                         long rev = pLogEntry->dwRev;
 						SVN svn;
+						CProgressDlg progDlg;
+						progDlg.SetTitle(IDS_APPNAME);
+						progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESSWAIT)));
+						progDlg.SetTime(false);
+						svn.SetAndClearProgressInfo(&progDlg);
+						progDlg.ShowModeless(m_hWnd);
 						if (!svn.Update(CTSVNPathList(m_path), rev, TRUE, FALSE))
 						{
+							progDlg.Stop();
+							svn.SetAndClearProgressInfo((HWND)NULL);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);
 							break;
 						}
+						progDlg.Stop();
+						svn.SetAndClearProgressInfo((HWND)NULL);
 					}
 					break;
 				case ID_FINDENTRY:
@@ -1355,15 +1389,28 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							tempfile.SetFromWin(ofn.lpstrFile);
 							CString sAction(MAKEINTRESOURCE(IDS_SVNACTION_DELETE));
 							SVNRev getrev = (sAction.Compare(changedpath->sAction)==0) ? rev-1 : rev;
+
+							CProgressDlg progDlg;
+							progDlg.SetTitle(IDS_APPNAME);
+							CString sInfoLine;
+							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)getrev);
+							progDlg.SetLine(1, sInfoLine);
+							SetAndClearProgressInfo(&progDlg);
+							progDlg.ShowModeless(m_hWnd);
+
 							if (!Cat(CTSVNPath(filepath), getrev, getrev, tempfile))
 							{
+								progDlg.Stop();
+								SetAndClearProgressInfo((HWND)NULL);
 								delete [] pszFilters;
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								GetDlgItem(IDOK)->EnableWindow(TRUE);
 								theApp.DoWaitCursor(-1);
 								break;
 							}
-						} // if (GetSaveFileName(&ofn)==TRUE)
+							progDlg.Stop();
+							SetAndClearProgressInfo((HWND)NULL);
+						}
 						delete [] pszFilters;
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);
@@ -1398,14 +1445,26 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
 						filepath += changedpath->sPath;
 
+						CProgressDlg progDlg;
+						progDlg.SetTitle(IDS_APPNAME);
+						CString sInfoLine;
+						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, (LONG)rev);
+						progDlg.SetLine(1, sInfoLine);
+						SetAndClearProgressInfo(&progDlg);
+						progDlg.ShowModeless(m_hWnd);
+
 						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath));
 						if (!Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
 						{
+							progDlg.Stop();
+							SetAndClearProgressInfo((HWND)NULL);
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);
 							theApp.DoWaitCursor(-1);
 							break;
 						}
+						progDlg.Stop();
+						SetAndClearProgressInfo((HWND)NULL);
 						SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 						if (!bOpenWith)
 						{

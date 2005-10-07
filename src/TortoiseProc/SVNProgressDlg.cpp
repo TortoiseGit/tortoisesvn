@@ -35,6 +35,8 @@
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
 
+#define TRANSFERTIMER 100
+
 IMPLEMENT_DYNAMIC(CSVNProgressDlg, CResizableStandAloneDialog)
 CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CSVNProgressDlg::IDD, pParent)
@@ -81,6 +83,8 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(HDN_ITEMCLICK, 0, OnHdnItemclickSvnprogress)
 	ON_WM_SETCURSOR()
 	ON_WM_CONTEXTMENU()
+	ON_REGISTERED_MESSAGE(WM_SVNPROGRESS, OnSVNProgress)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -498,6 +502,8 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	ResizeColumns();
 
 	AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_PROGRESSLABEL, BOTTOM_LEFT, BOTTOM_CENTER);
+	AddAnchor(IDC_PROGRESSBAR, BOTTOM_CENTER, BOTTOM_RIGHT);
 	AddAnchor(IDC_INFOTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -577,7 +583,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
-
+	SetAndClearProgressInfo(m_hWnd);
 	m_bThreadRunning = TRUE;
 	iFirstResized = 0;
 	bSecondResized = FALSE;
@@ -957,6 +963,9 @@ UINT CSVNProgressDlg::ProgressThread()
 	SendMessage(DM_SETDEFID, IDOK);
 	GetDlgItem(IDOK)->SetFocus();	
 
+	KillTimer(TRANSFERTIMER);
+	GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(m_sTotalBytesTransferred);
+	
 	m_bCancelled = TRUE;
 	m_bThreadRunning = FALSE;
 	POINT pt;
@@ -1120,6 +1129,44 @@ void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 bool CSVNProgressDlg::NotificationDataIsAux(const NotificationData* pData)
 {
 	return pData->bAuxItem;
+}
+
+LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
+{
+	SVNProgress * pProgressData = (SVNProgress *)lParam;
+	CProgressCtrl * progControl = (CProgressCtrl *)GetDlgItem(IDC_PROGRESSBAR);
+	if ((pProgressData->total > 1000)&&(!progControl->IsWindowVisible()))
+	{
+		progControl->ShowWindow(SW_SHOW);
+	}
+	if ((pProgressData->total < 0)&&(pProgressData->progress > 1000)&&(progControl->IsWindowVisible()))
+	{
+		progControl->ShowWindow(SW_HIDE);
+	}
+	if (!GetDlgItem(IDC_PROGRESSLABEL)->IsWindowVisible())
+		GetDlgItem(IDC_PROGRESSLABEL)->ShowWindow(SW_SHOW);
+	SetTimer(TRANSFERTIMER, 2000, NULL);
+	if ((pProgressData->total > 0)&&(pProgressData->progress > 1000))
+	{
+		progControl->SetPos((int)pProgressData->progress);
+		progControl->SetRange32(0, (int)pProgressData->total);
+	}
+	CString progText;
+	progText.Format(IDS_SVN_PROGRESS_SPEED, pProgressData->SpeedString);
+	GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(progText);
+	m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pProgressData->overall_total / 1024);
+	return 0;
+}
+
+void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	if (nIDEvent == TRANSFERTIMER)
+	{
+		CString progText;
+		progText.Format(IDS_SVN_PROGRESS_SPEED, _T("0 Bytes/s"));
+		GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(progText);
+		KillTimer(TRANSFERTIMER);
+	}
 }
 
 void CSVNProgressDlg::Sort()

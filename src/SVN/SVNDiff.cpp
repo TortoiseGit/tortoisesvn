@@ -193,10 +193,18 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(_T("Test.diff")));
 	bool bIsUrl = !!SVN::PathIsURL(url1.GetSVNPathString());
 	
+	CProgressDlg progDlg;
+	progDlg.SetTitle(IDS_APPNAME);
+	progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_UNIFIEDDIFF)));
+	progDlg.SetTime(false);
+	m_pSVN->SetAndClearProgressInfo(&progDlg);
+	progDlg.ShowModeless(m_hWnd);
 	if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
 	{
 		if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), false, tempfile))
 		{
+			progDlg.Stop();
+			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 			CMessageBox::Show(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return false;
 		}
@@ -205,15 +213,21 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	{
 		if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? SVNRev::REV_HEAD : SVNRev::REV_WC)), rev1, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
 		{
+			progDlg.Stop();
+			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 			CMessageBox::Show(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return false;
 		}
 	}
 	if (CUtils::CheckForEmptyDiff(tempfile))
 	{
+		progDlg.Stop();
+		m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 		CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
 		return false;
 	}
+	progDlg.Stop();
+	m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 	return true;
 }
 
@@ -233,12 +247,19 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 {
 	CTSVNPath tempfile;
 	
+	CProgressDlg progDlg;
+	progDlg.SetTitle(IDS_APPNAME);
+	progDlg.SetTime(false);
+	m_pSVN->SetAndClearProgressInfo(&progDlg);
+
 	if ((m_pSVN->PathIsURL(url1.GetSVNPathString()))||(!rev1.IsWorking())||(!url1.IsEquivalentTo(url2)))
 	{
 		// no working copy path!
-		
+		progDlg.ShowModeless(m_hWnd);
+
 		tempfile = CTempFiles::Instance().GetTempFilePath(true, url1);		
 		// first find out if the url points to a file or dir
+		progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_INFO)));
 		SVNInfo info;
 		const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : SVNRev::REV_HEAD), rev1, false);
 		if (data == NULL)
@@ -246,6 +267,8 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, false);
 			if (data == NULL)
 			{
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 				CMessageBox::Show(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
 				return false;
 			}
@@ -253,10 +276,13 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		
 		if (data->kind == svn_node_dir)
 		{
+			progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_UNIFIEDDIFF)));
 			if (url1.IsEquivalentTo(url2))
 			{
 				if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : SVNRev::REV_HEAD), rev1, rev2, TRUE, ignoreancestry, nodiffdeleted, FALSE, _T(""), tempfile))
 				{
+					progDlg.Stop();
+					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 					CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					return false;
 				}
@@ -265,10 +291,14 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			{
 				if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, ignoreancestry, nodiffdeleted, FALSE, _T(""), false, tempfile))
 				{
+					progDlg.Stop();
+					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 					CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					return false;
 				}
 			}
+			progDlg.Stop();
+			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 			if (CUtils::CheckForEmptyDiff(tempfile))
 			{
 				CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
@@ -306,29 +336,30 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			CTSVNPath tempfile1 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1);
 			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url2);
 
-			CProgressDlg progDlg;
-			progDlg.SetTitle(IDS_PROGRESSWAIT);
+			m_pSVN->SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
 			progDlg.ShowModeless(m_hWnd);
-			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetUIPathString());
-			progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, (LONG)rev1);
+			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), (LONG)rev1);
 			if (!m_pSVN->Cat(url1, peg.IsValid() ? peg : rev1, rev1, tempfile1))
 			{
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return false;
 			}
 			SetFileAttributes(tempfile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-			progDlg.SetProgress(1, 2);
-			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
-			progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, (LONG)rev2);
-
+			
+			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url2.GetUIPathString(), (LONG)rev2);
 			if (!m_pSVN->Cat(url2, peg.IsValid() ? peg : rev2, rev2, tempfile2))
 			{
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return false;
 			}
 			SetFileAttributes(tempfile2.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-			progDlg.SetProgress(2,2);
+
 			progDlg.Stop();
+			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 
 			CString revname1, revname2;
 			revname1.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFileOrDirectoryName(), (LONG)rev1);
@@ -352,14 +383,23 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		else
 		{
 			ASSERT(rev1.IsWorking());
+
+			m_pSVN->SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
+			progDlg.ShowModeless(m_hWnd);
+			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), (LONG)rev2);
+
 			tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1);
 			if (!m_pSVN->Cat(url1, (peg.IsValid() ? peg : SVNRev::REV_WC), rev2, tempfile))
 			{
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return false;
 			} 
 			else
 			{
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 				SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 				CString revname, wcname;
 				revname.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)rev2);

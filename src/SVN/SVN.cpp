@@ -46,6 +46,8 @@ static char THIS_FILE[] = __FILE__;
 
 SVN::SVN(void) :
 	m_progressWnd(0),
+	m_pProgressDlg(NULL),
+	m_bShowProgressBar(false),
 	progress_total(0),
 	progress_lastprogress(0)
 {
@@ -1796,15 +1798,26 @@ apr_array_header_t * SVN::MakePathArray(const CTSVNPathList& pathList)
 void SVN::SetAndClearProgressInfo(HWND hWnd)
 {
 	m_progressWnd = hWnd;
+	m_pProgressDlg = NULL;
 	progress_total = 0;
 	progress_lastprogress = 0;
 	progress_lastTicks = GetTickCount();
 }
 
+void SVN::SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgressBar/* = false*/)
+{
+	m_progressWnd = NULL;
+	m_pProgressDlg = pProgressDlg;
+	progress_total = 0;
+	progress_lastprogress = 0;
+	progress_lastTicks = GetTickCount();
+	m_bShowProgressBar = bShowProgressBar;
+}
+
 void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t * /*pool*/)
 {
 	SVN * pSVN = (SVN*)baton;
-	if ((pSVN==0)||(pSVN->m_progressWnd == 0))
+	if ((pSVN==0)||((pSVN->m_progressWnd == 0)&&(pSVN->m_pProgressDlg == 0)))
 		return;
 	apr_off_t delta = progress;
 	if (progress > pSVN->progress_lastprogress)
@@ -1838,7 +1851,18 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 			double averagekb = (double)average / 1024.0;
 			pSVN->m_SVNProgressMSG.SpeedString.Format(_T("%.2f kBytes/s"), averagekb);
 		}
-		SendMessage(pSVN->m_progressWnd, WM_SVNPROGRESS, 0, (LPARAM)&pSVN->m_SVNProgressMSG);
+		if (pSVN->m_progressWnd)
+			SendMessage(pSVN->m_progressWnd, WM_SVNPROGRESS, 0, (LPARAM)&pSVN->m_SVNProgressMSG);
+		else if (pSVN->m_pProgressDlg)
+		{
+			if ((pSVN->m_bShowProgressBar && (progress > 1000) && (total > 0)))
+				pSVN->m_pProgressDlg->SetProgress64(progress, total);
+			else
+				pSVN->m_pProgressDlg->SetProgress64(0, 0);
+			CString temp;
+			temp.Format(IDS_SVN_PROGRESS_SPEED, pSVN->m_SVNProgressMSG.SpeedString);
+			pSVN->m_pProgressDlg->SetLine(2, temp);
+		}
 		pSVN->progress_vector.clear();
 	}
 	return;

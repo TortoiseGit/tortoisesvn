@@ -184,6 +184,8 @@ protected:
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnClose();
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+	afx_msg LRESULT OnSVNProgress(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	DECLARE_MESSAGE_MAP()
@@ -240,6 +242,7 @@ private:
 	bool		m_bMergesAddsDeletesOccurred;
 	int			iFirstResized;
 	BOOL		bSecondResized;
+	CString		m_sTotalBytesTransferred;
 
 private:
 	// In preparation for removing SVN as base class

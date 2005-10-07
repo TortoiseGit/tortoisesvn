@@ -1729,6 +1729,7 @@ BEGIN
     IDS_PROGRESSGETFILE     "Getting file %s"
     IDS_PROGRESSREVISION    "Revision %d"
     IDS_PROGRESSWAIT        "Please wait..."
+    IDS_PROGRESS_UNIFIEDDIFF "Getting unified diff"
 END
 
 STRINGTABLE 
@@ -2241,6 +2242,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SVN_PROGRESS_SPEED  "Transferring at %s"
+    IDS_SVN_PROGRESS_TOTALTRANSFERRED "%ld kBytes transferred"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRESS_COMPARE    "Comparing %s to %s"
+    IDS_PROGRESS_INFO       "Getting information..."
+    IDS_PROGRESSGETFILEREVISION "Getting file %s, revision %ld"
 END
 
 #endif    // English (U.S.) resources

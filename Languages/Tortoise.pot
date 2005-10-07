@@ -80,6 +80,11 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr ""
 
+#: ID:357,
+#, c-format
+msgid "%ld kBytes transferred"
+msgstr ""
+
 #: ID:226,
 #, c-format
 msgid "%s - at revision: %d"
@@ -1179,6 +1184,11 @@ msgstr ""
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr ""
 
+#: ID:120,
+#, c-format
+msgid "Comparing %s to %s"
+msgstr ""
+
 #: ID:74,
 msgid "Completed"
 msgstr ""
@@ -1748,6 +1758,11 @@ msgstr ""
 msgid "Getting file %s"
 msgstr ""
 
+#: ID:120,
+#, c-format
+msgid "Getting file %s, revision %ld"
+msgstr ""
+
 #: ID:132,
 msgid "Getting file info..."
 msgstr ""
@@ -1756,8 +1771,16 @@ msgstr ""
 msgid "Getting information from repository..."
 msgstr ""
 
+#: ID:120,
+msgid "Getting information..."
+msgstr ""
+
 #: ID:132,
 msgid "Getting log info..."
+msgstr ""
+
+#: ID:119,
+msgid "Getting unified diff"
 msgstr ""
 
 #: ID:2051,

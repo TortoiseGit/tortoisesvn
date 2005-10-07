@@ -579,6 +579,7 @@ public:
 	void SetPromptApp(CWinApp* pWinApp);
 
 	void SetAndClearProgressInfo(HWND hWnd);
+	void SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgressBar = false);
 	
 	static CString GetErrorString(svn_error_t * Err);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
@@ -627,6 +628,9 @@ private:
 	static void progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t *pool);
 	SVNProgress		m_SVNProgressMSG;
 	HWND			m_progressWnd;
+	CProgressDlg *	m_pProgressDlg;
+	bool			m_progressWndIsCProgress;
+	bool			m_bShowProgressBar;
 	apr_off_t	progress_total;
 	apr_off_t	progress_averagehelper;
 	apr_off_t	progress_lastprogress;

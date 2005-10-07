@@ -514,6 +514,10 @@
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902
+#define IDS_PROGRESS_UNIFIEDDIFF        1903
+#define IDS_PROGRESS_COMPARE            1904
+#define IDS_PROGRESS_INFO               1905
+#define IDS_PROGRESSGETFILEREVISION     1906
 #define IDS_INPUT_ENTERLOG              2000
 #define IDS_INPUT_LOGTITLE              2001
 #define IDS_INPUT_REMOVELOGMSG          2002
@@ -687,6 +691,7 @@
 #define IDS_FILEDIFF_COMMENTRENAMED     5103
 #define IDS_CREATEPATCH_ADDEDFOLDERS    5400
 #define IDS_SVN_PROGRESS_SPEED          5700
+#define IDS_SVN_PROGRESS_TOTALTRANSFERRED 5701
 #define IDS_SCIEDIT_UNDO                6000
 #define IDS_SCIEDIT_REDO                6001
 #define IDS_SCIEDIT_CUT                 6002
