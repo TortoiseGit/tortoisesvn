@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-10-06 13:41+0100\n"
+"PO-Revision-Date: 2005-10-07 11:31+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -485,10 +485,6 @@ msgstr "&Setzen"
 msgid "&Settings"
 msgstr "&Optionen"
 
-#: Control-ID:1105
-msgid "&Short &date/time format in log messages"
-msgstr "&Kurzes Datum/Zeit Format in Log-Meldungen"
-
 #: Control-ID:1185
 msgid "&Specific revision in repository"
 msgstr "&Revisionsnummer im Projektarchiv"
@@ -502,7 +498,7 @@ msgid "&Steal the locks"
 msgstr "&Sperre stehlen"
 
 #: Control-ID:1130
-msgid "&Stop On copy/rename"
+msgid "&Stop on copy/rename"
 msgstr "Bei Kopien/Umbenennen &anhalten"
 
 #: Control-ID:1173
@@ -1673,10 +1669,6 @@ msgstr ""
 "Zeigt Informationen übers Programm, Versionsnummer und Copyright an\n"
 "Über"
 
-#: ID:80
-msgid "Do not show this message again"
-msgstr "Diese Meldung nicht wieder anzeigen"
-
 # ID:145,
 #: ID:145
 msgid "Do you really want to move this file or folder?"
@@ -1722,6 +1714,7 @@ msgid "Documentation - Simon Large"
 msgstr "Documentation - Simon Large"
 
 #: ID:73
+#: ID:80
 msgid "Don't show this message again"
 msgstr "Diese Meldung nicht wieder anzeigen"
 
@@ -2637,10 +2630,6 @@ msgid "OVR"
 msgstr "ÜB"
 
 #: Control-ID:1202
-msgid "Omit &externals"
-msgstr "E&xternals auslassen"
-
-#: Control-ID:1202
 msgid "Omit e&xternals"
 msgstr "E&xternals auslassen"
 
@@ -3308,10 +3297,6 @@ msgid "Select &All"
 msgstr "A&lle wählen"
 
 #: Control-ID:1067
-msgid "Select / deselect &All"
-msgstr "&Alle an- / abwählen"
-
-#: Control-ID:1067
 msgid "Select / deselect &all"
 msgstr "&Alle an- / abwählen"
 
@@ -3419,6 +3404,10 @@ msgstr "Shell Symbolcache wurde wieder hergestellt!"
 #: ID:101
 msgid "Sho&w properties"
 msgstr "Zeige &Eigenschaften"
+
+#: Control-ID:1105
+msgid "Short &date/time format in log messages"
+msgstr "&Kurzes Datum/Zeit Format in Log Meldungen"
 
 #: ID:12
 msgid "Short Url of Subversion items"
@@ -4401,7 +4390,7 @@ msgstr "Betrachte Annotierungen im &Texteditor"
 
 #: ID:195
 msgid ""
-"Use '*' as a wildcard character when specifying an exception\n"
+"Use '*' as a wildcard character when specifying an exception.\n"
 "To separate multiple exceptions, use commas (',').\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
@@ -4632,6 +4621,15 @@ msgid ""
 msgstr ""
 "Sie haben den Symbolsatz von <i>%s</i> in <i>%s</i> geändert.\n"
 "Die Änderungen werden erst wirksam, nachdem Sie den Rechner neu gestartet oder sich ab- und wieder angemeldet haben!"
+
+# ID:338,
+#: ID:338
+msgid ""
+"You've selected added folders. The patch won't contain added files within such added folders.\n"
+"Do you want to proceed anyway?"
+msgstr ""
+"Sie haben hinzugefügte Ordner gewählt. Der Patch wird keine zu diesen Ordnern hinzugefügten Dateien enthalten.\n"
+"Wollen Sie den Patch trotzdem erzeugen?"
 
 #: Control-ID:1112
 msgid "Your version is:"
