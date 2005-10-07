@@ -517,7 +517,7 @@ BEGIN
     PUSHBUTTON      "Edit",IDC_EDITSERVERS,169,142,50,14
 END
 
-IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 152
+IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 165
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 CAPTION "TortoiseSVN : Progress"
@@ -525,11 +525,14 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    LTEXT           "",IDC_INFOTEXT,7,124,153,20
-    PUSHBUTTON      "Show &log...",IDC_LOGBUTTON,164,130,79,14,NOT 
+    LTEXT           "",IDC_INFOTEXT,7,137,153,20
+    PUSHBUTTON      "Show &log...",IDC_LOGBUTTON,164,143,79,14,NOT 
                     WS_VISIBLE
-    DEFPUSHBUTTON   "&OK",IDOK,250,130,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,307,130,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,250,143,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,307,143,50,14
+    CONTROL         "",IDC_PROGRESSBAR,"msctls_progress32",NOT WS_VISIBLE | 
+                    WS_BORDER,167,123,190,9
+    LTEXT           "",IDC_PROGRESSLABEL,7,123,158,8,NOT WS_VISIBLE
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 300, 129
@@ -1199,7 +1202,7 @@ BEGIN
         VERTGUIDE, 243
         VERTGUIDE, 300
         TOPMARGIN, 7
-        BOTTOMMARGIN, 144
+        BOTTOMMARGIN, 157
     END
 
     IDD_SWITCH, DIALOG
@@ -2233,6 +2236,11 @@ STRINGTABLE
 BEGIN
     IDS_CREATEPATCH_ADDEDFOLDERS 
                             "You've selected added folders. The patch won't contain added files within such added folders.\nDo you want to proceed anyway?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SVN_PROGRESS_SPEED  "Transferring at %s"
 END
 
 #endif    // English (U.S.) resources

@@ -29,6 +29,7 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
 									const apr_array_header_t * commit_items,
 									void *baton, apr_pool_t * pool);
+#define SVN_PROGRESS_QUEUE_SIZE 10
 
 /**
  * \ingroup SVN
@@ -93,6 +94,15 @@ public:
 		CString comment;
 		__time64_t creation_date;
 		__time64_t expiration_date;
+	};
+	
+	struct SVNProgress
+	{
+		apr_off_t progress;			///< operation progress
+		apr_off_t total;			///< operation progress
+		apr_off_t overall_total;	///< total bytes transferred, use SetAndClearProgressInfo() to reset this
+		apr_off_t BytesPerSecond;	///< Speed in bytes per second
+		CString	  SpeedString;		///< String for speed. Either "xxx Bytes/s" or "xxx kBytes/s"
 	};
 	
 	/**
@@ -568,6 +578,8 @@ public:
 	*/
 	void SetPromptApp(CWinApp* pWinApp);
 
+	void SetAndClearProgressInfo(HWND hWnd);
+	
 	static CString GetErrorString(svn_error_t * Err);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
@@ -612,7 +624,16 @@ private:
 					const char * line,
 					apr_pool_t * pool);
 
+	static void progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t *pool);
+	SVNProgress		m_SVNProgressMSG;
+	HWND			m_progressWnd;
+	apr_off_t	progress_total;
+	apr_off_t	progress_averagehelper;
+	apr_off_t	progress_lastprogress;
+	DWORD		progress_lastTicks;
+	std::vector<apr_off_t> progress_vector;
 
 };
 
+static UINT WM_SVNPROGRESS = RegisterWindowMessage(_T("TORTOISESVN_SVNPROGRESS_MSG"));
 

@@ -44,7 +44,10 @@ static char THIS_FILE[] = __FILE__;
 
 #define SVN_DATE_BUFFER 260
 
-SVN::SVN(void)
+SVN::SVN(void) :
+	m_progressWnd(0),
+	progress_total(0),
+	progress_lastprogress(0)
 {
 	parentpool = svn_pool_create(NULL);
 	svn_utf_initialize(parentpool);
@@ -78,6 +81,8 @@ SVN::SVN(void)
 	m_pctx->notify_baton = NULL;
 	m_pctx->cancel_func = cancel;
 	m_pctx->cancel_baton = this;
+	m_pctx->progress_func = progress_func;
+	m_pctx->progress_baton = this;
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
@@ -90,7 +95,6 @@ SVN::SVN(void)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
-	//UseIEProxySettings(ctx.config);
 }
 
 SVN::~SVN(void)
@@ -1787,5 +1791,56 @@ apr_array_header_t * SVN::MakePathArray(const CTSVNPathList& pathList)
 		(*((const char **) apr_array_push (targets))) = target;
 	}
 	return targets;
+}
+
+void SVN::SetAndClearProgressInfo(HWND hWnd)
+{
+	m_progressWnd = hWnd;
+	progress_total = 0;
+	progress_lastprogress = 0;
+	progress_lastTicks = GetTickCount();
+}
+
+void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t * /*pool*/)
+{
+	SVN * pSVN = (SVN*)baton;
+	if ((pSVN==0)||(pSVN->m_progressWnd == 0))
+		return;
+	apr_off_t delta = progress;
+	if (progress > pSVN->progress_lastprogress)
+		delta = progress - pSVN->progress_lastprogress;
+	pSVN->progress_lastprogress = progress;
+	
+	DWORD ticks = GetTickCount();
+	pSVN->progress_vector.push_back(delta);
+	pSVN->progress_total += delta;
+	if ((pSVN->progress_lastTicks + 1000) < ticks)
+	{
+		pSVN->m_SVNProgressMSG.overall_total = pSVN->progress_total;
+		pSVN->m_SVNProgressMSG.progress = progress;
+		pSVN->m_SVNProgressMSG.total = total;
+		pSVN->progress_lastTicks = ticks;
+		apr_off_t average = 0;
+		for (std::vector<apr_off_t>::iterator it = pSVN->progress_vector.begin(); it != pSVN->progress_vector.end(); ++it)
+		{
+			average += *it;
+		}
+		average = average / pSVN->progress_vector.size();
+		apr_off_t divby = ((ticks - pSVN->progress_lastTicks)/1000);
+		if (divby == 0)
+			divby = 1;
+		average = average / divby;
+		pSVN->m_SVNProgressMSG.BytesPerSecond = average;
+		if (average < 1024)
+			pSVN->m_SVNProgressMSG.SpeedString.Format(_T("%ld Bytes/s"), average);
+		else
+		{
+			double averagekb = (double)average / 1024.0;
+			pSVN->m_SVNProgressMSG.SpeedString.Format(_T("%.2f kBytes/s"), averagekb);
+		}
+		SendMessage(pSVN->m_progressWnd, WM_SVNPROGRESS, 0, (LPARAM)&pSVN->m_SVNProgressMSG);
+		pSVN->progress_vector.clear();
+	}
+	return;
 }
 

@@ -375,7 +375,9 @@
 #define IDS_SETTINGS_SELECTDIFFVIEWER   1242
 #define IDC_LISTGROUP                   1242
 #define IDS_SETTINGS_SELECTMERGE        1243
+#define IDC_PROGRESSBAR                 1243
 #define IDS_SETTINGS_SELECTSSH          1244
+#define IDC_PROGRESSLABEL               1244
 #define IDS_SETTINGS_EXTDIFF_TT         1245
 #define IDS_SETTINGS_EXTDIFFBROWSE_TT   1246
 #define IDS_SETTINGS_CHANGEDDIRS_TT     1247
@@ -684,6 +686,7 @@
 #define IDS_FILEDIFF_COMMENTCOPY        5102
 #define IDS_FILEDIFF_COMMENTRENAMED     5103
 #define IDS_CREATEPATCH_ADDEDFOLDERS    5400
+#define IDS_SVN_PROGRESS_SPEED          5700
 #define IDS_SCIEDIT_UNDO                6000
 #define IDS_SCIEDIT_REDO                6001
 #define IDS_SCIEDIT_CUT                 6002
@@ -707,7 +710,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        211
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1243
+#define _APS_NEXT_CONTROL_VALUE         1245
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
