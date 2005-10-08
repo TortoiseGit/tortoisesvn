@@ -164,6 +164,7 @@
 #define IDS_COLTITLEAUTHOR              251
 #define IDS_COLDESCAUTHOR               252
 #define IDS_FILEPROPONFOLDER            253
+#define IDS_PROPSNOTSAVED               254
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

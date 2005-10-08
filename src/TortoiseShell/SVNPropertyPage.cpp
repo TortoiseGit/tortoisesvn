@@ -395,6 +395,18 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				SendMessage(lpnmtdi->hdr.hwndFrom, TTM_SETMAXTIPWIDTH, 0, nWindowWidth);
 				delete [] name;
 			} // if (code == TTN_GETDISPINFO) 
+			if (code == PSN_APPLY)
+			{
+				if (IsWindowEnabled(GetDlgItem(m_hwnd, IDC_ADDBUTTON)))
+				{
+					TCHAR s[MAX_PROP_STRING_LENGTH];
+					LoadString(g_hResInst, IDS_PROPSNOTSAVED, s, MAX_PROP_STRING_LENGTH);
+					if (::MessageBox(m_hwnd, s, _T("Subversion"), MB_YESNO)==IDYES)
+					{
+						SaveProperties();
+					}
+				}
+			}
 			SetWindowLongPtr (m_hwnd, DWLP_MSGRESULT, FALSE);
 			return TRUE;        
 
@@ -446,63 +458,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 					}
 					if (LOWORD(wParam) == IDC_ADDBUTTON)
 					{
-						TCHAR * name = NULL;
-						TCHAR * value = NULL;
-						GetDlgItemTextEx(m_hwnd, IDC_EDITNAME, name);
-						GetDlgItemTextEx(m_hwnd, IDC_EDITVALUE, value);
-						std::string t = WideToMultibyte(value);
-						HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
-						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
-						ULONGLONG all = filenames.size();
-						ULONGLONG count = 0;
-						CProgressDlg dlg;
-						TCHAR s[MAX_PROP_STRING_LENGTH];
-						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PROP_STRING_LENGTH);
-						dlg.SetTitle(s);
-						LoadString(g_hResInst, IDS_PROPWAITCANCEL, s, MAX_PROP_STRING_LENGTH);
-						dlg.SetCancelMsg(s);
-						dlg.SetTime(TRUE);
-						dlg.SetShowProgressBar(TRUE);
-						dlg.ShowModal(m_hwnd);
-						for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
-						{
-							dlg.SetLine(1, I->c_str(), TRUE);
-							SVNProperties props = SVNProperties(CTSVNPath(I->c_str()));
-							//CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
-							if ((!checked)&&(all == 1)&&(PathIsDirectory(I->c_str())))
-							{
-								if ((_tcscmp(name, _T("svn:eol-style"))==0)||
-									(_tcscmp(name, _T("svn:executable"))==0)||
-									(_tcscmp(name, _T("svn:keywords"))==0)||
-									(_tcscmp(name, _T("svn:needs-lock"))==0)||
-									(_tcscmp(name, _T("svn:mime-type"))==0))
-								{
-									TCHAR msg[2048];
-									LoadString(g_hResInst, IDS_FILEPROPONFOLDER, msg, 2048);
-									::MessageBox(m_hwnd, msg, _T("TortoiseSVN"), MB_ICONERROR);
-									break;
-								}
-							}
-							if (!props.Add(name, t.c_str(), checked))
-							{
-								::MessageBox(m_hwnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-							}
-							count++;
-							dlg.SetProgress64(count, all);
-							if (dlg.HasUserCancelled())
-								break;
-							SVNStatus stat = SVNStatus();
-							if (stat.GetStatus(CTSVNPath(I->c_str()))==(-2))
-							{
-								::MessageBox(m_hwnd, stat.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-								props.Remove(name);
-							}
-						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
-						dlg.Stop();
-						//CShellUpdater::Instance().Flush();
-						InitWorkfileView();
-						delete name;
-						delete value;
+						SaveProperties();
 						return TRUE;
 					}
 					if (LOWORD(wParam) == IDC_SHOWLOG)
@@ -878,4 +834,64 @@ void CSVNPropertyPage::Unescape(char * psz)
 	}
 
 	*pszDest = '\0';
+}
+
+bool CSVNPropertyPage::SaveProperties()
+{
+	TCHAR * name = NULL;
+	TCHAR * value = NULL;
+	GetDlgItemTextEx(m_hwnd, IDC_EDITNAME, name);
+	GetDlgItemTextEx(m_hwnd, IDC_EDITVALUE, value);
+	std::string t = WideToMultibyte(value);
+	HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
+	BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
+	ULONGLONG all = filenames.size();
+	ULONGLONG count = 0;
+	CProgressDlg dlg;
+	TCHAR s[MAX_PROP_STRING_LENGTH];
+	LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PROP_STRING_LENGTH);
+	dlg.SetTitle(s);
+	LoadString(g_hResInst, IDS_PROPWAITCANCEL, s, MAX_PROP_STRING_LENGTH);
+	dlg.SetCancelMsg(s);
+	dlg.SetTime(TRUE);
+	dlg.SetShowProgressBar(TRUE);
+	dlg.ShowModal(m_hwnd);
+	for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
+	{
+		dlg.SetLine(1, I->c_str(), TRUE);
+		SVNProperties props = SVNProperties(CTSVNPath(I->c_str()));
+		if ((!checked)&&(all == 1)&&(PathIsDirectory(I->c_str())))
+		{
+			if ((_tcscmp(name, _T("svn:eol-style"))==0)||
+				(_tcscmp(name, _T("svn:executable"))==0)||
+				(_tcscmp(name, _T("svn:keywords"))==0)||
+				(_tcscmp(name, _T("svn:needs-lock"))==0)||
+				(_tcscmp(name, _T("svn:mime-type"))==0))
+			{
+				TCHAR msg[2048];
+				LoadString(g_hResInst, IDS_FILEPROPONFOLDER, msg, 2048);
+				::MessageBox(m_hwnd, msg, _T("TortoiseSVN"), MB_ICONERROR);
+				break;
+			}
+		}
+		if (!props.Add(name, t.c_str(), checked))
+		{
+			::MessageBox(m_hwnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
+		count++;
+		dlg.SetProgress64(count, all);
+		if (dlg.HasUserCancelled())
+			break;
+		SVNStatus stat = SVNStatus();
+		if (stat.GetStatus(CTSVNPath(I->c_str()))==(-2))
+		{
+			::MessageBox(m_hwnd, stat.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+			props.Remove(name);
+		}
+	} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
+	dlg.Stop();
+	InitWorkfileView();
+	delete name;
+	delete value;
+	return true;
 }
