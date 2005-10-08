@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-06 21:35+0100\n"
+"PO-Revision-Date: 2005-10-08 10:51+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,6 +103,11 @@ msgstr ""
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d bestanden geselecteerd, %d bestanden totaal"
+
+#: ID:357
+#, c-format
+msgid "%ld kBytes transferred"
+msgstr "%ld kBytes verstuurd"
 
 #: ID:226
 #, c-format
@@ -366,7 +371,7 @@ msgstr "&Negeer spaties aan het begin"
 
 #: ID:9
 msgid "&Import..."
-msgstr "&Importeer..."
+msgstr "&Importeren..."
 
 #: Control-ID:1016
 msgid "&Jump to first difference when loading"
@@ -1335,6 +1340,11 @@ msgstr "Vergelijk met &basis"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Vergelijkt het bestand met de laatste vastgelegde revisie om de door u gemaakte wijzigingen te tonen"
 
+#: ID:120
+#, c-format
+msgid "Comparing %s to %s"
+msgstr "%s vergelijken met %s"
+
 #: ID:74
 msgid "Completed"
 msgstr "Gereed"
@@ -2021,6 +2031,11 @@ msgstr "Plaats &blokkade..."
 msgid "Getting file %s"
 msgstr "Bestand %s ophalen"
 
+#: ID:120
+#, c-format
+msgid "Getting file %s, revision %ld"
+msgstr "Ophalen %s, revisie %ld"
+
 #: ID:132
 msgid "Getting file info..."
 msgstr "Bestandsinformatie verzamelen..."
@@ -2029,9 +2044,17 @@ msgstr "Bestandsinformatie verzamelen..."
 msgid "Getting information from repository..."
 msgstr "Informatie wordt opgehaald uit bibliotheek..."
 
+#: ID:120
+msgid "Getting information..."
+msgstr "Informatie ophalen..."
+
 #: ID:132
 msgid "Getting log info..."
 msgstr "Ophalen logboek informatie..."
+
+#: ID:119
+msgid "Getting unified diff"
+msgstr "Unified diff ophalen..."
 
 #: ID:2051
 msgid ""
@@ -2175,6 +2198,11 @@ msgstr "Negeer &regeleinde verschillen (aanbevolen)"
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "&Boodschap importeren"
+
+#: ID:120
+#, c-format
+msgid "Importing file %s"
+msgstr "Bestand %s importeren"
 
 #: ID:10
 msgid "Imports the directory to a repository"
@@ -4218,6 +4246,11 @@ msgstr "Totaal aantal geanalyseerde vastleggingen:"
 #: Control-ID:1163
 msgid "Total file changes:"
 msgstr "Totaal aantal bestandswijzigingen:"
+
+#: ID:357
+#, c-format
+msgid "Transferring at %s"
+msgstr "Versturen met %s"
 
 #: ID:251
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
