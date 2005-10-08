@@ -779,14 +779,19 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			}
 			else if (cmd <= (nCorrections+nCustoms))
 			{
+				Call(SCI_SETANCHOR, pointpos);
+				Call(SCI_SETCURRENTPOS, pointpos);
 				GetWordUnderCursor(true);
 				CString temp;
 				corrections.GetMenuString(cmd, temp, 0);
+				// setting the cursor clears the selection
 				Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)StringForControl(temp));
 			}
 #if THESAURUS
 			else if (cmd <= (nThesaurs+nCorrections+nCustoms))
 			{
+				Call(SCI_SETANCHOR, pointpos);
+				Call(SCI_SETCURRENTPOS, pointpos);
 				GetWordUnderCursor(true);
 				CString temp;
 				thesaurs.GetMenuString(cmd, temp, 0);
