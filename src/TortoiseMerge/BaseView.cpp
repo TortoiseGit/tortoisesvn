@@ -1328,7 +1328,10 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nIndex);
 		if ((state != CDiffData::DIFFSTATE_NORMAL) && (state != CDiffData::DIFFSTATE_UNKNOWN))
 		{
-			if ((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0)&&(ShallShowContextMenu(state, nLine)))
+			// if there's nothing selected, or if the selection is outside the window then
+			// select the diff block under the cursor.
+			if (((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0)&&(ShallShowContextMenu(state, nLine)))||
+				((m_nSelBlockEnd < m_nTopLine)||(m_nSelBlockStart > m_nTopLine+m_nScreenLines)))
 			{
 				while (nIndex >= 0)
 				{
