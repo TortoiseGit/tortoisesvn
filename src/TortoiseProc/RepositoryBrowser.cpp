@@ -476,26 +476,25 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CString saveurl;
 						CProgressDlg progDlg;
 						int selcount = m_treeRepository.GetSelectedCount();
-						if (selcount > 1)
-						{
-							progDlg.SetTitle(IDS_REPOBROWSE_SAVEASPROGTITLE);
-							progDlg.SetShowProgressBar(true);
-							progDlg.ShowModeless(GetSafeHwnd());
-							progDlg.SetProgress((DWORD)0, (DWORD)selcount);
-						}
 						int counter = 0;		// the file counter
+						progDlg.SetTitle(IDS_REPOBROWSE_SAVEASPROGTITLE);
+						progDlg.ShowModeless(GetSafeHwnd());
+						progDlg.SetProgress((DWORD)0, (DWORD)selcount);
+						svn.SetAndClearProgressInfo(&progDlg);
 						do
 						{
 							saveurl = m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(si));
 							CTSVNPath savepath = tempfile;
 							if (tempfile.IsDirectory())
 								savepath.AppendPathString(saveurl.Mid(saveurl.ReverseFind('/')));
-							progDlg.FormatPathLine(1, IDS_REPOBROWSE_SAVEAS_LINE1, saveurl);
-							progDlg.FormatPathLine(2, IDS_REPOBROWSE_SAVEAS_LINE2, savepath.GetWinPathString());
+							CString sInfoLine;
+							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, saveurl, (LONG)GetRevision());
+							progDlg.SetLine(1, sInfoLine);
 							if (!svn.Cat(CTSVNPath(saveurl), GetRevision(), GetRevision(), savepath)||(progDlg.HasUserCancelled()))
 							{
 								wait_cursor.Hide();
 								progDlg.Stop();
+								svn.SetAndClearProgressInfo((HWND)NULL);
 								if (!progDlg.HasUserCancelled())
 									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
@@ -505,6 +504,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							si = m_treeRepository.GetNextSelectedItem(si);
 						} while (si != RVI_INVALID);
 						progDlg.Stop();
+						svn.SetAndClearProgressInfo((HWND)NULL);
 					} // if (GetSaveFileName(&ofn)==TRUE) 
 				}
 				break;
@@ -635,12 +635,23 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CWaitCursorEx wait_cursor;
 					SVN svn;
 					svn.SetPromptApp(&theApp);
+					CProgressDlg progDlg;
+					progDlg.SetTitle(IDS_APPNAME);
+					CString sInfoLine;
+					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, url, (LONG)GetRevision());
+					progDlg.SetLine(1, sInfoLine);
+					svn.SetAndClearProgressInfo(&progDlg);
+					progDlg.ShowModeless(m_hWnd);
 					if (!svn.Cat(CTSVNPath(url), GetRevision(), GetRevision(), tempfile))
 					{
+						progDlg.Stop();
+						svn.SetAndClearProgressInfo((HWND)NULL);
 						wait_cursor.Hide();
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						break;;
 					}
+					progDlg.Stop();
+					svn.SetAndClearProgressInfo((HWND)NULL);
 					SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 					if (!bOpenWith)
 					{
@@ -690,14 +701,25 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						input.m_sInputText.LoadString(IDS_INPUT_ADDFOLDERLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
+							CProgressDlg progDlg;
+							progDlg.SetTitle(IDS_APPNAME);
+							CString sInfoLine;
+							sInfoLine.Format(IDS_PROGRESSIMPORT, filename);
+							progDlg.SetLine(1, sInfoLine);
+							svn.SetAndClearProgressInfo(&progDlg);
+							progDlg.ShowModeless(m_hWnd);
 							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE, TRUE))
 							{
+								progDlg.Stop();
+								svn.SetAndClearProgressInfo((HWND)NULL);
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
-							} // if (!svn.Import(path, url, _T("adding file remotely"), FALSE)) 
+							}
+							progDlg.Stop();
+							svn.SetAndClearProgressInfo((HWND)NULL);
 							m_treeRepository.AddFolder(url+_T("/")+filename);
-						} // if (input.DoModal() == IDOK) 
+						}
 					} // if (GetOpenFileName(&ofn)==TRUE) 
 				}
 				break;
@@ -750,15 +772,26 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
+							CProgressDlg progDlg;
+							progDlg.SetTitle(IDS_APPNAME);
+							CString sInfoLine;
+							sInfoLine.Format(IDS_PROGRESSIMPORT, filename);
+							progDlg.SetLine(1, sInfoLine);
+							svn.SetAndClearProgressInfo(&progDlg);
+							progDlg.ShowModeless(m_hWnd);
 							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE, TRUE))
 							{
+								progDlg.Stop();
+								svn.SetAndClearProgressInfo((HWND)NULL);
 								delete [] pszFilters;
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
-							} // if (!svn.Import(path, url, _T("adding file remotely"), FALSE)) 
+							}
+							progDlg.Stop();
+							svn.SetAndClearProgressInfo((HWND)NULL);
 							m_treeRepository.AddFile(url+_T("/")+filename);
-						} // if (input.DoModal() == IDOK) 
+						}
 					} // if (GetOpenFileName(&ofn)==TRUE) 
 					delete [] pszFilters;
 				}
@@ -868,15 +901,12 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 
 						int si = m_treeRepository.GetFirstSelectedItem();
 						CString saveurl;
+
 						CProgressDlg progDlg;
-						int selcount = m_treeRepository.GetSelectedCount();
-						if (selcount > 1)
-						{
-							progDlg.SetTitle(IDS_REPOBROWSE_COPYTOWCPROGTITLE);
-							progDlg.SetShowProgressBar(true);
-							progDlg.ShowModeless(GetSafeHwnd());
-							progDlg.SetProgress((DWORD)0, (DWORD)selcount);
-						}
+						progDlg.SetTitle(IDS_APPNAME);
+						svn.SetAndClearProgressInfo(&progDlg);
+						progDlg.ShowModeless(m_hWnd);
+
 						int counter = 0;		// the file counter
 						do
 						{
@@ -884,18 +914,22 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							CTSVNPath savepath = tempfile;
 							if (tempfile.IsDirectory())
 								savepath.AppendPathString(saveurl.Mid(saveurl.ReverseFind('/')));
-							progDlg.FormatPathLine(1, IDS_REPOBROWSE_COPYTOWC_LINE1, saveurl);
-							progDlg.FormatPathLine(2, IDS_REPOBROWSE_COPYTOWC_LINE2, savepath.GetWinPathString());
+							CString sInfoLine;
+							sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, saveurl, (LONG)GetRevision());
+							progDlg.SetLine(1, sInfoLine);
 							if (!svn.Copy(CTSVNPath(saveurl), savepath, GetRevision())||(progDlg.HasUserCancelled()))
 							{
+								progDlg.Stop();
+								svn.SetAndClearProgressInfo((HWND)NULL);
 								wait_cursor.Hide();
 								progDlg.Stop();
 								if (!progDlg.HasUserCancelled())
 									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
 							}
+							progDlg.Stop();
+							svn.SetAndClearProgressInfo((HWND)NULL);
 							counter++;
-							progDlg.SetProgress((DWORD)counter, (DWORD)selcount);
 							si = m_treeRepository.GetNextSelectedItem(si);
 						} while (si != RVI_INVALID);
 						progDlg.Stop();
