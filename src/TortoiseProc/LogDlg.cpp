@@ -570,12 +570,12 @@ UINT CLogDlg::LogThread()
 	}
 	m_LogList.SetItemCountEx(m_arShownList.GetCount());
 
-	__time64_t rt = m_tFrom;
-	CTime tim(rt);
-	m_DateFrom.SetTime(&tim);
-	rt = m_tTo;
-	tim = rt;
-	m_DateTo.SetTime(&tim);
+	m_timFrom = (__time64_t(m_tFrom));
+	m_timTo = (__time64_t(m_tTo));
+	m_DateFrom.SetTime(&m_timFrom);
+	m_DateTo.SetTime(&m_timTo);
+	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
+	m_DateTo.SetRange(&m_timFrom, &m_timTo);
 
 	temp.LoadString(IDS_MSGBOX_OK);
 	GetDlgItem(IDOK)->SetWindowText(temp);
@@ -2424,12 +2424,12 @@ void CLogDlg::OnBnClickedFiltercancel()
 	m_arShownList.RemoveAll();
 
 	// reset the time filter too
-	__time64_t rt = m_tFrom;
-	CTime tim(rt);
-	m_DateFrom.SetTime(&tim);
-	rt = m_tTo;
-	tim = rt;
-	m_DateTo.SetTime(&tim);
+	m_timFrom = (__time64_t(m_tFrom));
+	m_timTo = (__time64_t(m_tTo));
+	m_DateFrom.SetTime(&m_timFrom);
+	m_DateTo.SetTime(&m_timTo);
+	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
+	m_DateTo.SetRange(&m_timFrom, &m_timTo);
 
 	for (DWORD i=0; i<m_logEntries.size(); ++i)
 	{
