@@ -1319,7 +1319,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			point = rect.CenterPoint();
 		}
 
-		if ((selIndex >= 0)&&(!m_bThreadRunning)&&(GetDlgItem(IDC_LOGBUTTON)->IsWindowVisible()))
+		if ((selIndex >= 0)&&(!m_bThreadRunning))
 		{
 			//entry is selected, thread has finished with updating so show the popup menu
 			CMenu popup;
