@@ -45,11 +45,6 @@ features and bugfixes not present in any earlier release. It is
 linked with Subversion 1.3.</p>
 
 <ul>
-   <li><p>Interruptable http:// and https:// connections. TortoiseSVN
-          can be interrupted during network operations over http 
-          and https.</p>
-   </li>
-
    <li><p>The "<b>_svn</b>" hack is now officially
        supported: since some versions of ASP.NET don't allow
        directories beginning with dot (e.g., ".svn", the standard
@@ -70,7 +65,6 @@ linked with Subversion 1.3.</p>
    <li><p>During http:// and https:// transfers, TortoiseSVN now
        shows information about the transferred data (transfer speed,
        bytes transferred).</p>
-       <p class="todo"><i>TODO: This is not implemented yet</i></p>
    </li>
    
    <li><p>TortoiseSVN can now authenticate against apache based
@@ -93,35 +87,17 @@ linked with Subversion 1.3.</p>
 servers and clients.  Of course, some of the new 1.3 features may not
 be available unless both client and server are the latest version.
 There is <strong>no need</strong> to upgrade your repositories;
-Subversion 1.3 can read repositories created by earlier versions.  To
-upgrade an existing installation, just install the newest libraries
-and binaries on top of the older ones. (<em>WARNING:</em> if you're
-using Berkeley DB repositories, installing a new binary distribution
-of Subversion may force you to upgrade Berkeley DB as well, see
-<a href="#bdb-upgrade">Unexpected Berkeley DB Upgrades</a> below.)</p>
+</p>
 
+<p>If you access a BDB repository using <tt>file://</tt> access
+you will need to update that repository to BDB 4.3 format. But this is
+only necessary if you're upgrading from a TortoiseSVN version before
+1.2.
+Instructions on how to do that can be found on the
+<a href="http://subversion.tigris.org/faq.html#bdb43-upgrade">
+Subversion FAQ page</a></p>
 </div>
 
-<div class="h3" id="bdb-upgrade" title="bdb-upgrade">
-<h3>Unexpected Berkeley DB Upgrades</h3>
-
-<p>This is not actually related to the Subversion 1.3 release, but it
-may affect you if you upgrade to 1.3 via a package distribution
-system.</p>
-
-<p>A lot of operating systems now ship Berkeley DB 4.3.  Sometimes the
-system Berkeley DB libraries can be unintentionally upgraded to 4.3 as
-part of some other change pulled down via an OS package delivery
-mechanism&nbsp;&mdash;&nbsp;for example, upgrading one's Subversion
-package.  If this happens to you, you will need
-to <a href="faq.html#bdb43-upgrade">upgrade existing BerkeleyDB-based
-repositories to 4.3.</a></p>
-
-<p>Since Version 1.2, TortoiseSVN
-uses Berkeley DB 4.3.  If you are upgrading from an older version, the
-above may be of concern to you.</p>
-
-</div>
 
 </div>
 </body>
