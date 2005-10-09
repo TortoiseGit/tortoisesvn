@@ -69,13 +69,16 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		return FALSE;
 	}
 #endif
+
+	// NOTE: Do *NOT* call apr_initialize() or apr_terminate() here in DllMain(),
+	// because those functions call LoadLibrary() indirectly through malloc().
+	// And LoadLibrary() inside DllMain() is not allowed and can lead to unexpected
+	// behaviour and even may create dependency loops in the dll load order.
     if (dwReason == DLL_PROCESS_ATTACH)
     {
 		if (g_hmodThisDll == NULL)
 		{
 			g_csCacheGuard.Init();
-			apr_initialize();
-			g_SVNAdminDir.Init();
 		}
 
         // Extension DLL one-time initialization
@@ -96,8 +99,6 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 			}
 		}
 		g_csCacheGuard.Term();
-		g_SVNAdminDir.Close();
-		apr_terminate();
     }
     return 1;   // ok
 }

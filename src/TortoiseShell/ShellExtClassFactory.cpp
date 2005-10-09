@@ -57,11 +57,15 @@ STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid,
 
 STDMETHODIMP_(ULONG) CShellExtClassFactory::AddRef()
 {
+	apr_initialize();
+	g_SVNAdminDir.Init();
     return ++m_cRef;
 }
 
 STDMETHODIMP_(ULONG) CShellExtClassFactory::Release()
 {
+	apr_terminate();
+	g_SVNAdminDir.Close();
     if (--m_cRef)
         return m_cRef;
 
