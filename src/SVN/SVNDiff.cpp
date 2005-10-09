@@ -78,11 +78,21 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 	{
 		remotePath = CTempFiles::Instance().GetTempFilePath(true, filePath);
 
+		CProgressDlg progDlg;
+		progDlg.SetTitle(IDS_APPNAME);
+		progDlg.SetTime(false);
+		m_pSVN->SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
+		progDlg.ShowModeless(m_hWnd);
+		progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)filePath.GetUIPathString());
 		if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD, remotePath))
 		{
+			progDlg.Stop();
+			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 			CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return false;
 		}
+		progDlg.Stop();
+		m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 		SetFileAttributes(remotePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 	}
 

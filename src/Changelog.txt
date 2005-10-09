@@ -34,6 +34,9 @@
 - BUG: Sorting by date in the repository browser didn't work. (Stefan)
 - BUG: Creating a patch from files was disabled, it only worked
        from folders. (Stefan)
+- BUG: The 'mark as resolved' and 'save' buttons were enabled even
+       if TortoiseMerge was started from the 'Check for modifications'
+       dialog. See issue #178. (Stefan)
 
 Version 1.2.4
 - BUG: TortoisePlink was unable to connect to svn+ssh. (Stefan)
