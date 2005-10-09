@@ -23,6 +23,7 @@
 
 UINT      g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE g_hmodThisDll = NULL;				///< handle to this DLL itself.
+int		  g_cAprInit = 0;
 CRemoteCacheLink	g_remoteCacheLink;
 ShellCache g_ShellCache;					///< caching of registry entries, ...
 CRegStdWORD			g_regLang;
@@ -91,6 +92,11 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		// in that case, we do it ourselves
 		if (g_cRefThisDll > 0)
 		{
+			while (g_cAprInit--)
+			{
+				g_SVNAdminDir.Close();
+				apr_terminate();
+			}
 			std::set<CShellExt *>::iterator it = g_exts.begin();
 			while (it != g_exts.end())
 			{
@@ -113,7 +119,6 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
     *ppvOut = NULL;
 	
     FileState state = Invalid;
-
     if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UPTODATE))
         state = Versioned;
     else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_MODIFIED))
@@ -135,6 +140,10 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 	
     if (state != Invalid)
     {
+		apr_initialize();
+		g_SVNAdminDir.Init();
+		g_cAprInit++;
+		
 		CShellExtClassFactory *pcf = new CShellExtClassFactory(state);
 		return pcf->QueryInterface(riid, ppvOut);
     }
