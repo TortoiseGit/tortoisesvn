@@ -22,19 +22,19 @@
 SVNAdminDir g_SVNAdminDir;
 
 SVNAdminDir::SVNAdminDir() :
-	m_bInit(false)
+	m_nInit(0)
 {
 }
 
 SVNAdminDir::~SVNAdminDir()
 {
-	if (m_bInit)
+	if (m_nInit)
 		svn_pool_destroy(m_pool);
 }
 
 bool SVNAdminDir::Init()
 {
-	if (!m_bInit)
+	if (m_nInit==0)
 	{
 		m_bVSNETHack = false;
 		m_pool = svn_pool_create(NULL);
@@ -43,17 +43,17 @@ bool SVNAdminDir::Init()
 			svn_wc_set_adm_dir("_svn", m_pool);
 			m_bVSNETHack = true;
 		}
-		m_bInit = true;
 	}
+	m_nInit++;
 	return true;
 }
 
 bool SVNAdminDir::Close()
 {
-	if (!m_bInit)
+	m_nInit--;
+	if (m_nInit>0)
 		return false;
 	svn_pool_destroy(m_pool);
-	m_bInit = false;
 	return true;
 }
 

@@ -75,7 +75,7 @@ public:
 private:
 	apr_pool_t* m_pool;
 	bool m_bVSNETHack;
-	bool m_bInit;
+	int m_nInit;
 };
 
 extern SVNAdminDir g_SVNAdminDir;
