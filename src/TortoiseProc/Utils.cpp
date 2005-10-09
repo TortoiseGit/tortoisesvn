@@ -33,7 +33,7 @@ CUtils::~CUtils(void)
 }
 
 BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
-						   		const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname)
+						   		const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname, bool bReadOnly)
 {
 
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
@@ -156,6 +156,9 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 	}
 	else
 		com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
+
+	if (bReadOnly)
+		com += _T(" /readonly");
 
 	if(!LaunchApplication(com, IDS_ERR_EXTMERGESTART, false))
 	{

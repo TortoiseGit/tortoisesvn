@@ -104,7 +104,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 	else
 	{
 		// Three-way diff
-		return !!CUtils::StartExtMerge(basePath, remotePath, filePath, CTSVNPath(), n2, n3, n1);
+		return !!CUtils::StartExtMerge(basePath, remotePath, filePath, CTSVNPath(), n2, n3, n1, CString(), true);
 	}
 }
 
