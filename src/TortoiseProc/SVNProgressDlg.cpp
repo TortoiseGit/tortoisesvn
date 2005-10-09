@@ -965,6 +965,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
 	KillTimer(TRANSFERTIMER);
 	GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(m_sTotalBytesTransferred);
+	GetDlgItem(IDC_PROGRESSBAR)->ShowWindow(SW_HIDE);
 	
 	m_bCancelled = TRUE;
 	m_bThreadRunning = FALSE;
