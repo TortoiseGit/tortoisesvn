@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-07 09:36+0100\n"
+"PO-Revision-Date: 2005-10-09 23:54+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -115,6 +115,12 @@ msgstr ""
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d file selezionati, %d file totali"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%ld kBytes transferred"
+msgstr "%ld kBytes trasferiti"
 
 # ID:77,
 #: ID:226
@@ -427,6 +433,12 @@ msgstr "&Sommario"
 msgid "&Hide"
 msgstr "&Nascondi"
 
+# Control-ID:1246,#:
+# Control-ID:1246,
+#: Control-ID:1246
+msgid "&History"
+msgstr "&Cronologia"
+
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -462,11 +474,6 @@ msgstr "&Lingua:"
 #: Control-ID:1172
 msgid "&List View"
 msgstr "&Lista"
-
-# Dlg-ID:130,
-#: Control-ID:1125
-msgid "&Log message history:"
-msgstr "&Cronologia dei commenti"
 
 #: MenuEntry
 msgid "&Mark as resolved"
@@ -1669,6 +1676,12 @@ msgstr "Confronta con la b&ase"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Confronta il file con l'ultima revisione inviata in modo da mostrare i cambiamenti apportati"
 
+# ID:80,
+#: ID:120
+#, c-format
+msgid "Comparing %s to %s"
+msgstr "Comparazione di %s con %s"
+
 # ID:74,
 #: ID:74
 msgid "Completed"
@@ -2504,6 +2517,12 @@ msgstr "&Blocca..."
 msgid "Getting file %s"
 msgstr "Ottenimento file %s"
 
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Getting file %s, revision %ld"
+msgstr "Ottenimento del file %s, revisione %ld"
+
 # ID:132,
 #: ID:132
 msgid "Getting file info..."
@@ -2514,10 +2533,20 @@ msgstr "Ottenimeno informazioni sul file..."
 msgid "Getting information from repository..."
 msgstr "Ottenimento informazioni dal repository..."
 
+# ID:269,
+#: ID:120
+msgid "Getting information..."
+msgstr "Ottenimento informazioni..."
+
 # ID:132,
 #: ID:132
 msgid "Getting log info..."
 msgstr "Ottenimeno informazioni..."
+
+# ID:132,
+#: ID:119
+msgid "Getting unified diff"
+msgstr "Ottenimeno confronto unificato"
 
 # ID:2049,
 #: ID:2051
@@ -2689,6 +2718,12 @@ msgstr "Ignora i caratt&eri di fine linea (raccomandato)"
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Importa &commento"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Importing file %s"
+msgstr "Importazione del file %s"
 
 # ID:10,
 #: ID:10
@@ -2904,11 +2939,6 @@ msgstr "Log"
 #: Control-ID:65535
 msgid "Log message"
 msgstr "Commento"
-
-# Dlg-ID:130,
-#: Control-ID:1125
-msgid "Log message h&istory:"
-msgstr "&Cronologia dei commenti"
 
 # Dlg-ID:130,
 #: Control-ID:65535
@@ -5059,6 +5089,11 @@ msgid "TortoiseSVN : Lock Files"
 msgstr "TortoiseSVN : Blocca file"
 
 # ID:80,
+#: Dlg-ID:211
+msgid "TortoiseSVN : Log History"
+msgstr "TortoiseSVN : Cronologia dei commenti"
+
+# ID:80,
 #: Dlg-ID:130
 msgid "TortoiseSVN : Log Messages"
 msgstr "TortoiseSVN : Commenti"
@@ -5230,6 +5265,12 @@ msgstr "Totale degli invii analizzati:"
 #: Control-ID:1163
 msgid "Total file changes:"
 msgstr "Totale dei cambiamenti nei file:"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "Transferring at %s"
+msgstr "Trasferimento su %s"
 
 # ID:251,
 #: ID:251
@@ -5657,6 +5698,15 @@ msgstr ""
 "individualmente, creando una nuova revisione per ogni oggetto aggiunto.\n"
 "\n"
 "Si vuole procedere in questo modo?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You have modified properties without saving them first.\n"
+"Do you want to save them now?"
+msgstr ""
+"Alcune proprietà sono state modificate senza essere prima salvate.\n"
+"Si desidera salvarle ora?"
 
 # ID:251,
 #: ID:251
