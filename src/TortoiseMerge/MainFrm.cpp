@@ -790,7 +790,7 @@ void CMainFrame::OnFileSave()
 
 bool CMainFrame::FileSave()
 {
-	if (!this->m_Data.m_mergedFile.InUse())
+	if ((m_bReadOnly)||(!this->m_Data.m_mergedFile.InUse()))
 		return FileSaveAs();
 	int nConflictLine = CheckResolved();
 	if (nConflictLine >= 0)
@@ -877,7 +877,7 @@ bool CMainFrame::FileSaveAs()
 void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 {
 	BOOL bEnable = FALSE;
-	if (this->m_Data.m_mergedFile.InUse())
+	if ((!m_bReadOnly)&&(this->m_Data.m_mergedFile.InUse()))
 	{
 		if (m_pwndBottomView)
 		{
@@ -1227,7 +1227,7 @@ void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
 	if (pCmdUI == NULL)
 		return;
 	BOOL bEnable = FALSE;
-	if (this->m_Data.m_mergedFile.InUse())
+	if ((!m_bReadOnly)&&(this->m_Data.m_mergedFile.InUse()))
 	{
 		if (m_pwndBottomView)
 		{
@@ -1270,6 +1270,8 @@ void CMainFrame::OnMergeMarkasresolved()
 
 BOOL CMainFrame::MarkAsResolved()
 {
+	if (m_bReadOnly)
+		return FALSE;
 	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
 	{
 		TCHAR buf[MAX_PATH*3];

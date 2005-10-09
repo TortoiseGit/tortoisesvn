@@ -247,6 +247,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 		pFrame->m_Data.m_sDiffFile = ofn.lpstrFile;
 	} // if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff")))) 
 
+	pFrame->m_bReadOnly = !!parser.HasKey(_T("readonly"));
 	// The one and only window has been initialized, so show and update it
 	pFrame->ActivateFrame();
 	pFrame->ShowWindow(SW_SHOW);

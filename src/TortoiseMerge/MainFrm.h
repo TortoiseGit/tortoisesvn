@@ -117,6 +117,7 @@ public:
 	BOOL			m_bOneWay;
 	BOOL			m_bReversedPatch;
 	CDiffData		m_Data;
+	bool			m_bReadOnly;
 };
 
 
