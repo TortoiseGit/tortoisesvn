@@ -1535,7 +1535,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString savepath = CUtils::GetLongPathname(parser.GetVal(_T("savepath")));
 			CCreatePatch dlg;
-			dlg.m_pathList = CTSVNPathList(cmdLinePath);
+			dlg.m_pathList = pathList;
 			if (dlg.DoModal()==IDOK)
 			{
 				CreatePatch(cmdLinePath, dlg.m_pathList, CTSVNPath(savepath));
