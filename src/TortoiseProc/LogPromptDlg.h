@@ -22,7 +22,7 @@
 #include "Balloon.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
-#include "HistoryCombo.h"
+#include "HistoryDlg.h"
 #include "Registry.h"
 #include "SciEdit.h"
 
@@ -81,8 +81,8 @@ protected:
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowunversioned();
+	afx_msg void OnBnClickedHistory();
 	afx_msg void OnEnChangeLogmessage();
-	afx_msg void OnCbnCloseupOldlogs();
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg LRESULT OnAutoListReady(WPARAM, LPARAM);
@@ -105,7 +105,6 @@ private:
 	CWinThread*		m_pThread;
 	CAutoCompletionList		m_autolist;
 	CSVNStatusListCtrl		m_ListCtrl;
-	CHistoryCombo	m_OldLogs;
 	BOOL			m_bShowUnversioned;
 	BOOL			m_bBlock;
 	BOOL			m_bThreadRunning;
@@ -118,4 +117,5 @@ private:
 	CString			m_sWindowTitle;
 	static UINT		WM_AUTOLISTREADY;
 	int				m_nPopupPasteListCmd;
+	CHistoryDlg		m_HistoryDlg;
 };

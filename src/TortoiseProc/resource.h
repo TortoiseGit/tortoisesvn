@@ -70,6 +70,7 @@
 #define IDD_RESOLVE                     207
 #define IDD_CREATEPATCH                 208
 #define IDI_EXTERNALWARNING             210
+#define IDD_HISTORYDLG                  211
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -379,9 +380,12 @@
 #define IDS_SETTINGS_SELECTSSH          1244
 #define IDC_PROGRESSLABEL               1244
 #define IDS_SETTINGS_EXTDIFF_TT         1245
+#define IDC_HISTORYLIST                 1245
 #define IDS_SETTINGS_EXTDIFFBROWSE_TT   1246
+#define IDC_HISTORY                     1246
 #define IDS_SETTINGS_CHANGEDDIRS_TT     1247
 #define IDS_SETTINGS_TEMPEXTENSIONS_TT  1248
+#define IDC_BUTTON1                     1248
 #define IDS_SETTINGS_FOLDERSTATUS_TT    1249
 #define IDS_SETTINGS_EXTMERGE_TT        1250
 #define IDS_SETTINGS_PROXYSERVER_TT     1251
@@ -714,9 +718,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        211
+#define _APS_NEXT_RESOURCE_VALUE        212
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1245
+#define _APS_NEXT_CONTROL_VALUE         1249
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

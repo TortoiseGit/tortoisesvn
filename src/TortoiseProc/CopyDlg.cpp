@@ -54,7 +54,6 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
-	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 	DDX_Check(pDX, IDC_DOSWITCH, m_bDoSwitch);
 }
@@ -64,11 +63,12 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 	ON_BN_CLICKED(IDC_BROWSEFROM, OnBnClickedBrowsefrom)
 	ON_BN_CLICKED(IDC_COPYHEAD, OnBnClickedCopyhead)
 	ON_BN_CLICKED(IDC_COPYREV, OnBnClickedCopyrev)
 	ON_BN_CLICKED(IDC_COPYWC, OnBnClickedCopywc)
+	ON_BN_CLICKED(IDC_HISTORY, OnBnClickedHistory)
+	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 END_MESSAGE_MAP()
 
 
@@ -110,7 +110,7 @@ BOOL CCopyDlg::OnInitDialog()
 
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)sUUID);
-	m_OldLogs.LoadHistory(reg, _T("logmsgs"));
+	m_HistoryDlg.LoadHistory(reg, _T("logmsgs"));
 
 	m_ProjectProperties.ReadProps(m_path);
 	m_cLogMessage.Init(m_ProjectProperties);
@@ -179,8 +179,8 @@ void CCopyDlg::OnOK()
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 	m_sLogMessage = m_cLogMessage.GetText();
-	m_OldLogs.AddString(m_sLogMessage, 0);
-	m_OldLogs.SaveHistory();
+	m_HistoryDlg.AddString(m_sLogMessage);
+	m_HistoryDlg.SaveHistory();
 
 	m_sBugID.Trim();
 	if (!m_sBugID.IsEmpty())
@@ -249,15 +249,10 @@ void CCopyDlg::OnBnClickedHelp()
 	OnHelp();
 }
 
-void CCopyDlg::OnCbnCloseupOldlogs()
-{
-	m_cLogMessage.InsertText(m_OldLogs.GetString());
-}
-
 void CCopyDlg::OnCancel()
 {
-	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
-	m_OldLogs.SaveHistory();
+	m_HistoryDlg.AddString(m_cLogMessage.GetText());
+	m_HistoryDlg.SaveHistory();
 	CStandAloneDialog::OnCancel();
 }
 
@@ -303,6 +298,20 @@ void CCopyDlg::OnBnClickedBrowsefrom()
 	AfxGetApp()->DoWaitCursor(-1);
 }
 
+void CCopyDlg::OnEnChangeLogmessage()
+{
+	CString sTemp;
+	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
+	if (sTemp.GetLength() >= m_ProjectProperties.nMinLogSize)
+	{
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
+	else
+	{
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
+}
+
 LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
 	CString temp;
@@ -326,4 +335,26 @@ void CCopyDlg::OnBnClickedCopyrev()
 void CCopyDlg::OnBnClickedCopywc()
 {
 	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(FALSE);
+}
+
+void CCopyDlg::OnBnClickedHistory()
+{
+	SVN svn;
+	CString reg;
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), svn.GetUUIDFromPath(m_path));
+	m_HistoryDlg.LoadHistory(reg, _T("logmsgs"));
+	if (m_HistoryDlg.DoModal()==IDOK)
+	{
+		if (m_HistoryDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
+			m_cLogMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
+		if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
+		{
+			GetDlgItem(IDOK)->EnableWindow(FALSE);
+		}
+		else
+		{
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
+		}
+	}
+
 }

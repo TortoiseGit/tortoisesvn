@@ -46,14 +46,14 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Control(pDX, IDC_MESSAGE, m_cMessage);
-	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
 }
 
 
 BEGIN_MESSAGE_MAP(CImportDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
+	ON_EN_CHANGE(IDC_MESSAGE, OnEnChangeLogmessage)
+	ON_BN_CLICKED(IDC_HISTORY, OnBnClickedHistory)
 END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
@@ -72,7 +72,7 @@ BOOL CImportDlg::OnInitDialog()
 	}
 
 	m_tooltips.Create(this);
-	m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
+	m_HistoryDlg.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 	m_ProjectProperties.ReadProps(m_path);
 	m_cMessage.Init(m_ProjectProperties);
 	m_cMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -83,8 +83,7 @@ BOOL CImportDlg::OnInitDialog()
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
 	AddAnchor(IDC_STATIC2, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_MESSAGE, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_CHIST, BOTTOM_LEFT);
-	AddAnchor(IDC_OLDLOGS, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_HISTORY, TOP_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -120,8 +119,8 @@ void CImportDlg::OnOK()
 	}
 	UpdateData();
 	m_sMessage = m_cMessage.GetText();
-	m_OldLogs.AddString(m_sMessage, 0);
-	m_OldLogs.SaveHistory();
+	m_HistoryDlg.AddString(m_sMessage);
+	m_HistoryDlg.SaveHistory();
 
 	CResizableStandAloneDialog::OnOK();
 }
@@ -209,15 +208,46 @@ void CImportDlg::OnBnClickedHelp()
 	OnHelp();
 }
 
-void CImportDlg::OnCbnCloseupOldlogs()
+void CImportDlg::OnEnChangeLogmessage()
 {
-	m_cMessage.InsertText(m_OldLogs.GetString());
+	CString sTemp;
+	GetDlgItem(IDC_MESSAGE)->GetWindowText(sTemp);
+	if (sTemp.GetLength() >= m_ProjectProperties.nMinLogSize)
+	{
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
+	else
+	{
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
 }
 
 void CImportDlg::OnCancel()
 {
 	UpdateData();
-	m_OldLogs.AddString(m_cMessage.GetText(), 0);
-	m_OldLogs.SaveHistory();
+	m_HistoryDlg.AddString(m_cMessage.GetText());
+	m_HistoryDlg.SaveHistory();
 	CResizableStandAloneDialog::OnCancel();
+}
+
+void CImportDlg::OnBnClickedHistory()
+{
+	SVN svn;
+	CString reg;
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), svn.GetUUIDFromPath(m_path));
+	m_HistoryDlg.LoadHistory(reg, _T("logmsgs"));
+	if (m_HistoryDlg.DoModal()==IDOK)
+	{
+		if (m_HistoryDlg.GetSelectedText().Compare(m_cMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
+			m_cMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cMessage.GetText().IsEmpty());
+		if (m_ProjectProperties.nMinLogSize > m_cMessage.GetText().GetLength())
+		{
+			GetDlgItem(IDOK)->EnableWindow(FALSE);
+		}
+		else
+		{
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
+		}
+	}
+
 }

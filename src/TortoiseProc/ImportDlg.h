@@ -23,6 +23,7 @@
 #include "ProjectProperties.h"
 #include "Balloon.h"
 #include "HistoryCombo.h"
+#include "HistoryDlg.h"
 #include "TSVNPath.h"
 
 /**
@@ -74,7 +75,8 @@ protected:
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
-	afx_msg void OnCbnCloseupOldlogs();
+	afx_msg void OnEnChangeLogmessage();
+	afx_msg void OnBnClickedHistory();
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_url;
@@ -84,5 +86,5 @@ public:
 	CSciEdit m_cMessage;
 	CHistoryCombo m_OldLogs;
 	ProjectProperties		m_ProjectProperties;
-
+	CHistoryDlg		m_HistoryDlg;
 };

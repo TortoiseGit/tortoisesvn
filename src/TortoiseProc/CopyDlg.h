@@ -20,6 +20,7 @@
 #include "ProjectProperties.h"
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
+#include "HistoryDlg.h"
 #include "SciEdit.h"
 #include "TSVNPath.h"
 #include "SVNRev.h"
@@ -70,12 +71,13 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedHelp();
-	afx_msg void OnCbnCloseupOldlogs();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBnClickedBrowsefrom();
 	afx_msg void OnBnClickedCopyhead();
 	afx_msg void OnBnClickedCopyrev();
 	afx_msg void OnBnClickedCopywc();
+	afx_msg void OnBnClickedHistory();
+	afx_msg void OnEnChangeLogmessage();
 	DECLARE_MESSAGE_MAP()
 
 public:
@@ -94,5 +96,5 @@ private:
 	CHistoryCombo m_URLCombo;
 	CString m_wcURL;
 	CButton m_butBrowse;
-	CHistoryCombo m_OldLogs;
+	CHistoryDlg m_HistoryDlg;
 };

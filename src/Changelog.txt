@@ -32,6 +32,8 @@
 - BUG: After a merge which produced conflicts, the context menu wasn't
        shown with the entries to resolve the conflict. (Stefan)
 - BUG: Sorting by date in the repository browser didn't work. (Stefan)
+- BUG: Creating a patch from files was disabled, it only worked
+       from folders. (Stefan)
 
 Version 1.2.4
 - BUG: TortoisePlink was unable to connect to svn+ssh. (Stefan)

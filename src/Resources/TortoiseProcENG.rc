@@ -197,14 +197,12 @@ BEGIN
     EDITTEXT        IDC_COPYREVTEXT,198,92,51,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_BROWSEFROM,254,92,14,14
     GROUPBOX        "Log message",IDC_STATIC,7,132,286,126
+    PUSHBUTTON      "&History",IDC_HISTORY,13,142,50,14
     LTEXT           "Bug-&ID / Issue-Nr:",IDC_BUGIDLABEL,143,140,87,8,0,
                     WS_EX_RIGHT
     EDITTEXT        IDC_BUGID,238,137,49,14,ES_AUTOHSCROLL
-    CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,13,153,
-                    274,78,WS_EX_STATICEDGE
-    LTEXT           "&Log message history:",IDC_CHIST,13,237,99,17
-    CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
-                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,119,236,168,104
+    CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,13,158,
+                    274,95,WS_EX_STATICEDGE
     CONTROL         "Sw&itch working copy to new branch/tag",IDC_DOSWITCH,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,8,
                     261,112,23
@@ -225,11 +223,9 @@ BEGIN
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,28,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,28,14,14
     GROUPBOX        "Import &message",IDC_STATIC2,7,55,286,104
-    CONTROL         "Scintilla",IDC_MESSAGE,"Scintilla",WS_TABSTOP,13,65,274,
-                    67,WS_EX_STATICEDGE
-    LTEXT           "Log message h&istory:",IDC_CHIST,13,140,97,8
-    CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
-                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,138,171,104
+    PUSHBUTTON      "&History",IDC_HISTORY,13,64,50,14
+    CONTROL         "Scintilla",IDC_MESSAGE,"Scintilla",WS_TABSTOP,13,80,274,
+                    70,WS_EX_STATICEDGE
     DEFPUSHBUTTON   "&OK",IDOK,129,169,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,187,169,50,14
     PUSHBUTTON      "&Help",IDHELP,243,169,50,14
@@ -289,11 +285,10 @@ BEGIN
     EDITTEXT        IDC_BUGID,244,3,49,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_COMMIT_TO,6,17,287,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
+    PUSHBUTTON      "&History",IDC_HISTORY,236,32,50,14
     GROUPBOX        "Message:",IDC_MESSAGEGROUP,6,27,287,105
-    CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
-                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,14,39,272,104
-    CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,14,57,
-                    272,69,WS_EX_STATICEDGE
+    CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,14,46,
+                    272,80,WS_EX_STATICEDGE
     GROUPBOX        "Changes made (double-click for details):",IDC_LISTGROUP,
                     6,134,287,113
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
@@ -306,7 +301,7 @@ BEGIN
     CONTROL         "Keep &locks",IDC_KEEPLOCK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,14,255,109,10
     LTEXT           "",IDC_STATISTICS,149,220,137,8,0,WS_EX_RIGHT
-    ICON            IDI_EXTERNALWARNING,IDC_EXTERNALWARNING,272,230,21,20,
+    ICON            IDI_EXTERNALWARNING,IDC_EXTERNALWARNING,272,230,20,20,
                     SS_REALSIZEIMAGE | NOT WS_VISIBLE | WS_DISABLED,
                     WS_EX_TRANSPARENT
     DEFPUSHBUTTON   "&OK",IDOK,129,258,50,14
@@ -2273,6 +2268,44 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 
 IDB_CANCELNORMAL        BITMAP                  "cancel-normal.bmp"
 IDB_CANCELPRESSED       BITMAP                  "cancel-pressed.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_HISTORYDLG DIALOGEX 0, 0, 196, 116
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "TortoiseSVN : Log History"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,78,95,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,139,95,50,14
+    LISTBOX         IDC_HISTORYLIST,7,7,182,79,LBS_HASSTRINGS | 
+                    LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_HISTORYDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 189
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 109
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
