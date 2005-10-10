@@ -212,6 +212,11 @@ void CFolderCrawler::WorkerThread()
 							CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
 					}
 					CSVNStatusCache::Instance().Done();
+					//In case that svn_client_stat() modified a file and we got
+					//a notification about that in the directory watcher,
+					//remove that here again - this is to prevent an endless loop
+					AutoLocker lock(m_critSec);
+					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
 				}
 				else if (workingPath.HasAdminDir())
 				{
@@ -228,6 +233,8 @@ void CFolderCrawler::WorkerThread()
 						CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->Invalidate();
 					CSVNStatusCache::Instance().GetStatusForPath(workingPath, flags);
 					CSVNStatusCache::Instance().Done();
+					AutoLocker lock(m_critSec);
+					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
 				}
 			}
 			else if (!m_foldersToUpdate.empty())
