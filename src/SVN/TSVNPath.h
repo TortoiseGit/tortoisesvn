@@ -136,7 +136,7 @@ public:
 	 * Checks if two paths are equal. The slashes are taken care of.
 	 */
 	bool IsEquivalentTo(const CTSVNPath& rhs) const;
-	bool operator==(const CTSVNPath& x) {return IsEquivalentTo(x);}
+	bool operator==(const CTSVNPath& x) const {return IsEquivalentTo(x);}
 	/**
 	 * Checks if \c possibleDescendant is a child of this path.
 	 */
