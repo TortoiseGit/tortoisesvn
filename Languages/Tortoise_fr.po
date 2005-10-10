@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-08 09:35+0100\n"
+"PO-Revision-Date: 2005-10-10 12:45+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -359,6 +359,12 @@ msgstr "Aide par &sujets"
 msgid "&Hide"
 msgstr "&Cacher"
 
+# Control-ID:1246,#:
+# Control-ID:1246,
+#: Control-ID:1246
+msgid "&History"
+msgstr "&Historique"
+
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -389,10 +395,6 @@ msgstr "&Langage:"
 #: Control-ID:1172
 msgid "&List View"
 msgstr "Vue en &liste"
-
-#: Control-ID:1125
-msgid "&Log message history:"
-msgstr "Historique du journa&l:"
 
 #: MenuEntry
 msgid "&Mark as resolved"
@@ -2284,6 +2286,11 @@ msgstr "Ignor&er les types de fin de lignes (recommandé)"
 msgid "Import &message"
 msgstr "Importer co&mmentaire"
 
+#: ID:120
+#, c-format
+msgid "Importing file %s"
+msgstr "Import du fichier %s"
+
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "Importer le répertoire dans un repository"
@@ -2475,10 +2482,6 @@ msgstr "Journal"
 #: Control-ID:65535
 msgid "Log message"
 msgstr "Commentaire"
-
-#: Control-ID:1125
-msgid "Log message h&istory:"
-msgstr "H&istorique du journal:"
 
 #: Control-ID:65535
 msgid "Log messages"
@@ -4274,6 +4277,10 @@ msgstr "TortoiseSVN : Entrer"
 msgid "TortoiseSVN : Lock Files"
 msgstr "TortoiseSVN : Verrouiller les fichiers"
 
+#: Dlg-ID:211
+msgid "TortoiseSVN : Log History"
+msgstr "TortoiseSVN : Historique de journal"
+
 #: Dlg-ID:130
 msgid "TortoiseSVN : Log Messages"
 msgstr "TortoiseSVN : Commentaires"
@@ -4768,6 +4775,15 @@ msgstr ""
 "individuellement, en créant une nouvelle révision pour chaque élément ajouté.\n"
 "\n"
 "Voulez-vous toujours faire cela ?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You have modified properties without saving them first.\n"
+"Do you want to save them now?"
+msgstr ""
+"Vous avez modifié les propriétés sans les sauvegarder premièrement.\n"
+"Voulez-vous les sauvegarder maintenant?"
 
 # ID:251,
 #: ID:251
