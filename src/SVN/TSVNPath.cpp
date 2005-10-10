@@ -992,6 +992,9 @@ private:
 		list.AddPath(CTSVNPath(_T("E")));
 		list.AddPath(CTSVNPath(_T("e")));
 
+		ATLASSERT(list[2].IsEquivalentTo(list[3]));
+		ATLASSERT(list[2]==list[3]);
+		
 		ATLASSERT(list.GetCount() == 4);
 
 		list.RemoveDuplicates();
