@@ -36,11 +36,14 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	do
 	{
 		ZeroMemory(buf, (len+10)*sizeof(TCHAR));
-		_tcsncpy(buf, internalpathbuf, _tcschr(pPath, '\\') - internalpathbuf);
+		TCHAR * slashpos = _tcschr(pPath, '\\');
+		if (slashpos)
+			_tcsncpy(buf, internalpathbuf, slashpos - internalpathbuf);
+		else
+			_tcsncpy(buf, internalpathbuf, len+10);
 		CreateDirectory(buf, &attribs);
 		pPath = _tcschr(pPath, '\\');
-		pPath++;
-	} while (_tcschr(pPath, '\\'));
+	} while ((pPath++)&&(_tcschr(pPath, '\\')));
 	
 	BOOL bRet = CreateDirectory(internalpathbuf, &attribs);
 	delete buf;
