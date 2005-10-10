@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-09-22 15:22+0100\n"
+"PO-Revision-Date: 2005-10-10 22:56+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -323,8 +323,8 @@ msgstr "Asegúrese de que la cuenta en el servidor bajo la que se ejecuta Apache
 
 #: source/en/tsvn_server/server_apache.xml:134
 #: (para)
-msgid "Even if Apache runs as local system, you still need such an entry (which will be the Administrator account in this case)."
-msgstr "Incluso si Apache se ejecuta como sistema local, aún así necesitará dicha entrada (que debería ser la cuenta Administrador en este caso)."
+msgid "Even if Apache runs as local system, you still need such an entry (which will be the SYSTEM account in this case)."
+msgstr "Incluso si Apache se ejecuta como sistema local, aún así necesitará dicha entrada (que en este caso debería ser la cuenta SYSTEM)."
 
 #: source/en/tsvn_server/server_apache.xml:138
 #: (para)
@@ -1408,18 +1408,18 @@ msgstr "<literal>Sólo-lectura</literal> se carga si es posible, pero se cambia 
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:112
 #: (para)
-msgid "<literal>Locked</literal> is only loaded if there are less than 13 overlays already loaded. It falls back to <literal>Normal</literal> if there are not enough slots."
+msgid "<literal>Locked</literal> is only loaded if there are fewer than 13 overlays already loaded. It falls back to <literal>Normal</literal> if there are not enough slots."
 msgstr "<literal>Bloqueado</literal> se carga sólo si hay menos de 13 sobreimpresiones ya cargadas. Se cambia por <literal>Normal</literal> si no hay suficientes huecos."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:120
 #: (para)
-msgid "<literal>Added</literal> is only loaded if there are less than 14 overlays already loaded. It falls back to <literal>Modified</literal> if there are not enough slots."
+msgid "<literal>Added</literal> is only loaded if there are fewer than 14 overlays already loaded. It falls back to <literal>Modified</literal> if there are not enough slots."
 msgstr "<literal>Añadido</literal> se carga sólo si hay menos de 14 sobreimpresiones ya cargadas. Se cambia por <literal>Modificado</literal> si no hay suficientes huecos."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:130
 #: (title)
-msgid "TortoiseSVN Columns In Explorer"
-msgstr "Columnas de TortoiseSVN en el Explorador"
+msgid "TortoiseSVN Columns In Windows Explorer"
+msgstr "Columnas de TortoiseSVN en el Explorador de Windows"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:132
 #: (primary)
@@ -1428,8 +1428,8 @@ msgstr "Columnas del Explorador"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:134
 #: (para)
-msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Explorer's Detailed View."
-msgstr "Se puede ver la misma información que está disponible en los iconos sobreimpresionados (y mucha más) como columnas adicionales en la Vista Detalles del Explorer."
+msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Windows Explorer's Details View."
+msgstr "Se puede ver la misma información que está disponible en los iconos sobreimpresionados (y mucha más) como columnas adicionales en la Vista Detalles del Explorador de Windows."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:139
 #: (para)
@@ -1595,15 +1595,15 @@ msgstr "diferenciando"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:272
 #: (para)
-msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file to it's contents, after the last checkout or update."
-msgstr "A menudo querrá mirar dentro de sus ficheros, para echar un vistazo a lo que ha cambiado. Puede llevar esto a cabo seleccionando un fichero que haya cambiado, y seleccionando <guimenuitem>Diferenciar</guimenuitem> del menú contextual de TortoiseSVN's. Esto inicia el visor externo de diferencias, que comparará el fichero actual con sus contenidos tal y como estaba después de la última actualización o de su obtención."
+msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file with the pristine copy (<literal>BASE</literal> revision), which was stored after the last checkout or update."
+msgstr "A menudo querrá mirar dentro de sus ficheros, para echar un vistazo a lo que ha cambiado. Puede llevar esto a cabo seleccionando un fichero que haya cambiado, y seleccionando <guimenuitem>Diferenciar</guimenuitem> desde el menú contextual de TortoiseSVN. Esto inicia el visor externo de diferencias, que comparará el fichero actual con la copia <literal>BASE</literal>, que se guardó tras su obtención o tras la última actualización."
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:281
+#: source/en/tsvn_dug/dug_wcstatus.xml:282
 #: (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
 msgstr "Puede mostrar diferencias incluso cuando no está dentro de una copia de trabajo, o cuando tiene múltiples versiones del fichero alrededor:"
 
-#: source/en/tsvn_dug/dug_wcstatus.xml:285
+#: source/en/tsvn_dug/dug_wcstatus.xml:286
 #: (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
 msgstr "Seleecione los dos ficheros que desea comparar en el explorador (por ejemplo, utilizando la tecla <keycap>Ctrl</keycap> y el ratón) y seleccione <guimenuitem>Diferenciar</guimenuitem> del menú contextual de TortoiseSVN. El fichero que haya pulsado en último lugar (el que tiene el foco, es decir, el rectángulo con puntos) será tomado como más nuevo."
