@@ -254,8 +254,10 @@ BOOL CLogDlg::OnInitDialog()
 	//blocking the dialog
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
+	m_bThreadRunning = TRUE;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
+		m_bThreadRunning = FALSE;
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	return FALSE;
@@ -370,8 +372,10 @@ void CLogDlg::OnBnClickedGetall()
 	m_limit = 0;
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
+	m_bThreadRunning = TRUE;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
+		m_bThreadRunning = FALSE;
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -401,8 +405,10 @@ void CLogDlg::OnBnClickedNexthundred()
 	m_bCancelled = FALSE;
 	m_limit = 100;
 	SetSortArrow(&m_LogList, -1, true);
+	m_bThreadRunning = TRUE;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
+		m_bThreadRunning = FALSE;
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -418,7 +424,7 @@ void CLogDlg::OnCancel()
 	CString temp, temp2;
 	GetDlgItem(IDOK)->GetWindowText(temp);
 	temp2.LoadString(IDS_MSGBOX_CANCEL);
-	if (temp.Compare(temp2)==0)
+	if ((temp.Compare(temp2)==0)||(m_bThreadRunning))
 	{
 		m_bCancelled = TRUE;
 		return;
@@ -577,9 +583,6 @@ UINT CLogDlg::LogThread()
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
 
-	temp.LoadString(IDS_MSGBOX_OK);
-	GetDlgItem(IDOK)->SetWindowText(temp);
-
 	GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
 	
 	if (!m_bShowedAll)
@@ -593,6 +596,8 @@ UINT CLogDlg::LogThread()
 	m_LogList.SetRedraw(false);
 	CUtils::ResizeAllListCtrlCols(&m_LogList);
 	m_LogList.SetRedraw(true);
+	temp.LoadString(IDS_MSGBOX_OK);
+	GetDlgItem(IDOK)->SetWindowText(temp);
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
