@@ -45,6 +45,7 @@ void CHistoryDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CHistoryDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDOK, OnBnClickedOk)
+	ON_LBN_DBLCLK(IDC_HISTORYLIST, OnLbnDblclkHistorylist)
 END_MESSAGE_MAP()
 
 bool CHistoryDlg::AddString(const CString& sText)
@@ -153,4 +154,16 @@ BOOL CHistoryDlg::OnInitDialog()
 	EnableSaveRestore(_T("HistoryDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
+}
+
+void CHistoryDlg::OnLbnDblclkHistorylist()
+{
+	int pos = m_List.GetCurSel();
+	if (pos != LB_ERR)
+	{
+		m_SelectedText = m_arEntries[pos];
+		OnOK();
+	}
+	else
+		m_SelectedText.Empty();
 }
