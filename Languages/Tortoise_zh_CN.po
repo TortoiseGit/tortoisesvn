@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-09 10:21+0800\n"
-"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
+"PO-Revision-Date: 2005-10-11 21:56+0800\n"
+"Last-Translator: Lixinfeng <lixinfeng@hotmailcom>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -434,6 +434,12 @@ msgstr "帮助主题(&H)"
 msgid "&Hide"
 msgstr "隐藏 (&H)"
 
+# Control-ID:1246,#:
+# Control-ID:1246,
+#: Control-ID:1246
+msgid "&History"
+msgstr "历史(&H)"
+
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -469,12 +475,6 @@ msgstr "语言(&L)"
 #: Control-ID:1172
 msgid "&List View"
 msgstr "列表视图(&L)"
-
-# Control-ID:1125,#:
-# Control-ID:1125,
-#: Control-ID:1125
-msgid "&Log message history:"
-msgstr "输入日志信息(&L)"
 
 #: MenuEntry
 msgid "&Mark as resolved"
@@ -2934,12 +2934,6 @@ msgstr "日志"
 msgid "Log message"
 msgstr "日志信息"
 
-# Control-ID:1125,#:
-# Control-ID:1125,
-#: Control-ID:1125
-msgid "Log message h&istory:"
-msgstr "输入日志信息(&I)"
-
 # Dlg-ID:130,
 #: Control-ID:65535
 msgid "Log messages"
@@ -5079,6 +5073,11 @@ msgstr "TortoiseSVN：输入"
 #: Dlg-ID:191
 msgid "TortoiseSVN : Lock Files"
 msgstr "TortoiseSVN：锁定文件"
+
+# ID:80,
+#: Dlg-ID:211
+msgid "TortoiseSVN : Log History"
+msgstr "TortoiseSVN：历史记录"
 
 # ID:80,
 #: Dlg-ID:130
