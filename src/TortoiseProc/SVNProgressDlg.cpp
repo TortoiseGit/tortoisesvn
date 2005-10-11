@@ -1257,7 +1257,11 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 			// the impression that the OK button was pressed.
 			if ((!m_bThreadRunning)&&(!GetDlgItem(IDCANCEL)->IsWindowEnabled())
 				&&(GetDlgItem(IDOK)->IsWindowEnabled())&&(GetDlgItem(IDOK)->IsWindowVisible()))
+			{
+				// since we convert ESC to RETURN, make sure the OK button has the focus.
+				GetDlgItem(IDOK)->SetFocus();
 				pMsg->wParam = VK_RETURN;
+			}
 		}
 		if (pMsg->wParam == 'A')
 		{
