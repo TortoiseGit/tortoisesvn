@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-08 18:23+0200\n"
+"PO-Revision-Date: 2005-10-10 11:24+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -472,6 +472,12 @@ msgstr "Помощ по &теми"
 msgid "&Hide"
 msgstr "&Скриване"
 
+# Control-ID:1246,#:
+# Control-ID:1246,
+#: Control-ID:1246
+msgid "&History"
+msgstr "&Хронология"
+
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -507,11 +513,6 @@ msgstr "&Език:"
 #: Control-ID:1172
 msgid "&List View"
 msgstr "&Списъчен изглед"
-
-# Dlg-ID:130,
-#: Control-ID:1125
-msgid "&Log message history:"
-msgstr "&Предишни съобщения в дневника"
 
 #: MenuEntry
 msgid "&Mark as resolved"
@@ -2979,11 +2980,6 @@ msgid "Log message"
 msgstr "Съобщение в дневника"
 
 # Dlg-ID:130,
-#: Control-ID:1125
-msgid "Log message h&istory:"
-msgstr "&Предишни съобщения в дневника:"
-
-# Dlg-ID:130,
 #: Control-ID:65535
 msgid "Log messages"
 msgstr "Съобщения в дневника"
@@ -5127,6 +5123,11 @@ msgid "TortoiseSVN : Lock Files"
 msgstr "TortoiseSVN : Заключване на файлове"
 
 # ID:80,
+#: Dlg-ID:211
+msgid "TortoiseSVN : Log History"
+msgstr "TortoiseSVN : Хронология на дневника"
+
+# ID:80,
 #: Dlg-ID:130
 msgid "TortoiseSVN : Log Messages"
 msgstr "TortoiseSVN : Съобщения в дневника"
@@ -5723,6 +5724,15 @@ msgstr ""
 "Това не може да бъде извършено в една стъпка, затова TortoiseSVN ще добави всеки файл/папка\n"
 "по отделно, създавайки нова ревизия за всеки добавен обект.\n"
 "Все още ли желаете да направите това?"
+
+# ID:16,
+#: ID:16
+msgid ""
+"You have modified properties without saving them first.\n"
+"Do you want to save them now?"
+msgstr ""
+"Променили сте свойства без да сте ги записали.\n"
+"Желаете ли да ги запишете сега?"
 
 # ID:251,
 #: ID:251
