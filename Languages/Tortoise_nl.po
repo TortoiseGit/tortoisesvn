@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-08 10:51+0100\n"
+"PO-Revision-Date: 2005-10-12 21:23+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -356,6 +356,10 @@ msgstr "Help &onderwerpen"
 msgid "&Hide"
 msgstr "&Verbergen"
 
+#: Control-ID:1246
+msgid "&History"
+msgstr "&Geschiedenis"
+
 #: Control-ID:1170
 msgid "&Icon Set:"
 msgstr "&Pictogrammenset:"
@@ -384,10 +388,6 @@ msgstr "&Taal:"
 #: Control-ID:1172
 msgid "&List View"
 msgstr "&Lijstweergave"
-
-#: Control-ID:1125
-msgid "&Log message history:"
-msgstr "&Logboek boodschappen:"
 
 #: MenuEntry
 msgid "&Mark as resolved"
@@ -663,17 +663,39 @@ msgstr ": Werkkopie"
 
 #: ID:88
 msgid ""
-"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct your working copy to another repository or branch,\n"
-"this <b>will corrupt your working copy!</b>\n"
-"To associate your working copy with another branch, use the Switch command.\n"
-"Are you sure you want to relocate?"
+"<b>ATTENTION:</b>\n"
+"The Relocate command is only used if the URL of the\n"
+"repository root has changed due to a server IP address change, protocol\n"
+"change (e.g. http:// to https://) or a change of the repository root\n"
+"path in the server setup.\n"
+"<b>This is a very infrequently used operation</b> and applies neither if you\n"
+"want to move to another Subversion repository nor if you want to switch\n"
+"to another branch or directory <b>within the same repository.</b>\n"
+"To move to another Subversion repository, perform a clean checkout from\n"
+"the new repository location.\n"
+"To associate your working copy with another branch or another directory\n"
+"within the same repository, use the Switch command from the main menu\n"
+"\n"
+"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
+"If you are unsure whether Relocate is the correct operation, it probably\n"
+"is not and you should consult <b>Help</b>."
 msgstr ""
-"<b>OPGELET:</b> Gebruik het Verhuizen-commando alleen indien de originele repository verhuisd is naar een nieuwe URL.\n"
-"Indien u Verhuizen gebruikt om uw werkkopie te laten verwijzen naar een andere repository of branch,\n"
-"dan <b>zal dit uw werkkopie corrupt maken!</b>\n"
-"Om uw werkkopie met een andere tak te associëren, gebruikt u het Wissel-commando.\n"
-"Bent u er zeker van dat u wenst te verhuizen?"
+"<b>LET OP:</b>\n"
+"Het Verhuis-commando wordt alleen gebruikt als de URL van de\n"
+"bibliotheek is veranderd door een wijziging van server IP adres, protocol-\n"
+"wijziging (b.v. van http:// naar https://) of een wijziging in het root-pad\n"
+"in de serverinstellingen.\n"
+"<b>Dit is een zeer zeldzaam gebruikt commando<b> en is niet bedoeld voor\n"
+"het wisselen naar een andere Subversion bibliotheek en ook niet voor het\n"
+"wisselen naar een andere tak of map <b>in dezelfde bibliotheek.</b>\n"
+"Om naar een andere Subversion bibliotheek te gaan moet u vanuit die nieuwe\n"
+"locatie een initiële Ophaal-actie uitvoeren.\n"
+"Om naar een andere tak of map in dezelfde bibliotheek te wisselen moet u het\n"
+"Wissel-commando uit het TSVN-menu gebruiken.\n"
+"\n"
+"Het onjuist gebruiken van het Verhuis-commando <b>zal uw werkkopie corrupt maken!</b>\n"
+"Als u niet zeker weet of het Verhuis-commando correct is, dan is het dat waarschijnlijk\n"
+"niet en dient u eerst de <b>Help</b>-informatie te raadplegen."
 
 #: ID:145
 msgid ""
@@ -2382,10 +2404,6 @@ msgstr "Logboek"
 #: Control-ID:65535
 msgid "Log message"
 msgstr "Logboek boodschap"
-
-#: Control-ID:1125
-msgid "Log message h&istory:"
-msgstr "&Geschiedenis logboek boodschappen:"
 
 #: Control-ID:65535
 msgid "Log messages"
@@ -4119,6 +4137,10 @@ msgstr "TortoiseSVN : Invoer"
 msgid "TortoiseSVN : Lock Files"
 msgstr "TortoiseSVN : Bestanden blokkeren"
 
+#: Dlg-ID:211
+msgid "TortoiseSVN : Log History"
+msgstr "TortoiseSVN : Logboek Geschiedenis"
+
 #: Dlg-ID:130
 msgid "TortoiseSVN : Log Messages"
 msgstr "TortoiseSVN : Logboek boodschappen"
@@ -4596,6 +4618,14 @@ msgstr ""
 "los toevoegen, waarbij telkens een nieuwe revisie ontstaat.\n"
 "\n"
 "Wilt u hiermee doorgaan?"
+
+#: ID:16
+msgid ""
+"You have modified properties without saving them first.\n"
+"Do you want to save them now?"
+msgstr ""
+"U heeft eigenschappen gewijzigd zonder ze op te slaan.\n"
+"Wilt u ze nu opslaan?"
 
 #: ID:251
 msgid "You have to update your working copy first."
