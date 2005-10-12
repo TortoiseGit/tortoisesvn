@@ -1838,11 +1838,10 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 		{
 			average += *it;
 		}
-		average = average / pSVN->progress_vector.size();
-		apr_off_t divby = ((ticks - pSVN->progress_lastTicks)/1000);
+		double divby = (double(ticks - pSVN->progress_lastTicks)/1000.0);
 		if (divby == 0)
 			divby = 1;
-		average = average / divby;
+		average = apr_off_t(double(average) / divby);
 		pSVN->m_SVNProgressMSG.BytesPerSecond = average;
 		if (average < 1024)
 			pSVN->m_SVNProgressMSG.SpeedString.Format(_T("%ld Bytes/s"), average);
