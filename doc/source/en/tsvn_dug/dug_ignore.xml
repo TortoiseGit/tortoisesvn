@@ -44,8 +44,10 @@
 			<guimenuitem>Remove from Ignore List</guimenuitem>
 		</menuchoice>
 		You can also access a folder's <literal>svn:ignore</literal>
-		property directly. Read
-		<xref linkend="tsvn-DUG-propertypage"/> for more information. 
+		property directly. That allows you to specify more general
+		patterns using filename globbing, described in the section below.
+		Read <xref linkend="tsvn-DUG-propertypage"/> for more information
+		on setting properties directly.
 	</para>
 	<tip>
 		<title>The Global Ignore List</title>
@@ -61,4 +63,78 @@
 			<xref linkend="tsvn-DUG-settings-main"/> for more information. 
 		</para>
 	</tip>
+	<sect2 id="tsvn-DUG-ignore-glob">
+		<title>Filename Globbing in Ignore Lists</title>
+		<indexterm>
+			<primary>globbing</primary>
+		</indexterm>
+		<para>
+			Subversion's ignore patterns make use of filename globbing,
+			a technique originally used in Unix to specify files using
+			meta-characters as wildcards. The following characters have
+			special meaning:
+			<variablelist>
+				<varlistentry>
+					<term>*</term>
+					<listitem>
+						<para>
+							Matches any string of characters, including
+							the empty string (no characters).
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>?</term>
+					<listitem>
+						<para>
+							Matches any single character.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>[...]</term>
+					<listitem>
+						<para>
+							Matches any one of the characters enclosed in the
+							square brackets. Within the brackets, a pair of
+							characters separated by <quote>-</quote>
+							matches any character lexically between the two.
+							For example <literal>[AGm-p]</literal> matches
+							any one of <literal>A</literal>, <literal>G</literal>,
+							<literal>m</literal>, <literal>n</literal>,
+							<literal>o</literal> or <literal>p</literal>.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+		<para>
+			The globbing is done by Subversion, so the path delimiter
+			is always <literal>/</literal>, not the Windows backslash.
+		</para>
+		<para>
+			Pattern matching is case sensitive, which can cause problems
+			on Windows. You can force case insensitivity the hard way
+			by pairing characters, eg. to ignore <literal>*.tmp</literal>
+			regardless of case, you could use a pattern like
+			<literal>*.[Tt][Mm][Pp]</literal>.
+		</para>
+		<para>
+			If directory names are present in a path, they are included
+			in the matching, so pattern <literal>Fred.*</literal> will match
+			<literal>Fred.c</literal> but not <literal>subdir/Fred.c</literal>.
+			This is significant if you add a folder containing some files
+			that you want to be ignored, because those filenames will be
+			preceded with the folder name.
+		</para>
+		<para>
+			To ignore all <literal>CVS</literal> folders you should either
+			specify a pattern of <literal>*CVS</literal> or better, the pair
+			<literal>CVS */CVS</literal>. The first option works, but would
+			also exclude something called <literal>ThisIsNotCVS</literal>.
+			Using <literal>*/CVS</literal> alone will not work on an
+			immediate child <literal>CVS</literal> folder, and
+			<literal>CVS</literal> alone will not work on subfolders.
+		</para>
+	</sect2>
 </sect1>

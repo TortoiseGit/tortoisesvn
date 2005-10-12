@@ -57,6 +57,8 @@
 						<literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
 						The first two entries refer to directories, the 
 						other four to files.
+						These patterns use filename globbing. Read
+						<xref linkend="tsvn-DUG-ignore-glob"/> for more information.
 					</para>
 					<para>
 						Note that the exclude patterns you specify here will also
@@ -114,6 +116,12 @@
 							<citetitle>Automatic Property Setting</citetitle>
 						</ulink>
 						is of particular interest, and that is configured here.
+						Note that Subversion can read configuration information
+						from several places, and you need to know which one
+						takes priority. Refer to
+						<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2">
+							<citetitle>Configuration and the Windows Registry</citetitle>
+						</ulink> to find out more.
 					</para>
 				</listitem>
 			</varlistentry>
