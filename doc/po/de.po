@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-10-11 10:10+0100\n"
+"PO-Revision-Date: 2005-10-13 16:27+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1966,8 +1966,8 @@ msgstr "Wenn Sie mehr Log-Meldungen sehen wollen, klicken Sie auf die <guibutton
 
 #: source/en/tsvn_dug/dug_showlog.xml:308
 #: (para)
-msgid "If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Get All</guibutton>."
-msgstr "Wenn Sie wirklich <emphasis>alle</emphasis> Log-Meldungen zurück bis zur Revision 1 sehen möchten, klicken Sie auf <guibutton>Hole Alle</guibutton>."
+msgid "If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Show All</guibutton>."
+msgstr "Wenn Sie wirklich <emphasis>alle</emphasis> Log-Meldungen zurück bis zur Revision 1 sehen möchten, klicken Sie auf <guibutton>Zeige Alle</guibutton>."
 
 #: source/en/tsvn_dug/dug_showlog.xml:314
 #: (title)
@@ -2107,382 +2107,382 @@ msgstr "global ignore"
 
 #: source/en/tsvn_dug/dug_settings.xml:51
 #: (para)
-msgid "Exclude patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Exclude files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the other four to files."
-msgstr "Ausschluß-Muster dienen dazu, dass unversionierte Dateien z.B. nicht im Übertragen Dialog angezeigt werden. Außerdem werden solche Dateien beim Importieren in ein Projektarchiv ignoriert. Schließen Sie Dateien oder Ordner durch Angabe von Dateinamen oder Erweiterungen aus. Die einzelnen Muster werden durch Leerzeichen voneinander getrennt. Zum Beispiel <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. Die ersten beiden Muster beziehen sich auf Ordner, die restlichen vier auf Dateien."
+msgid "Exclude patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Exclude files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the other four to files. These patterns use filename globbing. Read <xref linkend=\"tsvn-DUG-ignore-glob\"/> for more information."
+msgstr "Ausschluß-Muster dienen dazu, dass unversionierte Dateien z.B. nicht im Übertragen Dialog angezeigt werden. Außerdem werden solche Dateien beim Importieren in ein Projektarchiv ignoriert. Schließen Sie Dateien oder Ordner durch Angabe von Dateinamen oder Erweiterungen aus. Die einzelnen Muster werden durch Leerzeichen voneinander getrennt. Zum Beispiel <literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>. Die ersten beiden Muster beziehen sich auf Ordner, die restlichen vier auf Dateien. Lesen Sie in <xref linkend=\"tsvn-DUG-ignore-glob\"/> nach, wie Platzhalter eingesetzt werden."
 
-#: source/en/tsvn_dug/dug_settings.xml:61
+#: source/en/tsvn_dug/dug_settings.xml:63
 #: (para)
 msgid "Note that the exclude patterns you specify here will also affect other Subversion clients running on your PC, including the command line client."
 msgstr "Beachten Sie, dass die Ausschluss-Muster, die Sie hier einstellen, auch andere Subversion Clients, inklusive der Subversion Kommandozeile, auf Ihrem PC beeinflussen."
 
-#: source/en/tsvn_dug/dug_settings.xml:68
+#: source/en/tsvn_dug/dug_settings.xml:70
 #: (literal)
 msgid "global-ignores"
 msgstr "global-ignores"
 
-#: source/en/tsvn_dug/dug_settings.xml:71
+#: source/en/tsvn_dug/dug_settings.xml:73
 #: (guibutton)
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: source/en/tsvn_dug/dug_settings.xml:66
+#: source/en/tsvn_dug/dug_settings.xml:68
 #: (caution)
 msgid "If you use the Subversion configuration file to set a <placeholder-1/> pattern, it will override the settings you made here. The Subversion configuration file is accessed using the <placeholder-2/> as described below."
 msgstr "Wenn Sie die Subversion Konfigurationsdatei verwenden, um ein <placeholder-1/> Muster zu definieren, wird das die TortoiseSVN Einstellungen überlagern. Die Subversion Konfigurationsdatei kann über die <placeholder-2/> Schaltfläche geändert werden."
 
-#: source/en/tsvn_dug/dug_settings.xml:73
+#: source/en/tsvn_dug/dug_settings.xml:75
 #: (para)
 msgid "This exclude pattern will affect all your projects. It is not versioned, so it will not affect other users. By contrast you can also use the versioned <literal>svn:ignore</literal> property to exclude files or directories from version control. Read <xref linkend=\"tsvn-DUG-ignore\"/> for more information."
 msgstr "Dieses Ausschluss-Muster beeinflusst alle Ihre Projekte. Es ist nicht versioniert, also wird es keine anderen Anwender beeinflussen. Im Gegensatz dazu können Sie auch die versionierte <literal>svn:ignore</literal> Eigenschaft verwenden, um Dateien oder Verzeichnisse von der Versionskontrolle auszuschließen. Lesen Sie <xref linkend=\"tsvn-DUG-ignore\"/> für weitere Information."
 
-#: source/en/tsvn_dug/dug_settings.xml:85
+#: source/en/tsvn_dug/dug_settings.xml:87
 #: (term)
 msgid "Set filedates to the \"last commit time\""
 msgstr "Dateidatum auf <quote>Datum der letzten Übertragung</quote> setzen"
 
-#: source/en/tsvn_dug/dug_settings.xml:87
+#: source/en/tsvn_dug/dug_settings.xml:89
 #: (para)
 msgid "This option tells TortoiseSVN to set the filedates to the last commit time when doing a checkout or an update. Otherwise TortoiseSVN will use the current date. If you are developing software it is generally best to use the current date because build systems normally look at the datestamps to decide which files need compiling. If you use \"last commit time\" and revert to an older file revision, your project may not compile as you expect it to."
 msgstr "Diese Einstellung zwingt TortoiseSVN das Dateidatum bei einem Auschecken oder einer Aktualisierung auf das Datum der letzten Übertragung der Datei zu setzen. Ansonsten setzt TortoiseSVN das aktuelle Datum. Wenn Sie Software entwickeln, ist es normalerweise am besten, das aktuelle Datum zu verwenden, da Systeme zum automatischen Erstellen von Software normalerweise auf die Zeitstempel zurückgreifen, um zu entscheiden, ob eine Datei übersetzt werden soll. Wenn Sie das <literal>Datum der letzten Übertragung</literal> verwenden und auf eine ältere Dateiversion zurückgreifen, kann es passieren, dass sich das Projekt nicht so übersetzen lässt, wie erwartet."
 
-#: source/en/tsvn_dug/dug_settings.xml:101
+#: source/en/tsvn_dug/dug_settings.xml:103
 #: (term)
 msgid "Edit..."
 msgstr "Bearbeiten"
 
-#: source/en/tsvn_dug/dug_settings.xml:103
+#: source/en/tsvn_dug/dug_settings.xml:105
 #: (para)
-msgid "... the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Subversion Manual</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here."
-msgstr "Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor. Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden sondern nur mittels Bearbeitung der Konfigurationsdatei. Für mehr Informationen über die Subversion <filename>config</filename> Datei schauen Sie im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"> <citetitle>Subversion Buch</citetitle> </ulink> nach. Der Abschnitt <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"> <citetitle>Automatic Property Setting</citetitle> </ulink> ist hier auch von Interesse."
+msgid "... the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"><citetitle>Subversion Manual</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here. Note that Subversion can read configuration information from several places, and you need to know which one takes priority. Refer to <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> to find out more."
+msgstr "Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor. Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden sondern nur mittels Bearbeitung der Konfigurationsdatei. Für mehr Informationen über die Subversion <filename>config</filename> Datei schauen Sie im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2\"> <citetitle>Subversion Buch</citetitle> </ulink> nach. Der Abschnitt <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4\"> <citetitle>Automatic Property Setting</citetitle> </ulink> ist hier auch von Interesse. Beachten Sie bitte, dass Subversion seine Einstellungen nacheinander an verschiedenen Stellen sucht. Die Reihenfolge und die Prioritäten werden in <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.2\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> erklärt."
 
-#: source/en/tsvn_dug/dug_settings.xml:121
+#: source/en/tsvn_dug/dug_settings.xml:129
 #: (term)
 msgid "Clear Auth Cache"
 msgstr "Anmeldedaten löschen"
 
-#: source/en/tsvn_dug/dug_settings.xml:123
+#: source/en/tsvn_dug/dug_settings.xml:131
 #: (para)
 msgid "When you authenticate with a subversion server, the username and password are cached locally so you don't have to keep entering them. To clear everything from that cache, use this button."
 msgstr "Wenn Sie sich an einem Subversion Server anmelden, können Anmeldename und Passwort lokal gespeichert werden, damit Sie sie nicht ständig eingeben müssen. Mit dieser Schaltfläche löschen Sie sämtliche gespeicherten Anmeldedaten."
 
-#: source/en/tsvn_dug/dug_settings.xml:134
+#: source/en/tsvn_dug/dug_settings.xml:142
 #: (title)
 msgid "Look and Feel Settings"
 msgstr "Anzeigeeinstellungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:138
+#: source/en/tsvn_dug/dug_settings.xml:146
 #: (title)
-#: source/en/tsvn_dug/dug_settings.xml:168
+#: source/en/tsvn_dug/dug_settings.xml:176
 msgid "The Settings Dialog, Look and Feel Page"
 msgstr "Der Einstellungsdialog, Anzeige"
 
-#: source/en/tsvn_dug/dug_settings.xml:136
+#: source/en/tsvn_dug/dug_settings.xml:144
 #: (para)
 msgid "<placeholder-1/> This page allows you to specify which of the TortoiseSVN context menu entries will show up in the main context menu, and which will appear in the TortoiseSVN submenu. By default most items are checked and appear in the submenu."
 msgstr "<placeholder-1/> Auf dieser Seite können Sie einstellen, welche Einträge des TortoiseSVN Kontextmenüs im Hauptmenü und welche im TortoiseSVN Untermenü erscheinen sollen. Standardmäßig sind die meisten Einträge markiert und erscheinen im Untermenü."
 
-#: source/en/tsvn_dug/dug_settings.xml:146
+#: source/en/tsvn_dug/dug_settings.xml:154
 #: (para)
 msgid "If you have a very large number of files in your working copy folders, it can take a long time before the context menu appears when you <action>right click</action> on a folder. This is because Subversion fetches the status for all files when you ask for folder status. To avoid this delay you can uncheck the <guilabel>Fetch status for context menu</guilabel> box. Be warned that the context menu for folders will not always be correct, and may include items which should not really be there. For example, you will see <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> for an <literal>Added</literal> folder, which will not work because the folder is not yet in the repository."
 msgstr "Wenn Sie eine sehr große Anzahl von Dateien in den Ordnern Ihrer Arbeitskopie haben, kann es lange dauern, bis bei einem <action>Rechts-Klick</action> auf einen Ordner das Kontextmenü erscheint. Das liegt daran, dass Subversion in diesem Fall den Status <emphasis>aller</emphasis> Dateien ermitteln muss, die sich in diesem Ordner befinden. Um diese Verzögerung zu vermeiden, können Sie die Option <guilabel>Statusabfrage für Kontextmenü</guilabel> deaktivieren. Beachten Sie, dass das Kontextmenü für Ordner in diesem Fall nicht immer korrekt ist und Einträge enthalten kann, die nicht sinnvoll anwendbar sind. Zum Beispiel können Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> für einen <literal>hinzugefügten</literal> Ordner sehen, was natürlich nicht funktioniert, da sich dieser Ordner noch nicht im Projektarchiv befindet."
 
-#: source/en/tsvn_dug/dug_settings.xml:164
+#: source/en/tsvn_dug/dug_settings.xml:172
 #: (title)
 msgid "Icon Overlay Settings"
 msgstr "Überlagerte Symbole"
 
-#: source/en/tsvn_dug/dug_settings.xml:166
+#: source/en/tsvn_dug/dug_settings.xml:174
 #: (para)
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays. Network drives can be very slow, so by default icons are not shown for working copies located on network shares. You can even disable all icon overlays, but where's the fun in that?"
 msgstr "<placeholder-1/> Auf dieser Seite können Sie einstellen, für welche Laufwerkstypen überlagerte Symbole angezeigt werden. Der Zugriff auf Netzwerklaufwerke kann sehr langsam sein, deshalb werden standardmäßig keine überlagerten Symbole dafür angezeigt. Sie können auch alle überlagerten Symbole deaktivieren, aber wo liegt der Spaß darin?"
 
-#: source/en/tsvn_dug/dug_settings.xml:176
+#: source/en/tsvn_dug/dug_settings.xml:184
 #: (para)
 msgid "By default, overlay icons will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays only in explorer</guilabel> box."
 msgstr "Standardmäßig werden die überlagerten Symbole in allen Öffnen/Speichern Dialogen und im Windows Explorer angezeigt. Wenn Sie wollen, dass die Symbole <emphasis>nur</emphasis> im Explorer angezeigt werden, wählen Sie die Option <guilabel>berlagerte Symbole nur im Explorer anzeigen</guilabel>."
 
-#: source/en/tsvn_dug/dug_settings.xml:182
+#: source/en/tsvn_dug/dug_settings.xml:190
 #: (para)
 msgid "Normally the icon overlays act recursively, which means that the overlay for a folder shows the most significant status of all its subfolders. If there is a modified file deep in the hierarchy, the top level folder will also show modified status to remind you that there are buried changes. If you have <emphasis>very</emphasis> large working copies then you may find that the recursive status feature causes too much disk activity and disruption on your system, although this is not usually a problem. In that case you can uncheck <guilabel>Show overlay status icons recursively</guilabel> so that folder status is shown only for the folder itself."
 msgstr "Normalerweise wird der Status mit Hilfe der überlagerten rekursiv dargestellt. Das heißt der wichtigste Status innerhalb einer Ordnerstruktur wird auf dem Ordnersymbol angezeigt. Wenn sich zum Beispiel tief in der Hierarchie modifizierte Dateien befinden, zeigt der oberste Ordner das Symbol für <literal>Geändert</literal> an. Wenn Sie <emphasis>sehr</emphasis> große Arbeitskopien haben, kann das dazu führen, dass die rekursive Statusanzeige zu viel Festplattenaktivität führt. Wenn dieses Verhalten Sie stört, können Sie die Option <guilabel>Zeige überlagerte Symbole rekursiv</guilabel> abschalten, so dass der Ordner nur seinen eigenen Status anzeigt."
 
-#: source/en/tsvn_dug/dug_settings.xml:195
+#: source/en/tsvn_dug/dug_settings.xml:203
 #: (para)
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which paths <emphasis>not</emphasis> to show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
 msgstr "Die <guilabel>Ausschluss Pfade</guilabel> sagen TortoiseSVN für welche Pfade die überlagerten Symbole <emphasis>nicht</emphasis> gezeichnet werden sollen. Dies ist nützlich wenn Sie zum Beispiel sehr große Arbeitskopien haben, welche große externe Bibliotheken, welche Sie selbst nie ändern werden enthalten. Sie können dann diese Pfade ausschließen. Zum Beispiel:"
 
-#: source/en/tsvn_dug/dug_settings.xml:202
+#: source/en/tsvn_dug/dug_settings.xml:210
 #: (para)
 msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays on <emphasis>only</emphasis> that specific folder. You still can see the overlays on all files and folder inside that folder."
 msgstr "<filename>f:\\development\\SVN\\Subversion</filename> deaktiviert die überlagerten Symbole <emphasis>nur</emphasis> für diesen speziellen Ordner. Sie können die Symbole noch immer für alle Dateien und Ordner innerhalb sehen."
 
-#: source/en/tsvn_dug/dug_settings.xml:207
+#: source/en/tsvn_dug/dug_settings.xml:215
 #: (para)
 msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
 msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> deaktiviert die überlagerten Symbole für <emphasis>alle</emphasis> Dateien und Ordner, deren Pfad mit <filename>f:\\development\\SVN\\Subversion</filename> beginnt. Das bedeutet dass auch für alle Dateien und Ordner innerhalb keine überlagerten Symbole angezeigt werden."
 
-#: source/en/tsvn_dug/dug_settings.xml:214
+#: source/en/tsvn_dug/dug_settings.xml:222
 #: (para)
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type."
 msgstr "Das gleiche gilt für die <guilabel>Einschluss Pfade</guilabel>. Nur dass für diese Pfade die Symbole auch gezeichnet werden, wenn sie für den entsprechenden Laufwerks-Typ deaktiviert wurden."
 
-#: source/en/tsvn_dug/dug_settings.xml:221
+#: source/en/tsvn_dug/dug_settings.xml:229
 #: (title)
 msgid "Icon Set Selection"
 msgstr "Auswahl der überlagerten Symbole"
 
-#: source/en/tsvn_dug/dug_settings.xml:225
+#: source/en/tsvn_dug/dug_settings.xml:233
 #: (title)
 msgid "The Settings Dialog, Icon Set Page"
 msgstr "Der Einstellungsdialog, Symbolauswahl"
 
-#: source/en/tsvn_dug/dug_settings.xml:223
+#: source/en/tsvn_dug/dug_settings.xml:231
 #: (para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
 msgstr "<placeholder-1/> Sie können in TortoiseSVN die überlagerten Symbole auswählen, die Ihnen am besten gefallen. Beachten Sie dass wenn Sie diese Einstellung ändern, der Symbolsatz erst nach einem Neustart des Computers vom Explorer übernommen wird."
 
-#: source/en/tsvn_dug/dug_settings.xml:234
+#: source/en/tsvn_dug/dug_settings.xml:242
 #: (title)
 msgid "TortoiseSVN Dialog Settings"
 msgstr "Der Einstellungsdialog, Dialoge"
 
-#: source/en/tsvn_dug/dug_settings.xml:238
+#: source/en/tsvn_dug/dug_settings.xml:246
 #: (title)
 msgid "The Settings Dialog, Dialogs Page"
 msgstr "Der Einstellungsdialog, Dialoge"
 
-#: source/en/tsvn_dug/dug_settings.xml:236
+#: source/en/tsvn_dug/dug_settings.xml:244
 #: (para)
 msgid "<placeholder-1/> This dialog allows you to configure some of TortoiseSVN's dialogs the way you like them."
 msgstr "<placeholder-1/> In diesem Dialog können Sie das Verhalten einiger TortoiseSVN Dialoge einstellen."
 
-#: source/en/tsvn_dug/dug_settings.xml:246
+#: source/en/tsvn_dug/dug_settings.xml:254
 #: (term)
 msgid "Default number of log messages"
 msgstr "Anzahl der angezeigten Log-Meldungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:248
+#: source/en/tsvn_dug/dug_settings.xml:256
 #: (para)
 msgid "Limits the number of log messages that TortoiseSVN fetches when you first select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> Useful for slow server connections. You can always use <guibutton>Get All</guibutton> or <guibutton>Next 100</guibutton> to get more messages."
-msgstr "Beschränkt die Anzahl der angezeigten Log-Meldungen, welche TortoiseSVN vom Projektarchiv holt, wenn Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> aufrufen. Nützlich bei langsamen Verbindungen zum Projektarchiv. Sie können jederzeit mehr Log-Meldungen mittels <guibutton>Nächste 100</guibutton> oder <guibutton>Hole Alle</guibutton> anzeigen lassen."
+msgstr "Beschränkt die Anzahl der angezeigten Log-Meldungen, welche TortoiseSVN vom Projektarchiv holt, wenn Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> aufrufen. Nützlich bei langsamen Verbindungen zum Projektarchiv. Sie können jederzeit mehr Log-Meldungen mittels <guibutton>Nächste 100</guibutton> oder <guibutton>Zeige Alle</guibutton> anzeigen lassen."
 
-#: source/en/tsvn_dug/dug_settings.xml:262
+#: source/en/tsvn_dug/dug_settings.xml:270
 #: (term)
 msgid "Font for log messages"
 msgstr "Zeichensatz für Log-Meldungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:264
+#: source/en/tsvn_dug/dug_settings.xml:272
 #: (para)
 msgid "Selects the font face and size used to display the log message itself in the middle pane of the Revision Log dialog, and when composing log messages in the Commit dialog."
 msgstr "Legt die Schriftart und -größe fest, in der Log-Meldungen im Log-Dialog angezeigt und im Übertragen-Dialog eingegeben werden."
 
-#: source/en/tsvn_dug/dug_settings.xml:273
+#: source/en/tsvn_dug/dug_settings.xml:281
 #: (term)
 msgid "Short date / time format in log messages"
 msgstr "Kurzes Datum / Zeit Format in Log-Meldungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:275
+#: source/en/tsvn_dug/dug_settings.xml:283
 #: (para)
 msgid "If the standard long messages use up too much space on your screen use the short format."
 msgstr "Wenn die standardmäßig angezeigten langen Datums-/Zeitangaben zu viel Platz einnehmen, können Sie hier TortoiseSVN anweisen, das kurze Format zu verwenden."
 
-#: source/en/tsvn_dug/dug_settings.xml:282
+#: source/en/tsvn_dug/dug_settings.xml:290
 #: (term)
 msgid "Use old APIs to fetch log messages"
 msgstr "Benutze alte API, um Log-Meldung zu holen"
 
-#: source/en/tsvn_dug/dug_settings.xml:284
+#: source/en/tsvn_dug/dug_settings.xml:292
 #: (para)
 msgid "As of version 1.2, Subversion servers support fetching a defined number of log messages, rather than the log messages from a range of revisions. With the new API, if you ask for 100 messages you will get 100 message. With the old API, if you ask for 100 messages you get the messages from the last 100 repository revisions. If your file didn't change often, you will see few messages."
 msgstr "Ab Version 1.2 unterstützen Subversion Server die Möglichkeit eine bestimmte Anzahl von Log-Meldungen, anstatt der Log-Meldungen für einen Revisionsbereich zu holen. Wenn Sie die neue API nach 100 Meldungen fragen, erhalten Sie 100 Meldungen. Wenn Sie die Alte API nach 100 Meldungen fragen, erhalten Sie die Meldungen für die letzten 100 Revisionen des Projektarchivs. Falls sich Ihre Datei in diesem Zeitraum wenig geändert hat, können das wenige Meldungen sein."
 
-#: source/en/tsvn_dug/dug_settings.xml:292
+#: source/en/tsvn_dug/dug_settings.xml:300
 #: (para)
 msgid "However, if you query a pre-1.2 server using the new API, it will return <emphasis>all</emphasis> log message which the client then filters. This can result in <emphasis>very</emphasis> slow reponses. If you have to work with an older server, you should check this box to avoid the slowdown. The best option of course is to upgrade the server."
 msgstr "Wenn Sie einen Server vor Version 1.2 mit der neuen API ansprechen, wird er <emphasis>alle</emphasis> Log-Meldungen zurückliefern, die der Client dann filtern muss. Dies kann zu <emphasis>sehr</emphasis> langsamen Reaktionen führen. Wenn Sie auf ältere Server zugreifen, sollten Sie diese Option markieren, um die Wartezeit zu vermeiden. Die bessere Option ist natürlich, den Server zu aktualisieren."
 
-#: source/en/tsvn_dug/dug_settings.xml:303
+#: source/en/tsvn_dug/dug_settings.xml:311
 #: (term)
 msgid "Progress Dialog"
 msgstr "Fortschrittsanzeige"
 
-#: source/en/tsvn_dug/dug_settings.xml:305
+#: source/en/tsvn_dug/dug_settings.xml:313
 #: (para)
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
 msgstr "TortoiseSVN kann den Fortschrittsdialog automatisch schließen, wenn der Befehl ohne Fehler ausgeführt wurde. Diese Einstellung erlaubt Ihnen die Bedingungen zu setzen um den Dialog automatisch zu schließen. Die Standard-Einstellung (empfohlen) <guilabel>Manuell schließen</guilabel> erlaubt es Ihnen alle Meldungen nach jeder Aktion genau zu studieren. Wenn Sie möchten, können Sie den Dialog auch automatisch schließen lassen wenn keine kritischen Ereignisse aufgetreten sind."
 
-#: source/en/tsvn_dug/dug_settings.xml:316
+#: source/en/tsvn_dug/dug_settings.xml:324
 #: (para)
 msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that the progress dialog will close if there were simple updates, but if changes from the repository were merged with yours, or if any files were added or deleted, the dialog will remain open."
 msgstr "<guilabel>Schließen, falls kein Löschen, Hinzufügen oder Zusammenführen</guilabel> lässt den Dialog nur offen, wenn keine Dateien zusammengeführt, hinzugefügt oder gelöscht wurde. Auch Konflikte und Fehler sorgen dafür, dass der Dialog geöffnet bleibt."
 
-#: source/en/tsvn_dug/dug_settings.xml:323
+#: source/en/tsvn_dug/dug_settings.xml:331
 #: (para)
 msgid "<guilabel>Auto-close if no conflicts</guilabel> relaxes the criteria further and will close the dialog even if there were merges, adds or deletes. However, if there were any conflicts or errors, the dialog remains open."
 msgstr "<guilabel>Schließen, falls keine Konflikte</guilabel> schließt den Dialog automatisch wenn keine Konflikte oder Fehlermeldungen aufgetreten sind."
 
-#: source/en/tsvn_dug/dug_settings.xml:330
+#: source/en/tsvn_dug/dug_settings.xml:338
 #: (para)
 msgid "<guilabel>Auto-close if no errors</guilabel> always closes the dialog even if there were conflicts. The only condition that keeps the dialog open is an error condition, which occurs when Subversion is unable to complete the task. For example, an update fails because the server is inaccessible, or a commit fails because the working copy is out-of-date."
 msgstr "<guilabel>Schließen, falls keine Fehler</guilabel> schließt den Dialog automatisch, auch wenn Konflikte aufgetreten sind. Der Dialog bleibt jedoch offen wenn Fehler aufgetreten sind, die verhindert haben, dass Subversion die Aktion ausführen konnte, zum Beispiel wenn der Server nicht erreichbar oder die Arbeitskopie veraltet ist."
 
-#: source/en/tsvn_dug/dug_settings.xml:342
+#: source/en/tsvn_dug/dug_settings.xml:350
 #: (term)
 msgid "Use autocompletion of filepaths and keywords"
 msgstr "Dateinamen und Schlüsselwörter automatisch vervollständigen"
 
-#: source/en/tsvn_dug/dug_settings.xml:344
+#: source/en/tsvn_dug/dug_settings.xml:352
 #: (para)
 msgid "The commit dialog includes a facility to parse the list of filenames being committed. When you type the first 3 letters of an item in the list, the autocompletion box pops up, and you can press Enter to complete the filename. Check the box to enable this feature."
 msgstr "Der Übertragen Dialog bietet die Möglichkeit, die zu übertragenden Dateien nach Schlüsselwörtern zu durchsuchen. Wenn Sie die ersten drei Zeichen eines gefundenen Eintrags eingegeben haben, erscheint eine automatische Vervollständigungsliste, aus der Sie mittels <keycap>Enter</keycap> einen Eintrag auswählen können."
 
-#: source/en/tsvn_dug/dug_settings.xml:354
+#: source/en/tsvn_dug/dug_settings.xml:362
 #: (term)
 msgid "Timeout in seconds to stop the autocompletion parsing"
 msgstr "Timeout in Sekunden zum Stop der Datei-Analyse für's automatisch Vervollständigen"
 
-#: source/en/tsvn_dug/dug_settings.xml:356
+#: source/en/tsvn_dug/dug_settings.xml:364
 #: (para)
 msgid "The autocompletion parser can be quite slow if there are a lot of large files to check. This timeout stops the commit dialog being held up for too long. If you are missing important autocompletion information, you can extend the timeout."
 msgstr "Der Parser für's automatische Vervollständigen kann sehr langsam sein wenn Sie sehr viele und große Dateien ausgewählt haben. Dieser Timeout stoppt den Parser und übergibt die bisher gefundenen Daten an die Editor-Box. Wenn Sie wichtige Informationen für's automatisch Vervollständigen vermissen, können Sie hier das Timeout erhöhen."
 
-#: source/en/tsvn_dug/dug_settings.xml:365
+#: source/en/tsvn_dug/dug_settings.xml:373
 #: (term)
 msgid "Only use spellchecker when tsvn:projectlanguage is set"
 msgstr "Rechtschreibkorrektur nur verwenden wenn tsvn:projectlanguage gesetzt ist"
 
-#: source/en/tsvn_dug/dug_settings.xml:367
+#: source/en/tsvn_dug/dug_settings.xml:375
 #: (para)
 msgid "If you don't wish to use the spellchecker for all commits, check this box. The spellchecker will still be enabled where the project properties require it."
 msgstr "Wenn Sie die Rechtschreibkorrektur nicht benutzen möchten, aktivieren Sie diese Option. Die Rechtschreibkorrektur wird trotz dieser Einstellung aktiviert wenn das Projekt dies notwendig macht."
 
-#: source/en/tsvn_dug/dug_settings.xml:375
+#: source/en/tsvn_dug/dug_settings.xml:383
 #: (term)
 msgid "Contact the repository on startup"
 msgstr "Projektarchiv beim Start kontaktieren"
 
-#: source/en/tsvn_dug/dug_settings.xml:377
+#: source/en/tsvn_dug/dug_settings.xml:385
 #: (para)
 msgid "The Check for Modifications dialog checks the working copy by default, and only contacts the repository when you click <guibutton>Check repository</guibutton>. If you always want to check the repository, you can use this setting to make that action happen automatically."
 msgstr "Der <quote>Auf Änderungen prüfen</quote> Dialog prüft in der Standardeinstellung die Arbeitskopie und kontaktiert das Projektarchiv nur, wenn Sie die <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche betätigen. Wenn Sie das Projektarchiv immer überprüfen wollen, aktivieren Sie diese Option, damit das beim Start des Dialoges automatisch geschieht."
 
-#: source/en/tsvn_dug/dug_settings.xml:387
+#: source/en/tsvn_dug/dug_settings.xml:395
 #: (term)
 msgid "Use URL of WC as the default \"From:\" URL"
 msgstr "Nutze die URL der Arbeitskopie als \"Von:\" URL"
 
-#: source/en/tsvn_dug/dug_settings.xml:389
+#: source/en/tsvn_dug/dug_settings.xml:397
 #: (para)
 msgid "In the merge dialog, the default behaviour is for the <guilabel>From:</guilabel> URL to be remembered between merges. However, some people like to perform merges from many different points in their hierarchy, and find it easier to start out with the URL of the current working copy. This can then be edited to refer to a parallel path on another branch."
 msgstr "Im Zusammenführen Dialog wird normalerweise die <guilabel>Von:</guilabel> URL zwischen zwei Aufrufen gespeichert und als Vorgabe eingestellt. Manchmal möchten Anwender jedoch von vielen verschiedenen Punkten in der Projekthierarche aus Daten zusammenführen und finden es einfacher, mit der URL der aktuellen Arbeitskopie als Vorgabe zu beginnen. Diese kann dann verändert werden, um auf einen parallelen Pfad oder eine Verzweigung zu verweisen."
 
-#: source/en/tsvn_dug/dug_settings.xml:405
+#: source/en/tsvn_dug/dug_settings.xml:413
 #: (title)
 msgid "Network Settings"
 msgstr "Netzwerk Einstellungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:407
+#: source/en/tsvn_dug/dug_settings.xml:415
 #: (primary)
 msgid "proxy server"
 msgstr "Proxy Server"
 
-#: source/en/tsvn_dug/dug_settings.xml:411
+#: source/en/tsvn_dug/dug_settings.xml:419
 #: (title)
 msgid "The Settings Dialog, Network Page"
 msgstr "Der Einstellungsdialog, Netzwerkseite"
 
-#: source/en/tsvn_dug/dug_settings.xml:409
+#: source/en/tsvn_dug/dug_settings.xml:417
 #: (para)
 msgid "<placeholder-1/> Here you can configure your proxy server, if you need one to get through your company's firewall."
 msgstr "<placeholder-1/> Hier können Sie Einstellungen für einen Proxyserver vornehmen, sofern Sie einen solchen benötigen (z.B. bei einer Firmen-Firewall)."
 
-#: source/en/tsvn_dug/dug_settings.xml:417
+#: source/en/tsvn_dug/dug_settings.xml:425
 #: (para)
 msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <literal>servers</literal> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Subversion Manual</citetitle></ulink> for details on how to use this file."
 msgstr "Wenn Sie Proxy Einstellungen für jedes Projektarchiv vornehmen wollen, müssen Sie das in der Subversion <literal>servers</literal> Datei einstellen. Über die <guibutton>Bearbeiten</guibutton> Schaltfläche kommen Sie direkt dort hin. Lesen Sie im <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.1\"><citetitle>Subversion Buch</citetitle></ulink> nach, wie die Datei aufgebaut ist."
 
-#: source/en/tsvn_dug/dug_settings.xml:427
+#: source/en/tsvn_dug/dug_settings.xml:435
 #: (para)
 msgid "You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository. We recommend that you use TortoisePlink.exe. This is a version of the popular Plink program, and is included with TortoiseSVN."
 msgstr "Sie können hier auch angeben, welches Programm TortoiseSVN benutzen soll, um eine sichere Verbindung zum Projektarchiv via SSH herzustellen. Wir empfehlen Ihnen, dass Sie dazu TortoisePlink.exe verwenden. Dabei handelt es sich um eine für TortoiseSVN angepasste Version des bekannten Plink, die mit TortoiseSVN zusammen installiert wird."
 
-#: source/en/tsvn_dug/dug_settings.xml:435
+#: source/en/tsvn_dug/dug_settings.xml:443
 #: (title)
 msgid "External Program Settings"
 msgstr "Einstellungen für externe Programme"
 
-#: source/en/tsvn_dug/dug_settings.xml:438
+#: source/en/tsvn_dug/dug_settings.xml:446
 #: (title)
 msgid "The Settings Dialog, Diff Viewer Page"
 msgstr "Der Einstellungsdialog, Externe Programme"
 
-#: source/en/tsvn_dug/dug_settings.xml:436
+#: source/en/tsvn_dug/dug_settings.xml:444
 #: (para)
 msgid "<placeholder-1/> Here you can define your own diff/merge programs that TortoiseSVN should use. The basic setting is to use the builtin TortoiseMerge which is installed alongside TortoiseSVN."
 msgstr "<placeholder-1/> Hier können Sie Ihre eigenen Diff/Merge Programme definieren, die TortoiseSVN benutzen soll. In der Standardeinstellung wird das mitgelieferte Programm TortoiseMerge benutzt."
 
-#: source/en/tsvn_dug/dug_settings.xml:447
+#: source/en/tsvn_dug/dug_settings.xml:455
 #: (title)
 msgid "Diff Viewer"
 msgstr "Diff Betrachter"
 
-#: source/en/tsvn_dug/dug_settings.xml:460
+#: source/en/tsvn_dug/dug_settings.xml:468
 #: (term)
-#: source/en/tsvn_dug/dug_settings.xml:537
+#: source/en/tsvn_dug/dug_settings.xml:545
 msgid "%base"
 msgstr "%base"
 
-#: source/en/tsvn_dug/dug_settings.xml:462
+#: source/en/tsvn_dug/dug_settings.xml:470
 #: (para)
 msgid "The original file without your changes"
 msgstr "Die Originaldatei ohne Ihre Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:468
-#: (term)
-#: source/en/tsvn_dug/dug_settings.xml:546
-msgid "%bname"
-msgstr "%bname"
-
-#: source/en/tsvn_dug/dug_settings.xml:470
-#: (para)
-#: source/en/tsvn_dug/dug_settings.xml:548
-msgid "The window title for the base file"
-msgstr "Der Fenstertitel für die Originaldatei"
-
 #: source/en/tsvn_dug/dug_settings.xml:476
 #: (term)
 #: source/en/tsvn_dug/dug_settings.xml:554
-msgid "%mine"
-msgstr "%mine"
+msgid "%bname"
+msgstr "%bname"
 
 #: source/en/tsvn_dug/dug_settings.xml:478
 #: (para)
-msgid "Your own file, with your changes"
-msgstr "Die Datei mit Ihren eigenen Änderungen"
+#: source/en/tsvn_dug/dug_settings.xml:556
+msgid "The window title for the base file"
+msgstr "Der Fenstertitel für die Originaldatei"
 
 #: source/en/tsvn_dug/dug_settings.xml:484
 #: (term)
 #: source/en/tsvn_dug/dug_settings.xml:562
-msgid "%yname"
-msgstr "%yname"
+msgid "%mine"
+msgstr "%mine"
 
 #: source/en/tsvn_dug/dug_settings.xml:486
 #: (para)
-#: source/en/tsvn_dug/dug_settings.xml:564
+msgid "Your own file, with your changes"
+msgstr "Die Datei mit Ihren eigenen Änderungen"
+
+#: source/en/tsvn_dug/dug_settings.xml:492
+#: (term)
+#: source/en/tsvn_dug/dug_settings.xml:570
+msgid "%yname"
+msgstr "%yname"
+
+#: source/en/tsvn_dug/dug_settings.xml:494
+#: (para)
+#: source/en/tsvn_dug/dug_settings.xml:572
 msgid "The window title for your file"
 msgstr "Der Fenstertitel für Ihre Datei"
 
-#: source/en/tsvn_dug/dug_settings.xml:449
+#: source/en/tsvn_dug/dug_settings.xml:457
 #: (para)
 msgid "An external diff program may be used for comparing different revisions of files. The external program will need to obtain the filenames from the command line, along with any other command line options. TortoiseSVN uses substitution parameters prefixed with <literal>%</literal>. When it encounters one of these it will substitute the appropriate value. The order of the parameters will depend on the Diff program you use. <placeholder-1/>"
 msgstr "Ein externes Diff Programm, mit dem Sie verschiedene Revisionen einer Datei vergleichen können. Die Dateinamen müssen gemeinsam mit anderen Parametern per Kommandozeile übergeben werden. TortoiseSVN verwendet dazu Platzhalter, denen ein <literal>%</literal> vorangestellt wird. Die Reihenfolge der Parameter auf der Kommandozeile hängt von dem von Ihnen verwendeten Diff Programm ab. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_settings.xml:493
+#: source/en/tsvn_dug/dug_settings.xml:501
 #: (para)
 msgid "The window titles are not pure filenames. TortoiseSVN treats that as a name to display and creates the names accordingly. So e.g. if you're doing a diff from a file in revision 123 with a file in your working copy, the names will be <filename>filename : revision 123</filename> and <filename>filename : working copy</filename>"
 msgstr "Bei den Fenstertiteln handelt es sich nicht um reine Dateinamen. TortoiseSVN behandelt sie als Anzeigenamen und stellt den Titel entsprechend zusammen. Wenn Sie z.B. ein Diff zwischen einer Datei in Revision 123 und der Arbeitskopie machen, werden die Titel <filename>Dateiname : Revision 123</filename> und <filename>Dateiname : Arbeitskopie</filename> sein."
 
-#: source/en/tsvn_dug/dug_settings.xml:503
+#: source/en/tsvn_dug/dug_settings.xml:511
 #: (para)
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
@@ -2496,72 +2496,72 @@ msgstr ""
 "oder für KDiff3:\n"
 "<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine --L1 %bname --L2 %yname</screen>"
 
-#: source/en/tsvn_dug/dug_settings.xml:513
+#: source/en/tsvn_dug/dug_settings.xml:521
 #: (para)
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BAsE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
 msgstr "Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben, um Schlüsselwörter, insbesondere die <literal>Revision</literal> einer Datei, zu expandieren, kann ein Unterschied zwischen Dateien entstehen, der nur aus dem aktuellen Wert des Schlüsselwortes besteht. Ebenso wird, wenn Sie <literal>svn:eol-style = native</literal> setzen, die BASE Datei reine <literal>LF</literal> Zeilenenden haben, während Ihre Datei <literal>CR-LF</literal> Zeilenenden besitzt. TortoiseSVN wird diese Unterschiede normalerweise verbergen, indem es zuerst die Schlüsselwörter und Zeilenenden BASE Datei erweitert, bevor die Diff Operation durchgeführt wird. Dies kann bei großen Dateien viel Zeit beanspruchen. Wenn die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel> nicht gewählt ist, wird TortoiseSVN diese Vorbereitungsarbeiten nicht durchführen und damit Zeit sparen."
 
-#: source/en/tsvn_dug/dug_settings.xml:529
+#: source/en/tsvn_dug/dug_settings.xml:537
 #: (title)
 msgid "Merge Tool"
 msgstr "Merge Programm"
 
-#: source/en/tsvn_dug/dug_settings.xml:539
+#: source/en/tsvn_dug/dug_settings.xml:547
 #: (para)
 msgid "the original file without your or the others changes"
 msgstr "Die Originaldatei ohne irgendwelche Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:556
+#: source/en/tsvn_dug/dug_settings.xml:564
 #: (para)
 msgid "your own file, with your changes"
 msgstr "Die Datei mit Ihren eigenen Änderungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:570
+#: source/en/tsvn_dug/dug_settings.xml:578
 #: (term)
 msgid "%theirs"
 msgstr "%theirs"
 
-#: source/en/tsvn_dug/dug_settings.xml:572
+#: source/en/tsvn_dug/dug_settings.xml:580
 #: (para)
 msgid "the file as it is in the repository"
 msgstr "Die Datei mit den letzten Änderungen im Projektarchiv"
 
-#: source/en/tsvn_dug/dug_settings.xml:578
+#: source/en/tsvn_dug/dug_settings.xml:586
 #: (term)
 msgid "%tname"
 msgstr "%tname"
 
-#: source/en/tsvn_dug/dug_settings.xml:580
+#: source/en/tsvn_dug/dug_settings.xml:588
 #: (para)
 msgid "The window title for the file in the repository"
 msgstr "Der Fenstertitel für die Datei im Projektarchiv"
 
-#: source/en/tsvn_dug/dug_settings.xml:586
+#: source/en/tsvn_dug/dug_settings.xml:594
 #: (term)
 msgid "%merged"
 msgstr "%merged"
 
-#: source/en/tsvn_dug/dug_settings.xml:588
+#: source/en/tsvn_dug/dug_settings.xml:596
 #: (para)
 msgid "the conflicted file, the result of the merge operation"
 msgstr "Die Konfliktdatei (das Ergebnis der Zusammenführen Operation)"
 
-#: source/en/tsvn_dug/dug_settings.xml:595
+#: source/en/tsvn_dug/dug_settings.xml:603
 #: (term)
 msgid "%mname"
 msgstr "%mname"
 
-#: source/en/tsvn_dug/dug_settings.xml:597
+#: source/en/tsvn_dug/dug_settings.xml:605
 #: (para)
 msgid "The window title for the merged file"
 msgstr "Der Fenstertitel für die Ergebnisdatei"
 
-#: source/en/tsvn_dug/dug_settings.xml:531
+#: source/en/tsvn_dug/dug_settings.xml:539
 #: (para)
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
 msgstr "Ein externes Merge Programm, mit dem Sie Konflikte in Dateien auflösen können. Die Parameterübergabe an das Programm erfolgt genau so wie beim Diff Programm. <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_settings.xml:604
+#: source/en/tsvn_dug/dug_settings.xml:612
 #: (para)
 msgid ""
 "For example, with Perforce WinMerge: <screen>\n"
@@ -2575,57 +2575,57 @@ msgstr ""
 "oder für KDiff3:\n"
 "<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine %theirs -o %merged</screen>"
 
-#: source/en/tsvn_dug/dug_settings.xml:616
+#: source/en/tsvn_dug/dug_settings.xml:624
 #: (title)
 msgid "Unified Diff Viewer"
 msgstr "Standard Diff Betrachter"
 
-#: source/en/tsvn_dug/dug_settings.xml:618
+#: source/en/tsvn_dug/dug_settings.xml:626
 #: (para)
 msgid "A viewer program for unified-diff files (patch files). If you don't have one the builtin option is to use NotePad. No parameters are required."
 msgstr "Ein Programm um GNU-Diff Dateien (Patch Dateien) zu betrachten. Als Standard ist Notepad eingestellt. Sie brauchen keine Parameter anzugeben."
 
-#: source/en/tsvn_dug/dug_settings.xml:623
+#: source/en/tsvn_dug/dug_settings.xml:631
 #: (para)
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
 msgstr "Das Original Windows Notepad Programm zeigt Zeilenenden, die nicht dem Windows Standard (CR-LF) entsprechen, nicht korrekt an. Da die meisten GNU Diffdateien Unix Zeilenenden (LF) besitzen ist das Resultat entsprechend. Sie können sich jedoch einen kostenlosen Notepad Ersatz <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"> <citetitle>Notepad2</citetitle> </ulink> herunterladen, der nicht nur die Zeilenenden korrekt anzeigt, sondern auch die hinzugefügten und gelöschten Zeilen farblich hervorhebt."
 
-#: source/en/tsvn_dug/dug_settings.xml:638
+#: source/en/tsvn_dug/dug_settings.xml:646
 #: (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr "Diff/Merge Erweiterte Einstellungen"
 
-#: source/en/tsvn_dug/dug_settings.xml:636
+#: source/en/tsvn_dug/dug_settings.xml:644
 #: (para)
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for .jpg files :-)"
 msgstr "<placeholder-1/> Sie können für jede Dateiendung ein eigenes Diff oder Merge-Programm angeben,wenn Sie möchten. So können Sie z.B. Photoshop als <quote>Diff</quote> Programm für .jpg Dateien festlegen :-)"
 
-#: source/en/tsvn_dug/dug_settings.xml:647
+#: source/en/tsvn_dug/dug_settings.xml:655
 #: (title)
 msgid "TortoiseSVN's Sounds"
 msgstr "TortoiseSVN's Sounds"
 
-#: source/en/tsvn_dug/dug_settings.xml:649
+#: source/en/tsvn_dug/dug_settings.xml:657
 #: (primary)
 msgid "sounds"
 msgstr "sounds"
 
-#: source/en/tsvn_dug/dug_settings.xml:654
+#: source/en/tsvn_dug/dug_settings.xml:662
 #: (listitem)
 msgid "Error"
 msgstr "Fehler"
 
-#: source/en/tsvn_dug/dug_settings.xml:657
+#: source/en/tsvn_dug/dug_settings.xml:665
 #: (listitem)
 msgid "Notice"
 msgstr "Hinweis"
 
-#: source/en/tsvn_dug/dug_settings.xml:660
+#: source/en/tsvn_dug/dug_settings.xml:668
 #: (listitem)
 msgid "Warning"
 msgstr "Warnung"
 
-#: source/en/tsvn_dug/dug_settings.xml:651
+#: source/en/tsvn_dug/dug_settings.xml:659
 #: (para)
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel, not the TortoiseSVN settings dialog."
 msgstr "TortoiseSVN liefert drei eigene Töne mit, die automatisch installiert werden. <placeholder-1/> Sie können andere Töne in der <emphasis>Systemsteuerung</emphasis> unter <emphasis>Sounds und Audiogeräte</emphasis> festlegen oder dort auch deaktivieren. In den Einstellungen von TortoiseSVN ist das nicht möglich."
@@ -3905,18 +3905,88 @@ msgstr "Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte
 
 #: source/en/tsvn_dug/dug_ignore.xml:39
 #: (para)
-msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. Read <xref linkend=\"tsvn-DUG-propertypage\"/> for more information."
-msgstr "Wenn Sie einen oder mehrere Einträge aus der <emphasis>Ignorieren</emphasis> Liste entfernen wollen, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Aus Ignorieren Liste entfernen</guimenuitem> </menuchoice>. Sie können auch die <literal>svn:ignore</literal> Eigenschaft des Ordners direkt bearbeiten. Lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/> für weitere Information."
+msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. That allows you to specify more general patterns using filename globbing, described in the section below. Read <xref linkend=\"tsvn-DUG-propertypage\"/> for more information on setting properties directly."
+msgstr "Wenn Sie einen oder mehrere Einträge aus der <emphasis>Ignorieren</emphasis> Liste entfernen wollen, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Aus Ignorieren Liste entfernen</guimenuitem> </menuchoice>. Sie können auch die <literal>svn:ignore</literal> Eigenschaft des Ordners direkt bearbeiten. Dies ermöglicht Ihnen, wie im folgenden Abschnitt beschrieben, mittels Platzhalterzeichen allgemeinere Definitionen vorzunehmen. Lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/> für weitere Information darüber, wie man Eigenschaften direkt setzt."
 
-#: source/en/tsvn_dug/dug_ignore.xml:51
+#: source/en/tsvn_dug/dug_ignore.xml:53
 #: (title)
 msgid "The Global Ignore List"
 msgstr "Die globale Ignorier-Liste"
 
-#: source/en/tsvn_dug/dug_ignore.xml:52
+#: source/en/tsvn_dug/dug_ignore.xml:54
 #: (para)
 msgid "Another way to ignore files is to add them to the <firstterm>global ignore list</firstterm>. The big difference here is that the global ignore list is a client property. It applies to <emphasis>all</emphasis> Subversion projects, but on the client PC only. In general it is better to use the <filename>svn:ignore</filename> property where possible, because it can be applied to specific project areas, and it works for everyone who checks out the project. Read <xref linkend=\"tsvn-DUG-settings-main\"/> for more information."
 msgstr "Eine weiter Möglichkeit Dateien zu ignorieren ist, diese in die <firstterm>globale ignorieren Liste</firstterm> einzutragen. Der große Unterschied besteht darin, dass die globale Liste eine Client Eigenschaft ist. Sie gilt für <emphasis>alle</emphasis> Subversion Projekte, aber nur auf dem jeweiligen Anwender PC. Im allgemeinen ist es besser, die <filename>svn:ignore</filename> Eigenschaft zu verwenden, weil diese für einzelne Projektbereiche gesetzt werden kann und weil sie für jeden, der das Projekt auscheckt, gültig ist. Lesen Sie <xref linkend=\"tsvn-DUG-settings-main\"/> für weitere Information."
+
+#: source/en/tsvn_dug/dug_ignore.xml:67
+#: (title)
+msgid "Filename Globbing in Ignore Lists"
+msgstr "Platzhalter in der Ignorieren-Liste"
+
+#: source/en/tsvn_dug/dug_ignore.xml:69
+#: (primary)
+msgid "globbing"
+msgstr "Platzhalter"
+
+#: source/en/tsvn_dug/dug_ignore.xml:78
+#: (term)
+msgid "*"
+msgstr "*"
+
+#: source/en/tsvn_dug/dug_ignore.xml:80
+#: (para)
+msgid "Matches any string of characters, including the empty string (no characters)."
+msgstr "Steht für eine beliebige (auch leere) Zeichenfolge."
+
+#: source/en/tsvn_dug/dug_ignore.xml:87
+#: (term)
+msgid "?"
+msgstr "?"
+
+#: source/en/tsvn_dug/dug_ignore.xml:89
+#: (para)
+msgid "Matches any single character."
+msgstr "Steht für ein beliebiges einzelnes Zeichen."
+
+#: source/en/tsvn_dug/dug_ignore.xml:95
+#: (term)
+msgid "[...]"
+msgstr "[...]"
+
+#: source/en/tsvn_dug/dug_ignore.xml:97
+#: (para)
+msgid "Matches any one of the characters enclosed in the square brackets. Within the brackets, a pair of characters separated by <quote>-</quote> matches any character lexically between the two. For example <literal>[AGm-p]</literal> matches any one of <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> or <literal>p</literal>."
+msgstr "Steht für eines der Zeichen innerhalb der eckigen Klammern. Zwei durch <quote>-</quote> getrennte Zeichen innerhalb der Klammern stehen für alle Zeichen innerhalb dieses Bereichs. Zum Beispiel steht <literal>[AGm-p]</literal> für <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> oder <literal>p</literal>."
+
+#: source/en/tsvn_dug/dug_ignore.xml:71
+#: (para)
+msgid "Subversion's ignore patterns make use of filename globbing, a technique originally used in Unix to specify files using meta-characters as wildcards. The following characters have special meaning: <placeholder-1/>"
+msgstr "Die Ausschluß-Muster von Subversion verwenden Platzhalter, eine Technik die ursprünglich aus der Unix Welt stammt, um Dateien oder Ordner zu spezifizieren. Folgende Zeichen haben eine besondere Bedeutung: <placeholder-1/>"
+
+#: source/en/tsvn_dug/dug_ignore.xml:111
+#: (para)
+msgid "The globbing is done by Subversion, so the path delimiter is always <literal>/</literal>, not the Windows backslash."
+msgstr "Die Expansion der Platzhalter wird von Subversion durchgeführt, so dass das Pfadtrennzeichen stets <literal>/</literal> ist und nicht, wie von Windows gewohnt <literal>\\</literal>."
+
+#: source/en/tsvn_dug/dug_ignore.xml:115
+#: (para)
+msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, eg. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
+msgstr "Die Platzhaltersuche beachtet Groß-/Kleinschreibung, was unter Windows zu Problemen führen kann. Sie können auf die harte Tour erzwingen, dass Groß-/Kleinschreibung ignoriert wird, indem Sie Buchstabenpaare angeben Um z.B. <literal>*.tmp</literal> auszuschließen <literal>*.[Tt][Mm][Pp]</literal>."
+
+#: source/en/tsvn_dug/dug_ignore.xml:122
+#: (para)
+msgid "If directory names are present in a path, they are included in the matching, so pattern <literal>Fred.*</literal> will match <literal>Fred.c</literal> but not <literal>subdir/Fred.c</literal>. This is significant if you add a folder containing some files that you want to be ignored, because those filenames will be preceded with the folder name."
+msgstr "Falls Verzeichnisnamen in einem Pfad vorkommen, werden sie in die Platzhaltersuche eingeschlossen. Das Muster <literal>Fred.*</literal> stimmt mit <literal>Fred.c</literal> überein, aber nicht mit <literal>subdir/Fred.c</literal>. Dies spielt dann eine Rolle, wenn Sie einen Ordner hinzufügen, der Dateien enthält, die Sie ignorieren wollen, weil den Dateinamen der Ordnername vorangestellt wird."
+
+#: source/en/tsvn_dug/dug_ignore.xml:130
+#: (para)
+msgid "To ignore all <literal>CVS</literal> folders you should either specify a pattern of <literal>*CVS</literal> or better, the pair <literal>CVS */CVS</literal>. The first option works, but would also exclude something called <literal>ThisIsNotCVS</literal>. Using <literal>*/CVS</literal> alone will not work on an immediate child <literal>CVS</literal> folder, and <literal>CVS</literal> alone will not work on subfolders."
+msgstr "Um z.B. alle <literal>CVS</literal> Ordner zu ignorieren, sollten Sie entweder das Muster <literal>*CVS</literal> oder noch besser, das Paar <literal>CVS */CVS</literal> angeben. Die erste Variante funktioniert, würde aber auch <literal>ThisIsNotCVS</literal> ausschließen. <literal>*/CVS</literal> alleine schließt direkte <literal>CVS</literal> Unterordner nicht aus, und <literal>CVS</literal> alleine würde nur diese, aber keine weiteren Unterordner ausschließen."
+
+#: source/en/tsvn_dug/dug_ignore.xml:139
+#: (para)
+msgid "If you want an official definition for globbing, you can find it in the IEEE specifications for the shell command language <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
+msgstr "Eine offizielle Definition für Platzhalterzeichen findet sich in der IEEE für die <quote>Shell Command Language</quote> im Abschnitt <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_general.xml:3
 #: (title)
@@ -6764,8 +6834,8 @@ msgstr "Kopieren Sie die Datei an einen sicheren Ort, nicht innerhalb der Arbeit
 
 #: source/en/tsvn_app_howto.xml:469
 #: (para)
-msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and automatically schedule it for deletion from the repository."
-msgstr "<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen...</guimenuitem> </menuchoice> Sie den Übergeordneten Ordner. TortoiseSVN wird erkennen, dass die Datei fehlt und diese automatisch bei der Übertragung löschen."
+msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and you can mark it for deletion from the repository."
+msgstr "<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen</guimenuitem> </menuchoice> Sie den übergeordneten Ordner. TortoiseSVN wird die fehlende Datei anzeigen, und Sie können die Datei zum Löschen aus dem Projektarchiv markieren."
 
 #: source/en/tsvn_app_howto.xml:480
 #: (para)
@@ -8271,7 +8341,7 @@ msgstr "Strg-T"
 #: source/en/tme_appa.xml:95
 #: (para)
 msgid "Toggles between showing whitespaces or not"
-msgstr "Zeigt Platzhalter für Unsichtbare Zeichen an oder nicht"
+msgstr "Zeigt Platzhalter für nicht druckbare Zeichen an oder nicht"
 
 #: source/en/glossary.xml:7
 #: (title)
