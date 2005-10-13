@@ -94,7 +94,7 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_AUTOCSETIGNORECASE, 1);
 	Call(SCI_SETLEXER, SCLEX_CONTAINER);
 	Call(SCI_SETCODEPAGE, SC_CP_UTF8);
-	Call(SCI_AUTOCSETFILLUPS, 0, (LPARAM)"([");
+	Call(SCI_AUTOCSETFILLUPS, 0, (LPARAM)"\t([");
 	Call(SCI_AUTOCSETMAXWIDTH, 0);
 	//Set the default windows colors for edit controls
 	Call(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
@@ -548,7 +548,7 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				SuggestSpellingAlternatives();
 				return;
 			}
-			else
+			else if (!Call(SCI_AUTOCACTIVE))
 			{
 				::PostMessage(GetParent()->GetSafeHwnd(), WM_NEXTDLGCTL, GetKeyState(VK_SHIFT)&0x8000, 0);
 				return;
