@@ -90,6 +90,8 @@ public:
 	char			action;
 	int				level;
 	CPtrArray		sourcearray;
+	int				leftconnections;
+	int				rightconnections;
 };
 
 class CRevisionGraph
@@ -100,6 +102,8 @@ public:
 	BOOL						FetchRevisionData(CString path);
 	BOOL						AnalyzeRevisionData(CString path);
 	virtual BOOL				ProgressCallback(CString text1, CString text2, DWORD done, DWORD total);
+	
+	
 	CString						GetLastErrorMessage();
 	CPtrArray					m_arEntryPtrs;
 
@@ -113,6 +117,13 @@ private:
 	BOOL						AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev);
 	BOOL						CheckForwardCopies();
 	BOOL						IsParentOrItself(const char * parent, const char * child) const;
+	char *						GetUrlInRevision(const char * url, LONG pegrev, LONG rev);
+	char *						GetRename(const char * url, LONG rev);
+
+#ifdef DEBUG	
+	void						PrintDebugInfo();
+#endif
+
 	static int __cdecl			SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 	static int __cdecl			SortCompareSourceEntry(const void * pElem1, const void * pElem2);	///< sort callback function
 	CStringA					m_sRepoRoot;
