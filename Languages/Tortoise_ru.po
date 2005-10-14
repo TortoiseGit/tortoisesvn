@@ -29,15 +29,16 @@
 # repository -- Хранилище
 # overlays -- пометки (на значках)
 # resolve -- улаживать
+# Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Исправлено и дополнено до версии 4599: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 4629: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-11 15:41+0300\n"
+"PO-Revision-Date: 2005-10-14 11:35+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -454,11 +455,11 @@ msgstr "HEAD-ревизии в &Хранилище"
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
-msgstr "&Помощь"
+msgstr "&Справка"
 
 #: MenuEntry
 msgid "&Help Topics"
-msgstr "&Разделы Помощи"
+msgstr "&Разделы Справки"
 
 # ID:3842,#:
 # ID:3842,
@@ -861,17 +862,37 @@ msgstr ": Рабочая копия"
 # ID:88,
 #: ID:88
 msgid ""
-"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct your working copy to another repository or branch,\n"
-"this <b>will corrupt your working copy!</b>\n"
-"To associate your working copy with another branch, use the Switch command.\n"
-"Are you sure you want to relocate?"
+"<b>ATTENTION:</b>\n"
+"The Relocate command is only used if the URL of the\n"
+"repository root has changed due to a server IP address change, protocol\n"
+"change (e.g. http:// to https://) or a change of the repository root\n"
+"path in the server setup.\n"
+"<b>This is a very infrequently used operation</b> and applies neither if you\n"
+"want to move to another Subversion repository nor if you want to switch\n"
+"to another branch or directory <b>within the same repository.</b>\n"
+"To move to another Subversion repository, perform a clean checkout from\n"
+"the new repository location.\n"
+"To associate your working copy with another branch or another directory\n"
+"within the same repository, use the Switch command from the main menu\n"
+"\n"
+"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
+"If you are unsure whether Relocate is the correct operation, it probably\n"
+"is not and you should consult <b>Help</b>."
 msgstr ""
-"<b>ВНИМАНИЕ:</b> Используйте команду 'Переместить' только в том случае если оригинальное Хранилище было перемещено на новый URL.\n"
-"Если Вы используете команду 'Переместить' для перенаправления рабочей копии на другое Хранилище или ответвление,\n"
-"то это <b>повредит Вашу рабочую копию!</b>\n"
-"Чтобы связать Вашу рабочую копию с другим ответвлением используйте команду 'Переключить'.\n"
-"Вы уверены, что хотите переместить?"
+"<b>ВНИМАНИЕ:</b>\n"
+"Команда 'Переместить' используется только в случае, если URL корня Хранилища изменился\n"
+"по причине изменения IP-адреса сервера, протокола (например, с http:// на https://) или из-за\n"
+"изменения пути корня Хранилища в настройках сервера.\n"
+"<b>Это очень редко используемая операция</b> и не применяется в случаях, когда Вы желаете\n"
+" перейти к другому Хранилищу Subversion, или когда Вы хотите переключиться на другое\n"
+"ответвление или папку <b>в рамках этого же Хранилища</b>.\n"
+"Для перехода к другому Хранилищу Subversion, выполните свежее извлечение из нового Хранилища.\n"
+"Чтобы связать Вашу рабочую копию с другим ответвлением или папкой в рамках того же Хранилища,\n"
+" используйте команду 'Переключить' из контекстного меню.\n"
+"\n"
+"Неподходящее использование команды 'Переместить' <b>повредит Вашу рабочую копию!</b>\n"
+"Если Вы не уверены в том, что 'Переместить' - правильная операция, то, вероятно, это не то, что\n"
+"Вам надо, и Вам необходимо обратиться к <b>Справке</b>."
 
 # ID:145,
 #: ID:145
@@ -2094,8 +2115,8 @@ msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr ""
-"Показать помощь по кнопкам, меню и окнам\n"
-"Помощь"
+"Показать справку по кнопкам, меню и окнам\n"
+"Справка"
 
 # ID:3605,
 #: ID:3605
@@ -2103,8 +2124,8 @@ msgid ""
 "Display help for current task or command\n"
 "Help"
 msgstr ""
-"Показать помощь по текущей задаче или команде\n"
-"Помощь"
+"Показать справку по текущей задаче или команде\n"
+"Справка"
 
 # ID:3605,
 #: ID:3605
@@ -2112,8 +2133,8 @@ msgid ""
 "Display instructions about how to use help\n"
 "Help"
 msgstr ""
-"Показать инструкции по использованию помощи\n"
-"Помощь"
+"Показать инструкции по использованию справки\n"
+"Справка"
 
 # ID:3605,
 #: ID:3605
@@ -2425,7 +2446,7 @@ msgstr "Не удалось создать пустой документ."
 # ID:3857,
 #: ID:3857
 msgid "Failed to launch help."
-msgstr "Не удалось запустить помощь."
+msgstr "Не удалось запустить справку."
 
 # ID:3857,#:
 # ID:3857,
@@ -2501,7 +2522,7 @@ msgstr "Выполнено!"
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1"
-msgstr "Для помощи нажмите F1"
+msgstr "Для справки нажмите F1"
 
 # Control-ID:65535,
 #: Control-ID:1200
@@ -2639,7 +2660,7 @@ msgstr "&Скрыть несвязанные изменённые пути"
 # Control-ID:1004,
 #: Control-ID:1004
 msgid "Help"
-msgstr "Помощь"
+msgstr "Справка"
 
 # Control-ID:1127,
 #: Control-ID:1127
@@ -2907,8 +2928,8 @@ msgid ""
 "List Help topics\n"
 "Help Topics"
 msgstr ""
-"Показать разделы помощи\n"
-"Разделы помощи"
+"Показать разделы справки\n"
+"Разделы справки"
 
 # ID:63,
 #: ID:63
@@ -3394,8 +3415,8 @@ msgid ""
 "Opens Help\n"
 "Help Topics"
 msgstr ""
-"Отрывает помощь\n"
-"Разделы помощи"
+"Отрывает справку\n"
+"Разделы справки"
 
 # ID:13,
 #: ID:13
@@ -4204,7 +4225,7 @@ msgstr "Выбрать клиент SSH"
 # ID:3585,
 #: ID:3585
 msgid "Select an object on which to get Help"
-msgstr "Выберите объект, по которому надо получить помощь"
+msgstr "Выберите объект, по которому надо получить справку"
 
 # ID:78,
 #: ID:78
