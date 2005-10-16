@@ -77,15 +77,13 @@ protected:
 	CRect			m_ViewRect;
 	CPtrArray		m_arConnections;
 	CDWordArray		m_arVertPositions;
-	CArray<CRect, CRect> m_arNodeList;
-	CDWordArray		m_arNodeRevList;
 	
 	std::multimap<source_entry*, CRevisionEntry*>		m_targetsbottom;
 	std::multimap<source_entry*, CRevisionEntry*>		m_targetsright;
 
 	
-	LONG			m_lSelectedRev1;
-	LONG			m_lSelectedRev2;
+	CRevisionEntry * m_SelectedEntry1;
+	CRevisionEntry * m_SelectedEntry2;
 	LOGFONT			m_lfBaseFont;
 	CFont *			m_apFonts[MAXFONTS];
 	int				m_nFontSize;

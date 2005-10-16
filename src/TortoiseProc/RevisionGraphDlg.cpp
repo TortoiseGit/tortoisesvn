@@ -44,30 +44,29 @@ using namespace Gdiplus;
 IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CResizableStandAloneDialog)
 CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
+	, m_SelectedEntry1(NULL)
+	, m_SelectedEntry2(NULL)
+	, m_bThreadRunning(false)
+	, m_pDlgTip(NULL)
+	, m_bNoGraph(false)
+	, m_nFontSize(12)
+	, m_node_rect_width(NODE_RECT_WIDTH)
+	, m_node_space_left(NODE_SPACE_LEFT)
+	, m_node_space_right(NODE_SPACE_RIGHT)
+	, m_node_space_line(NODE_SPACE_LINE)
+	, m_node_rect_heigth(NODE_RECT_HEIGTH)
+	, m_node_space_top(NODE_SPACE_TOP)
+	, m_node_space_bottom(NODE_SPACE_BOTTOM)
+	, m_RoundRectPt(ROUND_RECT, ROUND_RECT)
+	, m_nZoomFactor(10)
+	, m_hAccel(NULL)
 {
-	m_bThreadRunning = FALSE;
-	m_lSelectedRev1 = -1;
-	m_lSelectedRev2 = -1;
-	m_pDlgTip = NULL;
-	m_bNoGraph = FALSE;
-
 	m_ViewRect.SetRectEmpty();
 	
-	m_nFontSize = 12;
-	m_node_rect_width = NODE_RECT_WIDTH;
-	m_node_space_left = NODE_SPACE_LEFT;
-	m_node_space_right = NODE_SPACE_RIGHT;
-	m_node_space_line = NODE_SPACE_LINE;
-	m_node_rect_heigth = NODE_RECT_HEIGTH;
-	m_node_space_top = NODE_SPACE_TOP;
-	m_node_space_bottom = NODE_SPACE_BOTTOM;
-	m_RoundRectPt = CPoint(ROUND_RECT, ROUND_RECT);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		m_apFonts[i] = NULL;
 	}
-	m_nZoomFactor = 10;
-	m_hAccel = 0;
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -488,8 +487,6 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	if (end > m_arEntryPtrs.GetCount())
 		end = m_arEntryPtrs.GetCount();
 
-	m_arNodeList.RemoveAll();
-	m_arNodeRevList.RemoveAll();
 	for ( ; i<end; ++i)
 	{
 		CRevisionEntry * entry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
@@ -502,23 +499,22 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		switch (entry->action)
 		{
 		case CRevisionEntry::deleted:
-			DrawNode(memDC, noderect, RGB(255,0,0), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
+			DrawNode(memDC, noderect, RGB(255,0,0), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
 			break;
 		case CRevisionEntry::added:
-			DrawNode(memDC, noderect, RGB(0,255,0), entry, TSVNRoundRect, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
+			DrawNode(memDC, noderect, RGB(0,255,0), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
 			break;
 		case CRevisionEntry::replaced:
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
+			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
 			break;
 		case CRevisionEntry::renamed:
-			DrawNode(memDC, noderect, RGB(0,0,255), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
+			DrawNode(memDC, noderect, RGB(0,0,255), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
 			break;
 		default:
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRectangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
+			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRectangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
 			break;
 		}
-		m_arNodeList.Add(noderect);
-		m_arNodeRevList.Add(entry->revision);
+		entry->drawrect = noderect;
 	}
 	DrawConnections(memDC, rect, nVScrollPos, nHScrollPos);
 	if (!bDirectDraw)
@@ -1054,33 +1050,34 @@ void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	bool bHit = false;
-	for (INT_PTR i=0; i<m_arNodeList.GetCount(); ++i)
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
-		if (m_arNodeList.GetAt(i).PtInRect(point))
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		if (reventry->drawrect.PtInRect(point))
 		{
-			if (m_lSelectedRev1 == (LONG)m_arNodeRevList.GetAt(i))
-				m_lSelectedRev1 = -1;
-			else if (m_lSelectedRev2 == (LONG)m_arNodeRevList.GetAt(i))
-				m_lSelectedRev2 = -1;
-			else if (m_lSelectedRev1 < 0)
-				m_lSelectedRev1 = m_arNodeRevList.GetAt(i);
-			else if (m_lSelectedRev2 < 0)
-				m_lSelectedRev2 = m_arNodeRevList.GetAt(i);
+			if (m_SelectedEntry1 == reventry)
+				m_SelectedEntry1 = NULL;
+			else if (m_SelectedEntry2 == reventry)
+				m_SelectedEntry2 = NULL;
+			else if (m_SelectedEntry1 == 0)
+				m_SelectedEntry1 = reventry;
+			else if (m_SelectedEntry2 == 0)
+				m_SelectedEntry2 = reventry;
 			else
-				m_lSelectedRev2 = m_arNodeRevList.GetAt(i);
+				m_SelectedEntry2 = reventry;
 			bHit = true;
 			Invalidate();
 		}
 	}
 	if (!bHit)
 	{
-		m_lSelectedRev1 = -1;
-		m_lSelectedRev2 = -1;
+		m_SelectedEntry1 = NULL;
+		m_SelectedEntry2 = NULL;
 		Invalidate();
 	}
 	
 	UINT uEnable = MF_BYCOMMAND;
-	if ((m_lSelectedRev2 >= 0)&&(m_lSelectedRev1 >= 0))
+	if ((m_SelectedEntry1 != NULL)&&(m_SelectedEntry2 != NULL))
 		uEnable |= MF_ENABLED;
 	else
 		uEnable |= MF_GRAYED;
@@ -1095,9 +1092,10 @@ void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
 
 INT_PTR CRevisionGraphDlg::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
-	for (INT_PTR i=0; i<m_arNodeList.GetCount(); ++i)
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
-		if (m_arNodeList.GetAt(i).PtInRect(point))
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		if (reventry->drawrect.PtInRect(point))
 		{
 			pTI->hwnd = this->m_hWnd;
 			this->GetClientRect(&pTI->rect);
@@ -1123,11 +1121,12 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 	ScreenToClient(&point);
 	if (pNMHDR->idFrom == (UINT)m_hWnd)
 	{
-		for (INT_PTR i=0; i<m_arNodeList.GetCount(); ++i)
+		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 		{
-			if (m_arNodeList.GetAt(i).PtInRect(point))
+			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+			if (reventry->drawrect.PtInRect(point))
 			{
-				rentry = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_arNodeRevList.GetAt(i)));
+				rentry = reventry;
 			}
 		}
 		if (rentry)
@@ -1441,17 +1440,15 @@ BOOL CRevisionGraphDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
 void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
-	if ((m_lSelectedRev1 < 0)||(m_lSelectedRev2 < 0))
+	if ((m_SelectedEntry1 == NULL)||(m_SelectedEntry2 == NULL))
 		return;
 	CMenu popup;
 	if (popup.CreatePopupMenu())
 	{
-		CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
-		CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
-		if ((entry1->action == 'D')||(entry2->action == 'D'))
+		if ((m_SelectedEntry1->action == CRevisionEntry::deleted)||(m_SelectedEntry2->action == CRevisionEntry::deleted))
 			return;	// we can't compare with deleted items
 
-		bool bSameURL = (strcmp(entry1->url, entry2->url)==0);
+		bool bSameURL = (strcmp(m_SelectedEntry1->url, m_SelectedEntry2->url)==0);
 		CString temp;
 		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
@@ -1490,11 +1487,8 @@ void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 void CRevisionGraphDlg::CompareRevs(bool bHead)
 {
-	ASSERT(m_lSelectedRev1 >= 0);
-	ASSERT(m_lSelectedRev2 >= 0);
-
-	CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
-	CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+	ASSERT(m_SelectedEntry1 != NULL);
+	ASSERT(m_SelectedEntry2 != NULL);
 
 	SVN svn;
 	CString sRepoRoot;
@@ -1505,24 +1499,21 @@ void CRevisionGraphDlg::CompareRevs(bool bHead)
 
 	CTSVNPath url1;
 	CTSVNPath url2;
-	url1.SetFromSVN(sRepoRoot+CString(entry1->url));
-	url2.SetFromSVN(sRepoRoot+CString(entry2->url));
+	url1.SetFromSVN(sRepoRoot+CString(m_SelectedEntry1->url));
+	url2.SetFromSVN(sRepoRoot+CString(m_SelectedEntry2->url));
 
-	SVNRev peg = (SVNRev)(bHead ? entry1->revision : SVNRev());
+	SVNRev peg = (SVNRev)(bHead ? m_SelectedEntry1->revision : SVNRev());
 
 	SVNDiff diff(&svn, this->m_hWnd);
-	diff.ShowCompare(url1, (bHead ? SVNRev::REV_HEAD : entry1->revision),
-		url2, (bHead ? SVNRev::REV_HEAD : entry2->revision),
+	diff.ShowCompare(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
+		url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->revision),
 		peg);
 }
 
 void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
 {
-	ASSERT(m_lSelectedRev1 >= 0);
-	ASSERT(m_lSelectedRev2 >= 0);
-
-	CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
-	CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+	ASSERT(m_SelectedEntry1 != NULL);
+	ASSERT(m_SelectedEntry2 != NULL);
 
 	SVN svn;
 	CString sRepoRoot;
@@ -1533,13 +1524,13 @@ void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
 
 	CTSVNPath url1;
 	CTSVNPath url2;
-	url1.SetFromSVN(sRepoRoot+CString(entry1->url));
-	url2.SetFromSVN(sRepoRoot+CString(entry2->url));
+	url1.SetFromSVN(sRepoRoot+CString(m_SelectedEntry1->url));
+	url2.SetFromSVN(sRepoRoot+CString(m_SelectedEntry2->url));
 
 	SVNDiff diff(&svn, this->m_hWnd);
-	diff.ShowUnifiedDiff(url1, (bHead ? SVNRev::REV_HEAD : entry1->revision),
-						 url2, (bHead ? SVNRev::REV_HEAD : entry2->revision),
-						 entry1->revision);
+	diff.ShowUnifiedDiff(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
+						 url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->revision),
+						 m_SelectedEntry1->revision);
 }
 
 CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder)
@@ -1547,11 +1538,8 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	theApp.DoWaitCursor(1);
 	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(_T("test.diff")));
 	// find selected objects
-	ASSERT(m_lSelectedRev1 >= 0);
-	ASSERT(m_lSelectedRev2 >= 0);
-	
-	CRevisionEntry * entry1 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev1));
-	CRevisionEntry * entry2 = (CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(m_lSelectedRev2));
+	ASSERT(m_SelectedEntry1 != NULL);
+	ASSERT(m_SelectedEntry2 != NULL);
 	
 	// find out if m_sPath points to a file or a folder
 	if (SVN::PathIsURL(m_sPath))
@@ -1577,8 +1565,8 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 
 	CTSVNPath url1;
 	CTSVNPath url2;
-	url1.SetFromSVN(sRepoRoot+CString(entry1->url));
-	url2.SetFromSVN(sRepoRoot+CString(entry2->url));
+	url1.SetFromSVN(sRepoRoot+CString(m_SelectedEntry1->url));
+	url2.SetFromSVN(sRepoRoot+CString(m_SelectedEntry2->url));
 	CTSVNPath url1_temp = url1;
 	CTSVNPath url2_temp = url2;
 	INT_PTR iMax = min(url1_temp.GetSVNPathString().GetLength(), url2_temp.GetSVNPathString().GetLength());
@@ -1595,9 +1583,9 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	
 	if (url1.IsEquivalentTo(url2))
 	{
-		if (!svn.PegDiff(url1, SVNRev(entry1->revision), 
-			bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry1->revision), 
-			bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry2->revision), 
+		if (!svn.PegDiff(url1, SVNRev(m_SelectedEntry1->revision), 
+			bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry1->revision), 
+			bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry2->revision), 
 			TRUE, TRUE, FALSE, FALSE, CString(), tempfile))
 		{
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1607,8 +1595,8 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	}
 	else
 	{
-		if (!svn.Diff(url1, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry1->revision), 
-			url2, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(entry2->revision), 
+		if (!svn.Diff(url1, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry1->revision), 
+			url2, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry2->revision), 
 			TRUE, TRUE, FALSE, FALSE, CString(), false, tempfile))
 		{
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);		

@@ -113,6 +113,8 @@ public:
 	int				bottomconnectionsleft;
 	int				rightlinesleft;
 	int				bottomlinesleft;
+	
+	CRect			drawrect;
 };
 
 class CRevisionGraph
