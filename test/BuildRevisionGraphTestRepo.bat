@@ -156,7 +156,28 @@ svn ci -m "mess up"
 
 :: revision 31
 
+svn cp Ordner2 Ordner5
+svn cp Ordner2 Ordner6
+svn cp Ordner2 Ordner7
+svn cp Ordner2 Ordner8
+svn cp Ordner2 Ordner9
+svn cp Ordner2 Ordner10
+svn cp Ordner folder1
+svn cp Ordner folder2
+svn ci -m ""
 
+:: revision 32
+
+svn mv Ordner testOrdner
+svn mv Ordner2 Ordner22
+svn ci -m ""
+
+:: revision 33
+
+svn mv testOrdner Ordner
+svn ci -m ""
+
+:: revision 34
 
 cd ..
 cd ..
