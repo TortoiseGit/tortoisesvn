@@ -293,7 +293,7 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 				{
 					if (val->copyfrom_path)
 					{
-						currentrev = val->copyfrom_rev;
+						currentrev = val->copyfrom_rev+1;
 						// TODO: adjust the realurl to match the real path,
 						// because copyfrom_path could be a parent path
 						realurl = val->copyfrom_path;
@@ -540,6 +540,7 @@ CRevisionEntry * CRevisionGraph::GetRevisionEntry(const char * path, svn_revnum_
 
 bool CRevisionGraph::Cleanup(CStringA url)
 {
+	PrintDebugInfo();
 	// step one: remove all entries which aren't marked as in use
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
@@ -609,7 +610,7 @@ bool CRevisionGraph::Cleanup(CStringA url)
 				// same level and url, now connect those two
 				// but first check if they're not already connected!
 				BOOL bConnected = FALSE;
-				if (reventry->action != 'D')
+				if ((reventry->action != CRevisionEntry::deleted)&&(reventry->action != CRevisionEntry::added))
 				{
 					for (INT_PTR k=0; k<reventry->sourcearray.GetCount(); ++k)
 					{
