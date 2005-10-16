@@ -55,7 +55,13 @@ enum NodeShape
 #define ID_UNIDIFFREVS 3
 #define ID_UNIDIFFHEADS 4
 
-
+/**
+ * \ingroup TortoiseProc
+ * A dialog showing a revision graph.
+ *
+ * The analyzation of the log data is done in the child class CRevisionGraph.
+ * Here, we handle the drawing.
+ */
 class CRevisionGraphDlg : public CResizableStandAloneDialog, public CRevisionGraph //CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRevisionGraphDlg)
