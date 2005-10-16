@@ -76,22 +76,43 @@ struct source_entry
 class CRevisionEntry
 {
 public:
+	enum Action
+	{
+		nothing,
+		modified,
+		deleted,
+		added,
+		renamed,
+		replaced
+	};
 	//methods
 	CRevisionEntry(void) : revision(0), url(NULL), author(NULL), date(0),
-		message(NULL), pathfrom(NULL), revisionfrom(0), action(' '), level(1){};
+		message(NULL), action(nothing), level(1), bUsed(false),
+		leftconnections(0),	rightconnections(0), bottomconnections(0),
+		rightlines(0), bottomlines(0),
+		leftconnectionsleft(0),	rightconnectionsleft(0), bottomconnectionsleft(0),
+		rightlinesleft(0), bottomlinesleft(0) {};
 	//members
 	LONG			revision;
 	const char *	url;
 	const char *	author;
 	apr_time_t		date;
 	const char *	message;
-	const char *	pathfrom;
-	LONG			revisionfrom;
-	char			action;
+	Action			action;
 	int				level;
 	CPtrArray		sourcearray;
+	bool			bUsed;
 	int				leftconnections;
 	int				rightconnections;
+	int				bottomconnections;
+	int				rightlines;
+	int				bottomlines;
+
+	int				leftconnectionsleft;
+	int				rightconnectionsleft;
+	int				bottomconnectionsleft;
+	int				rightlinesleft;
+	int				bottomlinesleft;
 };
 
 class CRevisionGraph
@@ -105,6 +126,7 @@ public:
 	
 	
 	CString						GetLastErrorMessage();
+	static bool					IsParentOrItself(const char * parent, const char * child);
 	CPtrArray					m_arEntryPtrs;
 
 	BOOL						m_bCancelled;
@@ -114,17 +136,22 @@ public:
 	SVNPrompt					m_prompt;
 
 private:
-	BOOL						AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev);
-	BOOL						CheckForwardCopies();
-	BOOL						IsParentOrItself(const char * parent, const char * child) const;
-	char *						GetUrlInRevision(const char * url, LONG pegrev, LONG rev);
+	bool						BuildForwardCopies();
+	bool						AnalyzeRevisions(CStringA url, svn_revnum_t startrev);
+	bool						Cleanup(CStringA url);
+	
+	bool						SetCopyTo(const char * copyfrom_path, svn_revnum_t copyfrom_rev, 
+											const char * copyto_path, svn_revnum_t copyto_rev);
+	CRevisionEntry *			GetRevisionEntry(const char * path, svn_revnum_t rev, 
+													bool bCreate = true);
 	char *						GetRename(const char * url, LONG rev);
 
 #ifdef DEBUG	
 	void						PrintDebugInfo();
 #endif
 
-	static int __cdecl			SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
+	static int __cdecl			SortCompareRevUrl(const void * pElem1, const void * pElem2);	///< sort callback function
+	static int __cdecl			SortCompareRevLevels(const void * pElem1, const void * pElem2);	///< sort callback function
 	static int __cdecl			SortCompareSourceEntry(const void * pElem1, const void * pElem2);	///< sort callback function
 	CStringA					m_sRepoRoot;
 	LONG						m_lHeadRevision;

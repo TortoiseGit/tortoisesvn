@@ -244,6 +244,18 @@ INT_PTR CRevisionGraphDlg::GetIndexOfRevision(LONG rev) const
 	return -1;
 }
 
+INT_PTR CRevisionGraphDlg::GetIndexOfRevision(source_entry * sentry)
+{
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		if (((CRevisionEntry*)m_arEntryPtrs.GetAt(i))->revision == sentry->revisionto)
+			if (IsParentOrItself(sentry->pathto, ((CRevisionEntry*)m_arEntryPtrs.GetAt(i))->url))
+				return i;
+	}
+	ATLTRACE("no entry for %s - revision %ld\n", sentry->pathto, sentry->revisionto);
+	return -1;
+}
+
 /************************************************************************/
 /* Graphing functions                                                   */
 /************************************************************************/
@@ -481,21 +493,25 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	for ( ; i<end; ++i)
 	{
 		CRevisionEntry * entry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		int vertpos = m_arVertPositions[i];
 		CRect noderect;
-		noderect.top = i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - nVScrollPos;
+		noderect.top = vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top - nVScrollPos;
 		noderect.bottom = noderect.top + m_node_rect_heigth;
 		noderect.left = (entry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - nHScrollPos;
 		noderect.right = noderect.left + m_node_rect_width;
 		switch (entry->action)
 		{
-		case 'D':
+		case CRevisionEntry::deleted:
+			DrawNode(memDC, noderect, RGB(255,0,0), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
+			break;
+		case CRevisionEntry::added:
+			DrawNode(memDC, noderect, RGB(0,255,0), entry, TSVNRoundRect, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
+			break;
+		case CRevisionEntry::replaced:
 			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
 			break;
-		case 'A':
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRoundRect, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
-			break;
-		case 'R':
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
+		case CRevisionEntry::renamed:
+			DrawNode(memDC, noderect, RGB(0,0,255), entry, TSVNOctangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
 			break;
 		default:
 			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRectangle, ((m_lSelectedRev1==entry->revision)||(m_lSelectedRev2==entry->revision)));
@@ -509,151 +525,287 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		delete memDC;
 }
 
+void CRevisionGraphDlg::MarkSpaceLines(source_entry * entry, int level, svn_revnum_t startrev, svn_revnum_t endrev)
+{
+	int maxright = 0;
+	int maxbottom = 0;
+	std::set<CRevisionEntry*> rightset;
+	std::set<CRevisionEntry*> bottomset;
+	
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		bool incremented = false;
+		if (reventry->level == level)
+		{
+			if ((reventry->revision >= startrev)&&(reventry->revision <= endrev))
+			{
+				reventry->rightlines++;
+				incremented = true;
+				maxright = max(reventry->rightlines, maxright);
+				rightset.insert(reventry);
+			}
+			else if (reventry->revision < startrev)
+			{
+				for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
+				{
+					source_entry * sentry = (source_entry*)reventry->sourcearray[j];
+					for (std::set<CRevisionEntry*>::iterator it = rightset.begin(); it!= rightset.end(); ++it)
+					{
+						if ((sentry->revisionto >= (*it)->revision)&&(!incremented))
+						{
+							reventry->rightlines++;
+							incremented = true;
+							maxright = max(reventry->rightlines, maxright);
+							rightset.insert(reventry);
+						}
+					}
+				}
+			}
+		}
+		if (reventry->revision == endrev)
+		{
+			if (reventry->level > level)
+			{
+				reventry->bottomlines++;
+				maxbottom = max(reventry->bottomlines, maxbottom);
+				bottomset.insert(reventry);
+			}
+		}
+	}
+	
+	for (std::set<CRevisionEntry*>::iterator it=rightset.begin(); it!=rightset.end(); ++it)
+	{
+		m_targetsright.insert(std::pair<source_entry*, CRevisionEntry*>(entry, (*it)));
+	}
+	for (std::set<CRevisionEntry*>::iterator it=bottomset.begin(); it!=bottomset.end(); ++it)
+	{
+		m_targetsbottom.insert(std::pair<source_entry*, CRevisionEntry*>(entry, (*it)));
+	}
+
+	std::multimap<source_entry*, CRevisionEntry*>::iterator beginright = m_targetsright.lower_bound(entry);
+	std::multimap<source_entry*, CRevisionEntry*>::iterator endright = m_targetsright.upper_bound(entry);
+	std::multimap<source_entry*, CRevisionEntry*>::iterator beginbottom = m_targetsbottom.lower_bound(entry);
+	std::multimap<source_entry*, CRevisionEntry*>::iterator endbottom = m_targetsbottom.upper_bound(entry);
+
+	for (std::multimap<source_entry*, CRevisionEntry*>::iterator it = beginright; it!=endright; ++it)
+	{
+		(it->second)->rightlines = maxright;
+	}
+
+	for (std::multimap<source_entry*, CRevisionEntry*>::iterator it = beginbottom; it!=endbottom; ++it)
+	{
+		(it->second)->bottomlines = maxbottom;
+	}
+}
+
+void CRevisionGraphDlg::DecrementSpaceLines(source_entry * entry)
+{
+	
+	std::multimap<source_entry*, CRevisionEntry*>::iterator beginright = m_targetsright.lower_bound(entry);
+	std::multimap<source_entry*, CRevisionEntry*>::iterator endright = m_targetsright.upper_bound(entry);
+	std::multimap<source_entry*, CRevisionEntry*>::iterator beginbottom = m_targetsbottom.lower_bound(entry);
+	std::multimap<source_entry*, CRevisionEntry*>::iterator endbottom = m_targetsbottom.upper_bound(entry);
+	
+	for (std::multimap<source_entry*, CRevisionEntry*>::iterator it = beginright; it!=endright; ++it)
+	{
+		(it->second)->rightlinesleft--;
+	}
+	
+	for (std::multimap<source_entry*, CRevisionEntry*>::iterator it = beginbottom; it!=endbottom; ++it)
+	{
+		(it->second)->bottomlinesleft--;
+	}
+}
+
+void CRevisionGraphDlg::CountEntryConnections()
+{
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		reventry->leftconnections += reventry->sourcearray.GetCount();
+		for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
+		{
+			source_entry * sentry = (source_entry*)reventry->sourcearray[j];
+			CRevisionEntry * reventryto = (CRevisionEntry*)m_arEntryPtrs[GetIndexOfRevision(sentry)];
+			if (reventry->level == reventryto->level)
+			{
+				// if there are entries in between, then the connection
+				// is right-up-left
+				// without entries in between, the connection is straight up
+				bool nodesinbetween = false;
+				bool bStart = false;
+				for (INT_PTR k=0; k<m_arEntryPtrs.GetCount(); ++k)
+				{
+					CRevisionEntry * tempentry = (CRevisionEntry*)m_arEntryPtrs[k];
+					if (!bStart)
+					{
+						if (tempentry->revision == reventryto->revision)
+							bStart = true;
+					}
+					else
+					{
+						if (tempentry->revision <= reventry->revision)
+							break;
+						if ((tempentry->revision > reventry->revision)&&(tempentry->level == reventry->level))
+							nodesinbetween = true;
+					}
+				}
+				if (nodesinbetween)
+				{
+					reventryto->rightconnections++;
+					reventry->rightconnections++;
+					MarkSpaceLines(sentry, reventry->level, reventry->revision, reventryto->revision);
+				}
+				else
+				{
+					reventryto->bottomconnections++;
+				}
+			}
+			else
+			{
+				reventry->rightconnections++;
+				reventryto->bottomconnections++;
+				MarkSpaceLines(sentry, reventry->level, reventry->revision, reventryto->revision);
+			}
+		}
+	}
+}
+
 void CRevisionGraphDlg::BuildConnections()
 {
-	CDWordArray connections;
-	CDWordArray connections2;
+	// create an array which holds the vertical position of each
+	// revision entry. Since there can be several entries in the
+	// same revision, this speeds up the search for the right
+	// position for drawing.
+	m_arVertPositions.RemoveAll();
+	svn_revnum_t vprev = 0;
+	int currentvpos = 0;
+	for (INT_PTR vp = 0; vp < m_arEntryPtrs.GetCount(); ++vp)
+	{
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(vp);
+		if (reventry->revision != vprev)
+		{
+			vprev = reventry->revision;
+			currentvpos++;
+		}
+		m_arVertPositions.Add(currentvpos-1);
+	}
+	// delete all entries which we might have left
+	// in the array and free the memory they use.
 	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
 	{
 		delete [] (CPoint*)m_arConnections.GetAt(i);
 	}
 	m_arConnections.RemoveAll();
-	// check how many connections there are between each level
-	// this is used to add a slight offset to the vertical lines
-	// so they're not overlapping
+	
+	CountEntryConnections();
+	
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
 		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
-		if (connections.GetCount()<reventry->level)
-			connections.SetAtGrow(reventry->level-1, 0);
-
-		int leveloffset = -1;
-		for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
-		{
-			source_entry * sentry = (source_entry*)reventry->sourcearray.GetAt(j);
-			if (reventry->level < ((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)))->level)
-				leveloffset = -1;
-			else
-				leveloffset = 0;
-			if (connections.GetCount()<reventry->level+1+leveloffset)
-				connections.SetAtGrow(reventry->level+leveloffset, 0);
-			connections.SetAt(reventry->level+leveloffset, connections.GetAt(reventry->level+leveloffset)+1);
-		}
+		reventry->bottomconnectionsleft = reventry->bottomconnections;
+		reventry->leftconnectionsleft = reventry->leftconnections;
+		reventry->rightconnectionsleft = reventry->rightconnections;
+		reventry->bottomlinesleft = reventry->bottomlines;
+		reventry->rightlinesleft = reventry->rightlines;
 	}
-	for (INT_PTR i=0; i<connections.GetCount(); ++i)
-		connections2.SetAtGrow(i, connections.GetAt(i));
+		
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
 		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		int vertpos = m_arVertPositions[i];
 		for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
 		{
 			source_entry * sentry = (source_entry*)reventry->sourcearray.GetAt(j);
-			CRevisionEntry * reventry2 = ((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)));
-			CPoint * pt = new CPoint[4];
+			CRevisionEntry * reventry2 = ((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry)));
+			
+			// we always draw from bottom to top!			
+			
+			CPoint * pt = new CPoint[5];
 			if (reventry->level < reventry2->level)
 			{
 				if (reventry->revision < reventry2->revision)
 				{
-					//      3-----4
-					//      |
-					//      |
-					// 1----2
-
+					//       5
+					//       |
+					//    3--4
+					//    |
+					// 1--2
+					
+					// x-offset for line 2-3
+					int xoffset = (reventry->rightlinesleft)*(m_node_space_left+m_node_space_right)/(reventry->rightlines+1);
+					// y-offset for line 3-4
+					int yoffset = (reventry2->bottomlinesleft)*(m_node_space_top+m_node_space_bottom)/(reventry2->bottomlines+1);
+					
 					//Starting point: 1
-					pt[0].y = (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[0].y += ((m_node_rect_heigth / (reventry->sourcearray.GetCount()+1))*(j+1));
-					pt[0].x = ((reventry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left + m_node_rect_width);
+					pt[0].y = vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top;	// top of rect
+					pt[0].y += (reventry->rightconnectionsleft)*(m_node_rect_heigth)/(reventry->rightconnections+1);
+					reventry->rightconnectionsleft--;
+					pt[0].x = (reventry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left + m_node_rect_width;
 					//line to middle of nodes: 2
 					pt[1].y = pt[0].y;
-					pt[1].x = pt[0].x + m_node_space_line;
-					pt[1].x += (((m_node_space_left+m_node_space_right-2*m_node_space_line)/(connections.GetAt(reventry->level-1)+1))*connections2.GetAt(reventry->level-1));
-					//line down: 3
+					pt[1].x = pt[0].x + xoffset;
+					//line up: 3
 					pt[2].x = pt[1].x;
-					pt[2].y = (GetIndexOfRevision(sentry->revisionto)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[2].y += (m_node_rect_heigth / 2);
-					//line to target: 4
+					pt[2].y = ((m_arVertPositions[GetIndexOfRevision(sentry)])*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom)) + m_node_rect_heigth + m_node_space_top;
+					pt[2].y += yoffset;
+					//line to middle of target rect: 4
 					pt[3].y = pt[2].y;
-					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
-					pt[3].x += m_node_space_left;
-					connections2.SetAt(reventry->level-1, connections2.GetAt(reventry->level-1)-1);
+					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
+					pt[3].x += m_node_space_left + m_node_rect_width/2;
+					//line up to target rect: 5
+					pt[4].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth) + m_node_space_top;
+					pt[4].x = pt[3].x;
 				}
 				else
 				{
-					// 1----2
-					//      |
-					//      |
-					//      3-----4
-
-					//Starting point: 1
-					pt[0].y = (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[0].y += ((m_node_rect_heigth / (reventry->sourcearray.GetCount()+1))*(j+1));
-					pt[0].x = ((reventry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left + m_node_rect_width);
-					//line to middle of nodes: 2
-					pt[1].y = pt[0].y;
-					pt[1].x = pt[0].x + m_node_space_line;
-					pt[1].x += (((m_node_space_left+m_node_space_right-2*m_node_space_line)/(connections.GetAt(reventry->level-1)+1))*connections2.GetAt(reventry->level-1));
-					//line up: 3
-					pt[2].x = pt[1].x;
-					pt[2].y = (GetIndexOfRevision(sentry->revisionto)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[2].y += (m_node_rect_heigth / (reventry->sourcearray.GetCount()+1));
-					//line to target: 4
-					pt[3].y = pt[2].y;
-					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
-					pt[3].x += m_node_space_left;
-					connections2.SetAt(reventry->level-1, connections2.GetAt(reventry->level-1)-1);
+					// since we should *never* draw a connection from a higher to a lower
+					// revision, assert!
+					ATLASSERT(false);
 				}
 			}
 			else if (reventry->level > reventry2->level)
 			{
 				if (reventry->revision < reventry2->revision)
 				{
+					// 5
+					// |
 					// 4----3
 					//      |
 					//      |
 					//      2-----1
 
+					// x-offset for line 2-3
+					int xoffset = (reventry->rightlinesleft)*(m_node_space_left+m_node_space_right)/(reventry->rightlines+1);
+					// y-offset for line 3-4
+					int yoffset = (reventry2->bottomlinesleft)*(m_node_space_top+m_node_space_bottom)/(reventry2->bottomlines+1);
+
 					//Starting point: 1
-					pt[0].y = (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[0].y += ((m_node_rect_heigth / (reventry->sourcearray.GetCount()+1))*(j+1));
+					pt[0].y = (vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
+					pt[0].y += (reventry->leftconnectionsleft)*(m_node_rect_heigth)/(reventry->leftconnections+1);
+					reventry->leftconnectionsleft--;
 					pt[0].x = ((reventry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left);
 					//line to middle of nodes: 2
 					pt[1].y = pt[0].y;
-					pt[1].x = pt[0].x - m_node_space_line;
-					pt[1].x -= (((m_node_space_left+m_node_space_right-2*m_node_space_line)/(connections.GetAt(reventry->level-1)+1))*connections2.GetAt(reventry->level-1));
-										//line down: 3
+					pt[1].x = pt[0].x - m_node_space_line - xoffset;
+					//line up: 3
 					pt[2].x = pt[1].x;
-					pt[2].y = (GetIndexOfRevision(sentry->revisionto)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[2].y += (m_node_rect_heigth / (reventry->sourcearray.GetCount()+1));
-					//line to target: 4
+					pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top + m_node_space_bottom/2);
+					//pt[2].y += (m_node_rect_heigth / (reventry->sourcearray.GetCount()+1));
+					//line to middle of target rect: 4
 					pt[3].y = pt[2].y;
-					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
-					pt[3].x += m_node_space_left+m_node_rect_width;
-					connections2.SetAt(reventry->level-1, connections2.GetAt(reventry->level-1)-1);
+					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
+					pt[3].x += yoffset;
+					//line up to target rect: 5
+					pt[4].x = pt[3].x;
+					pt[4].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top);
 				}
 				else
 				{
-					//      3-----4
-					//      |
-					//      |
-					// 1----2
-
-					//Starting point: 1
-					pt[0].y = (GetIndexOfRevision(sentry->revisionto)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[0].y += ((m_node_rect_heigth / (reventry->sourcearray.GetCount()+1))*(j+1));
-					pt[0].x = ((reventry2->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left + m_node_rect_width);
-					//line to middle of nodes: 2
-					pt[1].y = pt[0].y;
-					pt[1].x = pt[0].x + m_node_space_line;
-					pt[1].x += (((m_node_space_left+m_node_space_right-2*m_node_space_line)/(connections.GetAt(reventry->level-1)+1))*connections2.GetAt(reventry->level-1));
-					//line up: 3
-					pt[2].x = pt[1].x;
-					pt[2].y = (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[2].y += (m_node_rect_heigth / (reventry->sourcearray.GetCount()+1));
-					//line to target: 4
-					pt[3].y = pt[2].y;
-					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(i))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
-					pt[3].x += m_node_space_left;
-					connections2.SetAt(reventry->level-1, connections2.GetAt(reventry->level-1)-1);
+					// since we should *never* draw a connection from a higher to a lower
+					// revision, assert!
+					ATLASSERT(false);
 				}
 			}
 			else
@@ -677,63 +829,63 @@ void CRevisionGraphDlg::BuildConnections()
 				}
 				if (nodesinbetween)
 				{
-					// 1----2
-					//      |
-					//      |
-					//      |
 					// 4----3
+					//      |
+					//      |
+					//      |
+					// 1----2
+
+					// x-offset for line 2-3
+					int xoffset = (reventry->rightlinesleft)*(m_node_space_left+m_node_space_right)/(reventry->rightlines+1);
+					// y-offset for line 3-4
+					int yoffset = (reventry2->rightconnectionsleft)*(m_node_rect_heigth)/(reventry2->rightconnections+1);
+					reventry2->rightconnectionsleft--;
+										
 					//Starting point: 1
-					pt[0].y = (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[0].y += (m_node_rect_heigth / 2);
-					pt[0].x = ((reventry2->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left) + m_node_rect_width;
+					pt[0].y = (vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
+					pt[0].y += (reventry->rightconnectionsleft)*(m_node_rect_heigth)/(reventry->rightconnections+1);
+					reventry->rightconnectionsleft--;
+					pt[0].x = ((reventry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left) + m_node_rect_width;
 					//line to middle of nodes: 2
 					pt[1].y = pt[0].y;
-					pt[1].x = pt[0].x + m_node_space_line;
-					pt[1].x += (((m_node_space_left+m_node_space_right-2*m_node_space_line)/(connections.GetAt(reventry2->level-1)+1))*connections2.GetAt(reventry2->level-1));
+					pt[1].x = pt[0].x + xoffset;
 					//line down: 3
 					pt[2].x = pt[1].x;
-					pt[2].y = (GetIndexOfRevision(sentry->revisionto)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-					pt[2].y += (m_node_rect_heigth / (reventry->sourcearray.GetCount()+1))*(j+1);
+					pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
+					pt[2].y += yoffset;
 					//line to target: 4
 					pt[3].y = pt[2].y;
 					pt[3].x = ((reventry2->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left) + m_node_rect_width;
-					connections2.SetAt(reventry2->level-1, connections2.GetAt(reventry2->level-1)-1);
+					pt[4].y = pt[3].y;
+					pt[4].x = pt[3].x;
 				}
 				else
 				{
-					if (reventry->revision > reventry2->revision)
+					if (reventry->revision < reventry2->revision)
 					{
-						// 1
-						// |
-						// |
 						// 2
-						pt[0].y = (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top) + m_node_rect_heigth;
+						// |
+						// |
+						// 1
+						pt[0].y = (vertpos*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
 						pt[0].x = ((reventry2->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left + m_node_rect_width/2);
 						pt[1].y = pt[0].y;
 						pt[1].x = pt[0].x;
-						pt[2].y = (GetIndexOfRevision(sentry->revisionto)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
+						pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top + m_node_rect_heigth);
 						pt[2].x = pt[0].x;
 						pt[3].y = pt[2].y;
 						pt[3].x = pt[2].x;
+						pt[4].y = pt[3].y;
+						pt[4].x = pt[3].x;
 					}
 					else
 					{
-						// 2
-						// |
-						// |
-						// 1
-						pt[0].y = (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
-						pt[0].x = ((reventry2->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left + m_node_rect_width/2);
-						pt[1].y = pt[0].y;
-						pt[1].x = pt[0].x;
-						pt[2].y = (GetIndexOfRevision(sentry->revisionto)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top + m_node_rect_heigth);
-						pt[2].x = pt[0].x;
-						pt[3].y = pt[2].y;
-						pt[3].x = pt[2].x;
+						ATLASSERT(false);
 					}
 				}
 			}
 			m_arConnections.Add(pt);
+			DecrementSpaceLines(sentry);
 		}
 	}
 }
@@ -751,18 +903,20 @@ void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 		// only draw the lines if they're at least partially visible
 		//if (viewrect.PtInRect(pt[0])||viewrect.PtInRect(pt[3]))
 		{
-			POINT p[4];
+			POINT p[5];
 			// correct the scroll offset
 			p[0].x = pt[0].x - nHScrollPos;
 			p[1].x = pt[1].x - nHScrollPos;
 			p[2].x = pt[2].x - nHScrollPos;
 			p[3].x = pt[3].x - nHScrollPos;
+			p[4].x = pt[4].x - nHScrollPos;
 			p[0].y = pt[0].y - nVScrollPos;
 			p[1].y = pt[1].y - nVScrollPos;
 			p[2].y = pt[2].y - nVScrollPos;
 			p[3].y = pt[3].y - nVScrollPos;
+			p[4].y = pt[4].y - nVScrollPos;
 
-			pDC->Polyline(p, 4);
+			pDC->Polyline(p, 5);
 		}
 	}
 }
@@ -774,13 +928,21 @@ CRect * CRevisionGraphDlg::GetViewSize()
 	m_ViewRect.top = 0;
 	m_ViewRect.left = 0;
 	int level = 0;
+	int revisions = 0;
+	int lastrev = 0;
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
-		if (level < ((CRevisionEntry*)m_arEntryPtrs.GetAt(i))->level)
-			level = ((CRevisionEntry*)m_arEntryPtrs.GetAt(i))->level;
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		if (level < reventry->level)
+			level = reventry->level;
+		if (lastrev != reventry->revision)
+		{
+			revisions++;
+			lastrev = reventry->revision;
+		}
 	}
 	m_ViewRect.right = level * (m_node_rect_width + m_node_space_left + m_node_space_right);
-	m_ViewRect.bottom = m_arEntryPtrs.GetCount() * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
+	m_ViewRect.bottom = revisions * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
 	return &m_ViewRect;
 }
 
@@ -1538,193 +1700,6 @@ void CRevisionGraphDlg::OnCancel()
 		__super::OnCancel();
 }
 
-#ifdef DEBUG
-void CRevisionGraphDlg::FillTestData()
-{
-	CRevisionEntry * e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 100;
-	e->url = "/tags/version 23";
-	e->author = "kueng";
-	e->message = "tagged version 23";
-	e->revisionfrom	= 99;
-	e->pathfrom = "/trunk";
-	m_arEntryPtrs.Add(e);
-	
-	e = new CRevisionEntry();
-	e->level = 1;
-	e->revision = 99;
-	e->url = "/trunk";
-	e->author = "kueng";
-	e->message = "something else";
-	source_entry * se = new source_entry;
-	se->pathto = "/tags/version 23";
-	se->revisionto = 100;
-	e->sourcearray.Add(se);
-	se = new source_entry;
-	se->pathto = "/trunk";
-	se->revisionto = 90;
-	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 97;
-	e->url = "/tags/version1";
-	e->author = "kueng";
-	e->message = "remove version 1";
-	e->revisionfrom	= 95;
-	e->pathfrom = "/tags/version1";
-	e->action = 'D';
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 96;
-	e->url = "/tags/version2";
-	e->author = "kueng";
-	e->message = "tagged version 2";
-	e->revisionfrom	= 99;
-	e->pathfrom = "/trunk";
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 95;
-	e->url = "/tags/version1";
-	e->author = "kueng";
-	e->message = "tagged version 1";
-	e->revisionfrom	= 99;
-	e->pathfrom = "/trunk";
-	se = new source_entry;
-	se->pathto = "/tags/version1";
-	se->revisionto = 97;
-	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 3;
-	e->revision = 92;
-	e->url = "/branches/testingrenamed";
-	e->author = "kueng";
-	e->message = "something else renamed";
-	e->pathfrom = "/branches/testing";
-	e->revisionfrom = 91;
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 91;
-	e->url = "/branches/testing";
-	e->author = "kueng";
-	e->message = "something else";
-	e->pathfrom = "/trunk";
-	e->revisionfrom = 80;
-	se = new source_entry;
-	se->pathto = "/branches/testingrenamed";
-	se->revisionto = 92;
-	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 1;
-	e->revision = 90;
-	e->url = "/trunk";
-	e->author = "kueng";
-	e->message = "a start";
-	se = new source_entry;
-	se->pathto = "/tags/version1";
-	se->revisionto = 95;
-	e->sourcearray.Add(se);
-	se = new source_entry;
-	se->pathto = "/tags/version2";
-	se->revisionto = 96;
-	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 4;
-	e->revision = 85;
-	e->url = "/branches/test2";
-	e->author = "kueng";
-	e->message = "testing again";
-	e->pathfrom = "/branches/test";
-	e->revisionfrom = 82;
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 3;
-	e->revision = 82;
-	e->url = "/branches/test";
-	e->author = "kueng";
-	e->message = "testing";
-	se = new source_entry;
-	se->pathto = "/branches/test2";
-	se->revisionto = 85;
-	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 3;
-	e->revision = 80;
-	e->url = "/branches/test";
-	e->author = "kueng";
-	e->message = "testing";
-	se = new source_entry;
-	se->pathto = "/branches/test2";
-	se->revisionto = 75;
-	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 75;
-	e->url = "/branches/test";
-	e->author = "kueng";
-	e->message = "testing";
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 74;
-	e->url = "/branches/test";
-	e->author = "kueng";
-	e->message = "testing";
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 3;
-	e->revision = 73;
-	e->url = "/branches/test";
-	e->author = "kueng";
-	e->message = "testing";
-	se = new source_entry;
-	se->pathto = "/branches/test2";
-	se->revisionto = 74;
-	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 64;
-	e->url = "/branches/test";
-	e->author = "kueng";
-	e->message = "testing";
-	se = new source_entry;
-	se->pathto = "/branches/test2";
-	se->revisionto = 63;
-	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 3;
-	e->revision = 63;
-	e->url = "/branches/test";
-	e->author = "kueng";
-	e->message = "testing";
-	m_arEntryPtrs.Add(e);
-}
-#endif //DEBUG
 
 
 
