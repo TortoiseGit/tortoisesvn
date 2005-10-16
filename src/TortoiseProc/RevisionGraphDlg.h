@@ -98,6 +98,7 @@ protected:
 	int				m_node_rect_heigth;
 	int				m_node_space_top;
 	int				m_node_space_bottom;
+	int				m_nIconSize;
 	CPoint			m_RoundRectPt;
 	int				m_nZoomFactor;
 	
@@ -142,9 +143,9 @@ private:
 	void			DrawOctangle(CDC * pDC, const CRect& rect);
 	void			DrawNode(CDC * pDC, const CRect& rect,
 							COLORREF contour, CRevisionEntry *rentry,
-							NodeShape shape, BOOL isSel, int penStyle = PS_SOLID);
+							NodeShape shape, BOOL isSel, HICON hIcon, int penStyle = PS_SOLID);
 	void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw);
-	
+
 	void			BuildConnections();
 	void			CountEntryConnections();
 	void			MarkSpaceLines(source_entry * entry, int level, svn_revnum_t startrev, svn_revnum_t endrev);

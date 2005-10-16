@@ -57,6 +57,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_node_rect_heigth(NODE_RECT_HEIGTH)
 	, m_node_space_top(NODE_SPACE_TOP)
 	, m_node_space_bottom(NODE_SPACE_BOTTOM)
+	, m_nIconSize(32)
 	, m_RoundRectPt(ROUND_RECT, ROUND_RECT)
 	, m_nZoomFactor(10)
 	, m_hAccel(NULL)
@@ -340,7 +341,7 @@ void CRevisionGraphDlg::DrawOctangle(CDC * pDC, const CRect& rect)
 
 void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 								COLORREF contour, CRevisionEntry *rentry, NodeShape shape, 
-								BOOL isSel, int penStyle /*= PS_SOLID*/)
+								BOOL isSel, HICON hIcon, int penStyle /*= PS_SOLID*/)
 {
 	CPen* pOldPen = 0L;
 	CBrush* pOldBrush = 0L;
@@ -410,6 +411,7 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 			ASSERT(FALSE);	//unknown type
 			return;
 		}
+		// draw the revision text
 		pOldFont = pDC->SelectObject(GetFont(FALSE, TRUE));
 		CString temp;
 		CRect r;
@@ -421,6 +423,8 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
 		pDC->DrawText(temp, &r, DT_CALCRECT);
 		pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), textrect.top + m_node_rect_heigth/4, ETO_CLIPPED, NULL, temp, NULL);
+
+		// draw the url
 		pDC->SelectObject(GetFont(TRUE));
 		temp = CUnicodeUtils::GetUnicode(rentry->url);
 		r = textrect;
@@ -429,6 +433,11 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		temp.ReleaseBuffer();
 		temp.Replace('\\','/');
 		pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), textrect.top + m_node_rect_heigth/4 + m_node_rect_heigth/3, ETO_CLIPPED, &textrect, temp, NULL);
+
+		// draw the icon
+		CPoint iconpoint = CPoint(rect.left + m_nIconSize/6, rect.top + m_nIconSize/6);
+		CSize iconsize = CSize(m_nIconSize, m_nIconSize);
+		pDC->DrawState(iconpoint, iconsize, hIcon, DST_ICON, (HBRUSH)NULL);
 		// Cleanup
 		if (pOldFont != 0L)
 		{
@@ -496,22 +505,31 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		noderect.bottom = noderect.top + m_node_rect_heigth;
 		noderect.left = (entry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - nHScrollPos;
 		noderect.right = noderect.left + m_node_rect_width;
+		HICON hIcon = NULL;
 		switch (entry->action)
 		{
 		case CRevisionEntry::deleted:
-			DrawNode(memDC, noderect, RGB(255,0,0), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
+			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DELETE), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+			DrawNode(memDC, noderect, RGB(255,0,0), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DestroyIcon(hIcon);
 			break;
 		case CRevisionEntry::added:
-			DrawNode(memDC, noderect, RGB(0,255,0), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
+			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_COPY), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+			DrawNode(memDC, noderect, RGB(0,255,0), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DestroyIcon(hIcon);
 			break;
 		case CRevisionEntry::replaced:
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
+			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CONFLICT), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DestroyIcon(hIcon);
 			break;
 		case CRevisionEntry::renamed:
-			DrawNode(memDC, noderect, RGB(0,0,255), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
+			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_RENAME), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+			DrawNode(memDC, noderect, RGB(0,0,255), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DestroyIcon(hIcon);
 			break;
 		default:
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRectangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)));
+			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRectangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			break;
 		}
 		entry->drawrect = noderect;
@@ -1620,6 +1638,7 @@ void CRevisionGraphDlg::DoZoom(int nZoomFactor)
 	m_nFontSize = 12 * nZoomFactor / 10;
 	m_RoundRectPt.x = ROUND_RECT * nZoomFactor / 10;
 	m_RoundRectPt.y = ROUND_RECT * nZoomFactor / 10;
+	m_nIconSize = 32 * nZoomFactor / 10;
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
