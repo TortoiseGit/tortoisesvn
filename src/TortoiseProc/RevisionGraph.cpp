@@ -605,12 +605,12 @@ bool CRevisionGraph::Cleanup(CStringA url)
 		for (INT_PTR j=i-1; j>=0; --j)
 		{
 			CRevisionEntry * preventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(j);
-			if ((reventry->action != CRevisionEntry::deleted)&&(reventry->level == preventry->level)&&(strcmp(reventry->url, preventry->url)==0))
+			if ((reventry->level == preventry->level)&&(strcmp(reventry->url, preventry->url)==0))
 			{
 				// same level and url, now connect those two
 				// but first check if they're not already connected!
 				BOOL bConnected = FALSE;
-				if ((reventry->action != CRevisionEntry::deleted)&&(reventry->action != CRevisionEntry::added))
+				if ((reventry->action != CRevisionEntry::deleted)&&(preventry->action != CRevisionEntry::added))
 				{
 					for (INT_PTR k=0; k<reventry->sourcearray.GetCount(); ++k)
 					{
