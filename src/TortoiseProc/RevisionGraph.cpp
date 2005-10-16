@@ -293,10 +293,10 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 				{
 					if (val->copyfrom_path)
 					{
+						CStringA child = realurl.Mid(strlen(key));
 						currentrev = val->copyfrom_rev+1;
-						// TODO: adjust the realurl to match the real path,
-						// because copyfrom_path could be a parent path
 						realurl = val->copyfrom_path;
+						realurl += child;
 					}
 				}
 			}
