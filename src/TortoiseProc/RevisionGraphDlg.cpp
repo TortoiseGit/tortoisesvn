@@ -784,7 +784,7 @@ void CRevisionGraphDlg::BuildConnections()
 					pt[0].x = ((reventry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left);
 					//line to middle of nodes: 2
 					pt[1].y = pt[0].y;
-					pt[1].x = pt[0].x - m_node_space_line - xoffset;
+					pt[1].x = pt[0].x - m_node_space_line - yoffset;
 					//line up: 3
 					pt[2].x = pt[1].x;
 					pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top + m_node_space_bottom/2);
@@ -792,7 +792,7 @@ void CRevisionGraphDlg::BuildConnections()
 					//line to middle of target rect: 4
 					pt[3].y = pt[2].y;
 					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
-					pt[3].x += yoffset;
+					pt[3].x += xoffset;
 					//line up to target rect: 5
 					pt[4].x = pt[3].x;
 					pt[4].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top);
