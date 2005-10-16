@@ -171,17 +171,17 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	// Check if the entries file has been changed
 	CTSVNPath entriesFilePath(m_directoryPath);
 	CTSVNPath propsDirPath(m_directoryPath);
-	CTSVNPath entriesFilePathNET(m_directoryPath);
-	CTSVNPath propsDirPathNET(m_directoryPath);
-	entriesFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\entries"));
-	propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-props"));
 	if (g_SVNAdminDir.IsVSNETHackActive())
 	{
-		entriesFilePathNET.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\entries"));
-		propsDirPathNET.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\dir-props"));
+		entriesFilePath.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\entries"));
+		propsDirPath.AppendPathString(g_SVNAdminDir.GetVSNETAdminDirName() + _T("\\dir-props"));
 	}
-	if ((m_entriesFileTime == entriesFilePath.GetLastWriteTime() && m_propsFileTime == propsDirPath.GetLastWriteTime()) ||
-		(g_SVNAdminDir.IsVSNETHackActive() && m_entriesFileTime == entriesFilePathNET.GetLastWriteTime() && m_propsFileTime == propsDirPathNET.GetLastWriteTime()))
+	else
+	{
+		entriesFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\entries"));
+		propsDirPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\dir-props"));
+	}
+	if (m_entriesFileTime == entriesFilePath.GetLastWriteTime() && m_propsFileTime == propsDirPath.GetLastWriteTime())
 	{
 		if(m_entriesFileTime == 0)
 		{
