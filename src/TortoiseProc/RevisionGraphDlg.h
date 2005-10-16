@@ -147,6 +147,7 @@ private:
 	void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw);
 
 	void			BuildConnections();
+	void			ClearEntryConnections();
 	void			CountEntryConnections();
 	void			MarkSpaceLines(source_entry * entry, int level, svn_revnum_t startrev, svn_revnum_t endrev);
 	void			DecrementSpaceLines(source_entry * reventry);

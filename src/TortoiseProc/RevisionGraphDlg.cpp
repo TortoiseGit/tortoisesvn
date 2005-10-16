@@ -489,12 +489,16 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	INT_PTR i = 0;
 	while (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= nVScrollPos)
 		i++;
+	while (((CRevisionEntry*)m_arEntryPtrs[i])->revision < i)
+		++i;
 	i--;
 	INT_PTR end = i;
 	while (end*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= (nVScrollPos+m_ViewRect.bottom))
 		end++;
 	if (end > m_arEntryPtrs.GetCount())
 		end = m_arEntryPtrs.GetCount();
+	while ((m_arEntryPtrs.GetCount()>end)&&(((CRevisionEntry*)m_arEntryPtrs[end])->revision <= end))
+		++end;
 
 	for ( ; i<end; ++i)
 	{
@@ -632,6 +636,21 @@ void CRevisionGraphDlg::DecrementSpaceLines(source_entry * entry)
 	}
 }
 
+void CRevisionGraphDlg::ClearEntryConnections()
+{
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		reventry->bottomconnections = 0;
+		reventry->leftconnections = 0;
+		reventry->rightconnections = 0;
+		reventry->bottomlines = 0;
+		reventry->rightlines = 0;
+	}
+	m_targetsright.clear();
+	m_targetsbottom.clear();
+}
+
 void CRevisionGraphDlg::CountEntryConnections()
 {
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
@@ -713,6 +732,7 @@ void CRevisionGraphDlg::BuildConnections()
 	}
 	m_arConnections.RemoveAll();
 	
+	ClearEntryConnections();
 	CountEntryConnections();
 	
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
@@ -724,7 +744,7 @@ void CRevisionGraphDlg::BuildConnections()
 		reventry->bottomlinesleft = reventry->bottomlines;
 		reventry->rightlinesleft = reventry->rightlines;
 	}
-		
+
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
 		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
