@@ -195,9 +195,7 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		pDlg->m_bNoGraph = TRUE;
 	}
-#ifdef DEBUG
-	//pDlg->FillTestData();
-#endif
+
 cleanup:
 	pDlg->m_Progress.Stop();
 	pDlg->InitView();
@@ -416,8 +414,8 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		CString temp;
 		CRect r;
 		CRect textrect = rect;
-		textrect.left += 4;
-		textrect.right -= 4;
+		textrect.left += 10;
+		textrect.right -= 10;
 		TEXTMETRIC textMetric;
 		pDC->GetOutputTextMetrics(&textMetric);
 		temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
@@ -964,6 +962,8 @@ CRect * CRevisionGraphDlg::GetViewSize()
 	int level = 0;
 	int revisions = 0;
 	int lastrev = 0;
+	size_t maxurllength = 0;
+	CString url;
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
 		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
@@ -974,7 +974,31 @@ CRect * CRevisionGraphDlg::GetViewSize()
 			revisions++;
 			lastrev = reventry->revision;
 		}
+		size_t len = strlen(reventry->url);
+		if (maxurllength < len)
+		{
+			maxurllength = len;
+			url = CUnicodeUtils::GetUnicode(reventry->url);
+		}
 	}
+
+	if (m_nZoomFactor == 10)
+	{
+		// calculate the width of the nodes by looking
+		// at the url lengths
+		CRect r;
+		CDC * pDC = this->GetDC();
+		if (pDC)
+		{
+			CFont * pOldFont = pDC->SelectObject(GetFont(TRUE));
+			pDC->DrawText(url, &r, DT_CALCRECT);
+			// keep the width inside reasonable values.
+			m_node_rect_width = min(500, r.Width()+40);
+			m_node_rect_width = max(NODE_RECT_WIDTH, m_node_rect_width);
+			pDC->SelectObject(pOldFont);
+		}
+	}
+
 	m_ViewRect.right = level * (m_node_rect_width + m_node_space_left + m_node_space_right);
 	m_ViewRect.bottom = revisions * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
 	return &m_ViewRect;
