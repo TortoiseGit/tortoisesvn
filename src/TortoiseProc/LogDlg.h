@@ -24,6 +24,7 @@
 #include "TSVNPath.h"
 #include "registry.h"
 #include "SplitterControl.h"
+#include "Colors.h"
 #include "afxwin.h"
 #include "afxdtctl.h"
 
@@ -225,6 +226,7 @@ private:
 	
 	CTime				m_timFrom;
 	CTime				m_timTo;
+	CColors				m_Colors;
 private:
     typedef struct LogEntryData
     {   

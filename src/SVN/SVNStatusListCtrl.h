@@ -20,6 +20,7 @@
 
 #include "TSVNPath.h"
 #include "SVNRev.h"
+#include "Colors.h"
 
 class SVNConfig;
 class SVNStatus;
@@ -400,4 +401,5 @@ private:
 
 	CWnd *						m_pStatLabel;
 	CButton *					m_pSelectButton;
+	CColors						m_Colors;
 };

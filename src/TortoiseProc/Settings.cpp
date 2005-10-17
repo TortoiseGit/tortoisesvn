@@ -47,6 +47,7 @@ void CSettings::AddPropPages()
 	m_pProgsUniDiffPage = new CSettingsProgsUniDiff();
 	m_pLookAndFeelPage = new CSetLookAndFeelPage();
 	m_pDialogsPage = new CSetDialogs();
+	m_pColorsPage = new CSettingsColors();
 
 	SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
 	SetPageIcon(m_pOverlayPage, m_pOverlayPage->GetIconID());
@@ -57,6 +58,7 @@ void CSettings::AddPropPages()
 	SetPageIcon(m_pProgsUniDiffPage, m_pProgsUniDiffPage->GetIconID());
 	SetPageIcon(m_pLookAndFeelPage, m_pLookAndFeelPage->GetIconID());
 	SetPageIcon(m_pDialogsPage, m_pDialogsPage->GetIconID());
+	SetPageIcon(m_pColorsPage, m_pColorsPage->GetIconID());
 
 	AddPage(m_pMainPage);
 	AddPage(m_pOverlayPage);
@@ -67,6 +69,7 @@ void CSettings::AddPropPages()
 	AddPage(m_pProgsUniDiffPage);
 	AddPage(m_pLookAndFeelPage);
 	AddPage(m_pDialogsPage);
+	AddPage(m_pColorsPage);
 }
 
 void CSettings::RemovePropPages()
@@ -80,6 +83,7 @@ void CSettings::RemovePropPages()
 	delete m_pProgsUniDiffPage;
 	delete m_pLookAndFeelPage;
 	delete m_pDialogsPage;
+	delete m_pColorsPage;
 }
 
 void CSettings::SaveData()
@@ -93,6 +97,7 @@ void CSettings::SaveData()
 	m_pProgsUniDiffPage->SaveData();
 	m_pLookAndFeelPage->SaveData();
 	m_pDialogsPage->SaveData();
+	m_pColorsPage->SaveData();
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CTreePropSheet)

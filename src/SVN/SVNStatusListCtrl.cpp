@@ -2448,31 +2448,31 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 			case svn_wc_status_added:
 				if (entry->remotestatus > svn_wc_status_unversioned)
 					// locally added file, but file already exists in repository!
-					crText = CUtils::MyColor(CUtils::RED);
+					crText = m_Colors.GetColor(CColors::Conflict);
 				else
-					crText = CUtils::MyColor(CUtils::PURPLE);
+					crText = m_Colors.GetColor(CColors::Added);
 				break;
 			case svn_wc_status_missing:
 			case svn_wc_status_deleted:
 			case svn_wc_status_replaced:
-				crText = CUtils::MyColor(CUtils::BROWN);
+				crText = m_Colors.GetColor(CColors::Deleted);
 				break;
 			case svn_wc_status_modified:
 				if (entry->remotestatus == svn_wc_status_modified)
 					// indicate a merge (both local and remote changes will require a merge)
-					crText = CUtils::MyColor(CUtils::GREEN);
+					crText = m_Colors.GetColor(CColors::Merged);
 				else if (entry->remotestatus == svn_wc_status_deleted)
 					// locally modified, but already deleted in the repository
-					crText = CUtils::MyColor(CUtils::RED);					
+					crText = m_Colors.GetColor(CColors::Conflict);
 				else
-					crText = CUtils::MyColor(CUtils::BLUE);
+					crText = m_Colors.GetColor(CColors::Modified);
 				break;
 			case svn_wc_status_merged:
-				crText = CUtils::MyColor(CUtils::GREEN);
+				crText = m_Colors.GetColor(CColors::Merged);
 				break;
 			case svn_wc_status_conflicted:
 			case svn_wc_status_obstructed:
-				crText = CUtils::MyColor(CUtils::RED);
+				crText = m_Colors.GetColor(CColors::Conflict);
 				break;
 			case svn_wc_status_none:
 			case svn_wc_status_unversioned:

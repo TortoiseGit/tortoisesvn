@@ -22,7 +22,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;APU_HAVE_DB=1;ENABLE_NLS;THESAURUS"
 				MinimalRebuild="TRUE"
 				ExceptionHandling="TRUE"
@@ -85,7 +85,7 @@
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APU_HAVE_DB=1;THESAURUS"
 				StringPooling="TRUE"
 				MinimalRebuild="FALSE"
@@ -308,6 +308,18 @@
 					RelativePath="..\Utils\BrowseFolder.h">
 				</File>
 				<File
+					RelativePath=".\Colors.cpp">
+				</File>
+				<File
+					RelativePath=".\Colors.h">
+				</File>
+				<File
+					RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.cpp">
+				</File>
+				<File
+					RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.h">
+				</File>
+				<File
 					RelativePath="..\Utils\Cursor.h">
 				</File>
 				<File
@@ -414,6 +426,12 @@
 				</File>
 				<File
 					RelativePath="..\Utils\WaterEffect.h">
+				</File>
+				<File
+					RelativePath="..\Utils\ColourPickerXP\XPTheme.cpp">
+				</File>
+				<File
+					RelativePath="..\Utils\ColourPickerXP\XPTheme.h">
 				</File>
 			</Filter>
 			<Filter
@@ -967,6 +985,12 @@
 				</File>
 				<File
 					RelativePath="Settings.h">
+				</File>
+				<File
+					RelativePath=".\SettingsColors.cpp">
+				</File>
+				<File
+					RelativePath=".\SettingsColors.h">
 				</File>
 				<File
 					RelativePath=".\SettingsProgsDiff.cpp">

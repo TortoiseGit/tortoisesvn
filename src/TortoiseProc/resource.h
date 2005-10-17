@@ -71,8 +71,8 @@
 #define IDD_CREATEPATCH                 208
 #define IDI_EXTERNALWARNING             210
 #define IDD_HISTORYDLG                  211
-#define IDR_AVI1                        212
 #define IDR_CLEANUPANI                  212
+#define IDD_SETTINGSCOLORS              212
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -388,11 +388,18 @@
 #define IDS_SETTINGS_CHANGEDDIRS_TT     1247
 #define IDS_SETTINGS_TEMPEXTENSIONS_TT  1248
 #define IDS_SETTINGS_FOLDERSTATUS_TT    1249
+#define IDC_CONFLICTCOLOR               1249
 #define IDS_SETTINGS_EXTMERGE_TT        1250
+#define IDC_ADDEDCOLOR                  1250
 #define IDS_SETTINGS_PROXYSERVER_TT     1251
+#define IDC_DELETEDCOLOR                1251
 #define IDS_SETTINGS_DIFFVIEWER_TT      1252
+#define IDC_MERGEDCOLOR                 1252
 #define IDS_SETTINGS_AUTOCLOSE_TT       1253
+#define IDC_MODIFIEDCOLOR               1253
 #define IDS_UTILS_SELECTTEXTVIEWER      1254
+#define IDC_BUTTON6                     1254
+#define IDC_RESTORE                     1254
 #define IDS_SETTINGS_CONVERTBASE_TT     1255
 #define IDS_PROC_WARNREVERT             1256
 #define IDS_PROC_CLEANUPFINISHED        1257
@@ -721,7 +728,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        213
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1249
+#define _APS_NEXT_CONTROL_VALUE         1255
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

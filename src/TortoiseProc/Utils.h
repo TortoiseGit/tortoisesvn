@@ -168,14 +168,4 @@ public:
 
 	static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
 
-
-	enum MyColors
-	{
-		BLUE = 0,
-		BROWN,
-		RED,
-		GREEN,
-		PURPLE
-	};
-	static COLORREF MyColor(int nIndex);
 };

@@ -13,6 +13,8 @@
 - NEW: Setting the environment variable SVN_ASP_DOT_NET_HACK makes TSVN
        use '_svn' as the Subversion admin dirs instead of '.svn'.
        A restart of Windows is required for this to take effect. (Stefan)
+- NEW: Colors used in TortoiseSVN are now configurable in the
+       settings dialog. (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.
@@ -23,6 +25,7 @@
 - CHG: Missing files are not selected by default anymore in the commit
        dialog. (Stefan)
 - CHG: Ctrl-click expands the whole tree in the repository browser. (Stefan)
+- CHG: Improved the revision graph. See issue #173. (Stefan)
 - BUG: The status cache didn't watch all required paths. (Stefan)
 - BUG: When files were added to the ignore list, a choice of 
        File.ext or *.ext is given. If the *.ext is chosen the dialog 

@@ -148,28 +148,28 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_update_add:
 		m_bMergesAddsDeletesOccurred = true;
 		data->sActionColumnText.LoadString(IDS_SVNACTION_ADD);
-		data->color = CUtils::MyColor(CUtils::PURPLE);
+		data->color = m_Colors.GetColor(CColors::Added);
 		break;
 	case svn_wc_notify_commit_added:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
-		data->color = CUtils::MyColor(CUtils::PURPLE);
+		data->color = m_Colors.GetColor(CColors::Added);
 		break;
 	case svn_wc_notify_copy:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_COPY);
 		break;
 	case svn_wc_notify_commit_modified:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_MODIFIED);
-		data->color = CUtils::MyColor(CUtils::BLUE);
+		data->color = m_Colors.GetColor(CColors::Modified);
 		break;
 	case svn_wc_notify_delete:
 	case svn_wc_notify_update_delete:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETE);
 		m_bMergesAddsDeletesOccurred = true;
-		data->color = CUtils::MyColor(CUtils::BROWN);
+		data->color = m_Colors.GetColor(CColors::Deleted);
 		break;
 	case svn_wc_notify_commit_deleted:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETING);
-		data->color = CUtils::MyColor(CUtils::BROWN);
+		data->color = m_Colors.GetColor(CColors::Deleted);
 		break;
 	case svn_wc_notify_restore:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_RESTORE);
@@ -182,7 +182,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		break;
 	case svn_wc_notify_commit_replaced:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
-		data->color = CUtils::MyColor(CUtils::BROWN);
+		data->color = m_Colors.GetColor(CColors::Deleted);
 		break;
 	case svn_wc_notify_update_update:
 		// if this is an inoperative dir change, don't show the nofification.
@@ -198,14 +198,14 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		}
 		if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
 		{
-			data->color = CUtils::MyColor(CUtils::RED);
+			data->color = m_Colors.GetColor(CColors::Conflict);
 			data->bConflictedActionItem = true;
 			m_bConflictsOccurred = true;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
 		}
 		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
 		{
-			data->color = CUtils::MyColor(CUtils::GREEN);
+			data->color = m_Colors.GetColor(CColors::Merged);
 			m_bMergesAddsDeletesOccurred = true;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_MERGED);
 		}
@@ -247,7 +247,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 				data->bAuxItem = true;
 				data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
 				data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
-				data->color = CUtils::MyColor(CUtils::RED);
+				data->color = m_Colors.GetColor(CColors::Conflict);
 				CSoundUtils::PlayTSVNWarning();
 				// This item will now be added after the switch statement
 			}
@@ -522,14 +522,14 @@ void CSVNProgressDlg::ReportSVNError()
 void CSVNProgressDlg::ReportError(const CString& sError)
 {
 	CSoundUtils::PlayTSVNError();
-	ReportString(sError, CString(MAKEINTRESOURCE(IDS_ERR_ERROR)), CUtils::MyColor(CUtils::RED));
+	ReportString(sError, CString(MAKEINTRESOURCE(IDS_ERR_ERROR)), m_Colors.GetColor(CColors::Conflict));
 	m_bErrorsOccurred = true;
 }
 
 void CSVNProgressDlg::ReportWarning(const CString& sWarning)
 {
 	CSoundUtils::PlayTSVNWarning();
-	ReportString(sWarning, CString(MAKEINTRESOURCE(IDS_WARN_WARNING)), CUtils::MyColor(CUtils::RED));
+	ReportString(sWarning, CString(MAKEINTRESOURCE(IDS_WARN_WARNING)), m_Colors.GetColor(CColors::Conflict));
 }
 
 void CSVNProgressDlg::ReportNotification(const CString& sNotification)

@@ -825,34 +825,6 @@ CString CUtils::GetAppParentDirectory()
 	return path;
 }
 
-COLORREF CUtils::MyColor(int nIndex)
-{
-	COLORREF crWin = GetSysColor(COLOR_WINDOW);
-
-	if (GetRValue(crWin) + GetGValue(crWin) + GetBValue(crWin) < 50)
-	{
-		// Dark window - use default colour for everything.
-		return GetSysColor(COLOR_WINDOWTEXT);
-	}
-	else
-	{
-		switch (nIndex)
-		{
-			case BLUE:
-				return RGB(0, 50, 160);
-			case BROWN:
-				return RGB(100, 0, 0);
-			case RED:
-				return RGB(255, 0, 0);
-			case GREEN:
-				return RGB(0, 100, 0);
-			case PURPLE:
-				return RGB(100, 0, 100);
-		}
-	}	
-	return GetSysColor(COLOR_WINDOWTEXT);
-}
-
 void CUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 {
 	int maxcol = ((CHeaderCtrl*)(pListCtrl->GetDlgItem(0)))->GetItemCount()-1;

@@ -21,6 +21,7 @@
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
 #include "SVN.h"
+#include "Colors.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -243,6 +244,7 @@ private:
 	int			iFirstResized;
 	BOOL		bSecondResized;
 	CString		m_sTotalBytesTransferred;
+	CColors		m_Colors;
 
 private:
 	// In preparation for removing SVN as base class
