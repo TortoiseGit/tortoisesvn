@@ -540,7 +540,6 @@ CRevisionEntry * CRevisionGraph::GetRevisionEntry(const char * path, svn_revnum_
 
 bool CRevisionGraph::Cleanup(CStringA url)
 {
-	PrintDebugInfo();
 	// step one: remove all entries which aren't marked as in use
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
