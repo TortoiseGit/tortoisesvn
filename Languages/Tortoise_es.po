@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-10 22:47+0100\n"
+"PO-Revision-Date: 2005-10-18 15:57+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -692,17 +692,42 @@ msgstr ": copia de trabajo"
 # ID:88,
 #: ID:88
 msgid ""
-"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct your working copy to another repository or branch,\n"
-"this <b>will corrupt your working copy!</b>\n"
-"To associate your working copy with another branch, use the Switch command.\n"
-"Are you sure you want to relocate?"
+"<b>ATTENTION:</b>\n"
+"The Relocate command is only used if the URL of the\n"
+"repository root has changed due to a server IP address change, protocol\n"
+"change (e.g. http:// to https://) or a change of the repository root\n"
+"path in the server setup.\n"
+"<b>This is a very infrequently used operation</b> and applies neither if you\n"
+"want to move to another Subversion repository nor if you want to switch\n"
+"to another branch or directory <b>within the same repository.</b>\n"
+"To move to another Subversion repository, perform a clean checkout from\n"
+"the new repository location.\n"
+"To associate your working copy with another branch or another directory\n"
+"within the same repository, use the Switch command from the main menu\n"
+"\n"
+"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
+"If you are unsure whether Relocate is the correct operation, it probably\n"
+"is not and you should consult <b>Help</b>."
 msgstr ""
-"<b>ATENCION:</b> Utilice solamente el comando Relocalizar si el repositorio original se ha movido a una nueva URL.\n"
-"Si utiliza Relocalizar para dirigir su copia de trabajo a otro repositorio o rama: \n"
-"<b>¡corromperá su copia de trabajo!</b>\n"
-"Para asociar su copia de trabajo con otra rama utilize el comando Cambiar.\n"
-"¿ Seguro que desea Relocalizar ?"
+"<b>ATENCIÓN:</b>\n"
+"El comando Relocalizar sólo se utiliza si la URL de la raíz\n"
+"del repositorio ha cambiado por culpa de un cambio en la\n"
+"dirección IP del servidor, un cambio de protocolo (p.ej.: \n"
+"de http:// a https://) o un cambio en la ruta de la raíz del\n"
+"repositorio en la configuración del servidor.\n"
+"<b>Esta operación rara vez se utiliza</b> y no se aplica\n"
+"ni cuando desea moverse a otro repositorio de Subversion\n"
+"ni cuando desea cambiar a otra rama o directorio\n"
+"<b>dentro del mismo repositorio.</b>\n"
+"Para moverse a otro repositorio de Subversion, realice una\n"
+"obtención limpia desde el nuevo repositorio.\n"
+"Para asociar su copia de trabajo con otra rama u otro directorio\n"
+"dentro del mismo repositorio, utilice el comando Cambiar desde\n"
+"el menú principal\n"
+"\n"
+"Un uso inadecuado del comando Relocalizar <b>¡corromperá su copia de trabajo!</b>\n"
+"Si no está seguro de que Relocalizar sea la operación correcta, probablemente debería\n"
+"consultar la <b>Ayuda</b>."
 
 # ID:145,
 #: ID:145
@@ -2523,6 +2548,11 @@ msgid "Look and Feel"
 msgstr "Aspecto visual"
 
 # Dlg-ID:106,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Aspecto visual::Colores"
+
+# Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "Aspecto visual::Diálogos"
@@ -3269,6 +3299,10 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "Resuelve archivos en conflicto"
 
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "Restaurar por Defecto"
+
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "Restaurar la ventana a su tamaño normal"
@@ -3759,6 +3793,11 @@ msgstr "Estadísticas"
 #: ID:207
 msgid "Status"
 msgstr "Estado"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Colores de estado y acciones"
 
 #: ID:11
 msgid "Status of item in SVN"
@@ -4652,7 +4691,7 @@ msgstr ""
 # Control-ID:1230,
 #: Control-ID:1230
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "Utilizar URL de la Copia de Trabajo como la URL \"Desde:\" por defecto"
+msgstr "Utilizar URL de la &Copia de Trabajo como la URL \"Desde:\" por defecto"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -4946,6 +4985,10 @@ msgstr "Ale&jar Zoom\tCtrl--"
 msgid "added"
 msgstr "añadido"
 
+#: Control-ID:65535
+msgid "added files"
+msgstr "ficheros añadidos"
+
 #: ID:3841
 msgid "an unnamed file"
 msgstr "un archivo sin nombre"
@@ -5082,6 +5125,7 @@ msgid "locked"
 msgstr "bloqueado"
 
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "fusionado"
 
@@ -5089,9 +5133,18 @@ msgstr "fusionado"
 msgid "missing"
 msgstr "falta"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "faltante / borrado / reemplazado"
+
 #: ID:10
 msgid "modified"
 msgstr "modificado"
+
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "modificado / copiado"
 
 #: ID:10
 msgid "no description for this command is available"
@@ -5115,6 +5168,11 @@ msgstr "obstruido"
 #: ID:3869
 msgid "pixels"
 msgstr "píxeles"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "conflicto posible o real / obstruído"
 
 #: Control-ID:1018
 msgid "re&cursive"
