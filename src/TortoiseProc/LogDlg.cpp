@@ -118,7 +118,7 @@ END_MESSAGE_MAP()
 
 
 
-void CLogDlg::SetParams(const CTSVNPath& path, long startrev, long endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
+void CLogDlg::SetParams(const CTSVNPath& path, svn_revnum_t startrev, svn_revnum_t endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
 {
 	m_path = path;
 	m_startrev = startrev;
@@ -468,7 +468,7 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies)
+BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies)
 {
 	int found = 0;
 	m_logcounter += 1;
@@ -705,7 +705,7 @@ void CLogDlg::CopySelectionToClipBoard()
 	}
 }
 
-BOOL CLogDlg::DiffPossible(LogChangedPath * changedpath, long rev)
+BOOL CLogDlg::DiffPossible(LogChangedPath * changedpath, svn_revnum_t rev)
 {
 	CString added, deleted;
 	added.LoadString(IDS_SVNACTION_ADD);
@@ -1790,7 +1790,7 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	}
 }
 
-void CLogDlg::DoDiffFromLog(int selIndex, long rev)
+void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev)
 {
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	SetPromptApp(&theApp);
@@ -1825,7 +1825,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 
 	CString firstfile = changedpath->sPath;
 	CString secondfile = firstfile;
-	long fromrev = rev - 1;
+	svn_revnum_t fromrev = rev - 1;
 
 	if (changedpath->lCopyFromRev > 0) // is it an added file with history?
 	{

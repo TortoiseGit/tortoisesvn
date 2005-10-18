@@ -1395,18 +1395,18 @@ void CSVNStatusListCtrl::BuildStatistics()
 	} // for (int i=0; i < (int)m_arStatusArray.size(); ++i)
 }
 
-void CSVNStatusListCtrl::GetMinMaxRevisions(LONG& lMin, LONG& lMax)
+void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax)
 {
-	lMin = LONG_MAX;
-	lMax = 0;
+	rMin = LONG_MAX;
+	rMax = 0;
 	for (int i=0; i < (int)m_arStatusArray.size(); ++i)
 	{
 		const FileEntry * entry = m_arStatusArray[i];
 		
 		if ((entry)&&(entry->Revision))
 		{
-			lMin = min(lMin, entry->Revision);
-			lMax = max(lMax, entry->Revision);
+			rMin = min(rMin, entry->Revision);
+			rMax = max(rMax, entry->Revision);
 		}	
 	}
 }

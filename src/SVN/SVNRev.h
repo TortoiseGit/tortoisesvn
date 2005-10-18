@@ -86,7 +86,7 @@ public:
 		REV_UNSPECIFIED = -4,	///< unspecified revision
 	};
 protected:
-	void Create(LONG nRev);
+	void Create(svn_revnum_t nRev);
 	void Create(CString sRev);
 private:
 	svn_opt_revision_t rev;

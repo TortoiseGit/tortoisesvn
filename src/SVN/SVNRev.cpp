@@ -97,12 +97,12 @@ void SVNRev::Create(CString sRev)
 	}
 }
 
-SVNRev::SVNRev(LONG nRev)
+SVNRev::SVNRev(svn_revnum_t nRev)
 {
 	Create(nRev);
 }
 
-void SVNRev::Create(LONG nRev)
+void SVNRev::Create(svn_revnum_t nRev)
 {
 	m_bIsValid = TRUE;
 	memset (&rev, 0, sizeof (rev));

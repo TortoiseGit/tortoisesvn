@@ -143,11 +143,11 @@ BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
 				svn_node_kind_t kind, const CString& mime_type, 
 				svn_wc_notify_state_t content_state, 
-				svn_wc_notify_state_t prop_state, LONG rev,
+				svn_wc_notify_state_t prop_state, svn_revnum_t rev,
 				const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
-BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies) {return TRUE;};
-BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
+BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies) {return TRUE;};
+BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 #pragma warning(pop)
 
 struct log_msg_baton2
@@ -366,7 +366,7 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, B
 	return TRUE;
 }
 
-LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, BOOL keep_locks)
+svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, BOOL keep_locks)
 {
 	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
 
@@ -1424,11 +1424,11 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	return CString(returl);
 }
 
-LONG SVN::GetHEADRevision(const CTSVNPath& url)
+svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& url)
 {
 	svn_ra_session_t *ra_session;
 	const char * urla;
-	LONG rev;
+	svn_revnum_t rev;
 
 	SVNPool localpool(pool);
 	if (!url.IsUrl())
@@ -1451,7 +1451,7 @@ LONG SVN::GetHEADRevision(const CTSVNPath& url)
 	return rev;
 }
 
-BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, LONG& rev)
+BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& rev)
 {
 	svn_ra_session_t *ra_session;
 	const char * urla;
@@ -1521,7 +1521,7 @@ BOOL SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 	return TRUE;
 }
 
-LONG SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev)
+svn_revnum_t SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev)
 {
 	svn_revnum_t set_rev;
 	svn_string_t*	pval;

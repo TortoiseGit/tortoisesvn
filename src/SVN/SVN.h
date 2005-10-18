@@ -72,7 +72,7 @@ public:
 	{
 		CString sPath;
 		CString sCopyFromPath;
-		LONG	lCopyFromRev;
+		svn_revnum_t lCopyFromRev;
 		CString sAction;
 	} ;
 	typedef CArray<LogChangedPath*, LogChangedPath*> LogChangedPathArray;
@@ -80,11 +80,11 @@ public:
 	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
 							svn_node_kind_t kind, const CString& mime_type, 
 							svn_wc_notify_state_t content_state, 
-							svn_wc_notify_state_t prop_state, LONG rev,
+							svn_wc_notify_state_t prop_state, svn_revnum_t rev,
 							const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 							svn_error_t * err, apr_pool_t * pool);
-	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies);
-	virtual BOOL BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
+	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies);
+	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line);
 
 	struct SVNLock
 	{
@@ -188,7 +188,7 @@ public:
 	 * \param keep_locks if TRUE, the locks are not removed on commit
 	 * \return the resulting revision number.
 	 */
-	LONG Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, BOOL keep_locks);
+	svn_revnum_t Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, BOOL keep_locks);
 	/**
 	 * Copy srcPath to destPath.
 	 * 
@@ -488,9 +488,9 @@ public:
 	 * Returns the HEAD revision of the URL or WC-Path.
 	 * Or -1 if the function failed.
 	 */
-	LONG GetHEADRevision(const CTSVNPath& url);
+	svn_revnum_t GetHEADRevision(const CTSVNPath& url);
 
-	BOOL GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, LONG& rev);
+	BOOL GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& rev);
 
 	/**
 	 * Set the revision property \a sName to the new value \a sValue.
@@ -498,7 +498,7 @@ public:
 	 * \param rev the revision number to change the revprop
 	 * \return the actual revision number the property value was set
 	 */
-	LONG RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev);
+	svn_revnum_t RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev);
 
 	/**
 	 * Reads the revision property \a sName and returns its value.
@@ -598,7 +598,7 @@ private:
 	svn_opt_revision_t			rev;			///< subversion revision. used by getRevision()
 	SVNPrompt					m_prompt;
 
-	svn_opt_revision_t *	getRevision (long revNumber);
+	svn_opt_revision_t *	getRevision (svn_revnum_t revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 
 	// Convert a TSVNPathList into an array of SVN paths

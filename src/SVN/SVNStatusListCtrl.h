@@ -299,7 +299,7 @@ public:
 	/** fills in \a lMin and \a lMax with the lowest/highest revision of all
 	 * files/folders in the working copy.
 	 */
-	void GetMinMaxRevisions(LONG& lMin, LONG& lMax);
+	void GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax);
 	
 	/**
 	 * Returns the parent directory of all entries in the control.
