@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-13 23:42+0100\n"
+"PO-Revision-Date: 2005-10-18 12:39+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2971,6 +2971,11 @@ msgid "Look and Feel"
 msgstr "Impostazioni grafiche"
 
 # Dlg-ID:106,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Impostazioni grafiche::Colori"
+
+# Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "Impostazioni grafiche::Finestre di dialogo"
@@ -3865,6 +3870,11 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "Risolvi file in conflitto"
 
+# ID:73,
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "Ripristina predefinite"
+
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
@@ -4465,6 +4475,11 @@ msgstr "Statistiche"
 #: ID:207
 msgid "Status"
 msgstr "Stato"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Colori di stato de delle azioni"
 
 # ID:11,
 #: ID:11
@@ -5833,6 +5848,11 @@ msgstr "Zoom &indietro\tCtrl--"
 msgid "added"
 msgstr "aggiunto"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "added files"
+msgstr "file aggiunti:"
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -5985,6 +6005,7 @@ msgstr "bloccato"
 
 # ID:11,
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "fuso"
 
@@ -5993,10 +6014,20 @@ msgstr "fuso"
 msgid "missing"
 msgstr "mancante"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "mancante / cancellato / rimpiazzato"
+
 # ID:10,
 #: ID:10
 msgid "modified"
 msgstr "modificato"
+
+# ID:10,
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "modificato / copiato"
 
 # ID:10,
 #: ID:10
@@ -6023,6 +6054,11 @@ msgstr "ostruito"
 #: ID:3869
 msgid "pixels"
 msgstr "pixel"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "conflitto possibile o reale / ostruito"
 
 # Control-ID:1018,
 #: Control-ID:1018
