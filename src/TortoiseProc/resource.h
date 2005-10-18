@@ -398,7 +398,6 @@
 #define IDS_SETTINGS_AUTOCLOSE_TT       1253
 #define IDC_MODIFIEDCOLOR               1253
 #define IDS_UTILS_SELECTTEXTVIEWER      1254
-#define IDC_BUTTON6                     1254
 #define IDC_RESTORE                     1254
 #define IDS_SETTINGS_CONVERTBASE_TT     1255
 #define IDS_PROC_WARNREVERT             1256
@@ -472,6 +471,8 @@
 #define IDS_PROC_NEWNAME                1551
 #define IDS_PROC_NEWNAMECOPY            1552
 #define IDS_PROC_NEWNAMEMOVE            1553
+#define IDS_PROC_NEWNAMECOPYLABEL       1554
+#define IDS_PROC_NEWNAMELABEL           1554
 #define IDS_REPOBROWSE_SAVEAS           1600
 #define IDS_REPOBROWSE_SHOWLOG          1601
 #define IDS_REPOBROWSE_OPEN             1602

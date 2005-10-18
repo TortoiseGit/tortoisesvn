@@ -887,6 +887,8 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 					{
 						CRenameDlg renDlg;
 						renDlg.m_name = urlList[i].GetFileOrDirectoryName();
+						renDlg.m_windowtitle.Format(IDS_PROC_NEWNAME, renDlg.m_name);
+						renDlg.m_label.LoadString(IDS_PROC_NEWNAMELABEL);
 						if (renDlg.DoModal()==IDOK)
 						{
 							CTSVNPath tempUrl = urlList[i];
