@@ -143,9 +143,27 @@ public:
 	 * Helper class for CSVNStatusListCtrl which represents
 	 * the data for each file shown.
 	 */
-	class FileEntry
+	class FileEntry 
 	{
 	public:
+		FileEntry() : status(svn_wc_status_unversioned)
+			, copyfrom_rev(0)
+			, last_commit_date(0)
+			, last_commit_rev(0)
+			, textstatus(svn_wc_status_unversioned)
+			, propstatus(svn_wc_status_unversioned)
+			, remotestatus(svn_wc_status_unversioned)
+			, remotetextstatus(svn_wc_status_unversioned)
+			, remotepropstatus(svn_wc_status_unversioned)
+			, copied(false)
+			, checked(false)
+			, inunversionedfolder(false)
+			, inexternal(false)
+			, direct(false)
+			, isfolder(false)
+			, isNested(false)
+		{
+		}
 		const CTSVNPath& GetPath() const					
 		{
 			return path;
@@ -168,6 +186,8 @@ public:
 		{
 			return isfolder;
 		}
+	public:
+		svn_wc_status_kind		status;					///< local status
 	private:
 		CTSVNPath				path;					///< full path of the file
 		CTSVNPath				basepath;				///< common ancestor path of all files
@@ -178,10 +198,10 @@ public:
 		CString					lock_remotetoken;		///< the unique URI in the repository of the lock
 		CString					lock_comment;			///< the message for the lock
 		CString					copyfrom_url;			///< the copied-from URL (if available, i.e. \a copied is true)
-		LONG					copyfrom_rev;			///< the copied-from revision
-	public:
-		svn_wc_status_kind		status;					///< local status
-	private:
+		svn_revnum_t			copyfrom_rev;			///< the copied-from revision
+		CString					last_commit_author;		///< the author which last committed this item
+		apr_time_t				last_commit_date;		///< the date when this item was last committed
+		svn_revnum_t			last_commit_rev;		///< the revision where this item was last committed
 		svn_wc_status_kind		textstatus;				///< local text status
 		svn_wc_status_kind		propstatus;				///< local property status
 		svn_wc_status_kind		remotestatus;			///< remote status
@@ -194,7 +214,7 @@ public:
 		bool					direct;					///< directly included (TRUE) or just a child of a folder
 		bool					isfolder;				///< TRUE if entry refers to a folder
 		bool					isNested;				///< TRUE if the folder from a different repository and/or path
-		LONG					lRevision;				///< the last committed revision
+		svn_revnum_t			Revision;				///< the last committed revision
 		friend class CSVNStatusListCtrl;
 	};
 

@@ -432,13 +432,14 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->remotestatus = SVNStatus::GetMoreImportant(pSVNStatus->repos_text_status, pSVNStatus->repos_prop_status);
 	entry->remotetextstatus = pSVNStatus->repos_text_status;
 	entry->remotepropstatus = pSVNStatus->repos_prop_status;
-	entry->inunversionedfolder = false;
-	entry->checked = false;
 	entry->inexternal = bInExternal;
 	entry->direct = bDirectItem;
-	entry->lRevision = 0;
-	entry->isNested = false;
 	entry->copied = !!pSVNStatus->copied;
+	
+	entry->last_commit_date = pSVNStatus->ood_last_cmt_date;
+	entry->last_commit_rev = pSVNStatus->ood_last_cmt_rev;
+	if (pSVNStatus->ood_last_cmt_author)
+		entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->ood_last_cmt_author);
 	
 	if (entry->status == svn_wc_status_conflicted)
 	{
@@ -469,7 +470,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	if (pSVNStatus->entry)
 	{
 		entry->isfolder = (pSVNStatus->entry->kind == svn_node_dir);
-		entry->lRevision = pSVNStatus->entry->revision;
+		entry->Revision = pSVNStatus->entry->revision;
 
 		if (pSVNStatus->entry->url)
 		{
@@ -535,21 +536,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 			FileEntry * entry = new FileEntry();
 			entry->path = filename;
 			entry->basepath = basePath; 
-			entry->status = svn_wc_status_unversioned;
-			entry->textstatus = svn_wc_status_unversioned;
-			entry->propstatus = svn_wc_status_unversioned;
-			entry->remotestatus = svn_wc_status_unversioned;
-			entry->remotetextstatus = svn_wc_status_unversioned;
-			entry->remotepropstatus = svn_wc_status_unversioned;
-			entry->inunversionedfolder = TRUE;
-			entry->checked = false;
-			entry->inexternal = false;
-			entry->direct = false;
+			entry->inunversionedfolder = true;
 			entry->isfolder = filefinder.IsDirectory(); 
-			entry->lRevision = 0;
-			entry->isNested = false;
-			entry->copied = false;
-			entry->copyfrom_rev = 0;
 			
 			m_arStatusArray.push_back(entry);
 			if (entry->isfolder)
@@ -582,21 +570,9 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				FileEntry * entry = new FileEntry();
 				entry->path = svnPath;
 				entry->basepath = basePath; 
-				entry->status = svn_wc_status_unversioned;
-				entry->textstatus = svn_wc_status_unversioned;
-				entry->propstatus = svn_wc_status_unversioned;
-				entry->remotestatus = svn_wc_status_unversioned;
-				entry->remotetextstatus = svn_wc_status_unversioned;
-				entry->remotepropstatus = svn_wc_status_unversioned;
-				entry->inunversionedfolder = TRUE;
-				entry->checked = false;
-				entry->inexternal = false;
-				entry->direct = false;
+				entry->inunversionedfolder = true;
 				entry->isfolder = true; 
-				entry->lRevision = 0;
 				entry->isNested = true;
-				entry->copied = false;
-				entry->copyfrom_rev = 0;
 				m_arStatusArray.push_back(entry);
 				continue;
 			}
@@ -1427,10 +1403,10 @@ void CSVNStatusListCtrl::GetMinMaxRevisions(LONG& lMin, LONG& lMax)
 	{
 		const FileEntry * entry = m_arStatusArray[i];
 		
-		if ((entry)&&(entry->lRevision))
+		if ((entry)&&(entry->Revision))
 		{
-			lMin = min(lMin, entry->lRevision);
-			lMax = max(lMax, entry->lRevision);
+			lMin = min(lMin, entry->Revision);
+			lMax = max(lMax, entry->Revision);
 		}	
 	}
 }
@@ -1951,6 +1927,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									entry->inexternal = false;
 									entry->direct = false;
 									entry->isfolder = true;
+									entry->last_commit_date = 0;
+									entry->last_commit_rev = 0;
 									if (s->entry)
 									{
 										if (s->entry->url)
@@ -2064,6 +2042,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								entry->inexternal = false;
 								entry->direct = false;
 								entry->isfolder = true;
+								entry->last_commit_date = 0;
+								entry->last_commit_rev = 0;
 								if (s->entry)
 								{
 									if (s->entry->url)
