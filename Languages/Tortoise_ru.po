@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 4629: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 4672: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-14 11:35+0300\n"
+"PO-Revision-Date: 2005-10-18 16:36+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,7 +222,7 @@ msgstr "&Дополнительно..."
 # Control-ID:1013,
 #: Control-ID:1013
 msgid "&Apply unified diff"
-msgstr "&Применить объединённый файл различий"
+msgstr "&Применение объединён. файла различий"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -744,7 +744,7 @@ msgstr "Объединённый файл разли&чий"
 #: ID:274
 #: Control-ID:1180
 msgid "&Unified diff"
-msgstr "Объединённый файл разли&чий"
+msgstr "Объедин. разли&чия"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -1065,7 +1065,7 @@ msgstr "Добавить/Править программу различий/сл
 #: ID:73
 #: Control-ID:65535
 msgid "Added"
-msgstr "Добавлено"
+msgstr "Добавленое"
 
 # ID:126,
 #: ID:126
@@ -1296,7 +1296,7 @@ msgstr "Применить за&платку..."
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
-msgstr "Применить объединённый файл различий"
+msgstr "Применение объединённого файла различий"
 
 # ID:145,
 #: ID:145
@@ -1760,7 +1760,7 @@ msgstr "Настройка программы, используемой для �
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Настройка программы для просмотра GNU diff-файлов (файлов заплаток)."
+msgstr "Настройка программы для просмотра файлов заплаток GNU."
 
 # ID:263,#:
 # Control-ID:65535,
@@ -2084,7 +2084,7 @@ msgstr "Сравнение"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Directory:"
-msgstr "Директория:"
+msgstr "Папка:"
 
 # ID:195,
 #: ID:195
@@ -2224,7 +2224,7 @@ msgstr "EXT"
 # Control-ID:1031,
 #: Control-ID:1237
 msgid "Edit"
-msgstr "Редактировать"
+msgstr "Поправить"
 
 # ID:76,
 # Вариант:Автор редакции 
@@ -2284,7 +2284,7 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr ""
-"Проверять орфографию только если\n"
+"Проверять орфографию, только если\n"
 "задано свойство tsvn:projectlanguage."
 
 # ID:3825,
@@ -3015,6 +3015,11 @@ msgid "Look and Feel"
 msgstr "Внешний вид"
 
 # Dlg-ID:106,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Внешний вид::Цвета"
+
+# Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "Внешний вид::Диалоги"
@@ -3386,7 +3391,7 @@ msgstr "Обновить только папку &верхнего уровня"
 # Control-ID:1224,
 #: Control-ID:1224
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr "Проверять &орфографию только если tsvn:projectlanguage установлено"
+msgstr "Проверять &орфографию, только если tsvn:projectlanguage установлено"
 
 # ID:3841,#:
 # ID:3841,
@@ -3789,7 +3794,7 @@ msgstr "Удалить из списка &игнорирования"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
-msgstr "Удалено"
+msgstr "Убранное"
 
 # ID:126,
 #: ID:126
@@ -3915,6 +3920,11 @@ msgstr ""
 #: ID:9
 msgid "Resolves conflicted files"
 msgstr "Улаживает конфликтные файлы"
+
+# ID:73,
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "Сбросить на исходные"
 
 # ID:3826,
 #: ID:3826
@@ -4533,6 +4543,11 @@ msgstr "Статистика"
 msgid "Status"
 msgstr "Состояние"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Цвета состояний и действий"
+
 # ID:11,
 #: ID:11
 msgid "Status of item in SVN"
@@ -4997,7 +5012,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
-msgstr "Этот продукт содержит программное обеспечение, разработанное CollabNet (http://www.Collab.Net/)"
+msgstr "Этот продукт содержит ПО, разработанное CollabNet (http://www.Collab.Net/)"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5902,6 +5917,11 @@ msgstr "Уме&ньшить\tCtrl--"
 msgid "added"
 msgstr "добавлен"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "added files"
+msgstr "добавленные файлы"
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -6015,7 +6035,7 @@ msgstr ""
 # ID:10,
 #: ID:10
 msgid "deleted"
-msgstr "удален"
+msgstr "удалён"
 
 # ID:79,
 #: ID:79
@@ -6056,6 +6076,7 @@ msgstr "заблокирован"
 
 # ID:11,
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "слит"
 
@@ -6064,10 +6085,20 @@ msgstr "слит"
 msgid "missing"
 msgstr "отсутствует"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "отсутствует / удалён / заменён"
+
 # ID:10,
 #: ID:10
 msgid "modified"
 msgstr "изменен"
+
+# ID:10,
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "изменен / скопирован"
 
 # ID:10,
 #: ID:10
@@ -6097,6 +6128,12 @@ msgstr "мешающий"
 msgid "pixels"
 msgstr "пикселы"
 
+# Control-ID:65535,
+# слова 'возможно или действительно' не помещаются
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "конфликтующий / мешающий"
+
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "re&cursive"
@@ -6110,7 +6147,7 @@ msgstr "только-для-чтения"
 # ID:10,
 #: ID:10
 msgid "replaced"
-msgstr "замещен"
+msgstr "заменён"
 
 # ID:14,
 #: ID:14
