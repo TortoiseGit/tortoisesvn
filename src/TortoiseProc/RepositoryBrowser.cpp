@@ -254,6 +254,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 	BOOL bLocked = FALSE;
 
 	int si = m_treeRepository.GetFirstSelectedItem();
+	if (si == RVI_INVALID)
+		return;
 	do
 	{
 		if (m_treeRepository.IsFolder(m_treeRepository.GetItemHandle(si)))

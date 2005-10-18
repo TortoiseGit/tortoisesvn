@@ -945,6 +945,7 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
 										else
 											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
+										Refresh(hItem);
 									}
 								}
 							}
@@ -1002,7 +1003,7 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 											AddFolder(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
 										else
 											AddFile(sDestUrl+_T("/")+destUrlList[index].GetFileOrDirectoryName());
-										DeleteItem(hItem);
+										Refresh(hItem);
 									}
 								}
 							}
