@@ -386,6 +386,42 @@ void CLogDlg::OnBnClickedGetall()
 	m_bShowedAll = true;
 }
 
+void CLogDlg::Refresh()
+{
+	UpdateData();
+
+	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+	m_limit = (int)(LONG)reg;
+	if (m_logEntries.size() != 0)
+	{
+		m_limit = m_logEntries[0]->dwRev - m_logEntries[m_logEntries.size()-1]->dwRev;
+	}
+	m_startrev = -1;
+	m_bCancelled = FALSE;
+
+	m_LogMsgCtrl.SetItemCountEx(0);
+	m_LogMsgCtrl.Invalidate();
+	m_LogList.SetItemCountEx(0);
+	m_LogList.Invalidate();
+	m_bNoDispUpdates = true;
+	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+	pMsgView->SetWindowText(_T(""));
+
+	SetSortArrow(&m_LogList, -1, true);
+
+	m_LogList.DeleteAllItems();
+	m_arShownList.RemoveAll();
+	m_logEntries.ClearAll();
+
+	m_bThreadRunning = TRUE;
+	if (AfxBeginThread(LogThreadEntry, this)==NULL)
+	{
+		m_bThreadRunning = FALSE;
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+}
+
 void CLogDlg::OnBnClickedNexthundred()
 {
 	UpdateData();
@@ -1936,7 +1972,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 			{
 				if (!GetDlgItem(IDC_GETALL)->IsWindowEnabled())
 					return __super::PreTranslateMessage(pMsg);
-				OnBnClickedGetall();
+				Refresh();
 			}
 			break;
 		case 'F':

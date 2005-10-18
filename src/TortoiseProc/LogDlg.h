@@ -156,6 +156,7 @@ public:
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
 	UINT LogThread();
+	void Refresh();
 	BOOL DiffPossible(LogChangedPath * changedpath, long rev);
 	void EditAuthor(int index);
 	void EditLogMessage(int index);
