@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-11 16:01+0800\n"
+"PO-Revision-Date: 2005-10-18 10:18+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -831,17 +831,38 @@ msgstr " : 工作複本"
 # ID:88,
 #: ID:88
 msgid ""
-"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct your working copy to another repository or branch,\n"
-"this <b>will corrupt your working copy!</b>\n"
-"To associate your working copy with another branch, use the Switch command.\n"
-"Are you sure you want to relocate?"
+"<b>ATTENTION:</b>\n"
+"The Relocate command is only used if the URL of the\n"
+"repository root has changed due to a server IP address change, protocol\n"
+"change (e.g. http:// to https://) or a change of the repository root\n"
+"path in the server setup.\n"
+"<b>This is a very infrequently used operation</b> and applies neither if you\n"
+"want to move to another Subversion repository nor if you want to switch\n"
+"to another branch or directory <b>within the same repository.</b>\n"
+"To move to another Subversion repository, perform a clean checkout from\n"
+"the new repository location.\n"
+"To associate your working copy with another branch or another directory\n"
+"within the same repository, use the Switch command from the main menu\n"
+"\n"
+"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
+"If you are unsure whether Relocate is the correct operation, it probably\n"
+"is not and you should consult <b>Help</b>."
 msgstr ""
-"<b>注意:</b> 請只在舊檔案庫搬移至新 URL時才使用重新定位指令.\n"
-"如果用來指向其它檔案庫或是分支,\n"
-"<b>將會損壞你的工作複本!</b>\n"
-"要將工作複本與其它分支關聯, 請使用切換指令.\n"
-"你確定要重新定位嗎?"
+"<b>特別注意:</b>\n"
+"重新定位的動作只用在檔案庫的最上層URL因為伺服器\n"
+"IP位址改變而隨著改變, 或是通訊協定改變的情況\n"
+" (例: http:// 改為 https://) 或是修改伺服器設定造成最上層路徑改變等情況.\n"
+"<b>這個功能非常少用</b> 而且不能用來「移動到」另一個\n"
+"Subversion 檔案庫, 也不能用來「切換」到<b>同一個檔案庫裡</b>\n"
+"別的分支或是目錄.\n"
+"要移動到另一個檔案庫, 請從新的檔案庫路徑做一次乾淨的取\n"
+"出動作.\n"
+"如果要把工作複本改指向同一個檔案庫的另一個分支或目錄,\n"
+"請使用選單裡的「切換」指令.\n"
+"\n"
+"錯誤地使用重新定位指令<b>會造成你的工作複本損毀!</b>\n"
+"如果你不確定是不是該進行重新定位, 那麼最好是不要,\n"
+"並建議您參考<b>說明文件</b>."
 
 # ID:145,
 #: ID:145
@@ -1343,7 +1364,7 @@ msgstr "分支/標記建立成功!"
 # ID:9,
 #: ID:9
 msgid "Branch/&tag..."
-msgstr "分支/標記(T)..."
+msgstr "分支/標記(&T)..."
 
 # ID:16,
 #: ID:16
@@ -1494,7 +1515,7 @@ msgstr "檢查更新..."
 # ID:13,
 #: ID:13
 msgid "Check for modi&fications"
-msgstr "檢查異動(F)"
+msgstr "檢查異動(&F)"
 
 # ID:13,
 #: Control-ID:65535
@@ -2951,6 +2972,11 @@ msgid "Look and Feel"
 msgstr "視覺樣式"
 
 # Dlg-ID:106,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "視覺樣式::顏色"
+
+# Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "視覺樣式::視窗"
@@ -3844,6 +3870,11 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "解決有衝突的檔案"
 
+# ID:73,
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "還原預設值"
+
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
@@ -4441,6 +4472,11 @@ msgstr "統計資料"
 #: ID:207
 msgid "Status"
 msgstr "狀態"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "狀態與行為的顏色"
 
 # ID:11,
 #: ID:11
@@ -5810,6 +5846,11 @@ msgstr ""
 msgid "added"
 msgstr "增加"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "added files"
+msgstr "增加的檔案"
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -5962,6 +6003,7 @@ msgstr "鎖定"
 
 # ID:11,
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "合併"
 
@@ -5970,10 +6012,20 @@ msgstr "合併"
 msgid "missing"
 msgstr "缺少"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "缺少/已刪除/已取代"
+
 # ID:10,
 #: ID:10
 msgid "modified"
 msgstr "異動"
+
+# ID:10,
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "已異動/複製"
 
 # ID:10,
 #: ID:10
@@ -6000,6 +6052,11 @@ msgstr "阻礙"
 #: ID:3869
 msgid "pixels"
 msgstr "圖素"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "可能衝突/阻塞"
 
 # Control-ID:1018,
 #: Control-ID:1018
