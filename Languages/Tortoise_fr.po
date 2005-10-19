@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-17 09:42+0100\n"
+"PO-Revision-Date: 2005-10-19 10:23+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2515,6 +2515,11 @@ msgid "Look and Feel"
 msgstr "Apparence et comportement"
 
 # Dlg-ID:106,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Apparence et comportement::Couleurs"
+
+# Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "Apparence et comportement::Boites de dialogue"
@@ -2671,6 +2676,10 @@ msgstr "Nouveau &nom:"
 #, c-format
 msgid "New name for %s"
 msgstr "Nouveau nom pour %s"
+
+#: ID:98
+msgid "New name:"
+msgstr "Nouveau nom:"
 
 #: ID:73
 msgid "No"
@@ -3247,6 +3256,10 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "Résoudre les fichiers en conflits"
 
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "Restaurer les valeurs par défaut"
+
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "Restaurer la fenêtre à sa taille normale"
@@ -3732,6 +3745,11 @@ msgstr "Statistiques"
 #: ID:207
 msgid "Status"
 msgstr "Statut"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Statut et couleurs d'action"
 
 #: ID:11
 msgid "Status of item in SVN"
@@ -4907,6 +4925,10 @@ msgstr "&Rétrécir\tCtrl--"
 msgid "added"
 msgstr "ajouté"
 
+#: Control-ID:65535
+msgid "added files"
+msgstr "fichiers ajoutés"
+
 #: ID:3841
 msgid "an unnamed file"
 msgstr "un fichier non nommé"
@@ -5042,6 +5064,7 @@ msgid "locked"
 msgstr "Verrouillé"
 
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "fusionné"
 
@@ -5049,9 +5072,18 @@ msgstr "fusionné"
 msgid "missing"
 msgstr "manquant"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "manquant / supprimé / remplacé"
+
 #: ID:10
 msgid "modified"
 msgstr "modifié"
+
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "modifié / copié"
 
 #: ID:10
 msgid "no description for this command is available"
@@ -5072,6 +5104,11 @@ msgstr "gênant"
 #: ID:3869
 msgid "pixels"
 msgstr "points"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "conflit posible ou réel / bloquant"
 
 #: Control-ID:1018
 msgid "re&cursive"
