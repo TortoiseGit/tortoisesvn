@@ -510,7 +510,7 @@
 					<Text>{\VerdanaBold13}Welcome to the [ProductName] [Wizard]</Text>
 				</Control>
 				<Control Id="DialogDescription" Type="Text" X="135" Y="70" Width="220" Height="60" Transparent="yes" NoPrefix="yes">
-					<Text>The [Wizard] will allow you to change the way [ProductName] features are installed on your computer or even to remove [ProductName] v$(var.VersionNumber) from your computer. Click Next to continue or Cancel to exit the [Wizard].</Text>
+					<Text>The [Wizard] will allow you to change the way [ProductName] features are installed on your computer or even to remove [ProductName] v$(var.VersionNumberUserVisible) from your computer. Click Next to continue or Cancel to exit the [Wizard].</Text>
 				</Control>
 				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
 			</Dialog>
@@ -789,7 +789,7 @@
 					<Text>{\VerdanaBold13}Welcome to the [ProductName] [Wizard]</Text>
 				</Control>
 				<Control Id="DialogDescription" Type="Text" X="135" Y="90" Width="220" Height="30" Transparent="yes" NoPrefix="yes">
-					<Text>The [Wizard] will install [ProductName] v$(var.VersionNumber) on your computer. Click Next to continue or Cancel to exit the [Wizard].</Text>
+					<Text>The [Wizard] will install [ProductName] v$(var.VersionNumberUserVisible) on your computer. Click Next to continue or Cancel to exit the [Wizard].</Text>
 				</Control>
 				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
 			</Dialog>
