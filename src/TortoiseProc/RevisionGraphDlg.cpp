@@ -409,6 +409,30 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 			ASSERT(FALSE);	//unknown type
 			return;
 		}
+		
+		COLORREF brightcol = contour;
+		brightcol = RGB(min(GetRValue(contour)+220, 255), min(GetGValue(contour)+220, 255), min(GetBValue(contour)+220, 255));
+		brush.DeleteObject();
+		brush.CreateHatchBrush(HS_DIAGCROSS, brightcol);
+		pOldBrush = pDC->SelectObject(&brush);
+
+		// Draw the main shape
+		switch( shape )
+		{
+		case TSVNRectangle:
+			pDC->Rectangle(rect);
+			break;
+		case TSVNRoundRect:
+			pDC->RoundRect(rect, m_RoundRectPt);
+			break;
+		case TSVNOctangle:
+			DrawOctangle(pDC, rect);
+			break;
+		default:
+			ASSERT(FALSE);	//unknown type
+			return;
+		}
+
 		// draw the revision text
 		pOldFont = pDC->SelectObject(GetFont(FALSE, TRUE));
 		CString temp;
