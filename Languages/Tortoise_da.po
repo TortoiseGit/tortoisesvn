@@ -1,4 +1,4 @@
-# Danish translation for TortoiseSVN
+19-10-2005# Danish translation for TortoiseSVN
 # Copyright (C) 2005 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -6,13 +6,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4629
+# Based on Tortoise.pot r4680
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-19 14:30+0100\n"
+"PO-Revision-Date: 2005-10-19 14:35+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2102,6 +2102,10 @@ msgstr "Logbeskeder"
 msgid "Look and Feel"
 msgstr "Tema"
 
+#: Dlg-ID:212,
+msgid "Look and Feel::Colors"
+msgstr "Tema::Farver"
+
 #: Dlg-ID:196,
 msgid "Look and Feel::Dialogs"
 msgstr "Tema::Dialoger"
@@ -2247,6 +2251,10 @@ msgstr "Nyt &navn:"
 #, c-format
 msgid "New name for %s"
 msgstr "Nyt navn til %s"
+
+#: ID:98,
+msgid "New name:"
+msgstr "Nyt navn:"
 
 #: ID:73,
 msgid "No"
@@ -2740,6 +2748,10 @@ msgstr "Løst:\n%s"
 msgid "Resolves conflicted files"
 msgstr "Løser konflikter i filer"
 
+#: Control-ID:1254,
+msgid "Restore Default"
+msgstr "Gendan standard"
+
 #: ID:3826,
 msgid "Restore the window to normal size"
 msgstr "Gendan vinduet til normal størrelse"
@@ -3170,6 +3182,10 @@ msgstr "Statistik"
 #: ID:74,#: ID:77,#: ID:207,
 msgid "Status"
 msgstr "Status"
+
+#: Control-ID:65535,
+msgid "Status and action colors"
+msgstr "Farver for status og handlinger"
 
 #: ID:11,
 msgid "Status of item in SVN"
@@ -4000,6 +4016,10 @@ msgstr "Zoom &ud\tCtrl--"
 msgid "added"
 msgstr "tilføjet"
 
+#: Control-ID:65535,
+msgid "added files"
+msgstr "tilføjede filer"
+
 #: ID:3841,#: ID:3841,
 msgid "an unnamed file"
 msgstr "en ikke-navngivet fil"
@@ -4082,7 +4102,7 @@ msgstr "ukomplet"
 msgid "locked"
 msgstr "låst"
 
-#: ID:11,
+#: ID:11,#: Control-ID:65535,
 msgid "merged"
 msgstr "flettet"
 
@@ -4090,9 +4110,17 @@ msgstr "flettet"
 msgid "missing"
 msgstr "mangler"
 
+#: Control-ID:65535,
+msgid "missing / deleted / replaced"
+msgstr "mangler / slettet / erstattet"
+
 #: ID:10,
 msgid "modified"
 msgstr "ændret"
+
+#: Control-ID:65535,
+msgid "modified / copied"
+msgstr "ændret / kopieret"
 
 #: ID:10,
 msgid "no description for this command is available"
@@ -4113,6 +4141,10 @@ msgstr "spærret"
 #: ID:3869,#: ID:3869,
 msgid "pixels"
 msgstr "punkter"
+
+#: Control-ID:65535,
+msgid "possible or real conflict / obstructed"
+msgstr "mulig eller reel konflikt / spærret"
 
 #: Control-ID:1018,
 msgid "re&cursive"
