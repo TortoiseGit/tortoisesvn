@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-13 14:57+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-10-19 15:08+0800\n"
+"Last-Translator: NetCobra <netcobra@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -2965,6 +2965,11 @@ msgid "Look and Feel"
 msgstr "外观样式"
 
 # Dlg-ID:106,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "外观与样式::颜色"
+
+# Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "外观与样式::对话框"
@@ -3150,6 +3155,11 @@ msgstr "新名称(&N)："
 #, c-format
 msgid "New name for %s"
 msgstr "%s 的新名称"
+
+# Control-ID:1076,
+#: ID:98
+msgid "New name:"
+msgstr "新名称："
 
 # ID:73,
 #: ID:73
@@ -3856,6 +3866,11 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "解决有冲突的文件"
 
+# ID:73,
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "回复默认值"
+
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
@@ -4451,6 +4466,11 @@ msgstr "统计"
 #: ID:207
 msgid "Status"
 msgstr "状态"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "操作及状态显示颜色"
 
 # ID:11,
 #: ID:11
@@ -5812,6 +5832,11 @@ msgstr "缩小(&O)\tCtrl--"
 msgid "added"
 msgstr "增加"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "added files"
+msgstr "添加文件"
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -5965,6 +5990,7 @@ msgstr "锁定"
 
 # ID:11,
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "合并"
 
@@ -5973,10 +5999,20 @@ msgstr "合并"
 msgid "missing"
 msgstr "缺少"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "丢失/已删除/已替换"
+
 # ID:10,
 #: ID:10
 msgid "modified"
 msgstr "修改"
+
+# ID:10,
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "已修改/已复制"
 
 # ID:10,
 #: ID:10
@@ -6003,6 +6039,11 @@ msgstr "阻碍"
 #: ID:3869
 msgid "pixels"
 msgstr "像素"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "可能或确实有冲突/有问题(obstructed)"
 
 # Control-ID:1018,
 #: Control-ID:1018
