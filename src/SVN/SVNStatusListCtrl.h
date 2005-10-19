@@ -35,6 +35,9 @@ class SVNStatus;
 #define SVNSLC_COLEXT			0x000000100
 #define SVNSLC_COLLOCK			0x000000200
 #define SVNSLC_COLLOCKCOMMENT	0x000000400
+#define SVNSLC_COLAUTHOR		0x000000800
+#define	SVNSLC_COLREVISION		0x000001000
+#define	SVNSLC_COLDATE			0x000002000
 
 
 #define SVNSLC_SHOWUNVERSIONED	0x000000001
@@ -162,6 +165,7 @@ public:
 			, direct(false)
 			, isfolder(false)
 			, isNested(false)
+			, Revision(0)
 		{
 		}
 		const CTSVNPath& GetPath() const					

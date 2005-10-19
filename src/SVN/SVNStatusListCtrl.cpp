@@ -197,6 +197,21 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, DWORD dwContextMenus /* = SVNSLC_
 		temp.LoadString(IDS_STATUSLIST_COLLOCKCOMMENT);
 		InsertColumn(nCol++, temp);
 	}
+	if (dwColumns & SVNSLC_COLAUTHOR)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLAUTHOR);
+		InsertColumn(nCol++, temp);
+	}
+	if (dwColumns & SVNSLC_COLREVISION)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLREVISION);
+		InsertColumn(nCol++, temp);
+	}
+	if (dwColumns & SVNSLC_COLDATE)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLDATE);
+		InsertColumn(nCol++, temp);
+	}
 
 	SetRedraw(false);
 	int mincol = 0;
@@ -949,6 +964,29 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	if (m_dwColumns & SVNSLC_COLLOCKCOMMENT)
 	{
 		SetItemText(index, nCol++, entry->lock_comment);
+	}
+	if (m_dwColumns & SVNSLC_COLAUTHOR)
+	{
+		SetItemText(index, nCol++, entry->last_commit_author);
+	}
+	if (m_dwColumns & SVNSLC_COLREVISION)
+	{
+		CString temp;
+		temp.Format(_T("%ld"), entry->last_commit_rev);
+		if (entry->last_commit_rev > 0)
+			SetItemText(index, nCol++, temp);
+		else
+			SetItemText(index, nCol++, _T(""));
+	}
+	if (m_dwColumns & SVNSLC_COLDATE)
+	{
+		TCHAR datebuf[SVN_DATE_BUFFER];
+		apr_time_t date = entry->last_commit_date;
+		SVN::formatDate(datebuf, date, true);
+		if (date)
+			SetItemText(index, nCol++, datebuf);
+		else
+			SetItemText(index, nCol++, _T(""));
 	}
 	SetCheck(index, entry->checked);
 	if (entry->checked)

@@ -30,6 +30,7 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const apr_array_header_t * commit_items,
 									void *baton, apr_pool_t * pool);
 #define SVN_PROGRESS_QUEUE_SIZE 10
+#define SVN_DATE_BUFFER 260
 
 /**
  * \ingroup SVN

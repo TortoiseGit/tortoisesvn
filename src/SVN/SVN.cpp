@@ -42,8 +42,6 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-#define SVN_DATE_BUFFER 260
-
 SVN::SVN(void) :
 	m_progressWnd(0),
 	m_pProgressDlg(NULL),
