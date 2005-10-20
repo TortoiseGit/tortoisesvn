@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-19 10:23+0100\n"
+"PO-Revision-Date: 2005-10-20 21:59+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -845,6 +845,11 @@ msgstr "Ajouter &fichier..."
 msgid "Add '%s' to dictionary"
 msgstr "Ajouter '%s' au dictionnaire"
 
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Ajouter (en remplacement)..."
+
 #: ID:110
 msgid "Add extension specific diff program"
 msgstr "Ajout programme de diff selon extension"
@@ -1066,6 +1071,7 @@ msgid "At revision: %d"
 msgstr "A la révision: %d"
 
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "Auteur"
 
@@ -1680,6 +1686,7 @@ msgstr ""
 "Couper"
 
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "Date"
 
@@ -3285,6 +3292,7 @@ msgid "Reverts all changes you made since the last update"
 msgstr "Annuler tous vos changements depuis la dernière mise à jour"
 
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "Révision"
