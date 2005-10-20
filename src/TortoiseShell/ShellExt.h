@@ -97,6 +97,7 @@ protected:
 		Update,
 		Commit,
 		Add,
+		AddAsReplacement,
 		Revert,
 		Cleanup,
 		Resolve,

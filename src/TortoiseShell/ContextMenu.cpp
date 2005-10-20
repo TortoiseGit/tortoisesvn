@@ -729,8 +729,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	if ((!isInSVN)&&(isFolder)&&(!isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCREATEREPOS), HMENU(MENUCREATEREPOS), INDEXMENU(MENUCREATEREPOS), idCmd++, IDS_MENUCREATEREPOS, IDI_CREATEREPOS, idCmdFirst, CreateRepos);
-	if ((!isInSVN && isInVersionedFolder)||(isInSVN && isFolder)||(isIgnored)||(!isFolder && isDeleted))
+	if ((!isInSVN && isInVersionedFolder)||(isInSVN && isFolder)||(isIgnored)||(!isFolder && isDeleted && !isOnlyOneItemSelected))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUADD), HMENU(MENUADD), INDEXMENU(MENUADD), idCmd++, IDS_MENUADD, IDI_ADD, idCmdFirst, Add);
+	else if (!isFolder && isDeleted && isOnlyOneItemSelected)
+		InsertSVNMenu(ownerdrawn, ISTOP(MENUADD), HMENU(MENUADD), INDEXMENU(MENUADD), idCmd++, IDS_MENUADDASREPLACEMENT, IDI_ADD, idCmdFirst, AddAsReplacement);
 	if ((!isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUIMPORT), HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
 	if ((isInSVN)&&(!isFolder)&&(!isAdded)&&(isOnlyOneItemSelected))
@@ -973,6 +975,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += _T("\"");
 						break;
 					case Add:
+					case AddAsReplacement:
 						tempfile = WriteFileListToTempFile();
 						svnCmd += _T("add /path:\"");
 						svnCmd += tempfile;
@@ -1742,6 +1745,12 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			break;
 		case Add:
 			MAKESTRING(IDS_MENUADD);
+			resource = MAKEINTRESOURCE(IDI_ADD);
+			SETSPACE(MENUADD);
+			PREPENDSVN(MENUADD);
+			break;
+		case AddAsReplacement:
+			MAKESTRING(IDS_MENUADDASREPLACEMENT);
 			resource = MAKEINTRESOURCE(IDI_ADD);
 			SETSPACE(MENUADD);
 			PREPENDSVN(MENUADD);
