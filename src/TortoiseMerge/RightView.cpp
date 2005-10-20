@@ -64,6 +64,8 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 	{
 #define ID_USEBLOCK 1
 #define ID_USEFILE 2
+#define ID_USETHEIRANDYOURBLOCK 3
+#define ID_USEYOURANDTHEIRBLOCK 4
 		UINT uEnabled = MF_ENABLED;
 		if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
 			uEnabled |= MF_DISABLED | MF_GRAYED;
@@ -83,6 +85,14 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 		else
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
+
+		if (m_pwndBottom->IsWindowVisible())
+		{
+			temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
+			popup.AppendMenu(MF_STRING | uEnabled, ID_USEYOURANDTHEIRBLOCK, temp);
+			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
+			popup.AppendMenu(MF_STRING | uEnabled, ID_USETHEIRANDYOURBLOCK, temp);
+		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
@@ -176,6 +186,62 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 				}
 			} 
 		break;
+		case ID_USEYOURANDTHEIRBLOCK:
+			{
+				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+				{
+					m_pwndBottom->m_arDiffLines->SetAt(i, m_pwndRight->m_arDiffLines->GetAt(i));
+					m_pwndBottom->m_arLineStates->SetAt(i, m_pwndRight->m_arLineStates->GetAt(i));
+					m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
+				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
+
+				// your block is done, now insert their block
+				int index = m_nSelBlockEnd+1;
+				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+				{
+					m_pwndBottom->m_arDiffLines->InsertAt(index, m_pwndLeft->m_arDiffLines->GetAt(i));
+					m_pwndBottom->m_arLineStates->InsertAt(index++, m_pwndLeft->m_arLineStates->GetAt(i));
+					m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
+				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
+
+				// now insert an empty block in both yours and theirs
+				m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
+				m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockStart, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+				m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
+				m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+				m_pwndBottom->SetModified();
+				m_pwndLeft->SetModified();
+				m_pwndRight->SetModified();
+			}
+			break;
+		case ID_USETHEIRANDYOURBLOCK:
+			{
+				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+				{
+					m_pwndBottom->m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
+					m_pwndBottom->m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
+					//m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
+				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
+
+				// your block is done, now insert their block
+				int index = m_nSelBlockEnd+1;
+				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+				{
+					m_pwndBottom->m_arDiffLines->InsertAt(index, m_pwndRight->m_arDiffLines->GetAt(i));
+					m_pwndBottom->m_arLineStates->InsertAt(index++, m_pwndRight->m_arLineStates->GetAt(i));
+					//m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
+				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
+
+				// now insert an empty block in both yours and theirs
+				m_pwndRight->m_arDiffLines->InsertAt(m_nSelBlockStart, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
+				m_pwndRight->m_arLineStates->InsertAt(m_nSelBlockStart, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+				m_pwndLeft->m_arDiffLines->InsertAt(m_nSelBlockEnd+1, _T(""), m_nSelBlockEnd-m_nSelBlockStart+1);
+				m_pwndLeft->m_arLineStates->InsertAt(m_nSelBlockEnd+1, CDiffData::DIFFSTATE_EMPTY, m_nSelBlockEnd-m_nSelBlockStart+1);
+				m_pwndBottom->SetModified();
+				m_pwndLeft->SetModified();
+				m_pwndRight->SetModified();
+			}
+			break;
 		} // switch (cmd) 
 	} // if (popup.CreatePopupMenu()) 
 }
