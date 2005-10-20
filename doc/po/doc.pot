@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-10-13 10:01GMT Daylight Time\n"
+"POT-Creation-Date: 2005-10-20 15:03GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -426,130 +426,130 @@ msgid "But there's a solution for that problem - at least if you're accessing th
 msgstr ""
 
 #: source/en/tsvn_server/server_apache.xml:575(para) 
-msgid "<indexterm><primary>SSPI</primary></indexterm> The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, including a patch from Vladimir Berezniker. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
+msgid "<indexterm><primary>SSPI</primary></indexterm> The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, supplied by Norbert Unterberg. This one is mod_auth_sspi 1.0.3 which supports a <literal>SSPIUsernameCase [upper|lower]</literal> directive. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:590(para) 
+#: source/en/tsvn_server/server_apache.xml:592(para) 
 msgid "Download the module, copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:597(para) 
+#: source/en/tsvn_server/server_apache.xml:599(para) 
 msgid "Edit the Apache config file: add the line <screen>\nLoadModule sspi_auth_module modules/mod_auth_sspi.so\n</screen> to the LoadModule's section. Make sure you insert this line <emphasis>before</emphasis> the line <screen>\nLoadModule auth_module modules/mod_auth.so\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:610(para) 
+#: source/en/tsvn_server/server_apache.xml:612(para) 
 msgid "To make the Subversion location use this type of authentication you have to change the line <screen>\nAuthType Basic\n</screen> to <screen>\nAuthType SSPI\n</screen> also you need to add <screen>\nSSPIAuth On\nSSPIAuthoritative On\nSSPIDomain &lt;domaincontroller&gt;\nSSPIOfferBasic On\n</screen> within the &lt;Location /svn&gt; block. If you don't have a domain controller, leave the name of the domain control as &lt;domaincontroller&gt;."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:633(para) 
+#: source/en/tsvn_server/server_apache.xml:635(para) 
 msgid "Note that if you are authenticating using SSPI, then you don't need the <filename>AuthUserFile</filename> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:643(para) 
+#: source/en/tsvn_server/server_apache.xml:645(para) 
 msgid "Subversion AuthzSVNAccessFile files are case sensitive in regard to user names (\"JUser\" is different from \"juser\")."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:647(para) 
+#: source/en/tsvn_server/server_apache.xml:649(para) 
 msgid "In Microsoft's world, Windows domains and usernames are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. \"JUser\")."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:652(para) 
+#: source/en/tsvn_server/server_apache.xml:654(para) 
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:660(para) 
+#: source/en/tsvn_server/server_apache.xml:662(para) 
 msgid "The end result is that you may need at least two entries in your AuthzSVNAccessFile for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:668(para) 
+#: source/en/tsvn_server/server_apache.xml:670(para) 
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's AuthzSVNAccessFile module. You may need to experiment with the exact format of the user string in the svnaccessfile (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:680(title) 
+#: source/en/tsvn_server/server_apache.xml:682(title) 
 msgid "SSL and InternetExplorer"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:681(para) 
+#: source/en/tsvn_server/server_apache.xml:683(para) 
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:695(para) 
+#: source/en/tsvn_server/server_apache.xml:697(para) 
 msgid "define a separate &lt;Location /path&gt; directive in the apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:705(para) 
+#: source/en/tsvn_server/server_apache.xml:707(para) 
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:713(para) 
+#: source/en/tsvn_server/server_apache.xml:715(para) 
 msgid "In the ssl \"standard\" setup there's often the following statement in apache's virtual ssl host: <screen>\nSetEnvIf User-Agent \".*MSIE.*\" \\\n             nokeepalive ssl-unclean-shutdown \\\n             downgrade-1.0 force-response-1.0\n</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want ntlm authentication you have to use keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> If You uncomment the whole \"SetEnvIf\" You should be able to authenticate IE with windows authentication over SSL against the apache on Win32 with included mod_auth_sspi."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:690(para) 
+#: source/en/tsvn_server/server_apache.xml:692(para) 
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:740(title) 
+#: source/en/tsvn_server/server_apache.xml:742(title) 
 msgid "Securing the server with SSL"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:742(primary) 
+#: source/en/tsvn_server/server_apache.xml:744(primary) 
 msgid "SSL"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:744(para) 
+#: source/en/tsvn_server/server_apache.xml:746(para) 
 msgid "The apache server doesn't have SSL support installed by default due to US-export restrictions. But you can easily download the required module from somewhere else and install it yourself."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:751(para) 
+#: source/en/tsvn_server/server_apache.xml:753(para) 
 msgid "First you need the required files to enable SSL. You can find those in the package available at <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Just unzip the package and then copy <filename>mod_ssl.so</filename> to the <filename>modules</filename> folder of Apache and the file <filename>openssl.exe</filename> to the <filename>bin</filename> folder. Also copy the file <filename>conf/ssl.conf</filename> to the <filename>conf</filename> folder of Apache."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:767(para) 
+#: source/en/tsvn_server/server_apache.xml:769(para) 
 msgid "Open the file <filename>ssl.conf</filename> in the Apache conf folder with a text editor."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:774(para) 
+#: source/en/tsvn_server/server_apache.xml:776(para) 
 msgid "Place a comment char (<literal>#</literal>) in front of the following lines: <screen>\nDocumentRoot \"c:/apache/htdocs\"\nServerName www.example.com:443\nServerAdmin you@example.com\nErrorLog logs/error_log\nTransferLog logs/access_log\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:787(para) 
+#: source/en/tsvn_server/server_apache.xml:789(para) 
 msgid "change the line <screen>\nSSLCertificateFile conf/ssl.crt/server.crt\n</screen> to <screen>\nSSLCertificateFile conf/ssl/my-server.cert\n</screen> the line <screen>\nSSLCertificateKeyFile conf/ssl.key/server.key\n</screen> to <screen>\nSSLCertificateKeyFile conf/ssl/my-server.key\n</screen> and the line <screen>\nSSLMutex  file:logs/ssl_mutex\n</screen> to <screen>\nSSLMutex  default\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:815(para) 
+#: source/en/tsvn_server/server_apache.xml:817(para) 
 msgid "Delete the lines <screen>\n&lt;IfDefine SSL&gt;\n</screen> and <screen>\n&lt;/IfDefine&gt;\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:827(para) 
+#: source/en/tsvn_server/server_apache.xml:829(para) 
 msgid "Open the Apache config file (<filename>httpd.conf</filename>) and uncomment the line <screen>\n#LoadModule ssl_module modules/mod_ssl.so\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:836(para) 
+#: source/en/tsvn_server/server_apache.xml:838(para) 
 msgid "Openssl needs a config file. You can download a working one from <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Save the file to <filename>bin/openssl.cnf</filename>. Please note: the file has the type <filename>*.cnf</filename>. Windows treats such files in a special way but it really is just a text file!"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:850(para) 
+#: source/en/tsvn_server/server_apache.xml:852(para) 
 msgid "Next you need to create an SSL certificate. To do that open a command prompt (DOS-Box) and change to the apache folder (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) and type the following command: <screen>\nbin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr\n</screen> You will be asked for a passphrase. Please don't use simple words but whole sentences, e.g. a part of a poem. The longer the phrase the better. Also you have to enter the URL of you server. All other questions are optional but I recommend to fill out those too. Next type the commands <screen>\nbin\\openssl rsa -in privkey.pem -out my-server.key\n</screen> and (on one line) <screen>\nbin\\openssl x509 -in my-server.csr -out my-server.cert\n                 -req -signkey my-server.key -days 4000\n</screen> This will create a certificate which will expire in 4000 days. And finally enter: <screen>\nbin\\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER\n</screen> These commands created some files in the Apache folder (<filename>my-server.der.crt</filename>, <filename>my-server.csr</filename>, <filename>my-server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>my-server.cert</filename>). Copy the files to the folder <filename>conf/ssl</filename> (e.g. <filename>C:\\program files\\apache group\\apache2\\conf\\ssl</filename>) - if this folder does not exist you have to create it first."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:891(para) 
+#: source/en/tsvn_server/server_apache.xml:893(para) 
 msgid "Restart the apache service."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:896(para) 
+#: source/en/tsvn_server/server_apache.xml:898(para) 
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:904(title) 
+#: source/en/tsvn_server/server_apache.xml:906(title) 
 msgid "Forcing SSL access"
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:905(para) 
+#: source/en/tsvn_server/server_apache.xml:907(para) 
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-ssl (http) and only allow https access. To do this, you have to add another directive to the Subversion &lt;Location&gt; block: <literal>SSLRequireSSL</literal>."
 msgstr ""
 
-#: source/en/tsvn_server/server_apache.xml:912(para) 
+#: source/en/tsvn_server/server_apache.xml:914(para) 
 msgid "An example &lt;Location&gt; block would look like this: <screen>\n&lt;Location /svn&gt;\nDAV svn\nSVNParentPath D:\\SVN\nSSLRequireSSL\nAuthType Basic\nAuthName \"Subversion repositories\"\nAuthUserFile passwd\n#AuthzSVNAccessFile svnaccessfile\nRequire valid-user\n&lt;/Location&gt;\n</screen>"
 msgstr ""
 
@@ -5506,187 +5506,207 @@ msgstr ""
 msgid "Buttons and Other Controls"
 msgstr ""
 
-#: source/en/tme_ch02.xml:149(para) 
+#: source/en/tme_ch02.xml:146(title) 
+msgid "The Toolbar"
+msgstr ""
+
+#: source/en/tme_ch02.xml:153(para) 
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
 msgstr ""
 
-#: source/en/tme_ch02.xml:155(para) 
+#: source/en/tme_ch02.xml:159(para) 
 msgid "<guibutton>Save</guibutton> saves any changes you have made. If you have selected <guilabel>Resolve conflicted Subversion status on save</guilabel> in the settings dialog, then Subversion's conflict working files will be deleted automatically if all conflicts were resolved."
 msgstr ""
 
-#: source/en/tme_ch02.xml:166(para) 
+#: source/en/tme_ch02.xml:170(para) 
 msgid "<guibutton>Reload</guibutton> discards any changes you have made and reloads the original files."
 msgstr ""
 
-#: source/en/tme_ch02.xml:173(para) 
+#: source/en/tme_ch02.xml:177(para) 
+msgid "<guibutton>Undo</guibutton> This feature is not enabled yet."
+msgstr ""
+
+#: source/en/tme_ch02.xml:183(para) 
 msgid "<guibutton>Show Spaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
 msgstr ""
 
-#: source/en/tme_ch02.xml:180(para) 
+#: source/en/tme_ch02.xml:190(para) 
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr ""
 
-#: source/en/tme_ch02.xml:191(para) 
+#: source/en/tme_ch02.xml:201(para) 
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
 msgstr ""
 
-#: source/en/tme_ch02.xml:197(para) 
+#: source/en/tme_ch02.xml:207(para) 
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
 msgstr ""
 
-#: source/en/tme_ch02.xml:204(para) 
+#: source/en/tme_ch02.xml:214(para) 
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
 msgstr ""
 
-#: source/en/tme_ch02.xml:211(para) 
+#: source/en/tme_ch02.xml:221(para) 
+msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
+msgstr ""
+
+#: source/en/tme_ch02.xml:230(para) 
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr ""
 
-#: source/en/tme_ch02.xml:218(para) 
+#: source/en/tme_ch02.xml:237(para) 
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr ""
 
 #: source/en/tme_ch02.xml:144(para) 
-msgid "Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-1/>"
+msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
 msgstr ""
 
-#: source/en/tme_ch02.xml:225(para) 
+#: source/en/tme_ch02.xml:244(para) 
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
 msgstr ""
 
-#: source/en/tme_ch02.xml:234(para) 
+#: source/en/tme_ch02.xml:253(para) 
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. The left side of the status bar is used to display hints when you hover the mouse over a control."
 msgstr ""
 
-#: source/en/tme_ch02.xml:247(title) 
+#: source/en/tme_ch02.xml:266(title) 
 msgid "Merging / Editing Conflicts"
 msgstr ""
 
-#: source/en/tme_ch02.xml:248(para) 
+#: source/en/tme_ch02.xml:267(para) 
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
 msgstr ""
 
-#: source/en/tme_ch02.xml:252(para) 
+#: source/en/tme_ch02.xml:271(para) 
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
 msgstr ""
 
-#: source/en/tme_ch02.xml:264(para) 
+#: source/en/tme_ch02.xml:283(para) 
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
 msgstr ""
 
-#: source/en/tme_ch02.xml:301(para) 
+#: source/en/tme_ch02.xml:320(para) 
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
 msgstr ""
 
-#: source/en/tme_ch02.xml:309(para) 
+#: source/en/tme_ch02.xml:328(para) 
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
 msgstr ""
 
-#: source/en/tme_ch02.xml:317(para) 
+#: source/en/tme_ch02.xml:336(para) 
 msgid "If you need to copy lines of text to insert in another file using your favourite text editor, you can select multiple lines to copy within TortoiseMerge. <action>Click</action> on the first line of the block, then <action>Shift+Click</action> on the last line of the block. As usual, <action>Ctrl+C</action> can be used to copy the selected lines to the clipboard."
 msgstr ""
 
-#: source/en/tme_ch02.xml:330(title) 
+#: source/en/tme_ch02.xml:349(title) 
 msgid "Settings"
 msgstr ""
 
-#: source/en/tme_ch02.xml:334(title) 
+#: source/en/tme_ch02.xml:351(title) 
+msgid "Main Settings Page"
+msgstr ""
+
+#: source/en/tme_ch02.xml:354(title) 
 msgid "The Settings Main Page"
 msgstr ""
 
-#: source/en/tme_ch02.xml:337(para) 
+#: source/en/tme_ch02.xml:357(para) 
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
 msgstr ""
 
-#: source/en/tme_ch02.xml:341(para) 
+#: source/en/tme_ch02.xml:361(para) 
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
 msgstr ""
 
-#: source/en/tme_ch02.xml:346(para) 
+#: source/en/tme_ch02.xml:366(para) 
 msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
 msgstr ""
 
-#: source/en/tme_ch02.xml:350(para) 
+#: source/en/tme_ch02.xml:370(para) 
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
 msgstr ""
 
-#: source/en/tme_ch02.xml:356(para) 
+#: source/en/tme_ch02.xml:376(para) 
 msgid "<guilabel>Compare Whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how subversion treats such changes)."
 msgstr ""
 
-#: source/en/tme_ch02.xml:361(para) 
+#: source/en/tme_ch02.xml:381(para) 
 msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
 msgstr ""
 
-#: source/en/tme_ch02.xml:367(para) 
+#: source/en/tme_ch02.xml:387(para) 
 msgid "<guilabel>Ignore All Whitespaces</guilabel> hides all whitespace-only changes."
 msgstr ""
 
-#: source/en/tme_ch02.xml:375(title) 
+#: source/en/tme_ch02.xml:393(title) 
+msgid "Colour Settings Page"
+msgstr ""
+
+#: source/en/tme_ch02.xml:396(title) 
 msgid "The Settings Color Page"
 msgstr ""
 
-#: source/en/tme_ch02.xml:378(para) 
+#: source/en/tme_ch02.xml:399(para) 
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
 msgstr ""
 
-#: source/en/tme_ch02.xml:384(term) 
+#: source/en/tme_ch02.xml:405(term) 
 msgid "Normal"
 msgstr ""
 
-#: source/en/tme_ch02.xml:385(listitem) 
+#: source/en/tme_ch02.xml:406(listitem) 
 msgid "All lines which are unchanged, or where changes are hidden."
 msgstr ""
 
-#: source/en/tme_ch02.xml:390(term) 
+#: source/en/tme_ch02.xml:411(term) 
 msgid "Removed"
 msgstr ""
 
-#: source/en/tme_ch02.xml:391(listitem) 
+#: source/en/tme_ch02.xml:412(listitem) 
 msgid "Lines which have been deleted."
 msgstr ""
 
-#: source/en/tme_ch02.xml:396(term) 
+#: source/en/tme_ch02.xml:417(term) 
 msgid "Added"
 msgstr ""
 
-#: source/en/tme_ch02.xml:397(listitem) 
+#: source/en/tme_ch02.xml:418(listitem) 
 msgid "Lines which have been added."
 msgstr ""
 
-#: source/en/tme_ch02.xml:402(term) 
+#: source/en/tme_ch02.xml:423(term) 
 msgid "Empty"
 msgstr ""
 
-#: source/en/tme_ch02.xml:403(listitem) 
+#: source/en/tme_ch02.xml:424(listitem) 
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
 msgstr ""
 
-#: source/en/tme_ch02.xml:409(term) 
+#: source/en/tme_ch02.xml:430(term) 
 msgid "Conflicted"
 msgstr ""
 
-#: source/en/tme_ch02.xml:410(listitem) 
+#: source/en/tme_ch02.xml:431(listitem) 
 msgid "Where the same line has been changed in both files."
 msgstr ""
 
-#: source/en/tme_ch02.xml:415(term) 
+#: source/en/tme_ch02.xml:436(term) 
 msgid "Line with whitespace diff"
 msgstr ""
 
-#: source/en/tme_ch02.xml:419(guilabel) 
+#: source/en/tme_ch02.xml:440(guilabel) 
 msgid "Ignore leading whitespace"
 msgstr ""
 
-#: source/en/tme_ch02.xml:416(listitem) 
+#: source/en/tme_ch02.xml:437(listitem) 
 msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
 msgstr ""
 
-#: source/en/tme_ch02.xml:424(term) 
+#: source/en/tme_ch02.xml:445(term) 
 msgid "Whitespace diff"
 msgstr ""
 
-#: source/en/tme_ch02.xml:425(listitem) 
+#: source/en/tme_ch02.xml:446(listitem) 
 msgid "In the case above, the actual whitespace difference is highlighted using this color."
 msgstr ""
 
