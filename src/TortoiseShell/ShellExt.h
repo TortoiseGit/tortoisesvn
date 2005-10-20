@@ -158,6 +158,7 @@ protected:
 	bool isFolderInSVN;
 	bool isNormal;
 	bool isAdded;
+	bool isDeleted;
 	bool isLocked;
 	bool isPatchFile;
 	int space;

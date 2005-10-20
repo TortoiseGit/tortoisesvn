@@ -46,6 +46,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isIgnored = false;
 	isInVersionedFolder = false;
 	isAdded = false;
+	isDeleted = false;
 	isLocked = false;
 	isPatchFile = false;
 	stdstring statuspath;
@@ -139,6 +140,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								isConflicted = true;
 							if (status == svn_wc_status_added)
 								isAdded = true;
+							if (status == svn_wc_status_deleted)
+								isDeleted = true;
 						}
 					}
 				} // for (int i = 0; i < count; i++)
@@ -225,6 +228,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								isConflicted = true;
 							if (status == svn_wc_status_added)
 								isAdded = true;
+							if (status == svn_wc_status_deleted)
+								isDeleted = true;
 						}
 					}
 				} // for (int i = 0; i < count; ++i)
@@ -335,6 +340,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			isFolder = true;
 			if (status == svn_wc_status_added)
 				isAdded = true;
+			if (status == svn_wc_status_deleted)
+				isDeleted = true;
 		}
 	}
 		
@@ -722,7 +729,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	if ((!isInSVN)&&(isFolder)&&(!isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCREATEREPOS), HMENU(MENUCREATEREPOS), INDEXMENU(MENUCREATEREPOS), idCmd++, IDS_MENUCREATEREPOS, IDI_CREATEREPOS, idCmdFirst, CreateRepos);
-	if ((!isInSVN && isInVersionedFolder)||(isInSVN && isFolder)||(isIgnored))
+	if ((!isInSVN && isInVersionedFolder)||(isInSVN && isFolder)||(isIgnored)||(!isFolder && isDeleted))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUADD), HMENU(MENUADD), INDEXMENU(MENUADD), idCmd++, IDS_MENUADD, IDI_ADD, idCmdFirst, Add);
 	if ((!isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUIMPORT), HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
