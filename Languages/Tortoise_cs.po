@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 00:00+0000\n"
-"PO-Revision-Date: 2005-10-10 13:53+0100\n"
+"PO-Revision-Date: 2005-10-21 19:19+0100\n"
 "Last-Translator: Radek Svarz <translate@svarz.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -819,17 +819,37 @@ msgstr ": pracovní kopie (WC)"
 # ID:88,
 #: ID:88
 msgid ""
-"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct your working copy to another repository or branch,\n"
-"this <b>will corrupt your working copy!</b>\n"
-"To associate your working copy with another branch, use the Switch command.\n"
-"Are you sure you want to relocate?"
+"<b>ATTENTION:</b>\n"
+"The Relocate command is only used if the URL of the\n"
+"repository root has changed due to a server IP address change, protocol\n"
+"change (e.g. http:// to https://) or a change of the repository root\n"
+"path in the server setup.\n"
+"<b>This is a very infrequently used operation</b> and applies neither if you\n"
+"want to move to another Subversion repository nor if you want to switch\n"
+"to another branch or directory <b>within the same repository.</b>\n"
+"To move to another Subversion repository, perform a clean checkout from\n"
+"the new repository location.\n"
+"To associate your working copy with another branch or another directory\n"
+"within the same repository, use the Switch command from the main menu\n"
+"\n"
+"An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
+"If you are unsure whether Relocate is the correct operation, it probably\n"
+"is not and you should consult <b>Help</b>."
 msgstr ""
-"<b>POZOR:</b> Příkaz Změnit umístění (Relocate) použijte pouze, pokud originální uložiště se přesunulo na na nové URL.\n"
-"Pokud použiteje příkaz Změnit umístění (Relocate) na nasměrování Vaší pracovní kopie do jiného uložiště nebo větve,\n"
-" tak se <b>Vám může pracovní kopie poničit!</b>\n"
-"Pro připojení Vaší pracovní kopie k jiné větvy použijte příkaz Přepojit (Switch).\n"
-"Jste si jistí, že chcete provézt změnu umístění (relocate)?"
+"<b>POZOR:</b>\n"
+"Příkaz Změnit umístění (Relocate) použijte pouze, pokud originální uložiště se přesunulo na na nové URL\n"
+" (např. kvůli změně IP adresy serveru, změny protokolu [z http:// na https://], či změny cesty k uložišti).\n"
+"<b>To je velice málo používaná operace</b> a nepoužívá se, ani když \n"
+"chcete přesunout na jiné Subversion uložiště, ani když chcete přepnout \n"
+"na jinou větev, či složku <b> v rámci stejného uložiště.</b>\n"
+"Pro přesun na jiné Subversion uložiště, prověďte čistý checkout (získat)\n"
+"z lokace nového uložiště.\n"
+"Pro připojení Vaší pracovní kopie k jiné větvy nebo jiné složce v rámci stejného uložiště\n"
+"použijte příkaz Přepojit (Switch).\n"
+"Pokud použijete příkaz Změnit umístění (Relocate) na nasměrování Vaší pracovní kopie do jiného uložiště nebo větve,\n"
+"tak se <b>Vám může pracovní kopie poničit!</b>\n"
+"Pokud si nejste jistí zda příkaz Změnit umístění (Relocate) je ta správná operace, tak pravděpodobně\n"
+"není a měli byste konzultovat <b>Nápovědu</b>."
 
 # ID:145,
 #: ID:145
@@ -974,6 +994,11 @@ msgstr "Přidat &soubor..."
 #, c-format
 msgid "Add '%s' to dictionary"
 msgstr "Přidat '%s' do slovníku"
+
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Přidat (jako náhradu)..."
 
 # ID:110,
 #: ID:110
@@ -1249,6 +1274,7 @@ msgstr "Na revizi: %d"
 
 # ID:76,
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "Autor"
 
@@ -1971,6 +1997,7 @@ msgstr ""
 
 # ID:76,
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "Datum"
 
@@ -2665,6 +2692,8 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
+"Pokud nastaveno, uložiště je kontaktováno, když nastartuje dialog.\n"
+"Nemusíte jži kliknout na \"Zkontrolovat Uložiště\"."
 
 # ID:195,
 #: ID:195
@@ -2805,6 +2834,9 @@ msgid ""
 "For example, you can't make MyFile.txt become MYFILE.txt.\n"
 "Please consult the documentation for a way to work around this limitation."
 msgstr ""
+"Není možné přejmenovat soubor změnou velikosti jména samotného.\n"
+"Například, soubor MujSoubor.txt se nemůž stát MUJSOUBOR.TXT.\n"
+"Prosíme, konzultujte dokumentaci, jak obejít tuto limitaci."
 
 # Control-ID:1203,
 #: Control-ID:1203
@@ -2933,6 +2965,11 @@ msgstr "Log záznamy"
 #: Dlg-ID:195
 msgid "Look and Feel"
 msgstr "Vzhled a pocit"
+
+# Dlg-ID:196,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Vzhled a pocit::Barvy"
 
 # Dlg-ID:196,
 #: Dlg-ID:196
@@ -3120,6 +3157,11 @@ msgstr "&Nové jméno:"
 #, c-format
 msgid "New name for %s"
 msgstr "Nové jméno pro %s"
+
+# Control-ID:1076,
+#: ID:98
+msgid "New name:"
+msgstr "Nové jméno:"
 
 # ID:73,
 #: ID:73
@@ -3485,6 +3527,10 @@ msgid ""
 "to be in the just created copy then you need to switch over\n"
 "to that copy path. Use the Switch command to do that."
 msgstr ""
+"Poznámka:\n"
+"Vaše pracovní kopie (WC) zůstává na předchozí cestě. Pokud chcete, aby se Vaše následující změny\n"
+"provedly v právě vytvořené kopii, potřebujete se přepnout\n"
+"na tuto cestu. Použijte příkaz Překlopit (Switch)."
 
 # ID:3858,#:
 # ID:3858,
@@ -3828,6 +3874,11 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "Vyřeší soubory v konfliktu"
 
+# ID:73,
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "Obnovit defaultní"
+
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
@@ -3862,6 +3913,7 @@ msgstr "Navrátí všechny změny, které byly provedeny od poslední aktualizac
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "Revize"
@@ -4432,6 +4484,11 @@ msgstr "Statistika"
 msgid "Status"
 msgstr "Stav"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Stavové a akční barvy"
+
 # ID:11,
 #: ID:11
 msgid "Status of item in SVN"
@@ -4602,7 +4659,7 @@ msgstr "Uložiště bylo úspěšně vytvořeno."
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr ""
+msgstr "Velikost dílů neodpovídá množství přidaných / odebraných řádek!"
 
 # ID:63,
 #: ID:63
@@ -4617,6 +4674,8 @@ msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
 msgstr ""
+"Nástroj na zjišťování rozdílů byl ukončen kvůli chybě:\n"
+"%s"
 
 # ID:64,
 #: ID:64
@@ -4745,6 +4804,12 @@ msgid ""
 "<i>%s</i>\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr ""
+"Cesta\n"
+"<i>%s</i>\n"
+"pravděpodobně nesouhlasí s cestami v záplatovém souboru.\n"
+"Ale TortoiseMerge našel cestu\n"
+"<i>%s</i>,\n"
+"která souhlasí více. Chcete použít raději doporučenou cestu?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4788,6 +4853,9 @@ msgid ""
 "A lower value will make the autocompletion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
+"Čas v sekundách, kdy se zastaví analýza vybraných souborů.\n"
+"Nižší hodnota vytvoří autokompletační seznam dříve,\n"
+"ale možná ne se všemi soubory."
 
 # ID:82,
 #: ID:82
@@ -4795,6 +4863,8 @@ msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
 msgstr ""
+"Dvě vybrané URL nejsou vytvořené ze stejného kořene (root).\n"
+"Není možné ukázat log záznamy mezi nimi."
 
 # ID:16,
 #: ID:16
@@ -4843,6 +4913,8 @@ msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
+"Existují změny v rámci jedné nebo více složek, které jste připojil pomocí svn:externals.\n"
+"Tyto soubory <b>nejsou</b> vypsány pro odevzdání. Musíte je odevzdat zvlášť."
 
 # ID:66,
 #: ID:66
@@ -5472,7 +5544,7 @@ msgstr "Použít URL pracovní kopie (WC) jako defaultní \"Od:\" URL"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr ""
+msgstr "Použijte \"Z:\" URL (rozsah revizí je volitelný v log dialogu)"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5626,6 +5698,10 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
+"Pokoušíte se přistoupit na uložiště pomocí file:/// na\n"
+"sdíleném síťovém disku.\n"
+"To může způsobit korupci uložiště!\n"
+"Opravdu to chcete provést?"
 
 # ID:16,
 #: ID:16
@@ -5731,6 +5807,8 @@ msgid ""
 "You've selected added folders. The patch won't contain added files within such added folders.\n"
 "Do you want to proceed anyway?"
 msgstr ""
+"Vybral(a) jste přidané složky. Záplata nebude obsahovat přidané soubory v těchto přidaných složkách.\n"
+"Opravdu chcete pokračovat?"
 
 # Control-ID:1112,
 #: Control-ID:1112
@@ -5751,6 +5829,10 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
+"Vypadá to, že Vaše pracovní kopie (WC) se nachází na cestě značky (tag)!\n"
+"Nejprve byste měl(a) přepnout (switch) na větev (branch) nebo hlavní kmen (trunk) před odevzdáním.\n"
+"\n"
+"Chcete přesto odevzdat?"
 
 # ID:88,
 #: ID:88
@@ -5775,6 +5857,11 @@ msgstr "&Oddálit\tCtrl--"
 #: ID:10
 msgid "added"
 msgstr "přidáno"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "added files"
+msgstr "přidané soubory"
 
 # ID:3841,#:
 # ID:3841,
@@ -5914,6 +6001,7 @@ msgstr "uzamčeno"
 
 # ID:11,
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "sloučeno"
 
@@ -5922,10 +6010,20 @@ msgstr "sloučeno"
 msgid "missing"
 msgstr "chybí"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "chybějící / smazané / nahrazené"
+
 # ID:10,
 #: ID:10
 msgid "modified"
 msgstr "modifikováno"
+
+# ID:10,
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "modifikováno / kopírováno"
 
 # ID:10,
 #: ID:10
@@ -5952,6 +6050,11 @@ msgstr "zablokováno"
 #: ID:3869
 msgid "pixels"
 msgstr "pixely"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "možné nebo reálný konflikt / překážky"
 
 # Control-ID:1018,
 #: Control-ID:1018
