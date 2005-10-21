@@ -47,7 +47,8 @@ SVN::SVN(void) :
 	m_pProgressDlg(NULL),
 	m_bShowProgressBar(false),
 	progress_total(0),
-	progress_lastprogress(0)
+	progress_lastprogress(0),
+	progress_lasttotal(0)
 {
 	parentpool = svn_pool_create(NULL);
 	svn_utf_initialize(parentpool);
@@ -1799,6 +1800,7 @@ void SVN::SetAndClearProgressInfo(HWND hWnd)
 	m_pProgressDlg = NULL;
 	progress_total = 0;
 	progress_lastprogress = 0;
+	progress_lasttotal = 0;
 	progress_lastTicks = GetTickCount();
 }
 
@@ -1808,6 +1810,7 @@ void SVN::SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgres
 	m_pProgressDlg = pProgressDlg;
 	progress_total = 0;
 	progress_lastprogress = 0;
+	progress_lasttotal = 0;
 	progress_lastTicks = GetTickCount();
 	m_bShowProgressBar = bShowProgressBar;
 }
@@ -1818,15 +1821,20 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 	if ((pSVN==0)||((pSVN->m_progressWnd == 0)&&(pSVN->m_pProgressDlg == 0)))
 		return;
 	apr_off_t delta = progress;
-	if (progress > pSVN->progress_lastprogress)
+	if ((progress >= pSVN->progress_lastprogress)&&(total == pSVN->progress_lasttotal))
 		delta = progress - pSVN->progress_lastprogress;
 	pSVN->progress_lastprogress = progress;
+	pSVN->progress_lasttotal = total;
 	
 	DWORD ticks = GetTickCount();
 	pSVN->progress_vector.push_back(delta);
 	pSVN->progress_total += delta;
+	//ATLTRACE("progress = %I64d, total = %I64d, delta = %I64d, overall total is : %I64d\n", progress, total, delta, pSVN->progress_total);
 	if ((pSVN->progress_lastTicks + 1000) < ticks)
 	{
+		double divby = (double(ticks - pSVN->progress_lastTicks)/1000.0);
+		if (divby == 0)
+			divby = 1;
 		pSVN->m_SVNProgressMSG.overall_total = pSVN->progress_total;
 		pSVN->m_SVNProgressMSG.progress = progress;
 		pSVN->m_SVNProgressMSG.total = total;
@@ -1836,9 +1844,6 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 		{
 			average += *it;
 		}
-		double divby = (double(ticks - pSVN->progress_lastTicks)/1000.0);
-		if (divby == 0)
-			divby = 1;
 		average = apr_off_t(double(average) / divby);
 		pSVN->m_SVNProgressMSG.BytesPerSecond = average;
 		if (average < 1024)

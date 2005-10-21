@@ -635,6 +635,7 @@ private:
 	apr_off_t	progress_total;
 	apr_off_t	progress_averagehelper;
 	apr_off_t	progress_lastprogress;
+	apr_off_t	progress_lasttotal;
 	DWORD		progress_lastTicks;
 	std::vector<apr_off_t> progress_vector;
 
