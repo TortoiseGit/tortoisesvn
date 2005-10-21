@@ -406,7 +406,6 @@
 #define IDS_PROC_CLEANUPFINISHED        1257
 #define IDC_RENAMEDNODECOLOR            1257
 #define IDS_PROC_REPOCREATEERR          1258
-#define IDC_BUTTON4                     1258
 #define IDC_REPLACEDNODECOLOR           1258
 #define IDS_PROC_EXPORT_1               1259
 #define IDS_PROC_EXPORT_2               1260
@@ -713,6 +712,7 @@
 #define IDS_CREATEPATCH_ADDEDFOLDERS    5400
 #define IDS_SVN_PROGRESS_SPEED          5700
 #define IDS_SVN_PROGRESS_TOTALTRANSFERRED 5701
+#define IDS_SVN_PROGRESS_TOTALMBTRANSFERRED 5702
 #define IDS_SCIEDIT_UNDO                6000
 #define IDS_SCIEDIT_REDO                6001
 #define IDS_SCIEDIT_CUT                 6002
