@@ -407,6 +407,64 @@
 				</varlistentry>
 			</variablelist>
 		</sect3>
+		<sect3 id="tsvn-DUG-settings-colours">
+			<title>TortoiseSVN Colour Settings</title>
+			<?dbhh topicname="HIDD_SETTINGSCOLORS"?>
+			<para>
+				<figure id="tsvn-DUG-settings-dia-colors">
+					<title>The Settings Dialog, Colours Page</title>
+					<graphic fileref="images/SettingsColors.png"/>
+				</figure>
+				This dialog allows you to configure the text colours
+				used in TortoiseSVN's dialogs the way you like them.
+			</para>
+			<variablelist>
+				<varlistentry>
+					<term>Possible or real conflict / obstructed</term>
+					<listitem>
+						<para>
+							A conflict has occurred during update, or may occur during merge.
+							Update is obstructed by an existing unversioned file/folder of
+							the same name as a versioned one.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Added files</term>
+					<listitem>
+						<para>
+							Items added to the repository.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Missing / deleted / replaced</term>
+					<listitem>
+						<para>
+							Items deleted from the repository, missing from the working
+							copy, or deleted from the working copy and replaced with
+							another file of the same name.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Merged</term>
+					<listitem>
+						<para>
+							Changes from the repository merged into the WC.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Modified / copied</term>
+					<listitem>
+						<para>
+							Add with history, or paths copied in the repository.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</sect3>
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-network">
 		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
