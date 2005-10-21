@@ -20,6 +20,7 @@
 #include "StandAloneDlg.h"
 #include "RevisionGraph.h"
 #include "ProgressDlg.h"
+#include "Colors.h"
 
 enum NodeShape
 {
@@ -107,6 +108,7 @@ protected:
 	int				m_nIconSize;
 	CPoint			m_RoundRectPt;
 	int				m_nZoomFactor;
+	CColors			m_Colors;
 	
 	HACCEL			m_hAccel;
 

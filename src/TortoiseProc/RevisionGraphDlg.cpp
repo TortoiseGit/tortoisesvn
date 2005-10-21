@@ -341,13 +341,26 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 								COLORREF contour, CRevisionEntry *rentry, NodeShape shape, 
 								BOOL isSel, HICON hIcon, int penStyle /*= PS_SOLID*/)
 {
+#define minmax(x, y, z) (x > 0 ? min(y, z) : max(y, z))
 	CPen* pOldPen = 0L;
 	CBrush* pOldBrush = 0L;
 	CFont* pOldFont = 0L;
 	CPen pen, pen2;
 	CBrush brush;
-	COLORREF selcolor = RGB_DEF_SEL;
-	COLORREF shadowc = RGB_DEF_SHADOW;
+	COLORREF background = GetSysColor(COLOR_WINDOW);
+	COLORREF textcolor = GetSysColor(COLOR_WINDOWTEXT);
+
+	COLORREF selcolor = contour;
+	int rval = (GetRValue(background)-GetRValue(contour))/2;
+	int gval = (GetGValue(background)-GetGValue(contour))/2;
+	int bval = (GetBValue(background)-GetBValue(contour))/2;
+	selcolor = RGB(minmax(rval, GetRValue(contour)+rval, GetRValue(background)),
+		minmax(gval, GetGValue(contour)+gval, GetGValue(background)),
+		minmax(bval, GetBValue(contour)+bval, GetBValue(background)));
+
+	COLORREF shadowc = RGB(abs(GetRValue(background)-GetRValue(textcolor))/2,
+							abs(GetGValue(background)-GetGValue(textcolor))/2,
+							abs(GetBValue(background)-GetBValue(textcolor))/2);
 
 	TRY
 	{
@@ -411,9 +424,15 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		}
 		
 		COLORREF brightcol = contour;
-		brightcol = RGB(min(GetRValue(contour)+220, 255), min(GetGValue(contour)+220, 255), min(GetBValue(contour)+220, 255));
+		int rval = (GetRValue(background)-GetRValue(contour))*9/10;
+		int gval = (GetGValue(background)-GetGValue(contour))*9/10;
+		int bval = (GetBValue(background)-GetBValue(contour))*9/10;
+		brightcol = RGB(minmax(rval, GetRValue(contour)+rval, GetRValue(background)),
+						minmax(gval, GetGValue(contour)+gval, GetGValue(background)),
+						minmax(bval, GetBValue(contour)+bval, GetBValue(background)));
+
 		brush.DeleteObject();
-		brush.CreateHatchBrush(HS_DIAGCROSS, brightcol);
+		brush.CreateSolidBrush(brightcol);
 		pOldBrush = pDC->SelectObject(&brush);
 
 		// Draw the main shape
@@ -433,6 +452,7 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 			return;
 		}
 
+		pDC->SetTextColor(textcolor);
 		// draw the revision text
 		pOldFont = pDC->SelectObject(GetFont(FALSE, TRUE));
 		CString temp;
@@ -505,7 +525,7 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		memDC = new CMemDC(pDC);
 	}
 	
-	memDC->FillSolidRect(rect, RGB(255,255,255));		// white background
+	memDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
 	memDC->SetBkMode(TRANSPARENT);
 
 	INT_PTR i = 0;
@@ -536,26 +556,26 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		{
 		case CRevisionEntry::deleted:
 			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DELETE), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
-			DrawNode(memDC, noderect, RGB(255,0,0), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::DeletedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			DestroyIcon(hIcon);
 			break;
 		case CRevisionEntry::added:
 			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_COPY), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
-			DrawNode(memDC, noderect, RGB(0,255,0), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::AddedNode), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			DestroyIcon(hIcon);
 			break;
 		case CRevisionEntry::replaced:
 			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CONFLICT), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::ReplacedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			DestroyIcon(hIcon);
 			break;
 		case CRevisionEntry::renamed:
 			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_RENAME), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
-			DrawNode(memDC, noderect, RGB(0,0,255), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::RenamedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			DestroyIcon(hIcon);
 			break;
 		default:
-			DrawNode(memDC, noderect, RGB(0,0,0), entry, TSVNRectangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DrawNode(memDC, noderect, GetSysColor(COLOR_WINDOWTEXT), entry, TSVNRectangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			break;
 		}
 		entry->drawrect = noderect;
@@ -953,6 +973,9 @@ void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 	viewrect.bottom = rect.bottom + nVScrollPos;
 	viewrect.left = rect.left + nHScrollPos;
 	viewrect.right = rect.right + nHScrollPos;
+	CPen newpen(PS_SOLID, 0, GetSysColor(COLOR_WINDOWTEXT));
+	CPen * pOldPen = pDC->SelectObject(&newpen);
+
 	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
 	{
 		CPoint * pt = (CPoint*)m_arConnections.GetAt(i);
@@ -975,6 +998,7 @@ void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 			pDC->Polyline(p, 5);
 		}
 	}
+	pDC->SelectObject(pOldPen);
 }
 
 CRect * CRevisionGraphDlg::GetViewSize()

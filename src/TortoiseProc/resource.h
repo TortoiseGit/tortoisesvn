@@ -400,9 +400,14 @@
 #define IDS_UTILS_SELECTTEXTVIEWER      1254
 #define IDC_RESTORE                     1254
 #define IDS_SETTINGS_CONVERTBASE_TT     1255
+#define IDC_DELETEDNODECOLOR            1255
 #define IDS_PROC_WARNREVERT             1256
+#define IDC_ADDEDNODECOLOR              1256
 #define IDS_PROC_CLEANUPFINISHED        1257
+#define IDC_RENAMEDNODECOLOR            1257
 #define IDS_PROC_REPOCREATEERR          1258
+#define IDC_BUTTON4                     1258
+#define IDC_REPLACEDNODECOLOR           1258
 #define IDS_PROC_EXPORT_1               1259
 #define IDS_PROC_EXPORT_2               1260
 #define IDS_PROC_EXPORT_3               1261
@@ -731,7 +736,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        213
 #define _APS_NEXT_COMMAND_VALUE         32789
-#define _APS_NEXT_CONTROL_VALUE         1255
+#define _APS_NEXT_CONTROL_VALUE         1259
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

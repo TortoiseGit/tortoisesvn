@@ -42,6 +42,10 @@ void CSettingsColors::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DELETEDCOLOR, m_cDeleted);
 	DDX_Control(pDX, IDC_MERGEDCOLOR, m_cMerged);
 	DDX_Control(pDX, IDC_MODIFIEDCOLOR, m_cModified);
+	DDX_Control(pDX, IDC_DELETEDNODECOLOR, m_cDeletedNode);
+	DDX_Control(pDX, IDC_ADDEDNODECOLOR, m_cAddedNode);
+	DDX_Control(pDX, IDC_REPLACEDNODECOLOR, m_cReplacedNode);
+	DDX_Control(pDX, IDC_RENAMEDNODECOLOR, m_cRenamedNode);
 }
 
 
@@ -57,6 +61,10 @@ void CSettingsColors::SaveData()
 	m_Colors.SetColor(CColors::Merged, m_cMerged.GetColor(TRUE));
 	m_Colors.SetColor(CColors::Modified, m_cModified.GetColor(TRUE));
 	m_Colors.SetColor(CColors::Conflict, m_cConflict.GetColor(TRUE));
+	m_Colors.SetColor(CColors::AddedNode, m_cAddedNode.GetColor(TRUE));
+	m_Colors.SetColor(CColors::DeletedNode, m_cDeletedNode.GetColor(TRUE));
+	m_Colors.SetColor(CColors::RenamedNode, m_cRenamedNode.GetColor(TRUE));
+	m_Colors.SetColor(CColors::ReplacedNode, m_cReplacedNode.GetColor(TRUE));	
 }
 
 BOOL CSettingsColors::OnInitDialog()
@@ -68,6 +76,10 @@ BOOL CSettingsColors::OnInitDialog()
 	m_cMerged.SetColor(m_Colors.GetColor(CColors::Merged));
 	m_cModified.SetColor(m_Colors.GetColor(CColors::Modified));
 	m_cConflict.SetColor(m_Colors.GetColor(CColors::Conflict));
+	m_cAddedNode.SetColor(m_Colors.GetColor(CColors::AddedNode));
+	m_cDeletedNode.SetColor(m_Colors.GetColor(CColors::DeletedNode));
+	m_cRenamedNode.SetColor(m_Colors.GetColor(CColors::RenamedNode));
+	m_cReplacedNode.SetColor(m_Colors.GetColor(CColors::ReplacedNode));
 
 	return TRUE;
 }
@@ -85,5 +97,9 @@ void CSettingsColors::OnBnClickedRestore()
 	m_cMerged.SetColor(m_Colors.GetColor(CColors::Merged, true));
 	m_cModified.SetColor(m_Colors.GetColor(CColors::Modified, true));
 	m_cConflict.SetColor(m_Colors.GetColor(CColors::Conflict, true));
+	m_cAddedNode.SetColor(m_Colors.GetColor(CColors::AddedNode, true));
+	m_cDeletedNode.SetColor(m_Colors.GetColor(CColors::DeletedNode, true));
+	m_cRenamedNode.SetColor(m_Colors.GetColor(CColors::RenamedNode, true));
+	m_cReplacedNode.SetColor(m_Colors.GetColor(CColors::ReplacedNode, true));
 	SetModified(TRUE);
 }

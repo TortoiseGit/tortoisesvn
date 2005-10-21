@@ -53,6 +53,10 @@ private:
 	CColourPickerXP m_cDeleted;
 	CColourPickerXP m_cMerged;
 	CColourPickerXP m_cModified;
+	CColourPickerXP m_cAddedNode;
+	CColourPickerXP m_cDeletedNode;
+	CColourPickerXP m_cRenamedNode;
+	CColourPickerXP m_cReplacedNode;
 	CColors			m_Colors;
 public:
 	afx_msg void OnBnClickedRestore();

@@ -25,6 +25,10 @@ CColors::CColors(void) :
 	, m_regModified(_T("Software\\TortoiseSVN\\Colors\\Modified"), RGB(0, 50, 160))
 	, m_regMerged(_T("Software\\TortoiseSVN\\Colors\\Merged"), RGB(0, 100, 0))
 	, m_regDeleted(_T("Software\\TortoiseSVN\\Colors\\Deleted"), RGB(100, 0, 0))
+	, m_regDeletedNode(_T("Software\\TortoiseSVN\\Colors\\DeletedNode"), RGB(255, 0, 0))
+	, m_regAddedNode(_T("Software\\TortoiseSVN\\Colors\\AddedNode"), RGB(0, 255, 0))
+	, m_regReplacedNode(_T("Software\\TortoiseSVN\\Colors\\ReplacedNode"), RGB(0, 255, 0))
+	, m_regRenamedNode(_T("Software\\TortoiseSVN\\Colors\\RenamedNode"), RGB(0, 0, 255))
 {
 }
 
@@ -56,6 +60,22 @@ COLORREF CColors::GetColor(Colors col, bool bDefault /*=true*/)
 		if (bDefault)
 			return RGB(100, 0, 100);
 		return (COLORREF)(DWORD)m_regAdded;
+	case DeletedNode:
+		if (bDefault)
+			return RGB(255, 0, 0);
+		return (COLORREF)(DWORD)m_regDeletedNode;
+	case AddedNode:
+		if (bDefault)
+			return RGB(0, 255, 0);
+		return (COLORREF)(DWORD)m_regAddedNode;
+	case ReplacedNode:
+		if (bDefault)
+			return RGB(0, 255, 0);
+		return (COLORREF)(DWORD)m_regReplacedNode;
+	case RenamedNode:
+		if (bDefault)
+			return RGB(0, 0, 255);
+		return (COLORREF)(DWORD)m_regRenamedNode;
 	}
 	return RGB(0,0,0);
 }

@@ -1008,19 +1008,28 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel::Colors"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Status and action colors",IDC_STATIC,7,7,286,120
+    GROUPBOX        "Status and action colors",IDC_STATIC,7,7,286,103
     LTEXT           "possible or real conflict / obstructed",IDC_STATIC,13,
                     23,137,8
-    LTEXT           "added files",IDC_STATIC,13,44,135,8
-    LTEXT           "missing / deleted / replaced",IDC_STATIC,13,66,137,8
-    LTEXT           "merged",IDC_STATIC,13,87,137,8
-    LTEXT           "modified / copied",IDC_STATIC,13,107,137,8
+    LTEXT           "added files",IDC_STATIC,13,40,135,8
+    LTEXT           "missing / deleted / replaced",IDC_STATIC,13,57,137,8
+    LTEXT           "merged",IDC_STATIC,13,74,137,8
+    LTEXT           "modified / copied",IDC_STATIC,13,92,137,8
     PUSHBUTTON      "",IDC_CONFLICTCOLOR,158,20,50,14
-    PUSHBUTTON      "",IDC_ADDEDCOLOR,158,41,50,14
-    PUSHBUTTON      "",IDC_DELETEDCOLOR,158,62,50,14
-    PUSHBUTTON      "",IDC_MERGEDCOLOR,158,83,50,14
-    PUSHBUTTON      "",IDC_MODIFIEDCOLOR,158,104,50,14
+    PUSHBUTTON      "",IDC_ADDEDCOLOR,158,37,50,14
+    PUSHBUTTON      "",IDC_DELETEDCOLOR,158,54,50,14
+    PUSHBUTTON      "",IDC_MERGEDCOLOR,158,71,50,14
+    PUSHBUTTON      "",IDC_MODIFIEDCOLOR,158,88,50,14
     PUSHBUTTON      "Restore Default",IDC_RESTORE,200,196,93,14
+    GROUPBOX        "Revision graph",IDC_STATIC,7,115,286,77
+    LTEXT           "Deleted node",IDC_STATIC,13,126,137,8
+    LTEXT           "Added node",IDC_STATIC,13,142,137,8
+    LTEXT           "Renamed node",IDC_STATIC,13,159,137,8
+    LTEXT           "Replaced node",IDC_STATIC,13,175,137,8
+    PUSHBUTTON      "",IDC_DELETEDNODECOLOR,158,122,50,14
+    PUSHBUTTON      "",IDC_ADDEDNODECOLOR,157,139,50,14
+    PUSHBUTTON      "",IDC_RENAMEDNODECOLOR,158,156,50,14
+    PUSHBUTTON      "",IDC_REPLACEDNODECOLOR,158,173,50,14
 END
 
 

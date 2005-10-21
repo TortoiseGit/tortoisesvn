@@ -35,7 +35,11 @@ public:
 		Modified,
 		Merged,
 		Deleted,
-		Added
+		Added,
+		DeletedNode,
+		AddedNode,
+		ReplacedNode,
+		RenamedNode
 	};
 	
 	COLORREF GetColor(Colors col, bool bDefault = false);
@@ -47,4 +51,8 @@ private:
 	CRegDWORD m_regMerged;
 	CRegDWORD m_regDeleted;
 	CRegDWORD m_regAdded;
+	CRegDWORD m_regDeletedNode;
+	CRegDWORD m_regAddedNode;
+	CRegDWORD m_regReplacedNode;
+	CRegDWORD m_regRenamedNode;
 };
