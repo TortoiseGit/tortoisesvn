@@ -358,6 +358,11 @@ bool CRevisionGraph::BuildForwardCopies()
 					CRevisionEntry * reventry = GetRevisionEntry(key, logentry->rev);
 					reventry->action = action;
 				}
+				else if (val->action == 'R')
+				{
+					CRevisionEntry * reventry = GetRevisionEntry(key, logentry->rev);
+					reventry->action = action;
+				}
 			}
 		}
 	}
@@ -426,6 +431,10 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 						reventry->url = apr_pstrdup(pool, url);
 						reventry->bUsed = true;
 						continue;
+					}
+					if (reventry->action == CRevisionEntry::replaced)
+					{
+						reventry->bUsed = true;
 					}
 					CStringA child = url.Mid(strlen(reventry->url));
 					reventry->url = apr_pstrdup(pool, url);
@@ -609,7 +618,9 @@ bool CRevisionGraph::Cleanup(CStringA url)
 				// same level and url, now connect those two
 				// but first check if they're not already connected!
 				BOOL bConnected = FALSE;
-				if ((reventry->action != CRevisionEntry::deleted)&&(preventry->action != CRevisionEntry::added))
+				if ((reventry->action != CRevisionEntry::deleted)&&
+					(preventry->action != CRevisionEntry::added)&&
+					(preventry->action != CRevisionEntry::replaced))
 				{
 					for (INT_PTR k=0; k<reventry->sourcearray.GetCount(); ++k)
 					{
