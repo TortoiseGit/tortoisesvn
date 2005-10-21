@@ -891,6 +891,7 @@ bool CSVNPropertyPage::SaveProperties()
 	} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
 	dlg.Stop();
 	InitWorkfileView();
+	EnableWindow(GetDlgItem(m_hwnd, IDC_ADDBUTTON), false);
 	delete name;
 	delete value;
 	return true;
