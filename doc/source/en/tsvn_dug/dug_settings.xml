@@ -12,6 +12,9 @@
 	<sect2 id="tsvn-DUG-settings-main">
 		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
 		<title>General Settings</title>
+		<indexterm>
+			<primary>sounds</primary>
+		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-main">
 				<title>The Settings Dialog, General Page</title>
@@ -36,6 +39,28 @@
 					<para>
 						If checked, TortoiseSVN will contact its download site once a week 
 						to see if there is a newer version of the program available.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>System sounds</term>
+				<listitem>
+					<para>
+						TortoiseSVN has three custom sounds which are installed by default.
+						<itemizedlist>
+							<listitem>
+								Error
+							</listitem>
+							<listitem>
+								Notice
+							</listitem>
+							<listitem>
+								Warning
+							</listitem>
+						</itemizedlist>
+						You can select different sounds (or turn these sounds
+						off completely) using the Windows Control Panel.
+						This button is a shortcut to the Control Panel.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -427,6 +452,9 @@
 							Update is obstructed by an existing unversioned file/folder of
 							the same name as a versioned one.
 						</para>
+						<para>
+							This colour is also used for error messages in the progress dialogs.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
@@ -451,7 +479,8 @@
 					<term>Merged</term>
 					<listitem>
 						<para>
-							Changes from the repository merged into the WC.
+							Changes from the repository successfully merged into the WC
+							without creating any conflicts.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -460,6 +489,8 @@
 					<listitem>
 						<para>
 							Add with history, or paths copied in the repository.
+							Also used in the log dialog for entries which include
+							copied items.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -720,28 +751,6 @@ C:\Path-To\compare.exe /a1 /3 %base %mine %theirs %merged
 			In the advanced settings, you can define a different diff and merge
 			program for every file extension. For instance you could associate
 			Photoshop as the <quote>Diff</quote> Program for .jpg files :-)
-		</para>
-	</sect2>
-	<sect2 id="tsvn-DUG-settings-sounds">
-		<title>TortoiseSVN's Sounds</title>
-		<indexterm>
-			<primary>sounds</primary>
-		</indexterm>
-		<para>
-			TortoiseSVN has three custom sounds which are installed by default.
-			<itemizedlist>
-				<listitem>
-					Error
-				</listitem>
-				<listitem>
-					Notice
-				</listitem>
-				<listitem>
-					Warning
-				</listitem>
-			</itemizedlist>
-			You can select different sounds (or turn these sounds off completely)
-			using the Windows Control Panel, not the TortoiseSVN settings dialog.
 		</para>
 	</sect2>
 </sect1>
