@@ -15,6 +15,8 @@
        A restart of Windows is required for this to take effect. (Stefan)
 - NEW: Colors used in TortoiseSVN are now configurable in the
        settings dialog. (Stefan)
+- NEW: Last commit author, revision and date are shown in the "Check for
+       modifications" dialog after a "Check repository". (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.
@@ -40,6 +42,12 @@
 - BUG: The 'mark as resolved' and 'save' buttons were enabled even
        if TortoiseMerge was started from the 'Check for modifications'
        dialog. See issue #178. (Stefan)
+- BUG: Crash when specifying a path without a backslash in the URL fields
+       of several dialogs. (Stefan)
+- BUG: After marking a conflict as resolved in TortoiseMerge, it still
+       asked if you want to save the changes on exit. (Stefan)
+- BUG: The context menu for "Add" was disabled for deleted files, which
+       made it impossible to replace files. (Stefan)
 
 Version 1.2.4
 - BUG: TortoisePlink was unable to connect to svn+ssh. (Stefan)
