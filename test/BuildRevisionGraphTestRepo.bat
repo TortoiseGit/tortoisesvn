@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 svnadmin create repo --fs-type fsfs
 svn co file:///d:/test/repo wc1
 cd wc1
@@ -178,6 +178,18 @@ svn mv testOrdner Ordner
 svn ci -m ""
 
 :: revision 34
+
+svn rm Ordner\file1
+echo replacing > Ordner\file1
+svn add Ordner\file1
+svn ci -m "replacing file"
+
+:: revision 35
+
+echo modified > Ordner\file1
+svn ci -m ""
+
+:: revision 36
 
 cd ..
 cd ..
