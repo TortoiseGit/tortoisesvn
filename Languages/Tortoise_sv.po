@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-13 00:27+0100\n"
+"PO-Revision-Date: 2005-10-22 10:41+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,12 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MBytes överförda"
 
 #: ID:3868
 #, c-format
@@ -87,16 +93,16 @@ msgstr ""
 "Hittar inte filen %1\n"
 "Kontrollera att sökvägen och filnamnet är korrekt."
 
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d kBytes överförda"
+
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d filer markerade, %d filer totalt"
-
-# ID:357,
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld kBytes överförda"
 
 #: ID:226
 #, c-format
@@ -838,6 +844,11 @@ msgstr "&Lägg till fil..."
 msgid "Add '%s' to dictionary"
 msgstr "Lägg till '%s' till ordlistan"
 
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Lägg till (ersätt)..."
+
 # Hur översätta "diff"
 #: ID:110
 msgid "Add extension specific diff program"
@@ -873,6 +884,10 @@ msgstr "Mapp lades till i arkivet"
 #: ID:126
 msgid "Added items remotely"
 msgstr "Arkiverade objekten"
+
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Tillagd nod"
 
 #: ID:145
 #, c-format
@@ -1063,6 +1078,7 @@ msgid "At revision: %d"
 msgstr "I revision: %d"
 
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "Ändrad av"
 
@@ -1202,9 +1218,8 @@ msgid "Cancelling operation..."
 msgstr "Avbryter..."
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Cascaded context menu"
-msgstr "Högerklickmeny"
+msgstr "Popupmeny"
 
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1244,7 +1259,7 @@ msgstr "Ändringar (dubbelklicka för detaljer):"
 
 #: ID:8
 msgid "Chec&kout..."
-msgstr "Hämta..."
+msgstr "&Hämta..."
 
 #: ID:3887
 msgid "Check"
@@ -1679,6 +1694,7 @@ msgstr ""
 "Klipp ut"
 
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "Datum"
 
@@ -1689,6 +1705,10 @@ msgstr "&Standard antal loggmeddelanden"
 #: ID:73
 msgid "Deleted"
 msgstr "Borttaget"
+
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Borttagen nod"
 
 #: ID:11
 msgid "Deletes files / folders from source control"
@@ -2518,6 +2538,11 @@ msgid "Look and Feel"
 msgstr "Utseende och hantering"
 
 # Hantering?
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Utseende och hantering::Färger"
+
+# Hantering?
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "Utseende och hantering::Dialoger"
@@ -2674,6 +2699,10 @@ msgstr "Nytt &namn:"
 #, c-format
 msgid "New name for %s"
 msgstr "Nytt namn för %s"
+
+#: ID:98
+msgid "New name:"
+msgstr "Nytt namn:"
 
 #: ID:73
 msgid "No"
@@ -3174,6 +3203,10 @@ msgstr "Döp om %s"
 msgid "Renamed from %s"
 msgstr "Döptes om från %s"
 
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Omdöpt nod"
+
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Bytte namn på i arkivet"
@@ -3197,6 +3230,10 @@ msgid ""
 msgstr ""
 "Ersätt text med annan text\n"
 "Ersätt"
+
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Ersatt nod"
 
 #: ID:74
 msgid "Replacing"
@@ -3246,6 +3283,10 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "Markerar konflikten i filen som löst"
 
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "Återställ default"
+
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "Återställ fönstret till normal storlek"
@@ -3271,6 +3312,7 @@ msgid "Reverts all changes you made since the last update"
 msgstr "Återställer alla ändringar sedan senaste uppdateringen"
 
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "Revision"
@@ -3296,6 +3338,7 @@ msgid "Revision / Author:"
 msgstr "Revision / ändrad av:"
 
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "Revisionsgraf"
 
@@ -3738,6 +3781,11 @@ msgstr "Statistik"
 msgid "Status"
 msgstr "Status"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Färger för status och händelser"
+
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Objektets status i SVN"
@@ -3794,7 +3842,7 @@ msgstr "Serverkonfigurationsfil för Subversion:"
 
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "Växlar arbetskopian till en ny gren/märke"
+msgstr "Vä&xlar arbetskopian till en ny gren/märke"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -4298,9 +4346,8 @@ msgid "TortoiseSVN : Import"
 msgstr "TortoiseSVN : Importera"
 
 #: Dlg-ID:161
-#, fuzzy
 msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN : Input"
+msgstr "TortoiseSVN : Inmatning"
 
 #: Dlg-ID:191
 msgid "TortoiseSVN : Lock Files"
@@ -4622,7 +4669,7 @@ msgstr ""
 # Control-ID:1230,
 #: Control-ID:1230
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "Använd arbetskopians URL som default \"Från:\" URL"
+msgstr "Använd a&rbetskopians URL som default \"Från:\" URL"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -4910,6 +4957,10 @@ msgstr "Zooma &ut\tCtrl--"
 msgid "added"
 msgstr "tillagd"
 
+#: Control-ID:65535
+msgid "added files"
+msgstr "Tilllagda filer"
+
 #: ID:3841
 msgid "an unnamed file"
 msgstr "en namnlös fil"
@@ -5042,6 +5093,7 @@ msgid "locked"
 msgstr "låst"
 
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "förenad"
 
@@ -5049,9 +5101,18 @@ msgstr "förenad"
 msgid "missing"
 msgstr "saknas"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "saknas / borttagna / utbytta"
+
 #: ID:10
 msgid "modified"
 msgstr "ändrad"
+
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "modifierade / kopierade"
 
 #: ID:10
 msgid "no description for this command is available"
@@ -5072,6 +5133,11 @@ msgstr "blockerad"
 #: ID:3869
 msgid "pixels"
 msgstr "pixlar"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "möjlig eller faktisk konflikt / blockerad"
 
 #: Control-ID:1018
 msgid "re&cursive"
