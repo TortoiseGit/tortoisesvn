@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-12 21:23+0100\n"
+"PO-Revision-Date: 2005-10-22 16:22+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -38,6 +38,11 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MBytes verstuurd"
 
 #: ID:3868
 #, c-format
@@ -99,15 +104,15 @@ msgstr ""
 "Bestand niet gevonden.\n"
 "Controleer of het juiste pad en bestandsnaam zijn opgegeven."
 
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d kBytes verstuurd"
+
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d bestanden geselecteerd, %d bestanden totaal"
-
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld kBytes verstuurd"
 
 #: ID:226
 #, c-format
@@ -814,6 +819,10 @@ msgstr "&Bestand toevoegen..."
 msgid "Add '%s' to dictionary"
 msgstr "Voeg '%s' toe aan woordenboek"
 
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Toevoegen (ter vervanging)..."
+
 #: ID:110
 msgid "Add extension specific diff program"
 msgstr "Voeg een extensie-specifiek diff-programma toe"
@@ -846,6 +855,10 @@ msgstr "Bestand op afstand toegevoegd"
 #: ID:126
 msgid "Added items remotely"
 msgstr "Objecten op afstand toegevoegd"
+
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Knoop toegevoegd"
 
 #: ID:145
 #, c-format
@@ -1031,6 +1044,7 @@ msgid "At revision: %d"
 msgstr "Huidige revisie: %d"
 
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "Auteur"
 
@@ -1620,6 +1634,7 @@ msgstr ""
 "Knippen"
 
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "Datum"
 
@@ -1630,6 +1645,10 @@ msgstr "&Standaard aantal logboek-boodschappen"
 #: ID:73
 msgid "Deleted"
 msgstr "Verwijderd"
+
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Knoop verwijderd"
 
 #: ID:11
 msgid "Deletes files / folders from source control"
@@ -2413,6 +2432,10 @@ msgstr "Logboek boodschappen"
 msgid "Look and Feel"
 msgstr "Beeld en Gedrag"
 
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Beeld en Gedrag::Kleuren"
+
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "Beeld en Gedrag::Dialogen"
@@ -2561,6 +2584,10 @@ msgstr "&Nieuwe naam:"
 #, c-format
 msgid "New name for %s"
 msgstr "Nieuwe naam voor %s"
+
+#: ID:98
+msgid "New name:"
+msgstr "Nieuwe naam:"
 
 #: ID:73
 msgid "No"
@@ -3050,6 +3077,10 @@ msgstr "Hernoem %s"
 msgid "Renamed from %s"
 msgstr "Hernoemd van %s"
 
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Knoop hernoemd"
+
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Op afstand hernoemd"
@@ -3073,6 +3104,10 @@ msgid ""
 msgstr ""
 "Vervang tekst met andere tekst\n"
 "Vervangen"
+
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Knoop vervangen"
 
 #: ID:74
 msgid "Replacing"
@@ -3121,6 +3156,10 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "Lost conflicten in bestanden op"
 
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "Standaard herstellen"
+
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "Herstel oorspronkelijk formaat"
@@ -3146,6 +3185,7 @@ msgid "Reverts all changes you made since the last update"
 msgstr "Maakt al uw wijzigingen sinds de laatste verversing ongedaan"
 
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "Revisie"
@@ -3171,6 +3211,7 @@ msgid "Revision / Author:"
 msgstr "Revisie / Auteur:"
 
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "Revisie schema"
 
@@ -3593,6 +3634,10 @@ msgstr "Statistieken"
 #: ID:207
 msgid "Status"
 msgstr "Statusbalk"
+
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Status- en actiekleuren"
 
 #: ID:11
 msgid "Status of item in SVN"
@@ -4721,6 +4766,10 @@ msgstr "&Uitzoomen\tCtrl--"
 msgid "added"
 msgstr "toegevoegd"
 
+#: Control-ID:65535
+msgid "added files"
+msgstr "toegevoegde bestanden"
+
 #: ID:3841
 msgid "an unnamed file"
 msgstr "een bestand zonder naam"
@@ -4849,6 +4898,7 @@ msgid "locked"
 msgstr "geblokkeerd"
 
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "samengevoegd"
 
@@ -4856,9 +4906,17 @@ msgstr "samengevoegd"
 msgid "missing"
 msgstr "ontbrekend"
 
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "ontbrekend / verwijderd / vervangen"
+
 #: ID:10
 msgid "modified"
 msgstr "gewijzigd"
+
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "gewijzigd / gekopiëerd"
 
 #: ID:10
 msgid "no description for this command is available"
@@ -4879,6 +4937,10 @@ msgstr "versperd"
 #: ID:3869
 msgid "pixels"
 msgstr "pixels"
+
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "mogelijk of echt conflict / geblokkeerd"
 
 #: Control-ID:1018
 msgid "re&cursive"
