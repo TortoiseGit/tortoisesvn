@@ -24,28 +24,42 @@
 - CHG: Ctrl-A now selects all entries in the file list controls. (Stefan)
 - CHG: "Show log" in the file list controls for all versioned files.
        See issue #172. (Stefan)
-- CHG: Missing files are not selected by default anymore in the commit
-       dialog. (Stefan)
 - CHG: Ctrl-click expands the whole tree in the repository browser. (Stefan)
 - CHG: Improved the revision graph. See issue #173. (Stefan)
-- BUG: The status cache didn't watch all required paths. (Stefan)
 - BUG: When files were added to the ignore list, a choice of 
        File.ext or *.ext is given. If the *.ext is chosen the dialog 
        box told that File.ext was successfully added instead of *.ext. (Stefan)
-- BUG: The selection isn't lost anymore when right clicking in the commit
-       message edit box. See issue #176. (Stefan)
 - BUG: After a merge which produced conflicts, the context menu wasn't
        shown with the entries to resolve the conflict. (Stefan)
-- BUG: Sorting by date in the repository browser didn't work. (Stefan)
 - BUG: Creating a patch from files was disabled, it only worked
        from folders. (Stefan)
 - BUG: The 'mark as resolved' and 'save' buttons were enabled even
        if TortoiseMerge was started from the 'Check for modifications'
        dialog. See issue #178. (Stefan)
-- BUG: Crash when specifying a path without a backslash in the URL fields
-       of several dialogs. (Stefan)
 - BUG: After marking a conflict as resolved in TortoiseMerge, it still
        asked if you want to save the changes on exit. (Stefan)
+
+Version 1.2.5
+- CHG: Missing files are not selected by default anymore in the commit
+       dialog. (Stefan)
+- BUG: The status cache didn't watch all required paths. (Stefan)
+- BUG: The status cache wouldn't shut down properly. (Stefan)
+- BUG: Fix possible endless loop in the cache. (Stefan)
+- BUG: Fix crash in the repository browser when showing
+       the context menu after a drag move. (Stefan)
+- BUG: Fixed possible crash in the status cache. (Stefan)
+- BUG: The autoscrolling in the progress dialog stopped when
+       the scrollbar appeared. (Stefan)
+- BUG: Wrong counting of selected files in the commit dialog. (Stefan)
+- BUG: Showing the unified diff in the merge dialog didn't
+       always work. (Stefan)
+- BUG: The context menu wasn't shown if "use ownerdrawn menus" was
+       deactivated. (Stefan)
+- BUG: The selection isn't lost anymore when right clicking in the commit
+       message edit box. See issue #176. (Stefan)
+- BUG: Sorting by date in the repository browser didn't work. (Stefan)
+- BUG: Crash when specifying a path without a backslash in the URL fields
+       of several dialogs. (Stefan)
 - BUG: The context menu for "Add" was disabled for deleted files, which
        made it impossible to replace files. (Stefan)
 

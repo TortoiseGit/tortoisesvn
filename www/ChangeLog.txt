@@ -1,3 +1,27 @@
+Version 1.2.5
+- CHG: Missing files are not selected by default anymore in the commit
+       dialog. (Stefan)
+- BUG: The status cache didn't watch all required paths. (Stefan)
+- BUG: The status cache wouldn't shut down properly. (Stefan)
+- BUG: Fix possible endless loop in the cache. (Stefan)
+- BUG: Fix crash in the repository browser when showing
+       the context menu after a drag move. (Stefan)
+- BUG: Fixed possible crash in the status cache. (Stefan)
+- BUG: The autoscrolling in the progress dialog stopped when
+       the scrollbar appeared. (Stefan)
+- BUG: Wrong counting of selected files in the commit dialog. (Stefan)
+- BUG: Showing the unified diff in the merge dialog didn't
+       always work. (Stefan)
+- BUG: The context menu wasn't shown if "use ownerdrawn menus" was
+       deactivated. (Stefan)
+- BUG: The selection isn't lost anymore when right clicking in the commit
+       message edit box. See issue #176. (Stefan)
+- BUG: Sorting by date in the repository browser didn't work. (Stefan)
+- BUG: Crash when specifying a path without a backslash in the URL fields
+       of several dialogs. (Stefan)
+- BUG: The context menu for "Add" was disabled for deleted files, which
+       made it impossible to replace files. (Stefan)
+
 Version 1.2.4
 - BUG: TortoisePlink was unable to connect to svn+ssh. (Stefan)
 
