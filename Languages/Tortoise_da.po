@@ -6,13 +6,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4680
+# Based on Tortoise.pot r4715
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-19 14:35+0100\n"
+"PO-Revision-Date: 2005-10-22 16:00+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -74,6 +74,11 @@ msgstr " "
 msgid "! %d"
 msgstr "! %d"
 
+#: ID:357,
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MBytes overført"
+
 #: ID:3868,#: ID:3868,
 #, c-format
 msgid "%1 contained an unexpected object."
@@ -124,15 +129,15 @@ msgstr "%1: %2\nFortsæt med at køre script?"
 msgid "%1\nCannot find this file.\nPlease verify that the correct path and file name are given."
 msgstr "%1\nFilen findes ikke.\nUndersøg venligst, at det korrekte sti- og filnavn er angivet."
 
+#: ID:357,
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%l64d kBytes overført"
+
 #: ID:169,
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d valgte filer, %d filer i alt"
-
-#: ID:357,
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld kBytes overført"
 
 #: ID:226,
 #, c-format
@@ -754,6 +759,10 @@ msgstr "Tilføj &fil..."
 msgid "Add '%s' to dictionary"
 msgstr "Tilføj '%s' til ordbog"
 
+#: ID:16,
+msgid "Add (as replacement)..."
+msgstr "Tilføj (som erstatning)..."
+
 #: ID:110,
 msgid "Add extension specific diff program"
 msgstr "Tilføj filendelse-specifikt sammenligningsprogram"
@@ -787,6 +796,11 @@ msgstr "En mappe blev tilføjet på server"
 #: ID:126,
 msgid "Added items remotely"
 msgstr "Emner blev tilføjet på server"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Added node"
+msgstr "Tilføjet knude"
 
 #: ID:145,
 #, c-format
@@ -928,7 +942,7 @@ msgstr "Er du sikker på at du vil tilbageføre ændringerne? Du mister <b>alle<
 msgid "At revision: %d"
 msgstr "Ved revision: %d"
 
-#: ID:76,
+#: ID:76,#: ID:207,
 msgid "Author"
 msgstr "Forfatter"
 
@@ -1461,7 +1475,7 @@ msgstr "Aktuelle version er: %s"
 msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr "Klip det valgte og læg det i udklipsholderen\nKlip"
 
-#: ID:76,
+#: ID:76,#: ID:208,
 msgid "Date"
 msgstr "Dato"
 
@@ -1472,6 +1486,11 @@ msgstr "&Antal af logbeskeder, der vises som standard"
 #: ID:73,
 msgid "Deleted"
 msgstr "Slettet"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Deleted node"
+msgstr "Slettet knude"
 
 #: ID:11,
 msgid "Deletes files / folders from source control"
@@ -2690,6 +2709,11 @@ msgstr "Omdøb %s"
 msgid "Renamed from %s"
 msgstr "Omdøbt fra %s"
 
+#: Control-ID:65535,
+#, fuzzy
+msgid "Renamed node"
+msgstr "Omdøbt knude"
+
 #: ID:126,
 msgid "Renamed remotely"
 msgstr "Omdøbt på server"
@@ -2706,6 +2730,11 @@ msgstr "Gentag sidste handling\nGentag"
 #: ID:3603,
 msgid "Replace specific text with different text\nReplace"
 msgstr "Erstat en bestemt tekst med en anden\nErstat"
+
+#: Control-ID:65535,
+#, fuzzy
+msgid "Replaced node"
+msgstr "Erstattet knude"
 
 #: ID:74,
 msgid "Replacing"
@@ -2776,7 +2805,7 @@ msgstr "Tilbageført"
 msgid "Reverts all changes you made since the last update"
 msgstr "Tilbagefører alle ændringer, du har foretaget siden sidste opdatering"
 
-#: ID:76,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
+#: ID:76,#: ID:208,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
 msgid "Revision"
 msgstr "Revision"
 
@@ -2798,7 +2827,7 @@ msgstr "Revisions&graf"
 msgid "Revision / Author:"
 msgstr "Revision/forfatter:"
 
-#: ID:269,
+#: ID:269,#: Control-ID:65535,
 msgid "Revision graph"
 msgstr "Revisionsgraf"
 
