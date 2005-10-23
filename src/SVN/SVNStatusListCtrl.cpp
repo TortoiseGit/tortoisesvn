@@ -1578,14 +1578,16 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_MENUREMOVE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVE, temp);
 				}
-				if (wcStatus == svn_wc_status_unversioned)
+				if ((wcStatus == svn_wc_status_unversioned)||(wcStatus == svn_wc_status_deleted))
 				{
 					if (m_dwContextMenus & SVNSLC_POPADD)
 					{
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD, temp);
 					}
-
+				}
+				if (wcStatus == svn_wc_status_unversioned)
+				{
 					if (GetSelectedCount() == 1)
 					{
 						if (m_dwContextMenus & SVNSLC_POPIGNORE)
