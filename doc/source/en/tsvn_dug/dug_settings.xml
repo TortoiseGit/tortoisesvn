@@ -614,6 +614,11 @@ C:\Path-To\kdiff3.exe %base %mine --L1 %bname --L2 %yname
 <screen>
 C:\Path-To\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine
 </screen>
+				or with Araxis:
+<screen>
+C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
+        %base %mine
+</screen>
 			</para>
 			<para>
 				If you use the <literal>svn:keywords</literal> property to
@@ -718,7 +723,8 @@ C:\Path-To\kdiff3.exe %base %mine %theirs -o %merged
 </screen>
 				or with Araxis:
 <screen>
-C:\Path-To\compare.exe /a1 /3 %base %mine %theirs %merged
+C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
+        /title3:%yname %theirs %base %mine %merged /a2
 </screen>
 			</para>
 		</sect3>

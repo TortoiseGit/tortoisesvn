@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-10-21 18:25GMT Daylight Time\n"
+"POT-Creation-Date: 2005-10-23 16:18GMT Daylight Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1689,7 +1689,7 @@ msgstr ""
 msgid "Diff Viewer"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:561(term) source/en/tsvn_dug/dug_settings.xml:642(term) 
+#: source/en/tsvn_dug/dug_settings.xml:561(term) source/en/tsvn_dug/dug_settings.xml:647(term) 
 msgid "%base"
 msgstr ""
 
@@ -1697,15 +1697,15 @@ msgstr ""
 msgid "The original file without your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:569(term) source/en/tsvn_dug/dug_settings.xml:651(term) 
+#: source/en/tsvn_dug/dug_settings.xml:569(term) source/en/tsvn_dug/dug_settings.xml:656(term) 
 msgid "%bname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:571(para) source/en/tsvn_dug/dug_settings.xml:653(para) 
+#: source/en/tsvn_dug/dug_settings.xml:571(para) source/en/tsvn_dug/dug_settings.xml:658(para) 
 msgid "The window title for the base file"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:577(term) source/en/tsvn_dug/dug_settings.xml:659(term) 
+#: source/en/tsvn_dug/dug_settings.xml:577(term) source/en/tsvn_dug/dug_settings.xml:664(term) 
 msgid "%mine"
 msgstr ""
 
@@ -1713,11 +1713,11 @@ msgstr ""
 msgid "Your own file, with your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:585(term) source/en/tsvn_dug/dug_settings.xml:667(term) 
+#: source/en/tsvn_dug/dug_settings.xml:585(term) source/en/tsvn_dug/dug_settings.xml:672(term) 
 msgid "%yname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:587(para) source/en/tsvn_dug/dug_settings.xml:669(para) 
+#: source/en/tsvn_dug/dug_settings.xml:587(para) source/en/tsvn_dug/dug_settings.xml:674(para) 
 msgid "The window title for your file"
 msgstr ""
 
@@ -1730,82 +1730,82 @@ msgid "The window titles are not pure filenames. TortoiseSVN treats that as a na
 msgstr ""
 
 #: source/en/tsvn_dug/dug_settings.xml:604(para) 
-msgid "For example, with ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen> or with WinMerge: <screen>\nC:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n</screen>"
+msgid "For example, with ExamDiff Pro: <screen>\nC:\\Path-To\\ExamDiff.exe %base %mine\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n</screen> or with WinMerge: <screen>\nC:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n</screen> or with Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n        %base %mine\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:618(para) 
+#: source/en/tsvn_dug/dug_settings.xml:623(para) 
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BAsE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:634(title) 
+#: source/en/tsvn_dug/dug_settings.xml:639(title) 
 msgid "Merge Tool"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:644(para) 
+#: source/en/tsvn_dug/dug_settings.xml:649(para) 
 msgid "the original file without your or the others changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:661(para) 
+#: source/en/tsvn_dug/dug_settings.xml:666(para) 
 msgid "your own file, with your changes"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:675(term) 
+#: source/en/tsvn_dug/dug_settings.xml:680(term) 
 msgid "%theirs"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:677(para) 
+#: source/en/tsvn_dug/dug_settings.xml:682(para) 
 msgid "the file as it is in the repository"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:683(term) 
+#: source/en/tsvn_dug/dug_settings.xml:688(term) 
 msgid "%tname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:685(para) 
+#: source/en/tsvn_dug/dug_settings.xml:690(para) 
 msgid "The window title for the file in the repository"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:691(term) 
+#: source/en/tsvn_dug/dug_settings.xml:696(term) 
 msgid "%merged"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:693(para) 
+#: source/en/tsvn_dug/dug_settings.xml:698(para) 
 msgid "the conflicted file, the result of the merge operation"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:700(term) 
+#: source/en/tsvn_dug/dug_settings.xml:705(term) 
 msgid "%mname"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:702(para) 
+#: source/en/tsvn_dug/dug_settings.xml:707(para) 
 msgid "The window title for the merged file"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:636(para) 
+#: source/en/tsvn_dug/dug_settings.xml:641(para) 
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:709(para) 
-msgid "For example, with Perforce Merge: <screen>\nC:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n        --L1 %bname --L2 %yname --L3 %tname\n</screen> or with Araxis: <screen>\nC:\\Path-To\\compare.exe /a1 /3 %base %mine %theirs %merged\n</screen>"
+#: source/en/tsvn_dug/dug_settings.xml:714(para) 
+msgid "For example, with Perforce Merge: <screen>\nC:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n</screen> or with KDiff3: <screen>\nC:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n        --L1 %bname --L2 %yname --L3 %tname\n</screen> or with Araxis: <screen>\nC:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n        /title3:%yname %theirs %base %mine %merged /a2\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:726(title) 
+#: source/en/tsvn_dug/dug_settings.xml:732(title) 
 msgid "Unified Diff Viewer"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:728(para) 
+#: source/en/tsvn_dug/dug_settings.xml:734(para) 
 msgid "A viewer program for unified-diff files (patch files). If you don't have one the builtin option is to use NotePad. No parameters are required."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:733(para) 
+#: source/en/tsvn_dug/dug_settings.xml:739(para) 
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:748(title) 
+#: source/en/tsvn_dug/dug_settings.xml:754(title) 
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:746(para) 
+#: source/en/tsvn_dug/dug_settings.xml:752(para) 
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for .jpg files :-)"
 msgstr ""
 
