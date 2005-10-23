@@ -860,7 +860,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						SVNDiff diff(this, this->m_hWnd, true);
 						
-						diff.ShowUnifiedDiff(m_path, rev-1, m_path, rev);
+						diff.ShowUnifiedDiff(m_path, rev-1, m_path, rev, m_LogRevision);
 					}
 					break;
 				case ID_GNUDIFF2:
@@ -873,7 +873,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 
 						SVNDiff diff(this, this->m_hWnd, true);
-						diff.ShowUnifiedDiff(m_path, rev2, m_path, rev1);
+						diff.ShowUnifiedDiff(m_path, rev2, m_path, rev1, m_LogRevision);
 					}
 					break;
 				case ID_REVERTREV:
@@ -974,7 +974,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							url.SetFromSVN(GetURLFromPath(m_path));
 						}
 
-						diff.ShowCompare(url, rev2, url, rev1, SVNRev::REV_HEAD);
+						diff.ShowCompare(url, rev2, url, rev1, m_LogRevision);
 					}
 					break;
 				case ID_SAVEAS:
