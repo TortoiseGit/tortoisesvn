@@ -287,8 +287,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);			// "Show Log..."
-				temp.LoadString(IDS_MENUREVISIONGRAPH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVGRAPH, temp);
+				if (url.Compare(m_treeRepository.m_strReposRoot)!=0)
+				{
+					temp.LoadString(IDS_MENUREVISIONGRAPH);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVGRAPH, temp);
+				}
 				if (!bFolder)
 				{
 					temp.LoadString(IDS_MENUBLAME);
