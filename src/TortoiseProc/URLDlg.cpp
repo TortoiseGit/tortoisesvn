@@ -20,13 +20,14 @@
 
 #include "TortoiseProc.h"
 #include "URLDlg.h"
+#include ".\urldlg.h"
 
 
 // CURLDlg dialog
 
-IMPLEMENT_DYNAMIC(CURLDlg, CDialog)
+IMPLEMENT_DYNAMIC(CURLDlg, CResizableStandAloneDialog)
 CURLDlg::CURLDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CURLDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CURLDlg::IDD, pParent)
 {
 	m_url = _T("");
 }
@@ -37,23 +38,31 @@ CURLDlg::~CURLDlg()
 
 void CURLDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 }
 
 
-BEGIN_MESSAGE_MAP(CURLDlg, CDialog)
+BEGIN_MESSAGE_MAP(CURLDlg, CResizableStandAloneDialog)
+	ON_WM_SIZING()
 END_MESSAGE_MAP()
 
 
 BOOL CURLDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetFocus();
 
+	RECT rect;
+	GetWindowRect(&rect);
+	m_heigth = rect.bottom - rect.top;
+	AddAnchor(IDC_LABEL, TOP_LEFT);
+	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -67,6 +76,25 @@ void CURLDlg::OnOK()
 		UpdateData();
 	} // if (m_URLCombo.IsWindowEnabled()) 
 
-	CDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
+
+void CURLDlg::OnSizing(UINT fwSide, LPRECT pRect)
+{
+	// don't allow the dialog to be changed in heigth
+	switch (fwSide)
+	{
+	case WMSZ_BOTTOM:
+	case WMSZ_BOTTOMLEFT:
+	case WMSZ_BOTTOMRIGHT:
+		pRect->bottom = pRect->top + m_heigth;
+		break;
+	case WMSZ_TOP:
+	case WMSZ_TOPLEFT:
+	case WMSZ_TOPRIGHT:
+		pRect->top = pRect->bottom - m_heigth;
+		break;
+	}
+	CResizableStandAloneDialog::OnSizing(fwSide, pRect);	
+}

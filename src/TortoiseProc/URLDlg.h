@@ -29,7 +29,7 @@
  *
  * \author kueng
  */
-class CURLDlg : public CDialog
+class CURLDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CURLDlg)
 
@@ -37,17 +37,16 @@ public:
 	CURLDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CURLDlg();
 
-// Dialog Data
-	enum { IDD = IDD_URL };
+	CString m_url;
 
+	enum { IDD = IDD_URL };
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
+	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 
 	DECLARE_MESSAGE_MAP()
 	CHistoryCombo m_URLCombo;
-
-public:
-	CString m_url;
+	int m_heigth;
 };
