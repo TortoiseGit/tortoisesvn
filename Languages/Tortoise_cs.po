@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 00:00+0000\n"
-"PO-Revision-Date: 2005-10-21 19:19+0100\n"
+"PO-Revision-Date: 2005-10-23 22:01+0100\n"
 "Last-Translator: Radek Svarz <translate@svarz.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,12 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MBajtů přeneseno"
 
 # ID:3868,#:
 # ID:3868,
@@ -108,17 +114,17 @@ msgstr ""
 "Nelze najít tento soubor.\n"
 "Prosím, zkontrolujte, že je zadána správná cesta a název soubory."
 
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d kBajtů přeneseno"
+
 # ID:169,
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "Souborů vybraných: %d, souborů celkem: %d"
-
-# ID:357,
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld kBytes přeneseno"
 
 # ID:226,
 #: ID:226
@@ -1042,6 +1048,12 @@ msgstr "Přidána složka na dálku"
 msgid "Added items remotely"
 msgstr "Přidány položky na dálku"
 
+# ID:73,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Přidán uzel"
+
 # ID:145,
 #: ID:145
 #, c-format
@@ -1552,7 +1564,7 @@ msgstr "Zaškrtněte pro použití menšího formátu data a času v log záznam
 # ID:270,
 #: ID:270
 msgid "Checking for forward copies"
-msgstr ""
+msgstr "Kontroluji předčasné kopie"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2010,6 +2022,11 @@ msgstr "Standardní počet log záznamů"
 #: ID:73
 msgid "Deleted"
 msgstr "Odstraněno"
+
+# ID:73,
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Odstraněn uzel"
 
 # ID:11,
 #: ID:11
@@ -3785,6 +3802,11 @@ msgid "Renamed from %s"
 msgstr "Přejmenováno z %s"
 
 # ID:126,
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Přejmenován uzel"
+
+# ID:126,
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Přejmenováno na dálku"
@@ -3811,6 +3833,11 @@ msgid ""
 msgstr ""
 "Nahradí určený text jiným textem\n"
 "Nahradit"
+
+# ID:10,
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Nahrazen uzel"
 
 # ID:74,
 #: ID:74
@@ -3950,6 +3977,7 @@ msgstr "Revize / Autor:"
 # ID:269,#:
 # Dlg-ID:182,
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "Graf verzí/revizí"
 
@@ -5888,6 +5916,10 @@ msgid ""
 "log message. The default is \"true\" which means the bugtracking ID\n"
 "is appended to the log message."
 msgstr ""
+"bugtraq:append\n"
+"Nastavte na \"false\", pokud chcete, aby se bugtracking ID vkládalo na vrch\n"
+"log záznamu. Defaultní je \"true\", což znamená, že bugtracking ID\n"
+"je přidáno nakonec log záznamu."
 
 # ID:14,
 #: ID:14
@@ -5895,6 +5927,8 @@ msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
+"bugtraq:label\n"
+"Textový nadpis, který se má ukázat pro editační pole, kam má uživatel vložit číslo problému."
 
 # ID:15,
 #: ID:15
@@ -5903,6 +5937,9 @@ msgid ""
 "two regular expressions separated by a newline\n"
 "The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
 msgstr ""
+"bugtraq:logregex\n"
+"2 regulární výrazy oddělené novou řádkou\n"
+"1. výraz se používá pro nalezení řetězce odkazujícího na problém, 2. výraz se používá pro extrakci vlastního chybového ID z toho řetězce."
 
 # ID:14,
 #: ID:14
@@ -5912,6 +5949,9 @@ msgid ""
 "String which is appended to a log message when an issue number is entered.\n"
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
+"bugtraq:message\n"
+"Řetězec, který je přidán k log záznamu, když je vloženo číslo problému.\n"
+"Řetězec musí obsahovat \"%BUGID%\", které bude nahrazeno číslem problému."
 
 # ID:14,
 #: ID:14
@@ -5919,6 +5959,8 @@ msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
+"bugtraq:number\n"
+"Nastavte na \"false\", pokud Váš systém na správu chyb vede problémy, které nejsou odkazovány čísly."
 
 # ID:14,
 #: ID:14
@@ -5928,6 +5970,9 @@ msgid ""
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
 "gets replaced with the issue number."
 msgstr ""
+"bugtraq:url\n"
+"URL odkazující na hlídač problémů. Musí obsahovat \"%BUGID%\", které\n"
+"je nahrazeno číslem problému."
 
 # ID:145,
 #: ID:145
