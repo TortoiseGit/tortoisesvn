@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-19 20:22+0100\n"
+"PO-Revision-Date: 2005-10-23 20:10+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,12 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MBytes trasferiti"
 
 # ID:3868,#:
 # ID:3868,
@@ -110,17 +116,17 @@ msgstr ""
 "Impossibile trovare il file.\n"
 "Si prega di verificare il percorso e il nome del file."
 
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d kBytes trasferiti"
+
 # ID:169,
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d file selezionati, %d file totali"
-
-# ID:357,
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld kBytes trasferiti"
 
 # ID:77,
 #: ID:226
@@ -1009,6 +1015,11 @@ msgstr "Aggiungi &file..."
 msgid "Add '%s' to dictionary"
 msgstr "Aggiungi '%s' alla directory"
 
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Aggiunto (come sostituto)..."
+
 # ID:110,
 #: ID:110
 msgid "Add extension specific diff program"
@@ -1049,6 +1060,11 @@ msgstr "Cartella aggiunta in remoto"
 #: ID:126
 msgid "Added items remotely"
 msgstr "Oggetti aggiunti in remoto"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Nodo aggiunto"
 
 # ID:13,
 #: ID:145
@@ -1284,6 +1300,7 @@ msgstr "Alla revisione: %d"
 
 # ID:76,
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "Autore"
 
@@ -2003,6 +2020,7 @@ msgstr ""
 
 # ID:76,
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "Data"
 
@@ -2017,6 +2035,13 @@ msgstr "&Numero predefinito di commenti"
 #: ID:73
 msgid "Deleted"
 msgstr "Eliminato"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Nodo eliminato"
 
 # ID:11,
 #: ID:11
@@ -3789,6 +3814,11 @@ msgid "Renamed from %s"
 msgstr "Rinominato da %s"
 
 # ID:126,
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Nodo rinominato"
+
+# ID:126,
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Rinominato in remoto"
@@ -3815,6 +3845,11 @@ msgid ""
 msgstr ""
 "Sostituisci un testo con un'altro\n"
 "Sostituisci"
+
+# ID:10,
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Nodo sostituito"
 
 # ID:74,
 #: ID:74
@@ -3916,6 +3951,7 @@ msgstr "Annulla tutte le modifiche apportate dall'ultimo aggiornamento"
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "Revisione"
@@ -3946,6 +3982,7 @@ msgstr "Revisione / Autore:"
 
 # ID:75,
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "Grafico delle revisioni"
 
