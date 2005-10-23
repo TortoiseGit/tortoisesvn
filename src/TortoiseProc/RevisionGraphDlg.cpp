@@ -63,7 +63,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_hAccel(NULL)
 {
 	m_ViewRect.SetRectEmpty();
-	
+	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		m_apFonts[i] = NULL;
