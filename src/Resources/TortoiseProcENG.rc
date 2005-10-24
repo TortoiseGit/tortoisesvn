@@ -1496,15 +1496,15 @@ BEGIN
     END
     POPUP "&View"
     BEGIN
-        MENUITEM "Zoom &In\tCtrl-+",            ID_VIEW_ZOOMIN
-        MENUITEM "Zoom &Out\tCtrl--",           ID_VIEW_ZOOMOUT
+        MENUITEM "Zoom &in\tCtrl-+",            ID_VIEW_ZOOMIN
+        MENUITEM "Zoom &out\tCtrl--",           ID_VIEW_ZOOMOUT
         MENUITEM SEPARATOR
-        MENUITEM "&Compare Revisions",          ID_VIEW_COMPAREREVISIONS
+        MENUITEM "&Compare revisions",          ID_VIEW_COMPAREREVISIONS
         , GRAYED
-        MENUITEM "Compare &HEAD Revisions",     ID_VIEW_COMPAREHEADREVISIONS
+        MENUITEM "Compare &HEAD revisions",     ID_VIEW_COMPAREHEADREVISIONS
         , GRAYED
-        MENUITEM "&Unified Diff",               ID_VIEW_UNIFIEDDIFF, GRAYED
-        MENUITEM "Unified &Diff Of HEAD Revisions", 
+        MENUITEM "&Unified diff",               ID_VIEW_UNIFIEDDIFF, GRAYED
+        MENUITEM "Unified &diff Of HEAD revisions", 
                                                 ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS
         , GRAYED
     END
