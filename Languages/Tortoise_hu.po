@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-16 20:53+0100\n"
+"PO-Revision-Date: 2005-10-24 22:15+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -33,6 +33,12 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MB forgalom"
 
 # ID:3868,#:
 # ID:3868,
@@ -114,17 +120,17 @@ msgstr ""
 "Nem található ez a fájl.\n"
 "Ellenőrizd, hogy helyes az elérési útvonal."
 
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d KB forgalom"
+
 # ID:169,
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d fájl kiválasztva, %d összesen"
-
-# ID:357,
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld kilobájt forgalom"
 
 # ID:226,
 #: ID:226
@@ -263,12 +269,9 @@ msgstr "&Takarítás"
 msgid "&Commit..."
 msgstr "&Beküldés..."
 
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "&Verziók összehasonlítása"
-
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Compare revisions"
 
@@ -701,12 +704,9 @@ msgstr "&Visszavon"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Visszavonás\tCtrl+Z"
 
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "&Egyesített Folt"
-
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "&Egyesített folt"
 
@@ -1003,6 +1003,11 @@ msgstr "&Fájl hozzáadása..."
 msgid "Add '%s' to dictionary"
 msgstr "'%s' hozzáadása a szótárhoz"
 
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Hozzáad (csereként)..."
+
 # ID:110,
 #: ID:110
 msgid "Add extension specific diff program"
@@ -1044,6 +1049,12 @@ msgstr "Mappa távolról hozzáadva"
 #: ID:126
 msgid "Added items remotely"
 msgstr "Elemek távolról hozzáadva"
+
+# ID:73,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Csomópont hozzáadva"
 
 # ID:145,
 #: ID:145
@@ -1277,6 +1288,7 @@ msgstr "Verzió %d"
 
 # ID:76,
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "Fejlesztő"
 
@@ -1665,11 +1677,8 @@ msgstr "A hetek beküldései"
 msgid "Commits your changes to the repository"
 msgstr "Elküldi a tárházba a változtatásaidat"
 
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "A &FŐ Verziók összehasonlítása"
-
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "A &FŐ verziók összehasonlítása"
 
@@ -1998,6 +2007,7 @@ msgstr ""
 
 # ID:76,
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "Dátum"
 
@@ -2010,6 +2020,11 @@ msgstr "Alapértelmezett naplóüzenetek &száma"
 #: ID:73
 msgid "Deleted"
 msgstr "Törölve"
+
+# ID:73,
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Csomópont törölve"
 
 # ID:11,
 #: ID:11
@@ -2963,6 +2978,11 @@ msgid "Look and Feel"
 msgstr "Kinézet"
 
 # Dlg-ID:196,
+#: Dlg-ID:212
+msgid "Look and Feel::Colors"
+msgstr "Kinézet::Színek"
+
+# Dlg-ID:196,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
 msgstr "Kinézet::Ablakok"
@@ -3147,6 +3167,11 @@ msgstr "Új &név:"
 #, c-format
 msgid "New name for %s"
 msgstr "%s új neve"
+
+# Control-ID:1076,
+#: ID:98
+msgid "New name:"
+msgstr "Új név:"
 
 # ID:73,
 #: ID:73
@@ -3768,6 +3793,11 @@ msgid "Renamed from %s"
 msgstr "%s-ról átnevezve"
 
 # ID:126,
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Átnevezett csomópont"
+
+# ID:126,
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Távolról átnevezve"
@@ -3794,6 +3824,11 @@ msgid ""
 msgstr ""
 "Megadott szöveget másra cserél\n"
 "Csere"
+
+# ID:10,
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Lecserélt csomópont"
 
 # ID:74,
 #: ID:74
@@ -3857,6 +3892,11 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "Ellentmondó fájlok megoldása"
 
+# ID:73,
+#: Control-ID:1254
+msgid "Restore Default"
+msgstr "Alapbeállítás Visszaállítása"
+
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
@@ -3891,6 +3931,7 @@ msgstr "Minden módosítást visszaállít az utolsó frissítés óta"
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "Verzió"
@@ -3927,6 +3968,7 @@ msgstr "Verzió / Fejlesztő"
 # ID:269,#:
 # Dlg-ID:182,
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "Verzió grafikon"
 
@@ -4462,6 +4504,11 @@ msgstr "Statiszikák"
 #: ID:207
 msgid "Status"
 msgstr "Állapot"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Status and action colors"
+msgstr "Állapot és cselekvés színek"
 
 # ID:11,
 #: ID:11
@@ -5403,11 +5450,8 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Váratlan fájlformátum."
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "&Egyesített FŐ Verzió Folt "
-
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "&Egyesített FŐ verzió folt"
 
@@ -5813,17 +5857,22 @@ msgstr ""
 "a Tárház verziójával!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
-msgstr "Zoom &Be\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
+msgstr "Zoom &be\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
-msgstr "Zoom &Ki\tCtrl--"
+msgid "Zoom &out\tCtrl--"
+msgstr "Zoom &ki\tCtrl--"
 
 # ID:10,
 #: ID:10
 msgid "added"
 msgstr "hozzáadva"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "added files"
+msgstr "hozzáadott fájlok"
 
 # ID:3841,#:
 # ID:3841,
@@ -5976,6 +6025,7 @@ msgstr "zárolva"
 
 # ID:11,
 #: ID:11
+#: Control-ID:65535
 msgid "merged"
 msgstr "összegyúrva"
 
@@ -5984,10 +6034,20 @@ msgstr "összegyúrva"
 msgid "missing"
 msgstr "hiányzó"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "missing / deleted / replaced"
+msgstr "hiányzó / törölt / cserélt"
+
 # ID:10,
 #: ID:10
 msgid "modified"
 msgstr "módosított"
+
+# ID:10,
+#: Control-ID:65535
+msgid "modified / copied"
+msgstr "módosított / másolt"
 
 # ID:10,
 #: ID:10
@@ -6014,6 +6074,11 @@ msgstr "eltömött"
 #: ID:3869
 msgid "pixels"
 msgstr "képpontok"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "possible or real conflict / obstructed"
+msgstr "lehetséges vagy valós ellentmondás / elrekesztve"
 
 # Control-ID:1018,
 #: Control-ID:1018
