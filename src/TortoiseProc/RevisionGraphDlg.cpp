@@ -714,7 +714,10 @@ void CRevisionGraphDlg::CountEntryConnections()
 		for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
 		{
 			source_entry * sentry = (source_entry*)reventry->sourcearray[j];
-			CRevisionEntry * reventryto = (CRevisionEntry*)m_arEntryPtrs[GetIndexOfRevision(sentry)];
+			INT_PTR index = GetIndexOfRevision(sentry);
+			if (index < 0)
+				continue;
+			CRevisionEntry * reventryto = (CRevisionEntry*)m_arEntryPtrs[index];
 			if (reventry->level == reventryto->level)
 			{
 				// if there are entries in between, then the connection
@@ -806,7 +809,10 @@ void CRevisionGraphDlg::BuildConnections()
 		for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
 		{
 			source_entry * sentry = (source_entry*)reventry->sourcearray.GetAt(j);
-			CRevisionEntry * reventry2 = ((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry)));
+			INT_PTR index = GetIndexOfRevision(sentry);
+			if (index < 0)
+				continue;
+			CRevisionEntry * reventry2 = ((CRevisionEntry*)m_arEntryPtrs.GetAt(index));
 			
 			// we always draw from bottom to top!			
 			
