@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-10-24 14:19+0100\n"
+"PO-Revision-Date: 2005-10-24 14:28+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,12 +217,9 @@ msgstr "&Arbeitskopie aufräumen"
 msgid "&Commit..."
 msgstr "&Übertragen..."
 
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "Revisionen &vergleichen"
-
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "Revisionen &vergleichen"
 
@@ -564,12 +561,9 @@ msgstr "&Rückgängig"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Rückgängig\tStrg+Z"
 
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "&Standard Diff"
-
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "&Standard Diff"
 
@@ -1360,11 +1354,8 @@ msgstr "Übertragungen pro Woche:"
 msgid "Commits your changes to the repository"
 msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
 
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "&HEAD Revisionen vergleichen"
-
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "&HEAD Revisionen vergleichen"
 
@@ -4424,11 +4415,8 @@ msgstr "Rückgängig|Letzte Aktuion rückgängig machen"
 msgid "Unexpected file format."
 msgstr "Unerwartetes Dateiformat."
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "Standard &Diff der HEAD Revisionen"
-
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Standard &Diff der HEAD Revisionen"
 
@@ -4783,11 +4771,11 @@ msgstr ""
 "Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen zu der sie aktualisieren!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "Ver&größern\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
+msgid "Zoom &out\tCtrl--"
 msgstr "Ver&kleinern\tCtrl--"
 
 #: ID:10
