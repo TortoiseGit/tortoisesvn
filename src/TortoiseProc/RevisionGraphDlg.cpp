@@ -444,7 +444,10 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 						minmax(bval, GetBValue(contour)+bval, GetBValue(background)));
 
 		brush.DeleteObject();
-		brush.CreateSolidBrush(brightcol);
+		if (isSel)
+			brush.CreateSolidBrush(selcolor);
+		else
+			brush.CreateSolidBrush(brightcol);
 		pOldBrush = pDC->SelectObject(&brush);
 
 		// Draw the main shape
