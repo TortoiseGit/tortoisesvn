@@ -1559,9 +1559,10 @@ int CRevisionGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 
 BOOL CRevisionGraphDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 {
-	int pos = GetScrollPos(SB_VERT);
+	int orientation = GetKeyState(VK_CONTROL)&0x8000 ? SB_HORZ : SB_VERT;
+	int pos = GetScrollPos(orientation);
 	pos -= (zDelta);
-	SetScrollPos(SB_VERT, pos);
+	SetScrollPos(orientation, pos);
 	Invalidate();
 	return __super::OnMouseWheel(nFlags, zDelta, pt);
 }
