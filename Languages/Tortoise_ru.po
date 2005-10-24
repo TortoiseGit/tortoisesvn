@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 4695: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 4715: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-20 10:40+0300\n"
+"PO-Revision-Date: 2005-10-24 12:30+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,12 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f МБайт передано"
 
 # ID:3868,#:
 # ID:3868,
@@ -140,17 +146,17 @@ msgstr ""
 "Не могу найти такой файл.\n"
 "Проверьте путь и имя файла."
 
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d кБайт передано"
+
 # ID:169,
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d файлов выбрано, %d файлов всего"
-
-# ID:357,
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld кБайт передано"
 
 # На?
 # ID:226,
@@ -1040,6 +1046,11 @@ msgstr "Добавить &файл..."
 msgid "Add '%s' to dictionary"
 msgstr "Добавить '%s' в словарь"
 
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Добавить (как замену)..."
+
 # ID:110,
 #: ID:110
 msgid "Add extension specific diff program"
@@ -1081,6 +1092,12 @@ msgstr "Папка добавлена удаленно"
 #: ID:126
 msgid "Added items remotely"
 msgstr "Объекты добавлены удаленно"
+
+# ID:73,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Добавленнный узел"
 
 # ID:145,
 #: ID:145
@@ -2056,6 +2073,11 @@ msgstr "&Количество лог-сообщений по умолчанию"
 #: ID:73
 msgid "Deleted"
 msgstr "Удалено"
+
+# ID:73,
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Удалённый узел"
 
 # ID:11,
 #: ID:11
@@ -3838,6 +3860,11 @@ msgid "Renamed from %s"
 msgstr "Переименовано из %s"
 
 # ID:126,
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Переименованный узел"
+
+# ID:126,
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Переименовано удаленно"
@@ -3864,6 +3891,11 @@ msgid ""
 msgstr ""
 "Заменяет заданный текст другим\n"
 "Заменить"
+
+# ID:10,
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Заменённый узел"
 
 # ID:74,
 #: ID:74
@@ -4005,6 +4037,7 @@ msgstr "Ревизия / Автор:"
 # ID:269,#:
 # Dlg-ID:182,
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "Граф Ревизий"
 
