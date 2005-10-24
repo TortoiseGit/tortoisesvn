@@ -2,7 +2,7 @@
 
 echo Script to build the language dlls
 echo.
-echo usages Make_Installer [lang]
+echo usages %0 [lang]
 echo.
 echo You can either build all language dlls by specifying no parameter
 echo or one language pack by specifying the language to build
