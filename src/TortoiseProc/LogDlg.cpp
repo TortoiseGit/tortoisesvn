@@ -1837,7 +1837,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev)
 	secondfile = filepath + secondfile.Trim();
 
 	SVNDiff diff(this, this->m_hWnd, true);
-	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev);
+	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev, m_LogRevision);
 
 	theApp.DoWaitCursor(-1);
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
