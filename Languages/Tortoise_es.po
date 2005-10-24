@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-19 16:28+0100\n"
+"PO-Revision-Date: 2005-10-24 18:08+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,12 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f MBytes transferidos"
 
 #: ID:3868
 #, c-format
@@ -91,17 +97,17 @@ msgstr ""
 "No se puede encontrar este archivo.\n"
 "Por favor, verifique que se han dado tanto el nombre de archivo como la ruta correctos."
 
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d kBytes transferidos"
+
 # ID:169,
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d archivos seleccionados, %d archivos en total"
-
-# ID:357,
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld kBytes transferidos"
 
 #: ID:226
 #, c-format
@@ -221,12 +227,9 @@ msgstr "&Limpiar"
 msgid "&Commit..."
 msgstr "&Confirmar..."
 
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "&Comparar revisiones"
-
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Comparar revisiones"
 
@@ -582,12 +585,9 @@ msgstr "&Deshacer"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Deshacer\tCtrl+Z"
 
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "&Diff Unificado"
-
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "Diff &unificado"
 
@@ -851,6 +851,11 @@ msgstr "Añadir &fichero..."
 msgid "Add '%s' to dictionary"
 msgstr "Añadir '%s' al diccionario"
 
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Añadir (como reemplazo)..."
+
 # ID:110,
 #: ID:110
 msgid "Add extension specific diff program"
@@ -886,6 +891,10 @@ msgstr "Añadida una caperta de forma remota"
 #: ID:126
 msgid "Added items remotely"
 msgstr "Ítems añadidos de forma remota"
+
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Nodo añadido"
 
 #: ID:145
 #, c-format
@@ -1078,6 +1087,7 @@ msgid "At revision: %d"
 msgstr "En revisión: %d"
 
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "Autor"
 
@@ -1416,11 +1426,8 @@ msgstr "Confirmaciones cada semana:"
 msgid "Commits your changes to the repository"
 msgstr "Confirma sus cambios al repositorio"
 
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "Comparar revisiones &HEAD"
-
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Comparar revisiones &HEAD"
 
@@ -1704,6 +1711,7 @@ msgstr ""
 "Cortar"
 
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "Fecha"
 
@@ -1714,6 +1722,10 @@ msgstr "&Número por defecto de mensajes de registro"
 #: ID:73
 msgid "Deleted"
 msgstr "Eliminado"
+
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Nodo eliminado"
 
 #: ID:11
 msgid "Deletes files / folders from source control"
@@ -3231,6 +3243,10 @@ msgstr "Renombrar %s"
 msgid "Renamed from %s"
 msgstr "Renombrado desde %s"
 
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Nodo renombrado"
+
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Renombrado de forma remota"
@@ -3254,6 +3270,10 @@ msgid ""
 msgstr ""
 "Reemplazar un texto específico con otro texto diferente\n"
 "Reemplazar"
+
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Nodo reemplazado"
 
 #: ID:74
 msgid "Replacing"
@@ -3332,6 +3352,7 @@ msgid "Reverts all changes you made since the last update"
 msgstr "Revierte todos los cambios que ha realzizado desde la última actualización"
 
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "Revisión"
@@ -3357,6 +3378,7 @@ msgid "Revision / Author:"
 msgstr "Revisión / Autor:"
 
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "Gráfico de revisiones"
 
@@ -4601,11 +4623,8 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Formato de archivo no esperado."
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "&Diff Unificado de las Revisiones HEAD"
-
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "&Diff unificado de las revisiones HEAD"
 
@@ -4978,12 +4997,12 @@ msgstr ""
 "no será exactamente la que tendría que ser en la revisión a la que está actualizando!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
-msgstr "&Acercar Zoom\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
+msgstr "&Acercar zoom\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
-msgstr "Ale&jar Zoom\tCtrl--"
+msgid "Zoom &out\tCtrl--"
+msgstr "Ale&jar zoom\tCtrl--"
 
 #: ID:10
 msgid "added"
