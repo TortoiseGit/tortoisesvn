@@ -494,7 +494,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		}
 		if (pSVNStatus->entry->copyfrom_url)
 		{
-			CUtils::Unescape((char *)pSVNStatus->entry->url);
+			CUtils::Unescape((char *)pSVNStatus->entry->copyfrom_url);
 			entry->copyfrom_url = CUnicodeUtils::GetUnicode(pSVNStatus->entry->copyfrom_url);
 			entry->copyfrom_rev = pSVNStatus->entry->copyfrom_rev;
 		}
