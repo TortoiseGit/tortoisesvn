@@ -1313,6 +1313,44 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 			break;
 		}
 	}
+#define SCROLL_STEP  20
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		int pos = 0;
+		switch (pMsg->wParam)
+		{
+		case VK_UP:
+			pos = GetScrollPos(SB_VERT);
+			SetScrollPos(SB_VERT, pos - SCROLL_STEP);
+			Invalidate();
+			break;
+		case VK_DOWN:
+			pos = GetScrollPos(SB_VERT);
+			SetScrollPos(SB_VERT, pos + SCROLL_STEP);
+			Invalidate();
+			break;
+		case VK_LEFT:
+			pos = GetScrollPos(SB_HORZ);
+			SetScrollPos(SB_HORZ, pos - SCROLL_STEP);
+			Invalidate();
+			break;
+		case VK_RIGHT:
+			pos = GetScrollPos(SB_HORZ);
+			SetScrollPos(SB_HORZ, pos + SCROLL_STEP);
+			Invalidate();
+			break;
+		case VK_PRIOR:
+			pos = GetScrollPos(SB_VERT);
+			SetScrollPos(SB_VERT, pos - 10*SCROLL_STEP);
+			Invalidate();
+			break;
+		case VK_NEXT:
+			pos = GetScrollPos(SB_VERT);
+			SetScrollPos(SB_VERT, pos + 10*SCROLL_STEP);
+			Invalidate();
+			break;
+		}
+	}
 	if ((m_hAccel)&&(pMsg->message >= WM_KEYFIRST && pMsg->message <= WM_KEYLAST))
 	{
 		return TranslateAccelerator(m_hWnd,m_hAccel,pMsg);
