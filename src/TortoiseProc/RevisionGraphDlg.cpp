@@ -1009,7 +1009,7 @@ CRect * CRevisionGraphDlg::GetViewSize()
 	m_ViewRect.left = 0;
 	int level = 0;
 	int revisions = 0;
-	int lastrev = 0;
+	int lastrev = -1;
 	size_t maxurllength = 0;
 	CString url;
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
@@ -1030,21 +1030,18 @@ CRect * CRevisionGraphDlg::GetViewSize()
 		}
 	}
 
-	if (m_nZoomFactor == 10)
+	// calculate the width of the nodes by looking
+	// at the url lengths
+	CRect r;
+	CDC * pDC = this->GetDC();
+	if (pDC)
 	{
-		// calculate the width of the nodes by looking
-		// at the url lengths
-		CRect r;
-		CDC * pDC = this->GetDC();
-		if (pDC)
-		{
-			CFont * pOldFont = pDC->SelectObject(GetFont(TRUE));
-			pDC->DrawText(url, &r, DT_CALCRECT);
-			// keep the width inside reasonable values.
-			m_node_rect_width = min(500, r.Width()+40);
-			m_node_rect_width = max(NODE_RECT_WIDTH, m_node_rect_width);
-			pDC->SelectObject(pOldFont);
-		}
+		CFont * pOldFont = pDC->SelectObject(GetFont(TRUE));
+		pDC->DrawText(url, &r, DT_CALCRECT);
+		// keep the width inside reasonable values.
+		m_node_rect_width = min(500 * m_nZoomFactor / 10, r.Width()+40);
+		m_node_rect_width = max(NODE_RECT_WIDTH * m_nZoomFactor / 10, m_node_rect_width);
+		pDC->SelectObject(pOldFont);
 	}
 
 	m_ViewRect.right = level * (m_node_rect_width + m_node_space_left + m_node_space_right);
@@ -1720,7 +1717,6 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 
 void CRevisionGraphDlg::DoZoom(int nZoomFactor)
 {
-	m_node_rect_width = NODE_RECT_WIDTH * nZoomFactor / 10;
 	m_node_space_left = NODE_SPACE_LEFT * nZoomFactor / 10;
 	m_node_space_right = NODE_SPACE_RIGHT * nZoomFactor / 10;
 	m_node_space_line = NODE_SPACE_LINE * nZoomFactor / 10;
