@@ -206,13 +206,16 @@ cleanup:
 
 void CRevisionGraphDlg::InitView()
 {
+	CRect * oldsize = GetViewSize();
+	int width = oldsize->Width();
+	int height = oldsize->Height();
 	m_ViewRect.SetRectEmpty();
 	GetViewSize();
 	BuildConnections();
-	SetScrollbars();
+	SetScrollbars(0,0,width,height);
 }
 
-void CRevisionGraphDlg::SetScrollbars(int nVert, int nHorz)
+void CRevisionGraphDlg::SetScrollbars(int nVert, int nHorz, int oldwidth, int oldheight)
 {
 	CRect clientrect;
 	GetClientRect(&clientrect);
@@ -220,15 +223,24 @@ void CRevisionGraphDlg::SetScrollbars(int nVert, int nHorz)
 	SCROLLINFO ScrollInfo;
 	ScrollInfo.cbSize = sizeof(SCROLLINFO);
 	ScrollInfo.fMask = SIF_ALL;
+	GetScrollInfo(SB_VERT, &ScrollInfo);
+	if ((nVert)||(oldheight==0))
+		ScrollInfo.nPos = nVert;
+	else
+		ScrollInfo.nPos = ScrollInfo.nPos * pRect->Height() / oldheight;
+	ScrollInfo.fMask = SIF_ALL;
 	ScrollInfo.nMin = 0;
 	ScrollInfo.nMax = pRect->bottom;
 	ScrollInfo.nPage = clientrect.Height();
-	ScrollInfo.nPos = nVert;
 	ScrollInfo.nTrackPos = 0;
 	SetScrollInfo(SB_VERT, &ScrollInfo);
+	GetScrollInfo(SB_HORZ, &ScrollInfo);
+	if ((nHorz)||(oldwidth==0))
+		ScrollInfo.nPos = nHorz;
+	else
+		ScrollInfo.nPos = ScrollInfo.nPos * pRect->Width() / oldwidth;
 	ScrollInfo.nMax = pRect->right;
 	ScrollInfo.nPage = clientrect.Width();
-	ScrollInfo.nPos = nHorz;
 	SetScrollInfo(SB_HORZ, &ScrollInfo);
 }
 

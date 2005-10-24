@@ -144,7 +144,7 @@ private:
 	CTSVNPath		DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder);
 	INT_PTR			GetIndexOfRevision(LONG rev) const;
 	INT_PTR			GetIndexOfRevision(source_entry * sentry);
-	void			SetScrollbars(int nVert = 0, int nHorz = 0);
+	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
 	CRect *			GetViewSize();
 	CFont*			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
 
