@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 00:00+0000\n"
-"PO-Revision-Date: 2005-10-23 22:01+0100\n"
+"PO-Revision-Date: 2005-10-25 21:15+0100\n"
 "Last-Translator: Radek Svarz <translate@svarz.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -263,12 +263,9 @@ msgstr "Uklidit (&Clean Up)"
 msgid "&Commit..."
 msgstr "Odevzdat (&Commit)..."
 
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "&Porovnat revize"
-
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Porovnat revize"
 
@@ -700,12 +697,9 @@ msgstr "&Zpět"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Zpět\tCtrl+Z"
 
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "Záplata (&Unified Diff)"
-
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "Záplata (&Unified Diff)"
 
@@ -1676,11 +1670,8 @@ msgstr "Počet uložení v týdnu:"
 msgid "Commits your changes to the repository"
 msgstr "Odevzdat změny do uložiště"
 
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "Porovnat &HEAD Revize"
-
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Porovnat přední (&HEAD) Revize"
 
@@ -5462,11 +5453,8 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Neočekávaný souborový formát."
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "Jednotný &Diff soubor revizí HEAD"
-
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Jednotný &Diff soubor předních (HEAD) revizí"
 
@@ -5874,11 +5862,11 @@ msgstr ""
 "nebude vypadat přesně stejně, jako v revizi, na kterou aktualizujete!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "Přiblíž&it\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
+msgid "Zoom &out\tCtrl--"
 msgstr "&Oddálit\tCtrl--"
 
 # ID:10,
