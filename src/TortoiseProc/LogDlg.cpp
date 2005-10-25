@@ -390,11 +390,10 @@ void CLogDlg::Refresh()
 {
 	UpdateData();
 
-	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-	m_limit = (int)(LONG)reg;
+	m_limit = 0;
 	if (m_logEntries.size() != 0)
 	{
-		m_limit = m_logEntries[0]->dwRev - m_logEntries[m_logEntries.size()-1]->dwRev;
+		m_endrev = m_logEntries[m_logEntries.size()-1]->dwRev;
 	}
 	m_startrev = -1;
 	m_bCancelled = FALSE;
