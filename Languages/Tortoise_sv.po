@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-22 10:41+0100\n"
+"PO-Revision-Date: 2005-10-25 23:01+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,12 +221,9 @@ msgstr "&Rensa"
 msgid "&Commit..."
 msgstr "&Arkivera..."
 
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "&Jämför revisioner"
-
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Jämför revisioner"
 
@@ -585,12 +582,9 @@ msgstr "&Ångra"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Ångra\tCtrl+Z"
 
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "&Applicera patch (\"Unified Diff\")"
-
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "\"&Unified Diff\""
 
@@ -1405,11 +1399,8 @@ msgstr "Arkiveringar varje vecka:"
 msgid "Commits your changes to the repository"
 msgstr "Sparar dina ändringar i arkivet"
 
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "Jämför &HEAD revisioner"
-
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Jämför &HEAD revisioner"
 
@@ -1667,7 +1658,6 @@ msgstr "Skapar en patchfil med dina ändringar i \"Unified Diff\"-format"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Credits:"
 msgstr "Credits:"
 
@@ -4579,11 +4569,8 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Oväntat filformat."
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "\"Unified &Diff\" av HEAD revisioner"
-
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "\"Unified &Diff\" av HEAD revisioner"
 
@@ -4946,11 +4933,11 @@ msgstr ""
 "arbetskopian kommer inte att bli identisk med revisionen du uppdaterar till!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "Zooma &in\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
+msgid "Zoom &out\tCtrl--"
 msgstr "Zooma &ut\tCtrl--"
 
 #: ID:10
