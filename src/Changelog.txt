@@ -39,6 +39,10 @@
 - BUG: After marking a conflict as resolved in TortoiseMerge, it still
        asked if you want to save the changes on exit. (Stefan)
 
+Version 1.2.6
+- BUG: Crash when the working copy contained copied files. (Stefan)
+- BUG: The add dialog showed already added files too. (Stefan)
+
 Version 1.2.5
 - CHG: Missing files are not selected by default anymore in the commit
        dialog. (Stefan)
