@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4715
+# Based on Tortoise.pot r4743
 #
 msgid ""
 msgstr ""
@@ -238,11 +238,7 @@ msgstr "&Ryd op"
 msgid "&Commit..."
 msgstr "&Arkivér..."
 
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "&Sammenlign revisioner"
-
-#: ID:76,#: ID:274,
+#: ID:76,#: ID:274,#: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Sammenlign revisioner"
 
@@ -575,11 +571,7 @@ msgstr "&Fortryd"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Fortryd\tCtrl+Z"
 
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "&Unified diff"
-
-#: ID:274,#: Control-ID:1180,
+#: ID:274,#: Control-ID:1180,#: MenuEntry
 msgid "&Unified diff"
 msgstr "&Unified diff"
 
@@ -1242,11 +1234,7 @@ msgstr "Ugentlige arkiveringer:"
 msgid "Commits your changes to the repository"
 msgstr "Arkiverer dine ændringer i versionsarkivet"
 
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "Sammenlign &HEAD-revisioner"
-
-#: ID:274,
+#: ID:274,#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Sammenlign &HEAD-revisioner"
 
@@ -3794,11 +3782,7 @@ msgstr "Fortryd den seneste handling\nFortryd"
 msgid "Unexpected file format."
 msgstr "Ikke-forventet filformat."
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "\"Unified &Diff\" af HEAD-revisioner"
-
-#: ID:274,
+#: ID:274, #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Unified &diff af HEAD-revisioner"
 
@@ -4034,11 +4018,11 @@ msgid "Your working copy has local modifications!\nNote: updating to another rev
 msgstr "Din arbejdskopi har lokale ændringer!\nBemærk: Ved opdatering til en anden revision vil du ikke miste ændringerne, så din arbejdskopi\nvil ikke være helt magen til den revision, du opdaterer til!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "Zoom &ind\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
+msgid "Zoom &out\tCtrl--"
 msgstr "Zoom &ud\tCtrl--"
 
 #: ID:10,
