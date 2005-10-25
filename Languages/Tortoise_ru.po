@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 4715: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 4743: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-24 12:30+0300\n"
+"PO-Revision-Date: 2005-10-25 14:57+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -296,13 +296,9 @@ msgid "&Commit..."
 msgstr "&Фиксировать..."
 
 # ID:76,
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "&Сравнить ревизии"
-
-# ID:76,
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Сравнить ревизии"
 
@@ -742,13 +738,9 @@ msgid "&Undo\tCtrl+Z"
 msgstr "&Откат\tCtrl+Z"
 
 # Control-ID:65535,
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "Объединённый файл разли&чий"
-
-# Control-ID:65535,
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "Объедин. разли&чия"
 
@@ -1725,12 +1717,8 @@ msgid "Commits your changes to the repository"
 msgstr "Фиксирует Ваши изменения в Хранилище"
 
 # ID:76,
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "Сравнить HEAD-&ревизии"
-
-# ID:76,
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Сравнить HEAD-&ревизии"
 
@@ -5528,11 +5516,8 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Неожиданный формат файла."
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "Объединённый файл разли&чий HEAD-ревизий"
-
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Объединённый файл разли&чий HEAD-ревизий"
 
@@ -5946,11 +5931,11 @@ msgstr ""
 "соотвествовать той ревизии до которой Вы обновляетесь!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "Уве&личить\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
+msgid "Zoom &out\tCtrl--"
 msgstr "Уме&ньшить\tCtrl--"
 
 # ID:10,
