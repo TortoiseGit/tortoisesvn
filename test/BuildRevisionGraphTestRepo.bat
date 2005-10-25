@@ -1,6 +1,9 @@
 @echo off
+
+set REPOROOT=file:///d:/test/repo
+
 svnadmin create repo --fs-type fsfs
-svn co file:///d:/test/repo wc1
+svn co %REPOROOT% wc1
 cd wc1
 svn mkdir trunk
 svn mkdir branches
@@ -31,7 +34,7 @@ svn ci -m "add some files and a folder with files"
 
 :: revision 2
 
-svn cp file:///d:/test/repo/trunk file:///d:/test/repo/branches/TestBranch1 -m "create test branch"
+svn cp %REPOROOT%/trunk %REPOROOT%/branches/TestBranch1 -m "create test branch"
 
 :: revision 3
 
@@ -45,15 +48,15 @@ svn ci -m "rename a folder"
 
 :: revision 5
 
-svn cp file:///d:/test/repo/trunk file:///d:/test/repo/tags/V1 -m "Version 1"
+svn cp %REPOROOT%/trunk %REPOROOT%/tags/V1 -m "Version 1"
 
 :: revision 6
 
-svn cp file:///d:/test/repo/tags/V1 file:///d:/test/repo/branches/RelV1 -m "Version 1 Fix branch"
+svn cp %REPOROOT%/tags/V1 %REPOROOT%/branches/RelV1 -m "Version 1 Fix branch"
 
 :: revision 7
 
-svn cp file:///d:/test/repo/trunk -r2 file:///d:/test/repo/tags/V0 -m "Version 0"
+svn cp %REPOROOT%/trunk -r2 %REPOROOT%/tags/V0 -m "Version 0"
 
 :: revision 8
 
@@ -82,31 +85,31 @@ svn ci -m ""
 echo testline9 > file1
 svn ci -m ""
 :: revision 16
-svn cp file:///d:/test/repo/trunk -r10 file:///d:/test/repo/tags/V2 -m "Version 2"
+svn cp %REPOROOT%/trunk -r10 %REPOROOT%/tags/V2 -m "Version 2"
 
 :: revision 17
 
-svn cp file:///d:/test/repo/trunk -r9 file:///d:/test/repo/tags/V2 -m "Version 1.5"
+svn cp %REPOROOT%/trunk -r9 %REPOROOT%/tags/V2 -m "Version 1.5"
 
 :: revision 18
 
-svn rm file:///d:/test/repo/tags/V2/trunk -m ""
+svn rm %REPOROOT%/tags/V2/trunk -m ""
 
 :: revision 19
 
-svn cp file:///d:/test/repo/trunk -r9 file:///d:/test/repo/tags/V1.5 -m "Version 1.5"
+svn cp %REPOROOT%/trunk -r9 %REPOROOT%/tags/V1.5 -m "Version 1.5"
 
 :: revision 20
 
-svn cp file:///d:/test/repo/trunk file:///d:/test/repo/branches/newtest -m "new test"
+svn cp %REPOROOT%/trunk %REPOROOT%/branches/newtest -m "new test"
 
 :: revision 21
 
-svn rm file:///d:/test/repo/branches/newtest -m "remove wrong branch"
+svn rm %REPOROOT%/branches/newtest -m "remove wrong branch"
 
 :: revision 22
 
-svn cp file:///d:/test/repo/trunk -r16 file:///d:/test/repo/branches/newtest -m "new test"
+svn cp %REPOROOT%/trunk -r16 %REPOROOT%/branches/newtest -m "new test"
 
 :: revision 23
 
@@ -142,7 +145,7 @@ svn ci -m ""
 
 :: revision 29
 
-svn cp file:///d:/test/repo/trunk/Ordner -r24 Ordner
+svn cp %REPOROOT%/trunk/Ordner -r24 Ordner
 svn ci -m "restore original"
 
 :: revision 30
@@ -191,5 +194,36 @@ svn ci -m ""
 
 :: revision 36
 
+svn cp %REPOROOT%/trunk %REPOROOT%/branches/5.2.x -m ""
 cd ..
+svn up
+
+:: revision 37
+
+echo ttt > branches\5.2.x\file2
+svn ci -m ""
+
+:: revision 38
+
+svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -r37 -m ""
+
+:: revision 39
+
+svn rm %REPOROOT%/tags/5.2.2 -m ""
+
+:: revision 40
+
+svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -m ""
+
+:: revision 41
+
+svn rm %REPOROOT%/tags/5.2.2 -m ""
+
+:: revision 42
+
+svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -m ""
+
+:: revision 43
+
+
 cd ..
