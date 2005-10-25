@@ -97,8 +97,17 @@ UINT CCheckForUpdatesDlg::CheckThread()
 
 	CString temp;
 	CString tempfile = CTempFiles::Instance().GetTempFilePath(true).GetWinPathString();
-
-	HRESULT res = URLDownloadToFile(NULL, _T("http://tortoisesvn.tigris.org/version.txt"), tempfile, 0, NULL);
+	
+	CRegString checkurluser = CRegString(_T("Software\\TortoiseSVN\\UpdateCheckURL"), _T(""));
+	CRegString checkurlmachine = CRegString(_T("Software\\TortoiseSVN\\UpdateCheckURL"), _T(""), FALSE, HKEY_LOCAL_MACHINE);
+	CString sCheckURL = checkurluser;
+	if (sCheckURL.IsEmpty())
+	{
+		sCheckURL = checkurlmachine;
+		if (sCheckURL.IsEmpty())
+			sCheckURL = _T("http://tortoisesvn.tigris.org/version.txt");
+	}
+	HRESULT res = URLDownloadToFile(NULL, sCheckURL, tempfile, 0, NULL);
 	if (res == S_OK)
 	{
 		try

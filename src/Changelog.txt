@@ -17,6 +17,10 @@
        settings dialog. (Stefan)
 - NEW: Last commit author, revision and date are shown in the "Check for
        modifications" dialog after a "Check repository". (Stefan)
+- NEW: The URL where TSVN checks if updates are available can now be
+       configured in the registry. This might be useful for company
+       admins which provide their users the updates from their servers.
+       The registry entry is "Software\TortoiseSVN\UpdateCheckURL". (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.
