@@ -544,13 +544,14 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	memDC->SetBkMode(TRANSPARENT);
 
 	INT_PTR i = 0;
-	while (i*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= nVScrollPos)
+	while ((i+1)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= nVScrollPos)
 		i++;
-	while (((CRevisionEntry*)m_arEntryPtrs[i])->revision < i)
+	while ((i<m_arEntryPtrs.GetCount())&&(((CRevisionEntry*)m_arEntryPtrs[i])->revision < i))
 		++i;
-	i--;
+	if (i >= m_arEntryPtrs.GetCount())
+		i = m_arEntryPtrs.GetCount()-1;
 	INT_PTR end = i;
-	while (end*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= (nVScrollPos+m_ViewRect.bottom))
+	while ((end+1)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= (nVScrollPos+m_ViewRect.bottom))
 		end++;
 	if (end > m_arEntryPtrs.GetCount())
 		end = m_arEntryPtrs.GetCount();
