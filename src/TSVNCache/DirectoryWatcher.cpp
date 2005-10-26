@@ -214,6 +214,7 @@ void CDirectoryWatcher::WorkerThread()
 						ATLTRACE("CDirectoryWatcher: CreateFile failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
 						CloseHandle(m_hCompPort);
 						watchedPaths.RemovePath(watchedPaths[i]);
+						i--; if (i<0) i=0;
 						break;
 					}
 					CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPaths[i]);
@@ -226,6 +227,7 @@ void CDirectoryWatcher::WorkerThread()
 						delete pDirInfo;
 						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPaths[i]);
+						i--; if (i<0) i=0;
 						break;
 					}
 					if (!ReadDirectoryChangesW(pDirInfo->m_hDir,
@@ -243,6 +245,7 @@ void CDirectoryWatcher::WorkerThread()
 						delete pDirInfo;
 						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPaths[i]);
+						i--; if (i<0) i=0;
 						break;
 					}
 					watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
@@ -284,8 +287,8 @@ void CDirectoryWatcher::WorkerThread()
 						{
 							ZeroMemory(buf, MAX_PATH*sizeof(TCHAR));
 							_tcsncpy(buf, pdi->m_DirPath, MAX_PATH);
-							_tcsncat(buf+pdi->m_DirPath.GetLength(), pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength));
-							buf[min(MAX_PATH-1, pdi->m_DirPath.GetLength()+pnotify->FileNameLength)] = 0;
+							_tcsncat(buf+pdi->m_DirPath.GetLength(), pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength / sizeof(WCHAR)));
+							buf[min(MAX_PATH-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
 							pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 							if ((pFound = wcsstr(buf, L"\\tmp"))!=NULL)
 							{
