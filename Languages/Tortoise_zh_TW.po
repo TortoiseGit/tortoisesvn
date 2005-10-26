@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-18 10:18+0800\n"
+"PO-Revision-Date: 2005-10-26 10:14+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,12 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "傳輸了 %.2f M位元組"
 
 # ID:3868,#:
 # ID:3868,
@@ -111,17 +117,17 @@ msgstr ""
 "找不到這個檔案.\n"
 "請確定輸入了正確的路徑和檔案名稱."
 
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "傳輸了 %I64d k位元組"
+
 # ID:169,
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "選擇了 %d 個檔案, 共有 %d 個檔案"
-
-# ID:357,
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "傳輸了 %ld k位元組"
 
 # ID:77,
 #: ID:226
@@ -259,13 +265,9 @@ msgid "&Commit..."
 msgstr "送交(&C)..."
 
 # ID:76,
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "比對版本差異(&C)"
-
-# ID:76,
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "比對版本差異(&C)"
 
@@ -705,13 +707,9 @@ msgid "&Undo\tCtrl+Z"
 msgstr "還原(&U)\tCtrl+Z"
 
 # Control-ID:1013,
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "單一差異檔(&U)"
-
-# Control-ID:1013,
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "單一差異檔(&U)"
 
@@ -1010,6 +1008,11 @@ msgstr "加入檔案(&F)..."
 msgid "Add '%s' to dictionary"
 msgstr "將 '%s' 加入字典"
 
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "新增(代替)..."
+
 # ID:110,
 #: ID:110
 msgid "Add extension specific diff program"
@@ -1050,6 +1053,11 @@ msgstr "遠端加入資料夾完成"
 #: ID:126
 msgid "Added items remotely"
 msgstr "遠端加入檔案完成"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Added node"
+msgstr "新加入的節點"
 
 # ID:13,
 #: ID:145
@@ -1284,6 +1292,7 @@ msgstr "於版本: %d"
 
 # ID:76,
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "作者"
 
@@ -1672,12 +1681,8 @@ msgid "Commits your changes to the repository"
 msgstr "將你所做的修改送交至檔案庫"
 
 # ID:76,
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "比對最新版本(&C)"
-
-# ID:76,
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "比對最新版本(&H)"
 
@@ -2005,6 +2010,7 @@ msgstr ""
 
 # ID:76,
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "日期"
 
@@ -2019,6 +2025,13 @@ msgstr "預設的紀錄訊息數目(&N)"
 #: ID:73
 msgid "Deleted"
 msgstr "已刪除"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "已刪除的節點"
 
 # ID:11,
 #: ID:11
@@ -3164,6 +3177,11 @@ msgstr "新名稱(&N):"
 msgid "New name for %s"
 msgstr "%s 的新名稱"
 
+# Control-ID:1076,
+#: ID:98
+msgid "New name:"
+msgstr "新名稱:"
+
 # ID:73,
 #: ID:73
 msgid "No"
@@ -3784,6 +3802,11 @@ msgid "Renamed from %s"
 msgstr "原名是 %s"
 
 # ID:126,
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "重新命名的節點"
+
+# ID:126,
 #: ID:126
 msgid "Renamed remotely"
 msgstr "遠端重新命名完成"
@@ -3810,6 +3833,11 @@ msgid ""
 msgstr ""
 "用指定的文字取代特定文字\n"
 "取代"
+
+# ID:10,
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "被取代的節點"
 
 # ID:74,
 #: ID:74
@@ -3911,6 +3939,7 @@ msgstr "復原從上次更新之後全部的變動"
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "版本"
@@ -3941,6 +3970,7 @@ msgstr "版本 / 作者:"
 
 # ID:75,
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "版本圖"
 
@@ -5412,14 +5442,8 @@ msgstr "預期外的檔案格式."
 # Control-ID:1032,#:
 # Control-ID:1019,#:
 # Control-ID:1019,
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "最新版本的單一差異檔(&D)"
-
-# Control-ID:1032,#:
-# Control-ID:1019,#:
-# Control-ID:1019,
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "與最新版本的單一差異檔(&D)"
 
@@ -5832,14 +5856,12 @@ msgstr ""
 "所以更新後不會得到與目標版本完全相同的檔案!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "放大(&I)\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
-msgstr ""
-"縮小(&O)\n"
-"Ctrl--"
+msgid "Zoom &out\tCtrl--"
+msgstr "縮小(&O)\tCtrl--"
 
 # ID:10,
 #: ID:10
