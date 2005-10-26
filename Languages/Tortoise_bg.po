@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-19 10:52+0200\n"
+"PO-Revision-Date: 2005-10-25 11:20+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -68,6 +68,12 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%.2f MBytes transferred"
+msgstr "%.2f мегабайта прехвърлени"
 
 # ID:3868,#:
 # ID:3868,
@@ -149,17 +155,17 @@ msgstr ""
 "Не може да бъде открит този файл.\n"
 "Моля, проверете дали е зададен правилният му път и име."
 
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%I64d kBytes transferred"
+msgstr "%I64d килобайта прехвърлени"
+
 # ID:169,
 #: ID:169
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d файлове маркирани, %d файлове общо"
-
-# ID:357,
-#: ID:357
-#, c-format
-msgid "%ld kBytes transferred"
-msgstr "%ld kBytes прехвърлени"
 
 # ID:77,
 #: ID:226
@@ -297,13 +303,9 @@ msgid "&Commit..."
 msgstr "&Поверяване..."
 
 # ID:76,
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "&Сравняване на ревизии"
-
-# ID:76,
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Сравняване на ревизии"
 
@@ -743,13 +745,9 @@ msgid "&Undo\tCtrl+Z"
 msgstr "&Отмяна"
 
 # Control-ID:1013,
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "&Unified Diff"
-
-# Control-ID:1013,
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "&Unified Diff"
 
@@ -1049,6 +1047,11 @@ msgstr "Добавяне на &файл..."
 msgid "Add '%s' to dictionary"
 msgstr "Добавяне на '%s' в речника"
 
+# ID:16,
+#: ID:16
+msgid "Add (as replacement)..."
+msgstr "Добавяне (като заместник)..."
+
 # ID:110,
 #: ID:110
 msgid "Add extension specific diff program"
@@ -1089,6 +1092,11 @@ msgstr "Папка е дОбавена отдалечено"
 #: ID:126
 msgid "Added items remotely"
 msgstr "Добавени обекти отдалечено"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Added node"
+msgstr "Добавен възел"
 
 # ID:13,
 #: ID:145
@@ -1324,6 +1332,7 @@ msgstr "В ревизия: %d"
 
 # ID:76,
 #: ID:76
+#: ID:207
 msgid "Author"
 msgstr "Автор"
 
@@ -1712,12 +1721,8 @@ msgid "Commits your changes to the repository"
 msgstr "Поверява промените Ви на хранилището"
 
 # ID:76,
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "Сравняване на &главните ревизии"
-
-# ID:76,
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Сравняване на &главните ревизии"
 
@@ -2047,6 +2052,7 @@ msgstr ""
 
 # ID:76,
 #: ID:76
+#: ID:208
 msgid "Date"
 msgstr "Дата"
 
@@ -2061,6 +2067,13 @@ msgstr "&Брой съобщения от дневника по подразби
 #: ID:73
 msgid "Deleted"
 msgstr "Изтрит"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:65535
+msgid "Deleted node"
+msgstr "Изтрит възел"
 
 # ID:11,
 #: ID:11
@@ -3828,6 +3841,11 @@ msgid "Renamed from %s"
 msgstr "Преименуван от %s"
 
 # ID:126,
+#: Control-ID:65535
+msgid "Renamed node"
+msgstr "Преименуван възел"
+
+# ID:126,
 #: ID:126
 msgid "Renamed remotely"
 msgstr "Преименуван отдалечено"
@@ -3854,6 +3872,11 @@ msgid ""
 msgstr ""
 "Замества определен текст с друг текст\n"
 "Заместване"
+
+# ID:10,
+#: Control-ID:65535
+msgid "Replaced node"
+msgstr "Заменен възел"
 
 # ID:74,
 #: ID:74
@@ -3955,6 +3978,7 @@ msgstr "Отменя всички промени, които сте направ
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: ID:76
+#: ID:208
 #: Control-ID:65535
 msgid "Revision"
 msgstr "Ревизия"
@@ -3985,6 +4009,7 @@ msgstr "Ревизия / Автор:"
 
 # ID:75,
 #: ID:269
+#: Control-ID:65535
 msgid "Revision graph"
 msgstr "Графика на ревизиите"
 
@@ -5454,11 +5479,8 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Неочакван файлов формат."
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "Unified &Diff на главните ревизии"
-
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Unified &Diff на главните ревизии"
 
@@ -5867,12 +5889,12 @@ msgstr ""
 "ето защо то няма да изглежда точно като е било в ревизията, до която го обновявате!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "&Увеличаване\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
-msgstr "&Смаляване\tCtrl--"
+msgid "Zoom &out\tCtrl--"
+msgstr "С&маляване\tCtrl--"
 
 # ID:10,
 #: ID:10
