@@ -376,7 +376,6 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 	TRACELEVELSPACE;
 	TRACE(_T("Analyzing %s  - recurse level %d\n"), (LPCTSTR)CString(url), m_nRecurseLevel);
 
-	bool bFirstMatchHandled = false;
 	bool bRenamed = false;
 	for (svn_revnum_t currentrev=startrev; currentrev <= m_lHeadRevision; ++currentrev)
 	{
@@ -439,11 +438,7 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 					CStringA child = url.Mid(strlen(reventry->url));
 					reventry->url = apr_pstrdup(pool, url);
 					// and the entry is for us
-					if (!bFirstMatchHandled)
-					{
-						bFirstMatchHandled = true;
-						reventry->bUsed = true;
-					}
+					reventry->bUsed = true;
 					if (bRenamed)
 					{
 						reventry->action = CRevisionEntry::renamed;
