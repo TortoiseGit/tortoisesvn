@@ -589,14 +589,6 @@ UINT CLogDlg::LogThread()
 		m_startrev = r;
 	}
 	
-	BOOL bOldAPI = (BOOL)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
-	if ((bOldAPI)&&(m_limit != 0))
-	{
-		m_endrev = m_startrev - m_limit;
-		if (m_endrev < 1)
-			m_endrev = 1;
-		m_limit = 0;
-	}
 	if (m_limit != 0)
 	{
 		m_limitcounter = m_limit;

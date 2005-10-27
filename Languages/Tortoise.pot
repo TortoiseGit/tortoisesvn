@@ -188,7 +188,7 @@ msgstr ""
 msgid "&Commit..."
 msgstr ""
 
-#: ID:76,#: ID:274,#: MenuEntry
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr ""
 
@@ -517,7 +517,7 @@ msgstr ""
 msgid "&Undo\tCtrl+Z"
 msgstr ""
 
-#: ID:274,#: Control-ID:1180,#: MenuEntry
+#: MenuEntry
 msgid "&Unified diff"
 msgstr ""
 
@@ -1169,7 +1169,7 @@ msgstr ""
 msgid "Commits your changes to the repository"
 msgstr ""
 
-#: ID:274,#: MenuEntry
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr ""
 
@@ -1851,10 +1851,6 @@ msgstr ""
 
 #: ID:194,
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr ""
-
-#: ID:195,
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
 msgstr ""
 
 #: ID:195,
@@ -3688,7 +3684,11 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr ""
 
-#: ID:274, #: MenuEntry
+#: MenuEntry
+msgid "Unified &diff Of HEAD revisions"
+msgstr ""
+
+#: ID:274,
 msgid "Unified &diff of HEAD revisions"
 msgstr ""
 
@@ -3735,10 +3735,6 @@ msgstr ""
 
 #: Control-ID:1064,
 msgid "Use &magnifier on locatorbar"
-msgstr ""
-
-#: Control-ID:1214,
-msgid "Use &old APIs to fetch log messages"
 msgstr ""
 
 #: Control-ID:1024,

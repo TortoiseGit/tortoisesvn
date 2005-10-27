@@ -35,7 +35,6 @@ CSetDialogs::CSetDialogs()
 	, m_sDefaultLogs(_T(""))
 	, m_bShortDateFormat(FALSE)
 	, m_bAutocompletion(FALSE)
-	, m_bOldLogAPIs(FALSE)
 	, m_dwFontSize(0)
 	, m_sFontName(_T(""))
 	, m_bInitialized(FALSE)
@@ -50,7 +49,6 @@ CSetDialogs::CSetDialogs()
 	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 	m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
-	m_regOldLogAPIs = CRegDWORD(_T("Software\\TortoiseSVN\\OldLogAPI"), FALSE);
 	m_regAutocompletionTimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
 	m_regSpell = CRegDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), FALSE);
 	m_regCheckRepo = CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
@@ -76,7 +74,6 @@ void CSetDialogs::SaveData()
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
 	m_regAutocompletion = m_bAutocompletion;
-	m_regOldLogAPIs = m_bOldLogAPIs;
 	m_regAutocompletionTimeout = m_dwAutocompletionTimeout;
 	m_regSpell = m_bSpell;
 	m_regCheckRepo = m_bCheckRepo;
@@ -99,7 +96,6 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_SHORTDATEFORMAT, m_bShortDateFormat);
 	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
 	DDX_Check(pDX, IDC_AUTOCOMPLETION, m_bAutocompletion);
-	DDX_Check(pDX, IDC_OLDAPILOGS, m_bOldLogAPIs);
 	DDX_Text(pDX, IDC_AUTOCOMPLETIONTIMEOUT, m_dwAutocompletionTimeout);
 	DDV_MinMaxUInt(pDX, m_dwAutocompletionTimeout, 1, 100);
 	DDX_Check(pDX, IDC_SPELL, m_bSpell);
@@ -115,7 +111,6 @@ BEGIN_MESSAGE_MAP(CSetDialogs, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
 	ON_BN_CLICKED(IDC_AUTOCOMPLETION, OnBnClickedAutocompletion)
-	ON_BN_CLICKED(IDC_OLDAPILOGS, OnBnClickedOldapilogs)
 	ON_EN_CHANGE(IDC_AUTOCOMPLETIONTIMEOUT, OnEnChangeAutocompletiontimeout)
 	ON_BN_CLICKED(IDC_SPELL, OnBnClickedSpell)
 	ON_BN_CLICKED(IDC_REPOCHECK, OnBnClickedRepocheck)
@@ -149,7 +144,6 @@ BOOL CSetDialogs::OnInitDialog()
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	m_bAutocompletion = m_regAutocompletion;
-	m_bOldLogAPIs = m_regOldLogAPIs;
 	m_dwAutocompletionTimeout = m_regAutocompletionTimeout;
 	m_bSpell = m_regSpell;
 	m_bCheckRepo = m_regCheckRepo;
@@ -166,7 +160,6 @@ BOOL CSetDialogs::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSECOMBO, IDS_SETTINGS_AUTOCLOSE_TT);
-	m_tooltips.AddTool(IDC_OLDAPILOGS, IDS_SETTINGS_OLDLOGAPIS_TT);
 	m_tooltips.AddTool(IDC_AUTOCOMPLETION, IDS_SETTINGS_AUTOCOMPLETION_TT);
 	m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUT, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
 	m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUTLABEL, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
@@ -236,11 +229,6 @@ void CSetDialogs::OnCbnSelchangeFontnames()
 }
 
 void CSetDialogs::OnBnClickedAutocompletion()
-{
-	SetModified();
-}
-
-void CSetDialogs::OnBnClickedOldapilogs()
 {
 	SetModified();
 }

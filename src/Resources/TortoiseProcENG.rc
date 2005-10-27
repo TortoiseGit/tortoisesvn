@@ -936,8 +936,6 @@ BEGIN
     CONTROL         "Short &date/time format in log messages",
                     IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,56,271,10
-    CONTROL         "Use &old APIs to fetch log messages",IDC_OLDAPILOGS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,67,271,8
     GROUPBOX        "Progress",IDC_STATIC,7,81,286,35
     LTEXT           "&Autoclose:",IDC_STATIC,13,91,54,19,SS_CENTERIMAGE
     COMBOBOX        IDC_AUTOCLOSECOMBO,71,95,213,75,CBS_DROPDOWNLIST | 
@@ -2003,8 +2001,6 @@ BEGIN
                             "Use '*' as a wildcard character when specifying an exception.\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
     IDS_SETTINGS_READONLYNAME "readonly"
     IDS_SETTINGS_LOCKEDNAME "locked"
-    IDS_SETTINGS_OLDLOGAPIS_TT 
-                            "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
     IDS_SETTINGS_SIMPLECONTEXT_TT 
                             "If disabled, then the context menu will show up faster.\nBut some context menu entries will show up which can't really be used.\nFor example: the ""Show Log"" entry will show even for just added folders."
     IDS_SETTINGS_AUTOCOMPLETION_TT 

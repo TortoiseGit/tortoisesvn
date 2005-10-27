@@ -71,8 +71,6 @@ private:
 	CComboBox		m_cAutoClose;
 	CRegDWORD		m_regAutocompletion;
 	BOOL			m_bAutocompletion;
-	CRegDWORD		m_regOldLogAPIs;
-	BOOL			m_bOldLogAPIs;
 	CRegDWORD		m_regAutocompletionTimeout;
 	DWORD			m_dwAutocompletionTimeout;
 	CRegDWORD		m_regSpell;
@@ -95,7 +93,6 @@ public:
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnCbnSelchangeAutoclosecombo();
 	afx_msg void OnBnClickedAutocompletion();
-	afx_msg void OnBnClickedOldapilogs();
 	afx_msg void OnEnChangeAutocompletiontimeout();
 	afx_msg void OnBnClickedSpell();
 	afx_msg void OnBnClickedRepocheck();
