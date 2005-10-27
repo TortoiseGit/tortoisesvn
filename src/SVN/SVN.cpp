@@ -1414,10 +1414,12 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(), localpool);
 	
 	/* use subpool to create a temporary RA session */
-	if (svn_client_open_ra_session (&ra_session, goodurl, m_pctx, localpool))
+	Err = svn_client_open_ra_session (&ra_session, goodurl, m_pctx, localpool);
+	if (Err)
 		return _T("");
 	
-	if (svn_ra_get_repos_root(ra_session, &returl, localpool))
+	Err = svn_ra_get_repos_root(ra_session, &returl, localpool);
+	if (Err)
 		return _T("");
 
 	return CString(returl);
@@ -1442,10 +1444,12 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& url)
 		return -1;
 
 	/* use subpool to create a temporary RA session */
-	if (svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool))
+	Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool);
+	if (Err)
 		return -1;
 
-	if (svn_ra_get_latest_revnum(ra_session, &rev, localpool))
+	Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool);
+	if (Err)
 		return -1;
 	return rev;
 }
@@ -1469,13 +1473,16 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
 		return FALSE;
 
 	/* use subpool to create a temporary RA session */
-	if (svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool))
+	Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool);
+	if (Err)
 		return FALSE;
 
-	if (svn_ra_get_latest_revnum(ra_session, &rev, localpool))
+	Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool);
+	if (Err)
 		return FALSE;
 
-	if (svn_ra_get_repos_root(ra_session, &returl, localpool))
+	Err = svn_ra_get_repos_root(ra_session, &returl, localpool);
+	if (Err)
 		return FALSE;
 		
 	url.SetFromSVN(CUnicodeUtils::GetUnicode(returl));

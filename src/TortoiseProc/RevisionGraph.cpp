@@ -212,8 +212,11 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	m_sRepoRoot = svn.GetRepositoryRoot(urlpath);
 	url = m_sRepoRoot;
 	if (m_sRepoRoot.IsEmpty())
+	{
+		Err = svn.Err;
 		return FALSE;
-
+	}
+	
 	apr_array_header_t *targets = apr_array_make (pool, 1, sizeof (const char *));
 	const char * target = apr_pstrdup (pool, url);
 	(*((const char **) apr_array_push (targets))) = target;
