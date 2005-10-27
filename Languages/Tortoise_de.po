@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-10-25 11:12+0100\n"
+"PO-Revision-Date: 2005-10-27 15:53+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,8 +217,6 @@ msgstr "&Arbeitskopie aufräumen"
 msgid "&Commit..."
 msgstr "&Übertragen..."
 
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "Revisionen &vergleichen"
@@ -561,8 +559,6 @@ msgstr "&Rückgängig"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Rückgängig\tStrg+Z"
 
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "&Standard Diff"
@@ -1354,7 +1350,6 @@ msgstr "Übertragungen pro Woche:"
 msgid "Commits your changes to the repository"
 msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
 
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "&HEAD Revisionen vergleichen"
@@ -2185,10 +2180,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Bei Aktivierung überprüft TortoiseSVN einmal wöchentlich, ob Aktualisierungen vorliegen"
-
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Beschleunigt den Zugriff auf Log-Meldungen bei Subversion Servern vor Version 1.2"
 
 # ID:195,
 #: ID:195
@@ -4470,10 +4461,6 @@ msgstr "URL:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "&Lupe auf Positionsleiste anzeigen"
-
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "Benutze &alte API, um Log-Meldungen zu holen"
 
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
