@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-24 20:12+0900\n"
+"PO-Revision-Date: 2005-10-27 11:39+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -265,13 +265,9 @@ msgid "&Commit..."
 msgstr "커밋(&C)..."
 
 # ID:76,
-#: MenuEntry
-msgid "&Compare Revisions"
-msgstr "리비전 비교(&C)"
-
-# ID:76,
 #: ID:76
 #: ID:274
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "리비전 비교(&C)"
 
@@ -704,13 +700,9 @@ msgid "&Undo\tCtrl+Z"
 msgstr "실행 취소(&U)\tCtrl-Z"
 
 # Control-ID:1013,
-#: MenuEntry
-msgid "&Unified Diff"
-msgstr "Unified Diff 적용(&U)"
-
-# Control-ID:1013,
 #: ID:274
 #: Control-ID:1180
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "Unified Diff 적용(&U)"
 
@@ -1684,12 +1676,8 @@ msgid "Commits your changes to the repository"
 msgstr "바뀐 내용을 저장소에 반영합니다."
 
 # ID:76,
-#: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "HEAD 리비전 비교(&H)"
-
-# ID:76,
 #: ID:274
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "HEAD 리비전 비교(&H)"
 
@@ -4631,7 +4619,7 @@ msgstr "이전 문서창으로 전환"
 # ID:9,
 #: ID:9
 msgid "Switch working copy to another branch / tag"
-msgstr "현재 작업 사본을 다른 브랜치나 태그로 전환"
+msgstr "현재 작업 사본을 생성된 브랜치나 태그로 전환"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5439,11 +5427,8 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "기타 파일 형식"
 
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "HEAD 리비전에 대한 차이를 구합니다.(&D)"
-
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "HEAD 리비전에 대한 차이를 구합니다.(&D)"
 
@@ -5855,11 +5840,11 @@ msgstr ""
 "업데이트 후, 작업 사본은 원하는 리비전의 모습대로 보이지 않을 수 있습니다."
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "크게 보기(&I)\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
+msgid "Zoom &out\tCtrl--"
 msgstr "작게 보기(&O)\tCtrl--"
 
 # ID:10,
