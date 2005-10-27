@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 00:00+0000\n"
-"PO-Revision-Date: 2005-10-25 21:15+0100\n"
+"PO-Revision-Date: 2005-10-27 15:39+0100\n"
 "Last-Translator: Radek Svarz <translate@svarz.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -263,8 +263,6 @@ msgstr "Uklidit (&Clean Up)"
 msgid "&Commit..."
 msgstr "Odevzdat (&Commit)..."
 
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Porovnat revize"
@@ -697,8 +695,6 @@ msgstr "&Zpět"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Zpět\tCtrl+Z"
 
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "Záplata (&Unified Diff)"
@@ -1670,7 +1666,6 @@ msgstr "Počet uložení v týdnu:"
 msgid "Commits your changes to the repository"
 msgstr "Odevzdat změny do uložiště"
 
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Porovnat přední (&HEAD) Revize"
@@ -2679,11 +2674,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Pokud nastaveno, TortoiseSVN zkontroluje jednou týdně, zda je k dispozici nová verze"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Pokud zapnuto urychlí získávání log záznamů ze serverů verze 1.2 a nižsí"
 
 # ID:195,
 #: ID:195
@@ -5453,8 +5443,11 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Neočekávaný souborový formát."
 
-#: ID:274
 #: MenuEntry
+msgid "Unified &diff Of HEAD revisions"
+msgstr "Jednotný &Diff soubor předních (HEAD) revizí"
+
+#: ID:274
 msgid "Unified &diff of HEAD revisions"
 msgstr "Jednotný &Diff soubor předních (HEAD) revizí"
 
@@ -5520,11 +5513,6 @@ msgstr "URL:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "Použít lupu na lokační&m panelu"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "P&oužít stará API pro nahrání log záznamů"
 
 # Control-ID:1024,
 #: Control-ID:1024
