@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-23 20:10+0100\n"
+"PO-Revision-Date: 2005-10-28 00:49+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -265,12 +265,6 @@ msgstr "In&via..."
 
 # ID:76,
 #: MenuEntry
-msgid "&Compare Revisions"
-msgstr "&Confronta revisioni"
-
-# ID:76,
-#: ID:76
-#: ID:274
 msgid "&Compare revisions"
 msgstr "&Confronta revisioni"
 
@@ -711,12 +705,6 @@ msgstr "&Annulla\tCtrl+Z"
 
 # Control-ID:65535,
 #: MenuEntry
-msgid "&Unified Diff"
-msgstr "Confronto &unificato"
-
-# Control-ID:65535,
-#: ID:274
-#: Control-ID:1180
 msgid "&Unified diff"
 msgstr "Confronto &unificato"
 
@@ -1690,11 +1678,6 @@ msgstr "Invia i cambiamenti al repository"
 
 # ID:76,
 #: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "Confronta revisioni di &testa"
-
-# ID:76,
-#: ID:274
 msgid "Compare &HEAD revisions"
 msgstr "Confronta revisioni di &testa"
 
@@ -2701,11 +2684,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Se selezionato TortoiseSVN controlla, una volta alla settimana, la disponibilità di nuove versioni"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Se selezionato, velocizza il recupero dei commenti dai server pre-1.2"
 
 # ID:195,
 #: ID:195
@@ -5459,15 +5437,8 @@ msgstr "Formato del file inatteso."
 # Control-ID:1115,#:
 # Control-ID:1019,#:
 # Control-ID:1019,
-#: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "&Confronto unificato delle revisioni di testa"
-
-# Control-ID:1032,#:
-# Control-ID:1115,#:
-# Control-ID:1019,#:
-# Control-ID:1019,
 #: ID:274
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "&Confronto unificato delle revisioni di testa"
 
@@ -5538,11 +5509,6 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "Usa la &lente sulla barra di posizionamento"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "Utilizza le &vecchie API per visualizzare i commenti"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -5878,11 +5844,11 @@ msgstr ""
 "quindi la copia di lavoro non apparirà identica a quella della revisione a cui ci si sta aggiornando."
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "Zoom &avanti\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
+msgid "Zoom &out\tCtrl--"
 msgstr "Zoom &indietro\tCtrl--"
 
 # ID:10,
