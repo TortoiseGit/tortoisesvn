@@ -35,7 +35,8 @@ SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTe
 	m_bDeleteSVN(false),
 	m_pSVN(NULL),
 	m_hWnd(NULL),
-	m_bRemoveTempFiles(false)
+	m_bRemoveTempFiles(false),
+	m_headPeg(SVNRev::REV_HEAD)
 {
 	if (pSVN)
 		m_pSVN = pSVN;
@@ -221,7 +222,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	}
 	else
 	{
-		if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? SVNRev::REV_HEAD : SVNRev::REV_WC)), rev1, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
+		if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
 		{
 			progDlg.Stop();
 			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -271,7 +272,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		// first find out if the url points to a file or dir
 		progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_INFO)));
 		SVNInfo info;
-		const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : SVNRev::REV_HEAD), rev1, false);
+		const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : m_headPeg), rev1, false);
 		if (data == NULL)
 		{
 			data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, false);
@@ -289,7 +290,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_UNIFIEDDIFF)));
 			if (url1.IsEquivalentTo(url2))
 			{
-				if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : SVNRev::REV_HEAD), rev1, rev2, TRUE, ignoreancestry, nodiffdeleted, FALSE, _T(""), tempfile))
+				if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, TRUE, ignoreancestry, nodiffdeleted, FALSE, _T(""), tempfile))
 				{
 					progDlg.Stop();
 					m_pSVN->SetAndClearProgressInfo((HWND)NULL);

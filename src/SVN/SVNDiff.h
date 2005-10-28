@@ -90,10 +90,13 @@ public:
 					 bool ignoreancestry = false, bool nodiffdeleted = false);
 
 	bool DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2);
+	
+	void SetHEADPeg(SVNRev headpeg) {m_headPeg = headpeg;}
 protected:
 private:
 	SVN *			m_pSVN;
 	bool			m_bDeleteSVN;
 	HWND			m_hWnd;
 	bool			m_bRemoveTempFiles;
+	SVNRev			m_headPeg;
 };

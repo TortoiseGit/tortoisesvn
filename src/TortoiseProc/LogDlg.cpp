@@ -850,8 +850,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev = pLogEntry->dwRev;
 						this->m_bCancelled = FALSE;
 						SVNDiff diff(this, this->m_hWnd, true);
-						
-						diff.ShowUnifiedDiff(m_path, rev-1, m_path, rev, m_hasWC ? SVNRev::REV_WC : m_LogRevision);
+						diff.SetHEADPeg(m_LogRevision);
+						diff.ShowUnifiedDiff(m_path, rev-1, m_path, rev);
 					}
 					break;
 				case ID_GNUDIFF2:
@@ -864,7 +864,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 
 						SVNDiff diff(this, this->m_hWnd, true);
-						diff.ShowUnifiedDiff(m_path, rev2, m_path, rev1, m_hasWC ? SVNRev::REV_WC : m_LogRevision);
+						diff.SetHEADPeg(m_LogRevision);
+						diff.ShowUnifiedDiff(m_path, rev2, m_path, rev1);
 					}
 					break;
 				case ID_REVERTREV:
@@ -945,7 +946,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev = pLogEntry->dwRev;
 						this->m_bCancelled = FALSE;
 						SVNDiff diff(this, this->m_hWnd, true);
-						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, m_hasWC ? SVNRev::REV_WC : m_LogRevision);
+						diff.SetHEADPeg(m_LogRevision);
+						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev);
 					}
 					break;
 				case ID_COMPARETWO:
@@ -964,8 +966,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							url.SetFromSVN(GetURLFromPath(m_path));
 						}
-
-						diff.ShowCompare(url, rev2, url, rev1, m_hasWC ? SVNRev::REV_WC : m_LogRevision);
+						diff.SetHEADPeg(m_LogRevision);
+						diff.ShowCompare(url, rev2, url, rev1);
 					}
 					break;
 				case ID_SAVEAS:
@@ -1828,7 +1830,8 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev)
 	secondfile = filepath + secondfile.Trim();
 
 	SVNDiff diff(this, this->m_hWnd, true);
-	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev, m_LogRevision);
+	diff.SetHEADPeg(m_LogRevision);
+	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev);
 
 	theApp.DoWaitCursor(-1);
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
