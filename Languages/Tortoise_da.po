@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4743
+# Based on Tortoise.pot r4794
 #
 msgid ""
 msgstr ""
@@ -131,6 +131,11 @@ msgstr "%1\nFilen findes ikke.\nUndersøg venligst, at det korrekte sti- og filn
 
 #: ID:357,
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Bytes overført"
+
+#: ID:357,
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%l64d kBytes overført"
 
@@ -159,6 +164,12 @@ msgstr "%s : Arbejdsbasis"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbejdskopi"
+
+#: ID:357,
+#, c-format
+#, fuzzy
+msgid "%s, at %s"
+msgstr "%s, ved %s"
 
 #: ID:145,
 #, c-format
@@ -238,7 +249,7 @@ msgstr "&Ryd op"
 msgid "&Commit..."
 msgstr "&Arkivér..."
 
-#: ID:76,#: ID:274,#: MenuEntry
+#: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Sammenlign revisioner"
 
@@ -571,7 +582,7 @@ msgstr "&Fortryd"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Fortryd\tCtrl+Z"
 
-#: ID:274,#: Control-ID:1180,#: MenuEntry
+#: MenuEntry
 msgid "&Unified diff"
 msgstr "&Unified diff"
 
@@ -1234,7 +1245,7 @@ msgstr "Ugentlige arkiveringer:"
 msgid "Commits your changes to the repository"
 msgstr "Arkiverer dine ændringer i versionsarkivet"
 
-#: ID:274,#: MenuEntry
+#: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Sammenlign &HEAD-revisioner"
 
@@ -1924,11 +1935,6 @@ msgstr "Hvis ikke valgt, så vises kontekstmenuen hurtigere,\nmen nogle elemente
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere version til rådighed"
 
-#: ID:195,
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Hvis valgt, så forøges hastigheden, hvormed logbeskeder hentes fra præ-1.2 versionsarkiv-servere"
-
-#: ID:195,
 msgid "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\ninstead of the last used URL."
 msgstr "Hvis valgt, så vil Flet-dialogen initialisere \"Fra:\"-URL'en med URL'en for den valgte arbejdskopi\ni stedet for den sidst brugte URL."
 
@@ -3782,7 +3788,7 @@ msgstr "Fortryd den seneste handling\nFortryd"
 msgid "Unexpected file format."
 msgstr "Ikke-forventet filformat."
 
-#: ID:274, #: MenuEntry
+#: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Unified &diff af HEAD-revisioner"
 
@@ -3832,10 +3838,6 @@ msgstr "Url:"
 #, fuzzy
 msgid "Use &magnifier on locatorbar"
 msgstr "Brug &forstørrer på lokationslinje"
-
-#: Control-ID:1214,
-msgid "Use &old APIs to fetch log messages"
-msgstr "Brug &gammel API til at hente logbeskeder"
 
 #: Control-ID:1024,
 msgid "Use &one-pane view as default for 2-file diff"
