@@ -1153,12 +1153,14 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
 		progControl->SetRange32(0, (int)pProgressData->total);
 	}
 	CString progText;
-	progText.Format(IDS_SVN_PROGRESS_SPEED, pProgressData->SpeedString);
-	GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(progText);
-	if (pProgressData->overall_total < 1200000)
+	if (pProgressData->overall_total < 1024)
+		m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED, pProgressData->overall_total);	
+	else if (pProgressData->overall_total < 1200000)
 		m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pProgressData->overall_total / 1024);
 	else
 		m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pProgressData->overall_total / 1024000.0));
+	progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)m_sTotalBytesTransferred, pProgressData->SpeedString);
+	GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(progText);
 	return 0;
 }
 
