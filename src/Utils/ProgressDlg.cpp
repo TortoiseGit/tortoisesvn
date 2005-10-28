@@ -237,6 +237,23 @@ void CProgressDlg::Stop()
     if ((m_isVisible)&&(m_bValid))
     {
         m_pIDlg->StopProgressDialog();
+		//Sometimes the progress dialog sticks around after stopping it,
+		//until the mousepointer is moved over it or some other triggers.
+		//This process finds the hwnd of the progress dialog and hides it
+		//immediately.
+		IOleWindow *pOleWindow;
+		HRESULT hr=m_pIDlg->QueryInterface(IID_IOleWindow,(LPVOID *)&pOleWindow);
+		if(SUCCEEDED(hr))
+		{
+			HWND hDlgWnd;
+
+			hr=pOleWindow->GetWindow(&hDlgWnd);
+			if(SUCCEEDED(hr))
+			{
+				ShowWindow(hDlgWnd, SW_HIDE);
+			}
+			pOleWindow->Release();
+		}
         m_isVisible = false;
     }
 }
