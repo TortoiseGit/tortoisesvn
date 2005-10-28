@@ -558,7 +558,7 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	while ((m_arEntryPtrs.GetCount()>end)&&(((CRevisionEntry*)m_arEntryPtrs[end])->revision <= end))
 		++end;
 
-	for ( ; i<end; ++i)
+	for ( ; ((i>=0)&&(i<end)); ++i)
 	{
 		CRevisionEntry * entry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
 		int vertpos = m_arVertPositions[i];
