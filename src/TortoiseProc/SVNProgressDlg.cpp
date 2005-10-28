@@ -1169,7 +1169,7 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
 	if (nIDEvent == TRANSFERTIMER)
 	{
 		CString progText;
-		progText.Format(IDS_SVN_PROGRESS_SPEED, _T("0 Bytes/s"));
+		progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, m_sTotalBytesTransferred, _T("0 Bytes/s"));
 		GetDlgItem(IDC_PROGRESSLABEL)->SetWindowText(progText);
 		KillTimer(TRANSFERTIMER);
 	}
