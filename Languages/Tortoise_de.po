@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-10-27 15:53+0100\n"
+"PO-Revision-Date: 2005-10-28 10:20+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -97,6 +97,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Bytes übertragen"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes üebrtragen"
 
@@ -124,6 +130,12 @@ msgstr "%s : Basis"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbeitskopie"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, mit %s"
 
 #: ID:145
 #, c-format
@@ -4406,7 +4418,6 @@ msgstr "Rückgängig|Letzte Aktuion rückgängig machen"
 msgid "Unexpected file format."
 msgstr "Unerwartetes Dateiformat."
 
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Standard &Diff der HEAD Revisionen"
