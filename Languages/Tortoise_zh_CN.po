@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-26 09:01+0800\n"
+"PO-Revision-Date: 2005-10-28 18:09+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -123,6 +123,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d 字节传输完毕"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d KB 传输完毕"
 
@@ -155,6 +161,12 @@ msgstr "%s ：工作基础版本"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s ：工作复本"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s，在 %s"
 
 # ID:145,
 #: ID:145
@@ -268,8 +280,6 @@ msgid "&Commit..."
 msgstr "提交(&C)..."
 
 # ID:76,
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "比较版本差异(&C)"
@@ -704,8 +714,6 @@ msgid "&Undo\tCtrl+Z"
 msgstr "还原(&U) Ctrl+Z"
 
 # Control-ID:1013,
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "应用单一补丁文件(&U)"
@@ -1678,7 +1686,6 @@ msgid "Commits your changes to the repository"
 msgstr "将你所做的修改提交至文件库"
 
 # ID:76,
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "与主版本比较差异(&H)"
@@ -2681,11 +2688,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "启用时，TortoiseSVN 每周会检查一次最新版本"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "加快从1.2版本之前服务器取得日志信息"
 
 # ID:195,
 #: ID:195
@@ -5427,7 +5429,6 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "预期外的文件格式。"
 
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "与主版本的单一比较(&D)"
@@ -5499,11 +5500,6 @@ msgstr "Url："
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "在定位栏上使用放大镜(&M)"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "用旧 API 获取日志信息(&O)"
 
 # Control-ID:1024,
 #: Control-ID:1024
