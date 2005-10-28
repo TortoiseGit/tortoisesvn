@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 4743: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 4794: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-25 14:57+0300\n"
+"PO-Revision-Date: 2005-10-28 12:32+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -149,6 +149,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Байт передано"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d кБайт передано"
 
@@ -182,6 +188,12 @@ msgstr "%s : Рабочая база."
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Рабочая копия"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, на скорости %s"
 
 # ID:145,
 #: ID:145
@@ -296,8 +308,6 @@ msgid "&Commit..."
 msgstr "&Фиксировать..."
 
 # ID:76,
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Сравнить ревизии"
@@ -738,8 +748,6 @@ msgid "&Undo\tCtrl+Z"
 msgstr "&Откат\tCtrl+Z"
 
 # Control-ID:65535,
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "Объедин. разли&чия"
@@ -1717,7 +1725,6 @@ msgid "Commits your changes to the repository"
 msgstr "Фиксирует Ваши изменения в Хранилище"
 
 # ID:76,
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Сравнить HEAD-&ревизии"
@@ -2730,11 +2737,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Если включено, TortoiseSVN будет проверять наличие новой версии раз в неделю"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "При включении ускоряет доставку лог-сообщений серверов Хранилища предыдущих версий (до 1.2)"
 
 # ID:195,
 #: ID:195
@@ -5516,7 +5518,6 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Неожиданный формат файла."
 
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Объединённый файл разли&чий HEAD-ревизий"
@@ -5587,11 +5588,6 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "Использовать &увеличитель в полосе локатора"
-
-# Control-ID:65535,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "Использовать &старые API для получения лог-сообщений"
 
 # Control-ID:1024,
 #: Control-ID:1024
