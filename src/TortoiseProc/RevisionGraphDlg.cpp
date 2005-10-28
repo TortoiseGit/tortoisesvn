@@ -543,20 +543,27 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	memDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
 	memDC->SetBkMode(TRANSPARENT);
 
+	// find out which nodes are in the visible area of the client rect
 	INT_PTR i = 0;
-	while ((i+1)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= nVScrollPos)
-		i++;
-	while ((i<m_arEntryPtrs.GetCount())&&(((CRevisionEntry*)m_arEntryPtrs[i])->revision < i))
+	INT_PTR end = 0;
+	int vert = 0;
+	while ((vert)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= nVScrollPos)
+		vert++;
+	if (vert>0)
+		vert--;
+	// vert is now the top vertical postion of the first nodes to draw
+	while ((i<m_arEntryPtrs.GetCount())&&((int)m_arVertPositions[i] < vert))
 		++i;
+	end = i;
+	while ((vert)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= m_ViewRect.Height())
+		vert++;
+	while ((end<m_arEntryPtrs.GetCount())&&((int)m_arVertPositions[end] < vert))
+		++end;
+
 	if (i >= m_arEntryPtrs.GetCount())
 		i = m_arEntryPtrs.GetCount()-1;
-	INT_PTR end = i;
-	while ((end+1)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= (nVScrollPos+m_ViewRect.bottom))
-		end++;
 	if (end > m_arEntryPtrs.GetCount())
 		end = m_arEntryPtrs.GetCount();
-	while ((m_arEntryPtrs.GetCount()>end)&&(((CRevisionEntry*)m_arEntryPtrs[end])->revision <= end))
-		++end;
 
 	for ( ; ((i>=0)&&(i<end)); ++i)
 	{
