@@ -430,7 +430,8 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 						// *our* entry was deleted. It may be another entry
 						// which was copied there with the same name
 						CStringA child = url.Mid(strlen(reventry->url));
-						reventry->url = apr_pstrdup(pool, url);
+						child = child.Mid(child.ReverseFind('/'));
+						reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
 						reventry->bUsed = true;
 						continue;
 					}
@@ -439,7 +440,8 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 						reventry->bUsed = true;
 					}
 					CStringA child = url.Mid(strlen(reventry->url));
-					reventry->url = apr_pstrdup(pool, url);
+					child = child.Mid(child.ReverseFind('/'));
+					reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
 					// and the entry is for us
 					reventry->bUsed = true;
 					if (bRenamed)
