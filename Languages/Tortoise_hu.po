@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-24 22:15+0100\n"
+"PO-Revision-Date: 2005-10-29 16:50+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -123,6 +123,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d bájt forgalom"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d KB forgalom"
 
@@ -155,6 +161,12 @@ msgstr "%s : Munka Alap"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Munka Másolat"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, %s-nél"
 
 # ID:145,
 #: ID:145
@@ -269,8 +281,6 @@ msgstr "&Takarítás"
 msgid "&Commit..."
 msgstr "&Beküldés..."
 
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Compare revisions"
@@ -704,8 +714,6 @@ msgstr "&Visszavon"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Visszavonás\tCtrl+Z"
 
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "&Egyesített folt"
@@ -1677,7 +1685,6 @@ msgstr "A hetek beküldései"
 msgid "Commits your changes to the repository"
 msgstr "Elküldi a tárházba a változtatásaidat"
 
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "A &FŐ verziók összehasonlítása"
@@ -2682,11 +2689,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Ha engedélyezve van, akkor a TortoiseSVN hetente újabb programverziót keres"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Ha engedélyezve van felgyorsítja a naplóüzenetek összefűzését az 1.2-es verziónál régebbi Tárházakon"
 
 # ID:195,
 #: ID:195
@@ -5450,7 +5452,6 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Váratlan fájlformátum."
 
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "&Egyesített FŐ verzió folt"
@@ -5517,11 +5518,6 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "&Nagyító használata a poziciósávon"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "&Régi eljárásokkal történő napló összevágás"
 
 # Control-ID:1024,
 #: Control-ID:1024
