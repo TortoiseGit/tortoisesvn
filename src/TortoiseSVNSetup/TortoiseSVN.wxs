@@ -84,6 +84,8 @@
 			<RemoveExistingProducts After="FindRelatedProducts"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
 			<Custom Action="KillCache" After="RemoveExistingProducts">Installed</Custom>
 			<ScheduleReboot After="RegisterProduct" />
+
+			<Custom Action="DefaultTargetDir" After="LaunchConditions" />
 		</InstallExecuteSequence>
 		
 		<!-- UI Sequencing ...................................................................................................... -->
