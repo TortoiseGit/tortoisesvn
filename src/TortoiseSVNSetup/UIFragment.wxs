@@ -246,13 +246,13 @@
 					<Text>Click on the icons in the tree below to change the way features will be installed.</Text>
 				</Control>
 				<Control Id="Tree" Type="SelectionTree" X="25" Y="70" Width="175" Height="130" Property="_BrowseProperty" Sunken="yes" TabSkip="no" Text="Tree of selections" />
-				<Control Id="DescriptionBox" X="205" Y="66" Width="140" Height="48" Type="GroupBox" Text="Feature Description" />
-				<Control Id="ItemDescription" X="210" Y="76" Width="130" Height="33" Text="Multiline description of the currently selected item." Type="Text">
+				<Control Id="DescriptionBox" X="205" Y="66" Width="140" Height="85" Type="GroupBox" Text="Feature Description" />
+				<Control Id="ItemDescription" X="210" Y="76" Width="130" Height="70" Text="Multiline description of the currently selected item." Type="Text">
 					<Text>Multiline description of the currently selected item.</Text>
 					<Subscribe Event="SelectionDescription" Attribute="Text" />
 				</Control>
-				<Control Id="SizeBox" X="205" Y="116" Width="140" Height="85" Type="GroupBox" Text="Feature Size" />
-				<Control Id="ItemSize" Type="Text" X="210" Y="126" Width="130" Height="70">
+				<Control Id="SizeBox" X="205" Y="153" Width="140" Height="48" Type="GroupBox" Text="Feature Size" />
+				<Control Id="ItemSize" Type="Text" X="210" Y="163" Width="130" Height="33">
 					<Text>The size of the currently selected item.</Text>
 					<Subscribe Event="SelectionSize" Attribute="Text" />
 				</Control>

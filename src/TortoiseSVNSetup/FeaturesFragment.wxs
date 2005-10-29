@@ -40,6 +40,14 @@
 		<Feature Id="DictionaryENUS" Level="1" Title="English (US) dictionary" Description="English (US) spell checker dictionary" TypicalDefault="install">
 			<ComponentRef Id="C__DictionaryENUS" />
 		</Feature>
+		
+		<Feature Id="ASPDOTNETHACKFEATURE" Level="200" Title="ASP.NET Hack" 
+			Description="Sets the SVN_ASP_DOT_NET_HACK environment variable.
+
+DO NOT INSTALL THIS FEATURE if you don't use VS.NET with Web Projects!!!"
+			TypicalDefault="install" Absent="allow" InstallDefault="source" >
+			<ComponentRef Id="C__ASPDOTNETHACK" />
+		</Feature>
 
 		<?if $(env.IncludeCrashReportDll) = 1 ?>
 			<Feature Id="CrashReporter" Level="1" Title="Crash Reporter" Description="In official builds, sends crash dumps to the developers." 
