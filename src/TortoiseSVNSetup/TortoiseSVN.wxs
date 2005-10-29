@@ -81,7 +81,7 @@
 			<!-- AppSearch must be done before RemoveExistingProducts and before FindRelatedProducts -->
 			<AppSearch Sequence="1"></AppSearch>
 			<LaunchConditions After="AppSearch" />
-			<RemoveExistingProducts After="FindRelatedProducts"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
+			<RemoveExistingProducts After="InstallValidate"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
 			<Custom Action="KillCache" After="RemoveExistingProducts">Installed</Custom>
 			<ScheduleReboot After="RegisterProduct" />
 

@@ -11,7 +11,9 @@
 			<ComponentRef Id="C__gettext" />
 			<ComponentRef Id="C__help_en" />
 			<ComponentRef Id="C__TortoiseSVN" />
+			<ComponentRef Id="C__TortoiseSVNShortcuts" />
 			<ComponentRef Id="C__TortoiseMerge" />
+			<ComponentRef Id="C__TortoiseMergeShortcuts" />
 			<ComponentRef Id="C__TortoiseBlame" />
 			<ComponentRef Id="C__CRuntimeSTLMFC" />
 			<ComponentRef Id="C__shellregistry" />
@@ -19,10 +21,8 @@
 			<ComponentRef Id="C__svnprotocoll" />
 			<ComponentRef Id="C__approveshellcomponents" />
 			<ComponentRef Id="C__ProgramMenuFolder" />
-			<ComponentRef Id="C__Languages" />
 			<ComponentRef Id="C__Sounds" />
 			<ComponentRef Id="C__DiffScripts" />
-			<ComponentRef Id="C__WebsiteLink" />
 
 			<ComponentRef Id="C__iconsxpstyle" />
 		</Feature>
@@ -43,7 +43,7 @@
 
 		<?if $(env.IncludeCrashReportDll) = 1 ?>
 			<Feature Id="CrashReporter" Level="1" Title="Crash Reporter" Description="In official builds, sends crash dumps to the developers." 
-				TypicalDefault="install" Display="hidden" InstallDefault="followParent">
+				TypicalDefault="install" Display="hidden" InstallDefault="local">
 				<ComponentRef Id="C__crash" />
 			</Feature>
 		<?endif ?>

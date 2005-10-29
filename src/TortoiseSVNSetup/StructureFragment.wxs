@@ -184,7 +184,12 @@
 							<File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\release\bin\SubWCRev.exe" />
 							<File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\release\bin\TSVNCache.exe" />
 							<File Id="F__TSVNAutolist" Name="AUTOLIST.TXT" LongName="autolist.txt" DiskId="1" src="include\autolist.txt" />
-
+							<File Id="F__websiteurl" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" />
+						</Component>
+						<Component Id="C__TortoiseSVNShortcuts" Guid="0AF473FD-2AF6-476b-A919-AE5E3F1F68DD" >
+							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />
+							<Shortcut Id="S__Website" Directory="D_TortoisePrgMenu" Name="Web" LongName="Website" Advertise="no"
+								Target="[INSTALLDIR]bin\website.url" Description="TortoiseSVN Website" />
 							<Shortcut Id="S__RTFM" Directory="D_TortoisePrgMenu" Name="TSVN" LongName="TortoiseSVN" Advertise="no"
 								Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:rtfm" Show="normal" />
 							<Shortcut Id="S__TortoiseProc" Directory="D_TortoisePrgMenu" Name="HELP" LongName="Help" Advertise="no"
@@ -192,8 +197,10 @@
 						</Component>
 
 						<Component Id="C__TortoiseMerge" Guid="2F8D9AF8-A660-47f0-83CE-DD7DA0FB73DD" >
-							<File Id="F__TortoiseMerge" Name="TMERGE.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseMerge.exe" />
-
+							<File Id="F__TortoiseMerge" Name="TMERGE.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseMerge.exe" KeyPath="yes" />
+						</Component>
+						<Component Id="C__TortoiseMergeShortcuts" Guid="73E24CEA-9BBE-4944-8EEC-20EE5E6710E9" >
+							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseMerge" Value="TortoiseMerge" Type="string" />
 							<Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TMERGE" LongName="TortoiseMerge" Advertise="no"
 								Target="[INSTALLDIR]bin\TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
 						</Component>
@@ -439,11 +446,6 @@
 
 					<Directory Id="D__Languages" Name="Language" LongName="Languages" >
 
-						<Component Id="C__Languages" Guid="B51E466F-725F-41A1-A26A-D0EDD2936933" >
-							<File Id="F__websiteurl2" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" KeyPath="yes"/>
-							<RemoveFile Id="F__Languages" Name="*.*" LongName="*.*" On="uninstall" />
-						</Component>
-
 						<Component Id="C__DictionaryENGB" Guid="3B8C81C0-CC2A-42FB-A619-BA3656113736">
 							<?if $(env.DictionaryENGB) = 1 ?>
 							<File Id="F__ENGBSPELLAFF" Name="en_GB.aff" LongName="en_GB.aff" src="..\..\..\Common\Spell\en_GB.aff" DiskId="1" />
@@ -472,13 +474,7 @@
 					</Directory>
 
 					<Directory Id="ProgramMenuFolder" Name="." SourceName="USER'S" LongSource="User's Programs Menu">
-						<Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="TortoiseSVN">
-
-							<Component Id="C__WebsiteLink" Guid="3FBF0894-22EF-49FE-A1C3-A2ADCEA4B7CA" >
-								<File Id="F__websiteurl" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" />
-							</Component>
-
-						</Directory>
+						<Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="TortoiseSVN" />
 					</Directory>
 
 					<Directory Id="D__icons" Name="ICONS" LongName="icons" >
