@@ -2,7 +2,7 @@
 	<?include Includes.wxi?>
 	<Fragment Id="FeaturesFragment">
 		<Feature Id="DefaultFeature" Level="1" ConfigurableDirectory="INSTALLDIR" Title="TortoiseSVN" Absent="disallow" 
-			TypicalDefault="install" Description="The TortoiseSVN package and dependencies." Display="expand" InstallDefault="local" >
+			TypicalDefault="install" Description="The TortoiseSVN package and dependencies." Display="hidden" InstallDefault="local" >
 			<ComponentRef Id="C__infofiles" />
 			<ComponentRef Id="C__libssl" />
 			<ComponentRef Id="C__berkeleydb" />
@@ -25,29 +25,27 @@
 			<ComponentRef Id="C__WebsiteLink" />
 
 			<ComponentRef Id="C__iconsxpstyle" />
+		</Feature>
+		<Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install">
+			<ComponentRef Id="C__iconscvsclassic" />
+			<ComponentRef Id="C__iconsmodern" />
+			<ComponentRef Id="C__iconsclassic" />
+			<ComponentRef Id="C__iconsmarkphippard" />
+			<ComponentRef Id="C__iconsstraight" />
+		</Feature>
 
-			<Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install">
-				<ComponentRef Id="C__iconscvsclassic" />
-				<ComponentRef Id="C__iconsmodern" />
-				<ComponentRef Id="C__iconsclassic" />
-				<ComponentRef Id="C__iconsmarkphippard" />
-				<ComponentRef Id="C__iconsstraight" />
-			</Feature>
+		<Feature Id="DictionaryENGB" Level="1" Title="English (GB) dictionary" Description="English (GB) spell checker dictionary" TypicalDefault="install">
+			<ComponentRef Id="C__DictionaryENGB" />
+		</Feature>
+		<Feature Id="DictionaryENUS" Level="1" Title="English (US) dictionary" Description="English (US) spell checker dictionary" TypicalDefault="install">
+			<ComponentRef Id="C__DictionaryENUS" />
+		</Feature>
 
-			<Feature Id="DictionaryENGB" Level="1" Title="English (GB) dictionary" Description="English (GB) spell checker dictionary" TypicalDefault="install">
-				<ComponentRef Id="C__DictionaryENGB" />
+		<?if $(env.IncludeCrashReportDll) = 1 ?>
+			<Feature Id="CrashReporter" Level="1" Title="Crash Reporter" Description="In official builds, sends crash dumps to the developers." 
+				TypicalDefault="install" Display="hidden" InstallDefault="followParent">
+				<ComponentRef Id="C__crash" />
 			</Feature>
-			<Feature Id="DictionaryENUS" Level="1" Title="English (US) dictionary" Description="English (US) spell checker dictionary" TypicalDefault="install">
-				<ComponentRef Id="C__DictionaryENUS" />
-			</Feature>
-
-			<?if $(env.IncludeCrashReportDll) = 1 ?>
-				<Feature Id="CrashReporter" Level="1" Title="Crash Reporter" Description="In official builds, sends crash dumps to the developers." 
-					TypicalDefault="install" Display="hidden" InstallDefault="followParent">
-					<ComponentRef Id="C__crash" />
-				</Feature>
-			<?endif ?>
-
-			</Feature>
+		<?endif ?>
 	</Fragment>
 </Wix>
