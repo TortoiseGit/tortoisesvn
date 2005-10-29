@@ -43,6 +43,7 @@
 				<FileSearch Id="DirSearchShellDll" Name="shell32.dll" MinVersion="4.72.0.0" />
 			</DirectorySearch>
 		</Property>
+		<Property Id="ShowChangelogCheck">1</Property>
 		<!-- TODO: Fix <Condition Message="[ProductName] needs at least shell32.dll version 4.72"><![CDATA[(NOT (""=VERSIONSHELL)) OR (Installed)]]></Condition> -->
 
 		<Condition Message="[ProductName] requires a Windows NT based OS (Windows 2000 or later, specifically).">VersionNT</Condition>
