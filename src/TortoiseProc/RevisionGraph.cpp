@@ -624,12 +624,14 @@ bool CRevisionGraph::Cleanup(CStringA url)
 				{
 					for (INT_PTR k=0; k<reventry->sourcearray.GetCount(); ++k)
 					{
-						if (((source_entry *)reventry->sourcearray.GetAt(k))->revisionto == preventry->revision)
+						source_entry * s_entry = (source_entry *)reventry->sourcearray[k];
+						if ((s_entry->revisionto == preventry->revision)&&(strcmp(s_entry->pathto, preventry->url)==0))
 							bConnected = TRUE;
 					}
 					for (INT_PTR k=0; k<preventry->sourcearray.GetCount(); ++k)
 					{
-						if (((source_entry *)preventry->sourcearray.GetAt(k))->revisionto == reventry->revision)
+						source_entry * s_entry = (source_entry *)preventry->sourcearray[k];
+						if ((s_entry->revisionto == reventry->revision)&&(strcmp(s_entry->pathto, reventry->url)==0))
 							bConnected = TRUE;
 					}
 					if (!bConnected)
