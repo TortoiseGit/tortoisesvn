@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-27 11:39+0900\n"
+"PO-Revision-Date: 2005-10-31 14:21+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -120,6 +120,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%l64d 바이트 전송됨"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%l64d kB 전송됨"
 
@@ -152,6 +158,12 @@ msgstr "%s: 작업 베이스"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s: 작업 사본"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, at %s"
 
 # ID:145,
 #: ID:145
@@ -265,8 +277,6 @@ msgid "&Commit..."
 msgstr "커밋(&C)..."
 
 # ID:76,
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "리비전 비교(&C)"
@@ -700,8 +710,6 @@ msgid "&Undo\tCtrl+Z"
 msgstr "실행 취소(&U)\tCtrl-Z"
 
 # Control-ID:1013,
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "Unified Diff 적용(&U)"
@@ -1676,7 +1684,6 @@ msgid "Commits your changes to the repository"
 msgstr "바뀐 내용을 저장소에 반영합니다."
 
 # ID:76,
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "HEAD 리비전 비교(&H)"
@@ -2683,11 +2690,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "pre-1.2 저장소 서버이후부터 커밋로그를 가져오는데 속도를 높힙니다."
 
 # ID:195,
 #: ID:195
@@ -5427,7 +5429,6 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "기타 파일 형식"
 
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "HEAD 리비전에 대한 차이를 구합니다.(&D)"
@@ -5499,11 +5500,6 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "위치 막대에서 돋보기 사용(&M)"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "구버전 API를 사용하여 커밋로그를 가져옵니다.(&O)"
 
 # Control-ID:1024,
 #: Control-ID:1024
