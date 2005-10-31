@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 00:00+0000\n"
-"PO-Revision-Date: 2005-10-27 15:39+0100\n"
+"PO-Revision-Date: 2005-10-31 10:01+0100\n"
 "Last-Translator: Radek Svarz <translate@svarz.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,6 +117,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Bajtů přeneseno"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBajtů přeneseno"
 
@@ -149,6 +155,12 @@ msgstr "%s : pracovní základna (Base)"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : pracovní kopie (WC)"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, na %s"
 
 # ID:145,
 #: ID:145
@@ -5444,10 +5456,6 @@ msgid "Unexpected file format."
 msgstr "Neočekávaný souborový formát."
 
 #: MenuEntry
-msgid "Unified &diff Of HEAD revisions"
-msgstr "Jednotný &Diff soubor předních (HEAD) revizí"
-
-#: ID:274
 msgid "Unified &diff of HEAD revisions"
 msgstr "Jednotný &Diff soubor předních (HEAD) revizí"
 
