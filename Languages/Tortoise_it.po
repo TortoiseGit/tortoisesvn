@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-28 00:49+0100\n"
+"PO-Revision-Date: 2005-10-31 13:49+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -119,6 +119,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Bytes trasferiti"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes trasferiti"
 
@@ -151,6 +157,12 @@ msgstr "%s : Copia base"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Copia di lavoro"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, a %s"
 
 # ID:145,
 #: ID:145
@@ -5437,7 +5449,6 @@ msgstr "Formato del file inatteso."
 # Control-ID:1115,#:
 # Control-ID:1019,#:
 # Control-ID:1019,
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "&Confronto unificato delle revisioni di testa"
