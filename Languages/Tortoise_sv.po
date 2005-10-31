@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-25 23:01+0100\n"
+"PO-Revision-Date: 2005-10-31 16:36+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -96,6 +96,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Bytes överförda"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes överförda"
 
@@ -126,6 +132,12 @@ msgstr "%s : Arbetsbas"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbetskopia"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, i %s"
 
 #: ID:145
 #, c-format
@@ -221,8 +233,6 @@ msgstr "&Rensa"
 msgid "&Commit..."
 msgstr "&Arkivera..."
 
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Jämför revisioner"
@@ -582,8 +592,6 @@ msgstr "&Ångra"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Ångra\tCtrl+Z"
 
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "\"&Unified Diff\""
@@ -1399,7 +1407,6 @@ msgstr "Arkiveringar varje vecka:"
 msgid "Commits your changes to the repository"
 msgstr "Sparar dina ändringar i arkivet"
 
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Jämför &HEAD revisioner"
@@ -2264,11 +2271,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare version tillgänglig"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Snabbar upp hämtningen av loggmeddelanden från arkivservrar med äldre version än 1.2"
 
 # ID:195,
 #: ID:195
@@ -4569,7 +4571,6 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Oväntat filformat."
 
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "\"Unified &Diff\" av HEAD revisioner"
@@ -4624,11 +4625,6 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "Använd &förstoring på översikten"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "Hämta loggmeddelanden med det &gamla APIet"
 
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
