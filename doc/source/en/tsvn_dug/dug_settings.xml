@@ -312,27 +312,6 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Use old APIs to fetch log messages</term>
-					<listitem>
-						<para>
-							As of version 1.2, Subversion servers support fetching a defined
-							number of log messages, rather than the log messages from a range
-							of revisions. With the new API, if you ask for 100 messages you
-							will get 100 message. With the old API, if you ask for 100 messages
-							you get the messages from the last 100 repository revisions. If your
-							file didn't change often, you will see few messages.
-						</para>
-						<para>
-							However, if you query a pre-1.2 server using the new API, it will
-							return <emphasis>all</emphasis> log message which the client then
-							filters. This can result in <emphasis>very</emphasis> slow reponses.
-							If you have to work with an older server, you should check this
-							box to avoid the slowdown. The best option of course is to upgrade
-							the server.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
 					<term>Progress Dialog</term>
 					<listitem>
 						<para>
@@ -491,6 +470,40 @@
 							Add with history, or paths copied in the repository.
 							Also used in the log dialog for entries which include
 							copied items.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Deleted node</term>
+					<listitem>
+						<para>
+							An item which has been deleted from the repository.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Added node</term>
+					<listitem>
+						<para>
+							An item which has been added to the repository,
+							usually by creating a copy.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Renamed node</term>
+					<listitem>
+						<para>
+							An item which has been renamed within the repository.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Replaced node</term>
+					<listitem>
+						<para>
+							The original item has been deleted and a new item with
+							the same name replaces it.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -757,6 +770,11 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 			In the advanced settings, you can define a different diff and merge
 			program for every file extension. For instance you could associate
 			Photoshop as the <quote>Diff</quote> Program for .jpg files :-)
+		</para>
+		<para>
+			You need to specify just the extension with no leading dot or wildcard.
+			Use <literal>BMP</literal> to describe Windows bitmap files,
+			<emphasis>not</emphasis> <literal>*.BMP</literal>.
 		</para>
 	</sect2>
 </sect1>
