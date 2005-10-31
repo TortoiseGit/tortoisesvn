@@ -1,3 +1,9 @@
+Version 1.2.6
+- BUG: The status cache updated sometimes wrong paths or missed
+       updating correct ones. (Stefan)
+- BUG: Crash when the working copy contained copied files. (Stefan)
+- BUG: The add dialog showed already added files too. (Stefan)
+
 Version 1.2.5
 - CHG: Missing files are not selected by default anymore in the commit
        dialog. (Stefan)
