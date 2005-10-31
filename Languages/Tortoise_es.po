@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-24 18:08+0100\n"
-"Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
+"PO-Revision-Date: 2005-10-31 13:18+0100\n"
+"Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,6 +100,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Bytes transferidos"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes transferidos"
 
@@ -129,6 +135,12 @@ msgstr "%s : Base de trabajo"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Copia de trabajo"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, a %s"
 
 #: ID:145
 #, c-format
@@ -227,8 +239,6 @@ msgstr "&Limpiar"
 msgid "&Commit..."
 msgstr "&Confirmar..."
 
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Comparar revisiones"
@@ -585,8 +595,6 @@ msgstr "&Deshacer"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Deshacer\tCtrl+Z"
 
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "Diff &unificado"
@@ -1426,7 +1434,6 @@ msgstr "Confirmaciones cada semana:"
 msgid "Commits your changes to the repository"
 msgstr "Confirma sus cambios al repositorio"
 
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Comparar revisiones &HEAD"
@@ -2294,11 +2301,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Si habilitado, TortoiseSVN comprueba una vez a la semana si está disponible una versión más actualizada"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Si se habilita, acelera la obtención de mensajes de registro de servidores de repositorios pre-1.2."
 
 # ID:195,
 #: ID:195
@@ -4623,7 +4625,6 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Formato de archivo no esperado."
 
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "&Diff unificado de las revisiones HEAD"
@@ -4681,11 +4682,6 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "Usar &ampliador en barra de localización"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "Utilizar las APIs &antiguas para obtener los mensajes de registro"
 
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
