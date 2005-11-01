@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-25 11:20+0200\n"
+"PO-Revision-Date: 2005-10-31 15:00+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -158,6 +158,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d байта прехвърлени"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d килобайта прехвърлени"
 
@@ -190,6 +196,12 @@ msgstr "%s : Работна база"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Работно копие"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, при %s"
 
 # ID:145,
 #: ID:145
@@ -303,8 +315,6 @@ msgid "&Commit..."
 msgstr "&Поверяване..."
 
 # ID:76,
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "&Сравняване на ревизии"
@@ -745,8 +755,6 @@ msgid "&Undo\tCtrl+Z"
 msgstr "&Отмяна"
 
 # Control-ID:1013,
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "&Unified Diff"
@@ -1721,7 +1729,6 @@ msgid "Commits your changes to the repository"
 msgstr "Поверява промените Ви на хранилището"
 
 # ID:76,
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Сравняване на &главните ревизии"
@@ -2730,11 +2737,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Ако тази опция е включена, TortoiseSVN проверява въднъж седмично дали е налична по-нова версия"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Ако е включено, ускорява изтеглянето на съобщенията от дневника при хранилище, обслужвано от сървър версия преди 1.2"
 
 # ID:195,
 #: ID:195
@@ -5479,7 +5481,6 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Неочакван файлов формат."
 
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "Unified &Diff на главните ревизии"
@@ -5551,11 +5552,6 @@ msgstr "URL:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "&Лупа в локатора"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "Използване на &стария приложен програмен интерфейс при изтегляне на съобщенията от дневника"
 
 # Control-ID:1024,
 #: Control-ID:1024
