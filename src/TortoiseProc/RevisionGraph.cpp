@@ -380,6 +380,7 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 	TRACE(_T("Analyzing %s  - recurse level %d\n"), (LPCTSTR)CString(url), m_nRecurseLevel);
 
 	bool bRenamed = false;
+	bool bDeleted = false;
 	for (svn_revnum_t currentrev=startrev; currentrev <= m_lHeadRevision; ++currentrev)
 	{
 		// show progress info
@@ -404,9 +405,12 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 			reventry = (CRevisionEntry*)m_arEntryPtrs[findrev];
 			if (reventry->revision == currentrev)
 			{
+				if ((bDeleted)&&(reventry->action != CRevisionEntry::added))
+					continue;
 				// we have an entry
 				if (IsParentOrItself(reventry->url, url))
 				{
+					bDeleted = false;
 					reventry->level = m_nRecurseLevel;
 					if (reventry->action == CRevisionEntry::deleted)
 					{
@@ -430,9 +434,13 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 						// *our* entry was deleted. It may be another entry
 						// which was copied there with the same name
 						CStringA child = url.Mid(strlen(reventry->url));
-						child = child.Mid(child.ReverseFind('/'));
-						reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
+						if (!child.IsEmpty())
+						{
+							child = child.Mid(child.ReverseFind('/'));
+							reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
+						}
 						reventry->bUsed = true;
+						bDeleted = true;
 						continue;
 					}
 					if (reventry->action == CRevisionEntry::replaced)
@@ -440,8 +448,11 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 						reventry->bUsed = true;
 					}
 					CStringA child = url.Mid(strlen(reventry->url));
-					child = child.Mid(child.ReverseFind('/'));
-					reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
+					if (!child.IsEmpty())
+					{
+						child = child.Mid(child.ReverseFind('/'));
+						reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
+					}
 					// and the entry is for us
 					reventry->bUsed = true;
 					if (bRenamed)
