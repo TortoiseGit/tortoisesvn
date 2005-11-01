@@ -246,13 +246,13 @@
 					<Text>Click on the icons in the tree below to change the way features will be installed.</Text>
 				</Control>
 				<Control Id="Tree" Type="SelectionTree" X="25" Y="70" Width="175" Height="130" Property="_BrowseProperty" Sunken="yes" TabSkip="no" Text="Tree of selections" />
-				<Control Id="DescriptionBox" X="205" Y="66" Width="140" Height="85" Type="GroupBox" Text="Feature Description" />
-				<Control Id="ItemDescription" X="210" Y="76" Width="130" Height="70" Text="Multiline description of the currently selected item." Type="Text">
+				<Control Id="DescriptionBox" X="205" Y="66" Width="140" Height="75" Type="GroupBox" Text="Feature Description" />
+				<Control Id="ItemDescription" X="210" Y="76" Width="130" Height="80" Text="Multiline description of the currently selected item." Type="Text">
 					<Text>Multiline description of the currently selected item.</Text>
 					<Subscribe Event="SelectionDescription" Attribute="Text" />
 				</Control>
-				<Control Id="SizeBox" X="205" Y="153" Width="140" Height="48" Type="GroupBox" Text="Feature Size" />
-				<Control Id="ItemSize" Type="Text" X="210" Y="163" Width="130" Height="33">
+				<Control Id="SizeBox" X="205" Y="143" Width="140" Height="58" Type="GroupBox" Text="Feature Size" />
+				<Control Id="ItemSize" Type="Text" X="210" Y="153" Width="130" Height="43">
 					<Text>The size of the currently selected item.</Text>
 					<Subscribe Event="SelectionSize" Attribute="Text" />
 				</Control>
@@ -846,10 +846,10 @@
 			<UIText Id="SelNetworkAdvertise">This feature will change from run from network state to set to be installed when required</UIText>
 			<UIText Id="SelNetworkLocal">This feature will change from run from network state to be installed on the local hard drive</UIText>
 			<UIText Id="SelNetworkNetwork">This feature will remain to be run from the network</UIText>
-			<UIText Id="SelParentCostNegNeg">This feature frees up [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures free up [4] on your hard drive.</UIText>
-			<UIText Id="SelParentCostNegPos">This feature frees up [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures require [4] on your hard drive.</UIText>
-			<UIText Id="SelParentCostPosNeg">This feature requires [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures free up [4] on your hard drive.</UIText>
-			<UIText Id="SelParentCostPosPos">This feature requires [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures require [4] on your hard drive.</UIText>
+			<UIText Id="SelParentCostNegNeg">This feature frees up [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures free up [4].</UIText>
+			<UIText Id="SelParentCostNegPos">This feature frees up [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures require [4].</UIText>
+			<UIText Id="SelParentCostPosNeg">This feature requires [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures free up [4].</UIText>
+			<UIText Id="SelParentCostPosPos">This feature requires [1] on your hard drive. It has [2] of [3] subfeatures selected. The subfeatures require [4].</UIText>
 			<UIText Id="TimeRemaining">Time remaining: {[1] minutes }{[2] seconds}</UIText>
 			<UIText Id="VolumeCostAvailable">Available</UIText>
 			<UIText Id="VolumeCostDifference">Difference</UIText>
