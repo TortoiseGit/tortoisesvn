@@ -225,7 +225,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	m_lHeadRevision = -1;
 	Err = svn_client_log (targets, 
 		SVNRev(SVNRev::REV_HEAD), 
-		SVNRev(1), 
+		SVNRev(0), 
 		TRUE,
 		FALSE,
 		logDataReceiver,
