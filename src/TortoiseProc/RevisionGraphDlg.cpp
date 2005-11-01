@@ -637,10 +637,40 @@ void CRevisionGraphDlg::MarkSpaceLines(source_entry * entry, int level, svn_revn
 					{
 						if ((sentry->revisionto >= (*it)->revision)&&(!incremented))
 						{
-							reventry->rightlines++;
-							incremented = true;
-							maxright = max(reventry->rightlines, maxright);
-							rightset.insert(reventry);
+							// before we add this, we have to check if it's a top->bottom line and not one
+							// which goes to the right around another node
+							bool nodesinbetween = true;
+							bool bStart = false;
+							if ((*it)->level == level)
+							{
+								nodesinbetween = false;
+								for (INT_PTR k=0; k<m_arEntryPtrs.GetCount(); ++k)
+								{
+									CRevisionEntry * tempentry = (CRevisionEntry*)m_arEntryPtrs[k];
+									if (!bStart)
+									{
+										if (tempentry->revision == sentry->revisionto)
+											bStart = true;
+									}
+									else
+									{
+										if (tempentry->revision <= reventry->revision)
+											break;
+										if ((tempentry->revision > reventry->revision)&&(tempentry->level == reventry->level))
+										{
+											nodesinbetween = true;
+											break;
+										}
+									}
+								}
+							}
+							if (nodesinbetween)
+							{
+								reventry->rightlines++;
+								incremented = true;
+								maxright = max(reventry->rightlines, maxright);
+								rightset.insert(reventry);
+							}
 						}
 					}
 				}
@@ -749,7 +779,10 @@ void CRevisionGraphDlg::CountEntryConnections()
 						if (tempentry->revision <= reventry->revision)
 							break;
 						if ((tempentry->revision > reventry->revision)&&(tempentry->level == reventry->level))
+						{
 							nodesinbetween = true;
+							break;
+						}
 					}
 				}
 				if (nodesinbetween)
