@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-26 15:28+0900\n"
+"PO-Revision-Date: 2005-11-01 13:00+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -127,6 +127,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d バイトを転送しました"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d Kバイトを転送しました"
 
@@ -159,6 +165,12 @@ msgstr "%s : 作業ベース"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : 作業コピー"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s、%s"
 
 # ID:145,
 #: ID:145
@@ -272,8 +284,6 @@ msgid "&Commit..."
 msgstr "コミット(&C) ..."
 
 # ID:76,
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "リビジョンを比較(&C)"
@@ -714,8 +724,6 @@ msgid "&Undo\tCtrl+Z"
 msgstr "元に戻す(&U)\tCtrl+Z"
 
 # Control-ID:1013,
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "&Unified diff"
@@ -1684,7 +1692,6 @@ msgid "Commits your changes to the repository"
 msgstr "変更をリポジトリにコミット"
 
 # ID:76,
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "最新のリビジョンを比較(&H)"
@@ -2508,7 +2515,7 @@ msgstr "元:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "元: （マージする範囲のURLとリビジョン開始位置）"
+msgstr "元: （マージ元のURLと開始リビジョン）"
 
 # ID:273,
 #: ID:273
@@ -2693,11 +2700,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "チェックすると、TortoiseSVN は最新のバージョンが利用可能かどうかを1週間に1回チェックします。"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "有効にすると、バージョン 1.2 以前のリポジトリサーバからログメッセージを取得するスピードが速くなります"
 
 # ID:195,
 #: ID:195
@@ -4058,27 +4060,27 @@ msgstr "SVN バージョン管理ファイルをここに移動する"
 # ID:11,
 #: ID:11
 msgid "SVN Revision"
-msgstr "リビジョン"
+msgstr "SVN リビジョン"
 
 # ID:11,
 #: ID:11
 msgid "SVN Status"
-msgstr "状態"
+msgstr "SVN 状態"
 
 # ID:12,
 #: ID:12
 msgid "SVN Url"
-msgstr "URL"
+msgstr "SVN URL"
 
 # ID:14,
 #: ID:14
 msgid "SVN mime-type"
-msgstr "Mime タイプ"
+msgstr "SVN Mime タイプ"
 
 # ID:12,
 #: ID:12
 msgid "SVN short Url"
-msgstr "短いURL"
+msgstr "SVN 短いURL"
 
 #: MenuEntry
 msgid "Save &As..."
@@ -5008,7 +5010,7 @@ msgstr "先:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "先: （マージする範囲のURLとリビジョンの終了位置）"
+msgstr "先: （マージ先のURLと終了リビジョン）"
 
 # ID:7,#:
 # ID:3585,#:
@@ -5442,7 +5444,6 @@ msgstr "予期せぬファイルフォーマットです。"
 # Control-ID:1032,#:
 # Control-ID:1019,#:
 # Control-ID:1019,
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "最新のリビジョンに対する Unified 形式での差分(&D)"
@@ -5514,11 +5515,6 @@ msgstr "URL:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "位置指定バー上の拡大ツールを利用する(&M)"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "ログメッセージの取得に従来のAPIを利用する(&O)"
 
 # Control-ID:1024,
 #: Control-ID:1024
