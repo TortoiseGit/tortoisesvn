@@ -560,6 +560,7 @@
 		<sect3 id="tsvn-DUG-settings-Diff">
 			<title>Diff Viewer</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSDIFF"?>
+			<?dbhh topicname="HIDD_SETTINGSPROGSADV"?>
 			<para>
 				An external diff program may be used for comparing different
 				revisions of files. The external program will need to
@@ -651,6 +652,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 		<sect3 id="tsvn-DUG-settings-Merge">
 			<title>Merge Tool</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSMERGE"?>
+			<?dbhh topicname="HIDD_SETTINGSPROGSADV"?>
 			<para>
 				An external merge program used to resolve conflicted
 				files. Parameter substitution is used in the same way
