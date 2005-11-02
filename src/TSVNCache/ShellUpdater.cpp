@@ -132,8 +132,17 @@ void CShellUpdater::WorkerThread()
 			ATLTRACE("Update notifications for: %ws\n", workingPath.GetWinPath());
 			if (workingPath.IsDirectory())
 			{
+				// first send a notification about a subfolder change, so explorer doesn't discard
+				// the folder notification. Since we only know for sure that the subversion admin
+				// dir is present, we send a notification for that folder.
+				CString admindir = workingPath.GetWinPathString() + g_SVNAdminDir.GetAdminDirName();
+				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, (LPCTSTR)admindir, NULL);
 				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
-				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+				// Sending an UPDATEDIR notification somehow overwrites/deletes the UPDATEITEM message. And without
+				// that message, the folder overlays in the current view don't get updated without hitting F5.
+				// Drawback is, without UPDATEDIR, the left treeview isn't always updated...
+				
+				//SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
 			}
 			else
 				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
