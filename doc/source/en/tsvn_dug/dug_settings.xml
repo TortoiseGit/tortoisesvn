@@ -560,7 +560,6 @@
 		<sect3 id="tsvn-DUG-settings-Diff">
 			<title>Diff Viewer</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSDIFF"?>
-			<?dbhh topicname="HIDD_SETTINGSPROGSADV"?>
 			<para>
 				An external diff program may be used for comparing different
 				revisions of files. The external program will need to
@@ -652,7 +651,6 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 		<sect3 id="tsvn-DUG-settings-Merge">
 			<title>Merge Tool</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSMERGE"?>
-			<?dbhh topicname="HIDD_SETTINGSPROGSADV"?>
 			<para>
 				An external merge program used to resolve conflicted
 				files. Parameter substitution is used in the same way
@@ -743,6 +741,24 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 </screen>
 			</para>
 		</sect3>
+		<sect3 id="tsvn-DUG-settings-Progs-Adv">
+			<title>Diff/Merge Advanced Settings</title>
+			<?dbhh topicname="HIDD_SETTINGSPROGSADV"?>
+			<para>
+				<figure id="tsvn-DUG-settings-dia-6">
+					<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
+					<graphic fileref="images/SettingsProgsAdv.png"/>
+				</figure>
+				In the advanced settings, you can define a different diff and merge
+				program for every file extension. For instance you could associate
+				Photoshop as the <quote>Diff</quote> Program for .jpg files :-)
+			</para>
+			<para>
+				You need to specify just the extension with no leading dot or wildcard.
+				Use <literal>BMP</literal> to describe Windows bitmap files,
+				<emphasis>not</emphasis> <literal>*.BMP</literal>.
+			</para>
+		</sect3>
 		<sect3 id="tsvn-DUG-settings-Patch">
 			<title>Unified Diff Viewer</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSUNIDIFF"?>
@@ -764,19 +780,5 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 				but also colour codes the added and removed lines.
 			</para>
 		</sect3>
-		<para>
-			<figure id="tsvn-DUG-settings-dia-6">
-				<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
-				<graphic fileref="images/SettingsProgsAdv.png"/>
-			</figure>
-			In the advanced settings, you can define a different diff and merge
-			program for every file extension. For instance you could associate
-			Photoshop as the <quote>Diff</quote> Program for .jpg files :-)
-		</para>
-		<para>
-			You need to specify just the extension with no leading dot or wildcard.
-			Use <literal>BMP</literal> to describe Windows bitmap files,
-			<emphasis>not</emphasis> <literal>*.BMP</literal>.
-		</para>
 	</sect2>
 </sect1>

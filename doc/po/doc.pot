@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-10-31 21:16GMT Standard Time\n"
+"POT-Creation-Date: 2005-11-02 12:28GMT Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1810,27 +1810,31 @@ msgid "For example, with Perforce Merge: <screen>\nC:\\Path-To\\P4Merge.exe %bas
 msgstr ""
 
 #: source/en/tsvn_dug/dug_settings.xml:745(title) 
-msgid "Unified Diff Viewer"
+msgid "Diff/Merge Advanced Settings"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:747(para) 
-msgid "A viewer program for unified-diff files (patch files). If you don't have one the builtin option is to use NotePad. No parameters are required."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:752(para) 
-msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_settings.xml:767(title) 
+#: source/en/tsvn_dug/dug_settings.xml:749(title) 
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:765(para) 
+#: source/en/tsvn_dug/dug_settings.xml:747(para) 
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for .jpg files :-)"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_settings.xml:774(para) 
+#: source/en/tsvn_dug/dug_settings.xml:756(para) 
 msgid "You need to specify just the extension with no leading dot or wildcard. Use <literal>BMP</literal> to describe Windows bitmap files, <emphasis>not</emphasis><literal>*.BMP</literal>."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:763(title) 
+msgid "Unified Diff Viewer"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:765(para) 
+msgid "A viewer program for unified-diff files (patch files). If you don't have one the builtin option is to use NotePad. No parameters are required."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_settings.xml:770(para) 
+msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_revgraph.xml:4(title) 
