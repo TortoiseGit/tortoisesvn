@@ -256,18 +256,18 @@ void CDirectoryWatcher::WorkerThread()
 			{
 				if (!m_bRunning)
 					return;
-				if (numBytes == 0)
-				{
-					continue;
-				}
 				// NOTE: the longer this code takes to execute until ReadDirectoryChangesW
 				// is called again, the higher the chance that we miss some
 				// changes in the filesystem! 
 				if (pdi)
 				{
+					if (numBytes == 0)
+					{
+						goto continuewatching;
+					}
 					PFILE_NOTIFY_INFORMATION pnotify = (PFILE_NOTIFY_INFORMATION)pdi->m_Buffer;
 					if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-						break;
+						goto continuewatching;
 					DWORD nOffset = pnotify->NextEntryOffset;
 					do 
 					{
@@ -312,7 +312,9 @@ void CDirectoryWatcher::WorkerThread()
 								break;
 						}
 					} while (nOffset);
+continuewatching:
 					ZeroMemory(pdi->m_Buffer, sizeof(pdi->m_Buffer));
+					ZeroMemory(&pdi->m_Overlapped, sizeof(OVERLAPPED));
 					if (!ReadDirectoryChangesW(pdi->m_hDir,
 												pdi->m_Buffer,
 												READ_DIR_CHANGE_BUFFER_SIZE,
@@ -328,7 +330,7 @@ void CDirectoryWatcher::WorkerThread()
 						// wrong.
 						Sleep(200);
 					}
-				}
+				} // if (pdi)
 			}
 		}// if (watchedPaths.GetCount())
 		else
