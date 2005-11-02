@@ -2303,6 +2303,12 @@ BEGIN
     IDS_PROGRESSIMPORT      "Importing file %s"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_COLOURPICKER_CUSTOMTEXT "More Colors..."
+    IDS_COLOURPICKER_DEFAULTTEXT "Automatic"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

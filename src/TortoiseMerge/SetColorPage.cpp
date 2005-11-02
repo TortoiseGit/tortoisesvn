@@ -87,6 +87,7 @@ void CSetColorPage::SaveData()
 		if (GetRValue(cBk)-205 > 0)
 			adjustedcolor = RGB(GetRValue(cBk), GetRValue(cBk)-205, GetRValue(cBk)-205);
 		diffdata.SetColors(CDiffData::DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
+		
 	}
 }
 
@@ -125,33 +126,51 @@ BOOL CSetColorPage::OnInitDialog()
 	COLORREF cBk;
 	COLORREF cFg;
 
+	CString sDefaultText, sCustomText;
+	sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
+	sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
+
 	diffdata.GetColors(CDiffData::DIFFSTATE_NORMAL, cBk, cFg);
 	m_cBkNormal.SetDefaultColor(DIFFSTATE_NORMAL_DEFAULT_BG);
 	m_cBkNormal.SetColor(cBk);
+	m_cBkNormal.SetDefaultText(sDefaultText);
+	m_cBkNormal.SetCustomText(sCustomText);
 
 	diffdata.GetColors(CDiffData::DIFFSTATE_REMOVED, cBk, cFg);
 	m_cBkRemoved.SetDefaultColor(DIFFSTATE_REMOVED_DEFAULT_BG);
 	m_cBkRemoved.SetColor(cBk);
+	m_cBkRemoved.SetDefaultText(sDefaultText);
+	m_cBkRemoved.SetCustomText(sCustomText);
 
 	diffdata.GetColors(CDiffData::DIFFSTATE_ADDED, cBk, cFg);
 	m_cBkAdded.SetDefaultColor(DIFFSTATE_ADDED_DEFAULT_BG);
 	m_cBkAdded.SetColor(cBk);
+	m_cBkAdded.SetDefaultText(sDefaultText);
+	m_cBkAdded.SetCustomText(sCustomText);
 
 	diffdata.GetColors(CDiffData::DIFFSTATE_WHITESPACE, cBk, cFg);
 	m_cBkWhitespaces.SetDefaultColor(DIFFSTATE_WHITESPACE_DEFAULT_BG);
 	m_cBkWhitespaces.SetColor(cBk);
+	m_cBkWhitespaces.SetDefaultText(sDefaultText);
+	m_cBkWhitespaces.SetCustomText(sCustomText);
 
 	diffdata.GetColors(CDiffData::DIFFSTATE_WHITESPACE_DIFF, cBk, cFg);
 	m_cBkWhitespaceDiff.SetDefaultColor(DIFFSTATE_WHITESPACE_DIFF_DEFAULT_BG);
 	m_cBkWhitespaceDiff.SetColor(cBk);
+	m_cBkWhitespaceDiff.SetDefaultText(sDefaultText);
+	m_cBkWhitespaceDiff.SetCustomText(sCustomText);
 
 	diffdata.GetColors(CDiffData::DIFFSTATE_EMPTY, cBk, cFg);
 	m_cBkEmpty.SetDefaultColor(DIFFSTATE_EMPTY_DEFAULT_BG);
 	m_cBkEmpty.SetColor(cBk);
+	m_cBkEmpty.SetDefaultText(sDefaultText);
+	m_cBkEmpty.SetCustomText(sCustomText);
 
 	diffdata.GetColors(CDiffData::DIFFSTATE_CONFLICTED, cBk, cFg);
 	m_cBkConflict.SetDefaultColor(DIFFSTATE_CONFLICTED_DEFAULT_BG);
 	m_cBkConflict.SetColor(cBk);
+	m_cBkConflict.SetDefaultText(sDefaultText);
+	m_cBkConflict.SetCustomText(sCustomText);
 
 	m_bInit = TRUE;
 

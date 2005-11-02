@@ -722,6 +722,8 @@
 #define IDS_SCIEDIT_PASTE               6004
 #define IDS_SCIEDIT_SELECTALL           6005
 #define IDS_SCIEDIT_ADDWORD             6006
+#define IDS_COLOURPICKER_CUSTOMTEXT     7000
+#define IDS_COLOURPICKER_DEFAULTTEXT    7001
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773
@@ -737,7 +739,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        213
-#define _APS_NEXT_COMMAND_VALUE         32789
+#define _APS_NEXT_COMMAND_VALUE         32796
 #define _APS_NEXT_CONTROL_VALUE         1259
 #define _APS_NEXT_SYMED_VALUE           195
 #endif

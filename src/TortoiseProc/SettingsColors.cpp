@@ -81,6 +81,28 @@ BOOL CSettingsColors::OnInitDialog()
 	m_cRenamedNode.SetColor(m_Colors.GetColor(CColors::RenamedNode));
 	m_cReplacedNode.SetColor(m_Colors.GetColor(CColors::ReplacedNode));
 
+	CString sDefaultText, sCustomText;
+	sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
+	sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
+	m_cAdded.SetDefaultText(sDefaultText);
+	m_cAdded.SetCustomText(sCustomText);
+	m_cDeleted.SetDefaultText(sDefaultText);
+	m_cDeleted.SetCustomText(sCustomText);
+	m_cMerged.SetDefaultText(sDefaultText);
+	m_cMerged.SetCustomText(sCustomText);
+	m_cModified.SetDefaultText(sDefaultText);
+	m_cModified.SetCustomText(sCustomText);
+	m_cConflict.SetDefaultText(sDefaultText);
+	m_cConflict.SetCustomText(sCustomText);
+	m_cAddedNode.SetDefaultText(sDefaultText);
+	m_cAddedNode.SetCustomText(sCustomText);
+	m_cDeletedNode.SetDefaultText(sDefaultText);
+	m_cDeletedNode.SetCustomText(sCustomText);
+	m_cRenamedNode.SetDefaultText(sDefaultText);
+	m_cRenamedNode.SetCustomText(sCustomText);
+	m_cReplacedNode.SetDefaultText(sDefaultText);
+	m_cReplacedNode.SetCustomText(sCustomText);
+	
 	return TRUE;
 }
 
