@@ -145,7 +145,7 @@
 					
 					<Component Id="C__ASPDOTNETHACK" Guid="12212FA2-8FE5-4ebb-A413-B1D2017F628C" >
 						<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="ASP.NET KeyPath" Value="ASP.NET" Type="string" /> <!-- only used because this component needs a key path! -->
-						<Environment Id="E__ASPDOTNETHACK" Action="create" Name="SVN_ASP_DOT_NET_HACK" Permanent="yes" System="yes" />
+						<Environment Id="E__ASPDOTNETHACK" Action="create" Name="SVN_ASP_DOT_NET_HACK" Value="1" Permanent="yes" Part="all" System="yes" />
 					</Component>
 
 					<Directory Id="D__Bin" Name="BIN" LongName="bin" >
