@@ -232,6 +232,7 @@ void CFolderCrawler::WorkerThread()
 					if (workingPath.IsDirectory())
 						CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->Invalidate();
 					CSVNStatusCache::Instance().GetStatusForPath(workingPath, flags);
+					CSVNStatusCache::Instance().UpdateShell(workingPath);
 					CSVNStatusCache::Instance().Done();
 					AutoLocker lock(m_critSec);
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
