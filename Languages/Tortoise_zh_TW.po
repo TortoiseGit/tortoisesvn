@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-10-26 10:14+0800\n"
+"PO-Revision-Date: 2005-11-02 13:36+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -120,6 +120,12 @@ msgstr ""
 # ID:357,
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "傳輸了 %I64d k位元組"
+
+# ID:357,
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "傳輸了 %I64d k位元組"
 
@@ -152,6 +158,12 @@ msgstr "%s : 工作基礎版本"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : 工作複本"
+
+# ID:357,
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, 於 %s"
 
 # ID:145,
 #: ID:145
@@ -265,8 +277,6 @@ msgid "&Commit..."
 msgstr "送交(&C)..."
 
 # ID:76,
-#: ID:76
-#: ID:274
 #: MenuEntry
 msgid "&Compare revisions"
 msgstr "比對版本差異(&C)"
@@ -707,8 +717,6 @@ msgid "&Undo\tCtrl+Z"
 msgstr "還原(&U)\tCtrl+Z"
 
 # Control-ID:1013,
-#: ID:274
-#: Control-ID:1180
 #: MenuEntry
 msgid "&Unified diff"
 msgstr "單一差異檔(&U)"
@@ -1681,7 +1689,6 @@ msgid "Commits your changes to the repository"
 msgstr "將你所做的修改送交至檔案庫"
 
 # ID:76,
-#: ID:274
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "比對最新版本(&H)"
@@ -2690,11 +2697,6 @@ msgstr ""
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "啟用時, TortoiseSVN 每週會檢查一次最新版本"
-
-# ID:195,
-#: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "啟用時, 可以提高從 1.2版之前的伺服器取得紀錄訊息的速度."
 
 # ID:195,
 #: ID:195
@@ -5442,7 +5444,6 @@ msgstr "預期外的檔案格式."
 # Control-ID:1032,#:
 # Control-ID:1019,#:
 # Control-ID:1019,
-#: ID:274
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
 msgstr "與最新版本的單一差異檔(&D)"
@@ -5514,11 +5515,6 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "在定位列上使用放大鏡(&M)"
-
-# Control-ID:1214,
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "使用舊的 API 取得紀錄訊息(&O)"
 
 # Control-ID:1024,
 #: Control-ID:1024
