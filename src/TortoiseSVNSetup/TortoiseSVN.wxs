@@ -85,8 +85,6 @@
 			<RemoveExistingProducts After="InstallValidate"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
 			<Custom Action="KillCache" After="RemoveExistingProducts">Installed</Custom>
 			<ScheduleReboot After="RegisterProduct" />
-
-			<Custom Action="DefaultTargetDir" After="LaunchConditions" />
 		</InstallExecuteSequence>
 		
 		<!-- UI Sequencing ...................................................................................................... -->
@@ -97,8 +95,6 @@
 			<Show Dialog="PrepareDlg" Before="CostInitialize"><![CDATA[]]></Show>
 			<Show Dialog="AdminWelcomeDlg" After="CostFinalize" />
 			<Show Dialog="ProgressDlg" After="AdminWelcomeDlg" />
-
-			<Custom Action="DefaultTargetDir" After="LaunchConditions" />
 		</AdminUISequence>
 		<InstallUISequence>
 			<Show Dialog="FatalErrorDlg" OnExit="error" />
@@ -111,7 +107,6 @@
 			<Show Dialog="ProgressDlg" After="MaintenanceWelcomeDlg" />
 
 			<FindRelatedProducts Suppress="no">1</FindRelatedProducts>
-			<!--<RemoveExistingProducts After="FindRelatedProducts"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>-->
 
 			<Custom Action="DefaultTargetDir" After="PrepareDlg" />
 			<Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
