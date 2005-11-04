@@ -138,7 +138,8 @@ CString SVN::CheckConfigFile()
 #pragma warning(push)
 #pragma warning(disable: 4100)	// unreferenced formal parameter
 
-BOOL SVN::Cancel() {return FALSE;};
+BOOL SVN::Cancel() {return FALSE;}
+
 BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
 				svn_node_kind_t kind, const CString& mime_type, 
 				svn_wc_notify_state_t content_state, 
@@ -1124,7 +1125,7 @@ void SVN::notify( void *baton,
 svn_error_t* SVN::cancel(void *baton)
 {
 	SVN * svn = (SVN *)baton;
-	if (svn->Cancel())
+	if ((svn->Cancel())||((svn->m_pProgressDlg)&&(svn->m_pProgressDlg->HasUserCancelled())))
 	{
 		CStringA temp;
 		temp.LoadString(IDS_SVN_USERCANCELLED);
