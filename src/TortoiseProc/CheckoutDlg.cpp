@@ -155,6 +155,12 @@ void CCheckoutDlg::OnOK()
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 
+	if (!SVN::PathIsURL(m_URL))
+	{
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_URLCOMBO), IDS_ERR_MUSTBEURL, TRUE, IDI_ERROR);
+		return;
+	}
+
 	if (m_URL.Left(7).CompareNoCase(_T("file://"))==0)
 	{
 		//check if the url is on a network share
