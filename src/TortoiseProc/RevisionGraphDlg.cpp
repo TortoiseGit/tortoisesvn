@@ -1648,30 +1648,38 @@ BOOL CRevisionGraphDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
 void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
-	if ((m_SelectedEntry1 == NULL)||(m_SelectedEntry2 == NULL))
+	if (m_SelectedEntry1 == NULL)
 		return;
 	CMenu popup;
 	if (popup.CreatePopupMenu())
 	{
-		if ((m_SelectedEntry1->action == CRevisionEntry::deleted)||(m_SelectedEntry2->action == CRevisionEntry::deleted))
+		if ((m_SelectedEntry1->action == CRevisionEntry::deleted)||((m_SelectedEntry2)&&(m_SelectedEntry2->action == CRevisionEntry::deleted)))
 			return;	// we can't compare with deleted items
 
-		bool bSameURL = (strcmp(m_SelectedEntry1->url, m_SelectedEntry2->url)==0);
+		bool bSameURL = (m_SelectedEntry2 && (strcmp(m_SelectedEntry1->url, m_SelectedEntry2->url)==0));
 		CString temp;
-		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
-		if (!bSameURL)
+		if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 		{
-			temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
+			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
 		}
-
-		temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
-		if (!bSameURL)
+		if (m_SelectedEntry1 && m_SelectedEntry2)
 		{
-			temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
+			temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
+			if (!bSameURL)
+			{
+				temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
+			}
+
+			temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
+			if (!bSameURL)
+			{
+				temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
+			}
 		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
@@ -1688,6 +1696,25 @@ void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_UNIDIFFHEADS:
 			UnifiedDiffRevs(true);
+			break;
+		case ID_SHOWLOG:
+			{
+				CString sCmd;
+				CString URL = GetReposRoot() + CString(m_SelectedEntry1->url);
+				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
+					CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
+					(LPCTSTR)URL,
+					m_SelectedEntry1->revision);
+
+				if (!SVN::PathIsURL(m_sPath))
+				{
+					sCmd += _T(" /propspath:\"");
+					sCmd += m_sPath;
+					sCmd += _T("\"");
+				}	
+
+				CUtils::LaunchApplication(sCmd, NULL, false);
+			}
 			break;
 		}
 	}

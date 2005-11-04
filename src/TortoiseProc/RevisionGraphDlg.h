@@ -55,6 +55,7 @@ enum NodeShape
 #define ID_COMPAREHEADS 2
 #define ID_UNIDIFFREVS 3
 #define ID_UNIDIFFHEADS 4
+#define ID_SHOWLOG 5
 
 /**
  * \ingroup TortoiseProc

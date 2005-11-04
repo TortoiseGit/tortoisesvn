@@ -5,11 +5,10 @@
        See issue #171. (Stefan)
 - NEW: A warning is shown if the user tries to close the explorer property
        sheet without having saved modified properties yet. (Stefan)
-- NEW: Command line command to rebuild the windows icon cache. (Leon Zandman)
 - NEW: Show network transfer speed for DAV connections where possible and
        it makes sense. See issue #177. (Stefan)
 - NEW: Rebuilding the icon cache can be done by calling TortoiseProc from
-       the command line. See our help files for details. (Stefan)
+       the command line. See our help files for details. (Stefan, Leon Zandman)
 - NEW: Setting the environment variable SVN_ASP_DOT_NET_HACK makes TSVN
        use '_svn' as the Subversion admin dirs instead of '.svn'.
        A restart of Windows is required for this to take effect. (Stefan)
@@ -21,6 +20,7 @@
        configured in the registry. This might be useful for company
        admins which provide their users the updates from their servers.
        The registry entry is "Software\TortoiseSVN\UpdateCheckURL". (Stefan)
+- NEW: "Show Log" command from the revision graph. See issue #184. (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.
