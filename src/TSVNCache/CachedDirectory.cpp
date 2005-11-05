@@ -3,6 +3,7 @@
 #include "SVNHelpers.h"
 #include "SVNStatusCache.h"
 #include "SVNStatus.h"
+#include <set>
 
 CCachedDirectory::CCachedDirectory(void)
 {
@@ -586,6 +587,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 
 	// We also need to check if all our file members have the right date on them
 	CacheEntryMap::iterator itMembers;
+	std::set<CTSVNPath> refreshedpaths;
 	DWORD now = GetTickCount();
 	
 	for(itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
@@ -594,16 +596,19 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 		{
 			CTSVNPath filePath(m_directoryPath);
 			filePath.AppendPathString(itMembers->first);
-			if (!filePath.IsEquivalentToWithCase(m_directoryPath))
+			if ((!filePath.IsEquivalentToWithCase(m_directoryPath))&&(refreshedpaths.find(filePath)==refreshedpaths.end()))
 			{
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{
 					// We need to request this item as well
 					GetStatusForMember(filePath,bRecursive);
 					// GetStatusForMember now has recreated the m_entryCache map.
-					// So we have to get out of this for-loop since the iterator now
-					// is invalid!
-					break;
+					// So start the loop again, but add this path to the refreshedpaths set
+					// to make sure we don't refresh this path again. This is to make sure
+					// that we don't end up in an endless loop.
+					refreshedpaths.insert(filePath);
+					itMembers = m_entryCache.begin();
+					continue;
 				}
 				else if ((bRecursive)&&(itMembers->second.IsDirectory()))
 				{
