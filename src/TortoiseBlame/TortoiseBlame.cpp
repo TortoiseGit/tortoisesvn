@@ -270,6 +270,73 @@ void TortoiseBlame::InitialiseEditor()
 	SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
 }
 
+void TortoiseBlame::StartSearch()
+{
+	if (currentDialog)
+		return;
+	// Initialize FINDREPLACE
+	ZeroMemory(&fr, sizeof(fr));
+	fr.lStructSize = sizeof(fr);
+	fr.hwndOwner = wMain;
+	fr.lpstrFindWhat = szFindWhat;
+	fr.wFindWhatLen = 80;
+	fr.Flags = FR_HIDEUPDOWN | FR_HIDEMATCHCASE | FR_HIDEWHOLEWORD;
+
+	currentDialog = FindText(&fr);
+}
+
+bool TortoiseBlame::DoSearch(LPSTR what, DWORD /*flags*/)
+{
+	int pos = SendEditor(SCI_GETCURRENTPOS);
+	int line = SendEditor(SCI_LINEFROMPOSITION, pos);
+	bool bFound = false;
+	std::string sWhat = std::string(what);
+	char buf[20];
+	int i=0;
+	for (i=line; (i<(int)authors.size())&&(!bFound); ++i)
+	{
+		int bufsize = SendEditor(SCI_GETLINE, i);
+		char * linebuf = new char[bufsize+1];
+		SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
+		_stprintf(buf, _T("%ld"), revs[i]);
+		if (authors[i].compare(sWhat)==0)
+			bFound = true;
+		else if (strcmp(buf, what) == 0)
+			bFound = true;
+		else if (strstr(linebuf, what))
+			bFound = true;
+		delete [] linebuf;
+	}
+	if (!bFound)
+	{
+		for (i=0; (i<line)&&(!bFound); ++i)
+		{
+			int bufsize = SendEditor(SCI_GETLINE, i);
+			char * linebuf = new char[bufsize+1];
+			SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
+			_stprintf(buf, _T("%ld"), revs[i]);
+			if (authors[i].compare(sWhat)==0)
+				bFound = true;
+			else if (strcmp(buf, what) == 0)
+				bFound = true;
+			else if (strstr(linebuf, what))
+				bFound = true;
+			delete [] linebuf;
+		}
+	}
+	if (bFound)
+	{
+		--i;
+		SendEditor(SCI_GOTOLINE, i);
+		int selstart = SendEditor(SCI_GETCURRENTPOS);
+		int selend = SendEditor(SCI_POSITIONFROMLINE, i+1);
+		SendEditor(SCI_SETSELECTIONSTART, selstart);
+		SendEditor(SCI_SETSELECTIONEND, selend);
+		m_SelectedLine = i;
+	}
+	return true;
+}
+
 void TortoiseBlame::Notify(SCNotification *notification) 
 {
 	switch (notification->nmhdr.code) 
@@ -292,7 +359,11 @@ void TortoiseBlame::Command(int id)
 	case IDM_EXIT:
 		::PostQuitMessage(0);
 		break;
-
+	case ID_EDIT_FIND:
+		StartSearch();
+		break;
+	default:
+		break;
 	};
 }
 
@@ -409,6 +480,25 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
 				Left += m_authorwidth;
 			}
+			if ((i==m_SelectedLine)&&(currentDialog))
+			{
+				LOGBRUSH brush;
+				brush.lbColor = m_textcolor;
+				brush.lbHatch = 0;
+				brush.lbStyle = BS_SOLID;
+				HPEN pen = ExtCreatePen(PS_SOLID | PS_GEOMETRIC, 2, &brush, 0, NULL);
+				HGDIOBJ hPenOld = SelectObject(hDC, pen);
+				RECT rc2 = rc;
+				rc2.top = Y;
+				rc2.bottom = Y + heigth;
+				::MoveToEx(hDC, rc2.left, rc2.top, NULL);
+				::LineTo(hDC, rc2.right, rc2.top);
+				::LineTo(hDC, rc2.right, rc2.bottom);
+				::LineTo(hDC, rc2.left, rc2.bottom);
+				::LineTo(hDC, rc2.left, rc2.top);
+				SelectObject(hDC, hPenOld); 
+				DeleteObject(pen); 
+			}
 			Y += heigth;
 		}
 		else
@@ -491,6 +581,7 @@ BOOL				InitInstance(HINSTANCE, int);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK	WndBlameProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK	WndHeaderProc(HWND, UINT, WPARAM, LPARAM);
+UINT				uFindReplaceMsg;
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE /*hPrevInstance*/,
@@ -590,7 +681,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 	wcex.hIcon			= LoadIcon(hInstance, (LPCTSTR)IDI_TORTOISEBLAME);
 	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
-	wcex.lpszMenuName	= NULL;//(LPCTSTR)IDC_TORTOISEBLAME;
+	wcex.lpszMenuName	= (LPCTSTR)IDC_TORTOISEBLAME;
 	wcex.lpszClassName	= szWindowClass;
 	wcex.hIconSm		= LoadIcon(wcex.hInstance, (LPCTSTR)IDI_SMALL);
 
@@ -706,11 +797,31 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    SendMessage(app.hwndTT, TTM_SETMAXTIPWIDTH, 0, 600);
    //SendMessage(app.hwndTT, TTM_SETDELAYTIME, TTDT_AUTOPOP, MAKELONG(50000, 0));
    //SendMessage(app.hwndTT, TTM_SETDELAYTIME, TTDT_RESHOW, MAKELONG(1000, 0));
+   
+   uFindReplaceMsg = RegisterWindowMessage(FINDMSGSTRING);
+   
    return TRUE;
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+	if (message == uFindReplaceMsg)
+	{
+		LPFINDREPLACE lpfr = (LPFINDREPLACE)lParam;
+
+		// If the FR_DIALOGTERM flag is set, 
+		// invalidate the handle identifying the dialog box. 
+		if (lpfr->Flags & FR_DIALOGTERM)
+		{
+			app.currentDialog = NULL; 
+			return 0; 
+		} 
+		if (lpfr->Flags & FR_FINDNEXT)
+		{
+			app.DoSearch(lpfr->lpstrFindWhat, lpfr->Flags);
+		}
+		return 0; 
+	}
 	switch (message) 
 	{
 	case WM_CREATE:

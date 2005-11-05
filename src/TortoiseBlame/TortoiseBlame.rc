@@ -44,6 +44,10 @@ BEGIN
     BEGIN
         MENUITEM "E&xit",                       IDM_EXIT
     END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Find",                       ID_EDIT_FIND
+    END
 END
 
 
@@ -54,8 +58,10 @@ END
 
 IDC_TORTOISEBLAME ACCELERATORS 
 BEGIN
-    "?",            IDM_ABOUT,              ASCII,  ALT
-    "/",            IDM_ABOUT,              ASCII,  ALT
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FIND,           VIRTKEY, NOINVERT
 END
 
 

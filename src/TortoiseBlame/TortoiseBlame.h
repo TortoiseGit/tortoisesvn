@@ -18,7 +18,7 @@
 #pragma once
 
 #include "resource.h"
-
+#include "Commdlg.h"
 #include "Scintilla.h"
 #include "SciLexer.h"
 
@@ -66,6 +66,8 @@ public:
 	LONG GetBlameWidth();
 	void DrawBlame(HDC hDC);
 	void DrawHeader(HDC hDC);
+	void StartSearch();
+	bool DoSearch(LPSTR what, DWORD flags);
 
 	LONG						m_mouserev;
 	std::string					m_mouseauthor;
@@ -92,6 +94,7 @@ protected:
 	LONG						m_datewidth;
 	LONG						m_authorwidth;
 	LONG						m_linewidth;
+	LONG						m_SelectedLine;
 
 	COLORREF					m_mouserevcolor;
 	COLORREF					m_mouseauthorcolor;
@@ -103,4 +106,6 @@ protected:
 
 	LRESULT						m_directFunction;
 	LRESULT						m_directPointer;
+	FINDREPLACE					fr;
+	TCHAR						szFindWhat[80];
 };
