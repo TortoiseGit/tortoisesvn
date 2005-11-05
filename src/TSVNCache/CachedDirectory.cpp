@@ -160,13 +160,13 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	CString strCacheKey;
 	bool bThisDirectoryIsUnversioned = false;
 	bool bRequestForSelf = false;
-	if(path.IsEquivalentTo(m_directoryPath))
+	if(path.IsEquivalentToWithCase(m_directoryPath))
 	{
 		bRequestForSelf = true;
 	}
 
 	// In all most circumstances, we ask for the status of a member of this directory.
-	ATLASSERT(m_directoryPath.IsEquivalentTo(path.GetContainingDirectory()) || bRequestForSelf);
+	ATLASSERT(m_directoryPath.IsEquivalentToWithCase(path.GetContainingDirectory()) || bRequestForSelf);
 
 	// Check if the entries file has been changed
 	CTSVNPath entriesFilePath(m_directoryPath);
@@ -398,7 +398,7 @@ CCachedDirectory::GetCacheKey(const CTSVNPath& path)
 {
 	// All we put into the cache as a key is just the end portion of the pathname
 	// There's no point storing the path of the containing directory for every item
-	return path.GetWinPathString().Mid(m_directoryPath.GetWinPathString().GetLength()).MakeLower();
+	return path.GetWinPathString().Mid(m_directoryPath.GetWinPathString().GetLength());
 }
 
 CString 
@@ -422,7 +422,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 
 		if(svnPath.IsDirectory())
 		{
-			if(!svnPath.IsEquivalentTo(pThis->m_directoryPath))
+			if(!svnPath.IsEquivalentToWithCase(pThis->m_directoryPath))
 			{
 				if (pThis->m_bRecursive)
 				{
@@ -451,7 +451,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		// part of another working copy (nested layouts).
 		// So we have to make sure that such an 'unversioned' folder really
 		// is unversioned.
-		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentTo(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
+		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentToWithCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
 		{
 			if (svnPath.HasAdminDir())
 			{
@@ -594,7 +594,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 		{
 			CTSVNPath filePath(m_directoryPath);
 			filePath.AppendPathString(itMembers->first);
-			if (!filePath.IsEquivalentTo(m_directoryPath))
+			if (!filePath.IsEquivalentToWithCase(m_directoryPath))
 			{
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{
