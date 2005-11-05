@@ -419,6 +419,29 @@ bool CTSVNPath::ArePathStringsEqual(const CString& sP1, const CString& sP2)
 	return true;
 }
 
+bool CTSVNPath::ArePathStringsEqualWithCase(const CString& sP1, const CString& sP2)
+{
+	int length = sP1.GetLength();
+	if(length != sP2.GetLength())
+	{
+		// Different lengths
+		return false;
+	}
+	// We work from the end of the strings, because path differences
+	// are more likely to occur at the far end of a string
+	LPCTSTR pP1Start = sP1;
+	LPCTSTR pP1 = pP1Start+(length-1);
+	LPCTSTR pP2 = ((LPCTSTR)sP2)+(length-1);
+	while(length-- > 0)
+	{
+		if((*pP1--) != (*pP2--))
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
 bool CTSVNPath::IsEmpty() const
 {
 	// Check the backward slash path first, since the chance that this
@@ -447,8 +470,25 @@ bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs) const
 	}
 }
 
-bool 
-CTSVNPath::IsAncestorOf(const CTSVNPath& possibleDescendant) const
+bool CTSVNPath::IsEquivalentToWithCase(const CTSVNPath& rhs) const
+{
+	// Try and find a slash direction which avoids having to convert
+	// both filenames
+	if(!m_sBackslashPath.IsEmpty())
+	{
+		// *We've* got a \ path - make sure that the RHS also has a \ path
+		rhs.EnsureBackslashPathSet();
+		return ArePathStringsEqualWithCase(m_sBackslashPath, rhs.m_sBackslashPath);
+	}
+	else
+	{
+		// Assume we've got a fwdslash path and make sure that the RHS has one
+		rhs.EnsureFwdslashPathSet();
+		return ArePathStringsEqualWithCase(m_sFwdslashPath, rhs.m_sFwdslashPath);
+	}
+}
+
+bool CTSVNPath::IsAncestorOf(const CTSVNPath& possibleDescendant) const
 {
 	possibleDescendant.EnsureBackslashPathSet();
 	EnsureBackslashPathSet();

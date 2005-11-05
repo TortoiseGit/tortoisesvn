@@ -138,6 +138,11 @@ public:
 	bool IsEquivalentTo(const CTSVNPath& rhs) const;
 	bool operator==(const CTSVNPath& x) const {return IsEquivalentTo(x);}
 	/**
+	 * Checks if two paths are equal, also in case.
+	 */
+	bool IsEquivalentToWithCase(const CTSVNPath& rhs) const;
+	
+	/**
 	 * Checks if \c possibleDescendant is a child of this path.
 	 */
 	bool IsAncestorOf(const CTSVNPath& possibleDescendant) const;
@@ -223,7 +228,8 @@ private:
 	* \remark for slash-independent comparison, use IsEquivalentTo()
 	*/
 	static bool ArePathStringsEqual(const CString& sP1, const CString& sP2);
-
+	static bool ArePathStringsEqualWithCase(const CString& sP1, const CString& sP2);
+	
 	void UpdateAttributes() const;
 
 private:
