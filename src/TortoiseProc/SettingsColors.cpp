@@ -27,6 +27,7 @@
 IMPLEMENT_DYNAMIC(CSettingsColors, CPropertyPage)
 CSettingsColors::CSettingsColors()
 	: CPropertyPage(CSettingsColors::IDD)
+	, bInit(false)
 {
 }
 
@@ -56,6 +57,8 @@ END_MESSAGE_MAP()
 
 void CSettingsColors::SaveData()
 {
+	if (!bInit)
+		return;
 	m_Colors.SetColor(CColors::Added, m_cAdded.GetColor(TRUE));
 	m_Colors.SetColor(CColors::Deleted, m_cDeleted.GetColor(TRUE));
 	m_Colors.SetColor(CColors::Merged, m_cMerged.GetColor(TRUE));
@@ -103,6 +106,7 @@ BOOL CSettingsColors::OnInitDialog()
 	m_cReplacedNode.SetDefaultText(sDefaultText);
 	m_cReplacedNode.SetCustomText(sCustomText);
 	
+	bInit = true;
 	return TRUE;
 }
 

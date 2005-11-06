@@ -58,6 +58,8 @@ private:
 	CColourPickerXP m_cRenamedNode;
 	CColourPickerXP m_cReplacedNode;
 	CColors			m_Colors;
+	
+	bool bInit;
 public:
 	afx_msg void OnBnClickedRestore();
 };
