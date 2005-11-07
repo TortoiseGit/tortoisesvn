@@ -61,7 +61,7 @@ typedef std::basic_string<wchar_t> wide_string;
 class SVNStatus
 {
 public:
-	SVNStatus(void);
+	SVNStatus(bool * pbCanceled = NULL);
 	~SVNStatus(void);
 
 
@@ -147,6 +147,7 @@ public:
 
 	svn_revnum_t				headrev;			///< the head revision fetched with GetFirstStatus()
 
+	bool *						m_pbCanceled;
 #ifdef _MFC_VER
 friend class SVN;	// So that SVN can get to our m_err
 	/**
@@ -236,6 +237,7 @@ private:
 #pragma warning(pop)	// C4200
 
 	static int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
+	static svn_error_t* cancel(void *baton);
 
 	// A sorted list of filenames (in SVN format, in lowercase) 
 	// when this list is set, we only pick-up files during a GetStatus which are found in this list

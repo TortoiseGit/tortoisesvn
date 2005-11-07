@@ -30,7 +30,7 @@
 #	include "Utils.h"
 #endif
 
-SVNStatus::SVNStatus(void)
+SVNStatus::SVNStatus(bool * pbCanceled)
 {
 	m_pool = svn_pool_create (NULL);
 
@@ -39,6 +39,13 @@ SVNStatus::SVNStatus(void)
 	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
 	
 	svn_client_create_context(&ctx, m_pool);
+	
+	if (pbCanceled)
+	{
+		ctx->cancel_func = cancel;
+		ctx->cancel_baton = pbCanceled;
+	}
+
 #ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
 	
@@ -240,7 +247,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
 	const sort_item*			item;
-
+	
 	statushash = apr_hash_make(m_pool);
 	svn_revnum_t youngest = SVN_INVALID_REVNUM;
 	svn_opt_revision_t rev;
@@ -568,6 +575,18 @@ int SVNStatus::sort_compare_items_as_paths (const sort_item *a, const sort_item 
 	astr = (const char*)a->key;
 	bstr = (const char*)b->key;
 	return svn_path_compare_paths (astr, bstr);
+}
+
+svn_error_t* SVNStatus::cancel(void *baton)
+{
+	volatile bool * canceled = (bool *)baton;
+	if (*canceled)
+	{
+		CStringA temp;
+		temp.LoadString(IDS_SVN_USERCANCELLED);
+		return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+	}
+	return SVN_NO_ERROR;
 }
 
 #ifdef _MFC_VER
