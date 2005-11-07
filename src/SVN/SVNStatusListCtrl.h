@@ -313,6 +313,13 @@ public:
 	 */
 	CTSVNPath GetCommonDirectory(bool bStrict);
 
+	/**
+	 * Sets a pointer to a boolean variable which is checked periodically
+	 * during the status fetching. As soon as the variable changes to true,
+	 * the operations stops.
+	 */
+	void SetCancelBool(bool * pbCanceled) {m_pbCanceled = pbCanceled;}
+	
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
@@ -394,6 +401,7 @@ private:
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 
 private:
+	bool *						m_pbCanceled;
 	static bool					m_bAscending;		///< sort direction
 	static int					m_nSortedColumn;	///< which column to sort
 	static int					m_nSortedInternalColumn;

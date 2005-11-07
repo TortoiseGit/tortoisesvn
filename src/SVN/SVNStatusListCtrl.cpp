@@ -93,6 +93,7 @@ int		CSVNStatusListCtrl::m_nSortedInternalColumn = -1;
 
 CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_HeadRev(SVNRev::REV_HEAD)
+	, m_pbCanceled(NULL)
 {
 	m_pStatLabel = NULL;
 	m_pSelectButton = NULL;
@@ -267,7 +268,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 
 	m_nTargetCount = pathList.GetCount();
 
-	SVNStatus status;
+	SVNStatus status(m_pbCanceled);
 	if(m_nTargetCount > 1 && pathList.AreAllPathsFilesInOneDirectory())
 	{
 		// This is a special case, where we've been given a list of files
