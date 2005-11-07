@@ -183,6 +183,7 @@
 #define IDC_EDITVALUE                   1015
 #define IDC_SHOWLOG                     1016
 #define IDC_RECURSIVE                   1018
+#define IDS_SVN_USERCANCELLED           1181
 #define IDI_REPOBROWSE                  5145
 #define IDI_BLAME                       5146
 #define IDI_PATCH                       5147
