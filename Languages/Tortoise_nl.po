@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-22 16:22+0100\n"
+"PO-Revision-Date: 2005-11-07 20:50+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +106,11 @@ msgstr ""
 
 #: ID:357
 #, c-format
+msgid "%I64d Bytes transferred"
+msgstr "%I64d Bytes verstuurd"
+
+#: ID:357
+#, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes verstuurd"
 
@@ -133,6 +138,11 @@ msgstr "%s : Werkbasis"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Werkkopie"
+
+#: ID:357
+#, c-format
+msgid "%s, at %s"
+msgstr "%s, met %s"
 
 #: ID:145
 #, c-format
@@ -227,11 +237,6 @@ msgid "&Commit..."
 msgstr "&Vastleggen..."
 
 #: MenuEntry
-msgid "&Compare Revisions"
-msgstr "Ver&gelijk revisies"
-
-#: ID:76
-#: ID:274
 msgid "&Compare revisions"
 msgstr "Ver&gelijk revisies"
 
@@ -572,11 +577,6 @@ msgid "&Undo\tCtrl+Z"
 msgstr "&Ongedaan maken\tCtrl-Z"
 
 #: MenuEntry
-msgid "&Unified Diff"
-msgstr "&Voer unified Diff uit"
-
-#: ID:274
-#: Control-ID:1180
 msgid "&Unified diff"
 msgstr "Voer &unified diff uit"
 
@@ -1080,6 +1080,10 @@ msgstr ""
 "Autoaanvullen stelt woorden voor (meestal class of member namen)\n"
 "uit de gewijzigde bestanden bij het invoeren van een logboekboodschap."
 
+#: ID:438
+msgid "Automatic"
+msgstr "Automatisch"
+
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
 msgstr "Elke week controleren of een nieuwe versie beschikbaar is"
@@ -1357,10 +1361,6 @@ msgid "Commits your changes to the repository"
 msgstr "Legt uw wijzigingen in de bibliotheek vast"
 
 #: MenuEntry
-msgid "Compare &HEAD Revisions"
-msgstr "Ver&gelijk HEAD revisies"
-
-#: ID:274
 msgid "Compare &HEAD revisions"
 msgstr "Vergelijk &HEAD revisies"
 
@@ -2189,10 +2189,6 @@ msgid "If enabled, TortoiseSVN checks once a week if a newer version is availabl
 msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
 
 #: ID:195
-msgid "If enabled, speeds up fetching log messages from pre-1.2 repository servers"
-msgstr "Activeer deze optie om het ophalen van logboodschappen te versnellen bij SVN servers van vóór versie 1.2"
-
-#: ID:195
 msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
@@ -2529,6 +2525,14 @@ msgstr "Gemengd"
 #: ID:74
 msgid "Modified"
 msgstr "Gewijzigd"
+
+#: ID:438
+msgid "More Colors..."
+msgstr "Meer Kleuren..."
+
+#: ID:438
+msgid "More colors..."
+msgstr "Meer kleuren..."
 
 #: Control-ID:1136
 msgid "Most active author:"
@@ -4026,6 +4030,14 @@ msgstr ""
 msgid "Thesaurus"
 msgstr "Thesaurus"
 
+#: ID:83
+msgid ""
+"This is not a valid URL.\n"
+"Please enter an URL here."
+msgstr ""
+"Dit is geen geldige URL.\n"
+"Geef hier a.u.b. een URL op."
+
 #: ID:82
 msgid ""
 "This is not a valid path!\n"
@@ -4403,10 +4415,6 @@ msgid "Unexpected file format."
 msgstr "Onverwacht bestandsformaat."
 
 #: MenuEntry
-msgid "Unified &Diff Of HEAD Revisions"
-msgstr "GNU &Diff van HEAD revisies"
-
-#: ID:274
 msgid "Unified &diff of HEAD revisions"
 msgstr "GNU &diff van HEAD revisies"
 
@@ -4460,10 +4468,6 @@ msgstr "URL:"
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "Toon &vergrootglas op zoekwerkbalk"
-
-#: Control-ID:1214
-msgid "Use &old APIs to fetch log messages"
-msgstr "Gebruik de &oude manier van logboekboodschappen ophalen"
 
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
@@ -4755,11 +4759,11 @@ msgstr ""
 "de werkkopie zal dus niet exact gelijk zijn aan de revisie waarnaar u ververst!"
 
 #: MenuEntry
-msgid "Zoom &In\tCtrl-+"
+msgid "Zoom &in\tCtrl-+"
 msgstr "&Inzoomen\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out\tCtrl--"
+msgid "Zoom &out\tCtrl--"
 msgstr "&Uitzoomen\tCtrl--"
 
 #: ID:10
