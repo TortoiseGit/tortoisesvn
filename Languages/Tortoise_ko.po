@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-03 14:59+0900\n"
+"PO-Revision-Date: 2005-11-07 16:39+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgstr ""
 #: ID:357
 #, c-format
 msgid "%I64d Bytes transferred"
-msgstr "%l64d 바이트 전송됨"
+msgstr "%I64d 바이트 전송됨"
 
 # ID:357,
 #: ID:357
@@ -712,7 +712,7 @@ msgstr "실행 취소(&U)\tCtrl-Z"
 # Control-ID:1013,
 #: MenuEntry
 msgid "&Unified diff"
-msgstr "Unified Diff 적용(&U)"
+msgstr "Unified Diff 보기(&U)"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -4958,6 +4958,15 @@ msgstr ""
 msgid "Thesaurus"
 msgstr "색인"
 
+# ID:83,
+#: ID:83
+msgid ""
+"This is not a valid URL.\n"
+"Please enter an URL here."
+msgstr ""
+"유효한 URL이 아닙니다.\n"
+"올바른 URL을 입력하세요."
+
 # ID:82,
 #: ID:82
 msgid ""
@@ -4966,7 +4975,7 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "올바른 경로가 아닙니다.\n"
-"경로에는 '<>|\"?*:'을 포함되어선 안되며, 또한 다음과 같은 장치명도 사용될 수 없습니다:\n"
+"경로에는 '<>|\"?*:'이 포함되어선 안되며, 또한 다음과 같은 장치명도 사용될 수 없습니다:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
@@ -5443,7 +5452,7 @@ msgstr "기타 파일 형식"
 
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
-msgstr "HEAD 리비전에 대한 차이를 구합니다.(&D)"
+msgstr "HEAD 리비전에 대한 Unified diff 보기 (&D)"
 
 # ID:81,
 #: ID:81
