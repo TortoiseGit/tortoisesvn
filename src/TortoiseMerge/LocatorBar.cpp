@@ -318,11 +318,6 @@ void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
 		GetClientRect(rect); 
 		int nLine = point.y*m_nLines/rect.Height();
 
-		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndBottomView))
-		{
-			nLine = nLine - (m_pMainFrm->m_pwndBottomView->GetScreenLines()/2);
-		}
-
 		if (nLine < 0)
 			nLine = 0;
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndBottomView))
