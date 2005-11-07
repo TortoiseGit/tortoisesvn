@@ -37,18 +37,18 @@ SVNStatus::SVNStatus(void)
 	const char * deststr = NULL;
 	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
 	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
-
-	memset (&ctx, 0, sizeof (ctx));
+	
+	svn_client_create_context(&ctx, m_pool);
 #ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
 	
 	// set up authentication
-	m_prompt.Init(m_pool, &ctx);
+	m_prompt.Init(m_pool, ctx);
 
 	svn_utf_initialize(m_pool);
 
 	// set up the configuration
-	m_err = svn_config_get_config (&(ctx.config), NULL, m_pool);
+	m_err = svn_config_get_config (&(ctx->config), NULL, m_pool);
 
 	if (m_err)
 	{
@@ -64,11 +64,10 @@ SVNStatus::SVNStatus(void)
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
-		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx->config, SVN_CONFIG_CATEGORY_CONFIG,
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
-	//SVN::UseIEProxySettings(ctx.config);
 #endif
 }
 
@@ -140,9 +139,7 @@ stdstring SVNStatus::GetLastErrorMsg()
 //static method
 svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive)
 {
-	//svn_auth_baton_t *			auth_baton;
-	svn_client_ctx_t 			ctx;
-	//apr_hash_t *				statushash;
+	svn_client_ctx_t * 			ctx;
 	svn_wc_status_kind			statuskind;
 	apr_pool_t *				pool;
 	svn_error_t *				err;
@@ -159,7 +156,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive
 	svn_utf_cstring_to_utf8(&deststr, "dummy", pool);
 	svn_utf_cstring_from_utf8(&deststr, "dummy", pool);
 
-	memset (&ctx, 0, sizeof (ctx));
+	svn_client_create_context(&ctx, pool);
 
 	svn_revnum_t youngest = SVN_INVALID_REVNUM;
 	svn_opt_revision_t rev;
@@ -175,7 +172,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive
 							FALSE,		//update
 							TRUE,		//noignore
 							FALSE,		//ignore externals
-							&ctx,
+							ctx,
 							pool);
 
 	// Error present
@@ -261,7 +258,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 							update,		//update
 							noignore,		//noignore
 							noexternals,
-							&ctx,
+							ctx,
 							m_pool);
 
 
@@ -305,7 +302,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 							update,		//update
 							TRUE,		//noignore
 							FALSE,		//noexternals
-							&ctx,
+							ctx,
 							m_pool);
 
 

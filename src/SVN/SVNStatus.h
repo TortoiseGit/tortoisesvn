@@ -185,7 +185,7 @@ private:
 		apr_hash_t *	hash;
 	} hash_baton_t;
 
-	svn_client_ctx_t 			ctx;
+	svn_client_ctx_t * 			ctx;
 	svn_wc_status_kind			m_allstatus;	///< used by GetAllStatus and GetAllStatusRecursive
 	svn_error_t *				m_err;			///< Subversion error baton
 
