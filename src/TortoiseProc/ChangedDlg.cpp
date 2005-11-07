@@ -30,6 +30,7 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	, m_bShowUnversioned(FALSE)
 	, m_iShowUnmodified(0)
 	, m_bBlock(FALSE)
+	, m_bCanceled(false)
 {
 	m_bRemote = FALSE;
 }
@@ -59,7 +60,6 @@ BOOL CChangedDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 	
 	GetWindowText(m_sTitle);
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
 
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
@@ -70,7 +70,8 @@ BOOL CChangedDlg::OnInitDialog()
 						SVNSLC_COLLOCK | SVNSLC_COLLOCKCOMMENT |
 						SVNSLC_COLAUTHOR | SVNSLC_COLAUTHOR |
 						SVNSLC_COLREVISION | SVNSLC_COLDATE, SVNSLC_POPALL, false);
-
+	m_FileListCtrl.SetCancelBool(&m_bCanceled);
+	
 	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -103,7 +104,8 @@ UINT CChangedDlg::ChangedStatusThreadEntry(LPVOID pVoid)
 UINT CChangedDlg::ChangedStatusThread()
 {
 	m_bBlock = TRUE;
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	m_bCanceled = false;
+	GetDlgItem(IDOK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
 	GetDlgItem(IDC_SHOWUNMODIFIED)->EnableWindow(FALSE);
@@ -130,11 +132,10 @@ UINT CChangedDlg::ChangedStatusThread()
 	}
 	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
 	SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	GetDlgItem(IDOK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
 	GetDlgItem(IDC_SHOWUNMODIFIED)->EnableWindow(TRUE);
@@ -144,14 +145,22 @@ UINT CChangedDlg::ChangedStatusThread()
 
 void CChangedDlg::OnOK()
 {
-	if (GetDlgItem(IDOK)->IsWindowEnabled())
-		__super::OnOK();
+	if (m_bBlock)
+	{
+		m_bCanceled = true;
+		return;
+	}
+	__super::OnOK();
 }
 
 void CChangedDlg::OnCancel()
 {
-	if (GetDlgItem(IDOK)->IsWindowEnabled())
-		__super::OnCancel();
+	if (m_bBlock)
+	{
+		m_bCanceled = true;
+		return;
+	}
+	__super::OnCancel();
 }
 
 void CChangedDlg::OnBnClickedCheckrepo()

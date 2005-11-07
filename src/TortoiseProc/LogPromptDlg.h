@@ -118,4 +118,5 @@ private:
 	static UINT		WM_AUTOLISTREADY;
 	int				m_nPopupPasteListCmd;
 	CHistoryDlg		m_HistoryDlg;
+	bool			m_bCancelled;
 };

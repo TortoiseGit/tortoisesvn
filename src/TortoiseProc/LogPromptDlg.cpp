@@ -101,6 +101,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLLOCK);
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
+	m_ListCtrl.SetCancelBool(&m_bCancelled);
+
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
 	m_cLogMessage.Init(m_ProjectProperties);
 	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -323,7 +325,8 @@ UINT CLogPromptDlg::StatusThread()
 	m_bBlock = TRUE;
 	m_bThreadRunning = TRUE;	// so the main thread knows that this thread is still running
 	m_bRunThread = TRUE;		// if this is set to FALSE, the thread should stop
-	GetDlgItem(IDCANCEL)->EnableWindow(false);
+	m_bCancelled = false;
+
 	GetDlgItem(IDOK)->EnableWindow(false);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(false);
 	GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_HIDE);
@@ -346,7 +349,6 @@ UINT CLogPromptDlg::StatusThread()
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-	GetDlgItem(IDCANCEL)->EnableWindow(true);
 	CString logmsg;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
 	if (m_ProjectProperties.nMinLogSize > logmsg.GetLength())
@@ -360,7 +362,6 @@ UINT CLogPromptDlg::StatusThread()
 	if (!success)
 	{
 		CMessageBox::Show(m_hWnd, m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
-		GetDlgItem(IDCANCEL)->EnableWindow(true);
 		m_bBlock = FALSE;
 		SetTimer(ENDDIALOGTIMER, 100, NULL);
 		return (DWORD)-1;
@@ -368,7 +369,6 @@ UINT CLogPromptDlg::StatusThread()
 	if ((m_ListCtrl.GetItemCount()==0)&&(!m_ListCtrl.HasUnversionedItems()))
 	{
 		CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
-		GetDlgItem(IDCANCEL)->EnableWindow(true);
 		m_bRunThread = FALSE;
 		m_bThreadRunning = FALSE;
 		SetTimer(ENDDIALOGTIMER, 100, NULL);
@@ -387,7 +387,6 @@ UINT CLogPromptDlg::StatusThread()
 			}
 			else
 			{
-				GetDlgItem(IDCANCEL)->EnableWindow(true);
 				m_bRunThread = FALSE;
 				m_bThreadRunning = FALSE;
 				SetTimer(ENDDIALOGTIMER, 100, NULL);
@@ -425,7 +424,8 @@ UINT CLogPromptDlg::StatusThread()
 }
 
 void CLogPromptDlg::OnCancel()
-{ 
+{
+	m_bCancelled = true;
 	if (m_bBlock)
 		return;
 	if (m_bThreadRunning)

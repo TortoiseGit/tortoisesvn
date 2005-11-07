@@ -67,5 +67,6 @@ private:
 	int				m_iShowUnmodified;
 	BOOL			m_bBlock;
 	CString			m_sTitle;
+	bool			m_bCanceled;
 };
 
