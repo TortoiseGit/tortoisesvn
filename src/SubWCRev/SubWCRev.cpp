@@ -428,6 +428,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	apr_initialize();
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 	memset (&ctx, 0, sizeof (ctx));
+	
+	if (getenv ("SVN_ASP_DOT_NET_HACK"))
+	{
+		svn_wc_set_adm_dir ("_svn", pool);
+	}
 
 	char *wc_utf8;
 	wc_utf8 = Utf16ToUtf8(wc, pool);
