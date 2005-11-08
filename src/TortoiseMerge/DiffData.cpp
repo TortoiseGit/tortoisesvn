@@ -323,7 +323,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 						if (s1 != s2)
 						{
 							m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
-							m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+							m_arLinesYourBaseBoth.Add(yourline);
 							m_arDiffYourBaseBoth.Add(sCurrentYourLine);
 							m_arStateYourBaseBoth.Add(DIFFSTATE_ADDEDWHITESPACE);
 							m_arLinesYourBaseBoth.Add(yourline);
@@ -337,7 +337,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 					else if (dwIgnoreWS == 0)
 					{
 						m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
-						m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+						m_arLinesYourBaseBoth.Add(yourline);
 						m_arDiffYourBaseBoth.Add(sCurrentYourLine);
 						m_arStateYourBaseBoth.Add(DIFFSTATE_ADDEDWHITESPACE);
 						m_arLinesYourBaseBoth.Add(yourline);
@@ -359,7 +359,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 			{
 				m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
 				m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVED);
-				m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
+				m_arLinesYourBaseBoth.Add(yourline);
 			}
 			baseline++;
 		}
@@ -448,7 +448,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				{
 					m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline++));
 					m_arStateYourBaseLeft.Add(DIFFSTATE_REMOVED);
-					m_arLinesYourBaseLeft.Add(DIFF_EMPTYLINENUMBER);
+					m_arLinesYourBaseLeft.Add(baseline-1);
 					m_arStateYourBaseRight.Add(DIFFSTATE_ADDED);
 					m_arLinesYourBaseRight.Add(yourline-1);
 				}
@@ -460,7 +460,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				{
 					m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline++));
 					m_arStateYourBaseLeft.Add(DIFFSTATE_REMOVED);
-					m_arLinesYourBaseLeft.Add(DIFF_EMPTYLINENUMBER);
+					m_arLinesYourBaseLeft.Add(baseline-1);
 					m_arDiffYourBaseRight.Add(_T(""));
 					m_arStateYourBaseRight.Add(DIFFSTATE_EMPTY);
 					m_arLinesYourBaseRight.Add(DIFF_EMPTYLINENUMBER);
@@ -501,6 +501,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 	LONG baseline = 0;
 	LONG yourline = 0;
 	LONG theirline = 0;
+	LONG resline = 0;
 	while (tempdiff)
 	{
 		if (tempdiff->type == svn_diff__type_common)
@@ -510,7 +511,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				m_arDiff3.Add(m_arBaseFile.GetAt(baseline));
 				m_arStateDiff3.Add(DIFFSTATE_NORMAL);
-				m_arLinesDiff3.Add(baseline);
+				m_arLinesDiff3.Add(resline);
 				m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
 				m_arStateYourBaseBoth.Add(DIFFSTATE_NORMAL);
 				m_arLinesYourBaseBoth.Add(yourline);
@@ -520,6 +521,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				baseline++;
 				yourline++;
 				theirline++;
+				resline++;
 			} // iff->original_length; i++)
 		} // if (tempdiff->type == svn_diff__type_common)
 		else if (tempdiff->type == svn_diff__type_diff_common)
@@ -543,7 +545,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				m_arDiff3.Add(m_arYourFile.GetAt(yourline));
 				m_arStateDiff3.Add(DIFFSTATE_IDENTICALADDED);
-				m_arLinesDiff3.Add(yourline);
+				m_arLinesDiff3.Add(resline);
 				m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
 				m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALADDED);
 				m_arLinesYourBaseBoth.Add(yourline);
@@ -552,6 +554,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				m_arLinesTheirBaseBoth.Add(theirline);
 				yourline++;
 				theirline++;
+				resline++;
 			} // iff->original_length; i++)
 		}
 		else if (tempdiff->type == svn_diff__type_conflict)
@@ -672,7 +675,8 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				{
 					m_arDiff3.Add(_T("--- Unresolved Conflict!! ---"));
 					m_arStateDiff3.Add(DIFFSTATE_CONFLICTED);
-					m_arLinesDiff3.Add(DIFF_EMPTYLINENUMBER);
+					m_arLinesDiff3.Add(resline);
+					resline++;
 				}
 
 				if (latest)
@@ -735,7 +739,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				m_arLinesYourBaseBoth.Add(yourline);
 				m_arDiffTheirBaseBoth.Add(m_arBaseFile.GetAt(baseline));
 				m_arStateTheirBaseBoth.Add(DIFFSTATE_THEIRSREMOVED);
-				m_arLinesTheirBaseBoth.Add(baseline);
+				m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
 				baseline++;
 				yourline++;
 			}
@@ -744,7 +748,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				m_arDiff3.Add(m_arTheirFile.GetAt(theirline));
 				m_arStateDiff3.Add(DIFFSTATE_THEIRSADDED);
-				m_arLinesDiff3.Add(theirline);
+				m_arLinesDiff3.Add(resline);
 				m_arDiffYourBaseBoth.Add(_T(""));
 				m_arStateYourBaseBoth.Add(DIFFSTATE_EMPTY);
 				m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
@@ -752,6 +756,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				m_arStateTheirBaseBoth.Add(DIFFSTATE_THEIRSADDED);
 				m_arLinesTheirBaseBoth.Add(theirline);
 				theirline++;
+				resline++;
 			}
 		}
 		else if (tempdiff->type == svn_diff__type_diff_latest)
@@ -762,7 +767,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				m_arDiff3.Add(m_arBaseFile.GetAt(baseline));
 				m_arStateDiff3.Add(DIFFSTATE_YOURSREMOVED);
-				m_arLinesDiff3.Add(DIFFSTATE_EMPTY);
+				m_arLinesDiff3.Add(DIFF_EMPTYLINENUMBER);
 				m_arDiffYourBaseBoth.Add(m_arBaseFile.GetAt(baseline));
 				m_arStateYourBaseBoth.Add(DIFFSTATE_YOURSREMOVED);
 				m_arLinesYourBaseBoth.Add(DIFF_EMPTYLINENUMBER);
@@ -776,7 +781,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			{
 				m_arDiff3.Add(m_arYourFile.GetAt(yourline));
 				m_arStateDiff3.Add(DIFFSTATE_YOURSADDED);
-				m_arLinesDiff3.Add(yourline);
+				m_arLinesDiff3.Add(resline);
 				m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
 				m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALADDED);
 				m_arLinesYourBaseBoth.Add(yourline);
@@ -784,6 +789,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 				m_arStateTheirBaseBoth.Add(DIFFSTATE_EMPTY);
 				m_arLinesTheirBaseBoth.Add(DIFF_EMPTYLINENUMBER);
 				yourline++;
+				resline++;
 			}
 		}
 		else
