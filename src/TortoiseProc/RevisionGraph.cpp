@@ -334,7 +334,10 @@ bool CRevisionGraph::BuildForwardCopies()
 				switch (val->action)
 				{
 				case 'A':
-					action = CRevisionEntry::added;
+					if (val->copyfrom_path)
+						action = CRevisionEntry::addedwithhistory;
+					else
+						action = CRevisionEntry::added;
 					break;
 				case 'D':
 					action = CRevisionEntry::deleted;
@@ -410,6 +413,8 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 				// we have an entry
 				if (IsParentOrItself(reventry->url, url))
 				{
+					if ((bDeleted)&&(strcmp(reventry->url, url)!=0))
+						continue;
 					bDeleted = false;
 					reventry->level = m_nRecurseLevel;
 					if (reventry->action == CRevisionEntry::deleted)
@@ -433,6 +438,8 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 						// IsParentOrItself, that still doesn't mean that
 						// *our* entry was deleted. It may be another entry
 						// which was copied there with the same name
+						TRACELEVELSPACE;
+						TRACE(_T("%s deleted in revision %ld\n"), (LPCTSTR)CString(url), currentrev);
 						CStringA child = url.Mid(strlen(reventry->url));
 						if (!child.IsEmpty())
 						{
@@ -447,11 +454,15 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 					{
 						reventry->bUsed = true;
 					}
-					CStringA child = url.Mid(strlen(reventry->url));
-					if (!child.IsEmpty())
+					CStringA child;
+					if (reventry->action != CRevisionEntry::added)
 					{
-						child = child.Mid(child.ReverseFind('/'));
-						reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
+						child = url.Mid(strlen(reventry->url));
+						if (!child.IsEmpty())
+						{
+							child = child.Mid(child.ReverseFind('/'));
+							reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
+						}
 					}
 					// and the entry is for us
 					reventry->bUsed = true;
@@ -525,7 +536,7 @@ CRevisionEntry * CRevisionGraph::GetRevisionEntry(const char * path, svn_revnum_
 				// urls didn't match!
 				// check if the url has been renamed in this revision, and if
 				// yes, return this entry anyway
-				if (rentry->action == CRevisionEntry::added)
+				if (rentry->action == CRevisionEntry::addedwithhistory)
 				{
 					for (INT_PTR j=0; j<rentry->sourcearray.GetCount(); ++j)
 					{
@@ -626,11 +637,15 @@ bool CRevisionGraph::Cleanup(CStringA url)
 			CRevisionEntry * preventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(j);
 			if ((reventry->level == preventry->level)&&(strcmp(reventry->url, preventry->url)==0))
 			{
+				// if an entry is added, then we don't connect anymore
+				if ((preventry->action == CRevisionEntry::added)||(preventry->action == CRevisionEntry::addedwithhistory))
+					break;
 				// same level and url, now connect those two
 				// but first check if they're not already connected!
 				BOOL bConnected = FALSE;
 				if ((reventry->action != CRevisionEntry::deleted)&&
 					(preventry->action != CRevisionEntry::added)&&
+					(preventry->action != CRevisionEntry::addedwithhistory)&&
 					(preventry->action != CRevisionEntry::replaced))
 				{
 					for (INT_PTR k=0; k<reventry->sourcearray.GetCount(); ++k)

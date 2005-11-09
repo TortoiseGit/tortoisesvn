@@ -583,6 +583,7 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 			DestroyIcon(hIcon);
 			break;
 		case CRevisionEntry::added:
+		case CRevisionEntry::addedwithhistory:
 			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_COPY), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
 			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::AddedNode), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			DestroyIcon(hIcon);

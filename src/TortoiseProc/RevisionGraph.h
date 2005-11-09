@@ -51,6 +51,7 @@ public:
 		modified,
 		deleted,
 		added,
+		addedwithhistory,
 		renamed,
 		replaced
 	};
