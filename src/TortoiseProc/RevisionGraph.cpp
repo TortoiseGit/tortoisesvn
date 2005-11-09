@@ -281,6 +281,7 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 	// from lower to higher revisions
 	
 	CStringA realurl = url;
+	svn_revnum_t initialrev = 0;
 	for (svn_revnum_t currentrev = m_lHeadRevision; currentrev > 0; --currentrev)
 	{
 		log_entry * logentry = APR_ARRAY_IDX(m_logdata, m_lHeadRevision-currentrev, log_entry*);
@@ -301,12 +302,14 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 						realurl = val->copyfrom_path;
 						realurl += child;
 					}
+					else if (strcmp(key, realurl)==0)
+						initialrev = logentry->rev;
 				}
 			}
 		}
 	}
 	
-	if (AnalyzeRevisions(realurl, 0))
+	if (AnalyzeRevisions(realurl, initialrev))
 	{
 		return Cleanup(realurl);
 	}
