@@ -446,7 +446,6 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 						CStringA child = url.Mid(strlen(reventry->url));
 						if (!child.IsEmpty())
 						{
-							child = child.Mid(child.ReverseFind('/'));
 							reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
 						}
 						reventry->bUsed = true;
@@ -463,7 +462,6 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 						child = url.Mid(strlen(reventry->url));
 						if (!child.IsEmpty())
 						{
-							child = child.Mid(child.ReverseFind('/'));
 							reventry->url = apr_pstrcat(pool, reventry->url, (LPCSTR)child, NULL);
 						}
 					}
