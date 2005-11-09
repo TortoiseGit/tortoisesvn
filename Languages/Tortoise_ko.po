@@ -235,7 +235,7 @@ msgstr "수정한 사람 보기(&B)..."
 # ID:138,
 #: ID:138
 msgid "&Browse repository"
-msgstr "저장소 보기(&B)"
+msgstr "이 리비전의 저장소 보기(&B)"
 
 # Control-ID:1011,
 #: Control-ID:1011
@@ -284,7 +284,7 @@ msgstr "리비전 비교(&C)"
 # Control-ID:1019,
 #: Control-ID:1019
 msgid "&Compare whitespaces"
-msgstr "공백들을 비교(&C)"
+msgstr "공백도 비교(&C)"
 
 # ID:9,
 #: Control-ID:1227
@@ -463,7 +463,7 @@ msgstr "%d 개 무시(&I)"
 # Control-ID:1020,
 #: Control-ID:1020
 msgid "&Ignore leading whitespaces"
-msgstr "앞부분의 공백문자 무시(&I)"
+msgstr "앞부분의 공백 무시(&I)"
 
 # ID:9,
 #: ID:9
@@ -543,7 +543,7 @@ msgstr "열기(&O)"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
-msgstr "열기(&O) Ctrl-O"
+msgstr "열기(&O)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -586,7 +586,7 @@ msgstr "이름 바꾸기(&R)"
 # ID:113,
 #: ID:113
 msgid "&Revert changes from this revision"
-msgstr "이 리비전으로 되돌림(&R)"
+msgstr "이 리비전의 변경 내역을 되돌림(&R)"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -729,7 +729,7 @@ msgstr "업데이트(&U)"
 # ID:76,
 #: ID:76
 msgid "&Update item to revision"
-msgstr "리비전으로 업데이트(&U)"
+msgstr "이 리비전으로 업데이트(&U)"
 
 # ID:11,
 #: ID:11
@@ -1517,7 +1517,7 @@ msgstr "변경되었습니다. (자세한 사항은 더블 클릭):"
 # ID:8,
 #: ID:8
 msgid "Chec&kout..."
-msgstr "체크아웃(&K)..."
+msgstr "이 리비전 체크아웃(&K)..."
 
 # ID:3887,#:
 # ID:3887,
@@ -1697,7 +1697,7 @@ msgstr "HEAD 리비전 비교(&H)"
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
-msgstr "리비전 비교(&w)"
+msgstr "작업사본과 비교(&W)"
 
 # ID:138,
 #: ID:138
@@ -2603,7 +2603,7 @@ msgid ""
 "Go to the next difference\n"
 "next difference"
 msgstr ""
-"다음 차이점으로 돌아감\n"
+"다음 차이점으로 이동\n"
 "다음 차이"
 
 # ID:2049,
@@ -2612,8 +2612,8 @@ msgid ""
 "Go to the previous conflict\n"
 "previous conflict"
 msgstr ""
-"이전 차이점으로 돌아감\n"
-"이전 차이"
+"이전 충돌지점으로 이동\n"
+"이전 충돌"
 
 # ID:2049,
 #: ID:2049
@@ -2621,7 +2621,7 @@ msgid ""
 "Go to the previous difference\n"
 "previous difference"
 msgstr ""
-"이전 차이점으로 돌아감\n"
+"이전 차이점으로 이동\n"
 "이전 차이"
 
 # Control-ID:1134,
@@ -2735,12 +2735,12 @@ msgstr "무시"
 # Control-ID:1021,
 #: Control-ID:1021
 msgid "Ignore &all whitespaces"
-msgstr "모든 공백문자 무시(&A)"
+msgstr "모든 공백 무시(&A)"
 
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Ignore &case changes"
-msgstr "대소문자을 무시합니다(&C)."
+msgstr "대/소문자를 구분하지 않음(&C)"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -3385,7 +3385,7 @@ msgstr "파일 열기"
 # ID:9,
 #: ID:113
 msgid "Open with..."
-msgstr "수동 열기..."
+msgstr "다른 프로그램으로 열기..."
 
 # ID:3605,
 #: ID:3605
@@ -3923,7 +3923,7 @@ msgstr "재시도"
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
-msgstr "이 리비전에서 바뀐 부분을 원상태로 되돌립니다."
+msgstr "이 리비전에서 바뀐 부분을 원상태로 되돌림"
 
 # ID:8,#:
 # ID:73,#:
@@ -5220,7 +5220,7 @@ msgstr "TortoiseSVN : 되돌림"
 # ID:75,
 #: Dlg-ID:182
 msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN: 리비전 그래프"
+msgstr "TortoiseSVN : 리비전 그래프"
 
 # ID:80,
 #: Dlg-ID:173
@@ -5361,7 +5361,7 @@ msgstr "TortoiseSVN 설정 변경"
 
 #: MenuEntry
 msgid "Two-way &Diff"
-msgstr "단일 윈도우에서 비교(&D)"
+msgstr "창을 나누어 비교(&D)"
 
 # ID:12,
 #: ID:12
@@ -5525,7 +5525,7 @@ msgstr "위치 막대에서 돋보기 사용(&M)"
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr "단일 윈도우 보기를 기본 값으로 사용(&O)"
+msgstr "두 파일 비교시 기본값으로 같은 창으로 비교(&O)"
 
 # ID:251,
 #: ID:251
