@@ -28,6 +28,7 @@
 TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];			// the main window class name
 TCHAR szOrigFilename[MAX_PATH];
+TCHAR searchstringnotfound[MAX_LOADSTRING];
 
 const bool ShowDate = false;
 const bool ShowAuthor = true;
@@ -280,26 +281,52 @@ void TortoiseBlame::StartSearch()
 	fr.hwndOwner = wMain;
 	fr.lpstrFindWhat = szFindWhat;
 	fr.wFindWhatLen = 80;
-	fr.Flags = FR_HIDEUPDOWN | FR_HIDEMATCHCASE | FR_HIDEWHOLEWORD;
+	fr.Flags = FR_HIDEUPDOWN | FR_HIDEWHOLEWORD;
 
 	currentDialog = FindText(&fr);
 }
 
-bool TortoiseBlame::DoSearch(LPSTR what, DWORD /*flags*/)
+bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 {
 	int pos = SendEditor(SCI_GETCURRENTPOS);
 	int line = SendEditor(SCI_LINEFROMPOSITION, pos);
 	bool bFound = false;
+	bool bCaseSensitive = !!(flags & FR_MATCHCASE);
+
+	if(!bCaseSensitive)
+	{
+		char *p;
+		size_t len = strlen(what);
+		for (p = what; p < what + len; p++)
+		{
+			if (isupper(*p)&&__isascii(*p))
+				*p = _tolower(*p);
+		}
+	}
+
 	std::string sWhat = std::string(what);
+	
 	char buf[20];
 	int i=0;
 	for (i=line; (i<(int)authors.size())&&(!bFound); ++i)
 	{
 		int bufsize = SendEditor(SCI_GETLINE, i);
 		char * linebuf = new char[bufsize+1];
+		ZeroMemory(linebuf, bufsize+1);
 		SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
+		if (!bCaseSensitive)
+		{
+			char *p;
+			for (p = linebuf; p < linebuf + bufsize; p++)
+			{
+				if (isupper(*p)&&__isascii(*p))
+					*p = _tolower(*p);
+			}
+		}
 		_stprintf(buf, _T("%ld"), revs[i]);
 		if (authors[i].compare(sWhat)==0)
+			bFound = true;
+		else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), what)==0))
 			bFound = true;
 		else if (strcmp(buf, what) == 0)
 			bFound = true;
@@ -313,9 +340,21 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD /*flags*/)
 		{
 			int bufsize = SendEditor(SCI_GETLINE, i);
 			char * linebuf = new char[bufsize+1];
+			ZeroMemory(linebuf, bufsize+1);
 			SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
+			if (!bCaseSensitive)
+			{
+				char *p;
+				for (p = linebuf; p < linebuf + bufsize; p++)
+				{
+					if (isupper(*p)&&__isascii(*p))
+						*p = _tolower(*p);
+				}
+			}
 			_stprintf(buf, _T("%ld"), revs[i]);
 			if (authors[i].compare(sWhat)==0)
+				bFound = true;
+			else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), what)==0))
 				bFound = true;
 			else if (strcmp(buf, what) == 0)
 				bFound = true;
@@ -333,6 +372,10 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD /*flags*/)
 		SendEditor(SCI_SETSELECTIONSTART, selstart);
 		SendEditor(SCI_SETSELECTIONEND, selend);
 		m_SelectedLine = i;
+	}
+	else
+	{
+		::MessageBox(wMain, searchstringnotfound, "TortoiseBlame", MB_ICONINFORMATION);
 	}
 	return true;
 }
@@ -598,6 +641,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	// Initialize global strings
 	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
 	LoadString(hInstance, IDC_TORTOISEBLAME, szWindowClass, MAX_LOADSTRING);
+	LoadString(hInstance, IDS_SEARCHNOTFOUND, searchstringnotfound, MAX_LOADSTRING);
 	MyRegisterClass(hInstance);
 	MyRegisterBlameClass(hInstance);
 	MyRegisterHeaderClass(hInstance);
