@@ -31,6 +31,8 @@
        See issue #172. (Stefan)
 - CHG: Ctrl-click expands the whole tree in the repository browser. (Stefan)
 - CHG: Improved the revision graph. See issue #173. (Stefan)
+- CHG: Better selecting of nodes in the revision graph. 
+       See issue #185. (Stefan
 - BUG: When files were added to the ignore list, a choice of 
        File.ext or *.ext is given. If the *.ext is chosen the dialog 
        box told that File.ext was successfully added instead of *.ext. (Stefan)

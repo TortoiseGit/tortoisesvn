@@ -543,6 +543,10 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	memDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
 	memDC->SetBkMode(TRANSPARENT);
 
+	for (int rectcounter = 0; rectcounter < m_arEntryPtrs.GetCount(); ++rectcounter)
+	{
+		((CRevisionEntry*)m_arEntryPtrs[rectcounter])->drawrect = CRect(0,0,0,0);
+	}
 	// find out which nodes are in the visible area of the client rect
 	INT_PTR i = 0;
 	INT_PTR end = 0;
@@ -1219,6 +1223,7 @@ void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 
 void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
+	ATLTRACE("right clicked on x=%d y=%d\n", point.x, point.y);
 	bool bHit = false;
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
@@ -1228,18 +1233,34 @@ void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
 		{
 			if (bControl)
 			{
-				if (m_SelectedEntry1)
+				if (m_SelectedEntry1 == reventry)
+				{
+					if (m_SelectedEntry2)
+					{
+						m_SelectedEntry1 = m_SelectedEntry2;
+						m_SelectedEntry2 = NULL;
+					}
+					else
+						m_SelectedEntry1 = NULL;
+				}
+				else if (m_SelectedEntry2 == reventry)
+					m_SelectedEntry2 = NULL;
+				else if (m_SelectedEntry1)
 					m_SelectedEntry2 = reventry;
 				else
 					m_SelectedEntry1 = reventry;
 			}
 			else
 			{
-				m_SelectedEntry1 = reventry;
+				if (m_SelectedEntry1 == reventry)
+					m_SelectedEntry1 = NULL;
+				else
+					m_SelectedEntry1 = reventry;
 				m_SelectedEntry2 = NULL;
 			}
 			bHit = true;
 			Invalidate();
+			break;
 		}
 	}
 	if ((!bHit)&&(!bControl))
@@ -1652,6 +1673,36 @@ BOOL CRevisionGraphDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
 void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
+	CRevisionEntry * clickedentry = NULL;
+	CPoint clientpoint = point;
+	this->ScreenToClient(&clientpoint);
+	ATLTRACE("right clicked on x=%d y=%d\n", clientpoint.x, clientpoint.y);
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		if (reventry->drawrect.PtInRect(clientpoint))
+		{
+			clickedentry = reventry;
+			break;
+		}
+	}
+	if ((m_SelectedEntry1 == NULL)&&(clickedentry == NULL))
+		return;
+	if (m_SelectedEntry1 == NULL)
+	{
+		m_SelectedEntry1 = clickedentry;
+		Invalidate();
+	}
+	if ((m_SelectedEntry2 == NULL)&&(clickedentry != m_SelectedEntry1))
+	{
+		m_SelectedEntry1 = clickedentry;
+		Invalidate();
+	}
+	if (m_SelectedEntry1 && m_SelectedEntry2)
+	{
+		if ((m_SelectedEntry2 != clickedentry)&&(m_SelectedEntry1 != clickedentry))
+			return;
+	}
 	if (m_SelectedEntry1 == NULL)
 		return;
 	CMenu popup;
