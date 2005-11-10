@@ -1220,26 +1220,29 @@ void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	bool bHit = false;
+	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
 		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
 		if (reventry->drawrect.PtInRect(point))
 		{
-			if (m_SelectedEntry1 == reventry)
-				m_SelectedEntry1 = NULL;
-			else if (m_SelectedEntry2 == reventry)
-				m_SelectedEntry2 = NULL;
-			else if (m_SelectedEntry1 == 0)
-				m_SelectedEntry1 = reventry;
-			else if (m_SelectedEntry2 == 0)
-				m_SelectedEntry2 = reventry;
+			if (bControl)
+			{
+				if (m_SelectedEntry1)
+					m_SelectedEntry2 = reventry;
+				else
+					m_SelectedEntry1 = reventry;
+			}
 			else
-				m_SelectedEntry2 = reventry;
+			{
+				m_SelectedEntry1 = reventry;
+				m_SelectedEntry2 = NULL;
+			}
 			bHit = true;
 			Invalidate();
 		}
 	}
-	if (!bHit)
+	if ((!bHit)&&(!bControl))
 	{
 		m_SelectedEntry1 = NULL;
 		m_SelectedEntry2 = NULL;
