@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-30 12:34-0300\n"
+"PO-Revision-Date: 2005-11-10 20:11-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -164,7 +164,7 @@ msgstr "%s : Cópia de Trabalho"
 
 # ID:357,
 #: ID:357
-#, fuzzy, c-format
+#, c-format
 msgid "%s, at %s"
 msgstr "%s, em %s"
 
@@ -222,9 +222,8 @@ msgstr "Fechar &automaticamente:"
 
 # Control-ID:1015,
 #: Control-ID:1015
-#, fuzzy
 msgid "&Backup original file"
-msgstr "Fazer backup do arquivo original"
+msgstr "Fazer &backup do arquivo original"
 
 # Control-ID:1128,
 #: Control-ID:1128
@@ -238,7 +237,6 @@ msgstr "&Responsabilidade..."
 
 # ID:138,
 #: ID:138
-#, fuzzy
 msgid "&Browse repository"
 msgstr "&Navegar no Repositório"
 
@@ -272,7 +270,6 @@ msgstr "&Verificar Agora"
 
 # ID:8,
 #: ID:8
-#, fuzzy
 msgid "&Clean up"
 msgstr "&Limpar"
 
@@ -283,27 +280,24 @@ msgstr "&Submeter..."
 
 # ID:76,
 #: MenuEntry
-#, fuzzy
 msgid "&Compare revisions"
 msgstr "&Comparar Revisões"
 
 # Control-ID:1019,
 #: Control-ID:1019
-#, fuzzy
 msgid "&Compare whitespaces"
-msgstr "Comparar Espaços em Branco"
+msgstr "&Comparar Espaços em Branco"
 
 # Control-ID:65535,
 #: Control-ID:1227
 #, fuzzy
 msgid "&Contact the repository on startup"
-msgstr "Contatar o repositório ao iniciar"
+msgstr "&Contatar o repositório ao iniciar"
 
 # Control-ID:1073,
 #: Control-ID:1073
-#, fuzzy
 msgid "&Convert files when diffing against BASE"
-msgstr "Converter arquivos ao comparar com a BASE"
+msgstr "&Converter arquivos ao comparar com a BASE"
 
 # ID:376,
 #: MenuEntry
@@ -312,7 +306,6 @@ msgstr "&Copiar"
 
 # ID:101,
 #: ID:101
-#, fuzzy
 msgid "&Copy to..."
 msgstr "&Copiar Para..."
 
@@ -337,7 +330,6 @@ msgstr "&Comparar"
 
 # Control-ID:1061,
 #: Control-ID:1179
-#, fuzzy
 msgid "&Dry run"
 msgstr "&Simulação"
 
@@ -349,7 +341,6 @@ msgstr "&Editar"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "&Edit conflicts"
 msgstr "&Editar Conflitos"
 
@@ -365,9 +356,8 @@ msgstr "Habilitar S&ervidor Proxy"
 
 # Control-ID:1213,
 #: Control-ID:1213
-#, fuzzy
 msgid "&Enter a message describing why you lock the file(s)."
-msgstr "Digite uma mensagem descrevendo por que você está travando o(s) arquivo(s)."
+msgstr "&Digite uma mensagem descrevendo por que você está travando o(s) arquivo(s)."
 
 # Control-ID:1031,
 #: MenuEntry
@@ -396,9 +386,8 @@ msgstr "Unidades &Fixas"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "&Font for log messages:"
-msgstr "Fonte para mensagens de log:"
+msgstr "&Fonte para mensagens de log:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -433,15 +422,13 @@ msgstr "&Revisão Mais Recente"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
-#, fuzzy
 msgid "&HEAD revision"
 msgstr "&Revisão Mais Recente"
 
 # ID:12,
 #: Control-ID:1182
-#, fuzzy
 msgid "&HEAD revision in the repository"
-msgstr "Revisão HEAD no repositório"
+msgstr "&Revisão Mais recente no repositório"
 
 # Control-ID:57670,#:
 # MenuEntry#:
@@ -470,9 +457,8 @@ msgstr "&Histórico"
 
 # Control-ID:1170,
 #: Control-ID:1170
-#, fuzzy
 msgid "&Icon Set:"
-msgstr "Conjunto de Ícones:"
+msgstr "&Conjunto de Ícones:"
 
 # Control-ID:1021,
 #: ID:15
@@ -482,9 +468,8 @@ msgstr "&Ignorar %d itens"
 
 # Control-ID:1020,
 #: Control-ID:1020
-#, fuzzy
 msgid "&Ignore leading whitespaces"
-msgstr "Ignorar Espaços em Branco à Esquerda"
+msgstr "&Ignorar Espaços em Branco à Esquerda"
 
 # ID:9,
 #: ID:9
@@ -493,9 +478,8 @@ msgstr "&Importar..."
 
 # Control-ID:1016,
 #: Control-ID:1016
-#, fuzzy
 msgid "&Jump to first difference when loading"
-msgstr "Saltar para a primeira diferença ao carregar"
+msgstr "&Saltar para a primeira diferença ao carregar"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -504,9 +488,8 @@ msgstr "&Linguagem:"
 
 # ID:188,
 #: Control-ID:1172
-#, fuzzy
 msgid "&List View"
-msgstr "Visão de Lista"
+msgstr "Visão de &Lista"
 
 #: MenuEntry
 msgid "&Mark as resolved"
@@ -529,9 +512,8 @@ msgstr "&Combinando"
 
 # Control-ID:1129,
 #: Control-ID:1129
-#, fuzzy
 msgid "&Native filesystem (FSFS)"
-msgstr "Sistema de Arquivos Nativo (FSFS)"
+msgstr "Sistema de Arquivos &Nativo (FSFS)"
 
 # Control-ID:1049,
 #: Control-ID:1049
@@ -656,9 +638,8 @@ msgstr "&Preferências"
 
 # Control-ID:1185,
 #: Control-ID:1185
-#, fuzzy
 msgid "&Specific revision in repository"
-msgstr "Revisão específica no repositório"
+msgstr "&Revisão específica no repositório"
 
 #: MenuEntry
 msgid "&Status Bar"
@@ -666,15 +647,13 @@ msgstr "&Barra de Status"
 
 # Control-ID:1211,
 #: Control-ID:1211
-#, fuzzy
 msgid "&Steal the locks"
-msgstr "Roubar as travas"
+msgstr "&Roubar as travas"
 
 # Control-ID:1130,
 #: Control-ID:1130
-#, fuzzy
 msgid "&Stop on copy/rename"
-msgstr "Parar Na Cópia/Mudança de Nome"
+msgstr "&Parar na Cópia/Mudança de Nome"
 
 # Control-ID:1173,
 #: Control-ID:1173
@@ -684,9 +663,8 @@ msgstr "Visão de Símbolos"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "&Tab size:"
-msgstr "Tamanho da Tabulação:"
+msgstr "&Tamanho da Tabulação:"
 
 # Control-ID:1222,
 #: Control-ID:1222
@@ -731,9 +709,8 @@ msgstr "&URL do repositório:"
 # Control-ID:65535,#:
 # Control-ID:1076,
 #: Control-ID:1076
-#, fuzzy
 msgid "&URL:"
-msgstr "URL:"
+msgstr "&URL:"
 
 # ID:376,
 #: ID:376
@@ -746,7 +723,6 @@ msgstr "&Desfazer\tCtrl+Z"
 
 # Control-ID:65535,
 #: MenuEntry
-#, fuzzy
 msgid "&Unified diff"
 msgstr "Comparação &Unificada"
 
@@ -764,15 +740,13 @@ msgstr "&Atualizar"
 
 # ID:76,
 #: ID:76
-#, fuzzy
 msgid "&Update item to revision"
 msgstr "At&ualizar Item Para Revisão"
 
 # ID:11,
 #: ID:11
-#, fuzzy
 msgid "&Update to revision..."
-msgstr "&Atualizar para a Revisão..."
+msgstr "At&ualizar para a Revisão..."
 
 # Control-ID:1184,
 #: Control-ID:1184
@@ -798,9 +772,8 @@ msgstr "&Espaços em branco"
 
 # ID:151,
 #: Control-ID:1183
-#, fuzzy
 msgid "&Working copy"
-msgstr "Cópia de trabalho"
+msgstr "&Cópia de trabalho"
 
 # Control-ID:1061,
 #: ID:219
@@ -971,9 +944,8 @@ msgstr "So&bre"
 
 # ID:101,
 #: ID:101
-#, fuzzy
 msgid "A&dd folder..."
-msgstr "A&dicionar pasta..."
+msgstr "&A&dicionar pasta..."
 
 # ID:73,
 #: ID:73
@@ -992,15 +964,13 @@ msgstr "Sobre o TortoiseSVN"
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid "Accept once"
-msgstr "Aceitar Essa Vez"
+msgstr "Aceitar essa vez"
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid "Accept permanently"
-msgstr "Aceitar Permanentemente"
+msgstr "Aceitar permanentemente"
 
 # ID:3867,#:
 # ID:3867,
@@ -1028,7 +998,6 @@ msgstr "Adicionar"
 
 # ID:101,
 #: ID:101
-#, fuzzy
 msgid "Add &file..."
 msgstr "Adicionar &Arquivo..."
 
@@ -1040,7 +1009,6 @@ msgstr "Adicionar '%s' ao dicionário"
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "Add (as replacement)..."
 msgstr "Adicionar (como substituição)..."
 
@@ -1090,9 +1058,8 @@ msgstr "Itens adicionados remotamente"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Added node"
-msgstr "Adicionado"
+msgstr "Nó adicionado"
 
 # ID:13,
 #: ID:145
@@ -1306,13 +1273,11 @@ msgstr ""
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "Apply &patch..."
 msgstr "A&plicar Correção..."
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Apply unified diff"
 msgstr "Apicar Comparação Unificada"
 
@@ -1378,6 +1343,12 @@ msgstr ""
 "membros) a partir dos arquivos que você alterou conforme você\n"
 "digita uma mensagem de log."
 
+# ID:438,#:
+# ID:438,
+#: ID:438
+msgid "Automatic"
+msgstr "Automático"
+
 # ID:201,
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
@@ -1395,7 +1366,6 @@ msgstr "N&avegar..."
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Base file:"
 msgstr "Arquivo Base:"
 
@@ -1411,19 +1381,16 @@ msgstr "&Navegar..."
 
 # ID:115,
 #: ID:115
-#, fuzzy
 msgid "Branch / tag created successfully!"
 msgstr "Ramo / Rótulo criado com sucesso!"
 
 # ID:9,
 #: ID:9
-#, fuzzy
 msgid "Branch/&tag..."
 msgstr "Ramo/Ró&tulo..."
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "Break loc&k"
 msgstr "Quebrar &Trava"
 
@@ -1462,15 +1429,13 @@ msgstr "Bug-ID / Issue-Nr:"
 
 # ID:101,
 #: ID:101
-#, fuzzy
 msgid "C&reate folder..."
 msgstr "C&riar Pasta..."
 
 # ID:77,
 #: ID:77
-#, fuzzy
 msgid "C&reate tag from revision"
-msgstr "C&riar um Rótulo a Partir da Revisão"
+msgstr "C&riar um Rótulo a partir da revisão"
 
 # ID:3697,
 #: ID:3697
@@ -1578,13 +1543,11 @@ msgstr "Verificar Atualizações..."
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "Check for modi&fications"
 msgstr "Veri&ficar Alterações"
 
 # ID:13,
 #: Control-ID:65535
-#, fuzzy
 msgid "Check for modifications"
 msgstr "Veri&ficar Alterações"
 
@@ -1597,7 +1560,6 @@ msgstr "Obter uma cópia de trabalho do repositório"
 # Control-ID:1055,#:
 # Control-ID:65535,
 #: Control-ID:1132
-#, fuzzy
 msgid "Check repository"
 msgstr "Verificar Repositório"
 
@@ -3204,6 +3166,12 @@ msgstr "Misto"
 #: ID:74
 msgid "Modified"
 msgstr "Modificado"
+
+# ID:438,#:
+# ID:438,
+#: ID:438
+msgid "More colors..."
+msgstr "Mais cores..."
 
 # Control-ID:1136,
 #: Control-ID:1136
@@ -5104,6 +5072,16 @@ msgstr ""
 msgid "Thesaurus"
 msgstr "Sinônimos"
 
+# ID:83,
+#: ID:83
+#, fuzzy
+msgid ""
+"This is not a valid URL.\n"
+"Please enter an URL here."
+msgstr ""
+"Essa não é uma URL válida.\n"
+"Por favor, tente outra URL aqui."
+
 # ID:82,
 #: ID:82
 msgid ""
@@ -5231,48 +5209,41 @@ msgstr ""
 # ID:9,#:
 # ID:80,
 #: Dlg-ID:155
-#, fuzzy
 msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN"
+msgstr "TortoiseSVN : Adicionar"
 
 # ID:80,
 #: Dlg-ID:131
 #: Dlg-ID:160
-#, fuzzy
 msgid "TortoiseSVN : Authentication"
-msgstr "Configurações TortoiseSVN"
+msgstr "TortoiseSVN : Autenticação"
 
 # ID:9,#:
 # ID:80,
 #: Dlg-ID:162
-#, fuzzy
 msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN"
+msgstr "TortoiseSVN : Responsabilidade"
 
 # Dlg-ID:158,
 #: Dlg-ID:199
-#, fuzzy
 msgid "TortoiseSVN : Changed Files"
-msgstr "Arquivos Alterados"
+msgstr "TortoiseSVN : Arquivos alterados"
 
 # Dlg-ID:174,
 #: Dlg-ID:174
-#, fuzzy
 msgid "TortoiseSVN : Check For Updates"
-msgstr "Verificar Atualizações"
+msgstr "TortoiseSVN : Verificar Atualizações"
 
 # ID:9,#:
 # ID:80,
 #: Dlg-ID:133
-#, fuzzy
 msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN"
+msgstr "TortoiseSVN : Obter"
 
 # Dlg-ID:142,
 #: Dlg-ID:142
-#, fuzzy
 msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "Copiar (Ramo / Rótulo)"
+msgstr "TortoiseSVN : Copiar (Ramo / Rótulo)"
 
 # ID:80,
 #: Dlg-ID:208
@@ -5282,22 +5253,19 @@ msgstr "Configurações TortoiseSVN"
 
 # ID:8,
 #: Dlg-ID:178
-#, fuzzy
 msgid "TortoiseSVN : Create Repository"
-msgstr "Criar Repositório"
+msgstr "TortoiseSVN : Criar Repositório"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
-#, fuzzy
 msgid "TortoiseSVN : Enter Log Message"
-msgstr "Insira Mensagem de Log"
+msgstr "TortoiseSVN : Inserir Mensagem de Log"
 
 # ID:9,#:
 # ID:80,
 #: Dlg-ID:139
-#, fuzzy
 msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN"
+msgstr "TortoiseSVN : Importar"
 
 # ID:9,#:
 # ID:80,
@@ -5494,7 +5462,7 @@ msgstr "Total de alterações de arquivos:"
 
 # ID:357,
 #: ID:357
-#, fuzzy, c-format
+#, c-format
 msgid "Transferring at %s"
 msgstr "Transferindo a %s"
 
@@ -5920,10 +5888,13 @@ msgstr ""
 
 # ID:16,
 #: ID:16
+#, fuzzy
 msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr ""
+"Você modificou propriedades sem salvá-las primieiro.\n"
+"Deseja salvá-las agora?"
 
 # ID:251,
 #: ID:251
@@ -6242,8 +6213,9 @@ msgstr "pixels"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#, fuzzy
 msgid "possible or real conflict / obstructed"
-msgstr ""
+msgstr "conflito / obstrução possível ou real"
 
 # Control-ID:1018,
 #: Control-ID:1018
