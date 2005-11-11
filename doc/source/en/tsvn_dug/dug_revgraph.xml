@@ -63,14 +63,16 @@
 		deleted. Showing every revision of a project would generate an impossibly
 		large graph for non-trivial cases.
 		For this reason, simple project structures with no adds or deletes will
-		produce an empty revision graph.
+		produce an empty revision graph with the message
+		<literal>No graph available</literal>.
 	</para>
 	<para>
 		The revision date, author and comments are shown in a hint box whenever
 		the mouse hovers over a revision box.
 	</para>
 	<para>
-		If you select two revisions, you can use the context menu to show the
+		If you select two revisions (Use <action>Ctrl left click</action>),
+		you can use the context menu to show the
 		differences between these revisions. You can choose to show differences
 		as at the branch creation points, but usually you will want to show the
 		differences at the branch end points, i.e. at the HEAD revision.
@@ -85,6 +87,14 @@
 		you will be presented with a list of changed files.
 		<action>Double click</action> on a file name to fetch both revisions
 		of the file and compare them using the visual difference tool.
+	</para>
+	<para>
+		If you <action>right click</action> on a revision you can use
+		<menuchoice>
+			<guimenu>Context Menu</guimenu>
+			<guimenuitem>Show Log</guimenuitem>
+		</menuchoice>
+		to view the history.
 	</para>
 	<caution>
 		Because Subversion cannot provide all the information required,
