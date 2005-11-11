@@ -72,4 +72,14 @@
 		The revision comments are shown in a hint box whenever the mouse hovers over
 		the blame info column.
 	</para>
+	<para>
+		You can search within the Blame report using
+		<menuchoice>
+			<guimenu>Edit</guimenu>
+			<guimenuitem>Find...</guimenuitem>
+		</menuchoice>.
+		This allows you to search for revision numbers, authors and the content of
+		the file itself. Log messages are not included in the search - you should
+		use the Log Dialog to search those.
+	</para>
 </sect1>
