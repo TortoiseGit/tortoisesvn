@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-11-03 12:28GMT Standard Time\n"
+"POT-Creation-Date: 2005-11-11 23:11GMT Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1886,22 +1886,26 @@ msgid "All other items are shown using a plain rectangle."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_revgraph.xml:32(para) 
-msgid "The revision graph shows several types of node: <placeholder-1/> Note that the graph only shows the points at which items were added or deleted. Showing every revision of a project would generate an impossibly large graph for non-trivial cases. For this reason, simple project structures with no adds or deletes will produce an empty revision graph."
+msgid "The revision graph shows several types of node: <placeholder-1/> Note that the graph only shows the points at which items were added or deleted. Showing every revision of a project would generate an impossibly large graph for non-trivial cases. For this reason, simple project structures with no adds or deletes will produce an empty revision graph with the message <literal>No graph available</literal>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_revgraph.xml:68(para) 
+#: source/en/tsvn_dug/dug_revgraph.xml:69(para) 
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_revgraph.xml:72(para) 
-msgid "If you select two revisions, you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
+#: source/en/tsvn_dug/dug_revgraph.xml:73(para) 
+msgid "If you select two revisions (Use <action>Ctrl left click</action>), you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_revgraph.xml:78(para) 
+#: source/en/tsvn_dug/dug_revgraph.xml:80(para) 
 msgid "You can view the differences as a Unified-Diff file, which shows all differences in a single file with minimal context. If you opt to <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice> you will be presented with a list of changed files. <action>Double click</action> on a file name to fetch both revisions of the file and compare them using the visual difference tool."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_revgraph.xml:89(caution) 
+#: source/en/tsvn_dug/dug_revgraph.xml:91(para) 
+msgid "If you <action>right click</action> on a revision you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to view the history."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_revgraph.xml:99(caution) 
 msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
 msgstr ""
 
@@ -2070,11 +2074,19 @@ msgid "<placeholder-1/> If your repository has for some reason changed it's loca
 msgstr ""
 
 #: source/en/tsvn_dug/dug_relocate.xml:28(para) 
-msgid "Don't use the relocate command to switch your working copy to a different branch! If you do that, then you will get many unexplainable error messages while updating, committing, ..."
+msgid "<emphasis>This is a very infrequently used operation</emphasis>. The Relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed due to a server IP address change, protocol change (e.g. http:// to https://) or a change of the repository root path in the server setup. Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_relocate.xml:33(para) 
-msgid "The relocate command must <emphasis>only</emphasis> be used if the URL of the server changed!"
+#: source/en/tsvn_dug/dug_relocate.xml:38(para) 
+msgid "It does not apply if you want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_relocate.xml:43(para) 
+msgid "Nor does it apply if you want to switch to a different branch or directory within the same repository. To do that you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>. Read <xref linkend=\"tsvn-DUG-switch-1\"/> for more information."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_relocate.xml:52(para) 
+msgid "If you use relocate in either of the cases above it <emphasis>will corrupt your working copy</emphasis> and get many unexplainable error messages while updating, committing, etc. Once that has happened, the only fix is a fresh checkout."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_propertypage.xml:3(title) 
@@ -3626,6 +3638,10 @@ msgstr ""
 
 #: source/en/tsvn_dug/dug_blame.xml:71(para) 
 msgid "The revision comments are shown in a hint box whenever the mouse hovers over the blame info column."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_blame.xml:75(para) 
+msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_add.xml:3(title) 

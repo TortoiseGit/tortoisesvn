@@ -26,13 +26,34 @@
 	</para>
 	<warning>
 		<para>
-			Don't use the relocate command to switch your working copy to a different
-			branch! If you do that, then you will get many unexplainable error messages
-			while updating, committing, ...
+			<emphasis>This is a very infrequently used operation</emphasis>.
+			The Relocate command is <emphasis>only</emphasis> used if the URL of the
+			repository root has changed due to a server IP address change,
+			protocol change (e.g. http:// to https://) or a change of the
+			repository root path in the server setup. Put another way,
+			you need to relocate when your working copy is referring to the
+			same location in the same repository, but the repository itself
+			has moved.
 		</para>
 		<para>
-			The relocate command must <emphasis>only</emphasis> be used if the
-			URL of the server changed!
+			It does not apply if you want to move to a different Subversion
+			repository. In that case you should perform a clean checkout
+			from the new repository location.
+		</para>
+		<para>
+			Nor does it apply if you want to switch to a different branch or
+			directory within the same repository. To do that you should use
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Switch...</guimenuitem>
+			</menuchoice>.
+			 Read <xref linkend="tsvn-DUG-switch-1"/> for more information.
+		</para>
+		<para>
+			If you use relocate in either of the cases above it
+			<emphasis>will corrupt your working copy</emphasis> and get many
+			unexplainable error messages while updating, committing, etc.
+			Once that has happened, the only fix is a fresh checkout.
 		</para>
 	</warning>
 </sect1>
