@@ -86,7 +86,7 @@ public:
 	 */
 	bool ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, 
 					 const CTSVNPath& url2, const SVNRev& rev2, 
-					 const SVNRev& peg = SVNRev(),
+					 SVNRev peg = SVNRev(),
 					 bool ignoreancestry = false, bool nodiffdeleted = false);
 
 	bool DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2);

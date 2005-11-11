@@ -253,7 +253,7 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const C
 
 bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, 
 						  const CTSVNPath& url2, const SVNRev& rev2, 
-						  const SVNRev& peg /* = SVNRev( */,
+						  SVNRev peg /* = SVNRev( */,
 						  bool ignoreancestry /* = false */, bool nodiffdeleted /* = false */)
 {
 	CTSVNPath tempfile;
@@ -278,12 +278,22 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, false);
 			if (data == NULL)
 			{
-				progDlg.Stop();
-				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-				CMessageBox::Show(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-				return false;
+				data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev2), rev1, false);
+				if (data == NULL)
+				{
+					progDlg.Stop();
+					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+					CMessageBox::Show(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+					return false;
+				}
+				else
+					peg = peg.IsValid() ? peg : rev2;
 			}
+			else
+				peg = peg.IsValid() ? peg : rev1;
 		}
+		else
+			peg = peg.IsValid() ? peg : m_headPeg;
 		
 		if (data->kind == svn_node_dir)
 		{
