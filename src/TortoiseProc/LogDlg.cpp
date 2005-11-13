@@ -2680,6 +2680,13 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 							bGoing = false;
 							continue;
 						}
+						br = pat.match( (LPCTSTR)cpath->sAction, results);
+						if ((br.matched)&&(IsEntryInDateRange(i)))
+						{
+							m_arShownList.Add(m_logEntries[i]);
+							bGoing = false;
+							continue;
+						}
 					}
 					if (!bGoing)
 						continue;
@@ -2733,6 +2740,12 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 							continue;
 						}
 						if ((cpath->sPath.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
+						{
+							m_arShownList.Add(m_logEntries[i]);
+							bGoing = false;
+							continue;
+						}
+						if ((cpath->sAction.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(m_logEntries[i]);
 							bGoing = false;
