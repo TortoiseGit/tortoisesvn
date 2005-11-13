@@ -842,6 +842,18 @@ void CUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 		{
 			// get the width of the string and add 12 pixels for the column separator and margins
 			int linewidth = pListCtrl->GetStringWidth(pListCtrl->GetItemText(index, col)) + 12;
+			if (index == 0)
+			{
+				// add the image size
+				CImageList * pImgList = pListCtrl->GetImageList(LVSIL_SMALL);
+				if ((pImgList)&&(pImgList->GetImageCount()))
+				{
+					IMAGEINFO imginfo;
+					pImgList->GetImageInfo(0, &imginfo);
+					linewidth += (imginfo.rcImage.right - imginfo.rcImage.left);
+					linewidth += 3;	// 3 pixels between icon and text
+				}
+			}
 			if (cx < linewidth)
 				cx = linewidth;
 		}
