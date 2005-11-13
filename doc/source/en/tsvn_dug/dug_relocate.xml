@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-relocate">
 	<title>Relocating a working copy</title>
 	<indexterm>
@@ -27,31 +27,48 @@
 	<warning>
 		<para>
 			<emphasis>This is a very infrequently used operation</emphasis>.
-			The Relocate command is <emphasis>only</emphasis> used if the URL of the
-			repository root has changed due to a server IP address change,
-			protocol change (e.g. http:// to https://) or a change of the
-			repository root path in the server setup. Put another way,
-			you need to relocate when your working copy is referring to the
-			same location in the same repository, but the repository itself
+			The relocate command is <emphasis>only</emphasis> used if the URL of the
+			repository root has changed. Possible reasons are:
+			<itemizedlist>
+				<listitem>
+					<para>The IP address of the server has changed.</para>
+				</listitem>
+				<listitem>
+					<para>The protocol has changed (e.g. http:// to https://).</para>
+				</listitem>
+				<listitem>
+					<para>The repository root path in the server setup has changed.</para>
+				</listitem>
+			</itemizedlist>
+			Put another way, you need to relocate when your working copy is referring
+			to the same location in the same repository, but the repository itself
 			has moved.
 		</para>
 		<para>
-			It does not apply if you want to move to a different Subversion
-			repository. In that case you should perform a clean checkout
-			from the new repository location.
+			It does not apply if:
+			<itemizedlist>
+				<listitem>
+					<para>
+						You want to move to a different Subversion repository. In that case
+						you should perform a clean checkout from the new repository location.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						You want to switch to a different branch or directory within the 
+						same repository. To do that you should use
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Switch...</guimenuitem>
+						</menuchoice>.
+						Read <xref linkend="tsvn-DUG-switch-1"/> for more information.
+					</para>
+				</listitem>
+			</itemizedlist>
 		</para>
 		<para>
-			Nor does it apply if you want to switch to a different branch or
-			directory within the same repository. To do that you should use
-			<menuchoice>
-				<guimenu>TortoiseSVN</guimenu>
-				<guimenuitem>Switch...</guimenuitem>
-			</menuchoice>.
-			 Read <xref linkend="tsvn-DUG-switch-1"/> for more information.
-		</para>
-		<para>
-			If you use relocate in either of the cases above it
-			<emphasis>will corrupt your working copy</emphasis> and get many
+			If you use relocate in either of the cases above, it
+			<emphasis>will corrupt your working copy</emphasis> and you will get many
 			unexplainable error messages while updating, committing, etc.
 			Once that has happened, the only fix is a fresh checkout.
 		</para>
