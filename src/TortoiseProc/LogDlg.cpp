@@ -2164,18 +2164,14 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				ZeroMemory(&rItem, sizeof(LVITEM));
 				rItem.mask  = LVIF_STATE;
 				rItem.iItem = pLVCD->nmcd.dwItemSpec;
-				rItem.stateMask = LVIS_SELECTED;
+				rItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;
 				m_LogList.GetItem(&rItem);
 
 				// Fill the background
 				HBRUSH brush;
 				if (rItem.state & LVIS_SELECTED)
 				{
-					// since our control shows the selected state even if 
-					// it doesn't have the focus, we check if we're the foreground
-					// window here and draw the background 'selected/not-focused'
-					// otherwise.
-					if (::GetForegroundWindow() == m_hWnd)
+					if (::GetFocus() == m_LogList.m_hWnd)
 						brush = ::CreateSolidBrush(::GetSysColor(COLOR_HIGHLIGHT));
 					else
 						brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
