@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-11-03 14:58+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-11-13 18:50+0900\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2822,28 +2822,30 @@ msgstr "Alle anderen Elemente werden durch ein einfaches Rechteck dargestellt."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:32
 #: (para)
-msgid "The revision graph shows several types of node: <placeholder-1/> Note that the graph only shows the points at which items were added or deleted. Showing every revision of a project would generate an impossibly large graph for non-trivial cases. For this reason, simple project structures with no adds or deletes will produce an empty revision graph."
-msgstr ""
-"Der Revisionsgraph zeigt verschiedene Knotentypen:\n"
-"<placeholder-1/>\n"
-"Beachten Sie, dass der Graph nur die Punkte zeigt, an denen Elemente hinzugefügt oder gelöscht wurden. Alle Revisionen eines Projektes anzuzeigen würde einen riesigen Graphen erzeugen. Aus diesem Grund erzeugen einfache Projektstrukturen ohne hinzugefügte oder gelöschte Elemente einen leeren Revisionsgraph."
+msgid "The revision graph shows several types of node: <placeholder-1/> Note that the graph only shows the points at which items were added or deleted. Showing every revision of a project would generate an impossibly large graph for non-trivial cases. For this reason, simple project structures with no adds or deletes will produce an empty revision graph with the message <literal>No graph available</literal>."
+msgstr "Der Revisionsgraph zeigt verschiedene Knotentypen: <placeholder-1/>Beachten Sie, dass der Graph nur die Punkte zeigt, an denen Elemente hinzugefügt oder gelöscht wurden. Alle Revisionen eines Projektes anzuzeigen würde einen riesigen Graphen erzeugen. Aus diesem Grund erzeugen einfache Projektstrukturen ohne hinzugefügte oder gelöschte Elemente einen leeren Graphen, in dem lediglich <literal>Keine Grafik vorhanden</literal> angezeigt wird."
 
-#: source/en/tsvn_dug/dug_revgraph.xml:68
+#: source/en/tsvn_dug/dug_revgraph.xml:69
 #: (para)
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
 msgstr "Das Datum, der Autor und die Log-Meldung der Revision werden in einem Hinweistext angezeigt, sobald die Maus über ein Element bewegt wird."
 
-#: source/en/tsvn_dug/dug_revgraph.xml:72
+#: source/en/tsvn_dug/dug_revgraph.xml:73
 #: (para)
-msgid "If you select two revisions, you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
-msgstr "Wenn Sie zwei Revisionen markieren, können Sie sich über das Kontextmenü die Unterschiede zwischen diesen Revisionen anzeigen lassen. Sie können wählen, ob Sie die Unterschiede am Anfang der Äste anzeigen wollen. Normalerweise werden Sie die Unterschiede an den Enden, sprich die HEAD Revisionen vergleichen wollen."
+msgid "If you select two revisions (Use <action>Ctrl left click</action>), you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
+msgstr "Wenn Sie mit <action>Strg Linksklick</action> zwei Revisionen markieren, können Sie sich über das Kontextmenü die Unterschiede zwischen diesen Revisionen anzeigen lassen. Sie können wählen, ob Sie die Unterschiede am Anfang der Äste oder die Unterschiede an den Enden, sprich den HEAD Revisionen vergleichen wollen."
 
-#: source/en/tsvn_dug/dug_revgraph.xml:78
+#: source/en/tsvn_dug/dug_revgraph.xml:80
 #: (para)
 msgid "You can view the differences as a Unified-Diff file, which shows all differences in a single file with minimal context. If you opt to <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice> you will be presented with a list of changed files. <action>Double click</action> on a file name to fetch both revisions of the file and compare them using the visual difference tool."
 msgstr "Sie können sich die Unterschiede im Standard-Diff Format anzeigen lassen, das alle Unterschiede in einer einzelnen Datei mit minimalem Kontext zeigt. Wenn Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Revisionen vergleichen</guimenuitem> </menuchoice> wählen, wird Ihnen eine Liste der geänderten Dateien angezeigt. Mit einem <action>Doppelklick</action> auf einen Dateinamen werden beide Revisionen geholt und in Ihrem Diff Betrachter angezeigt."
 
-#: source/en/tsvn_dug/dug_revgraph.xml:89
+#: source/en/tsvn_dug/dug_revgraph.xml:91
+#: (para)
+msgid "If you <action>right click</action> on a revision you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to view the history."
+msgstr "Mit einem <action>Rechtsklick</action> auf eine Revision, können Sie sich per <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> die Historie anzeigen lassen."
+
+#: source/en/tsvn_dug/dug_revgraph.xml:99
 #: (caution)
 msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
 msgstr "Da Subversion nicht alle Informationen bereitstellt, ist ein gewisser Grad der Interpretation notwendig, was manchmal zu seltsamen Ergebnissen führen kann. Trotzdem sollte der Revisionsgraph für <literal>trunk/</literal> normalerweise brauchbare Ergebnisse liefern."
@@ -3056,15 +3058,45 @@ msgstr "Der Umplatzieren-Dialog"
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all \"entries\" files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
 msgstr "<placeholder-1/> Sollte die URL Ihres Projektarchivs sich geändert haben (z.B.  der DNS-Eintrag des Servers hat sich geändert), so müssen Sie nicht erneut eine ganze Arbeitskopie aus dem Projektarchiv auschecken. Es reicht wenn Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Umplatzieren...</guimenuitem> </menuchoice> ausführen und die neue URL angeben. Dieser Befehl durchläuft alle <quote>entries</quote> Dateien im .svn Verzeichnis und trägt dort die neue URL ein."
 
+#: source/en/tsvn_dug/dug_relocate.xml:34
+#: (para)
+msgid "The IP address of the server has changed."
+msgstr "Die IP Adresse des Servers hat sich geändert."
+
+#: source/en/tsvn_dug/dug_relocate.xml:37
+#: (para)
+msgid "The protocol has changed (e.g. http:// to https://)."
+msgstr "Das Protokoll hat sich geändert (z.B. von http:// in https://)."
+
+#: source/en/tsvn_dug/dug_relocate.xml:40
+#: (para)
+msgid "The repository root path in the server setup has changed."
+msgstr "Der Basispfad des Projektarchivs hat sich in der Serverkonfiguration geändert."
+
 #: source/en/tsvn_dug/dug_relocate.xml:28
 #: (para)
-msgid "Don't use the relocate command to switch your working copy to a different branch! If you do that, then you will get many unexplainable error messages while updating, committing, ..."
-msgstr "Benutzen Sie den Umplatzieren-Befehl nicht, wenn Sie mit Ihrer Arbeitskopie auf einen anderen Entwicklungszweig wechseln möchten. Sie werden beim Aktualisieren, Übertragen, usw. viele unerklärliche Fehlermeldungen erhalten."
+msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
+msgstr "<emphasis>Dies ist eine sehr selten durchgeführte Aktion</emphasis>. Der Umplatzieren Befehl darf nur angewendet werden, wenn sich die URL der Arbeitskopie geändert hat. Mögliche Gründe dafür sind: <placeholder-1/> Andersherum ausgedrückt: Sie müssen Ihre Arbeitskopie umplatzieren, wenn diese weiterhin auf die gleiche Stelle im selben Projektarchiv zeigt wie vorher, das Projektarchiv sich aber nun woanders befindet."
 
-#: source/en/tsvn_dug/dug_relocate.xml:33
+#: source/en/tsvn_dug/dug_relocate.xml:51
 #: (para)
-msgid "The relocate command must <emphasis>only</emphasis> be used if the URL of the server changed!"
-msgstr "Der Umplatzieren-Befehl darf <emphasis>nur</emphasis> benutzt werden, wenn die URL des Projektarchivs sich geändert hat!"
+msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
+msgstr "Sie zu einem anderen Subversion Projektarchiv wechseln wollen. In diesem Fall sollten Sie eine frische Arbeitskopie auschecken."
+
+#: source/en/tsvn_dug/dug_relocate.xml:57
+#: (para)
+msgid "You want to switch to a different branch or directory within the same repository. To do that you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>. Read <xref linkend=\"tsvn-DUG-switch-1\"/> for more information."
+msgstr "Sie zu einem anderen Zweig oder Verzeichnis innerhalb desselben Projektarchivs wechseln wollen. Dazu müssen Sie den <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> Befehl verwenden, der in <xref linkend=\"tsvn-DUG-switch-1\"/> beschrieben wird."
+
+#: source/en/tsvn_dug/dug_relocate.xml:47
+#: (para)
+msgid "It does not apply if: <placeholder-1/>"
+msgstr "Es darf nicht umplatziert werden, wenn: <placeholder-1/>"
+
+#: source/en/tsvn_dug/dug_relocate.xml:69
+#: (para)
+msgid "If you use relocate in either of the cases above, it <emphasis>will corrupt your working copy</emphasis> and you will get many unexplainable error messages while updating, committing, etc. Once that has happened, the only fix is a fresh checkout."
+msgstr "Wenn Sie fälschlicherweise in einem der oben genannten Fälle ihre Arbeitskopie umplatzieren, <emphasis>wird diese ruiniert</emphasis>! Sie werden unerklärliche Fehlermeldungen beim Aktualisieren, Übertragen usw. erhalten. Sobald diese geschehen ist, müssen Sie Ihre Arbeitskopie frisch auschecken."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:3
 #: (title)
@@ -5136,6 +5168,11 @@ msgstr "Wenn Sie auf eine Zeile <action>Links-Klicken</action> werden alle Zeile
 #: (para)
 msgid "The revision comments are shown in a hint box whenever the mouse hovers over the blame info column."
 msgstr "Die Log-Meldungen für die Revisionen werden als Hinweistext gezeigt, wenn Sie den Mauszeiger über der linke Spalte bewegen."
+
+#: source/en/tsvn_dug/dug_blame.xml:75
+#: (para)
+msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
+msgstr "Sie können innerhalb der Annotierungen suchen, indem Sie <menuchoice> <guimenu>Bearbeiten</guimenu> <guimenuitem>Suchen...</guimenuitem> </menuchoice> aufrufen. Diese Funktion erlaubt Ihnen, nach Revisionsnummern, Autoren und dem Inhalt der Datei selbst zu suchen. Log-Meldungen werden nicht durchsucht. Für diese Funktion steht der Log Dialog zur Vefügung."
 
 #: source/en/tsvn_dug/dug_add.xml:3
 #: (title)
@@ -7828,7 +7865,7 @@ msgstr "Die linke Ansicht zeigt Ihnen die Unterschiede von <literal>Deren</liter
 #: source/en/tme_ch02.xml:73
 #: (para)
 msgid "The relationships between the three files are explained in the diagram below:"
-msgstr " Die Beziehungen zwischen <literal>Basis</literal>, <literal>Ihrer</literal> und <literal>Deren</literal> sind im unten stehenden Diagramm erklärt."
+msgstr "Die Beziehungen zwischen <literal>Basis</literal>, <literal>Ihrer</literal> und <literal>Deren</literal> sind im unten stehenden Diagramm erklärt."
 
 #: source/en/tme_ch02.xml:78
 #: (title) source/en/tme_ch01.xml:40
@@ -7838,7 +7875,7 @@ msgstr "Datei Konflikt"
 #: source/en/tme_ch02.xml:81
 #: (para)
 msgid "The base file represents the oldest version of a file, from where <literal>You</literal> and <literal>They</literal> start making changes. <literal>Mine</literal> represents the base file with all the changes <emphasis>you</emphasis> made, and <literal>Theirs</literal> is the file with all the changes <emphasis>someone else</emphasis> made to the file."
-msgstr "Die <literal>Basis</literal> Datei entspricht der ältesten Version einer Datei, von welcher aus die Änderungen an <literal>Meiner</literal>und <literal>Deren</literal>Datei gemacht werden. <literal>Meiner</literal> entspricht dabei der Basisdatei mit allen Änderungen  welche <emphasis>Sie</emphasis> gemacht haben. <literal>Deren</literal> entspricht der Basisdatei mit allen Änderungen welche <emphasis>jemand anders</emphasis> gemacht hat."
+msgstr "Die <literal>Basis</literal> Datei entspricht der ältesten Version einer Datei, von welcher aus die Änderungen an <literal>Meiner</literal> und <literal>Deren</literal> Datei durchgefühert werden. <literal>Meiner</literal> entspricht dabei der Basisdatei mit allen Änderungen  welche <emphasis>Sie</emphasis> selbst vorgenommen haben. <literal>Deren</literal> entspricht der Basisdatei mit allen Änderungen welche <emphasis>jemand anders</emphasis> gemacht hat."
 
 #: source/en/tme_ch02.xml:91
 #: (title)
