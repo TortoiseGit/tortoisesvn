@@ -160,6 +160,13 @@ BOOL CLogDlg::OnInitDialog()
 	CString temp;
 	temp.LoadString(IDS_LOG_REVISION);
 	m_LogList.InsertColumn(0, temp);
+	
+	// make the revision column right aligned
+	LVCOLUMN Column;
+	Column.mask = LVCF_FMT;
+	Column.fmt = LVCFMT_RIGHT;
+	m_LogList.SetColumn(0, &Column); 
+	
 	temp.LoadString(IDS_LOG_ACTIONS);
 	m_LogList.InsertColumn(1, temp);
 	temp.LoadString(IDS_LOG_AUTHOR);
