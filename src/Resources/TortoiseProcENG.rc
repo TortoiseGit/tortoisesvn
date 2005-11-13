@@ -56,6 +56,10 @@ IDI_LOOKANDFEEL         ICON                    "lookandfeel.ico"
 IDI_ICONSET             ICON                    "iconset.ico"
 IDI_DIALOGS             ICON                    "dialogs.ico"
 IDI_EXTERNALWARNING     ICON                    "extwarning.ico"
+IDI_ACTIONADDED         ICON                    "actionadded.ico"
+IDI_ACTIONDELETED       ICON                    "actiondeleted.ico"
+IDI_ACTIONMODIFIED      ICON                    "actionmodified.ico"
+IDI_ACTIONREPLACED      ICON                    "actionreplaced.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2307,6 +2311,11 @@ STRINGTABLE
 BEGIN
     IDS_COLOURPICKER_CUSTOMTEXT "More colors..."
     IDS_COLOURPICKER_DEFAULTTEXT "Automatic"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LOG_ACTIONS         "Actions"
 END
 
 #endif    // English (U.S.) resources

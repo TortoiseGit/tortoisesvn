@@ -106,7 +106,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies);
+	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
 	virtual BOOL Cancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -169,7 +169,7 @@ private:
 	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
     void SortShownListArray();
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
-	 
+
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	static int __cdecl	SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 
@@ -228,6 +228,11 @@ private:
 	CTime				m_timFrom;
 	CTime				m_timTo;
 	CColors				m_Colors;
+	CImageList			m_imgList;
+	HICON				m_hModifiedIcon;
+	HICON				m_hReplacedIcon;
+	HICON				m_hAddedIcon;
+	HICON				m_hDeletedIcon;
 private:
     typedef struct LogEntryData
     {   
@@ -240,6 +245,7 @@ private:
         DWORD dwFileChanges;
         LogChangedPathArray* pArChangedPaths;
         BOOL bCopies;
+        DWORD actions;
     } LOGENTRYDATA, *PLOGENTRYDATA;
     class CLogDataVector : 
         public std::vector<PLOGENTRYDATA>
@@ -329,6 +335,22 @@ private:
                 return pStart->sShortMessage > pEnd->sShortMessage;
             }
         };
+		// Ascending action sorting
+		struct AscActionSort
+		{
+			bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+			{
+				return pStart->actions < pEnd->actions;
+			}
+		};
+		// Descending action sorting
+		struct DescActionSort
+		{
+			bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+			{
+				return pStart->actions > pEnd->actions;
+			}
+		};
     };
     CLogDataVector m_logEntries;
 };

@@ -75,7 +75,11 @@ public:
 		CString sCopyFromPath;
 		svn_revnum_t lCopyFromRev;
 		CString sAction;
-	} ;
+	};
+#	define LOGACTIONS_MODIFIED	0x00000001
+#	define LOGACTIONS_REPLACED	0x00000002
+#	define LOGACTIONS_ADDED		0x00000004
+#	define LOGACTIONS_DELETED	0x00000008
 	typedef CArray<LogChangedPath*, LogChangedPath*> LogChangedPathArray;
 	virtual BOOL Cancel();
 	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
@@ -84,7 +88,7 @@ public:
 							svn_wc_notify_state_t prop_state, svn_revnum_t rev,
 							const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 							svn_error_t * err, apr_pool_t * pool);
-	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies);
+	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
 	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line);
 
 	struct SVNLock

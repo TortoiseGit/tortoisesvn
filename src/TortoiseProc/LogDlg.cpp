@@ -67,6 +67,10 @@ CLogDlg::~CLogDlg()
 {
 	m_bNoDispUpdates = true;
 	m_logEntries.ClearAll();
+	DestroyIcon(m_hModifiedIcon);
+	DestroyIcon(m_hReplacedIcon);
+	DestroyIcon(m_hAddedIcon);
+	DestroyIcon(m_hDeletedIcon);
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -140,10 +144,15 @@ BOOL CLogDlg::OnInitDialog()
 	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK);
-	m_LogList.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
+	m_LogList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_SUBITEMIMAGES);
 
 	m_cHidePaths.SetCheck(BST_INDETERMINATE);
 
+	m_hModifiedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONMODIFIED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+	m_hReplacedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONREPLACED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+	m_hAddedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONADDED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+	m_hDeletedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONDELETED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+	
 	m_LogList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
@@ -151,12 +160,14 @@ BOOL CLogDlg::OnInitDialog()
 	CString temp;
 	temp.LoadString(IDS_LOG_REVISION);
 	m_LogList.InsertColumn(0, temp);
-	temp.LoadString(IDS_LOG_AUTHOR);
+	temp.LoadString(IDS_LOG_ACTIONS);
 	m_LogList.InsertColumn(1, temp);
-	temp.LoadString(IDS_LOG_DATE);
+	temp.LoadString(IDS_LOG_AUTHOR);
 	m_LogList.InsertColumn(2, temp);
-	temp.LoadString(IDS_LOG_MESSAGE);
+	temp.LoadString(IDS_LOG_DATE);
 	m_LogList.InsertColumn(3, temp);
+	temp.LoadString(IDS_LOG_MESSAGE);
+	m_LogList.InsertColumn(4, temp);
 	m_LogList.SetRedraw(false);
 	CUtils::ResizeAllListCtrlCols(&m_LogList);
 	m_LogList.SetRedraw(true);
@@ -467,7 +478,7 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies)
+BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions)
 {
 	int found = 0;
 	m_logcounter += 1;
@@ -515,6 +526,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	pLogItem->sDate = date;
 	pLogItem->sShortMessage = sShortMessage;
 	pLogItem->dwFileChanges = filechanges;
+	pLogItem->actions = actions;
 	
 	//split multiline logentries and concatenate them
 	//again but this time with \r\n as line separators
@@ -2104,34 +2116,110 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	// Take the default processing unless we set this to something else below.
 	*pResult = CDRF_DODEFAULT;
 
-	// First thing - check the draw stage. If it's the control's prepaint
-	// stage, then tell Windows we want messages for every item.
-
-	if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+	switch (pLVCD->nmcd.dwDrawStage)
 	{
-		*pResult = CDRF_NOTIFYITEMDRAW;
-	}
-	else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
-	{
-		// This is the prepaint stage for an item. Here's where we set the
-		// item's text color. Our return value will tell Windows to draw the
-		// item itself, but it will use the new color we set here.
-
-		// Tell Windows to paint the control itself.
-		*pResult = CDRF_DODEFAULT;
-
-		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
-
-		if (m_arShownList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+	case CDDS_PREPAINT:
 		{
-			if (((PLOGENTRYDATA)m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec))->bCopies)
-				crText = m_Colors.GetColor(CColors::Modified);
+			*pResult = CDRF_NOTIFYITEMDRAW;
+			return;
 		}
-		// Store the color back in the NMLVCUSTOMDRAW struct.
-		pLVCD->clrText = crText;
-	}
-}
+		break;
+	case CDDS_ITEMPREPAINT:
+		{
+			// This is the prepaint stage for an item. Here's where we set the
+			// item's text color. 
+			
+			// Tell Windows to send draw notifications for each subitem.
+			*pResult = CDRF_NOTIFYSUBITEMDRAW;
 
+			COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+
+			if (m_arShownList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+			{
+				if (((PLOGENTRYDATA)m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec))->bCopies)
+					crText = m_Colors.GetColor(CColors::Modified);
+			}
+			// Store the color back in the NMLVCUSTOMDRAW struct.
+			pLVCD->clrText = crText;
+			return;
+		}
+		break;
+	case CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM:
+		{
+			if (pLVCD->iSubItem == 1)
+			{
+				*pResult = CDRF_DODEFAULT;
+
+				int		nIcons = 0;
+				int		iconwidth = ::GetSystemMetrics(SM_CXSMICON);
+				int		iconheigth = ::GetSystemMetrics(SM_CYSMICON);
+
+				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec));
+
+				// Get the selected state of the
+				// item being drawn.
+				// Even though the state should be in pLVCD->nmcd.state, that
+				// variable always contained 0x201 when I tested it.
+				LVITEM   rItem;
+				ZeroMemory(&rItem, sizeof(LVITEM));
+				rItem.mask  = LVIF_STATE;
+				rItem.iItem = pLVCD->nmcd.dwItemSpec;
+				rItem.stateMask = LVIS_SELECTED;
+				m_LogList.GetItem(&rItem);
+
+				// Fill the background
+				HBRUSH brush;
+				if (rItem.state & LVIS_SELECTED)
+				{
+					// since our control shows the selected state even if 
+					// it doesn't have the focus, we check if we're the foreground
+					// window here and draw the background 'selected/not-focused'
+					// otherwise.
+					if (::GetForegroundWindow() == m_hWnd)
+						brush = ::CreateSolidBrush(::GetSysColor(COLOR_HIGHLIGHT));
+					else
+						brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
+				}
+				else
+					brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
+				if (brush == NULL)
+				{
+					return;
+				}
+				CRect rect;
+				m_LogList.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
+				::FillRect(pLVCD->nmcd.hdc, &rect, brush);
+				::DeleteObject(brush);
+
+				// Draw the icon(s) into the compatible DC
+				if (pLogEntry->actions & LOGACTIONS_MODIFIED)
+				{
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left, rect.top, m_hModifiedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+					nIcons++;
+				}
+				if (pLogEntry->actions & LOGACTIONS_REPLACED)
+				{
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth, rect.top, m_hReplacedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+					nIcons++;
+				}
+				if (pLogEntry->actions & LOGACTIONS_ADDED)
+				{
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth, rect.top, m_hAddedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+					nIcons++;
+				}
+				if (pLogEntry->actions & LOGACTIONS_DELETED)
+				{
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth, rect.top, m_hDeletedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+					nIcons++;
+				}
+				*pResult = CDRF_SKIPDEFAULT;
+				return;
+			}
+		}
+		break;
+	}
+	*pResult = CDRF_DODEFAULT;
+}
 void CLogDlg::OnNMCustomdrawLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
@@ -2360,19 +2448,22 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
-		case 1: //author
+		case 1: //action
+			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+			break;
+		case 2: //author
 			if (itemid < m_logEntries.size())
 				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)pLogEntry->sAuthor);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
-		case 2: //date
+		case 3: //date
 			if (itemid < m_logEntries.size())
 				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)pLogEntry->sDate);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
-		case 3: //message
+		case 4: //message
 			if (itemid < m_logEntries.size())
 				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)pLogEntry->sShortMessage);
 			else
@@ -2380,7 +2471,6 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			break;
 		}
 	}
-	
 	*pResult = 0;
 }
 
@@ -2778,7 +2868,15 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescRevSort());
 	        }
 	        break;
-	    case 1: // Author
+		case 1: // action
+			{
+				if(m_bAscending)
+					std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscActionSort());
+				else
+					std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescActionSort());
+			}
+			break;
+	    case 2: // Author
 	        {
 	            if(m_bAscending)
 	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscAuthorSort());
@@ -2786,7 +2884,7 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescAuthorSort());
 	        }
 	        break;
-	    case 2: // Date
+	    case 3: // Date
 	        {
 	            if(m_bAscending)
 	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscDateSort());
@@ -2794,7 +2892,7 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescDateSort());
 	        }
 	        break;
-	    case 3: // Message
+	    case 4: // Message
 	        {
 	            if(m_bAscending)
 	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscMessageSort());

@@ -117,7 +117,7 @@ public:
 class LogHelper : public SVN
 {
 public:
-	virtual BOOL Log(LONG rev, const CString& /*author*/, const CString& /*date*/, const CString& /*message*/, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/)
+	virtual BOOL Log(LONG rev, const CString& /*author*/, const CString& /*date*/, const CString& /*message*/, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/, DWORD /*actions*/)
 	{
 		m_rev = rev;
 		for (int i=0; i<cpaths->GetCount(); ++i)

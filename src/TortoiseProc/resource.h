@@ -73,6 +73,10 @@
 #define IDD_HISTORYDLG                  211
 #define IDR_CLEANUPANI                  212
 #define IDD_SETTINGSCOLORS              212
+#define IDI_ACTIONADDED                 213
+#define IDI_ACTIONDELETED               214
+#define IDI_ACTIONMODIFIED              215
+#define IDI_ACTIONREPLACED              216
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -528,6 +532,7 @@
 #define IDS_LOG_FILTER_AUTHORS          1852
 #define IDS_LOG_FILTER_MESSAGES         1853
 #define IDS_LOG_FILTER_REVS             1854
+#define IDS_LOG_ACTIONS                 1870
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902
@@ -739,7 +744,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        213
+#define _APS_NEXT_RESOURCE_VALUE        217
 #define _APS_NEXT_COMMAND_VALUE         32796
 #define _APS_NEXT_CONTROL_VALUE         1259
 #define _APS_NEXT_SYMED_VALUE           195

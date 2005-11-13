@@ -146,7 +146,7 @@ BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action,
 				svn_wc_notify_state_t prop_state, svn_revnum_t rev,
 				const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
-BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies) {return TRUE;};
+BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 #pragma warning(pop)
 
@@ -1009,6 +1009,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 	TCHAR date_native[SVN_DATE_BUFFER] = {0};
 	CString author_native;
 	CString msg_native;
+	DWORD actions = 0;
 
 	SVN * svn = (SVN *)baton;
 	author_native = CUnicodeUtils::GetUnicode(author);
@@ -1058,15 +1059,19 @@ svn_error_t* SVN::logReceiver(void* baton,
 				{
 				case 'M':
 					changedpath->sAction = sModifiedStatus;
+					actions |= LOGACTIONS_MODIFIED;
 					break;
 				case 'R':
 					changedpath->sAction = sReplacedStatus;
+					actions |= LOGACTIONS_REPLACED;
 					break;
 				case 'A':
 					changedpath->sAction = sAddStatus;
+					actions |= LOGACTIONS_ADDED;
 					break;
 				case 'D':
 					changedpath->sAction = sDeleteStatus;
+					actions |= LOGACTIONS_DELETED;
 				default:
 					break;
 				}
@@ -1093,7 +1098,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 	SVN_ERR (svn->cancel(baton));
 #pragma warning(pop)
 
-	if (svn->Log(rev, author_native, date_native, msg_native, arChangedPaths, time_temp, filechanges, copies))
+	if (svn->Log(rev, author_native, date_native, msg_native, arChangedPaths, time_temp, filechanges, copies, actions))
 	{
 		return error;
 	}
