@@ -2193,26 +2193,26 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				m_LogList.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 				::FillRect(pLVCD->nmcd.hdc, &rect, brush);
 				::DeleteObject(brush);
-
+#				define ICONITEMBORDER 5
 				// Draw the icon(s) into the compatible DC
 				if (pLogEntry->actions & LOGACTIONS_MODIFIED)
 				{
-					::DrawIconEx(pLVCD->nmcd.hdc, rect.left, rect.top, m_hModifiedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left + ICONITEMBORDER, rect.top, m_hModifiedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
 					nIcons++;
 				}
 				if (pLogEntry->actions & LOGACTIONS_REPLACED)
 				{
-					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth, rect.top, m_hReplacedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hReplacedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
 					nIcons++;
 				}
 				if (pLogEntry->actions & LOGACTIONS_ADDED)
 				{
-					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth, rect.top, m_hAddedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hAddedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
 					nIcons++;
 				}
 				if (pLogEntry->actions & LOGACTIONS_DELETED)
 				{
-					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth, rect.top, m_hDeletedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hDeletedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
 					nIcons++;
 				}
 				*pResult = CDRF_SKIPDEFAULT;
