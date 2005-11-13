@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-31 16:36+0100\n"
+"PO-Revision-Date: 2005-11-13 21:14+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -184,7 +184,7 @@ msgstr "&Applicera patch (\"Unified Diff\")"
 
 #: Control-ID:65535
 msgid "&Autoclose:"
-msgstr "&Automatisk stängning:"
+msgstr "Stäng &automatiskt:"
 
 #: Control-ID:1015
 msgid "&Backup original file"
@@ -248,7 +248,7 @@ msgstr "&Kontakta arkivet vid start"
 # Hur översätta "diff" och "BASE"
 #: Control-ID:1073
 msgid "&Convert files when diffing against BASE"
-msgstr "&Konvertera filer vid kontroll av avvikelse mot basrevision"
+msgstr "&Konvertera filer vid kontroll av skillnader mot basrevision"
 
 # ID:376,
 #: MenuEntry
@@ -270,7 +270,7 @@ msgstr "&Ta bort..."
 # Hur översätta "diff"
 #: ID:12
 msgid "&Diff"
-msgstr "&Avvikelse"
+msgstr "&Skillnader"
 
 # ???
 #: Control-ID:1179
@@ -395,7 +395,7 @@ msgstr "&Importera..."
 # Hur översätta "diff"
 #: Control-ID:1016
 msgid "&Jump to first difference when loading"
-msgstr "&Gå till första avvikelsen när programmet startas"
+msgstr "&Gå till första skillnaden när programmet startas"
 
 #: Control-ID:65535
 msgid "&Language:"
@@ -443,7 +443,7 @@ msgstr "&Nästa 100"
 # Hur översätta "difference"
 #: MenuEntry
 msgid "&Next Difference"
-msgstr "&Nästa avvikelse"
+msgstr "&Nästa skillnad"
 
 #: Control-ID:1
 msgid "&OK"
@@ -474,7 +474,7 @@ msgstr "&Port:"
 # Hur översätta "difference"
 #: MenuEntry
 msgid "&Previous Difference"
-msgstr "&Föregående avvikelse"
+msgstr "&Föregående skillnad"
 
 #: ID:376
 msgid "&Redo"
@@ -788,7 +788,7 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"En applikation för att visa GNU avvikelsefiler (patchfiler).\n"
+"En applikation för att visa GNU skillnadsfiler (patchfiler).\n"
 "Använd tex Notepad om du inte har någon."
 
 #: ID:9
@@ -854,7 +854,7 @@ msgstr "Lägg till (ersätt)..."
 # Hur översätta "diff"
 #: ID:110
 msgid "Add extension specific diff program"
-msgstr "Lägg till avvikelseprogram för filändelse"
+msgstr "Lägg till filändelsespecifikt program för skillnader"
 
 # Hur översätta "merge"
 #: ID:110
@@ -868,7 +868,7 @@ msgstr "Lägg till på &undantagslistan"
 # Hur översätta "diff/merge"
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "Lägg till/ändra filändelsebaserat avvikelse-/föreningsprogram"
+msgstr "Lägg till/ändra filändelsebaserat skillnads-/föreningsprogram"
 
 #: ID:73
 #: Control-ID:65535
@@ -924,12 +924,12 @@ msgstr ""
 # Hur översätta "diff/merge"
 #: Dlg-ID:170
 msgid "Advanced Diff/Merge Settings"
-msgstr "Avancerade avvikelse-/föreningsinställningar"
+msgstr "Avancerade skillnads-/föreningsinställningar"
 
 # Hur översätta "diff"
 #: ID:110
 msgid "Advanced diff settings"
-msgstr "Avancerade avvikelseinställningar"
+msgstr "Avancerade skillnadsinställningar"
 
 # Hur översätta "merge"
 #: ID:110
@@ -1119,6 +1119,12 @@ msgstr ""
 "Automatisk ifyllning föreslår ord (vanligtvis klass- eller medlemsnamn)\n"
 "från filer som har ändrats medans du skriver logmeddelanden."
 
+# ID:438,#:
+# ID:438,
+#: ID:438
+msgid "Automatic"
+msgstr "Automatisk"
+
 #: Control-ID:1073
 msgid "Automatically check for newer versions every week"
 msgstr "Leta automatiskt efter nyare versioner varje vecka"
@@ -1167,7 +1173,7 @@ msgstr "Bläddr&a..."
 # Hur översätta "diff"
 #: ID:78
 msgid "Browse for the external diff program"
-msgstr "Välj applikation för avvikelsehantering"
+msgstr "Välj applikation för skillnadshantering"
 
 #: Control-ID:1069
 msgid "Browse..."
@@ -1343,7 +1349,7 @@ msgstr ""
 # Hur översätta "diff"
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "Klicka på \"Avancerat...\" för att ange olika avvikelseprogram baserat på filändelse"
+msgstr "Klicka på \"Avancerat...\" för att ange olika skillnadsprogram baserat på filändelse"
 
 # Hur översätta "merge"
 #: Control-ID:65535
@@ -1448,7 +1454,7 @@ msgstr "Konfigurera programmet som används för att lösa konflikter i filer."
 # Hur översätta "diff", menas det "unified diff" här tro?
 #: Control-ID:65535
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Konfigurera applikation för att visa GNU avvikelsefiler (patchfiler)."
+msgstr "Konfigurera applikation för att visa GNU skillnadsfiler (patchfiler)."
 
 #: ID:263
 #: Control-ID:65535
@@ -1600,7 +1606,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Kunde inte starta extern avvikelsevisare!\n"
+"Kunde inte starta extern visare för skillnader!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1612,7 +1618,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Kunde inte starta extern avvikelseapplikation!\n"
+"Kunde inte starta extern applikation för skillnader!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1726,7 +1732,7 @@ msgstr "Patchfil:"
 # Hur översätta "diffing"
 #: Control-ID:1022
 msgid "Diffing"
-msgstr "Kontrollerar avvikelser"
+msgstr "Letar skillnader"
 
 #: Control-ID:65535
 msgid "Directory:"
@@ -1865,7 +1871,7 @@ msgstr "Skriv upphovsman"
 # Hur översätta "diff"
 #: ID:110
 msgid "Edit extension specific diff program"
-msgstr "Ändra avvikelseprogram för filändelse"
+msgstr "Ändra filändelsespecifikt program för att visa skillnader"
 
 #: ID:110
 msgid "Edit extension specific merge program"
@@ -2014,7 +2020,7 @@ msgstr "Externt program:"
 
 #: Dlg-ID:192
 msgid "External Programs::Diff Viewer"
-msgstr "Externt program::Avvikelsevisare"
+msgstr "Externt program::Skillnadsvisare"
 
 #: Dlg-ID:193
 msgid "External Programs::Merge Tool"
@@ -2073,7 +2079,7 @@ msgstr "Filändringar varje vecka:"
 
 #: ID:376
 msgid "File diffs"
-msgstr "Filavvikelser"
+msgstr "Filskillnader"
 
 #: ID:376
 #: Dlg-ID:135
@@ -2179,8 +2185,8 @@ msgid ""
 "Go to the next conflict\n"
 "next conflict"
 msgstr ""
-"Gå till nästa avvikelse\n"
-"nästa avvikelse"
+"Gå till nästa konflikt\n"
+"nästa konflikt"
 
 # Hur översätta "diff"
 #: ID:2049
@@ -2188,8 +2194,8 @@ msgid ""
 "Go to the next difference\n"
 "next difference"
 msgstr ""
-"Gå till nästa avvikelse\n"
-"nästa avvikelse"
+"Gå till nästa skillnad\n"
+"nästa skillnad"
 
 # Hur översätta "diff"
 #: ID:2051
@@ -2197,8 +2203,8 @@ msgid ""
 "Go to the previous conflict\n"
 "previous conflict"
 msgstr ""
-"Gå till föregående avvikelse\n"
-"föregående avvikelse"
+"Gå till föregående konflikt\n"
+"föregående konflikt"
 
 # Hur översätta "diff"
 #: ID:2049
@@ -2206,8 +2212,8 @@ msgid ""
 "Go to the previous difference\n"
 "previous difference"
 msgstr ""
-"Gå till förra avvikelsen\n"
-"föregående avvikelse"
+"Gå till förra skillnaden\n"
+"föregående skillnad"
 
 # Control-ID:1134,
 #: Control-ID:1134
@@ -2342,7 +2348,7 @@ msgstr "Första importen"
 # Hur översätta "diff" och "whitespace"
 #: Control-ID:65535
 msgid "Inline whitespace diff"
-msgstr "Radvis whitespace avvikelser"
+msgstr "Radvis whitespace skillnader"
 
 #: ID:3603
 msgid ""
@@ -2443,7 +2449,7 @@ msgstr "Vänster vy:"
 # Hur översätta "diff" och "whitespace"
 #: Control-ID:65535
 msgid "Line with whitespace diff"
-msgstr "Rad med whitespace avvikelser"
+msgstr "Rad med whitespace skillnader"
 
 #: ID:3605
 msgid ""
@@ -2636,6 +2642,12 @@ msgstr "Blandad"
 msgid "Modified"
 msgstr "Ändrad"
 
+# ID:438,#:
+# ID:438,
+#: ID:438
+msgid "More colors..."
+msgstr "Mer färger..."
+
 # Control-ID:1136,
 #: Control-ID:1136
 msgid "Most active author:"
@@ -2717,7 +2729,7 @@ msgstr "Parameter till åtgärd saknas!"
 
 #: ID:82
 msgid "No differences found!"
-msgstr "Inga avvikelser funna!"
+msgstr "Inga skillnader funna!"
 
 #: ID:3843
 msgid "No error message is available."
@@ -3523,12 +3535,12 @@ msgstr "Markera ett objekt för att få hjälp"
 # Hur översätta "diff"
 #: ID:78
 msgid "Select diff application"
-msgstr "Välj avvikelseapplikation"
+msgstr "Välj applikation för att visa skillnader"
 
 # Hur översätta "diff"
 #: ID:313
 msgid "Select diff file..."
-msgstr "Välj avvikelsefil..."
+msgstr "Välj skillnadsfil..."
 
 #: ID:276
 msgid "Select end revision"
@@ -3578,7 +3590,7 @@ msgstr "Välj vilken typ av arkiv vill du skapa:"
 # Hur översätta "diff"
 #: ID:78
 msgid "Select viewer for diff-files"
-msgstr "Välj applikation för att visa avvikelsefiler"
+msgstr "Välj applikation för att visa skillnadsfiler"
 
 #: ID:3866
 msgid "Send Mail failed to send message."
@@ -3632,7 +3644,7 @@ msgstr "Visa &alla"
 # Hur översätta "differences"
 #: ID:113
 msgid "Show &differences"
-msgstr "Visa &avvikelser"
+msgstr "Visa &skillnader"
 
 #: ID:12
 #: ID:101
@@ -3659,7 +3671,7 @@ msgstr "Visa ej &versionshanterade filer"
 # Hur översätta "diff" och "Unified diff"
 #: ID:113
 msgid "Show differences as &unified diff"
-msgstr "Visa avvikelser &som \"Unified Diff\""
+msgstr "Visa skillnader &som \"Unified Diff\""
 
 # Hur översätta "diff"
 #: Control-ID:1065
@@ -4184,6 +4196,15 @@ msgstr ""
 msgid "Thesaurus"
 msgstr "Ordbok"
 
+# ID:83,
+#: ID:83
+msgid ""
+"This is not a valid URL.\n"
+"Please enter an URL here."
+msgstr ""
+"Detta är inte en valid URL.\n"
+"Var god ange en URL här."
+
 # ID:82,
 #: ID:82
 msgid ""
@@ -4501,7 +4522,7 @@ msgstr "Ändra inställningar för TortoiseSVN"
 # Hur översätta "diff"
 #: MenuEntry
 msgid "Two-way &Diff"
-msgstr "2-vägs &avvikelse"
+msgstr "2-vägs &skillnader"
 
 #: ID:12
 msgid "URL of Subversion items"
@@ -4628,7 +4649,7 @@ msgstr "Använd &förstoring på översikten"
 
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr "Använd &enkel vy som standard för tvåfilsavvikelse."
+msgstr "Använd &enkel vy som standard för 2-fils skillnader."
 
 #: ID:251
 msgid "Use &other text block"
@@ -4746,7 +4767,7 @@ msgstr "Varning!"
 # Hur översätta "diff" och "whitespace"
 #: Control-ID:65535
 msgid "Whitespace diff"
-msgstr "Whitespace avvikelser"
+msgstr "Whitespace skillnader"
 
 #: ID:80
 #, c-format
