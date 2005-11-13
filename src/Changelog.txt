@@ -22,6 +22,9 @@
        The registry entry is "Software\TortoiseSVN\UpdateCheckURL". (Stefan)
 - NEW: "Show Log" command from the revision graph. See issue #184. (Stefan)
 - NEW: Blames are now searchable. See issue #12. (Stefan)
+- NEW: Column in the log dialog showing the actions of each revision, and
+       the filter for paths now also searches for action strings.
+       See issue #183 for details. (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.
