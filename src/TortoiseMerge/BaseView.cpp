@@ -844,6 +844,16 @@ void CBaseView::OnDraw(CDC * pDC)
 	pDC->SetTextColor(crFg);
 
 	pDC->SelectObject(GetFont(FALSE, TRUE, FALSE));
+	if (IsModified())
+	{
+		if (m_sWindowName.Left(2).Compare(_T("* "))!=0)
+			m_sWindowName = _T("* ") + m_sWindowName;
+	}
+	else
+	{
+		if (m_sWindowName.Left(2).Compare(_T("* "))==0)
+			m_sWindowName = m_sWindowName.Mid(2);
+	}
 	int nStringLength = (GetCharWidth()*m_sWindowName.GetLength());
 	pDC->ExtTextOut(max(rcClient.left + (rcClient.Width()-nStringLength)/2, 1), 
 		rcClient.top+(HEADERHEIGHT/2), ETO_CLIPPED, textrect, m_sWindowName, NULL);

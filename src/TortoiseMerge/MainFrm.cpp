@@ -704,6 +704,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 		m_pwndBottomView->SetModified(FALSE);
 		if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
 			m_pwndRightView->SetModified(FALSE);
+		Invalidate();
 	} // if (m_pwndBottomView) 
 	else if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
 	{
@@ -716,6 +717,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 		m_pwndRightView->SetModified(FALSE);
 		if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
 			m_pwndBottomView->SetModified(FALSE);
+		Invalidate();
 	} 
 	else
 	{
