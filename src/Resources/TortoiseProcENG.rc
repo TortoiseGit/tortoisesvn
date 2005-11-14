@@ -290,10 +290,10 @@ BEGIN
     EDITTEXT        IDC_BUGID,244,3,49,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_COMMIT_TO,6,17,287,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    PUSHBUTTON      "&History",IDC_HISTORY,14,39,50,14
+    PUSHBUTTON      "&History",IDC_HISTORY,14,41,50,14
     GROUPBOX        "Message:",IDC_MESSAGEGROUP,6,30,287,105
-    CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,14,55,
-                    272,74,WS_EX_STATICEDGE
+    CONTROL         "Scintilla",IDC_LOGMESSAGE,"Scintilla",WS_TABSTOP,14,59,
+                    272,70,WS_EX_STATICEDGE
     GROUPBOX        "Changes made (double-click for details):",IDC_LISTGROUP,
                     6,137,287,113
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
