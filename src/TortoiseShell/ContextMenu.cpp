@@ -351,6 +351,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com)
 {
 	TCHAR menutextbuffer[255];
+	TCHAR verbsbuffer[255];
 	ZeroMemory(menutextbuffer, sizeof(menutextbuffer));
 	MAKESTRING(stringid);
 
@@ -376,7 +377,23 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 	{
 		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, menutextbuffer);
 	}
-
+	if (istop)
+	{
+		//menu entry for the top context menu, so append an "SVN " before
+		//the menu text to indicate where the entry comes from
+		_tcscpy(menutextbuffer, _T("SVN "));
+	}
+	LoadString(g_hResInst, stringid, verbsbuffer, sizeof(verbsbuffer));
+	_tcscat(menutextbuffer, verbsbuffer);
+	stdstring verb = stdstring(menutextbuffer);
+	if (verb.find('&') != -1)
+	{
+		verb.erase(verb.find('&'),1);
+	}
+	myVerbsMap[verb] = id - idCmdFirst;
+	myVerbsMap[verb] = id;
+	myVerbsIDMap[id - idCmdFirst] = verb;
+	myVerbsIDMap[id] = verb;
 	// We store the relative and absolute diameter
 	// (drawitem callback uses absolute, others relative)
 	myIDMap[id - idCmdFirst] = com;
@@ -758,6 +775,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			{
 				ignoresubmenu = CreateMenu();
 				InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
+				stdstring verb = stdstring(ignorepath);
+				myVerbsMap[verb] = idCmd - idCmdFirst;
+				myVerbsMap[verb] = idCmd;
+				myVerbsIDMap[idCmd - idCmdFirst] = verb;
+				myVerbsIDMap[idCmd] = verb;
 				myIDMap[idCmd - idCmdFirst] = UnIgnore;
 				myIDMap[idCmd++] = UnIgnore;
 				bShowIgnoreMenu = true;
@@ -774,6 +796,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 						ignoresubmenu = CreateMenu();
 
 					InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
+					stdstring verb = stdstring(maskbuf);
+					myVerbsMap[verb] = idCmd - idCmdFirst;
+					myVerbsMap[verb] = idCmd;
+					myVerbsIDMap[idCmd - idCmdFirst] = verb;
+					myVerbsIDMap[idCmd] = verb;
 					myIDMap[idCmd - idCmdFirst] = UnIgnoreCaseSensitive;
 					myIDMap[idCmd++] = UnIgnoreCaseSensitive;
 					bShowIgnoreMenu = true;
@@ -795,6 +822,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 				{
 					_tcscat(maskbuf, _tcsrchr(ignorepath, '.'));
 					InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
+					stdstring verb = stdstring(maskbuf);
+					myVerbsMap[verb] = idCmd - idCmdFirst;
+					myVerbsMap[verb] = idCmd;
+					myVerbsIDMap[idCmd - idCmdFirst] = verb;
+					myVerbsIDMap[idCmd] = verb;
 					myIDMap[idCmd - idCmdFirst] = IgnoreCaseSensitive;
 					myIDMap[idCmd++] = IgnoreCaseSensitive;
 				}
@@ -804,6 +836,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 				MAKESTRING(IDS_MENUIGNOREMULTIPLE);
 				_stprintf(ignorepath, stringtablebuffer, files_.size());
 				InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
+				stdstring verb = stdstring(ignorepath);
+				myVerbsMap[verb] = idCmd - idCmdFirst;
+				myVerbsMap[verb] = idCmd;
+				myVerbsIDMap[idCmd - idCmdFirst] = verb;
+				myVerbsIDMap[idCmd] = verb;
 				myIDMap[idCmd - idCmdFirst] = Ignore;
 				myIDMap[idCmd++] = Ignore;
 			}
@@ -925,390 +962,394 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 	std::string parent;
 	std::string file;
 
-	if (!HIWORD(lpcmi->lpVerb))
+	if ((files_.size() > 0)||(folder_.size() > 0))
 	{
-		if ((files_.size() > 0)||(folder_.size() > 0))
+		UINT idCmd = LOWORD(lpcmi->lpVerb);
+
+		if (HIWORD(lpcmi->lpVerb))
 		{
-			UINT idCmd = LOWORD(lpcmi->lpVerb);
+			stdstring verb = stdstring(MultibyteToWide(lpcmi->lpVerb));
+			if (myVerbsMap.find(verb) != myVerbsMap.end())
+				idCmd = myVerbsMap[verb];
+		}
 
-			// See if we have a handler interface for this id
-			if (myIDMap.find(idCmd) != myIDMap.end())
+		// See if we have a handler interface for this id
+		if (myIDMap.find(idCmd) != myIDMap.end())
+		{
+			STARTUPINFO startup;
+			PROCESS_INFORMATION process;
+			memset(&startup, 0, sizeof(startup));
+			startup.cb = sizeof(startup);
+			memset(&process, 0, sizeof(process));
+			CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
+			CRegStdString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T("TortoiseMerge.exe"), false, HKEY_LOCAL_MACHINE);
+
+			//TortoiseProc expects a command line of the form:
+			//"/command:<commandname> /path:<path> /revstart:<revisionstart> /revend:<revisionend>
+			//path is either a path to a single file/directory for commands which only act on single files (log, checkout, ...)
+			//or a path to a temporary file which contains a list of filepaths
+			stdstring svnCmd = _T(" /command:");
+			stdstring tempfile;
+			switch (myIDMap[idCmd])
 			{
-				STARTUPINFO startup;
-				PROCESS_INFORMATION process;
-				memset(&startup, 0, sizeof(startup));
-				startup.cb = sizeof(startup);
-				memset(&process, 0, sizeof(process));
-				CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
-				CRegStdString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T("TortoiseMerge.exe"), false, HKEY_LOCAL_MACHINE);
-
-				//TortoiseProc expects a command line of the form:
-				//"/command:<commandname> /path:<path> /revstart:<revisionstart> /revend:<revisionend>
-				//path is either a path to a single file/directory for commands which only act on single files (log, checkout, ...)
-				//or a path to a temporary file which contains a list of filepaths
-				stdstring svnCmd = _T(" /command:");
-				stdstring tempfile;
-				switch (myIDMap[idCmd])
+				//#region case
+			case Checkout:
+				svnCmd += _T("checkout /path:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Update:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("update /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case UpdateExt:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("update /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\" /rev");
+				break;
+			case Commit:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("commit /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case Add:
+			case AddAsReplacement:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("add /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case Ignore:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("ignore /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case IgnoreCaseSensitive:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("ignore /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /onlymask");
+				break;
+			case UnIgnore:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("unignore /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case UnIgnoreCaseSensitive:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("unignore /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /onlymask");
+				break;
+			case Revert:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("revert /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case Cleanup:
+				svnCmd += _T("cleanup /path:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Resolve:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("resolve /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case Switch:
+				svnCmd += _T("switch /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Import:
+				svnCmd += _T("import /path:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Export:
+				svnCmd += _T("export /path:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case About:
+				svnCmd += _T("about");
+				break;
+			case CreateRepos:
+				svnCmd += _T("repocreate /path:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Merge:
+				svnCmd += _T("merge /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Copy:
+				svnCmd += _T("copy /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Settings:
+				svnCmd += _T("settings");
+				break;
+			case Help:
+				svnCmd += _T("help");
+				break;
+			case Rename:
+				svnCmd += _T("rename /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Remove:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("remove /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case Diff:
+				svnCmd += _T("diff /path:\"");
+				if (files_.size() == 1)
+					svnCmd += files_.front();
+				else if (files_.size() == 2)
 				{
-					//#region case
-					case Checkout:
-						svnCmd += _T("checkout /path:\"");
+					std::vector<stdstring>::iterator I = files_.begin();
+					svnCmd += *I;
+					I++;
+					svnCmd += _T("\" /path2:\"");
+					svnCmd += *I;
+				}
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case DropCopyAdd:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("dropcopyadd /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /droptarget:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"";)
+					break;
+			case DropCopy:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("dropcopy /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /droptarget:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"";)
+					break;
+			case DropCopyRename:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("dropcopy /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /droptarget:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\" /rename";)
+					break;
+			case DropMove:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("dropmove /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /droptarget:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case DropExport:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("dropexport /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /droptarget:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case DropExportExtended:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("dropexport /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /droptarget:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /extended");
+				break;
+			case Log:
+				svnCmd += _T("log /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case ConflictEditor:
+				svnCmd += _T("conflicteditor /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Relocate:
+				svnCmd += _T("relocate /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case ShowChanged:
+				svnCmd += _T("repostatus /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case RepoBrowse:
+				svnCmd += _T("repobrowser /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Blame:
+				svnCmd += _T("blame /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case CreatePatch:
+				svnCmd += _T("createpatch /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case ApplyPatch:
+				if (isPatchFile)
+				{
+					svnCmd = _T(" /diff:\"");
+					if (files_.size() > 0)
+						svnCmd += files_.front();
+					else
 						svnCmd += folder_;
+					if (isInVersionedFolder)
+						svnCmd += _T("\" /wc");
+					else
 						svnCmd += _T("\"");
-						break;
-					case Update:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("update /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case UpdateExt:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("update /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\" /rev");
-						break;
-					case Commit:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("commit /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case Add:
-					case AddAsReplacement:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("add /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case Ignore:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("ignore /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case IgnoreCaseSensitive:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("ignore /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /onlymask");
-						break;
-					case UnIgnore:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("unignore /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case UnIgnoreCaseSensitive:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("unignore /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /onlymask");
-						break;
-					case Revert:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("revert /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case Cleanup:
-						svnCmd += _T("cleanup /path:\"");
+				}
+				else
+				{
+					svnCmd = _T(" /patchpath:\"");
+					if (files_.size() > 0)
+						svnCmd += files_.front();
+					else
 						svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Resolve:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("resolve /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case Switch:
-						svnCmd += _T("switch /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Import:
-						svnCmd += _T("import /path:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Export:
-						svnCmd += _T("export /path:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case About:
-						svnCmd += _T("about");
-						break;
-					case CreateRepos:
-						svnCmd += _T("repocreate /path:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Merge:
-						svnCmd += _T("merge /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Copy:
-						svnCmd += _T("copy /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Settings:
-						svnCmd += _T("settings");
-						break;
-					case Help:
-						svnCmd += _T("help");
-						break;
-					case Rename:
-						svnCmd += _T("rename /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Remove:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("remove /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case Diff:
-						svnCmd += _T("diff /path:\"");
-						if (files_.size() == 1)
-							svnCmd += files_.front();
-						else if (files_.size() == 2)
-						{
-							std::vector<stdstring>::iterator I = files_.begin();
-							svnCmd += *I;
-							I++;
-							svnCmd += _T("\" /path2:\"");
-							svnCmd += *I;
-						}
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case DropCopyAdd:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("dropcopyadd /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\"";)
-						break;
-					case DropCopy:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("dropcopy /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\"";)
-							break;
-					case DropCopyRename:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("dropcopy /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\" /rename";)
-							break;
-					case DropMove:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("dropmove /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case DropExport:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("dropexport /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case DropExportExtended:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("dropexport /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_;
-						svnCmd += _T("\"");
-						svnCmd += _T(" /extended");
-						break;
-					case Log:
-						svnCmd += _T("log /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case ConflictEditor:
-						svnCmd += _T("conflicteditor /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Relocate:
-						svnCmd += _T("relocate /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case ShowChanged:
-						svnCmd += _T("repostatus /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case RepoBrowse:
-						svnCmd += _T("repobrowser /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Blame:
-						svnCmd += _T("blame /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case CreatePatch:
-						svnCmd += _T("createpatch /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case ApplyPatch:
-						if (isPatchFile)
-						{
-							svnCmd = _T(" /diff:\"");
-							if (files_.size() > 0)
-								svnCmd += files_.front();
-							else
-								svnCmd += folder_;
-							if (isInVersionedFolder)
-								svnCmd += _T("\" /wc");
-							else
-								svnCmd += _T("\"");
-						}
-						else
-						{
-							svnCmd = _T(" /patchpath:\"");
-							if (files_.size() > 0)
-								svnCmd += files_.front();
-							else
-								svnCmd += folder_;
-							svnCmd += _T("\"");
-						}
-						myIDMap.clear();
-						if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-						{
-							LPVOID lpMsgBuf;
-							FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-								FORMAT_MESSAGE_FROM_SYSTEM | 
-								FORMAT_MESSAGE_IGNORE_INSERTS,
-								NULL,
-								GetLastError(),
-								MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-								(LPTSTR) &lpMsgBuf,
-								0,
-								NULL 
-								);
-							MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-							LocalFree( lpMsgBuf );
-						} // if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
-						return NOERROR;
-						break;
-					case RevisionGraph:
-						svnCmd += _T("revisiongraph /path:\"");
-						if (files_.size() > 0)
-							svnCmd += files_.front();
-						else
-							svnCmd += folder_;
-						svnCmd += _T("\"");
-						break;
-					case Lock:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("lock /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case Unlock:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("unlock /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\"");
-						break;
-					case UnlockForce:
-						tempfile = WriteFileListToTempFile();
-						svnCmd += _T("unlock /path:\"");
-						svnCmd += tempfile;
-						svnCmd += _T("\" /force");
-						break;
-					default:
-						break;
-					//#endregion
-				} // switch (myIDMap[idCmd])
-				svnCmd += _T(" /hwnd:");
-				TCHAR buf[30];
-				_stprintf(buf, _T("%d"), lpcmi->hwnd);
-				svnCmd += buf;
+					svnCmd += _T("\"");
+				}
 				myIDMap.clear();
-				if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+				if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 				{
 					LPVOID lpMsgBuf;
 					FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-									FORMAT_MESSAGE_FROM_SYSTEM | 
-									FORMAT_MESSAGE_IGNORE_INSERTS,
-									NULL,
-									GetLastError(),
-									MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-									(LPTSTR) &lpMsgBuf,
-									0,
-									NULL 
-									);
+						FORMAT_MESSAGE_FROM_SYSTEM | 
+						FORMAT_MESSAGE_IGNORE_INSERTS,
+						NULL,
+						GetLastError(),
+						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+						(LPTSTR) &lpMsgBuf,
+						0,
+						NULL 
+						);
 					MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
 					LocalFree( lpMsgBuf );
-				} // if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
-				hr = NOERROR;
-			} // if (myIDMap.find(idCmd) != myIDMap.end()) 
-		} // if ((files_.size() > 0)||(folder_.size() > 0)) 
-	} // if (!HIWORD(lpcmi->lpVerb)) 
+				} // if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+				return NOERROR;
+				break;
+			case RevisionGraph:
+				svnCmd += _T("revisiongraph /path:\"");
+				if (files_.size() > 0)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
+			case Lock:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("lock /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case Unlock:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("unlock /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
+			case UnlockForce:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("unlock /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\" /force");
+				break;
+			default:
+				break;
+				//#endregion
+			} // switch (myIDMap[idCmd])
+			svnCmd += _T(" /hwnd:");
+			TCHAR buf[30];
+			_stprintf(buf, _T("%d"), lpcmi->hwnd);
+			svnCmd += buf;
+			myIDMap.clear();
+			if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+			{
+				LPVOID lpMsgBuf;
+				FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+					FORMAT_MESSAGE_FROM_SYSTEM | 
+					FORMAT_MESSAGE_IGNORE_INSERTS,
+					NULL,
+					GetLastError(),
+					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+					(LPTSTR) &lpMsgBuf,
+					0,
+					NULL 
+					);
+				MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+				LocalFree( lpMsgBuf );
+			} // if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+			hr = NOERROR;
+		} // if (myIDMap.find(idCmd) != myIDMap.end()) 
+	} // if ((files_.size() > 0)||(folder_.size() > 0)) 
 	return hr;
 
 }
@@ -1459,6 +1500,27 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 			hr = S_OK;
 			break; 
 		}
+	case GCS_VERBA:
+		{
+			if (myVerbsIDMap.find(idCmd) != myVerbsIDMap.end())
+			{
+				std::string help = WideToMultibyte(myVerbsIDMap[idCmd]);
+				lstrcpynA(pszName, help.c_str(), cchMax);
+				hr = S_OK;
+			}
+		}
+		break;
+	case GCS_VERBW:
+		{
+			if (myVerbsIDMap.find(idCmd) != myVerbsIDMap.end())
+			{
+				wide_string help = myVerbsIDMap[idCmd];
+				ATLTRACE("verb : %ws\n", help.c_str());
+				lstrcpynW((LPWSTR)pszName, help.c_str(), cchMax); 
+				hr = S_OK;
+			}
+		}
+		break;
 	}
 	return hr;
 }

@@ -148,6 +148,8 @@ protected:
 	//std::map<int,std::string> verbMap;
 	std::map<UINT_PTR, int>	myIDMap;
 	std::map<UINT_PTR, int>	mySubMenuMap;
+	std::map<stdstring, int> myVerbsMap;
+	std::map<UINT_PTR, stdstring> myVerbsIDMap;
 	stdstring	folder_;
 	std::vector<stdstring> files_;
 	bool isOnlyOneItemSelected;
