@@ -731,7 +731,10 @@ void CRepositoryTree::EndEdit(BOOL bUpdate /* = TRUE */, LPNMRVITEMEDIT lpnmrvie
 {
 	ATLTRACE("EndEdit\n");
 	if ((lpnmrvie == NULL)||(lpnmrvie->lpszText == NULL))
+	{
 		CReportCtrl::EndEdit(FALSE, lpnmrvie);
+		return;
+	}
 	
 	HTREEITEM hItem = GetItemHandle(m_iEditItem);
 
@@ -740,7 +743,7 @@ void CRepositoryTree::EndEdit(BOOL bUpdate /* = TRUE */, LPNMRVITEMEDIT lpnmrvie
 	CString sNewName = lpnmrvie->lpszText;
 	CString sNewUrl = sOldUrl.Left(sOldUrl.ReverseFind('/')+1) + sNewName;
 	
-	if ((!bUpdate)||(sNewName.FindOneOf(_T("/\\?*\"<>|"))>=0))
+	if ((!bUpdate)||(sNewName.FindOneOf(_T("/\\?*\"<>|"))>=0)||(sOldName==sNewName))
 	{
 		CReportCtrl::EndEdit(FALSE, lpnmrvie);
 		return;
