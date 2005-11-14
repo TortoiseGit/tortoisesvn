@@ -1278,6 +1278,8 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					svnCmd += _T("\"");
 				}
 				myIDMap.clear();
+				myVerbsIDMap.clear();
+				myVerbsMap.clear();
 				if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 				{
 					LPVOID lpMsgBuf;
@@ -1331,6 +1333,8 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			_stprintf(buf, _T("%d"), lpcmi->hwnd);
 			svnCmd += buf;
 			myIDMap.clear();
+			myVerbsIDMap.clear();
+			myVerbsMap.clear();
 			if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 			{
 				LPVOID lpMsgBuf;
