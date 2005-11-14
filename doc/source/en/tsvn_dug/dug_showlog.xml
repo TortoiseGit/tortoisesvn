@@ -287,9 +287,16 @@
 						made in that branch only.
 					</para>
 					<para>
-						This option is normally unchecked by default, except
-						when the Show Log dialog is invoked from within the
-						Merge dialog.
+						Normally you will want to leave this option unchecked.
+						TortoiseSVN remembers the state of the checkbox, so
+						it will respect your preference.
+					</para>
+					<para>
+						When the Show Log dialog is invoked from within the
+						Merge dialog, the box is always checked by default.
+						This is because merging is most often looking at
+						changes on branches, and going back beyond the root
+						of the branch does not make sense in that instance.
 					</para>
 					<para>
 						Note that Subversion currently implements renaming

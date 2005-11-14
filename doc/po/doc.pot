@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-11-13 18:17Koreanische Normalzeit\n"
+"POT-Creation-Date: 2005-11-14 22:28GMT Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1222,10 +1222,14 @@ msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Lo
 msgstr ""
 
 #: source/en/tsvn_dug/dug_showlog.xml:289(para) 
-msgid "This option is normally unchecked by default, except when the Show Log dialog is invoked from within the Merge dialog."
+msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_showlog.xml:294(para) 
+msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_showlog.xml:301(para) 
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
 msgstr ""
 
@@ -1233,67 +1237,67 @@ msgstr ""
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:303(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:310(para) 
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:308(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:315(para) 
 msgid "If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Show All</guibutton>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:314(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:321(title) 
 msgid "Changing the Log Message and Author"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:316(primary) 
+#: source/en/tsvn_dug/dug_showlog.xml:323(primary) 
 msgid "edit log/author"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:318(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:325(para) 
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:325(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:332(para) 
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:338(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:345(para) 
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:344(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:351(para) 
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:354(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:361(title) 
 msgid "Filtering Log Messages"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:356(primary) 
+#: source/en/tsvn_dug/dug_showlog.xml:363(primary) 
 msgid "filter"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:358(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:365(para) 
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:367(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:374(para) 
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:374(title) 
+#: source/en/tsvn_dug/dug_showlog.xml:381(title) 
 msgid "Statistical Information"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:376(primary) 
+#: source/en/tsvn_dug/dug_showlog.xml:383(primary) 
 msgid "statistics"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:378(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:385(para) 
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
 msgstr ""
 
-#: source/en/tsvn_dug/dug_showlog.xml:386(para) 
+#: source/en/tsvn_dug/dug_showlog.xml:393(para) 
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
 msgstr ""
 
