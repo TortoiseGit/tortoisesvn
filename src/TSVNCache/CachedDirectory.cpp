@@ -10,7 +10,6 @@ CCachedDirectory::CCachedDirectory(void)
 	m_entriesFileTime = 0;
 	m_propsFileTime = 0;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-	m_bCurrentFullStatusValid = false;
 }
 
 CCachedDirectory::~CCachedDirectory(void)
@@ -27,7 +26,6 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_entriesFileTime = 0;
 	m_propsFileTime = 0;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-	m_bCurrentFullStatusValid = false;
 }
 
 BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
@@ -35,7 +33,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 	AutoLocker lock(m_critSec);
 #define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) return false;
 
-	unsigned int value = 0;
+	unsigned int value = 1;
 	WRITEVALUETOFILE(value);	// 'version' of this save-format
 	value = (int)m_entryCache.size();
 	WRITEVALUETOFILE(value);	// size of the cache map
@@ -80,7 +78,6 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 	if (!m_ownStatus.SaveToDisk(pFile))
 		return false;
 	WRITEVALUETOFILE(m_currentFullStatus);
-	WRITEVALUETOFILE(m_bCurrentFullStatusValid);
 	WRITEVALUETOFILE(m_mostImportantFileStatus);
 	return true;
 }
@@ -92,7 +89,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 
 	unsigned int value = 0;
 	LOADVALUEFROMFILE(value);
-	if (value != 0)
+	if (value != 1)
 		return false;		// not the correct version
 	int mapsize = 0;
 	LOADVALUEFROMFILE(mapsize);
@@ -150,7 +147,6 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 		return false;
 
 	LOADVALUEFROMFILE(m_currentFullStatus);
-	LOADVALUEFROMFILE(m_bCurrentFullStatusValid);
 	LOADVALUEFROMFILE(m_mostImportantFileStatus);
 	return true;
 
@@ -300,7 +296,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		m_mostImportantFileStatus = svn_wc_status_none;
 		m_childDirectories.clear();
 		m_entryCache.clear();
-		m_bCurrentFullStatusValid = false;
 		m_ownStatus.SetStatus(NULL);
 		m_bRecursive = bRecursive;
 		if(!bThisDirectoryIsUnversioned)
@@ -385,7 +380,6 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 	{
 		CCachedDirectory * childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 		childDir->m_ownStatus.SetStatus(pSVNStatus);
-		m_bCurrentFullStatusValid = false;
 	}
 	else
 	{
@@ -526,23 +520,22 @@ void CCachedDirectory::UpdateCurrentStatus()
 {
 	svn_wc_status_kind newStatus = CalculateRecursiveStatus();
 
-
-	// Our status has changed - tell the shell
 	if ((newStatus != m_currentFullStatus)&&(m_currentFullStatus != svn_wc_status_none))
 	{
+		// Our status has changed - tell the shell
 		ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);		
 		CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
-	}
-	m_currentFullStatus = newStatus;
 
-	// And tell our parent, if we've got one...
-	CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
-	if(!parentPath.IsEmpty())
-	{
-		// We have a parent
-		CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath)->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
+		m_currentFullStatus = newStatus;
+
+		// And tell our parent, if we've got one...
+		CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
+		if(!parentPath.IsEmpty())
+		{
+			// We have a parent
+			CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath)->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
+		}
 	}
-	m_bCurrentFullStatusValid = true;
 }
 
 
@@ -566,10 +559,7 @@ CStatusCacheEntry CCachedDirectory::GetOwnStatus(bool bRecursive)
 	if(bRecursive && m_ownStatus.GetEffectiveStatus() > svn_wc_status_unversioned)
 	{
 		CStatusCacheEntry recursiveStatus(m_ownStatus);
-		if(!m_bCurrentFullStatusValid)
-		{
-			UpdateCurrentStatus();
-		}
+		UpdateCurrentStatus();
 		recursiveStatus.ForceStatus(m_currentFullStatus);
 		return recursiveStatus;				
 	}
