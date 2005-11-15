@@ -128,7 +128,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
-	
+		
 	if (!m_sLogMessage.IsEmpty())
 		m_cLogMessage.SetText(m_sLogMessage);
 		
@@ -169,6 +169,15 @@ BOOL CLogPromptDlg::OnInitDialog()
 		m_pThread->ResumeThread();
 	}
 	m_bBlock = TRUE;
+	CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
+	CRegDWORD historyhint = CRegDWORD(_T("Software\\TortoiseSVN\\HistoryHintShown"), FALSE);
+	if ((((DWORD)err)!=FALSE)&&((((DWORD)historyhint)==FALSE)))
+	{
+		historyhint = TRUE;
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_HISTORY), IDS_LOGPROMPT_HISTORYHINT_TT, TRUE, IDI_INFORMATION);
+	}
+	err = FALSE;
+
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE

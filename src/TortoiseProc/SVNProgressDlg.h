@@ -158,6 +158,8 @@ public:
 	void SetPegRevision(SVNRev pegrev = SVNRev()) {m_pegRev = pegrev;}
 	
 	CString BuildInfoString();
+	
+	bool DidErrorsOccur() {return m_bErrorsOccurred;}
 
 // Dialog Data
 	enum { IDD = IDD_SVNPROGRESS };

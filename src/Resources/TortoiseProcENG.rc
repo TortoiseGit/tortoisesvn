@@ -2131,6 +2131,8 @@ BEGIN
     IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED 
                             "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
     IDS_LOGPROMPT_HISTORY_TT "Click here to select a recently typed message"
+    IDS_LOGPROMPT_HISTORYHINT_TT 
+                            "Your previously entered log messages have been saved.\nClick here to read and insert them again."
 END
 
 STRINGTABLE 
