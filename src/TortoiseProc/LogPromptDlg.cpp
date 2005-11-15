@@ -109,7 +109,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_cLogMessage.RegisterContextMenuHandler(this);
 
 	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_EXTERNALWARNING, IDS_LOGPROMPT_EXTERNALS, (UINT)IDI_WARNING);
+	m_tooltips.AddTool(IDC_EXTERNALWARNING, IDS_LOGPROMPT_EXTERNALS);
+	m_tooltips.AddTool(IDC_HISTORY, IDS_LOGPROMPT_HISTORY_TT);
 	
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	

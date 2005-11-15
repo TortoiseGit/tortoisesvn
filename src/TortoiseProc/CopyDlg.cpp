@@ -92,6 +92,9 @@ BOOL CCopyDlg::OnInitDialog()
 		GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
 	}
 	
+	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_HISTORY, IDS_LOGPROMPT_HISTORY_TT);
+	
 	m_bFile = !path.IsDirectory();
 	SVN svn;
 	m_wcURL = svn.GetURLFromPath(path);

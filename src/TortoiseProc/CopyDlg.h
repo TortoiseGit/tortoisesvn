@@ -25,6 +25,7 @@
 #include "TSVNPath.h"
 #include "SVNRev.h"
 #include "LogDlg.h"
+#include "Balloon.h"
 
 /**
  * \ingroup TortoiseProc
@@ -97,4 +98,5 @@ private:
 	CString m_wcURL;
 	CButton m_butBrowse;
 	CHistoryDlg m_HistoryDlg;
+	CBalloon	m_tooltips;
 };
