@@ -1797,6 +1797,8 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 			case CDiffData::DIFFSTATE_THEIRSADDED:
 			case CDiffData::DIFFSTATE_YOURSADDED:
 				state = CDiffData::DIFFSTATE_REMOVED;
+				if ((this == m_pwndRight)||(this == m_pwndBottom))
+					SetModified();
 				break;
 			case CDiffData::DIFFSTATE_IDENTICALREMOVED:
 			case CDiffData::DIFFSTATE_REMOVED:
@@ -1804,6 +1806,8 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 			case CDiffData::DIFFSTATE_THEIRSREMOVED:
 			case CDiffData::DIFFSTATE_YOURSREMOVED:
 				state = CDiffData::DIFFSTATE_ADDED;
+				if ((this == m_pwndRight)||(this == m_pwndBottom))
+					SetModified();
 				break;
 			}
 			m_arLineStates->SetAt(nClickedLine, state);
