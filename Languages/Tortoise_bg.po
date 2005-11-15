@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-04 22:32+0200\n"
+"PO-Revision-Date: 2005-11-15 20:41+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -484,12 +484,6 @@ msgstr "Помощ по &теми"
 msgid "&Hide"
 msgstr "&Скриване"
 
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "&Хронология"
-
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -607,6 +601,11 @@ msgstr "&Порт:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Предишна разлика"
+
+# Dlg-ID:130,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "&Последни съобщения"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -1031,6 +1030,11 @@ msgstr "Отказан  бе достъпът до %1."
 #: ID:77
 msgid "Action"
 msgstr "Действие"
+
+# ID:77,
+#: ID:117
+msgid "Actions"
+msgstr "Действия"
 
 # ID:3826,
 #: ID:3826
@@ -1657,6 +1661,11 @@ msgid ""
 msgstr ""
 "Изчиства запазените удостоверения.\n"
 "Ще трябва да въвеждате отново Вашите потребителско име и парола за достъп до хранилищата."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "Щракнете тук, за да изберете наскоро въведено съобщение"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3159,7 +3168,7 @@ msgstr "Променен"
 # ID:438,#:
 # ID:438,
 #: ID:438
-msgid "More Colors..."
+msgid "More colors..."
 msgstr "Още цветове..."
 
 # Control-ID:1136,
@@ -5870,6 +5879,15 @@ msgid ""
 msgstr ""
 "Избрали сте добавени папки. Кръпката няма да съдържа добавени файлове в тези добавени папки.\n"
 "Желаете ли да продължите въпреки това?"
+
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"Вашите скорошни съобщения са запазени.\n"
+"Щракнете тук за да ги разгледате и да ги използвате отново."
 
 # Control-ID:1112,
 #: Control-ID:1112
