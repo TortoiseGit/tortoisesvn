@@ -520,12 +520,14 @@ void CCachedDirectory::UpdateCurrentStatus()
 {
 	svn_wc_status_kind newStatus = CalculateRecursiveStatus();
 
-	if ((newStatus != m_currentFullStatus)&&(m_currentFullStatus != svn_wc_status_none))
+	if (newStatus != m_currentFullStatus)
 	{
-		// Our status has changed - tell the shell
-		ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);		
-		CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
-
+		if (m_currentFullStatus != svn_wc_status_none)
+		{
+			// Our status has changed - tell the shell
+			ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);		
+			CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
+		}
 		m_currentFullStatus = newStatus;
 
 		// And tell our parent, if we've got one...
