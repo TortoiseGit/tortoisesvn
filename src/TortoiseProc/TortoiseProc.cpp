@@ -638,6 +638,30 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				dlg.m_sLogMessage = parser.GetVal(_T("logmsg"));
 			}
+			if (parser.HasKey(_T("logmsgfile")))
+			{
+				CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+				if (PathFileExists(logmsgfile))
+				{
+					try
+					{
+						CStdioFile msgfile;
+						if (msgfile.Open(logmsgfile, CFile::modeRead))
+						{
+							CStringA filecontent;
+							int filelength = (int)msgfile.GetLength();
+							int bytesread = (int)msgfile.Read(filecontent.GetBuffer(filelength), filelength);
+							filecontent.ReleaseBuffer(bytesread);
+							dlg.m_sLogMessage = CUnicodeUtils::GetUnicode(filecontent);
+							msgfile.Close();
+						}
+					} 
+					catch (CFileException* /*pE*/)
+					{
+						dlg.m_sLogMessage.Empty();
+					}
+				}
+			}
 			dlg.m_pathList = pathList;
 			if (dlg.DoModal() == IDOK)
 			{

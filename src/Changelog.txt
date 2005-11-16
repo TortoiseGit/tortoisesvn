@@ -25,6 +25,9 @@
 - NEW: Column in the log dialog showing the actions of each revision, and
        the filter for paths now also searches for action strings.
        See issue #183 for details. (Stefan)
+- NEW: new command line param /logmsgfile for filling in a log message
+       for the commit dialog. The log message must be stored in the file
+       pointed to by /logmsgfile:<path>. (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.

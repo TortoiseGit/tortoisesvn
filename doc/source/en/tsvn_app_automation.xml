@@ -125,6 +125,9 @@
 								target directory or the list of files to commit.
 								You can also specify the /logmsg switch to pass
 								a predefined log message to the commit dialog.
+								Or, if you don't want to pass the log message on the
+								command line, use /logmsgfile:path, where <option>path</option>
+								points to a file containing the log message.
 							</entry>
 						</row>
 						<row>
