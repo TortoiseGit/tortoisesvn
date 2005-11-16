@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-11 08:58+0100\n"
+"PO-Revision-Date: 2005-11-16 17:10+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -445,12 +445,6 @@ msgstr "&Sommario"
 msgid "&Hide"
 msgstr "&Nascondi"
 
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "&Cronologia"
-
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -568,6 +562,11 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Differenza precedente"
+
+# Dlg-ID:130,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "Commenti &recenti"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -991,6 +990,11 @@ msgstr "Accesso negato a %1."
 #: ID:77
 msgid "Action"
 msgstr "Azione"
+
+# ID:77,
+#: ID:117
+msgid "Actions"
+msgstr "Azioni"
 
 # ID:3826,
 #: ID:3826
@@ -1617,6 +1621,11 @@ msgid ""
 msgstr ""
 "Cancella tutte le informazioni di autenticazione\n"
 "Sarà necessario specificare di nuovo nome utente e password per tutti i repository."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "Clicca qui per selezionare i commenti utilizzati di recente"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5839,6 +5848,15 @@ msgid ""
 msgstr ""
 "Si sono selezionate cartelle aggiunte. La patch non contiene file aggiunti all'interno di queste cartelle.\n"
 "Continuare comunque?"
+
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"I commenti che hai scritto in precedenza sono stati salvati.\n"
+"Clicca qui per leggerli e inserirli di nuovo."
 
 # Control-ID:1112,
 #: Control-ID:1112
