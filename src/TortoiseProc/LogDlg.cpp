@@ -889,7 +889,6 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_REVERTREV:
 					{
-						// we show the context menu.
 						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 						long rev = pLogEntry->dwRev;
@@ -917,6 +916,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CSVNProgressDlg dlg;
 								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(m_path), url, url, rev);		//use the message as the second url
 								dlg.m_RevisionEnd = revend;
+								dlg.SetPegRevision(m_LogRevision);
 								dlg.DoModal();
 							}
 						}
