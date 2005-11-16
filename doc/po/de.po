@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-11-13 18:50+0900\n"
+"PO-Revision-Date: 2005-11-16 23:56+0900\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1946,10 +1946,15 @@ msgstr "Wenn die Option <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gew�
 
 #: source/en/tsvn_dug/dug_showlog.xml:289
 #: (para)
-msgid "This option is normally unchecked by default, except when the Show Log dialog is invoked from within the Merge dialog."
-msgstr "Diese Option ist normalerweise deaktiviert, es sei denn der Log Dialog wurde aus dem Zusammenführen Dialog heraus aufgerufen."
+msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
+msgstr "Normalerweise werden Sie diese Option nicht aktivieren. TortoiseSVN merkt sich die von Ihnen gewählte Einstellung."
 
 #: source/en/tsvn_dug/dug_showlog.xml:294
+#: (para)
+msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
+msgstr "Wenn der Log Dialog aus dem Zusammenführen Dialog heraus aufgerufen wird, ist diese Option standardmäßig aktiviert. Der Grund dafür ist, dass beim Zusammenführen meistens Änderungen auf Verzweigungen betrachtet werden. Es ist normalerweise nicht sinnvoll, über die Wurzel der Verzweigung hinaus in die Vergangenheit zu gehen."
+
+#: source/en/tsvn_dug/dug_showlog.xml:301
 #: (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
 msgstr "Beachten Sie, dass Subversion Umbenennen derzeit als aufeinanderfolgende Kopieren/Löschen Aktionen implementiert, so dass die Log Anzeige ebenfalls anhält, wenn ein Ordner / eine Datei umbenannt wurde, falls diese Option gewählt ist."
@@ -1959,82 +1964,82 @@ msgstr "Beachten Sie, dass Subversion Umbenennen derzeit als aufeinanderfolgende
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
 msgstr "Der Log Dialog zeigt aus mehreren Gründen nicht immer alle Änderungen die jemals gemacht wurden an: <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_showlog.xml:303
+#: source/en/tsvn_dug/dug_showlog.xml:310
 #: (para)
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
 msgstr "Wenn Sie mehr Log-Meldungen sehen wollen, klicken Sie auf die <guibutton>Nächste 100</guibutton> Schaltfläche um weiter 100 Meldungen zu holen. Sie können dies so oft wie nötig wiederholen."
 
-#: source/en/tsvn_dug/dug_showlog.xml:308
+#: source/en/tsvn_dug/dug_showlog.xml:315
 #: (para)
 msgid "If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Show All</guibutton>."
 msgstr "Wenn Sie wirklich <emphasis>alle</emphasis> Log-Meldungen zurück bis zur Revision 1 sehen möchten, klicken Sie auf <guibutton>Zeige Alle</guibutton>."
 
-#: source/en/tsvn_dug/dug_showlog.xml:314
+#: source/en/tsvn_dug/dug_showlog.xml:321
 #: (title)
 msgid "Changing the Log Message and Author"
 msgstr "Ändern der Log-Meldung und des Autors"
 
-#: source/en/tsvn_dug/dug_showlog.xml:316
+#: source/en/tsvn_dug/dug_showlog.xml:323
 #: (primary)
 msgid "edit log/author"
 msgstr "Autor bearbeiten"
 
-#: source/en/tsvn_dug/dug_showlog.xml:318
+#: source/en/tsvn_dug/dug_showlog.xml:325
 #: (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
 msgstr "Manchmal ist es notwendig, eine Log-Meldung nachträglich zu ändern. Sei es weil die Meldung Rechtschreibfehler enthält oder weil Sie die Meldung mit mehr Informationen erweitern müssen oder aus anderen Gründen Oder Sie müssen den Autor der Revision ändern, weil Sie vielleicht vergessen haben eine Authentifizierung für Übertragungen auf dem Server einzurichten oder..."
 
-#: source/en/tsvn_dug/dug_showlog.xml:325
+#: source/en/tsvn_dug/dug_showlog.xml:332
 #: (para)
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
 msgstr "Subversion lässt Sie beides, Log-Meldungen und den Autor einer  Revision, ändern. Aber da solche Änderungen nicht wieder rückgängig gemacht werden können (diese Änderungen werden nicht aufgezeichnet) ist diese Funktion standardmäßig deaktiviert. Um diese Funktion zu aktivieren, müssen Sie eine pre-revprop-change Aktion für das Projektarchiv einrichten. Bitte lesen Sie dazu das entsprechende Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"> <citetitle>Hook Scripts</citetitle> </ulink> im Subversion Buch, wie das gemacht wird. Lesen Sie auch <xref linkend=\"tsvn-repository-hooks\"/>, um mehr Informationen  über das Einrichten von Aktionen auf einem Windows PC zu erhalten."
 
-#: source/en/tsvn_dug/dug_showlog.xml:338
+#: source/en/tsvn_dug/dug_showlog.xml:345
 #: (para)
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
 msgstr "Sobald Sie die gewünschten Aktionen für das Projektarchiv eingerichtet haben, können Sie sowohl den Autor als auch die Log-Meldung einer  jeden Revision nachträglich ändern, indem Sie den entsprechenden Eintrag aus dem Kontextmenü des Log Dialogs auswählen."
 
-#: source/en/tsvn_dug/dug_showlog.xml:344
+#: source/en/tsvn_dug/dug_showlog.xml:351
 #: (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
 msgstr "Da die Revisionseigenschaften (z.B. <literal>svn:log</literal> für Log-Meldungen) in Subversion nicht aufgezeichnet werden, überschreiben Änderungen  den alten Wert für <emphasis>immer</emphasis>."
 
-#: source/en/tsvn_dug/dug_showlog.xml:354
+#: source/en/tsvn_dug/dug_showlog.xml:361
 #: (title)
 msgid "Filtering Log Messages"
 msgstr "Log-Meldungen filtern"
 
-#: source/en/tsvn_dug/dug_showlog.xml:356
+#: source/en/tsvn_dug/dug_showlog.xml:363
 #: (primary)
 msgid "filter"
 msgstr "Filter"
 
-#: source/en/tsvn_dug/dug_showlog.xml:358
+#: source/en/tsvn_dug/dug_showlog.xml:365
 #: (para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
 msgstr "Mit Hilfe der Filter am oberen Rand des Log-Dialogs können Sie die Log-Meldungen auf diejenigen einschränken, die Sie interessieren. Die <guilabel>Von</guilabel> und <guilabel>Bis</guilabel> ermöglichen es, die Ausgabe auf einen bestimmten Zeitraum zu reduzieren. Die Suchmaske filtert die Meldungen heraus, die die angegebene Zeichenfolge beinhalten"
 
-#: source/en/tsvn_dug/dug_showlog.xml:367
+#: source/en/tsvn_dug/dug_showlog.xml:374
 #: (para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
 msgstr "Beachten Sie dass diese Filter nur auf die bereits heruntergeladenen Meldungen wirken. Sie haben keinen Einfluss darauf, welche Meldungen aus dem Projektarchiv heruntergeladen werden."
 
-#: source/en/tsvn_dug/dug_showlog.xml:374
+#: source/en/tsvn_dug/dug_showlog.xml:381
 #: (title)
 msgid "Statistical Information"
 msgstr "Statistiken anzeigen"
 
-#: source/en/tsvn_dug/dug_showlog.xml:376
+#: source/en/tsvn_dug/dug_showlog.xml:383
 #: (primary)
 msgid "statistics"
 msgstr "Statistiken"
 
-#: source/en/tsvn_dug/dug_showlog.xml:378
+#: source/en/tsvn_dug/dug_showlog.xml:385
 #: (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
 msgstr "Die <guibutton>Statistiken</guibutton> Schaltfläche zeigt eine Dialogbox mit interessanten Informationen über die angezeigten Revisionen an. Es zeigt zum Beispiel wie viele Autoren (Personen welche Übertragungen gemacht haben) am Werk waren, wie viele Übertragungen jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt und vieles mehr. Endlich haben Sie die Möglichkeit zu überprüfen, wer fleißig am Projekt mitarbeitet und wer hinterherhängt ;-)"
 
-#: source/en/tsvn_dug/dug_showlog.xml:386
+#: source/en/tsvn_dug/dug_showlog.xml:393
 #: (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
 msgstr "Beachten Sie, dass die Statistiken die selbe Zeitperiode überdecken wie Revisionen im Log-Dialog angezeigt werden. Wenn also nur eine  Revision angezeigt wird, sagen die Statistiken nicht sehr viel aus."
