@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-11-09 09:07+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-11-16 23:50+0900\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -359,12 +359,6 @@ msgstr "&Hilfe"
 msgid "&Hide"
 msgstr "&Verstecken"
 
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "&Historie"
-
 #: Control-ID:1170
 msgid "&Icon Set:"
 msgstr "&Symbole"
@@ -459,6 +453,10 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Vorherige Unterschied"
+
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "&Log-Meldungen"
 
 #: ID:376
 msgid "&Redo"
@@ -801,6 +799,10 @@ msgstr "Zugriff auf %1 wurde verweigert."
 #: ID:77
 msgid "Action"
 msgstr "Aktion"
+
+#: ID:117
+msgid "Actions"
+msgstr "Aktionen"
 
 #: ID:3826
 msgid "Activate Task List"
@@ -1307,6 +1309,11 @@ msgid ""
 msgstr ""
 "Löscht die gespeicherte Anmeldeinformation für alle Projektarchive.\n"
 "Sie müssen Ihre Name/Passwort Kombination jeweils neu eingeben."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "Klicken Sie hier, um eine der zuletzt eingegebenen Log-Meldungen zu wählen"
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
@@ -4757,6 +4764,16 @@ msgid ""
 msgstr ""
 "Sie haben hinzugefügte Ordner gewählt. Der Patch wird keine zu diesen Ordnern hinzugefügten Dateien enthalten.\n"
 "Wollen Sie den Patch trotzdem erzeugen?"
+
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"Ihre zuletzt eingegebenen Log-Meldungen wurden gespeichert.\n"
+"Klicken Sie auf diese Schaltfläche, um Sie durchzulesen und\n"
+"gegebenenfalls in den Dialog einzufügen."
 
 #: Control-ID:1112
 msgid "Your version is:"
