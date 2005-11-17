@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-15 13:22+0100\n"
+"PO-Revision-Date: 2005-11-16 15:46+0100\n"
 "Last-Translator: Piotr Kontek <piotr.kontek@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -452,12 +452,6 @@ msgstr "Tematy &pomocy"
 msgid "&Hide"
 msgstr "&Ukryj"
 
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "&Historia"
-
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -575,6 +569,11 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Poprzednia różnica"
+
+# Dlg-ID:130,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "&Ostatnie komunikaty"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -1005,6 +1004,11 @@ msgstr "Brak dostępu do %1."
 #: ID:77
 msgid "Action"
 msgstr "Akcja"
+
+# ID:77,
+#: ID:117
+msgid "Actions"
+msgstr "Akcje"
 
 # ID:3826,
 #: ID:3826
@@ -1634,6 +1638,11 @@ msgid ""
 msgstr ""
 "Usuwa zapisane parametry uwierzytelnienia.\n"
 "Przy dostępie do repozytoriów trzeba będzie wprowadzać nazwę i hasło użytkownika."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "Kliknij tu aby wybrać najczęściej wpisywany komunikat"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5874,6 +5883,15 @@ msgid ""
 msgstr ""
 "Zaznaczyłeś dodane foldery. Łata nie będzie zawierać plików dodanych poza właśnie dodanymi folderami.\n"
 "Czy mimo wszystko chcesz kontynuować?"
+
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"Poprzednio wprowadzony przez Ciebie log został zapisany.\n"
+"Kliknij tu aby go przeczytać i wstawić ponownie."
 
 # Control-ID:1112,
 #: Control-ID:1112
