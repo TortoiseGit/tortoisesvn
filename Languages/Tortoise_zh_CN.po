@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-10 18:10+0800\n"
-"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
+"PO-Revision-Date: 2005-11-17 22:49+0800\n"
+"Last-Translator: Lixinfeng <lixinfeng@hotmailcom>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -446,12 +446,6 @@ msgstr "帮助主题(&H)"
 msgid "&Hide"
 msgstr "隐藏 (&H)"
 
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "历史(&H)"
-
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -568,6 +562,11 @@ msgstr "端口(&P)："
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "前一条差异(&P)"
+
+# Dlg-ID:130,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "最近信息(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -987,6 +986,11 @@ msgstr "拒绝存取 %1。"
 # ID:77,
 #: ID:77
 msgid "Action"
+msgstr "操作"
+
+# ID:77,
+#: ID:117
+msgid "Actions"
 msgstr "操作"
 
 # ID:3826,
@@ -1614,6 +1618,11 @@ msgid ""
 msgstr ""
 "清除保存的认证。\n"
 "你需要为全部的文件库重新输入用户名和密码。"
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "点击这里选择一条最近输入过的信息"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5821,6 +5830,15 @@ msgid ""
 msgstr ""
 "你选择了添加的文件夹。补丁将不包含该添加的文件夹中的文件。\n"
 "你确定要继续吗？"
+
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"你过去输入过的日志信息已经保存。\n"
+"点击这里阅读历史并重新插入日志。"
 
 # Control-ID:1112,
 #: Control-ID:1112
