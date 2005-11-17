@@ -21,6 +21,8 @@
 #include ".\foldercrawler.h"
 #include "SVNStatusCache.h"
 #include "registry.h"
+#include "TSVNCache.h"
+
 
 CFolderCrawler::CFolderCrawler(void)
 {
@@ -190,6 +192,14 @@ void CFolderCrawler::WorkerThread()
 					} while(workingPath.IsAdminDir());
 
 					ATLTRACE("Invalidating and refreshing folder: %ws\n", workingPath.GetWinPath());
+					{
+						AutoLocker print(critSec);
+						_stprintf(szCurrentCrawledPath[nCurrentCrawledpathIndex], _T("Invalidating and refreshing folder: %s"), workingPath.GetWinPath());
+						nCurrentCrawledpathIndex++;
+						if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
+							nCurrentCrawledpathIndex = 0;
+					}
+					InvalidateRect(hWnd, NULL, FALSE);
 					CSVNStatusCache::Instance().WaitToRead();
 					// Invalidate the cache of this folder, to make sure its status is fetched again.
 					CCachedDirectory * pCachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
@@ -221,6 +231,14 @@ void CFolderCrawler::WorkerThread()
 				else if (workingPath.HasAdminDir())
 				{
 					ATLTRACE("Updating path: %ws\n", workingPath.GetWinPath());
+					{
+						AutoLocker print(critSec);
+						_stprintf(szCurrentCrawledPath[nCurrentCrawledpathIndex], _T("Updating path: %s"), workingPath.GetWinPath());
+						nCurrentCrawledpathIndex++;
+						if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
+							nCurrentCrawledpathIndex = 0;
+					}
+					InvalidateRect(hWnd, NULL, FALSE);
 					// HasAdminDir() already checks if the path points to a dir
 					DWORD flags = TSVNCACHE_FLAGS_FOLDERISKNOWN;
 					flags |= (workingPath.IsDirectory() ? TSVNCACHE_FLAGS_ISFOLDER : 0);
@@ -256,6 +274,14 @@ void CFolderCrawler::WorkerThread()
 				}
 
 				ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
+				{
+					AutoLocker print(critSec);
+					_stprintf(szCurrentCrawledPath[nCurrentCrawledpathIndex], _T("Crawling folder: %s"), workingPath.GetWinPath());
+					nCurrentCrawledpathIndex++;
+					if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
+						nCurrentCrawledpathIndex = 0;
+				}
+				InvalidateRect(hWnd, NULL, FALSE);
 				CSVNStatusCache::Instance().WaitToRead();
 				// Now, we need to visit this folder, to make sure that we know its 'most important' status
 				CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);

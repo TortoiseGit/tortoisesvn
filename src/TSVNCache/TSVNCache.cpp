@@ -18,6 +18,7 @@
 //
 
 #include "stdafx.h"
+#include "TSVNCache.h"
 #include "SVNStatusCache.h"
 #include "CacheInterface.h"
 #include "Resource.h"
@@ -30,7 +31,7 @@
 
 #include <ShellAPI.h>
 
-#define BUFSIZE 4096
+
 
 CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TSVNCache : " STRPRODUCTVER, TRUE);// crash
 
@@ -42,11 +43,9 @@ LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 bool				bRun = true;
 NOTIFYICONDATA		niData; 
 HWND				hWnd;
-
-#define TRAY_CALLBACK	(WM_APP + 1)
-#define TRAYPOP_EXIT	(WM_APP + 1)
-#define TRAY_ID			101
-
+TCHAR				szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
+int					nCurrentCrawledpathIndex = 0;
+CComAutoCriticalSection critSec;
 
 #define PACKVERSION(major,minor) MAKELONG(minor,major)
 DWORD GetDllVersion(LPCTSTR lpszDllName)
@@ -133,6 +132,8 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	g_SVNAdminDir.Init();
 	CSVNStatusCache::Create();
 
+	ZeroMemory(szCurrentCrawledPath, sizeof(szCurrentCrawledPath));
+	
 	DWORD dwThreadId; 
 	HANDLE hPipeThread; 
 	HANDLE hCommandWaitThread;
@@ -154,7 +155,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	wcex.lpszClassName	= szWindowClass;
 	wcex.hIconSm		= 0;
 	RegisterClassEx(&wcex);
-	hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 0, 0, NULL, 0, hInstance, 0);
+	hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
 	
 	if (hWnd == NULL)
 	{
@@ -265,7 +266,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		switch(lParam)
 		{
 		case WM_LBUTTONDBLCLK:
-			//ShowWindow(hWnd, SW_RESTORE);
+			if (IsWindowVisible(hWnd))
+				ShowWindow(hWnd, SW_HIDE);
+			else
+				ShowWindow(hWnd, SW_RESTORE);
 			break;
 		case WM_RBUTTONUP:
 		case WM_CONTEXTMENU:
@@ -285,6 +289,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		}
 	}
 	break;
+	case WM_PAINT:
+		{
+			PAINTSTRUCT ps;
+			HDC hdc = BeginPaint(hWnd, &ps);
+			RECT rect;
+			GetClientRect(hWnd, &rect);
+			// clear the background
+			HBRUSH background = CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
+			HGDIOBJ oldbrush = SelectObject(hdc, background);
+			FillRect(hdc, &rect, background);
+			int line = 0;
+			AutoLocker print(critSec);
+			for (int i=nCurrentCrawledpathIndex; i<MAX_CRAWLEDPATHS; ++i)
+			{
+				TextOut(hdc, 0, line*15, szCurrentCrawledPath[i], (int)_tcslen(szCurrentCrawledPath[i]));
+				line++;
+			}
+			for (int i=0; i<nCurrentCrawledpathIndex; ++i)
+			{
+				TextOut(hdc, 0, line*15, szCurrentCrawledPath[i], (int)_tcslen(szCurrentCrawledPath[i]));
+				line++;
+			}
+			
+			
+			SelectObject(hdc,oldbrush);
+			EndPaint(hWnd, &ps); 
+			return 0L; 
+		}
+		break;
 	case WM_COMMAND:
 		{
 			WORD wmId    = LOWORD(wParam);
@@ -297,9 +330,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			return 1;
 		}
+	case WM_CLOSE:
 	case WM_ENDSESSION:
 	case WM_DESTROY:
-	case WM_CLOSE:
 	case WM_QUIT:
 		{
 			ATLTRACE("WM_CLOSE/DESTROY/ENDSESSION/QUIT\n");
