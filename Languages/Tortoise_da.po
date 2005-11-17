@@ -6,13 +6,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4900
+# Based on Tortoise.pot r4951
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-10-22 16:00+0100\n"
+"PO-Revision-Date: 2005-11-17 12:58+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -374,10 +374,6 @@ msgstr "&Hjælpeemner"
 msgid "&Hide"
 msgstr "&Skjul"
 
-#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,
-msgid "&History"
-msgstr "&Historik"
-
 #: Control-ID:1170,
 msgid "&Icon Set:"
 msgstr "&Ikoner:"
@@ -471,6 +467,10 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Forrige forskel"
+
+#: Control-ID:1246,#: Control-ID:1246,#: Control-ID:1246,
+msgid "&Recent messages"
+msgstr "&Seneste beskeder"
 
 #: ID:376,
 msgid "&Redo"
@@ -744,6 +744,10 @@ msgstr "Adgang til %1 blev afvist."
 #: ID:77,
 msgid "Action"
 msgstr "Handling"
+
+#: ID:117,
+msgid "Actions"
+msgstr "Handlinger"
 
 #: ID:3826,
 msgid "Activate Task List"
@@ -1188,6 +1192,10 @@ msgstr "Slet &nu"
 #: ID:195,
 msgid "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
 msgstr "Sletter de gemte adgangskoder.\nDu vil skulle indtaste dit brugernavn/adgangskode til alle versionsarkiver igen."
+
+#: ID:170,
+msgid "Click here to select a recently typed message"
+msgstr "Klik her for at vælge en af de sidst skrevne beskeder"
 
 #: Control-ID:65535,
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
@@ -4013,6 +4021,10 @@ msgstr "Du har ændret ikonerne fra <i>%s</i> til <i>%s</i>.\nDenne ændring tr�
 #: ID:338,
 msgid "You've selected added folders. The patch won't contain added files within such added folders.\nDo you want to proceed anyway?"
 msgstr "Du har valgt tilføjede mapper. Korrekturfilen vil ikke blive anvendt på filer inde i disse tilføjede mapper.\nVil du forsætte alligevel?"
+
+#: ID:170,
+msgid "Your previously entered log messages have been saved.\nClick here to read and insert them again."
+msgstr "Dine tidligere skrevne logbeskeder er blevet gemt.\nKlik her for at læse og indsætte dem igen."
 
 #: Control-ID:1112,
 msgid "Your version is:"
