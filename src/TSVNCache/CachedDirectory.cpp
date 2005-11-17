@@ -383,6 +383,8 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 	}
 	else
 	{
+		if (m_entryCache.find(GetCacheKey(path))!=m_entryCache.end())
+			CSVNStatusCache::Instance().UpdateShell(path);
 		m_entryCache[GetCacheKey(path)] = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly());
 	}
 }
