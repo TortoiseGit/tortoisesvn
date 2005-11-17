@@ -384,7 +384,11 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 	else
 	{
 		if (m_entryCache.find(GetCacheKey(path))!=m_entryCache.end())
-			CSVNStatusCache::Instance().UpdateShell(path);
+		{
+			CStatusCacheEntry oldentry = m_entryCache[GetCacheKey(path)];
+			if (oldentry.GetEffectiveStatus() != SVNStatus::GetMoreImportant(pSVNStatus->prop_status, pSVNStatus->text_status))
+				CSVNStatusCache::Instance().UpdateShell(path);
+		}
 		m_entryCache[GetCacheKey(path)] = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly());
 	}
 }
@@ -531,14 +535,17 @@ void CCachedDirectory::UpdateCurrentStatus()
 			CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
 		}
 		m_currentFullStatus = newStatus;
-
-		// And tell our parent, if we've got one...
-		CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
-		if(!parentPath.IsEmpty())
-		{
-			// We have a parent
-			CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath)->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
-		}
+	}
+	// And tell our parent, if we've got one...
+	// we tell our parent *always* about our status, even if it hasn't
+	// changed. This is to make sure that the parent has really our current
+	// status - the parent can decide itself if our status has changed
+	// or not.
+	CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
+	if(!parentPath.IsEmpty())
+	{
+		// We have a parent
+		CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath)->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
 	}
 }
 
