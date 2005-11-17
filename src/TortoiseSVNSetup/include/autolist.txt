@@ -10,3 +10,4 @@
 .cs = (?:public|protected|private|internal)\s+(?:[\w\d_\.]+\s+)*([\w\d_\.]+)
 (MULTILINE|NOCASE) .cbl, .cpy = ^.{6} ([A-Z][A-Z0-9-]*)(?: SECTION)?\.
 (MULTILINE|NOCASE) .au3, .auh = Func\s+([\w_]+)|\$([\w_]+)
+(MULTILINE) .asm = ^([\w]+) *
