@@ -131,7 +131,7 @@ bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 	//now look for the other required files
 	SVNStatus stat;
 	stat.GetStatus(merge);
-	if (stat.status->text_status != svn_wc_status_conflicted)
+	if ((stat.status == NULL)||(stat.status->text_status != svn_wc_status_conflicted))
 		return false;
 	if (stat.status && stat.status->entry)
 	{
