@@ -304,18 +304,21 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 					{
 						for (size_t i=1; i<results.cbackrefs(); ++i)
 						{
-							ATLTRACE("matched id : %ws\n", results.backref(i).str().c_str());
-							CHARRANGE range = {(LONG)(offset1 + results.rstart(i))
-											  ,(LONG)(offset1 + results.rstart(i) + results.rlength(i))};
-							if (range.cpMin != range.cpMax)
+							if (results.rlength(i))
 							{
-								pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-								CHARFORMAT2 format;
-								ZeroMemory(&format, sizeof(CHARFORMAT2));
-								format.cbSize = sizeof(CHARFORMAT2);
-								format.dwMask = CFM_LINK;
-								format.dwEffects = CFE_LINK;
-								pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+								ATLTRACE("matched id : %ws\n", results.backref(i).str().c_str());
+								CHARRANGE range = {(LONG)(offset1 + results.rstart(i))
+									,(LONG)(offset1 + results.rstart(i) + results.rlength(i))};
+								if (range.cpMin != range.cpMax)
+								{
+									pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+									CHARFORMAT2 format;
+									ZeroMemory(&format, sizeof(CHARFORMAT2));
+									format.cbSize = sizeof(CHARFORMAT2);
+									format.dwMask = CFM_LINK;
+									format.dwEffects = CFE_LINK;
+									pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+								}
 							}
 						}
 					}
@@ -329,7 +332,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 
 					offset1 += results.rstart(results.cbackrefs()-1);
 					offset1 += results.rlength(results.cbackrefs()-1);
-				} while(br.matched);
+				} while ((br.matched)&&(results.rlength(results.cbackrefs()-1)));
 			}
 			catch (bad_alloc) {}
 			catch (bad_regexpr) {}
