@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-09 20:13+0900\n"
+"PO-Revision-Date: 2005-11-18 13:56+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -127,7 +127,7 @@ msgstr "%I64d 바이트 전송됨"
 #: ID:357
 #, c-format
 msgid "%I64d kBytes transferred"
-msgstr "%l64d kB 전송됨"
+msgstr "%I64d kB 전송됨"
 
 # ID:169,
 #: ID:169
@@ -443,12 +443,6 @@ msgstr "도움말 목차(&H)"
 msgid "&Hide"
 msgstr "숨기기(&H)"
 
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "히스토리(&H)"
-
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -564,6 +558,11 @@ msgstr "포트(&P):"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "이전 차이점(&P)"
+
+# Dlg-ID:130,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "최근 메시지(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -985,6 +984,11 @@ msgstr "%1에 접근하는 것이 거부되었습니다."
 # ID:77,
 #: ID:77
 msgid "Action"
+msgstr "명령"
+
+# ID:77,
+#: ID:117
+msgid "Actions"
 msgstr "명령"
 
 # ID:3826,
@@ -1612,6 +1616,11 @@ msgid ""
 msgstr ""
 "저장된 인증정보를 제거합니다.\n"
 "다음 보관소에 접속할 때, 사용자명과 암호를 넣어야 합니다."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "최근에 입력한 메시지를 사용하시려면 여기를 누르세요."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3108,7 +3117,7 @@ msgstr "수정됨"
 # ID:438,#:
 # ID:438,
 #: ID:438
-msgid "More Colors..."
+msgid "More colors..."
 msgstr "다른 색깔..."
 
 # Control-ID:1136,
@@ -5820,6 +5829,15 @@ msgid ""
 msgstr ""
 "추가한 폴더를 선택하였습니다. 패치 파일에는 추가된 디렉토리내의 파일들은 포함되지 않습니다.\n"
 "계속 진행하시겠습니까?"
+
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"방금 작성한 로그는 저장되었습니다.\n"
+"다시 삽입하시려면 여기를 누르세요."
 
 # Control-ID:1112,
 #: Control-ID:1112
