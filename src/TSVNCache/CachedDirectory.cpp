@@ -96,6 +96,8 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 	for (int i=0; i<mapsize; ++i)
 	{
 		LOADVALUEFROMFILE(value);
+		if (value > MAX_PATH)
+			return false;
 		if (value)
 		{
 			CString sKey;
@@ -115,6 +117,8 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 	for (int i=0; i<mapsize; ++i)
 	{
 		LOADVALUEFROMFILE(value);
+		if (value > MAX_PATH)
+			return false;
 		if (value)
 		{
 			CString sPath;
@@ -132,6 +136,8 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 	LOADVALUEFROMFILE(m_entriesFileTime);
 	LOADVALUEFROMFILE(m_propsFileTime);
 	LOADVALUEFROMFILE(value);
+	if (value > MAX_PATH)
+		return false;
 	if (value)
 	{
 		CString sPath;
