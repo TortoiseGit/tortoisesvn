@@ -99,7 +99,7 @@
 			</menuchoice>.
 			<figure id="tsvn-DUG-locking-dia-lock">
 				<title>The Locking Dialog</title>
-				<graphic fileref="images/GetLock.png"/>
+				<graphic fileref="../images/GetLock.png"/>
 			</figure>
 			A dialog appears, allowing you to enter a comment, so others
 			can see why you have locked the file. The comment is optional
@@ -153,7 +153,7 @@
 		<para>
 			<figure id="tsvn-DUG-locking-dia-status">
 				<title>The Check for Modifications Dialog</title>
-				<graphic fileref="images/RepoStatus.png"/>
+				<graphic fileref="../images/RepoStatus.png"/>
 			</figure>
 			To see what locks you and others hold, you can use
 			<menuchoice>
@@ -191,7 +191,7 @@
 			for instructions on how to set properties.
 			Files with this property set will always be checked out and updated
 			with the read-only flag set unless your working copy holds a lock.
-			<graphic fileref="images/ReadOnlyIcon.png"/> 
+			<graphic fileref="../images/ReadOnlyIcon.png"/> 
 			As a reminder, TortoiseSVN uses a special overlay to indicate this.
 		</para>
 		<para>

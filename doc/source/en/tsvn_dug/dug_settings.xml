@@ -18,7 +18,7 @@
 		<para>
 			<figure id="tsvn-DUG-settings-dia-main">
 				<title>The Settings Dialog, General Page</title>
-				<graphic fileref="images/SettingsMain.png"/>
+				<graphic fileref="../images/SettingsMain.png"/>
 			</figure>
 			This dialog allows you to specify your preferred language,
 			and the Subversion-specific settings.
@@ -169,7 +169,7 @@
 		<para>
 			<figure id="tsvn-DUG-settings-dia-context">
 				<title>The Settings Dialog, Look and Feel Page</title>
-				<graphic fileref="images/SettingsContext.png"/>
+				<graphic fileref="../images/SettingsContext.png"/>
 			</figure>
 			This page allows you to specify which of the TortoiseSVN context menu
 			entries will show up in the main context menu, and which will appear
@@ -199,7 +199,7 @@
 			<para>
 				<figure id="tsvn-DUG-settings-dia-overlay">
 					<title>The Settings Dialog, Look and Feel Page</title>
-					<graphic fileref="images/SettingsOverlay.png"/>
+					<graphic fileref="../images/SettingsOverlay.png"/>
 				</figure>
 				This page allows you to choose the items for which TortoiseSVN will
 				display icon overlays. Network drives can be very slow, so by default
@@ -256,7 +256,7 @@
 			<para>
 				<figure id="tsvn-DUG-settings-dia-icons">
 					<title>The Settings Dialog, Icon Set Page</title>
-					<graphic fileref="images/SettingsOverlayChooser.png"/>
+					<graphic fileref="../images/SettingsOverlayChooser.png"/>
 				</figure>
 				You can change the overlay icon set to the one you like best.
 				Note that if you change overlay set, you may have to restart
@@ -269,7 +269,7 @@
 			<para>
 				<figure id="tsvn-DUG-settings-dia-dialogs">
 					<title>The Settings Dialog, Dialogs Page</title>
-					<graphic fileref="images/SettingsDialog.png"/>
+					<graphic fileref="../images/SettingsDialog.png"/>
 				</figure>
 				This dialog allows you to configure some of TortoiseSVN's
 				dialogs the way you like them.
@@ -417,7 +417,7 @@
 			<para>
 				<figure id="tsvn-DUG-settings-dia-colors">
 					<title>The Settings Dialog, Colours Page</title>
-					<graphic fileref="images/SettingsColors.png"/>
+					<graphic fileref="../images/SettingsColors.png"/>
 				</figure>
 				This dialog allows you to configure the text colours
 				used in TortoiseSVN's dialogs the way you like them.
@@ -519,7 +519,7 @@
 		<para>
 			<figure id="tsvn-DUG-settings-dia-4">
 				<title>The Settings Dialog, Network Page</title>
-				<graphic fileref="images/SettingsProxy.png"/>
+				<graphic fileref="../images/SettingsProxy.png"/>
 			</figure>
 			Here you can configure your proxy server, if you need one to get
 			through your company's firewall.
@@ -547,7 +547,7 @@
 			<figure id="tsvn-DUG-settings-dia-5">
 				<title>The Settings Dialog, Diff Viewer Page</title>
 				<?dbhh topicname="HIDD_SETTINGSPROGSDIFF"?>
-				<graphic fileref="images/SettingsProgs.png"/>
+				<graphic fileref="../images/SettingsProgs.png"/>
 			</figure>
 			Here you can define your own diff/merge programs that TortoiseSVN
 			should use. The basic setting is to use the builtin TortoiseMerge
@@ -747,7 +747,7 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 			<para>
 				<figure id="tsvn-DUG-settings-dia-6">
 					<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
-					<graphic fileref="images/SettingsProgsAdv.png"/>
+					<graphic fileref="../images/SettingsProgsAdv.png"/>
 				</figure>
 				In the advanced settings, you can define a different diff and merge
 				program for every file extension. For instance you could associate

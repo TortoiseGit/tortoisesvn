@@ -9,7 +9,7 @@
 		<para>
 			<figure id="tsvn-DUG-context-dir-control">
 				<title>Context menu for a directory under version control</title>
-				<graphic fileref="images/ContextMenuDirControl.png"/>
+				<graphic fileref="../images/ContextMenuDirControl.png"/>
 			</figure>
 			All TortoiseSVN commands are invoked from the context menu of the windows
 			explorer. Most are directly visible, when you <action>right click</action>
@@ -28,7 +28,7 @@
 		<para>
 			<figure id="tsvn-DUG-right-drag">
 				<title>Right drag menu for a directory under version control</title>
-				<graphic fileref="images/RightDragMenu.png"/>
+				<graphic fileref="../images/RightDragMenu.png"/>
 			</figure>
 			Other commands are available as drag handlers, when you <action>right drag</action>
 			files or folders to a new location inside working copies or when you 
@@ -46,7 +46,7 @@
 			authentication Dialog will show up.
 			<figure id="tsvn-fig-authentication">
 				<title>Authentication Dialog</title>
-				<graphic fileref="images/Authenticate.png"/>
+				<graphic fileref="../images/Authenticate.png"/>
 			</figure>
 			Enter your username and password. The checkbox will make TortoiseSVN
 			store the credentials in Subversion's default directory: 
