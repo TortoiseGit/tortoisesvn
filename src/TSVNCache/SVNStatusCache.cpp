@@ -65,7 +65,7 @@ void CSVNStatusCache::Create()
 			{
 				LOADVALUEFROMFILE2(value);	
 				if (value > MAX_PATH)
-					return false;
+					goto exit;
 				if (value)
 				{
 					CString sKey;
