@@ -11,6 +11,8 @@ if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 
 call Write_htmlhelp.bat
 call Write_pdfdoc.bat
+call Write_htmlsingle.bat
+call Write_htmlchunk.bat
 
 SET _PDF=OFF
 SET _CHM=OFF
@@ -72,8 +74,8 @@ set _DOC_XSL_HELP=%_DOC_SRC%\htmlhelp.xsl
 
 rem Settings for plain HTML docs
 set _DOC_CSS_HTML=%_DOC_SRC%\styles_*.css
-set _DOC_XSL_HTMLSINGLE=%XSLROOT%\html\docbook.xsl
-set _DOC_XSL_HTMLCHUNK=%XSLROOT%\html\chunk.xsl
+set _DOC_XSL_HTMLSINGLE=%_DOC_SRC%\htmlsingle.xsl
+set _DOC_XSL_HTMLCHUNK=%_DOC_SRC%\htmlchunk.xsl
 
 set _HELP_RESOURCE=..\..\..\src\%_APP%\resource.h
 
