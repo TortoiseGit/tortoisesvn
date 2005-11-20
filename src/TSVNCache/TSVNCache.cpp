@@ -26,7 +26,9 @@
 #include "..\crashrpt\CrashReport.h"
 #include "SecAttribs.h"
 #include "SVNAdminDir.h"
-
+#include "Dbt.h"
+#include <initguid.h>
+#include "ioevent.h"
 #include "..\version.h"
 
 #include <ShellAPI.h>
@@ -343,6 +345,53 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				PostQuitMessage(0);
 			bRun = false;
 			return 1;
+		}
+		break;
+	case WM_DEVICECHANGE:
+		{
+			DEV_BROADCAST_HDR * phdr = (DEV_BROADCAST_HDR*)lParam;
+			switch (wParam)
+			{
+			case DBT_CUSTOMEVENT:
+				{
+					ATLTRACE("WM_DEVICECHANGE with DBT_CUSTOMEVENT\n");
+					if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
+					{
+						DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
+						if (IsEqualGUID(phandle->dbch_eventguid, GUID_IO_VOLUME_DISMOUNT))
+						{
+							ATLTRACE("Device to be dismounted\n");
+							CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+						}
+						if (IsEqualGUID(phandle->dbch_eventguid, GUID_IO_VOLUME_LOCK))
+						{
+							ATLTRACE("Device lock event\n");
+							CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+						}
+					}
+				}
+				break;
+			case DBT_DEVICEQUERYREMOVE:
+				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEQUERYREMOVE\n");
+				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
+				{
+					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
+					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+				}
+				else
+					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
+				break;
+			case DBT_DEVICEREMOVECOMPLETE:
+				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEREMOVECOMPLETE\n");
+				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
+				{
+					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
+					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+				}
+				else
+					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
+				break;
+			}
 		}
 		break;
 	default:

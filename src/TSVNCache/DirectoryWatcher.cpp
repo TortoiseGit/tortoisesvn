@@ -17,7 +17,10 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #include "StdAfx.h"
+#include "Dbt.h"
 #include ".\directorywatcher.h"
+
+extern HWND hWnd;
 
 CDirectoryWatcher::CDirectoryWatcher(void) :
 	m_hCompPort(NULL) ,
@@ -217,7 +220,16 @@ void CDirectoryWatcher::WorkerThread()
 						i--; if (i<0) i=0;
 						break;
 					}
+					
+					DEV_BROADCAST_HANDLE NotificationFilter;
+					ZeroMemory(&NotificationFilter, sizeof(NotificationFilter));
+					NotificationFilter.dbch_size = sizeof(DEV_BROADCAST_HANDLE);
+					NotificationFilter.dbch_devicetype = DBT_DEVTYP_HANDLE;
+					NotificationFilter.dbch_handle = hDir;
+					NotificationFilter.dbch_hdevnotify = RegisterDeviceNotification(hWnd, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
+
 					CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPaths[i]);
+					pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;
 					m_hCompPort = CreateIoCompletionPort(hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
 					if (m_hCompPort == NULL)
 					{
@@ -348,14 +360,18 @@ void CDirectoryWatcher::ClearInfoMap()
 	watchInfoMap.clear();
 }
 
-void CDirectoryWatcher::CloseInfoMap()
+CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 {
+	CTSVNPath path;
 	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 	{
 		CDirectoryWatcher::CDirWatchInfo * info = I->second;
+		if (info->m_hDevNotify == hdev)
+			path = info->m_DirName;
 		info->CloseDirectoryHandle();
 	}
 	watchInfoMap.clear();
+	return path;
 }
 
 CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName) :
@@ -368,6 +384,7 @@ CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& Di
 	m_DirPath = m_DirName.GetWinPathString();
 	if (m_DirPath.GetAt(m_DirPath.GetLength()-1) != '\\')
 		m_DirPath += _T("\\");
+	m_hDevNotify = INVALID_HANDLE_VALUE;
 }
 
 CDirectoryWatcher::CDirWatchInfo::~CDirWatchInfo()
@@ -382,6 +399,10 @@ bool CDirectoryWatcher::CDirWatchInfo::CloseDirectoryHandle()
 	{
 		b = !!CloseHandle(m_hDir);
 		m_hDir = INVALID_HANDLE_VALUE;
+	}
+	if (m_hDevNotify != INVALID_HANDLE_VALUE)
+	{
+		UnregisterDeviceNotification(m_hDevNotify);
 	}
 	return b;
 }

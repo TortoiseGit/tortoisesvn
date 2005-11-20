@@ -246,6 +246,12 @@ void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
 	m_folderCrawler.AddDirectoryForUpdate(path);
 }
 
+void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
+{
+	CTSVNPath path = watcher.CloseInfoMap(hdev);
+	m_folderCrawler.BlockPath(path);
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 static class StatusCacheTests

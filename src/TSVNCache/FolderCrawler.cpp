@@ -141,7 +141,11 @@ void CFolderCrawler::WorkerThread()
 				Sleep(50);
 				continue;
 			}
-
+			if (m_blockReleasesAt < GetTickCount())
+			{
+				ATLTRACE("stop blocking path %ws\n", m_blockedPath.GetWinPath());
+				m_blockedPath.Reset();
+			}
 			// Take a short nap if there has been a request recently.
 			// Note, that this is an optimization and not sensitive
 			// w.r.t. synchronization.
@@ -175,6 +179,8 @@ void CFolderCrawler::WorkerThread()
 					workingPath = m_pathsToUpdate.front();
 					m_pathsToUpdate.pop_front();
 				}
+				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
+					continue;
 				// check if the changed path is inside an .svn folder
 				if ((workingPath.HasAdminDir()&&workingPath.IsDirectory())||workingPath.IsAdminDir())
 				{
@@ -272,6 +278,8 @@ void CFolderCrawler::WorkerThread()
 					workingPath = m_foldersToUpdate.front();
 					m_foldersToUpdate.pop_front();
 				}
+				if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
+					continue;
 
 				ATLTRACE("Crawling folder: %ws\n", workingPath.GetWinPath());
 				{
@@ -292,10 +300,17 @@ void CFolderCrawler::WorkerThread()
 	_endthread();
 }
 
-bool CFolderCrawler::SetHoldoff()
+bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 100*/)
 {
 	long tick = (long)GetTickCount();
 	bool ret = ((tick - m_crawlHoldoffReleasesAt) > 0);
-	m_crawlHoldoffReleasesAt = tick + 100;
+	m_crawlHoldoffReleasesAt = tick + milliseconds;
 	return ret;
+}
+
+void CFolderCrawler::BlockPath(const CTSVNPath& path)
+{
+	ATLTRACE("block path %ws from being crawled\n", path.GetWinPath());
+	m_blockedPath = path;
+	m_blockReleasesAt = GetTickCount()+10000;
 }

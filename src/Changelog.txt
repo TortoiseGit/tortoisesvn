@@ -28,6 +28,8 @@
 - NEW: new command line param /logmsgfile for filling in a log message
        for the commit dialog. The log message must be stored in the file
        pointed to by /logmsgfile:<path>. (Stefan)
+- NEW: The cache automatically closes all open handles for drives the user
+       wants to remove. See issue #188. (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.

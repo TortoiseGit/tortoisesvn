@@ -76,6 +76,8 @@ public:
 
 	void Stop();
 
+	void CloseWatcherHandles(HDEVNOTIFY hdev);
+
 	void WaitToRead() {m_rwSection.WaitToRead();}
 	void WaitToWrite() {m_rwSection.WaitToWrite();}
 	void Done() {m_rwSection.Done();}

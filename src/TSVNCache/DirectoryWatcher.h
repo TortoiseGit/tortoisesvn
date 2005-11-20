@@ -68,12 +68,13 @@ public:
 	 */
 	void Stop();
 
+	CTSVNPath CloseInfoMap(HDEVNOTIFY hdev = INVALID_HANDLE_VALUE);
+
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
 	void WorkerThread();
 
 	void ClearInfoMap();
-	void CloseInfoMap();
 
 private:
 	CComAutoCriticalSection	m_critSec;
@@ -109,8 +110,11 @@ private:
 		DWORD		m_dwBufLength;	///< length or returned data from ReadDirectoryChangesW -- ignored?...
 		OVERLAPPED  m_Overlapped;
 		CString		m_DirPath;		///< the directory name we're watching with a backslash at the end
+		HDEVNOTIFY	m_hDevNotify;	///< Notification handle
 	};
 
 	std::map<HANDLE, CDirWatchInfo *> watchInfoMap;
+	
+	HDEVNOTIFY		m_hdev;
 
 };

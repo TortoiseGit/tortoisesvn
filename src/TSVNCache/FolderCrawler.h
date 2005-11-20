@@ -42,10 +42,11 @@ public:
 	void AddDirectoryForUpdate(const CTSVNPath& path);
 	void AddPathForUpdate(const CTSVNPath& path);
 	void Stop();
+	bool SetHoldoff(DWORD milliseconds = 100);
+	void BlockPath(const CTSVNPath& path);
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
 	void WorkerThread();
-	bool SetHoldoff();
 
 private:
 	CComAutoCriticalSection m_critSec;
@@ -67,6 +68,9 @@ private:
 	long m_crawlHoldoffReleasesAt;
 	bool m_bItemsAddedSinceLastCrawl;
 	bool m_bPathsAddedSinceLastCrawl;
+	
+	CTSVNPath m_blockedPath;
+	DWORD m_blockReleasesAt;
 
 
 	friend class CCrawlInhibitor;
