@@ -792,10 +792,6 @@ msgstr ""
 msgid "All Files (*.*)|*.*||"
 msgstr ""
 
-#: ID:82,
-msgid "All files are already under version control. There's nothing to add!"
-msgstr ""
-
 #: ID:3867,#: ID:3868,#: ID:3867,#: ID:3868,
 #, c-format
 msgid "An attempt was made to access %1 past its end."
@@ -3382,6 +3378,10 @@ msgstr ""
 #: ID:66,
 #, c-format
 msgid "There are still unresolved conflicts in line %d!\nYou should resolve those conflicts first before saving.\nDo you want to save the file with the conflicts still there?\nIf you click YES, then you have to manually resolve the conflicts in another editor!"
+msgstr ""
+
+#: ID:82,
+msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
 msgstr ""
 
 #: ID:188,
