@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-16 17:10+0100\n"
+"PO-Revision-Date: 2005-11-20 16:33+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1134,11 +1134,6 @@ msgstr "Tutti i file (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Tutti i file (*.*)|*.*||"
-
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Tutti i file sono già versionati. Non vi è niente da aggiungere!"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -4976,6 +4971,11 @@ msgstr ""
 "È consigliabile risolvere questi conflitti prima di poter salvare.\n"
 "Si desidera salvare il file nonostante i conflitti?\n"
 "Se si seleziona <b>sì</b> sarà necessario risolvere manualmente i conflitti in un'altro editor!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
+msgstr "Non vi è niente da aggiungere. Tutti i file e le cartelle o sono già versionati o sono stati esclusi usando la proprietà svn:ignore oppure selezionando la proprietà \"global exlude\" nelle impostazioni."
 
 # ID:188,
 #: ID:188
