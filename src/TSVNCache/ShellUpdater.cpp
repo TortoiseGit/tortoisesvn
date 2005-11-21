@@ -63,7 +63,7 @@ void CShellUpdater::Initialise()
 
 	unsigned int threadId;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
-	SetThreadPriority(m_hThread, THREAD_PRIORITY_IDLE);
+	SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
 }
 
 void CShellUpdater::AddPathForUpdate(const CTSVNPath& path)
