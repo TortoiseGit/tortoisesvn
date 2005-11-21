@@ -941,6 +941,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		::DestroyWindow(app.wEditor);
 		::PostQuitMessage(0);
 		return 0;
+	case WM_SETFOCUS:
+		::SetFocus(app.wBlame);
+		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
@@ -1095,7 +1098,10 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			}
 		}
 		break;
-
+	case WM_SETFOCUS:
+		::SetFocus(app.wBlame);
+		app.SendEditor(SCI_GRABFOCUS);
+		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
