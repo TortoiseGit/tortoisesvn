@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-11-11 10:15+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2005-11-21 20:25+0100\n"
+"Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -1936,10 +1936,15 @@ msgstr "Cuando se marca la casilla <guilabel>Parar en copia/renombrado</guilabel
 
 #: source/en/tsvn_dug/dug_showlog.xml:289
 #: (para)
-msgid "This option is normally unchecked by default, except when the Show Log dialog is invoked from within the Merge dialog."
-msgstr "Esta opción está normalmente sin marcar por defecto, excepto cuando el diálogo Mostrar Registro se invoca desde el diálogo Fusionar."
+msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
+msgstr "Normalmente querrá dejar esta opción sin marcar. TortoiseSVN recuerda el estado de la casilla, por lo que respetará su preferencia."
 
 #: source/en/tsvn_dug/dug_showlog.xml:294
+#: (para)
+msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
+msgstr "Cuando se invoca el diálogo Mostrar Registro desde el diálogo Fusionar, la casilla siempre se marca por defecto. Esto es porque al fusionar lo más probable es buscar cambios en las ramas, y retroceder a la raíz de la rama no tiene sentido en ese caso."
+
+#: source/en/tsvn_dug/dug_showlog.xml:301
 #: (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
 msgstr "Tenga en cuenta que Subversion actualmente implementa el renombrado como un par de copia/borrado, por lo que renombrar un fichero o carpeta también provocará que el diálogo de registro se pare si se marca esta opción."
@@ -1949,82 +1954,82 @@ msgstr "Tenga en cuenta que Subversion actualmente implementa el renombrado como
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
 msgstr "El diálogo Registro no siempre le muestra todos los cambios que se hayan hecho alguna vez por unos cuantos motivos: <placeholder-1/>"
 
-#: source/en/tsvn_dug/dug_showlog.xml:303
+#: source/en/tsvn_dug/dug_showlog.xml:310
 #: (para)
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
 msgstr "Si desea ver más mensajes de registro, pulse <guibutton>Siguientes 100</guibutton> para obtener los siguientes 100 mensajes de registro. Puede repetir ésto tantas veces como sea necesario."
 
-#: source/en/tsvn_dug/dug_showlog.xml:308
+#: source/en/tsvn_dug/dug_showlog.xml:315
 #: (para)
 msgid "If you want to see <emphasis>all</emphasis> log messages right back to revision 1, press <guibutton>Show All</guibutton>."
 msgstr " Si desea ver <emphasis>todos</emphasis> los mensajes de registro hasta la revisión 1, pulse <guibutton>Mostrar Todos</guibutton>."
 
-#: source/en/tsvn_dug/dug_showlog.xml:314
+#: source/en/tsvn_dug/dug_showlog.xml:321
 #: (title)
 msgid "Changing the Log Message and Author"
 msgstr "Cambiando el Mensaje de Registro y el Autor"
 
-#: source/en/tsvn_dug/dug_showlog.xml:316
+#: source/en/tsvn_dug/dug_showlog.xml:323
 #: (primary)
 msgid "edit log/author"
 msgstr "editar registro/autor"
 
-#: source/en/tsvn_dug/dug_showlog.xml:318
+#: source/en/tsvn_dug/dug_showlog.xml:325
 #: (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
 msgstr "A veces querrá cambiar un mensaje de registro que introdujo en su día, quizás porque hay un error ortográfico en él o porque quiere mejorar el mensaje o cambiarlo por otras razones. O quizás quiera cambiar el autor de una confirmación porque se le olvidó preparar la autentificación, o ..."
 
-#: source/en/tsvn_dug/dug_showlog.xml:325
+#: source/en/tsvn_dug/dug_showlog.xml:332
 #: (para)
 msgid "Subversion lets you change both the log message and the author of revisions any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
 msgstr "Subversion le deja cambiar tanto el mensaje de registro como el autor de las revisiones en cualquier momento. Pero como estos cambios no se pueden deshacer (estos cambios no se versionan), esta característica está deshabilitada por defecto. Para hacer que ésto funcione, debe preparar un gancho pre-revprop-change. Por favor consulte el capítulo sobre <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Scripts Gancho</citetitle></ulink> en el Libro de Subversion para tener más detalles sobre cómo hacerlo. Lea <xref linkend=\"tsvn-repository-hooks\"/> para encontrar más notas sobre cómo implementar ganchos en una máquina Windows."
 
-#: source/en/tsvn_dug/dug_showlog.xml:338
+#: source/en/tsvn_dug/dug_showlog.xml:345
 #: (para)
 msgid "Once you've set up your server with the required hooks, you can change both author and log message of any revision, using the context menu from the top pane of the Log dialog."
 msgstr "Una vez que haya preparado su servidor con los ganchos necesarios, puede cambiar tanto el autor como el mensaje de registro de cualquier revisión, utilizando el menú contextual del panel superior del diálogo Registro."
 
-#: source/en/tsvn_dug/dug_showlog.xml:344
+#: source/en/tsvn_dug/dug_showlog.xml:351
 #: (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
 msgstr "Dado que las propiedades de revisión de Subversion no se versionan, al hacer modificaciones a estas propiedades (por ejemplo, la propiedad del mensaje <literal>svn:log</literal>) se sobreescribirá el valor anterior de esa propiedad <emphasis>para siempre</emphasis>."
 
-#: source/en/tsvn_dug/dug_showlog.xml:354
+#: source/en/tsvn_dug/dug_showlog.xml:361
 #: (title)
 msgid "Filtering Log Messages"
 msgstr "Filtrando los Mensajes de Registro"
 
-#: source/en/tsvn_dug/dug_showlog.xml:356
+#: source/en/tsvn_dug/dug_showlog.xml:363
 #: (primary)
 msgid "filter"
 msgstr "filtro"
 
-#: source/en/tsvn_dug/dug_showlog.xml:358
+#: source/en/tsvn_dug/dug_showlog.xml:365
 #: (para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
 msgstr "Si desea restringir los mensajes de registro para mostrar sólo en los que está interesado en vez de tener que navegar en una lista de cientos, puede utilizar los controles de filtro en la parte superior del Diálogo de Registro. Los controles de fecha de inicio y de fin le permite restringir la salida a un rango de fechas conocido. La caja de texto de búsqueda le permite mostrar sólo los mensajes que contengan una frase en particular."
 
-#: source/en/tsvn_dug/dug_showlog.xml:367
+#: source/en/tsvn_dug/dug_showlog.xml:374
 #: (para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
 msgstr "Tenga en cuenta que estos filtros actúan sobre los mensajes ya obtenidos. Ellos no controlan la descarga de mensajes desde el repositorio."
 
-#: source/en/tsvn_dug/dug_showlog.xml:374
+#: source/en/tsvn_dug/dug_showlog.xml:381
 #: (title)
 msgid "Statistical Information"
 msgstr "Información Estadística"
 
-#: source/en/tsvn_dug/dug_showlog.xml:376
+#: source/en/tsvn_dug/dug_showlog.xml:383
 #: (primary)
 msgid "statistics"
 msgstr "estadísticas"
 
-#: source/en/tsvn_dug/dug_showlog.xml:378
+#: source/en/tsvn_dug/dug_showlog.xml:385
 #: (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
 msgstr "El botón <guibutton>Estadísticas</guibutton> lanza un cuadro de diálogo que muestra algunas informaciones interesantes sobre las revisiones que se muestran en el diálogo Registro. Le muestra cuántos autores han estado trabajando, cuántas confirmaciones han hecho, el progreso por semanas, y mucho más. Ahora puede ver de un vistazo quién ha trabajado duro y quién se ha tocado la barriga ;-)"
 
-#: source/en/tsvn_dug/dug_showlog.xml:386
+#: source/en/tsvn_dug/dug_showlog.xml:393
 #: (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
 msgstr "Tenga en cuenta que las estadísticas cubren el mismo período que el diálogo Registro. Si sólo se está mostrando una revisión, las estadísticas no le dirán mucho."
@@ -2812,25 +2817,30 @@ msgstr "Todos los demás ítems se muestran utilizando un rectángulo normal."
 
 #: source/en/tsvn_dug/dug_revgraph.xml:32
 #: (para)
-msgid "The revision graph shows several types of node: <placeholder-1/> Note that the graph only shows the points at which items were added or deleted. Showing every revision of a project would generate an impossibly large graph for non-trivial cases. For this reason, simple project structures with no adds or deletes will produce an empty revision graph."
-msgstr "El gráfico de revisiones muestra varios tipos de nodos: <placeholder-1/> Tenga en cuenta que el gráfico sólo muestra los puntos en los que se añadieron o borraron los ítems. Mostrar cada revisión de un proyecto generaría un gráfico enorme e imposible para los casos no triviales. Por este motivo, las estructuras de proyectos sencillas que no tienen operaciones añadir o borrar producen un gráfico de revisiones vacío."
+msgid "The revision graph shows several types of node: <placeholder-1/> Note that the graph only shows the points at which items were added or deleted. Showing every revision of a project would generate an impossibly large graph for non-trivial cases. For this reason, simple project structures with no adds or deletes will produce an empty revision graph with the message <literal>No graph available</literal>."
+msgstr "El gráfico de revisiones muestra varios tipos de nodos: <placeholder-1/> Tenga en cuenta que el gráfico sólo muestra los puntos en los que se añadieron o borraron los ítems. Mostrar cada revisión de un proyecto generaría un gráfico enorme e imposible para los casos no triviales. Por este motivo, las estructuras de proyectos sencillas que no tienen operaciones añadir o borrar producen un gráfico de revisiones vacío con el mensaje <literal>No hay gráfico disponible</literal>."
 
-#: source/en/tsvn_dug/dug_revgraph.xml:68
+#: source/en/tsvn_dug/dug_revgraph.xml:69
 #: (para)
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
 msgstr "La fecha de la revisión, el autor y los comentarios se muestran en una caja de ayuda cuando se mueve el ratón encima de una caja de revisión."
 
-#: source/en/tsvn_dug/dug_revgraph.xml:72
+#: source/en/tsvn_dug/dug_revgraph.xml:73
 #: (para)
-msgid "If you select two revisions, you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
-msgstr "Si selecciona dos revisiones, puede utilizar el menú contextual para mostrar las diferencias entre esas revisiones. Puede elegir mostrar las diferencias en los puntos de creación de las ramas, pero normalmente querrá mostrar las diferencias en los puntos finales de las ramas, esto es, en la revisión HEAD."
+msgid "If you select two revisions (Use <action>Ctrl left click</action>), you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
+msgstr "Si selecciona dos revisiones (utilice <action>Ctrl + click con el botón izquierdo</action>), puede utilizar el menú contextual para mostrar las diferencias entre esas revisiones. Puede elegir mostrar las diferencias en los puntos de creación de las ramas, pero normalmente querrá mostrar las diferencias en los puntos finales de las ramas, esto es, en la revisión HEAD."
 
-#: source/en/tsvn_dug/dug_revgraph.xml:78
+#: source/en/tsvn_dug/dug_revgraph.xml:80
 #: (para)
 msgid "You can view the differences as a Unified-Diff file, which shows all differences in a single file with minimal context. If you opt to <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice> you will be presented with a list of changed files. <action>Double click</action> on a file name to fetch both revisions of the file and compare them using the visual difference tool."
 msgstr "Puede ver las diferencias como un fichero de Diff Unificado, que le muestra todas las diferencias en un fichero único con contexto mínimo. Si opta por <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Comparar Revisiones</guimenuitem></menuchoice> se le presentará una lista de ficheros cambiados. <action>Haga doble click</action> en un nombre de fichero para obtener ambas revisiones y compararlas utilizando una herramienta de diferencias visual."
 
-#: source/en/tsvn_dug/dug_revgraph.xml:89
+#: source/en/tsvn_dug/dug_revgraph.xml:91
+#: (para)
+msgid "If you <action>right click</action> on a revision you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to view the history."
+msgstr "Si <action>hace click con el botón derecho</action> en una revisión, puede utilizar <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Mostrar registro</guimenuitem></menuchoice> para ver la historia."
+
+#: source/en/tsvn_dug/dug_revgraph.xml:99
 #: (caution)
 msgid "Because Subversion cannot provide all the information required, a certain amount of interpretation is required, which can sometimes give strange results. Nevertheless, the output for the trunk will generally give useful results."
 msgstr "Dado que Subversion no puede proporcionar toda la información necesaria, se necesita una cierta cantidad de interpretación, que a veces puede dar resultados estraños. En cualquier caso, la salida para el tronco generalmente da resultados útiles."
@@ -3043,15 +3053,45 @@ msgstr "El Diálogo Relocalizar"
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all \"entries\" files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
 msgstr "<placeholder-1/> Si su repositorio ha cambiado por algún motivo de lugar (IP/URL); o quizás está estancado y no puede confirmar y no quiere obtener de nuevo su copia de trabajo de la nueva localización y mover todos sus datos cambiados a la copia de trabajo nueva: el comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocalizar</guimenuitem></menuchoice> es lo que está buscando. Básicamente hace muy poco: escanea todos los ficheros \"entries\" en las carpetas <filename>.svn</filename> y cambia la URL de las entradas al nuevo valor."
 
+#: source/en/tsvn_dug/dug_relocate.xml:34
+#: (para)
+msgid "The IP address of the server has changed."
+msgstr "La dirección IP del servidor ha cambiado."
+
+#: source/en/tsvn_dug/dug_relocate.xml:37
+#: (para)
+msgid "The protocol has changed (e.g. http:// to https://)."
+msgstr "El protocolo ha cambiado (por ejemplo, de http:// a https://)."
+
+#: source/en/tsvn_dug/dug_relocate.xml:40
+#: (para)
+msgid "The repository root path in the server setup has changed."
+msgstr "La ruta raíz del repositorio ha cambiado en la configuración del servidor."
+
 #: source/en/tsvn_dug/dug_relocate.xml:28
 #: (para)
-msgid "Don't use the relocate command to switch your working copy to a different branch! If you do that, then you will get many unexplainable error messages while updating, committing, ..."
-msgstr "¡No utilice el comando Relocalizar para cambiar su copia de trabajo a una rama diferente! Si lo hace, entonces puede obtener muchos mensajes de error inexplicables cuando actualice, confirme, ..."
+msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
+msgstr "<emphasis>Esta es una operación que se utiliza realmente poco</emphasis>. El comando relocalizar se utiliza <emphasis>sólo</emphasis> si la URL de la raiz del repositorio ha cambiado. Estas son algunas posibles razones: <placeholder-1/> De otra forma, necesita relocalizar cuando su copia de trabajo se refiere al mismo lugar en el mismo repositorio, pero es el propio repositorio el que se ha movido."
 
-#: source/en/tsvn_dug/dug_relocate.xml:33
+#: source/en/tsvn_dug/dug_relocate.xml:51
 #: (para)
-msgid "The relocate command must <emphasis>only</emphasis> be used if the URL of the server changed!"
-msgstr "¡El comando relocalizar <emphasis>únicamente</emphasis> debe ser utilizado si la URL del servidor ha cambiado!"
+msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
+msgstr "Quiere moverse a un repositorio de Subversion diferente. En ese caso debería realizar una obtención limpia desde la nueva localización del repositorio."
+
+#: source/en/tsvn_dug/dug_relocate.xml:57
+#: (para)
+msgid "You want to switch to a different branch or directory within the same repository. To do that you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>. Read <xref linkend=\"tsvn-DUG-switch-1\"/> for more information."
+msgstr "Quiere cambiar a una rama o a un directorio diferente dentro del mismo repositorio. Para hacer eso debería utilizar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cambiar...</guimenuitem></menuchoice>. Para más información, lea <xref linkend=\"tsvn-DUG-switch-1\"/>."
+
+#: source/en/tsvn_dug/dug_relocate.xml:47
+#: (para)
+msgid "It does not apply if: <placeholder-1/>"
+msgstr "Esto no se aplica si: <placeholder-1/>"
+
+#: source/en/tsvn_dug/dug_relocate.xml:69
+#: (para)
+msgid "If you use relocate in either of the cases above, it <emphasis>will corrupt your working copy</emphasis> and you will get many unexplainable error messages while updating, committing, etc. Once that has happened, the only fix is a fresh checkout."
+msgstr "Si utiliza relocalizar en alguno de los casos anteriores, <emphasis>corromperá su copia de trabajo</emphasis> y obtendrá muchos mensajes de error inexplicables cuando actualice, confirme, etc. Una vez que ésto ha ocurrido, el único arreglo es hacer una obtención limpia."
 
 #: source/en/tsvn_dug/dug_propertypage.xml:3
 #: (title)
@@ -5108,6 +5148,11 @@ msgstr "Si <action>hace click</action> en una línea, todas las líneas con la m
 msgid "The revision comments are shown in a hint box whenever the mouse hovers over the blame info column."
 msgstr "Los comentarios de la revisión se muestran en una caja de ayuda cuando mueve el cursor encima de la columna de información de autoría."
 
+#: source/en/tsvn_dug/dug_blame.xml:75
+#: (para)
+msgid "You can search within the Blame report using <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem></menuchoice>. This allows you to search for revision numbers, authors and the content of the file itself. Log messages are not included in the search - you should use the Log Dialog to search those."
+msgstr "Puede buscar dentro del informe de Autoría utilizando <menuchoice><guimenu>Edición</guimenu><guimenuitem>Buscar...</guimenuitem></menuchoice>. Esto le permite buscar por números de revisión, autores y por el contenido del fichero en si mismo. Los mensajes de registro no se incluyen en la búsqueda - deberá utilizar el diálogo de Mostrar Registro para buscar en ellos."
+
 #: source/en/tsvn_dug/dug_add.xml:3
 #: (title)
 msgid "Adding New Files And Directories"
@@ -5215,8 +5260,8 @@ msgstr "Nos encanta escuchar música mientras trabajamos en TortoiseSVN. Y dado 
 
 #: source/en/Version.xml:2
 #: (subtitle)
-msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr "Versión $MajorVersion$.$MinorVersion$.$MicroVersion$"
+msgid "Version 1.3.0"
+msgstr "Versión 1.3.0"
 
 #: source/en/tsvn_subwcrev.xml:3
 #: (title)
