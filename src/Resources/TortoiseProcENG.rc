@@ -913,12 +913,12 @@ BEGIN
     GROUPBOX        "Cascaded context menu",IDC_STATIC,7,7,286,210
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,19,274,172
+                    WS_BORDER | WS_TABSTOP,12,19,274,168
     CONTROL         "Fetch &status for context menu",IDC_SIMPLECONTEXT,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,195,274,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,191,274,10
     CONTROL         "Enable &accelerators on the top level menu",
                     IDC_ENABLEACCELERATORS,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,11,207,274,10
+                    WS_TABSTOP,11,203,274,10
 END
 
 IDD_SETTINGSDIALOGS DIALOGEX 0, 0, 300, 217
