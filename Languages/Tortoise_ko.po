@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-18 13:56+0900\n"
+"PO-Revision-Date: 2005-11-21 10:35+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1129,11 +1129,6 @@ msgstr "모든 파일 (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "모든 파일 (*.*)|*.*||"
-
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "모든 파일들이 이미 버전관리 대상입니다. 추가할 것이 없습니다."
 
 # ID:3867,#:
 # ID:3868,#:
@@ -4961,6 +4956,11 @@ msgstr ""
 "저장하기 전에 먼저 해결해야합니다.\n"
 "만약 충돌한 것을 그대로 유지하여 저장하고 싶으면\n"
 "'확인'을 누르고, 다른 에디터를 사용하여 수동으로 해결해야합니다."
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
+msgstr "추가할 것이 없습니다. 모든 파일과 폴더는 버전 컨트롤 중에 있거나, svn:ignore 속성 또는 환경설정의 무시목록에 등록되어 있습니다."
 
 # ID:188,
 #: ID:188
