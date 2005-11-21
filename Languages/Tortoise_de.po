@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-11-16 23:50+0900\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2005-11-21 13:33+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -913,10 +913,6 @@ msgstr "Alle Dateien(*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle Dateien(*.*)|*.*||"
-
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Es befinden sich bereits alle Dateien unter Versionskontrolle. Es gibt nichts hinzuzufügen!"
 
 #: ID:3867
 #: ID:3868
@@ -4057,6 +4053,11 @@ msgstr ""
 "Sie sollten diese Konflikte vor dem Speichern auflösen.\n"
 "Wollen Sie die Datei mitsamt den Konflikten speichern?\n"
 "Wenn Sie JA wählen, müssen Sie die Konflikte von Hand in einem anderen Editor auflösen!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
+msgstr "Es gibt nichts hinzuzufügen. Alle Dateien und Ordner befinden sich entweder bereits unter Versionskontrolle oder sie werden aufgrund der svn:ignore Eigenschaft beziehungsweise der globalen Ausschlußmuster ignoriert."
 
 #: ID:188
 msgid "Thesaurus"
