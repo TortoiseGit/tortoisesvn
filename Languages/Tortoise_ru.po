@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 4951: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 4979: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-16 17:03+0300\n"
+"PO-Revision-Date: 2005-11-21 14:14+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1166,11 +1166,6 @@ msgstr "Все файлы (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Все файлы (*.*)|*.*||"
-
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Все файлы уже под управлением версиями. Больше добавлять нечего!"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -5046,6 +5041,11 @@ msgstr ""
 "Вы должны уладить его перед сохранением.\n"
 "Вы действительно хотите сохранить файл, содержащий конфликт?\n"
 "Если ответить ДА, вам придётся уладить конфликт вручную в другом редакторе!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
+msgstr "Не найдено ничего, что можно добавить. Все файлы и папки либо уже под управлением версиями, либо исключены при помощи совйства svn:ignore или общей конфигурационной настройкой исключения файлов."
 
 # ID:188,
 #: ID:188
