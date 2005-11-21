@@ -1651,7 +1651,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
-                            "Specify the files or folders which TortoiseSVN should ignore in <b>all</b> working copies. Separate the patterns with a space."
+                            "Specify the files or folders which TortoiseSVN\nshould ignore in <b>all</b> working copies.\nSeparate the patterns with a space."
     IDS_SETTINGS_EXTMERGE_TT 
                             "An external merge program used\nto resolve conflicted files.\n<hr=100%>\nYou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "Either the name or IP of the proxy server"
