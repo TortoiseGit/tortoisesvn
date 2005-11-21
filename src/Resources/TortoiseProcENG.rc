@@ -434,23 +434,24 @@ BEGIN
     LTEXT           "&Language:",IDC_STATIC,14,20,86,8
     COMBOBOX        IDC_LANGUAGECOMBO,108,18,176,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Automatically check for newer versions every week",
+    CONTROL         "Automatically check for &newer versions every week",
                     IDC_CHECKNEWERVERSION,"Button",BS_AUTOCHECKBOX | 
                     BS_VCENTER | BS_MULTILINE | WS_TABSTOP,11,34,195,26
-    PUSHBUTTON      "&Check Now",IDC_CHECKNEWERBUTTON,212,38,72,14
-    LTEXT           "System Sounds",IDC_STATIC,14,62,192,8
-    PUSHBUTTON      "Configure",IDC_SOUNDS,212,59,72,14
-    LTEXT           "Exclude/Ignore pattern:",IDC_STATIC,14,103,84,18,
+    PUSHBUTTON      "C&heck Now",IDC_CHECKNEWERBUTTON,212,38,72,14
+    LTEXT           "System &sounds",IDC_STATIC,14,62,192,8
+    PUSHBUTTON      "&Configure",IDC_SOUNDS,212,59,72,14
+    LTEXT           "Global ignore &pattern:",IDC_STATIC,14,103,84,18,
                     SS_CENTERIMAGE
     EDITTEXT        IDC_TEMPEXTENSIONS,108,105,176,14,ES_AUTOHSCROLL
-    CONTROL         "Set filedates to the ""last commit time""",
+    CONTROL         "Set filedates to the ""last commit &time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,14,127,270,10
-    LTEXT           "Subversion configuration file:",IDC_STATIC,14,150,192,8
-    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,212,145,72,14
-    LTEXT           "Subversion authentication data:",IDC_STATIC,14,174,192,
+    LTEXT           "Subversion configuration &file:",IDC_STATIC,14,150,192,
                     8
-    PUSHBUTTON      "Clear &Now",IDC_CLEARAUTH,212,171,72,14
+    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,212,145,72,14
+    LTEXT           "Subversion &authentication data:",IDC_STATIC,14,174,192,
+                    8
+    PUSHBUTTON      "Clear N&ow",IDC_CLEARAUTH,212,171,72,14
     GROUPBOX        "TortoiseSVN",IDC_STATIC,7,7,286,76
     GROUPBOX        "Subversion",IDC_STATIC,7,92,286,118
 END
@@ -1650,7 +1651,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
-                            "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
+                            "Specify the files or folders which TortoiseSVN should ignore in <b>all</b> working copies. Separate the patterns with a space."
     IDS_SETTINGS_EXTMERGE_TT 
                             "An external merge program used\nto resolve conflicted files.\n<hr=100%>\nYou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "Either the name or IP of the proxy server"
