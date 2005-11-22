@@ -72,6 +72,7 @@ private:
 	CTSVNPath m_blockedPath;
 	DWORD m_blockReleasesAt;
 
+	CTSVNPath m_currentlyCrawledPath;
 
 	friend class CCrawlInhibitor;
 };

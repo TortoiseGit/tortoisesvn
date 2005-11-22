@@ -89,6 +89,8 @@ void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
 {
 	{
 		AutoLocker lock(m_critSec);
+		if (m_currentlyCrawledPath.IsAncestorOf(path))
+			return;
 		m_pathsToUpdate.push_back(path);
 		m_bPathsAddedSinceLastCrawl = true;
 	}
@@ -205,6 +207,10 @@ void CFolderCrawler::WorkerThread()
 						if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
 							nCurrentCrawledpathIndex = 0;
 					}
+					{
+						AutoLocker lock(m_critSec);
+						m_currentlyCrawledPath = workingPath;
+					}
 					InvalidateRect(hWnd, NULL, FALSE);
 					CSVNStatusCache::Instance().WaitToRead();
 					// Invalidate the cache of this folder, to make sure its status is fetched again.
@@ -232,6 +238,7 @@ void CFolderCrawler::WorkerThread()
 					//a notification about that in the directory watcher,
 					//remove that here again - this is to prevent an endless loop
 					AutoLocker lock(m_critSec);
+					m_currentlyCrawledPath.Reset();
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
 				}
 				else if (workingPath.HasAdminDir())
