@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-11-21 13:33+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2005-11-22 08:47+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -217,10 +217,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "Jetzt &prüfen"
-
 #: ID:8
 msgid "&Clean up"
 msgstr "&Arbeitskopie aufräumen"
@@ -236,6 +232,10 @@ msgstr "Revisionen &vergleichen"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "&Vergleiche Leerzeichen"
+
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "&Einrichten"
 
 #: Control-ID:1227
 msgid "&Contact the repository on startup"
@@ -1088,8 +1088,8 @@ msgid "Automatic"
 msgstr "Automatisch"
 
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "Wöchentlich auf eine neuere Version prüfen"
+msgid "Automatically check for &newer versions every week"
+msgstr "&Wöchentlich auf neue Version prüfen"
 
 #: Control-ID:1157
 msgid "Average"
@@ -1146,6 +1146,10 @@ msgstr "Bug-&ID / Issue-Nr:"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID:"
+
+#: Control-ID:1215
+msgid "C&heck Now"
+msgstr "&Jetzt prüfen"
 
 #: ID:101
 msgid "C&reate folder..."
@@ -1295,8 +1299,8 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Führt unterbrochene Aktionen zu Ende, hebt Sperren auf, ..."
 
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "Jetzt &Löschen"
+msgid "Clear N&ow"
+msgstr "Jetzt &löschen"
 
 #: ID:195
 msgid ""
@@ -1395,10 +1399,6 @@ msgstr "Vergleiche %s mit %s"
 #: ID:74
 msgid "Completed"
 msgstr "Fertig"
-
-#: Control-ID:1239
-msgid "Configure"
-msgstr "Einrichten"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -1914,10 +1914,6 @@ msgstr "Ausnahmen:"
 msgid "Exclude paths:"
 msgstr "Pfade &ausschließen:"
 
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "Ausschluß/Ignorier-Muster:"
-
 #: ID:209
 msgid "Explore to"
 msgstr "Explorer öffnen"
@@ -2111,6 +2107,10 @@ msgstr "Hole Log-Information..."
 #: ID:119
 msgid "Getting unified diff"
 msgstr "Hole Standard Diff"
+
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "Globale &Ignoriermuster:"
 
 #: ID:2051
 msgid ""
@@ -3486,8 +3486,8 @@ msgid "Server &address:"
 msgstr "&Server Addresse:"
 
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "Dateidatum auf \"Datum der letzten Übertragung\" setzen"
+msgid "Set filedates to the \"last commit &time\""
+msgstr "Dateidatum auf \"&Datum der letzten Übertragung\" setzen"
 
 #: ID:13
 msgid "Setting properties..."
@@ -3631,11 +3631,11 @@ msgstr "Fehlendes Ziel übersprungen"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
-"Die Dateien oder Ordner, die TortoiseSVN\n"
-"von der Versionskontrolle ausschließen soll.\n"
+"Die Dateien oder Ordner, die TortoiseSVN in <b>allen</b>\n"
+"Projektarchiven von der Versionskontrolle ausschließen soll.\n"
 "Trennen Sie die Muster mit einem Leerzeichen.\n"
 "Beispiel: *.bak *.[Tt]mp"
 
@@ -3687,12 +3687,12 @@ msgid "Subversion"
 msgstr "Subversion"
 
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Subversion Anmeldedaten:"
+msgid "Subversion &authentication data:"
+msgstr "Subversion &Anmeldedaten:"
 
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Subversion Konfigurationsdatei:"
+msgid "Subversion configuration &file:"
+msgstr "Subversion &Konfigurationsdatei:"
 
 #: ID:79
 msgid ""
@@ -3772,8 +3772,8 @@ msgstr "Die Arbeitskopie zu anderem Zweig / anderer Markierung wechseln"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "TortoiseSVN Töne"
+msgid "System &sounds"
+msgstr "TortoiseSVN &Klänge"
 
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
