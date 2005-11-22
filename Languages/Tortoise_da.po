@@ -6,13 +6,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4951
+# Based on Tortoise.pot r4993
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-17 12:58+0100\n"
+"PO-Revision-Date: 2005-11-22 11:25+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -237,10 +237,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Annuller"
 
-#: Control-ID:1215,
-msgid "&Check Now"
-msgstr "&Check nu"
-
 #: ID:8,
 msgid "&Clean up"
 msgstr "&Ryd op"
@@ -256,6 +252,10 @@ msgstr "&Sammenlign revisioner"
 #: Control-ID:1019,
 msgid "&Compare whitespaces"
 msgstr "&Sammenlign blanktegn"
+
+#: Control-ID:1239,
+msgid "&Configure"
+msgstr "&Konfigurer"
 
 #: Control-ID:1227,
 msgid "&Contact the repository on startup"
@@ -850,10 +850,6 @@ msgstr "Alle filer (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle filer (*.*)|*.*||"
 
-#: ID:82,
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Alle filer er allerede under versionskontrol. Der er intet at tilføje."
-
 #: ID:3867,#: ID:3868,#: ID:3867,#: ID:3868,
 #, c-format
 msgid "An attempt was made to access %1 past its end."
@@ -987,8 +983,8 @@ msgid "Automatic"
 msgstr "Automatisk"
 
 #: Control-ID:1073,
-msgid "Automatically check for newer versions every week"
-msgstr "Check automatisk efter nyere versioner hver uge"
+msgid "Automatically check for &newer versions every week"
+msgstr "Check automatisk efter &nyere versioner hver uge"
 
 #: Control-ID:1157,
 msgid "Average"
@@ -1046,6 +1042,10 @@ msgstr "Bug-&ID/problemnr:"
 #: Control-ID:1119,
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Fejl-id/problemnr:"
+
+#: Control-ID:1215,
+msgid "C&heck Now"
+msgstr "C&heck nu"
 
 #: ID:101,
 msgid "C&reate folder..."
@@ -1186,8 +1186,8 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Rydder op i afbrudte handlinger, låste filer mv."
 
 #: Control-ID:1059,
-msgid "Clear &Now"
-msgstr "Slet &nu"
+msgid "Clear N&ow"
+msgstr "Slet n&u"
 
 #: ID:195,
 msgid "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
@@ -1281,10 +1281,6 @@ msgstr "Sammenligner %s med %s"
 #: ID:74,
 msgid "Completed"
 msgstr "Afsluttet"
-
-#: Control-ID:1239,
-msgid "Configure"
-msgstr "Konfigurer"
 
 #: Control-ID:65535,
 msgid "Configure the program used for comparing different revisions of files."
@@ -1702,11 +1698,6 @@ msgstr "Undtagelser:"
 msgid "Exclude paths:"
 msgstr "Udelad stierne:"
 
-#: Control-ID:65535,
-#Der er ikke plads til at skrive "Mønster for udelad/ignorer:"
-msgid "Exclude/Ignore pattern:"
-msgstr "Udelad/ignorer-mønster:"
-
 #: ID:209,
 msgid "Explore to"
 msgstr "Åbn i Stifinder"
@@ -1881,6 +1872,10 @@ msgstr "Henter log-informationer..."
 #: ID:119,
 msgid "Getting unified diff"
 msgstr "Henter unified diff"
+
+#: Control-ID:65535,
+msgid "Global ignore &pattern:"
+msgstr "Globalt ignorer-&mønster:"
 
 #: ID:2051,
 msgid "Go to the next conflict\nnext conflict"
@@ -3076,8 +3071,8 @@ msgid "Server &address:"
 msgstr "&Server-adresse:"
 
 #: Control-ID:1088,
-msgid "Set filedates to the \"last commit time\""
-msgstr "Sæt filers datostempel til \"seneste arkiveringstidspunkt\""
+msgid "Set filedates to the \"last commit &time\""
+msgstr "Sæt filers datostempel til \"seneste arkiverings&tidspunkt\""
 
 #: ID:13,
 msgid "Setting properties..."
@@ -3203,8 +3198,8 @@ msgid "Skipped missing target"
 msgstr "Sprang over manglende element"
 
 #: ID:79,
-msgid "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
-msgstr "Angiv de filer eller mapper, som TortoiseSVN\nskal udelade fra versionskontrol.\nAdskil mønstrene med et mellemrum."
+msgid "Specify the files or folders which TortoiseSVN\nshould ignore in <b>all</b> working copies.\nSeparate the patterns with a space."
+msgstr "Angiv de filer eller mapper, som TortoiseSVN\nskal ignorere i <b>alle</b> arbejdskopier.\nAdskil mønstrene med et mellemrum."
 
 #: Control-ID:65535,
 msgid "Specify the revision range which you want to merge:"
@@ -3247,12 +3242,12 @@ msgid "Subversion"
 msgstr "Subversion"
 
 #: Control-ID:65535,
-msgid "Subversion authentication data:"
-msgstr "Subversion adgangskode-data:"
+msgid "Subversion &authentication data:"
+msgstr "Subversion &adgangskode-data:"
 
 #: Control-ID:65535,
-msgid "Subversion configuration file:"
-msgstr "Subversion-konfigurationsfil:"
+msgid "Subversion configuration &file:"
+msgstr "Subversion-konfigurations&fil:"
 
 #: ID:79,
 msgid "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
@@ -3304,8 +3299,8 @@ msgid "Switch working copy to another branch / tag"
 msgstr "Skift arbejdskopi til en anden forgrening/mærkat"
 
 #: Control-ID:65535,
-msgid "System Sounds"
-msgstr "System-lyde"
+msgid "System &sounds"
+msgstr "&System-lyde"
 
 #: ID:3857,#: ID:3857,
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
@@ -3472,6 +3467,10 @@ msgstr "Der findes ændringer nede i én eller flere mapper, som er inkluderet m
 #, c-format
 msgid "There are still unresolved conflicts in line %d!\nYou should resolve those conflicts first before saving.\nDo you want to save the file with the conflicts still there?\nIf you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr "Der er stadig uløste konflikter i linje %d!\nDu skal først løse disse konflikter, før du gemmer.\nVil du gemme filen med de eksisterende konflikter?\nHvis du vælger JA, bliver du nødt til at løse konflikterne i et andet program!"
+
+#: ID:82,
+msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
+msgstr "Der er intet at tilføje. Alle filer og mapper er enten allerede under versionskontrol eller er blevet udeladt på grund af brug af egenskaben svn:ignore eller den globale ignorer-indstilling."
 
 #: ID:188,
 msgid "Thesaurus"
