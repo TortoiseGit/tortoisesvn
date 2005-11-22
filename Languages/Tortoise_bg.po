@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-15 20:41+0200\n"
+"PO-Revision-Date: 2005-11-21 22:11+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -298,12 +298,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Отказ"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "&Незабавна проверка"
-
 # ID:8,
 #: ID:8
 msgid "&Clean up"
@@ -323,6 +317,11 @@ msgstr "&Сравняване на ревизии"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "&Сравняване на празните символи"
+
+# ID:73,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "&Конфигуриране"
 
 # ID:9,
 #: Control-ID:1227
@@ -1175,11 +1174,6 @@ msgstr "Всички файлове (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Всички файлове (*.*)|*.*||"
 
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Всички файлове вече са под контрол - няма нищо за добавяне!"
-
 # ID:3867,#:
 # ID:3868,#:
 # ID:3868,
@@ -1393,8 +1387,8 @@ msgstr "Автоматично"
 
 # ID:201,
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "Автоматична проверка за по-нова версия всяка седмица"
+msgid "Automatically check for &newer versions every week"
+msgstr "Автоматична проверка за по-&нова версия всяка седмица"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1467,6 +1461,12 @@ msgstr "&Номер на проблем:"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Номер на проблем:"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "C&heck Now"
+msgstr "&Незабавна проверка"
 
 # ID:101,
 #: ID:101
@@ -1650,7 +1650,7 @@ msgstr "Почиства недовършени операции, блокира
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
+msgid "Clear N&ow"
 msgstr "&Незабавно изчистване"
 
 # ID:195,
@@ -1773,11 +1773,6 @@ msgstr "Сравняване на %s с %s"
 #: ID:74
 msgid "Completed"
 msgstr "Завършено"
-
-# ID:73,
-#: Control-ID:1239
-msgid "Configure"
-msgstr "Конфигуриране"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2397,11 +2392,6 @@ msgstr "Изключения:"
 msgid "Exclude paths:"
 msgstr "Пътища за изключване:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "Шаблон за изключване/игнориране:"
-
 # ID:9,
 #: ID:209
 msgid "Explore to"
@@ -2643,6 +2633,11 @@ msgstr "Получаване на информация от дневника..."
 #: ID:119
 msgid "Getting unified diff"
 msgstr "Получаване на Unified Diff"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "Глобален &шаблон за игнориране:"
 
 # ID:2049,
 #: ID:2051
@@ -4354,8 +4349,8 @@ msgstr "&Адрес на сървъра:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "Установи датата на файла според \"време на последното поверяване\""
+msgid "Set filedates to the \"last commit &time\""
+msgstr "Установяване на датите на файловете според \"&време на последното поверяване\""
 
 # ID:13,
 #: ID:13
@@ -4530,11 +4525,11 @@ msgstr "Прескочени липсващи цели"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Укажете файловете или директориите, които TortoiseSVN\n"
-"трябва да изключи от контрол.\n"
+"трябва да игнорира във <b>всички</b> работни копия.\n"
 "Разделете шаблоните с интервал."
 
 # Control-ID:65535,
@@ -4599,13 +4594,13 @@ msgstr "Subversion"
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Удостоверения в Subversion:"
+msgid "Subversion &authentication data:"
+msgstr "&Удостоверения в Subversion:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Конфигурационен файл на Subversion:"
+msgid "Subversion configuration &file:"
+msgstr "Конфигурационен &файл на Subversion:"
 
 # ID:79,
 #: ID:79
@@ -4695,8 +4690,8 @@ msgstr "Превключване на работното копие към др�
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "Системни звуци"
+msgid "System &sounds"
+msgstr "Системни &звуци"
 
 # ID:3857,#:
 # ID:3857,
@@ -5012,6 +5007,11 @@ msgstr ""
 "Би трябвало да разрешите тези конфликти преди да запишете.\n"
 "Желаете ли да запишете файла с неразрешени конфликти?\n"
 "Ako изберете \"Да\", ще трябва да разрешите конфликтите ръчно в друг текстов редактор!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
+msgstr "Няма нищо за добавяне. Всички файлове и папки или вече са под контрол, или са изключени чрез използване на свойството \"svn:ignore\" или на глобалната настройка за изключване."
 
 # ID:188,
 #: ID:188
