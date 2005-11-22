@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-20 16:33+0100\n"
+"PO-Revision-Date: 2005-11-22 23:27+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -259,12 +259,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Annulla"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "&Controlla adesso"
-
 # ID:8,
 #: ID:8
 msgid "&Clean up"
@@ -284,6 +278,11 @@ msgstr "&Confronta revisioni"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "&Confronta le spaziature"
+
+# ID:73,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "&Configura"
 
 # Control-ID:65535,
 #: Control-ID:1227
@@ -1350,8 +1349,8 @@ msgstr "Automatico"
 
 # ID:201,
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "Controlla automaticamente l'esistenza di nuove versioni ogni settimana"
+msgid "Automatically check for &newer versions every week"
+msgstr "Controlla automaticamente l'esistenza di &nuove versioni ogni settimana"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1422,6 +1421,12 @@ msgstr "Bug-&ID / Issue-Nr."
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr."
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "C&heck now"
+msgstr "C&ontrolla adesso"
 
 # ID:101,
 #: ID:101
@@ -1605,8 +1610,8 @@ msgstr "Pulisce operazioni interrotte, file bloccati, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "Svuota &adesso"
+msgid "Clear n&ow"
+msgstr "Svu&ota adesso"
 
 # ID:195,
 #: ID:195
@@ -1728,11 +1733,6 @@ msgstr "Comparazione di %s con %s"
 #: ID:74
 msgid "Completed"
 msgstr "Completato"
-
-# ID:73,
-#: Control-ID:1239
-msgid "Configure"
-msgstr "Configura"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2350,11 +2350,6 @@ msgstr "Eccezioni:"
 msgid "Exclude paths:"
 msgstr "Percorsi da escludere:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "Filtro d'esclusione:"
-
 # ID:9,
 #: ID:209
 msgid "Explore to"
@@ -2597,6 +2592,12 @@ msgstr "Ottenimeno informazioni..."
 #: ID:119
 msgid "Getting unified diff"
 msgstr "Ottenimeno confronto unificato"
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Global ignore &pattern:"
+msgstr "Configurazione di \"ignora globalmente\":"
 
 # ID:2049,
 #: ID:2051
@@ -4311,8 +4312,8 @@ msgstr "&Indirizzo del server:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "Imposta le date dei file all'ultima data di invio"
+msgid "Set filedates to the \"last commit &time\""
+msgstr "Impos&ta le date dei file all' \"ultima data di invio\""
 
 # ID:13,
 #: ID:13
@@ -4487,11 +4488,11 @@ msgstr "Obbiettivo mancate saltato"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Specifica i file o le cartelle che TortoiseSVN\n"
-"deve escludere dal versionamento.\n"
+"deve ingorare in <b>tutte</b> le copie di lavoro.\n"
 "Separa i percorsi con uno spazio."
 
 # Control-ID:65535,
@@ -4558,13 +4559,13 @@ msgstr "Subversion"
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Dati d'autenticazione:"
+msgid "Subversion &authentication data:"
+msgstr "Dati d'&utenticazione di Subversion:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "File di configurazione di Subversion"
+msgid "Subversion configuration &file:"
+msgstr "&File di configurazione di Subversion:"
 
 # ID:79,
 #: ID:79
@@ -4654,8 +4655,8 @@ msgstr "Sposta la copia di lavoro su un altro ramo / etichetta"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "Suoni di sistema"
+msgid "System &sounds"
+msgstr "&Suoni di sistema"
 
 # ID:3857,#:
 # ID:3857,
@@ -4974,8 +4975,9 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
-msgstr "Non vi è niente da aggiungere. Tutti i file e le cartelle o sono già versionati o sono stati esclusi usando la proprietà svn:ignore oppure selezionando la proprietà \"global exlude\" nelle impostazioni."
+#, fuzzy
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "Non vi è niente da aggiungere. Tutti i file e le cartelle o sono già versionati o sono stati esclusi usando la proprietà svn:ignore oppure utilizzando la proprietà \"ignora globalmente\"."
 
 # ID:188,
 #: ID:188
