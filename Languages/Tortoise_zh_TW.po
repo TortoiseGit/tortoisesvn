@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-08 10:04+0800\n"
+"PO-Revision-Date: 2005-11-22 12:42+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -260,12 +260,6 @@ msgstr "光碟機(&R)"
 msgid "&Cancel"
 msgstr "取消(&C)"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "立刻檢查(&C)"
-
 # ID:8,
 #: ID:8
 msgid "&Clean up"
@@ -285,6 +279,11 @@ msgstr "比對版本差異(&C)"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "比對空白字元(&C)"
+
+# ID:73,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "設定(&C)"
 
 # ID:9,
 #: Control-ID:1227
@@ -446,12 +445,6 @@ msgstr "說明主題(&H)"
 msgid "&Hide"
 msgstr "隱藏 (&H)"
 
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "歷程(&H)"
-
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
@@ -569,6 +562,11 @@ msgstr "埠(&P):"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "前一筆差異(&P)"
+
+# Dlg-ID:130,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "最近的紀錄訊息(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -993,6 +991,11 @@ msgstr "拒絕存取 %1."
 msgid "Action"
 msgstr "行動"
 
+# ID:77,
+#: ID:117
+msgid "Actions"
+msgstr "行動"
+
 # ID:3826,
 #: ID:3826
 msgid "Activate Task List"
@@ -1131,11 +1134,6 @@ msgstr "所有檔案 (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "所有檔案 (*.*)|*.*||"
-
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "所有檔案都已在版本控制下. 沒有可以新增的項目!"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -1351,8 +1349,8 @@ msgstr "自動"
 
 # ID:201,
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "每週自動檢查新版"
+msgid "Automatically check for &newer versions every week"
+msgstr "每週自動檢查新版(&N)"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1423,6 +1421,12 @@ msgstr "Bug編號 / 問題編號(&I):"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug編號 / 問題編號:"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "C&heck Now"
+msgstr "立刻檢查(&H)"
 
 # ID:101,
 #: ID:101
@@ -1606,8 +1610,8 @@ msgstr "清理未完成的作業, 鎖定檔等..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "立即清除(&N)"
+msgid "Clear N&ow"
+msgstr "立即清除(&O)"
 
 # ID:195,
 #: ID:195
@@ -1617,6 +1621,11 @@ msgid ""
 msgstr ""
 "清除儲存的認證.\n"
 "你需要為全部的檔案庫重新輸入帳號和密碼."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "點擊這裡以選擇最近輸入過的訊息"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1724,11 +1733,6 @@ msgstr "正在比對 %s 與 %s"
 #: ID:74
 msgid "Completed"
 msgstr "完畢"
-
-# ID:73,
-#: Control-ID:1239
-msgid "Configure"
-msgstr "設定"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2348,11 +2352,6 @@ msgstr "例外:"
 msgid "Exclude paths:"
 msgstr "除外路徑:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "除外/忽略樣式:"
-
 # ID:9,
 #: ID:209
 msgid "Explore to"
@@ -2594,6 +2593,11 @@ msgstr "正在取得紀錄資訊..."
 #: ID:119
 msgid "Getting unified diff"
 msgstr "正在取得單一差異檔"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "除外/忽略樣式(&P):"
 
 # ID:2049,
 #: ID:2051
@@ -3115,11 +3119,6 @@ msgstr "混合"
 #: ID:74
 msgid "Modified"
 msgstr "異動"
-
-# ID:438,
-#: ID:438
-msgid "More Colors..."
-msgstr "其它顏色..."
 
 # ID:438,
 #: ID:438
@@ -4310,8 +4309,8 @@ msgstr "伺服器位址(&A):"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "將檔案日期設定為最後一次送交的時間"
+msgid "Set filedates to the \"last commit &time\""
+msgstr "將檔案日期設定為\"最後一次送交的時間\"(&T)"
 
 # ID:13,
 #: ID:13
@@ -4486,11 +4485,11 @@ msgstr "已跳過的缺少目標"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
 "指定 TortoiseSVN 不需要納入版本控制的\n"
-"目錄或檔案名稱.\n"
+"目錄或檔案名稱(對*所有*工作複本都有效).\n"
 "請以空白分隔項目."
 
 # Control-ID:65535,
@@ -4555,13 +4554,13 @@ msgstr "Subversion"
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Subversion 認證資料:"
+msgid "Subversion &authentication data:"
+msgstr "Subversion 認證資料(&A):"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Subversion 設定檔:"
+msgid "Subversion configuration &file:"
+msgstr "Subversion 設定檔(&F):"
 
 # ID:79,
 #: ID:79
@@ -4651,8 +4650,8 @@ msgstr "切換工作複本至其他分支/標記"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "系統音效"
+msgid "System &sounds"
+msgstr "系統音效(&S)"
 
 # ID:3857,#:
 # ID:3857,
@@ -4967,6 +4966,11 @@ msgstr ""
 "請在儲存之前先解決它們.\n"
 "你確定要在還有衝突時儲存檔案嗎?\n"
 "如果你選擇 \"是\", 之後必須自行在其它編輯器中處理衝突!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
+msgstr "沒有可以新增的項目. 所有的檔案和資料夾都已經在版本控制之下, 或是被 svn:ignore 性質或 TSVN 的除外設定排除在外."
 
 # ID:188,
 #: ID:188
@@ -5840,6 +5844,15 @@ msgid ""
 msgstr ""
 "你選擇了新增的資料夾. 補綴檔不會包含新增資料夾中新增的檔案.\n"
 "確定要繼續嗎?"
+
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"你之前輸入的紀錄訊息已經儲存.\n"
+"點擊這裡可以閱讀或再次使用它們."
 
 # Control-ID:1112,
 #: Control-ID:1112
