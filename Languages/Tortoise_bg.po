@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-21 22:11+0200\n"
+"PO-Revision-Date: 2005-11-23 22:14+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1465,7 +1465,7 @@ msgstr "Номер на проблем:"
 # ID:3887,#:
 # ID:3887,
 #: Control-ID:1215
-msgid "C&heck Now"
+msgid "C&heck now"
 msgstr "&Незабавна проверка"
 
 # ID:101,
@@ -1650,7 +1650,7 @@ msgstr "Почиства недовършени операции, блокира
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear N&ow"
+msgid "Clear n&ow"
 msgstr "&Незабавно изчистване"
 
 # ID:195,
@@ -3635,6 +3635,7 @@ msgstr "Моля, изчакайте инициализацията на про�
 
 # ID:119,
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "Моля, изчакайте..."
 
@@ -5010,8 +5011,8 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
-msgstr "Няма нищо за добавяне. Всички файлове и папки или вече са под контрол, или са изключени чрез използване на свойството \"svn:ignore\" или на глобалната настройка за изключване."
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "Няма нищо за добавяне. Всички файлове и папки или вече са под контрол, или са игнорирани чрез използване на свойството \"svn:ignore\" или на глобалната настройка за игнориране."
 
 # ID:188,
 #: ID:188
@@ -6073,6 +6074,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "външни"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "файловият списък е празен"
 
 # ID:13,
 #: ID:13
