@@ -325,7 +325,8 @@ public:
 	 * If not set, it defaults to "please wait..."
 	 */
 	void SetBusyString(const CString& str) {m_sBusy = str;}
-	
+	void SetBusyString(UINT id) {m_sBusy.LoadString(id);}
+
 	/**
 	 * Sets the string shown in the control if no items are shown. This
 	 * can happen for example if there's nothing modified and the unversioned
@@ -333,6 +334,7 @@ public:
 	 * If not set, it defaults to "file list is empty".
 	 */
 	void SetEmptyString(const CString& str) {m_sEmpty = str;}
+	void SetEmptyString(UINT id) {m_sEmpty.LoadString(id);}
 	
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
