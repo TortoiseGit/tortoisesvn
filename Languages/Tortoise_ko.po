@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-21 10:35+0900\n"
+"PO-Revision-Date: 2005-11-23 11:37+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -260,12 +260,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "취소(&C)"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "지금 확인합니다.(&C)"
-
 # ID:8,
 #: ID:8
 msgid "&Clean up"
@@ -285,6 +279,11 @@ msgstr "리비전 비교(&C)"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "공백도 비교(&C)"
+
+# ID:73,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "설정(&C)"
 
 # ID:9,
 #: Control-ID:1227
@@ -1343,8 +1342,8 @@ msgstr "자동으로"
 
 # ID:201,
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "매주 새 버전을 확인합니다."
+msgid "Automatically check for &newer versions every week"
+msgstr "매주 새 버전을 확인합니다.(&N)"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1417,6 +1416,12 @@ msgstr "Bug-&ID / Issue-Nr:"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr:"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "C&heck now"
+msgstr "지금 확인합니다.(&H)"
 
 # ID:101,
 #: ID:101
@@ -1600,8 +1605,8 @@ msgstr "중단된 명령, 잠긴 파일들을 정리 합니다."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "깨끗이 정리(&N)"
+msgid "Clear n&ow"
+msgstr "깨끗이 정리(&O)"
 
 # ID:195,
 #: ID:195
@@ -1723,11 +1728,6 @@ msgstr "비교 중 %s : %s"
 #: ID:74
 msgid "Completed"
 msgstr "완료"
-
-# ID:73,
-#: Control-ID:1239
-msgid "Configure"
-msgstr "설정"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2344,11 +2344,6 @@ msgstr "가져오기 예외:"
 msgid "Exclude paths:"
 msgstr "제외 경로:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "제외/무시 패턴:"
-
 # ID:9,
 #: ID:209
 msgid "Explore to"
@@ -2591,6 +2586,11 @@ msgstr "로그 정보 읽는 중..."
 #: ID:119
 msgid "Getting unified diff"
 msgstr "unified diff 만드는 중..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "제외/무시 패턴(&P):"
 
 # ID:2049,
 #: ID:2051
@@ -4296,8 +4296,8 @@ msgstr "서버 주소(&A):"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "마지막에 커밋 시간으로 파일의 날짜를 설정합니다."
+msgid "Set filedates to the \"last commit &time\""
+msgstr "마지막 커밋 시간으로 파일의 날짜를 설정합니다(&T)."
 
 # ID:13,
 #: ID:13
@@ -4474,11 +4474,10 @@ msgstr "없는 개체는 건너뜀"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
-"TortoiseSVN이 버전컨트롤 하지 않을\n"
-"파일이나 폴더를 지정하십시오.\n"
+"<b>모든</b> 작업사본에서 TortoiseSVN이 버전컨트롤하지 않을 파일이나 폴더를 지정하십시오.\n"
 "패턴들은 공백으로 분리하면 됩니다."
 
 # Control-ID:65535,
@@ -4545,13 +4544,13 @@ msgstr "Subversion"
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Subversion 인증 정보:"
+msgid "Subversion &authentication data:"
+msgstr "Subversion 인증 정보(&A):"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Subversion 설정 파일:"
+msgid "Subversion configuration &file:"
+msgstr "Subversion 설정 파일(&F):"
 
 # ID:79,
 #: ID:79
@@ -4641,8 +4640,8 @@ msgstr "현재 작업 사본을 생성된 브랜치나 태그로 전환"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "시스템 소리"
+msgid "System &sounds"
+msgstr "시스템 소리(&S)"
 
 # ID:3857,#:
 # ID:3857,
@@ -4959,8 +4958,8 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
-msgstr "추가할 것이 없습니다. 모든 파일과 폴더는 버전 컨트롤 중에 있거나, svn:ignore 속성 또는 환경설정의 무시목록에 등록되어 있습니다."
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "추가할 것이 없습니다. 모든 파일과 폴더는 버전 컨트롤 중에 있거나, svn:ignore 속성 또는 환경설정의 전역 무시 목록에 등록되어 있습니다."
 
 # ID:188,
 #: ID:188
