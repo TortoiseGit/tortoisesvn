@@ -59,6 +59,7 @@ BOOL CAddDlg::OnInitDialog()
 	//set the listcontrol to support checkboxes
 	m_addListCtrl.Init(0, SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD));
 	m_addListCtrl.SetSelectButton(&m_SelectAll);
+	m_addListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOADD);
 
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -133,14 +134,6 @@ UINT CAddDlg::AddThread()
 
 	GetDlgItem(IDOK)->EnableWindow(true);
 	GetDlgItem(IDCANCEL)->EnableWindow(true);
-	if (m_addListCtrl.GetItemCount()==0)
-	{
-		CMessageBox::Show(m_hWnd, IDS_ERR_NOTHINGTOADD, IDS_APPNAME, MB_ICONINFORMATION);
-		GetDlgItem(IDCANCEL)->EnableWindow(true);
-		m_bThreadRunning = FALSE;
-		EndDialog(0);
-		return (DWORD)-1;
-	}
 	m_bThreadRunning = FALSE;
 	return 0;
 }

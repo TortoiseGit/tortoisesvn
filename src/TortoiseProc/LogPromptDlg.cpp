@@ -102,7 +102,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
 	m_ListCtrl.SetCancelBool(&m_bCancelled);
-
+	m_ListCtrl.SetEmptyString(IDS_LOGPROMPT_NOTHINGTOCOMMIT);
+	
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
 	m_cLogMessage.Init(m_ProjectProperties);
 	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -376,32 +377,14 @@ UINT CLogPromptDlg::StatusThread()
 		SetTimer(ENDDIALOGTIMER, 100, NULL);
 		return (DWORD)-1;
 	}
-	if ((m_ListCtrl.GetItemCount()==0)&&(!m_ListCtrl.HasUnversionedItems()))
+	if ((m_ListCtrl.GetItemCount()==0)&&(m_ListCtrl.HasUnversionedItems()))
 	{
-		CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
-		m_bRunThread = FALSE;
-		m_bThreadRunning = FALSE;
-		SetTimer(ENDDIALOGTIMER, 100, NULL);
-		return (DWORD)-1;
-	}
-	else
-	{
-		if (m_ListCtrl.GetItemCount()==0)
+		if (CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
 		{
-			if (CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
-			{
-				m_bShowUnversioned = TRUE;
-				GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
-				DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWLOCKS;
-				m_ListCtrl.Show(dwShow);
-			}
-			else
-			{
-				m_bRunThread = FALSE;
-				m_bThreadRunning = FALSE;
-				SetTimer(ENDDIALOGTIMER, 100, NULL);
-				return (DWORD)-1;
-			}
+			m_bShowUnversioned = TRUE;
+			GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
+			DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWLOCKS;
+			m_ListCtrl.Show(dwShow);
 		}
 	}
 	if (m_HistoryDlg.GetCount()==0)
