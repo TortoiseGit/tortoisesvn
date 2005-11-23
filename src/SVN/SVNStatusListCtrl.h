@@ -320,6 +320,20 @@ public:
 	 */
 	void SetCancelBool(bool * pbCanceled) {m_pbCanceled = pbCanceled;}
 	
+	/**
+	 * Sets the string shown in the control while the status is fetched.
+	 * If not set, it defaults to "please wait..."
+	 */
+	void SetBusyString(const CString& str) {m_sBusy = str;}
+	
+	/**
+	 * Sets the string shown in the control if no items are shown. This
+	 * can happen for example if there's nothing modified and the unversioned
+	 * files aren't shown either, so there's nothing to commit.
+	 * If not set, it defaults to "file list is empty".
+	 */
+	void SetEmptyString(const CString& str) {m_sEmpty = str;}
+	
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
@@ -399,6 +413,7 @@ private:
 	afx_msg UINT OnGetDlgCode();
 	afx_msg void OnNMReturn(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void OnPaint();
 
 private:
 	bool *						m_pbCanceled;
@@ -429,10 +444,14 @@ private:
 	bool						m_bShowFolders;
 	DWORD						m_dwContextMenus;
 	BOOL						m_bBlock;
+	bool						m_bBusy;
 
 	int							m_nIconFolder;
 
 	CWnd *						m_pStatLabel;
 	CButton *					m_pSelectButton;
 	CColors						m_Colors;
+	
+	CString						m_sEmpty;
+	CString						m_sBusy;
 };

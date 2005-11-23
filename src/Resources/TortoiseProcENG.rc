@@ -2322,6 +2322,12 @@ BEGIN
     IDS_LOG_ACTIONS         "Actions"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_STATUSLIST_BUSYMSG  "Please wait..."
+    IDS_STATUSLIST_EMPTYMSG "file list is empty"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

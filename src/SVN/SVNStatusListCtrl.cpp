@@ -20,6 +20,7 @@
 #include "resource.h"
 #include "..\\TortoiseShell\\resource.h"
 #include "MessageBox.h"
+#include "MemDC.h"
 #include "UnicodeUtils.h"
 #include "Utils.h"
 #include "TempFile.h"
@@ -84,6 +85,7 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_WM_KEYDOWN()
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipText)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipText)
+	ON_WM_PAINT()
 END_MESSAGE_MAP()
 
 
@@ -94,9 +96,10 @@ int		CSVNStatusListCtrl::m_nSortedInternalColumn = -1;
 CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_HeadRev(SVNRev::REV_HEAD)
 	, m_pbCanceled(NULL)
+	, m_pStatLabel(NULL)
+	, m_pSelectButton(NULL)
+	, m_bBusy(false)
 {
-	m_pStatLabel = NULL;
-	m_pSelectButton = NULL;
 }
 
 CSVNStatusListCtrl::~CSVNStatusListCtrl()
@@ -234,7 +237,8 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	m_bHasUnversionedItems = FALSE;
 	m_nSortedColumn = 0;
 	m_bBlock = TRUE;
-
+	m_bBusy = true;
+	Invalidate();
 	// force the cursor to change
 	POINT pt;
 	GetCursorPos(&pt);
@@ -315,6 +319,8 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	BuildStatistics();
 
 	m_bBlock = FALSE;
+	m_bBusy = false;
+	Invalidate();
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 	return bRet;
@@ -2452,80 +2458,83 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 	// First thing - check the draw stage. If it's the control's prepaint
 	// stage, then tell Windows we want messages for every item.
 
-	if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+	switch (pLVCD->nmcd.dwDrawStage)
 	{
+	case CDDS_PREPAINT:
 		*pResult = CDRF_NOTIFYITEMDRAW;
-	}
-	else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
-	{
-		// This is the prepaint stage for an item. Here's where we set the
-		// item's text color. Our return value will tell Windows to draw the
-		// item itself, but it will use the new color we set here.
-
-		// Tell Windows to paint the control itself.
-		*pResult = CDRF_DODEFAULT;
-
-		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
-
-		if (m_arListArray.size() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		break;
+	case CDDS_ITEMPREPAINT:
 		{
-			FileEntry * entry = GetListEntry((int)pLVCD->nmcd.dwItemSpec);
-			if (entry == NULL)
-				return;
+			// This is the prepaint stage for an item. Here's where we set the
+			// item's text color. Our return value will tell Windows to draw the
+			// item itself, but it will use the new color we set here.
 
-			// coloring
-			// ========
-			// black  : unversioned, normal
-			// purple : added
-			// blue   : modified
-			// brown  : missing, deleted, replaced
-			// green  : merged (or potential merges)
-			// red    : conflicts or sure conflicts
-			switch (entry->status)
+			// Tell Windows to paint the control itself.
+			*pResult = CDRF_DODEFAULT;
+
+			COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+
+			if (m_arListArray.size() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 			{
-			case svn_wc_status_added:
-				if (entry->remotestatus > svn_wc_status_unversioned)
-					// locally added file, but file already exists in repository!
-					crText = m_Colors.GetColor(CColors::Conflict);
-				else
-					crText = m_Colors.GetColor(CColors::Added);
-				break;
-			case svn_wc_status_missing:
-			case svn_wc_status_deleted:
-			case svn_wc_status_replaced:
-				crText = m_Colors.GetColor(CColors::Deleted);
-				break;
-			case svn_wc_status_modified:
-				if (entry->remotestatus == svn_wc_status_modified)
-					// indicate a merge (both local and remote changes will require a merge)
-					crText = m_Colors.GetColor(CColors::Merged);
-				else if (entry->remotestatus == svn_wc_status_deleted)
-					// locally modified, but already deleted in the repository
-					crText = m_Colors.GetColor(CColors::Conflict);
-				else
-					crText = m_Colors.GetColor(CColors::Modified);
-				break;
-			case svn_wc_status_merged:
-				crText = m_Colors.GetColor(CColors::Merged);
-				break;
-			case svn_wc_status_conflicted:
-			case svn_wc_status_obstructed:
-				crText = m_Colors.GetColor(CColors::Conflict);
-				break;
-			case svn_wc_status_none:
-			case svn_wc_status_unversioned:
-			case svn_wc_status_ignored:
-			case svn_wc_status_incomplete:
-			case svn_wc_status_normal:
-			case svn_wc_status_external:
-			default:
-				crText = GetSysColor(COLOR_WINDOWTEXT);
-				break;
-			}
+				FileEntry * entry = GetListEntry((int)pLVCD->nmcd.dwItemSpec);
+				if (entry == NULL)
+					return;
 
-			// Store the color back in the NMLVCUSTOMDRAW struct.
-			pLVCD->clrText = crText;
+				// coloring
+				// ========
+				// black  : unversioned, normal
+				// purple : added
+				// blue   : modified
+				// brown  : missing, deleted, replaced
+				// green  : merged (or potential merges)
+				// red    : conflicts or sure conflicts
+				switch (entry->status)
+				{
+				case svn_wc_status_added:
+					if (entry->remotestatus > svn_wc_status_unversioned)
+						// locally added file, but file already exists in repository!
+						crText = m_Colors.GetColor(CColors::Conflict);
+					else
+						crText = m_Colors.GetColor(CColors::Added);
+					break;
+				case svn_wc_status_missing:
+				case svn_wc_status_deleted:
+				case svn_wc_status_replaced:
+					crText = m_Colors.GetColor(CColors::Deleted);
+					break;
+				case svn_wc_status_modified:
+					if (entry->remotestatus == svn_wc_status_modified)
+						// indicate a merge (both local and remote changes will require a merge)
+						crText = m_Colors.GetColor(CColors::Merged);
+					else if (entry->remotestatus == svn_wc_status_deleted)
+						// locally modified, but already deleted in the repository
+						crText = m_Colors.GetColor(CColors::Conflict);
+					else
+						crText = m_Colors.GetColor(CColors::Modified);
+					break;
+				case svn_wc_status_merged:
+					crText = m_Colors.GetColor(CColors::Merged);
+					break;
+				case svn_wc_status_conflicted:
+				case svn_wc_status_obstructed:
+					crText = m_Colors.GetColor(CColors::Conflict);
+					break;
+				case svn_wc_status_none:
+				case svn_wc_status_unversioned:
+				case svn_wc_status_ignored:
+				case svn_wc_status_incomplete:
+				case svn_wc_status_normal:
+				case svn_wc_status_external:
+				default:
+					crText = GetSysColor(COLOR_WINDOWTEXT);
+					break;
+				}
+
+				// Store the color back in the NMLVCUSTOMDRAW struct.
+				pLVCD->clrText = crText;
+			}
 		}
+		break;
 	}
 }
 
@@ -2870,4 +2879,58 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 	}
 
 	return FALSE;
+}
+
+void CSVNStatusListCtrl::OnPaint()
+{
+	Default();
+	if ((m_bBusy)||(GetItemCount() == 0))
+	{
+		CString str;
+		if (m_bBusy)
+		{
+			if (m_sBusy.IsEmpty())
+				str.LoadString(IDS_STATUSLIST_BUSYMSG);
+			else
+				str = m_sBusy;
+		}
+		else
+		{
+			if (m_sEmpty.IsEmpty())
+				str.LoadString(IDS_STATUSLIST_EMPTYMSG);
+			else
+				str = m_sEmpty;
+		}
+		COLORREF clrText = ::GetSysColor(COLOR_WINDOWTEXT);
+		COLORREF clrTextBk;
+		if (IsWindowEnabled())
+			clrTextBk = ::GetSysColor(COLOR_WINDOW);
+		else
+			clrTextBk = ::GetSysColor(COLOR_3DFACE);
+
+		CRect rc;
+		GetClientRect(&rc);
+		CHeaderCtrl* pHC;
+		pHC = GetHeaderCtrl();
+		if (pHC != NULL)
+		{
+			CRect rcH;
+			pHC->GetItemRect(0, &rcH);
+			rc.top += rcH.bottom;
+		}
+		rc.top += 10;
+		CDC* pDC = GetDC();
+		{
+			CMemDC memDC(pDC, &rc);
+
+			memDC.SetTextColor(clrText);
+			memDC.SetBkColor(clrTextBk);
+			memDC.FillSolidRect(rc, clrTextBk);
+			CGdiObject * oldfont = memDC.SelectStockObject(ANSI_VAR_FONT);
+			memDC.DrawText(str, rc, DT_CENTER | DT_VCENTER |
+				DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
+			memDC.SelectObject(oldfont);
+		}
+		ReleaseDC(pDC);
+	}
 }
