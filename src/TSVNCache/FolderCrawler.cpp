@@ -188,9 +188,11 @@ void CFolderCrawler::WorkerThread()
 					// Because we also get notifications for those even if we just ask for the status!
 					// And changes there don't affect the file status at all, so it's safe
 					// to ignore notifications on those paths.
-					if (workingPath.GetWinPathString().Find(_T("\\tmp\\"))>0)
+					CString lowerpath = workingPath.GetWinPathString();
+					lowerpath.MakeLower();
+					if (lowerpath.Find(_T("\\tmp\\"))>0)
 						continue;
-					if (workingPath.GetWinPathString().Find(_T("\\tmp")) == (workingPath.GetWinPathString().GetLength()-4))
+					if (lowerpath.Find(_T("\\tmp")) == (lowerpath.GetLength()-4))
 						continue;
 					do 
 					{
