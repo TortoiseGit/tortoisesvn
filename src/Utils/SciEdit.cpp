@@ -587,6 +587,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		GetClientRect(&rect);
 		ClientToScreen(&rect);
 		point = rect.CenterPoint();
+		pointpos = Call(SCI_GETCURRENTPOS);
 	}
 	else
 	{
