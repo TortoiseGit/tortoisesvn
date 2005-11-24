@@ -107,6 +107,7 @@ void CFolderCrawler::WorkerThread()
 	HANDLE hWaitHandles[2];
 	hWaitHandles[0] = m_hTerminationEvent;	
 	hWaitHandles[1] = m_hWakeEvent;
+	CTSVNPath workingPath;
 
 	for(;;)
 	{
@@ -127,11 +128,9 @@ void CFolderCrawler::WorkerThread()
 		// However, it's important that we don't do our crawling while
 		// the shell is still asking for items
 		// 
-
+		
 		for(;;)
 		{
-			CTSVNPath workingPath;
-
 			// Any locks today?
 			
 			if(m_lCrawlInhibitSet > 0)
@@ -173,6 +172,7 @@ void CFolderCrawler::WorkerThread()
 						// The queue has changed - it's worth sorting and de-duping
 						std::sort(m_pathsToUpdate.begin(), m_pathsToUpdate.end());
 						m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_pathsToUpdate.end());
+						m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftSameWCPathAsRight), m_pathsToUpdate.end());
 						m_bPathsAddedSinceLastCrawl = false;
 					}
 
@@ -188,12 +188,19 @@ void CFolderCrawler::WorkerThread()
 					// Because we also get notifications for those even if we just ask for the status!
 					// And changes there don't affect the file status at all, so it's safe
 					// to ignore notifications on those paths.
-					CString lowerpath = workingPath.GetWinPathString();
-					lowerpath.MakeLower();
-					if (lowerpath.Find(_T("\\tmp\\"))>0)
-						continue;
-					if (lowerpath.Find(_T("\\tmp")) == (lowerpath.GetLength()-4))
-						continue;
+					if (workingPath.IsAdminDir())
+					{
+						CString lowerpath = workingPath.GetWinPathString();
+						lowerpath.MakeLower();
+						if (lowerpath.Find(_T("\\tmp\\"))>0)
+							continue;
+						if (lowerpath.Find(_T("\\tmp")) == (lowerpath.GetLength()-4))
+							continue;
+						if (lowerpath.Find(_T("\\log"))>0)
+							continue;
+						if (lowerpath.Find(_T("\\lock"))>0)
+							continue;
+					}
 					if (!workingPath.Exists())
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
@@ -249,13 +256,15 @@ void CFolderCrawler::WorkerThread()
 				}
 				else if (workingPath.HasAdminDir())
 				{
-					if (!workingPath.Exists())
+					if (!workingPath.Exists()&&workingPath.IsDirectory())
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
 						CSVNStatusCache::Instance().Done();
 						continue;
 					}
+					if (!workingPath.Exists())
+						continue;
 					ATLTRACE("Updating path: %ws\n", workingPath.GetWinPath());
 					{
 						AutoLocker print(critSec);
@@ -283,7 +292,7 @@ void CFolderCrawler::WorkerThread()
 				}
 				else
 				{
-					if (!workingPath.Exists())
+					if (!workingPath.Exists()&&workingPath.IsDirectory())
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
