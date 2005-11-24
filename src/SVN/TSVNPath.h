@@ -188,6 +188,11 @@ public:
 	bool IsReadOnly() const;
 	
 	/**
+	 * Checks if the path really exists.
+	 */
+	bool Exists() const;
+	
+	/**
 	 * Checks if a Subversion admin directory is present. For files, the check
 	 * is done in the same directory. For folders, it checks if the folder itself
 	 * contains an admin directory.
@@ -252,6 +257,8 @@ private:
 	mutable bool m_bIsValidOnWindows;
 	mutable bool m_bIsAdminDirKnown;
 	mutable bool m_bIsAdminDir;
+	mutable bool m_bExists;
+	mutable bool m_bExistsKnown;
 
 	friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };

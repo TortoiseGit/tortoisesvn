@@ -38,7 +38,9 @@ CTSVNPath::CTSVNPath(void) :
 	m_bIsValidOnWindowsKnown(false),
 	m_bIsReadOnly(false),
 	m_bIsAdminDirKnown(false),
-	m_bIsAdminDir(false)
+	m_bIsAdminDir(false),
+	m_bExists(false),
+	m_bExistsKnown(false)
 {
 }
 
@@ -55,7 +57,9 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
 	m_bIsValidOnWindowsKnown(false),
 	m_bIsReadOnly(false),
 	m_bIsAdminDirKnown(false),
-	m_bIsAdminDir(false)
+	m_bIsAdminDir(false),
+	m_bExists(false),
+	m_bExistsKnown(false)
 {
 	SetFromUnknown(sUnknownPath);
 }
@@ -258,6 +262,15 @@ bool CTSVNPath::IsDirectory() const
 	return m_bIsDirectory;
 }
 
+bool CTSVNPath::Exists() const
+{
+	if (!m_bExistsKnown)
+	{
+		UpdateAttributes();
+	}
+	return m_bExists;
+}
+
 __int64  CTSVNPath::GetLastWriteTime() const
 {
 	if(!m_bLastWriteTimeKnown)
@@ -285,14 +298,17 @@ void CTSVNPath::UpdateAttributes() const
 		m_bIsDirectory = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 		m_lastWriteTime = *(__int64*)&attribs.ftLastWriteTime;
 		m_bIsReadOnly = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_READONLY);
+		m_bExists = true;
 	}
 	else
 	{
 		m_bIsDirectory = false;
 		m_lastWriteTime = 0;
+		m_bExists = false;
 	}
 	m_bDirectoryKnown = true;
 	m_bLastWriteTimeKnown = true;
+	m_bExistsKnown = true;
 }
 
 
@@ -323,7 +339,8 @@ void CTSVNPath::Reset()
 	m_bHasAdminDirKnown = false;
 	m_bIsValidOnWindowsKnown = false;
 	m_bIsAdminDirKnown = false;
-
+	m_bExistsKnown = false;
+	
 	m_sBackslashPath.Empty();
 	m_sFwdslashPath.Empty();
 	m_sUTF8FwdslashPath.Empty();
