@@ -684,6 +684,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.m_pathList = pathList;
 			if (dlg.DoModal() == IDOK)
 			{
+				if (dlg.m_pathList.GetCount() == 0)
+					return FALSE;
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
@@ -699,6 +701,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.m_pathList = pathList;
 			if (dlg.DoModal() == IDOK)
 			{
+				if (dlg.m_pathList.GetCount() == 0)
+					return FALSE;
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
