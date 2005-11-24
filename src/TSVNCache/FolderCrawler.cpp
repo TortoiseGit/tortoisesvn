@@ -194,6 +194,13 @@ void CFolderCrawler::WorkerThread()
 						continue;
 					if (lowerpath.Find(_T("\\tmp")) == (lowerpath.GetLength()-4))
 						continue;
+					if (!workingPath.Exists())
+					{
+						CSVNStatusCache::Instance().WaitToWrite();
+						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+						CSVNStatusCache::Instance().Done();
+						continue;
+					}
 					do 
 					{
 						workingPath = workingPath.GetContainingDirectory();	
@@ -215,7 +222,7 @@ void CFolderCrawler::WorkerThread()
 					{
 						svn_wc_status_kind status = pCachedDir->GetCurrentFullStatus();
 						pCachedDir->Invalidate();
-						if (PathFileExists(workingPath.GetWinPath()))
+						if (workingPath.Exists())
 						{
 							pCachedDir->RefreshStatus(bRecursive);
 							// if the previous status wasn't normal and now it is, then
@@ -227,7 +234,11 @@ void CFolderCrawler::WorkerThread()
 								CSVNStatusCache::Instance().UpdateShell(workingPath);
 						}
 						else
+						{
+							CSVNStatusCache::Instance().Done();
+							CSVNStatusCache::Instance().WaitToWrite();
 							CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+						}
 					}
 					CSVNStatusCache::Instance().Done();
 					//In case that svn_client_stat() modified a file and we got
@@ -238,6 +249,13 @@ void CFolderCrawler::WorkerThread()
 				}
 				else if (workingPath.HasAdminDir())
 				{
+					if (!workingPath.Exists())
+					{
+						CSVNStatusCache::Instance().WaitToWrite();
+						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+						CSVNStatusCache::Instance().Done();
+						continue;
+					}
 					ATLTRACE("Updating path: %ws\n", workingPath.GetWinPath());
 					{
 						AutoLocker print(critSec);
@@ -262,6 +280,15 @@ void CFolderCrawler::WorkerThread()
 					CSVNStatusCache::Instance().Done();
 					AutoLocker lock(m_critSec);
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
+				}
+				else
+				{
+					if (!workingPath.Exists())
+					{
+						CSVNStatusCache::Instance().WaitToWrite();
+						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+						CSVNStatusCache::Instance().Done();
+					}
 				}
 			}
 			else if (!m_foldersToUpdate.empty())

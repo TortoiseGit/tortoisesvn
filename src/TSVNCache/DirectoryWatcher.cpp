@@ -284,17 +284,17 @@ void CDirectoryWatcher::WorkerThread()
 					do 
 					{
 						nOffset = pnotify->NextEntryOffset;
-						switch (pnotify->Action)
-						{
-						case FILE_ACTION_RENAMED_OLD_NAME:
-							{
-								pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-								if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
-									break;
-								continue;
-							}
-							break;
-						}
+						//switch (pnotify->Action)
+						//{
+						//case FILE_ACTION_RENAMED_OLD_NAME:
+						//	{
+						//		pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
+						//		if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+						//			break;
+						//		continue;
+						//	}
+						//	break;
+						//}
 						ZeroMemory(buf, MAX_PATH*sizeof(TCHAR));
 						_tcsncpy(buf, pdi->m_DirPath, MAX_PATH);
 						_tcsncat(buf+pdi->m_DirPath.GetLength(), pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength / sizeof(WCHAR)));

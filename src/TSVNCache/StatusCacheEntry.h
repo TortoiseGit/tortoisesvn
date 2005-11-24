@@ -49,7 +49,7 @@ private:
 private:
 	long				m_discardAtTime;
 	svn_wc_status_kind	m_highestPriorityLocalStatus;
-	svn_wc_status2_t		m_svnStatus;
+	svn_wc_status2_t	m_svnStatus;
 	__int64				m_lastWriteTime;
 	bool				m_bSet;
 	svn_node_kind_t		m_kind;
