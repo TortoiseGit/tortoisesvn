@@ -6,13 +6,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r4999
+# Based on Tortoise.pot r5012
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-23 10:20+0100\n"
+"PO-Revision-Date: 2005-11-24 20:43+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2549,7 +2549,7 @@ msgstr "Vent venligst mens der annulleres..."
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Vent venligst mens versionsarkivsøgeren initialiseres..."
 
-#: ID:119,
+#: ID:119,#: ID:211,
 msgid "Please wait..."
 msgstr "Vent venligst..."
 
@@ -4127,6 +4127,10 @@ msgstr "eksporterede\n%s\ntil\n%s"
 #: ID:13,
 msgid "external"
 msgstr "ekstern"
+
+#: ID:211,
+msgid "file list is empty"
+msgstr "fil-liste er tom"
 
 #: ID:13,
 msgid "ignored"
