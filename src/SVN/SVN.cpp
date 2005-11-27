@@ -1251,7 +1251,14 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 CString SVN::GetUUIDFromPath(const CTSVNPath& path)
 {
 	const char * UUID;
-	Err = get_uuid_from_target(&UUID, path.GetSVNApiPath());
+	if (PathIsURL(path.GetSVNPathString()))
+	{
+		Err = svn_client_uuid_from_url(&UUID, path.GetSVNApiPath(), m_pctx, pool);
+	}
+	else
+	{
+		Err = get_uuid_from_target(&UUID, path.GetSVNApiPath());
+	}
 	if (Err)
 		return _T("");
 	if (UUID==NULL)
