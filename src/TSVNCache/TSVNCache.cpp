@@ -161,8 +161,8 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	
 	if (hWnd == NULL)
 	{
-		OutputDebugStringA("TSVNCache: could not create window class\n");
-		DebugOutputLastError();
+		//OutputDebugStringA("TSVNCache: could not create window class\n");
+		//DebugOutputLastError();
 		return 0;
 	}
 	if (CRegStdWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
@@ -212,9 +212,8 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 	if (hPipeThread == NULL) 
 	{
-		//ATLTRACE("CreateThread failed"); 
-		OutputDebugStringA("TSVNCache: Could not create pipe thread\n");
-		DebugOutputLastError();
+		//OutputDebugStringA("TSVNCache: Could not create pipe thread\n");
+		//DebugOutputLastError();
 		return 0;
 	}
 	else CloseHandle(hPipeThread); 
@@ -230,9 +229,8 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 	if (hCommandWaitThread == NULL) 
 	{
-		//ATLTRACE("CreateThread failed"); 
-		OutputDebugStringA("TSVNCache: Could not create command wait thread\n");
-		DebugOutputLastError();
+		//OutputDebugStringA("TSVNCache: Could not create command wait thread\n");
+		//DebugOutputLastError();
 		return 0;
 	}
 	else CloseHandle(hCommandWaitThread); 
@@ -450,8 +448,8 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
-			OutputDebugStringA("TSVNCache: CreatePipe failed\n");
-			DebugOutputLastError();
+			//OutputDebugStringA("TSVNCache: CreatePipe failed\n");
+			//DebugOutputLastError();
 			continue; // never leave the thread!
 		}
 
@@ -472,8 +470,8 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 
 			if (hInstanceThread == NULL) 
 			{
-				OutputDebugStringA("TSVNCache: Could not create Instance thread\n");
-				DebugOutputLastError();
+				//OutputDebugStringA("TSVNCache: Could not create Instance thread\n");
+				//DebugOutputLastError();
 				DisconnectNamedPipe(hPipe);
 				CloseHandle(hPipe);
 				// since we're now closing this thread, we also have to close the whole application!
@@ -487,8 +485,8 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 		else
 		{
 			// The client could not connect, so close the pipe. 
-			OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
-			DebugOutputLastError();
+			//OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
+			//DebugOutputLastError();
 			CloseHandle(hPipe); 
 			continue;	// don't end the thread!
 		}
@@ -527,8 +525,8 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
-			OutputDebugStringA("TSVNCache: CreatePipe failed\n");
-			DebugOutputLastError();
+			//OutputDebugStringA("TSVNCache: CreatePipe failed\n");
+			//DebugOutputLastError();
 			continue; // never leave the thread!
 		}
 		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
@@ -550,8 +548,8 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 
 			if (hCommandThread == NULL) 
 			{
-				OutputDebugStringA("TSVNCache: Could not create Command thread\n");
-				DebugOutputLastError();
+				//OutputDebugStringA("TSVNCache: Could not create Command thread\n");
+				//DebugOutputLastError();
 				DisconnectNamedPipe(hPipe);
 				CloseHandle(hPipe);
 				// since we're now closing this thread, we also have to close the whole application!
@@ -565,8 +563,8 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 		else
 		{
 			// The client could not connect, so close the pipe. 
-			OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
-			DebugOutputLastError();
+			//OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
+			//DebugOutputLastError();
 			CloseHandle(hPipe); 
 			continue;	// don't end the thread!
 		}

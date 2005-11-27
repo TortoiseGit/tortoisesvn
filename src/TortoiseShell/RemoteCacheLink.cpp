@@ -178,7 +178,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 	{
 		if (GetLastError()!=ERROR_IO_PENDING)
 		{
-			OutputDebugStringA("TortoiseShell: TransactNamedPipe failed\n");
+			//OutputDebugStringA("TortoiseShell: TransactNamedPipe failed\n");
 			ClosePipe();
 			return false;
 		}
@@ -209,7 +209,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
 		return true;
 	}
-	OutputDebugStringA("TortoiseShell: WaitForSingleObject failed - Pipe timeout\n");
+	//OutputDebugStringA("TortoiseShell: WaitForSingleObject failed - Pipe timeout\n");
 	ClosePipe();
 	return false;
 }
