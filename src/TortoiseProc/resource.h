@@ -412,6 +412,7 @@
 #define IDS_PROC_REPOCREATEERR          1258
 #define IDC_REPLACEDNODECOLOR           1258
 #define IDS_PROC_EXPORT_1               1259
+#define IDC_COPYSTARTLABEL              1259
 #define IDS_PROC_EXPORT_2               1260
 #define IDS_PROC_EXPORT_3               1261
 #define IDS_PROC_EXPORT_4               1262
@@ -734,6 +735,7 @@
 #define IDS_SCIEDIT_ADDWORD             6006
 #define IDS_COLOURPICKER_CUSTOMTEXT     7000
 #define IDS_COLOURPICKER_DEFAULTTEXT    7001
+#define IDS_COPYDLG_FROMURL             8000
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773
@@ -750,7 +752,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        217
 #define _APS_NEXT_COMMAND_VALUE         32796
-#define _APS_NEXT_CONTROL_VALUE         1259
+#define _APS_NEXT_CONTROL_VALUE         1260
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

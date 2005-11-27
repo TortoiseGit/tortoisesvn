@@ -95,6 +95,13 @@ BOOL CCopyDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_HISTORY, IDS_LOGPROMPT_HISTORY_TT);
 	
+	if (SVN::PathIsURL(path.GetSVNPathString()))
+	{
+		GetDlgItem(IDC_COPYWC)->EnableWindow(FALSE);
+		GetDlgItem(IDC_DOSWITCH)->EnableWindow(FALSE);
+		GetDlgItem(IDC_COPYSTARTLABEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_COPYDLG_FROMURL)));
+	}
+	
 	m_bFile = !path.IsDirectory();
 	SVN svn;
 	m_wcURL = svn.GetURLFromPath(path);

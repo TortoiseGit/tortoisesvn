@@ -184,7 +184,7 @@ CAPTION "TortoiseSVN : Copy (Branch / Tag)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC,7,7,286,122
-    LTEXT           "&From WC at URL:",IDC_STATIC,13,18,223,8
+    LTEXT           "&From WC at URL:",IDC_COPYSTARTLABEL,13,18,223,8
     EDITTEXT        IDC_FROMURL,13,28,255,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     LTEXT           "&To URL:",IDC_STATIC,13,42,80,8
@@ -2326,6 +2326,11 @@ STRINGTABLE
 BEGIN
     IDS_STATUSLIST_BUSYMSG  "Please wait..."
     IDS_STATUSLIST_EMPTYMSG "file list is empty"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_COPYDLG_FROMURL     "From URL:"
 END
 
 #endif    // English (U.S.) resources
