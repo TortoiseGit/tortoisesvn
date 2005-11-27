@@ -392,8 +392,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			} // if (uSelCount == 2) 
 			if (uSelCount >= 2)
 			{
-				temp.LoadString(IDS_REPOBROWSE_DELETE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
+				if (GetRevision().IsHead())
+				{
+					temp.LoadString(IDS_REPOBROWSE_DELETE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
+				}
 				if (!hasFolders)
 				{
 					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
@@ -1050,7 +1053,8 @@ void CRepositoryBrowser::OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 		*pResult = 1;
 		break;
 	case VK_DELETE:
-		DeleteSelectedEntries();
+		if (GetRevision().IsHead())
+			DeleteSelectedEntries();
 		*pResult = 1;
 		break;	
 	case VK_RETURN:
