@@ -26,6 +26,7 @@ CShellUpdater::CShellUpdater(void)
 	m_hWakeEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
 	m_hTerminationEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
 	m_hThread = INVALID_HANDLE_VALUE;
+	m_bRunning = false;
 }
 
 CShellUpdater::~CShellUpdater(void)
@@ -35,6 +36,7 @@ CShellUpdater::~CShellUpdater(void)
 
 void CShellUpdater::Stop()
 {
+	m_bRunning = false;
 	if (m_hTerminationEvent != INVALID_HANDLE_VALUE)
 	{
 		SetEvent(m_hTerminationEvent);
@@ -61,6 +63,7 @@ void CShellUpdater::Initialise()
 	// If m_hWakeEvent is already signalled the worker thread 
 	// will behave properly (with normal priority at worst).
 
+	m_bRunning = true;
 	unsigned int threadId;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
 	SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
@@ -110,7 +113,8 @@ void CShellUpdater::WorkerThread()
 		for(;;)
 		{
 			CTSVNPath workingPath;
-
+			if (!m_bRunning)
+				return;
 			{
 				AutoLocker lock(m_critSec);
 				if(m_pathsToUpdate.empty())
