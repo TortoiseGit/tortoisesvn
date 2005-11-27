@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-13 18:27+0100\n"
+"PO-Revision-Date: 2005-11-27 22:21+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -266,11 +266,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Mégsem"
 
-# Control-ID:1215,
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "&Ellerőrzés most"
-
 # ID:8,
 #: ID:8
 msgid "&Clean up"
@@ -289,6 +284,11 @@ msgstr "&Compare revisions"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "A &láthatatlan karakterek összehasonlítása"
+
+# ID:73,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "&Beállítás"
 
 # Control-ID:65535,
 #: Control-ID:1227
@@ -399,7 +399,7 @@ msgid "&From URL:"
 msgstr "&URL-ből:"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1259
 msgid "&From WC at URL:"
 msgstr "&WC-ből az alábbi címen:"
 
@@ -447,12 +447,6 @@ msgstr "&Súgó témák"
 #: ID:3842
 msgid "&Hide"
 msgstr "&Elrejt"
-
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "&Előzmények"
 
 # Control-ID:1170,
 #: Control-ID:1170
@@ -571,6 +565,12 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "E&lőző eltérés"
+
+# Dlg-ID:130,#:
+# Control-ID:65535,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "&Nemrégi megjegyzések"
 
 # ID:376,
 #: ID:376
@@ -988,6 +988,11 @@ msgstr "Hozzáférés %1-hez megtagadva."
 msgid "Action"
 msgstr "Cselekvés"
 
+# ID:77,
+#: ID:117
+msgid "Actions"
+msgstr "&Cselekvések"
+
 # ID:3826,
 #: ID:3826
 msgid "Activate Task List"
@@ -1126,11 +1131,6 @@ msgstr "Minden fájl (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Minden fájl (*.*)|*.*||"
-
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Az összes fájl szerepel már a verziókezelőben. Semmi sem lett hozzáadva!"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -1347,8 +1347,8 @@ msgstr "Automata"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "Minden héten új verziót keres"
+msgid "Automatically check for &newer versions every week"
+msgstr "Minden héten &új verziót keres"
 
 # Control-ID:1157,
 #: Control-ID:1157
@@ -1421,6 +1421,11 @@ msgstr "A &hiba/téma száma:"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "A hiba/téma száma:"
+
+# Control-ID:1215,
+#: Control-ID:1215
+msgid "C&heck now"
+msgstr "&Ellerőrzés most"
 
 # ID:101,
 #: ID:101
@@ -1603,8 +1608,8 @@ msgstr "Megszakított folyamatok, zárolt fájlok eltakarítása"
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "Törlés &Most"
+msgid "Clear n&ow"
+msgstr "Törlés &most"
 
 # ID:195,
 #: ID:195
@@ -1614,6 +1619,11 @@ msgid ""
 msgstr ""
 "Eltávolítja az elmentett bejelentkezési információt.\n"
 "Ezeket újból be kell majd írni a tárházak elérésekor."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "Kattints ide hogy kiválassz egy nemrégen beírt üzenetet"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1720,11 +1730,6 @@ msgstr "%s és %s összehasonlítása"
 #: ID:74
 msgid "Completed"
 msgstr "Teljesítve"
-
-# ID:73,
-#: Control-ID:1239
-msgid "Configure"
-msgstr "Beállítás"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2337,11 +2342,6 @@ msgstr "Kivételek:"
 msgid "Exclude paths:"
 msgstr "Kizárt útvonalak:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "Kizárási/Elutasítási minta:"
-
 # ID:9,
 #: ID:209
 msgid "Explore to"
@@ -2502,6 +2502,11 @@ msgstr "Befejezve!"
 msgid "For Help, press F1"
 msgstr "A súgóhoz nyomj F1-t"
 
+# Control-ID:65535,
+#: ID:501
+msgid "From URL:"
+msgstr "&URL-ből:"
+
 # Control-ID:1200,
 #: Control-ID:1200
 msgid "From:"
@@ -2587,6 +2592,11 @@ msgstr "Megjegyzések letöltése..."
 #: ID:119
 msgid "Getting unified diff"
 msgstr "Egyesített folt megszerzése"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "Globális elutasítási &minta:"
 
 # ID:2051,
 #: ID:2051
@@ -3582,6 +3592,7 @@ msgstr "Várj amíg elindítom a Tárház böngészőt..."
 
 # ID:119,
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "Kérlek várj..."
 
@@ -4304,8 +4315,8 @@ msgstr "A szerver &címe:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "A fájldátumokat a \"beküldés idejéhez\" állítja"
+msgid "Set filedates to the \"last commit &time\""
+msgstr "A fájldátumokat a \"legutóbbi beküldés &idejéhez\" állítja"
 
 # ID:13,
 #: ID:13
@@ -4482,11 +4493,11 @@ msgstr "Hiányzó cél kihagyva"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
-"Megadott fájlok és mappák amiket a\n"
-"TortoiseSVN nem vesz verziókezelés alá.\n"
+"Add meg azokat a fájlokat és mappákat, amiket\n"
+"a TortoiseSVN nem fog verziókezelés alá venni.\n"
 "Szóközökkel válaszd el a listát."
 
 # Control-ID:65535,
@@ -4551,13 +4562,13 @@ msgstr "Subversion"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Subversion hitelesítései adat:"
+msgid "Subversion &authentication data:"
+msgstr "Subversion &hitelesítései adat:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Subversion beállításfájl:"
+msgid "Subversion configuration &file:"
+msgstr "Subversion beállítás&fájl:"
 
 # ID:79,
 #: ID:79
@@ -4647,8 +4658,8 @@ msgstr "Munkapéldány átállítása mellékágra"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "Rendszerhangok"
+msgid "System &sounds"
+msgstr "Rendszer&hangok"
 
 # ID:3857,#:
 # ID:3857,
@@ -4959,6 +4970,11 @@ msgstr ""
 "Ezeket meg kéne oldani mentés előt.\n"
 "Biztos, hogy kimented?\n"
 "Ha igent nyomsz, akkor ezt később más programmal, kézzel kell megtenned!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "Nincs mit hozzáadni, mivel az összes mappa és fájl hozzá van már adva, vagy el van utasítva."
 
 # ID:188,
 #: ID:188
@@ -5838,6 +5854,15 @@ msgstr ""
 "Új, hozzáadandó mappákat választottál. A folt nem fogja az új mappában létrehozott új fájlokat tárolni.\n"
 "Mégis folytatod?"
 
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"Az előzőleg beírt megjegyzések ki lettek mentve.\n"
+"Kattints ide, ha újra be akarod szúrni őket."
+
 # Control-ID:1112,
 #: Control-ID:1112
 msgid "Your version is:"
@@ -6021,6 +6046,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "külső"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "a fájllista üres"
 
 # ID:13,
 #: ID:13
