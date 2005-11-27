@@ -1618,6 +1618,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (dlg.DoModal()==IDOK)
 			{
 				CreatePatch(cmdLinePath, dlg.m_pathList, CTSVNPath(savepath));
+				SVN svn;
+				svn.Revert(dlg.m_filesToRevert, false);
 			}
 		}
 		//#endregion

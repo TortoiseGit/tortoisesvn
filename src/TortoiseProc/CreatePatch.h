@@ -20,6 +20,8 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	virtual void OnCancel();
+	virtual void OnOK();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
 
@@ -33,10 +35,7 @@ private:
 	CSVNStatusListCtrl	m_PatchList;
 	bool				m_bThreadRunning;
 	CButton				m_SelectAll;
-
 public:
 	CTSVNPathList	m_pathList;
-protected:
-	virtual void OnCancel();
-	virtual void OnOK();
+	CTSVNPathList		m_filesToRevert;
 };

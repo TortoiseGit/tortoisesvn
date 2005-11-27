@@ -5,6 +5,7 @@
 #include "TortoiseProc.h"
 #include "MessageBox.h"
 #include "CreatePatch.h"
+#include "SVN.h"
 #include ".\createpatch.h"
 
 
@@ -151,7 +152,8 @@ void CCreatePatch::OnOK()
 
 	int nAddedFolders = 0;
 	int nListItems = m_PatchList.GetItemCount();
-
+	m_filesToRevert.Clear();
+	
 	for (int j=0; j<nListItems; j++)
 	{
 		const CSVNStatusListCtrl::FileEntry * entry = m_PatchList.GetListEntry(j);
@@ -180,6 +182,13 @@ void CCreatePatch::OnOK()
 					}
 				}	
 			}
+			// Unversioned files are not included in the resulting patchfile!
+			// We add those files to a list which will be used to add those files
+			// before creating the patch.
+			if ((entry->status == svn_wc_status_none)||(entry->status == svn_wc_status_unversioned))
+			{
+				m_filesToRevert.AddPath(entry->GetPath());
+			}
 		}
 	}
 
@@ -189,6 +198,17 @@ void CCreatePatch::OnOK()
 			return;
 	}
 
+	if (m_filesToRevert.GetCount())
+	{
+		// add all unversioned files to version control
+		// so they're included in the resulting patch
+		// NOTE: these files must be reverted after the patch
+		// has been created! Since this dialog doesn't create the patch
+		// itself, the calling function is responsible to revert these files!
+		SVN svn;
+		svn.Add(m_filesToRevert, false);
+	}
+	
 	//save only the files the user has selected into the pathlist
 	m_PatchList.WriteCheckedNamesToPathList(m_pathList);
 
