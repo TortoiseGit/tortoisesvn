@@ -172,7 +172,7 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 		DiffProps(filePath, SVNRev::REV_WC, SVNRev::REV_BASE);
 	}
 
-	if (text_status > svn_wc_status_normal)
+	if (text_status >= svn_wc_status_normal)
 	{
 		CTSVNPath basePath(SVN::GetPristinePath(filePath));
 		// If necessary, convert the line-endings on the file before diffing
