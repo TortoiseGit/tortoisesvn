@@ -7,12 +7,13 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-28 00:00+0000\n"
-"PO-Revision-Date: 2005-11-07 19:54+0100\n"
+"PO-Revision-Date: 2005-11-27 19:38+0100\n"
 "Last-Translator: Radek Svarz <translate@svarz.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,-1,41,-1,-1\n"
 
 # ID:10,#:
 # ID:126,#:
@@ -260,11 +261,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Storno"
 
-# Control-ID:1215,
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "&Zkontrolovat nyní"
-
 # ID:8,
 #: ID:8
 msgid "&Clean up"
@@ -283,6 +279,11 @@ msgstr "&Porovnat revize"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "&Porovnat prázdné znaky (whitespaces)"
+
+# ID:73,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "&Konfigurovat"
 
 # Control-ID:1227,
 #: Control-ID:1227
@@ -392,7 +393,7 @@ msgid "&From URL:"
 msgstr "&Z URL:"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1259
 msgid "&From WC at URL:"
 msgstr "&Z pracovní kopie (WC) na URL:"
 
@@ -440,12 +441,6 @@ msgstr "&Nápověda"
 #: ID:3842
 msgid "&Hide"
 msgstr "&Skrýt"
-
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "&Historie"
 
 # Control-ID:1170,
 #: Control-ID:1170
@@ -564,6 +559,12 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Předchozí rozdíl"
+
+# Dlg-ID:130,#:
+# Control-ID:65535,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "&Log záznamy"
 
 # ID:376,
 #: ID:376
@@ -981,6 +982,11 @@ msgstr "Odmítnutý přístup na %1."
 msgid "Action"
 msgstr "Akce"
 
+# ID:77,
+#: ID:117
+msgid "Actions"
+msgstr "Akce"
+
 # ID:3826,
 #: ID:3826
 msgid "Activate Task List"
@@ -1118,11 +1124,6 @@ msgstr "Všechny soubory (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Všechny soubory (*.*)|*.*||"
-
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Všechny soubory jsou již pod správou verzí. Není co přidat!"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -1339,8 +1340,8 @@ msgstr "Automaticky"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "Automaticky zkontrolovat nové verze každý týden"
+msgid "Automatically check for &newer versions every week"
+msgstr "Automaticky zkontrolovat &nové verze každý týden"
 
 # Control-ID:1157,
 #: Control-ID:1157
@@ -1413,6 +1414,11 @@ msgstr "ID chyby/ č. problému:"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "ID chyby/ č. problému:"
+
+# Control-ID:1215,
+#: Control-ID:1215
+msgid "C&heck now"
+msgstr "&Zkontrolovat"
 
 # ID:101,
 #: ID:101
@@ -1596,8 +1602,8 @@ msgstr "Čištění přerušených operací, uzamčených souborů, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "Mazat &nyní"
+msgid "Clear n&ow"
+msgstr "&Smazat uložená hesla"
 
 # ID:195,
 #: ID:195
@@ -1607,6 +1613,11 @@ msgid ""
 msgstr ""
 "Smaže uloženou autentifikaci.\n"
 "Budete muset znovu zadávat uživatelské jméno/heslo pro všechna uložiště."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "Klikněte zde pro výběr naposledy napsané zprávy"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1713,11 +1724,6 @@ msgstr "Porovnávnám %s s %s"
 #: ID:74
 msgid "Completed"
 msgstr "Dokončeno"
-
-# ID:73,
-#: Control-ID:1239
-msgid "Configure"
-msgstr "Konfigurovat"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2332,11 +2338,6 @@ msgstr "Výjimky:"
 msgid "Exclude paths:"
 msgstr "Vynechat cesty:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "Vynechat/Ignorovat vzorek:"
-
 # ID:209,
 #: ID:209
 msgid "Explore to"
@@ -2497,6 +2498,11 @@ msgstr "Hotovo!"
 msgid "For Help, press F1"
 msgstr "Pro nápovědu, zmčkněte F1"
 
+# Control-ID:65535,
+#: ID:501
+msgid "From URL:"
+msgstr "Z URL:"
+
 # Control-ID:1200,
 #: Control-ID:1200
 msgid "From:"
@@ -2582,6 +2588,11 @@ msgstr "Získávám log informace..."
 #: ID:119
 msgid "Getting unified diff"
 msgstr "Získávám spojený diff soubor"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "Vynechat/Ignorovat vzorek:"
 
 # ID:2051,
 #: ID:2051
@@ -3108,11 +3119,6 @@ msgstr "Modifikováno"
 
 # ID:438,
 #: ID:438
-msgid "More Colors..."
-msgstr "Více barev..."
-
-# ID:438,
-#: ID:438
 msgid "More colors..."
 msgstr "Více barev..."
 
@@ -3586,6 +3592,7 @@ msgstr "Prosím, počkejte dokud se nenastartuje průzkumník uložiště..."
 
 # ID:119,
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "Čekejte, prosím..."
 
@@ -4306,8 +4313,8 @@ msgstr "&Adresa serveru:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "Nastavit čas souborů na \"poslední čas odevzdání\""
+msgid "Set filedates to the \"last commit &time\""
+msgstr "Nastavi&t čas souborů na \"poslední čas odevzdání\""
 
 # ID:13,
 #: ID:13
@@ -4484,11 +4491,11 @@ msgstr "Vynechat chybějící cíl"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Určtete soubory a složky, které TortoiseSVN\n"
-"má vyjmout z kontroly verzí.\n"
+"má vyjmout z kontroly verzí ve <b>všech</b> pracovních kopiích.\n"
 "Oddělte vzory mezerou."
 
 # Control-ID:65535,
@@ -4553,13 +4560,13 @@ msgstr "SubVersion"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Subversion data autentifikace:"
+msgid "Subversion &authentication data:"
+msgstr "Data &autentifikace do serveru:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Konfigurační soubor Subversion:"
+msgid "Subversion configuration &file:"
+msgstr "Konfigurační &soubor Subversion:"
 
 # ID:79,
 #: ID:79
@@ -4649,8 +4656,8 @@ msgstr "Překlopit pracovní kopii (WC) do jiné větve / značky"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "Systémové zvuky"
+msgid "System &sounds"
+msgstr "&Systémové zvuky"
 
 # ID:3857,#:
 # ID:3857,
@@ -4966,6 +4973,11 @@ msgstr ""
 "Měl byste vyřešit tyto konflikty před uložením.\n"
 "Chcete uložit soubor obsahující konflikty?\n"
 "Pokud kliknete ANO, pak musíte manuálně dořešit konflikty v jiném editoru!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "Nelze nic přidat. Všechny soubory a složky jsou buďto ve správě verzí nebo jsou ignorovány pomocí vlastnosti svn:ignore nebo globálním nastavením ignorování."
 
 # ID:188,
 #: ID:188
@@ -5847,6 +5859,15 @@ msgstr ""
 "Vybral(a) jste přidané složky. Záplata nebude obsahovat přidané soubory v těchto přidaných složkách.\n"
 "Opravdu chcete pokračovat?"
 
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"Dříve zadané log záznamy jsou uložené.\n"
+"Kliknutím zde je můžete přečíst a znovu vložit."
+
 # Control-ID:1112,
 #: Control-ID:1112
 msgid "Your version is:"
@@ -6033,6 +6054,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "externí"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "seznam souborů je prázdný"
 
 # ID:13,
 #: ID:13
