@@ -830,10 +830,14 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdExport)
 		{
 			TCHAR saveto[MAX_PATH];
-			if (SVNStatus::GetAllStatus(cmdLinePath) == svn_wc_status_unversioned)
+			bool bURL = !!SVN::PathIsURL(cmdLinePath.GetSVNPathString());
+			if ((bURL)&&(SVNStatus::GetAllStatus(cmdLinePath) == svn_wc_status_unversioned))
 			{
 				CCheckoutDlg dlg;
-				dlg.m_strCheckoutDirectory = cmdLinePath.GetWinPathString();
+				if (bURL)
+					dlg.m_URL = cmdLinePath.GetSVNPathString();
+				else
+					dlg.m_strCheckoutDirectory = cmdLinePath.GetWinPathString();
 				dlg.IsExport = TRUE;
 				if (dlg.DoModal() == IDOK)
 				{
@@ -865,7 +869,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					saveplace += _T("\\") + cmdLinePath.GetFileOrDirectoryName();
 					TRACE(_T("export %s to %s\n"), (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
 					SVN svn;
-					if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, folderBrowser.m_bCheck2, EXPLORERHWND, folderBrowser.m_bCheck))
+					if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, TRUE, folderBrowser.m_bCheck2, EXPLORERHWND, folderBrowser.m_bCheck))
 					{
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 					}
@@ -938,35 +942,59 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			BOOL bForce = FALSE;
 			SVN svn;
-			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+			if ((pathList.GetCount())&&(SVN::PathIsURL(pathList[0].GetSVNPathString())))
 			{
-				TRACE(_T("remove file %s\n"), (LPCTSTR)pathList[nPath].GetUIPathString());
-				// even though SVN::Remove takes a list of paths to delete at once
-				// we delete each item individually so we can prompt the user
-				// if something goes wrong or unversioned/modified items are
-				// to be deleted
-				CTSVNPathList removePathList(pathList[nPath]);
-				if (!svn.Remove(removePathList, bForce))
+				// Delete using URL's, not wc paths
+				svn.SetPromptApp(&theApp);
+				CInputDlg dlg;
+				dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+				CUtils::RemoveAccelerators(dlg.m_sHintText);
+				dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+				CUtils::RemoveAccelerators(dlg.m_sTitle);
+				dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
+				CUtils::RemoveAccelerators(dlg.m_sInputText);
+				if (dlg.DoModal()==IDOK)
 				{
-					if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
-						(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
+					if (!svn.Remove(pathList, TRUE, dlg.m_sInputText))
 					{
-						CString msg, yes, no, yestoall;
-						msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
-						yes.LoadString(IDS_MSGBOX_YES);
-						no.LoadString(IDS_MSGBOX_NO);
-						yestoall.LoadString(IDS_PROC_YESTOALL);
-						UINT ret = CMessageBox::Show(EXPLORERHWND, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
-						if (ret == 3)
-							bForce = TRUE;
-						if ((ret == 1)||(ret==3))
-							if (!svn.Remove(removePathList, TRUE))
-							{
-								CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							}
-					}
-					else
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						return FALSE;
+					}
+				}
+				return FALSE;
+			}
+			else
+			{
+				for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+				{
+					TRACE(_T("remove file %s\n"), (LPCTSTR)pathList[nPath].GetUIPathString());
+					// even though SVN::Remove takes a list of paths to delete at once
+					// we delete each item individually so we can prompt the user
+					// if something goes wrong or unversioned/modified items are
+					// to be deleted
+					CTSVNPathList removePathList(pathList[nPath]);
+					if (!svn.Remove(removePathList, bForce))
+					{
+						if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
+							(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
+						{
+							CString msg, yes, no, yestoall;
+							msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
+							yes.LoadString(IDS_MSGBOX_YES);
+							no.LoadString(IDS_MSGBOX_NO);
+							yestoall.LoadString(IDS_PROC_YESTOALL);
+							UINT ret = CMessageBox::Show(EXPLORERHWND, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
+							if (ret == 3)
+								bForce = TRUE;
+							if ((ret == 1)||(ret==3))
+								if (!svn.Remove(removePathList, TRUE))
+								{
+									CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								}
+						}
+						else
+							CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					}
 				}
 			}
 		}
@@ -994,17 +1022,35 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 				else
 				{
+					CString sMsg;
+					if (SVN::PathIsURL(cmdLinePath.GetSVNPathString()))
+					{
+						CInputDlg input;
+						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						CUtils::RemoveAccelerators(input.m_sHintText);
+						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						CUtils::RemoveAccelerators(input.m_sTitle);
+						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
+						if (input.DoModal() == IDOK)
+						{
+							sMsg = input.m_sInputText;
+						}
+						else
+						{
+							return FALSE;
+						}
+					}
 					if ((cmdLinePath.IsDirectory())||(pathList.GetCount() > 1))
 					{
 						CSVNProgressDlg progDlg;
 						progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-						progDlg.SetParams(CSVNProgressDlg::Rename, 0, pathList, destinationPath.GetWinPathString(), CString(), SVNRev::REV_WC);
+						progDlg.SetParams(CSVNProgressDlg::Rename, 0, pathList, destinationPath.GetWinPathString(), sMsg, SVNRev::REV_WC);
 						progDlg.DoModal();
 					}
 					else
 					{
 						SVN svn;
-						if (!svn.Move(cmdLinePath, destinationPath, TRUE))
+						if (!svn.Move(cmdLinePath, destinationPath, TRUE, sMsg))
 						{
 							TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 							CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
