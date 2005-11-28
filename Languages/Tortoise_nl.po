@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-28 13:35+0100\n"
+"PO-Revision-Date: 2005-11-28 13:48+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -204,7 +204,7 @@ msgstr "&Verklaren..."
 
 #: ID:138
 msgid "&Browse repository"
-msgstr "&Bibliotheek bekijken"
+msgstr "&Archief bekijken"
 
 #: Control-ID:1011
 msgid "&Browse..."
@@ -246,7 +246,7 @@ msgstr "&Instellen"
 
 #: Control-ID:1227
 msgid "&Contact the repository on startup"
-msgstr "&Raadpleeg de bibliotheek bij opstarten"
+msgstr "&Raadpleeg het archief bij opstarten"
 
 #: Control-ID:1073
 msgid "&Convert files when diffing against BASE"
@@ -351,7 +351,7 @@ msgstr "&HEAD revisie"
 
 #: Control-ID:1182
 msgid "&HEAD revision in the repository"
-msgstr "&HEAD revisie van de bibliotheek"
+msgstr "&HEAD revisie van het archief"
 
 #: Control-ID:57670
 #: MenuEntry
@@ -513,7 +513,7 @@ msgstr "&Instellingen"
 
 #: Control-ID:1185
 msgid "&Specific revision in repository"
-msgstr "&Bepaalde revisie in de bibliotheek"
+msgstr "&Bepaalde revisie in het archief"
 
 #: MenuEntry
 msgid "&Status Bar"
@@ -562,7 +562,7 @@ msgstr "&TortoiseSVN"
 #: Control-ID:65535
 #: Control-ID:1058
 msgid "&URL of repository:"
-msgstr "&URL van bibliotheek:"
+msgstr "&URL van archief:"
 
 #: Control-ID:1076
 msgid "&URL:"
@@ -686,16 +686,16 @@ msgid ""
 "is not and you should consult <b>Help</b>."
 msgstr ""
 "<b>LET OP:</b>\n"
-"Het Verhuis-commando wordt alleen gebruikt als de URL van de\n"
-"bibliotheek is veranderd door een wijziging van server IP adres, protocol-\n"
+"Het Verhuis-commando wordt alleen gebruikt als de URL van het\n"
+"archief is veranderd door een wijziging van server IP adres, protocol-\n"
 "wijziging (b.v. van http:// naar https://) of een wijziging in het root-pad\n"
 "in de serverinstellingen.\n"
 "<b>Dit is een zeer zeldzaam gebruikt commando<b> en is niet bedoeld voor\n"
-"het wisselen naar een andere Subversion bibliotheek en ook niet voor het\n"
-"wisselen naar een andere tak of map <b>in dezelfde bibliotheek.</b>\n"
-"Om naar een andere Subversion bibliotheek te gaan moet u vanuit die nieuwe\n"
+"het wisselen naar een ander Subversion archief en ook niet voor het\n"
+"wisselen naar een andere tak of map <b>in hetzelfde archief.</b>\n"
+"Om naar een ander Subversion archief te gaan moet u vanuit die nieuwe\n"
 "locatie een initiële Ophaal-actie uitvoeren.\n"
-"Om naar een andere tak of map in dezelfde bibliotheek te wisselen moet u het\n"
+"Om naar een andere tak of map in hetzelfde archief te wisselen moet u het\n"
 "Wissel-commando uit het TSVN-menu gebruiken.\n"
 "\n"
 "Het onjuist gebruiken van het Verhuis-commando <b>zal uw werkkopie corrupt maken!</b>\n"
@@ -964,7 +964,7 @@ msgstr ""
 "<hr=100%>\n"
 "U kunt de volgende parameters gebruiken in het pad:\n"
 "%merged\tdoelbestand\n"
-"%theirs\t\thet bestand zoals in de bibliotheek\n"
+"%theirs\t\thet bestand zoals in het archief\n"
 "%mine\t\thet bestand met uw wijzigingen\n"
 "%base\t\tuw origineel zonder uw wijzigingen"
 
@@ -1246,11 +1246,11 @@ msgstr "Kijk of er updates zijn"
 
 #: ID:9
 msgid "Check out a working copy from a repository"
-msgstr "Haal een werkkopie op uit een bibliotheek"
+msgstr "Haal een werkkopie op uit een archief"
 
 #: Control-ID:1132
 msgid "Check repository"
-msgstr "Controleer bibliotheek"
+msgstr "Controleer archief"
 
 #: ID:95
 msgid ""
@@ -1302,7 +1302,7 @@ msgid ""
 "You will have to enter your username/password again for all repositories."
 msgstr ""
 "Wist de opgeslagen authenticatie.\n"
-"U zal uw gebruikersnaam/wachtwoord voor alle bibliotheken opnieuw moeten ingeven."
+"U zal uw gebruikersnaam/wachtwoord voor alle archieven opnieuw moeten ingeven."
 
 #: ID:170
 msgid "Click here to select a recently typed message"
@@ -1366,7 +1366,7 @@ msgstr "Vastleggingen per week:"
 
 #: ID:9
 msgid "Commits your changes to the repository"
-msgstr "Legt uw wijzigingen in de bibliotheek vast"
+msgstr "Legt uw wijzigingen in het archief vast"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
@@ -1590,11 +1590,11 @@ msgstr "Maak &patch..."
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
-msgstr "Maak een kopie in de bibliotheek van:"
+msgstr "Maak een kopie in het archief van:"
 
 #: ID:8
 msgid "Create repositor&y here..."
-msgstr "Maak hier een &bibliotheek..."
+msgstr "Maak hier een &archief..."
 
 #: ID:126
 msgid "Created folder remotely"
@@ -1602,11 +1602,11 @@ msgstr "Op afstand map gemaakt"
 
 #: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Maakt een 'goedkope' kopie in de bibliotheek als tak of label"
+msgstr "Maakt een 'goedkope' kopie in het archief als tak of label"
 
 #: ID:10
 msgid "Creates a repository database at the current location"
-msgstr "Maakt een bibliotheek op de huidige locatie"
+msgstr "Maakt een archief op de huidige locatie"
 
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
@@ -1922,7 +1922,7 @@ msgstr "Exporteren..."
 
 #: ID:10
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "Exporteert een bibliotheek naar een schone werkkopie zonder de svn administratiemappen"
+msgstr "Exporteert een archief naar een schone werkkopie zonder de svn administratiemappen"
 
 #: ID:74
 #: ID:207
@@ -2087,7 +2087,7 @@ msgstr "Bestandsinformatie verzamelen..."
 
 #: ID:269
 msgid "Getting information from repository..."
-msgstr "Informatie wordt opgehaald uit bibliotheek..."
+msgstr "Informatie wordt opgehaald uit archief..."
 
 #: ID:120
 msgid "Getting information..."
@@ -2175,7 +2175,7 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Indien geselecteerd dan wordt een nieuwe map in de bibliotheek gemaakt.\n"
+"Indien geselecteerd dan wordt een nieuwe map in het archief gemaakt.\n"
 "Anders gaat de import direct naar de opgegeven URL."
 
 #: ID:79
@@ -2209,8 +2209,8 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"Activeer deze optie om de bibliotheek te raadplegen bij het opstarten van\n"
-"de dialoog. U hoeft dan niet meer op \"Controleer Bibliotheek\" te drukken."
+"Activeer deze optie om het archief te raadplegen bij het opstarten van\n"
+"de dialoog. U hoeft dan niet meer op \"Controleer Archief\" te drukken."
 
 #: ID:195
 msgid ""
@@ -2251,7 +2251,7 @@ msgstr "Bestand %s importeren"
 
 #: ID:10
 msgid "Imports the directory to a repository"
-msgstr "Plaatst de map in een bibliotheek"
+msgstr "Plaatst de map in een archief"
 
 #: Control-ID:65535
 msgid "Include paths:"
@@ -2379,7 +2379,7 @@ msgid ""
 "repository URL will be saved to."
 msgstr ""
 "Plaats waar de inhoud van de\n"
-"bibliotheek-URL opgeslagen zal worden."
+"archief-URL opgeslagen zal worden."
 
 #: ID:207
 #: ID:221
@@ -2768,7 +2768,7 @@ msgstr ""
 
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Opent de bibliotheek-verkenner om de bibliotheek online te tweaken"
+msgstr "Opent de archief-verkenner om het archief online te tweaken"
 
 #: ID:3843
 msgid "Out of memory."
@@ -2899,7 +2899,7 @@ msgstr "Even geduld terwijl er wordt afgebroken..."
 
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
-msgstr "Even geduld a.u.b. De biblio-verkenner wordt geïnitialiseerd..."
+msgstr "Even geduld a.u.b. De archief-verkenner wordt geïnitialiseerd..."
 
 #: ID:119
 #: ID:211
@@ -3124,12 +3124,12 @@ msgstr "Vervangen"
 
 #: ID:13
 msgid "Repo-browser"
-msgstr "Biblio-verkenner"
+msgstr "Archief-verkenner"
 
 #: Control-ID:65535
 #: Control-ID:1055
 msgid "Repository"
-msgstr "Bibliotheek"
+msgstr "Archief"
 
 #: Control-ID:65535
 msgid "Requests a username and a password"
@@ -3452,7 +3452,7 @@ msgstr ""
 
 #: Control-ID:65535
 msgid "Select the type of repository you want to create:"
-msgstr "Selecteer welk soort bibliotheek u wilt maken:"
+msgstr "Selecteer welk soort archief u wilt maken:"
 
 #: ID:78
 msgid "Select viewer for diff-files"
@@ -3586,7 +3586,7 @@ msgstr "Geeft een grafische weergace van kopieën, labels en takken"
 
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "Toont alle bestanden die sinds de laatste verversing zijn gewijzigd, zowel lokaal als in de bibliotheek"
+msgstr "Toont alle bestanden die sinds de laatste verversing zijn gewijzigd, zowel lokaal als in het archief"
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -3681,7 +3681,7 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
-"Subversion gaf een fout bij het maken van een bibliotheek!\n"
+"Subversion gaf een fout bij het maken van een archief!\n"
 "Controleer of de map leeg is en niet beveiligd tegen schrijven."
 
 #: ID:81
@@ -3787,7 +3787,7 @@ msgstr ""
 
 #: ID:80
 msgid "The Repository was successfully created."
-msgstr "De bibliotheek is gemaakt."
+msgstr "Het archief is gemaakt."
 
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -4185,7 +4185,7 @@ msgstr "TortoiseSVN : Patch maken"
 
 #: Dlg-ID:178
 msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN : Maak een bibliotheek"
+msgstr "TortoiseSVN : Maak een archief"
 
 #: Dlg-ID:135
 msgid "TortoiseSVN : Enter Log Message"
@@ -4233,7 +4233,7 @@ msgstr "TortoiseSVN : Hernoemen"
 
 #: Dlg-ID:153
 msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN : Biblio-verkenner"
+msgstr "TortoiseSVN : Archief-verkenner"
 
 #: Dlg-ID:207
 msgid "TortoiseSVN : Resolve"
@@ -4538,7 +4538,7 @@ msgstr "&Gebruik dit gehele bestand"
 
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
-msgstr "Gebruik deze URL als de bibliotheek is gewijzigd"
+msgstr "Gebruik dit als de URL van het archief is gewijzigd"
 
 #: ID:251
 msgid "Use whole other &file"
@@ -4622,10 +4622,10 @@ msgid ""
 "Accessing a repository via file:/// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"U maakt een bibliotheek op een netwerkschijf.\n"
-"Dit is veilig, maar zodra de bibliotheek gemaakt is moet u hem op een andere manier benaderen.\n"
-"Het benaderen van een bibliotheek via file:/// op een netwerkschijf kan de gegevens beschadigen\n"
-"De bibliotheek toch aanmaken?"
+"U maakt een archief op een netwerkschijf.\n"
+"Dit is veilig, maar zodra het archief gemaakt is moet u het op een andere manier benaderen.\n"
+"Het benaderen van een archief via file:/// op een netwerkschijf kan de gegevens beschadigen\n"
+"Het archief toch aanmaken?"
 
 #: ID:88
 msgid ""
@@ -4634,9 +4634,9 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"U probeert een bibliotheek op een netwerkschijf via\n"
+"U probeert een archief op een netwerkschijf via\n"
 "file:/// te benaderen.\n"
-"Dit kan leiden tot ernstige beschadiging van de bibliotheek!\n"
+"Dit kan leiden tot ernstige beschadiging van het archief!\n"
 "Wilt u dit echt doen?"
 
 #: ID:16
@@ -5125,5 +5125,5 @@ msgstr "week"
 
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
-msgstr "die wijst naar de bibliotheek op URL:"
+msgstr "die wijst naar het archief op URL:"
 
