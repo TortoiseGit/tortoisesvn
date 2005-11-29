@@ -768,11 +768,14 @@ BOOL CTortoiseProcApp::InitInstance()
 				ret = dlg.DoModal();
 			if (ret == IDOK)
 			{
-				CSVNProgressDlg progDlg(PWND);
-				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Resolve, 0, dlg.m_pathList);
-				progDlg.DoModal();
+				if (dlg.m_pathList.GetCount())
+				{
+					CSVNProgressDlg progDlg(PWND);
+					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
+					m_pMainWnd = &progDlg;
+					progDlg.SetParams(CSVNProgressDlg::Resolve, 0, dlg.m_pathList);
+					progDlg.DoModal();
+				}
 			}
 		}
 		//#endregion
