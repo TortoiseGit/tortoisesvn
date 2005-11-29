@@ -565,11 +565,11 @@ bool CTSVNPath::PredLeftSameWCPathAsRight(const CTSVNPath& left, const CTSVNPath
 		do 
 		{
 			l = l.GetContainingDirectory();
-		} while(!l.HasAdminDir());
+		} while(l.HasAdminDir());
 		do 
 		{
 			r = r.GetContainingDirectory();
-		} while(!r.HasAdminDir());
+		} while(r.HasAdminDir());
 		return l.GetContainingDirectory().IsEquivalentTo(r.GetContainingDirectory());
 	}
 	return left.IsEquivalentTo(right);
