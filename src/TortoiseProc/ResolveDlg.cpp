@@ -130,14 +130,6 @@ UINT CResolveDlg::ResolveThread()
 
 	GetDlgItem(IDOK)->EnableWindow(true);
 	GetDlgItem(IDCANCEL)->EnableWindow(true);
-	if (m_resolveListCtrl.GetItemCount()==0)
-	{
-		CMessageBox::Show(m_hWnd, IDS_ERR_NOTHINGTOADD, IDS_APPNAME, MB_ICONINFORMATION);
-		GetDlgItem(IDCANCEL)->EnableWindow(true);
-		m_bThreadRunning = FALSE;
-		EndDialog(0);
-		return (DWORD)-1;
-	}
 	m_bThreadRunning = FALSE;
 	return 0;
 }
@@ -159,6 +151,19 @@ BOOL CResolveDlg::PreTranslateMessage(MSG* pMsg)
 				{
 					PostMessage(WM_COMMAND, IDOK);
 					return TRUE;
+				}
+			}
+			break;
+		case VK_F5:
+			{
+				if (!m_bThreadRunning)
+				{
+					if(AfxBeginThread(ResolveThreadEntry, this) == NULL)
+					{
+						CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+					}
+					else
+						m_bThreadRunning = TRUE;
 				}
 			}
 			break;

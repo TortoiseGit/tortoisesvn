@@ -158,6 +158,19 @@ BOOL CAddDlg::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 			break;
+		case VK_F5:
+			{
+				if (!m_bThreadRunning)
+				{
+					if(AfxBeginThread(AddThreadEntry, this) == NULL)
+					{
+						CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+					}
+					else
+						m_bThreadRunning = TRUE;
+				}
+			}
+			break;
 		}
 	}
 

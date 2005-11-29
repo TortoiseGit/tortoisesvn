@@ -105,15 +105,6 @@ UINT CRevertDlg::RevertThread()
 	GetDlgItem(IDOK)->EnableWindow(true);
 	GetDlgItem(IDCANCEL)->EnableWindow(true);
 
-	if (m_RevertList.GetItemCount()==0)
-	{
-		CMessageBox::Show(m_hWnd, IDS_ERR_NOTHINGTOREVERT, IDS_APPNAME, MB_ICONINFORMATION);
-		GetDlgItem(IDCANCEL)->EnableWindow(true);
-		m_bThreadRunning = FALSE;
-		EndDialog(0);
-		return (DWORD)-1;
-	}
-
 	m_bThreadRunning = FALSE;
 	POINT pt;
 	GetCursorPos(&pt);
@@ -201,6 +192,19 @@ BOOL CRevertDlg::PreTranslateMessage(MSG* pMsg)
 				{
 					PostMessage(WM_COMMAND, IDOK);
 					return TRUE;
+				}
+			}
+			break;
+		case VK_F5:
+			{
+				if (!m_bThreadRunning)
+				{
+					if (AfxBeginThread(RevertThreadEntry, this)==0)
+					{
+						CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+					}
+					else
+						m_bThreadRunning = TRUE;
 				}
 			}
 			break;
