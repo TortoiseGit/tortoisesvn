@@ -1607,28 +1607,48 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				if (wcStatus == svn_wc_status_unversioned)
 				{
-					if (GetSelectedCount() == 1)
+					if (m_dwContextMenus & SVNSLC_POPIGNORE)
 					{
-						if (m_dwContextMenus & SVNSLC_POPIGNORE)
+						CTSVNPathList ignorelist;
+						FillListOfSelectedItemPaths(ignorelist);
+						// check if all selected entries have the same extension
+						bool bSameExt = true;
+						CString sExt;
+						for (int i=0; i<ignorelist.GetCount(); ++i)
 						{
-							CString filename = filepath.GetFileOrDirectoryName();
-							if ((filename.ReverseFind('.')>=0)&&(!filepath.IsDirectory()))
+							if (sExt.IsEmpty() && (i==0))
+								sExt = ignorelist[i].GetFileExtension();
+							else if (sExt.CompareNoCase(ignorelist[i].GetFileExtension())!=0)
+								bSameExt = false;
+						}
+						if (bSameExt)
+						{
+							CMenu submenu;
+							if (submenu.CreateMenu())
 							{
-								CMenu submenu;
-								if (submenu.CreateMenu())
-								{
-									submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, filename);
-									filename = _T("*")+filename.Mid(filename.ReverseFind('.'));
-									submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, filename);
-									temp.LoadString(IDS_MENUIGNORE);
-									popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)submenu.m_hMenu, temp);
-								}
+								CString ignorepath;
+								if (ignorelist.GetCount()==1)
+									ignorepath = ignorelist[0].GetFileOrDirectoryName();
+								else
+									ignorepath.Format(IDS_MENUIGNOREMULTIPLE, ignorelist.GetCount());
+								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, ignorepath);
+								ignorepath = _T("*")+sExt;
+								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, ignorepath);
+								temp.LoadString(IDS_MENUIGNORE);
+								popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)submenu.m_hMenu, temp);
+							}
+						}
+						else
+						{
+							if (ignorelist.GetCount()==1)
+							{
+								temp.LoadString(IDS_MENUIGNORE);
 							}
 							else
 							{
-								temp.LoadString(IDS_MENUIGNORE);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, temp);
+								temp.Format(IDS_MENUIGNOREMULTIPLE, ignorelist.GetCount());
 							}
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, temp);
 						}
 					}
 				}
@@ -1889,88 +1909,236 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				case IDSVNLC_IGNOREMASK:
 					{
 						CString name = _T("*")+filepath.GetFileExtension();
-						CTSVNPath parentFolder = filepath.GetDirectory(); 
-						SVNProperties props(parentFolder);
-						CStringA value;
-						for (int i=0; i<props.GetCount(); i++)
+						CTSVNPathList ignorelist;
+						FillListOfSelectedItemPaths(ignorelist, true);
+						std::set<CTSVNPath> parentlist;
+						for (int i=0; i<ignorelist.GetCount(); ++i)
 						{
-							CString propname(props.GetItemName(i).c_str());
-							if (propname.CompareNoCase(_T("svn:ignore"))==0)
+							parentlist.insert(ignorelist[i].GetContainingDirectory());
+						}
+						std::set<CTSVNPath>::iterator it;
+						std::vector<CString> toremove;
+						for (it = parentlist.begin(); it != parentlist.end(); ++it)
+						{
+							CTSVNPath parentFolder = (*it).GetDirectory(); 
+							SVNProperties props(parentFolder);
+							CStringA value;
+							for (int i=0; i<props.GetCount(); i++)
 							{
-								stdstring stemp;
-								stdstring tmp = props.GetItemValue(i);
-								//treat values as normal text even if they're not
-								value = (char *)tmp.c_str();
+								CString propname(props.GetItemName(i).c_str());
+								if (propname.CompareNoCase(_T("svn:ignore"))==0)
+								{
+									stdstring stemp;
+									stdstring tmp = props.GetItemValue(i);
+									//treat values as normal text even if they're not
+									value = (char *)tmp.c_str();
+								}
+							}
+							if (value.IsEmpty())
+								value = name;
+							else
+							{
+								value = value.Trim("\n\r");
+								value += "\n";
+								value += name;
+								value.Remove('\r');
+							}
+							if (!props.Add(_T("svn:ignore"), value))
+							{
+								CString temp;
+								temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+							}
+							else
+							{
+								CTSVNPath basepath;
+								int nListboxEntries = GetItemCount();
+								for (int i=0; i<nListboxEntries; ++i)
+								{
+									FileEntry * entry = GetListEntry(i);
+									ASSERT(entry != NULL);
+									if (entry == NULL)
+										continue;	
+									if (basepath.IsEmpty())
+										basepath = entry->basepath;
+									// since we ignored files with a mask (e.g. *.exe)
+									// we have to find find all files in the same
+									// folder (IsAncestorOf() returns TRUE for _all_ children, 
+									// not just the immediate ones) which match the
+									// mask and remove them from the list too.
+									if ((entry->status == svn_wc_status_unversioned)&&(parentFolder.IsAncestorOf(entry->path)))
+									{
+										CString f = entry->path.GetSVNPathString();
+										if (f.Mid(parentFolder.GetSVNPathString().GetLength()).Find('/')<=0)
+										{
+											if (CStringUtils::WildCardMatch(name, f))
+											{
+												if (GetCheck(i))
+													m_nSelected--;
+												m_nTotal--;
+												toremove.push_back(f);
+											}
+										}
+									}
+								}
+								SVNStatus status;
+								svn_wc_status2_t * s;
+								CTSVNPath svnPath;
+								s = status.GetFirstFileStatus(parentFolder, svnPath, FALSE);
+								//CShellUpdater::Instance().AddPathForUpdate(parentFolder);
+								if (s!=0)
+								{
+									// first check if the folder isn't already present in the list
+									bool bFound = false;
+									for (int i=0; i<nListboxEntries; ++i)
+									{
+										FileEntry * entry = GetListEntry(i);
+										if (entry->path.IsEquivalentTo(svnPath))
+										{
+											bFound = true;
+											break;
+										}
+									}
+									if (!bFound)
+									{
+										FileEntry * entry = new FileEntry();
+										entry->path = svnPath;
+										entry->basepath = basepath;
+										entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+										entry->textstatus = s->text_status;
+										entry->propstatus = s->prop_status;
+										entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+										entry->remotetextstatus = s->repos_text_status;
+										entry->remotepropstatus = s->repos_prop_status;
+										entry->inunversionedfolder = false;
+										entry->checked = true;
+										entry->inexternal = false;
+										entry->direct = false;
+										entry->isfolder = true;
+										entry->last_commit_date = 0;
+										entry->last_commit_rev = 0;
+										if (s->entry)
+										{
+											if (s->entry->url)
+											{
+												CUtils::Unescape((char *)s->entry->url);
+												entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+											}
+										}
+										m_arStatusArray.push_back(entry);
+										m_arListArray.push_back(m_arStatusArray.size()-1);
+										AddEntry(entry, langID, GetItemCount());
+									}
+								}
 							}
 						}
-						if (value.IsEmpty())
-							value = name;
-						else
+						for (std::vector<CString>::iterator it = toremove.begin(); it != toremove.end(); ++it)
 						{
-							value = value.Trim("\n\r");
-							value += "\n";
-							value += name;
-							value.Remove('\r');
-						}
-						if (!props.Add(_T("svn:ignore"), value))
-						{
-							CString temp;
-							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
-							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-						}
-						else
-						{
-							CTSVNPath basepath;
 							int nListboxEntries = GetItemCount();
 							for (int i=0; i<nListboxEntries; ++i)
 							{
-								FileEntry * entry = GetListEntry(i);
-								ASSERT(entry != NULL);
-								if (entry == NULL)
-									continue;	
-								if (basepath.IsEmpty())
-									basepath = entry->basepath;
-								// since we ignored files with a mask (e.g. *.exe)
-								// we have to find find all files in the same
-								// folder (IsAncestorOf() returns TRUE for _all_ children, 
-								// not just the immediate ones) which match the
-								// mask and remove them from the list too.
-								if ((entry->status == svn_wc_status_unversioned)&&(parentFolder.IsAncestorOf(entry->path)))
+								if (GetListEntry(i)->path.GetSVNPathString().Compare(*it)==0)
 								{
-									CString f = entry->path.GetSVNPathString();
-									if (f.Mid(parentFolder.GetSVNPathString().GetLength()).Find('/')<=0)
+									RemoveListEntry(i);
+									break;
+								}
+							}
+						}
+					}
+					break;
+				case IDSVNLC_IGNORE:
+					{
+						CTSVNPathList ignorelist;
+						std::vector<CString> toremove;
+						FillListOfSelectedItemPaths(ignorelist, true);
+						for (int j=0; j<ignorelist.GetCount(); ++j)
+						{
+							int nListboxEntries = GetItemCount();
+							for (int i=0; i<nListboxEntries; ++i)
+							{
+								if (GetListEntry(i)->GetPath().IsEquivalentTo(ignorelist[j]))
+								{
+									selIndex = i;
+									break;
+								}
+							}
+							CString name = ignorelist[j].GetFileOrDirectoryName();
+							CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
+							SVNProperties props(parentfolder);
+							CStringA value;
+							for (int i=0; i<props.GetCount(); i++)
+							{
+								CString propname(props.GetItemName(i).c_str());
+								if (propname.CompareNoCase(_T("svn:ignore"))==0)
+								{
+									stdstring stemp;
+									stdstring tmp = props.GetItemValue(i);
+									//treat values as normal text even if they're not
+									value = (char *)tmp.c_str();
+								}
+							}
+							if (value.IsEmpty())
+								value = name;
+							else
+							{
+								value = value.Trim("\n\r");
+								value += "\n";
+								value += name;
+								value.Remove('\r');
+							}
+							if (!props.Add(_T("svn:ignore"), value))
+							{
+								CString temp;
+								temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+								break;
+							}
+							if (GetCheck(selIndex))
+								m_nSelected--;
+							m_nTotal--;
+
+							//now, if we ignored a folder, remove all its children
+							if (ignorelist[j].IsDirectory())
+							{
+								for (int i=0; i<(int)m_arListArray.size(); ++i)
+								{
+									FileEntry * entry = GetListEntry(i);
+									if (entry->status == svn_wc_status_unversioned)
 									{
-										if (CStringUtils::WildCardMatch(name, f))
+										if (!ignorelist[j].IsEquivalentTo(entry->GetPath())&&(ignorelist[j].IsAncestorOf(entry->GetPath())))
 										{
+											entry->status = svn_wc_status_ignored;
+											entry->textstatus = svn_wc_status_ignored;
 											if (GetCheck(i))
 												m_nSelected--;
-											m_nTotal--;
-											RemoveListEntry(i);
-											i--;
-											nListboxEntries--;
+											toremove.push_back(entry->GetPath().GetSVNPathString());
 										}
 									}
 								}
 							}
+
+							CTSVNPath basepath = m_arStatusArray[m_arListArray[selIndex]]->basepath;
+							toremove.push_back(m_arStatusArray[m_arListArray[selIndex]]->GetPath().GetSVNPathString());
 							SVNStatus status;
 							svn_wc_status2_t * s;
 							CTSVNPath svnPath;
-							s = status.GetFirstFileStatus(parentFolder, svnPath, FALSE);
-							//CShellUpdater::Instance().AddPathForUpdate(parentFolder);
-							if (s!=0)
+							s = status.GetFirstFileStatus(parentfolder, svnPath, FALSE);
+							//CShellUpdater::Instance().AddPathForUpdate(parentfolder);
+							// first check if the folder isn't already present in the list
+							bool bFound = false;
+							nListboxEntries = GetItemCount();
+							for (int i=0; i<nListboxEntries; ++i)
 							{
-								// first check if the folder isn't already present in the list
-								bool bFound = false;
-								for (int i=0; i<nListboxEntries; ++i)
+								FileEntry * entry = GetListEntry(i);
+								if (entry->path.IsEquivalentTo(svnPath))
 								{
-									FileEntry * entry = GetListEntry(i);
-									if (entry->path.IsEquivalentTo(svnPath))
-									{
-										bFound = true;
-										break;
-									}
+									bFound = true;
+									break;
 								}
-								if (!bFound)
+							}
+							if (!bFound)
+							{
+								if (s!=0)
 								{
 									FileEntry * entry = new FileEntry();
 									entry->path = svnPath;
@@ -1981,7 +2149,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
 									entry->remotetextstatus = s->repos_text_status;
 									entry->remotepropstatus = s->repos_prop_status;
-									entry->inunversionedfolder = false;
+									entry->inunversionedfolder = FALSE;
 									entry->checked = true;
 									entry->inexternal = false;
 									entry->direct = false;
@@ -2001,119 +2169,17 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									AddEntry(entry, langID, GetItemCount());
 								}
 							}
-
 						}
-					}
-					break;
-				case IDSVNLC_IGNORE:
-					{
-						CString name = filepath.GetFileOrDirectoryName();
-						CTSVNPath parentfolder = filepath.GetContainingDirectory();
-						SVNProperties props(parentfolder);
-						CStringA value;
-						for (int i=0; i<props.GetCount(); i++)
+						for (std::vector<CString>::iterator it = toremove.begin(); it != toremove.end(); ++it)
 						{
-							CString propname(props.GetItemName(i).c_str());
-							if (propname.CompareNoCase(_T("svn:ignore"))==0)
+							int nListboxEntries = GetItemCount();
+							for (int i=0; i<nListboxEntries; ++i)
 							{
-								stdstring stemp;
-								stdstring tmp = props.GetItemValue(i);
-								//treat values as normal text even if they're not
-								value = (char *)tmp.c_str();
-							}
-						}
-						if (value.IsEmpty())
-							value = name;
-						else
-						{
-							value = value.Trim("\n\r");
-							value += "\n";
-							value += name;
-							value.Remove('\r');
-						}
-						if (!props.Add(_T("svn:ignore"), value))
-						{
-							CString temp;
-							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
-							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-							break;
-						}
-						if (GetCheck(selIndex))
-							m_nSelected--;
-						m_nTotal--;
-						
-						//now, if we ignored a folder, remove all its children
-						if (filepath.IsDirectory())
-						{
-							for (int i=0; i<(int)m_arListArray.size(); ++i)
-							{
-								FileEntry * entry = GetListEntry(i);
-								if (entry->status == svn_wc_status_unversioned)
+								if (GetListEntry(i)->path.GetSVNPathString().Compare(*it)==0)
 								{
-									if (!filepath.IsEquivalentTo(entry->GetPath())&&(filepath.IsAncestorOf(entry->GetPath())))
-									{
-										entry->status = svn_wc_status_ignored;
-										entry->textstatus = svn_wc_status_ignored;
-										if (GetCheck(i))
-											m_nSelected--;
-										m_nTotal--;
-										RemoveListEntry(i);
-										i--;
-									}
+									RemoveListEntry(i);
+									break;
 								}
-							}
-						}
-						
-						CTSVNPath basepath = m_arStatusArray[m_arListArray[selIndex]]->basepath;
-						RemoveListEntry(selIndex);
-						SVNStatus status;
-						svn_wc_status2_t * s;
-						CTSVNPath svnPath;
-						s = status.GetFirstFileStatus(parentfolder, svnPath, FALSE);
-						//CShellUpdater::Instance().AddPathForUpdate(parentfolder);
-						// first check if the folder isn't already present in the list
-						bool bFound = false;
-						int nListboxEntries = GetItemCount();
-						for (int i=0; i<nListboxEntries; ++i)
-						{
-							FileEntry * entry = GetListEntry(i);
-							if (entry->path.IsEquivalentTo(svnPath))
-							{
-								bFound = true;
-								break;
-							}
-						}
-						if (!bFound)
-						{
-							if (s!=0)
-							{
-								FileEntry * entry = new FileEntry();
-								entry->path = svnPath;
-								entry->basepath = basepath;
-								entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-								entry->textstatus = s->text_status;
-								entry->propstatus = s->prop_status;
-								entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
-								entry->remotetextstatus = s->repos_text_status;
-								entry->remotepropstatus = s->repos_prop_status;
-								entry->inunversionedfolder = FALSE;
-								entry->checked = true;
-								entry->inexternal = false;
-								entry->direct = false;
-								entry->isfolder = true;
-								entry->last_commit_date = 0;
-								entry->last_commit_rev = 0;
-								if (s->entry)
-								{
-									if (s->entry->url)
-									{
-										CUtils::Unescape((char *)s->entry->url);
-										entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
-									}
-								}
-								m_arStatusArray.push_back(entry);
-								m_arListArray.push_back(m_arStatusArray.size()-1);
-								AddEntry(entry, langID, GetItemCount());
 							}
 						}
 					}
@@ -2635,7 +2701,7 @@ void CSVNStatusListCtrl::WriteCheckedNamesToPathList(CTSVNPathList& pathList)
 
 
 /// Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
-void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList)
+void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList, bool bNoIgnored)
 {
 	pathList.Clear();
 
@@ -2643,6 +2709,9 @@ void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList)
 	int index;
 	while ((index = GetNextSelectedItem(pos)) >= 0)
 	{
+		FileEntry * entry = GetListEntry(index);
+		if ((bNoIgnored)&&(entry->status == svn_wc_status_ignored))
+			continue;
 		pathList.AddPath(GetListEntry(index)->path);
 	}
 }

@@ -395,7 +395,7 @@ private:
 	void SetCheckOnAllDescendentsOf(const FileEntry* parentEntry, bool bCheck);
 
 	/// Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
-	void FillListOfSelectedItemPaths(CTSVNPathList& pathList);
+	void FillListOfSelectedItemPaths(CTSVNPathList& pathList, bool bNoIgnored = false);
 
 	void CheckEntry(int index, int nListItems);
 	void UncheckEntry(int index, int nListItems);
