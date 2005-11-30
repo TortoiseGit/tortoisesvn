@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-22 12:42+0800\n"
+"PO-Revision-Date: 2005-11-30 10:38+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -391,12 +391,13 @@ msgid "&Font:"
 msgstr "字型(&F):"
 
 # Control-ID:65535,
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "從 URL(&F):"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1259
 msgid "&From WC at URL:"
 msgstr "從工作複本 URL(&F):"
 
@@ -1425,8 +1426,8 @@ msgstr "Bug編號 / 問題編號:"
 # ID:3887,#:
 # ID:3887,
 #: Control-ID:1215
-msgid "C&heck Now"
-msgstr "立刻檢查(&H)"
+msgid "C&heck now"
+msgstr "立即檢查(&H)"
 
 # ID:101,
 #: ID:101
@@ -1610,7 +1611,7 @@ msgstr "清理未完成的作業, 鎖定檔等..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear N&ow"
+msgid "Clear n&ow"
 msgstr "立即清除(&O)"
 
 # ID:195,
@@ -3595,6 +3596,7 @@ msgstr "請稍候, 檔案庫瀏覽器正在初始化..."
 
 # ID:119,
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "請稍候..."
 
@@ -4969,8 +4971,8 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
-msgstr "沒有可以新增的項目. 所有的檔案和資料夾都已經在版本控制之下, 或是被 svn:ignore 性質或 TSVN 的除外設定排除在外."
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "沒有可以新增的項目. 所有的檔案和資料夾都已經在版本控制之下, 或是被 svn:ignore 性質或 TSVN 的全體除外設定排除在外."
 
 # ID:188,
 #: ID:188
@@ -6038,6 +6040,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "外部"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "檔案列表是空的"
 
 # ID:13,
 #: ID:13
