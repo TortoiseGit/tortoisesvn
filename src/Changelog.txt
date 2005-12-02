@@ -57,6 +57,10 @@
        dialog. See issue #178. (Stefan)
 - BUG: After marking a conflict as resolved in TortoiseMerge, it still
        asked if you want to save the changes on exit. (Stefan)
+- BUG: If the initial URL with which the repository browser was started
+       pointed to subfolders of the repository root, the repository root
+       couldn't be expanded to show all subfolders but needed an F5
+       to actually get refreshed. (Stefan)
 
 Version 1.2.6
 - BUG: The status cache updated sometimes wrong paths or missed

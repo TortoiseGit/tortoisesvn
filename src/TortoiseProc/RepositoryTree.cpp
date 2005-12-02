@@ -126,7 +126,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool ini
 			hParentItem = FindUrl(parent_folder);
 			if (hParentItem == 0)
 			{
-				hParentItem = AddFolder(parent_folder, force);
+				hParentItem = AddFolder(parent_folder, force, init);
 			}
 		}
 
