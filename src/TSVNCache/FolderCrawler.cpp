@@ -238,7 +238,10 @@ void CFolderCrawler::WorkerThread()
 							// notifications for 'normal' status - if it would, we'd get tons
 							// of notifications when crawling a working copy not yet in the cache.
 							if ((status != svn_wc_status_normal)&&(pCachedDir->GetCurrentFullStatus() != status))
+							{
 								CSVNStatusCache::Instance().UpdateShell(workingPath);
+								ATLTRACE("shell update in crawler for %ws\n", workingPath.GetWinPath());
+							}
 						}
 						else
 						{
@@ -256,7 +259,7 @@ void CFolderCrawler::WorkerThread()
 				}
 				else if (workingPath.HasAdminDir())
 				{
-					if (!workingPath.Exists()&&workingPath.IsDirectory())
+					if (!workingPath.Exists())
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
@@ -283,16 +286,21 @@ void CFolderCrawler::WorkerThread()
 					// automatically if the status is asked for it and the filetimes don't match
 					// anymore, so we don't need to manually invalidate those.
 					if (workingPath.IsDirectory())
-						CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->Invalidate();
+					{
+						CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
+						if (cachedDir)
+							cachedDir->Invalidate();
+					}
 					CSVNStatusCache::Instance().GetStatusForPath(workingPath, flags);
 					CSVNStatusCache::Instance().UpdateShell(workingPath);
+					ATLTRACE("shell update in foldercrawler for %ws\n", workingPath.GetWinPath());
 					CSVNStatusCache::Instance().Done();
 					AutoLocker lock(m_critSec);
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
 				}
 				else
 				{
-					if (!workingPath.Exists()&&workingPath.IsDirectory())
+					if (!workingPath.Exists())
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
@@ -330,7 +338,9 @@ void CFolderCrawler::WorkerThread()
 				InvalidateRect(hWnd, NULL, FALSE);
 				CSVNStatusCache::Instance().WaitToRead();
 				// Now, we need to visit this folder, to make sure that we know its 'most important' status
-				CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath)->RefreshStatus(bRecursive);
+				CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
+				if (cachedDir)
+					cachedDir->RefreshStatus(bRecursive);
 				CSVNStatusCache::Instance().Done();
 			}
 		}

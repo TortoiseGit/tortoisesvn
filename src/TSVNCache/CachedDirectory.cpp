@@ -15,7 +15,6 @@ CCachedDirectory::CCachedDirectory(void)
 CCachedDirectory::~CCachedDirectory(void)
 {
 	AutoLocker lock(m_critSec);
-	
 }
 
 CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
@@ -222,7 +221,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			// We don't have directory status in our cache
 			// Ask the directory if it knows its own status
 			CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
-			if(dirEntry->IsOwnStatusValid())
+			if ((dirEntry)&&(dirEntry->IsOwnStatusValid()))
 			{
 				// This directory knows its own status
 				// but is it still versioned?
@@ -355,7 +354,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	if (path.IsDirectory())
 	{
 		CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
-		if(dirEntry->IsOwnStatusValid())
+		if ((dirEntry)&&(dirEntry->IsOwnStatusValid()))
 		{
 			CSVNStatusCache::Instance().AddFolderForCrawling(path);
 			return dirEntry->GetOwnStatus(bRecursive);
@@ -385,7 +384,8 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 	if(path.IsDirectory())
 	{
 		CCachedDirectory * childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
-		childDir->m_ownStatus.SetStatus(pSVNStatus);
+		if (childDir)
+			childDir->m_ownStatus.SetStatus(pSVNStatus);
 	}
 	else
 	{
@@ -393,7 +393,10 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 		{
 			CStatusCacheEntry oldentry = m_entryCache[GetCacheKey(path)];
 			if (oldentry.GetEffectiveStatus() != SVNStatus::GetMoreImportant(pSVNStatus->prop_status, pSVNStatus->text_status))
+			{
 				CSVNStatusCache::Instance().UpdateShell(path);
+				ATLTRACE("shell update for %ws\n", path.GetWinPath());
+			}
 		}
 		m_entryCache[GetCacheKey(path)] = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly());
 	}
@@ -532,12 +535,12 @@ void CCachedDirectory::UpdateCurrentStatus()
 {
 	svn_wc_status_kind newStatus = CalculateRecursiveStatus();
 
-	if (newStatus != m_currentFullStatus)
+	if ((newStatus != m_currentFullStatus)&&(m_ownStatus.IsVersioned()))
 	{
 		if (m_currentFullStatus != svn_wc_status_none)
 		{
 			// Our status has changed - tell the shell
-			ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);		
+			ATLTRACE("Dir %ws, status change from %d to %d, send shell notification\n", m_directoryPath.GetWinPath(), m_currentFullStatus, newStatus);		
 			CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
 		}
 		m_currentFullStatus = newStatus;
@@ -551,7 +554,9 @@ void CCachedDirectory::UpdateCurrentStatus()
 	if(!parentPath.IsEmpty())
 	{
 		// We have a parent
-		CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath)->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
+		CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath);
+		if (cachedDir)
+			cachedDir->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
 	}
 }
 

@@ -185,10 +185,22 @@ void CSVNStatusCache::UpdateShell(const CTSVNPath& path)
 
 void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 {
+	typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
 	// Stop the crawler starting on a new folder
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 	AutoLocker lock(m_critSec);
 	CCachedDirectory * dirtoremove = m_directoryCache[path];
+	if (dirtoremove == NULL)
+		return;
+	for (ChildDirStatus::iterator it = dirtoremove->m_childDirectories.begin(); it != dirtoremove->m_childDirectories.end(); ++it)
+	{
+
+		CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(it->first);
+		if (childdir)
+			delete childdir;
+		m_directoryCache.erase(it->first);
+		ATLTRACE("removed path %ws from cache\n", it->first.GetWinPath());
+	}
 	delete dirtoremove;
 	m_directoryCache.erase(path);
 	ATLTRACE("removed path %ws from cache\n", path.GetWinPath());
@@ -238,7 +250,10 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory())->GetStatusForMember(path, bRecursive);
+	CCachedDirectory * cachedDir = GetDirectoryCacheEntry(path.GetContainingDirectory());
+	if (cachedDir)
+		return m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive);
+	return CStatusCacheEntry();
 }
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)

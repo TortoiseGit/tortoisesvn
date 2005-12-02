@@ -91,6 +91,6 @@ private:
 	svn_wc_status_kind m_mostImportantFileStatus;
 
 	bool m_bRecursive;		// used in the status callback
-		//	friend class CSVNStatusCache;		
+	friend class CSVNStatusCache;		
 };
 
