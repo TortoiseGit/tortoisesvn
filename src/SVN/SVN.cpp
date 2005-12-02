@@ -186,7 +186,7 @@ CString SVN::GetErrorString(svn_error_t * Err)
 			{
 				svn_error_t *temp_err = NULL;
 				const char * err_string = NULL;
-				temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)), ErrPtr->pool);
+				temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)-1), ErrPtr->pool);
 				if (temp_err)
 				{
 					svn_error_clear (temp_err);
