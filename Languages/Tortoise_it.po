@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-22 23:27+0100\n"
+"PO-Revision-Date: 2005-12-03 03:29+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -390,12 +390,13 @@ msgid "&Font:"
 msgstr "&Carattere:"
 
 # Control-ID:65535,
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "&Da URL:"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1259
 msgid "&From WC at URL:"
 msgstr "&Dalla Copia di lavoro con URL:"
 
@@ -2595,9 +2596,8 @@ msgstr "Ottenimeno confronto unificato"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Global ignore &pattern:"
-msgstr "Configurazione di \"ignora globalmente\":"
+msgstr "Modello per \"ignora globalmente\":"
 
 # ID:2049,
 #: ID:2051
@@ -3595,6 +3595,7 @@ msgstr "Attendere che il Repository Browser venga inizializzato..."
 
 # ID:119,
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "Attendere prego..."
 
@@ -4975,7 +4976,6 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "Non vi è niente da aggiungere. Tutti i file e le cartelle o sono già versionati o sono stati esclusi usando la proprietà svn:ignore oppure utilizzando la proprietà \"ignora globalmente\"."
 
@@ -6044,6 +6044,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "esterno"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "la lista dei file è vuota"
 
 # ID:13,
 #: ID:13
