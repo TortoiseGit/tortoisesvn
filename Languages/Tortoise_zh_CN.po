@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-28 21:21+0800\n"
-"Last-Translator: Lixinfeng <lixinfeng@hotmailcom>\n"
+"PO-Revision-Date: 2005-12-04 16:57+0800\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -255,7 +255,7 @@ msgstr "内置(&B)"
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
-msgstr "光驱(&R)"
+msgstr "光驱(&C)"
 
 # Control-ID:2,#:
 # Control-ID:2,
@@ -391,6 +391,7 @@ msgid "&Font:"
 msgstr "字体(&F)："
 
 # Control-ID:65535,
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "从 URL(&F)："
@@ -681,7 +682,7 @@ msgstr "至URL(&T)："
 
 #: MenuEntry
 msgid "&Toolbar"
-msgstr "工具栏(&V)"
+msgstr "工具栏(&T)"
 
 # ID:9,#:
 # ID:80,
@@ -1593,7 +1594,7 @@ msgstr "正在检查是否有更新版本的 TortoiseSVN..."
 # Control-ID:1074,
 #: Control-ID:1074
 msgid "Checkout &directory:"
-msgstr "取出至目录(&C)："
+msgstr "取出至目录(&D)："
 
 # ID:79,
 #: ID:79
@@ -2199,7 +2200,7 @@ msgstr "退出(&X)"
 # ID:9,
 #: ID:9
 msgid "E&xport..."
-msgstr "导出(&E)..."
+msgstr "导出(&X)..."
 
 # ID:3697,
 #: ID:3697
@@ -2500,11 +2501,6 @@ msgid "For Help, press F1"
 msgstr "要获取帮助，请按 F1 键"
 
 # Control-ID:65535,
-#: ID:501
-msgid "From URL:"
-msgstr "从 URL："
-
-# Control-ID:65535,
 #: Control-ID:1200
 msgid "From:"
 msgstr "从："
@@ -2744,7 +2740,7 @@ msgstr "忽略"
 # Control-ID:1021,
 #: Control-ID:1021
 msgid "Ignore &all whitespaces"
-msgstr "忽略所有空白字符"
+msgstr "忽略所有空白字符(&A)"
 
 # Control-ID:1067,
 #: Control-ID:1067
