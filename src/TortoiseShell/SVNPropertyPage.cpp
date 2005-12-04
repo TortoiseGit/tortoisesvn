@@ -503,9 +503,9 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 	//CShellUpdater::Instance().Flush();
 	return FALSE;
 }
-void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
+void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen)
 {
-	struct tm * newtime;
+	struct tm newtime;
 	SYSTEMTIME systime;
 	TCHAR timebuf[MAX_PROP_STRING_LENGTH];
 	TCHAR datebuf[MAX_PROP_STRING_LENGTH];
@@ -516,25 +516,25 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
 	*buf = '\0';
 	if (time)
 	{
-		newtime = _localtime64(&time);
+		_localtime64_s(&newtime, &time);
 
-		systime.wDay = (WORD)newtime->tm_mday;
-		systime.wDayOfWeek = (WORD)newtime->tm_wday;
-		systime.wHour = (WORD)newtime->tm_hour;
+		systime.wDay = (WORD)newtime.tm_mday;
+		systime.wDayOfWeek = (WORD)newtime.tm_wday;
+		systime.wHour = (WORD)newtime.tm_hour;
 		systime.wMilliseconds = 0;
-		systime.wMinute = (WORD)newtime->tm_min;
-		systime.wMonth = (WORD)newtime->tm_mon+1;
-		systime.wSecond = (WORD)newtime->tm_sec;
-		systime.wYear = (WORD)newtime->tm_year+1900;
+		systime.wMinute = (WORD)newtime.tm_min;
+		systime.wMonth = (WORD)newtime.tm_mon+1;
+		systime.wSecond = (WORD)newtime.tm_sec;
+		systime.wYear = (WORD)newtime.tm_year+1900;
 		if (CRegStdWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
 			GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
 		else
 			GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
 		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PROP_STRING_LENGTH);
 		*buf = '\0';
-		_tcsncat(buf, timebuf, MAX_PROP_STRING_LENGTH-1);
-		_tcsncat(buf, _T(", "), MAX_PROP_STRING_LENGTH-1);
-		_tcsncat(buf, datebuf, MAX_PROP_STRING_LENGTH-1);
+		_tcsncat_s(buf, buflen, timebuf, MAX_PROP_STRING_LENGTH-1);
+		_tcsncat_s(buf, buflen, _T(", "), MAX_PROP_STRING_LENGTH-1);
+		_tcsncat_s(buf, buflen, datebuf, MAX_PROP_STRING_LENGTH-1);
 	}
 }
 
@@ -565,22 +565,22 @@ void CSVNPropertyPage::InitWorkfileView()
 				}
 				else
 				{
-					_stprintf(buf, _T("%d"), svn.status->entry->revision);
+					_stprintf_s(buf, MAX_PROP_STRING_LENGTH, _T("%d"), svn.status->entry->revision);
 					SetDlgItemText(m_hwnd, IDC_REVISION, buf);
 				}
 				if (svn.status->entry->url)
 				{
 					Unescape((char*)svn.status->entry->url);
-					_tcsncpy(tbuf, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
+					_tcsncpy_s(tbuf, MAX_PROP_STRING_LENGTH, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
 					//Unescape(tbuf);
 					SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
 				}
 				if (svn.status->text_status != svn_wc_status_added)
 				{
-					_stprintf(buf, _T("%d"), svn.status->entry->cmt_rev);
+					_stprintf_s(buf, MAX_PROP_STRING_LENGTH, _T("%d"), svn.status->entry->cmt_rev);
 					SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
 					time = (__time64_t)svn.status->entry->cmt_date/1000000L;
-					Time64ToTimeString(time, buf);
+					Time64ToTimeString(time, buf, MAX_PROP_STRING_LENGTH);
 					SetDlgItemText(m_hwnd, IDC_CDATE, buf);
 				}
 				if (svn.status->entry->cmt_author)
@@ -590,10 +590,10 @@ void CSVNPropertyPage::InitWorkfileView()
 				SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 				SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
 				time = (__time64_t)svn.status->entry->text_time/1000000L;
-				Time64ToTimeString(time, buf);
+				Time64ToTimeString(time, buf, MAX_PROP_STRING_LENGTH);
 				SetDlgItemText(m_hwnd, IDC_TEXTDATE, buf);
 				time = (__time64_t)svn.status->entry->prop_time/1000000L;
-				Time64ToTimeString(time, buf);
+				Time64ToTimeString(time, buf, MAX_PROP_STRING_LENGTH);
 				SetDlgItemText(m_hwnd, IDC_PROPDATE, buf);
 				if (svn.status->locked)
 				{
@@ -660,7 +660,7 @@ void CSVNPropertyPage::InitWorkfileView()
 				if (svn.status->entry->lock_owner)
 					SetDlgItemText(m_hwnd, IDC_LOCKOWNER, UTF8ToWide(svn.status->entry->lock_owner).c_str());
 				time = (__time64_t)svn.status->entry->lock_creation_date/1000000L;
-				Time64ToTimeString(time, buf);
+				Time64ToTimeString(time, buf, MAX_PROP_STRING_LENGTH);
 				SetDlgItemText(m_hwnd, IDC_LOCKDATE, buf);
 			} // if (svn.status->entry != NULL)
 		} // if (svn.GetStatus(filename.c_str())>(-2)) 
@@ -697,7 +697,7 @@ void CSVNPropertyPage::InitWorkfileView()
 				if (svn.status->entry->url)
 				{
 					Unescape((char*)svn.status->entry->url);
-					_tcsncpy(tbuf, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
+					_tcsncpy_s(tbuf, MAX_PROP_STRING_LENGTH, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
 					TCHAR * ptr = _tcsrchr(tbuf, '/');
 					if (ptr != 0)
 					{

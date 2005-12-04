@@ -182,7 +182,7 @@ public:
 			{
 				drivetypeticker = GetTickCount();
 				TCHAR pathbuf[MAX_PATH+4];		// MAX_PATH ok here. PathStripToRoot works with partial paths too.
-				_tcscpy(pathbuf, path);
+				_tcscpy_s(pathbuf, MAX_PATH+4, path);
 				PathStripToRoot(pathbuf);
 				PathAddBackslash(pathbuf);
 				ATLTRACE2(_T("GetDriveType for %s, Drive %d\n"), pathbuf, drivenumber);
@@ -193,7 +193,7 @@ public:
 		else
 		{
 			TCHAR pathbuf[MAX_PATH+4];		// MAX_PATH ok here. PathIsUNCServer works with partial paths too.
-			_tcscpy(pathbuf, path);
+			_tcscpy_s(pathbuf, MAX_PATH+4, path);
 			if (PathIsUNCServer(pathbuf))
 				drivetype = DRIVE_REMOTE;
 			else
@@ -207,7 +207,7 @@ public:
 					ATLTRACE2(_T("GetDriveType for %s\n"), pathbuf);
 					drivetype = GetDriveType(pathbuf);
 					drivetypecache[26] = drivetype;
-					_tcsncpy(drivetypepathcache, pathbuf, MAX_PATH);			// MAX_PATH ok.
+					_tcsncpy_s(drivetypepathcache, MAX_PATH, pathbuf, MAX_PATH);			// MAX_PATH ok.
 				} 
 			}
 		}
@@ -271,7 +271,7 @@ public:
 	{
 		size_t len = _tcslen(path);
 		TCHAR * buf = new TCHAR[len+1];
-		_tcscpy(buf, path);
+		_tcscpy_s(buf, len+1, path);
 		if (! bIsDir)
 		{
 			TCHAR * ptr = _tcsrchr(buf, '\\');

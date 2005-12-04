@@ -87,12 +87,12 @@ void LoadLangDll()
 			*dirpoint = 0;
 		if (dirpointA)
 			*dirpointA = 0;
-		strcat(langdirA, "\\Languages");
+		strcat_s(langdirA, MAX_PATH, "\\Languages");
 		bindtextdomain ("subversion", langdirA);
 
 		do
 		{
-			_stprintf(langDll, _T("%s\\Languages\\TortoiseProc%d.dll"), langdir, langId);
+			_stprintf_s(langDll, MAX_PATH*4, _T("%s\\Languages\\TortoiseProc%d.dll"), langdir, langId);
 			BOOL versionmatch = TRUE;
 
 			struct TRANSARRAY
@@ -130,7 +130,7 @@ void LoadLangDll()
 						{
 							lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
-							_stprintf(strLangProduktVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+							_stprintf_s(strLangProduktVersion, MAX_PATH, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
 								lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
 							if (VerQueryValue(pBuffer,

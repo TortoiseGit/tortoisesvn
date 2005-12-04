@@ -296,8 +296,8 @@ void CDirectoryWatcher::WorkerThread()
 						//	break;
 						//}
 						ZeroMemory(buf, MAX_PATH*sizeof(TCHAR));
-						_tcsncpy(buf, pdi->m_DirPath, MAX_PATH);
-						_tcsncat(buf+pdi->m_DirPath.GetLength(), pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength / sizeof(WCHAR)));
+						_tcsncpy_s(buf, MAX_PATH, pdi->m_DirPath, MAX_PATH);
+						_tcsncat_s(buf+pdi->m_DirPath.GetLength(), MAX_PATH-pdi->m_DirPath.GetLength(), pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength / sizeof(WCHAR)));
 						buf[min(MAX_PATH-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
 						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 						if (m_FolderCrawler)

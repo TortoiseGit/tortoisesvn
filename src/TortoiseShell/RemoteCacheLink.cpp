@@ -154,7 +154,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 	{
 		request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
 	}
-	wcsncpy(request.path, Path.GetWinPath(), MAX_PATH);
+	wcsncpy_s(request.path, MAX_PATH+1, Path.GetWinPath(), MAX_PATH);
 	ZeroMemory(&m_Overlapped, sizeof(OVERLAPPED));
 	m_Overlapped.hEvent = m_hEvent;
 	// Do the transaction in overlapped mode.

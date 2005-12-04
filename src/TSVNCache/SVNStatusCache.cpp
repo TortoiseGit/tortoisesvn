@@ -47,11 +47,11 @@ void CSVNStatusCache::Create()
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
 	if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
 	{
-		_tcscat(path, _T("\\TSVNCache"));
+		_tcscat_s(path, MAX_PATH, _T("\\TSVNCache"));
 		if (!PathIsDirectory(path))
 			CreateDirectory(path, NULL);
-		_tcscat(path, _T("\\cache"));
-		pFile = _tfopen(path, _T("rb"));
+		_tcscat_s(path, MAX_PATH, _T("\\cache"));
+		_tfopen_s(&pFile, path, _T("rb"));
 		if (pFile)
 		{
 			LOADVALUEFROMFILE(value);
@@ -108,11 +108,11 @@ bool CSVNStatusCache::SaveCache()
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
 	if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
 	{
-		_tcscat(path, _T("\\TSVNCache"));
+		_tcscat_s(path, MAX_PATH, _T("\\TSVNCache"));
 		if (!PathIsDirectory(path))
 			CreateDirectory(path, NULL);
-		_tcscat(path, _T("\\cache"));
-		pFile = _tfopen(path, _T("wb"));
+		_tcscat_s(path, MAX_PATH, _T("\\cache"));
+		_tfopen_s(&pFile, path, _T("wb"));
 		if (pFile)
 		{
 			value = 0;		// 'version'

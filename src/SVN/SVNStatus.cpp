@@ -360,7 +360,7 @@ svn_wc_status2_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 	return (svn_wc_status2_t *) item->value;
 }
 
-void SVNStatus::GetStatusString(svn_wc_status_kind status, TCHAR * string)
+void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR * string)
 {
 	TCHAR * buf;
 	switch (status)
@@ -411,7 +411,7 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, TCHAR * string)
 			buf = _T("\0");
 			break;
 	} // switch (status) 
-	_stprintf(string, _T("%s"), buf);
+	_stprintf_s(string, buflen, _T("%s"), buf);
 }
 
 void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR * string, int size, WORD lang)
@@ -507,12 +507,12 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
 	ret = pImage->nLength;
 	if (pImage->nLength > nBufferMax)
 	{
-		wcsncpy(lpBuffer, pImage->achString, pImage->nLength-1);
+		wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength-1);
 		lpBuffer[nBufferMax-1] = 0;
 	}
 	else
 	{
-		wcsncpy(lpBuffer, pImage->achString, pImage->nLength);
+		wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength);
 		lpBuffer[ret] = 0;
 	}
 	return ret;

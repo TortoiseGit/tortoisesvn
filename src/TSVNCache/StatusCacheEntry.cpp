@@ -198,9 +198,9 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
 		response.m_kind = m_kind;
 		response.m_readonly = m_bReadOnly;
 		// The whole of response has been zero'd, so this will copy safely 
-		strncat(response.m_url, m_sUrl, sizeof(response.m_url)-1);
-		strncat(response.m_owner, m_sOwner, sizeof(response.m_owner)-1);
-		strncat(response.m_author, m_sAuthor, sizeof(response.m_author)-1);
+		strncat_s(response.m_url, INTERNET_MAX_URL_LENGTH+1, m_sUrl, sizeof(response.m_url)-1);
+		strncat_s(response.m_owner, 255, m_sOwner, sizeof(response.m_owner)-1);
+		strncat_s(response.m_author, 255, m_sAuthor, sizeof(response.m_author)-1);
 		responseLength = sizeof(response);
 	}
 	else

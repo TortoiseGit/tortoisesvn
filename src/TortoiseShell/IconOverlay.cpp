@@ -131,7 +131,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 
     // Add name of appropriate icon
     if (icon.empty() == false)
-        wcsncpy (pwszIconFile, icon.c_str(), cchMax);
+        wcsncpy_s (pwszIconFile, cchMax, icon.c_str(), cchMax);
     else
         return S_FALSE;
 

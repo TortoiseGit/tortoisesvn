@@ -359,9 +359,9 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 	{
 		//menu entry for the top context menu, so append an "SVN " before
 		//the menu text to indicate where the entry comes from
-		_tcscpy(menutextbuffer, _T("SVN "));
+		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
 	}
-	_tcscat(menutextbuffer, stringtablebuffer);
+	_tcscat_s(menutextbuffer, 255, stringtablebuffer);
 	ATLTRACE("Shell :: Insert Menu %ws\n", menutextbuffer);
 	if (ownerdrawn==1) 
 	{
@@ -381,10 +381,10 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 	{
 		//menu entry for the top context menu, so append an "SVN " before
 		//the menu text to indicate where the entry comes from
-		_tcscpy(menutextbuffer, _T("SVN "));
+		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
 	}
 	LoadString(g_hResInst, stringid, verbsbuffer, sizeof(verbsbuffer));
-	_tcscat(menutextbuffer, verbsbuffer);
+	_tcscat_s(menutextbuffer, 255, verbsbuffer);
 	stdstring verb = stdstring(menutextbuffer);
 	if (verb.find('&') != -1)
 	{
@@ -763,9 +763,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		TCHAR ignorepath[MAX_PATH];		// MAX_PATH is ok, since this only holds a filename
 		std::vector<stdstring>::iterator I = files_.begin();
 		if (_tcsrchr(I->c_str(), '\\'))
-			_tcscpy(ignorepath, _tcsrchr(I->c_str(), '\\')+1);
+			_tcscpy_s(ignorepath, MAX_PATH, _tcsrchr(I->c_str(), '\\')+1);
 		else
-			_tcscpy(ignorepath, I->c_str());
+			_tcscpy_s(ignorepath, MAX_PATH, I->c_str());
 		if (isIgnored)
 		{
 			// check if the item name is ignored or the mask
@@ -784,10 +784,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 				myIDMap[idCmd++] = UnIgnore;
 				bShowIgnoreMenu = true;
 			}
-			_tcscpy(maskbuf, _T("*"));
+			_tcscpy_s(maskbuf, MAX_PATH, _T("*"));
 			if (_tcsrchr(ignorepath, '.'))
 			{
-				_tcscat(maskbuf, _tcsrchr(ignorepath, '.'));
+				_tcscat_s(maskbuf, MAX_PATH, _tcsrchr(ignorepath, '.'));
 				p = ignoredprops.find(maskbuf);
 				if ((p!=-1) &&
 					((ignoredprops.compare(maskbuf)==0) || (ignoredprops.find('\n', p)==p+_tcslen(maskbuf)+1) || (ignoredprops.rfind('\n', p)==p-1)))
@@ -817,10 +817,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 				myIDMap[idCmd - idCmdFirst] = Ignore;
 				myIDMap[idCmd++] = Ignore;
 
-				_tcscpy(maskbuf, _T("*"));
+				_tcscpy_s(maskbuf, MAX_PATH, _T("*"));
 				if (_tcsrchr(ignorepath, '.'))
 				{
-					_tcscat(maskbuf, _tcsrchr(ignorepath, '.'));
+					_tcscat_s(maskbuf, MAX_PATH, _tcsrchr(ignorepath, '.'));
 					InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
 					stdstring verb = stdstring(maskbuf);
 					myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -834,7 +834,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			else
 			{
 				MAKESTRING(IDS_MENUIGNOREMULTIPLE);
-				_stprintf(ignorepath, stringtablebuffer, files_.size());
+				_stprintf_s(ignorepath, MAX_PATH, stringtablebuffer, files_.size());
 				InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
 				stdstring verb = stdstring(ignorepath);
 				myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -1330,7 +1330,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			} // switch (myIDMap[idCmd])
 			svnCmd += _T(" /hwnd:");
 			TCHAR buf[30];
-			_stprintf(buf, _T("%d"), lpcmi->hwnd);
+			_stprintf_s(buf, 30, _T("%d"), lpcmi->hwnd);
 			svnCmd += buf;
 			myIDMap.clear();
 			myVerbsIDMap.clear();
@@ -1765,7 +1765,7 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 	DWORD layout = g_ShellCache.GetMenuLayout();
 	space = 6;
 #define SETSPACE(x) space = ((layout & (x)) ? 0 : 6)
-#define PREPENDSVN(x) if (layout & (x)) {_tcscpy(textbuf, _T("SVN "));_tcscat(textbuf, stringtablebuffer);_tcscpy(stringtablebuffer, textbuf);}
+#define PREPENDSVN(x) if (layout & (x)) {_tcscpy_s(textbuf, 255, _T("SVN "));_tcscat_s(textbuf, 255, stringtablebuffer);_tcscpy_s(stringtablebuffer, 255, textbuf);}
 	switch (id)
 	{
 		case SubMenu:

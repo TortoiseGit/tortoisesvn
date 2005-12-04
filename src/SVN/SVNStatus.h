@@ -115,7 +115,7 @@ public:
 	 * \param status the status enum
 	 * \param string a string representation
 	 */
-	static void GetStatusString(svn_wc_status_kind status, TCHAR * string);
+	static void GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR * string);
 	static void GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR * string, int size, WORD lang);
 
 	/**

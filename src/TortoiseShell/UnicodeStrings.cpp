@@ -136,7 +136,7 @@ int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax,
 	ret = pImage->nLength;
 	if (ret > nBufferMax)
 		ret = nBufferMax;
-	wcsncpy((wchar_t *)lpBuffer, pImage->achString, ret);
+	wcsncpy_s((wchar_t *)lpBuffer, nBufferMax, pImage->achString, ret);
 	lpBuffer[ret] = 0;
 #else
 	ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);

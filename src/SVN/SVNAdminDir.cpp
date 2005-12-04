@@ -38,7 +38,9 @@ bool SVNAdminDir::Init()
 	{
 		m_bVSNETHack = false;
 		m_pool = svn_pool_create(NULL);
-		if (getenv ("SVN_ASP_DOT_NET_HACK"))
+		size_t ret = 0;
+		getenv_s(&ret, NULL, 0, "SVN_ASP_DOT_NET_HACK");
+		if (ret)
 		{
 			svn_wc_set_adm_dir("_svn", m_pool);
 			m_bVSNETHack = true;
