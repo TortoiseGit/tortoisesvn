@@ -121,6 +121,8 @@ bool CSVNStatusCache::SaveCache()
 			WRITEVALUETOFILE(value);
 			for (CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin(); I != m_pInstance->m_directoryCache.end(); ++I)
 			{
+				if (I->second == NULL)
+					continue;
 				const CString& key = I->first.GetWinPathString();
 				value = key.GetLength();
 				WRITEVALUETOFILE(value);
