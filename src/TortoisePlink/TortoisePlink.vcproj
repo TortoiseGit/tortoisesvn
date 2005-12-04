@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
-	Name="TortoisePlink">
+	Version="8.00"
+	Name="TortoisePlink"
+	ProjectGUID="{B439B09E-7390-4CEB-A1DD-745CF976F2BB}"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\bin\Debug\bin"
 			IntermediateDirectory="..\..\obj\TortoisePlink\Debug"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE"
-			CharacterSet="2">
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TypeLibraryName=".\Debug/TortoisePlink.tlb"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
@@ -23,120 +46,161 @@
 				PreprocessorDefinitions="_DEBUG;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				ForceConformanceInForLoopScope="TRUE"
-				RuntimeTypeInfo="TRUE"
-				UsePrecompiledHeader="2"
+				ForceConformanceInForLoopScope="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
 				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
 				AssemblerListingLocation=""
 				ObjectFile="$(IntDir)/"
 				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
 				BrowseInformation="1"
 				WarningLevel="3"
-				SuppressStartupBanner="TRUE"
+				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
-				CompileAs="0"/>
+				CompileAs="0"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="Ws2_32.lib comctl32.lib wininet.lib Rpcrt4.lib"
 				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="2"
-				SuppressStartupBanner="TRUE"
+				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories=""
-				GenerateDebugInformation="TRUE"
+				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
-				SubSystem="2"/>
+				SubSystem="2"
+			/>
 			<Tool
-				Name="VCMIDLTool"
-				TypeLibraryName=".\Debug/TortoisePlink.tlb"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG"
-				Culture="1033"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCWebDeploymentTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\TortoisePlink\Release"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
-			WholeProgramOptimization="TRUE">
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TypeLibraryName=".\Release/TortoisePlink.tlb"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
-				OptimizeForWindowsApplication="TRUE"
 				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="NDEBUG;RELEASE=&quot;0.57&quot;;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT"
-				StringPooling="TRUE"
+				StringPooling="true"
 				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="TRUE"
-				ForceConformanceInForLoopScope="TRUE"
+				EnableFunctionLevelLinking="true"
+				ForceConformanceInForLoopScope="true"
 				UsePrecompiledHeader="0"
 				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
 				AssemblerListingLocation=""
 				ObjectFile="$(IntDir)/"
 				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
 				WarningLevel="3"
-				SuppressStartupBanner="TRUE"
-				CompileAs="0"/>
+				SuppressStartupBanner="true"
+				CompileAs="0"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="Ws2_32.lib comctl32.lib wininet.lib Rpcrt4.lib"
 				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="1"
-				SuppressStartupBanner="TRUE"
+				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
 				SubSystem="2"
-				OptimizeForWindows98="1"/>
+				OptimizeForWindows98="1"
+			/>
 			<Tool
-				Name="VCMIDLTool"
-				TypeLibraryName=".\Release/TortoisePlink.tlb"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-				Culture="1033"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCWebDeploymentTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -144,416 +208,552 @@
 	<Files>
 		<Filter
 			Name="Source Files"
-			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
+			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
+			>
 			<File
-				RelativePath=".\BE_ALL.C">
+				RelativePath=".\BE_ALL.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\CMDLINE.C">
+				RelativePath=".\CMDLINE.C"
+				>
 			</File>
 			<File
-				RelativePath=".\CONSOLE.C">
+				RelativePath=".\CONSOLE.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Cproxy.c">
+				RelativePath=".\Cproxy.c"
+				>
 			</File>
 			<File
-				RelativePath=".\LDISC.C">
+				RelativePath=".\LDISC.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\LOGGING.C">
+				RelativePath=".\LOGGING.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\LoginDialog.cpp">
+				RelativePath=".\LoginDialog.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\MISC.C">
+				RelativePath=".\MISC.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\NOISE.C">
+				RelativePath=".\NOISE.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\PAGEANTC.C">
+				RelativePath=".\PAGEANTC.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\PLINK.C">
+				RelativePath=".\PLINK.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\PORTFWD.C">
+				RelativePath=".\PORTFWD.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="PPROXY.C">
+				RelativePath="PPROXY.C"
+				>
 			</File>
 			<File
-				RelativePath=".\PROXY.C">
+				RelativePath=".\PROXY.C"
+				>
 			</File>
 			<File
-				RelativePath=".\RAW.C">
+				RelativePath=".\RAW.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\RLOGIN.C">
+				RelativePath=".\RLOGIN.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SETTINGS.C">
+				RelativePath=".\SETTINGS.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSH.C">
+				RelativePath=".\SSH.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHAES.C">
+				RelativePath=".\SSHAES.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHBLOWF.C">
+				RelativePath=".\SSHBLOWF.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHBN.C">
+				RelativePath=".\SSHBN.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHCRC.C">
+				RelativePath=".\SSHCRC.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHCRCDA.C">
+				RelativePath=".\SSHCRCDA.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHDES.C">
+				RelativePath=".\SSHDES.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHDH.C">
+				RelativePath=".\SSHDH.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHDSS.C">
+				RelativePath=".\SSHDSS.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHMD5.C">
+				RelativePath=".\SSHMD5.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHPUBK.C">
+				RelativePath=".\SSHPUBK.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHRAND.C">
+				RelativePath=".\SSHRAND.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHRSA.C">
+				RelativePath=".\SSHRSA.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHSH512.C">
+				RelativePath=".\SSHSH512.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHSHA.C">
+				RelativePath=".\SSHSHA.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SSHZLIB.C">
+				RelativePath=".\SSHZLIB.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\TELNET.C">
+				RelativePath=".\TELNET.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\TREE234.C">
+				RelativePath=".\TREE234.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\VERSION.C">
+				RelativePath=".\VERSION.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="WILDCARD.C">
+				RelativePath="WILDCARD.C"
+				>
 			</File>
 			<File
-				RelativePath="WINDEFS.C">
+				RelativePath="WINDEFS.C"
+				>
 			</File>
 			<File
-				RelativePath="WINMISC.C">
+				RelativePath="WINMISC.C"
+				>
 			</File>
 			<File
-				RelativePath=".\WINNET.C">
+				RelativePath=".\WINNET.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\WINSTORE.C">
+				RelativePath=".\WINSTORE.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\X11FWD.C">
+				RelativePath=".\X11FWD.C"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						DebugInformationFormat="3"/>
+						DebugInformationFormat="3"
+					/>
 				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl">
+			Filter="h;hpp;hxx;hm;inl"
+			>
 			<File
-				RelativePath=".\INT64.H">
+				RelativePath=".\INT64.H"
+				>
 			</File>
 			<File
-				RelativePath="LDISC.H">
+				RelativePath="LDISC.H"
+				>
 			</File>
 			<File
-				RelativePath="LoginDialog.h">
+				RelativePath="LoginDialog.h"
+				>
 			</File>
 			<File
-				RelativePath=".\MISC.H">
+				RelativePath=".\MISC.H"
+				>
 			</File>
 			<File
-				RelativePath=".\NETWORK.H">
+				RelativePath=".\NETWORK.H"
+				>
 			</File>
 			<File
-				RelativePath="PROXY.H">
+				RelativePath="PROXY.H"
+				>
 			</File>
 			<File
-				RelativePath=".\PUTTY.H">
+				RelativePath=".\PUTTY.H"
+				>
 			</File>
 			<File
-				RelativePath=".\PUTTYMEM.H">
+				RelativePath=".\PUTTYMEM.H"
+				>
 			</File>
 			<File
-				RelativePath="PUTTYPS.H">
+				RelativePath="PUTTYPS.H"
+				>
 			</File>
 			<File
-				RelativePath=".\RESOURCE.H">
+				RelativePath=".\RESOURCE.H"
+				>
 			</File>
 			<File
-				RelativePath=".\SFTP.H">
+				RelativePath=".\SFTP.H"
+				>
 			</File>
 			<File
-				RelativePath=".\SSH.H">
+				RelativePath=".\SSH.H"
+				>
 			</File>
 			<File
-				RelativePath=".\STORAGE.H">
+				RelativePath=".\STORAGE.H"
+				>
 			</File>
 			<File
-				RelativePath="TERMINAL.H">
+				RelativePath="TERMINAL.H"
+				>
 			</File>
 			<File
-				RelativePath="TortoisePlinkRes.h">
+				RelativePath="TortoisePlinkRes.h"
+				>
 			</File>
 			<File
-				RelativePath=".\TREE234.H">
+				RelativePath=".\TREE234.H"
+				>
 			</File>
 			<File
-				RelativePath=".\WIN_RES.H">
+				RelativePath=".\WIN_RES.H"
+				>
 			</File>
 			<File
-				RelativePath="WINHELP.H">
+				RelativePath="WINHELP.H"
+				>
 			</File>
 			<File
-				RelativePath=".\WINSTUFF.H">
+				RelativePath=".\WINSTUFF.H"
+				>
 			</File>
 			<File
-				RelativePath=".\WxWrapper.h">
+				RelativePath=".\WxWrapper.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
-			Filter="ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+			Filter="ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
+			>
 			<File
-				RelativePath=".\PLINK.RC">
+				RelativePath=".\PLINK.RC"
+				>
 			</File>
 			<File
-				RelativePath=".\PUTTY.ICO">
+				RelativePath=".\PUTTY.ICO"
+				>
 			</File>
 		</Filter>
 	</Files>
 	<Globals>
 		<Global
 			Name="DevPartner_IsInstrumented"
-			Value="0"/>
+			Value="0"
+		/>
 	</Globals>
 </VisualStudioProject>

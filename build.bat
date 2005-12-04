@@ -5,7 +5,7 @@ set startdir=%cd%
 rem
 rem build script for TortoiseSVN
 rem
-@if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
+@if "%VSINSTALLDIR%"=="" call "%VS80COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call TortoiseVars.bat
 
 set INCLUDE=%~dp0ext\svn-win32-libintl\inc;%INCLUDE%
@@ -38,7 +38,7 @@ rem OpenSSL
 echo ================================================================================
 echo building OpenSSL
 cd ..\common\openssl
-perl Configure VC-WIN32 enable-rc5 enable-mdc2 > NUL
+perl Configure VC-WIN32 -D_CRT_NONSTDC_NO_DEPRECATE -D_USE_32BIT_TIME_T > NUL
 call ms\do_masm
 call nmake -f ms\ntdll.mak
 @echo off
@@ -47,12 +47,34 @@ rem Subversion
 echo ================================================================================
 echo building Subversion
 cd %startdir%\ext\Subversion
-xcopy /Q /Y /I /E %startdir%\ext\berkeley-db\db4.3-win32 db4-win32
 rmdir /s /q build\win32\vcnet-vcproj
 del build\win32\build_*.bat
-echo 0.25.3> %startdir%\ext\neon\.version
-call python gen-make.py -t vcproj --with-openssl=..\..\..\Common\openssl --with-zlib=..\..\..\Common\zlib --with-neon=..\neon --with-apr=..\apr --with-apr-util=..\apr-util --with-apr-iconv=..\apr-iconv --enable-nls --enable-bdb-in-apr-util --vsnet-version=2003
-copy /Y %startdir%\ext\libaprutil.vcproj %startdir%\ext\apr-util\libaprutil.vcproj
+echo 0.25.4> %startdir%\ext\neon\.version
+
+:: Seems zlib can't be compiled with assembler on VS80, so patch the Subversion generator
+:: to not use the assembler
+copy %startdir%\gen_win.py %startdir%\ext\subversion\build\generator\gen_win.py /Y
+
+call python gen-make.py -t vcproj --with-openssl=..\..\..\Common\openssl --with-zlib=..\..\..\Common\zlib --with-neon=..\neon --with-apr=..\apr --with-apr-util=..\apr-util --with-apr-iconv=..\apr-iconv --enable-nls --with-berkeley-db=..\berkeley-db\db4.3-win32 --enable-bdb-in-apr-util --vsnet-version=2003
+
+:: now copy the VS80 project files and overwrite the generated ones
+:: we do this until Subversion is able to generate VS80 project files correctly
+copy %startdir%\ext\build\gen_uri_delims.vcproj %startdir%\ext\apr-util\uri\gen_uri_delims.vcproj /Y
+copy %startdir%\ext\build\libapr.vcproj %startdir%\ext\apr\libapr.vcproj /Y
+copy %startdir%\ext\build\libapriconv.vcproj %startdir%\ext\apr-iconv\libapriconv.vcproj /Y
+copy %startdir%\ext\build\libapriconv_ccs_modules.vcproj %startdir%\ext\apr-iconv\ccs\libapriconv_ccs_modules.vcproj /Y
+copy %startdir%\ext\build\libapriconv_ces_modules.vcproj %startdir%\ext\apr-iconv\ces\libapriconv_ces_modules.vcproj /Y
+copy %startdir%\ext\build\libaprutil.vcproj %startdir%\ext\apr-util\libaprutil.vcproj /Y
+copy %startdir%\ext\build\neon.vcproj %startdir%\ext\subversion\build\win32\neon.vcproj /Y
+copy %startdir%\ext\build\svn_config.vcproj %startdir%\ext\subversion\build\win32\svn_config.vcproj /Y
+copy %startdir%\ext\build\svn_locale.vcproj %startdir%\ext\subversion\build\win32\svn_locale.vcproj /Y
+copy %startdir%\ext\build\xml.vcproj %startdir%\ext\apr-util\xml\expat\lib\xml.vcproj /Y
+copy %startdir%\ext\build\zlib.vcproj %startdir%\ext\subversion\build\win32\zlib.vcproj /Y
+copy %startdir%\ext\build\subversion_vcnet.sln %startdir%\ext\subversion\subversion_vcnet.sln /Y
+copy %startdir%\ext\build\apr.hw %startdir%\ext\apr\include\apr.hw /Y
+copy %startdir%\ext\build\neon.mak %startdir%\ext\neon\neon.mak /Y
+copy /Y %startdir%\ext\build\svn\*.* build\win32\vcnet-vcproj
+
 rem the expat.h.in doesn't have the version information correctly set :(
 copy %startdir%\ext\apr-util\xml\expat\lib\expat.h.in %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy
 copy %startdir%\expat.h.in %startdir%\ext\apr-util\xml\expat\lib\expat.h.in /Y
@@ -101,6 +123,10 @@ copy %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy %startdir%\ext\apr-ut
 del %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy
 
 svn revert -R ext\apr-util
+svn revert -R ext\apr
+svn revert -R ext\apr-iconv
+svn revert -R ext\Subversion
+svn revert -R ext\neon
 
 @echo off
 rem TortoiseSVN
@@ -156,8 +182,10 @@ if DEFINED _DEBUG (
 
 echo ================================================================================
 echo building Scintilla
+copy ..\LexCaml.cxx Utils\scintilla\src\LexCaml.cxx /Y
 cd Utils\scintilla\win32
 nmake -f scintilla.mak
+svn revert ..\src\LexCaml.cxx
 copy ..\bin\SciLexer.dll ..\..\..\..\bin\debug\bin /Y > NUL
 copy ..\bin\SciLexer.dll ..\..\..\..\bin\release\bin /Y > NUL
 del ..\bin\*.dll > NUL

@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="8.00"
 	Name="TortoiseShell"
 	ProjectGUID="{E873DD32-5A31-4DE1-8341-A56A2A5489EA}"
-	SccProjectName=""
-	SccLocalPath="">
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\bin\Debug\bin"
 			IntermediateDirectory="..\..\obj\TortoiseShell\Debug"
 			ConfigurationType="2"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
 			UseOfATL="1"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE"
-			CharacterSet="1">
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="true"
+				SuppressStartupBanner="true"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Debug/TortoiseShell.tlb"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
@@ -28,138 +52,175 @@
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SVN_DEBUG;APU_HAVE_DB=1"
 				BasicRuntimeChecks="1"
 				RuntimeLibrary="3"
-				ForceConformanceInForLoopScope="TRUE"
-				RuntimeTypeInfo="TRUE"
-				UsePrecompiledHeader="3"
+				ForceConformanceInForLoopScope="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="2"
 				AssemblerListingLocation="..\..\obj\TortoiseShell\Debug/"
 				ObjectFile="..\..\obj\TortoiseShell\Debug/"
 				ProgramDataBaseFileName="..\..\obj\TortoiseShell\Debug/"
 				WarningLevel="4"
-				SuppressStartupBanner="TRUE"
+				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
-				CompileAs="0"/>
+				CompileAs="0"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG;TSVNSHELL"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
-				IgnoreImportLibrary="TRUE"
+				IgnoreImportLibrary="true"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_ra\libsvn_ra-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_client\libsvn_client-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_delta\libsvn_delta-1.lib ../../ext/apr\Debug\libapr.lib ../../ext/apr-util\Debug\libaprutil.lib ../../ext/apr-iconv\Debug\libapriconv.lib ../../ext/apr-util\xml\expat\lib\LibD\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				OutputFile="$(OutDir)/TortoiseSVN.dll"
 				LinkIncremental="0"
-				SuppressStartupBanner="TRUE"
-				IgnoreAllDefaultLibraries="FALSE"
+				SuppressStartupBanner="true"
+				IgnoreAllDefaultLibraries="false"
 				IgnoreDefaultLibraryNames="LIBC"
 				ModuleDefinitionFile=".\ShellExt.def"
-				GenerateDebugInformation="TRUE"
+				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TortoiseSVN.pdb"
 				ImportLibrary="..\..\obj\TortoiseShell\Debug/TortoiseSVN.lib"
-				TargetMachine="1"/>
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="TRUE"
-				SuppressStartupBanner="TRUE"
-				TargetEnvironment="1"
-				TypeLibraryName=".\Debug/TortoiseShell.tlb"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;TSVNSHELL"
-				Culture="1033"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCWebDeploymentTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\TortoiseShell\Release"
 			ConfigurationType="2"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
 			UseOfATL="1"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
-			WholeProgramOptimization="TRUE">
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="true"
+				SuppressStartupBanner="true"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Release/TortoiseShell.tlb"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				GlobalOptimizations="FALSE"
 				InlineFunctionExpansion="1"
-				EnableIntrinsicFunctions="TRUE"
+				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
-				OmitFramePointers="TRUE"
+				OmitFramePointers="true"
 				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;..\TortoiseShell;..\Utils;..\svn;&quot;..\..\ext\svn-win32-libintl\inc&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;APU_HAVE_DB=1"
-				StringPooling="TRUE"
+				StringPooling="true"
 				RuntimeLibrary="2"
-				BufferSecurityCheck="FALSE"
-				EnableFunctionLevelLinking="FALSE"
-				ForceConformanceInForLoopScope="TRUE"
-				UsePrecompiledHeader="3"
+				BufferSecurityCheck="false"
+				EnableFunctionLevelLinking="false"
+				ForceConformanceInForLoopScope="true"
+				UsePrecompiledHeader="2"
 				AssemblerListingLocation="..\..\obj\TortoiseShell\Release/"
 				ObjectFile="..\..\obj\TortoiseShell\Release/"
 				ProgramDataBaseFileName="..\..\obj\TortoiseShell\Release/"
 				WarningLevel="4"
-				SuppressStartupBanner="TRUE"
-				CompileAs="0"/>
+				SuppressStartupBanner="true"
+				CompileAs="0"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG;TSVNSHELL"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
-				IgnoreImportLibrary="TRUE"
+				IgnoreImportLibrary="true"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../ext/Subversion\Release\subversion_netless\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_delta\libsvn_delta-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_client\libsvn_client-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_ra\libsvn_ra-1.lib ../../ext/apr\Release\libapr.lib ../../ext/apr-util\Release\libaprutil.lib ../../ext/apr-iconv\Release\libapriconv.lib ../../ext/apr-util\xml\expat\lib\LibR\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				OutputFile="$(OutDir)/TortoiseSVN.dll"
 				LinkIncremental="1"
-				SuppressStartupBanner="TRUE"
+				SuppressStartupBanner="true"
 				IgnoreDefaultLibraryNames="libcd, libc, shell32"
 				ModuleDefinitionFile=".\ShellExt.def"
-				GenerateDebugInformation="TRUE"
+				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TortoiseShell.pdb"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				ImportLibrary="..\..\obj\TortoiseShell\Release/TortoiseSVN.lib"
-				TargetMachine="1"/>
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG"
-				MkTypLibCompatible="TRUE"
-				SuppressStartupBanner="TRUE"
-				TargetEnvironment="1"
-				TypeLibraryName=".\Release/TortoiseShell.tlb"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;TSVNSHELL"
-				Culture="1033"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCWebDeploymentTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -167,287 +228,396 @@
 	<Files>
 		<Filter
 			Name="Source Files"
-			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm"
+			>
 			<File
-				RelativePath="ColumnProvider.cpp">
+				RelativePath="ColumnProvider.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\ContextMenu.cpp">
+				RelativePath=".\ContextMenu.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\IconOverlay.cpp">
+				RelativePath=".\IconOverlay.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\ItemIDList.cpp">
+				RelativePath=".\ItemIDList.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\PIDL.cpp">
+				RelativePath=".\PIDL.cpp"
+				>
 			</File>
 			<File
-				RelativePath="PreserveChdir.cpp">
+				RelativePath="PreserveChdir.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ProgressDlg.cpp">
+				RelativePath="..\Utils\ProgressDlg.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\Registry.cpp">
+				RelativePath="..\Utils\Registry.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\RemoteCacheLink.cpp">
+				RelativePath=".\RemoteCacheLink.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\ShellExt.cpp">
+				RelativePath=".\ShellExt.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\ShellExt.def">
+				RelativePath=".\ShellExt.def"
+				>
 			</File>
 			<File
-				RelativePath=".\ShellExtClassFactory.cpp">
+				RelativePath=".\ShellExtClassFactory.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ShellUpdater.cpp">
+				RelativePath="..\Utils\ShellUpdater.cpp"
+				>
 			</File>
 			<File
-				RelativePath="stdafx.cpp">
+				RelativePath="stdafx.cpp"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
+						UsePrecompiledHeader="1"
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\Svn\SVNAdminDir.cpp">
-			</File>
-			<File
-				RelativePath="..\Svn\SVNHelpers.cpp">
-			</File>
-			<File
-				RelativePath="..\SVN\SVNProperties.cpp">
-			</File>
-			<File
-				RelativePath="SVNPropertyPage.cpp">
-			</File>
-			<File
-				RelativePath="..\SVN\SVNStatus.cpp">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="$(IntDir)/$(InputName)1.obj"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="$(IntDir)/$(InputName)1.obj"/>
+						UsePrecompiledHeader="1"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\TortoiseSVN.cpp">
+				RelativePath="..\Svn\SVNAdminDir.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\TSVNPath.cpp">
+				RelativePath="..\Svn\SVNHelpers.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\UnicodeStrings.cpp">
+				RelativePath="..\SVN\SVNProperties.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\UnicodeUtils.cpp">
+				RelativePath="SVNPropertyPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\SVN\SVNStatus.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						ObjectFile="$(IntDir)/$(InputName)1.obj"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						ObjectFile="$(IntDir)/$(InputName)1.obj"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\TortoiseSVN.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Svn\TSVNPath.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\UnicodeStrings.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\UnicodeUtils.cpp"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc">
+			Filter="h;hpp;hxx;hm;inl;inc"
+			>
 			<File
-				RelativePath=".\Globals.h">
+				RelativePath=".\Globals.h"
+				>
 			</File>
 			<File
-				RelativePath=".\Guids.h">
+				RelativePath=".\Guids.h"
+				>
 			</File>
 			<File
-				RelativePath=".\ItemIDList.h">
+				RelativePath=".\ItemIDList.h"
+				>
 			</File>
 			<File
-				RelativePath=".\PIDL.h">
+				RelativePath=".\PIDL.h"
+				>
 			</File>
 			<File
-				RelativePath="PreserveChdir.h">
+				RelativePath="PreserveChdir.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ProgressDlg.h">
+				RelativePath="..\Utils\ProgressDlg.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\registry.h">
+				RelativePath="..\Utils\registry.h"
+				>
 			</File>
 			<File
-				RelativePath=".\RemoteCacheLink.h">
+				RelativePath=".\RemoteCacheLink.h"
+				>
 			</File>
 			<File
-				RelativePath=".\resource.h">
+				RelativePath=".\resource.h"
+				>
 			</File>
 			<File
-				RelativePath=".\ShellCache.h">
+				RelativePath=".\ShellCache.h"
+				>
 			</File>
 			<File
-				RelativePath=".\ShellExt.h">
+				RelativePath=".\ShellExt.h"
+				>
 			</File>
 			<File
-				RelativePath=".\ShellExtClassFactory.h">
+				RelativePath=".\ShellExtClassFactory.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ShellUpdater.h">
+				RelativePath="..\Utils\ShellUpdater.h"
+				>
 			</File>
 			<File
-				RelativePath="stdafx.h">
+				RelativePath="stdafx.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNAdminDir.h">
+				RelativePath="..\Svn\SVNAdminDir.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNHelpers.h">
+				RelativePath="..\Svn\SVNHelpers.h"
+				>
 			</File>
 			<File
-				RelativePath="..\SVN\SVNProperties.h">
+				RelativePath="..\SVN\SVNProperties.h"
+				>
 			</File>
 			<File
-				RelativePath="SVNPropertyPage.h">
+				RelativePath="SVNPropertyPage.h"
+				>
 			</File>
 			<File
-				RelativePath="..\SVN\SVNStatus.h">
+				RelativePath="..\SVN\SVNStatus.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\TSVNPath.h">
+				RelativePath="..\Svn\TSVNPath.h"
+				>
 			</File>
 			<File
-				RelativePath=".\UnicodeStrings.h">
+				RelativePath=".\UnicodeStrings.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\UnicodeUtils.h">
+				RelativePath="..\Utils\UnicodeUtils.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest">
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest"
+			>
 			<File
-				RelativePath="..\Resources\menuabout.ico">
+				RelativePath="..\Resources\menuabout.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuadd.ico">
+				RelativePath="..\Resources\menuadd.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menublame.ico">
+				RelativePath="..\Resources\menublame.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menucheckout.ico">
+				RelativePath="..\Resources\menucheckout.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menucleanup.ico">
+				RelativePath="..\Resources\menucleanup.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menucommit.ico">
+				RelativePath="..\Resources\menucommit.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menucompare.ico">
+				RelativePath="..\Resources\menucompare.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuconflict.ico">
+				RelativePath="..\Resources\menuconflict.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menucopy.ico">
+				RelativePath="..\Resources\menucopy.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menucreaterepos.ico">
+				RelativePath="..\Resources\menucreaterepos.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menudelete.ico">
+				RelativePath="..\Resources\menudelete.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menudiff.ico">
+				RelativePath="..\Resources\menudiff.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuexport.ico">
+				RelativePath="..\Resources\menuexport.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuhelp.ico">
+				RelativePath="..\Resources\menuhelp.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuignore.ico">
+				RelativePath="..\Resources\menuignore.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuimport.ico">
+				RelativePath="..\Resources\menuimport.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menulock.ico">
+				RelativePath="..\Resources\menulock.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menulog.ico">
+				RelativePath="..\Resources\menulog.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menumerge.ico">
+				RelativePath="..\Resources\menumerge.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menupatch.ico">
+				RelativePath="..\Resources\menupatch.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menurelocate.ico">
+				RelativePath="..\Resources\menurelocate.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menurename.ico">
+				RelativePath="..\Resources\menurename.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menurepobrowse.ico">
+				RelativePath="..\Resources\menurepobrowse.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuresolve.ico">
+				RelativePath="..\Resources\menuresolve.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menurevert.ico">
+				RelativePath="..\Resources\menurevert.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menurevisiongraph.ico">
+				RelativePath="..\Resources\menurevisiongraph.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menusettings.ico">
+				RelativePath="..\Resources\menusettings.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menushowchanged.ico">
+				RelativePath="..\Resources\menushowchanged.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuswitch.ico">
+				RelativePath="..\Resources\menuswitch.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuunlock.ico">
+				RelativePath="..\Resources\menuunlock.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\menuupdate.ico">
+				RelativePath="..\Resources\menuupdate.ico"
+				>
 			</File>
 			<File
-				RelativePath=".\resource.rc">
+				RelativePath=".\resource.rc"
+				>
 			</File>
 			<File
-				RelativePath=".\resource.rc2">
+				RelativePath=".\resource.rc2"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\Tortoise.ico">
+				RelativePath="..\Resources\Tortoise.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\Tortoise16by16.ico">
+				RelativePath="..\Resources\Tortoise16by16.ico"
+				>
 			</File>
 			<File
-				RelativePath=".\TortoiseSVN.dll.manifest">
+				RelativePath=".\TortoiseSVN.dll.manifest"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 		</Filter>
 	</Files>
 	<Globals>
 		<Global
 			Name="DevPartner_IsInstrumented"
-			Value="0"/>
+			Value="0"
+		/>
 	</Globals>
 </VisualStudioProject>

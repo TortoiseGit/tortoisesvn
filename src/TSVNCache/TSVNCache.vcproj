@@ -1,124 +1,188 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="8.00"
 	Name="TSVNCache"
 	ProjectGUID="{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}"
-	Keyword="Win32Proj">
+	Keyword="Win32Proj"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\Bin\Debug\Bin"
 			IntermediateDirectory="..\..\obj\TSVNCache\Debug"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfATL="1"
-			CharacterSet="1">
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;../Utils;..\TortoiseShell;..\SVN;..\..\ext\gettext\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;UNICODE;_UNICODE"
-				MinimalRebuild="TRUE"
+				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				SmallerTypeCheck="TRUE"
+				SmallerTypeCheck="true"
 				RuntimeLibrary="2"
-				TreatWChar_tAsBuiltInType="TRUE"
-				ForceConformanceInForLoopScope="TRUE"
-				UsePrecompiledHeader="3"
+				TreatWChar_tAsBuiltInType="true"
+				ForceConformanceInForLoopScope="true"
+				UsePrecompiledHeader="2"
 				WarningLevel="4"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="4"/>
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="4"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
-				IgnoreImportLibrary="TRUE"
+				IgnoreImportLibrary="true"
 				AdditionalDependencies="../../ext/Subversion\Debug\subversion_netless\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_ra\libsvn_ra-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_client\libsvn_client-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_delta\libsvn_delta-1.lib ../../ext/apr\Debug\libapr.lib ../../ext/apr-util\Debug\libaprutil.lib ../../ext/apr-iconv\Debug\libapriconv.lib ../../ext/apr-util\xml\expat\lib\LibD\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				OutputFile="$(OutDir)/TSVNCache.exe"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="LIBC"
-				GenerateDebugInformation="TRUE"
+				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TSVNCache.pdb"
 				SubSystem="2"
-				TargetMachine="1"/>
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCMIDLTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCWebDeploymentTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\TSVNCache\Release"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfATL="1"
 			CharacterSet="1"
-			WholeProgramOptimization="TRUE">
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="2"
 				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;../Utils;..\TortoiseShell;..\SVN;..\..\ext\gettext\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;UNICODE;_UNICODE"
 				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="TRUE"
-				TreatWChar_tAsBuiltInType="TRUE"
-				ForceConformanceInForLoopScope="TRUE"
-				UsePrecompiledHeader="3"
+				EnableFunctionLevelLinking="true"
+				TreatWChar_tAsBuiltInType="true"
+				ForceConformanceInForLoopScope="true"
+				UsePrecompiledHeader="2"
 				WarningLevel="4"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="3"/>
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="3"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="../../ext/Subversion\Release\subversion_netless\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_delta\libsvn_delta-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_client\libsvn_client-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_ra\libsvn_ra-1.lib ../../ext/apr\Release\libapr.lib ../../ext/apr-util\Release\libaprutil.lib ../../ext/apr-iconv\Release\libapriconv.lib ../../ext/apr-util\xml\expat\lib\LibR\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				OutputFile="$(OutDir)/TSVNCache.exe"
 				LinkIncremental="1"
-				GenerateDebugInformation="TRUE"
+				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				TargetMachine="1"/>
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCMIDLTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCWebDeploymentTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -127,143 +191,188 @@
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
 			<File
-				RelativePath=".\CachedDirectory.cpp">
+				RelativePath=".\CachedDirectory.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\DirectoryWatcher.cpp">
+				RelativePath=".\DirectoryWatcher.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\FolderCrawler.cpp">
+				RelativePath=".\FolderCrawler.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\Registry.cpp">
+				RelativePath="..\Utils\Registry.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\RWSection.cpp">
+				RelativePath="..\Utils\RWSection.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\SecAttribs.cpp">
+				RelativePath=".\SecAttribs.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\ShellUpdater.cpp">
+				RelativePath=".\ShellUpdater.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\StatusCacheEntry.cpp">
+				RelativePath=".\StatusCacheEntry.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\stdafx.cpp">
+				RelativePath=".\stdafx.cpp"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
+						UsePrecompiledHeader="1"
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
+						UsePrecompiledHeader="1"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNAdminDir.cpp">
+				RelativePath="..\Svn\SVNAdminDir.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNHelpers.cpp">
+				RelativePath="..\Svn\SVNHelpers.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNStatus.cpp">
+				RelativePath="..\Svn\SVNStatus.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\SVNStatusCache.cpp">
+				RelativePath=".\SVNStatusCache.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\TSVNCache.cpp">
+				RelativePath=".\TSVNCache.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\TSVNPath.cpp">
+				RelativePath="..\Svn\TSVNPath.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\UnicodeUtils.cpp">
+				RelativePath="..\Utils\UnicodeUtils.cpp"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
 			<File
-				RelativePath=".\CachedDirectory.h">
+				RelativePath=".\CachedDirectory.h"
+				>
 			</File>
 			<File
-				RelativePath=".\CacheInterface.h">
+				RelativePath=".\CacheInterface.h"
+				>
 			</File>
 			<File
-				RelativePath=".\DirectoryWatcher.h">
+				RelativePath=".\DirectoryWatcher.h"
+				>
 			</File>
 			<File
-				RelativePath=".\FolderCrawler.h">
+				RelativePath=".\FolderCrawler.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\registry.h">
+				RelativePath="..\Utils\registry.h"
+				>
 			</File>
 			<File
-				RelativePath=".\resource.h">
+				RelativePath=".\resource.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\RWSection.h">
+				RelativePath="..\Utils\RWSection.h"
+				>
 			</File>
 			<File
-				RelativePath=".\SecAttribs.h">
+				RelativePath=".\SecAttribs.h"
+				>
 			</File>
 			<File
-				RelativePath="..\TortoiseShell\ShellCache.h">
+				RelativePath="..\TortoiseShell\ShellCache.h"
+				>
 			</File>
 			<File
-				RelativePath=".\ShellUpdater.h">
+				RelativePath=".\ShellUpdater.h"
+				>
 			</File>
 			<File
-				RelativePath=".\StatusCacheEntry.h">
+				RelativePath=".\StatusCacheEntry.h"
+				>
 			</File>
 			<File
-				RelativePath=".\stdafx.h">
+				RelativePath=".\stdafx.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNAdminDir.h">
+				RelativePath="..\Svn\SVNAdminDir.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNHelpers.h">
+				RelativePath="..\Svn\SVNHelpers.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNStatus.h">
+				RelativePath="..\Svn\SVNStatus.h"
+				>
 			</File>
 			<File
-				RelativePath=".\SVNStatusCache.h">
+				RelativePath=".\SVNStatusCache.h"
+				>
 			</File>
 			<File
-				RelativePath=".\TSVNCache.h">
+				RelativePath=".\TSVNCache.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\TSVNPath.h">
+				RelativePath="..\Svn\TSVNPath.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\UnicodeUtils.h">
+				RelativePath="..\Utils\UnicodeUtils.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
 			<File
-				RelativePath="..\Resources\Tortoise.ico">
+				RelativePath="..\Resources\Tortoise.ico"
+				>
 			</File>
 			<File
-				RelativePath=".\TSVNCache.rc">
+				RelativePath=".\TSVNCache.rc"
+				>
 			</File>
 		</Filter>
 		<File
-			RelativePath=".\ReadMe.txt">
+			RelativePath=".\ReadMe.txt"
+			>
 		</File>
 	</Files>
 	<Globals>

@@ -538,8 +538,11 @@ public:
 						ATLTRACE("matched id : %ws\n", results.backref(i).str().c_str());
 					}
 				}
-				offset1 += results.rstart(0);
-				offset1 += results.rlength(0);
+				if (br.matched)
+				{
+					offset1 += results.rstart(0);
+					offset1 += results.rlength(0);
+				}
 			} while(br.matched);
 			msg.ReleaseBuffer();
 		}

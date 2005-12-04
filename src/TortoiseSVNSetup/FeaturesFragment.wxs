@@ -15,7 +15,6 @@
 			<ComponentRef Id="C__TortoiseMerge" />
 			<ComponentRef Id="C__TortoiseMergeShortcuts" />
 			<ComponentRef Id="C__TortoiseBlame" />
-			<ComponentRef Id="C__CRuntimeSTLMFC" />
 			<ComponentRef Id="C__shellregistry" />
 			<ComponentRef Id="C__machineregistry" />
 			<ComponentRef Id="C__svnprotocoll" />
@@ -24,6 +23,11 @@
 			<ComponentRef Id="C__Sounds" />
 			<ComponentRef Id="C__DiffScripts" />
 			<ComponentRef Id="C__iconsxpstyle" />
+			<MergeRef Id='CRT' />
+			<MergeRef Id='CRT Policy' />
+			<MergeRef Id='MFC' />
+			<MergeRef Id='MFC Policy' />
+
 
 			<Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install">
 				<ComponentRef Id="C__iconscvsclassic" />

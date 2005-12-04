@@ -6,6 +6,12 @@
 			<Directory Id="D__ProgramFilesFolder" Name="PFiles" LongName="Program Files">
 				<Directory Id="INSTALLDIR" Name="TSVN" LongName="TortoiseSVN">
 
+					<Merge Id='CRT' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\microsoft_vc80_crt_x86.msm' DiskId='1' />
+					<Merge Id='CRT Policy' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\policy_8_0_Microsoft_VC80_CRT_x86.msm' DiskId='1' />
+					<Merge Id='MFC' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+					<Merge Id='MFC Policy' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+
+
 					<Component Id="C__ProgramMenuFolder" Guid="46F6E6A9-843F-4039-8F6C-450953BB47F2" >
 
 						<RemoveFolder Directory="INSTALLDIR" On="uninstall" Id="RemoveFolder_INSTALLDIR" />
@@ -156,7 +162,7 @@
 						</Component>
 
 						<Component Id="C__berkeleydb" Guid="DFD268E2-1B3B-4341-9243-E028E1416040" >
-							<File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\Subversion\db4-win32\bin\libdb43.dll" KeyPath="yes" />
+							<File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-win32\bin\libdb43.dll" KeyPath="yes" />
 						</Component>
 
 						<Component Id="C__apr" Guid="A1388B55-1EC3-4199-9EF7-72DDA13F164A" >
@@ -208,13 +214,6 @@
 							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseMerge" Value="TortoiseMerge" Type="string" />
 							<Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TMERGE" LongName="TortoiseMerge" Advertise="no"
 								Target="[INSTALLDIR]bin\TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
-						</Component>
-
-						<Component Id="C__CRuntimeSTLMFC" Guid="DC08A867-1436-4DCE-8907-F1E2FCFCA02A" >
-							<File Id="F__msvcr71" Name="MSVCR71.DLL" LongName="msvcr71.dll" DiskId="1" src="$(env.windir)\system32\msvcr71.dll" KeyPath="yes" />
-							<File Id="F__mfc71u" Name="MFC71U.DLL" LongName="mfc71u.dll" DiskId="1" src="$(env.windir)\system32\mfc71u.dll" />
-							<File Id="F__mfc71" Name="MFC71.DLL" LongName="mfc71.dll" DiskId="1" src="$(env.windir)\system32\mfc71.dll" />
-							<File Id="F__msvcp71" Name="MSVCP71.DLL" LongName="msvcp71.dll" DiskId="1" src="$(env.windir)\system32\msvcp71.dll" />
 						</Component>
 
 						<Component Id="C__Sounds" Guid="8C3F26B0-D4EE-4EB9-8E88-9FA60AD48B83" >

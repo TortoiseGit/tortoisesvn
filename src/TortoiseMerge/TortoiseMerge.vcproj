@@ -1,130 +1,193 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="8.00"
 	Name="TortoiseMerge"
 	ProjectGUID="{8ABB4F84-891A-4748-8507-F5494842173E}"
 	RootNamespace="TortoiseMerge"
-	Keyword="MFCProj">
+	Keyword="MFCProj"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\bin\Debug\bin"
 			IntermediateDirectory="..\..\obj\TortoiseMerge\Debug"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="2"
-			CharacterSet="1">
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="false"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\SubVersion\subversion\include;..\..\ext\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
-				MinimalRebuild="TRUE"
+				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				TreatWChar_tAsBuiltInType="TRUE"
-				ForceConformanceInForLoopScope="TRUE"
-				UsePrecompiledHeader="3"
+				TreatWChar_tAsBuiltInType="true"
+				ForceConformanceInForLoopScope="true"
+				UsePrecompiledHeader="2"
 				WarningLevel="4"
-				DebugInformationFormat="4"/>
+				DebugInformationFormat="4"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../ext/Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../ext/apr\Debug\libapr.lib ../../ext/apr-util\Debug\libaprutil.lib ../../ext/apr-iconv\Debug\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib ../../ext/Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../ext/apr-util\xml\expat\lib\LibD\xml.lib"
-				LinkIncremental="2"
-				GenerateDebugInformation="TRUE"
-				SubSystem="2"
-				TargetMachine="1"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="FALSE"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG"
 				Culture="1033"
-				AdditionalIncludeDirectories="$(IntDir)"/>
+				AdditionalIncludeDirectories="$(IntDir)"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCLinkerTool"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../ext/Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../ext/apr\Debug\libapr.lib ../../ext/apr-util\Debug\libaprutil.lib ../../ext/apr-iconv\Debug\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib ../../ext/Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../ext/apr-util\xml\expat\lib\LibD\xml.lib"
+				LinkIncremental="2"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\TortoiseMerge\Release"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="2"
 			CharacterSet="1"
-			ManagedExtensions="FALSE"
-			WholeProgramOptimization="TRUE">
+			ManagedExtensions="0"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="false"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				FavorSizeOrSpeed="2"
-				OptimizeForWindowsApplication="TRUE"
 				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
-				MinimalRebuild="FALSE"
+				MinimalRebuild="false"
 				RuntimeLibrary="2"
-				TreatWChar_tAsBuiltInType="TRUE"
-				ForceConformanceInForLoopScope="TRUE"
-				UsePrecompiledHeader="3"
+				TreatWChar_tAsBuiltInType="true"
+				ForceConformanceInForLoopScope="true"
+				UsePrecompiledHeader="2"
 				WarningLevel="4"
-				DebugInformationFormat="3"/>
+				DebugInformationFormat="3"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../ext/Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../ext/apr\Release\libapr.lib ../../ext/apr-util\Release\libaprutil.lib ../../ext/apr-iconv\Release\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib ../../ext/Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../ext/apr-util\xml\expat\lib\LibR\xml.lib"
-				LinkIncremental="1"
-				GenerateDebugInformation="TRUE"
-				SubSystem="2"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				TargetMachine="1"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG"
-				MkTypLibCompatible="FALSE"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
 				Culture="1033"
-				AdditionalIncludeDirectories="$(IntDir)"/>
+				AdditionalIncludeDirectories="$(IntDir)"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCLinkerTool"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../ext/Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../ext/apr\Release\libapr.lib ../../ext/apr-util\Release\libaprutil.lib ../../ext/apr-iconv\Release\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib ../../ext/Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../ext/apr-util\xml\expat\lib\LibR\xml.lib"
+				LinkIncremental="1"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -133,340 +196,466 @@
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
 			<File
-				RelativePath=".\AboutDlg.cpp">
+				RelativePath=".\AboutDlg.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\BaseView.cpp">
+				RelativePath=".\BaseView.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\BottomView.cpp">
+				RelativePath=".\BottomView.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\BrowseFolder.cpp">
+				RelativePath="..\Utils\BrowseFolder.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\CmdLineParser.cpp">
+				RelativePath="..\Utils\CmdLineParser.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.cpp">
+				RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\DIB.cpp">
+				RelativePath="..\Utils\DIB.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\DiffData.cpp">
+				RelativePath=".\DiffData.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\DirFileEnum.cpp">
+				RelativePath="..\Utils\DirFileEnum.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\DragDropImpl.cpp">
+				RelativePath="..\Utils\DragDropImpl.cpp"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
+						UsePrecompiledHeader="0"
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\Utils\FileDropEdit.cpp">
-			</File>
-			<File
-				RelativePath=".\FilePatchesDlg.cpp">
-			</File>
-			<File
-				RelativePath=".\FileTextLines.cpp">
-			</File>
-			<File
-				RelativePath="..\Utils\FontPreviewCombo.cpp">
-			</File>
-			<File
-				RelativePath="..\Utils\HTMLFormatter.cpp">
-			</File>
-			<File
-				RelativePath="..\Utils\HyperLink.cpp">
-			</File>
-			<File
-				RelativePath=".\LeftView.cpp">
-			</File>
-			<File
-				RelativePath=".\LineDiffBar.cpp">
-			</File>
-			<File
-				RelativePath=".\LocatorBar.cpp">
-			</File>
-			<File
-				RelativePath=".\MainFrm.cpp">
-			</File>
-			<File
-				RelativePath="..\Utils\MessageBox.cpp">
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewMenu.cpp">
-			</File>
-			<File
-				RelativePath="..\Utils\NewMenu\NewToolBar.cpp">
-			</File>
-			<File
-				RelativePath=".\OpenDlg.cpp">
-			</File>
-			<File
-				RelativePath=".\Patch.cpp">
-			</File>
-			<File
-				RelativePath="..\Utils\ProgressDlg.cpp">
-			</File>
-			<File
-				RelativePath="..\Utils\Registry.cpp">
-			</File>
-			<File
-				RelativePath=".\RightView.cpp">
-			</File>
-			<File
-				RelativePath=".\SetColorPage.cpp">
-			</File>
-			<File
-				RelativePath=".\SetMainPage.cpp">
-			</File>
-			<File
-				RelativePath=".\Settings.cpp">
-			</File>
-			<File
-				RelativePath=".\stdafx.cpp">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
+						UsePrecompiledHeader="0"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNAdminDir.cpp">
+				RelativePath="..\Utils\FileDropEdit.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\TempFiles.cpp">
+				RelativePath=".\FilePatchesDlg.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\TortoiseMerge.cpp">
+				RelativePath=".\FileTextLines.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\UnicodeUtils.cpp">
+				RelativePath="..\Utils\FontPreviewCombo.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\Utils.cpp">
+				RelativePath="..\Utils\HTMLFormatter.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\WaterEffect.cpp">
+				RelativePath="..\Utils\HyperLink.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\WorkingFile.cpp">
+				RelativePath=".\LeftView.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ColourPickerXP\XPTheme.cpp">
+				RelativePath=".\LineDiffBar.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\XSplitter.cpp">
+				RelativePath=".\LocatorBar.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\MainFrm.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\MessageBox.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\NewMenu\NewMenu.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\NewMenu\NewToolBar.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\OpenDlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Patch.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\ProgressDlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\Registry.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\RightView.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\SetColorPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\SetMainPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Settings.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\stdafx.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\Svn\SVNAdminDir.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\TempFiles.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\TortoiseMerge.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\UnicodeUtils.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Utils.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\WaterEffect.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\WorkingFile.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Utils\ColourPickerXP\XPTheme.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\XSplitter.cpp"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
 			<File
-				RelativePath=".\AboutDlg.h">
+				RelativePath=".\AboutDlg.h"
+				>
 			</File>
 			<File
-				RelativePath=".\BaseView.h">
+				RelativePath=".\BaseView.h"
+				>
 			</File>
 			<File
-				RelativePath=".\BottomView.h">
+				RelativePath=".\BottomView.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\BrowseFolder.h">
+				RelativePath="..\Utils\BrowseFolder.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\CApr.h">
+				RelativePath="..\Utils\CApr.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\CmdLineParser.h">
+				RelativePath="..\Utils\CmdLineParser.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.h">
+				RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\DIB.h">
+				RelativePath="..\Utils\DIB.h"
+				>
 			</File>
 			<File
-				RelativePath=".\DiffData.h">
+				RelativePath=".\DiffData.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\DirFileEnum.h">
+				RelativePath="..\Utils\DirFileEnum.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\DragDropImpl.h">
+				RelativePath="..\Utils\DragDropImpl.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\FileDropEdit.h">
+				RelativePath="..\Utils\FileDropEdit.h"
+				>
 			</File>
 			<File
-				RelativePath=".\FilePatchesDlg.h">
+				RelativePath=".\FilePatchesDlg.h"
+				>
 			</File>
 			<File
-				RelativePath=".\FileTextLines.h">
+				RelativePath=".\FileTextLines.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\FontPreviewCombo.h">
+				RelativePath="..\Utils\FontPreviewCombo.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\HTMLFormatter.h">
+				RelativePath="..\Utils\HTMLFormatter.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\HyperLink.h">
+				RelativePath="..\Utils\HyperLink.h"
+				>
 			</File>
 			<File
-				RelativePath=".\LeftView.h">
+				RelativePath=".\LeftView.h"
+				>
 			</File>
 			<File
-				RelativePath=".\LineDiffBar.h">
+				RelativePath=".\LineDiffBar.h"
+				>
 			</File>
 			<File
-				RelativePath=".\LocatorBar.h">
+				RelativePath=".\LocatorBar.h"
+				>
 			</File>
 			<File
-				RelativePath=".\MainFrm.h">
+				RelativePath=".\MainFrm.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\MemDC.h">
+				RelativePath="..\Utils\MemDC.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\MessageBox.h">
+				RelativePath="..\Utils\MessageBox.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\NewMenu\NewMenu.h">
+				RelativePath="..\Utils\NewMenu\NewMenu.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\NewMenu\NewToolBar.h">
+				RelativePath="..\Utils\NewMenu\NewToolBar.h"
+				>
 			</File>
 			<File
-				RelativePath=".\OpenDlg.h">
+				RelativePath=".\OpenDlg.h"
+				>
 			</File>
 			<File
-				RelativePath=".\Patch.h">
+				RelativePath=".\Patch.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ProgressDlg.h">
+				RelativePath="..\Utils\ProgressDlg.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\registry.h">
+				RelativePath="..\Utils\registry.h"
+				>
 			</File>
 			<File
-				RelativePath=".\resource.h">
+				RelativePath=".\resource.h"
+				>
 			</File>
 			<File
-				RelativePath=".\RightView.h">
+				RelativePath=".\RightView.h"
+				>
 			</File>
 			<File
-				RelativePath=".\SetColorPage.h">
+				RelativePath=".\SetColorPage.h"
+				>
 			</File>
 			<File
-				RelativePath=".\SetMainPage.h">
+				RelativePath=".\SetMainPage.h"
+				>
 			</File>
 			<File
-				RelativePath=".\Settings.h">
+				RelativePath=".\Settings.h"
+				>
 			</File>
 			<File
-				RelativePath=".\stdafx.h">
+				RelativePath=".\stdafx.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Svn\SVNAdminDir.h">
+				RelativePath="..\Svn\SVNAdminDir.h"
+				>
 			</File>
 			<File
-				RelativePath=".\TempFiles.h">
+				RelativePath=".\TempFiles.h"
+				>
 			</File>
 			<File
-				RelativePath=".\TortoiseMerge.h">
+				RelativePath=".\TortoiseMerge.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\UnicodeUtils.h">
+				RelativePath="..\Utils\UnicodeUtils.h"
+				>
 			</File>
 			<File
-				RelativePath=".\Utils.h">
+				RelativePath=".\Utils.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\WaterEffect.h">
+				RelativePath="..\Utils\WaterEffect.h"
+				>
 			</File>
 			<File
-				RelativePath=".\WorkingFile.h">
+				RelativePath=".\WorkingFile.h"
+				>
 			</File>
 			<File
-				RelativePath="..\Utils\ColourPickerXP\XPTheme.h">
+				RelativePath="..\Utils\ColourPickerXP\XPTheme.h"
+				>
 			</File>
 			<File
-				RelativePath=".\XSplitter.h">
+				RelativePath=".\XSplitter.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
 			<File
-				RelativePath="..\Resources\download.avi">
+				RelativePath="..\Resources\download.avi"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\lineadded.ico">
+				RelativePath="..\Resources\lineadded.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\lineconflicted.ico">
+				RelativePath="..\Resources\lineconflicted.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\lineremoved.ico">
+				RelativePath="..\Resources\lineremoved.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\Toolbar.bmp">
+				RelativePath="..\Resources\Toolbar.bmp"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\TortoiseMerge.ico">
+				RelativePath="..\Resources\TortoiseMerge.ico"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\TortoiseMerge.manifest">
+				RelativePath="..\Resources\TortoiseMerge.manifest"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\Resources\TortoiseMerge.rc2">
+				RelativePath="..\Resources\TortoiseMerge.rc2"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\tortoisemerge_logoflipped.bmp">
+				RelativePath="..\Resources\tortoisemerge_logoflipped.bmp"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\TortoiseMergeENG.rc">
+				RelativePath="..\Resources\TortoiseMergeENG.rc"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\tortoisesvn_logoflipped.bmp">
+				RelativePath="..\Resources\tortoisesvn_logoflipped.bmp"
+				>
 			</File>
 			<File
-				RelativePath="..\Resources\ttf_glyph.bmp">
+				RelativePath="..\Resources\ttf_glyph.bmp"
+				>
 			</File>
 		</Filter>
 	</Files>
 	<Globals>
 		<Global
 			Name="DevPartner_IsInstrumented"
-			Value="0"/>
+			Value="0"
+		/>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc"/>
+			Value="\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc"
+		/>
 	</Globals>
 </VisualStudioProject>

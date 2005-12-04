@@ -2,7 +2,6 @@
 // Microsoft Visual C++ generated include file.
 // Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
 //
-#define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   100
 #define IDP_OLE_INIT_FAILED             101
 #define IDD_SETMAINPAGE                 107

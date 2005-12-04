@@ -45,6 +45,8 @@ CComCriticalSection	g_csCacheGuard;
 
 extern std::set<CShellExt *> g_exts;
 
+#pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='X86' publicKeyToken='6595b64144ccf1df' language='*'\"")
+
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 {

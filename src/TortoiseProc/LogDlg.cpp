@@ -1615,7 +1615,8 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				match_results results;
 				match_results::backref_type br;
 				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
-				br = pat.match( (LPCTSTR)pLogEntry->sMessage, results );
+
+				br = pat.match( restring((LPCTSTR)pLogEntry->sMessage), results );
 				if (br.matched)
 				{
 					bFound = true;
@@ -1625,14 +1626,14 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 				{
 					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-					br = pat.match( (LPCTSTR)cpath->sCopyFromPath, results);
+					br = pat.match( restring ((LPCTSTR)cpath->sCopyFromPath), results);
 					if (br.matched)
 					{
 						bFound = true;
 						--i;
 						break;
 					}
-					br = pat.match( (LPCTSTR)cpath->sPath, results);
+					br = pat.match( restring ((LPCTSTR)cpath->sPath), results);
 					if (br.matched)
 					{
 						bFound = true;
@@ -2654,7 +2655,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 				match_results::backref_type br;
 				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
 				{
-					br = pat.match( (LPCTSTR)m_logEntries[i]->sMessage, results );
+					br = pat.match( restring ((LPCTSTR)m_logEntries[i]->sMessage), results );
 					if ((br.matched)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(m_logEntries[i]);
@@ -2669,21 +2670,21 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-						br = pat.match( (LPCTSTR)cpath->sCopyFromPath, results);
+						br = pat.match( restring ((LPCTSTR)cpath->sCopyFromPath), results);
 						if ((br.matched)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(m_logEntries[i]);
 							bGoing = false;
 							continue;
 						}
-						br = pat.match( (LPCTSTR)cpath->sPath, results);
+						br = pat.match( restring ((LPCTSTR)cpath->sPath), results);
 						if ((br.matched)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(m_logEntries[i]);
 							bGoing = false;
 							continue;
 						}
-						br = pat.match( (LPCTSTR)cpath->sAction, results);
+						br = pat.match( restring ((LPCTSTR)cpath->sAction), results);
 						if ((br.matched)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(m_logEntries[i]);
@@ -2696,7 +2697,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 				}
 				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
 				{
-					br = pat.match( (LPCTSTR)m_logEntries[i]->sAuthor, results );
+					br = pat.match( restring ((LPCTSTR)m_logEntries[i]->sAuthor), results );
 					if ((br.matched)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(m_logEntries[i]);
@@ -2706,7 +2707,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
 				{
 					sRev.Format(_T("%ld"), m_logEntries[i]->dwRev);
-					br = pat.match( (LPCTSTR)sRev, results );
+					br = pat.match( restring ((LPCTSTR)sRev), results );
 					if ((br.matched)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(m_logEntries[i]);

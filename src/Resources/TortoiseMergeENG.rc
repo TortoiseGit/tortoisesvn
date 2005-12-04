@@ -23,13 +23,6 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "TortoiseMerge.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Icon
 //
 
@@ -46,22 +39,18 @@ IDI_CONFLICTEDLINE      ICON                    "lineconflicted.ico"
 //
 
 IDD_ABOUT DIALOGEX 0, 0, 333, 249
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About TortoiseMerge"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "Author:                        Stefan Kueng",IDC_STATIC,
                     "Static",SS_LEFTNOWORDWRAP | WS_GROUP,14,68,117,8
-    LTEXT           "Icons/Design/Code:     Luebbe Onken",IDC_STATIC,14,80,
-                    120,8
+    LTEXT           "Icons/Design/Code:     Luebbe Onken",IDC_STATIC,14,80,120,8
     DEFPUSHBUTTON   "&OK",IDOK,276,228,50,14
     GROUPBOX        "Version",IDC_VERSIONBOX,7,123,319,99
-    EDITTEXT        IDC_VERSIONABOUT,14,134,304,85,ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_VERSIONABOUT,14,134,304,85,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     LTEXT           "Visit our website",IDC_WEBLINK,14,95,312,8
-    LTEXT           "and support the developers",IDC_SUPPORTLINK,14,105,312,
-                    8
+    LTEXT           "and support the developers",IDC_SUPPORTLINK,14,105,312,8
 END
 
 IDD_DIFFLOCATOR DIALOGEX 0, 0, 20, 314
@@ -83,9 +72,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "File patches"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | 
-                    LVS_NOCOLUMNHEADER | WS_TABSTOP,0,0,131,206
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_TABSTOP,0,0,131,206
 END
 
 
@@ -148,16 +135,13 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 IDD_OPENDLG DIALOGEX 0, 0, 325, 209
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_CONTEXTHELP
 CAPTION "TortoiseMerge"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "&Merging",IDC_MERGERADIO,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,14,18,75,10
-    CONTROL         "&Apply unified diff",IDC_APPLYRADIO,"Button",
-                    BS_AUTORADIOBUTTON,96,18,152,10
+    CONTROL         "&Merging",IDC_MERGERADIO,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,18,75,10
+    CONTROL         "&Apply unified diff",IDC_APPLYRADIO,"Button",BS_AUTORADIOBUTTON,96,18,152,10
     EDITTEXT        IDC_BASEFILEEDIT,96,45,152,14,ES_AUTOHSCROLL
     PUSHBUTTON      "B&rowse...",IDC_BASEFILEBROWSE,260,46,50,14
     EDITTEXT        IDC_THEIRFILEEDIT,96,66,152,14,ES_AUTOHSCROLL
@@ -186,46 +170,29 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "General"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "&Backup original file",IDC_BACKUP,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,17,236,10
-    CONTROL         "&Jump to first difference when loading",
-                    IDC_FIRSTDIFFONLOAD,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,15,27,236,10
-    CONTROL         "Use &one-pane view as default for 2-file diff",
-                    IDC_ONEPANE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,37,
-                    236,10
-    CONTROL         "Show linenumber&s",IDC_LINENUMBERS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,47,236,10
-    CONTROL         "Use &magnifier on locatorbar",IDC_MAGNIFIER,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,57,236,10
-    CONTROL         "Show li&ne diff bar",IDC_DIFFBAR,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,67,236,10
-    CONTROL         "Use stri&keout for deleted lines",IDC_STRIKEOUT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,77,236,10
+    CONTROL         "&Backup original file",IDC_BACKUP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,17,236,10
+    CONTROL         "&Jump to first difference when loading",IDC_FIRSTDIFFONLOAD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,27,236,10
+    CONTROL         "Use &one-pane view as default for 2-file diff",IDC_ONEPANE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,37,236,10
+    CONTROL         "Show linenumber&s",IDC_LINENUMBERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,47,236,10
+    CONTROL         "Use &magnifier on locatorbar",IDC_MAGNIFIER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,57,236,10
+    CONTROL         "Show li&ne diff bar",IDC_DIFFBAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,67,236,10
+    CONTROL         "Use stri&keout for deleted lines",IDC_STRIKEOUT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,77,236,10
     LTEXT           "&Tab size:",IDC_STATIC,15,93,54,8
     EDITTEXT        IDC_TABSIZE,80,90,41,14,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "&Font:",IDC_STATIC,15,108,52,8
-    COMBOBOX        IDC_FONTNAMES,80,106,122,90,CBS_DROPDOWNLIST | 
-                    CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
-                    WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,211,106,40,47,CBS_DROPDOWN | WS_VSCROLL | 
-                    WS_TABSTOP
+    COMBOBOX        IDC_FONTNAMES,80,106,122,90,CBS_DROPDOWNLIST | CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FONTSIZES,211,106,40,47,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     LTEXT           "&Language:",IDC_STATIC,15,124,66,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,122,171,58,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_LANGUAGECOMBO,80,122,171,58,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Misc",IDC_MISCGROUP,7,7,251,133
-    CONTROL         "Ignore line&endings (recommended)",IDC_IGNORELF,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,16,151,236,10
-    CONTROL         "Ignore &case changes",IDC_CASEINSENSITIVE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,161,236,10
-    CONTROL         "Color co&de in-line changes",IDC_USEBDIFF,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,172,236,10
-    CONTROL         "&Compare whitespaces",IDC_WSCOMPARE,"Button",
-                    BS_AUTORADIOBUTTON,15,183,236,10
-    CONTROL         "&Ignore leading whitespaces",IDC_WSIGNORELEADING,"Button",
-                    BS_AUTORADIOBUTTON,15,193,236,10
-    CONTROL         "Ignore &all whitespaces",IDC_WSIGNOREALL,"Button",
-                    BS_AUTORADIOBUTTON,15,203,236,10
+    CONTROL         "Ignore line&endings (recommended)",IDC_IGNORELF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,151,236,10
+    CONTROL         "Ignore &case changes",IDC_CASEINSENSITIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,161,236,10
+    CONTROL         "Color co&de in-line changes",IDC_USEBDIFF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,172,236,10
+    CONTROL         "&Compare whitespaces",IDC_WSCOMPARE,"Button",BS_AUTORADIOBUTTON,15,183,236,10
+    CONTROL         "&Ignore leading whitespaces",IDC_WSIGNORELEADING,"Button",BS_AUTORADIOBUTTON,15,193,236,10
+    CONTROL         "Ignore &all whitespaces",IDC_WSIGNOREALL,"Button",BS_AUTORADIOBUTTON,15,203,236,10
     GROUPBOX        "Diffing",IDC_DIFFGROUP,7,142,251,74
 END
 
@@ -236,8 +203,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "General",IDC_STATIC,7,7,251,121
     LTEXT           "Normal",IDC_STATIC,15,20,113,8,0,WS_EX_RIGHT
-    LTEXT           "Line with whitespace diff",IDC_STATIC,15,172,113,8,0,
-                    WS_EX_RIGHT
+    LTEXT           "Line with whitespace diff",IDC_STATIC,15,172,113,8,0,WS_EX_RIGHT
     PUSHBUTTON      "",IDC_BKNORMAL,152,18,50,14
     PUSHBUTTON      "",IDC_BKREMOVED,152,37,50,14
     LTEXT           "Removed",IDC_STATIC,15,41,113,8,0,WS_EX_RIGHT
@@ -411,8 +377,7 @@ BEGIN
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "R",            ID_FILE_RELOAD,         VIRTKEY, CONTROL, NOINVERT
     "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
-    "S",            ID_FILE_SAVE_AS,        VIRTKEY, SHIFT, CONTROL, 
-                                                    NOINVERT
+    "S",            ID_FILE_SAVE_AS,        VIRTKEY, SHIFT, CONTROL, NOINVERT
     VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
     VK_F7,          ID_MERGE_NEXTDIFFERENCE, VIRTKEY, NOINVERT
     VK_RIGHT,       ID_MERGE_NEXTDIFFERENCE, VIRTKEY, NOINVERT
