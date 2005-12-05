@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-08 02:40+0900\n"
+"PO-Revision-Date: 2005-12-05 15:04+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -267,12 +267,6 @@ msgstr "CD-ROM ドライブ(&C)"
 msgid "&Cancel"
 msgstr "キャンセル(&C)"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "今すぐチェック(&C)"
-
 # ID:8,
 #: ID:8
 msgid "&Clean up"
@@ -292,6 +286,11 @@ msgstr "リビジョンを比較(&C)"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "空白を比較(&C)"
+
+# ID:73,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "設定(&C)"
 
 # ID:9,
 #: Control-ID:1227
@@ -399,12 +398,13 @@ msgid "&Font:"
 msgstr "フォント(&F):"
 
 # Control-ID:65535,
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "元 URL(&F):"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1259
 msgid "&From WC at URL:"
 msgstr "作業コピーのURL(&F):"
 
@@ -452,12 +452,6 @@ msgstr "ヘルプトピック(&H)"
 #: ID:3842
 msgid "&Hide"
 msgstr "隠す(&H)"
-
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "履歴(&H)"
 
 # Control-ID:1170,
 #: Control-ID:1170
@@ -576,6 +570,11 @@ msgstr "ポート(&P):"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "前の相違点へ(&P)"
+
+# Dlg-ID:130,
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "最近のログメッセージ(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -997,6 +996,11 @@ msgstr "%1 へのアクセスは拒否されました。"
 msgid "Action"
 msgstr "アクション"
 
+# ID:77,
+#: ID:117
+msgid "Actions"
+msgstr "アクション"
+
 # ID:3826,
 #: ID:3826
 msgid "Activate Task List"
@@ -1135,11 +1139,6 @@ msgstr "全てのファイル (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "全てのファイル (*.*)|*.*||"
-
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "全てのファイルはすでにバージョン管理下にあります。何も追加するものはありません！"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -1356,8 +1355,8 @@ msgstr "自動"
 
 # ID:201,
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "毎週、最新のバージョンのチェックを自動的に行う"
+msgid "Automatically check for &newer versions every week"
+msgstr "毎週、最新バージョンのチェックを自動的に行う(&N)"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1428,6 +1427,12 @@ msgstr "Bug-&ID / Issue-Nr:"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr:"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "C&heck now"
+msgstr "今すぐチェック(&H)"
 
 # ID:101,
 #: ID:101
@@ -1609,8 +1614,8 @@ msgstr "中断した処理、ロックファイル、... をクリーンアッ�
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "今すぐクリアする(&N)"
+msgid "Clear n&ow"
+msgstr "今すぐクリアする(&O)"
 
 # ID:195,
 #: ID:195
@@ -1620,6 +1625,11 @@ msgid ""
 msgstr ""
 "保存されている認証データをクリアする。\n"
 "すべてのリポジトリに対して、再度ユーザー名とパスワードを入力する必要があります。"
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "最近入力したメッセージを選択する場合はここをクリックしてください"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1727,11 +1737,6 @@ msgstr "%s を %s へコピー中"
 #: ID:74
 msgid "Completed"
 msgstr "完了"
-
-# ID:73,
-#: Control-ID:1239
-msgid "Configure"
-msgstr "設定"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2351,11 +2356,6 @@ msgstr "例外:"
 msgid "Exclude paths:"
 msgstr "除外するパス:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "除外／無視するパターン:"
-
 # ID:9,
 #: ID:209
 msgid "Explore to"
@@ -2597,6 +2597,11 @@ msgstr "ログ情報を取得 ..."
 #: ID:119
 msgid "Getting unified diff"
 msgstr "Unified Diff を取得中 ..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "除外／無視するパターン(&P):"
 
 # ID:2049,
 #: ID:2051
@@ -3120,12 +3125,6 @@ msgstr "変更"
 # ID:438,#:
 # ID:438,
 #: ID:438
-msgid "More Colors..."
-msgstr "その他の色 ..."
-
-# ID:438,#:
-# ID:438,
-#: ID:438
 msgid "More colors..."
 msgstr "その他の色 ..."
 
@@ -3597,6 +3596,7 @@ msgstr "リポジトリブラウザが初期化されるまでしばらくお待
 
 # ID:119,
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "しばらくお待ちください ..."
 
@@ -4311,8 +4311,8 @@ msgstr "サーバーアドレス(&A):"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "\"最後にコミットした日付\" にファイルの日付を設定する"
+msgid "Set filedates to the \"last commit &time\""
+msgstr "\"最後にコミットした日付\" にファイルの日付を設定する(&T)"
 
 # ID:13,
 #: ID:13
@@ -4487,12 +4487,13 @@ msgstr "ターゲットが見つからないのでスキップします"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
-"TortoiseSVN がバージョン管理から除外する\n"
-"ファイルやフォルダを指定してください。\n"
-"各パターンを空白で区切ってください。"
+"TortoiseSVN が <b>全て</b> の作業コピーで\n"
+"バージョン管理の対象外とするファイルやフォルダを\n"
+"指定してください。\n"
+"各パターンは空白で区切ってください。"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4556,13 +4557,13 @@ msgstr "Subversion"
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Subversion の認証データ:"
+msgid "Subversion &authentication data:"
+msgstr "Subversion の認証データ(&A):"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Subversion の設定ファイル:"
+msgid "Subversion configuration &file:"
+msgstr "Subversion の設定ファイル(&F):"
 
 # ID:79,
 #: ID:79
@@ -4652,8 +4653,8 @@ msgstr "他の分岐／タグへ作業コピーを切り替え"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "システム音"
+msgid "System &sounds"
+msgstr "システム音(&S)"
 
 # ID:3857,#:
 # ID:3857,
@@ -4969,6 +4970,11 @@ msgstr ""
 "保存する前に、まずそれらの衝突を解消してください。\n"
 "衝突が存在する状態のままで、ファイルの保存を行ってもよろしいですか？\n"
 "「はい」をクリックすると、他のエディタを用いて手作業で編集する必要があります！"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "追加するものが何もありません。全てのファイルとフォルダがバージョン管理下にある、svn:ignore 属性で無視されている、もしくはグローバルに無視するよう設定されています。"
 
 # ID:188,
 #: ID:188
@@ -5841,6 +5847,15 @@ msgstr ""
 "追加されたフォルダを選択しました。パッチには、追加されたフォルダ内のファイルは含まれていないかもしれません。\n"
 "実行を続けますか？"
 
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"以前に入力したログメッセージは保存されています。\n"
+"過去のログメッセージの確認、もしくは挿入するにはここをクリックしてください。"
+
 # Control-ID:1112,
 #: Control-ID:1112
 msgid "Your version is:"
@@ -6024,6 +6039,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "外部"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "ファイルリストが空です"
 
 # ID:13,
 #: ID:13
