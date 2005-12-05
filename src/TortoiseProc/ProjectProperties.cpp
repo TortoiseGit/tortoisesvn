@@ -329,9 +329,11 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 
 					// offset1 += results.rstart(0);
 					// offset1 += results.rlength(0);
-
-					offset1 += results.rstart(results.cbackrefs()-1);
-					offset1 += results.rlength(results.cbackrefs()-1);
+					if (br.matched)
+					{
+						offset1 += results.rstart(results.cbackrefs()-1);
+						offset1 += results.rlength(results.cbackrefs()-1);
+					}
 				} while ((br.matched)&&(results.rlength(results.cbackrefs()-1)));
 			}
 			catch (bad_alloc) {}
