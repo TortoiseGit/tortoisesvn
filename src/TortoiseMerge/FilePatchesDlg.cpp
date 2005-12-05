@@ -202,7 +202,7 @@ void CFilePatchesDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
 
 	CString temp = GetFullPath(pGetInfoTip->iItem);
-	_tcsncpy(pGetInfoTip->pszText, temp, pGetInfoTip->cchTextMax);
+	_tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, temp, pGetInfoTip->cchTextMax);
 	*pResult = 0;
 }
 

@@ -39,7 +39,7 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 	{
 		if (sb->SubStat->UUID[0] == 0)
 		{
-			strncpy(sb->SubStat->UUID, status->entry->uuid, MAX_PATH);
+			strncpy_s(sb->SubStat->UUID, 1024, status->entry->uuid, MAX_PATH);
 		}
 		if (strncmp(sb->SubStat->UUID, status->entry->uuid, MAX_PATH) != 0)
 			return;

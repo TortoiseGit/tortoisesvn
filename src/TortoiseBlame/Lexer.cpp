@@ -25,8 +25,8 @@ void TortoiseBlame::SetupLexer(LPCSTR filename)
 
 	if (lineptr)
 	{
-		_tcscpy(line, lineptr+1);
-		_tcslwr(line);
+		_tcscpy_s(line, 20, lineptr+1);
+		_tcslwr_s(line, 20);
 		if ((_tcscmp(line, _T("py"))==0)||
 			(_tcscmp(line, _T("pyw"))==0)||
 			(_tcscmp(line, _T("pyw"))==0))

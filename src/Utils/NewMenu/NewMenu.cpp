@@ -1510,7 +1510,7 @@ void CNewMenuIcons::SetResourceName(LPCTSTR lpszResourceName)
   if( lpszResourceName && !IS_INTRESOURCE(lpszResourceName))
   {
     m_lpszResourceName = new TCHAR[_tcslen(lpszResourceName)+1];
-    _tcscpy((LPTSTR)m_lpszResourceName,lpszResourceName);
+    _tcscpy_s((LPTSTR)m_lpszResourceName,_tcslen(lpszResourceName)+1,lpszResourceName);
   }
   else
   {
@@ -7469,7 +7469,7 @@ void CNewMenu::DrawSpecialChar(CDC* pDC, LPCRECT pRect, TCHAR Sign, BOOL bBold)
   logfont.lfQuality = DEFAULT_QUALITY;
   logfont.lfPitchAndFamily = DEFAULT_PITCH;
 
-  _tcscpy(logfont.lfFaceName,_T("Marlett"));
+  _tcscpy_s(logfont.lfFaceName,32,_T("Marlett"));
 
   MyFont.CreateFontIndirect (&logfont);
 

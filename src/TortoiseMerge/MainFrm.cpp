@@ -855,7 +855,7 @@ bool CMainFrame::FileSaveAs()
 	CString sFilter;
 	sFilter.LoadString(IDS_COMMONFILEFILTER);
 	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-	_tcscpy (pszFilters, sFilter);
+	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 	// Replace '|' delimeters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 	while (ptr != pszFilters)
@@ -1200,7 +1200,7 @@ BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
 	CString sPlacement = placement;
 	if (sPlacement.IsEmpty())
 		return FALSE;
-	int nRead = _stscanf(sPlacement, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
+	int nRead = _stscanf_s(sPlacement, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
 				&pwp->flags, &pwp->showCmd,
 				&pwp->ptMinPosition.x, &pwp->ptMinPosition.y,
 				&pwp->ptMaxPosition.x, &pwp->ptMaxPosition.y,
@@ -1219,7 +1219,7 @@ void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 	TCHAR szBuffer[sizeof("-32767")*8 + sizeof("65535")*2];
 	CString s;
 
-	_stprintf(szBuffer, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
+	_stprintf_s(szBuffer, sizeof("-32767")*8 + sizeof("65535")*2, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
 			pwp->flags, pwp->showCmd,
 			pwp->ptMinPosition.x, pwp->ptMinPosition.y,
 			pwp->ptMaxPosition.x, pwp->ptMaxPosition.y,
@@ -1285,9 +1285,9 @@ BOOL CMainFrame::MarkAsResolved()
 		TCHAR * end = _tcsrchr(buf, '\\');
 		end++;
 		(*end) = 0;
-		_tcscat(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
-		_tcscat(buf, this->m_Data.m_mergedFile.GetFilename());
-		_tcscat(buf, _T("\" /closeonend:1 /noquestion /notempfile"));
+		_tcscat_s(buf, MAX_PATH*3, _T("TortoiseProc.exe /command:resolve /path:\""));
+		_tcscat_s(buf, MAX_PATH*3, this->m_Data.m_mergedFile.GetFilename());
+		_tcscat_s(buf, MAX_PATH*3, _T("\" /closeonend:1 /noquestion /notempfile"));
 		STARTUPINFO startup;
 		PROCESS_INFORMATION process;
 		memset(&startup, 0, sizeof(startup));

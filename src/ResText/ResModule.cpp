@@ -202,14 +202,14 @@ BOOL CResModule::ExtractString(UINT nID)
 		std::wstring msgid = std::wstring(pp, len);
 		WCHAR szBuf[2048*2];
 		ZeroMemory(szBuf, sizeof(szBuf));
-		wcscpy(szBuf, msgid.c_str());
+		wcscpy_s(szBuf, 2048*2, msgid.c_str());
 		CUtils::StringExtend(szBuf);
 
 		if (wcslen(szBuf))
 		{
 			std::wstring str = std::wstring(szBuf);
 			TCHAR szTempBuf[1024];
-			_stprintf(szTempBuf, _T("#: ID:%d,"), nID);
+			_stprintf_s(szTempBuf, 1024, _T("#: ID:%d,"), nID);
 			RESOURCEENTRY entry = m_StringEntries[str];
 			entry.reference = entry.reference.append(szTempBuf);
 			if (wcschr(str.c_str(), '%'))
@@ -260,13 +260,13 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 		std::wstring msgid = std::wstring(pp, len);
 		WCHAR szBuf[2048*2];
 		ZeroMemory(szBuf, sizeof(szBuf));
-		wcscpy(szBuf, msgid.c_str());
+		wcscpy_s(szBuf, 2048*2, msgid.c_str());
 		CUtils::StringExtend(szBuf);
 		msgid = std::wstring(szBuf);
 
 		RESOURCEENTRY resEntry;
 		resEntry = m_StringEntries[msgid];
-		wcscpy(szBuf, resEntry.msgstr.c_str());
+		wcscpy_s(szBuf, 2048*2, resEntry.msgstr.c_str());
 		CUtils::StringCollapse(szBuf);
 		size_t newlen = wcslen(szBuf);
 		if (newlen)
@@ -287,19 +287,19 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 		std::wstring msgid = std::wstring(p, len);
 		WCHAR szBuf[2048*2];
 		ZeroMemory(szBuf, sizeof(szBuf));
-		wcscpy(szBuf, msgid.c_str());
+		wcscpy_s(szBuf, 2048*2, msgid.c_str());
 		CUtils::StringExtend(szBuf);
 		msgid = std::wstring(szBuf);
 
 		RESOURCEENTRY resEntry;
 		resEntry = m_StringEntries[msgid];
-		wcscpy(szBuf, resEntry.msgstr.c_str());
+		wcscpy_s(szBuf, 2048*2, resEntry.msgstr.c_str());
 		CUtils::StringCollapse(szBuf);
 		size_t newlen = wcslen(szBuf);
 		if (newlen)
 		{
 			newTable[index++] = (WORD)newlen;
-			wcsncpy((wchar_t *)&newTable[index], szBuf, newlen);
+			wcsncpy_s((wchar_t *)&newTable[index], nMem+(nMem%2)-index, szBuf, newlen);
 			index += newlen;
 			m_bTranslatedStrings++;
 		} // if (newlen)
@@ -307,7 +307,7 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 		{
 			newTable[index++] = (WORD)len;
 			if (len)
-				wcsncpy((wchar_t *)&newTable[index], p, len);
+				wcsncpy_s((wchar_t *)&newTable[index], nMem+(nMem%2)-index, p, len);
 			index += len;
 			if (len)
 				m_bDefaultStrings++;
@@ -501,7 +501,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 		{
 			TCHAR szBuf[2048];
 			ZeroMemory(szBuf, sizeof(szBuf));
-			_tcscpy(szBuf, str);
+			_tcscpy_s(szBuf, 2048, str);
 			CUtils::StringExtend(szBuf);
 
 			std::wstring wstr = std::wstring(szBuf);
@@ -517,7 +517,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 		{
 			TCHAR szBuf[2048];
 			ZeroMemory(szBuf, sizeof(szBuf));
-			_tcscpy(szBuf, str);
+			_tcscpy_s(szBuf, 2048, str);
 			CUtils::StringExtend(szBuf);
 
 			std::wstring wstr = std::wstring(szBuf);
@@ -620,11 +620,11 @@ BOOL CResModule::ExtractDialog(UINT nID)
 	{
 		TCHAR szBuf[2048];
 		ZeroMemory(szBuf, sizeof(szBuf));
-		_tcscpy(szBuf, dlg.caption);
+		_tcscpy_s(szBuf, 2048, dlg.caption);
 		CUtils::StringExtend(szBuf);
 
 		TCHAR szTempBuf[1024];
-		_stprintf(szTempBuf, _T("#: Dlg-ID:%d,"), nID);
+		_stprintf_s(szTempBuf, 1024, _T("#: Dlg-ID:%d,"), nID);
 		std::wstring wstr = std::wstring(szBuf);
 		RESOURCEENTRY entry = m_StringEntries[wstr];
 		entry.reference = entry.reference.append(szTempBuf);
@@ -641,14 +641,14 @@ BOOL CResModule::ExtractDialog(UINT nID)
 		lpDlgItem = GetControlInfo((WORD *) lpDlgItem, &dlgItem, dlg.dialogEx, &bCode);
 
 		if (bCode == FALSE)
-			_tcscpy(szTitle, dlgItem.windowName);
+			_tcscpy_s(szTitle, 500, dlgItem.windowName);
 
 		if (_tcslen(szTitle) > 0)
 		{
 			CUtils::StringExtend(szTitle);
 
 			TCHAR szTempBuf[1024];
-			_stprintf(szTempBuf, _T("#: Control-ID:%d,"), dlgItem.id);
+			_stprintf_s(szTempBuf, 1024, _T("#: Control-ID:%d,"), dlgItem.id);
 			std::wstring wstr = std::wstring(szTitle);
 			RESOURCEENTRY entry = m_StringEntries[wstr];
 			entry.reference = entry.reference.append(szTempBuf);
@@ -1308,14 +1308,14 @@ void CResModule::ReplaceStr(LPCWSTR src, WORD * dest, size_t * count, int * tran
 {
 	TCHAR szBuf[2048];
 	ZeroMemory(szBuf, sizeof(szBuf));
-	wcscpy(szBuf, src);
+	wcscpy_s(szBuf, 2048, src);
 	CUtils::StringExtend(szBuf);
 
 	std::wstring wstr = std::wstring(szBuf);
 	RESOURCEENTRY entry = m_StringEntries[wstr];
 	if (entry.msgstr.size())
 	{
-		wcscpy(szBuf, entry.msgstr.c_str());
+		wcscpy_s(szBuf, 2048, entry.msgstr.c_str());
 		CUtils::StringCollapse(szBuf);
 		if (dest)
 			wcscpy((wchar_t *)&dest[(*count)], szBuf);

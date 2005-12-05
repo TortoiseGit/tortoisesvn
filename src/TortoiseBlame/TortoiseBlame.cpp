@@ -112,16 +112,17 @@ void TortoiseBlame::GetRange(int start, int end, char *text)
 void TortoiseBlame::SetTitle() 
 {
 	char title[MAX_PATH + 100];
-	strcpy(title, szTitle);
-	strcat(title, " - ");
-	strcat(title, szOrigFilename);
+	strcpy_s(title, MAX_PATH + 100, szTitle);
+	strcat_s(title, MAX_PATH + 100, " - ");
+	strcat_s(title, MAX_PATH + 100, szOrigFilename);
 	::SetWindowText(wMain, title);
 }
 
 BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 {
 	char logmsgbuf[10000+1];
-	FILE * File = fopen(fileName, "rb");
+	FILE * File;
+	fopen_s(&File, fileName, "rb");
 	if (File == 0)
 	{
 		return FALSE;
@@ -323,7 +324,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 					*p = _tolower(*p);
 			}
 		}
-		_stprintf(buf, _T("%ld"), revs[i]);
+		_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 		if (authors[i].compare(sWhat)==0)
 			bFound = true;
 		else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), what)==0))
@@ -351,7 +352,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 						*p = _tolower(*p);
 				}
 			}
-			_stprintf(buf, _T("%ld"), revs[i]);
+			_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 			if (authors[i].compare(sWhat)==0)
 				bFound = true;
 			else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), what)==0))
@@ -420,13 +421,13 @@ LONG TortoiseBlame::GetBlameWidth()
 	HDC hDC = ::GetDC(wBlame);
 	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
 	TCHAR buf[MAX_PATH];
-	_stprintf(buf, _T("%8ld "), 88888888);
+	_stprintf_s(buf, MAX_PATH, _T("%8ld "), 88888888);
 	::GetTextExtentPoint(hDC, buf, _tcslen(buf), &width);
 	m_revwidth = width.cx + BLAMESPACE;
 	blamewidth += m_revwidth;
 	if (ShowDate)
 	{
-		_stprintf(buf, _T("%30s"), _T("31.08.2001 06:24:14"));
+		_stprintf_s(buf, MAX_PATH, _T("%30s"), _T("31.08.2001 06:24:14"));
 		::GetTextExtentPoint32(hDC, buf, _tcslen(buf), &width);
 		m_datewidth = width.cx + BLAMESPACE;
 		blamewidth += m_datewidth;
@@ -460,7 +461,7 @@ void TortoiseBlame::CreateFont()
 	HDC hDC = ::GetDC(wBlame);
 	lf.lfHeight = -MulDiv((DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), GetDeviceCaps(hDC, LOGPIXELSY), 72);
 	CRegStdString fontname = CRegStdString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
-	_tcscpy(lf.lfFaceName, ((stdstring)fontname).c_str());
+	_tcscpy_s(lf.lfFaceName, 32, ((stdstring)fontname).c_str());
 	m_font = ::CreateFontIndirect(&lf);
 	ReleaseDC(wBlame, hDC);
 }
@@ -505,21 +506,21 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				::SetBkColor(hDC, m_selectedrevcolor);
 				::SetTextColor(hDC, m_texthighlightcolor);
 			}
-			_stprintf(buf, _T("%8ld       "), revs[i]);
+			_stprintf_s(buf, MAX_PATH, _T("%8ld       "), revs[i]);
 			rc.right = rc.left + m_revwidth;
 			::ExtTextOut(hDC, 0, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
 			int Left = m_revwidth;
 			if (ShowDate)
 			{
 				rc.right = rc.left + Left + m_datewidth;
-				_stprintf(buf, _T("%30s            "), dates[i].c_str());
+				_stprintf_s(buf, MAX_PATH, _T("%30s            "), dates[i].c_str());
 				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
 				Left += m_datewidth;
 			}
 			if (ShowAuthor)
 			{
 				rc.right = rc.left + Left + m_authorwidth;
-				_stprintf(buf, _T("%-30s            "), authors[i].c_str());
+				_stprintf_s(buf, MAX_PATH, _T("%-30s            "), authors[i].c_str());
 				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
 				Left += m_authorwidth;
 			}
@@ -658,15 +659,15 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	if (__argc > 1)
 	{
-		_tcscpy(blamefile, __argv[1]);
+		_tcscpy_s(blamefile, MAX_PATH, __argv[1]);
 	}
 	if (__argc > 2)
 	{
-		_tcscpy(logfile, __argv[2]);
+		_tcscpy_s(logfile, MAX_PATH, __argv[2]);
 	}
 	if (__argc > 3)
 	{
-		_tcscpy(szOrigFilename, __argv[3]);
+		_tcscpy_s(szOrigFilename, MAX_PATH, __argv[3]);
 	}
 
 	if (_tcslen(blamefile)==0)

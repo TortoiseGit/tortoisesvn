@@ -83,7 +83,7 @@ utf8_conversion::do_in(mbstate_t&,
 			size_t zero_bit_pos = most_signifant_bit_position(~*from_next);
 			size_t extra_bytes  = 7 - zero_bit_pos;
 
-			if (from_end - from_next < extra_bytes + 1) 
+			if (size_t(from_end - from_next) < extra_bytes + 1) 
 				return partial;
 
 			*to_next = uchar(*from_next++) & (wchar_t)((1 << (zero_bit_pos - 1)) - 1);
@@ -120,7 +120,7 @@ utf8_conversion::do_out(mbstate_t&,
 				size_t msb_pos = most_signifant_bit_position(symbol);
 				size_t extra_bytes = msb_pos / 6;
 
-				if (to_limit - to_next >= extra_bytes + 1) {
+				if (size_t(to_limit - to_next) >= extra_bytes + 1) {
 
 					*to_next = uchar(0xFF80 >> extra_bytes);
 					*to_next++ |= take_6_bits(symbol, extra_bytes*6);

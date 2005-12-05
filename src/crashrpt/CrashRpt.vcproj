@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="CrashRpt"
 	ProjectGUID="{13BC1836-2726-45C4-9249-5BA2BBBF8328}"
+	RootNamespace="CrashRpt"
 	>
 	<Platforms>
 		<Platform
@@ -52,7 +53,7 @@
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				AdditionalIncludeDirectories=".\zlib;..\crashrpt"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE"
 				StringPooling="false"
 				ExceptionHandling="1"
 				BasicRuntimeChecks="0"

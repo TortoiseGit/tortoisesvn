@@ -142,11 +142,11 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
 	char destbuf[40];
 	if (MinRev == -1 || MinRev == MaxRev)
 	{
-		sprintf(destbuf, "%Ld", MaxRev);
+		sprintf_s(destbuf, 40, "%Ld", MaxRev);
 	}
 	else
 	{
-		sprintf(destbuf, "%Ld:%Ld", MinRev, MaxRev);
+		sprintf_s(destbuf, 40, "%Ld:%Ld", MinRev, MaxRev);
 	}
 	// Replace the $WCxxx$ string with the actual revision number
 	char * pBuild = pBuf + index;
@@ -178,18 +178,18 @@ int InsertDate(char * def, char * pBuf, size_t & index,
 	}
 	// Format the text to insert at the placeholder
 	__time64_t ttime = date_svn/1000000L;
-	struct tm *newtime = _localtime64(&ttime);
-	if (newtime == NULL)
+	struct tm newtime;
+	if (_localtime64_s(&newtime, &ttime))
 		return FALSE;
 	// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
 	char destbuf[32];
-	sprintf(destbuf, "%04d/%02d/%02d %02d:%02d:%02d",
-			newtime->tm_year + 1900,
-			newtime->tm_mon + 1,
-			newtime->tm_mday,
-			newtime->tm_hour,
-			newtime->tm_min,
-			newtime->tm_sec);
+	sprintf_s(destbuf, 32, "%04d/%02d/%02d %02d:%02d:%02d",
+			newtime.tm_year + 1900,
+			newtime.tm_mon + 1,
+			newtime.tm_mday,
+			newtime.tm_hour,
+			newtime.tm_min,
+			newtime.tm_sec);
 	// Replace the $WCDATE$ string with the actual commit date
 	char * pBuild = pBuf + index;
 	ptrdiff_t Expansion = strlen(destbuf) - strlen(def);
@@ -428,10 +428,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	apr_initialize();
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 	memset (&ctx, 0, sizeof (ctx));
-	
-	if (getenv ("SVN_ASP_DOT_NET_HACK"))
+
+	size_t ret = 0;
+	getenv_s(&ret, NULL, 0, "SVN_ASP_DOT_NET_HACK");
+	if (ret)
 	{
-		svn_wc_set_adm_dir ("_svn", pool);
+		svn_wc_set_adm_dir("_svn", pool);
 	}
 
 	char *wc_utf8;
