@@ -188,7 +188,7 @@ void CSetMainPage::OnBnClickedClearauth()
 	TCHAR pathbuf[MAX_PATH] = {0};
 	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf)==S_OK)
 	{
-		_tcscat(pathbuf, _T("\\Subversion\\auth"));
+		_tcscat_s(pathbuf, MAX_PATH, _T("\\Subversion\\auth"));
 		SHFILEOPSTRUCT fileop;
 		fileop.hwnd = this->m_hWnd;
 		fileop.wFunc = FO_DELETE;
@@ -204,7 +204,7 @@ void CSetMainPage::OnBnClickedChecknewerbutton()
 {
 	TCHAR com[MAX_PATH+100];
 	GetModuleFileName(NULL, com, MAX_PATH);
-	_tcscat(com, _T(" /command:updatecheck /visible"));
+	_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck /visible"));
 
 	CUtils::LaunchApplication(com, 0, false);
 }

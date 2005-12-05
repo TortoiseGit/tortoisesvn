@@ -136,11 +136,11 @@ bool CShellFileOp::Start(int *pnAPIReturn /*=NULL*/)
 		return false;
 	}
 
-	FillSzzBuffer(szzSourceFiles, m_SourceFileList);
+	FillSzzBuffer(szzSourceFiles, dwSourceBufferSize, m_SourceFileList);
 
 	if (m_FOS.wFunc != FO_DELETE)
 	{
-		FillSzzBuffer(szzDestFiles, m_DestinationFileList);
+		FillSzzBuffer(szzDestFiles, dwSourceBufferSize, m_DestinationFileList);
 	}
 
 	m_FOS.pFrom = szzSourceFiles;
@@ -209,7 +209,7 @@ DWORD CShellFileOp::GetRequiredBufferSize(const CStringList& list)
 	return dwRetVal + sizeof(TCHAR);    // add one more for the \0 at the end
 }
 
-void CShellFileOp::FillSzzBuffer(TCHAR* pBuffer, const CStringList& list)
+void CShellFileOp::FillSzzBuffer(TCHAR* pBuffer, size_t buflen, const CStringList& list)
 {
 	TCHAR*   pCurrPos;
 	POSITION pos;
@@ -223,7 +223,7 @@ void CShellFileOp::FillSzzBuffer(TCHAR* pBuffer, const CStringList& list)
 	{
 		cstr = list.GetNext(pos);
 
-		_tcscpy(pCurrPos, (LPCTSTR)cstr);
+		_tcscpy_s(pCurrPos, buflen - (pBuffer - pCurrPos), (LPCTSTR)cstr);
 
 		pCurrPos = _tcsinc(_tcschr(pCurrPos, '\0' ));
 	}

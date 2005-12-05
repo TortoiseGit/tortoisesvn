@@ -789,7 +789,7 @@ BOOL CMessageBox::PreTranslateMessage(MSG* pMsg)
 						hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipboard.GetLength()+1);
 						char * pchData;
 						pchData = (char*)GlobalLock(hClipboardData);
-						strcpy(pchData, (LPCSTR)sClipboard);
+						strcpy_s(pchData, sClipboard.GetLength()+1, (LPCSTR)sClipboard);
 						GlobalUnlock(hClipboardData);
 						SetClipboardData(CF_TEXT,hClipboardData);
 						CloseClipboard();

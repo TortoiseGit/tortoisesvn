@@ -22,5 +22,5 @@ class CPathUtils
 {
 public:
 	static BOOL			MakeSureDirectoryPathExists(LPCTSTR path);
-	static void			ConvertToBackslash(LPTSTR dest, LPCTSTR src);
+	static void			ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len);
 };

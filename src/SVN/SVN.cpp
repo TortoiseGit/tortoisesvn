@@ -976,7 +976,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
 		formatDate(date_native, time_temp, true);
 	}
 	else
-		_tcscat(date_native, _T("(no date)"));
+		_tcscat_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
 
 	if (!svn->BlameCallback((LONG)line_no, revision, author_native, date_native, line_native))
 	{
@@ -1025,7 +1025,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 		formatDate(date_native, time_temp);
 	}
 	else
-		_tcscat(date_native, _T("(no date)"));
+		_tcscat_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
 
 	if (msg == NULL)
 		msg = "";
@@ -1654,17 +1654,17 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 	{
 		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
 		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
-		_tcsncat(date_native, datebuf, SVN_DATE_BUFFER);
-		_tcsncat(date_native, _T(" "), SVN_DATE_BUFFER);
-		_tcsncat(date_native, timebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
 	}
 	else
 	{
 		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
 		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
-		_tcsncat(date_native, timebuf, SVN_DATE_BUFFER);
-		_tcsncat(date_native, _T(", "), SVN_DATE_BUFFER);
-		_tcsncat(date_native, datebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(", "), SVN_DATE_BUFFER);
+		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
 	}
 }
 

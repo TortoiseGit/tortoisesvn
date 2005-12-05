@@ -305,7 +305,7 @@ void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		return;
 	
 		if (pGetInfoTip->cchTextMax > m_arFileList.GetAt(pGetInfoTip->iItem).url1.GetLength())
-			_tcsncpy(pGetInfoTip->pszText, m_arFileList.GetAt(pGetInfoTip->iItem).url1, pGetInfoTip->cchTextMax);
+			_tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, m_arFileList.GetAt(pGetInfoTip->iItem).url1, pGetInfoTip->cchTextMax);
 	*pResult = 0;
 }
 

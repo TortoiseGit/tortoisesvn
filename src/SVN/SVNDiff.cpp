@@ -463,12 +463,14 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 			// write both property values to temporary files
 			CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(true);
 			CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(true);
-			FILE * pFile = _tfopen(wcpropfile.GetWinPath(), _T("wb"));
+			FILE * pFile;
+			_tfopen_s(&pFile, wcpropfile.GetWinPath(), _T("wb"));
 			if (pFile)
 			{
 				fputs(CUnicodeUtils::StdGetUTF8(wcvalue).c_str(), pFile);
 				fclose(pFile);
-				pFile = _tfopen(basepropfile.GetWinPath(), _T("wb"));
+				FILE * pFile;
+				_tfopen_s(&pFile, basepropfile.GetWinPath(), _T("wb"));
 				if (pFile)
 				{
 					fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile);

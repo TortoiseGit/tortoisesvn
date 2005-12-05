@@ -50,6 +50,6 @@ protected:
 protected:
 	void  ResetInternalData();
 	DWORD GetRequiredBufferSize(const CStringList& list);
-	void  FillSzzBuffer(TCHAR*, const CStringList& list);
+	void  FillSzzBuffer(TCHAR*, size_t buflen, const CStringList& list);
 };
 

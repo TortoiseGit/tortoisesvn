@@ -857,12 +857,12 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		{
 			SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 			if ((entry->copied)&&(_tcslen(buf)>1))
-				_tcscat(buf, _T("+"));
+				_tcscat_s(buf, 100, _T("+"));
 			if ((entry->status == entry->propstatus)&&
 				(entry->status != svn_wc_status_normal)&&
 				(entry->status != svn_wc_status_unversioned)&&
 				(!SVNStatus::IsImportant(entry->textstatus)))
-				_tcscat(buf, ponly);
+				_tcscat_s(buf, 100, ponly);
 			SetItemText(index, nCol++, buf);
 		}
 	}
@@ -877,12 +877,12 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		{
 			SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 			if ((entry->copied)&&(_tcslen(buf)>1))
-				_tcscat(buf, _T("+"));
+				_tcscat_s(buf, 100, _T("+"));
 			if ((entry->remotestatus == entry->remotepropstatus)&&
 				(entry->status != svn_wc_status_normal)&&
 				(entry->status != svn_wc_status_unversioned)&&
 				(!SVNStatus::IsImportant(entry->remotetextstatus)))
-				_tcscat(buf, ponly);
+				_tcscat_s(buf, 100, ponly);
 			SetItemText(index, nCol++, buf);
 		}
 	}
@@ -897,7 +897,7 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		{
 			SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 			if ((entry->copied)&&(_tcslen(buf)>1))
-				_tcscat(buf, _T("+"));
+				_tcscat_s(buf, 100, _T("+"));
 			SetItemText(index, nCol++, buf);
 		}
 	}
@@ -911,7 +911,7 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		{
 			SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 			if ((entry->copied)&&(_tcslen(buf)>1))
-				_tcscat(buf, _T("+"));
+				_tcscat_s(buf, 100, _T("+"));
 			SetItemText(index, nCol++, buf);
 		}
 	}
@@ -1858,7 +1858,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						filelist += _T("|");
 						int len = filelist.GetLength();
 						TCHAR * buf = new TCHAR[len+2];
-						_tcscpy(buf, filelist);
+						_tcscpy_s(buf, len+2, filelist);
 						for (int i=0; i<len; ++i)
 							if (buf[i] == '|')
 								buf[i] = 0;
@@ -2507,9 +2507,9 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 		if (pGetInfoTip->cchTextMax > GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString().GetLength())
 		{
 			if (GetListEntry(pGetInfoTip->iItem)->GetRelativeSVNPath().Compare(GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString())!= 0)
-				_tcsncpy(pGetInfoTip->pszText, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
+				_tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
 			else if (GetStringWidth(GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString()) > GetColumnWidth(pGetInfoTip->iItem))
-				_tcsncpy(pGetInfoTip->pszText, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
+				_tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
 		}
 	*pResult = 0;
 }

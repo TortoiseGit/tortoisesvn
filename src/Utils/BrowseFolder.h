@@ -73,7 +73,7 @@ public:
 	 * \return one of CANCEL, NOPATH or OK
 	 */
 	CBrowseFolder::retVal Show(HWND parent, CString& path, const CString& sDefaultPath = CString());
-	CBrowseFolder::retVal Show(HWND parent, LPTSTR path, LPCTSTR szDefaultPath = NULL);
+	CBrowseFolder::retVal Show(HWND parent, LPTSTR path, size_t pathlen, LPCTSTR szDefaultPath = NULL);
 	static BOOL m_bCheck;		///< state of the checkbox on closing the dialog
 	static BOOL m_bCheck2;
 	TCHAR m_title[200];

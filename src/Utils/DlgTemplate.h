@@ -228,7 +228,7 @@ protected:
 #ifndef _UNICODE
         MultiByteToWideChar(CP_ACP, 0, string, -1, wideString, length);
 #else
-		wcscpy(wideString, string);
+		wcscpy_s(wideString, length, string);
 #endif
         AppendData(wideString, length * sizeof(WCHAR));
         free(wideString);

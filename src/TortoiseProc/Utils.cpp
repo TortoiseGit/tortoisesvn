@@ -325,7 +325,7 @@ BOOL CUtils::StartTextViewer(CString file)
 		CString sFilter;
 		sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
 		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-		_tcscpy (pszFilters, sFilter);
+		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 		// Replace '|' delimeters with '\0's
 		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 		while (ptr != pszFilters)
@@ -712,7 +712,7 @@ bool CUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwning
 		hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
 		char * pchData;
 		pchData = (char*)GlobalLock(hClipboardData);
-		strcpy(pchData, (LPCSTR)sClipdata);
+		strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
 		GlobalUnlock(hClipboardData);
 		SetClipboardData(CF_TEXT,hClipboardData);
 		CloseClipboard();
@@ -741,7 +741,7 @@ void CUtils::CreateFontForLogs(CFont& fontToCreate)
 	logFont.lfClipPrecision  = CLIP_DEFAULT_PRECIS;
 	logFont.lfQuality        = DRAFT_QUALITY;
 	logFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
-	_tcscpy(logFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
+	_tcscpy_s(logFont.lfFaceName, 32, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
 	VERIFY(fontToCreate.CreateFontIndirect(&logFont));
 }
 

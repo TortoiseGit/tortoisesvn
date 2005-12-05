@@ -1006,7 +1006,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								revFilename.Format(_T("%s-%ld%s"), (LPCTSTR)strWinPath.Left(rfind), rev, (LPCTSTR)strWinPath.Mid(rfind));
 							else
 								revFilename.Format(_T("%s-%ld"), (LPCTSTR)strWinPath, rev);
-							_tcscpy(szFile, revFilename);
+							_tcscpy_s(szFile, MAX_PATH, revFilename);
 						}
 						// Initialize OPENFILENAME
 						ZeroMemory(&ofn, sizeof(OPENFILENAME));
@@ -1028,7 +1028,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString sFilter;
 						sFilter.LoadString(IDS_COMMONFILEFILTER);
 						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-						_tcscpy (pszFilters, sFilter);
+						_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 						// Replace '|' delimeters with '\0's
 						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 						while (ptr != pszFilters)
@@ -1405,7 +1405,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev, temp.Mid(rfind));
 						else
 							revFilename.Format(_T("%s-%ld"), temp, rev);
-						_tcscpy(szFile, revFilename);
+						_tcscpy_s(szFile, MAX_PATH, revFilename);
 						// Initialize OPENFILENAME
 						ZeroMemory(&ofn, sizeof(OPENFILENAME));
 						ofn.lStructSize = sizeof(OPENFILENAME);
@@ -1424,7 +1424,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString sFilter;
 						sFilter.LoadString(IDS_COMMONFILEFILTER);
 						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-						_tcscpy (pszFilters, sFilter);
+						_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 						// Replace '|' delimeters with '\0's
 						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 						while (ptr != pszFilters)
@@ -2448,7 +2448,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 		case 0:	//revision
 			if (itemid < m_logEntries.size())
-				_stprintf(pItem->pszText, _T("%ld"), pLogEntry->dwRev);
+				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->dwRev);
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
@@ -2532,7 +2532,7 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 			if ((lcpath==NULL)||(lcpath->sCopyFromPath.IsEmpty()))
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			else
-				_stprintf(pItem->pszText, _T("%ld"), lcpath->lCopyFromRev);
+				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), lcpath->lCopyFromRev);
 			break;
 		}
 	}

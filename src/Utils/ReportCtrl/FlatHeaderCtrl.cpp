@@ -1368,7 +1368,7 @@ BOOL CFlatHeaderCtrl::OnToolTipNotify(UINT /*nId*/, NMHDR *pNMHDR, LRESULT * /*p
 	) {
 		USES_CONVERSION;
 
-		wcscpy((WCHAR*)pTTT->lpszText, CT2W(m_arrayHdrItemEx[m_iHotIndex].strToolTip));
+		wcscpy_s((WCHAR*)pTTT->lpszText, 80, CT2W(m_arrayHdrItemEx[m_iHotIndex].strToolTip));
 		pTTT->lpszText = pTTT->szText;
 		return TRUE;
 	}

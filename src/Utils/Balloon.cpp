@@ -1365,7 +1365,7 @@ BOOL CBalloon::SetFont(LPCTSTR lpszFaceName, int nSizePoints /* = 8 */,
 	LOGFONT lf;
 	memset (&lf, 0, sizeof(LOGFONT));
 
-	_tcscpy (lf.lfFaceName, lpszFaceName);
+	_tcscpy_s (lf.lfFaceName, 32, lpszFaceName);
 	lf.lfHeight = -MulDiv (nSizePoints, GetDeviceCaps (pDC->m_hDC, LOGPIXELSY), 72);
 	lf.lfUnderline = (BYTE)bUnderline;
 	lf.lfWeight = bBold ? FW_BOLD : FW_NORMAL;

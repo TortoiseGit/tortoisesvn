@@ -32,15 +32,15 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	attribs.nLength = sizeof(SECURITY_ATTRIBUTES);
 	attribs.bInheritHandle = FALSE;
 
-	ConvertToBackslash(internalpathbuf, path);
+	ConvertToBackslash(internalpathbuf, path, len+10);
 	do
 	{
 		ZeroMemory(buf, (len+10)*sizeof(TCHAR));
 		TCHAR * slashpos = _tcschr(pPath, '\\');
 		if (slashpos)
-			_tcsncpy(buf, internalpathbuf, slashpos - internalpathbuf);
+			_tcsncpy_s(buf, len+10, internalpathbuf, slashpos - internalpathbuf);
 		else
-			_tcsncpy(buf, internalpathbuf, len+10);
+			_tcsncpy_s(buf, len+10, internalpathbuf, len+10);
 		CreateDirectory(buf, &attribs);
 		pPath = _tcschr(pPath, '\\');
 	} while ((pPath++)&&(_tcschr(pPath, '\\')));
@@ -51,9 +51,9 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	return bRet;
 }
 
-void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src)
+void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
 {
-	_tcscpy(dest, src);
+	_tcscpy_s(dest, len, src);
 	TCHAR * p = dest;
 	for (; *p != '\0'; ++p)
 		if (*p == '/')

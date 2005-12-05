@@ -425,7 +425,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						TCHAR szFile[MAX_PATH];  // buffer for file name
 						ZeroMemory(szFile, sizeof(szFile));
 						CString filename = url.Mid(url.ReverseFind('/')+1);
-						_tcscpy(szFile, filename);
+						_tcscpy_s(szFile, MAX_PATH, filename);
 						// Initialize OPENFILENAME
 						ZeroMemory(&ofn, sizeof(OPENFILENAME));
 						ofn.lStructSize = sizeof(OPENFILENAME);
@@ -445,7 +445,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CString sFilter;
 						sFilter.LoadString(IDS_COMMONFILEFILTER);
 						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-						_tcscpy (pszFilters, sFilter);
+						_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 						// Replace '|' delimeters with '\0's
 						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 						while (ptr != pszFilters)
@@ -746,7 +746,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CString sFilter;
 					sFilter.LoadString(IDS_COMMONFILEFILTER);
 					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-					_tcscpy (pszFilters, sFilter);
+					_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 					// Replace '|' delimeters with '\0's
 					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 					while (ptr != pszFilters)
@@ -852,7 +852,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						TCHAR szFile[MAX_PATH];  // buffer for file name
 						ZeroMemory(szFile, sizeof(szFile));
 						CString filename = url.Mid(url.ReverseFind('/')+1);
-						_tcscpy(szFile, filename);
+						_tcscpy_s(szFile, MAX_PATH, filename);
 						// Initialize OPENFILENAME
 						ZeroMemory(&ofn, sizeof(OPENFILENAME));
 						ofn.lStructSize = sizeof(OPENFILENAME);
@@ -872,7 +872,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CString sFilter;
 						sFilter.LoadString(IDS_COMMONFILEFILTER);
 						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-						_tcscpy (pszFilters, sFilter);
+						_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 						// Replace '|' delimeters with '\0's
 						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 						while (ptr != pszFilters)

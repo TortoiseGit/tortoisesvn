@@ -335,7 +335,7 @@ public:
         typedef typename std::iterator_traits<IterT>::difference_type diff_type;
         diff_type diff = std::distance( begin, end );
         m_len  = static_cast<unsigned char>( regex_min<diff_type>( diff, UCHAR_MAX ) );
-        std::fill_n( m_off, ARRAYSIZE( m_off ), m_len );
+        stdext::unchecked_fill_n( m_off, ARRAYSIZE( m_off ), m_len );
         --m_len;
 
         for( unsigned char offset = m_len; offset; --offset, ++m_last )
@@ -411,7 +411,7 @@ public:
     }
     void zero()
     {
-        std::fill_n( m_rg, ARRAYSIZE( m_rg ), 0 );
+        stdext::unchecked_fill_n( m_rg, ARRAYSIZE( m_rg ), 0 );
     }
     void set( unsigned char ch )
     {
@@ -2218,7 +2218,7 @@ public:
         , m_szlower( arena_allocator<char_type>( arena ).allocate( m_dist ) )
     {
         // Copy from ibegin to m_szlower
-        std::copy( this->m_ibegin, this->m_iend, m_szlower );
+        stdext::unchecked_copy( this->m_ibegin, this->m_iend, m_szlower );
         // Store the uppercase version of the literal in [ m_ibegin, m_iend ).
         regex_toupper( ibegin, iend );
         // Store the lowercase version of the literal in m_strlower.
@@ -2835,7 +2835,7 @@ public:
         {
             (*ialt)->peek_this( peek );
             char_type const * in = ( peek.m_cchars > 2 ) ? peek.m_pchars : peek.m_rgchars;
-            m_peek_chars_end = std::copy( in, in + peek.m_cchars, m_peek_chars_end );
+            m_peek_chars_end = stdext::unchecked_copy( in, in + peek.m_cchars, m_peek_chars_end );
         }
 
         std::sort( m_peek_chars_begin, m_peek_chars_end );
@@ -2897,7 +2897,7 @@ public:
         if( 2 < peek.m_cchars )
             peek.m_pchars = m_peek_chars_begin;
         else
-            std::copy( m_peek_chars_begin, m_peek_chars_end, peek.m_rgchars );
+            stdext::unchecked_copy( m_peek_chars_begin, m_peek_chars_end, peek.m_rgchars );
 
         peek.m_must_have.m_has = false;
         if( 1 == m_rgalternates.size() )
@@ -3207,7 +3207,7 @@ class independent_group_base : public match_group_base<IterT>
         if( m_extent.second )
         {
             prgbr = static_cast<backref_tag<IterT>*>( alloca( m_extent.second * sizeof( backref_tag<IterT> ) ) );
-            std::uninitialized_copy(
+            stdext::unchecked_uninitialized_copy(
                 param.m_prgbackrefs + m_extent.first,
                 param.m_prgbackrefs + m_extent.first + m_extent.second,
                 prgbr );
@@ -3234,7 +3234,7 @@ class independent_group_base : public match_group_base<IterT>
 
         // if match_group::recursive_match_all returned true, the backrefs must be restored
         if( m_extent.second && fdomatch )
-            std::copy( prgbr, prgbr + m_extent.second, param.m_prgbackrefs + m_extent.first );
+            stdext::unchecked_copy( prgbr, prgbr + m_extent.second, param.m_prgbackrefs + m_extent.first );
 
         std::for_each( prgbr, prgbr + m_extent.second, deleter() );
         return false;
@@ -3502,7 +3502,7 @@ class lookbehind_assertion : public independent_group_base<IterT>
         if( this->m_extent.second )
         {
             prgbr = static_cast<backref_tag<IterT>*>( alloca( this->m_extent.second * sizeof( backref_tag<IterT> ) ) );
-            std::uninitialized_copy(
+            stdext::unchecked_uninitialized_copy(
                 param.m_prgbackrefs + this->m_extent.first,
                 param.m_prgbackrefs + this->m_extent.first + this->m_extent.second,
                 prgbr );
@@ -3538,7 +3538,7 @@ class lookbehind_assertion : public independent_group_base<IterT>
             if( fmatched )
             {
                 if( this->m_extent.second )
-                    std::copy( prgbr, prgbr + this->m_extent.second, param.m_prgbackrefs + this->m_extent.first );
+                    stdext::unchecked_copy( prgbr, prgbr + this->m_extent.second, param.m_prgbackrefs + this->m_extent.first );
 
                 // Match succeeded. If this is a negative lookbehind, we didn't want it
                 // to succeed, so return false.
@@ -6141,7 +6141,7 @@ REGEXPR_H_INLINE bool matcher_helper<IterT>::_do_match_impl( rpattern_type const
     param.m_pfirst = pfirst;
 
     REGEX_ASSERT( param.m_cbackrefs == pat._cgroups_total() );
-    std::fill_n( param.m_prgbackrefs, param.m_cbackrefs, static_init<backref_type>::value );
+    stdext::unchecked_fill_n( param.m_prgbackrefs, param.m_cbackrefs, static_init<backref_type>::value );
 
     if( ! use_null )
     {

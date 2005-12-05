@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="TortoisePlink"
 	ProjectGUID="{B439B09E-7390-4CEB-A1DD-745CF976F2BB}"
+	RootNamespace="TortoisePlink"
 	>
 	<Platforms>
 		<Platform
@@ -43,7 +44,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="_DEBUG;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT"
+				PreprocessorDefinitions="_DEBUG;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				ForceConformanceInForLoopScope="true"
@@ -140,7 +141,7 @@
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="NDEBUG;RELEASE=&quot;0.57&quot;;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT"
+				PreprocessorDefinitions="NDEBUG;RELEASE=&quot;0.57&quot;;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"

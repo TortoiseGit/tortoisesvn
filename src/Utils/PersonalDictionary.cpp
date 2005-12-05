@@ -41,7 +41,7 @@ bool CPersonalDictionary::Load()
 	TCHAR sLang[10];
 	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
 		return false;
-	_tcscat(path, _T("\\TortoiseSVN"));
+	_tcscat_s(path, MAX_PATH, _T("\\TortoiseSVN"));
 
 	if (!PathIsDirectory(path))
 		CreateDirectory(path, NULL);
@@ -49,9 +49,9 @@ bool CPersonalDictionary::Load()
 	if (m_lLanguage==0)
 		m_lLanguage = GetUserDefaultLCID();
 
-	_stprintf(sLang, _T("\\%ld"), m_lLanguage);
-	_tcscat(path, sLang);
-	_tcscat(path, _T(".dic"));
+	_stprintf_s(sLang, 10, _T("\\%ld"), m_lLanguage);
+	_tcscat_s(path, MAX_PATH, sLang);
+	_tcscat_s(path, MAX_PATH, _T(".dic"));
 
 	std::wifstream File;
 	char filepath[MAX_PATH+1];
@@ -100,7 +100,7 @@ bool CPersonalDictionary::Save()
 	TCHAR sLang[10];
 	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
 		return false;
-	_tcscat(path, _T("\\TortoiseSVN"));
+	_tcscat_s(path, MAX_PATH, _T("\\TortoiseSVN"));
 
 	if (!PathIsDirectory(path))
 		CreateDirectory(path, NULL);
@@ -108,9 +108,9 @@ bool CPersonalDictionary::Save()
 	if (m_lLanguage==0)
 		m_lLanguage = GetUserDefaultLCID();
 
-	_stprintf(sLang, _T("\\%ld"), m_lLanguage);
-	_tcscat(path, sLang);
-	_tcscat(path, _T(".dic"));
+	_stprintf_s(sLang, 10, _T("\\%ld"), m_lLanguage);
+	_tcscat_s(path, MAX_PATH, sLang);
+	_tcscat_s(path, MAX_PATH, _T(".dic"));
 
 	std::wofstream File;
 	char filepath[MAX_PATH+1];

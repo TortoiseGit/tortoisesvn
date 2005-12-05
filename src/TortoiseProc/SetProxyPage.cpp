@@ -282,7 +282,7 @@ void CSetProxyPage::OnBnClickedSshbrowse()
 	CString sFilter;
 	sFilter.LoadString(IDS_PROGRAMSFILEFILTER);
 	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-	_tcscpy (pszFilters, sFilter);
+	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 	// Replace '|' delimeters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 	while (ptr != pszFilters)

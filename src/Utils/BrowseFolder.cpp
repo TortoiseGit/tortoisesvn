@@ -45,7 +45,7 @@ CBrowseFolder::~CBrowseFolder(void)
 }
 
 //show the dialog
-CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, LPTSTR path, LPCTSTR szDefaultPath /* = NULL */)
+CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, LPTSTR path, size_t pathlen, LPCTSTR szDefaultPath /* = NULL */)
 {
 	CString temp;
 	temp = path;
@@ -53,7 +53,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, LPTSTR path, LPCTSTR szDe
 	if (szDefaultPath)
 		sDefault = szDefaultPath;
 	CBrowseFolder::retVal ret = Show(parent, temp, sDefault);
-	_tcscpy(path, temp);
+	_tcscpy_s(path, pathlen, temp);
 	return ret;
 }
 CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CString& sDefaultPath /* = CString() */)
@@ -111,7 +111,7 @@ void CBrowseFolder::SetInfo(LPCTSTR title)
 	ASSERT(title);
 	
 	if (title)
-		_tcscpy(m_title, title);
+		_tcscpy_s(m_title, 200, title);
 }
 
 void CBrowseFolder::SetCheckBoxText(LPCTSTR checktext)
@@ -119,7 +119,7 @@ void CBrowseFolder::SetCheckBoxText(LPCTSTR checktext)
 	ASSERT(checktext);
 
 	if (checktext)
-		_tcscpy(m_CheckText, checktext);
+		_tcscpy_s(m_CheckText, 200, checktext);
 }
 
 void CBrowseFolder::SetCheckBoxText2(LPCTSTR checktext)
@@ -127,7 +127,7 @@ void CBrowseFolder::SetCheckBoxText2(LPCTSTR checktext)
 	ASSERT(checktext);
 
 	if (checktext)
-		_tcscpy(m_CheckText2, checktext);
+		_tcscpy_s(m_CheckText2, 200, checktext);
 }
 
 void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize)

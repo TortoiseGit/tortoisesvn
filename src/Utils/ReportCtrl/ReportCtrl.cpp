@@ -302,8 +302,10 @@ BOOL CReportData::New(INT iSubItems)
 	lpsz[0] = 0;
 
 	for(INT i=0;i<iSubItems;i++)
-		lpsz = _tcscat( lpsz, g_szNoData );
-
+	{
+		_tcscat_s( lpsz, iSubItems*REPORTDATA_MAX_NODATA, g_szNoData );
+		lpsz += _tcslen(g_szNoData);
+	}
 	ReleaseBuffer();
 
 	return TRUE;
@@ -321,7 +323,7 @@ BOOL CReportData::GetSubItem(INT iSubItem, LPINT lpiImage, LPINT lpiOverlay, LPI
 
 	LPCTSTR lpsz = *this;
 	lpsz = &lpsz[iPos];
-	VERIFY(_stscanf(lpsz, _T("(%d,%d,%d,%d,%d)"), lpiImage, lpiOverlay, lpiCheck, lpiColor, &iText));
+	VERIFY(_stscanf_s(lpsz, _T("(%d,%d,%d,%d,%d)"), lpiImage, lpiOverlay, lpiCheck, lpiColor, &iText));
 
 	if(iText < 0)
 		*lpiTextMax = -1;
@@ -375,7 +377,7 @@ BOOL CReportData::InsertSubItem(INT iSubItem, INT iImage, INT iOverlay, INT iChe
 		iText = (INT)_tcslen(lpszText);
 
 	TCHAR sz[32+REPORTCTRL_MAX_TEXT];
-	_stprintf(sz, _T("(%d,%d,%d,%d,%d)%s%c"), iImage, iOverlay, iCheck, iColor, iText, lpszText, g_cSeparator);
+	_stprintf_s(sz, 32+REPORTCTRL_MAX_TEXT, _T("(%d,%d,%d,%d,%d)%s%c"), iImage, iOverlay, iCheck, iColor, iText, lpszText, g_cSeparator);
 
 	Insert(iPos, sz);
 	return TRUE;
@@ -570,7 +572,7 @@ CReportCtrl::CReportCtrl() :
 	m_strNoItems = _T("There are no items to show in this view.");
 	m_strSortBy = _T("Sort by: %s");
 
-	_stprintf(g_szNoData, _T("(-1,-1,-1,-1,-1)%c"), g_cSeparator);
+	_stprintf_s(g_szNoData, REPORTDATA_MAX_NODATA, _T("(-1,-1,-1,-1,-1)%c"), g_cSeparator);
 
 	m_iDefaultWidth = 200;
 	m_iDefaultHeight = 10;
@@ -789,7 +791,7 @@ BOOL CReportCtrl::ModifyProperty(WPARAM wParam, LPARAM lParam)
 
 	case RVP_SEPARATOR:
 		g_cSeparator = (TCHAR)lParam;
-		_stprintf(g_szNoData, _T("(-1,-1,-1,-1)%c"), g_cSeparator);
+		_stprintf_s(g_szNoData, REPORTDATA_MAX_NODATA, _T("(-1,-1,-1,-1)%c"), g_cSeparator);
 		break;
 
 	case RVP_ENABLEPREVIEW:
@@ -1158,7 +1160,7 @@ BOOL CReportCtrl::SetItem(LPRVITEM lprvi)
 	{
 		if(lprvi->lpszText != NULL)
 		{
-			_tcsncpy(rvi.lpszText, lprvi->lpszText, REPORTCTRL_MAX_TEXT-1);
+			_tcsncpy_s(rvi.lpszText, REPORTCTRL_MAX_TEXT, lprvi->lpszText, REPORTCTRL_MAX_TEXT-1);
 			rvi.lpszText[REPORTCTRL_MAX_TEXT-1] = 0;
 		}
 		else
@@ -1470,11 +1472,11 @@ CString CReportCtrl::GetItemString(INT iItem, TCHAR cSeparator)
 		}
 		else if(rvi.nMask&RVIM_IMAGE)
 		{
-			_stprintf(szText, _T("%d"), rvi.iImage );	
+			_stprintf_s(szText, REPORTCTRL_MAX_TEXT, _T("%d"), rvi.iImage );	
 		}
 		else if(rvi.nMask&RVIM_CHECK)
 		{
-			_stprintf(szText, _T("%d"), rvi.iCheck );
+			_stprintf_s(szText, REPORTCTRL_MAX_TEXT, _T("%d"), rvi.iCheck );
 		}
 		else
 			szText[0] = 0;
@@ -6802,7 +6804,7 @@ BOOL CReportSubItemListCtrl::BeginDrag(CPoint pt)
 		GetClientRect(m_rcDragWnd);
 		m_rcDragWnd.bottom = m_rcDragWnd.top + GetItemHeight(0);
 
-		_tcscpy(m_szSubItemText, m_pReportCtrl->m_arraySubItems[m_iSubItem].strText);
+		_tcscpy_s(m_szSubItemText, 80, m_pReportCtrl->m_arraySubItems[m_iSubItem].strText);
 
 		m_hdiSubItem.mask = HDI_WIDTH|HDI_TEXT|HDI_FORMAT;
 		m_hdiSubItem.cxy = m_rcDragWnd.Width();

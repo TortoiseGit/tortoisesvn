@@ -668,7 +668,7 @@ void CRepositoryTree::OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMTVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMTVGETINFOTIP>(pNMHDR);
 	if (GetItemData(GetItemIndex(pGetInfoTip->hItem)) == 0)
-		_tcsncpy(pGetInfoTip->pszText, m_svn.GetLastErrorMessage(), pGetInfoTip->cchTextMax);
+		_tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, m_svn.GetLastErrorMessage(), pGetInfoTip->cchTextMax);
 	*pResult = 0;
 }
 
@@ -1076,7 +1076,7 @@ void CRepositoryTree::OnBeginDrag()
 	if (medium.hGlobal)
 	{
 		TCHAR* pMem = (TCHAR*)GlobalLock(medium.hGlobal);
-		_tcscpy(pMem, (LPCTSTR)urls);
+		_tcscpy_s(pMem, urls.GetLength()+1, (LPCTSTR)urls);
 		GlobalUnlock(medium.hGlobal);
 
 		pdobj->SetData(&fmtetc, &medium, TRUE);

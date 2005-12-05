@@ -422,29 +422,30 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE) != FALSE)
 		{
 			time_t now;
-			struct tm *ptm;
+			struct tm ptm;
 
 			time(&now);
-			ptm = localtime(&now);
-			int week = 0;
-			if (ptm)
-				week = ptm->tm_yday / 7;
-
-			CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
-			if (((DWORD)oldweek) == -1)
-				oldweek = week;
-			else
+			if (localtime_s(&ptm, &now)==0)
 			{
-				if ((DWORD)week != oldweek)
-				{
-					oldweek = week;
+				int week = 0;
+				week = ptm.tm_yday / 7;
 
-					TCHAR com[MAX_PATH+100];
-					GetModuleFileName(NULL, com, MAX_PATH);
-					_tcscat(com, _T(" /command:updatecheck"));
+				CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
+				if (((DWORD)oldweek) == -1)
+					oldweek = week;
+				else
+				{
+					if ((DWORD)week != oldweek)
+					{
+						oldweek = week;
+
+						TCHAR com[MAX_PATH+100];
+						GetModuleFileName(NULL, com, MAX_PATH);
+						_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck"));
 
 //BUGBUG - Should this really have an error message string resource ID?
-					CUtils::LaunchApplication(com, 0, false);
+						CUtils::LaunchApplication(com, 0, false);
+					}
 				}
 			}
 		}
@@ -871,7 +872,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				folderBrowser.SetCheckBoxText2(strTemp);
 				CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
 				CBrowseFolder::m_bCheck = regExtended;
-				if (folderBrowser.Show(EXPLORERHWND, saveto)==CBrowseFolder::OK)
+				if (folderBrowser.Show(EXPLORERHWND, saveto, MAX_PATH)==CBrowseFolder::OK)
 				{
 					CString saveplace = CString(saveto);
 					saveplace += _T("\\") + cmdLinePath.GetFileOrDirectoryName();
@@ -1815,7 +1816,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 		CString sFilter;
 		sFilter.LoadString(IDS_PATCHFILEFILTER);
 		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-		_tcscpy (pszFilters, sFilter);
+		_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 		// Replace '|' delimeters with '\0's
 		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 		while (ptr != pszFilters)
@@ -1904,7 +1905,8 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 	{
 		// The user actually asked for the patch to be written to the clipboard
 		CStringA sClipdata;
-		FILE* inFile = _tfopen(tempPatchFilePath.GetWinPath(), _T("rb"));
+		FILE * inFile;
+		_tfopen_s(&inFile, tempPatchFilePath.GetWinPath(), _T("rb"));
 		if(inFile)
 		{
 			char chunkBuffer[16384];

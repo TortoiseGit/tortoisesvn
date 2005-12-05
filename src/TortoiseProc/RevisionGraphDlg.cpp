@@ -285,7 +285,7 @@ CFont* CRevisionGraphDlg::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE
 		m_lfBaseFont.lfHeight = -MulDiv(m_nFontSize, GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
 		// use the empty font name, so GDI takes the first font which matches
 		// the specs. Maybe this will help render chinese/japanese chars correctly.
-		_tcsncpy(m_lfBaseFont.lfFaceName, _T("MS Shell Dlg 2"), 32);
+		_tcsncpy_s(m_lfBaseFont.lfFaceName, 32, _T("MS Shell Dlg 2"), 32);
 		if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
 		{
 			delete m_apFonts[nIndex];
@@ -1449,7 +1449,7 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 	CString sFilter;
 	sFilter.LoadString(IDS_PICTUREFILEFILTER);
 	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-	_tcscpy (pszFilters, sFilter);
+	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
 	// Replace '|' delimeters with '\0's
 	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
 	while (ptr != pszFilters)
@@ -1497,7 +1497,7 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 			// the user needs to have GDI+ installed. So check if GDI+ is 
 			// available before we start using it.
 			TCHAR gdifindbuf[MAX_PATH];
-			_tcscpy(gdifindbuf, _T("gdiplus.dll"));
+			_tcscpy_s(gdifindbuf, MAX_PATH, _T("gdiplus.dll"));
 			if (PathFindOnPath(gdifindbuf, NULL))
 			{
 				ATLTRACE("gdi plus found!");
