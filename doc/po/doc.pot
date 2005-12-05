@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-12-05 00:02GMT Standard Time\n"
+"POT-Creation-Date: 2005-12-05 00:21GMT Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -726,11 +726,11 @@ msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal>
 msgstr ""
 
 #: source/en/tsvn_repository/checkout_links.xml:19(para) 
-msgid "To include such a link in your own html page, you need to add code which looks something like this: <screen>\n&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;&lt;/a&gt;\n</screen>"
+msgid "To include such a link in your own html page, you need to add code which looks something like this: <screen>\n&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;&lt;/a&gt;\n</screen>"
 msgstr ""
 
 #: source/en/tsvn_repository/checkout_links.xml:26(para) 
-msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <screen>\n&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;\n&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n</screen>"
+msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <screen>\n&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;\n&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n</screen>"
 msgstr ""
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:3(title) 
@@ -3465,7 +3465,7 @@ msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is b
 msgstr ""
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:242(para) 
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://svn.collab.net/repos/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
 msgstr ""
 
 #: source/en/tsvn_dug/dug_branchtag.xml:3(title) 
@@ -3923,7 +3923,7 @@ msgstr ""
 
 #: source/en/tsvn_subwcrev.xml:222(screen) 
 #, no-wrap
-msgid "\n// Test file for SubWCRev\n\nchar *Revision = \"3701\";\nchar *Modified = \"Modified\";\nchar *Date     = \"2005/06/15 11:15:12\";\nchar *RevRange = \"3699:3701\";\nchar *Mixed    = \"Mixed revision WC\";\nchar *URL      = \"http://svn.collab.net/repos/tortoisesvn/trunk/src/SubWCRev\";\n\n#if 1\n#error Source is modified\n#endif\n\n// EndOfFile\n"
+msgid "\n// Test file for SubWCRev\n\nchar *Revision = \"3701\";\nchar *Modified = \"Modified\";\nchar *Date     = \"2005/06/15 11:15:12\";\nchar *RevRange = \"3699:3701\";\nchar *Mixed    = \"Mixed revision WC\";\nchar *URL      = \"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCRev\";\n\n#if 1\n#error Source is modified\n#endif\n\n// EndOfFile\n"
 msgstr ""
 
 #: source/en/tsvn_preface.xml:3(title) source/en/tme_ch00.xml:3(title) 
