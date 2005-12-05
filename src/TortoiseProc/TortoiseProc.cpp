@@ -839,7 +839,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			TCHAR saveto[MAX_PATH];
 			bool bURL = !!SVN::PathIsURL(cmdLinePath.GetSVNPathString());
-			if ((bURL)&&(SVNStatus::GetAllStatus(cmdLinePath) == svn_wc_status_unversioned))
+			if ((bURL)||(SVNStatus::GetAllStatus(cmdLinePath) == svn_wc_status_unversioned))
 			{
 				CCheckoutDlg dlg;
 				if (bURL)
