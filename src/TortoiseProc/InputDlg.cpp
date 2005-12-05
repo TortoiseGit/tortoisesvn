@@ -107,7 +107,8 @@ BOOL CInputDlg::OnInitDialog()
 	EnableSaveRestore(_T("InputDlg"));
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	return TRUE;  // return TRUE unless you set the focus to a control
+	GetDlgItem(IDC_INPUTTEXT)->SetFocus();
+	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
