@@ -291,9 +291,12 @@ void CFolderCrawler::WorkerThread()
 						if (cachedDir)
 							cachedDir->Invalidate();
 					}
-					CSVNStatusCache::Instance().GetStatusForPath(workingPath, flags);
-					CSVNStatusCache::Instance().UpdateShell(workingPath);
-					ATLTRACE("shell update in foldercrawler for %ws\n", workingPath.GetWinPath());
+					CStatusCacheEntry ce = CSVNStatusCache::Instance().GetStatusForPath(workingPath, flags);
+					if (ce.GetEffectiveStatus() > svn_wc_status_unversioned)
+					{
+						CSVNStatusCache::Instance().UpdateShell(workingPath);
+						ATLTRACE("shell update in foldercrawler for %ws\n", workingPath.GetWinPath());
+					}
 					CSVNStatusCache::Instance().Done();
 					AutoLocker lock(m_critSec);
 					m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
