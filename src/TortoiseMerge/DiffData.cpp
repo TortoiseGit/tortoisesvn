@@ -509,7 +509,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			ASSERT((tempdiff->latest_length == tempdiff->modified_length) && (tempdiff->modified_length == tempdiff->original_length));
 			for (int i=0; i<tempdiff->original_length; i++)
 			{
-				m_arDiff3.Add(m_arBaseFile.GetAt(baseline));
+				m_arDiff3.Add(m_arYourFile.GetAt(yourline));
 				m_arStateDiff3.Add(DIFFSTATE_NORMAL);
 				m_arLinesDiff3.Add(resline);
 				m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
