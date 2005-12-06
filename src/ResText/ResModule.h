@@ -25,6 +25,8 @@
 #define GET_DWORD(ptr)       (*(DWORD *)(ptr))
 #define ALIGN_DWORD(type, p) ((type)(((DWORD)p + 3) & ~3))
 
+#define MAX_STRING_LENGTH	(32*1024)
+
 // DIALOG CONTROL INFORMATION
 typedef struct tagDlgItemInfo
 {

@@ -20,6 +20,7 @@
 #include <fstream>
 #include "codecvt.h"
 #include "Utils.h"
+#include "ResModule.h"
 #include ".\pofile.h"
 
 #define MYERROR	{CUtils::Error(); return FALSE;}
@@ -57,7 +58,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 		_ftprintf(stderr, _T("can't open input file %s\n"), szPath);
 		return FALSE;
 	}
-	TCHAR line[100*1024];
+	TCHAR line[2*MAX_STRING_LENGTH];
 	std::vector<std::wstring> entry;
 	do
 	{
