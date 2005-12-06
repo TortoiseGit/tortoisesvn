@@ -61,6 +61,9 @@
        pointed to subfolders of the repository root, the repository root
        couldn't be expanded to show all subfolders but needed an F5
        to actually get refreshed. (Stefan)
+- BUG: When ignoring all whitespaces is turned on in TortoiseMerge,
+       the merge result contained the lines of the base file
+       instead of "mine". (Stefan)
 
 Version 1.2.6
 - BUG: The status cache updated sometimes wrong paths or missed
