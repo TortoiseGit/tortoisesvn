@@ -19,14 +19,10 @@ SET _CHM=OFF
 SET _HTML=OFF
 
 :getparam
-if "%1"=="pdf" SET _PDF=ON
-if "%1"=="PDF" SET _PDF=ON
-if "%1"=="chm" SET _CHM=ON
-if "%1"=="CHM" SET _CHM=ON
-if "%1"=="single" SET _HTML=SINGLE
-if "%1"=="SINGLE" SET _HTML=SINGLE
-if "%1"=="html" SET _HTML=ON
-if "%1"=="HTML" SET _HTML=ON
+if /I "%1"=="pdf" SET _PDF=ON
+if /I "%1"=="chm" SET _CHM=ON
+if /I "%1"=="single" SET _HTML=SINGLE
+if /I "%1"=="html" SET _HTML=ON
 shift
 if NOT "%1"=="" goto :getparam
 
@@ -66,23 +62,21 @@ rem | Set Paths to source, stylesheets amd targets
 set _DOC_XML_SRC=%_APP%.xml
 
 rem Settings for PDF docs
-set _DOC_XSL_FO=%_DOC_SRC%\pdfdoc.xsl
+set _DOC_XSL_FO=%_DOC_HOME%\xsl\pdfdoc.xsl
 
 rem Settings for HTML Help docs
 set _DOC_CSS_HELP=%_DOC_SRC%\styles_chm.css
-set _DOC_XSL_HELP=%_DOC_SRC%\htmlhelp.xsl
+set _DOC_XSL_HELP=%_DOC_HOME%\xsl\htmlhelp.xsl
 
 rem Settings for plain HTML docs
 set _DOC_CSS_HTML=%_DOC_SRC%\styles_*.css
-set _DOC_XSL_HTMLSINGLE=%_DOC_SRC%\htmlsingle.xsl
-set _DOC_XSL_HTMLCHUNK=%_DOC_SRC%\htmlchunk.xsl
+set _DOC_XSL_HTMLSINGLE=%_DOC_HOME%\xsl\htmlsingle.xsl
+set _DOC_XSL_HTMLCHUNK=%_DOC_HOME%\xsl\htmlchunk.xsl
 
 set _HELP_RESOURCE=..\..\..\src\%_APP%\resource.h
 
 rem Exception for TortoiseProc, Grmpf,
-rem is there a simple way to convert the content of a variable to lowercase?
-if %_APP%==TortoiseSVN  set _HELP_RESOURCE=..\..\..\src\TortoiseProc\resource.h
-if %_APP%==tortoisesvn  set _HELP_RESOURCE=..\..\..\src\TortoiseProc\resource.h
+if /I %_APP%==TortoiseSVN  set _HELP_RESOURCE=..\..\..\src\TortoiseProc\resource.h
 
 set _HTML_TARGET=%_OUTPUT%\%_APP%_%_LANG%\
 set _FO_TARGET=%_HTML_TARGET%\%_APP%.fo
