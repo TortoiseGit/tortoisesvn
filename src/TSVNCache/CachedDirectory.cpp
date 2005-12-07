@@ -443,7 +443,16 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 
 				// Make sure we know about this child directory
 				// This initial status value is likely to be overwritten from below at some point
-				pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+				svn_wc_status_kind s = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+				CCachedDirectory * cdir = CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(svnPath);
+				if (cdir)
+				{
+					// This child directory is already in our cache!
+					// So ask this dir about its recursive status
+					pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(s, cdir->GetCurrentFullStatus());
+				}
+				else
+					pThis->m_childDirectories[svnPath] = s;
 			}
 		}
 		else
