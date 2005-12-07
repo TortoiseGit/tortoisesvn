@@ -201,13 +201,14 @@ void CFolderCrawler::WorkerThread()
 						if (lowerpath.Find(_T("\\lock"))>0)
 							continue;
 					}
-					if (!workingPath.Exists())
+					else if (!workingPath.Exists())
 					{
 						CSVNStatusCache::Instance().WaitToWrite();
 						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
 						CSVNStatusCache::Instance().Done();
 						continue;
 					}
+
 					do 
 					{
 						workingPath = workingPath.GetContainingDirectory();	
@@ -344,6 +345,19 @@ void CFolderCrawler::WorkerThread()
 				CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
 				if (cachedDir)
 					cachedDir->RefreshStatus(bRecursive);
+
+				// While refreshing the status, we could get another crawl request for the same folder.
+				// This can happen if the crawled folder has a lower status than one of the child folders
+				// (recursively). To avoid double crawlings, remove such a crawl request here
+				AutoLocker lock(m_critSec);
+				if (m_bItemsAddedSinceLastCrawl)
+				{
+					if (m_foldersToUpdate.back().IsEquivalentTo(workingPath))
+					{
+						m_foldersToUpdate.pop_back();
+						m_bItemsAddedSinceLastCrawl = false;
+					}
+				}
 				CSVNStatusCache::Instance().Done();
 			}
 		}
