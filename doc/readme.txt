@@ -18,9 +18,8 @@ tools\			- xsl processor, hhc.exe, ...
 you can download all the required tools as a zip package from our website:
 http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
 
-Then, make a copy of the file TortoiseVars.tmpl in the TSVN root folder and
-rename that copy to TortoiseVars.bat. Then simply adjust the paths as mentioned
-in that file.
+Currently you can either build the docs using batch files (which we'll remove in the near future)
+and NAnt.
 
 Please note that having spaces in your directory path will (for the time being)
 cause the documentation build process to fail.
@@ -41,18 +40,43 @@ The most important directories for you are:
 source\en - contains the english XML text source.
 images\en - contains the base (english) images for the docs. If you don't localize 
 	    your screenshots, these will be used instead.
-images\*  - contain the localized screenshots for other languages.
-po\*      - contain the translations for each language. Best edited with poEdit.
-tools     - contains the tools and the dtd to validate and build the docs.
+images\*  - contains the localized screenshots for other languages.
+po\*      - contains the translations for each language. Best edited with poEdit.
+xsl\	  - contains the stylesheets for the doc creation
+dtd\      - contains the tools and the dtd to validate and build the docs.
 	    You might want to place your tools directory somewhere else on your 
             harddisk, if you want to use it to build other docs too. This will 
             however require tweaking the build scripts.
-            I'd recommend to leave tools\dtd in place, so the source stays 
+            I'd recommend to leave dtd in place, so the source stays 
             compatible between TSVN doc developers.
 
-The scripts:
-============
-Three scripts are provided to build the documentation:
+Building the docs:
+==================
+
+NAnt Build:
+-----------
+A NAnt build script has been provided to build the docs. When doc.build is run for
+the first time, the template doc.build.include.template is copied to doc.build.include.
+Adjust the settings for your build environment in doc.build.include, not in the template.
+If you want to build the Japanese docs, you have to copy xsl\ja\userconfig.template.xml
+to xsl\ja\userconfig.xml and adjust the path settings to the japanese fonts.
+
+Currently nant supports three targets "all", "clean" and "potfile".
+- "all" builds all the docs that are out of date. Runs the target "potfile" too.
+- "clean" cleans only the output directory
+- "potfile" updates the po template from the source document.
+
+All other parameters are defined in doc.build.include.
+
+If the NAnt build process has been tested enough, the batch scripts will be removed
+
+Batch scripts:
+--------------
+Make a copy of the file TortoiseVars.tmpl in the TSVN root folder and
+rename that copy to TortoiseVars.bat. Then simply adjust the paths as mentioned
+in that file.
+
+Three batch scripts are provided to build the documentation:
 
 TranslateDoc.bat:
   will translate into the given language if the po file exists.
