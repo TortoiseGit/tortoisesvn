@@ -81,6 +81,14 @@ class docbookXmlMode:
         """Returns a comment to be added next to string for crediting translators."""
         return """Put one translator per line, in the form of NAME <EMAIL>."""
 
+    def getStringForTranslation(self):
+        """Returns translation of 'translation'."""
+        return "translator-translation"
+
+    def getCommentForTranslation(self):
+        """Returns a string that explains how 'translation' is to be translated."""
+        return """Place the translation of 'translation' here."""
+
     def _find_articleinfo(self, node):
         if node.name == 'articleinfo' or node.name == 'bookinfo':
             return node
@@ -142,7 +150,7 @@ class docbookXmlMode:
         root = doc.getRootElement()
         self._output_images(root,msg)
 
-    def postProcessXmlTranslation(self, doc, language, translators):
+    def postProcessXmlTranslation(self, doc, language, translators, translation):
         """Sets a language and translators in "doc" tree.
         
         "translators" is a string consisted of "Name <email>" pairs
@@ -179,7 +187,7 @@ class docbookXmlMode:
                     else:
                         transgroup.addChild(copy)
                         ai.addChild(transgroup)
-                    copy.newChild(None, "contrib", "translation")
+                    copy.newChild(None, "contrib", translation.encode('utf-8'))
                     if match.group(1) and match.group(2):
                         holder = match.group(1)+"(%s)" % match.group(2)
                     elif match.group(1):
@@ -199,4 +207,7 @@ if __name__ == '__main__':
 
     print "Credits from string: '%s'" % test.getStringForTranslators()
     print "Explanation for credits:\n\t'%s'" % test.getCommentForTranslators()
+    
+    print "String for translation: '%s'" % test.getStringForTranslation()
+    print "Explanation for translation:\n\t'%s'" % test.getCommentForTranslation()
     

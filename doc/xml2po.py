@@ -730,14 +730,25 @@ if mode != 'merge':
         tccom = CurrentXmlMode.getCommentForTranslators()
         if tcmsg:
             msg.outputMessage(tcmsg, 0, tccom)
+    if CurrentXmlMode:
+        tcmsg = CurrentXmlMode.getStringForTranslation()
+        tccom = CurrentXmlMode.getCommentForTranslation()
+        if tcmsg:
+            msg.outputMessage(tcmsg, 0, tccom)
 
     msg.outputAll(out)
 else:
     if CurrentXmlMode:
         tcmsg = CurrentXmlMode.getStringForTranslators()
         if tcmsg:
-            outtxt = getTranslation(tcmsg)
+            tnames = getTranslation(tcmsg)
         else:
-            outtxt = ''
-        CurrentXmlMode.postProcessXmlTranslation(doc, translationlanguage, outtxt)
+            tnames = ''
+        tcmsg = CurrentXmlMode.getStringForTranslation()
+        if tcmsg:
+            tstring = getTranslation(tcmsg)
+        else:
+            tstring = ''
+
+        CurrentXmlMode.postProcessXmlTranslation(doc, translationlanguage, tnames, tstring)
     out.write(doc.serialize('utf-8', 1))
