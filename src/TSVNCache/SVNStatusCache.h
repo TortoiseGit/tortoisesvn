@@ -57,6 +57,7 @@ public:
 
 	/// Find a directory in the cache (a new entry will be created if there isn't an existing entry)
 	CCachedDirectory * GetDirectoryCacheEntry(const CTSVNPath& path);
+	CCachedDirectory * GetDirectoryCacheEntryNoCreate(const CTSVNPath& path);
 
 	/// Add a folder to the background crawler's work list
 	void AddFolderForCrawling(const CTSVNPath& path);

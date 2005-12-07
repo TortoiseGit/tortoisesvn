@@ -231,6 +231,21 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 	}
 }
 
+CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntryNoCreate(const CTSVNPath& path)
+{
+	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
+
+	AutoLocker lock(m_critSec);
+
+	CCachedDirectory::ItDir itMap;
+	itMap = m_directoryCache.find(path);
+	if(itMap != m_directoryCache.end())
+	{
+		// We've found this directory in the cache 
+		return itMap->second;
+	}
+	return NULL;
+}
 
 CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD flags)
 {
