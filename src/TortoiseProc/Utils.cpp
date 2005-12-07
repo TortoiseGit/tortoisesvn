@@ -777,6 +777,8 @@ bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFor
 		}
 		return false;
 	}
+	CloseHandle(process.hThread);
+	CloseHandle(process.hProcess);
 
 	if (bWaitForStartup)
 	{

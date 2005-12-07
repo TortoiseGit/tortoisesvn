@@ -1310,6 +1310,8 @@ BOOL CMainFrame::MarkAsResolved()
 			LocalFree( lpMsgBuf );
 			return FALSE;
 		}
+		CloseHandle(process.hThread);
+		CloseHandle(process.hProcess);
 	}
 	else
 		return FALSE;

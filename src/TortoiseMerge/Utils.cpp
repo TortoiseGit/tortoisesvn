@@ -73,7 +73,9 @@ BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath
 			);
 		MessageBox(NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONERROR);
 		LocalFree( lpMsgBuf );
-	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)com), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	}
+	CloseHandle(process.hThread);
+	CloseHandle(process.hProcess);
 	DWORD ret = 0;
 	do
 	{

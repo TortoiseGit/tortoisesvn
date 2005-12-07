@@ -131,6 +131,8 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 			ATLTRACE("Failed to start cache\n");
 			return false;
 		}
+		CloseHandle(process.hThread);
+		CloseHandle(process.hProcess);
 		sCachePath.ReleaseBuffer();
 
 		// Wait for the cache to open

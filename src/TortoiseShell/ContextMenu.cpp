@@ -1296,6 +1296,8 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
 					LocalFree( lpMsgBuf );
 				} // if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+				CloseHandle(process.hThread);
+				CloseHandle(process.hProcess);
 				return NOERROR;
 				break;
 			case RevisionGraph:
@@ -1351,6 +1353,8 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
 				LocalFree( lpMsgBuf );
 			} // if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+			CloseHandle(process.hThread);
+			CloseHandle(process.hProcess);
 			hr = NOERROR;
 		} // if (myIDMap.find(idCmd) != myIDMap.end()) 
 	} // if ((files_.size() > 0)||(folder_.size() > 0)) 

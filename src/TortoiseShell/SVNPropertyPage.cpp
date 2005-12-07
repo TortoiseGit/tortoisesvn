@@ -473,7 +473,11 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						svnCmd += _T("log /path:\"");
 						svnCmd += filenames.front().c_str();
 						svnCmd += _T("\"");
-						CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process);
+						if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+						{
+							CloseHandle(process.hThread);
+							CloseHandle(process.hProcess);
+						}
 					}
 				case EN_CHANGE:
 					if ((LOWORD(wParam) == IDC_EDITNAME)||(LOWORD(wParam) == IDC_EDITVALUE))
