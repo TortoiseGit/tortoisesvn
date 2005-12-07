@@ -74,13 +74,13 @@ BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath
 		MessageBox(NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONERROR);
 		LocalFree( lpMsgBuf );
 	}
-	CloseHandle(process.hThread);
-	CloseHandle(process.hProcess);
 	DWORD ret = 0;
 	do
 	{
 		ret = WaitForSingleObject(process.hProcess, 100);
 	} while ((ret == WAIT_TIMEOUT) && (!progDlg->HasUserCancelled()));
+	CloseHandle(process.hThread);
+	CloseHandle(process.hProcess);
 	
 	if (progDlg->HasUserCancelled())
 	{

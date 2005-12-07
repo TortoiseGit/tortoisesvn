@@ -777,14 +777,14 @@ bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFor
 		}
 		return false;
 	}
-	CloseHandle(process.hThread);
-	CloseHandle(process.hProcess);
 
 	if (bWaitForStartup)
 	{
 		WaitForInputIdle(process.hProcess, 10000);
 	}
 
+	CloseHandle(process.hThread);
+	CloseHandle(process.hProcess);
 	return true;
 }
 
