@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-11-16 23:56+0900\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2005-12-07 15:25+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1292,21 +1292,21 @@ msgstr "Wenn Sie TortoiseSVN installieren, registriert es ein neues <literal>tsv
 #: (para)
 msgid ""
 "To include such a link in your own html page, you need to add code which looks something like this: <screen>\n"
-"&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;&lt;/a&gt;\n"
+"&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;&lt;/a&gt;\n"
 "</screen>"
 msgstr ""
 "Um einen solchen Verweis auf Ihrer Webseite zu platzieren, müssen Sie entsprechende Code hinzufügen. Hier ein Beispiel für TortoiseSVN:\n"
-"<screen>&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;&lt;/a&gt;</screen>"
+"<screen>&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;&lt;/a&gt;</screen>"
 
 #: source/en/tsvn_repository/checkout_links.xml:26
 #: (para)
 msgid ""
-"Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"https://svn.collab.net/repos/tortoisesvn/trunk/doc/logo/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <screen>\n"
-"&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;\n"
+"Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <screen>\n"
+"&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;\n"
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 "</screen>"
 msgstr ""
-"Selbstverständlich würde es noch besser aussehen, wenn der Verweis ein passendes Bild enthielte. Sie können folgendes Bild verwenden <ulink url=\"https://svn.collab.net/repos/tortoisesvn/trunk/doc/logo/TortoiseCheckout.png\"> <citetitle>TortoiseSVN Logo</citetitle> </ulink> oder Ihr eigenes Bild angeben. <screen>&lt;a href=\"tsvn:https://svn.collab.net/repos/tortoisesvn/trunk\"&gt;\n"
+"Selbstverständlich würde es noch besser aussehen, wenn der Verweis ein passendes Bild enthielte. Sie können folgendes Bild verwenden <ulink url=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/logo/TortoiseCheckout.png\"> <citetitle>TortoiseSVN Logo</citetitle> </ulink> oder Ihr eigenes Bild angeben. <screen>&lt;a href=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk\"&gt;\n"
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;</screen>"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:3
@@ -1347,45 +1347,45 @@ msgstr "Nun da Sie eine frisch ausgecheckte Arbeitskopie eines Subversion Projek
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:31
 #: (para)
-msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>."
-msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Eine frisch ausgecheckte Arbeitskopie hat nur überlagerte Symbole mit grünem Haken. Dies bedeutet dass der Subversion Status <literal>normal</literal> ist."
+msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>."
+msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Eine frisch ausgecheckte Arbeitskopie hat nur überlagerte Symbole mit grünem Haken. Dies bedeutet dass der Subversion Status <literal>normal</literal> ist."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:36
 #: (para)
-msgid "<graphic fileref=\"images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
+msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
 msgstr ""
-"<graphic fileref=\"images/ModifiedIcon.png\"/>\n"
+"<graphic fileref=\"../images/ModifiedIcon.png\"/>\n"
 "Sobald Sie eine Datei ändern, ändert sich auch der Status der Datei auf <literal>verändert</literal> und das überlagerte Symbol ändert sich in ein rotes Ausrufezeichen. Auf diese Weise können Sie mit einem Blick feststellen, welche Dateien Sie geändert und noch nicht in das Projektarchiv übertragen haben."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:44
 #: (para)
-msgid "<graphic fileref=\"images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark."
+msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark."
 msgstr ""
-"<graphic fileref=\"images/ConflictIcon.png\"/>\n"
+"<graphic fileref=\"../images/ConflictIcon.png\"/>\n"
 "Falls während einer Aktualisierung ein <literal>Konflikt</literal> auftrat, so werden solche Dateien mit einem gelben Ausrufezeichen markiert."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:49
 #: (para)
-msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Read-only files have this overlay to indicate that you have to get a lock first before you can edit that file."
-msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> Wenn eine Datei die <literal>svn:needs-lock</literal> Eigenschaft besitzt, setzt Subversion den Schreibschutz für diese Datei, bis Sie eine Sperre für die Datei holen. Schreibgeschützte Dateien erhalten dieses Symbol, um anzuzeigen, dass Sie die Datei erst sperren müssen, bevor Sie sie bearbeiten können."
+msgid "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Read-only files have this overlay to indicate that you have to get a lock first before you can edit that file."
+msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Wenn eine Datei die <literal>svn:needs-lock</literal> Eigenschaft besitzt, setzt Subversion den Schreibschutz für diese Datei, bis Sie eine Sperre für die Datei holen. Schreibgeschützte Dateien erhalten dieses Symbol, um anzuzeigen, dass Sie die Datei erst sperren müssen, bevor Sie sie bearbeiten können."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:56
 #: (para)
-msgid "<graphic fileref=\"images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <literal>normal</literal>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
-msgstr "<graphic fileref=\"images/LockedIcon.png\"/> Wenn Sie die Sperre für eine Datei besitzen und der Subversion Status <literal>normal</literal> ist, erinnert Sie dieses Symbol daran, dass Sie die Sperre wieder freigeben müssen, wenn Sie sie nicht benötigen, damit andere ihre Änderungen übertragen können."
+msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <literal>normal</literal>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
+msgstr "<graphic fileref=\"../images/LockedIcon.png\"/> Wenn Sie die Sperre für eine Datei besitzen und der Subversion Status <literal>normal</literal> ist, erinnert Sie dieses Symbol daran, dass Sie die Sperre wieder freigeben müssen, wenn Sie sie nicht benötigen, damit andere ihre Änderungen übertragen können."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:63
 #: (para)
-msgid "<graphic fileref=\"images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <literal>deleted</literal> from version control or a file under version control is missing in a folder."
+msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <literal>deleted</literal> from version control or a file under version control is missing in a folder."
 msgstr ""
-"<graphic fileref=\"images/DeletedIcon.png\"/>\n"
+"<graphic fileref=\"../images/DeletedIcon.png\"/>\n"
 "Dieses überlagerte Symbol zeigt, dass Dateien oder Ordner zum <literal>Löschen</literal> aus der Versionskontrolle markiert wurden oder dass TortoiseSVN eine Datei unter Versionskontrolle vermisst."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:69
 #: (para)
-msgid "<graphic fileref=\"images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <literal>added</literal> to version control."
+msgid "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <literal>added</literal> to version control."
 msgstr ""
-"<graphic fileref=\"images/AddedIcon.png\"/>\n"
+"<graphic fileref=\"../images/AddedIcon.png\"/>\n"
 "Das Pluszeichen bedeutet, dass eine Datei oder ein Ordner neu zur Versionskontrolle <literal>hinzugefügt</literal> wurde."
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:74
@@ -3697,8 +3697,8 @@ msgstr "Nicht gesperrte Dateien mit Schreibschutz versehen"
 
 #: source/en/tsvn_dug/dug_locking.xml:187
 #: (para)
-msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
-msgstr "Wie bereits erwähnt ist der einfachste Weg dazu, die <literal>svn:needs-lock</literal> Eigenschaft der Datei zu setzen. Lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/>, um zu erfahren, wie man Eigenschaften setzt. Dateien mit dieser Eigenschaft werden beim Aktualisieren und Auschecken stets mit einem Schreibschutz versehen, wenn die Arbeitskopie keine Sperre für die Datei besitzt. <graphic fileref=\"images/ReadOnlyIcon.png\"/> Als Erinnerung zeigt TortoiseSVN dieses Symbol dafür an."
+msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-DUG-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
+msgstr "Wie bereits erwähnt ist der einfachste Weg dazu, die <literal>svn:needs-lock</literal> Eigenschaft der Datei zu setzen. Lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/>, um zu erfahren, wie man Eigenschaften setzt. Dateien mit dieser Eigenschaft werden beim Aktualisieren und Auschecken stets mit einem Schreibschutz versehen, wenn die Arbeitskopie keine Sperre für die Datei besitzt. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Als Erinnerung zeigt TortoiseSVN dieses Symbol dafür an."
 
 #: source/en/tsvn_dug/dug_locking.xml:197
 #: (para)
@@ -4917,8 +4917,8 @@ msgstr "Es gibt zwei verschiedene Wege um TortoiseSVN mit einem Bugtracker zu ve
 
 #: source/en/tsvn_dug/dug_bugtracker.xml:242
 #: (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://svn.collab.net/repos/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
-msgstr "Die Integration mit Issuetrackern ist nicht limitiert auf TortoiseSVN: Sie kann von jedem Subversion Client benutzt werden. Für mehr Informationen hierzu lesen Sie bitte die <ulink url=\"http://svn.collab.net/repos/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
+msgstr "Die Integration mit Issuetrackern ist nicht limitiert auf TortoiseSVN: Sie kann von jedem Subversion Client benutzt werden. Für mehr Informationen hierzu lesen Sie bitte die <ulink url=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink>."
 
 #: source/en/tsvn_dug/dug_branchtag.xml:3
 #: (title)
@@ -5548,7 +5548,7 @@ msgid ""
 "char *Date     = \"2005/06/15 11:15:12\";\n"
 "char *RevRange = \"3699:3701\";\n"
 "char *Mixed    = \"Mixed revision WC\";\n"
-"char *URL      = \"http://svn.collab.net/repos/tortoisesvn/trunk/src/SubWCRev\";\n"
+"char *URL      = \"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCRev\";\n"
 "\n"
 "#if 1\n"
 "#error Source is modified\n"
@@ -5564,7 +5564,7 @@ msgstr ""
 "char *Date     = \"2005/06/15 11:15:12\";\n"
 "char *RevRange = \"3699:3701\";\n"
 "char *Mixed    = \"Mixed revision WC\";\n"
-"char *URL      = \"http://svn.collab.net/repos/tortoisesvn/trunk/src/SubWCRev\";\n"
+"char *URL      = \"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCRev\";\n"
 "\n"
 "#if 1\n"
 "#error Source is modified\n"
@@ -5612,167 +5612,212 @@ msgstr "Zielgruppe"
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
 msgstr "Dieses Buch ist für Computerbenutzer geschrieben, welche Subversion für die Handhabung ihrer Daten nutzen wollen, aber den Umgang mit der Kommandozeile nicht gewohnt sind.Da TortoiseSVN eine Windows Shell-Erweiterung ist, wird angenommen, dass der Leser den Umgang mit dem Explorer gewohnt ist und weiss, wie man diesen benutzt."
 
-#: source/en/tsvn_preface.xml:55
-#: (para)
-msgid "Even most Subversion users will never have to set up a server themselves. A whole chapter deals with how to set up such a server."
-msgstr "Obwohl wohl die allermeisten Subversion-Nutzer nie einen Server installieren müssen, widmet sich ein ganzes Kapitel diesem Thema."
+#: source/en/tsvn_preface.xml:60
+#: (title)
+msgid "Reading Guide"
+msgstr "Lesetipps"
 
-#: source/en/tsvn_preface.xml:59
+#: source/en/tsvn_preface.xml:61
 #: (para)
-msgid "If you run into problems installing or working with TortoiseSVN, check <xref linkend=\"tsvn-faq\"/> at the end of this manual. If your question is not answered there, search our online FAQ at <ulink url=\"http://tortoisesvn.sourceforge.net?q=node/1\"><citetitle>sourceforge.net</citetitle></ulink>, which contains more information and is - due to its nature - more up to date."
-msgstr "Falls Sie bei der Installation oder der Arbeit mit TortoiseSVN auf Probleme stoßen, schauen Sie bitte zunächst in <xref linkend=\"tsvn-faq\"/> am Ende dieses Handbuchs. Sollte Ihre Frage dort nicht beantwortet werden, können Sie in unserer online FAQ auf <ulink url=\"http://tortoisesvn.berlios.de/?q=faq\"> <citetitle>Berlios.de</citetitle></ulink> nachschlagen, die weitere Einträge enthält und - da online - aktueller ist."
+msgid "This <emphasis>Preface</emphasis> explains a little about the TortoiseSVN project, the community of people who work on it, and the licensing conditions for using it and distributing it."
+msgstr "Diese <emphasis>Einleitung</emphasis> erklärt das TortoiseSVN Projekt, die Gemeinschaft von Leuten die daran arbeiten soiwe die Lizenzbedingungen und die Bedingungen für die Weitergabe der Software."
 
-#: source/en/tsvn_preface.xml:73
+#: source/en/tsvn_preface.xml:66
+#: (para)
+msgid "The <emphasis>Introduction</emphasis> explains what TOrtoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
+msgstr "In der <emphasis>Einleitung</emphasis> wird erklärt, was TortoiseSVN ist, wie es funktioniert, woher es kommt und wie es auf Ihrem PC installiert wird."
+
+#: source/en/tsvn_preface.xml:71
+#: (para)
+msgid "In <emphasis>Basic Concepts</emphasis> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
+msgstr "In den <emphasis>Grundlagen</emphasis> geben wir eine kurze Einleitung in das <emphasis>Subversion</emphasis> Versionskontrollsystem, das TortoiseSVN zugrundeliegt. Dieses Kapitel stammt aus der Dokumentation des Subversion Projekts und erklärt die verschiedenen Ansätze zur Versionskontrolle und wie Subversion arbeitet."
+
+#: source/en/tsvn_preface.xml:78
+#: (para)
+msgid "Even most Subversion users will never have to set up a server themselves. The next chapter deals with how to set up such a server, and is useful for administrators."
+msgstr "Die allermeisten Subversion-Nutzer müssen wahrscheinlich nie selbst einen Server einrichten. Dennoch widmet sich das ganze folgende Kapitel diesem Thema und ist für Administratoren eine nützliche Lektüre."
+
+#: source/en/tsvn_preface.xml:83
+#: (para)
+msgid "The chapter on <emphasis>The Repository</emphasis> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server."
+msgstr ""
+
+#: source/en/tsvn_preface.xml:89
+#: (para)
+msgid "The <emphasis>Daily Use Guide</emphasis> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
+msgstr ""
+
+#: source/en/tsvn_preface.xml:96
+#: (para)
+msgid "<emphasis>SubWCRev</emphasis> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
+msgstr ""
+
+#: source/en/tsvn_preface.xml:101
+#: (para)
+msgid "The <emphasis>How Do I...</emphasis> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
+msgstr ""
+
+#: source/en/tsvn_preface.xml:105
+#: (para)
+msgid "The section on <emphasis>Automating TortoiseSVN</emphasis> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
+msgstr ""
+
+#: source/en/tsvn_preface.xml:110
+#: (para)
+msgid "The <emphasis>Command Line Cross Reference</emphasis> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
+msgstr ""
+
+#: source/en/tsvn_preface.xml:120
 #: (title)
 msgid "TortoiseSVN is free!"
 msgstr "TortoiseSVN ist frei!"
 
-#: source/en/tsvn_preface.xml:74
+#: source/en/tsvn_preface.xml:121
 #: (para)
-msgid "TortoiseSVN is free. You don't have to pay for it, you can use it any way you want. It is developed under the GP license (GPL)."
-msgstr "TortoiseSVN ist freie Software. Sie brauchen nichts dafür zu bezahlen. Sie können das Programm benutzen wie Sie wollen. TortoiseSVN wird unter der GP Lizenz (GPL) entwickelt."
+msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it any way you want. It is developed under the GNU General Public License (GPL)."
+msgstr "TortoiseSVN ist freie Software. Sie brauchen nichts dafür zu bezahlen. Sie können das Programm benutzen wie Sie wollen. TortoiseSVN wird unter der GNU <quote>General Public License (GPL)</quote> entwickelt."
 
-#: source/en/tsvn_preface.xml:78
+#: source/en/tsvn_preface.xml:125
 #: (para)
 msgid "TortoiseSVN is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, password:guest) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
 msgstr "TortoiseSVN ist ein Open Source Projekt. Das bedeutet, dass sie Zugang zum Quellcode des Programms haben. Sie können den Quellcode unter folgender URL <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> (Benutzername: guest, Passwort: guest) ansehen. Die aktuellste Version (an welcher wir gerade arbeiten) ist immer im Ordner <emphasis><filename>/trunk/</filename></emphasis>zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <emphasis><filename>/tags/</filename></emphasis>."
 
-#: source/en/tsvn_preface.xml:97
+#: source/en/tsvn_preface.xml:144
 #: (title)
 msgid "Community"
 msgstr "Gemeinschaft"
 
-#: source/en/tsvn_preface.xml:98
+#: source/en/tsvn_preface.xml:145
 #: (para)
 msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world and joined together to create wonderful programs."
 msgstr "Sowohl TortoiseSVN als auch Subversion werden von verschiedenen Gruppen von Leuten entwickelt. Diese Leute kommen aus vielen verschiedenen Ländern der Welt und haben sich zusammengefunden, um diese tollen Programme weiter zu entwickeln."
 
-#: source/en/tsvn_preface.xml:109
+#: source/en/tsvn_preface.xml:156
 #: (title) source/en/tme_ch00.xml:67
 msgid "Acknowledgments"
 msgstr "Danksagung"
 
-#: source/en/tsvn_preface.xml:112
+#: source/en/tsvn_preface.xml:159
 #: (term)
 msgid "Tim Kemp"
 msgstr "Tim Kemp"
 
-#: source/en/tsvn_preface.xml:114
+#: source/en/tsvn_preface.xml:161
 #: (para)
 msgid "for founding the TortoiseSVN project"
 msgstr "für die Gründung des TortoiseSVN Projekts"
 
-#: source/en/tsvn_preface.xml:120
+#: source/en/tsvn_preface.xml:167
 #: (term) source/en/tme_ch00.xml:71
 msgid "Stefan Küng"
 msgstr "Stefan Küng"
 
-#: source/en/tsvn_preface.xml:122
+#: source/en/tsvn_preface.xml:169
 #: (para)
 msgid "for the hard work to get TortoiseSVN to what it is now"
 msgstr "für die harte Arbeit an TortoiseSVN und die Programmierarbeit"
 
-#: source/en/tsvn_preface.xml:128
+#: source/en/tsvn_preface.xml:175
 #: (term) source/en/tme_ch00.xml:81
 msgid "Lübbe Onken"
 msgstr "Lübbe Onken"
 
-#: source/en/tsvn_preface.xml:130
+#: source/en/tsvn_preface.xml:177
 #: (para) source/en/tme_ch00.xml:85
 msgid "for the beautiful icons, logo, bughunting and taking care of the documentation"
 msgstr "für die wundervollen Icons, das Logo, die unermüdliche Fehlersuche und die Dokumentation"
 
-#: source/en/tsvn_preface.xml:137
+#: source/en/tsvn_preface.xml:184
 #: (term)
 msgid "The Subversion Book"
 msgstr "Das Subversion Buch"
 
-#: source/en/tsvn_preface.xml:139
+#: source/en/tsvn_preface.xml:186
 #: (para)
 msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
 msgstr "für die großartige Einführung in Subversion und das Kapitel 2, das wir hier kopiert haben."
 
-#: source/en/tsvn_preface.xml:146
+#: source/en/tsvn_preface.xml:193
 #: (term) source/en/tme_ch00.xml:92
 msgid "The Tigris Style project"
 msgstr "Das Tigris Style Projekt"
 
-#: source/en/tsvn_preface.xml:148
+#: source/en/tsvn_preface.xml:195
 #: (para) source/en/tme_ch00.xml:96
 msgid "for some of the styles which are reused in this documentation"
 msgstr "für einige der Stile, welche für diese Dokumentation verwendet wurden."
 
-#: source/en/tsvn_preface.xml:154
+#: source/en/tsvn_preface.xml:201
 #: (term) source/en/tme_ch00.xml:103
 msgid "Our Contributors"
 msgstr "Unsere Helfer"
 
-#: source/en/tsvn_preface.xml:156
+#: source/en/tsvn_preface.xml:203
 #: (para) source/en/tme_ch00.xml:107
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
 msgstr "für die Patches, Fehlermeldungen und dafür, dass sie anderen helfen, indem Sie Fragen auf unserer Mailingliste beantworten"
 
-#: source/en/tsvn_preface.xml:163
+#: source/en/tsvn_preface.xml:210
 #: (term) source/en/tme_ch00.xml:114
 msgid "Our Donators"
 msgstr "Unsere Spender"
 
-#: source/en/tsvn_preface.xml:165
+#: source/en/tsvn_preface.xml:212
 #: (para) source/en/tme_ch00.xml:118
 msgid "for many hours of joy with the music they sent us"
 msgstr "für viele Stunden voll toller Musik, welche sie uns geschenkt haben."
 
-#: source/en/tsvn_preface.xml:176
+#: source/en/tsvn_preface.xml:223
 #: (title)
 msgid "Terminology used in this document"
 msgstr "In diesem Dokument verwendete Terminologie"
 
-#: source/en/tsvn_preface.xml:177
+#: source/en/tsvn_preface.xml:224
 #: (para)
 msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
 msgstr "Um das Lesen der Dokumentation einfacher zu gestalten, sind die Namen aller Masken und Menüs von TortoiseSVN in einer anderen Schrift hervorgehoben. Der <guilabel>Log Dialog</guilabel> zum Beispiel."
 
-#: source/en/tsvn_preface.xml:182
+#: source/en/tsvn_preface.xml:229
 #: (para)
 msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
 msgstr "Eine Menüauswahl wird durch einen Pfeil angedeutet.<menuchoice> <guimenu>TortoiseSVN</guimenu><guimenuitem>Zeige Log</guimenuitem> </menuchoice> bedeutet: Wählen Sie <emphasis>Zeige Log</emphasis> aus dem <emphasis>TortoiseSVN</emphasis> Kontextmenü."
 
-#: source/en/tsvn_preface.xml:191
+#: source/en/tsvn_preface.xml:238
 #: (para)
 msgid "Where a local context menu appears within one of the TortoiseSVN dialogs, it is shown like this: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
 msgstr "Ein lokales Kontextmenü in einem TortoiseSVN Dialog wird folgendermaßen angezeigt: <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Speichern Unter...</guimenuitem> </menuchoice>."
 
-#: source/en/tsvn_preface.xml:199
+#: source/en/tsvn_preface.xml:246
 #: (para)
 msgid "User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton> to continue."
 msgstr "Schaltflächen werden durch einen 3D Effekt hervorgehoben: Drücken Sie <guibutton>OK</guibutton>, um weiterzumachen."
 
-#: source/en/tsvn_preface.xml:203
+#: source/en/tsvn_preface.xml:250
 #: (para)
 msgid "User Actions are indicated using a bold font. <action>ALT+A</action>: press the <keycap>ALT</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
 msgstr "Benutzeraktionen werden durch Fettdruck hervorgehoben.<action>ALT+A</action>: Drücken Sie die <keycap>ALT</keycap>-Taste und während Sie diese gedrückt halten, die <keycap>A</keycap>-Taste dazu. <action>Rechts-Ziehen</action>: Halten Sie die rechte Maustaste gedrückt und <emphasis>ziehen</emphasis> Sie die gewählten Einträge an den neuen Ort."
 
-#: source/en/tsvn_preface.xml:211
+#: source/en/tsvn_preface.xml:258
 #: (para)
 msgid "System output and keyboard input is indicated with a <literal>different</literal> font as well."
 msgstr "Systemausgaben und Tastatureingaben werden durch einen <literal>anderen</literal> Zeichensatz hervorgehoben."
 
-#: source/en/tsvn_preface.xml:216
+#: source/en/tsvn_preface.xml:263
 #: (para)
 msgid "Important notes are marked with an icon."
 msgstr "Wichtige Hinweise im Dokument."
 
-#: source/en/tsvn_preface.xml:221
+#: source/en/tsvn_preface.xml:268
 #: (para)
 msgid "Tips that make your life easier."
 msgstr "Tips, die Ihre Arbeit mit Subversion erleichtern."
 
-#: source/en/tsvn_preface.xml:226
+#: source/en/tsvn_preface.xml:273
 #: (para)
 msgid "Places where you have to be careful what you are doing."
 msgstr "Stellen, an denen Sie vorsichtig sein müssen, was sie tun."
 
-#: source/en/tsvn_preface.xml:231
+#: source/en/tsvn_preface.xml:278
 #: (para)
 msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
 msgstr "Stellen, an denen extreme Vorsicht geboten ist. Nichtbeachtung dieser Warnungen kann zu irreparablen Datenverlusten führen."
