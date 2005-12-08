@@ -596,7 +596,12 @@ UINT CSVNProgressDlg::ProgressThread()
 			SetWindowText(sWindowTitle);
 			if (!m_pSvn->Checkout(m_url, m_targetPathList[0], m_Revision, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
 			{
-				ReportSVNError();
+				// if the checkout fails with the peg revision set to the checkout revision,
+				// try again with HEAD as the peg revision.
+				if (!m_pSvn->Checkout(m_url, m_targetPathList[0], SVNRev::REV_HEAD, m_Revision, m_options & ProgOptRecursive, m_options & ProgOptIgnoreExternals))
+				{
+					ReportSVNError();
+				}
 			}
 			break;
 		case Import:			//no tempfile!
