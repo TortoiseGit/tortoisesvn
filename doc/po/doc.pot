@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-12-07 15:21GMT Standard Time\n"
+"POT-Creation-Date: 2005-12-08 18:56GMT Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2761,18 +2761,38 @@ msgid "Sometimes it is useful to construct a working copy that is made out of a 
 msgstr ""
 
 #: source/en/tsvn_dug/dug_import.xml:274(para) 
-msgid "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal>. You can add multiple external projects, 1 per line. Note that URLs and filenames must be properly escaped or they will not work properly. For example you must replace each space with <literal>%20</literal>. For example <screen>\nsubversion http://svn.collab.net/repos/svn/trunk\nquick%20graphs http://graphics.collab.net/repos/fast%20graphics\n</screen> Now click <guibutton>Set</guibutton> and commit your changes. If a user updates their working copy the external project is checked out, too."
+msgid "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal> or if you want to specify a particular revision, <literal>name -rREV url</literal> You can add multiple external projects, 1 per line. Note that URLs and filenames must be properly escaped or they will not work properly. For example you must replace each space with <literal>%20</literal>. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\nsounds   http://sounds.red-bean.com/repos\nquick%20graphs  http://graphics.red-bean.com/repos/fast%20graphics\nskins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a subfolder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another subfolder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested subfolder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:302(para) 
+#: source/en/tsvn_dug/dug_import.xml:312(para) source/en/tsvn_app_howto.xml:337(para) 
+msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:317(para) source/en/tsvn_app_howto.xml:342(para) 
+msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:323(para) 
 msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:312(para) 
+#: source/en/tsvn_dug/dug_import.xml:345(emphasis) 
+msgid "they"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:333(tip) 
+msgid "You should strongly consider using explicit revision numbers in all of your externals definitions. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <placeholder-1/> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:350(para) 
+msgid "URLs in <literal>svn:externals</literal> definitions are absolute. You cannot use relative URLs. If you relocate your working copy, or if the external repository is relocated, these URLs will not be updated automatically. Also, if you branch a project which has external references within the same repository, the URLs in the branched copy will be unchanged; you may then want to change trunk references to branch references instead."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:359(para) 
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-DUG-propertypage\"/>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:316(para) 
+#: source/en/tsvn_dug/dug_import.xml:363(para) 
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr ""
 
@@ -4971,98 +4991,90 @@ msgid "Use svn:externals"
 msgstr ""
 
 #: source/en/tsvn_app_howto.xml:321(para) 
-msgid "Set the <literal>svn:externals</literal> property for a folder in your project. The property value should be the name of a subfolder which you want the common code checked into, and the repository URL that you want to be checked out there. You can add multiple folder/URL pairs to one folder. For example: <screen>\nthird-party/sounds http://sounds.red-bean.com/repos\nthird-party/skins  http://skins.red-bean.com/repositories/skinproj\n</screen> Of course this code has to reside in a Subversion repository, although it does not have to be the same one."
+msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a subfolder which you want the use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-DUG-import-4\"/>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:334(para) 
+#: source/en/tsvn_app_howto.xml:329(para) 
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The subfolders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:342(para) 
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
-msgstr ""
-
-#: source/en/tsvn_app_howto.xml:347(para) 
-msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
-msgstr ""
-
-#: source/en/tsvn_app_howto.xml:355(title) 
+#: source/en/tsvn_app_howto.xml:350(title) 
 msgid "Use a nested working copy"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:356(para) 
+#: source/en/tsvn_app_howto.xml:351(para) 
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:360(para) 
+#: source/en/tsvn_app_howto.xml:355(para) 
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:370(para) 
+#: source/en/tsvn_app_howto.xml:365(para) 
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are ignored. Likewise when you update the parent, the nested WC is not updated."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:377(title) 
+#: source/en/tsvn_app_howto.xml:372(title) 
 msgid "Use a relative location"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:378(para) 
+#: source/en/tsvn_app_howto.xml:373(para) 
 msgid "If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\nC:\\Projects\\Proj1\nC:\\Projects\\Proj2\nC:\\Projects\\Proj3\nC:\\Projects\\Common\n</screen> and refer to the common code using a relative path, eg. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:393(para) 
+#: source/en/tsvn_app_howto.xml:388(para) 
 msgid "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\nSUBST X: \"D:\\Documents\\framework\"\n</screen> to create the drive mapping used in your source code. Your code can then use absolute locations. <screen>\n#include \"X:\\superio\\superio.h\"\n</screen>"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:411(para) 
+#: source/en/tsvn_app_howto.xml:406(para) 
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:421(title) 
+#: source/en/tsvn_app_howto.xml:416(title) 
 msgid "Create a shortcut to a repository"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:423(primary) 
+#: source/en/tsvn_app_howto.xml:418(primary) 
 msgid "shortcut"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:425(para) 
+#: source/en/tsvn_app_howto.xml:420(para) 
 msgid "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\nTortoiseProc.exe /command:repobrowser /path:\"url/to/repository\" /notempfile\n</screen> Of course you need to include the real repository URL."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:437(title) 
+#: source/en/tsvn_app_howto.xml:432(title) 
 msgid "Ignore files which are already versioned"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:439(primary) 
+#: source/en/tsvn_app_howto.xml:434(primary) 
 msgid "unversion"
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:441(para) 
+#: source/en/tsvn_app_howto.xml:436(para) 
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:448(para) 
+#: source/en/tsvn_app_howto.xml:443(para) 
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:463(para) 
+#: source/en/tsvn_app_howto.xml:458(para) 
 msgid "Move the file to somewhere safe, not inside your working copy."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:469(para) 
+#: source/en/tsvn_app_howto.xml:464(para) 
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and you can mark it for deletion from the repository."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:480(para) 
+#: source/en/tsvn_app_howto.xml:475(para) 
 msgid "Move the file back to its original location."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:485(para) 
+#: source/en/tsvn_app_howto.xml:480(para) 
 msgid "Add the file to the ignore list so you don't get into the same trouble again."
 msgstr ""
 
-#: source/en/tsvn_app_howto.xml:458(para) 
+#: source/en/tsvn_app_howto.xml:453(para) 
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
 msgstr ""
 
@@ -6195,3 +6207,4 @@ msgstr ""
 #: source/en/glossary.xml:0(None) 
 msgid "translator-translation"
 msgstr ""
+

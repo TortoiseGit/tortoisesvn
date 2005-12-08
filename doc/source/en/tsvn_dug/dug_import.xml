@@ -286,18 +286,39 @@ C:\Temp\New\tags
 			There, you can set properties. Select the
 			<literal>svn:externals</literal> property from the combobox and
 			write in the edit box the repository url in the format
-			<literal>name url</literal>.
+			<literal>name url</literal>
+			or if you want to specify a particular revision,
+			<literal>name -rREV url</literal>
 			You can add multiple external projects, 1 per line.
 			Note that URLs and filenames must be properly escaped or they will
 			not work properly. For example you must replace each space with
 			<literal>%20</literal>.
-			For example
+			Suppose that you have set these properties on
+			<filename>D:\dev\project1</filename>:
 <screen>
-subversion http://svn.collab.net/repos/svn/trunk
-quick%20graphs http://graphics.collab.net/repos/fast%20graphics
+sounds   http://sounds.red-bean.com/repos
+quick%20graphs  http://graphics.red-bean.com/repos/fast%20graphics
+skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 </screen>
-			Now click <guibutton>Set</guibutton> and commit your changes. 
-			If a user updates their working copy the external project is checked out, too.
+			Now click <guibutton>Set</guibutton> and commit your changes.
+			When you (or any other user) update your working copy, Subversion
+			will create a subfolder 
+			<filename>D:\dev\project1\sounds</filename> and checkout the sounds
+			project, another subfolder <filename>D:\dev\project1\quick graphs</filename>
+			containing the graphics project, and finally a nested subfolder
+			<filename>D:\dev\project1\skins\toolkit</filename> containing
+			revision 21 of the skin-maker project.
+		</para>
+		<para>
+			If the external project is in the same repository, any changes
+			you make there there will be included in the commit list when
+			you commit your main project.
+		</para>
+		<para>
+			If the external project is in a different repository, any
+			changes you make to the external project will be notified
+			when you commit the main project, but you have to commit
+			those external changes separately.
 		</para>
 		<para>
 			Note that if you change the URL in an <literal>svn:externals</literal>
@@ -308,6 +329,32 @@ quick%20graphs http://graphics.collab.net/repos/fast%20graphics
 			situation might occur if you reference a tag from another
 			project. When a new version of that project is released, you
 			change your external reference to point to the new tag.
+		</para>
+		<tip>
+			You should strongly consider using explicit revision numbers
+			in all of your externals definitions.  Doing so means
+			that you get to decide when to pull down a different snapshot
+			of external information, and exactly which snapshot to pull.
+			Besides the common sense aspect of not being surprised by
+			changes to third-party repositories that you might not have
+			any control over, using explicit revision numbers also means
+			that as you backdate your working copy to a previous
+			revision, your externals definitions will also revert to the
+			way they looked in that previous revision, which in turn means
+			that the external working copies will be updated to match they
+			way <emphasis>they</emphasis> looked back when your repository was
+			at that previous revision.  For software projects, this could
+			be the difference between a successful and a failed build of
+			an older snapshot of your complex codebase.
+		</tip>
+		<para>
+			URLs in <literal>svn:externals</literal> definitions are absolute.
+			You cannot use relative URLs. If you relocate your working copy,
+			or if the external repository is relocated, these URLs will not be
+			updated automatically. Also, if you branch a project which has
+			external references within the same repository, the URLs in the
+			branched copy will be unchanged; you may then want to change trunk
+			references to branch references instead.
 		</para>
 		<para>
 			If you need more information how TortoiseSVN

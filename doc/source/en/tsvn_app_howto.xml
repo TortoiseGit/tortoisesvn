@@ -320,16 +320,11 @@
 			<title>Use svn:externals</title>
 			<para>
 				Set the <literal>svn:externals</literal> property for a folder
-				in your project. The property value should be the name of a
-				subfolder which you want the common code checked into, and the
-				repository URL that you want to be checked out there. You can
-				add multiple folder/URL pairs to one folder. For example:
-<screen>
-third-party/sounds http://sounds.red-bean.com/repos
-third-party/skins  http://skins.red-bean.com/repositories/skinproj
-</screen>
-				Of course this code has to reside in a Subversion repository,
-				although it does not have to be the same one.
+				in your project. This property consists of one or more lines;
+				each line has the name of a subfolder which you want the use
+				as the checkout folder for common code, and the repository URL
+				that you want to be checked out there. For full details
+				refer to <xref linkend="tsvn-DUG-import-4"/>.
 			</para>
 			<para>
 				Commit the new folder. Now when you update, Subversion
