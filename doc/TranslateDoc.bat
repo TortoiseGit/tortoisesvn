@@ -16,7 +16,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 rem BEWARE, this may cause a "line too long" error if called repeatedly from the same dos box
 rem Try to check, whether these vars are already set
-if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
+if "%VSINSTALLDIR%"=="" call "%VS80COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 if "%IGNORELIST%"=="" call IgnoreList.bat
 
