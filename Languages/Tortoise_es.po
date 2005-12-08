@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-21 20:15+0100\n"
+"PO-Revision-Date: 2005-12-08 15:59+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -334,11 +334,12 @@ msgstr "&Fuente para los mensajes de registro:"
 msgid "&Font:"
 msgstr "&Fuente:"
 
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "&Desde la URL:"
 
-#: Control-ID:65535
+#: Control-ID:1259
 msgid "&From WC at URL:"
 msgstr "&Desde la Copia de Trabajo en la URL:"
 
@@ -1205,8 +1206,8 @@ msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Edición-Nr:"
 
 #: Control-ID:1215
-msgid "C&heck Now"
-msgstr "C&omprobar Ahora"
+msgid "C&heck now"
+msgstr "C&omprobar ahora"
 
 #: ID:101
 msgid "C&reate folder..."
@@ -1362,8 +1363,8 @@ msgstr "Limpia operaciones interrumpidas, archivos bloqueados, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear N&ow"
-msgstr "Limpiar A&hora"
+msgid "Clear n&ow"
+msgstr "Limpiar a&hora"
 
 # ID:195,
 #: ID:195
@@ -3070,6 +3071,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "Por favor espere mientras se inicializa el navegador de repositorios..."
 
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "Por favor, espere..."
 
@@ -4246,8 +4248,8 @@ msgstr ""
 
 # ID:82,
 #: ID:82
-msgid "There is nothing to add. All the files and folders are either under version control or have been excluded using the svn:ignore property or the global exclude configuration setting."
-msgstr "No hay nada que añadir. Todos los ficheros y carpetas o están bajo el control de versiones, o han sido excluídos utilizando ls propiedad svn:ignore, o utilizando la configuración de patrón global para ignorar."
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "No hay nada que añadir. Todos los ficheros y carpetas o están bajo el control de versiones, o han sido ignorados utilizando la propiedad svn:ignore o el patrón global para ignorar."
 
 # ID:188,
 #: ID:188
@@ -5165,6 +5167,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "externo"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "la lista de ficheros está vacía"
 
 #: ID:13
 msgid "ignored"
