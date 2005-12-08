@@ -167,7 +167,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
 	}
 	else
 	{
-		temp.LoadString(IDS_CHECKNEWER_YOURUPTODATE);
+		temp.LoadString(IDS_CHECKNEWER_NETERROR);
 		GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
 	}
 	DeleteFile(tempfile);
