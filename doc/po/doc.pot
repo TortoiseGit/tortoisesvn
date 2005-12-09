@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-12-08 18:56GMT Standard Time\n"
+"POT-Creation-Date: 2005-12-09 12:45GMT Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3889,34 +3889,42 @@ msgid "Replaced with the commit date/time of the highest commit revision. To avo
 msgstr ""
 
 #: source/en/tsvn_subwcrev.xml:157(entry) 
-msgid "$WCRANGE$"
+msgid "$WCNOW$"
 msgstr ""
 
 #: source/en/tsvn_subwcrev.xml:158(entry) 
+msgid "Replaced with the current system date/time. This can be used to indicate the build time. International format is used as described above."
+msgstr ""
+
+#: source/en/tsvn_subwcrev.xml:165(entry) 
+msgid "$WCRANGE$"
+msgstr ""
+
+#: source/en/tsvn_subwcrev.xml:166(entry) 
 msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:169(entry) 
+#: source/en/tsvn_subwcrev.xml:177(entry) 
 msgid "$WCMIXED?TText:FText$"
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:170(entry) 
+#: source/en/tsvn_subwcrev.xml:178(entry) 
 msgid "Replaced with TText if there are mixed update revisions, or FText if not."
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:176(entry) 
+#: source/en/tsvn_subwcrev.xml:184(entry) 
 msgid "$WCMODS?TText:FText$"
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:177(entry) 
+#: source/en/tsvn_subwcrev.xml:185(entry) 
 msgid "Replaced with TText if there are local modifications, or FText if not."
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:183(entry) 
+#: source/en/tsvn_subwcrev.xml:191(entry) 
 msgid "$WCURL$"
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:184(entry) 
+#: source/en/tsvn_subwcrev.xml:192(entry) 
 msgid "Replaced with the repository URL of the working copy path passed to SubWCRev."
 msgstr ""
 
@@ -3924,24 +3932,24 @@ msgstr ""
 msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <placeholder-1/>"
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:198(title) 
+#: source/en/tsvn_subwcrev.xml:206(title) 
 msgid "Keyword Example"
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:199(para) 
+#: source/en/tsvn_subwcrev.xml:207(para) 
 msgid "The example below shows how keywords in a template file are substituted in the output file."
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:203(screen) 
+#: source/en/tsvn_subwcrev.xml:211(screen) 
 #, no-wrap
 msgid "\n// Test file for SubWCRev\n\nchar *Revision = \"$WCREV$\";\nchar *Modified = \"$WCMODS?Modified:Not modified$\";\nchar *Date     = \"$WCDATE$\";\nchar *RevRange = \"$WCRANGE$\";\nchar *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL      = \"$WCURL$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// EndOfFile\n"
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:219(para) 
+#: source/en/tsvn_subwcrev.xml:227(para) 
 msgid "After running SubWCRev.exe, the output file looks like this:"
 msgstr ""
 
-#: source/en/tsvn_subwcrev.xml:222(screen) 
+#: source/en/tsvn_subwcrev.xml:230(screen) 
 #, no-wrap
 msgid "\n// Test file for SubWCRev\n\nchar *Revision = \"3701\";\nchar *Modified = \"Modified\";\nchar *Date     = \"2005/06/15 11:15:12\";\nchar *RevRange = \"3699:3701\";\nchar *Mixed    = \"Mixed revision WC\";\nchar *URL      = \"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCRev\";\n\n#if 1\n#error Source is modified\n#endif\n\n// EndOfFile\n"
 msgstr ""

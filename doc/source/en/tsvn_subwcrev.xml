@@ -154,6 +154,14 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
+							<entry>$WCNOW$</entry>
+							<entry>
+								Replaced with the current system date/time.
+								This can be used to indicate the build time.
+								International format is used as described above.
+							</entry>
+						</row>
+						<row>
 							<entry>$WCRANGE$</entry>
 							<entry>
 								Replaced with the update revision range in

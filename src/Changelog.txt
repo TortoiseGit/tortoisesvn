@@ -34,6 +34,7 @@
        pressing F5. See issue #191. (Stefan)
 - NEW: Ignoring of multiple items at once in the Status List Control.
        See issue #189. (Stefan)
+- NEW: Added $WCNOW$ keyword to SubWCRev to insert system date/time. (Simon)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.

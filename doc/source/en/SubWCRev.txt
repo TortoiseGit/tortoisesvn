@@ -41,6 +41,8 @@ $WCREV$ is replaced with the highest commit revision in the working copy.
 $WCDATE$ is replaced with the commit date/time of that revision in
 international format, ie. yyyy-mm-dd hh:mm:ss
 
+$WCNOW$ is replaced with the current date/time in international format.
+
 $WCRANGE$ is replaced with the update revision range in the working copy.
 If the working copy is in a consistent state, this will be a single revision.
 If the working copy contains mixed revisions, either due to being out of date,

@@ -65,6 +65,7 @@ $WCREV$      Highest committed revision number\n\
 $WCDATE$     Date of highest committed revision\n\
 $WCRANGE$    Update revision range\n\
 $WCURL$      Repository URL of the working copy\n\
+$WCNOW$      Current system date & time\n\
 \n\
 Placeholders of the form \"$WCxxx?TrueText:FalseText$\" are replaced with\n\
 TrueText if the tested condition is true, and FalseText if false.\n\
@@ -79,6 +80,7 @@ $WCMIXED$    True if mixed update revisions found\n"
 #define RANGEDEF	"$WCRANGE$"
 #define MIXEDDEF	"$WCMIXED?"
 #define URLDEF		"$WCURL$"
+#define NOWDEF		"$WCNOW$"
 
 // Internal error codes
 #define ERR_SYNTAX		1	// Syntax error
@@ -91,6 +93,10 @@ $WCMIXED$    True if mixed update revisions found\n"
 #define ERR_SVN_MODS	7	// Local mods found (-n)
 #define ERR_SVN_MIXED	8	// Mixed rev WC found (-m)
 #define ERR_OUT_EXISTS	9	// Output file already exists (-d)
+
+// Value for apr_time_t to signify "now"
+#define USE_TIME_NOW	-2	// 0 and -1 might already be significant.
+
 
 char *AnsiToUtf8(const char * pszAnsi, apr_pool_t *pool)
 {
@@ -177,7 +183,12 @@ int InsertDate(char * def, char * pBuf, size_t & index,
 		return FALSE;
 	}
 	// Format the text to insert at the placeholder
-	__time64_t ttime = date_svn/1000000L;
+	__time64_t ttime;
+	if (date_svn == USE_TIME_NOW)
+		_time64(&ttime);
+	else
+		ttime = date_svn/1000000L;
+	
 	struct tm newtime;
 	if (_localtime64_s(&newtime, &ttime))
 		return FALSE;
@@ -508,6 +519,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	index = 0;
 	while (InsertDate(DATEDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
+	
+	index = 0;
+	while (InsertDate(NOWDEF, pBuf, index, filelength, maxlength, USE_TIME_NOW));
 	
 	index = 0;
 	while (InsertBoolean(MODDEF, pBuf, index, filelength, SubStat.HasMods));
