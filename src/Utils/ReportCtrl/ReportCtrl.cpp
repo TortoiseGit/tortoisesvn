@@ -303,7 +303,7 @@ BOOL CReportData::New(INT iSubItems)
 
 	for(INT i=0;i<iSubItems;i++)
 	{
-		_tcscat_s( lpsz, iSubItems*REPORTDATA_MAX_NODATA, g_szNoData );
+		_tcscat_s( lpsz, REPORTDATA_MAX_NODATA, g_szNoData );
 		lpsz += _tcslen(g_szNoData);
 	}
 	ReleaseBuffer();
