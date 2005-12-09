@@ -16,12 +16,22 @@
 	<!-- documents structure                                          -->
 	<property name="lang.base" value="en" />
 
-	<!-- File to exclude from translation and .pot creation           -->
-	<property name="file.exclude" value="tsvn_app_automation.xml" />
+	<!-- Fileset to exclude from translation and .pot creation        -->
+	<!-- Duplicate these files in the "sourcefiles" fileset           -->
+	<fileset id="excludefiles">
+		<include name="source/${lang.base}/**/tsvn_app_automation.xml"/>
+		<include name="source/${lang.base}/**/pubdate.xml" />
+	</fileset>
+	
+	<fileset id="includefiles">
+		<include name="source/${lang.base}/**/*.xml"/>
+		<exclude name="source/${lang.base}/**/tsvn_app_automation.xml"/>
+		<exclude name="source/${lang.base}/**/pubdate.xml" />
+	</fileset>
 
 	<!-- Name of the po template file to create. Can also be a list   -->
 	<!-- of applications if you want to create a template for each    -->
-  <property name="potemplates" value="doc" />
+	<property name="potemplates" value="doc" />
 
 	<!-- ============================================================ -->
 	<!-- Paths to the binaries                                        -->
@@ -55,6 +65,14 @@
 	<!-- ============================================================ -->
 	<!-- Custom target to prepare the build -->
 	<target name="prepare.custom" description="Prepare XSL files, create help context file">
+
+		<exec program="SubWCRev.exe"
+					commandline="source/${lang.base} source/pubdate.tmpl source/${lang.base}/pubdate.xml"
+					output="${help.subwcrev}"
+					failonerror="false"
+					resultproperty="result.subwcrev"
+					verbose="false" />
+		<copy file="source/Pubdate.none" tofile="source/${lang.base}/pubdate.xml" overwrite="true" unless="${result.subwcrev}==0"/>
 
 		<!-- Store path to docbook stylesheets in helper stylesheets -->
 		<echo message="&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;" file="${path.user.xsl}/db_pdfdoc.xsl"/>
@@ -96,7 +114,7 @@
 					commandline="/h ID_,HID_,0x10000 IDM_,HIDM_,0x10000 ${help.resource}"
 					output="${help.context}"
 					append="true"
-					verbose="true" />
+					verbose="false" />
 
 		<echo message="" file="${help.context}" append="true"/>
 		<echo message="echo // Prompts (IDP_*)" file="${help.context}" append="true"/>

@@ -94,9 +94,8 @@
 	<target name="uptodate" description="Check whether the given target is up to date">
 		<echo message="Checking if '${file.target}' is up to date"/>
 		<uptodate property="file.target.uptodate">
-			<sourcefiles>
-				<include name="source/${lang.target}/**/*.xml"/>
-				<exclude name="${file.exclude}"/>
+			<sourcefiles basedir="source/${lang.target}/">
+				<include name="**/*.xml"/>
 			</sourcefiles>
 			<targetfiles>
 				<include name="${file.target}"/>
@@ -127,13 +126,10 @@
 			<ifnot test="${file.target.uptodate}">
 				<foreach item="File" property="file.base">
 					<in>
-						<items basedir=".">
-							<include name="source/${lang.base}/**/*.xml"/>
-							<exclude name="source/${lang.base}/**/${file.exclude}"/>
-						</items>
+						<items refid="files.filtered" />
 					</in>
 					<do>
-						<property name="filelist" value="${filelist+' '+string::replace(file.base,path.base,'')}"/>
+						<property name="filelist" value="${filelist} ${string::replace(file.base,path.base,'')}"/>
 					</do>
 				</foreach>
 
@@ -160,10 +156,7 @@
 
 		<foreach item="File" property="file.base">
 			<in>
-				<items>
-					<include name="source/${lang.base}/**/*.xml"/>
-					<exclude name="source/${lang.base}/**/${file.exclude}"/>
-				</items>
+				<items refid="files.filtered" />
 			</in>
 			<do>
 				<property name="file.target" value="${string::replace(file.base,'\'+lang.base+'\','\'+lang.target+'\')}"/>
@@ -189,6 +182,10 @@
 			</do>
 		</foreach>
 
+		<copy todir="source/${lang.target}" overwrite="true">
+			<fileset refid="files.exclude"/>
+		</copy>
+
 		<delete file="${lang.target}.mo"/>
 	</target>
 
@@ -201,10 +198,10 @@
 		<!-- Check whether a language specific xsl file exists and use it -->
 		<!-- if none is found, load XSL file from default location.       -->
 		<property name="xslfile.lang" value="${path.user.xsl}/${lang.target}/${xslfile}" />
-		<echo message="${xslfile.lang}" />
 		<property name="xslfile" value="${xslfile.lang}" if="${file::exists(xslfile.lang)}"/>
 		<property name="xslfile" value="${path.user.xsl}/${xslfile}" unless="${file::exists(xslfile.lang)}"/>
 
+		<echo message="Stylesheet ${xslfile}" />
 		<exec program="xsltproc"
 					commandline="${xsltparams} --output ${tempfile} ${xslfile} ${doc.target.source}"
 					basedir="${path.bin}"
