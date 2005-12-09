@@ -47,7 +47,7 @@ SVNInfo::SVNInfo(void)
 	svn_utf_initialize(m_pool);
 
 	// set up the configuration
-	m_err = svn_config_get_config (&(m_pctx->config), NULL, m_pool);
+	m_err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
 
 	if (m_err)
 	{

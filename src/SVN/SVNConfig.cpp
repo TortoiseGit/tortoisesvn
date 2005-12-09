@@ -35,7 +35,7 @@ SVNConfig::SVNConfig(void)
 	pool = svn_pool_create (parentpool);
 	// set up the configuration
 	if (err == 0)
-		err = svn_config_get_config (&(ctx.config), NULL, pool);
+		err = svn_config_get_config (&(ctx.config), g_pConfigDir, pool);
 
 	if (err != 0)
 	{

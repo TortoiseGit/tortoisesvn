@@ -55,7 +55,7 @@ SVNStatus::SVNStatus(bool * pbCanceled)
 	svn_utf_initialize(m_pool);
 
 	// set up the configuration
-	m_err = svn_config_get_config (&(ctx->config), NULL, m_pool);
+	m_err = svn_config_get_config (&(ctx->config), g_pConfigDir, m_pool);
 
 	if (m_err)
 	{

@@ -61,7 +61,7 @@ SVN::SVN(void) :
 	pool = svn_pool_create (parentpool);
 	// set up the configuration
 	if (Err == 0)
-		Err = svn_config_get_config (&(m_pctx->config), NULL, parentpool);
+		Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, parentpool);
 
 	if (Err != 0)
 	{
@@ -114,7 +114,7 @@ CString SVN::CheckConfigFile()
 	Err = svn_config_ensure(NULL, pool);
 	// set up the configuration
 	if (Err == 0)
-		Err = svn_config_get_config (&(ctx.config), NULL, pool);
+		Err = svn_config_get_config (&(ctx.config), g_pConfigDir, pool);
 	CString msg;
 	CString temp;
 	if (Err != NULL)
@@ -910,7 +910,7 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 	apr_hash_set (fs_config, SVN_FS_CONFIG_BDB_LOG_AUTOREMOVE,
 		APR_HASH_KEY_STRING, "1");
 
-	err = svn_config_get_config (&config, NULL, localpool);
+	err = svn_config_get_config (&config, g_pConfigDir, localpool);
 	if (err != NULL)
 	{
 		return FALSE;

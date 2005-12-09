@@ -450,6 +450,12 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 		}
 
+		if (parser.HasVal(_T("configdir")))
+		{
+			CString sConfigDir = parser.GetVal(_T("configdir"));
+			g_SVNGlobal.SetConfigDir(sConfigDir);
+		}
+
 		//#region crash
 		if (command == cmdCrash)
 		{

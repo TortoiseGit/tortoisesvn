@@ -44,7 +44,7 @@ CRevisionGraph::CRevisionGraph(void) :
 	pool = svn_pool_create (parentpool);
 	// set up the configuration
 	if (Err == 0)
-		Err = svn_config_get_config (&(m_ctx.config), NULL, pool);
+		Err = svn_config_get_config (&(m_ctx.config), g_pConfigDir, pool);
 
 	if (Err != 0)
 	{

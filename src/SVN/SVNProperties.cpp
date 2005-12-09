@@ -103,7 +103,7 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 #ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
 	// set up the configuration
-	if (svn_config_get_config (&(m_ctx.config), NULL, m_pool))
+	if (svn_config_get_config (&(m_ctx.config), g_pConfigDir, m_pool))
 	{
 		::MessageBox(NULL, this->GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 		svn_pool_destroy (m_pool);					// free the allocated memory

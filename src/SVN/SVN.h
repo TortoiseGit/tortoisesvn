@@ -20,6 +20,7 @@
 
 #include "SVNPrompt.h"
 #include "SVNRev.h"
+#include "SVNGlobal.h"
 
 class CProgressDlg;
 class CTSVNPath;
