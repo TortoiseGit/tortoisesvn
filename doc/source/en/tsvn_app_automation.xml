@@ -53,6 +53,10 @@
 			from your batchfile or from the TortoiseSVN context menu.
 		</para>
 		<para>
+			To specify a different location of the configuration file, use the param
+			<option>/configdir:"path\to\config\dir"</option>.
+		</para>
+		<para>
 			To close the progress dialog at the end of a command automatically without
 			using the permanent setting you can pass the <option>/closeonend</option>
 			parameter.
