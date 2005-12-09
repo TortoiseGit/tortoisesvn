@@ -3090,7 +3090,7 @@ BOOL CReportCtrl::Expand(HTREEITEM hItem, UINT nCode)
 
 	if(iFocusItem >= RVI_FIRST)
 	{
-		LPTREEITEM lptiAncestor = GetVisibleAncestor(m_arrayItems[iFocusItem].lptiItem);
+		LPTREEITEM lptiAncestor = GetVisibleAncestor(lpti);
 		ASSERT(lptiAncestor != &m_tiRoot && lptiAncestor != NULL);
 
 		m_iFocusRow = GetRowFromItem(lptiAncestor->iItem);
