@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-import">
 	<title>Importing Data Into A Repository</title>
 	<indexterm>
@@ -331,6 +331,7 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 			change your external reference to point to the new tag.
 		</para>
 		<tip>
+		<para>
 			You should strongly consider using explicit revision numbers
 			in all of your externals definitions.  Doing so means
 			that you get to decide when to pull down a different snapshot
@@ -346,6 +347,7 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 			at that previous revision.  For software projects, this could
 			be the difference between a successful and a failed build of
 			an older snapshot of your complex codebase.
+		</para>
 		</tip>
 		<para>
 			URLs in <literal>svn:externals</literal> definitions are absolute.

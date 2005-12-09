@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-07 16:40+0100\n"
+"PO-Revision-Date: 2005-12-09 16:15+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4010,28 +4010,57 @@ msgstr "Manchmal ist es nützlich eine Arbeitskopie zu haben, die aus mehreren a
 #: source/en/tsvn_dug/dug_import.xml:274
 #: (para)
 msgid ""
-"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal>. You can add multiple external projects, 1 per line. Note that URLs and filenames must be properly escaped or they will not work properly. For example you must replace each space with <literal>%20</literal>. For example <screen>\n"
-"subversion http://svn.collab.net/repos/svn/trunk\n"
-"quick%20graphs http://graphics.collab.net/repos/fast%20graphics\n"
-"</screen> Now click <guibutton>Set</guibutton> and commit your changes. If a user updates their working copy the external project is checked out, too."
+"Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write in the edit box the repository url in the format <literal>name url</literal> or if you want to specify a particular revision, <literal>name -rREV url</literal> You can add multiple external projects, 1 per line. Note that URLs and filenames must be properly escaped or they will not work properly. For example you must replace each space with <literal>%20</literal>. Suppose that you have set these properties on <filename>D:\\dev\\project1</filename>: <screen>\n"
+"sounds   http://sounds.red-bean.com/repos\n"
+"quick%20graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
+"skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
+"</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a subfolder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another subfolder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested subfolder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
-"Nehmen wir an Sie erstellen eine Arbeitskopie von <filename>/projekt1</filename> in <filename>D:\\dev\\projekt1</filename>. Selektieren Sie den Ordner <filename>D:\\dev\\projekt1</filename>, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Eigenschaften Dialog erscheint; gehen Sie zu dem Tab Subversion. Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die <literal>svn:externals</literal> Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu referenzierende Projektarchiv URL in dem Format <literal>Name URL</literal> in das Textfeld. Sie können mehrere externe Projekte - eines pro Zeile - hinzufügen. Beachten Sie, dass Sonderzeichen in URLs korrekt ersetzt werden müssen (Leerzeichen z.B. durch <literal>%20</literal>), damit die externen Verweise funktionieren. Zum Beispiel:\n"
-"<screen>subversion http://svn.collab.net/repos/svn/trunk\n"
-"quick%20graphs http://graphics.collab.net/repos/fast%20graphics\n"
-"</screen>.\n"
-"Klicken Sie jetzt auf <guibutton>Setzen</guibutton> und übertragen Sie die Änderungen in das Projektarchiv. Wenn jetzt ein Benutzer seine Arbeitskopie aktualisiert, wird das eingebundene Projektarchiv auch ausgecheckt bzw. aktualisiert."
+"Nehmen wir an Sie erstellen eine Arbeitskopie von <filename>/projekt1</filename> in <filename>D:\\dev\\projekt1</filename>. Selektieren Sie den Ordner <filename>D:\\dev\\projekt1</filename>, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Eigenschaften Dialog erscheint; gehen Sie zu dem Tab Subversion. Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die <literal>svn:externals</literal> Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu referenzierende Projektarchiv URL in dem Format <literal>Name URL</literal> oder, wenn Sie eine bestimmte Revision angeben wollen, <literal>Name -rREV URL</literal> in das Textfeld. Sie können mehrere externe Projekte - eines pro Zeile - hinzufügen. Beachten Sie, dass Sonderzeichen in URLs korrekt ersetzt werden müssen (Leerzeichen z.B. durch <literal>%20</literal>), damit die externen Verweise funktionieren. Nehmen wir an, Sie haben folgende Eigenschaften auf <filename>D:\\dev\\projekt1</filename> gesetzt:\n"
+"<screen>sounds  http://sounds.red-bean.com/repos\n"
+"quick%20graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
+"skins/toolkit  -r21 http://svn.red-bean.com/repos/skin-maker\n"
+"</screen>\n"
+"Klicken Sie auf <guibutton>Setzen</guibutton> und übertragen Sie Ihre Änderungen. Sobald jetzt jemand seine Arbeitskopie aktualisiert, wird Subversion einen Unterordner <filename>D:\\dev\\projekt1\\sounds</filename> anlegen und in diesen das <quote>Sounds</quote> Projekt auschecken, einen weiteren Unterordner <filename>D:\\dev\\projekt1\\quick graphs</filename> mit dem <quote>Graphics</quote> Projekt, und schließlich einen verschachtelten Unterordner <filename>D:\\dev\\project1\\skins\\toolkit</filename>, der Revision 21 des <quote>Skinmaker</quote> Projekts enthält."
 
-#: source/en/tsvn_dug/dug_import.xml:302
+#: source/en/tsvn_dug/dug_import.xml:312
+#: (para)
+#: source/en/tsvn_app_howto.xml:337
+msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
+msgstr "Wenn das externe Projekt im selben Projektarchiv ist, werden alle Änderungen in diesem externen Projekt im Übertragungsdialog mit aufgelistet und auch mit dem Hauptprojekt übertragen."
+
+#: source/en/tsvn_dug/dug_import.xml:317
+#: (para)
+#: source/en/tsvn_app_howto.xml:342
+msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
+msgstr "Wenn ein externes Projekt in einem anderen Projektarchiv ist, werden Sie zwar über Änderungen im externen Projekt informiert, Sie müssen diese jedoch separat übertragen."
+
+#: source/en/tsvn_dug/dug_import.xml:323
 #: (para)
 msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
 msgstr "Beachten Sie dass wenn Sie die URL in einer <literal>svn:externals</literal> Eigenschaft ändern, Subversion bei der nächsten Aktualisierung den alten externen Ordner löschen wird und den Ordner erneut auschecken statt wie Sie vielleicht vermuten würden nur aktualisieren wird. Diese Situation entsteht zum Beispiel, wenn Sie eine Markierung (tag) eines externes Projektes einbeziehen und dann zur nächsten Markierung wechseln."
 
-#: source/en/tsvn_dug/dug_import.xml:312
+#: source/en/tsvn_dug/dug_import.xml:345
+#: (emphasis)
+msgid "they"
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:333
+#: (tip)
+msgid "You should strongly consider using explicit revision numbers in all of your externals definitions. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <placeholder-1/> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:350
+#: (para)
+msgid "URLs in <literal>svn:externals</literal> definitions are absolute. You cannot use relative URLs. If you relocate your working copy, or if the external repository is relocated, these URLs will not be updated automatically. Also, if you branch a project which has external references within the same repository, the URLs in the branched copy will be unchanged; you may then want to change trunk references to branch references instead."
+msgstr ""
+
+#: source/en/tsvn_dug/dug_import.xml:359
 #: (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-DUG-propertypage\"/>."
 msgstr "Wenn sie mehr Informationen brauchen, wie TortoiseSVN Eigenschaften behandelt lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/>."
 
-#: source/en/tsvn_dug/dug_import.xml:316
+#: source/en/tsvn_dug/dug_import.xml:363
 #: (para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr "Um sich über verschiedene Methoden zum Zugriff auf gemeinsame Unterprojekte zun informieren, lesen Sie <xref linkend=\"tsvn-howto-common-projects\"/>."
@@ -5442,40 +5471,50 @@ msgstr "Wird durch Datum/Zeit der höchsten Revisionsnummer ersetzt. Um Verwirru
 
 #: source/en/tsvn_subwcrev.xml:157
 #: (entry)
+msgid "$WCNOW$"
+msgstr "$WCNOW$"
+
+#: source/en/tsvn_subwcrev.xml:158
+#: (entry)
+msgid "Replaced with the current system date/time. This can be used to indicate the build time. International format is used as described above."
+msgstr "Wird durch Datum/Zeit der Systemuhr ersetzt. Kann zum Beispiel dazu benutzt werden, den Zeitpunkt der Erstellung festzuhalten. Wie oben beschrieben wird das internationale Datumsformat benutzt."
+
+#: source/en/tsvn_subwcrev.xml:165
+#: (entry)
 msgid "$WCRANGE$"
 msgstr "$WCRANGE$"
 
-#: source/en/tsvn_subwcrev.xml:158
+#: source/en/tsvn_subwcrev.xml:166
 #: (entry)
 msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
 msgstr "Wird durch den Revisionsnummernbereich der Arbeitskopie ersetzt. Wenn sich die Arbeitskopie in einem konsistenten Zustand befindet, eine einzelne Revisionsnummer. Wenn die Arbeitskopie gemischte Revisionen enthält, weil sie entweder nicht aktuell ist oder weil gezielt auf eine bestimmte Revision aktualisiert wurde, wird ein Bereich in der Form 100:200 ausgegeben."
 
-#: source/en/tsvn_subwcrev.xml:169
+#: source/en/tsvn_subwcrev.xml:177
 #: (entry)
 msgid "$WCMIXED?TText:FText$"
 msgstr "$WCMIXED?TText:FText$"
 
-#: source/en/tsvn_subwcrev.xml:170
+#: source/en/tsvn_subwcrev.xml:178
 #: (entry)
 msgid "Replaced with TText if there are mixed update revisions, or FText if not."
 msgstr "Wird durch TText ersetzt, falls die Arbeitskopie gemischte Revisionen enthält oder FText, falls nicht."
 
-#: source/en/tsvn_subwcrev.xml:176
+#: source/en/tsvn_subwcrev.xml:184
 #: (entry)
 msgid "$WCMODS?TText:FText$"
 msgstr "$WCMODS?TText:FText$"
 
-#: source/en/tsvn_subwcrev.xml:177
+#: source/en/tsvn_subwcrev.xml:185
 #: (entry)
 msgid "Replaced with TText if there are local modifications, or FText if not."
 msgstr "Wird durch TText ersetzt, falls die Arbeitskopie lokale Änderungen enthält oder FText, falls nicht."
 
-#: source/en/tsvn_subwcrev.xml:183
+#: source/en/tsvn_subwcrev.xml:191
 #: (entry)
 msgid "$WCURL$"
 msgstr "$WCURL$"
 
-#: source/en/tsvn_subwcrev.xml:184
+#: source/en/tsvn_subwcrev.xml:192
 #: (entry)
 msgid "Replaced with the repository URL of the working copy path passed to SubWCRev."
 msgstr "Wird durch die URL des Projektarchivs ersetzt, auf das die an SubWCRev übergebene Arbeitksopie zeigt."
@@ -5485,17 +5524,17 @@ msgstr "Wird durch die URL des Projektarchivs ersetzt, auf das die an SubWCRev �
 msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <placeholder-1/>"
 msgstr "Wenn eine Quell- und eine Zieldatei angegeben werden, kopiert SubWCRev die Quelldatei zur Zieldatei und ersetzt dabei die folgenden Schlüsselwörter: <placeholder-1/>"
 
-#: source/en/tsvn_subwcrev.xml:198
+#: source/en/tsvn_subwcrev.xml:206
 #: (title)
 msgid "Keyword Example"
 msgstr "Beispiele für Schlüsselworte"
 
-#: source/en/tsvn_subwcrev.xml:199
+#: source/en/tsvn_subwcrev.xml:207
 #: (para)
 msgid "The example below shows how keywords in a template file are substituted in the output file."
 msgstr "Das Beispiel zeigt, wie Schlüsselworte aus einer Vorlagendatei in der Ausgabedatei ersetzt werden."
 
-#: source/en/tsvn_subwcrev.xml:203
+#: source/en/tsvn_subwcrev.xml:211
 #: (screen)
 #, no-wrap
 msgid ""
@@ -5531,12 +5570,12 @@ msgstr ""
 "\n"
 "// EndOfFile\n"
 
-#: source/en/tsvn_subwcrev.xml:219
+#: source/en/tsvn_subwcrev.xml:227
 #: (para)
 msgid "After running SubWCRev.exe, the output file looks like this:"
 msgstr "Nachdem Sie SubWCRev laufen gelassen haben, sieht die Ausgabedatei folgendermaßen aus:"
 
-#: source/en/tsvn_subwcrev.xml:222
+#: source/en/tsvn_subwcrev.xml:230
 #: (screen)
 #, no-wrap
 msgid ""
@@ -5640,7 +5679,7 @@ msgstr "Die allermeisten Subversion-Nutzer müssen wahrscheinlich nie selbst ein
 #: source/en/tsvn_preface.xml:83
 #: (para)
 msgid "The chapter on <emphasis>The Repository</emphasis> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "Das Kapitel über <emphasis>Das Projektarchiv</emphasis> erklärt, wie ein lokales Projektarchiv angelegt wird, damit Sie TortoiseSVN und Subversion auf einem einzigen PC testen können. Weiterhin wird ein wenig auf die Verwaltung von Projektarchiven eingegangen, was für Projektarchive, die sich auf einem Server befinden relevant ist."
 
 #: source/en/tsvn_preface.xml:89
 #: (para)
@@ -6912,58 +6951,40 @@ msgstr "Die Eigenschaft <literal>svn:externals</literal>"
 
 #: source/en/tsvn_app_howto.xml:321
 #: (para)
-msgid ""
-"Set the <literal>svn:externals</literal> property for a folder in your project. The property value should be the name of a subfolder which you want the common code checked into, and the repository URL that you want to be checked out there. You can add multiple folder/URL pairs to one folder. For example: <screen>\n"
-"third-party/sounds http://sounds.red-bean.com/repos\n"
-"third-party/skins  http://skins.red-bean.com/repositories/skinproj\n"
-"</screen> Of course this code has to reside in a Subversion repository, although it does not have to be the same one."
-msgstr ""
-"Setzen Sie die <literal>svn:externals</literal> Eigenschaft auf einen Ordner in Ihrem Projekt. Der Eigenschaftswert ist der Name eines Unterordners in welchem Sie das externe Projekt haben möchten, und die URL zum Ordner im Projektarchiv. Sie können mehrere Ordner/URL Paare angeben. Zum Beispiel: <screen>\n"
-"extern/Klänge http://sounds.red-bean.com/repos\n"
-"extern/Skins http://skins.red-bean.com/repositories/skinproj\n"
-"</screen>Selbstverständlich muss der Sourcecode in einem Subversion-Projektarchiv abgelegt sein, es muss aber nicht dasselbe sein wie Ihr Hauptprojekt."
+msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a subfolder which you want the use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-DUG-import-4\"/>."
+msgstr "Setzen Sie die <literal>svn:externals</literal> Eigenschaft auf Ordner in Ihrem Projekt. Diese Eigenschaft besteht aus ein oder mehreren Zeilen. Jede Zeile besteht aus dem Namen eines Unterordners den Sie als Ziel verwenden wollen sowie der URL im Projektarchiv, die dorthin ausgecheckt werden soll. Weitere Informationen finden sich in <xref linkend=\"tsvn-DUG-import-4\"/>."
 
-#: source/en/tsvn_app_howto.xml:334
+#: source/en/tsvn_app_howto.xml:329
 #: (para)
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The subfolders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
 msgstr "Übertragen Sie diese Änderungen. Nun, wenn Sie Ihre Arbeitskopie aktualisieren wird Subversion eine Kopie dieses externen Projektes in Ihre Arbeitskopie einfügen. Jedes Mal wenn Sie eine Aktualisierung vornehmen, wird automatisch auch das externe Projekt aktualisiert. Änderungen, welche Sie am gemeinsamen Code vornehmen werden ebenfalls in das externe Projektarchiv mit-übertragen."
 
-#: source/en/tsvn_app_howto.xml:342
-#: (para)
-msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
-msgstr "Wenn das externe Projekt im selben Projektarchiv ist, werden alle Änderungen in diesem externen Projekt im Übertragungsdialog mit aufgelistet und auch mit dem Hauptprojekt übertragen."
-
-#: source/en/tsvn_app_howto.xml:347
-#: (para)
-msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
-msgstr "Wenn ein externes Projekt in einem anderen Projektarchiv ist, werden Sie zwar über Änderungen im externen Projekt informiert, Sie müssen diese jedoch separat übertragen."
-
-#: source/en/tsvn_app_howto.xml:355
+#: source/en/tsvn_app_howto.xml:350
 #: (title)
 msgid "Use a nested working copy"
 msgstr "Verschachtelte Arbeitskopien"
 
-#: source/en/tsvn_app_howto.xml:356
+#: source/en/tsvn_app_howto.xml:351
 #: (para)
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
 msgstr "Erstellen Sie einen neuen Ordner in Ihrem Projekt, welcher den gemeinsamen Code enthalten soll, aber fügen Sie diesen nicht zu Ihrer Arbeitskopie hinzu."
 
-#: source/en/tsvn_app_howto.xml:360
+#: source/en/tsvn_app_howto.xml:355
 #: (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
 msgstr "Wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Auschecken</guimenuitem></menuchoice> auf dem neuen Ordner und checken Sie eine Kopie des gemeinsamen Codes in diesen Ordner aus. Sie haben nun eine separate Arbeitskopie innerhalb Ihrer eigenen Arbeitskopie."
 
-#: source/en/tsvn_app_howto.xml:370
+#: source/en/tsvn_app_howto.xml:365
 #: (para)
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are ignored. Likewise when you update the parent, the nested WC is not updated."
 msgstr "Diese beiden Arbeitskopien sind komplett unabhängig voneinander. Wenn Sie Änderungen übertragen möchten, so werden Änderungen in der zweiten Arbeitskopie nicht mit erfasst. Ebenfalls wird die zweite Arbeitskopie bei einer Aktualisierung nicht mit-aktualisiert. Sie müssen die zweite Arbeitskopie jeweils getrennt aktualisieren oder Änderungen darin übertragen."
 
-#: source/en/tsvn_app_howto.xml:377
+#: source/en/tsvn_app_howto.xml:372
 #: (title)
 msgid "Use a relative location"
 msgstr "Relative Pfade"
 
-#: source/en/tsvn_app_howto.xml:378
+#: source/en/tsvn_app_howto.xml:373
 #: (para)
 msgid ""
 "If you use the same common core code in several projects, and you do not want to keep multiple working copies of it for every project that uses it, you can just check it out to a separate location which is related to all the other projects which use it. For example: <screen>\n"
@@ -6980,7 +7001,7 @@ msgstr ""
 "C:\\Projekte\\Gemeinsamer_Code\n"
 "</screen>dann können Sie in Ihren Projekten mittels relativer Pfade auf diesen Code zugreifen, zum Beispiel <filename>..\\..\\Gemeinsamer_code\\DSPCore</filename>."
 
-#: source/en/tsvn_app_howto.xml:393
+#: source/en/tsvn_app_howto.xml:388
 #: (para)
 msgid ""
 "If your projects are scattered in unrelated locations you can use a variant of this, which is to put the common code in one location and use drive letter substitution to map that location to something you can hard code in your projects, eg. Checkout the common code to <filename>D:\\Documents\\Framework</filename> or <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> then use <screen>\n"
@@ -6995,22 +7016,22 @@ msgstr ""
 "#include \"X:\\superio.h\\superio.h\"\n"
 "</screen>"
 
-#: source/en/tsvn_app_howto.xml:411
+#: source/en/tsvn_app_howto.xml:406
 #: (para)
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
 msgstr "Diese Methode funktioniert jedoch nur in einer PC-Umgebung, und Sie müssen genau dokumentieren wie die Laufwerks-Verbindung gemacht werden muss damit die Team-Mitglieder die Projekte auch Kompilieren können und die gemeinsamen Dateien auch finden.Diese Methode ist wirklich nur in geschlossene Umgebungen anwendbar und nicht für die normale Verwendung empfohlen."
 
-#: source/en/tsvn_app_howto.xml:421
+#: source/en/tsvn_app_howto.xml:416
 #: (title)
 msgid "Create a shortcut to a repository"
 msgstr "Eine Verknüpfung zu einem Projektarchiv erstellen"
 
-#: source/en/tsvn_app_howto.xml:423
+#: source/en/tsvn_app_howto.xml:418
 #: (primary)
 msgid "shortcut"
 msgstr "Tastaturkürzel"
 
-#: source/en/tsvn_app_howto.xml:425
+#: source/en/tsvn_app_howto.xml:420
 #: (para)
 msgid ""
 "If you frequently need to open the repository browser at a particular location, you can create a desktop shortcut using the automation interface to TortoiseProc. Just create a new shortcut and set the target to: <screen>\n"
@@ -7021,47 +7042,47 @@ msgstr ""
 "TortoiseProc.exe /command:repobrowser /path:\"url/zum/projektarchiv\" /notempfile\n"
 "</screen>Natürlich müssen Sie eine echte URL eingeben."
 
-#: source/en/tsvn_app_howto.xml:437
+#: source/en/tsvn_app_howto.xml:432
 #: (title)
 msgid "Ignore files which are already versioned"
 msgstr "Ignoriere Dateien welche bereits unter Versionskontrolle sind"
 
-#: source/en/tsvn_app_howto.xml:439
+#: source/en/tsvn_app_howto.xml:434
 #: (primary)
 msgid "unversion"
 msgstr "unversionieren"
 
-#: source/en/tsvn_app_howto.xml:441
+#: source/en/tsvn_app_howto.xml:436
 #: (para)
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
 msgstr "Wenn Sie fälschlicherweise Dateien hinzugefügt haben welche eigentlich nicht ins Projektarchiv gehören, wie kriegen Sie diese Dateien wieder aus der Versionskontrolle, ohne die Dateien selbst zu löschen? Vielleicht haben Sie ihre eigene IDE Konfigurationsdatei welche zwar nicht Teil des Projekts ist, aber was Sie dennoch einige Zeit gekostet hat es so zu konfigurieren wie Sie es gerne möchten."
 
-#: source/en/tsvn_app_howto.xml:448
+#: source/en/tsvn_app_howto.xml:443
 #: (para)
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
 msgstr "Wenn Sie die hinzugefügte Datei noch nicht übertragen haben, dann müssen Sie nur den Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rückgängig...</guimenuitem></menuchoice> ausführen. Sie sollten dann die Datei(en) zur Liste der ignorierten Dateien hinzufügen damit dies nicht nochmals fälschlicherweise hinzugefügt werden können."
 
-#: source/en/tsvn_app_howto.xml:463
+#: source/en/tsvn_app_howto.xml:458
 #: (para)
 msgid "Move the file to somewhere safe, not inside your working copy."
 msgstr "Kopieren Sie die Datei an einen sicheren Ort, nicht innerhalb der Arbeitskopie."
 
-#: source/en/tsvn_app_howto.xml:469
+#: source/en/tsvn_app_howto.xml:464
 #: (para)
 msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder. TortoiseSVN will see that the file is missing and you can mark it for deletion from the repository."
 msgstr "<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen</guimenuitem> </menuchoice> Sie den übergeordneten Ordner. TortoiseSVN wird die fehlende Datei anzeigen, und Sie können die Datei zum Löschen aus dem Projektarchiv markieren."
 
-#: source/en/tsvn_app_howto.xml:480
+#: source/en/tsvn_app_howto.xml:475
 #: (para)
 msgid "Move the file back to its original location."
 msgstr "Verschieben Sie die Datei zurück an den ursprünglichen Ort."
 
-#: source/en/tsvn_app_howto.xml:485
+#: source/en/tsvn_app_howto.xml:480
 #: (para)
 msgid "Add the file to the ignore list so you don't get into the same trouble again."
 msgstr "Fügen Sie die Datei zur Liste der ignorierten Dateien hinzu damit Sie nicht nochmals in die gleiche Situation geraten."
 
-#: source/en/tsvn_app_howto.xml:458
+#: source/en/tsvn_app_howto.xml:453
 #: (para)
 msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
 msgstr "Wenn die Dateien jedoch schon im Projektarchiv gespeichert sind, ist ein wenig mehr Arbeit notwendig. <placeholder-1/>"
