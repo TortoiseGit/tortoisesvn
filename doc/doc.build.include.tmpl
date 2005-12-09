@@ -18,15 +18,13 @@
 
 	<!-- Fileset to exclude from translation and .pot creation        -->
 	<!-- Duplicate these files in the "sourcefiles" fileset           -->
-	<fileset id="excludefiles">
+	<fileset id="files.exclude">
 		<include name="source/${lang.base}/**/tsvn_app_automation.xml"/>
-		<include name="source/${lang.base}/**/pubdate.xml" />
 	</fileset>
 	
-	<fileset id="includefiles">
+	<fileset id="files.filtered">
 		<include name="source/${lang.base}/**/*.xml"/>
 		<exclude name="source/${lang.base}/**/tsvn_app_automation.xml"/>
-		<exclude name="source/${lang.base}/**/pubdate.xml" />
 	</fileset>
 
 	<!-- Name of the po template file to create. Can also be a list   -->
@@ -39,6 +37,7 @@
 	<property name="path.fop" value="C:/DocTools/fop"/>
 	<property name="path.xsl" value="C:/DocTools/xsl"/>
 	<property name="path.msgfmt" value="C:/Programme/dxgettext"/>
+	<property name="path.subwcrev" value="../bin/release/bin/"/>
 
 	<!-- ============================================================ -->
 	<!-- Settings for XSLTPROC                                        -->
@@ -68,11 +67,11 @@
 
 		<exec program="SubWCRev.exe"
 					commandline="source/${lang.base} source/pubdate.tmpl source/${lang.base}/pubdate.xml"
-					output="${help.subwcrev}"
+					basedir="${path.subwcrev}"
 					failonerror="false"
 					resultproperty="result.subwcrev"
 					verbose="false" />
-		<copy file="source/Pubdate.none" tofile="source/${lang.base}/pubdate.xml" overwrite="true" unless="${result.subwcrev}==0"/>
+		<copy file="source/Pubdate.none" tofile="source/${lang.base}/pubdate.xml" overwrite="true" unless="${result.subwcrev=='0'}"/>
 
 		<!-- Store path to docbook stylesheets in helper stylesheets -->
 		<echo message="&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;" file="${path.user.xsl}/db_pdfdoc.xsl"/>

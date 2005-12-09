@@ -13,7 +13,7 @@
 
 	<target name="all" 
 		description="Loop over all languages, output formats and applications and build documentation"
-		depends="prepare,potfile" >
+		depends="prepare" >
 
 		<property name="lang.target" value="${lang.base}"/>
 		<call target="doit"/>
@@ -182,9 +182,15 @@
 			</do>
 		</foreach>
 
-		<copy todir="source/${lang.target}" overwrite="true">
-			<fileset refid="files.exclude"/>
-		</copy>
+		<foreach item="File" property="file.base">
+			<in>
+				<items refid="files.exclude" />
+			</in>
+			<do>
+				<property name="file.target" value="${string::replace(file.base,'\'+lang.base+'\','\'+lang.target+'\')}"/>
+				<copy file="${file.base}" tofile="${file.target}" overwrite="true"/>
+			</do>
+		</foreach>
 
 		<delete file="${lang.target}.mo"/>
 	</target>
@@ -224,8 +230,12 @@
 
 			<call target="xsltproc" />
 
+			<property name="userconfig.lang" value="${path.user.xsl}/${lang.target}/userconfig.xml" />
+			<property name="commandline" value="-fo ${tempfile} -pdf ${file.target}"/>
+			<property name="commandline" value="-c ${userconfig.lang} ${commandline}" if="${file::exists(userconfig.lang)}"/>
+			
 			<exec program="fop.bat"
-						commandline="-c ${path.user.xsl}/${lang.target}/userconfig.xml -fo ${tempfile} -pdf ${file.target}"
+						commandline="${commandline}"
 						basedir="${path.fop}"
 						verbose="false"/>
 		</ifnot>
