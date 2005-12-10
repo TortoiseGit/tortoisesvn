@@ -182,7 +182,6 @@ if DEFINED _DEBUG (
 
 echo ================================================================================
 echo building Scintilla
-copy ..\LexCaml.cxx Utils\scintilla\src\LexCaml.cxx /Y
 cd Utils\scintilla\win32
 nmake -f scintilla.mak
 svn revert ..\src\LexCaml.cxx
