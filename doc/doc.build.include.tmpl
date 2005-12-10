@@ -33,10 +33,10 @@
 
 	<!-- ============================================================ -->
 	<!-- Paths to the binaries                                        -->
-	<property name="path.bin" value="C:/DocTools/bin"/>
-	<property name="path.fop" value="C:/DocTools/fop"/>
-	<property name="path.xsl" value="C:/DocTools/xsl"/>
-	<property name="path.msgfmt" value="C:/Programme/dxgettext"/>
+	<property name="path.bin" value="${path::get-full-path('../Tools')}"/>
+	<property name="path.fop" value="${path::get-full-path('../Tools/fop')}"/>
+	<property name="path.xsl" value="${string::replace(path::get-full-path('../Tools/xsl'), '\', '/')}"/>
+	<property name="path.msgfmt" value="${path::get-full-path('../Tools')}"/>
 	<property name="path.subwcrev" value="../bin/release/bin/"/>
 
 	<!-- ============================================================ -->
@@ -89,14 +89,6 @@
 		<echo message="&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;" file="${path.user.xsl}/db_htmlchunk.xsl"/>
 		<echo message="&lt;xsl:import href=&quot;${path.xsl}/html/chunk.xsl&quot;/&gt;" file="${path.user.xsl}/db_htmlchunk.xsl" append="true"/>
 		<echo message="&lt;/xsl:stylesheet&gt;" file="${path.user.xsl}/db_htmlchunk.xsl" append="true"/>
-
-		<!-- Get environment variables for Visual Studio -->
-		<ifnot test="${environment::variable-exists('VSINSTALLDIR')}">
-			<property name="vsvars32.bat" value="${environment::get-variable('VS71COMNTOOLS')+'vsvars32.bat'}" />
-			<if test="${file::exists(vsvars32.bat)}">
-				<exec program="${vsvars32.bat}" />
-			</if>
-		</ifnot>
 
 		<call target="help.prepare" unless="${file::up-to-date(help.resource,help.context)}"/>
 	</target>
