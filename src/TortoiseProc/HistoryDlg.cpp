@@ -84,7 +84,6 @@ int CHistoryDlg::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 			m_arEntries.Add(sText);
 		}
 	} while (!sText.IsEmpty() && n < m_nMaxHistoryItems);
-
 	return m_arEntries.GetCount();
 }
 
@@ -152,7 +151,8 @@ BOOL CHistoryDlg::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("HistoryDlg"));
-	return TRUE;  // return TRUE unless you set the focus to a control
+	m_List.SetFocus();
+	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
