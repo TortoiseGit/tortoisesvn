@@ -766,7 +766,7 @@ bool CLogPromptDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
 				if (status == svn_wc_status_missing)
 					status = svn_wc_status_deleted;
 				WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-				if ((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\EnglishTemplate"), FALSE)==TRUE)
+				if (m_ProjectProperties.bFileListInEnglish)
 					langID = 1033;
 				SVNStatus::GetStatusString(AfxGetResourceHandle(), status, buf, sizeof(buf)/sizeof(TCHAR), langID);
 				line.Format(_T("%-10s %s\r\n"), buf, (LPCTSTR)m_ListCtrl.GetItemText(i,0));
