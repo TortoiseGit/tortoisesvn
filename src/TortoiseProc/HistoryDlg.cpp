@@ -52,6 +52,13 @@ bool CHistoryDlg::AddString(const CString& sText)
 {
 	if (sText.IsEmpty())
 		return false;
+
+	if ((!m_sSection.IsEmpty())&&(!m_sKeyPrefix.IsEmpty()))
+	{
+		// refresh the history from the registry
+		LoadHistory(m_sSection, m_sKeyPrefix);
+	}
+
 	for (int i=0; i<m_arEntries.GetCount(); ++i)
 	{
 		if (sText.Compare(m_arEntries[i])==0)
