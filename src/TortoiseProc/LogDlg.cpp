@@ -2066,7 +2066,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		m_nSearchIndex = pNMLV->iItem;
 		if (pNMLV->iSubItem != 0)
 			return;
-		if (pNMLV->uNewState & LVIS_SELECTED)
+		if (pNMLV->uChanged & LVIF_STATE)
 		{
 			FillLogMessageCtrl();
 			UpdateData(FALSE);
