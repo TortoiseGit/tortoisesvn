@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="neon"
 	ProjectGUID="{A63728C0-9CDA-459C-3CAA-A158F4ADFF49}"
+	RootNamespace="neon"
 	Keyword="MakeFileProj"
 	>
 	<Platforms>
@@ -28,7 +29,7 @@
 				ReBuildCommandLine="cmd /c build_neon.bat debug rebuild"
 				CleanCommandLine=""
 				Output="D:\Development\SVN\common\Subversion\Subversion\neon\libneonD.lib"
-				PreprocessorDefinitions=""
+				PreprocessorDefinitions="_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_DEPRECATE"
 				IncludeSearchPath=""
 				ForcedIncludes=""
 				AssemblySearchPath=""
@@ -50,7 +51,7 @@
 				ReBuildCommandLine="cmd /c build_neon.bat release rebuild"
 				CleanCommandLine=""
 				Output="D:\Development\SVN\common\Subversion\Subversion\neon\libneon.lib"
-				PreprocessorDefinitions=""
+				PreprocessorDefinitions="_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_DEPRECATE"
 				IncludeSearchPath=""
 				ForcedIncludes=""
 				AssemblySearchPath=""

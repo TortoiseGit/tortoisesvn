@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="svnadmin"
 	ProjectGUID="{7208462B-C996-14D4-C65A-E938C4EBF936}"
+	RootNamespace="svnadmin"
 	>
 	<Platforms>
 		<Platform
@@ -63,7 +64,7 @@
 				AdditionalDependencies="intl3_svn.lib setargv.obj libdb43d.lib advapi32.lib shfolder.lib libneond.lib "
 				OutputFile="$(OutDir)\svnadmin.exe"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\..\db4-win32\lib;..\..\..\db4-win32\lib;..\..\..\neon;"
+				AdditionalLibraryDirectories="&quot;..\..\..\..\berkeley-db\db4.3-win32\lib&quot;;..\..\..\..\neon"
 				IgnoreDefaultLibraryNames="libc.lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)\$(TargetName).pdb"
