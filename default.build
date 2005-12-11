@@ -119,6 +119,42 @@
 		<exec program="Make_Installer.bat" workingdir="Languages" />
 	</target>
 
+	<target name="SourceTarball" depends="VersionInfo">
+		<description>
+			Creates a source tarball, without the external libs.
+		</description>
+		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
+		<property name="zipfilename" value="TortoiseSVN-${verstring}${devrelease}-src.zip" />
+		<zip zipfile="bin\${zipfilename}" ziplevel="9">
+			<fileset basedir="." prefix="TortoiseSVN">
+				<include name="**/*" />
+				<exclude name="**/*.ncb" />
+				<exclude name="**/*.suo" />
+				<exclude name="**/*.user" />
+				<exclude name="**/*.mo" />
+				<exclude name="**/*.exe" />
+				<exclude name="**/*.bak" />
+				<exclude name="**/*.log" />
+				<exclude name="www/**" />
+				<exclude name="bin/**" />
+				<exclude name="obj/**" />
+				<exclude name="Tools/**" />
+				<exclude name="MYBUILD" />
+				<exclude name="toolpaths.build" />
+				<exclude name="TortoiseVars.bat" />
+				<exclude name="version.build" />
+				<exclude name="doc/source/de/**" />
+				<exclude name="doc/source/es/**" />
+				<exclude name="doc/source/ja/**" />
+				<exclude name="doc/output/**" />
+				<exclude name="ext/apr/**" />
+				<exclude name="ext/apr-iconv/**" />
+				<exclude name="ext/apr-util/**" />
+				<exclude name="ext/neon/**" />
+				<exclude name="ext/Subversion/**" />
+			</fileset>
+		</zip>
+	</target>
 
 <!-- ====================================================================== -->
 <!-- Requirement-check targets												-->
