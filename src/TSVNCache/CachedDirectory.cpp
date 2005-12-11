@@ -362,7 +362,10 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 		// If the status *still* isn't valid here, it means that 
 		// the current directory is unversioned, and we shall need to ask its children for info about themselves
-		return dirEntry->GetStatusForMember(path,bRecursive);
+		if (dirEntry)
+			return dirEntry->GetStatusForMember(path,bRecursive);
+		CSVNStatusCache::Instance().AddFolderForCrawling(path);
+		return CStatusCacheEntry();
 	}
 	else
 	{

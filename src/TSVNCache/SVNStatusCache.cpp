@@ -216,13 +216,19 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 
 	CCachedDirectory::ItDir itMap;
 	itMap = m_directoryCache.find(path);
-	if(itMap != m_directoryCache.end())
+	if ((itMap != m_directoryCache.end())&&(itMap->second))
 	{
 		// We've found this directory in the cache 
 		return itMap->second;
 	}
 	else
 	{
+		// if the CCachedDirectory is NULL but the path is in our cache,
+		// that means that path got invalidated and needs to be treated
+		// as if it never was in our cache. So we remove the last remains
+		// from the cache and start from scratch.
+		if (itMap!=m_directoryCache.end())
+			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
 		CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, new CCachedDirectory(path)))->second;
 		if (!path.IsEmpty())
