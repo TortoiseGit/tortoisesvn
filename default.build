@@ -190,6 +190,7 @@
 		<echo message="binaries     : builds all binaries (TortoiseSVN, Subversion, Libs)" />
 		<echo message="setup        : creates an msi installer for TortoiseSVN" />
 		<echo message="LanguagePacks: creates the Languagepack installers" />
+		<echo message="SourceTarball: creates a zip file with the sourcefiles" />
 		<echo />
 		<echo message="The following targets can be used to tweak the builds:" />
 		<echo message="debug   : if this target is called before other build targets," /> 
