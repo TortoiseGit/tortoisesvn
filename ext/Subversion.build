@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<project name="Subversion" default="Subversion">
+
+	<target name="clean">
+        <delete>
+            <fileset>
+                <include name="apr\Debug\**" />
+                <include name="apr\Release\**" />
+                <include name="apr-iconv\Debug\**" />
+                <include name="apr-iconv\Release\**" />
+				<include name="apr-util\Debug\**" />
+                <include name="apr-util\Release\**" />
+				<include name="apr-util\uri\Debug\**" />
+                <include name="apr-util\uri\Release\**" />
+				<include name="apr-util\xml\expat\lib\LibD\**" />
+				<include name="apr-util\xml\expat\lib\LibR\**" />
+                <include name="Subversion\build\win32\vcnet-vcproj\**" />
+                <include name="Subversion\build\win32\build_*.bat" />
+                <include name="Subversion\Debug\**" />
+                <include name="Subversion\Release\**" />
+            </fileset>
+        </delete>
+	</target>
+
+	<target name="prepare_neon">
+		<exec program="cmd">
+			<arg value="/c" />
+			<arg value="echo" />
+			<arg value="0.25.4>neon\.version" />
+		</exec>
+		<copy
+			file="..\neonconfig.hw"
+			tofile="neon\config.hw"
+			overwrite="true"
+		/>
+	</target>
+	
+	<target name="prepare_apriconv">
+		<!-- we patch apr-iconv to not use APR_ICONV_PATH -->
+		<copy 
+			file="apr-iconv_patch\lib\iconv_module.c" 
+			tofile="apr-iconv\lib\iconv_module.c" 
+			overwrite="true"
+		/>
+	</target>
+
+	<target name="prepare_aprutil">
+		<!-- the expat.h.in doesn't have the version information set :( -->
+		<copy 
+			file="..\expat.h.in" 
+			tofile="apr-util\xml\expat\lib\expat.h.in"
+			overwrite="true"
+		/>
+	</target>
+
+	<target name="prepareSubversion">
+		<!-- generate the vsnet project and solution files -->
+		<exec program="python" workingdir="Subversion">
+			<arg value="gen-make.py" />
+			<arg value="-t" />
+			<arg value="vcproj" />
+			<arg value="--with-openssl=..\..\..\Common\openssl" />
+			<arg value="--with-zlib=..\..\..\Common\zlib" />
+			<arg value="--with-neon=..\neon" />
+			<arg value="--with-apr=..\apr" />
+			<arg value="--with-apr-util=..\apr-util" />
+			<arg value="--with-apr-iconv=..\apr-iconv" />
+			<arg value="--with-berkeley-db=..\berkeley-db\db4.3-win32" />
+			<arg value="--enable-nls" />
+			<arg value="--vsnet-version=2003" />
+		</exec>
+		
+		<copy file="build\gen_uri_delims.vcproj" tofile="apr-util\uri\gen_uri_delims.vcproj" overwrite="true" />
+		<copy file="build\libapr.vcproj" tofile="apr\libapr.vcproj" overwrite="true" />
+		<copy file="build\libapriconv.vcproj" tofile="apr-iconv\libapriconv.vcproj" overwrite="true" />
+		<copy file="build\libapriconv_ccs_modules.vcproj" tofile="apr-iconv\ccs\libapriconv_ccs_modules.vcproj" overwrite="true" />
+		<copy file="build\libapriconv_ces_modules.vcproj" tofile="apr-iconv\ces\libapriconv_ces_modules.vcproj" overwrite="true" />
+		<copy file="build\libaprutil.vcproj" tofile="apr-util\libaprutil.vcproj" overwrite="true" />
+		<copy file="build\neon.vcproj" tofile="subversion\build\win32\neon.vcproj" overwrite="true" />
+		<copy file="build\svn_config.vcproj" tofile="subversion\build\win32\svn_config.vcproj" overwrite="true" />
+		<copy file="build\svn_locale.vcproj" tofile="subversion\build\win32\svn_locale.vcproj" overwrite="true" />
+		<copy file="build\xml.vcproj" tofile="apr-util\xml\expat\lib\xml.vcproj" overwrite="true" />
+		<copy file="build\zlib.vcproj" tofile="subversion\build\win32\zlib.vcproj" overwrite="true" />
+		<copy file="build\subversion_vcnet.sln" tofile="subversion\subversion_vcnet.sln" overwrite="true" />
+		<copy file="build\apr.hw" tofile="apr\include\apr.hw" overwrite="true" />
+		<copy file="build\neon.mak" tofile="neon\neon.mak" overwrite="true" />
+		<copy file="build\inffas32.asm" tofile="..\..\common\zlib\contrib\masmx86\inffas32.asm" overwrite="true" />
+		<copy file="build\inffas32.asm" tofile="..\..\common\zlib\inffas32.asm" overwrite="true" />
+
+		<copy todir="subversion\build\win32\vcnet-vcproj" overwrite="true" flatten="true">
+			<fileset>
+				<include name="build\svn\*.vcproj" />
+			</fileset>
+		</copy>
+		
+	</target>
+
+	<target name="Subversion" depends="prepareSubversion,prepare_aprutil,prepare_apriconv,prepare_neon">
+		<setenv>
+			<variable name="INCLUDE" value="${project::get-base-directory()}\svn-win32-libintl\inc;%INCLUDE%" />
+			<variable name="LIB" value="${project::get-base-directory()}\svn-win32-libintl\lib;%LIB%" />
+		</setenv>
+		<exec program="svn" workingdir="Subversion" failonerror="false">
+			<arg value="revert" />
+			<arg value="subversion\svn_private_config.hw" />
+		</exec>
+		<!-- first compile Subversion without any network/repository support
+		     for use in the shell extension dll -->
+		<move
+			file="Subversion\subversion\svn_private_config.h"
+			tofile="Subversion\subversion\svn_private_config_copy.h"
+			overwrite="true"
+			failonerror="false"
+		/>
+		<move
+			file="Subversion\subversion\svn_private_config.hw"
+			tofile="Subversion\subversion\svn_private_config_copy.hw"
+			overwrite="true"
+		/>
+		<copy
+			file="..\svn_private_config.h"
+			tofile="Subversion\subversion\svn_private_config.h"
+		/>
+		<copy
+			file="..\svn_private_config.h"
+			tofile="Subversion\subversion\svn_private_config.hw"
+		/>
+		<exec program="devenv.com" workingdir="Subversion">
+			<arg value="subversion_vcnet.sln" />
+			<arg value="/useenv" />
+			<arg value="/rebuild" />
+			<arg value="${configuration}" />
+			<arg value="/project" />
+			<arg value="__ALL__" />
+		</exec>
+		<mkdir dir="Subversion\${configuration}\subversion_netless" />
+		<move todir="Subversion\${configuration}\subversion_netless" overwrite="true">
+			<fileset basedir="Subversion\${configuration}\subversion">
+				<include name="**.**" />
+			</fileset>
+		</move>
+
+		<!-- now build Subversion with network and repository support -->
+		<move
+			file="Subversion\subversion\svn_private_config_copy.hw"
+			tofile="Subversion\subversion\svn_private_config.hw"
+			overwrite="true"
+		/>
+		<move
+			file="Subversion\subversion\svn_private_config_copy.h"
+			tofile="Subversion\subversion\svn_private_config.h"
+			overwrite="true"
+		/>
+		<exec program="devenv.com" workingdir="Subversion">
+			<arg value="subversion_vcnet.sln" />
+			<arg value="/useenv" />
+			<arg value="/rebuild" />
+			<arg value="${configuration}" />
+			<arg value="/project" />
+			<arg value="__ALL__" />
+		</exec>
+		<!-- revert all patching we've done -->
+		<exec program="svn" workingdir="Subversion" failonerror="false">
+			<arg value="revert" />
+			<arg value="-R" />
+			<arg value="apr" />
+			<arg value="apr-iconv" />
+			<arg value="apr-util" />
+			<arg value="neon" />
+			<arg value="Subversion" />
+		</exec>
+	</target>
+
+</project>

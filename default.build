@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<project name="TortoiseSVN" default="help">
+
+	<!-- default configuration is release -->
+	<property name="configuration" value="release" />
+	<!-- default builds are dev builds -->
+	<property name="devrelease" value="-dev" />
+	
+<!-- ====================================================================== -->
+<!-- Configuration targets													-->
+<!-- ====================================================================== -->
+	<target name="debug">
+		<description>
+			Sets the environment up to build the debug versions.
+		</description>
+		<property name="configuration" value="debug" />
+	</target>
+
+	<target name="release">
+		<description>
+			Sets the environment up to build an official release version,
+			without the '-dev' markers.
+		</description>
+		<property name="devrelease" value="" />
+	</target>
+
+
+<!-- ====================================================================== -->
+<!-- Project targets														-->
+<!-- ====================================================================== -->
+	<target name="cleanall">
+		<description>
+			Cleans every subproject.
+		</description>
+		<nant target="clean">
+			<buildfiles>
+				<include name="doc/doc.build" />
+				<include name="src/TortoiseSVN.build" />
+				<include name="ext/OpenSSL.build" />
+				<include name="ext/Subversion.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+	<target name="docs" depends="env">
+		<description>
+			Builds the docs in all languages and all formats.
+		</description>
+		<nant target="all">
+			<buildfiles>
+				<include name="doc/doc.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+	<target name="VersionInfo" depends="VSNET,env">
+		<description>
+			Sets the version information as properties, env variables
+			and sets up the different version specific files.
+		</description>
+		<nant target="versioninfo">
+			<buildfiles>
+				<include name="src/TortoiseSVN.build" />
+			</buildfiles>
+		</nant>
+	</target>
+	
+	<target name="Subversion" depends="VSNET,env">
+		<description>
+			Builds all the libraries TortoiseSVN depends on:
+			Subversion, apr, OpenSSL, ...
+		</description>
+		<nant target="OpenSSL">
+			<buildfiles>
+				<include name="ext\OpenSSL.build" />
+			</buildfiles>
+		</nant>
+		<nant target="Subversion">
+			<buildfiles>
+				<include name="ext\Subversion.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+	<target name="TortoiseSVN" depends="VSNET,env">
+		<description>
+			Builds TortoiseSVN. The libraries must have been built
+			before.
+		</description>
+		<nant target="TortoiseSVN">
+			<buildfiles>
+				<include name="src/TortoiseSVN.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+	<target name="binaries" depends="VSNET,env,Subversion,TortoiseSVN">
+		<description>
+			Builds all binaries (TortoiseSVN with all the required
+			libraries)
+		</description>
+	</target>
+
+	<target name="setup" depends="env,binaries,docs">
+		<description>
+			Uses WiX to create an msi installer file.
+		</description>
+		<nant target="setup">
+			<buildfiles>
+				<include name="src\TortoiseSVNSetup\setup.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+	<target name="LanguagePacks" depends="env">
+		<description>
+			Builds all the language pack installers.
+		</description>
+		<exec program="Make_Installer.bat" workingdir="Languages" />
+	</target>
+
+
+<!-- ====================================================================== -->
+<!-- Requirement-check targets												-->
+<!-- ====================================================================== -->
+	<target name="VSNET" description="Checks if the env variables for VS.NET2005 are set">
+		<if test="${not environment::variable-exists('VCINSTALLDIR')}">
+			<fail>You must first call %VS80COMNTOOLS%\vsvars32.bat!</fail>
+		</if>
+	</target>
+	
+	<target name="env" description="sets up the env variables with the paths to our needed tools">
+		<nant target="settoolpaths">
+			<buildfiles>
+				<include name="toolpaths.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+<!-- ====================================================================== -->
+<!-- Help target															-->
+<!-- ====================================================================== -->
+    <target name="help">
+		<echo message="You must specify a target to tell us what you want to build!" />
+		<echo />
+		<echo message="The following targets are available:" />
+		<echo message="cleanall     : this will clean up previous builds and force a" />
+		<echo message="               complete rebuild later" />
+		<echo message="docs         : builds the docs in all languages and all formats" />
+		<echo message="Subversion   : builds the Subversion libraries, including its" />
+		<echo message="               dependencies" />
+		<echo message="TortoiseSVN  : builds TortoiseSVN. You must have build the" />
+		<echo message="               Subversion libraries before, or this will fail" />
+		<echo message="binaries     : builds all binaries (TortoiseSVN, Subversion, Libs)" />
+		<echo message="setup        : creates an msi installer for TortoiseSVN" />
+		<echo message="LanguagePacks: creates the Languagepack installers" />
+		<echo />
+		<echo message="The following targets can be used to tweak the builds:" />
+		<echo message="debug   : if this target is called before other build targets," /> 
+		<echo message="          those targets are built with debug support" />
+		<echo message="release : call this if you want to create official releases." />
+		<echo message="          It removes the '-dev' string from some builds" />
+		<echo />
+		<echo />
+    </target>
+</project>
+

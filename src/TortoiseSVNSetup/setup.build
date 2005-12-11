@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<project name="Setup" default="setup">
+
+	<target name="versioninfo">
+		<nant target="versioninfo">
+			<buildfiles>
+				<include name="..\..\versioninfo.build" />
+			</buildfiles>
+		</nant>
+		<loadfile file="VersionNumberInclude.in.wxi" property="versionwixfile">
+			<filterchain>
+				<replacetokens begintoken="$" endtoken="$">
+					<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+					<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+					<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+					<token key="WCREV" value="${environment::get-variable('WCREV')}" />
+				</replacetokens>
+			</filterchain>
+		</loadfile>
+		<echo file="VersionNumberInclude.wxi" message="${versionwixfile}" />
+		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
+		<property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-svn-1.3.0" />
+	</target>
+
+	<target name="setup" depends="versioninfo">
+		<setenv>
+			<variable name="DictionaryENUS" value="0" />
+			<variable name="DictionaryENGB" value="0" />
+			<variable name="IncludeCrashReportDll" value="0" />
+		</setenv>
+	
+		<if test="${file::exists('..\..\..\Common\Spell\en_US.aff')}">
+			<setenv>
+				<variable name="DictionaryENUS" value="1" />
+			</setenv>
+		</if>
+		<if test="${file::exists('..\..\..\Common\Spell\en_GB.aff')}">
+			<setenv>
+				<variable name="DictionaryENGB" value="1" />
+			</setenv>
+		</if>
+		<if test="${file::exists('..\..\MYBUILD')}">
+			<setenv>
+				<variable name="IncludeCrashReportDll" value="1" />
+			</setenv>
+		</if>
+		
+		<exec program="candle">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\" />
+			<arg value="TortoiseSVN.wxs" />
+			<arg value="FeaturesFragment.wxs" />
+			<arg value="StructureFragment.wxs" />
+			<arg value="UIFragment.wxs" />
+		</exec>
+		<exec program="light">
+			<arg value="-nologo" />
+			<arg value="-out" />
+			<arg value="..\..\bin\${msifilename}.msi" />
+			<arg value="..\..\bin\TortoiseSVN.wixobj" />
+			<arg value="..\..\bin\FeaturesFragment.wixobj" />
+			<arg value="..\..\bin\StructureFragment.wixobj" />
+			<arg value="..\..\bin\UIFragment.wixobj" />
+		</exec>
+		<delete>
+			<fileset>
+				<include name="..\..\bin\*.wixobj" />
+			</fileset>
+		</delete>
+		
+		<exec program="md5" workingdir="..\..\bin">
+			<arg value="-o${msifilename}.txt" />
+			<arg value="${msifilename}.msi" />
+		</exec>
+	</target>
+
+</project>
+

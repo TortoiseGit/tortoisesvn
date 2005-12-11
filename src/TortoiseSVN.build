@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<project name="TortoiseSVN" default="all">
+
+	<target name="clean">
+        <delete>
+            <fileset>
+                <include name="utils\scintilla\bin\*.dll" />
+                <include name="utils\scintilla\bin\*.exp" />
+                <include name="utils\scintilla\bin\*.lib" />
+                <include name="utils\scintilla\bin\*.pdb" />
+                <include name="utils\scintilla\win32\*.obj" />
+                <include name="utils\scintilla\win32\*.res" />
+                <include name="utils\scintilla\win32\*.pdb" />
+            </fileset>
+        </delete>
+		<exec program="devenv.com" >
+			<arg value="TortoiseSVN.sln" />
+			<arg value="/clean" />
+			<arg value="${configuration}" />
+		</exec>
+	</target>
+
+	<target name="scintilla">
+		<exec program="nmake" workingdir="utils\scintilla\win32">
+			<arg value="-f" />
+			<arg value="scintilla.mak" />
+		</exec>
+		<copy
+			file="utils\scintilla\bin\SciLexer.dll"
+			tofile="..\bin\${configuration}\bin\SciLexer.dll"
+			overwrite="true"
+		/>
+        <delete>
+            <fileset>
+                <include name="utils\scintilla\bin\*.dll" />
+                <include name="utils\scintilla\bin\*.exp" />
+                <include name="utils\scintilla\bin\*.lib" />
+                <include name="utils\scintilla\bin\*.pdb" />
+                <include name="utils\scintilla\win32\*.obj" />
+                <include name="utils\scintilla\win32\*.res" />
+                <include name="utils\scintilla\win32\*.pdb" />
+            </fileset>
+        </delete>
+	</target>
+
+	<target name="versioninfo">
+		<nant target="versioninfo">
+			<buildfiles>
+				<include name="..\versioninfo.build" />
+			</buildfiles>
+		</nant>
+		<loadfile file="version.in" property="versionheaderfile">
+			<filterchain>
+				<replacetokens begintoken="$" endtoken="$">
+					<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+					<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+					<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+					<token key="WCREV" value="${environment::get-variable('WCREV')}" />
+				</replacetokens>
+			</filterchain>
+		</loadfile>
+		<echo file="version.h" message="${versionheaderfile}" />
+	</target>
+
+	<target name="TortoiseSVN" depends="versioninfo,scintilla">
+		<exec program="devenv.com" >
+			<arg value="TortoiseSVN.sln" />
+			<arg value="/rebuild" />
+			<arg value="${configuration}" />
+		</exec>
+		<copy todir="..\bin\${configuration}\bin" overwrite="true" failonerror="false">
+			<fileset>
+				<include name="TortoiseSVNSetup\include\autolist.txt" />
+				<include name="..\..\common\openssl\out32dll\*.dll" />
+				<include name="..\ext\svn-win32-libintl\bin\intl3_svn.dll" />
+				<include name="..\ext\berkeley-db\db4.3-win32\bin\libdb43.dll" />
+				<include name="..\ext\berkeley-db\db4.3-win32\bin\libdb43d.dll" />
+				<include name="..\apr\${configuration}\libapr.dll" />
+				<include name="..\apr-util\${configuration}\libaprutil.dll" />
+				<include name="..\apr-iconv\${configuration}\libapriconv.dll" />
+			</fileset>
+		</copy>
+		<mkdir dir="..\bin\${configuration}\bin\iconv" failonerror="false" />
+		<copy todir="..\bin\${configuration}\bin\iconv" overwrite="true" failonerror="false">
+			<fileset>
+				<include name="..\ext\apr-iconv\${configuration}\iconv\*.so" />
+			</fileset>
+		</copy>
+	</target>
+
+</project>

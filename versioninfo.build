@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="VersionInfo" default="versioninfo">
+
+	<target name="versioninfo">
+		<if test="${not file::exists('bin\release\bin\SubWCRev.exe')}">
+			<copy
+				file="src\version.none"
+				tofile="src\version.h"
+				overwrite="true"
+			/>
+			<exec program="devenv.com" workingdir="src">
+				<arg value="TortoiseSVN.sln" />
+				<arg value="/rebuild" />
+				<arg value="release" />
+				<arg value="/project" />
+				<arg value="SubWCRev" />
+			</exec>
+		</if>
+
+		<exec program="bin\release\bin\SubWCRev.exe">
+			<arg value="." />
+			<arg value="version.build.in" />
+			<arg value="version.build" />
+		</exec>
+		<nant target="setversioninfo">
+			<buildfiles>
+				<include name="version.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+</project>

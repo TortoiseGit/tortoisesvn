@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!-- use this file to set the paths to the required tools
+     TortoiseSVN needs to build everything.
+     
+     first make a copy of this file and rename the copy to
+     toolpaths.build
+     then adjust the paths in the "value" field.
+     
+     Note: make sure you don't forget the path separator (";")
+     if you're appending your paths to the system PATH variable!
+     You will get linker errors if you forget them.
+-->
+
+<project name="ToolPaths" default="settoolpaths">
+	<target name="settoolpaths">
+		<setenv>
+			<variable name="PATH" value="D:\Development\SVN\TortoiseSVN\Tools\;%PATH%" />
+			<variable name="PATH" value="D:\Development\SVN\TortoiseSVN\Tools\fop\;%PATH%" />
+			<variable name="PATH" value="D:\Development\wix\;%PATH%" />
+			<variable name="PATH" value="C:\Programme\NSIS\;%PATH%" />
+			<variable name="HHLOC" value="D:\Development\SVN\TortoiseSVN\Tools\hhc.exe" />
+			<variable name="XSLROOT" value="D:/Development/SVN/TortoiseSVN/Tools/xsl" />
+		</setenv>
+	</target>
+</project>
