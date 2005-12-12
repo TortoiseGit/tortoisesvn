@@ -51,36 +51,21 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CUpdateDlg, CStandAloneDialog)
-	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
-	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDC_LOG, OnBnClickedShowLog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
+	ON_EN_CHANGE(IDC_REVNUM, &CUpdateDlg::OnEnChangeRevnum)
 END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
-	// Since this dialog is called to update to a specific revision, we should
-	// enable and set focus to the edit control so that the user can enter the
-	// revision number without clicking or tabbing around first.
-	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
-	GetDlgItem(IDC_REVNUM)->EnableWindow(TRUE);
+	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
 	GetDlgItem(IDC_REVNUM)->SetFocus();
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return FALSE;  // return TRUE unless you set the focus to a control
 	               // EXCEPTION: OCX Property Pages should return FALSE
-}
-
-void CUpdateDlg::OnBnClickedNewest()
-{
-	GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
-}
-
-void CUpdateDlg::OnBnClickedRevisionN()
-{
-	GetDlgItem(IDC_REVNUM)->EnableWindow();
 }
 
 void CUpdateDlg::OnOK()
@@ -132,6 +117,14 @@ LPARAM CUpdateDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 	temp.Format(_T("%ld"), lParam);
 	GetDlgItem(IDC_REVNUM)->SetWindowText(temp);
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
-	GetDlgItem(IDC_REVNUM)->EnableWindow(TRUE);
 	return 0;
+}
+
+void CUpdateDlg::OnEnChangeRevnum()
+{
+	UpdateData();
+	if (m_sRevision.IsEmpty())
+		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+	else
+		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
 }

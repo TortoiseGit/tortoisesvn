@@ -66,10 +66,6 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_BROWSE2, OnBnClickedBrowse2)
-	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
-	ON_BN_CLICKED(IDC_REVISION_HEAD1, OnBnClickedRevisionHead1)
-	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
-	ON_BN_CLICKED(IDC_REVISION_N1, OnBnClickedRevisionN1)
 	ON_BN_CLICKED(IDC_FINDBRANCHSTART, OnBnClickedFindbranchstart)
 	ON_BN_CLICKED(IDC_FINDBRANCHEND, OnBnClickedFindbranchend)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
@@ -78,6 +74,8 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_DRYRUNBUTTON, OnBnClickedDryrunbutton)
 	ON_BN_CLICKED(IDC_DIFFBUTTON, OnBnClickedDiffbutton)
 	ON_CBN_EDITCHANGE(IDC_URLCOMBO, OnCbnEditchangeUrlcombo)
+	ON_EN_CHANGE(IDC_REVISION_END, &CMergeDlg::OnEnChangeRevisionEnd)
+	ON_EN_CHANGE(IDC_REVISION_START, &CMergeDlg::OnEnChangeRevisionStart)
 END_MESSAGE_MAP()
 
 
@@ -144,8 +142,8 @@ BOOL CMergeDlg::OnInitDialog()
 	{
 		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
 		// set head revision as default revision
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
 	}
 	OnBnClickedUsefromurl();
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
@@ -359,26 +357,6 @@ void CMergeDlg::OnBnClickedBrowse2()
 	}
 }
 
-void CMergeDlg::OnBnClickedRevisionHead()
-{
-	GetDlgItem(IDC_REVISION_END)->EnableWindow(FALSE);
-}
-
-void CMergeDlg::OnBnClickedRevisionN()
-{
-	GetDlgItem(IDC_REVISION_END)->EnableWindow(TRUE);
-}
-
-void CMergeDlg::OnBnClickedRevisionHead1()
-{
-	GetDlgItem(IDC_REVISION_START)->EnableWindow(FALSE);
-}
-
-void CMergeDlg::OnBnClickedRevisionN1()
-{
-	GetDlgItem(IDC_REVISION_START)->EnableWindow(TRUE);
-}
-
 void CMergeDlg::OnBnClickedFindbranchstart()
 {
 	UpdateData(TRUE);
@@ -517,7 +495,20 @@ void CMergeDlg::OnCbnEditchangeUrlcombo()
 	}
 }
 
+void CMergeDlg::OnEnChangeRevisionEnd()
+{
+	UpdateData();
+	if (m_sEndRev.IsEmpty())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+}
 
-
-
-
+void CMergeDlg::OnEnChangeRevisionStart()
+{
+	UpdateData();
+	if (m_sStartRev.IsEmpty())
+		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
+	else
+		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
+}

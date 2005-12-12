@@ -73,19 +73,17 @@ protected:
 	afx_msg void OnBnClickedBrowse();
 	BOOL CheckData();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnBnClickedRevisionHead();
-	afx_msg void OnBnClickedRevisionN();
 	afx_msg void OnBnClickedFindbranchstart();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedFindbranchend();
 	afx_msg void OnBnClickedBrowse2();
-	afx_msg void OnBnClickedRevisionHead1();
-	afx_msg void OnBnClickedRevisionN1();
 	afx_msg void OnBnClickedUsefromurl();
 	afx_msg void OnBnClickedWCLog();
 	afx_msg void OnBnClickedDryrunbutton();
 	afx_msg void OnBnClickedDiffbutton();
 	afx_msg void OnCbnEditchangeUrlcombo();
+	afx_msg void OnEnChangeRevisionEnd();
+	afx_msg void OnEnChangeRevisionStart();
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;

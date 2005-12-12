@@ -50,9 +50,8 @@ void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CBlameDlg, CStandAloneDialog)
-	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
-	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_EN_CHANGE(IDC_REVISION_END, &CBlameDlg::OnEnChangeRevisionEnd)
 END_MESSAGE_MAP()
 
 
@@ -69,16 +68,6 @@ BOOL CBlameDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
-}
-
-void CBlameDlg::OnBnClickedRevisionHead()
-{
-	GetDlgItem(IDC_REVISION_END)->EnableWindow(FALSE);
-}
-
-void CBlameDlg::OnBnClickedRevisionN()
-{
-	GetDlgItem(IDC_REVISION_END)->EnableWindow(TRUE);
 }
 
 void CBlameDlg::OnOK()
@@ -113,4 +102,13 @@ void CBlameDlg::OnOK()
 void CBlameDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CBlameDlg::OnEnChangeRevisionEnd()
+{
+	UpdateData();
+	if (m_sEndRev.IsEmpty())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 }

@@ -62,13 +62,12 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CCheckoutDlg, CStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
-	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
-	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_CHECKOUTDIRECTORY_BROWSE, OnBnClickedCheckoutdirectoryBrowse)
 	ON_EN_CHANGE(IDC_CHECKOUTDIRECTORY, OnEnChangeCheckoutdirectory)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SHOW_LOG, OnBnClickedShowlog)
+	ON_EN_CHANGE(IDC_REVISION_NUM, &CCheckoutDlg::OnEnChangeRevisionNum)
 END_MESSAGE_MAP()
 
 BOOL CCheckoutDlg::OnInitDialog()
@@ -84,7 +83,6 @@ BOOL CCheckoutDlg::OnInitDialog()
 	else
 	{
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-		GetDlgItem(IDC_REVISION_NUM)->EnableWindow();
 		CString sRev;
 		sRev.Format(_T("%ld"), (LONG)Revision);
 		GetDlgItem(IDC_REVISION_NUM)->SetWindowText(sRev);
@@ -116,7 +114,6 @@ BOOL CCheckoutDlg::OnInitDialog()
 		CString temp;
 		temp.Format(_T("%ld"), (LONG)Revision);
 		m_editRevision.SetWindowText(temp);
-		m_editRevision.EnableWindow(TRUE);
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 	}
 
@@ -199,16 +196,6 @@ void CCheckoutDlg::OnOK()
 	}
 	UpdateData(FALSE);
 	CStandAloneDialog::OnOK();
-}
-
-void CCheckoutDlg::OnBnClickedRevisionN()
-{
-	m_editRevision.EnableWindow();
-}
-
-void CCheckoutDlg::OnBnClickedRevisionHead()
-{
-	m_editRevision.EnableWindow(FALSE);
 }
 
 void CCheckoutDlg::OnBnClickedBrowse()
@@ -340,6 +327,14 @@ LPARAM CCheckoutDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 	temp.Format(_T("%ld"), lParam);
 	GetDlgItem(IDC_REVISION_NUM)->SetWindowText(temp);
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-	GetDlgItem(IDC_REVISION_NUM)->EnableWindow(TRUE);
 	return 0;
+}
+
+void CCheckoutDlg::OnEnChangeRevisionNum()
+{
+	UpdateData();
+	if (m_sRevision.IsEmpty())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 }

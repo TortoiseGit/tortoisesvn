@@ -36,9 +36,8 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnBnClickedRevisionHead();
-	afx_msg void OnBnClickedRevisionN();
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnEnChangeRevisionEnd();
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 

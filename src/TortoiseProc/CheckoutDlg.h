@@ -71,14 +71,13 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual void OnOK();
-	afx_msg void OnBnClickedRevisionN();
-	afx_msg void OnBnClickedRevisionHead();
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedCheckoutdirectoryBrowse();
 	afx_msg void OnEnChangeCheckoutdirectory();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowlog();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnEnChangeRevisionNum();
 
 	DECLARE_MESSAGE_MAP()
 protected:

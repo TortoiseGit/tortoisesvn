@@ -31,7 +31,6 @@ IMPLEMENT_DYNAMIC(CSwitchDlg, CStandAloneDialog)
 CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
 	: CStandAloneDialog(CSwitchDlg::IDD, pParent)
 	, m_URL(_T(""))
-	, m_rev(_T("HEAD"))
 	, Revision(_T("HEAD"))
 {
 }
@@ -50,9 +49,8 @@ void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CSwitchDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
-	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedNewest)
-	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_EN_CHANGE(IDC_REVISION_NUM, &CSwitchDlg::OnEnChangeRevisionNum)
 END_MESSAGE_MAP()
 
 
@@ -133,16 +131,6 @@ void CSwitchDlg::OnBnClickedBrowse()
 	}
 }
 
-void CSwitchDlg::OnBnClickedNewest()
-{
-	GetDlgItem(IDC_REVISION_NUM)->EnableWindow(FALSE);
-}
-
-void CSwitchDlg::OnBnClickedRevisionN()
-{
-	GetDlgItem(IDC_REVISION_NUM)->EnableWindow(TRUE);
-}
-
 void CSwitchDlg::OnOK()
 {
 	if (!UpdateData(TRUE))
@@ -170,4 +158,13 @@ void CSwitchDlg::OnOK()
 void CSwitchDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CSwitchDlg::OnEnChangeRevisionNum()
+{
+	UpdateData();
+	if (m_rev.IsEmpty())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 }
