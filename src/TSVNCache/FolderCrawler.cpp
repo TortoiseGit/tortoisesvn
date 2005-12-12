@@ -76,7 +76,7 @@ void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 	{
 		AutoLocker lock(m_critSec);
 		m_foldersToUpdate.push_back(path);
-		
+		ATLASSERT(path.IsDirectory() || !path.Exists());
 		// set this flag while we are sync'ed 
 		// with the worker thread
 		m_bItemsAddedSinceLastCrawl = true;

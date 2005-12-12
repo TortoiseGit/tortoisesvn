@@ -201,8 +201,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				if ((PathFileExists(path.GetWinPath()))||(bRequestForSelf))
 					return CStatusCacheEntry();
 				// the entry doesn't exist anymore! 
-				// Let the crawler remove it from the cache.
-				CSVNStatusCache::Instance().AddFolderForCrawling(path);
+				CSVNStatusCache::Instance().RemoveCacheForPath(path);
 				return CStatusCacheEntry();
 			}
 			else
