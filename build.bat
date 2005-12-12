@@ -184,7 +184,6 @@ echo ===========================================================================
 echo building Scintilla
 cd Utils\scintilla\win32
 nmake -f scintilla.mak
-svn revert ..\src\LexCaml.cxx
 copy ..\bin\SciLexer.dll ..\..\..\..\bin\debug\bin /Y > NUL
 copy ..\bin\SciLexer.dll ..\..\..\..\bin\release\bin /Y > NUL
 del ..\bin\*.dll > NUL
