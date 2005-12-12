@@ -1,6 +1,6 @@
 @echo off
 rem Check the environment
-@if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
+@if "%VSINSTALLDIR%"=="" call "%VS80COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 SETLOCAL ENABLEDELAYEDEXPANSION
 

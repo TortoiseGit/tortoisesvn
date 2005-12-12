@@ -85,7 +85,7 @@
 			<LaunchConditions After="AppSearch" />
 			<RemoveExistingProducts After="InstallValidate"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
 			<Custom Action="CleanupRegistry" After="RemoveExistingProducts"></Custom>
-			<Custom Action="KillCache" After="RemoveExistingProducts">Installed</Custom>
+			<Custom Action="KillCache" After="CleanupRegistry">Installed</Custom>
 			<ScheduleReboot After="RegisterProduct" />
 		</InstallExecuteSequence>
 		
