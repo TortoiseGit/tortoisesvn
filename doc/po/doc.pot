@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-12-09 12:45GMT Standard Time\n"
+"POT-Creation-Date: 2005-12-12 11:00Westeuropäische Normalzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2776,23 +2776,19 @@ msgstr ""
 msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:345(emphasis) 
-msgid "they"
+#: source/en/tsvn_dug/dug_import.xml:334(para) 
+msgid "You should strongly consider using explicit revision numbers in all of your externals definitions. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:333(tip) 
-msgid "You should strongly consider using explicit revision numbers in all of your externals definitions. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <placeholder-1/> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
-msgstr ""
-
-#: source/en/tsvn_dug/dug_import.xml:350(para) 
+#: source/en/tsvn_dug/dug_import.xml:352(para) 
 msgid "URLs in <literal>svn:externals</literal> definitions are absolute. You cannot use relative URLs. If you relocate your working copy, or if the external repository is relocated, these URLs will not be updated automatically. Also, if you branch a project which has external references within the same repository, the URLs in the branched copy will be unchanged; you may then want to change trunk references to branch references instead."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:359(para) 
+#: source/en/tsvn_dug/dug_import.xml:361(para) 
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-DUG-propertypage\"/>."
 msgstr ""
 
-#: source/en/tsvn_dug/dug_import.xml:363(para) 
+#: source/en/tsvn_dug/dug_import.xml:365(para) 
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr ""
 
@@ -3766,10 +3762,6 @@ msgstr ""
 
 #: source/en/wishlist.xml:15(para) 
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CD's and DVD's: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr ""
-
-#: source/en/Version.xml:2(subtitle) 
-msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
 msgstr ""
 
 #: source/en/tsvn_subwcrev.xml:3(title) 
