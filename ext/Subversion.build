@@ -37,11 +37,8 @@
 	
 	<target name="prepare_apriconv">
 		<!-- we patch apr-iconv to not use APR_ICONV_PATH -->
-		<copy 
-			file="apr-iconv_patch\lib\iconv_module.c" 
-			tofile="apr-iconv\lib\iconv_module.c" 
-			overwrite="true"
-		/>
+		<copy file="apr-iconv_patch\lib\iconv_module.c" tofile="apr-iconv\lib\iconv_module.c" overwrite="true" />
+		<copy file="build\modules.mk.win" tofile="apr-iconv\build\modules.mk.win" overwrite="true" />
 	</target>
 
 	<target name="prepare_aprutil">

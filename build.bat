@@ -41,6 +41,9 @@ cd ..\common\openssl
 perl Configure VC-WIN32 -D_CRT_NONSTDC_NO_DEPRECATE -D_USE_32BIT_TIME_T > NUL
 call ms\do_masm
 call nmake -f ms\ntdll.mak
+:: embed the manifest into the dll's
+mt -manifest out32dll\ssleay32.dll.manifest -outputresource:out32dll\ssleay32.dll;#2
+mt -manifest out32dll\libeay32.dll.manifest -outputresource:out32dll\libeay32.dll;#2
 @echo off
 
 rem Subversion
@@ -73,6 +76,7 @@ copy %startdir%\ext\build\zlib.vcproj %startdir%\ext\subversion\build\win32\zlib
 copy %startdir%\ext\build\subversion_vcnet.sln %startdir%\ext\subversion\subversion_vcnet.sln /Y
 copy %startdir%\ext\build\apr.hw %startdir%\ext\apr\include\apr.hw /Y
 copy %startdir%\ext\build\neon.mak %startdir%\ext\neon\neon.mak /Y
+copy %startdir%\ext\build\modules.mk.win %startdir%\ext\apr-iconv\build\modules.mk.win /Y
 copy /Y %startdir%\ext\build\svn\*.* build\win32\vcnet-vcproj
 
 rem the expat.h.in doesn't have the version information correctly set :(

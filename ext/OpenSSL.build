@@ -25,6 +25,16 @@
 			<arg value="-f" />
 			<arg value="ms\ntdll.mak" />
 		</exec>
+		<exec program="mt" workingdir="..\..\common\openssl\out32dll">
+			<arg value="-manifest" />
+			<arg value="ssleay32.dll.manifest" />
+			<arg value="-outputresource:ssleay32.dll;#2" />
+		</exec>
+		<exec program="mt" workingdir="..\..\common\openssl\out32dll">
+			<arg value="-manifest" />
+			<arg value="libeay32.dll.manifest" />
+			<arg value="-outputresource:libeay32.dll;#2" />
+		</exec>
 	</target>
 
 </project>
