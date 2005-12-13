@@ -38,16 +38,24 @@
 		</Property>
 		<Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
 
-		<Property Id="VERSIONSHELL">
-			<DirectorySearch Id="DirSearchShellDll" Path="[SystemFolder]">
-				<FileSearch Id="DirSearchShellDll" Name="shell32.dll" MinVersion="4.72.0.0" />
+		<!-- Check if MFC80 is already installed. If it is, then TSVN can be installed without Admin privileges.
+		     If someone know a better way to check for the presence of MFC80, please tell me! -->
+		<Property Id="VERSIONMFC">
+			<DirectorySearch Id="DirSearchMFCDll" Path="[SystemFolder]">
+				<FileSearch Id="FileSearchMFCDll" Name="mfc80u.dll" MinVersion="8.0.50727.41" MaxVersion="9.0.0.0" />
 			</DirectorySearch>
 		</Property>
+		<Property Id="VERSIONMFC1">
+			<DirectorySearch Id="DirSearchMFCDll1" Path="[WindowsFolder]" Depth="3">
+				<FileSearch Id="FileSearchMFCDll1" Name="mfc80u.dll" MinVersion="8.0.50727.41" MaxVersion="9.0.0.0" />
+			</DirectorySearch>
+		</Property>
+
 		<Property Id="ShowChangelogCheck">1</Property>
-		<!-- TODO: Fix <Condition Message="[ProductName] needs at least shell32.dll version 4.72"><![CDATA[(NOT (""=VERSIONSHELL)) OR (Installed)]]></Condition> -->
 
 		<Condition Message="[ProductName] requires a Windows NT based OS (Windows 2000 or later, specifically).">VersionNT</Condition>
 		<Condition Message="[ProductName] requires Windows 2000 or later."><![CDATA[VersionNT >= 500]]></Condition>
+		<Condition Message="You must have Admin priviledges to install [ProductName].">((""&gt;&lt;VERSIONMFC) AND (""&gt;&lt;VERSIONMFC1)) OR (Privileged)</Condition>
 
 		<!-- Show/Don't-show changelog related properties and custom actions ..................................................... -->
 		<Property Id="TEXTEDITOR">
