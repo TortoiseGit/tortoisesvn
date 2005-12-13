@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-12 11:02+0100\n"
+"PO-Revision-Date: 2005-12-13 08:50+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4043,7 +4043,7 @@ msgstr "Beachten Sie dass wenn Sie die URL in einer <literal>svn:externals</lite
 #: source/en/tsvn_dug/dug_import.xml:334
 #: (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
-msgstr ""
+msgstr "Sie sollten in Erwägung ziehen, in allen <quote>externals</quote> Definitionen explizit Revisionen anzugeben. Diese Vorgehensweise ermöglicht es Ihnen, exakt zu bestimmen zu welchem Zeitpunkt welcher Stand der externen Informationen herangezogen wird. Neben dem sofort zu erkennenden Aspekt, dass Sie nicht mehr von Änderungen in externen Bibliotheken, über die Sie keine Kontrolle haben, überrascht werden können, bietet die Verwendung expliziter Revisionsnummern den Vorteil, dass, wenn Sie Ihre Arbeitskopie zurückdatieren, auch die externen Verweise entsprechend zurückdatiert werden. Andernfalls enthalten die externen Verweise die HEAD Revision. Für ein Softwareprojekt kann das den Unterschied zwischen einem erfolgreichen und einem fehlgeschlagenen Erzeugen eines älteren Projektstandes ausmachen."
 
 #: source/en/tsvn_dug/dug_import.xml:352
 #: (para)
