@@ -2,8 +2,8 @@
 // Microsoft Visual C++ generated include file.
 // Used by CrashRpt.rc
 //
-#define IDC_SAVE                        4
-#define IDC_DEBUG                       5
+#define IDC_SAVE                        40
+#define IDC_DEBUG                       50
 #define IDM_ABOUTBOX                    0x0010
 #define IDD_ABOUTBOX                    100
 #define IDR_MAINFRAME                   128

@@ -421,8 +421,6 @@ END
 
 3 TEXTINCLUDE 
 BEGIN
-    "CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST ""res\\\\CrashRpt.exe.manifest""\r\n"
-    "\0"
 END
 
 #endif    // APSTUDIO_INVOKED
@@ -627,7 +625,6 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "res\\CrashRpt.exe.manifest"
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
