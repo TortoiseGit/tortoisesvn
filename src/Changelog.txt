@@ -69,6 +69,8 @@
 - BUG: When ignoring all whitespaces is turned on in TortoiseMerge,
        the merge result contained the lines of the base file
        instead of "mine". (Stefan)
+- BUG: TortoiseMerge wouldn't show the inline diff if only the
+       first line in a file was modified. (Stefan)
 
 Version 1.2.6
 - BUG: The status cache updated sometimes wrong paths or missed

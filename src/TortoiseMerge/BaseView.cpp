@@ -58,7 +58,7 @@ CBaseView::CBaseView()
 	m_nTopLine = 0;
 	m_nOffsetChar = 0;
 	m_nDigits = 0;
-	m_nMouseLine = 0;
+	m_nMouseLine = -1;
 	m_bIsHidden = FALSE;
 	m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
 	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
@@ -156,7 +156,7 @@ void CBaseView::DocumentUpdated()
 	m_nTopLine = 0;
 	m_bModified = FALSE;
 	m_nDigits = 0;
-	m_nMouseLine = 0;
+	m_nMouseLine = -1;
 	m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
 	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	for (int i=0; i<MAXFONTS; i++)
