@@ -99,6 +99,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_pStatLabel(NULL)
 	, m_pSelectButton(NULL)
 	, m_bBusy(false)
+	, m_bUnversionedRecurse(true)
 {
 }
 
@@ -226,6 +227,8 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, DWORD dwContextMenus /* = SVNSLC_
 		SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
 	SetRedraw(true);
+
+	m_bUnversionedRecurse = !!((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE));
 }
 
 BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */)
@@ -546,6 +549,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 												const CTSVNPath& basePath, 
 												apr_array_header_t *pIgnorePatterns)
 {
+	if (!m_bUnversionedRecurse)
+		return;
 	CSimpleFileFind filefinder(folderName.GetWinPathString());
 
 	CTSVNPath filename;

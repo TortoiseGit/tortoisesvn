@@ -826,6 +826,16 @@ BEGIN
     PUSHBUTTON      "",IDC_REPLACEDNODECOLOR,158,173,50,14
 END
 
+IDD_SETTINGSMISC DIALOGEX 0, 0, 300, 217
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Look and Feel::Misc"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Status",IDC_STATIC,7,7,286,43
+    CONTROL         "Recurse into unversioned folders",IDC_UNVERSIONEDRECURSE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,22,269,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1268,6 +1278,16 @@ BEGIN
         VERTGUIDE, 13
         VERTGUIDE, 150
         VERTGUIDE, 158
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_SETTINGSMISC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        VERTGUIDE, 15
+        VERTGUIDE, 284
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
     END
@@ -2071,6 +2091,8 @@ STRINGTABLE
 BEGIN
     IDS_SETTINGS_OWNERDRAWN_TT 
                             "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
+    IDS_SETTINGS_UNVERSIONEDRECURSE_TT 
+                            "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
 END
 
 STRINGTABLE 

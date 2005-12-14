@@ -73,6 +73,7 @@
 #define IDR_CLEANUPANI                  212
 #define IDD_SETTINGSCOLORS              212
 #define IDI_ACTIONADDED                 213
+#define IDD_SETTINGSMISC                213
 #define IDI_ACTIONDELETED               214
 #define IDI_ACTIONMODIFIED              215
 #define IDI_ACTIONREPLACED              216
@@ -413,6 +414,7 @@
 #define IDS_PROC_EXPORT_1               1259
 #define IDC_COPYSTARTLABEL              1259
 #define IDS_PROC_EXPORT_2               1260
+#define IDC_UNVERSIONEDRECURSE          1260
 #define IDS_PROC_EXPORT_3               1261
 #define IDS_PROC_EXPORT_4               1262
 #define IDS_PROC_COPY_SUCCESS           1263
@@ -621,6 +623,7 @@
 #define IDS_SETTINGS_SPELLCHECKER_TT    3118
 #define IDS_SETTINGS_REPOCHECK_TT       3119
 #define IDS_SETTINGS_OWNERDRAWN_TT      3120
+#define IDS_SETTINGS_UNVERSIONEDRECURSE_TT 3121
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202
@@ -751,7 +754,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        217
 #define _APS_NEXT_COMMAND_VALUE         32796
-#define _APS_NEXT_CONTROL_VALUE         1260
+#define _APS_NEXT_CONTROL_VALUE         1261
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

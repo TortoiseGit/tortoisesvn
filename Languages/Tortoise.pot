@@ -1883,6 +1883,10 @@ msgstr ""
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
 
+#: ID:196,
+msgid "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
+msgstr ""
+
 #: ID:251,
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
 msgstr ""
@@ -2064,6 +2068,10 @@ msgstr ""
 
 #: Dlg-ID:184,
 msgid "Look and Feel::Icon Set"
+msgstr ""
+
+#: Dlg-ID:213,
+msgid "Look and Feel::Misc"
 msgstr ""
 
 #: ID:238,
@@ -2548,6 +2556,10 @@ msgstr ""
 
 #: ID:12,
 msgid "Read the 'Daily Use Guide' before you are stuck..."
+msgstr ""
+
+#: Control-ID:1260,
+msgid "Recurse into unversioned folders"
 msgstr ""
 
 #: ID:3603,
@@ -3127,7 +3139,7 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
-#: ID:74,#: ID:77,#: ID:207,
+#: ID:74,#: ID:77,#: ID:207,#: Control-ID:65535,
 msgid "Status"
 msgstr ""
 

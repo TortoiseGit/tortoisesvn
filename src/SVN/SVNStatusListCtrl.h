@@ -456,4 +456,6 @@ private:
 	
 	CString						m_sEmpty;
 	CString						m_sBusy;
+
+	bool						m_bUnversionedRecurse;
 };

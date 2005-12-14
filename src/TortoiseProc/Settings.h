@@ -28,6 +28,7 @@
 #include "SetLookAndFeelPage.h"
 #include "SetDialogs.h"
 #include "SettingsColors.h"
+#include "SetMisc.h"
 #include "TreePropSheet/TreePropSheet.h"
 
 using namespace TreePropSheet;
@@ -84,6 +85,7 @@ private:
 	CSetLookAndFeelPage *	m_pLookAndFeelPage;
 	CSetDialogs *			m_pDialogsPage;
 	CSettingsColors *		m_pColorsPage;
+	CSetMisc *				m_pMiscPage;
 
 	HICON					m_hIcon;
 public:
