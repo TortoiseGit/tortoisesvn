@@ -1896,7 +1896,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 	for (int fileindex = 0; fileindex < path.GetCount(); ++fileindex)
 	{
 		// use the relative path
-		CString sRelativePath = path[fileindex].GetWinPathString().Mid(sDir.GetWinPathString().GetLength());
+		CString sRelativePath = path[fileindex].GetWinPathString().Mid(sDir.GetDirectory().GetWinPathString().GetLength());
 		sRelativePath.Trim(_T("/\\"));
 		CTSVNPath diffpath = CTSVNPath(sRelativePath);
 		if (!svn.Diff(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, TRUE, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
