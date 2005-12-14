@@ -1,6 +1,11 @@
 // CustomActions.cpp : Defines the entry point for the DLL application.
 //
 
+
+/* BIG FAT WARNING: Do not use any functions which require the C-Runtime library
+   in this custom action dll! The runtimes might not be installed yet!
+*/
+
 #include "stdafx.h"
 #include "shlwapi.h"
 #pragma comment(lib, "shlwapi")
@@ -28,11 +33,14 @@ UINT __stdcall TerminateCache(MSIHANDLE hModule)
 			RegCloseKey(hKey);
 		}
 		PostMessage(hWnd, WM_CLOSE, NULL, NULL);
-		Sleep(1500);
-		if (!IsWindow(hWnd))
+		for (int i=0; i<10; ++i)
 		{
-			// Cache is gone!
-			return ERROR_SUCCESS;
+			Sleep(500);
+			if (!IsWindow(hWnd))
+			{
+				// Cache is gone!
+				return ERROR_SUCCESS;
+			}
 		}
 		return ERROR_FUNCTION_FAILED;
 	}
@@ -103,5 +111,11 @@ UINT __stdcall ClearRegistry(MSIHANDLE hModule)
 			SHDeleteKey(HKEY_CURRENT_USER, (LPCTSTR)entries[i]);
 		}
 	}
+	return ERROR_SUCCESS;
+}
+
+UINT __stdcall MsgBox(MSIHANDLE hModule)
+{
+	MessageBox(NULL, _T("CustomAction \"MsgBox\" running"), _T("Installer"), MB_ICONINFORMATION);
 	return ERROR_SUCCESS;
 }
