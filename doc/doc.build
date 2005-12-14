@@ -4,35 +4,24 @@
 		Builds the Documentation in all languages and all output formats
 	</description>
 	
-	<copy file="doc.build.include.tmpl" tofile="doc.build.include" unless="${file::exists('doc.build.include')}"/>
+	<include buildfile="doc.build.user" if="${file::exists('doc.build.user')}"/>
 	<include buildfile="doc.build.include"/>
- 
+
 <!-- ====================================================================== -->
-<!-- Loop over all languages												-->
+<!-- Loop over all languages                                                -->
 <!-- ====================================================================== -->
 
 	<target name="all" 
 		description="Loop over all languages, output formats and applications and build documentation"
-		depends="versioninfo, prepare" >
+		depends="prepare" >
 
-		<property name="lang.target" value="${lang.base}"/>
-		<call target="doit"/>
-
-		<foreach item="File" property="lang.pofile">
-			<in>
-				<items>
-					<include name="po/*.po"/>
-				</items>
-			</in>
-			<do>
-				<property name="lang.target" value="${path::get-file-name-without-extension(lang.pofile)}"/>
-				<call target="doit"/>
-			</do>
+		<foreach item="String" in="${languages}" delim="," property="lang.target">
+			<call target="doit"/>
 		</foreach>
 	</target>
 	
 <!-- ====================================================================== -->
-<!-- Loop over all applications and output formats							-->
+<!-- Loop over all applications and output formats                          -->
 <!-- ====================================================================== -->
 
 	<target name="doit">
@@ -107,7 +96,7 @@
 	</target>
 
 <!-- ====================================================================== -->
-<!-- Create po template for each application from sources					-->
+<!-- Create po template for each application from sources                   -->
 <!-- ====================================================================== -->
 
 	<target name="potfile" description="Create po template from sources">
@@ -144,10 +133,11 @@
 	</target>
 
 <!-- ====================================================================== -->
-<!-- Create translated source files											-->
+<!-- Create translated source files                                         -->
 <!-- ====================================================================== -->
 	<target name="translate" description="Create translated source file">
 		<echo message="Translating: '${lang.target}' This may take a few minutes"/>
+		<property name="lang.pofile" value="po/${lang.target}.po"/>
 		
 		<exec program="msgfmt"
 					commandline="${lang.pofile} -o ${lang.target}.mo"
@@ -196,7 +186,7 @@
 	</target>
 
 <!-- ====================================================================== -->
-<!-- Run xsltproc with the defined parameters								-->
+<!-- Run xsltproc with the defined parameters                               -->
 <!-- ====================================================================== -->
 	<target name="xsltproc" description="Run xsltproc with the defined parameters">
 		<echo message="Processing XML Source" />
@@ -215,7 +205,7 @@
 	</target>
 	
 <!-- ====================================================================== -->
-<!-- Create PDF documentation 												-->
+<!-- Create PDF documentation                                               -->
 <!-- ====================================================================== -->
 
 	<target name="pdf" description="Create PDF documentation">
@@ -242,7 +232,7 @@
 	</target>
 
 <!-- ====================================================================== -->
-<!-- Create CHM documentation 												-->
+<!-- Create CHM documentation                                               -->
 <!-- ====================================================================== -->
 
 	<target name="chm" description="Create CHM documentation">
@@ -278,7 +268,7 @@
 	</target>
 
 <!-- ====================================================================== -->
-<!-- Create HTML multi page documentation 									-->
+<!-- Create HTML multi page documentation                                   -->
 <!-- ====================================================================== -->
 	<target name="html" description="Create HTML documentation" depends="">
 
@@ -299,7 +289,7 @@
 	</target>
 
 <!-- ====================================================================== -->
-<!-- Create HTML single page documentation 									-->
+<!-- Create HTML single page documentation                                  -->
 <!-- ====================================================================== -->
 
 	<target name="htmlsingle" description="Create HTML single page documentation" depends="">
@@ -319,33 +309,5 @@
 
 		</ifnot>
 	</target>
-	
-<!-- ====================================================================== -->
-<!-- Try creating the version file 											-->
-<!-- ====================================================================== -->
-	<target name="versioninfo" description="Creates the version file">
-		<if test="${environment::variable-exists('MajorVersion')}">
-			<loadfile file="source\en\version.in" property="versionxmlfile">
-				<filterchain>
-					<replacetokens begintoken="$" endtoken="$">
-						<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
-						<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
-						<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
-						<token key="WCREV" value="${environment::get-variable('WCREV')}" />
-					</replacetokens>
-				</filterchain>
-			</loadfile>
-			<echo file="source\en\version.xml" message="${versionxmlfile}" />
-		</if>
-		<if test="${not environment::variable-exists('MajorVersion')}">
-			<copy
-				file="source\en\version.in"
-				tofile="source\en\version.xml"
-				overwrite="true"
-			/>
-			<echo>Note: version information not set!</echo>
-		</if>
-	</target>
-
 </project>
 

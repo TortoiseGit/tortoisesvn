@@ -1,21 +1,46 @@
 <?xml version="1.0"?>
+<!--
+  Customization layer for build files.
+  You can override these settings by defining them on the command line or by
+	defining them in doc.build.user which is included by doc.build if it exists.
+	
+	Example content of doc.build.user:
+	<property name="applications" value="TortoiseSVN" />
+	<property name="docformats" value="chm" />
+	<property name="languages" value="en" />
+  
+  This will only build the english HTML helpf file for TortoiseSVN
+-->
+
 <project name="customize">
 	<description>Customization layer for build file</description>
 
 	<!-- ============================================================ -->
-	<!-- List of applications and output formats that will be created -->
-	<!-- by default                                                   -->
-	<property name="applications" value="TortoiseSVN,TortoiseMerge" />
-
-	<property name="docformats" value="pdf,chm,html,htmlsingle" />
+	<!-- List of applications, languages and output formats in which  -->
+	<!-- the documentation will be created by default                 -->
+	<property name="applications" 
+		value="TortoiseSVN,TortoiseMerge" 
+		unless="${property::exists('applications')}"
+	/>
+	<property name="docformats" 
+		value="pdf,chm,html,htmlsingle" 
+		unless="${property::exists('docformats')}"
+	/>
+	<property name="languages" 
+		value="en,de,es,ja" 
+		unless="${property::exists('languages')}"
+	/>
 
 	<!-- ============================================================ -->
 	<!-- Settings for the translation                                 -->
 	
-	<!-- Base language. All other documents are created using the     -->
+	<!-- Base language. All other documents are created using this    -->
 	<!-- documents structure                                          -->
-	<property name="lang.base" value="en" />
-
+	<property name="lang.base"
+		value="en"
+		unless="${property::exists('lang.base')}"
+	/>
+	
 	<!-- Fileset to exclude from translation and .pot creation        -->
 	<!-- Duplicate these files in the "sourcefiles" fileset           -->
 	<fileset id="files.exclude">
@@ -33,11 +58,26 @@
 
 	<!-- ============================================================ -->
 	<!-- Paths to the binaries                                        -->
-	<property name="path.bin" value="${path::get-full-path('../Tools')}"/>
-	<property name="path.fop" value="${path::get-full-path('../Tools/fop')}"/>
-	<property name="path.xsl" value="${string::replace(path::get-full-path('../Tools/xsl'), '\', '/')}"/>
-	<property name="path.msgfmt" value="${path::get-full-path('../Tools')}"/>
-	<property name="path.subwcrev" value="../bin/release/bin/"/>
+	<property name="path.bin" 
+		value="${path::get-full-path('../Tools')}"
+		unless="${property::exists('path.bin')}"
+	/>
+	<property name="path.fop" 
+		value="${path::get-full-path('../Tools/fop')}"
+		unless="${property::exists('path.fop')}"
+	/>
+	<property name="path.xsl" 
+		value="${string::replace(path::get-full-path('../Tools/xsl'), '\', '/')}"
+		unless="${property::exists('path.xsl')}"
+	/>
+	<property name="path.msgfmt" 
+		value="${path::get-full-path('../Tools')}"
+		unless="${property::exists('path.msgfmt')}"
+	/>
+	<property name="path.subwcrev" 
+		value="../bin/release/bin/"
+		unless="${property::exists('path.subwcrev')}"
+	/>
 
 	<!-- ============================================================ -->
 	<!-- Settings for XSLTPROC                                        -->
@@ -61,9 +101,13 @@
 	<property name="help.resource" value="../src/TortoiseProc/resource.h" />
 	<property name="help.context" value="./source/context.h" />
 
-	<!-- ============================================================ -->
-	<!-- Custom target to prepare the build -->
-	<target name="prepare.custom" description="Prepare XSL files, create help context file">
+<!-- ====================================================================== -->
+<!-- Custom target to prepare the build                                     -->
+<!-- ====================================================================== -->
+
+	<target name="prepare.custom" 
+		description="Prepare XSL files, create help context file"
+		depends="versioninfo">
 
 		<exec program="SubWCRev.exe"
 					commandline="source/${lang.base} source/pubdate.tmpl source/${lang.base}/pubdate.xml"
@@ -93,8 +137,37 @@
 		<call target="help.prepare" unless="${file::up-to-date(help.resource,help.context)}"/>
 	</target>
 
-	<!-- ============================================================ -->
-	<!-- Prepare help context file -->
+<!-- ====================================================================== -->
+<!-- Try creating the version file                                          -->
+<!-- ====================================================================== -->
+
+	<target name="versioninfo" description="Creates the version file">
+		<if test="${environment::variable-exists('MajorVersion')}">
+			<loadfile file="source\en\version.in" property="versionxmlfile">
+				<filterchain>
+					<replacetokens begintoken="$" endtoken="$">
+						<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+						<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+						<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+						<token key="WCREV" value="${environment::get-variable('WCREV')}" />
+					</replacetokens>
+				</filterchain>
+			</loadfile>
+			<echo file="source\en\version.xml" message="${versionxmlfile}" />
+		</if>
+		<if test="${not environment::variable-exists('MajorVersion')}">
+			<copy
+				file="source\en\version.in"
+				tofile="source\en\version.xml"
+				overwrite="true"
+			/>
+			<echo>Note: version information not set!</echo>
+		</if>
+	</target>
+
+<!-- ====================================================================== -->
+<!-- Prepare help context file                                              -->
+<!-- ====================================================================== -->
 
 	<target name="help.prepare" description="Create CHM help context">
 
@@ -141,8 +214,10 @@
 
 	</target>
 
-	<!-- ============================================================ -->
-	<!-- Copy help context to target location -->
+<!-- ====================================================================== -->
+<!-- Copy help context to target location                                   -->
+<!-- ====================================================================== -->
+
 	<target name="help.custom" description="Create CHM help context">
 		<copy file="${help.context}" todir="${doc.target.work}" overwrite="true"/>
 	</target>
