@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-12 09:51+0100\n"
+"PO-Revision-Date: 2005-12-15 10:54+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -177,7 +177,7 @@ msgstr "&Erweitert..."
 
 #: Control-ID:1013
 msgid "&Apply unified diff"
-msgstr "Standard Diff &anwenden"
+msgstr "Standard-Diff &anwenden"
 
 #: Control-ID:65535
 msgid "&Autoclose:"
@@ -263,7 +263,7 @@ msgstr "&Löschen..."
 
 #: ID:12
 msgid "&Diff"
-msgstr "&Diff"
+msgstr "&Vergleich"
 
 #: Control-ID:1179
 msgid "&Dry run"
@@ -572,7 +572,7 @@ msgstr "&Rückgängig\tStrg+Z"
 
 #: MenuEntry
 msgid "&Unified diff"
-msgstr "&Standard Diff"
+msgstr "&Standard-Diff"
 
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -760,7 +760,7 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"Ein Anzeigeprogramm für GNU-diff-Dateien (patch files).\n"
+"Ein Anzeigeprogramm für GNU Standard-Diffdateien (Patchdateien).\n"
 "Falls Sie keines haben wählen Sie einen normalen Texteditor\n"
 "(z.B. Notepad.exe)."
 
@@ -830,11 +830,11 @@ msgstr "Hinzufügen (als Ersatz)..."
 
 #: ID:110
 msgid "Add extension specific diff program"
-msgstr "Dateityp-spezifisches Diff Programm hinzufügen"
+msgstr "Vergleichsprogramm für bestimmte Dateitypen hinzufügen"
 
 #: ID:110
 msgid "Add extension specific merge program"
-msgstr "Dateityp-spezifisches Merge Programm hinzufügen"
+msgstr "Konflikteditor für bestimmte Dateitypen hinzufügen"
 
 #: ID:13
 msgid "Add to &ignore list"
@@ -901,11 +901,11 @@ msgstr "Erweiterte Diff/Merge Einstellungen"
 
 #: ID:110
 msgid "Advanced diff settings"
-msgstr "Erweiterte Diff Einstellungen"
+msgstr "Alternative Vergleichsprogramme"
 
 #: ID:110
 msgid "Advanced merge settings"
-msgstr "Erweiterte Merge Einstellungen"
+msgstr "Alternative Konflikteditoren"
 
 #: ID:3841
 msgid "All Files (*.*)"
@@ -941,8 +941,8 @@ msgid ""
 "%base\tthe base file\n"
 "%mine\tthe modified file"
 msgstr ""
-"Ein externes Diff Programm, um verschiedene\n"
-"Revisionen von Dateien zu vergleichen\n"
+"Ein externes Programm zum Vergleichen\n"
+"verschiedener Revisionen von Dateien\n"
 "<hr=100%>\n"
 "Sie können folgende Parameter für das Programm angeben:\n"
 "%base\t\tDie Originaldatei, ohne Ihre Änderungen\n"
@@ -960,7 +960,8 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"Ein externes Merge Programm, um Konflikte in Dateien aufzulösen\n"
+"Ein externes Programm zum Bearbeiten\n"
+"von Konflikten zwischen Dateien\n"
 "<hr=100%>\n"
 "Sie können folgende Parameter für das Programm angeben:\n"
 "%base\t\tDie Originaldatei, ohne Ihre Änderungen\n"
@@ -1012,7 +1013,7 @@ msgstr "Analysiere Revisionsdaten..."
 
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "Wendet ein Standard Diff auf Ihre Arbeitskopie an"
+msgstr "Wendet eine Standard-Diffdatei auf Ihre Arbeitskopie an"
 
 #: ID:15
 msgid ""
@@ -1028,7 +1029,7 @@ msgstr "&Patch anwenden..."
 
 #: Control-ID:65535
 msgid "Apply unified diff"
-msgstr "Standard Diff &anwenden"
+msgstr "Standard-Diff &anwenden"
 
 #: ID:145
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -1134,7 +1135,7 @@ msgstr "Such&en..."
 
 #: ID:78
 msgid "Browse for the external diff program"
-msgstr "Suche nach dem externen Diff Programm"
+msgstr "Suche nach dem externen Vergleichsprogramm"
 
 #: Control-ID:1069
 msgid "Browse..."
@@ -1318,11 +1319,11 @@ msgstr "Klicken Sie hier, um eine der zuletzt eingegebenen Log-Meldungen zu wäh
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "Alternative Diff Programme für Dateitypen definieren."
+msgstr "Alternative Vergleichsprogramme für Dateitypen festlegen"
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Alternative Merge Programme für Dateitypen definieren."
+msgstr "Alternative Konflikteditoren für Dateitypen festlegen"
 
 #: ID:257
 msgid "Clipboard"
@@ -1403,7 +1404,7 @@ msgstr "Fertig"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
-msgstr "Konfigurieren Sie das Programm zum Betrachten verschiedener Dateirevisionen."
+msgstr "Konfigurieren Sie das Programm zum Vergleichen verschiedener Dateirevisionen."
 
 #: Control-ID:65535
 msgid "Configure the program used to resolve conflicted files."
@@ -1411,7 +1412,7 @@ msgstr "Konfigurieren Sie das Programm zum Auflösen von Konflikten."
 
 #: Control-ID:65535
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Konfigurieren Sie das Programm zum Anzeigen von GNU Diff Dateien (Patch Dateien)."
+msgstr "Konfigurieren Sie das Programm zum Anzeigen von GNU Standard-Diffdateien."
 
 #: ID:263
 #: Control-ID:65535
@@ -1559,7 +1560,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Konnte den Diff Betrachter nicht starten!\n"
+"Konnte den Standard-Diff Betrachter nicht starten!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1570,7 +1571,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Konnte das externe Diff Programm nicht starten!\n"
+"Konnte das externe Vergleichsprogramm nicht starten!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1581,7 +1582,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Konnte das externe Merge Programm nicht starten!\n"
+"Konnte den externen Konflikteditor nicht starten!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1619,7 +1620,7 @@ msgstr "Erstellt ein Projektarchiv im gewählten Ordner"
 
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
-msgstr "Erzeugt ein Standard Diff mit all Ihren Änderungen"
+msgstr "Erzeugt eine Standard-Diffdatei mit all Ihren Änderungen"
 
 #: Control-ID:65535
 msgid "Credits:"
@@ -1677,7 +1678,7 @@ msgstr "Ziel-Partition ist voll."
 
 #: Control-ID:65535
 msgid "Diff file:"
-msgstr "Diff Datei:"
+msgstr "Diffdatei:"
 
 #: Control-ID:1022
 msgid "Diffing"
@@ -1692,7 +1693,7 @@ msgid ""
 "Disable this option if you have really big working copies and experience\n"
 "too much disk access when browsing the working copy."
 msgstr ""
-"Deaktivieren Sie diese Option wenn Sie wirklich große Arbeitskopien haben\n"
+"Deaktivieren Sie diese Option, wenn Sie wirklich große Arbeitskopien haben\n"
 "und die Festplatte beim Anzeigen von Arbeitskopien konstant beschäftigt ist."
 
 #: ID:3867
@@ -1816,11 +1817,11 @@ msgstr "Autor bearbeiten"
 
 #: ID:110
 msgid "Edit extension specific diff program"
-msgstr "Bearbeite Dateityp-spezifisches Diff Programm"
+msgstr "Vergleichsprogramm für bestimmte Dateitypen einrichten"
 
 #: ID:110
 msgid "Edit extension specific merge program"
-msgstr "Bearbeite Dateityp-spezifisches Merge Programm"
+msgstr "Konflikteditor für bestimmte Dateitypen einrichten"
 
 #: ID:113
 #: ID:115
@@ -1958,15 +1959,15 @@ msgstr "Anwendung:"
 
 #: Dlg-ID:192
 msgid "External Programs::Diff Viewer"
-msgstr "Externe Programme::Diff Programm"
+msgstr "Externe Programme::Vergleichen"
 
 #: Dlg-ID:193
 msgid "External Programs::Merge Tool"
-msgstr "Externe Programme::Zusammenführen"
+msgstr "Externe Programme::Konflikteditor"
 
 #: Dlg-ID:194
 msgid "External Programs::Unified Diff Viewer"
-msgstr "Externe Programme::Standard Diff Betrachter"
+msgstr "Externe Programme::GNU-Diff Betrachter"
 
 #: ID:74
 msgid "Failed revert"
@@ -1990,7 +1991,7 @@ msgstr "Konnte Dokument nicht speichern."
 
 #: Control-ID:1217
 msgid "Fetch &status for context menu"
-msgstr "&Statusabfrage für Kontextmenü"
+msgstr "&Kontextmenü abhängig von gewählter Datei / Ordner"
 
 #: ID:313
 msgid "Fetching file..."
@@ -2015,7 +2016,7 @@ msgstr "Dateiänderungen pro Woche:"
 
 #: ID:376
 msgid "File diffs"
-msgstr "Datei Unterschiede"
+msgstr "Dateiunterschiede"
 
 #: ID:376
 #: Dlg-ID:135
@@ -2107,7 +2108,7 @@ msgstr "Hole Log-Information..."
 
 #: ID:119
 msgid "Getting unified diff"
-msgstr "Hole Standard Diff"
+msgstr "Hole Standard-Diff"
 
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
@@ -2177,17 +2178,24 @@ msgstr "Icons/Design/Code:     Lübbe Onken"
 
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Wenn aktiviert, werden die überlagerten Symbole in <b>Speichern unter...</b> und <b>Öffnen</b> Dialogen nicht angezeigt"
+msgstr ""
+"Aktivieren Sie diese Option, damit die überlagerten Symbole in\n"
+"<b>Speichern unter...</b> und <b>Öffnen</b> Dialogen nicht angezeigt werden"
 
 #: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
-msgstr "Wenn markiert, wird ob ein neuer Ordner im Projektarchiv für den Import erstellt. Andernfalls wird direkt zur angegebenen URL importiert."
+msgstr ""
+"Aktivieren Sie diese Option, damit im Projektarchiv ein neuer Ordner für den\n"
+"Import erstellt wird. Andernfalls wird direkt zur angegebenen URL importiert."
 
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
-msgstr "Wenn diese Option gewählt ist, erzeugt TortoiseSVN eine Temporär BASE Datei in der die Schlüsselwörter expandiert und die Zeilenenden angepasst sind."
+msgstr ""
+"Aktivieren Sie diese Option, damit TortoiseSVN für den Vergleich eine\n"
+"temporäre BASE Datei erzeugt, in der die Schlüsselwörter expandiert\n"
+"und die Zeilenenden angepasst sind."
 
 #: ID:195
 msgid ""
@@ -2195,13 +2203,15 @@ msgid ""
 "But some context menu entries will show up which can't really be used.\n"
 "For example: the \"Show Log\" entry will show even for just added folders."
 msgstr ""
-"Wenn diese Option deaktiviert ist, wird das Kontextmenü schneller angezeigt.\n"
+"Deaktivieren Sie diese Option, damit das Kontextmenü schneller angezeigt wird.\n"
 "Es wird allerdings Einträge enthalten, die nicht sinnvoll anwendbar sind,\n"
 "zum Beispiel \"Zeige Log\" für einen gerade hinzugefügten Ordner."
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Bei Aktivierung überprüft TortoiseSVN einmal wöchentlich, ob Aktualisierungen vorliegen"
+msgstr ""
+"Aktivieren Sie diese Option, damit TortoiseSVN einmal wöchentlich\n"
+"überprüft, ob eine neue Version der Software zur Verfügung steht."
 
 # ID:195,
 #: ID:195
@@ -2209,8 +2219,9 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr ""
-"Mit dieser Option wird im Zusammenführen Dialog anstelle der zuletzt verwendeten\n"
-" URL die URL der Arbeitskopie als Vorgabe für die \"Von:\" URL eingestellt."
+"Aktivieren Sie diese Option, damit im Zusammenführen Dialog anstelle\n"
+"der zuletzt verwendeten URL die URL der Arbeitskopie als Vorgabe für\n"
+"die \"Von:\" URL eingestellt wird."
 
 # ID:195,
 #: ID:195
@@ -2218,7 +2229,8 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"Wenn markiert, wird das Projektarchiv beim Start des Dialogs kontaktiert.\n"
+"Aktivieren Sie diese Option, damit das Projektarchiv beim Start des Dialogs\n"
+"automatisch auf Änderungen geprüft wird.\n"
 "Sie müssen dann nicht mehr \"Projektarchiv prüfen\" wählen."
 
 #: ID:195
@@ -2226,8 +2238,18 @@ msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"Falls gesetzt, wird TortoiseSVN den Zeitstempel der Dateien auf den Zeitpunkt\n"
-"der letzten Übertragung setzen, andernfalls wird die aktuelle Zeit verwendet."
+"Aktivieren Sie diese Option, damit TortoiseSVN den Zeitstempel von\n"
+"Dateien auf den Zeitpunkt der letzten Übertragung setzt, andernfalls\n"
+"wird die aktuelle Zeit verwendet."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"Aktivieren Sie diese Option, damit auch nicht versionierte Verzeichnisse\n"
+"im Statusfenster - zum Beispiel des Übertragen Dialogs - angezeigt werden."
 
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -2357,7 +2379,7 @@ msgstr "Letzte gespeicherte Revision"
 
 #: ID:12
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "Startet das externe Diff / Merge Programm, um den Konflikt zu bearbeiten."
+msgstr "Startet den externen Konflikteditor, um den Konflikt zu bearbeiten."
 
 #: Control-ID:1137
 msgid "Least active author:"
@@ -2369,7 +2391,7 @@ msgstr "Linke Ansicht:"
 
 #: Control-ID:65535
 msgid "Line with whitespace diff"
-msgstr "Zeile mit Leerzeichen Diff"
+msgstr "Zeile mit Unterschieden in Leerzeichen"
 
 #: ID:3605
 msgid ""
@@ -2461,6 +2483,10 @@ msgstr "Anzeige::Überlagerte Symbole"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Anzeige::Symbolauswahl"
+
+#: Dlg-ID:213
+msgid "Look and Feel::Misc"
+msgstr "Anzeige::Sonstiges"
 
 #: ID:238
 #, c-format
@@ -3000,6 +3026,10 @@ msgstr "&Rückgängig..."
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Die schnelle Hilfe bei vielen täglichen Problemen."
 
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Rekursiv in nicht versionierte Verzeichnisse gehen"
+
 #: ID:3603
 msgid ""
 "Redo the previously undone action\n"
@@ -3421,11 +3451,11 @@ msgstr "Wählen Sie ein Objekt für welches Sie Hilfe möchten"
 
 #: ID:78
 msgid "Select diff application"
-msgstr "Diff Programm auswählen"
+msgstr "Vergleichsprogramm auswählen"
 
 #: ID:313
 msgid "Select diff file..."
-msgstr "Wähle Diff-Datei..."
+msgstr "Wähle Diffdatei..."
 
 #: ID:276
 msgid "Select end revision"
@@ -3441,7 +3471,7 @@ msgstr ""
 
 #: ID:78
 msgid "Select merge application"
-msgstr "Merge Programm auswählen"
+msgstr "Konflikteditor auswählen"
 
 #: ID:276
 msgid "Select revision range"
@@ -3473,7 +3503,7 @@ msgstr "Wählen Sie die Art des Projektarchivs das sie erstellen möchten:"
 
 #: ID:78
 msgid "Select viewer for diff-files"
-msgstr "Betrachter für Diff-Dateien auswählen"
+msgstr "Betrachter für Standard-Diffdateien auswählen"
 
 #: ID:3866
 msgid "Send Mail failed to send message."
@@ -3552,11 +3582,11 @@ msgstr "Zeige &nicht versionierte Dateien"
 
 #: ID:113
 msgid "Show differences as &unified diff"
-msgstr "Zeige Unterschiede als &Standard Diff"
+msgstr "Zeige Unterschiede als &Standard-Diff"
 
 #: Control-ID:1065
 msgid "Show li&ne diff bar"
-msgstr "Zeige Zeilen &Diffleiste"
+msgstr "Zeige Zeilen&unterschiede"
 
 #: Control-ID:1063
 msgid "Show linenumber&s"
@@ -3660,6 +3690,7 @@ msgstr "Statistik"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Status"
 
@@ -3826,7 +3857,7 @@ msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
 msgstr ""
-"Die Diff-Operation wurde auf Grund eines Fehlers beendet:\n"
+"Die Vergleichsoperation wurde auf Grund eines Fehlers beendet:\n"
 "%s"
 
 #: ID:64
@@ -3877,7 +3908,7 @@ msgid ""
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "Die \"Index: \" Zeile wurde nicht gefunden!\n"
-"Entweder handelt es sich nicht un eine Diff Datei oder die Datei ist leer."
+"Entweder handelt es sich nicht un eine Standard-Diffdatei oder die Datei ist leer."
 
 #: ID:63
 #, c-format
@@ -4382,7 +4413,7 @@ msgstr "Einstellungen für TortoiseSVN"
 
 #: MenuEntry
 msgid "Two-way &Diff"
-msgstr "Zwei-Fenster &Diff"
+msgstr "&Zwei-Fenster Vergleich"
 
 #: ID:12
 msgid "URL of Subversion items"
@@ -4451,7 +4482,7 @@ msgstr "Unerwartetes Dateiformat."
 
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
-msgstr "Standard &Diff der HEAD Revisionen"
+msgstr "Standard-&Diff der HEAD Revisionen"
 
 #: ID:81
 #, c-format
@@ -4506,7 +4537,7 @@ msgstr "&Lupe auf Positionsleiste anzeigen"
 
 #: Control-ID:1024
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr "Verwende &Ein-Fenster Sicht als Standard für Zweiwege Diff"
+msgstr "Verwende &Ein-Fenster Sicht als Standard für Zweiwege Vergleich"
 
 #: ID:251
 msgid "Use &other text block"
@@ -4620,7 +4651,7 @@ msgstr "Warnung!"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
-msgstr "Leerzeichen Diff"
+msgstr "Leerzeichenvergleich"
 
 #: ID:80
 #, c-format
