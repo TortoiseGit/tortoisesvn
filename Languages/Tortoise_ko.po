@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-11-30 10:14+0900\n"
+"PO-Revision-Date: 2005-12-15 12:58+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2727,6 +2727,15 @@ msgstr ""
 "파일을 생성할 때, 현재 시각 대신 마지막으로 커밋한 시각으로\n"
 "파일 날짜를 바꾸려면 선택합니다."
 
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"설정하면, 버전관리대상이 아닌 폴더도 상태 컨트롤에서 보여집니다.\n"
+"상태 컨트롤은 커밋 대화상자안의 예제로 사용됩니다."
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -3005,6 +3014,11 @@ msgstr "모양::아이콘 오버레이"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "모양::아이콘 모음"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Misc"
+msgstr "모양::기타"
 
 # ID:238,
 #: ID:238
@@ -3683,6 +3697,11 @@ msgstr "되돌리기(&V)..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Daily Use Guide 읽기"
+
+# Control-ID:1073,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "버전관리 대상이 아닌 폴더도 재귀적으로 탐색"
 
 # ID:3603,
 #: ID:3603
@@ -4509,6 +4528,7 @@ msgstr "통계"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "상태"
 
