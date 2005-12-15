@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-14 10:01+0100\n"
+"PO-Revision-Date: 2005-12-15 11:12+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1451,7 +1451,7 @@ msgstr "Wenn das aktuelle Layout in allen Arbeitskopien angezeigt werden soll, m
 #: source/en/tsvn_dug/dug_wcstatus.xml:159
 #: (title)
 msgid "Local and Remote Status"
-msgstr "Auf Änderungen prüfen"
+msgstr "Prüfe auf Änderungen"
 
 #: source/en/tsvn_dug/dug_wcstatus.xml:164
 #: (primary)
@@ -2384,7 +2384,7 @@ msgstr "Projektarchiv beim Start kontaktieren"
 #: source/en/tsvn_dug/dug_settings.xml:389
 #: (para)
 msgid "The Check for Modifications dialog checks the working copy by default, and only contacts the repository when you click <guibutton>Check repository</guibutton>. If you always want to check the repository, you can use this setting to make that action happen automatically."
-msgstr "Der <quote>Auf Änderungen prüfen</quote> Dialog prüft in der Standardeinstellung die Arbeitskopie und kontaktiert das Projektarchiv nur, wenn Sie die <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche betätigen. Wenn Sie das Projektarchiv immer überprüfen wollen, aktivieren Sie diese Option, damit das beim Start des Dialoges automatisch geschieht."
+msgstr "Der <quote>Prüfe auf Änderungen</quote> Dialog prüft in der Standardeinstellung die Arbeitskopie und kontaktiert das Projektarchiv nur, wenn Sie die <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche betätigen. Wenn Sie das Projektarchiv immer überprüfen wollen, aktivieren Sie diese Option, damit das beim Start des Dialoges automatisch geschieht."
 
 #: source/en/tsvn_dug/dug_settings.xml:399
 #: (term)
@@ -3673,7 +3673,7 @@ msgstr "Auf Änderungen überprüfen"
 #: source/en/tsvn_dug/dug_locking.xml:153
 #: (para)
 msgid "<placeholder-1/> To see what locks you and others hold, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications...</guimenuitem></menuchoice>. Locally held lock tokens show up immediately. To check for locks held by others (and to see if any of your locks are broken or stolen) you need to click on <guibutton>Check Repository</guibutton>."
-msgstr "<placeholder-1/> Um zu sehen, welche Sperren Sie oder andere Personen besitzen, können Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen prüfen...</guimenuitem> </menuchoice> aufrufen. Lokale Sperren werden sofort angezeigt. Damit Sie sehen können, welche Sperren von anderen gehalten werden und um festzustellen, ob Ihre Sperren aufgebrochen oder gestohlen wurden, müssen Sie <guibutton>Projektarchiv prüfen</guibutton> wählen."
+msgstr "<placeholder-1/> Um zu sehen, welche Sperren Sie oder andere Personen besitzen, können Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Prüfe auf Änderungen...</guimenuitem> </menuchoice> aufrufen. Lokale Sperren werden sofort angezeigt. Damit Sie sehen können, welche Sperren von anderen gehalten werden und um festzustellen, ob Ihre Sperren aufgebrochen oder gestohlen wurden, müssen Sie <guibutton>Projektarchiv prüfen</guibutton> wählen."
 
 #: source/en/tsvn_dug/dug_locking.xml:168
 #: (para)
@@ -5679,7 +5679,7 @@ msgstr "Die <emphasis>Anleitung zum täglichen Gebrauch</emphasis> ist das wicht
 #: source/en/tsvn_preface.xml:96
 #: (para)
 msgid "<emphasis>SubWCRev</emphasis> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
-msgstr ""
+msgstr "<emphasis>SubWCRev</emphasis> ist ein separates Programm des TortoiseSVN Pakets, das Informationen aus einer Arbeitskopie extrahieren und in eine Datei schreiben kann. Dieses Programm ist nützlich, um Informationen beim Erzeugen in Ihr Projekt einzubinden."
 
 #: source/en/tsvn_preface.xml:101
 #: (para)
@@ -6802,7 +6802,7 @@ msgstr "Normalerweise bringen Sie Ihre Arbeitskopie mit <menuchoice> <guimenu>To
 #: source/en/tsvn_app_howto.xml:115
 #: (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice>. and click on <guibutton>Check repository</guibutton> to see what has changed in the repository. Select the files you want to update locally, then use the context menu to update just those files."
-msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auf Änderungen prüfen</guimenuitem> </menuchoice> und Klicken Sie auf <guibutton>Projektarchiv prüfen</guibutton>, um zu sehen, was sich dort geändert hat. Markieren Sie die Dateien, die Sie aktualisieren wollen und Aktualisieren Sie diese aus dem Kontextmenü des Dialogs."
+msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Prüfe auf Änderungen</guimenuitem> </menuchoice> und Klicken Sie auf <guibutton>Projektarchiv prüfen</guibutton>, um zu sehen, was sich dort geändert hat. Markieren Sie die Dateien, die Sie aktualisieren wollen und Aktualisieren Sie diese aus dem Kontextmenü des Dialogs."
 
 #: source/en/tsvn_app_howto.xml:127
 #: (title)
