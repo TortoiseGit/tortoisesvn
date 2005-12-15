@@ -56,7 +56,8 @@ echo 0.25.4> %startdir%\ext\neon\.version
 
 :: Seems zlib can't be compiled with assembler on VS80, so patch the Subversion generator
 :: to not use the assembler
-copy %startdir%\gen_win.py %startdir%\ext\subversion\build\generator\gen_win.py /Y
+copy %startdir%\ext\build\inffas32.asm %startdir%\..\common\zlib\contrib\masmx86\inffas32.asm /Y
+copy %startdir%\ext\build\inffas32.asm %startdir%\..\common\zlib\inffas32.asm /Y
 
 call python gen-make.py -t vcproj --with-openssl=..\..\..\Common\openssl --with-zlib=..\..\..\Common\zlib --with-neon=..\neon --with-apr=..\apr --with-apr-util=..\apr-util --with-apr-iconv=..\apr-iconv --enable-nls --with-berkeley-db=..\berkeley-db\db4.3-win32 --enable-bdb-in-apr-util --vsnet-version=2003
 
