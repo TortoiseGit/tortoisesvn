@@ -1120,7 +1120,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						int ret = CMessageBox::Show(EXPLORERHWND, strMessage, _T("TortoiseSVN"), MB_YESNOCANCEL | MB_ICONQUESTION);
 						if (ret == IDYES)
 						{
-							if (!::CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, TRUE))
+							if (!::CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
 							{
 								//the copy operation failed! Get out of here!
 								LPVOID lpMsgBuf;
@@ -1135,7 +1135,7 @@ BOOL CTortoiseProcApp::InitInstance()
 									NULL 
 									);
 								CString strMessage;
-								strMessage.Format(IDS_ERR_COPYFILES, lpMsgBuf);
+								strMessage.Format(IDS_ERR_COPYFILES, (LPTSTR)lpMsgBuf);
 								CMessageBox::Show(EXPLORERHWND, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 								LocalFree( lpMsgBuf );
 								return FALSE;
