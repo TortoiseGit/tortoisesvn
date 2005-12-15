@@ -93,6 +93,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			{
 				CString val;
 				val = sPropVal;
+				val = val.Trim(_T(" \n\r\t"));
 				if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
 					bNumber = FALSE;
 				else
@@ -137,6 +138,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			{
 				CString val;
 				val = sPropVal;
+				val = val.Trim(_T(" \n\r\t"));
 				if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
 					bWarnIfNoIssue = TRUE;
 				else
@@ -147,6 +149,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			{
 				CString val;
 				val = sPropVal;
+				val = val.Trim(_T(" \n\r\t"));
 				if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
 					bAppend = TRUE;
 				else
@@ -194,6 +197,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			{
 				CString val;
 				val = sPropVal;
+				val = val.Trim(_T(" \n\r\t"));
 				if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
 					bFileListInEnglish = TRUE;
 				else
