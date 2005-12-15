@@ -195,8 +195,10 @@ void CDirectoryWatcher::WorkerThread()
 					return;
 				AutoLocker lock(m_critSec);
 				ClearInfoMap();
-				if (m_hCompPort != INVALID_HANDLE_VALUE)
+				if ((m_hCompPort != INVALID_HANDLE_VALUE)&&(GetLastError()!=ERROR_SUCCESS))
+				{
 					CloseHandle(m_hCompPort);
+				}
 				// Since we pass m_hCompPort to CreateIoCompletionPort, we
 				// have to set this to NULL to have that API create a new
 				// handle.
@@ -363,6 +365,8 @@ void CDirectoryWatcher::ClearInfoMap()
 CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 {
 	CTSVNPath path;
+	if (watchInfoMap.size() == 0)
+		return path;
 	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 	{
 		CDirectoryWatcher::CDirWatchInfo * info = I->second;
