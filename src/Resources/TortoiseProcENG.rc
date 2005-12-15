@@ -753,11 +753,11 @@ BEGIN
     COMBOBOX        IDC_AUTOCLOSECOMBO,71,95,213,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Commit",IDC_COMMITGROUP,7,118,286,48
     CONTROL         "&Use autocompletion of filepaths and keywords",IDC_AUTOCOMPLETION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,127,271,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,128,271,10
     LTEXT           "&Timeout in seconds to stop the autocompletion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,140,231,8,SS_NOTIFY
     EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,138,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
     CONTROL         "Only use s&pellchecker when tsvn:projectlanguage is set",IDC_SPELL,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,153,271,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,153,271,10
     GROUPBOX        "Check for modifications",IDC_STATIC,7,166,286,21
     CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,175,271,10
