@@ -4,7 +4,8 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
-# Goran Kavrecic <goran.kavrecic@indea.si>, 2005.
+# Goran Kavrecic <goran.kavrecic@indea.si>, 2005
+# Martin Srebotnjak <miles@filmsi.net>, 2005
 #
 # Working Copy, WC      Delovna Kopija, DK
 # Base                  Osnova
@@ -12,8 +13,8 @@
 # Checkout              *Preuzimanje
 # Revision              Revizija
 # Diff                  Razlika
-# Unified Diff          Združena razlika
-# Merge                 Združevanje
+# Unified Diff          Zdruena razlika
+# Merge                 Zdruevanje
 # Branch                Veja
 # Tag                   Oznaka
 # Issue                 *Sporno pitanje
@@ -21,18 +22,21 @@
 # Blame                 Krivda
 # Revert                *Povrnitev
 # Whitespaces           Razmaki
-# Repository            Skladišče
+# Repository            Skladie
 # Main Trunk            Glavno deblo
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-07-12 10:44+0100\n"
-"Last-Translator: Goran Kavrecic <goran.kavrecic@indea.si>\n"
+"PO-Revision-Date: 2005-12-15 18:46+0100\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Slovenian\n"
+"X-Poedit-Country: SLOVENIA\n"
+"X-Poedit-SourceCharset: ISO-8859-1\n"
 
 #: ID:10,#:
 #: ID:126,#:
@@ -49,49 +53,49 @@ msgstr "! %d"
 #: ID:3868,
 #, c-format
 msgid "%1 contained an unexpected object."
-msgstr "%1 vsebuje nepriÄŤakovan objekt"
+msgstr "%1 vsebuje nepričakovan predmet."
 
 #: ID:3868,#:
 #: ID:3868,
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 vsebije napaÄŤno shemo"
+msgstr "%1 vsebuje nepravilno shemo."
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "%1 contains an invalid path."
-msgstr "%1 vsebuje napaÄŤno pot"
+msgstr "%1 vsebuje neveljavno pot."
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "%1 could not be created because the directory is full."
-msgstr "%1 ni mogoÄŤe ustvariti, ker je direktorij poln"
+msgstr "%1 ni mogoče ustvariti, ker je mapa polna."
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "%1 could not be opened because there are too many open files."
-msgstr "%1 ni mogoÄŤe odpreti, ker je preve odprtih datotek"
+msgstr "%1 ni mogoče odpreti, ker je preveč odprtih datotek."
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 ni mogoÄŤe izbrisati, ker je trenutni direktorij"
+msgstr "%1 ni mogoče izbrisati, ker je trenutna mapa."
 
 #: ID:3868,#:
 #: ID:3868,
 #, c-format
 msgid "%1 has a bad format."
-msgstr "%1 ima slab format"
+msgstr "%1 je v nepravilnem zapisu."
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "%1 was not found."
-msgstr "%1 ni najdeno."
+msgstr "%1 ni mogoče najti."
 
 #: ID:3860,#:
 #: ID:3860,
@@ -101,7 +105,7 @@ msgid ""
 "Continue running script?"
 msgstr ""
 "%1: %2\n"
-"Nadaljujem s skripto?"
+"Želite nadaljevati s skripto?"
 
 #: ID:3859,#:
 #: ID:3859,
@@ -111,16 +115,19 @@ msgid ""
 "Cannot find this file.\n"
 "Please verify that the correct path and file name are given."
 msgstr ""
+"%1\n"
+"Te datoteke ni mogoče najti.\n"
+"Preverite, da sta podana pravilna pot in ime."
 
 #: ID:169,
 #, c-format
 msgid "%d files selected, %d files total"
-msgstr "Izbranih datotek: %d, Skupaj datotek: %d"
+msgstr "%d izbranih datotek, skupaj %d datotek"
 
 #: ID:226,
 #, c-format
 msgid "%s - at revision: %d"
-msgstr "%s - razliÄŤica: %d"
+msgstr "%s - različica: %d"
 
 #: ID:151,
 #, c-format
@@ -130,12 +137,12 @@ msgstr "%s : oddaljena datoteka"
 #: ID:151,
 #, c-format
 msgid "%s : Working Base"
-msgstr "%s : Delovna osnova"
+msgstr "%s : delovna osnova"
 
 #: ID:151,
 #, c-format
 msgid "%s : Working Copy"
-msgstr "%s : Delovna kopija"
+msgstr "%s : delovna kopija"
 
 #: ID:145,
 #: ID:69,
@@ -146,8 +153,8 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr ""
 "%s\n"
-"je direktorij, ne datoteka!\n"
-"TortoiseMerge ne razlikuje direktorijev."
+"je mapa, ne datoteka!\n"
+"TortoiseMerge ne razlikuje map."
 
 #: MenuEntry
 msgid "&?"
@@ -155,28 +162,28 @@ msgstr "&?"
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
-msgstr "O TortoiseMerge..."
+msgstr "O TortoiseMerge ..."
 
 #: Control-ID:1098,
 msgid "&Add..."
-msgstr "Dod&aj..."
+msgstr "Dod&aj ..."
 
 #: Control-ID:1090,#:
 #: Control-ID:1093,
 msgid "&Advanced..."
-msgstr "N&apredno..."
+msgstr "N&apredno ..."
 
 #: Control-ID:1013,
 #: ID:138,
 #: Control-ID:1011,
 msgid "&Browse..."
-msgstr "Preglej..."
+msgstr "&Prebrskaj ..."
 
 #: Control-ID:1091,#:
 #: Control-ID:1094,#:
 #: Control-ID:1096,
 msgid "&Builtin"
-msgstr "Vgrajeno"
+msgstr "&Vgrajeno"
 
 #: Control-ID:1051,
 msgid "&CD-ROM"
@@ -185,261 +192,261 @@ msgstr "&CD-ROM"
 #: Control-ID:2,#:
 #: Control-ID:2,
 msgid "&Cancel"
-msgstr "PrekliÄŤi"
+msgstr "&Prekliči"
 
 #: Control-ID:1215,
 msgid "&Check Now"
-msgstr "Preveri zdaj"
+msgstr "&Preveri zdaj"
 
 #: MenuEntry
 msgid "&Compare Revisions"
-msgstr "Primerjaj razliÄŤi&ci"
+msgstr "&Primerjaj različici"
 
 #: MenuEntry
 msgid "&Copy"
-msgstr "Kopiraj"
+msgstr "&Kopiraj"
 
 #: ID:101,
 msgid "&Copy To..."
-msgstr "Kopiraj v..."
+msgstr "&Kopiraj v ..."
 
 #: ID:101,
 #: Control-ID:1179,
 msgid "&Dry Run"
-msgstr "Izvedi poskusno"
+msgstr "&Izvedi poskusno"
 
 #: Control-ID:1031,#:
 #: MenuEntry
 msgid "&Edit"
-msgstr "Ur&edi"
+msgstr "&Uredi"
 
 #: Control-ID:1099,
 msgid "&Edit..."
-msgstr "Ur&edi..."
+msgstr "&Uredi ..."
 
 #: Control-ID:1023,
 #: MenuEntry
 msgid "&Exit"
-msgstr "Izhod"
+msgstr "I&zhod"
 
 #: Control-ID:1092,#:
 #: Control-ID:1095,#:
 #: Control-ID:1097,
 msgid "&External"
-msgstr "Zunanj&e"
+msgstr "&Zunanje"
 
 #: MenuEntry#:
 #: MenuEntry
 msgid "&File"
-msgstr "Datoteka"
+msgstr "&Datoteka"
 
 #: MenuEntry
 #: Control-ID:1050,
 msgid "&Fixed drives"
-msgstr "&Fiksne enote"
+msgstr "&Fiskni pogoni"
 
 #: Control-ID:65535,
 msgid "&From Revision"
-msgstr "Iz razliÄŤice"
+msgstr "&Iz različice"
 
 #: Control-ID:65535,
 msgid "&From URL:"
-msgstr "Iz URL:"
+msgstr "&Iz URL:"
 
 #: Control-ID:65535,
 msgid "&From WC at URL:"
-msgstr "Iz delovne kopije na URL:"
+msgstr "&Iz delovne kopije na URL:"
 
 #: Control-ID:1032,#:
 #: Control-ID:1115,#:
 #: Control-ID:1019,#:
 #: Control-ID:1019,
 msgid "&HEAD Revision"
-msgstr "&HEAD RazliÄŤica"
+msgstr "Revizija &HEAD"
 
 #: MenuEntry#:
 #: Control-ID:57670,#:
 #: MenuEntry
 msgid "&Help"
-msgstr "Pomo"
+msgstr "&Pomoč"
 
 #: MenuEntry
 msgid "&Help Topics"
-msgstr "PodroÄŤja pomoÄŤi"
+msgstr "&Teme pomoči"
 
 #: ID:3842,#:
 #: ID:3842,
 msgid "&Hide"
-msgstr "Skrij"
+msgstr "&Skrij"
 
 #: Control-ID:65535,
 msgid "&Language:"
-msgstr "Jezik:"
+msgstr "&Jezik:"
 
 #: MenuEntry
 msgid "&Mark as resolved"
-msgstr "OznaÄŤi kot razÄŤiĹˇÄŤeno"
+msgstr "&Označi kot razčiščeno"
 
 #: Control-ID:1,#:
 #: MenuEntry
 msgid "&Merge"
-msgstr "ZdruĹľi"
+msgstr "&Spoji"
 
 #: Control-ID:1012,
 msgid "&Merging"
-msgstr "ZdruĹľevanje"
+msgstr "&Spajanje"
 
 #: Control-ID:1049,
 msgid "&Network drives"
-msgstr "OmreĹľni diski"
+msgstr "&Omrežni diski"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&New "
-msgstr "Novo"
+msgstr "&Novo"
 
 #: Control-ID:1208,
 msgid "&Next 100"
-msgstr "Naslednjih 100"
+msgstr "&Naslednjih 100"
 
 #: MenuEntry
 msgid "&Next Difference"
-msgstr "Naslednja razlika"
+msgstr "&Naslednja razlika"
 
 #: Control-ID:1,#:
 #: Control-ID:1,
 msgid "&OK"
-msgstr "V redu"
+msgstr "V &redu"
 
 #: ID:101,#:
 #: ID:113,
 msgid "&Open"
-msgstr "Odpri"
+msgstr "&Odpri"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
-msgstr "Odpri Ctrl-O"
+msgstr "&Odpri Ctrl-O"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&Password:"
-msgstr "Geslo:"
+msgstr "&Geslo:"
 
 #: ID:376,
 msgid "&Paste"
-msgstr "Prilepi"
+msgstr "&Prilepi"
 
 #: Control-ID:65535,
 msgid "&Port:"
-msgstr "Port:"
+msgstr "&Vrata:"
 
 #: MenuEntry
 msgid "&Previous Difference"
-msgstr "PrejĹˇna razlika"
+msgstr "&Prejšnja razlika"
 
 #: ID:376,
 msgid "&Redo"
-msgstr "Ponovi"
+msgstr "&Ponovi"
 
 #: Control-ID:1013,#:
 #: Control-ID:1100,
 msgid "&Remove"
-msgstr "Odstrani"
+msgstr "&Odstrani"
 
 #: ID:101,
 msgid "&Rename"
-msgstr "Preimenij"
+msgstr "&Preimenuj"
 
 #: ID:113,
 msgid "&Revert changes from this revision"
-msgstr "Povrni spremembe te revizije"
+msgstr "&Povrni spremembe te revizije"
 
 #: Control-ID:1033,#:
 #: Control-ID:1116,#:
 #: Control-ID:1033,
 msgid "&Revision"
-msgstr "Revizija"
+msgstr "&Revizija"
 
 #: Control-ID:65535,
 msgid "&SSH client:"
-msgstr "SSH odjemalec:"
+msgstr "Odjemalec &SSH:"
 
 #: MenuEntry
 msgid "&Save Ctrl-S"
-msgstr "Shrani Ctrl-S"
+msgstr "&Shrani Ctrl-S"
 
 #: MenuEntry
 msgid "&Save Graph As..."
-msgstr "Shrani graf kot..."
+msgstr "&Shrani graf kot ..."
 
 #: Control-ID:1023,
 msgid "&Save authentication"
-msgstr "Shrani avtentikacijo"
+msgstr "&Shrani avtentikacijo"
 
 #: Control-ID:1012,
 msgid "&Set"
-msgstr "Nastavi"
+msgstr "&Nastavi"
 
 #: MenuEntry
 msgid "&Status Bar"
-msgstr "Statusna vrstica"
+msgstr "Vrstica &stanja"
 
 #: Control-ID:65535,
 msgid "&To Revision"
-msgstr "V revizijo"
+msgstr "&V revizijo"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&To URL:"
-msgstr "Na URL:"
+msgstr "&Na URL:"
 
 #: Control-ID:65535,
 msgid "&To URL: "
-msgstr "Na URL:"
+msgstr "&Na URL:"
 
 #: MenuEntry
 msgid "&Toolbar"
-msgstr "Opravilna vrstica"
+msgstr "&Orodna vrstica"
 
 #: Control-ID:65535,#:
 #: Control-ID:1058,
 msgid "&URL of repository:"
-msgstr "URL skladiĹˇÄŤa:"
+msgstr "&URL skladišča:"
 
 #: ID:376,
 msgid "&Undo"
-msgstr "Povrni"
+msgstr "&Povrni"
 
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
-msgstr "Povrni\tCtrl-Z"
+msgstr "&Povrni\tCtrl-Z"
 
 #: MenuEntry
 msgid "&Unified Diff"
-msgstr "ZdruĹľene razlike"
+msgstr "&Poenotene razlike"
 
 #: Control-ID:1061,
 msgid "&Unknown drives"
-msgstr "Nepoznani diski"
+msgstr "&Neznani diski"
 
 #: ID:76,
 msgid "&Update Item To Revision"
-msgstr "Posodobi element na revizijo"
+msgstr "&Posodobi element na revizijo"
 
 #: Control-ID:65535,#:
 #: Control-ID:1005,#:
 #: Control-ID:65535,
 msgid "&Username:"
-msgstr "Uporabnik:"
+msgstr "&Uporabniško ime:"
 
 #: MenuEntry#:
 #: MenuEntry
 msgid "&View"
-msgstr "Pogled"
+msgstr "&Pogled"
 
 #: MenuEntry
 msgid "&Whitespaces"
-msgstr "Presledki"
+msgstr "Pre&sledki"
 
 #: ID:219,
 msgid "(dry run)"
@@ -447,7 +454,7 @@ msgstr "(poskusni tek)"
 
 #: ID:208,
 msgid "(multiple targets selected)"
-msgstr "(veÄŤ izbranih ciljev)"
+msgstr "(več izbranih ciljev)"
 
 #: ID:314,
 msgid "(not found)"
@@ -507,22 +514,27 @@ msgid ""
 "to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
 "And <u>read the manual!</u>"
 msgstr ""
+"<b>TortoiseSVN</b> je razširitev za lupino.\n"
+"To pomeni, da se vključi v aplikacijo Windows explorer.\n"
+"Za uporabo <b>TortoiseSVN</b>, prosimo, odprite Raziskovalca in desno-kliknite na katero koli mapo,\n"
+"s čimer se odpre kontekstni meni, kjer najdete vse ukaze <b>TortoiseSVN</b>.\n"
+"In <u>preberite priročnik!</u>"
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "A hardware I/O error was reported while accessing %1."
-msgstr ""
+msgstr "Pri dostopu do %1 je prišlo do strojne V/I napake."
 
 #: ID:3867,#:
 #: ID:3867,
 #, c-format
 msgid "A locking violation occurred while accessing %1."
-msgstr "PriĹˇlo je do krĹˇitve zaklepanja pri dostopanju do %1."
+msgstr "Prišlo je do kršitve zaklepanja pri dostopanju do %1."
 
 #: ID:201,
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Na voljo je novejĹˇa razliÄŤica. Pojdite na http://tortoisesvn.tigris.org in naloĹľite trenutno razliÄŤico!"
+msgstr "Na voljo je novejša različica. Pojdite na http://tortoisesvn.tigris.org in naložite trenutno različico!"
 
 #: ID:195,
 msgid ""
@@ -546,7 +558,7 @@ msgstr "Potrebno sredstvo ni bilo na voljo."
 #: ID:3867,
 #, c-format
 msgid "A sharing violation occurred while accessing %1."
-msgstr "PriĹˇlo je do krĹˇitve souporabe pri dostopanju do %1."
+msgstr "Prišlo je do kršitve souporabe pri dostopanju do %1."
 
 #: ID:79,
 msgid ""
@@ -556,7 +568,7 @@ msgstr ""
 
 #: ID:101,
 msgid "A&dd Folder..."
-msgstr "Dodaj mapo..."
+msgstr "&Dodaj mapo ..."
 
 #: ID:73,
 msgid "Abort"
@@ -572,7 +584,7 @@ msgstr "O TortoiseMerge"
 
 #: Dlg-ID:129,
 msgid "About TortoiseSVN"
-msgstr "OTortoiseSVN"
+msgstr "O TortoiseSVN"
 
 #: ID:82,
 msgid "Accept Once"
@@ -590,11 +602,11 @@ msgstr "Dostop do %1 je bil zavrnjen."
 
 #: ID:77,
 msgid "Action"
-msgstr "Akcija"
+msgstr "Dejanje"
 
 #: ID:3826,
 msgid "Activate Task List"
-msgstr "VkljuÄŤi spisek nalog"
+msgstr "Vključi seznam nalog"
 
 #: ID:209,#:
 #: Dlg-ID:155,
@@ -603,44 +615,44 @@ msgstr "Dodaj"
 
 #: ID:101,
 msgid "Add &File..."
-msgstr "Dodaj datoteko..."
+msgstr "Dodaj &datoteko ..."
 
 #: ID:110,
 msgid "Add Extension Specific Diff Program"
-msgstr ""
+msgstr "Dodaj program za razlikovanje glede za končnico"
 
 #: ID:110,
 msgid "Add Extension Specific Merge Program"
-msgstr ""
+msgstr "Dodaj program za spajanje glede za končnico"
 
 #: ID:13,
 msgid "Add To Ignore List"
-msgstr "Dodaj na spisek ignoriranih"
+msgstr "Dodaj na seznam prezrtih"
 
 #: ID:8,
 msgid "Add..."
-msgstr "Dodaj..."
+msgstr "Dodaj ..."
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr ""
+msgstr "Uredi/dodaj program za razlikovanje/spajanje za končnico"
 
 #: ID:73,#:
 #: Control-ID:65535,
 msgid "Added"
-msgstr "Dodan"
+msgstr "Dodano"
 
 #: ID:126,
 msgid "Added a file remotely"
-msgstr ""
+msgstr "Datoteka dodana oddaljeno"
 
 #: ID:126,
 msgid "Added a folder remotely"
-msgstr ""
+msgstr "Mapa dodana oddaljeno"
 
 #: ID:126,
 msgid "Added items remotely"
-msgstr ""
+msgstr "Elementi dodani oddaljeno"
 
 #: ID:145,
 #, c-format
@@ -649,14 +661,17 @@ msgid ""
 "%s\n"
 "to the ignore list."
 msgstr ""
+"Datoteka(e)\n"
+"%s\n"
+"dodane na seznam prezrtih."
 
 #: ID:263,
 msgid "Adding"
-msgstr "Dodajam"
+msgstr "Dodajanje"
 
 #: ID:9,
 msgid "Adds file(s) to Subversion control"
-msgstr ""
+msgstr "Doda datoteke v nadzor podrazličice"
 
 #: ID:13,
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
@@ -667,18 +682,20 @@ msgid ""
 "Adjust the settings\n"
 "Settings"
 msgstr ""
+"Prilagajanje nastavitev\n"
+"Nastavitve"
 
 #: ID:110,
 msgid "Advanced Diff Settings"
-msgstr ""
+msgstr "Napredne nastavitve razlikovanja"
 
 #: Dlg-ID:170,
 msgid "Advanced Diff/Merge Settings"
-msgstr ""
+msgstr "Napredne nastavitve razlikovanja/spajanja"
 
 #: ID:110,
 msgid "Advanced Merge Settings"
-msgstr ""
+msgstr "Napredne nastavitve spajanja"
 
 #: Control-ID:65535,
 msgid "All"
@@ -788,7 +805,7 @@ msgstr ""
 
 #: ID:269,
 msgid "Analyze revision data..."
-msgstr ""
+msgstr "Analiziraj podatke revizije ..."
 
 #: ID:14,
 msgid "Applies a unified diff file to the working copy"
@@ -802,11 +819,11 @@ msgstr ""
 
 #: ID:13,
 msgid "Apply Patch..."
-msgstr ""
+msgstr "Uporabi popravek ..."
 
 #: Control-ID:65535,
 msgid "Apply Unified Diff"
-msgstr ""
+msgstr "Uporabi poenoteno razliko"
 
 #: ID:145,
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -840,19 +857,19 @@ msgstr "Avtorji"
 
 #: Control-ID:65535,
 msgid "Authors:"
-msgstr "Avorji:"
+msgstr "Avtorji:"
 
 #: ID:222,
 msgid "Auto-close if no conflicts"
-msgstr "Samodejno zapri, ÄŤe ni konfliktov"
+msgstr "Samodejno zapri, če ni konfliktov"
 
 #: ID:222,
 msgid "Auto-close if no errors"
-msgstr "Samodejno zapri, ÄŤe ni napak"
+msgstr "Samodejno zapri, če ni napak"
 
 #: ID:222,
 msgid "Auto-close if no merges, adds or deletes"
-msgstr "Samodejno zapri, ÄŤe ni zdruĹľitev, dodajanj ali brisanj"
+msgstr "Samodejno zapri, če ni združitev, dodajanj ali brisanj"
 
 #: Control-ID:65535,
 msgid "Autoclose:"
@@ -870,11 +887,11 @@ msgstr ""
 
 #: Control-ID:1157,
 msgid "Average"
-msgstr "PopreÄŤje"
+msgstr "Povprečje"
 
 #: Control-ID:1001,
 msgid "B&rowse..."
-msgstr "PreiĹˇÄŤi..."
+msgstr "Preb&rskaj ..."
 
 #: Control-ID:1015,
 msgid "Backup original file"
@@ -886,7 +903,7 @@ msgstr "Osnovna datoteka:"
 
 #: Control-ID:1128,
 msgid "Berkeley Database (BDB)"
-msgstr "Berkeley baza (BDB)"
+msgstr "Zbirka podatkov Berkeley (BDB)"
 
 #: Dlg-ID:162,
 msgid "Blame"
@@ -894,7 +911,7 @@ msgstr "Krivda"
 
 #: ID:13,
 msgid "Blame..."
-msgstr "Krivda..."
+msgstr "Krivda ..."
 
 #: ID:13,
 msgid "Blames each line of a file on an author"
@@ -902,7 +919,7 @@ msgstr ""
 
 #: Control-ID:1003,
 msgid "Br&owse..."
-msgstr "PreiĹˇÄŤi..."
+msgstr "Prebrs&kaj ..."
 
 #: ID:115,
 msgid "Branch / Tag created successfully!"
@@ -918,11 +935,11 @@ msgstr ""
 
 #: Control-ID:1009,
 msgid "Bro&wse..."
-msgstr "PreiĹˇÄŤi..."
+msgstr "Pre&brskaj ..."
 
 #: Control-ID:1007,
 msgid "Brows&e..."
-msgstr "PreiĹˇÄŤi..."
+msgstr "Pr&ebrskaj ..."
 
 #: ID:78,
 msgid "Browse for the external diff program"
@@ -930,7 +947,7 @@ msgstr ""
 
 #: Control-ID:1069,
 msgid "Browse..."
-msgstr "PreiĹˇÄŤi..."
+msgstr "Prebrskaj ..."
 
 #: Control-ID:1119,#:
 #: Control-ID:1119,
@@ -939,7 +956,7 @@ msgstr ""
 
 #: ID:101,
 msgid "C&reate Folder..."
-msgstr "Ustvari mapo..."
+msgstr "Ustva&ri mapo ..."
 
 #: ID:77,
 msgid "C&reate Tag From Revision"
@@ -957,7 +974,7 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
-"Ne morem kopirati \n"
+"Ni mogoče kopirati \n"
 "%s\n"
 "v\n"
 "%s"
@@ -966,7 +983,7 @@ msgstr ""
 #: Control-ID:2,#:
 #: Control-ID:2,
 msgid "Cancel"
-msgstr "PrekliÄŤi"
+msgstr "Prekliči"
 
 #: ID:132,
 msgid "Cancelling SVN Blame..."
@@ -974,7 +991,7 @@ msgstr ""
 
 #: ID:270,
 msgid "Cancelling operation..."
-msgstr "Preklicujem operacijo..."
+msgstr "Preklic operacije ..."
 
 #: Control-ID:65535,
 msgid "Cascaded Context Menu"
@@ -982,25 +999,25 @@ msgstr ""
 
 #: ID:82,
 msgid "Certificate expired or not yet valid"
-msgstr ""
+msgstr "Certifikat je potekel ali pa še ni veljaven"
 
 #: ID:82,
 #, c-format
 msgid "Certificate expired. Valid until: %s"
-msgstr ""
+msgstr "Veljavnost certifikata je potekla. Veljaven do: %s"
 
 #: ID:82,
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr ""
+msgstr "Certifikat še ni veljaven. Veljaven od: %s"
 
 #: ID:157,
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
-msgstr ""
+msgstr "Certifikati|*.p12;*.pkcs12;*.pfx|Vse|*.*||"
 
 #: ID:3825,
 msgid "Change the window position"
-msgstr "Spremeni pozicijo okna"
+msgstr "Spremeni položaj okna"
 
 #: ID:3825,
 msgid "Change the window size"
@@ -1030,11 +1047,11 @@ msgstr "Preveri posodobitve"
 
 #: Control-ID:1031,
 msgid "Check For Updates..."
-msgstr "Preveri posodobitve..."
+msgstr "Preveri posodobitve ..."
 
 #: Control-ID:1132,
 msgid "Check Repository"
-msgstr "Preveri skladiĹˇÄŤe..."
+msgstr "Preveri skladišče"
 
 #: ID:13,
 msgid "Check for Modifications"
@@ -1049,6 +1066,8 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
+"Preverite datoteke, ki ji želite\n"
+"izbrisati pred uvozom."
 
 #: ID:251,
 msgid "Check the path and/or URL you've entered."
@@ -1084,11 +1103,11 @@ msgstr ""
 
 #: ID:8,
 msgid "Clean Up"
-msgstr "PoÄŤisti"
+msgstr "Počisti"
 
 #: ID:79,
 msgid "Cleanup has finished"
-msgstr "ÄŚiĹˇÄŤenje konÄŤano"
+msgstr "Čiščenje dokončano"
 
 #: ID:9,
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -1096,7 +1115,7 @@ msgstr ""
 
 #: Control-ID:1059,
 msgid "Clear &Now"
-msgstr ""
+msgstr "Počisti &zdaj"
 
 #: ID:195,
 msgid ""
@@ -1114,11 +1133,11 @@ msgstr ""
 
 #: ID:257,
 msgid "Clipboard"
-msgstr "OdloĹľiĹˇÄŤe"
+msgstr "Odložišče"
 
 #: ID:222,
 msgid "Close manually"
-msgstr "Zapri roÄŤno"
+msgstr "Zapri ročno"
 
 #: ID:3825,
 msgid "Close the active window and prompts to save the documents"
@@ -1126,7 +1145,7 @@ msgstr ""
 
 #: Control-ID:1068,
 msgid "Color code in-line changes"
-msgstr ""
+msgstr "Obarvaj spremembe v vrstici"
 
 #: Dlg-ID:138,
 msgid "Colors"
@@ -1167,19 +1186,19 @@ msgstr ""
 
 #: MenuEntry
 msgid "Compare &HEAD Revisions"
-msgstr ""
+msgstr "Primerjaj revizije &HEAD"
 
 #: Control-ID:1019,
 msgid "Compare Whitespaces"
-msgstr ""
+msgstr "Primerjaj presledke"
 
 #: ID:138,
 msgid "Compare With B&ase"
-msgstr ""
+msgstr "Primerjaj z &osnovo"
 
 #: ID:76,
 msgid "Compare with &working copy"
-msgstr ""
+msgstr "Primerjaj z &delovno kopijo"
 
 #: ID:12,
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -1187,7 +1206,7 @@ msgstr ""
 
 #: ID:74,
 msgid "Completed"
-msgstr "ZakljuÄŤeno"
+msgstr "Dokončano"
 
 #: Control-ID:65535,
 msgid "Configure the program used for comparing different revisions of files."
@@ -1209,11 +1228,11 @@ msgstr "V konfliktu"
 #: ID:188,
 #, c-format
 msgid "Conflicts: %d"
-msgstr "KOnfliktov: %d"
+msgstr "Konflikti: %d"
 
 #: Control-ID:1227,
 msgid "Contact the repository on startup"
-msgstr "PoveĹľi se s skladiĹˇÄŤem ob zagonu"
+msgstr "Poveži se s skladiščem ob zagonu"
 
 #: ID:73,
 msgid "Continue"
@@ -1221,19 +1240,19 @@ msgstr "Nadaljuj"
 
 #: Control-ID:1073,
 msgid "Convert files when diffing against BASE"
-msgstr ""
+msgstr "Pri razlikovanju glede na BASE pretvori datoteke"
 
 #: ID:376,
 msgid "Cop&y"
-msgstr "Kopiraj"
+msgstr "&Kopiraj"
 
 #: ID:73,
 msgid "Copied"
-msgstr "Skopirano"
+msgstr "Kopirano"
 
 #: ID:126,
 msgid "Copied remotely"
-msgstr ""
+msgstr "Oddaljeno kopirano"
 
 #: ID:103,
 #, c-format
@@ -1246,38 +1265,40 @@ msgstr ""
 
 #: ID:76,
 msgid "Copy From Path"
-msgstr ""
+msgstr "Kopiraj iz poti"
 
 #: ID:101,
 msgid "Copy To Working Copy..."
-msgstr ""
+msgstr "Kopiraj v delovno kopijo ..."
 
 #: ID:101,
 msgid "Copy URL to clipboard"
-msgstr ""
+msgstr "Kopiraj URL na odložišče"
 
 #: ID:3603,
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr ""
+"Kopiraj izbor in ga postavi na odložišče\n"
+"Kopiraj"
 
 #: ID:114,
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiraj na odložišče"
 
 #: ID:103,
 msgid "Copy to working copy"
-msgstr ""
+msgstr "Kopiraj v delovno kopijo"
 
 #: ID:80,
 #, c-format
 msgid "Copying %s"
-msgstr "Kopiram %s"
+msgstr "Kopiranje %s"
 
 #: ID:80,
 msgid "Copying..."
-msgstr "Kopiram..."
+msgstr "Kopiranje ..."
 
 #: ID:188,
 msgid "Corrections"
@@ -1286,11 +1307,11 @@ msgstr "Popravki"
 #: ID:81,
 #, c-format
 msgid "Could not add %s to the ignore list!"
-msgstr ""
+msgstr "%s ni mogoče dodati na seznam prezrtih!"
 
 #: ID:201,
 msgid "Could not check for a newer version!"
-msgstr "Ne morem preveriti za novejĹˇo verzijo!"
+msgstr "Ni mogoče preveriti za novejšo različico!"
 
 #: ID:81,
 #, c-format
@@ -1299,10 +1320,13 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
+"Datotek ni mogoče kopirati!\n"
+"<hr=100%>\n"
+"%s"
 
 #: ID:81,
 msgid "Could not get the status!"
-msgstr "Ne morem preveriti stanja"
+msgstr "Stanja ni mogoče preveriti!"
 
 #: ID:69,
 #, c-format
@@ -1310,8 +1334,9 @@ msgid ""
 "Could not open the file\n"
 "%s"
 msgstr ""
-"Ne morem odpreti datoteke\n"
-"%s"
+"Datoteke\n"
+"%s\n"
+"ni mogoče odpreti."
 
 #: ID:82,
 #, c-format
@@ -1335,7 +1360,7 @@ msgstr ""
 #: ID:64,
 #, c-format
 msgid "Could not save the file %s!"
-msgstr "Ne morem shraniti daoteke %s!"
+msgstr "Datoteke %s ni mogoče shraniti!"
 
 #: ID:81,
 #, c-format
@@ -1372,23 +1397,23 @@ msgstr ""
 
 #: ID:13,
 msgid "Create Patch..."
-msgstr ""
+msgstr "Ustvari popravek ..."
 
 #: Dlg-ID:178,
 msgid "Create Repository"
-msgstr "Ustvari skladiĹˇÄŤe"
+msgstr "Ustvari skladišče"
 
 #: ID:8,
 msgid "Create Repository here..."
-msgstr "Ustvari skladiĹˇÄŤe tukaj..."
+msgstr "Ustvari skladišče tukaj ..."
 
 #: Control-ID:65535,
 msgid "Create copy in the repository from:"
-msgstr ""
+msgstr "Ustvari kopijo v skladišču iz:"
 
 #: ID:126,
 msgid "Created folder remotely"
-msgstr ""
+msgstr "Oddaljeno ustvarjena mapa"
 
 #: ID:10,
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
@@ -1404,11 +1429,11 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Credits:"
-msgstr ""
+msgstr "Zasluge:"
 
 #: ID:376,
 msgid "Cu&t"
-msgstr "IzreĹľi"
+msgstr "&Izreži"
 
 #: ID:3603,
 msgid ""
@@ -1426,24 +1451,24 @@ msgstr ""
 
 #: ID:11,
 msgid "Delete"
-msgstr "PobriĹˇi"
+msgstr "Izbriši"
 
 #: ID:73,
 msgid "Deleted"
-msgstr "Pobrisano"
+msgstr "Zbrisano"
 
 #: ID:11,
 msgid "Deletes files / folders from source control"
-msgstr ""
+msgstr "Zbriše datoteke / mape iz nadzora izvorne kode"
 
 #: ID:263,
 msgid "Deleting"
-msgstr "BriĹˇem"
+msgstr "Brisanje"
 
 #: ID:3859,#:
 #: ID:3859,
 msgid "Destination disk drive is full."
-msgstr ""
+msgstr "Ciljni disk je poln."
 
 #: ID:12,
 msgid "Diff"
@@ -1451,15 +1476,15 @@ msgstr "Diff"
 
 #: Control-ID:65535,
 msgid "Diff File:"
-msgstr "Diff datoteka:"
+msgstr "Datoteka diff:"
 
 #: Control-ID:1022,
 msgid "Diffing"
-msgstr ""
+msgstr "Razlikovanje"
 
 #: Control-ID:65535,
 msgid "Directory:"
-msgstr "Direktorij:"
+msgstr "Mapa:"
 
 #: ID:195,
 msgid ""
@@ -1471,7 +1496,7 @@ msgstr ""
 #: ID:3867,
 #, c-format
 msgid "Disk full while accessing %1."
-msgstr "Disk poln med dostopanjem do %1"
+msgstr "Disk poln med dostopanjem do %1."
 
 #: ID:3860,#:
 #: ID:3860,
@@ -1505,7 +1530,7 @@ msgstr ""
 
 #: ID:80,
 msgid "Do not show this message again"
-msgstr "Ne pokaĹľi veÄŤ tega sporoÄŤila"
+msgstr "Tega sporočila ne pokaži več"
 
 #: ID:76,
 #, c-format
@@ -1517,7 +1542,7 @@ msgstr ""
 
 #: ID:76,
 msgid "Do you want to proceed?"
-msgstr ""
+msgstr "Želite nadaljevati?"
 
 #: ID:313,
 msgid ""
@@ -1533,7 +1558,7 @@ msgstr ""
 
 #: ID:313,
 msgid "Do you want to save your changes?"
-msgstr "Bi radi shranili spremembe?"
+msgstr "Želite shraniti spremembe?"
 
 #: Control-ID:65535,
 msgid "Documentation - Simon Large"
@@ -1541,15 +1566,15 @@ msgstr "Dokumentacija - Simon Large"
 
 #: ID:73,
 msgid "Don't show this message again"
-msgstr "Ne prikaĹľi veÄŤ tega sporoÄŤila"
+msgstr "Tega sporočila ne prikaži več"
 
 #: Control-ID:1079,
 msgid "Drive Types"
-msgstr "Tipi diskov"
+msgstr "Vrste diskov"
 
 #: MenuEntry
 msgid "E&xit"
-msgstr "Izhod"
+msgstr "I&zhod"
 
 #: ID:3697,
 msgid "EXT"
@@ -1573,7 +1598,7 @@ msgstr ""
 
 #: ID:113,
 msgid "Edit Log Message"
-msgstr "Popravi sporoÄŤilo dnevnika"
+msgstr "Popravi sporočilo dnevnika"
 
 #: ID:115,
 msgid "Edit author name"
@@ -1581,7 +1606,7 @@ msgstr "Popravi ime avtorja"
 
 #: ID:115,
 msgid "Edit log message"
-msgstr "Popravi sporoÄŤilo dnevnika"
+msgstr "Popravi sporočilo dnevnika"
 
 #: ID:79,
 msgid "Either the name or IP of the proxy server"
@@ -1593,16 +1618,16 @@ msgstr "Prazno"
 
 #: ID:3825,
 msgid "Enlarge the window to full size"
-msgstr "Raztegni okno do najveÄŤje velikosti"
+msgstr "Raztegni okno do največje velikosti"
 
 #: Dlg-ID:135,
 msgid "Enter Log Message"
-msgstr "Vnesi sproÄŤilo dnevnika"
+msgstr "Vnesi spročilo dnevnika"
 
 #: ID:126,#:
 #: Control-ID:1065,
 msgid "Enter Log Message:"
-msgstr "Vnesi sproÄŤilo dnevnika:"
+msgstr "Vnesi spročilo dnevnika:"
 
 #: ID:80,
 msgid "Enter URL"
@@ -1621,12 +1646,16 @@ msgid ""
 "Erase everything\n"
 "Erase All"
 msgstr ""
+"Pobriše vse\n"
+"Pobriši vse"
 
 #: ID:3603,
 msgid ""
 "Erase the selection\n"
 "Erase"
 msgstr ""
+"Pobriše izbor\n"
+"Pobriši"
 
 #: ID:82,
 msgid "Error"
@@ -1635,7 +1664,7 @@ msgstr "Napaka"
 #: ID:81,
 #, c-format
 msgid "Error validating server certificate for %s:"
-msgstr ""
+msgstr "Napaka pri potrjevanju veljavnosti strežniškega certifikata za %s:"
 
 #: Control-ID:65535,
 msgid "Exceptions:"
@@ -1643,31 +1672,31 @@ msgstr "Izjeme:"
 
 #: Control-ID:65535,
 msgid "Exclude paths:"
-msgstr "IzloÄŤi poti:"
+msgstr "Izloči poti:"
 
 #: Control-ID:65535,
 msgid "Exclude/Ignore pattern:"
-msgstr ""
+msgstr "Izloči/prezri vzorec:"
 
 #: ID:209,
 msgid "Explore to"
-msgstr ""
+msgstr "Raziskuj v"
 
 #: ID:94,
 msgid "Export Directory:"
-msgstr "Izvozi direktorij:"
+msgstr "Izvozi v direktorij:"
 
 #: ID:79,
 msgid "Export unversioned files too"
-msgstr ""
+msgstr "Izvozi tudi datoteke brez različic"
 
 #: ID:9,
 msgid "Export..."
-msgstr "Izvozi..."
+msgstr "Izvozi ..."
 
 #: ID:79,
 msgid "Exporting..."
-msgstr "IzvaĹľam..."
+msgstr "Izvoz ..."
 
 #: ID:10,
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
@@ -1676,15 +1705,15 @@ msgstr ""
 #: ID:74,#:
 #: ID:207,
 msgid "Extension"
-msgstr "PodaljĹˇek"
+msgstr "Končnica"
 
 #: Control-ID:65535,
 msgid "Extension specific programs"
-msgstr ""
+msgstr "Programi glede na končnico"
 
 #: Control-ID:65535,
 msgid "Extension:"
-msgstr "PodaljĹˇek:"
+msgstr "Končnica:"
 
 #: ID:74,
 msgid "External"
@@ -1713,35 +1742,35 @@ msgstr ""
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to create empty document."
-msgstr ""
+msgstr "Ni mogoče ustvariti praznega dokumenta."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to launch help."
-msgstr ""
+msgstr "Pomoči ni mogoče zagnati."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to open document."
-msgstr ""
+msgstr "Dokumenta ni mogoče odpreti."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to save document."
-msgstr ""
+msgstr "Dokumenta ni mogoče shraniti."
 
 #: Control-ID:1217,
 msgid "Fetch status for context menu"
-msgstr ""
+msgstr "Pridobi stanje za kontekstni meni"
 
 #: ID:313,
 msgid "Fetching File..."
-msgstr ""
+msgstr "Pridobivanje datoteke ..."
 
 #: ID:313,
 #, c-format
 msgid "Fetching revision %s of file:"
-msgstr ""
+msgstr "Pridobivanje revizije %s datoteke:"
 
 #: ID:63,#:
 #: ID:74,#:
@@ -1752,30 +1781,32 @@ msgstr "Datoteka"
 
 #: ID:376,
 msgid "File Diffs"
-msgstr ""
+msgstr "Razlike datoteke"
 
 #: ID:376,#:
 #: Dlg-ID:135,
 msgid "File Patches"
-msgstr ""
+msgstr "Popravki datoteke"
 
 #: Control-ID:1138,
 msgid "File changes each week:"
-msgstr ""
+msgstr "Razlike datoteke vsak teden:"
 
 #: ID:3603,
 msgid ""
 "Find the specified text\n"
 "Find"
 msgstr ""
+"Najdi navedeno besedilo\n"
+"Najdi"
 
 #: ID:77,
 msgid "Finished!"
-msgstr "KonÄŤano!"
+msgstr "Dokončano!"
 
 #: Control-ID:65535,
 msgid "Font for log messages:"
-msgstr "Pisava za sporoÄŤila dnevnika:"
+msgstr "Pisava za sporočila dnevnika:"
 
 #: Control-ID:65535,
 msgid "Font:"
@@ -1783,7 +1814,7 @@ msgstr "Pisava:"
 
 #: ID:3585,
 msgid "For Help, press F1"
-msgstr "Za pomoÄŤ, pritisnite F1"
+msgstr "Za pomoč pritisnite F1"
 
 #: Control-ID:1200,
 msgid "From:"
@@ -1795,7 +1826,7 @@ msgstr ""
 
 #: ID:273,
 msgid "GDI+ couldn't be initialized!"
-msgstr ""
+msgstr "GDI+ ni mogoče inicializirati!"
 
 #: ID:273,
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
@@ -1804,11 +1835,11 @@ msgstr ""
 #: Dlg-ID:143,#:
 #: Dlg-ID:107,
 msgid "General"
-msgstr "SploĹˇno"
+msgstr "Splošno"
 
 #: ID:144,
 msgid "Generating Patchfile..."
-msgstr ""
+msgstr "Tvorba datoteke popravka ..."
 
 #: ID:16,
 msgid "Get Lock..."
@@ -1817,7 +1848,7 @@ msgstr ""
 #: ID:119,
 #, c-format
 msgid "Getting File %s"
-msgstr ""
+msgstr "Pridobivanje datoteke %s"
 
 #: ID:132,
 msgid "Getting file info..."
@@ -1836,54 +1867,62 @@ msgid ""
 "Go to the next conflict\n"
 "next conflict"
 msgstr ""
+"Pojdi na naslednji konflikt\n"
+"naslednji konflikt"
 
 #: ID:2049,
 msgid ""
 "Go to the next difference\n"
 "next difference"
 msgstr ""
+"Pojdni na naslednjo razliko\n"
+"naslednja razlika"
 
 #: ID:2051,
 msgid ""
 "Go to the previous conflict\n"
 "previous conflict"
 msgstr ""
+"Pojdi na prejšnji konflikt\n"
+"prejšnji konflikt"
 
 #: ID:2049,
 msgid ""
 "Go to the previous difference\n"
 "previous difference"
 msgstr ""
+"Pojdi na prejšnjo razliko\n"
+"prejšnja razlika"
 
 #: Control-ID:1134,
 msgid "Graph type:"
-msgstr "Tip grafa:"
+msgstr "Vrsta grafa:"
 
 #: Control-ID:1032,
 msgid "H&EAD Revision"
-msgstr "H&EAD Revizija"
+msgstr "Revizija H&EAD"
 
 #: Control-ID:1182,
 msgid "HEAD revision in the repository"
-msgstr "HEAD revizija v skladiĹˇÄŤu"
+msgstr "Revizija HEAD v skladišču"
 
 #: ID:12,#:
 #: Control-ID:1004,
 msgid "Help"
-msgstr "PomoÄŤ"
+msgstr "Pomoč"
 
 #: Control-ID:1229,
 msgid "Hide unrelated changed paths"
-msgstr ""
+msgstr "Skrij nepovezane spremenjene poti"
 
 #: Control-ID:1127,
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr ""
+msgstr "Nasvet: pritisnite F5 za osvežitev izbranega poddrevesa in Ctrl-F5 za nalaganje vseh otrok"
 
 #: ID:82,
 #, c-format
 msgid "Hostname mismatch (%s)"
-msgstr "Napaka v imenu streĹľnika (%s)"
+msgstr "Napaka v imenu strežnika (%s)"
 
 #: Control-ID:65535,
 msgid "Icon Overlays / Status Columns"
@@ -1891,11 +1930,11 @@ msgstr ""
 
 #: Control-ID:1170,
 msgid "Icon Set:"
-msgstr "MnoĹľica ikon:"
+msgstr "Nabor ikon:"
 
 #: Control-ID:65535,
 msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr "Ikone/Oblikovanje/Koda:     Luebbe Onken"
+msgstr "Ikone/oblikovanje/koda:     Luebbe Onken"
 
 #: ID:194,
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
@@ -1944,28 +1983,28 @@ msgstr ""
 
 #: ID:73,
 msgid "Ignore"
-msgstr "Ignoriraj"
+msgstr "Prezri"
 
 #: ID:15,
 #, c-format
 msgid "Ignore %d items"
-msgstr "Ignoriraj %d elementov"
+msgstr "Prezri %d elementov"
 
 #: Control-ID:1021,
 msgid "Ignore All Whitespaces"
-msgstr "Ignoriraj vse presledke"
+msgstr "Prezri vse presledke"
 
 #: Control-ID:1020,
 msgid "Ignore Leading Whitespaces"
-msgstr "Ignoriraj vodilne presledke"
+msgstr "Prezri vodilne presledke"
 
 #: Control-ID:1018,
 msgid "Ignore Lineendings (recommended)"
-msgstr "Ignoriraj konce vrstic (priporoÄŤeno)"
+msgstr "Prezri konce vrstic (priporočeno)"
 
 #: Control-ID:1067,
 msgid "Ignore case changes"
-msgstr "Ignoriraj velikost ÄŤrk"
+msgstr "Ne razlikuj velikih/malih črk"
 
 #: Dlg-ID:139,
 msgid "Import"
@@ -1973,23 +2012,23 @@ msgstr "Uvoz"
 
 #: Control-ID:1056,
 msgid "Import &Message"
-msgstr "SporoÄŤilo ob uvozu"
+msgstr "Sporočilo ob &uvozu"
 
 #: ID:9,
 msgid "Import..."
-msgstr "Uvozi..."
+msgstr "Uvozi ..."
 
 #: ID:10,
 msgid "Imports the directory to a repository"
-msgstr "Uvozi direktorij v skladiĹˇÄŤe"
+msgstr "Uvozi direktorij v skladišče"
 
 #: Control-ID:65535,
 msgid "Include paths:"
-msgstr "VkljuÄŤi poti"
+msgstr "Vključi poti:"
 
 #: ID:76,
 msgid "Initial Import"
-msgstr "ZaÄŤetni uvoz"
+msgstr "Začetni uvoz"
 
 #: Dlg-ID:161,
 msgid "Input"
@@ -2000,25 +2039,27 @@ msgid ""
 "Insert Clipboard contents\n"
 "Paste"
 msgstr ""
+"Vstavi vsebino odložišča\n"
+"Prilepi"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Insufficient memory to perform operation."
-msgstr "Premalo pomnilnika za izvedbo operacije"
+msgstr "Premalo pomnilnika za izvedbo operacije."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Internal application error."
-msgstr "Notranja napaka aplikacije"
+msgstr "Notranja napaka aplikacije."
 
 #: ID:102,
 msgid "Invalid data object dropped!"
-msgstr "OvrĹľeni neveljavni podatkovni elementi!"
+msgstr "Ovrženi neveljavni podatkovni elementi!"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Invalid filename."
-msgstr "Neveljavno ime datoteke"
+msgstr "Neveljavno ime datoteke."
 
 #: ID:82,
 msgid ""
@@ -2048,7 +2089,7 @@ msgstr ""
 
 #: Control-ID:1016,
 msgid "Jump to first difference when loading"
-msgstr "SkoÄŤi na prvo razliko pri nalaganju"
+msgstr "Skoči na prvo razliko pri nalaganju"
 
 #: Control-ID:1203,
 msgid "Keep Locks"
@@ -2072,11 +2113,11 @@ msgstr ""
 
 #: Control-ID:1137,
 msgid "Least active author:"
-msgstr ""
+msgstr "Najmanj aktiven avtor:"
 
 #: ID:188,
 msgid "Left View: "
-msgstr ""
+msgstr "Levi pogled:"
 
 #: ID:3605,
 msgid ""
@@ -2086,11 +2127,11 @@ msgstr ""
 
 #: Control-ID:1172,
 msgid "List View"
-msgstr ""
+msgstr "Seznamski pogled"
 
 #: ID:63,
 msgid "Local Status"
-msgstr ""
+msgstr "Krajevno stanje"
 
 #: ID:94,
 msgid ""
@@ -2101,19 +2142,19 @@ msgstr ""
 #: ID:207,#:
 #: ID:221,
 msgid "Lock"
-msgstr ""
+msgstr "Zakleni"
 
 #: ID:207,
 msgid "Lock Comment"
-msgstr ""
+msgstr "Komentar zaklepa"
 
 #: Dlg-ID:191,
 msgid "Lock Files"
-msgstr ""
+msgstr "Zakleni datoteke"
 
 #: ID:209,
 msgid "Lock broken!"
-msgstr ""
+msgstr "Zaklep "
 
 #: Control-ID:65535,
 msgid "Lock creation date:"
@@ -2121,11 +2162,11 @@ msgstr ""
 
 #: ID:263,
 msgid "Lock failed"
-msgstr ""
+msgstr "Zaklep neuspešen"
 
 #: Control-ID:65535,
 msgid "Lock owner:"
-msgstr ""
+msgstr "Lastnik zaklepa:"
 
 #: ID:209,
 #, c-format
@@ -2147,21 +2188,21 @@ msgstr "Dnevnik"
 
 #: Control-ID:65535,
 msgid "Log Message"
-msgstr "SporoÄŤilo dnevnika"
+msgstr "Sporočilo dnevnika"
 
 #: Control-ID:1125,#:
 #: Control-ID:1125,
 msgid "Log Message History:"
-msgstr "Zgodovina sporoÄŤil dnevnika:"
+msgstr "Zgodovina sporočil dnevnika:"
 
 #: Dlg-ID:130,#:
 #: Control-ID:65535,
 msgid "Log Messages"
-msgstr "SporoÄŤila dnevnika"
+msgstr "Sporočila dnevnika"
 
 #: Dlg-ID:195,
 msgid "Look and Feel"
-msgstr "Pogled in obÄŤutek"
+msgstr "Pogled in občutek"
 
 #: Dlg-ID:196,
 msgid "Look and Feel::Dialogs"
@@ -2188,7 +2229,7 @@ msgstr ""
 #: ID:3866,#:
 #: ID:3866,
 msgid "Mail system DLL is invalid."
-msgstr ""
+msgstr "DLL poštnega sistema ni veljaven."
 
 #: ID:2051,
 msgid ""
@@ -2198,20 +2239,20 @@ msgstr ""
 
 #: Control-ID:1159,
 msgid "Max"
-msgstr "NajveÄŤ"
+msgstr "Največ"
 
 #: Dlg-ID:141,#:
 #: Control-ID:65535,
 msgid "Merge"
-msgstr ""
+msgstr "Spoji"
 
 #: ID:9,
 msgid "Merge..."
-msgstr ""
+msgstr "Spoji ..."
 
 #: ID:263,
 msgid "Merged"
-msgstr ""
+msgstr "Spojeno"
 
 #: ID:10,
 msgid "Merges a branch into the main trunk"
@@ -2219,23 +2260,23 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Merging"
-msgstr ""
+msgstr "Spajanje"
 
 #: ID:76,
 msgid "Message"
-msgstr ""
+msgstr "Sporočilo"
 
 #: ID:116,
 msgid "Messages"
-msgstr ""
+msgstr "Sporočila"
 
 #: ID:116,
 msgid "Messages, Authors And Paths"
-msgstr ""
+msgstr "Sporočila, avtorji in poti"
 
 #: ID:78,
 msgid "Mime Type"
-msgstr "MIME tip"
+msgstr "Tip MIME"
 
 #: Control-ID:1158,
 msgid "Min"
@@ -2243,12 +2284,12 @@ msgstr "Najmanj"
 
 #: Control-ID:1023,
 msgid "Misc"
-msgstr ""
+msgstr "Razno"
 
 #: ID:3887,#:
 #: ID:3887,
 msgid "Mixed"
-msgstr "MeĹˇano"
+msgstr "Mešano"
 
 #: ID:74,
 msgid "Modified"
@@ -2256,20 +2297,20 @@ msgstr "Spremenjeno"
 
 #: Control-ID:1136,
 msgid "Most active author:"
-msgstr "Najbolj aktiven avtor"
+msgstr "Najbolj aktiven avtor:"
 
 #: ID:126,
 msgid "Moved remotely"
-msgstr ""
+msgstr "Oddaljeno premaknjeno"
 
 #: ID:80,
 #, c-format
 msgid "Moving %s"
-msgstr "Premikam %s"
+msgstr "Premikanje %s"
 
 #: ID:80,
 msgid "Moving..."
-msgstr "Premikam..."
+msgstr "Premikanje ..."
 
 #: Control-ID:65535,
 msgid "My File:"
@@ -2277,7 +2318,7 @@ msgstr "Moja datoteka:"
 
 #: MenuEntry
 msgid "N&ext Conflict"
-msgstr "Naslednji konflikt"
+msgstr "Nasl&ednji konflikt"
 
 #: ID:3697,
 msgid "NUM"
@@ -2293,7 +2334,7 @@ msgstr "Vgnezdeno"
 
 #: Dlg-ID:102,
 msgid "Network"
-msgstr "MreĹľa"
+msgstr "Omrežje"
 
 #: Dlg-ID:30721,#:
 #: Dlg-ID:30721,
@@ -2323,11 +2364,11 @@ msgstr ""
 
 #: ID:81,
 msgid "No command value specified!"
-msgstr ""
+msgstr "Parameter ukaza ni določen!"
 
 #: ID:82,
 msgid "No differences found!"
-msgstr "Nisem naĹˇel razlik"
+msgstr "Ni opaznih razlik!"
 
 #: ID:3843,#:
 #: ID:3843,
@@ -2338,7 +2379,7 @@ msgstr "Ni obvestil o napaki."
 #: ID:3868,#:
 #: ID:3868,
 msgid "No error occurred."
-msgstr "Nobena napaka se ni zgodila."
+msgstr "Ni bilo napak."
 
 #: ID:77,
 msgid ""
@@ -2362,19 +2403,19 @@ msgstr "Graf ni na voljo."
 #: ID:273,
 #, c-format
 msgid "No image encoder found for %s."
-msgstr ""
+msgstr "Za %s ni nobenega kodirnika slike."
 
 #: ID:188,
 msgid "No spell corrections"
-msgstr ""
+msgstr "Ni popravkov črkovanja"
 
 #: ID:188,
 msgid "No thesaurus suggestions"
-msgstr ""
+msgstr "Ni predlogov iz tezavra"
 
 #: Control-ID:65535,
 msgid "Normal"
-msgstr "ObiÄŤajno"
+msgstr "Običajno"
 
 #: ID:3857,#:
 #: ID:3857,
@@ -2383,21 +2424,21 @@ msgstr ""
 
 #: ID:88,
 msgid "Notice"
-msgstr ""
+msgstr "Opozorilo"
 
 #: Control-ID:1161,
 msgid "Number of authors:"
-msgstr "Ĺ tevilo avtorjev:"
+msgstr "Število avtorjev:"
 
 #: Control-ID:1160,
 msgid "Number of weeks:"
-msgstr "Ĺ tevilo tednov:"
+msgstr "Število tednov:"
 
 #: ID:73,#:
 #: Control-ID:1,#:
 #: Control-ID:1,
 msgid "OK"
-msgstr "V reu"
+msgstr "V redu"
 
 #: ID:3697,
 msgid "OVR"
@@ -2425,11 +2466,11 @@ msgstr ""
 
 #: Control-ID:1073,
 msgid "Only update the top folder"
-msgstr ""
+msgstr "Posodobi le vrhnjo mapo"
 
 #: Control-ID:1224,
 msgid "Only use spellchecker when tsvn:projectlanguage is set"
-msgstr ""
+msgstr "Uporabi črkovalnik, le ko je nastavljen tsvn:projectlanguage"
 
 #: ID:3841,#:
 #: ID:3841,
@@ -2438,7 +2479,7 @@ msgstr "Odpri"
 
 #: ID:76,
 msgid "Open client certificate file"
-msgstr ""
+msgstr "Odpri datoteko certifikata odjemalca"
 
 #: ID:3601,
 msgid "Open file"
@@ -2446,13 +2487,15 @@ msgstr "Odpri datoteko"
 
 #: ID:113,
 msgid "Open with..."
-msgstr "Odpri z..."
+msgstr "Odpri z ..."
 
 #: ID:3605,
 msgid ""
 "Opens Help\n"
 "Help Topics"
 msgstr ""
+"Odpre Pomoč\n"
+"Teme pomoči"
 
 #: ID:13,
 msgid "Opens the repository browser to tweak the repository online"
@@ -2465,7 +2508,7 @@ msgstr ""
 
 #: MenuEntry
 msgid "P&revious Conflict"
-msgstr "PrejĹˇni konflikt"
+msgstr "P&rejšni konflikt"
 
 #: ID:76,
 msgid "PEM"
@@ -2485,12 +2528,12 @@ msgstr "Prilepi spisek datotek"
 
 #: ID:376,
 msgid "Patch All"
-msgstr ""
+msgstr "Popravi vse"
 
 #: ID:157,#:
 #: ID:157,
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr ""
+msgstr "Datoteke popravkov (*.diff, *.patch)|*.diff;*.patch|Vse (*.*)|*.*||"
 
 #: ID:77,
 msgid "Path"
@@ -2528,17 +2571,17 @@ msgstr "Vnesite uro."
 #: ID:3858,
 #, c-format
 msgid "Please enter a number between %1 and %2."
-msgstr "Vnesite Ĺˇtevilo med %1 in %2."
+msgstr "Vnesite število med %1 in %2."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a number."
-msgstr "Vnesite Ĺˇtevilo."
+msgstr "Vnesite število."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a positive integer."
-msgstr "Vnesite pozitivno Ĺˇtevilo."
+msgstr "Vnesite pozitivno število."
 
 #: ID:3858,#:
 #: ID:3858,
@@ -2549,23 +2592,23 @@ msgstr "Vnesite uro."
 #: ID:3858,
 #, c-format
 msgid "Please enter an integer between %1 and %2."
-msgstr "Vnesite celo Ĺˇtevilo med %1 in %2."
+msgstr "Vnesite celo število med %1 in %2."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer between 0 and 255."
-msgstr "Vnesite celo Ĺˇtevilo "
+msgstr "Vnesite celo število med 0 in 255."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer."
-msgstr "Vnesite celo Ĺˇtevilo."
+msgstr "Vnesite celo število."
 
 #: ID:3858,#:
 #: ID:3858,
 #, c-format
 msgid "Please enter no more than %1 characters."
-msgstr "Ne vnaĹˇajte veÄŤ kot %1 znakov."
+msgstr "Ne vnašajte več kot %1 znakov."
 
 #: ID:251,
 msgid "Please execute the \"Cleanup\" command."
@@ -2582,7 +2625,7 @@ msgstr ""
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please select a button."
-msgstr "Izberite gumb"
+msgstr "Izberite gumb."
 
 #: ID:76,
 msgid "Please specify the certificate type"
@@ -2602,7 +2645,7 @@ msgstr ""
 
 #: ID:119,
 msgid "Please wait..."
-msgstr "Prosim, poÄŤakajte..."
+msgstr "Prosimo, počakajte ..."
 
 #: ID:132,
 #, c-format
@@ -2619,7 +2662,7 @@ msgstr "Programi (*.exe)|*.exe|Vse datoteke (*.*)|*.*||"
 
 #: Control-ID:65535,
 msgid "Progress"
-msgstr ""
+msgstr "Napredek"
 
 #: Control-ID:65535,#:
 #: Dlg-ID:177,
@@ -2648,17 +2691,19 @@ msgstr ""
 
 #: Control-ID:1080,
 msgid "Proxy Settings"
-msgstr ""
+msgstr "Nastavitve prehoda"
 
 #: ID:3605,
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
 msgstr ""
+"Zapusti aplikacijo; povpraša za shranjevanje dokumentov\n"
+"Izhod"
 
 #: Control-ID:1073,
 msgid "R&AM drives"
-msgstr "R&AM diski"
+msgstr "Diski R&AM"
 
 #: ID:3697,
 msgid "REC"
@@ -2680,12 +2725,12 @@ msgstr ""
 
 #: ID:3825,
 msgid "Reduce the window to an icon"
-msgstr "ZmanjĹˇaj okno v ikono"
+msgstr "Pomanjšaj okno v ikono"
 
 #: ID:101,#:
 #: ID:135,
 msgid "Refresh"
-msgstr "Obnovi"
+msgstr "Osveži"
 
 #: ID:82,
 msgid "Reject"
@@ -2693,7 +2738,7 @@ msgstr "Zavrni"
 
 #: ID:16,
 msgid "Release Lock"
-msgstr ""
+msgstr "Odstrani zaklep"
 
 #: ID:16,
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
@@ -2705,7 +2750,7 @@ msgstr ""
 
 #: MenuEntry
 msgid "Reload"
-msgstr "Ponovno naloĹľi"
+msgstr "Ponovno naloži"
 
 #: ID:2050,
 msgid ""
@@ -2719,36 +2764,36 @@ msgstr "Prestavi"
 
 #: ID:12,
 msgid "Relocate..."
-msgstr "Prestavi..."
+msgstr "Prestavi ..."
 
 #: ID:80,
 msgid "Relocating..."
-msgstr "Prestavljam..."
+msgstr "Prestavljanje ..."
 
 #: ID:207,
 msgid "Remote Property Status"
-msgstr ""
+msgstr "Stanje oddaljene lastnosti"
 
 #: ID:63,#:
 #: ID:207,
 msgid "Remote Status"
-msgstr ""
+msgstr "Oddaljeno stanje"
 
 #: ID:207,
 msgid "Remote Text Status"
-msgstr ""
+msgstr "Stanje oddaljenega besedila"
 
 #: ID:15,
 msgid "Remove From Ignore List"
-msgstr ""
+msgstr "Odstrani s seznama prezrtih"
 
 #: Control-ID:65535,
 msgid "Removed"
-msgstr ""
+msgstr "Odstranjeno"
 
 #: ID:126,
 msgid "Removed file/folder"
-msgstr ""
+msgstr "Odstranjena datoteka/mapa"
 
 #: ID:145,
 #, c-format
@@ -2773,11 +2818,11 @@ msgstr "Preimenuj %s"
 
 #: ID:11,
 msgid "Rename..."
-msgstr "Preimenuj..."
+msgstr "Preimenuj ..."
 
 #: ID:126,
 msgid "Renamed remotely"
-msgstr ""
+msgstr "Oddaljeno preimenovano"
 
 #: ID:11,
 msgid "Renames files / folders inside source control"
@@ -2788,6 +2833,8 @@ msgid ""
 "Repeat the last action\n"
 "Repeat"
 msgstr ""
+"Ponovi zadnje dejanje\n"
+"Ponovi"
 
 #: ID:3603,
 msgid ""
@@ -2797,7 +2844,7 @@ msgstr ""
 
 #: ID:74,
 msgid "Replacing"
-msgstr "Zamenjujem"
+msgstr "Zamenjevanje"
 
 #: ID:13,
 msgid "Repo-Browser"
@@ -2807,7 +2854,7 @@ msgstr ""
 #: Control-ID:1055,#:
 #: Control-ID:65535,
 msgid "Repository"
-msgstr "SkladiĹˇÄŤe"
+msgstr "Skladišče"
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
@@ -2824,15 +2871,15 @@ msgstr ""
 
 #: ID:3826,
 msgid "Restore the window to normal size"
-msgstr ""
+msgstr "Povrni velikost okna na običajno"
 
 #: ID:73,
 msgid "Restored"
-msgstr ""
+msgstr "Povrnjeno"
 
 #: ID:73,
 msgid "Retry"
-msgstr "Ponovi"
+msgstr "Ponovno poskusi"
 
 #: Dlg-ID:175,
 msgid "Revert"
@@ -2844,7 +2891,7 @@ msgstr ""
 
 #: ID:8,
 msgid "Revert..."
-msgstr "Povrni..."
+msgstr "Povrni ..."
 
 #: ID:73,
 msgid "Reverted"
@@ -2874,7 +2921,7 @@ msgstr "Revizija %ld"
 
 #: Control-ID:65535,
 msgid "Revision / Author:"
-msgstr "Revizija / Avtor:"
+msgstr "Revizija / avtor:"
 
 #: ID:15,#:
 #: ID:269,#:
@@ -2908,11 +2955,11 @@ msgstr ""
 
 #: ID:77,
 msgid "SVN Add..."
-msgstr "SVN Dodaj..."
+msgstr "Dodaj SVN ..."
 
 #: ID:132,
 msgid "SVN Blame"
-msgstr "SVN Krivda"
+msgstr "Krivda SVN"
 
 #: ID:77,
 msgid "SVN Checkout..."
@@ -2932,23 +2979,23 @@ msgstr ""
 
 #: ID:78,
 msgid "SVN Copy..."
-msgstr "SVN Kopiraj..."
+msgstr "Kopiraj SVN ..."
 
 #: ID:14,
 msgid "SVN Export all to here"
-msgstr "SVN Izvozi vse sem"
+msgstr "Izvozi ves SVN sem"
 
 #: ID:14,
 msgid "SVN Export to here"
-msgstr "SVN Izvozi sem"
+msgstr "Izvozi SVN sem"
 
 #: ID:78,
 msgid "SVN Export..."
-msgstr "SVN Izvozi..."
+msgstr "Izvozi SVN ..."
 
 #: ID:77,
 msgid "SVN Import..."
-msgstr "SVN Uvozi..."
+msgstr "Uvozi SVN ..."
 
 #: ID:16,
 msgid "SVN Lock Owner"
@@ -2956,7 +3003,7 @@ msgstr ""
 
 #: ID:78,
 msgid "SVN Merge..."
-msgstr "SVN ZdruĹľi"
+msgstr "Spoji SVN"
 
 #: ID:12,
 msgid "SVN Move versioned files here"
@@ -2964,11 +3011,11 @@ msgstr ""
 
 #: Dlg-ID:134,
 msgid "SVN Progress"
-msgstr ""
+msgstr "Napredek SVN"
 
 #: ID:221,
 msgid "SVN Rename/Move"
-msgstr "SVN Preimenuj/Premakni"
+msgstr "Preimenuj/Premakni SVN"
 
 #: ID:77,
 msgid "SVN Resolve..."
@@ -2976,15 +3023,15 @@ msgstr ""
 
 #: ID:77,
 msgid "SVN Revert..."
-msgstr "SVN Povrni..."
+msgstr "Povrni SVN ..."
 
 #: ID:11,
 msgid "SVN Revision"
-msgstr "SVN Revizija"
+msgstr "Revizija SVN"
 
 #: ID:11,
 msgid "SVN Status"
-msgstr "SVN Stanje"
+msgstr "Stanje SVN"
 
 #: ID:78,
 msgid "SVN Switch..."
@@ -2992,23 +3039,23 @@ msgstr ""
 
 #: ID:77,
 msgid "SVN Update..."
-msgstr "SVN Posodobi..."
+msgstr "Posodobi SVN ..."
 
 #: ID:12,
 msgid "SVN Url"
-msgstr "SVN URL"
+msgstr "Url SVN"
 
 #: ID:14,
 msgid "SVN mime-type"
-msgstr "SVN Mime-tip"
+msgstr "Tip mime SNV"
 
 #: ID:12,
 msgid "SVN short Url"
-msgstr "SVN Kratki URL"
+msgstr "Kratki URL SVN"
 
 #: MenuEntry
 msgid "Save &As..."
-msgstr "Shr&ani kot..."
+msgstr "Shrani &kot ..."
 
 #: ID:3841,#:
 #: ID:3841,
@@ -3017,29 +3064,29 @@ msgstr "Shrani kot"
 
 #: ID:272,
 msgid "Save Graph as..."
-msgstr "Shrani graf kot..."
+msgstr "Shrani graf kot ..."
 
 #: ID:76,
 msgid "Save Revision &To..."
-msgstr "Shrani revizijo v..."
+msgstr "Shrani revizijo &v ..."
 
 #: Control-ID:1132,
 msgid "Save To Clipboard"
-msgstr "Shrani na odloĹľiĹˇÄŤe"
+msgstr "Shrani na odložišče"
 
 #: ID:313,
 msgid "Save as..."
-msgstr "Shrani kot..."
+msgstr "Shrani kot ..."
 
 #: ID:3857,#:
 #: ID:3857,
 #, c-format
 msgid "Save changes to %1?"
-msgstr "Shrani spremembe v %1?"
+msgstr "Želite shraniti spremembe v %1?"
 
 #: ID:232,
 msgid "Save client certificate path"
-msgstr ""
+msgstr "Shrani pot certifikata odjemalca"
 
 #: ID:3601,#:
 #: ID:3601,
@@ -3052,16 +3099,16 @@ msgstr ""
 
 #: ID:103,
 msgid "Saving Files"
-msgstr "Shranjujem datoteko"
+msgstr "Shranjevanje datoteke"
 
 #: ID:103,
 #, c-format
 msgid "Saving file %s"
-msgstr "Shranjujem datoteko %s"
+msgstr "Shranjevanje datoteke %s"
 
 #: ID:144,
 msgid "Saving patchfile to:"
-msgstr ""
+msgstr "Shranjevanje datoteke popravka v:"
 
 #: Control-ID:1014,#:
 #: Control-ID:1017,#:
@@ -3072,7 +3119,7 @@ msgstr "Scintilla"
 
 #: ID:113,
 msgid "Search &log messages..."
-msgstr "IĹˇÄŤem po sporoÄŤi&lih dnevnika..."
+msgstr "Iskanje po sporočilih &dnevnika ..."
 
 #: ID:3867,#:
 #: ID:3867,
@@ -3082,24 +3129,24 @@ msgstr ""
 
 #: ID:376,
 msgid "Select &All"
-msgstr "Izberi vse"
+msgstr "Izberi &vse"
 
 #: Control-ID:1067,#:
 #: Control-ID:1067,
 msgid "Select / Deselect &All"
-msgstr "VkljuÄŤi/izkljuÄŤi vse"
+msgstr ""
 
 #: ID:78,
 msgid "Select Diff Application"
-msgstr "Izberi Diff aplikacijo"
+msgstr "Izberi aplikacijo diff"
 
 #: ID:13,
 msgid "Select File..."
-msgstr "Izberite datoteko..."
+msgstr "Izberite datoteko ..."
 
 #: ID:78,
 msgid "Select Merge Application"
-msgstr "Izberite Merge aplikacijo"
+msgstr "Izberite aplikacijo Merge"
 
 #: Dlg-ID:173,
 msgid "Select Revision"
@@ -3107,7 +3154,7 @@ msgstr "Izberite revizijo"
 
 #: ID:78,
 msgid "Select SSH Client"
-msgstr "Izberite SSH odjemalca"
+msgstr "Izberite odjemalca SSH"
 
 #: ID:79,
 msgid "Select Text Editor Application"
@@ -3115,7 +3162,7 @@ msgstr "Izberite urejevalnik besedila"
 
 #: ID:78,
 msgid "Select Viewer for Diff-Files"
-msgstr "Izberite pregledovalnik Diff datotek"
+msgstr "Izberite pregledovalnik datotek diff"
 
 #: ID:3585,
 msgid "Select an object on which to get Help"
@@ -3123,7 +3170,7 @@ msgstr ""
 
 #: ID:313,
 msgid "Select diff file..."
-msgstr "Izberite diff datoteko"
+msgstr "Izberite datoteko diff ..."
 
 #: ID:79,
 msgid ""
@@ -3152,11 +3199,11 @@ msgstr ""
 
 #: ID:74,
 msgid "Sending Content"
-msgstr "PoĹˇiljam vsebino"
+msgstr "Pošiljanje vsebine"
 
 #: Control-ID:65535,
 msgid "Server &address:"
-msgstr "N&aslov streĹľnika:"
+msgstr "N&aslov strežnika:"
 
 #: Control-ID:1088,
 msgid "Set filedates to the \"last commit time\""
@@ -3164,7 +3211,7 @@ msgstr ""
 
 #: ID:13,
 msgid "Setting Properties..."
-msgstr "Nastavljam lastnosti..."
+msgstr "Nastavljanje lastnosti ..."
 
 #: ID:9,#:
 #: ID:107,
@@ -3173,11 +3220,11 @@ msgstr "Nastavitve"
 
 #: Control-ID:1132,
 msgid "Sh&ow Log"
-msgstr "PrikaĹľi dnevnik"
+msgstr "P&okaži dnevnik"
 
 #: ID:101,
 msgid "Sho&w Properties"
-msgstr "PrikaĹľi lastnosti"
+msgstr "Pokaži &lastnosti"
 
 #: Control-ID:1105,
 msgid "Short &date/time format in log messages"
@@ -3185,15 +3232,15 @@ msgstr ""
 
 #: ID:12,
 msgid "Short Url of Subversion items"
-msgstr ""
+msgstr "Kratki url elementov podrazličice"
 
 #: Control-ID:1031,
 msgid "Show &All"
-msgstr "Prik&aĹľi vse"
+msgstr "Pokaži &vse"
 
 #: ID:113,
 msgid "Show &Differences"
-msgstr "PrikaĹľi razlike"
+msgstr "Pokaži &razlike"
 
 #: ID:101,#:
 #: Control-ID:1228,#:
@@ -3201,15 +3248,15 @@ msgstr "PrikaĹľi razlike"
 #: Control-ID:1034,#:
 #: Control-ID:1132,
 msgid "Show &Log"
-msgstr "PrikaĹľi dnevnik"
+msgstr "Pokaži &dnevnik"
 
 #: Control-ID:1031,
 msgid "Show &Log..."
-msgstr "PrikaĹľi dnevnik..."
+msgstr "Pokaži &dnevnik ..."
 
 #: Control-ID:1016,
 msgid "Show &log"
-msgstr "PrikaĹľi dnevnik"
+msgstr "Pokaži &dnevnik"
 
 #: Control-ID:1088,
 msgid "Show &overlays only in explorer"
@@ -3217,19 +3264,19 @@ msgstr ""
 
 #: Control-ID:1065,
 msgid "Show Diff Bar"
-msgstr ""
+msgstr "Pokaži vrstico razlik"
 
 #: ID:113,
 msgid "Show Differences as &Unified Diff"
-msgstr ""
+msgstr "Pokaži razlike kot &poenotene razlike"
 
 #: Control-ID:1063,
 msgid "Show Linenumbers"
-msgstr "PrikaĹľi Ĺˇtevilke vrstic"
+msgstr "Pokaži številke vrstic"
 
 #: ID:12,
 msgid "Show Log"
-msgstr "PrikaĹľi dnevnik"
+msgstr "Pokaži dnevnik"
 
 #: ID:3713,
 msgid ""
@@ -3255,12 +3302,12 @@ msgstr ""
 
 #: Control-ID:1209,
 msgid "Show unmodified files"
-msgstr "PrikaĹľi nespremenjene datoteke"
+msgstr "Pokaži nespremenjene datoteke"
 
 #: Control-ID:1073,#:
 #: Control-ID:1073,
 msgid "Show unversioned files"
-msgstr ""
+msgstr "Pokaži datoteke brez različic"
 
 #: ID:15,
 msgid "Shows a graphical representation of copies/tags/branches"
@@ -3272,15 +3319,15 @@ msgstr ""
 
 #: ID:10,
 msgid "Shows information about TortoiseSVN"
-msgstr "PrikaĹľe informacije o TortoiseSVN"
+msgstr "Pokaže informacije o TortoiseSVN"
 
 #: ID:12,
 msgid "Shows the log for the selected file / folder"
-msgstr ""
+msgstr "Pokaže dnevnik za izbrano datoteko ali mapo"
 
 #: ID:14,
 msgid "Shows the mime type of the versioned file"
-msgstr ""
+msgstr "Pokaže vrsto mime za datoteko z različicami"
 
 #: ID:74,
 msgid "Size"
@@ -3288,7 +3335,7 @@ msgstr "Velikost"
 
 #: ID:74,
 msgid "Skipped"
-msgstr "PreskoÄŤeno"
+msgstr "Preskočeno"
 
 #: ID:263,
 msgid "Skipped missing target"
@@ -3296,7 +3343,7 @@ msgstr ""
 
 #: Control-ID:1185,
 msgid "Specific revision in repository"
-msgstr "DoloÄŤena "
+msgstr "Določena revizija v skladišču"
 
 #: ID:79,
 msgid ""
@@ -3329,7 +3376,7 @@ msgstr "Stanje"
 
 #: ID:11,
 msgid "Status of item in SVN"
-msgstr "Status elementa v SVN"
+msgstr "Stanje elementa v SVN"
 
 #: ID:16,
 msgid "Steal Lock"
@@ -3344,8 +3391,8 @@ msgid "Steal the locks"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Stefan KĂĽng, LĂĽbbe Onken"
-msgstr "Stefan KĂĽng, LĂĽbbe Onken"
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 #: Control-ID:1130,
 msgid "Stop On Copy/Rename"
@@ -3353,7 +3400,7 @@ msgstr "Ustavi ob kopiranju/preimenovanju"
 
 #: Control-ID:65535,
 msgid "Subversion"
-msgstr "Subversion"
+msgstr "Podrazličica"
 
 #: Control-ID:65535,
 msgid "Subversion authentication data:"
@@ -3413,7 +3460,7 @@ msgstr ""
 
 #: ID:9,
 msgid "Switch..."
-msgstr "Preklopi..."
+msgstr "Preklopi ..."
 
 #: Control-ID:1173,
 msgid "Symbol View"
@@ -3452,7 +3499,7 @@ msgstr ""
 
 #: ID:80,
 msgid "The Repository was successfully created."
-msgstr "SkladiĹˇÄŤe je bilo uspeĹˇno ustvarjeno."
+msgstr "Skladišče je bilo uspešno ustvarjeno."
 
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -3473,7 +3520,7 @@ msgstr ""
 #: ID:64,
 #, c-format
 msgid "The file %s does not exist!"
-msgstr "Datoteka %s ne obstaja"
+msgstr "Datoteka %s ne obstaja!"
 
 #: ID:64,
 #, c-format
@@ -3502,7 +3549,7 @@ msgid ""
 msgstr ""
 "Datoteka\n"
 "%s\n"
-"Ĺľe obstaja! Ali jo Ĺľelite prepisati?"
+"že obstaja! Jo želite prepisati?"
 
 #: ID:88,
 #, c-format
@@ -3515,12 +3562,12 @@ msgstr ""
 "Mapa \n"
 "%s\n"
 "ne obstaja.\n"
-"Jo Ĺľelite ustvariti?"
+"Jo želite ustvariti?"
 
 #: ID:63,
 #, c-format
 msgid "The line \"====\" was expected in line %d !"
-msgstr "Vrstica \"====\" je bila priÄŤakovana v vrstici %d !"
+msgstr "Vrstica \"====\" je bila pričakovana v vrstici %d !"
 
 #: ID:63,
 msgid ""
@@ -3683,7 +3730,7 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Three File Diff"
-msgstr "Diff treh datotek."
+msgstr "Diff treh datotek"
 
 #: Control-ID:1222,
 msgid "Timeout in seconds to stop the autocompletion parsing"
@@ -3699,7 +3746,7 @@ msgstr "V:"
 
 #: Control-ID:65535,
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "V: (end URL and revision of the range to merge)"
+msgstr ""
 
 #: ID:7,#:
 #: ID:3585,#:
@@ -3710,7 +3757,7 @@ msgstr "TortoiseMerge"
 #: ID:107,
 #, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d"
+msgstr ""
 
 #: ID:107,
 #, c-format
@@ -3721,11 +3768,6 @@ msgid ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d\r\n"
-"libsvn_diff %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
-"apr-utils %d.%d.%d"
 
 #: ID:9,#:
 #: ID:80,#:
@@ -3736,7 +3778,7 @@ msgstr "TortoiseSVN"
 #: ID:107,
 #, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, Build %d"
+msgstr ""
 
 #: ID:107,
 #, c-format
@@ -3751,15 +3793,6 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
-"zlib %s"
 
 #: ID:80,
 msgid "TortoiseSVN Settings"
@@ -3771,11 +3804,11 @@ msgstr ""
 
 #: Control-ID:1163,
 msgid "Total file changes:"
-msgstr "Vseh sprememb datotek:"
+msgstr "Vseh sprememb datoteke:"
 
 #: ID:73,
 msgid "Try Again"
-msgstr "Poskusi ponovno"
+msgstr "Poskusi znova"
 
 #: ID:251,
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
@@ -3791,7 +3824,7 @@ msgstr "Diff dveh datotek"
 
 #: MenuEntry
 msgid "Two-way &Diff"
-msgstr "Dvosmerni Diff"
+msgstr "Dvosmerni &Diff"
 
 #: Dlg-ID:164,
 msgid "URL"
@@ -3799,7 +3832,7 @@ msgstr "URL"
 
 #: ID:12,
 msgid "URL of Subversion items"
-msgstr "URL Subversion elementov"
+msgstr "URL elementov podrazličice"
 
 #: Control-ID:65535,#:
 #: Control-ID:1076,
@@ -3824,13 +3857,13 @@ msgstr ""
 "Avtor: %s\r\n"
 "Datum: %s\r\n"
 "\r\n"
-"Dnevnik:\r\n"
+"Dnevniški zapis:\r\n"
 "%s"
 
 #: ID:3866,#:
 #: ID:3866,
 msgid "Unable to load mail system support."
-msgstr ""
+msgstr "Ni mogoče naložiti podpore za poštni sistem."
 
 #: ID:3859,#:
 #: ID:3859,
@@ -3868,7 +3901,7 @@ msgstr ""
 #: ID:3859,#:
 #: ID:3859,
 msgid "Unexpected file format."
-msgstr ""
+msgstr "Nepričakovana vrsta datoteke."
 
 #: MenuEntry
 msgid "Unified &Diff Of HEAD Revisions"
@@ -3897,7 +3930,7 @@ msgstr "Odklenjeno"
 #: ID:3841,#:
 #: ID:3841,
 msgid "Untitled"
-msgstr "Nenaslovljeno"
+msgstr "Brez naslova"
 
 #: ID:8,#:
 #: Dlg-ID:152,
@@ -3906,7 +3939,7 @@ msgstr "Posodobi"
 
 #: ID:11,
 msgid "Update To Revision..."
-msgstr "Posodobi na revizijo..."
+msgstr "Posodobi na revizijo ..."
 
 #: ID:74,
 msgid "Updated"
@@ -3941,11 +3974,11 @@ msgstr ""
 
 #: Control-ID:1064,
 msgid "Use Magnifier on Locatorbar"
-msgstr ""
+msgstr "Uporabi povečevalno steklo na vrstici položaja"
 
 #: Control-ID:1126,
 msgid "Use Text viewer to view blames"
-msgstr ""
+msgstr "Uporabi ogledovalnik besedila za pregled krivde"
 
 #: Control-ID:1230,
 msgid "Use URL of WC as the default \"From:\" URL"
@@ -3957,7 +3990,7 @@ msgstr ""
 
 #: Control-ID:1184,
 msgid "Use autocompletion of filepaths and keywords"
-msgstr ""
+msgstr "Uporabi samodokončanje poti datotek in ključnih besed"
 
 #: Control-ID:1214,
 msgid "Use old APIs to fetch log messages"
@@ -3989,19 +4022,19 @@ msgstr ""
 
 #: ID:251,
 msgid "Use th&is text block"
-msgstr ""
+msgstr "Uporabi &ta blok besedila"
 
 #: ID:251,
 msgid "Use this &whole file"
-msgstr ""
+msgstr "Uporabi to &celo datoteko"
 
 #: ID:12,
 msgid "Use this if the URL of the repository has changed"
-msgstr ""
+msgstr "Uporabi to, če se je spremenil URL skladišča"
 
 #: ID:251,
 msgid "Use whole other &file"
-msgstr ""
+msgstr "Uporabi celo drugo &datoteko"
 
 #: ID:74,
 msgid "User cancelled"
@@ -4009,7 +4042,7 @@ msgstr "Uporabnik preklican"
 
 #: ID:69,
 msgid "Username:"
-msgstr "Uporabnik:"
+msgstr "Uporabniško ime:"
 
 #: ID:313,
 msgid ""
@@ -4029,20 +4062,20 @@ msgstr "Vrednost"
 #: Control-ID:1075,#:
 #: Control-ID:1075,
 msgid "Version"
-msgstr "RazliÄŤica"
+msgstr "Različica"
 
 #: Control-ID:1084,#:
 #: Control-ID:1084,
 msgid "Visit our website"
-msgstr "ObiĹˇÄŤite naĹˇo stran"
+msgstr "Obiščite našo stran"
 
 #: ID:88,
 msgid "Warning"
-msgstr "Pozor"
+msgstr "Opozorilo"
 
 #: ID:219,
 msgid "Warning!"
-msgstr "Pozor!"
+msgstr "Opozorilo!"
 
 #: Control-ID:65535,
 msgid "Whitespace diff"
@@ -4079,7 +4112,7 @@ msgstr "Da za vse"
 
 #: ID:201,
 msgid "You already have the latest version installed."
-msgstr "Ĺ˝e imate nameĹˇÄŤeno zadnjo verzijo."
+msgstr "Že imate nameščeno zadnjo različico."
 
 #: ID:144,
 msgid ""
@@ -4117,7 +4150,7 @@ msgstr ""
 
 #: ID:251,
 msgid "You have to update your working copy first."
-msgstr ""
+msgstr "Najprej morate posodobiti svojo delovno kopijo."
 
 #: ID:169,
 msgid ""
@@ -4164,11 +4197,11 @@ msgstr ""
 
 #: MenuEntry
 msgid "Zoom &In\tCtrl-+"
-msgstr "PoveÄŤaj\tCtrl-+"
+msgstr "Po&večaj\tCtrl-+"
 
 #: MenuEntry
 msgid "Zoom &Out\tCtrl--"
-msgstr "PomanjĹˇaj\tCtrl--"
+msgstr "Po&manjšaj\tCtrl--"
 
 #: ID:10,
 msgid "added"
@@ -4182,7 +4215,7 @@ msgstr "neimenovana datoteka"
 #: Control-ID:1085,#:
 #: Control-ID:1085,
 msgid "and support the developers"
-msgstr "in podpira razvijalce"
+msgstr "in podprite razvijalce"
 
 #: ID:245,
 msgid "author"
@@ -4233,7 +4266,7 @@ msgstr ""
 
 #: ID:145,
 msgid "cleaning up"
-msgstr ""
+msgstr "čiščenje"
 
 #: ID:244,#:
 #: ID:245,
@@ -4242,20 +4275,20 @@ msgstr ""
 
 #: ID:11,
 msgid "conflicted"
-msgstr "konfliktna"
+msgstr "konfliktno"
 
 #: Control-ID:1113,
 msgid "current version is:"
-msgstr "trenutna razliÄŤica je:"
+msgstr "trenutna različica je:"
 
 #: ID:201,
 #, c-format
 msgid "current version is: %s"
-msgstr "trenutna razliÄŤica je: %s"
+msgstr "trenutna različica je: %s"
 
 #: ID:10,
 msgid "deleted"
-msgstr "pobrisana"
+msgstr "zbrisano"
 
 #: ID:79,
 #, c-format
@@ -4265,40 +4298,40 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
-"izvozil\n"
+"izvoženo\n"
 "%s\n"
 "v\n"
 "%s"
 
 #: ID:13,
 msgid "external"
-msgstr "ignorirano"
+msgstr "zunanje"
 
 #: ID:13,
 msgid "ignored"
-msgstr "nekonÄŤano"
+msgstr "prezrto"
 
 #: ID:13,
 msgid "incomplete"
-msgstr "zaklenjeno"
+msgstr "nedokončano"
 
 #: ID:11,#:
 #: ID:195,#:
 #: Control-ID:1002,
 msgid "locked"
-msgstr "zdruĹľeno"
+msgstr "zaklenjeno"
 
 #: ID:11,
 msgid "merged"
-msgstr "manjka"
+msgstr "spojeno"
 
 #: ID:10,
 msgid "missing"
-msgstr "spremenjeno"
+msgstr "manjka"
 
 #: ID:10,
 msgid "modified"
-msgstr "ni opisa za ta ukaz"
+msgstr "spremenjeno"
 
 #: ID:10,
 msgid "no description for this command is available"
@@ -4310,24 +4343,24 @@ msgstr ""
 
 #: ID:10,
 msgid "normal"
-msgstr "obiÄŤajno"
+msgstr "običajno"
 
 #: ID:11,
 msgid "obstructed"
-msgstr "pikslov"
+msgstr ""
 
 #: ID:3869,#:
 #: ID:3869,
 msgid "pixels"
-msgstr "rekurzivno"
+msgstr "pikslov"
 
 #: Control-ID:1018,
 msgid "re&cursive"
-msgstr "samo-branje"
+msgstr "re&kurzivno"
 
 #: ID:195,
 msgid "readonly"
-msgstr "zamenjano"
+msgstr "samo za branje"
 
 #: ID:10,
 msgid "replaced"
@@ -4335,7 +4368,7 @@ msgstr "zamenjano"
 
 #: Control-ID:65535,
 msgid "requests a username and a password"
-msgstr ""
+msgstr "zahteva uporabniško ime in geslo"
 
 #: Control-ID:1023,
 msgid "save authentication"
@@ -4446,15 +4479,14 @@ msgstr "teden"
 
 #: Control-ID:65535,
 msgid "which points to the repository at URL:"
-msgstr "ki kaĹľe na skladiĹˇÄŤe na URL-ju:"
+msgstr "ki kaže na skladišče na URL-ju:"
 
 #: Control-ID:1112,
 msgid "your version is:"
-msgstr "vaĹˇa raliÄŤica je:"
+msgstr "vaša različica je:"
 
 #: ID:201,
 #, c-format
 msgid "your version is: %d.%d.%d.%d"
-msgstr "vaĹˇa raliÄŤica je: %d.%d.%d.%d"
-
+msgstr "vaša različica je: %d.%d.%d.%d"
 
