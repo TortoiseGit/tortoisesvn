@@ -638,7 +638,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 				{
 					// crawl all subfolders too! Otherwise a change deep inside the
 					// tree which has changed won't get propagated up the tree.
-					CSVNStatusCache::Instance().AddFolderForCrawling(filePath);
+					CSVNStatusCache::Instance().AddFolderForCrawling(CTSVNPath(itMembers->first));
 				}
 			}
 		}
