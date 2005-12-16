@@ -140,7 +140,7 @@ void CFolderCrawler::WorkerThread()
 				Sleep(50);
 				continue;
 			}
-			if (m_blockReleasesAt < GetTickCount())
+			if ((m_blockReleasesAt < GetTickCount())&&(!m_blockedPath.IsEmpty()))
 			{
 				ATLTRACE("stop blocking path %ws\n", m_blockedPath.GetWinPath());
 				m_blockedPath.Reset();

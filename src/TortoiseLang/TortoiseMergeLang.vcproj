@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="TortoiseMergeLang"
 	ProjectGUID="{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}"
+	RootNamespace="TortoiseMergeLang"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -125,18 +126,6 @@
 				>
 			</File>
 		</Filter>
-		<File
-			RelativePath="..\Languages\res\TortoiseMerge.manifest"
-			>
-			<FileConfiguration
-				Name="Release|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-		</File>
 	</Files>
 	<Globals>
 		<Global
