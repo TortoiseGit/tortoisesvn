@@ -67,18 +67,6 @@
 			<arg value="--vsnet-version=2003" />
 		</exec>
 		
-		<copy file="build\gen_uri_delims.vcproj" tofile="apr-util\uri\gen_uri_delims.vcproj" overwrite="true" />
-		<copy file="build\libapr.vcproj" tofile="apr\libapr.vcproj" overwrite="true" />
-		<copy file="build\libapriconv.vcproj" tofile="apr-iconv\libapriconv.vcproj" overwrite="true" />
-		<copy file="build\libapriconv_ccs_modules.vcproj" tofile="apr-iconv\ccs\libapriconv_ccs_modules.vcproj" overwrite="true" />
-		<copy file="build\libapriconv_ces_modules.vcproj" tofile="apr-iconv\ces\libapriconv_ces_modules.vcproj" overwrite="true" />
-		<copy file="build\libaprutil.vcproj" tofile="apr-util\libaprutil.vcproj" overwrite="true" />
-		<copy file="build\neon.vcproj" tofile="subversion\build\win32\neon.vcproj" overwrite="true" />
-		<copy file="build\svn_config.vcproj" tofile="subversion\build\win32\svn_config.vcproj" overwrite="true" />
-		<copy file="build\svn_locale.vcproj" tofile="subversion\build\win32\svn_locale.vcproj" overwrite="true" />
-		<copy file="build\xml.vcproj" tofile="apr-util\xml\expat\lib\xml.vcproj" overwrite="true" />
-		<copy file="build\zlib.vcproj" tofile="subversion\build\win32\zlib.vcproj" overwrite="true" />
-		<copy file="build\subversion_vcnet.sln" tofile="subversion\subversion_vcnet.sln" overwrite="true" />
 		<copy file="build\apr.hw" tofile="apr\include\apr.hw" overwrite="true" />
 		<copy file="build\neon.mak" tofile="neon\neon.mak" overwrite="true" />
 		<copy file="build\inffas32.asm" tofile="..\..\common\zlib\contrib\masmx86\inffas32.asm" overwrite="true" />

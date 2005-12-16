@@ -31,7 +31,7 @@ shift
 if NOT "%1"=="" goto :getparam
 
 rem patch apr-iconv
-copy ext\apr-iconv\lib\iconv_module.c ext\apr-iconv\lib\iconv_module_original.c /Y
+::copy ext\apr-iconv\lib\iconv_module.c ext\apr-iconv\lib\iconv_module_original.c /Y
 copy ext\apr-iconv_patch\lib\iconv_module.c ext\apr-iconv\lib /Y
 
 rem OpenSSL
@@ -54,37 +54,24 @@ rmdir /s /q build\win32\vcnet-vcproj
 del build\win32\build_*.bat
 echo 0.25.4> %startdir%\ext\neon\.version
 
-:: Seems zlib can't be compiled with assembler on VS80, so patch the Subversion generator
-:: to not use the assembler
+:: Seems zlib can't be compiled with assembler on VS80, so patch the
+:: file in question to build correctly.
 copy %startdir%\ext\build\inffas32.asm %startdir%\..\common\zlib\contrib\masmx86\inffas32.asm /Y
 copy %startdir%\ext\build\inffas32.asm %startdir%\..\common\zlib\inffas32.asm /Y
 
-call python gen-make.py -t vcproj --with-openssl=..\..\..\Common\openssl --with-zlib=..\..\..\Common\zlib --with-neon=..\neon --with-apr=..\apr --with-apr-util=..\apr-util --with-apr-iconv=..\apr-iconv --enable-nls --with-berkeley-db=..\berkeley-db\db4.3-win32 --enable-bdb-in-apr-util --vsnet-version=2003
+call python gen-make.py -t vcproj --with-openssl=..\..\..\Common\openssl --with-zlib=..\..\..\Common\zlib --with-neon=..\neon --with-apr=..\apr --with-apr-util=..\apr-util --with-apr-iconv=..\apr-iconv --enable-nls --with-berkeley-db=..\berkeley-db\db4.3-win32 --enable-bdb-in-apr-util --vsnet-version=2005
 
-:: now copy the VS80 project files and overwrite the generated ones
-:: we do this until Subversion is able to generate VS80 project files correctly
-copy %startdir%\ext\build\gen_uri_delims.vcproj %startdir%\ext\apr-util\uri\gen_uri_delims.vcproj /Y
-copy %startdir%\ext\build\libapr.vcproj %startdir%\ext\apr\libapr.vcproj /Y
-copy %startdir%\ext\build\libapriconv.vcproj %startdir%\ext\apr-iconv\libapriconv.vcproj /Y
-copy %startdir%\ext\build\libapriconv_ccs_modules.vcproj %startdir%\ext\apr-iconv\ccs\libapriconv_ccs_modules.vcproj /Y
-copy %startdir%\ext\build\libapriconv_ces_modules.vcproj %startdir%\ext\apr-iconv\ces\libapriconv_ces_modules.vcproj /Y
-copy %startdir%\ext\build\libaprutil.vcproj %startdir%\ext\apr-util\libaprutil.vcproj /Y
-copy %startdir%\ext\build\neon.vcproj %startdir%\ext\subversion\build\win32\neon.vcproj /Y
-copy %startdir%\ext\build\svn_config.vcproj %startdir%\ext\subversion\build\win32\svn_config.vcproj /Y
-copy %startdir%\ext\build\svn_locale.vcproj %startdir%\ext\subversion\build\win32\svn_locale.vcproj /Y
-copy %startdir%\ext\build\xml.vcproj %startdir%\ext\apr-util\xml\expat\lib\xml.vcproj /Y
-copy %startdir%\ext\build\zlib.vcproj %startdir%\ext\subversion\build\win32\zlib.vcproj /Y
-copy %startdir%\ext\build\subversion_vcnet.sln %startdir%\ext\subversion\subversion_vcnet.sln /Y
+::apr seems to have problems with the default _WIN32 define
 copy %startdir%\ext\build\apr.hw %startdir%\ext\apr\include\apr.hw /Y
-copy %startdir%\ext\build\neon.mak %startdir%\ext\neon\neon.mak /Y
+:: to embed the manifest
 copy %startdir%\ext\build\modules.mk.win %startdir%\ext\apr-iconv\build\modules.mk.win /Y
-copy /Y %startdir%\ext\build\svn\*.* build\win32\vcnet-vcproj
 
 rem the expat.h.in doesn't have the version information correctly set :(
-copy %startdir%\ext\apr-util\xml\expat\lib\expat.h.in %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy
 copy %startdir%\expat.h.in %startdir%\ext\apr-util\xml\expat\lib\expat.h.in /Y
+
 rem the neon tarball contains config.hw, but the source tag doesn't
 copy %startdir%\neonconfig.hw %startdir%\ext\neon\config.hw /Y
+copy %startdir%\ext\build\neon.mak %startdir%\ext\neon\neon.mak /Y
 
 if DEFINED _DEBUG (
   rem first, compile without any network/repository support
@@ -122,10 +109,6 @@ if DEFINED _RELEASE (
   devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__"
 )
 cd %startdir%
-copy ext\apr-iconv\lib\iconv_module_original.c ext\apr-iconv\lib\iconv_module.c /Y
-del ext\apr-iconv\lib\iconv_module_original.c
-copy %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy %startdir%\ext\apr-util\xml\expat\lib\expat.h.in /Y
-del %startdir%\ext\apr-util\xml\expat\lib\expat.h.in_copy
 
 svn revert -R ext\apr-util
 svn revert -R ext\apr
