@@ -614,7 +614,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 	std::set<CTSVNPath> refreshedpaths;
 	DWORD now = GetTickCount();
 	
-	for(itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
+	for (itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{
 		if (itMembers->first)
 		{
@@ -632,6 +632,8 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 					// that we don't end up in an endless loop.
 					refreshedpaths.insert(filePath);
 					itMembers = m_entryCache.begin();
+					if (m_entryCache.size()==0)
+						return;
 					continue;
 				}
 				else if ((bRecursive)&&(itMembers->second.IsDirectory()))

@@ -195,7 +195,8 @@ void CDirectoryWatcher::WorkerThread()
 					return;
 				AutoLocker lock(m_critSec);
 				ClearInfoMap();
-				if ((m_hCompPort != INVALID_HANDLE_VALUE)&&(GetLastError()!=ERROR_SUCCESS))
+				DWORD lasterr = GetLastError();
+				if ((m_hCompPort != INVALID_HANDLE_VALUE)&&(lasterr!=ERROR_SUCCESS)&&(lasterr!=ERROR_INVALID_HANDLE))
 				{
 					CloseHandle(m_hCompPort);
 				}
@@ -354,10 +355,13 @@ continuewatching:
 
 void CDirectoryWatcher::ClearInfoMap()
 {
-	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+	if (watchInfoMap.size()!=0)
 	{
-		CDirectoryWatcher::CDirWatchInfo * info = I->second;
-		delete info;
+		for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+		{
+			CDirectoryWatcher::CDirWatchInfo * info = I->second;
+			delete info;
+		}
 	}
 	watchInfoMap.clear();
 }
