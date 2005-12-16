@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-13 21:14+0100\n"
+"PO-Revision-Date: 2005-12-16 16:39+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,10 +221,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Avbryt"
 
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "&Leta nu"
-
 #: ID:8
 msgid "&Clean up"
 msgstr "&Rensa"
@@ -240,6 +236,10 @@ msgstr "&Jämför revisioner"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "&Jämför whitespace"
+
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "&Konfigurera"
 
 #: Control-ID:1227
 msgid "&Contact the repository on startup"
@@ -329,11 +329,12 @@ msgstr "&Font för loggmeddelanden:"
 msgid "&Font:"
 msgstr "&Font:"
 
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "&Från URL:"
 
-#: Control-ID:65535
+#: Control-ID:1259
 msgid "&From WC at URL:"
 msgstr "&Från arbetskopia på URL:"
 
@@ -367,12 +368,6 @@ msgstr "&Hjälpavsnitt"
 #: ID:3842
 msgid "&Hide"
 msgstr "&Dölj"
-
-# Control-ID:1246,#:
-# Control-ID:1246,
-#: Control-ID:1246
-msgid "&History"
-msgstr "&Historik"
 
 # Control-ID:1170,
 #: Control-ID:1170
@@ -475,6 +470,10 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Föregående skillnad"
+
+#: Control-ID:1246
+msgid "&Recent messages"
+msgstr "&Loggmeddelanden"
 
 #: ID:376
 msgid "&Redo"
@@ -828,6 +827,10 @@ msgstr "Åtkomst till  %1 nekades."
 msgid "Action"
 msgstr "Åtgärd"
 
+#: ID:117
+msgid "Actions"
+msgstr "Åtgärder"
+
 #: ID:3826
 msgid "Activate Task List"
 msgstr "Aktivera uppgiftslistan"
@@ -943,11 +946,6 @@ msgstr "Alla filer (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Alla filer (*.*)|*.*||"
-
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Alla filer är versionshanterade. Det finns inget att lägga till!"
 
 #: ID:3867
 #: ID:3868
@@ -1126,8 +1124,8 @@ msgid "Automatic"
 msgstr "Automatisk"
 
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "Leta automatiskt efter nyare versioner varje vecka"
+msgid "Automatically check for &newer versions every week"
+msgstr "Leta automatiskt efter &nyare versioner varje vecka"
 
 #: Control-ID:1157
 msgid "Average"
@@ -1186,6 +1184,10 @@ msgstr "Bugg&ID / Ärendenr:"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "BuggID / Ärendenr:"
+
+#: Control-ID:1215
+msgid "C&heck now"
+msgstr "&Leta nu"
 
 #: ID:101
 msgid "C&reate folder..."
@@ -1334,8 +1336,8 @@ msgstr "Rensar bort efter avbrutna åtgärder; låsta filer etc"
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "Radera &nu"
+msgid "Clear n&ow"
+msgstr "Radera n&u"
 
 # ID:195,
 #: ID:195
@@ -1345,6 +1347,11 @@ msgid ""
 msgstr ""
 "Raderar lagrad behörighetsinformation.\n"
 "Du kommer att behöva ange användarnamn/lösenord för alla arkiv igen."
+
+# ID:170,
+#: ID:170
+msgid "Click here to select a recently typed message"
+msgstr "Klicka här för att välja ett gammalt loggmeddelande"
 
 # Hur översätta "diff"
 #: Control-ID:65535
@@ -1438,10 +1445,6 @@ msgstr "Jämför %s med %s"
 #: ID:74
 msgid "Completed"
 msgstr "Klar"
-
-#: Control-ID:1239
-msgid "Configure"
-msgstr "Konfigurera"
 
 #: Control-ID:65535
 msgid "Configure the program used for comparing different revisions of files."
@@ -1552,11 +1555,11 @@ msgstr "Kunde inte leta efter nyare version!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Kunde inte kopiera filerna!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:81
@@ -1603,11 +1606,11 @@ msgstr "Kunde inte spara filen %s!"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Kunde inte starta extern visare för skillnader!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # Hur översätta "diff"
@@ -1615,22 +1618,22 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Kunde inte starta extern applikation för skillnader!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:81
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Kunde inte starta extern applikation för konfliktlösning!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:3857
@@ -1973,10 +1976,6 @@ msgstr "Undantag:"
 msgid "Exclude paths:"
 msgstr "Uteslut sökvägar:"
 
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "Uteslutningsfilter:"
-
 #: ID:209
 msgid "Explore to"
 msgstr "Utforska till"
@@ -2179,6 +2178,10 @@ msgstr "Hämtar logginformation..."
 msgid "Getting unified diff"
 msgstr "Hämtar \"Unified Diff\""
 
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "&Uteslutningsfilter:"
+
 # Hur översätta "diff"
 #: ID:2051
 msgid ""
@@ -2301,6 +2304,15 @@ msgid ""
 msgstr ""
 "Om valt kommer TortoiseSVN sätta datum/tid för filer till den tid då\n"
 "de senast arkiverades. Annars används aktuell tid."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"Visa filer inuti ej versionshanterade mappar i status kontrollen.\n"
+"Status kontrollen används tex i arkivera dialogen. "
 
 # ID:251,
 #: ID:251
@@ -2554,6 +2566,12 @@ msgstr "Utseende och hantering::Ikonsymboler"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Utseende och hantering::Statusikonuppsättning"
+
+# Hantering?
+#: Dlg-ID:213
+#, fuzzy
+msgid "Look and Feel::Misc"
+msgstr "Utseende och hantering::Övrigt"
 
 # ID:238,
 #: ID:238
@@ -3021,6 +3039,7 @@ msgid "Please wait while the repository browser is initialized..."
 msgstr "Var god vänta medans arkivsutforskaren initieras..."
 
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "Vänta..."
 
@@ -3100,6 +3119,10 @@ msgstr "Åt&erställ..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Läs i lathunden om du kört fast..."
+
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Visa ej versionshanterade filer"
 
 #: ID:3603
 msgid ""
@@ -3605,8 +3628,8 @@ msgid "Server &address:"
 msgstr "Server&adress:"
 
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "Sätt fildatum till \"senaste arkiveringsdatum\""
+msgid "Set filedates to the \"last commit &time\""
+msgstr "Sätt fildatum till \"senaste &arkiveringsdatum\""
 
 #: ID:13
 msgid "Setting properties..."
@@ -3755,11 +3778,11 @@ msgstr "Hoppade över mål som saknades"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Ange de filer/mappar som TortoiseSVN ska\n"
-"exkludera från versionshantering.\n"
+"exkludera från <b>alla</b> arbetskopior.\n"
 "Separera sökmönster med mellanslag."
 
 # Control-ID:65535,
@@ -3782,6 +3805,7 @@ msgstr "Statistik"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Status"
 
@@ -3814,12 +3838,12 @@ msgid "Subversion"
 msgstr "Subversion"
 
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "Subversion autentiseringsdata:"
+msgid "Subversion &authentication data:"
+msgstr "Subversion &autentiseringsdata:"
 
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Konfigurationsfil för Subversion:"
+msgid "Subversion configuration &file:"
+msgstr "Konfigurations&fil för Subversion:"
 
 #: ID:79
 msgid ""
@@ -3833,11 +3857,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
-"SVN rapporterade ett fel vid rensning!\n"
-"<hr=100%>\n"
+"Subversion rapporterade ett fel vid rensning!\n"
+"<hr=100%%>\n"
 "%s"
 
 #: Control-ID:65535
@@ -3899,8 +3923,8 @@ msgstr "Växlar över arbetskopian till en annan gren / märke"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "System ljud"
+msgid "System &sounds"
+msgstr "System &ljud"
 
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
@@ -4190,6 +4214,11 @@ msgstr ""
 "Du bör lösa dessa innan du sparar.\n"
 "Vill du spara filen, med konflikterna kvar?\n"
 "Om du klickar Ja, måte du manuellt lösa dessa konflikter i en annan editor!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "Det finns inget att lägga till. Alla filer och mappar är redan versionshanterade eller ignorerade med svn:ignore egenskapen eller den globala ignorera inställningen. "
 
 # ID:188,
 #: ID:188
@@ -4917,6 +4946,15 @@ msgstr ""
 "Du har valt tillagda mappar. Patchen kommer inte att innehålla filderna från de mapparna.\n"
 "Vill du fortsätta?"
 
+# ID:170,
+#: ID:170
+msgid ""
+"Your previously entered log messages have been saved.\n"
+"Click here to read and insert them again."
+msgstr ""
+"Dina tidigare loggmeddelanden har sparats.\n"
+"Klicka här för att läsa och använda dem igen. "
+
 #: Control-ID:1112
 msgid "Your version is:"
 msgstr "Din version är:"
@@ -5081,6 +5119,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "extern"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "fillistan är tom"
 
 #: ID:13
 msgid "ignored"
