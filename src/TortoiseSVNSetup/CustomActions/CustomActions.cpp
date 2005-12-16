@@ -42,7 +42,10 @@ UINT __stdcall TerminateCache(MSIHANDLE hModule)
 				return ERROR_SUCCESS;
 			}
 		}
-		return ERROR_FUNCTION_FAILED;
+		// Don't return ERROR_FUNCTION_FAILED, because even if the cache is still
+		// running, the installer will overwrite the file, and we require a
+		// reboot anyway after upgrading.
+		return ERROR_SUCCESS;
 	}
 	// cache wasn't even running
 	return ERROR_SUCCESS;
