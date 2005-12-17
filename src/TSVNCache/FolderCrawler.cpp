@@ -145,16 +145,6 @@ void CFolderCrawler::WorkerThread()
 				ATLTRACE("stop blocking path %ws\n", m_blockedPath.GetWinPath());
 				m_blockedPath.Reset();
 			}
-			// Take a short nap if there has been a request recently.
-			// Note, that this is an optimization and not sensitive
-			// w.r.t. synchronization.
-			// (moved out of the critical section as sync is not required)
-			
-			if(((long)GetTickCount() - m_crawlHoldoffReleasesAt) < 0)
-			{
-				Sleep(50);
-				continue;
-			}
 	
 			if ((m_foldersToUpdate.empty())&&(m_pathsToUpdate.empty()))
 			{
@@ -198,8 +188,16 @@ void CFolderCrawler::WorkerThread()
 							continue;
 						if (lowerpath.Find(_T("\\log"))>0)
 							continue;
-						if (lowerpath.Find(_T("\\lock"))>0)
-							continue;
+						// Here's a little problem:
+						// the lock file is also created for fetching the status
+						// and not just when committing.
+						// If we could find out why the lock file was changed
+						// we could decide to crawl the folder again or not.
+						// But for now, we have to crawl the parent folder
+						// no matter what.
+
+						//if (lowerpath.Find(_T("\\lock"))>0)
+						//	continue;
 					}
 					else if (!workingPath.Exists())
 					{
