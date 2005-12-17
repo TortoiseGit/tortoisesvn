@@ -38,6 +38,7 @@
 				<include name="src/TortoiseSVN.build" />
 				<include name="ext/OpenSSL.build" />
 				<include name="ext/Subversion.build" />
+				<include name="Languages/LanguagePack.build" />
 			</buildfiles>
 		</nant>
 	</target>
@@ -116,7 +117,11 @@
 		<description>
 			Builds all the language pack installers.
 		</description>
-		<exec program="Make_Installer.bat" workingdir="Languages" />
+		<nant target="all">
+			<buildfiles>
+				<include name="Languages\LanguagePack.build" />
+			</buildfiles>
+		</nant>
 	</target>
 
 	<target name="SourceTarball" depends="VersionInfo">

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+============================================================ 
+ $Date$
+ $Author$
+ $Rev$
+============================================================ 
+
+NAnt build script for the TortoiseSVN language pack installers
+
+-->
+
+<project name="LanguagePack" default="all" basepath=".">
+	<description>
+		Builds the Language pack installers
+	</description>
+	
+	<target name="clean">
+		<description>
+			Removes all previously built language pack installers.
+		</description>
+		<delete>
+			<fileset>
+				<include name="..\bin\Tortoise*.dll" />
+				<include name="..\bin\LanguagePack*.exe" />
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="all">
+		<description>
+			Builds the installers.
+		</description>
+		<loadfile file="Languages.txt" property="languagelines" />
+		<!-- the next line is split in two because we need the newline in the string -->
+		<foreach item="String" in="${languagelines}" delim="
+" property="langline">
+			<call target="doit" unless="${string::starts-with(langline, '#') or string::get-length(langline)==0}"/>
+		</foreach>
+	</target>
+	
+	<target name="doit">
+		<regex 
+			pattern="^(?'langISO'[A-z_]+);[ \t]+(?'langCC'\d+);[ \t]+(?'langhelpfile'\d+);[ \t]+(?'langUI'.+);[ \t]+(?'langweb'.+);[ \t]+(?'langnative'.+)" 
+			input="${langline}"
+		/>
+		<echo message="Building ${langUI} dlls and installer" />
+		<!-- create the dlls -->
+		<exec program="..\bin\release\bin\restext.exe">
+			<arg value="apply" />
+			<arg value="TortoiseProcLang.dll" />
+			<arg value="..\bin\TortoiseProc${langCC}.dll" />
+			<arg value="Tortoise_${langISO}.po" />
+		</exec>
+		<exec program="..\bin\release\bin\restext.exe">
+			<arg value="apply" />
+			<arg value="TortoiseMergeLang.dll" />
+			<arg value="..\bin\TortoiseMerge${langCC}.dll" />
+			<arg value="Tortoise_${langISO}.po" />
+		</exec>
+		<!-- create the files for the installer -->
+		<echo file="product.nsh">!define PRODUCT_NAME "TortoiseSVN ${langnative}"</echo>
+		<echo file="product.nsh" append="true">!define CountryCode "${langISO}"</echo>
+		<echo file="product.nsh" append="true">!define CountryID "${langCC}"</echo>
+		<echo file="product.nsh" append="true">!define InstLang "${langUI}"</echo>
+		<echo file="product.nsh" append="true" if="${langhelpfile == '1'}">!define LangHelp</echo>
+		<!-- create the mo files -->
+		<exec program="msgfmt" if="${file::exists('..\ext\Subversion\Subversion\po\${langISO}.po')}" failonerror="false" >
+			<arg value="..\ext\Subversion\Subversion\po\${langISO}.po" />
+			<arg value="-o" />
+			<arg value="subversion.mo" />
+			<arg value="-f" />
+		</exec>
+		<echo file="product.nsh" append="true" if="${file::exists('subversion.mo')}">!define MoFile "subversion.mo"</echo>
+		<copy file="LanguagePack.in" tofile="LanguagePack.nsi" failonerror="false" />
+		<exec program="MakeNSIS">
+			<arg value="/V1" />
+			<arg value="LanguagePack.nsi" />
+		</exec>
+		<delete file="..\bin\TortoiseProc${langCC}.dll" failonerror="false" />
+		<delete file="..\bin\TortoiseMerge${langCC}.dll" failonerror="false" />
+		<delete file="subversion.mo" failonerror="false" />
+	</target>
+</project>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
