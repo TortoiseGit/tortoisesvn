@@ -29,7 +29,7 @@
 			<arg value="0.25.4>neon\.version" />
 		</exec>
 		<copy
-			file="..\neonconfig.hw"
+			file="build\neonconfig.hw"
 			tofile="neon\config.hw"
 			overwrite="true"
 		/>
@@ -44,7 +44,7 @@
 	<target name="prepare_aprutil">
 		<!-- the expat.h.in doesn't have the version information set :( -->
 		<copy 
-			file="..\expat.h.in" 
+			file="build\expat.h.in" 
 			tofile="apr-util\xml\expat\lib\expat.h.in"
 			overwrite="true"
 		/>
@@ -104,11 +104,11 @@
 			overwrite="true"
 		/>
 		<copy
-			file="..\svn_private_config.h"
+			file="build\svn_private_config.h"
 			tofile="Subversion\subversion\svn_private_config.h"
 		/>
 		<copy
-			file="..\svn_private_config.h"
+			file="build\svn_private_config.h"
 			tofile="Subversion\subversion\svn_private_config.hw"
 		/>
 		<exec program="devenv.com" workingdir="Subversion">

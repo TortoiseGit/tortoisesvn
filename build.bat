@@ -67,10 +67,10 @@ copy %startdir%\ext\build\apr.hw %startdir%\ext\apr\include\apr.hw /Y
 copy %startdir%\ext\build\modules.mk.win %startdir%\ext\apr-iconv\build\modules.mk.win /Y
 
 rem the expat.h.in doesn't have the version information correctly set :(
-copy %startdir%\expat.h.in %startdir%\ext\apr-util\xml\expat\lib\expat.h.in /Y
+copy %startdir%\ext\build\expat.h.in %startdir%\ext\apr-util\xml\expat\lib\expat.h.in /Y
 
 rem the neon tarball contains config.hw, but the source tag doesn't
-copy %startdir%\neonconfig.hw %startdir%\ext\neon\config.hw /Y
+copy %startdir%\ext\build\neonconfig.hw %startdir%\ext\neon\config.hw /Y
 copy %startdir%\ext\build\neon.mak %startdir%\ext\neon\neon.mak /Y
 
 if DEFINED _DEBUG (
@@ -79,8 +79,8 @@ if DEFINED _DEBUG (
   rmdir /s /q Debug\Subversion_netless
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
-  copy %startdir%\svn_private_config.h subversion\svn_private_config.h
-  copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
+  copy %startdir%\ext\build\svn_private_config.h subversion\svn_private_config.h
+  copy %startdir%\ext\build\svn_private_config.h subversion\svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /rebuild debug /project "__ALL__"
   ren Debug\subversion subversion_netless
   echo building Subversion
@@ -97,8 +97,8 @@ if DEFINED _RELEASE (
   rmdir /s /q Release\Subversion_netless
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
-  copy %startdir%\svn_private_config.h subversion\svn_private_config.h
-  copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
+  copy %startdir%\ext\build\svn_private_config.h subversion\svn_private_config.h
+  copy %startdir%\ext\build\svn_private_config.h subversion\svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__"
   ren Release\subversion subversion_netless
   echo building Subversion
