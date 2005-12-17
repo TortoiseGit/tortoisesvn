@@ -1755,7 +1755,7 @@ void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case ID_SHOWLOG:
 			{
 				CString sCmd;
-				CString URL = GetReposRoot() + CString(m_SelectedEntry1->url);
+				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode(m_SelectedEntry1->url);
 				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
 					CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
 					(LPCTSTR)URL,
