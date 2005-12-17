@@ -11,14 +11,6 @@
 					<Merge Id='MFC' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
 					<Merge Id='MFC Policy' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
 
-
-					<Component Id="C__ProgramMenuFolder" Guid="46F6E6A9-843F-4039-8F6C-450953BB47F2" >
-
-						<RemoveFolder Directory="INSTALLDIR" On="uninstall" Id="RemoveFolder_INSTALLDIR" />
-						<RemoveFolder Directory="D_TortoisePrgMenu" On="uninstall" Id="RemoveFolder_PrgMenu" />
-
-					</Component>
-
 					<Component Id="C__infofiles" Guid="625A2E1E-90D3-4107-8AE8-C5C37975FEA0" >
 						<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
 						<File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
