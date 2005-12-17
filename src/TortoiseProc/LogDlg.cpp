@@ -2629,6 +2629,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			SetTimer(LOGFILTER_TIMER, 1000, NULL);
 			return;
 		}
+		if (m_sFilterText.IsEmpty())
+			return;
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
@@ -2737,19 +2739,25 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-						if ((cpath->sCopyFromPath.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
+						CString path = cpath->sCopyFromPath;
+						path.MakeLower();
+						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(m_logEntries[i]);
 							bGoing = false;
 							continue;
 						}
-						if ((cpath->sPath.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
+						path = cpath->sPath;
+						path.MakeLower();
+						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(m_logEntries[i]);
 							bGoing = false;
 							continue;
 						}
-						if ((cpath->sAction.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
+						path = cpath->sAction;
+						path.MakeLower();
+						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(m_logEntries[i]);
 							bGoing = false;
