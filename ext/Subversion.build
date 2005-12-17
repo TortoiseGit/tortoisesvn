@@ -67,6 +67,7 @@
 			<arg value="--vsnet-version=2003" />
 		</exec>
 		
+		<copy file="build\libaprutil.vcproj" tofile="apr-util\libaprutil.vcproj" overwrite="true" />
 		<copy file="build\apr.hw" tofile="apr\include\apr.hw" overwrite="true" />
 		<copy file="build\neon.mak" tofile="neon\neon.mak" overwrite="true" />
 		<copy file="build\inffas32.asm" tofile="..\..\common\zlib\contrib\masmx86\inffas32.asm" overwrite="true" />

@@ -31,7 +31,6 @@ shift
 if NOT "%1"=="" goto :getparam
 
 rem patch apr-iconv
-::copy ext\apr-iconv\lib\iconv_module.c ext\apr-iconv\lib\iconv_module_original.c /Y
 copy ext\apr-iconv_patch\lib\iconv_module.c ext\apr-iconv\lib /Y
 
 rem OpenSSL
@@ -62,6 +61,7 @@ copy %startdir%\ext\build\inffas32.asm %startdir%\..\common\zlib\inffas32.asm /Y
 call python gen-make.py -t vcproj --with-openssl=..\..\..\Common\openssl --with-zlib=..\..\..\Common\zlib --with-neon=..\neon --with-apr=..\apr --with-apr-util=..\apr-util --with-apr-iconv=..\apr-iconv --enable-nls --with-berkeley-db=..\berkeley-db\db4.3-win32 --enable-bdb-in-apr-util --vsnet-version=2005
 
 ::apr seems to have problems with the default _WIN32 define
+copy %startdir%\ext\build\libaprutil.vcproj %startdir%\ext\apr-util\libaprutil.vcproj /Y
 copy %startdir%\ext\build\apr.hw %startdir%\ext\apr\include\apr.hw /Y
 :: to embed the manifest
 copy %startdir%\ext\build\modules.mk.win %startdir%\ext\apr-iconv\build\modules.mk.win /Y
