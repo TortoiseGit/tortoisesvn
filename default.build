@@ -102,7 +102,7 @@
 		</description>
 	</target>
 
-	<target name="setup" depends="env,binaries,docs">
+	<target name="setup" depends="env,binaries,docs,LanguagePacks">
 		<description>
 			Uses WiX to create an msi installer file.
 		</description>
@@ -120,6 +120,17 @@
 		<nant target="all">
 			<buildfiles>
 				<include name="Languages\LanguagePack.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+	<target name="msi">
+		<description>
+			Builds the msi installer from already built binaries.
+		</description>
+		<nant target="setup">
+			<buildfiles>
+				<include name="src\TortoiseSVNSetup\setup.build" />
 			</buildfiles>
 		</nant>
 	</target>
@@ -196,6 +207,7 @@
 		<echo message="setup        : creates an msi installer for TortoiseSVN" />
 		<echo message="LanguagePacks: creates the Languagepack installers" />
 		<echo message="SourceTarball: creates a zip file with the sourcefiles" />
+		<echo message="msi          : creates the msi, but doesn't build the libs first" />
 		<echo />
 		<echo message="The following targets can be used to tweak the builds:" />
 		<echo message="debug   : if this target is called before other build targets," /> 

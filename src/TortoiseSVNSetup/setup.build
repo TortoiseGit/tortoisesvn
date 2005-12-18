@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Setup" default="setup">
+<project name="Setup" default="setup" basedir=".">
 
 	<target name="versioninfo">
 		<nant target="versioninfo">

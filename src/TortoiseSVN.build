@@ -69,7 +69,7 @@
 			<arg value="/rebuild" />
 			<arg value="${configuration}" />
 		</exec>
-		<copy todir="..\bin\${configuration}\bin" overwrite="true" failonerror="false">
+		<copy todir="..\bin\${configuration}\bin" overwrite="true" flatten="true" failonerror="false">
 			<fileset>
 				<include name="TortoiseSVNSetup\include\autolist.txt" />
 				<include name="..\..\common\openssl\out32dll\*.dll" />
@@ -81,8 +81,8 @@
 				<include name="..\apr-iconv\${configuration}\libapriconv.dll" />
 			</fileset>
 		</copy>
-		<mkdir dir="..\bin\${configuration}\bin\iconv" failonerror="false" />
-		<copy todir="..\bin\${configuration}\bin\iconv" overwrite="true" failonerror="false">
+		<mkdir dir="..\bin\${configuration}\iconv" failonerror="false" />
+		<copy todir="..\bin\${configuration}\iconv" overwrite="true" failonerror="false">
 			<fileset>
 				<include name="..\ext\apr-iconv\${configuration}\iconv\*.so" />
 			</fileset>
