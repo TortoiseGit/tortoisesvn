@@ -166,8 +166,10 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 	// who don't know why it's blocked might find the only solution
 	// to such a problem is a reboot and therefore they might loose
 	// valuable data.
+	// One particular situation where the shell could hang is when
+	// the cache crashes and our crashreport dialog comes up.
 	// Sure, it would be better to have no situations where the shell
-	// even can get blocked, but the timeout of 5 seconds is long enough
+	// even can get blocked, but the timeout of 10 seconds is long enough
 	// so that users still recognize that something might be wrong and
 	// report back to us so we can investigate further.
 
@@ -187,13 +189,22 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
 		// TransactNamedPipe is working in an overlapped operation.
 		// Wait for it to finish
-		DWORD dwWait = WaitForSingleObject(m_hEvent, INFINITE);
+		DWORD dwWait = WaitForSingleObject(m_hEvent, 10000);
 		if (dwWait == WAIT_OBJECT_0)
 		{
 			fSuccess = GetOverlappedResult(m_hPipe, &m_Overlapped, &nBytesRead, FALSE);
 		}
 		else
+		{
+			// the cache didn't respond!
 			fSuccess = FALSE;
+			// send the cache a message to close
+			HWND hWnd = FindWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"));
+			if (hWnd)
+			{
+				PostMessage(hWnd, WM_CLOSE, NULL, NULL);
+			}
+		}
 	}
 
 	if (fSuccess)
