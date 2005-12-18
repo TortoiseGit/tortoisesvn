@@ -42,6 +42,26 @@ static void *PointerFromWindow(HWND hWnd) {
 static void SetWindowPointer(HWND hWnd, void *ptr) {
 	::SetWindowLong(hWnd, 0, reinterpret_cast<LONG>(ptr));
 }
+
+#ifndef GWLP_USERDATA
+#define GWLP_USERDATA GWL_USERDATA
+#endif
+
+#ifndef GWLP_WNDPROC
+#define GWLP_WNDPROC GWL_WNDPROC
+#endif
+
+#ifndef LONG_PTR
+#define LONG_PTR LONG
+#endif
+
+static LONG_PTR SetWindowLongPtr(HWND hWnd, int nIndex, LONG_PTR dwNewLong) {
+	return ::SetWindowLong(hWnd, nIndex, dwNewLong);
+}
+
+static LONG_PTR GetWindowLongPtr(HWND hWnd, int nIndex) {
+	return ::GetWindowLong(hWnd, nIndex);
+}
 #endif
 
 static CRITICAL_SECTION crPlatformLock;
@@ -289,6 +309,10 @@ class SurfaceImpl : public Surface {
 	int maxWidthMeasure;
 	int maxLenText;
 
+	int codePage;
+	// If 9x OS and current code page is same as ANSI code page.
+	bool win9xACPSame;
+
 	void BrushColor(ColourAllocated back);
 	void SetFont(Font &font_);
 
@@ -318,6 +342,7 @@ public:
 	void Ellipse(PRectangle rc, ColourAllocated fore, ColourAllocated back);
 	void Copy(PRectangle rc, Point from, Surface &surfaceSource);
 
+	void DrawTextCommon(PRectangle rc, Font &font_, int ybase, const char *s, int len, UINT fuOptions);
 	void DrawTextNoClip(PRectangle rc, Font &font_, int ybase, const char *s, int len, ColourAllocated fore, ColourAllocated back);
 	void DrawTextClipped(PRectangle rc, Font &font_, int ybase, const char *s, int len, ColourAllocated fore, ColourAllocated back);
 	void DrawTextTransparent(PRectangle rc, Font &font_, int ybase, const char *s, int len, ColourAllocated fore);
@@ -336,7 +361,7 @@ public:
 	void FlushCachedState();
 
 	void SetUnicodeMode(bool unicodeMode_);
-	void SetDBCSMode(int codePage);
+	void SetDBCSMode(int codePage_);
 };
 
 SurfaceImpl::SurfaceImpl() :
@@ -352,6 +377,9 @@ SurfaceImpl::SurfaceImpl() :
 	// There appears to be a 16 bit string length limit in GDI on NT and a limit of
 	// 8192 characters on Windows 95.
 	maxLenText = IsNT() ? 65535 : 8192;
+
+	codePage = 0;
+	win9xACPSame = false;
 }
 
 SurfaceImpl::~SurfaceImpl() {
@@ -510,7 +538,7 @@ void SurfaceImpl::RoundedRectangle(PRectangle rc, ColourAllocated fore, ColourAl
 	::RoundRect(hdc,
 		rc.left + 1, rc.top,
 		rc.right - 1, rc.bottom,
-		8, 8 );
+		8, 8);
 }
 
 void SurfaceImpl::Ellipse(PRectangle rc, ColourAllocated fore, ColourAllocated back) {
@@ -525,40 +553,41 @@ void SurfaceImpl::Copy(PRectangle rc, Point from, Surface &surfaceSource) {
 		static_cast<SurfaceImpl &>(surfaceSource).hdc, from.x, from.y, SRCCOPY);
 }
 
-#define MAX_US_LEN 10000
+const int MAX_US_LEN = 10000;
 
-void SurfaceImpl::DrawTextNoClip(PRectangle rc, Font &font_, int ybase, const char *s, int len,
-	ColourAllocated fore, ColourAllocated back) {
+void SurfaceImpl::DrawTextCommon(PRectangle rc, Font &font_, int ybase, const char *s, int len, UINT fuOptions) {
 	SetFont(font_);
-	::SetTextColor(hdc, fore.AsLong());
-	::SetBkColor(hdc, back.AsLong());
 	RECT rcw = RectFromPRectangle(rc);
 	if (unicodeMode) {
 		wchar_t tbuf[MAX_US_LEN];
-		int tlen = UCS2FromUTF8(s, len, tbuf, sizeof(tbuf)/sizeof(wchar_t)-1);
-		tbuf[tlen] = L'\0';
-		::ExtTextOutW(hdc, rc.left, ybase, ETO_OPAQUE, &rcw, tbuf, tlen, NULL);
-	} else {
-		::ExtTextOut(hdc, rc.left, ybase, ETO_OPAQUE, &rcw, s,
+		int tlen = UCS2FromUTF8(s, len, tbuf, MAX_US_LEN);
+		::ExtTextOutW(hdc, rc.left, ybase, fuOptions, &rcw, tbuf, tlen, NULL);
+	} else if (IsNT() || (codePage==0) || win9xACPSame) {
+		::ExtTextOutA(hdc, rc.left, ybase, fuOptions, &rcw, s,
 			Platform::Minimum(len, maxLenText), NULL);
+	} else {
+		// Support Asian string display in 9x English
+		wchar_t tbuf[MAX_US_LEN];
+		int tlen = ::MultiByteToWideChar(codePage, 0, s, len, NULL, 0);
+		if (tlen > MAX_US_LEN)
+			tlen = MAX_US_LEN;
+		::MultiByteToWideChar(codePage, 0, s, len, tbuf, tlen);
+		::ExtTextOutW(hdc, rc.left, ybase, fuOptions, &rcw, tbuf, tlen, NULL);
 	}
+}
+
+void SurfaceImpl::DrawTextNoClip(PRectangle rc, Font &font_, int ybase, const char *s, int len,
+	ColourAllocated fore, ColourAllocated back) {
+	::SetTextColor(hdc, fore.AsLong());
+	::SetBkColor(hdc, back.AsLong());
+	DrawTextCommon(rc, font_, ybase, s, len, ETO_OPAQUE);
 }
 
 void SurfaceImpl::DrawTextClipped(PRectangle rc, Font &font_, int ybase, const char *s, int len,
 	ColourAllocated fore, ColourAllocated back) {
-	SetFont(font_);
 	::SetTextColor(hdc, fore.AsLong());
 	::SetBkColor(hdc, back.AsLong());
-	RECT rcw = RectFromPRectangle(rc);
-	if (unicodeMode) {
-		wchar_t tbuf[MAX_US_LEN];
-		int tlen = UCS2FromUTF8(s, len, tbuf, sizeof(tbuf)/sizeof(wchar_t)-1);
-		tbuf[tlen] = L'\0';
-		::ExtTextOutW(hdc, rc.left, ybase, ETO_OPAQUE | ETO_CLIPPED, &rcw, tbuf, tlen, NULL);
-	} else {
-		::ExtTextOut(hdc, rc.left, ybase, ETO_OPAQUE | ETO_CLIPPED, &rcw, s,
-			Platform::Minimum(len, maxLenText), NULL);
-	}
+	DrawTextCommon(rc, font_, ybase, s, len, ETO_OPAQUE | ETO_CLIPPED);
 }
 
 void SurfaceImpl::DrawTextTransparent(PRectangle rc, Font &font_, int ybase, const char *s, int len,
@@ -566,19 +595,9 @@ void SurfaceImpl::DrawTextTransparent(PRectangle rc, Font &font_, int ybase, con
 	// Avoid drawing spaces in transparent mode
 	for (int i=0;i<len;i++) {
 		if (s[i] != ' ') {
-			SetFont(font_);
 			::SetTextColor(hdc, fore.AsLong());
 			::SetBkMode(hdc, TRANSPARENT);
-			RECT rcw = RectFromPRectangle(rc);
-			if (unicodeMode) {
-				wchar_t tbuf[MAX_US_LEN];
-				int tlen = UCS2FromUTF8(s, len, tbuf, sizeof(tbuf)/sizeof(wchar_t)-1);
-				tbuf[tlen] = L'\0';
-				::ExtTextOutW(hdc, rc.left, ybase, 0, &rcw, tbuf, tlen, NULL);
-			} else {
-				::ExtTextOut(hdc, rc.left, ybase, 0, &rcw, s,
-					Platform::Minimum(len,maxLenText), NULL);
-			}
+			DrawTextCommon(rc, font_, ybase, s, len, 0);
 			::SetBkMode(hdc, OPAQUE);
 			return;
 		}
@@ -590,11 +609,16 @@ int SurfaceImpl::WidthText(Font &font_, const char *s, int len) {
 	SIZE sz={0,0};
 	if (unicodeMode) {
 		wchar_t tbuf[MAX_US_LEN];
-		int tlen = UCS2FromUTF8(s, len, tbuf, sizeof(tbuf)/sizeof(wchar_t)-1);
-		tbuf[tlen] = L'\0';
+		int tlen = UCS2FromUTF8(s, len, tbuf, MAX_US_LEN);
 		::GetTextExtentPoint32W(hdc, tbuf, tlen, &sz);
-	} else {
+	} else if (IsNT() || (codePage==0) || win9xACPSame) {
 		::GetTextExtentPoint32(hdc, s, Platform::Minimum(len, maxLenText), &sz);
+	} else {
+		// Support Asian string display in 9x English
+		wchar_t tbuf[MAX_US_LEN];
+		int tlen = ::MultiByteToWideChar(codePage, 0, s, len, NULL, 0);
+		::MultiByteToWideChar(codePage, 0, s, len, tbuf, tlen);
+		::GetTextExtentPoint32W(hdc, tbuf, tlen, &sz);
 	}
 	return sz.cx;
 }
@@ -605,8 +629,7 @@ void SurfaceImpl::MeasureWidths(Font &font_, const char *s, int len, int *positi
 	int fit = 0;
 	if (unicodeMode) {
 		wchar_t tbuf[MAX_US_LEN];
-		int tlen = UCS2FromUTF8(s, len, tbuf, sizeof(tbuf)/sizeof(wchar_t)-1);
-		tbuf[tlen] = L'\0';
+		int tlen = UCS2FromUTF8(s, len, tbuf, MAX_US_LEN);
 		int poses[MAX_US_LEN];
 		fit = tlen;
 		if (!::GetTextExtentExPointW(hdc, tbuf, tlen, maxWidthMeasure, &fit, poses, &sz)) {
@@ -641,7 +664,7 @@ void SurfaceImpl::MeasureWidths(Font &font_, const char *s, int len, int *positi
 		while (i<len) {
 			positions[i++] = lastPos;
 		}
-	} else {
+	} else if (IsNT() || (codePage==0) || win9xACPSame) {
 		if (!::GetTextExtentExPoint(hdc, s, Platform::Minimum(len, maxLenText),
 			maxWidthMeasure, &fit, positions, &sz)) {
 			// Eeek - a NULL DC or other foolishness could cause this.
@@ -652,6 +675,31 @@ void SurfaceImpl::MeasureWidths(Font &font_, const char *s, int len, int *positi
 			// Not all the positions are filled in so make them equal to end.
 			for (int i=fit;i<len;i++)
 				positions[i] = positions[fit-1];
+		}
+	} else {
+		// Support Asian string display in 9x English
+		wchar_t tbuf[MAX_US_LEN];
+		int tlen = ::MultiByteToWideChar(codePage, 0, s, len, NULL, 0);
+		::MultiByteToWideChar(codePage, 0, s, len, tbuf, tlen);
+
+		int poses[MAX_US_LEN];
+		for (int widthSS=0; widthSS<tlen; widthSS++) {
+			::GetTextExtentPoint32W(hdc, tbuf, widthSS+1, &sz);
+			poses[widthSS] = sz.cx;
+		}
+
+		int ui = 0;
+		for (int i=0;i<len;) {
+			if (::IsDBCSLeadByteEx(codePage, s[i])) {
+				positions[i] = poses[ui];
+				positions[i+1] = poses[ui];
+				i += 2;
+			} else {
+				positions[i] = poses[ui];
+				i++;
+			}
+
+			ui++;
 		}
 	}
 }
@@ -733,8 +781,10 @@ void SurfaceImpl::SetUnicodeMode(bool unicodeMode_) {
 	unicodeMode=unicodeMode_;
 }
 
-void SurfaceImpl::SetDBCSMode(int) {
+void SurfaceImpl::SetDBCSMode(int codePage_) {
 	// No action on window as automatically handled by system.
+	codePage = codePage_;
+	win9xACPSame = !IsNT() && ((unsigned int)codePage == ::GetACP());
 }
 
 Surface *Surface::Allocate() {
@@ -969,7 +1019,7 @@ ListItemData *LineToItem::Append(const char *text, int imageIndex) {
 	return item;
 }
 
-const char ListBoxX_ClassName[] = "ListBoxX";
+const TCHAR ListBoxX_ClassName[] = TEXT("ListBoxX");
 
 ListBox::ListBox() {
 }
@@ -1015,7 +1065,7 @@ class ListBoxX : public ListBox {
 	void CentreItem(int);
 	void Paint(HDC);
 	void Erase(HDC);
-	static long PASCAL ControlWndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
+	static LRESULT PASCAL ControlWndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
 
 	static const Point ItemInset;	// Padding around whole item
 	static const Point TextInset;	// Padding around text
@@ -1055,8 +1105,8 @@ public:
 	}
 	virtual void SetList(const char *list, char separator, char typesep);
 	void Draw(DRAWITEMSTRUCT *pDrawItem);
-	long WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
-	static long PASCAL StaticWndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
+	LRESULT WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
+	static LRESULT PASCAL StaticWndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
 };
 
 const Point ListBoxX::ItemInset(0, 0);
@@ -1560,7 +1610,7 @@ void ListBoxX::Paint(HDC hDC) {
 	::DeleteObject(hBitmap);
 }
 
-long PASCAL ListBoxX::ControlWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+LRESULT PASCAL ListBoxX::ControlWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	switch (uMsg) {
 	case WM_ERASEBKGND:
 		return TRUE;
@@ -1602,7 +1652,7 @@ long PASCAL ListBoxX::ControlWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
 		return 0;
 	}
 
-	WNDPROC prevWndProc = reinterpret_cast<WNDPROC>(GetWindowLong(hWnd, GWL_USERDATA));
+	WNDPROC prevWndProc = reinterpret_cast<WNDPROC>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
 	if (prevWndProc) {
 		return ::CallWindowProc(prevWndProc, hWnd, uMsg, wParam, lParam);
 	} else {
@@ -1610,7 +1660,7 @@ long PASCAL ListBoxX::ControlWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
 	}
 }
 
-long ListBoxX::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
+LRESULT ListBoxX::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
 	switch (iMessage) {
 	case WM_CREATE: {
 			HINSTANCE hinstanceParent = GetWindowInstance(reinterpret_cast<HWND>(parent->GetID()));
@@ -1624,8 +1674,8 @@ long ListBoxX::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
 				reinterpret_cast<HMENU>(ctrlID),
 				hinstanceParent,
 				0);
-			WNDPROC prevWndProc = reinterpret_cast<WNDPROC>(::SetWindowLong(lb, GWL_WNDPROC, reinterpret_cast<LONG>(ControlWndProc)));
-			::SetWindowLong(lb, GWL_USERDATA, reinterpret_cast<LONG>(prevWndProc));
+			WNDPROC prevWndProc = reinterpret_cast<WNDPROC>(::SetWindowLongPtr(lb, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>(ControlWndProc)));
+			::SetWindowLongPtr(lb, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(prevWndProc));
 		}
 		break;
 
@@ -1715,7 +1765,7 @@ long ListBoxX::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
 	return 0;
 }
 
-long PASCAL ListBoxX::StaticWndProc(
+LRESULT PASCAL ListBoxX::StaticWndProc(
     HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) {
 	if (iMessage == WM_CREATE) {
 		CREATESTRUCT *pCreate = reinterpret_cast<CREATESTRUCT *>(lParam);
@@ -1963,6 +2013,7 @@ void Platform::Assert(const char *c, const char *file, int line) {
 	} else {
 		strcat(buffer, "\r\n");
 		Platform::DebugDisplay(buffer);
+		::DebugBreak();
 		abort();
 	}
 }

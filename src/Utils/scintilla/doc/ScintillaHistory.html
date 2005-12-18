@@ -209,6 +209,9 @@
 	<li>Steve Menard</li>
 	<li>Oliver Yeoh</li>
 	<li>Eric Promislow</li>
+	<li>Joseph Galbraith</li>
+	<li>Jeffrey Ren</li>
+	<li>Armel Asselin</li>
     </ul>
     <p>
        Images used in GTK+ version
@@ -218,6 +221,150 @@
         <a href="http://sourceforge.net/projects/icon-collection/">
         Icons</a> Copyright(C) 1998 by Dean S. Jones<br />
       </li>
+    </ul>
+    <h3>
+       <a href="http://prdownloads.sourceforge.net/scintilla/scite167.zip?download">Release 1.67</a>
+    </h3>
+    <ul>
+	<li>
+	Released on 17 December 2005.
+	</li>
+	<li>
+	Scintilla checks the paint region more accurately when seeing if an area is being
+	repainted. Platform layer implementations may need to change for this to take
+	effect. This fixes some drawing and styling bugs. Also optimized some parts of
+	marker code to only redraw the line of the marker rather than whole of the margin.
+	</li>
+	<li>
+	Quoted identifier style for SQL. SQL folding performed more simply.
+	</li>
+	<li>
+	Ruby lexer improved to better handle here documents and non-ASCII
+	characters.
+	</li>
+	<li>
+	Lua lexer supports long string and block comment syntax from Lua 5.1.
+	</li>
+	<li>
+	Bash lexer handles here documents better.
+	</li>
+	<li>
+	JavaScript lexing recognises regular expressions more accurately and includes flag
+	characters in the regular expression style. This is both in JavaScript files and when
+	JavaScript is embedded in HTML.
+	</li>
+	<li>
+	Scintilla API provided to reveal how many style bits are needed for the
+	current lexer.
+	</li>
+	<li>
+	Selection duplicate added.
+	</li>
+	<li>
+	Scintilla API for adding a set of markers to a line.
+	</li>
+	<li>
+	DBCS encodings work on Windows 9x.
+	</li>
+	<li>
+	Convention defined for property names to be used by lexers and folders
+	so they can be automatically discovered and forwarded from containers.
+	</li>
+	<li>
+	Default bookmark in SciTE changed to a blue sphere image.
+	</li>
+	<li>
+	SciTE stores the time of last asking for a save separately for each buffer
+	which fixes bugs with automatic reloading.
+	</li>
+	<li>
+	On Windows, pasted text has line ends converted to current preference.
+	GTK+ already did this.
+	</li>
+	<li>
+	Kid template language better handled by HTML lexer by finishing ASP Python
+	mode when a ?> is found.
+	</li>
+	<li>
+	SciTE counts number of characters in a rectangular selection correctly.
+	</li>
+	<li>
+	64-bit compatibility improved. One change that may affect user code is that
+	the notification message header changed to include a pointer-sized id field
+	to match the current Windows definition.
+	</li>
+	<li>
+	Empty ranges can no longer be dragged.
+	</li>
+	<li>
+	Crash fixed when calls made that use layout inside the painted notification.
+	</li>
+	<li>
+	Bug fixed where Scintilla created pixmap buffers that were too large leading
+	to failures when many instances used.
+	</li>
+	<li>
+	SciTE sets the directory of a new file to the directory of the currently
+	active file.
+	</li>
+	<li>
+	SciTE allows choosing a code page for the output pane.
+	</li>
+	<li>
+	SciTE HTML exporter no longer honours monospaced font setting.
+	</li>
+	<li>
+	Line layout cache in page mode caches the line of the caret. An assertion is
+	now used to ensure that the layout reentrancy problem that caused this
+	is easier to find.
+	</li>
+	<li>
+	Speed optimized for long lines and lines containing many control characters.
+	</li>
+	<li>
+	Bug fixed in brace matching in DBCS files where byte inside character
+	is same as brace.
+	</li>
+	<li>
+	Indent command does not indent empty lines.
+	</li>
+	<li>
+	SciTE bug fixed for commands that operate on files with empty extensions.
+	</li>
+	<li>
+	SciTE bug fixed where monospaced option was copied for subsequently opened files.
+	</li>
+	<li>
+	SciTE on Windows bug fixed in the display of a non-ASCII search string
+	which can not be found.
+	</li>
+	<li>
+	Bugs fixed with nested calls displaying a new calltip while one is already
+	displayed.
+	</li>
+	<li>
+	Bug fixed when styling PHP strings.
+	</li>
+	<li>
+	Bug fixed when styling C++ continued preprocessor lines.
+	</li>
+	<li>
+	SciTE bug fixed where opening file from recently used list reset choice of
+	language.
+	</li>
+	<li>
+	SciTE bug fixed when compiled with NO_EXTENSIONS and
+	closing one file closes the application.
+	</li>
+	<li>
+	SciTE crash fixed for error messages that look like Lua messages but aren't
+	in the same order.
+	</li>
+	<li>
+	Remaining fold box support deprecated. The symbols SC_FOLDLEVELBOXHEADERFLAG,
+   SC_FOLDLEVELBOXFOOTERFLAG, SC_FOLDLEVELCONTRACTED,
+   SC_FOLDLEVELUNINDENT, and SC_FOLDFLAG_BOX are deprecated.
+	</li>
     </ul>
     <h3>
        <a href="http://prdownloads.sourceforge.net/scintilla/scite166.zip?download">Release 1.66</a>
@@ -234,7 +381,7 @@
 	enabled when the internal find command is used.
 	</li>
 	<li>
-	SciTE output pane can display automatic completion after "$(" typed. 
+	SciTE output pane can display automatic completion after "$(" typed.
 	An initial ">" on a line is ignored when Enter pressed.
 	</li>
 	<li>
@@ -264,7 +411,7 @@
 	SciTE on GTK+ handles file names used to reference properties as case-sensitive.
 	</li>
 	<li>
-	SciTE on GTK+ Save As and Export commands set the file name field. 
+	SciTE on GTK+ Save As and Export commands set the file name field.
 	On GTK+ the Export commands modify the file name in the same way as on Windows.
 	</li>
 	<li>
@@ -278,7 +425,7 @@
 	SciTE bugs fixed where files contained in directory that includes '.' character.
 	</li>
 	<li>
-	SciTE bug fixed where import in user options was reading file from directory of 
+	SciTE bug fixed where import in user options was reading file from directory of
 	global options.
 	</li>
 	<li>
@@ -288,7 +435,7 @@
 	SciTE folding bug fixed where empty lines were shown for no reason.
 	</li>
 	<li>
-	Bug fixed where 2 byte per pixel XPM images caused crash although they are still not 
+	Bug fixed where 2 byte per pixel XPM images caused crash although they are still not
 	displayed.
 	</li>
 	<li>
@@ -306,10 +453,10 @@
 	FreeBasic support.
 	</li>
 	<li>
-	SciTE on Windows handles command line arguments 
-	"-" (read standard input into buffer), 
-	"--" (read standard input into output pane) and 
-	"-@" (read file names from standard input and open each). 
+	SciTE on Windows handles command line arguments
+	"-" (read standard input into buffer),
+	"--" (read standard input into output pane) and
+	"-@" (read file names from standard input and open each).
 	</li>
 	<li>
 	SciTE includes a simple implementation of Find in Files which is used if no find.command is set.
@@ -351,12 +498,12 @@
 	and in '+++' and '---' lines from diff.
 	</li>
 	<li>
-	Bugs fixed in SciTE and Scintilla folding behaviour when text pasted before 
-	folded text caused unnecessary 
+	Bugs fixed in SciTE and Scintilla folding behaviour when text pasted before
+	folded text caused unnecessary
 	unfolding and cutting text could lead to text being irretrievably hidden.
 	</li>
 	<li>
-	SciTE on Windows uses correct font for dialogs and better font for tab bar 
+	SciTE on Windows uses correct font for dialogs and better font for tab bar
 	allowing better localisation
 	</li>
 	<li>
@@ -372,7 +519,7 @@
 	Lexers will no longer be re-entered recursively during, for example, fold level setting.
 	</li>
 	<li>
-	Undo of typing in overwrite mode undoes one character at a time rather than requiring a removal 
+	Undo of typing in overwrite mode undoes one character at a time rather than requiring a removal
 	and addition step for each character.
 	</li>
 	<li>
@@ -415,7 +562,7 @@
 	lines with a colour.
 	</li>
 	<li>
-	Performance improved for some large undo and redo operations and modification flags 
+	Performance improved for some large undo and redo operations and modification flags
 	added in notifications.
 	</li>
 	<li>
@@ -475,7 +622,7 @@
 	Autocomplete window size made larger under some conditions to make truncation less common.
 	</li>
 	<li>
-	Bug fixed where changing case of a selection did not affect initial character of lines 
+	Bug fixed where changing case of a selection did not affect initial character of lines
 	in multi-byte encodings.
 	</li>
 	<li>
@@ -491,7 +638,7 @@
 	</li>
 	<li>
 	Autocompletion on Windows changed to use popup window, be faster,
-	allow choice of maximum width and height, and to highlight only the text of the 
+	allow choice of maximum width and height, and to highlight only the text of the
 	selected item rather than both the text and icon if any.
 	</li>
 	<li>
@@ -523,7 +670,7 @@
 	lines so that the eolfilled style can be applied to them.
 	</li>
 	<li>
-	NSIS support updated for line continuations, box comments, SectionGroup and 
+	NSIS support updated for line continuations, box comments, SectionGroup and
 	PageEx, and with more up-to-date properties.
 	</li>
 	<li>
@@ -540,7 +687,7 @@
 	line due to wrapping.
 	</li>
 	<li>
-	Sticky caret mode does not modify the preferred caret x position when typing 
+	Sticky caret mode does not modify the preferred caret x position when typing
 	and may be useful for typing columns of text.
 	</li>
 	<li>
@@ -557,7 +704,7 @@
 	space as empty and handle text hidden by folding.
 	</li>
 	<li>
-	Scintilla on Windows supports WM_PRINTCLIENT although there are some 
+	Scintilla on Windows supports WM_PRINTCLIENT although there are some
 	limitations.
 	</li>
 	<li>
@@ -573,19 +720,19 @@
 	</li>
 	<li>
 	SciTE on GTK+ changes menus and toolbars to not be detachable unless turned
-	on with a property. Menus no longer tear off. The toolbar may be set to use the 
-	default theme icons rather than SciTE's set. Changed key for View | End of Line 
+	on with a property. Menus no longer tear off. The toolbar may be set to use the
+	default theme icons rather than SciTE's set. Changed key for View | End of Line
 	because of a conflict. Language menu can contain more items.
 	</li>
 	<li>
-	SciTE on GTK+ 2.x allows the height and width of the file open file chooser to 
+	SciTE on GTK+ 2.x allows the height and width of the file open file chooser to
 	be set, for the show hidden files check box to be set from an option and for it
-	to be opened in the directory of the current file explicitly. Enter key works in 
+	to be opened in the directory of the current file explicitly. Enter key works in
 	save chooser.
 	</li>
 	<li>
 	Scintilla lexers should no longer see bits in style bytes that are outside the set
-	they modify so should be able to correctly lex documents where the container 
+	they modify so should be able to correctly lex documents where the container
 	has used indicators.
 	</li>
 	<li>
@@ -602,7 +749,7 @@
 	Allow use from LccWin compiler.
 	</li>
 	<li>
-	SCI_COLOURISE for SCLEX_CONTAINER causes a 
+	SCI_COLOURISE for SCLEX_CONTAINER causes a
 	SCN_STYLENEEDED notification.
 	</li>
 	<li>
@@ -612,7 +759,7 @@
 	Fix for folding becoming confused.
 	</li>
 	<li>
-	On Windows, fixes for Japanese Input Method Editor and for 8 bit Katakana 
+	On Windows, fixes for Japanese Input Method Editor and for 8 bit Katakana
 	characters.
 	</li>
 	<li>
@@ -643,7 +790,7 @@
 	Undo of automatic indentation more reasonable.
 	</li>
 	<li>
-	High processor usage fixed in background wrapping under some 
+	High processor usage fixed in background wrapping under some
 	circumstances.
 	</li>
 	<li>
@@ -662,7 +809,7 @@
 	SciTE crashing bug fixed in incremental search on Windows ME.
 	</li>
 	<li>
-	SciTE on Windows has a optional find and replace dialogs that can search through 
+	SciTE on Windows has a optional find and replace dialogs that can search through
 	all buffers and search within a particular style number.
 	</li>
     </ul>
@@ -1810,7 +1957,7 @@
 	a WindowID parameter.
       </li>
       <li>
-	Bug fixed with drawing or measuring long ieces of text on Windows 9x
+	Bug fixed with drawing or measuring long pieces of text on Windows 9x
 	by truncating the pieces.
       </li>
       <li>
@@ -2486,7 +2633,7 @@
 	More variants of ctags tags handled by Open Selected Filename in SciTE.
       </li>
       <li>
-	Javascript embedded in XML highlighted again.
+	JavaScript embedded in XML highlighted again.
       </li>
       <li>
 	SciTE status bar updated after changing parameters in case they are being

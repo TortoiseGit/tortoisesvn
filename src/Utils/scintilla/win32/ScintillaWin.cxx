@@ -91,8 +91,8 @@ extern void Platform_Finalise();
 
 // GCC has trouble with the standard COM ABI so do it the old C way with explicit vtables.
 
-const char scintillaClassName[] = "Scintilla";
-const char callClassName[] = "CallTip";
+const TCHAR scintillaClassName[] = TEXT("Scintilla");
+const TCHAR callClassName[] = TEXT("CallTip");
 
 class ScintillaWin; 	// Forward declaration for COM interface subobjects
 
@@ -147,6 +147,8 @@ class ScintillaWin :
 	unsigned int linesPerScroll;	///< Intellimouse support
 	int wheelDelta; ///< Wheel delta from roll
 
+	HRGN hRgnUpdate;
+
 	bool hasOKText;
 
 	CLIPFORMAT cfColumnSelect;
@@ -183,6 +185,7 @@ class ScintillaWin :
 	virtual void SetTicking(bool on);
 	virtual void SetMouseCapture(bool on);
 	virtual bool HaveMouseCapture();
+	virtual bool PaintContains(PRectangle rc);
 	virtual void ScrollText(int linesToMove);
 	virtual void UpdateSystemCaret();
 	virtual void SetVerticalScrollPos();
@@ -218,6 +221,8 @@ class ScintillaWin :
 	virtual int SetScrollInfo(int nBar, LPCSCROLLINFO lpsi, BOOL bRedraw);
 	virtual bool GetScrollInfo(int nBar, LPSCROLLINFO lpsi);
 	void ChangeScrollPos(int barType, int pos);
+
+	void InsertPasteText(const char *text, int len, int selStart, bool isRectangular);
 
 public:
 	// Public for benefit of Scintilla_DirectFunction
@@ -275,12 +280,14 @@ ScintillaWin::ScintillaWin(HWND hwnd) {
 	linesPerScroll = 0;
 	wheelDelta = 0;   // Wheel delta from roll
 
+	hRgnUpdate = 0;
+
 	hasOKText = false;
 
 	// There does not seem to be a real standard for indicating that the clipboard
 	// contains a rectangular selection, so copy Developer Studio.
 	cfColumnSelect = static_cast<CLIPFORMAT>(
-		::RegisterClipboardFormat("MSDEVColumnSelect"));
+		::RegisterClipboardFormat(TEXT("MSDEVColumnSelect")));
 
 	wMain = hwnd;
 
@@ -407,9 +414,12 @@ LRESULT ScintillaWin::WndPaint(uptr_t wParam) {
 
 	bool IsOcxCtrl = (wParam != 0); // if wParam != 0, it contains
 								   // a PAINSTRUCT* from the OCX
+	PLATFORM_ASSERT(hRgnUpdate == NULL);
+	hRgnUpdate = ::CreateRectRgn(0, 0, 0, 0);
 	if (IsOcxCtrl) {
 		pps = reinterpret_cast<PAINTSTRUCT*>(wParam);
 	} else {
+		::GetUpdateRgn(MainHWND(), hRgnUpdate, FALSE);
 		pps = &ps;
 		::BeginPaint(MainHWND(), pps);
 	}
@@ -426,6 +436,11 @@ LRESULT ScintillaWin::WndPaint(uptr_t wParam) {
 		Paint(surfaceWindow, rcPaint);
 		surfaceWindow->Release();
 	}
+	if (hRgnUpdate) {
+		::DeleteRgn(hRgnUpdate);
+		hRgnUpdate = 0;
+	}
+
 	if(!IsOcxCtrl)
 		::EndPaint(MainHWND(), pps);
 	if (paintState == paintAbandoned) {
@@ -672,7 +687,7 @@ sptr_t ScintillaWin::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam
 				::ScreenToClient(MainHWND(), &pt);
 				if (PointInSelMargin(Point(pt.x, pt.y))) {
 					DisplayCursor(Window::cursorReverseArrow);
-				} else if (PointInSelection(Point(pt.x, pt.y))) {
+				} else if (PointInSelection(Point(pt.x, pt.y)) && !SelectionEmpty()) {
 					DisplayCursor(Window::cursorArrow);
 				} else if (PointIsHotspot(Point(pt.x, pt.y))) {
 					DisplayCursor(Window::cursorHand);
@@ -987,6 +1002,30 @@ bool ScintillaWin::HaveMouseCapture() {
 	//return capturedMouse && (::GetCapture() == MainHWND());
 }
 
+bool ScintillaWin::PaintContains(PRectangle rc) {
+	bool contains = true;
+	if (paintState == painting) {
+		if (!rcPaint.Contains(rc)) {
+			contains = false;
+		} else {
+			// In bounding rectangle so check more accurately using region
+			HRGN hRgnRange = ::CreateRectRgn(rc.left, rc.top, rc.right, rc.bottom);
+			if (hRgnRange) {
+				HRGN hRgnDest = ::CreateRectRgn(0, 0, 0, 0);
+				if (hRgnDest) {
+					int combination = ::CombineRgn(hRgnDest, hRgnRange, hRgnUpdate, RGN_DIFF);
+					if (combination != NULLREGION) {
+						contains = false;
+					}
+					::DeleteRgn(hRgnDest);
+				}
+				::DeleteRgn(hRgnRange);
+			}
+		}
+	}
+	return contains;
+}
+
 void ScintillaWin::ScrollText(int linesToMove) {
 	//Platform::DebugPrintf("ScintillaWin::ScrollText %d\n", linesToMove);
 	::ScrollWindow(MainHWND(), 0,
@@ -1159,6 +1198,64 @@ static UINT CodePageFromCharSet(DWORD characterSet, UINT documentCodePage) {
 	return cp;
 }
 
+class GlobalMemory {
+	HGLOBAL hand;
+public:
+	void *ptr;
+	GlobalMemory() : hand(0), ptr(0) {
+	}
+	GlobalMemory(HGLOBAL hand_) : hand(hand_), ptr(0) {
+		if (hand) {
+			ptr = ::GlobalLock(hand);
+		}
+	}
+	~GlobalMemory() {
+		PLATFORM_ASSERT(!ptr);
+	}
+	void Allocate(size_t bytes) {
+		hand = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT, bytes);
+		if (hand) {
+			ptr = ::GlobalLock(hand);
+		}
+	}
+	HGLOBAL Unlock() {
+		PLATFORM_ASSERT(ptr);
+		HGLOBAL handCopy = hand;
+		::GlobalUnlock(hand);
+		ptr = 0;
+		hand = 0;
+		return handCopy;
+	}
+	void SetClip(UINT uFormat) {
+		::SetClipboardData(uFormat, Unlock());
+	}
+	operator bool() {
+		return ptr != 0;
+	}
+	SIZE_T Size() {
+		return ::GlobalSize(hand);
+	}
+};
+
+void ScintillaWin::InsertPasteText(const char *text, int len, int selStart, bool isRectangular) {
+	if (isRectangular) {
+		PasteRectangular(selStart, text, len);
+	} else {
+		if (convertPastes) {
+			// Convert line endings of the paste into our local line-endings mode
+			char *convertedString = Document::TransformLineEnds(&len, text, len, pdoc->eolMode);
+			if (pdoc->InsertString(currentPos, convertedString, len)) {
+				SetEmptySelection(currentPos + len);
+			}
+			delete []convertedString;
+		} else {
+			if (pdoc->InsertString(currentPos, text, len)) {
+				SetEmptySelection(currentPos + len);
+			}
+		}
+	}
+}
+
 void ScintillaWin::Paste() {
 	if (!::OpenClipboard(MainHWND()))
 		return;
@@ -1168,15 +1265,15 @@ void ScintillaWin::Paste() {
 	bool isRectangular = ::IsClipboardFormatAvailable(cfColumnSelect) != 0;
 
 	// Always use CF_UNICODETEXT if available
-	HGLOBAL hmemUSelection = ::GetClipboardData(CF_UNICODETEXT);
-	if (hmemUSelection) {
-		wchar_t *uptr = static_cast<wchar_t *>(::GlobalLock(hmemUSelection));
+	GlobalMemory memUSelection(::GetClipboardData(CF_UNICODETEXT));
+	if (memUSelection) {
+		wchar_t *uptr = static_cast<wchar_t *>(memUSelection.ptr);
 		if (uptr) {
 			unsigned int len;
 			char *putf;
 			// Default Scintilla behaviour in Unicode mode
 			if (IsUnicodeMode()) {
-				unsigned int bytes = ::GlobalSize(hmemUSelection);
+				unsigned int bytes = memUSelection.Size();
 				len = UTF8Length(uptr, bytes / 2);
 				putf = new char[len + 1];
 				if (putf) {
@@ -1197,25 +1294,18 @@ void ScintillaWin::Paste() {
 			}
 
 			if (putf) {
-				if (isRectangular) {
-					PasteRectangular(selStart, putf, len);
-				} else {
-					if (pdoc->InsertString(currentPos, putf, len)) {
-						SetEmptySelection(currentPos + len);
-					}
-				}
+				InsertPasteText(putf, len, selStart, isRectangular);
 				delete []putf;
 			}
 		}
-		::GlobalUnlock(hmemUSelection);
+		memUSelection.Unlock();
 	} else {
 		// CF_UNICODETEXT not available, paste ANSI text
-		HGLOBAL hmemSelection = ::GetClipboardData(CF_TEXT);
-		if (hmemSelection) {
-			char *ptr = static_cast<char *>(
-			                ::GlobalLock(hmemSelection));
+		GlobalMemory memSelection(::GetClipboardData(CF_TEXT));
+		if (memSelection) {
+			char *ptr = static_cast<char *>(memSelection.ptr);
 			if (ptr) {
-				unsigned int bytes = ::GlobalSize(hmemSelection);
+				unsigned int bytes = memSelection.Size();
 				unsigned int len = bytes;
 				for (unsigned int i = 0; i < bytes; i++) {
 					if ((len == bytes) && (0 == ptr[i]))
@@ -1224,11 +1314,10 @@ void ScintillaWin::Paste() {
 
 				// In Unicode mode, convert clipboard text to UTF-8
 				if (IsUnicodeMode()) {
-					wchar_t *uptr = static_cast<wchar_t *>(::GlobalAlloc(GPTR,
-					                                       len * 2 + 2));
+					wchar_t *uptr = new wchar_t[len+1];
 
 					unsigned int ulen = ::MultiByteToWideChar(CP_ACP, 0,
-					                    ptr, len, uptr, GlobalSize(static_cast<wchar_t *>(uptr)));
+					                    ptr, len, uptr, len+1);
 
 					unsigned int mlen = UTF8Length(uptr, ulen);
 					char *putf = new char[mlen + 1];
@@ -1237,25 +1326,17 @@ void ScintillaWin::Paste() {
 						UTF8FromUCS2(uptr, ulen, putf, mlen);
 					}
 
-					::GlobalFree(static_cast<wchar_t *>(uptr));
+					delete []uptr;
 
-					if (isRectangular) {
-						PasteRectangular(selStart, putf, mlen);
-					} else {
-						pdoc->InsertString(currentPos, putf, mlen);
-						SetEmptySelection(currentPos + mlen);
+					if (putf) {
+						InsertPasteText(putf, mlen, selStart, isRectangular);
+						delete []putf;
 					}
-					delete []putf;
 				} else {
-					if (isRectangular) {
-						PasteRectangular(selStart, ptr, len);
-					} else {
-						pdoc->InsertString(currentPos, ptr, len);
-						SetEmptySelection(currentPos + len);
-					}
+					InsertPasteText(ptr, len, selStart, isRectangular);
 				}
 			}
-			::GlobalUnlock(hmemSelection);
+			memSelection.Unlock();
 		}
 	}
 	::CloseClipboard();
@@ -1672,7 +1753,7 @@ void ScintillaWin::AddCharBytes(char b0, char b1) {
 		unsigned int len = UTF8Length(wcs, 1);
 		UTF8FromUCS2(wcs, 1, utfval, len);
 		utfval[len] = '\0';
-		AddCharUTF(utfval,len);
+		AddCharUTF(utfval, len ? len : 1);
 	} else if (b0) {
 		char dbcsChars[3];
 		dbcsChars[0] = b0;
@@ -1694,62 +1775,49 @@ void ScintillaWin::CopyToClipboard(const SelectionText &selectedText) {
 		return ;
 	::EmptyClipboard();
 
-	HGLOBAL uhand;
-	wchar_t *uptr = 0;
+	GlobalMemory uniText;
 
 	// Default Scintilla behaviour in Unicode mode
 	if (IsUnicodeMode()) {
 		int uchars = UCS2Length(selectedText.s, selectedText.len);
-		uhand = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT,
-		                      2 * (uchars));
-		if (uhand) {
-			uptr = static_cast<wchar_t *>(::GlobalLock(uhand));
-			UCS2FromUTF8(selectedText.s, selectedText.len, uptr, uchars);
+		uniText.Allocate(2 * uchars);
+		if (uniText) {
+			UCS2FromUTF8(selectedText.s, selectedText.len, static_cast<wchar_t *>(uniText.ptr), uchars);
 		}
 	} else {
 		// Not Unicode mode
 		// Convert to Unicode using the current Scintilla code page
 		UINT cpSrc = CodePageFromCharSet(
 					selectedText.characterSet, selectedText.codePage);
-		uhand = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT,
-		                      2 * (selectedText.len + 1));
-		if (uhand) {
-			uptr = static_cast<wchar_t *>(::GlobalLock(uhand));
-			::MultiByteToWideChar(cpSrc, 0,
-			                      selectedText.s, selectedText.len, uptr, GlobalSize(uhand));
+		uniText.Allocate(2 * selectedText.len);
+		if (uniText) {
+			::MultiByteToWideChar(cpSrc, 0, selectedText.s, selectedText.len, 
+				static_cast<wchar_t *>(uniText.ptr), selectedText.len);
 		}
 	}
 
-	// Copy ANSI text to clipboard on Windows 9x
-	// Convert from Unicode text, so other ANSI programs can
-	// paste the text
-	// Windows NT, 2k, XP automatically generates CF_TEXT
-	if (!IsNT() && uhand) {
-		HGLOBAL hand = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT,
-		                     selectedText.len);
-		if (hand) {
-			char *ptr = static_cast<char *>(::GlobalLock(hand));
-			::WideCharToMultiByte(CP_ACP, 0, uptr, -1, ptr, GlobalSize(hand),
-			                      NULL, NULL);
-			::GlobalUnlock(hand);
-			::SetClipboardData(CF_TEXT, hand);
+	if (uniText) {
+		if (!IsNT()) {
+			// Copy ANSI text to clipboard on Windows 9x
+			// Convert from Unicode text, so other ANSI programs can
+			// paste the text
+			// Windows NT, 2k, XP automatically generates CF_TEXT
+			GlobalMemory ansiText;
+			ansiText.Allocate(selectedText.len);
+			if (ansiText) {
+				::WideCharToMultiByte(CP_ACP, 0, static_cast<wchar_t *>(uniText.ptr), -1, 
+					static_cast<char *>(ansiText.ptr), selectedText.len, NULL, NULL);
+				ansiText.SetClip(CF_TEXT);
+			}
 		}
-	}
-
-	if (uhand) {
-		::GlobalUnlock(uhand);
-		::SetClipboardData(CF_UNICODETEXT, uhand);
-	}
-
-	// There was a failure - try to copy at least ANSI text
-	if (!uhand) {
-		HGLOBAL hand = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT,
-		                     selectedText.len);
-		if (hand) {
-			char *ptr = static_cast<char *>(::GlobalLock(hand));
-			memcpy(ptr, selectedText.s, selectedText.len);
-			::GlobalUnlock(hand);
-			::SetClipboardData(CF_TEXT, hand);
+		uniText.SetClip(CF_UNICODETEXT);
+	} else {
+		// There was a failure - try to copy at least ANSI text
+		GlobalMemory ansiText;
+		ansiText.Allocate(selectedText.len);
+		if (ansiText) {
+			memcpy(static_cast<char *>(ansiText.ptr), selectedText.s, selectedText.len);
+			ansiText.SetClip(CF_TEXT);
 		}
 	}
 
@@ -2059,25 +2127,20 @@ STDMETHODIMP ScintillaWin::GetData(FORMATETC *pFEIn, STGMEDIUM *pSTM) {
 	pSTM->tymed = TYMED_HGLOBAL;
 	//Platform::DebugPrintf("DOB GetData OK %d %x %x\n", lenDrag, pFEIn, pSTM);
 
-	HGLOBAL hand;
+	GlobalMemory text;
 	if (pFEIn->cfFormat == CF_UNICODETEXT) {
 		int uchars = UCS2Length(drag.s, drag.len);
-		hand = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT, 2 * (uchars));
-		if (hand) {
-			wchar_t *uptr = static_cast<wchar_t *>(::GlobalLock(hand));
-			UCS2FromUTF8(drag.s, drag.len, uptr, uchars);
+		text.Allocate(2 * uchars);
+		if (text) {
+			UCS2FromUTF8(drag.s, drag.len, static_cast<wchar_t *>(text.ptr), uchars);
 		}
 	} else {
-		hand = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT, drag.len);
-		if (hand) {
-			char *ptr = static_cast<char *>(::GlobalLock(hand));
-			for (int i = 0; i < drag.len; i++) {
-				ptr[i] = drag.s[i];
-			}
+		text.Allocate(drag.len);
+		if (text) {
+			memcpy(static_cast<char *>(text.ptr), drag.s, drag.len);
 		}
 	}
-	::GlobalUnlock(hand);
-	pSTM->hGlobal = hand;
+	pSTM->hGlobal = text ? text.Unlock() : 0;
 	pSTM->pUnkForRelease = 0;
 	return S_OK;
 }

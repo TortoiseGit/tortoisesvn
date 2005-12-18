@@ -38,7 +38,7 @@
 
     <h1>Scintilla Documentation</h1>
 
-    <p>Last edited 31/July/2005 RBR</p>
+    <p>Last edited 2/November/2005 NH</p>
 
     <p>There is <a class="jump" href="Design.html">an overview of the internal design of
     Scintilla</a>.<br />
@@ -78,7 +78,10 @@
 
     <p>In the descriptions that follow, the messages are described as function calls with zero, one
     or two arguments. These two arguments are the standard <code>wParam</code> and
-    <code>lParam</code> familiar to Windows programmers. Although the commands only use the
+    <code>lParam</code> familiar to Windows programmers. These parameters are integers that 
+    are large enough to hold pointers, and the return value is also an integer large enough to contain a 
+    pointer.
+    Although the commands only use the
     arguments described, because all messages have two arguments whether Scintilla uses them or
     not, it is strongly recommended that any unused arguments are set to 0. This allows future
     enhancement of messages without the risk of breaking existing code. Common argument types
@@ -100,7 +103,7 @@
         </tr>
 
         <tr>
-          <th align="left">const char *</th>
+          <th align="left">const&nbsp;char&nbsp;*</th>
 
           <td>Arguments point at text that is being passed to Scintilla but not modified. The text
           may be zero terminated or another argument may specify the character count, the
@@ -242,13 +245,15 @@
         <tr>
           <td>o <a class="toc" href="#Notifications">Notifications</a></td>
 
-          <td>o <a class="toc" href="#DeprecatedMessages">Deprecated messages</a></td>
+          <td>o <a class="toc" href="#GTK">GTK+</a></td>
 
-          <td>o <a class="toc" href="#EditMessagesNeverSupportedByScintilla">Edit messages never
-          supported by Scintilla</a></td>
+          <td>o <a class="toc" href="#DeprecatedMessages">Deprecated messages</a></td>
         </tr>
 
         <tr>
+          <td>o <a class="toc" href="#EditMessagesNeverSupportedByScintilla">Edit messages never
+          supported by Scintilla</a></td>
+	  
           <td>o <a class="toc" href="#BuildingScintilla">Building Scintilla</a></td>
         </tr>
       </tbody>
@@ -452,7 +457,9 @@
      <b id="SCI_GETSTYLEBITS">SCI_GETSTYLEBITS</b><br />
      This pair of routines sets and reads back the number of bits in each cell to use for styling,
     to a maximum of 7 style bits. The remaining bits can be used as indicators. The standard
-    setting is <code>SCI_SETSTYLEBITS(5)</code>.</p>
+    setting is <code>SCI_SETSTYLEBITS(5)</code>.
+    The number of styling bits needed by the current lexer can be found with 
+    <a class="message" href="#SCI_GETSTYLEBITSNEEDED">SCI_GETSTYLEBITSNEEDED</a>.</p>
 
     <p><b id="TextRange">TextRange</b> and <b id="CharacterRange">CharacterRange</b><br />
      These structures are defined to be exactly the same shape as the Win32 <code>TEXTRANGE</code>
@@ -791,6 +798,8 @@ struct TextToFind {
      <a class="message" href="#SCI_COPYRANGE">SCI_COPYRANGE(int start, int end)</a><br />
      <a class="message" href="#SCI_COPYTEXT">SCI_COPYTEXT(int length,
      const char *text)</a><br />
+     <a class="message" href="#SCI_SETPASTECONVERTENDINGS">SCI_SETPASTECONVERTENDINGS(bool convert)</a><br />
+     <a class="message" href="#SCI_GETPASTECONVERTENDINGS">SCI_GETPASTECONVERTENDINGS</a><br />
     </code>
 
     <p><b id="SCI_CUT">SCI_CUT</b><br />
@@ -817,6 +826,13 @@ struct TextToFind {
     <p><code>SCI_COPYRANGE</code> copies a range of text from the document to
     the system clipboard and <code>SCI_COPYTEXT</code> copies a supplied piece of
     text to the system clipboard.</p>
+
+    <p><b id="SCI_SETPASTECONVERTENDINGS">SCI_SETPASTECONVERTENDINGS(bool convert)</b><br />
+     <b id="SCI_GETPASTECONVERTENDINGS">SCI_GETPASTECONVERTENDINGS</b><br />
+     If this property is set then when text is pasted any line ends are converted to match the document's
+     end of line mode as set with 
+     <a class="message" href="#SCI_SETEOLMODE">SCI_SETEOLMODE</a>.
+     Currently only changeable on Windows. On GTK+ pasted text is always converted.</p>
 
     <h2 id="ErrorHandling">Error handling</h2>
 
@@ -1107,8 +1123,10 @@ struct TextToFind {
     <p><b id="SCI_GETCURLINE">SCI_GETCURLINE(int textLen, char *text)</b><br />
      This retrieves the text of the line containing the caret and returns the position within the
     line of the caret. Pass in <code>char* text</code> pointing at a buffer large enough to hold
-    the text you wish to retrieve and a terminating 0 character. Set <code>textLen</code> to the
-    length of the buffer. If the text argument is 0 then the length that should be allocated
+    the text you wish to retrieve and a terminating 0 character. 
+    Set <code>textLen</code> to the
+    length of the buffer which must be at least 1 to hold the terminating 0 character.
+    If the text argument is 0 then the length that should be allocated
     to store the entire current line is returned.</p>
 
     <p>See also: <code><a class="message" href="#SCI_GETSELTEXT">SCI_GETSELTEXT</a>, <a
@@ -1718,11 +1736,11 @@ struct TextToFind {
     this can be changed with the <code>SCI_SETEOLMODE</code> message. You can also convert the
     entire document to one of these line endings with <code>SCI_CONVERTEOLS</code>. Finally, you
     can choose to display the line endings with <code>SCI_SETVIEWEOL</code>.</p>
-    <code><a class="message" href="#">SCI_SETEOLMODE(int eolMode)</a><br />
-     <a class="message" href="#">SCI_GETEOLMODE</a><br />
-     <a class="message" href="#">SCI_CONVERTEOLS(int eolMode)</a><br />
-     <a class="message" href="#">SCI_SETVIEWEOL(bool visible)</a><br />
-     <a class="message" href="#">SCI_GETVIEWEOL</a><br />
+    <code><a class="message" href="#SCI_SETEOLMODE">SCI_SETEOLMODE(int eolMode)</a><br />
+     <a class="message" href="#SCI_GETEOLMODE">SCI_GETEOLMODE</a><br />
+     <a class="message" href="#SCI_CONVERTEOLS">SCI_CONVERTEOLS(int eolMode)</a><br />
+     <a class="message" href="#SCI_SETVIEWEOL">SCI_SETVIEWEOL(bool visible)</a><br />
+     <a class="message" href="#SCI_GETVIEWEOL">SCI_GETVIEWEOL</a><br />
     </code>
 
     <p><b id="SCI_SETEOLMODE">SCI_SETEOLMODE(int eolMode)</b><br />
@@ -2565,6 +2583,7 @@ struct TextToFind {
      <a class="message" href="#SCI_MARKERSETBACK">SCI_MARKERSETBACK(int markerNumber, int
     colour)</a><br />
      <a class="message" href="#SCI_MARKERADD">SCI_MARKERADD(int line, int markerNumber)</a><br />
+     <a class="message" href="#SCI_MARKERADDSET">SCI_MARKERADDSET(int line, int markerMask)</a><br />
      <a class="message" href="#SCI_MARKERDELETE">SCI_MARKERDELETE(int line, int
     markerNumber)</a><br />
      <a class="message" href="#SCI_MARKERDELETEALL">SCI_MARKERDELETEALL(int markerNumber)</a><br />
@@ -2750,6 +2769,16 @@ struct TextToFind {
     href="#SCI_MARKERDELETEHANDLE"><code>SCI_MARKERDELETEHANDLE</code></a> to delete the marker
     based on its handle. The message does not check the value of markerNumber, nor does it
     check if the line already contains the marker.</p>
+
+    <p><b id="SCI_MARKERADDSET">SCI_MARKERADDSET(int line, int markerMask)</b><br />
+     This message can add one or more markers to a line with a single call, specified in the same "one-bit-per-marker" 32-bit integer format returned by
+    <a class="message" href="#SCI_MARKERGET"><code>SCI_MARKERGET</code></a>
+    (and used by the mask-based marker search functions
+    <a class="message" href="#SCI_MARKERNEXT"><code>SCI_MARKERNEXT</code></a> and
+    <a class="message" href="#SCI_MARKERPREVIOUS"><code>SCI_MARKERPREVIOUS</code></a>).
+    As with
+    <a class="message" href="#SCI_MARKERADD"><code>SCI_MARKERADD</code></a>, no check is made
+    to see if any of the markers are already present on the targeted line.</p>
 
     <p><b id="SCI_MARKERDELETE">SCI_MARKERDELETE(int line, int markerNumber)</b><br />
      This searches the given line number for the given marker number and deletes it if it is
@@ -3093,8 +3122,8 @@ struct TextToFind {
      </p>
 
     <p>
-      <b id="SCI_AUTOCSETMAXWIDTH">SCI_AUTOCSETMAX(int characterCount)</b><br />
-      <b id="SCI_AUTOCGETMAXWIDTH">SCI_AUTOCGETMAX</b><br />
+      <b id="SCI_AUTOCSETMAXWIDTH">SCI_AUTOCSETMAXWIDTH(int characterCount)</b><br />
+      <b id="SCI_AUTOCGETMAXWIDTH">SCI_AUTOCGETMAXWIDTH</b><br />
 
       Get or set the maximum width of an autocompletion list expressed as the number of characters in the longest item that will be totally visible.
       If zero (the default) then the list's width is calculated to fit the item with the most characters. Any items that cannot be fully displayed within
@@ -3434,6 +3463,11 @@ struct TextToFind {
 
           <td><code>SCI_BACKTAB</code></td>
         </tr>
+	
+        <tr>
+          <td><code>SCI_SELECTIONDUPLICATE</code></td>
+
+        </tr>
      </tbody>
     </table>
 
@@ -3576,7 +3610,7 @@ struct RangeToFormat {
      <code>rc</code> is the rectangle to render the text in (which will, of course, fit within the
     rectangle defined by rcPage).<br />
      <code>chrg.cpMin</code> and <code>chrg.cpMax</code> define the start position and maximum
-    position of characters to output.</p>
+    position of characters to output. All of each line within this character range is drawn.</p>
 
     <p>When printing, the most tedious part is always working out what the margins should be to
     allow for the non-printable area of the paper and printing a header and footer. If you look at
@@ -3850,7 +3884,9 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
     <code>SC_FOLDLEVELBASE</code> (1024) to allow unsigned arithmetic on folding levels. There are
     two addition flag bits. <code>SC_FOLDLEVELWHITEFLAG</code> indicates that the line is blank and
     allows it to be treated slightly different then its level may indicate. For example, blank
-    lines should generally not be fold points. <code>SC_FOLDLEVELHEADERFLAG</code> indicates that
+    lines should generally not be fold points and will be considered part of the preceding section even though 
+    they may have a lesser fold level. 
+    <code>SC_FOLDLEVELHEADERFLAG</code> indicates that
     the line is a header (fold point).</p>
 
     <p>Use <code>SCI_GETFOLDLEVEL(line) &amp; SC_FOLDLEVELNUMBERMASK</code> to get the fold level
@@ -3972,7 +4008,7 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
      <a class="message" href="#SCI_GETWRAPSTARTINDENT">SCI_GETWRAPSTARTINDENT</a><br />
      <a class="message" href="#SCI_SETLAYOUTCACHE">SCI_SETLAYOUTCACHE(int cacheMode)</a><br />
      <a class="message" href="#SCI_GETLAYOUTCACHE">SCI_GETLAYOUTCACHE</a><br />
-     <a class="message" href="#SCI_LINESSPLIT">SCI_LINESSPLIT</a><br />
+     <a class="message" href="#SCI_LINESSPLIT">SCI_LINESSPLIT(int pixelWidth)</a><br />
      <a class="message" href="#SCI_LINESJOIN">SCI_LINESJOIN</a><br />
      <a class="message" href="#SCI_WRAPCOUNT">SCI_WRAPCOUNT(int docLine)</a><br />
     </code>
@@ -4293,6 +4329,8 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
      <a class="message" href="#SCI_GETPROPERTYINT">SCI_GETPROPERTYINT(const char *key, int default)</a><br />
      <a class="message" href="#SCI_SETKEYWORDS">SCI_SETKEYWORDS(int keyWordSet, const char
     *keyWordList)</a><br />
+     <a class="message" href="#SCI_GETSTYLEBITSNEEDED">SCI_GETSTYLEBITSNEEDED</a>
+    <br />
     </code>
 
     <p><b id="SCI_SETLEXER">SCI_SETLEXER(int lexer)</b><br />
@@ -4402,6 +4440,11 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
     There is nothing to stop you building your own keyword lists into the lexer, but this means
     that the lexer must be rebuilt if more keywords are added.</p>
 
+    <p><b id="SCI_GETSTYLEBITSNEEDED">SCI_GETSTYLEBITSNEEDED</b><br />
+     Retrieve the number of bits the current lexer needs for styling. This should normally be the argument
+     to <a class="message" href="#SCI_SETSTYLEBITS">SCI_SETSTYLEBITS</a>.
+     </p>
+
     <h2 id="Notifications">Notifications</h2>
 
     <p>Notifications are sent (fired) from the Scintilla control to its container when an event has
@@ -4411,7 +4454,7 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
 <pre id="SCNotification">
 struct NotifyHeader {   // This matches the Win32 NMHDR structure
     void *hwndFrom;     // environment specific window handle/pointer
-    unsigned int idFrom;// CtrlID of the window issuing the notification
+    uptr_t idFrom;	// CtrlID of the window issuing the notification
     unsigned int code;  // The SCN_* notification code
 };
 
@@ -4475,7 +4518,8 @@ struct SCNotification {
     </code>
 
     <p>The following additional notifications are sent using the <code>WM_COMMAND</code> message on
-    Windows and the "Command" signal on GTK+ to emulate the Windows Edit control:</p>
+    Windows and the "Command" signal on GTK+. This emulates the Windows Edit control. Only the lower
+    16 bits of the control's ID is passed in these notifications.</p>
     <code><a class="message" href="#SCEN_CHANGE">SCEN_CHANGE</a><br />
      <a class="message" href="#SCEN_SETFOCUS">SCEN_SETFOCUS</a><br />
      <a class="message" href="#SCEN_KILLFOCUS">SCEN_KILLFOCUS</a><br />
@@ -4502,7 +4546,9 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
      This is sent when the user types an ordinary text character (as opposed to a command
     character) that is entered into the text. The container can use this to decide to display a <a
     class="jump" href="#CallTips">call tip</a> or an <a class="jump" href="#Autocompletion">auto
-    completion list</a>. The character is in <code>SCNotification.ch</code>.</p>
+    completion list</a>. The character is in <code>SCNotification.ch</code>.
+	This notification is sent before the character has been styled so processing that depends on
+	styling should instead be performed in the SCN_UPDATEUI notification.</p>
 
     <p><b id="SCN_SAVEPOINTREACHED">SCN_SAVEPOINTREACHED</b><br />
      <b id="SCN_SAVEPOINTLEFT">SCN_SAVEPOINTLEFT</b><br />
@@ -5049,6 +5095,31 @@ for line = lineStart to lineEnd do SCI_ENSUREVISIBLE(line) next
         </tr>
       </tbody>
     </table>
+
+    <h2 id="GTK">GTK+</h2>
+    <p>On GTK+, the following functions create a Scintilla widget, communicate with it and allow 
+    resources to be released after all Scintilla widgets hace been destroyed.</p>
+    <code><a class="message" href="#scintilla_new">GtkWidget *scintilla_new()</a><br />
+     <a class="message" href="#scintilla_set_id">void scintilla_set_id(ScintillaObject *sci, uptr_t id)</a><br />
+     <a class="message" href="#scintilla_send_message">sptr_t scintilla_send_message(ScintillaObject *sci,unsigned int iMessage, uptr_t wParam, sptr_t lParam)</a><br />
+     <a class="message" href="#scintilla_release_resources">void scintilla_release_resources()</a><br />
+     </code>
+     
+    <p><b id="scintilla_new">GtkWidget *scintilla_new()</b></b><br />
+    Create a new Scintilla widget. The returned pointer can be added to a container and displayed in the same way as other 
+    widgets.</p>
+
+    <p><b id="scintilla_set_id">void scintilla_set_id(ScintillaObject *sci, uptr_t id)</b></b><br />
+    Set the control ID which will be used in the idFrom field of the NotifyHeader structure of all
+    notifications for this instance. When an application creates multiple Scintilla widgets, this allows
+    the source of each notification to be found. The value should be small, preferrably less than 16 bits,
+    rather than a pointer as some of the functions will only transmit 16 or 32 bits.</p>
+
+    <p><b id="scintilla_send_message">sptr_t scintilla_send_message(ScintillaObject *sci,unsigned int iMessage, uptr_t wParam, sptr_t lParam)</b><br />
+    The main entry point allows sending any of the messages described in this document.</p>
+
+    <p><b id="scintilla_release_resources">void scintilla_release_resources()</b><br />
+    Call this to free any remaining resources after all the Scintilla widgets have been destroyed.</p>
 
     <h2 id="DeprecatedMessages">Deprecated messages and notifications</h2>
 

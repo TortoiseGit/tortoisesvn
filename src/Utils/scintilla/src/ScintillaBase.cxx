@@ -701,6 +701,8 @@ sptr_t ScintillaBase::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lPara
 		SetLexerLanguage(reinterpret_cast<const char *>(lParam));
 		break;
 
+	case SCI_GETSTYLEBITSNEEDED:
+		return lexCurrent ? lexCurrent->GetStyleBitsNeeded() : 5;
 #endif
 
 	default:
