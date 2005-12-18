@@ -8,7 +8,7 @@
 				tofile="src\version.h"
 				overwrite="true"
 			/>
-			<exec program="devenv.com" workingdir="src">
+			<exec program="devenv.com" workingdir="src" failonerror="false">
 				<arg value="TortoiseSVN.sln" />
 				<arg value="/rebuild" />
 				<arg value="release" />
@@ -17,11 +17,28 @@
 			</exec>
 		</if>
 
-		<exec program="bin\release\bin\SubWCRev.exe">
-			<arg value="." />
-			<arg value="version.build.in" />
-			<arg value="version.build" />
-		</exec>
+		<!-- Debug only builds might not have all the libs required to build
+		     SubWCRev! So only use it if it exists and replace the WCREV with
+		     0 if it doesn't -->
+		<if test="${file::exists('bin\release\bin\SubWCRev.exe')}">
+			<exec program="bin\release\bin\SubWCRev.exe">
+				<arg value="." />
+				<arg value="version.build.in" />
+				<arg value="version.build" />
+			</exec>
+		</if>
+		<if test="${not file::exists('bin\release\bin\SubWCRev.exe')}">
+			<loadfile file="version.build.in" property="versionbuildfile">
+				<filterchain>
+					<replacetokens begintoken="$" endtoken="$">
+						<token key="WCREV" value="0" />
+					</replacetokens>
+				</filterchain>
+			</loadfile>
+			<echo file="version.build" message="${versionbuildfile}" />
+			<echo message="Warning: SubWCRev does not exist! Using 0 as the WC-revision" />
+		</if>
+		
 		<nant target="setversioninfo">
 			<buildfiles>
 				<include name="version.build" />

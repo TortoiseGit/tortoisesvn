@@ -28,11 +28,8 @@
 			<arg value="echo" />
 			<arg value="0.25.4>neon\.version" />
 		</exec>
-		<copy
-			file="build\neonconfig.hw"
-			tofile="neon\config.hw"
-			overwrite="true"
-		/>
+		<copy file="build\neon.mak" tofile="neon\neon.mak" overwrite="true" />
+		<copy file="build\neonconfig.hw" tofile="neon\config.hw" overwrite="true" />
 	</target>
 	
 	<target name="prepare_apriconv">
@@ -43,11 +40,8 @@
 
 	<target name="prepare_aprutil">
 		<!-- the expat.h.in doesn't have the version information set :( -->
-		<copy 
-			file="build\expat.h.in" 
-			tofile="apr-util\xml\expat\lib\expat.h.in"
-			overwrite="true"
-		/>
+		<copy file="build\expat.h.in" tofile="apr-util\xml\expat\lib\expat.h.in" overwrite="true" />
+		<copy file="build\libaprutil.vcproj" tofile="apr-util\libaprutil.vcproj" overwrite="true" />
 	</target>
 
 	<target name="prepareSubversion">
@@ -64,12 +58,10 @@
 			<arg value="--with-apr-iconv=..\apr-iconv" />
 			<arg value="--with-berkeley-db=..\berkeley-db\db4.3-win32" />
 			<arg value="--enable-nls" />
-			<arg value="--vsnet-version=2003" />
+			<arg value="--vsnet-version=2005" />
 		</exec>
 		
-		<copy file="build\libaprutil.vcproj" tofile="apr-util\libaprutil.vcproj" overwrite="true" />
 		<copy file="build\apr.hw" tofile="apr\include\apr.hw" overwrite="true" />
-		<copy file="build\neon.mak" tofile="neon\neon.mak" overwrite="true" />
 		<copy file="build\inffas32.asm" tofile="..\..\common\zlib\contrib\masmx86\inffas32.asm" overwrite="true" />
 		<copy file="build\inffas32.asm" tofile="..\..\common\zlib\inffas32.asm" overwrite="true" />
 
@@ -111,7 +103,7 @@
 			file="build\svn_private_config.h"
 			tofile="Subversion\subversion\svn_private_config.hw"
 		/>
-		<exec program="devenv.com" workingdir="Subversion">
+		<exec program="devenv.com" workingdir="Subversion" failonerror="false">
 			<arg value="subversion_vcnet.sln" />
 			<arg value="/useenv" />
 			<arg value="/rebuild" />
@@ -137,7 +129,12 @@
 			tofile="Subversion\subversion\svn_private_config.h"
 			overwrite="true"
 		/>
-		<exec program="devenv.com" workingdir="Subversion">
+		<!-- The build generator still has a small bug: it doesn't add the link 
+		     dependency for libneon.lib to the exe projects. So those will fail
+		     when building. We set failonerror=false to not stop the build
+		     because of that: TortoiseSVN will still build, we only don't have
+		     the svn.exe built -->
+		<exec program="devenv.com" workingdir="Subversion" failonerror="false">
 			<arg value="subversion_vcnet.sln" />
 			<arg value="/useenv" />
 			<arg value="/rebuild" />
