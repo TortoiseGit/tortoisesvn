@@ -9,8 +9,8 @@
 #define TSVN_VERBUILD			  $WCREV$
 
 #ifdef _WIN64
-#define TSVN_PLATFORM		"Experimental 64 Bit Build"
+#define TSVN_PLATFORM		"Experimental 64 Bit Build $DEVBUILD$"
 #else
-#define TSVN_PLATFORM		"32 Bit"
+#define TSVN_PLATFORM		"32 Bit $DEVBUILD$"
 #endif
 
