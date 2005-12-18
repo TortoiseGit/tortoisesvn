@@ -5,9 +5,9 @@ First, you need to install some utilities/programs:
   http://java.sun.com/webapps/getjava/BrowserRedirect
 - Install Python 2.4. You can get it from here:
   http://www.python.org/windows/
+- Set the path where you installed python to the PATH environement variable.
 - To translate the docs, you will also need the libxml2 python bindings.
   Get them from here: http://users.skynet.be/sbi/libxml-python/
-- Set the path where you installed python to the PATH environement variable.
 - Install Perl. Get it from http://www.activestate.com/Products/ActivePerl/
 - Get the WiX tools from http://wix.sourceforge.net and unzip them. Then add
   it to the PATH environement variable.
@@ -15,6 +15,9 @@ First, you need to install some utilities/programs:
   then you have to download those from http://lingucomponent.openoffice.org/.
   Important: Only the thesaurus in the format for OO2 will work! Earlier versions
   will crash TSVN!!
+- Get NSIS from http://nsis.sourceforge.net and install it.
+- Install the latest Nant release. Get it from http://nant.sourceforge.net
+- Add the Nant bin folder to the PATH environement variable.
 
 You may have to logoff/logon to make the new environement variables take effect!
 
@@ -34,18 +37,33 @@ You may have to logoff/logon to make the new environement variables take effect!
 - Download the tools to build the TSVN docs from 
   http://tortoisesvn.tigris.org/files/documents/406/11147/Tools.zip and
   unzip them into SVN\TortoiseSVN\Tools\
-- The build script also builds all the language packs, so you need the NSIS
-  installer from http://nsis.sourceforge.net/.
-- Make a copy of the file TortoiseVars.tmpl in the TSVN root folder and
-  rename that copy to TortoiseVars.bat. Then simply adjust the paths as mentioned
+- Make a copy of the file toolpaths.tmpl in the TSVN root folder and
+  rename that copy to toolpaths.build. Then simply adjust the paths as mentioned
   in that file.
 - To compile the crashrpt project for TortoiseSVN, you'll need the WTL.
   You can get that library from here: http://wtl.sourceforge.net/
   Unzip it and then add the path to the VS.NET include path.
 
-Now, if you got some time left you can run the build.bat script to compile
+Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
+file which is located in %VS80COMNTOOLS%. If you don't want to do that every time,
+you can have the command shell call this file automatically:
+- Create a .reg file with the following code and merge it in your registry
+  Windows Registry Editor Version 5.00
+  
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
+  "AutoRun"="\"C:\\Program Files\\Microsoft Visual Studio 8\\Common7\\Tools\\vsvars.bat\""
+Next time you start the command prompt, that file will be executed automatically.
+
+
+Now, if you got some time left you can run the build script to compile
 TortoiseSVN. Grab a cup of coffee - it can take up to two hours, depending on
 how fast your computer is (on mine, it takes 1 hour and 50 minutes)!
+
+> nant
+will show you some help about the targets you can use
+
+> nant setup
+will compile everything, including docs and languagepacks and create the msi installer
 
 Note: you may notice some compiler errors when the build script compiles 
 Subversion. The errors you will see are:
