@@ -2992,7 +2992,6 @@ void CSVNStatusListCtrl::OnPaint()
 			pHC->GetItemRect(0, &rcH);
 			rc.top += rcH.bottom;
 		}
-		rc.top += 10;
 		CDC* pDC = GetDC();
 		{
 			CMemDC memDC(pDC, &rc);
@@ -3000,6 +2999,7 @@ void CSVNStatusListCtrl::OnPaint()
 			memDC.SetTextColor(clrText);
 			memDC.SetBkColor(clrTextBk);
 			memDC.FillSolidRect(rc, clrTextBk);
+			rc.top += 10;
 			CGdiObject * oldfont = memDC.SelectStockObject(ANSI_VAR_FONT);
 			memDC.DrawText(str, rc, DT_CENTER | DT_VCENTER |
 				DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
