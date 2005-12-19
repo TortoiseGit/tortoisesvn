@@ -32,6 +32,8 @@
 				<Condition Level="0">(NOT Privileged)</Condition>
 				<MergeRef Id="MFC" />
 				<MergeRef Id="MFC Policy" />
+				<MergeRef Id="MFCLOC" />
+				<MergeRef Id="MFCLOC Policy" />
 			</Feature>
 
 
