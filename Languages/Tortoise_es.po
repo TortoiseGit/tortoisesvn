@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-08 15:59+0100\n"
+"PO-Revision-Date: 2005-12-19 16:40+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1580,11 +1580,11 @@ msgstr "¡No se pudo comprobar si existe una nueva versión!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "¡No se pueden copiar los archivos!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:81
@@ -1632,33 +1632,33 @@ msgstr "¡No se puede guardar el archivo %s!"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "¡No se puede iniciar el visor de diferencias!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:81
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "¡No se puede iniciar el programa de diferencias externo!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:81
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "¡No se puede iniciar el programa de fusión externo!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:3857
@@ -2336,6 +2336,15 @@ msgid ""
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr "Si está marcado, TortoiseSVN asignará a los ficheros la hora de la última Actualización. Si no esta marcado TortoiseSVN utilizará la hora actual."
 
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"Si se establece, los ficheros dentro de carpetas sin versionar se pueden vern en el control de estado.\n"
+"El control de estado se utiliza por ejemplo en el diálogo de confirmación."
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -2589,6 +2598,11 @@ msgstr "Aspecto visual::Iconos Sobreimpresionados"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Aspecto visual::Conjunto de Iconos"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Misc"
+msgstr "Aspecto visual::Miscelánea"
 
 # ID:238,
 #: ID:238
@@ -3153,6 +3167,10 @@ msgstr "Re&vertir..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Lea la 'Guía de Uso Diario' antes de que se quede bloqueado..."
+
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Entrar en carpetas no versionadas"
 
 #: ID:3603
 msgid ""
@@ -3835,6 +3853,7 @@ msgstr "Estadísticas"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Estado"
 
@@ -3886,11 +3905,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "¡Subversion reportó un error mientras se realizaba una limpieza!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: Control-ID:65535
