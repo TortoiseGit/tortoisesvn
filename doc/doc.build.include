@@ -151,7 +151,11 @@ This will only build the english HTML helpf file for TortoiseSVN
 
 	<target name="versioninfo" description="Creates the version file">
 		<if test="${environment::variable-exists('MajorVersion')}">
-			<loadfile file="source\en\version.in" property="versionxmlfile">
+			<copy
+				file="source\en\version.in"
+				tofile="source\en\version.xml"
+				overwrite="true"
+				>
 				<filterchain>
 					<replacetokens begintoken="$" endtoken="$">
 						<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
@@ -160,8 +164,7 @@ This will only build the english HTML helpf file for TortoiseSVN
 						<token key="WCREV" value="${environment::get-variable('WCREV')}" />
 					</replacetokens>
 				</filterchain>
-			</loadfile>
-			<echo file="source\en\version.xml" message="${versionxmlfile}" />
+			</copy>
 		</if>
 		<if test="${not environment::variable-exists('MajorVersion')}">
 			<copy
