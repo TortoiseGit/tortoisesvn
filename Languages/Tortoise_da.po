@@ -6,13 +6,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r5046
+# Based on Tortoise.pot r5160
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-30 14:34+0100\n"
+"PO-Revision-Date: 2005-12-19 12:39+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1378,8 +1378,8 @@ msgstr "Det lykkedes ikke at tjekke for en nyere version!"
 
 #: ID:81,
 #, c-format
-msgid "Could not copy the files!\n<hr=100%>\n%s"
-msgstr "Filerne kunne ikke kopieres!\n<hr=100%>\n%s"
+msgid "Could not copy the files!\n<hr=100%%>\n%s"
+msgstr "Filerne kunne ikke kopieres!\n<hr=100%%>\n%s"
 
 #: ID:81,
 msgid "Could not get the status!"
@@ -1412,18 +1412,18 @@ msgstr "Filen %s kunne ikke gemmes!"
 
 #: ID:81,
 #, c-format
-msgid "Could not start diff viewer!\n<hr=100%>\n%s"
-msgstr "Diff-fremvisningsprogrammet kunne ikke startes!\n<hr=100%>\n%"
+msgid "Could not start diff viewer!\n<hr=100%%>\n%s"
+msgstr "Diff-fremvisningsprogrammet kunne ikke startes!\n<hr=100%%>\n%"
 
 #: ID:81,
 #, c-format
-msgid "Could not start external diff program!\n<hr=100%>\n%s"
-msgstr "Det eksterne sammenligningsprogram kunne ikke startes!\n<hr=100%>\n%s"
+msgid "Could not start external diff program!\n<hr=100%%>\n%s"
+msgstr "Det eksterne sammenligningsprogram kunne ikke startes!\n<hr=100%%>\n%s"
 
 #: ID:81,
 #, c-format
-msgid "Could not start external merge program!\n<hr=100%>\n%s"
-msgstr "Det eksterne flet-program kunne ikke startes!\n<hr=100%>\n%s"
+msgid "Could not start external merge program!\n<hr=100%%>\n%s"
+msgstr "Det eksterne flet-program kunne ikke startes!\n<hr=100%%>\n%s"
 
 #: ID:3857,#: ID:3857,
 msgid "Could not start print job."
@@ -1953,6 +1953,10 @@ msgstr "Hvis valgt, så kontaktes versionsarkivet, når dialogen åbnes.\nDu beh
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
 msgstr "Hvis valgt, så vil TortoiseSVN sætte tidsstemplerne på filerne til det tidspunkt,\nhvor de sidst blev arkiveret. Hvis ikke valgt, vil TortoiseSVN anvende den aktuelle tid."
 
+#: ID:196,
+msgid "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
+msgstr "Hvis valgt, så kan filer i ikke-versionerede mapper vises i status-kontrollen.\nStatus-kontrollen benyttes til eksempel i \"Arkivér\"-dialogen."
+
 #: ID:251,
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
 msgstr "Hvis du ønsker at bryde låsen, skal du benytte dialogen \"Check for ændringer\"."
@@ -2137,6 +2141,10 @@ msgstr "Tema::Ikonoverdækninger"
 #: Dlg-ID:184,
 msgid "Look and Feel::Icon Set"
 msgstr "Tema::Ikoner"
+
+#: Dlg-ID:213,
+msgid "Look and Feel::Misc"
+msgstr "Tema::Andet"
 
 #: ID:238,
 #, c-format
@@ -2626,6 +2634,11 @@ msgstr "Til&bagefør..."
 #: ID:12,
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Læs \"Daily Use Guide\" inden du går i stå..."
+
+#: Control-ID:1260,
+#,fuzzy
+msgid "Recurse into unversioned folders"
+msgstr "Søg i ikke-versionerede mapper"
 
 #: ID:3603,
 msgid "Redo the previously undone action\nRedo"
@@ -3213,7 +3226,7 @@ msgstr "Opdel det aktive vindue i paneler\nOpdel"
 msgid "Statistics"
 msgstr "Statistik"
 
-#: ID:74,#: ID:77,#: ID:207,
+#: ID:74,#: ID:77,#: ID:207,#: Control-ID:65535,
 msgid "Status"
 msgstr "Status"
 
@@ -3255,8 +3268,8 @@ msgstr "Subversion meldte fejl under oprettelsen af versionsarkivet!\nVær sikke
 
 #: ID:81,
 #, c-format
-msgid "Subversion reported an error while doing a cleanup!\n<hr=100%>\n%s"
-msgstr "Subversion meldte fejl under oprydningen!\n<hr=100%>\n%s"
+msgid "Subversion reported an error while doing a cleanup!\n<hr=100%%>\n%s"
+msgstr "Subversion meldte fejl under oprydningen!\n<hr=100%%>\n%s"
 
 #: Control-ID:65535,
 msgid "Subversion server file:"
