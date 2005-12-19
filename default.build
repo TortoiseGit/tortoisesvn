@@ -124,7 +124,7 @@
 		</nant>
 	</target>
 
-	<target name="msi">
+	<target name="msi" depends="env">
 		<description>
 			Builds the msi installer from already built binaries.
 		</description>
