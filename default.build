@@ -5,6 +5,8 @@
 	<property name="configuration" value="release" />
 	<!-- default builds are dev builds -->
 	<property name="devrelease" value="-dev" />
+	<!-- default build for win32 platform -->
+	<property name="platform" value="win32" />
 	
 <!-- ====================================================================== -->
 <!-- Configuration targets													-->
@@ -24,6 +26,12 @@
 		<property name="devrelease" value="" />
 	</target>
 
+	<target name="win64">
+		<description>
+			Compiles everything for the win64 platform.
+		</description>
+		<property name="platform" value="win64" />
+	</target>
 
 <!-- ====================================================================== -->
 <!-- Project targets														-->
