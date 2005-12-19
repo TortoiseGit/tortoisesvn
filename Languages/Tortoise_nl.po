@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-28 13:48+0100\n"
+"PO-Revision-Date: 2005-12-19 14:19+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -327,6 +327,7 @@ msgstr "&Lettertype voor logboek:"
 msgid "&Font:"
 msgstr "&Lettertype:"
 
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "&Van URL:"
@@ -1497,11 +1498,11 @@ msgstr "Controle voor nieuwe versie niet gelukt."
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Kon de bestanden niet kopiëren!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:81
@@ -1547,33 +1548,33 @@ msgstr "Kon bestand %s niet opslaan!"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Kon de Diff-viewer niet starten!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:81
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Kon extern Diff-programma niet starten!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:81
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Kon het externe Merge-programma niet starten!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: ID:3857
@@ -2027,10 +2028,6 @@ msgstr "Gereed!"
 msgid "For Help, press F1"
 msgstr "Druk op F1 voor help"
 
-#: ID:501
-msgid "From URL:"
-msgstr "Van URL:"
-
 #: Control-ID:1200
 msgid "From:"
 msgstr "Van:"
@@ -2219,6 +2216,14 @@ msgid ""
 msgstr ""
 "Indien ingesteld, zal TortoiseSVN de bestandstijden instellen op de tijd\n"
 "dat ze het laatst vastgelegd werden. Anders neemt TortoiseSVN de huidige tijd."
+
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"Hiermee kunnen bestanden uit mappen zonder versiebeheer getoond worden in\n"
+"statusoverzichten. De vastleggen-dialoog bevat bijvoorbeeld zo'n statusoverzicht."
 
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -2451,6 +2456,10 @@ msgstr "Beeld en Gedrag::Overlay iconen"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Beeld en Gedrag::Iconen set"
+
+#: Dlg-ID:213
+msgid "Look and Feel::Misc"
+msgstr "Beeld en Gedrag::Diversen"
 
 #: ID:238
 #, c-format
@@ -2982,6 +2991,10 @@ msgstr "&Terugzetten..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Lees de 'Gids voor dagelijks gebruik' voordat u vast komt te zitten"
+
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Mappen zonder versiebeheer doorlopen"
 
 #: ID:3603
 msgid ""
@@ -3641,6 +3654,7 @@ msgstr "Statistieken"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Statusbalk"
 
@@ -3688,11 +3702,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Subversion meldde een fout tijdens een schoning!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 #: Control-ID:65535
