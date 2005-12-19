@@ -935,24 +935,22 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 					offset1 += results.rstart(0);
 					{
 						ATLTRACE("matched results : %ld\n", results.cbackrefs());
-						for (size_t i=1; i<results.cbackrefs(); ++i)
+						for (size_t test=0; test<results.cbackrefs(); ++test)
 						{
-							if ((results.rstart(i) < 0)||(results.rstart(i) >= (size_t)msg.GetLength()))
-							{
-								continue;
-							}
-							else
-							{
-								Call(SCI_SETSTYLING, results.rstart(i), STYLE_BOLD);
-								ATLTRACE("STYLE_BOLD %d chars\n", results.rstart(i)-offset1);
-
-								offset1 += results.rstart(i);
-								offset1 += results.rlength(i);
-
-								Call(SCI_SETSTYLING, results.rlength(i), STYLE_BOLDITALIC);
-								ATLTRACE("STYLE_BOLDITALIC %d chars\n", results.rlength(i));
-							}
+							ATLTRACE("matched (%d): %ws\n", test, results.backref(test).str().c_str());
 						}
+						// we define group 1 as the whole issue text
+						// and group 2 as the issue number
+						if (results.cbackrefs() > 2)
+						{
+							Call(SCI_SETSTYLING, results.rlength(1)-results.rlength(2), STYLE_BOLD);
+							Call(SCI_SETSTYLING, results.rlength(2), STYLE_BOLDITALIC);
+						}
+						else
+						{
+							Call(SCI_SETSTYLING, results.rlength(1), STYLE_BOLD);
+						}
+						offset1 += results.rlength(1);
 					}
 				}
 				else
@@ -961,7 +959,7 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 					if (end_pos > (int)offset1)
 						Call(SCI_SETSTYLING, end_pos-offset1, STYLE_DEFAULT);
 				}
-			} while(br.matched);
+			} while ((br.matched)&&((int)offset1<end_pos));
 			msg.ReleaseBuffer();
 			return TRUE;
 		}
