@@ -235,7 +235,7 @@ void CFileDiffDlg::DoDiff(int selIndex)
 		rev1 = 0;
 	if (rev2 < 0)
 		rev2 = 0;
-	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, url1);
+	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, url1, rev1);
 	CString sTemp;
 	CProgressDlg progDlg;
 	progDlg.SetTitle(IDS_PROGRESSWAIT);
@@ -252,7 +252,7 @@ void CFileDiffDlg::DoDiff(int selIndex)
 	progDlg.SetProgress(1, 2);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
 	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
-	CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, url2);
+	CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, url2, rev2);
 	if ((rev2 > 0)&&(!m_SVN.Cat(url2, fd.rev2, fd.rev2, tempfile2)))
 	{
 		CMessageBox::Show(NULL, m_SVN.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

@@ -77,7 +77,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 
 	if (remotetext_status > svn_wc_status_normal)
 	{
-		remotePath = CTempFiles::Instance().GetTempFilePath(true, filePath);
+		remotePath = CTempFiles::Instance().GetTempFilePath(true, filePath, SVNRev::REV_HEAD);
 
 		CProgressDlg progDlg;
 		progDlg.SetTitle(IDS_APPNAME);
@@ -178,7 +178,7 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 		// If necessary, convert the line-endings on the file before diffing
 		if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
 		{
-			CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath);
+			CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath, SVNRev::REV_BASE);
 			if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
 			{
 				temporaryFile.Reset();
@@ -354,8 +354,8 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		else
 		{
 			// diffing two revs of a file, so cat two files
-			CTSVNPath tempfile1 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1);
-			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url2);
+			CTSVNPath tempfile1 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1, rev1);
+			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url2, rev2);
 
 			m_pSVN->SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
 			progDlg.ShowModeless(m_hWnd);
@@ -409,7 +409,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			progDlg.ShowModeless(m_hWnd);
 			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), (LONG)rev2);
 
-			tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1);
+			tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1, rev2);
 			if (!m_pSVN->Cat(url1, (peg.IsValid() ? peg : SVNRev::REV_WC), rev2, tempfile))
 			{
 				progDlg.Stop();

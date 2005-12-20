@@ -639,7 +639,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							break;
 						}
 					}
-					CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(url));
+					CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(url), GetRevision());
 					CWaitCursorEx wait_cursor;
 					SVN svn;
 					svn.SetPromptApp(&theApp);

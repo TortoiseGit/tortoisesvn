@@ -1738,7 +1738,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		len = ::GetTempPath (len+100, path);
 		if (len != 0)
 		{
-			CSimpleFileFind finder = CSimpleFileFind(path, _T("svn*.*"));
+			CSimpleFileFind finder = CSimpleFileFind(path, _T("*svn*.*"));
 			FILETIME systime_;
 			::GetSystemTimeAsFileTime(&systime_);
 			__int64 systime = (((_int64)systime_.dwHighDateTime)<<32) | ((__int64)systime_.dwLowDateTime);

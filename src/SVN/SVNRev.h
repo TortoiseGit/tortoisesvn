@@ -75,7 +75,8 @@ public:
 	BOOL IsDate() const {return (rev.kind == svn_opt_revision_date);}
 
 	CString GetDateString() const {return sDate;}
-	
+	CString ToString() const;
+
 	operator LONG () const;
 	operator svn_opt_revision_t * ();
 	enum

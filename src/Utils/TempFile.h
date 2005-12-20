@@ -19,6 +19,7 @@
 #pragma once
 
 #include "TSVNPath.h"
+#include "SVNRev.h"
 
 /**
 * \ingroup Utils
@@ -40,7 +41,7 @@ public:
 	 * \param path         if set, the temp file will have the same file extension
 	 *                     as this path.
 	 */
-	CTSVNPath		GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath());
+	CTSVNPath		GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev revision = SVNRev());
 
 private:
 

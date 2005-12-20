@@ -1391,7 +1391,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 						case ID_COMPARE:
 							{
-								CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, data->path);
+								CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, data->path, m_nUpdateStartRev);
 								SVN svn;
 								if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), m_nUpdateStartRev, tempfile))
 								{

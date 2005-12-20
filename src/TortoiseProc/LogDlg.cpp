@@ -1082,7 +1082,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						progDlg.SetLine(1, sInfoLine);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
-						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, m_path);
+						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, m_path, rev);
 						if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), rev, tempfile))
 						{
 							progDlg.Stop();
@@ -1506,7 +1506,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
 
-						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath));
+						CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev);
 						if (!Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
 						{
 							progDlg.Stop();

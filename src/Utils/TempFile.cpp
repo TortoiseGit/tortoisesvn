@@ -35,7 +35,7 @@ CTempFiles& CTempFiles::Instance()
 	return instance;
 }
 
-CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath( */)
+CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev revision /* = SVNRev() */)
 {
 	DWORD len = ::GetTempPath(0, NULL);
 	TCHAR * temppath = new TCHAR[len+1];
@@ -53,7 +53,14 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
 		int i=0;
 		do
 		{
-			possibletempfile.Format(_T("%ssvn%3.3x.tmp%s"), temppath, i, (LPCTSTR)path.GetFileExtension());
+			if (revision.IsValid())
+			{
+				possibletempfile.Format(_T("%s%s-rev%s.svn%3.3x.tmp%s"), temppath, (LPCTSTR)path.GetFileOrDirectoryName(), revision.ToString(), i, (LPCTSTR)path.GetFileExtension());
+			}
+			else
+			{
+				possibletempfile.Format(_T("%s%s.%3.3x.tmp%s"), temppath, (LPCTSTR)path.GetFileOrDirectoryName(), i, (LPCTSTR)path.GetFileExtension());
+			}
 			tempfile.SetFromWin(possibletempfile);
 			i++;
 		} while (PathFileExists(tempfile.GetWinPath()));
