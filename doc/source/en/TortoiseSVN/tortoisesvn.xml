@@ -3,7 +3,7 @@
 <book id="tsvn" lang="en" xmlns:xi="http://www.w3.org/2001/XInclude">
 	<title>TortoiseSVN</title>
 	<subtitle>A Subversion client for Windows</subtitle>
-	<xi:include href="./Version.xml"/>
+	<xi:include href="../version.xml"/>
 	<bookinfo>
 		<edition>First</edition>
 		<authorgroup>
@@ -20,7 +20,7 @@
 				<surname>Large</surname>
 			</author>
 		</authorgroup>
-		<xi:include href="./pubdate.xml"/>
+		<xi:include href="../pubdate.xml"/>
 	</bookinfo>
 	<!-- include external files -->
 	<xi:include href="./tsvn_preface.xml"/>
@@ -34,6 +34,6 @@
 	<xi:include href="./tsvn_app_howto.xml"/>
 	<xi:include href="./tsvn_app_automation.xml"/>	
 	<xi:include href="./tsvn_app_cli.xml"/>
-	<xi:include href="./glossary.xml"/>
+	<xi:include href="../glossary.xml"/>
 	<index id="index"/>
 </book>

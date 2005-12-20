@@ -9,7 +9,7 @@
 Customization layer for build files.
 
 You can override these settings by defining them on the command line or by
-defining them in doc.build.user which is included by doc.build if it exists.
+defining them in doc.build.user which is included here if it exists.
 	
 Example content of doc.build.user:
 <property name="applications" value="TortoiseSVN" />
@@ -23,9 +23,12 @@ This will only build the english HTML helpf file for TortoiseSVN
 <project name="customize">
 	<description>Customization layer for build file</description>
 
+	<include buildfile="doc.build.user" if="${file::exists('doc.build.user')}"/>
+
 	<!-- ============================================================ -->
 	<!-- List of applications, languages and output formats in which  -->
 	<!-- the documentation will be created by default                 -->
+
 	<property name="applications" 
 		value="TortoiseSVN,TortoiseMerge" 
 		unless="${property::exists('applications')}"
@@ -51,18 +54,23 @@ This will only build the english HTML helpf file for TortoiseSVN
 	
 	<!-- Fileset to exclude from translation and .pot creation        -->
 	<!-- Duplicate these files in the "sourcefiles" fileset           -->
+<!--
 	<fileset id="files.exclude">
-		<include name="source/${lang.base}/**/tsvn_app_automation.xml"/>
+		<include name="source/${lang.base}/**/version.xml"/>
+		<include name="source/${lang.base}/**/pubdate.xml"/>
 	</fileset>
 	
 	<fileset id="files.filtered">
-		<include name="source/${lang.base}/**/*.xml"/>
-		<exclude name="source/${lang.base}/**/tsvn_app_automation.xml"/>
+		<include name="source/${lang.base}/TortoiseSVN/**/*.xml"/>
+		<include name="source/${lang.base}/**/wishlist.xml"/>
+		<exclude name="source/${lang.base}/**/version.xml"/>
+		<exclude name="source/${lang.base}/**/pubdate.xml"/>
 	</fileset>
+-->
 
 	<!-- Name of the po template file to create. Can also be a list   -->
 	<!-- of applications if you want to create a template for each    -->
-	<property name="potemplates" value="doc" />
+	<property name="potemplates" value="${applications}" />
 
 	<!-- ============================================================ -->
 	<!-- Paths to the binaries                                        -->
@@ -78,9 +86,9 @@ This will only build the english HTML helpf file for TortoiseSVN
 		value="${string::replace(path::get-full-path('../Tools/xsl'), '\', '/')}"
 		unless="${property::exists('path.xsl')}"
 	/>
-	<property name="path.msgfmt" 
+	<property name="path.gettext" 
 		value="${path::get-full-path('../Tools')}"
-		unless="${property::exists('path.msgfmt')}"
+		unless="${property::exists('path.gettext')}"
 	/>
 	<property name="path.subwcrev" 
 		value="../bin/release/bin/"
@@ -103,6 +111,8 @@ This will only build the english HTML helpf file for TortoiseSVN
 	<property name="xsl.html.file" value="htmlsingle.xsl"/>
 	<property name="xsl.htmlsingle.params" value="--nonet --xinclude --stringparam html.stylesheet styles_html.css"/>
 	<property name="xsl.htmlsingle.file" value="htmlchunk.xsl"/>
+	<property name="xsl.profile.params" value="--nonet --xinclude --stringparam profile.condition &quot;exclude&quot;"/>
+	<property name="xsl.profile.file" value="profile.xsl"/>
 
 	<!-- ============================================================ -->
 	<!-- Paths to the application resources for the chm help creation -->
@@ -118,11 +128,11 @@ This will only build the english HTML helpf file for TortoiseSVN
 		depends="versioninfo">
 
 		<exec program="SubWCRev.exe"
-					commandline="source/${lang.base} source/pubdate.tmpl source/${lang.base}/pubdate.xml"
-					basedir="${path.subwcrev}"
-					failonerror="false"
-					resultproperty="result.subwcrev"
-					verbose="false" />
+			commandline="source/${lang.base} source/pubdate.tmpl source/${lang.base}/pubdate.xml"
+			basedir="${path.subwcrev}"
+			failonerror="false"
+			resultproperty="result.subwcrev"
+			verbose="false" />
 		<copy file="source/Pubdate.none" tofile="source/${lang.base}/pubdate.xml" overwrite="true" unless="${result.subwcrev=='0'}"/>
 
 		<!-- Store path to docbook stylesheets in helper stylesheets -->
@@ -150,6 +160,8 @@ This will only build the english HTML helpf file for TortoiseSVN
 <!-- ====================================================================== -->
 
 	<target name="versioninfo" description="Creates the version file">
+		<echo message="This task shouldn't run every time because it triggers a rebuild of all the docs."/>
+		<echo message="To work around this, version.xml is excluded from the files that trigger the build."/>
 		<if test="${environment::variable-exists('MajorVersion')}">
 			<copy
 				file="source\en\version.in"
@@ -232,6 +244,5 @@ This will only build the english HTML helpf file for TortoiseSVN
 	<target name="help.custom" description="Create CHM help context">
 		<copy file="${help.context}" todir="${doc.target.work}" overwrite="true"/>
 	</target>
-
 
 </project>
