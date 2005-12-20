@@ -103,9 +103,10 @@ All user/site specific configuration is stored in doc.build.user.
 		<uptodate property="file.target.uptodate">
 			<sourcefiles>
 				<include name="source/${lang.target}/${app}/**/*.xml"/>
+				<include name="source/${lang.target}/pubdate.xml"/>
+				<include name="source/${lang.target}/glossary.xml"/>
 				<include name="source/${lang.target}/wishlist.xml"/>
 				<exclude name="source/${lang.target}/version.xml"/>
-				<include name="source/${lang.target}/pubdate.xml"/>
 			</sourcefiles>
 			<targetfiles>
 				<include name="${file.target}"/>
@@ -205,9 +206,10 @@ All user/site specific configuration is stored in doc.build.user.
 			<in>
 				<items>
 					<include name="source/${lang.base}/${app}/**/*.xml"/>
+					<include name="source/${lang.base}/pubdate.xml"/>
+					<include name="source/${lang.base}/glossary.xml"/>
 					<include name="source/${lang.base}/wishlist.xml"/>
 					<include name="source/${lang.base}/version.xml"/>
-					<include name="source/${lang.base}/pubdate.xml"/>
 				</items>
 			</in>
 			<do>
