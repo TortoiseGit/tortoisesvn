@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-12-08 17:34+0800\n"
+"PO-Revision-Date: 2005-12-20 16:29+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1857,11 +1857,11 @@ msgstr "无法检查新版！"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "无法复制文件！\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1916,11 +1916,11 @@ msgstr "无法保存文件 %s！"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "无法启动差异查看工具！\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1928,11 +1928,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "无法启动外部差异比较工具！\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1940,11 +1940,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "无法启动外部合并工具！\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:3857,#:
@@ -2727,6 +2727,15 @@ msgstr ""
 "如果设置此项, TortoiseSVN 会把文件时间设置至上次\n"
 "提交的时间。如果不设置, 则使用当前时间。"
 
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"设置后，未进行版本控制的文件夹中的文件将出现在“状态控制”中。\n"
+"“状态控制”用于类似提交对话框等地方。"
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -3008,6 +3017,11 @@ msgstr "外观与样式::图标叠加"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "外观与样式::图标集"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Misc"
+msgstr "外观与样式::其它"
 
 # ID:238,
 #: ID:238
@@ -3685,6 +3699,11 @@ msgstr "SVN 还原(&V)..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "在你卡住之前, 请先阅读日常使用指南…"
+
+# Control-ID:1073,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "递归处理未进行版本控制的文件夹"
 
 # ID:3603,
 #: ID:3603
@@ -4508,6 +4527,7 @@ msgstr "统计"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "状态"
 
@@ -4567,11 +4587,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Subversion 在进行清理动作时回报错误!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # Control-ID:65535,
