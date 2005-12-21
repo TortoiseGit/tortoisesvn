@@ -74,6 +74,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_COPY, OnUpdateEditCopy)
 	ON_COMMAND(ID_VIEW_SWITCHLEFT, OnViewSwitchleft)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_SWITCHLEFT, OnUpdateViewSwitchleft)
+	ON_COMMAND(ID_VIEW_LINELEFT, &CMainFrame::OnViewLineleft)
+	ON_COMMAND(ID_VIEW_LINERIGHT, &CMainFrame::OnViewLineright)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1140,6 +1142,26 @@ void CMainFrame::OnViewLineup()
 	m_wndLocatorBar.Invalidate();
 }
 
+void CMainFrame::OnViewLineleft()
+{
+	if (m_pwndLeftView)
+		m_pwndLeftView->ScrollSide(-1);
+	if (m_pwndRightView)
+		m_pwndRightView->ScrollSide(-1);
+	if (m_pwndBottomView)
+		m_pwndBottomView->ScrollSide(-1);
+}
+
+void CMainFrame::OnViewLineright()
+{
+	if (m_pwndLeftView)
+		m_pwndLeftView->ScrollSide(1);
+	if (m_pwndRightView)
+		m_pwndRightView->ScrollSide(1);
+	if (m_pwndBottomView)
+		m_pwndBottomView->ScrollSide(1);
+}
+
 void CMainFrame::OnFileReload()
 {
 	if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
@@ -1380,3 +1402,4 @@ void CMainFrame::OnUpdateViewSwitchleft(CCmdUI *pCmdUI)
 	}
 	pCmdUI->Enable(bEnable);
 }
+

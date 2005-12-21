@@ -69,6 +69,8 @@ protected:
 	afx_msg void	OnViewOptions();
 	afx_msg void	OnViewLinedown();
 	afx_msg void	OnViewLineup();
+	afx_msg void	OnViewLineleft();
+	afx_msg void	OnViewLineright();
 	afx_msg void	OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI);
 	afx_msg void	OnMergeMarkasresolved();
 	afx_msg void	OnUpdateMergeNextconflict(CCmdUI *pCmdUI);

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
 //
 #define IDR_MAINFRAME                   100
 #define IDP_OLE_INIT_FAILED             101
@@ -176,13 +176,15 @@
 #define ID_MERGE_MARKASRESOLVED         32808
 #define ID_VIEW_SWITCHLEFT              32811
 #define ID_BUTTON32812                  32812
+#define ID_VIEW_LINELEFT                32813
+#define ID_VIEW_LINERIGHT               32814
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
-#define _APS_NEXT_COMMAND_VALUE         32813
+#define _APS_NEXT_COMMAND_VALUE         32816
 #define _APS_NEXT_CONTROL_VALUE         1070
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

@@ -39,6 +39,8 @@
        See issue #196. (Stefan)
 - NEW: Option to disable crawling unversioned folders in the status
        control (used e.g. in the commit dialog). (Stefan)
+- NEW: Ctrl-Left/Right scrolls sideways in TortoiseMerge.
+       See issue #190. (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.

@@ -697,7 +697,21 @@ void CBaseView::ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar /*= TRUE*/
 		UpdateWindow();
 		if (bTrackScrollBar)
 			RecalcHorzScrollBar(TRUE);
-	} // if (m_nOffsetChar != nNewOffsetChar) 
+	}
+}
+
+void CBaseView::ScrollSide(int delta)
+{
+		int nNewOffset = m_nOffsetChar;
+		nNewOffset += delta;
+		int nMaxLineLength = GetMaxLineLength();
+		if (nNewOffset >= nMaxLineLength)
+			nNewOffset = nMaxLineLength - 1;
+		if (nNewOffset < 0)
+			nNewOffset = 0;
+		ScrollToChar(nNewOffset, TRUE);
+		if (m_pwndLineDiffBar)
+			m_pwndLineDiffBar->Invalidate();
 }
 
 void CBaseView::ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar /*= TRUE*/)
@@ -1261,16 +1275,7 @@ void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 	if (GetKeyState(VK_CONTROL)&0x8000)
 	{
 		// Ctrl-Wheel scrolls sideways
-		int nNewOffset = m_nOffsetChar;
-		nNewOffset -= (zDelta/30);
-		int nMaxLineLength = GetMaxLineLength();
-		if (nNewOffset >= nMaxLineLength)
-			nNewOffset = nMaxLineLength - 1;
-		if (nNewOffset < 0)
-			nNewOffset = 0;
-		ScrollToChar(nNewOffset, TRUE);
-		if (m_pwndLineDiffBar)
-			m_pwndLineDiffBar->Invalidate();
+		ScrollSide(-zDelta/30);
 	}
 	else
 	{
