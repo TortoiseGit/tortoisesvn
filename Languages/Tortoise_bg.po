@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-12-07 14:13+0200\n"
+"PO-Revision-Date: 2005-12-21 14:36+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1900,11 +1900,11 @@ msgstr "Грешка при проверка за по-нова версия!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Грешка при копиране на файловете!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1961,11 +1961,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Грешка при стартиране на програмата за разглеждане на разлики!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1973,11 +1973,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Грешка при стартиране на външната програма за сравняване!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1985,11 +1985,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Грешка при стартиране на външната програма за сливане!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:3857,#:
@@ -2717,7 +2717,7 @@ msgstr "Иконки/дизайн/програмиране:     Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Ако е включено, предотвратява появата на модификациите на иконките в диалозите \"Запиши като..\" или \"Отвори\"."
+msgstr "Ако е включено, предотвратява появата на модификациите на иконките в диалоговите прозорци \"Запиши като..\" или \"Отвори\"."
 
 # ID:95,
 #: ID:95
@@ -2755,7 +2755,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr ""
-"Ако тази опция е включена, диалогът за сливане инициализира \"От:\" URL с URL на избраното работно копие\n"
+"Ако тази опция е включена, диалоговият прозорец за сливане инициализира \"От:\" URL с URL на избраното работно копие\n"
 "вместо с последно използвания URL."
 
 # ID:195,
@@ -2764,7 +2764,7 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"Ако е включена, при стартиране на диалога се прави проверка в хранилището.\n"
+"Ако е включена, при стартиране на диалоговият прозорец се прави проверка в хранилището.\n"
 "В този случай вече няма нужда да се ползва бутона \"Проверка в хранилището\"."
 
 # ID:195,
@@ -2776,10 +2776,19 @@ msgstr ""
 "Ако е включено, TortoiseSVN ще установи времето на промяна на файловете на времето,\n"
 "когато те са били последно поверени, Ако не е включено, TortoiseSVN ще използва текущото време."
 
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"Ако е включено, файловете в неконтролирани директории ще се появяват в елемента за управление,\n"
+"който показва състоянието. Този елемент за управление например се използва в диалоговия прозорец за поверяване."
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "Ако желаете да разбиете заключването, използвайте диалога \"Проверка за промени\"."
+msgstr "Ако желаете да разбиете заключването, използвайте диалоговия прозорец \"Проверка за промени\"."
 
 # ID:73,
 #: ID:73
@@ -3045,7 +3054,7 @@ msgstr "Външен вид::Цветове"
 # Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs"
-msgstr "Външен вид::Диалози"
+msgstr "Външен вид::Диалогови прозорци"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3056,6 +3065,11 @@ msgstr "Външен вид::Модификации на иконките"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Външен вид::Комплект с иконки"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Misc"
+msgstr "Външен вид::Други"
 
 # ID:238,
 #: ID:238
@@ -3736,6 +3750,11 @@ msgstr "&Отмяна..."
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Прочетете 'Упътване за всекидневна употреба' преди да 'затънете'..."
 
+# Control-ID:1073,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Обхождане и на неконтролираните директории"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -4312,7 +4331,7 @@ msgstr "Избор на текстов редактор"
 # ID:79,
 #: ID:79
 msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "Изберете поведението на диалога, показващ хода на операцията, след нейния край."
+msgstr "Изберете поведението на диалоговия прозорец, показващ хода на операцията, след нейния край."
 
 # ID:3603,
 #: ID:3603
@@ -4559,6 +4578,7 @@ msgstr "Статистика"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Състояние"
 
@@ -4618,11 +4638,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Subversion съобщи за грешка по време на почистването!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # Control-ID:65535,
@@ -6300,7 +6320,7 @@ msgid ""
 msgstr ""
 "tsvn:logwidthmarker\n"
 "Максимална дължина на редовете на съобщението за дневника (в знаци).\n"
-"Бляда линия се показва аа тази позиция в полето за въвеждане на съобщение за дневника. По подразбиране стойността е 80 знака."
+"Бледа линия се показва на тази позиция в полето за въвеждане на съобщение за дневника. По подразбиране тази стойност е 80 знака."
 
 # ID:15,
 #: ID:15
@@ -6320,7 +6340,7 @@ msgid ""
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\n"
-"Установете на \"yes\", ако желаете да се показва предупреждение, когато в диалога за поверяване не бил въведен номер на проблем."
+"Установете на \"yes\", ако желаете да се показва предупреждение, когато в диалоговия прозорец за поверяване не е бил въведен номер на проблем."
 
 # ID:244,
 #: ID:244
