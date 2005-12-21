@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-05 10:36+0100\n"
+"PO-Revision-Date: 2005-12-21 11:24+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1860,11 +1860,11 @@ msgstr "Impossibile controllare l'esistenza di nuove versioni!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Impossibile copiare i file!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1917,11 +1917,11 @@ msgstr "Impossibile salvare il file %s!"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
-"Impossibile caricare il programma di confronto!\n"
-"<hr=100%>\n"
+"Impossibile eseguire il programma di confronto!\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1929,11 +1929,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Impossibile eseguire il programma esterno di confronto!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1941,11 +1941,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Impossibile eseguire il programma esterno di fusione!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:3857,#:
@@ -2676,7 +2676,7 @@ msgstr "Icone/Design/Codice:     Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Se attivata previene la visualizzazione delle icone di stato nelle finestre di dialogho \"Salva come...\" e \"Apri\""
+msgstr "Se attivata previene la visualizzazione delle icone di stato nelle finestre di dialogo \"Salva come...\" e \"Apri\""
 
 # ID:95,
 #: ID:95
@@ -2734,6 +2734,15 @@ msgid ""
 msgstr ""
 "Se specificato, TortoiseSVN imposterà la data e l'ora dei file alla data\n"
 "del loro ultimo invio. Se nulla viene specificato TortoiseSVN userà la data e l'ora corrente."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"Se impostato, i file all'interno delle cartelle non versionate possono essere mostrate nel controllo dello stato.\n"
+"Il controllo dello stato è usato, per esempio, nella finestra di invio."
 
 # ID:251,
 #: ID:251
@@ -3015,6 +3024,11 @@ msgstr "Impostazioni grafiche::Icone di stato"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Impostazioni grafiche::Libreria delle icone"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Misc"
+msgstr "Impostazioni grafiche::Varie"
 
 # ID:238,
 #: ID:238
@@ -3695,6 +3709,11 @@ msgstr "Ripris&tina..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Leggere 'Daily Use Guide' prima di ritrovarsi bloccati..."
+
+# Control-ID:1073,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Salva nelle cartelle non versionate"
 
 # ID:3603,
 #: ID:3603
@@ -4523,6 +4542,7 @@ msgstr "Statistiche"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Stato"
 
@@ -4582,11 +4602,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
-"Subversion ha generato un errore durante la pulizia!\n"
-"<hr=100%>\n"
+"Subversion ha segnalato un errore durante la pulizia!\n"
+"<hr=100%%>\n"
 "%s"
 
 # Control-ID:65535,
