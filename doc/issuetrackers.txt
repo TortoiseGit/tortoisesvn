@@ -103,7 +103,9 @@ line added to the log message. The string must contain the substring "%BUGID%"
 which is replaced with the issue number the user entered before applied to the 
 log message. The client will add the resulting string as a new line to the end 
 of the log message the user entered:
-logmessage + "\n" + resultstring + "\n"
+logmessage + "\n" + resultstring
+In case bugtraq:append is set to "false", then the log message is defined as
+resultstring + "\n" + logmessage
 The client should make sure that the string doesn't have multiple lines.
 If more than one issue number is entered by the user (separated by commas), the 
 client must make sure that there's no whitespace chars before and after the 
@@ -147,6 +149,10 @@ a log message you could use the following regex strings:
 [Ii]ssue #?(\d+)(,? ?#?(\d+))+
 (\d+)
 
+The property bugtraq:logregex will override bugtraq:number.
+If both bugtraq:logregex and bugtraq:message are set, then bugtraq:message is
+only used if the user enters an issue ID in the edit box of the commit window.
+Both are used in the log window to find the URL's to point to the issuetracker.
 
 Please note:
 - All property names and values must be properly UTF8 encoded. The client should
