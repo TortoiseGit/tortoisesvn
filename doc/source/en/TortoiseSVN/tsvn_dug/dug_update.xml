@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-update">
 	<title>Update Your Working Copy With Changes From Others</title>
 	<indexterm>
@@ -33,35 +34,45 @@
 			<varlistentry>
 				<term>Purple</term>
 				<listitem>
+					<para>
 					New item added to your WC.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>Dark red</term>
 				<listitem>
+					<para>
 					Redundant item deleted from your WC,
 					or missing item replaced in your WC.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>Green</term>
 				<listitem>
+					<para>
 					Changes from repository successfully merged with your
 					local changes.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>Bright red</term>
 				<listitem>
+					<para>
 					Changes from repository merged with local changes,
 					resulting in conflicts which you need to resolve.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>Black</term>
 				<listitem>
+					<para>
 					Unchanged item in your WC updated with newer version
 					from the repository.
+					</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>

@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-commit">
 	<title>Sending Your Changes To The Repository</title>
 	<indexterm>
@@ -132,25 +133,33 @@
 			<varlistentry>
 				<term>Blue</term>
 				<listitem>
+					<para>
 					Committing a modification.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>Purple</term>
 				<listitem>
+					<para>
 					Committing a new addition.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>Dark red</term>
 				<listitem>
+					<para>
 					Committing a deletion or a replacement.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>Black</term>
 				<listitem>
+					<para>
 					All other items.
+					</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>

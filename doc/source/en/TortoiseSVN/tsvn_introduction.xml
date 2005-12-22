@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
 <chapter id="tsvn_introduction">
 	<title>Introduction</title>
 	<indexterm>
@@ -362,23 +363,31 @@
 				to select which one to use.
 				<orderedlist>
 					<listitem>
+						<para>
 						Check the <literal>tsvn:projectlanguage</literal> setting.
 						Refer to <xref linkend="tsvn-DUG-propertypage"/> for information
 						about setting project properties.
+						</para>
 					</listitem>
 					<listitem>
+						<para>
 						If no project language is set, or that language is not
 						installed, try the language corresponding to the Windows locale.
+						</para>
 					</listitem>
 					<listitem>
+						<para>
 						If the exact Windows locale doesn't work, try the
 						<quote>Base</quote> language, eg.
 						<literal>de_CH</literal> (Swiss-German) falls back to
 						<literal>de_DE</literal> (German).
+						</para>
 					</listitem>
 					<listitem>
+						<para>
 						If none of the above works, then the default language
 						is english, which is included with the standard installation.
+						</para>
 					</listitem>
 				</orderedlist>
 			</para>

@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-diff">
 	<title>Viewing Differences</title>
 	<indexterm>
@@ -13,7 +14,7 @@
 		allows you to use your own favourite diff program.
 	</para>
 	<sect2 id="tsvn-DUG-diff-file">
-	<title>File Differences</title>
+		<title>File Differences</title>
 		<variablelist>
 			<varlistentry>
 				<term>Local changes</term>
@@ -88,16 +89,16 @@
 		</variablelist>
 	</sect2>
 	<sect2 id="tsvn-DUG-diff-dir">
-	<title>Folder Differences</title>
-	<para>
+		<title>Folder Differences</title>
+		<para>
 		The builtin tools supplied with TortoiseSVN do not support viewing
 		differences between directory hierarchies. But if you have an external
 		tool which does support that feature, you can use that instead.
 		In the next section we tell you about some tools which we have used.
 	</para>
 	</sect2>
-	<sect2 id = "tsvn-DUG-diff-tools">
-	<title>External Diff/Merge Tools</title>
+	<sect2 id="tsvn-DUG-diff-tools">
+		<title>External Diff/Merge Tools</title>
 		<indexterm>
 			<primary>diff tools</primary>
 		</indexterm>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix SYSTEM "../../dtd/dblite.dtd">
 <appendix id="tsvn-cli" xmlns:xi="http://www.w3.org/2001/XInclude">
 	<title>Command Line Interface Cross Reference</title>
 	<indexterm>
@@ -17,9 +18,11 @@
 			TortoiseSVN's GUI operations.
 		</para>
 		<note>
+			<para>
 			Even though there are CLI equivalents to what TortoiseSVN
 			does, remember that TortoiseSVN does <emphasis>not</emphasis>
 			call the CLI but uses the Subversion library directly.
+			</para>
 		</note>
 		<para>
 			If you think you have found a bug in TortoiseSVN, we
@@ -40,10 +43,12 @@
 			<literal>C:\TortoiseSVN\trunk</literal>.
 		</para>
 		<important>
+			<para>
 			Because TortoiseSVN is a Windows Shell Extension, it is not able
 			to use the notion of a current working directory. All working
 			copy paths must be given using the absolute path, not a relative
 			path.
+			</para>
 		</important>
 		<para>
 			Certain items are optional, and these are often controlled by
@@ -55,7 +60,7 @@
 		<title>TortoiseSVN Commands</title>
 		<sect2 id="tsvn-cli-checkout">
 			<title>Checkout</title>
-<screen>
+			<screen>
 svn checkout [-N] [--ignore-externals] [-r rev] URL PATH
 </screen>
 			<para>
@@ -73,7 +78,7 @@ svn checkout [-N] [--ignore-externals] [-r rev] URL PATH
 		</sect2>
 		<sect2 id="tsvn-cli-update">
 			<title>Update</title>
-<screen>
+			<screen>
 svn info URL_of_WC
 svn update [-r rev] PATH
 </screen>
@@ -97,7 +102,7 @@ svn update [-r rev] PATH
 		</sect2>
 		<sect2 id="tsvn-cli-updaterev">
 			<title>Update to Revision</title>
-<screen>
+			<screen>
 svn info URL_of_WC
 svn update [-r rev] [-N] [--ignore-externals] PATH
 </screen>
@@ -119,7 +124,7 @@ svn update [-r rev] [-N] [--ignore-externals] PATH
 				review the list, diff files against BASE and select the items you
 				want to be included in the commit.
 			</para>
-<screen>
+			<screen>
 svn status -v PATH
 </screen>
 			<para>
@@ -134,7 +139,7 @@ svn status -v PATH
 				If you check any unversioned files and folders, those items will
 				first be added to your working copy.
 			</para>
-<screen>
+			<screen>
 svn add PATH...
 </screen>
 			<para>
@@ -145,7 +150,7 @@ svn add PATH...
 				(<literal>-N</literal>) must be used, and every path must be
 				specified individually on the commit command line.
 			</para>
-<screen>
+			<screen>
 svn commit -m "LogMessage" [-N] [--no-unlock] PATH...
 </screen>
 			<para>
@@ -159,7 +164,7 @@ svn commit -m "LogMessage" [-N] [--no-unlock] PATH...
 		</sect2>
 		<sect2 id="tsvn-cli-diff">
 			<title>Diff</title>
-<screen>
+			<screen>
 svn diff PATH
 </screen>
 			<para>
@@ -180,7 +185,7 @@ svn diff PATH
 		</sect2>
 		<sect2 id="tsvn-cli-showlog">
 			<title>Show Log</title>
-<screen>
+			<screen>
 svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH
   or
 svn log -v -r M:N [--stop-on-copy] PATH
@@ -198,7 +203,7 @@ svn log -v -r M:N [--stop-on-copy] PATH
 		</sect2>
 		<sect2 id="tsvn-cli-checkmods">
 			<title>Check for Modifications</title>
-<screen>
+			<screen>
 svn status -v PATH
   or
 svn status -u -v PATH
@@ -237,7 +242,7 @@ svn log -v URL
 		</sect2>
 		<sect2 id="tsvn-cli-repobrowser">
 			<title>Repo Browser</title>
-<screen>
+			<screen>
 svn info URL_of_WC
 svn list [-r rev] -v URL
 </screen>
@@ -259,29 +264,29 @@ svn list [-r rev] -v URL
 				This command has no CLI equivalent. It invokes TortoiseMerge or
 				an external 3-way diff/merge tool to look at the files involved
 				in the conflict and sort out which lines to use.
-			</para> 
+			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-resolved">
 			<title>Resolved</title>
-<screen>
+			<screen>
 svn resolved PATH
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-rename">
 			<title>Rename</title>
-<screen>
+			<screen>
 svn rename CURR_PATH NEW_PATH
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-delete">
 			<title>Delete</title>
-<screen>
+			<screen>
 svn delete PATH
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-revert">
 			<title>Revert</title>
-<screen>
+			<screen>
 svn status -v PATH
 </screen>
 			<para>
@@ -297,19 +302,19 @@ svn status -v PATH
 				revert of the working copy. If you deselect some files, then
 				every path must be specified individually on the revert command line.
 			</para>
-<screen>
+			<screen>
 svn revert [-R] PATH...
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-cleanup">
 			<title>Cleanup</title>
-<screen>
+			<screen>
 svn cleanup PATH
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-getlock">
 			<title>Get Lock</title>
-<screen>
+			<screen>
 svn status -v PATH
 </screen>
 			<para>
@@ -317,7 +322,7 @@ svn status -v PATH
 				in your working copy which can potentially be locked. You can
 				select the items you want to be locked.
 			</para>
-<screen>
+			<screen>
 svn lock -m "LockMessage" [--force] PATH...
 </screen>
 			<para>
@@ -331,13 +336,13 @@ svn lock -m "LockMessage" [--force] PATH...
 		</sect2>
 		<sect2 id="tsvn-cli-release">
 			<title>Release Lock</title>
-<screen>
+			<screen>
 svn unlock PATH
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-branchtag">
 			<title>Branch/Tag</title>
-<screen>
+			<screen>
 svn copy -m "LogMessage" URL URL
   or
 svn copy -m "LogMessage" URL@rev URL@rev
@@ -361,21 +366,21 @@ svn copy -m "LogMessage" PATH URL
 		</sect2>
 		<sect2 id="tsvn-cli-switch">
 			<title>Switch</title>
-<screen>
+			<screen>
 svn info URL_of_WC
 svn switch [-r rev] URL PATH
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-merge">
 			<title>Merge</title>
-<screen>
+			<screen>
 svn merge [--dry-run] From_URL@revN To_URL@revM PATH
 </screen>
 			<para>
 				The <guibutton>Dry run</guibutton> performs the same merge
 				with the <literal>--dry-run</literal> switch.
 			</para>
-<screen>
+			<screen>
 svn diff From_URL@revN To_URL@revM
 </screen>
 			<para>
@@ -385,7 +390,7 @@ svn diff From_URL@revN To_URL@revM
 		</sect2>
 		<sect2 id="tsvn-cli-export">
 			<title>Export</title>
-<screen>
+			<screen>
 svn export [-r rev] [--ignore-externals] URL Export_PATH
 </screen>
 			<para>
@@ -410,13 +415,13 @@ svn export [-r rev] [--ignore-externals] URL Export_PATH
 		</sect2>
 		<sect2 id="tsvn-cli-relocate">
 			<title>Relocate</title>
-<screen>
+			<screen>
 svn switch --relocate From_URL To_URL
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-createrepos">
 			<title>Create Repository Here</title>
-<screen>
+			<screen>
 svnadmin create --fs-type fsfs PATH
   or
 svnadmin create --fs-type bdb PATH
@@ -424,7 +429,7 @@ svnadmin create --fs-type bdb PATH
 		</sect2>
 		<sect2 id="tsvn-cli-add">
 			<title>Add</title>
-<screen>
+			<screen>
 svn add PATH...
 </screen>
 			<para>
@@ -434,7 +439,7 @@ svn add PATH...
 		</sect2>
 		<sect2 id="tsvn-cli-import">
 			<title>Import</title>
-<screen>
+			<screen>
 svn import -m LogMessage PATH URL
 </screen>
 			<para>
@@ -444,7 +449,7 @@ svn import -m LogMessage PATH URL
 		</sect2>
 		<sect2 id="tsvn-cli-blame">
 			<title>Blame</title>
-<screen>
+			<screen>
 svn blame -r N:M -v PATH
 svn log -r N:M PATH
 </screen>
@@ -457,7 +462,7 @@ svn log -r N:M PATH
 		</sect2>
 		<sect2 id="tsvn-cli-addignore">
 			<title>Add to Ignore List</title>
-<screen>
+			<screen>
 svn propget svn:ignore PATH > tempfile
 {edit new ignore item into tempfile}
 svn propset svn:ignore -F tempfile PATH
@@ -470,7 +475,7 @@ svn propset svn:ignore -F tempfile PATH
 		</sect2>
 		<sect2 id="tsvn-cli-createpatch">
 			<title>Create Patch</title>
-<screen>
+			<screen>
 svn diff PATH > patchfile
 </screen>
 			<para>

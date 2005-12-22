@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-repository-create">
 	<title>Repository Creation</title>
-				<para>
+	<para>
 					You can create a repository with the FSFS backend or with the
 					old but stable Berkeley Database (BDB) format. The FSFS format
 					is faster and it now works on network shares and Windows 98
 					without problems. The BDB format is more stable because it has
 					been tested longer. Read
 					<ulink url="http://svnbook.red-bean.com/en/1.1/ch05.html#svn-ch-5-sect-1.2.A">
-						<citetitle>Chapter 5, Repository Data-Stores</citetitle>
-					</ulink>
+			<citetitle>Chapter 5, Repository Data-Stores</citetitle>
+		</ulink>
 					in the SVN book for more information.
 				</para>
 	<sect2 id="tsvn-repository-create-commandline">
@@ -52,7 +53,6 @@ svnadmin create --fs-type fsfs MyNewRepository
 			<filename>D:\SVN\MyNewRepository</filename>.
 		</para>
 	</sect2>
-
 	<!-- ================================================================= -->
 	<sect2 id="tsvn-repository-create-tortoisesvn">
 		<title>Creating The Repository With TortoiseSVN</title>
@@ -123,8 +123,8 @@ svnadmin create --fs-type fsfs MyNewRepository
 			This form is still supported, but not recommended.
 		</para>
 	</sect2>
-		<warning>
-			<para>
+	<warning>
+		<para>
 				Do not create or access a Berkeley DB repository on a network share.
 				It <emphasis>cannot</emphasis> exist on a remote filesystem.
 				Not even if you have the network drive mapped to a drive letter.
@@ -133,12 +133,12 @@ svnadmin create --fs-type fsfs MyNewRepository
 				right away, or it may be months before you discover that your
 				repository database is subtly corrupted.
 			</para>
-		</warning>
-		<tip>
-			<para>
+	</warning>
+	<tip>
+		<para>
 				If you really need to access a repository through a network share,
 				create the repository with fsfs format. If you need to provide
 				server access as well, you will need Subversion Server 1.1 or higher.
 			</para>
-		</tip>
+	</tip>
 </sect1>

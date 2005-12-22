@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-revgraph">
 	<?dbhh topicname="HIDD_REVISIONGRAPH"?>
 	<title>Revision Graphs</title>
@@ -97,9 +98,11 @@
 		to view the history.
 	</para>
 	<caution>
-		Because Subversion cannot provide all the information required,
-		a certain amount of interpretation is required, which can sometimes
-		give strange results. Nevertheless, the output for the trunk will
-		generally give useful results.
+		<para>
+			Because Subversion cannot provide all the information required,
+			a certain amount of interpretation is required, which can sometimes
+			give strange results. Nevertheless, the output for the trunk will
+			generally give useful results.
+		</para>
 	</caution>
 </sect1>

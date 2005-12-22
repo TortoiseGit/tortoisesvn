@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
 <chapter id="tsvn_subwcrev">
 	<title>The SubWCRev Program</title>
 	<indexterm>
@@ -208,7 +209,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 			The example below shows how keywords in a template file are
 			substituted in the output file.
 		</para>
-<screen>
+		<screen>
 // Test file for SubWCRev
 
 char *Revision = "$WCREV$";
@@ -227,7 +228,7 @@ char *URL      = "$WCURL$";
 		<para>
 			After running SubWCRev.exe, the output file looks like this:
 		</para>
-<screen>
+		<screen>
 // Test file for SubWCRev
 
 char *Revision = "3701";

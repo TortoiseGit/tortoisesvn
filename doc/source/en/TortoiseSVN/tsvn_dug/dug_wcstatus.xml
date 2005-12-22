@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-wcstatus">
 	<title>Getting Status Information</title>
 	<indexterm>
@@ -29,7 +30,7 @@
 			the Subversion status of the file the overlay icon is different.
 		</para>
 		<para>
-		 	<graphic fileref="../images/InSubVersionIcon.png"/>
+			<graphic fileref="../images/InSubVersionIcon.png"/>
 			A fresh checked out working copy has a green checkmark as overlay.
 			That means the Subversion status is <literal>normal</literal>.
 		</para>
@@ -194,45 +195,57 @@
 				<varlistentry>
 					<term>Blue</term>
 					<listitem>
+						<para>
 						Locally modified items.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
 					<term>Purple</term>
 					<listitem>
+						<para>
 						Added items.
 						Items which have been added with history have a
 						<literal>+</literal> sign in the
 						<guilabel>Text status</guilabel> column,
 						and a tooltip shows where the item was copied from.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
 					<term>Dark red</term>
 					<listitem>
+						<para>
 						Deleted or missing items.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
 					<term>Green</term>
 					<listitem>
+						<para>
 						Items modified locally and in the repository.
 						The changes will be merged on update.
 						These <emphasis>may</emphasis> produce conflicts on update.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
 					<term>Bright red</term>
 					<listitem>
+						<para>
 						Items modified locally and deleted in repository,
 						or modified in repository and deleted locally.
 						These <emphasis>will</emphasis> produce conflicts on update.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
 					<term>Black</term>
 					<listitem>
+						<para>
 						Unchanged and unversioned items.
+						</para>
 					</listitem>
 				</varlistentry>
 			</variablelist>
@@ -256,12 +269,14 @@
 			and you can use <literal>Revert</literal> to recover it.
 		</para>
 		<tip>
-			If you want a flat view of your working copy, i.e. showing all files
-			and folders at every level of the folder hierarchy, then the
-			<guilabel>Check for Modifications</guilabel> dialog is the
-			easiest way to achieve that. Just check the
-			<guilabel>Show unmodified files</guilabel> checkbox to show
-			all files in your working copy.
+			<para>
+				If you want a flat view of your working copy, i.e. showing all files
+				and folders at every level of the folder hierarchy, then the
+				<guilabel>Check for Modifications</guilabel> dialog is the
+				easiest way to achieve that. Just check the
+				<guilabel>Show unmodified files</guilabel> checkbox to show
+				all files in your working copy.
+			</para>
 		</tip>
 	</sect2>
 	<sect2 id="tsvn-DUG-diffing">

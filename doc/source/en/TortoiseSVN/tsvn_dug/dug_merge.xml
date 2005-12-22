@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-merge">
 	<title>Merging</title>
 	<?dbhh topicname="HIDD_MERGE"?>
@@ -47,7 +48,6 @@
 		There are two common use cases for merging which are handled in
 		slightly different ways, as described below.
 	</para>
-	
 	<sect2 id="tsvn-DUG-merge-1">
 		<title>Merging a Range of Revisions</title>
 		<para>
@@ -210,7 +210,6 @@ Rev Comments
 			</para>
 		</important>
 	</sect2>
-
 	<sect2 id="tsvn-DUG-merge-2">
 		<title>Merging Two Different Trees</title>
 		<para>
@@ -290,7 +289,6 @@ Rev Comments
 			from the repository if required.
 		</para>
 	</sect2>
-
 	<sect2 id="tsvn-DUG-merge-3">
 		<title>Previewing Merge Results</title>
 		<para>

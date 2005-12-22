@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-bugtracker">
 	<title>Integration with Bugtracking Systems / Issue trackers</title>
 	<indexterm>
@@ -209,6 +210,7 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+		</para>
 		<para>
 			Some <literal>tsvn:</literal> properties require a
 			<literal>true/false</literal> value. TSVN also understands
@@ -238,7 +240,6 @@
 				setting it on all files.
 			</para>
 		</important>
-	</para>
 	<para>
 		This issue tracker integration is not restricted to TortoiseSVN; it can be used
 		with any Subversion client. For more information, read the full

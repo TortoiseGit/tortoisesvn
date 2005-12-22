@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-branchtag">
 	<title>Branching / Tagging</title>
 	<indexterm>
@@ -75,15 +76,18 @@
 				<varlistentry>
 					<term>HEAD revision in the repository</term>
 					<listitem>
+						<para>
 						The new branch is copied directly in the repository
 						from the HEAD revision. No data needs to be transferred
 						from your working copy, and the branch is created
 						very quickly.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
 					<term>Specific revision in the repository</term>
 					<listitem>
+						<para>
 						The new branch is copied directly in the repository
 						but you can choose an older revision. This is useful
 						if you forgot to make a tag when you released your
@@ -92,11 +96,13 @@
 						revision log, and select the revision number from
 						there. Again no data is transferred from your working
 						copy, and the branch is created very quickly.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
 					<term>Working copy</term>
 					<listitem>
+						<para>
 						The new branch is an identical copy of your local
 						working copy. If you have updated some files to an
 						older revision in your WC, or if you have made local
@@ -104,6 +110,7 @@
 						Naturally this sort of complex tag may involve
 						transferring data from your WC back to the repository
 						if it does not exist there already.
+						</para>
 					</listitem>
 				</varlistentry>
 			</variablelist>
@@ -128,7 +135,6 @@
 			WC may still be marked as modified.
 		</para>
 	</sect2>
-
 	<sect2 id="tsvn-DUG-switch-1">
 		<title>To Checkout or to Switch...</title>
 		<?dbhh topicname="HIDD_SWITCH"?>

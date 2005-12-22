@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix SYSTEM "../../dtd/dblite.dtd">
 <appendix id="tsvn-howto" xmlns:xi="http://www.w3.org/2001/XInclude">
 	<title>How Do I...</title>
 	<simplesect>
@@ -34,12 +35,12 @@
 			or
 			<menuchoice>
 				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Move in Subversion to here</guimenuitem>.
+				<guimenuitem>Move in Subversion to here</guimenuitem>
 			</menuchoice>.
 		</para>
 		<para>
 			<videoobject>
-			<videodata fileref="images/svn_move.swf" format="SWF" contentwidth="590" contentdepth="290"></videodata>
+				<videodata fileref="images/svn_move.swf" format="SWF" contentwidth="590" contentdepth="290"/>
 			</videoobject>
 		</para>
 	</sect1>

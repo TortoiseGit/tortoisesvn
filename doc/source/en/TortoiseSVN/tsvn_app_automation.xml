@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix SYSTEM "../../dtd/dblite.dtd">
 <appendix id="tsvn-automation">
 	<title>Automating TortoiseSVN</title>
 	<simplesect>
@@ -36,7 +37,7 @@
 			Since some of the commands can take a list of target paths (e.g. committing
 			several specific files) the <option>/path</option> parameter can take
 			several paths, separated by a <literal>*</literal> character.
-		</para>	
+		</para>
 		<para>
 			Since TortoiseSVN uses temporary files to pass multiple arguments between
 			the shell extension and the main program, you <emphasis>must</emphasis>
@@ -61,14 +62,25 @@
 			using the permanent setting you can pass the <option>/closeonend</option>
 			parameter.
 			<itemizedlist>
-				<listitem><para><option>/closeonend:0</option> don't close the dialog automatically</para></listitem>
-				<listitem><para><option>/closeonend:1</option> auto close if no errors</para></listitem>
-				<listitem><para><option>/closeonend:2</option> auto close if no conflicts</para></listitem>
-				<listitem><para><option>/closeonend:3</option> auto close if no merges</para></listitem>
+				<listitem>
+					<para>
+						<option>/closeonend:0</option> don't close the dialog automatically</para>
+				</listitem>
+				<listitem>
+					<para>
+						<option>/closeonend:1</option> auto close if no errors</para>
+				</listitem>
+				<listitem>
+					<para>
+						<option>/closeonend:2</option> auto close if no conflicts</para>
+				</listitem>
+				<listitem>
+					<para>
+						<option>/closeonend:3</option> auto close if no merges</para>
+				</listitem>
 			</itemizedlist>
 		</para>
-		
-<!--
+		<!--
 ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION
 Don't touch these lines:
 <entry condition="pot">:about</entry>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-DUG-settings">
 	<title>TortoiseSVN's Settings</title>
 	<indexterm>
@@ -49,13 +50,19 @@
 						TortoiseSVN has three custom sounds which are installed by default.
 						<itemizedlist>
 							<listitem>
+								<para>
 								Error
-							</listitem>
+								</para>
+								</listitem>
 							<listitem>
+								<para>
 								Notice
+								</para>
 							</listitem>
 							<listitem>
+								<para>
 								Warning
+								</para>
 							</listitem>
 						</itemizedlist>
 						You can select different sounds (or turn these sounds
@@ -91,11 +98,13 @@
 						the command line client.
 					</para>
 					<caution>
+						<para>
 						If you use the Subversion configuration file to set
 						a <literal>global-ignores</literal> pattern, it will
 						override the settings you made here. The Subversion
 						configuration file is accessed using the
 						<guibutton>Edit</guibutton> as described below.
+						</para>
 					</caution>
 					<para>
 						This exclude pattern will affect all your projects.
@@ -756,7 +765,8 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 			<para>
 				You need to specify just the extension with no leading dot or wildcard.
 				Use <literal>BMP</literal> to describe Windows bitmap files,
-				<emphasis>not</emphasis> <literal>*.BMP</literal>.
+				<emphasis>not</emphasis>
+				<literal>*.BMP</literal>.
 			</para>
 		</sect3>
 		<sect3 id="tsvn-DUG-settings-Patch">
