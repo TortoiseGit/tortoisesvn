@@ -437,6 +437,7 @@ void CLogDlg::Refresh()
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+	m_bNoDispUpdates = false;
 }
 
 void CLogDlg::OnBnClickedNexthundred()
