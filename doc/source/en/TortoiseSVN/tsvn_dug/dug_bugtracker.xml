@@ -91,6 +91,8 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+	</para>
+	<para>
 		In the simple approach, TortoiseSVN shows the user
 		a separate input field where a bug ID can be entered. Then a separate line
 		is appended/prepended to the log message the user entered.
@@ -161,18 +163,13 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+	</para>
+	<para>
 		In the approach with <literal>regular expressions</literal>, TortoiseSVN
 		doesn't show a separate input field but marks the part of the log message the user
 		enters which is recognized by the issue tracker. This is done while the user
 		writes the log message. This also means that the bug ID can be anywhere inside a log
 		message!
-		<tip>
-			<para>
-				Even if you don't have an issue tracker with a pre-commit hook parsing your
-				log messages, you still can use this to turn the issues mentioned in your
-				log messages into links!
-			</para>
-		</tip>
 		<variablelist>
 			<varlistentry>
 				<term>bugtraq:logregex</term>
@@ -210,36 +207,43 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+	</para>
+	<tip>
+		<para>
+			Even if you don't have an issue tracker with a pre-commit hook parsing your
+			log messages, you still can use this to turn the issues mentioned in your
+			log messages into links!
+		</para>
+	</tip>
+	<para>
+		Some <literal>tsvn:</literal> properties require a
+		<literal>true/false</literal> value. TSVN also understands
+		<literal>yes</literal> as a synonym for <literal>true</literal> and
+		<literal>no</literal> as a synonym for <literal>false</literal>.
+	</para>
+	<important>
+		<title>Set the Properties on Folders</title>
+		<para>
+			These properties must be set on folders for the system to work. 
+			When you commit a file or folder the properties are read from that folder.
+			If the properties are not found there, TortoiseSVN will search upwards
+			through the folder tree to find them until it comes to an unversioned
+			folder, or the tree root (eg. <literal>C:\</literal>) is found.
+			If you can be sure that each user checks out only from e.g
+			<filename>trunk/</filename> and not some subfolder, then it's enough if
+			you set the properties on <filename>trunk/</filename>.
+			If you can't be sure, you should set the properties recursively
+			on each subfolder.
+			A property setting deeper in the project hierarchy overrides settings on
+			higher levels (closer to <filename>trunk/</filename>).
 		</para>
 		<para>
-			Some <literal>tsvn:</literal> properties require a
-			<literal>true/false</literal> value. TSVN also understands
-			<literal>yes</literal> as a synonym for <literal>true</literal> and
-			<literal>no</literal> as a synonym for <literal>false</literal>.
+			For <literal>tsvn:</literal> properties <emphasis>only</emphasis>
+			you can use the <guilabel>Recursive</guilabel> checkbox to set
+			the property to all subfolders in the hierarchy, without also
+			setting it on all files.
 		</para>
-		<important>
-			<title>Set the Properties on Folders</title>
-			<para>
-				These properties must be set on folders for the system to work. 
-				When you commit a file or folder the properties are read from that folder.
-				If the properties are not found there, TortoiseSVN will search upwards
-				through the folder tree to find them until it comes to an unversioned
-				folder, or the tree root (eg. <literal>C:\</literal>) is found.
-				If you can be sure that each user checks out only from e.g
-				<filename>trunk/</filename> and not some subfolder, then it's enough if
-				you set the properties on <filename>trunk/</filename>.
-				If you can't be sure, you should set the properties recursively
-				on each subfolder.
-				A property setting deeper in the project hierarchy overrides settings on
-				higher levels (closer to <filename>trunk/</filename>).
-			</para>
-			<para>
-				For <literal>tsvn:</literal> properties <emphasis>only</emphasis>
-				you can use the <guilabel>Recursive</guilabel> checkbox to set
-				the property to all subfolders in the hierarchy, without also
-				setting it on all files.
-			</para>
-		</important>
+	</important>
 	<para>
 		This issue tracker integration is not restricted to TortoiseSVN; it can be used
 		with any Subversion client. For more information, read the full
