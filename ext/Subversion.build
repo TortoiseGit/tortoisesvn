@@ -103,7 +103,8 @@
 			file="build\svn_private_config.h"
 			tofile="Subversion\subversion\svn_private_config.hw"
 		/>
-		<exec program="devenv.com" workingdir="Subversion" failonerror="false">
+		<echo message="Building Subversion (netless) using ${buildtool}" />
+		<exec program="${buildtool}" workingdir="Subversion" failonerror="false">
 			<arg value="subversion_vcnet.sln" />
 			<arg value="/useenv" />
 			<arg value="/rebuild" />
@@ -134,7 +135,8 @@
 		     when building. We set failonerror=false to not stop the build
 		     because of that: TortoiseSVN will still build, we only don't have
 		     the svn.exe built -->
-		<exec program="devenv.com" workingdir="Subversion" failonerror="false">
+		<echo message="Building Subversion using ${buildtool}" />
+		<exec program="${buildtool}" workingdir="Subversion" failonerror="false">
 			<arg value="subversion_vcnet.sln" />
 			<arg value="/useenv" />
 			<arg value="/rebuild" />

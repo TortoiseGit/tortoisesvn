@@ -1,5 +1,24 @@
-First, you need to install some utilities/programs:
-- Install VS.NET2003
+First, you need to install the compiler package.
+A. You need VS.NET2005 (or at least Visual C++ .NET 2005) to allow
+   building of the full TortoiseSVN package. This is the recommended
+   option, but it is not free :-(
+B. If you do not have access to VS.NET you can download the free
+   Visual C++ 2005 Express Edition (only free for a limited period).
+   This will allow you to build the subversion libraries and the
+   SubWCRev and TortoiseBlame programs only.
+   - Install Visual C++ 2005 Express Edition.
+     Download it from http://msdn.microsoft.com/vstudio/express/visualc/
+   - Install Microsoft Platform SDK for Windows Server 2003 SP1
+     You need at least the following components of the SDK:
+       - Windows Core SDK
+       - Web Workshop (IE) SDK
+       - Data Access Services
+       - Debugging Tools
+   - Install MASM 6.15 from: http://win32assembly.online.fr/files/masm615.zip
+     and add it to the PATH environment variable
+   Do not bother to install WiX as you cannot build very much.
+
+Next you need to install some utilities/programs:
 - Install the java runtime. Get it from http://java.sun.com
   or from this direct link:
   http://java.sun.com/webapps/getjava/BrowserRedirect
@@ -9,17 +28,17 @@ First, you need to install some utilities/programs:
 - To translate the docs, you will also need the libxml2 python bindings.
   Get them from here: http://users.skynet.be/sbi/libxml-python/
 - Install Perl. Get it from http://www.activestate.com/Products/ActivePerl/
-- Get the WiX tools from http://wix.sourceforge.net and unzip them. Then add
-  it to the PATH environement variable.
+- Get the WiX tools from http://wix.sourceforge.net and unzip them. (*)
+  Then add it to the PATH environment variable.
 - If you want to include the dictionary and thesaurus in the installer/languagepacks,
   then you have to download those from http://lingucomponent.openoffice.org/.
   Important: Only the thesaurus in the format for OO2 will work! Earlier versions
   will crash TSVN!!
 - Get NSIS from http://nsis.sourceforge.net and install it.
 - Install the latest Nant release. Get it from http://nant.sourceforge.net
-- Add the Nant bin folder to the PATH environement variable.
+- Add the Nant bin folder to the PATH environment variable.
 
-You may have to logoff/logon to make the new environement variables take effect!
+You may have to logoff/logon to make the new environment variables take effect!
 
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
   1.5 GB of free space left!!!
@@ -54,6 +73,20 @@ you can have the command shell call this file automatically:
   "AutoRun"="\"C:\\Program Files\\Microsoft Visual Studio 8\\Common7\\Tools\\vsvars.bat\""
 Next time you start the command prompt, that file will be executed automatically.
 
+Note that for the Express edition you need to sort out the vars for the platform SDK
+as well. The easiest way I found was to edit the supplied VC++ file
+C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat
+Look for the :x86 label and add an extra call to setenv.cmd as shown below:
+
+	:x86
+	if not exist "%~dp0bin\vcvars32.bat" goto missing
+	call "%~dp0bin\vcvars32.bat"
+	rem Added SDK setup 14/12/2005 SJL
+	call "C:\Program Files\Microsoft Platform SDK\setenv.cmd"
+	goto :eof
+
+Then call vsvarsall.bat when you start your command processor instead
+of vsvars32 as described above.
 
 Now, if you got some time left you can run the build script to compile
 TortoiseSVN. Grab a cup of coffee - it can take up to two hours, depending on
@@ -78,3 +111,29 @@ anyway. Sure, the build script could just compile the libraries which
 are really needed for that build, but it's much easier to just build the
 whole solution instead of individual projects.
 If you want to improve the build script to get rid of those errors, be our guest!
+
+If you are building using VC++ Express, your options are somewhat limited.
+Firstly you need to create a file in the TortoiseSVN directory called default.user
+The content should look something like this:
+
+	<?xml version="1.0"?>
+	<project name="customize">
+		<description>Customization layer for build file</description>
+		<property name="buildtool" value="vcexpress.exe" />
+	</project>
+
+Now you need to build the Subversion libraries:
+> nant Subversion
+
+Note that the VC Express compiler works in the background without a console
+window. There is a lot of disk activity with no apparent result showing
+in the Nant console window. Be patient!
+
+Before building the applications, update the version info:
+> nant VersionInfo
+
+Now you can open the SubWCRev.vcproj file to start the IDE.
+Some error dialogs will come up, which you can ignore.
+Right click on SubWCRev and 'Build'.
+
+You can also right click on TortoiseBlame and build that.

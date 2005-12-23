@@ -7,6 +7,15 @@
 	<property name="devrelease" value="-dev" />
 	<!-- default build for win32 platform -->
 	<property name="platform" value="win32" />
+	<!-- default build tool is VS.NET2005 -->
+	<property name="buildtool" value="devenv.com" />
+
+	<!-- customization layer
+	This also allows limited building using VC Express instead of VS.NET.
+	Example content of default.user:
+	<property name="buildtool" value="vcexpress.exe" />
+	-->
+	<include buildfile="default.user" if="${file::exists('default.user')}"/>
 	
 <!-- ====================================================================== -->
 <!-- Configuration targets													-->
