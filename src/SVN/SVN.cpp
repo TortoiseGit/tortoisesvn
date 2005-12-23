@@ -159,12 +159,12 @@ struct log_msg_baton2
   apr_pool_t *pool; /* a pool. */
 };
 
-CString SVN::GetLastErrorMessage()
+CString SVN::GetLastErrorMessage(int wrap /* = 80 */)
 {
-	return GetErrorString(Err);
+	return GetErrorString(Err, wrap);
 }
 
-CString SVN::GetErrorString(svn_error_t * Err)
+CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
 {
 	CString msg;
 	CString temp;
@@ -198,13 +198,13 @@ CString SVN::GetErrorString(svn_error_t * Err)
 				}
 			}
 		}
-		msg = CStringUtils::LinesWrap(msg);
+		msg = CStringUtils::LinesWrap(msg, wrap);
 		while (ErrPtr->child)
 		{
 			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
 			temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
-			temp = CStringUtils::LinesWrap(temp);
+			temp = CStringUtils::LinesWrap(temp, wrap);
 			msg += temp;
 		}
 		temp.Empty();

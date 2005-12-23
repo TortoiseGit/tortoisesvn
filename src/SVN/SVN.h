@@ -116,7 +116,7 @@ public:
 	 * get the detailed error message with this method.
 	 * \return the error message string
 	 */
-	CString GetLastErrorMessage();
+	CString GetLastErrorMessage(int wrap = 80);
 	/** 
 	 * Checkout a working copy of moduleName at revision, using destPath as the root
 	 * directory of the newly checked out working copy
@@ -587,7 +587,7 @@ public:
 	void SetAndClearProgressInfo(HWND hWnd);
 	void SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgressBar = false);
 	
-	static CString GetErrorString(svn_error_t * Err);
+	static CString GetErrorString(svn_error_t * Err, int wrap = 80);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
 	static void formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt = false);
