@@ -510,22 +510,13 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	CString sShortMessage = message;
 	// Remove newlines 'cause those are not shown nicely in the listcontrol
 	sShortMessage.Replace(_T("\r"), _T(""));
-	sShortMessage.Replace('\n', ' ');
 	
 	found = sShortMessage.Find(_T("\n\n"));
 	if (found >=0)
 	{
-		if (found <=80)
-			sShortMessage = sShortMessage.Left(found);
-		else
-		{
-			found = sShortMessage.Find(_T("\n"));
-			if ((found >= 0)&&(found <=80))
-				sShortMessage = sShortMessage.Left(found);
-		}
+		sShortMessage = sShortMessage.Left(found);
 	}
-	else if (sShortMessage.GetLength() > 80)
-		sShortMessage = sShortMessage.Left(77) + _T("...");
+	sShortMessage.Replace('\n', ' ');
 	
 	PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
 	pLogItem->bCopies = copies;
@@ -2470,7 +2461,10 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			break;
 		case 4: //message
 			if (itemid < m_logEntries.size())
+			{
 				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)pLogEntry->sShortMessage);
+				pItem->cchTextMax = pLogEntry->sShortMessage.GetLength();
+			}
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
