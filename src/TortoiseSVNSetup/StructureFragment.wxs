@@ -6,12 +6,12 @@
 			<Directory Id="D__ProgramFilesFolder" Name="PFiles" LongName="Program Files">
 				<Directory Id="INSTALLDIR" Name="TSVN" LongName="TortoiseSVN">
 
-					<Merge Id='CRT' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\microsoft_vc80_crt_x86.msm' DiskId='1' />
-					<Merge Id='CRT Policy' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\policy_8_0_Microsoft_VC80_CRT_x86.msm' DiskId='1' />
-					<Merge Id='MFC' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
-					<Merge Id='MFC Policy' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
-					<Merge Id='MFCLOC' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
-					<Merge Id='MFCLOC Policy' Language='0' src='C:\Programme\Gemeinsame Dateien\Merge Modules\policy_8_0_Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+					<Merge Id='CRT' Language='0' src='$(env.MergeModules)\microsoft_vc80_crt_x86.msm' DiskId='1' />
+					<Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86.msm' DiskId='1' />
+					<Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+					<Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+					<Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+					<Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
 
 					<Component Id="C__infofiles" Guid="625A2E1E-90D3-4107-8AE8-C5C37975FEA0" >
 						<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
