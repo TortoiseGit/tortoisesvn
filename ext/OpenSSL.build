@@ -10,7 +10,7 @@
 		</exec>
 	</target>
 	<target name="OpenSSL">
-		<delete file="..\..\common\openssl\del.bat" failonerror="false" />
+		<delete file="..\..\common\openssl\del.bat" if="${file::exists('..\..\common\openssl\del.bat')}" />
 		<if test="${platform == 'win32'}">
 			<exec program="perl" workingdir="..\..\common\openssl">
 				<arg value="Configure" />
