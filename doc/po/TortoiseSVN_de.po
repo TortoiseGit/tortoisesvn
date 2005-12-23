@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-22 14:51+0100\n"
+"PO-Revision-Date: 2005-12-23 12:31+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7163,12 +7163,12 @@ msgstr "TortoiseSVN automatisieren"
 #: source/TortoiseSVN_en.xml:8678
 #: (para)
 msgid "Since all commands for TortoiseSVN are controlled through command line parameters, you can automate it with batch scripts or start specific commands and dialogs from other programs (e.g. your favourite text editor)."
-msgstr ""
+msgstr "Da alle Befehle von TortoiseSVN über Kommandozeilenparameter beeinflusst werden können, haben Sie die Möglichkeit automatische Prozessen mit Batch Skripten zu erstellen oder Dialoge aus anderen Programmen (z.B. Ihrem Lieblingseditor) heraus aufzurufen."
 
 #: source/TortoiseSVN_en.xml:8683
 #: (para)
 msgid "For most use cases you might want to use the official Subversion command line client to do automation. But if you want GUI dialogs for still required user input or progress information you can use TortoiseSVN."
-msgstr ""
+msgstr "In den meisten Anwendungsfällen werden Sie den offiziellen Subversion Client für die Automatisierung nutzen wollen. Wenn Sie aber graphische Dialoge für Anwendereingaben oder Fortschrittsinformationen benötigen, können Sie auch TortoiseSVN verwenden."
 
 #: source/TortoiseSVN_en.xml:8693
 #: (title) source/TortoiseSVN_en.xml:9107
@@ -7248,7 +7248,7 @@ msgstr "Befehl"
 #: source/TortoiseSVN_en.xml:8780
 #: (entry)
 msgid "Shows the About-dialog. This is also shown if no command is given."
-msgstr ""
+msgstr "Öffnet den <quote>Über TortoiseSVN</quote> Dialog. Dieser Dialog wird auch angezeigt, wenn kein Befehl angegeben wird."
 
 #: source/TortoiseSVN_en.xml:8791
 #: (option)
@@ -7310,7 +7310,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8806
 #: (entry)
 msgid "Opens the import dialog. The path specifies the directory with the data to import."
-msgstr ""
+msgstr "Öffnet den <quote>Import</quote> Dialog. Der Pfad bezeichnet das Verzeichnis mit den zu importierenden Daten."
 
 #: source/TortoiseSVN_en.xml:8815
 #: (option)
@@ -7365,7 +7365,7 @@ msgstr "Erstellt ein Projektarchiv in <placeholder-1/>"
 #: source/TortoiseSVN_en.xml:8872
 #: (entry)
 msgid "Opens the switch dialog. The path specifies the target directory."
-msgstr ""
+msgstr "Öffnet den <quote>Wechseln Zu</quote> Dialog. Der Pfad bezeichnet das Zielverzeichnis."
 
 #: source/TortoiseSVN_en.xml:8879
 #: (entry)
@@ -7375,7 +7375,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8888
 #: (entry)
 msgid "Opens the merge dialog. The path specifies the target directory."
-msgstr ""
+msgstr "Öffnet den <quote>Zusammenführen</quote> Dialog. Der Pfad bezeichnet das Zielverzeichnis."
 
 #: source/TortoiseSVN_en.xml:8895
 #: (entry)
@@ -7425,7 +7425,7 @@ msgstr "Öffnet die Hilfedatei"
 #: source/TortoiseSVN_en.xml:8957
 #: (entry)
 msgid "Opens the check-for-modifications dialog. The path specifies the working copy directory."
-msgstr ""
+msgstr "Öffnet den <quote>Prüfe auf Änderungen</quote> Dialog. Der Pfad bezeichnet die Arbeitskopie"
 
 #: source/TortoiseSVN_en.xml:8969
 #: (option) source/TortoiseSVN_en.xml:8971
@@ -7445,7 +7445,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8985
 #: (entry)
 msgid "Opens the blame dialog for the file specified in <placeholder-1/>."
-msgstr ""
+msgstr "Öffnet den <quote>Annotieren</quote> Dialog für die in <placeholder-1> angegebene Datei."
 
 #: source/TortoiseSVN_en.xml:8995
 #: (option)
@@ -7465,7 +7465,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9002
 #: (entry)
 msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "Erzeugt eine Patchdatei für den in <placeholder-1> angegebenen Pfad."
 
 #: source/TortoiseSVN_en.xml:9009
 #: (entry)
