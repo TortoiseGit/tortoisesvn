@@ -581,7 +581,7 @@ void TortoiseBlame::DrawHeader(HDC hDC)
 		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("Author"), 6, 0);
 		Left += m_authorwidth;
 	}
-	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("Line"), 11, 0);
+	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("Line"), 4, 0);
 
 	::SelectObject(hDC, oldfont);
 }
