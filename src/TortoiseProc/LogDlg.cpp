@@ -59,7 +59,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
 	m_pNotifyWindow = NULL;
-	m_bThreadRunning = FALSE;
+	m_bThreadRunning = false;
 	m_bAscending = FALSE;
 }
 
@@ -272,10 +272,10 @@ BOOL CLogDlg::OnInitDialog()
 	//blocking the dialog
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
-	m_bThreadRunning = TRUE;
+	m_bThreadRunning = true;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		m_bThreadRunning = FALSE;
+		m_bThreadRunning = false;
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	return FALSE;
@@ -390,10 +390,10 @@ void CLogDlg::OnBnClickedGetall()
 	m_limit = 0;
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
-	m_bThreadRunning = TRUE;
+	m_bThreadRunning = true;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		m_bThreadRunning = FALSE;
+		m_bThreadRunning = false;
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -430,10 +430,10 @@ void CLogDlg::Refresh()
 	m_arShownList.RemoveAll();
 	m_logEntries.ClearAll();
 
-	m_bThreadRunning = TRUE;
+	m_bThreadRunning = false;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		m_bThreadRunning = FALSE;
+		m_bThreadRunning = false;
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -459,10 +459,10 @@ void CLogDlg::OnBnClickedNexthundred()
 	m_bCancelled = FALSE;
 	m_limit = 100;
 	SetSortArrow(&m_LogList, -1, true);
-	m_bThreadRunning = TRUE;
+	m_bThreadRunning = true;
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		m_bThreadRunning = FALSE;
+		m_bThreadRunning = false;
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -480,7 +480,7 @@ void CLogDlg::OnCancel()
 	temp2.LoadString(IDS_MSGBOX_CANCEL);
 	if ((temp.Compare(temp2)==0)||(m_bThreadRunning))
 	{
-		m_bCancelled = TRUE;
+		m_bCancelled = true;
 		return;
 	}
 	__super::OnCancel();
@@ -519,7 +519,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	sShortMessage.Replace('\n', ' ');
 	
 	PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
-	pLogItem->bCopies = copies;
+	pLogItem->bCopies = !!copies;
 	pLogItem->tmDate = ttime;
 	pLogItem->sAuthor = author;
 	pLogItem->sDate = date;
@@ -568,7 +568,7 @@ UINT CLogDlg::LogThreadEntry(LPVOID pVoid)
 //this is the thread function which calls the subversion function
 UINT CLogDlg::LogThread()
 {
-	m_bThreadRunning = TRUE;
+	m_bThreadRunning = true;
 
 	//disable the "Get All" button while we're receiving
 	//log messages.
@@ -628,8 +628,8 @@ UINT CLogDlg::LogThread()
 	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(TRUE);
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
-	m_bCancelled = TRUE;
-	m_bThreadRunning = FALSE;
+	m_bCancelled = true;
+	m_bThreadRunning = false;
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
 	CUtils::ResizeAllListCtrlCols(&m_LogList);

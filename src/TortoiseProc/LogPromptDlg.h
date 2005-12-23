@@ -106,9 +106,9 @@ private:
 	CAutoCompletionList		m_autolist;
 	CSVNStatusListCtrl		m_ListCtrl;
 	BOOL			m_bShowUnversioned;
-	BOOL			m_bBlock;
-	BOOL			m_bThreadRunning;
-	BOOL			m_bRunThread;
+	volatile bool	m_bBlock;
+	volatile bool	m_bThreadRunning;
+	volatile bool	m_bRunThread;
 	CBalloon		m_tooltips;
 	CRegDWORD		m_regAddBeforeCommit;
 	ProjectProperties		m_ProjectProperties;

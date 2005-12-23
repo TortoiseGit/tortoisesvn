@@ -65,7 +65,7 @@ private:
 	bool			m_bRemote;
 	BOOL			m_bShowUnversioned;
 	int				m_iShowUnmodified;
-	BOOL			m_bBlock;
+	volatile bool	m_bBlock;
 	CString			m_sTitle;
 	bool			m_bCanceled;
 };

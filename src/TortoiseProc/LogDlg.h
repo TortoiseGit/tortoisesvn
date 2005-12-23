@@ -188,15 +188,15 @@ private:
 	svn_revnum_t		m_LogRevision;
 	svn_revnum_t		m_endrev;
 	long				m_logcounter;
-	BOOL				m_bCancelled;
-	BOOL				m_bThreadRunning;
+	bool				m_bCancelled;
+	volatile bool 		m_bThreadRunning;
 	BOOL				m_bStrict;
 	BOOL				m_bSaveStrict;
 	LogChangedPathArray * m_currentChangedArray;
 	LogChangedPathArray m_CurrentFilteredChangedArray;
 	CTSVNPathList		m_currentChangedPathList;
 	CPtrArray			m_arShownList;
-	BOOL				m_hasWC;
+	bool				m_hasWC;
 	int					m_nSearchIndex;
 	static const UINT	m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
@@ -206,7 +206,7 @@ private:
 	CSplitterControl	m_wndSplitter2;
 	CString				m_sFilterText;
 	int					m_nSelectedFilter;
-	bool				m_bNoDispUpdates;
+	volatile bool		m_bNoDispUpdates;
 	CDateTimeCtrl		m_DateFrom;
 	CDateTimeCtrl		m_DateTo;
 	DWORD				m_tFrom;
@@ -216,7 +216,7 @@ private:
 	CBitmapButton		m_cFilterCancelButton;
 	CBitmapButton		m_cFilterIcon;
 	int                 m_nSortColumn;
-	BOOL                m_bAscending;
+	bool                m_bAscending;
 	static int			m_nSortColumnPathList;
 	static bool			m_bAscendingPathList;
 	CRegDWORD			m_regLastStrict;
