@@ -1,0 +1,79 @@
+line   rev    date                           author                         content 
+
+     0   4929            13/11/2005 09:18:18 luebbe                         <?xml version="1.0" encoding="UTF-8"?>
+     1   5226            22/12/2005 13:04:03 luebbe                         <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
+     2   3982            24/07/2005 13:06:25 steveking                      <sect1 id="tsvn-DUG-relocate">
+     3   3982            24/07/2005 13:06:25 steveking                      	<title>Relocating a working copy</title>
+     4   3982            24/07/2005 13:06:25 steveking                      	<indexterm>
+     5   3982            24/07/2005 13:06:25 steveking                      		<primary>relocate</primary>
+     6   3982            24/07/2005 13:06:25 steveking                      	</indexterm>
+     7   3982            24/07/2005 13:06:25 steveking                      	<?dbhh topicname="HIDD_RELOCATE"?>
+     8   3982            24/07/2005 13:06:25 steveking                      	<para>
+     9   3982            24/07/2005 13:06:25 steveking                      		<figure id="tsvn-DUG-relocate-dia-1">
+    10   3982            24/07/2005 13:06:25 steveking                      			<title>The Relocate Dialog</title>
+    11   4977            19/11/2005 15:49:17 steveking                      			<graphic fileref="../images/Relocate.png"/>
+    12   3982            24/07/2005 13:06:25 steveking                      		</figure>
+    13   3982            24/07/2005 13:06:25 steveking                      		If your repository has for some reason changed it's
+    14   3982            24/07/2005 13:06:25 steveking                      		location (IP/URL). Maybe you're even stuck and can't
+    15   3982            24/07/2005 13:06:25 steveking                      		commit and you don't want to checkout your working
+    16   3982            24/07/2005 13:06:25 steveking                      		copy again from the new location and to move all your
+    17   3982            24/07/2005 13:06:25 steveking                      		changed data back into the new working copy,
+    18   3982            24/07/2005 13:06:25 steveking                      		<menuchoice>
+    19   3982            24/07/2005 13:06:25 steveking                      			<guimenu>TortoiseSVN</guimenu>
+    20   3982            24/07/2005 13:06:25 steveking                      			<guimenuitem>Relocate</guimenuitem>
+    21   3982            24/07/2005 13:06:25 steveking                      		</menuchoice>
+    22   3982            24/07/2005 13:06:25 steveking                      		is the command you are looking for. It basically
+    23   3982            24/07/2005 13:06:25 steveking                      		does very little: it scans all "entries" files in the
+    24   3982            24/07/2005 13:06:25 steveking                      		<filename>.svn</filename> folder and changes the URL of
+    25   3982            24/07/2005 13:06:25 steveking                      		the entries to the new value.
+    26   3982            24/07/2005 13:06:25 steveking                      	</para>
+    27   3982            24/07/2005 13:06:25 steveking                      	<warning>
+    28   3982            24/07/2005 13:06:25 steveking                      		<para>
+    29   4924            11/11/2005 23:16:25 simonlarge                     			<emphasis>This is a very infrequently used operation</emphasis>.
+    30   4929            13/11/2005 09:18:18 luebbe                         			The relocate command is <emphasis>only</emphasis> used if the URL of the
+    31   4929            13/11/2005 09:18:18 luebbe                         			repository root has changed. Possible reasons are:
+    32   4929            13/11/2005 09:18:18 luebbe                         			<itemizedlist>
+    33   4929            13/11/2005 09:18:18 luebbe                         				<listitem>
+    34   4929            13/11/2005 09:18:18 luebbe                         					<para>The IP address of the server has changed.</para>
+    35   4929            13/11/2005 09:18:18 luebbe                         				</listitem>
+    36   4929            13/11/2005 09:18:18 luebbe                         				<listitem>
+    37   4929            13/11/2005 09:18:18 luebbe                         					<para>The protocol has changed (e.g. http:// to https://).</para>
+    38   4929            13/11/2005 09:18:18 luebbe                         				</listitem>
+    39   4929            13/11/2005 09:18:18 luebbe                         				<listitem>
+    40   4929            13/11/2005 09:18:18 luebbe                         					<para>The repository root path in the server setup has changed.</para>
+    41   4929            13/11/2005 09:18:18 luebbe                         				</listitem>
+    42   4929            13/11/2005 09:18:18 luebbe                         			</itemizedlist>
+    43   4929            13/11/2005 09:18:18 luebbe                         			Put another way, you need to relocate when your working copy is referring
+    44   4929            13/11/2005 09:18:18 luebbe                         			to the same location in the same repository, but the repository itself
+    45   4924            11/11/2005 23:16:25 simonlarge                     			has moved.
+    46   3982            24/07/2005 13:06:25 steveking                      		</para>
+    47   3982            24/07/2005 13:06:25 steveking                      		<para>
+    48   4929            13/11/2005 09:18:18 luebbe                         			It does not apply if:
+    49   4929            13/11/2005 09:18:18 luebbe                         			<itemizedlist>
+    50   4929            13/11/2005 09:18:18 luebbe                         				<listitem>
+    51   4929            13/11/2005 09:18:18 luebbe                         					<para>
+    52   4929            13/11/2005 09:18:18 luebbe                         						You want to move to a different Subversion repository. In that case
+    53   4929            13/11/2005 09:18:18 luebbe                         						you should perform a clean checkout from the new repository location.
+    54   4929            13/11/2005 09:18:18 luebbe                         					</para>
+    55   4929            13/11/2005 09:18:18 luebbe                         				</listitem>
+    56   4929            13/11/2005 09:18:18 luebbe                         				<listitem>
+    57   4929            13/11/2005 09:18:18 luebbe                         					<para>
+    58   4929            13/11/2005 09:18:18 luebbe                         						You want to switch to a different branch or directory within the 
+    59   4929            13/11/2005 09:18:18 luebbe                         						same repository. To do that you should use
+    60   4929            13/11/2005 09:18:18 luebbe                         						<menuchoice>
+    61   4929            13/11/2005 09:18:18 luebbe                         							<guimenu>TortoiseSVN</guimenu>
+    62   4929            13/11/2005 09:18:18 luebbe                         							<guimenuitem>Switch...</guimenuitem>
+    63   4929            13/11/2005 09:18:18 luebbe                         						</menuchoice>.
+    64   4929            13/11/2005 09:18:18 luebbe                         						Read <xref linkend="tsvn-DUG-switch-1"/> for more information.
+    65   4929            13/11/2005 09:18:18 luebbe                         					</para>
+    66   4929            13/11/2005 09:18:18 luebbe                         				</listitem>
+    67   4929            13/11/2005 09:18:18 luebbe                         			</itemizedlist>
+    68   3982            24/07/2005 13:06:25 steveking                      		</para>
+    69   4924            11/11/2005 23:16:25 simonlarge                     		<para>
+    70   4929            13/11/2005 09:18:18 luebbe                         			If you use relocate in either of the cases above, it
+    71   4929            13/11/2005 09:18:18 luebbe                         			<emphasis>will corrupt your working copy</emphasis> and you will get many
+    72   4924            11/11/2005 23:16:25 simonlarge                     			unexplainable error messages while updating, committing, etc.
+    73   4924            11/11/2005 23:16:25 simonlarge                     			Once that has happened, the only fix is a fresh checkout.
+    74   4924            11/11/2005 23:16:25 simonlarge                     		</para>
+    75   3982            24/07/2005 13:06:25 steveking                      	</warning>
+    76   3982            24/07/2005 13:06:25 steveking                      </sect1>
