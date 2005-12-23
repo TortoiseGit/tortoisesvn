@@ -145,7 +145,7 @@
 			<arg value="__ALL__" />
 		</exec>
 		<!-- revert all patching we've done -->
-		<exec program="svn" workingdir="Subversion" failonerror="false">
+		<exec program="svn" workingdir="." failonerror="false">
 			<arg value="revert" />
 			<arg value="-R" />
 			<arg value="apr" />
