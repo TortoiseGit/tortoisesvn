@@ -737,7 +737,7 @@ END
 
 IDD_SETTINGSDIALOGS DIALOGEX 0, 0, 300, 217
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Look and Feel::Dialogs"
+CAPTION "Look and Feel::Dialogs 1"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Log messages",IDC_STATIC,7,7,286,72
@@ -751,19 +751,9 @@ BEGIN
     GROUPBOX        "Progress",IDC_STATIC,7,81,286,35
     LTEXT           "&Autoclose:",IDC_STATIC,13,91,54,19,SS_CENTERIMAGE
     COMBOBOX        IDC_AUTOCLOSECOMBO,71,95,213,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "Commit",IDC_COMMITGROUP,7,118,286,48
-    CONTROL         "&Use autocompletion of filepaths and keywords",IDC_AUTOCOMPLETION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,128,271,10
-    LTEXT           "&Timeout in seconds to stop the autocompletion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,140,231,8,SS_NOTIFY
-    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,138,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
-    CONTROL         "Only use s&pellchecker when tsvn:projectlanguage is set",IDC_SPELL,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,153,271,10
-    GROUPBOX        "Check for modifications",IDC_STATIC,7,166,286,21
-    CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,175,271,10
-    GROUPBOX        "Merge",IDC_STATIC,7,187,286,23
     CONTROL         "Use URL of &WC as the default ""From:"" URL",IDC_WCURLFROM,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,197,271,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,140,271,10
+    GROUPBOX        "Merge",IDC_STATIC,7,126,286,33
 END
 
 IDD_RESOLVE DIALOGEX 0, 0, 244, 153
@@ -828,12 +818,22 @@ END
 
 IDD_SETTINGSMISC DIALOGEX 0, 0, 300, 217
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Look and Feel::Misc"
+CAPTION "Look and Feel::Dialogs 2"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Status",IDC_STATIC,7,7,286,43
+    GROUPBOX        "Status",IDC_STATIC,7,7,286,32
     CONTROL         "Recurse into unversioned folders",IDC_UNVERSIONEDRECURSE,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,22,269,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,21,269,10
+    GROUPBOX        "Commit",IDC_COMMITGROUP,7,44,286,62
+    CONTROL         "&Use autocompletion of filepaths and keywords",IDC_AUTOCOMPLETION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,57,271,10
+    LTEXT           "&Timeout in seconds to stop the autocompletion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,74,231,8,SS_NOTIFY
+    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,72,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    CONTROL         "Only use s&pellchecker when tsvn:projectlanguage is set",IDC_SPELL,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,90,271,10
+    GROUPBOX        "Check for modifications",IDC_STATIC,7,111,286,32
+    CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,124,271,10
 END
 
 

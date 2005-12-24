@@ -69,14 +69,6 @@ private:
 	CRegString		m_regFontName;
 	CString			m_sFontName;
 	CComboBox		m_cAutoClose;
-	CRegDWORD		m_regAutocompletion;
-	BOOL			m_bAutocompletion;
-	CRegDWORD		m_regAutocompletionTimeout;
-	DWORD			m_dwAutocompletionTimeout;
-	CRegDWORD		m_regSpell;
-	BOOL			m_bSpell;
-	CRegDWORD		m_regCheckRepo;
-	BOOL			m_bCheckRepo;
 	CRegDWORD		m_regUseWCURL;
 	BOOL			m_bUseWCURL;
 
@@ -92,9 +84,5 @@ public:
 	afx_msg void OnCbnSelchangeFontsizes();
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnCbnSelchangeAutoclosecombo();
-	afx_msg void OnBnClickedAutocompletion();
-	afx_msg void OnEnChangeAutocompletiontimeout();
-	afx_msg void OnBnClickedSpell();
-	afx_msg void OnBnClickedRepocheck();
 	afx_msg void OnBnClickedWcurlfrom();
 };

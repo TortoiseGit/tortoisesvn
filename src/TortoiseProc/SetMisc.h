@@ -55,6 +55,14 @@ protected:
 private:
 	CBalloon		m_tooltips;
 
-	BOOL			m_bUnversionedRecurse;
 	CRegDWORD		m_regUnversionedRecurse;
+	BOOL			m_bUnversionedRecurse;
+	CRegDWORD		m_regAutocompletion;
+	BOOL			m_bAutocompletion;
+	CRegDWORD		m_regAutocompletionTimeout;
+	DWORD			m_dwAutocompletionTimeout;
+	CRegDWORD		m_regSpell;
+	BOOL			m_bSpell;
+	CRegDWORD		m_regCheckRepo;
+	BOOL			m_bCheckRepo;
 };
