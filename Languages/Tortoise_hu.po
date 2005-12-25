@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-27 22:21+0100\n"
+"PO-Revision-Date: 2005-12-25 13:35+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -394,6 +394,7 @@ msgid "&Font:"
 msgstr "&Betűtípus:"
 
 # Control-ID:65535,
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "&URL-ből:"
@@ -1857,11 +1858,11 @@ msgstr "Nem sikerült új verziót keresni!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nem sikerült másolni a fájlokat!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1916,11 +1917,11 @@ msgstr "Nem menthető a %s fájl!"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "A folt nézőke nem indítható!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1928,11 +1929,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "A külső folt nézőke nem indítható!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1940,11 +1941,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "A külső összegyúró nem indítható!!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:3857,#:
@@ -2502,11 +2503,6 @@ msgstr "Befejezve!"
 msgid "For Help, press F1"
 msgstr "A súgóhoz nyomj F1-t"
 
-# Control-ID:65535,
-#: ID:501
-msgid "From URL:"
-msgstr "&URL-ből:"
-
 # Control-ID:1200,
 #: Control-ID:1200
 msgid "From:"
@@ -2732,6 +2728,13 @@ msgid ""
 msgstr ""
 "Ha be van pipálva, akkor a TortoiseSVN a fájlok\n"
 "idejét a Tárházba való feltöltés idejére állítja."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr "Ha be van kapcsolva, akkor a verziókezelés alatt nem lévő mappákban is lehetnek verziókezelt fájlok. Az állapotot a beküld ablakban használhatjuk."
 
 # ID:251,
 #: ID:251
@@ -3002,8 +3005,13 @@ msgstr "Kinézet::Színek"
 
 # Dlg-ID:196,
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "Kinézet::Ablakok"
+msgid "Look and Feel::Dialogs 1"
+msgstr "Kinézet::Ablakok 1"
+
+# Dlg-ID:196,
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "Kinézet::Ablakok 2"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3691,6 +3699,12 @@ msgstr "&Visszavonás..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Olvasd el a 'Napi használati utasítást' mielőtt elakadnál..."
+
+# Control-ID:1073,#:
+# Control-ID:1073,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Nem verziókezelt mappákba lépés"
 
 # ID:3603,
 #: ID:3603
@@ -4527,6 +4541,7 @@ msgstr "Statiszikák"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Állapot"
 
@@ -4584,11 +4599,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Subversion hibát jelentett takarítás közben!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # Control-ID:65535,
