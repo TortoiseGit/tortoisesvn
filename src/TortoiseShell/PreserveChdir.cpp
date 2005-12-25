@@ -50,5 +50,6 @@ PreserveChdir::~PreserveChdir()
 		}
 		delete currentDirectory;
 		delete originalCurrentDirectory;
+		originalCurrentDirectory = NULL;
 	}
 }

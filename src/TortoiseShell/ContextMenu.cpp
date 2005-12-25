@@ -404,7 +404,7 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 
 HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 {
-	if (bitmaps.find(uIcon) != bitmaps.end())
+	if ((bitmaps.size())&&(bitmaps.find(uIcon) != bitmaps.end()))
 		return bitmaps[uIcon];
 	HICON hIcon = (HICON)LoadImage(g_hResInst, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 10, 10, LR_DEFAULTCOLOR);
 	if (!hIcon)

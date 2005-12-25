@@ -177,7 +177,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		{
 			case 0:
 				GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
-				SVNStatus::GetStatusString(g_hResInst, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+				SVNStatus::GetStatusString(g_hResInst, filestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 				szInfo = buf;
 				break;
 			case 1:
@@ -260,6 +260,7 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 		if (! g_ShellCache.HasSVNAdminDir(path.c_str(), TRUE))
 			return E_FAIL;
 	}
+	columnfilepath = _T("");
 	return S_OK;
 }
 

@@ -430,6 +430,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
 						ULONGLONG all = filenames.size();
 						ULONGLONG count = 0;
+						// show a progress dialog while removing the properties
 						CProgressDlg dlg;
 						TCHAR s[MAX_PROP_STRING_LENGTH];
 						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PROP_STRING_LENGTH);
@@ -449,10 +450,15 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 							dlg.SetProgress64(count, all);
 							if (dlg.HasUserCancelled())
 								break;
-						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
+						}
 						dlg.Stop();
 						delete [] buf;
-						//CShellUpdater::Instance().Flush();
+						// clear the edit box and reset the combobox
+						ListView_SetSelectionMark(lvh, -1);
+						HWND hwndCombo = GetDlgItem(hwnd, IDC_EDITNAME);
+						SendMessage(hwndCombo, CB_SETCURSEL, (WPARAM)-1, 0);
+						HWND hwndEdit = GetDlgItem(hwnd, IDC_EDITVALUE);
+						SendMessage(hwndEdit, WM_SETTEXT, 0, (LPARAM)_T(""));
 						InitWorkfileView();
 						return TRUE;
 					}
@@ -576,7 +582,6 @@ void CSVNPropertyPage::InitWorkfileView()
 				{
 					Unescape((char*)svn.status->entry->url);
 					_tcsncpy_s(tbuf, MAX_PROP_STRING_LENGTH, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
-					//Unescape(tbuf);
 					SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
 				}
 				if (svn.status->text_status != svn_wc_status_added)
@@ -589,9 +594,9 @@ void CSVNPropertyPage::InitWorkfileView()
 				}
 				if (svn.status->entry->cmt_author)
 					SetDlgItemText(m_hwnd, IDC_AUTHOR, UTF8ToWide(svn.status->entry->cmt_author).c_str());
-				SVNStatus::GetStatusString(g_hResInst, svn.status->text_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+				SVNStatus::GetStatusString(g_hResInst, svn.status->text_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 				SetDlgItemText(m_hwnd, IDC_TEXTSTATUS, buf);
-				SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+				SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 				SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
 				time = (__time64_t)svn.status->entry->text_time/1000000L;
 				Time64ToTimeString(time, buf, MAX_PROP_STRING_LENGTH);
