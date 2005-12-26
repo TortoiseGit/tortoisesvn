@@ -116,7 +116,7 @@ This will only build the english HTML helpf file for TortoiseSVN
 
 	<!-- ============================================================ -->
 	<!-- Paths to the application resources for the chm help creation -->
-	<property name="help.resource" value="../src/TortoiseProc/resource.h" />
+	<property name="help.resource" value="../src/TortoiseMerge/resource.h" />
 	<property name="help.context" value="./source/context.h" />
 
 <!-- ====================================================================== -->
@@ -193,7 +193,8 @@ This will only build the english HTML helpf file for TortoiseSVN
 <!-- ====================================================================== -->
 
 	<target name="help.prepare" description="Create CHM help context">
-
+		<echo message="help resource generation with file ${help.resource}" />
+		
 		<echo message="// Generated Help Map file." file="${help.context}" />
 		<echo message="" file="${help.context}" append="true"/>
 		<echo message="// Commands (ID_* and IDM_*)" file="${help.context}" append="true"/>

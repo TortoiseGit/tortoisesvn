@@ -263,6 +263,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		}
 	} while ((hInst == NULL) && (langId != 0));
 	TCHAR buf[6];
+	_tcscpy_s(buf, _T("en"));
 	langId = loc;
 	CString sHelppath;
 	sHelppath = this->m_pszHelpFilePath;
