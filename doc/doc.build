@@ -293,7 +293,10 @@ All user/site specific configuration is stored in doc.build.user.
 			<property name="xslt.target" value="${doc.target.work}/${doc.target.name}"/>
 
 			<call target="xsltproc" />
-
+			
+			<if test="${doc.target.name=='TortoiseSVN'}">
+				<property name="help.resource" value="../src/TortoiseProc/resource.h" />
+			</if>
 			<!-- The CHM helpcontext target resides in an external build file -->
 			<call target="help.custom" if="${target::exists('help.custom')}"/>
 			<copy file="${path.user.css}/styles_chm.css" todir="${doc.target.work}"/>
