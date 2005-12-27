@@ -76,6 +76,8 @@
        instead of "mine". (Stefan)
 - BUG: TortoiseMerge wouldn't show the inline diff if only the
        first line in a file was modified. (Stefan)
+- BUG: When resolving with "mine before theirs" or "theirs before mine",
+       the line numbering was wrong. See issue #197. (Stefan)
 
 Version 1.2.6
 - BUG: The status cache updated sometimes wrong paths or missed
