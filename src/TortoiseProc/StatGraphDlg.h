@@ -20,6 +20,7 @@
 
 #include "StandAloneDlg.h"
 #include "MyGraph.h"
+#include "afxcmn.h"
 
 // CStatGraphDlg dialog
 
@@ -38,12 +39,14 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	afx_msg void OnCbnSelchangeGraphcombo();
+	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 
 	DECLARE_MESSAGE_MAP()
 	
 	CPtrArray		m_graphDataArray;
 	MyGraph			m_graph;
 	CComboBox		m_cGraphType;
+	CSliderCtrl		m_Skipper;
 	
 	void		ShowCommitsByDate();
 	void		ShowCommitsByAuthor();

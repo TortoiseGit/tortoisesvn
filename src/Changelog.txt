@@ -41,6 +41,9 @@
        control (used e.g. in the commit dialog). (Stefan)
 - NEW: Ctrl-Left/Right scrolls sideways in TortoiseMerge.
        See issue #190. (Stefan)
+- NEW: The statistics dialog has a noise level slider which makes it
+       group users with too few commits into one "others" group to
+       reduce the amount of lines/bars drawn. (Stefan)
 - CHG: The date filter in the log dialog now prevents the user from selecting
        dates outside the shown log messages. (Michael Dietschi)
 - CHG: Warn if user selects files inside an added folder to create a patch.
