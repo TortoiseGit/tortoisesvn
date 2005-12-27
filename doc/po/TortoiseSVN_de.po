@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-23 12:31+0100\n"
+"PO-Revision-Date: 2005-12-27 10:39+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4253,17 +4253,17 @@ msgstr "<placeholder-1/> In den meisten Projekten werden Sie Dateien und Ordner 
 #: source/TortoiseSVN_en.xml:5027
 #: (para)
 msgid "The best way to avoid these problems is to add the derived files to the project's ignore list. That way they will never show up in the commit dialog, but genuine unversioned source files will still be flagged up."
-msgstr "Die beste Möglichkeit diese Probleme zu vermeiden besteht darin, die generierten Dateien zur <emphasis>Ignorieren</emphasis> Liste des Projekts hinzuzufügen. Auf diese Weise werden sie im Übertragen Dialog niemals auftauchen, wogegen Quelldateien weiterhin angezeigt werden."
+msgstr "Die beste Möglichkeit diese Probleme zu vermeiden besteht darin, die generierten Dateien zur <emphasis>Ignorieren</emphasis>-Liste des Projekts hinzuzufügen. Auf diese Weise werden sie im Übertragen Dialog niemals auftauchen, wogegen Quelldateien weiterhin angezeigt werden."
 
 #: source/TortoiseSVN_en.xml:5033
 #: (para)
 msgid "If you <action>right click</action> on a single unversioned file, and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to Ignore List</guimenuitem></menuchoice> from the context menu, a submenu appears allowing you to select just that file, or all files with the same extension. If you select multiple files, there is no submenu and you can only add those specific files/folders."
-msgstr "Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte Datei klicken und <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Ignorieren</guimenuitem> </menuchoice> aus dem Kontextmenü wählen, wird Ihen ein Untermenü angezeigt, das Ihnen erlaubt, nur diese Datei oder alle Dateien mit dieser Endung zu ignorieren. Wenn Sie mehrere Elemente wählen, erscheint kein Untermenü und es werden genau diese Dateien / Ordner zur <emphasis>Ignorieren</emphasis> Liste hinzugefügt."
+msgstr "Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte Datei klicken und <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Ignorieren</guimenuitem> </menuchoice> aus dem Kontextmenü wählen, wird Ihen ein Untermenü angezeigt, das Ihnen erlaubt, nur diese Datei oder alle Dateien mit dieser Endung zu ignorieren. Wenn Sie mehrere Elemente wählen, erscheint kein Untermenü und es werden genau diese Dateien / Ordner zur <emphasis>Ignorieren</emphasis>-Liste hinzugefügt."
 
 #: source/TortoiseSVN_en.xml:5045
 #: (para)
 msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. That allows you to specify more general patterns using filename globbing, described in the section below. Read <xref linkend=\"tsvn-DUG-propertypage\"/> for more information on setting properties directly."
-msgstr "Wenn Sie einen oder mehrere Einträge aus der <emphasis>Ignorieren</emphasis> Liste entfernen wollen, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Aus Ignorieren Liste entfernen</guimenuitem> </menuchoice>. Sie können auch die <literal>svn:ignore</literal> Eigenschaft des Ordners direkt bearbeiten. Dies ermöglicht Ihnen, wie im folgenden Abschnitt beschrieben, mittels Platzhalterzeichen allgemeinere Definitionen vorzunehmen. Lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/> für weitere Information darüber, wie man Eigenschaften direkt setzt."
+msgstr "Wenn Sie einen oder mehrere Einträge aus der <emphasis>Ignorieren</emphasis>-Liste entfernen wollen, machen Sie einen <action>Rechts-Klick</action> und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Aus Ignorieren Liste entfernen</guimenuitem> </menuchoice>. Sie können auch die <literal>svn:ignore</literal> Eigenschaft des Ordners direkt bearbeiten. Dies ermöglicht Ihnen, wie im folgenden Abschnitt beschrieben, mittels Platzhalterzeichen allgemeinere Definitionen vorzunehmen. Lesen Sie <xref linkend=\"tsvn-DUG-propertypage\"/> für weitere Information darüber, wie man Eigenschaften direkt setzt."
 
 #: source/TortoiseSVN_en.xml:5059
 #: (title)
@@ -7128,7 +7128,7 @@ msgstr "Wenn Sie fälschlicherweise Dateien hinzugefügt haben welche eigentlich
 #: source/TortoiseSVN_en.xml:8629
 #: (para)
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
-msgstr "Wenn Sie die hinzugefügte Datei noch nicht übertragen haben, dann müssen Sie nur den Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rückgängig...</guimenuitem></menuchoice> ausführen. Sie sollten dann die Datei(en) zur Liste der ignorierten Dateien hinzufügen damit dies nicht nochmals fälschlicherweise hinzugefügt werden können."
+msgstr "Wenn Sie die hinzugefügte Datei noch nicht übertragen haben, dann müssen Sie nur den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Rückgängig...</guimenuitem> </menuchoice> ausführen. Sie sollten dann die Datei(en) zur Liste der ignorierten Dateien hinzufügen damit dies nicht nochmals fälschlicherweise hinzugefügt werden können."
 
 #: source/TortoiseSVN_en.xml:8644
 #: (para)
@@ -7188,7 +7188,7 @@ msgstr "Kommandozeile"
 #: source/TortoiseSVN_en.xml:8700
 #: (para)
 msgid "All commands are specified with the parameter <option>/command:abcd</option> where <literal>abcd</literal> is the required command name. Most of these commands need at least one path argument, which is given with <option>/path:\"some\\path\"</option>. In the following table the command refers to the <option>/command:abcd</option> parameter and the path refers to the <option>/path:\"some\\path\"</option> parameter."
-msgstr ""
+msgstr "Alle Befehle werden in der Form<option>/command:abcd</option> angegeben, wobei <literal>abcd</literal> der - erforderliche - Befehlsname ist. Die meisten Befehle benötigen zumindest einen Parameter, der in der Form<option>/path:\"some\\path\"</option> übergeben wird.In der folgenden Tabelle bezieht sich der Befehl auf den<option>/command:abcd</option> Parameter und der Pfad auf den <option>/path:\"some\\path\"</option> Parameter."
 
 #: source/TortoiseSVN_en.xml:8708
 #: (para)
@@ -7340,12 +7340,12 @@ msgstr "Fügt die Datei(en) in <placeholder-1/> der Versionskontrolle hinzu."
 #: source/TortoiseSVN_en.xml:8841
 #: (entry)
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
-msgstr ""
+msgstr "Macht lokale Änderungen in der Arbeitskopie rückgängig. Der <placeholder-1/> gibt die Objekte an."
 
 #: source/TortoiseSVN_en.xml:8849
 #: (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>."
-msgstr ""
+msgstr "Räumt die Hinterlassenschaften unterbrochener oder fehlgeschlagener Operationen auf und ensperrt die Arbeitskopie in <placeholder-1/>."
 
 #: source/TortoiseSVN_en.xml:8859
 #: (option) source/TortoiseSVN_en.xml:9029
@@ -7380,7 +7380,7 @@ msgstr "Öffnet den <quote>Zusammenführen</quote> Dialog. Der Pfad bezeichnet d
 #: source/TortoiseSVN_en.xml:8895
 #: (entry)
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from."
-msgstr ""
+msgstr "Zeigt den <quote>Verzweigen/Markieren</quote> Dialog. Der <placeholder-1/> bezeichnet die zu verzweigende/markierende Arbeitskopie."
 
 #: source/TortoiseSVN_en.xml:8903
 #: (entry)
@@ -7395,7 +7395,7 @@ msgstr "Entfernt die Datei(en) in <placeholder-1/> aus der Versionskontrolle."
 #: source/TortoiseSVN_en.xml:8916
 #: (entry)
 msgid "Renames the file in <placeholder-1/>. The new name for the file is asked with a dialog."
-msgstr ""
+msgstr "Benennt die Datei in <placeholder-1/> um. Der neue Dateiname wird über einen Dialog abgefragt."
 
 #: source/TortoiseSVN_en.xml:8927
 #: (option) source/TortoiseSVN_en.xml:8929
@@ -7410,12 +7410,12 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8936
 #: (entry)
 msgid "Starts the conflicteditor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
-msgstr ""
+msgstr "Startet den in der TortoiseSVN Einstellungen angegebenen Konflikteditor mit der konfliktbehafteten Datei in <placeholder-1/>."
 
 #: source/TortoiseSVN_en.xml:8944
 #: (entry)
 msgid "Opens the relocate dialog. The <placeholder-1/> specifies the working copy path to relocate."
-msgstr ""
+msgstr "Zeigt den <quote>Umplatzieren</quote> Dialog. Der <placeholder-1/> bezeichnet die umzuplatzierende Arbeitskopie."
 
 #: source/TortoiseSVN_en.xml:8951
 #: (entry)
@@ -7439,8 +7439,8 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8977
 #: (entry)
-msgid "Adds all targes in <placeholder-1/> to the ignore list, i.e. adds the svn:ignored property to those files."
-msgstr ""
+msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the svn:ignored property to those files."
+msgstr "Fügt alle Objekte in <placeholder-1/> zur Liste der ignorierten Dateien hinzu, das heißt für alle Objekte wird die svn:ignored Eigenschaft gesetzt."
 
 #: source/TortoiseSVN_en.xml:8985
 #: (entry)
@@ -7475,7 +7475,7 @@ msgstr "Zeigt den Revisionsgraphen für den in <placeholder-1/> angegebenen Pfad
 #: source/TortoiseSVN_en.xml:9016
 #: (entry)
 msgid "Locks a file. The 'lock' dialog is shown so the user can enter a comment for the lock. <placeholder-1/>"
-msgstr ""
+msgstr "Sperrt eine Datei. Der 'Sperren' Dialog wird angezeigt, damit der Anwender einen Kommentar für die Sperre eingeben kann. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9024
 #: (entry)
@@ -7495,6 +7495,15 @@ msgid ""
 "                 /revstart:50 /revend:60 /notempfile /closeonend\n"
 "</screen>"
 msgstr ""
+"Beispielen (die auf einer Zeile eingegeben werden sollten):\n"
+"<screen>TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
+"                 /logmsg:\"test log message\" /notempfile /closeonend\n"
+"\n"
+"TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /notempfile /closeonend\n"
+"\n"
+"TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
+"                 /revstart:50 /revend:60 /notempfile /closeonend\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:9051
 #: (title)
