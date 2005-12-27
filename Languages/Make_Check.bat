@@ -2,7 +2,6 @@
 rem Script to build the language dlls
 
 SETLOCAL ENABLEDELAYEDEXPANSION
-if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 set LogFile=statusreport.txt
 set TmpFileDone=statusreport.tm1
 set TmpFileReview=statusreport.tm2

@@ -1,7 +1,6 @@
 @echo off
 rem Count messages in given PO File that match the given attributes 
 SETLOCAL
-if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 FOR /F "usebackq skip=1" %%c IN (`msgattrib %* 2^>nul ^| grep -c msgid`) DO SET /A count=%%c
 rem If count is set, then its always one too high
 if Defined count (
