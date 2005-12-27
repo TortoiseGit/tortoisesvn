@@ -15,7 +15,9 @@
 	Example content of default.user:
 	<property name="buildtool" value="vcexpress.exe" />
 	-->
+
 	<include buildfile="default.user" if="${file::exists('default.user')}"/>
+	<include buildfile="default.build.user.tmpl" unless="${file::exists('default.user')}"/>
 	
 <!-- ====================================================================== -->
 <!-- Configuration targets													-->
@@ -187,23 +189,6 @@
 				<exclude name="ext/Subversion/**" />
 			</fileset>
 		</zip>
-	</target>
-
-<!-- ====================================================================== -->
-<!-- Requirement-check targets												-->
-<!-- ====================================================================== -->
-	<target name="VSNET" description="Checks if the env variables for VS.NET2005 are set">
-		<if test="${not environment::variable-exists('VCINSTALLDIR')}">
-			<fail>You must first call %VS80COMNTOOLS%\vsvars32.bat!</fail>
-		</if>
-	</target>
-	
-	<target name="env" description="sets up the env variables with the paths to our needed tools">
-		<nant target="settoolpaths">
-			<buildfiles>
-				<include name="toolpaths.build" />
-			</buildfiles>
-		</nant>
 	</target>
 
 <!-- ====================================================================== -->
