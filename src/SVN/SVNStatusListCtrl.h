@@ -335,6 +335,16 @@ public:
 	 */
 	void SetEmptyString(const CString& str) {m_sEmpty = str;}
 	void SetEmptyString(UINT id) {m_sEmpty.LoadString(id);}
+
+	/**
+	 * Determines if the control should recurse into unversioned folders
+	 * when fetching the status. The default behavior is defined by the
+	 * registry key HKCU\Software\TortoiseSVN\UnversionedRecurse, which
+	 * is read in the Init() method.
+	 * If you want to change the behavior, call this method *after*
+	 * calling Init().
+	 */
+	void SetUnversionedRecurse(bool bUnversionedRecurse) {m_bUnversionedRecurse = bUnversionedRecurse;}
 	
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
