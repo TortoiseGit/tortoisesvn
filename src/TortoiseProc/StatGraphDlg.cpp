@@ -27,6 +27,7 @@
 IMPLEMENT_DYNAMIC(CStatGraphDlg, CResizableStandAloneDialog)
 CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CStatGraphDlg::IDD, pParent)
+	, m_bStacked(FALSE)
 {
 	m_parDates = NULL;
 	m_parFileChanges = NULL;
@@ -46,12 +47,14 @@ void CStatGraphDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_GRAPH, m_graph);
 	DDX_Control(pDX, IDC_GRAPHCOMBO, m_cGraphType);
 	DDX_Control(pDX, IDC_SKIPPER, m_Skipper);
+	DDX_Check(pDX, IDC_STACKED, m_bStacked);
 }
 
 
 BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_CBN_SELCHANGE(IDC_GRAPHCOMBO, OnCbnSelchangeGraphcombo)
 	ON_WM_HSCROLL()
+	ON_BN_CLICKED(IDC_STACKED, &CStatGraphDlg::OnBnClickedStacked)
 END_MESSAGE_MAP()
 
 
@@ -112,6 +115,7 @@ BOOL CStatGraphDlg::OnInitDialog()
 	AddAnchor(IDC_FILECHANGESEACHWEEKAVG, TOP_RIGHT);
 	AddAnchor(IDC_FILECHANGESEACHWEEKMIN, TOP_RIGHT);
 	AddAnchor(IDC_FILECHANGESEACHWEEKMAX, TOP_RIGHT);
+	AddAnchor(IDC_STACKED, BOTTOM_LEFT);
 	AddAnchor(IDC_SKIPPER, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SKIPPERLABEL, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -162,6 +166,7 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 
 	GetDlgItem(IDC_SKIPPER)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 	GetDlgItem(IDC_SKIPPERLABEL)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
+	GetDlgItem(IDC_STACKED)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 }
 
 void CStatGraphDlg::ShowCommitsByAuthor()
@@ -179,7 +184,8 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 
 	//Set up the graph.
 	CString temp;
-	m_graph.SetGraphType(MyGraph::Bar);
+	UpdateData();
+	m_graph.SetGraphType(MyGraph::Bar, !!m_bStacked);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORY);
 	m_graph.SetYAxisLabel(temp);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORX);
@@ -242,7 +248,8 @@ void CStatGraphDlg::ShowCommitsByDate()
 
 	//Set up the graph.
 	CString temp;
-	m_graph.SetGraphType(MyGraph::Line);
+	UpdateData();
+	m_graph.SetGraphType(MyGraph::Line, !!m_bStacked);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATEY);
 	m_graph.SetYAxisLabel(temp);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATEX);
@@ -760,4 +767,20 @@ void CStatGraphDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	}
 
 	CDialog::OnHScroll(nSBCode, nPos, pScrollBar);
+}
+
+void CStatGraphDlg::OnBnClickedStacked()
+{
+	switch (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()))
+	{
+	case 1:
+		ShowStats();
+		break;
+	case 2:
+		ShowCommitsByDate();
+		break;
+	case 3:
+		ShowCommitsByAuthor();
+		break;
+	}
 }

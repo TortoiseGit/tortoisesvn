@@ -24,7 +24,7 @@
 
 // CStatGraphDlg dialog
 
-class CStatGraphDlg : public CResizableStandAloneDialog
+class CStatGraphDlg : public CResizableStandAloneDialog//CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CStatGraphDlg)
 
@@ -40,6 +40,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnCbnSelchangeGraphcombo();
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
+	afx_msg void OnBnClickedStacked();
 
 	DECLARE_MESSAGE_MAP()
 	
@@ -47,6 +48,7 @@ protected:
 	MyGraph			m_graph;
 	CComboBox		m_cGraphType;
 	CSliderCtrl		m_Skipper;
+	BOOL			m_bStacked;
 	
 	void		ShowCommitsByDate();
 	void		ShowCommitsByAuthor();

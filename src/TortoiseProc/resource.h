@@ -420,6 +420,7 @@
 #define IDS_PROC_EXPORT_4               1262
 #define IDC_SKIPPERLABEL                1262
 #define IDS_PROC_COPY_SUCCESS           1263
+#define IDC_STACKED                     1263
 #define IDS_PROC_SETTINGS_TITLE         1264
 #define IDS_PROC_OVERWRITE_CONFIRM      1266
 #define IDS_PROC_REPOCREATEFINISHED     1267
@@ -757,7 +758,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        217
 #define _APS_NEXT_COMMAND_VALUE         32796
-#define _APS_NEXT_CONTROL_VALUE         1263
+#define _APS_NEXT_CONTROL_VALUE         1264
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
