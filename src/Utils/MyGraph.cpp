@@ -35,6 +35,8 @@ static char THIS_FILE[] = __FILE__;
 #define LEGEND_COLOR_BAR_WIDTH_PIXELS		50			// Width of color bar.
 #define LEGEND_COLOR_BAR_GAP_PIXELS			 1			// Space between color bars.
 #define Y_AXIS_MAX_TICK_COUNT					 5			// How many ticks on y axis.
+#define MIN_FONT_SIZE							70			// The minimum font-size in pt*10.
+#define LEGEND_VISIBILITY_THRESHOLD				300			// The width of the graph in pixels when the legend gets hidden.
 
 #define INTERSERIES_PERCENT_USED           0.85		// How much of the graph is 
 																	// used for bars/pies (the 
@@ -141,14 +143,19 @@ int MyGraphSeries::GetData(int nGroup) const
 }
 
 // Returns the largest data value in this series.
-int MyGraphSeries::GetMaxDataValue() const
+int MyGraphSeries::GetMaxDataValue(bool bStackedGraph) const
 {
 	VALIDATE;
 
 	int nMax(0);
 
 	for (int nGroup = 0; nGroup < m_dwaValues.GetSize(); ++nGroup) {
-		nMax = max(nMax, static_cast<int> (m_dwaValues.GetAt(nGroup)));
+		if(!bStackedGraph){
+			nMax = max(nMax, static_cast<int> (m_dwaValues.GetAt(nGroup)));
+		}
+		else{
+			nMax += static_cast<int> (m_dwaValues.GetAt(nGroup));
+		}
 	}
 
 	return nMax;
@@ -186,11 +193,11 @@ int MyGraphSeries::GetDataTotal() const
 }
 
 // Returns which group (if any) the sent point lies within in this series.
-INT_PTR MyGraphSeries::HitTest(const CPoint& pt) const
+INT_PTR MyGraphSeries::HitTest(const CPoint& pt, int searchStart = 0) const
 {
 	VALIDATE;
 
-	for (int nGroup = 0; nGroup < m_oaRegions.GetSize(); ++nGroup) {
+	for (int nGroup = searchStart; nGroup < m_oaRegions.GetSize(); ++nGroup) {
 		CRgn* prgnData = m_oaRegions.GetAt(nGroup);
 		ASSERT_NULL_OR_POINTER(prgnData, CRgn);
 
@@ -223,10 +230,11 @@ CString MyGraphSeries::GetTipText(int nGroup) const
 // MyGraph
 
 // Constructor.
-MyGraph::MyGraph(GraphType eGraphType /* = MyGraph::Pie */ )
+MyGraph::MyGraph(GraphType eGraphType /* = MyGraph::Pie */ , bool bStackedGraph /* = false */)
 	: m_nXAxisWidth(0)
 	, m_nYAxisHeight(0)
 	, m_eGraphType(eGraphType)
+	, m_bStackedGraph(bStackedGraph)
 {
 	m_ptOrigin.x = m_ptOrigin.y = 0;
 	m_rcGraph.SetRectEmpty();
@@ -355,7 +363,7 @@ CString MyGraph::GetTipText() const
 {
 	VALIDATE;
 
-	CString sTip;
+	CString sTip("");
 
 	// Get the position of the mouse.
 	CPoint pt;
@@ -372,17 +380,23 @@ CString MyGraph::GetTipText() const
 	else {
 		POSITION pos(m_olMyGraphSeries.GetHeadPosition());
 
-		while (pos) {
+		while (pos && sTip=="") {
 			MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 			ASSERT_VALID(pSeries);
 
-			INT_PTR nGroup(pSeries->HitTest(pt));
+			INT_PTR nGroup(0);
+			do{
+				nGroup = pSeries->HitTest(pt,nGroup);
 
-			if (-1 != nGroup) {
-				sTip = m_saLegendLabels.GetAt(nGroup) + _T(": ");
-				sTip += pSeries->GetTipText(nGroup);
-				break;
-			}
+				if (-1 != nGroup) {
+					if("" != sTip){
+						sTip += _T(", ");
+					}
+					sTip += m_saLegendLabels.GetAt(nGroup) + _T(": ");
+					sTip += pSeries->GetTipText(nGroup);
+					nGroup++;
+				}
+			}while(-1 != nGroup);
 		}
 	}
 
@@ -410,11 +424,12 @@ void MyGraph::OnSize(UINT nType, int cx, int cy)
 
 // Change the type of the graph; the caller should call Invalidate() on this
 // window to make the effect of this change visible.
-void MyGraph::SetGraphType(GraphType e)
+void MyGraph::SetGraphType(GraphType e, bool bStackedGraph)
 {
 	VALIDATE;
 
 	m_eGraphType = e;
+	m_bStackedGraph = bStackedGraph;
 }
 
 // Calculate the current max legend label length in pixels.
@@ -493,7 +508,7 @@ int MyGraph::GetMaxDataValue() const
 		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
-		nMax = max(nMax, pSeries->GetMaxDataValue());
+		nMax = max(nMax, pSeries->GetMaxDataValue(m_bStackedGraph));
 	}
 
 	return nMax;
@@ -629,8 +644,8 @@ void MyGraph::DrawGraph(CDC& dc)
 		// saturation.
 		int nColorsDelta(240 / GetMaxSeriesSize());
 		
-		for (int nGroup = 0; nGroup < GetMaxSeriesSize(); ++nGroup) {
-			COLORREF cr(MyGraph::HLStoRGB((WORD)(nColorsDelta * nGroup), (WORD)120, (WORD)240));
+		for (WORD nGroup = 0; nGroup < GetMaxSeriesSize(); ++nGroup) {
+			COLORREF cr(MyGraph::HLStoRGB((WORD)(nColorsDelta * nGroup), (WORD)(120+(60*(nGroup%2))), (WORD)(180)+(30*((1-nGroup%2)*(nGroup%3)))));	// Populate colors cleverly
 			m_dwaColors.SetAtGrow(nGroup, cr);
 		}
 
@@ -656,9 +671,12 @@ void MyGraph::DrawGraph(CDC& dc)
 		// Set the axes and origin values.
 		SetupAxes(dc);
 
-		// Draw legend if there is one.
-		if (m_saLegendLabels.GetSize()) {
+		// Draw legend if there is one and there's enough space.
+		if (m_saLegendLabels.GetSize() && m_rcGraph.right-m_rcGraph.left > LEGEND_VISIBILITY_THRESHOLD) {
 			DrawLegend(dc);
+		}
+		else{
+			m_rcLegend.SetRectEmpty();
 		}
 
 		// Draw axes unless it's a pie.
@@ -684,7 +702,7 @@ void MyGraph::DrawTitle(CDC& dc)
 
 	// Create the title font.
 	CFont fontTitle;
-	VERIFY(fontTitle.CreatePointFont(m_rcGraph.Width() / TITLE_DIVISOR,
+	VERIFY(fontTitle.CreatePointFont(max(m_rcGraph.Width() / TITLE_DIVISOR, MIN_FONT_SIZE),
 		_T("Arial"), &dc));
 	CFont* pFontOld = dc.SelectObject(&fontTitle);
 	ASSERT_VALID(pFontOld);
@@ -743,7 +761,7 @@ void MyGraph::DrawLegend(CDC& dc)
 
 	// Create the legend font.
 	CFont fontLegend;
-	VERIFY(fontLegend.CreatePointFont(m_rcGraph.Height() / LEGEND_DIVISOR, 
+	VERIFY(fontLegend.CreatePointFont(max(m_rcGraph.Height() / LEGEND_DIVISOR, MIN_FONT_SIZE), 
 		_T("Arial"), &dc));
 	CFont* pFontOld = dc.SelectObject(&fontLegend);
 	ASSERT_VALID(pFontOld);
@@ -832,7 +850,7 @@ void MyGraph::DrawAxes(CDC& dc) const
 	CFont fontYAxes;
 
 	VERIFY(fontYAxes.CreateFont( 
-		/* nHeight */ m_rcGraph.Width() / 10 / Y_AXIS_LABEL_DIVISOR,
+		/* nHeight */ max(m_rcGraph.Width() / 10 / Y_AXIS_LABEL_DIVISOR, MIN_FONT_SIZE / 7),
 		/* nWidth */ 0, /* nEscapement */ 90 * 10, /* nOrientation */ 0,
 		/* nWeight */ FW_DONTCARE,	/* bItalic */ false, /* bUnderline */ false,
 		/* cStrikeOut */ 0, ANSI_CHARSET, OUT_DEFAULT_PRECIS,
@@ -847,7 +865,7 @@ void MyGraph::DrawAxes(CDC& dc) const
 
 	// Create the x-axis label font and draw it.
 	CFont fontXAxes;
-	VERIFY(fontXAxes.CreatePointFont(m_rcGraph.Width() / X_AXIS_LABEL_DIVISOR,
+	VERIFY(fontXAxes.CreatePointFont(max(m_rcGraph.Width() / X_AXIS_LABEL_DIVISOR, MIN_FONT_SIZE),
 		_T("Arial"), &dc));
 	VERIFY(dc.SelectObject(&fontXAxes));
 	CSize sizXLabel(dc.GetTextExtent(m_sXAxisLabel));
@@ -943,14 +961,22 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 
 	// Determine width of bars.  Data points with a value of zero are assumed 
 	// to be empty.  This is a bad assumption.
-	int nBarWidth(nSeriesSpace / GetMaxNonZeroSeriesSize());
-
-	if (1 < GetNonZeroSeriesCount()) {
-		nBarWidth = (int) ((double) nBarWidth * INTERSERIES_PERCENT_USED);
-	}
+	int nBarWidth(0);
 
 	// This is the width of the largest series (no interseries space).
-	int nMaxSeriesPlotSize(GetMaxNonZeroSeriesSize() * nBarWidth);
+	int nMaxSeriesPlotSize(0);
+
+	if(!m_bStackedGraph){
+		nBarWidth = nSeriesSpace / GetMaxNonZeroSeriesSize();
+		if (1 < GetNonZeroSeriesCount()) {
+			nBarWidth = (int) ((double) nBarWidth * INTERSERIES_PERCENT_USED);
+		}
+		nMaxSeriesPlotSize = GetMaxNonZeroSeriesSize() * nBarWidth;
+	}
+	else{
+		nBarWidth = (int) ((double) nSeriesSpace * INTERSERIES_PERCENT_USED);
+		nMaxSeriesPlotSize = nBarWidth;
+	}
 
 	// Iterate the series.
 	POSITION pos(m_olMyGraphSeries.GetHeadPosition());
@@ -968,16 +994,22 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 			int nRunningLeft(m_ptOrigin.x + ((nSeries + 1) * nSeriesSpace) - 
 				nMaxSeriesPlotSize);
 
+			int stackAccumulator(0);
+
 			for (int nGroup = 0; nGroup < GetMaxSeriesSize(); ++nGroup) {
 
 				if (pSeries->GetData(nGroup)) {
 
 					CRect rcBar;
 					rcBar.left = nRunningLeft; 
-					rcBar.top = m_ptOrigin.y - (m_nYAxisHeight *
-						pSeries->GetData(nGroup)) / GetMaxDataValue();
+					rcBar.top = (m_ptOrigin.y - (m_nYAxisHeight *
+						pSeries->GetData(nGroup)) / GetMaxDataValue()) - stackAccumulator;
 					rcBar.right = rcBar.left + nBarWidth;
-					rcBar.bottom = m_ptOrigin.y;
+					rcBar.bottom = m_ptOrigin.y - stackAccumulator;
+
+					if(m_bStackedGraph){
+						stackAccumulator = (m_ptOrigin.y - rcBar.top);
+					}
 
 					pSeries->SetTipRegion(nGroup, rcBar);
 
@@ -989,7 +1021,9 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 					VERIFY(dc.Rectangle(rcBar));
 					dc.SelectObject(&pBrushOld);
 
-					nRunningLeft += nBarWidth;
+					if(!m_bStackedGraph){
+						nRunningLeft += nBarWidth;
+					}
 				}
 			}
 
@@ -1006,6 +1040,9 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 
 	// Iterate the groups.
 	CPoint ptLastLoc(0,0);
+
+	CArray<int, int> stackAccumulator;
+	stackAccumulator.SetSize(GetMaxSeriesSize());
 
 	for (int nGroup = 0; nGroup < GetMaxSeriesSize(); nGroup++) {
 
@@ -1054,8 +1091,12 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 			ptLoc.x = m_ptOrigin.x + (((nSeries + 1) * nSeriesSpace) - 
 				(nSeriesSpace / 2));
 			
-			double dLineHeight(pSeries->GetData(nGroup) * m_nYAxisHeight /
+			double dLineHeight((pSeries->GetData(nGroup) + stackAccumulator[nSeries]) * m_nYAxisHeight /
 				GetMaxDataValue());
+
+			if(m_bStackedGraph){
+				stackAccumulator[nSeries] += pSeries->GetData(nGroup);
+			}
 			
 			ptLoc.y = (int) ((double) m_ptOrigin.y - dLineHeight);
 			

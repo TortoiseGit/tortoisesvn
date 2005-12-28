@@ -32,12 +32,12 @@ public:
 
 // Implementation.
 private:
-	int		GetMaxDataValue() const;
+	int		GetMaxDataValue(bool bStackedGraph) const;
 	int		GetNonZeroElementCount() const;
 	int		GetDataTotal() const;
 	void	SetTipRegion(int nGroup, const CRect& rc);
 	void	SetTipRegion(int nGroup, CRgn* prgn);
-	INT_PTR	HitTest(const CPoint& pt) const;
+	INT_PTR	HitTest(const CPoint& pt, int searchStart) const;
 	CString	GetTipText(int nGroup) const;
 
 // Data.
@@ -59,7 +59,7 @@ public:
 
 // Construction.
 public:
-	MyGraph(GraphType eGraphType = MyGraph::PieChart);
+	MyGraph(GraphType eGraphType = MyGraph::PieChart, bool bStackedGraph = false);
 	virtual ~MyGraph();
 
 // Declared but not defined.
@@ -75,7 +75,7 @@ public:
 	void	SetYAxisLabel(const CString& sLabel);
 	int		AppendGroup(const CString& sLabel);
 	void	SetLegend(int nGroup, const CString& sLabel);
-	void	SetGraphType(GraphType eType);
+	void	SetGraphType(GraphType eType, bool bStackedGraph);
 	void	SetGraphTitle(const CString& sTitle);
 	int		LookupLabel(const CString& sLabel) const;
 
@@ -142,6 +142,7 @@ private:
 	CStringArray	m_saLegendLabels;
 	CList<MyGraphSeries*,MyGraphSeries*> m_olMyGraphSeries;
 	GraphType		m_eGraphType;
+	bool			m_bStackedGraph;
 };
 
 //{{AFX_INSERT_LOCATION}}
