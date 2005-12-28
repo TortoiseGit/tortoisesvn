@@ -16,8 +16,8 @@
 	<property name="buildtool" value="vcexpress.exe" />
 	-->
 
-	<include buildfile="default.user" if="${file::exists('default.user')}"/>
-	<include buildfile="default.build.user.tmpl" unless="${file::exists('default.user')}"/>
+	<include buildfile="default.build.user" if="${file::exists('default.build.user')}"/>
+	<include buildfile="default.build.user.tmpl" unless="${file::exists('default.build.user')}"/>
 	
 <!-- ====================================================================== -->
 <!-- Configuration targets													-->
