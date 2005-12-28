@@ -4,7 +4,7 @@
      TortoiseSVN needs to build everything.
      
      first make a copy of this file and rename the copy to
-     toolpaths.build
+     default.build.user
      then adjust the paths in the "value" field.
      
      Note: make sure you don't forget the path separator (";")
@@ -12,7 +12,7 @@
      You will get linker errors if you forget them.
 -->
 
-<project name="ToolPaths" default="settoolpaths">
+<project name="ToolPaths" default="env">
 
 <!-- ====================================================================== -->
 <!-- These two targets have to exist in doc.build.user                      -->
