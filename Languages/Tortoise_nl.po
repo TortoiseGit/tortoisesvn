@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-19 14:19+0100\n"
+"PO-Revision-Date: 2005-12-28 21:31+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1349,6 +1349,10 @@ msgstr "Opmerking"
 msgid "Commit"
 msgstr "Vastleggen"
 
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "Drempelwaarde:"
+
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Vastleggen in:"
@@ -2446,8 +2450,12 @@ msgid "Look and Feel::Colors"
 msgstr "Beeld en Gedrag::Kleuren"
 
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "Beeld en Gedrag::Dialogen"
+msgid "Look and Feel::Dialogs 1"
+msgstr "Beeld en Gedrag::Dialogen 1"
+
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "Beeld en Gedrag::Dialogen 2"
 
 #: Dlg-ID:106
 msgid "Look and Feel::Icon Overlays"
@@ -2456,10 +2464,6 @@ msgstr "Beeld en Gedrag::Overlay iconen"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Beeld en Gedrag::Iconen set"
-
-#: Dlg-ID:213
-msgid "Look and Feel::Misc"
-msgstr "Beeld en Gedrag::Diversen"
 
 #: ID:238
 #, c-format
@@ -2778,6 +2782,10 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Opent de archief-verkenner om het archief online te tweaken"
+
+#: ID:245
+msgid "Others"
+msgstr "Anderen"
 
 #: ID:3843
 msgid "Out of memory."
@@ -3646,6 +3654,10 @@ msgid ""
 msgstr ""
 "Splits actieve venster in tweeën\n"
 "Splits"
+
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "Gestapeld"
 
 #: ID:245
 msgid "Statistics"
