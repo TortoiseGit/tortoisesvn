@@ -116,7 +116,6 @@ This will only build the english HTML helpf file for TortoiseSVN
 
 	<!-- ============================================================ -->
 	<!-- Paths to the application resources for the chm help creation -->
-	<property name="help.resource" value="../src/TortoiseMerge/resource.h" />
 	<property name="help.context" value="./source/context.h" />
 
 <!-- ====================================================================== -->
@@ -152,7 +151,6 @@ This will only build the english HTML helpf file for TortoiseSVN
 		<echo message="&lt;xsl:import href=&quot;${path.xsl}/html/chunk.xsl&quot;/&gt;" file="${path.user.xsl}/db_htmlchunk.xsl" append="true"/>
 		<echo message="&lt;/xsl:stylesheet&gt;" file="${path.user.xsl}/db_htmlchunk.xsl" append="true"/>
 
-		<call target="help.prepare" unless="${file::up-to-date(help.resource,help.context)}"/>
 	</target>
 
 <!-- ====================================================================== -->
@@ -160,8 +158,8 @@ This will only build the english HTML helpf file for TortoiseSVN
 <!-- ====================================================================== -->
 
 	<target name="versioninfo" description="Creates the version file">
-		<echo message="This task shouldn't run every time because it triggers a rebuild of all the docs."/>
-		<echo message="To work around this, version.xml is excluded from the files that trigger the build."/>
+		<!-- This task shouldn't run every time because it triggers a rebuild of all the docs.
+		     To work around this, version.xml is excluded from the files that trigger the build.-->
 		<if test="${environment::variable-exists('MajorVersion')}">
 			<copy
 				file="source\en\version.in"
@@ -193,6 +191,11 @@ This will only build the english HTML helpf file for TortoiseSVN
 <!-- ====================================================================== -->
 
 	<target name="help.prepare" description="Create CHM help context">
+		<property name="help.resource" value="../src/TortoiseMerge/resource.h" />
+		<if test="${string::starts-with(doc.target.name,'TortoiseSVN')}">
+			<property name="help.resource" value="../src/TortoiseProc/resource.h" />
+		</if>
+
 		<echo message="help resource generation with file ${help.resource}" />
 		
 		<echo message="// Generated Help Map file." file="${help.context}" />
