@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-19 16:40+0100\n"
+"PO-Revision-Date: 2005-12-28 17:05+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1425,6 +1425,10 @@ msgstr "Comentario"
 msgid "Commit"
 msgstr "Confirmar"
 
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "Límite de confirmaciones:"
+
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Confirmar en:"
@@ -2586,8 +2590,13 @@ msgstr "Aspecto visual::Colores"
 
 # Dlg-ID:106,
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "Aspecto visual::Diálogos"
+msgid "Look and Feel::Dialogs 1"
+msgstr "Aspecto visual::Diálogos 1"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "Aspecto visual::Diálogos 2"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -2598,11 +2607,6 @@ msgstr "Aspecto visual::Iconos Sobreimpresionados"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Aspecto visual::Conjunto de Iconos"
-
-# Dlg-ID:106,
-#: Dlg-ID:213
-msgid "Look and Feel::Misc"
-msgstr "Aspecto visual::Miscelánea"
 
 # ID:238,
 #: ID:238
@@ -2945,6 +2949,11 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Abre el navegador de repositorio para modificar el repositorio en línea"
+
+# ID:188,
+#: ID:245
+msgid "Others"
+msgstr "Otros"
 
 #: ID:3843
 msgid "Out of memory."
@@ -3845,6 +3854,10 @@ msgid ""
 msgstr ""
 "Dividir la ventana activa en paneles\n"
 "Dividir"
+
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "Apilado"
 
 #: ID:245
 msgid "Statistics"
