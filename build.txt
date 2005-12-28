@@ -56,8 +56,8 @@ You may have to logoff/logon to make the new environment variables take effect!
 - Download the tools to build the TSVN docs from 
   http://tortoisesvn.tigris.org/files/documents/406/11147/Tools.zip and
   unzip them into SVN\TortoiseSVN\Tools\
-- Make a copy of the file toolpaths.tmpl in the TSVN root folder and
-  rename that copy to toolpaths.build. Then simply adjust the paths as mentioned
+- Make a copy of the file default.build.user.tmpl in the TSVN root folder and
+  rename that copy to default.build.user Then simply adjust the paths as mentioned
   in that file.
 - To compile the crashrpt project for TortoiseSVN, you'll need the WTL.
   You can get that library from here: http://wtl.sourceforge.net/
@@ -113,14 +113,10 @@ whole solution instead of individual projects.
 If you want to improve the build script to get rid of those errors, be our guest!
 
 If you are building using VC++ Express, your options are somewhat limited.
-Firstly you need to create a file in the TortoiseSVN directory called default.user
-The content should look something like this:
+Firstly you need to change the build tool in default.build.user.
+There is already a line to set this up which you need to un-comment:
 
-	<?xml version="1.0"?>
-	<project name="customize">
-		<description>Customization layer for build file</description>
-		<property name="buildtool" value="vcexpress.exe" />
-	</project>
+	<property name="buildtool" value="vcexpress.exe" />
 
 Now you need to build the Subversion libraries:
 > nant Subversion
