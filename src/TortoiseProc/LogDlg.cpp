@@ -2609,6 +2609,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
+		GetDlgItem(IDC_STATBUTTON)->EnableWindow(!(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 		return;
 	}
 	SetTimer(LOGFILTER_TIMER, 1000, NULL);
@@ -2625,7 +2626,10 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			return;
 		}
 		if (m_sFilterText.IsEmpty())
+		{
+			GetDlgItem(IDC_STATBUTTON)->EnableWindow(!(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 			return;
+		}
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
@@ -2795,6 +2799,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 	} // if (nIDEvent == LOGFILTER_TIMER)
+	GetDlgItem(IDC_STATBUTTON)->EnableWindow(!(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 	__super::OnTimer(nIDEvent);
 }
 
