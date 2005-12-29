@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 5246: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 5272: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-12-26 11:59+0300\n"
+"PO-Revision-Date: 2005-12-29 16:37+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1714,6 +1714,11 @@ msgstr "Комментарий"
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Фиксация"
+
+# Control-ID:1110,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "Пороговое значение фиксаций:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -3480,6 +3485,11 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Открывает обозреватель хранилища для оперативной работы с хранилищем"
 
+# ID:188,
+#: ID:245
+msgid "Others"
+msgstr "Остальные"
+
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
@@ -4597,6 +4607,12 @@ msgid ""
 msgstr ""
 "Разделить активное окно на панели\n"
 "Разделить"
+
+# ID:11,#:
+# Control-ID:1002,
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "Стопкой"
 
 # ID:245,#:
 # Control-ID:1132,#:
