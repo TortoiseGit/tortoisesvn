@@ -590,7 +590,6 @@ void MyGraph::SetYAxisLabel(const CString& sLabel)
 int MyGraph::AppendGroup(const CString& sLabel)
 {
 	VALIDATE;
-	_ASSERTE(! sLabel.IsEmpty());
 
 	// Add the group.
 	int nGroup(m_saLegendLabels.GetSize());
@@ -617,7 +616,6 @@ void MyGraph::SetLegend(int nGroup, const CString& sLabel)
 {
 	VALIDATE;
 	_ASSERTE(0 <= nGroup);
-	_ASSERTE(! sLabel.IsEmpty());
 
 	m_saLegendLabels.SetAtGrow(nGroup, sLabel);
 }
@@ -776,7 +774,11 @@ void MyGraph::DrawLegend(CDC& dc)
 	// plus the height of each label based on the pint size of the font.
 	int nLegendHeight((GAP_PIXELS / 2) + (GetMaxSeriesSize() * nLabelHeight) +
 		(GAP_PIXELS / 2));
-	
+	if (nLegendHeight > m_rcGraph.Height())
+	{
+		VERIFY(dc.SelectObject(pFontOld));
+		return;
+	}
 	// Draw the legend border.  Allow LEGEND_COLOR_BAR_PIXELS pixels for
 	// display of label bars.
 	m_rcLegend.top = (m_rcGraph.Height() / 2) - (nLegendHeight / 2);
