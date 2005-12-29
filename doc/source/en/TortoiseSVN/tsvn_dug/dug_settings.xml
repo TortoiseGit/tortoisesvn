@@ -388,15 +388,15 @@
 					<term>Recurse into unversioned folders</term>
 					<listitem>
 						<para>
-							By default, when the status of an unversioned folder is 
-							shown in the
+							If this box is checked (default state), then whenever
+							the status of an unversioned folder is shown in the
 							<guilabel>Add</guilabel>,
 							<guilabel>Commit</guilabel> or
 							<guilabel>Check for Modifications</guilabel> dialog,
-							the status of all child files and folders is also shown.
-							If you check this box, only the unversioned parent is shown.
-							This reduces clutter in these dialogs. If you select an
-							unversioned folder for Add, it is added recursively.
+							every child file and folder is also shown.
+							If you uncheck this box, only the unversioned parent is shown.
+							Unchecking reduces clutter in these dialogs. In that case if you
+							select an unversioned folder for Add, it is added recursively.
 						</para>
 					</listitem>
 				</varlistentry>

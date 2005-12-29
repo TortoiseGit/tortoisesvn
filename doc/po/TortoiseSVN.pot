@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-12-28 23:50GMT Standard Time\n"
+"POT-Creation-Date: 2005-12-29 12:36GMT Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4326,7 +4326,7 @@ msgid "Recurse into unversioned folders"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7473(para) 
-msgid "By default, when the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, the status of all child files and folders is also shown. If you check this box, only the unversioned parent is shown. This reduces clutter in these dialogs. If you select an unversioned folder for Add, it is added recursively."
+msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7487(term) 
