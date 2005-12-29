@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-27 10:44+0100\n"
+"PO-Revision-Date: 2005-12-29 01:48+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1678,6 +1678,11 @@ msgstr "Commento"
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Invia"
+
+# Control-ID:1110,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "Limite d'invio:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -3432,6 +3437,11 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Apre Repository Browser per personalizzare il browser online"
 
+# ID:188,
+#: ID:245
+msgid "Others"
+msgstr "Altri"
+
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
@@ -4528,6 +4538,12 @@ msgid ""
 msgstr ""
 "Separa la finestra\n"
 "Separa"
+
+# ID:11,#:
+# Control-ID:1002,
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "Accodato"
 
 # ID:74,#:
 # ID:77,#:
@@ -5911,7 +5927,7 @@ msgid ""
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
-"La tua copia di lavoro ha subito delle modifiche in locale!\n"
+"La tua copia di lavoro contiene delle modifiche che non sono state inviate al server!\n"
 "Nota: aggiornare ad un'altra revisione non comporterà la perdita di queste modifiche\n"
 "quindi la copia di lavoro non apparirà identica a quella della revisione a cui ci si sta aggiornando."
 
