@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN 1.2.6\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-28 15:29+0100\n"
+"PO-Revision-Date: 2005-12-29 15:38+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Goran Kavrečič, Martin Srebotnjak, LUGOS <info@lugos.si>\n"
 "MIME-Version: 1.0\n"
@@ -933,6 +933,8 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
+"V vrsticah urejen seznam poti, za katere deluje prepis ikon.\n"
+"Če dodate na konec poti znak \"*\", potem so zajete tudi vse datoteke in podmape znotraj te poti."
 
 # ID:194,
 #: ID:194
@@ -1211,6 +1213,14 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
+"Zunanji program za spajanje, uporabljen\n"
+"za razreševanje sporov med datotekami.\n"
+"<hr=100%>\n"
+"Določite lahko naslednje parametre poti:\n"
+"%merged\tsporna datoteka, kam jo shraniti\n"
+"%theirs\t\tdatoteka, kakršna je v skladišču\n"
+"%mine\t\tvaša datoteka, z vašimi spremembami\n"
+"%base\t\tizvirna datoteka brez vaših sprememb"
 
 # ID:3843,#:
 # ID:3843,
@@ -1282,6 +1292,8 @@ msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
 msgstr ""
+"Uporabi vse lastnosti rekurzivno po vseh datotekah/mapah.\n"
+"Lastnosti bugtraq: in tsvn: se uporabijo samo za mape."
 
 # ID:13,
 #: ID:13
@@ -1351,6 +1363,8 @@ msgid ""
 "Autocomplete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
+"Samozaključevanje predlaga besede (ponavadi imena razredov ali članov)\n"
+"iz datotek, ki ste jih spremenili, ko vnašate dnevniški zapis."
 
 # ID:438,#:
 # ID:438,
@@ -1593,7 +1607,7 @@ msgstr "Označite tiste menijske vnose, ki bi jih radi videli v podmeniju namest
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr ""
+msgstr "Označite, če želite v dnevniških zapisih uporabljati manj obširen zapis datuma in časa"
 
 # ID:270,
 #: ID:270
@@ -1637,17 +1651,17 @@ msgstr ""
 # ID:170,
 #: ID:170
 msgid "Click here to select a recently typed message"
-msgstr ""
+msgstr "Kliknite sem za izbor pred kratkim natipkanega sporočila"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr ""
+msgstr "Kliknite \"Napredno\" za določitev dodatnih programov za razlikovanje glede na končnico datoteke"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr ""
+msgstr "Kliknite \"Napredno\" za določitev dodatnih programov za spajanje glede na končnico datoteke"
 
 # ID:257,
 #: ID:257
@@ -1689,6 +1703,11 @@ msgstr "Komentar"
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Objavi"
+
+# Control-ID:1110,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "Prag objave:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -2177,6 +2196,8 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr ""
+"Želite ponovno naložiti dokumente, da se bodo pokazale spremembe nastavitev?\n"
+"Opomba: izgubili boste vse opravljene spremembe!"
 
 # ID:313,
 #: ID:313
@@ -2219,8 +2240,9 @@ msgstr "I&zvozi ..."
 
 # ID:3697,
 #: ID:3697
+#, fuzzy
 msgid "EXT"
-msgstr ""
+msgstr "EXT"
 
 # Control-ID:1031,#:
 #: Control-ID:1237
@@ -2266,7 +2288,7 @@ msgstr "Prazno"
 # Control-ID:1240,
 #: Control-ID:1240
 msgid "Enable &accelerators on the top level menu"
-msgstr ""
+msgstr "Omogoči &bližnjice na vrhnjem meniju"
 
 # ID:196,
 #: ID:196
@@ -2274,6 +2296,8 @@ msgid ""
 "Enable this if you want keyboard accelerators on the top level context menu too.\n"
 "Note that the context menu icons look nicer with this disabled."
 msgstr ""
+"To omogočite, če želite tipke za bližnjice tudi za vrhnjo raven pojavnega menija.\n"
+"Potrebno je pripomniti, da so ikone pojavnega menija videti lepše, če ta možnost ni vključena."
 
 # Control-ID:1224,
 #: ID:195
@@ -2337,7 +2361,7 @@ msgstr "Napaka"
 # ID:145,
 #: ID:145
 msgid "Error rebuilding Shell Icon Cache!"
-msgstr ""
+msgstr "Napaka pri ponovnem polnenju predpomnilnika ikon lupine!"
 
 # ID:81,
 #: ID:81
@@ -2542,6 +2566,9 @@ msgid ""
 "You can get GDI+ from\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 msgstr ""
+"Za shranjevanje grafa revizij kot slike je potreben GDI+.\n"
+"GDI+ lahko dobite na naslovu\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 # Dlg-ID:143,#:
 # Dlg-ID:107,
@@ -2679,7 +2706,7 @@ msgstr "Ikone/oblikovanje/koda:     Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr ""
+msgstr "Če je aktiviran, preprečuje prepisom prikaz v pogovornih oknih \"Shrani kot ...\" in \"Odpri\""
 
 # ID:95,
 #: ID:95
@@ -2687,11 +2714,13 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
+"Če je aktivirano, se ustvari v skladišču nova mapa.\n"
+"Če ni aktivirano, se izvoz usmeri neposredno na navedeni URL."
 
 # ID:79,
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
-msgstr ""
+msgstr "Če je aktivirano, TortoiseSVN ustvari začasno datoteko BASE za izvedbo razlikovanja z razširjenimi ključnimi besedami in prilagojenimi končnicami vrstic."
 
 # ID:195,
 #: ID:195
@@ -2700,6 +2729,9 @@ msgid ""
 "But some context menu entries will show up which can't really be used.\n"
 "For example: the \"Show Log\" entry will show even for just added folders."
 msgstr ""
+"Če je onemogočeno, se bo pojavni meni pojavil hitreje.\n"
+"Vendar pa se bodo pojavile še nekatere možnosti, ki jih v resnici ne morete uporabiti.\n"
+"Primer: vnos \"Pokaži dnevnik\" se bo izpisal tudi za ravno dodane mape."
 
 # ID:194,
 #: ID:194
@@ -2712,6 +2744,8 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr ""
+"Če je aktivirano, pogovorno okno Spoji inicializira URL \"Od:\" z URL izbrane delovne kopije\n"
+"namesto nazadnje uporabljenega URL."
 
 # ID:195,
 #: ID:195
@@ -2719,6 +2753,8 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
+"Če je aktivirano, se poveže s skladiščem, ko se pojavi pogovorno okno.\n"
+"Nič več vam ni potrebno klikniti \"Preveri skladišče\"."
 
 # ID:195,
 #: ID:195
@@ -2735,6 +2771,8 @@ msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
+"Če je nastavljeno, se datoteke znotraj map brez različic lahko pokažejo v nadzoru stanja.\n"
+"Nadzor stanja se uporablja npr. v pogovornem oknu objave."
 
 # ID:251,
 #: ID:251
@@ -2866,6 +2904,9 @@ msgid ""
 "For example, you can't make MyFile.txt become MYFILE.txt.\n"
 "Please consult the documentation for a way to work around this limitation."
 msgstr ""
+"Datoteke ni mogoče preimenovati, tako da zamenjate le velike z malimi črkami ali obratno.\n"
+"Primer: Moja_datoteka.txt ne morete preimenovati v MOJA_DATOTEKA.txt.\n"
+"Za izogib tej omejitvi si podrobneje oglejte dokumentacijo."
 
 # Control-ID:1203,
 #: Control-ID:1203
@@ -3268,6 +3309,10 @@ msgid ""
 "for TortoiseSVN to do here...\n"
 "Do you want to see the unversioned files?"
 msgstr ""
+"Od zadnje objave ni bilo spremenjenih\n"
+"ali dodanih datotek. TortoiseSVN\n"
+"zato tu ne more ničesar ...\n"
+"Si želite ogledati datoteke brez različic?"
 
 # ID:273,
 #: ID:273
@@ -3289,11 +3334,6 @@ msgstr "Ni popravkov črkovanja"
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Ni predlogov iz tezavra"
-
-# Control-ID:1262,
-#: Control-ID:1262
-msgid "Noise level:"
-msgstr "Nivo  šuma:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3337,8 +3377,9 @@ msgstr "V redu"
 
 # ID:3697,
 #: ID:3697
+#, fuzzy
 msgid "OVR"
-msgstr ""
+msgstr "OVR"
 
 # ID:145,#:
 # Control-ID:1202,#:
@@ -3573,6 +3614,10 @@ msgid ""
 "to be in the just created copy then you need to switch over\n"
 "to that copy path. Use the Switch command to do that."
 msgstr ""
+"Opomba:\n"
+"vaša delovna kopija ostaja na predhodni poti. Če želite svoje naslednje spremembe\n"
+"v ravnokar ustvarjeni kopiji, potem morate preklopiti na\n"
+"to pot kopije. Za to uporabite ukaz Preklopi."
 
 # ID:3858,#:
 # ID:3858,
@@ -3700,7 +3745,7 @@ msgstr "Po&vrni ..."
 # ID:12,
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr ""
+msgstr "Preden se znajdete pred nerešljivim problemom, preberite 'Dnevni uporabniški vodnik' ..."
 
 # Control-ID:1073,#:
 # Control-ID:1073,
@@ -3879,9 +3924,8 @@ msgstr "Zamenjevanje"
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "Repo-browser"
-msgstr "Skladiščalec"
+msgstr "Skladiščni brskalnik"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -4530,6 +4574,14 @@ msgstr ""
 "Razdeli aktivno okno na podokna\n"
 "Razdeli"
 
+# ID:11,#:
+# ID:195,#:
+# Control-ID:1002,
+#: Control-ID:1263
+#, fuzzy
+msgid "Stacked"
+msgstr "zaklenjeno"
+
 # ID:245,#:
 # Control-ID:1132,#:
 # Dlg-ID:179,
@@ -4594,6 +4646,8 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
+"Podrazličica je javila napako pri ustvarjanju skladišča!\n"
+"Preverite, da je mapa prazna in da ni zaščitena proti pisanju."
 
 # ID:81,
 #: ID:81
@@ -4629,6 +4683,8 @@ msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
 msgstr ""
+"Preklopi nazaj na prejšnje podokno\n"
+"Prejšnje podokno"
 
 # ID:2049,
 #: ID:2049
@@ -4636,6 +4692,8 @@ msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr ""
+"Preklopi med enodelnim in dvodelnim pogledom\n"
+"Preklopi med enodelnim in dvodelnim pogledom"
 
 # ID:2051,
 #: ID:2051
@@ -4657,6 +4715,8 @@ msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
 msgstr ""
+"Preklopi na naslednje podokno\n"
+"Naslednje podokno"
 
 # ID:3825,
 #: ID:3825
@@ -4717,13 +4777,13 @@ msgstr "Skladišče je bilo uspešno ustvarjeno."
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr ""
+msgstr "Velikost koščka se ne ujema s številom dodanih/odstranjenih vrstic!"
 
 # ID:63,
 #: ID:63
 #, c-format
 msgid "The chunk start \"@@\" was expected in line %d !"
-msgstr ""
+msgstr "Začetek koščka \"@@\" je pričakovan v vrstici %d !"
 
 # ID:68,
 #: ID:68
@@ -4845,10 +4905,15 @@ msgid ""
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
+"Pot/url, ki ste jo/ga vnesli, se zdi neveljavna v Windows!\n"
+"Vseeno lahko poskusite, vendar zna kasneje priti do napake.\n"
+"\n"
+"Veljavna pot v Windows ne sme vsebovati '<>|\"?*:', niti naslednjih imen naprav:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
 #: ID:314
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -4857,6 +4922,12 @@ msgid ""
 "<i>%s</i>\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr ""
+"Pot\n"
+"<i>%s</i>\n"
+"se ne ujema s potmi v datoteki popravkov.\n"
+"Vendar je aplikacija TortoiseMerge našla pot\n"
+"<i>%s</i>,\n"
+"ki se zdi bolj primerna. Ste prepričani, da želite raje uporabiti predlagano pot?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4869,6 +4940,8 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr ""
+"Izbrana datoteka ima še vedno eno ali več spornih oznak.\n"
+"Ste prepričani, da želite datoteko označiti kot razrešeno?"
 
 # ID:88,
 #: ID:88
@@ -4876,6 +4949,8 @@ msgid ""
 "The target folder is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
+"Ciljna mapa ni prazna!\n"
+"Ste prepričani, da želite prevzeti/izvoziti datoteke v to mapo?"
 
 # ID:102,
 #: ID:102
@@ -4906,6 +4981,8 @@ msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
 msgstr ""
+"Izbrana URL-ja ne izhajata iz istega korena.\n"
+"Dnevniških zapisov med njima zato ni mogoče prikazati!"
 
 # ID:16,
 #: ID:16
@@ -4954,6 +5031,8 @@ msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
+"V enem ali več mapaj, ki ste jih vključili z svn:externals, so spremembe.\n"
+"Te datoteke <b>niso</b> v seznamu za objavo. Te datoteke boste morali objaviti ločeno."
 
 # ID:66,
 #: ID:66
@@ -4964,6 +5043,10 @@ msgid ""
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
+"V vrstici %d so še nerazrešeni spori!\n"
+"Te spore morate razrešiti pred shranjevanjem.\n"
+"Želite shraniti datoteko s prisotnimi spori?\n"
+"Če kliknete Da, morate te spore ročno razrešiti v drugem urejevalniku!"
 
 # ID:82,
 #: ID:82
@@ -5010,7 +5093,7 @@ msgstr "Ta izdelek vsebuje programsko opremo, ki jo je razvil projekt OpenSSL za
 #: ID:3857
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr ""
+msgstr "Ta program je povezan z manjkajočim izvozom %s v datotki %s. Ta računalnik ima morda nekompatibilno različico %s."
 
 # ID:3857,#:
 # ID:3857,
@@ -5465,8 +5548,9 @@ msgstr "Pisanje v %1 ni možno; datoteka je namenjena le branju ali pa je že od
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
+#, fuzzy
 msgid "Uncheck"
-msgstr ""
+msgstr "Izklopi"
 
 # ID:3603,
 #: ID:3603
@@ -5568,11 +5652,15 @@ msgstr "Uporabi ogledovalnik &besedila za pregled krivde"
 
 # ID:195,
 #: ID:195
+#, fuzzy
 msgid ""
 "Use '*' as a wildcard character when specifying an exception.\n"
 "To separate multiple exceptions, use commas (',').\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
+"Uporabite '*' kot nadomestni znak za vse druge, ko določate izjemo.\n"
+"Za ločitev več izjem uporabite vejice (',').\n"
+"Primer: *.mojlan.si, *.podjetje.si"
 
 # Control-ID:1230,
 #: Control-ID:1230
@@ -5723,6 +5811,10 @@ msgid ""
 "Accessing a repository via file:/// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
+"Skladišče ustvarjate na omrežno deljenem pogonu.\n"
+"To je sicer varno, vendar lahko po izdelavi skladišča do njega dosegate na drug način.\n"
+"Dostop s protokolom file:/// do skladišča na omrežnem pogonu lahko povzroči okvaro podatkov!\n"
+"Želite kljub temu ustvariti skladišče?"
 
 # ID:88,
 #: ID:88
@@ -5744,6 +5836,9 @@ msgid ""
 "If you want to set it on all files within that folder,\n"
 "you must activate the 'recursive' checkbox."
 msgstr ""
+"Te lastnosti ne morete nastaviti mapam, temveč le datotekam!\n"
+"Če jo želite nastaviti na vse datoteke v tej mapi,\n"
+"morate aktivirati polje 'rekurzivno'."
 
 # ID:105,
 #: ID:105
@@ -5769,6 +5864,11 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
+"Za dodajanje v skladišče ste namenili več kot eno datoteko ali mapo.\n"
+"Tega ni mogoče storiti v enem koraku, zato TortoiseSVN doda vsako datoteko/mapo\n"
+"posamično in za vsako ustvari novo revizijo.\n"
+"\n"
+"Še vedno želite to storiti?"
 
 # ID:16,
 #: ID:16
@@ -5776,6 +5876,8 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr ""
+"Spremenili ste lastnosti, ne da bi jih prej shranili.\n"
+"Jih želite shraniti zdaj?"
 
 # ID:251,
 #: ID:251
@@ -5784,10 +5886,13 @@ msgstr "Najprej morate posodobiti svojo delovno kopijo."
 
 # ID:169,
 #: ID:169
+#, fuzzy
 msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
 msgstr ""
+"Niste vnesli številke zadeve!\n"
+"Ste prepričani, da želite objaviti brez številke zadeve?"
 
 # ID:105,
 #: ID:105
@@ -5860,6 +5965,10 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
+"Vaša delovna kopija se zdi na poti oznake!\n"
+"Najprej morate preklopiti na vejo glavnega debla pred objavo.\n"
+"\n"
+"Želite kljub temu objaviti?"
 
 # ID:88,
 #: ID:88
@@ -5915,6 +6024,10 @@ msgid ""
 "log message. The default is \"true\" which means the bugtracking ID\n"
 "is appended to the log message."
 msgstr ""
+"bugtraq:append\n"
+"Nastavite na \"false\", če želite sledilni ID hrošče vstaviti na vrh\n"
+"dnevniškega zapisa. Privzeta vrednost je \"true\", kar pomeni, da se sledilni ID hrošča\n"
+"doda na konec dnevniškega zapisa."
 
 # ID:14,
 #: ID:14
@@ -5922,6 +6035,8 @@ msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
+"bugtraq:label\n"
+"Besedilo napisa na vnosnem polju, kjer uporabnik vnese številko zadeve."
 
 # ID:15,
 #: ID:15
@@ -5930,6 +6045,9 @@ msgid ""
 "two regular expressions separated by a newline\n"
 "The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
 msgstr ""
+"bugtraq:logregex\n"
+"dva regularna izraza, ločena z oznako nove vrstice\n"
+"Prvi izraz je potreben za iskanje niza, ki se sklicuje na zadevo, drugi pa za izluščenje samega ID hrošča iz tega niza."
 
 # ID:14,
 #: ID:14
@@ -5939,6 +6057,9 @@ msgid ""
 "String which is appended to a log message when an issue number is entered.\n"
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
+"bugtraq:message\n"
+"Niz, dodan na konec dnevniškega zapisa, ko vnesete številko zadeve.\n"
+"Niz mora vsebovati \"%BUGID%\", ki jo nadomesti prava številka zadeve."
 
 # ID:14,
 #: ID:14
@@ -5946,6 +6067,8 @@ msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
+"bugtraq:number\n"
+"Nastavljeno na \"false\", če ima vaš sistem sledenja hroščem zadeve, ki se jih ne da priklicati s številkami."
 
 # ID:14,
 #: ID:14
@@ -5955,6 +6078,9 @@ msgid ""
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
 "gets replaced with the issue number."
 msgstr ""
+"bugtraq:url\n"
+"URL sledilnika zadevam. Vsebovati mora \"%BUGID%\", ki\n"
+"ga nadomesti prava številka zadeve."
 
 # ID:145,
 #: ID:145
@@ -6118,6 +6244,8 @@ msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
+"svn:executable\n"
+"Če je prisotno, naredi datoteko izvršljivo. Te lastnosti ni mogoče nastaviti mapi. Nerekurziven poskus ne bo uspel in rekurziven poskus bo nastavil lastnost le na datoteke-otroke mape."
 
 # ID:14,
 #: ID:14
@@ -6127,6 +6255,10 @@ msgid ""
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
+"svn:externals\n"
+"Seznam po vrsticah navedenih določilnikov modulov, vsak je sestavljen iz relativne poti mape, neobveznih dodatnih zastavic revizij ter iz URL. Primer:\n"
+"tu\t\thttp://primer.si/skladis/zig\n"
+"tu/bar -r 1234\thttp://primer.si/skladis/zag"
 
 # ID:14,
 #: ID:14
@@ -6139,6 +6271,7 @@ msgstr ""
 
 # ID:14,
 #: ID:14
+#, fuzzy
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -6148,6 +6281,13 @@ msgid ""
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
+"svn:keywords\n"
+"Ključne besede, ki naj bodo razširjene. Veljavne ključne besede so:\n"
+"URL, HeadURL\t\t\tURL revizije HEAD predmeta.\n"
+"Author, LastChangedBy\t\tZadnja oseba, ki je spreminjala datoteko.\n"
+"Date, LastChangedDate\t\tDatum/čas, ko je bil predmet nazadnje spremenjen.\n"
+"Rev, LastChangedRevision\tZadnja revizija, ko je bil predmet spremenjen.\n"
+"Id\t\t\t\tStisnjeni povzetek prejšnjih štirih ključnih besed."
 
 # ID:14,
 #: ID:14
@@ -6155,6 +6295,8 @@ msgid ""
 "svn:mime-type\n"
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
+"svn:mime-type\n"
+"Vrsta mime datoteke. Uporabljeno za odločanje o spajanju datoteke in načinu strežbe z Apacha. Vrsta mime, ki se začne z 'text/' (ali odsotna vrsta mime) se obravnava kot besedilo. Vse drugi se obravnava kot dvojiška datoteka."
 
 # ID:16,
 #: ID:16
@@ -6165,6 +6307,11 @@ msgid ""
 "indicating that a user must acquire a lock on the file\n"
 "before they can edit it and commit changes."
 msgstr ""
+"svn:needs-lock\n"
+"To nastavite na katero koli vrednost (npr. '*') za uveljavitev zaklopa na datoteki.\n"
+"Datoteka bo označena samo za branje le ob prevzemu ali posodobitvi,\n"
+"kar nakazuje, da mora uporabnik pridobiti zaklep nad datoteko,\n"
+"preden jo lahko ureja in objavi spremembe."
 
 # ID:80,#:
 # ID:103,#:
@@ -6182,6 +6329,9 @@ msgid ""
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
 "in the commit dialog."
 msgstr ""
+"tsvn:logfilelistenglish\n"
+"Nastavite na \"false\", če ne želite seznama spremenjenih datotek prilepljenega v angleščini\n"
+"v pogovornem oknu objave."
 
 # ID:15,
 #: ID:15
@@ -6189,6 +6339,8 @@ msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
+"tsvn:logminsize\n"
+"Najmanjša velikost dnevniškega zapisa v številu znakov, da je objava dovoljena."
 
 # ID:15,
 #: ID:15
@@ -6197,6 +6349,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
+"tsvn:logtemplate\n"
+"Niz, vstavljen v polja dnevniških zapisov v pogovornem oknu objave.\n"
+"To uporabite kot predlogo dnevniškega zapisa za uporabnike."
 
 # ID:15,
 #: ID:15
@@ -6205,6 +6360,9 @@ msgid ""
 "Set this to the number of chars the log message should not exceed its width.\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
+"tsvn:logwidthmarker\n"
+"Nastavite na število znakov, kolikor naj bo največja dolžina dnevniškega vnosa.\n"
+"Na tem mestu se v pogovornem oknu objave pokaže zatemnjena vrstica. Privzeta vrednost je 80 (znakov)."
 
 # ID:15,
 #: ID:15
@@ -6213,6 +6371,9 @@ msgid ""
 "Set this to the language number you want your log messages written in.\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
+"tsvn:projectlanguage\n"
+"To nastavite na številko jezika, v katerem želite zapisovati v dnevnik.\n"
+"TortoiseSVN nato naloži ustrezni modul črkovanja, če je ta na voljo."
 
 # ID:15,
 #: ID:15
