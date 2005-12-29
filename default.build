@@ -10,8 +10,7 @@
 	<!-- default build tool is VS.NET2005 -->
 	<property name="buildtool" value="devenv.com" />
 
-	<include buildfile="default.build.user" if="${file::exists('default.build.user')}"/>
-	<include buildfile="default.build.user.tmpl" unless="${file::exists('default.build.user')}"/>
+	<include buildfile="default.build.user" />
 	
 <!-- ====================================================================== -->
 <!-- Configuration targets													-->
