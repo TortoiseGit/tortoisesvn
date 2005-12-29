@@ -41,7 +41,7 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 	{
 		if (0x0000 == *pVal++)
 			return CFileTextLines::BINARY;
-	} // for (int i=0; i<cb; i=i+2) 
+	}
 	pVal = (UINT16 *)pBuffer;
 	if (*pVal == 0xFEFF)
 		return CFileTextLines::UNICODE_LE;
@@ -51,7 +51,53 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 	{
 		if (*pVal2 == 0xBF)
 			return CFileTextLines::UTF8;
-	} // if (*pVal == 0xBBEF) 
+	}
+	// check for illegal UTF8 chars
+	pVal2 = (UINT8 *)pBuffer;
+	for (int i=0; i<cb; ++i)
+	{
+		if ((*pVal2 == 0xC0)||(*pVal2 == 0xC1)||(*pVal2 >= 0xF5))
+			return CFileTextLines::ASCII;
+		pVal2++;
+	}
+	pVal2 = (UINT8 *)pBuffer;
+	bool bUTF8 = false;
+	for (int i=0; i<cb; ++i)
+	{
+		if ((*pVal2 & 0xE0)==0xC0)
+		{
+			pVal2++;i++;
+			if ((*pVal2 & 0xC0)!=0x80)
+				return CFileTextLines::ASCII;
+			bUTF8 = true;
+		}
+		if ((*pVal2 & 0xF0)==0xE0)
+		{
+			pVal2++;i++;
+			if ((*pVal2 & 0xC0)!=0x80)
+				return CFileTextLines::ASCII;
+			pVal2++;i++;
+			if ((*pVal2 & 0xC0)!=0x80)
+				return CFileTextLines::ASCII;
+			bUTF8 = true;
+		}
+		if ((*pVal2 & 0xF8)==0xF0)
+		{
+			pVal2++;i++;
+			if ((*pVal2 & 0xC0)!=0x80)
+				return CFileTextLines::ASCII;
+			pVal2++;i++;
+			if ((*pVal2 & 0xC0)!=0x80)
+				return CFileTextLines::ASCII;
+			pVal2++;i++;
+			if ((*pVal2 & 0xC0)!=0x80)
+				return CFileTextLines::ASCII;
+			bUTF8 = true;
+		}
+		pVal2++;
+	}
+	if (bUTF8)
+		return CFileTextLines::UTF8;
 	return CFileTextLines::ASCII;
 }
 
