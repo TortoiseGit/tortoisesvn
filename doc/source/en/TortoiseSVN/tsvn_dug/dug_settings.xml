@@ -273,11 +273,11 @@
 			</para>
 		</sect3>
 		<sect3 id="tsvn-DUG-settings-dialogs">
-			<title>TortoiseSVN Dialog Settings</title>
+			<title>TortoiseSVN Dialog Settings 1</title>
 			<?dbhh topicname="HIDD_SETTINGSDIALOGS"?>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-dialogs">
-					<title>The Settings Dialog, Dialogs Page</title>
+					<title>The Settings Dialog, Dialogs 1 Page</title>
 					<graphic fileref="../images/SettingsDialog.png"/>
 				</figure>
 				This dialog allows you to configure some of TortoiseSVN's
@@ -360,6 +360,47 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Use URL of WC as the default "From:" URL</term>
+					<listitem>
+						<para>
+							In the merge dialog, the default behaviour is for the
+							<guilabel>From:</guilabel> URL to be remembered between
+							merges. However, some people like to perform merges from
+							many different points in their hierarchy, and find it easier
+							to start out with the URL of the current working copy.
+							This can then be edited to refer to a parallel path on
+							another branch.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</sect3>
+		<sect3 id="tsvn-DUG-settings-dialogs-2">
+			<title>TortoiseSVN Dialog Settings 2</title>
+			<para>
+				<figure id="tsvn-DUG-settings-dia-dialogs-2">
+					<title>The Settings Dialog, Dialogs 2 Page</title>
+					<graphic fileref="../images/SettingsDialog2.png"/>
+				</figure>
+			</para>
+			<variablelist>
+				<varlistentry>
+					<term>Recurse into unversioned folders</term>
+					<listitem>
+						<para>
+							By default, when the status of an unversioned folder is 
+							shown in the
+							<guilabel>Add</guilabel>,
+							<guilabel>Commit</guilabel> or
+							<guilabel>Check for Modifications</guilabel> dialog,
+							the status of all child files and folders is also shown.
+							If you check this box, only the unversioned parent is shown.
+							This reduces clutter in these dialogs. If you select an
+							unversioned folder for Add, it is added recursively.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
 					<term>Use autocompletion of filepaths and keywords</term>
 					<listitem>
 						<para>
@@ -401,20 +442,6 @@
 							<guibutton>Check repository</guibutton>. If you always want
 							to check the repository, you can use this setting to make that
 							action happen automatically.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Use URL of WC as the default "From:" URL</term>
-					<listitem>
-						<para>
-							In the merge dialog, the default behaviour is for the
-							<guilabel>From:</guilabel> URL to be remembered between
-							merges. However, some people like to perform merges from
-							many different points in their hierarchy, and find it easier
-							to start out with the URL of the current working copy.
-							This can then be edited to refer to a parallel path on
-							another branch.
 						</para>
 					</listitem>
 				</varlistentry>
