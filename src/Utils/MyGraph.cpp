@@ -1042,7 +1042,7 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 	CPoint ptLastLoc(0,0);
 
 	CArray<int, int> stackAccumulator;
-	stackAccumulator.SetSize(GetMaxSeriesSize());
+	stackAccumulator.SetSize(m_olMyGraphSeries.GetCount());
 
 	for (int nGroup = 0; nGroup < GetMaxSeriesSize(); nGroup++) {
 
