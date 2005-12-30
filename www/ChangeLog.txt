@@ -1,3 +1,84 @@
+- NEW: The settings dialog now has a button to open the system sound
+       dialog where the TSVN sounds can be configured.
+       See issue #167. (Stefan)
+- NEW: Keyboard accelerators for the shell context menu. 
+       See issue #171. (Stefan)
+- NEW: A warning is shown if the user tries to close the explorer property
+       sheet without having saved modified properties yet. (Stefan)
+- NEW: Show network transfer speed for DAV connections where possible and
+       it makes sense. See issue #177. (Stefan)
+- NEW: Rebuilding the icon cache can be done by calling TortoiseProc from
+       the command line. See our help files for details. (Stefan, Leon Zandman)
+- NEW: Setting the environment variable SVN_ASP_DOT_NET_HACK makes TSVN
+       use '_svn' as the Subversion admin dirs instead of '.svn'.
+       A restart of Windows is required for this to take effect. (Stefan)
+- NEW: Colors used in TortoiseSVN are now configurable in the
+       settings dialog. (Stefan)
+- NEW: Last commit author, revision and date are shown in the "Check for
+       modifications" dialog after a "Check repository". (Stefan)
+- NEW: The URL where TSVN checks if updates are available can now be
+       configured in the registry. This might be useful for company
+       admins which provide their users the updates from their servers.
+       The registry entry is "Software\TortoiseSVN\UpdateCheckURL". (Stefan)
+- NEW: "Show Log" command from the revision graph. See issue #184. (Stefan)
+- NEW: Blames are now searchable. See issue #12. (Stefan)
+- NEW: Column in the log dialog showing the actions of each revision, and
+       the filter for paths now also searches for action strings.
+       See issue #183 for details. (Stefan)
+- NEW: new command line param /logmsgfile for filling in a log message
+       for the commit dialog. The log message must be stored in the file
+       pointed to by /logmsgfile:<path>. (Stefan)
+- NEW: The cache automatically closes all open handles for drives the user
+       wants to remove. See issue #188. (Stefan)
+- NEW: Revert, Add, Resolve and Create Patch dialog can be refreshed by
+       pressing F5. See issue #191. (Stefan)
+- NEW: Ignoring of multiple items at once in the Status List Control.
+       See issue #189. (Stefan)
+- NEW: Added $WCNOW$ keyword to SubWCRev to insert system date/time. (Simon)
+- NEW: Possibility to set the location of the configuration directory.
+       See issue #196. (Stefan)
+- NEW: Option to disable crawling unversioned folders in the status
+       control (used e.g. in the commit dialog). (Stefan)
+- NEW: Ctrl-Left/Right scrolls sideways in TortoiseMerge.
+       See issue #190. (Stefan)
+- NEW: The statistics dialog has a noise level slider which makes it
+       group users with too few commits into one "others" group to
+       reduce the amount of lines/bars drawn. (Stefan)
+- CHG: The date filter in the log dialog now prevents the user from selecting
+       dates outside the shown log messages. (Michael Dietschi)
+- CHG: Warn if user selects files inside an added folder to create a patch.
+       Subversion and patch doesn't support this. (Stefan)
+- CHG: Ctrl-A now selects all entries in the file list controls. (Stefan)
+- CHG: "Show log" in the file list controls for all versioned files.
+       See issue #172. (Stefan)
+- CHG: Ctrl-click expands the whole tree in the repository browser. (Stefan)
+- CHG: Improved the revision graph. See issue #173. (Stefan)
+- CHG: Better selecting of nodes in the revision graph. 
+       See issue #185. (Stefan
+- BUG: When files were added to the ignore list, a choice of 
+       File.ext or *.ext is given. If the *.ext is chosen the dialog 
+       box told that File.ext was successfully added instead of *.ext. (Stefan)
+- BUG: After a merge which produced conflicts, the context menu wasn't
+       shown with the entries to resolve the conflict. (Stefan)
+- BUG: Creating a patch from files was disabled, it only worked
+       from folders. (Stefan)
+- BUG: The 'mark as resolved' and 'save' buttons were enabled even
+       if TortoiseMerge was started from the 'Check for modifications'
+       dialog. See issue #178. (Stefan)
+- BUG: After marking a conflict as resolved in TortoiseMerge, it still
+       asked if you want to save the changes on exit. (Stefan)
+- BUG: If the initial URL with which the repository browser was started
+       pointed to subfolders of the repository root, the repository root
+       couldn't be expanded to show all subfolders but needed an F5
+       to actually get refreshed. (Stefan)
+- BUG: When ignoring all whitespaces is turned on in TortoiseMerge,
+       the merge result contained the lines of the base file
+       instead of "mine". (Stefan)
+- BUG: TortoiseMerge wouldn't show the inline diff if only the
+       first line in a file was modified. (Stefan)
+- BUG: When resolving with "mine before theirs" or "theirs before mine",
+       the line numbering was wrong. See issue #197. (Stefan)
+
 Version 1.2.6
 - BUG: The status cache updated sometimes wrong paths or missed
        updating correct ones. (Stefan)
