@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-29 11:45+0100\n"
+"PO-Revision-Date: 2005-12-30 10:42+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6065,8 +6065,8 @@ msgstr "Rekursiv in nicht versionierte Verzeichnisse gehen"
 
 #: source/TortoiseSVN_en.xml:7473
 #: (para)
-msgid "By default, when the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, the status of all child files and folders is also shown. If you check this box, only the unversioned parent is shown. This reduces clutter in these dialogs. If you select an unversioned folder for Add, it is added recursively."
-msgstr ""
+msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
+msgstr "Wenn diese Option aktiviert ist (Vorgabe), werden jedesmal, wenn ein nicht versionierter Ordner im <guilabel>Hinzufügen</guilabel>, <guilabel>Übertragen</guilabel> oder <guilabel>Prüfe auf Änderungen</guilabel> Dialog angezeigt wird, sämtliche Unterordner und Dateien dieses Ordners angezeigt. Sobald Sie die Option deaktivieren, wird nur der nicht versionierte Ordner angezeigt, was die Übersichtlichkeit in den Dialogen erhöht. Wenn Sie einen nicht versionierten Ordner zum Hinzufügen wählen, wird er in diesem Fall vollständig, rekursiv hinzugefügt."
 
 #: source/TortoiseSVN_en.xml:7487
 #: (term)
@@ -6558,7 +6558,7 @@ msgstr "-n"
 #: source/TortoiseSVN_en.xml:8003
 #: (entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 7 if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
-msgstr "Wenn diese Option gewählt ist, gibt SubWCRev ERRORLEVEL 7 zurück, falls die Arbeitskopie lokale Modifikationen enthält. Damit kann das Erzeugen mit nicht übertragenen Änderungen vermieden werden."
+msgstr "Wenn dieser Schalter angegeben wurde, gibt SubWCRev ERRORLEVEL 7 zurück, falls die Arbeitskopie lokale Modifikationen enthält. Damit kann das Erzeugen mit nicht übertragenen Änderungen vermieden werden."
 
 #: source/TortoiseSVN_en.xml:8011
 #: (entry)
@@ -6568,7 +6568,7 @@ msgstr "-m"
 #: source/TortoiseSVN_en.xml:8012
 #: (entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 8 if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
-msgstr "Wenn diese Option gewählt ist, gibt SubWCRev ERRORLEVEL 8 zurück, falls die Arbeitskopie gemischte Revisionen enthält. Damit kann das Erzeugen mit einer nur teilweise aktuellen Arbeitskopie vermieden werden."
+msgstr "Wenn dieser Schalter angegeben wurde, gibt SubWCRev ERRORLEVEL 8 zurück, falls die Arbeitskopie gemischte Revisionen enthält. Damit kann das Erzeugen mit einer nur teilweise aktuellen Arbeitskopie vermieden werden."
 
 #: source/TortoiseSVN_en.xml:8020
 #: (entry)
@@ -6578,7 +6578,7 @@ msgstr "-d"
 #: source/TortoiseSVN_en.xml:8021
 #: (entry)
 msgid "If this switch is given, SubWCRev will exit with ERRORLEVEL 9 if the destination file already exists."
-msgstr "Wenn diese Option gewählt ist, gibt SubWCRev ERRORLEVEL 9 zurück, falls die Zieldatei bereits existiert."
+msgstr "Wenn dieser Schalter angegeben wurde, gibt SubWCRev ERRORLEVEL 9 zurück, falls die Zieldatei bereits existiert."
 
 #: source/TortoiseSVN_en.xml:8028
 #: (entry)
@@ -6588,7 +6588,7 @@ msgstr "-f"
 #: source/TortoiseSVN_en.xml:8029
 #: (entry)
 msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
-msgstr "Wenn diese Option gewählt ist, wird SubWCRev die <quote>last-changed</quote>\tRevision von Ordnern beachten. Die Vorgabe ist, dass nur Dateien zum Ermitteln der Revisionsnummern herangezogen werden."
+msgstr "Wenn dieser Schalter angegeben wurde, wird SubWCRev die <quote>last-changed</quote>\tRevision von Ordnern beachten. Die Vorgabe ist, dass nur Dateien zum Ermitteln der Revisionsnummern herangezogen werden."
 
 #: source/TortoiseSVN_en.xml:8037
 #: (entry)
@@ -6598,7 +6598,7 @@ msgstr "-e"
 #: source/TortoiseSVN_en.xml:8038
 #: (entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with svn:externals, but only if they are from the same repository. The default behaviour is to ignore externals."
-msgstr "Wenn diese Option gewählt ist, wird SubWCRev Verzeichnisse überprüfen, die mittels svn:externals eingebunden wurden, falls diese auf das selbe Projektarchiv verweisen. Die Vorgabe ist, svn:externals zu ignorieren."
+msgstr "Wenn dieser Schalter angegeben wurde, wird SubWCRev Verzeichnisse überprüfen, die mittels svn:externals eingebunden wurden, falls diese auf das selbe Projektarchiv verweisen. Die Vorgabe ist, svn:externals zu ignorieren."
 
 #: source/TortoiseSVN_en.xml:7983
 #: (para)
@@ -7208,7 +7208,7 @@ msgstr "Kommandozeile"
 #: source/TortoiseSVN_en.xml:8728
 #: (para)
 msgid "All commands are specified with the parameter <option>/command:abcd</option> where <literal>abcd</literal> is the required command name. Most of these commands need at least one path argument, which is given with <option>/path:\"some\\path\"</option>. In the following table the command refers to the <option>/command:abcd</option> parameter and the path refers to the <option>/path:\"some\\path\"</option> parameter."
-msgstr "Alle Befehle werden in der Form<option>/command:abcd</option> angegeben, wobei <literal>abcd</literal> der - erforderliche - Befehlsname ist. Die meisten Befehle benötigen zumindest einen Parameter, der in der Form<option>/path:\"some\\path\"</option> übergeben wird.In der folgenden Tabelle bezieht sich der Befehl auf den<option>/command:abcd</option> Parameter und der Pfad auf den <option>/path:\"some\\path\"</option> Parameter."
+msgstr "Alle Befehle werden in der Form <option>/command:abcd</option> angegeben, wobei <literal>abcd</literal> der - erforderliche - Befehlsname ist. Die meisten Befehle benötigen zumindest einen Parameter, der in der Form <option>/path:\"some\\path\"</option> übergeben wird.In der folgenden Tabelle bezieht sich der Befehl auf den <option>/command:abcd</option> Parameter und der Pfad auf den <option>/path:\"some\\path\"</option> Parameter."
 
 #: source/TortoiseSVN_en.xml:8736
 #: (para)
@@ -7223,12 +7223,12 @@ msgstr "Weil TortoiseSVN Temporärdateien verwendet, um mehrere Parameter zwisch
 #: source/TortoiseSVN_en.xml:8748
 #: (para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batchfile or from the TortoiseSVN context menu."
-msgstr ""
+msgstr "Der Fortschrittsdialog, der für Übertragungen, Aktualisierungen und viele weitere Aktionen verwendet wird, bleibt normalerweise geöffnet nachdem die Aktion beendet ist bis der Anwender die <guibutton>OK</guibutton> Schaltfläche betätigt. Dieses Verhalten kann durch Auswahl der entsprechenden Option in den Einstellungen verändert werden. Die Verwendung dieser Einstellung wird den Dialog, unabhängig davon ob der Befehl aus dem TortoiseSVN Kontextmenü oder aus einer Batchdatei heraus aufgerufen wurde, schließen."
 
 #: source/TortoiseSVN_en.xml:8756
 #: (para)
 msgid "To specify a different location of the configuration file, use the param <option>/configdir:\"path\\to\\config\\dir\"</option>."
-msgstr ""
+msgstr "Um einen anderen Ort für die Konfigurationsdatei anzugeben, verwenden Sie den <option>/configdir:\"path\\to\\config\\dir\"</option> Parameter."
 
 #: source/TortoiseSVN_en.xml:8766
 #: (para)
@@ -7268,7 +7268,7 @@ msgstr "Befehl"
 #: source/TortoiseSVN_en.xml:8808
 #: (entry)
 msgid "Shows the About-dialog. This is also shown if no command is given."
-msgstr "Öffnet den <quote>Über TortoiseSVN</quote> Dialog. Dieser Dialog wird auch angezeigt, wenn kein Befehl angegeben wird."
+msgstr "Öffnet den <quote>Über TortoiseSVN</quote> Dialog. Dies ist das Standardverhalten, wenn kein Befehl angegeben wird."
 
 #: source/TortoiseSVN_en.xml:8819
 #: (option)
@@ -7288,7 +7288,7 @@ msgstr "/strict"
 #: source/TortoiseSVN_en.xml:8815
 #: (entry)
 msgid "Opens the log dialog. The path specifies the file or folder for which the log should be shown. Three additional options can be set: <placeholder-1/>, <placeholder-2/> and <placeholder-3/>"
-msgstr ""
+msgstr "Öffnet den Log Dialog. Der Pfad definiet die Datei oder den Ordner, für den das Log angezeigt werden soll. Drei weitere Optionen können angegeben werden: <placeholder-1/>, <placeholder-2/> und <placeholder-3/>"
 
 #: source/TortoiseSVN_en.xml:8827
 #: (option) source/TortoiseSVN_en.xml:8842
@@ -7325,7 +7325,7 @@ msgstr "/url"
 #: source/TortoiseSVN_en.xml:8826
 #: (entry)
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
-msgstr ""
+msgstr "Öffnet den <quote>Auschecken</quote> Dialog. <placeholder-1/> legt das Zielverzeichnis fest und <placeholder-2/> definiert die URL von der ausgecheckt werden soll."
 
 #: source/TortoiseSVN_en.xml:8834
 #: (entry)
@@ -7340,7 +7340,7 @@ msgstr "/rev"
 #: source/TortoiseSVN_en.xml:8841
 #: (entry)
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go."
-msgstr ""
+msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> zur HEAD Revision. Bei Angabe von <placeholder-2/> wird ein Dialog angezeigt, in dem der Anwender angeben kann, zu welcher Revision aktualisiert werden soll."
 
 #: source/TortoiseSVN_en.xml:8856
 #: (option)
@@ -7350,7 +7350,7 @@ msgstr "path"
 #: source/TortoiseSVN_en.xml:8850
 #: (entry)
 msgid "Opens the commit dialog. The path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where <placeholder-1/> points to a file containing the log message."
-msgstr ""
+msgstr "Öffnet den <quote>Übertragen</quote> Dialog. Der <option>/path</option> gibt das Zielverzeichnis oder die Liste der zu übertragenden Dateien an. Sie können mit Hilfe des <option>/logmsg</option> Parameters eine Log-Meldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <option>/logmsgfile:path</option> verwenden, wobei <placeholder-1/> auf eine Datei zeigt, die die Log-Meldung enthält."
 
 #: source/TortoiseSVN_en.xml:8862
 #: (entry)
@@ -7375,7 +7375,7 @@ msgstr "/noquestion"
 #: source/TortoiseSVN_en.xml:8884
 #: (entry)
 msgid "Marks a conflicted file specified in <placeholder-1/> as resolved. If <placeholder-2/> is given, then resolving is done without asking the user first if it really should be done."
-msgstr ""
+msgstr "Markiert den Konflikt der in <placeholder-1/> angebenenen Datei als gelöst. Bei Angabe von <placeholder-2/> wird der Konflikt ohne Rückfrage aufgelöst."
 
 #: source/TortoiseSVN_en.xml:8894
 #: (entry)
@@ -7390,7 +7390,7 @@ msgstr "Öffnet den <quote>Wechseln Zu</quote> Dialog. Der Pfad bezeichnet das Z
 #: source/TortoiseSVN_en.xml:8907
 #: (entry)
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the dir in <placeholder-3/>."
-msgstr ""
+msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in ein anderes Verzeichnis. Wenn <placeholder-2/> auf ein nicht versioniertes Verzeichnis zeigt, wird ein Dialog angezeigt, der eine URL erfragt, die in das in <placeholder-3/> angebene Verzeichnis exportiert wird."
 
 #: source/TortoiseSVN_en.xml:8916
 #: (entry)
@@ -7425,7 +7425,7 @@ msgstr "/path2"
 #: source/TortoiseSVN_en.xml:8951
 #: (entry)
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is ommitted, then the diff is done between the file in <placeholder-4/> and its BASE."
-msgstr ""
+msgstr "Started das externe, in den TortoiseSVN eingestellte Vergleichsprogramm. Der <placeholder-1/> spezifiert die erste Datei. Bei Angabe von <placeholder-2/>, werden diese beiden Dateien verglichen. Ohne Angabe von <placeholder-3/>, wird die Datei in <placeholder-4/> mit ihrer BASE Revision verglichen."
 
 #: source/TortoiseSVN_en.xml:8964
 #: (entry)
@@ -7445,7 +7445,7 @@ msgstr "Öffnet die Hilfedatei"
 #: source/TortoiseSVN_en.xml:8985
 #: (entry)
 msgid "Opens the check-for-modifications dialog. The path specifies the working copy directory."
-msgstr "Öffnet den <quote>Prüfe auf Änderungen</quote> Dialog. Der Pfad bezeichnet die Arbeitskopie"
+msgstr "Öffnet den <quote>Prüfe auf Änderungen</quote> Dialog. Der Pfad bezeichnet die Arbeitskopie."
 
 #: source/TortoiseSVN_en.xml:8997
 #: (option) source/TortoiseSVN_en.xml:8999
@@ -7455,7 +7455,7 @@ msgstr "/rev:xxx"
 #: source/TortoiseSVN_en.xml:8992
 #: (entry)
 msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD."
-msgstr ""
+msgstr "Startet den Projektarchiv-Betrachter mit der URL der in <placeholder-1/> angegebenen Arbeitskopie beziehungsweise der in <placeholder-1/> angegebenen URL. Mit der Option <placeholder-3/> kann die vom Projektarchiv-Betrachter anzuzeigende Revision festgelegt werden. Ohne <placeholder-4/>, wird die HEAD Revision angezeigt."
 
 #: source/TortoiseSVN_en.xml:9005
 #: (entry)
@@ -7465,7 +7465,7 @@ msgstr "Fügt alle Objekte in <placeholder-1/> zur Liste der ignorierten Dateien
 #: source/TortoiseSVN_en.xml:9013
 #: (entry)
 msgid "Opens the blame dialog for the file specified in <placeholder-1/>."
-msgstr "Öffnet den <quote>Annotieren</quote> Dialog für die in <placeholder-1> angegebene Datei."
+msgstr "Öffnet den <quote>Annotieren</quote> Dialog für die in <placeholder-1/> angegebene Datei."
 
 #: source/TortoiseSVN_en.xml:9023
 #: (option)
@@ -7480,7 +7480,7 @@ msgstr "/revision:xxx"
 #: source/TortoiseSVN_en.xml:9020
 #: (entry)
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
-msgstr ""
+msgstr "Speichert eine Datei von einer <placeholder-1/> angegebenen Arbeitskopie oder URL an der in <placeholder-2/> spezifizierten Stelle. Eine Revision kann in <placeholder-3/> angegeben werden, um eine Datei in einer bestimmten Revision zu holen."
 
 #: source/TortoiseSVN_en.xml:9030
 #: (entry)
@@ -7500,7 +7500,7 @@ msgstr "Sperrt eine Datei. Der 'Sperren' Dialog wird angezeigt, damit der Anwend
 #: source/TortoiseSVN_en.xml:9052
 #: (entry)
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. <placeholder-1/>"
-msgstr ""
+msgstr "Rekonstruiert den Windows Icon Cache. Verwenden Sie diese Funktion nur, wenn die Windows Icons beschädigt sind. Ein nicht vermeidbarer Seiteneffekt dieser Aktion ist, dass die Desktop Icons neu arrangiert werden. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9064
 #: (para)
@@ -8265,6 +8265,26 @@ msgstr "FS Dateisystem. Ein proprietäres Subversion-Dateisystem für Projektarc
 #: (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "Ein Projektarchiv ist ein zentraler Platz in dem Daten gespeichert und verwaltet werden. Das Projektarchiv kann sowohl auf einem Server liegen und über das Netzwerk angesprochen werden, als auch auf der lokalen Platte liegen."
+
+#: source/TortoiseSVN_en.xml:9620
+#: (glossterm)
+msgid "BASE revision"
+msgstr "BASE Revision"
+
+#: source/TortoiseSVN_en.xml:9622
+#: (para)
+msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
+msgstr "Die aktuelle Basisrevision einer Datei oder eines Ordners in Ihrer <emphasis>Arbeitskopie</emphasis>. Dies ist die Revision in der sich die Datei oder der Ordners befand als zuletzt Auschecken, Aktualisieren oder Übertragen aufgerufen wurde. Die BASE Revision entspricht normalerweise nicht der HEAD Revision"
+
+#: source/TortoiseSVN_en.xml:9631
+#: (glossterm)
+msgid "HEAD revision"
+msgstr "HEAD Revision"
+
+#: source/TortoiseSVN_en.xml:9633
+#: (para)
+msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
+msgstr "Die neueste Version einer Datei oder eines Ordners im <emphasis>Projektarchiv</emphasis>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/TortoiseSVN_en.xml:0
