@@ -4,7 +4,7 @@
 	<!-- default configuration is release -->
 	<property name="configuration" value="release" />
 	<!-- default builds are dev builds -->
-	<property name="devrelease" value="-dev" />
+	<property name="devrelease" value="-dev" unless="${property::exists('devrelease')}"/>
 	<!-- default build for win32 platform -->
 	<property name="platform" value="win32" />
 	<!-- default build tool is VS.NET2005 -->
