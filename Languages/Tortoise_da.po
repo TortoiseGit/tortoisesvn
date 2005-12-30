@@ -6,7 +6,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r5246
+# Based on Tortoise.pot r5272
 #
 msgid ""
 msgstr ""
@@ -1237,6 +1237,11 @@ msgstr "Kommentar"
 msgid "Commit"
 msgstr "Arkivér"
 
+#: Control-ID:1262,
+#, fuzzy
+msgid "Commit threshold:"
+msgstr "Arkiveringsterskel:"
+
 #: Control-ID:1110,
 msgid "Commit to:"
 msgstr "Arkivér til:"
@@ -2433,6 +2438,10 @@ msgstr "Åbner hjælpen\nHjælpeemner"
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Åbner versionsarkivsøgeren til at styre versionsarkivet online"
 
+#: ID:245,
+msgid "Others"
+msgstr "Andre"
+
 #: ID:3843,#: ID:3843,
 msgid "Out of memory."
 msgstr "Der er ikke mere hukommelse."
@@ -3221,6 +3230,11 @@ msgstr "Angiv intervallet af revisioner, som skal flettes:"
 #: ID:3604,
 msgid "Split the active window into panes\nSplit"
 msgstr "Opdel det aktive vindue i paneler\nOpdel"
+
+#: Control-ID:1263,
+#, fuzzy
+msgid "Stacked"
+msgstr "Stakket"
 
 #: ID:245,
 msgid "Statistics"
