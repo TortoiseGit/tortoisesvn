@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-12-20 16:29+0800\n"
+"PO-Revision-Date: 2005-12-30 10:08+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1677,6 +1677,11 @@ msgid "Commit"
 msgstr "提交"
 
 # Control-ID:1110,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "提交至："
+
+# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "提交至："
@@ -3005,8 +3010,13 @@ msgstr "外观与样式::颜色"
 
 # Dlg-ID:106,
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "外观与样式::对话框"
+msgid "Look and Feel::Dialogs 1"
+msgstr "外观与样式::对话框一"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "外观与样式::对话框二"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3017,11 +3027,6 @@ msgstr "外观与样式::图标叠加"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "外观与样式::图标集"
-
-# Dlg-ID:106,
-#: Dlg-ID:213
-msgid "Look and Feel::Misc"
-msgstr "外观与样式::其它"
 
 # ID:238,
 #: ID:238
@@ -3422,6 +3427,11 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "打开文件库浏览器, 进行在线文件库调整"
+
+# ID:188,
+#: ID:245
+msgid "Others"
+msgstr "对方的"
 
 # ID:3843,#:
 # ID:3843,
@@ -4514,6 +4524,12 @@ msgid ""
 msgstr ""
 "将当前窗口分割区块\n"
 "分割"
+
+# ID:11,#:
+# Control-ID:1002,
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "堆叠的"
 
 # Control-ID:1132,#:
 # Dlg-ID:179,
