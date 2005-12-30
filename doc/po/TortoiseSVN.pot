@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-12-29 12:36GMT Standard Time\n"
+"POT-Creation-Date: 2005-12-30 10:05Westeuropäische Normalzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5829,6 +5829,22 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9611(para) 
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:9620(glossterm) 
+msgid "BASE revision"
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:9622(para) 
+msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:9631(glossterm) 
+msgid "HEAD revision"
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:9633(para) 
+msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
