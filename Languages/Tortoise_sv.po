@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-16 16:39+0100\n"
+"PO-Revision-Date: 2005-12-30 17:24+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1398,6 +1398,10 @@ msgstr "Kommentar"
 msgid "Commit"
 msgstr "Arkivera"
 
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "Arkiveringsgräns:"
+
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Arkivera i:"
@@ -2554,8 +2558,13 @@ msgstr "Utseende och hantering::Färger"
 
 # Hantering?
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "Utseende och hantering::Dialoger"
+msgid "Look and Feel::Dialogs 1"
+msgstr "Utseende och hantering::Dialoger 1"
+
+# Hantering?
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "Utseende och hantering::Dialoger 2"
 
 # Hantering?
 #: Dlg-ID:106
@@ -2566,12 +2575,6 @@ msgstr "Utseende och hantering::Ikonsymboler"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Utseende och hantering::Statusikonuppsättning"
-
-# Hantering?
-#: Dlg-ID:213
-#, fuzzy
-msgid "Look and Feel::Misc"
-msgstr "Utseende och hantering::Övrigt"
 
 # ID:238,
 #: ID:238
@@ -2904,6 +2907,11 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Visar utforskaren för arkivet"
+
+# ID:188,
+#: ID:245
+msgid "Others"
+msgstr "Andras"
 
 #: ID:3843
 msgid "Out of memory."
@@ -3797,6 +3805,11 @@ msgid ""
 msgstr ""
 "Dela det aktiva fönstret\n"
 "Dela"
+
+# Eller grupperade? 
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "Staplade"
 
 #: ID:245
 msgid "Statistics"
