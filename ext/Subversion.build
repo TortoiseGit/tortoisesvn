@@ -129,6 +129,7 @@
 			file="Subversion\subversion\svn_private_config_copy.h"
 			tofile="Subversion\subversion\svn_private_config.h"
 			overwrite="true"
+			failonerror="false"
 		/>
 		<!-- The build generator still has a small bug: it doesn't add the link 
 		     dependency for libneon.lib to the exe projects. So those will fail
