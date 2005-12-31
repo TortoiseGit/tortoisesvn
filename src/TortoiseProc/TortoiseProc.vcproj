@@ -543,10 +543,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\StandAloneDlg.cpp"
-					>
-				</File>
-				<File
 					RelativePath="..\Utils\StandAloneDlg.h"
 					>
 				</File>
@@ -1753,26 +1749,6 @@
 			<File
 				RelativePath="..\Resources\TortoiseMerge.ico"
 				>
-			</File>
-			<File
-				RelativePath="..\Resources\TortoiseProc.manifest"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\Resources\TortoiseProc.rc2"

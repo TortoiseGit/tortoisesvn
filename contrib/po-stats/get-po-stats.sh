@@ -3,7 +3,7 @@
 # Calculate po translation statistics of all po files inside $CATALOGS_DIR
 # and write the result to standard output
 #
-# (C)2004-2005 Lübbe Onken
+# (C)2004-2006 Lübbe Onken
 #
 #
 #
