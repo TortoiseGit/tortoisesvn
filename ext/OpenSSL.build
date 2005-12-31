@@ -3,7 +3,7 @@
 	<target name="clean">
 		<!-- to prevent 'nmake clean' to choke on userinput questions, give it our own del command -->
 		<echo file="..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
-		<exec program="nmake" workingdir="..\..\common\openssl">
+		<exec program="nmake" workingdir="..\..\common\openssl" failonerror="false">
 			<arg value="-f" />
 			<arg value="ms\ntdll.mak" />
 			<arg value="clean" />
