@@ -100,6 +100,7 @@ public:
 	CSciEdit		m_cLogMessage;
 	CString			m_sLogMessage;
 	BOOL			m_bKeepLocks;
+	CString			m_sBugID;
 
 private:
 	CWinThread*		m_pThread;
@@ -113,7 +114,6 @@ private:
 	CRegDWORD		m_regAddBeforeCommit;
 	ProjectProperties		m_ProjectProperties;
 	CButton			m_SelectAll;
-	CString			m_sBugID;
 	CString			m_sWindowTitle;
 	static UINT		WM_AUTOLISTREADY;
 	int				m_nPopupPasteListCmd;

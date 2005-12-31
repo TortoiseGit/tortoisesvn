@@ -155,6 +155,10 @@ Don't touch these lines:
 								Or, if you don't want to pass the log message on the
 								command line, use /logmsgfile:path, where <option>path</option>
 								points to a file containing the log message.
+								To prefill the bug ID box (in case you've set up
+								integration with bugtrackers properly), you can use
+								the <option>/bugid:"the bug id here"</option> to
+								do that.
 							</entry>
 						</row>
 						<row>

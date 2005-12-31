@@ -675,6 +675,10 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 				}
 			}
+			if (parser.HasKey(_T("bugid")))
+			{
+				dlg.m_sBugID = parser.GetVal(_T("bugid"));
+			}
 			dlg.m_pathList = pathList;
 			if (dlg.DoModal() == IDOK)
 			{
