@@ -55,6 +55,7 @@ BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_CBN_SELCHANGE(IDC_GRAPHCOMBO, OnCbnSelchangeGraphcombo)
 	ON_WM_HSCROLL()
 	ON_BN_CLICKED(IDC_STACKED, &CStatGraphDlg::OnBnClickedStacked)
+	ON_NOTIFY(TTN_NEEDTEXT, NULL, OnNeedText) 
 END_MESSAGE_MAP()
 
 
@@ -782,5 +783,16 @@ void CStatGraphDlg::OnBnClickedStacked()
 	case 3:
 		ShowCommitsByAuthor();
 		break;
+	}
+}
+
+void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
+{
+	TOOLTIPTEXT* pttt = (TOOLTIPTEXT*) pnmh;
+	if (pttt->hdr.idFrom == (UINT) m_Skipper.GetSafeHwnd())
+	{
+		CString string;
+		string.Format(_T("%d %%"), m_Skipper.GetPos());
+		::lstrcpy(pttt->szText, (LPCTSTR) string);
 	}
 }

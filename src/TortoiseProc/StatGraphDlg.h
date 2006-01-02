@@ -41,6 +41,7 @@ protected:
 	afx_msg void OnCbnSelchangeGraphcombo();
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnBnClickedStacked();
+	afx_msg void OnNeedText(NMHDR *pnmh, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 	
