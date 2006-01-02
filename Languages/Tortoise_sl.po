@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN 1.2.6\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-29 15:38+0100\n"
+"PO-Revision-Date: 2005-12-31 10:30+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Goran Kavrečič, Martin Srebotnjak, LUGOS <info@lugos.si>\n"
 "MIME-Version: 1.0\n"
@@ -1558,7 +1558,7 @@ msgstr "Pre&vzem ..."
 # ID:3887,
 #: ID:3887
 msgid "Check"
-msgstr "Preveri"
+msgstr "Aktiviraj"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -2240,9 +2240,8 @@ msgstr "I&zvozi ..."
 
 # ID:3697,
 #: ID:3697
-#, fuzzy
 msgid "EXT"
-msgstr "EXT"
+msgstr "RAZ"
 
 # Control-ID:1031,#:
 #: Control-ID:1237
@@ -3377,9 +3376,8 @@ msgstr "V redu"
 
 # ID:3697,
 #: ID:3697
-#, fuzzy
 msgid "OVR"
-msgstr "OVR"
+msgstr "PRE"
 
 # ID:145,#:
 # Control-ID:1202,#:
@@ -3750,9 +3748,8 @@ msgstr "Preden se znajdete pred nerešljivim problemom, preberite 'Dnevni uporab
 # Control-ID:1073,#:
 # Control-ID:1073,
 #: Control-ID:1260
-#, fuzzy
 msgid "Recurse into unversioned folders"
-msgstr "Pokaži datoteke brez različic"
+msgstr "Rekurzivno v mape brez različic"
 
 # ID:3603,
 #: ID:3603
@@ -4578,9 +4575,8 @@ msgstr ""
 # ID:195,#:
 # Control-ID:1002,
 #: Control-ID:1263
-#, fuzzy
 msgid "Stacked"
-msgstr "zaklenjeno"
+msgstr "nakopičeno"
 
 # ID:245,#:
 # Control-ID:1132,#:
@@ -4631,9 +4627,8 @@ msgstr "Podrazličica"
 
 # Control-ID:1023,
 #: Control-ID:65535
-#, fuzzy
 msgid "Subversion &authentication data:"
-msgstr "&Shrani avtentikacijo"
+msgstr "Podatki za &avtentikacijo podrazličice:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4664,9 +4659,8 @@ msgstr ""
 # Control-ID:1073,#:
 # Control-ID:1073,
 #: Control-ID:65535
-#, fuzzy
 msgid "Subversion server file:"
-msgstr "Pokaži datoteke brez različic"
+msgstr "Datoteka strežnika podrazličice:"
 
 # ID:9,
 #: Control-ID:1232
@@ -4913,7 +4907,7 @@ msgstr ""
 
 # ID:314,
 #: ID:314
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -5548,9 +5542,8 @@ msgstr "Pisanje v %1 ni možno; datoteka je namenjena le branju ali pa je že od
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
-#, fuzzy
 msgid "Uncheck"
-msgstr "Izklopi"
+msgstr "Deaktiviraj"
 
 # ID:3603,
 #: ID:3603
@@ -5636,7 +5629,6 @@ msgstr "Uporabi &povečevalno steklo na vrstici položaja"
 
 # Control-ID:1024,
 #: Control-ID:1024
-#, fuzzy
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "Uporabi &enodelni pogled za privzetega"
 
@@ -5652,7 +5644,6 @@ msgstr "Uporabi ogledovalnik &besedila za pregled krivde"
 
 # ID:195,
 #: ID:195
-#, fuzzy
 msgid ""
 "Use '*' as a wildcard character when specifying an exception.\n"
 "To separate multiple exceptions, use commas (',').\n"
@@ -5886,7 +5877,6 @@ msgstr "Najprej morate posodobiti svojo delovno kopijo."
 
 # ID:169,
 #: ID:169
-#, fuzzy
 msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
@@ -6112,7 +6102,7 @@ msgstr ""
 # ID:10,
 #: ID:10
 msgid "deleted"
-msgstr "zbrisano"
+msgstr "izbrisano"
 
 # ID:79,
 #: ID:79
@@ -6271,7 +6261,6 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -6377,13 +6366,12 @@ msgstr ""
 
 # ID:15,
 #: ID:15
-#, fuzzy
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\n"
-"Nastavite na \"da\", če naj se pojavi opozorilo, ko v pogovornem oknu objave ni vnesena nobena issue."
+"Nastavite na \"da\", če naj se pojavi opozorilo, ko v pogovornem oknu objave ni navedena nobena zadeva."
 
 # ID:244,
 #: ID:244
