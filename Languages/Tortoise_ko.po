@@ -2,7 +2,7 @@
 # Korean translation for TortoiseSVN
 # Copyright (C) 2004-2005 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-# 
+#
 # Authors:
 # Hojin Choi <pynoos@users.kldp.net>
 # Lee Jae-Hong <http://www.pyrasis.com>
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-12-28 11:10+0900\n"
+"PO-Revision-Date: 2006-01-02 13:42+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1675,6 +1675,11 @@ msgid "Commit"
 msgstr "커밋"
 
 # Control-ID:1110,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "커밋개수 레벨:"
+
+# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "커밋되는 곳:"
@@ -3295,11 +3300,6 @@ msgstr "철자 교정 하지 않음"
 msgid "No thesaurus suggestions"
 msgstr "시소러스 추천을 하지 않습니다."
 
-# Control-ID:1262,
-#: Control-ID:1262
-msgid "Noise level:"
-msgstr "복잡도:"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Normal"
@@ -4524,6 +4524,12 @@ msgid ""
 msgstr ""
 "활성화된 창을 두개로 나누기\n"
 "분리"
+
+# ID:11,#:
+# Control-ID:1002,
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "누적"
 
 # ID:74,#:
 # ID:77,#:
