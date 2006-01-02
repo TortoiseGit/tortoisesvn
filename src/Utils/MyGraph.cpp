@@ -1042,6 +1042,7 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 
 	// Iterate the groups.
 	CPoint ptLastLoc(0,0);
+	int dataLastLoc(0);
 
 	CArray<int, int> stackAccumulator;
 	stackAccumulator.SetSize(m_olMyGraphSeries.GetCount());
@@ -1104,7 +1105,7 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 			
 
 			// Draw line back to last data member.
-			if (nSeries > 0) {
+			if (nSeries > 0 && (pSeries->GetData(nGroup)!=0 || dataLastLoc != 0)) {
 
 				dc.MoveTo(ptLastLoc.x + 2, ptLastLoc.y - 1);
 				VERIFY(dc.LineTo(ptLoc.x - 3, ptLoc.y - 1));
@@ -1112,12 +1113,17 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 
 			// Now draw ellipse.
 			CRect rcEllipse(ptLoc.x - 3, ptLoc.y - 3, ptLoc.x + 3, ptLoc.y + 3);
-			VERIFY(dc.Ellipse(rcEllipse));
+			if(!m_bStackedGraph || pSeries->GetData(nGroup)!=0){
+				VERIFY(dc.Ellipse(rcEllipse));
+			}
 			if (m_olMyGraphSeries.GetCount() < 40)
 			{
 				pSeries->SetTipRegion(nGroup, rcEllipse);
 			}
+
+			// Save last pt and data
 			ptLastLoc = ptLoc;
+			dataLastLoc = pSeries->GetData(nGroup);
 		}
 		VERIFY(dc.SelectObject(pPenOld));
 		dc.SelectObject(&pBrushOld);
