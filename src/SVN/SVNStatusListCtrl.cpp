@@ -285,7 +285,18 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		// all the files in the directory, filtering for the ones we're interested in
 		status.SetFilter(pathList);
 
-		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true))
+		// if all selected entries are files, we don't do a recursive status
+		// fetching. But if only one is a directory, we have to recurse.
+		bool recurse = false;
+		for (int fcindex=0; fcindex<pathList.GetCount(); ++fcindex)
+		{
+			if (pathList[fcindex].IsDirectory())
+			{
+				recurse = true;
+				break;
+			}
+		}
+		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse))
 		{
 			bRet = FALSE;
 		}
@@ -340,7 +351,8 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 							bool bFetchStatusFromRepository,
 							CStringA& strCurrentRepositoryUUID,
 							CTSVNPathList& arExtPaths,
-							bool bAllDirect
+							bool bAllDirect,
+							bool recurse
 							)
 {
 	apr_array_header_t* pIgnorePatterns = NULL;
@@ -351,7 +363,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 	svn_wc_status2_t * s;
 	CTSVNPath svnPath;
-	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository);
+	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, recurse);
 
 	m_HeadRev = SVNRev(status.headrev);
 	if (s!=0)
@@ -1990,7 +2002,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								SVNStatus status;
 								svn_wc_status2_t * s;
 								CTSVNPath svnPath;
-								s = status.GetFirstFileStatus(parentFolder, svnPath, FALSE);
+								s = status.GetFirstFileStatus(parentFolder, svnPath, false, false);
 								//CShellUpdater::Instance().AddPathForUpdate(parentFolder);
 								if (s!=0)
 								{
@@ -2128,7 +2140,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							SVNStatus status;
 							svn_wc_status2_t * s;
 							CTSVNPath svnPath;
-							s = status.GetFirstFileStatus(parentfolder, svnPath, FALSE);
+							s = status.GetFirstFileStatus(parentfolder, svnPath, false, false);
 							//CShellUpdater::Instance().AddPathForUpdate(parentfolder);
 							// first check if the folder isn't already present in the list
 							bool bFound = false;

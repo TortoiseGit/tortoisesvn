@@ -82,7 +82,9 @@ Version 1.3.0
        first line in a file was modified. (Stefan)
 - BUG: When resolving with "mine before theirs" or "theirs before mine",
        the line numbering was wrong. See issue #197. (Stefan)
-
+- BUG: When multiple files were selected, it took a very long time to
+       show the dialog. See issue #205 for details. (Stefan)
+       
 Version 1.2.6
 - BUG: The status cache updated sometimes wrong paths or missed
        updating correct ones. (Stefan)
