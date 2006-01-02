@@ -127,7 +127,7 @@ public:
 	 * \param update set this to true if you want the status to be updated with the repository (needs network access)
 	 * \return the status
 	 */
-	svn_wc_status2_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false);
+	svn_wc_status2_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false, bool recurse = true);
 	unsigned int GetFileCount() {return apr_hash_count(m_statushash);}
 	unsigned int GetVersionedCount();
 	/**
