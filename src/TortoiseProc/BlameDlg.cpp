@@ -62,8 +62,14 @@ BOOL CBlameDlg::OnInitDialog()
 
 	m_bTextView = m_regTextView;
 	// set head revision as default revision
-	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-
+	if (EndRev.IsHead())
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+	else
+	{
+		m_sEndRev = EndRev.ToString();
+		UpdateData(FALSE);
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+	}
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control

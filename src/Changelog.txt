@@ -84,7 +84,9 @@ Version 1.3.0
        the line numbering was wrong. See issue #197. (Stefan)
 - BUG: When multiple files were selected, it took a very long time to
        show the dialog. See issue #205 for details. (Stefan)
-       
+- BUG: Blame didn't work correctly if the file didn't 
+       exist anymore in HEAD. (Stefan)
+
 Version 1.2.6
 - BUG: The status cache updated sometimes wrong paths or missed
        updating correct ones. (Stefan)

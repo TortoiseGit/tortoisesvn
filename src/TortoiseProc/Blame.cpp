@@ -170,7 +170,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 			logfile.Empty();
 			return m_sSavePath;
 		}
-		if (!this->ReceiveLog(CTSVNPathList(path), SVNRev::REV_HEAD, m_lowestrev, 0, TRUE))
+		if (!this->ReceiveLog(CTSVNPathList(path), m_highestrev, m_lowestrev, 0, TRUE))
 		{
 			m_saveLog.Close();
 			DeleteFile(logfile);

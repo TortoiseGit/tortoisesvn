@@ -999,6 +999,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			case ID_POPBLAME:
 				{
 					CBlameDlg dlg;
+					dlg.EndRev = GetRevision();
 					if (dlg.DoModal() == IDOK)
 					{
 						CBlame blame;
