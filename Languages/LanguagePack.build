@@ -72,7 +72,21 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="-f" />
 		</exec>
 		<echo file="product.nsh" append="true" if="${file::exists('subversion.mo')}">!define MoFile "subversion.mo"</echo>
-		<copy file="LanguagePack.in" tofile="LanguagePack.nsi" failonerror="false" />
+		<if test="${environment::variable-exists('MajorVersion')}">
+			<loadfile file="LanguagePack.in" property="versionnsifile">
+				<filterchain>
+					<replacetokens begintoken="$" endtoken="$">
+						<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+						<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+						<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+						<token key="WCREV" value="${environment::get-variable('WCREV')}" />
+					</replacetokens>
+				</filterchain>
+			</loadfile>
+			<echo file="LanguagePack.nsi" message="${versionnsifile}" />
+		</if>
+		<copy file="LanguagePack.in" tofile="LanguagePack.nsi" failonerror="false" unless="${environment::variable-exists('MajorVersion')}"/>
+		
 		<exec program="MakeNSIS">
 			<arg value="/V1" />
 			<arg value="LanguagePack.nsi" />
