@@ -85,7 +85,7 @@
 		</delete>
 		
 		<exec program="md5" workingdir="..\..\bin">
-			<arg value="-o${msifilename}.txt" />
+			<arg value="-o${msifilename}.md5" />
 			<arg value="${msifilename}.msi" />
 		</exec>
 	</target>
