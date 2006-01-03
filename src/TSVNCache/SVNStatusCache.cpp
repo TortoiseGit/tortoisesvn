@@ -93,6 +93,11 @@ exit:
 error:
 	fclose(pFile);
 	DeleteFile(path);
+	if (m_pInstance)
+	{
+		m_pInstance->Stop();
+		Sleep(100);
+	}
 	delete m_pInstance;
 	m_pInstance = new CSVNStatusCache;
 	ATLTRACE("cache not loaded from disk\n");
@@ -145,6 +150,11 @@ bool CSVNStatusCache::SaveCache()
 	return true;
 error:
 	fclose(pFile);
+	if (m_pInstance)
+	{
+		m_pInstance->Stop();
+		Sleep(100);
+	}
 	delete m_pInstance;
 	m_pInstance = NULL;
 	return false;
@@ -153,7 +163,10 @@ error:
 void CSVNStatusCache::Destroy()
 {
 	if (m_pInstance)
+	{
 		m_pInstance->Stop();
+		Sleep(100);
+	}
 	delete m_pInstance;
 	m_pInstance = NULL;
 }
