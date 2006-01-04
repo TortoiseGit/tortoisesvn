@@ -55,7 +55,7 @@ BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_CBN_SELCHANGE(IDC_GRAPHCOMBO, OnCbnSelchangeGraphcombo)
 	ON_WM_HSCROLL()
 	ON_BN_CLICKED(IDC_STACKED, &CStatGraphDlg::OnBnClickedStacked)
-	ON_NOTIFY(TTN_NEEDTEXT, NULL, OnNeedText) 
+	ON_NOTIFY(TTN_NEEDTEXT, NULL, OnNeedText)
 END_MESSAGE_MAP()
 
 
@@ -212,11 +212,13 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	iter = authorcommits.begin();
 	CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
 	int nOthers = 0;
-	while (iter != authorcommits.end()) 
+	int nOthersCount = 0;
+	while (iter != authorcommits.end())
 	{
 		if (iter->second < (m_parAuthors->GetCount() * m_Skipper.GetPos() / 200))
 		{
 			nOthers += iter->second;
+			nOthersCount++;
 		}
 		else
 		{
@@ -227,6 +229,9 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	}
 	if (nOthers)
 	{
+		CString temp;
+		temp.Format(_T(" (%ld)"), nOthersCount);
+		sOthers += temp;
 		nGroup = m_graph.AppendGroup(sOthers);
 		graphData->SetData(nGroup, nOthers);
 	}
@@ -275,19 +280,26 @@ void CStatGraphDlg::ShowCommitsByDate()
 	size_t numAuthors = 0;
 
 	std::map<stdstring, LONG> authors;
+	int nOthersCount = 0;
 	for (int i=0; i<m_parAuthors->GetCount(); ++i)
 	{
 		stdstring author = stdstring(m_parAuthors->GetAt(i));
 		if (author_commits[author] < (m_parAuthors->GetCount() * m_Skipper.GetPos() / 200))
-			authors[wide_string((LPCWSTR)sOthers)] = -11;
+			nOthersCount++;
 		else
 			authors[author] = -11;
 	}
+	if(nOthersCount)
+	{
+		temp.Format(_T(" (%ld)"), nOthersCount);
+		sOthers += temp;
+		authors[wide_string((LPCWSTR)sOthers)] = -11;
+	}
 	numAuthors = authors.size();
-	
+
 	std::map<stdstring, LONG>::iterator iter;
 	iter = authors.begin();
-	while (iter != authors.end()) 
+	while (iter != authors.end())
 	{
 		authors[iter->first] = m_graph.AppendGroup(iter->first.c_str());
 		iter++;
@@ -325,7 +337,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 			std::map<stdstring, LONG>::iterator iter;
 			MyGraphSeries * graphData = new MyGraphSeries();
 			iter = authors.begin();
-			while (iter != authors.end()) 
+			while (iter != authors.end())
 			{
 				if (authorcommits.find(iter->first) != authorcommits.end())
 					graphData->SetData(iter->second, authorcommits[iter->first]);
@@ -341,7 +353,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 			}
 			m_graph.AddSeries(*graphData);
 			m_graphDataArray.Add(graphData);
-			
+
 			CTimeSpan oneweek = CTimeSpan(7,0,0,0);
 			while (abs(timeweek - week) > 1)
 			{
@@ -352,7 +364,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 				std::map<stdstring, LONG>::iterator iter;
 				MyGraphSeries * graphData = new MyGraphSeries();
 				iter = authors.begin();
-				while (iter != authors.end()) 
+				while (iter != authors.end())
 				{
 					graphData->SetData(iter->second, 0);
 					iter++;
@@ -387,7 +399,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 
 	MyGraphSeries * graphData = new MyGraphSeries();
 	iter = authors.begin();
-	while (iter != authors.end()) 
+	while (iter != authors.end())
 	{
 		if (authorcommits.find(iter->first) != authorcommits.end())
 		{
@@ -461,10 +473,10 @@ void CStatGraphDlg::ShowStats()
 			authorcommits[author] = 1;
 		}
 		if (nCurrentWeek != GetWeek(time))
-		{	
+		{
 			std::map<stdstring, LONG>::iterator iter;
 			iter = authors.begin();
-			while (iter != authors.end()) 
+			while (iter != authors.end())
 			{
 				if (AuthorCommits.find(iter->first) == AuthorCommits.end())
 					AuthorCommits[iter->first] = 0;
@@ -506,7 +518,7 @@ void CStatGraphDlg::ShowStats()
 		nWeeks++;
 		std::map<stdstring, LONG>::iterator iter;
 		iter = authors.begin();
-		while (iter != authors.end()) 
+		while (iter != authors.end())
 		{
 			if (AuthorCommits.find(iter->first) == AuthorCommits.end())
 				AuthorCommits[iter->first] = 0;
@@ -578,7 +590,7 @@ void CStatGraphDlg::ShowStats()
 		mostauthor = iter->first;
 		leastauthor = iter->first;
 	}
-	while (iter != AuthorCommits.end()) 
+	while (iter != AuthorCommits.end())
 	{
 		if (AuthorCommits[mostauthor] < iter->second)
 			mostauthor = iter->first;
@@ -688,7 +700,7 @@ int CStatGraphDlg::GetWeek(const CTime& time)
 				dDateFirstJanuary = CTime(iYear-1,1,1,0,0,0);
 				iDayOfWeek =
 					(dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
-				// and we correct this in the same we we done this before but 
+				// and we correct this in the same we we done this before but
 				// the result is now 52 or 53 and not 0
 				iWeekOfYear =
 					(int)(((time-dDateFirstJanuary).GetDays()+iDayOfWeek) / 7) +
