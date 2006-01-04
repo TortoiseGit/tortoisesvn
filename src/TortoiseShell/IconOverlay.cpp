@@ -205,6 +205,10 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		return S_FALSE;
 	const TCHAR* pPath = pwszPath;
 
+	// the shell sometimes asks overlays for invalid paths, e.g. for network
+	// printers (in that case the path is "0", at least for me here).
+	if (_tcslen(pPath)<2)
+		return S_FALSE;
 	// since the shell calls each and every overlay handler with the same filepath
 	// we use a small 'fast' cache of just one path here.
 	// To make sure that cache expires, clear it as soon as one handler is used.
