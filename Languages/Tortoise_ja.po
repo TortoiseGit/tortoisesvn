@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-05 15:04+0900\n"
+"PO-Revision-Date: 2006-01-04 15:23+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1683,6 +1683,11 @@ msgid "Commit"
 msgstr "コミット"
 
 # Control-ID:1110,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "コミットに対するしきい値:"
+
+# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "コミット先:"
@@ -1863,11 +1868,11 @@ msgstr "最新のバージョンのチェックができませんでした！"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "ファイルをコピーできませんでした！\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1922,11 +1927,11 @@ msgstr "ファイル %s を保存できません！"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
-"差分ビューアを開始できませんでした！\n"
-"<hr=100%>\n"
+"差分ビューアを実行できませんでした！\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1934,11 +1939,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "外部差分ツールを実行できませんでした！\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1946,11 +1951,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
-"外部マージプログラムを開始できませんでした！\n"
-"<hr=100%>\n"
+"外部マージプログラムを実行できませんでした！\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:3857,#:
@@ -2739,6 +2744,15 @@ msgstr ""
 "チェックすると、TortoiseSVN はファイル名を最終コミット日に設定します。\n"
 "チェックしなければ、TortoiseSVN は現在の日時を使用します。"
 
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"設定すると、バージョン管理外フォルダに存在するファイルが状態表示コントロールに表示されます。\n"
+"状態表示コントロールは、コミットダイアログなどで利用されています。"
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -3005,8 +3019,13 @@ msgstr "外観::色"
 
 # Dlg-ID:106,
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "外観::ダイアログ"
+msgid "Look and Feel::Dialogs 1"
+msgstr "外観::ダイアログ１"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "外観::ダイアログ２"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3418,6 +3437,11 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "オンラインのリポジトリを調整するためにリポジトリブラウザを開く"
 
+# ID:188,
+#: ID:245
+msgid "Others"
+msgstr "Others"
+
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
@@ -3695,6 +3719,11 @@ msgstr "元に戻す(&V) ..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "行き詰まったら \"日常の利用ガイド\" を読もう"
+
+# Control-ID:1073,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "バージョン管理外のフォルダを再帰的に調べる"
 
 # ID:3603,
 #: ID:3603
@@ -4509,6 +4538,12 @@ msgstr ""
 "アクティブなウィンドウを区画に分割する\n"
 "分割"
 
+# ID:11,#:
+# Control-ID:1002,
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "積み重ね"
+
 # ID:74,#:
 # ID:77,
 #: ID:245
@@ -4520,6 +4555,7 @@ msgstr "統計"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "状態"
 
@@ -4579,11 +4615,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "クリーンアップ中に Subversion がエラーを返しました！\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # Control-ID:65535,
