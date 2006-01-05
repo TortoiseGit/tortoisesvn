@@ -69,6 +69,7 @@ public:
 		ASCII,
 		UNICODE_LE,
 		UTF8,
+		UTF8BOM,
 	};
 
 	/**

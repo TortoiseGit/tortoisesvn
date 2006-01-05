@@ -50,7 +50,7 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 	if (*pVal == 0xBBEF)
 	{
 		if (*pVal2 == 0xBF)
-			return CFileTextLines::UTF8;
+			return CFileTextLines::UTF8BOM;
 	}
 	// check for illegal UTF8 chars
 	pVal2 = (UINT8 *)pBuffer;
@@ -247,7 +247,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 		case CFileTextLines::UNICODE_LE:
 			file.Seek(2,0);
 			break;
-		case CFileTextLines::UTF8:
+		case CFileTextLines::UTF8BOM:
 			file.Seek(3,0);
 			break;
 		default:
@@ -263,6 +263,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			case CFileTextLines::UNICODE_LE:
 				Add(sLine);
 				break;
+			case CFileTextLines::UTF8BOM:
 			case CFileTextLines::UTF8:
 				{
 					Add(CUnicodeUtils::GetUnicode(CStringA(sLine)));
@@ -398,13 +399,16 @@ BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= 
 				file.Write((LPCSTR)sLine, sLine.GetLength());
 			} // for (int i=0; i<arPatchLines.GetCount(); i++) 
 		}
-		else if (m_UnicodeType == CFileTextLines::UTF8)
+		else if ((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8BOM))
 		{
-			//first write the BOM
-			UINT16 wBOM = 0xBBEF;
-			file.Write(&wBOM, 2);
-			UINT8 uBOM = 0xBF;
-			file.Write(&uBOM, 1);
+			if (m_UnicodeType == CFileTextLines::UTF8BOM)
+			{
+				//first write the BOM
+				UINT16 wBOM = 0xBBEF;
+				file.Write(&wBOM, 2);
+				UINT8 uBOM = 0xBF;
+				file.Write(&uBOM, 1);
+			}
 			for (int i=0; i<GetCount(); i++)
 			{
 				CStringA sLine = CUnicodeUtils::GetUTF8(GetAt(i));
