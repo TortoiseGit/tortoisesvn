@@ -73,7 +73,7 @@ public:
 	CCrashReport(LPCSTR lpTo = NULL, LPCSTR lpSubject = NULL, BOOL bUseUI = TRUE)
 	{
 		InstallEx pfnInstallEx;
-		m_hDll = LoadLibrary(_T("CrashRpt"));
+		m_hDll = LoadLibrary(_T("CrashRpt.dll"));
 		if (m_hDll)
 		{
 			pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
