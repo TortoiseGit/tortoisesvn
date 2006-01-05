@@ -2805,8 +2805,10 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 
 void CLogDlg::OnDtnDatetimechangeDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-	CTime time;
-	m_DateTo.GetTime(time);
+	CTime _time;
+	m_DateTo.GetTime(_time);
+	CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 0, 0, 0);
+	
 	if (time.GetTime() != m_tTo)
 	{
 		m_tTo = (DWORD)time.GetTime();
@@ -2818,8 +2820,9 @@ void CLogDlg::OnDtnDatetimechangeDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 void CLogDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-	CTime time;
-	m_DateFrom.GetTime(time);
+	CTime _time;
+	m_DateTo.GetTime(_time);
+	CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 0, 0, 0);
 	if (time.GetTime() != m_tFrom)
 	{
 		m_tFrom = (DWORD)time.GetTime();
