@@ -2628,7 +2628,10 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		if (m_sFilterText.IsEmpty())
 		{
 			GetDlgItem(IDC_STATBUTTON)->EnableWindow(!(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
-			return;
+			// do not return here!
+			// we also need to run the filter if the filtertext is empty:
+			// 1. to clear an existing filter
+			// 2. to rebuild the m_arShownList after sorting
 		}
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
