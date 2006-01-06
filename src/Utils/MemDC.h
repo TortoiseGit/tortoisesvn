@@ -36,7 +36,7 @@ public:
 		
 		m_pDC = pDC;
 		m_pOldBitmap = NULL;
-        m_bMemDC = !pDC->IsPrinting();
+        m_bMemDC = ((!pDC->IsPrinting()) && (!GetSystemMetrics(SM_REMOTESESSION)));
 		
         if (m_bMemDC)	// Create a Memory DC
 		{
