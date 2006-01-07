@@ -463,11 +463,18 @@ int ne_sspi_authenticate(void *context, const char *base64Token, char **response
         return status;
     }
 
+	if (!base64Token &&
+		(sspiContext->credentials.dwLower || sspiContext->credentials.dwUpper)) {
+		NE_DEBUG(NE_DBG_HTTPAUTH,"sspi: failing because starting over from failed try.\n");
+		return -1;
+	}
+
     if (base64Token) {
         SecBufferDesc inBufferDesc;
         SecBuffer inBuffer;
 
         if (!sspiContext->continueNeeded) {
+			freeBuffer(&outBufferDesc);
             NE_DEBUG(NE_DBG_HTTPAUTH, "sspi: Got an unexpected token.\n");
             return -1;
         }
@@ -476,6 +483,7 @@ int ne_sspi_authenticate(void *context, const char *base64Token, char **response
 
         status = base64ToBuffer(base64Token, &inBufferDesc);
         if (status) {
+			freeBuffer(&outBufferDesc);
             return status;
         }
 
@@ -487,7 +495,8 @@ int ne_sspi_authenticate(void *context, const char *base64Token, char **response
                                       &outBufferDesc);
         freeBuffer(&inBufferDesc);
     } else {
-        if (!sspiContext->continueNeeded) {
+        if (sspiContext->continueNeeded) {
+			freeBuffer(&outBufferDesc);
             NE_DEBUG(NE_DBG_HTTPAUTH, "sspi: Expected a token from server.\n");
             return -1;
         }
@@ -497,6 +506,7 @@ int ne_sspi_authenticate(void *context, const char *base64Token, char **response
 
         if (acquireCredentialsHandle
             (&sspiContext->credentials, sspiContext->mechanism) != SEC_E_OK) {
+			freeBuffer(&outBufferDesc);
             NE_DEBUG(NE_DBG_HTTPAUTH,
                      "sspi: acquireCredentialsHandle failed.\n");
             return -1;
