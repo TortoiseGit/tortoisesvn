@@ -34,6 +34,7 @@ struct SSPIContextStruct {
     char *serverName;
     CredHandle credentials;
     int continueNeeded;
+	int authfinished;
     char *mechanism;
     int ntlm;
     ULONG maxTokenSize;
@@ -371,6 +372,7 @@ int ne_sspi_create_context(void **context, char *serverName, int ntlm)
     }
 
     sspiContext->ntlm = ntlm;
+	sspiContext->authfinished = 0;
     *context = sspiContext;
     return 0;
 }
@@ -429,7 +431,21 @@ int ne_sspi_destroy_context(void *context)
     ne_free(sspiContext);
     return 0;
 }
+int ne_sspi_clear_context(void *context)
+{
+	int status;
+	SSPIContext *sspiContext;
 
+	if (initialized <= 0) {
+		return -1;
+	}
+
+	status = getContext(context, &sspiContext);
+	if (status) {
+		return status;
+	}
+	sspiContext->authfinished = 0;
+}
 /*
  * Processes received authentication tokens as well as supplies the
  * response token.
@@ -463,12 +479,6 @@ int ne_sspi_authenticate(void *context, const char *base64Token, char **response
         return status;
     }
 
-	if (!base64Token &&
-		(sspiContext->credentials.dwLower || sspiContext->credentials.dwUpper)) {
-		NE_DEBUG(NE_DBG_HTTPAUTH,"sspi: failing because starting over from failed try.\n");
-		return -1;
-	}
-
     if (base64Token) {
         SecBufferDesc inBufferDesc;
         SecBuffer inBuffer;
@@ -493,6 +503,10 @@ int ne_sspi_authenticate(void *context, const char *base64Token, char **response
                                       sspiContext->serverName, contextFlags,
                                       &inBufferDesc, &(sspiContext->context),
                                       &outBufferDesc);
+		if (securityStatus == SEC_E_OK)
+		{
+			sspiContext->authfinished = 1;
+		}
         freeBuffer(&inBufferDesc);
     } else {
         if (sspiContext->continueNeeded) {
@@ -500,17 +514,27 @@ int ne_sspi_authenticate(void *context, const char *base64Token, char **response
             NE_DEBUG(NE_DBG_HTTPAUTH, "sspi: Expected a token from server.\n");
             return -1;
         }
+		if (sspiContext->authfinished && (sspiContext->credentials.dwLower || sspiContext->credentials.dwUpper)) {
+			if (sspiContext->authfinished)
+			{
+				freeBuffer(&outBufferDesc);
+				sspiContext->authfinished = 0;
+				NE_DEBUG(NE_DBG_HTTPAUTH,"sspi: failing because starting over from failed try.\n");
+				return -1;
+			}
+			sspiContext->authfinished = 0;
+		}
 
-        /* Reset any existing context since we are starting over */
-        resetContext(sspiContext);
+		/* Reset any existing context since we are starting over */
+		resetContext(sspiContext);
 
-        if (acquireCredentialsHandle
-            (&sspiContext->credentials, sspiContext->mechanism) != SEC_E_OK) {
-			freeBuffer(&outBufferDesc);
-            NE_DEBUG(NE_DBG_HTTPAUTH,
-                     "sspi: acquireCredentialsHandle failed.\n");
-            return -1;
-        }
+		if (acquireCredentialsHandle
+			(&sspiContext->credentials, sspiContext->mechanism) != SEC_E_OK) {
+				freeBuffer(&outBufferDesc);
+				NE_DEBUG(NE_DBG_HTTPAUTH,
+					"sspi: acquireCredentialsHandle failed.\n");
+				return -1;
+		}
 
         securityStatus =
             initializeSecurityContext(&sspiContext->credentials, NULL,
