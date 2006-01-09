@@ -228,6 +228,7 @@ LoadModule authz_svn_module modules/mod_authz_svn.so
 <screen>
 &lt;Location /svn&gt;
 DAV svn
+SVNListParentPath on
 SVNParentPath D:\SVN
 AuthType Basic
 AuthName "Subversion repositories"
@@ -316,6 +317,13 @@ bin\htpasswd passwd &lt;username&gt;
 							<entry>
 								tells Apache which module will be responsible to serve
 								that URL - in this case the Subversion module.
+							</entry>
+						</row>
+						<row>
+							<entry>SVNListParentPath on</entry>
+							<entry>
+								For Subversion version 1.3 and higher, this directive enables
+								listing all the available repositories under SVNParentPath.
 							</entry>
 						</row>
 						<row>
@@ -475,6 +483,9 @@ trevor = rw
 				script which generates the index for you automatically.  (You 
 				will need to install PHP on your server in order to use the 
 				below file).
+			</para>
+			<para>
+				For Subversion 1.3 and higher, just enable <quote>SVNListParentPath on</quote>.
 			</para>
 		</tip>
 		<sidebar>
