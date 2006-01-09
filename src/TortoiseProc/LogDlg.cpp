@@ -577,8 +577,11 @@ UINT CLogDlg::LogThread()
 	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(FALSE);
 	
 	CString temp;
-	temp.LoadString(IDS_MSGBOX_CANCEL);
-	GetDlgItem(IDOK)->SetWindowText(temp);
+	if (!GetDlgItem(IDOK)->IsWindowVisible())
+	{
+		temp.LoadString(IDS_MSGBOX_CANCEL);
+		GetDlgItem(IDCANCEL)->SetWindowText(temp);
+	}
 	m_LogProgress.SetRange32(0, 100);
 	m_LogProgress.SetPos(0);
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
@@ -634,8 +637,11 @@ UINT CLogDlg::LogThread()
 	m_LogList.SetRedraw(false);
 	CUtils::ResizeAllListCtrlCols(&m_LogList);
 	m_LogList.SetRedraw(true);
-	temp.LoadString(IDS_MSGBOX_OK);
-	GetDlgItem(IDOK)->SetWindowText(temp);
+	if (!GetDlgItem(IDOK)->IsWindowVisible())
+	{
+		temp.LoadString(IDS_MSGBOX_OK);
+		GetDlgItem(IDCANCEL)->SetWindowText(temp);
+	}
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
