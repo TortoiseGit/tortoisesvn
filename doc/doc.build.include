@@ -38,7 +38,7 @@ This will only build the english HTML helpf file for TortoiseSVN
 		unless="${property::exists('docformats')}"
 	/>
 	<property name="languages" 
-		value="en,de,es,ja" 
+		value="en,de,es,ja,zh_CN" 
 		unless="${property::exists('languages')}"
 	/>
 
