@@ -357,6 +357,7 @@ void CDirectoryWatcher::ClearInfoMap()
 {
 	if (watchInfoMap.size()!=0)
 	{
+		AutoLocker lock(m_critSec);
 		for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 		{
 			CDirectoryWatcher::CDirWatchInfo * info = I->second;
@@ -371,6 +372,7 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 	CTSVNPath path;
 	if (watchInfoMap.size() == 0)
 		return path;
+	AutoLocker lock(m_critSec);
 	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
 	{
 		CDirectoryWatcher::CDirWatchInfo * info = I->second;
