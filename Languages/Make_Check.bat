@@ -27,7 +27,7 @@ echo Total=!total! >> %LogFile%
 echo. >> %LogFile%
 echo Language : translated - fuzzy - untranslated - missing accelerator keys >> %LogFile%
 echo. >> %LogFile%
-echo Incomplete: >> %Logfile%
+echo Incomplete                     : tr - ut - fu - ma >> %Logfile%
 
 echo.
 echo GUI Translation Status report for TortoiseSVN trunk ^(r!version:~0,4!^)
@@ -83,7 +83,7 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (Languages.txt) DO (
 )
 
 echo. >> %Logfile%
-echo Needs review: >> %Logfile%
+echo Needs review                   : tr - ut - fu - ma >> %Logfile%
 type %TmpFileReview% >> %LogFile%
 
 echo. >> %Logfile%
