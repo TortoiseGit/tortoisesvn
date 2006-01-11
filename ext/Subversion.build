@@ -30,10 +30,6 @@
 		</exec>
 		<copy file="build\neon.mak" tofile="neon\neon.mak" overwrite="true" />
 		<copy file="build\neonconfig.hw" tofile="neon\config.hw" overwrite="true" />
-		<!-- patch for fixing SSPI authentication -->
-		<copy file="build\ne_sspi.c" tofile="neon\src\ne_sspi.c" overwrite="true" />
-		<copy file="build\ne_sspi.h" tofile="neon\src\ne_sspi.h" overwrite="true" />
-		<copy file="build\ne_auth.c" tofile="neon\src\ne_auth.c" overwrite="true" />
 	</target>
 	
 	<target name="prepare_apriconv">
