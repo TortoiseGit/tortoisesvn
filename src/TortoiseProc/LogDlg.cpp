@@ -890,12 +890,13 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 						long rev = pLogEntry->dwRev;
-						long revend = rev-1;
+						long revend = rev;
 						while (pos)
 						{
 						    pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 						    revend = pLogEntry->dwRev;
-						}					
+						}
+						revend--;
 						CString msg;
 						msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPathString());
 						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
