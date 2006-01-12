@@ -174,7 +174,7 @@ static const struct CommandInfo
 	{	cmdUnIgnore,		_T("unignore"),			true	},
 	{	cmdBlame,			_T("blame"),			false	},
 	{	cmdCat,				_T("cat"),				false	},
-	{	cmdCreatePatch,		_T("createpatch"),		false	},
+	{	cmdCreatePatch,		_T("createpatch"),		true	},
 	{	cmdUpdateCheck,		_T("updatecheck"),		false	},
 	{	cmdRevisionGraph,	_T("revisiongraph"),	false	},
 	{	cmdLock,			_T("lock"),				true	},
@@ -1886,7 +1886,7 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 	::DeleteFile(tempPatchFilePath.GetWinPath());
 	
 	CTSVNPath sDir = path.GetCommonRoot();
-	if (!root.IsEmpty())
+	if (sDir.IsEmpty())
 		sDir = root;
 	if (!sDir.IsDirectory())
 	{

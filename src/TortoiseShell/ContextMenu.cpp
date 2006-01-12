@@ -1248,11 +1248,9 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += _T("\"");
 				break;
 			case CreatePatch:
+				tempfile = WriteFileListToTempFile();
 				svnCmd += _T("createpatch /path:\"");
-				if (files_.size() > 0)
-					svnCmd += files_.front();
-				else
-					svnCmd += folder_;
+				svnCmd += tempfile;
 				svnCmd += _T("\"");
 				break;
 			case ApplyPatch:
