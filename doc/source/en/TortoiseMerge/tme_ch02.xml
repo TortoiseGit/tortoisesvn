@@ -182,24 +182,6 @@
 				</listitem>
 				<listitem>
 					<para>
-						<guibutton>Show Spaces</guibutton>
-						toggles the option to display space and tab characters
-						as symbols so you can distinguish white space changes.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						<guibutton>Switch Left and Right View</guibutton>
-						In 2-pane view, swaps the left and right windows.
-						When you are comparing a file in 2 different trees, 
-						as opposed to 2 revisions of the same file, TortoiseSVN
-						does not know which one should go in the left pane as
-						the <quote>original/base</quote> version. If it gets
-						this wrong, you can change it to make viewing easier.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
 						<guibutton>Prev/Next Difference</guibutton>
 						jumps directly to the next point where the files differ.
 						This saves scrolling through all the unchanged parts
@@ -229,9 +211,27 @@
 				</listitem>
 				<listitem>
 					<para>
+						<guibutton>Show Spaces</guibutton>
+						toggles the option to display space and tab characters
+						as symbols so you can distinguish white space changes.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
 						<guibutton>Switch View</guibutton>
 						selects between one-pane and two-pane view.
 						Disabled in 3-pane view.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Switch Left and Right View</guibutton>
+						In 2-pane view, swaps the left and right windows.
+						When you are comparing a file in 2 different trees, 
+						as opposed to 2 revisions of the same file, TortoiseSVN
+						does not know which one should go in the left pane as
+						the <quote>original/base</quote> version. If it gets
+						this wrong, you can change it to make viewing easier.
 					</para>
 				</listitem>
 				<listitem>
