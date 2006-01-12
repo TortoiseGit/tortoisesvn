@@ -263,7 +263,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATE);
 	m_graph.SetGraphTitle(temp);
 
-
+	// Find how many commits each author has done
 	std::map<stdstring, LONG> author_commits;
 	for (int i=0; i<m_parAuthors->GetCount(); ++i)
 	{
@@ -276,33 +276,24 @@ void CStatGraphDlg::ShowCommitsByDate()
 			author_commits[author] = 1;
 	}
 
-	//first find the number of authors available
-	size_t numAuthors = 0;
-
+	// Append each author to the graph
 	std::map<stdstring, LONG> authors;
+	std::map<stdstring, LONG>::iterator iter;
 	int nOthersCount = 0;
-	for (int i=0; i<m_parAuthors->GetCount(); ++i)
+	iter = author_commits.begin();
+	while (iter != author_commits.end())
 	{
-		stdstring author = stdstring(m_parAuthors->GetAt(i));
-		if (author_commits[author] < (m_parAuthors->GetCount() * m_Skipper.GetPos() / 200))
+		if (author_commits[iter->first] < (m_parAuthors->GetCount() * m_Skipper.GetPos() / 200))
 			nOthersCount++;
 		else
-			authors[author] = -11;
+			authors[iter->first] = m_graph.AppendGroup(iter->first.c_str());
+		iter++;
 	}
 	if(nOthersCount)
 	{
 		temp.Format(_T(" (%ld)"), nOthersCount);
 		sOthers += temp;
-		authors[wide_string((LPCWSTR)sOthers)] = -11;
-	}
-	numAuthors = authors.size();
-
-	std::map<stdstring, LONG>::iterator iter;
-	iter = authors.begin();
-	while (iter != authors.end())
-	{
-		authors[iter->first] = m_graph.AppendGroup(iter->first.c_str());
-		iter++;
+		authors[wide_string((LPCWSTR)sOthers)] = m_graph.AppendGroup(wide_string((LPCWSTR)sOthers).c_str());
 	}
 
 	int week = 0;
