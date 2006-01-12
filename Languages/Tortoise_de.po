@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-12-29 11:07+0100\n"
+"PO-Revision-Date: 2006-01-12 09:51+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -181,7 +181,7 @@ msgstr "Standard-Diff &anwenden"
 
 #: Control-ID:65535
 msgid "&Autoclose:"
-msgstr "&Automatisch Schließen:"
+msgstr "&Schließen:"
 
 #: Control-ID:1015
 msgid "&Backup original file"
@@ -239,7 +239,7 @@ msgstr "&Einrichten"
 
 #: Control-ID:1227
 msgid "&Contact the repository on startup"
-msgstr "&Projektarchiv beim Start kontaktieren"
+msgstr "&Projektarchiv automatisch prüfen"
 
 #: Control-ID:1073
 msgid "&Convert files when diffing against BASE"
@@ -314,7 +314,7 @@ msgstr "&Lokale Laufwerke"
 
 #: Control-ID:65535
 msgid "&Font for log messages:"
-msgstr "&Zeichensatz für Log-Meldungen:"
+msgstr "&Zeichensatz:"
 
 #: Control-ID:65535
 msgid "&Font:"
@@ -3552,7 +3552,7 @@ msgstr "Zeige &Eigenschaften"
 
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "&Kurzes Datum/Zeit Format in Log Meldungen"
+msgstr "&Kurzes Datum- / Zeitformat"
 
 #: ID:12
 msgid "Short Url of Subversion items"
