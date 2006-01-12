@@ -40,7 +40,7 @@ public:
 	void SetStatus(const svn_wc_status2_t* pSVNStatus);
 	bool HasBeenSet() const;
 	void Invalidate();
-	bool IsDirectory() const {return m_kind == svn_node_dir;}
+	bool IsDirectory() const {return ((m_kind == svn_node_dir)&&(m_highestPriorityLocalStatus != svn_wc_status_ignored));}
 	bool SaveToDisk(FILE * pFile);
 	bool LoadFromDisk(FILE * pFile);
 private:
