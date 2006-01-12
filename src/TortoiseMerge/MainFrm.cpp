@@ -99,6 +99,7 @@ CMainFrame::CMainFrame()
 	m_bInitSplitter = FALSE;
 	m_bOneWay = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"))));
 	m_bReversedPatch = FALSE;
+	m_bHasConflicts = false;
 }
 
 CMainFrame::~CMainFrame()
@@ -454,6 +455,7 @@ void CMainFrame::OnFileOpen()
 
 BOOL CMainFrame::LoadViews(BOOL bReload)
 {
+	m_bHasConflicts = false;
 	if (bReload)
 	{
 		if (!this->m_Data.Load())
@@ -610,6 +612,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 	SetActiveView(m_pwndLeftView);
 	if (bGoFirstDiff)
 		m_pwndLeftView->GoToFirstDifference();
+	CheckResolved();
 	return TRUE;
 }
 
@@ -680,6 +683,7 @@ void CMainFrame::OnViewOnewaydiff()
 int CMainFrame::CheckResolved()
 {
 	//only in three way diffs can be conflicts!
+	m_bHasConflicts = true;
 	if (this->m_pwndBottomView->IsWindowVisible())
 	{
 		if (this->m_pwndBottomView->m_arLineStates)
@@ -688,9 +692,10 @@ int CMainFrame::CheckResolved()
 			{
 				if (CDiffData::DIFFSTATE_CONFLICTED == (CDiffData::DiffStates)this->m_pwndBottomView->m_arLineStates->GetAt(i))
 					return i;
-			} // for (int i=0; i<this->m_pwndBottomView->m_arLineStates->GetCount(); i++) 
-		} // if (this->m_pwndBottomView->m_arLineStates) 
-	} // if (this->m_pwndBottomView->IsWindowVisible())
+			}
+		}
+	}
+	m_bHasConflicts = false;
 	return -1;
 }
 
@@ -1342,12 +1347,12 @@ BOOL CMainFrame::MarkAsResolved()
 
 void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 {
-	pCmdUI->Enable((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()));
+	pCmdUI->Enable(m_bHasConflicts);
 }
 
 void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 {
-	pCmdUI->Enable((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()));
+	pCmdUI->Enable(m_bHasConflicts);
 }
 
 void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)

@@ -111,6 +111,7 @@ protected:
 	BOOL			m_bMatchCase;
 	static const UINT m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
+	bool			m_bHasConflicts;
 
 public:
 	CLeftView *		m_pwndLeftView;
