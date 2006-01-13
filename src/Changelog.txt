@@ -92,6 +92,9 @@ Version 1.3.0
        exist anymore in HEAD. (Stefan)
 - BUG: A malformed URL could make TortoiseSVN crash, for example
        httpS://test/test. (Stefan)
+- BUG: Create Patch would include the diffs of a file two times if
+       the file was below a folder with property changes and
+       the folder was selected too. (Stefan)
 
 Version 1.2.6
 - BUG: The status cache updated sometimes wrong paths or missed
