@@ -399,7 +399,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= 
 				file.Write((LPCSTR)sLine, sLine.GetLength());
 			} // for (int i=0; i<arPatchLines.GetCount(); i++) 
 		}
-		else if ((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8BOM))
+		else if ((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8))
 		{
 			if (m_UnicodeType == CFileTextLines::UTF8BOM)
 			{
