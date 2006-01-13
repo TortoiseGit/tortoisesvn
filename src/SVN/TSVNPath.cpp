@@ -999,6 +999,8 @@ private:
 		CTSVNPath testPath;
 		testPath.SetFromUnknown(_T("c:\\.svndir"));
 		ATLASSERT(!testPath.IsAdminDir());
+		testPath.SetFromUnknown(_T("c:\\test.svn"));
+		ATLASSERT(!testPath.IsAdminDir());
 		testPath.SetFromUnknown(_T("c:\\.svn"));
 		ATLASSERT(testPath.IsAdminDir());
 		testPath.SetFromUnknown(_T("c:\\.svndir\\test"));

@@ -92,11 +92,13 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path)
 	{
 		if (ind == (path.GetLength() - 4))
 		{
-			bIsAdminDir = true;
+			if ((ind == 0)||(path.GetAt(ind-1) == '\\'))
+				bIsAdminDir = true;
 		}
 		else if (path.Find(_T(".svn\\"))>=0)
 		{
-			bIsAdminDir = true;
+			if ((ind == 0)||(path.GetAt(ind-1) == '\\'))
+				bIsAdminDir = true;
 		}
 	}
 	if (!bIsAdminDir && m_bVSNETHack)
@@ -106,17 +108,18 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path)
 		{
 			if (ind == (path.GetLength() - 4))
 			{
-				bIsAdminDir = true;
+				if ((ind == 0)||(path.GetAt(ind-1) == '\\'))
+					bIsAdminDir = true;
 			}
 			else if (path.Find(_T("_svn\\"))>=0)
 			{
-				bIsAdminDir = true;
+				if ((ind == 0)||(path.GetAt(ind-1) == '\\'))
+					bIsAdminDir = true;
 			}
 		}
 	}
 	return bIsAdminDir;
 }
-
 
 
 
