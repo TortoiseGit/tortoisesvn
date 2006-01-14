@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<project name="SubversionLib" default="build">
+	<!-- default configuration is release -->
+	<property name="configuration" value="release" />
+	<!-- default build for win32 platform -->
+	<property name="platform" value="win32" />
+
+<!-- ====================================================================== -->
+<!-- Configuration targets													-->
+<!-- ====================================================================== -->
+	<target name="debug">
+		<description>
+			Sets the environment up to build the debug versions.
+		</description>
+		<property name="configuration" value="debug" />
+	</target>
+
+<!-- ====================================================================== -->
+<!-- Project targets														-->
+<!-- ====================================================================== -->
+	<target name="clean">
+		<description>
+			Cleans every subproject.
+		</description>
+		<nant target="clean">
+			<buildfiles>
+				<include name="*.build" />
+				<exclude name="default.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
+	<target name="build">
+		<nant target="build" buildfile="apr.build" />
+		<nant target="build" buildfile="apriconv.build" />
+		<nant target="build" buildfile="aprutil.build" />
+
+		<copy file="inffas32.asm" tofile="..\..\common\zlib\contrib\masmx86\inffas32.asm" overwrite="true" />
+		<copy file="inffas32.asm" tofile="..\..\common\zlib\inffas32.asm" overwrite="true" />		
+		<nant target="build" buildfile="zlib.build" />
+		<nant target="build" buildfile="neon.build" />
+		<nant target="build" buildfile="subversion.build" />
+	</target>
+
+</project>

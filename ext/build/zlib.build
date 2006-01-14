@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<project name="zlib" default="build" basedir="..\..\..\common\zlib">
+
+<!-- ====================================================================== -->
+<!-- Project targets														-->
+<!-- ====================================================================== -->
+	<target name="rebuild" depends="clean,build" />
+	
+	<target name="clean">
+		<description>
+			Cleans previous built files.
+		</description>
+		
+		<delete>
+			<fileset>
+				<include name="${configuration}_${platform}\**" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="build" >
+		<mkdir dir="${configuration}_${platform}" />
+		<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF gvmat32.asm" />
+		<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF inffas32.asm" />
+		<cl outputdir="${configuration}_${platform}">
+			<arg value="/O2" if="${configuration == 'release'}" />
+			<arg value="/Ob1" if="${configuration == 'release'}" />
+			<arg value="/Od" if="${configuration != 'release'}" />
+			<arg value="/GF" if="${configuration == 'release'}" />
+			<arg value="/FD" />
+			<arg value="/EHsc" />
+			<arg value="/MD" if="${configuration == 'release'}" />
+			<arg value="/MDd" if="${configuration != 'release'}" />
+			<arg value="/Gy" />
+			<arg value="/W3" />
+			<arg value="/nologo" />
+			<arg value="/c" />
+			<arg value="/Zi" />
+			<arg value="/errorReport:prompt" />
+			<sources>
+				<include name="*.c" />
+			</sources>
+			<includedirs>
+				<include name="." />
+			</includedirs>
+			<defines>
+				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
+				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="APR_DECLARE_EXPORT" />
+				<define name="WIN32" />
+				<define name="_WINDOWS" />
+				<define name="_WIN32" />
+				<define name="NDEBUG" if="${configuration == 'release'}"/>
+				<define name="_DEBUG" if="${configuration != 'release'}"/>
+			</defines>
+		</cl>
+		<lib 
+			output="${configuration}_${platform}\zlibstat.lib" 
+			options='/NOLOGO /SUBSYSTEM:WINDOWS /MACHINE:X86'>
+			<sources>
+				<include name="${configuration}_${platform}\*.obj" />
+				<exclude name="${configuration}_${platform}\example.obj" />
+			</sources>
+		</lib>
+	</target>
+
+</project>

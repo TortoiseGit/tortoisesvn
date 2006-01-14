@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<project name="apr" default="build" basedir="..\apr">
+
+<!-- ====================================================================== -->
+<!-- Project targets														-->
+<!-- ====================================================================== -->
+	<target name="rebuild" depends="clean,build" />
+	
+	<target name="clean">
+		<description>
+			Cleans previous built files.
+		</description>
+		
+		<delete>
+			<fileset>
+				<include name="${configuration}_${platform}\**" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="build" >
+		<mkdir dir="${configuration}_${platform}" />
+		<copy file="include\apr.hw" tofile="include\apr.h" overwrite="true" />
+		<loadfile file="include\apr_version.h" property="versionfile" />
+		<regex pattern="#define APR_MAJOR_VERSION( )+(?'APR_MAJOR_VERSION'\d+)" input="${versionfile}" />
+		<regex pattern="#define APR_MINOR_VERSION[ ]+(?'APR_MINOR_VERSION'\d+)" input="${versionfile}" />
+		<regex pattern="#define APR_PATCH_VERSION[ ]+(?'APR_PATCH_VERSION'\d+)" input="${versionfile}" />
+		<loadfile file="libapr.rc" property="rcfile">
+			<filterchain>
+				<replacestring from="0,0,0" to="${APR_MAJOR_VERSION},${APR_MINOR_VERSION},${APR_PATCH_VERSION}" />
+				<replacestring from="0.0.0" to="${APR_MAJOR_VERSION},${APR_MINOR_VERSION},${APR_PATCH_VERSION}" />
+			</filterchain>
+		</loadfile>
+		<echo file="libaprver.rc" message="${rcfile}" />
+		<rc rcfile="libaprver.rc" output="${configuration}_${platform}\libapr.res">
+			<includedirs>
+				<include name="include" />
+			</includedirs>
+		</rc>
+		<cl outputdir="${configuration}_${platform}">
+			<arg value="/O2" if="${configuration == 'release'}" />
+			<arg value="/Ob1" if="${configuration == 'release'}" />
+			<arg value="/Od" if="${configuration != 'release'}" />
+			<arg value="/GF" if="${configuration == 'release'}" />
+			<arg value="/FD" />
+			<arg value="/EHsc" />
+			<arg value="/MD" if="${configuration == 'release'}" />
+			<arg value="/MDd" if="${configuration != 'release'}" />
+			<arg value="/Gy" />
+			<arg value="/W3" />
+			<arg value="/nologo" />
+			<arg value="/c" />
+			<arg value="/Zi" />
+			<arg value="/errorReport:prompt" />
+			<sources>
+				<include name="dso\win32\dso.c" />
+				<include name="file_io\win32\*.c" />
+				<include name="file_io\unix\copy.c" />
+				<include name="file_io\unix\fileacc.c" />
+				<include name="file_io\unix\filepath_util.c" />
+				<include name="file_io\unix\fullrw.c" />
+				<include name="file_io\unix\mktemp.c" />
+				<include name="file_io\unix\tempdir.c" />
+				<include name="locks\win32\*.c" />
+				<include name="memory\unix\*.c" />
+				<include name="misc\unix\errorcodes.c" />
+				<include name="misc\unix\getopt.c" />
+				<include name="misc\unix\otherchild.c" />
+				<include name="misc\unix\version.c" />
+				<include name="misc\win32\*.c" />
+				<exclude name="misc\win32\apr_app.c" />
+				<include name="mmap\win32\*.c" />
+				<include name="mmap\unix\common.c" />
+				<include name="network_io\win32\*.c" />
+				<include name="network_io\unix\inet_ntop.c" />
+				<include name="network_io\unix\inet_pton.c" />
+				<include name="network_io\unix\sockaddr.c" />
+				<include name="passwd\*.c" />
+				<include name="poll\unix\*.c" />
+				<include name="shmem\win32\*.c" />
+				<include name="strings\*.c" />
+				<include name="tables\*.c" />
+				<include name="threadproc\win32\*.c" />
+				<include name="time\win32\*.c" />
+				<include name="user\win32\*.c" />
+			</sources>
+			<includedirs>
+				<include name="include" />
+				<include name="include\arch" />
+				<include name="include\arch\win32" />
+			</includedirs>
+			<defines>
+				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
+				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="APR_DECLARE_EXPORT" />
+				<define name="WIN32" />
+				<define name="_WINDOWS" />
+				<define name="_WIN32" />
+				<define name="_WINDLL" />
+				<define name="NDEBUG" if="${configuration == 'release'}"/>
+				<define name="_DEBUG" if="${configuration != 'release'}"/>
+			</defines>
+		</cl>
+		<link 
+			output="${configuration}_${platform}\libapr.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr.lib" /MACHINE:X86 ${configuration}_${platform}\libapr.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			<sources>
+				<include name="${configuration}_${platform}\*.obj" />
+			</sources>
+		</link>
+		<exec program="mt.exe">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value=".\${configuration}_${platform}\libapr.dll.intermediate.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\libapr.dll;#2"' />
+		</exec>
+	</target>
+
+</project>

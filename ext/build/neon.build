@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<project name="neon" default="build" basedir="..\neon">
+
+<!-- ====================================================================== -->
+<!-- Project targets														-->
+<!-- ====================================================================== -->
+	<target name="rebuild" depends="clean,build" />
+	
+	<target name="clean">
+		<description>
+			Cleans previous built files.
+		</description>
+		
+		<delete>
+			<fileset>
+				<include name="${configuration}_${platform}\**" />
+				<include name=".version" />
+				<include name="config.hw" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="build" >
+		<mkdir dir="${configuration}_${platform}" />
+		<loadfile file="NEWS" property="versionfile" />
+		<regex pattern="^Changes in release (?'NEON_MAJOR_VERSION'\d+)\.(?'NEON_MINOR_VERSION'\d+)\.(?'NEON_MICRO_VERSION'\d+):" input="${versionfile}" />
+		<echo file=".version" message="${NEON_MAJOR_VERSION}.${NEON_MINOR_VERSION}.${NEON_MICRO_VERSION}" />
+		<loadfile file="config.hw.in" property="configfile">
+			<filterchain>
+				<replacetokens begintoken="@" endtoken="@">
+					<token key="VERSION" value="${NEON_MAJOR_VERSION}.${NEON_MINOR_VERSION}.${NEON_MICRO_VERSION}" />
+					<token key="MAJOR" value="${NEON_MAJOR_VERSION}" />
+					<token key="MINOR" value="${NEON_MINOR_VERSION}" />
+				</replacetokens>
+				<replacestring from="#define HAVE_SSPI" to="" />
+			</filterchain>
+		</loadfile>
+		<echo file="config.hw" message="${configfile}" unless="${file::exists('config.hw')}" />
+		<echo file="config.h" message="${configfile}" unless="${file::exists('config.h')}" />
+		<cl outputdir="${configuration}_${platform}">
+			<arg value="/O2" if="${configuration == 'release'}" />
+			<arg value="/Ob1" if="${configuration == 'release'}" />
+			<arg value="/Od" if="${configuration != 'release'}" />
+			<arg value="/GF" if="${configuration == 'release'}" />
+			<arg value="/FD" />
+			<arg value="/EHsc" />
+			<arg value="/MD" if="${configuration == 'release'}" />
+			<arg value="/MDd" if="${configuration != 'release'}" />
+			<arg value="/Gy" />
+			<arg value="/W3" />
+			<arg value="/nologo" />
+			<arg value="/c" />
+			<arg value="/Zi" />
+			<arg value="/errorReport:prompt" />
+			<sources>
+				<include name="src\ne_alloc.c" />
+				<include name="src\ne_auth.c" />
+				<include name="src\ne_basic.c" />
+				<include name="src\ne_compress.c" />
+				<include name="src\ne_dates.c" />
+				<include name="src\ne_i18n.c" />
+				<include name="src\ne_md5.c" />
+				<include name="src\ne_redirect.c" />
+				<include name="src\ne_request.c" />
+				<include name="src\ne_session.c" />
+				<include name="src\ne_socket.c" />
+				<include name="src\ne_sspi.c" />
+				<include name="src\ne_socket.c" />
+				<include name="src\ne_string.c" />
+				<include name="src\ne_uri.c" />
+				<include name="src\ne_utils.c" />
+				<include name="src\ne_207.c" />
+				<include name="src\ne_xml.c" />
+				<include name="src\ne_xmlreq.c" />
+				<include name="src\ne_acl.c" />
+				<include name="src\ne_props.c" />
+				<include name="src\ne_locks.c" />
+				<include name="src\ne_openssl.c" />
+			</sources>
+			<includedirs>
+				<include name="." />
+				<include name="src" />
+				<include name="..\apr-util\xml\expat\lib" />
+				<include name="..\..\..\common\zlib" />
+				<include name="..\..\..\common\openssl\inc32" />
+			</includedirs>
+			<defines>
+				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
+				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="HAVE_CONFIG_H" />
+				<define name="NE_HAVE_SSL" />
+				<define name="HAVE_OPENSSL" />
+				<define name="HAVE_EXPAT" />
+				<define name="HAVE_EXPAT_H" />
+				<define name="NE_HAVE_DAV" />
+				<define name="NE_HAVE_ZLIB" />
+				<define name="WIN32" />
+				<define name="_WINDOWS" />
+				<define name="_WIN32" />
+				<define name="NDEBUG" if="${configuration == 'release'}"/>
+				<define name="_DEBUG" if="${configuration != 'release'}"/>
+				<define name="WIN32_LEAN_AND_MEAN" />
+				<define name="NOUSER" />
+				<define name="NOGDI" />
+				<define name="NONLS" />
+				<define name="NOCRYPT" />
+			</defines>
+		</cl>
+		<lib 
+			output="${configuration}_${platform}\libneon.lib" 
+			options='/NOLOGO /SUBSYSTEM:WINDOWS /MACHINE:X86'>
+			<sources>
+				<include name="${configuration}_${platform}\*.obj" />
+			</sources>
+		</lib>
+	</target>
+
+</project>
