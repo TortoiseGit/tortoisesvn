@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-21 15:28-0300\n"
+"PO-Revision-Date: 2006-01-15 19:44-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1693,6 +1693,12 @@ msgid "Commit"
 msgstr "Submeter"
 
 # Control-ID:1110,
+#: Control-ID:1262
+#, fuzzy
+msgid "Commit threshold:"
+msgstr "Submeter para:"
+
+# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Submeter para:"
@@ -1719,9 +1725,8 @@ msgstr "Submete as suas alterações para o repositório"
 
 # ID:76,
 #: MenuEntry
-#, fuzzy
 msgid "Compare &HEAD revisions"
-msgstr "Comparar as &Revisões mais Recentes"
+msgstr "Comparar as &Revisões mais recentes"
 
 # ID:76,
 #: ID:76
@@ -2801,15 +2806,14 @@ msgstr "Ignorar Fins de Linha (recomendado)"
 
 # Control-ID:1056,
 #: Control-ID:1056
-#, fuzzy
 msgid "Import &message"
-msgstr "Importar &Mensagem"
+msgstr "Importar &mensagem"
 
 # ID:119,
 #: ID:120
-#, fuzzy, c-format
+#, c-format
 msgid "Importing file %s"
-msgstr "Obtendo Arquivo %s"
+msgstr "Obtendo arquivo %s"
 
 # ID:10,
 #: ID:10
@@ -2823,9 +2827,8 @@ msgstr "Incluir caminhos:"
 
 # ID:76,
 #: ID:76
-#, fuzzy
 msgid "Initial import"
-msgstr "Importação Inicial"
+msgstr "Importação inicial"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2913,9 +2916,8 @@ msgstr ""
 
 # Control-ID:1203,
 #: Control-ID:1203
-#, fuzzy
 msgid "Keep &locks"
-msgstr "Manter Travas"
+msgstr "Manter &travas"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2958,9 +2960,8 @@ msgstr ""
 
 # ID:63,
 #: ID:63
-#, fuzzy
 msgid "Local status"
-msgstr "Status Local"
+msgstr "Status local"
 
 # ID:94,
 #: ID:94
@@ -3029,15 +3030,13 @@ msgstr "Histórico"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Log message"
-msgstr "Mensagem de Log"
+msgstr "Mensagem de log"
 
 # Dlg-ID:130,
 #: Control-ID:65535
-#, fuzzy
 msgid "Log messages"
-msgstr "Mensagens de Log"
+msgstr "Mensagens de log"
 
 # Dlg-ID:106,
 #: Dlg-ID:195
@@ -3046,14 +3045,18 @@ msgstr "Aparência"
 
 # Dlg-ID:106,
 #: Dlg-ID:212
-#, fuzzy
 msgid "Look and Feel::Colors"
-msgstr "Aparência::Diálogos"
+msgstr "Aparência::Cores"
 
 # Dlg-ID:106,
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "Aparência::Diálogos"
+msgid "Look and Feel::Dialogs 1"
+msgstr "Aparência::Diálogos 1"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "Aparência::Diálogos 2"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3064,12 +3067,6 @@ msgstr "Aparência::Sobreposiões de Ícones"
 #: Dlg-ID:184
 msgid "Look and Feel::Icon Set"
 msgstr "Aparência::Conjunto de Ícones"
-
-# Dlg-ID:106,
-#: Dlg-ID:213
-#, fuzzy
-msgid "Look and Feel::Misc"
-msgstr "Aparência::Diálogos"
 
 # ID:238,
 #: ID:238
@@ -3473,6 +3470,12 @@ msgstr ""
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Abre o navegador de repositório para visualizar o repositório online"
+
+# ID:188,
+#: ID:245
+#, fuzzy
+msgid "Others"
+msgstr "Deles"
 
 # ID:3843,#:
 # ID:3843,
@@ -4424,9 +4427,8 @@ msgstr "O Cache de Ícones do Shell foi resconstruido!"
 
 # Control-ID:65535,
 #: ID:101
-#, fuzzy
 msgid "Sho&w properties"
-msgstr "Exibir Pr&opriedades"
+msgstr "Exibir propriedades"
 
 # Control-ID:1105,
 #: Control-ID:1105
@@ -4445,9 +4447,8 @@ msgstr "Mostr&ar Tudo"
 
 # ID:113,
 #: ID:113
-#, fuzzy
 msgid "Show &differences"
-msgstr "Visualizar &Diferenças"
+msgstr "Exibir &diferenças"
 
 # Control-ID:1016,
 #: ID:12
@@ -4462,9 +4463,8 @@ msgstr "Exibir &histórico..."
 
 # Control-ID:1031,
 #: Control-ID:1031
-#, fuzzy
 msgid "Show &log..."
-msgstr "Exibir &Histórico..."
+msgstr "Exibir mensagens de &log..."
 
 # Control-ID:1088,
 #: Control-ID:1088
@@ -4473,27 +4473,23 @@ msgstr "Visualizar s&obreposições apenas no explorer"
 
 # Control-ID:1073,
 #: Control-ID:1073
-#, fuzzy
 msgid "Show &unversioned files"
-msgstr "Mostrar arquivos sem controle de versão"
+msgstr "Exibir arq&uivos sem controle de versão"
 
 # ID:113,
 #: ID:113
-#, fuzzy
 msgid "Show differences as &unified diff"
-msgstr "Mostrar Diferenças como Comparação &Unificada"
+msgstr "Exibir diferenças como comparação &unificada"
 
 # Control-ID:1065,
 #: Control-ID:1065
-#, fuzzy
 msgid "Show li&ne diff bar"
-msgstr "Mostrar Barra de Comparação em Linha"
+msgstr "Exibir barra de comparação em linha"
 
 # Control-ID:1063,
 #: Control-ID:1063
-#, fuzzy
 msgid "Show linenumber&s"
-msgstr "Visualizar Números de Linhas"
+msgstr "Exibir linhas numerada&s"
 
 # ID:3713,
 #: ID:3713
@@ -4602,6 +4598,13 @@ msgid ""
 msgstr ""
 "Dividir a janela ativa em painéis\n"
 "Dividir"
+
+# ID:11,#:
+# Control-ID:1002,
+#: Control-ID:1263
+#, fuzzy
+msgid "Stacked"
+msgstr "bloqueado"
 
 # ID:74,#:
 # ID:77,
@@ -5280,9 +5283,8 @@ msgstr "TortoiseSVN : Importar"
 # ID:9,#:
 # ID:80,
 #: Dlg-ID:161
-#, fuzzy
 msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN"
+msgstr "TortoiseSVN : Entrada"
 
 # ID:80,
 #: Dlg-ID:191
@@ -5323,7 +5325,7 @@ msgstr "TortoiseSVN : Configurações "
 #: Dlg-ID:157
 #, fuzzy
 msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN"
+msgstr "TortoiseSVN : "
 
 # ID:9,#:
 # ID:80,
@@ -5583,9 +5585,8 @@ msgid "Unexpected file format."
 msgstr "Formato de arquivo inesperado."
 
 #: MenuEntry
-#, fuzzy
 msgid "Unified &diff of HEAD revisions"
-msgstr "&Comparação Unificada das Revisões Mais Recentes"
+msgstr "Comparação unifica&da das Revisões Mais Recentes"
 
 # ID:81,
 #: ID:81
@@ -5697,9 +5698,8 @@ msgstr "Use a URL \"De:\" (o intervalo de revisões é selecionável na caixa de
 
 # Control-ID:1066,
 #: Control-ID:1066
-#, fuzzy
 msgid "Use stri&keout for deleted lines"
-msgstr "Tachar as linhas deletadas"
+msgstr "Ta&char as linhas deletadas"
 
 # ID:251,
 #: ID:251
