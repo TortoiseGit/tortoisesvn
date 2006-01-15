@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-01-12 16:59+0800\n"
+"PO-Revision-Date: 2006-01-15 11:48+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -93,7 +93,7 @@ msgstr "愿望"
 
 #: source/TortoiseMerge_en.xml:87(para)
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
-msgstr ""
+msgstr "即使 TortoiseSVN 和 TortoiseMerge 是免费软件，你也可以通过发送一些补丁和积极参与开发来帮助开发者。 你还可以使我们在计算机前度过的那么多时间更愉快。"
 
 #: source/TortoiseMerge_en.xml:93(para)
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CD's and DVD's: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
@@ -153,19 +153,19 @@ msgstr "概述"
 
 #: source/TortoiseMerge_en.xml:181(para)
 msgid "TortoiseMerge is a free/open-source application. It lets you see differences in text files, merge those changes and even review and apply unified diff files, often called <firstterm>patches</firstterm>."
-msgstr ""
+msgstr "TortoiseMerge 是一个免费/开源软件。通过它你可以查看文本文件之间的不同，并合并这些不同；甚至审查和采用这些唯一差异文件——通常称之为 <firstterm>补丁</firstterm>."
 
 #: source/TortoiseMerge_en.xml:186(para)
 msgid "While working on text files, e.g. source files in your favourite programming language, or html/xml files for your documentation or website, you will often have a situation where you need to compare different versions of those files. Sometimes you get a different version from someone else, sometimes you just want to see the changes you've made."
-msgstr ""
+msgstr "当处理文本文件时，比如用你所喜欢的编程语言写的源代码，或者Html/Xml的文档或网站，你经常会碰到需要比较文件的不同版本的情况：有时候你从别人那里得到了一个不同版本的文件，或者有时候干脆就是你想知道你曾经做过什么修改。"
 
 #: source/TortoiseMerge_en.xml:194(para)
 msgid "If you're working with a version control system (e.g. Subversion) then you sometimes get <emphasis>conflicts</emphasis> when you update your working copy. This happens if someone else changed the same parts of the file you're currently working on as you did. Then you have to resolve those conflicts manually. This is where TortoiseMerge can help you."
-msgstr ""
+msgstr "如果你使用一个版本控制系统（如 Subversion ），当你更新工作副本时你可能会遇到“<emphasis>冲突</emphasis>”。这种情况通常发生在其他人也修改了你当前正在处理的文件的同一部分。当遇到冲突时，你必须手工来解决它——这就是 TortoiseMerge 能帮助你的地方。"
 
 #: source/TortoiseMerge_en.xml:202(para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
-msgstr ""
+msgstr "下图说明了存在冲突的文件之间的关系。"
 
 #: source/TortoiseMerge_en.xml:207(title)
 #: source/TortoiseMerge_en.xml:349(title)
@@ -174,7 +174,7 @@ msgstr "文件冲突"
 
 #: source/TortoiseMerge_en.xml:210(para)
 msgid "A conflict can also occur if you try to apply an outdated patchfile. In such cases, without TortoiseMerge, you would either have to ask the person you got that patchfile from for a current version or try to apply that patchfile manually."
-msgstr ""
+msgstr "冲突也可能出现在应用一个过时的补丁时。这种情况下，不能使用 TortoiseMerge，你要么向补丁提供者索取一个当前版本的补丁，要么手工的应用该补丁。"
 
 #: source/TortoiseMerge_en.xml:216(para)
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patchfile for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
