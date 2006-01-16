@@ -27,7 +27,7 @@ echo Total=!total! >> %LogFile%
 echo. >> %LogFile%
 echo Language : translated - fuzzy - untranslated - missing accelerator keys >> %LogFile%
 echo. >> %LogFile%
-echo Incomplete                     : tr - ut - fu - ma >> %Logfile%
+echo Incomplete                     : tr - fu - tr - ma >> %Logfile%
 
 echo.
 echo GUI Translation Status report for TortoiseSVN trunk ^(r!version:~0,4!^)
