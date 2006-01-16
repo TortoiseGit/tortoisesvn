@@ -463,7 +463,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 			CString sPatchLine = chunk->arLines.GetAt(j);
 			if ((m_UnicodeType != CFileTextLines::UTF8)&&(m_UnicodeType != CFileTextLines::UTF8BOM))
 			{
-				if ((PatchLines.GetUnicodeType()==CFileTextLines::UTF8)||(m_UnicodeType != CFileTextLines::UTF8BOM))
+				if ((PatchLines.GetUnicodeType()==CFileTextLines::UTF8)||(m_UnicodeType == CFileTextLines::UTF8BOM))
 				{
 					// convert the UTF-8 contents in CString sPatchLine into a CStringA
 					CStringA sPatchLineA;
