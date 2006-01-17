@@ -76,15 +76,15 @@
 				<include name="..\ext\svn-win32-libintl\bin\intl3_svn.dll" />
 				<include name="..\ext\berkeley-db\db4.3-win32\bin\libdb43.dll" />
 				<include name="..\ext\berkeley-db\db4.3-win32\bin\libdb43d.dll" />
-				<include name="..\apr\${configuration}\libapr.dll" />
-				<include name="..\apr-util\${configuration}\libaprutil.dll" />
-				<include name="..\apr-iconv\${configuration}\libapriconv.dll" />
+				<include name="..\apr\${configuration}_${platform}\libapr.dll" />
+				<include name="..\apr-util\${configuration}_${platform}\libaprutil.dll" />
+				<include name="..\apr-iconv\${configuration}_${platform}\libapriconv.dll" />
 			</fileset>
 		</copy>
 		<mkdir dir="..\bin\${configuration}\iconv" failonerror="false" />
 		<copy todir="..\bin\${configuration}\iconv" overwrite="true" failonerror="false">
 			<fileset>
-				<include name="..\ext\apr-iconv\${configuration}\iconv\*.so" />
+				<include name="..\ext\apr-iconv\${configuration}_${platform}\iconv\*.so" />
 			</fileset>
 		</copy>
 	</target>
