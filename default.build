@@ -48,8 +48,8 @@
 			<buildfiles>
 				<include name="doc/doc.build" />
 				<include name="src/TortoiseSVN.build" />
-				<include name="ext/OpenSSL.build" />
-				<include name="ext/Subversion.build" />
+				<include name="ext/build/OpenSSL.build" />
+				<include name="ext/build/default.build" />
 				<include name="Languages/LanguagePack.build" />
 			</buildfiles>
 		</nant>
@@ -85,12 +85,12 @@
 		</description>
 		<nant target="OpenSSL">
 			<buildfiles>
-				<include name="ext\OpenSSL.build" />
+				<include name="ext\build\OpenSSL.build" />
 			</buildfiles>
 		</nant>
-		<nant target="Subversion">
+		<nant target="build">
 			<buildfiles>
-				<include name="ext\Subversion.build" />
+				<include name="ext\build\default.build" />
 			</buildfiles>
 		</nant>
 	</target>

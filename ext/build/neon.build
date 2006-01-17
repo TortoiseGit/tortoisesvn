@@ -111,6 +111,9 @@
 			options='/NOLOGO /SUBSYSTEM:WINDOWS /MACHINE:X86'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
+				<include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" />
+				<include name="..\..\..\common\openssl\out32dll\libeay32.lib" />
+				<include name="..\..\..\common\openssl\out32dll\ssleay32.lib" />
 			</sources>
 		</lib>
 	</target>

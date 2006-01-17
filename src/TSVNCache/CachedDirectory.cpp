@@ -631,7 +631,8 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 	CacheEntryMap::iterator itMembers;
 	std::set<CTSVNPath> refreshedpaths;
 	DWORD now = GetTickCount();
-	
+	if (m_entryCache.size() == 0)
+		return;
 	for (itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{
 		if (itMembers->first)

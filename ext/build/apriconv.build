@@ -85,6 +85,10 @@
 
 	<target name="dll">
 		<mkdir dir="${configuration}_${platform}" />
+		<!-- patch apr-iconv to always load the *.so modules from
+		     the local installation path and only fall back to use
+		     the env variable APR_ICONV_PATH if necessary -->
+		<copy file="..\build\iconv_module.c" tofile="lib\iconv_module.c" overwrite="true" />
 		<loadfile file="include\api_version.h" property="versionfile" />
 		<regex pattern="#define API_MAJOR_VERSION( )+(?'API_MAJOR_VERSION'\d+)" input="${versionfile}" />
 		<regex pattern="#define API_MINOR_VERSION[ ]+(?'API_MINOR_VERSION'\d+)" input="${versionfile}" />
@@ -150,6 +154,10 @@
 			<arg value="-manifest" />
 			<arg value=".\${configuration}_${platform}\libapriconv.dll.intermediate.manifest" />
 			<arg value='/outputresource:".\${configuration}_${platform}\libapriconv.dll;#2"' />
+		</exec>
+		<exec program="svn" failonerror="false">
+			<arg value="revert" />
+			<arg value="lib\iconv_module.c" />
 		</exec>
 	</target>
 

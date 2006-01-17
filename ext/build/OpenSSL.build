@@ -2,61 +2,61 @@
 <project name="OpenSSL" default="OpenSSL">
 	<target name="clean">
 		<!-- to prevent 'nmake clean' to choke on userinput questions, give it our own del command -->
-		<echo file="..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
-		<exec program="nmake" workingdir="..\..\common\openssl" failonerror="false">
+		<echo file="..\..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
+		<exec program="nmake" workingdir="..\..\..\common\openssl" failonerror="false">
 			<arg value="-f" />
 			<arg value="ms\ntdll.mak" />
 			<arg value="clean" />
 		</exec>
 	</target>
 	<target name="OpenSSL">
-		<delete file="..\..\common\openssl\del.bat" if="${file::exists('..\..\common\openssl\del.bat')}" />
+		<delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
 		<if test="${platform == 'win32'}">
-			<exec program="perl" workingdir="..\..\common\openssl">
+			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
 				<arg value="VC-WIN32" />
 				<arg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
 				<arg value="-D_USE_32BIT_TIME_T" />
 			</exec>
-			<exec program="cmd" workingdir="..\..\common\openssl">
+			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />
 				<arg value="ms\do_masm" />
 			</exec>
-			<exec program="nmake" workingdir="..\..\common\openssl">
+			<exec program="nmake" workingdir="..\..\..\common\openssl">
 				<arg value="-f" />
 				<arg value="ms\ntdll.mak" />
 			</exec>
-			<exec program="mt" workingdir="..\..\common\openssl\out32dll">
+			<exec program="mt" workingdir="..\..\..\common\openssl\out32dll">
 				<arg value="-manifest" />
 				<arg value="ssleay32.dll.manifest" />
 				<arg value="-outputresource:ssleay32.dll;#2" />
 			</exec>
-			<exec program="mt" workingdir="..\..\common\openssl\out32dll">
+			<exec program="mt" workingdir="..\..\..\common\openssl\out32dll">
 				<arg value="-manifest" />
 				<arg value="libeay32.dll.manifest" />
 				<arg value="-outputresource:libeay32.dll;#2" />
 			</exec>
 		</if>
-		<if test="${platform == 'win64'}">
-			<exec program="perl" workingdir="..\..\common\openssl">
+		<if test="${platform == 'x64'}">
+			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
 				<arg value="VC-WIN64A" />
 				<arg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
 			</exec>
-			<exec program="cmd" workingdir="..\..\common\openssl">
+			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />
 				<arg value="ms\do_win64a" />
 			</exec>
-			<exec program="nmake" workingdir="..\..\common\openssl">
+			<exec program="nmake" workingdir="..\..\..\common\openssl">
 				<arg value="-f" />
 				<arg value="ms\ntdll.mak" />
 			</exec>
-			<exec program="mt" workingdir="..\..\common\openssl\out32dll">
+			<exec program="mt" workingdir="..\..\..\common\openssl\out32dll">
 				<arg value="-manifest" />
 				<arg value="ssleay32.dll.manifest" />
 				<arg value="-outputresource:ssleay32.dll;#2" />
 			</exec>
-			<exec program="mt" workingdir="..\..\common\openssl\out32dll">
+			<exec program="mt" workingdir="..\..\..\common\openssl\out32dll">
 				<arg value="-manifest" />
 				<arg value="libeay32.dll.manifest" />
 				<arg value="-outputresource:libeay32.dll;#2" />

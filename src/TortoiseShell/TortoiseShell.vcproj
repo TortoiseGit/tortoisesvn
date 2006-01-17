@@ -4,6 +4,7 @@
 	Version="8.00"
 	Name="TortoiseShell"
 	ProjectGUID="{E873DD32-5A31-4DE1-8341-A56A2A5489EA}"
+	RootNamespace="TortoiseShell"
 	>
 	<Platforms>
 		<Platform
@@ -78,7 +79,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="true"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_ra\libsvn_ra-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_client\libsvn_client-1.lib ../../ext/Subversion\Debug\subversion_netless\libsvn_delta\libsvn_delta-1.lib ../../ext/apr\Debug\libapr.lib ../../ext/apr-util\Debug\libaprutil.lib ../../ext/apr-iconv\Debug\libapriconv.lib ../../ext/apr-util\xml\expat\lib\LibD\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
+				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../ext/Subversion\debug_win32\libsvn_diff-nonet.lib ../../ext/Subversion\debug_win32\libsvn_ra-nonet.lib ../../ext/Subversion\debug_win32\libsvn_wc-nonet.lib ../../ext/Subversion\debug_win32\\libsvn_subr-nonet.lib ../../ext/Subversion\debug_win32\libsvn_client-nonet.lib ../../ext/Subversion\debug_win32\libsvn_delta-nonet.lib ../../ext/apr\debug_win32\libapr.lib ../../ext/apr-util\debug_win32\libaprutil.lib ../../ext/apr-iconv\debug_win32\libapriconv.lib ../../ext/apr-util\xml\expat\lib\debug_win32\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				OutputFile="$(OutDir)/TortoiseSVN.dll"
 				LinkIncremental="0"
 				SuppressStartupBanner="true"
@@ -183,7 +184,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="true"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../ext/Subversion\Release\subversion_netless\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_delta\libsvn_delta-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_client\libsvn_client-1.lib ../../ext/Subversion\Release\subversion_netless\libsvn_ra\libsvn_ra-1.lib ../../ext/apr\Release\libapr.lib ../../ext/apr-util\Release\libaprutil.lib ../../ext/apr-iconv\Release\libapriconv.lib ../../ext/apr-util\xml\expat\lib\LibR\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
+				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../ext/Subversion\release_win32\libsvn_diff-nonet.lib ../../ext/Subversion\release_win32\libsvn_delta-nonet.lib ../../ext/Subversion\release_win32\\libsvn_wc-nonet.lib ../../ext/Subversion\release_win32\\libsvn_subr-nonet.lib ../../ext/Subversion\release_win32\libsvn_client-nonet.lib ../../ext/Subversion\release_win32\libsvn_ra-nonet.lib ../../ext/apr\release_win32\libapr.lib ../../ext/apr-util\release_win32\libaprutil.lib ../../ext/apr-iconv\release_win32\libapriconv.lib ../../ext/apr-util\xml\expat\lib\release_win32\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				OutputFile="$(OutDir)/TortoiseSVN.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
