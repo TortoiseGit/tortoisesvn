@@ -873,8 +873,19 @@ bin\openssl req -config bin\openssl.cnf -new -out my-server.csr
 					You will be asked for a passphrase. Please don't use simple
 					words but whole sentences, e.g. a part of a poem. The
 					longer the phrase the better. Also you have to enter the
-					URL of you server. All other questions are optional but I
-					recommend to fill out those too. Next type the commands
+					URL of your server. All other questions are optional but we
+					recommend you fill those in too.
+				</para>
+				<para>
+					Normally the <filename>privkey.pem</filename> file is created
+					automatically, but if it isn't you need to type this command
+					to generate it:
+<screen>
+bin\openssl genrsa -out privkey.pem 2048
+</screen>
+				</para>
+				<para>
+					Next type the commands
 <screen>
 bin\openssl rsa -in privkey.pem -out my-server.key
 </screen>
