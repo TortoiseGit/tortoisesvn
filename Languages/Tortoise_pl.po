@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-11-16 15:46+0100\n"
-"Last-Translator: Piotr Kontek <piotr.kontek@gmail.com>\n"
+"PO-Revision-Date: 2006-01-16 16:25+0100\n"
+"Last-Translator: Michał Mielniczuk <mmielni@raks.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -264,12 +264,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Anuluj"
 
-# ID:3887,#:
-# ID:3887,
-#: Control-ID:1215
-msgid "&Check Now"
-msgstr "&Sprawdź teraz"
-
 # ID:8,
 #: ID:8
 msgid "&Clean up"
@@ -289,6 +283,11 @@ msgstr "&Porównaj wersje"
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "&Porównuj białe spacje"
+
+# ID:73,
+#: Control-ID:1239
+msgid "&Configure"
+msgstr "&Konfiguruj"
 
 # ID:9,
 #: Control-ID:1227
@@ -397,12 +396,13 @@ msgid "&Font:"
 msgstr "&Czcionka:"
 
 # Control-ID:65535,
+#: ID:501
 #: Control-ID:65535
 msgid "&From URL:"
 msgstr "&Z adresu URL:"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1259
 msgid "&From WC at URL:"
 msgstr "Z &kopii roboczej pod adresem URL:"
 
@@ -1149,11 +1149,6 @@ msgstr "Wszyskie pliki (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Wszystkie pliki (*.*)|*.*||"
 
-# ID:82,
-#: ID:82
-msgid "All files are already under version control. There's nothing to add!"
-msgstr "Wszystkie pliki są objete kontrolą wersji. Nie ma nic do dodania!"
-
 # ID:3867,#:
 # ID:3868,#:
 # ID:3868,
@@ -1372,8 +1367,8 @@ msgstr "Automatyczny"
 
 # ID:201,
 #: Control-ID:1073
-msgid "Automatically check for newer versions every week"
-msgstr "Automatycznie sprawdzaj czy są nowe wersje co tydzień"
+msgid "Automatically check for &newer versions every week"
+msgstr "Raz na tydzień automatycznie sprawdzaj czy są &nowe wersje"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1444,6 +1439,12 @@ msgstr "&ID błędu / Nr zgłoszenia:"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "ID błędu / Nr zgłoszenia:"
+
+# ID:3887,#:
+# ID:3887,
+#: Control-ID:1215
+msgid "C&heck now"
+msgstr "&Sprawdź teraz"
 
 # ID:101,
 #: ID:101
@@ -1627,8 +1628,8 @@ msgstr "Porządkuje przerwane operacje, zablokowane pliki, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear &Now"
-msgstr "Wyczyść &Teraz"
+msgid "Clear n&ow"
+msgstr "Wyczyść &teraz"
 
 # ID:195,
 #: ID:195
@@ -1696,6 +1697,11 @@ msgid "Commit"
 msgstr "Zatwierdź zmiany"
 
 # Control-ID:1110,
+#: Control-ID:1262
+msgid "Commit threshold:"
+msgstr "Próg zatwierdzania:"
+
+# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Zatwierdź zmiany w:"
@@ -1751,11 +1757,6 @@ msgstr "Kopiowanie %s do %s"
 #: ID:74
 msgid "Completed"
 msgstr "Zakończono"
-
-# ID:73,
-#: Control-ID:1239
-msgid "Configure"
-msgstr "Konfiguruj"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1883,11 +1884,11 @@ msgstr "Nie można sprawdzić, czy jest nowsza wersja!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nie można skopiować plików!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1942,11 +1943,11 @@ msgstr "Nie można zapisać pliku %s!"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nie można uruchomić przeglądarki plików różnicowych!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1954,11 +1955,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nie można uruchomić zewnętrznego programu do porównywania plików!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1966,11 +1967,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "Nie można uruchomić zewnętrznego programu do scalania plików!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:3857,#:
@@ -2378,11 +2379,6 @@ msgstr "Wyjątki:"
 msgid "Exclude paths:"
 msgstr "Pomiń ścieżki:"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Exclude/Ignore pattern:"
-msgstr "Pomiń / ignoruj pliki:"
-
 # ID:9,
 #: ID:209
 msgid "Explore to"
@@ -2626,6 +2622,11 @@ msgstr "Pobieranie informacji o logu..."
 msgid "Getting unified diff"
 msgstr "Pobieranie różnic..."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Global ignore &pattern:"
+msgstr "Ogólny &wzorzec pomijania:"
+
 # ID:2049,
 #: ID:2051
 msgid ""
@@ -2762,6 +2763,16 @@ msgstr ""
 "Jeśli właczone, TortoiseSVN ustawi czasy plików w oparciu\n"
 "o czas ostatniego zatwierdzenia zmian w tych plikach.\n"
 "Jeśli opcja jest wyłączona, TortoiseSVN użyje czasu bieżącego."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If set, files inside unversioned folders can be shown in the status control.\n"
+"The status control is used for example in the commit dialog."
+msgstr ""
+"Jeśli włączone, pliki znajdujące się w folderach nie objętych\n"
+"wersjonowaniem będą widoczne w kontrolerze statusu.\n"
+"Kontroler statusu jest używany m.in. w oknie zatwierdzania zmian."
 
 # ID:251,
 #: ID:251
@@ -3034,8 +3045,13 @@ msgstr "Wygląd i działanie::Kolory"
 
 # Dlg-ID:106,
 #: Dlg-ID:196
-msgid "Look and Feel::Dialogs"
-msgstr "Wygląd i działanie::Okna dialogowe"
+msgid "Look and Feel::Dialogs 1"
+msgstr "Wygląd i działanie::Okna dialogowe 1"
+
+# Dlg-ID:106,
+#: Dlg-ID:213
+msgid "Look and Feel::Dialogs 2"
+msgstr "Wygląd i działanie::Okna dialogowe 2"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3448,6 +3464,11 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Otwiera przeglądarkę repozytorium aby móc zarządzać repozytorium on-line."
 
+# ID:188,
+#: ID:245
+msgid "Others"
+msgstr "Innych"
+
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
@@ -3627,6 +3648,7 @@ msgstr "Proszę czekać na inicjalizację repozytorium..."
 
 # ID:119,
 #: ID:119
+#: ID:211
 msgid "Please wait..."
 msgstr "Proszę czekać..."
 
@@ -3726,6 +3748,11 @@ msgstr "&Wycofaj zmiany..."
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Przeczytaj 'Daily Use Guide' zamin rozpoczniesz na dobre..."
+
+# Control-ID:1073,
+#: Control-ID:1260
+msgid "Recurse into unversioned folders"
+msgstr "Rekurencja w folderach poza kontrolą wersji"
 
 # ID:3603,
 #: ID:3603
@@ -4346,8 +4373,8 @@ msgstr "&Adres serwera:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-msgid "Set filedates to the \"last commit time\""
-msgstr "Jako daty plików wstaw czas ostatniego zatwierdzenia zmian"
+msgid "Set filedates to the \"last commit &time\""
+msgstr "Ustaw daty plików w oparciu o \"&czas ostatniego zatwierdzenia zmian\""
 
 # ID:13,
 #: ID:13
@@ -4522,11 +4549,11 @@ msgstr "Pominięto brakujący obiekt docelowy"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should exclude from version control.\n"
+"should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
-"Wskaż pliki lub foldery które TortoiseSVN\n"
-"powinno wykluczyć z sytemu kontroli wersji.\n"
+"Wskaż pliki lub foldery, które TortoiseSVN\n"
+"powinno ignorować we <b>wszystkich<b> kopiach roboczych.\n"
 "Wzorce oddzielaj znakami spacji."
 
 # Control-ID:65535,
@@ -4543,6 +4570,12 @@ msgstr ""
 "Dzieli aktywne okno na panele\n"
 "Podziel"
 
+# ID:11,#:
+# Control-ID:1002,
+#: Control-ID:1263
+msgid "Stacked"
+msgstr "Spiętrzony"
+
 # ID:74,#:
 # ID:77,#:
 # ID:207,
@@ -4556,6 +4589,7 @@ msgstr "Statystyka"
 #: ID:74
 #: ID:77
 #: ID:207
+#: Control-ID:65535
 msgid "Status"
 msgstr "Stan"
 
@@ -4593,13 +4627,13 @@ msgstr "Subversion"
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:65535
-msgid "Subversion authentication data:"
-msgstr "&Parametry uwierzytelnienia Subversion:"
+msgid "Subversion &authentication data:"
+msgstr "Dane &uwierzytelnienia Subversion:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Subversion configuration file:"
-msgstr "Plik konfiguracyjny Subversion:"
+msgid "Subversion configuration &file:"
+msgstr "&Plik konfiguracyjny Subversion:"
 
 # ID:79,
 #: ID:79
@@ -4615,11 +4649,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 msgstr ""
 "System Subversion zwrócił błąd w trakcie operacji porządkowania!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # Control-ID:65535,
@@ -4689,8 +4723,8 @@ msgstr "Przełącz kopię roboczą na inne rozgałęzienie / obraz"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "System Sounds"
-msgstr "Dźwięki systemowe"
+msgid "System &sounds"
+msgstr "&Dźwięki systemowe"
 
 # ID:3857,#:
 # ID:3857,
@@ -5007,6 +5041,11 @@ msgstr ""
 "Zaleca się, by przed zapisaniem pliku rozwiązać wszystkie konflikty.\n"
 "Czy na pewno chcesz zapisać plik z nierozwiązanymi konfliktami?\n"
 "Jeśli klikniesz TAK, to konflikty trzeba będzie rozwiązać ręcznie za pomocą innego edytora!"
+
+# ID:82,
+#: ID:82
+msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
+msgstr "Brak elementów do dodania. Albo wszystkie pliki lub foldery są już objęte kontrolą wersji, albo zostały zignorowane z użyciem właściwości svn:ignore lub globalnego ustawienia konfiguracyjnego do ignorowania plików."
 
 # ID:188,
 #: ID:188
@@ -6078,6 +6117,11 @@ msgstr ""
 #: ID:13
 msgid "external"
 msgstr "zewnętrzny"
+
+# ID:211,
+#: ID:211
+msgid "file list is empty"
+msgstr "lista plików jest pusta"
 
 # ID:13,
 #: ID:13
