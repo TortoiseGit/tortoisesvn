@@ -40,6 +40,10 @@
 					<para>
 						If checked, TortoiseSVN will contact its download site once a week 
 						to see if there is a newer version of the program available.
+						Use <guibutton>Check now</guibutton> if you want an answer
+						right away. The new version will not be downloaded; you
+						simply receive an information dialog telling you that the
+						new version is available.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -67,12 +71,12 @@
 						</itemizedlist>
 						You can select different sounds (or turn these sounds
 						off completely) using the Windows Control Panel.
-						This button is a shortcut to the Control Panel.
+						<guibutton>Configure</guibutton> is a shortcut to the Control Panel.
 					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>Exclude/Ignore pattern</term>
+				<term>Global ignore pattern</term>
 				<listitem>
 					<indexterm>
 						<primary>exclude pattern</primary>
@@ -81,10 +85,10 @@
 						<primary>global ignore</primary>
 					</indexterm>
 					<para>
-						Exclude patterns are used to prevent unversioned files from
+						Global ignore patterns are used to prevent unversioned files from
 						showing up e.g. in the commit dialog. Files matching the
 						patterns are also ignored by an import.
-						Exclude files or directories by typing in the names or extensions.
+						Ignore files or directories by typing in the names or extensions.
 						Patterns are separated by spaces e.g.
 						<literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
 						The first two entries refer to directories, the 
@@ -93,7 +97,7 @@
 						<xref linkend="tsvn-DUG-ignore-glob"/> for more information.
 					</para>
 					<para>
-						Note that the exclude patterns you specify here will also
+						Note that the ignore patterns you specify here will also
 						affect other Subversion clients running on your PC, including
 						the command line client.
 					</para>
@@ -101,13 +105,13 @@
 						<para>
 						If you use the Subversion configuration file to set
 						a <literal>global-ignores</literal> pattern, it will
-						override the settings you made here. The Subversion
+						override the settings you make here. The Subversion
 						configuration file is accessed using the
 						<guibutton>Edit</guibutton> as described below.
 						</para>
 					</caution>
 					<para>
-						This exclude pattern will affect all your projects.
+						This ignore pattern will affect all your projects.
 						It is not versioned, so it will not affect other users.
 						By contrast you can also use the versioned
 						<literal>svn:ignore</literal> property to exclude
@@ -134,10 +138,11 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>Edit...</term>
+				<term>Subversion configuration file</term>
 				<listitem>
 					<para>
-						... the Subversion configuration file directly.
+						Use <guibutton>Edit</guibutton> to edit the
+						Subversion configuration file directly.
 						Some settings cannot be modified directly by
 						TortoiseSVN, and need to be set here instead.
 						For more information about the Subversion
@@ -160,13 +165,13 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>Clear Auth Cache</term>
+				<term>Subversion authentication data</term>
 				<listitem>
 					<para>
 						When you authenticate with a subversion server, the username
 						and password are cached locally so you don't have to keep
 						entering them. To clear everything from that cache,
-						use this button.
+						use <guibutton>Clear now</guibutton>.
 					</para>
 					<para>
 						If you want to clear auth data for one particular server only,
@@ -207,6 +212,15 @@
 			for an <literal>Added</literal> folder, which will not work because
 			the folder is not yet in the repository.
 		</para>
+		<para>
+			If you like to use keyboard shortcuts instead of mouseclicks,
+			you may want to use the
+			<guilabel>Enable accelerators on the top level menu</guilabel>
+			checkbox. This activates the accelerators for TortoiseSVN commands,
+			but of course these may conflict with the accelerators for anything
+			else in the explorer context menu. Pressing the shortcut key
+			multiple times will cycle through the matching context menu items.
+		</para>
 		<sect3 id="tsvn-DUG-settings-overlay">
 			<title>Icon Overlay Settings</title>
 			<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
@@ -219,6 +233,11 @@
 				display icon overlays. Network drives can be very slow, so by default
 				icons are not shown for working copies located on network shares.
 				You can even disable all icon overlays, but where's the fun in that?
+			</para>
+			<para>
+				USB Flash drives appear to be a special case in that the drive type
+				is identified by the device itself. Some appear as fixed drives,
+				and some as removable drives.
 			</para>
 			<para>
 				By default, overlay icons will appear in all open/save dialogs
@@ -240,15 +259,16 @@
 				that folder status is shown only for the folder itself.
 			</para>
 			<para>
-				The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which
-				paths <emphasis>not</emphasis> to show icon overlays and status columns.
+				The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN
+				those paths for which it should <emphasis>not</emphasis> show icon
+				overlays and status columns.
 				This is useful if you have some very big working copies containing
 				only libraries which you won't change at all and therefore don't
 				need the overlays. For example:
 			</para>
 			<para>
 				<filename>f:\development\SVN\Subversion</filename> will disable
-				the overlays on <emphasis>only</emphasis> that specific folder. You
+				the overlays <emphasis>only</emphasis> on that specific folder. You
 				still can see the overlays on all files and folder inside that folder.
 			</para>
 			<para>
