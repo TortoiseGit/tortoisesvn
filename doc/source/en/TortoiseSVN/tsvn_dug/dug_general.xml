@@ -51,10 +51,40 @@
 			</figure>
 			Enter your username and password. The checkbox will make TortoiseSVN
 			store the credentials in Subversion's default directory: 
-			<filename>$APPDATA\Subversion\auth</filename>. One file for each
-			server that you access. If you want to make Subversion and
-			TortoiseSVN forget your credentials, you have to delete the
-			corresponding file(s).
+			<filename>$APPDATA\Subversion\auth</filename> in three subdirectories:
+			<itemizedlist>
+				<listitem>
+					<para>
+						<filename>svn.simple</filename> contains credentials
+						for basic authentication (username/password).
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<filename>svn.ssl.server</filename> contains
+						SSL server certificates.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<filename>svn.username</filename> contains credentials
+						for username-only authentication (no password needed).
+					</para>
+				</listitem>
+			</itemizedlist>
+			There is one file for each server that you access, formatted as
+			plain text, so you can use a text editor to check which server
+			it applies to. If you want to make Subversion and TortoiseSVN
+			(and any other Subversion client) forget your credentials for
+			a particular server, you have to delete the corresponding file.
+		</para>
+		<para>
+			If you want to clear the authentication cache for <emphasis>all</emphasis>
+			servers, you can do so from the <guilabel>General</guilabel> page
+			of TortoiseSVN's settings dialog. That button will clear all cached
+			auth data from the Subversion auth directories, as well as any auth
+			data stored in the registry by earlier versions of TortoiseSVN.
+			Refer to <xref linkend="tsvn-DUG-settings-main"/>.
 		</para>
 		<para>
 			For more information on how to set up your server for
