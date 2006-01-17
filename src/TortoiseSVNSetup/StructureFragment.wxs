@@ -160,9 +160,9 @@
 						</Component>
 
 						<Component Id="C__apr" Guid="A1388B55-1EC3-4199-9EF7-72DDA13F164A" >
-							<File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\ext\apr\Release\libapr.dll" KeyPath="yes" />
-							<File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\ext\apr-util\Release\libaprutil.dll" />
-							<File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\ext\apr-iconv\Release\libapriconv.dll" />
+							<File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\ext\apr\release_win32\libapr.dll" KeyPath="yes" />
+							<File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\ext\apr-util\release_win32\libaprutil.dll" />
+							<File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\ext\apr-iconv\release_win32\libapriconv.dll" />
 						</Component>
 
 						<Component Id="C__gettext" Guid="A0CCA4FD-553C-465f-8E73-1BE7B3AFB83D" >
