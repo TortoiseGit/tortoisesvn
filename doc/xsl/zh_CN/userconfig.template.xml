@@ -60,32 +60,19 @@ fontBaseDir: Similar to baseDir, except that this value is used for fonts. If
 -->
 
 <fonts>
- <!-- example -->
- <!--
- <font metrics-file="arial.xml" kerning="yes" embed-file="arial.ttf">
-    <font-triplet name="Arial" style="normal" weight="normal"/>
-    <font-triplet name="ArialMT" style="normal" weight="normal"/>
- </font>
- <font metrics-file="arialb.xml" kerning="yes" embed-file="arialb.ttf">
-    <font-triplet name="Arial" style="normal" weight="bold"/>
-    <font-triplet name="ArialMT" style="normal" weight="bold"/>
- </font>
- <font metrics-file="ariali.xml" kerning="yes" embed-file="ariali.ttf">
-    <font-triplet name="Arial" style="italic" weight="normal"/>
-    <font-triplet name="ArialMT" style="italic" weight="normal"/>
- </font>
- <font metrics-file="arialbi.xml" kerning="yes" embed-file="arialbi.ttf">
-    <font-triplet name="Arial" style="italic" weight="bold"/>
-    <font-triplet name="ArialMT" style="italic" weight="bold"/>
- </font>
- -->
  <!-- Example Chinese fonts -->
- <font metrics-file="..\..\xsl\zh_CN\simhei.xml" embed-file="C:\windows\Fonts\simhei.ttf" kerning="yes">
-    <font-triplet name="SimHei" style="normal" weight="normal"/>
-    <font-triplet name="SimHei" style="normal" weight="bold"/>
-    <font-triplet name="SimHei" style="italic" weight="normal"/>
-    <font-triplet name="SimHei" style="italic" weight="bold"/>
-   </font>
+ <font metrics-file="..\..\xsl\zh_CN\simhei.xml" embed-file="c:\windows\fonts\simhei.ttf" kerning="yes">
+    <font-triplet name="simhei" style="normal" weight="normal"/>
+    <font-triplet name="simhei" style="normal" weight="bold"/>
+    <font-triplet name="simhei" style="italic" weight="normal"/>
+    <font-triplet name="simhei" style="italic" weight="bold"/>
+ </font>
+ <font metrics-file="..\..\xsl\zh_CN\simsun.xml" embed-file="c:\windows\fonts\simsun.ttc" kerning="yes">
+    <font-triplet name="simsun" style="normal" weight="normal"/> 
+    <font-triplet name="simsun" style="normal" weight="bold"/> 
+    <font-triplet name="simsun" style="italic" weight="normal"/> 
+    <font-triplet name="simsun" style="italic" weight="bold"/> 
+ </font> 
 </fonts>
 
 

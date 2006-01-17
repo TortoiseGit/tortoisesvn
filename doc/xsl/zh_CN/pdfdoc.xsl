@@ -5,9 +5,9 @@
  
 <xsl:import href="../pdfdoc.xsl"/> 
 
-<xsl:param name="body.font.family" select="'SimHei'"></xsl:param> 
-<xsl:param name="monospace.font.family" select="'SimHei'"></xsl:param> 
-<xsl:param name="title.font.family" select="'SimHei'"></xsl:param> 
+<xsl:param name="body.font.family" select="'simsun'"></xsl:param> 
+<xsl:param name="monospace.font.family" select="'simsun'"></xsl:param> 
+<xsl:param name="title.font.family" select="'simhei'"></xsl:param> 
 
 <xsl:template match="menuchoice">
   <fo:inline font-family="Gothic">
