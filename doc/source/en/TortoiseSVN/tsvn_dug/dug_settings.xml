@@ -213,13 +213,40 @@
 			the folder is not yet in the repository.
 		</para>
 		<para>
-			If you like to use keyboard shortcuts instead of mouseclicks,
-			you may want to use the
-			<guilabel>Enable accelerators on the top level menu</guilabel>
-			checkbox. This activates the accelerators for TortoiseSVN commands,
-			but of course these may conflict with the accelerators for anything
-			else in the explorer context menu. Pressing the shortcut key
-			multiple times will cycle through the matching context menu items.
+			The option <guilabel>Enable accelerators on the top level menu</guilabel>
+			has three states:
+			<variablelist>
+				<varlistentry>
+					<term>Unchecked (default)</term>
+					<listitem>
+						<para>
+							In this state the menu items are all drawn by TortoiseSVN. No
+							accelerator keys are shown.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Checked</term>
+					<listitem>
+						<para>
+							This activates the accelerators for TortoiseSVN commands,
+							but of course these may conflict with the accelerators for anything
+							else in the explorer context menu. Pressing the shortcut key
+							multiple times will cycle through the matching context menu items.
+							In this state, the menu items are drawn by Windows which makes
+							the icons look ugly.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Indeterminate</term>
+					<listitem>
+						<para>In this mode the accelerator keys are active and the menu items
+						are drawn in text only mode without icons.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
 		</para>
 		<sect3 id="tsvn-DUG-settings-overlay">
 			<title>Icon Overlay Settings</title>
