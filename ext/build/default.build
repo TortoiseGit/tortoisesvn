@@ -1,19 +1,5 @@
 <?xml version="1.0"?>
 <project name="SubversionLib" default="build">
-	<!-- default configuration is release -->
-	<property name="configuration" value="release" />
-	<!-- default build for win32 platform -->
-	<property name="platform" value="win32" />
-
-<!-- ====================================================================== -->
-<!-- Configuration targets													-->
-<!-- ====================================================================== -->
-	<target name="debug">
-		<description>
-			Sets the environment up to build the debug versions.
-		</description>
-		<property name="configuration" value="debug" />
-	</target>
 
 <!-- ====================================================================== -->
 <!-- Project targets														-->

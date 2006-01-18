@@ -87,6 +87,7 @@
 			<defines>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="_USE_32BIT_TIME_T" />
 				<define name="HAVE_CONFIG_H" />
 				<define name="NE_HAVE_SSL" />
 				<define name="HAVE_OPENSSL" />

@@ -76,6 +76,7 @@
 					<defines>
 						<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 						<define name="_CRT_SECURE_NO_DEPRECATE" />
+						<define name="_USE_32BIT_TIME_T" />
 						<define name="APU_HAVE_DB=1" />
 						<define name="ENABLE_NLS" />
 						<define name="SVN_NEON_0_25=1" />
@@ -141,6 +142,7 @@
 					<defines>
 						<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 						<define name="_CRT_SECURE_NO_DEPRECATE" />
+						<define name="_USE_32BIT_TIME_T" />
 						<define name="APU_HAVE_DB=1" />
 						<define name="ENABLE_NLS" />
 						<define name="SVN_NEON_0_25=1" />
@@ -196,6 +198,7 @@
 			<defines>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="_USE_32BIT_TIME_T" />
 				<define name="APU_HAVE_DB=1" />
 				<define name="ENABLE_NLS" />
 				<define name="SVN_NEON_0_25=1" />
