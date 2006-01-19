@@ -409,7 +409,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 	}
 	else
 	{
-		if (m_entryCache.find(GetCacheKey(path))!=m_entryCache.end())
+		if ((pSVNStatus)&&(m_entryCache.find(GetCacheKey(path))!=m_entryCache.end()))
 		{
 			CStatusCacheEntry oldentry = m_entryCache[GetCacheKey(path)];
 			if ((oldentry.GetEffectiveStatus() > svn_wc_status_unversioned)&&
