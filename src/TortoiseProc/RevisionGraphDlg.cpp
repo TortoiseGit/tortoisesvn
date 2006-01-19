@@ -1738,6 +1738,8 @@ void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		if (m_SelectedEntry1 == NULL)
+			return;
 		switch (cmd)
 		{
 		case ID_COMPAREREVS:
