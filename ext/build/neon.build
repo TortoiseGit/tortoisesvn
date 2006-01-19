@@ -87,7 +87,7 @@
 			<defines>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
-				<define name="_USE_32BIT_TIME_T" />
+				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="HAVE_CONFIG_H" />
 				<define name="NE_HAVE_SSL" />
 				<define name="HAVE_OPENSSL" />
@@ -98,6 +98,7 @@
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
+				<define name="WIN64" if="${platform == 'x64'}" />
 				<define name="NDEBUG" if="${configuration == 'release'}"/>
 				<define name="_DEBUG" if="${configuration != 'release'}"/>
 				<define name="WIN32_LEAN_AND_MEAN" />
@@ -107,9 +108,11 @@
 				<define name="NOCRYPT" />
 			</defines>
 		</cl>
+		<property name="machineoption" value="/MACHINE:X86" />
+		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<lib 
 			output="${configuration}_${platform}\libneon.lib" 
-			options='/NOLOGO /SUBSYSTEM:WINDOWS /MACHINE:X86'>
+			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 				<include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" />

@@ -19,7 +19,7 @@
 		</loadfile>
 		<echo file="VersionNumberInclude.wxi" message="${versionwixfile}" />
 		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
-		<property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-svn-1.3.0" />
+		<property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-svn-1.3.0" />
 	</target>
 
 	<target name="setup" depends="versioninfo">
@@ -42,6 +42,16 @@
 		<if test="${file::exists('..\..\MYBUILD')}">
 			<setenv>
 				<variable name="IncludeCrashReportDll" value="1" />
+			</setenv>
+		</if>
+		<if test="${platform == 'x64'}">
+			<setenv>
+				<variable name="Platform" value="x64" />
+			</setenv>
+		</if>
+		<if test="${platform != 'x64'}">
+			<setenv>
+				<variable name="Platform" value="win32" />
 			</setenv>
 		</if>
 		

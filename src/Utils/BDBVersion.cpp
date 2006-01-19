@@ -19,7 +19,7 @@
 #include "BDBVersion.h"
 
 #ifdef _WIN64
-#include "..\..\ext\berkeley-db\db4.3-win64\include\db.h"
+#include "..\..\ext\berkeley-db\db4.3-x64\include\db.h"
 #else
 #include "..\..\ext\berkeley-db\db4.3-win32\include\db.h"
 #endif

@@ -32,6 +32,8 @@
 			</filterchain>
 		</loadfile>
 		<echo file="subversion\svn_private_config.h" message="${configfile}" />
+		<property name="machineoption" value="/MACHINE:X86" />
+		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<foreach item="Folder" property="foldername">
 			<in>
 				<items>
@@ -76,7 +78,7 @@
 					<defines>
 						<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 						<define name="_CRT_SECURE_NO_DEPRECATE" />
-						<define name="_USE_32BIT_TIME_T" />
+						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 						<define name="APU_HAVE_DB=1" />
 						<define name="ENABLE_NLS" />
 						<define name="SVN_NEON_0_25=1" />
@@ -85,13 +87,14 @@
 						<define name="WIN32" />
 						<define name="_WINDOWS" />
 						<define name="_WIN32" />
+						<define name="WIN64" if="${platform == 'x64'}" />
 						<define name="NDEBUG" if="${configuration == 'release'}"/>
 						<define name="_DEBUG" if="${configuration != 'release'}"/>
 					</defines>
 				</cl>
 				<lib 
 					output="${configuration}_${platform}\${fname}-nonet.lib" 
-					options='/NOLOGO /SUBSYSTEM:WINDOWS /MACHINE:X86'>
+					options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 					<sources>
 						<include name="${configuration}_${platform}\${fname}-nonet\**.obj" />
 					</sources>
@@ -142,7 +145,7 @@
 					<defines>
 						<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 						<define name="_CRT_SECURE_NO_DEPRECATE" />
-						<define name="_USE_32BIT_TIME_T" />
+						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 						<define name="APU_HAVE_DB=1" />
 						<define name="ENABLE_NLS" />
 						<define name="SVN_NEON_0_25=1" />
@@ -151,13 +154,14 @@
 						<define name="WIN32" />
 						<define name="_WINDOWS" />
 						<define name="_WIN32" />
+						<define name="WIN64" if="${platform == 'x64'}" />
 						<define name="NDEBUG" if="${configuration == 'release'}"/>
 						<define name="_DEBUG" if="${configuration != 'release'}"/>
 					</defines>
 				</cl>
 				<lib 
 					output="${configuration}_${platform}\${fname}.lib" 
-					options='/NOLOGO /SUBSYSTEM:WINDOWS /MACHINE:X86'>
+					options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 					<sources>
 						<include name="${configuration}_${platform}\${fname}\**.obj" />
 					</sources>
@@ -192,13 +196,14 @@
 				<include name="..\apr-util\include" />
 				<include name="..\apr-util\xml\expat\lib" />
 				<include name="..\svn-win32-libintl\inc" />
-				<include name="..\berkeley-db\db4.3-win32\include" />
+				<include name="..\berkeley-db\db4.3-win32\include" if="${platform == 'win32'}" />
+				<include name="..\berkeley-db\db4.3-x64\include" if="${platform == 'x64'}" />
 				<include name="..\neon\src" />
 			</includedirs>
 			<defines>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
-				<define name="_USE_32BIT_TIME_T" />
+				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APU_HAVE_DB=1" />
 				<define name="ENABLE_NLS" />
 				<define name="SVN_NEON_0_25=1" />
@@ -207,6 +212,7 @@
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
+				<define name="WIN64" if="${platform == 'x64'}" />
 				<define name="NDEBUG" if="${configuration == 'release'}"/>
 				<define name="_DEBUG" if="${configuration != 'release'}"/>
 			</defines>
@@ -216,9 +222,11 @@
 		<if test="${configuration == 'debug'}">
 			<property name="confletter" value="D" />
 		</if>
+		<property name="bdbpath" value="..\berkeley-db\db4.3-win32" />
+		<property name="bdbpath" value="..\berkeley-db\db4.3-x64" if="${platform == 'x64'}" />
 		<link 
 			output="${configuration}_${platform}\svn.exe" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\svn.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/svn.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}_${platform}\libsvn_client.lib ${configuration}_${platform}\libsvn_delta.lib ${configuration}_${platform}\libsvn_diff.lib ${configuration}_${platform}\libsvn_fs.lib ${configuration}_${platform}\libsvn_fs_base.lib ${configuration}_${platform}\libsvn_fs_fs.lib ${configuration}_${platform}\libsvn_ra.lib ${configuration}_${platform}\libsvn_ra_dav.lib ${configuration}_${platform}\libsvn_ra_local.lib ${configuration}_${platform}\libsvn_ra_svn.lib ${configuration}_${platform}\libsvn_repos.lib ${configuration}_${platform}\libsvn_subr.lib ${configuration}_${platform}\libsvn_wc.lib ..\apr\${configuration}_${platform}\libapr.lib ..\apr-util\${configuration}_${platform}\libaprutil.lib ..\berkeley-db\db4.3-win32\lib\libdb43${confletter}.lib ..\neon\${configuration}_${platform}\libneon.lib ..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32dll\libeay32.lib ..\..\..\common\openssl\out32dll\ssleay32.lib ..\svn-win32-libintl\lib\intl3_svn.lib ..\apr-util\xml\expat\lib\${configuration}_${platform}\xml.lib /MACHINE:X86 ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib shell32.lib'>
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\svn.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/svn.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}_${platform}\libsvn_client.lib ${configuration}_${platform}\libsvn_delta.lib ${configuration}_${platform}\libsvn_diff.lib ${configuration}_${platform}\libsvn_fs.lib ${configuration}_${platform}\libsvn_fs_base.lib ${configuration}_${platform}\libsvn_fs_fs.lib ${configuration}_${platform}\libsvn_ra.lib ${configuration}_${platform}\libsvn_ra_dav.lib ${configuration}_${platform}\libsvn_ra_local.lib ${configuration}_${platform}\libsvn_ra_svn.lib ${configuration}_${platform}\libsvn_repos.lib ${configuration}_${platform}\libsvn_subr.lib ${configuration}_${platform}\libsvn_wc.lib ..\apr\${configuration}_${platform}\libapr.lib ..\apr-util\${configuration}_${platform}\libaprutil.lib ${bdbpath}\lib\libdb43${confletter}.lib ..\neon\${configuration}_${platform}\libneon.lib ..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32dll\libeay32.lib ..\..\..\common\openssl\out32dll\ssleay32.lib ..\svn-${platform}-libintl\lib\intl3_svn.lib ..\apr-util\xml\expat\lib\${configuration}_${platform}\xml.lib ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib shell32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\svn\*.obj" />
 			</sources>

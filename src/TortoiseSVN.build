@@ -16,7 +16,7 @@
 		<exec program="devenv.com" >
 			<arg value="TortoiseSVN.sln" />
 			<arg value="/clean" />
-			<arg value="${configuration}" />
+			<arg value="${configuration}|${platform}" />
 		</exec>
 	</target>
 
@@ -25,9 +25,11 @@
 			<arg value="-f" />
 			<arg value="scintilla.mak" />
 		</exec>
+		<property name="platformfoldername" value="" />
+		<property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
 		<copy
 			file="utils\scintilla\bin\SciLexer.dll"
-			tofile="..\bin\${configuration}\bin\SciLexer.dll"
+			tofile="..\bin\${configuration}${platformfoldername}\bin\SciLexer.dll"
 			overwrite="true"
 		/>
         <delete>
@@ -67,22 +69,24 @@
 		<exec program="devenv.com" >
 			<arg value="TortoiseSVN.sln" />
 			<arg value="/rebuild" />
-			<arg value="${configuration}" />
+			<arg value="${configuration}|${platform}" />
 		</exec>
-		<copy todir="..\bin\${configuration}\bin" overwrite="true" flatten="true" failonerror="false">
+		<property name="platformfoldername" value="" />
+		<property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
+		<copy todir="..\bin\${configuration}${platformfoldername}\bin" overwrite="true" flatten="true" failonerror="false">
 			<fileset>
 				<include name="TortoiseSVNSetup\include\autolist.txt" />
 				<include name="..\..\common\openssl\out32dll\*.dll" />
-				<include name="..\ext\svn-win32-libintl\bin\intl3_svn.dll" />
-				<include name="..\ext\berkeley-db\db4.3-win32\bin\libdb43.dll" />
-				<include name="..\ext\berkeley-db\db4.3-win32\bin\libdb43d.dll" />
+				<include name="..\ext\svn-${platform}-libintl\bin\intl3_svn.dll" />
+				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43.dll" />
+				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43d.dll" />
 				<include name="..\apr\${configuration}_${platform}\libapr.dll" />
 				<include name="..\apr-util\${configuration}_${platform}\libaprutil.dll" />
 				<include name="..\apr-iconv\${configuration}_${platform}\libapriconv.dll" />
 			</fileset>
 		</copy>
-		<mkdir dir="..\bin\${configuration}\iconv" failonerror="false" />
-		<copy todir="..\bin\${configuration}\iconv" overwrite="true" failonerror="false">
+		<mkdir dir="..\bin\${configuration}${platformfoldername}\iconv" failonerror="false" />
+		<copy todir="..\bin\${configuration}${platformfoldername}\iconv" overwrite="true" failonerror="false">
 			<fileset>
 				<include name="..\ext\apr-iconv\${configuration}_${platform}\iconv\*.so" />
 			</fileset>

@@ -92,19 +92,22 @@
 			<defines>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
-				<define name="_USE_32BIT_TIME_T" />
+				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APR_DECLARE_EXPORT" />
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
+				<define name="WIN64" if="${platform == 'x64'}" />
 				<define name="_WINDLL" />
 				<define name="NDEBUG" if="${configuration == 'release'}"/>
 				<define name="_DEBUG" if="${configuration != 'release'}"/>
 			</defines>
 		</cl>
+		<property name="machineoption" value="/MACHINE:X86" />
+		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<link 
 			output="${configuration}_${platform}\libapr.dll" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr.lib" /MACHINE:X86 ${configuration}_${platform}\libapr.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr.lib" ${machineoption} ${configuration}_${platform}\libapr.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 			</sources>

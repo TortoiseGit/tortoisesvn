@@ -6,12 +6,23 @@
 			<Directory Id="D__ProgramFilesFolder" Name="PFiles" LongName="Program Files">
 				<Directory Id="INSTALLDIR" Name="TSVN" LongName="TortoiseSVN">
 
-					<Merge Id='CRT' Language='0' src='$(env.MergeModules)\microsoft_vc80_crt_x86.msm' DiskId='1' />
-					<Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86.msm' DiskId='1' />
-					<Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
-					<Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
-					<Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
-					<Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+					<?if $(env.Platform) = "win32" ?>
+						<Merge Id='CRT' Language='0' src='$(env.MergeModules)\microsoft_vc80_crt_x86.msm' DiskId='1' />
+						<Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86.msm' DiskId='1' />
+						<Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+						<Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+						<Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+						<Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+					<?endif ?>
+
+					<?if $(env.Platform) = "x64" ?>
+						<Merge Id='CRT' Language='0' src='$(env.MergeModules)\Microsoft_VC80_CRT_x86_x64.msm' DiskId='1' />
+						<Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86_x64.msm' DiskId='1' />
+						<Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86_x64.msm' DiskId='1' />
+						<Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86_x64.msm' DiskId='1' />
+						<Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86_x64.msm' DiskId='1' />
+						<Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86_x64.msm' DiskId='1' />
+					<?endif ?>
 
 					<Component Id="C__infofiles" Guid="625A2E1E-90D3-4107-8AE8-C5C37975FEA0" >
 						<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
@@ -156,24 +167,43 @@
 						</Component>
 
 						<Component Id="C__berkeleydb" Guid="DFD268E2-1B3B-4341-9243-E028E1416040" >
-							<File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-win32\bin\libdb43.dll" KeyPath="yes" />
+							<?if $(env.Platform) = "win32" ?>
+								<File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-win32\bin\libdb43.dll" KeyPath="yes" />
+							<?endif ?>
+							<?if $(env.Platform) = "x64" ?>
+								<File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-x64\bin\libdb43.dll" KeyPath="yes" />
+							<?endif ?>
 						</Component>
 
 						<Component Id="C__apr" Guid="A1388B55-1EC3-4199-9EF7-72DDA13F164A" >
-							<File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\ext\apr\release_win32\libapr.dll" KeyPath="yes" />
-							<File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\ext\apr-util\release_win32\libaprutil.dll" />
-							<File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\ext\apr-iconv\release_win32\libapriconv.dll" />
+							<?if $(env.Platform) = "win32" ?>
+								<File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\ext\apr\release_win32\libapr.dll" KeyPath="yes" />
+								<File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\ext\apr-util\release_win32\libaprutil.dll" />
+								<File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\ext\apr-iconv\release_win32\libapriconv.dll" />
+							<?endif ?>
+							<?if $(env.Platform) = "x64" ?>
+								<File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\ext\apr\release_x64\libapr.dll" KeyPath="yes" />
+								<File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\ext\apr-util\release_x64\libaprutil.dll" />
+								<File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\ext\apr-iconv\release_x64\libapriconv.dll" />
+							<?endif ?>
 						</Component>
 
 						<Component Id="C__gettext" Guid="A0CCA4FD-553C-465f-8E73-1BE7B3AFB83D" >
-							<File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-win32-libintl\bin\intl3_svn.dll" KeyPath="yes" />
+							<?if $(env.Platform) = "win32" ?>
+								<File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-win32-libintl\bin\intl3_svn.dll" KeyPath="yes" />
+							<?endif ?>
+							<?if $(env.Platform) = "x64" ?>
+								<File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-x64-libintl\bin\intl3_svn.dll" KeyPath="yes" />
+							<?endif ?>
 						</Component>
 
-						<?if $(env.IncludeCrashReportDll) = 1 ?>
-						<Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
-							<File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="include\dbghelp.dll" />
-							<File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\release\bin\CrashRpt.dll" KeyPath="yes" />
-						</Component>
+						<?if $(env.Platform) = "win32" ?>
+							<?if $(env.IncludeCrashReportDll) = 1 ?>
+							<Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
+								<File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="include\dbghelp.dll" />
+								<File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\release\bin\CrashRpt.dll" KeyPath="yes" />
+							</Component>
+							<?endif ?>
 						<?endif ?>
 
 						<Component Id="C__help_en" Guid="012FDAFF-53D4-420B-87A2-72C88B859D09" >
@@ -183,11 +213,20 @@
 						</Component>
 
 						<Component Id="C__TortoiseSVN" Guid="2F1FD4CC-32F0-51FB-A9CE-9DB539518655" >
-							<File Id="F__TortoiseProc" Name="TORTPROC.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseProc.exe" KeyPath="yes" />
-							<File Id="F__TortoiseShell" Name="TORTSVN.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\release\bin\TortoiseSVN.dll" />
-							<File Id="F__TortoisePlink" Name="TORTPLI.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\bin\TortoisePlink.exe" />
-							<File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\release\bin\SubWCRev.exe" />
-							<File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\release\bin\TSVNCache.exe" />
+							<?if $(env.Platform) = "win32" ?>
+								<File Id="F__TortoiseProc" Name="TORTPROC.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseProc.exe" KeyPath="yes" />
+								<File Id="F__TortoiseShell" Name="TORTSVN.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\release\bin\TortoiseSVN.dll" />
+								<File Id="F__TortoisePlink" Name="TORTPLI.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\bin\TortoisePlink.exe" />
+								<File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\release\bin\SubWCRev.exe" />
+								<File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\release\bin\TSVNCache.exe" />
+							<?endif ?>
+							<?if $(env.Platform) = "x64" ?>
+								<File Id="F__TortoiseProc" Name="TORTPROC.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\release64\bin\TortoiseProc.exe" KeyPath="yes" />
+								<File Id="F__TortoiseShell" Name="TORTSVN.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\release64\bin\TortoiseSVN.dll" />
+								<File Id="F__TortoisePlink" Name="TORTPLI.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release64\bin\TortoisePlink.exe" />
+								<File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\release64\bin\SubWCRev.exe" />
+								<File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\release64\bin\TSVNCache.exe" />
+							<?endif ?>
 							<File Id="F__TSVNAutolist" Name="AUTOLIST.TXT" LongName="autolist.txt" DiskId="1" src="include\autolist.txt" />
 							<File Id="F__websiteurl" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" />
 						</Component>
@@ -202,7 +241,12 @@
 						</Component>
 
 						<Component Id="C__TortoiseMerge" Guid="2F8D9AF8-A660-47f0-83CE-DD7DA0FB73DD" >
-							<File Id="F__TortoiseMerge" Name="TMERGE.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseMerge.exe" KeyPath="yes" />
+							<?if $(env.Platform) = "win32" ?>
+								<File Id="F__TortoiseMerge" Name="TMERGE.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseMerge.exe" KeyPath="yes" />
+							<?endif ?>
+							<?if $(env.Platform) = "x64" ?>
+								<File Id="F__TortoiseMerge" Name="TMERGE.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\release64\bin\TortoiseMerge.exe" KeyPath="yes" />
+							<?endif ?>
 						</Component>
 						<Component Id="C__TortoiseMergeShortcuts" Guid="73E24CEA-9BBE-4944-8EEC-20EE5E6710E9" >
 							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseMerge" Value="TortoiseMerge" Type="string" />
@@ -217,8 +261,14 @@
 						</Component>
 
 						<Component Id="C__TortoiseBlame" Guid="1B00F2A6-4D6B-4DBE-8B69-C8B493B4BBE5" >
-							<File Id="F__TortoiseBlame" Name="TBLAME.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseBlame.exe" KeyPath="yes" />
-							<File Id="F__SciLexer" Name="SCILEX.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\release\bin\SciLexer.dll" />
+							<?if $(env.Platform) = "win32" ?>
+								<File Id="F__TortoiseBlame" Name="TBLAME.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseBlame.exe" KeyPath="yes" />
+								<File Id="F__SciLexer" Name="SCILEX.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\release\bin\SciLexer.dll" />
+							<?endif ?>
+							<?if $(env.Platform) = "x64" ?>
+								<File Id="F__TortoiseBlame" Name="TBLAME.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\release64\bin\TortoiseBlame.exe" KeyPath="yes" />
+								<File Id="F__SciLexer" Name="SCILEX.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\release64\bin\SciLexer.dll" />
+							<?endif ?>
 						</Component>
 
 					</Directory>
@@ -226,218 +276,434 @@
 					<Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >
 
 						<Component Id="C__iconv" Guid="582E4865-CC41-4689-BC77-20AD85017BBC" DiskId="1">
-							<File Id="file0" Name="ADOBE-1.SO" LongName="adobe-stdenc.so" src="..\..\bin\release\iconv\adobe-stdenc.so" />
-							<File Id="file1" Name="ADOBE-2.SO" LongName="adobe-symbol.so" src="..\..\bin\release\iconv\adobe-symbol.so" />
-							<File Id="file2" Name="ADOBE-3.SO" LongName="adobe-zdingbats.so" src="..\..\bin\release\iconv\adobe-zdingbats.so" />
-							<File Id="file3" Name="big5.so" src="..\..\bin\release\iconv\big5.so" />
-							<File Id="file4" Name="CNS1161.SO" LongName="cns11643-plane1.so" src="..\..\bin\release\iconv\cns11643-plane1.so" />
-							<File Id="file5" Name="CNS1162.SO" LongName="cns11643-plane14.so" src="..\..\bin\release\iconv\cns11643-plane14.so" />
-							<File Id="file6" Name="CNS1163.SO" LongName="cns11643-plane2.so" src="..\..\bin\release\iconv\cns11643-plane2.so" />
-							<File Id="file7" Name="cp037.so" src="..\..\bin\release\iconv\cp037.so" />
-							<File Id="file8" Name="cp038.so" src="..\..\bin\release\iconv\cp038.so" />
-							<File Id="file9" Name="cp10000.so" src="..\..\bin\release\iconv\cp10000.so" />
-							<File Id="file10" Name="cp10006.so" src="..\..\bin\release\iconv\cp10006.so" />
-							<File Id="file11" Name="cp10007.so" src="..\..\bin\release\iconv\cp10007.so" />
-							<File Id="file12" Name="cp10029.so" src="..\..\bin\release\iconv\cp10029.so" />
-							<File Id="file13" Name="cp1006.so" src="..\..\bin\release\iconv\cp1006.so" />
-							<File Id="file14" Name="cp10079.so" src="..\..\bin\release\iconv\cp10079.so" />
-							<File Id="file15" Name="cp10081.so" src="..\..\bin\release\iconv\cp10081.so" />
-							<File Id="file16" Name="cp1026.so" src="..\..\bin\release\iconv\cp1026.so" />
-							<File Id="file17" Name="cp273.so" src="..\..\bin\release\iconv\cp273.so" />
-							<File Id="file18" Name="cp274.so" src="..\..\bin\release\iconv\cp274.so" />
-							<File Id="file19" Name="cp275.so" src="..\..\bin\release\iconv\cp275.so" />
-							<File Id="file20" Name="cp277.so" src="..\..\bin\release\iconv\cp277.so" />
-							<File Id="file21" Name="cp278.so" src="..\..\bin\release\iconv\cp278.so" />
-							<File Id="file22" Name="cp280.so" src="..\..\bin\release\iconv\cp280.so" />
-							<File Id="file23" Name="cp281.so" src="..\..\bin\release\iconv\cp281.so" />
-							<File Id="file24" Name="cp284.so" src="..\..\bin\release\iconv\cp284.so" />
-							<File Id="file25" Name="cp285.so" src="..\..\bin\release\iconv\cp285.so" />
-							<File Id="file26" Name="cp290.so" src="..\..\bin\release\iconv\cp290.so" />
-							<File Id="file27" Name="cp297.so" src="..\..\bin\release\iconv\cp297.so" />
-							<File Id="file28" Name="cp420.so" src="..\..\bin\release\iconv\cp420.so" />
-							<File Id="file29" Name="cp423.so" src="..\..\bin\release\iconv\cp423.so" />
-							<File Id="file30" Name="cp424.so" src="..\..\bin\release\iconv\cp424.so" />
-							<File Id="file31" Name="cp437.so" src="..\..\bin\release\iconv\cp437.so" />
-							<File Id="file32" Name="cp500.so" src="..\..\bin\release\iconv\cp500.so" />
-							<File Id="file33" Name="cp737.so" src="..\..\bin\release\iconv\cp737.so" />
-							<File Id="file34" Name="cp775.so" src="..\..\bin\release\iconv\cp775.so" />
-							<File Id="file35" Name="cp850.so" src="..\..\bin\release\iconv\cp850.so" />
-							<File Id="file36" Name="cp851.so" src="..\..\bin\release\iconv\cp851.so" />
-							<File Id="file37" Name="cp852.so" src="..\..\bin\release\iconv\cp852.so" />
-							<File Id="file38" Name="cp855.so" src="..\..\bin\release\iconv\cp855.so" />
-							<File Id="file39" Name="cp856.so" src="..\..\bin\release\iconv\cp856.so" />
-							<File Id="file40" Name="cp857.so" src="..\..\bin\release\iconv\cp857.so" />
-							<File Id="file41" Name="cp860.so" src="..\..\bin\release\iconv\cp860.so" />
-							<File Id="file42" Name="cp861.so" src="..\..\bin\release\iconv\cp861.so" />
-							<File Id="file43" Name="cp862.so" src="..\..\bin\release\iconv\cp862.so" />
-							<File Id="file44" Name="cp863.so" src="..\..\bin\release\iconv\cp863.so" />
-							<File Id="file45" Name="cp864.so" src="..\..\bin\release\iconv\cp864.so" />
-							<File Id="file46" Name="cp865.so" src="..\..\bin\release\iconv\cp865.so" />
-							<File Id="file47" Name="cp866.so" src="..\..\bin\release\iconv\cp866.so" />
-							<File Id="file48" Name="cp868.so" src="..\..\bin\release\iconv\cp868.so" />
-							<File Id="file49" Name="cp869.so" src="..\..\bin\release\iconv\cp869.so" />
-							<File Id="file50" Name="cp870.so" src="..\..\bin\release\iconv\cp870.so" />
-							<File Id="file51" Name="cp871.so" src="..\..\bin\release\iconv\cp871.so" />
-							<File Id="file52" Name="cp874.so" src="..\..\bin\release\iconv\cp874.so" />
-							<File Id="file53" Name="cp875.so" src="..\..\bin\release\iconv\cp875.so" />
-							<File Id="file54" Name="cp880.so" src="..\..\bin\release\iconv\cp880.so" />
-							<File Id="file55" Name="cp891.so" src="..\..\bin\release\iconv\cp891.so" />
-							<File Id="file56" Name="cp903.so" src="..\..\bin\release\iconv\cp903.so" />
-							<File Id="file57" Name="cp904.so" src="..\..\bin\release\iconv\cp904.so" />
-							<File Id="file58" Name="cp905.so" src="..\..\bin\release\iconv\cp905.so" />
-							<File Id="file59" Name="cp918.so" src="..\..\bin\release\iconv\cp918.so" />
-							<File Id="file60" Name="cp932.so" src="..\..\bin\release\iconv\cp932.so" />
-							<File Id="file61" Name="cp936.so" src="..\..\bin\release\iconv\cp936.so" />
-							<File Id="file62" Name="cp949.so" src="..\..\bin\release\iconv\cp949.so" />
-							<File Id="file63" Name="cp950.so" src="..\..\bin\release\iconv\cp950.so" />
-							<File Id="file64" Name="dec-mcs.so" src="..\..\bin\release\iconv\dec-mcs.so" />
-							<File Id="file65" Name="EBCDIC1.SO" LongName="ebcdic-at-de-a.so" src="..\..\bin\release\iconv\ebcdic-at-de-a.so" />
-							<File Id="file66" Name="EBCDIC2.SO" LongName="ebcdic-at-de.so" src="..\..\bin\release\iconv\ebcdic-at-de.so" />
-							<File Id="file67" Name="EBCDIC3.SO" LongName="ebcdic-ca-fr.so" src="..\..\bin\release\iconv\ebcdic-ca-fr.so" />
-							<File Id="file68" Name="EBCDIC4.SO" LongName="ebcdic-dk-no-a.so" src="..\..\bin\release\iconv\ebcdic-dk-no-a.so" />
-							<File Id="file69" Name="EB4BB31.SO" LongName="ebcdic-dk-no.so" src="..\..\bin\release\iconv\ebcdic-dk-no.so" />
-							<File Id="file70" Name="EB4C931.SO" LongName="ebcdic-es-a.so" src="..\..\bin\release\iconv\ebcdic-es-a.so" />
-							<File Id="file71" Name="EB4C241.SO" LongName="ebcdic-es-s.so" src="..\..\bin\release\iconv\ebcdic-es-s.so" />
-							<File Id="file72" Name="EBCEE11.SO" LongName="ebcdic-es.so" src="..\..\bin\release\iconv\ebcdic-es.so" />
-							<File Id="file73" Name="EBECC91.SO" LongName="ebcdic-fi-se-a.so" src="..\..\bin\release\iconv\ebcdic-fi-se-a.so" />
-							<File Id="file74" Name="EB2BC91.SO" LongName="ebcdic-fi-se.so" src="..\..\bin\release\iconv\ebcdic-fi-se.so" />
-							<File Id="file75" Name="EBD6ED1.SO" LongName="ebcdic-fr.so" src="..\..\bin\release\iconv\ebcdic-fr.so" />
-							<File Id="file76" Name="EBD6F11.SO" LongName="ebcdic-it.so" src="..\..\bin\release\iconv\ebcdic-it.so" />
-							<File Id="file77" Name="EBF6F51.SO" LongName="ebcdic-pt.so" src="..\..\bin\release\iconv\ebcdic-pt.so" />
-							<File Id="file78" Name="EB0FA11.SO" LongName="ebcdic-uk.so" src="..\..\bin\release\iconv\ebcdic-uk.so" />
-							<File Id="file79" Name="EB0FE11.SO" LongName="ebcdic-us.so" src="..\..\bin\release\iconv\ebcdic-us.so" />
-							<File Id="file80" Name="euc-jp.so" src="..\..\bin\release\iconv\euc-jp.so" />
-							<File Id="file81" Name="euc-kr.so" src="..\..\bin\release\iconv\euc-kr.so" />
-							<File Id="file82" Name="euc-tw.so" src="..\..\bin\release\iconv\euc-tw.so" />
-							<File Id="file83" Name="gb12345.so" src="..\..\bin\release\iconv\gb12345.so" />
-							<File Id="file84" Name="gb2312.so" src="..\..\bin\release\iconv\gb2312.so" />
-							<File Id="file85" Name="GB_2311.SO" LongName="gb_2312-80.so" src="..\..\bin\release\iconv\gb_2312-80.so" />
-							<File Id="file86" Name="HP-ROM1.SO" LongName="hp-roman8.so" src="..\..\bin\release\iconv\hp-roman8.so" />
-							<File Id="file87" Name="ISO-101.SO" LongName="iso-10646-ucs-2.so" src="..\..\bin\release\iconv\iso-10646-ucs-2.so" />
-							<File Id="file88" Name="ISO-102.SO" LongName="iso-10646-ucs-4.so" src="..\..\bin\release\iconv\iso-10646-ucs-4.so" />
-							<File Id="file89" Name="ISO-201.SO" LongName="iso-2022-cn.so" src="..\..\bin\release\iconv\iso-2022-cn.so" />
-							<File Id="file90" Name="ISO-202.SO" LongName="iso-2022-jp-2.so" src="..\..\bin\release\iconv\iso-2022-jp-2.so" />
-							<File Id="file91" Name="ISO-203.SO" LongName="iso-2022-jp.so" src="..\..\bin\release\iconv\iso-2022-jp.so" />
-							<File Id="file92" Name="ISO-204.SO" LongName="iso-2022-kr.so" src="..\..\bin\release\iconv\iso-2022-kr.so" />
-							<File Id="file93" Name="ISO-881.SO" LongName="iso-8859-1.so" src="..\..\bin\release\iconv\iso-8859-1.so" />
-							<File Id="file94" Name="ISO-882.SO" LongName="iso-8859-10.so" src="..\..\bin\release\iconv\iso-8859-10.so" />
-							<File Id="file95" Name="ISO-883.SO" LongName="iso-8859-13.so" src="..\..\bin\release\iconv\iso-8859-13.so" />
-							<File Id="file96" Name="ISO-884.SO" LongName="iso-8859-14.so" src="..\..\bin\release\iconv\iso-8859-14.so" />
-							<File Id="file97" Name="ISC94B1.SO" LongName="iso-8859-15.so" src="..\..\bin\release\iconv\iso-8859-15.so" />
-							<File Id="file98" Name="ISFCC61.SO" LongName="iso-8859-2.so" src="..\..\bin\release\iconv\iso-8859-2.so" />
-							<File Id="file99" Name="IS0DCA1.SO" LongName="iso-8859-3.so" src="..\..\bin\release\iconv\iso-8859-3.so" />
-							<File Id="file100" Name="IS0DCE1.SO" LongName="iso-8859-4.so" src="..\..\bin\release\iconv\iso-8859-4.so" />
-							<File Id="file101" Name="IS0DC21.SO" LongName="iso-8859-5.so" src="..\..\bin\release\iconv\iso-8859-5.so" />
-							<File Id="file102" Name="IS0DC61.SO" LongName="iso-8859-6.so" src="..\..\bin\release\iconv\iso-8859-6.so" />
-							<File Id="file103" Name="IS1DCA1.SO" LongName="iso-8859-7.so" src="..\..\bin\release\iconv\iso-8859-7.so" />
-							<File Id="file104" Name="IS1DCE1.SO" LongName="iso-8859-8.so" src="..\..\bin\release\iconv\iso-8859-8.so" />
-							<File Id="file105" Name="IS1DC21.SO" LongName="iso-8859-9.so" src="..\..\bin\release\iconv\iso-8859-9.so" />
-							<File Id="file106" Name="ISO-IR1.SO" LongName="iso-ir-10.so" src="..\..\bin\release\iconv\iso-ir-10.so" />
-							<File Id="file107" Name="ISO-IR2.SO" LongName="iso-ir-102.so" src="..\..\bin\release\iconv\iso-ir-102.so" />
-							<File Id="file108" Name="ISO-IR3.SO" LongName="iso-ir-103.so" src="..\..\bin\release\iconv\iso-ir-103.so" />
-							<File Id="file109" Name="ISO-IR4.SO" LongName="iso-ir-11.so" src="..\..\bin\release\iconv\iso-ir-11.so" />
-							<File Id="file110" Name="IS2EF81.SO" LongName="iso-ir-111.so" src="..\..\bin\release\iconv\iso-ir-111.so" />
-							<File Id="file111" Name="IS22091.SO" LongName="iso-ir-121.so" src="..\..\bin\release\iconv\iso-ir-121.so" />
-							<File Id="file112" Name="IS220D1.SO" LongName="iso-ir-122.so" src="..\..\bin\release\iconv\iso-ir-122.so" />
-							<File Id="file113" Name="IS22011.SO" LongName="iso-ir-123.so" src="..\..\bin\release\iconv\iso-ir-123.so" />
-							<File Id="file114" Name="IS32051.SO" LongName="iso-ir-128.so" src="..\..\bin\release\iconv\iso-ir-128.so" />
-							<File Id="file115" Name="ISEB701.SO" LongName="iso-ir-13.so" src="..\..\bin\release\iconv\iso-ir-13.so" />
-							<File Id="file116" Name="IS46091.SO" LongName="iso-ir-139.so" src="..\..\bin\release\iconv\iso-ir-139.so" />
-							<File Id="file117" Name="ISE3801.SO" LongName="iso-ir-14.so" src="..\..\bin\release\iconv\iso-ir-14.so" />
-							<File Id="file118" Name="IS2A091.SO" LongName="iso-ir-141.so" src="..\..\bin\release\iconv\iso-ir-141.so" />
-							<File Id="file119" Name="IS2A0D1.SO" LongName="iso-ir-142.so" src="..\..\bin\release\iconv\iso-ir-142.so" />
-							<File Id="file120" Name="IS2A011.SO" LongName="iso-ir-143.so" src="..\..\bin\release\iconv\iso-ir-143.so" />
-							<File Id="file121" Name="IS3A0D1.SO" LongName="iso-ir-146.so" src="..\..\bin\release\iconv\iso-ir-146.so" />
-							<File Id="file122" Name="IS3A011.SO" LongName="iso-ir-147.so" src="..\..\bin\release\iconv\iso-ir-147.so" />
-							<File Id="file123" Name="ISEB801.SO" LongName="iso-ir-15.so" src="..\..\bin\release\iconv\iso-ir-15.so" />
-							<File Id="file124" Name="IS1E051.SO" LongName="iso-ir-150.so" src="..\..\bin\release\iconv\iso-ir-150.so" />
-							<File Id="file125" Name="IS2E091.SO" LongName="iso-ir-151.so" src="..\..\bin\release\iconv\iso-ir-151.so" />
-							<File Id="file126" Name="IS2E0D1.SO" LongName="iso-ir-152.so" src="..\..\bin\release\iconv\iso-ir-152.so" />
-							<File Id="file127" Name="IS2E011.SO" LongName="iso-ir-153.so" src="..\..\bin\release\iconv\iso-ir-153.so" />
-							<File Id="file128" Name="IS2E051.SO" LongName="iso-ir-154.so" src="..\..\bin\release\iconv\iso-ir-154.so" />
-							<File Id="file129" Name="IS3E091.SO" LongName="iso-ir-155.so" src="..\..\bin\release\iconv\iso-ir-155.so" />
-							<File Id="file130" Name="IS3E051.SO" LongName="iso-ir-158.so" src="..\..\bin\release\iconv\iso-ir-158.so" />
-							<File Id="file131" Name="ISE3901.SO" LongName="iso-ir-16.so" src="..\..\bin\release\iconv\iso-ir-16.so" />
-							<File Id="file132" Name="ISEB901.SO" LongName="iso-ir-17.so" src="..\..\bin\release\iconv\iso-ir-17.so" />
-							<File Id="file133" Name="ISE3A01.SO" LongName="iso-ir-18.so" src="..\..\bin\release\iconv\iso-ir-18.so" />
-							<File Id="file134" Name="ISEBA01.SO" LongName="iso-ir-19.so" src="..\..\bin\release\iconv\iso-ir-19.so" />
-							<File Id="file135" Name="iso-ir-2.so" src="..\..\bin\release\iconv\iso-ir-2.so" />
-							<File Id="file136" Name="ISFB6C1.SO" LongName="iso-ir-21.so" src="..\..\bin\release\iconv\iso-ir-21.so" />
-							<File Id="file137" Name="ISFB8C1.SO" LongName="iso-ir-25.so" src="..\..\bin\release\iconv\iso-ir-25.so" />
-							<File Id="file138" Name="ISFB9C1.SO" LongName="iso-ir-27.so" src="..\..\bin\release\iconv\iso-ir-27.so" />
-							<File Id="file139" Name="ISFB981.SO" LongName="iso-ir-37.so" src="..\..\bin\release\iconv\iso-ir-37.so" />
-							<File Id="file140" Name="iso-ir-4.so" src="..\..\bin\release\iconv\iso-ir-4.so" />
-							<File Id="file141" Name="ISFB941.SO" LongName="iso-ir-47.so" src="..\..\bin\release\iconv\iso-ir-47.so" />
-							<File Id="file142" Name="ISFBA41.SO" LongName="iso-ir-49.so" src="..\..\bin\release\iconv\iso-ir-49.so" />
-							<File Id="file143" Name="ISF3601.SO" LongName="iso-ir-50.so" src="..\..\bin\release\iconv\iso-ir-50.so" />
-							<File Id="file144" Name="ISFB601.SO" LongName="iso-ir-51.so" src="..\..\bin\release\iconv\iso-ir-51.so" />
-							<File Id="file145" Name="ISF3801.SO" LongName="iso-ir-54.so" src="..\..\bin\release\iconv\iso-ir-54.so" />
-							<File Id="file146" Name="ISFB801.SO" LongName="iso-ir-55.so" src="..\..\bin\release\iconv\iso-ir-55.so" />
-							<File Id="file147" Name="ISFB901.SO" LongName="iso-ir-57.so" src="..\..\bin\release\iconv\iso-ir-57.so" />
-							<File Id="file148" Name="IS046C1.SO" LongName="iso-ir-60.so" src="..\..\bin\release\iconv\iso-ir-60.so" />
-							<File Id="file149" Name="IS0C6C1.SO" LongName="iso-ir-61.so" src="..\..\bin\release\iconv\iso-ir-61.so" />
-							<File Id="file150" Name="IS0CAC1.SO" LongName="iso-ir-69.so" src="..\..\bin\release\iconv\iso-ir-69.so" />
-							<File Id="file151" Name="IS04681.SO" LongName="iso-ir-70.so" src="..\..\bin\release\iconv\iso-ir-70.so" />
-							<File Id="file152" Name="IS3EEA1.SO" LongName="iso-ir-8-1.so" src="..\..\bin\release\iconv\iso-ir-8-1.so" />
-							<File Id="file153" Name="IS3EEE1.SO" LongName="iso-ir-8-2.so" src="..\..\bin\release\iconv\iso-ir-8-2.so" />
-							<File Id="file154" Name="IS04841.SO" LongName="iso-ir-84.so" src="..\..\bin\release\iconv\iso-ir-84.so" />
-							<File Id="file155" Name="IS0C841.SO" LongName="iso-ir-85.so" src="..\..\bin\release\iconv\iso-ir-85.so" />
-							<File Id="file156" Name="IS04941.SO" LongName="iso-ir-86.so" src="..\..\bin\release\iconv\iso-ir-86.so" />
-							<File Id="file157" Name="IS04A41.SO" LongName="iso-ir-88.so" src="..\..\bin\release\iconv\iso-ir-88.so" />
-							<File Id="file158" Name="IS0CA41.SO" LongName="iso-ir-89.so" src="..\..\bin\release\iconv\iso-ir-89.so" />
-							<File Id="file159" Name="IS3EE81.SO" LongName="iso-ir-9-1.so" src="..\..\bin\release\iconv\iso-ir-9-1.so" />
-							<File Id="file160" Name="IS3EEC1.SO" LongName="iso-ir-9-2.so" src="..\..\bin\release\iconv\iso-ir-9-2.so" />
-							<File Id="file161" Name="IS04601.SO" LongName="iso-ir-90.so" src="..\..\bin\release\iconv\iso-ir-90.so" />
-							<File Id="file162" Name="IS0C601.SO" LongName="iso-ir-91.so" src="..\..\bin\release\iconv\iso-ir-91.so" />
-							<File Id="file163" Name="IS04701.SO" LongName="iso-ir-92.so" src="..\..\bin\release\iconv\iso-ir-92.so" />
-							<File Id="file164" Name="IS0C701.SO" LongName="iso-ir-93.so" src="..\..\bin\release\iconv\iso-ir-93.so" />
-							<File Id="file165" Name="IS04801.SO" LongName="iso-ir-94.so" src="..\..\bin\release\iconv\iso-ir-94.so" />
-							<File Id="file166" Name="IS0C801.SO" LongName="iso-ir-95.so" src="..\..\bin\release\iconv\iso-ir-95.so" />
-							<File Id="file167" Name="IS04901.SO" LongName="iso-ir-96.so" src="..\..\bin\release\iconv\iso-ir-96.so" />
-							<File Id="file168" Name="IS04A01.SO" LongName="iso-ir-98.so" src="..\..\bin\release\iconv\iso-ir-98.so" />
-							<File Id="file169" Name="IS0CA01.SO" LongName="iso-ir-99.so" src="..\..\bin\release\iconv\iso-ir-99.so" />
-							<File Id="file170" Name="ISO6461.SO" LongName="iso646-dk.so" src="..\..\bin\release\iconv\iso646-dk.so" />
-							<File Id="file171" Name="ISO6462.SO" LongName="iso646-kr.so" src="..\..\bin\release\iconv\iso646-kr.so" />
-							<File Id="file172" Name="JIS_X01.SO" LongName="jis_x0201.so" src="..\..\bin\release\iconv\jis_x0201.so" />
-							<File Id="file173" Name="JIS_X02.SO" LongName="jis_x0208-1983.so" src="..\..\bin\release\iconv\jis_x0208-1983.so" />
-							<File Id="file174" Name="JIS_X03.SO" LongName="jis_x0212-1990.so" src="..\..\bin\release\iconv\jis_x0212-1990.so" />
-							<File Id="file175" Name="johab.so" src="..\..\bin\release\iconv\johab.so" />
-							<File Id="file176" Name="koi8-r.so" src="..\..\bin\release\iconv\koi8-r.so" />
-							<File Id="file177" Name="koi8-ru.so" src="..\..\bin\release\iconv\koi8-ru.so" />
-							<File Id="file178" Name="koi8-u.so" src="..\..\bin\release\iconv\koi8-u.so" />
-							<File Id="file179" Name="ksx1001.so" src="..\..\bin\release\iconv\ksx1001.so" />
-							<File Id="file180" Name="mac-ce.so" src="..\..\bin\release\iconv\mac-ce.so" />
-							<File Id="file181" Name="MAC-CR1.SO" LongName="mac-croatian.so" src="..\..\bin\release\iconv\mac-croatian.so" />
-							<File Id="file182" Name="MAC-CY1.SO" LongName="mac-cyrillic.so" src="..\..\bin\release\iconv\mac-cyrillic.so" />
-							<File Id="file183" Name="MAC-DI1.SO" LongName="mac-dingbats.so" src="..\..\bin\release\iconv\mac-dingbats.so" />
-							<File Id="file184" Name="MAC-GR1.SO" LongName="mac-greek.so" src="..\..\bin\release\iconv\mac-greek.so" />
-							<File Id="file185" Name="MAC-IC1.SO" LongName="mac-iceland.so" src="..\..\bin\release\iconv\mac-iceland.so" />
-							<File Id="file186" Name="MAC-JA1.SO" LongName="mac-japan.so" src="..\..\bin\release\iconv\mac-japan.so" />
-							<File Id="file187" Name="MAC-RO1.SO" LongName="mac-roman.so" src="..\..\bin\release\iconv\mac-roman.so" />
-							<File Id="file188" Name="MAC-RO2.SO" LongName="mac-romania.so" src="..\..\bin\release\iconv\mac-romania.so" />
-							<File Id="file189" Name="mac-thai.so" src="..\..\bin\release\iconv\mac-thai.so" />
-							<File Id="file190" Name="MAC-TU1.SO" LongName="mac-turkish.so" src="..\..\bin\release\iconv\mac-turkish.so" />
-							<File Id="file191" Name="MAC-UK1.SO" LongName="mac-ukraine.so" src="..\..\bin\release\iconv\mac-ukraine.so" />
-							<File Id="file192" Name="MACINT1.SO" LongName="macintosh.so" src="..\..\bin\release\iconv\macintosh.so" />
-							<File Id="file193" Name="OSD_EB1.SO" LongName="osd_ebcdic_df04_1.so" src="..\..\bin\release\iconv\osd_ebcdic_df04_1.so" />
-							<File Id="file194" Name="OSD_EB2.SO" LongName="osd_ebcdic_df04_15.so" src="..\..\bin\release\iconv\osd_ebcdic_df04_15.so" />
-							<File Id="file195" Name="SHIFT_1.SO" LongName="shift_jis.so" src="..\..\bin\release\iconv\shift_jis.so" />
-							<File Id="file196" Name="UCS2-I1.SO" LongName="ucs2-internal.so" src="..\..\bin\release\iconv\ucs2-internal.so" />
-							<File Id="file197" Name="UCS4-I1.SO" LongName="ucs4-internal.so" src="..\..\bin\release\iconv\ucs4-internal.so" />
-							<File Id="file198" Name="UNICOD1.SO" LongName="unicode-1-1-utf-7.so" src="..\..\bin\release\iconv\unicode-1-1-utf-7.so" />
-							<File Id="file199" Name="us-ascii.so" src="..\..\bin\release\iconv\us-ascii.so" />
-							<File Id="file200" Name="utf-16.so" src="..\..\bin\release\iconv\utf-16.so" />
-							<File Id="file201" Name="utf-8.so" src="..\..\bin\release\iconv\utf-8.so" />
-							<File Id="file202" Name="WINDOW1.SO" LongName="windows-1250.so" src="..\..\bin\release\iconv\windows-1250.so" />
-							<File Id="file203" Name="WINDOW2.SO" LongName="windows-1251.so" src="..\..\bin\release\iconv\windows-1251.so" />
-							<File Id="file204" Name="WINDOW3.SO" LongName="windows-1252.so" src="..\..\bin\release\iconv\windows-1252.so" />
-							<File Id="file205" Name="WINDOW4.SO" LongName="windows-1253.so" src="..\..\bin\release\iconv\windows-1253.so" />
-							<File Id="file206" Name="WI30D31.SO" LongName="windows-1254.so" src="..\..\bin\release\iconv\windows-1254.so" />
-							<File Id="file207" Name="WI30DF1.SO" LongName="windows-1255.so" src="..\..\bin\release\iconv\windows-1255.so" />
-							<File Id="file208" Name="WI40DB1.SO" LongName="windows-1256.so" src="..\..\bin\release\iconv\windows-1256.so" />
-							<File Id="file209" Name="WI40D71.SO" LongName="windows-1257.so" src="..\..\bin\release\iconv\windows-1257.so" />
-							<File Id="file210" Name="WI40D31.SO" LongName="windows-1258.so" src="..\..\bin\release\iconv\windows-1258.so" />
-							<File Id="file211" Name="_TBL_S1.SO" LongName="_tbl_simple.so" src="..\..\bin\release\iconv\_tbl_simple.so" />
+							<?if $(env.Platform) = "win32" ?>
+								<File Id="file0" Name="ADOBE-1.SO" LongName="adobe-stdenc.so" src="..\..\bin\release\iconv\adobe-stdenc.so" />
+								<File Id="file1" Name="ADOBE-2.SO" LongName="adobe-symbol.so" src="..\..\bin\release\iconv\adobe-symbol.so" />
+								<File Id="file2" Name="ADOBE-3.SO" LongName="adobe-zdingbats.so" src="..\..\bin\release\iconv\adobe-zdingbats.so" />
+								<File Id="file3" Name="big5.so" src="..\..\bin\release\iconv\big5.so" />
+								<File Id="file4" Name="CNS1161.SO" LongName="cns11643-plane1.so" src="..\..\bin\release\iconv\cns11643-plane1.so" />
+								<File Id="file5" Name="CNS1162.SO" LongName="cns11643-plane14.so" src="..\..\bin\release\iconv\cns11643-plane14.so" />
+								<File Id="file6" Name="CNS1163.SO" LongName="cns11643-plane2.so" src="..\..\bin\release\iconv\cns11643-plane2.so" />
+								<File Id="file7" Name="cp037.so" src="..\..\bin\release\iconv\cp037.so" />
+								<File Id="file8" Name="cp038.so" src="..\..\bin\release\iconv\cp038.so" />
+								<File Id="file9" Name="cp10000.so" src="..\..\bin\release\iconv\cp10000.so" />
+								<File Id="file10" Name="cp10006.so" src="..\..\bin\release\iconv\cp10006.so" />
+								<File Id="file11" Name="cp10007.so" src="..\..\bin\release\iconv\cp10007.so" />
+								<File Id="file12" Name="cp10029.so" src="..\..\bin\release\iconv\cp10029.so" />
+								<File Id="file13" Name="cp1006.so" src="..\..\bin\release\iconv\cp1006.so" />
+								<File Id="file14" Name="cp10079.so" src="..\..\bin\release\iconv\cp10079.so" />
+								<File Id="file15" Name="cp10081.so" src="..\..\bin\release\iconv\cp10081.so" />
+								<File Id="file16" Name="cp1026.so" src="..\..\bin\release\iconv\cp1026.so" />
+								<File Id="file17" Name="cp273.so" src="..\..\bin\release\iconv\cp273.so" />
+								<File Id="file18" Name="cp274.so" src="..\..\bin\release\iconv\cp274.so" />
+								<File Id="file19" Name="cp275.so" src="..\..\bin\release\iconv\cp275.so" />
+								<File Id="file20" Name="cp277.so" src="..\..\bin\release\iconv\cp277.so" />
+								<File Id="file21" Name="cp278.so" src="..\..\bin\release\iconv\cp278.so" />
+								<File Id="file22" Name="cp280.so" src="..\..\bin\release\iconv\cp280.so" />
+								<File Id="file23" Name="cp281.so" src="..\..\bin\release\iconv\cp281.so" />
+								<File Id="file24" Name="cp284.so" src="..\..\bin\release\iconv\cp284.so" />
+								<File Id="file25" Name="cp285.so" src="..\..\bin\release\iconv\cp285.so" />
+								<File Id="file26" Name="cp290.so" src="..\..\bin\release\iconv\cp290.so" />
+								<File Id="file27" Name="cp297.so" src="..\..\bin\release\iconv\cp297.so" />
+								<File Id="file28" Name="cp420.so" src="..\..\bin\release\iconv\cp420.so" />
+								<File Id="file29" Name="cp423.so" src="..\..\bin\release\iconv\cp423.so" />
+								<File Id="file30" Name="cp424.so" src="..\..\bin\release\iconv\cp424.so" />
+								<File Id="file31" Name="cp437.so" src="..\..\bin\release\iconv\cp437.so" />
+								<File Id="file32" Name="cp500.so" src="..\..\bin\release\iconv\cp500.so" />
+								<File Id="file33" Name="cp737.so" src="..\..\bin\release\iconv\cp737.so" />
+								<File Id="file34" Name="cp775.so" src="..\..\bin\release\iconv\cp775.so" />
+								<File Id="file35" Name="cp850.so" src="..\..\bin\release\iconv\cp850.so" />
+								<File Id="file36" Name="cp851.so" src="..\..\bin\release\iconv\cp851.so" />
+								<File Id="file37" Name="cp852.so" src="..\..\bin\release\iconv\cp852.so" />
+								<File Id="file38" Name="cp855.so" src="..\..\bin\release\iconv\cp855.so" />
+								<File Id="file39" Name="cp856.so" src="..\..\bin\release\iconv\cp856.so" />
+								<File Id="file40" Name="cp857.so" src="..\..\bin\release\iconv\cp857.so" />
+								<File Id="file41" Name="cp860.so" src="..\..\bin\release\iconv\cp860.so" />
+								<File Id="file42" Name="cp861.so" src="..\..\bin\release\iconv\cp861.so" />
+								<File Id="file43" Name="cp862.so" src="..\..\bin\release\iconv\cp862.so" />
+								<File Id="file44" Name="cp863.so" src="..\..\bin\release\iconv\cp863.so" />
+								<File Id="file45" Name="cp864.so" src="..\..\bin\release\iconv\cp864.so" />
+								<File Id="file46" Name="cp865.so" src="..\..\bin\release\iconv\cp865.so" />
+								<File Id="file47" Name="cp866.so" src="..\..\bin\release\iconv\cp866.so" />
+								<File Id="file48" Name="cp868.so" src="..\..\bin\release\iconv\cp868.so" />
+								<File Id="file49" Name="cp869.so" src="..\..\bin\release\iconv\cp869.so" />
+								<File Id="file50" Name="cp870.so" src="..\..\bin\release\iconv\cp870.so" />
+								<File Id="file51" Name="cp871.so" src="..\..\bin\release\iconv\cp871.so" />
+								<File Id="file52" Name="cp874.so" src="..\..\bin\release\iconv\cp874.so" />
+								<File Id="file53" Name="cp875.so" src="..\..\bin\release\iconv\cp875.so" />
+								<File Id="file54" Name="cp880.so" src="..\..\bin\release\iconv\cp880.so" />
+								<File Id="file55" Name="cp891.so" src="..\..\bin\release\iconv\cp891.so" />
+								<File Id="file56" Name="cp903.so" src="..\..\bin\release\iconv\cp903.so" />
+								<File Id="file57" Name="cp904.so" src="..\..\bin\release\iconv\cp904.so" />
+								<File Id="file58" Name="cp905.so" src="..\..\bin\release\iconv\cp905.so" />
+								<File Id="file59" Name="cp918.so" src="..\..\bin\release\iconv\cp918.so" />
+								<File Id="file60" Name="cp932.so" src="..\..\bin\release\iconv\cp932.so" />
+								<File Id="file61" Name="cp936.so" src="..\..\bin\release\iconv\cp936.so" />
+								<File Id="file62" Name="cp949.so" src="..\..\bin\release\iconv\cp949.so" />
+								<File Id="file63" Name="cp950.so" src="..\..\bin\release\iconv\cp950.so" />
+								<File Id="file64" Name="dec-mcs.so" src="..\..\bin\release\iconv\dec-mcs.so" />
+								<File Id="file65" Name="EBCDIC1.SO" LongName="ebcdic-at-de-a.so" src="..\..\bin\release\iconv\ebcdic-at-de-a.so" />
+								<File Id="file66" Name="EBCDIC2.SO" LongName="ebcdic-at-de.so" src="..\..\bin\release\iconv\ebcdic-at-de.so" />
+								<File Id="file67" Name="EBCDIC3.SO" LongName="ebcdic-ca-fr.so" src="..\..\bin\release\iconv\ebcdic-ca-fr.so" />
+								<File Id="file68" Name="EBCDIC4.SO" LongName="ebcdic-dk-no-a.so" src="..\..\bin\release\iconv\ebcdic-dk-no-a.so" />
+								<File Id="file69" Name="EB4BB31.SO" LongName="ebcdic-dk-no.so" src="..\..\bin\release\iconv\ebcdic-dk-no.so" />
+								<File Id="file70" Name="EB4C931.SO" LongName="ebcdic-es-a.so" src="..\..\bin\release\iconv\ebcdic-es-a.so" />
+								<File Id="file71" Name="EB4C241.SO" LongName="ebcdic-es-s.so" src="..\..\bin\release\iconv\ebcdic-es-s.so" />
+								<File Id="file72" Name="EBCEE11.SO" LongName="ebcdic-es.so" src="..\..\bin\release\iconv\ebcdic-es.so" />
+								<File Id="file73" Name="EBECC91.SO" LongName="ebcdic-fi-se-a.so" src="..\..\bin\release\iconv\ebcdic-fi-se-a.so" />
+								<File Id="file74" Name="EB2BC91.SO" LongName="ebcdic-fi-se.so" src="..\..\bin\release\iconv\ebcdic-fi-se.so" />
+								<File Id="file75" Name="EBD6ED1.SO" LongName="ebcdic-fr.so" src="..\..\bin\release\iconv\ebcdic-fr.so" />
+								<File Id="file76" Name="EBD6F11.SO" LongName="ebcdic-it.so" src="..\..\bin\release\iconv\ebcdic-it.so" />
+								<File Id="file77" Name="EBF6F51.SO" LongName="ebcdic-pt.so" src="..\..\bin\release\iconv\ebcdic-pt.so" />
+								<File Id="file78" Name="EB0FA11.SO" LongName="ebcdic-uk.so" src="..\..\bin\release\iconv\ebcdic-uk.so" />
+								<File Id="file79" Name="EB0FE11.SO" LongName="ebcdic-us.so" src="..\..\bin\release\iconv\ebcdic-us.so" />
+								<File Id="file80" Name="euc-jp.so" src="..\..\bin\release\iconv\euc-jp.so" />
+								<File Id="file81" Name="euc-kr.so" src="..\..\bin\release\iconv\euc-kr.so" />
+								<File Id="file82" Name="euc-tw.so" src="..\..\bin\release\iconv\euc-tw.so" />
+								<File Id="file83" Name="gb12345.so" src="..\..\bin\release\iconv\gb12345.so" />
+								<File Id="file84" Name="gb2312.so" src="..\..\bin\release\iconv\gb2312.so" />
+								<File Id="file85" Name="GB_2311.SO" LongName="gb_2312-80.so" src="..\..\bin\release\iconv\gb_2312-80.so" />
+								<File Id="file86" Name="HP-ROM1.SO" LongName="hp-roman8.so" src="..\..\bin\release\iconv\hp-roman8.so" />
+								<File Id="file87" Name="ISO-101.SO" LongName="iso-10646-ucs-2.so" src="..\..\bin\release\iconv\iso-10646-ucs-2.so" />
+								<File Id="file88" Name="ISO-102.SO" LongName="iso-10646-ucs-4.so" src="..\..\bin\release\iconv\iso-10646-ucs-4.so" />
+								<File Id="file89" Name="ISO-201.SO" LongName="iso-2022-cn.so" src="..\..\bin\release\iconv\iso-2022-cn.so" />
+								<File Id="file90" Name="ISO-202.SO" LongName="iso-2022-jp-2.so" src="..\..\bin\release\iconv\iso-2022-jp-2.so" />
+								<File Id="file91" Name="ISO-203.SO" LongName="iso-2022-jp.so" src="..\..\bin\release\iconv\iso-2022-jp.so" />
+								<File Id="file92" Name="ISO-204.SO" LongName="iso-2022-kr.so" src="..\..\bin\release\iconv\iso-2022-kr.so" />
+								<File Id="file93" Name="ISO-881.SO" LongName="iso-8859-1.so" src="..\..\bin\release\iconv\iso-8859-1.so" />
+								<File Id="file94" Name="ISO-882.SO" LongName="iso-8859-10.so" src="..\..\bin\release\iconv\iso-8859-10.so" />
+								<File Id="file95" Name="ISO-883.SO" LongName="iso-8859-13.so" src="..\..\bin\release\iconv\iso-8859-13.so" />
+								<File Id="file96" Name="ISO-884.SO" LongName="iso-8859-14.so" src="..\..\bin\release\iconv\iso-8859-14.so" />
+								<File Id="file97" Name="ISC94B1.SO" LongName="iso-8859-15.so" src="..\..\bin\release\iconv\iso-8859-15.so" />
+								<File Id="file98" Name="ISFCC61.SO" LongName="iso-8859-2.so" src="..\..\bin\release\iconv\iso-8859-2.so" />
+								<File Id="file99" Name="IS0DCA1.SO" LongName="iso-8859-3.so" src="..\..\bin\release\iconv\iso-8859-3.so" />
+								<File Id="file100" Name="IS0DCE1.SO" LongName="iso-8859-4.so" src="..\..\bin\release\iconv\iso-8859-4.so" />
+								<File Id="file101" Name="IS0DC21.SO" LongName="iso-8859-5.so" src="..\..\bin\release\iconv\iso-8859-5.so" />
+								<File Id="file102" Name="IS0DC61.SO" LongName="iso-8859-6.so" src="..\..\bin\release\iconv\iso-8859-6.so" />
+								<File Id="file103" Name="IS1DCA1.SO" LongName="iso-8859-7.so" src="..\..\bin\release\iconv\iso-8859-7.so" />
+								<File Id="file104" Name="IS1DCE1.SO" LongName="iso-8859-8.so" src="..\..\bin\release\iconv\iso-8859-8.so" />
+								<File Id="file105" Name="IS1DC21.SO" LongName="iso-8859-9.so" src="..\..\bin\release\iconv\iso-8859-9.so" />
+								<File Id="file106" Name="ISO-IR1.SO" LongName="iso-ir-10.so" src="..\..\bin\release\iconv\iso-ir-10.so" />
+								<File Id="file107" Name="ISO-IR2.SO" LongName="iso-ir-102.so" src="..\..\bin\release\iconv\iso-ir-102.so" />
+								<File Id="file108" Name="ISO-IR3.SO" LongName="iso-ir-103.so" src="..\..\bin\release\iconv\iso-ir-103.so" />
+								<File Id="file109" Name="ISO-IR4.SO" LongName="iso-ir-11.so" src="..\..\bin\release\iconv\iso-ir-11.so" />
+								<File Id="file110" Name="IS2EF81.SO" LongName="iso-ir-111.so" src="..\..\bin\release\iconv\iso-ir-111.so" />
+								<File Id="file111" Name="IS22091.SO" LongName="iso-ir-121.so" src="..\..\bin\release\iconv\iso-ir-121.so" />
+								<File Id="file112" Name="IS220D1.SO" LongName="iso-ir-122.so" src="..\..\bin\release\iconv\iso-ir-122.so" />
+								<File Id="file113" Name="IS22011.SO" LongName="iso-ir-123.so" src="..\..\bin\release\iconv\iso-ir-123.so" />
+								<File Id="file114" Name="IS32051.SO" LongName="iso-ir-128.so" src="..\..\bin\release\iconv\iso-ir-128.so" />
+								<File Id="file115" Name="ISEB701.SO" LongName="iso-ir-13.so" src="..\..\bin\release\iconv\iso-ir-13.so" />
+								<File Id="file116" Name="IS46091.SO" LongName="iso-ir-139.so" src="..\..\bin\release\iconv\iso-ir-139.so" />
+								<File Id="file117" Name="ISE3801.SO" LongName="iso-ir-14.so" src="..\..\bin\release\iconv\iso-ir-14.so" />
+								<File Id="file118" Name="IS2A091.SO" LongName="iso-ir-141.so" src="..\..\bin\release\iconv\iso-ir-141.so" />
+								<File Id="file119" Name="IS2A0D1.SO" LongName="iso-ir-142.so" src="..\..\bin\release\iconv\iso-ir-142.so" />
+								<File Id="file120" Name="IS2A011.SO" LongName="iso-ir-143.so" src="..\..\bin\release\iconv\iso-ir-143.so" />
+								<File Id="file121" Name="IS3A0D1.SO" LongName="iso-ir-146.so" src="..\..\bin\release\iconv\iso-ir-146.so" />
+								<File Id="file122" Name="IS3A011.SO" LongName="iso-ir-147.so" src="..\..\bin\release\iconv\iso-ir-147.so" />
+								<File Id="file123" Name="ISEB801.SO" LongName="iso-ir-15.so" src="..\..\bin\release\iconv\iso-ir-15.so" />
+								<File Id="file124" Name="IS1E051.SO" LongName="iso-ir-150.so" src="..\..\bin\release\iconv\iso-ir-150.so" />
+								<File Id="file125" Name="IS2E091.SO" LongName="iso-ir-151.so" src="..\..\bin\release\iconv\iso-ir-151.so" />
+								<File Id="file126" Name="IS2E0D1.SO" LongName="iso-ir-152.so" src="..\..\bin\release\iconv\iso-ir-152.so" />
+								<File Id="file127" Name="IS2E011.SO" LongName="iso-ir-153.so" src="..\..\bin\release\iconv\iso-ir-153.so" />
+								<File Id="file128" Name="IS2E051.SO" LongName="iso-ir-154.so" src="..\..\bin\release\iconv\iso-ir-154.so" />
+								<File Id="file129" Name="IS3E091.SO" LongName="iso-ir-155.so" src="..\..\bin\release\iconv\iso-ir-155.so" />
+								<File Id="file130" Name="IS3E051.SO" LongName="iso-ir-158.so" src="..\..\bin\release\iconv\iso-ir-158.so" />
+								<File Id="file131" Name="ISE3901.SO" LongName="iso-ir-16.so" src="..\..\bin\release\iconv\iso-ir-16.so" />
+								<File Id="file132" Name="ISEB901.SO" LongName="iso-ir-17.so" src="..\..\bin\release\iconv\iso-ir-17.so" />
+								<File Id="file133" Name="ISE3A01.SO" LongName="iso-ir-18.so" src="..\..\bin\release\iconv\iso-ir-18.so" />
+								<File Id="file134" Name="ISEBA01.SO" LongName="iso-ir-19.so" src="..\..\bin\release\iconv\iso-ir-19.so" />
+								<File Id="file135" Name="iso-ir-2.so" src="..\..\bin\release\iconv\iso-ir-2.so" />
+								<File Id="file136" Name="ISFB6C1.SO" LongName="iso-ir-21.so" src="..\..\bin\release\iconv\iso-ir-21.so" />
+								<File Id="file137" Name="ISFB8C1.SO" LongName="iso-ir-25.so" src="..\..\bin\release\iconv\iso-ir-25.so" />
+								<File Id="file138" Name="ISFB9C1.SO" LongName="iso-ir-27.so" src="..\..\bin\release\iconv\iso-ir-27.so" />
+								<File Id="file139" Name="ISFB981.SO" LongName="iso-ir-37.so" src="..\..\bin\release\iconv\iso-ir-37.so" />
+								<File Id="file140" Name="iso-ir-4.so" src="..\..\bin\release\iconv\iso-ir-4.so" />
+								<File Id="file141" Name="ISFB941.SO" LongName="iso-ir-47.so" src="..\..\bin\release\iconv\iso-ir-47.so" />
+								<File Id="file142" Name="ISFBA41.SO" LongName="iso-ir-49.so" src="..\..\bin\release\iconv\iso-ir-49.so" />
+								<File Id="file143" Name="ISF3601.SO" LongName="iso-ir-50.so" src="..\..\bin\release\iconv\iso-ir-50.so" />
+								<File Id="file144" Name="ISFB601.SO" LongName="iso-ir-51.so" src="..\..\bin\release\iconv\iso-ir-51.so" />
+								<File Id="file145" Name="ISF3801.SO" LongName="iso-ir-54.so" src="..\..\bin\release\iconv\iso-ir-54.so" />
+								<File Id="file146" Name="ISFB801.SO" LongName="iso-ir-55.so" src="..\..\bin\release\iconv\iso-ir-55.so" />
+								<File Id="file147" Name="ISFB901.SO" LongName="iso-ir-57.so" src="..\..\bin\release\iconv\iso-ir-57.so" />
+								<File Id="file148" Name="IS046C1.SO" LongName="iso-ir-60.so" src="..\..\bin\release\iconv\iso-ir-60.so" />
+								<File Id="file149" Name="IS0C6C1.SO" LongName="iso-ir-61.so" src="..\..\bin\release\iconv\iso-ir-61.so" />
+								<File Id="file150" Name="IS0CAC1.SO" LongName="iso-ir-69.so" src="..\..\bin\release\iconv\iso-ir-69.so" />
+								<File Id="file151" Name="IS04681.SO" LongName="iso-ir-70.so" src="..\..\bin\release\iconv\iso-ir-70.so" />
+								<File Id="file152" Name="IS3EEA1.SO" LongName="iso-ir-8-1.so" src="..\..\bin\release\iconv\iso-ir-8-1.so" />
+								<File Id="file153" Name="IS3EEE1.SO" LongName="iso-ir-8-2.so" src="..\..\bin\release\iconv\iso-ir-8-2.so" />
+								<File Id="file154" Name="IS04841.SO" LongName="iso-ir-84.so" src="..\..\bin\release\iconv\iso-ir-84.so" />
+								<File Id="file155" Name="IS0C841.SO" LongName="iso-ir-85.so" src="..\..\bin\release\iconv\iso-ir-85.so" />
+								<File Id="file156" Name="IS04941.SO" LongName="iso-ir-86.so" src="..\..\bin\release\iconv\iso-ir-86.so" />
+								<File Id="file157" Name="IS04A41.SO" LongName="iso-ir-88.so" src="..\..\bin\release\iconv\iso-ir-88.so" />
+								<File Id="file158" Name="IS0CA41.SO" LongName="iso-ir-89.so" src="..\..\bin\release\iconv\iso-ir-89.so" />
+								<File Id="file159" Name="IS3EE81.SO" LongName="iso-ir-9-1.so" src="..\..\bin\release\iconv\iso-ir-9-1.so" />
+								<File Id="file160" Name="IS3EEC1.SO" LongName="iso-ir-9-2.so" src="..\..\bin\release\iconv\iso-ir-9-2.so" />
+								<File Id="file161" Name="IS04601.SO" LongName="iso-ir-90.so" src="..\..\bin\release\iconv\iso-ir-90.so" />
+								<File Id="file162" Name="IS0C601.SO" LongName="iso-ir-91.so" src="..\..\bin\release\iconv\iso-ir-91.so" />
+								<File Id="file163" Name="IS04701.SO" LongName="iso-ir-92.so" src="..\..\bin\release\iconv\iso-ir-92.so" />
+								<File Id="file164" Name="IS0C701.SO" LongName="iso-ir-93.so" src="..\..\bin\release\iconv\iso-ir-93.so" />
+								<File Id="file165" Name="IS04801.SO" LongName="iso-ir-94.so" src="..\..\bin\release\iconv\iso-ir-94.so" />
+								<File Id="file166" Name="IS0C801.SO" LongName="iso-ir-95.so" src="..\..\bin\release\iconv\iso-ir-95.so" />
+								<File Id="file167" Name="IS04901.SO" LongName="iso-ir-96.so" src="..\..\bin\release\iconv\iso-ir-96.so" />
+								<File Id="file168" Name="IS04A01.SO" LongName="iso-ir-98.so" src="..\..\bin\release\iconv\iso-ir-98.so" />
+								<File Id="file169" Name="IS0CA01.SO" LongName="iso-ir-99.so" src="..\..\bin\release\iconv\iso-ir-99.so" />
+								<File Id="file170" Name="ISO6461.SO" LongName="iso646-dk.so" src="..\..\bin\release\iconv\iso646-dk.so" />
+								<File Id="file171" Name="ISO6462.SO" LongName="iso646-kr.so" src="..\..\bin\release\iconv\iso646-kr.so" />
+								<File Id="file172" Name="JIS_X01.SO" LongName="jis_x0201.so" src="..\..\bin\release\iconv\jis_x0201.so" />
+								<File Id="file173" Name="JIS_X02.SO" LongName="jis_x0208-1983.so" src="..\..\bin\release\iconv\jis_x0208-1983.so" />
+								<File Id="file174" Name="JIS_X03.SO" LongName="jis_x0212-1990.so" src="..\..\bin\release\iconv\jis_x0212-1990.so" />
+								<File Id="file175" Name="johab.so" src="..\..\bin\release\iconv\johab.so" />
+								<File Id="file176" Name="koi8-r.so" src="..\..\bin\release\iconv\koi8-r.so" />
+								<File Id="file177" Name="koi8-ru.so" src="..\..\bin\release\iconv\koi8-ru.so" />
+								<File Id="file178" Name="koi8-u.so" src="..\..\bin\release\iconv\koi8-u.so" />
+								<File Id="file179" Name="ksx1001.so" src="..\..\bin\release\iconv\ksx1001.so" />
+								<File Id="file180" Name="mac-ce.so" src="..\..\bin\release\iconv\mac-ce.so" />
+								<File Id="file181" Name="MAC-CR1.SO" LongName="mac-croatian.so" src="..\..\bin\release\iconv\mac-croatian.so" />
+								<File Id="file182" Name="MAC-CY1.SO" LongName="mac-cyrillic.so" src="..\..\bin\release\iconv\mac-cyrillic.so" />
+								<File Id="file183" Name="MAC-DI1.SO" LongName="mac-dingbats.so" src="..\..\bin\release\iconv\mac-dingbats.so" />
+								<File Id="file184" Name="MAC-GR1.SO" LongName="mac-greek.so" src="..\..\bin\release\iconv\mac-greek.so" />
+								<File Id="file185" Name="MAC-IC1.SO" LongName="mac-iceland.so" src="..\..\bin\release\iconv\mac-iceland.so" />
+								<File Id="file186" Name="MAC-JA1.SO" LongName="mac-japan.so" src="..\..\bin\release\iconv\mac-japan.so" />
+								<File Id="file187" Name="MAC-RO1.SO" LongName="mac-roman.so" src="..\..\bin\release\iconv\mac-roman.so" />
+								<File Id="file188" Name="MAC-RO2.SO" LongName="mac-romania.so" src="..\..\bin\release\iconv\mac-romania.so" />
+								<File Id="file189" Name="mac-thai.so" src="..\..\bin\release\iconv\mac-thai.so" />
+								<File Id="file190" Name="MAC-TU1.SO" LongName="mac-turkish.so" src="..\..\bin\release\iconv\mac-turkish.so" />
+								<File Id="file191" Name="MAC-UK1.SO" LongName="mac-ukraine.so" src="..\..\bin\release\iconv\mac-ukraine.so" />
+								<File Id="file192" Name="MACINT1.SO" LongName="macintosh.so" src="..\..\bin\release\iconv\macintosh.so" />
+								<File Id="file193" Name="OSD_EB1.SO" LongName="osd_ebcdic_df04_1.so" src="..\..\bin\release\iconv\osd_ebcdic_df04_1.so" />
+								<File Id="file194" Name="OSD_EB2.SO" LongName="osd_ebcdic_df04_15.so" src="..\..\bin\release\iconv\osd_ebcdic_df04_15.so" />
+								<File Id="file195" Name="SHIFT_1.SO" LongName="shift_jis.so" src="..\..\bin\release\iconv\shift_jis.so" />
+								<File Id="file196" Name="UCS2-I1.SO" LongName="ucs2-internal.so" src="..\..\bin\release\iconv\ucs2-internal.so" />
+								<File Id="file197" Name="UCS4-I1.SO" LongName="ucs4-internal.so" src="..\..\bin\release\iconv\ucs4-internal.so" />
+								<File Id="file198" Name="UNICOD1.SO" LongName="unicode-1-1-utf-7.so" src="..\..\bin\release\iconv\unicode-1-1-utf-7.so" />
+								<File Id="file199" Name="us-ascii.so" src="..\..\bin\release\iconv\us-ascii.so" />
+								<File Id="file200" Name="utf-16.so" src="..\..\bin\release\iconv\utf-16.so" />
+								<File Id="file201" Name="utf-8.so" src="..\..\bin\release\iconv\utf-8.so" />
+								<File Id="file202" Name="WINDOW1.SO" LongName="windows-1250.so" src="..\..\bin\release\iconv\windows-1250.so" />
+								<File Id="file203" Name="WINDOW2.SO" LongName="windows-1251.so" src="..\..\bin\release\iconv\windows-1251.so" />
+								<File Id="file204" Name="WINDOW3.SO" LongName="windows-1252.so" src="..\..\bin\release\iconv\windows-1252.so" />
+								<File Id="file205" Name="WINDOW4.SO" LongName="windows-1253.so" src="..\..\bin\release\iconv\windows-1253.so" />
+								<File Id="file206" Name="WI30D31.SO" LongName="windows-1254.so" src="..\..\bin\release\iconv\windows-1254.so" />
+								<File Id="file207" Name="WI30DF1.SO" LongName="windows-1255.so" src="..\..\bin\release\iconv\windows-1255.so" />
+								<File Id="file208" Name="WI40DB1.SO" LongName="windows-1256.so" src="..\..\bin\release\iconv\windows-1256.so" />
+								<File Id="file209" Name="WI40D71.SO" LongName="windows-1257.so" src="..\..\bin\release\iconv\windows-1257.so" />
+								<File Id="file210" Name="WI40D31.SO" LongName="windows-1258.so" src="..\..\bin\release\iconv\windows-1258.so" />
+								<File Id="file211" Name="_TBL_S1.SO" LongName="_tbl_simple.so" src="..\..\bin\release\iconv\_tbl_simple.so" />
+							<?endif ?>
+							<?if $(env.Platform) = "x64" ?>
+								<File Id="file0" Name="ADOBE-1.SO" LongName="adobe-stdenc.so" src="..\..\bin\release64\iconv\adobe-stdenc.so" />
+								<File Id="file1" Name="ADOBE-2.SO" LongName="adobe-symbol.so" src="..\..\bin\release64\iconv\adobe-symbol.so" />
+								<File Id="file2" Name="ADOBE-3.SO" LongName="adobe-zdingbats.so" src="..\..\bin\release64\iconv\adobe-zdingbats.so" />
+								<File Id="file3" Name="big5.so" src="..\..\bin\release64\iconv\big5.so" />
+								<File Id="file4" Name="CNS1161.SO" LongName="cns11643-plane1.so" src="..\..\bin\release64\iconv\cns11643-plane1.so" />
+								<File Id="file5" Name="CNS1162.SO" LongName="cns11643-plane14.so" src="..\..\bin\release64\iconv\cns11643-plane14.so" />
+								<File Id="file6" Name="CNS1163.SO" LongName="cns11643-plane2.so" src="..\..\bin\release64\iconv\cns11643-plane2.so" />
+								<File Id="file7" Name="cp037.so" src="..\..\bin\release64\iconv\cp037.so" />
+								<File Id="file8" Name="cp038.so" src="..\..\bin\release64\iconv\cp038.so" />
+								<File Id="file9" Name="cp10000.so" src="..\..\bin\release64\iconv\cp10000.so" />
+								<File Id="file10" Name="cp10006.so" src="..\..\bin\release64\iconv\cp10006.so" />
+								<File Id="file11" Name="cp10007.so" src="..\..\bin\release64\iconv\cp10007.so" />
+								<File Id="file12" Name="cp10029.so" src="..\..\bin\release64\iconv\cp10029.so" />
+								<File Id="file13" Name="cp1006.so" src="..\..\bin\release64\iconv\cp1006.so" />
+								<File Id="file14" Name="cp10079.so" src="..\..\bin\release64\iconv\cp10079.so" />
+								<File Id="file15" Name="cp10081.so" src="..\..\bin\release64\iconv\cp10081.so" />
+								<File Id="file16" Name="cp1026.so" src="..\..\bin\release64\iconv\cp1026.so" />
+								<File Id="file17" Name="cp273.so" src="..\..\bin\release64\iconv\cp273.so" />
+								<File Id="file18" Name="cp274.so" src="..\..\bin\release64\iconv\cp274.so" />
+								<File Id="file19" Name="cp275.so" src="..\..\bin\release64\iconv\cp275.so" />
+								<File Id="file20" Name="cp277.so" src="..\..\bin\release64\iconv\cp277.so" />
+								<File Id="file21" Name="cp278.so" src="..\..\bin\release64\iconv\cp278.so" />
+								<File Id="file22" Name="cp280.so" src="..\..\bin\release64\iconv\cp280.so" />
+								<File Id="file23" Name="cp281.so" src="..\..\bin\release64\iconv\cp281.so" />
+								<File Id="file24" Name="cp284.so" src="..\..\bin\release64\iconv\cp284.so" />
+								<File Id="file25" Name="cp285.so" src="..\..\bin\release64\iconv\cp285.so" />
+								<File Id="file26" Name="cp290.so" src="..\..\bin\release64\iconv\cp290.so" />
+								<File Id="file27" Name="cp297.so" src="..\..\bin\release64\iconv\cp297.so" />
+								<File Id="file28" Name="cp420.so" src="..\..\bin\release64\iconv\cp420.so" />
+								<File Id="file29" Name="cp423.so" src="..\..\bin\release64\iconv\cp423.so" />
+								<File Id="file30" Name="cp424.so" src="..\..\bin\release64\iconv\cp424.so" />
+								<File Id="file31" Name="cp437.so" src="..\..\bin\release64\iconv\cp437.so" />
+								<File Id="file32" Name="cp500.so" src="..\..\bin\release64\iconv\cp500.so" />
+								<File Id="file33" Name="cp737.so" src="..\..\bin\release64\iconv\cp737.so" />
+								<File Id="file34" Name="cp775.so" src="..\..\bin\release64\iconv\cp775.so" />
+								<File Id="file35" Name="cp850.so" src="..\..\bin\release64\iconv\cp850.so" />
+								<File Id="file36" Name="cp851.so" src="..\..\bin\release64\iconv\cp851.so" />
+								<File Id="file37" Name="cp852.so" src="..\..\bin\release64\iconv\cp852.so" />
+								<File Id="file38" Name="cp855.so" src="..\..\bin\release64\iconv\cp855.so" />
+								<File Id="file39" Name="cp856.so" src="..\..\bin\release64\iconv\cp856.so" />
+								<File Id="file40" Name="cp857.so" src="..\..\bin\release64\iconv\cp857.so" />
+								<File Id="file41" Name="cp860.so" src="..\..\bin\release64\iconv\cp860.so" />
+								<File Id="file42" Name="cp861.so" src="..\..\bin\release64\iconv\cp861.so" />
+								<File Id="file43" Name="cp862.so" src="..\..\bin\release64\iconv\cp862.so" />
+								<File Id="file44" Name="cp863.so" src="..\..\bin\release64\iconv\cp863.so" />
+								<File Id="file45" Name="cp864.so" src="..\..\bin\release64\iconv\cp864.so" />
+								<File Id="file46" Name="cp865.so" src="..\..\bin\release64\iconv\cp865.so" />
+								<File Id="file47" Name="cp866.so" src="..\..\bin\release64\iconv\cp866.so" />
+								<File Id="file48" Name="cp868.so" src="..\..\bin\release64\iconv\cp868.so" />
+								<File Id="file49" Name="cp869.so" src="..\..\bin\release64\iconv\cp869.so" />
+								<File Id="file50" Name="cp870.so" src="..\..\bin\release64\iconv\cp870.so" />
+								<File Id="file51" Name="cp871.so" src="..\..\bin\release64\iconv\cp871.so" />
+								<File Id="file52" Name="cp874.so" src="..\..\bin\release64\iconv\cp874.so" />
+								<File Id="file53" Name="cp875.so" src="..\..\bin\release64\iconv\cp875.so" />
+								<File Id="file54" Name="cp880.so" src="..\..\bin\release64\iconv\cp880.so" />
+								<File Id="file55" Name="cp891.so" src="..\..\bin\release64\iconv\cp891.so" />
+								<File Id="file56" Name="cp903.so" src="..\..\bin\release64\iconv\cp903.so" />
+								<File Id="file57" Name="cp904.so" src="..\..\bin\release64\iconv\cp904.so" />
+								<File Id="file58" Name="cp905.so" src="..\..\bin\release64\iconv\cp905.so" />
+								<File Id="file59" Name="cp918.so" src="..\..\bin\release64\iconv\cp918.so" />
+								<File Id="file60" Name="cp932.so" src="..\..\bin\release64\iconv\cp932.so" />
+								<File Id="file61" Name="cp936.so" src="..\..\bin\release64\iconv\cp936.so" />
+								<File Id="file62" Name="cp949.so" src="..\..\bin\release64\iconv\cp949.so" />
+								<File Id="file63" Name="cp950.so" src="..\..\bin\release64\iconv\cp950.so" />
+								<File Id="file64" Name="dec-mcs.so" src="..\..\bin\release64\iconv\dec-mcs.so" />
+								<File Id="file65" Name="EBCDIC1.SO" LongName="ebcdic-at-de-a.so" src="..\..\bin\release64\iconv\ebcdic-at-de-a.so" />
+								<File Id="file66" Name="EBCDIC2.SO" LongName="ebcdic-at-de.so" src="..\..\bin\release64\iconv\ebcdic-at-de.so" />
+								<File Id="file67" Name="EBCDIC3.SO" LongName="ebcdic-ca-fr.so" src="..\..\bin\release64\iconv\ebcdic-ca-fr.so" />
+								<File Id="file68" Name="EBCDIC4.SO" LongName="ebcdic-dk-no-a.so" src="..\..\bin\release64\iconv\ebcdic-dk-no-a.so" />
+								<File Id="file69" Name="EB4BB31.SO" LongName="ebcdic-dk-no.so" src="..\..\bin\release64\iconv\ebcdic-dk-no.so" />
+								<File Id="file70" Name="EB4C931.SO" LongName="ebcdic-es-a.so" src="..\..\bin\release64\iconv\ebcdic-es-a.so" />
+								<File Id="file71" Name="EB4C241.SO" LongName="ebcdic-es-s.so" src="..\..\bin\release64\iconv\ebcdic-es-s.so" />
+								<File Id="file72" Name="EBCEE11.SO" LongName="ebcdic-es.so" src="..\..\bin\release64\iconv\ebcdic-es.so" />
+								<File Id="file73" Name="EBECC91.SO" LongName="ebcdic-fi-se-a.so" src="..\..\bin\release64\iconv\ebcdic-fi-se-a.so" />
+								<File Id="file74" Name="EB2BC91.SO" LongName="ebcdic-fi-se.so" src="..\..\bin\release64\iconv\ebcdic-fi-se.so" />
+								<File Id="file75" Name="EBD6ED1.SO" LongName="ebcdic-fr.so" src="..\..\bin\release64\iconv\ebcdic-fr.so" />
+								<File Id="file76" Name="EBD6F11.SO" LongName="ebcdic-it.so" src="..\..\bin\release64\iconv\ebcdic-it.so" />
+								<File Id="file77" Name="EBF6F51.SO" LongName="ebcdic-pt.so" src="..\..\bin\release64\iconv\ebcdic-pt.so" />
+								<File Id="file78" Name="EB0FA11.SO" LongName="ebcdic-uk.so" src="..\..\bin\release64\iconv\ebcdic-uk.so" />
+								<File Id="file79" Name="EB0FE11.SO" LongName="ebcdic-us.so" src="..\..\bin\release64\iconv\ebcdic-us.so" />
+								<File Id="file80" Name="euc-jp.so" src="..\..\bin\release64\iconv\euc-jp.so" />
+								<File Id="file81" Name="euc-kr.so" src="..\..\bin\release64\iconv\euc-kr.so" />
+								<File Id="file82" Name="euc-tw.so" src="..\..\bin\release64\iconv\euc-tw.so" />
+								<File Id="file83" Name="gb12345.so" src="..\..\bin\release64\iconv\gb12345.so" />
+								<File Id="file84" Name="gb2312.so" src="..\..\bin\release64\iconv\gb2312.so" />
+								<File Id="file85" Name="GB_2311.SO" LongName="gb_2312-80.so" src="..\..\bin\release64\iconv\gb_2312-80.so" />
+								<File Id="file86" Name="HP-ROM1.SO" LongName="hp-roman8.so" src="..\..\bin\release64\iconv\hp-roman8.so" />
+								<File Id="file87" Name="ISO-101.SO" LongName="iso-10646-ucs-2.so" src="..\..\bin\release64\iconv\iso-10646-ucs-2.so" />
+								<File Id="file88" Name="ISO-102.SO" LongName="iso-10646-ucs-4.so" src="..\..\bin\release64\iconv\iso-10646-ucs-4.so" />
+								<File Id="file89" Name="ISO-201.SO" LongName="iso-2022-cn.so" src="..\..\bin\release64\iconv\iso-2022-cn.so" />
+								<File Id="file90" Name="ISO-202.SO" LongName="iso-2022-jp-2.so" src="..\..\bin\release64\iconv\iso-2022-jp-2.so" />
+								<File Id="file91" Name="ISO-203.SO" LongName="iso-2022-jp.so" src="..\..\bin\release64\iconv\iso-2022-jp.so" />
+								<File Id="file92" Name="ISO-204.SO" LongName="iso-2022-kr.so" src="..\..\bin\release64\iconv\iso-2022-kr.so" />
+								<File Id="file93" Name="ISO-881.SO" LongName="iso-8859-1.so" src="..\..\bin\release64\iconv\iso-8859-1.so" />
+								<File Id="file94" Name="ISO-882.SO" LongName="iso-8859-10.so" src="..\..\bin\release64\iconv\iso-8859-10.so" />
+								<File Id="file95" Name="ISO-883.SO" LongName="iso-8859-13.so" src="..\..\bin\release64\iconv\iso-8859-13.so" />
+								<File Id="file96" Name="ISO-884.SO" LongName="iso-8859-14.so" src="..\..\bin\release64\iconv\iso-8859-14.so" />
+								<File Id="file97" Name="ISC94B1.SO" LongName="iso-8859-15.so" src="..\..\bin\release64\iconv\iso-8859-15.so" />
+								<File Id="file98" Name="ISFCC61.SO" LongName="iso-8859-2.so" src="..\..\bin\release64\iconv\iso-8859-2.so" />
+								<File Id="file99" Name="IS0DCA1.SO" LongName="iso-8859-3.so" src="..\..\bin\release64\iconv\iso-8859-3.so" />
+								<File Id="file100" Name="IS0DCE1.SO" LongName="iso-8859-4.so" src="..\..\bin\release64\iconv\iso-8859-4.so" />
+								<File Id="file101" Name="IS0DC21.SO" LongName="iso-8859-5.so" src="..\..\bin\release64\iconv\iso-8859-5.so" />
+								<File Id="file102" Name="IS0DC61.SO" LongName="iso-8859-6.so" src="..\..\bin\release64\iconv\iso-8859-6.so" />
+								<File Id="file103" Name="IS1DCA1.SO" LongName="iso-8859-7.so" src="..\..\bin\release64\iconv\iso-8859-7.so" />
+								<File Id="file104" Name="IS1DCE1.SO" LongName="iso-8859-8.so" src="..\..\bin\release64\iconv\iso-8859-8.so" />
+								<File Id="file105" Name="IS1DC21.SO" LongName="iso-8859-9.so" src="..\..\bin\release64\iconv\iso-8859-9.so" />
+								<File Id="file106" Name="ISO-IR1.SO" LongName="iso-ir-10.so" src="..\..\bin\release64\iconv\iso-ir-10.so" />
+								<File Id="file107" Name="ISO-IR2.SO" LongName="iso-ir-102.so" src="..\..\bin\release64\iconv\iso-ir-102.so" />
+								<File Id="file108" Name="ISO-IR3.SO" LongName="iso-ir-103.so" src="..\..\bin\release64\iconv\iso-ir-103.so" />
+								<File Id="file109" Name="ISO-IR4.SO" LongName="iso-ir-11.so" src="..\..\bin\release64\iconv\iso-ir-11.so" />
+								<File Id="file110" Name="IS2EF81.SO" LongName="iso-ir-111.so" src="..\..\bin\release64\iconv\iso-ir-111.so" />
+								<File Id="file111" Name="IS22091.SO" LongName="iso-ir-121.so" src="..\..\bin\release64\iconv\iso-ir-121.so" />
+								<File Id="file112" Name="IS220D1.SO" LongName="iso-ir-122.so" src="..\..\bin\release64\iconv\iso-ir-122.so" />
+								<File Id="file113" Name="IS22011.SO" LongName="iso-ir-123.so" src="..\..\bin\release64\iconv\iso-ir-123.so" />
+								<File Id="file114" Name="IS32051.SO" LongName="iso-ir-128.so" src="..\..\bin\release64\iconv\iso-ir-128.so" />
+								<File Id="file115" Name="ISEB701.SO" LongName="iso-ir-13.so" src="..\..\bin\release64\iconv\iso-ir-13.so" />
+								<File Id="file116" Name="IS46091.SO" LongName="iso-ir-139.so" src="..\..\bin\release64\iconv\iso-ir-139.so" />
+								<File Id="file117" Name="ISE3801.SO" LongName="iso-ir-14.so" src="..\..\bin\release64\iconv\iso-ir-14.so" />
+								<File Id="file118" Name="IS2A091.SO" LongName="iso-ir-141.so" src="..\..\bin\release64\iconv\iso-ir-141.so" />
+								<File Id="file119" Name="IS2A0D1.SO" LongName="iso-ir-142.so" src="..\..\bin\release64\iconv\iso-ir-142.so" />
+								<File Id="file120" Name="IS2A011.SO" LongName="iso-ir-143.so" src="..\..\bin\release64\iconv\iso-ir-143.so" />
+								<File Id="file121" Name="IS3A0D1.SO" LongName="iso-ir-146.so" src="..\..\bin\release64\iconv\iso-ir-146.so" />
+								<File Id="file122" Name="IS3A011.SO" LongName="iso-ir-147.so" src="..\..\bin\release64\iconv\iso-ir-147.so" />
+								<File Id="file123" Name="ISEB801.SO" LongName="iso-ir-15.so" src="..\..\bin\release64\iconv\iso-ir-15.so" />
+								<File Id="file124" Name="IS1E051.SO" LongName="iso-ir-150.so" src="..\..\bin\release64\iconv\iso-ir-150.so" />
+								<File Id="file125" Name="IS2E091.SO" LongName="iso-ir-151.so" src="..\..\bin\release64\iconv\iso-ir-151.so" />
+								<File Id="file126" Name="IS2E0D1.SO" LongName="iso-ir-152.so" src="..\..\bin\release64\iconv\iso-ir-152.so" />
+								<File Id="file127" Name="IS2E011.SO" LongName="iso-ir-153.so" src="..\..\bin\release64\iconv\iso-ir-153.so" />
+								<File Id="file128" Name="IS2E051.SO" LongName="iso-ir-154.so" src="..\..\bin\release64\iconv\iso-ir-154.so" />
+								<File Id="file129" Name="IS3E091.SO" LongName="iso-ir-155.so" src="..\..\bin\release64\iconv\iso-ir-155.so" />
+								<File Id="file130" Name="IS3E051.SO" LongName="iso-ir-158.so" src="..\..\bin\release64\iconv\iso-ir-158.so" />
+								<File Id="file131" Name="ISE3901.SO" LongName="iso-ir-16.so" src="..\..\bin\release64\iconv\iso-ir-16.so" />
+								<File Id="file132" Name="ISEB901.SO" LongName="iso-ir-17.so" src="..\..\bin\release64\iconv\iso-ir-17.so" />
+								<File Id="file133" Name="ISE3A01.SO" LongName="iso-ir-18.so" src="..\..\bin\release64\iconv\iso-ir-18.so" />
+								<File Id="file134" Name="ISEBA01.SO" LongName="iso-ir-19.so" src="..\..\bin\release64\iconv\iso-ir-19.so" />
+								<File Id="file135" Name="iso-ir-2.so" src="..\..\bin\release64\iconv\iso-ir-2.so" />
+								<File Id="file136" Name="ISFB6C1.SO" LongName="iso-ir-21.so" src="..\..\bin\release64\iconv\iso-ir-21.so" />
+								<File Id="file137" Name="ISFB8C1.SO" LongName="iso-ir-25.so" src="..\..\bin\release64\iconv\iso-ir-25.so" />
+								<File Id="file138" Name="ISFB9C1.SO" LongName="iso-ir-27.so" src="..\..\bin\release64\iconv\iso-ir-27.so" />
+								<File Id="file139" Name="ISFB981.SO" LongName="iso-ir-37.so" src="..\..\bin\release64\iconv\iso-ir-37.so" />
+								<File Id="file140" Name="iso-ir-4.so" src="..\..\bin\release64\iconv\iso-ir-4.so" />
+								<File Id="file141" Name="ISFB941.SO" LongName="iso-ir-47.so" src="..\..\bin\release64\iconv\iso-ir-47.so" />
+								<File Id="file142" Name="ISFBA41.SO" LongName="iso-ir-49.so" src="..\..\bin\release64\iconv\iso-ir-49.so" />
+								<File Id="file143" Name="ISF3601.SO" LongName="iso-ir-50.so" src="..\..\bin\release64\iconv\iso-ir-50.so" />
+								<File Id="file144" Name="ISFB601.SO" LongName="iso-ir-51.so" src="..\..\bin\release64\iconv\iso-ir-51.so" />
+								<File Id="file145" Name="ISF3801.SO" LongName="iso-ir-54.so" src="..\..\bin\release64\iconv\iso-ir-54.so" />
+								<File Id="file146" Name="ISFB801.SO" LongName="iso-ir-55.so" src="..\..\bin\release64\iconv\iso-ir-55.so" />
+								<File Id="file147" Name="ISFB901.SO" LongName="iso-ir-57.so" src="..\..\bin\release64\iconv\iso-ir-57.so" />
+								<File Id="file148" Name="IS046C1.SO" LongName="iso-ir-60.so" src="..\..\bin\release64\iconv\iso-ir-60.so" />
+								<File Id="file149" Name="IS0C6C1.SO" LongName="iso-ir-61.so" src="..\..\bin\release64\iconv\iso-ir-61.so" />
+								<File Id="file150" Name="IS0CAC1.SO" LongName="iso-ir-69.so" src="..\..\bin\release64\iconv\iso-ir-69.so" />
+								<File Id="file151" Name="IS04681.SO" LongName="iso-ir-70.so" src="..\..\bin\release64\iconv\iso-ir-70.so" />
+								<File Id="file152" Name="IS3EEA1.SO" LongName="iso-ir-8-1.so" src="..\..\bin\release64\iconv\iso-ir-8-1.so" />
+								<File Id="file153" Name="IS3EEE1.SO" LongName="iso-ir-8-2.so" src="..\..\bin\release64\iconv\iso-ir-8-2.so" />
+								<File Id="file154" Name="IS04841.SO" LongName="iso-ir-84.so" src="..\..\bin\release64\iconv\iso-ir-84.so" />
+								<File Id="file155" Name="IS0C841.SO" LongName="iso-ir-85.so" src="..\..\bin\release64\iconv\iso-ir-85.so" />
+								<File Id="file156" Name="IS04941.SO" LongName="iso-ir-86.so" src="..\..\bin\release64\iconv\iso-ir-86.so" />
+								<File Id="file157" Name="IS04A41.SO" LongName="iso-ir-88.so" src="..\..\bin\release64\iconv\iso-ir-88.so" />
+								<File Id="file158" Name="IS0CA41.SO" LongName="iso-ir-89.so" src="..\..\bin\release64\iconv\iso-ir-89.so" />
+								<File Id="file159" Name="IS3EE81.SO" LongName="iso-ir-9-1.so" src="..\..\bin\release64\iconv\iso-ir-9-1.so" />
+								<File Id="file160" Name="IS3EEC1.SO" LongName="iso-ir-9-2.so" src="..\..\bin\release64\iconv\iso-ir-9-2.so" />
+								<File Id="file161" Name="IS04601.SO" LongName="iso-ir-90.so" src="..\..\bin\release64\iconv\iso-ir-90.so" />
+								<File Id="file162" Name="IS0C601.SO" LongName="iso-ir-91.so" src="..\..\bin\release64\iconv\iso-ir-91.so" />
+								<File Id="file163" Name="IS04701.SO" LongName="iso-ir-92.so" src="..\..\bin\release64\iconv\iso-ir-92.so" />
+								<File Id="file164" Name="IS0C701.SO" LongName="iso-ir-93.so" src="..\..\bin\release64\iconv\iso-ir-93.so" />
+								<File Id="file165" Name="IS04801.SO" LongName="iso-ir-94.so" src="..\..\bin\release64\iconv\iso-ir-94.so" />
+								<File Id="file166" Name="IS0C801.SO" LongName="iso-ir-95.so" src="..\..\bin\release64\iconv\iso-ir-95.so" />
+								<File Id="file167" Name="IS04901.SO" LongName="iso-ir-96.so" src="..\..\bin\release64\iconv\iso-ir-96.so" />
+								<File Id="file168" Name="IS04A01.SO" LongName="iso-ir-98.so" src="..\..\bin\release64\iconv\iso-ir-98.so" />
+								<File Id="file169" Name="IS0CA01.SO" LongName="iso-ir-99.so" src="..\..\bin\release64\iconv\iso-ir-99.so" />
+								<File Id="file170" Name="ISO6461.SO" LongName="iso646-dk.so" src="..\..\bin\release64\iconv\iso646-dk.so" />
+								<File Id="file171" Name="ISO6462.SO" LongName="iso646-kr.so" src="..\..\bin\release64\iconv\iso646-kr.so" />
+								<File Id="file172" Name="JIS_X01.SO" LongName="jis_x0201.so" src="..\..\bin\release64\iconv\jis_x0201.so" />
+								<File Id="file173" Name="JIS_X02.SO" LongName="jis_x0208-1983.so" src="..\..\bin\release64\iconv\jis_x0208-1983.so" />
+								<File Id="file174" Name="JIS_X03.SO" LongName="jis_x0212-1990.so" src="..\..\bin\release64\iconv\jis_x0212-1990.so" />
+								<File Id="file175" Name="johab.so" src="..\..\bin\release64\iconv\johab.so" />
+								<File Id="file176" Name="koi8-r.so" src="..\..\bin\release64\iconv\koi8-r.so" />
+								<File Id="file177" Name="koi8-ru.so" src="..\..\bin\release64\iconv\koi8-ru.so" />
+								<File Id="file178" Name="koi8-u.so" src="..\..\bin\release64\iconv\koi8-u.so" />
+								<File Id="file179" Name="ksx1001.so" src="..\..\bin\release64\iconv\ksx1001.so" />
+								<File Id="file180" Name="mac-ce.so" src="..\..\bin\release64\iconv\mac-ce.so" />
+								<File Id="file181" Name="MAC-CR1.SO" LongName="mac-croatian.so" src="..\..\bin\release64\iconv\mac-croatian.so" />
+								<File Id="file182" Name="MAC-CY1.SO" LongName="mac-cyrillic.so" src="..\..\bin\release64\iconv\mac-cyrillic.so" />
+								<File Id="file183" Name="MAC-DI1.SO" LongName="mac-dingbats.so" src="..\..\bin\release64\iconv\mac-dingbats.so" />
+								<File Id="file184" Name="MAC-GR1.SO" LongName="mac-greek.so" src="..\..\bin\release64\iconv\mac-greek.so" />
+								<File Id="file185" Name="MAC-IC1.SO" LongName="mac-iceland.so" src="..\..\bin\release64\iconv\mac-iceland.so" />
+								<File Id="file186" Name="MAC-JA1.SO" LongName="mac-japan.so" src="..\..\bin\release64\iconv\mac-japan.so" />
+								<File Id="file187" Name="MAC-RO1.SO" LongName="mac-roman.so" src="..\..\bin\release64\iconv\mac-roman.so" />
+								<File Id="file188" Name="MAC-RO2.SO" LongName="mac-romania.so" src="..\..\bin\release64\iconv\mac-romania.so" />
+								<File Id="file189" Name="mac-thai.so" src="..\..\bin\release64\iconv\mac-thai.so" />
+								<File Id="file190" Name="MAC-TU1.SO" LongName="mac-turkish.so" src="..\..\bin\release64\iconv\mac-turkish.so" />
+								<File Id="file191" Name="MAC-UK1.SO" LongName="mac-ukraine.so" src="..\..\bin\release64\iconv\mac-ukraine.so" />
+								<File Id="file192" Name="MACINT1.SO" LongName="macintosh.so" src="..\..\bin\release64\iconv\macintosh.so" />
+								<File Id="file193" Name="OSD_EB1.SO" LongName="osd_ebcdic_df04_1.so" src="..\..\bin\release64\iconv\osd_ebcdic_df04_1.so" />
+								<File Id="file194" Name="OSD_EB2.SO" LongName="osd_ebcdic_df04_15.so" src="..\..\bin\release64\iconv\osd_ebcdic_df04_15.so" />
+								<File Id="file195" Name="SHIFT_1.SO" LongName="shift_jis.so" src="..\..\bin\release64\iconv\shift_jis.so" />
+								<File Id="file196" Name="UCS2-I1.SO" LongName="ucs2-internal.so" src="..\..\bin\release64\iconv\ucs2-internal.so" />
+								<File Id="file197" Name="UCS4-I1.SO" LongName="ucs4-internal.so" src="..\..\bin\release64\iconv\ucs4-internal.so" />
+								<File Id="file198" Name="UNICOD1.SO" LongName="unicode-1-1-utf-7.so" src="..\..\bin\release64\iconv\unicode-1-1-utf-7.so" />
+								<File Id="file199" Name="us-ascii.so" src="..\..\bin\release64\iconv\us-ascii.so" />
+								<File Id="file200" Name="utf-16.so" src="..\..\bin\release64\iconv\utf-16.so" />
+								<File Id="file201" Name="utf-8.so" src="..\..\bin\release64\iconv\utf-8.so" />
+								<File Id="file202" Name="WINDOW1.SO" LongName="windows-1250.so" src="..\..\bin\release64\iconv\windows-1250.so" />
+								<File Id="file203" Name="WINDOW2.SO" LongName="windows-1251.so" src="..\..\bin\release64\iconv\windows-1251.so" />
+								<File Id="file204" Name="WINDOW3.SO" LongName="windows-1252.so" src="..\..\bin\release64\iconv\windows-1252.so" />
+								<File Id="file205" Name="WINDOW4.SO" LongName="windows-1253.so" src="..\..\bin\release64\iconv\windows-1253.so" />
+								<File Id="file206" Name="WI30D31.SO" LongName="windows-1254.so" src="..\..\bin\release64\iconv\windows-1254.so" />
+								<File Id="file207" Name="WI30DF1.SO" LongName="windows-1255.so" src="..\..\bin\release64\iconv\windows-1255.so" />
+								<File Id="file208" Name="WI40DB1.SO" LongName="windows-1256.so" src="..\..\bin\release64\iconv\windows-1256.so" />
+								<File Id="file209" Name="WI40D71.SO" LongName="windows-1257.so" src="..\..\bin\release64\iconv\windows-1257.so" />
+								<File Id="file210" Name="WI40D31.SO" LongName="windows-1258.so" src="..\..\bin\release64\iconv\windows-1258.so" />
+								<File Id="file211" Name="_TBL_S1.SO" LongName="_tbl_simple.so" src="..\..\bin\release64\iconv\_tbl_simple.so" />
+							<?endif ?>
 						</Component>
 
 					</Directory>
