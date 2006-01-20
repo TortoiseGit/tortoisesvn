@@ -80,7 +80,7 @@ private:
 	CComAutoCriticalSection	m_critSec;
 	HANDLE					m_hThread;
 	HANDLE					m_hCompPort;
-	volatile bool			m_bRunning;
+	volatile LONG			m_bRunning;
 
 	CFolderCrawler *		m_FolderCrawler;	///< where the change reports go to
 	

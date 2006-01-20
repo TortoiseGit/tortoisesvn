@@ -49,7 +49,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_nSearchIndex(0),
 	m_wParam(0),
 	m_nSelectedFilter(LOGFILTER_ALL),
-	m_bNoDispUpdates(false),
+	m_bNoDispUpdates(FALSE),
 	m_currentChangedArray(NULL),
 	m_nSortColumn(0),
 	m_bShowedAll(false),
@@ -59,13 +59,13 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
 	m_pNotifyWindow = NULL;
-	m_bThreadRunning = false;
+	m_bThreadRunning = FALSE;
 	m_bAscending = FALSE;
 }
 
 CLogDlg::~CLogDlg()
 {
-	m_bNoDispUpdates = true;
+	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	m_logEntries.ClearAll();
 	DestroyIcon(m_hModifiedIcon);
 	DestroyIcon(m_hReplacedIcon);
@@ -272,10 +272,10 @@ BOOL CLogDlg::OnInitDialog()
 	//blocking the dialog
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
-	m_bThreadRunning = true;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		m_bThreadRunning = false;
+		InterlockedExchange(&m_bThreadRunning, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	return FALSE;
@@ -286,7 +286,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(" "));
 	m_LogMsgCtrl.SetRedraw(FALSE);
-	m_bNoDispUpdates = true;
+	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	m_currentChangedArray = NULL;
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
@@ -296,7 +296,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	{
 		// empty the log message control
 		m_LogMsgCtrl.Invalidate();
-		m_bNoDispUpdates = false;
+		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogMsgCtrl.SetRedraw(TRUE);
 		return;
 	}
@@ -304,7 +304,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	int selCount = m_LogList.GetSelectedCount();
 	if (selCount == 0)
 	{
-		m_bNoDispUpdates = false;
+		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogMsgCtrl.SetRedraw(TRUE);
 		return;
 	}
@@ -319,7 +319,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		m_currentChangedArray = pLogEntry->pArChangedPaths;
 		if (m_currentChangedArray == NULL)
 		{
-			m_bNoDispUpdates = false;
+			InterlockedExchange(&m_bNoDispUpdates, FALSE);
 			m_LogMsgCtrl.SetRedraw(TRUE);
 			return;
 		}
@@ -344,7 +344,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		m_currentChangedPathList = GetChangedPathsFromSelectedRevisions(true);
 	}
 	
-	m_bNoDispUpdates = false;
+	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	if (m_currentChangedArray)
 	{
 		m_LogMsgCtrl.SetItemCountEx(m_currentChangedArray->GetCount());
@@ -373,7 +373,7 @@ void CLogDlg::OnBnClickedGetall()
 	m_LogMsgCtrl.Invalidate();
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
-	m_bNoDispUpdates = true;
+	InterlockedExchange(&m_bNoDispUpdates, TRUE);
     CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(""));
     
@@ -390,14 +390,14 @@ void CLogDlg::OnBnClickedGetall()
 	m_limit = 0;
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
-	m_bThreadRunning = true;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		m_bThreadRunning = false;
+		InterlockedExchange(&m_bThreadRunning, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-	m_bNoDispUpdates = false;
+	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	
 	// TODO: once svn_client_log takes a peg revision, we must only set
 	// m_bShowedAll to true if m_bStrict is false!
@@ -420,7 +420,7 @@ void CLogDlg::Refresh()
 	m_LogMsgCtrl.Invalidate();
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
-	m_bNoDispUpdates = true;
+	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(""));
 
@@ -430,14 +430,14 @@ void CLogDlg::Refresh()
 	m_arShownList.RemoveAll();
 	m_logEntries.ClearAll();
 
-	m_bThreadRunning = false;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		m_bThreadRunning = false;
+		InterlockedExchange(&m_bThreadRunning, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-	m_bNoDispUpdates = false;
+	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 }
 
 void CLogDlg::OnBnClickedNexthundred()
@@ -459,10 +459,10 @@ void CLogDlg::OnBnClickedNexthundred()
 	m_bCancelled = FALSE;
 	m_limit = 100;
 	SetSortArrow(&m_LogList, -1, true);
-	m_bThreadRunning = true;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
-		m_bThreadRunning = false;
+		InterlockedExchange(&m_bThreadRunning, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -568,7 +568,7 @@ UINT CLogDlg::LogThreadEntry(LPVOID pVoid)
 //this is the thread function which calls the subversion function
 UINT CLogDlg::LogThread()
 {
-	m_bThreadRunning = true;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 
 	//disable the "Get All" button while we're receiving
 	//log messages.
@@ -632,7 +632,7 @@ UINT CLogDlg::LogThread()
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
-	m_bThreadRunning = false;
+	InterlockedExchange(&m_bThreadRunning, FALSE);
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
 	CUtils::ResizeAllListCtrlCols(&m_LogList);
@@ -2551,7 +2551,7 @@ void CLogDlg::OnBnClickedFiltercancel()
 	UpdateData(FALSE);
 	theApp.DoWaitCursor(1);
 	FillLogMessageCtrl(false);
-	m_bNoDispUpdates = true;
+	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	m_arShownList.RemoveAll();
 
 	// reset the time filter too
@@ -2566,7 +2566,7 @@ void CLogDlg::OnBnClickedFiltercancel()
 	{
 		m_arShownList.Add(m_logEntries[i]);
 	}
-	m_bNoDispUpdates = false;
+	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	m_LogList.SetItemCountEx(m_arShownList.GetCount());
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
@@ -2598,14 +2598,14 @@ void CLogDlg::OnEnChangeSearchedit()
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
-		m_bNoDispUpdates = true;
+		InterlockedExchange(&m_bNoDispUpdates, TRUE);
 		m_arShownList.RemoveAll();
 		for (DWORD i=0; i<m_logEntries.size(); ++i)
 		{
 			if (IsEntryInDateRange(i))
 				m_arShownList.Add(m_logEntries[i]);
 		}
-		m_bNoDispUpdates = false;
+		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
@@ -2644,7 +2644,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
 		// now start filter the log list
-		m_bNoDispUpdates = true;
+		InterlockedExchange(&m_bNoDispUpdates, TRUE);
 		
 		m_arShownList.RemoveAll();
 		bool bRegex = false;
@@ -2796,7 +2796,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			} // else (from if (bRegex))	
 		} // for (INT_PTR i=0; i<m_logEntries.size(); ++i)
 		
-		m_bNoDispUpdates = false;
+		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);

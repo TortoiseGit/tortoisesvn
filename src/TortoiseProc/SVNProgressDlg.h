@@ -239,7 +239,7 @@ private:
 	SVNRev		m_pegRev;
 	LONG		m_nUpdateStartRev;
 	BOOL		m_bCancelled;
-	volatile bool m_bThreadRunning;
+	volatile LONG m_bThreadRunning;
 	bool		m_bConflictsOccurred;
 	bool		m_bErrorsOccurred;
 	bool		m_bMergesAddsDeletesOccurred;

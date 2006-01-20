@@ -24,7 +24,7 @@ extern HWND hWnd;
 
 CDirectoryWatcher::CDirectoryWatcher(void) :
 	m_hCompPort(NULL) ,
-	m_bRunning(true),
+	m_bRunning(TRUE),
 	m_FolderCrawler(NULL)
 {
 	// enable the required privileges for this process
@@ -57,7 +57,7 @@ CDirectoryWatcher::CDirectoryWatcher(void) :
 
 CDirectoryWatcher::~CDirectoryWatcher(void)
 {
-	m_bRunning = false;
+	InterlockedExchange(&m_bRunning, FALSE);
 	CloseHandle(m_hThread);
 	CloseHandle(m_hCompPort);
 	AutoLocker lock(m_critSec);
@@ -66,7 +66,7 @@ CDirectoryWatcher::~CDirectoryWatcher(void)
 
 void CDirectoryWatcher::Stop()
 {
-	m_bRunning = false;
+	InterlockedExchange(&m_bRunning, FALSE);
 	CloseHandle(m_hThread);
 	m_hThread = INVALID_HANDLE_VALUE;
 	CloseHandle(m_hCompPort);

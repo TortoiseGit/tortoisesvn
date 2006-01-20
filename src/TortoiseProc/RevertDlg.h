@@ -59,7 +59,7 @@ public:
 
 private:
 	BOOL			m_bSelectAll;
-	BOOL			m_bThreadRunning;
+	volatile LONG	m_bThreadRunning;
 	CSVNStatusListCtrl	m_RevertList;
 	CButton			m_SelectAll;
 public:

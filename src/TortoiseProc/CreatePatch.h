@@ -51,9 +51,9 @@ private:
 
 private:
 	CSVNStatusListCtrl	m_PatchList;
-	bool				m_bThreadRunning;
+	LONG				m_bThreadRunning;
 	CButton				m_SelectAll;
 public:
-	CTSVNPathList	m_pathList;
+	CTSVNPathList		m_pathList;
 	CTSVNPathList		m_filesToRevert;
 };

@@ -46,7 +46,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
 	, m_SelectedEntry1(NULL)
 	, m_SelectedEntry2(NULL)
-	, m_bThreadRunning(false)
+	, m_bThreadRunning(FALSE)
 	, m_pDlgTip(NULL)
 	, m_bNoGraph(false)
 	, m_nFontSize(12)
@@ -181,7 +181,7 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	//in a listcontrol. 
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
-	pDlg->m_bThreadRunning = TRUE;
+	InterlockedExchange(&pDlg->m_bThreadRunning, TRUE);
 	pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
 	pDlg->m_bNoGraph = FALSE;
 	if (!pDlg->FetchRevisionData(pDlg->m_sPath))
@@ -199,7 +199,7 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 cleanup:
 	pDlg->m_Progress.Stop();
 	pDlg->InitView();
-	pDlg->m_bThreadRunning = FALSE;
+	InterlockedExchange(&pDlg->m_bThreadRunning, FALSE);
 	pDlg->Invalidate();
 	return 0;
 }

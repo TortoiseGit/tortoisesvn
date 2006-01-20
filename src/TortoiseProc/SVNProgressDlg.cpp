@@ -584,7 +584,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
 	SetAndClearProgressInfo(m_hWnd);
-	m_bThreadRunning = TRUE;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 	iFirstResized = 0;
 	bSecondResized = FALSE;
 	switch (m_Command)
@@ -720,7 +720,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 					GetDlgItem(IDOK)->EnableWindow(TRUE);
 
-					m_bThreadRunning = FALSE;
+					InterlockedExchange(&m_bThreadRunning, FALSE);
 					break;
 				}
 				if (m_targetPathList.GetCount()==1)
@@ -977,7 +977,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	GetDlgItem(IDC_PROGRESSBAR)->ShowWindow(SW_HIDE);
 	
 	m_bCancelled = TRUE;
-	m_bThreadRunning = FALSE;
+	InterlockedExchange(&m_bThreadRunning, FALSE);
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
@@ -1014,7 +1014,7 @@ void CSVNProgressDlg::OnClose()
 	if (m_bCancelled)
 	{
 		TerminateThread(m_pThread->m_hThread, (DWORD)-1);
-		m_bThreadRunning = FALSE;
+		InterlockedExchange(&m_bThreadRunning, FALSE);
 	}
 	else
 	{

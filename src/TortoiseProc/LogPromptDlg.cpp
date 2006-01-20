@@ -169,7 +169,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 		m_pThread->m_bAutoDelete = FALSE;
 		m_pThread->ResumeThread();
 	}
-	m_bBlock = TRUE;
+	InterlockedExchange(&m_bBlock, TRUE);
 	CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 	CRegDWORD historyhint = CRegDWORD(_T("Software\\TortoiseSVN\\HistoryHintShown"), FALSE);
 	if ((((DWORD)err)!=FALSE)&&((((DWORD)historyhint)==FALSE)))
@@ -190,14 +190,14 @@ void CLogPromptDlg::OnOK()
 		return;
 	if (m_bThreadRunning)
 	{
-		m_bRunThread = FALSE;
+		InterlockedExchange(&m_bRunThread, FALSE);
 		WaitForSingleObject(m_pThread->m_hThread, 1000);
 		if (m_bThreadRunning)
 		{
 			// we gave the thread a chance to quit. Since the thread didn't
 			// listen to us we have to kill it.
 			TerminateThread(m_pThread->m_hThread, (DWORD)-1);
-			m_bThreadRunning = FALSE;
+			InterlockedExchange(&m_bThreadRunning, FALSE);
 		}
 	}
 	CString id;
@@ -212,7 +212,7 @@ void CLogPromptDlg::OnOK()
 		if (CMessageBox::Show(this->m_hWnd, IDS_LOGPROMPT_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
 			return;
 	}
-	m_bBlock = TRUE;
+	InterlockedExchange(&m_bBlock, TRUE);
 	CDWordArray arDeleted;
 	//first add all the unversioned files the user selected
 	//and check if all versioned files are selected
@@ -304,7 +304,7 @@ void CLogPromptDlg::OnOK()
 	m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
-	m_bBlock = FALSE;
+	InterlockedExchange(&m_bBlock, FALSE);
 	m_sBugID.Trim();
 	m_sLogMessage = m_cLogMessage.GetText();
 	m_HistoryDlg.AddString(m_sLogMessage);
@@ -333,9 +333,9 @@ UINT CLogPromptDlg::StatusThread()
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
-	m_bBlock = TRUE;
-	m_bThreadRunning = TRUE;	// so the main thread knows that this thread is still running
-	m_bRunThread = TRUE;		// if this is set to FALSE, the thread should stop
+	InterlockedExchange(&m_bBlock, TRUE);
+	InterlockedExchange(&m_bThreadRunning, TRUE);// so the main thread knows that this thread is still running
+	InterlockedExchange(&m_bRunThread, TRUE);	// if this is set to FALSE, the thread should stop
 	m_bCancelled = false;
 
 	GetDlgItem(IDOK)->EnableWindow(false);
@@ -373,7 +373,7 @@ UINT CLogPromptDlg::StatusThread()
 	if (!success)
 	{
 		CMessageBox::Show(m_hWnd, m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
-		m_bBlock = FALSE;
+		InterlockedExchange(&m_bBlock, FALSE);
 		SetTimer(ENDDIALOGTIMER, 100, NULL);
 		return (DWORD)-1;
 	}
@@ -400,7 +400,7 @@ UINT CLogPromptDlg::StatusThread()
 	m_autolist.RemoveAll();
 	// we don't have to block the commit dialog while we fetch the
 	// auto completion list.
-	m_bBlock = FALSE;
+	InterlockedExchange(&m_bBlock, FALSE);
 	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE)==TRUE)
 	{
 		m_ListCtrl.Block(TRUE);
@@ -411,8 +411,8 @@ UINT CLogPromptDlg::StatusThread()
 	// we have the list, now signal the main thread about it
 	if (m_bRunThread)
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
-	m_bRunThread = FALSE;
-	m_bThreadRunning = FALSE;
+	InterlockedExchange(&m_bRunThread, FALSE);
+	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
 
@@ -423,14 +423,14 @@ void CLogPromptDlg::OnCancel()
 		return;
 	if (m_bThreadRunning)
 	{
-		m_bRunThread = FALSE;
+		InterlockedExchange(&m_bRunThread, FALSE);
 		WaitForSingleObject(m_pThread->m_hThread, 1000);
 		if (m_bThreadRunning)
 		{
 			// we gave the thread a chance to quit. Since the thread didn't
 			// listen to us we have to kill it.
 			TerminateThread(m_pThread->m_hThread, (DWORD)-1);
-			m_bThreadRunning = FALSE;
+			InterlockedExchange(&m_bThreadRunning, FALSE);
 		}
 	}
 	m_HistoryDlg.AddString(m_cLogMessage.GetText());
@@ -483,7 +483,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 
 void CLogPromptDlg::Refresh()
 {
-	m_bBlock = TRUE;
+	InterlockedExchange(&m_bBlock, TRUE);
 	if (AfxBeginThread(StatusThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);

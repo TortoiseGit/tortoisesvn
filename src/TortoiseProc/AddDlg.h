@@ -76,7 +76,7 @@ public:
 
 private:
 	CSVNStatusListCtrl	m_addListCtrl;
-	volatile bool	m_bThreadRunning;
+	volatile LONG	m_bThreadRunning;
 	CButton			m_SelectAll;
 };
 

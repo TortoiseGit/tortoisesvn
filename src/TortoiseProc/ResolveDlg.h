@@ -54,6 +54,6 @@ public:
 
 private:
 	CSVNStatusListCtrl	m_resolveListCtrl;
-	bool			m_bThreadRunning;
+	volatile LONG		m_bThreadRunning;
 	CButton			m_SelectAll;
 };

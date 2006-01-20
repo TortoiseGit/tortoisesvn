@@ -189,7 +189,7 @@ private:
 	svn_revnum_t		m_endrev;
 	long				m_logcounter;
 	bool				m_bCancelled;
-	volatile bool 		m_bThreadRunning;
+	volatile LONG 		m_bThreadRunning;
 	BOOL				m_bStrict;
 	BOOL				m_bSaveStrict;
 	LogChangedPathArray * m_currentChangedArray;
@@ -206,7 +206,7 @@ private:
 	CSplitterControl	m_wndSplitter2;
 	CString				m_sFilterText;
 	int					m_nSelectedFilter;
-	volatile bool		m_bNoDispUpdates;
+	volatile LONG		m_bNoDispUpdates;
 	CDateTimeCtrl		m_DateFrom;
 	CDateTimeCtrl		m_DateTo;
 	DWORD				m_tFrom;

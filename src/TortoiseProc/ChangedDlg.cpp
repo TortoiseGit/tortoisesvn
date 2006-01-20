@@ -103,7 +103,7 @@ UINT CChangedDlg::ChangedStatusThreadEntry(LPVOID pVoid)
 
 UINT CChangedDlg::ChangedStatusThread()
 {
-	m_bBlock = TRUE;
+	InterlockedExchange(&m_bBlock, TRUE);
 	m_bCanceled = false;
 	GetDlgItem(IDOK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
@@ -139,7 +139,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
 	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
 	GetDlgItem(IDC_SHOWUNMODIFIED)->EnableWindow(TRUE);
-	m_bBlock = FALSE;
+	InterlockedExchange(&m_bBlock, FALSE);
 	return 0;
 }
 

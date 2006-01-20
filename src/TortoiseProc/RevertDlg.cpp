@@ -79,7 +79,7 @@ BOOL CRevertDlg::OnInitDialog()
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
-	m_bThreadRunning = TRUE;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -105,7 +105,7 @@ UINT CRevertDlg::RevertThread()
 	GetDlgItem(IDOK)->EnableWindow(true);
 	GetDlgItem(IDCANCEL)->EnableWindow(true);
 
-	m_bThreadRunning = FALSE;
+	InterlockedExchange(&m_bThreadRunning, FALSE);
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
@@ -204,7 +204,7 @@ BOOL CRevertDlg::PreTranslateMessage(MSG* pMsg)
 						CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 					}
 					else
-						m_bThreadRunning = TRUE;
+						InterlockedExchange(&m_bThreadRunning, TRUE);
 				}
 			}
 			break;

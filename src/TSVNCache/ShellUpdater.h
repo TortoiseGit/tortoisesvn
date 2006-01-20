@@ -48,7 +48,7 @@ private:
 	HANDLE m_hWakeEvent;
 	
 	bool m_bItemsAddedSinceLastUpdate;
-	bool m_bRunning;
+	volatile LONG m_bRunning;
 };
 
 

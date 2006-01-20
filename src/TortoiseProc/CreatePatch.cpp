@@ -30,7 +30,7 @@
 IMPLEMENT_DYNAMIC(CCreatePatch, CResizableStandAloneDialog)
 CCreatePatch::CCreatePatch(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CCreatePatch::IDD, pParent),
-	m_bThreadRunning(false)
+	m_bThreadRunning(FALSE)
 {
 }
 
@@ -77,7 +77,7 @@ BOOL CCreatePatch::OnInitDialog()
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
-	m_bThreadRunning = TRUE;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 
 	return TRUE;
 }
@@ -100,7 +100,7 @@ UINT CCreatePatch::PatchThread()
 
 	GetDlgItem(IDOK)->EnableWindow(true);
 	GetDlgItem(IDCANCEL)->EnableWindow(true);
-	m_bThreadRunning = FALSE;
+	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
 
@@ -128,7 +128,7 @@ BOOL CCreatePatch::PreTranslateMessage(MSG* pMsg)
 						CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 					}
 					else
-						m_bThreadRunning = TRUE;
+						InterlockedExchange(&m_bThreadRunning, TRUE);
 				}
 			}
 			break;

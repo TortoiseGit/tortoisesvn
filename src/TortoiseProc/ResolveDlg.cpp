@@ -27,7 +27,7 @@
 IMPLEMENT_DYNAMIC(CResolveDlg, CResizableStandAloneDialog)
 CResolveDlg::CResolveDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CResolveDlg::IDD, pParent),
-	m_bThreadRunning(false)
+	m_bThreadRunning(FALSE)
 {
 }
 
@@ -73,7 +73,7 @@ BOOL CResolveDlg::OnInitDialog()
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
-	m_bThreadRunning = TRUE;
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -130,7 +130,7 @@ UINT CResolveDlg::ResolveThread()
 
 	GetDlgItem(IDOK)->EnableWindow(true);
 	GetDlgItem(IDCANCEL)->EnableWindow(true);
-	m_bThreadRunning = FALSE;
+	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
 
@@ -163,7 +163,7 @@ BOOL CResolveDlg::PreTranslateMessage(MSG* pMsg)
 						CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 					}
 					else
-						m_bThreadRunning = TRUE;
+						InterlockedExchange(&m_bThreadRunning, TRUE);
 				}
 			}
 			break;
