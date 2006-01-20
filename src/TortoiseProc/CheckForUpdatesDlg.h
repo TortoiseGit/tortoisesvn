@@ -51,5 +51,8 @@ public:
 	BOOL		m_bThreadRunning;
 	BOOL		m_bShowInfo;
 	BOOL		m_bVisible;
+
+private:
+	CString		m_sUpdateDownloadLink;			///< Where to send a user looking to download a update
 };
 
