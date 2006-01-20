@@ -32,7 +32,7 @@
 					<token key="MAJOR" value="${NEON_MAJOR_VERSION}" />
 					<token key="MINOR" value="${NEON_MINOR_VERSION}" />
 				</replacetokens>
-				<replacestring from="#define HAVE_SSPI" to="" />
+				<!-- <replacestring from="#define HAVE_SSPI" to="" /> -->
 			</filterchain>
 		</loadfile>
 		<echo file="config.hw" message="${configfile}" unless="${file::exists('config.hw')}" />
