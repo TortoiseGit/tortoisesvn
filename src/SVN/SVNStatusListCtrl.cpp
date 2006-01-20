@@ -475,9 +475,15 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->copied = !!pSVNStatus->copied;
 	
 	entry->last_commit_date = pSVNStatus->ood_last_cmt_date;
+	if ((entry->last_commit_date == NULL)&&(pSVNStatus->entry))
+		entry->last_commit_date = pSVNStatus->entry->cmt_date;
 	entry->last_commit_rev = pSVNStatus->ood_last_cmt_rev;
+	if ((entry->last_commit_rev == -1)&&(pSVNStatus->entry))
+		entry->last_commit_rev = pSVNStatus->entry->cmt_rev;
 	if (pSVNStatus->ood_last_cmt_author)
 		entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->ood_last_cmt_author);
+	if ((entry->last_commit_author.IsEmpty())&&(pSVNStatus->entry)&&(pSVNStatus->entry->cmt_author))
+		entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->entry->cmt_author);
 	
 	if (entry->status == svn_wc_status_conflicted)
 	{
