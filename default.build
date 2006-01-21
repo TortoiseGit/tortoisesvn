@@ -215,7 +215,14 @@
 		<echo message="          those targets are built with debug support" />
 		<echo message="release : call this if you want to create official releases." />
 		<echo message="          It removes the '-dev' string from some builds" />
+		<echo message="x64     : call this if you want to create native 64 bit builds." />
+		<echo message="          (AMD64/EMT64 only -- will not work in Itanium systems.)" />
 		<echo />
+		<echo message="Please specify the configuration targets BEFORE the main target." />
+		<echo message="Examples:" />
+		<echo />
+		<echo message="nant release setup" />
+		<echo message="nant -v x64 debug binaries" />
 		<echo />
     </target>
 </project>
