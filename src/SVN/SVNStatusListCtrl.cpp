@@ -909,8 +909,9 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		if ((entry->copied)&&(_tcslen(buf)>1))
 			_tcscat_s(buf, 100, _T("+"));
 		if ((entry->remotestatus == entry->remotepropstatus)&&
-			(entry->status != svn_wc_status_normal)&&
-			(entry->status != svn_wc_status_unversioned)&&
+			(entry->remotestatus != svn_wc_status_none)&&
+			(entry->remotestatus != svn_wc_status_normal)&&
+			(entry->remotestatus != svn_wc_status_unversioned)&&
 			(!SVNStatus::IsImportant(entry->remotetextstatus)))
 			_tcscat_s(buf, 100, ponly);
 		SetItemText(index, nCol++, buf);
