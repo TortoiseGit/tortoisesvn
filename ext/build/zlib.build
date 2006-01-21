@@ -20,8 +20,20 @@
 
 	<target name="build" >
 		<mkdir dir="${configuration}_${platform}" />
-		<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF gvmat32.asm" />
-		<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF inffas32.asm" />
+		<if test="${platform == 'win32'}">
+			<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF gvmat32.asm" />
+			<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF inffas32.asm" />
+		</if>
+		<if test="${platform == 'x64'}">
+			<copy todir="." overwrite="true">
+			    <fileset basedir="contrib/masmx64">
+			        <include name="*.asm" />
+			        <include name="*.c" />
+			    </fileset>
+			</copy>
+			<exec program="ml64" commandline="-nologo -c -Zi gvmat64.asm" />
+			<exec program="ml64" commandline="-nologo -c -Zi inffasx64.asm" />
+		</if>
 		<cl outputdir="${configuration}_${platform}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
@@ -56,7 +68,7 @@
 				<define name="_DEBUG" if="${configuration != 'release'}"/>
 			</defines>
 		</cl>
-		<property name="machineoption" value="/MACHINE:X86" />
+		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<lib 
 			output="${configuration}_${platform}\zlibstat.lib" 
