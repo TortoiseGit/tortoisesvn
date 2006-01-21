@@ -11,7 +11,7 @@
 			<exec program="devenv.com" workingdir="src" failonerror="false">
 				<arg value="TortoiseSVN.sln" />
 				<arg value="/rebuild" />
-				<arg value="release" />
+				<arg value="${configuration}|${platform}" />
 				<arg value="/project" />
 				<arg value="SubWCRev" />
 			</exec>
