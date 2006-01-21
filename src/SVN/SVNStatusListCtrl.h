@@ -25,20 +25,20 @@
 class SVNConfig;
 class SVNStatus;
 
-#define SVNSLC_COLSTATUS		0x000000002
-#define SVNSLC_COLREMOTESTATUS	0x000000004
-#define SVNSLC_COLTEXTSTATUS	0x000000008
-#define SVNSLC_COLPROPSTATUS	0x000000010
-#define SVNSLC_COLREMOTETEXT	0x000000020
-#define SVNSLC_COLREMOTEPROP	0x000000040
-#define SVNSLC_COLURL			0x000000080
-#define SVNSLC_COLEXT			0x000000100
+#define SVNSLC_COLEXT			0x000000002
+#define SVNSLC_COLSTATUS		0x000000004
+#define SVNSLC_COLREMOTESTATUS	0x000000008
+#define SVNSLC_COLTEXTSTATUS	0x000000010
+#define SVNSLC_COLPROPSTATUS	0x000000020
+#define SVNSLC_COLREMOTETEXT	0x000000040
+#define SVNSLC_COLREMOTEPROP	0x000000080
+#define SVNSLC_COLURL			0x000000100
 #define SVNSLC_COLLOCK			0x000000200
 #define SVNSLC_COLLOCKCOMMENT	0x000000400
 #define SVNSLC_COLAUTHOR		0x000000800
 #define	SVNSLC_COLREVISION		0x000001000
 #define	SVNSLC_COLDATE			0x000002000
-
+#define SVNSLC_NUMCOLUMNS		14
 
 #define SVNSLC_SHOWUNVERSIONED	0x000000001
 #define SVNSLC_SHOWNORMAL		0x000000002
@@ -226,9 +226,16 @@ public:
 	/**
 	 * Initializes the control, sets up the columns.
 	 * \param dwColumns mask of columns to show. Use the SVNSLC_COLxxx defines.
-	 * \param bHasCheckboxes TRUE if the control should show checkboxes on the left of each file entry
+	 * \param sColumnInfoContainer Name of a registry key 
+	 *                             where the position and visibility of each column
+	 *                             is saved and used from. If the registry key
+	 *                             doesn't exist, the default order is used
+	 *                             and dwColumns tells which columns are visible.
+	 * \param dwContextMenus mask of context menus to be active, not all make sense for every use of this control.
+	 *                       Use the SVNSLC_POPxxx defines.
+	 * \param bHasCheckboxes TRUE if the control should show checkboxes on the left of each file entry.
 	 */
-	void Init(DWORD dwColumns, DWORD dwContextMenus = SVNSLC_POPALL, bool bHasCheckboxes = true);
+	void Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus = SVNSLC_POPALL, bool bHasCheckboxes = true);
 
 	/**
 	 * Fetches the Subversion status of all files and stores the information
@@ -412,6 +419,11 @@ private:
 
 	int CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const;
 
+	bool StringToOrderArray(const CString& OrderString, int OrderArray[]);
+	CString OrderArrayToString(int OrderArray[]);
+	bool StringToWidthArray(const CString& WidthString, int WidthArray[]);
+	CString WidthArrayToString(int WidthArray[]);
+
 	virtual void PreSubclassWindow();
 	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	afx_msg BOOL OnToolTipText(UINT id, NMHDR *pNMHDR, LRESULT *pResult);	
@@ -426,12 +438,14 @@ private:
 	afx_msg void OnNMReturn(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnPaint();
+	afx_msg void OnHdnBegintrack(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnDestroy();
 
 private:
 	bool *						m_pbCanceled;
 	static bool					m_bAscending;		///< sort direction
 	static int					m_nSortedColumn;	///< which column to sort
-	static int					m_nSortedInternalColumn;
 	bool						m_bHasExternalsFromDifferentRepos;
 	bool						m_bHasExternals;
 	BOOL						m_bHasUnversionedItems;
@@ -468,4 +482,7 @@ private:
 	CString						m_sBusy;
 
 	bool						m_bUnversionedRecurse;
+	DWORD						m_ColumnShown[SVNSLC_NUMCOLUMNS];
+	CString						m_sColumnInfoContainer;
+	int							m_arColumnWidths[SVNSLC_NUMCOLUMNS];
 };

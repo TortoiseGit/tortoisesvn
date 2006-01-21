@@ -61,7 +61,7 @@ BOOL CLockDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK);
+	m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK, _T("LockDlg"));
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
 	m_cEdit.Init(m_ProjectProperties);
 	m_cEdit.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));

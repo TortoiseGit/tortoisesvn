@@ -55,7 +55,7 @@ BOOL CResolveDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	//set the listcontrol to support checkboxes
-	m_resolveListCtrl.Init(0, SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD));
+	m_resolveListCtrl.Init(0, _T("ResolveDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD));
 	m_resolveListCtrl.SetSelectButton(&m_SelectAll);
 
 	AddAnchor(IDC_RESOLVELIST, TOP_LEFT, BOTTOM_RIGHT);
