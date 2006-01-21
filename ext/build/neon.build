@@ -108,7 +108,7 @@
 				<define name="NOCRYPT" />
 			</defines>
 		</cl>
-		<property name="machineoption" value="/MACHINE:X86" />
+		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<lib 
 			output="${configuration}_${platform}\libneon.lib" 
