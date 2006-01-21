@@ -18,10 +18,6 @@ B. If you do not have access to VS.NET you can download the free
      and add it to the PATH environment variable
    Do not bother to install WiX as you cannot build very much.
 
-Note to x64 platform builders:
-- Make sure, MASM (ML.exe) is found by your path settings. 
-  Per default, it is installed under %VCINSTALLDIR%\bin.
-
 Next you need to install some utilities/programs:
 - Install the java runtime. Get it from http://java.sun.com
   or from this direct link:
