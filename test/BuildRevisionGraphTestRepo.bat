@@ -209,30 +209,49 @@ svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -m ""
 
 :: revision 39
 
-echo tt > branches\5.2.x\file2
+echo ttt > tags\V1.5\file2
 svn ci -m ""
 
 :: revision 40
 
-svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -r37 -m ""
+echo tt > branches\5.2.x\file2
+svn ci -m ""
 
 :: revision 41
 
-svn rm %REPOROOT%/tags/5.2.2 -m ""
+svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -r37 -m ""
 
 :: revision 42
 
-svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -m ""
+svn rm %REPOROOT%/tags/5.2.2 -m ""
 
 :: revision 43
 
-svn rm %REPOROOT%/tags/5.2.2 -m ""
+svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -m ""
 
 :: revision 44
 
-svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -m ""
+svn rm %REPOROOT%/tags/5.2.2 -m ""
 
 :: revision 45
+
+svn cp %REPOROOT%/branches/5.2.x %REPOROOT%/tags/5.2.2 -m ""
+
+:: revision 46
+
+echo test > trunk\file2
+svn ci -m ""
+:: revision 47
+echo test2 > trunk\file2
+svn ci -m ""
+:: revision 48
+echo test3 > trunk\file2
+svn ci -m ""
+:: revision 49
+
+echo test3 > tags\V1.5\file1
+svn ci -m ""
+:: revision 50
 
 
 cd ..
