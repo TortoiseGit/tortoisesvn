@@ -983,6 +983,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				line = line + (point.y/heigth);
 				if (line >= (LONG)app.revs.size())
 					break;
+				if (line < 0)
+					break;
 				LONG rev = app.revs[line];
 				if (line >= (LONG)app.revs.size())
 					break;
