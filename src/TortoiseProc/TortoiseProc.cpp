@@ -1886,7 +1886,11 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& root, const CTSVNPathList& p
 
 	::DeleteFile(tempPatchFilePath.GetWinPath());
 	
-	CTSVNPath sDir = path.GetCommonRoot();
+	CTSVNPath sDir;
+	if (root.GetWinPathString().Find('*')<0)
+		sDir = path.GetCommonRoot();
+	else
+		sDir = CTSVNPath(root);
 	if (sDir.IsEmpty())
 		sDir = root;
 	if (!sDir.IsDirectory())
