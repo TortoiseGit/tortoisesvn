@@ -36,10 +36,12 @@ public:
 		Merged,
 		Deleted,
 		Added,
+		LastCommit,
 		DeletedNode,
 		AddedNode,
 		ReplacedNode,
-		RenamedNode
+		RenamedNode,
+		LastCommitNode
 	};
 	
 	COLORREF GetColor(Colors col, bool bDefault = false);
@@ -51,8 +53,10 @@ private:
 	CRegDWORD m_regMerged;
 	CRegDWORD m_regDeleted;
 	CRegDWORD m_regAdded;
+	CRegDWORD m_regLastCommit;
 	CRegDWORD m_regDeletedNode;
 	CRegDWORD m_regAddedNode;
 	CRegDWORD m_regReplacedNode;
 	CRegDWORD m_regRenamedNode;
+	CRegDWORD m_regLastCommitNode;
 };

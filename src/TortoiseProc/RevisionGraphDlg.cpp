@@ -397,6 +397,9 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		case TSVNOctangle:
 			DrawOctangle(pDC, shadow);
 			break;
+		case TSVNEllipse:
+			pDC->Ellipse(shadow);
+			break;
 		default:
 			ASSERT(FALSE);	//unknown type
 			return;
@@ -430,6 +433,9 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		case TSVNOctangle:
 			DrawOctangle(pDC, rect);
 			break;
+		case TSVNEllipse:
+			pDC->Ellipse(rect);
+			break;
 		default:
 			ASSERT(FALSE);	//unknown type
 			return;
@@ -461,6 +467,9 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 			break;
 		case TSVNOctangle:
 			DrawOctangle(pDC, rect);
+			break;
+		case TSVNEllipse:
+			pDC->Ellipse(rect);
 			break;
 		default:
 			ASSERT(FALSE);	//unknown type
@@ -601,6 +610,9 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_RENAME), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
 			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::RenamedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			DestroyIcon(hIcon);
+			break;
+		case CRevisionEntry::lastcommit:
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::LastCommitNode), entry, TSVNEllipse, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
 			break;
 		default:
 			DrawNode(memDC, noderect, GetSysColor(COLOR_WINDOWTEXT), entry, TSVNRectangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);

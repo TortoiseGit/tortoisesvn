@@ -26,7 +26,8 @@ enum NodeShape
 {
 	TSVNRectangle,
 	TSVNRoundRect,
-	TSVNOctangle
+	TSVNOctangle,
+	TSVNEllipse
 };
 #define STARTPOINT_PT		(CPoint(5, 5))
 #define SHADOW_OFFSET_PT	(CPoint(4, 4))

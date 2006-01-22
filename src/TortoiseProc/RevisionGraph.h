@@ -53,7 +53,8 @@ public:
 		added,
 		addedwithhistory,
 		renamed,
-		replaced
+		replaced,
+		lastcommit
 	};
 	//methods
 	CRevisionEntry(void) : revision(0), url(NULL), author(NULL), date(0),
@@ -65,6 +66,7 @@ public:
 	//members
 	LONG			revision;
 	const char *	url;
+	const char *	realurl;
 	const char *	author;
 	apr_time_t		date;
 	const char *	message;
