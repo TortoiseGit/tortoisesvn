@@ -23,81 +23,86 @@
 	</target>
 
 	<target name="setup" depends="versioninfo">
-		<setenv>
-			<variable name="DictionaryENUS" value="0" />
-			<variable name="DictionaryENGB" value="0" />
-			<variable name="IncludeCrashReportDll" value="0" />
-		</setenv>
-	
-		<if test="${file::exists('..\..\..\Common\Spell\en_US.aff')}">
-			<setenv>
-				<variable name="DictionaryENUS" value="1" />
-			</setenv>
+		<if test="${configuration == 'debug'}">
+			<echo message="Cannot create an installer from debug binaries." />
 		</if>
-		<if test="${file::exists('..\..\..\Common\Spell\en_GB.aff')}">
-			<setenv>
-				<variable name="DictionaryENGB" value="1" />
-			</setenv>
-		</if>
-		<if test="${file::exists('..\..\MYBUILD')}">
-			<setenv>
-				<variable name="IncludeCrashReportDll" value="1" />
-			</setenv>
-		</if>
-		<if test="${platform == 'x64'}">
-			<setenv>
-				<variable name="Platform" value="x64" />
-			</setenv>
-		</if>
-		<if test="${platform != 'x64'}">
-			<setenv>
-				<variable name="Platform" value="win32" />
-			</setenv>
-		</if>
-		
-		<!-- find the path to the merge modules -->
-		<script language="C#">			
-			<code>
-				<![CDATA[
-					public static void ScriptMain(Project project)
-					{
-						project.Properties.Add("mergemodulepath", System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonProgramFiles)+"\\Merge Modules");
-					}
-				]]>
-			</code>
-		</script>
-		<setenv>
-			<variable name="MergeModules" value="${mergemodulepath}" />
-		</setenv>
+		<if test="${configuration == 'release'}">
+		  <setenv>
+			  <variable name="DictionaryENUS" value="0" />
+			  <variable name="DictionaryENGB" value="0" />
+			  <variable name="IncludeCrashReportDll" value="0" />
+		  </setenv>
+  	
+		  <if test="${file::exists('..\..\..\Common\Spell\en_US.aff')}">
+			  <setenv>
+				  <variable name="DictionaryENUS" value="1" />
+			  </setenv>
+		  </if>
+		  <if test="${file::exists('..\..\..\Common\Spell\en_GB.aff')}">
+			  <setenv>
+				  <variable name="DictionaryENGB" value="1" />
+			  </setenv>
+		  </if>
+		  <if test="${file::exists('..\..\MYBUILD')}">
+			  <setenv>
+				  <variable name="IncludeCrashReportDll" value="1" />
+			  </setenv>
+		  </if>
+		  <if test="${platform == 'x64'}">
+			  <setenv>
+				  <variable name="Platform" value="x64" />
+			  </setenv>
+		  </if>
+		  <if test="${platform != 'x64'}">
+			  <setenv>
+				  <variable name="Platform" value="win32" />
+			  </setenv>
+		  </if>
+  		
+		  <!-- find the path to the merge modules -->
+		  <script language="C#">			
+			  <code>
+				  <![CDATA[
+					  public static void ScriptMain(Project project)
+					  {
+						  project.Properties.Add("mergemodulepath", System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonProgramFiles)+"\\Merge Modules");
+					  }
+				  ]]>
+			  </code>
+		  </script>
+		  <setenv>
+			  <variable name="MergeModules" value="${mergemodulepath}" />
+		  </setenv>
 
-		<exec program="candle">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\" />
-			<arg value="TortoiseSVN.wxs" />
-			<arg value="FeaturesFragment.wxs" />
-			<arg value="StructureFragment.wxs" />
-			<arg value="UIFragment.wxs" />
-		</exec>
-		<exec program="light">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\${msifilename}.msi" />
-			<arg value="..\..\bin\TortoiseSVN.wixobj" />
-			<arg value="..\..\bin\FeaturesFragment.wixobj" />
-			<arg value="..\..\bin\StructureFragment.wixobj" />
-			<arg value="..\..\bin\UIFragment.wixobj" />
-		</exec>
-		<delete>
-			<fileset>
-				<include name="..\..\bin\*.wixobj" />
-			</fileset>
-		</delete>
-		
-		<exec program="md5" workingdir="..\..\bin">
-			<arg value="-o${msifilename}.md5" />
-			<arg value="${msifilename}.msi" />
-		</exec>
+		  <exec program="candle">
+			  <arg value="-nologo" />
+			  <arg value="-out" />
+			  <arg value="..\..\bin\" />
+			  <arg value="TortoiseSVN.wxs" />
+			  <arg value="FeaturesFragment.wxs" />
+			  <arg value="StructureFragment.wxs" />
+			  <arg value="UIFragment.wxs" />
+		  </exec>
+		  <exec program="light">
+			  <arg value="-nologo" />
+			  <arg value="-out" />
+			  <arg value="..\..\bin\${msifilename}.msi" />
+			  <arg value="..\..\bin\TortoiseSVN.wixobj" />
+			  <arg value="..\..\bin\FeaturesFragment.wixobj" />
+			  <arg value="..\..\bin\StructureFragment.wixobj" />
+			  <arg value="..\..\bin\UIFragment.wixobj" />
+		  </exec>
+		  <delete>
+			  <fileset>
+				  <include name="..\..\bin\*.wixobj" />
+			  </fileset>
+		  </delete>
+  		
+		  <exec program="md5" workingdir="..\..\bin">
+			  <arg value="-o${msifilename}.md5" />
+			  <arg value="${msifilename}.msi" />
+		  </exec>
+		</if>
 	</target>
 
 </project>
