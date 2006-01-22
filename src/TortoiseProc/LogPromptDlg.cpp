@@ -83,6 +83,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
 	ON_WM_TIMER()
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, &CLogPromptDlg::OnLvnItemchangedFilelist)
 END_MESSAGE_MAP()
 
 // CLogPromptDlg message handlers
@@ -509,17 +510,7 @@ void CLogPromptDlg::OnBnClickedShowunversioned()
 
 void CLogPromptDlg::OnEnChangeLogmessage()
 {
-	CString sTemp;
-	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
-	if (sTemp.GetLength() >= m_ProjectProperties.nMinLogSize)
-	{
-		if (!m_bBlock)
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
-	}
-	else
-	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-	}
+	UpdateOKButton();
 }
 
 LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
@@ -838,3 +829,30 @@ void CLogPromptDlg::OnBnClickedHistory()
 	}
 	
 }
+void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR* /*pNMHDR*/, LRESULT *pResult)
+{
+	UpdateOKButton();
+	
+	*pResult = 0;
+}
+
+void CLogPromptDlg::UpdateOKButton()
+{
+	BOOL bValidLogSize;
+
+	CString sTemp;
+	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
+	if (sTemp.GetLength() >= m_ProjectProperties.nMinLogSize)
+	{
+		bValidLogSize = !m_bBlock;
+	}
+	else
+	{
+		bValidLogSize = FALSE;
+	}
+
+	LONG nSelectedItems = m_ListCtrl.GetSelected();
+
+	GetDlgItem(IDOK)->EnableWindow(bValidLogSize && nSelectedItems>0);
+}
+

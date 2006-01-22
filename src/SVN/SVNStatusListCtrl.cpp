@@ -75,7 +75,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY(HDN_ITEMCLICKA, 0, OnHdnItemclick)
 	ON_NOTIFY(HDN_ITEMCLICKW, 0, OnHdnItemclick)
-	ON_NOTIFY_REFLECT(LVN_ITEMCHANGED, OnLvnItemchanged)
+	ON_NOTIFY_REFLECT_EX(LVN_ITEMCHANGED, OnLvnItemchanged)
 	ON_WM_CONTEXTMENU()
 	ON_NOTIFY_REFLECT(NM_DBLCLK, OnNMDblclk)
 	ON_NOTIFY_REFLECT(LVN_GETINFOTIP, OnLvnGetInfoTip)
@@ -1150,15 +1150,15 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	m_bBlock = FALSE;
 }
 
-void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
+BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 	if ((pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED)||(pNMLV->uNewState & LVIS_FOCUSED))
-		return;
+		return FALSE;
 
 	if (m_bBlock)
-		return;
+		return FALSE;
 
 	bool bSelected = !!(ListView_GetItemState(m_hWnd, pNMLV->iItem, LVIS_SELECTED) & LVIS_SELECTED);
 	int nListItems = GetItemCount();
@@ -1195,6 +1195,8 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	GetStatisticsString();
 	m_bBlock = FALSE;
+
+	return FALSE;
 }
 
 void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
@@ -2496,7 +2498,12 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect)
 	CWaitCursor waitCursor;
 	m_bBlock = TRUE;
 	SetRedraw(FALSE);	
+
 	int nListItems = GetItemCount();
+	if (bSelect)
+		m_nSelected = nListItems;
+	else
+		m_nSelected = 0;
 	for (int i=0; i<nListItems; ++i)
 	{
 		FileEntry * entry = GetListEntry(i);
@@ -2505,10 +2512,6 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect)
 			continue;
 		SetEntryCheck(entry,i,bSelect);
 	}
-	if (bSelect)
-		m_nSelected = nListItems;
-	else
-		m_nSelected = 0;
 	SetRedraw(TRUE);
 	GetStatisticsString();
 	m_bBlock = FALSE;

@@ -67,6 +67,7 @@ public:
 private:
 	static UINT StatusThreadEntry(LPVOID pVoid);
 	UINT StatusThread();
+	void UpdateOKButton();
 
 // Dialog Data
 	enum { IDD = IDD_LOGPROMPT };
@@ -87,6 +88,7 @@ protected:
 	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg LRESULT OnAutoListReady(WPARAM, LPARAM);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	void Refresh();
 	void GetAutocompletionList();
 	void ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags);
