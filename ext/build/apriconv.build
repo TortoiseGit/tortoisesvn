@@ -72,7 +72,7 @@
 				<property name="soname" value="${path::change-extension(fname, 'so')}" />
 				<property name="libname" value="${path::change-extension(fname, 'lib')}" />
 				<link output="${configuration}_${platform}\iconv\${soname}"
-					options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\iconv\${soname}.intermediate.manifest" /DEBUG /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"@build\BaseAddr.ref,${soname}" /IMPLIB:".\${configuration}_${platform}\iconv\${libname}" ${machineoption} ..\apr\${configuration}_${platform}\libapr.lib ${configuration}_${platform}\libapriconv.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+					options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\iconv\${soname}.intermediate.manifest" /DEBUG /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"@build\BaseAddr.ref,${soname}" /IMPLIB:".\${configuration}_${platform}\iconv\${libname}" /export:iconv_module,DATA ${machineoption} ..\apr\${configuration}_${platform}\libapr.lib ${configuration}_${platform}\libapriconv.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 					<sources>
 						<include name="${configuration}_${platform}\iconv\${fname}" />
 					</sources>
