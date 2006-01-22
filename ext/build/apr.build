@@ -21,6 +21,11 @@
 	<target name="build" >
 		<mkdir dir="${configuration}_${platform}" />
 		<copy file="include\apr.hw" tofile="include\apr.h" overwrite="true" />
+		<if test="${platform == 'x64'}">
+			<copy file="..\build\open.c" tofile="file_io\win32\open.c" overwrite="true" />
+			<copy file="..\build\readwrite.c" tofile="file_io\win32\readwrite.c" overwrite="true" />
+			<copy file="..\build\sendrecv.c" tofile="network_io\win32\sendrecv.c" overwrite="true" />
+		</if>
 		<loadfile file="include\apr_version.h" property="versionfile" />
 		<regex pattern="#define APR_MAJOR_VERSION( )+(?'APR_MAJOR_VERSION'\d+)" input="${versionfile}" />
 		<regex pattern="#define APR_MINOR_VERSION[ ]+(?'APR_MINOR_VERSION'\d+)" input="${versionfile}" />

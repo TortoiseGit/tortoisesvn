@@ -20,6 +20,9 @@
 
 	<target name="build" >
 		<mkdir dir="${configuration}_${platform}" />
+		<if test="${platform == 'x64'}">
+			<copy file="..\build\config_win.c" tofile="subversion\libsvn_subr\config_win.c" overwrite="true" />
+		</if>
 		<copy file="subversion\svn_private_config.hw" tofile="subversion\svn_private_config.h" overwrite="true" />
 		<loadfile file="subversion\svn_private_config.hw" property="configfile">
 			<filterchain>
