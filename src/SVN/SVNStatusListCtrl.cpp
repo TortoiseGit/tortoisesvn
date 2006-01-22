@@ -103,6 +103,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_pbCanceled(NULL)
 	, m_pStatLabel(NULL)
 	, m_pSelectButton(NULL)
+	, m_pConfirmButton(NULL)
 	, m_bBusy(false)
 	, m_bUnversionedRecurse(true)
 {
@@ -2460,6 +2461,12 @@ CString CSVNStatusListCtrl::GetStatisticsString()
 		else
 			m_pSelectButton->SetCheck(BST_CHECKED);
 	}
+
+	if (m_pConfirmButton)
+	{
+		m_pConfirmButton->EnableWindow(m_nSelected>0);
+	}
+
 	return sToolTip;
 }
 

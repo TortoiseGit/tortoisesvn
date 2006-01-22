@@ -60,6 +60,7 @@ BOOL CCreatePatch::OnInitDialog()
 
 	//set the listcontrol to support checkboxes
 	m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE));
+	m_PatchList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_PatchList.SetSelectButton(&m_SelectAll);
 
 	AddAnchor(IDC_PATCHLIST, TOP_LEFT, BOTTOM_RIGHT);

@@ -62,6 +62,7 @@ BOOL CRevertDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	m_RevertList.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, _T("RevertDlg"));
+	m_RevertList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_RevertList.SetSelectButton(&m_SelectAll);
 	
 	AddAnchor(IDC_REVERTLIST, TOP_LEFT, BOTTOM_RIGHT);

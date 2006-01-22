@@ -294,6 +294,12 @@ public:
 	void SetSelectButton(CButton * pButton) {m_pSelectButton = pButton;}
 
 	/**
+	 * Set a button which is de-/activated automatically. The button is
+	 * only set active if at least one item is selected.
+	 */
+	void SetConfirmButton(CButton * pButton) {m_pConfirmButton = pButton;}
+
+	/**
 	 * Select/unselect all entries in the list control.
 	 * \param bSelect TRUE to check, FALSE to uncheck.
 	 */
@@ -478,6 +484,7 @@ private:
 
 	CWnd *						m_pStatLabel;
 	CButton *					m_pSelectButton;
+	CButton *					m_pConfirmButton;
 	CColors						m_Colors;
 	
 	CString						m_sEmpty;

@@ -60,6 +60,7 @@ BOOL CAddDlg::OnInitDialog()
 	m_addListCtrl.Init(0, _T("AddDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD));
 	m_addListCtrl.SetUnversionedRecurse(true);
 	m_addListCtrl.SetSelectButton(&m_SelectAll);
+	m_addListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_addListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOADD);
 
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
