@@ -1470,7 +1470,7 @@ BEGIN
     IDS_UTILS_SELECTTEXTVIEWER "Select text editor application"
     IDS_SETTINGS_CONVERTBASE_TT 
                             "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
-    IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
+    IDS_PROC_WARNREVERT     "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
     IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
     IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
     IDS_PROC_EXPORT_1       "Select folder to export to.\nYou might need to create a new folder before performing this export."

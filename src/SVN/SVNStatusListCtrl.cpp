@@ -1658,7 +1658,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 				case IDSVNLC_REVERT:
 					{
-						if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
+						CString str;
+						str.Format(IDS_PROC_WARNREVERT,GetSelectedCount());
+						
+						if (CMessageBox::Show(this->m_hWnd, str, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
 						{
 							CTSVNPathList targetList;
 							FillListOfSelectedItemPaths(targetList);
