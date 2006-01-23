@@ -19,7 +19,6 @@
 #pragma once
 
 #include "StandAloneDlg.h"
-#include "StandAloneDlg.h"
 #include "SVN.h"
 #include "SVNStatusListCtrl.h"
 #include "Registry.h"
@@ -43,6 +42,7 @@ protected:
 	afx_msg void			OnBnClickedCheckrepo();
 	afx_msg void			OnBnClickedShowunversioned();
 	afx_msg void			OnBnClickedShowUnmodified();
+	afx_msg void			OnBnClickedShowignored();
 	virtual BOOL			OnInitDialog();
 	virtual void			OnOK();
 	virtual void			OnCancel();
@@ -68,5 +68,6 @@ private:
 	volatile LONG	m_bBlock;
 	CString			m_sTitle;
 	bool			m_bCanceled;
+	BOOL			m_bShowIgnored;
 };
 

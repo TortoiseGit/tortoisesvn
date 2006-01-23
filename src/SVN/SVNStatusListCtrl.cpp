@@ -241,7 +241,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	m_bUnversionedRecurse = !!((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE));
 }
 
-BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */)
+BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */, bool bNoIgnore /* = true */)
 {
 	BOOL bRet = TRUE;
 	m_nTargetCount = 0;
@@ -305,7 +305,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 				break;
 			}
 		}
-		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse))
+		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse, bNoIgnore))
 		{
 			bRet = FALSE;
 		}
@@ -318,7 +318,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 			// if a target specified multiple times (either directly or included
 			// in the status of a parent item) it will also show up multiple
 			// times in the list!
-			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false))
+			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false, true, bNoIgnore))
 			{
 				bRet = FALSE;
 			}
@@ -361,7 +361,8 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 							CStringA& strCurrentRepositoryUUID,
 							CTSVNPathList& arExtPaths,
 							bool bAllDirect,
-							bool recurse
+							bool recurse,
+							bool bNoIgnore
 							)
 {
 	apr_array_header_t* pIgnorePatterns = NULL;
@@ -372,7 +373,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 	svn_wc_status2_t * s;
 	CTSVNPath svnPath;
-	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, recurse);
+	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, recurse, bNoIgnore);
 
 	m_HeadRev = SVNRev(status.headrev);
 	if (s!=0)
@@ -713,7 +714,7 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromSVNStatus(svn_wc_status_kind status)
 	case svn_wc_status_unversioned:
 		return SVNSLC_SHOWUNVERSIONED;
 	case svn_wc_status_ignored:
-		return SVNSLC_SHOWDIRECTS;
+		return SVNSLC_SHOWDIRECTS|SVNSLC_SHOWIGNORED;
 	case svn_wc_status_incomplete:
 		return SVNSLC_SHOWINCOMPLETE;
 	case svn_wc_status_normal:
@@ -782,7 +783,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 			showFlags |= SVNSLC_SHOWLOCKS;
 			
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
-		if (status != svn_wc_status_ignored || (entry->direct))
+		if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
 		{
 			if ((!entry->IsFolder()) && (status == svn_wc_status_deleted) && (dwShow & SVNSLC_SHOWREMOVEDANDPRESENT))
 			{
