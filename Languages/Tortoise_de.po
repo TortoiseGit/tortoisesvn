@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-01-14 10:11+0100\n"
-"Last-Translator: Tobias Schäfer <tobiasschaefer@gmx.de>\n"
+"PO-Revision-Date: 2006-01-23 08:44+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1036,10 +1036,11 @@ msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Sind Sie sicher, dass sie den Konflikt aufgelöst haben?"
 
 #: ID:79
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr ""
-"Sind Sie sicher dass Sie die Ihre Änderungen rückgängig machen wollen?\n"
-"Sie werden <b>alle</b> Ihre Änderungen seit der letzten Aktualisierung verlieren!"
+"Sind Sie sicher dass Sie die Änderungen an %d Objekten rückgängig machen wollen?\n"
+"Sie werden <b>alle</b> Änderungen seit der letzten Aktualisierung verlieren!"
 
 #: ID:77
 #, c-format
