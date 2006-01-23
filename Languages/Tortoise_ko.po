@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-01-02 13:42+0900\n"
+"PO-Revision-Date: 2006-01-23 10:52+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1281,8 +1281,9 @@ msgstr "충돌한 파일들을 해결되었음으로 처리하는 것이 확실�
 
 # ID:79,
 #: ID:79
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "정말 되돌리시겠습니까? 마지막 업데이트로부터 작업한 내용이 <B>모두</B> 사라지게 됩니다."
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr "정말 %d개의 아이템을 되돌리시겠습니까? 마지막 업데이트로부터 작업한 내용이 <B>모두</B> 사라지게 됩니다."
 
 # ID:77,
 #: ID:77
