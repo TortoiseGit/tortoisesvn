@@ -141,6 +141,14 @@ svn://localhost/TestRepo
 				will also work. Note that you will still need to run
 				svnserve with the -d switch.
 			</para>
+			<para>
+				Finally, if you have access to the Windows 2000/XP/2003
+				resource kit you can use
+				<ulink url="http://support.microsoft.com/kb/q137890/">
+					<citetitle>SrvAny</citetitle>
+				</ulink>
+				from Microsoft.
+			</para>
 		</tip>
 	</sect2>
 	<sect2 id="tsvn-serversetup-svnserve-4">
@@ -240,6 +248,25 @@ username = password
 			<ulink url="http://svnbook.red-bean.com">
 				<citetitle>SVN book</citetitle>
 			</ulink>.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-serversetup-svnserve-6">
+		<title>Path-based Authorization with svnserve</title>
+		<para>
+			Starting with Subversion 1.3, svnserve supports the same
+			<literal>mod_authz_svn</literal> path-based authorization scheme
+			that is available with the Apache server. You need to edit the
+			<filename>conf/svnserve.conf</filename> file in your repository
+			directory and add a line referring to your authorization file.
+<screen>
+[general]
+authz-db = authz
+</screen>
+			Here, <filename>authz</filename> is a file you create to define
+			the access permissions. You can use a separate file for each
+			repository, or you can use the same file for several repositories.
+			Read <xref linkend="tsvn-serversetup-mod_authz_svn"/>
+			for a description of the file format.
 		</para>
 	</sect2>
 </sect1>
