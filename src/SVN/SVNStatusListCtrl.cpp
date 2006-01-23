@@ -2527,6 +2527,9 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect)
 void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
+	*pResult = 0;
+	if (m_bBlock)
+		return;
 	if (GetListEntry(pGetInfoTip->iItem >= 0))
 		if (pGetInfoTip->cchTextMax > GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString().GetLength())
 		{
@@ -2535,7 +2538,6 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 			else if (GetStringWidth(GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString()) > GetColumnWidth(pGetInfoTip->iItem))
 				_tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
 		}
-	*pResult = 0;
 }
 
 void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2561,6 +2563,8 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 
 			// Tell Windows to paint the control itself.
 			*pResult = CDRF_DODEFAULT;
+			if (m_bBlock)
+				return;
 
 			COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
