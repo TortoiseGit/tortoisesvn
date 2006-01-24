@@ -187,7 +187,7 @@ BEGIN
     LTEXT           "&Language:",IDC_STATIC,15,124,66,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,122,171,58,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Misc",IDC_MISCGROUP,7,7,251,133
-    CONTROL         "Ignore line&endings (recommended)",IDC_IGNORELF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,151,236,10
+    CONTROL         "Ignore line &endings (recommended)",IDC_IGNORELF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,151,236,10
     CONTROL         "Ignore &case changes",IDC_CASEINSENSITIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,161,236,10
     CONTROL         "Color co&de in-line changes",IDC_USEBDIFF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,172,236,10
     CONTROL         "&Compare whitespaces",IDC_WSCOMPARE,"Button",BS_AUTORADIOBUTTON,15,183,236,10
