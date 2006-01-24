@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-01-03 12:16+0800\n"
+"PO-Revision-Date: 2006-01-24 09:54+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1288,8 +1288,9 @@ msgstr "確定要把衝突的檔案(們)標記為已解決嗎?"
 
 # ID:79,
 #: ID:79
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "是否確定要復原? 從上次更新之後的<b>所有</b>變更都會消失!"
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr "確定要復原 %d 項目嗎? 從上一版本之後的<b>所有</b>變更都會消失!"
 
 # ID:77,
 #: ID:77
@@ -4419,6 +4420,11 @@ msgstr "顯示無版本控制的檔案(&U)"
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "以單一異動檔顯示異動(&U)"
+
+# Control-ID:1073,
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "顯示忽略的檔案"
 
 # Control-ID:1065,
 #: Control-ID:1065
