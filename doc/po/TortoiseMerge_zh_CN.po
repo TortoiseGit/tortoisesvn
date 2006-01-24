@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-01-15 11:48+0800\n"
+"PO-Revision-Date: 2006-01-24 20:25+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -434,284 +434,284 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:676(term)
 msgid "Normal"
-msgstr ""
+msgstr "正常"
 
 #: source/TortoiseMerge_en.xml:677(listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
-msgstr ""
+msgstr "全部的行都未改变过，或改变被隐藏了。"
 
 #: source/TortoiseMerge_en.xml:682(term)
 msgid "Removed"
-msgstr ""
+msgstr "移走"
 
 #: source/TortoiseMerge_en.xml:683(listitem)
 msgid "Lines which have been deleted."
-msgstr ""
+msgstr "这些行被删除了。"
 
 #: source/TortoiseMerge_en.xml:688(term)
 msgid "Added"
-msgstr ""
+msgstr "新增"
 
 #: source/TortoiseMerge_en.xml:689(listitem)
 msgid "Lines which have been added."
-msgstr ""
+msgstr "这些行是新增加的。"
 
 #: source/TortoiseMerge_en.xml:694(term)
 msgid "Empty"
-msgstr ""
+msgstr "空"
 
 #: source/TortoiseMerge_en.xml:695(listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr ""
+msgstr "在另外的面板中增加了一些行，且这个面板中没有对应的行。"
 
 #: source/TortoiseMerge_en.xml:701(term)
 msgid "Conflicted"
-msgstr ""
+msgstr "冲突"
 
 #: source/TortoiseMerge_en.xml:702(listitem)
 msgid "Where the same line has been changed in both files."
-msgstr ""
+msgstr "这些行在两个文件之间存在差异。"
 
 #: source/TortoiseMerge_en.xml:707(term)
 msgid "Line with whitespace diff"
-msgstr ""
+msgstr "比较行之间的空白"
 
 #: source/TortoiseMerge_en.xml:711(guilabel)
 msgid "Ignore leading whitespace"
-msgstr ""
+msgstr "忽略行首的空白"
 
 #: source/TortoiseMerge_en.xml:708(listitem)
 msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
-msgstr ""
+msgstr "除了行首空白外，行内存在空白差异。仅出现在选择了<placeholder-1/>时。"
 
 #: source/TortoiseMerge_en.xml:716(term)
 msgid "Whitespace diff"
-msgstr ""
+msgstr "空白差异"
 
 #: source/TortoiseMerge_en.xml:717(listitem)
 msgid "In the case above, the actual whitespace difference is highlighted using this color."
-msgstr ""
+msgstr "在上述情况中，使用这个颜色来高亮差异空白。"
 
 #: source/TortoiseMerge_en.xml:727(title)
 msgid "keyboard shortcuts"
-msgstr ""
+msgstr "快捷键"
 
 #: source/TortoiseMerge_en.xml:729(para)
 msgid "List of keyboard shortcuts and commands."
-msgstr ""
+msgstr "列出所有的快捷键和命令。"
 
 #: source/TortoiseMerge_en.xml:734(title)
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "快捷键"
 
 #: source/TortoiseMerge_en.xml:737(term)
 msgid "Ctrl-Q"
-msgstr ""
+msgstr "Ctrl-Q"
 
 #: source/TortoiseMerge_en.xml:739(para)
 msgid "Quit the program"
-msgstr ""
+msgstr "退出程序"
 
 #: source/TortoiseMerge_en.xml:745(term)
 msgid "Ctrl-C"
-msgstr ""
+msgstr "Ctrl-C"
 
 #: source/TortoiseMerge_en.xml:747(para)
 msgid "Copy the selected line(s) to the clipboard"
-msgstr ""
+msgstr "复制选定行到剪贴板"
 
 #: source/TortoiseMerge_en.xml:753(term)
 msgid "Ctrl-F"
-msgstr ""
+msgstr "Ctrl-F"
 
 #: source/TortoiseMerge_en.xml:755(para)
 msgid "Open the Find dialog for text searches"
-msgstr ""
+msgstr "打开文本查找对话框"
 
 #: source/TortoiseMerge_en.xml:761(term)
 msgid "Ctrl-O"
-msgstr ""
+msgstr "Ctrl-O"
 
 #: source/TortoiseMerge_en.xml:763(para)
 msgid "Open files to diff/merge"
-msgstr ""
+msgstr "打开需要比较/合并的文件"
 
 #: source/TortoiseMerge_en.xml:769(term)
 msgid "Ctrl-S"
-msgstr ""
+msgstr "Ctrl-S"
 
 #: source/TortoiseMerge_en.xml:771(para)
 msgid "Save the changes"
-msgstr ""
+msgstr "保存改变"
 
 #: source/TortoiseMerge_en.xml:777(term)
 msgid "Ctrl-Shift-S"
-msgstr ""
+msgstr "Ctrl-Shift-S"
 
 #: source/TortoiseMerge_en.xml:779(para)
 msgid "Save as..."
-msgstr ""
+msgstr "另存为..."
 
 #: source/TortoiseMerge_en.xml:785(term)
 msgid "F7 or cursor-right"
-msgstr ""
+msgstr "F7 或鼠标右键"
 
 #: source/TortoiseMerge_en.xml:787(para)
 msgid "Go to next difference"
-msgstr ""
+msgstr "跳转到下个不同点"
 
 #: source/TortoiseMerge_en.xml:793(term)
 msgid "Shift-F7 or cursor-left"
-msgstr ""
+msgstr "Shift-F7 或鼠标左键"
 
 #: source/TortoiseMerge_en.xml:795(para)
 msgid "Go to previous difference"
-msgstr ""
+msgstr "跳转到上个不同点"
 
 #: source/TortoiseMerge_en.xml:801(term)
 msgid "Ctrl-D"
-msgstr ""
+msgstr "Ctrl-D"
 
 #: source/TortoiseMerge_en.xml:803(para)
 msgid "Toggle between one-pane diff and two-pane diff"
-msgstr ""
+msgstr "切换单面板或双面板视图"
 
 #: source/TortoiseMerge_en.xml:809(term)
 msgid "Ctrl-R"
-msgstr ""
+msgstr "Ctrl-R"
 
 #: source/TortoiseMerge_en.xml:811(para)
 msgid "Reload the files and revert all changes made"
-msgstr ""
+msgstr "重新载入文件并放弃所做的任何改变"
 
 #: source/TortoiseMerge_en.xml:817(term)
 msgid "Ctrl-T"
-msgstr ""
+msgstr "Ctrl-T"
 
 #: source/TortoiseMerge_en.xml:819(para)
 msgid "Toggles between showing whitespaces or not"
-msgstr ""
+msgstr "切换是否显示空白字符"
 
 #: source/TortoiseMerge_en.xml:828(title)
 #: source/TortoiseMerge_en.xml:836(title)
 msgid "Command Line Parameters"
-msgstr ""
+msgstr "命令行参数"
 
 #: source/TortoiseMerge_en.xml:830(para)
 msgid "TortoiseMerge can be started with different command line parameters to load files directly at program startup."
-msgstr ""
+msgstr "TortoiseMerge 能够在程序启动时使用不同的命令行参数来直接载入文件。"
 
 #: source/TortoiseMerge_en.xml:839(term)
 msgid "/?"
-msgstr ""
+msgstr "/?"
 
 #: source/TortoiseMerge_en.xml:841(para)
 msgid "Shows an info dialog with all possible command line parameters."
-msgstr ""
+msgstr "弹出一个显示了所有可用命令行参数的对话框。"
 
 #: source/TortoiseMerge_en.xml:848(term)
 msgid "/base:\"path/to/basefile\""
-msgstr ""
+msgstr "/base:\"基础文件的路径\""
 
 #: source/TortoiseMerge_en.xml:850(para)
 msgid "load the base file"
-msgstr ""
+msgstr "指定基础文件"
 
 #: source/TortoiseMerge_en.xml:856(term)
 msgid "/basename:name"
-msgstr ""
+msgstr "/basename:名称"
 
 #: source/TortoiseMerge_en.xml:858(para)
 msgid "Sets the view title for the base file."
-msgstr ""
+msgstr "设置基础文件的标题。"
 
 #: source/TortoiseMerge_en.xml:864(term)
 msgid "/theirs:\"path/to/theirfile\""
-msgstr ""
+msgstr "/theirs:\"远程文件的路径\""
 
 #: source/TortoiseMerge_en.xml:866(para)
 msgid "load their file"
-msgstr ""
+msgstr "指定远程文件"
 
 #: source/TortoiseMerge_en.xml:872(term)
 msgid "/theirname:name"
-msgstr ""
+msgstr "/theirname:名称"
 
 #: source/TortoiseMerge_en.xml:874(para)
 msgid "Sets the view title of their file."
-msgstr ""
+msgstr "设置远程文件的标题"
 
 #: source/TortoiseMerge_en.xml:880(term)
 msgid "/mine:\"path/to/yourfile\""
-msgstr ""
+msgstr "/mine:\"本地文件的路径\""
 
 #: source/TortoiseMerge_en.xml:882(para)
 msgid "load your file"
-msgstr ""
+msgstr "指定本地文件"
 
 #: source/TortoiseMerge_en.xml:888(term)
 msgid "/minename:name"
-msgstr ""
+msgstr "/minename:名称"
 
 #: source/TortoiseMerge_en.xml:890(para)
 msgid "Sets the view title of your file."
-msgstr ""
+msgstr "设置本地文件的标题。"
 
 #: source/TortoiseMerge_en.xml:896(term)
 msgid "/merged:\"path/to/mergedfile\""
-msgstr ""
+msgstr "/merged:\"合并后文件的路径\""
 
 #: source/TortoiseMerge_en.xml:898(para)
 msgid "Specifies the merged file where the result of the merge is saved to."
-msgstr ""
+msgstr "指定用于保存合并结果的文件名。"
 
 #: source/TortoiseMerge_en.xml:905(term)
 msgid "/mergedname:name"
-msgstr ""
+msgstr "/mergedname:名称"
 
 #: source/TortoiseMerge_en.xml:907(para)
 msgid "Sets the view title for the result file."
-msgstr ""
+msgstr "设置合并结果的标题。"
 
 #: source/TortoiseMerge_en.xml:913(term)
 msgid "/diff:\"path/to/unified_diff_file\""
-msgstr ""
+msgstr "/diff:\"单一差异文件的路径\""
 
 #: source/TortoiseMerge_en.xml:915(para)
 msgid "Specifies the unified diff file (patchfile)."
-msgstr ""
+msgstr "指定单一差异文件（补丁）。"
 
 #: source/TortoiseMerge_en.xml:921(term)
 msgid "/patchpath:\"path/to/patchfolder\""
-msgstr ""
+msgstr "/patchpath:\"补丁所在文件夹\""
 
 #: source/TortoiseMerge_en.xml:923(para)
 msgid "Specifies the path to the folder where the patchfile is applied to."
-msgstr ""
+msgstr "指定需要应用的补丁所存放的文件夹。"
 
 #: source/TortoiseMerge_en.xml:930(term)
 msgid "/oneway"
-msgstr ""
+msgstr "/oneway"
 
 #: source/TortoiseMerge_en.xml:932(para)
 msgid "If set, TortoiseMerge starts with the one-pane-view."
-msgstr ""
+msgstr "设置后，TortoiseMerge 将以单面板视图启动。"
 
 #: source/TortoiseMerge_en.xml:944(title)
 msgid "Glossary"
-msgstr ""
+msgstr "词汇表"
 
 #: source/TortoiseMerge_en.xml:946(glossterm)
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: source/TortoiseMerge_en.xml:948(para)
 msgid "A Subversion command that is used to add a file or directory to a repository."
-msgstr ""
+msgstr "一个用于增加文件或目录到文件库中的 Subversion 命令。"
 
 #: source/TortoiseMerge_en.xml:955(glossterm)
 msgid "BDB"
-msgstr ""
+msgstr "BDB"
 
 #: source/TortoiseMerge_en.xml:957(para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
@@ -719,7 +719,7 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:964(glossterm)
 msgid "FSFS"
-msgstr ""
+msgstr "FSFS"
 
 #: source/TortoiseMerge_en.xml:966(para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
@@ -736,10 +736,10 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/TortoiseMerge_en.xml:0(None)
 msgid "translator-credits"
-msgstr ""
+msgstr "译者——荣誉"
 
 #. Place the translation of 'translation' here.
 #: source/TortoiseMerge_en.xml:0(None)
 msgid "translator-translation"
-msgstr ""
+msgstr "译者——翻译"
 
