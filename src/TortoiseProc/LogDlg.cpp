@@ -2831,7 +2831,7 @@ void CLogDlg::OnDtnDatetimechangeDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 void CLogDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	CTime _time;
-	m_DateTo.GetTime(_time);
+	m_DateFrom.GetTime(_time);
 	CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 0, 0, 0);
 	if (time.GetTime() != m_tFrom)
 	{
