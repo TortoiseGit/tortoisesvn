@@ -1,3 +1,21 @@
+Version 1.3.1
+- BUG: Patches with non ANSI or non UTF8 encoding couldn't be applied
+       correctly. (Stefan)
+- BUG: file:/// access to BDB repositories was incompatible with
+       previous versions and other clients. (Stefan)
+- BUG: When starting Blame, the default end revision was 0 instead
+       of HEAD. (Stefan)
+- BUG: Fix crashes on SMP systems. (Stefan)
+- BUG: Author, revision and date weren't always shown in the 
+       'Check for modifications' dialog.
+- BUG: The "remote status" column could show "(property changes only)"
+       even if there were no property changes detected. (Stefan)
+- BUG: TortoiseBlame could crash when the mousepointer was hoovered over
+       just above the first visible line. (Stefan)
+- BUG: 'Create Patch' used the wrong root path. (Stefan)
+- BUG: The revision graph could crash when showing tooltips for nodes. (Stefan)
+- BUG: The "From:" date in the log dialog couldn't be set correctly. (Stefan)
+
 Version 1.3.0
 - NEW: The settings dialog now has a button to open the system sound
        dialog where the TSVN sounds can be configured.
