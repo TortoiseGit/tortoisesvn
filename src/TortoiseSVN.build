@@ -71,39 +71,6 @@
 			<arg value="/rebuild" />
 			<arg value="${configuration}|${platform}" />
 		</exec>
-		<if test="${platform == 'x64'}">
-			<echo message="Patching the manifests for AMD64." />
-			<exec program="sed.exe" output="..\obj\TortoiseShell\${configuration}${platformfoldername}\TortoiseSVN.dll.x64.manifest" >
-				<arg value="-e" />
-				<arg value="s/X86/amd64/g" />
-				<arg value="..\obj\TortoiseShell\${configuration}${platformfoldername}\TortoiseSVN.dll.intermediate.manifest" />
-			</exec>
-			<exec program="mt">
-				<arg value="-manifest" />
-				<arg value="..\obj\TortoiseShell\${configuration}${platformfoldername}\TortoiseSVN.dll.x64.manifest" />
-				<arg value="/outputresource:..\bin\${configuration}${platformfoldername}\bin\TortoiseSVN.dll;#2" />
-			</exec>
-			<exec program="sed.exe" output="..\obj\TortoiseMerge\${configuration}${platformfoldername}\TortoiseMerge.exe.x64.manifest" >
-				<arg value="-e" />
-				<arg value="s/X86/amd64/g" />
-				<arg value="..\obj\TortoiseMerge\${configuration}${platformfoldername}\TortoiseMerge.exe.intermediate.manifest" />
-			</exec>
-			<exec program="mt">
-				<arg value="-manifest" />
-				<arg value="..\obj\TortoiseMerge\${configuration}${platformfoldername}\TortoiseMerge.exe.x64.manifest" />
-				<arg value="/outputresource:..\bin\${configuration}${platformfoldername}\bin\TortoiseMerge.exe;#2" />
-			</exec>
-			<exec program="sed.exe" output="..\obj\TortoiseProc\${configuration}${platformfoldername}\TortoiseProc.exe.x64.manifest" >
-				<arg value="-e" />
-				<arg value="s/X86/amd64/g" />
-				<arg value="..\obj\TortoiseProc\${configuration}${platformfoldername}\TortoiseProc.exe.intermediate.manifest" />
-			</exec>
-			<exec program="mt">
-				<arg value="-manifest" />
-				<arg value="..\obj\TortoiseProc\${configuration}${platformfoldername}\TortoiseProc.exe.x64.manifest" />
-				<arg value="/outputresource:..\bin\${configuration}${platformfoldername}\bin\TortoiseProc.exe;#2" />
-			</exec>
-		</if>
 		<property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
 		<property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
 		<copy todir="..\bin\${configuration}${platformfoldername}\bin" overwrite="true" flatten="true" failonerror="false">
