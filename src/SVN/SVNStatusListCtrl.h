@@ -245,7 +245,7 @@ public:
 	 * \param bUpdate TRUE if the remote status is requested too.
 	 * \return TRUE on success.
 	 */
-	BOOL GetStatus(const CTSVNPathList& pathList, bool bUpdate = false, bool bNoIgnore = true);
+	BOOL GetStatus(const CTSVNPathList& pathList, bool bUpdate = false, bool bShowIgnores = false);
 
 	/**
 	 * Populates the list control with the previously (with GetStatus) gathered status information.
@@ -387,7 +387,7 @@ private:
 	static bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2);
 
 	/// Process one line of the command file supplied to GetStatus
-	bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, bool recurse = true, bool bNoIgnore = true); 
+	bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, bool recurse = true, bool bShowIgnores = false); 
 
 	/// Create 'status' data for each item in an unversioned folder
 	void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, apr_array_header_t *pIgnorePatterns);
@@ -476,6 +476,7 @@ private:
 	DWORD						m_dwColumns;
 	DWORD						m_dwShow;
 	bool						m_bShowFolders;
+	bool						m_bShowIgnores;
 	DWORD						m_dwContextMenus;
 	BOOL						m_bBlock;
 	bool						m_bBusy;

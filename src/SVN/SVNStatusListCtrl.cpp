@@ -106,6 +106,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_pConfirmButton(NULL)
 	, m_bBusy(false)
 	, m_bUnversionedRecurse(true)
+	, m_bShowIgnores(false)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 }
@@ -241,13 +242,14 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	m_bUnversionedRecurse = !!((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE));
 }
 
-BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */, bool bNoIgnore /* = true */)
+BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */, bool bShowIgnores /* = false */)
 {
 	BOOL bRet = TRUE;
 	m_nTargetCount = 0;
 	m_bHasExternalsFromDifferentRepos = FALSE;
 	m_bHasExternals = FALSE;
 	m_bHasUnversionedItems = FALSE;
+	m_bShowIgnores = bShowIgnores;
 	m_nSortedColumn = 0;
 	m_bBlock = TRUE;
 	m_bBusy = true;
@@ -305,7 +307,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 				break;
 			}
 		}
-		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse, bNoIgnore))
+		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse, bShowIgnores))
 		{
 			bRet = FALSE;
 		}
@@ -318,7 +320,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 			// if a target specified multiple times (either directly or included
 			// in the status of a parent item) it will also show up multiple
 			// times in the list!
-			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false, true, bNoIgnore))
+			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false, true, bShowIgnores))
 			{
 				bRet = FALSE;
 			}
@@ -362,7 +364,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 							CTSVNPathList& arExtPaths,
 							bool bAllDirect,
 							bool recurse,
-							bool bNoIgnore
+							bool bShowIgnores
 							)
 {
 	apr_array_header_t* pIgnorePatterns = NULL;
@@ -373,7 +375,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 	svn_wc_status2_t * s;
 	CTSVNPath svnPath;
-	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, recurse, bNoIgnore);
+	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, recurse, bShowIgnores);
 
 	m_HeadRev = SVNRev(status.headrev);
 	if (s!=0)
@@ -714,6 +716,8 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromSVNStatus(svn_wc_status_kind status)
 	case svn_wc_status_unversioned:
 		return SVNSLC_SHOWUNVERSIONED;
 	case svn_wc_status_ignored:
+		if (!m_bShowIgnores)
+			return SVNSLC_SHOWDIRECTS;
 		return SVNSLC_SHOWDIRECTS|SVNSLC_SHOWIGNORED;
 	case svn_wc_status_incomplete:
 		return SVNSLC_SHOWINCOMPLETE;
