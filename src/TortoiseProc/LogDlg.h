@@ -173,6 +173,8 @@ private:
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	static int __cdecl	SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 
+	void ResizeAllListCtrlCols(CListCtrl &list);
+
 public:
 	CWnd *				m_pNotifyWindow;
 	ProjectProperties	m_ProjectProperties;

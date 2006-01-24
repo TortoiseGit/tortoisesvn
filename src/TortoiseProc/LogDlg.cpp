@@ -37,6 +37,8 @@
 #include "SVNDiff.h"
 #include ".\logdlg.h"
 
+#define ICONITEMBORDER 5
+
 // CLogDlg dialog
 
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableStandAloneDialog)
@@ -176,7 +178,7 @@ BOOL CLogDlg::OnInitDialog()
 	temp.LoadString(IDS_LOG_MESSAGE);
 	m_LogList.InsertColumn(4, temp);
 	m_LogList.SetRedraw(false);
-	CUtils::ResizeAllListCtrlCols(&m_LogList);
+	ResizeAllListCtrlCols(m_LogList);
 	m_LogList.SetRedraw(true);
 
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
@@ -635,7 +637,7 @@ UINT CLogDlg::LogThread()
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
-	CUtils::ResizeAllListCtrlCols(&m_LogList);
+	ResizeAllListCtrlCols(m_LogList);
 	m_LogList.SetRedraw(true);
 	if (!GetDlgItem(IDOK)->IsWindowVisible())
 	{
@@ -2193,28 +2195,31 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				m_LogList.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 				::FillRect(pLVCD->nmcd.hdc, &rect, brush);
 				::DeleteObject(brush);
-#				define ICONITEMBORDER 5
 				// Draw the icon(s) into the compatible DC
 				if (pLogEntry->actions & LOGACTIONS_MODIFIED)
 				{
 					::DrawIconEx(pLVCD->nmcd.hdc, rect.left + ICONITEMBORDER, rect.top, m_hModifiedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
-					nIcons++;
 				}
-				if (pLogEntry->actions & LOGACTIONS_REPLACED)
-				{
-					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hReplacedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
-					nIcons++;
-				}
+				nIcons++;
+
 				if (pLogEntry->actions & LOGACTIONS_ADDED)
 				{
 					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hAddedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
-					nIcons++;
 				}
+				nIcons++;
+
 				if (pLogEntry->actions & LOGACTIONS_DELETED)
 				{
 					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hDeletedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
-					nIcons++;
 				}
+				nIcons++;
+
+				if (pLogEntry->actions & LOGACTIONS_REPLACED)
+				{
+					::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hReplacedIcon, iconwidth, iconheigth, 0, NULL, DI_NORMAL);
+				}
+				nIcons++;
+
 				*pResult = CDRF_SKIPDEFAULT;
 				return;
 			}
@@ -2570,7 +2575,7 @@ void CLogDlg::OnBnClickedFiltercancel()
 	m_LogList.SetItemCountEx(m_arShownList.GetCount());
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
-	CUtils::ResizeAllListCtrlCols(&m_LogList);
+	ResizeAllListCtrlCols(m_LogList);
 	
 	if (selIndex >= 0)
 	{
@@ -2609,7 +2614,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
-		CUtils::ResizeAllListCtrlCols(&m_LogList);
+		ResizeAllListCtrlCols(m_LogList);
 		m_LogList.SetRedraw(true);
 		theApp.DoWaitCursor(-1);
 		m_cFilterCancelButton.ShowWindow(SW_HIDE);
@@ -2800,7 +2805,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
-		CUtils::ResizeAllListCtrlCols(&m_LogList);
+		ResizeAllListCtrlCols(m_LogList);
 		m_LogList.SetRedraw(true);
 		m_LogList.Invalidate();
 		theApp.DoWaitCursor(-1);
@@ -3031,6 +3036,20 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 			return cpath2->lCopyFromRev > cpath1->lCopyFromRev;
 	}
 	return 0;
+}
+
+void CLogDlg::ResizeAllListCtrlCols(CListCtrl& list)
+{
+	CUtils::ResizeAllListCtrlCols(&list);
+
+	// Adjust columns "Actions" containing icons
+	int nWidth = list.GetColumnWidth(1);
+
+	const int nMinimumWidth = ICONITEMBORDER+16*4;
+	if ( nWidth<nMinimumWidth )
+	{
+		list.SetColumnWidth(1,nMinimumWidth);
+	}
 }
 
 void CLogDlg::OnBnClickedHidepaths()
