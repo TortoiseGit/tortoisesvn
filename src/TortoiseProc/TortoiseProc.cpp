@@ -1289,7 +1289,10 @@ BOOL CTortoiseProcApp::InitInstance()
 				// ask for a new name of the source item
 				CRenameDlg renDlg;
 				renDlg.m_name = pathList[0].GetFileOrDirectoryName();
-				renDlg.DoModal();
+				if (renDlg.DoModal() != IDOK)
+				{
+					return FALSE;
+				}
 				sNewName = renDlg.m_name;
 			}
 			CProgressDlg progress;
