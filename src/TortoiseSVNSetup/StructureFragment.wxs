@@ -33,6 +33,14 @@
 						<File Id="F__bdblicense" Name="BDB_LIC.TXT" LongName="BerkeleyDB License.txt" DiskId="1" src="include\BDB_License.txt" />
 					</Component>
 
+					<Component Id="C__ProgramMenuFolder" Guid="46F6E6A9-843F-4039-8F6C-450953BB47F2" >
+
+						<RemoveFolder Directory="INSTALLDIR" On="uninstall" Id="RemoveFolder_INSTALLDIR" />
+						<RemoveFolder Directory="D_TortoisePrgMenu" On="uninstall" Id="RemoveFolder_PrgMenu" />
+
+					</Component>
+
+
           <?if $(env.Platform) = "x64" ?>
             <Component Id="C__shellregistry" Guid="A3380CB4-2909-4704-8826-68FF68081E50" Win64="yes">
               <Registry Root="HKMU" Key="Software\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
