@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-20 15:07-0300\n"
+"PO-Revision-Date: 2006-01-25 14:42-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1296,7 +1296,8 @@ msgstr "Você tem certeza que deseja marcar o(s) arquivo(s) em conflito como res
 
 # ID:79,
 #: ID:79
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
+#, fuzzy, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr "Você tem certeza de que quer reverter? Você irá perder <b>todas</b> as alterações desde a última atualização!"
 
 # ID:77,
@@ -2575,9 +2576,8 @@ msgstr "Geral"
 
 # ID:144,
 #: ID:144
-#, fuzzy
 msgid "Generating patchfile..."
-msgstr "Gerando Arquivo de Correção..."
+msgstr "Gerando arquivo de correção..."
 
 # ID:16,
 #: ID:16
@@ -2618,15 +2618,14 @@ msgstr "Adiquirindo informações do histórico..."
 
 # ID:132,
 #: ID:119
-#, fuzzy
 msgid "Getting unified diff"
-msgstr "Baixando informações do arquivo..."
+msgstr "Obtendo  comparação unificada"
 
 # Control-ID:65535,
 #: Control-ID:65535
 #, fuzzy
 msgid "Global ignore &pattern:"
-msgstr "Excluir/Ignorar padrão:"
+msgstr "&Padrão de ignorar geral:"
 
 # ID:2049,
 #: ID:2051
@@ -2719,7 +2718,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+#, fuzzy
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Se selecionado, o TortoiseSVN cria um arquivo temporário da revisão READ para fazer as comparações com as palavras-chave expandidas e as quebras de linha ajustadas."
 
 # ID:195,
@@ -2798,7 +2798,8 @@ msgstr "Ignora alterações de &caixa"
 
 # Control-ID:1018,
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
+#, fuzzy
+msgid "Ignore line &endings (recommended)"
 msgstr "Ignorar fins d&e linha (recomendado)"
 
 # Control-ID:1056,
@@ -4111,7 +4112,7 @@ msgstr "SVN Autor"
 # ID:16,
 #: ID:16
 #, fuzzy
-msgid "SVN Copy and rename versioned files here"
+msgid "SVN Copy and rename versioned file here"
 msgstr "SVN Copiar e Renomear arquivos com controle de versão para cá"
 
 # Control-ID:1073,
@@ -4234,9 +4235,8 @@ msgstr "Salvando arquivo %s"
 
 # ID:144,
 #: ID:103
-#, fuzzy
 msgid "Saving files"
-msgstr "Salvando arquivo %s"
+msgstr "Salvando arquivo"
 
 # ID:144,
 #: ID:144
@@ -4274,9 +4274,8 @@ msgstr "Selecionar &Tudo"
 # Control-ID:1067,#:
 # Control-ID:1067,
 #: Control-ID:1067
-#, fuzzy
 msgid "Select / deselect &all"
-msgstr "Selecionar / Desselecionar &Tudo"
+msgstr "Selecionar / desselecionar &tudo"
 
 # ID:13,
 #: ID:13
@@ -4462,6 +4461,11 @@ msgstr "Exibir arq&uivos sem controle de versão"
 msgid "Show differences as &unified diff"
 msgstr "Exibir diferenças como comparação &unificada"
 
+# Control-ID:1073,
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Mostrar arquivos ignorados"
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Show li&ne diff bar"
@@ -4604,7 +4608,6 @@ msgstr "Status"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Status and action colors"
 msgstr "Status e cores de ações"
 
@@ -5241,9 +5244,8 @@ msgstr "TortoiseSVN : Copiar (Ramo / Rótulo)"
 
 # ID:80,
 #: Dlg-ID:208
-#, fuzzy
 msgid "TortoiseSVN : Create Patch"
-msgstr "Configurações TortoiseSVN"
+msgstr "TortoiseSVN : Criar Correção"
 
 # ID:8,
 #: Dlg-ID:178
@@ -5269,9 +5271,8 @@ msgstr "TortoiseSVN : Entrada"
 
 # ID:80,
 #: Dlg-ID:191
-#, fuzzy
 msgid "TortoiseSVN : Lock Files"
-msgstr "Configurações TortoiseSVN"
+msgstr "TortoiseSVN : Travar arquivos"
 
 # ID:80,
 #: Dlg-ID:211
@@ -5634,9 +5635,8 @@ msgstr "Url:"
 
 # Control-ID:1064,
 #: Control-ID:1064
-#, fuzzy
 msgid "Use &magnifier on locatorbar"
-msgstr "Usar Lente de Aumento na Barra de Localização"
+msgstr "Usar lente de au&mento na barra de localização"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -5651,9 +5651,8 @@ msgstr "Usar &outro bloco de texto"
 
 # Control-ID:1126,
 #: Control-ID:1126
-#, fuzzy
 msgid "Use &text viewer to view blames"
-msgstr "Use um visualizador de textos para ver as responsabilidades"
+msgstr "Use um visualizador de &textos para ver as responsabilidades"
 
 # ID:195,
 #: ID:195
