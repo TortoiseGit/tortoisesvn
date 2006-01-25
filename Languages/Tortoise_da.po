@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r5272
+# Based on Tortoise.pot r5526
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-16 10:08+0100\n"
+"PO-Revision-Date: 2006-01-25 20:47+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -441,7 +441,7 @@ msgstr "&Næste 100"
 msgid "&Next Difference"
 msgstr "&Næste forskel"
 
-#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
 msgstr "&Ok"
 
@@ -938,8 +938,9 @@ msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Er du sikker på, at filen/filerne med konflikter skal markeres som løst?"
 
 #: ID:79,
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "Er du sikker på at du vil tilbageføre ændringerne? Du mister <b>alle</b> ændringer siden sidste opdatering!"
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr "Er du sikker på at du vil tilbageføre %d emne(r)? Du mister <b>alle</b> ændringer siden sidste opdatering!"
 
 #: ID:77,
 #, c-format
@@ -1937,7 +1938,7 @@ msgid "If checked then a new folder is created in the repository.\nIf not checke
 msgstr "Hvis valgt, så oprettes en ny mappe i versionsarkivet.\nHvis ikke valgt, så importeres der direkte til den angivne URL."
 
 #: ID:79,
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Hvis valgt, så opretter TortoiseSVN en midlertidig fil af basisfilen for at lave sammenligningen med udfyldte nøgleord og tilpassede linjeskift."
 
 #: ID:195,
@@ -1980,7 +1981,7 @@ msgid "Ignore &case changes"
 msgstr "Ignorer &store/små bogstaver"
 
 #: Control-ID:1018,
-msgid "Ignore line&endings (recommended)"
+msgid "Ignore line &endings (recommended)"
 msgstr "Ignorer linje&afslutninger (anbefales)"
 
 #: Control-ID:1056,
@@ -2374,7 +2375,7 @@ msgstr "Antal forfattere:"
 msgid "Number of weeks:"
 msgstr "Antal uger:"
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr "Ok"
 
@@ -2900,8 +2901,8 @@ msgid "SVN Author"
 msgstr "SVN Forfatter"
 
 #: ID:16,
-msgid "SVN Copy and rename versioned files here"
-msgstr "SVN Kopier og omdøb versionerede filer hertil"
+msgid "SVN Copy and rename versioned file here"
+msgstr "SVN Kopier og omdøb versioneret fil hertil"
 
 #: ID:13,
 msgid "SVN Copy versioned files here"
@@ -3155,6 +3156,10 @@ msgstr "Vis &ikke-versionerede filer"
 #: ID:113,
 msgid "Show differences as &unified diff"
 msgstr "Vis forskelle i \"&unified diff\"-format"
+
+#: Control-ID:1264,
+msgid "Show ignored files"
+msgstr "Vis ignorerede filer"
 
 #: Control-ID:1065,
 msgid "Show li&ne diff bar"
