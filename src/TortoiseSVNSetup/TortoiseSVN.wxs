@@ -32,11 +32,15 @@
 
 		<Icon Id="TSVNIcon" src="..\Resources\Tortoise.ico" />
 
-		<!-- Launch Condition related properties ................................................................................. -->
-		<Property Id="VERSIONIE">
-			<RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="raw" />
-		</Property>
-		<Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
+    <!-- Launch Condition related properties ................................................................................. -->
+    <Property Id="VERSIONIE">
+      <?if $(env.Platform) = "x64" ?>
+        <RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="raw" Win64="yes"/>
+      <?else ?>
+        <RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="raw" />
+      <?endif ?>
+    </Property>
+    <Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
 
 		<!-- Check if MFC80 is already installed. If it is, then TSVN can be installed without Admin privileges.
 		     If someone know a better way to check for the presence of MFC80, please tell me! -->
@@ -80,7 +84,11 @@
 
 		<!-- Figure out where a previous installation was, if any ................................................................ -->
 		<Property Id="INSTALLDIR">
-			<RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" />
+      <?if $(env.Platform) = "x64" ?>
+        <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="yes"/>
+      <?else?>
+        <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" />
+      <?endif?>
 		</Property>
 		<CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]\[ProductName]" Execute="immediate" />
 
