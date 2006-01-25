@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-01-23 11:32+0200\n"
+"PO-Revision-Date: 2006-01-25 10:25+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2736,7 +2736,7 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Ако е включено, TortoiseSVN създава временен файл от базовия файл, за да покаже разликите, без да бъдат заместени ключовите думи или да са преобразувани символите за край на ред."
 
 # ID:195,
@@ -2813,7 +2813,7 @@ msgstr "Нечувствителност към &регистъра"
 
 # Control-ID:1018,
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
+msgid "Ignore line &endings (recommended)"
 msgstr "Игнориране на символите за &край на ред (препоръчително)"
 
 # Control-ID:1056,
@@ -4117,8 +4117,8 @@ msgstr "SVN Автор:"
 
 # ID:13,
 #: ID:16
-msgid "SVN Copy and rename versioned files here"
-msgstr "SVN копиране и преименуване на контролирани файлове до тук"
+msgid "SVN Copy and rename versioned file here"
+msgstr "SVN копиране и преименуване на контролирания файл до тук"
 
 # Control-ID:1073,
 #: ID:13
@@ -4460,6 +4460,11 @@ msgstr "Показване на &неконтролираните файлове
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Показване на разликите като &Unified Diff"
+
+# Control-ID:1073,
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Показване на игнорираните файлове"
 
 # Control-ID:1065,
 #: Control-ID:1065
