@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-25 20:47+0100\n"
+"PO-Revision-Date: 2006-01-25 20:48+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -152,7 +152,6 @@ msgstr "%s - ved revision: %d"
 
 #: ID:151,
 #, c-format
-#, fuzzy
 msgid "%s : Remote file"
 msgstr "%s : Fil på server"
 
@@ -168,7 +167,6 @@ msgstr "%s : Arbejdskopi"
 
 #: ID:357,
 #, c-format
-#, fuzzy
 msgid "%s, at %s"
 msgstr "%s ved %s"
 
@@ -347,7 +345,6 @@ msgid "&From WC at URL:"
 msgstr "&Fra arbejdskopi med URL:"
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "&From revision"
 msgstr "&Fra revision"
 
@@ -555,7 +552,6 @@ msgid "&To URL:"
 msgstr "&Til URL:"
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "&To URL: "
 msgstr "&Til URL: "
 
@@ -792,12 +788,10 @@ msgid "Added"
 msgstr "Tilføjet"
 
 #: ID:126,
-#, fuzzy
 msgid "Added a file remotely"
 msgstr "En fil blev tilføjet på server"
 
 #: ID:126,
-#, fuzzy
 msgid "Added a folder remotely"
 msgstr "En mappe blev tilføjet på server"
 
@@ -806,7 +800,6 @@ msgid "Added items remotely"
 msgstr "Emner blev tilføjet på server"
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "Added node"
 msgstr "Tilføjet knude"
 
@@ -1126,9 +1119,9 @@ msgid "Chec&kout..."
 msgstr "Hent arbejds&kopi..."
 
 #: ID:3887,#: ID:3887,
-#, fuzzy
+# Autogenereret, bruges formodentlig ikke
 msgid "Check"
-msgstr "Marker"
+msgstr "Sæt kryds"
 
 #: Control-ID:1031,
 msgid "Check For Updates..."
@@ -1502,7 +1495,6 @@ msgid "Deleted"
 msgstr "Slettet"
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "Deleted node"
 msgstr "Slettet knude"
 
@@ -1607,7 +1599,7 @@ msgid "E&xport..."
 msgstr "Eks&porter..."
 
 #: ID:3697,
-#, fuzzy
+# Autogenereret, bruges ikke
 msgid "EXT"
 msgstr "EXT"
 
@@ -2342,12 +2334,10 @@ msgid "No image encoder found for %s."
 msgstr "Der blev ikke fundet nogen billed-indkoder til %s."
 
 #: ID:188,
-#, fuzzy
 msgid "No spell corrections"
 msgstr "Ingen stavekontrol-rettelser"
 
 #: ID:188,
-#, fuzzy
 msgid "No thesaurus suggestions"
 msgstr "Ingen forslag fra opslagsværk"
 
@@ -2453,7 +2443,7 @@ msgid "P&revious Conflict"
 msgstr "Fo&rrige konflikt"
 
 #: ID:76,
-#, fuzzy
+# Autogenereret, bruges ikke
 msgid "PEM"
 msgstr "PEM"
 
@@ -2626,7 +2616,7 @@ msgid "R&AM drives"
 msgstr "&Hukommelsesdrev"
 
 #: ID:3697,
-#, fuzzy
+# Autogenereret, bruges ikke
 msgid "REC"
 msgstr "REC"
 
@@ -2739,7 +2729,6 @@ msgid "Renamed from %s"
 msgstr "Omdøbt fra %s"
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "Renamed node"
 msgstr "Omdøbt knude"
 
@@ -2752,7 +2741,7 @@ msgid "Renames files / folders inside source control"
 msgstr "Omdøber filer/mapper under versionskontrol"
 
 #: ID:3603,
-#, fuzzy
+# Autogenereret, bruges formodentlig ikke
 msgid "Repeat the last action\nRepeat"
 msgstr "Gentag sidste handling\nGentag"
 
@@ -2761,7 +2750,6 @@ msgid "Replace specific text with different text\nReplace"
 msgstr "Erstat en bestemt tekst med en anden\nErstat"
 
 #: Control-ID:65535,
-#, fuzzy
 msgid "Replaced node"
 msgstr "Erstattet knude"
 
@@ -3000,7 +2988,7 @@ msgid "Saving patchfile to:"
 msgstr "Gemmer korrekturfil som:"
 
 #: Control-ID:1014,#: Control-ID:1017,#: Control-ID:1014,#: Control-ID:1064,#: Control-ID:1212,
-#, fuzzy
+# Autogenereret, bruges ikke
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -3341,9 +3329,8 @@ msgstr "Elementer i registreringsdatabasen er blevet fjernet og en evt. INI-fil 
 
 #: ID:79,
 #, c-format
-#, fuzzy
 msgid "Tagged the working copy to %s"
-msgstr "Arbejdskopien blev mærket til %s"
+msgstr "Arbejdskopien blev mærket som %s"
 
 #: Control-ID:65535,
 msgid "Text Status:"
@@ -3768,7 +3755,6 @@ msgstr "Antal filændringer:"
 
 #: ID:357,
 #, c-format
-#, fuzzy
 msgid "Transferring at %s"
 msgstr "Overfører med %s"
 
@@ -3828,7 +3814,7 @@ msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Der kan ikke skrives til %1. Filen er enten skrivebeskyttet eller allerede åbnet af en anden kilde."
 
 #: ID:3887,#: ID:3887,
-#, fuzzy
+# Autogenereret, bruges formodentlig ikke
 msgid "Uncheck"
 msgstr "Fjern kryds"
 
@@ -3887,7 +3873,7 @@ msgid "Url:"
 msgstr "Url:"
 
 #: Control-ID:1064,
-#, fuzzy
+# Autogenereret, bruges formodentlig ikke
 msgid "Use &magnifier on locatorbar"
 msgstr "Brug &forstørrer på lokationslinje"
 
