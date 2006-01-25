@@ -46,6 +46,7 @@ void CInputDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CInputDlg, CResizableStandAloneDialog)
+	ON_EN_CHANGE(IDC_INPUTTEXT, OnEnChangeLogmessage)
 END_MESSAGE_MAP()
 
 
@@ -137,4 +138,18 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
 	}
 
 	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+}
+
+void CInputDlg::OnEnChangeLogmessage()
+{
+	CString sTemp;
+	GetDlgItem(IDC_INPUTTEXT)->GetWindowText(sTemp);
+	if (sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)
+	{
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
+	else
+	{
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
 }
