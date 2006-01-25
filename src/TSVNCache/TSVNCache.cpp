@@ -361,12 +361,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 						if (IsEqualGUID(phandle->dbch_eventguid, GUID_IO_VOLUME_DISMOUNT))
 						{
 							ATLTRACE("Device to be dismounted\n");
+							CSVNStatusCache::Instance().WaitToWrite();
 							CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+							CSVNStatusCache::Instance().Done();
 						}
 						if (IsEqualGUID(phandle->dbch_eventguid, GUID_IO_VOLUME_LOCK))
 						{
 							ATLTRACE("Device lock event\n");
+							CSVNStatusCache::Instance().WaitToWrite();
 							CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+							CSVNStatusCache::Instance().Done();
 						}
 					}
 				}
@@ -376,20 +380,32 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
 				{
 					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
+					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+					CSVNStatusCache::Instance().Done();
 				}
 				else
+				{
+					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
+					CSVNStatusCache::Instance().Done();
+				}
 				break;
 			case DBT_DEVICEREMOVECOMPLETE:
 				ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEREMOVECOMPLETE\n");
 				if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
 				{
 					DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
+					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+					CSVNStatusCache::Instance().Done();
 				}
 				else
+				{
+					CSVNStatusCache::Instance().WaitToWrite();
 					CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
+					CSVNStatusCache::Instance().Done();
+				}
 				break;
 			}
 		}

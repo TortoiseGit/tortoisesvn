@@ -207,7 +207,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
 		// TransactNamedPipe is working in an overlapped operation.
 		// Wait for it to finish
-		DWORD dwWait = WaitForSingleObject(m_hEvent, 10000);
+		DWORD dwWait = WaitForSingleObject(m_hEvent, 60000);
 		if (dwWait == WAIT_OBJECT_0)
 		{
 			fSuccess = GetOverlappedResult(m_hPipe, &m_Overlapped, &nBytesRead, FALSE);
