@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-01-24 20:25+0800\n"
+"PO-Revision-Date: 2006-01-25 10:54+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "TortoiseMerge"
 
 #: source/TortoiseMerge_en.xml:6(subtitle)
 msgid "A diff/merge tool for Windows"
-msgstr "一?Windows 下的比较并合并差异的工具"
+msgstr "一个 Windows 下的比较并合并差异的工具"
 
 #: source/TortoiseMerge_en.xml:9(edition)
 msgid "First"
@@ -202,11 +202,11 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:274(title)
 msgid "Using TortoiseMerge"
-msgstr ""
+msgstr "使用 TortoiseMerge"
 
 #: source/TortoiseMerge_en.xml:283(title)
 msgid "Open Files"
-msgstr ""
+msgstr "打开文件"
 
 #: source/TortoiseMerge_en.xml:285(para)
 msgid "When you start TortoiseMerge without any command line switches then you have to open the files manually, using <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
@@ -214,7 +214,7 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:294(title)
 msgid "The Open Dialog"
-msgstr ""
+msgstr "打开文件对话框"
 
 #: source/TortoiseMerge_en.xml:297(para)
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patchfile. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
@@ -222,7 +222,7 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:304(title)
 msgid "Viewing / Merging"
-msgstr ""
+msgstr "查看/合并"
 
 #: source/TortoiseMerge_en.xml:305(para)
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view. You can switch between those two views with the menu command <menuchoice><guimenu>View</guimenu><guimenuitem>Oneway Diff</guimenuitem></menuchoice>"
@@ -230,11 +230,11 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:319(title)
 msgid "One Pane View"
-msgstr ""
+msgstr "单面板视图"
 
 #: source/TortoiseMerge_en.xml:323(title)
 msgid "Two Pane View"
-msgstr ""
+msgstr "双面板视图"
 
 #: source/TortoiseMerge_en.xml:326(para)
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
@@ -290,23 +290,23 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:417(title)
 msgid "The Toolbar"
-msgstr ""
+msgstr "工具条"
 
 #: source/TortoiseMerge_en.xml:424(para)
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr ""
+msgstr "<guibutton>Open</guibutton> 除了打开文件对话框，还能是什么？"
 
 #: source/TortoiseMerge_en.xml:430(para)
 msgid "<guibutton>Save</guibutton> saves any changes you have made. If you have selected <guilabel>Resolve conflicted Subversion status on save</guilabel> in the settings dialog, then Subversion's conflict working files will be deleted automatically if all conflicts were resolved."
-msgstr ""
+msgstr "<guibutton>Save</guibutton> 保存你做的任何修改。如果你在设置对话框中设置了<guilabel>在保存时解决版本冲突</guilabel>，那么在从冲突解决后， Subversion 中的冲突处理文件将被自动删除。"
 
 #: source/TortoiseMerge_en.xml:441(para)
 msgid "<guibutton>Reload</guibutton> discards any changes you have made and reloads the original files."
-msgstr ""
+msgstr "<guibutton>Reload</guibutton> 放弃所做的修改，重新载入文件。"
 
 #: source/TortoiseMerge_en.xml:448(para)
 msgid "<guibutton>Undo</guibutton> This feature is not enabled yet."
-msgstr ""
+msgstr "<guibutton>Undo</guibutton> 该功能仍然不可用。"
 
 #: source/TortoiseMerge_en.xml:454(para)
 msgid "<guibutton>Show Spaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
@@ -382,55 +382,55 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:620(title)
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: source/TortoiseMerge_en.xml:622(title)
 msgid "Main Settings Page"
-msgstr ""
+msgstr "主要设置页"
 
 #: source/TortoiseMerge_en.xml:625(title)
 msgid "The Settings Main Page"
-msgstr ""
+msgstr "主要设置的页面"
 
 #: source/TortoiseMerge_en.xml:628(para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
-msgstr ""
+msgstr "多数选项是自明的，只是需要稍微明确一下。"
 
 #: source/TortoiseMerge_en.xml:632(para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
-msgstr ""
+msgstr "<guilabel>备份原始文件</guilabel> 在保存修改后的版本时，先将 WC 中的原始文件重命名为<literal>filename.bak</literal>。"
 
 #: source/TortoiseMerge_en.xml:637(para)
 msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>忽略行尾</guilabel> 隐藏不同的行尾变化的改变。"
 
 #: source/TortoiseMerge_en.xml:641(para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
-msgstr ""
+msgstr "<guilabel>忽略大小写变化</guilabel> 隐藏仅仅只是文本大小写变化的改变。这对于像 Visual Basic 这样的忽略变量大小写的应用程序比较有用。"
 
 #: source/TortoiseMerge_en.xml:647(para)
 msgid "<guilabel>Compare Whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how subversion treats such changes)."
-msgstr ""
+msgstr "<guilabel>比较空白字符</guilabel> 显示全部缩进变化，且行内空白字符的变化视作添加/删除的行（即 subversion 处理变化的方式）。"
 
 #: source/TortoiseMerge_en.xml:652(para)
 msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
-msgstr ""
+msgstr "<guilabel>忽略行首空白字符</guilabel> 隐藏行首空格的改变（缩进）。其它的行内空白字符的改变以 <quote>内联</quote>方式显示，而不看做添加/删除的行。"
 
 #: source/TortoiseMerge_en.xml:658(para)
 msgid "<guilabel>Ignore All Whitespaces</guilabel> hides all whitespace-only changes."
-msgstr ""
+msgstr "<guilabel>忽略全部空白字符</guilabel> 隐藏只是空白字符变化的改变。"
 
 #: source/TortoiseMerge_en.xml:664(title)
 msgid "Colour Settings Page"
-msgstr ""
+msgstr "颜色设置页"
 
 #: source/TortoiseMerge_en.xml:667(title)
 msgid "The Settings Color Page"
-msgstr ""
+msgstr "该页设置颜色"
 
 #: source/TortoiseMerge_en.xml:670(para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
-msgstr ""
+msgstr "这个对话框允许你选择一个背景颜色代码，它们用于高亮被修改的行。"
 
 #: source/TortoiseMerge_en.xml:676(term)
 msgid "Normal"
@@ -438,7 +438,7 @@ msgstr "正常"
 
 #: source/TortoiseMerge_en.xml:677(listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
-msgstr "全部的行都未改变过，或改变被隐藏了。"
+msgstr "这些行都没有改变过，或改变被隐藏了。"
 
 #: source/TortoiseMerge_en.xml:682(term)
 msgid "Removed"
@@ -462,7 +462,7 @@ msgstr "空"
 
 #: source/TortoiseMerge_en.xml:695(listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr "在另外的面板中增加了一些行，且这个面板中没有对应的行。"
+msgstr "在另一个面板中增加了一些行，且这个面板中没有对应的行。"
 
 #: source/TortoiseMerge_en.xml:701(term)
 msgid "Conflicted"
@@ -474,15 +474,15 @@ msgstr "这些行在两个文件之间存在差异。"
 
 #: source/TortoiseMerge_en.xml:707(term)
 msgid "Line with whitespace diff"
-msgstr "比较行之间的空白"
+msgstr "比较行之间的空白字符"
 
 #: source/TortoiseMerge_en.xml:711(guilabel)
 msgid "Ignore leading whitespace"
-msgstr "忽略行首的空白"
+msgstr "忽略行首的空白字符"
 
 #: source/TortoiseMerge_en.xml:708(listitem)
 msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
-msgstr "除了行首空白外，行内存在空白差异。仅出现在选择了<placeholder-1/>时。"
+msgstr "除了行首空白字符外，行内存在空白字符差异。仅出现在选择了<placeholder-1/>时。"
 
 #: source/TortoiseMerge_en.xml:716(term)
 msgid "Whitespace diff"
@@ -627,11 +627,11 @@ msgstr "设置基础文件的标题。"
 
 #: source/TortoiseMerge_en.xml:864(term)
 msgid "/theirs:\"path/to/theirfile\""
-msgstr "/theirs:\"远程文件的路径\""
+msgstr "/theirs:\"文件库中的文件的路径\""
 
 #: source/TortoiseMerge_en.xml:866(para)
 msgid "load their file"
-msgstr "指定远程文件"
+msgstr "指定文件库中的文件"
 
 #: source/TortoiseMerge_en.xml:872(term)
 msgid "/theirname:name"
@@ -639,15 +639,15 @@ msgstr "/theirname:名称"
 
 #: source/TortoiseMerge_en.xml:874(para)
 msgid "Sets the view title of their file."
-msgstr "设置远程文件的标题"
+msgstr "设置文件库中的文件的标题"
 
 #: source/TortoiseMerge_en.xml:880(term)
 msgid "/mine:\"path/to/yourfile\""
-msgstr "/mine:\"本地文件的路径\""
+msgstr "/mine:\"修改的文件的路径\""
 
 #: source/TortoiseMerge_en.xml:882(para)
 msgid "load your file"
-msgstr "指定本地文件"
+msgstr "指定你修改的文件"
 
 #: source/TortoiseMerge_en.xml:888(term)
 msgid "/minename:name"
@@ -655,7 +655,7 @@ msgstr "/minename:名称"
 
 #: source/TortoiseMerge_en.xml:890(para)
 msgid "Sets the view title of your file."
-msgstr "设置本地文件的标题。"
+msgstr "设置你修改的文件的标题。"
 
 #: source/TortoiseMerge_en.xml:896(term)
 msgid "/merged:\"path/to/mergedfile\""
@@ -715,7 +715,7 @@ msgstr "BDB"
 
 #: source/TortoiseMerge_en.xml:957(para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
+msgstr "Berkeley DB （BDB）。 一个测试良好的文件库的后端数据库，它不能用于网络共享。是1.2版以前的文件库的默认后端。"
 
 #: source/TortoiseMerge_en.xml:964(glossterm)
 msgid "FSFS"
@@ -723,7 +723,7 @@ msgstr "FSFS"
 
 #: source/TortoiseMerge_en.xml:966(para)
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr ""
+msgstr "FS 文件系统。一个专用于 Subversion 的文件库的文件系统后端，它能用于网络共享。是1.2版及其以后版本的文件库的默认后端。"
 
 #: source/TortoiseMerge_en.xml:973(glossterm)
 msgid "Repository"
@@ -731,12 +731,12 @@ msgstr "文件库"
 
 #: source/TortoiseMerge_en.xml:975(para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr ""
+msgstr "文件库是存储和维护数据的中央部分。一个文件库能存在在分布于网络上的多个数据库或文件，或者存放在一个不需要通过网络而可以访问的地方。"
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/TortoiseMerge_en.xml:0(None)
 msgid "translator-credits"
-msgstr "译者——荣誉"
+msgstr "译者——鸣谢"
 
 #. Place the translation of 'translation' here.
 #: source/TortoiseMerge_en.xml:0(None)
