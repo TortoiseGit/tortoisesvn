@@ -1643,6 +1643,15 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.m_pathList = pathList;
 			if (dlg.DoModal()==IDOK)
 			{
+				if (cmdLinePath.IsEmpty())
+				{
+					if (pathList.GetCount() == 1)
+						cmdLinePath = pathList[0];
+					else
+					{
+						cmdLinePath = pathList.GetCommonRoot();
+					}
+				}
 				CreatePatch(cmdLinePath, dlg.m_pathList, CTSVNPath(savepath));
 				SVN svn;
 				svn.Revert(dlg.m_filesToRevert, false);
