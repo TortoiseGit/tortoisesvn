@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-12-30 17:24+0100\n"
+"PO-Revision-Date: 2006-01-26 08:31+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -876,7 +876,7 @@ msgstr "Lägg till/ändra filändelsebaserat skillnads-/föreningsprogram"
 #: ID:73
 #: Control-ID:65535
 msgid "Added"
-msgstr "Tillagd"
+msgstr "Tillagda"
 
 #: ID:126
 msgid "Added a file remotely"
@@ -1069,8 +1069,9 @@ msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Är du säker på att du vill markera alla konflikter som lösta?"
 
 #: ID:79
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "Vill du verkligen återställa? Du kommer att förlora <b>alla</b> ändringar sen förra uppdateringen!"
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr "Vill du verkligen återställa %d objekt? Du kommer att förlora <b>alla</b> ändringar sen förra uppdateringen!"
 
 #: ID:77
 #, c-format
@@ -1080,7 +1081,7 @@ msgstr "I revision: %d"
 #: ID:76
 #: ID:207
 msgid "Author"
-msgstr "Ändrad av"
+msgstr "Användarnamn"
 
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
@@ -1088,11 +1089,11 @@ msgstr "Upphovsman: Stefan Kueng"
 
 #: ID:116
 msgid "Authors"
-msgstr "Ändrad av"
+msgstr "Användarnamn"
 
 #: Control-ID:65535
 msgid "Authors:"
-msgstr "Ändrad av:"
+msgstr "Skrivet av:"
 
 #: ID:222
 msgid "Auto-close if no conflicts"
@@ -1408,7 +1409,7 @@ msgstr "Arkivera i:"
 
 #: ID:244
 msgid "Commits by author"
-msgstr "Arkiveringar per upphovsman"
+msgstr "Arkiveringar per användarnamn"
 
 # ID:244,
 #: ID:244
@@ -1714,7 +1715,7 @@ msgstr "&Standard antal loggmeddelanden"
 
 #: ID:73
 msgid "Deleted"
-msgstr "Borttaget"
+msgstr "Borttagna"
 
 #: Control-ID:65535
 msgid "Deleted node"
@@ -1868,12 +1869,12 @@ msgstr "Redigera"
 
 #: ID:113
 msgid "Edit author"
-msgstr "Ändrad av"
+msgstr "Ändra användarnamn..."
 
 # ID:115,
 #: ID:115
 msgid "Edit author name"
-msgstr "Skriv upphovsman"
+msgstr "Ändra användarnamn"
 
 # Hur översätta "diff"
 #: ID:110
@@ -2267,8 +2268,8 @@ msgstr ""
 "Annars sker importen på den angivna URL:en."
 
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
-msgstr "Om ikryssat, så skapar TortoiseSVN en temporär fil av BASE för att göra järmförelsen med nyckelorden expanderade och radsluten justerade. "
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
+msgstr "Skapa en temporär fil av BASE för att göra järmförelsen med nyckelorden expanderade och radsluten justerade. "
 
 # ID:195,
 #: ID:195
@@ -2337,7 +2338,7 @@ msgid "Ignore &case changes"
 msgstr "&Ignorera ändringar mellan gemener/versaler"
 
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
+msgid "Ignore line &endings (recommended)"
 msgstr "Ignorera &radslut (rekommenderas)"
 
 #: Control-ID:1056
@@ -2447,7 +2448,7 @@ msgstr "Senaste revision:"
 
 #: ID:11
 msgid "Last saved revision of item"
-msgstr "Senast sparade revision av objektet"
+msgstr "Senast sparade revision"
 
 #: ID:12
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -2612,7 +2613,7 @@ msgstr "Förena"
 
 #: ID:263
 msgid "Merged"
-msgstr "Förenad"
+msgstr "Förenade"
 
 #: ID:10
 msgid "Merges a branch into the main trunk"
@@ -2620,7 +2621,7 @@ msgstr "Förenar en gren med en annan"
 
 #: Control-ID:65535
 msgid "Merging"
-msgstr "Förena"
+msgstr "Förenar"
 
 #: ID:76
 msgid "Message"
@@ -2637,7 +2638,7 @@ msgstr "Meddelanden"
 # ID:116,
 #: ID:116
 msgid "Messages, authors and paths"
-msgstr "Meddelanden, upphovsmän och sökvägar"
+msgstr "Meddelanden, användarnamn och sökvägar"
 
 #: ID:78
 msgid "Mime type"
@@ -2825,7 +2826,7 @@ msgstr "Notera"
 # Control-ID:1161,
 #: Control-ID:1161
 msgid "Number of authors:"
-msgstr "Antal upphovsmän:"
+msgstr "Antal användare:"
 
 # Control-ID:1160,
 #: Control-ID:1160
@@ -3370,7 +3371,7 @@ msgstr "Revisions&graf"
 
 #: Control-ID:65535
 msgid "Revision / Author:"
-msgstr "Revision / ändrad av:"
+msgstr "Revision / Användare:"
 
 #: ID:269
 #: Control-ID:65535
@@ -3416,10 +3417,10 @@ msgstr "SVN Lägg till filer till den här arbetskopian"
 
 #: ID:16
 msgid "SVN Author"
-msgstr "SVN Ändrad av"
+msgstr "SVN Användarnamn"
 
 #: ID:16
-msgid "SVN Copy and rename versioned files here"
+msgid "SVN Copy and rename versioned file here"
 msgstr "SVN Kopiera och byt namn på versionshanterade filer här"
 
 #: ID:13
@@ -3704,6 +3705,10 @@ msgstr "Visa ej &versionshanterade filer"
 msgid "Show differences as &unified diff"
 msgstr "Visa skillnader &som \"Unified Diff\""
 
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Visa ignorerade filer"
+
 # Hur översätta "diff"
 #: Control-ID:1065
 msgid "Show li&ne diff bar"
@@ -3806,7 +3811,7 @@ msgstr ""
 "Dela det aktiva fönstret\n"
 "Dela"
 
-# Eller grupperade? 
+# Eller grupperade?
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "Staplade"
@@ -4590,7 +4595,7 @@ msgid ""
 "%s"
 msgstr ""
 "URL: %s\r\n"
-"Ändrad av: %s\r\n"
+"Användarnamn: %s\r\n"
 "Datum: %s\r\n"
 "\r\n"
 "Loggmeddelande:\r\n"
@@ -4667,7 +4672,7 @@ msgstr "Namnlös"
 
 #: ID:74
 msgid "Updated"
-msgstr "Uppdaterad"
+msgstr "Uppdaterade"
 
 #: ID:11
 msgid "Updates the working copy to a specific revision"
@@ -5026,7 +5031,7 @@ msgstr "och stöd utvecklarna"
 
 #: ID:245
 msgid "author"
-msgstr "ändrad av"
+msgstr "användarnamn"
 
 # ID:15,
 #: ID:15
@@ -5261,7 +5266,7 @@ msgstr ""
 "svn:keywords\n"
 "Nyckelord att expandera. Giltiga nyckelord är:\n"
 "URL, HeadURL\t\t\tURL:en för huvudrevisionen för filen.\n"
-"Author, LastChangedBy\t\tNamn på den som senast ändrade filen.\n"
+"Author, LastChangedBy\t\tAnvändarnamn på den som senast ändrade filen.\n"
 "Date, LastChangedDate\t\tDatum/tid för senaste ändringen av filen.\n"
 "Rev, LastChangedRevision\tSenaste revisionsnummret för filen.\n"
 "Id\t\t\t\tEn kompakt sammanställning av ovan nämnda nyckelord."
