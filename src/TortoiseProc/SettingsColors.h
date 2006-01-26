@@ -36,7 +36,7 @@ public:
 
 	void SaveData();
 
-	UINT GetIconID() {return IDI_GENERAL;}
+	UINT GetIconID() {return IDI_LOOKANDFEEL;}
 
 // Dialog Data
 	enum { IDD = IDD_SETTINGSCOLORS };

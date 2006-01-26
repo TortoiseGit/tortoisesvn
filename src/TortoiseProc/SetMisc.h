@@ -35,7 +35,7 @@ public:
 	  */
 	void SaveData();
 	
-	UINT GetIconID() {return IDI_MISC;}
+	UINT GetIconID() {return IDI_DIALOGS;}
 
 // Dialog Data
 	enum { IDD = IDD_SETTINGSMISC };

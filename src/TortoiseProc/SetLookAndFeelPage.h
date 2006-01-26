@@ -40,7 +40,7 @@ public:
 	 */
 	void SaveData();
 
-	UINT GetIconID() {return IDI_LOOKANDFEEL;}
+	UINT GetIconID() {return IDI_MISC;}
 
 // Dialog Data
 	enum { IDD = IDD_SETTINGSLOOKANDFEEL };
