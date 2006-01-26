@@ -40,7 +40,7 @@
 <!-- ====================================================================== -->
 <!-- Project targets														-->
 <!-- ====================================================================== -->
-	<target name="clean">
+	<target name="clean" depends="VSNET">
 		<description>
 			Cleans every subproject.
 		</description>
