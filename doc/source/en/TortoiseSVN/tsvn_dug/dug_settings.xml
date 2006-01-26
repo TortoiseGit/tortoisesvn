@@ -649,7 +649,7 @@
 				<graphic fileref="../images/SettingsProgs.png"/>
 			</figure>
 			Here you can define your own diff/merge programs that TortoiseSVN
-			should use. The basic setting is to use the builtin TortoiseMerge
+			should use. The default setting is to use TortoiseMerge
 			which is installed alongside TortoiseSVN.
 		</para>
 		<para>
@@ -864,8 +864,12 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 			<?dbhh topicname="HIDD_SETTINGSPROGSUNIDIFF"?>
 			<para>
 				A viewer program for unified-diff files (patch files).
-				If you don't have one the builtin option is to use NotePad.
 				No parameters are required.
+				The <guilabel>Default</guilabel> option is to check for
+				a file association for <filename>.diff</filename> files,
+				and then for <filename>.txt</filename> files.
+				If you don't have a viewer for <filename>.diff</filename>
+				files, you will most likely get NotePad.
 			</para>
 			<para>
 				The original Windows NotePad program does not behave
