@@ -690,7 +690,7 @@ CAPTION "External Programs::Diff Viewer"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "Configure the program used for comparing different revisions of files.",IDC_STATIC,7,7,286,8
-    CONTROL         "&Builtin",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,23,74,10
+    CONTROL         "&TortoiseMerge",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,23,74,10
     CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,89,23,71,10
     EDITTEXT        IDC_EXTDIFF,7,41,263,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,279,41,14,14
@@ -706,7 +706,7 @@ CAPTION "External Programs::Merge Tool"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "Configure the program used to resolve conflicted files.",IDC_STATIC,7,7,251,8
-    CONTROL         "&Builtin",IDC_EXTMERGE_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,23,70,10
+    CONTROL         "&TortoiseMerge",IDC_EXTMERGE_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,23,70,10
     CONTROL         "&External",IDC_EXTMERGE_ON,"Button",BS_AUTORADIOBUTTON,89,23,76,10
     EDITTEXT        IDC_EXTMERGE,7,41,263,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,279,41,14,14
@@ -720,8 +720,8 @@ CAPTION "External Programs::Unified Diff Viewer"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "Configure viewer program for GNU diff files (patch files).",IDC_STATIC,7,7,286,8
-    CONTROL         "&Builtin",IDC_DIFFVIEWER_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,23,67,10
-    CONTROL         "&External",IDC_DIFFVIEWER_ON,"Button",BS_AUTORADIOBUTTON,89,23,74,10
+    CONTROL         "&Default",IDC_DIFFVIEWER_OFF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,23,67,10
+    CONTROL         "&Custom",IDC_DIFFVIEWER_ON,"Button",BS_AUTORADIOBUTTON,89,23,74,10
     EDITTEXT        IDC_DIFFVIEWER,7,41,266,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,279,41,14,14
 END
