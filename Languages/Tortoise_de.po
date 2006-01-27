@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-01-26 12:50+0100\n"
+"PO-Revision-Date: 2006-01-27 09:53+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,12 +203,6 @@ msgstr "Projektarchiv &betrachten"
 msgid "&Browse..."
 msgstr "&Suchen..."
 
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "&Intern"
-
 #: Control-ID:1051
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
@@ -253,6 +247,15 @@ msgstr "&Kopieren"
 msgid "&Copy to..."
 msgstr "&Kopieren nach..."
 
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "&Individuell"
+
+#: Control-ID:1096
+msgid "&Default"
+msgstr "&Standard"
+
 #: ID:11
 msgid "&Delete"
 msgstr "&Löschen"
@@ -296,7 +299,6 @@ msgstr "&Beenden"
 
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "&Extern"
 
@@ -548,6 +550,11 @@ msgstr "Zu &URL:"
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "&Werkzeugleiste"
+
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 #: ID:9
 msgid "&TortoiseSVN"
