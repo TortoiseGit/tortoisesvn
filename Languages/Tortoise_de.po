@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-01-27 09:53+0100\n"
+"PO-Revision-Date: 2006-01-27 15:32+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1066,6 +1066,11 @@ msgstr "Autor:                         Stefan Küng"
 #: ID:116
 msgid "Authors"
 msgstr "Autoren"
+
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "Groß- / Kleinschreibung bei Autoren ignorieren"
 
 #: Control-ID:65535
 msgid "Authors:"
@@ -3569,6 +3574,10 @@ msgstr "Kurze URL von Subversion Objekten"
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "Zeige &Alle"
+
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Zeige &alle Revisionen"
 
 #: ID:113
 msgid "Show &differences"
