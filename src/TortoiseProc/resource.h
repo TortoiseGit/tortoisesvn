@@ -423,6 +423,7 @@
 #define IDC_STACKED                     1263
 #define IDS_PROC_SETTINGS_TITLE         1264
 #define IDC_SHOWIGNORED                 1264
+#define IDC_IGNORECASE                  1265
 #define IDS_PROC_OVERWRITE_CONFIRM      1266
 #define IDS_PROC_REPOCREATEFINISHED     1267
 #define IDS_PROC_RELOCATEFINISHED       1268
@@ -759,7 +760,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        217
 #define _APS_NEXT_COMMAND_VALUE         32796
-#define _APS_NEXT_CONTROL_VALUE         1265
+#define _APS_NEXT_CONTROL_VALUE         1266
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

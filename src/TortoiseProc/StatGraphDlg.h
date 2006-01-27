@@ -42,6 +42,7 @@ protected:
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnBnClickedStacked();
 	afx_msg void OnNeedText(NMHDR *pnmh, LRESULT *pResult);
+	afx_msg void OnBnClickedIgnorecase();
 
 	DECLARE_MESSAGE_MAP()
 	
@@ -50,6 +51,7 @@ protected:
 	CComboBox		m_cGraphType;
 	CSliderCtrl		m_Skipper;
 	BOOL			m_bStacked;
+	BOOL			m_bIgnoreAuthorCase;
 	
 	void		ShowCommitsByDate();
 	void		ShowCommitsByAuthor();
