@@ -15,10 +15,10 @@
 			Comments="$(var.PackageComments)" 
 			Manufacturer="$(var.PackageManufacturer)" 
 			InstallerVersion="300" 
-			Platforms="Intel" 
+			Platforms="Intel"  
 			Languages="1033" 
 			Compressed="yes" 
-			SummaryCodepage="1252" />
+			SummaryCodepage="1252"/>
 
 		<Upgrade Id="$(var.UpgradeGuid)" >
 			<!-- upgrade is flagged if current-install is newer than or equal to package - TODO: should make a dialog appear asking user to confirm downgrade.  -->
@@ -34,11 +34,7 @@
 
     <!-- Launch Condition related properties ................................................................................. -->
     <Property Id="VERSIONIE">
-      <?if $(env.Platform) = "x64" ?>
-        <RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="raw" Win64="yes"/>
-      <?else ?>
-        <RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="raw" />
-      <?endif ?>
+      <RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="raw" Win64="$(var.Win64YesNo)"/>
     </Property>
     <Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
 
@@ -67,32 +63,27 @@
 				<FileSearch Id="FileSearchTextEditorExe" Name="notepad.exe" />
 			</DirectorySearch>
 		</Property>
-		<CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" />
-		<CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[INSTALLDIR]changelog.txt" Return="asyncNoWait" />
-		<CustomAction Id="KillCache" BinaryKey="CustomActionsDLL" DllEntry="TerminateCache" />
-		<CustomAction Id="CleanupRegistry" BinaryKey="CustomActionsDLL" DllEntry="ClearRegistry" />
-    <?if $(env.Platform) = "win32" ?>
-      <Binary Id="CustomActionsDLL" src="..\..\bin\release\bin\CustomActions.dll" />
-    <?endif ?>
-    <?if $(env.Platform) = "x64" ?>
-      <Binary Id="CustomActionsDLL" src="..\..\bin\release64\bin\CustomActions.dll" />
-    <?endif ?>
+		<CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[INSTALLDIR]changelog.txt" Return="asyncNoWait" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="KillCache" BinaryKey="CustomActionsDLL" DllEntry="TerminateCache" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="CleanupRegistry" BinaryKey="CustomActionsDLL" DllEntry="ClearRegistry" Win64="$(var.Win64YesNo)"/>
+    <Binary Id="CustomActionsDLL" src="..\..\bin\$(var.ReleasePath)\bin\CustomActions.dll" />
 
     <!-- Unsafe-check properties and custom actions .......................................................................... -->
 		<Property Id="VSDUIANDADVERTISED">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
-		<CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" />
+		<CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" Win64="$(var.Win64YesNo)"/>
 
 		<!-- Figure out where a previous installation was, if any ................................................................ -->
 		<Property Id="INSTALLDIR">
-      <?if $(env.Platform) = "x64" ?>
-        <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="yes"/>
-      <?else?>
-        <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" />
-      <?endif?>
+      <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
 		</Property>
-		<CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]\[ProductName]" Execute="immediate" />
+    <?if $(env.Platform) = "x64" ?>
+      <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]\[ProductName]" Execute="immediate" Win64="$(var.Win64YesNo)"/>
+    <?else ?>
+      <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]\[ProductName]" Execute="immediate" Win64="$(var.Win64YesNo)"/>
+    <?endif ?>
 
-		<FragmentRef Id="StructureFragment"/>
+    <FragmentRef Id="StructureFragment"/>
 
 		<FragmentRef Id="FeaturesFragment" />
 
