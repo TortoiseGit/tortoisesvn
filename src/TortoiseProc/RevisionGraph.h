@@ -19,6 +19,7 @@
 #pragma once
 
 #include "SVNPrompt.h"
+#include <map>
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -64,7 +65,7 @@ public:
 		leftconnectionsleft(0),	rightconnectionsleft(0), bottomconnectionsleft(0),
 		rightlinesleft(0), bottomlinesleft(0) {};
 	//members
-	LONG			revision;
+	svn_revnum_t	revision;
 	const char *	url;
 	const char *	realurl;
 	const char *	author;
@@ -115,6 +116,10 @@ public:
 	CString						GetLastErrorMessage();
 	static bool					IsParentOrItself(const char * parent, const char * child);
 	CPtrArray					m_arEntryPtrs;
+
+	typedef std::multimap<svn_revnum_t, CRevisionEntry*>::iterator EntryPtrsIterator;
+	typedef std::pair<svn_revnum_t, CRevisionEntry*> EntryPair;
+	std::multimap<svn_revnum_t, CRevisionEntry*> m_mapEntryPtrs;
 	CString						GetReposRoot() {return CString(m_sRepoRoot);}
 
 	BOOL						m_bCancelled;

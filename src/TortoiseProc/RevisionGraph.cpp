@@ -78,15 +78,17 @@ CRevisionGraph::CRevisionGraph(void) :
 CRevisionGraph::~CRevisionGraph(void)
 {
 	svn_pool_destroy (parentpool);
-	for (int i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
 	{
-		CRevisionEntry * e = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		CRevisionEntry * e = it->second;
 		for (int j=0; j<e->sourcearray.GetCount(); ++j)
 		{
 			delete (source_entry*)e->sourcearray.GetAt(j);
 		}
 		delete e;
 	}
+	m_mapEntryPtrs.clear();
+	m_arEntryPtrs.RemoveAll();
 }
 
 BOOL CRevisionGraph::ProgressCallback(CString /*text*/, CString /*text2*/, DWORD /*done*/, DWORD /*total*/) {return TRUE;}
@@ -247,17 +249,17 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 
 	svn_pool_destroy(graphpool);
 	graphpool = svn_pool_create(parentpool);
-	//svn_pool_clear(graphpool);
 
-	for (int i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
 	{
-		CRevisionEntry * e = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		CRevisionEntry * e = it->second;
 		for (int j=0; j<e->sourcearray.GetCount(); ++j)
 		{
 			delete (source_entry*)e->sourcearray.GetAt(j);
 		}
 		delete e;
 	}
+	m_mapEntryPtrs.clear();
 	m_arEntryPtrs.RemoveAll();
 
 
@@ -432,9 +434,9 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 
 		CRevisionEntry * reventry = NULL;
 		// find all entries with this revision
-		for (INT_PTR findrev=0; findrev < m_arEntryPtrs.GetCount(); ++findrev)
+		for (EntryPtrsIterator it = m_mapEntryPtrs.lower_bound(currentrev); it != m_mapEntryPtrs.upper_bound(currentrev); ++it)
 		{
-			reventry = (CRevisionEntry*)m_arEntryPtrs[findrev];
+			reventry = it->second;
 			if (reventry->revision == currentrev)
 			{
 				// we have an entry
@@ -464,8 +466,18 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 								firstchangedreventry = NULL;
 							}
 							delete reventry;
-							m_arEntryPtrs.RemoveAt(findrev);
-							findrev = -1;
+							it->second = NULL;
+							EntryPtrsIterator it2 = it;
+							if (it != m_mapEntryPtrs.begin())
+							{
+								--it;
+								m_mapEntryPtrs.erase(it2);
+							}
+							else
+							{
+								m_mapEntryPtrs.erase(it2);
+								it = m_mapEntryPtrs.begin();
+							}
 							bRenamed = true;
 							continue;
 						}
@@ -603,7 +615,7 @@ bool CRevisionGraph::SetCopyTo(const char * copyfrom_path, svn_revnum_t copyfrom
 			reventry->message = logentry->msg;
 			reventry->date = logentry->time;
 		}
-		m_arEntryPtrs.Add(reventry);
+		m_mapEntryPtrs.insert(EntryPair(reventry->revision, reventry));
 	}
 	source_entry * sentry = new source_entry;
 	sentry->pathto = apr_pstrdup(graphpool, copyto_path);
@@ -615,9 +627,9 @@ bool CRevisionGraph::SetCopyTo(const char * copyfrom_path, svn_revnum_t copyfrom
 CRevisionEntry * CRevisionGraph::GetRevisionEntry(const char * path, svn_revnum_t rev, bool bCreate /* = true */)
 {
 	CRevisionEntry * reventry = NULL;
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	for (EntryPtrsIterator it = m_mapEntryPtrs.lower_bound(rev); it != m_mapEntryPtrs.upper_bound(rev); ++it)
 	{
-		CRevisionEntry * rentry = (CRevisionEntry *)m_arEntryPtrs[i];
+		CRevisionEntry * rentry = it->second;
 		if (rentry->revision == rev)
 		{
 			if (strcmp(rentry->url, path)==0)
@@ -659,7 +671,7 @@ CRevisionEntry * CRevisionGraph::GetRevisionEntry(const char * path, svn_revnum_
 			reventry->message = logentry->msg;
 			reventry->date = logentry->time;
 		}
-		m_arEntryPtrs.Add(reventry);
+		m_mapEntryPtrs.insert(EntryPair(reventry->revision, reventry));
 	}
 	return reventry;
 }
@@ -667,20 +679,34 @@ CRevisionEntry * CRevisionGraph::GetRevisionEntry(const char * path, svn_revnum_
 bool CRevisionGraph::Cleanup(CStringA url)
 {
 	// step one: remove all entries which aren't marked as in use
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
 	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		CRevisionEntry * reventry = it->second;
 		if (!reventry->bUsed)
 		{
 			// delete unused entry
 			for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
 				delete (source_entry*)reventry->sourcearray[j];
 			delete reventry;
-			m_arEntryPtrs.RemoveAt(i);
-			i=-1;
+			reventry = NULL;
+			EntryPtrsIterator it2 = it;
+			if (it != m_mapEntryPtrs.begin())
+			{
+				--it;
+				m_mapEntryPtrs.erase(it2);
+			}
+			else
+			{
+				m_mapEntryPtrs.erase(it2);
+				it = m_mapEntryPtrs.begin();
+			}
 		}
 	}	
-	
+	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
+	{
+		CRevisionEntry * reventry = it->second;
+		m_arEntryPtrs.Add(reventry);
+	}
 	// step two: sort the entries
 	qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompareRevUrl);
 	
@@ -699,8 +725,16 @@ bool CRevisionGraph::Cleanup(CStringA url)
 				{
 					reventry->sourcearray.Add(reventry2->sourcearray[si]);
 				}
-				delete reventry2;
-				m_arEntryPtrs.RemoveAt(i+1);
+				for (EntryPtrsIterator it = m_mapEntryPtrs.lower_bound(reventry2->revision); it != m_mapEntryPtrs.upper_bound(reventry2->revision); ++it)
+				{
+					if (it->second == reventry2)
+					{
+						delete reventry2;
+						m_mapEntryPtrs.erase(it);
+						m_arEntryPtrs.RemoveAt(i+1);
+						break;
+					}
+				}
 				i=-1;
 			}
 		}

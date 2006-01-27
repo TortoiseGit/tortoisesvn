@@ -182,13 +182,14 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	InterlockedExchange(&pDlg->m_bThreadRunning, TRUE);
+	CoInitialize(NULL);
 	pDlg->m_pProgress = new CProgressDlg();
 	pDlg->m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
 	pDlg->m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	pDlg->m_pProgress->SetTime();
 	pDlg->m_pProgress->ShowModeless(pDlg->m_hWnd);
 	pDlg->m_bNoGraph = FALSE;
-	if (!pDlg->FetchRevisionData(pDlg->m_sPath))
+	if ((pDlg->m_bFetchLogs)&&(!pDlg->FetchRevisionData(pDlg->m_sPath)))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		pDlg->m_bNoGraph = TRUE;
@@ -206,6 +207,7 @@ cleanup:
 	delete pDlg->m_pProgress;
 	pDlg->m_pProgress = NULL;
 	pDlg->InitView();
+	CoUninitialize();
 	InterlockedExchange(&pDlg->m_bThreadRunning, FALSE);
 	pDlg->Invalidate();
 	return 0;
@@ -651,7 +653,7 @@ void CRevisionGraphDlg::MarkSpaceLines(source_entry * entry, int level, svn_revn
 	std::set<CRevisionEntry*> rightset;
 	std::set<CRevisionEntry*> bottomset;
 	
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	for (INT_PTR i=0; i < m_arEntryPtrs.GetCount(); ++i)
 	{
 		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
 		bool incremented = false;
@@ -1074,27 +1076,23 @@ void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 	CPen newpen(PS_SOLID, 0, GetSysColor(COLOR_WINDOWTEXT));
 	CPen * pOldPen = pDC->SelectObject(&newpen);
 
+	POINT p[5];
 	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
 	{
 		CPoint * pt = (CPoint*)m_arConnections.GetAt(i);
-		// only draw the lines if they're at least partially visible
-		//if (viewrect.PtInRect(pt[0])||viewrect.PtInRect(pt[3]))
-		{
-			POINT p[5];
-			// correct the scroll offset
-			p[0].x = pt[0].x - nHScrollPos;
-			p[1].x = pt[1].x - nHScrollPos;
-			p[2].x = pt[2].x - nHScrollPos;
-			p[3].x = pt[3].x - nHScrollPos;
-			p[4].x = pt[4].x - nHScrollPos;
-			p[0].y = pt[0].y - nVScrollPos;
-			p[1].y = pt[1].y - nVScrollPos;
-			p[2].y = pt[2].y - nVScrollPos;
-			p[3].y = pt[3].y - nVScrollPos;
-			p[4].y = pt[4].y - nVScrollPos;
+		// correct the scroll offset
+		p[0].x = pt[0].x - nHScrollPos;
+		p[1].x = pt[1].x - nHScrollPos;
+		p[2].x = pt[2].x - nHScrollPos;
+		p[3].x = pt[3].x - nHScrollPos;
+		p[4].x = pt[4].x - nHScrollPos;
+		p[0].y = pt[0].y - nVScrollPos;
+		p[1].y = pt[1].y - nVScrollPos;
+		p[2].y = pt[2].y - nVScrollPos;
+		p[3].y = pt[3].y - nVScrollPos;
+		p[4].y = pt[4].y - nVScrollPos;
 
-			pDC->Polyline(p, 5);
-		}
+		pDC->Polyline(p, 5);
 	}
 	pDC->SelectObject(pOldPen);
 }
@@ -1318,6 +1316,8 @@ void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
 
 INT_PTR CRevisionGraphDlg::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
+	if (m_bThreadRunning)
+		return -1;
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
 		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
