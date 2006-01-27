@@ -15,7 +15,7 @@
 			Comments="$(var.PackageComments)" 
 			Manufacturer="$(var.PackageManufacturer)" 
 			InstallerVersion="300" 
-			Platforms="Intel"  
+			Platforms="$(var.PackagePlatforms)"  
 			Languages="1033" 
 			Compressed="yes" 
 			SummaryCodepage="1252"/>
@@ -78,9 +78,9 @@
       <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
 		</Property>
     <?if $(env.Platform) = "x64" ?>
-      <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]\[ProductName]" Execute="immediate" Win64="$(var.Win64YesNo)"/>
+      <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder][ProductName]" Execute="immediate" Win64="$(var.Win64YesNo)"/>
     <?else ?>
-      <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]\[ProductName]" Execute="immediate" Win64="$(var.Win64YesNo)"/>
+      <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder][ProductName]" Execute="immediate" Win64="$(var.Win64YesNo)"/>
     <?endif ?>
 
     <FragmentRef Id="StructureFragment"/>

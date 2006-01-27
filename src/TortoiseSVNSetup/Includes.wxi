@@ -20,10 +20,12 @@
     <?define Win64YesNo="yes" ?>
     <?define ReleasePath="Release64" ?>
     <?define PlatformPathExtension="x64" ?>
+    <?define PackagePlatforms="x64" ?>
   <?else?>
     <?define Win64YesNo="no" ?>
     <?define ReleasePath="Release" ?>
     <?define PlatformPathExtension="win32" ?>
+    <?define PackagePlatforms="Intel" ?>
   <?endif?>
 
   <!-- GUIDs ....................................................................... -->
