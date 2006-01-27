@@ -63,6 +63,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
 	, m_bShowAll(false)
+	, m_pProgress(NULL)
 {
 	m_ViewRect.SetRectEmpty();
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
@@ -144,10 +145,6 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_lfBaseFont.lfQuality = DEFAULT_QUALITY;
 	m_lfBaseFont.lfPitchAndFamily = DEFAULT_PITCH;
 
-	m_Progress.SetTitle(IDS_REVGRAPH_PROGTITLE);
-	m_Progress.SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
-	m_Progress.SetTime();
-
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REVISIONGRAPH));
 	
 	m_dwTicks = GetTickCount();
@@ -165,13 +162,13 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 
 BOOL CRevisionGraphDlg::ProgressCallback(CString text, CString text2, DWORD done, DWORD total)
 {
-	if ((m_dwTicks+100)<GetTickCount())
+	if ((m_pProgress)&&((m_dwTicks+100)<GetTickCount()))
 	{
 		m_dwTicks = GetTickCount();
-		m_Progress.SetLine(1, text);
-		m_Progress.SetLine(2, text2);
-		m_Progress.SetProgress(done, total);
-		if (m_Progress.HasUserCancelled())
+		m_pProgress->SetLine(1, text);
+		m_pProgress->SetLine(2, text2);
+		m_pProgress->SetProgress(done, total);
+		if (m_pProgress->HasUserCancelled())
 			return FALSE;
 	}
 	return TRUE;
@@ -185,7 +182,11 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	InterlockedExchange(&pDlg->m_bThreadRunning, TRUE);
-	pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
+	pDlg->m_pProgress = new CProgressDlg();
+	pDlg->m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
+	pDlg->m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
+	pDlg->m_pProgress->SetTime();
+	pDlg->m_pProgress->ShowModeless(pDlg->m_hWnd);
 	pDlg->m_bNoGraph = FALSE;
 	if (!pDlg->FetchRevisionData(pDlg->m_sPath))
 	{
@@ -201,7 +202,9 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	}
 
 cleanup:
-	pDlg->m_Progress.Stop();
+	pDlg->m_pProgress->Stop();
+	delete pDlg->m_pProgress;
+	pDlg->m_pProgress = NULL;
 	pDlg->InitView();
 	InterlockedExchange(&pDlg->m_bThreadRunning, FALSE);
 	pDlg->Invalidate();
@@ -210,6 +213,14 @@ cleanup:
 
 void CRevisionGraphDlg::InitView()
 {
+	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
+	{
+		delete [] (CPoint*)m_arConnections.GetAt(i);
+	}
+	m_arConnections.RemoveAll();
+	m_arVertPositions.RemoveAll();
+	m_targetsbottom.clear();
+	m_targetsright.clear();
 	CRect * oldsize = GetViewSize();
 	int width = oldsize->Width();
 	int height = oldsize->Height();
@@ -286,7 +297,9 @@ CFont* CRevisionGraphDlg::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE
 		m_lfBaseFont.lfWeight = bBold ? FW_BOLD : FW_NORMAL;
 		m_lfBaseFont.lfItalic = (BYTE) bItalic;
 		m_lfBaseFont.lfStrikeOut = (BYTE) FALSE;
-		m_lfBaseFont.lfHeight = -MulDiv(m_nFontSize, GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
+		CDC * pDC = GetDC();
+		m_lfBaseFont.lfHeight = -MulDiv(m_nFontSize, GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
+		ReleaseDC(pDC);
 		// use the empty font name, so GDI takes the first font which matches
 		// the specs. Maybe this will help render chinese/japanese chars correctly.
 		_tcsncpy_s(m_lfBaseFont.lfFaceName, 32, _T("MS Shell Dlg 2"), 32);
@@ -1128,6 +1141,7 @@ CRect * CRevisionGraphDlg::GetViewSize()
 		m_node_rect_width = max(NODE_RECT_WIDTH * m_nZoomFactor / 10, m_node_rect_width);
 		pDC->SelectObject(pOldFont);
 	}
+	ReleaseDC(pDC);
 
 	m_ViewRect.right = level * (m_node_rect_width + m_node_space_left + m_node_space_right);
 	m_ViewRect.bottom = revisions * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
@@ -1994,6 +2008,8 @@ void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
 
 void CRevisionGraphDlg::OnViewShowallrevisions()
 {
+	if (m_bThreadRunning)
+		return;
 	CMenu * pMenu = GetMenu();
 	if (pMenu == NULL)
 		return;
@@ -2008,6 +2024,8 @@ void CRevisionGraphDlg::OnViewShowallrevisions()
 		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_CHECKED);
 		m_bShowAll = true;
 	}
+
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(WorkerThread, this)==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);

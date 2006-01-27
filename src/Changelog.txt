@@ -12,7 +12,10 @@
        be reordered, hidden or shown. And the column sizes are 
        stored between sessions. See issue #80 for details. (Stefan)
 - NEW: The revision graph shows the last committed revision
-       too for every branch/tag. See issue @192 for details. (Stefan)
+       too for every branch/tag. See issue #192 for details. (Stefan)
+- NEW: The revision graph can show all revisions where an URL
+       has been modified, not just the copy graph. See
+       issue #192 for details. (Stefan)
 - NEW: The 'OK' button in all dialogs is now disabled until at least
        one file/folder is selected to avoid empty operations. (Tobias Schäfer)
 - NEW: Ability to show ignored files in the "Check for modifications"

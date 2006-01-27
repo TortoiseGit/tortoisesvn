@@ -75,7 +75,7 @@ public:
 
 
 	CString			m_sPath;
-	CProgressDlg	m_Progress;
+	CProgressDlg* 	m_pProgress;
 	volatile LONG	m_bThreadRunning;
 
 	void			InitView();

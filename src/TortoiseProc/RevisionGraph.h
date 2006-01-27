@@ -120,6 +120,7 @@ public:
 	BOOL						m_bCancelled;
 	apr_array_header_t *		m_logdata;
 	apr_pool_t *				pool;			///< memory pool
+	apr_pool_t *				graphpool;
 	svn_client_ctx_t 			m_ctx;
 	SVNPrompt					m_prompt;
 
