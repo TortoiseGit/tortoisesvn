@@ -238,10 +238,23 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	return TRUE;
 }
 
-BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
+BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false */)
 {
 	if (m_logdata == NULL)
 		return FALSE;
+
+	for (int i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * e = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		for (int j=0; j<e->sourcearray.GetCount(); ++j)
+		{
+			delete (source_entry*)e->sourcearray.GetAt(j);
+		}
+		delete e;
+	}
+	m_arEntryPtrs.RemoveAll();
+
+
 	SVN::preparePath(path);
 	CStringA url = CUnicodeUtils::GetUTF8(path);
 
@@ -309,7 +322,7 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 		}
 	}
 	
-	if (AnalyzeRevisions(realurl, initialrev))
+	if (AnalyzeRevisions(realurl, initialrev, bShowAll))
 	{
 		return Cleanup(realurl);
 	}
@@ -383,7 +396,7 @@ bool CRevisionGraph::BuildForwardCopies()
 	return true;
 }
 
-bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
+bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool bShowAll)
 {
 #define TRACELEVELSPACE {for (int traceloop = 1; traceloop < m_nRecurseLevel; traceloop++) TRACE(_T(" "));}
 	m_nRecurseLevel++;
@@ -494,13 +507,17 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 							source_entry * sentry = (source_entry*)reventry->sourcearray[copytoindex];
 							// follow all copy to targets
 							CStringA targetURL = sentry->pathto + url.Mid(strlen(reventry->realurl));
-							AnalyzeRevisions(targetURL, sentry->revisionto);
+							AnalyzeRevisions(targetURL, sentry->revisionto, bShowAll);
 						}
 					}
 					if (bIsSame)
 					{
 						if ((bDeleted)||(reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
 							continue;
+						if (bShowAll)
+						{
+							reventry->bUsed = true;
+						}
 						if (lastchangedreventry)
 						{
 							if (reventry->revision > lastchangedreventry->revision)
@@ -521,6 +538,11 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev)
 				{
 					if ((bDeleted)||(reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
 						continue;
+					if (bShowAll)
+					{
+						reventry->bUsed = true;
+						reventry->url = apr_pstrdup(pool, url);
+					}
 					if (lastchangedreventry)
 					{
 						if (reventry->revision > lastchangedreventry->revision)

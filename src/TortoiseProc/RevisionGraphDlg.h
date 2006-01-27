@@ -111,6 +111,8 @@ protected:
 	CPoint			m_RoundRectPt;
 	int				m_nZoomFactor;
 	CColors			m_Colors;
+	bool			m_bFetchLogs;
+	bool			m_bShowAll;
 	
 	HACCEL			m_hAccel;
 
@@ -137,6 +139,7 @@ protected:
 	afx_msg void	OnViewComparerevisions();
 	afx_msg void	OnViewUnifieddiff();
 	afx_msg void	OnViewUnifieddiffofheadrevisions();
+	afx_msg void	OnViewShowallrevisions();
 	virtual void	OnCancel();
 
 	DECLARE_MESSAGE_MAP()

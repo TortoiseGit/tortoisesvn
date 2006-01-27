@@ -57,7 +57,7 @@ public:
 		lastcommit
 	};
 	//methods
-	CRevisionEntry(void) : revision(0), url(NULL), author(NULL), date(0),
+	CRevisionEntry(void) : revision(0), url(NULL), realurl(NULL), author(NULL), date(0),
 		message(NULL), action(nothing), level(1), bUsed(false),
 		leftconnections(0),	rightconnections(0), bottomconnections(0),
 		rightlines(0), bottomlines(0),
@@ -108,7 +108,7 @@ public:
 	CRevisionGraph(void);
 	~CRevisionGraph(void);
 	BOOL						FetchRevisionData(CString path);
-	BOOL						AnalyzeRevisionData(CString path);
+	BOOL						AnalyzeRevisionData(CString path, bool bShowAll = false);
 	virtual BOOL				ProgressCallback(CString text1, CString text2, DWORD done, DWORD total);
 	
 	
@@ -125,7 +125,7 @@ public:
 
 private:
 	bool						BuildForwardCopies();
-	bool						AnalyzeRevisions(CStringA url, svn_revnum_t startrev);
+	bool						AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool bShowAll);
 	bool						Cleanup(CStringA url);
 	
 	bool						SetCopyTo(const char * copyfrom_path, svn_revnum_t copyfrom_rev, 

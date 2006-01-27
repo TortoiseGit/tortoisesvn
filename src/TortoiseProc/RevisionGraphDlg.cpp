@@ -61,6 +61,8 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_RoundRectPt(ROUND_RECT, ROUND_RECT)
 	, m_nZoomFactor(10)
 	, m_hAccel(NULL)
+	, m_bFetchLogs(true)
+	, m_bShowAll(false)
 {
 	m_ViewRect.SetRectEmpty();
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
@@ -116,6 +118,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_COMPAREREVISIONS, OnViewComparerevisions)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFF, OnViewUnifieddiff)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, OnViewUnifieddiffofheadrevisions)
+	ON_COMMAND(ID_VIEW_SHOWALLREVISIONS, &CRevisionGraphDlg::OnViewShowallrevisions)
 END_MESSAGE_MAP()
 
 
@@ -190,7 +193,8 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 		pDlg->m_bNoGraph = TRUE;
 		goto cleanup;
 	}
-	if (!pDlg->AnalyzeRevisionData(pDlg->m_sPath))
+	pDlg->m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
+	if (!pDlg->AnalyzeRevisionData(pDlg->m_sPath, pDlg->m_bShowAll))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		pDlg->m_bNoGraph = TRUE;
@@ -493,6 +497,8 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		// draw the url
 		pDC->SelectObject(GetFont(TRUE));
 		temp = CUnicodeUtils::GetUnicode(rentry->url);
+		if (temp.IsEmpty())
+			temp = CUnicodeUtils::GetUnicode(rentry->realurl);
 		r = textrect;
 		temp.Replace('/','\\');
 		pDC->DrawText(temp.GetBuffer(temp.GetLength()), temp.GetLength(), &r, DT_CALCRECT | DT_PATH_ELLIPSIS | DT_MODIFYSTRING);
@@ -1986,11 +1992,34 @@ void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
 	UnifiedDiffRevs(true);
 }
 
+void CRevisionGraphDlg::OnViewShowallrevisions()
+{
+	CMenu * pMenu = GetMenu();
+	if (pMenu == NULL)
+		return;
+	UINT state = pMenu->GetMenuState(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND);
+	if (state & MF_CHECKED)
+	{
+		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_UNCHECKED);
+		m_bShowAll = false;
+	}
+	else
+	{
+		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_CHECKED);
+		m_bShowAll = true;
+	}
+	if (AfxBeginThread(WorkerThread, this)==NULL)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+}
+
 void CRevisionGraphDlg::OnCancel()
 {
 	if (!m_bThreadRunning)
 		__super::OnCancel();
 }
+
 
 
 

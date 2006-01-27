@@ -253,5 +253,26 @@ echo test3 > tags\V1.5\file1
 svn ci -m ""
 :: revision 50
 
+echo mmmm > trunk\Ordner\file1
+svn ci -m ""
+:: revision 51
+
+echo mmmm > trunk\Ordner\file2
+svn ci -m ""
+:: revision 52
+
+echo mmmm > trunk\Ordner\file3
+svn ci -m ""
+:: revision 53
+
+echo mmmm > trunk\Ordner\file4
+svn ci -m ""
+:: revision 54
+
+echo modified > trunk\Ordner\file1
+svn ci -m ""
+:: revision 55
+
+
 
 cd ..

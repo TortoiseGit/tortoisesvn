@@ -1315,6 +1315,8 @@ BEGIN
     END
     POPUP "&View"
     BEGIN
+        MENUITEM "Show &all revisions",         ID_VIEW_SHOWALLREVISIONS
+        MENUITEM SEPARATOR
         MENUITEM "Zoom &in\tCtrl-+",            ID_VIEW_ZOOMIN
         MENUITEM "Zoom &out\tCtrl--",           ID_VIEW_ZOOMOUT
         MENUITEM SEPARATOR
