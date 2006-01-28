@@ -223,13 +223,10 @@ void CRevisionGraphDlg::InitView()
 	m_arVertPositions.RemoveAll();
 	m_targetsbottom.clear();
 	m_targetsright.clear();
-	CRect * oldsize = GetViewSize();
-	int width = oldsize->Width();
-	int height = oldsize->Height();
 	m_ViewRect.SetRectEmpty();
 	GetViewSize();
 	BuildConnections();
-	SetScrollbars(0,0,width,height);
+	SetScrollbars(0,0,m_ViewRect.Width(),m_ViewRect.Height());
 }
 
 void CRevisionGraphDlg::SetScrollbars(int nVert, int nHorz, int oldwidth, int oldheight)
@@ -1121,23 +1118,6 @@ void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 		pDC->Polyline(p, 5);
 	}
 
-	//for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
-	//{
-	//	CPoint * pt = (CPoint*)m_arConnections.GetAt(i);
-	//	// correct the scroll offset
-	//	p[0].x = pt[0].x - nHScrollPos;
-	//	p[1].x = pt[1].x - nHScrollPos;
-	//	p[2].x = pt[2].x - nHScrollPos;
-	//	p[3].x = pt[3].x - nHScrollPos;
-	//	p[4].x = pt[4].x - nHScrollPos;
-	//	p[0].y = pt[0].y - nVScrollPos;
-	//	p[1].y = pt[1].y - nVScrollPos;
-	//	p[2].y = pt[2].y - nVScrollPos;
-	//	p[3].y = pt[3].y - nVScrollPos;
-	//	p[4].y = pt[4].y - nVScrollPos;
-
-	//	pDC->Polyline(p, 5);
-	//}
 	pDC->SelectObject(pOldPen);
 }
 
@@ -1187,6 +1167,18 @@ CRect * CRevisionGraphDlg::GetViewSize()
 
 	m_ViewRect.right = level * (m_node_rect_width + m_node_space_left + m_node_space_right);
 	m_ViewRect.bottom = revisions * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
+	CRect rect;
+	GetClientRect(&rect);
+	if (m_ViewRect.Width() < rect.Width())
+	{
+		m_ViewRect.left = rect.left;
+		m_ViewRect.right = rect.right;
+	}
+	if (m_ViewRect.Height() < rect.Height())
+	{
+		m_ViewRect.top = rect.top;
+		m_ViewRect.bottom = rect.bottom;
+	}
 	return &m_ViewRect;
 }
 

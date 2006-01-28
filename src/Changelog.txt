@@ -33,6 +33,8 @@ Version 1.3.2
        paths. (Stefan)
 - BUG: Import ignored the global ignore patterns and imported just
        everything instead. (Stefan)
+- BUG: Minor repaint issue in the revision graph. See issue #211
+       for details. (Stefan)
 
 Version 1.3.1
 - BUG: Patches with non ANSI or non UTF8 encoding couldn't be applied
