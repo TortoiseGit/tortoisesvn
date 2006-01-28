@@ -86,6 +86,7 @@ public:
 	int				bottomconnectionsleft;
 	int				rightlinesleft;
 	int				bottomlinesleft;
+	std::set<INT_PTR>	connections;
 	
 	CRect			drawrect;
 };

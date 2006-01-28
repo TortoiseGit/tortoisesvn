@@ -577,6 +577,7 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	{
 		((CRevisionEntry*)m_arEntryPtrs[rectcounter])->drawrect = CRect(0,0,0,0);
 	}
+
 	// find out which nodes are in the visible area of the client rect
 	INT_PTR i = 0;
 	INT_PTR end = 0;
@@ -589,7 +590,7 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	while ((i<m_arEntryPtrs.GetCount())&&((int)m_arVertPositions[i] < vert))
 		++i;
 	end = i;
-	while ((vert)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= m_ViewRect.Height())
+	while ((vert)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= (rect.bottom + nVScrollPos))
 		vert++;
 	while ((end<m_arEntryPtrs.GetCount())&&((int)m_arVertPositions[end] < vert))
 		++end;
@@ -598,6 +599,8 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		i = m_arEntryPtrs.GetCount()-1;
 	if (end > m_arEntryPtrs.GetCount())
 		end = m_arEntryPtrs.GetCount();
+
+	INT_PTR start = i;
 
 	for ( ; ((i>=0)&&(i<end)); ++i)
 	{
@@ -641,7 +644,7 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		}
 		entry->drawrect = noderect;
 	}
-	DrawConnections(memDC, rect, nVScrollPos, nHScrollPos);
+	DrawConnections(memDC, rect, nVScrollPos, nHScrollPos, start, end);
 	if (!bDirectDraw)
 		delete memDC;
 }
@@ -1060,26 +1063,49 @@ void CRevisionGraphDlg::BuildConnections()
 					}
 				}
 			}
-			m_arConnections.Add(pt);
+			INT_PTR conindex = m_arConnections.Add(pt);
+
+			// we add the connection index to each revision entry which the connection
+			// passes by vertically. We use this to reduce the time to draw the connections,
+			// because we know which nodes are in the visible area but not which connections.
+			// By doing this, we can simply get the connections we have to draw from
+			// the nodes we draw.
+			for (EntryPtrsIterator it = m_mapEntryPtrs.lower_bound(reventry->revision); it != m_mapEntryPtrs.upper_bound(reventry2->revision); ++it)
+			{
+				it->second->connections.insert(conindex);
+			}
 			DecrementSpaceLines(sentry);
 		}
 	}
 }
 
-void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos)
+void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, INT_PTR start, INT_PTR end)
 {
 	CRect viewrect;
 	viewrect.top = rect.top + nVScrollPos;
 	viewrect.bottom = rect.bottom + nVScrollPos;
 	viewrect.left = rect.left + nHScrollPos;
 	viewrect.right = rect.right + nHScrollPos;
+
+
+	std::set<INT_PTR> connections;
+	for ( ; ((start>=0)&&(start<end)); ++start)
+	{
+		CRevisionEntry * entry = (CRevisionEntry*)m_arEntryPtrs.GetAt(start);
+		for (std::set<INT_PTR>::iterator it = entry->connections.begin(); it != entry->connections.end(); ++it)
+		{
+			connections.insert(*it);
+		}
+	}
+
 	CPen newpen(PS_SOLID, 0, GetSysColor(COLOR_WINDOWTEXT));
 	CPen * pOldPen = pDC->SelectObject(&newpen);
 
 	POINT p[5];
-	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
+
+	for (std::set<INT_PTR>::iterator it = connections.begin(); it != connections.end(); ++it)
 	{
-		CPoint * pt = (CPoint*)m_arConnections.GetAt(i);
+		CPoint * pt = (CPoint *)m_arConnections.GetAt(*it);
 		// correct the scroll offset
 		p[0].x = pt[0].x - nHScrollPos;
 		p[1].x = pt[1].x - nHScrollPos;
@@ -1094,6 +1120,24 @@ void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 
 		pDC->Polyline(p, 5);
 	}
+
+	//for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
+	//{
+	//	CPoint * pt = (CPoint*)m_arConnections.GetAt(i);
+	//	// correct the scroll offset
+	//	p[0].x = pt[0].x - nHScrollPos;
+	//	p[1].x = pt[1].x - nHScrollPos;
+	//	p[2].x = pt[2].x - nHScrollPos;
+	//	p[3].x = pt[3].x - nHScrollPos;
+	//	p[4].x = pt[4].x - nHScrollPos;
+	//	p[0].y = pt[0].y - nVScrollPos;
+	//	p[1].y = pt[1].y - nVScrollPos;
+	//	p[2].y = pt[2].y - nVScrollPos;
+	//	p[3].y = pt[3].y - nVScrollPos;
+	//	p[4].y = pt[4].y - nVScrollPos;
+
+	//	pDC->Polyline(p, 5);
+	//}
 	pDC->SelectObject(pOldPen);
 }
 

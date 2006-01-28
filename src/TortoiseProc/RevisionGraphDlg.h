@@ -164,7 +164,7 @@ private:
 	void			CountEntryConnections();
 	void			MarkSpaceLines(source_entry * entry, int level, svn_revnum_t startrev, svn_revnum_t endrev);
 	void			DecrementSpaceLines(source_entry * reventry);
-	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
+	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, INT_PTR start, INT_PTR end);
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 	void			DoZoom(int nZoomFactor);
 	static UINT		WorkerThread(LPVOID pVoid);
