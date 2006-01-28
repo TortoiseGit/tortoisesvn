@@ -1588,9 +1588,16 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region blame
 		if (command == cmdBlame)
 		{
+			bool bShowDialog = true;
 			CBlameDlg dlg;
 			dlg.EndRev = SVNRev::REV_HEAD;
-			if (dlg.DoModal() == IDOK)
+			if (parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")))
+			{
+				bShowDialog = false;
+				dlg.StartRev = parser.GetLongVal(_T("startrev"));
+				dlg.EndRev = parser.GetLongVal(_T("endrev"));
+			}
+			if ((!bShowDialog)||(dlg.DoModal() == IDOK))
 			{
 				CBlame blame;
 				CString tempfile;

@@ -317,6 +317,11 @@ Don't touch these lines:
 							<entry>
 								Opens the blame dialog for the file specified 
 								in <option>/path</option>.
+								If the options <option>startrev</option> and
+								<option>endrev</option> are set, then the dialog
+								asking for the blame range is not shown but
+								the revision values of those options are used
+								instead.
 							</entry>
 						</row>
 						<row>
