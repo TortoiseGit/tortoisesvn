@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-22 21:05+0100\n"
+"PO-Revision-Date: 2006-01-28 18:31+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -241,13 +241,6 @@ msgstr "&Esplora il repository"
 msgid "&Browse..."
 msgstr "&Sfoglia..."
 
-# Control-ID:1091,
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "&Integrato"
-
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
@@ -303,6 +296,18 @@ msgstr "&Copia"
 #: ID:101
 msgid "&Copy to..."
 msgstr "&Copia in..."
+
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "&Personalizzato"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:1096
+msgid "&Default"
+msgstr "&Predefinito"
 
 # ID:11,#:
 # ID:73,#:
@@ -362,7 +367,6 @@ msgstr "&Esci"
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "&Esterno"
 
@@ -685,6 +689,14 @@ msgstr "&Vai all'URL"
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "&Barra degli strumenti"
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 # ID:9,#:
 # ID:80,
@@ -1313,6 +1325,11 @@ msgstr "Autore:                        Stefan Kueng"
 #: ID:116
 msgid "Authors"
 msgstr "Autori"
+
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "Non fare differenza tra maiuscole e minuscole nei nomi degli autori"
 
 # ID:76,
 #: Control-ID:65535
@@ -2695,7 +2712,7 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Se selezionato TortoiseSVN crea un file temporaneo della Base per effettuare il confronto con le parole chiave espanse e i terminatori di riga corretti."
 
 # ID:195,
@@ -2772,8 +2789,8 @@ msgstr "Ignora &cambiamenti tra maiuscole/minuscole"
 
 # Control-ID:1018,
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
-msgstr "Ignora i caratt&eri di fine linea (raccomandato)"
+msgid "Ignore line &endings (recommended)"
+msgstr "Ignora i caratt&eri di fine riga (raccomandato)"
 
 # Control-ID:1056,
 #: Control-ID:1056
@@ -4079,7 +4096,7 @@ msgstr "SVN Autore"
 
 # ID:13,
 #: ID:16
-msgid "SVN Copy and rename versioned files here"
+msgid "SVN Copy and rename versioned file here"
 msgstr "SVN Copia e rinomina qui i file versionati"
 
 # Control-ID:1073,
@@ -4387,6 +4404,11 @@ msgstr "Url semplice degli elementi di Subversion"
 msgid "Show &All"
 msgstr "Visualizza &tutto"
 
+# ID:76,
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Mostra &tutte le revisioni"
+
 # ID:113,
 #: ID:113
 msgid "Show &differences"
@@ -4422,6 +4444,11 @@ msgstr "Mostra file &senza versione"
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Visualizza le differenze come confronto &unificato"
+
+# Control-ID:1073,
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Mostra file ignorati"
 
 # Control-ID:1065,
 #: Control-ID:1065
