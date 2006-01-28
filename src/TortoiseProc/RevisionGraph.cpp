@@ -532,10 +532,6 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 					{
 						if ((bDeleted)||(reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
 							continue;
-						if (bShowAll)
-						{
-							reventry->bUsed = true;
-						}
 						if (lastchangedreventry)
 						{
 							if (reventry->revision > lastchangedreventry->revision)
@@ -550,17 +546,22 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 						}
 						else
 							firstchangedreventry = reventry;
+						if (bShowAll)
+						{
+							if (!reventry->bUsed)
+							{
+								reventry->bUsed = true;
+								reventry->action = CRevisionEntry::nothing;
+								reventry->level = m_nRecurseLevel;
+								reventry->url = apr_pstrdup(graphpool, url);
+							}
+						}
 					}
 				}
 				else if (IsParentOrItself(url, reventry->url))
 				{
 					if ((bDeleted)||(reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
 						continue;
-					if (bShowAll)
-					{
-						reventry->bUsed = true;
-						reventry->url = apr_pstrdup(graphpool, url);
-					}
 					if (lastchangedreventry)
 					{
 						if (reventry->revision > lastchangedreventry->revision)
@@ -575,18 +576,28 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 					}
 					else
 						firstchangedreventry = reventry;
+					if (bShowAll)
+					{
+						if (!reventry->bUsed)
+						{
+							reventry->bUsed = true;
+							reventry->action = CRevisionEntry::nothing;
+							reventry->level = m_nRecurseLevel;
+							reventry->url = apr_pstrdup(graphpool, url);
+						}
+					}
 				}
 			}
 		}
 	}
-	if ((lastchangedreventry)&&(!lastchangedreventry->bUsed))
+	if ((lastchangedreventry)&&((!lastchangedreventry->bUsed)||(lastchangedreventry->action == CRevisionEntry::nothing)))
 	{
 		lastchangedreventry->bUsed = true;
 		lastchangedreventry->action = CRevisionEntry::lastcommit;
 		lastchangedreventry->level = m_nRecurseLevel;
 		lastchangedreventry->url = apr_pstrdup(graphpool, url);
 	}
-	if ((firstchangedreventry)&&(!firstchangedreventry->bUsed))
+	if ((firstchangedreventry)&&((!firstchangedreventry->bUsed)||(firstchangedreventry->action == CRevisionEntry::nothing)))
 	{
 		firstchangedreventry->bUsed = true;
 		firstchangedreventry->action = CRevisionEntry::lastcommit;

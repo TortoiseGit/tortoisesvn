@@ -55,7 +55,7 @@ public:
 		addedwithhistory,
 		renamed,
 		replaced,
-		lastcommit
+		lastcommit,
 	};
 	//methods
 	CRevisionEntry(void) : revision(0), url(NULL), realurl(NULL), author(NULL), date(0),
