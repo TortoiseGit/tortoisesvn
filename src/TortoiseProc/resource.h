@@ -427,6 +427,7 @@
 #define IDS_PROC_OVERWRITE_CONFIRM      1266
 #define IDC_IMPORTIGNORED               1266
 #define IDS_PROC_REPOCREATEFINISHED     1267
+#define IDC_IGNOREANCESTRY              1267
 #define IDS_PROC_RELOCATEFINISHED       1268
 #define IDS_PROC_MOVING                 1269
 #define IDS_PROC_RELOCATING             1270
@@ -762,7 +763,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        217
 #define _APS_NEXT_COMMAND_VALUE         32799
-#define _APS_NEXT_CONTROL_VALUE         1267
+#define _APS_NEXT_CONTROL_VALUE         1268
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

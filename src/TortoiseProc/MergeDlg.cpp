@@ -37,6 +37,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, EndRev(_T("HEAD"))
 	, m_bUseFromURL(TRUE)
 	, m_bDryRun(FALSE)
+	, m_bIgnoreAncestry(FALSE)
 {
 	m_pLogDlg = NULL;
 	m_pLogDlg2 = NULL;
@@ -59,6 +60,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Control(pDX, IDC_URLCOMBO2, m_URLCombo2);
 	DDX_Check(pDX, IDC_USEFROMURL, m_bUseFromURL);
+	DDX_Check(pDX, IDC_IGNOREANCESTRY, m_bIgnoreAncestry);
 }
 
 

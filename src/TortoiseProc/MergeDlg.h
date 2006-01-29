@@ -102,4 +102,5 @@ public:
 	SVNRev		EndRev;
 	BOOL		m_bDryRun;
 	BOOL		bRepeating;
+	BOOL		m_bIgnoreAncestry;
 };

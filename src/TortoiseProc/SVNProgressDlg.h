@@ -40,7 +40,8 @@ typedef enum
 	/// for locking this means steal the lock, for unlocking it means breaking the lock
 	ProgOptLockForce = 0x20,
 	ProgOptSwitchAfterCopy = 0x40,
-	ProgOptIncludeIgnored = 0x80
+	ProgOptIncludeIgnored = 0x80,
+	ProgOptIgnoreAncestry = 0x100
 } ProgressOptions;
 
 typedef enum

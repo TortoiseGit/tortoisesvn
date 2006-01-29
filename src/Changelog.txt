@@ -24,6 +24,8 @@
        case insensitive. (Stefan)
 - NEW: Options 'startrev' and 'endrev' for automating the blame
        command. See our docs, section automation for details. (Stefan)
+- NEW: Option to include ignored files when importing. (Stefan)
+- NEW: Option to ignore the ancestry in a merge. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
        placed in a separate column. See issue #207 for details. 
        (Tobias Schäfer)

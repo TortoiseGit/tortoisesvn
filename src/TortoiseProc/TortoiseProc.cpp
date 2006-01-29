@@ -919,7 +919,9 @@ BOOL CTortoiseProcApp::InitInstance()
 					CSVNProgressDlg progDlg;
 					progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 					//m_pMainWnd = &progDlg;
-					progDlg.SetParams(CSVNProgressDlg::Merge, dlg.m_bDryRun ? ProgOptDryRun : 0, pathList, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
+					int options = dlg.m_bDryRun ? ProgOptDryRun : 0;
+					options |= dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
+					progDlg.SetParams(CSVNProgressDlg::Merge, options, pathList, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
 					progDlg.m_RevisionEnd = dlg.EndRev;
 					progDlg.DoModal();
 					repeat = dlg.m_bDryRun;
