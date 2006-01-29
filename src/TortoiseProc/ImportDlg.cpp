@@ -32,6 +32,7 @@
 IMPLEMENT_DYNAMIC(CImportDlg, CResizableStandAloneDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CImportDlg::IDD, pParent)
+	, m_bIncludeIgnored(FALSE)
 {
 	m_url = _T("");
 }
@@ -46,6 +47,7 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Control(pDX, IDC_MESSAGE, m_cMessage);
+	DDX_Check(pDX, IDC_IMPORTIGNORED, m_bIncludeIgnored);
 }
 
 

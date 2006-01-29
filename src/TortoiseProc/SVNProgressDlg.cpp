@@ -613,7 +613,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
 			sWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, true, false))
+			if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, true, m_options & ProgOptIncludeIgnored ? true : false))
 			{
 				ReportSVNError();
 			}

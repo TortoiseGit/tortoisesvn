@@ -87,4 +87,5 @@ public:
 	CHistoryCombo m_OldLogs;
 	ProjectProperties		m_ProjectProperties;
 	CHistoryDlg		m_HistoryDlg;
+	BOOL m_bIncludeIgnored;
 };
