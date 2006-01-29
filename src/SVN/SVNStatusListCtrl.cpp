@@ -43,6 +43,7 @@
 #include "ShellUpdater.h"
 #include "SVNAdminDir.h"
 #include ".\svnstatuslistctrl.h"
+#include "DropFiles.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -92,6 +93,7 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY(HDN_ITEMCHANGINGA, 0, &CSVNStatusListCtrl::OnHdnItemchanging)
 	ON_NOTIFY(HDN_ITEMCHANGINGW, 0, &CSVNStatusListCtrl::OnHdnItemchanging)
 	ON_WM_DESTROY()
+	ON_NOTIFY_REFLECT(LVN_BEGINDRAG, OnBeginDrag)
 END_MESSAGE_MAP()
 
 
@@ -3129,4 +3131,25 @@ void CSVNStatusListCtrl::OnDestroy()
 	CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer);
 	regColInfo = m_dwColumns;
 	CListCtrl::OnDestroy();
+}
+
+void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
+{
+	CDropFiles dropFiles; // class for creating DROPFILES struct
+
+	int index;
+	POSITION pos = GetFirstSelectedItemPosition();
+	while ( (index = GetNextSelectedItem(pos)) >= 0 )
+	{
+		FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+		CTSVNPath path = fentry->GetPath();
+		dropFiles.AddFile( path.GetWinPathString() );
+	}
+
+	if ( dropFiles.GetCount()>0 )
+	{
+		dropFiles.CreateStructure();
+	}
+
+	*pResult = 0;
 }
