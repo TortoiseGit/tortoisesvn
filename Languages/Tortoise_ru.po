@@ -32,14 +32,14 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 5272: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 5574: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-12-29 16:37+0300\n"
-"Last-Translator: Stanislav Petrakov <stannic@yandex.ru>\n"
+"PO-Revision-Date: 2006-01-29 19:38+0300\n"
+"Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -272,14 +272,6 @@ msgstr "&Обзор хранилища"
 msgid "&Browse..."
 msgstr "&Обзор..."
 
-# Control-ID:1091,
-# (программа сравнения ревизий)
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "В&строенная"
-
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
@@ -337,6 +329,16 @@ msgstr "Копи&ровать"
 msgid "&Copy to..."
 msgstr "&Копировать в..."
 
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "Из &настроек"
+
+# ID:11,
+#: Control-ID:1096
+msgid "&Default"
+msgstr "По &умолчанию"
+
 # ID:11,
 #: ID:11
 msgid "&Delete"
@@ -393,7 +395,6 @@ msgstr "&Выход"
 # (программа сравнения ревизий)
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "В&нешняя"
 
@@ -717,6 +718,14 @@ msgstr "&На URL:"
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "&Панель инструментов"
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 # ID:9,#:
 # ID:80,
@@ -1321,8 +1330,9 @@ msgstr "Вы уверены, что хотите пометить конфлик
 
 # ID:79,
 #: ID:79
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "Вы действительно хотите убрать изменения? Вы потеряете <b>все</b> изменения с момента последнего обновления!"
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr "Вы действительно хотите убрать изменения в %d элементе(ах)? Вы потеряете <b>все</b> изменения с момента последнего обновления!"
 
 # На?
 # ID:77,
@@ -1346,6 +1356,11 @@ msgstr "Автор:                        Stefan Kueng"
 #: ID:116
 msgid "Authors"
 msgstr "Авторы"
+
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "Авторы без учёта регистра"
 
 # ID:76,
 #: Control-ID:65535
@@ -2262,7 +2277,7 @@ msgid "Edit"
 msgstr "Поправить"
 
 # ID:76,
-# Вариант:Автор редакции 
+# Вариант:Автор редакции
 #: ID:113
 msgid "Edit author"
 msgstr "Редактировать автора"
@@ -2642,7 +2657,7 @@ msgstr "Получение объединённого файла различи�
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Global ignore &pattern:"
-msgstr "Общие шаблоны &исключений:"
+msgstr "Общие шаблоны исключений:"
 
 # ID:2051,
 #: ID:2051
@@ -2735,7 +2750,7 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Если выбрано, TortoiseSVN создает временный файл базовой версии для сравнения, в котором ключевые слова заменены их значениями и настроены окончания строк"
 
 # ID:195,
@@ -2811,11 +2826,17 @@ msgstr "Игнорировать &все непечатаемые знаки"
 msgid "Ignore &case changes"
 msgstr "Игнорировать изменения &регистра"
 
+# Control-ID:1067,
+#: Control-ID:1267
+#, fuzzy
+msgid "Ignore ancestry"
+msgstr "Игнорировать предков"
+
 # Control-ID:1018,
 # полностью не помещается
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
-msgstr "Игнорировать &завершения строк (рекомендуется)"
+msgid "Ignore line &endings (recommended)"
+msgstr "Игнорировать &завершения строк(рекомендуется)"
 
 # Control-ID:1056,
 #: Control-ID:1056
@@ -2832,6 +2853,11 @@ msgstr "Импорт файла %s"
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "Импортирует папку в хранилище"
+
+# Control-ID:1266,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "Включить игнорируемые файлы"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4138,8 +4164,8 @@ msgstr "SVN Автор"
 # Control-ID:1073,#:
 # Control-ID:1073,
 #: ID:16
-msgid "SVN Copy and rename versioned files here"
-msgstr "SVN Копировать и переименовать версионные файлы сюда"
+msgid "SVN Copy and rename versioned file here"
+msgstr "SVN Копировать и переименовать версионный файл сюда"
 
 # да-а
 # Control-ID:1073,#:
@@ -4448,6 +4474,11 @@ msgstr "Короткий Url subversion-объектов"
 msgid "Show &All"
 msgstr "Показать &все"
 
+# ID:76,
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Показать &все ревизии"
+
 # ID:113,
 #: ID:113
 msgid "Show &differences"
@@ -4485,6 +4516,13 @@ msgstr "Показать &неверсионные файлы"
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Показать различия как объединённый файл разли&чий"
+
+# да-а
+# Control-ID:1073,#:
+# Control-ID:1073,
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Показать игнорируемые файлы"
 
 # Control-ID:1065,
 #: Control-ID:1065
