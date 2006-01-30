@@ -760,7 +760,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 					do 
 					{
 						last++;
-					} while(((CDiffData::DiffStates)arStates->GetAt(last))==CDiffData::DIFFSTATE_CONFLICTED);
+					} while( last<arStates->GetCount() && ((CDiffData::DiffStates)arStates->GetAt(last))==CDiffData::DIFFSTATE_CONFLICTED);
 					file.Add(_T("<<<<<<< .mine"));
 					for (int j=first; j<last; j++)
 					{
