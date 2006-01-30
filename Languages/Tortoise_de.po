@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-01-27 15:32+0100\n"
+"PO-Revision-Date: 2006-01-30 09:22+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2284,6 +2284,10 @@ msgstr "Ignoriere &alle Leerzeichen"
 msgid "Ignore &case changes"
 msgstr "&Groß- / Kleinschreibung ignorieren"
 
+#: Control-ID:1267
+msgid "Ignore ancestry"
+msgstr "Vorfahren ignorieren"
+
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignoriere &Zeilenenden (empfohlen)"
@@ -2300,6 +2304,10 @@ msgstr "Importiere Datei %s"
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
+
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "Ignorierte Dateien einschließen"
 
 #: Control-ID:65535
 msgid "Include paths:"
