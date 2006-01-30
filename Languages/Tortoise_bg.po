@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-01-25 10:25+0200\n"
+"PO-Revision-Date: 2006-01-30 11:06+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -280,13 +280,6 @@ msgstr "&Разглеждане на хранилище"
 msgid "&Browse..."
 msgstr "&Избор..."
 
-# Control-ID:1091,
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "&Вградена"
-
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
@@ -342,6 +335,18 @@ msgstr "&Копиране"
 #: ID:101
 msgid "&Copy to..."
 msgstr "&Копиране в..."
+
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "&Потребителски"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:1096
+msgid "&Default"
+msgstr "&По подразбиране"
 
 # ID:11,#:
 # ID:73,#:
@@ -401,7 +406,6 @@ msgstr "&Изход"
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "&Външна"
 
@@ -724,6 +728,14 @@ msgstr "&Към URL:"
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "&Лента с инструменти"
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 # ID:9,#:
 # ID:80,
@@ -1353,6 +1365,11 @@ msgstr "Автор:                        Stefan Kueng"
 #: ID:116
 msgid "Authors"
 msgstr "Автори"
+
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "Нечувствителност към регистъра за авторите"
 
 # ID:76,
 #: Control-ID:65535
@@ -2811,6 +2828,11 @@ msgstr "Игнориране на &всички празни символи"
 msgid "Ignore &case changes"
 msgstr "Нечувствителност към &регистъра"
 
+# Control-ID:1067,
+#: Control-ID:1267
+msgid "Ignore ancestry"
+msgstr "Игнориране на предшествениците"
+
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -2831,6 +2853,11 @@ msgstr "Внос на файл %s"
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "Внася директорията в хранилище"
+
+# Control-ID:1073,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "Включване и на игнорираните файлове"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4424,6 +4451,11 @@ msgstr "Кратък URL на Subversion обекти"
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "&Всички"
+
+# ID:76,
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "&Всички ревизии"
 
 # ID:113,
 #: ID:113
