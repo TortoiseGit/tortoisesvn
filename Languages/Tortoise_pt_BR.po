@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-25 14:42-0300\n"
+"PO-Revision-Date: 2006-01-30 11:26-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -245,13 +245,6 @@ msgstr "&Navegar no Repositório"
 msgid "&Browse..."
 msgstr "&Navegar..."
 
-# Control-ID:1091,
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "&Integrado"
-
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
@@ -307,6 +300,19 @@ msgstr "&Copiar"
 #: ID:101
 msgid "&Copy to..."
 msgstr "&Copiar Para..."
+
+# Control-ID:1097,
+#: Control-ID:1097
+#, fuzzy
+msgid "&Custom"
+msgstr "&Personalizar"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:1096
+msgid "&Default"
+msgstr "Pa&drão"
 
 # ID:11,#:
 # ID:73,#:
@@ -366,7 +372,6 @@ msgstr "Sai&r"
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "&Externo"
 
@@ -689,6 +694,14 @@ msgstr "&Para a URL:"
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "&Barra de Ferramentas"
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 # ID:9,#:
 # ID:80,
@@ -1321,6 +1334,12 @@ msgstr "Autor:                        Stefan Kueng"
 #: ID:116
 msgid "Authors"
 msgstr "Autores"
+
+# Control-ID:1265,
+#: Control-ID:1265
+#, fuzzy
+msgid "Authors case insensitive"
+msgstr "Autores sensível a caixa"
 
 # ID:76,
 #: Control-ID:65535
@@ -2592,9 +2611,9 @@ msgstr "Obtendo arquivo %s"
 
 # ID:119,
 #: ID:120
-#, fuzzy, c-format
+#, c-format
 msgid "Getting file %s, revision %ld"
-msgstr "Obtendo Arquivo %s"
+msgstr "Obtendo arquivo %s, revisão %ld"
 
 # ID:132,
 #: ID:132
@@ -2796,9 +2815,14 @@ msgstr "Ignor&ar todos os espaços em branco"
 msgid "Ignore &case changes"
 msgstr "Ignora alterações de &caixa"
 
+# Control-ID:1067,
+#: Control-ID:1267
+#, fuzzy
+msgid "Ignore ancestry"
+msgstr "Ignora alterações de &caixa"
+
 # Control-ID:1018,
 #: Control-ID:1018
-#, fuzzy
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorar fins d&e linha (recomendado)"
 
@@ -2818,6 +2842,11 @@ msgstr "Obtendo arquivo %s"
 msgid "Imports the directory to a repository"
 msgstr "Importar o diretório para um repositório"
 
+# Control-ID:1073,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "Incluir arquivos ignorados"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Include paths:"
@@ -2830,7 +2859,6 @@ msgstr "Importação inicial"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Inline whitespace diff"
 msgstr "Comparação de espaços em branco"
 
@@ -2984,9 +3012,8 @@ msgstr "Trava quebrada!"
 
 # ID:207,
 #: ID:207
-#, fuzzy
 msgid "Lock comment"
-msgstr "Comentário travado"
+msgstr "Comentário de trava"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4132,9 +4159,8 @@ msgstr "SVN Exportar para cá"
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "SVN Lock owner"
-msgstr "SVN Proprietário da Trava"
+msgstr "SVN Proprietário da trava"
 
 # Control-ID:1073,
 #: ID:12
@@ -4223,9 +4249,8 @@ msgstr ""
 
 # Control-ID:1132,
 #: Control-ID:1132
-#, fuzzy
 msgid "Save to clipboard"
-msgstr "Salvar para a Área de Transferência"
+msgstr "Salvar para a área de transferência"
 
 # ID:144,
 #: ID:103
@@ -4425,6 +4450,11 @@ msgstr "Url Curta de itens do Subversion"
 msgid "Show &All"
 msgstr "Mostr&ar Tudo"
 
+# ID:76,
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Mostrar tod&as as revisões"
+
 # ID:113,
 #: ID:113
 msgid "Show &differences"
@@ -4618,9 +4648,8 @@ msgstr "Status do item no SVN"
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "Steal loc&k"
-msgstr "Roubar Tra&va"
+msgstr "Roubar tra&va"
 
 # ID:313,
 #: ID:313
@@ -4641,15 +4670,13 @@ msgstr "Subversion"
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:65535
-#, fuzzy
 msgid "Subversion &authentication data:"
-msgstr "Dados de autenticação do Subversion:"
+msgstr "Dados de &autenticação do Subversion:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Subversion configuration &file:"
-msgstr "Arquivo de configuração do Subversion:"
+msgstr "Arquivo de con&figuração do Subversion:"
 
 # ID:79,
 #: ID:79
@@ -4662,14 +4689,14 @@ msgstr ""
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"O subversion reportou um erro ao fazer a limpeza!\n"
-"<hr=100%>\n"
+"O Subversion reportou um erro ao fazer a limpeza!\n"
+"<hr=100%%>\n"
 "%s"
 
 # Control-ID:65535,
