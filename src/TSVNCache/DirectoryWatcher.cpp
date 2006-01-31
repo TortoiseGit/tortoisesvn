@@ -193,8 +193,10 @@ void CDirectoryWatcher::WorkerThread()
 				// Clear the list of watched objects and recreate that list
 				if (!m_bRunning)
 					return;
-				AutoLocker lock(m_critSec);
-				ClearInfoMap();
+				{
+					AutoLocker lock(m_critSec);
+					ClearInfoMap();
+				}
 				DWORD lasterr = GetLastError();
 				if ((m_hCompPort != INVALID_HANDLE_VALUE)&&(lasterr!=ERROR_SUCCESS)&&(lasterr!=ERROR_INVALID_HANDLE))
 				{
@@ -219,6 +221,7 @@ void CDirectoryWatcher::WorkerThread()
 						// this could happen if a watched folder has been removed/renamed
 						ATLTRACE("CDirectoryWatcher: CreateFile failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
 						CloseHandle(m_hCompPort);
+						AutoLocker lock(m_critSec);
 						watchedPaths.RemovePath(watchedPaths[i]);
 						i--; if (i<0) i=0;
 						break;
@@ -237,6 +240,7 @@ void CDirectoryWatcher::WorkerThread()
 					if (m_hCompPort == NULL)
 					{
 						ATLTRACE("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
+						AutoLocker lock(m_critSec);
 						ClearInfoMap();
 						CloseHandle(m_hCompPort);
 						delete pDirInfo;
@@ -255,6 +259,7 @@ void CDirectoryWatcher::WorkerThread()
 												NULL))	//no completion routine!
 					{
 						ATLTRACE("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
+						AutoLocker lock(m_critSec);
 						ClearInfoMap();
 						CloseHandle(m_hCompPort);
 						delete pDirInfo;
@@ -263,6 +268,7 @@ void CDirectoryWatcher::WorkerThread()
 						i--; if (i<0) i=0;
 						break;
 					}
+					AutoLocker lock(m_critSec);
 					watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
 					ATLTRACE("watching path %ws\n", pDirInfo->m_DirName.GetWinPath());
 				}
