@@ -1,124 +1,189 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="8.00"
 	Name="Cache"
 	ProjectGUID="{948733DE-FC5A-46C2-8CD6-429017508D63}"
-	Keyword="MFCProj">
+	RootNamespace="Cache"
+	Keyword="MFCProj"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\bin\Debug\bin"
 			IntermediateDirectory="..\..\obj\CacheTest\Debug"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="2"
-			CharacterSet="1">
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="false"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\..\src\Utils;..\..\src\SVN;..\..\ext\GRETA;..\..\src\TortoiseProc"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
-				MinimalRebuild="TRUE"
+				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				TreatWChar_tAsBuiltInType="TRUE"
-				UsePrecompiledHeader="3"
+				TreatWChar_tAsBuiltInType="true"
+				UsePrecompiledHeader="2"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="4"/>
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="4"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj\ResizableLib\Debug\ResizableLib.lib ../../ext/Subversion\db4-win32\lib\libdb43d.lib ../../ext/Subversion\Debug\subversion\libsvn_repos\libsvn_repos-1.lib ../../ext/Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Debug\subversion\libsvn_fs\libsvn_fs-1.lib ../../ext/Subversion\Debug\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../ext/Subversion\Debug\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../ext/Subversion\Debug\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../ext/Subversion\Debug\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../ext/Subversion\Debug\subversion\libsvn_ra\libsvn_ra-1.lib ../../ext/Subversion\Debug\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../ext/neon\libneonD.lib ../../ext/Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../ext/Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../ext/apr\Debug\libapr.lib ../../ext/apr-util\Debug\libaprutil.lib ../../ext\apr-iconv\Debug\libapriconv.lib ../../ext\apr-util\xml\expat\lib\LibD\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
-				LinkIncremental="2"
-				GenerateDebugInformation="TRUE"
-				SubSystem="2"
-				TargetMachine="1"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="FALSE"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG"
 				Culture="1033"
-				AdditionalIncludeDirectories="$(IntDir)"/>
+				AdditionalIncludeDirectories="$(IntDir)"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCLinkerTool"
+				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../ext/Subversion\debug_win32\libsvn_diff-nonet.lib ../../ext/Subversion\debug_win32\libsvn_ra-nonet.lib ../../ext/Subversion\debug_win32\libsvn_wc-nonet.lib ../../ext/Subversion\debug_win32\libsvn_subr-nonet.lib ../../ext/Subversion\debug_win32\libsvn_client-nonet.lib ../../ext/Subversion\debug_win32\libsvn_delta-nonet.lib ../../ext/apr\debug_win32\libapr.lib ../../ext/apr-util\debug_win32\libaprutil.lib ../../ext/apr-iconv\debug_win32\libapriconv.lib ../../ext/apr-util\xml\expat\lib\debug_win32\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
+				LinkIncremental="2"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\CacheTest\Release"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="2"
-			CharacterSet="1">
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="false"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\..\src\Utils;..\..\src\SVN;..\..\ext\GRETA;..\..\src\TortoiseProc"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
-				MinimalRebuild="FALSE"
+				MinimalRebuild="false"
 				RuntimeLibrary="2"
-				TreatWChar_tAsBuiltInType="TRUE"
-				UsePrecompiledHeader="3"
+				TreatWChar_tAsBuiltInType="true"
+				UsePrecompiledHeader="2"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="3"/>
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="3"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj/ResizableLib/Release/ResizableLib.Lib ../../ext/Subversion\db4-win32\lib\libdb43.lib ../../ext/Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../ext/Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../ext/Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../ext/Subversion\Release\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../ext/Subversion\Release\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../ext/Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../ext/Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../ext/Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../ext/Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../ext\neon\libneon.lib ../../ext/Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../ext/Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../ext/Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../ext/Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../ext\apr\Release\libapr.lib ../../ext\apr-util\Release\libaprutil.lib ../../ext\apr-iconv\Release\libapriconv.lib ../../ext\apr-util\xml\expat\lib\LibR\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
-				LinkIncremental="1"
-				GenerateDebugInformation="TRUE"
-				SubSystem="2"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				TargetMachine="1"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG"
-				MkTypLibCompatible="FALSE"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
 				Culture="1033"
-				AdditionalIncludeDirectories="$(IntDir)"/>
+				AdditionalIncludeDirectories="$(IntDir)"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCLinkerTool"
+				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../ext/Subversion\release_win32\libsvn_diff-nonet.lib ../../ext/Subversion\release_win32\libsvn_delta-nonet.lib ../../ext/Subversion\release_win32\libsvn_wc-nonet.lib ../../ext/Subversion\release_win32\libsvn_subr-nonet.lib ../../ext/Subversion\release_win32\libsvn_client-nonet.lib ../../ext/Subversion\release_win32\libsvn_ra-nonet.lib ../../ext/apr\release_win32\libapr.lib ../../ext/apr-util\release_win32\libaprutil.lib ../../ext/apr-iconv\release_win32\libapriconv.lib ../../ext/apr-util\xml\expat\lib\release_win32\xml.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
+				LinkIncremental="1"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -127,154 +192,226 @@
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
 			<File
-				RelativePath=".\Cache.cpp">
+				RelativePath=".\Cache.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\CacheDlg.cpp">
+				RelativePath=".\CacheDlg.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\DirFileEnum.cpp">
+				RelativePath="..\..\src\Utils\DirFileEnum.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\HTMLFormatter.cpp">
+				RelativePath="..\..\src\Utils\HTMLFormatter.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\MessageBox.cpp">
+				RelativePath="..\..\src\Utils\MessageBox.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\ext\Greta\regexpr2.cpp">
+				RelativePath="..\..\ext\Greta\regexpr2.cpp"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
+						UsePrecompiledHeader="0"
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\..\src\Utils\Registry.cpp">
-			</File>
-			<File
-				RelativePath=".\stdafx.cpp">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
+						UsePrecompiledHeader="0"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\ext\Greta\syntax2.cpp">
+				RelativePath="..\..\src\Utils\Registry.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\stdafx.cpp"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
+						UsePrecompiledHeader="1"
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
+						UsePrecompiledHeader="1"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\src\Svn\TSVNPath.cpp">
+				RelativePath="..\..\src\SVN\SVNAdminDir.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\UnicodeUtils.cpp">
+				RelativePath="..\..\ext\Greta\syntax2.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\src\TortoiseProc\Utils.cpp">
+				RelativePath="..\..\src\Svn\TSVNPath.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\Utils\UnicodeUtils.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\TortoiseProc\Utils.cpp"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
 			<File
-				RelativePath=".\Cache.h">
+				RelativePath=".\Cache.h"
+				>
 			</File>
 			<File
-				RelativePath=".\CacheDlg.h">
+				RelativePath=".\CacheDlg.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\DirFileEnum.h">
+				RelativePath="..\..\src\Utils\DirFileEnum.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\HTMLFormatter.h">
+				RelativePath="..\..\src\Utils\HTMLFormatter.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\MessageBox.h">
+				RelativePath="..\..\src\Utils\MessageBox.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\ext\Greta\regexpr2.h">
+				RelativePath="..\..\ext\Greta\regexpr2.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\registry.h">
+				RelativePath="..\..\src\Utils\registry.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\ext\Greta\reimpl2.h">
+				RelativePath="..\..\ext\Greta\reimpl2.h"
+				>
 			</File>
 			<File
-				RelativePath=".\Resource.h">
+				RelativePath=".\Resource.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\ext\Greta\restack.h">
+				RelativePath="..\..\ext\Greta\restack.h"
+				>
 			</File>
 			<File
-				RelativePath=".\stdafx.h">
+				RelativePath=".\stdafx.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\ext\Greta\syntax2.h">
+				RelativePath="..\..\src\SVN\SVNAdminDir.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Svn\TSVNPath.h">
+				RelativePath="..\..\ext\Greta\syntax2.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\Utils\UnicodeUtils.h">
+				RelativePath="..\..\src\Svn\TSVNPath.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\src\TortoiseProc\Utils.h">
+				RelativePath="..\..\src\Utils\UnicodeUtils.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\TortoiseProc\Utils.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
 			<File
-				RelativePath=".\res\Cache.ico">
+				RelativePath=".\res\Cache.ico"
+				>
 			</File>
 			<File
-				RelativePath=".\Cache.rc">
+				RelativePath=".\Cache.rc"
+				>
 			</File>
 			<File
-				RelativePath=".\res\Cache.rc2">
+				RelativePath=".\res\Cache.rc2"
+				>
 			</File>
 		</Filter>
 		<File
-			RelativePath=".\res\Cache.manifest">
+			RelativePath=".\res\Cache.manifest"
+			>
+			<FileConfiguration
+				Name="Debug|Win32"
+				ExcludedFromBuild="true"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|Win32"
+				ExcludedFromBuild="true"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+				/>
+			</FileConfiguration>
 		</File>
 		<File
-			RelativePath=".\ReadMe.txt">
+			RelativePath=".\ReadMe.txt"
+			>
 		</File>
 	</Files>
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="Cache.rc"/>
+			Value="Cache.rc"
+		/>
 	</Globals>
 </VisualStudioProject>
