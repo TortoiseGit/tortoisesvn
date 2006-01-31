@@ -76,6 +76,7 @@ void CTSVNPath::SetFromSVN(const char* pPath)
 		len = MultiByteToWideChar(CP_UTF8, 0, pPath, -1, m_sFwdslashPath.GetBuffer(len+1), len+1);
 		m_sFwdslashPath.ReleaseBuffer(len-1);
 	}
+	ATLASSERT(m_sFwdslashPath.Find('\\')<0);
 }
 
 void CTSVNPath::SetFromSVN(const char* pPath, bool bIsDirectory)
@@ -89,17 +90,20 @@ void CTSVNPath::SetFromSVN(const CString& sPath)
 {
 	Reset();
 	m_sFwdslashPath = sPath;
+	ATLASSERT(m_sFwdslashPath.Find('\\')<0);
 }
 
 void CTSVNPath::SetFromWin(LPCTSTR pPath)
 {
 	Reset();
 	m_sBackslashPath = pPath;
+	ATLASSERT(m_sBackslashPath.Find('/')<0);
 }
 void CTSVNPath::SetFromWin(const CString& sPath)
 {
 	Reset();
 	m_sBackslashPath = sPath;
+	ATLASSERT(m_sBackslashPath.Find('/')<0);
 }
 void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
 {
@@ -107,6 +111,7 @@ void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
 	m_sBackslashPath = sPath;
 	m_bIsDirectory = bIsDirectory;
 	m_bDirectoryKnown = true;
+	ATLASSERT(m_sBackslashPath.Find('/')<0);
 }
 void CTSVNPath::SetFromUnknown(const CString& sPath)
 {
@@ -613,6 +618,8 @@ bool CTSVNPath::HasAdminDir() const
 {
 	if (m_bHasAdminDirKnown)
 		return m_bHasAdminDir;
+
+	EnsureBackslashPathSet();
 	m_bHasAdminDir = g_SVNAdminDir.HasAdminDir(m_sBackslashPath, IsDirectory());
 	m_bHasAdminDirKnown = true;
 	return m_bHasAdminDir;
