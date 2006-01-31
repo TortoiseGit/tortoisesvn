@@ -49,15 +49,18 @@ void CSVNStatusCache::Create()
 	{
 		_tcscat_s(path, MAX_PATH, _T("\\TSVNCache"));
 		if (!PathIsDirectory(path))
-			CreateDirectory(path, NULL);
+		{
+			if (CreateDirectory(path, NULL)==0)
+				goto error;
+		}
 		_tcscat_s(path, MAX_PATH, _T("\\cache"));
 		_tfopen_s(&pFile, path, _T("rb"));
 		if (pFile)
 		{
 			LOADVALUEFROMFILE(value);
-			if (value != 0)
+			if (value != 1)
 			{
-				goto exit;
+				goto error;
 			}
 			int mapsize = 0;
 			LOADVALUEFROMFILE(mapsize);
@@ -65,7 +68,7 @@ void CSVNStatusCache::Create()
 			{
 				LOADVALUEFROMFILE2(value);	
 				if (value > MAX_PATH)
-					goto exit;
+					goto error;
 				if (value)
 				{
 					CString sKey;
@@ -120,7 +123,7 @@ bool CSVNStatusCache::SaveCache()
 		_tfopen_s(&pFile, path, _T("wb"));
 		if (pFile)
 		{
-			value = 0;		// 'version'
+			value = 1;		// 'version'
 			WRITEVALUETOFILE(value);
 			value = (int)m_pInstance->m_directoryCache.size();
 			WRITEVALUETOFILE(value);
