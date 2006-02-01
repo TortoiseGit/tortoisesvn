@@ -77,6 +77,13 @@
 #define IDI_ACTIONDELETED               214
 #define IDI_ACTIONMODIFIED              215
 #define IDI_ACTIONREPLACED              216
+#define IDI_REVGRAPH_ADDED              217
+#define IDI_REVGRAPH_ADDEDPLUS          218
+#define IDI_REVGRAPH_DELETED            219
+#define IDI_REVGRAPH_LASTCOMMIT         220
+#define IDI_REVGRAPH_RENAMED            221
+#define IDI_ICON2                       222
+#define IDI_REVGRAPH_REPLACED           222
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -761,7 +768,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        217
+#define _APS_NEXT_RESOURCE_VALUE        223
 #define _APS_NEXT_COMMAND_VALUE         32799
 #define _APS_NEXT_CONTROL_VALUE         1268
 #define _APS_NEXT_SYMED_VALUE           195

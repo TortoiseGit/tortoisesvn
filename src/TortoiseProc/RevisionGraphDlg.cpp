@@ -599,6 +599,13 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 
 	INT_PTR start = i;
 
+	HICON hDeletedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REVGRAPH_DELETED), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+	HICON hAddedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REVGRAPH_ADDED), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+	HICON hAddedWithHistoryIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REVGRAPH_ADDEDPLUS), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+	HICON hReplacedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REVGRAPH_REPLACED), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+	HICON hRenamedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REVGRAPH_RENAMED), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+	HICON hLastCommitIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REVGRAPH_LASTCOMMIT), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
+
 	for ( ; ((i>=0)&&(i<end)); ++i)
 	{
 		CRevisionEntry * entry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
@@ -612,35 +619,36 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		switch (entry->action)
 		{
 		case CRevisionEntry::deleted:
-			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DELETE), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
-			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::DeletedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
-			DestroyIcon(hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::DeletedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hDeletedIcon);
 			break;
 		case CRevisionEntry::added:
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::AddedNode), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hAddedIcon);
+			break;
 		case CRevisionEntry::addedwithhistory:
-			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_COPY), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
-			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::AddedNode), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
-			DestroyIcon(hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::AddedNode), entry, TSVNRoundRect, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hAddedWithHistoryIcon);
 			break;
 		case CRevisionEntry::replaced:
-			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CONFLICT), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
-			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::ReplacedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
-			DestroyIcon(hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::ReplacedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hReplacedIcon);
 			break;
 		case CRevisionEntry::renamed:
-			hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_RENAME), IMAGE_ICON, m_nIconSize, m_nIconSize, LR_DEFAULTCOLOR);
-			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::RenamedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
-			DestroyIcon(hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::RenamedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hRenamedIcon);
 			break;
 		case CRevisionEntry::lastcommit:
-			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::LastCommitNode), entry, TSVNEllipse, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::LastCommitNode), entry, TSVNEllipse, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hLastCommitIcon);
 			break;
 		default:
-			DrawNode(memDC, noderect, GetSysColor(COLOR_WINDOWTEXT), entry, TSVNRectangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hIcon);
+			DrawNode(memDC, noderect, GetSysColor(COLOR_WINDOWTEXT), entry, TSVNRectangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), NULL);
 			break;
 		}
 		entry->drawrect = noderect;
 	}
+	DestroyIcon(hDeletedIcon);
+	DestroyIcon(hAddedIcon);
+	DestroyIcon(hAddedWithHistoryIcon);
+	DestroyIcon(hReplacedIcon);
+	DestroyIcon(hRenamedIcon);
+	DestroyIcon(hLastCommitIcon);
+
 	DrawConnections(memDC, rect, nVScrollPos, nHScrollPos, start, end);
 	if (!bDirectDraw)
 		delete memDC;
