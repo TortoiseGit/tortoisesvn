@@ -510,7 +510,11 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 						}
 					}
 					// and the entry is for us
-					reventry->bUsed = true;
+					if (reventry->action != CRevisionEntry::modified)
+					{
+						reventry->bUsed = true;
+						reventry->action = CRevisionEntry::source;
+					}
 					if (bRenamed)
 					{
 						reventry->action = CRevisionEntry::renamed;
@@ -806,6 +810,8 @@ bool CRevisionGraph::Cleanup(CStringA url)
 						sentry->pathto = preventry->url;
 						sentry->revisionto = preventry->revision;
 						reventry->sourcearray.Add(sentry);
+						if (reventry->action == CRevisionEntry::lastcommit)
+							reventry->action = CRevisionEntry::source;
 						break;
 					}
 				}

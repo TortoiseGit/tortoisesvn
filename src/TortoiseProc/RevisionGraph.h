@@ -56,6 +56,7 @@ public:
 		renamed,
 		replaced,
 		lastcommit,
+		source
 	};
 	//methods
 	CRevisionEntry(void) : revision(0), url(NULL), realurl(NULL), author(NULL), date(0),
