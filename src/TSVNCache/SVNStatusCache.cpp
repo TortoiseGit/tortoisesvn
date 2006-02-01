@@ -214,14 +214,15 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 	CCachedDirectory * dirtoremove = m_directoryCache[path];
 	if (dirtoremove == NULL)
 		return;
-	for (ChildDirStatus::iterator it = dirtoremove->m_childDirectories.begin(); it != dirtoremove->m_childDirectories.end(); ++it)
+	for (ChildDirStatus::iterator it = dirtoremove->m_childDirectories.begin(); it != dirtoremove->m_childDirectories.end(); )
 	{
 
 		CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(it->first);
 		if (childdir)
 			delete childdir;
-		m_directoryCache.erase(it->first);
 		ATLTRACE("removed path %ws from cache\n", it->first.GetWinPath());
+		m_directoryCache.erase(it->first);
+		it = dirtoremove->m_childDirectories.begin();
 	}
 	delete dirtoremove;
 	m_directoryCache.erase(path);
