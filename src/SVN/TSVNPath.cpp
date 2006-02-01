@@ -921,13 +921,15 @@ void CTSVNPathList::RemoveDuplicates()
 void CTSVNPathList::RemoveAdminPaths()
 {
 	PathVector::iterator it;
-	for(it = m_paths.begin(); it != m_paths.end(); ++it)
+	for(it = m_paths.begin(); it != m_paths.end(); )
 	{
 		if (it->IsAdminDir())
 		{
 			m_paths.erase(it);
 			it = m_paths.begin();
 		}
+		else
+			++it;
 	}
 }
 
