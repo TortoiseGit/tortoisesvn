@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-01-25 10:53+0900\n"
+"PO-Revision-Date: 2006-02-01 15:51+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -242,13 +242,6 @@ msgstr "이 리비전의 저장소 보기(&B)"
 msgid "&Browse..."
 msgstr "찾아보기(&B)"
 
-# Control-ID:1091,
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "내장(&B)"
-
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
@@ -305,6 +298,17 @@ msgstr "복사(&C)"
 msgid "&Copy to..."
 msgstr "복사(&C)..."
 
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "사용자 지정(&C)"
+
+# ID:11,#:
+# ID:73,
+#: Control-ID:1096
+msgid "&Default"
+msgstr "기본설정(&D)"
+
 # ID:11,#:
 # ID:73,
 #: ID:11
@@ -360,7 +364,6 @@ msgstr "종료(&E)"
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "외부(&E)"
 
@@ -679,6 +682,14 @@ msgstr "대상 URL(&T):"
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "툴바(&T)"
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 # ID:9,#:
 # ID:80,
@@ -1306,6 +1317,11 @@ msgstr "작성자:                         Stefan Kueng"
 #: ID:116
 msgid "Authors"
 msgstr "작성자"
+
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "작성자(대소문자 구별하지 않음)"
 
 # ID:76,
 #: Control-ID:65535
@@ -2762,6 +2778,11 @@ msgstr "모든 공백 무시(&A)"
 msgid "Ignore &case changes"
 msgstr "대/소문자를 구분하지 않음(&C)"
 
+# Control-ID:1067,
+#: Control-ID:1267
+msgid "Ignore ancestry"
+msgstr "상위디렉토리를 무시함"
+
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -2782,6 +2803,11 @@ msgstr "파일 임포트하는 중 %s"
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "현재 디렉토리를 저장소에 넣습니다."
+
+# Control-ID:1073,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "무시되는 파일 포함"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4372,6 +4398,11 @@ msgstr "버전 관리 대상의 짧은 URL"
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "모두 보기(&A)"
+
+# ID:76,
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "모든 리비젼 보기(&A)"
 
 # ID:113,
 #: ID:113
