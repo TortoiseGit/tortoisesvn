@@ -337,6 +337,16 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 		}
 	}
 
+	CRevisionEntry * reventry = GetRevisionEntry(realurl, initialrev, true);
+	if (reventry)
+	{
+		if (reventry->action == CRevisionEntry::nothing)
+		{
+			reventry->action = CRevisionEntry::initial;
+			reventry->bUsed = true;
+		}
+	}
+
 	if (AnalyzeRevisions(realurl, initialrev, bShowAll))
 	{
 		return Cleanup(realurl);
@@ -747,6 +757,11 @@ bool CRevisionGraph::Cleanup(CStringA url)
 				{
 					if (reventry2->action != CRevisionEntry::nothing)
 						reventry->action = reventry2->action;
+				}
+				else if (reventry->action == CRevisionEntry::lastcommit)
+				{
+					if ((reventry2->action != CRevisionEntry::nothing)&&(reventry2->action != CRevisionEntry::source))
+						reventry2->action = reventry2->action;
 				}
 				reventry->level = min(reventry->level, reventry2->level);
 				for (INT_PTR si=0; si<reventry2->sourcearray.GetCount(); ++si)

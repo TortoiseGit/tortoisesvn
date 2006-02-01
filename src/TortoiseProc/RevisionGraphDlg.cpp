@@ -615,7 +615,6 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		noderect.bottom = noderect.top + m_node_rect_heigth;
 		noderect.left = (entry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left - nHScrollPos;
 		noderect.right = noderect.left + m_node_rect_width;
-		HICON hIcon = NULL;
 		switch (entry->action)
 		{
 		case CRevisionEntry::deleted:
@@ -634,6 +633,7 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::RenamedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hRenamedIcon);
 			break;
 		case CRevisionEntry::lastcommit:
+		case CRevisionEntry::initial:
 			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::LastCommitNode), entry, TSVNEllipse, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hLastCommitIcon);
 			break;
 		default:

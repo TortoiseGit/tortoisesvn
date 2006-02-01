@@ -56,6 +56,7 @@ public:
 		renamed,
 		replaced,
 		lastcommit,
+		initial,
 		source
 	};
 	//methods
