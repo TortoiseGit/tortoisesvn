@@ -273,6 +273,27 @@ echo modified > trunk\Ordner\file1
 svn ci -m ""
 :: revision 55
 
+echo added > trunk\file1
+svn add trunk\file1
+svn ci -m ""
+:: revision 56
 
+echo modified > trunk\file1
+svn ci -m ""
+:: revision 57
+
+svn cp trunk\file1 trunk\file1_ab
+svn ci -m ""
+:: revision 58
+
+svn cp trunk\file1 trunk\file1_cd
+svn ci -m ""
+:: revision 59
+
+echo modified again > trunk\file1
+svn rm trunk\file1_ab
+svn rm trunk\file1_cd
+svn ci -m ""
+:: revision 60
 
 cd ..

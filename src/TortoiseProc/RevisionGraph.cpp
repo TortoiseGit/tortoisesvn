@@ -477,7 +477,18 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 								lastchangedreventry = NULL;
 							}
 							delete reventry;
-							m_mapEntryPtrs.erase(it++);
+							if (it == m_mapEntryPtrs.begin())
+							{
+								m_mapEntryPtrs.erase(it);
+								it = m_mapEntryPtrs.begin();
+							}
+							else
+							{
+								EntryPtrsIterator it2 = it;
+								--it2;
+								m_mapEntryPtrs.erase(it);
+								it = it2;
+							}
 							bRenamed = true;
 							continue;
 						}
@@ -519,6 +530,7 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 					}
 					if (bRenamed)
 					{
+						reventry->bUsed = true;
 						reventry->action = CRevisionEntry::renamed;
 						bRenamed = false;
 					}
@@ -526,7 +538,8 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 					{
 						// the entry is a source of a copy
 						reventry->bUsed = true;
-						reventry->action = CRevisionEntry::source;
+						if (reventry->action == CRevisionEntry::nothing)
+							reventry->action = CRevisionEntry::source;
 						for (INT_PTR copytoindex=0; copytoindex<reventry->sourcearray.GetCount(); ++copytoindex)
 						{
 							source_entry * sentry = (source_entry*)reventry->sourcearray[copytoindex];
@@ -693,7 +706,18 @@ bool CRevisionGraph::Cleanup(CStringA url)
 				delete (source_entry*)reventry->sourcearray[j];
 			delete reventry;
 			reventry = NULL;
-			m_mapEntryPtrs.erase(it++);
+			if (it == m_mapEntryPtrs.begin())
+			{
+				m_mapEntryPtrs.erase(it);
+				it = m_mapEntryPtrs.begin();
+			}
+			else
+			{
+				EntryPtrsIterator it2 = it;
+				--it2;
+				m_mapEntryPtrs.erase(it);
+				it = it2;
+			}
 		}
 		else
 			++it;
@@ -715,45 +739,49 @@ bool CRevisionGraph::Cleanup(CStringA url)
 			CRevisionEntry * reventry2 = (CRevisionEntry*)m_arEntryPtrs[i+1];
 			if ((reventry2->revision == reventry->revision)&&(strcmp(reventry->url, reventry2->url)==0))
 			{
-				reventry->action = reventry->action == CRevisionEntry::nothing ? reventry2->action : CRevisionEntry::nothing;
+				if (reventry->action == CRevisionEntry::nothing)
+				{
+					reventry->action = reventry2->action;
+				}
+				else if (reventry->action == CRevisionEntry::source)
+				{
+					if (reventry2->action != CRevisionEntry::nothing)
+						reventry->action = reventry2->action;
+				}
 				reventry->level = min(reventry->level, reventry2->level);
 				for (INT_PTR si=0; si<reventry2->sourcearray.GetCount(); ++si)
 				{
 					reventry->sourcearray.Add(reventry2->sourcearray[si]);
 				}
-				for (EntryPtrsIterator it = m_mapEntryPtrs.lower_bound(reventry2->revision); it != m_mapEntryPtrs.upper_bound(reventry2->revision); ++it)
+				for (EntryPtrsIterator it = m_mapEntryPtrs.lower_bound(reventry2->revision); it != m_mapEntryPtrs.upper_bound(reventry2->revision); )
 				{
 					if (it->second == reventry2)
 					{
 						delete reventry2;
-						m_mapEntryPtrs.erase(it);
+						if (it == m_mapEntryPtrs.begin())
+						{
+							m_mapEntryPtrs.erase(it);
+							it = m_mapEntryPtrs.begin();
+						}
+						else
+						{
+							EntryPtrsIterator it2 = it;
+							--it2;
+							m_mapEntryPtrs.erase(it);
+							it = it2;
+						}
 						m_arEntryPtrs.RemoveAt(i+1);
 						break;
 					}
+					else
+						++it;
 				}
 				i=-1;
 			}
 		}
 	}
-
-	// step four: adjust the entry levels
-	qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompareRevLevels);
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
-	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
-		if (i<m_arEntryPtrs.GetCount()-1)
-		{
-			CRevisionEntry * reventry2 = (CRevisionEntry*)m_arEntryPtrs[i+1];
-			if ((reventry2->revision == reventry->revision)&&(reventry2->level == reventry->level))
-			{
-				reventry2->level++;
-				qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompareRevLevels);
-				i=-1;
-			}
-		}
-	}
 	
-	// step five: connect entries with the same name and the same level
+	// step four: connect entries with the same name and the same level
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
 		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
@@ -799,7 +827,24 @@ bool CRevisionGraph::Cleanup(CStringA url)
 			}
 		}
 	}
-	
+
+	// step five: adjust the entry levels
+	qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompareRevLevels);
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+		if (i<m_arEntryPtrs.GetCount()-1)
+		{
+			CRevisionEntry * reventry2 = (CRevisionEntry*)m_arEntryPtrs[i+1];
+			if ((reventry2->revision == reventry->revision)&&(reventry2->level == reventry->level))
+			{
+				reventry2->level++;
+				qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompareRevLevels);
+				i=-1;
+			}
+		}
+	}
+
 	// step six: sort the connections in each revision
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
