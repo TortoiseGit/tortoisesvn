@@ -324,12 +324,19 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 						realurl += child;
 					}
 					else if (strcmp(key, realurl)==0)
+					{
 						initialrev = logentry->rev;
+						// this is where our entry got added
+						// break out of the loop, we don't need
+						// to go further back.
+						currentrev = 0;
+						break;
+					}
 				}
 			}
 		}
 	}
-	
+
 	if (AnalyzeRevisions(realurl, initialrev, bShowAll))
 	{
 		return Cleanup(realurl);
@@ -414,7 +421,6 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 	bool bRenamed = false;
 	bool bDeleted = false;
 	CRevisionEntry * lastchangedreventry = NULL;
-	CRevisionEntry * firstchangedreventry = NULL;
 	for (svn_revnum_t currentrev=startrev; currentrev <= m_lHeadRevision; ++currentrev)
 	{
 		// show progress info
@@ -434,7 +440,7 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 
 		CRevisionEntry * reventry = NULL;
 		// find all entries with this revision
-		for (EntryPtrsIterator it = m_mapEntryPtrs.lower_bound(currentrev); it != m_mapEntryPtrs.upper_bound(currentrev); ++it)
+		for (EntryPtrsIterator it = m_mapEntryPtrs.lower_bound(currentrev); it != m_mapEntryPtrs.upper_bound(currentrev); )
 		{
 			reventry = it->second;
 			if (reventry->revision == currentrev)
@@ -443,10 +449,16 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 				if (IsParentOrItself(reventry->url, url))
 				{
 					if ((bDeleted)&&(reventry->action != CRevisionEntry::added))
+					{
+						++it;
 						continue;
+					}
 					bool bIsSame = (strcmp(reventry->url, url) == 0);
 					if ((bDeleted)&&(!bIsSame))
+					{
+						++it;
 						continue;
+					}
 
 					bDeleted = false;
 					reventry->level = m_nRecurseLevel;
@@ -463,21 +475,9 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 							if (reventry == lastchangedreventry)
 							{
 								lastchangedreventry = NULL;
-								firstchangedreventry = NULL;
 							}
 							delete reventry;
-							it->second = NULL;
-							EntryPtrsIterator it2 = it;
-							if (it != m_mapEntryPtrs.begin())
-							{
-								--it;
-								m_mapEntryPtrs.erase(it2);
-							}
-							else
-							{
-								m_mapEntryPtrs.erase(it2);
-								it = m_mapEntryPtrs.begin();
-							}
+							m_mapEntryPtrs.erase(it++);
 							bRenamed = true;
 							continue;
 						}
@@ -495,6 +495,7 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 						}
 						reventry->bUsed = true;
 						bDeleted = true;
+						++it;
 						continue;
 					}
 					if (reventry->action == CRevisionEntry::replaced)
@@ -537,7 +538,10 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 					if (bIsSame)
 					{
 						if ((bDeleted)||(reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
+						{
+							++it;
 							continue;
+						}
 						if (lastchangedreventry)
 						{
 							if (reventry->revision > lastchangedreventry->revision)
@@ -545,13 +549,6 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 						}
 						else
 							lastchangedreventry = reventry;
-						if (firstchangedreventry)
-						{
-							if (reventry->revision < firstchangedreventry->revision)
-								firstchangedreventry = reventry;
-						}
-						else
-							firstchangedreventry = reventry;
 						if (bShowAll)
 						{
 							if (!reventry->bUsed)
@@ -567,7 +564,10 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 				else if (IsParentOrItself(url, reventry->url))
 				{
 					if ((bDeleted)||(reventry->action == CRevisionEntry::deleted)||(reventry->action == CRevisionEntry::replaced))
+					{
+						++it;
 						continue;
+					}
 					if (lastchangedreventry)
 					{
 						if (reventry->revision > lastchangedreventry->revision)
@@ -575,13 +575,6 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 					}
 					else
 						lastchangedreventry = reventry;
-					if (firstchangedreventry)
-					{
-						if (reventry->revision < firstchangedreventry->revision)
-							firstchangedreventry = reventry;
-					}
-					else
-						firstchangedreventry = reventry;
 					if (bShowAll)
 					{
 						if (!reventry->bUsed)
@@ -594,6 +587,7 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 					}
 				}
 			}
+			++it;
 		}
 	}
 	if ((lastchangedreventry)&&((!lastchangedreventry->bUsed)||(lastchangedreventry->action == CRevisionEntry::nothing)))
@@ -602,13 +596,6 @@ bool CRevisionGraph::AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool 
 		lastchangedreventry->action = CRevisionEntry::lastcommit;
 		lastchangedreventry->level = m_nRecurseLevel;
 		lastchangedreventry->url = apr_pstrdup(graphpool, url);
-	}
-	if ((firstchangedreventry)&&((!firstchangedreventry->bUsed)||(firstchangedreventry->action == CRevisionEntry::nothing)))
-	{
-		firstchangedreventry->bUsed = true;
-		firstchangedreventry->action = CRevisionEntry::lastcommit;
-		firstchangedreventry->level = m_nRecurseLevel;
-		firstchangedreventry->url = apr_pstrdup(graphpool, url);
 	}
 	m_nRecurseLevel--;
 	return true;
@@ -696,7 +683,7 @@ CRevisionEntry * CRevisionGraph::GetRevisionEntry(const char * path, svn_revnum_
 bool CRevisionGraph::Cleanup(CStringA url)
 {
 	// step one: remove all entries which aren't marked as in use
-	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
+	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end();)
 	{
 		CRevisionEntry * reventry = it->second;
 		if (!reventry->bUsed)
@@ -706,18 +693,10 @@ bool CRevisionGraph::Cleanup(CStringA url)
 				delete (source_entry*)reventry->sourcearray[j];
 			delete reventry;
 			reventry = NULL;
-			EntryPtrsIterator it2 = it;
-			if (it != m_mapEntryPtrs.begin())
-			{
-				--it;
-				m_mapEntryPtrs.erase(it2);
-			}
-			else
-			{
-				m_mapEntryPtrs.erase(it2);
-				it = m_mapEntryPtrs.begin();
-			}
+			m_mapEntryPtrs.erase(it++);
 		}
+		else
+			++it;
 	}	
 	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end(); ++it)
 	{
