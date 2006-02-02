@@ -71,6 +71,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
 #define IDSVNLC_RESOLVETHEIRS	19
 #define IDSVNLC_RESOLVEMINE		20
 #define IDSVNLC_REMOVE			21
+#define IDSVNLC_COMMIT			22
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1479,6 +1480,16 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									bEntryAdded = true;
 								}
 							}
+							if (wcStatus > svn_wc_status_normal)
+							{
+								if (m_dwContextMenus & SVNSLC_POPCOMMIT)
+								{
+									temp.LoadString(IDS_STATUSLIST_CONTEXT_COMMIT);
+									popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMMIT, temp);
+									popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
+									bEntryAdded = true;
+								}
+							}
 						}
 						else if (wcStatus != svn_wc_status_deleted)
 						{
@@ -1498,6 +1509,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						if (bEntryAdded)
 							popup.AppendMenu(MF_SEPARATOR);
+					}
+					else
+					{
+						if (m_dwContextMenus & SVNSLC_POPCOMMIT)
+						{
+							temp.LoadString(IDS_STATUSLIST_CONTEXT_COMMIT);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMMIT, temp);
+							popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
+						}
 					}
 				}
 				if (wcStatus > svn_wc_status_normal)
@@ -1666,6 +1686,19 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				bool bForce = false;
 				switch (cmd)
 				{
+				case IDSVNLC_COMMIT:
+					{
+						CTSVNPathList targetList;
+						FillListOfSelectedItemPaths(targetList);
+						CTSVNPath tempFile = CTempFiles::Instance().GetTempFilePath(false);
+						VERIFY(targetList.WriteToTemporaryFile(tempFile.GetWinPathString()));
+						CString commandline = CUtils::GetAppDirectory();
+						commandline += _T("TortoiseProc.exe /command:commit /path:\"");
+						commandline += tempFile.GetWinPathString();
+						commandline += _T("\"");
+						CUtils::LaunchApplication(commandline, NULL, false);
+					}
+					break;
 				case IDSVNLC_REVERT:
 					{
 						CString str;
@@ -2638,22 +2671,6 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 		break;
 	}
 }
-
-/*
-CTSVNPath CSVNStatusListCtrl::BuildTargetFile()
-{
-	CTSVNPathList targetList;
-
-	// Get all the currently selected items into a PathList
-	FillListOfSelectedItemPaths(targetList);
-
-	CTSVNPath tempFile = CUtils::GetTempFilePath();
-	m_tempFileList.AddPath(tempFile);
-	VERIFY(targetList.WriteToTemporaryFile(tempFile.GetWinPathString()));
-
-	return tempFile;
-}
-*/
 
 BOOL CSVNStatusListCtrl::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {

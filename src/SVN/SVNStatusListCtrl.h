@@ -94,6 +94,7 @@ SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLE
 #define SVNSLC_POPUNLOCK				0x00002000
 #define SVNSLC_POPUNLOCKFORCE			0x00004000
 #define SVNSLC_POPEXPLORE				0x00008000
+#define SVNSLC_POPCOMMIT				0x00010000
 
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
@@ -108,20 +109,6 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  * win98 or later\n
  * win2k or later\n
  * MFC\n
- *
- * \version 1.0
- * first version
- *
- * \date 07-04-2004
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CSVNStatusListCtrl : public CListCtrl
 {
@@ -235,7 +222,7 @@ public:
 	 *                       Use the SVNSLC_POPxxx defines.
 	 * \param bHasCheckboxes TRUE if the control should show checkboxes on the left of each file entry.
 	 */
-	void Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus = SVNSLC_POPALL, bool bHasCheckboxes = true);
+	void Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus = (SVNSLC_POPALL ^ SVNSLC_POPCOMMIT), bool bHasCheckboxes = true);
 
 	/**
 	 * Fetches the Subversion status of all files and stores the information
@@ -385,8 +372,6 @@ private:
 	void RemoveListEntry(int index);	///< removes an entry from the listcontrol and both arrays
 	void BuildStatistics();	///< build the statistics
 	void StartDiff(int fileindex);	///< start the external diff program
-	CTSVNPath BuildTargetFile();		///< builds a temporary files containing the paths of the selected entries
-	//static int __cdecl SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 	static bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2);
 
 	/// Process one line of the command file supplied to GetStatus
