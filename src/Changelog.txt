@@ -49,6 +49,9 @@ Version 1.3.2
        directories inside the same directory path *very* fast. (Stefan)
 - BUG: Fix crash when diffing two files from the log dialog if there
        couldn't be information fetched for the files. (Stefan)
+- BUG: When clicking on "Show Log" for the working copy in the merge
+       dialog, the "stop on copy" was activated but still all log messages
+       were shown then in the log dialog. (Stefan)
 
 Version 1.3.1
 - BUG: Patches with non ANSI or non UTF8 encoding couldn't be applied

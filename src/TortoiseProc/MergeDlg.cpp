@@ -480,8 +480,8 @@ void CMergeDlg::OnBnClickedWCLog()
 	{
 		delete [] m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
-		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE, FALSE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE, FALSE);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	} // if (!url.IsEmpty()) 
 	AfxGetApp()->DoWaitCursor(-1);
