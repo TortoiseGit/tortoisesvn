@@ -132,8 +132,11 @@
 		<sect2 id="tsvn-howto-rollback-log">
 			<title>Use the revision log dialog</title>
 			<para>
-				The easiest way to revert the changes from a single revision
+				The easiest way to revert the changes from a single revision,
+				or from a range of revisions,
 				is to use the revision log dialog.
+				This is also the method to use of you want to discard recent
+				changes and make an earlier revision the new HEAD.
 			</para>
 			<orderedlist>
 				<listitem>
@@ -153,13 +156,18 @@
 						to display a list of revisions. You may need to use
 						<guibutton>Get All</guibutton> or
 						<guibutton>Next 100</guibutton>
-						to show the revision you are interested in.
+						to show the revision(s) you are interested in.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						<action>right click</action> on the revision you wish
-						to undo, then select
+						Select the revision you wish to revert. If you want
+						to undo a range of revisions, select the first one
+						and hold the shift key while selecting the last one.
+						Note that for multiple revisions, the range must be
+						unbroken with no gaps.
+						<action>Right click</action> on the selected revision(s),
+						then select
 						<menuchoice>
 							<guimenu>Context Menu</guimenu>
 							<guimenuitem>Revert changes from this revision</guimenuitem>
