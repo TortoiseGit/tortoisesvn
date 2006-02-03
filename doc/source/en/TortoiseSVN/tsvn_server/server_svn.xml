@@ -118,20 +118,25 @@ svn://localhost/TestRepo
 				repository database is subtly corrupted.
 			</para>
 		</warning>
-		<tip>
+		<sect3 id="tsvn-serversetup-svnservice">
 			<title>Run svnserve as a Service</title>
+			<indexterm>
+				<primary>svnservice</primary>
+			</indexterm>
 			<para>
 				If you are concerned about always having a user logged in on your server,
 				or worried about someone shutting down svnserve or
 				forgetting to restart it after a reboot, it is possible to run
-				svnserve as a windows service using a wrapper
-				like the one available at
-				<ulink url="http://dark.clansoft.dk/~mbn/svnservice/">
-					<citetitle>svnservice</citetitle>
-				</ulink>
-				provided by Magnus Norddahl.
-				Note that SVNService installs svnserve as a manual service,
-				you may want to change this to automatic.
+				svnserve as a windows service using a wrapper.
+			</para>
+			<para>
+				One written specifically for svnserve is <literal>SvnService</literal>.
+				Magnus Norddahl adapted some skeleton code from Microsoft,
+				and further improvements have been made by Daniel Thompson.
+				Daniel's version is available for download from
+				<ulink url="http://tortoisesvn.tigris.org/files/documents/406/29202/SVNServiceDT.zip">
+					<citetitle>tigris.org</citetitle>
+				</ulink>.
 			</para>
 			<para>
 				More generic tools like
@@ -148,8 +153,17 @@ svn://localhost/TestRepo
 					<citetitle>SrvAny</citetitle>
 				</ulink>
 				from Microsoft.
+				This is the official Microsoft way of running programs as services,
+				but it is a bit messy (requires registry editing) and if you stop
+				the service it will kill svnserve immediately without letting it
+				clean up.
+				If you don't want to install the entire reskit, you can
+				download <emphasis>just</emphasis> the SrvAny components from
+				<ulink url="http://www.petri.co.il/software/srvany.zip">
+					<citetitle>Daniel Petri</citetitle>
+				</ulink>.
 			</para>
-		</tip>
+		</sect3>
 	</sect2>
 	<sect2 id="tsvn-serversetup-svnserve-4">
 		<title>Authentication with svnserve</title>
