@@ -138,7 +138,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_cFontNames.SubclassDlgItem (IDC_FONTNAMES, this);
 	m_cFontNames.SetFontHeight(16, false);
 	m_cFontNames.SetPreviewStyle(CFontPreviewCombo::NAME_THEN_SAMPLE, false);
-	m_cFontNames.Init();
+	m_cFontNames.Init(true);
 
 	CPropertyPage::OnInitDialog();
 

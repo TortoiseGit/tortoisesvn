@@ -3,6 +3,7 @@
      EnumFontFamiliesEx() API call.
    - Filter the various fonts, so that fonts with the same name only
      appear once in the combobox.
+   - init() param to filter out variable width fonts
    
    01-03-04 | Stefan Kueng
 */
@@ -89,7 +90,7 @@ public:
 public:
 	
 	// call this to load the font strings
-	void	Init();
+	void	Init(bool bFixedWidthOnly = false);
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -123,6 +124,7 @@ protected:
 	int m_iFontHeight;
 	int m_iMaxNameWidth;
 	int m_iMaxSampleWidth;
+	bool m_bFixedWidthOnly;
 
 	void AddFont (const CString& faceName);
 	friend int CALLBACK FPC_EnumFontProc(ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 

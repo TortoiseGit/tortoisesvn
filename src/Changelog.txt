@@ -54,6 +54,8 @@ Version 1.3.2
 - BUG: When clicking on "Show Log" for the working copy in the merge
        dialog, the "stop on copy" was activated but still all log messages
        were shown then in the log dialog. (Stefan)
+- BUG: In the TortoiseMerge settings, it was possible to select
+       variable width fonts. (Stefan)
 
 Version 1.3.1
 - BUG: Patches with non ANSI or non UTF8 encoding couldn't be applied

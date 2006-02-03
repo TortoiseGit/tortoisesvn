@@ -29,7 +29,18 @@
    "A WTL-based Font preview combo box", Ramon Smits
    http://www.codeproject.com/wtl/rsprevfontcmb.asp
 
+
 **********************************************************************/
+/*
+  - Replaced the deprecated EnumFonts function with the recommended
+    EnumFontFamiliesEx() API call.
+  - Filter the various fonts, so that fonts with the same name only
+    appear once in the combobox.
+  - init() param to filter out variable width fonts
+
+01-03-04 | Stefan Kueng
+*/
+
 
 #include "stdafx.h"
 #include "resource.h"
@@ -52,6 +63,7 @@ CFontPreviewCombo::CFontPreviewCombo()
 	m_iFontHeight = 16;
 	m_iMaxNameWidth = 0;
     m_iMaxSampleWidth = 0;
+	m_bFixedWidthOnly = false;
 	m_style = NAME_THEN_SAMPLE;
 	m_csSample = _T("abcimABCIM");
 	m_clrSample = GetSysColor(COLOR_WINDOWTEXT);
@@ -81,7 +93,12 @@ int CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX * /*lpntm
 	if (pThis->FindStringExact(-1, lpelfe->elfLogFont.lfFaceName)!=CB_ERR)
 	{
 		return TRUE;
-	} // if (_tcscmp(buf, lpelfe->elfLogFont.lfFaceName)==0 
+	}
+	if (pThis->m_bFixedWidthOnly)
+	{
+		if ((lpelfe->elfLogFont.lfPitchAndFamily & 0x3) != FIXED_PITCH)
+			return TRUE;
+	}
 	int index = pThis->AddString(lpelfe->elfLogFont.lfFaceName);
 	ASSERT(index!=-1);
 	int ret = pThis->SetItemData (index, FontType); 
@@ -95,12 +112,14 @@ int CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX * /*lpntm
 
 /////////////////////////////////////////////////////////////////////////////
 
-void CFontPreviewCombo::Init()
+void CFontPreviewCombo::Init(bool bFixedWidthOnly /* = false */)
 {
 	LOGFONT lf;
 	m_img.Detach();
 	m_img.Create(IDB_TTF_BMP, GLYPH_WIDTH, 1, RGB(255,255,255));
 	CClientDC dc(this);		
+
+	m_bFixedWidthOnly = bFixedWidthOnly;
 
 	ResetContent();
 	DeleteAllFonts();
