@@ -458,7 +458,16 @@ void CRepositoryTree::OnRvnItemSelected(NMHDR *pNMHDR, LRESULT *pResult)
 	
 	if (pNMRV->nState & RVIS_FOCUSED)
 	{
-		CString path = m_bFile ? MakeUrl(pNMRV->hItem) : GetFolderUrl(pNMRV->hItem);
+		// prevent the user from selecting a file entry!
+		HTREEITEM hItem = pNMRV->hItem;
+		RVITEM Item;
+		Item.nMask = RVIM_IMAGE;
+		Item.iItem = GetItemIndex(hItem);
+		GetItem(&Item);
+		if (Item.iImage != m_nIconFolder)
+			hItem = GetNextItem(hItem, RVGN_PARENT);
+
+		CString path = m_bFile ? MakeUrl(hItem) : GetFolderUrl(hItem);
 		SVNUrl svn_url(path, m_Revision);
 		if (m_pRepositoryBar != 0)
 			m_pRepositoryBar->ShowUrl(svn_url);
@@ -646,11 +655,22 @@ CString CRepositoryTree::MakeUrl(HTREEITEM hItem)
 {
 	if (hItem == NULL)
 		return _T("");
+
 	CString strUrl = GetItemText(GetItemIndex(hItem), 0);
 	HTREEITEM hParent = GetNextItem(hItem, RVGN_PARENT);
 	while (hParent != NULL)
 	{
-		strUrl.Insert(0, GetItemText(GetItemIndex(hParent), 0) + _T("/"));
+		if (strUrl.Find('*')>=0)
+		{
+			strUrl.Empty();
+			strUrl = GetItemText(GetItemIndex(hParent), 0);
+			hParent = GetNextItem(hParent, RVGN_PARENT);
+			continue;
+		}
+		else
+		{
+			strUrl.Insert(0, GetItemText(GetItemIndex(hParent), 0) + _T("/"));
+		}
 		hParent = GetNextItem(hParent, RVGN_PARENT);
 	} // while (hParent != NULL)
 	
