@@ -237,6 +237,7 @@ void CRepositoryBar::OnBnClicked()
 	m_btnRevision.GetWindowText(revision);
 
 	CRevisionDlg dlg(this);
+	dlg.AllowWCRevs(false);
 	*((SVNRev*)&dlg) = SVNRev(revision);
 
 	if (dlg.DoModal() == IDOK)

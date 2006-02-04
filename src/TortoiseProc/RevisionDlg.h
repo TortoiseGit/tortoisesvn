@@ -57,6 +57,7 @@ public:
 // Dialog Data
 	enum { IDD = IDD_REVISION };
 	CString GetEnteredRevisionString() {return m_sRevision;}
+	void AllowWCRevs(bool bAllowWCRevs = true) {m_bAllowWCRevs = bAllowWCRevs;}
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
@@ -66,4 +67,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	CString m_sRevision;
+	bool	m_bAllowWCRevs;
 };

@@ -43,6 +43,7 @@ extern bool					g_readonlyovlloaded;
 extern bool					g_deletedovlloaded;
 extern bool					g_lockedovlloaded;
 extern bool					g_addedovlloaded;
+extern LPCTSTR				g_MenuIDString;
 
 extern	void				LoadLangDll();
 extern  CComCriticalSection	g_csCacheGuard;
@@ -93,6 +94,10 @@ protected:
 	enum SVNCommands
 	{
 		SubMenu = 1,
+		SubMenuFolder,
+		SubMenuFile,
+		SubMenuLink,
+		SubMenuMultiple,
 		Checkout,
 		Update,
 		Commit,
@@ -164,6 +169,7 @@ protected:
 	bool isDeleted;
 	bool isLocked;
 	bool isPatchFile;
+	bool isShortcut;
 	int space;
 	TCHAR stringtablebuffer[255];
 	stdstring columnfilepath;		///< holds the last file/dir path for the column provider
@@ -182,7 +188,7 @@ private:
 	stdstring WriteFileListToTempFile();
 	LPCTSTR GetMenuTextFromResource(int id);
 	void GetColumnStatus(const TCHAR * path, BOOL bIsDir);
-	HBITMAP IconToBitmap(UINT hIcon, COLORREF transparentColor);
+	HBITMAP IconToBitmap(UINT uIcon, COLORREF transparentColor);
 	int GetInstalledOverlays();		///< returns the maximum number of overlays TSVN shall use
 public:
 	CShellExt(FileState state);

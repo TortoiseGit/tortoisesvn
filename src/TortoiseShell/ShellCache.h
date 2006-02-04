@@ -77,8 +77,6 @@ public:
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer));
 		columnrevformat.NegativeOrder = _ttoi(szBuffer);
 		sAdminDirCacheKey.reserve(MAX_PATH);		// MAX_PATH as buffer reservation ok.
-		bMenuInserted = false;
-		insertedmenu = NULL;
 		m_critSec.Init();
 	}
 	DWORD BlockStatus()
@@ -297,23 +295,6 @@ public:
 		delete buf;
 		return hasAdminDir;
 	}
-	bool IsMenuInserted(HMENU hMenu)
-	{
-		if (hMenu != insertedmenu)
-			return false;
-		if ((GetTickCount() - MENUTIMEOUT)>menuinsertedticker)
-		{
-			menuinsertedticker = GetTickCount();
-			bMenuInserted = false;
-		}
-		return bMenuInserted;
-	}
-	void SetMenuInserted(HMENU hMenu, bool bVal)
-	{
-		bMenuInserted = bVal;
-		insertedmenu = hMenu;
-		menuinsertedticker = GetTickCount();
-	}
 	bool IsColumnsEveryWhere()
 	{
 		if ((GetTickCount() - REGISTRYTIMEOUT) > columnseverywhereticker)
@@ -429,8 +410,5 @@ private:
 	std::map<stdstring, BOOL> admindircache;
 	stdstring sAdminDirCacheKey;
 	DWORD admindirticker;
-	bool bMenuInserted;
-	DWORD menuinsertedticker;
-	HMENU insertedmenu;
 	CComCriticalSection m_critSec;
 };

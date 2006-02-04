@@ -49,6 +49,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isDeleted = false;
 	isLocked = false;
 	isPatchFile = false;
+	isShortcut = false;
 	stdstring statuspath;
 	svn_wc_status_kind fetchedstatus = svn_wc_status_unversioned;
 	// get selected files/folders
@@ -170,7 +171,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						strpath.SetFromWin(str.c_str());
 						isPatchFile |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0);
 						isPatchFile |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0);
-
+						isShortcut = (strpath.GetFileExtension().CompareNoCase(_T(".lnk"))==0);
 						if (!statfetched)
 						{
 							//get the Subversion status of the item
@@ -362,7 +363,6 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
 	}
 	_tcscat_s(menutextbuffer, 255, stringtablebuffer);
-	ATLTRACE("Shell :: Insert Menu %ws\n", menutextbuffer);
 	if (ownerdrawn==1) 
 	{
 		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING | MF_OWNERDRAW, id, menutextbuffer);
@@ -410,6 +410,9 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 	if (!hIcon)
 		return NULL;
 
+	if (!hIcon)
+		return NULL;
+
 	RECT     rect;
 
 	rect.right = ::GetSystemMetrics(SM_CXMENUCHECK);
@@ -420,16 +423,23 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 
 	HWND desktop    = ::GetDesktopWindow();
 	if (desktop == NULL)
+	{
+		DestroyIcon(hIcon);
 		return NULL;
+	}
 
 	HDC  screen_dev = ::GetDC(desktop);
 	if (screen_dev == NULL)
+	{
+		DestroyIcon(hIcon);
 		return NULL;
+	}
 
 	// Create a compatible DC
 	HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
 	if (dst_hdc == NULL)
 	{
+		DestroyIcon(hIcon);
 		::ReleaseDC(desktop, screen_dev); 
 		return NULL;
 	}
@@ -438,6 +448,7 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 	HBITMAP bmp = ::CreateCompatibleBitmap(screen_dev, rect.right, rect.bottom);
 	if (bmp == NULL)
 	{
+		DestroyIcon(hIcon);
 		::DeleteDC(dst_hdc);
 		::ReleaseDC(desktop, screen_dev); 
 		return NULL;
@@ -446,12 +457,16 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 	// Select it into the compatible DC
 	HBITMAP old_dst_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
 	if (old_dst_bmp == NULL)
+	{
+		DestroyIcon(hIcon);
 		return NULL;
+	}
 
 	// Fill the background of the compatible DC with the given colour
 	HBRUSH brush = ::CreateSolidBrush(transparentColor);
 	if (brush == NULL)
 	{
+		DestroyIcon(hIcon);
 		::DeleteDC(dst_hdc);
 		::ReleaseDC(desktop, screen_dev); 
 		return NULL;
@@ -467,10 +482,10 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 	::DeleteDC(dst_hdc);
 	::ReleaseDC(desktop, screen_dev); 
 	DestroyIcon(hIcon);
-	bitmaps[uIcon] = bmp;
+	if (bmp)
+		bitmaps[uIcon] = bmp;
 	return bmp;
 }
-
 
 stdstring CShellExt::WriteFileListToTempFile()
 {
@@ -614,29 +629,23 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		return NOERROR;
 
 	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), 1);
-	//check if we already added our menu entries.
-	//we check that by iterating through all menu entries and compare the first
-	//few chars with 'SVN ' - since that's what we add in front of our menu entries
-	if (ownerdrawn == 1)
+	//check if we already added our menu entry for a folder.
+	//we check that by iterating through all menu entries and check if 
+	//the dwItemData member points to our global ID string. That string is set
+	//by our shell extension when the folder menu is inserted.
+	TCHAR menubuf[MAX_PATH];
+	int count = GetMenuItemCount(hMenu);
+	for (int i=0; i<count; ++i)
 	{
-		if (g_ShellCache.IsMenuInserted(hMenu))
-		{
-			ATLTRACE("menu insertion blocked\n");
+		MENUITEMINFO miif;
+		ZeroMemory(&miif, sizeof(MENUITEMINFO));
+		miif.cbSize = sizeof(MENUITEMINFO);
+		miif.fMask = MIIM_DATA;
+		miif.dwTypeData = menubuf;
+		miif.cch = sizeof(menubuf)/sizeof(TCHAR);
+		GetMenuItemInfo(hMenu, i, TRUE, &miif);
+		if (miif.dwItemData == (ULONG_PTR)g_MenuIDString)
 			return NOERROR;
-		}
-	}
-	else
-	{
-		TCHAR menubuf[MAX_PATH];
-		int count = GetMenuItemCount(hMenu);
-		for (int i=0; i<count; ++i)
-		{
-			GetMenuString(hMenu, i, menubuf, sizeof(menubuf)-1, MF_BYPOSITION);
-			if (_tcsncmp(menubuf, _T("SVN "), 4) == 0)
-				return NOERROR;
-			if (_tcsncmp(menubuf, _T("TortoiseSVN"), 11) == 0)
-				return NOERROR;
-		}
 	}
 
 	LoadLangDll();
@@ -655,7 +664,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 #define ISTOP(x) (topmenu &(x))
 	//---- separator before
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
-	g_ShellCache.SetMenuInserted(hMenu, true);
 	//now fill in the entries 
 	if ((!isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCHECKOUT), HMENU(MENUCHECKOUT), INDEXMENU(MENUCHECKOUT), idCmd++, IDS_MENUCHECKOUT, IDI_CHECKOUT, idCmdFirst, Checkout);
@@ -924,7 +932,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	GetVersionEx((OSVERSIONINFO *)&inf);
 	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
 	if ((ownerdrawn==1)&&(fullver >= 0x0501))
-		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU;
+		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA;
 	else if (ownerdrawn == 0)
 		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
 	else
@@ -932,14 +940,44 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	menuiteminfo.fType = MFT_OWNERDRAW;
  	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
 	menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
-	HBITMAP bmp = IconToBitmap(IDI_MENU, (COLORREF)GetSysColor(COLOR_MENU));
+
+	HBITMAP bmp = NULL;
+	if (folder_.size())
+	{
+		bmp = IconToBitmap(IDI_MENUFOLDER, (COLORREF)GetSysColor(COLOR_MENU));
+		myIDMap[idCmd - idCmdFirst] = SubMenuFolder;
+		myIDMap[idCmd] = SubMenuFolder;
+		menuiteminfo.dwItemData = (ULONG_PTR)g_MenuIDString;
+	}
+	else if ((!isShortcut)&&(files_.size()==1))
+	{
+		bmp = IconToBitmap(IDI_MENUFILE, (COLORREF)GetSysColor(COLOR_MENU));
+		myIDMap[idCmd - idCmdFirst] = SubMenuFile;
+		myIDMap[idCmd] = SubMenuFile;
+	}
+	else if ((isShortcut)&&(files_.size()==1))
+	{
+		bmp = IconToBitmap(IDI_MENULINK, (COLORREF)GetSysColor(COLOR_MENU));
+		myIDMap[idCmd - idCmdFirst] = SubMenuLink;
+		myIDMap[idCmd] = SubMenuLink;
+	}
+	else if (files_.size() > 1)
+	{
+		bmp = IconToBitmap(IDI_MENUMULTIPLE, (COLORREF)GetSysColor(COLOR_MENU));
+		myIDMap[idCmd - idCmdFirst] = SubMenuMultiple;
+		myIDMap[idCmd] = SubMenuMultiple;
+	}
+	else
+	{
+		bmp = IconToBitmap(IDI_MENU, (COLORREF)GetSysColor(COLOR_MENU));
+		myIDMap[idCmd - idCmdFirst] = SubMenu;
+		myIDMap[idCmd] = SubMenu;
+	}
 	menuiteminfo.hbmpChecked = bmp;
 	menuiteminfo.hbmpUnchecked = bmp;
 	menuiteminfo.hSubMenu = subMenu;
-	menuiteminfo.wID = idCmd;
+	menuiteminfo.wID = idCmd++;
 	InsertMenuItem(hMenu, indexMenu++, TRUE, &menuiteminfo);
-	myIDMap[idCmd - idCmdFirst] = SubMenu;
-	myIDMap[idCmd++] = SubMenu;
 
 	//separator after
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
@@ -1553,7 +1591,6 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 	{
 		case WM_MEASUREITEM:
 		{
-			ATLTRACE("Shell :: WM_MEASUREITEM\n");
 			MEASUREITEMSTRUCT* lpmis = (MEASUREITEMSTRUCT*)lParam;
 			if (lpmis==NULL)
 				break;
@@ -1596,8 +1633,6 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			if (resource == NULL)
 				return S_OK;
 			szItem = stringtablebuffer;
-			g_ShellCache.SetMenuInserted(NULL, false);	// now the menu is shown, no more menu's get inserted.
-			ATLTRACE("Shell :: WM_DRAWITEM\n");
 			if (lpdis->itemAction & (ODA_DRAWENTIRE|ODA_SELECT))
 			{
 				int ix, iy;
@@ -1773,6 +1808,26 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		case SubMenu:
 			MAKESTRING(IDS_MENUSUBMENU);
 			resource = MAKEINTRESOURCE(IDI_MENU);
+			space = 0;
+			break;
+		case SubMenuFile:
+			MAKESTRING(IDS_MENUSUBMENU);
+			resource = MAKEINTRESOURCE(IDI_MENUFILE);
+			space = 0;
+			break;
+		case SubMenuFolder:
+			MAKESTRING(IDS_MENUSUBMENU);
+			resource = MAKEINTRESOURCE(IDI_MENUFOLDER);
+			space = 0;
+			break;
+		case SubMenuLink:
+			MAKESTRING(IDS_MENUSUBMENU);
+			resource = MAKEINTRESOURCE(IDI_MENULINK);
+			space = 0;
+			break;
+		case SubMenuMultiple:
+			MAKESTRING(IDS_MENUSUBMENU);
+			resource = MAKEINTRESOURCE(IDI_MENUMULTIPLE);
 			space = 0;
 			break;
 		case Checkout:

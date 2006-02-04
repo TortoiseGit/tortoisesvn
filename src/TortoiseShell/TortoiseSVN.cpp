@@ -43,6 +43,7 @@ bool				g_lockedovlloaded = false;
 bool				g_addedovlloaded = false;
 CComCriticalSection	g_csCacheGuard;
 
+LPCTSTR				g_MenuIDString = _T("TortoiseSVN");
 extern std::set<CShellExt *> g_exts;
 
 #ifndef WIN64

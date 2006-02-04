@@ -190,6 +190,11 @@
 #define IDI_REVISIONGRAPH               5151
 #define IDI_LOCK                        5152
 #define IDI_UNLOCK                      5153
+#define IDI_MENUFILE                    5154
+#define IDI_MENUFOLDER                  5155
+#define IDI_MENULINK                    5156
+#define IDI_ICON2                       5157
+#define IDI_MENUMULTIPLE                5157
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020
 
@@ -197,7 +202,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5154
+#define _APS_NEXT_RESOURCE_VALUE        5158
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11020
 #define _APS_NEXT_SYMED_VALUE           5101
