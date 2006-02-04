@@ -91,19 +91,22 @@
 	</para>
 	<?dbhh topicname="HIDD_UPDATE"?>
 	<para>
-		TortoiseSVN also allows you to update your working copy to a specific
-		revision, not only to the most recent one. This command is called
+		The standard Update command has no options and just updates your
+		working copy to the HEAD revision of the repository, which is the
+		most common use case. If you want more control over the update
+		process, you should use
 		<menuchoice>
 			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Update to Revision...</guimenuitem>
-		</menuchoice>
-		and first opens a dialog where you can enter the required revision.
-		Say e.g. your working copy is at revision 100, but you want your
-		working copy to reflect the state which it had in revision 50 -
+		</menuchoice> instead.
+		This allows you to update your working copy to a specific
+		revision, not only to the most recent one.
+		Suppose your working copy is at revision 100, but you want it
+		to reflect the state which it had in revision 50 -
 		then simply update to revision 50.
-		In that dialog, you can also decide if you only want to update the
-		current folder only (without all the subfolders) and/or if you want to
-		ignore any external projects in the update
+		In the same dialog you can also choose to update the
+		current folder non-recursively (without all the subfolders) and
+		you can choose whether to ignore any external projects in the update
 		(i.e. projects referenced using <literal>svn:externals</literal>).
 	</para>
 	<caution>
@@ -112,20 +115,9 @@
 			make changes to those files. You will get <literal>out of date</literal>
 			error messages when you try to commit them!
 			If you want to undo changes to a file and start afresh from an earlier
-			revision, you should use one of the following commands instead. The
-			<menuchoice>
-				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Revert changes from this revision</guimenuitem>
-			</menuchoice>
-			command from the log dialog will undo only those changes made in
-			the selected revision. Changes made after that revision will be retained.
-			For reverting multiple revisions, you should use the
-			<menuchoice>
-				<guimenu>TortoiseSVN</guimenu>
-				<guimenuitem>Merge...</guimenuitem>
-			</menuchoice>
-			menu command,
-			where you can specify the range of revisions you want to undo.
+			revision, you can rollback to a previous revision from the revision log
+			dialog. Take a look at <xref linkend="tsvn-howto-rollback"/> for
+			further instructions, and alternative methods.
 		</para>
 	</caution>
 	<para>
