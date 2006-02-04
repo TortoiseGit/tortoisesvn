@@ -9,9 +9,10 @@
 			commands and dialogs from other programs (e.g. your favourite text editor).
 		</para>
 		<para>
-			For most use cases you might want to use the official Subversion command
-			line client to do automation. But if you want GUI dialogs for still
-			required user input or progress information you can use TortoiseSVN.
+			Remember that TortoiseSVN is a GUI client, and this automation guide
+			shows you how to make the TortoiseSVN dialogs appear to collect user
+			input. If you want to write a script which requires no input, you should
+			use the official Subversion command line client instead.
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
