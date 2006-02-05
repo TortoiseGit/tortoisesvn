@@ -622,6 +622,10 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 // CReportCtrl window
 
+#define REPORTCTRL_AUTOEXPAND_TIMERID 2
+
+#define REPORTCTRL_AUTOEXPAND 2000
+
 class CReportCtrl : public CWnd, public IDropTarget
 {
 	friend class CReportView;
@@ -1060,6 +1064,8 @@ protected:
 	CPoint m_lastRClickPos;
 	CPoint m_lastLClickPos;
 
+	INT m_nLastToggledItem;
+	
 	virtual BOOL Create();
 
 	virtual void GetSysColors();
@@ -1176,6 +1182,7 @@ protected:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	//}}AFX_MSG
     afx_msg LRESULT OnSetFont(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnGetFont(WPARAM wParam, LPARAM lParam);

@@ -621,6 +621,8 @@ CReportCtrl::CReportCtrl() :
 	if(FAILED(CoCreateInstance(CLSID_DragDropHelper,NULL,CLSCTX_INPROC_SERVER,
 		IID_IDropTargetHelper,(LPVOID*)&m_pDropTargetHelper)))
 		m_pDropTargetHelper = NULL;
+
+	m_nLastToggledItem = -1;
 }
 
 CReportCtrl::~CReportCtrl()
@@ -702,6 +704,39 @@ void CReportCtrl::OnDestroy()
 	CWnd::OnDestroy();
 }
 
+void CReportCtrl::OnTimer(UINT_PTR nIDEvent)
+{
+	if ( nIDEvent==REPORTCTRL_AUTOEXPAND_TIMERID )
+	{
+		KillTimer( REPORTCTRL_AUTOEXPAND_TIMERID );
+
+		CPoint currentPoint;
+		GetCursorPos(&currentPoint);
+		ScreenToClient(&currentPoint);
+
+		RVHITTESTINFO rvhti;
+		rvhti.point = currentPoint;
+		HitTest(&rvhti);
+		HTREEITEM hItem = rvhti.hItem;
+
+		if (hItem)
+		{
+			if(m_dwStyle&RVS_TREEMASK && rvhti.nFlags&(RVHT_ONITEM|RVHT_ONITEMTREEBOX))
+			{
+				if(!Notify(RVN_ITEMEXPANDING, rvhti.iItem, rvhti.iSubItem))
+				{
+					Expand((HTREEITEM)m_arrayItems[rvhti.iItem].lptiItem, RVE_TOGGLE);
+					Notify(RVN_ITEMEXPANDED, rvhti.iItem, rvhti.iSubItem);
+				}
+			}
+		}
+	}
+	else
+	{
+		CWnd::OnTimer(nIDEvent);
+	}
+}
+
 BEGIN_MESSAGE_MAP(CReportCtrl, CWnd)
 	//{{AFX_MSG_MAP(CReportCtrl)
 	ON_WM_DESTROY()
@@ -736,6 +771,7 @@ BEGIN_MESSAGE_MAP(CReportCtrl, CWnd)
 	ON_WM_RBUTTONDOWN()
 	ON_WM_RBUTTONUP()
 	ON_WM_WINDOWPOSCHANGING()
+	ON_WM_TIMER()
 	//}}AFX_MSG_MAP
     ON_MESSAGE(WM_SETFONT, OnSetFont)
     ON_MESSAGE(WM_GETFONT, OnGetFont)
@@ -6591,6 +6627,25 @@ HRESULT CReportCtrl::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdw
 			}
 		}
 	}
+
+	CPoint currentPoint;
+	GetCursorPos(&currentPoint);
+	ScreenToClient(&currentPoint);
+
+	RVHITTESTINFO rvhti;
+	rvhti.point = currentPoint;
+	INT nToggledItem = HitTest(&rvhti);
+
+	if (nToggledItem==-1)
+	{
+		m_nLastToggledItem = -1;
+	}
+	else if (nToggledItem!=m_nLastToggledItem)
+	{
+		SetTimer(REPORTCTRL_AUTOEXPAND_TIMERID, REPORTCTRL_AUTOEXPAND,NULL);
+		m_nLastToggledItem = nToggledItem;
+	}
+
 	return S_OK;
 }
 
@@ -6599,6 +6654,9 @@ HRESULT CReportCtrl::DragLeave()
 	m_pDropDataObj = NULL;
 	if(m_pDropTargetHelper)
 		m_pDropTargetHelper->DragLeave();
+
+	KillTimer(REPORTCTRL_AUTOEXPAND_TIMERID);
+
 	return S_OK;
 }
 
