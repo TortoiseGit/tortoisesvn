@@ -7359,7 +7359,7 @@ BOOL CReportTipCtrl::Show(CRect rectText, LPCTSTR lpszText, CFont* pFont)
 				UpdateWindow();
 
 				if(m_nAlpha < 255)
-					SetTimer(1, REPORTTIPCTRL_FADETIME/(255/REPORTTIPCTRL_FADESTEP), NULL);
+					SetTimer(REPORTTIPCTRL_FADE_TIMERID, REPORTTIPCTRL_FADETIME/(255/REPORTTIPCTRL_FADESTEP), NULL);
 
 				g_lpfnSetLayeredWindowAttributes(
 					GetSafeHwnd(),
@@ -7392,7 +7392,7 @@ void CReportTipCtrl::Hide()
 	if(m_bLayeredWindows)
 	{
 		m_nAlpha = 255;
-		SetTimer( 1, REPORTTIPCTRL_FADETIMEOUT, NULL );
+		SetTimer( REPORTTIPCTRL_FADE_TIMERID, REPORTTIPCTRL_FADETIMEOUT, NULL );
 	}
 
 	if(IsWindowVisible())
@@ -7526,7 +7526,7 @@ BOOL CReportTipCtrl::PreTranslateMessage(MSG* pMsg)
 
 void CReportTipCtrl::OnTimer(UINT_PTR nIDEvent) 
 {
-	if(nIDEvent == 1 )
+	if(nIDEvent == REPORTTIPCTRL_FADE_TIMERID )
 	{
 		ASSERT(m_bLayeredWindows == TRUE);
 		if(m_nAlpha < 255)
@@ -7535,7 +7535,7 @@ void CReportTipCtrl::OnTimer(UINT_PTR nIDEvent)
 			if( m_nAlpha >= 255 )
 			{
 				m_nAlpha = 255;
-				KillTimer(1);
+				KillTimer(REPORTTIPCTRL_FADE_TIMERID);
 			}
 
 			g_lpfnSetLayeredWindowAttributes(
@@ -7548,7 +7548,7 @@ void CReportTipCtrl::OnTimer(UINT_PTR nIDEvent)
 		else
 		{
 			m_nAlpha = 0;
-			KillTimer(1);
+			KillTimer(REPORTTIPCTRL_FADE_TIMERID);
 		}
 	}
 
