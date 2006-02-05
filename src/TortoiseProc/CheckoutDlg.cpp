@@ -190,7 +190,8 @@ void CCheckoutDlg::OnOK()
 	}
 	if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
 	{
-		CString message(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY));
+		CString message;
+		message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),m_strCheckoutDirectory);
 		if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
 			return;		//don't dismiss the dialog
 	}

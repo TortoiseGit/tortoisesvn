@@ -3387,7 +3387,8 @@ msgid "The selected file appears to still have one or more conflict markers in i
 msgstr ""
 
 #: ID:88,
-msgid "The target folder is not empty!\nAre you sure you want to checkout/export into that folder?"
+#, c-format
+msgid "The target folder \n%s\nis not empty!\nAre you sure you want to checkout/export into that folder?"
 msgstr ""
 
 #: ID:102,
