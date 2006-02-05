@@ -959,14 +959,14 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t 
 		{
 			newDialog[(*wordcount)++] = GET_WORD(res++);	//exStyle
 			newDialog[(*wordcount)++] = GET_WORD(res++);	//exStyle
-			style = GET_DWORD(res);
-			newDialog[(*wordcount)++] = GET_WORD(res++);	//style
-			newDialog[(*wordcount)++] = GET_WORD(res++);	//style
-		} // if (newDialog)
+			//style = GET_DWORD(res);
+			//newDialog[(*wordcount)++] = GET_WORD(res++);	//style
+			//newDialog[(*wordcount)++] = GET_WORD(res++);	//style
+		}
 		else
 		{
 			res += 4;
-			style = GET_DWORD(res);
+			//style = GET_DWORD(res);
 			(*wordcount) += 4;
 		}
 	}
