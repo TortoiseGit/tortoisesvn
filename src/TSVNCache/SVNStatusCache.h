@@ -84,6 +84,7 @@ public:
 	void Done() {m_rwSection.Done();}
 
 private:
+	bool RemoveCacheForDirectory(CCachedDirectory * cdir);
 	CRWSection m_rwSection;
 	CAtlList<CString> m_askedList;
 	CCachedDirectory::CachedDirMap m_directoryCache; 

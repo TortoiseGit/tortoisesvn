@@ -32,7 +32,6 @@ CCachedDirectory::CCachedDirectory(void)
 
 CCachedDirectory::~CCachedDirectory(void)
 {
-	AutoLocker lock(m_critSec);
 }
 
 CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)

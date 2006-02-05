@@ -83,6 +83,7 @@ void CSVNStatusCache::Create()
 						goto error;
 					m_pInstance->m_directoryCache[CTSVNPath(sKey)] = cacheddir;
 					m_pInstance->watcher.AddPath(CTSVNPath(sKey));
+					m_pInstance->AddFolderForCrawling(CTSVNPath(sKey));
 				}
 			}
 		}
@@ -205,28 +206,33 @@ void CSVNStatusCache::UpdateShell(const CTSVNPath& path)
 	m_shellUpdater.AddPathForUpdate(path);
 }
 
+bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
+{
+	if (cdir == NULL)
+		return false;
+	typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
+	for (ChildDirStatus::iterator it = cdir->m_childDirectories.begin(); it != cdir->m_childDirectories.end(); )
+	{
+		CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(it->first);
+		RemoveCacheForDirectory(childdir);
+		cdir->m_childDirectories.erase(it->first);
+		it = cdir->m_childDirectories.begin();
+	}
+	m_directoryCache.erase(cdir->m_directoryPath);
+	ATLTRACE("removed path %ws from cache\n", cdir->m_directoryPath);
+	delete cdir;
+	return true;
+}
+
 void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 {
-	typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
 	// Stop the crawler starting on a new folder
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 	AutoLocker lock(m_critSec);
 	CCachedDirectory * dirtoremove = m_directoryCache[path];
 	if (dirtoremove == NULL)
 		return;
-	for (ChildDirStatus::iterator it = dirtoremove->m_childDirectories.begin(); it != dirtoremove->m_childDirectories.end(); )
-	{
-
-		CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(it->first);
-		if (childdir)
-			delete childdir;
-		ATLTRACE("removed path %ws from cache\n", it->first.GetWinPath());
-		m_directoryCache.erase(it->first);
-		it = dirtoremove->m_childDirectories.begin();
-	}
-	delete dirtoremove;
-	m_directoryCache.erase(path);
-	ATLTRACE("removed path %ws from cache\n", path.GetWinPath());
+	RemoveCacheForDirectory(dirtoremove);
 }
 
 CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
