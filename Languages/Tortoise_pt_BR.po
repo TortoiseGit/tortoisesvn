@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-30 11:26-0300\n"
+"PO-Revision-Date: 2006-02-06 09:39-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -303,7 +303,6 @@ msgstr "&Copiar Para..."
 
 # Control-ID:1097,
 #: Control-ID:1097
-#, fuzzy
 msgid "&Custom"
 msgstr "&Personalizar"
 
@@ -1309,9 +1308,9 @@ msgstr "Você tem certeza que deseja marcar o(s) arquivo(s) em conflito como res
 
 # ID:79,
 #: ID:79
-#, fuzzy, c-format
+#, c-format
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
-msgstr "Você tem certeza de que quer reverter? Você irá perder <b>todas</b> as alterações desde a última atualização!"
+msgstr "Você tem certeza de que quer reverter %d item(s)? Você irá perder <b>todas</b> as alterações desde a última atualização!"
 
 # ID:77,
 #: ID:77
@@ -1337,7 +1336,6 @@ msgstr "Autores"
 
 # Control-ID:1265,
 #: Control-ID:1265
-#, fuzzy
 msgid "Authors case insensitive"
 msgstr "Autores sensível a caixa"
 
@@ -1708,15 +1706,15 @@ msgid "Comment"
 msgstr "Comentário"
 
 # ID:8,
+#: ID:209
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Submeter"
 
 # Control-ID:1110,
 #: Control-ID:1262
-#, fuzzy
 msgid "Commit threshold:"
-msgstr "Submeter para:"
+msgstr "Limite de submissões:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -1896,14 +1894,14 @@ msgstr "Não foi possível verficar a existência de uma nova versão!"
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not copy the files!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Não foi possível copiar os arquivos!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
@@ -1955,38 +1953,38 @@ msgstr "Não foi possível salvar o arquivo %s!"
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Não foi possível iniciar o visualizador de diferenças!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Não foi possível iniciar o programa externo de comparação!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:81,
 #: ID:81
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start external merge program!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
 "Não foi possível iniciar o programa externo de combinação!\n"
-"<hr=100%>\n"
+"<hr=100%%>\n"
 "%s"
 
 # ID:3857,#:
@@ -2279,9 +2277,8 @@ msgstr "Editar programa de comparação para extensões específicas"
 
 # ID:110,
 #: ID:110
-#, fuzzy
 msgid "Edit extension specific merge program"
-msgstr "Editar Programa de Combinação para Extensões Específicas"
+msgstr "Atribuir programa de combinação para extensões específicas"
 
 # Dlg-ID:135,
 #: ID:113
@@ -2377,9 +2374,8 @@ msgstr "Erro"
 
 # ID:145,
 #: ID:145
-#, fuzzy
 msgid "Error rebuilding Shell Icon Cache!"
-msgstr "Erro ao resconstruir o Cache de Ícones do Shell!"
+msgstr "Erro ao resconstruir o cache de ícones do Shell!"
 
 # ID:81,
 #: ID:81
@@ -2494,9 +2490,8 @@ msgstr "Falha ao salvar documento."
 
 # Control-ID:1217,
 #: Control-ID:1217
-#, fuzzy
 msgid "Fetch &status for context menu"
-msgstr "Obter status para o menu de contexto"
+msgstr "Obter &status para o menu de contexto"
 
 # ID:313,
 #: ID:313
@@ -2689,9 +2684,8 @@ msgstr "Tipo de gráfico:"
 
 # Control-ID:1229,
 #: Control-ID:1229
-#, fuzzy
 msgid "H&ide unrelated changed paths"
-msgstr "Ocultar os caminhos alterados não relacionados"
+msgstr "Ocultar cam&inhos alterados não relacionados"
 
 # Control-ID:1004,#:
 # ID:12,
@@ -2817,9 +2811,8 @@ msgstr "Ignora alterações de &caixa"
 
 # Control-ID:1067,
 #: Control-ID:1267
-#, fuzzy
 msgid "Ignore ancestry"
-msgstr "Ignora alterações de &caixa"
+msgstr "Ignorar descendência"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -2899,6 +2892,42 @@ msgstr "Nome de arquivo inválido."
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
 "HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+"Número de revisão inválido! As revisões válidas são:\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"números decimais positivos,\n"
+"datas em uma das seguintes formas de exemplo:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+
+# ID:82,
+#: ID:83
+#, fuzzy
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
 "positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
@@ -3095,7 +3124,7 @@ msgstr "Aparência::Conjunto de Ícones"
 
 # ID:238,
 #: ID:238
-#, fuzzy, c-format
+#, c-format
 msgid "Lowest revision: %ld - Highest revision: %ld"
 msgstr "Revisão mais baixa: %ld - Revisão mais alta: %ld"
 
@@ -3456,9 +3485,8 @@ msgstr "A&tualizar apenas a pasta raiz"
 
 # Control-ID:1224,
 #: Control-ID:1224
-#, fuzzy
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr "Usar verificador ortográfico apenas quando tsvn:projectlanguage estiver ativo"
+msgstr "Usar verificador ortográfico a&penas quando tsvn:projectlanguage estiver selecioando"
 
 # ID:3841,#:
 # ID:101,#:
@@ -3498,9 +3526,8 @@ msgstr "Abre o navegador de repositório para visualizar o repositório online"
 
 # ID:188,
 #: ID:245
-#, fuzzy
 msgid "Others"
-msgstr "Deles"
+msgstr "Outros"
 
 # ID:3843,#:
 # ID:3843,
@@ -3782,9 +3809,8 @@ msgstr "Leia o 'Guia de Uso Diário' antes que você fique empacado..."
 
 # Control-ID:1073,
 #: Control-ID:1260
-#, fuzzy
 msgid "Recurse into unversioned folders"
-msgstr "Mostrar arquivos sem controle de versão"
+msgstr "Usar recursão nas pastas sem controle de versão"
 
 # ID:3603,
 #: ID:3603
@@ -4138,9 +4164,8 @@ msgstr "SVN Autor"
 
 # ID:16,
 #: ID:16
-#, fuzzy
 msgid "SVN Copy and rename versioned file here"
-msgstr "SVN Copiar e Renomear arquivos com controle de versão para cá"
+msgstr "SVN copiar e renomear arquivos com controle de versão para cá"
 
 # Control-ID:1073,
 #: ID:13
@@ -4404,9 +4429,8 @@ msgstr "&Endereço do Servidor:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-#, fuzzy
 msgid "Set filedates to the \"last commit &time\""
-msgstr "Ajusta as datas dos arquivos para \"hora da última submissão\""
+msgstr "Ajusta as da&tas dos arquivos para \"hora da última submissão\""
 
 # ID:13,
 #: ID:13
@@ -4426,9 +4450,8 @@ msgstr "Exibir históric&o"
 
 # ID:145,
 #: ID:145
-#, fuzzy
 msgid "Shell Icon Cache was rebuilt!"
-msgstr "O Cache de Ícones do Shell foi resconstruido!"
+msgstr "Cache de ícones do shell resconstruido!"
 
 # Control-ID:65535,
 #: ID:101
@@ -4617,9 +4640,8 @@ msgstr ""
 # ID:11,#:
 # Control-ID:1002,
 #: Control-ID:1263
-#, fuzzy
 msgid "Stacked"
-msgstr "bloqueado"
+msgstr "Sobreposto"
 
 # ID:74,#:
 # ID:77,
@@ -4706,9 +4728,8 @@ msgstr "Arquivo de servidor do Subversion:"
 
 # ID:9,
 #: Control-ID:1232
-#, fuzzy
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "Alternar a cópia de trabalho para um novo ramo/rótulo"
+msgstr "Alternar a cóp&ia de trabalho para um novo ramo/rótulo"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -4982,8 +5003,11 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, fuzzy, c-format
 msgid ""
-"The target folder is not empty!\n"
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "A pasta de destino não está vazia!\n"
@@ -5098,7 +5122,6 @@ msgstr "Sinônimos"
 
 # ID:83,
 #: ID:83
-#, fuzzy
 msgid ""
 "This is not a valid URL.\n"
 "Please enter an URL here."
@@ -5332,9 +5355,8 @@ msgstr "TortoiseSVN : Configurações "
 # ID:9,#:
 # ID:80,
 #: Dlg-ID:157
-#, fuzzy
 msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN : "
+msgstr "TortoiseSVN : Realocar"
 
 # ID:9,#:
 # ID:80,
@@ -5667,9 +5689,8 @@ msgstr "Usar lente de au&mento na barra de localização"
 
 # Control-ID:1024,
 #: Control-ID:1024
-#, fuzzy
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr "Usar visualização em um painel por padrão para comparação de 2 arquivos"
+msgstr "Usar visualização em um painel p&or padrão para comparação de 2 arquivos"
 
 # ID:251,
 #: ID:251
@@ -5963,13 +5984,12 @@ msgstr ""
 
 # ID:338,
 #: ID:338
-#, fuzzy
 msgid ""
 "You've selected added folders. The patch won't contain added files within such added folders.\n"
 "Do you want to proceed anyway?"
 msgstr ""
-"Você selecionou pastas adicionadas. The patch won't contain added files within such added folders.\n"
-"Do you want to proceed anyway?"
+"Você selecionou pastas adicionadas. A correção não possui arquivos adicionados nessas pastas.\n"
+"Deseja continuar assim mesmo?"
 
 # ID:170,
 #: ID:170
