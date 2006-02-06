@@ -76,7 +76,6 @@
 		<copy todir="..\bin\${configuration}${platformfoldername}\bin" overwrite="true" flatten="true" failonerror="false">
 			<fileset>
 				<include name="TortoiseSVNSetup\include\autolist.txt" />
-				<include name="..\..\common\openssl\out32dll\*.dll" />
 				<include name="..\ext\svn-${platform}-libintl\bin\intl3_svn.dll" />
 				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43.dll" />
 				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43d.dll" />

@@ -91,6 +91,7 @@
 				<define name="HAVE_CONFIG_H" />
 				<define name="NE_HAVE_SSL" />
 				<define name="HAVE_OPENSSL" />
+				<define name="OPENSSL_STATIC" />
 				<define name="HAVE_EXPAT" />
 				<define name="HAVE_EXPAT_H" />
 				<define name="NE_HAVE_DAV" />
@@ -116,8 +117,8 @@
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 				<include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" />
-				<include name="..\..\..\common\openssl\out32dll\libeay32.lib" />
-				<include name="..\..\..\common\openssl\out32dll\ssleay32.lib" />
+				<include name="..\..\..\common\openssl\out32\libeay32.lib" />
+				<include name="..\..\..\common\openssl\out32\ssleay32.lib" />
 			</sources>
 		</lib>
 	</target>

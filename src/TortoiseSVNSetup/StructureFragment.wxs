@@ -167,11 +167,6 @@
 
             <Directory Id="D__Bin" Name="BIN" LongName="bin" >
 
-            <Component Id="C__libssl" Guid="$(var.GuidLibSSL)" Win64="$(var.Win64YesNo)">
-							<File Id="F__libeay32" Name="LIBEAY32.DLL" LongName="libeay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\libeay32.dll" KeyPath="yes" />
-							<File Id="F__ssleay32" Name="SSLEAY32.DLL" LongName="ssleay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\ssleay32.dll" />
-						</Component>
-
             <Component Id="C__berkeleydb" Guid="$(var.GuidBerkeleyDB)" Win64="$(var.Win64YesNo)">
 							<File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-$(var.PlatformPathExtension)\bin\libdb43.dll" KeyPath="yes" />
 						</Component>
