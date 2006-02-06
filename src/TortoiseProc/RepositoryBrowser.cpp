@@ -1124,6 +1124,7 @@ void CRepositoryBrowser::SetupInputDlg(CInputDlg * dlg)
 	dlg->m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 	CUtils::RemoveAccelerators(dlg->m_sTitle);
 	dlg->m_pProjectProperties = &m_ProjectProperties;
+	dlg->m_bUseLogWidth = true;
 }
 
 BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)

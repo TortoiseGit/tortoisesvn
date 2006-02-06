@@ -53,4 +53,5 @@ public:
 	int					m_iCheck;
 	CSciEdit			m_cInput;
 	ProjectProperties * m_pProjectProperties;
+	bool				m_bUseLogWidth;
 };

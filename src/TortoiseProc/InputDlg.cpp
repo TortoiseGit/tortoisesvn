@@ -30,6 +30,7 @@ CInputDlg::CInputDlg(CWnd* pParent /*=NULL*/)
 	, m_sInputText(_T(""))
 	, m_pProjectProperties(NULL)
 	, m_iCheck(0)
+	, m_bUseLogWidth(true)
 {
 }
 
@@ -144,7 +145,7 @@ void CInputDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_INPUTTEXT)->GetWindowText(sTemp);
-	if (sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)
+	if ((!m_bUseLogWidth)&&((m_pProjectProperties==NULL)||(sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)))
 	{
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}

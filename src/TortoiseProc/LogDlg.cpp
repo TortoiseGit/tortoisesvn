@@ -1880,6 +1880,8 @@ void CLogDlg::EditAuthor(int index)
 	dlg.m_sHintText.LoadString(IDS_LOG_AUTHOR);
 	dlg.m_sInputText = value;
 	dlg.m_sTitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
+	dlg.m_pProjectProperties = &m_ProjectProperties;
+	dlg.m_bUseLogWidth = false;
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
@@ -1920,6 +1922,7 @@ void CLogDlg::EditLogMessage(int index)
 	dlg.m_sInputText = value;
 	dlg.m_sTitle.LoadString(IDS_LOG_MESSAGEEDITTITLE);
 	dlg.m_pProjectProperties = &m_ProjectProperties;
+	dlg.m_bUseLogWidth = true;
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
