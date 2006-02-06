@@ -47,6 +47,7 @@ LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 bool				bRun = true;
 NOTIFYICONDATA		niData; 
 HWND				hWnd;
+HWND				hTrayWnd;
 TCHAR				szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
 int					nCurrentCrawledpathIndex = 0;
 CComAutoCriticalSection critSec;
@@ -160,11 +161,9 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	wcex.hIconSm		= 0;
 	RegisterClassEx(&wcex);
 	hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
-	
+	hTrayWnd = hWnd;
 	if (hWnd == NULL)
 	{
-		//OutputDebugStringA("TSVNCache: could not create window class\n");
-		//DebugOutputLastError();
 		return 0;
 	}
 	if (CRegStdWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
@@ -272,6 +271,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				ShowWindow(hWnd, SW_HIDE);
 			else
 				ShowWindow(hWnd, SW_RESTORE);
+			break;
+		case WM_MOUSEMOVE:
+			{
+				CString sInfoTip;
+				NOTIFYICONDATA SystemTray;
+				sInfoTip.Format(_T("Cached Directories : %ld"), CSVNStatusCache::Instance().GetCacheSize());
+
+				SystemTray.cbSize = sizeof(NOTIFYICONDATA);
+				SystemTray.hWnd   = hTrayWnd;
+				SystemTray.uID    = TRAY_ID;
+				SystemTray.uFlags = NIF_TIP;
+				_tcscpy_s(SystemTray.szTip, sInfoTip);
+				Shell_NotifyIcon(NIM_MODIFY, &SystemTray);
+			}
 			break;
 		case WM_RBUTTONUP:
 		case WM_CONTEXTMENU:
