@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-01-25 10:04+0800\n"
+"PO-Revision-Date: 2006-02-06 17:41+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -246,13 +246,6 @@ msgstr "浏览文件库(&B)"
 msgid "&Browse..."
 msgstr "浏览(&B)..."
 
-# Control-ID:1091,
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "内置(&B)"
-
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
@@ -309,6 +302,17 @@ msgstr "复制(&C)"
 msgid "&Copy to..."
 msgstr "复制到(&C)..."
 
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "定制(&C)"
+
+# ID:11,#:
+# ID:73,
+#: Control-ID:1096
+msgid "&Default"
+msgstr "默认(&D)"
+
 # ID:11,#:
 # ID:73,
 #: ID:11
@@ -364,7 +368,6 @@ msgstr "退出(&E)"
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "外部(&E)"
 
@@ -684,6 +687,14 @@ msgstr "至URL(&T)："
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "工具栏(&T)"
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "TortoiseMerge(&T)"
 
 # ID:9,#:
 # ID:80,
@@ -1310,6 +1321,11 @@ msgstr "作者：                        Stefan Kueng"
 msgid "Authors"
 msgstr "作者"
 
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "作者区分大小写"
+
 # ID:76,
 #: Control-ID:65535
 msgid "Authors:"
@@ -1674,6 +1690,7 @@ msgid "Comment"
 msgstr "注释"
 
 # ID:8,
+#: ID:209
 #: Control-ID:1083
 msgid "Commit"
 msgstr "提交"
@@ -2763,6 +2780,11 @@ msgstr "忽略所有空白字符(&A)"
 msgid "Ignore &case changes"
 msgstr "忽略大/小写(&C)"
 
+# Control-ID:1067,
+#: Control-ID:1267
+msgid "Ignore ancestry"
+msgstr "忽略根源"
+
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -2783,6 +2805,11 @@ msgstr "正在导入文件 %s"
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "导入目录至文件库"
+
+# Control-ID:1073,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "包括忽略的文件"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2857,7 +2884,42 @@ msgstr ""
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
-"{\"2002-02-1715:30\"}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30+0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+
+# ID:82,
+#: ID:83
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+"错误的版本编号! 正确的版本如下：\n"
+"HEAD\n"
+"十进制正整数\n"
+"如下格式之一的日期：\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
 "{\"2002-02-17 15:30+0230\"}\n"
 "{2002-02-17T15:30}\n"
 "{2002-02-17T15:30Z}\n"
@@ -4374,6 +4436,11 @@ msgstr "Subversion 项目的短 URL"
 msgid "Show &All"
 msgstr "全部显示(&A)"
 
+# ID:76,
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "显示全部版本(&A)"
+
 # ID:113,
 #: ID:113
 msgid "Show &differences"
@@ -4899,12 +4966,15 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, c-format
 msgid ""
-"The target folder is not empty!\n"
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"目标文件夹非空！\n"
-"你确定要取出（导出）到该文件夹吗？"
+"目标文件夹%s非空！\n"
+"你确定要取出/导出到该文件夹吗？"
 
 # ID:102,
 #: ID:102
