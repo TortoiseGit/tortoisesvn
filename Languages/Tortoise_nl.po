@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-23 14:29+0100\n"
+"PO-Revision-Date: 2006-02-06 12:58+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -210,12 +210,6 @@ msgstr "&Archief bekijken"
 msgid "&Browse..."
 msgstr "&Bladeren..."
 
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "&Intern"
-
 #: Control-ID:1051
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
@@ -260,6 +254,14 @@ msgstr "&Kopiëren"
 msgid "&Copy to..."
 msgstr "&Kopiëren naar..."
 
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "&Aangepast"
+
+#: Control-ID:1096
+msgid "&Default"
+msgstr "&Standaard"
+
 #: ID:11
 msgid "&Delete"
 msgstr "&Verwijderen"
@@ -303,7 +305,6 @@ msgstr "&Afsluiten"
 
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "&Extern"
 
@@ -555,6 +556,11 @@ msgstr "&Naar URL:"
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "&Werkbalk"
+
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 #: ID:9
 msgid "&TortoiseSVN"
@@ -1058,6 +1064,10 @@ msgstr "Auteur:                        Stefan Kueng"
 msgid "Authors"
 msgstr "Auteurs"
 
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "Hoofd-/kleine letters negeren bij auteurs"
+
 #: Control-ID:65535
 msgid "Authors:"
 msgstr "Auteurs:"
@@ -1346,6 +1356,7 @@ msgstr "Opdracht mislukt."
 msgid "Comment"
 msgstr "Opmerking"
 
+#: ID:209
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Vastleggen"
@@ -2181,7 +2192,7 @@ msgstr ""
 "Anders gaat de import direct naar de opgegeven URL."
 
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
 msgstr "Met deze optie maakt TortoiseSVN een tijdelijk bestand van BASE om de Diff uit te voeren met keyword-expansie en aangepaste regeleinden."
 
 #: ID:195
@@ -2246,9 +2257,13 @@ msgstr "&Alle spaties en witregels negeren"
 msgid "Ignore &case changes"
 msgstr "Negeer wijzigingen in &hoofd- en kleine letters"
 
+#: Control-ID:1267
+msgid "Ignore ancestry"
+msgstr "Negeer oorsprong"
+
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
-msgstr "Negeer &regeleinde verschillen (aanbevolen)"
+msgid "Ignore line &endings (recommended)"
+msgstr "Negeer &regeleinden (aanbevolen)"
 
 #: Control-ID:1056
 msgid "Import &message"
@@ -2262,6 +2277,10 @@ msgstr "Bestand %s importeren"
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "Plaatst de map in een archief"
+
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "Genegeerde bestanden meenemen"
 
 #: Control-ID:65535
 msgid "Include paths:"
@@ -2320,6 +2339,40 @@ msgstr ""
 "Ongeldig revisienummer! Geldige revisies zijn:\n"
 "HEAD, BASE, PREV, COMMITTED, WC,\n"
 "positieve getallen\n"
+"datums in een van de volgende formaten:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+
+#: ID:83
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+"Ongeldig revisienummer! Geldige revisies zijn:\n"
+"HEAD,\n"
+"positieve getallen,\n"
 "datums in een van de volgende formaten:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -3287,8 +3340,8 @@ msgid "SVN Author"
 msgstr "SVN Auteur"
 
 #: ID:16
-msgid "SVN Copy and rename versioned files here"
-msgstr "SVN Kopiëer en hernoem bestanden hierheen"
+msgid "SVN Copy and rename versioned file here"
+msgstr "SVN Kopiëer en hernoem bestand hierheen"
 
 #: ID:13
 msgid "SVN Copy versioned files here"
@@ -3528,6 +3581,10 @@ msgstr "Korte URL van Subversion onderdelen"
 msgid "Show &All"
 msgstr "Toon &Alles"
 
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Toon &alle revisies"
+
 #: ID:113
 msgid "Show &differences"
 msgstr "Toon vers&chillen"
@@ -3557,6 +3614,10 @@ msgstr "Toon bestanden &zonder versiebeheer"
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Toon verschillen als &unified diff"
+
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Toon genegeerde bestanden"
 
 #: Control-ID:1065
 msgid "Show li&ne diff bar"
@@ -3966,12 +4027,17 @@ msgstr ""
 "Weet u zeker dat u het bestand als opgelost wilt markeren?"
 
 #: ID:88
+#, c-format
 msgid ""
-"The target folder is not empty!\n"
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"De doelmap is niet leeg!\n"
-"Weet u zeker dat u naar die map wilt ophalen?"
+"De doelmap\n"
+"%s\n"
+"is niet leeg!\n"
+"Weet u zeker dat u naar die map wilt ophalen/exporteren?"
 
 #: ID:102
 #, c-format
