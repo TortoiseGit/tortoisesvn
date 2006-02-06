@@ -85,6 +85,7 @@ public:
 	void WaitToWrite() {m_rwSection.WaitToWrite();}
 	void Done() {m_rwSection.Done();}
 
+	bool IsPathAllowed(CTSVNPath path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
 private:
 	bool RemoveCacheForDirectory(CCachedDirectory * cdir);
 	CRWSection m_rwSection;
@@ -92,6 +93,7 @@ private:
 	CCachedDirectory::CachedDirMap m_directoryCache; 
 	CComAutoCriticalSection m_critSec;
 	SVNHelper m_svnHelp;
+	ShellCache	m_shellCache;
 
 	static CSVNStatusCache* m_pInstance;
 

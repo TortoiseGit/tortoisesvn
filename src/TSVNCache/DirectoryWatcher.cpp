@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "Dbt.h"
+#include "SVNStatusCache.h"
 #include ".\directorywatcher.h"
 
 extern HWND hWnd;
@@ -80,7 +81,7 @@ void CDirectoryWatcher::SetFolderCrawler(CFolderCrawler * crawler)
 
 bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 {
-	if (!m_shellCache.IsPathAllowed(path.GetWinPath()))
+	if (!CSVNStatusCache::Instance().IsPathAllowed(path))
 		return false;
 	AutoLocker lock(m_critSec);
 	for (int i=0; i<watchedPaths.GetCount(); ++i)
@@ -322,6 +323,16 @@ void CDirectoryWatcher::WorkerThread()
 								}
 								if (size_t(pFound-buf) == _tcslen(buf))
 								{
+									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+										break;
+									continue;
+								}
+							}
+							if ((pFound = wcsstr(buf, L":\\RECYCLER\\"))!=NULL)
+							{
+								if ((pFound-buf) < 5)
+								{
+									// a notification for the recycle bin - ignore it
 									if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
 										break;
 									continue;

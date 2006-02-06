@@ -81,9 +81,13 @@ void CSVNStatusCache::Create()
 					CCachedDirectory * cacheddir = new CCachedDirectory();
 					if (!cacheddir->LoadFromDisk(pFile))
 						goto error;
-					m_pInstance->m_directoryCache[CTSVNPath(sKey)] = cacheddir;
-					m_pInstance->watcher.AddPath(CTSVNPath(sKey));
-					m_pInstance->AddFolderForCrawling(CTSVNPath(sKey));
+					CTSVNPath KeyPath = CTSVNPath(sKey);
+					if (m_pInstance->IsPathAllowed(KeyPath))
+					{
+						m_pInstance->m_directoryCache[KeyPath] = cacheddir;
+						m_pInstance->watcher.AddPath(KeyPath);
+						m_pInstance->AddFolderForCrawling(KeyPath);
+					}
 				}
 			}
 		}

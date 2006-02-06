@@ -20,6 +20,7 @@
 
 #include "TSVNPath.h"
 #include "CacheInterface.h"
+#include <set>
 //////////////////////////////////////////////////////////////////////////
 
 
@@ -53,6 +54,7 @@ private:
 	HANDLE m_hThread;
 	std::deque<CTSVNPath> m_foldersToUpdate;
 	std::deque<CTSVNPath> m_pathsToUpdate;
+	std::set<CTSVNPath> m_NoWatchPaths;
 	HANDLE m_hTerminationEvent;
 	HANDLE m_hWakeEvent;
 	

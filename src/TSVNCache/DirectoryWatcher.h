@@ -85,7 +85,6 @@ private:
 	CFolderCrawler *		m_FolderCrawler;	///< where the change reports go to
 	
 	CTSVNPathList			watchedPaths;	///< list of watched paths.
-	ShellCache				m_shellCache;
 
 	/**
 	 * \ingroup TSVNCache
