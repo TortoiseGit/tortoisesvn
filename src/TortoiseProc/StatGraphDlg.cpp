@@ -200,6 +200,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	m_graph.SetGraphTitle(temp);
 
 	std::map<stdstring, LONG> authorcommits;
+	LONG nTotalCommits = 0;
 	for (int i=0; i<m_parAuthors->GetCount(); ++i)
 	{
 		CString sAuth = m_parAuthors->GetAt(i);
@@ -212,6 +213,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 		}
 		else
 			authorcommits[author] = 1;
+		nTotalCommits++;
 	}
 
 	int nGroup(-1);
@@ -223,7 +225,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	int nOthersCount = 0;
 	while (iter != authorcommits.end())
 	{
-		if (iter->second < (int(authorcommits.size()) * m_Skipper.GetPos() / 200))
+		if (iter->second < (nTotalCommits * m_Skipper.GetPos() / 200))
 		{
 			nOthers += iter->second;
 			nOthersCount++;
@@ -273,6 +275,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 
 	// Find how many commits each author has done
 	std::map<stdstring, LONG> author_commits;
+	LONG nTotalCommits = 0;
 	for (int i=0; i<m_parAuthors->GetCount(); ++i)
 	{
 		CString sAuth = m_parAuthors->GetAt(i);
@@ -285,6 +288,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 		}
 		else
 			author_commits[author] = 1;
+		nTotalCommits++;
 	}
 
 	// Append each author to the graph
@@ -294,7 +298,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 	iter = author_commits.begin();
 	while (iter != author_commits.end())
 	{
-		if (author_commits[iter->first] < (int(author_commits.size()) * m_Skipper.GetPos() / 200))
+		if (author_commits[iter->first] < (nTotalCommits * m_Skipper.GetPos() / 200))
 			nOthersCount++;
 		else
 			authors[iter->first] = m_graph.AppendGroup(iter->first.c_str());
