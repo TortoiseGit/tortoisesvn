@@ -192,6 +192,26 @@ void CSVNStatusCache::Stop()
 
 CSVNStatusCache::CSVNStatusCache(void)
 {
+	TCHAR path[MAX_PATH];
+	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	SHGetFolderPath(NULL, CSIDL_COMMON_APPDATA, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	SHGetFolderPath(NULL, CSIDL_COOKIES, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	SHGetFolderPath(NULL, CSIDL_HISTORY, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	SHGetFolderPath(NULL, CSIDL_INTERNET_CACHE, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	SHGetFolderPath(NULL, CSIDL_PROGRAM_FILES, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	SHGetFolderPath(NULL, CSIDL_SYSTEM, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+	SHGetFolderPath(NULL, CSIDL_WINDOWS, NULL, 0, path);
+	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
+
 	m_folderCrawler.Initialise();
 	m_shellUpdater.Initialise();
 }
@@ -207,6 +227,16 @@ CSVNStatusCache::~CSVNStatusCache(void)
 void CSVNStatusCache::Clear()
 {
 
+}
+
+bool CSVNStatusCache::IsPathGood(CTSVNPath path)
+{
+	for (std::set<CTSVNPath>::iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
+	{
+		if (it->IsAncestorOf(path))
+			return false;
+	}
+	return true;
 }
 
 void CSVNStatusCache::UpdateShell(const CTSVNPath& path)
@@ -236,8 +266,13 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 {
 	// Stop the crawler starting on a new folder
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
+	CCachedDirectory::ItDir itMap;
+	CCachedDirectory * dirtoremove = NULL;
+
 	AutoLocker lock(m_critSec);
-	CCachedDirectory * dirtoremove = m_directoryCache[path];
+	itMap = m_directoryCache.find(path);
+	if ((itMap != m_directoryCache.end())&&(itMap->second))
+		dirtoremove = itMap->second;
 	if (dirtoremove == NULL)
 		return;
 	RemoveCacheForDirectory(dirtoremove);
@@ -265,6 +300,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		if (itMap!=m_directoryCache.end())
 			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
+		ATLTRACE("adding %ws to our cache\n", path.GetWinPath());
 		CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, new CCachedDirectory(path)))->second;
 		if (!path.IsEmpty())
 			watcher.AddPath(path);
@@ -304,14 +340,18 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	m_mostRecentPath = path;
 	m_mostRecentExpiresAt = now+1000;
 
-	// Stop the crawler starting on a new folder while we're doing this much more important task...
-	// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
-	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
+	if (IsPathGood(path))
+	{
+		// Stop the crawler starting on a new folder while we're doing this much more important task...
+		// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
+		CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-	CCachedDirectory * cachedDir = GetDirectoryCacheEntry(path.GetContainingDirectory());
-	if (cachedDir)
-		return m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive);
-	return CStatusCacheEntry();
+		CCachedDirectory * cachedDir = GetDirectoryCacheEntry(path.GetContainingDirectory());
+		if (cachedDir)
+			return m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive);
+	}
+	ATLTRACE("ignored no good path %ws\n", path.GetWinPath());
+	return (m_mostRecentStatus = CStatusCacheEntry());
 }
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)

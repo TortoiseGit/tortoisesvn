@@ -32,25 +32,6 @@ CFolderCrawler::CFolderCrawler(void)
 	m_hThread = INVALID_HANDLE_VALUE;
 	m_lCrawlInhibitSet = 0;
 	m_crawlHoldoffReleasesAt = (long)GetTickCount();
-	TCHAR path[MAX_PATH];
-	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_COMMON_APPDATA, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_COOKIES, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_HISTORY, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_INTERNET_CACHE, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_PROGRAM_FILES, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_SYSTEM, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_WINDOWS, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 }
 
 CFolderCrawler::~CFolderCrawler(void)
@@ -93,12 +74,8 @@ void CFolderCrawler::Initialise()
 
 void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 {
-	for (std::set<CTSVNPath>::iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
-	{
-		if (it->IsAncestorOf(path))
-			return;
-	}
-
+	if (!CSVNStatusCache::Instance().IsPathGood(path))
+		return;
 	{
 		AutoLocker lock(m_critSec);
 		m_foldersToUpdate.push_back(path);
@@ -113,12 +90,8 @@ void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 
 void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
 {
-	for (std::set<CTSVNPath>::iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
-	{
-		if (it->IsAncestorOf(path))
-			return;
-	}
-
+	if (!CSVNStatusCache::Instance().IsPathGood(path))
+		return;
 	{
 		AutoLocker lock(m_critSec);
 		m_pathsToUpdate.push_back(path);

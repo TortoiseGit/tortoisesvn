@@ -86,11 +86,13 @@ public:
 	void Done() {m_rwSection.Done();}
 
 	bool IsPathAllowed(CTSVNPath path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
+	bool IsPathGood(CTSVNPath path);
 private:
 	bool RemoveCacheForDirectory(CCachedDirectory * cdir);
 	CRWSection m_rwSection;
 	CAtlList<CString> m_askedList;
-	CCachedDirectory::CachedDirMap m_directoryCache; 
+	CCachedDirectory::CachedDirMap m_directoryCache;
+	std::set<CTSVNPath> m_NoWatchPaths;
 	CComAutoCriticalSection m_critSec;
 	SVNHelper m_svnHelp;
 	ShellCache	m_shellCache;
