@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-04 15:23+0900\n"
+"PO-Revision-Date: 2006-02-07 13:43+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -249,13 +249,6 @@ msgstr "リポジトリを閲覧(&B)"
 msgid "&Browse..."
 msgstr "参照(&B) ..."
 
-# Control-ID:1091,
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "内蔵(&B)"
-
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
@@ -311,6 +304,18 @@ msgstr "コピー(&C)"
 #: ID:101
 msgid "&Copy to..."
 msgstr "コピー(&C) ..."
+
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "カスタム(&C)"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: Control-ID:1096
+msgid "&Default"
+msgstr "デフォルト(&D)"
 
 # ID:11,#:
 # ID:73,#:
@@ -370,7 +375,6 @@ msgstr "終了(&E)"
 # Control-ID:1092,
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "外部(&E)"
 
@@ -693,6 +697,14 @@ msgstr "先 URL(&T):"
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "ツールバー(&T)"
+
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 # ID:9,#:
 # ID:80,
@@ -1293,8 +1305,9 @@ msgstr "本当に、ファイルの衝突を解消済に変更してもよろし
 
 # ID:79,
 #: ID:79
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "本当に元に戻してもよろしいですか？ 最後の更新以降の<b>全て</b>の変更が失われます！"
+#, c-format
+msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgstr "本当に %d 個の項目を元に戻してもよろしいですか？ 最後の更新以降の<b>全て</b>の変更が失われます！"
 
 # ID:77,
 #: ID:77
@@ -1317,6 +1330,11 @@ msgstr "作者:                        Stefan Kueng"
 #: ID:116
 msgid "Authors"
 msgstr "作者"
+
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "作者名の大文字／小文字を区別しない"
 
 # ID:76,
 #: Control-ID:65535
@@ -1678,6 +1696,7 @@ msgid "Comment"
 msgstr "コメント"
 
 # ID:8,
+#: ID:209
 #: Control-ID:1083
 msgid "Commit"
 msgstr "コミット"
@@ -2698,8 +2717,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
-msgstr "チェックすると、TortoiseSVN はキーワード展開後のファイルとの差分や、改行コードの調整を行うために、ベースファイルの一時コピーを作成する"
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
+msgstr "チェックすると、TortoiseSVN はキーワード展開後のファイルとの差分や、改行コードの調整を行うために、ベースファイルの一時コピーを作成する。"
 
 # ID:195,
 #: ID:195
@@ -2773,9 +2792,14 @@ msgstr "全ての空白を無視する(&A)"
 msgid "Ignore &case changes"
 msgstr "大文字／小文字の変更は無視する(&C)"
 
+# Control-ID:1067,
+#: Control-ID:1267
+msgid "Ignore ancestry"
+msgstr "系統情報を無視する"
+
 # Control-ID:1018,
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
+msgid "Ignore line &endings (recommended)"
 msgstr "改行コード(&E)を無視する（推奨）"
 
 # Control-ID:1056,
@@ -2793,6 +2817,11 @@ msgstr "インポートファイル %s"
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "ディレクトリをリポジトリにインポート"
+
+# Control-ID:1073,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "未変更ファイルを含める"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2864,6 +2893,41 @@ msgstr ""
 "HEAD, BASE, PREV, COMMITTED, WC,\n"
 "正の十進数\n"
 "次の例に示すような日付の形式:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+
+# ID:82,
+#: ID:83
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+"無効なリビジョン番号です！ 有効なリビジョン番号は:\n"
+"HEAD\n"
+"正の十進数\n"
+"次に示すような日付の形式:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
@@ -4076,7 +4140,7 @@ msgstr "SVN 作者"
 
 # Control-ID:1073,
 #: ID:16
-msgid "SVN Copy and rename versioned files here"
+msgid "SVN Copy and rename versioned file here"
 msgstr "SVN バージョン管理ファイルをここにコピーし名前を変更する"
 
 # Control-ID:1073,
@@ -4384,6 +4448,11 @@ msgstr "Subversion 項目の短いURL"
 msgid "Show &All"
 msgstr "全て表示(&A)"
 
+# ID:76,
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "全てのリビジョンを表示(&A)"
+
 # ID:113,
 #: ID:113
 msgid "Show &differences"
@@ -4419,6 +4488,11 @@ msgstr "バージョン管理外のファイルを表示する(&U)"
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "&Unified Diff 形式で差分を表示"
+
+# Control-ID:1073,
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "無視ファイルを表示"
 
 # Control-ID:1065,
 #: Control-ID:1065
@@ -4904,11 +4978,16 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, c-format
 msgid ""
-"The target folder is not empty!\n"
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"ターゲットフォルダは空ではありません！\n"
+"ターゲットフォルダ\n"
+"%s\n"
+"は空ではありません！\n"
 "本当にそのフォルダにチェックアウト／エクスポートしてもよろしいですか？"
 
 # ID:102,
