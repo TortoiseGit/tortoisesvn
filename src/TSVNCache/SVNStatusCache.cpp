@@ -86,7 +86,11 @@ void CSVNStatusCache::Create()
 					{
 						m_pInstance->m_directoryCache[KeyPath] = cacheddir;
 						m_pInstance->watcher.AddPath(KeyPath);
-						m_pInstance->AddFolderForCrawling(KeyPath);
+						// do *not* add the paths for crawling!
+						// because crawled paths will trigger a shell
+						// notification, which makes the desktop flash constantly
+						// until the whole first time crawling is over
+						// m_pInstance->AddFolderForCrawling(KeyPath);
 					}
 				}
 			}
