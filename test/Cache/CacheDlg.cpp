@@ -464,7 +464,7 @@ UINT CCacheDlg::WatchTestThread()
 	srand(GetTickCount());
 	filepath = m_filelist.GetAt(rand() % m_filelist.GetCount());
 	GetStatusFromRemoteCache(CTSVNPath(m_sRootPath), false);
-	for (int i=0; i < 30000; ++i)
+	for (int i=0; i < 100; ++i)
 	{
 		filepath = m_filelist.GetAt(rand() % m_filelist.GetCount());
 		GetDlgItem(IDC_FILEPATH)->SetWindowText(filepath);
@@ -472,6 +472,27 @@ UINT CCacheDlg::WatchTestThread()
 		sNumber.Format(_T("%d"), i);
 		GetDlgItem(IDC_DONE)->SetWindowText(sNumber);
 	}
+
+	// create dummy directories and remove them again several times
+	for (int outer = 0; outer<100; ++outer)
+	{
+		for (int i=0; i<100; ++i)
+		{
+			filepath.Format(_T("__MyDummyFolder%d"), i);
+			CreateDirectory(m_sRootPath+_T("\\")+filepath, NULL);
+			HANDLE hFile = CreateFile(m_sRootPath+_T("\\")+filepath+_T("\\file"), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+			CloseHandle(hFile);
+			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_sRootPath+_T("\\")+filepath+_T("\\file"), NULL);
+		}
+		Sleep(1000);
+		for (int i=0; i<100; ++i)
+		{
+			filepath.Format(_T("__MyDummyFolder%d"), i);
+			DeleteFile(m_sRootPath+_T("\\")+filepath+_T("\\file"));
+			RemoveDirectory(m_sRootPath+_T("\\")+filepath);
+		}
+	}
+
 	CTime endtime = CTime::GetCurrentTime();
 	CString sEnd = endtime.Format(_T("%H:%M:%S"));
 
