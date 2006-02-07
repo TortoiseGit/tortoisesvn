@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-23 11:19+0100\n"
+"PO-Revision-Date: 2006-02-07 15:30+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -211,13 +211,6 @@ msgstr "&Explorar el repositorio"
 msgid "&Browse..."
 msgstr "&Explorar..."
 
-# Control-ID:1091,
-#: Control-ID:1091
-#: Control-ID:1094
-#: Control-ID:1096
-msgid "&Builtin"
-msgstr "&Integrado"
-
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
@@ -263,6 +256,15 @@ msgstr "&Copiar"
 #: ID:101
 msgid "&Copy to..."
 msgstr "&Copiar a..."
+
+# Control-ID:1097,
+#: Control-ID:1097
+msgid "&Custom"
+msgstr "&Personalizado"
+
+#: Control-ID:1096
+msgid "&Default"
+msgstr "&Por defecto"
 
 #: ID:11
 msgid "&Delete"
@@ -310,7 +312,6 @@ msgstr "&Salir"
 
 #: Control-ID:1092
 #: Control-ID:1095
-#: Control-ID:1097
 msgid "&External"
 msgstr "&Externo"
 
@@ -571,6 +572,11 @@ msgstr "&A la URL: "
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "Barra de &Herramientas"
+
+#: Control-ID:1091
+#: Control-ID:1094
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 #: ID:9
 msgid "&TortoiseSVN"
@@ -1106,6 +1112,11 @@ msgstr "Autor:                        Stefan Kueng"
 msgid "Authors"
 msgstr "Autores"
 
+# Control-ID:1265,
+#: Control-ID:1265
+msgid "Authors case insensitive"
+msgstr "Autores sin importar mayús/minús"
+
 #: Control-ID:65535
 msgid "Authors:"
 msgstr "Autores:"
@@ -1422,6 +1433,7 @@ msgstr "El Comando falló."
 msgid "Comment"
 msgstr "Comentario"
 
+#: ID:209
 #: Control-ID:1083
 msgid "Commit"
 msgstr "Confirmar"
@@ -2297,8 +2309,8 @@ msgstr ""
 "Si no, la importación irá directamente a la URL especificada."
 
 #: ID:79
-msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the lineendings adjusted."
-msgstr "Si está marcada, TortoiseSVN creará un fichero temporal del BASE para mostrar las diferencias, con las palabras clave expandidas y los finales de línea ajustados."
+msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
+msgstr "Si está marcada, TortoiseSVN creará un fichero temporal del BASE para hacer las diferencias con las palabras clave expandidas y los finales de línea ajustados."
 
 # ID:195,
 #: ID:195
@@ -2368,8 +2380,13 @@ msgstr "Ignorar &todos los espacios en blanco"
 msgid "Ignore &case changes"
 msgstr "Ignorar &cambios de mayúsculas/minúsculas"
 
+# Control-ID:1067,
+#: Control-ID:1267
+msgid "Ignore ancestry"
+msgstr "Ignorar &ancestros"
+
 #: Control-ID:1018
-msgid "Ignore line&endings (recommended)"
+msgid "Ignore line &endings (recommended)"
 msgstr "Ignorar &finales de línea (recomendado)"
 
 #: Control-ID:1056
@@ -2384,6 +2401,11 @@ msgstr "Importando fichero %s"
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "Importa el directorio a un repositorio"
+
+# Control-ID:1266,
+#: Control-ID:1266
+msgid "Include ignored files"
+msgstr "Incluye ficheros ignorados"
 
 #: Control-ID:65535
 msgid "Include paths:"
@@ -2445,6 +2467,41 @@ msgstr ""
 "HEAD, BASE, PREV, COMMITTED, WC,\n"
 "números decimales positivos,\n"
 "fechas en uno de los siguientes formatos:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+
+# ID:82,
+#: ID:83
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD\n"
+"positive decimal numbers,\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+"¡Número de revisión incorrecto! Las revisiones válidas son:\n"
+"HEAD\n"
+"números decimales positivos,\n"
+"fechas en uno de los siguientes formatos de ejemplo:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
@@ -3472,8 +3529,8 @@ msgid "SVN Author"
 msgstr "SVN Autor"
 
 #: ID:16
-msgid "SVN Copy and rename versioned files here"
-msgstr "SVN Copiar y renombrar ficheros versionados aquí"
+msgid "SVN Copy and rename versioned file here"
+msgstr "SVN Copiar y renombrar fichero versionado aquí"
 
 #: ID:13
 msgid "SVN Copy versioned files here"
@@ -3722,6 +3779,10 @@ msgstr "Url corta de los items en Subversion"
 msgid "Show &All"
 msgstr "Mostrar &Todo"
 
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Mostrar &todas las revisiones"
+
 #: ID:113
 msgid "Show &differences"
 msgstr "Mostrar &diferencias"
@@ -3752,6 +3813,10 @@ msgstr "Mostrar archivos &no versionados"
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Mostrar diferencias como 'diff &unificado'"
+
+#: Control-ID:1264
+msgid "Show ignored files"
+msgstr "Mostrar archivos ignorados"
 
 #: Control-ID:1065
 msgid "Show li&ne diff bar"
@@ -4180,11 +4245,16 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, c-format
 msgid ""
-"The target folder is not empty!\n"
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"¡La carpeta de destino no está vacía!\n"
+"¡La carpeta de destino \n"
+"%s\n"
+"no está vacía!\n"
 "¿Está seguro de querer obtener/exportar en esa carpeta?"
 
 # ID:102,
