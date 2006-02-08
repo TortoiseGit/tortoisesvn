@@ -706,7 +706,7 @@ msgstr ""
 msgid "Activate Task List"
 msgstr ""
 
-#: ID:209,
+#: ID:209,#: Dlg-ID:155,
 msgid "Add"
 msgstr ""
 
@@ -896,6 +896,10 @@ msgstr ""
 msgid "At revision: %d"
 msgstr ""
 
+#: Dlg-ID:131,#: Dlg-ID:160,
+msgid "Authentication"
+msgstr ""
+
 #: ID:76,#: ID:207,
 msgid "Author"
 msgstr ""
@@ -950,6 +954,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Base file:"
+msgstr ""
+
+#: Dlg-ID:162,
+msgid "Blame"
 msgstr ""
 
 #: ID:13,
@@ -1059,6 +1067,10 @@ msgstr ""
 msgid "Change the window size"
 msgstr ""
 
+#: Dlg-ID:199,
+msgid "Changed Files"
+msgstr ""
+
 #: ID:163,
 #, c-format
 msgid "Changed files: %d"
@@ -1074,6 +1086,10 @@ msgstr ""
 
 #: ID:3887,#: ID:3887,
 msgid "Check"
+msgstr ""
+
+#: Dlg-ID:174,
+msgid "Check For Updates"
 msgstr ""
 
 #: Control-ID:1031,
@@ -1118,6 +1134,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Checking if a newer version of TortoiseSVN is available..."
+msgstr ""
+
+#: Dlg-ID:133,
+msgid "Checkout"
 msgstr ""
 
 #: Control-ID:1074,
@@ -1275,6 +1295,10 @@ msgstr ""
 msgid "Copy %s"
 msgstr ""
 
+#: Dlg-ID:142,
+msgid "Copy (Branch / Tag)"
+msgstr ""
+
 #: ID:101,
 msgid "Copy URL to clipboard"
 msgstr ""
@@ -1385,6 +1409,14 @@ msgstr ""
 
 #: ID:13,
 msgid "Create &patch..."
+msgstr ""
+
+#: Dlg-ID:208,
+msgid "Create Patch"
+msgstr ""
+
+#: Dlg-ID:178,
+msgid "Create Repository"
 msgstr ""
 
 #: Control-ID:65535,
@@ -1597,6 +1629,10 @@ msgstr ""
 
 #: ID:3825,
 msgid "Enlarge the window to full size"
+msgstr ""
+
+#: Dlg-ID:135,
+msgid "Enter Log Message"
 msgstr ""
 
 #: ID:80,
@@ -1928,6 +1964,10 @@ msgstr ""
 msgid "Ignore line &endings (recommended)"
 msgstr ""
 
+#: Dlg-ID:139,
+msgid "Import"
+msgstr ""
+
 #: Control-ID:1056,
 msgid "Import &message"
 msgstr ""
@@ -1955,6 +1995,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Inline whitespace diff"
+msgstr ""
+
+#: Dlg-ID:161,
+msgid "Input"
 msgstr ""
 
 #: ID:3603,
@@ -2033,6 +2077,10 @@ msgstr ""
 msgid "Lock"
 msgstr ""
 
+#: Dlg-ID:191,
+msgid "Lock Files"
+msgstr ""
+
 #: ID:209,
 msgid "Lock broken!"
 msgstr ""
@@ -2069,6 +2117,14 @@ msgstr ""
 
 #: ID:126,
 msgid "Log"
+msgstr ""
+
+#: Dlg-ID:211,
+msgid "Log History"
+msgstr ""
+
+#: Dlg-ID:130,
+msgid "Log Messages"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2125,7 +2181,7 @@ msgstr ""
 msgid "Max"
 msgstr ""
 
-#: Control-ID:65535,
+#: Dlg-ID:141,#: Control-ID:65535,
 msgid "Merge"
 msgstr ""
 
@@ -2531,11 +2587,11 @@ msgstr ""
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr ""
 
-#: Control-ID:65535,
+#: Dlg-ID:134,#: Control-ID:65535,
 msgid "Progress"
 msgstr ""
 
-#: Control-ID:65535,
+#: Control-ID:65535,#: Dlg-ID:177,
 msgid "Properties"
 msgstr ""
 
@@ -2635,6 +2691,10 @@ msgstr ""
 msgid "Reloads the opened files and reverts all changes.\nReload"
 msgstr ""
 
+#: Dlg-ID:157,
+msgid "Relocate"
+msgstr ""
+
 #: ID:80,
 msgid "Relocating..."
 msgstr ""
@@ -2670,6 +2730,10 @@ msgstr ""
 
 #: ID:15,
 msgid "Removes the file or filemask from the list of ignored items"
+msgstr ""
+
+#: Dlg-ID:151,
+msgid "Rename"
 msgstr ""
 
 #: ID:97,
@@ -2718,12 +2782,20 @@ msgstr ""
 msgid "Repository"
 msgstr ""
 
+#: Dlg-ID:153,
+msgid "Repository Browser"
+msgstr ""
+
 #: Control-ID:65535,
 msgid "Requests a username and a password"
 msgstr ""
 
 #: ID:8,
 msgid "Res&olved..."
+msgstr ""
+
+#: Dlg-ID:207,
+msgid "Resolve"
 msgstr ""
 
 #: ID:282,
@@ -2763,6 +2835,10 @@ msgstr ""
 msgid "Retry"
 msgstr ""
 
+#: Dlg-ID:175,
+msgid "Revert"
+msgstr ""
+
 #: ID:114,
 msgid "Revert changes from these revisions"
 msgstr ""
@@ -2795,6 +2871,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Revision / Author:"
+msgstr ""
+
+#: Dlg-ID:182,
+msgid "Revision Graph"
 msgstr ""
 
 #: ID:269,#: Control-ID:65535,
@@ -2962,6 +3042,10 @@ msgstr ""
 
 #: ID:13,
 msgid "Select File..."
+msgstr ""
+
+#: Dlg-ID:173,
+msgid "Select Revision"
 msgstr ""
 
 #: ID:78,
@@ -3180,7 +3264,7 @@ msgstr ""
 msgid "Stacked"
 msgstr ""
 
-#: ID:245,
+#: ID:245,#: Dlg-ID:179,
 msgid "Statistics"
 msgstr ""
 
@@ -3239,6 +3323,10 @@ msgstr ""
 
 #: MenuEntry
 msgid "Switch Left<->Right"
+msgstr ""
+
+#: Dlg-ID:140,
+msgid "Switch To Branch / Tag"
 msgstr ""
 
 #: ID:3606,
@@ -3516,126 +3604,6 @@ msgstr ""
 msgid "TortoiseSVN %d.%d.%d, Build %d - %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 msgstr ""
 
-#: Dlg-ID:155,
-msgid "TortoiseSVN : Add"
-msgstr ""
-
-#: Dlg-ID:131,#: Dlg-ID:160,
-msgid "TortoiseSVN : Authentication"
-msgstr ""
-
-#: Dlg-ID:162,
-msgid "TortoiseSVN : Blame"
-msgstr ""
-
-#: Dlg-ID:199,
-msgid "TortoiseSVN : Changed Files"
-msgstr ""
-
-#: Dlg-ID:174,
-msgid "TortoiseSVN : Check For Updates"
-msgstr ""
-
-#: Dlg-ID:133,
-msgid "TortoiseSVN : Checkout"
-msgstr ""
-
-#: Dlg-ID:142,
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr ""
-
-#: Dlg-ID:208,
-msgid "TortoiseSVN : Create Patch"
-msgstr ""
-
-#: Dlg-ID:178,
-msgid "TortoiseSVN : Create Repository"
-msgstr ""
-
-#: Dlg-ID:135,
-msgid "TortoiseSVN : Enter Log Message"
-msgstr ""
-
-#: Dlg-ID:139,
-msgid "TortoiseSVN : Import"
-msgstr ""
-
-#: Dlg-ID:161,
-msgid "TortoiseSVN : Input"
-msgstr ""
-
-#: Dlg-ID:191,
-msgid "TortoiseSVN : Lock Files"
-msgstr ""
-
-#: Dlg-ID:211,
-msgid "TortoiseSVN : Log History"
-msgstr ""
-
-#: Dlg-ID:130,
-msgid "TortoiseSVN : Log Messages"
-msgstr ""
-
-#: Dlg-ID:141,
-msgid "TortoiseSVN : Merge"
-msgstr ""
-
-#: Dlg-ID:134,
-msgid "TortoiseSVN : Progress"
-msgstr ""
-
-#: Dlg-ID:177,
-msgid "TortoiseSVN : Properties"
-msgstr ""
-
-#: Dlg-ID:157,
-msgid "TortoiseSVN : Relocate"
-msgstr ""
-
-#: Dlg-ID:151,
-msgid "TortoiseSVN : Rename"
-msgstr ""
-
-#: Dlg-ID:153,
-msgid "TortoiseSVN : Repository Browser"
-msgstr ""
-
-#: Dlg-ID:207,
-msgid "TortoiseSVN : Resolve"
-msgstr ""
-
-#: Dlg-ID:175,
-msgid "TortoiseSVN : Revert"
-msgstr ""
-
-#: Dlg-ID:182,
-msgid "TortoiseSVN : Revision Graph"
-msgstr ""
-
-#: Dlg-ID:173,
-msgid "TortoiseSVN : Select Revision"
-msgstr ""
-
-#: Dlg-ID:179,
-msgid "TortoiseSVN : Statistics"
-msgstr ""
-
-#: Dlg-ID:140,
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr ""
-
-#: Dlg-ID:164,
-msgid "TortoiseSVN : URL"
-msgstr ""
-
-#: Dlg-ID:152,
-msgid "TortoiseSVN : Update"
-msgstr ""
-
-#: Dlg-ID:158,
-msgid "TortoiseSVN : Working Copy"
-msgstr ""
-
 #: ID:77,
 msgid "TortoiseSVN Add..."
 msgstr ""
@@ -3721,6 +3689,10 @@ msgstr ""
 msgid "Two-way &Diff"
 msgstr ""
 
+#: Dlg-ID:164,
+msgid "URL"
+msgstr ""
+
 #: ID:12,
 msgid "URL of Subversion items"
 msgstr ""
@@ -3795,6 +3767,10 @@ msgstr ""
 
 #: ID:3841,#: ID:3841,
 msgid "Untitled"
+msgstr ""
+
+#: Dlg-ID:152,
+msgid "Update"
 msgstr ""
 
 #: ID:74,
@@ -3915,6 +3891,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Whitespace diff"
+msgstr ""
+
+#: Dlg-ID:158,
+msgid "Working Copy"
 msgstr ""
 
 #: ID:80,
