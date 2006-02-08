@@ -242,7 +242,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	return TRUE;
 }
 
-BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false */)
+BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false */, bool bArrangeByPath /* = false */)
 {
 	if (m_logdata == NULL)
 		return FALSE;
@@ -349,7 +349,7 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 
 	if (AnalyzeRevisions(realurl, initialrev, bShowAll))
 	{
-		return Cleanup(realurl);
+		return Cleanup(realurl, bArrangeByPath);
 	}
 	return FALSE;
 }
@@ -703,7 +703,7 @@ CRevisionEntry * CRevisionGraph::GetRevisionEntry(const char * path, svn_revnum_
 	return reventry;
 }
 
-bool CRevisionGraph::Cleanup(CStringA url)
+bool CRevisionGraph::Cleanup(CStringA url, bool bArrangeByPath)
 {
 	// step one: remove all entries which aren't marked as in use
 	for (EntryPtrsIterator it = m_mapEntryPtrs.begin(); it != m_mapEntryPtrs.end();)
@@ -740,6 +740,37 @@ bool CRevisionGraph::Cleanup(CStringA url)
 	// step two: sort the entries
 	qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompareRevUrl);
 	
+	// step two and a half: rearrange the nodes by path if requested
+	if (bArrangeByPath)
+	{
+		std::set<std::string> pathset;
+
+		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+		{
+			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+			if (reventry->url)
+				pathset.insert(std::string(reventry->url));
+		}
+
+		std::map<std::string, int> pathmap;
+		int i=1;
+		for (std::set<std::string>::iterator it = pathset.begin(); it != pathset.end(); ++it)
+		{
+			pathmap[*it] = i++;
+		}
+		std::map<std::string, int>::iterator lev = pathmap.begin();
+		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+		{
+			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+			if ((lev = pathmap.find(std::string(reventry->url))) != pathmap.end())
+			{
+				reventry->level = lev->second;	
+			}
+			else
+				ATLASSERT(FALSE);
+		}
+	}
+
 	// step three: combine entries with the same revision and url
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{

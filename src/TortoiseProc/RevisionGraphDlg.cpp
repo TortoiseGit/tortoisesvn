@@ -63,6 +63,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
 	, m_bShowAll(false)
+	, m_bArrangeByPath(false)
 	, m_pProgress(NULL)
 {
 	m_ViewRect.SetRectEmpty();
@@ -120,6 +121,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFF, OnViewUnifieddiff)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, OnViewUnifieddiffofheadrevisions)
 	ON_COMMAND(ID_VIEW_SHOWALLREVISIONS, &CRevisionGraphDlg::OnViewShowallrevisions)
+	ON_COMMAND(ID_VIEW_ARRANGEDBYPATH, &CRevisionGraphDlg::OnViewArrangedbypath)
 END_MESSAGE_MAP()
 
 
@@ -196,7 +198,7 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 		goto cleanup;
 	}
 	pDlg->m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
-	if (!pDlg->AnalyzeRevisionData(pDlg->m_sPath, pDlg->m_bShowAll))
+	if (!pDlg->AnalyzeRevisionData(pDlg->m_sPath, pDlg->m_bShowAll, pDlg->m_bArrangeByPath))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		pDlg->m_bNoGraph = TRUE;
@@ -2076,11 +2078,38 @@ void CRevisionGraphDlg::OnViewShowallrevisions()
 	}
 }
 
+void CRevisionGraphDlg::OnViewArrangedbypath()
+{
+	if (m_bThreadRunning)
+		return;
+	CMenu * pMenu = GetMenu();
+	if (pMenu == NULL)
+		return;
+	UINT state = pMenu->GetMenuState(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND);
+	if (state & MF_CHECKED)
+	{
+		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_UNCHECKED);
+		m_bArrangeByPath = false;
+	}
+	else
+	{
+		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_CHECKED);
+		m_bArrangeByPath = true;
+	}
+
+	InterlockedExchange(&m_bThreadRunning, TRUE);
+	if (AfxBeginThread(WorkerThread, this)==NULL)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+}
+
 void CRevisionGraphDlg::OnCancel()
 {
 	if (!m_bThreadRunning)
 		__super::OnCancel();
 }
+
 
 
 

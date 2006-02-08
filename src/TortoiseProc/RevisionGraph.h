@@ -112,7 +112,7 @@ public:
 	CRevisionGraph(void);
 	~CRevisionGraph(void);
 	BOOL						FetchRevisionData(CString path);
-	BOOL						AnalyzeRevisionData(CString path, bool bShowAll = false);
+	BOOL						AnalyzeRevisionData(CString path, bool bShowAll = false, bool bArrangeByPath = false);
 	virtual BOOL				ProgressCallback(CString text1, CString text2, DWORD done, DWORD total);
 	
 	
@@ -135,7 +135,7 @@ public:
 private:
 	bool						BuildForwardCopies();
 	bool						AnalyzeRevisions(CStringA url, svn_revnum_t startrev, bool bShowAll);
-	bool						Cleanup(CStringA url);
+	bool						Cleanup(CStringA url, bool bArrangeByPath);
 	
 	bool						SetCopyTo(const char * copyfrom_path, svn_revnum_t copyfrom_rev, 
 											const char * copyto_path, svn_revnum_t copyto_rev);
