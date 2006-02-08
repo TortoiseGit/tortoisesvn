@@ -122,10 +122,7 @@ void CUtils::StringCollapse(LPTSTR str)
 				*cPos = '\\';
 				memmove(cPos+1, cPos+2, (_tcslen(cPos+2)+1)*sizeof(TCHAR));
 			}
-			else
-			{
-				cPos++;
-			}
+			cPos++;
 		}
 	} while (cPos != NULL);
 }
