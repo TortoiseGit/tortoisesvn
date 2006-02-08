@@ -62,6 +62,6 @@ private:
 	volatile LONG	m_bThreadRunning;
 	CSVNStatusListCtrl	m_RevertList;
 	CButton			m_SelectAll;
-public:
+	bool			m_bCancelled;
 };
 

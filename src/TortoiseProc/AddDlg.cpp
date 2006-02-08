@@ -30,8 +30,9 @@
 
 IMPLEMENT_DYNAMIC(CAddDlg, CResizableStandAloneDialog)
 CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CAddDlg::IDD, pParent),
-	m_bThreadRunning(FALSE)
+	: CResizableStandAloneDialog(CAddDlg::IDD, pParent)
+	, m_bThreadRunning(FALSE)
+	, m_bCancelled(false)
 {
 }
 
@@ -62,6 +63,7 @@ BOOL CAddDlg::OnInitDialog()
 	m_addListCtrl.SetSelectButton(&m_SelectAll);
 	m_addListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_addListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOADD);
+	m_addListCtrl.SetCancelBool(&m_bCancelled);
 
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -97,6 +99,7 @@ void CAddDlg::OnOK()
 
 void CAddDlg::OnCancel()
 {
+	m_bCancelled = true;
 	if (m_bThreadRunning)
 		return;
 
@@ -128,14 +131,15 @@ UINT CAddDlg::AddThread()
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
 	GetDlgItem(IDOK)->EnableWindow(false);
-	GetDlgItem(IDCANCEL)->EnableWindow(false);
-
-	m_addListCtrl.GetStatus(m_pathList);
+	m_bCancelled = false;
+	if (!m_addListCtrl.GetStatus(m_pathList))
+	{
+		CMessageBox::Show(m_hWnd, m_addListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+	}
 	m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT, 
 						SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT);
 
 	GetDlgItem(IDOK)->EnableWindow(true);
-	GetDlgItem(IDCANCEL)->EnableWindow(true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }

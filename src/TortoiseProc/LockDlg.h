@@ -66,4 +66,5 @@ private:
 	CSVNStatusListCtrl	m_cFileList;
 	CSciEdit			m_cEdit;
 	ProjectProperties	m_ProjectProperties;
+	bool				m_bCancelled;
 };

@@ -29,8 +29,9 @@
 
 IMPLEMENT_DYNAMIC(CCreatePatch, CResizableStandAloneDialog)
 CCreatePatch::CCreatePatch(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CCreatePatch::IDD, pParent),
-	m_bThreadRunning(FALSE)
+	: CResizableStandAloneDialog(CCreatePatch::IDD, pParent)
+	, m_bThreadRunning(FALSE)
+	, m_bCancelled(false)
 {
 }
 
@@ -62,6 +63,7 @@ BOOL CCreatePatch::OnInitDialog()
 	m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT));
 	m_PatchList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_PatchList.SetSelectButton(&m_SelectAll);
+	m_PatchList.SetCancelBool(&m_bCancelled);
 
 	AddAnchor(IDC_PATCHLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -93,14 +95,17 @@ UINT CCreatePatch::PatchThread()
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
 	GetDlgItem(IDOK)->EnableWindow(false);
-	GetDlgItem(IDCANCEL)->EnableWindow(false);
+	m_bCancelled = false;
 
-	m_PatchList.GetStatus(m_pathList);
+	if (!m_PatchList.GetStatus(m_pathList))
+	{
+		CMessageBox::Show(m_hWnd, m_PatchList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+	}
+
 	m_PatchList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS, 
 						SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS);
 
 	GetDlgItem(IDOK)->EnableWindow(true);
-	GetDlgItem(IDCANCEL)->EnableWindow(true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
@@ -161,6 +166,7 @@ void CCreatePatch::OnBnClickedHelp()
 
 void CCreatePatch::OnCancel()
 {
+	m_bCancelled = true;
 	if (m_bThreadRunning)
 		return;
 

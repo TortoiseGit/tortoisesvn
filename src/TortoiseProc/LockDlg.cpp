@@ -29,6 +29,7 @@ CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CLockDlg::IDD, pParent)
 	, m_bStealLocks(FALSE)
 	, m_pThread(NULL)
+	, m_bCancelled(false)
 {
 }
 
@@ -63,6 +64,7 @@ BOOL CLockDlg::OnInitDialog()
 
 	m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK, _T("LockDlg"));
 	m_cFileList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
+	m_cFileList.SetCancelBool(&m_bCancelled);
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
 	m_cEdit.Init(m_ProjectProperties);
 	m_cEdit.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -114,6 +116,7 @@ void CLockDlg::OnOK()
 
 void CLockDlg::OnCancel()
 {
+	m_bCancelled = true;
 	if (m_bBlock)
 		return;
 	CResizableStandAloneDialog::OnCancel();
@@ -130,11 +133,13 @@ UINT CLockDlg::StatusThread()
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
 	m_bBlock = TRUE;
-	GetDlgItem(IDCANCEL)->EnableWindow(false);
 	GetDlgItem(IDOK)->EnableWindow(false);
-
+	m_bCancelled = false;
 	// Initialise the list control with the status of the files/folders below us
-	m_cFileList.GetStatus(m_pathList);
+	if (!m_cFileList.GetStatus(m_pathList))
+	{
+		CMessageBox::Show(m_hWnd, m_cFileList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+	}
 
 	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
 	m_cFileList.Show(dwShow, dwShow, false);
@@ -142,7 +147,6 @@ UINT CLockDlg::StatusThread()
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-	GetDlgItem(IDCANCEL)->EnableWindow(true);
 	CString logmsg;
 	GetDlgItem(IDC_LOCKMESSAGE)->GetWindowText(logmsg);
 	if (m_ProjectProperties.nMinLockMsgSize > logmsg.GetLength())

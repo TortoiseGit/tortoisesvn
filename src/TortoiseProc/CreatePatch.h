@@ -53,6 +53,7 @@ private:
 	CSVNStatusListCtrl	m_PatchList;
 	LONG				m_bThreadRunning;
 	CButton				m_SelectAll;
+	bool				m_bCancelled;
 public:
 	CTSVNPathList		m_pathList;
 	CTSVNPathList		m_filesToRevert;

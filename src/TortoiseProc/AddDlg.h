@@ -25,25 +25,6 @@
  * \ingroup TortoiseProc
  * a simple dialog to show the user all unversioned
  * files below a specified folder.
- *
- * \par requirements
- * win95 or later\n
- * winNT4 or later\n
- * MFC\n
- *
- * \version 1.0
- * first version
- *
- * \date 03-06-2003
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CAddDlg : public CResizableStandAloneDialog
 {
@@ -78,5 +59,6 @@ private:
 	CSVNStatusListCtrl	m_addListCtrl;
 	volatile LONG	m_bThreadRunning;
 	CButton			m_SelectAll;
+	bool			m_bCancelled;
 };
 

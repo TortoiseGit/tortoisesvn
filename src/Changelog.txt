@@ -35,6 +35,8 @@
 - NEW: When dragging items in the repository browser folders are now opened
        and closed when hovering over them for two seconds. See issue #203
        for details (Tobias Schäfer)
+- NEW: The Revert, Resolve, Lock and Add dialog can be interrupted while
+       they fetch the working copy status. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
        placed in a separate column. See issue #207 for details. 
        (Tobias Schäfer)

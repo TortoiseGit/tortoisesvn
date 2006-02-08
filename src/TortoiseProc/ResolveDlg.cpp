@@ -26,8 +26,9 @@
 
 IMPLEMENT_DYNAMIC(CResolveDlg, CResizableStandAloneDialog)
 CResolveDlg::CResolveDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CResolveDlg::IDD, pParent),
-	m_bThreadRunning(FALSE)
+	: CResizableStandAloneDialog(CResolveDlg::IDD, pParent)
+	, m_bThreadRunning(FALSE)
+	, m_bCancelled(false)
 {
 }
 
@@ -58,6 +59,7 @@ BOOL CResolveDlg::OnInitDialog()
 	m_resolveListCtrl.Init(0, _T("ResolveDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD|SVNSLC_POPCOMMIT));
 	m_resolveListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_resolveListCtrl.SetSelectButton(&m_SelectAll);
+	m_resolveListCtrl.SetCancelBool(&m_bCancelled);
 
 	AddAnchor(IDC_RESOLVELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -93,6 +95,7 @@ void CResolveDlg::OnOK()
 
 void CResolveDlg::OnCancel()
 {
+	m_bCancelled = true;
 	if (m_bThreadRunning)
 		return;
 
@@ -124,13 +127,16 @@ UINT CResolveDlg::ResolveThread()
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
 	GetDlgItem(IDOK)->EnableWindow(false);
-	GetDlgItem(IDCANCEL)->EnableWindow(false);
 
-	m_resolveListCtrl.GetStatus(m_pathList);
+	m_bCancelled = false;
+
+	if (!m_resolveListCtrl.GetStatus(m_pathList))
+	{
+		CMessageBox::Show(m_hWnd, m_resolveListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+	}
 	m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED, SVNSLC_SHOWCONFLICTED);
 
 	GetDlgItem(IDOK)->EnableWindow(true);
-	GetDlgItem(IDCANCEL)->EnableWindow(true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
