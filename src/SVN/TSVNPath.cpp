@@ -1195,7 +1195,7 @@ private:
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
 		testPath.SetFromUnknown(_T("http://testing%20again"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
-		testPath.SetFromUnknown(_T("http://testing special chars הצü"));
+		testPath.SetFromUnknown(_T("http://testing special chars \344\366\374"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20special%20chars%20%C3%A4%C3%B6%C3%BC") == 0);		
 #endif
 	}
