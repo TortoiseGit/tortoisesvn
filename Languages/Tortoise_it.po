@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-05 13:25+0100\n"
+"PO-Revision-Date: 2006-02-09 23:44+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1017,6 +1017,7 @@ msgstr "Lista dei Task attivi"
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:209
+#: Dlg-ID:155
 msgid "Add"
 msgstr "Aggiungi"
 
@@ -1304,11 +1305,23 @@ msgstr "Sei sicuro di voler marcare il/i file in conflitto come risolti?"
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr "Si è sicuri di voler ripristinare %d oggetti(o)? Così facendo <b>tutte</b> le modifiche dall'ultimo aggiornamento andranno perse."
 
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr ""
+
 # ID:77,
 #: ID:77
 #, c-format
 msgid "At revision: %d"
 msgstr "Alla revisione: %d"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Dlg-ID:131
+#: Dlg-ID:160
+#, fuzzy
+msgid "Authentication"
+msgstr "&Salva l'autenticazione"
 
 # ID:76,
 #: ID:76
@@ -1385,6 +1398,11 @@ msgstr "S&foglia..."
 #: Control-ID:65535
 msgid "Base file:"
 msgstr "File di base:"
+
+# ID:13,
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "Biasima"
 
 # ID:13,
 #: ID:13
@@ -1532,6 +1550,11 @@ msgid "Change the window size"
 msgstr "Cambia le dimensioni della finestra"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "File modificati"
+
+# ID:163,
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
@@ -1552,6 +1575,11 @@ msgstr "&Ritira..."
 #: ID:3887
 msgid "Check"
 msgstr "Seleziona"
+
+# Control-ID:1031,
+#: Dlg-ID:174
+msgid "Check For Updates"
+msgstr "Controlla aggiornamenti"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -1611,6 +1639,11 @@ msgstr "Verifica dell'esistenza di copie seguenti"
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Controllo della disponibilità di una nuova versione di TortoiseSVN..."
+
+# ID:8,
+#: Dlg-ID:133
+msgid "Checkout"
+msgstr "Ritira"
 
 # Control-ID:1074,
 #: Control-ID:1074
@@ -1812,6 +1845,11 @@ msgstr "Copiato in remoto"
 msgid "Copy %s"
 msgstr "Copia %s"
 
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Copia (Ramifica / Etichetta)"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -1987,6 +2025,16 @@ msgstr "Impossibile avviare il thread!"
 #: ID:13
 msgid "Create &patch..."
 msgstr "Crea &patch..."
+
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Crea patch"
+
+# ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Crea Repository"
 
 # ID:8,
 #: Control-ID:65535
@@ -2308,6 +2356,12 @@ msgstr ""
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "Allarga la finestra a tutto schermo"
+
+# ID:126,#:
+# Control-ID:1065,
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "Inserire un commento"
 
 # ID:80,
 #: ID:80
@@ -2798,6 +2852,11 @@ msgstr "Ignora discendenza"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignora i caratt&eri di fine riga (raccomandato)"
 
+# ID:9,
+#: Dlg-ID:139
+msgid "Import"
+msgstr "Importa"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
@@ -2833,6 +2892,11 @@ msgstr "Import iniziale"
 #: Control-ID:65535
 msgid "Inline whitespace diff"
 msgstr "Confronta spazi all'interno delle linee"
+
+# Dlg-ID:161,
+#: Dlg-ID:161
+msgid "Input"
+msgstr ""
 
 # ID:3603,
 #: ID:3603
@@ -3011,6 +3075,12 @@ msgstr ""
 msgid "Lock"
 msgstr "Blocca"
 
+# ID:3857,#:
+# ID:3857,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "Blocca i file"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -3058,6 +3128,16 @@ msgstr "Blocca un file rendendolo modificabile solo da te."
 #: ID:126
 msgid "Log"
 msgstr "Log"
+
+# ID:80,
+#: Dlg-ID:211
+msgid "Log History"
+msgstr "Cronologia dei commenti"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "Commenti"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3131,7 +3211,13 @@ msgstr ""
 msgid "Max"
 msgstr "Massimo"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Max. items to keep in the log message history"
+msgstr ""
+
 # Dlg-ID:141,
+#: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
 msgstr "Fondi"
@@ -3704,6 +3790,7 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Applicazioni (*.exe)|*.exe|Tutti i file (*.*)|*.*||"
 
 # Dlg-ID:134,
+#: Dlg-ID:134
 #: Control-ID:65535
 msgid "Progress"
 msgstr "Avanzamento"
@@ -3711,6 +3798,7 @@ msgstr "Avanzamento"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "Proprietà"
 
@@ -3848,6 +3936,11 @@ msgstr ""
 "Ricarica i file aperti e elimina tutti i cambiamenti.\n"
 "Ricarica"
 
+# ID:12,
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "Ricolloca"
+
 # ID:80,
 #: ID:80
 msgid "Relocating..."
@@ -3901,6 +3994,11 @@ msgstr ""
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Rimuove il/i file selezionato/i alla lista 'ingora'"
+
+# Dlg-ID:151,
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "Rinomina"
 
 # ID:97,
 #: ID:97
@@ -3970,6 +4068,11 @@ msgstr "Repo-browser"
 msgid "Repository"
 msgstr "Repository"
 
+# Dlg-ID:153,
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "Repository Browser"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Requests a username and a password"
@@ -3979,6 +4082,11 @@ msgstr "Richiede un nome utente e una password"
 #: ID:8
 msgid "Res&olved..."
 msgstr "Ris&olto..."
+
+# ID:8,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Risolvi"
 
 # ID:9,
 #: ID:282
@@ -4031,6 +4139,13 @@ msgstr "Ristabilito"
 msgid "Retry"
 msgstr "Riprova"
 
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "Ripristina"
+
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -4080,6 +4195,11 @@ msgstr "&Grafico delle revisioni"
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Revisione / Autore:"
+
+# ID:75,
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "Grafico delle revisioni"
 
 # ID:75,
 #: ID:269
@@ -4309,6 +4429,11 @@ msgstr "Seleziona / disseleziona &tutti"
 #: ID:13
 msgid "Select File..."
 msgstr "Seleziona file..."
+
+# Dlg-ID:173,
+#: Dlg-ID:173
+msgid "Select Revision"
+msgstr "Seleziona revisione"
 
 # ID:78,
 #: ID:78
@@ -4588,6 +4713,11 @@ msgstr "Saltato"
 msgid "Skipped missing target"
 msgstr "Obbiettivo mancate saltato"
 
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr ""
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4623,6 +4753,7 @@ msgstr "Accodato"
 # ID:77,#:
 # ID:207,
 #: ID:245
+#: Dlg-ID:179
 msgid "Statistics"
 msgstr "Statistiche"
 
@@ -4712,6 +4843,11 @@ msgstr "Sposta la cop&ia di lavoro su un nuovo ramo/etichetta"
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Inverti Sinistra<->Destra"
+
+# Dlg-ID:140,
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "Spostati su un ramo / etichetta"
 
 # ID:3606,
 #: ID:3606
@@ -4981,11 +5117,16 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, c-format
 msgid ""
-"The target folder is not empty!\n"
+"The target folder \n"
+"%s\n"
+"is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"La cartella non è vuota!\n"
+"La cartella \n"
+"%s\n"
+"non è vuota!\n"
 "Si è sicuri di voler procedere al ritiro o all'esportazione in questa cartella?"
 
 # ID:102,
@@ -5228,170 +5369,6 @@ msgstr ""
 
 # ID:9,#:
 # ID:80,
-#: Dlg-ID:155
-msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN : Aggiungi"
-
-# ID:80,
-#: Dlg-ID:131
-#: Dlg-ID:160
-msgid "TortoiseSVN : Authentication"
-msgstr "TortoiseSVN : Autenticazione"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:162
-msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN : Biasima"
-
-# ID:163,
-#: Dlg-ID:199
-msgid "TortoiseSVN : Changed Files"
-msgstr "TortoiseSVN : File modificati"
-
-# Dlg-ID:174,
-#: Dlg-ID:174
-msgid "TortoiseSVN : Check For Updates"
-msgstr "TortoiseSVN : Controlla aggiornamenti"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:133
-msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN : Ritira"
-
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "TortoiseSVN : Copia (Ramo / Etichetta)"
-
-# ID:80,
-#: Dlg-ID:208
-msgid "TortoiseSVN : Create Patch"
-msgstr "TortoiseSVN : Crea patch"
-
-# ID:8,
-#: Dlg-ID:178
-msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN : Crea repository"
-
-# Dlg-ID:135,
-#: Dlg-ID:135
-msgid "TortoiseSVN : Enter Log Message"
-msgstr "TortoiseSVN : Inserire un commento"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:139
-msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN : Importa"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:161
-msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN: Input"
-
-# ID:80,
-#: Dlg-ID:191
-msgid "TortoiseSVN : Lock Files"
-msgstr "TortoiseSVN : Blocca file"
-
-# ID:80,
-#: Dlg-ID:211
-msgid "TortoiseSVN : Log History"
-msgstr "TortoiseSVN : Cronologia dei commenti"
-
-# ID:80,
-#: Dlg-ID:130
-msgid "TortoiseSVN : Log Messages"
-msgstr "TortoiseSVN : Commenti"
-
-# ID:7,#:
-# ID:3585,#:
-# Dlg-ID:130,
-#: Dlg-ID:141
-msgid "TortoiseSVN : Merge"
-msgstr "TortoiseSVN : Fondi"
-
-# Dlg-ID:134,
-#: Dlg-ID:134
-msgid "TortoiseSVN : Progress"
-msgstr "TortoiseSVN : Progredisci"
-
-# ID:80,
-#: Dlg-ID:177
-msgid "TortoiseSVN : Properties"
-msgstr "TortoiseSVN : Proprietà"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:157
-msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN : Sposta"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:151
-msgid "TortoiseSVN : Rename"
-msgstr "TortoiseSVN :Rinomina"
-
-# Dlg-ID:153,
-#: Dlg-ID:153
-msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN : Repository Browser"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:207
-msgid "TortoiseSVN : Resolve"
-msgstr "TortoiseSVN : Risolvi"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:175
-msgid "TortoiseSVN : Revert"
-msgstr "TortoiseSVN : Ripristina"
-
-# ID:75,
-#: Dlg-ID:182
-msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN : Grafico delle revisioni"
-
-# ID:80,
-#: Dlg-ID:173
-msgid "TortoiseSVN : Select Revision"
-msgstr "TortoiseSVN : Seleziona revisione"
-
-# ID:80,
-#: Dlg-ID:179
-msgid "TortoiseSVN : Statistics"
-msgstr "TortoiseSVN : Statistiche"
-
-# Dlg-ID:140,
-#: Dlg-ID:140
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr "TortoiseSVN : Spostati su un ramo / etichetta"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:164
-msgid "TortoiseSVN : URL"
-msgstr "TortoiseSVN : URL"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:152
-msgid "TortoiseSVN : Update"
-msgstr "TortoiseSVN : Aggiorna"
-
-# ID:151,
-#: Dlg-ID:158
-msgid "TortoiseSVN : Working Copy"
-msgstr "TortoiseSVN : Copia di lavoro"
-
-# ID:9,#:
-# ID:80,
 #: ID:77
 msgid "TortoiseSVN Add..."
 msgstr "TortoiseSVN Aggiungi"
@@ -5499,6 +5476,12 @@ msgstr "Personalizza TortoiseSVN"
 #: MenuEntry
 msgid "Two-way &Diff"
 msgstr "&Confronto doppio"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: Dlg-ID:164
+msgid "URL"
+msgstr "URL"
 
 # ID:12,
 #: ID:12
@@ -5630,6 +5613,13 @@ msgstr "Sbloccato"
 #: ID:3841
 msgid "Untitled"
 msgstr "Senza titolo"
+
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
+#: Dlg-ID:152
+msgid "Update"
+msgstr "Aggiorna"
 
 # ID:8,#:
 # ID:74,#:
@@ -5804,6 +5794,11 @@ msgstr "Attenzione!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Confronta spaziature"
+
+# ID:151,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Copia di lavoro"
 
 # ID:80,
 #: ID:80
