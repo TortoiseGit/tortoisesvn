@@ -728,7 +728,8 @@ void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 {
 	if (hItem != 0)
 	{
-		LoadChildItems(hItem, (GetKeyState(VK_CONTROL)&0x8000)!=0);
+		if (IsFolder(hItem))
+			LoadChildItems(hItem, (GetKeyState(VK_CONTROL)&0x8000)!=0);
 	}
 }
 
