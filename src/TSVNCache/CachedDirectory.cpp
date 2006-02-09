@@ -208,7 +208,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			bThisDirectoryIsUnversioned = true;
 			m_ownStatus.SetStatus(NULL);
 
-			// We should never have anything in our file item cache if we're unversioned
+			// If a user removes the .svn directory, we get here with m_entryCache
+			// not being empty, but still us being unversioned
+			if (!m_entryCache.empty())
+			{
+				m_entryCache.clear();
+			}
 			ATLASSERT(m_entryCache.empty());
 			
 			// However, a member *DIRECTORY* might be the top of WC
