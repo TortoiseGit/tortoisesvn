@@ -62,7 +62,11 @@ bool CHistoryDlg::AddString(const CString& sText)
 	for (int i=0; i<m_arEntries.GetCount(); ++i)
 	{
 		if (sText.Compare(m_arEntries[i])==0)
+		{
+			m_arEntries.RemoveAt(i);
+			m_arEntries.InsertAt(0, sText);
 			return false;
+		}
 	}
 	m_arEntries.InsertAt(0, sText);
 	return true;
