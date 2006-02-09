@@ -52,6 +52,17 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
+				<term>Branch tip revision</term>
+				<listitem>
+					<para>
+						Where a branch (or trunk or tag) has been modified since
+						the last branch node, this is shown using an ellipse.
+						This means that the latest revision on every branch is
+						always shown on the graph.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term>Normal file/folder</term>
 				<listitem>
 					<para>
@@ -60,12 +71,11 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
-		Note that the graph only shows the points at which items were added or
-		deleted. Showing every revision of a project would generate an impossibly
-		large graph for non-trivial cases.
-		For this reason, simple project structures with no adds or deletes will
-		produce an empty revision graph with the message
-		<literal>No graph available</literal>.
+		Note that by default the graph only shows the points at which items were
+		added or deleted. Showing every revision of a project could generate a very
+		large graph for non-trivial cases. If you really want to see
+		<emphasis>all</emphasis> revision, there is an option to do this in
+		the <guilabel>View</guilabel> menu.
 	</para>
 	<para>
 		The revision date, author and comments are shown in a hint box whenever
