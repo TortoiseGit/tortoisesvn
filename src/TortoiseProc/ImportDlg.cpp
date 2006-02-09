@@ -62,6 +62,8 @@ BOOL CImportDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+
 	if (m_url.IsEmpty())
 	{
 		m_URLCombo.SetURLHistory(TRUE);

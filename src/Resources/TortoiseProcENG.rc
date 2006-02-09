@@ -837,16 +837,18 @@ BEGIN
     GROUPBOX        "Status",IDC_STATIC,7,7,286,32
     CONTROL         "Recurse into unversioned folders",IDC_UNVERSIONEDRECURSE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,21,269,10
-    GROUPBOX        "Commit",IDC_COMMITGROUP,7,44,286,62
+    GROUPBOX        "Commit",IDC_COMMITGROUP,7,44,286,81
     CONTROL         "&Use autocompletion of filepaths and keywords",IDC_AUTOCOMPLETION,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,57,271,10
     LTEXT           "&Timeout in seconds to stop the autocompletion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,13,74,231,8,SS_NOTIFY
     EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,72,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
     CONTROL         "Only use s&pellchecker when tsvn:projectlanguage is set",IDC_SPELL,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,90,271,10
-    GROUPBOX        "Check for modifications",IDC_STATIC,7,111,286,32
+    GROUPBOX        "Check for modifications",IDC_STATIC,7,132,286,32
     CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,124,271,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,146,271,10
+    LTEXT           "Max. items to keep in the log message history",IDC_STATIC,15,107,226,8
+    EDITTEXT        IDC_MAXHISTORY,252,103,31,14,ES_AUTOHSCROLL
 END
 
 
@@ -1300,6 +1302,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
         VERTGUIDE, 15
+        VERTGUIDE, 252
         VERTGUIDE, 284
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
@@ -2113,6 +2116,8 @@ BEGIN
                             "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
     IDS_SETTINGS_UNVERSIONEDRECURSE_TT 
                             "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
+    IDS_SETTINGS_MAXHISTORY_TT 
+                            "Specifies how many items you want to keep in the most recent log messages dialog."
 END
 
 STRINGTABLE 

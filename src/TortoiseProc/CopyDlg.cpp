@@ -78,6 +78,8 @@ BOOL CCopyDlg::OnInitDialog()
 
 	CTSVNPath path(m_path);
 
+	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+
 	if (m_CopyRev.IsHead())
 	{
 		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);

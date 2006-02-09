@@ -60,4 +60,6 @@ private:
 	BOOL			m_bSpell;
 	CRegDWORD		m_regCheckRepo;
 	BOOL			m_bCheckRepo;
+	CRegDWORD		m_regMaxHistory;
+	DWORD			m_dwMaxHistory;
 };

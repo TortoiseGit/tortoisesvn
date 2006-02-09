@@ -95,6 +95,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
 
+	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+
 	UpdateData(FALSE);
 	
 	OnEnChangeLogmessage();
