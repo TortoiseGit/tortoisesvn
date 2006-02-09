@@ -977,6 +977,11 @@ void CMainFrame::OnViewOptions()
 
 void CMainFrame::OnClose()
 {
+	if ((m_pFindDialog)&&(!m_pFindDialog->IsTerminating()))
+	{
+		m_pFindDialog->SendMessage(WM_CLOSE);
+		return;
+	}
 	int ret = IDNO;
 	if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
 		((m_pwndRightView)&&(m_pwndRightView->IsModified())))
