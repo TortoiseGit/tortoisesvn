@@ -73,6 +73,8 @@ Version 1.3.2
        message was copied to the URL box. (Stefan)
 - BUG: Fixed a memory leak in the cache when deleting folders or
        unmounting drives. (Stefan)
+- BUG: The cache could use 100% CPU if a working copy is located on the
+       root of a drive. (Stefan)
 
 Version 1.3.1
 - BUG: Patches with non ANSI or non UTF8 encoding couldn't be applied

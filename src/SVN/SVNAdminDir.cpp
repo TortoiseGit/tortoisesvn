@@ -72,6 +72,8 @@ bool SVNAdminDir::HasAdminDir(const CString& path)
 
 bool SVNAdminDir::HasAdminDir(const CString& path, bool bDir)
 {
+	if (path.IsEmpty())
+		return false;
 	bool bHasAdminDir = false;
 	CString sDirName = path;
 	if (!bDir)
@@ -86,6 +88,8 @@ bool SVNAdminDir::HasAdminDir(const CString& path, bool bDir)
 
 bool SVNAdminDir::IsAdminDirPath(const CString& path)
 {
+	if (path.IsEmpty())
+		return false;
 	bool bIsAdminDir = false;
 	int ind = path.Find(_T(".svn"));
 	if (ind >= 0)
