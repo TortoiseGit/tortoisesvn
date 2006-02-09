@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-06 12:30+0200\n"
+"PO-Revision-Date: 2006-02-08 23:09+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1057,6 +1057,7 @@ msgstr "Показване на списък със задачите"
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:209
+#: Dlg-ID:155
 msgid "Add"
 msgstr "Добавяне"
 
@@ -1344,11 +1345,22 @@ msgstr "Сигурни ли сте, че желаете да маркирате 
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr "Сигурни ли сте, че желаете да отмените промените в %d обект(а)? Ще загубите <b>всички</b> промени от последното обновяване насам!"
 
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "Подреждане според &пътя"
+
 # ID:77,
 #: ID:77
 #, c-format
 msgid "At revision: %d"
 msgstr "В ревизия: %d"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Dlg-ID:131
+#: Dlg-ID:160
+msgid "Authentication"
+msgstr "Удостоверяване"
 
 # ID:76,
 #: ID:76
@@ -1423,6 +1435,11 @@ msgstr "И&збор..."
 #: Control-ID:65535
 msgid "Base file:"
 msgstr "Базов файл:"
+
+# ID:13,
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "Показване на отговорните"
 
 # ID:13,
 #: ID:13
@@ -1572,6 +1589,11 @@ msgid "Change the window size"
 msgstr "Промяна на размера на прозореца"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "Променени файлове"
+
+# ID:163,
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
@@ -1592,6 +1614,11 @@ msgstr "Изпис&ване..."
 #: ID:3887
 msgid "Check"
 msgstr "Поставяне на отметка"
+
+# Control-ID:1031,
+#: Dlg-ID:174
+msgid "Check For Updates"
+msgstr "Проверка за обновления"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -1651,6 +1678,11 @@ msgstr "Проверка за последващи копия"
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Проверка за по-нова версия на TortoiseSVN..."
+
+# ID:8,
+#: Dlg-ID:133
+msgid "Checkout"
+msgstr "Изписване"
 
 # Control-ID:1074,
 #: Control-ID:1074
@@ -1852,6 +1884,11 @@ msgstr "Копиран отдалечено"
 msgid "Copy %s"
 msgstr "Копиране на %s"
 
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Копиране (създаване на разклонение / етикет)"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -2031,6 +2068,16 @@ msgstr "Грешка при стартиране на нишка!"
 #: ID:13
 msgid "Create &patch..."
 msgstr "Създаване на &кръпка..."
+
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Създаване на кръпка"
+
+# ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Създаване на хранилище"
 
 # ID:113,
 #: Control-ID:65535
@@ -2350,6 +2397,12 @@ msgstr "Проверка на правописа, само ако е устан�
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "Разширяване на прозореца на цял екран"
+
+# ID:126,#:
+# Control-ID:1065,
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "Въведете съобщение за дневника"
 
 # ID:80,
 #: ID:80
@@ -2839,6 +2892,11 @@ msgstr "Игнориране на предшествениците"
 msgid "Ignore line &endings (recommended)"
 msgstr "Игнориране на символите за &край на ред (препоръчително)"
 
+# ID:9,
+#: Dlg-ID:139
+msgid "Import"
+msgstr "Внос"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
@@ -2874,6 +2932,11 @@ msgstr "Първоначален внос"
 #: Control-ID:65535
 msgid "Inline whitespace diff"
 msgstr "Редово показване на разлики в празните символи"
+
+# Dlg-ID:161,
+#: Dlg-ID:161
+msgid "Input"
+msgstr "Въвеждане"
 
 # ID:3603,
 #: ID:3603
@@ -3052,6 +3115,12 @@ msgstr ""
 msgid "Lock"
 msgstr "Заключване"
 
+# ID:3857,#:
+# ID:3857,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "Заключване на файлове"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -3099,6 +3168,16 @@ msgstr "Заключва файл за останалите потребител
 #: ID:126
 msgid "Log"
 msgstr "Дневник"
+
+# ID:80,
+#: Dlg-ID:211
+msgid "Log History"
+msgstr "Дневник"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "Съобщения в дневника"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3173,6 +3252,7 @@ msgid "Max"
 msgstr "Макс"
 
 # Dlg-ID:141,
+#: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
 msgstr "Сливане"
@@ -3745,12 +3825,14 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Програми (*.exe)|*.*|Всички файлове (*.*)|*.*||"
 
 # Dlg-ID:134,
+#: Dlg-ID:134
 #: Control-ID:65535
 msgid "Progress"
 msgstr "Развитие"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "Свойства"
 
@@ -3888,6 +3970,11 @@ msgstr ""
 "Презарежда отворените файлове и отменя всички промени.\n"
 "Презареждане"
 
+# ID:12,
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "Преместване"
+
 # ID:80,
 #: ID:80
 msgid "Relocating..."
@@ -3940,6 +4027,11 @@ msgstr ""
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Премахва избраните файлове или шаблон за файлове от списъка за игнориране"
+
+# Dlg-ID:151,
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "Преименуване"
 
 # ID:97,
 #: ID:97
@@ -4009,6 +4101,11 @@ msgstr "Разглеждане на хранилища"
 msgid "Repository"
 msgstr "Хранилище"
 
+# Dlg-ID:153,
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "Разглеждане на хранилища"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Requests a username and a password"
@@ -4018,6 +4115,11 @@ msgstr "Изисква потребителско име и парола"
 #: ID:8
 msgid "Res&olved..."
 msgstr "&Разрешен..."
+
+# ID:8,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Разрешаване"
 
 # ID:9,
 #: ID:282
@@ -4070,6 +4172,13 @@ msgstr "Възстановен"
 msgid "Retry"
 msgstr "Нов опит"
 
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "Връщане"
+
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -4119,6 +4228,11 @@ msgstr "&Графика на ревизиите"
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Ревизия / Автор:"
+
+# ID:75,
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "Графика на ревизиите"
 
 # ID:75,
 #: ID:269
@@ -4347,6 +4461,11 @@ msgstr "Отбелязване / изчистистване на &всички"
 #: ID:13
 msgid "Select File..."
 msgstr "Избор на файл..."
+
+# Dlg-ID:173,
+#: Dlg-ID:173
+msgid "Select Revision"
+msgstr "Избор на ревизия"
 
 # ID:78,
 #: ID:78
@@ -4660,6 +4779,7 @@ msgstr "Натрупани"
 # ID:74,#:
 # ID:77,
 #: ID:245
+#: Dlg-ID:179
 msgid "Statistics"
 msgstr "Статистика"
 
@@ -4748,6 +4868,11 @@ msgstr "Прев&ключване на работното копие към но
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Размяна на ляво с дясно"
+
+# Dlg-ID:140,
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "Превключване към разклонение / етикет"
 
 # ID:3606,
 #: ID:3606
@@ -5269,170 +5394,6 @@ msgstr ""
 
 # ID:9,#:
 # ID:80,
-#: Dlg-ID:155
-msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN : Добавяне"
-
-# ID:80,
-#: Dlg-ID:131
-#: Dlg-ID:160
-msgid "TortoiseSVN : Authentication"
-msgstr "TortoiseSVN : Легитимиране"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:162
-msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN : Показване на отговорните"
-
-# ID:163,
-#: Dlg-ID:199
-msgid "TortoiseSVN : Changed Files"
-msgstr "TortoiseSVN : Променени файлове"
-
-# Dlg-ID:174,
-#: Dlg-ID:174
-msgid "TortoiseSVN : Check For Updates"
-msgstr "TortoiseSVN : Проверка за обновления"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:133
-msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN : Изписване"
-
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "TortoiseSVN : Копиране (разклонение/етикет)"
-
-# ID:80,
-#: Dlg-ID:208
-msgid "TortoiseSVN : Create Patch"
-msgstr "TortoiseSVN : Създаване на кръпка"
-
-# ID:8,
-#: Dlg-ID:178
-msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN : Създаване на хранилище"
-
-# Dlg-ID:135,
-#: Dlg-ID:135
-msgid "TortoiseSVN : Enter Log Message"
-msgstr "TortoiseSVN : Въведете съобщение за дневника"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:139
-msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN : Внос"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:161
-msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN : Въвеждане"
-
-# ID:80,
-#: Dlg-ID:191
-msgid "TortoiseSVN : Lock Files"
-msgstr "TortoiseSVN : Заключване на файлове"
-
-# ID:80,
-#: Dlg-ID:211
-msgid "TortoiseSVN : Log History"
-msgstr "TortoiseSVN : Хронология на дневника"
-
-# ID:80,
-#: Dlg-ID:130
-msgid "TortoiseSVN : Log Messages"
-msgstr "TortoiseSVN : Съобщения в дневника"
-
-# ID:7,#:
-# ID:3585,#:
-# Dlg-ID:130,
-#: Dlg-ID:141
-msgid "TortoiseSVN : Merge"
-msgstr "TortoiseSVN : Сливане"
-
-# Dlg-ID:134,
-#: Dlg-ID:134
-msgid "TortoiseSVN : Progress"
-msgstr "TortoiseSVN : Развитие"
-
-# ID:80,
-#: Dlg-ID:177
-msgid "TortoiseSVN : Properties"
-msgstr "TortoiseSVN : Свойства"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:157
-msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN : Преместване"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:151
-msgid "TortoiseSVN : Rename"
-msgstr "TortoiseSVN : Преименуване"
-
-# Dlg-ID:153,
-#: Dlg-ID:153
-msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN : Разглеждане на хранилища"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:207
-msgid "TortoiseSVN : Resolve"
-msgstr "TortoiseSVN : Разрешаване"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:175
-msgid "TortoiseSVN : Revert"
-msgstr "TortoiseSVN : Отмяна"
-
-# ID:75,
-#: Dlg-ID:182
-msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN : Графика на ревизиите"
-
-# ID:80,
-#: Dlg-ID:173
-msgid "TortoiseSVN : Select Revision"
-msgstr "TortoiseSVN : Избор на ревизия"
-
-# ID:80,
-#: Dlg-ID:179
-msgid "TortoiseSVN : Statistics"
-msgstr "TortoiseSVN : Статистика"
-
-# Dlg-ID:140,
-#: Dlg-ID:140
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr "TortoiseSVN : Превключване към разклонение / етикет"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:164
-msgid "TortoiseSVN : URL"
-msgstr "TortoiseSVN : URL"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:152
-msgid "TortoiseSVN : Update"
-msgstr "TortoiseSVN : Обновяване"
-
-# ID:151,
-#: Dlg-ID:158
-msgid "TortoiseSVN : Working Copy"
-msgstr "TortoiseSVN : Работно копие"
-
-# ID:9,#:
-# ID:80,
 #: ID:77
 msgid "TortoiseSVN Add..."
 msgstr "TortoiseSVN добавяне..."
@@ -5540,6 +5501,12 @@ msgstr "Донастройване на TortoiseSVN"
 #: MenuEntry
 msgid "Two-way &Diff"
 msgstr "Сравняване с &два файла"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: Dlg-ID:164
+msgid "URL"
+msgstr "URL"
 
 # ID:12,
 #: ID:12
@@ -5667,6 +5634,13 @@ msgstr "Отключен"
 #: ID:3841
 msgid "Untitled"
 msgstr "Неименован"
+
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
+#: Dlg-ID:152
+msgid "Update"
+msgstr "Обновяване"
 
 # ID:8,#:
 # ID:74,#:
@@ -5841,6 +5815,11 @@ msgstr "Внимание!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Сравняване на празни символи"
+
+# ID:151,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Работно копие"
 
 # ID:80,
 #: ID:80
