@@ -965,9 +965,8 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t 
 		}
 		else
 		{
-			res += 4;
-			//style = GET_DWORD(res);
-			(*wordcount) += 4;
+			res += 2;
+			(*wordcount) += 2;
 		}
 	}
 
