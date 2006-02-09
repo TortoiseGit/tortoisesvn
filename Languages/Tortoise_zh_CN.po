@@ -1,4 +1,3 @@
-#
 # Simplified Chinese translation for TortoiseSVN
 # Copyright (C) 2004-2006 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
@@ -14,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-06 17:41+0800\n"
+"PO-Revision-Date: 2006-02-09 16:48+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +38,7 @@ msgstr "! %d"
 #: ID:357
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f MB 传输完毕"
+msgstr "已传输 %.2f MB"
 
 # ID:3868,#:
 # ID:3868,
@@ -125,13 +124,13 @@ msgstr ""
 #: ID:357
 #, c-format
 msgid "%I64d Bytes transferred"
-msgstr "%I64d 字节传输完毕"
+msgstr "已传输 %I64d 字节"
 
 # ID:357,
 #: ID:357
 #, c-format
 msgid "%I64d kBytes transferred"
-msgstr "%I64d KB 传输完毕"
+msgstr "已传输 %I64d KB"
 
 # ID:169,
 #: ID:169
@@ -167,7 +166,7 @@ msgstr "%s ：工作复本"
 #: ID:357
 #, c-format
 msgid "%s, at %s"
-msgstr "%s，在 %s"
+msgstr "%s，传输速度 %s"
 
 # ID:145,
 #: ID:145
@@ -239,7 +238,7 @@ msgstr "谴责(&B)..."
 # ID:138,
 #: ID:138
 msgid "&Browse repository"
-msgstr "浏览文件库(&B)"
+msgstr "浏览版本库(&B)"
 
 # Control-ID:1011,
 #: Control-ID:1011
@@ -285,7 +284,7 @@ msgstr "配置(&C)"
 # ID:9,
 #: Control-ID:1227
 msgid "&Contact the repository on startup"
-msgstr "启动时与仓库联系(&C)"
+msgstr "启动时连接版本库(&C)"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -431,7 +430,7 @@ msgstr "主版本(&H)"
 # ID:238,
 #: Control-ID:1182
 msgid "&HEAD revision in the repository"
-msgstr "文件库中的最新版本(&H)"
+msgstr "版本库中的主版本(&H)"
 
 # Control-ID:9,#:
 # Control-ID:57670,#:
@@ -637,7 +636,7 @@ msgstr "设置(&S)"
 # ID:238,
 #: Control-ID:1185
 msgid "&Specific revision in repository"
-msgstr "文件库中的指定版本(&S)"
+msgstr "版本库中的指定版本(&S)"
 
 #: MenuEntry
 msgid "&Status Bar"
@@ -707,7 +706,7 @@ msgstr "TortoiseSVN(&T)"
 #: Control-ID:65535
 #: Control-ID:1058
 msgid "&URL of repository:"
-msgstr "文件库 URL(&U)："
+msgstr "版本库 URL(&U)："
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -863,14 +862,14 @@ msgid ""
 "is not and you should consult <b>Help</b>."
 msgstr ""
 "<b>注意：</b>\n"
-"重定位(Relocate)命令只用于当文件库的根目录由于服务器的 IP 地址发生改变、\n"
-"协议发生改变(例如由http://改为https://)，或者文件库的根目录在服务器端的设\n"
+"重定位(Relocate)命令只用于当版本库的根目录由于服务器的 IP 地址发生改变、\n"
+"协议发生改变(例如由http://改为https://)，或者版本库的根目录在服务器端的设\n"
 "置中发生改变的情况。\n"
-"不论你是要转移到另一个 Subversion 文件库，或者你是要切换到当前<b>同一个文\n"
-"件库</b>的不同分支或者目录， <b>这是一个很不常用的操作。</b>\n"
-"如果你是要转移到另一个 Subversion 文件库，请从新的文件库中执行一个“干净的”\n"
+"不论你是要转移到另一个 Subversion 版本库，或者你是要切换到当前<b>同一个\n"
+"版本库</b>的不同分支或者目录， <b>这是一个很不常用的操作。</b>\n"
+"如果你是要转移到另一个 Subversion 版本库，请从新的版本库中执行一个“干净的”\n"
 "检出操作。\n"
-"如果你是要切换到当前同一个文件库的不同分支或者目录， 请使用主菜单中的切换\n"
+"如果你是要切换到当前同一个版本库的不同分支或者目录， 请使用主菜单中的切换\n"
 "(Switch)命令。\n"
 "\n"
 "不适当地使用重定位命令将会<b>破坏你的工作复本！</b>\n"
@@ -1014,6 +1013,7 @@ msgstr "当前工作列表"
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:209
+#: Dlg-ID:155
 msgid "Add"
 msgstr "加入"
 
@@ -1201,7 +1201,7 @@ msgstr ""
 "<hr=100%>\n"
 "你可以在程序路径中指定以下参数：\n"
 "%merged\t发生冲突的文件存放位置\n"
-"@theirs\t\t文件库中存放的文件\n"
+"@theirs\t\t版本库中存放的文件\n"
 "%mine\t\t包含你所做变更的文件\n"
 "%base\t\t不包含你所做变更的原始文件"
 
@@ -1299,11 +1299,22 @@ msgstr "确定要将有冲突的文件标识为已解决吗？"
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr "是否确定要复原 %d 个项目? 从上次更新之后的<b>所有</b>变更都会消失！"
 
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "按照路径排序(&P)"
+
 # ID:77,
 #: ID:77
 #, c-format
 msgid "At revision: %d"
 msgstr "于版本：%d"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Dlg-ID:131
+#: Dlg-ID:160
+msgid "Authentication"
+msgstr "认证"
 
 # ID:76,
 #: ID:76
@@ -1380,6 +1391,11 @@ msgstr "浏览(&R)..."
 #: Control-ID:65535
 msgid "Base file:"
 msgstr "基础文件："
+
+# ID:13,
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "谴责"
 
 # ID:13,
 #: ID:13
@@ -1529,6 +1545,11 @@ msgid "Change the window size"
 msgstr "更改窗口大小"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "已改变的文件"
+
+# ID:163,
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
@@ -1542,13 +1563,18 @@ msgstr "改变模式(双击查看细节)："
 # ID:8,
 #: ID:8
 msgid "Chec&kout..."
-msgstr "取出(&K)..."
+msgstr "检出(&K)..."
 
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
 msgid "Check"
 msgstr "选中"
+
+# Control-ID:1031,
+#: Dlg-ID:174
+msgid "Check For Updates"
+msgstr "检查更新"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -1568,12 +1594,12 @@ msgstr "检查更新"
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
-msgstr "从文件库中取出工作复本"
+msgstr "从版本库中检出工作复本"
 
 # Dlg-ID:178,
 #: Control-ID:1132
 msgid "Check repository"
-msgstr "检查文件库"
+msgstr "检查版本库"
 
 # ID:95,
 #: ID:95
@@ -1609,10 +1635,15 @@ msgstr "正在检查更新的版本"
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "正在检查是否有更新版本的 TortoiseSVN..."
 
+# ID:8,
+#: Dlg-ID:133
+msgid "Checkout"
+msgstr "检出"
+
 # Control-ID:1074,
 #: Control-ID:1074
 msgid "Checkout &directory:"
-msgstr "取出至目录(&D)："
+msgstr "检出至目录(&D)："
 
 # ID:79,
 #: ID:79
@@ -1636,7 +1667,7 @@ msgid ""
 "You will have to enter your username/password again for all repositories."
 msgstr ""
 "清除保存的认证。\n"
-"你需要为全部的文件库重新输入用户名和密码。"
+"你需要为全部的版本库重新输入用户名和密码。"
 
 # ID:170,
 #: ID:170
@@ -1723,7 +1754,7 @@ msgstr "每周提交次数："
 # ID:9,
 #: ID:9
 msgid "Commits your changes to the repository"
-msgstr "将你所做的修改提交至文件库"
+msgstr "将你所做的修改提交至版本库"
 
 # ID:76,
 #: MenuEntry
@@ -1808,6 +1839,11 @@ msgstr "远程复制完成"
 #, c-format
 msgid "Copy %s"
 msgstr "复制 %s"
+
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "复制（分支/标记）"
 
 # ID:101,
 #: ID:101
@@ -1987,15 +2023,25 @@ msgstr "无法启动线程！"
 msgid "Create &patch..."
 msgstr "创建补丁(&P)..."
 
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "创建补丁"
+
+# ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "在此创建版本库"
+
 # ID:8,
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
-msgstr "从此复制到文件库"
+msgstr "从此复制到版本库"
 
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here..."
-msgstr "在此创建文件库(&Y)..."
+msgstr "在此创建版本库(&Y)..."
 
 # ID:126,
 #: ID:126
@@ -2005,7 +2051,7 @@ msgstr "远程创建文件夹完成"
 # ID:10,
 #: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "在文件库中快速创建复本做为分支或标记之用"
+msgstr "在版本库中快速创建复本用作分支或标记"
 
 # ID:10,
 #: ID:10
@@ -2300,6 +2346,12 @@ msgstr ""
 msgid "Enlarge the window to full size"
 msgstr "将窗口放到最大"
 
+# ID:126,#:
+# Control-ID:1065,
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "输入日志信息"
+
 # ID:80,
 #: ID:80
 msgid "Enter URL"
@@ -2389,7 +2441,7 @@ msgstr "正在导出..."
 # ID:10,
 #: ID:10
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "从文件库中导出干净的工作复本, 不生成 svn 管理用文件夹"
+msgstr "从版本库中导出干净的工作复本, 不生成 svn 的管理文件夹"
 
 # ID:74,
 #: ID:74
@@ -2592,7 +2644,7 @@ msgstr "正在取得文件信息..."
 # ID:269,
 #: ID:269
 msgid "Getting information from repository..."
-msgstr "正在从文件仓库中获取信息..."
+msgstr "正在从版本库中获取信息..."
 
 # ID:269,
 #: ID:120
@@ -2699,8 +2751,8 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"选中此选项时，会在文件库中创建新文件夹。\n"
-"如未选中，则直接导入到指定的 URL。"
+"选中此选项时会在版本库中创建一个新文件夹。\n"
+"如果未选中，则直接导入到指定的 URL。"
 
 # ID:79,
 #: ID:79
@@ -2714,7 +2766,7 @@ msgid ""
 "But some context menu entries will show up which can't really be used.\n"
 "For example: the \"Show Log\" entry will show even for just added folders."
 msgstr ""
-"如果使用，则右键菜单会显示得快一些，\n"
+"如果不启用，右键菜单会显示得快一些，\n"
 "但是某些无效的右键菜单项也会显示出来；\n"
 "比如即使在一个只进行了添加的文件夹中，也\n"
 "会显示“显示日志”菜单项。"
@@ -2722,7 +2774,7 @@ msgstr ""
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "启用时，TortoiseSVN 每周会检查一次最新版本"
+msgstr "如果启用，TortoiseSVN 每周会检查一次最新版本"
 
 # ID:195,
 #: ID:195
@@ -2730,7 +2782,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
 "instead of the last used URL."
 msgstr ""
-"如果允许，合并对话框在初始化“From:”地址时将使用选\n"
+"如果启用，合并对话框在初始化“From:”地址时将使用选\n"
 "中的工作副本的URL代替最后一次使用的副本的URL。"
 
 # ID:195,
@@ -2739,8 +2791,8 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"如果设置改选项，当对话框出现时自动检查文件库。\n"
-"你不必再设置“检查文件库”选项。"
+"如果启用此选项，当对话框出现时会自动检查版本库。\n"
+"不必再设置“检查版本库”选项。"
 
 # ID:195,
 #: ID:195
@@ -2748,8 +2800,8 @@ msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"如果设置此项, TortoiseSVN 会把文件时间设置至上次\n"
-"提交的时间。如果不设置, 则使用当前时间。"
+"如果选中此选项, TortoiseSVN 会把文件时间设置为\n"
+"最后提交的时间。如果不选中, 则使用当前时间。"
 
 # ID:196,
 #: ID:196
@@ -2790,6 +2842,11 @@ msgstr "忽略根源"
 msgid "Ignore line &endings (recommended)"
 msgstr "忽略行尾（建议）(&E)"
 
+# ID:9,
+#: Dlg-ID:139
+msgid "Import"
+msgstr "导入"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
@@ -2804,7 +2861,7 @@ msgstr "正在导入文件 %s"
 # ID:10,
 #: ID:10
 msgid "Imports the directory to a repository"
-msgstr "导入目录至文件库"
+msgstr "导入目录至版本库"
 
 # Control-ID:1073,
 #: Control-ID:1266
@@ -2825,6 +2882,11 @@ msgstr "初始化导入"
 #: Control-ID:65535
 msgid "Inline whitespace diff"
 msgstr "内联空白字符差异"
+
+# Dlg-ID:161,
+#: Dlg-ID:161
+msgid "Input"
+msgstr "输入"
 
 # ID:3603,
 #: ID:3603
@@ -2993,9 +3055,7 @@ msgstr "本地状态"
 msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
-msgstr ""
-"保存文件库 URL 内容\n"
-"的位置。"
+msgstr "版本库 URL 的内容将要保存到的位置。"
 
 # ID:207,#:
 # ID:221,
@@ -3003,6 +3063,12 @@ msgstr ""
 #: ID:221
 msgid "Lock"
 msgstr "锁定"
+
+# ID:3857,#:
+# ID:3857,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "锁定文件"
 
 # ID:209,
 #: ID:209
@@ -3051,6 +3117,16 @@ msgstr "对其他用户锁定文件，但你可以修改。"
 #: ID:126
 msgid "Log"
 msgstr "日志"
+
+# ID:80,
+#: Dlg-ID:211
+msgid "Log History"
+msgstr "历史记录"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "日志信息"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3125,6 +3201,7 @@ msgid "Max"
 msgstr "最大"
 
 # Dlg-ID:141,
+#: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
 msgstr "合并"
@@ -3430,7 +3507,7 @@ msgstr "至少还有一个的文件处于冲突状态。"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only check out the &top folder"
-msgstr "仅取出最上层目录(&T)"
+msgstr "仅检出最上层目录(&T)"
 
 # ID:319,
 #: ID:319
@@ -3490,7 +3567,7 @@ msgstr ""
 # ID:13,
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "打开文件库浏览器, 进行在线文件库调整"
+msgstr "打开版本库浏览器，在线进行版本库调整"
 
 # ID:188,
 #: ID:245
@@ -3670,7 +3747,7 @@ msgstr "正在取消, 请稍候…"
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
-msgstr "请稍候，正在启动文件库浏览器"
+msgstr "请稍候，正在启动版本库浏览器"
 
 # ID:119,
 #: ID:119
@@ -3695,6 +3772,7 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "程序文件 (*.exe)|*.*|所有文件 (*.*)|*.*||"
 
 # Dlg-ID:134,
+#: Dlg-ID:134
 #: Control-ID:65535
 msgid "Progress"
 msgstr "进程"
@@ -3702,6 +3780,7 @@ msgstr "进程"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "属性"
 
@@ -3838,6 +3917,11 @@ msgstr ""
 "重新加载所有已打开的文件并且还原所有变更。\n"
 "重新加载"
 
+# ID:12,
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "重新定位"
+
 # ID:80,
 #: ID:80
 msgid "Relocating..."
@@ -3891,6 +3975,11 @@ msgstr ""
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "将选定的文件或文件匹配列表从忽略列表删除"
+
+# Dlg-ID:151,
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "重命名"
 
 # ID:97,
 #: ID:97
@@ -3950,7 +4039,7 @@ msgstr "替换"
 # ID:13,
 #: ID:13
 msgid "Repo-browser"
-msgstr "文件库浏览器"
+msgstr "版本库浏览器"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -3958,7 +4047,12 @@ msgstr "文件库浏览器"
 #: Control-ID:65535
 #: Control-ID:1055
 msgid "Repository"
-msgstr "文件库"
+msgstr "版本库"
+
+# Dlg-ID:153,
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "版本库浏览器"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3969,6 +4063,11 @@ msgstr "需要用户名和密码"
 #: ID:8
 msgid "Res&olved..."
 msgstr "已解决的(&O)..."
+
+# ID:8,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "解决"
 
 # ID:9,
 #: ID:282
@@ -4021,6 +4120,13 @@ msgstr "还原"
 msgid "Retry"
 msgstr "重试"
 
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "还原"
+
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -4070,6 +4176,11 @@ msgstr "版本分支图(&G)"
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "版本/作者："
+
+# ID:75,
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "版本分支图"
 
 # ID:75,
 #: ID:269
@@ -4296,6 +4407,11 @@ msgstr "全选/全不选(&A)"
 msgid "Select File..."
 msgstr "选择文件..."
 
+# Dlg-ID:173,
+#: Dlg-ID:173
+msgid "Select Revision"
+msgstr "选择版本"
+
 # ID:78,
 #: ID:78
 msgid "Select SSH client"
@@ -4367,7 +4483,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Select the type of repository you want to create:"
-msgstr "选择你要创建的文件库类型："
+msgstr "选择你要创建的版本库类型："
 
 # ID:78,
 #: ID:78
@@ -4542,7 +4658,7 @@ msgstr "以图形方式显示版本和标签的分支图"
 # ID:13,
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "不论在文件库中或在本地端都显示从上次更新以后有改动的文件"
+msgstr "不论在版本库中或在本地端都显示从上次更新以后有改动的文件"
 
 # ID:10,
 #: ID:10
@@ -4608,6 +4724,7 @@ msgstr "堆叠的"
 # Control-ID:1132,#:
 # Dlg-ID:179,
 #: ID:245
+#: Dlg-ID:179
 msgid "Statistics"
 msgstr "统计"
 
@@ -4669,8 +4786,8 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
-"Subversion 在创建文件库时回报错误！\n"
-"请确认文件夹是空的并且没有写保护保护。"
+"Subversion 在创建版本库时发生错误！\n"
+"请确认文件夹是空的并且没有写保护。"
 
 # ID:81,
 #: ID:81
@@ -4697,6 +4814,11 @@ msgstr "切换工作复本至新分支/标记(&I)"
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "左右切换"
+
+# Dlg-ID:140,
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "切换至分支/标记"
 
 # ID:3606,
 #: ID:3606
@@ -4793,7 +4915,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 msgid "The Repository was successfully created."
-msgstr "文件库创建成功。"
+msgstr "版本库创建成功。"
 
 # ID:63,
 #: ID:63
@@ -4974,7 +5096,7 @@ msgid ""
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "目标文件夹%s非空！\n"
-"你确定要取出/导出到该文件夹吗？"
+"你确定要检出/导出到该文件夹吗？"
 
 # ID:102,
 #: ID:102
@@ -5216,170 +5338,6 @@ msgstr ""
 
 # ID:9,#:
 # ID:80,
-#: Dlg-ID:155
-msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN：添加"
-
-# ID:80,
-#: Dlg-ID:131
-#: Dlg-ID:160
-msgid "TortoiseSVN : Authentication"
-msgstr "TortoiseSVN：认证"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:162
-msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN：谴责"
-
-# Dlg-ID:158,
-#: Dlg-ID:199
-msgid "TortoiseSVN : Changed Files"
-msgstr "TortoiseSVN：修改过的文件"
-
-# Dlg-ID:174,
-#: Dlg-ID:174
-msgid "TortoiseSVN : Check For Updates"
-msgstr "TortoiseSVN：检查更新"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:133
-msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN：取出"
-
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "TortoiseSVN：复制（分支/标记）"
-
-# ID:80,
-#: Dlg-ID:208
-msgid "TortoiseSVN : Create Patch"
-msgstr "TortoiseSVN：创建补丁"
-
-# Dlg-ID:178,
-#: Dlg-ID:178
-msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN：创建文件库"
-
-# Dlg-ID:135,
-#: Dlg-ID:135
-msgid "TortoiseSVN : Enter Log Message"
-msgstr "TortoiseSVN：输入日志信息"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:139
-msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN：导入"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:161
-msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN：输入"
-
-# ID:80,
-#: Dlg-ID:191
-msgid "TortoiseSVN : Lock Files"
-msgstr "TortoiseSVN：锁定文件"
-
-# ID:80,
-#: Dlg-ID:211
-msgid "TortoiseSVN : Log History"
-msgstr "TortoiseSVN：历史记录"
-
-# ID:80,
-#: Dlg-ID:130
-msgid "TortoiseSVN : Log Messages"
-msgstr "TortoiseSVN：日志"
-
-# ID:7,#:
-# ID:3585,#:
-# Dlg-ID:130,
-#: Dlg-ID:141
-msgid "TortoiseSVN : Merge"
-msgstr "TortoiseSVN：合并"
-
-# Dlg-ID:134,
-#: Dlg-ID:134
-msgid "TortoiseSVN : Progress"
-msgstr "TortoiseSVN：处理"
-
-# ID:80,
-#: Dlg-ID:177
-msgid "TortoiseSVN : Properties"
-msgstr "TortoiseSVN：属性"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:157
-msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN：重定位"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:151
-msgid "TortoiseSVN : Rename"
-msgstr "TortoiseSVN：重命名"
-
-# Dlg-ID:153,
-#: Dlg-ID:153
-msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN：文件库浏览器"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:207
-msgid "TortoiseSVN : Resolve"
-msgstr "TortoiseSVN：解决冲突"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:175
-msgid "TortoiseSVN : Revert"
-msgstr "TortoiseSVN：撤销"
-
-# ID:75,
-#: Dlg-ID:182
-msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN：版本分支图"
-
-# ID:80,
-#: Dlg-ID:173
-msgid "TortoiseSVN : Select Revision"
-msgstr "TortoiseSVN：选择版本"
-
-# ID:80,
-#: Dlg-ID:179
-msgid "TortoiseSVN : Statistics"
-msgstr "TortoiseSVN：统计"
-
-# Dlg-ID:140,
-#: Dlg-ID:140
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr "TortoiseSVN：切换至分支/标记"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:164
-msgid "TortoiseSVN : URL"
-msgstr "TortoiseSVN：URL"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:152
-msgid "TortoiseSVN : Update"
-msgstr "TortoiseSVN：更新"
-
-# ID:151,
-#: Dlg-ID:158
-msgid "TortoiseSVN : Working Copy"
-msgstr "TortoiseSVN：工作复本"
-
-# ID:9,#:
-# ID:80,
 #: ID:77
 msgid "TortoiseSVN Add..."
 msgstr "TortoiseSVN 添加..."
@@ -5393,7 +5351,7 @@ msgstr "TortoiseSVN 谴责"
 # ID:77,
 #: ID:77
 msgid "TortoiseSVN Checkout..."
-msgstr "TortoiseSVN 取出..."
+msgstr "TortoiseSVN 检出..."
 
 # ID:77,
 #: ID:77
@@ -5471,7 +5429,7 @@ msgstr "从 %s 开始传输"
 # ID:251,
 #: ID:251
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "试试“清理”，如果它没有生效，你需要重新取出文件。"
+msgstr "试试“清理”，如果没有生效，需要重新检出文件。"
 
 # ID:73,
 #: ID:73
@@ -5486,6 +5444,12 @@ msgstr "调整 TortoiseSVN 设置"
 #: MenuEntry
 msgid "Two-way &Diff"
 msgstr "双向差异(&D)"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: Dlg-ID:164
+msgid "URL"
+msgstr "URL"
 
 # ID:12,
 #: ID:12
@@ -5617,9 +5581,16 @@ msgstr "未命名"
 # ID:8,#:
 # ID:74,#:
 # Dlg-ID:152,
+#: Dlg-ID:152
+msgid "Update"
+msgstr "更新"
+
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
 #: ID:74
 msgid "Updated"
-msgstr "已更新"
+msgstr "更新"
 
 # ID:11,
 #: ID:11
@@ -5720,7 +5691,7 @@ msgstr "使用整个文件(&W)"
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
-msgstr "文件库的 URL 修改时可使用此功能修改"
+msgstr "版本库的 URL 修改时可使用此功能修改"
 
 # ID:251,
 #: ID:251
@@ -5730,7 +5701,7 @@ msgstr "使用其它文件(&F)"
 # ID:74,
 #: ID:74
 msgid "User cancelled"
-msgstr "用户取消操作"
+msgstr "用户操作已取消"
 
 # ID:69,
 #: ID:69
@@ -5788,6 +5759,11 @@ msgstr "警告！"
 msgid "Whitespace diff"
 msgstr "空白字符差异"
 
+# ID:151,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "工作复本"
+
 # ID:80,
 #: ID:80
 #, c-format
@@ -5821,10 +5797,10 @@ msgid ""
 "Accessing a repository via file:/// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"您正创建位于网络磁盘驱动器上的文件库。\n"
-"这很安全, 但是创建后请使用其它的方式存取文件库。\n"
-"通过 file:/// 存取网络磁盘驱动器上的文件库可能造成数据损坏！\n"
-"要创建文件库吗？"
+"您正创建位于网络磁盘驱动器上的版本库。\n"
+"这很安全, 但是创建后请使用其它的方式存取版本库。\n"
+"通过 file:/// 存取网络磁盘驱动器上的版本库可能造成数据损坏！\n"
+"要创建版本库吗？"
 
 # ID:88,
 #: ID:88
@@ -5835,8 +5811,8 @@ msgid ""
 "Do you really want to do that?"
 msgstr ""
 "您正在通过网络磁盘驱动器使用 file:/// \n"
-"协议存取文件库。\n"
-"这可能造成严重的文件库损坏！\n"
+"协议存取版本库。\n"
+"这可能造成严重的版本库损坏！\n"
 "确定要这样做吗？"
 
 # ID:16,
@@ -6289,7 +6265,7 @@ msgid ""
 msgstr ""
 "svn:keywords\r\n"
 "要展开的关键词。合法的关键词包括：\r\n"
-"URL，HeadURL\t\t\t此对象最新版本的 URL。\r\n"
+"URL，HeadURL\t\t\t此对象主版本的 URL。\r\n"
 "Author，LastChangedBy\t\t最后一个修改此文件的人。\r\n"
 "Date，LastChangedDate\t\t此文件最后修改日期。\r\n"
 "Rev，LastChangedRevision\t此对象有变更的最新版本。\r\n"
@@ -6315,7 +6291,7 @@ msgid ""
 msgstr ""
 "svn:needs-lock\n"
 "将此属性设为任意值（如“*”）来执行此文件锁定。\n"
-"文件将在取出或更新时被设为只读，表明用户需在\n"
+"文件将在检出或更新时被设为只读，表明用户需在\n"
 "修改或提交前取得该文件锁定。"
 
 # ID:80,
