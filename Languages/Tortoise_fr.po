@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-09 11:17+0100\n"
+"PO-Revision-Date: 2006-02-10 10:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1087,9 +1087,8 @@ msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> chan
 msgstr "Etes-vous sûr de vouloir faire revenir à l'ancienne version %d élément(s) ? Vous allez perdre <b>toutes</b> vos modifications depuis la dernière mise à jour!"
 
 #: MenuEntry
-#, fuzzy
 msgid "Arranged by &path"
-msgstr "Arrangé par &chemin"
+msgstr "Arrangé par che&min"
 
 #: ID:77
 #, c-format
@@ -2729,6 +2728,11 @@ msgstr ""
 msgid "Max"
 msgstr "Max"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Max. items to keep in the log message history"
+msgstr "Maximum d'éléments à garder dans les commentaires récents"
+
 #: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
@@ -3791,7 +3795,7 @@ msgstr "&Adresse serveur:"
 
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit &time\""
-msgstr "Met la date du fichier à la \"date de dernière livraison\""
+msgstr "Met la date du fichier à la \"da&te de dernière livraison\""
 
 #: ID:13
 msgid "Setting properties..."
@@ -3941,6 +3945,11 @@ msgstr "Omis"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Evité, cible absente "
+
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "Spécifie combien d'éléments vous voulez garder dans la boite de dialogue des commentaires récents."
 
 #: ID:79
 msgid ""
