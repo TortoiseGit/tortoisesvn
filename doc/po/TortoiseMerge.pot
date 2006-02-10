@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-02-09 23:31GMT Standard Time\n"
+"POT-Creation-Date: 2006-02-10 23:37GMT Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -554,190 +554,214 @@ msgid "Go to previous difference"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:801(term) 
-msgid "Ctrl-D"
+msgid "Shift-cursor-right"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:803(para) 
-msgid "Toggle between one-pane diff and two-pane diff"
+msgid "Go to next conflict"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:809(term) 
-msgid "Ctrl-R"
+msgid "Shift-cursor-left"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:811(para) 
-msgid "Reload the files and revert all changes made"
+msgid "Go to previous conflict"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:817(term) 
-msgid "Ctrl-T"
+msgid "Ctrl-D"
 msgstr ""
 
 #: source/TortoiseMerge_en.xml:819(para) 
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:825(term) 
+msgid "Ctrl-R"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:827(para) 
+msgid "Reload the files and revert all changes made"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:833(term) 
+msgid "Ctrl-T"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:835(para) 
 msgid "Toggles between showing whitespaces or not"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:828(title) source/TortoiseMerge_en.xml:836(title) 
+#: source/TortoiseMerge_en.xml:841(term) 
+msgid "Ctrl-wheelmouse"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:843(para) 
+msgid "Scroll the display left/right"
+msgstr ""
+
+#: source/TortoiseMerge_en.xml:852(title) source/TortoiseMerge_en.xml:860(title) 
 msgid "Command Line Parameters"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:830(para) 
+#: source/TortoiseMerge_en.xml:854(para) 
 msgid "TortoiseMerge can be started with different command line parameters to load files directly at program startup."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:839(term) 
+#: source/TortoiseMerge_en.xml:863(term) 
 msgid "/?"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:841(para) 
+#: source/TortoiseMerge_en.xml:865(para) 
 msgid "Shows an info dialog with all possible command line parameters."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:848(term) 
+#: source/TortoiseMerge_en.xml:872(term) 
 msgid "/base:\"path/to/basefile\""
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:850(para) 
+#: source/TortoiseMerge_en.xml:874(para) 
 msgid "load the base file"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:856(term) 
+#: source/TortoiseMerge_en.xml:880(term) 
 msgid "/basename:name"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:858(para) 
+#: source/TortoiseMerge_en.xml:882(para) 
 msgid "Sets the view title for the base file."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:864(term) 
+#: source/TortoiseMerge_en.xml:888(term) 
 msgid "/theirs:\"path/to/theirfile\""
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:866(para) 
+#: source/TortoiseMerge_en.xml:890(para) 
 msgid "load their file"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:872(term) 
+#: source/TortoiseMerge_en.xml:896(term) 
 msgid "/theirname:name"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:874(para) 
+#: source/TortoiseMerge_en.xml:898(para) 
 msgid "Sets the view title of their file."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:880(term) 
+#: source/TortoiseMerge_en.xml:904(term) 
 msgid "/mine:\"path/to/yourfile\""
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:882(para) 
+#: source/TortoiseMerge_en.xml:906(para) 
 msgid "load your file"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:888(term) 
+#: source/TortoiseMerge_en.xml:912(term) 
 msgid "/minename:name"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:890(para) 
+#: source/TortoiseMerge_en.xml:914(para) 
 msgid "Sets the view title of your file."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:896(term) 
+#: source/TortoiseMerge_en.xml:920(term) 
 msgid "/merged:\"path/to/mergedfile\""
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:898(para) 
+#: source/TortoiseMerge_en.xml:922(para) 
 msgid "Specifies the merged file where the result of the merge is saved to."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:905(term) 
+#: source/TortoiseMerge_en.xml:929(term) 
 msgid "/mergedname:name"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:907(para) 
+#: source/TortoiseMerge_en.xml:931(para) 
 msgid "Sets the view title for the result file."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:913(term) 
+#: source/TortoiseMerge_en.xml:937(term) 
 msgid "/diff:\"path/to/unified_diff_file\""
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:915(para) 
+#: source/TortoiseMerge_en.xml:939(para) 
 msgid "Specifies the unified diff file (patchfile)."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:921(term) 
+#: source/TortoiseMerge_en.xml:945(term) 
 msgid "/patchpath:\"path/to/patchfolder\""
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:923(para) 
+#: source/TortoiseMerge_en.xml:947(para) 
 msgid "Specifies the path to the folder where the patchfile is applied to."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:930(term) 
+#: source/TortoiseMerge_en.xml:954(term) 
 msgid "/oneway"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:932(para) 
+#: source/TortoiseMerge_en.xml:956(para) 
 msgid "If set, TortoiseMerge starts with the one-pane-view."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:944(title) 
+#: source/TortoiseMerge_en.xml:968(title) 
 msgid "Glossary"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:946(glossterm) 
+#: source/TortoiseMerge_en.xml:970(glossterm) 
 msgid "Add"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:948(para) 
+#: source/TortoiseMerge_en.xml:972(para) 
 msgid "A Subversion command that is used to add a file or directory to a repository."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:955(glossterm) 
+#: source/TortoiseMerge_en.xml:979(glossterm) 
 msgid "BDB"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:957(para) 
+#: source/TortoiseMerge_en.xml:981(para) 
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:964(glossterm) 
+#: source/TortoiseMerge_en.xml:988(glossterm) 
 msgid "FSFS"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:966(para) 
+#: source/TortoiseMerge_en.xml:990(para) 
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:973(glossterm) 
+#: source/TortoiseMerge_en.xml:997(glossterm) 
 msgid "Repository"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:975(para) 
+#: source/TortoiseMerge_en.xml:999(para) 
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:984(glossterm) 
+#: source/TortoiseMerge_en.xml:1008(glossterm) 
 msgid "BASE revision"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:986(para) 
+#: source/TortoiseMerge_en.xml:1010(para) 
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:995(glossterm) 
+#: source/TortoiseMerge_en.xml:1019(glossterm) 
 msgid "HEAD revision"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:997(para) 
+#: source/TortoiseMerge_en.xml:1021(para) 
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1003(glossterm) 
+#: source/TortoiseMerge_en.xml:1027(glossterm) 
 msgid "GPO"
 msgstr ""
 
-#: source/TortoiseMerge_en.xml:1005(para) 
+#: source/TortoiseMerge_en.xml:1029(para) 
 msgid "Group policy object"
 msgstr ""
 
