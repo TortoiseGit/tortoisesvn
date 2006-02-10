@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-09 13:13+0900\n"
+"PO-Revision-Date: 2006-02-10 13:35+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3199,6 +3199,11 @@ msgstr ""
 msgid "Max"
 msgstr "최대"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Max. items to keep in the log message history"
+msgstr "사용되었던 로그 저장 개수"
+
 # Dlg-ID:141,
 #: Dlg-ID:141
 #: Control-ID:65535
@@ -4692,6 +4697,11 @@ msgstr "넘김"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "없는 개체는 건너뜀"
+
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "사용된 로그는 저장되며, 몇 개까지 저장할 것인지를 지정합니다."
 
 # ID:79,
 #: ID:79
