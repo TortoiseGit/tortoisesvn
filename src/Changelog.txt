@@ -50,6 +50,8 @@
 - CHG: The dialog titles don't have the "TortoiseSVN : " in front
        anymore. (Stefan)
 - CHG: The recent log messages now are sorted by 'last used'. (Stefan)
+- CHG: A doubleclick on a conflicted item in the dialogs will start
+       the conflict editor instead of the diff tool. (Stefan)
 
 Version 1.3.2
 - BUG: When copying and renaming a file by right-dragging, the "Cancel" 

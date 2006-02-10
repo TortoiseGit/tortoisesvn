@@ -2442,8 +2442,20 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (m_bBlock)
 		return;
-
-	StartDiff(pNMLV->iItem);
+	if (pNMLV->iItem < 0)
+		return;
+	FileEntry * entry = GetListEntry(pNMLV->iItem);
+	if (entry)
+	{
+		if (entry->status == svn_wc_status_conflicted)
+		{
+			SVNDiff::StartConflictEditor(entry->GetPath());
+		}
+		else
+		{
+			StartDiff(pNMLV->iItem);
+		}
+	}
 }
 
 void CSVNStatusListCtrl::StartDiff(int fileindex)
