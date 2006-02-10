@@ -145,7 +145,7 @@ void CInputDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_INPUTTEXT)->GetWindowText(sTemp);
-	if ((!m_bUseLogWidth)&&((m_pProjectProperties==NULL)||(sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)))
+	if ((!m_bUseLogWidth)||((m_pProjectProperties==NULL)||(sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)))
 	{
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
