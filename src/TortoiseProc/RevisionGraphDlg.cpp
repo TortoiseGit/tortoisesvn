@@ -586,11 +586,16 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 			// save the graph as an enhanced metafile
 			CMetaFileDC wmfDC;
 			wmfDC.CreateEnhanced(NULL, tempfile, NULL, _T("TortoiseSVN\0Revision Graph\0\0"));
+			float fZoom = m_fZoomFactor;
+			m_fZoomFactor = 1.0;
+			DoZoom(m_fZoomFactor);
 			CRect rect;
 			rect = GetViewSize();
 			DrawGraph(&wmfDC, rect, 0, 0, true);
 			HENHMETAFILE hemf = wmfDC.CloseEnhanced();
 			DeleteEnhMetaFile(hemf);
+			m_fZoomFactor = fZoom;
+			DoZoom(m_fZoomFactor);
 		}
 		else
 		{
