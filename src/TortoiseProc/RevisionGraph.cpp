@@ -740,37 +740,6 @@ bool CRevisionGraph::Cleanup(CStringA url, bool bArrangeByPath)
 	// step two: sort the entries
 	qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompareRevUrl);
 	
-	// step two and a half: rearrange the nodes by path if requested
-	if (bArrangeByPath)
-	{
-		std::set<std::string> pathset;
-
-		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
-		{
-			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
-			if (reventry->url)
-				pathset.insert(std::string(reventry->url));
-		}
-
-		std::map<std::string, int> pathmap;
-		int i=1;
-		for (std::set<std::string>::iterator it = pathset.begin(); it != pathset.end(); ++it)
-		{
-			pathmap[*it] = i++;
-		}
-		std::map<std::string, int>::iterator lev = pathmap.begin();
-		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
-		{
-			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
-			if ((lev = pathmap.find(std::string(reventry->url))) != pathmap.end())
-			{
-				reventry->level = lev->second;	
-			}
-			else
-				ATLASSERT(FALSE);
-		}
-	}
-
 	// step three: combine entries with the same revision and url
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
@@ -826,7 +795,96 @@ bool CRevisionGraph::Cleanup(CStringA url, bool bArrangeByPath)
 			}
 		}
 	}
-	
+
+	// step two and a half: rearrange the nodes by path if requested
+	if (bArrangeByPath)
+	{
+		// arraning the nodes by path:
+		// each URL gets its own column, as long as there are more than just
+		// one node of that URL.
+
+		struct view
+		{
+			int count;
+			int level;
+		};
+		std::map<std::string, view> pathmap;
+
+		// go through all nodes, and count the number of nodes for each URL
+		// don't assign a valid level for those yet
+		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+		{
+			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+			if (reventry->url)
+			{
+				std::string surl(reventry->url);
+				std::map<std::string, view>::iterator findit = pathmap.find(surl);
+				view myview;
+				myview.count = 1;
+				myview.level = 0;
+				if (findit==pathmap.end())
+					pathmap[surl] = myview;
+				else
+				{
+					// that URL already is in the map, so just increase its count
+					findit->second.count++;
+				}
+			}
+		}
+
+		// since the map is ordered alphabetically by URL, we assign each URL
+		// a level according to its order. This makes sure that e.g. all tags
+		// get on the same level, because they will all be ordered after each
+		// other in the map.
+		int proplevel=1;
+		bool bLastWasCountEqualOne = false;
+		for (std::map<std::string,view>::iterator it = pathmap.begin(); it != pathmap.end(); ++it)
+		{
+			if (it->second.count > 1)
+			{
+				if (bLastWasCountEqualOne)
+					++proplevel;
+				bLastWasCountEqualOne = false;
+				it->second.level = proplevel++;
+			}
+			else
+			{
+				it->second.level = proplevel;
+				bLastWasCountEqualOne = true;
+			}
+		}
+
+		// ordering the nodes alphabetically by URL doesn't look that good
+		// in the graph, because 'branch' comes before 'tags' and only then
+		// comes 'trunk'.
+		// So we reorder the nodes again, but this time by revisions an URL
+		// appears first. That way the graph looks a lot nicer.
+		
+		std::map<int, int> levelmap;	// Assigns each alphabetical level a real level
+		std::map<std::string, view>::iterator lev = pathmap.begin();
+		int reallevel = 1;
+		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+		{
+			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+			if ((lev = pathmap.find(std::string(reventry->url))) != pathmap.end())
+			{
+				std::map<int, int>::iterator levelit = levelmap.find(lev->second.level);
+				if (levelit!=levelmap.end())
+				{
+					reventry->level = levelit->second;
+				}
+				else
+				{
+					reventry->level = reallevel;
+					levelmap[lev->second.level] = reallevel;
+					++reallevel;
+				}
+			}
+			else
+				ATLASSERT(FALSE);
+		}
+	}
+
 	// step four: connect entries with the same name and the same level
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
