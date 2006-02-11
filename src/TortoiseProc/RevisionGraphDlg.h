@@ -65,7 +65,7 @@ enum NodeShape
  * The analyzation of the log data is done in the child class CRevisionGraph.
  * Here, we handle the drawing.
  */
-class CRevisionGraphDlg : public CResizableStandAloneDialog, public CRevisionGraph //CResizableStandAloneDialog
+class CRevisionGraphDlg : public CDialog, public CRevisionGraph
 {
 	DECLARE_DYNAMIC(CRevisionGraphDlg)
 public:

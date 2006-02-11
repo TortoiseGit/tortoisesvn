@@ -85,7 +85,7 @@ void CRevisionGraphDlg::OnPaint()
 	if (m_bThreadRunning)
 	{
 		dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));
-		CResizableStandAloneDialog::OnPaint();
+		CDialog::OnPaint();
 		return;
 	}
 	else if ((m_bNoGraph)||(m_arEntryPtrs.GetCount()==0))

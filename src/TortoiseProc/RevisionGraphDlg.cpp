@@ -41,9 +41,9 @@ using namespace Gdiplus;
 
 // CRevisionGraphDlg dialog
 
-IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CResizableStandAloneDialog)
+IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CDialog)
 CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
+	: CDialog(CRevisionGraphDlg::IDD, pParent)
 	, m_SelectedEntry1(NULL)
 	, m_SelectedEntry2(NULL)
 	, m_bThreadRunning(FALSE)
@@ -96,11 +96,11 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 
 void CRevisionGraphDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
+BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_ERASEBKGND()
 	ON_WM_HSCROLL()
@@ -129,7 +129,7 @@ END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	m_pDlgTip = new CToolTipCtrl;
 	if(!m_pDlgTip->Create(this))
@@ -156,8 +156,8 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	}
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("RevisionGraphDlg"));
-	SetSizeGripVisibility(FALSE);
+	//EnableSaveRestore(_T("RevisionGraphDlg"));
+	//SetSizeGripVisibility(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
