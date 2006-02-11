@@ -109,7 +109,7 @@ protected:
 	int				m_node_space_bottom;
 	int				m_nIconSize;
 	CPoint			m_RoundRectPt;
-	int				m_nZoomFactor;
+	float			m_fZoomFactor;
 	CColors			m_Colors;
 	bool			m_bFetchLogs;
 	bool			m_bShowAll;
@@ -168,6 +168,6 @@ private:
 	void			DecrementSpaceLines(source_entry * reventry);
 	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, INT_PTR start, INT_PTR end);
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
-	void			DoZoom(int nZoomFactor);
+	void			DoZoom(float nZoomFactor);
 	static UINT		WorkerThread(LPVOID pVoid);
 };

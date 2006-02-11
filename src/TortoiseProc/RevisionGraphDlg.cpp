@@ -59,7 +59,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_node_space_bottom(NODE_SPACE_BOTTOM)
 	, m_nIconSize(32)
 	, m_RoundRectPt(ROUND_RECT, ROUND_RECT)
-	, m_nZoomFactor(10)
+	, m_fZoomFactor(1.0)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
 	, m_bShowAll(false)
@@ -494,36 +494,42 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 			return;
 		}
 
-		pDC->SetTextColor(textcolor);
-		// draw the revision text
-		pOldFont = pDC->SelectObject(GetFont(FALSE, TRUE));
-		CString temp;
-		CRect r;
-		CRect textrect = rect;
-		textrect.left += 10;
-		textrect.right -= 10;
-		TEXTMETRIC textMetric;
-		pDC->GetOutputTextMetrics(&textMetric);
-		temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
-		pDC->DrawText(temp, &r, DT_CALCRECT);
-		pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), textrect.top + m_node_rect_heigth/4, ETO_CLIPPED, NULL, temp, NULL);
+		if (m_nFontSize)
+		{
+			pDC->SetTextColor(textcolor);
+			// draw the revision text
+			pOldFont = pDC->SelectObject(GetFont(FALSE, TRUE));
+			CString temp;
+			CRect r;
+			CRect textrect = rect;
+			textrect.left += 10;
+			textrect.right -= 10;
+			TEXTMETRIC textMetric;
+			pDC->GetOutputTextMetrics(&textMetric);
+			temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
+			pDC->DrawText(temp, &r, DT_CALCRECT);
+			pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), textrect.top + m_node_rect_heigth/4, ETO_CLIPPED, NULL, temp, NULL);
 
-		// draw the url
-		pDC->SelectObject(GetFont(TRUE));
-		temp = CUnicodeUtils::GetUnicode(rentry->url);
-		if (temp.IsEmpty())
-			temp = CUnicodeUtils::GetUnicode(rentry->realurl);
-		r = textrect;
-		temp.Replace('/','\\');
-		pDC->DrawText(temp.GetBuffer(temp.GetLength()), temp.GetLength(), &r, DT_CALCRECT | DT_PATH_ELLIPSIS | DT_MODIFYSTRING);
-		temp.ReleaseBuffer();
-		temp.Replace('\\','/');
-		pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), textrect.top + m_node_rect_heigth/4 + m_node_rect_heigth/3, ETO_CLIPPED, &textrect, temp, NULL);
+			// draw the url
+			pDC->SelectObject(GetFont(TRUE));
+			temp = CUnicodeUtils::GetUnicode(rentry->url);
+			if (temp.IsEmpty())
+				temp = CUnicodeUtils::GetUnicode(rentry->realurl);
+			r = textrect;
+			temp.Replace('/','\\');
+			pDC->DrawText(temp.GetBuffer(temp.GetLength()), temp.GetLength(), &r, DT_CALCRECT | DT_PATH_ELLIPSIS | DT_MODIFYSTRING);
+			temp.ReleaseBuffer();
+			temp.Replace('\\','/');
+			pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), textrect.top + m_node_rect_heigth/4 + m_node_rect_heigth/3, ETO_CLIPPED, &textrect, temp, NULL);
+		}
 
-		// draw the icon
-		CPoint iconpoint = CPoint(rect.left + m_nIconSize/6, rect.top + m_nIconSize/6);
-		CSize iconsize = CSize(m_nIconSize, m_nIconSize);
-		pDC->DrawState(iconpoint, iconsize, hIcon, DST_ICON, (HBRUSH)NULL);
+		if (m_nIconSize)
+		{
+			// draw the icon
+			CPoint iconpoint = CPoint(rect.left + m_nIconSize/6, rect.top + m_nIconSize/6);
+			CSize iconsize = CSize(m_nIconSize, m_nIconSize);
+			pDC->DrawState(iconpoint, iconsize, hIcon, DST_ICON, (HBRUSH)NULL);
+		}
 		// Cleanup
 		if (pOldFont != 0L)
 		{
@@ -581,16 +587,22 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	INT_PTR i = 0;
 	INT_PTR end = 0;
 	int vert = 0;
-	while ((vert)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= nVScrollPos)
-		vert++;
+	if (m_node_rect_heigth || m_node_space_top || m_node_space_bottom)
+	{
+		while ((vert)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= nVScrollPos)
+			vert++;
+	}
 	if (vert>0)
 		vert--;
 	// vert is now the top vertical postion of the first nodes to draw
 	while ((i<m_arEntryPtrs.GetCount())&&((int)m_arVertPositions[i] < vert))
 		++i;
 	end = i;
-	while ((vert)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= (rect.bottom + nVScrollPos))
-		vert++;
+	if (m_node_rect_heigth || m_node_space_top || m_node_space_bottom)
+	{
+		while ((vert)*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) <= (rect.bottom + nVScrollPos))
+			vert++;
+	}
 	while ((end<m_arEntryPtrs.GetCount())&&((int)m_arVertPositions[end] < vert))
 		++end;
 
@@ -1176,8 +1188,8 @@ CRect * CRevisionGraphDlg::GetViewSize()
 		CFont * pOldFont = pDC->SelectObject(GetFont(TRUE));
 		pDC->DrawText(url, &r, DT_CALCRECT);
 		// keep the width inside reasonable values.
-		m_node_rect_width = min(500 * m_nZoomFactor / 10, r.Width()+40);
-		m_node_rect_width = max(NODE_RECT_WIDTH * m_nZoomFactor / 10, m_node_rect_width);
+		m_node_rect_width = min(int(500 * m_fZoomFactor), r.Width()+40);
+		m_node_rect_width = max(int(NODE_RECT_WIDTH * m_fZoomFactor), m_node_rect_width);
 		pDC->SelectObject(pOldFont);
 	}
 	ReleaseDC(pDC);
@@ -1985,18 +1997,18 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	return tempfile;
 }
 
-void CRevisionGraphDlg::DoZoom(int nZoomFactor)
+void CRevisionGraphDlg::DoZoom(float fZoomFactor)
 {
-	m_node_space_left = NODE_SPACE_LEFT * nZoomFactor / 10;
-	m_node_space_right = NODE_SPACE_RIGHT * nZoomFactor / 10;
-	m_node_space_line = NODE_SPACE_LINE * nZoomFactor / 10;
-	m_node_rect_heigth = NODE_RECT_HEIGTH * nZoomFactor / 10;
-	m_node_space_top = NODE_SPACE_TOP * nZoomFactor / 10;
-	m_node_space_bottom = NODE_SPACE_BOTTOM * nZoomFactor / 10;
-	m_nFontSize = 12 * nZoomFactor / 10;
-	m_RoundRectPt.x = ROUND_RECT * nZoomFactor / 10;
-	m_RoundRectPt.y = ROUND_RECT * nZoomFactor / 10;
-	m_nIconSize = 32 * nZoomFactor / 10;
+	m_node_space_left = max(int(NODE_SPACE_LEFT * fZoomFactor),1);
+	m_node_space_right = max(int(NODE_SPACE_RIGHT * fZoomFactor),1);
+	m_node_space_line = max(int(NODE_SPACE_LINE * fZoomFactor),1);
+	m_node_rect_heigth = max(int(NODE_RECT_HEIGTH * fZoomFactor),1);
+	m_node_space_top = max(int(NODE_SPACE_TOP * fZoomFactor),1);
+	m_node_space_bottom = max(int(NODE_SPACE_BOTTOM * fZoomFactor),1);
+	m_nFontSize = int(12 * fZoomFactor);
+	m_RoundRectPt.x = int(ROUND_RECT * fZoomFactor);
+	m_RoundRectPt.y = int(ROUND_RECT * fZoomFactor);
+	m_nIconSize = int(32 * fZoomFactor);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -2012,19 +2024,20 @@ void CRevisionGraphDlg::DoZoom(int nZoomFactor)
 
 void CRevisionGraphDlg::OnViewZoomin()
 {
-	if (m_nZoomFactor < 20)
+	if (m_fZoomFactor < 2.0)
 	{
-		m_nZoomFactor++;
-		DoZoom(m_nZoomFactor);
+		m_fZoomFactor = m_fZoomFactor + (m_fZoomFactor*0.1f);
+		DoZoom(m_fZoomFactor);
 	}
 }
 
 void CRevisionGraphDlg::OnViewZoomout()
 {
-	if (m_nZoomFactor > 2)
+	if ((m_node_space_left > 1) || (m_node_space_right > 1) || (m_node_space_line > 1) ||
+		(m_node_rect_heigth > 1) || (m_node_space_top > 1) || (m_node_space_bottom > 1))
 	{
-		m_nZoomFactor--;
-		DoZoom(m_nZoomFactor);
+		m_fZoomFactor = m_fZoomFactor - (m_fZoomFactor*0.1f);
+		DoZoom(m_fZoomFactor);
 	}
 }
 
