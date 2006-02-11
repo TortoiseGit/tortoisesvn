@@ -846,8 +846,16 @@ void CRevisionGraphDlg::CountEntryConnections()
 			}
 			else
 			{
-				reventry->rightconnections++;
-				reventryto->bottomconnections++;
+				if (reventry->level < reventryto->level)
+				{
+					reventry->rightconnections++;
+					reventryto->bottomconnections++;
+				}
+				else
+				{
+					reventry->leftconnections++;
+					reventryto->bottomconnections++;
+				}
 				MarkSpaceLines(sentry, reventry->level, reventry->revision, reventryto->revision);
 			}
 		}
@@ -907,7 +915,6 @@ void CRevisionGraphDlg::BuildConnections()
 			CRevisionEntry * reventry2 = ((CRevisionEntry*)m_arEntryPtrs.GetAt(index));
 			
 			// we always draw from bottom to top!			
-			
 			CPoint * pt = new CPoint[5];
 			if (reventry->level < reventry2->level)
 			{
@@ -974,15 +981,15 @@ void CRevisionGraphDlg::BuildConnections()
 					pt[0].x = ((reventry->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left);
 					//line to middle of nodes: 2
 					pt[1].y = pt[0].y;
-					pt[1].x = pt[0].x - m_node_space_line - yoffset;
+					pt[1].x = pt[0].x - xoffset;
 					//line up: 3
 					pt[2].x = pt[1].x;
-					pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top + m_node_space_bottom/2);
-					//pt[2].y += (m_node_rect_heigth / (reventry->sourcearray.GetCount()+1));
+					pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
+					pt[2].y += yoffset;
 					//line to middle of target rect: 4
 					pt[3].y = pt[2].y;
 					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
-					pt[3].x += xoffset;
+					pt[3].x += m_node_space_left + m_node_rect_width/2;
 					//line up to target rect: 5
 					pt[4].x = pt[3].x;
 					pt[4].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top);
