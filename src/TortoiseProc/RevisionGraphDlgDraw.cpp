@@ -29,7 +29,7 @@
 #include "TSVNPath.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
-#include ".\revisiongraphdlg.h"
+#include ".\revisiongraphwnd.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -42,7 +42,7 @@ using namespace Gdiplus;
 /************************************************************************/
 /* Graphing functions                                                   */
 /************************************************************************/
-CFont* CRevisionGraphDlg::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
+CFont* CRevisionGraphWnd::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
 {
 	int nIndex = 0;
 	if (bBold)
@@ -65,27 +65,26 @@ CFont* CRevisionGraphDlg::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE
 		{
 			delete m_apFonts[nIndex];
 			m_apFonts[nIndex] = NULL;
-			return CDialog::GetFont();
+			return CWnd::GetFont();
 		}
 	}
 	return m_apFonts[nIndex];
 }
 
-BOOL CRevisionGraphDlg::OnEraseBkgnd(CDC* /*pDC*/)
+BOOL CRevisionGraphWnd::OnEraseBkgnd(CDC* /*pDC*/)
 {
 	return TRUE;
 }
 
-void CRevisionGraphDlg::OnPaint() 
+void CRevisionGraphWnd::OnPaint() 
 {
 	CPaintDC dc(this); // device context for painting
 	CRect rect;
 	GetClientRect(&rect);
-
 	if (m_bThreadRunning)
 	{
 		dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));
-		CDialog::OnPaint();
+		CWnd::OnPaint();
 		return;
 	}
 	else if ((m_bNoGraph)||(m_arEntryPtrs.GetCount()==0))
@@ -100,7 +99,7 @@ void CRevisionGraphDlg::OnPaint()
 	DrawGraph(&dc, rect, GetScrollPos(SB_VERT), GetScrollPos(SB_HORZ), false);
 }
 
-void CRevisionGraphDlg::DrawOctangle(CDC * pDC, const CRect& rect)
+void CRevisionGraphWnd::DrawOctangle(CDC * pDC, const CRect& rect)
 {
 	int cutLen = rect.Height() / 4;
 	CPoint point1(rect.left, rect.top + cutLen);
@@ -124,7 +123,7 @@ void CRevisionGraphDlg::DrawOctangle(CDC * pDC, const CRect& rect)
 		pDC->Polygon(arrPoints, 8);
 }
 
-void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
+void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 								COLORREF contour, CRevisionEntry *rentry, NodeShape shape, 
 								BOOL isSel, HICON hIcon, int penStyle /*= PS_SOLID*/)
 {
@@ -320,7 +319,7 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 	END_CATCH_ALL
 }
 
-void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw)
+void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw)
 {
 	CDC * memDC;
 	if (bDirectDraw)
@@ -425,7 +424,7 @@ void CRevisionGraphDlg::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		delete memDC;
 }
 
-void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, INT_PTR start, INT_PTR end)
+void CRevisionGraphWnd::DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, INT_PTR start, INT_PTR end)
 {
 	CRect viewrect;
 	viewrect.top = rect.top + nVScrollPos;

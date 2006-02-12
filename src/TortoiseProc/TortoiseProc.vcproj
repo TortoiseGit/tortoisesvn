@@ -48,7 +48,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;APU_HAVE_DB=1;ENABLE_NLS;THESAURUS"
 				MinimalRebuild="true"
 				ExceptionHandling="1"
@@ -138,7 +138,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu"
 				PreprocessorDefinitions="WIN64;_WINDOWS;_DEBUG;SVN_DEBUG;APU_HAVE_DB=1;ENABLE_NLS;THESAURUS"
 				MinimalRebuild="true"
 				ExceptionHandling="1"
@@ -229,7 +229,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APU_HAVE_DB=1;THESAURUS"
 				StringPooling="true"
 				MinimalRebuild="false"
@@ -325,7 +325,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu"
 				PreprocessorDefinitions="WIN64;_WINDOWS;NDEBUG;APU_HAVE_DB=1;THESAURUS"
 				StringPooling="true"
 				MinimalRebuild="false"
@@ -753,6 +753,22 @@
 				</File>
 				<File
 					RelativePath="..\Utils\ProgressDlg.h"
+					>
+				</File>
+				<File
+					RelativePath=".\RevisionGraphDlgDraw.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RevisionGraphDlgFunc.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RevisionGraphWnd.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RevisionGraphWnd.h"
 					>
 				</File>
 				<File
@@ -1375,6 +1391,26 @@
 						>
 					</File>
 				</Filter>
+				<Filter
+					Name="NewMenu"
+					>
+					<File
+						RelativePath="..\Utils\NewMenu\NewMenu.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\Utils\NewMenu\NewMenu.h"
+						>
+					</File>
+					<File
+						RelativePath="..\Utils\NewMenu\NewToolBar.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\Utils\NewMenu\NewToolBar.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -1645,14 +1681,6 @@
 				</File>
 				<File
 					RelativePath=".\RevisionGraphDlg.h"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionGraphDlgDraw.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionGraphDlgFunc.cpp"
 					>
 				</File>
 				<File
@@ -2171,6 +2199,10 @@
 			</File>
 			<File
 				RelativePath="..\Resources\revgraph_replaced.ico"
+				>
+			</File>
+			<File
+				RelativePath="..\Resources\revgraphbar.bmp"
 				>
 			</File>
 			<File

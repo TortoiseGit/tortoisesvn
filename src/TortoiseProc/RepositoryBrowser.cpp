@@ -621,7 +621,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			case ID_REVGRAPH:
 				{
 					CRevisionGraphDlg dlg;
-					dlg.m_sPath = url;
+					dlg.SetPath(url);
 					dlg.DoModal();
 				}
 				break;

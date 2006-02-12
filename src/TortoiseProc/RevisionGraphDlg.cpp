@@ -41,87 +41,45 @@ using namespace Gdiplus;
 
 // CRevisionGraphDlg dialog
 
-IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CNewDialog)
 CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CRevisionGraphDlg::IDD, pParent)
-	, m_SelectedEntry1(NULL)
-	, m_SelectedEntry2(NULL)
-	, m_bThreadRunning(FALSE)
-	, m_pDlgTip(NULL)
-	, m_bNoGraph(false)
-	, m_nFontSize(12)
-	, m_node_rect_width(NODE_RECT_WIDTH)
-	, m_node_space_left(NODE_SPACE_LEFT)
-	, m_node_space_right(NODE_SPACE_RIGHT)
-	, m_node_space_line(NODE_SPACE_LINE)
-	, m_node_rect_heigth(NODE_RECT_HEIGTH)
-	, m_node_space_top(NODE_SPACE_TOP)
-	, m_node_space_bottom(NODE_SPACE_BOTTOM)
-	, m_nIconSize(32)
-	, m_RoundRectPt(ROUND_RECT, ROUND_RECT)
-	, m_fZoomFactor(1.0)
+	: CNewDialog(CRevisionGraphDlg::IDD, pParent)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
 	, m_bShowAll(false)
 	, m_bArrangeByPath(false)
-	, m_pProgress(NULL)
+	, m_fZoomFactor(1.0)
 {
-	m_ViewRect.SetRectEmpty();
-	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
-	for (int i=0; i<MAXFONTS; i++)
-	{
-		m_apFonts[i] = NULL;
-	}
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
 {
-	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
-	{
-		delete [] (CPoint*)m_arConnections.GetAt(i);
-	}
-	m_arConnections.RemoveAll();
-	for (int i=0; i<MAXFONTS; i++)
-	{
-		if (m_apFonts[i] != NULL)
-		{
-			m_apFonts[i]->DeleteObject();
-			delete m_apFonts[i];
-		}
-		m_apFonts[i] = NULL;
-	}
-	if (m_pDlgTip)
-		delete m_pDlgTip;
 }
 
 void CRevisionGraphDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CNewDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CDialog)
-	ON_WM_PAINT()
-	ON_WM_ERASEBKGND()
-	ON_WM_HSCROLL()
-	ON_WM_VSCROLL()
+BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CNewDialog)
 	ON_WM_SIZE()
 	ON_WM_LBUTTONDOWN()
-	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
-	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
-	ON_COMMAND(ID_FILE_SAVEGRAPHAS, OnFileSavegraphas)
-	ON_WM_MOUSEWHEEL()
 	ON_COMMAND(ID_VIEW_ZOOMIN, OnViewZoomin)
 	ON_COMMAND(ID_VIEW_ZOOMOUT, OnViewZoomout)
+	ON_COMMAND(ID_VIEW_ZOOM100, OnViewZoom100)
+	ON_COMMAND(ID_VIEW_ZOOMALL, OnViewZoomAll)
 	ON_COMMAND(ID_MENUEXIT, OnMenuexit)
 	ON_COMMAND(ID_MENUHELP, OnMenuhelp)
-	ON_WM_CONTEXTMENU()
 	ON_COMMAND(ID_VIEW_COMPAREHEADREVISIONS, OnViewCompareheadrevisions)
 	ON_COMMAND(ID_VIEW_COMPAREREVISIONS, OnViewComparerevisions)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFF, OnViewUnifieddiff)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, OnViewUnifieddiffofheadrevisions)
 	ON_COMMAND(ID_VIEW_SHOWALLREVISIONS, &CRevisionGraphDlg::OnViewShowallrevisions)
 	ON_COMMAND(ID_VIEW_ARRANGEDBYPATH, &CRevisionGraphDlg::OnViewArrangedbypath)
+	ON_COMMAND(ID_FILE_SAVEGRAPHAS, &CRevisionGraphDlg::OnFileSavegraphas)
+	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
+	ON_CBN_EDITCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 END_MESSAGE_MAP()
 
 
@@ -129,44 +87,90 @@ END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CNewDialog::OnInitDialog();
 
-	m_pDlgTip = new CToolTipCtrl;
-	if(!m_pDlgTip->Create(this))
-	{
-		TRACE("Unable to add tooltip!\n");
-	}
 	EnableToolTips();
-	memset(&m_lfBaseFont, 0, sizeof(m_lfBaseFont));
-	m_lfBaseFont.lfHeight = 0;
-	m_lfBaseFont.lfWeight = FW_NORMAL;
-	m_lfBaseFont.lfItalic = FALSE;
-	m_lfBaseFont.lfCharSet = DEFAULT_CHARSET;
-	m_lfBaseFont.lfOutPrecision = OUT_DEFAULT_PRECIS;
-	m_lfBaseFont.lfClipPrecision = CLIP_DEFAULT_PRECIS;
-	m_lfBaseFont.lfQuality = DEFAULT_QUALITY;
-	m_lfBaseFont.lfPitchAndFamily = DEFAULT_PITCH;
+
+	// set up the status bar
+	m_StatusBar.Create(WS_CHILD|WS_VISIBLE|SBT_OWNERDRAW,
+		CRect(0,0,0,0), this, 0);
+	int strPartDim[2]= {260, -1};
+	m_StatusBar.SetParts(2, strPartDim);
+
+	// set up the toolbar
+	//add the tool bar to the dialog
+	m_ToolBar.CreateEx(this, TBSTYLE_FLAT | TBSTYLE_WRAPABLE| CBRS_SIZE_DYNAMIC);
+	m_ToolBar.LoadToolBar(IDR_REVGRAPHBAR);
+	m_ToolBar.ShowWindow(SW_SHOW);
+	m_ToolBar.SetBarStyle(CBRS_ALIGN_TOP | CBRS_TOOLTIPS | CBRS_FLYBY);
+	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
+#define SNAP_WIDTH 60 //the width of the combo box
+	//set up the ComboBox control as a snap mode select box
+	//First get the index of the placeholder's position in the toolbar
+	int index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_REVGRAPH_ZOOMCOMBO) index++;
+
+	//next convert that button to a seperator and get its position
+	m_ToolBar.SetButtonInfo(index, ID_REVGRAPH_ZOOMCOMBO, TBBS_SEPARATOR,
+		SNAP_WIDTH);
+	RECT rect;
+	m_ToolBar.GetItemRect(index, &rect);
+
+	//expand the rectangle to allow the combo box room to drop down
+	rect.top+=3;
+	rect.bottom += 200;
+
+	// then .Create the combo box and show it
+	if (!m_ToolBar.m_ZoomCombo.CreateEx(WS_EX_RIGHT, WS_CHILD|WS_VISIBLE|CBS_AUTOHSCROLL|CBS_DROPDOWN,
+		rect, &m_ToolBar, ID_REVGRAPH_ZOOMCOMBO))
+	{
+		TRACE0("Failed to create combo-box\n");
+		return FALSE;
+	}
+	m_ToolBar.m_ZoomCombo.ShowWindow(SW_SHOW);
+
+	//fill the combo box
+	COMBOBOXEXITEM cbei;
+	ZeroMemory(&cbei, sizeof cbei);
+	cbei.mask = CBEIF_TEXT;
+	cbei.pszText = _T("5%");
+	m_ToolBar.m_ZoomCombo.InsertItem(&cbei);
+	cbei.pszText = _T("10%");
+	m_ToolBar.m_ZoomCombo.InsertItem(&cbei);
+	cbei.pszText = _T("20%");
+	m_ToolBar.m_ZoomCombo.InsertItem(&cbei);
+	cbei.pszText = _T("40%");
+	m_ToolBar.m_ZoomCombo.InsertItem(&cbei);
+	cbei.pszText = _T("50%");
+	m_ToolBar.m_ZoomCombo.InsertItem(&cbei);
+	cbei.pszText = _T("80%");
+	m_ToolBar.m_ZoomCombo.InsertItem(&cbei);
+	cbei.pszText = _T("100%");
+	m_ToolBar.m_ZoomCombo.InsertItem(&cbei);
+	m_ToolBar.m_ZoomCombo.SetCurSel(0);
+
+
 
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REVISIONGRAPH));
-	
-	m_dwTicks = GetTickCount();
+
+	RECT graphrect;
+	GetGraphRect(&graphrect);
+	m_Graph.Init(this, &graphrect);
+	m_Graph.SetOwner(this);
+
 	if (AfxBeginThread(WorkerThread, this)==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	//EnableSaveRestore(_T("RevisionGraphDlg"));
-	//SetSizeGripVisibility(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
 BOOL CRevisionGraphDlg::ProgressCallback(CString text, CString text2, DWORD done, DWORD total)
 {
-	if ((m_pProgress)&&((m_dwTicks+100)<GetTickCount()))
+	if (m_pProgress)
 	{
-		m_dwTicks = GetTickCount();
 		m_pProgress->SetLine(1, text);
 		m_pProgress->SetLine(2, text2);
 		m_pProgress->SetProgress(done, total);
@@ -183,287 +187,61 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	//in a listcontrol. 
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
-	InterlockedExchange(&pDlg->m_bThreadRunning, TRUE);
+	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, TRUE);
 	CoInitialize(NULL);
 	pDlg->m_pProgress = new CProgressDlg();
 	pDlg->m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
 	pDlg->m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	pDlg->m_pProgress->SetTime();
 	pDlg->m_pProgress->ShowModeless(pDlg->m_hWnd);
-	pDlg->m_bNoGraph = FALSE;
-	if ((pDlg->m_bFetchLogs)&&(!pDlg->FetchRevisionData(pDlg->m_sPath)))
+	pDlg->m_Graph.m_bNoGraph = FALSE;
+	if ((pDlg->m_bFetchLogs)&&(!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath)))
 	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-		pDlg->m_bNoGraph = TRUE;
+		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		pDlg->m_Graph.m_bNoGraph = TRUE;
 		goto cleanup;
 	}
 	pDlg->m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
-	if (!pDlg->AnalyzeRevisionData(pDlg->m_sPath, pDlg->m_bShowAll, pDlg->m_bArrangeByPath))
+	if (!pDlg->m_Graph.AnalyzeRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_bShowAll, pDlg->m_bArrangeByPath))
 	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-		pDlg->m_bNoGraph = TRUE;
+		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		pDlg->m_Graph.m_bNoGraph = TRUE;
 	}
-
+	pDlg->UpdateStatusBar();
 cleanup:
 	pDlg->m_pProgress->Stop();
 	delete pDlg->m_pProgress;
 	pDlg->m_pProgress = NULL;
-	pDlg->InitView();
+	pDlg->m_Graph.InitView();
 	CoUninitialize();
-	InterlockedExchange(&pDlg->m_bThreadRunning, FALSE);
+	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, FALSE);
 	pDlg->Invalidate();
 	return 0;
-}
-
-void CRevisionGraphDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
-{
-	SCROLLINFO sinfo = {0};
-	sinfo.cbSize = sizeof(SCROLLINFO);
-	GetScrollInfo(SB_HORZ, &sinfo);
-
-	// Determine the new position of scroll box.
-	switch (nSBCode)
-	{
-	case SB_LEFT:      // Scroll to far left.
-		sinfo.nPos = sinfo.nMin;
-		break;
-	case SB_RIGHT:      // Scroll to far right.
-		sinfo.nPos = sinfo.nMax;
-		break;
-	case SB_ENDSCROLL:   // End scroll.
-		break;
-	case SB_LINELEFT:      // Scroll left.
-		if (sinfo.nPos > sinfo.nMin)
-			sinfo.nPos--;
-		break;
-	case SB_LINERIGHT:   // Scroll right.
-		if (sinfo.nPos < sinfo.nMax)
-			sinfo.nPos++;
-		break;
-	case SB_PAGELEFT:    // Scroll one page left.
-		{
-			if (sinfo.nPos > sinfo.nMin)
-				sinfo.nPos = max(sinfo.nMin, sinfo.nPos - (int) sinfo.nPage);
-		}
-		break;
-	case SB_PAGERIGHT:      // Scroll one page right.
-		{
-			if (sinfo.nPos < sinfo.nMax)
-				sinfo.nPos = min(sinfo.nMax, sinfo.nPos + (int) sinfo.nPage);
-		}
-		break;
-	case SB_THUMBPOSITION: // Scroll to absolute position. nPos is the position
-		sinfo.nPos = sinfo.nTrackPos;      // of the scroll box at the end of the drag operation.
-		break;
-	case SB_THUMBTRACK:   // Drag scroll box to specified position. nPos is the
-		sinfo.nPos = sinfo.nTrackPos;     // position that the scroll box has been dragged to.
-		break;
-	}
-	SetScrollInfo(SB_HORZ, &sinfo);
-	Invalidate();
-	__super::OnHScroll(nSBCode, nPos, pScrollBar);
-}
-
-void CRevisionGraphDlg::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
-{
-	SCROLLINFO sinfo = {0};
-	sinfo.cbSize = sizeof(SCROLLINFO);
-	GetScrollInfo(SB_VERT, &sinfo);
-
-	// Determine the new position of scroll box.
-	switch (nSBCode)
-	{
-	case SB_LEFT:      // Scroll to far left.
-		sinfo.nPos = sinfo.nMin;
-		break;
-	case SB_RIGHT:      // Scroll to far right.
-		sinfo.nPos = sinfo.nMax;
-		break;
-	case SB_ENDSCROLL:   // End scroll.
-		break;
-	case SB_LINELEFT:      // Scroll left.
-		if (sinfo.nPos > sinfo.nMin)
-			sinfo.nPos--;
-		break;
-	case SB_LINERIGHT:   // Scroll right.
-		if (sinfo.nPos < sinfo.nMax)
-			sinfo.nPos++;
-		break;
-	case SB_PAGELEFT:    // Scroll one page left.
-		{
-			if (sinfo.nPos > sinfo.nMin)
-				sinfo.nPos = max(sinfo.nMin, sinfo.nPos - (int) sinfo.nPage);
-		}
-		break;
-	case SB_PAGERIGHT:      // Scroll one page right.
-		{
-			if (sinfo.nPos < sinfo.nMax)
-				sinfo.nPos = min(sinfo.nMax, sinfo.nPos + (int) sinfo.nPage);
-		}
-		break;
-	case SB_THUMBPOSITION: // Scroll to absolute position. nPos is the position
-		sinfo.nPos = sinfo.nTrackPos;      // of the scroll box at the end of the drag operation.
-		break;
-	case SB_THUMBTRACK:   // Drag scroll box to specified position. nPos is the
-		sinfo.nPos = sinfo.nTrackPos;     // position that the scroll box has been dragged to.
-		break;
-	}
-	SetScrollInfo(SB_VERT, &sinfo);
-	Invalidate();
-	__super::OnVScroll(nSBCode, nPos, pScrollBar);
 }
 
 void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 {
 	__super::OnSize(nType, cx, cy);
-	SetScrollbars(GetScrollPos(SB_VERT), GetScrollPos(SB_HORZ));
-	Invalidate(FALSE);
-}
-
-void CRevisionGraphDlg::OnLButtonDown(UINT nFlags, CPoint point)
-{
-	ATLTRACE("right clicked on x=%d y=%d\n", point.x, point.y);
-	bool bHit = false;
-	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	if (IsWindow(m_StatusBar))
 	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
-		if (reventry->drawrect.PtInRect(point))
-		{
-			if (bControl)
-			{
-				if (m_SelectedEntry1 == reventry)
-				{
-					if (m_SelectedEntry2)
-					{
-						m_SelectedEntry1 = m_SelectedEntry2;
-						m_SelectedEntry2 = NULL;
-					}
-					else
-						m_SelectedEntry1 = NULL;
-				}
-				else if (m_SelectedEntry2 == reventry)
-					m_SelectedEntry2 = NULL;
-				else if (m_SelectedEntry1)
-					m_SelectedEntry2 = reventry;
-				else
-					m_SelectedEntry1 = reventry;
-			}
-			else
-			{
-				if (m_SelectedEntry1 == reventry)
-					m_SelectedEntry1 = NULL;
-				else
-					m_SelectedEntry1 = reventry;
-				m_SelectedEntry2 = NULL;
-			}
-			bHit = true;
-			Invalidate();
-			break;
-		}
+		CRect rect;
+		GetClientRect(&rect);
+		CRect statusbarrect;
+		m_StatusBar.GetClientRect(&statusbarrect);
+		statusbarrect.top = rect.bottom - statusbarrect.top + statusbarrect.bottom;
+		m_StatusBar.MoveWindow(&statusbarrect);
 	}
-	if ((!bHit)&&(!bControl))
+	if (IsWindow(m_Graph))
 	{
-		m_SelectedEntry1 = NULL;
-		m_SelectedEntry2 = NULL;
-		Invalidate();
+		CRect rect;
+		GetGraphRect(&rect);
+		m_Graph.MoveWindow(&rect);
 	}
-	
-	UINT uEnable = MF_BYCOMMAND;
-	if ((m_SelectedEntry1 != NULL)&&(m_SelectedEntry2 != NULL))
-		uEnable |= MF_ENABLED;
-	else
-		uEnable |= MF_GRAYED;
-
-	EnableMenuItem(GetMenu()->m_hMenu, ID_VIEW_COMPAREREVISIONS, uEnable);
-	EnableMenuItem(GetMenu()->m_hMenu, ID_VIEW_COMPAREHEADREVISIONS, uEnable);
-	EnableMenuItem(GetMenu()->m_hMenu, ID_VIEW_UNIFIEDDIFF, uEnable);
-	EnableMenuItem(GetMenu()->m_hMenu, ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, uEnable);
-	
-	__super::OnLButtonDown(nFlags, point);
-}
-
-INT_PTR CRevisionGraphDlg::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
-{
-	if (m_bThreadRunning)
-		return -1;
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
-	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
-		if (reventry->drawrect.PtInRect(point))
-		{
-			pTI->hwnd = this->m_hWnd;
-			this->GetClientRect(&pTI->rect);
-			pTI->uFlags  |= TTF_ALWAYSTIP | TTF_IDISHWND;
-			pTI->uId = (UINT)m_hWnd;
-			pTI->lpszText = LPSTR_TEXTCALLBACK;
-			return 1;
-		}
-	}
-	return -1;
-}
-
-BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
-{
-	// need to handle both ANSI and UNICODE versions of the message
-	TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
-	TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
-	CString strTipText;
-
-	CRevisionEntry * rentry = NULL;
-	POINT point;
-	GetCursorPos(&point);
-	ScreenToClient(&point);
-	if (pNMHDR->idFrom == (UINT)m_hWnd)
-	{
-		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
-		{
-			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
-			if (reventry->drawrect.PtInRect(point))
-			{
-				rentry = reventry;
-			}
-		}
-		if (rentry)
-		{
-			TCHAR date[SVN_DATE_BUFFER];
-			SVN::formatDate(date, rentry->date);
-			strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
-							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->url),
-							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->author), 
-							date,
-							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->message));
-		}
-	}
-	else
-		return FALSE;
-
-	*pResult = 0;
-	if (strTipText.IsEmpty())
-		return TRUE;
-		
-	if (strTipText.GetLength() >= MAX_TT_LENGTH)
-		strTipText = strTipText.Left(MAX_TT_LENGTH);
-
-	if (pNMHDR->code == TTN_NEEDTEXTA)
-	{
-		::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, 600);
-		pTTTA->lpszText = m_szTip;
-		WideCharToMultiByte(CP_ACP, 0, strTipText, -1, m_szTip, strTipText.GetLength()+1, 0, 0);
-	}
-	else
-	{
-		::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, 600);
-		lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
-		pTTTW->lpszText = m_wszTip;
-	}
-
-	return TRUE;    // message was handled
 }
 
 BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if (::IsWindow(m_pDlgTip->m_hWnd) && pMsg->hwnd == m_hWnd)
+	if (::IsWindow(m_Graph.m_pDlgTip->m_hWnd) && pMsg->hwnd == m_hWnd)
 	{
 		switch(pMsg->message)
 		{
@@ -475,8 +253,8 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 		case WM_RBUTTONUP:
 		case WM_MBUTTONUP:
 			// This will reactivate the tooltip
-			m_pDlgTip->Activate(TRUE);
-			m_pDlgTip->RelayEvent(pMsg);
+			m_Graph.m_pDlgTip->Activate(TRUE);
+			m_Graph.m_pDlgTip->RelayEvent(pMsg);
 			break;
 		}
 	}
@@ -523,6 +301,144 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 		return TranslateAccelerator(m_hWnd,m_hAccel,pMsg);
 	}
 	return __super::PreTranslateMessage(pMsg);
+}
+
+void CRevisionGraphDlg::OnViewZoomin()
+{
+	if (m_fZoomFactor < 2.0)
+	{
+		m_fZoomFactor = m_fZoomFactor + (m_fZoomFactor*0.1f);
+		m_Graph.DoZoom(m_fZoomFactor);
+	}
+}
+
+void CRevisionGraphDlg::OnViewZoomout()
+{
+	if ((m_Graph.m_node_space_left > 1) || (m_Graph.m_node_space_right > 1) || (m_Graph.m_node_space_line > 1) ||
+		(m_Graph.m_node_rect_heigth > 1) || (m_Graph.m_node_space_top > 1) || (m_Graph.m_node_space_bottom > 1))
+	{
+		m_fZoomFactor = m_fZoomFactor - (m_fZoomFactor*0.1f);
+		m_Graph.DoZoom(m_fZoomFactor);
+	}
+}
+
+void CRevisionGraphDlg::OnViewZoom100()
+{
+	m_fZoomFactor = 1.0;
+	m_Graph.DoZoom(m_fZoomFactor);
+}
+
+void CRevisionGraphDlg::OnViewZoomAll()
+{
+	// zoom the graph so that it is completely visible in the window
+	CRect windowrect;
+	m_Graph.DoZoom(1.0);
+	GetGraphRect(windowrect);
+	CRect * viewrect = m_Graph.GetViewSize();
+	float horzfact = float(viewrect->Width())/float(windowrect.Width());
+	float vertfact = float(viewrect->Height())/float(windowrect.Height());
+	float fZoom = 1.0f/(max(horzfact, vertfact));
+	while ((viewrect->Width()>windowrect.Width())||(viewrect->Height()>windowrect.Height()))
+	{
+		m_fZoomFactor = fZoom;
+		m_Graph.DoZoom(m_fZoomFactor);
+		viewrect = m_Graph.GetViewSize();
+		fZoom *= 0.95f;
+	}
+}
+
+void CRevisionGraphDlg::OnMenuexit()
+{
+	if (!m_Graph.m_bThreadRunning)
+		EndDialog(IDOK);
+}
+
+void CRevisionGraphDlg::OnMenuhelp()
+{
+	OnHelp();
+}
+
+void CRevisionGraphDlg::OnViewCompareheadrevisions()
+{
+	m_Graph.CompareRevs(true);
+}
+
+void CRevisionGraphDlg::OnViewComparerevisions()
+{
+	m_Graph.CompareRevs(false);
+}
+
+void CRevisionGraphDlg::OnViewUnifieddiff()
+{
+	m_Graph.UnifiedDiffRevs(false);
+}
+
+void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
+{
+	m_Graph.UnifiedDiffRevs(true);
+}
+
+void CRevisionGraphDlg::OnViewShowallrevisions()
+{
+	if (m_Graph.m_bThreadRunning)
+		return;
+	CMenu * pMenu = GetMenu();
+	if (pMenu == NULL)
+		return;
+	UINT state = pMenu->GetMenuState(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND);
+	if (state & MF_CHECKED)
+	{
+		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_UNCHECKED);
+		m_bShowAll = false;
+	}
+	else
+	{
+		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_CHECKED);
+		m_bShowAll = true;
+	}
+
+	InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
+	if (AfxBeginThread(WorkerThread, this)==NULL)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+}
+
+void CRevisionGraphDlg::OnViewArrangedbypath()
+{
+	if (m_Graph.m_bThreadRunning)
+		return;
+	CMenu * pMenu = GetMenu();
+	if (pMenu == NULL)
+		return;
+	UINT state = pMenu->GetMenuState(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND);
+	if (state & MF_CHECKED)
+	{
+		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_UNCHECKED);
+		m_bArrangeByPath = false;
+	}
+	else
+	{
+		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_CHECKED);
+		m_bArrangeByPath = true;
+	}
+
+	InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
+	if (AfxBeginThread(WorkerThread, this)==NULL)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+}
+
+void CRevisionGraphDlg::OnCancel()
+{
+	if (!m_Graph.m_bThreadRunning)
+		__super::OnCancel();
+}
+
+void CRevisionGraphDlg::OnOK()
+{
+	return;
 }
 
 void CRevisionGraphDlg::OnFileSavegraphas()
@@ -580,387 +496,59 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 			extension = _T(".wmf");
 			tempfile += extension;
 		}
-		
-		if (extension.CompareNoCase(_T(".wmf"))==0)
-		{
-			// save the graph as an enhanced metafile
-			CMetaFileDC wmfDC;
-			wmfDC.CreateEnhanced(NULL, tempfile, NULL, _T("TortoiseSVN\0Revision Graph\0\0"));
-			float fZoom = m_fZoomFactor;
-			m_fZoomFactor = 1.0;
-			DoZoom(m_fZoomFactor);
-			CRect rect;
-			rect = GetViewSize();
-			DrawGraph(&wmfDC, rect, 0, 0, true);
-			HENHMETAFILE hemf = wmfDC.CloseEnhanced();
-			DeleteEnhMetaFile(hemf);
-			m_fZoomFactor = fZoom;
-			DoZoom(m_fZoomFactor);
-		}
-		else
-		{
-			// to save the graph as a pixel picture (e.g. gif, png, jpeg, ...)
-			// the user needs to have GDI+ installed. So check if GDI+ is 
-			// available before we start using it.
-			TCHAR gdifindbuf[MAX_PATH];
-			_tcscpy_s(gdifindbuf, MAX_PATH, _T("gdiplus.dll"));
-			if (PathFindOnPath(gdifindbuf, NULL))
-			{
-				ATLTRACE("gdi plus found!");
-			}
-			else
-			{
-				ATLTRACE("gdi plus not found!");
-				CMessageBox::Show(m_hWnd, IDS_ERR_GDIPLUS_MISSING, IDS_APPNAME, MB_ICONERROR);
-				return;
-			}
-			
-			// save the graph as a pixel picture instead of a vector picture
-			// create dc to paint on
-			try
-			{
-				CWindowDC ddc(this);
-				CDC dc;
-				if (!dc.CreateCompatibleDC(&ddc))
-				{
-					LPVOID lpMsgBuf;
-					if (!FormatMessage( 
-						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-						FORMAT_MESSAGE_FROM_SYSTEM | 
-						FORMAT_MESSAGE_IGNORE_INSERTS,
-						NULL,
-						GetLastError(),
-						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-						(LPTSTR) &lpMsgBuf,
-						0,
-						NULL ))
-					{
-						return;
-					}
-					MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-					LocalFree( lpMsgBuf );
-					return;
-				}
-				CRect rect;
-				rect = GetViewSize();
-				HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, rect.Width(), rect.Height());
-				if (hbm==0)
-				{
-					LPVOID lpMsgBuf;
-					if (!FormatMessage( 
-						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-						FORMAT_MESSAGE_FROM_SYSTEM | 
-						FORMAT_MESSAGE_IGNORE_INSERTS,
-						NULL,
-						GetLastError(),
-						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-						(LPTSTR) &lpMsgBuf,
-						0,
-						NULL ))
-					{
-						return;
-					}
-					MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-					LocalFree( lpMsgBuf );
-					return;
-				}
-				HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
-				//paint the whole graph
-				DrawGraph(&dc, rect, 0, 0, false);
-				//now use GDI+ to save the picture
-				CLSID   encoderClsid;
-				GdiplusStartupInput gdiplusStartupInput;
-				ULONG_PTR           gdiplusToken;
-				CString sErrormessage;
-				if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
-				{   
-					{
-						Bitmap bitmap(hbm, NULL);
-						if (bitmap.GetLastStatus()==Ok)
-						{
-							// Get the CLSID of the encoder.
-							int ret = 0;
-							if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
-								ret = GetEncoderClsid(L"image/png", &encoderClsid);
-							else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
-								ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-							else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
-								ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-							else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
-								ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
-							else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
-								ret = GetEncoderClsid(L"image/gif", &encoderClsid);
-							else
-							{
-								tempfile += _T(".jpg");
-								ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-							}
-							if (ret >= 0)
-							{
-								CStringW tfile = CStringW(tempfile);
-								bitmap.Save(tfile, &encoderClsid, NULL);
-							}
-							else
-							{
-								sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CUtils::GetFileExtFromPath(tempfile));
-							}
-						}
-						else
-						{
-							sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
-						}
-					}
-					GdiplusShutdown(gdiplusToken);
-				}
-				else
-				{
-					sErrormessage.LoadString(IDS_REVGRAPH_ERR_GDIINIT);
-				}
-				dc.SelectObject(oldbm);
-				dc.DeleteDC();
-				if (!sErrormessage.IsEmpty())
-				{
-					CMessageBox::Show(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
-				}
-			}
-			catch (CException * pE)
-			{
-				TCHAR szErrorMsg[2048];
-				pE->GetErrorMessage(szErrorMsg, 2048);
-				CMessageBox::Show(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
-			}
-		}
+		m_Graph.SaveGraphAs(tempfile);
 	} // if (GetSaveFileName(&ofn)==TRUE)
 	delete [] pszFilters;
 }
 
-BOOL CRevisionGraphDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+void CRevisionGraphDlg::GetGraphRect(LPRECT rect)
 {
-	int orientation = GetKeyState(VK_CONTROL)&0x8000 ? SB_HORZ : SB_VERT;
-	int pos = GetScrollPos(orientation);
-	pos -= (zDelta);
-	SetScrollPos(orientation, pos);
-	Invalidate();
-	return __super::OnMouseWheel(nFlags, zDelta, pt);
+	RECT statusbarrect;
+	RECT toolbarrect;
+	GetClientRect(rect);
+	m_StatusBar.GetClientRect(&statusbarrect);
+	rect->bottom += statusbarrect.top-statusbarrect.bottom;
+	m_ToolBar.GetClientRect(&toolbarrect);
+	rect->top -= toolbarrect.top-toolbarrect.bottom;
 }
 
-void CRevisionGraphDlg::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
+void CRevisionGraphDlg::UpdateStatusBar()
 {
-	CRevisionEntry * clickedentry = NULL;
-	CPoint clientpoint = point;
-	this->ScreenToClient(&clientpoint);
-	ATLTRACE("right clicked on x=%d y=%d\n", clientpoint.x, clientpoint.y);
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
-	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
-		if (reventry->drawrect.PtInRect(clientpoint))
-		{
-			clickedentry = reventry;
-			break;
-		}
-	}
-	if ((m_SelectedEntry1 == NULL)&&(clickedentry == NULL))
+	CString sFormat;
+	sFormat.Format(IDS_REVGRAPH_STATUSBARURL, m_Graph.m_sPath);
+	m_StatusBar.SetText(sFormat,1,0);
+	sFormat.Format(IDS_REVGRAPH_STATUSBARNUMNODES, m_Graph.m_arEntryPtrs.GetCount());
+	m_StatusBar.SetText(sFormat,0,0);
+}
+
+void CRevisionGraphDlg::OnChangeZoom()
+{
+	if (!IsWindow(m_Graph.GetSafeHwnd()))
 		return;
-	if (m_SelectedEntry1 == NULL)
+	CString strText;
+	CString strItem;
+	CComboBoxEx* pCBox = (CComboBoxEx*)m_ToolBar.GetDlgItem(ID_REVGRAPH_ZOOMCOMBO);
+	int nIndex = pCBox->GetCurSel();
+	if (nIndex == CB_ERR)
 	{
-		m_SelectedEntry1 = clickedentry;
-		Invalidate();
-	}
-	if ((m_SelectedEntry2 == NULL)&&(clickedentry != m_SelectedEntry1))
-	{
-		m_SelectedEntry1 = clickedentry;
-		Invalidate();
-	}
-	if (m_SelectedEntry1 && m_SelectedEntry2)
-	{
-		if ((m_SelectedEntry2 != clickedentry)&&(m_SelectedEntry1 != clickedentry))
+		pCBox->GetWindowText(strItem);
+		if (strItem.Find('%')<=0)
 			return;
-	}
-	if (m_SelectedEntry1 == NULL)
-		return;
-	CMenu popup;
-	if (popup.CreatePopupMenu())
-	{
-		if ((m_SelectedEntry1->action == CRevisionEntry::deleted)||((m_SelectedEntry2)&&(m_SelectedEntry2->action == CRevisionEntry::deleted)))
-			return;	// we can't compare with deleted items
-
-		bool bSameURL = (m_SelectedEntry2 && (strcmp(m_SelectedEntry1->url, m_SelectedEntry2->url)==0));
-		CString temp;
-		if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
-		{
-			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
-		}
-		if (m_SelectedEntry1 && m_SelectedEntry2)
-		{
-			temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
-			if (!bSameURL)
-			{
-				temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
-			}
-
-			temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
-			if (!bSameURL)
-			{
-				temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
-			}
-		}
-
-		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		if (m_SelectedEntry1 == NULL)
-			return;
-		switch (cmd)
-		{
-		case ID_COMPAREREVS:
-			CompareRevs(false);
-			break;
-		case ID_COMPAREHEADS:
-			CompareRevs(true);
-			break;
-		case ID_UNIDIFFREVS:
-			UnifiedDiffRevs(false);
-			break;
-		case ID_UNIDIFFHEADS:
-			UnifiedDiffRevs(true);
-			break;
-		case ID_SHOWLOG:
-			{
-				CString sCmd;
-				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode(m_SelectedEntry1->url);
-				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), 
-					CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
-					(LPCTSTR)URL,
-					m_SelectedEntry1->revision);
-
-				if (!SVN::PathIsURL(m_sPath))
-				{
-					sCmd += _T(" /propspath:\"");
-					sCmd += m_sPath;
-					sCmd += _T("\"");
-				}	
-
-				CUtils::LaunchApplication(sCmd, NULL, false);
-			}
-			break;
-		}
-	}
-}
-
-void CRevisionGraphDlg::OnViewZoomin()
-{
-	if (m_fZoomFactor < 2.0)
-	{
-		m_fZoomFactor = m_fZoomFactor + (m_fZoomFactor*0.1f);
-		DoZoom(m_fZoomFactor);
-	}
-}
-
-void CRevisionGraphDlg::OnViewZoomout()
-{
-	if ((m_node_space_left > 1) || (m_node_space_right > 1) || (m_node_space_line > 1) ||
-		(m_node_rect_heigth > 1) || (m_node_space_top > 1) || (m_node_space_bottom > 1))
-	{
-		m_fZoomFactor = m_fZoomFactor - (m_fZoomFactor*0.1f);
-		DoZoom(m_fZoomFactor);
-	}
-}
-
-void CRevisionGraphDlg::OnMenuexit()
-{
-	if (!m_bThreadRunning)
-		EndDialog(IDOK);
-}
-
-void CRevisionGraphDlg::OnMenuhelp()
-{
-	OnHelp();
-}
-
-void CRevisionGraphDlg::OnViewCompareheadrevisions()
-{
-	CompareRevs(true);
-}
-
-void CRevisionGraphDlg::OnViewComparerevisions()
-{
-	CompareRevs(false);
-}
-
-void CRevisionGraphDlg::OnViewUnifieddiff()
-{
-	UnifiedDiffRevs(false);
-}
-
-void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
-{
-	UnifiedDiffRevs(true);
-}
-
-void CRevisionGraphDlg::OnViewShowallrevisions()
-{
-	if (m_bThreadRunning)
-		return;
-	CMenu * pMenu = GetMenu();
-	if (pMenu == NULL)
-		return;
-	UINT state = pMenu->GetMenuState(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND);
-	if (state & MF_CHECKED)
-	{
-		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_UNCHECKED);
-		m_bShowAll = false;
 	}
 	else
 	{
-		pMenu->CheckMenuItem(ID_VIEW_SHOWALLREVISIONS, MF_BYCOMMAND | MF_CHECKED);
-		m_bShowAll = true;
+		pCBox->GetLBText(nIndex, strItem);
 	}
-
-	InterlockedExchange(&m_bThreadRunning, TRUE);
-	if (AfxBeginThread(WorkerThread, this)==NULL)
+	m_fZoomFactor = (float)(_tstof(strItem)/100.0);
+	if (nIndex == CB_ERR)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		strText.Format(_T("%.0f%%"), (m_fZoomFactor*100.0));
+		if (strText.Compare(strItem) != 0)
+			pCBox->SetWindowText(strText);
 	}
+	ATLTRACE("OnChangeZoom to %ws\n", strItem);
+	m_Graph.DoZoom(m_fZoomFactor);
 }
-
-void CRevisionGraphDlg::OnViewArrangedbypath()
-{
-	if (m_bThreadRunning)
-		return;
-	CMenu * pMenu = GetMenu();
-	if (pMenu == NULL)
-		return;
-	UINT state = pMenu->GetMenuState(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND);
-	if (state & MF_CHECKED)
-	{
-		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_UNCHECKED);
-		m_bArrangeByPath = false;
-	}
-	else
-	{
-		pMenu->CheckMenuItem(ID_VIEW_ARRANGEDBYPATH, MF_BYCOMMAND | MF_CHECKED);
-		m_bArrangeByPath = true;
-	}
-
-	InterlockedExchange(&m_bThreadRunning, TRUE);
-	if (AfxBeginThread(WorkerThread, this)==NULL)
-	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
-}
-
-void CRevisionGraphDlg::OnCancel()
-{
-	if (!m_bThreadRunning)
-		__super::OnCancel();
-}
-
-
-
-
 
 
 

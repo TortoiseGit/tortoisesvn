@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -83,6 +83,7 @@
 #define IDI_REVGRAPH_LASTCOMMIT         220
 #define IDI_REVGRAPH_RENAMED            221
 #define IDI_REVGRAPH_REPLACED           222
+#define IDR_REVGRAPHBAR                 223
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -719,6 +720,8 @@
 #define IDS_REVGRAPH_PROGCHECKFORWARDREV 4307
 #define IDS_REVGRAPH_BOXREVISIONTITLE   4320
 #define IDS_REVGRAPH_BOXTOOLTIP         4340
+#define IDS_REVGRAPH_STATUSBARURL       4341
+#define IDS_REVGRAPH_STATUSBARNUMNODES  4342
 #define IDS_REVGRAPH_SAVEPIC            4350
 #define IDS_REVGRAPH_ERR_GDIINIT        4360
 #define IDS_REVGRAPH_ERR_NOBITMAP       4361
@@ -767,13 +770,16 @@
 #define ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS 32786
 #define ID_VIEW_SHOWALLREVISIONS        32796
 #define ID_VIEW_ARRANGEDBYPATH          32799
+#define ID_REVGRAPH_ZOOMCOMBO           32800
+#define ID_VIEW_ZOOM100                 32803
+#define ID_VIEW_ZOOMALL                 32804
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        223
-#define _APS_NEXT_COMMAND_VALUE         32800
+#define _APS_NEXT_RESOURCE_VALUE        225
+#define _APS_NEXT_COMMAND_VALUE         32805
 #define _APS_NEXT_CONTROL_VALUE         1269
 #define _APS_NEXT_SYMED_VALUE           195
 #endif

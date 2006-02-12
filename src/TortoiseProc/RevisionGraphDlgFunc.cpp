@@ -29,7 +29,7 @@
 #include "TSVNPath.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
-#include ".\revisiongraphdlg.h"
+#include ".\revisiongraphwnd.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -39,7 +39,7 @@ static char THIS_FILE[] = __FILE__;
 
 using namespace Gdiplus;
 
-void CRevisionGraphDlg::InitView()
+void CRevisionGraphWnd::InitView()
 {
 	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
 	{
@@ -55,7 +55,7 @@ void CRevisionGraphDlg::InitView()
 	SetScrollbars(0,0,m_ViewRect.Width(),m_ViewRect.Height());
 }
 
-void CRevisionGraphDlg::SetScrollbars(int nVert, int nHorz, int oldwidth, int oldheight)
+void CRevisionGraphWnd::SetScrollbars(int nVert, int nHorz, int oldwidth, int oldheight)
 {
 	CRect clientrect;
 	GetClientRect(&clientrect);
@@ -84,7 +84,7 @@ void CRevisionGraphDlg::SetScrollbars(int nVert, int nHorz, int oldwidth, int ol
 	SetScrollInfo(SB_HORZ, &ScrollInfo);
 }
 
-INT_PTR CRevisionGraphDlg::GetIndexOfRevision(LONG rev) const
+INT_PTR CRevisionGraphWnd::GetIndexOfRevision(LONG rev) const
 {
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
@@ -94,7 +94,7 @@ INT_PTR CRevisionGraphDlg::GetIndexOfRevision(LONG rev) const
 	return -1;
 }
 
-INT_PTR CRevisionGraphDlg::GetIndexOfRevision(source_entry * sentry)
+INT_PTR CRevisionGraphWnd::GetIndexOfRevision(source_entry * sentry)
 {
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
@@ -106,7 +106,7 @@ INT_PTR CRevisionGraphDlg::GetIndexOfRevision(source_entry * sentry)
 	return -1;
 }
 
-void CRevisionGraphDlg::MarkSpaceLines(source_entry * entry, int level, svn_revnum_t startrev, svn_revnum_t endrev)
+void CRevisionGraphWnd::MarkSpaceLines(source_entry * entry, int level, svn_revnum_t startrev, svn_revnum_t endrev)
 {
 	int maxright = 0;
 	int maxbottom = 0;
@@ -210,7 +210,7 @@ void CRevisionGraphDlg::MarkSpaceLines(source_entry * entry, int level, svn_revn
 	}
 }
 
-void CRevisionGraphDlg::DecrementSpaceLines(source_entry * entry)
+void CRevisionGraphWnd::DecrementSpaceLines(source_entry * entry)
 {
 	
 	std::multimap<source_entry*, CRevisionEntry*>::iterator beginright = m_targetsright.lower_bound(entry);
@@ -229,7 +229,7 @@ void CRevisionGraphDlg::DecrementSpaceLines(source_entry * entry)
 	}
 }
 
-void CRevisionGraphDlg::ClearEntryConnections()
+void CRevisionGraphWnd::ClearEntryConnections()
 {
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
@@ -244,7 +244,7 @@ void CRevisionGraphDlg::ClearEntryConnections()
 	m_targetsbottom.clear();
 }
 
-void CRevisionGraphDlg::CountEntryConnections()
+void CRevisionGraphWnd::CountEntryConnections()
 {
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
@@ -312,7 +312,7 @@ void CRevisionGraphDlg::CountEntryConnections()
 	}
 }
 
-void CRevisionGraphDlg::BuildConnections()
+void CRevisionGraphWnd::BuildConnections()
 {
 	// create an array which holds the vertical position of each
 	// revision entry. Since there can be several entries in the
@@ -543,7 +543,7 @@ void CRevisionGraphDlg::BuildConnections()
 	}
 }
 
-CRect * CRevisionGraphDlg::GetViewSize()
+CRect * CRevisionGraphWnd::GetViewSize()
 {
 	if (m_ViewRect.Height() != 0)
 		return &m_ViewRect;
@@ -604,7 +604,7 @@ CRect * CRevisionGraphDlg::GetViewSize()
 	return &m_ViewRect;
 }
 
-int CRevisionGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
+int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 {
 	UINT  num = 0;          // number of image encoders
 	UINT  size = 0;         // size of the image encoder array in bytes
@@ -637,7 +637,7 @@ int CRevisionGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 	return -1;  // Failure
 }
 
-void CRevisionGraphDlg::CompareRevs(bool bHead)
+void CRevisionGraphWnd::CompareRevs(bool bHead)
 {
 	ASSERT(m_SelectedEntry1 != NULL);
 	ASSERT(m_SelectedEntry2 != NULL);
@@ -662,7 +662,7 @@ void CRevisionGraphDlg::CompareRevs(bool bHead)
 		peg);
 }
 
-void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
+void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 {
 	ASSERT(m_SelectedEntry1 != NULL);
 	ASSERT(m_SelectedEntry2 != NULL);
@@ -685,7 +685,7 @@ void CRevisionGraphDlg::UnifiedDiffRevs(bool bHead)
 						 m_SelectedEntry1->revision);
 }
 
-CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder)
+CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder)
 {
 	theApp.DoWaitCursor(1);
 	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(_T("test.diff")));
@@ -760,11 +760,12 @@ CTSVNPath CRevisionGraphDlg::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	return tempfile;
 }
 
-void CRevisionGraphDlg::DoZoom(float fZoomFactor)
+void CRevisionGraphWnd::DoZoom(float fZoomFactor)
 {
-	m_node_space_left = max(int(NODE_SPACE_LEFT * fZoomFactor),1);
+	m_fZoomFactor = fZoomFactor;
+	m_node_space_left = int(NODE_SPACE_LEFT * fZoomFactor);
 	m_node_space_right = max(int(NODE_SPACE_RIGHT * fZoomFactor),1);
-	m_node_space_line = max(int(NODE_SPACE_LINE * fZoomFactor),1);
+	m_node_space_line = int(NODE_SPACE_LINE * fZoomFactor);
 	m_node_rect_heigth = max(int(NODE_RECT_HEIGTH * fZoomFactor),1);
 	m_node_space_top = max(int(NODE_SPACE_TOP * fZoomFactor),1);
 	m_node_space_bottom = max(int(NODE_SPACE_BOTTOM * fZoomFactor),1);

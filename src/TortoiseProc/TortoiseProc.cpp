@@ -1680,7 +1680,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdRevisionGraph)
 		{
 			CRevisionGraphDlg dlg;
-			dlg.m_sPath = cmdLinePath.GetWinPathString();
+			dlg.SetPath(cmdLinePath.GetWinPathString());
 			dlg.DoModal();
 		} 
 		//#endregion
