@@ -205,8 +205,6 @@ CSVNStatusCache::CSVNStatusCache(void)
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_PROGRAM_FILES, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_SYSTEM, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_WINDOWS, NULL, 0, path);
