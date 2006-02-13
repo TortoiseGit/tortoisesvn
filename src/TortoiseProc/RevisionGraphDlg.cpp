@@ -41,9 +41,9 @@ using namespace Gdiplus;
 
 // CRevisionGraphDlg dialog
 
-IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CNewDialog)
+IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CDialog)
 CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
-	: CNewDialog(CRevisionGraphDlg::IDD, pParent)
+	: CDialog(CRevisionGraphDlg::IDD, pParent)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
 	, m_bShowAll(false)
@@ -58,11 +58,11 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 
 void CRevisionGraphDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CNewDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CNewDialog)
+BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CDialog)
 	ON_WM_SIZE()
 	ON_WM_LBUTTONDOWN()
 	ON_COMMAND(ID_VIEW_ZOOMIN, OnViewZoomin)
@@ -87,7 +87,7 @@ END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::OnInitDialog()
 {
-	CNewDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	EnableToolTips();
 
