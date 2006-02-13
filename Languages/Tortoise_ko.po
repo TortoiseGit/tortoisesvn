@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-10 13:35+0900\n"
+"PO-Revision-Date: 2006-02-13 10:49+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4657,6 +4657,18 @@ msgstr "수정되지 않은 파일 보기"
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "버전관리 대상이 아닌 파일 보기"
+
+# Control-ID:1073,
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "%ld개 노드 출력"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "%s의 그래프 보이기"
 
 # ID:15,
 #: ID:15
