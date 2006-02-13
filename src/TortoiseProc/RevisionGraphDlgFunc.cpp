@@ -49,6 +49,7 @@ void CRevisionGraphWnd::InitView()
 	m_arVertPositions.RemoveAll();
 	m_targetsbottom.clear();
 	m_targetsright.clear();
+	m_GraphRect.SetRectEmpty();
 	m_ViewRect.SetRectEmpty();
 	GetViewSize();
 	BuildConnections();
@@ -59,7 +60,7 @@ void CRevisionGraphWnd::SetScrollbars(int nVert, int nHorz, int oldwidth, int ol
 {
 	CRect clientrect;
 	GetClientRect(&clientrect);
-	CRect * pRect = GetViewSize();
+	CRect * pRect = GetGraphSize();
 	SCROLLINFO ScrollInfo;
 	ScrollInfo.cbSize = sizeof(SCROLLINFO);
 	ScrollInfo.fMask = SIF_ALL;
@@ -543,12 +544,12 @@ void CRevisionGraphWnd::BuildConnections()
 	}
 }
 
-CRect * CRevisionGraphWnd::GetViewSize()
+CRect * CRevisionGraphWnd::GetGraphSize()
 {
-	if (m_ViewRect.Height() != 0)
-		return &m_ViewRect;
-	m_ViewRect.top = 0;
-	m_ViewRect.left = 0;
+	if (m_GraphRect.Height() != 0)
+		return &m_GraphRect;
+	m_GraphRect.top = 0;
+	m_GraphRect.left = 0;
 	int level = 0;
 	int revisions = 0;
 	int lastrev = -1;
@@ -587,8 +588,16 @@ CRect * CRevisionGraphWnd::GetViewSize()
 	}
 	ReleaseDC(pDC);
 
-	m_ViewRect.right = level * (m_node_rect_width + m_node_space_left + m_node_space_right);
-	m_ViewRect.bottom = revisions * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
+	m_GraphRect.right = level * (m_node_rect_width + m_node_space_left + m_node_space_right);
+	m_GraphRect.bottom = revisions * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
+	return &m_GraphRect;
+}
+
+CRect * CRevisionGraphWnd::GetViewSize()
+{
+	if (m_ViewRect.Height() != 0)
+		return &m_ViewRect;
+	m_ViewRect = GetGraphSize();
 	CRect rect;
 	GetClientRect(&rect);
 	if (m_ViewRect.Width() < rect.Width())

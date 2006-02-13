@@ -83,6 +83,7 @@ protected:
 	BOOL			m_bNoGraph;
 	DWORD			m_dwTicks;
 	CRect			m_ViewRect;
+	CRect			m_GraphRect;
 	CPtrArray		m_arConnections;
 	CDWordArray		m_arVertPositions;
 	
@@ -136,6 +137,7 @@ private:
 	INT_PTR			GetIndexOfRevision(source_entry * sentry);
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
 	CRect *			GetViewSize();
+	CRect *			GetGraphSize();
 	CFont*			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
 
 	void			DrawOctangle(CDC * pDC, const CRect& rect);

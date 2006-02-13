@@ -62,6 +62,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_bArrangeByPath(false)
 	, m_fZoomFactor(1.0)
 {
+	m_GraphRect.SetRectEmpty();
 	m_ViewRect.SetRectEmpty();
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
 	for (int i=0; i<MAXFONTS; i++)
