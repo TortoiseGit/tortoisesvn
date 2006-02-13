@@ -149,6 +149,22 @@ void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
 	m_lfBaseFont.lfClipPrecision = CLIP_DEFAULT_PRECIS;
 	m_lfBaseFont.lfQuality = DEFAULT_QUALITY;
 	m_lfBaseFont.lfPitchAndFamily = DEFAULT_PITCH;
+
+	m_dwTicks = GetTickCount();
+}
+
+BOOL CRevisionGraphWnd::ProgressCallback(CString text, CString text2, DWORD done, DWORD total)
+{
+	if ((m_pProgress)&&((m_dwTicks+300) < GetTickCount()))
+	{
+		m_dwTicks = GetTickCount();
+		m_pProgress->SetLine(1, text);
+		m_pProgress->SetLine(2, text2);
+		m_pProgress->SetProgress(done, total);
+		if (m_pProgress->HasUserCancelled())
+			return FALSE;
+	}
+	return TRUE;
 }
 
 void CRevisionGraphWnd::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)

@@ -74,6 +74,7 @@ public:
 
 	CString			m_sPath;
 	volatile LONG	m_bThreadRunning;
+	CProgressDlg* 	m_pProgress;
 
 	void			InitView();
 	void			Init(CWnd * pParent, LPRECT rect);
@@ -113,6 +114,7 @@ protected:
 	bool			m_bShowAll;
 	bool			m_bArrangeByPath;
 	
+	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void	OnPaint();
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);

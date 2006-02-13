@@ -46,7 +46,6 @@ public:
 	enum { IDD = IDD_REVISIONGRAPH };
 
 
-	CProgressDlg* 	m_pProgress;
 	void			SetPath(const CString& sPath) {m_Graph.m_sPath = sPath;}
 protected:
 	bool			m_bFetchLogs;
@@ -57,7 +56,6 @@ protected:
 	HACCEL			m_hAccel;
 
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
 	virtual BOOL	OnInitDialog();
 	virtual void	OnCancel();
 	virtual void	OnOK();

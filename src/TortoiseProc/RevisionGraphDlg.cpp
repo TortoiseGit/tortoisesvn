@@ -167,19 +167,6 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	return TRUE;  // return TRUE unless you set the focus to a control
 }
 
-BOOL CRevisionGraphDlg::ProgressCallback(CString text, CString text2, DWORD done, DWORD total)
-{
-	if (m_pProgress)
-	{
-		m_pProgress->SetLine(1, text);
-		m_pProgress->SetLine(2, text2);
-		m_pProgress->SetProgress(done, total);
-		if (m_pProgress->HasUserCancelled())
-			return FALSE;
-	}
-	return TRUE;
-}
-
 UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 {
 	//get the status of all selected file/folders recursively
@@ -189,11 +176,11 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, TRUE);
 	CoInitialize(NULL);
-	pDlg->m_pProgress = new CProgressDlg();
-	pDlg->m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
-	pDlg->m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
-	pDlg->m_pProgress->SetTime();
-	pDlg->m_pProgress->ShowModeless(pDlg->m_hWnd);
+	pDlg->m_Graph.m_pProgress = new CProgressDlg();
+	pDlg->m_Graph.m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
+	pDlg->m_Graph.m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
+	pDlg->m_Graph.m_pProgress->SetTime();
+	pDlg->m_Graph.m_pProgress->ShowModeless(pDlg->m_hWnd);
 	pDlg->m_Graph.m_bNoGraph = FALSE;
 	if ((pDlg->m_bFetchLogs)&&(!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath)))
 	{
@@ -209,9 +196,9 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	}
 	pDlg->UpdateStatusBar();
 cleanup:
-	pDlg->m_pProgress->Stop();
-	delete pDlg->m_pProgress;
-	pDlg->m_pProgress = NULL;
+	pDlg->m_Graph.m_pProgress->Stop();
+	delete pDlg->m_Graph.m_pProgress;
+	pDlg->m_Graph.m_pProgress = NULL;
 	pDlg->m_Graph.InitView();
 	CoUninitialize();
 	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, FALSE);
@@ -338,12 +325,14 @@ void CRevisionGraphDlg::OnViewZoomAll()
 	float horzfact = float(viewrect->Width())/float(windowrect.Width());
 	float vertfact = float(viewrect->Height())/float(windowrect.Height());
 	float fZoom = 1.0f/(max(horzfact, vertfact));
-	while ((viewrect->Width()>windowrect.Width())||(viewrect->Height()>windowrect.Height()))
+	int trycounter = 0;
+	while ((trycounter < 5)&&((viewrect->Width()>windowrect.Width())||(viewrect->Height()>windowrect.Height())))
 	{
 		m_fZoomFactor = fZoom;
 		m_Graph.DoZoom(m_fZoomFactor);
 		viewrect = m_Graph.GetViewSize();
 		fZoom *= 0.95f;
+		trycounter++;
 	}
 }
 
