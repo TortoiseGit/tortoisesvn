@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-10 10:33+0100\n"
+"PO-Revision-Date: 2006-02-13 11:08+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -401,7 +401,7 @@ msgstr "&Aller directement à la première différence au chargement"
 
 #: Control-ID:65535
 msgid "&Language:"
-msgstr "&Langage:"
+msgstr "&Langue:"
 
 # ID:188,
 #: Control-ID:1172
@@ -2379,7 +2379,7 @@ msgstr ""
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "Si vous voulez casser le verrou, utilisez la boite de dialogue \"Vérifier les modifications\"."
+msgstr "Si vous voulez casser le verrou, utilisez la boîte de dialogue \"Vérifier les modifications\"."
 
 #: ID:73
 msgid "Ignore"
@@ -2681,12 +2681,12 @@ msgstr "Apparence et comportement::Couleurs"
 # Dlg-ID:106,
 #: Dlg-ID:196
 msgid "Look and Feel::Dialogs 1"
-msgstr "Apparence et comportement::Boites de dialogue 1"
+msgstr "Apparence et comportement::Boîtes de dialogue 1"
 
 # Dlg-ID:106,
 #: Dlg-ID:213
 msgid "Look and Feel::Dialogs 2"
-msgstr "Apparence et comportement::Boites de dialogue 2"
+msgstr "Apparence et comportement::Boîtes de dialogue 2"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
@@ -3912,6 +3912,17 @@ msgstr "Afficher les fichiers non modifiés"
 msgid "Show unversioned files"
 msgstr "Voir les fichiers hors de contrôle de version"
 
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "Affiche %ld noeuds"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "Affiche le graphique pour %s"
+
 # ID:15,
 #: ID:15
 msgid "Shows a graphical representation of copies/tags/branches"
@@ -3949,7 +3960,7 @@ msgstr "Evité, cible absente "
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr "Spécifie combien d'éléments vous voulez garder dans la boite de dialogue des commentaires récents."
+msgstr "Spécifie combien d'éléments vous voulez garder dans la boîte de dialogue des commentaires récents."
 
 #: ID:79
 msgid ""
@@ -4783,7 +4794,7 @@ msgstr "Utiliser l'URL de la copie de &travail comme défaut pour l'URL \"Depuis
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "Utiliser \"Depuis:\" URL (la plage de révisions est sélectionnable dans la boite de dialogue de journal au-dessus)"
+msgstr "Utiliser \"Depuis:\" URL (la plage de révisions est sélectionnable dans la boîte de dialogue de journal au-dessus)"
 
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
@@ -5118,7 +5129,7 @@ msgid ""
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
 "bugtraq:label\n"
-"Libellé du texte à afficher dans la boite d'édition où l'utilisateur entre le numéro d'incident."
+"Libellé du texte à afficher dans la boîte d'édition où l'utilisateur entre le numéro d'incident."
 
 # ID:15,
 #: ID:15
@@ -5378,7 +5389,7 @@ msgid ""
 msgstr ""
 "tsvn:logfilelistenglish\n"
 "Mettre à \"Faux\" si vous ne voulez pas que la liste des fichiers changés soit collée en anglais\n"
-"dans la boite de dialogue de livraison."
+"dans la boîte de dialogue de livraison."
 
 # ID:15,
 #: ID:15
@@ -5419,7 +5430,7 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
 "tsvn:projectlanguage\n"
-"Mettez ceci au numéro du langage dans lequel vous souhaitez écrire vos commentaires.\n"
+"Mettez ceci au numéro de la langue dans laquelle vous souhaitez écrire vos commentaires.\n"
 "TortoiseSVN chargera le module de correction orthographique approprié s'il est disponible."
 
 # ID:15,
@@ -5429,7 +5440,7 @@ msgid ""
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\n"
-"Mettre à \"Oui\" si une alerte doit être affichée quand aucun incident n'est entré dans la boite de dialogue de livraison."
+"Mettre à \"Oui\" si une alerte doit être affichée quand aucun incident n'est entré dans la boîte de dialogue de livraison."
 
 # ID:244,
 #: ID:244
