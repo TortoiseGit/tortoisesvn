@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 5671: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 5700: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-10 11:50+0300\n"
+"PO-Revision-Date: 2006-02-13 10:43+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -250,7 +250,6 @@ msgstr "&Фиксировать..."
 msgid "&Compare revisions"
 msgstr "&Сравнить ревизии"
 
-# ,
 #: Control-ID:1019
 msgid "&Compare whitespaces"
 msgstr "&Сравнивать непечатаемые знаки"
@@ -500,7 +499,6 @@ msgstr "&Вернуть"
 msgid "&Remove"
 msgstr "&Удалить"
 
-# ,
 #: ID:101
 msgid "&Rename"
 msgstr "&Переименовать"
@@ -2011,7 +2009,6 @@ msgstr "Открыть в Проводнике"
 msgid "Export directory:"
 msgstr "Папка экспорта:"
 
-# да-а
 #: ID:79
 msgid "Export unversioned files too"
 msgstr "Экспортировать также и неверсионные файлы"
@@ -3381,7 +3378,6 @@ msgstr ""
 "Улажено:\n"
 "%s"
 
-# Или "Разрешает конфликтующие файлы"?
 #: ID:9
 msgid "Resolves conflicted files"
 msgstr "Улаживает файлы с конфликтами"
@@ -3496,12 +3492,10 @@ msgstr "SVN Добавить файлы в эту рабочую копию"
 msgid "SVN Author"
 msgstr "SVN Автор"
 
-# да-а
 #: ID:16
 msgid "SVN Copy and rename versioned file here"
 msgstr "SVN Копировать и переименовать версионный файл сюда"
 
-# да-а
 #: ID:13
 msgid "SVN Copy versioned files here"
 msgstr "SVN Копировать версионные файлы сюда"
@@ -3518,7 +3512,6 @@ msgstr "SVN Экспортировать сюда"
 msgid "SVN Lock owner"
 msgstr "SVN Владелец блокировки"
 
-# да-а
 #: ID:12
 msgid "SVN Move versioned files here"
 msgstr "SVN Переместить версионные файлы сюда"
@@ -3774,7 +3767,6 @@ msgstr "Показать &лог..."
 msgid "Show &overlays only in explorer"
 msgstr "Показывать &пометки только в проводнике"
 
-# да-а
 #: Control-ID:1073
 msgid "Show &unversioned files"
 msgstr "Показать &неверсионные файлы"
@@ -3783,7 +3775,6 @@ msgstr "Показать &неверсионные файлы"
 msgid "Show differences as &unified diff"
 msgstr "Показать различия как объединённый файл разли&чий"
 
-# да-а
 #: Control-ID:1264
 msgid "Show ignored files"
 msgstr "Показать игнорируемые файлы"
@@ -3824,15 +3815,24 @@ msgstr ""
 "Показать специальные символы для непечатаемых знаков\n"
 "Показать непечатаемые знаки"
 
-# да-а
 #: Control-ID:1209
 msgid "Show unmodified files"
 msgstr "Показать файлы без изменений"
 
-# да-а
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "Показать неверсионные файлы"
+
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "Отображено %ld узлов"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "Показан граф для %s"
 
 #: ID:15
 msgid "Shows a graphical representation of copies/tags/branches"
