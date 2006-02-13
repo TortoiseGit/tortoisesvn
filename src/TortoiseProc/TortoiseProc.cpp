@@ -1269,6 +1269,13 @@ BOOL CTortoiseProcApp::InitInstance()
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 			{
 				CString dropper = droppath + _T("\\") + pathList[nPath].GetFileOrDirectoryName();
+				if (PathFileExists(dropper))
+					dropper.Format(IDS_PROC_EXPORTFOLDERNAME, droppath, pathList[nPath].GetFileOrDirectoryName());
+				int exportcount = 1;
+				while (PathFileExists(dropper))
+				{
+					dropper.Format(IDS_PROC_EXPORTFOLDERNAME2, droppath, exportcount++, pathList[nPath].GetFileOrDirectoryName());
+				}
 				if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, TRUE, FALSE, EXPLORERHWND, parser.HasKey(_T("extended"))))
 				{
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);

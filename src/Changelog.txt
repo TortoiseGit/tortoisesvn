@@ -42,6 +42,9 @@
 - NEW: Number of recent log messages kept in the history is configurable.
        (Stefan).
 - NEW: The revision graph has a toolbar and a statusbar. (Stefan)
+- NEW: Right-drag export creates a unique folder if a folder of the same
+       name already exists in the target location. See issue #227
+       for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
        placed in a separate column. See issue #207 for details. 
        (Tobias Schäfer)
