@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-13 11:08+0100\n"
+"PO-Revision-Date: 2006-02-14 10:58+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -144,6 +144,18 @@ msgstr "%s : Copie locale"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, à %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\Export (%d) de %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\Export de %s"
 
 #: ID:145
 #, c-format
@@ -3586,7 +3598,7 @@ msgstr "SVN Copier les fichiers versionnés ici"
 
 #: ID:14
 msgid "SVN Export all to here"
-msgstr "SVN Exporter tous les fichiers à cet endroit"
+msgstr "SVN Exporter tout ici"
 
 #: ID:14
 msgid "SVN Export to here"
