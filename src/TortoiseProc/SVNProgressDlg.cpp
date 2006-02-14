@@ -968,7 +968,9 @@ UINT CSVNProgressDlg::ProgressThread()
 	CString info = BuildInfoString();
 	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
 	ResizeColumns();
-	m_ProgList.EnsureVisible(m_ProgList.GetItemCount(), FALSE);
+	int count = m_ProgList.GetItemCount();
+	if (count > 0)
+		m_ProgList.EnsureVisible(count-1, FALSE);
 	SendMessage(DM_SETDEFID, IDOK);
 	GetDlgItem(IDOK)->SetFocus();	
 
