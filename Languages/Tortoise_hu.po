@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-09 22:57+0100\n"
+"PO-Revision-Date: 2006-02-14 21:10+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -167,6 +167,18 @@ msgstr "%s : Munka Másolat"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, %s-nél"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\(%d) exportja %s-ből"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\%s exportja"
 
 # ID:145,
 #: ID:145
@@ -4665,6 +4677,18 @@ msgstr "Változatlan fájlok mutatása"
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "Nem verziókezelt fájlok mutatása"
+
+# Control-ID:1209,
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "%ld csomók mutatása"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "%s grafikonja"
 
 # ID:15,
 #: ID:15
