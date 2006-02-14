@@ -6386,6 +6386,8 @@ void CReportCtrl::OnMouseMove(UINT nFlags, CPoint point)
 	if( m_wndTip.IsWindowVisible() && bHide )
 		m_wndTip.Hide();
 
+	KillTimer(REPORTCTRL_AUTOEXPAND_TIMERID);
+
 	CWnd::OnMouseMove(nFlags, point);
 }
 
@@ -6655,13 +6657,13 @@ HRESULT CReportCtrl::DragLeave()
 	if(m_pDropTargetHelper)
 		m_pDropTargetHelper->DragLeave();
 
-	KillTimer(REPORTCTRL_AUTOEXPAND_TIMERID);
-
 	return S_OK;
 }
 
 HRESULT CReportCtrl::Drop(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
 {
+	KillTimer(REPORTCTRL_AUTOEXPAND_TIMERID);
+
 	if (pDataObj == NULL)
 		return E_INVALIDARG;	
 
