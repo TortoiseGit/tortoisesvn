@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-08 23:09+0200\n"
+"PO-Revision-Date: 2006-02-14 11:11+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -202,6 +202,18 @@ msgstr "%s : Работно копие"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, при %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\Износ (%d) на %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\Износ на %s"
 
 # ID:145,
 #: ID:145
@@ -3251,6 +3263,11 @@ msgstr ""
 msgid "Max"
 msgstr "Макс"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Max. items to keep in the log message history"
+msgstr "Максимален брой съобщения за съхранение в хронологията"
+
 # Dlg-ID:141,
 #: Dlg-ID:141
 #: Control-ID:65535
@@ -4705,6 +4722,18 @@ msgstr "Показване на непроменените файлове"
 msgid "Show unversioned files"
 msgstr "Показване на неконтролираните файлове"
 
+# Control-ID:1073,
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "Показване на %ld възела"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "Графика за %s"
+
 # ID:15,
 #: ID:15
 msgid "Shows a graphical representation of copies/tags/branches"
@@ -4744,6 +4773,11 @@ msgstr "Прескочен"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Прескочени липсващи цели"
+
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "Указва максималния брой съобщения, които бихте искали да пазите в хронологията."
 
 # ID:79,
 #: ID:79
