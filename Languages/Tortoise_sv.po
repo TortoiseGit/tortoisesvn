@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-07 10:09+0100\n"
+"PO-Revision-Date: 2006-02-14 08:36+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,6 +138,18 @@ msgstr "%s : Arbetskopia"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, i %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\Export (%d) av %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\Export av %s"
 
 #: ID:145
 #, c-format
@@ -843,6 +855,7 @@ msgid "Activate Task List"
 msgstr "Aktivera uppgiftslistan"
 
 #: ID:209
+#: Dlg-ID:155
 msgid "Add"
 msgstr "Lägg till"
 
@@ -1080,10 +1093,19 @@ msgstr "Är du säker på att du vill markera alla konflikter som lösta?"
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr "Vill du verkligen återställa %d objekt? Du kommer att förlora <b>alla</b> ändringar sen förra uppdateringen!"
 
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "Sorterat efter &sökväg"
+
 #: ID:77
 #, c-format
 msgid "At revision: %d"
 msgstr "I revision: %d"
+
+#: Dlg-ID:131
+#: Dlg-ID:160
+msgid "Authentication"
+msgstr "Autentisering"
 
 #: ID:76
 #: ID:207
@@ -1151,6 +1173,10 @@ msgstr "B&läddra..."
 #: Control-ID:65535
 msgid "Base file:"
 msgstr "Basfil:"
+
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "Visa ändringar per rad"
 
 #: ID:13
 msgid "Blames each line of a file on an author"
@@ -1270,6 +1296,10 @@ msgstr "Ändra position på fönstret"
 msgid "Change the window size"
 msgstr "Ändra storlek på fönstret"
 
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "Ändrade filer"
+
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
@@ -1287,6 +1317,10 @@ msgstr "&Hämta..."
 #: ID:3887
 msgid "Check"
 msgstr "Markera"
+
+#: Dlg-ID:174
+msgid "Check For Updates"
+msgstr "Leta efter uppdateringar"
 
 #: Control-ID:1031
 msgid "Check For Updates..."
@@ -1334,6 +1368,10 @@ msgstr "Söker efter kopiornas källor"
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Kontrollerar om det finns en nyare version av TortoiseSVN tillgänglig..."
+
+#: Dlg-ID:133
+msgid "Checkout"
+msgstr "Hämta"
 
 #: Control-ID:1074
 msgid "Checkout &directory:"
@@ -1509,6 +1547,10 @@ msgstr "Kopierades i arkivet"
 msgid "Copy %s"
 msgstr "Kopiera %s"
 
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Kopiera (gren / märke)"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -1665,6 +1707,14 @@ msgstr "Kunde inte starta tråd!"
 #: ID:13
 msgid "Create &patch..."
 msgstr "Skapa &patch..."
+
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "Skapa patch"
+
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Skapa arkiv här"
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -1937,6 +1987,10 @@ msgstr ""
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "Maximera fönstret till full storlek"
+
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "Skriv loggmeddelande"
 
 #: ID:80
 msgid "Enter URL"
@@ -2359,6 +2413,10 @@ msgstr "Ignorera ursprung"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorera &radslut (rekommenderas)"
 
+#: Dlg-ID:139
+msgid "Import"
+msgstr "Importera"
+
 #: Control-ID:1056
 msgid "Import &message"
 msgstr "Import&meddelande"
@@ -2388,6 +2446,11 @@ msgstr "Första importen"
 #: Control-ID:65535
 msgid "Inline whitespace diff"
 msgstr "Radvis whitespace skillnader"
+
+# Dlg-ID:161,
+#: Dlg-ID:161
+msgid "Input"
+msgstr "Inmatning"
 
 #: ID:3603
 msgid ""
@@ -2550,6 +2613,10 @@ msgstr ""
 msgid "Lock"
 msgstr "Lås"
 
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "Lås filer"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -2594,6 +2661,14 @@ msgstr "Låser en fil för andra användare och gör den editerbar för dig. "
 #: ID:126
 msgid "Log"
 msgstr "Historik"
+
+#: Dlg-ID:211
+msgid "Log History"
+msgstr "Historik"
+
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "Loggmeddelanden"
 
 #: Control-ID:65535
 msgid "Log message"
@@ -2663,6 +2738,12 @@ msgstr ""
 msgid "Max"
 msgstr "Max"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Max. items to keep in the log message history"
+msgstr "Max antal sparade logmeddelanden"
+
+#: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
 msgstr "Förena"
@@ -3121,11 +3202,13 @@ msgstr "Program"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Program (*.exe)|*.exe|Alla Files (*.*)|*.*||"
 
+#: Dlg-ID:134
 #: Control-ID:65535
 msgid "Progress"
 msgstr "Förlopp"
 
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "Egenskaper"
 
@@ -3241,6 +3324,10 @@ msgstr ""
 "Laddar om öppna filer och återställer alla ändringar.\n"
 "Ladda om"
 
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "Omlokalisera"
+
 #: ID:80
 msgid "Relocating..."
 msgstr "Omlokaliserar..."
@@ -3284,6 +3371,10 @@ msgstr ""
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Tar bort filen eller filmasken från undantagslistan"
+
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "Byt namn"
 
 #: ID:97
 #, c-format
@@ -3340,6 +3431,10 @@ msgstr "Arkivutforskaren"
 msgid "Repository"
 msgstr "Arkiv"
 
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "Arkivutforskaren"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Requests a username and a password"
@@ -3348,6 +3443,10 @@ msgstr "Begär ett användarnamn och ett lösenord"
 #: ID:8
 msgid "Res&olved..."
 msgstr "Kon&flikten är markerad som löst.."
+
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "Markera konflikt som löst"
 
 #: ID:282
 msgid "Resolve conflict using \"mine\""
@@ -3391,6 +3490,10 @@ msgstr "Återställd"
 msgid "Retry"
 msgstr "Försök igen"
 
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "Återställ"
+
 #: ID:114
 msgid "Revert changes from these revisions"
 msgstr "Återställ ändringar från de här revisionerna"
@@ -3428,6 +3531,10 @@ msgstr "Revisions&graf"
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Revision / Användare:"
+
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "Revisionsgraf"
 
 #: ID:269
 #: Control-ID:65535
@@ -3611,6 +3718,10 @@ msgstr "&Markera / avmarkera allt"
 #: ID:13
 msgid "Select File..."
 msgstr "Välj fil..."
+
+#: Dlg-ID:173
+msgid "Select Revision"
+msgstr "Välj revision"
 
 #: ID:78
 msgid "Select SSH client"
@@ -3814,6 +3925,17 @@ msgstr "Visa omodifierade filer"
 msgid "Show unversioned files"
 msgstr "Visa icke versionshanterade filer"
 
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "Visar %ld noder"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "Visar graf för %s"
+
 # ID:15,
 #: ID:15
 msgid "Shows a graphical representation of copies/tags/branches"
@@ -3848,6 +3970,11 @@ msgstr "Hoppades över"
 msgid "Skipped missing target"
 msgstr "Hoppade över mål som saknades"
 
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "Specificerar hur många gamla logmeddelanden som ska sparas i logmeddelanden dialogen."
+
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
@@ -3877,6 +4004,7 @@ msgid "Stacked"
 msgstr "Staplade"
 
 #: ID:245
+#: Dlg-ID:179
 msgid "Statistics"
 msgstr "Statistik"
 
@@ -3953,6 +4081,10 @@ msgstr "Vä&xlar arbetskopian till en ny gren/märke"
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Växla vänster<->höger"
+
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "Växla till gren / märke"
 
 #: ID:3606
 msgid ""
@@ -4425,128 +4557,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-#: Dlg-ID:155
-msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN : Lägg till"
-
-#: Dlg-ID:131
-#: Dlg-ID:160
-msgid "TortoiseSVN : Authentication"
-msgstr "TortoiseSVN : Autentisering"
-
-#: Dlg-ID:162
-msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN : Visa ändringar per rad"
-
-#: Dlg-ID:199
-msgid "TortoiseSVN : Changed Files"
-msgstr "TortoiseSVN : Ändrade filer"
-
-#: Dlg-ID:174
-msgid "TortoiseSVN : Check For Updates"
-msgstr "TortoiseSVN : Leta efter uppdateringar"
-
-#: Dlg-ID:133
-msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN : Hämta ut"
-
-#: Dlg-ID:142
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "TortoiseSVN : Kopiera (gren / märke)"
-
-#: Dlg-ID:208
-msgid "TortoiseSVN : Create Patch"
-msgstr "TortoiseSVN : Skapa patch"
-
-#: Dlg-ID:178
-msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN : Skapa arkiv här"
-
-#: Dlg-ID:135
-msgid "TortoiseSVN : Enter Log Message"
-msgstr "TortoiseSVN : Skriv loggmeddelande"
-
-#: Dlg-ID:139
-msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN : Importera"
-
-#: Dlg-ID:161
-msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN : Inmatning"
-
-#: Dlg-ID:191
-msgid "TortoiseSVN : Lock Files"
-msgstr "TortoiseSVN : Lås filer"
-
-#: Dlg-ID:211
-msgid "TortoiseSVN : Log History"
-msgstr "TortoiseSVN : Historik"
-
-#: Dlg-ID:130
-msgid "TortoiseSVN : Log Messages"
-msgstr "TortoiseSVN : Loggmeddelanden"
-
-#: Dlg-ID:141
-msgid "TortoiseSVN : Merge"
-msgstr "TortoiseSVN : Förena"
-
-#: Dlg-ID:134
-msgid "TortoiseSVN : Progress"
-msgstr "TortoiseSVN : Förlopp"
-
-#: Dlg-ID:177
-msgid "TortoiseSVN : Properties"
-msgstr "TortoiseSVN : Egenskaper"
-
-#: Dlg-ID:157
-msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN : Omlokalisera"
-
-#: Dlg-ID:151
-msgid "TortoiseSVN : Rename"
-msgstr "TortoiseSVN : Byt namn"
-
-#: Dlg-ID:153
-msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN : Arkivutforskaren"
-
-#: Dlg-ID:207
-msgid "TortoiseSVN : Resolve"
-msgstr "TortoiseSVN : Markera konflikt som löst..."
-
-#: Dlg-ID:175
-msgid "TortoiseSVN : Revert"
-msgstr "TortoiseSVN : Återställ"
-
-#: Dlg-ID:182
-msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN : Revisionsgraf"
-
-#: Dlg-ID:173
-msgid "TortoiseSVN : Select Revision"
-msgstr "TortoiseSVN : Välj revision"
-
-#: Dlg-ID:179
-msgid "TortoiseSVN : Statistics"
-msgstr "TortoiseSVN : Statistik"
-
-#: Dlg-ID:140
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr "TortoiseSVN : Växla till gren / märke"
-
-#: Dlg-ID:164
-msgid "TortoiseSVN : URL"
-msgstr "TortoiseSVN : URL"
-
-#: Dlg-ID:152
-msgid "TortoiseSVN : Update"
-msgstr "TortoiseSVN : Uppdatera"
-
-# Osäker på var denna visas
-#: Dlg-ID:158
-msgid "TortoiseSVN : Working Copy"
-msgstr "TortoiseSVN : Arbetskopia"
-
 #: ID:77
 msgid "TortoiseSVN Add..."
 msgstr "TortoiseSVN Lägg till..."
@@ -4635,6 +4645,10 @@ msgstr "Ändra inställningar för TortoiseSVN"
 #: MenuEntry
 msgid "Two-way &Diff"
 msgstr "2-vägs &skillnader"
+
+#: Dlg-ID:164
+msgid "URL"
+msgstr "URL"
 
 #: ID:12
 msgid "URL of Subversion items"
@@ -4734,6 +4748,10 @@ msgstr "Upplåst"
 #: ID:3841
 msgid "Untitled"
 msgstr "Namnlös"
+
+#: Dlg-ID:152
+msgid "Update"
+msgstr "Uppdatera"
 
 #: ID:74
 msgid "Updated"
@@ -4880,6 +4898,11 @@ msgstr "Varning!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Whitespace skillnader"
+
+# Osäker på var denna visas
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "Arbetskopia"
 
 #: ID:80
 #, c-format
