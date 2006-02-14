@@ -103,7 +103,30 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_ToolBar.LoadToolBar(IDR_REVGRAPHBAR);
 	m_ToolBar.ShowWindow(SW_SHOW);
 	m_ToolBar.SetBarStyle(CBRS_ALIGN_TOP | CBRS_TOOLTIPS | CBRS_FLYBY);
+	// toolbars aren't true-color without some tweaking:
+	{
+		CImageList	cImageList;
+		CBitmap		cBitmap;
+		BITMAP		bmBitmap;
+
+		cBitmap.Attach(LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_REVGRAPHBAR),
+			IMAGE_BITMAP, 0, 0,
+			LR_DEFAULTSIZE|LR_CREATEDIBSECTION));
+		cBitmap.GetBitmap(&bmBitmap);
+
+		CSize		cSize(bmBitmap.bmWidth, bmBitmap.bmHeight); 
+		int			nNbBtn = cSize.cx/20;
+		RGBTRIPLE *	rgb	= (RGBTRIPLE*)(bmBitmap.bmBits);
+		COLORREF	rgbMask	= RGB(rgb[0].rgbtRed, rgb[0].rgbtGreen, rgb[0].rgbtBlue);
+
+		cImageList.Create(20, cSize.cy, ILC_COLOR24|ILC_MASK, nNbBtn, 0);
+		cImageList.Add(&cBitmap, rgbMask);
+		m_ToolBar.SendMessage(TB_SETIMAGELIST, 0, (LPARAM)cImageList.m_hImageList);
+		cImageList.Detach(); 
+		cBitmap.Detach();
+	}
 	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
+
 #define SNAP_WIDTH 60 //the width of the combo box
 	//set up the ComboBox control as a snap mode select box
 	//First get the index of the placeholder's position in the toolbar
