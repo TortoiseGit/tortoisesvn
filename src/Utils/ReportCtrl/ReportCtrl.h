@@ -623,8 +623,10 @@ public:
 // CReportCtrl window
 
 #define REPORTCTRL_AUTOEXPAND_TIMERID 2
+#define REPORTCTRL_AUTOSCROLL_TIMERID 3
 
 #define REPORTCTRL_AUTOEXPAND 2000
+#define REPORTCTRL_SCROLL 50
 
 class CReportCtrl : public CWnd, public IDropTarget
 {
@@ -1065,6 +1067,8 @@ protected:
 	CPoint m_lastLClickPos;
 
 	INT m_nLastToggledItem;
+
+	UINT m_nAutoscrollTimerticks;
 	
 	virtual BOOL Create();
 

@@ -45,6 +45,9 @@
 - NEW: Right-drag export creates a unique folder if a folder of the same
        name already exists in the target location. See issue #227
        for details. (Stefan)
+- NEW: Dragging items in the repository browser beyond the visible area
+       makes the tree scroll automatically. See issue #203 for details.
+       (Tobias Schäfer)
 - CHG: The icons in the column "Action" of the log dialog are now all
        placed in a separate column. See issue #207 for details. 
        (Tobias Schäfer)

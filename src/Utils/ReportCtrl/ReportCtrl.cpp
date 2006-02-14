@@ -623,6 +623,8 @@ CReportCtrl::CReportCtrl() :
 		m_pDropTargetHelper = NULL;
 
 	m_nLastToggledItem = -1;
+
+	m_nAutoscrollTimerticks = 0;
 }
 
 CReportCtrl::~CReportCtrl()
@@ -728,6 +730,49 @@ void CReportCtrl::OnTimer(UINT_PTR nIDEvent)
 					Expand((HTREEITEM)m_arrayItems[rvhti.iItem].lptiItem, RVE_TOGGLE);
 					Notify(RVN_ITEMEXPANDED, rvhti.iItem, rvhti.iSubItem);
 				}
+			}
+		}
+	}
+	else if ( nIDEvent==REPORTCTRL_AUTOSCROLL_TIMERID )
+	{
+		m_nAutoscrollTimerticks++;
+
+		CWnd* parent = GetParent();
+
+		POINT pt;
+		GetCursorPos( &pt );
+		parent->ScreenToClient( &pt );
+
+		RECT rect;
+		GetWindowRect( &rect );
+		parent->ScreenToClient(&rect);
+
+		if( pt.y < rect.top + 10 )
+		{
+			// We need to scroll up
+			// Scroll slowly if cursor near the control
+			int nSkipTicks = 6 - (rect.top + 10 - pt.y) / 20;
+			if ( nSkipTicks <=0 )
+			{
+				nSkipTicks = 1;
+			}
+			if( 0 == ( m_nAutoscrollTimerticks % nSkipTicks ) )
+			{
+				SendMessage( WM_VSCROLL, SB_LINEUP);
+			}
+		}
+		else if( pt.y > rect.bottom - 10 )
+		{
+			// We need to scroll down
+			// Scroll slowly if cursor near the control
+			int nSkipTicks = 6 - (pt.y - rect.bottom + 10 ) / 20;
+			if ( nSkipTicks <=0 )
+			{
+				nSkipTicks = 1;
+			}
+			if( 0 == ( m_nAutoscrollTimerticks % nSkipTicks ) )
+			{
+				SendMessage( WM_VSCROLL, SB_LINEDOWN);
 			}
 		}
 	}
@@ -6387,6 +6432,7 @@ void CReportCtrl::OnMouseMove(UINT nFlags, CPoint point)
 		m_wndTip.Hide();
 
 	KillTimer(REPORTCTRL_AUTOEXPAND_TIMERID);
+	KillTimer(REPORTCTRL_AUTOSCROLL_TIMERID);
 
 	CWnd::OnMouseMove(nFlags, point);
 }
@@ -6579,6 +6625,9 @@ HRESULT CReportCtrl::DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyStat
 	if(pDataObj == NULL)
 		return E_INVALIDARG;
 
+	SetTimer(REPORTCTRL_AUTOSCROLL_TIMERID,REPORTCTRL_SCROLL,NULL);
+	m_nAutoscrollTimerticks = 0; //reset so that the first offset is constant
+
 	if(m_pDropTargetHelper)
 		m_pDropTargetHelper->DragEnter(m_hWnd, pDataObj, (LPPOINT)&pt, *pdwEffect);
 	
@@ -6663,6 +6712,7 @@ HRESULT CReportCtrl::DragLeave()
 HRESULT CReportCtrl::Drop(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
 {
 	KillTimer(REPORTCTRL_AUTOEXPAND_TIMERID);
+	KillTimer(REPORTCTRL_AUTOSCROLL_TIMERID);
 
 	if (pDataObj == NULL)
 		return E_INVALIDARG;	
