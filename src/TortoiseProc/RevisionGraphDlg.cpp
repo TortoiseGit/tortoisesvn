@@ -79,7 +79,6 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CDialog)
 	ON_COMMAND(ID_VIEW_ARRANGEDBYPATH, &CRevisionGraphDlg::OnViewArrangedbypath)
 	ON_COMMAND(ID_FILE_SAVEGRAPHAS, &CRevisionGraphDlg::OnFileSavegraphas)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
-	ON_CBN_EDITCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 END_MESSAGE_MAP()
 
 
@@ -319,6 +318,7 @@ void CRevisionGraphDlg::OnViewZoomin()
 	{
 		m_fZoomFactor = m_fZoomFactor + (m_fZoomFactor*0.1f);
 		m_Graph.DoZoom(m_fZoomFactor);
+		UpdateZoomBox();
 	}
 }
 
@@ -329,6 +329,7 @@ void CRevisionGraphDlg::OnViewZoomout()
 	{
 		m_fZoomFactor = m_fZoomFactor - (m_fZoomFactor*0.1f);
 		m_Graph.DoZoom(m_fZoomFactor);
+		UpdateZoomBox();
 	}
 }
 
@@ -336,6 +337,7 @@ void CRevisionGraphDlg::OnViewZoom100()
 {
 	m_fZoomFactor = 1.0;
 	m_Graph.DoZoom(m_fZoomFactor);
+	UpdateZoomBox();
 }
 
 void CRevisionGraphDlg::OnViewZoomAll()
@@ -357,6 +359,7 @@ void CRevisionGraphDlg::OnViewZoomAll()
 		fZoom *= 0.95f;
 		trycounter++;
 	}
+	UpdateZoomBox();
 }
 
 void CRevisionGraphDlg::OnMenuexit()
@@ -450,7 +453,7 @@ void CRevisionGraphDlg::OnCancel()
 
 void CRevisionGraphDlg::OnOK()
 {
-	return;
+	OnChangeZoom();
 }
 
 void CRevisionGraphDlg::OnFileSavegraphas()
@@ -540,26 +543,24 @@ void CRevisionGraphDlg::OnChangeZoom()
 	CString strText;
 	CString strItem;
 	CComboBoxEx* pCBox = (CComboBoxEx*)m_ToolBar.GetDlgItem(ID_REVGRAPH_ZOOMCOMBO);
-	int nIndex = pCBox->GetCurSel();
-	if (nIndex == CB_ERR)
-	{
-		pCBox->GetWindowText(strItem);
-		if (strItem.Find('%')<=0)
-			return;
-	}
-	else
-	{
-		pCBox->GetLBText(nIndex, strItem);
-	}
+	pCBox->GetWindowText(strItem);
+	if (strItem.IsEmpty())
+		return;
 	m_fZoomFactor = (float)(_tstof(strItem)/100.0);
-	if (nIndex == CB_ERR)
-	{
-		strText.Format(_T("%.0f%%"), (m_fZoomFactor*100.0));
-		if (strText.Compare(strItem) != 0)
-			pCBox->SetWindowText(strText);
-	}
+	UpdateZoomBox();
 	ATLTRACE("OnChangeZoom to %ws\n", strItem);
 	m_Graph.DoZoom(m_fZoomFactor);
+}
+
+void CRevisionGraphDlg::UpdateZoomBox()
+{
+	CString strText;
+	CString strItem;
+	CComboBoxEx* pCBox = (CComboBoxEx*)m_ToolBar.GetDlgItem(ID_REVGRAPH_ZOOMCOMBO);
+	pCBox->GetWindowText(strItem);
+	strText.Format(_T("%.0f%%"), (m_fZoomFactor*100.0));
+	if (strText.Compare(strItem) != 0)
+		pCBox->SetWindowText(strText);
 }
 
 

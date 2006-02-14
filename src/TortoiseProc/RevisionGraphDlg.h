@@ -80,11 +80,11 @@ protected:
 
 	void			GetGraphRect(LPRECT rect);
 	void			UpdateStatusBar();
+	void			UpdateZoomBox();
 
 private:
 	static UINT		WorkerThread(LPVOID pVoid);
 	CRevisionGraphWnd	m_Graph;
 	CStatusBarCtrl		m_StatusBar;
 	CRevGraphToolBar	m_ToolBar;
-protected:
 };
