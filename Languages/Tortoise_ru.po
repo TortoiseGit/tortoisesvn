@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 5700: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 5712: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-13 10:43+0300\n"
+"PO-Revision-Date: 2006-02-14 19:17+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -163,6 +163,16 @@ msgstr "%s : Рабочая копия"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, на скорости %s"
+
+#: ID:145
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\Экспорт (%d) %s"
+
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\Экспорт %s"
 
 #: ID:145
 #, c-format
