@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-07 02:50+0300\n"
+"PO-Revision-Date: 2006-02-16 00:02+0400\n"
 "Last-Translator: Giasher <giasher@telenet.ge>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -165,6 +165,18 @@ msgstr "%s : სამუშაო ასლი"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, აქ %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\ექსპორტი (%d) - %s-დან"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\ექსპორტი - %s"
 
 # ID:145,
 #: ID:145
@@ -1007,6 +1019,7 @@ msgstr "ამოცანათა ჩამონათვალის გა�
 
 # ID:209,
 #: ID:209
+#: Dlg-ID:155
 msgid "Add"
 msgstr "დამატება"
 
@@ -1294,11 +1307,22 @@ msgstr "ნამდვილად გსურთ ამ ფაილ(ებ)�
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr "ნამდვილად გსურთ აღადგინოთ %d ელემენტი? თქვენ დაკარგავთ <b>ყველა</b> ცვლილებას ბოლო განახლების შემდეგ!"
 
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "სორტირება &გეზით"
+
 # ID:77,
 #: ID:77
 #, c-format
 msgid "At revision: %d"
 msgstr "ვერსიაზე: %d"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Dlg-ID:131
+#: Dlg-ID:160
+msgid "Authentication"
+msgstr "აუთენტიფიკაცია"
 
 # ID:76,
 #: ID:76
@@ -1375,6 +1399,11 @@ msgstr "&ნუსხა..."
 #: Control-ID:65535
 msgid "Base file:"
 msgstr "ძირითადი ფაილი:"
+
+# ID:13,
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "ავტორები"
 
 # ID:13,
 #: ID:13
@@ -1521,6 +1550,11 @@ msgid "Change the window size"
 msgstr "ფანჯრის ზომის შეცვლა"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "შეცვლილი ფაილები"
+
+# ID:163,
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
@@ -1541,6 +1575,11 @@ msgstr "&გადმოტანა..."
 #: ID:3887
 msgid "Check"
 msgstr "შემოწმება"
+
+# Control-ID:1031,
+#: Dlg-ID:174
+msgid "Check For Updates"
+msgstr "შემოწმება განახლებებზე"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -1600,6 +1639,11 @@ msgstr "გადაგზავნილი ასლების შემო�
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "TortoiseSVN–ის ახალი ვერსიის შემოწმება..."
+
+# ID:8,
+#: Dlg-ID:133
+msgid "Checkout"
+msgstr "გადმოტანა"
 
 # Control-ID:1074,
 #: Control-ID:1074
@@ -1802,6 +1846,11 @@ msgstr "დაშორებული კოპირება"
 msgid "Copy %s"
 msgstr "%s კოპირება"
 
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "კოპირება (შტო / ჭდე)"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -1979,6 +2028,16 @@ msgstr "ვერ ვქმნი საქაღალდეს!"
 #: ID:13
 msgid "Create &patch..."
 msgstr "&ბებკის შექმნა..."
+
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "ბებკის შექმნა"
+
+# ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "საცავის შექმნა"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2296,6 +2355,11 @@ msgstr ""
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "ფანჯრის მაქსიმიზება"
+
+# ID:126,
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "ჟურნალში შეტყობინების შეტანა"
 
 # ID:80,
 #: ID:80
@@ -2787,6 +2851,11 @@ msgstr "ძირეულების იგნორირება"
 msgid "Ignore line &endings (recommended)"
 msgstr "სტრიქონის &ბოლოების იგნორირება (რეკომენდებულია)"
 
+# ID:9,
+#: Dlg-ID:139
+msgid "Import"
+msgstr "იმპორტი"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
@@ -2822,6 +2891,11 @@ msgstr "პირველადი იმპორტი"
 #: Control-ID:65535
 msgid "Inline whitespace diff"
 msgstr "ხარეების შიდა განსხვავებები"
+
+# Dlg-ID:161,
+#: Dlg-ID:161
+msgid "Input"
+msgstr "შეტანა"
 
 # ID:3603,
 #: ID:3603
@@ -3001,6 +3075,11 @@ msgstr ""
 msgid "Lock"
 msgstr "დაბლოკვა"
 
+# ID:263,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "ფაილების დაბლოკვა"
+
 # ID:209,
 #: ID:209
 msgid "Lock broken!"
@@ -3047,6 +3126,16 @@ msgstr "ბლოკავს ფაილს სხვა მომხმარ
 #: ID:126
 msgid "Log"
 msgstr "ჟურნალი"
+
+# Dlg-ID:191,
+#: Dlg-ID:211
+msgid "Log History"
+msgstr "ჟურნალის ისტორია"
+
+# Control-ID:65535,
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "ჟურნალის ჩანაწერები"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3121,6 +3210,12 @@ msgid "Max"
 msgstr "მაქსიმუმი"
 
 # Control-ID:65535,
+#: Control-ID:65535
+msgid "Max. items to keep in the log message history"
+msgstr "ჟურნალის ჩანაწერების მაქსიმალური რაოდენობა"
+
+# Control-ID:65535,
+#: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
 msgstr "შერწყმა"
@@ -3690,12 +3785,14 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "პროგრამები (*.exe)|*.exe|ყველა ფაილი (*.*)|*.*||"
 
 # Control-ID:65535,
+#: Dlg-ID:134
 #: Control-ID:65535
 msgid "Progress"
 msgstr "მიმდინარეობის დიალოგი:"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "პარამეტრები"
 
@@ -3832,6 +3929,11 @@ msgstr ""
 "გახსნილი ფაილების ხელახლა ჩატვირთვა და ცვლილებების გაუქმება.\n"
 "კვლავჩატვირთვა"
 
+# ID:12,
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "გადაადგილება..."
+
 # ID:80,
 #: ID:80
 msgid "Relocating..."
@@ -3885,6 +3987,11 @@ msgstr ""
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "ფაილის ან ფაილის თარგის ამოღება იგნორირებულთა სიიდან"
+
+# ID:101,
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "გადარქმევა"
 
 # ID:97,
 #: ID:97
@@ -3954,6 +4061,11 @@ msgstr "საცავის გზამკვლევი"
 msgid "Repository"
 msgstr "საცავი"
 
+# Dlg-ID:153,
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "საცავის ნუსხა"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Requests a username and a password"
@@ -3963,6 +4075,12 @@ msgstr "მონაწილის სახელისა და პარო
 #: ID:8
 msgid "Res&olved..."
 msgstr "&მოგვარდა..."
+
+# ID:74,#:
+# ID:209,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "მოგვარება"
 
 # ID:282,
 #: ID:282
@@ -4016,6 +4134,11 @@ msgstr "აღდგენილი"
 msgid "Retry"
 msgstr "კვლავ"
 
+# ID:73,
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "აღდგენა"
+
 # ID:114,
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -4067,6 +4190,11 @@ msgid "Revision / Author:"
 msgstr "ვერსია / ავტორი:"
 
 # ID:269,
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "ვერსიის დიაგრამა"
+
+# ID:269,
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4076,6 +4204,26 @@ msgstr "ვერსიის დიაგრამა"
 #: ID:75
 msgid "Revision: "
 msgstr "ვერსია:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"ვერსია: %ld\n"
+"მისამართი: %s\r\n"
+"ავტორი: %s\r\n"
+"თარიღი: %s\r\n"
+"\r\n"
+"ჟურნალი:\r\n"
+"%s"
 
 # ID:116,
 #: ID:116
@@ -4287,6 +4435,11 @@ msgstr "&სრული მონიშვნა/მოხსნა"
 #: ID:13
 msgid "Select File..."
 msgstr "ფაილის არჩევა..."
+
+# ID:276,
+#: Dlg-ID:173
+msgid "Select Revision"
+msgstr "ვერსიის არჩევა"
 
 # ID:78,
 #: ID:78
@@ -4532,6 +4685,18 @@ msgstr "უცვლელი ფაილების ჩვენება"
 msgid "Show unversioned files"
 msgstr "არავერსიული ფაილების ჩვენება"
 
+# Control-ID:1209,
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "%ld კვანძების ჩვენება"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "გარფიკის ჩვენება - %s"
+
 # ID:15,
 #: ID:15
 msgid "Shows a graphical representation of copies/tags/branches"
@@ -4572,6 +4737,11 @@ msgstr "გამოტოვება"
 msgid "Skipped missing target"
 msgstr "გამოტოვებული მცდარი სამიზნე"
 
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "მიუთითებს თუ რამდენი ბოლო ჩანაწერის შენარჩუნება გსურთ ჟურნალში."
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4606,6 +4776,7 @@ msgstr "დაწყობა"
 
 # ID:245,
 #: ID:245
+#: Dlg-ID:179
 msgid "Statistics"
 msgstr "სტატისტიკა"
 
@@ -4693,6 +4864,11 @@ msgstr "სამუშაო ასლის ახალ შტოზე/ჭ�
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "გაცვლა მარცხენა<->მარჯვენა"
+
+# Dlg-ID:140,
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "გადართვა შტოზე / ჭდეზე"
 
 # ID:3606,
 #: ID:3606
@@ -5212,158 +5388,6 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-# Dlg-ID:155,
-#: Dlg-ID:155
-msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN : დამატება"
-
-# Dlg-ID:131,#:
-# Dlg-ID:160,
-#: Dlg-ID:131
-#: Dlg-ID:160
-msgid "TortoiseSVN : Authentication"
-msgstr "TortoiseSVN : აუთენტიფიკაცია"
-
-# Dlg-ID:162,
-#: Dlg-ID:162
-msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN : ავტორები"
-
-# Dlg-ID:199,
-#: Dlg-ID:199
-msgid "TortoiseSVN : Changed Files"
-msgstr "TortoiseSVN : შეცვლილი ფაილები"
-
-# Dlg-ID:174,
-#: Dlg-ID:174
-msgid "TortoiseSVN : Check For Updates"
-msgstr "TortoiseSVN : განახლებების შემოწმება"
-
-# Dlg-ID:133,
-#: Dlg-ID:133
-msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN : გადმოტანა"
-
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "TortoiseSVN : კოპირება (შტო / ჭდე)"
-
-# Dlg-ID:208,
-#: Dlg-ID:208
-msgid "TortoiseSVN : Create Patch"
-msgstr "TortoiseSVN : გეზის შექმნა"
-
-# Dlg-ID:178,
-#: Dlg-ID:178
-msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN : საცავის შექმნა"
-
-# Dlg-ID:135,
-#: Dlg-ID:135
-msgid "TortoiseSVN : Enter Log Message"
-msgstr "TortoiseSVN : ჟურნალის ჩანაწერის მითითება"
-
-# Dlg-ID:139,
-#: Dlg-ID:139
-msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN : იმპორტი"
-
-# Dlg-ID:161,
-#: Dlg-ID:161
-msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN : შეტანა"
-
-# Dlg-ID:191,
-#: Dlg-ID:191
-msgid "TortoiseSVN : Lock Files"
-msgstr "TortoiseSVN : ფაილების დაბლოკვა"
-
-# Dlg-ID:191,
-#: Dlg-ID:211
-msgid "TortoiseSVN : Log History"
-msgstr "TortoiseSVN : ჟურნალის ისტორია"
-
-# Dlg-ID:130,
-#: Dlg-ID:130
-msgid "TortoiseSVN : Log Messages"
-msgstr "TortoiseSVN : ჟურნალის ჩანაწერები"
-
-# Dlg-ID:141,
-#: Dlg-ID:141
-msgid "TortoiseSVN : Merge"
-msgstr "TortoiseSVN : შერწყმა"
-
-# Dlg-ID:134,
-#: Dlg-ID:134
-msgid "TortoiseSVN : Progress"
-msgstr "TortoiseSVN : მიმდინარეობა"
-
-# Dlg-ID:177,
-#: Dlg-ID:177
-msgid "TortoiseSVN : Properties"
-msgstr "TortoiseSVN : პარამეტრები"
-
-# Dlg-ID:157,
-#: Dlg-ID:157
-msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN : გადაადგილება"
-
-# Dlg-ID:151,
-#: Dlg-ID:151
-msgid "TortoiseSVN : Rename"
-msgstr "TortoiseSVN : გადარქმევა"
-
-# Dlg-ID:153,
-#: Dlg-ID:153
-msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN : საცავის ნუსხა"
-
-# Dlg-ID:207,
-#: Dlg-ID:207
-msgid "TortoiseSVN : Resolve"
-msgstr "TortoiseSVN : მოგვარება"
-
-# Dlg-ID:175,
-#: Dlg-ID:175
-msgid "TortoiseSVN : Revert"
-msgstr "TortoiseSVN : აღდგენა"
-
-# Dlg-ID:182,
-#: Dlg-ID:182
-msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN : ვერსიის დიაგრამა"
-
-# Dlg-ID:173,
-#: Dlg-ID:173
-msgid "TortoiseSVN : Select Revision"
-msgstr "TortoiseSVN : ვერსიის არჩევა"
-
-# Dlg-ID:179,
-#: Dlg-ID:179
-msgid "TortoiseSVN : Statistics"
-msgstr "TortoiseSVN : სტატისტიკა"
-
-# Dlg-ID:140,
-#: Dlg-ID:140
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr "TortoiseSVN : გადართვა შტოზე / ჭდეზე"
-
-# Dlg-ID:164,
-#: Dlg-ID:164
-msgid "TortoiseSVN : URL"
-msgstr "TortoiseSVN : მისამართი"
-
-# Dlg-ID:152,
-#: Dlg-ID:152
-msgid "TortoiseSVN : Update"
-msgstr "TortoiseSVN : განახლება"
-
-# Dlg-ID:158,
-#: Dlg-ID:158
-msgid "TortoiseSVN : Working Copy"
-msgstr "TortoiseSVN : სამუშაო ასლი"
-
 # ID:77,
 #: ID:77
 msgid "TortoiseSVN Add..."
@@ -5469,6 +5493,11 @@ msgstr "TortoiseSVN-ის გამართვა"
 msgid "Two-way &Diff"
 msgstr "&ორპანელიანი შედარება"
 
+# Control-ID:65535,
+#: Dlg-ID:164
+msgid "URL"
+msgstr "მისამართი:"
+
 # ID:12,
 #: ID:12
 msgid "URL of Subversion items"
@@ -5483,24 +5512,6 @@ msgstr "მისამართი:"
 #: ID:75
 msgid "URL: "
 msgstr "მისამართი: "
-
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"ავტორი: %s\r\n"
-"თარიღი: %s\r\n"
-"\r\n"
-"ჟურნალი:\r\n"
-"%s"
 
 # ID:3866,#:
 # ID:3866,
@@ -5592,6 +5603,11 @@ msgstr "დაბლოკვის მოხსნილია"
 #: ID:3841
 msgid "Untitled"
 msgstr "უსახელო"
+
+# ID:8,
+#: Dlg-ID:152
+msgid "Update"
+msgstr "განახლება"
 
 # ID:74,
 #: ID:74
@@ -5764,6 +5780,11 @@ msgstr "გაფრთხილება!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "ხარეების გათვალისწინება"
+
+# Control-ID:1183,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "სამუშაო ასლი"
 
 # ID:80,
 #: ID:80
@@ -5974,6 +5995,25 @@ msgstr "&გაზრდა\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "&შემცირება\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "მასშტაბი 100%"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "გაზრდა"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "შემცირება"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "შევსება"
 
 # ID:10,
 #: ID:10
