@@ -22,6 +22,7 @@
 #include "ProgressDlg.h"
 #include "Colors.h"
 #include "RevisionGraphWnd.h"
+#include "StandAloneDlg.h"
 
 class CRevGraphToolBar : public CToolBar
 {
@@ -37,7 +38,7 @@ public:
  * the drawing is done in the member class CRevisionGraphWnd
  * Here, we handle window messages.
  */
-class CRevisionGraphDlg : public CDialog
+class CRevisionGraphDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRevisionGraphDlg)
 public:
