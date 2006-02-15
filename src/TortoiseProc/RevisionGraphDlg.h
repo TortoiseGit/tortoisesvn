@@ -24,6 +24,8 @@
 #include "RevisionGraphWnd.h"
 #include "StandAloneDlg.h"
 
+#define	MAX_TT_LENGTH			10000
+
 class CRevGraphToolBar : public CToolBar
 {
 public:
@@ -53,6 +55,8 @@ protected:
 	bool			m_bShowAll;
 	bool			m_bArrangeByPath;
 	float			m_fZoomFactor;
+	char			m_szTip[MAX_TT_LENGTH+1];
+	wchar_t			m_wszTip[MAX_TT_LENGTH+1];
 	
 	HACCEL			m_hAccel;
 
@@ -76,6 +80,7 @@ protected:
 	afx_msg void	OnViewArrangedbypath();
 	afx_msg void	OnFileSavegraphas();
 	afx_msg void	OnChangeZoom();
+	afx_msg BOOL	OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 

@@ -85,6 +85,24 @@ BEGIN
     BUTTON      ID_REVGRAPH_ZOOMCOMBO
 END
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_ZOOMIN          "Zoom in"
+    ID_VIEW_ZOOMOUT         "Zoom out"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_ZOOM100         "Zoom 100%"
+    ID_VIEW_ZOOMALL         "Zoom to fit"
+END
+
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
