@@ -403,7 +403,8 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 			TCHAR date[SVN_DATE_BUFFER];
 			SVN::formatDate(date, rentry->date);
 			strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
-							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->url),
+							rentry->revision,
+							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->realurl),
 							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->author), 
 							date,
 							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->message));
