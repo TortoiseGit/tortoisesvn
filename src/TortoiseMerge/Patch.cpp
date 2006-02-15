@@ -512,7 +512,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 				break;
 			case PATCHSTATE_CONTEXT:
 				{
-					if (lAddLine > PatchLines.GetCount())
+					if ((lAddLine > PatchLines.GetCount())||(lRemoveLine > PatchLines.GetCount()))
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), (LPCTSTR)sPatchLine);
 						return FALSE; 

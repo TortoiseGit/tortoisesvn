@@ -71,6 +71,8 @@ Version 1.3.2
        for details. (Stefan)
 - BUG: TortoiseMerge crashed when applying patches which triggered a
        conflict at the end of the file. (Tobias Schäfer)
+- BUG: TortoiseMerge could crash when applying a corrupted (e.g. due
+       to mail program splitting lines) patchfile. (Stefan)
 - BUG: Possible deadlock in the cache when mounting new drives. (Stefan)
 - BUG: Possible crash in the cache when removing multiple files or
        directories inside the same directory path *very* fast. (Stefan)
