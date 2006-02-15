@@ -160,6 +160,7 @@ void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
 		TRACE("Unable to add tooltip!\n");
 	}
 	EnableToolTips();
+
 	memset(&m_lfBaseFont, 0, sizeof(m_lfBaseFont));
 	m_lfBaseFont.lfHeight = 0;
 	m_lfBaseFont.lfWeight = FW_NORMAL;
@@ -430,7 +431,9 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 		lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
 		pTTTW->lpszText = m_wszTip;
 	}
-
+	// show the tooltip for 32 seconds. A higher value than 32767 won't work
+	// even though it's nowhere documented!
+	::SendMessage(pNMHDR->hwndFrom, TTM_SETDELAYTIME, TTDT_AUTOPOP, 32767);
 	return TRUE;    // message was handled
 }
 

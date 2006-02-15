@@ -261,7 +261,6 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 		case WM_MBUTTONUP:
 			// This will reactivate the tooltip
 			m_Graph.m_pDlgTip->Activate(TRUE);
-			m_Graph.m_pDlgTip->RelayEvent(pMsg);
 			break;
 		}
 	}
