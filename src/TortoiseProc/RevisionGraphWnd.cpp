@@ -69,6 +69,24 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	{
 		m_apFonts[i] = NULL;
 	}
+	WNDCLASS wndcls;
+	HINSTANCE hInst = AfxGetInstanceHandle();
+#define REVGRAPH_CLASSNAME _T("Revgraph_windowclass")
+	if (!(::GetClassInfo(hInst, REVGRAPH_CLASSNAME, &wndcls)))
+	{
+		// otherwise we need to register a new class
+		wndcls.style            = CS_DBLCLKS | CS_OWNDC;
+		wndcls.lpfnWndProc      = ::DefWindowProc;
+		wndcls.cbClsExtra       = wndcls.cbWndExtra = 0;
+		wndcls.hInstance        = hInst;
+		wndcls.hIcon            = NULL;
+		wndcls.hCursor          = AfxGetApp()->LoadStandardCursor(IDC_ARROW);
+		wndcls.hbrBackground    = (HBRUSH) (COLOR_WINDOW + 1);
+		wndcls.lpszMenuName     = NULL;
+		wndcls.lpszClassName    = REVGRAPH_CLASSNAME;
+
+		RegisterClass(&wndcls);
+	}
 }
 
 CRevisionGraphWnd::~CRevisionGraphWnd()
@@ -134,7 +152,8 @@ void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
 		RegisterClass(&wndcls);
 	}
 
-	CreateEx(WS_EX_CLIENTEDGE, REVGRAPH_CLASSNAME, _T("RevGraph"), WS_CHILD|WS_VISIBLE, *rect, pParent, 0);
+	if (!IsWindow(m_hWnd))
+		CreateEx(WS_EX_CLIENTEDGE, REVGRAPH_CLASSNAME, _T("RevGraph"), WS_CHILD|WS_VISIBLE|WS_TABSTOP, *rect, pParent, 0);
 	m_pDlgTip = new CToolTipCtrl;
 	if(!m_pDlgTip->Create(this))
 	{
@@ -276,6 +295,7 @@ void CRevisionGraphWnd::OnSize(UINT nType, int cx, int cy)
 void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	ATLTRACE("right clicked on x=%d y=%d\n", point.x, point.y);
+	SetFocus();
 	bool bHit = false;
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
@@ -683,6 +703,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		}
 	}
 }
+
 
 
 
