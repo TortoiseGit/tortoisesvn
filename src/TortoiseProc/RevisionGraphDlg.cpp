@@ -92,7 +92,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 
 	// set up the status bar
 	m_StatusBar.Create(WS_CHILD|WS_VISIBLE|SBT_OWNERDRAW,
-		CRect(0,0,0,0), this, 0);
+		CRect(0,0,0,0), this, 1);
 	int strPartDim[2]= {260, -1};
 	m_StatusBar.SetParts(2, strPartDim);
 
@@ -170,8 +170,6 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	cbei.pszText = _T("100%");
 	m_ToolBar.m_ZoomCombo.InsertItem(&cbei);
 	m_ToolBar.m_ZoomCombo.SetCurSel(0);
-
-
 
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REVISIONGRAPH));
 
@@ -274,34 +272,34 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 		switch (pMsg->wParam)
 		{
 		case VK_UP:
-			pos = GetScrollPos(SB_VERT);
-			SetScrollPos(SB_VERT, pos - SCROLL_STEP);
-			Invalidate();
+			pos = m_Graph.GetScrollPos(SB_VERT);
+			m_Graph.SetScrollPos(SB_VERT, pos - SCROLL_STEP);
+			m_Graph.Invalidate();
 			break;
 		case VK_DOWN:
-			pos = GetScrollPos(SB_VERT);
-			SetScrollPos(SB_VERT, pos + SCROLL_STEP);
-			Invalidate();
+			pos = m_Graph.GetScrollPos(SB_VERT);
+			m_Graph.SetScrollPos(SB_VERT, pos + SCROLL_STEP);
+			m_Graph.Invalidate();
 			break;
 		case VK_LEFT:
-			pos = GetScrollPos(SB_HORZ);
-			SetScrollPos(SB_HORZ, pos - SCROLL_STEP);
-			Invalidate();
+			pos = m_Graph.GetScrollPos(SB_HORZ);
+			m_Graph.SetScrollPos(SB_HORZ, pos - SCROLL_STEP);
+			m_Graph.Invalidate();
 			break;
 		case VK_RIGHT:
-			pos = GetScrollPos(SB_HORZ);
-			SetScrollPos(SB_HORZ, pos + SCROLL_STEP);
-			Invalidate();
+			pos = m_Graph.GetScrollPos(SB_HORZ);
+			m_Graph.SetScrollPos(SB_HORZ, pos + SCROLL_STEP);
+			m_Graph.Invalidate();
 			break;
 		case VK_PRIOR:
-			pos = GetScrollPos(SB_VERT);
-			SetScrollPos(SB_VERT, pos - 10*SCROLL_STEP);
-			Invalidate();
+			pos = m_Graph.GetScrollPos(SB_VERT);
+			m_Graph.SetScrollPos(SB_VERT, pos - 10*SCROLL_STEP);
+			m_Graph.Invalidate();
 			break;
 		case VK_NEXT:
-			pos = GetScrollPos(SB_VERT);
-			SetScrollPos(SB_VERT, pos + 10*SCROLL_STEP);
-			Invalidate();
+			pos = m_Graph.GetScrollPos(SB_VERT);
+			m_Graph.SetScrollPos(SB_VERT, pos + 10*SCROLL_STEP);
+			m_Graph.Invalidate();
 			break;
 		}
 	}
