@@ -348,7 +348,10 @@ void CRevisionGraphDlg::OnViewZoomAll()
 	float horzfact = float(viewrect->Width())/float(windowrect.Width());
 	float vertfact = float(viewrect->Height())/float(windowrect.Height());
 	float fZoom = 1.0f/(max(horzfact, vertfact));
+	if (fZoom > 1.0f)
+		fZoom = 1.0f;
 	int trycounter = 0;
+	m_fZoomFactor = fZoom;
 	while ((trycounter < 5)&&((viewrect->Width()>windowrect.Width())||(viewrect->Height()>windowrect.Height())))
 	{
 		m_fZoomFactor = fZoom;
