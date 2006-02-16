@@ -95,7 +95,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	// set up the status bar
 	m_StatusBar.Create(WS_CHILD|WS_VISIBLE|SBT_OWNERDRAW,
 		CRect(0,0,0,0), this, 1);
-	int strPartDim[2]= {260, -1};
+	int strPartDim[2]= {120, -1};
 	m_StatusBar.SetParts(2, strPartDim);
 
 	// set up the toolbar
