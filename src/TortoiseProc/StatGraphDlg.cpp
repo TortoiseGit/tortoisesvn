@@ -819,7 +819,7 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 	if (pttt->hdr.idFrom == (UINT) m_Skipper.GetSafeHwnd())
 	{
 		CString string;
-		string.Format(_T("%d %%"), m_Skipper.GetPos());
+		string.Format(_T("%d %%"), m_Skipper.GetPos()/2);
 		::lstrcpy(pttt->szText, (LPCTSTR) string);
 	}
 }
