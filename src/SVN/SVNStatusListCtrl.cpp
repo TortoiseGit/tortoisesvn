@@ -1818,7 +1818,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						// *before* their parents
 						itemsToRemove.SortByPathname(true);
 
-						if (svn.Remove(itemsToRemove, FALSE))
+						if (svn.Remove(itemsToRemove, TRUE))
 						{
 							// The remove went ok, but we now need to run through the selected items again
 							// and update their status
