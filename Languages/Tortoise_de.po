@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-02-14 11:57+0100\n"
+"PO-Revision-Date: 2006-02-16 09:39+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3445,6 +3445,25 @@ msgstr "Revisionsgraph"
 msgid "Revision: "
 msgstr "Revision:"
 
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Datum: %s\r\n"
+"\r\n"
+"Log-Meldung:\r\n"
+"%s"
+
 #: ID:116
 msgid "Revisions"
 msgstr "Revisionen"
@@ -4523,23 +4542,6 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Autor: %s\r\n"
-"Datum: %s\r\n"
-"\r\n"
-"Log-Meldung:\r\n"
-"%s"
-
 #: ID:3866
 msgid "Unable to load mail system support."
 msgstr "Konnte Mail Unterstützung nicht laden."
@@ -4951,6 +4953,25 @@ msgstr "Ver&größern\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "Ver&kleinern\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "Zoom 100%"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Vergrößern"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "Verkleinern"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "An Fenster anpassen"
 
 #: ID:10
 msgid "added"
