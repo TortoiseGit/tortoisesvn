@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-14 10:58+0100\n"
+"PO-Revision-Date: 2006-02-16 10:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1328,11 +1328,11 @@ msgstr "Sélectionner"
 
 #: Dlg-ID:174
 msgid "Check For Updates"
-msgstr "Contrôler les mises à jours"
+msgstr "Vérifier les mises à jours"
 
 #: Control-ID:1031
 msgid "Check For Updates..."
-msgstr "Contrôler les mises à jours..."
+msgstr "Vérifier les mises à jours..."
 
 #: ID:13
 msgid "Check for modi&fications"
@@ -1614,7 +1614,7 @@ msgstr "Ne peut pas ajouter %s à la liste des ignorés!"
 
 #: ID:201
 msgid "Could not check for a newer version!"
-msgstr "Ne peut pas contrôler la disponibilité d'une nouvelle version!"
+msgstr "Ne peut pas vérifier la disponibilité d'une nouvelle version!"
 
 #: ID:81
 #, c-format
@@ -3550,6 +3550,26 @@ msgstr "Graphique de révision "
 msgid "Revision: "
 msgstr "Révision: "
 
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Révision: %ld\n"
+"URL: %s\r\n"
+"Auteur: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Commentaire:\r\n"
+"%s"
+
 #: ID:116
 msgid "Revisions"
 msgstr "Révisions"
@@ -3858,11 +3878,11 @@ msgstr "Voir les &différences"
 #: Control-ID:1034
 #: Control-ID:1132
 msgid "Show &log"
-msgstr "Voir journa&l"
+msgstr "Voir le journa&l"
 
 #: Control-ID:1031
 msgid "Show &log..."
-msgstr "Voir journa&l..."
+msgstr "Voir le journa&l..."
 
 #: Control-ID:1088
 msgid "Show &overlays only in explorer"
@@ -4659,24 +4679,6 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Auteur: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Commentaire:\r\n"
-"%s"
-
 #: ID:3866
 msgid "Unable to load mail system support."
 msgstr "Impossible de charger le système de mail."
@@ -5100,7 +5102,26 @@ msgstr "Agrand&ir\tCtrl-+"
 
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
-msgstr "&Rétrécir\tCtrl--"
+msgstr "&Réduire\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "Taille réelle"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Agrandir"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "Réduire"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "Adapter à la fenêtre"
 
 #: ID:10
 msgid "added"
