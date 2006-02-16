@@ -341,12 +341,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					temp.LoadString(IDS_REPOBROWSE_RENAME);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"
 
-				} // if (GetRevision().IsHead()
-				else
-				{
 					temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTOWC, temp);		// "Copy To Working Copy..."
-				}
+				} // if (GetRevision().IsHead()
+
 				temp.LoadString(IDS_REPOBROWSE_COPY);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);			// "Copy To..."
 				
