@@ -367,6 +367,7 @@ public:
 	DECLARE_MESSAGE_MAP()
 
 private:
+	void SaveColumnWidths(bool bSaveToRegistry = false);
 	void Sort();	///< Sorts the control by columns
 	void AddEntry(const FileEntry * entry, WORD langID, int listIndex);	///< add an entry to the control
 	void RemoveListEntry(int index);	///< removes an entry from the listcontrol and both arrays

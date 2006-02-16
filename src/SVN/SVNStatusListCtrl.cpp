@@ -1035,6 +1035,7 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 void CSVNStatusListCtrl::Sort()
 {
 	std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), SortCompare);
+	SaveColumnWidths();
 	Show(m_dwShow, 0, m_bShowFolders);
 }
 
@@ -1745,6 +1746,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 										SetItemState(index, 0, LVIS_SELECTED);
 									}
 								}
+								SaveColumnWidths();
 								Show(m_dwShow, 0, m_bShowFolders);
 							}
 						}  
@@ -1834,6 +1836,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
+						SaveColumnWidths();
 						Show(m_dwShow, 0, m_bShowFolders);
 					}
 					break;
@@ -2302,6 +2305,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
+						SaveColumnWidths();
 						Show(m_dwShow, 0, m_bShowFolders);
 					}
 					break;
@@ -3148,23 +3152,7 @@ CString CSVNStatusListCtrl::WidthArrayToString(int WidthArray[])
 
 void CSVNStatusListCtrl::OnDestroy()
 {
-	int arr[SVNSLC_NUMCOLUMNS];
-	GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
-	CString sOrder = OrderArrayToString(arr);
-	CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer+_T("_Order"));
-	regColOrder = sOrder;
-
-	CRegString regColWidth(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer+_T("_Width"));
-	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
-	for (int col = 0; col <= maxcol; col++)
-	{
-		m_arColumnWidths[col] = GetColumnWidth(col);
-	}
-	CString sWidths = WidthArrayToString(m_arColumnWidths);
-	regColWidth = sWidths;
-
-	CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer);
-	regColInfo = m_dwColumns;
+	SaveColumnWidths(true);
 	CListCtrl::OnDestroy();
 }
 
@@ -3187,4 +3175,31 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 	}
 
 	*pResult = 0;
+}
+
+void CSVNStatusListCtrl::SaveColumnWidths(bool bSaveToRegistry /* = false */)
+{
+	if (bSaveToRegistry)
+	{
+		int arr[SVNSLC_NUMCOLUMNS];
+		GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
+		CString sOrder = OrderArrayToString(arr);
+		CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer+_T("_Order"));
+		regColOrder = sOrder;
+	}
+
+	CRegString regColWidth(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer+_T("_Width"));
+	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
+	for (int col = 0; col <= maxcol; col++)
+	{
+		m_arColumnWidths[col] = GetColumnWidth(col);
+	}
+	if (bSaveToRegistry)
+	{
+		CString sWidths = WidthArrayToString(m_arColumnWidths);
+		regColWidth = sWidths;
+
+		CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer);
+		regColInfo = m_dwColumns;
+	}
 }
