@@ -2449,7 +2449,8 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(pItem->iItem >= m_arShownList.GetCount()))
 	{
-		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+		if (pItem->mask & LVIF_TEXT)
+			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		*pResult = 0;
 		return;
 	}
@@ -2509,17 +2510,20 @@ void CLogDlg::OnLvnGetdispinfoLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if ((m_bNoDispUpdates)||(m_bThreadRunning))
 	{
-		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+		if (pItem->mask & LVIF_TEXT)
+			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		return;
 	}
 	if ((m_currentChangedArray!=NULL)&&(pItem->iItem >= m_currentChangedArray->GetCount()))
 	{
-		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+		if (pItem->mask & LVIF_TEXT)
+			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		return;
 	}
 	if ((m_currentChangedArray==NULL)&&(pItem->iItem >= m_currentChangedPathList.GetCount()))
 	{
-		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+		if (pItem->mask & LVIF_TEXT)
+			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 		return;
 	}
 	LogChangedPath * lcpath = NULL;
