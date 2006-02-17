@@ -88,6 +88,13 @@ public:
 	 * \param pWnd Pointer to a rich edit control
 	 */
 	BOOL FindBugID(const CString& msg, CWnd * pWnd);
+
+	/**
+	 * Searches for the BugID inside a log message. If one is found,
+	 * that BugID is returned. If none is found, an empty string is returned.
+	 * The \c msg is trimmed off the BugID.
+	 */
+	CString GetBugIDFromLog(CString& msg);
 	
 	/**
 	 * Checks if the bug ID is valid. If bugtraq:number is 'true', then the

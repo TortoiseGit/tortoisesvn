@@ -231,6 +231,51 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	//return FALSE;		//never reached
 }
 
+CString ProjectProperties::GetBugIDFromLog(CString& msg)
+{
+	CString sBugID;
+
+	if (!sMessage.IsEmpty())
+	{
+		CString sBugLine;
+		CString sFirstPart;
+		CString sLastPart;
+		BOOL bTop = FALSE;
+		if (sMessage.Find(_T("%BUGID%"))<0)
+			return sBugID;
+		sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
+		sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
+		msg.TrimRight('\n');
+		if (msg.ReverseFind('\n')>=0)
+			sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+		else
+			sBugLine = msg;
+		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+			sBugLine.Empty();
+		if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+			sBugLine.Empty();
+		if (sBugLine.IsEmpty())
+		{
+			if (msg.Find('\n')>=0)
+				sBugLine = msg.Left(msg.Find('\n'));
+			if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+				sBugLine.Empty();
+			if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+				sBugLine.Empty();
+			bTop = TRUE;
+		}
+		if (sBugLine.IsEmpty())
+			return sBugID;
+		sBugID = sBugLine.Mid(sFirstPart.GetLength(), sBugLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
+		if (bTop)
+			msg = msg.Right(sBugLine.GetLength());
+		else
+			msg = msg.Left(msg.GetLength()-sBugLine.GetLength());
+		msg.TrimRight('\n');
+	}
+	return sBugID;
+}
+
 BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 {
 	size_t offset1 = 0;
@@ -306,39 +351,45 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 					br = patCheckRe.match( reMsg, results, offset1 );
 					if( br.matched ) 
 					{
-						for (size_t i=1; i<results.cbackrefs(); ++i)
+						// clear the styles up to the match position
+						ATLTRACE("matched string : %ws\n", results.backref(0).str().c_str());
+						offset1 += results.rstart(0);
 						{
-							if (results.rlength(i))
+							ATLTRACE("matched results : %ld\n", results.cbackrefs());
+							for (size_t test=0; test<results.cbackrefs(); ++test)
 							{
-								ATLTRACE("matched id : %ws\n", results.backref(i).str().c_str());
-								CHARRANGE range = {(LONG)(offset1 + results.rstart(i))
-									,(LONG)(offset1 + results.rstart(i) + results.rlength(i))};
-								if (range.cpMin != range.cpMax)
-								{
-									pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-									CHARFORMAT2 format;
-									ZeroMemory(&format, sizeof(CHARFORMAT2));
-									format.cbSize = sizeof(CHARFORMAT2);
-									format.dwMask = CFM_LINK;
-									format.dwEffects = CFE_LINK;
-									pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
-								}
+								ATLTRACE("matched (%d): %ws\n", test, results.backref(test).str().c_str());
 							}
+							// we define group 1 as the whole issue text
+							// and group 2 as the issue number
+							CHARRANGE range;
+							if (results.cbackrefs() > 2)
+							{
+								if (results.backref(2).str().empty())
+									range.cpMin = (LONG)(offset1 + results.rlength(1));
+								else
+									range.cpMin = (LONG)(offset1 + results.rlength(1)-results.rlength(2));
+								range.cpMax =  (LONG)(offset1 + results.rlength(1));
+							}
+							else
+							{
+								range.cpMin = (LONG)(offset1);
+								range.cpMax = (LONG)(offset1 + results.rlength(1));
+							}
+							if (range.cpMin != range.cpMax)
+							{
+								pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+								CHARFORMAT2 format;
+								ZeroMemory(&format, sizeof(CHARFORMAT2));
+								format.cbSize = sizeof(CHARFORMAT2);
+								format.dwMask = CFM_LINK;
+								format.dwEffects = CFE_LINK;
+								pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+							}
+							offset1 += results.rlength(1);
 						}
 					}
-
-					// that code looks broken:
-					// we just iterated over all matching ranges but skip only the first one
-					// => skip all
-
-					// offset1 += results.rstart(0);
-					// offset1 += results.rlength(0);
-					if (br.matched)
-					{
-						offset1 += results.rstart(results.cbackrefs()-1);
-						offset1 += results.rlength(results.cbackrefs()-1);
-					}
-				} while ((br.matched)&&(results.rlength(results.cbackrefs()-1)));
+				} while ((br.matched)&&((int)offset1<msg.GetLength()));
 			}
 			catch (bad_alloc) {}
 			catch (bad_regexpr) {}
@@ -355,18 +406,20 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 			return FALSE;
 		sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
 		sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
-		if (msg.ReverseFind('\n')>=0)
-			sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+		CString sMsg = msg;
+		sMsg.TrimRight('\n');
+		if (sMsg.ReverseFind('\n')>=0)
+			sBugLine = sMsg.Mid(sMsg.ReverseFind('\n')+1);
 		else
-			sBugLine = msg;
+			sBugLine = sMsg;
 		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
 			sBugLine.Empty();
 		if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
 			sBugLine.Empty();
 		if (sBugLine.IsEmpty())
 		{
-			if (msg.Find('\n')>=0)
-				sBugLine = msg.Left(msg.Find('\n'));
+			if (sMsg.Find('\n')>=0)
+				sBugLine = sMsg.Left(sMsg.Find('\n'));
 			if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
 				sBugLine.Empty();
 			if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
@@ -380,7 +433,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 			return FALSE;
 		//the bug id part can contain several bug id's, separated by commas
 		if (!bTop)
-			offset1 = msg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
+			offset1 = sMsg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
 		else
 			offset1 = sFirstPart.GetLength();
 		sBugIDPart.Trim(_T(","));

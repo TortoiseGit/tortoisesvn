@@ -943,7 +943,10 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 						// and group 2 as the issue number
 						if (results.cbackrefs() > 2)
 						{
-							Call(SCI_SETSTYLING, results.rlength(1)-results.rlength(2), STYLE_BOLD);
+							if (results.backref(2).str().empty())
+								Call(SCI_SETSTYLING, results.rlength(1), STYLE_BOLD);
+							else
+								Call(SCI_SETSTYLING, results.rlength(1)-results.rlength(2), STYLE_BOLD);
 							Call(SCI_SETSTYLING, results.rlength(2), STYLE_BOLDITALIC);
 						}
 						else
