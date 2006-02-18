@@ -469,7 +469,14 @@ void CRevisionGraphWnd::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 	pDC->SelectObject(pOldPen);
 }
 
-
+void CRevisionGraphWnd::DrawRubberBand()
+{
+	CDC * pDC = GetDC();
+	pDC->SetROP2(R2_NOT);
+	pDC->SelectObject(GetStockObject(NULL_BRUSH));
+	pDC->Rectangle(m_ptRubberStart.x, m_ptRubberStart.y, m_ptRubberEnd.x, m_ptRubberEnd.y);
+	ReleaseDC(pDC);
+}
 
 
 

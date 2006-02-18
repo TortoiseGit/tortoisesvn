@@ -50,11 +50,12 @@ public:
 
 
 	void			SetPath(const CString& sPath) {m_Graph.m_sPath = sPath;}
+	void			UpdateZoomBox();
+	float			m_fZoomFactor;
 protected:
 	bool			m_bFetchLogs;
 	bool			m_bShowAll;
 	bool			m_bArrangeByPath;
-	float			m_fZoomFactor;
 	char			m_szTip[MAX_TT_LENGTH+1];
 	wchar_t			m_wszTip[MAX_TT_LENGTH+1];
 	
@@ -86,7 +87,6 @@ protected:
 
 	void			GetGraphRect(LPRECT rect);
 	void			UpdateStatusBar();
-	void			UpdateZoomBox();
 
 private:
 	static UINT		WorkerThread(LPVOID pVoid);

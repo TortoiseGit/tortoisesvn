@@ -29,6 +29,7 @@
 #include "TSVNPath.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
+#include "RevisionGraphDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -61,6 +62,8 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_bShowAll(false)
 	, m_bArrangeByPath(false)
 	, m_fZoomFactor(1.0)
+	, m_ptRubberEnd(0,0)
+	, m_ptRubberStart(0,0)
 {
 	m_GraphRect.SetRectEmpty();
 	m_ViewRect.SetRectEmpty();
@@ -69,6 +72,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	{
 		m_apFonts[i] = NULL;
 	}
+
 	WNDCLASS wndcls;
 	HINSTANCE hInst = AfxGetInstanceHandle();
 #define REVGRAPH_CLASSNAME _T("Revgraph_windowclass")
@@ -126,6 +130,8 @@ BEGIN_MESSAGE_MAP(CRevisionGraphWnd, CWnd)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
 	ON_WM_MOUSEWHEEL()
 	ON_WM_CONTEXTMENU()
+	ON_WM_MOUSEMOVE()
+	ON_WM_LBUTTONUP()
 END_MESSAGE_MAP()
 
 
@@ -340,8 +346,11 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	{
 		m_SelectedEntry1 = NULL;
 		m_SelectedEntry2 = NULL;
+		m_bIsRubberBand = true;
+		ATLTRACE("LButtonDown: x = %ld, y = %ld\n", point.x, point.y);
 		Invalidate();
 	}
+	m_ptRubberStart = point;
 	
 	UINT uEnable = MF_BYCOMMAND;
 	if ((m_SelectedEntry1 != NULL)&&(m_SelectedEntry2 != NULL))
@@ -355,6 +364,61 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	EnableMenuItem(GetParent()->GetMenu()->m_hMenu, ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, uEnable);
 	
 	__super::OnLButtonDown(nFlags, point);
+}
+
+void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
+{
+	m_bIsRubberBand = false;
+	ReleaseCapture();
+	// zooming is finished
+	m_ptRubberEnd = CPoint(0,0);
+	CRect rect;
+	GetClientRect(&rect);
+	int x = abs(m_ptRubberStart.x - point.x);
+	int y = abs(m_ptRubberStart.y - point.y);
+
+	if ((x < 20)&&(y < 20))
+	{
+		// too small zoom rectangle
+		// assume zooming by accident
+		Invalidate();
+		__super::OnLButtonUp(nFlags, point);
+		return;
+	}
+
+	float xfact = float(rect.Width())/float(x);
+	float yfact = float(rect.Height())/float(y);
+	float fact = max(yfact, xfact);
+
+	// find out where to scroll to
+	x = m_ptRubberStart.x + GetScrollPos(SB_HORZ);
+	y = m_ptRubberStart.y + GetScrollPos(SB_VERT);
+
+	float fZoomfactor = m_fZoomFactor*fact;
+	if (fZoomfactor > 20.0)
+	{
+		// with such a big zoomfactor, the user
+		// most likely zoomed by accident
+		Invalidate();
+		__super::OnLButtonUp(nFlags, point);
+		return;
+	}
+	if (fZoomfactor > 2.0)
+	{
+		fZoomfactor = 2.0;
+		fact = fZoomfactor/m_fZoomFactor;
+	}
+
+	CRevisionGraphDlg * pDlg = (CRevisionGraphDlg*)GetParent();
+	if (pDlg)
+	{
+		m_fZoomFactor = fZoomfactor;
+		pDlg->m_fZoomFactor = m_fZoomFactor;
+		DoZoom(m_fZoomFactor);
+		SetScrollbars(int(float(y)*fact), int(float(x)*fact));
+		pDlg->UpdateZoomBox();
+	}
+	__super::OnLButtonUp(nFlags, point);
 }
 
 INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
@@ -707,6 +771,36 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		}
 	}
 }
+
+void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
+{
+	if (!m_bIsRubberBand)
+	{
+		return __super::OnMouseMove(nFlags, point);
+	}
+
+	if ((abs(m_ptRubberStart.x - point.x) < 2)&&(abs(m_ptRubberStart.y - point.y) < 2))
+	{
+		return __super::OnMouseMove(nFlags, point);
+	}
+
+	SetCapture();
+	ATLTRACE("OnMouseMove: x = %ld, y = %ld\n", point.x, point.y);
+
+	if ((m_ptRubberEnd.x != 0)||(m_ptRubberEnd.y != 0))
+		DrawRubberBand();
+	m_ptRubberEnd = point;
+	CRect rect;
+	GetClientRect(&rect);
+	m_ptRubberEnd.x = max(m_ptRubberEnd.x, rect.left);
+	m_ptRubberEnd.x = min(m_ptRubberEnd.x, rect.right);
+	m_ptRubberEnd.y = max(m_ptRubberEnd.y, rect.top);
+	m_ptRubberEnd.y = min(m_ptRubberEnd.y, rect.bottom);
+	DrawRubberBand();
+
+	__super::OnMouseMove(nFlags, point);
+}
+
 
 
 

@@ -114,6 +114,9 @@ protected:
 	bool			m_bFetchLogs;
 	bool			m_bShowAll;
 	bool			m_bArrangeByPath;
+	bool			m_bIsRubberBand;
+	CPoint			m_ptRubberStart;
+	CPoint			m_ptRubberEnd;
 	
 	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -127,6 +130,7 @@ protected:
 	afx_msg BOOL	OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg BOOL	OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
 	afx_msg void	OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
+	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
 
 	DECLARE_MESSAGE_MAP()
 private:
@@ -154,5 +158,7 @@ private:
 	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, INT_PTR start, INT_PTR end);
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 	void			DoZoom(float nZoomFactor);
+	void			DrawRubberBand();
 friend class CRevisionGraphDlg;
+afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 };
