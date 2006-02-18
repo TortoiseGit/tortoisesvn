@@ -53,7 +53,7 @@ public:
 	void Clear();
 
 	/// Get the status for a single path (main entry point, called from named-pipe code
-	CStatusCacheEntry GetStatusForPath(const CTSVNPath& path, DWORD flags);
+	CStatusCacheEntry GetStatusForPath(const CTSVNPath& path, DWORD flags,  bool bFetch = true);
 
 	/// Find a directory in the cache (a new entry will be created if there isn't an existing entry)
 	CCachedDirectory * GetDirectoryCacheEntry(const CTSVNPath& path);

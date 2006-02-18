@@ -37,7 +37,7 @@ public:
 	CCachedDirectory();
 	CCachedDirectory(const CTSVNPath& directoryPath);
 	~CCachedDirectory(void);
-	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive);
+	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive, bool bFetch = true);
 	CStatusCacheEntry GetOwnStatus(bool bRecursive);
 	bool IsOwnStatusValid() const;
 	void Invalidate();
@@ -63,7 +63,10 @@ private:
 
 private:
 	CComAutoCriticalSection m_critSec;
+	CComAutoCriticalSection m_critSecPath;
 
+	CTSVNPath	m_currentStatusFetchingPath;
+	DWORD		m_currentStatusFetchingPathTicks;
 	// The cache of files and directories within this directory
 	typedef std::map<CString, CStatusCacheEntry> CacheEntryMap; 
 	CacheEntryMap m_entryCache; 

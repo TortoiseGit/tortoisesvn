@@ -322,7 +322,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntryNoCreate(const CTSVNPa
 	return NULL;
 }
 
-CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD flags)
+CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD flags,  bool bFetch /* = true */)
 {
 	bool bRecursive = !!(flags & TSVNCACHE_FLAGS_RECUSIVE_STATUS);
 
@@ -346,7 +346,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 
 		CCachedDirectory * cachedDir = GetDirectoryCacheEntry(path.GetContainingDirectory());
 		if (cachedDir)
-			return m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive);
+			return m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
 	}
 	ATLTRACE("ignored no good path %ws\n", path.GetWinPath());
 	return (m_mostRecentStatus = CStatusCacheEntry());

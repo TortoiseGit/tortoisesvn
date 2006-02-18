@@ -37,6 +37,7 @@ public:
 	bool DoesFileTimeMatch(__int64 testTime) const;
 	bool ForceStatus(svn_wc_status_kind forcedStatus);
 	svn_wc_status_kind GetEffectiveStatus() const { return m_highestPriorityLocalStatus; }
+	bool IsKindKnown() const { return ((m_kind != svn_node_none)&&(m_kind != svn_node_unknown)); }
 	void SetStatus(const svn_wc_status2_t* pSVNStatus);
 	bool HasBeenSet() const;
 	void Invalidate();
