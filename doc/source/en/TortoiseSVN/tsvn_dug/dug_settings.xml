@@ -308,7 +308,12 @@
 			<para>
 				The same applies to the <guilabel>Include Paths</guilabel>. Except that
 				for those paths the overlays are shown even if the overlays are disabled
-				for that specific drive type.
+				for that specific drive type, or by an exclude path specified above.
+			</para>
+			<para>
+				TSVNCache.exe also uses these paths to restrict its scanning. If you
+				want it to look only in particular folders, disable all drive types
+				and include only the folders you specifically want to be scanned.
 			</para>
 		</sect3>
 		<sect3 id="tsvn-DUG-settings-icon-set">
