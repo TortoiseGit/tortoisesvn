@@ -267,14 +267,12 @@ void CLogPromptDlg::OnOK()
 	itemsToRemove.SortByPathname();
 	svn.Remove(itemsToRemove, TRUE);
 
-	if ((nUnchecked == 0)&&(!bCheckedInExternal))
-	{
+	if (nUnchecked == 0)
 		m_bRecursive = TRUE;
-	}
 	else
-	{
 		m_bRecursive = FALSE;
-
+	if ((nUnchecked != 0)||(bCheckedInExternal))
+	{
 		//the next step: find all deleted files and check if they're 
 		//inside a deleted folder. If that's the case, then remove those
 		//files from the list since they'll get deleted by the parent
