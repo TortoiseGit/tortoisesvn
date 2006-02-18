@@ -224,6 +224,7 @@ void CLogPromptDlg::OnOK()
 
 	CTSVNPathList itemsToAdd;
 	CTSVNPathList itemsToRemove;
+	bool bCheckedInExternal = false;
 
 	for (int j=0; j<nListItems; j++)
 	{
@@ -241,6 +242,10 @@ void CLogPromptDlg::OnOK()
 			if (entry->status == svn_wc_status_deleted)
 			{
 				arDeleted.Add(j);
+			}
+			if (entry->IsInExternal())
+			{
+				bCheckedInExternal = true;
 			}
 		}
 		else
@@ -262,7 +267,7 @@ void CLogPromptDlg::OnOK()
 	itemsToRemove.SortByPathname();
 	svn.Remove(itemsToRemove, TRUE);
 
-	if ((nUnchecked == 0)&&(m_ListCtrl.m_nTargetCount == 1))
+	if ((nUnchecked == 0)&&(m_ListCtrl.m_nTargetCount == 1)&&(!bCheckedInExternal))
 	{
 		m_bRecursive = TRUE;
 	}
@@ -301,10 +306,9 @@ void CLogPromptDlg::OnOK()
 			}
 		} // for (int i=0; i<arDeleted.GetCount(); i++) 
 		m_ListCtrl.Block(FALSE);
-
+		//save only the files the user has checked into the temporary file
+		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	}
-	//save only the files the user has checked into the temporary file
-	m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	InterlockedExchange(&m_bBlock, FALSE);

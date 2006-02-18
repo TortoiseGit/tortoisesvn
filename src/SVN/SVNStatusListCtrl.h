@@ -178,6 +178,10 @@ public:
 		{
 			return isfolder;
 		}
+		const bool IsInExternal() const
+		{
+			return inexternal;
+		}
 	public:
 		svn_wc_status_kind		status;					///< local status
 	private:
