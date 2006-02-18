@@ -267,7 +267,7 @@ void CLogPromptDlg::OnOK()
 	itemsToRemove.SortByPathname();
 	svn.Remove(itemsToRemove, TRUE);
 
-	if ((nUnchecked == 0)&&(m_ListCtrl.m_nTargetCount == 1)&&(!bCheckedInExternal))
+	if ((nUnchecked == 0)&&(!bCheckedInExternal))
 	{
 		m_bRecursive = TRUE;
 	}
