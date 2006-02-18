@@ -310,8 +310,6 @@ void CLogPromptDlg::OnOK()
 	InterlockedExchange(&m_bBlock, FALSE);
 	m_sBugID.Trim();
 	m_sLogMessage = m_cLogMessage.GetText();
-	m_HistoryDlg.AddString(m_sLogMessage);
-	m_HistoryDlg.SaveHistory();
 	if (!m_sBugID.IsEmpty())
 	{
 		m_sBugID.Replace(_T(", "), _T(","));
@@ -323,6 +321,8 @@ void CLogPromptDlg::OnOK()
 		else
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 	}
+	m_HistoryDlg.AddString(m_sLogMessage);
+	m_HistoryDlg.SaveHistory();
 	CResizableStandAloneDialog::OnOK();
 }
 
@@ -436,7 +436,21 @@ void CLogPromptDlg::OnCancel()
 			InterlockedExchange(&m_bThreadRunning, FALSE);
 		}
 	}
-	m_HistoryDlg.AddString(m_cLogMessage.GetText());
+	UpdateData();
+	m_sBugID.Trim();
+	m_sLogMessage = m_cLogMessage.GetText();
+	if (!m_sBugID.IsEmpty())
+	{
+		m_sBugID.Replace(_T(", "), _T(","));
+		m_sBugID.Replace(_T(" ,"), _T(","));
+		CString sBugID = m_ProjectProperties.sMessage;
+		sBugID.Replace(_T("%BUGID%"), m_sBugID);
+		if (m_ProjectProperties.bAppend)
+			m_sLogMessage += _T("\n") + sBugID + _T("\n");
+		else
+			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
+	}
+	m_HistoryDlg.AddString(m_sLogMessage);
 	m_HistoryDlg.SaveHistory();
 	CResizableStandAloneDialog::OnCancel();
 }
@@ -818,7 +832,15 @@ void CLogPromptDlg::OnBnClickedHistory()
 	if (m_HistoryDlg.DoModal()==IDOK)
 	{
 		if (m_HistoryDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
-			m_cLogMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
+		{
+			CString sMsg = m_HistoryDlg.GetSelectedText();
+			CString sBugID = m_ProjectProperties.GetBugIDFromLog(sMsg);
+			if (!sBugID.IsEmpty())
+			{
+				GetDlgItem(IDC_BUGID)->SetWindowText(sBugID);
+			}
+			m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
+		}
 		if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
 		{
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
