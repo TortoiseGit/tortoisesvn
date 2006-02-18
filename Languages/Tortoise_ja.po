@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-07 13:43+0900\n"
+"PO-Revision-Date: 2006-02-18 16:59+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -171,6 +171,18 @@ msgstr "%s : 作業コピー"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s、%s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\エクスポート (%d) - %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\%s のエクスポート"
 
 # ID:145,
 #: ID:145
@@ -1022,6 +1034,7 @@ msgstr "タスクリストをアクティブにする"
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:209
+#: Dlg-ID:155
 msgid "Add"
 msgstr "追加"
 
@@ -1309,11 +1322,22 @@ msgstr "本当に、ファイルの衝突を解消済に変更してもよろし
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr "本当に %d 個の項目を元に戻してもよろしいですか？ 最後の更新以降の<b>全て</b>の変更が失われます！"
 
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "パスで並べ替え(&P)"
+
 # ID:77,
 #: ID:77
 #, c-format
 msgid "At revision: %d"
 msgstr "リビジョン: %d"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Dlg-ID:131
+#: Dlg-ID:160
+msgid "Authentication"
+msgstr "認証"
 
 # ID:76,
 #: ID:76
@@ -1390,6 +1414,11 @@ msgstr "参照(&R) ..."
 #: Control-ID:65535
 msgid "Base file:"
 msgstr "Base ファイル:"
+
+# ID:13,
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "注釈履歴"
 
 # ID:13,
 #: ID:13
@@ -1537,6 +1566,11 @@ msgid "Change the window size"
 msgstr "ウィンドウサイズを変更する"
 
 # ID:163,
+#: Dlg-ID:199
+msgid "Changed Files"
+msgstr "変更されたファイル"
+
+# ID:163,
 #: ID:163
 #, c-format
 msgid "Changed files: %d"
@@ -1557,6 +1591,11 @@ msgstr "チェックアウト(&K) ..."
 #: ID:3887
 msgid "Check"
 msgstr "チェック"
+
+# Control-ID:1031,
+#: Dlg-ID:174
+msgid "Check For Updates"
+msgstr "更新をチェック"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -1614,6 +1653,11 @@ msgstr "前方向コピーをチェック中"
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "TortoiseSVN の最新のバージョンが利用可能かどうかをチェックしています ..."
+
+# ID:8,
+#: Dlg-ID:133
+msgid "Checkout"
+msgstr "チェックアウト"
 
 # Control-ID:1074,
 #: Control-ID:1074
@@ -1815,6 +1859,11 @@ msgstr "リモート操作によるコピー"
 msgid "Copy %s"
 msgstr "%s をコピー"
 
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "コピー（分岐／タグ）"
+
 # ID:101,
 #: ID:101
 msgid "Copy URL to clipboard"
@@ -1992,6 +2041,16 @@ msgstr "スレッドを開始できません！"
 #: ID:13
 msgid "Create &patch..."
 msgstr "パッチを作成(&P) ..."
+
+# ID:13,
+#: Dlg-ID:208
+msgid "Create Patch"
+msgstr "パッチを作成"
+
+# ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "リポジトリを作成"
 
 # ID:113,
 #: Control-ID:65535
@@ -2313,6 +2372,12 @@ msgstr ""
 #: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "ウィンドウを最大化する"
+
+# ID:126,#:
+# Control-ID:1065,
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "ログメッセージを入力"
 
 # ID:80,
 #: ID:80
@@ -2802,6 +2867,11 @@ msgstr "系統情報を無視する"
 msgid "Ignore line &endings (recommended)"
 msgstr "改行コード(&E)を無視する（推奨）"
 
+# ID:9,
+#: Dlg-ID:139
+msgid "Import"
+msgstr "インポート"
+
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &message"
@@ -2837,6 +2907,11 @@ msgstr "初期インポート"
 #: Control-ID:65535
 msgid "Inline whitespace diff"
 msgstr "行内での空白の相違"
+
+# Dlg-ID:161,
+#: Dlg-ID:161
+msgid "Input"
+msgstr "入力"
 
 # ID:3603,
 #: ID:3603
@@ -3013,6 +3088,12 @@ msgstr "リポジトリURLの内容を保存する先。"
 msgid "Lock"
 msgstr "ロック"
 
+# ID:3857,#:
+# ID:3857,
+#: Dlg-ID:191
+msgid "Lock Files"
+msgstr "ファイルをロック"
+
 # Control-ID:65535,
 #: ID:209
 msgid "Lock broken!"
@@ -3060,6 +3141,16 @@ msgstr "他のユーザに対してファイルをロックし、自分が編集
 #: ID:126
 msgid "Log"
 msgstr "ログ"
+
+# ID:80,
+#: Dlg-ID:211
+msgid "Log History"
+msgstr "ログの履歴"
+
+# Dlg-ID:130,
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "ログメッセージ"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3133,7 +3224,13 @@ msgstr ""
 msgid "Max"
 msgstr "最大"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Max. items to keep in the log message history"
+msgstr "ログメッセージの履歴で表示する最大の項目数"
+
 # Dlg-ID:141,
+#: Dlg-ID:141
 #: Control-ID:65535
 msgid "Merge"
 msgstr "マージ"
@@ -3705,12 +3802,14 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "プログラム (*.exe)|*.exe|全てのファイル (*.*)|*.*||"
 
 # Dlg-ID:134,
+#: Dlg-ID:134
 #: Control-ID:65535
 msgid "Progress"
 msgstr "進行状況"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "属性"
 
@@ -3848,6 +3947,11 @@ msgstr ""
 "開いているファイルを再読み込みし、全ての変更を元に戻す。\n"
 "再読み込み"
 
+# ID:12,
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "再配置"
+
 # ID:80,
 #: ID:80
 msgid "Relocating..."
@@ -3900,6 +4004,11 @@ msgstr ""
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "ファイルもしくはファイルマスクを無視リストから削除"
+
+# Dlg-ID:151,
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "名前の変更"
 
 # ID:97,
 #: ID:97
@@ -3969,6 +4078,11 @@ msgstr "リポジトリブラウザ"
 msgid "Repository"
 msgstr "リポジトリ"
 
+# Dlg-ID:153,
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "リポジトリブラウザ"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Requests a username and a password"
@@ -3978,6 +4092,11 @@ msgstr "ユーザー名とパスワードを要求"
 #: ID:8
 msgid "Res&olved..."
 msgstr "問題の解消(&O) ..."
+
+# ID:8,
+#: Dlg-ID:207
+msgid "Resolve"
+msgstr "問題の解消"
 
 # ID:9,
 #: ID:282
@@ -4030,6 +4149,13 @@ msgstr "復元"
 msgid "Retry"
 msgstr "再試行"
 
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "元に戻す"
+
 # ID:113,
 #: ID:114
 msgid "Revert changes from these revisions"
@@ -4081,6 +4207,11 @@ msgid "Revision / Author:"
 msgstr "リビジョン／作者:"
 
 # ID:75,
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "リビジョングラフ"
+
+# ID:75,
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4090,6 +4221,26 @@ msgstr "リビジョングラフ"
 #: ID:75
 msgid "Revision: "
 msgstr "リビジョン:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"リビジョン: %ld\n"
+"URL: %s\r\n"
+"作者: %s\r\n"
+"日付: %s\r\n"
+"\r\n"
+"ログメッセージ:\r\n"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -4307,6 +4458,11 @@ msgstr "全て選択／全て非選択(&A)"
 #: ID:13
 msgid "Select File..."
 msgstr "ファイルを選択 ..."
+
+# Dlg-ID:173,
+#: Dlg-ID:173
+msgid "Select Revision"
+msgstr "リビジョンを選択"
 
 # ID:78,
 #: ID:78
@@ -4546,6 +4702,18 @@ msgstr "未変更ファイルを表示"
 msgid "Show unversioned files"
 msgstr "バージョン管理外のファイルを表示する"
 
+# Control-ID:1073,
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "%ld 個のノードを表示"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "%s のグラフを表示"
+
 # ID:15,
 #: ID:15
 msgid "Shows a graphical representation of copies/tags/branches"
@@ -4586,6 +4754,11 @@ msgstr "スキップ"
 msgid "Skipped missing target"
 msgstr "ターゲットが見つからないのでスキップします"
 
+# ID:196,
+#: ID:196
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "最近のログメッセージを表示するダイアログで、表示する項目数を指定する。"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -4621,6 +4794,7 @@ msgstr "積み重ね"
 # ID:74,#:
 # ID:77,
 #: ID:245
+#: Dlg-ID:179
 msgid "Statistics"
 msgstr "統計"
 
@@ -4709,6 +4883,11 @@ msgstr "作業コピーを新しい分岐／タグへ切り替える(&I)"
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "左右を入れ替える"
+
+# Dlg-ID:140,
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "分岐／タグへ切り替え"
 
 # ID:3606,
 #: ID:3606
@@ -5230,170 +5409,6 @@ msgstr ""
 
 # ID:9,#:
 # ID:80,
-#: Dlg-ID:155
-msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN : 追加"
-
-# ID:80,
-#: Dlg-ID:131
-#: Dlg-ID:160
-msgid "TortoiseSVN : Authentication"
-msgstr "TortoiseSVN : 認証"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:162
-msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN : 注釈履歴"
-
-# ID:163,
-#: Dlg-ID:199
-msgid "TortoiseSVN : Changed Files"
-msgstr "TortoiseSVN : 変更されたファイル"
-
-# Dlg-ID:174,
-#: Dlg-ID:174
-msgid "TortoiseSVN : Check For Updates"
-msgstr "TortoiseSVN : 更新をチェック"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:133
-msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN : チェックアウト"
-
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "TortoiseSVN : コピー（分岐／タグ）"
-
-# ID:80,
-#: Dlg-ID:208
-msgid "TortoiseSVN : Create Patch"
-msgstr "TortoiseSVN : パッチを作成"
-
-# ID:8,
-#: Dlg-ID:178
-msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN : リポジトリを作成"
-
-# Dlg-ID:135,
-#: Dlg-ID:135
-msgid "TortoiseSVN : Enter Log Message"
-msgstr "TortoiseSVN : ログメッセージを入力"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:139
-msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN : インポート"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:161
-msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN : 入力"
-
-# ID:80,
-#: Dlg-ID:191
-msgid "TortoiseSVN : Lock Files"
-msgstr "TortoiseSVN : ファイルのロック"
-
-# ID:80,
-#: Dlg-ID:211
-msgid "TortoiseSVN : Log History"
-msgstr "TortoiseSVN : ログの履歴"
-
-# ID:80,
-#: Dlg-ID:130
-msgid "TortoiseSVN : Log Messages"
-msgstr "TortoiseSVN : ログメッセージ"
-
-# ID:7,#:
-# ID:3585,#:
-# Dlg-ID:130,
-#: Dlg-ID:141
-msgid "TortoiseSVN : Merge"
-msgstr "TortoiseSVN : マージ"
-
-# Dlg-ID:134,
-#: Dlg-ID:134
-msgid "TortoiseSVN : Progress"
-msgstr "TortoiseSVN : 進行状況"
-
-# ID:80,
-#: Dlg-ID:177
-msgid "TortoiseSVN : Properties"
-msgstr "TortoiseSVN : 属性"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:157
-msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN : 再配置"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:151
-msgid "TortoiseSVN : Rename"
-msgstr "TortoiseSVN : 名前を変更"
-
-# Dlg-ID:153,
-#: Dlg-ID:153
-msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN : リポジトリブラウザ"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:207
-msgid "TortoiseSVN : Resolve"
-msgstr "TortoiseSVN : 問題の解消"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:175
-msgid "TortoiseSVN : Revert"
-msgstr "TortoiseSVN : 元に戻す"
-
-# ID:75,
-#: Dlg-ID:182
-msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN : リビジョングラフ"
-
-# ID:80,
-#: Dlg-ID:173
-msgid "TortoiseSVN : Select Revision"
-msgstr "TortoiseSVN : リビジョンを選択"
-
-# ID:80,
-#: Dlg-ID:179
-msgid "TortoiseSVN : Statistics"
-msgstr "TortoiseSVN : 統計"
-
-# Dlg-ID:140,
-#: Dlg-ID:140
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr "TortoiseSVN : 分岐／タグへ切り替え"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:164
-msgid "TortoiseSVN : URL"
-msgstr "TortoiseSVN : URL"
-
-# ID:9,#:
-# ID:80,
-#: Dlg-ID:152
-msgid "TortoiseSVN : Update"
-msgstr "TortoiseSVN : 更新"
-
-# ID:151,
-#: Dlg-ID:158
-msgid "TortoiseSVN : Working Copy"
-msgstr "TortoiseSVN : 作業コピー"
-
-# ID:9,#:
-# ID:80,
 #: ID:77
 msgid "TortoiseSVN Add..."
 msgstr "TortoiseSVN 追加中 ..."
@@ -5502,6 +5517,12 @@ msgstr "TortoiseSVN を調整"
 msgid "Two-way &Diff"
 msgstr "両方向の差分(&D)"
 
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: Dlg-ID:164
+msgid "URL"
+msgstr "URL"
+
 # ID:12,
 #: ID:12
 msgid "URL of Subversion items"
@@ -5517,24 +5538,6 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL: "
-
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"作者: %s\r\n"
-"日時: %s\r\n"
-"\r\n"
-"ログメッセージ:\r\n"
-"%s"
 
 # ID:3866,#:
 # ID:3866,
@@ -5631,6 +5634,13 @@ msgstr "ロック解除"
 #: ID:3841
 msgid "Untitled"
 msgstr "未タイトル"
+
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
+#: Dlg-ID:152
+msgid "Update"
+msgstr "更新"
 
 # ID:8,#:
 # ID:74,#:
@@ -5805,6 +5815,11 @@ msgstr "警告！"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "空白の相違"
+
+# ID:151,
+#: Dlg-ID:158
+msgid "Working Copy"
+msgstr "作業コピー"
 
 # ID:80,
 #: ID:80
@@ -6012,6 +6027,25 @@ msgstr "ズームイン(&I)\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "ズームアウト(&O)\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "ズーム 100%"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "ズームイン"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "ズームアウト"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "自動調整"
 
 # ID:10,
 #: ID:10
