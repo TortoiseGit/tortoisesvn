@@ -30,11 +30,19 @@
 
 typedef CComCritSecLock<CComCriticalSection> Locker;
 
+
 class ShellCache
 {
 public:
+	enum CacheType
+	{
+		none,
+		exe,
+		dll
+	};
 	ShellCache()
 	{
+		cachetype = CRegStdWORD(_T("Software\\TortoiseSVN\\CacheType"), exe);
 		showrecursive = CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
 		folderoverlay = CRegStdWORD(_T("Software\\TortoiseSVN\\FolderOverlay"), TRUE);
 		driveremote = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
@@ -46,17 +54,17 @@ public:
 		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		simplecontext = CRegStdWORD(_T("Software\\TortoiseSVN\\SimpleContext"), TRUE);
-		recursiveticker = GetTickCount();
-		folderoverlayticker = GetTickCount();
-		externalCacheTicker = recursiveticker;
-		driveticker = recursiveticker;
-		drivetypeticker = recursiveticker;
-		langticker = recursiveticker;
-		columnrevformatticker = recursiveticker;
-		excludelistticker = recursiveticker;
-		includelistticker = recursiveticker;
-		admindirticker = recursiveticker;
-		columnseverywhereticker = recursiveticker;
+		cachetypeticker = GetTickCount();
+		recursiveticker = cachetypeticker;
+		folderoverlayticker = cachetypeticker;
+		driveticker = cachetypeticker;
+		drivetypeticker = cachetypeticker;
+		langticker = cachetypeticker;
+		columnrevformatticker = cachetypeticker;
+		excludelistticker = cachetypeticker;
+		includelistticker = cachetypeticker;
+		admindirticker = cachetypeticker;
+		columnseverywhereticker = cachetypeticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
@@ -79,13 +87,22 @@ public:
 		sAdminDirCacheKey.reserve(MAX_PATH);		// MAX_PATH as buffer reservation ok.
 		m_critSec.Init();
 	}
+	CacheType GetCacheType()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT) > cachetypeticker)
+		{
+			cachetypeticker = GetTickCount();
+			cachetype.read();
+		}
+		return CacheType(DWORD((cachetype)));
+	}
 	DWORD BlockStatus()
 	{
 		if ((GetTickCount() - REGISTRYTIMEOUT) > blockstatusticker)
 		{
 			blockstatusticker = GetTickCount();
 			blockstatus.read();
-		} // if ((GetTickCount() - REGISTRYTIMEOUT) > blockstatusticker)
+		}
 		return (blockstatus);
 	}
 	DWORD GetMenuLayout()
@@ -94,7 +111,7 @@ public:
 		{
 			layoutticker = GetTickCount();
 			menulayout.read();
-		} // if ((GetTickCount() - REGISTRYTIMEOUT) > layoutticker)
+		}
 		return (menulayout);
 	}
 	BOOL IsRecursive()
@@ -103,7 +120,7 @@ public:
 		{
 			recursiveticker = GetTickCount();
 			showrecursive.read();
-		} // if ((GetTickCount() - REGISTRYTIMEOUT)>recursiveticker)
+		}
 		return (showrecursive);
 	}
 	BOOL IsFolderOverlay()
@@ -112,7 +129,7 @@ public:
 		{
 			folderoverlayticker = GetTickCount();
 			folderoverlay.read();
-		} // if ((GetTickCount() - REGISTRYTIMEOUT)>recursiveticker) 
+		}
 		return (folderoverlay);
 	}
 	BOOL IsSimpleContext()
@@ -186,8 +203,8 @@ public:
 				ATLTRACE2(_T("GetDriveType for %s, Drive %d\n"), pathbuf, drivenumber);
 				drivetype = GetDriveType(pathbuf);
 				drivetypecache[drivenumber] = drivetype;
-			} // if (drivetype == -1)
-		} // if ((drivenumber >=0)&&(drivenumber < 25)) 
+			}
+		}
 		else
 		{
 			TCHAR pathbuf[MAX_PATH+4];		// MAX_PATH ok here. PathIsUNCServer works with partial paths too.
@@ -244,7 +261,7 @@ public:
 		{
 			langticker = GetTickCount();
 			langid.read();
-		} // if ((GetTickCount() - REGISTRYTIMEOUT) > layoutticker)
+		}
 		return (langid);
 	}
 	NUMBERFMT * GetNumberFmt()
@@ -262,7 +279,7 @@ public:
 			columnrevformat.Grouping = _ttoi(szBuffer);
 			GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer));
 			columnrevformat.NegativeOrder = _ttoi(szBuffer);
-		} // if ((GetTickCount() - NUMBERFMTTIMEOUT) > columnrevformatticker)
+		}
 		return &columnrevformat;
 	}
 	BOOL HasSVNAdminDir(LPCTSTR path, BOOL bIsDir)
@@ -370,6 +387,7 @@ private:
 			includeliststr = (stdstring)includelist;
 		}
 	}
+	CRegStdWORD cachetype;
 	CRegStdWORD blockstatus;
 	CRegStdWORD langid;
 	CRegStdWORD showrecursive;
@@ -389,7 +407,7 @@ private:
 	CRegStdString includelist;
 	stdstring includeliststr;
 	std::vector<stdstring> invector;
-	DWORD externalCacheTicker;
+	DWORD cachetypeticker;
 	DWORD recursiveticker;
 	DWORD folderoverlayticker;
 	DWORD driveticker;

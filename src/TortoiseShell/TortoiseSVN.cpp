@@ -21,16 +21,17 @@
 #include "Guids.h"
 #include "ShellExtClassFactory.h"
 
-UINT      g_cRefThisDll = 0;				///< reference count of this DLL.
-HINSTANCE g_hmodThisDll = NULL;				///< handle to this DLL itself.
-int		  g_cAprInit = 0;
+UINT				g_cRefThisDll = 0;				///< reference count of this DLL.
+HINSTANCE			g_hmodThisDll = NULL;			///< handle to this DLL itself.
+int					g_cAprInit = 0;
+SVNFolderStatus *	g_pCachedStatus = NULL;			///< status cache
+ShellCache			g_ShellCache;					///< caching of registry entries, ...
 CRemoteCacheLink	g_remoteCacheLink;
-ShellCache g_ShellCache;					///< caching of registry entries, ...
 CRegStdWORD			g_regLang;
 DWORD				g_langid;
 HINSTANCE			g_hResInst;
 stdstring			g_filepath;
-svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
+svn_wc_status_kind	g_filestatus;					///< holds the corresponding status to the file/dir above
 bool				g_readonlyoverlay = false;
 bool				g_lockedoverlay = false;
 
@@ -79,7 +80,7 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 	// NOTE: Do *NOT* call apr_initialize() or apr_terminate() here in DllMain(),
 	// because those functions call LoadLibrary() indirectly through malloc().
 	// And LoadLibrary() inside DllMain() is not allowed and can lead to unexpected
-	// behaviour and even may create dependency loops in the dll load order.
+	// behavior and even may create dependency loops in the dll load order.
     if (dwReason == DLL_PROCESS_ATTACH)
     {
 		if (g_hmodThisDll == NULL)
@@ -97,6 +98,8 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		// in that case, we do it ourselves
 		if (g_cRefThisDll > 0)
 		{
+			if (g_pCachedStatus)
+				delete g_pCachedStatus;
 			while (g_cAprInit--)
 			{
 				g_SVNAdminDir.Close();
@@ -147,6 +150,8 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
     {
 		apr_initialize();
 		g_SVNAdminDir.Init();
+		if (g_pCachedStatus == NULL)
+			g_pCachedStatus = new SVNFolderStatus();
 		g_cAprInit++;
 		
 		CShellExtClassFactory *pcf = new CShellExtClassFactory(state);

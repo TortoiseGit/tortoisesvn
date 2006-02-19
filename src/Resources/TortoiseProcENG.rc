@@ -68,23 +68,6 @@ IDI_REVGRAPH_REPLACED   ICON                    "revgraph_replaced.ico"
 IDB_LOGOFLIPPED         BITMAP                  "tortoisesvn_logoflipped.bmp"
 IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 IDB_LOGFILTER           BITMAP                  "logfilter.bmp"
-IDR_REVGRAPHBAR         BITMAP                  "revgraphbar.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Toolbar
-//
-
-IDR_REVGRAPHBAR TOOLBAR  20, 20
-BEGIN
-    BUTTON      ID_VIEW_ZOOMIN
-    BUTTON      ID_VIEW_ZOOMOUT
-    BUTTON      ID_VIEW_ZOOM100
-    BUTTON      ID_VIEW_ZOOMALL
-    SEPARATOR
-    BUTTON      ID_REVGRAPH_ZOOMCOMBO
-END
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -115,6 +98,29 @@ END
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
 #endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_REVGRAPHBAR         BITMAP                  "revgraphbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_REVGRAPHBAR TOOLBAR  20, 20
+BEGIN
+    BUTTON      ID_VIEW_ZOOMIN
+    BUTTON      ID_VIEW_ZOOMOUT
+    BUTTON      ID_VIEW_ZOOM100
+    BUTTON      ID_VIEW_ZOOMALL
+    SEPARATOR
+    BUTTON      ID_REVGRAPH_ZOOMCOMBO
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -408,22 +414,24 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel::Icon Overlays"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
+    GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,12,7,274,31
     CONTROL         "Show &overlays only in explorer",IDC_ONLYEXPLORER,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,20,268,10
-    CONTROL         "Show overlay status icons recursively",IDC_RECURSIVECHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,34,268,10
-    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,50,274,68
-    CONTROL         "Re&movable drives",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,62,130,10
-    CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,76,130,10
-    CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,91,127,10
-    CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,62,118,10
-    CONTROL         "R&AM drives",IDC_RAM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,76,112,10
-    CONTROL         "&Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,90,118,10
-    GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,7,7,286,203
-    LTEXT           "Include paths:",IDC_STATIC,12,164,86,8
-    EDITTEXT        IDC_INCLUDEPATHS,100,156,186,22,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
-    LTEXT           "Exclude paths:",IDC_STATIC,12,133,85,8
-    EDITTEXT        IDC_EXCLUDEPATHS,100,126,186,22,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    GROUPBOX        "Status cache",IDC_STATIC,12,41,274,32
+    CONTROL         "&Default",IDC_CACHEDEFAULT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,56,60,10
+    CONTROL         "Shell",IDC_CACHESHELL,"Button",BS_AUTORADIOBUTTON,114,56,63,10
+    CONTROL         "None",IDC_CACHENONE,"Button",BS_AUTORADIOBUTTON,213,56,72,10
+    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,78,274,61
+    CONTROL         "Re&movable drives",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,90,130,10
+    CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,104,130,10
+    CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,119,127,10
+    CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,90,118,10
+    CONTROL         "R&AM drives",IDC_RAM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,104,112,10
+    CONTROL         "&Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,166,118,118,10
+    LTEXT           "Exclude paths:",IDC_STATIC,18,153,95,8
+    EDITTEXT        IDC_EXCLUDEPATHS,117,146,169,22,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Include paths:",IDC_STATIC,18,184,95,8
+    EDITTEXT        IDC_INCLUDEPATHS,117,176,169,22,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 217
@@ -1056,6 +1064,8 @@ BEGIN
         RIGHTMARGIN, 293
         VERTGUIDE, 12
         VERTGUIDE, 18
+        VERTGUIDE, 113
+        VERTGUIDE, 117
         VERTGUIDE, 166
         VERTGUIDE, 286
         TOPMARGIN, 7
@@ -1972,14 +1982,10 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REVGRAPH_BOXREVISIONTITLE "Revision %ld"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_REVGRAPH_BOXTOOLTIP "Revision: %ld\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
     IDS_REVGRAPH_STATUSBARURL "Showing graph for %s"
     IDS_REVGRAPH_STATUSBARNUMNODES "Showing %ld nodes"
+    IDS_REVGRAPH_BOXREVISIONTITLE "Revision %ld"
     IDS_REVGRAPH_SAVEPIC    "Save graph as..."
 END
 
@@ -2157,6 +2163,12 @@ BEGIN
                             "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
     IDS_SETTINGS_MAXHISTORY_TT 
                             "Specifies how many items you want to keep in the most recent log messages dialog."
+    IDS_SETTINGS_CACHEDEFAULT_TT 
+                            "Status cache kept in an external process, can show the overlay recursively"
+    IDS_SETTINGS_CACHESHELL_TT 
+                            "Status cache only for one folder, no recursive overlays"
+    IDS_SETTINGS_CACHENONE_TT 
+                            "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 END
 
 STRINGTABLE 

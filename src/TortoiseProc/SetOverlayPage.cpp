@@ -40,7 +40,6 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bOnlyExplorer(FALSE)
 	, m_sExcludePaths(_T(""))
 	, m_sIncludePaths(_T(""))
-	, m_bRecursive(TRUE)
 {
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
@@ -51,7 +50,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regDriveMaskUnknown = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 	m_regExcludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 	m_regIncludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
-	m_regRecursive = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
+	m_regCacheType = CRegDWORD(_T("Software\\TortoiseSVN\\CacheType"), 1);
 
 	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
@@ -64,7 +63,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
 	m_sIncludePaths = m_regIncludePaths;
 	m_sIncludePaths.Replace(_T("\n"), _T("\r\n"));
-	m_bRecursive = m_regRecursive;
+	m_dwCacheType = m_regCacheType;
 }
 
 CSetOverlayPage::~CSetOverlayPage()
@@ -83,21 +82,22 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_ONLYEXPLORER, m_bOnlyExplorer);
 	DDX_Text(pDX, IDC_EXCLUDEPATHS, m_sExcludePaths);
 	DDX_Text(pDX, IDC_INCLUDEPATHS, m_sIncludePaths);
-	DDX_Check(pDX, IDC_RECURSIVECHECK, m_bRecursive);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
-	ON_BN_CLICKED(IDC_REMOVABLE, OnBnClickedRemovable)
-	ON_BN_CLICKED(IDC_NETWORK, OnBnClickedNetwork)
-	ON_BN_CLICKED(IDC_FIXED, OnBnClickedFixed)
-	ON_BN_CLICKED(IDC_CDROM, OnBnClickedCdrom)
-	ON_BN_CLICKED(IDC_UNKNOWN, OnBnClickedUnknown)
-	ON_BN_CLICKED(IDC_RAM, OnBnClickedRam)
-	ON_BN_CLICKED(IDC_ONLYEXPLORER, OnBnClickedOnlyexplorer)
-	ON_EN_CHANGE(IDC_EXCLUDEPATHS, OnEnChangeExcludepaths)
-	ON_EN_CHANGE(IDC_INCLUDEPATHS, OnEnChangeIncludepaths)
-	ON_BN_CLICKED(IDC_RECURSIVECHECK, OnBnClickedRecursivecheck)
+	ON_BN_CLICKED(IDC_REMOVABLE, OnChange)
+	ON_BN_CLICKED(IDC_NETWORK, OnChange)
+	ON_BN_CLICKED(IDC_FIXED, OnChange)
+	ON_BN_CLICKED(IDC_CDROM, OnChange)
+	ON_BN_CLICKED(IDC_UNKNOWN, OnChange)
+	ON_BN_CLICKED(IDC_RAM, OnChange)
+	ON_BN_CLICKED(IDC_ONLYEXPLORER, OnChange)
+	ON_EN_CHANGE(IDC_EXCLUDEPATHS, OnChange)
+	ON_EN_CHANGE(IDC_INCLUDEPATHS, OnChange)
+	ON_BN_CLICKED(IDC_CACHEDEFAULT, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_CACHESHELL, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_CACHENONE, &CSetOverlayPage::OnChange)
 END_MESSAGE_MAP()
 
 
@@ -112,7 +112,6 @@ void CSetOverlayPage::SaveData()
 		m_regDriveMaskCDROM = m_bCDROM;
 		m_regDriveMaskRAM = m_bRAM;
 		m_regDriveMaskUnknown = m_bUnknown;
-		m_regRecursive = m_bRecursive;
 		m_sExcludePaths.Replace(_T("\r"), _T(""));
 		if (m_sExcludePaths.Right(1).Compare(_T("\n"))!=0)
 			m_sExcludePaths += _T("\n");
@@ -123,6 +122,7 @@ void CSetOverlayPage::SaveData()
 			m_sIncludePaths += _T("\n");
 		m_regIncludePaths = m_sIncludePaths;
 		m_sIncludePaths.Replace(_T("\n"), _T("\r\n"));
+		m_regCacheType = m_dwCacheType;
 	}
 }
 
@@ -130,11 +130,27 @@ BOOL CSetOverlayPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
 
+	switch (m_dwCacheType)
+	{
+	case 0:
+		CheckRadioButton(IDC_CACHEDEFAULT, IDC_CACHENONE, IDC_CACHENONE);
+		break;
+	default:
+	case 1:
+		CheckRadioButton(IDC_CACHEDEFAULT, IDC_CACHENONE, IDC_CACHEDEFAULT);
+		break;
+	case 2:
+		CheckRadioButton(IDC_CACHEDEFAULT, IDC_CACHENONE, IDC_CACHESHELL);
+		break;
+	}
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
 	m_tooltips.AddTool(IDC_EXCLUDEPATHS, IDS_SETTINGS_EXCLUDELIST_TT);	
-	m_tooltips.AddTool(IDC_INCLUDEPATHS, IDS_SETTINGS_INCLUDELIST_TT);	
-	m_tooltips.AddTool(IDC_RECURSIVECHECK, IDS_SETTINGS_RECURSIVE_TT);
+	m_tooltips.AddTool(IDC_INCLUDEPATHS, IDS_SETTINGS_INCLUDELIST_TT);
+	m_tooltips.AddTool(IDC_CACHEDEFAULT, IDS_SETTINGS_CACHEDEFAULT_TT);
+	m_tooltips.AddTool(IDC_CACHESHELL, IDS_SETTINGS_CACHESHELL_TT);
+	m_tooltips.AddTool(IDC_CACHENONE, IDS_SETTINGS_CACHENONE_TT);
 	m_bInitialized = TRUE;
 
 	UpdateData(FALSE);
@@ -149,38 +165,22 @@ BOOL CSetOverlayPage::PreTranslateMessage(MSG* pMsg)
 	return CPropertyPage::PreTranslateMessage(pMsg);
 }
 
-void CSetOverlayPage::OnBnClickedRemovable()
+void CSetOverlayPage::OnChange()
 {
-	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedNetwork()
-{
-	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedFixed()
-{
-	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedCdrom()
-{
-	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedRam()
-{
-	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedUnknown()
-{
-	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedOnlyexplorer()
-{
+	int id = GetCheckedRadioButton(IDC_CACHEDEFAULT, IDC_CACHENONE);
+	switch (id)
+	{
+	default:
+	case IDC_CACHEDEFAULT:
+		m_dwCacheType = 1;
+		break;
+	case IDC_CACHESHELL:
+		m_dwCacheType = 2;
+		break;
+	case IDC_CACHENONE:
+		m_dwCacheType = 0;
+		break;
+	}
 	SetModified();
 }
 
@@ -192,17 +192,4 @@ BOOL CSetOverlayPage::OnApply()
 	return CPropertyPage::OnApply();
 }
 
-void CSetOverlayPage::OnEnChangeExcludepaths()
-{
-	SetModified();
-}
 
-void CSetOverlayPage::OnEnChangeIncludepaths()
-{
-	SetModified();
-}
-
-void CSetOverlayPage::OnBnClickedRecursivecheck()
-{
-	SetModified();
-}

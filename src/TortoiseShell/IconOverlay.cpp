@@ -225,15 +225,90 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			return S_FALSE;
 		}
 
-		TSVNCacheResponse itemStatus;
-		ZeroMemory(&itemStatus, sizeof(itemStatus));
-		if (g_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, !!g_ShellCache.IsRecursive()))
+		switch (g_ShellCache.GetCacheType())
 		{
-			status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
-			if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&(itemStatus.m_readonly))
-				readonlyoverlay = true;
-			if (itemStatus.m_owner[0]!=0)
-				lockedoverlay = true;
+		case ShellCache::exe:
+			{
+				TSVNCacheResponse itemStatus;
+				ZeroMemory(&itemStatus, sizeof(itemStatus));
+				if (g_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, !!g_ShellCache.IsRecursive()))
+				{
+					status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
+					if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&(itemStatus.m_readonly))
+						readonlyoverlay = true;
+					if (itemStatus.m_owner[0]!=0)
+						lockedoverlay = true;
+				}
+			}
+			break;
+		case ShellCache::dll:
+			{
+				AutoLocker lock(g_csCacheGuard);
+
+				// Look in our caches for this item 
+				const FileStatusCacheEntry * s = g_pCachedStatus->GetCachedItem(CTSVNPath(pPath));
+				if (s)
+				{
+					status = s->status;
+				}
+				else
+				{
+					// No cached status available 
+
+					// since the dwAttrib param of the IsMemberOf() function does not
+					// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
+					// we have to check if the path is a folder ourselves :(
+					if (PathIsDirectory(pPath))
+					{
+						if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
+						{
+							if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
+							{
+								status = svn_wc_status_normal;
+							}
+							else
+							{
+								const FileStatusCacheEntry * s = g_pCachedStatus->GetFullStatus(CTSVNPath(pPath), TRUE);
+								status = s->status;
+								status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
+							}
+						}
+						else
+						{
+							status = svn_wc_status_unversioned;
+						}
+					}
+					else
+					{
+						const FileStatusCacheEntry * s = g_pCachedStatus->GetFullStatus(CTSVNPath(pPath), FALSE);
+						status = s->status;
+					}
+				}
+			}
+			break;
+		default:
+		case ShellCache::none:
+			{
+				// no cache means we only show a 'versioned' overlay on folders
+				// with an admin directory
+				AutoLocker lock(g_csCacheGuard);
+				if (PathIsDirectory(pPath))
+				{
+					if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
+					{
+						status = svn_wc_status_normal;
+					}
+					else
+					{
+						status = svn_wc_status_unversioned;
+					}
+				}
+				else
+				{
+					status = svn_wc_status_unversioned;
+				}
+			}
+			break;
 		}
 		ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 	}

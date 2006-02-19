@@ -24,25 +24,6 @@
 /**
  * \ingroup TortoiseProc
  * Settings page for the icon overlays.
- *
- * \par requirements
- * win95 or later\n
- * winNT4 or later\n
- * MFC\n
- *
- * \version 1.0
- * first version
- *
- * \date 04-14-2003
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CSetOverlayPage : public CPropertyPage
 {
@@ -66,10 +47,12 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnChange();
+	virtual BOOL OnApply();
 
 	DECLARE_MESSAGE_MAP()
-public:
-	virtual BOOL OnInitDialog();
 
 private:
 	BOOL			m_bOnlyExplorer;
@@ -92,22 +75,8 @@ private:
 	CString			m_sExcludePaths;
 	CRegString		m_regIncludePaths;
 	CString			m_sIncludePaths;
-	CRegDWORD		m_regRecursive;
-	BOOL			m_bRecursive;
+	CRegDWORD		m_regCacheType;
+	DWORD			m_dwCacheType;
 
 	BOOL			m_bModified;
-
-public:
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedRemovable();
-	afx_msg void OnBnClickedNetwork();
-	afx_msg void OnBnClickedFixed();
-	afx_msg void OnBnClickedCdrom();
-	afx_msg void OnBnClickedRam();
-	afx_msg void OnBnClickedUnknown();
-	virtual BOOL OnApply();
-	afx_msg void OnBnClickedOnlyexplorer();
-	afx_msg void OnEnChangeExcludepaths();
-	afx_msg void OnEnChangeIncludepaths();
-	afx_msg void OnBnClickedRecursivecheck();
 };

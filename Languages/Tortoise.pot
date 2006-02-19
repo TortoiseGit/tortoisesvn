@@ -232,7 +232,7 @@ msgstr ""
 msgid "&Custom"
 msgstr ""
 
-#: Control-ID:1096,
+#: Control-ID:1269,#: Control-ID:1096,
 msgid "&Default"
 msgstr ""
 
@@ -2368,8 +2368,16 @@ msgstr ""
 msgid "No spell corrections"
 msgstr ""
 
+#: ID:196,
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr ""
+
 #: ID:188,
 msgid "No thesaurus suggestions"
+msgstr ""
+
+#: Control-ID:1271,
+msgid "None"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2878,7 +2886,7 @@ msgstr ""
 msgid "Revision %d"
 msgstr ""
 
-#: ID:269,#: ID:270,#: ID:270,#: ID:271,
+#: ID:269,#: ID:270,#: ID:270,#: ID:272,
 #, c-format
 msgid "Revision %ld"
 msgstr ""
@@ -3155,6 +3163,10 @@ msgstr ""
 msgid "Sh&ow log"
 msgstr ""
 
+#: Control-ID:1270,
+msgid "Shell"
+msgstr ""
+
 #: ID:145,
 msgid "Shell Icon Cache was rebuilt!"
 msgstr ""
@@ -3221,10 +3233,6 @@ msgstr ""
 
 #: ID:3713,
 msgid "Show or hide the toolbar\nToggle ToolBar"
-msgstr ""
-
-#: Control-ID:1223,
-msgid "Show overlay status icons recursively"
 msgstr ""
 
 #: ID:2049,
@@ -3311,6 +3319,18 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Status and action colors"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Status cache"
+msgstr ""
+
+#: ID:196,
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr ""
+
+#: ID:196,
+msgid "Status cache only for one folder, no recursive overlays"
 msgstr ""
 
 #: ID:11,
