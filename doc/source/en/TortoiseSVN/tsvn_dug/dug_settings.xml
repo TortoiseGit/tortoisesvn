@@ -273,17 +273,85 @@
 				<guilabel>Show overlays only in explorer</guilabel> box.
 			</para>
 			<para>
-				Normally the icon overlays act recursively, which means that the
-				overlay for a folder shows the most significant status of all its
-				subfolders. If there is a modified file deep in the hierarchy,
-				the top level folder will also show modified status to remind you
-				that there are buried changes.
-				If you have <emphasis>very</emphasis> large working copies then
-				you may find that the recursive status feature causes too much
-				disk activity and disruption on your system, although this is not
-				usually a problem. In that case you can uncheck
-				<guilabel>Show overlay status icons recursively</guilabel> so
-				that folder status is shown only for the folder itself.
+				Since it takes quite a while to fetch the status of a working copy,
+				TortoiseSVN uses a cache to store the status in so the explorer
+				doesn't get hogged too much when showing the overlays.
+				You can choose which type of cache TortoiseSVN should use according
+				to your system and working copy size here:
+				<variablelist>
+					<varlistentry>
+						<term>Default</term>
+						<listitem>
+							<para>
+								Caches all status information in a separate process
+								(<filename>TSVNCache.exe</filename>). That process
+								watches all drives for changes and fetches the status
+								again if files inside a working copy get modified.
+								The process runs with the least possible priority so
+								other programs don't get hogged because of it. That 
+								also means that the status information is not
+								<emphasis>realtime</emphasis> but it can take a few
+								seconds for the overlays to change.
+							</para>
+							<para>
+								Advantage: the overlays show the status recursively,
+								i.e. if a file deep inside a working copy is modified,
+								all folders up to the working copy root will also
+								show the modified overlay. And since the process can
+								send notifications to the shell, the overlays on the left
+								treeview usually change too.
+							</para>
+							<para>
+								Disadvantage: the process runs constantly, even if
+								you're not working with on your projects. It also
+								uses around 20-40 MB of RAM.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Shell</term>
+						<listitem>
+							<para>
+								Caching is done directly inside the shell extension
+								dll, but only for the currently visible folder.
+								Each time you navigate to another folder, the status
+								information is fetched again.
+							</para>
+							<para>
+								Advantage: needs only very little memory (around 1 MB of RAM)
+								and can show the status in <emphasis>realtime</emphasis>.
+							</para>
+							<para>
+								Disadvantage: Since only one folder is cached, the overlays
+								don't show the status recursively. For big working copies,
+								it can take more time to show a folder in explorer than
+								with the default cache. Also the mime-type column is not
+								available.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>None</term>
+						<listitem>
+							<para>
+								With this setting, the TortoiseSVN does not fetch the status
+								at all in Explorer. Because of that, files don't get an overlay
+								and folders only get a 'normal' overlay if they're versioned.
+								No other overlays are shown, and no extra columns are available
+								either.
+							</para>
+							<para>
+								Advantage: uses absolutely no additional memory and does
+								not slow down the Explorer at all while browsing.
+							</para>
+							<para>
+								Disadvantage: Status information of files and folders is not
+								shown in Explorer. To see if your working copies are modified,
+								you have to use the "Check for modifications" dialog.
+							</para>
+						</listitem>
+					</varlistentry>
+				</variablelist>
 			</para>
 			<para>
 				The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN
