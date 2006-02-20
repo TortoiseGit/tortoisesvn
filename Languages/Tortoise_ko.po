@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-16 13:36+0900\n"
+"PO-Revision-Date: 2006-02-20 11:24+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -317,6 +317,7 @@ msgstr "사용자 지정(&C)"
 
 # ID:11,#:
 # ID:73,
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "기본설정(&D)"
@@ -3455,10 +3456,20 @@ msgstr "%s의 이미지 인코더를 발견할 수 없습니다."
 msgid "No spell corrections"
 msgstr "철자 교정 하지 않음"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "상태 캐시를 사용하지 않으며, 버전관리 대상인 폴더만 아이콘 오버레이가 표시됩니다."
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "시소러스 추천을 하지 않습니다."
+
+# ID:73,
+#: Control-ID:1271
+msgid "None"
+msgstr "없음"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4179,7 +4190,7 @@ msgstr "리비전 %d"
 # ID:119,
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "리비전 %ld"
@@ -4565,6 +4576,11 @@ msgstr "설정"
 msgid "Sh&ow log"
 msgstr "로그 보기(&O)"
 
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "쉘"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -4665,11 +4681,6 @@ msgid ""
 msgstr ""
 "툴바 보기/숨기기\n"
 "툴바 토글"
-
-# Control-ID:1223,
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "겹쳐지는 아이콘의 상태를 재귀적으로 보여줍니다."
 
 # ID:2049,
 #: ID:2049
@@ -4799,6 +4810,20 @@ msgstr "상태"
 #: Control-ID:65535
 msgid "Status and action colors"
 msgstr "상태와 동작 색깔"
+
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "상태 캐시"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "외부 프로세스에 아이콘의 상태를 저장해 두며, 재귀적으로 보여줍니다."
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "재귀적이 아닌 하나의 디렉토리에 대한 상태를 캐시합니다."
 
 # ID:11,
 #: ID:11
