@@ -22,10 +22,10 @@
 			<primary>command line</primary>
 		</indexterm>
 		<para>
-		Most switches require additional information like a path or some
-		other string. In those cases, append an ':' to the switch and put
-		the string/path after it. Example:
-		<screen>
+			Most switches require additional information like a path or some
+			other string. In those cases, append an ':' to the switch and put
+			the string/path after it. Example:
+<screen>
 /base:"c:\folder\my base file.txt"
 </screen>
 		</para>
@@ -35,7 +35,7 @@ Don't touch these lines:
 <entry condition="pot">:about</entry>
 
   The condition="pot" prevents the strings from being extracted into
-	the .pot file, so nobody translates them.
+  the .pot file, so nobody translates them.
   The colons in front of the command have to stay there to prevent these strings
   from being translated if the po file "by chance" contains a matching translation.
 -->
@@ -55,37 +55,40 @@ Don't touch these lines:
 						<row>
 							<entry condition="pot">:?</entry>
 							<entry>
-							Shows a dialog box with the most important command line
-							switches.
+								Shows a dialog box with the most important command line
+								switches.
 							</entry>
 						</row>
 						<row>
 							<entry condition="pot">:help</entry>
 							<entry>
-							The same as <option>?</option>.
+								The same as <option>?</option>.
 							</entry>
 						</row>
 						<row>
 							<entry condition="pot">:base</entry>
 							<entry>
 								Specifies the <emphasis>base</emphasis> file used
-								in three way diffs. For two way diffs, this is the
-								left file.
+								in three way diffs. This is the common ancestor
+								of the files being diffed, although it is not
+								shown in a separate window.
+								For two way diffs, this is the left file.
 							</entry>
 						</row>
 						<row>
 							<entry condition="pot">:basename</entry>
 							<entry>
-								The name of the base file. This is shown in the
-								view title instead of the file path.
+								The name of the base file.
+								This is shown in the view title instead of the file path.
+								For three way diffs it is shown in a tooltip for the
+								view title.
 							</entry>
 						</row>
 						<row>
 							<entry condition="pot">:theirs</entry>
 							<entry>
 								Specifies the <emphasis>theirs</emphasis> file used
-								in three way diffs. For two way diffs, this is the
-								right file.
+								in three way diffs, displayed in the left pane.
 							</entry>
 						</row>
 						<row>
@@ -99,8 +102,8 @@ Don't touch these lines:
 							<entry condition="pot">:mine</entry>
 							<entry>
 								Specifies the <emphasis>mine</emphasis> file used
-								in three way diffs. For two way diffs, this is the
-								left file.
+								in three way diffs, displayed in the right pane.
+								For two way diffs, this is the right file.
 							</entry>
 						</row>
 						<row>
@@ -114,8 +117,8 @@ Don't touch these lines:
 							<entry condition="pot">:merged</entry>
 							<entry>
 								Specifies the resulting <emphasis>merged</emphasis> file used
-								in three way diffs. This is the filepath the result of the
-								merge/conflict resolving is saved to.
+								in three way diffs. This is the filepath where the result of
+								the merge/conflict resolving is saved.
 								If this is not set, then TortoiseMerge will ask the user where
 								to save the result.
 							</entry>
