@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-16 10:40+0100\n"
+"PO-Revision-Date: 2006-02-20 09:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -137,7 +137,7 @@ msgstr "%s : Copie de Base"
 #: ID:151
 #, c-format
 msgid "%s : Working Copy"
-msgstr "%s : Copie locale"
+msgstr "%s : Copie de travail"
 
 # ID:357,
 #: ID:357
@@ -219,7 +219,7 @@ msgstr "Con&damne..."
 
 #: ID:138
 msgid "&Browse repository"
-msgstr "&Parcourir le repository "
+msgstr "&Parcourir le référentiel "
 
 #: Control-ID:1011
 msgid "&Browse..."
@@ -256,7 +256,7 @@ msgstr "&Configurer"
 # Control-ID:65535,
 #: Control-ID:1227
 msgid "&Contact the repository on startup"
-msgstr "&Contacter le repository au démarrage"
+msgstr "&Contacter le référentiel au démarrage"
 
 #: Control-ID:1073
 msgid "&Convert files when diffing against BASE"
@@ -276,6 +276,7 @@ msgstr "&Copier vers..."
 msgid "&Custom"
 msgstr "&Personnalisé"
 
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "&Défaut"
@@ -374,7 +375,7 @@ msgstr "Révision &HEAD"
 
 #: Control-ID:1182
 msgid "&HEAD revision in the repository"
-msgstr "Révision &HEAD dans le repository"
+msgstr "Révision &HEAD dans le référentiel"
 
 #: Control-ID:57670
 #: MenuEntry
@@ -541,7 +542,7 @@ msgstr "Confi&guration"
 
 #: Control-ID:1185
 msgid "&Specific revision in repository"
-msgstr "Révision &spécifique dans le repository"
+msgstr "Révision &spécifique dans le référentiel"
 
 #: MenuEntry
 msgid "&Status Bar"
@@ -599,7 +600,7 @@ msgstr "&TortoiseSVN"
 #: Control-ID:65535
 #: Control-ID:1058
 msgid "&URL of repository:"
-msgstr "&URL du repository:"
+msgstr "&URL du référentiel:"
 
 #: Control-ID:1076
 msgid "&URL:"
@@ -654,7 +655,7 @@ msgstr "&Espacements"
 
 #: Control-ID:1183
 msgid "&Working copy"
-msgstr "Copie &locale"
+msgstr "Copie de travai&l"
 
 # Control-ID:1061,
 #: ID:219
@@ -713,7 +714,7 @@ msgstr ": Base de travail"
 
 #: ID:151
 msgid ": working copy"
-msgstr ": Copie locale"
+msgstr ": Copie de travail"
 
 # ID:88,
 #: ID:88
@@ -737,18 +738,18 @@ msgid ""
 msgstr ""
 "<b>ATTENTION:</b>\n"
 "La commande Relocaliser est seulement utilisée si l'URL de la \n"
-"racine du repository a changé à cause d'un changement d'adresse IP du serveur, changement\n"
+"racine du référentiel a changé à cause d'un changement d'adresse IP du serveur, changement\n"
 "de protocole (ex. http:// vers https://) ou un changement du chemin de la racine du \n"
-"repository dans la configuration du serveur.\n"
+"référentiel dans la configuration du serveur.\n"
 "<b>Cette opération est utilisée très peu fréquemment</b>et ne s'applique ni si vous\n"
-"voulez déplacer vers un autre repository Subversion ni si vous voulez déplacer\n"
-"vers une autre branche ou répertoire <b>à l'intérieur du même repository.</b>\n"
-"Pour déplacer vers un autre repository Subversion, effectuez une extraction propre depuis\n"
-"le nouvel emplacement du repository.\n"
-"Pour associer votre copie de travail  avec une autre branche ou un autre répertoire\n"
-"à l'intérieur du même repository, utilisez la comande Déplacer du menu principal\n"
+"voulez déplacer vers un autre référentiel Subversion ni si vous voulez déplacer\n"
+"vers une autre branche ou répertoire <b>à l'intérieur du même référentiel.</b>\n"
+"Pour déplacer vers un autre référentiel Subversion, effectuez une extraction propre depuis\n"
+"le nouvel emplacement du référentiel.\n"
+"Pour associer votre copie de travail avec une autre branche ou un autre répertoire\n"
+"à l'intérieur du même référentiel, utilisez la commande Déplacer du menu principal\n"
 "\n"
-"Une utilisation inadéquate de la commande Relocaliser <b>va corrompre votre copie locale!</b>\n"
+"Une utilisation inadéquate de la commande Relocaliser <b>va corrompre votre copie de travail!</b>\n"
 "Si vous n'êtes pas sûr que Relocaliser soit l'opération correcte, c'est probablement\n"
 "que ca ne l'est pas et que vous devriez consulter <b>l'Aide</b>."
 
@@ -1021,7 +1022,7 @@ msgstr ""
 "<hr=100%>\n"
 "Vous pouvez utiliser les paramètres suivant pour le chemin:\n"
 "%merged\tle fichier en conflit à sauvegarder\n"
-"%theirs\t\tle fichier dans le repository\n"
+"%theirs\t\tle fichier dans le référentiel\n"
 "%mine\t\tvotre fichier avec vos modifications\n"
 "%base\t\tle fichier original sans changement"
 
@@ -1069,7 +1070,7 @@ msgstr "Analyser les données de révision..."
 
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "Applique un fichier de différence, au format unifié, sur la copie locale"
+msgstr "Applique un fichier de différence, au format unifié, sur la copie de travail"
 
 # ID:15,
 #: ID:15
@@ -1344,11 +1345,11 @@ msgstr "Vérifier les modifications"
 
 #: ID:9
 msgid "Check out a working copy from a repository"
-msgstr "Extraire une copie locale depuis le repository"
+msgstr "Extraire une copie de travail depuis le référentiel"
 
 #: Control-ID:1132
 msgid "Check repository"
-msgstr "Vérifier le repository"
+msgstr "Vérifier le référentiel"
 
 #: ID:95
 msgid ""
@@ -1408,7 +1409,7 @@ msgid ""
 "You will have to enter your username/password again for all repositories."
 msgstr ""
 "Supprime l'authentification stockée.\n"
-"Vous devrez ressaisir vos nom/mot de passe pour tous les repository."
+"Vous devrez ressaisir vos nom/mot de passe pour tous les référentiels."
 
 # ID:170,
 #: ID:170
@@ -1483,7 +1484,7 @@ msgstr "Livraisons chaque semaine:"
 
 #: ID:9
 msgid "Commits your changes to the repository"
-msgstr "Livrer vos modifications dans le repository"
+msgstr "Livrer vos modifications dans le référentiel"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
@@ -1491,7 +1492,7 @@ msgstr "Comparer les révisions &HEAD"
 
 #: ID:76
 msgid "Compare with &working copy"
-msgstr "Comparaison avec la copie &locale"
+msgstr "Comparaison avec la copie de travai&l"
 
 #: ID:138
 msgid "Compare with b&ase"
@@ -1583,11 +1584,11 @@ msgstr "Copier dans le presse-papier"
 
 #: ID:103
 msgid "Copy to working copy"
-msgstr "Copier vers la copie locale"
+msgstr "Copier vers la copie de travail"
 
 #: ID:101
 msgid "Copy to working copy..."
-msgstr "Copier vers la copie locale..."
+msgstr "Copier vers la copie de travail..."
 
 #: ID:98
 #, c-format
@@ -1719,15 +1720,15 @@ msgstr "Créer un patch"
 
 #: Dlg-ID:178
 msgid "Create Repository"
-msgstr "Créer un repository ici..."
+msgstr "Créer un référentiel ici..."
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
-msgstr "Créer une copie dans le repository depuis:"
+msgstr "Créer une copie dans le référentiel depuis:"
 
 #: ID:8
 msgid "Create repositor&y here..."
-msgstr "Créer un repositor&y ici..."
+msgstr "Créer un ré&férentiel ici..."
 
 #: ID:126
 msgid "Created folder remotely"
@@ -1735,11 +1736,11 @@ msgstr "Créé répertoire à distance"
 
 #: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Crée une copie 'légère' dans le repository utilisé pour le branchement ou l'étiquettage"
+msgstr "Crée une copie 'légère' dans le référentiel utilisé pour le branchement ou l'étiquettage"
 
 #: ID:10
 msgid "Creates a repository database at the current location"
-msgstr "Crée un repository dans le répertoire courant"
+msgstr "Crée un référentiel dans le répertoire courant"
 
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
@@ -2069,7 +2070,7 @@ msgstr "Exportation..."
 
 #: ID:10
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "Exporter un repository dans un répertoire local, après nettoyage, sans les répertoires administratifs de svn"
+msgstr "Exporter un référentiel dans une copie de travail propre sans les répertoires administratifs de svn"
 
 #: ID:74
 #: ID:207
@@ -2238,7 +2239,7 @@ msgstr "Réception fichier info..."
 # ID:269,
 #: ID:269
 msgid "Getting information from repository..."
-msgstr "Obtention d'informations depuis le repository..."
+msgstr "Obtention d'informations depuis le référentiel..."
 
 # ID:269,
 #: ID:120
@@ -2330,7 +2331,7 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Si sélectionné alors un nouveau répertoire est créer dans le repository.\n"
+"Si sélectionné alors un nouveau répertoire est créer dans le référentiel.\n"
 "Si non sélectionné, alors l'importation ira directement dans l'URL spécifiée."
 
 #: ID:79
@@ -2367,8 +2368,8 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"Si activé, le repository est contacté quand le dialogue démarre.\n"
-"Vous n'aurez plus à cliquer sur \"Vérifier le repository\"."
+"Si activé, le référentiel est contacté quand le dialogue démarre.\n"
+"Vous n'aurez plus à cliquer sur \"Vérifier le référentiel\"."
 
 # ID:195,
 #: ID:195
@@ -2430,7 +2431,7 @@ msgstr "Import du fichier %s"
 
 #: ID:10
 msgid "Imports the directory to a repository"
-msgstr "Importe le répertoire dans un repository"
+msgstr "Importe le répertoire dans un référentiel"
 
 # Control-ID:1266,
 #: Control-ID:1266
@@ -2607,7 +2608,7 @@ msgid ""
 "repository URL will be saved to."
 msgstr ""
 "Lieu où le contenu de l'URL du\n"
-"repository va être sauvegardé."
+"référentiel va être sauvegardé."
 
 # ID:221,
 #: ID:207
@@ -2941,10 +2942,19 @@ msgstr "Pas d'encodeur d'image trouvé pour %s."
 msgid "No spell corrections"
 msgstr "Pas de corrections orthographiques"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Pas de cache du statut. Seuls les répertoires versionnés sont recouvert, les fichiers ne sont pas recouverts "
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Aucune suggestion du thésaurus"
+
+#: Control-ID:1271
+msgid "None"
+msgstr "Aucun"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -3049,7 +3059,7 @@ msgstr ""
 
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Ouvre le Navigateur de Repository pour optimiser le repository en ligne"
+msgstr "Ouvre le navigateur de référentiel pour optimiser le référentiel en ligne"
 
 #: ID:245
 msgid "Others"
@@ -3164,7 +3174,7 @@ msgid ""
 "to that copy path. Use the Switch command to do that."
 msgstr ""
 "Avertissement:\n"
-"Votre copie locale reste dans le chemin précédent. Si vous désirez que vos prochains changements\n"
+"Votre copie de travail reste dans le chemin précédent. Si vous désirez que vos prochains changements\n"
 "soient dans cette copie juste créée, alors vous devez changer \n"
 "pour ce nouveau chemin. Utiliser la commande Aller sur... pour effectuer cela."
 
@@ -3187,7 +3197,7 @@ msgstr "Attente de l'annulation..."
 # ID:104,
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
-msgstr "Veuillez patienter pendant l'initialisation du navigateur de repository..."
+msgstr "Veuillez patienter pendant l'initialisation du navigateur de référentiel..."
 
 #: ID:119
 #: ID:211
@@ -3429,16 +3439,16 @@ msgstr "Remplace"
 
 #: ID:13
 msgid "Repo-browser"
-msgstr "Repo-navigateur"
+msgstr "Navigateur de référentiel"
 
 #: Control-ID:65535
 #: Control-ID:1055
 msgid "Repository"
-msgstr "Repository"
+msgstr "Référentiel"
 
 #: Dlg-ID:153
 msgid "Repository Browser"
-msgstr "Navigateur de Repository"
+msgstr "Navigateur de référentiel"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3524,7 +3534,7 @@ msgstr "Révision %d"
 
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "Révision %ld"
@@ -3807,7 +3817,7 @@ msgstr ""
 # ID:213,
 #: Control-ID:65535
 msgid "Select the type of repository you want to create:"
-msgstr "Sélectionnez le type de repository que vous voulez créer:"
+msgstr "Sélectionnez le type de référentiel que vous voulez créer:"
 
 #: ID:78
 msgid "Select viewer for diff-files"
@@ -3840,6 +3850,11 @@ msgstr "Configuration"
 #: Control-ID:1132
 msgid "Sh&ow log"
 msgstr "V&oir le journal"
+
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "Shell"
 
 # ID:145,
 #: ID:145
@@ -3924,10 +3939,6 @@ msgstr ""
 "Voir ou cacher la barre d'outils\n"
 "Barre d'outils"
 
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Afficher les icônes de recouvrement de statut récursivement"
-
 #: ID:2049
 msgid ""
 "Show special characters for whitespaces\n"
@@ -3962,7 +3973,7 @@ msgstr "Affiche une représentation graphique des copies/étiquettes/branches"
 
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "Affiche tous les fichiers modifiées depuis la dernière mise à jour, localement et dans le repository"
+msgstr "Affiche tous les fichiers modifiés depuis la dernière mise à jour, localement et dans le référentiel"
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -4038,6 +4049,20 @@ msgstr "Statut"
 msgid "Status and action colors"
 msgstr "Statut et couleurs d'action"
 
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "Cache du statut"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Cache du statut conservé dans un processus externe, peut afficher les icônes récursivement"
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Cache du statut pour un seul répertoire, pas de recouvrement récursif"
+
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Statut des éléments dans SVN"
@@ -4074,7 +4099,7 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
-"Subversion a reporté une erreur pendant la création du repository!\n"
+"Subversion a reporté une erreur pendant la création du référentiel!\n"
 "Contrôler que le répertoire est vide et non protégé en écriture."
 
 #: ID:81
@@ -4094,7 +4119,7 @@ msgstr "Fichier du serveur Subversion:"
 
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "Déplacer la cop&ie locale vers une nouvelle branche/étiquette"
+msgstr "Déplacer la cop&ie de travail vers une nouvelle branche/étiquette"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -4147,7 +4172,7 @@ msgstr "Changer pour la précédante fenêtre"
 
 #: ID:9
 msgid "Switch working copy to another branch / tag"
-msgstr "Déplacer la copie locale sur une nouvelle branche / étiquette"
+msgstr "Déplacer la copie de travail sur une nouvelle branche / étiquette"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4161,7 +4186,7 @@ msgstr "Les entrées dans le registre système a été effacé et le fichier INI
 #: ID:79
 #, c-format
 msgid "Tagged the working copy to %s"
-msgstr "Etiquettage de la version locale sous %s"
+msgstr "Etiquettage de la copie de travail sous %s"
 
 #: Control-ID:65535
 msgid "Text Status:"
@@ -4187,7 +4212,7 @@ msgstr ""
 
 #: ID:80
 msgid "The Repository was successfully created."
-msgstr "Le Repository a été créé avec succès."
+msgstr "Le référentiel a été créé avec succès."
 
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -4272,7 +4297,7 @@ msgstr "La ligne indiquant l'ancien fichier était attendu à la ligne %d !"
 # ID:251,
 #: ID:251
 msgid "The lock has already been broken from another working copy"
-msgstr "Le verrou a déjà été cassé depuis une autre copie locale"
+msgstr "Le verrou a déjà été cassé depuis une autre copie de travail"
 
 #: ID:63
 msgid ""
@@ -4406,7 +4431,7 @@ msgid ""
 "<hr=100%>\n"
 "Please commit your changes first or revert."
 msgstr ""
-"La copie locale a changée!\n"
+"La copie de travail a changée!\n"
 "<hr=100%>\n"
 "Veuillez livrer vos modifications avant ou revenir en arrière."
 
@@ -4415,7 +4440,7 @@ msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
 msgstr ""
-"La copie locale n'est pas à jour!\n"
+"La copie de travail n'est pas à jour!\n"
 "Veuillez exécuter une mise à jour au préalable."
 
 #: Control-ID:65535
@@ -4758,11 +4783,11 @@ msgstr "Mis à jour"
 
 #: ID:11
 msgid "Updates the working copy to a specific revision"
-msgstr "Met à jour la copie locale à une révision spécifique"
+msgstr "Met à jour la copie de travail à une révision spécifique"
 
 #: ID:9
 msgid "Updates the working copy to the current revision"
-msgstr "Met à jour la copie locale dans le repository"
+msgstr "Met à jour la copie de travail dans le référentiel"
 
 #: ID:207
 msgid "Url"
@@ -4841,7 +4866,7 @@ msgstr "Utiliser la &totalité de ce fichier"
 
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
-msgstr "Utiliser ceci si l'URL du repository a changé"
+msgstr "Utiliser ceci si l'URL du référentiel a changé"
 
 # ID:251,
 #: ID:251
@@ -4902,7 +4927,7 @@ msgstr "Différence d'espacements"
 
 #: Dlg-ID:158
 msgid "Working Copy"
-msgstr "Copie locale"
+msgstr "Copie de travail"
 
 #: ID:80
 #, c-format
@@ -4910,7 +4935,7 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"La copie locale a été déplacé dans\n"
+"La copie de travail a été déplacée dans\n"
 "%s"
 
 #: ID:73
@@ -4932,10 +4957,10 @@ msgid ""
 "Accessing a repository via file:/// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"Vous créer un repository sur un partage réseau.\n"
-"Ceci est sûr, mais une fois le repository créé, vous devez l'accéder par un autre moyen.\n"
-"L'accès au repository par file:/// sur un partage réseau peut corrompre vos données!\n"
-"Voulez-vous créer le repository quand même?"
+"Vous créer un référentiel sur un partage réseau.\n"
+"Ceci est sûr, mais une fois le référentiel créé, vous devez l'accéder par un autre moyen.\n"
+"L'accès au référentiel par file:/// sur un partage réseau peut corrompre vos données!\n"
+"Voulez-vous créer le référentiel quand même?"
 
 #: ID:88
 msgid ""
@@ -4944,9 +4969,9 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Vous essayez d'accéder un repository avec file:/// sur\n"
+"Vous essayez d'accéder un référentiel avec file:/// sur\n"
 "un partage réseau.\n"
-"Ceci peut créer une grave corruption du repository!\n"
+"Ceci peut créer une grave corruption du référentiel!\n"
 "Voulez vous vraiment faire ceci?"
 
 # ID:16,
@@ -5080,8 +5105,8 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"Votre copie locale semble être sur un chemin étiquetté !\n"
-"Vous devez d'abord vous déplacer sur une branche ou sur tronc principal avant de livrer.\n"
+"Votre copie de travail semble être sur un chemin étiquetté !\n"
+"Vous devez d'abord vous déplacer sur une branche ou sur le tronc principal avant de livrer.\n"
 "\n"
 "Voulez-vous livrer quand même ?"
 
@@ -5483,5 +5508,5 @@ msgstr "semaine"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
-msgstr "qui pointe vers le repository à l'URL:"
+msgstr "qui pointe vers le référentiel à l'URL:"
 
