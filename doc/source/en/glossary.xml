@@ -10,49 +10,49 @@
 		<glossterm>Add</glossterm>
 		<glossdef>
 			<para>
-        A Subversion command that is used to add a
-			  file or directory to a repository.
-      </para>
+				A Subversion command that is used to add a
+				file or directory to a repository.
+			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
 		<glossterm>BDB</glossterm>
 		<glossdef>
 			<para>
-        Berkeley DB. A well tested database backend for repositories, that
-        cannot be used on network shares. Default for pre 1.2 repositories.
-      </para>
+				Berkeley DB. A well tested database backend for repositories, that
+				cannot be used on network shares. Default for pre 1.2 repositories.
+			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
 		<glossterm>FSFS</glossterm>
 		<glossdef>
 			<para>
-        FS Filesystem. A proprietary Subversion filesystem backend for repositories.
-        Can be used on network shares. Default for 1.2 and newer repositories.
-      </para>
+				FS Filesystem. A proprietary Subversion filesystem backend for repositories.
+				Can be used on network shares. Default for 1.2 and newer repositories.
+			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
 		<glossterm>Repository</glossterm>
 		<glossdef>
 			<para>
-        A repository is a central place where data is stored and maintained. 
-        A repository can be a place where multiple databases or files are located for 
-        distribution over a network, or a repository can be a location that is 
-        directly accessible to the user without having to travel across a network.
-      </para>
+				A repository is a central place where data is stored and maintained. 
+				A repository can be a place where multiple databases or files are located for 
+				distribution over a network, or a repository can be a location that is 
+				directly accessible to the user without having to travel across a network.
+			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
 		<glossterm>BASE revision</glossterm>
 		<glossdef>
 			<para>
-			  The current base revision of a file or folder in your <emphasis>working copy</emphasis>. 
+				The current base revision of a file or folder in your <emphasis>working copy</emphasis>. 
 				This is the revision the file or folder was in, when the last checkout,
 				update or commit was run. The BASE revision is normally not equal to the
 				HEAD revision.
-      </para>
+			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
@@ -60,7 +60,7 @@
 		<glossdef>
 			<para>
 				The latest revision of a file or folder in the <emphasis>repository</emphasis>.
-      </para>
+			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
@@ -68,14 +68,14 @@
 		<glossdef>
 			<para>
 			Group policy object
-      </para>
+			</para>
 		</glossdef>
 	</glossentry>
 	<glossentry>
 		<glossterm> </glossterm>
 		<glossdef>
 			<para>
-      </para>
+			</para>
 		</glossdef>
 	</glossentry>
 </glossary>
