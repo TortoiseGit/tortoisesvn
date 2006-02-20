@@ -49,6 +49,8 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
 const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
 					= ::RegisterWindowMessage(_T("SVNSLNM_NEEDSREFRESH"));
+const UINT CSVNStatusListCtrl::SVNSLNM_ADDFILE
+					= ::RegisterWindowMessage(_T("SVNSLNM_ADDFILE"));
 
 #define IDSVNLC_REVERT			 1
 #define IDSVNLC_COMPARE			 2
@@ -110,12 +112,15 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bBusy(false)
 	, m_bUnversionedRecurse(true)
 	, m_bShowIgnores(false)
+	, m_pDropTarget(NULL)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 }
 
 CSVNStatusListCtrl::~CSVNStatusListCtrl()
 {
+	if (m_pDropTarget)
+		delete m_pDropTarget;
 	ClearStatusArray();
 }
 
@@ -3202,4 +3207,31 @@ void CSVNStatusListCtrl::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 		CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer);
 		regColInfo = m_dwColumns;
 	}
+}
+
+bool CSVNStatusListCtrl::EnableFileDrop()
+{
+	if (m_pDropTarget)
+		return false;
+	m_pDropTarget = new CSVNStatusListCtrlDropTarget(m_hWnd);
+	RegisterDragDrop(m_hWnd,m_pDropTarget);
+	// create the supported formats:
+	FORMATETC ftetc={0}; 
+	ftetc.dwAspect = DVASPECT_CONTENT; 
+	ftetc.lindex = -1; 
+	ftetc.tymed = TYMED_HGLOBAL; 
+	ftetc.cfFormat=CF_HDROP; 
+	m_pDropTarget->AddSuportedFormat(ftetc);
+	return true;
+}
+
+bool CSVNStatusListCtrl::HasPath(CTSVNPath path)
+{
+	for (size_t i=0; i < m_arStatusArray.size(); i++)
+	{
+		FileEntry * entry = m_arStatusArray[i];
+		if (entry->GetPath().IsEquivalentTo(path))
+			return true;
+	}
+	return false;
 }

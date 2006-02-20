@@ -81,6 +81,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
 	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
 	ON_WM_TIMER()
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, &CLogPromptDlg::OnLvnItemchangedFilelist)
@@ -106,6 +107,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
 	m_ListCtrl.SetCancelBool(&m_bCancelled);
 	m_ListCtrl.SetEmptyString(IDS_LOGPROMPT_NOTHINGTOCOMMIT);
+	m_ListCtrl.EnableFileDrop();
 	
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
 	m_cLogMessage.Init(m_ProjectProperties);
@@ -563,6 +565,19 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 LRESULT CLogPromptDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
 	Refresh();
+	return 0;
+}
+
+LRESULT CLogPromptDlg::OnFileDropped(WPARAM, LPARAM lParam)
+{
+	CTSVNPath path;
+	path.SetFromWin((LPCTSTR)lParam);
+	if (!m_ListCtrl.HasPath(path))
+	{
+		m_pathList.AddPath(path);
+		m_pathList.RemoveDuplicates();
+		Refresh();
+	}
 	return 0;
 }
 

@@ -21,9 +21,11 @@
 #include "TSVNPath.h"
 #include "SVNRev.h"
 #include "Colors.h"
+#include "DragDropImpl.h"
 
 class SVNConfig;
 class SVNStatus;
+class CSVNStatusListCtrlDropTarget;
 
 #define SVNSLC_COLEXT			0x000000002
 #define SVNSLC_COLSTATUS		0x000000004
@@ -125,6 +127,13 @@ public:
 	 * a thread, this message is used to tell the parent to do exactly that.
 	 */
 	static const UINT SVNSLNM_NEEDSREFRESH;
+
+	/**
+	 * Sent to the parent window (using ::SendMessage) when the user drops
+	 * files on the control. The LPARAM is a pointer to a TCHAR string
+	 * containing the dropped path.
+	 */
+	static const UINT SVNSLNM_ADDFILE;
 
 	CSVNStatusListCtrl();
 	~CSVNStatusListCtrl();
@@ -355,6 +364,15 @@ public:
 	 */
 	LONG GetSelected(){return m_nSelected;};
 
+	/**
+	 * Enables dropping of files on the control.
+	 */
+	bool EnableFileDrop();
+
+	/**
+	 * Checks if the path already exists in the list.
+	 */
+	bool HasPath(CTSVNPath path);
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
@@ -471,6 +489,7 @@ private:
 	DWORD						m_dwShow;
 	bool						m_bShowFolders;
 	bool						m_bShowIgnores;
+	bool						m_bUpdate;
 	DWORD						m_dwContextMenus;
 	BOOL						m_bBlock;
 	bool						m_bBusy;
@@ -489,4 +508,35 @@ private:
 	DWORD						m_ColumnShown[SVNSLC_NUMCOLUMNS];
 	CString						m_sColumnInfoContainer;
 	int							m_arColumnWidths[SVNSLC_NUMCOLUMNS];
+
+	CSVNStatusListCtrlDropTarget * m_pDropTarget;
+};
+
+class CSVNStatusListCtrlDropTarget : public CIDropTarget
+{
+public:
+	CSVNStatusListCtrlDropTarget(HWND hTargetWnd):CIDropTarget(hTargetWnd){}
+	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/)
+	{
+		if(pFmtEtc->cfFormat == CF_HDROP && medium.tymed == TYMED_HGLOBAL)
+		{
+			HDROP hDrop = (HDROP)GlobalLock(medium.hGlobal);
+			if(hDrop != NULL)
+			{
+				TCHAR szFileName[MAX_PATH];
+
+				UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0); 
+				for(UINT i = 0; i < cFiles; ++i)
+				{
+					DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)); 
+					HWND hParentWnd = GetParent(m_hTargetWnd);
+					if (hParentWnd != NULL)
+						::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)szFileName);
+				}  
+			}
+			GlobalUnlock(medium.hGlobal);
+		}
+		return true; //let base free the medium
+	}
+
 };
