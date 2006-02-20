@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-14 11:11+0200\n"
+"PO-Revision-Date: 2006-02-20 09:38+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -356,6 +356,7 @@ msgstr "&Потребителски"
 # ID:11,#:
 # ID:73,#:
 # ID:101,
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "&По подразбиране"
@@ -3452,7 +3453,7 @@ msgstr "Няма открити разлики!"
 # ID:3843,
 #: ID:3843
 msgid "No error message is available."
-msgstr "Няма налично съобщение за грешка."
+msgstr "сНяма налично съобщение за грешка."
 
 # ID:3867,#:
 # ID:3868,#:
@@ -3508,10 +3509,20 @@ msgstr "Не е открит преобразовател на изображе�
 msgid "No spell corrections"
 msgstr "Няма правописни грешки"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Без кеш на състоянието. Само контролирани папки имат модификация на иконката, файловете - не."
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Няма предложения за синоними"
+
+# ID:73,
+#: Control-ID:1271
+msgid "None"
+msgstr "Никакъв"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4231,7 +4242,7 @@ msgstr "Ревизия %d"
 # ID:119,
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "Ревизия %ld"
@@ -4261,6 +4272,26 @@ msgstr "Графика на ревизиите"
 #: ID:75
 msgid "Revision: "
 msgstr "Ревизия:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Ревизия: %ld\n"
+"URL: %s\r\n"
+"Автор: %s\r\n"
+"Дата: %s\r\n"
+"\r\n"
+"Съобщение от дневника:\r\n"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -4599,6 +4630,11 @@ msgstr "Настройки"
 msgid "Sh&ow log"
 msgstr "&Дневник"
 
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "Обвивка"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -4697,11 +4733,6 @@ msgid ""
 msgstr ""
 "Показване или скриване лентата с инструменти\n"
 "Превключване на лентата с инструменти"
-
-# Control-ID:1088,
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Рекурсивно показване на модификациите на иконките"
 
 # ID:2049,
 #: ID:2049
@@ -4830,6 +4861,20 @@ msgstr "Състояние"
 #: Control-ID:65535
 msgid "Status and action colors"
 msgstr "Цветове за състояния и действия"
+
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "Кеш на състоянието"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Кешът на състоянието се пази във външен процес, показват се модификации на иконките рекурсивно"
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Кеш на състоянието на само една папка, без рекурсивни модификации на иконките"
 
 # ID:11,
 #: ID:11
@@ -5558,24 +5603,6 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Автор: %s\r\n"
-"Дата: %s\r\n"
-"\r\n"
-"Съобщение от дневника:\r\n"
-"%s"
-
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -6060,6 +6087,25 @@ msgstr "&Увеличаване\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "С&маляване\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "Мащаб 100%"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Увеличаване"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "Смаляване"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "Оптимален мащаб"
 
 # ID:10,
 #: ID:10
