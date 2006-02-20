@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-14 09:42+0800\n"
+"PO-Revision-Date: 2006-02-20 18:31+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -320,6 +320,7 @@ msgstr "定制(&C)"
 
 # ID:11,#:
 # ID:73,
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "默认(&D)"
@@ -3456,10 +3457,20 @@ msgstr "没有找到适用于 %s 的图像解码器。"
 msgid "No spell corrections"
 msgstr "没有要修正的拼写"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "无状态缓存。仅影响版本控制的文件夹，不影响文件"
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "没有建议辞典"
+
+# ID:73,
+#: Control-ID:1271
+msgid "None"
+msgstr "无"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4179,7 +4190,7 @@ msgstr "版本 %d"
 # ID:119,
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "版本分支 %ld"
@@ -4209,6 +4220,26 @@ msgstr "版本分支图"
 #: ID:75
 msgid "Revision: "
 msgstr "版本："
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"版本：%ld\n"
+"URL：%s\r\n"
+"作者：%s\r\n"
+"日期：%s\r\n"
+"\r\n"
+"日志信息：\r\n"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -4544,6 +4575,11 @@ msgstr "设置"
 msgid "Sh&ow log"
 msgstr "显示日志(&O)"
 
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "Windows 外壳"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -4642,11 +4678,6 @@ msgid ""
 msgstr ""
 "显示或隐藏工具栏\n"
 "切换工具栏"
-
-# Control-ID:1223,
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "递归显示图标状态"
 
 # ID:2049,
 #: ID:2049
@@ -4776,6 +4807,20 @@ msgstr "状态"
 #: Control-ID:65535
 msgid "Status and action colors"
 msgstr "操作及状态显示颜色"
+
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "状态缓存"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "状态缓存信息保留在外部进程里，能够递归的显示"
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "状态缓存仅用于一个文件夹，并不递归"
 
 # ID:11,
 #: ID:11
@@ -5501,24 +5546,6 @@ msgstr "URL："
 msgid "URL: "
 msgstr "URL："
 
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL：%s\r\n"
-"作者：%s\r\n"
-"日期：%s\r\n"
-"\r\n"
-"日志信息：\r\n"
-"%s"
-
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -6007,6 +6034,25 @@ msgstr "放大(&I）\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "缩小(&O)\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "缩放到实际大小"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "放大"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "缩小"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "缩放到适合比例"
 
 # ID:10,
 #: ID:10
