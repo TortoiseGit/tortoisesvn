@@ -487,6 +487,9 @@ void CLogDlg::OnCancel()
 		m_bCancelled = true;
 		return;
 	}
+	UpdateData();
+	if (m_bSaveStrict)
+		m_regLastStrict = m_bStrict;
 	__super::OnCancel();
 }
 
