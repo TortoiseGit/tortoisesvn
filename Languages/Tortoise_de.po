@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-02-16 09:39+0100\n"
+"PO-Revision-Date: 2006-02-20 11:10+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -264,6 +264,7 @@ msgstr "&Kopieren nach..."
 msgid "&Custom"
 msgstr "&Individuell"
 
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "&Standard"
@@ -2850,10 +2851,19 @@ msgstr "Kein Bildkodierer für %s gefunden."
 msgid "No spell corrections"
 msgstr "Keine Korrekturvorschläge"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Kein Statuscache. Nur versionierte Ordner erhalten ein überlagertes Symbol, Dateien nicht."
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Keine Thesaurusvorschläge"
+
+#: Control-ID:1271
+msgid "None"
+msgstr "Ohne"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -3419,7 +3429,7 @@ msgstr "Revision %d"
 
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "Revision %ld"
@@ -3727,6 +3737,11 @@ msgstr "Einstellungen"
 msgid "Sh&ow log"
 msgstr "Zeige &Log"
 
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "Shell"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -3809,10 +3824,6 @@ msgid ""
 msgstr ""
 "Zeigt oder versteckt die Werkzeugleiste\n"
 "Werkzeugleiste umschalten"
-
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Zeige überlagerte Symbole rekursiv"
 
 #: ID:2049
 msgid ""
@@ -3921,6 +3932,20 @@ msgstr "Status"
 #: Control-ID:65535
 msgid "Status and action colors"
 msgstr "Status- und Aktionsfarben"
+
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "Statuscache"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Statuscache in einem externen Prozess. Überlagertes Symbole können rekursiv angezeigt werden."
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Statuscache nur für einen Ordner. Keine rekursiv überlagerten Symbole."
 
 #: ID:11
 msgid "Status of item in SVN"
