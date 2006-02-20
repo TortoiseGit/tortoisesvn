@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-revert">
+<sect1 id="tsvn-dug-revert">
 	<?dbhh topicname="HIDD_REVERT"?>
 	<title>Undo Changes</title>
 	<indexterm>
@@ -21,7 +21,7 @@
 		A dialog will pop up showing you the files that you've changed and
 		can revert. Select those you want to revert and click on
 		<guibutton>OK</guibutton>.
-		<figure id="tsvn-DUG-revert-dia-1">
+		<figure id="tsvn-dug-revert-dia-1">
 			<title>Revert dialog</title>
 			<graphic fileref="../images/Revert.png"/>
 		</figure>
@@ -35,7 +35,7 @@
 			will only undo your local changes. It does <emphasis>not</emphasis>
 			undo any changes which have already been committed. If you want to
 			undo all the changes which were committed in a particular revision,
-			read <xref linkend="tsvn-DUG-showlog"/> for further information.
+			read <xref linkend="tsvn-dug-showlog"/> for further information.
 		</para>
 	</tip>
 </sect1>

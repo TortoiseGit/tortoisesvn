@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-general">
+<sect1 id="tsvn-dug-general">
 	<title>Getting Started</title>
-	<sect2 id="tsvn-DUG-general-menu">
+	<sect2 id="tsvn-dug-general-menu">
 		<title>Context Menus</title>
 		<indexterm>
 			<primary>context menu</primary>
 		</indexterm>
 		<para>
-			<figure id="tsvn-DUG-context-dir-control">
+			<figure id="tsvn-dug-context-dir-control">
 				<title>Context menu for a directory under version control</title>
 				<graphic fileref="../images/ContextMenuDirControl.png"/>
 			</figure>
@@ -18,7 +18,7 @@
 			file or folder or its parent folder is under version control or not.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-general-drag">
+	<sect2 id="tsvn-dug-general-drag">
 		<title>Drag and Drop</title>
 		<indexterm>
 			<primary>drag handler</primary>
@@ -27,7 +27,7 @@
 			<primary>drag-n-drop</primary>
 		</indexterm>
 		<para>
-			<figure id="tsvn-DUG-right-drag">
+			<figure id="tsvn-dug-right-drag">
 				<title>Right drag menu for a directory under version control</title>
 				<graphic fileref="../images/RightDragMenu.png"/>
 			</figure>
@@ -37,7 +37,7 @@
 			which is under version control.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-general-auth">
+	<sect2 id="tsvn-dug-general-auth">
 		<title>Authentication</title>
 		<indexterm>
 			<primary>authentication</primary>
@@ -84,12 +84,12 @@
 			of TortoiseSVN's settings dialog. That button will clear all cached
 			auth data from the Subversion auth directories, as well as any auth
 			data stored in the registry by earlier versions of TortoiseSVN.
-			Refer to <xref linkend="tsvn-DUG-settings-main"/>.
+			Refer to <xref linkend="tsvn-dug-settings-main"/>.
 		</para>
 		<para>
 			For more information on how to set up your server for
 			authentication and access control, refer to
-			<xref linkend="tsvn_serversetup"/>
+			<xref linkend="tsvn-serversetup"/>
 		</para>
 		<tip>
 			<para>

@@ -3,7 +3,7 @@
 <!-- This chapter is copied over from the subversion book and slightly
 	 modified for the TortoiseSVN client.
 -->
-<chapter id="tsvn_basics">
+<chapter id="tsvn-basics">
 	<title>Basic Concepts</title>
 	<indexterm>
 		<primary>Subversion book</primary>
@@ -31,7 +31,7 @@
 			helping computer programmers.
 		</para>
 	</simplesect>
-	<sect1 id="tsvn-ch2-sect-1">
+	<sect1 id="tsvn-basics-repository">
 		<title>The Repository</title>
 		<indexterm>
 			<primary>repository</primary>
@@ -47,7 +47,7 @@
 			makes the information available to others; by reading data, the
 			client receives information from others.
 		</para>
-		<figure id="tsvn-ch2-dia1">
+		<figure id="tsvn-basics-dia1">
 			<title>A Typical Client/Server System</title>
 			<graphic fileref="images/ch02dia1.png"/>
 		</figure>
@@ -75,7 +75,7 @@
 		</para>
 	</sect1>
 	<!-- the philosophical section -->
-	<sect1 id="tsvn-ch-2-sect-2">
+	<sect1 id="tsvn-basics-versioning">
 		<title>Versioning Models</title>
 		<para>
 			All version control systems have to solve the same
@@ -85,7 +85,7 @@
 			accidentally overwrite each other's changes in the
 			repository.
 		</para>
-		<sect2 id="tsvn-ch-2-sect-2.1">
+		<sect2 id="tsvn-basics-versioning-filesharing">
 			<title>The Problem of File-Sharing</title>
 			<para>
 				Consider this scenario: suppose we have two co-workers,
@@ -102,12 +102,12 @@
 				latest version of the file - and probably by accident.
 				This is definitely a situation we want to avoid!
 			</para>
-			<figure id="tsvn-ch2-dia2">
+			<figure id="tsvn-basics-dia2">
 				<title>The Problem to Avoid</title>
 				<graphic fileref="images/ch02dia2.png"/>
 			</figure>
 		</sect2>
-		<sect2 id="tsvn-ch-2-sect-2.2">
+		<sect2 id="tsvn-basics-versioning-lockmodifyunlock">
 			<title>The Lock-Modify-Unlock Solution</title>
 			<para>
 				Many version control systems use a
@@ -123,7 +123,7 @@
 				his lock.  After Harry unlocks the file, his turn is over, and
 				now Sally can take her turn by locking and editing.
 			</para>
-			<figure id="tsvn-ch2-dia3">
+			<figure id="tsvn-basics-dia3">
 				<title>The Lock-Modify-Unlock Solution</title>
 				<graphic fileref="images/ch02dia3.png"/>
 			</figure>
@@ -174,7 +174,7 @@
 				</listitem>
 			</itemizedlist>
 		</sect2>
-		<sect2 id="tsvn-ch-2-sect-2.3">
+		<sect2 id="tsvn-basics-versioning-copymodifymerge">
 			<title>The Copy-Modify-Merge Solution</title>
 			<para>
 				Subversion, CVS, and other version control systems use a
@@ -202,11 +202,11 @@
 				file A.  Chances are that Sally's changes don't overlap with
 				his own; so once he has both sets of changes integrated, he
 				saves his working copy back to the repository.</para>
-			<figure id="tsvn-ch2-dia4">
+			<figure id="tsvn-basics-dia4">
 				<title>The Copy-Modify-Merge Solution</title>
 				<graphic fileref="images/ch02dia4.png"/>
 			</figure>
-			<figure id="tsvn-ch2-dia5">
+			<figure id="tsvn-basics-dia5">
 				<title>...Copy-Modify-Merge Continued</title>
 				<graphic fileref="images/ch02dia5.png"/>
 			</figure>
@@ -256,7 +256,7 @@
 				or Sally will lose their changes.
 			</para>
 		</sect2>
-		<sect2 id="tsvn-ch-2-sect-2.4">
+		<sect2 id="tsvn-basics-versioning-4">
 			<title>What does Subversion Do?</title>
 			<para>
 				Subversion uses the copy-modify-merge solution by default,
@@ -269,9 +269,9 @@
 		</sect2>
 	</sect1>
 	<!-- How svn implements the philosophy -->
-	<sect1 id="tsvn-ch-2-sect-3">
+	<sect1 id="tsvn-basics-svn">
 		<title>Subversion in Action</title>
-		<sect2 id="tsvn-ch-2-sect-3.1">
+		<sect2 id="tsvn-basics-svn-workingcopy">
 			<title>Working Copies</title>
 			<para>
 				<indexterm>
@@ -323,7 +323,7 @@
 				For example, suppose you have a repository that contains
 				two software projects.
 			</para>
-			<figure id="tsvn-ch2-dia6">
+			<figure id="tsvn-basics-dia6">
 				<title>The Repository's Filesystem</title>
 				<graphic fileref="images/ch02dia6.png"/>
 			</figure>
@@ -339,7 +339,7 @@
 				or reserving resources, but it doesn't; it simply creates a
 				private copy of the project for you).
 			</para>
-			<sidebar id="tsvn-ch-02-sidebar-1">
+			<sidebar id="tsvn-basics-svn-urls">
 				<title>Repository URLs</title>
 				<para>
 					Subversion repositories can be accessed through many
@@ -348,7 +348,7 @@
 					always a URL.  The URL schema indicates the access
 					method:
 				</para>
-				<table id="tsvn-ch-02-table-1">
+				<table id="tsvn-basics-svn-table-1">
 					<title>Repository Access URLs</title>
 					<tgroup cols="2">
 						<colspec colnum="1" colwidth="1*"/>
@@ -500,7 +500,7 @@ file:///X|/path/to/repos
 				be brought up to date.
 			</para>
 		</sect2>
-		<sect2 id="tsvn-ch-2-sect-3.2">
+		<sect2 id="tsvn-basics-svn-revisions">
 			<title>Revisions</title>
 			<indexterm>
 				<primary>revision</primary>
@@ -537,7 +537,7 @@ file:///X|/path/to/repos
 				<quote>snapshot</quote> of the way the repository looked after
 				each commit.
 			</para>
-			<figure id="tsvn-ch2-dia7">
+			<figure id="tsvn-basics-dia7">
 				<title>The Repository</title>
 				<graphic fileref="images/ch02dia7.png"/>
 			</figure>
@@ -606,7 +606,7 @@ calc/Makefile:6
 				correspond to exactly one revision in the repository.
 			</para>
 		</sect2>
-		<sect2 id="tsvn-ch-2-sect-3.3">
+		<sect2 id="tsvn-basics-svn-wcrepository">
 			<title>How Working Copies Track the Repository</title>
 			<para>
 				For each file in a working directory, Subversion records
@@ -693,7 +693,7 @@ calc/Makefile:6
 			</variablelist>
 		</sect2>
 	</sect1>
-	<sect1 id="tsvn-ch-2-sect-4">
+	<sect1 id="tsvn-basics-summary">
 		<title>Summary</title>
 		<para>
 			We've covered a number of fundamental Subversion concepts in

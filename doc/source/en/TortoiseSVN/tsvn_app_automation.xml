@@ -81,15 +81,15 @@
 				</listitem>
 			</itemizedlist>
 		</para>
-		<!--
+<!--
 ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION
 Don't touch these lines:
 <entry condition="pot">:about</entry>
 
   The condition="pot" prevents the strings from being extracted into
 	the .pot file, so nobody translates them.
-  The colon in front of the command have to stay there to prevent the
-  strings from being translated if the po file contains a matching translation.
+  The colons in front of the command have to stay there to prevent these strings
+  from being translated if the po file "by chance" contains a matching translation.
 -->
 		<para>
 			<table id="tsvn-automation-1-table">

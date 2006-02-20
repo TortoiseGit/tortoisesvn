@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-settings">
+<sect1 id="tsvn-dug-settings">
 	<title>TortoiseSVN's Settings</title>
 	<indexterm>
 		<primary>settings</primary>
@@ -10,14 +10,14 @@
 		mouse pointer a second on the editbox/checkbox... and a helpful
 		tooltip will popup.
 	</para>
-	<sect2 id="tsvn-DUG-settings-main">
+	<sect2 id="tsvn-dug-settings-main">
 		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
 		<title>General Settings</title>
 		<indexterm>
 			<primary>sounds</primary>
 		</indexterm>
 		<para>
-			<figure id="tsvn-DUG-settings-dia-main">
+			<figure id="tsvn-dug-settings-dia-main">
 				<title>The Settings Dialog, General Page</title>
 				<graphic fileref="../images/SettingsMain.png"/>
 			</figure>
@@ -94,7 +94,7 @@
 						The first two entries refer to directories, the 
 						other four to files.
 						These patterns use filename globbing. Read
-						<xref linkend="tsvn-DUG-ignore-glob"/> for more information.
+						<xref linkend="tsvn-dug-ignore-glob"/> for more information.
 					</para>
 					<para>
 						Note that the ignore patterns you specify here will also
@@ -116,7 +116,7 @@
 						By contrast you can also use the versioned
 						<literal>svn:ignore</literal> property to exclude
 						files or directories from version control. Read
-						<xref linkend="tsvn-DUG-ignore"/>
+						<xref linkend="tsvn-dug-ignore"/>
 						for more information. 
 					</para>
 				</listitem>
@@ -175,18 +175,18 @@
 					</para>
 					<para>
 						If you want to clear auth data for one particular server only,
-						read <xref linkend="tsvn-DUG-general-auth"/> for instructions
+						read <xref linkend="tsvn-dug-general-auth"/> for instructions
 						on how to find the cached data.
 					</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
 	</sect2>
-	<sect2 id="tsvn-DUG-settings-look-feel">
+	<sect2 id="tsvn-dug-settings-look-feel">
 		<title>Look and Feel Settings</title>
 		<?dbhh topicname="HIDD_SETTINGSLOOKANDFEEL"?>
 		<para>
-			<figure id="tsvn-DUG-settings-dia-context">
+			<figure id="tsvn-dug-settings-dia-context">
 				<title>The Settings Dialog, Look and Feel Page</title>
 				<graphic fileref="../images/SettingsContext.png"/>
 			</figure>
@@ -248,11 +248,11 @@
 				</varlistentry>
 			</variablelist>
 		</para>
-		<sect3 id="tsvn-DUG-settings-overlay">
+		<sect3 id="tsvn-dug-settings-overlay">
 			<title>Icon Overlay Settings</title>
 			<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
 			<para>
-				<figure id="tsvn-DUG-settings-dia-overlay">
+				<figure id="tsvn-dug-settings-dia-overlay">
 					<title>The Settings Dialog, Look and Feel Page</title>
 					<graphic fileref="../images/SettingsOverlay.png"/>
 				</figure>
@@ -384,11 +384,11 @@
 				and include only the folders you specifically want to be scanned.
 			</para>
 		</sect3>
-		<sect3 id="tsvn-DUG-settings-icon-set">
+		<sect3 id="tsvn-dug-settings-icon-set">
 			<title>Icon Set Selection</title>
 			<?dbhh topicname="HIDD_OVERLAYICONS"?>
 			<para>
-				<figure id="tsvn-DUG-settings-dia-icons">
+				<figure id="tsvn-dug-settings-dia-icons">
 					<title>The Settings Dialog, Icon Set Page</title>
 					<graphic fileref="../images/SettingsOverlayChooser.png"/>
 				</figure>
@@ -397,11 +397,11 @@
 				your computer for the changes to take effect.
 			</para>
 		</sect3>
-		<sect3 id="tsvn-DUG-settings-dialogs">
+		<sect3 id="tsvn-dug-settings-dialogs">
 			<title>TortoiseSVN Dialog Settings 1</title>
 			<?dbhh topicname="HIDD_SETTINGSDIALOGS"?>
 			<para>
-				<figure id="tsvn-DUG-settings-dia-dialogs">
+				<figure id="tsvn-dug-settings-dia-dialogs">
 					<title>The Settings Dialog, Dialogs 1 Page</title>
 					<graphic fileref="../images/SettingsDialog.png"/>
 				</figure>
@@ -500,10 +500,10 @@
 				</varlistentry>
 			</variablelist>
 		</sect3>
-		<sect3 id="tsvn-DUG-settings-dialogs-2">
+		<sect3 id="tsvn-dug-settings-dialogs-2">
 			<title>TortoiseSVN Dialog Settings 2</title>
 			<para>
-				<figure id="tsvn-DUG-settings-dia-dialogs-2">
+				<figure id="tsvn-dug-settings-dia-dialogs-2">
 					<title>The Settings Dialog, Dialogs 2 Page</title>
 					<graphic fileref="../images/SettingsDialog2.png"/>
 				</figure>
@@ -572,11 +572,11 @@
 				</varlistentry>
 			</variablelist>
 		</sect3>
-		<sect3 id="tsvn-DUG-settings-colours">
+		<sect3 id="tsvn-dug-settings-colours">
 			<title>TortoiseSVN Colour Settings</title>
 			<?dbhh topicname="HIDD_SETTINGSCOLORS"?>
 			<para>
-				<figure id="tsvn-DUG-settings-dia-colors">
+				<figure id="tsvn-dug-settings-dia-colors">
 					<title>The Settings Dialog, Colours Page</title>
 					<graphic fileref="../images/SettingsColors.png"/>
 				</figure>
@@ -671,14 +671,14 @@
 			</variablelist>
 		</sect3>
 	</sect2>
-	<sect2 id="tsvn-DUG-settings-network">
+	<sect2 id="tsvn-dug-settings-network">
 		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
 		<title>Network Settings</title>
 		<indexterm>
 			<primary>proxy server</primary>
 		</indexterm>
 		<para>
-			<figure id="tsvn-DUG-settings-dia-4">
+			<figure id="tsvn-dug-settings-dia-4">
 				<title>The Settings Dialog, Network Page</title>
 				<graphic fileref="../images/SettingsProxy.png"/>
 			</figure>
@@ -713,10 +713,10 @@
 			TortoisePlink with exactly the same parameters.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-settings-progs">
+	<sect2 id="tsvn-dug-settings-progs">
 		<title>External Program Settings</title>
 		<para>
-			<figure id="tsvn-DUG-settings-dia-5">
+			<figure id="tsvn-dug-settings-dia-5">
 				<title>The Settings Dialog, Diff Viewer Page</title>
 				<?dbhh topicname="HIDD_SETTINGSPROGSDIFF"?>
 				<graphic fileref="../images/SettingsProgs.png"/>
@@ -726,10 +726,10 @@
 			which is installed alongside TortoiseSVN.
 		</para>
 		<para>
-			Read <xref linkend="tsvn-DUG-diff-tools"/> for a list of some of the
+			Read <xref linkend="tsvn-dug-diff-tools"/> for a list of some of the
 			external diff/merge programs that people are using with TortoiseSVN.
 		</para>
-		<sect3 id="tsvn-DUG-settings-Diff">
+		<sect3 id="tsvn-dug-settings-Diff">
 			<title>Diff Viewer</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSDIFF"?>
 			<para>
@@ -820,7 +820,7 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 				is unchecked then TSVN will skip pre-processing the files.
 			</para>
 		</sect3>
-		<sect3 id="tsvn-DUG-settings-Merge">
+		<sect3 id="tsvn-dug-settings-Merge">
 			<title>Merge Tool</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSMERGE"?>
 			<para>
@@ -913,11 +913,11 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 </screen>
 			</para>
 		</sect3>
-		<sect3 id="tsvn-DUG-settings-Progs-Adv">
+		<sect3 id="tsvn-dug-settings-Progs-Adv">
 			<title>Diff/Merge Advanced Settings</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSADV"?>
 			<para>
-				<figure id="tsvn-DUG-settings-dia-6">
+				<figure id="tsvn-dug-settings-dia-6">
 					<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
 					<graphic fileref="../images/SettingsProgsAdv.png"/>
 				</figure>
@@ -932,7 +932,7 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 				<literal>*.BMP</literal>.
 			</para>
 		</sect3>
-		<sect3 id="tsvn-DUG-settings-Patch">
+		<sect3 id="tsvn-dug-settings-Patch">
 			<title>Unified Diff Viewer</title>
 			<?dbhh topicname="HIDD_SETTINGSPROGSUNIDIFF"?>
 			<para>

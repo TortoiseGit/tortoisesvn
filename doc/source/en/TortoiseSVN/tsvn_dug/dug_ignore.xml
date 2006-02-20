@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-ignore">
+<sect1 id="tsvn-dug-ignore">
 	<title>Ignoring Files And Directories</title>
 	<indexterm>
 		<primary>ignore</primary>
 	</indexterm>
 	<?dbhh topicname="HIDD_IGNORE"?>
 	<para>
-		<figure id="tsvn-DUG-ignoring-dia-1">
+		<figure id="tsvn-dug-ignoring-dia-1">
 			<title>Explorer context menu for unversioned files</title>
 			<graphic fileref="../images/ContextMenuFileNoControl.png"/>
 		</figure>
@@ -47,7 +47,7 @@
 		You can also access a folder's <literal>svn:ignore</literal>
 		property directly. That allows you to specify more general
 		patterns using filename globbing, described in the section below.
-		Read <xref linkend="tsvn-DUG-propertypage"/> for more information
+		Read <xref linkend="tsvn-dug-propertypage"/> for more information
 		on setting properties directly.
 	</para>
 	<tip>
@@ -61,10 +61,10 @@
 			<filename>svn:ignore</filename> property where possible, because it
 			can be applied to specific project areas, and it works for
 			everyone who checks out the project. Read
-			<xref linkend="tsvn-DUG-settings-main"/> for more information. 
+			<xref linkend="tsvn-dug-settings-main"/> for more information. 
 		</para>
 	</tip>
-	<sect2 id="tsvn-DUG-ignore-glob">
+	<sect2 id="tsvn-dug-ignore-glob">
 		<title>Filename Globbing in Ignore Lists</title>
 		<indexterm>
 			<primary>globbing</primary>

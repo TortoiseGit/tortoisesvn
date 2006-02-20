@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-import">
+<sect1 id="tsvn-dug-import">
 	<title>Importing Data Into A Repository</title>
 	<indexterm>
 		<primary>import</primary>
@@ -9,7 +9,7 @@
 		<primary>Repository</primary>
 	</indexterm>
 	<?dbhh topicname="HIDD_IMPORT"?>
-	<sect2 id="tsvn-DUG-import-1">
+	<sect2 id="tsvn-dug-import-1">
 		<title>Repository Layout</title>
 		<para>
 			Before you import your data into the repository you should
@@ -145,7 +145,7 @@ C:\Temp\New\tags
 			in the repository.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-import-2">
+	<sect2 id="tsvn-dug-import-2">
 		<title>Import</title>
 		<indexterm>
 			<primary>temporary files</primary>
@@ -181,7 +181,7 @@ C:\Temp\New\tags
 				<guimenuitem>Import...</guimenuitem>
 			</menuchoice>
 			which brings up a dialog box:
-			<figure id="tsvn-DUG-import-dia-1">
+			<figure id="tsvn-dug-import-dia-1">
 				<title>The Import dialog</title>
 				<graphic fileref="../images/Import.png"/>
 			</figure>
@@ -217,7 +217,7 @@ C:\Temp\New\tags
 			you need to do a Checkout of the version you just imported.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-import-3">
+	<sect2 id="tsvn-dug-import-3">
 		<title>Special Files</title>
 		<indexterm>
 			<primary>special files</primary>
@@ -256,7 +256,7 @@ C:\Temp\New\tags
 			That way it won't show up as unversioned on every commit.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-import-4">
+	<sect2 id="tsvn-dug-import-4">
 		<title>Referenced Projects</title>
 		<indexterm>
 			<primary>external repositories</primary>
@@ -361,7 +361,7 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 		</para>
 		<para>
 			If you need more information how TortoiseSVN
-			handles Properties read <xref linkend="tsvn-DUG-propertypage"/>.
+			handles Properties read <xref linkend="tsvn-dug-propertypage"/>.
 		</para>
 		<para>
 			To find out about different methods of accessing common sub-projects

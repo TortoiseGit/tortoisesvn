@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-showlog">
+<sect1 id="tsvn-dug-showlog">
 	<title>Revision Log Dialog</title>
 	<indexterm>
 		<primary>log</primary>
@@ -49,10 +49,10 @@
 		commands which you can use to get even more information about the
 		project history.
 	</para>
-	<sect2 id="tsvn-DUG-showlog-1">
+	<sect2 id="tsvn-dug-showlog-1">
 		<title>Invoking the Revision Log Dialog</title>
 		<para>
-			<figure id="tsvn-DUG-showlog-1-dia-1">
+			<figure id="tsvn-dug-showlog-1-dia-1">
 				<title>The Revision Log Dialog</title>
 				<graphic fileref="../images/LogMessages.png"/>
 			</figure>
@@ -78,10 +78,10 @@
 			</itemizedlist>
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-showlog-2">
+	<sect2 id="tsvn-dug-showlog-2">
 		<title>Getting Additional Information</title>
 		<para>
-			<figure id="tsvn-DUG-showlog-2-dia-1">
+			<figure id="tsvn-dug-showlog-2-dia-1">
 				<title>The Revision Log Dialog Top Pane with Context Menu</title>
 				<graphic fileref="../images/LogContextMenu.png"/>
 			</figure>
@@ -155,7 +155,7 @@
 				<listitem>
 					<para>
 						Edit the log message or author attached to a previous commit.
-						Read <xref linkend="tsvn-DUG-showlog-4"/> to find out
+						Read <xref linkend="tsvn-dug-showlog-4"/> to find out
 						how this works.
 					</para>
 				</listitem>
@@ -170,7 +170,7 @@
 			</itemizedlist>
 		</para>
 		<para>
-			<figure id="tsvn-DUG-showlog-2-dia-1a">
+			<figure id="tsvn-dug-showlog-2-dia-1a">
 				<title>Top Pane Context Menu for 2 Selected Files</title>
 				<graphic fileref="../images/LogContextMenu1.png"/>
 			</figure>
@@ -213,7 +213,7 @@
 			way to rollback a group of revisions in one go.
 		</para>
 		<para>
-			<figure id="tsvn-DUG-showlog-2-dia-2">
+			<figure id="tsvn-dug-showlog-2-dia-2">
 				<title>The Log Dialog Bottom Pane with Context Menu</title>
 				<graphic fileref="../images/LogContextMenu2.png"/>
 			</figure>
@@ -256,7 +256,7 @@
 			</itemizedlist>
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-showlog-3">
+	<sect2 id="tsvn-dug-showlog-3">
 		<title>Getting more log messages</title>
 		<para>
 			The Log dialog does not always show all changes ever made for a
@@ -274,7 +274,7 @@
 							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Settings</guimenuitem>
 						</menuchoice>
-						(<xref linkend="tsvn-DUG-settings"/>),
+						(<xref linkend="tsvn-dug-settings"/>),
 					</para>
 				</listitem>
 				<listitem>
@@ -318,7 +318,7 @@
 			to revision 1, press <guibutton>Show All</guibutton>.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-showlog-4">
+	<sect2 id="tsvn-dug-showlog-4">
 		<title>Changing the Log Message and Author</title>
 		<indexterm>
 			<primary>edit log/author</primary>
@@ -358,7 +358,7 @@
 			</para>
 		</warning>
 	</sect2>
-	<sect2 id="tsvn-DUG-showlog-filter">
+	<sect2 id="tsvn-dug-showlog-filter">
 		<title>Filtering Log Messages</title>
 		<indexterm>
 			<primary>filter</primary>
@@ -377,7 +377,7 @@
 			They do not control downloading of messages from the repository.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-showlog-5">
+	<sect2 id="tsvn-dug-showlog-5">
 		<?dbhh topicname="HIDD_STATGRAPH"?>
 		<title>Statistical Information</title>
 		<indexterm>

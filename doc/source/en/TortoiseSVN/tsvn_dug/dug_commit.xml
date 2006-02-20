@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-commit">
+<sect1 id="tsvn-dug-commit">
 	<title>Sending Your Changes To The Repository</title>
 	<indexterm>
 		<primary>commit</primary>
@@ -30,7 +30,7 @@
 			<guimenu>TortoiseSVN</guimenu>
 			<guimenuitem>Commit...</guimenuitem>
 		</menuchoice>.
-		<figure id="tsvn-DUG-commit-dia-1">
+		<figure id="tsvn-dug-commit-dia-1">
 			<title>The Commit dialog</title>
 			<graphic fileref="../images/Commit.png"/>
 		</figure>
@@ -90,7 +90,7 @@
 					</para>
 				</listitem>
 			</itemizedlist>
-			Read <xref linkend="tsvn-DUG-ignore"/> for more information. 
+			Read <xref linkend="tsvn-dug-ignore"/> for more information. 
 		</para>
 	</tip>
 	<para>
@@ -107,7 +107,7 @@
 		a strict format.
 	</para>
 	<para>
-		<figure id="tsvn-DUG-commit-dia-2">
+		<figure id="tsvn-dug-commit-dia-2">
 			<title>The Commit Dialog Spellchecker</title>
 			<graphic fileref="../images/CommitSpellcheck.png"/>
 		</figure>
@@ -121,7 +121,7 @@
 	<para>
 		After pressing <guibutton>OK</guibutton>, a dialog appears displaying
 		the progress of the commit.
-		<figure id="tsvn-DUG-commit-dia-3">
+		<figure id="tsvn-dug-commit-dia-3">
 			<title>The Progress dialog showing a commit in progress</title>
 			<graphic fileref="../images/CommitProgress.png"/>
 		</figure>
@@ -167,7 +167,7 @@
 	<para>
 		This is the default colour scheme, but you can customise those colours
 		using the settings dialog.
-		Read <xref linkend="tsvn-DUG-settings-colours"/> for more information.
+		Read <xref linkend="tsvn-dug-settings-colours"/> for more information.
 	</para>
 	<tip>
 		<title>Special Folder Properties</title>
@@ -175,7 +175,7 @@
 			There are several special folder properties which can be used to
 			help give more control over the formatting of commit log messages and
 			the language used by the spellchecker module.
-			Read <xref linkend="tsvn-DUG-propertypage"/> for further information.
+			Read <xref linkend="tsvn-dug-propertypage"/> for further information.
 		</para>
 	</tip>
 	<tip>
@@ -183,7 +183,7 @@
 		<para>
 			If you have activated the bugtracking system, you could set one or more 
 			Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues 
-			should be comma separated. Learn more <xref linkend="tsvn-DUG-bugtracker"/>.
+			should be comma separated. Learn more <xref linkend="tsvn-dug-bugtracker"/>.
 		</para>
 	</tip>
 </sect1>

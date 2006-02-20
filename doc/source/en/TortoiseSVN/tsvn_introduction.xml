@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
-<chapter id="tsvn_introduction">
+<chapter id="tsvn-introduction">
 	<title>Introduction</title>
 	<?dbhh topicname="HIDD_ABOUT"?>
 	<indexterm>
@@ -20,7 +20,7 @@
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tsvn-ch-1-sect-1">
+	<sect1 id="tsvn-intro-about">
 		<title>What is TortoiseSVN?</title>
 		<para>
 			TortoiseSVN is a free open-source client for the
@@ -49,7 +49,7 @@
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 2 ============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tsvn-ch-1-sect-2">
+	<sect1 id="tsvn-intro-history">
 		<title>TortoiseSVN's History</title>
 		<para>
 			In 2002, Tim Kemp found that Subversion was a very good version
@@ -80,7 +80,7 @@
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 3 ============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tsvn-ch-1-sect-3">
+	<sect1 id="tsvn-intro-features">
 		<title>TortoiseSVN's Features</title>
 		<para>
 			What makes TortoiseSVN such a good Subversion client?
@@ -239,7 +239,7 @@
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 4 ============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tsvn-ch-1-sect-4">
+	<sect1 id="tsvn-intro-install">
 		<title>Installing TortoiseSVN</title>
 		<sect2>
 			<title>System requirements</title>
@@ -270,7 +270,7 @@
 				its use to the current user only.
 			</para>
 		</sect2>
-		<sect2 id="tsvn-ch-1-install-lang">
+		<sect2 id="tsvn-intro-install-lang">
 			<title>Language Packs</title>
 			<indexterm>
 				<primary>language packs</primary>
@@ -295,7 +295,7 @@
 				Next time you restart, the translation will be available.
 			</para>
 		</sect2>
-		<sect2 id="tsvn-ch-1-install-spell">
+		<sect2 id="tsvn-intro-install-spell">
 			<title>Spellchecker</title>
 			<indexterm>
 				<primary>spellchecker</primary>
@@ -366,7 +366,7 @@
 					<listitem>
 						<para>
 						Check the <literal>tsvn:projectlanguage</literal> setting.
-						Refer to <xref linkend="tsvn-DUG-propertypage"/> for information
+						Refer to <xref linkend="tsvn-dug-propertypage"/> for information
 						about setting project properties.
 						</para>
 					</listitem>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-wcstatus">
+<sect1 id="tsvn-dug-wcstatus">
 	<title>Getting Status Information</title>
 	<indexterm>
 		<primary>status</primary>
@@ -10,13 +10,13 @@
 		which files you have changed/added/removed or renamed, or even which
 		files got changed and committed by others.
 	</para>
-	<sect2 id="tsvn-DUG-wcstatus-1">
+	<sect2 id="tsvn-dug-wcstatus-1">
 		<title>Icon Overlays</title>
 		<indexterm>
 			<primary>overlays</primary>
 		</indexterm>
 		<para>
-			<figure id="tsvn-DUG-wcstatus-dia-1">
+			<figure id="tsvn-dug-wcstatus-dia-1">
 				<title>Explorer showing icon overlays</title>
 				<graphic fileref="../images/Overlays.png"/>
 			</figure>
@@ -155,7 +155,7 @@
 			</para>
 		</tip>
 	</sect2>
-	<sect2 id="tsvn-DUG-wcstatus-2">
+	<sect2 id="tsvn-dug-wcstatus-2">
 		<?dbhh topicname="HIDD_CHANGEDFILES"?>
 		<title>Local and Remote Status</title>
 		<indexterm>
@@ -165,7 +165,7 @@
 			<primary>modifications</primary>
 		</indexterm>
 		<para>
-			<figure id="tsvn-DUG-wcstatus-dia-2">
+			<figure id="tsvn-dug-wcstatus-dia-2">
 				<title>Check for Modifications</title>
 				<graphic fileref="../images/RepoStatus.png"/>
 			</figure>
@@ -253,7 +253,7 @@
 		<para>
 			This is the default colour scheme, but you can customise those colours
 			using the settings dialog.
-			Read <xref linkend="tsvn-DUG-settings-colours"/> for more information.
+			Read <xref linkend="tsvn-dug-settings-colours"/> for more information.
 		</para>
 		<para>
 			From the context menu of the dialog you can show a diff of the
@@ -284,7 +284,7 @@
 			</para>
 		</tip>
 	</sect2>
-	<sect2 id="tsvn-DUG-diffing">
+	<sect2 id="tsvn-dug-diffing">
 		<title>Viewing Diffs</title>
 		<indexterm>
 			<primary>diffing</primary>

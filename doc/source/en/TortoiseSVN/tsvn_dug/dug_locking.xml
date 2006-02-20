@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-locking">
+<sect1 id="tsvn-dug-locking">
 	<title>Locking</title>
 	<indexterm>
 		<primary>locking</primary>
@@ -8,7 +8,7 @@
 	<para>
 		Subversion generally works best without locking, using the
 		<quote>Copy-Modify-Merge</quote> methods described earlier in
-		<xref linkend="tsvn-ch-2-sect-2.3"/>.
+		<xref linkend="tsvn-basics-versioning-copymodifymerge"/>.
 		However there are a few instances when you may need to implement
 		some form of locking policy.
 		<itemizedlist>
@@ -35,7 +35,7 @@
 		are using <filename>file:///</filename> access, then of course only your
 		client needs to be updated.
 	</para>
-	<sect2 id="tsvn-DUG-locking-how">
+	<sect2 id="tsvn-dug-locking-how">
 		<title>How Locking Works in Subversion</title>
 		<para>
 			By default, nothing is locked and anyone who has commit access can
@@ -89,7 +89,7 @@
 			invalid. The repository is always the definitive reference.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-locking-lock">
+	<sect2 id="tsvn-dug-locking-lock">
 		<title>Getting a Lock</title>
 		<para>
 			Select the file(s) in your working copy for which you want to 
@@ -98,7 +98,7 @@
 				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Get Lock...</guimenuitem>
 			</menuchoice>.
-			<figure id="tsvn-DUG-locking-dia-lock">
+			<figure id="tsvn-dug-locking-dia-lock">
 				<title>The Locking Dialog</title>
 				<graphic fileref="../images/GetLock.png"/>
 			</figure>
@@ -124,7 +124,7 @@
 			if you lock them out of the whole project. Use with care ...
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-locking-unlock">
+	<sect2 id="tsvn-dug-locking-unlock">
 		<title>Releasing a Lock</title>
 		<para>
 			To make sure you don't forget to release a lock you don't need
@@ -149,10 +149,10 @@
 			command on a folder to release all locks recursively.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-locking-status">
+	<sect2 id="tsvn-dug-locking-status">
 		<title>Checking Lock Status</title>
 		<para>
-			<figure id="tsvn-DUG-locking-dia-status">
+			<figure id="tsvn-dug-locking-dia-status">
 				<title>The Check for Modifications Dialog</title>
 				<graphic fileref="../images/RepoStatus.png"/>
 			</figure>
@@ -183,12 +183,12 @@
 			</para>
 		</caution>
 	</sect2>
-	<sect2 id="tsvn-DUG-locking-needs-lock">
+	<sect2 id="tsvn-dug-locking-needs-lock">
 		<title>Making Non-locked Files Read-Only</title>
 		<para>
 			As mentioned above, the most effective way to use locking is to set
 			the <literal>svn:needs-lock</literal> property on files. Refer to
-			<xref linkend="tsvn-DUG-propertypage"/>
+			<xref linkend="tsvn-dug-propertypage"/>
 			for instructions on how to set properties.
 			Files with this property set will always be checked out and updated
 			with the read-only flag set unless your working copy holds a lock.
@@ -199,10 +199,10 @@
 			If you operate a policy where every file has to be locked then
 			you may find it easier to use Subversion's auto-props feature
 			to set the property automatically every time you add new files.
-			Read <xref linkend="tsvn-DUG-settings"/> for further information.
+			Read <xref linkend="tsvn-dug-settings"/> for further information.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-locking-hooks">
+	<sect2 id="tsvn-dug-locking-hooks">
 		<title>The Locking Hook Scripts</title>
 		<para>
 			When you create a new repository with Subversion 1.2 or higher,

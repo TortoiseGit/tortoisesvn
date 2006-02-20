@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-patch">
+<sect1 id="tsvn-dug-patch">
 	<title>Creating and Applying Patches</title>
 	<indexterm>
 		<primary>patch</primary>
@@ -22,7 +22,7 @@
 		Patch files are simply Unified-Diff files showing the differences
 		between your working copy and the base revision.
 	</para>
-	<sect2 id="tsvn-DUG-patch-1">
+	<sect2 id="tsvn-dug-patch-1">
 		<title>Creating a Patch File</title>
 		<para>
 			First you need to make <emphasis>and test</emphasis> your changes.
@@ -37,7 +37,7 @@
 				<guimenuitem>Create Patch...</guimenuitem>
 			</menuchoice>
 		</para>
-		<figure id="tsvn-DUG-patch-dia-1">
+		<figure id="tsvn-dug-patch-dia-1">
 			<title>The Create Patch dialog</title>
 			<graphic fileref="../images/CreatePatch.png"/>
 		</figure>
@@ -61,7 +61,7 @@
 			You are now ready to submit your patch file.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-patch-2">
+	<sect2 id="tsvn-dug-patch-2">
 		<title>Applying a Patch File</title>
 		<para>
 			Patch files are applied to your working copy. This should be done

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE preface SYSTEM "../../dtd/dblite.dtd">
-<preface id="tsvn_preface">
+<preface id="tsvn-preface">
 	<title>Preface</title>
 	<simplesect>
 		<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
@@ -44,7 +44,7 @@
 	<!-- =================================================================== -->
 	<!-- ========================	SECTION	1 ============================== -->
 	<!-- =================================================================== -->
-	<sect1 id="tsvn-ch-0-sect-1">
+	<sect1 id="tsvn-preface-audience">
 		<title>Audience</title>
 		<para>
 			This book is written for computer literate folk who want to
@@ -57,7 +57,7 @@
 	<!-- =================================================================== -->
 	<!-- ========================	SECTION	1a ============================= -->
 	<!-- =================================================================== -->
-	<sect1 id="tsvn-ch-0-sect-1a">
+	<sect1 id="tsvn-preface-readingguide">
 		<title>Reading Guide</title>
 		<para>
 			This <emphasis>Preface</emphasis> explains a little about the
@@ -117,7 +117,7 @@
 	<!-- =================================================================== -->
 	<!-- ========================	SECTION	2 ============================== -->
 	<!-- =================================================================== -->
-	<sect1 id="tsvn-ch-0-sect-2">
+	<sect1 id="tsvn-preface-source">
 		<title>TortoiseSVN is free!</title>
 		<para>
 			TortoiseSVN is free. You don't have to pay to use it, and you can use it
@@ -141,7 +141,7 @@
 	<!-- =================================================================== -->
 	<!-- ========================	SECTION	3 ============================== -->
 	<!-- =================================================================== -->
-	<sect1 id="tsvn-ch-0-sect-3">
+	<sect1 id="tsvn-preface-community">
 		<title>Community</title>
 		<para>
 			Both TortoiseSVN and Subversion are developed by a community of
@@ -153,7 +153,7 @@
 	<!-- =================================================================== -->
 	<!-- ========================	SECTION	4 ============================== -->
 	<!-- =================================================================== -->
-	<sect1 id="tsvn-ch-0-sect-4">
+	<sect1 id="tsvn-preface-acknowledgements">
 		<title>Acknowledgments</title>
 		<variablelist>
 			<varlistentry>
@@ -220,7 +220,7 @@
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tsvn-ch-0-sect-5">
+	<sect1 id="tsvn-preface-terminoloty">
 		<title>Terminology used in this document</title>
 		<para>
 			To make reading the docs easier, the names of all the screens and Menus 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-diff">
+<sect1 id="tsvn-dug-diff">
 	<title>Viewing Differences</title>
 	<indexterm>
 		<primary>diff</primary>
@@ -13,7 +13,7 @@
 		TortoiseSVN provides some builtin tools for this, and also
 		allows you to use your own favourite diff program.
 	</para>
-	<sect2 id="tsvn-DUG-diff-file">
+	<sect2 id="tsvn-dug-diff-file">
 		<title>File Differences</title>
 		<variablelist>
 			<varlistentry>
@@ -88,7 +88,7 @@
 			</varlistentry>
 		</variablelist>
 	</sect2>
-	<sect2 id="tsvn-DUG-diff-dir">
+	<sect2 id="tsvn-dug-diff-dir">
 		<title>Folder Differences</title>
 		<para>
 		The builtin tools supplied with TortoiseSVN do not support viewing
@@ -97,7 +97,7 @@
 		In the next section we tell you about some tools which we have used.
 	</para>
 	</sect2>
-	<sect2 id="tsvn-DUG-diff-tools">
+	<sect2 id="tsvn-dug-diff-tools">
 		<title>External Diff/Merge Tools</title>
 		<indexterm>
 			<primary>diff tools</primary>
@@ -245,7 +245,7 @@
 			</varlistentry>
 		</variablelist>
 		<para>
-			Read <xref linkend="tsvn-DUG-settings-progs"/> for information
+			Read <xref linkend="tsvn-dug-settings-progs"/> for information
 			on how to set up TortoiseSVN to use these tools.
 		</para>
 	</sect2>

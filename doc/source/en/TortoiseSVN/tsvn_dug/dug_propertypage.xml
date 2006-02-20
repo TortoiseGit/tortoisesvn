@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-propertypage">
+<sect1 id="tsvn-dug-propertypage">
 	<title>Project Settings</title>
 	<indexterm>
 		<primary>properties</primary>
 	</indexterm>
 	<para>
-		<figure id="tsvn-DUG-propertypage-dia-1">
+		<figure id="tsvn-dug-propertypage-dia-1">
 			<title>Subversion property page</title>
 			<graphic fileref="../images/Properties.png"/>
 		</figure>
@@ -31,7 +31,7 @@
 		You can add your own properties, or some properties with a 
 		special meaning in Subversion. These begin with <literal>svn:</literal>. 
 		<literal>svn:externals</literal> is such a property; see how to handle
-		externals in <xref linkend="tsvn-DUG-import-4"/>.
+		externals in <xref linkend="tsvn-dug-import-4"/>.
 		For more information about properties in Subversion see the  
 		<ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3">
 			<citetitle>Subversion Manual</citetitle>
@@ -78,7 +78,7 @@
 		The <literal>svn:externals</literal> property can be used to
 		pull in other projects from the same repository or a completely
 		different repository. For more information, read
-		<xref linkend="tsvn-DUG-import-4"/>.
+		<xref linkend="tsvn-dug-import-4"/>.
 	</para>
 	<para>
 		TortoiseSVN has a few special properties of its own, and these begin
@@ -213,12 +213,12 @@
 		<para>
 			You can configure Subversion to set properties automatically 
 			on files and folders when they are added to the repository.
-			Read <xref linkend="tsvn-DUG-settings"/> for further information. 
+			Read <xref linkend="tsvn-dug-settings"/> for further information. 
 		</para>
 	</tip>
 	<para>
 		TortoiseSVN can integrate with some bugtracking 
 		tools. This uses properties, which start with <literal>bugtraq:</literal>.
-		Read <xref linkend="tsvn-DUG-bugtracker"/> for further information. 
+		Read <xref linkend="tsvn-dug-bugtracker"/> for further information. 
 	</para>
 </sect1>

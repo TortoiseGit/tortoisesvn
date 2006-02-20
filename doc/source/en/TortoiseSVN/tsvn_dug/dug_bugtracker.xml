@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
-<sect1 id="tsvn-DUG-bugtracker">
+<sect1 id="tsvn-dug-bugtracker">
 	<title>Integration with Bugtracking Systems / Issue trackers</title>
 	<indexterm>
 		<primary>bugtracking</primary>
@@ -49,7 +49,7 @@
 		You can integrate a Bugtracking Tool of your choice in
 		TortoiseSVN. To do this, you have to define
 		some properties, which start with <literal>bugtraq:</literal>.
-		They must be set on Folders: (<xref linkend="tsvn-DUG-propertypage"/>)
+		They must be set on Folders: (<xref linkend="tsvn-dug-propertypage"/>)
 	</para>
 	<para>
 		There are two ways to integrate TortoiseSVN with issue trackers. One is
