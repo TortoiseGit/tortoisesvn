@@ -5,8 +5,9 @@
 	<simplesect>
 		<para>
 			TortoiseMerge can be started with command line parameters to avoid having
-			to go through the "Open" dialog to select the files yourself. This is
-			useful also if you want to use TortoiseMerge from another application.
+			to go through the <guilabel>Open</guilabel> dialog to select the files 
+			yourself. This is useful also if you want to use TortoiseMerge from 
+			another application.
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
@@ -28,15 +29,15 @@
 /base:"c:\folder\my base file.txt"
 </screen>
 		</para>
-		<!--
+<!--
 ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION
 Don't touch these lines:
 <entry condition="pot">:about</entry>
 
   The condition="pot" prevents the strings from being extracted into
 	the .pot file, so nobody translates them.
-  The colon in front of the command have to stay there to prevent the
-  strings from being translated if the po file contains a matching translation.
+  The colons in front of the command have to stay there to prevent these strings
+  from being translated if the po file "by chance" contains a matching translation.
 -->
 		<para>
 			<table id="tme-automation-1-table">
@@ -126,10 +127,6 @@ Don't touch these lines:
 								view title instead of the file path.
 							</entry>
 						</row>
-
-
-
-
 						<row>
 							<entry condition="pot">:patchpath</entry>
 							<entry>

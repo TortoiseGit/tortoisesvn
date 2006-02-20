@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
-<chapter id="tmerge-DUG">
+<chapter id="tmerge-dug">
 	<title>Using TortoiseMerge</title>
 	<simplesect>
 		<para>
@@ -9,7 +9,7 @@
 	<!-- ================================================================= -->
 	<!-- ======================== OPEN FILES ============================= -->
 	<!-- ================================================================= -->
-	<sect1 id="tmerge-DUG-open">
+	<sect1 id="tmerge-dug-open">
 		<title>Open Files</title>
 		<?dbhh topicname="HIDD_OPENDLG"?>
 		<para>
@@ -20,7 +20,7 @@
 				<guimenuitem>Open</guimenuitem>
 			</menuchoice>.
 		</para>
-		<figure id="tmerge-DUG-dia-open">
+		<figure id="tmerge-dug-dia-open">
 			<title>The Open Dialog</title>
 			<graphic fileref="images/MergeOpen.png"/>
 		</figure>
@@ -30,7 +30,7 @@
 			Depending on what you choose, the corresponding edit boxes and
 			browse buttons are activated.
 		</para>
-		<sect2 id="tmerge-DUG-open-view">
+		<sect2 id="tmerge-dug-open-view">
 			<title>Viewing / Merging</title>
 			<para>
 				If you want to compare / merge files you have to set at least two 
@@ -45,11 +45,11 @@
 					<guimenuitem>Oneway Diff</guimenuitem>
 				</menuchoice>
 			</para>
-			<figure id="tmerge-DUG-dia-1pane">
+			<figure id="tmerge-dug-dia-1pane">
 				<title>One Pane View</title>
 				<graphic fileref="images/MergeOnePane.png"/>
 			</figure>
-			<figure id="tmerge-DUG-dia-2pane">
+			<figure id="tmerge-dug-dia-2pane">
 				<title>Two Pane View</title>
 				<graphic fileref="images/MergeTwoPane.png"/>
 			</figure>
@@ -58,7 +58,7 @@
 				will show you the differences in a three pane view. This view 
 				is also used if you need to resolve conflicted files.
 			</para>
-			<figure id="tmerge-DUG-dia-3pane">
+			<figure id="tmerge-dug-dia-3pane">
 				<title>Three Pane View</title>
 				<graphic fileref="images/MergeThreePane.png"/>
 			</figure>
@@ -75,7 +75,7 @@
 				The relationships between the three files are explained in
 				the diagram below:
 			</para>
-			<figure id="tmerge-DUG-dia-conflict">
+			<figure id="tmerge-dug-dia-conflict">
 				<title>File Conflict</title>
 				<graphic fileref="images/mergeprinciple.png"/>
 			</figure>
@@ -88,7 +88,7 @@
 				<emphasis>someone else</emphasis> made to the file.
 			</para>
 		</sect2>
-		<sect2 id="tmerge-DUG-open-patch">
+		<sect2 id="tmerge-dug-open-patch">
 			<title>Applying Patches</title>
 			<para>
 				If you want to apply a patchfile you have to set both the path
@@ -108,7 +108,7 @@
 				If TortoiseMerge is able to parse the patchfile it will show
 				you a small window with all the files which have changes
 				according to the patchfile.
-				<figure id="tmerge-DUG-dia-patch">
+				<figure id="tmerge-dug-dia-patch">
 					<title>Patch Filelist</title>
 					<graphic fileref="images/MergePatchWindow.png"/>
 				</figure>
@@ -140,10 +140,10 @@
 	<!-- ================================================================= -->
 	<!-- ======================== TOOLBAR ================================ -->
 	<!-- ================================================================= -->
-	<sect1 id="tmerge-DUG-toolbar">
+	<sect1 id="tmerge-dug-toolbar">
 		<title>Buttons and Other Controls</title>
 		<para>
-			<figure id="tmerge-DUG-dia-toolbar">
+			<figure id="tmerge-dug-dia-toolbar">
 				<title>The Toolbar</title>
 				<graphic fileref="images/MergeToolbar.png"/>
 			</figure>
@@ -263,7 +263,7 @@
 	<!-- ================================================================= -->
 	<!-- ======================== CONFLICTS ============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tmerge-DUG-conflicts">
+	<sect1 id="tmerge-dug-conflicts">
 		<title>Merging / Editing Conflicts</title>
 		<para>
 			TortoiseMerge not only <emphasis>shows</emphasis> you the differences
@@ -346,12 +346,12 @@
 	<!-- ================================================================= -->
 	<!-- ======================== SETTINGS =============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tmerge-DUG-settings">
+	<sect1 id="tmerge-dug-settings">
 		<title>Settings</title>
-		<sect2 id="tmerge-DUG-settings-main">
+		<sect2 id="tmerge-dug-settings-main">
 			<title>Main Settings Page</title>
 			<?dbhh topicname="HIDD_SETMAINPAGE"?>
-			<figure id="tmerge-DUG-dia-setmain">
+			<figure id="tmerge-dug-dia-setmain">
 				<title>The Settings Main Page</title>
 				<graphic fileref="images/MergeSettingsGeneral.png"/>
 			</figure>
@@ -390,10 +390,10 @@
 				hides all whitespace-only changes.
 			</para>
 		</sect2>
-		<sect2 id="tmerge-DUG-settings-color">
+		<sect2 id="tmerge-dug-settings-color">
 			<title>Colour Settings Page</title>
 			<?dbhh topicname="HIDD_SETCOLORPAGE"?>
-			<figure id="tmerge-DUG-dia-setcolor">
+			<figure id="tmerge-dug-dia-setcolor">
 				<title>The Settings Color Page</title>
 				<graphic fileref="images/MergeSettingsColors.png"/>
 			</figure>
