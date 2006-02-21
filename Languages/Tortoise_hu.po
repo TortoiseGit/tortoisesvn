@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-14 21:10+0100\n"
+"PO-Revision-Date: 2006-02-21 17:25+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -319,6 +319,7 @@ msgid "&Custom"
 msgstr "&Saját"
 
 # ID:11,
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "&Alap"
@@ -3450,10 +3451,20 @@ msgstr "%s nem talált képkódolót."
 msgid "No spell corrections"
 msgstr "Nincs helyesírás-ellenőrzés"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Nincs állapot gyorsítótárazás. Csak a verziókezelt mappák vannak lefedve, a fájlok nem"
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Nincs tárház ajánlat"
+
+# ID:73,
+#: Control-ID:1271
+msgid "None"
+msgstr "Nincs"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4180,7 +4191,7 @@ msgstr "%d verzió"
 # ID:271,
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "%ld verzió"
@@ -4216,6 +4227,26 @@ msgstr "Verzió grafikon"
 #: ID:75
 msgid "Revision: "
 msgstr "Verzió:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Verzió: %ld\n"
+"URL: %s\r\n"
+"Fejlesztő: %s\r\n"
+"Dátum: %s\r\n"
+"\r\n"
+"Megjegyzés:\r\n"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -4554,6 +4585,11 @@ msgstr "Beállítások"
 msgid "Sh&ow log"
 msgstr "&Napló megtekintése"
 
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "Keret"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -4652,11 +4688,6 @@ msgid ""
 msgstr ""
 "Eszköztár megjelenítése/elrejtése\n"
 "Eszköztár váltása"
-
-# Control-ID:1223,
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Ikonfeliratok rekrúzív mutatása"
 
 # ID:2049,
 #: ID:2049
@@ -4788,6 +4819,20 @@ msgstr "Állapot"
 #: Control-ID:65535
 msgid "Status and action colors"
 msgstr "Állapot és cselekvés színek"
+
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "Állapot gyorsítótár"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Az állapot gyorsítótárazás egy külső folyamatra vár, lehet hogy a fedést rekrúzívan mutatja"
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Az állapot gyorsítótárazás csak egy mappára érvényes, nincsenek rekrúziv fedések"
 
 # ID:11,
 #: ID:11
@@ -5511,24 +5556,6 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Fejlesztő: %s\r\n"
-"Dátum: %s\r\n"
-"\r\n"
-"Megjegyzés:\r\n"
-"%s"
-
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -6009,6 +6036,25 @@ msgstr "Zoom &be\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "Zoom &ki\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "Nagytás 100%-ra"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Zoom be"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "Zoom ki"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "Nagyítás, hogy kiférjen"
 
 # ID:10,
 #: ID:10
