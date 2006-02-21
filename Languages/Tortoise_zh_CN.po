@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-20 18:31+0800\n"
+"PO-Revision-Date: 2006-02-21 09:59+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4281,7 +4281,7 @@ msgstr "SSH"
 # ID:12,
 #: ID:12
 msgid "SVN Add files to this WC"
-msgstr "SVN 添加文件到该 WC"
+msgstr "SVN 添加文件到当前工作拷贝"
 
 # ID:76,
 #: ID:16
@@ -4291,32 +4291,32 @@ msgstr "SVN 作者"
 # Control-ID:1073,
 #: ID:16
 msgid "SVN Copy and rename versioned file here"
-msgstr "在这里进行 SVN 复制并重命名已进行版本控制的文件"
+msgstr "SVN 复制并重命名版本控制的文件到当前位置"
 
 # Control-ID:1073,
 #: ID:13
 msgid "SVN Copy versioned files here"
-msgstr "在这里进行 SVN 复制已进行版本控制的文件"
+msgstr "SVN 复制版本控制的文件的文件到当前位置"
 
 # ID:14,
 #: ID:14
 msgid "SVN Export all to here"
-msgstr "SVN 导出所有文件到当前文件夹"
+msgstr "SVN 导出所有文件到当前位置"
 
 # ID:78,
 #: ID:14
 msgid "SVN Export to here"
-msgstr "SVN 导出到当前文件夹"
+msgstr "SVN 导出到当前位置"
 
 # ID:16,
 #: ID:16
 msgid "SVN Lock owner"
-msgstr "SVN 锁定拥有者"
+msgstr "SVN 锁定属主"
 
 # Control-ID:1073,
 #: ID:12
 msgid "SVN Move versioned files here"
-msgstr "SVN 移动已进行版本控制的文件到当前文件夹"
+msgstr "SVN 移动版本控制的文件到当前位置"
 
 # ID:11,
 #: ID:11
@@ -4639,7 +4639,7 @@ msgstr "仅在资源管理器中显示图标覆盖(&O)"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Show &unversioned files"
-msgstr "显示未进行版本控制的文件(&U)"
+msgstr "显示非版本控制的文件(&U)"
 
 # ID:113,
 #: ID:113
@@ -4696,7 +4696,7 @@ msgstr "显示未修改的文件"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Show unversioned files"
-msgstr "显示未进行版本控制的文件"
+msgstr "显示非版本控制的文件"
 
 # Control-ID:1073,
 #: ID:272
@@ -5700,9 +5700,9 @@ msgid ""
 "To separate multiple exceptions, use commas (',').\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"可以适用通配符“*”指定异常\n"
-"多个异常可以适用逗号“,”进行分隔。\n"
-"示例：*.mylan.com, *.company.com"
+"可以使用通配符“*”指定例外。\n"
+"多个例外可以适用逗号“,”进行分隔。\n"
+"例：*.mylan.com, *.company.com"
 
 # Control-ID:1230,
 #: Control-ID:1230
