@@ -1645,6 +1645,8 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_LOG_REVERTTOREV_CONFIRM 
+                            "Do you really want to revert all changes in %s\nand go back to this revision?"
     IDS_PROGRESSGETFILE     "Getting file %s"
     IDS_PROGRESSREVISION    "Revision %d"
     IDS_PROGRESSWAIT        "Please wait..."
@@ -2087,6 +2089,7 @@ STRINGTABLE
 BEGIN
     IDS_LOG_POPUP_REVERTREVS "Revert changes from these revisions"
     IDS_LOG_POPUP_COPYTOCLIPBOARD "Copy to clipboard"
+    IDS_LOG_POPUP_REVERTTOREV "R&evert to this revision"
 END
 
 STRINGTABLE 

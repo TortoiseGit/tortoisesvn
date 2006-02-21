@@ -798,6 +798,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_UPDATE);
 					if (m_hasWC)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
+					temp.LoadString(IDS_LOG_POPUP_REVERTTOREV);
+					if (m_hasWC)
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTTOREV, temp);					
 					temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 					if (m_hasWC)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);					
@@ -921,6 +924,36 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								CSVNProgressDlg dlg;
 								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(m_path), url, url, rev);		//use the message as the second url
+								dlg.m_RevisionEnd = revend;
+								dlg.SetPegRevision(m_LogRevision);
+								dlg.DoModal();
+							}
+						}
+					}
+					break;
+				case ID_REVERTTOREV:
+					{
+						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long revend = pLogEntry->dwRev;
+						revend--;
+						CString msg;
+						msg.Format(IDS_LOG_REVERTTOREV_CONFIRM, m_path.GetWinPathString());
+						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+						{
+							CString url = this->GetURLFromPath(m_path);
+							if (url.IsEmpty())
+							{
+								CString strMessage;
+								strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
+								CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+								TRACE(_T("could not retrieve the URL of the folder!\n"));
+								break;		//exit
+							}
+							else
+							{
+								CSVNProgressDlg dlg;
+								dlg.SetParams(CSVNProgressDlg::Enum_Merge, 0, CTSVNPathList(m_path), url, url, SVNRev::REV_HEAD);		//use the message as the second url
 								dlg.m_RevisionEnd = revend;
 								dlg.SetPegRevision(m_LogRevision);
 								dlg.DoModal();
