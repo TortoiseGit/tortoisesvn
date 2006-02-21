@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-13 19:45+0800\n"
+"PO-Revision-Date: 2006-02-21 16:09+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -168,6 +168,18 @@ msgstr "%s, 於 %s"
 # ID:145,
 #: ID:145
 #, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\匯出 (%d) 筆%s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\匯出 %s"
+
+# ID:145,
+#: ID:145
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -306,6 +318,7 @@ msgstr "自訂(&C)"
 # ID:11,#:
 # ID:73,#:
 # ID:101,
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "預設(&D)"
@@ -3455,10 +3468,20 @@ msgstr "找不到 %s 的圖型編碼程式."
 msgid "No spell corrections"
 msgstr "沒有拼字修正"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "無狀態快取, 僅目錄有圖示, 檔案沒有."
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "沒有同義字建議"
+
+# ID:73,
+#: Control-ID:1271
+msgid "None"
+msgstr "無"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4179,7 +4202,7 @@ msgstr "版本 %d"
 # ID:119,
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "版本 %ld"
@@ -4209,6 +4232,26 @@ msgstr "版本圖"
 #: ID:75
 msgid "Revision: "
 msgstr "版本: "
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"版本: %ld\n"
+"URL: %s\r\n"
+"作者: %s\r\n"
+"日期: %s\r\n"
+"\r\n"
+"記錄訊息:\r\n"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -4547,6 +4590,11 @@ msgstr "設定"
 msgid "Sh&ow log"
 msgstr "顯示記錄(&O)"
 
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "Shell"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -4645,11 +4693,6 @@ msgid ""
 msgstr ""
 "顯示或隱藏工具列\n"
 "開關工具列"
-
-# Control-ID:1088,
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "遞迴顯示圖示覆蓋"
 
 # ID:2049,
 #: ID:2049
@@ -4778,6 +4821,20 @@ msgstr "狀態"
 #: Control-ID:65535
 msgid "Status and action colors"
 msgstr "狀態與行為的顏色"
+
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "狀態列"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "以外部程式保存狀態快取, 可包含子目錄"
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "僅保存資料夾的狀態, 不包含子目錄"
 
 # ID:11,
 #: ID:11
@@ -5505,24 +5562,6 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL:%s\r\n"
-"作者: %s\r\n"
-"日期: %s\r\n"
-"\r\n"
-"記錄訊息:\r\n"
-"%s"
-
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -6014,6 +6053,25 @@ msgstr "放大(&I)\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "縮小(&O)\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "原始大小"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "放大"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "縮小"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "符合螢幕"
 
 # ID:10,
 #: ID:10
