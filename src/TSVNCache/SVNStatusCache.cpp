@@ -193,17 +193,11 @@ void CSVNStatusCache::Stop()
 CSVNStatusCache::CSVNStatusCache(void)
 {
 	TCHAR path[MAX_PATH];
-	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_COMMON_APPDATA, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_COOKIES, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_HISTORY, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_INTERNET_CACHE, NULL, 0, path);
-	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-	SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_SYSTEM, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
