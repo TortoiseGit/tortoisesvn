@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-02-20 17:56+0800\n"
+"PO-Revision-Date: 2006-02-21 09:38+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,7 @@ msgstr "致读者"
 #: source/TortoiseSVN_en.xml:72
 #: (para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr "本书面向这样的计算机用户：希望使用 Subversion 管理数据，但又不愿意使用 Subversion 的命令行客户端。因为 TortoiseSVN 是 windows 的外壳扩展应用，所以我们假设用户很熟悉 windows 资源浏览器的使用。"
+msgstr "本书面向这样的计算机用户：希望使用 Subversion 管理数据，但又不愿意使用 Subversion 的命令行客户端。因为 TortoiseSVN 是 windows 的外壳扩展应用，所以我们假设用户很熟悉 windows 资源管理器的使用。"
 
 #: source/TortoiseSVN_en.xml:84
 #: (title)
@@ -197,37 +197,37 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:183
 #: (term)
 msgid "Tim Kemp"
-msgstr ""
+msgstr "Tim Kemp"
 
 #: source/TortoiseSVN_en.xml:185
 #: (para)
 msgid "for founding the TortoiseSVN project"
-msgstr ""
+msgstr "TortoiseSVN 项目的发起者"
 
 #: source/TortoiseSVN_en.xml:191
 #: (term)
 msgid "Stefan Küng"
-msgstr ""
+msgstr "Stefan Küng"
 
 #: source/TortoiseSVN_en.xml:193
 #: (para)
 msgid "for the hard work to get TortoiseSVN to what it is now"
-msgstr ""
+msgstr "TortoiseSVN 的主要开发者"
 
 #: source/TortoiseSVN_en.xml:199
 #: (term)
 msgid "Lübbe Onken"
-msgstr ""
+msgstr "Lübbe Onken"
 
 #: source/TortoiseSVN_en.xml:201
 #: (para)
 msgid "for the beautiful icons, logo, bughunting and taking care of the documentation"
-msgstr ""
+msgstr "制作了漂亮的图标、Logo，错误跟踪及文档维护"
 
 #: source/TortoiseSVN_en.xml:208
 #: (term)
 msgid "The Subversion Book"
-msgstr ""
+msgstr "Subversion 手册"
 
 #: source/TortoiseSVN_en.xml:210
 #: (para)
@@ -6606,7 +6606,7 @@ msgstr "如何实现…"
 #: source/TortoiseSVN_en.xml:8427
 #: (para)
 msgid "This appendix contains solutions to problems/questions you might have when using TortoiseSVN."
-msgstr "这个附录包括了 TortoiseSVN 使用中可能碰到的一些困难或疑问的解决方法"
+msgstr "这个附录包括了 TortoiseSVN 使用中可能碰到的一些困难或疑问的解决方法。"
 
 #: source/TortoiseSVN_en.xml:8433
 #: (title)
@@ -6661,7 +6661,7 @@ msgstr "在服务器端的版本库目录下有一个 <filename>hooks</filename>
 #: source/TortoiseSVN_en.xml:8495
 #: (para)
 msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled until the log message is long enough then please use the method described below."
-msgstr "除了 TortoiseSVN ，如果还要同时使用其他的 Subversion 客户端，推荐使用这种方法。缺点是提交是被服务器端拒绝的，因此用户会看到一个错误消息。客户端无法在提交之前就知道会被拒绝。如果希望在日志的内容达到足够长之前，TortoiseSVN 的 <guibutton>OK</guibutton> 按钮处于无效的状态，请使用下面的方法："
+msgstr "除了 TortoiseSVN ，如果还要同时使用其他的 Subversion 客户端，推荐使用这种方法。缺点是提交是被服务器端拒绝的，因此用户会看到一个错误消息。客户端无法在提交之前就知道会被拒绝。如果希望在日志的内容达到足够长之前，TortoiseSVN 的 <guibutton>OK</guibutton> 按钮处于无效的状态，请使用下面的方法。"
 
 #: source/TortoiseSVN_en.xml:8506
 #: (title)
@@ -6966,7 +6966,7 @@ msgstr ""
 #: (para)
 #, fuzzy
 msgid "This appendix contains solutions to problems/questions you might have when you are responsible for deploying TortoiseSVN to multiple client computers."
-msgstr "这个附录包括了 TortoiseSVN 使用中可能碰到的一些困难或疑问的解决方法"
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:8929
 #: (title)
@@ -6982,7 +6982,7 @@ msgstr ""
 #: (primary) source/TortoiseSVN_en.xml:9950
 #: (glossterm)
 msgid "GPO"
-msgstr ""
+msgstr "GPO"
 
 #: source/TortoiseSVN_en.xml:8936
 #: (para)
@@ -7936,7 +7936,7 @@ msgstr ""
 #: (title) source/TortoiseSVN_en.xml:9893
 #: (glossterm)
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: source/TortoiseSVN_en.xml:9821
 #: (para)
@@ -7993,7 +7993,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9863
 #: (title)
 msgid "Create Patch"
-msgstr ""
+msgstr "创建补丁"
 
 #: source/TortoiseSVN_en.xml:9864
 #: (screen)
@@ -8006,7 +8006,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9867
 #: (para)
 msgid "TortoiseSVN creates a patchfile in unified diff format by comparing the working copy with its BASE version."
-msgstr "TortoiseSVN通过比较工作拷贝和它的基础版本产生一个标准差分格式（unified diff format）的补丁文件"
+msgstr "TortoiseSVN通过比较工作拷贝和它的基础版本产生一个标准差分格式（unified diff format）的补丁文件。"
 
 #: source/TortoiseSVN_en.xml:9873
 #: (title)
@@ -8021,7 +8021,7 @@ msgstr "如果补丁和工作拷贝不是同一版本的话，那么应用补丁
 #: source/TortoiseSVN_en.xml:9891
 #: (title)
 msgid "Glossary"
-msgstr "术语"
+msgstr "术语表"
 
 #: source/TortoiseSVN_en.xml:9895
 #: (para)
@@ -8031,7 +8031,7 @@ msgstr "向版本库添加文件或者目录时使用的Subversion命令。"
 #: source/TortoiseSVN_en.xml:9902
 #: (glossterm)
 msgid "BDB"
-msgstr ""
+msgstr "BDB"
 
 #: source/TortoiseSVN_en.xml:9904
 #: (para)
@@ -8041,7 +8041,7 @@ msgstr "伯克利DB（Berkeley DB）。版本库可以使用的一种经过充�
 #: source/TortoiseSVN_en.xml:9911
 #: (glossterm)
 msgid "FSFS"
-msgstr ""
+msgstr "FSFS"
 
 #: source/TortoiseSVN_en.xml:9913
 #: (para)
@@ -8071,22 +8071,22 @@ msgstr "最新版本（HEAD revision）"
 #: source/TortoiseSVN_en.xml:9944
 #: (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr "<emphasis>版本库</emphasis>里文件或目录的最新版本"
+msgstr "<emphasis>版本库</emphasis>里文件或目录的最新版本。"
 
 #: source/TortoiseSVN_en.xml:9952
 #: (para)
 msgid "Group policy object"
-msgstr ""
+msgstr "组策略对象"
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #: source/TortoiseSVN_en.xml:0
 #: (None)
 msgid "translator-credits"
-msgstr ""
+msgstr "xingyu.wang <xingyu.wang@gmail.com>Stan <thinkernel@yeah.net>"
 
 #. Place the translation of 'translation' here.
 #: source/TortoiseSVN_en.xml:0
 #: (None)
 msgid "translator-translation"
-msgstr "翻译"
+msgstr "译者"
 
