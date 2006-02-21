@@ -104,6 +104,19 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
 	Call(SCI_SETMODEVENTMASK, SC_MOD_INSERTTEXT | SC_MOD_DELETETEXT | SC_PERFORMED_UNDO | SC_PERFORMED_REDO);
 	Call(SCI_INDICSETFORE, 1, 0x0000FF);
+	CStringA sWordChars;
+	CStringA sWhiteSpace;
+	for (int i=0; i<255; ++i)
+	{
+		if (i == '\r' || i == '\n')
+			continue;
+		else if (i < 0x20 || i == ' ')
+			sWhiteSpace += (char)i;
+		else if (isalnum(i) || i == '_' || i == '\'')
+			sWordChars += (char)i;
+	}
+	Call(SCI_SETWORDCHARS, 0, (LPARAM)(LPCSTR)sWordChars);
+	Call(SCI_SETWHITESPACECHARS, 0, (LPARAM)(LPCSTR)sWhiteSpace);
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
 
