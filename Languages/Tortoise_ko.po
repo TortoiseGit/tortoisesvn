@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-20 11:24+0900\n"
+"PO-Revision-Date: 2006-02-22 10:10+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1654,7 +1654,7 @@ msgstr "체크아웃"
 # Control-ID:1074,
 #: Control-ID:1074
 msgid "Checkout &directory:"
-msgstr "디렉토리 체크아웃(&D)"
+msgstr "체크아웃 받을 디렉토리(&D):"
 
 # ID:79,
 #: ID:79
@@ -2222,6 +2222,16 @@ msgstr ""
 #: ID:145
 msgid "Do you really want to move this file or folder?"
 msgstr "이 파일/폴더를 정말 이동하시겠습니까?"
+
+# ID:76,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"%s 내의 변경 내용을 되돌리고\n"
+"이 리비전으로 바꾸는 것이 확실합니까?"
 
 # ID:76,
 #: ID:76
@@ -3855,6 +3865,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "R&AM drives"
 msgstr "램 드라이브(&A)"
+
+# ID:113,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "이 리비전으로 되돌림(&E)"
 
 # ID:3697,
 #: ID:3697
