@@ -32,7 +32,7 @@
 <!--
 ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION
 Don't touch these lines:
-<entry condition="pot">:about</entry>
+<entry condition="pot">/about</entry>
 
   The condition="pot" prevents the strings from being extracted into
   the .pot file, so nobody translates them.
@@ -53,20 +53,20 @@ Don't touch these lines:
 					</thead>
 					<tbody>
 						<row>
-							<entry condition="pot">:?</entry>
+							<entry condition="pot">/?</entry>
 							<entry>
 								Shows a dialog box with the most important command line
 								switches.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:help</entry>
+							<entry condition="pot">/help</entry>
 							<entry>
 								The same as <option>?</option>.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:base</entry>
+							<entry condition="pot">/base</entry>
 							<entry>
 								Specifies the <emphasis>base</emphasis> file used
 								in three way diffs. This is the common ancestor
@@ -76,7 +76,7 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:basename</entry>
+							<entry condition="pot">/basename</entry>
 							<entry>
 								The name of the base file.
 								This is shown in the view title instead of the file path.
@@ -85,21 +85,21 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:theirs</entry>
+							<entry condition="pot">/theirs</entry>
 							<entry>
 								Specifies the <emphasis>theirs</emphasis> file used
 								in three way diffs, displayed in the left pane.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:theirsname</entry>
+							<entry condition="pot">/theirsname</entry>
 							<entry>
 								The name of the theirs file. This is shown in the
 								view title instead of the file path.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:mine</entry>
+							<entry condition="pot">/mine</entry>
 							<entry>
 								Specifies the <emphasis>mine</emphasis> file used
 								in three way diffs, displayed in the right pane.
@@ -107,14 +107,14 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:minename</entry>
+							<entry condition="pot">/minename</entry>
 							<entry>
 								The name of the mine file. This is shown in the
 								view title instead of the file path.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:merged</entry>
+							<entry condition="pot">/merged</entry>
 							<entry>
 								Specifies the resulting <emphasis>merged</emphasis> file used
 								in three way diffs. This is the filepath where the result of
@@ -124,14 +124,14 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:mergedname</entry>
+							<entry condition="pot">/mergedname</entry>
 							<entry>
 								The name of the merged file. This is shown in the
 								view title instead of the file path.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:patchpath</entry>
+							<entry condition="pot">/patchpath</entry>
 							<entry>
 								The path where a patch should be applied to. If you don't
 								set this path, then TortoiseMerge will try to find the path
@@ -140,34 +140,34 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:patchoriginal</entry>
+							<entry condition="pot">/patchoriginal</entry>
 							<entry>
 								The name of the original file to patch. Used for the view
 								title.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:patchpatched</entry>
+							<entry condition="pot">/patchpatched</entry>
 							<entry>
 								The name of the resulting patched file. Used for the view
 								title.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:diff</entry>
+							<entry condition="pot">/diff</entry>
 							<entry>
 								The path to the patch/diff file to apply to a directory.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:oneway</entry>
+							<entry condition="pot">/oneway</entry>
 							<entry>
 								Forces TortoiseMerge to start with the one-way view
 								instead of the view the user specified in the settings.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:reversedpatch</entry>
+							<entry condition="pot">/reversedpatch</entry>
 							<entry>
 								Switches the left and right view of the specified
 								two files to diff.
