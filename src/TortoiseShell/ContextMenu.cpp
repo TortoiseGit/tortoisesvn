@@ -562,6 +562,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded))
 			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, DropMove);
+		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded)&&(isOnlyOneItemSelected))
+			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVERENAMEMENU, 0, idCmdFirst, DropMoveRename);
 		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded))
 			InsertSVNMenu(FALSE, FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, DropCopy);
 		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded)&&(isOnlyOneItemSelected))
@@ -1217,6 +1219,15 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += _T(" /droptarget:\"");
 				svnCmd += folder_;
 				svnCmd += _T("\"");
+				break;
+			case DropMoveRename:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("dropmove /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				svnCmd += _T(" /droptarget:\"");
+				svnCmd += folder_;
+				svnCmd += _T("\" /rename";)
 				break;
 			case DropExport:
 				tempfile = WriteFileListToTempFile();

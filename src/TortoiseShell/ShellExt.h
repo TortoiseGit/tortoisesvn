@@ -123,6 +123,7 @@ protected:
 		DropCopyAdd,
 		DropMoveAdd,
 		DropMove,
+		DropMoveRename,
 		DropCopy,
 		DropCopyRename,
 		DropExport,

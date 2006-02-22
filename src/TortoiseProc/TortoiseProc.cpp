@@ -1194,8 +1194,20 @@ BOOL CTortoiseProcApp::InitInstance()
 				return FALSE;
 			SVN svn;
 			unsigned long count = 0;
-			CProgressDlg progress;
 			pathList.RemoveAdminPaths();
+			CString sNewName;
+			if ((parser.HasKey(_T("rename")))&&(pathList.GetCount()==1))
+			{
+				// ask for a new name of the source item
+				CRenameDlg renDlg;
+				renDlg.m_name = pathList[0].GetFileOrDirectoryName();
+				if (renDlg.DoModal() != IDOK)
+				{
+					return FALSE;
+				}
+				sNewName = renDlg.m_name;
+			}
+			CProgressDlg progress;
 			if (progress.IsValid())
 			{
 				progress.SetTitle(IDS_PROC_MOVING);
@@ -1205,10 +1217,16 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 			{
-				CTSVNPath destPath(droppath+_T("\\")+pathList[nPath].GetFileOrDirectoryName());
-				if (pathList[nPath].IsEquivalentTo(destPath))
+				CTSVNPath destPath;
+				if (sNewName.IsEmpty())
+					destPath = CTSVNPath(droppath+_T("\\")+pathList[nPath].GetFileOrDirectoryName());
+				else
+					destPath = CTSVNPath(droppath+_T("\\")+sNewName);
+				if (destPath.Exists())
 				{
 					CString name = pathList[nPath].GetFileOrDirectoryName();
+					if (!sNewName.IsEmpty())
+						name = sNewName;
 					progress.Stop();
 					CRenameDlg dlg;
 					dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, (LPCTSTR)name);
