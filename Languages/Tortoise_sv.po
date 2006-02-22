@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-15 16:20+0100\n"
+"PO-Revision-Date: 2006-02-22 09:22+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -270,6 +270,7 @@ msgstr "&Kopiera till..."
 msgid "&Custom"
 msgstr "&Egen"
 
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "&Standard"
@@ -1865,6 +1866,15 @@ msgstr ""
 msgid "Do you really want to move this file or folder?"
 msgstr "Vill du verkligen flytta den här filen eller mappen?"
 
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Vill du verkligen återställa alla ändringar i %s\n"
+"och gå tillbaka till den här revisionen?"
+
 #: ID:76
 #, c-format
 msgid ""
@@ -2938,10 +2948,19 @@ msgstr "Ingen bildkodare hittad för %s."
 msgid "No spell corrections"
 msgstr "Inga stavningskorrigeringar"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Ingen status cache. Endast versionshanterade mappar har status ikoner, inga filer"
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Inga förslag"
+
+#: Control-ID:1271
+msgid "None"
+msgstr "Inga"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -3248,6 +3267,10 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "R&AM enheter"
 
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "&Återställ till denna revisionen"
+
 #: ID:3697
 msgid "REC"
 msgstr "REC"
@@ -3519,7 +3542,7 @@ msgstr "Revision %d"
 
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "Revision %ld"
@@ -3544,6 +3567,26 @@ msgstr "Revisionsgraf"
 #: ID:75
 msgid "Revision: "
 msgstr "Revision:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Användarnamn: %s\r\n"
+"Datum: %s\r\n"
+"\r\n"
+"Loggmeddelande:\r\n"
+"%s"
 
 #: ID:116
 msgid "Revisions"
@@ -3819,6 +3862,12 @@ msgstr "Inställningar"
 msgid "Sh&ow log"
 msgstr "&Visa historik"
 
+# Control-ID:1270,
+#: Control-ID:1270
+#, fuzzy
+msgid "Shell"
+msgstr "Skal"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -3904,10 +3953,6 @@ msgid ""
 msgstr ""
 "Visa eller dölj verktygsrad\n"
 "Växla verktygsrad"
-
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Visa ikonsymboler rekursivt"
 
 #: ID:2049
 msgid ""
@@ -4019,6 +4064,20 @@ msgstr "Status"
 #: Control-ID:65535
 msgid "Status and action colors"
 msgstr "Färger för status och händelser"
+
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "Status cache"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Status cache hanteras av en extern process, kan visa status ikoner rekursivt"
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Status cache endast för en mapp, ingan rekursiva status ikoner"
 
 #: ID:11
 msgid "Status of item in SVN"
@@ -4662,24 +4721,6 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL:"
 
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Användarnamn: %s\r\n"
-"Datum: %s\r\n"
-"\r\n"
-"Loggmeddelande:\r\n"
-"%s"
-
 #: ID:3866
 msgid "Unable to load mail system support."
 msgstr "Kunde inte ladda stöd för mailsystem."
@@ -5100,6 +5141,26 @@ msgstr "Zooma &in\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "Zooma &ut\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "Zooma 100%"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Zooma in"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "Zooma ut"
+
+# ID:2051,
+#: ID:2051
+#, fuzzy
+msgid "Zoom to fit"
+msgstr "Anpassa"
 
 #: ID:10
 msgid "added"
