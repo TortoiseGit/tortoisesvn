@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-12 12:46+0100\n"
+"PO-Revision-Date: 2006-02-23 00:12+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -167,6 +167,18 @@ msgstr "%s, a %s"
 # ID:145,
 #: ID:145
 #, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\Esportazione(%d) di %s"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\Esportazione di %s"
+
+# ID:145,
+#: ID:145
+#, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -305,6 +317,7 @@ msgstr "&Personalizzato"
 # ID:11,#:
 # ID:73,#:
 # ID:101,
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "&Predefinito"
@@ -1322,6 +1335,12 @@ msgstr "Alla revisione: %d"
 msgid "Authentication"
 msgstr "Autenticazione"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "Dati di autenticazione"
+
 # ID:76,
 #: ID:76
 #: ID:207
@@ -1660,9 +1679,30 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Pulisce operazioni interrotte, file bloccati, ..."
 
 # Control-ID:1059,
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "Svu&ota adesso"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "Svuota"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "Cancella %ld URL conservate per %ld copie di lavoro"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "Cancella %ld commenti conservati per %ld copie di lavoro"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "Cancella %ld coppie di nomi utenti e password, %ld certificati ssl e %ld nomi utenti"
 
 # ID:195,
 #: ID:195
@@ -1672,6 +1712,12 @@ msgid ""
 msgstr ""
 "Cancella tutte le informazioni di autenticazione\n"
 "Sarà necessario specificare di nuovo nome utente e password per tutti i repository."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "Cancella le dimensioni e le posizioni di %ld finestre di dialogo"
 
 # ID:170,
 #: ID:170
@@ -2138,6 +2184,11 @@ msgstr "Eliminazione"
 msgid "Destination disk drive is full."
 msgstr "Il disco di destinazione è pieno."
 
+# ID:3825,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "Dimensione e posizione delle finestre di dialogo"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
@@ -2216,6 +2267,16 @@ msgstr ""
 #: ID:145
 msgid "Do you really want to move this file or folder?"
 msgstr "Si è sicuri di voler spostare questo file o questa cartella?"
+
+# ID:76,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Si è sicuri di voler ripristinare tutte le modifiche di %s\n"
+"e tornare a questa revisione?"
 
 # ID:76,
 #: ID:76
@@ -2894,7 +2955,6 @@ msgstr "Confronta spazi all'interno delle linee"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
-#, fuzzy
 msgid "Input"
 msgstr "Immissione"
 
@@ -3135,6 +3195,7 @@ msgid "Log History"
 msgstr "Cronologia dei commenti"
 
 # Dlg-ID:130,
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Commenti"
@@ -3456,10 +3517,20 @@ msgstr "Non è stato trovato alcun codificatore di immagini per %s."
 msgid "No spell corrections"
 msgstr "Nessuna correzione ortografica"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Nessuna cache di stato. Solo le cartelle versionate ricevono un'icona di stato, i file rimangono senza"
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Nessun suggerimento sui sinonimi"
+
+# ID:73,
+#: Control-ID:1271
+msgid "None"
+msgstr "Nessuno"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3846,6 +3917,11 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "Dischi R&AM"
 
+# ID:113,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "R%ipristina fino a questa revisione"
+
 # ID:3697,
 #: ID:3697
 msgid "REC"
@@ -4181,7 +4257,7 @@ msgstr "Revisione %d"
 # ID:119,
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "Revisione %ld"
@@ -4211,6 +4287,26 @@ msgstr "Grafico delle revisioni"
 #: ID:75
 msgid "Revision: "
 msgstr "Revisione:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Revisione: %ld\n"
+"URL: %s\r\n"
+"Autore: %s\r\n"
+"Data: %s\r\n"
+"\r\n"
+"Commento:\r\n"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -4284,6 +4380,11 @@ msgstr "SVN Esporta qui"
 #: ID:16
 msgid "SVN Lock owner"
 msgstr "SVN Possessore del blocco"
+
+# ID:13,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN Copia e rinomina qui i file versionati"
 
 # Control-ID:1073,
 #: ID:12
@@ -4374,6 +4475,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "Salva negli appunti"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "Dati salvati"
 
 # ID:144,
 #: ID:103
@@ -4550,6 +4656,11 @@ msgstr "Impostazioni"
 msgid "Sh&ow log"
 msgstr "Visualizza l&og"
 
+# Control-ID:1270,
+#: Control-ID:1270
+msgid "Shell"
+msgstr "Shell"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -4649,11 +4760,6 @@ msgstr ""
 "Mostra/Nascondi la barra degli strumenti\n"
 "Barra degli strumenti"
 
-# Control-ID:1223,
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Visualizza le icone di stato ricorsivamente"
-
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -4672,6 +4778,18 @@ msgstr "Mostra file non modificati"
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "Mostra file senza versione"
+
+# Control-ID:1073,
+#: ID:272
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "Mostra %ld nodi"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid "Showing graph for %s"
+msgstr "Grafico di %s"
 
 # ID:15,
 #: ID:15
@@ -4772,6 +4890,20 @@ msgstr "Stato"
 msgid "Status and action colors"
 msgstr "Colori di stato de delle azioni"
 
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "Cache di stato"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Cache di stato conservata in un processo esterno, può mostrare le icone di stato in maniera ricorsiva"
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Cache di stato solo per una cartella, non applicare icone di stato ricorsivamente"
+
 # ID:11,
 #: ID:11
 msgid "Status of item in SVN"
@@ -4797,12 +4929,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Dati d'&utenticazione di Subversion:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5483,6 +5609,11 @@ msgstr "&Confronto doppio"
 msgid "URL"
 msgstr "URL"
 
+# ID:80,
+#: Control-ID:1272
+msgid "URL history"
+msgstr "Cronologia degli URL"
+
 # ID:12,
 #: ID:12
 msgid "URL of Subversion items"
@@ -5498,24 +5629,6 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL:"
-
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Autore: %s\r\n"
-"Data: %s\r\n"
-"\r\n"
-"Commento:\r\n"
-"%s"
 
 # ID:3866,#:
 # ID:3866,
@@ -6007,6 +6120,25 @@ msgstr "Zoom &avanti\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "Zoom &indietro\tCtrl--"
+
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "Zoom 100%"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Zoom &avanti"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "Zoom &indietro"
+
+# ID:2051,
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "Adatta alla finestra"
 
 # ID:10,
 #: ID:10
