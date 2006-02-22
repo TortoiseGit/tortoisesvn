@@ -70,7 +70,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_TEMPEXTENSIONS, OnEnChangeTempextensions)
 	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
 	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
-	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
 	ON_BN_CLICKED(IDC_CHECKNEWERBUTTON, OnBnClickedChecknewerbutton)
 	ON_BN_CLICKED(IDC_COMMITFILETIMES, OnBnClickedCommitfiletimes)
 	ON_BN_CLICKED(IDC_SOUNDS, OnBnClickedSounds)
@@ -179,25 +178,6 @@ void CSetMainPage::OnBnClickedEditconfig()
 	CString path = buf;
 	path += _T("\\Subversion\\config");
 	CUtils::StartTextViewer(path);
-}
-
-void CSetMainPage::OnBnClickedClearauth()
-{
-	CRegStdString auth = CRegStdString(_T("Software\\TortoiseSVN\\Auth\\"));
-	auth.removeKey();
-	TCHAR pathbuf[MAX_PATH] = {0};
-	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf)==S_OK)
-	{
-		_tcscat_s(pathbuf, MAX_PATH, _T("\\Subversion\\auth"));
-		SHFILEOPSTRUCT fileop;
-		fileop.hwnd = this->m_hWnd;
-		fileop.wFunc = FO_DELETE;
-		fileop.pFrom = pathbuf;
-		fileop.pTo = NULL;
-		fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_SILENT;
-		fileop.lpszProgressTitle = _T("deleting file");
-		SHFileOperation(&fileop);
-	}
 }
 
 void CSetMainPage::OnBnClickedChecknewerbutton()

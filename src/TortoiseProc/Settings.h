@@ -29,6 +29,7 @@
 #include "SetDialogs.h"
 #include "SettingsColors.h"
 #include "SetMisc.h"
+#include "SetSavedDataPage.h"
 #include "TreePropSheet/TreePropSheet.h"
 
 using namespace TreePropSheet;
@@ -67,6 +68,7 @@ private:
 	CSetDialogs *			m_pDialogsPage;
 	CSettingsColors *		m_pColorsPage;
 	CSetMisc *				m_pMiscPage;
+	CSetSavedDataPage *		m_pSavedPage;
 
 	HICON					m_hIcon;
 public:

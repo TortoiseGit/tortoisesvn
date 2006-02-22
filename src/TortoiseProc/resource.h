@@ -5,6 +5,7 @@
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
 #define IDD_SETTINGSOVERLAY             106
+#define IDD_SETTINGSSAVEDDATA           108
 #define IDD_ABOUT                       129
 #define IDD_LOGMESSAGE                  130
 #define IDD_PROMPT                      131
@@ -84,6 +85,8 @@
 #define IDI_REVGRAPH_RENAMED            221
 #define IDI_REVGRAPH_REPLACED           222
 #define IDR_REVGRAPHBAR                 223
+#define IDI_ICON1                       225
+#define IDI_SAVEDDATA                   225
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -444,12 +447,21 @@
 #define IDS_APPNAME                     1271
 #define IDC_CACHENONE                   1271
 #define IDS_MSGBOX_DONOTSHOW            1272
+#define IDC_URLHISTORY                  1272
 #define IDS_PROC_COPYING                1273
+#define IDC_URLHISTCLEAR                1273
 #define IDS_PROC_COPYINGPROG            1274
+#define IDC_LOGHISTORY                  1274
 #define IDS_PROC_MOVINGPROG             1275
+#define IDC_LOGHISTCLEAR                1275
 #define IDS_PROC_CPYMVPROG2             1276
+#define IDC_RESIZABLEHISTCLEAR          1276
 #define IDS_PROC_ENTERURL               1277
+#define IDC_RESIZABLEHISTORY            1277
+#define IDC_AUTHHISTORY                 1278
 #define IDS_SETTINGS_SHORTDATEFORMAT_TT 1279
+#define IDC_BUTTON4                     1279
+#define IDC_AUTHHISTCLEAR               1279
 #define IDS_ERR_THREADSTARTFAILED       1281
 #define IDS_ERR_EXTDIFFSTART            1282
 #define IDS_ERR_NOCOMMAND               1283
@@ -651,6 +663,10 @@
 #define IDS_SETTINGS_CACHEDEFAULT_TT    3123
 #define IDS_SETTINGS_CACHESHELL_TT      3124
 #define IDS_SETTINGS_CACHENONE_TT       3125
+#define IDS_SETTINGS_SAVEDDATA_LOGHIST_TT 3126
+#define IDS_SETTINGS_SAVEDDATA_URLHIST_TT 3127
+#define IDS_SETTINGS_SAVEDDATA_RESIZABLE_TT 3128
+#define IDS_SETTINGS_SAVEDDATA_AUTH_TT  3129
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202
@@ -788,9 +804,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        225
+#define _APS_NEXT_RESOURCE_VALUE        226
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1272
+#define _APS_NEXT_CONTROL_VALUE         1280
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

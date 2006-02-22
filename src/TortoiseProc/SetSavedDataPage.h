@@ -17,65 +17,46 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-#include "..\\Utils\\Balloon.h"
-#include "FontPreviewCombo.h"
-#include "Registry.h"
 #include "afxwin.h"
+#include "Balloon.h"
 
 
-/**
- * \ingroup TortoiseProc
- * This is the mainpage of the settings. It contains all the most important
- * settings.
- */
-class CSetMainPage : public CPropertyPage
+class CSetSavedDataPage : public CPropertyPage
 {
-	DECLARE_DYNAMIC(CSetMainPage)
+	DECLARE_DYNAMIC(CSetSavedDataPage)
 
 public:
-	CSetMainPage();
-	virtual ~CSetMainPage();
+	CSetSavedDataPage();
+	virtual ~CSetSavedDataPage();
+
 	/**
 	 * Saves the changed settings to the registry.
 	 * \remark If the dialog is closed/dismissed without calling
 	 * this method first then all settings the user made must be
 	 * discarded!
 	 */
-	void SaveData();
-	
-	UINT GetIconID() {return IDI_GENERAL;}
+	void SaveData() {return;}
 
-// Dialog Data
-	enum { IDD = IDD_SETTINGSMAIN };
+	UINT GetIconID() {return IDI_SAVEDDATA;}
+
+	enum { IDD = IDD_SETTINGSSAVEDDATA };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
-	
-	CString GetVersionFromFile(const CString & p_strDateiname);
 
-private:
-	CRegString		m_regExtensions;
-	CString			m_sTempExtensions;
-	CBalloon		m_tooltips;
-	CComboBox		m_LanguageCombo;
-	CRegDWORD		m_regLanguage;
-	DWORD			m_dwLanguage;
-	CRegDWORD		m_regCheckNewer;
-	BOOL			m_bCheckNewer;
-	CRegString		m_regLastCommitTime;
-	BOOL			m_bLastCommitTime;
+	afx_msg void OnBnClickedUrlhistclear();
+	afx_msg void OnBnClickedLoghistclear();
+	afx_msg void OnBnClickedResizablehistclear();
+	afx_msg void OnBnClickedAuthhistclear();
 
-public:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnCbnSelchangeLanguagecombo();
-	afx_msg void OnEnChangeTempextensions();
-	virtual BOOL OnApply();
-	afx_msg void OnBnClickedEditconfig();
-	afx_msg void OnBnClickedChecknewerversion();
-	afx_msg void OnBnClickedChecknewerbutton();
-	afx_msg void OnBnClickedCommitfiletimes();
-	afx_msg void OnBnClickedSounds();
+private:
+	CBalloon		m_tooltips;
+	CButton			m_btnUrlHistClear;
+	CButton			m_btnLogHistClear;
+	CButton			m_btnResizableHistClear;
+	CButton			m_btnAuthHistClear;
 };

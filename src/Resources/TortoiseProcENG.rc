@@ -59,6 +59,7 @@ IDI_REVGRAPH_DELETED    ICON                    "revgraph_deleted.ico"
 IDI_REVGRAPH_LASTCOMMIT ICON                    "revgraph_lastcommit.ico"
 IDI_REVGRAPH_RENAMED    ICON                    "revgraph_renamed.ico"
 IDI_REVGRAPH_REPLACED   ICON                    "revgraph_replaced.ico"
+IDI_SAVEDDATA           ICON                    "saveddata.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -403,8 +404,6 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,127,270,10
     LTEXT           "Subversion configuration &file:",IDC_STATIC,14,150,192,8
     PUSHBUTTON      "&Edit",IDC_EDITCONFIG,212,145,72,14
-    LTEXT           "Subversion &authentication data:",IDC_STATIC,14,174,192,8
-    PUSHBUTTON      "Clear n&ow",IDC_CLEARAUTH,212,171,72,14
     GROUPBOX        "TortoiseSVN",IDC_STATIC,7,7,286,76
     GROUPBOX        "Subversion",IDC_STATIC,7,92,286,118
 END
@@ -894,6 +893,21 @@ BEGIN
     EDITTEXT        IDC_MAXHISTORY,252,103,31,14,ES_AUTOHSCROLL
 END
 
+IDD_SETTINGSSAVEDDATA DIALOGEX 0, 0, 300, 217
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Saved Data"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "URL history",IDC_URLHISTORY,7,20,226,8
+    PUSHBUTTON      "Clear",IDC_URLHISTCLEAR,243,18,50,14
+    LTEXT           "Log Messages",IDC_LOGHISTORY,7,44,226,8
+    PUSHBUTTON      "Clear",IDC_LOGHISTCLEAR,243,42,50,14
+    LTEXT           "Dialog sizes and positions",IDC_RESIZABLEHISTORY,7,68,226,8
+    PUSHBUTTON      "Clear",IDC_RESIZABLEHISTCLEAR,243,66,50,14
+    LTEXT           "Authentication data",IDC_AUTHHISTORY,7,92,226,8
+    PUSHBUTTON      "Clear",IDC_AUTHHISTCLEAR,243,90,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1349,6 +1363,15 @@ BEGIN
         VERTGUIDE, 15
         VERTGUIDE, 252
         VERTGUIDE, 284
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_SETTINGSSAVEDDATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        VERTGUIDE, 233
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
     END
@@ -2173,6 +2196,14 @@ BEGIN
                             "Status cache only for one folder, no recursive overlays"
     IDS_SETTINGS_CACHENONE_TT 
                             "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+    IDS_SETTINGS_SAVEDDATA_LOGHIST_TT 
+                            "Clears %ld log messages stored for %ld working copies"
+    IDS_SETTINGS_SAVEDDATA_URLHIST_TT 
+                            "Clears %ld URLs stored for %ld working copies"
+    IDS_SETTINGS_SAVEDDATA_RESIZABLE_TT 
+                            "Clears the stored sizes and positions of %ld dialogs"
+    IDS_SETTINGS_SAVEDDATA_AUTH_TT 
+                            "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 END
 
 STRINGTABLE 

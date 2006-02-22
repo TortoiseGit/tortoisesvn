@@ -914,6 +914,10 @@ msgstr ""
 msgid "Authentication"
 msgstr ""
 
+#: Control-ID:1278,
+msgid "Authentication data"
+msgstr ""
+
 #: ID:76,#: ID:207,
 msgid "Author"
 msgstr ""
@@ -1166,12 +1170,32 @@ msgstr ""
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr ""
 
-#: Control-ID:1059,
-msgid "Clear n&ow"
+#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1276,#: Control-ID:1279,
+msgid "Clear"
+msgstr ""
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr ""
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr ""
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
 msgstr ""
 
 #: ID:195,
 msgid "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
+msgstr ""
+
+#: ID:196,
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
 msgstr ""
 
 #: ID:170,
@@ -1504,6 +1528,10 @@ msgstr ""
 
 #: ID:3859,#: ID:3859,
 msgid "Destination disk drive is full."
+msgstr ""
+
+#: Control-ID:1277,
+msgid "Dialog sizes and positions"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2142,7 +2170,7 @@ msgstr ""
 msgid "Log History"
 msgstr ""
 
-#: Dlg-ID:130,
+#: Control-ID:1274,#: Dlg-ID:130,
 msgid "Log Messages"
 msgstr ""
 
@@ -3050,6 +3078,10 @@ msgstr ""
 msgid "Save to clipboard"
 msgstr ""
 
+#: Dlg-ID:108,
+msgid "Saved Data"
+msgstr ""
+
 #: ID:103,
 #, c-format
 msgid "Saving file %s"
@@ -3364,10 +3396,6 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Subversion"
-msgstr ""
-
-#: Control-ID:65535,
-msgid "Subversion &authentication data:"
 msgstr ""
 
 #: Control-ID:65535,
@@ -3761,6 +3789,10 @@ msgstr ""
 
 #: Dlg-ID:164,
 msgid "URL"
+msgstr ""
+
+#: Control-ID:1272,
+msgid "URL history"
 msgstr ""
 
 #: ID:12,
