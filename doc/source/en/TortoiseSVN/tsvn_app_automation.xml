@@ -84,7 +84,7 @@
 <!--
 ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION
 Don't touch these lines:
-<entry condition="pot">:about</entry>
+<entry condition="pot">/about</entry>
 
   The condition="pot" prevents the strings from being extracted into
 	the .pot file, so nobody translates them.
@@ -105,14 +105,14 @@ Don't touch these lines:
 					</thead>
 					<tbody>
 						<row>
-							<entry condition="pot">:about</entry>
+							<entry condition="pot">/about</entry>
 							<entry>
 								Shows the About-dialog. This is also shown if no
 								command is given.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:log</entry>
+							<entry condition="pot">/log</entry>
 							<entry>
 								Opens the log dialog. The path specifies the
 								file or folder for which the log should be shown.
@@ -123,7 +123,7 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:checkout</entry>
+							<entry condition="pot">/checkout</entry>
 							<entry>
 								Opens the checkout dialog. The <option>/path</option>
 								specifies the target directory and the <option>/url</option>
@@ -131,14 +131,14 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:import</entry>
+							<entry condition="pot">/import</entry>
 							<entry>
 								Opens the import dialog. The path specifies
 								the directory with the data to import.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:update</entry>
+							<entry condition="pot">/update</entry>
 							<entry>
 								Updates the working copy in <option>/path</option> to
 								HEAD. If the option <option>/rev</option> is given
@@ -147,7 +147,7 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:commit</entry>
+							<entry condition="pot">/commit</entry>
 							<entry>
 								Opens the commit dialog. The path specifies the
 								target directory or the list of files to commit.
@@ -163,14 +163,14 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:add</entry>
+							<entry condition="pot">/add</entry>
 							<entry>
 								Adds the files in <option>/path</option> to
 								version control.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:revert</entry>
+							<entry condition="pot">/revert</entry>
 							<entry>
 								Reverts local modifications of a working copy.
 								The <option>/path</option> tells which items
@@ -178,14 +178,14 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:cleanup</entry>
+							<entry condition="pot">/cleanup</entry>
 							<entry>
 								Cleans up interrupted or aborted operations and
 								unlocks the working copy in <option>/path</option>.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:resolve</entry>
+							<entry condition="pot">/resolve</entry>
 							<entry>
 								Marks a conflicted file specified in 
 								<option>/path</option> as resolved. If 
@@ -195,20 +195,20 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:repocreate</entry>
+							<entry condition="pot">/repocreate</entry>
 							<entry>
 								Creates a repository in <option>/path</option>
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:switch</entry>
+							<entry condition="pot">/switch</entry>
 							<entry>
 								Opens the switch dialog. The path specifies the
 								target directory.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:export</entry>
+							<entry condition="pot">/export</entry>
 							<entry>
 								Exports the working copy in <option>/path</option>
 								to another directory. If the <option>/path</option>
@@ -217,14 +217,14 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:merge</entry>
+							<entry condition="pot">/merge</entry>
 							<entry>
 								Opens the merge dialog. The path specifies the
 								target directory.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:copy</entry>
+							<entry condition="pot">/copy</entry>
 							<entry>
 								Brings up the branch/tag dialog.
 								The <option>/path</option>
@@ -232,27 +232,27 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:settings</entry>
+							<entry condition="pot">/settings</entry>
 							<entry>
 								Opens the settings dialog.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:remove</entry>
+							<entry condition="pot">/remove</entry>
 							<entry>
 								Removes the file(s) in <option>/path</option> from
 								version control.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:rename</entry>
+							<entry condition="pot">/rename</entry>
 							<entry>
 								Renames the file in <option>/path</option>. The new
 								name for the file is asked with a dialog.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:diff</entry>
+							<entry condition="pot">/diff</entry>
 							<entry>
 								Starts the external diff program specified in the
 								TortoiseSVN settings. The <option>/path</option>
@@ -265,7 +265,7 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:conflicteditor</entry>
+							<entry condition="pot">/conflicteditor</entry>
 							<entry>
 								Starts the conflicteditor specified in the TortoiseSVN
 								settings with the correct files for the conflicted
@@ -273,27 +273,27 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:relocate</entry>
+							<entry condition="pot">/relocate</entry>
 							<entry>
 								Opens the relocate dialog. The <option>/path</option>
 								specifies the working copy path to relocate.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:help</entry>
+							<entry condition="pot">/help</entry>
 							<entry>
 								Opens the help file.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:repostatus</entry>
+							<entry condition="pot">/repostatus</entry>
 							<entry>
 								Opens the check-for-modifications dialog. The path
 								specifies the working copy directory.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:repobrowser</entry>
+							<entry condition="pot">/repobrowser</entry>
 							<entry>
 								Starts the repository browser dialog, pointing to
 								the URL of the working copy given in
@@ -306,7 +306,7 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:ignore</entry>
+							<entry condition="pot">/ignore</entry>
 							<entry>
 							Adds all targets in <option>/path</option> to the
 							ignore list, i.e. adds the svn:ignored property
@@ -314,7 +314,7 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:blame</entry>
+							<entry condition="pot">/blame</entry>
 							<entry>
 								Opens the blame dialog for the file specified 
 								in <option>/path</option>.
@@ -326,7 +326,7 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:cat</entry>
+							<entry condition="pot">/cat</entry>
 							<entry>
 								Saves a file from an URL or working copy path given
 								in <option>/path</option> to the location given in
@@ -336,21 +336,21 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:createpatch</entry>
+							<entry condition="pot">/createpatch</entry>
 							<entry>
 								Creates a patch file for the path given in
 								<option>/path</option>.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:revisiongraph</entry>
+							<entry condition="pot">/revisiongraph</entry>
 							<entry>
 								Shows the revision graph for the path given in
 								<option>/path</option>.
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:lock</entry>
+							<entry condition="pot">/lock</entry>
 							<entry>
 								Locks a file. The 'lock' dialog is shown so the
 								user can enter a comment for the lock.
@@ -358,7 +358,7 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">:rebuildiconcache</entry>
+							<entry condition="pot">/rebuildiconcache</entry>
 							<entry>
 								Rebuilds the windows icon cache. Only use this in
 								case the windows icons are corrupted. A side effect
