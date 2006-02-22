@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-20 09:48+0100\n"
+"PO-Revision-Date: 2006-02-22 11:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1870,6 +1870,15 @@ msgstr ""
 msgid "Do you really want to move this file or folder?"
 msgstr "Voulez-vous vraiment déplacer ce fichier ou ce répertoire?"
 
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Voulez-vous vraiment annuler toutes vos modifications dans %s\n"
+"et revenir à cette révision ?"
+
 #: ID:76
 #, c-format
 msgid ""
@@ -3262,6 +3271,10 @@ msgstr ""
 #: Control-ID:1073
 msgid "R&AM drives"
 msgstr "D&isques mémoire"
+
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "R&evenir à cette révision"
 
 #: ID:3697
 msgid "REC"
