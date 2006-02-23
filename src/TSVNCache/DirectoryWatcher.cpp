@@ -178,7 +178,7 @@ void CDirectoryWatcher::WorkerThread()
 	DWORD numBytes;
 	CDirWatchInfo * pdi = NULL;
 	LPOVERLAPPED lpOverlapped;
-	WCHAR buf[MAX_PATH] = {0};
+	WCHAR buf[MAX_PATH*4] = {0};
 	WCHAR * pFound = NULL;
 	while (m_bRunning)
 	{
@@ -305,10 +305,15 @@ void CDirectoryWatcher::WorkerThread()
 						//	}
 						//	break;
 						//}
-						ZeroMemory(buf, MAX_PATH*sizeof(TCHAR));
-						_tcsncpy_s(buf, MAX_PATH, pdi->m_DirPath, MAX_PATH);
-						_tcsncat_s(buf+pdi->m_DirPath.GetLength(), MAX_PATH-pdi->m_DirPath.GetLength(), pnotify->FileName, min(MAX_PATH-1, pnotify->FileNameLength / sizeof(WCHAR)));
-						buf[min(MAX_PATH-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
+						ZeroMemory(buf, MAX_PATH*4*sizeof(TCHAR));
+						_tcsncpy_s(buf, MAX_PATH*4, pdi->m_DirPath, MAX_PATH*4);
+						errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), (MAX_PATH*4)-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
+						if (err == STRUNCATE)
+						{
+							pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
+							continue;
+						}
+						buf[min(MAX_PATH*4-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
 						pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
 						if (m_FolderCrawler)
 						{
