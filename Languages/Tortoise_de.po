@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-02-22 09:43+0100\n"
+"PO-Revision-Date: 2006-02-23 08:37+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -472,7 +472,7 @@ msgstr "&Vorherige Unterschied"
 
 #: Control-ID:1246
 msgid "&Recent messages"
-msgstr "&Log-Meldungen"
+msgstr "&Letzte-Meldungen"
 
 #: ID:376
 msgid "&Redo"
@@ -1077,6 +1077,10 @@ msgstr "In Revision: %d"
 msgid "Authentication"
 msgstr "Anmeldung"
 
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "Anmeldedaten"
+
 #: ID:76
 #: ID:207
 msgid "Author"
@@ -1352,9 +1356,30 @@ msgstr "Bereinigen ist fertig"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Führt unterbrochene Aktionen zu Ende, hebt Sperren auf, ..."
 
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "Jetzt &löschen"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "Löschen"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "Löscht %ld gespeicherte URLs von %ld Arbeitskopien"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "Löscht %ld gespeicherte Log-Meldungen von %ld Arbeitskopien"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "Löscht %ld Name/Passwort Paare, %ld SSL Zertifikate und %ld Benutzernamen"
 
 #: ID:195
 msgid ""
@@ -1363,6 +1388,12 @@ msgid ""
 msgstr ""
 "Löscht die gespeicherte Anmeldeinformation für alle Projektarchive.\n"
 "Sie müssen Ihre Name/Passwort Kombination jeweils neu eingeben."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "Löscht die gespeicherten Größen und Positionen von %ld Dialogen"
 
 # ID:170,
 #: ID:170
@@ -1745,6 +1776,10 @@ msgstr "Lösche"
 msgid "Destination disk drive is full."
 msgstr "Ziel-Partition ist voll."
 
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "Dialoggrößen und -positionen"
+
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Diffdatei:"
@@ -1942,7 +1977,7 @@ msgstr "Vergrößert das Fenster auf Bildschirmgröße"
 
 #: Dlg-ID:135
 msgid "Enter Log Message"
-msgstr "Log Meldung eingeben"
+msgstr "Log-Meldung eingeben"
 
 #: ID:80
 msgid "Enter URL"
@@ -2597,9 +2632,10 @@ msgstr "Log"
 msgid "Log History"
 msgstr "Letzte Log-Meldungen"
 
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
-msgstr "Log Meldungen"
+msgstr "Log-Meldungen"
 
 #: Control-ID:65535
 msgid "Log message"
@@ -3544,6 +3580,10 @@ msgstr "SVN Hierher exportieren"
 msgid "SVN Lock owner"
 msgstr "SVN Sperreigner"
 
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN Dateien hierher verschieben und umbenennen"
+
 #: ID:12
 msgid "SVN Move versioned files here"
 msgstr "SVN Dateien hierher verschieben"
@@ -3612,6 +3652,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "In Zwischenablage speichern"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "Gespeicherte Daten"
 
 #: ID:103
 #, c-format
@@ -3979,10 +4024,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
-
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Subversion &Anmeldedaten:"
 
 #: Control-ID:65535
 msgid "Subversion configuration &file:"
@@ -4567,6 +4608,10 @@ msgstr "&Zwei-Fenster Vergleich"
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
+
+#: Control-ID:1272
+msgid "URL history"
+msgstr "URL-Historie"
 
 #: ID:12
 msgid "URL of Subversion items"
