@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-20 09:38+0200\n"
+"PO-Revision-Date: 2006-02-23 15:29+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1375,6 +1375,12 @@ msgstr "В ревизия: %d"
 msgid "Authentication"
 msgstr "Удостоверяване"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "Удостоверения"
+
 # ID:76,
 #: ID:76
 #: ID:207
@@ -1713,9 +1719,30 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Почиства недовършени операции, блокирани файлове, ..."
 
 # Control-ID:1059,
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "&Незабавно изчистване"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "Изчистване"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "Изчиства %ld URL-a, съхранени за %ld работни копия"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "Изчиства %ld съобщения за дневника, съхранени за %ld работни копия"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "Изчиства %ld двойки потребителско име/парола, %ld SSL сертификата и %ld потребителски имена."
 
 # ID:195,
 #: ID:195
@@ -1725,6 +1752,12 @@ msgid ""
 msgstr ""
 "Изчиства запазените удостоверения.\n"
 "Ще трябва да въвеждате отново Вашите потребителско име и парола за достъп до хранилищата."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "Изчиства съхранените данни за позиции и размери на %ld диалогови прозорци"
 
 # ID:170,
 #: ID:170
@@ -2195,6 +2228,11 @@ msgstr "Изтриване"
 msgid "Destination disk drive is full."
 msgstr "Дискът е пълен."
 
+# ID:3825,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "Размер и позиция на диалоговите прозорци"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
@@ -2271,6 +2309,16 @@ msgstr ""
 #: ID:145
 msgid "Do you really want to move this file or folder?"
 msgstr "Наистина ли желаете да преместите този файл или папка?"
+
+# ID:76,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Наистина ли желаете да отмените всички промени в %s\n"
+"и да се върнете към тази ревизия?"
 
 # ID:76,
 #: ID:76
@@ -3188,6 +3236,7 @@ msgid "Log History"
 msgstr "Дневник"
 
 # Dlg-ID:130,
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Съобщения в дневника"
@@ -3908,6 +3957,11 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "&RAM устройства"
 
+# ID:113,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "От&мяна до тази ревизия"
+
 # ID:3697,
 #: ID:3697
 msgid "REC"
@@ -4365,6 +4419,11 @@ msgstr "SVN износ тук"
 msgid "SVN Lock owner"
 msgstr "SVN Собственик на заключването"
 
+# ID:13,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN копиране и преименуване на контролирани файлове тук"
+
 # Control-ID:1073,
 #: ID:12
 msgid "SVN Move versioned files here"
@@ -4454,6 +4513,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "Запис в системния буфер"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "Съхранени данни"
 
 # ID:144,
 #: ID:103
@@ -4901,12 +4965,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "&Удостоверения в Subversion:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5586,6 +5644,11 @@ msgstr "Сравняване с &два файла"
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
+
+# ID:80,
+#: Control-ID:1272
+msgid "URL history"
+msgstr "URL хронология"
 
 # ID:12,
 #: ID:12
