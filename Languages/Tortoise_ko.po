@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-22 10:10+0900\n"
+"PO-Revision-Date: 2006-02-23 20:43+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1327,6 +1327,12 @@ msgstr "리비전: %d"
 msgid "Authentication"
 msgstr "인증 정보 저장"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "인증 정보"
+
 # ID:76,
 #: ID:76
 #: ID:207
@@ -1667,9 +1673,30 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "중단된 명령, 잠긴 파일들을 정리 합니다."
 
 # Control-ID:1059,
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "인증정보 삭제(&O)"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "초기화"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "%ld 개의 URL을 (%ld 개의 작업사본) 삭제합니다."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "%ld 개의로그메시지를 (%ld 개의 작업사본) 삭제합니다."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "%ld 개의 ID/패스워드 쌍, %ld 개의 SSL 인증서, %ld ID를 삭제합니다."
 
 # ID:195,
 #: ID:195
@@ -1679,6 +1706,12 @@ msgid ""
 msgstr ""
 "저장된 인증정보를 제거합니다.\n"
 "다음 보관소에 접속할 때, 사용자명과 암호를 넣어야 합니다."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "%ld 개 대화상자의 크기와 위치 정보를 삭제합니다."
 
 # ID:170,
 #: ID:170
@@ -2143,6 +2176,11 @@ msgstr "삭제"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "목적지 디스크가 꽉 찼습니다."
+
+# ID:3825,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "대화상자 크기와 위치"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3146,6 +3184,7 @@ msgid "Log History"
 msgstr "사용되었던 로그"
 
 # Dlg-ID:130,
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "로그 메시지"
@@ -4329,6 +4368,11 @@ msgstr "SVN 파일을 익스포트합니다"
 msgid "SVN Lock owner"
 msgstr "SVN 잠금 소유자"
 
+# ID:13,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN 여기에 버전관리 파일을 복사하거나 이름을 바꿉니다."
+
 # Control-ID:1073,
 #: ID:12
 msgid "SVN Move versioned files here"
@@ -4415,6 +4459,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "클립보드에 저장"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "저장된 데이터"
 
 # ID:144,
 #: ID:103
@@ -4865,12 +4914,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Subversion 인증 정보(&A):"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5548,6 +5591,11 @@ msgstr "창을 나누어 비교(&D)"
 msgid "URL"
 msgstr "URL"
 
+# ID:80,
+#: Control-ID:1272
+msgid "URL history"
+msgstr "URL 기록"
+
 # ID:12,
 #: ID:12
 msgid "URL of Subversion items"
@@ -5878,7 +5926,7 @@ msgid ""
 msgstr ""
 "네트워크 공유에 저장소를 만들고 있습니다.\n"
 "이 방법은 안전하기는 하지만, 저장소가 만들어지면, 다른 방법으로 접근해야만 합니다.\n"
-"저장소를 file:/// 이라는 방법으로 접근하게되면 데이타가 깨질 위험이 있습니다.\n"
+"저장소를 file:/// 이라는 방법으로 접근하게되면 데이터가 깨질 위험이 있습니다.\n"
 "그래도 만드시겠습니까?"
 
 # ID:88,
