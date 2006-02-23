@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-02-22 12:20+0100\n"
+"PO-Revision-Date: 2006-02-23 09:10+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6098,22 +6098,22 @@ msgstr "Standardmäßig werden die überlagerten Symbole in allen Öffnen/Speich
 #: source/TortoiseSVN_en.xml:7502
 #: (term)
 msgid "Default"
-msgstr "Vorgabe"
+msgstr "Standardeinstellung"
 
 #: source/TortoiseSVN_en.xml:7504
 #: (para)
 msgid "Caches all status information in a separate process (<filename>TSVNCache.exe</filename>). That process watches all drives for changes and fetches the status again if files inside a working copy get modified. The process runs with the least possible priority so other programs don't get hogged because of it. That also means that the status information is not <emphasis>realtime</emphasis> but it can take a few seconds for the overlays to change."
-msgstr ""
+msgstr "Speichert sämtliche Statusinformation in einem separaten Prozess (<filename>TSVNCache.exe</filename>). Dieser Prozess beobachtet alle Laufwerke auf Änderungen und ermittelt den Status erneut, sobald sich eine Datei innerhalb einer Arbeitskopie ändert. Der Prozess läuft mit der niedrigsten Priorität, damit andere Programme nicht gebremst werden. Das bedeutet allerdings auch, dass die Statusinformation <emphasis>nicht in Echtzeit </emphasis> angezeigt wird, sondern dass es ein paar Sekunden dauern kann, bis sich die überlagerten Symbole ändern."
 
 #: source/TortoiseSVN_en.xml:7515
 #: (para)
 msgid "Advantage: the overlays show the status recursively, i.e. if a file deep inside a working copy is modified, all folders up to the working copy root will also show the modified overlay. And since the process can send notifications to the shell, the overlays on the left treeview usually change too."
-msgstr ""
+msgstr "Vorteil: Die überlagerten Symbole zeigen den Status rekursiv, das bedeutet dass wenn sich eine Datei tief innerhalb der Arbeitkopie ändert, alle Ordner bis zur Basis der Arbeitskopie ebenfalls das <quote>modifiziert</quote> Symbol anzeigen. Da der Prozess auch Benachrichtigungen an die Shell schicken kann, änder sich die Symbole in der liken Baumansicht normalerweise auch entsprechend."
 
 #: source/TortoiseSVN_en.xml:7523
 #: (para)
-msgid "Disadvantage: the process runs constantly, even if you're not working with on your projects. It also uses around 20-40 MB of RAM."
-msgstr ""
+msgid "Disadvantage: the process runs constantly, even if you're not working on your projects. It also uses around 10-50 MB of RAM depending on number and size of your working copies."
+msgstr "Nachteil: Der Prozess läuft permanent, auch wenn Sie nicht an Ihren Projekten arbeiten. Er benötigt außerdem, abhängig von Anzahl und Größe Ihrer Arbeitskopien 10-50 MB Hauptspeicher."
 
 #: source/TortoiseSVN_en.xml:7531
 #: (term)
@@ -6158,7 +6158,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7494
 #: (para)
 msgid "Since it takes quite a while to fetch the status of a working copy, TortoiseSVN uses a cache to store the status in so the explorer doesn't get hogged too much when showing the overlays. You can choose which type of cache TortoiseSVN should use according to your system and working copy size here: <placeholder-1/>"
-msgstr ""
+msgstr "Da es eine Weile dauer kann, den Status einer Arbeitskopie zu bestimmen, verwendet TortoiseSVN einen Puffer, um den Status zwischenzuspeichern, damit der Windows Explorer beim Anzeigen der überlagerten Symbole nicht so stark gebremst wird. Sie können hier festlegen, welche Art von Puffer TortoiseSVN benutzen soll: <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:7575
 #: (para)
@@ -7828,7 +7828,7 @@ msgstr "Sperrt eine Datei. Der 'Sperren' Dialog wird angezeigt, damit der Anwend
 #: source/TortoiseSVN_en.xml:9431
 #: (entry)
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. <placeholder-1/>"
-msgstr "Rekonstruiert den Windows Icon Cache. Verwenden Sie diese Funktion nur, wenn die Windows Icons beschädigt sind. Ein nicht vermeidbarer Seiteneffekt dieser Aktion ist, dass die Desktop Icons neu arrangiert werden. <placeholder-1/>"
+msgstr "Rekonstruiert den Windows Iconpuffer. Verwenden Sie diese Funktion nur, wenn die Windows Icons beschädigt sind. Ein nicht vermeidbarer Seiteneffekt dieser Aktion ist, dass die Desktop Icons neu arrangiert werden. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:9443
 #: (para)
