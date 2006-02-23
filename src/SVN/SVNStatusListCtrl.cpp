@@ -493,6 +493,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->inexternal = bInExternal;
 	entry->direct = bDirectItem;
 	entry->copied = !!pSVNStatus->copied;
+	entry->switched = !!pSVNStatus->switched;
 
 	entry->last_commit_date = pSVNStatus->ood_last_cmt_date;
 	if ((entry->last_commit_date == NULL)&&(pSVNStatus->entry))
@@ -903,7 +904,9 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	{
 		SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 		if ((entry->copied)&&(_tcslen(buf)>1))
-			_tcscat_s(buf, 100, _T("+"));
+			_tcscat_s(buf, 100, _T(" (+)"));
+		if ((entry->switched)&&(_tcslen(buf)>1))
+			_tcscat_s(buf, 100, _T(" (s)"));
 		if ((entry->status == entry->propstatus)&&
 			(entry->status != svn_wc_status_normal)&&
 			(entry->status != svn_wc_status_unversioned)&&
@@ -921,7 +924,9 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	{
 		SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 		if ((entry->copied)&&(_tcslen(buf)>1))
-			_tcscat_s(buf, 100, _T("+"));
+			_tcscat_s(buf, 100, _T(" (+)"));
+		if ((entry->switched)&&(_tcslen(buf)>1))
+			_tcscat_s(buf, 100, _T(" (s)"));
 		if ((entry->remotestatus == entry->remotepropstatus)&&
 			(entry->remotestatus != svn_wc_status_none)&&
 			(entry->remotestatus != svn_wc_status_normal)&&
@@ -940,7 +945,9 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	{
 		SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 		if ((entry->copied)&&(_tcslen(buf)>1))
-			_tcscat_s(buf, 100, _T("+"));
+			_tcscat_s(buf, 100, _T(" (+)"));
+		if ((entry->switched)&&(_tcslen(buf)>1))
+			_tcscat_s(buf, 100, _T(" (s)"));
 		SetItemText(index, nCol++, buf);
 	}
 	// SVNSLC_COLPROPSTATUS
@@ -952,7 +959,9 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	{
 		SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
 		if ((entry->copied)&&(_tcslen(buf)>1))
-			_tcscat_s(buf, 100, _T("+"));
+			_tcscat_s(buf, 100, _T(" (+)"));
+		if ((entry->switched)&&(_tcslen(buf)>1))
+			_tcscat_s(buf, 100, _T(" (s)"));
 		SetItemText(index, nCol++, buf);
 	}
 	// SVNSLC_COLREMOTETEXT
@@ -3017,6 +3026,16 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 			{
 				CStringA url;
 				url.Format(IDS_STATUSLIST_COPYFROM, CUnicodeUtils::GetUTF8(fentry->copyfrom_url), fentry->copyfrom_rev);
+				CUtils::Unescape(url.GetBuffer());
+				url.ReleaseBuffer();
+				CString urlW = CUnicodeUtils::GetUnicode(url);
+				lstrcpyn(pTTTW->szText, urlW, 80);
+				return TRUE;
+			}
+			if (fentry->switched)
+			{
+				CStringA url;
+				url.Format(IDS_STATUSLIST_SWITCHEDTO, CUnicodeUtils::GetUTF8(fentry->url));
 				CUtils::Unescape(url.GetBuffer());
 				url.ReleaseBuffer();
 				CString urlW = CUnicodeUtils::GetUnicode(url);

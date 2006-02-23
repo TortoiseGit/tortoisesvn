@@ -156,6 +156,7 @@ public:
 			, remotetextstatus(svn_wc_status_unversioned)
 			, remotepropstatus(svn_wc_status_unversioned)
 			, copied(false)
+			, switched(false)
 			, checked(false)
 			, inunversionedfolder(false)
 			, inexternal(false)
@@ -213,6 +214,7 @@ public:
 		svn_wc_status_kind		remotetextstatus;		///< remote text status
 		svn_wc_status_kind		remotepropstatus;		///< remote property status
 		bool					copied;					///< if the file/folder is added-with-history
+		bool					switched;				///< if the file/folder is switched to another url
 		bool					checked;				///< if the file is checked in the list control
 		bool					inunversionedfolder;	///< if the file is inside an unversioned folder
 		bool					inexternal;				///< if the item is in an external folder

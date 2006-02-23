@@ -4282,6 +4282,11 @@ msgstr ""
 msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
 msgstr ""
 
+#: ID:208,
+#, c-format
+msgid "switched to\r\n%s"
+msgstr ""
+
 #: ID:80,#: ID:103,#: ID:103,
 #, c-format
 msgid "to %s"

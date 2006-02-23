@@ -64,6 +64,9 @@
 - NEW: New page in the settings dialog where the user can clear data
        (log history, URLs, auth data, ...) TSVN stores.
        See issue #225 for details. (Stefan)
+- NEW: Switched files/folders are indicated with an "(x)" after the status
+       text in the commit/check-for-modifications/... dialogs.
+       See issue #229 for details. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
