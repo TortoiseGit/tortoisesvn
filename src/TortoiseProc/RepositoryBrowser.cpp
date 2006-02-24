@@ -238,9 +238,20 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 	HTREEITEM hSelItem = m_treeRepository.GetItemHandle(m_treeRepository.GetFirstSelectedItem());
 	UINT uSelCount = m_treeRepository.GetSelectedCount();
 	CString url = m_treeRepository.MakeUrl(hSelItem);
-
-	if (url.Left(8).Compare(_T("Error * "))==0)
+	CString itemtext = m_treeRepository.GetItemText(m_treeRepository.GetItemIndex(hSelItem), 0);
+	if (itemtext.Left(8).Compare(_T("Error * "))==0)
+	{
+		CMenu popup;
+		if (popup.CreatePopupMenu())
+		{
+			CString temp(MAKEINTRESOURCE(IDS_REPOBROWSE_COPYERROR));
+			popup.AppendMenu(MF_STRING | MF_ENABLED, 1, temp);
+			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
+			if (cmd == 1)
+				CUtils::WriteAsciiStringToClipboard(CStringA(itemtext));
+		}
 		return;
+	}
 
 	HTREEITEM hSelItem1;
 	HTREEITEM hSelItem2;
@@ -1057,12 +1068,34 @@ void CRepositoryBrowser::OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 		*pResult = 1;
 		break;	
 	case VK_RETURN:
-	{
-		if (hSelItem && uSelCount == 1)
 		{
-			ShellExecute(NULL, _T("open"), m_treeRepository.MakeUrl(hSelItem), NULL, NULL, SW_SHOWNORMAL);
+			if (hSelItem && uSelCount == 1)
+			{
+				ShellExecute(NULL, _T("open"), m_treeRepository.MakeUrl(hSelItem), NULL, NULL, SW_SHOWNORMAL);
+				*pResult = 1;
+			}
 		}
-	}
+		break;
+	case 'C':
+	case 'c':
+		{
+			if ((hSelItem)&&(uSelCount == 1)&&(GetAsyncKeyState(VK_CONTROL)&0x8000))
+			{
+				CString url = m_treeRepository.GetItemText(m_treeRepository.GetItemIndex(hSelItem), 0);
+				if (url.Find('*')>=0)
+				{
+					// an error message
+					CUtils::WriteAsciiStringToClipboard(CStringA(url));
+					*pResult = 1;
+				}
+				else
+				{
+					url = m_treeRepository.MakeUrl(hSelItem);
+					CUtils::WriteAsciiStringToClipboard(CStringA(url));
+					*pResult = 1;
+				}
+			}
+		}
 	break;
 	default:
 		break;
