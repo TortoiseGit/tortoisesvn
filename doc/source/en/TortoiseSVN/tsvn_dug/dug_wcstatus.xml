@@ -273,6 +273,19 @@
 			a file accidentally, it will show up as <literal>Missing</literal>
 			and you can use <literal>Revert</literal> to recover it.
 		</para>
+		<para>
+			The columns displayed in the bottom pane are customizable. If you
+			<action>right click</action> on any column header you will see a
+			context menu allowing you to select which columns are displayed.
+			You can also change column width by using the drag handle which
+			appears when you move the mouse over a column boundary. These
+			customizations are preserved, so you will see the same headings
+			next time.
+			Note that due to an implementation detail, you may see two different
+			drag icons, depending on exactly where you position the mouse over the
+			boundary. One has a solid vertical dividing line and the other has two
+			thin vertical lines. Only the solid drag pointer works.
+		</para>
 		<tip>
 			<para>
 				If you want a flat view of your working copy, i.e. showing all files

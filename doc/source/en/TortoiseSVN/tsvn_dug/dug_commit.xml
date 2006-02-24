@@ -99,6 +99,19 @@
 		The context menu will give you more options, as shown in the screenshot.
 	</para>
 	<para>
+		The columns displayed in the bottom pane are customizable. If you
+		<action>right click</action> on any column header you will see a
+		context menu allowing you to select which columns are displayed.
+		You can also change column width by using the drag handle which
+		appears when you move the mouse over a column boundary. These
+		customizations are preserved, so you will see the same headings
+		next time.
+		Note that due to an implementation detail, you may see two different
+		drag icons, depending on exactly where you position the mouse over the
+		boundary. One has a solid vertical dividing line and the other has two
+		thin vertical lines. Only the solid drag pointer works.
+	</para>
+	<para>
 		Be sure to enter a log message which describes the changes you are
 		committing. This will help you to see what happened and when, as you
 		browse through the project log messages at a later date. The message

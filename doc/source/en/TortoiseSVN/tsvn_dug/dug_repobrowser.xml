@@ -58,4 +58,16 @@
 		the item instead of just drag it. In that case, a rename dialog
 		is shown where you can enter a new name for the file or folder.
 	</para>
+	<para>
+		Sometimes when you try to open a path you will get an error message
+		in place of the item details. This might happen if you specified an
+		invalid URL, or if you don't have access permission, or if there is
+		some other server problem. If you need to copy this message to include
+		it in an email, just right click on it and use
+		<menuchoice>
+			<guimenu>Context Menu</guimenu>
+			<guimenuitem>Copy error message to clipboard</guimenuitem>
+		</menuchoice>,
+		or simply use <action>CTRL+C</action>.
+	</para>
 </sect1>

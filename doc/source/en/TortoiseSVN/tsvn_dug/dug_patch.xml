@@ -48,6 +48,11 @@
 			selected files since the last update from the repository.
 		</para>
 		<para>
+			The columns in this dialog can be customized in the same way as the
+			columns in the <guilabel>Check for modifications</guilabel> dialog.
+			Read <xref linkend="tsvn-dug-wcstatus-2"/> for further details.
+		</para>
+		<para>
 			You can produce separate patches containing changes to different
 			sets of files. Of course, if you create a patch file, make some more changes
 			to the <emphasis>same</emphasis> files and then create another patch, the
