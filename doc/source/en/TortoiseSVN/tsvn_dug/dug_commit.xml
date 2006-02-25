@@ -42,6 +42,12 @@
 		file. If you want to include an unversioned file,
 		just check that file to add it to the commit.
 	</para>
+	<para>
+		Items which have been switched to a different repository path are
+		also indicated using an <literal>(s)</literal> marker. You may have
+		switched something while working on a branch and forgotten to switch
+		back to trunk. This is your warning sign!
+	</para>
 	<tip>
 		<title>Commit files or folders?</title>
 		<para>
@@ -97,6 +103,8 @@
 		<action>Doubleclicking</action> on any modified file in the commit
 		dialog will launch the external diff tool to show your changes.
 		The context menu will give you more options, as shown in the screenshot.
+		You can also drag files from here into another application such as a
+		text editor or an IDE.
 	</para>
 	<para>
 		The columns displayed in the bottom pane are customizable. If you
@@ -130,6 +138,22 @@
 		<emphasis>every</emphasis> technical term that you do, so correctly
 		spelt words will sometimes show up as errors. But don't worry. You can
 		just add them to your personal dictionary using the context menu.
+	</para>
+	<para>
+		The log message window also includes a filename and function auto-completion
+		facility. This uses regular expressions to extract class and function names
+		from the (text) files you are committing, as well as the filenames themselves.
+		If a word you are typing matches anything in the list (after you have typed at
+		least 3 characters), a drop-down appears allowing you to select the full name.
+		The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN
+		installation <filename>bin</filename> folder. You can also define your own
+		regexes and store them in <filename>%APPDATA%\TortoiseSVN\autolist.txt</filename>.
+		Of course your private autolist will not be overwritten when you update your
+		installation of TortoiseSVN. If you are unfamiliar with regular expressions,
+		take a look at the online documentation and tutorial at
+		<ulink url="http://www.regular-expressions.info/">
+			<citetitle>http://www.regular-expressions.info/</citetitle>
+		</ulink>.
 	</para>
 	<para>
 		After pressing <guibutton>OK</guibutton>, a dialog appears displaying

@@ -102,7 +102,8 @@
 				<listitem>
 					<para>
 						<emphasis>
-							This property activates the Bugtracking System.
+							This property activates the Bugtracking System
+							in <literal>Input field</literal> mode.
 						</emphasis>
 						If this property is set, then TortoiseSVN
 						will prompt you to enter an issue number when you commit
@@ -170,6 +171,7 @@
 		enters which is recognized by the issue tracker. This is done while the user
 		writes the log message. This also means that the bug ID can be anywhere inside a log
 		message!
+		This method is much more flexible, and is the one used by the TortoiseSVN project itself.
 		<variablelist>
 			<varlistentry>
 				<term>bugtraq:logregex</term>

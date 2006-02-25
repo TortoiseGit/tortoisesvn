@@ -195,16 +195,13 @@ C:\Temp\New\tags
 			usually just started your project a default <literal>initial import</literal>
 			is filled in by TortoiseSVN.
 		</para>
-		<indexterm>
-			<primary>exclude pattern</primary>
-		</indexterm>
-		<important>
-			<para>
-				Files or directories which match the 
-				<guilabel>exclude pattern</guilabel>
-				are <emphasis>not</emphasis> imported.
-			</para>
-		</important>
+		<para>
+			By default, files and folders which match the global-ignore patterns
+			are <emphasis>not</emphasis> imported. To override this behaviour you can
+			use the <guilabel>Include ignored files</guilabel> checkbox.
+			Refer to <xref linkend="tsvn-dug-settings-main"/> for more information
+			on setting a global ignore pattern.
+		</para>
 		<para>
 			As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the
 			complete directory tree including all files into the repository.

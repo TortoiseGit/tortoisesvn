@@ -256,6 +256,12 @@
 			Read <xref linkend="tsvn-dug-settings-colours"/> for more information.
 		</para>
 		<para>
+			Items which have been switched to a different repository path are
+			also indicated using an <literal>(s)</literal> marker. You may have
+			switched something while working on a branch and forgotten to switch
+			back to trunk. This is your warning sign!
+		</para>
+		<para>
 			From the context menu of the dialog you can show a diff of the
 			changes. Check the local changes <emphasis>you</emphasis> made using
 			<menuchoice>
@@ -272,6 +278,10 @@
 			You can also revert changes in individual files. If you have deleted
 			a file accidentally, it will show up as <literal>Missing</literal>
 			and you can use <literal>Revert</literal> to recover it.
+		</para>
+		<para>
+			If you want to examine a file in detail, you can drag it from here
+			into another application such as a text editor or IDE.
 		</para>
 		<para>
 			The columns displayed in the bottom pane are customizable. If you

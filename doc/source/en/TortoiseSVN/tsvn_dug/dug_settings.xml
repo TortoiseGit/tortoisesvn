@@ -559,6 +559,17 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Max. items to keep in the log message history</term>
+					<listitem>
+						<para>
+							TortoiseSVN stores the last 25 log messages you entered for
+							each repository. You can customize the number stored here.
+							If you have many different repositories, you may wish to
+							reduce this to avoid filling your registry.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
 					<term>Contact the repository on startup</term>
 					<listitem>
 						<para>

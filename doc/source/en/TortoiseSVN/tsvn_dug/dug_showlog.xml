@@ -154,6 +154,19 @@
 				</listitem>
 				<listitem>
 					<para>
+						Revert to an earlier revision. If you have made several
+						changes, and then decide that you really want to go back to
+						how things were in revision N, this is the command you need.
+						Again, the changes are reverted in your working copy so
+						this operation does <emphasis>not</emphasis> affect the
+						repository until you commit the changes. Note that this
+						will undo <emphasis>all</emphasis> changes made after the
+						selected revision, replacing the file/folder with the
+						earlier version.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
 						Edit the log message or author attached to a previous commit.
 						Read <xref linkend="tsvn-dug-showlog-4"/> to find out
 						how this works.
@@ -390,6 +403,14 @@
 			been at work, how many commits they have made, progress
 			by week, and much more. Now you can see at a glance who
 			has been working hardest and who is slacking ;-)
+		</para>
+		<para>
+			By default the analysis is case-sensitive so users
+			<literal>PeterEgan</literal> and <literal>PeteRegan</literal>
+			are treated as different authors. However, in many cases usernames
+			are not case-sensitive, and are sometimes entered inconsistently.
+			Use the <guilabel>Authors case insensitive</guilabel> checkbox
+			to control how this is handled.
 		</para>
 		<para>
 			Note that the statistics cover the same period as the
