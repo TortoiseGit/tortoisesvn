@@ -1,4 +1,3 @@
-# Simplified Chinese translation for TortoiseSVN
 # Copyright (C) 2004-2006 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -13,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-21 09:59+0800\n"
+"PO-Revision-Date: 2006-02-25 13:19+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +159,7 @@ msgstr "%s ：工作基础版本"
 #: ID:151
 #, c-format
 msgid "%s : Working Copy"
-msgstr "%s ：工作复本"
+msgstr "%s ：工作拷贝"
 
 # ID:357,
 #: ID:357
@@ -170,7 +169,7 @@ msgstr "%s，传输速度 %s"
 
 # ID:145,
 #: ID:145
-#, fuzzy, c-format
+#, c-format
 msgid "%s\\Export (%d) of %s"
 msgstr "%s\\导出 （%d 个） %s"
 
@@ -301,7 +300,7 @@ msgstr "启动时连接版本库(&C)"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "&Convert files when diffing against BASE"
-msgstr "与 BASE 比较修改时转换文件(&C)"
+msgstr "与 基础版本比较时转换文件(&C)"
 
 # ID:376,
 #: MenuEntry
@@ -415,7 +414,7 @@ msgstr "从 URL(&F)："
 # Control-ID:65535,
 #: Control-ID:1259
 msgid "&From WC at URL:"
-msgstr "从工作复本 URL(&F)："
+msgstr "从工作拷贝 URL(&F)："
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -429,7 +428,7 @@ msgstr "从版本(&F)"
 #: Control-ID:1115
 #: Control-ID:1032
 msgid "&HEAD Revision"
-msgstr "主版本(&H)"
+msgstr "最新版本(&H)"
 
 # Control-ID:1032,#:
 # Control-ID:1115,#:
@@ -438,12 +437,12 @@ msgstr "主版本(&H)"
 #: Control-ID:1032
 #: Control-ID:1019
 msgid "&HEAD revision"
-msgstr "主版本(&H)"
+msgstr "最新版本(&H)"
 
 # ID:238,
 #: Control-ID:1182
 msgid "&HEAD revision in the repository"
-msgstr "版本库中的主版本(&H)"
+msgstr "版本库中的最新版本(&H)"
 
 # Control-ID:9,#:
 # Control-ID:57670,#:
@@ -739,7 +738,7 @@ msgstr "还原(&U) Ctrl+Z"
 # Control-ID:1013,
 #: MenuEntry
 msgid "&Unified diff"
-msgstr "应用单一补丁文件(&U)"
+msgstr "标准差异（Unified diff）(&U)"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -787,7 +786,7 @@ msgstr "空白字符(&W)"
 # ID:151,
 #: Control-ID:1183
 msgid "&Working copy"
-msgstr "工作复本(&W)"
+msgstr "工作拷贝(&W)"
 
 # Control-ID:1061,
 #: ID:219
@@ -847,12 +846,12 @@ msgstr "：版本 %d"
 # ID:151,
 #: ID:151
 msgid ": working base"
-msgstr "：工作基础版本"
+msgstr "：基础版本"
 
 # ID:151,
 #: ID:151
 msgid ": working copy"
-msgstr "：工作复本"
+msgstr "：工作拷贝"
 
 # ID:88,
 #: ID:88
@@ -885,7 +884,7 @@ msgstr ""
 "如果你是要切换到当前同一个版本库的不同分支或者目录， 请使用主菜单中的切换\n"
 "(Switch)命令。\n"
 "\n"
-"不适当地使用重定位命令将会<b>破坏你的工作复本！</b>\n"
+"不适当地使用重定位命令将会<b>破坏你的工作拷贝！</b>\n"
 "如果你仍然不确定重定位命令是否正是你要执行的命令，那么就很可能不是，并且你\n"
 "需要查看<b>帮助</b>。"
 
@@ -1280,7 +1279,7 @@ msgstr "分析分支数据..."
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "应用单一差异文件至工作复本"
+msgstr "应用单一差异文件至工作拷贝"
 
 # ID:15,
 #: ID:15
@@ -1328,6 +1327,12 @@ msgstr "于版本：%d"
 #: Dlg-ID:160
 msgid "Authentication"
 msgstr "认证"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "认证数据"
 
 # ID:76,
 #: ID:76
@@ -1571,7 +1576,7 @@ msgstr "变动文件数：%d"
 # Control-ID:1242,
 #: Control-ID:1242
 msgid "Changes made (double-click for details):"
-msgstr "改变模式(双击查看细节)："
+msgstr "变更列表（双击查看细节）："
 
 # ID:8,
 #: ID:8
@@ -1607,7 +1612,7 @@ msgstr "检查更新"
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
-msgstr "从版本库中检出工作复本"
+msgstr "从版本库中检出工作拷贝"
 
 # Dlg-ID:178,
 #: Control-ID:1132
@@ -1669,9 +1674,30 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "清理未完成的操作，锁定文件等…"
 
 # Control-ID:1059,
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "立即清除(&O)"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "清除"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "清除%ld个URL，它们存储在%ld个工作拷贝中"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "清除%ld条日志，它们存储在%ld个工作拷贝中"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "清除%ld个用户名/密码、%ld个SSL认证数据及%ld个用户名"
 
 # ID:195,
 #: ID:195
@@ -1681,6 +1707,12 @@ msgid ""
 msgstr ""
 "清除保存的认证。\n"
 "你需要为全部的版本库重新输入用户名和密码。"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "清除存储的%ld个对话框的大小和位置数据"
 
 # ID:170,
 #: ID:170
@@ -1772,17 +1804,17 @@ msgstr "将你所做的修改提交至版本库"
 # ID:76,
 #: MenuEntry
 msgid "Compare &HEAD revisions"
-msgstr "与主版本比较差异(&H)"
+msgstr "与最新版本比较(&H)"
 
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
-msgstr "与工作复本比较(&W)"
+msgstr "与工作拷贝比较(&W)"
 
 # ID:138,
 #: ID:138
 msgid "Compare with b&ase"
-msgstr "与基础文件比较(&A)"
+msgstr "与基础版本比较(&A)"
 
 # ID:12,
 #: ID:12
@@ -1863,6 +1895,11 @@ msgstr "复制（分支/标记）"
 msgid "Copy URL to clipboard"
 msgstr "复制 URL"
 
+# ID:257,
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "复制错误信息到剪贴板"
+
 # ID:76,
 #: ID:76
 msgid "Copy from path"
@@ -1885,12 +1922,12 @@ msgstr "复制到剪贴板"
 # ID:101,
 #: ID:103
 msgid "Copy to working copy"
-msgstr "复制至工作复本…"
+msgstr "复制至工作拷贝…"
 
 # ID:101,
 #: ID:101
 msgid "Copy to working copy..."
-msgstr "复制至工作复本…"
+msgstr "复制至工作拷贝…"
 
 # ID:97,
 #: ID:98
@@ -2064,7 +2101,7 @@ msgstr "远程创建文件夹完成"
 # ID:10,
 #: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "在版本库中快速创建复本用作分支或标记"
+msgstr "在版本库中快速创建拷贝用作分支或标记"
 
 # ID:10,
 #: ID:10
@@ -2146,6 +2183,11 @@ msgstr "正在删除"
 msgid "Destination disk drive is full."
 msgstr "目标磁盘已满。"
 
+# ID:3825,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "窗口大小及位置"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
@@ -2166,7 +2208,7 @@ msgstr "目录："
 msgid ""
 "Disable this option if you have really big working copies and experience\n"
 "too much disk access when browsing the working copy."
-msgstr "如果你的工作复本非常大，占用了许多硬盘空间，请禁用此选项。"
+msgstr "如果你的工作拷贝非常大，占用了许多硬盘空间，请禁用此选项。"
 
 # ID:3867,#:
 # ID:3867,
@@ -2222,6 +2264,14 @@ msgstr ""
 #: ID:145
 msgid "Do you really want to move this file or folder?"
 msgstr "你确认要移动这个文件或目录吗？"
+
+# ID:76,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr "你确定要复原%s中直到此版本的所有修改吗？"
 
 # ID:76,
 #: ID:76
@@ -2454,7 +2504,7 @@ msgstr "正在导出..."
 # ID:10,
 #: ID:10
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "从版本库中导出干净的工作复本, 不生成 svn 的管理文件夹"
+msgstr "从版本库中导出干净的工作拷贝, 不生成 svn 的管理文件夹"
 
 # ID:74,
 #: ID:74
@@ -2592,12 +2642,12 @@ msgstr "要获取帮助，请按 F1 键"
 # Control-ID:65535,
 #: Control-ID:1200
 msgid "From:"
-msgstr "从："
+msgstr "起始："
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "从：（从此URL和修改版本开始合并）"
+msgstr "起始：（合并范围的起始URL和版本）"
 
 # ID:273,
 #: ID:273
@@ -2770,7 +2820,7 @@ msgstr ""
 # ID:79,
 #: ID:79
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr "选中此选项时，TortoiseSVN 创建用于比较差异的 BASE 版本的临时文件，该临时文件将展开关键词以及整行结束符。"
+msgstr "选中此选项时，TortoiseSVN 创建用于比较差异的基础版本的临时文件，该临时文件将展开关键词以及整行结束符。"
 
 # ID:195,
 #: ID:195
@@ -2796,7 +2846,7 @@ msgid ""
 "instead of the last used URL."
 msgstr ""
 "如果启用，合并对话框在初始化“From:”地址时将使用选\n"
-"中的工作副本的URL代替最后一次使用的副本的URL。"
+"中的工作拷贝的URL代替最后一次使用的拷贝的URL。"
 
 # ID:195,
 #: ID:195
@@ -3137,6 +3187,7 @@ msgid "Log History"
 msgstr "历史记录"
 
 # Dlg-ID:130,
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "日志信息"
@@ -3191,7 +3242,7 @@ msgstr "最低版本: %ld - 最高版本: %ld"
 #: ID:238
 #, c-format
 msgid "Lowest revision: %ld - Highest revision: %ld - HEAD revision: %ld"
-msgstr "最低版本: %ld - 最高版本: %ld - 主版本: %ld"
+msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 
 # ID:3866,#:
 # ID:3866,
@@ -3747,8 +3798,8 @@ msgid ""
 "to that copy path. Use the Switch command to do that."
 msgstr ""
 "请注意：\n"
-"你的工作复本仍设为原来的路径。如果你想要之后的修改会\n"
-"提交到刚才创建的复本，你必须先<b>切换</b>到新的路径。\n"
+"你的工作拷贝仍设为原来的路径。如果你想要之后的修改会\n"
+"提交到刚才创建的拷贝，你必须先<b>切换</b>到新的路径。\n"
 "使用<b>切换</b>指令来执行此操作。"
 
 # ID:3858,#:
@@ -3855,6 +3906,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "R&AM drives"
 msgstr "内存虚拟磁盘(&A)"
+
+# ID:113,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "复原到此版本(&E)"
 
 # ID:3697,
 #: ID:3697
@@ -4314,6 +4370,11 @@ msgid "SVN Lock owner"
 msgstr "SVN 锁定属主"
 
 # Control-ID:1073,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN 复制并重命名版本控制的文件到当前位置"
+
+# Control-ID:1073,
 #: ID:12
 msgid "SVN Move versioned files here"
 msgstr "SVN 移动版本控制的文件到当前位置"
@@ -4399,6 +4460,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "保存到剪切板"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "已保存数据"
 
 # ID:144,
 #: ID:103
@@ -4762,7 +4828,7 @@ msgid ""
 "should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
-"指定在<b>所有</b>工作复本中都不需要使用\n"
+"指定在<b>所有</b>工作拷贝中都不需要使用\n"
 " TortoiseSVN 进行版本控制的目录或文件名称。\n"
 "条目之间请以空格分隔。"
 
@@ -4848,12 +4914,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Subversion"
 msgstr "Subversion"
 
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Subversion 认证数据(&A)："
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration &file:"
@@ -4888,7 +4948,7 @@ msgstr "Subversion 服务器设置："
 # ID:9,
 #: Control-ID:1232
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "切换工作复本至新分支/标记(&I)"
+msgstr "切换工作拷贝至新分支/标记(&I)"
 
 #: MenuEntry
 msgid "Switch Left<->Right"
@@ -4948,7 +5008,7 @@ msgstr "切换至前一个文件窗口"
 # ID:9,
 #: ID:9
 msgid "Switch working copy to another branch / tag"
-msgstr "切换工作复本至其它分支/标记"
+msgstr "切换工作拷贝至其它分支/标记"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4965,7 +5025,7 @@ msgstr "系统注册表及 INI 文件(如果有) 删除完成。"
 #: ID:79
 #, c-format
 msgid "Tagged the working copy to %s"
-msgstr "标记工作复本为 %s"
+msgstr "标记工作拷贝为 %s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5091,7 +5151,7 @@ msgstr "旧文件的标示行应该位于第 %d 行！"
 # ID:251,
 #: ID:251
 msgid "The lock has already been broken from another working copy"
-msgstr "锁定已被其它工作复本解除。"
+msgstr "锁定已被其它工作拷贝解除。"
 
 # ID:63,
 #: ID:63
@@ -5154,7 +5214,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "The result of the merge is stored in the working copy at:"
-msgstr "合并结果已储到工作复本："
+msgstr "保存合并结果的工作拷贝路径："
 
 # ID:78,
 #: ID:78
@@ -5227,7 +5287,7 @@ msgid ""
 "<hr=100%>\n"
 "Please commit your changes first or revert."
 msgstr ""
-"工作复本已更动！\n"
+"工作拷贝已更动！\n"
 "<hr=100%>\n"
 "请先提交你的变更或复原你的改动。"
 
@@ -5237,7 +5297,7 @@ msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
 msgstr ""
-"工作复本不是最新的！\n"
+"工作拷贝不是最新的！\n"
 "请先进行更新。"
 
 # Control-ID:65535,
@@ -5340,12 +5400,12 @@ msgstr "该属性只允许添加一行，不能添加多行文本。"
 # Control-ID:65535,
 #: Control-ID:1201
 msgid "To:"
-msgstr "至："
+msgstr "结束："
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "到： （合并结束于此URL和修改版本）"
+msgstr "结束： （合并范围的结束URL和版本）"
 
 # ID:7,#:
 # ID:3585,#:
@@ -5530,6 +5590,11 @@ msgstr "双向差异(&D)"
 msgid "URL"
 msgstr "URL"
 
+# ID:80,
+#: Control-ID:1272
+msgid "URL history"
+msgstr "URL 历史记录"
+
 # ID:12,
 #: ID:12
 msgid "URL of Subversion items"
@@ -5601,7 +5666,7 @@ msgstr "预期外的文件格式。"
 
 #: MenuEntry
 msgid "Unified &diff of HEAD revisions"
-msgstr "与主版本的单一比较(&D)"
+msgstr "与最新版本的标准差异（Unified diff）(&D)"
 
 # ID:81,
 #: ID:81
@@ -5656,12 +5721,12 @@ msgstr "更新"
 # ID:11,
 #: ID:11
 msgid "Updates the working copy to a specific revision"
-msgstr "更新工作复本至指定的版本"
+msgstr "更新工作拷贝至指定的版本"
 
 # ID:9,
 #: ID:9
 msgid "Updates the working copy to the current revision"
-msgstr "更新工作复本至当前的版本"
+msgstr "更新工作拷贝至当前的版本"
 
 # ID:207,
 #: ID:207
@@ -5701,18 +5766,18 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr ""
 "可以使用通配符“*”指定例外。\n"
-"多个例外可以适用逗号“,”进行分隔。\n"
+"多个例外可以使用逗号“,”进行分隔。\n"
 "例：*.mylan.com, *.company.com"
 
 # Control-ID:1230,
 #: Control-ID:1230
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "使用 WC 的 URL 作为默认的来源 URL(&W)"
+msgstr "使用工作拷贝的 URL 作为默认的来源 URL(&W)"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "使用来源 URL(版本范围可以在上面的历史对话框中选择)"
+msgstr "使用“起始：” 的 URL（版本范围可以在上面的日志对话框中选择）"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5722,22 +5787,22 @@ msgstr "用双删除线表示已删除行(&K)"
 # ID:251,
 #: ID:251
 msgid "Use text block from \"&mine\""
-msgstr "使用本地(mine)的文字区块(&M)"
+msgstr "使用本地的文字区块(&M)"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"&theirs\""
-msgstr "使用远程(Theirs)的文字区块(&T)"
+msgstr "使用远程的文字区块(&T)"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "优先使用本地(mine)的而非远程(theirs)的文字区块(&I)"
+msgstr "优先使用本地的而非远程的文字区块(&I)"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "优先使用远程(theirs)的而非本地(mine)的文字区块(&H)"
+msgstr "优先使用远程的而非本地的文字区块(&H)"
 
 # ID:251,
 #: ID:251
@@ -5823,7 +5888,7 @@ msgstr "空白字符差异"
 # ID:151,
 #: Dlg-ID:158
 msgid "Working Copy"
-msgstr "工作复本"
+msgstr "工作拷贝"
 
 # ID:80,
 #: ID:80
@@ -5832,7 +5897,7 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"工作复本重定位至\n"
+"工作拷贝重定位至\n"
 "%s"
 
 # ID:73,
@@ -5929,7 +5994,7 @@ msgstr ""
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
-msgstr "你必须先更新工作复本。"
+msgstr "你必须先更新工作拷贝。"
 
 # ID:169,
 #: ID:169
@@ -6011,7 +6076,7 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"你的工作复本正处于标记的路径下！\n"
+"你的工作拷贝正处于标记的路径下！\n"
 "你必须先切换至主版本或分支才能进行提交动作。\n"
 "\n"
 "确定要继续提交吗？"
@@ -6023,8 +6088,8 @@ msgid ""
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
-"您本地的工作复本已经修改！\n"
-"提示：更新到另一个分支不会丢失这些修改，因此工作复本\n"
+"您本地的工作拷贝已经修改！\n"
+"提示：更新到另一个分支不会丢失这些修改，因此工作拷贝\n"
 "可能看上去和你要更新到的那个分支不是完全一致！"
 
 #: MenuEntry
@@ -6374,6 +6439,16 @@ msgstr ""
 "文件将在检出或更新时被设为只读，表明用户需在\n"
 "修改或提交前取得该文件锁定。"
 
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"切换到\r\n"
+"%s"
+
 # ID:80,
 #: ID:80
 #: ID:103
@@ -6451,5 +6526,5 @@ msgstr "周"
 # ID:9,
 #: Control-ID:65535
 msgid "which points to the repository at URL:"
-msgstr "指示仓库位置的URL路径："
+msgstr "对应版本库URL："
 
