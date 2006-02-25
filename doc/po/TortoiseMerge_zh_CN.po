@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-02-25 13:19+0800\n"
+"PO-Revision-Date: 2006-02-25 23:20+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,7 +216,7 @@ msgstr "冲突也可能出现在应用一个过时的补丁时。这种情况下
 #: source/TortoiseMerge_en.xml:216
 #: (para)
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patchfile for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr ""
+msgstr "但是现在TortoiseMerge不再是必需的了——至少当你使用类似Subversion这样的版本控制系统时不是必需的。TortoiseMerge解析某个版本/修订的补丁文件并自动尝试从你的版本控制系统中获取对应的版本，然后应用该补丁并让你对比文件的原本的内容及其修改后的内容。以便你能决定是否接受那些修改。"
 
 #: source/TortoiseMerge_en.xml:231
 #: (title)
@@ -296,7 +296,7 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:332
 #: (title)
 msgid "Three Pane View"
-msgstr ""
+msgstr "三面板视图"
 
 #: source/TortoiseMerge_en.xml:335
 #: (para)
@@ -316,7 +316,7 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:364
 #: (title)
 msgid "Applying Patches"
-msgstr ""
+msgstr "应用补丁"
 
 #: source/TortoiseMerge_en.xml:365
 #: (para)
@@ -331,7 +331,7 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:384
 #: (title)
 msgid "Patch Filelist"
-msgstr ""
+msgstr "补丁文件列表"
 
 #: source/TortoiseMerge_en.xml:379
 #: (para)
@@ -351,7 +351,7 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:416
 #: (title)
 msgid "Buttons and Other Controls"
-msgstr ""
+msgstr "按钮及其他控制"
 
 #: source/TortoiseMerge_en.xml:419
 #: (title)
@@ -381,47 +381,47 @@ msgstr "<guibutton>Undo</guibutton> 该功能仍然不可用。"
 #: source/TortoiseMerge_en.xml:456
 #: (para)
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
-msgstr ""
+msgstr "<guibutton>上一个/下一个差异</guibutton>直接跳转到文件中的上一个/下一个不同的地方。快速滚动跳过了文件未修改过的部分。"
 
 #: source/TortoiseMerge_en.xml:462
 #: (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
-msgstr ""
+msgstr "当你处于双面板比较模式时，无论是否鼠标划过该区域，在屏幕底部的细节状态栏将显示首行的不同。"
 
 #: source/TortoiseMerge_en.xml:469
 #: (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
-msgstr ""
+msgstr "<guibutton>上一个/下一个冲突</guibutton>直接跳转到文件中的上一个/下一个需要解决的冲突。"
 
 #: source/TortoiseMerge_en.xml:476
 #: (para)
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
-msgstr ""
+msgstr "<guibutton>标记为已解决</guibutton>当你解决了文件中的全部冲突并保存了修改后，你可以在TortoiseMerge中标记为已解决冲突，而不用返回资源管理器去标记它们。"
 
 #: source/TortoiseMerge_en.xml:485
 #: (para)
 msgid "<guibutton>Show Spaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr ""
+msgstr "<guibutton>显示空白符</guibutton>切换是否使用符号显示空格和制表符，以便你能注意到空白符的变化。"
 
 #: source/TortoiseMerge_en.xml:492
 #: (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
-msgstr ""
+msgstr "<guibutton>切换视图</guibutton>在单面板和双面板间进行切换。在三面板视图时无效。"
 
 #: source/TortoiseMerge_en.xml:499
 #: (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
-msgstr ""
+msgstr "<guibutton>交换左右视图</guibutton>在双面板视图中，互换左右窗口的内容。当你比较两个不同分支中的两个文件时，而不是比较同一个文件的两个修订版本时，TortoiseSVN并不知道哪个文件应该放在左边的窗口作为<quote>原始/基础版本</quote>。如果放错了，你能够交换它们来方便查看。"
 
 #: source/TortoiseMerge_en.xml:510
 #: (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
-msgstr ""
+msgstr "<guibutton>设置</guibutton>弹出TortoiseMerge的设置对话框。"
 
 #: source/TortoiseMerge_en.xml:417
 #: (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/>下列菜单显示在工具条里。这可以容易地使用大多常见功能，它们分别是<placeholder-2/>"
 
 #: source/TortoiseMerge_en.xml:517
 #: (para)
@@ -436,12 +436,12 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:539
 #: (title)
 msgid "Merging / Editing Conflicts"
-msgstr ""
+msgstr "合并/编辑冲突"
 
 #: source/TortoiseMerge_en.xml:540
 #: (para)
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
-msgstr ""
+msgstr "TortoiseMerge不仅<emphasis>显示</emphasis>给你文件间的不同，而且也让你能解决冲突或者采用修改。"
 
 #: source/TortoiseMerge_en.xml:544
 #: (para)
@@ -756,7 +756,7 @@ msgstr "切换是否显示空白字符"
 #: source/TortoiseMerge_en.xml:843
 #: (term)
 msgid "Ctrl-wheelmouse"
-msgstr ""
+msgstr "Ctrl-鼠标滚轮"
 
 #: source/TortoiseMerge_en.xml:845
 #: (para)
@@ -781,12 +781,12 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:869
 #: (primary)
 msgid "automation"
-msgstr ""
+msgstr "自动"
 
 #: source/TortoiseMerge_en.xml:872
 #: (primary)
 msgid "command line"
-msgstr ""
+msgstr "命令行"
 
 #: source/TortoiseMerge_en.xml:874
 #: (para)
@@ -804,12 +804,12 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:900
 #: (entry)
 msgid "Command"
-msgstr ""
+msgstr "命令"
 
 #: source/TortoiseMerge_en.xml:901
 #: (entry)
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: source/TortoiseMerge_en.xml:907
 #: (entry)
@@ -829,7 +829,7 @@ msgstr ""
 #: source/TortoiseMerge_en.xml:921
 #: (emphasis)
 msgid "base"
-msgstr ""
+msgstr "基础版本"
 
 #: source/TortoiseMerge_en.xml:920
 #: (entry)
@@ -969,22 +969,22 @@ msgstr "文件库是存储和维护数据的中央部分。一个文件库能存
 #: source/TortoiseMerge_en.xml:1076
 #: (glossterm)
 msgid "BASE revision"
-msgstr ""
+msgstr "基础版本"
 
 #: source/TortoiseMerge_en.xml:1078
 #: (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr ""
+msgstr "<emphasis>工作拷贝</emphasis>中的文件或文件夹的当前基础版本。它是文件或文件夹上次检出、更新或提交后的版本。通常基础版本与最新版本并不相同。"
 
 #: source/TortoiseMerge_en.xml:1087
 #: (glossterm)
 msgid "HEAD revision"
-msgstr ""
+msgstr "最新版本"
 
 #: source/TortoiseMerge_en.xml:1089
 #: (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr ""
+msgstr "<emphasis>版本库</emphasis>中的文件或文件夹的最新版本。"
 
 #: source/TortoiseMerge_en.xml:1095
 #: (glossterm)
