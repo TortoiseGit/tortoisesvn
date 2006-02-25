@@ -153,6 +153,7 @@ public:
 	bool IsThreadRunning() {return !!m_bThreadRunning;}
 	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
 	void SetSelect(bool bSelect) {m_bSelect = bSelect;}
+	void ContinuousSelection(bool bCont = true) {m_bSelectionMustBeContinuous = bCont;}
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
@@ -170,6 +171,8 @@ private:
 	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
     void SortShownListArray();
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
+	bool IsSelectionContinuous();
+	void EnableOKButton();
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	static int __cdecl	SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
@@ -190,6 +193,7 @@ private:
 	svn_revnum_t		m_startrev;
 	svn_revnum_t		m_LogRevision;
 	svn_revnum_t		m_endrev;
+	bool				m_bSelectionMustBeContinuous;
 	long				m_logcounter;
 	bool				m_bCancelled;
 	volatile LONG 		m_bThreadRunning;

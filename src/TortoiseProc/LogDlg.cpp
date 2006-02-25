@@ -56,7 +56,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_nSortColumn(0),
 	m_bShowedAll(false),
 	m_bSelect(false),
-	m_regLastStrict(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE)
+	m_regLastStrict(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE),
+	m_bSelectionMustBeContinuous(false)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -259,7 +260,10 @@ BOOL CLogDlg::OnInitDialog()
 	if (m_bSelect)
 	{
 		// the dialog is used to select revisions
-		GetDlgItem(IDOK)->EnableWindow(m_LogList.GetSelectedCount()!=0);
+		if (m_bSelectionMustBeContinuous)
+			GetDlgItem(IDOK)->EnableWindow((m_LogList.GetSelectedCount()!=0)&&(IsSelectionContinuous()));
+		else
+			GetDlgItem(IDOK)->EnableWindow(m_LogList.GetSelectedCount()!=0);
 	}
 	else
 	{
@@ -281,6 +285,20 @@ BOOL CLogDlg::OnInitDialog()
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	return FALSE;
+}
+
+void CLogDlg::EnableOKButton()
+{
+	if (m_bSelect)
+	{
+		// the dialog is used to select revisions
+		if (m_bSelectionMustBeContinuous)
+			GetDlgItem(IDOK)->EnableWindow((m_LogList.GetSelectedCount()!=0)&&(IsSelectionContinuous()));
+		else
+			GetDlgItem(IDOK)->EnableWindow(m_LogList.GetSelectedCount()!=0);
+	}
+	else
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
 }
 
 void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
@@ -822,22 +840,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					// reverting revisions only works (in one merge!) when the selected
 					// revisions are continuous. So check first if that's the case before
 					// we show the context menu.
-					POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-					bool bContinuous = (m_arShownList.GetCount() == (INT_PTR)m_logEntries.size());
-					if (bContinuous)
-					{
-						int itemindex = m_LogList.GetNextSelectedItem(pos);
-						while (pos)
-						{
-							int nextindex = m_LogList.GetNextSelectedItem(pos);
-							if (nextindex - itemindex > 1)
-							{
-								bContinuous = false;
-								break;
-							}
-							itemindex = nextindex;
-						}
-					}
+					bool bContinuous = IsSelectionContinuous();
 					temp.LoadString(IDS_LOG_POPUP_REVERTREVS);
 					if ((m_hasWC)&&(bContinuous))
 					{
@@ -1097,7 +1100,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								svn.SetAndClearProgressInfo((HWND)NULL);
 								delete [] pszFilters;
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								EnableOKButton();
 								break;
 							}
 							progDlg.Stop();
@@ -1127,7 +1130,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							progDlg.Stop();
 							SetAndClearProgressInfo((HWND)NULL);
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							EnableOKButton();
 							break;
 						}
 						else
@@ -1164,7 +1167,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							progDlg.Stop();
 							svn.SetAndClearProgressInfo((HWND)NULL);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							EnableOKButton();
 							break;
 						}
 						progDlg.Stop();
@@ -1236,7 +1239,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				} // switch (cmd)
 				theApp.DoWaitCursor(-1);
-				GetDlgItem(IDOK)->EnableWindow(TRUE);
+				EnableOKButton();
 			} // if (popup.CreatePopupMenu())
 		} // if (selIndex >= 0)
 	} // if (pWnd == &m_LogList)
@@ -1335,7 +1338,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CString temp;
 								temp.Format(IDS_ERR_NOURLOFFILE, m_path);
 								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								EnableOKButton();
 								theApp.DoWaitCursor(-11);
 								break;		//exit
 							}
@@ -1393,7 +1396,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
 								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 								TRACE(_T("could not retrieve the URL of the file!\n"));
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								EnableOKButton();
 								break;
 							}
 						}
@@ -1403,7 +1406,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						dlg.m_rev = rev;
 						dlg.m_Path = CTSVNPath(filepath);
 						dlg.DoModal();
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						EnableOKButton();
 						theApp.DoWaitCursor(-1);
 					}
 					break;
@@ -1427,7 +1430,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
 								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 								TRACE(_T("could not retrieve the URL of the file!\n"));
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								EnableOKButton();
 								break;
 							}
 						}
@@ -1496,7 +1499,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								SetAndClearProgressInfo((HWND)NULL);
 								delete [] pszFilters;
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								EnableOKButton();
 								theApp.DoWaitCursor(-1);
 								break;
 							}
@@ -1504,7 +1507,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							SetAndClearProgressInfo((HWND)NULL);
 						}
 						delete [] pszFilters;
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						EnableOKButton();
 						theApp.DoWaitCursor(-1);
 					}
 					break;
@@ -1530,7 +1533,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
 								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 								TRACE(_T("could not retrieve the URL of the file!\n"));
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								EnableOKButton();
 								break;
 							}
 						}
@@ -1551,7 +1554,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							progDlg.Stop();
 							SetAndClearProgressInfo((HWND)NULL);
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							EnableOKButton();
 							theApp.DoWaitCursor(-1);
 							break;
 						}
@@ -1570,7 +1573,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							cmd += tempfile.GetWinPathString();
 							CUtils::LaunchApplication(cmd, NULL, false);
 						}
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						EnableOKButton();
 						theApp.DoWaitCursor(-1);
 					}
 					break;
@@ -1594,7 +1597,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
 								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 								TRACE(_T("could not retrieve the URL of the file!\n"));
-								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								EnableOKButton();
 								break;
 							}
 						}
@@ -1605,7 +1608,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /revstart:%ld"), CUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, rev);
 						
 						CUtils::LaunchApplication(sCmd, NULL, false);
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						EnableOKButton();
 						theApp.DoWaitCursor(-1);
 					}
 					break;
@@ -1617,6 +1620,27 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 	} // if (pWnd == &m_LogMsgCtrl) 
 //#endregion
 
+}
+
+bool CLogDlg::IsSelectionContinuous()
+{
+	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+	bool bContinuous = (m_arShownList.GetCount() == (INT_PTR)m_logEntries.size());
+	if (bContinuous)
+	{
+		int itemindex = m_LogList.GetNextSelectedItem(pos);
+		while (pos)
+		{
+			int nextindex = m_LogList.GetNextSelectedItem(pos);
+			if (nextindex - itemindex > 1)
+			{
+				bContinuous = false;
+				break;
+			}
+			itemindex = nextindex;
+		}
+	}
+	return bContinuous;
 }
 
 LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
@@ -1863,7 +1887,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev)
 			temp.Format(IDS_ERR_NOURLOFFILE, filepath);
 			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 			TRACE(_T("could not retrieve the URL of the file!\n"));
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
+			EnableOKButton();
 			theApp.DoWaitCursor(-11);
 			return;		//exit
 		}
@@ -1893,7 +1917,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev)
 	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev);
 
 	theApp.DoWaitCursor(-1);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	EnableOKButton();
 }
 
 void CLogDlg::EditAuthor(int index)
@@ -1934,7 +1958,7 @@ void CLogDlg::EditAuthor(int index)
 		}
 	}
 	theApp.DoWaitCursor(-1);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	EnableOKButton();
 }
 
 void CLogDlg::EditLogMessage(int index)
@@ -2015,7 +2039,7 @@ void CLogDlg::EditLogMessage(int index)
 		}
 	}
 	theApp.DoWaitCursor(-1);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	EnableOKButton();
 }
 
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
@@ -2099,10 +2123,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (m_bThreadRunning)
 		return;
-	if (m_bSelect)
-	{
-		GetDlgItem(IDOK)->EnableWindow(m_LogList.GetSelectedCount()!=0);
-	}
+	EnableOKButton();
 	if (pNMLV->iItem >= 0)
 	{
 		m_nSearchIndex = pNMLV->iItem;
