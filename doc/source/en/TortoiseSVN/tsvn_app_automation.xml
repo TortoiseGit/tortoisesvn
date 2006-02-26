@@ -249,6 +249,8 @@ Don't touch these lines:
 							<entry>
 								Renames the file in <option>/path</option>. The new
 								name for the file is asked with a dialog.
+								To avoid the question about renaming similar files
+								in one step, pass <option>/noquestion</option>.
 							</entry>
 						</row>
 						<row>

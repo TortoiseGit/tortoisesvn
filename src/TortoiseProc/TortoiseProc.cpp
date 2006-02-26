@@ -1049,6 +1049,9 @@ BOOL CTortoiseProcApp::InitInstance()
 					CString sMsg;
 					if (SVN::PathIsURL(cmdLinePath.GetSVNPathString()))
 					{
+						// rename an URL.
+						// Ask for a commit message, then rename directly in
+						// the repository
 						CInputDlg input;
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 						CUtils::RemoveAccelerators(input.m_sHintText);
@@ -1066,6 +1069,9 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 					if ((cmdLinePath.IsDirectory())||(pathList.GetCount() > 1))
 					{
+						// renaming a directory can take a while: use the
+						// progress dialog to show the progress of the renaming
+						// operation.
 						CSVNProgressDlg progDlg;
 						progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 						progDlg.SetParams(CSVNProgressDlg::Rename, 0, pathList, destinationPath.GetWinPathString(), sMsg, SVNRev::REV_WC);
@@ -1074,14 +1080,103 @@ BOOL CTortoiseProcApp::InitInstance()
 					else
 					{
 						SVN svn;
-						if (!svn.Move(cmdLinePath, destinationPath, TRUE, sMsg))
+						CString sFilemask = cmdLinePath.GetFilename();
+						if (sFilemask.Find('.')>=0)
 						{
-							TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-							CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							sFilemask = sFilemask.Left(sFilemask.Find('.'));
 						}
-					}
-				}
-			}
+						else
+							sFilemask.Empty();
+						CString sNewMask = destinationPath.GetFilename();
+						if (sNewMask.Find('.'>=0))
+						{
+							sNewMask = sNewMask.Left(sNewMask.Find('.'));
+						}
+						else
+							sNewMask.Empty();
+
+						if (((!sFilemask.IsEmpty()) && (parser.HasKey(_T("noquestion")))) ||
+							(cmdLinePath.GetFileExtension().Compare(destinationPath.GetFileExtension())!=0))
+						{
+							if (!svn.Move(cmdLinePath, destinationPath, TRUE, sMsg))
+							{
+								TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+								CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							}
+						}
+						else
+						{
+							// when refactoring, multiple files have to be renamed
+							// at once because those files belong together.
+							// e.g. file.aspx, file.aspx.cs, file.aspx.resx
+							CTSVNPathList renlist;
+							CSimpleFileFind filefind(cmdLinePath.GetDirectory().GetWinPathString(), sFilemask+_T(".*"));
+							while (filefind.FindNextFileNoDots())
+							{
+								if (!filefind.IsDirectory())
+									renlist.AddPath(CTSVNPath(filefind.GetFilePath()));
+							}
+							if (renlist.GetCount()<=1)
+							{
+								// we couldn't find any other matching files
+								// just do the default...
+								if (!svn.Move(cmdLinePath, destinationPath, TRUE, sMsg))
+								{
+									TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+									CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								}
+							}
+							else
+							{
+								std::map<CString, CString> renmap;
+								CString sTemp;
+								CString sRenList;
+								for (int i=0; i<renlist.GetCount(); ++i)
+								{
+									CString sFilename = renlist[i].GetFilename();
+									CString sNewFilename = sNewMask + sFilename.Mid(sFilemask.GetLength());
+									sTemp.Format(_T("\n%s -> %s"), sFilename, sNewFilename);
+									sRenList += sTemp;
+									renmap[renlist[i].GetWinPathString()] = renlist[i].GetContainingDirectory().GetWinPathString()+_T("\\")+sNewFilename;
+								}
+								CString sRenameMultipleQuestion;
+								sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, sRenList);
+								UINT idret = CMessageBox::Show(EXPLORERHWND, sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO);
+								if (idret == IDYES)
+								{
+									CProgressDlg progress;
+									progress.SetTitle(IDS_PROC_MOVING);
+									progress.SetAnimation(IDR_MOVEANI);
+									progress.SetTime(true);
+									progress.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
+									DWORD count = 1;
+									for (std::map<CString, CString>::iterator it=renmap.begin(); it != renmap.end(); ++it)
+									{
+										progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, it->first);
+										progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, it->second);
+										progress.SetProgress(count, renmap.size());
+										if (!svn.Move(CTSVNPath(it->first), CTSVNPath(it->second), TRUE, sMsg))
+										{
+											TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+											CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+										}
+									}
+									progress.Stop();
+								}
+								else if (idret == IDNO)
+								{
+									// no, user wants to just rename the file he selected
+									if (!svn.Move(cmdLinePath, destinationPath, TRUE, sMsg))
+									{
+										TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+										CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+									}
+								}
+							}
+						}
+					} // else from if ((cmdLinePath.IsDirectory())||(pathList.GetCount() > 1))
+				} // if (cmdLinePath.IsEquivalentTo(destinationPath))
+			} // if (dlg.DoModal() == IDOK)
 		}
 		//#endregion
 		//#region diff
