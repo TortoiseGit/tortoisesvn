@@ -26,10 +26,17 @@
 		This command analyses the revision history and attempts to create
 		a tree showing the points at which copies were taken, and when
 		branches/tags were deleted.
-		Please note: It can take several minutes to retrieve all the data
-		needed to create the revision graph, depending on how much the project
-		has changed and of course your network connection to the repository.
 	</para>
+	<important>
+		<para>
+			In order to generate the graph, TortoiseSVN must fetch all log messages
+			from the repository root. Needless to say this can take several minutes
+			even with a repository of a few thousand revisions, depending on server
+			speed, network bandwidth, etc. If you try this with something like the
+			<literal>Apache</literal> project which currently has over 300,000
+			revisions you could be waiting for some time.
+		</para>
+	</important>
 	<para>
 		The revision graph shows several types of node:
 		<variablelist>
@@ -72,10 +79,17 @@
 			</varlistentry>
 		</variablelist>
 		Note that by default the graph only shows the points at which items were
-		added or deleted. Showing every revision of a project could generate a very
+		added or deleted. Showing every revision of a project will generate a very
 		large graph for non-trivial cases. If you really want to see
 		<emphasis>all</emphasis> revision, there is an option to do this in
 		the <guilabel>View</guilabel> menu.
+	</para>
+	<para>
+		There is also an option to arrange the graph <emphasis>by path</emphasis>.
+		This attempts to sort the branches from the tags. Paths which contain no
+		modifications after copying are assumed to be tags and are stacked in
+		a single column. Branches (which contain modifications after creation)
+		each have their own column, so you can see how the branch develops.
 	</para>
 	<para>
 		The revision date, author and comments are shown in a hint box whenever
