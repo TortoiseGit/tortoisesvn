@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 5712: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 5847: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-14 19:17+0300\n"
+"PO-Revision-Date: 2006-02-26 15:40+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -288,6 +288,7 @@ msgstr "&Копировать в..."
 msgid "&Custom"
 msgstr "Из &настроек"
 
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "По &умолчанию"
@@ -1101,6 +1102,10 @@ msgstr "До ревизии: %d"
 msgid "Authentication"
 msgstr "Установление личности"
 
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "Данные аутентификации"
+
 #: ID:76
 #: ID:207
 msgid "Author"
@@ -1375,9 +1380,27 @@ msgstr "Очистка закончена"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Очистка прерванных операций, блокированных файлов, ..."
 
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "Очистить &сейчас"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "Очистить"
+
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "Очищает %ld URL, сохранённых для %ld рабочих копий"
+
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "Очищает %ld лог-сообщений, сохранённых для %ld рабочих копий"
+
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "Очищает %ld пар имя-пользователя/пароль,%ld сертификатов ssl и %ld имён пользователей"
 
 #: ID:195
 msgid ""
@@ -1386,6 +1409,12 @@ msgid ""
 msgstr ""
 "Очищает все сохраненные данные авторизации.\n"
 "Вам нужно будет заново ввести имя/пароль для всех хранилищ."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "Очищает размеры и расположение %ld окон"
 
 #: ID:170
 msgid "Click here to select a recently typed message"
@@ -1532,6 +1561,10 @@ msgstr "Копирование (Ответвление / Метка)"
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "Скопировать URL в буфер обмена"
+
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "Скопировать сообщение об ошибке в буфер обмена"
 
 #: ID:76
 msgid "Copy from path"
@@ -1769,6 +1802,10 @@ msgstr "Удаление"
 msgid "Destination disk drive is full."
 msgstr "Диск назначения полон."
 
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "Размеры и расположение окон"
+
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Файл различий:"
@@ -1834,6 +1871,16 @@ msgstr ""
 #: ID:145
 msgid "Do you really want to move this file or folder?"
 msgstr "Вы действительно хотите переместить этот файл или папку?"
+
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Вы действительно хотите убрать все изменения в\n"
+" %s,\n"
+"и вернуться к этой ревизии?"
 
 #: ID:76
 #, c-format
@@ -2602,6 +2649,7 @@ msgid "Log History"
 msgstr "Предыдущие лог-сообщения"
 
 # Заголовок окна
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Лог-сообщения"
@@ -2860,9 +2908,17 @@ msgstr "Не найден ни один обработчик для изобра
 msgid "No spell corrections"
 msgstr "Без исправлений"
 
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Без статусного кэша. Пометки будут только на версионных папках, файлы - без пометок"
+
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Нет предложений из словаря"
+
+#: Control-ID:1271
+msgid "None"
+msgstr "Без кэширования"
 
 # Род?
 # (Цвет незатронутых строк)
@@ -3166,6 +3222,10 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "RAM &диски"
 
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "&Вернуть к этой ревизии"
+
 #: ID:3697
 msgid "REC"
 msgstr "REC"
@@ -3439,7 +3499,7 @@ msgstr "Ревизия %d"
 
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "Ревизия %ld"
@@ -3465,6 +3525,25 @@ msgstr "Граф ревизий"
 #: ID:75
 msgid "Revision: "
 msgstr "Ревизия:"
+
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Ревизия:%ld\n"
+"URL: %s\r\n"
+"Автор: %s\r\n"
+"Дата: %s\r\n"
+"\r\n"
+"Log-сообщение:\r\n"
+"%s"
 
 #: ID:116
 msgid "Revisions"
@@ -3521,6 +3600,10 @@ msgstr "SVN Экспортировать сюда"
 #: ID:16
 msgid "SVN Lock owner"
 msgstr "SVN Владелец блокировки"
+
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN Переместить и переименовать версионные файлы сюда"
 
 #: ID:12
 msgid "SVN Move versioned files here"
@@ -3590,6 +3673,10 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "Сохранить в буфер обмена"
+
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "Сохранённые данные"
 
 #: ID:103
 #, c-format
@@ -3731,6 +3818,10 @@ msgstr "Настройки"
 msgid "Sh&ow log"
 msgstr "Пока&зать лог"
 
+#: Control-ID:1270
+msgid "Shell"
+msgstr "В оболочке"
+
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Кэш значков оболочки восстановлен!"
@@ -3812,10 +3903,6 @@ msgid ""
 msgstr ""
 "Показать или спрятать панель инструментов\n"
 "Переключить панель инструментов"
-
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Показывать пометки статуса значков рекурсивно"
 
 #: ID:2049
 msgid ""
@@ -3923,6 +4010,18 @@ msgstr "Состояние"
 msgid "Status and action colors"
 msgstr "Цвета состояний и действий"
 
+#: Control-ID:65535
+msgid "Status cache"
+msgstr "Кэширование статуса"
+
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Статусный кэш во внешнем процессе, пометки могут отображаться рекурсивно"
+
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Статусный кэш только для одной папки, пометки рекурсивно не показываются"
+
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Состояние объекта в SVN"
@@ -3942,10 +4041,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
-
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Данные &аутентификации Subversion:"
 
 #: Control-ID:65535
 msgid "Subversion configuration &file:"
@@ -4492,6 +4587,16 @@ msgstr "TortoiseSVN Переключение..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN Обновление..."
 
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN обнаружил похожие имена. Желаете ли вы, чтобы следующие файлы:\n"
+"%s\n"
+"тоже были бы переименованы?"
+
 #: Control-ID:1162
 msgid "Total commits analyzed:"
 msgstr "Фиксаций проанализировано:"
@@ -4526,6 +4631,10 @@ msgstr "&Различия на двух панелях"
 msgid "URL"
 msgstr "URL"
 
+#: Control-ID:1272
+msgid "URL history"
+msgstr "Предыдущие URL"
+
 #: ID:12
 msgid "URL of Subversion items"
 msgstr "URL объектов Subversion"
@@ -4537,23 +4646,6 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL: "
-
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Автор: %s\r\n"
-"Дата: %s\r\n"
-"\r\n"
-"Log-сообщение:\r\n"
-"%s"
 
 #: ID:3866
 msgid "Unable to load mail system support."
@@ -4970,6 +5062,23 @@ msgstr "Уве&личить\tCtrl-+"
 msgid "Zoom &out\tCtrl--"
 msgstr "Уме&ньшить\tCtrl--"
 
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "Реальный размер"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Увеличить"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "Уменьшить"
+
+#: ID:2051
+msgid "Zoom to fit"
+msgstr "Весь граф"
+
 #: ID:10
 msgid "added"
 msgstr "добавлен"
@@ -5244,6 +5353,15 @@ msgstr ""
 "svn:needs-lock\n"
 "Установите в любое значение (например, '*') для принудительной блокировки файла.\n"
 "Файл будет помечен как только-для-чтения при извлечении или обновлении, показывая, что пользователь должен получить блокировку этого файла перед его редактированием и фиксированием изменений."
+
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"переключено на\r\n"
+"%s"
 
 #: ID:80
 #: ID:103
