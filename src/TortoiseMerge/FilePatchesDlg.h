@@ -56,6 +56,7 @@ public:
 #define FPDLG_FILESTATE_PATCHED		0x0002
 
 #define ID_PATCHALL					1
+#define ID_PATCHSELECTED			2
 /**
  * \ingroup TortoiseMerge
  *

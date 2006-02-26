@@ -157,6 +157,7 @@
 #define IDS_PATCH_ALL                   6000
 #define IDS_PATCH_TITLE                 6001
 #define IDS_DIFF_TITLE                  6002
+#define IDS_PATCH_SELECTED              6003
 #define IDS_COLOURPICKER_CUSTOMTEXT     7000
 #define IDS_COLOURPICKER_DEFAULTTEXT    7001
 #define ID_VIEW_WHITESPACES             32774

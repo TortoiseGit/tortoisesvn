@@ -282,6 +282,10 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	{
 		temp.LoadString(IDS_PATCH_ALL);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PATCHALL, temp);
+		
+		temp.LoadString(IDS_PATCH_SELECTED);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PATCHSELECTED, temp);
+		
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
 		{
@@ -295,6 +299,23 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 							m_pCallBack->PatchFile(GetFullPath(i), m_pPatch->GetRevision(i), TRUE);
 					} // for (int i=0; i<m_arFileStates.GetCount(); i++) 
 				} // if ((m_pCallBack)&&(!temp.IsEmpty())) 
+			} 
+			break;
+		case ID_PATCHSELECTED:
+			{
+				if (m_pCallBack)
+				{
+					// The list cannot be sorted by user, so the order of the
+					// items in the list is identical to the order in the array
+					// m_arFileStates.
+					POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+					int index;
+					while ((index = m_cFileList.GetNextSelectedItem(pos)) >= 0)
+					{
+						if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
+							m_pCallBack->PatchFile(GetFullPath(index), m_pPatch->GetRevision(index), TRUE);
+					}
+				} // if (m_pCallBack) 
 			} 
 			break;
 		default:
