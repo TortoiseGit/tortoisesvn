@@ -768,6 +768,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	m_dwShow = dwShow;
 	m_bShowFolders = bShowFolders;
 	m_nSelected = 0;
+	int nTopIndex = GetTopIndex();
 	POSITION posSelectedEntry = GetFirstSelectedItemPosition();
 	int nSelectedEntry = 0;
 	if (posSelectedEntry)
@@ -865,6 +866,17 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	{
 		SetItemState(nSelectedEntry, LVIS_SELECTED, LVIS_SELECTED);
 		EnsureVisible(nSelectedEntry, false);
+	}
+	else
+	{
+		// Restore the item at the top of the list.
+		for (int i=0;GetTopIndex() != nTopIndex;i++)
+		{
+			if ( !EnsureVisible(nTopIndex+i,false) )
+			{
+				break;
+			}
+		}
 	}
 
 	if (pApp)
