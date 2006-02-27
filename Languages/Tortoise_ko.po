@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-23 20:43+0900\n"
+"PO-Revision-Date: 2006-02-27 14:07+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1690,7 +1690,7 @@ msgstr "%ld 개의 URL을 (%ld 개의 작업사본) 삭제합니다."
 #: ID:196
 #, c-format
 msgid "Clears %ld log messages stored for %ld working copies"
-msgstr "%ld 개의로그메시지를 (%ld 개의 작업사본) 삭제합니다."
+msgstr "%ld 개의 로그메시지를 (%ld 개의 작업사본) 삭제합니다."
 
 # ID:196,
 #: ID:196
@@ -1893,6 +1893,11 @@ msgstr "복사하기 (브랜치/태그 만들기)"
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "URL을 클립보드에 복사합니다"
+
+# ID:101,
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "오류 메시지를 클립보드에 복사"
 
 # ID:76,
 #: ID:76
@@ -3685,6 +3690,11 @@ msgstr "바뀐 파일 이름 붙이기"
 #: ID:376
 msgid "Patch all"
 msgstr "모두 패치"
+
+# ID:376,
+#: ID:376
+msgid "Patch selected"
+msgstr "선택된 것에 패치"
 
 # ID:157,#:
 # ID:157,
@@ -5550,6 +5560,16 @@ msgstr "TortoiseSVN 전환..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN 업데이트..."
 
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN이 비슷한 파일명을 발견하였습니다.\n"
+"%s로 그 파일을 변경하시겠습니까?"
+
 # Control-ID:1162,
 #: Control-ID:1162
 msgid "Total commits analyzed:"
@@ -6439,6 +6459,16 @@ msgstr ""
 "이 파일은 체크아웃이나 업데이트를 하게 되면 읽기 전용 속성으로 설정되며,\n"
 "수정이나 변경사항을 커밋해야할 경우, 파일을 먼저 잠그고 진행해야 한다는\n"
 "것을 의미합니다."
+
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"스위치 됨:\r\n"
+"%s 로"
 
 # ID:80,
 #: ID:80
