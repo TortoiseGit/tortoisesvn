@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-02-24 10:31+0100\n"
+"PO-Revision-Date: 2006-02-27 09:26+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1541,6 +1541,10 @@ msgstr "Kopieren (Verzweigung / Markierung)"
 msgid "Copy URL to clipboard"
 msgstr "URL in Zwischenablage kopieren"
 
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "Fehlermeldung in die Zwischenablage kopieren"
+
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopiert von"
@@ -3040,6 +3044,10 @@ msgstr "Geänderte Dateinamen einfügen"
 #: ID:376
 msgid "Patch all"
 msgstr "Alle &Patchen"
+
+#: ID:376
+msgid "Patch selected"
+msgstr "Patch gewählt"
 
 #: ID:157
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -4574,6 +4582,16 @@ msgstr "TortoiseSVN Wechseln zu..."
 #: ID:77
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN aktualisieren..."
+
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN hat ähnliche Dateinamen gefunden. Wollen Sie dass die Dateien:%s\n"
+"ebenfalls umbenannt werden?"
 
 #: Control-ID:1162
 msgid "Total commits analyzed:"
