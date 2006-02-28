@@ -126,33 +126,37 @@ bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 	CTSVNPath theirs(directory);
 	CTSVNPath mine(directory);
 	CTSVNPath base(directory);
+	bool bConflictData = false;
 
 	//we have the conflicted file (%merged)
 	//now look for the other required files
 	SVNStatus stat;
 	stat.GetStatus(merge);
-	if ((stat.status == NULL)||(stat.status->text_status != svn_wc_status_conflicted))
+	if ((stat.status == NULL)||(stat.status->entry == NULL))
 		return false;
-	if (stat.status && stat.status->entry)
+
+	if (stat.status->entry->conflict_new)
 	{
-		if (stat.status->entry->conflict_new)
-		{
-			theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
-		}
-		if (stat.status->entry->conflict_old)
-		{
-			base.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
-		}
-		if (stat.status->entry->conflict_wrk)
-		{
-			mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
-		}
-		else
-		{
-			mine = merge;
-		}
+		theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
+		bConflictData = true;
 	}
-	return !!CUtils::StartExtMerge(base,theirs,mine,merge);
+	if (stat.status->entry->conflict_old)
+	{
+		base.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
+		bConflictData = true;
+	}
+	if (stat.status->entry->conflict_wrk)
+	{
+		mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+		bConflictData = true;
+	}
+	else
+	{
+		mine = merge;
+	}
+	if (bConflictData)
+		return !!CUtils::StartExtMerge(base,theirs,mine,merge);
+	return false;
 }
 
 bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind text_status /* = svn_wc_status_none */, svn_wc_status_kind prop_status /* = svn_wc_status_none */)

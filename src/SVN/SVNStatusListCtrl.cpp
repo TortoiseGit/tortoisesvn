@@ -506,8 +506,12 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	if ((entry->last_commit_author.IsEmpty())&&(pSVNStatus->entry)&&(pSVNStatus->entry->cmt_author))
 		entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->entry->cmt_author);
 	
-	if (entry->status == svn_wc_status_conflicted)
+	if (pSVNStatus->entry)
+		entry->isConflicted = pSVNStatus->entry->conflict_wrk ? true : false;
+
+	if ((entry->status == svn_wc_status_conflicted)||(entry->isConflicted))
 	{
+		entry->isConflicted = true;
 		if (pSVNStatus->entry)
 		{
 			CTSVNPath cpath;
@@ -1656,7 +1660,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 					}
 				}
-				if ((wcStatus == svn_wc_status_conflicted)&&(GetSelectedCount()==1))
+				if (((wcStatus == svn_wc_status_conflicted)||(entry->isConflicted))&&(GetSelectedCount()==1))
 				{
 					if ((m_dwContextMenus & SVNSLC_POPCONFLICT)||(m_dwContextMenus & SVNSLC_POPRESOLVE))
 					popup.AppendMenu(MF_SEPARATOR);
@@ -2478,7 +2482,7 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 	FileEntry * entry = GetListEntry(pNMLV->iItem);
 	if (entry)
 	{
-		if (entry->status == svn_wc_status_conflicted)
+		if (entry->isConflicted)
 		{
 			SVNDiff::StartConflictEditor(entry->GetPath());
 		}
@@ -2710,6 +2714,9 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 					crText = GetSysColor(COLOR_WINDOWTEXT);
 					break;
 				}
+
+				if (entry->isConflicted)
+					crText = m_Colors.GetColor(CColors::Conflict);
 
 				// Store the color back in the NMLVCUSTOMDRAW struct.
 				pLVCD->clrText = crText;
