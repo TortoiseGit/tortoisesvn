@@ -150,9 +150,9 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
     {
 		apr_initialize();
 		g_SVNAdminDir.Init();
+		g_cAprInit++;
 		if (g_pCachedStatus == NULL)
 			g_pCachedStatus = new SVNFolderStatus();
-		g_cAprInit++;
 		
 		CShellExtClassFactory *pcf = new CShellExtClassFactory(state);
 		return pcf->QueryInterface(riid, ppvOut);
