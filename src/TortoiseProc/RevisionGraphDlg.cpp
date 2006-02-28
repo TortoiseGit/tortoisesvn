@@ -203,6 +203,7 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	pDlg->m_Graph.m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	pDlg->m_Graph.m_pProgress->SetTime();
 	pDlg->m_Graph.m_pProgress->ShowModeless(pDlg->m_hWnd);
+	pDlg->m_Graph.m_pProgress->SetProgress(0, 100);
 	pDlg->m_Graph.m_bNoGraph = FALSE;
 	if ((pDlg->m_bFetchLogs)&&(!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath)))
 	{

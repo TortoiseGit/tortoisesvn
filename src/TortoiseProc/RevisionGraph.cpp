@@ -183,6 +183,12 @@ svn_error_t* CRevisionGraph::logDataReceiver(void* baton,
 
 BOOL CRevisionGraph::FetchRevisionData(CString path)
 {
+	// set some text on the progress dialog, before we wait
+	// for the log operation to start
+	CString temp;
+	temp.LoadString(IDS_REVGRAPH_PROGGETREVS);
+	ProgressCallback(temp, _T(""), 0, 1);
+
 	// prepare the path for Subversion
 	SVN::preparePath(path);
 	CStringA url = CUnicodeUtils::GetUTF8(path);
