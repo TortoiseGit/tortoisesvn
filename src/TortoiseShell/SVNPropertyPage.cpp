@@ -847,6 +847,7 @@ void CSVNPropertyPage::Unescape(char * psz)
 
 bool CSVNPropertyPage::SaveProperties()
 {
+	bool bErr = false;
 	TCHAR * name = NULL;
 	TCHAR * value = NULL;
 	GetDlgItemTextEx(m_hwnd, IDC_EDITNAME, name);
@@ -877,9 +878,11 @@ bool CSVNPropertyPage::SaveProperties()
 				(_tcscmp(name, _T("svn:needs-lock"))==0)||
 				(_tcscmp(name, _T("svn:mime-type"))==0))
 			{
+				dlg.Stop();
 				TCHAR msg[2048];
 				LoadString(g_hResInst, IDS_FILEPROPONFOLDER, msg, 2048);
 				::MessageBox(m_hwnd, msg, _T("TortoiseSVN"), MB_ICONERROR);
+				bErr = true;
 				break;
 			}
 		}
@@ -890,17 +893,21 @@ bool CSVNPropertyPage::SaveProperties()
 		count++;
 		dlg.SetProgress64(count, all);
 		if (dlg.HasUserCancelled())
+		{
+			bErr = true;
 			break;
+		}
 		SVNStatus stat = SVNStatus();
 		if (stat.GetStatus(CTSVNPath(I->c_str()))==(-2))
 		{
 			::MessageBox(m_hwnd, stat.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 			props.Remove(name);
+			bErr = true;
 		}
 	} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
 	dlg.Stop();
 	InitWorkfileView();
-	EnableWindow(GetDlgItem(m_hwnd, IDC_ADDBUTTON), false);
+	EnableWindow(GetDlgItem(m_hwnd, IDC_ADDBUTTON), bErr);
 	delete name;
 	delete value;
 	return true;
