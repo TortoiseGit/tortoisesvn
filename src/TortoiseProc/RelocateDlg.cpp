@@ -100,7 +100,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 	else if ((m_sToUrl.Left(7) == _T("http://")
 		||(m_sToUrl.Left(8) == _T("https://"))
 		||(m_sToUrl.Left(6) == _T("svn://"))
-		||(m_sToUrl.Left(10) == _T("svn+ssh://"))) && m_sToUrl.GetLength() > 6)
+		||(m_sToUrl.Left(4) == _T("svn+"))) && m_sToUrl.GetLength() > 6)
 	{
 		// browse repository - show repository browser
 		CRepositoryBrowser browser(m_sToUrl, this);

@@ -245,7 +245,7 @@ void CCopyDlg::OnBnClickedBrowse()
 	else if ((strUrl.Left(7) == _T("http://")
 		||(strUrl.Left(8) == _T("https://"))
 		||(strUrl.Left(6) == _T("svn://"))
-		||(strUrl.Left(10) == _T("svn+ssh://"))) && strUrl.GetLength() > 6)
+		||(strUrl.Left(4) == _T("svn+"))) && strUrl.GetLength() > 6)
 	{
 		// browse repository - show repository browser
 		CRepositoryBrowser browser(strUrl, this, m_bFile);
