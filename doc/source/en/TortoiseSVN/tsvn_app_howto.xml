@@ -506,5 +506,51 @@ TortoiseProc.exe /command:repobrowser /path:"url/to/repository" /notempfile
 				</listitem>
 			</orderedlist>
 		</para>
+		<para>
+			If you need to remove a whole folder/hierarchy from version control,
+			the procedure is different again.
+			<orderedlist>
+				<listitem>
+					<para>
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Export</guimenuitem>
+						</menuchoice>
+						the folder to somewhere safe, not inside your
+						working copy.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Delete</guimenuitem>
+						</menuchoice>
+						the folder from your working copy.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Commit</guimenuitem>
+						</menuchoice>
+						the deleted folder to remove it from the repository.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Move the exported folder back to its original location
+						in your working copy.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Add the folder to the ignore list so you don't get
+						into the same trouble again.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
 	</sect1>
 </appendix>
