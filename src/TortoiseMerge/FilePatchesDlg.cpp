@@ -283,8 +283,9 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 		temp.LoadString(IDS_PATCH_ALL);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PATCHALL, temp);
 		
+		UINT nFlags = MF_STRING | (m_cFileList.GetSelectedCount()>0 ? MF_ENABLED : MF_DISABLED | MF_GRAYED);
 		temp.LoadString(IDS_PATCH_SELECTED);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PATCHSELECTED, temp);
+		popup.AppendMenu(nFlags, ID_PATCHSELECTED, temp);
 		
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
