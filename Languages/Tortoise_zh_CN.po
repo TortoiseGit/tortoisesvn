@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-25 13:19+0800\n"
+"PO-Revision-Date: 2006-02-28 10:04+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3688,6 +3688,11 @@ msgstr "粘贴文件名列表"
 msgid "Patch all"
 msgstr "全部补丁"
 
+# ID:376,
+#: ID:376
+msgid "Patch selected"
+msgstr "选定的补丁"
+
 # ID:157,#:
 # ID:157,
 #: ID:157
@@ -5548,6 +5553,16 @@ msgstr "TortoiseSVN 切换..."
 #: ID:77
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN 更新..."
+
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN 发现文件重名。你要将文件：%s\n"
+"改名吗？"
 
 # Control-ID:1162,
 #: Control-ID:1162
