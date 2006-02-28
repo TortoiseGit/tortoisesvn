@@ -2592,7 +2592,6 @@ CTSVNPath CSVNStatusListCtrl::GetCommonDirectory(bool bStrict)
 void CSVNStatusListCtrl::SelectAll(bool bSelect)
 {
 	CWaitCursor waitCursor;
-	m_bBlock = TRUE;
 	SetRedraw(FALSE);	
 
 	int nListItems = GetItemCount();
@@ -2610,7 +2609,6 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect)
 	}
 	SetRedraw(TRUE);
 	GetStatisticsString();
-	m_bBlock = FALSE;
 }
 
 void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
