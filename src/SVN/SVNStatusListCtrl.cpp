@@ -1456,6 +1456,8 @@ void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rM
 			rMax = max(rMax, entry->Revision);
 		}	
 	}
+	if (rMin == LONG_MAX)
+		rMin = 0;
 }
 
 void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
