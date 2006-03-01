@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-21 16:09+0800\n"
+"PO-Revision-Date: 2006-03-01 10:13+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1335,6 +1335,12 @@ msgstr "於版本: %d"
 msgid "Authentication"
 msgstr "認證"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "認證資料"
+
 # ID:76,
 #: ID:76
 #: ID:207
@@ -1673,9 +1679,30 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "清理未完成的作業, 鎖定檔等..."
 
 # Control-ID:1059,
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "立即清除(&O)"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "清除"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr ""
 
 # ID:195,
 #: ID:195
@@ -1685,6 +1712,12 @@ msgid ""
 msgstr ""
 "清除儲存的認證.\n"
 "你需要為全部的檔案庫重新輸入帳號和密碼."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr ""
 
 # ID:170,
 #: ID:170
@@ -1866,6 +1899,11 @@ msgstr "複製(分支/標記)"
 #: ID:101
 msgid "Copy URL to clipboard"
 msgstr "複製URL至剪貼簿"
+
+# ID:101,
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "複製錯誤訊息至剪貼簿"
 
 # ID:76,
 #: ID:76
@@ -2153,6 +2191,11 @@ msgstr "正在刪除"
 msgid "Destination disk drive is full."
 msgstr "目的磁碟已滿."
 
+# ID:3825,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "視窗大小與位置"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
@@ -2231,6 +2274,16 @@ msgstr ""
 #: ID:145
 msgid "Do you really want to move this file or folder?"
 msgstr "確定要移動這個檔案或資料夾嗎?"
+
+# ID:76,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"確定要復原%s 中的所有變更\n"
+"並回到這個版本?"
 
 # ID:76,
 #: ID:76
@@ -3148,6 +3201,7 @@ msgid "Log History"
 msgstr "訊息紀錄"
 
 # Dlg-ID:130,
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "紀錄訊息"
@@ -3650,6 +3704,11 @@ msgstr "貼上檔名列表"
 msgid "Patch all"
 msgstr "全部補綴"
 
+# ID:376,
+#: ID:376
+msgid "Patch selected"
+msgstr "補綴選定的項目"
+
 # ID:157,#:
 # ID:157,
 #: ID:157
@@ -3867,6 +3926,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "R&AM drives"
 msgstr "虛擬磁碟(&A)"
+
+# ID:113,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "復原至此版本(&E)"
 
 # ID:3697,
 #: ID:3697
@@ -4326,6 +4390,11 @@ msgid "SVN Lock owner"
 msgstr "SVN 鎖定持有人"
 
 # Control-ID:1073,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN 複製與重新命名控管的檔案至此"
+
+# Control-ID:1073,
 #: ID:12
 msgid "SVN Move versioned files here"
 msgstr "SVN 移動檔案至此"
@@ -4414,6 +4483,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "複製至剪貼簿"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr ""
 
 # ID:144,
 #: ID:103
@@ -4861,12 +4935,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Subversion 認證資料(&A):"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5505,6 +5573,16 @@ msgstr "TortoiseSVN 切換..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN 更新..."
 
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN 偵測到類似的檔名. 要一起變更 %s\n"
+"的名稱嗎?"
+
 # Control-ID:1162,
 #: Control-ID:1162
 msgid "Total commits analyzed:"
@@ -5545,6 +5623,11 @@ msgstr "雙向比對(&D)"
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
+
+# ID:80,
+#: Control-ID:1272
+msgid "URL history"
+msgstr "URL 紀錄"
 
 # ID:12,
 #: ID:12
@@ -6392,6 +6475,16 @@ msgstr ""
 "在取出或更新時, 檔案會被設定為唯讀,\n"
 "告訴使用者在進行編輯與送交之前必須先\n"
 "取得鎖定."
+
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"切換至\r\n"
+"%s"
 
 # ID:80,
 #: ID:80
