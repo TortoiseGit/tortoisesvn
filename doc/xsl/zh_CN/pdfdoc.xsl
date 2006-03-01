@@ -10,19 +10,19 @@
 <xsl:param name="title.font.family" select="'simhei'"></xsl:param> 
 
 <xsl:template match="menuchoice">
-  <fo:inline font-family="Gothic">
+  <fo:inline font-family="simhei">
     <xsl:call-template name="process.menuchoice"/>
   </fo:inline>
 </xsl:template>
 
 <xsl:template match="guilabel">
-  <fo:inline font-family="Gothic">
+  <fo:inline font-family="simhei">
     <xsl:call-template name="inline.charseq"/>
   </fo:inline>
 </xsl:template>
 
 <xsl:template match="guibutton">
-  <fo:inline font-family="Gothic">
+  <fo:inline font-family="simhei">
     <xsl:call-template name="inline.charseq"/>
   </fo:inline>
 </xsl:template>
