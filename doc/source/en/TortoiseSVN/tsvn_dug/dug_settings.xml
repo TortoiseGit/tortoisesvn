@@ -969,4 +969,39 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 			</para>
 		</sect3>
 	</sect2>
+	<sect2 id="tsvn-dug-settings-registry">
+		<title>Registry Settings</title>
+		<indexterm>
+			<primary>registry</primary>
+		</indexterm>
+		<para>
+			A few infrequently used settings are available only by editing
+			the registry directly.
+		</para>
+		<variablelist>
+			<varlistentry>
+				<term>Configuration</term>
+				<listitem>
+					<para>
+						You can specify a different location for the Subversion
+						configuration file using registry location
+						<literal>HKCU\Software\TortoiseSVN\ConfigDir</literal>.
+						This will affect all TortoiseSVN operations.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Cache Tray Icon</term>
+				<listitem>
+					<para>
+						To add a cache tray icon for the TSVNCache program,
+						create a <literal>DWORD</literal> key with a value of 1 at
+						<literal>HKCU\Software\TortoiseSVN\CacheTrayIcon</literal>.
+						This is really only useful for developers as it allows
+						you to terminate the program gracefully.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</sect2>
 </sect1>
