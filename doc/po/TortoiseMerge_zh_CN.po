@@ -1,4 +1,3 @@
-﻿#
 # Simplified Chinese translation for TortoiseSVN
 # Copyright (C) 2004-2006 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
@@ -12,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-02-26 14:56+0800\n"
+"PO-Revision-Date: 2006-03-01 23:43+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +30,7 @@ msgstr "TortoiseMerge"
 #: source/TortoiseMerge_en.xml:6
 #: (subtitle)
 msgid "A diff/merge tool for Windows"
-msgstr "一种Windows下的比较及合并差异的工具"
+msgstr "一个Windows下的比较及合并差异的工具"
 
 #: source/TortoiseMerge_en.xml:9
 #: (edition)
@@ -66,7 +65,7 @@ msgstr "前言"
 #: source/TortoiseMerge_en.xml:29
 #: (para)
 msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your sourcecode, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
-msgstr "当开发一个项目的时候，无论是只有几个人审察你的代码的开源项目还是包括源代码的商业软件，总有一些人或使用者会发现一些错误或希望改进你的项目。因此，他们需要发送给你补丁，由你来审查并决定是否使用它们。"
+msgstr "　　当开发一个项目的时候，无论是只有几个人审察你的代码的开源项目还是包括源代码的商业软件，总有一些人或使用者会发现一些错误或希望改进你的项目。因此，他们需要发送给你补丁，由你来审查并决定是否使用它们。"
 
 #: source/TortoiseMerge_en.xml:41
 #: (para)
@@ -81,12 +80,12 @@ msgstr "应用补丁"
 #: source/TortoiseMerge_en.xml:37
 #: (para)
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
-msgstr "TortoiseMerge可以帮助你完成以下两件事情：<placeholder-1/>"
+msgstr "　　TortoiseMerge可以帮助你完成以下两件事情：<placeholder-1/>"
 
 #: source/TortoiseMerge_en.xml:52
 #: (para)
 msgid "TortoiseMerge also helps you to sort out conflicted files which can occur if you're working with a source control system and others are working on the same files as you."
-msgstr "如果你使用源代码控制系统，并且和其他人共同处理一个文件时，TortoiseMerge也能帮助你挑选出发生了冲突的文件。"
+msgstr "　　如果你使用源代码控制系统，并且和其他人共同处理一个文件时，TortoiseMerge也能帮助你挑选出发生了冲突的文件。"
 
 #: source/TortoiseMerge_en.xml:62
 #: (title)
@@ -96,12 +95,12 @@ msgstr "TortoiseMerge是免费的！"
 #: source/TortoiseMerge_en.xml:63
 #: (para)
 msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any way you want. It is developed under the GP license (GPL)."
-msgstr "TortoiseMerge是免费的。你不需要为它支付任何费用就可以任意使用。它是在 GPL 许可协议下开发的。"
+msgstr "　　TortoiseMerge是免费的。你不需要为它支付任何费用就可以任意使用。它是在GPL许可协议下开发的。"
 
 #: source/TortoiseMerge_en.xml:67
 #: (para)
 msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, password:guest) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge是一个开源软件项目。换言之，你可以取得它的全部源代码。你可以访问以下链接得到源代码：<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> 。（用户名：guest，密码：guest）最新的版本（我们当前正在开发的）放在<filename>/trunk/</filename>，发布版本放在<filename>/tags/</filename> 。"
+msgstr "　　TortoiseMerge是一个开源软件项目。换言之，你可以取得它的全部源代码。你可以访问以下链接得到源代码：<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> 。（用户名：guest，密码：guest）最新的版本（我们当前正在开发的）放在 <filename>/trunk/</filename> ，发布版本放在 <filename>/tags/</filename>  。"
 
 #: source/TortoiseMerge_en.xml:86
 #: (title)
@@ -111,12 +110,12 @@ msgstr "愿望"
 #: source/TortoiseMerge_en.xml:87
 #: (para)
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
-msgstr "即使TortoiseSVN和TortoiseMerge是免费软件，你也可以通过发送一些补丁和积极参与开发来帮助开发者。此外，你还可以使我们在计算机前度过的那么多的时间更加愉快。"
+msgstr "　　虽然TortoiseSVN和TortoiseMerge是免费软件，但是你可以通过发送一些补丁和积极参与开发来帮助开发者。此外，你还可以使我们在计算机前度过的漫长时间更加愉快。"
 
 #: source/TortoiseMerge_en.xml:93
 #: (para)
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CD's and DVD's: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr "我们喜欢一边聆听音乐，一边开发TortoiseSVN。由于我们在这个项目上花费了大量时间，我们需要<emphasis>很多的</emphasis>音乐。因此，我们很高兴有人能赞助我们够那些我们喜欢的音乐 CD 和 DVD 的列表：<ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> 。此外，也请看一看那些为项目提供了补丁或翻译的人们的名单。"
+msgstr "　　我们喜欢一边聆听音乐，一边开发TortoiseSVN。由于我们在这个项目上花费了大量时间，我们需要<emphasis>很多的</emphasis>音乐。因此，我们很高兴有人能赞助我们够那些我们喜欢的音乐 CD 和 DVD 的列表：<ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> 。此外，也请看一看那些为项目提供了补丁或翻译的人们的名单。"
 
 #: source/TortoiseMerge_en.xml:109
 #: (title)
@@ -171,7 +170,7 @@ msgstr "赞助者"
 #: source/TortoiseMerge_en.xml:160
 #: (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr "他们发送给我们的音乐陪伴了我们许多时间"
+msgstr "他们送给我们的音乐陪伴了我们许多时间"
 
 #: source/TortoiseMerge_en.xml:171
 #: (title)
@@ -186,22 +185,22 @@ msgstr "概述"
 #: source/TortoiseMerge_en.xml:181
 #: (para)
 msgid "TortoiseMerge is a free/open-source application. It lets you see differences in text files, merge those changes and even review and apply unified diff files, often called <firstterm>patches</firstterm>."
-msgstr "TortoiseMerge是一个免费/开源软件。通过它你可以查看文本文件之间的不同，并合并这些不同；甚至审查和采用这些标准差异文件——通常称之为<firstterm>补丁</firstterm>。"
+msgstr "　　TortoiseMerge是一个免费软件/开源软件。通过它你可以查看文本文件之间的不同，并合并这些不同；甚至审查和采用这些标准差异文件——通常称之为 <firstterm>补丁</firstterm> 。"
 
 #: source/TortoiseMerge_en.xml:186
 #: (para)
 msgid "While working on text files, e.g. source files in your favourite programming language, or html/xml files for your documentation or website, you will often have a situation where you need to compare different versions of those files. Sometimes you get a different version from someone else, sometimes you just want to see the changes you've made."
-msgstr "当处理文本文件时，比如用你所喜欢的编程语言写的源代码，或者Html/Xml的文档或网站，你经常会碰到需要比较文件的不同版本的情况：有时候你从别人那里得到了一个不同版本的文件，或者有时候干脆就是你想知道你曾经做过什么修改。"
+msgstr "　　当处理文本文件时，比如用你所喜欢的编程语言写的源代码，或者Html/Xml的文档或网站，你经常会碰到需要比较文件的不同版本的情况：有时候你从别人那里得到了一个不同版本的文件，或者有时候干脆就是你想知道你曾经做过什么修改。"
 
 #: source/TortoiseMerge_en.xml:194
 #: (para)
 msgid "If you're working with a version control system (e.g. Subversion) then you sometimes get <emphasis>conflicts</emphasis> when you update your working copy. This happens if someone else changed the same parts of the file you're currently working on as you did. Then you have to resolve those conflicts manually. This is where TortoiseMerge can help you."
-msgstr "如果你使用版本控制系统（如Subversion）时，当你更新工作副本时你可能会遇到“<emphasis>冲突</emphasis>”。这种情况通常发生在其他人也修改了你当前正在处理的文件的同一部分。当遇到冲突时，你必须手工来解决它——这就是TortoiseMerge能帮助你的地方。"
+msgstr "　　如果你使用版本控制系统（如Subversion）时，当你更新工作副本时你可能会遇到“ <emphasis>冲突</emphasis> ”。这种情况通常发生在其他人也修改了你当前正在处理的文件的同一部分。当遇到冲突时，你必须手工来解决它——这就是TortoiseMerge能帮助你的地方。"
 
 #: source/TortoiseMerge_en.xml:202
 #: (para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
-msgstr "下图说明了存在冲突的文件之间的关系。"
+msgstr "　　下图说明了存在冲突的文件之间的关系。"
 
 #: source/TortoiseMerge_en.xml:207
 #: (title) source/TortoiseMerge_en.xml:351
@@ -211,12 +210,12 @@ msgstr "文件冲突"
 #: source/TortoiseMerge_en.xml:210
 #: (para)
 msgid "A conflict can also occur if you try to apply an outdated patchfile. In such cases, without TortoiseMerge, you would either have to ask the person you got that patchfile from for a current version or try to apply that patchfile manually."
-msgstr "应用一个过时的补丁时也可能出现冲突。这种情况下，不能使用TortoiseMerge，你要么向补丁提供者索取一个当前版本的补丁，要么手工的应用该补丁。"
+msgstr "　　应用一个过时的补丁时也可能出现冲突。在这种情况下，不应该使用TortoiseMerge，你要么向补丁提供者索取一个当前版本的补丁，要么手工的应用该补丁。"
 
 #: source/TortoiseMerge_en.xml:216
 #: (para)
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patchfile for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "但是现在TortoiseMerge不再是必需的了——至少当你使用类似Subversion这样的版本控制系统时不是必需的。TortoiseMerge解析某个版本/修订的补丁文件并自动尝试从你的版本控制系统中获取对应的版本，然后应用该补丁并让你对比文件的原本的内容及其修改后的内容。以便你能决定是否接受那些修改。"
+msgstr "　　但是现在TortoiseMerge不再是必需的了——至少当你使用类似Subversion这样的版本控制系统时不是必需的。TortoiseMerge解析某次修订/某个版本的补丁文件并自动尝试从你的版本控制系统中获取对应的版本，然后应用该补丁并让你对比文件的原本的内容及其修改后的内容。以便你能决定是否接受那些修改。"
 
 #: source/TortoiseMerge_en.xml:231
 #: (title)
@@ -361,27 +360,27 @@ msgstr "工具条"
 #: source/TortoiseMerge_en.xml:426
 #: (para)
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
-msgstr "<guibutton>Open</guibutton>除了打开文件对话框，还能是什么？"
+msgstr "<guibutton>打开</guibutton> 除了打开文件对话框，还能是什么？"
 
 #: source/TortoiseMerge_en.xml:432
 #: (para)
 msgid "<guibutton>Save</guibutton> saves any changes you have made. If you have selected <guilabel>Resolve conflicted Subversion status on save</guilabel> in the settings dialog, then Subversion's conflict working files will be deleted automatically if all conflicts were resolved."
-msgstr "<guibutton>Save</guibutton>保存你做的任何修改。如果你在设置对话框中设置了<guilabel>在保存时解决版本冲突</guilabel>，那么在从冲突解决后，用于Subversion中处理冲突的过程文件将被自动删除。"
+msgstr "<guibutton>保存</guibutton> 保存你做的任何修改。如果你在设置对话框中设置了<guilabel>在保存时解决版本冲突</guilabel>，那么在冲突解决后，用于Subversion处理冲突的过程文件将被自动删除。"
 
 #: source/TortoiseMerge_en.xml:443
 #: (para)
 msgid "<guibutton>Reload</guibutton> discards any changes you have made and reloads the original files."
-msgstr "<guibutton>Reload</guibutton>放弃所做的修改，重新载入文件。"
+msgstr "<guibutton>重载</guibutton> 放弃所做的修改，重新载入文件。"
 
 #: source/TortoiseMerge_en.xml:450
 #: (para)
 msgid "<guibutton>Undo</guibutton> This feature is not enabled yet."
-msgstr "<guibutton>Undo</guibutton>该功能尚不可用。"
+msgstr "<guibutton>取消</guibutton> 该功能尚不可用。"
 
 #: source/TortoiseMerge_en.xml:456
 #: (para)
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
-msgstr "<guibutton>上一个/下一个差异</guibutton>直接跳转到文件中的上一个/下一个不同的地方。它可以快速地跳过文件未变化过的部分。"
+msgstr "<guibutton>上一个/下一个差异</guibutton> 直接跳转到文件中的上一个/下一个不同的地方。它可以快速地跳过文件未变化过的部分。"
 
 #: source/TortoiseMerge_en.xml:462
 #: (para)
@@ -391,37 +390,37 @@ msgstr "当你处于双窗口方式时，无论是否鼠标划过该区域，在
 #: source/TortoiseMerge_en.xml:469
 #: (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton>上一个/下一个冲突</guibutton>直接跳转到文件中的上一个/下一个需要解决的冲突。"
+msgstr "<guibutton>上一个/下一个冲突</guibutton> 直接跳转到文件中的上一个/下一个需要解决的冲突。"
 
 #: source/TortoiseMerge_en.xml:476
 #: (para)
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
-msgstr "<guibutton>标记为已解决</guibutton>当你解决了文件中的全部冲突并保存了修改后，你可以在TortoiseMerge中标记为已解决冲突，而不用返回资源管理器去标记它们。"
+msgstr "<guibutton>标记为已解决</guibutton> 当你解决了文件中的全部冲突并保存了修改后，你可以在TortoiseMerge中标记为已解决冲突，而不用返回资源管理器去标记它们。"
 
 #: source/TortoiseMerge_en.xml:485
 #: (para)
 msgid "<guibutton>Show Spaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>显示空白符</guibutton>切换是否使用符号显示空格和制表符，以便你能注意到空白符的变化。"
+msgstr "<guibutton>显示空白符</guibutton> 切换是否使用符号显示空格和制表符，以便你能注意到空白符的变化。"
 
 #: source/TortoiseMerge_en.xml:492
 #: (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
-msgstr "<guibutton>切换窗口方式</guibutton>在单窗口方式和双窗口方式间进行切换。在三窗口方式时无效。"
+msgstr "<guibutton>切换窗口方式</guibutton> 在单窗口方式和双窗口方式间进行切换。在三窗口方式时无效。"
 
 #: source/TortoiseMerge_en.xml:499
 #: (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>交换左右窗口</guibutton>在双窗口方式中，互换左右窗口的内容。当你比较两个不同分支中的两个文件时，而不是比较同一个文件的两个修订版本时，TortoiseSVN并不知道哪个文件应该放在左边的窗口作为<quote>原始/基础版本</quote>。如果放错了，为了便于查看，你能够互换它们。"
+msgstr "<guibutton>交换左右窗口</guibutton> 在双窗口方式中，互换左右窗口的内容。当你比较两个不同分支中的两个文件时，而不是比较同一个文件的两个修订版本时，TortoiseSVN并不知道哪个文件应该放在左边的窗口作为<quote>原始/基础版本</quote>。如果放错了，为了便于查看，你能够互换它们。"
 
 #: source/TortoiseMerge_en.xml:510
 #: (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
-msgstr "<guibutton>设置</guibutton>弹出TortoiseMerge的设置对话框。"
+msgstr "<guibutton>设置</guibutton> 弹出TortoiseMerge的设置对话框。"
 
 #: source/TortoiseMerge_en.xml:417
 #: (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
-msgstr "<placeholder-1/>下列菜单显示在工具条里。可以方便地使用多数常见功能，它们分别是<placeholder-2/>"
+msgstr "<placeholder-1/>　　下列菜单显示在工具条里。可以方便地使用多数常见功能，它们分别是：<placeholder-2/>"
 
 #: source/TortoiseMerge_en.xml:517
 #: (para)
@@ -441,7 +440,7 @@ msgstr "合并/编辑冲突"
 #: source/TortoiseMerge_en.xml:540
 #: (para)
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
-msgstr "TortoiseMerge不仅<emphasis>显示</emphasis>了你比较的文件间的不同，而且你还能够解决存在的冲突或者采用修改。"
+msgstr "　　TortoiseMerge不仅 <emphasis>显示</emphasis> 了你比较的文件间的不同，而且你还能够解决存在的冲突或者采用修改。"
 
 #: source/TortoiseMerge_en.xml:544
 #: (para)
@@ -481,42 +480,42 @@ msgstr "主要设置页"
 #: source/TortoiseMerge_en.xml:627
 #: (title)
 msgid "The Settings Main Page"
-msgstr "主要设置的页面"
+msgstr "主要设置页"
 
 #: source/TortoiseMerge_en.xml:630
 #: (para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
-msgstr "多数选项是不需要过多解释的，只是需要稍微明确一下。"
+msgstr "　　多数选项是不需要过多解释，只需要稍微明确一下。"
 
 #: source/TortoiseMerge_en.xml:634
 #: (para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
-msgstr "<guilabel>备份原始文件</guilabel>在保存修改后的版本时，先将工作拷贝中的原始文件重命名为<literal>filename.bak</literal>。"
+msgstr "　　<guilabel>备份原始文件</guilabel> 在保存修改后的版本时，先将工作拷贝中的原始文件重命名为<literal>filename.bak</literal>。"
 
 #: source/TortoiseMerge_en.xml:639
 #: (para)
 msgid "<guilabel>Ignore lineendings</guilabel> hides changes which are due solely to difference in line-end style."
-msgstr "<guilabel>忽略行尾</guilabel> 隐藏不同的行尾变化的改变。"
+msgstr "　　<guilabel>忽略行尾</guilabel> 隐藏不同的行尾变化的改变。"
 
 #: source/TortoiseMerge_en.xml:643
 #: (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
-msgstr "<guilabel>忽略大小写变化</guilabel>隐藏仅仅只是文本大小写变化的差异。这对于像Visual Basic这样的忽略变量大小写的应用程序比较有用。"
+msgstr "　　<guilabel>忽略大小写变化</guilabel> 隐藏仅仅只是文本大小写变化的差异。这对于像Visual Basic这样的忽略变量大小写的应用程序比较有用。"
 
 #: source/TortoiseMerge_en.xml:649
 #: (para)
 msgid "<guilabel>Compare Whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how subversion treats such changes)."
-msgstr "<guilabel>比较空白字符</guilabel>显示全部缩进变化，且行内空白字符的变化视作添加/删除的行（即subversion处理变化的方式）。"
+msgstr "　　<guilabel>比较空白字符</guilabel> 显示全部缩进变化，且行内空白字符的变化视作添加/删除的行（即subversion处理变化的方式）。"
 
 #: source/TortoiseMerge_en.xml:654
 #: (para)
 msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
-msgstr "<guilabel>忽略行首空白字符</guilabel>隐藏行首空格的改变（缩进）。其它的行内空白字符的改变以<quote>内联</quote>方式显示，而不视做添加/删除的行。"
+msgstr "　　<guilabel>忽略行首空白字符</guilabel> 隐藏行首空格的改变（缩进）。其它的行内空白字符的改变以<quote>内联</quote>方式显示，而不视做添加/删除的行。"
 
 #: source/TortoiseMerge_en.xml:660
 #: (para)
 msgid "<guilabel>Ignore All Whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>忽略全部空白字符</guilabel>隐藏只是空白字符变化的差异。"
+msgstr "　　<guilabel>忽略全部空白字符</guilabel> 隐藏只是空白字符变化的差异。"
 
 #: source/TortoiseMerge_en.xml:666
 #: (title)
@@ -526,17 +525,17 @@ msgstr "颜色设置页"
 #: source/TortoiseMerge_en.xml:669
 #: (title)
 msgid "The Settings Color Page"
-msgstr "该页设置颜色"
+msgstr "颜色设置页"
 
 #: source/TortoiseMerge_en.xml:672
 #: (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
-msgstr "这个对话框允许你选择一个背景颜色代码，它们用于高亮被修改的行。"
+msgstr "　　这个对话框允许你选择一个背景颜色代码，它们用于高亮被修改的行。"
 
 #: source/TortoiseMerge_en.xml:678
 #: (term)
 msgid "Normal"
-msgstr "正常"
+msgstr "无变化"
 
 #: source/TortoiseMerge_en.xml:679
 #: (listitem)
@@ -546,7 +545,7 @@ msgstr "这些行都没有改变过，或改变被隐藏了。"
 #: source/TortoiseMerge_en.xml:684
 #: (term)
 msgid "Removed"
-msgstr "移走"
+msgstr "删除"
 
 #: source/TortoiseMerge_en.xml:685
 #: (listitem)
@@ -566,7 +565,7 @@ msgstr "这些行是新增加的。"
 #: source/TortoiseMerge_en.xml:696
 #: (term)
 msgid "Empty"
-msgstr "空"
+msgstr "空白"
 
 #: source/TortoiseMerge_en.xml:697
 #: (listitem)
@@ -586,7 +585,7 @@ msgstr "这些行在两个文件之间存在差异。"
 #: source/TortoiseMerge_en.xml:709
 #: (term)
 msgid "Line with whitespace diff"
-msgstr "比较行之间的空白字符"
+msgstr "行内空白差异"
 
 #: source/TortoiseMerge_en.xml:713
 #: (guilabel)
@@ -596,7 +595,7 @@ msgstr "忽略行首的空白字符"
 #: source/TortoiseMerge_en.xml:710
 #: (listitem)
 msgid "Lines which contain whitespace differences other than leading whitespace. Only appears when <placeholder-1/> is selected."
-msgstr "除了行首空白字符外，在行内存在着空白字符差异。仅出现在选择了<placeholder-1/>时。"
+msgstr "除了行首空白字符外，在行内存在着空白字符差异。仅用于<placeholder-1/>时。"
 
 #: source/TortoiseMerge_en.xml:718
 #: (term)
@@ -761,7 +760,7 @@ msgstr "Ctrl-鼠标滚轮"
 #: source/TortoiseMerge_en.xml:845
 #: (para)
 msgid "Scroll the display left/right"
-msgstr "滚动到左/右显示"
+msgstr "滚动左右两边的显示"
 
 #: source/TortoiseMerge_en.xml:854
 #: (title)
@@ -771,7 +770,7 @@ msgstr "自动化TortoiseMerge"
 #: source/TortoiseMerge_en.xml:856
 #: (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
-msgstr "TortoiseMerge可以通过命令行选项指定参数运行，而不必非通过<guilabel>Open</guilabel>对话框来选择文件。这便于其它程序调用TortoiseMerge。"
+msgstr "　　TortoiseMerge可以通过命令行选项指定参数运行，而不必非通过<guilabel>打开</guilabel>对话框来选择文件。这便于其它程序调用TortoiseMerge。"
 
 #: source/TortoiseMerge_en.xml:867
 #: (title)
@@ -795,7 +794,7 @@ msgid ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
-"多数选项需要路径及其它信息。这种情况下，选项用“:”跟一个字符串或路径。例如：<screen>\n"
+"多数选项需要路径及其它信息。这种情况下，选项后用“:”跟一个字符串或路径。例如：<screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 
@@ -827,7 +826,7 @@ msgstr "?"
 #: source/TortoiseMerge_en.xml:914
 #: (entry)
 msgid "The same as <placeholder-1/>."
-msgstr ""
+msgstr "同 <placeholder-1/> 一样。"
 
 #: source/TortoiseMerge_en.xml:921
 #: (emphasis)
@@ -852,7 +851,7 @@ msgstr "远程（theirs）文件"
 #: source/TortoiseMerge_en.xml:939
 #: (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
-msgstr "指定用于三窗口方式的 <placeholder-1/> 文件，它显示在左窗口。"
+msgstr "指定用于三窗口方式的 <placeholder-1/>，它显示在左窗口。"
 
 #: source/TortoiseMerge_en.xml:946
 #: (entry)
@@ -867,7 +866,7 @@ msgstr "本地（mine）文件"
 #: source/TortoiseMerge_en.xml:953
 #: (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
-msgstr "指定用于三窗口方式的 <placeholder-1/> 文件，它显示在右窗口。对于双面板视图，是指右边的文件。"
+msgstr "指定用于三窗口方式的 <placeholder-1/>，它显示在右窗口。对于双面板视图，是指右边的文件。"
 
 #: source/TortoiseMerge_en.xml:961
 #: (entry)
@@ -877,12 +876,12 @@ msgstr "本地（mine）文件名。它显示在标题显示路径的地方。"
 #: source/TortoiseMerge_en.xml:969
 #: (emphasis)
 msgid "merged"
-msgstr "合并的（merged）文件"
+msgstr "合并后（merged）文件"
 
 #: source/TortoiseMerge_en.xml:968
 #: (entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr "指定用于三窗口方式的结果文件<placeholder-1/>。它是保存合并/解决冲突的结果的文件路径。如果没有指定，TortoiseMerge将询问用户保存结果的路径。"
+msgstr "指定用于三窗口方式的 <placeholder-1/>。它是保存合并/解决冲突的结果的文件路径。如果没有指定，TortoiseMerge将询问用户保存结果的路径。"
 
 #: source/TortoiseMerge_en.xml:978
 #: (entry)
@@ -907,7 +906,7 @@ msgstr "需要应用补丁的原来的文件。用于窗口标题。"
 #: source/TortoiseMerge_en.xml:1001
 #: (entry)
 msgid "The name of the resulting patched file. Used for the view title."
-msgstr "生成补丁的文件名。用于窗口标题。"
+msgstr "生成的补丁文件名。用于窗口标题。"
 
 #: source/TortoiseMerge_en.xml:1008
 #: (entry)
@@ -977,7 +976,7 @@ msgstr "基础版本"
 #: source/TortoiseMerge_en.xml:1078
 #: (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr "<emphasis>工作拷贝</emphasis>中的文件或文件夹的当前基础版本。它是文件或文件夹上次检出、更新或提交后的版本。通常基础版本与最新版本并不相同。"
+msgstr "<emphasis>工作拷贝</emphasis> 中的文件或文件夹的当前基础版本。它是文件或文件夹上次检出、更新或提交后的版本。通常基础版本与最新版本并不相同。"
 
 #: source/TortoiseMerge_en.xml:1087
 #: (glossterm)
@@ -987,7 +986,7 @@ msgstr "最新版本"
 #: source/TortoiseMerge_en.xml:1089
 #: (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
-msgstr "<emphasis>版本库</emphasis>中的文件或文件夹的最新版本。"
+msgstr "<emphasis>版本库</emphasis> 中的文件或文件夹的最新版本。"
 
 #: source/TortoiseMerge_en.xml:1095
 #: (glossterm)
@@ -1005,7 +1004,7 @@ msgstr "组策略对象"
 msgid "translator-credits"
 msgstr ""
 "xingyu.wang <xingyu.wang@gmail.com>\n"
-"Stan <thinkernel@yeah.net>"
+"Stan J <thinkernel@yeah.net>"
 
 #. Place the translation of 'translation' here.
 #: source/TortoiseMerge_en.xml:0
