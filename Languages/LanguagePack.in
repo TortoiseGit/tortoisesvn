@@ -51,8 +51,13 @@ Proceed:
 !ifdef LangHelp
   StrCpy $INSTDIR "$0\bin"
   SetOutPath "$INSTDIR"
+!ifdef HelpFatal
   File "..\doc\output\TortoiseSVN_${CountryCode}.chm"
   File "..\doc\output\TortoiseMerge_${CountryCode}.chm"
+!else
+  File /nonfatal "..\doc\output\TortoiseSVN_${CountryCode}.chm"
+  File /nonfatal "..\doc\output\TortoiseMerge_${CountryCode}.chm"
+!endif
 !endif
   StrCpy $INSTDIR "$0\Languages"
   SetOutPath "$INSTDIR"
