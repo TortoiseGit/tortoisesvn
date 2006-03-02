@@ -458,19 +458,16 @@ void CRepositoryTree::OnRvnItemSelected(NMHDR *pNMHDR, LRESULT *pResult)
 	
 	if (pNMRV->nState & RVIS_FOCUSED)
 	{
-		// prevent the user from selecting a file entry!
+		// prevent the user from selecting an error entry!
 		HTREEITEM hItem = pNMRV->hItem;
-		RVITEM Item;
-		Item.nMask = RVIM_IMAGE;
-		Item.iItem = GetItemIndex(hItem);
-		GetItem(&Item);
-		if (Item.iImage != m_nIconFolder)
-			hItem = GetNextItem(hItem, RVGN_PARENT);
 
-		CString path = m_bFile ? MakeUrl(hItem) : GetFolderUrl(hItem);
-		SVNUrl svn_url(path, m_Revision);
-		if (m_pRepositoryBar != 0)
-			m_pRepositoryBar->ShowUrl(svn_url);
+		CString path = MakeUrl(hItem);
+		if (path.Find('*') < 0)
+		{
+			SVNUrl svn_url(path, m_Revision);
+			if (m_pRepositoryBar != 0)
+				m_pRepositoryBar->ShowUrl(svn_url);
+		}
 	}
 
 	*pResult = 0;
