@@ -153,6 +153,13 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	}
 	m_ToolBar.m_ZoomCombo.ShowWindow(SW_SHOW);
 
+	index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_ARRANGEDBYPATH) index++;
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+	index = 0;
+	while (m_ToolBar.GetItemID(index) != ID_VIEW_SHOWALLREVISIONS) index++;
+	m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|TBBS_CHECKBOX);
+
 	//fill the combo box
 	COMBOBOXEXITEM cbei;
 	ZeroMemory(&cbei, sizeof cbei);
