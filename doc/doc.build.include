@@ -43,6 +43,16 @@ This will only build the english HTML helpf file for TortoiseSVN
 	/>
 
 	<!-- ============================================================ -->
+  <!-- Define property so that doc.build alone doesn't fail         -->
+
+	<property name="devrelease"
+	  value="" 
+		unless="${property::exists('devrelease')}"
+	/>
+
+  <property name="critical" value="${devrelease!='-dev'}" />
+
+	<!-- ============================================================ -->
 	<!-- Settings for the translation                                 -->
 	
 	<!-- Base language. All other documents are created using this    -->

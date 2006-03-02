@@ -28,9 +28,8 @@ All user/site specific configuration is stored in doc.build.user.
 		description="Loop over all languages, output formats and applications and build documentation"
 		depends="prepare" >
 
-    <echo message="${devrelease}"/>
 		<foreach item="String" in="${languages}" delim="," property="lang.target">
-			<call target="doit" failonerror="${devrelease!='-dev'}"/>
+			<call target="doit" failonerror="${critical}"/>
 		</foreach>
 	</target>
 	
