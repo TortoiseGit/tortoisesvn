@@ -108,6 +108,7 @@
 #define IDC_CHECK3                      1067
 #define IDC_RESOLVE                     1067
 #define IDC_CASEINSENSITIVE             1067
+#define ID_RESOLVE                      1067
 #define IDC_CHECK4                      1068
 #define IDC_USEBDIFF                    1068
 #define IDC_VERSIONBOX                  1075
