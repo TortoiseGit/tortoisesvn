@@ -111,6 +111,8 @@ Version 1.3.3
        an error message. (Stefan)
 - BUG: URLs with unescaped chars weren't treated properly in the log
        dialog and the revision graph. (Stefan)
+- BUG: A redundant separator was shown in the context menu of the
+       progress dialog for some items. (Stefan)
 
 Version 1.3.2
 - BUG: When copying and renaming a file by right-dragging, the "Cancel" 

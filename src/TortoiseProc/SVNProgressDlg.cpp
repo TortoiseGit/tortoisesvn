@@ -1381,7 +1381,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							(data->action == svn_wc_notify_resolved)||
 							(data->action == svn_wc_notify_commit_replaced))
 						{
-							popup.AppendMenu(MF_SEPARATOR, NULL);
+							if (data->action == svn_wc_notify_update_update)
+								popup.AppendMenu(MF_SEPARATOR, NULL);
 							temp.LoadString(IDS_LOG_POPUP_OPEN);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
 							temp.LoadString(IDS_LOG_POPUP_OPENWITH);
