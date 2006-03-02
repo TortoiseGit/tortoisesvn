@@ -223,7 +223,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				if ((PathFileExists(path.GetWinPath()))||(bRequestForSelf))
 					return CStatusCacheEntry();
 				// the entry doesn't exist anymore! 
-				CSVNStatusCache::Instance().RemoveCacheForPath(path);
+				// but we can't remove it from the cache here:
+				// the GetStatusForMember() method is called only with a read
+				// lock and not a write lock!
+				// So mark it for crawling, and let the crawler remove it
+				// later
+				CSVNStatusCache::Instance().AddFolderForCrawling(path);
 				return CStatusCacheEntry();
 			}
 			else
