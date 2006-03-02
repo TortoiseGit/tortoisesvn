@@ -523,6 +523,7 @@ public:
 	BOOL GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks);	
 
 	CString GetURLFromPath(const CTSVNPath& path);
+	CString GetUIURLFromPath(const CTSVNPath& path);
 	CString GetUUIDFromPath(const CTSVNPath& path);
 
 	static CString CheckConfigFile();

@@ -1219,6 +1219,17 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
 		return _T("");
 	if (URL==NULL)
 		return _T("");
+	return CString(URL);
+}
+
+CString SVN::GetUIURLFromPath(const CTSVNPath& path)
+{
+	const char * URL;
+	Err = get_url_from_target(&URL, path.GetSVNApiPath());
+	if (Err)
+		return _T("");
+	if (URL==NULL)
+		return _T("");
 	return MakeUIUrlOrPath(URL);
 }
 

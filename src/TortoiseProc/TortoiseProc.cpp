@@ -1496,7 +1496,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			SVN svn;
 			CRelocateDlg dlg;
-			dlg.m_sFromUrl = svn.GetURLFromPath(cmdLinePath);
+			dlg.m_sFromUrl = svn.GetUIURLFromPath(cmdLinePath);
 			dlg.m_sToUrl = dlg.m_sFromUrl;
 
 			if (dlg.DoModal() == IDOK)
