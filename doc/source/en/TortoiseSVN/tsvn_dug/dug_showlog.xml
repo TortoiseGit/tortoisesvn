@@ -100,11 +100,10 @@
 				<listitem>
 					<para>
 						View the changes made in the selected revision as a
-						Unified-Diff file.
-						The Unified-Diff operation is faster than invoking the 
-						<quote>normal</quote> external
-						diff viewer because TortoiseSVN doesn't have to fetch
-						whole files but only the differences.
+						Unified-Diff file (GNU patch format). This shows
+						only the differences with a few lines of context. It
+						is harder to read than a visual file compare, but will
+						show all file changes together in a compact format.
 					</para>
 				</listitem>
 				<listitem>
