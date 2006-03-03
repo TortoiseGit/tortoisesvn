@@ -29,7 +29,7 @@ All user/site specific configuration is stored in doc.build.user.
 		depends="prepare" >
 
 		<foreach item="String" in="${languages}" delim="," property="lang.target">
-			<call target="doit" failonerror="${critical}"/>
+			<call target="doit" failonerror="${critical or lang.base==lang.target}"/>
 		</foreach>
 	</target>
 	
