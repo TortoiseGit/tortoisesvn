@@ -67,13 +67,16 @@ CCrashHandler::CCrashHandler():
 {
    // wtl initialization stuff...
 	HRESULT hRes = ::CoInitialize(NULL);
-	ATLASSERT(SUCCEEDED(hRes));
-
-   _crashStateMap.Add(m_pid, this);
+	if (hRes != S_OK)
+		m_pid = 0;
+	else
+		_crashStateMap.Add(m_pid, this);
 }
 
 void CCrashHandler::Install(LPGETLOGFILE lpfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
+	if (m_pid == 0)
+		return;
 	OutputDebugString("::Install\n");
 	if (m_installed) {
 		Uninstall();
