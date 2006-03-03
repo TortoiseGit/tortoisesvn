@@ -276,26 +276,30 @@ BOOL CTortoiseProcApp::InitInstance()
 	m_pszHelpFilePath=_tcsdup(sHelppath);
 	do
 	{
-		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf));
 		CString sLang = _T("_");
-		sLang += buf;
-		sHelppath.Replace(_T("_en"), sLang);
-		if (PathFileExists(sHelppath))
+		if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf)))
 		{
-			free((void*)m_pszHelpFilePath);
-			m_pszHelpFilePath=_tcsdup(sHelppath);
-			langId = 0;
+			sLang += buf;
+			sHelppath.Replace(_T("_en"), sLang);
+			if (PathFileExists(sHelppath))
+			{
+				free((void*)m_pszHelpFilePath);
+				m_pszHelpFilePath=_tcsdup(sHelppath);
+				langId = 0;
+			}
 		}
 		sHelppath.Replace(sLang, _T("_en"));
-		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf));
-		sLang += _T("_");
-		sLang += buf;
-		sHelppath.Replace(_T("_en"), sLang);
-		if (PathFileExists(sHelppath))
+		if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf)))
 		{
-			free((void*)m_pszHelpFilePath);
-			m_pszHelpFilePath=_tcsdup(sHelppath);
-			langId = 0;
+			sLang += _T("_");
+			sLang += buf;
+			sHelppath.Replace(_T("_en"), sLang);
+			if (PathFileExists(sHelppath))
+			{
+				free((void*)m_pszHelpFilePath);
+				m_pszHelpFilePath=_tcsdup(sHelppath);
+				langId = 0;
+			}
 		}
 		sHelppath.Replace(sLang, _T("_en"));
 
