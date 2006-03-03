@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-25 06:24+0100\n"
+"PO-Revision-Date: 2006-03-03 09:22+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1321,6 +1321,10 @@ msgstr "Si è sicuri di voler ripristinare %d oggetti(o)? Così facendo <b>tutte
 #: MenuEntry
 msgid "Arranged by &path"
 msgstr "Raggruppa per &percorso"
+
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "Ordina i nodi per percorso"
 
 # ID:77,
 #: ID:77
@@ -3704,6 +3708,11 @@ msgstr "Incolla la lista dei file"
 msgid "Patch all"
 msgstr "Applica patch a tutti"
 
+# ID:376,
+#: ID:376
+msgid "Patch selected"
+msgstr "Applica patch alla selezione"
+
 # ID:157,#:
 # ID:157,
 #: ID:157
@@ -4806,6 +4815,11 @@ msgstr "Mostra una rappresentazione grafica di copie/tag/rami"
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Mostra tutti i file che hanno subito modifiche dall'ultimo aggiornamento, localmente e nel repository"
 
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions the URL got changed, not just copies"
+msgstr "Mostra tutte le revisioni dell'URL, non solo le copie"
+
 # ID:10,
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -5572,6 +5586,16 @@ msgstr "TortoiseSVN Cambia..."
 #: ID:77
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN Aggiorna..."
+
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN ha individuato nomi di file simili. Vuoi che anche i file:%s\n"
+"vengano rinominati?"
 
 # Control-ID:1162,
 #: Control-ID:1162
