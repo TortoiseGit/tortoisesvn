@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-27 14:07+0900\n"
+"PO-Revision-Date: 2006-03-03 10:59+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1313,6 +1313,10 @@ msgstr "정말 %d개의 아이템을 되돌리시겠습니까? 마지막 업데�
 #: MenuEntry
 msgid "Arranged by &path"
 msgstr "경로별 정리(&P)"
+
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "경로별로 정렬된 노드를 정리"
 
 # ID:77,
 #: ID:77
@@ -4796,6 +4800,11 @@ msgstr "복사/태그/브랜치를 그래프로 보기"
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "로컬 저장소 및 마지막 업데이트 때 변경된 파일을 모두 보기"
+
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions the URL got changed, not just copies"
+msgstr "변경된(복사된 것 제외) URL에 대한 모든 리비전을 보여줌"
 
 # ID:10,
 #: ID:10
