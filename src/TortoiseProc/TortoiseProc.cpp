@@ -1664,11 +1664,11 @@ BOOL CTortoiseProcApp::InitInstance()
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 			{
 				CString name = pathList[nPath].GetFileOrDirectoryName();
-				filelist = name;
 				if (parser.HasKey(_T("onlymask")))
 				{
 					name = _T("*")+pathList[nPath].GetFileExtension();
 				}
+				filelist += name + _T("\n");
 				CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
 				SVNProperties props(parentfolder);
 				CStringA value;
