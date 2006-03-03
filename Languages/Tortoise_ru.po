@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 5850: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 5894: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-27 09:32+0300\n"
+"PO-Revision-Date: 2006-03-03 10:41+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,7 +138,6 @@ msgstr "%I64d кБайт передано"
 msgid "%d files selected, %d files total"
 msgstr "%d файлов выбрано, %d файлов всего"
 
-# На?
 #: ID:226
 #, c-format
 msgid "%s - at revision: %d"
@@ -162,7 +161,7 @@ msgstr "%s : Рабочая копия"
 #: ID:357
 #, c-format
 msgid "%s, at %s"
-msgstr "%s, на скорости %s"
+msgstr "%s, скорость %s"
 
 #: ID:145
 #, c-format
@@ -1089,6 +1088,10 @@ msgstr "Вы действительно хотите убрать изменен
 #: MenuEntry
 msgid "Arranged by &path"
 msgstr "Выстраивать по &пути"
+
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "Выстраивает узлы в зависимости от пути"
 
 # На?
 #: ID:77
@@ -3942,6 +3945,10 @@ msgstr "Показывает копии/метки/ответвления в г�
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Показывает все файлы, которые изменились после последнего обновления, локально и в хранилище"
+
+#: ID:2050
+msgid "Shows all revisions the URL got changed, not just copies"
+msgstr "Показывает все ревизии, в которых изменился URL, а не только копии"
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
