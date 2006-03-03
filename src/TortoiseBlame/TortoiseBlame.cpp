@@ -276,13 +276,17 @@ void TortoiseBlame::StartSearch()
 {
 	if (currentDialog)
 		return;
+	bool bCase = false;
 	// Initialize FINDREPLACE
+	if (fr.Flags & FR_MATCHCASE)
+		bCase = true;
 	ZeroMemory(&fr, sizeof(fr));
 	fr.lStructSize = sizeof(fr);
 	fr.hwndOwner = wMain;
 	fr.lpstrFindWhat = szFindWhat;
 	fr.wFindWhatLen = 80;
 	fr.Flags = FR_HIDEUPDOWN | FR_HIDEWHOLEWORD;
+	fr.Flags |= bCase ? FR_MATCHCASE : 0;
 
 	currentDialog = FindText(&fr);
 }
