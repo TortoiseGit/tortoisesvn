@@ -1683,13 +1683,19 @@ BOOL CTortoiseProcApp::InitInstance()
 						value = (char *)tmp.c_str();
 					}
 				}
-				value.Replace(CUnicodeUtils::GetUTF8(name), "");
 				value = value.Trim("\n\r");
 				value += "\n";
 				value.Remove('\r');
 				value.Replace("\n\n", "\n");
 				CStringA sTrimmedvalue = value;
 				sTrimmedvalue.Trim();
+				
+				// Delete all occurences of 'name'
+				// "\n" is temporarily prepended to make the algorithm easier
+				value = "\n" + value;
+				value.Replace("\n" + CUnicodeUtils::GetUTF8(name) + "\n", "\n");
+				value = value.Mid(1);
+				
 				if (sTrimmedvalue.IsEmpty())
 				{
 					if (!props.Remove(_T("svn:ignore")))
