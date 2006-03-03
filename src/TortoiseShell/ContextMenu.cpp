@@ -781,9 +781,17 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		if (isIgnored)
 		{
 			// check if the item name is ignored or the mask
-			size_t p = ignoredprops.find(ignorepath);
-			if ((p!=-1) &&
-				((ignoredprops.compare(ignorepath)==0) || (ignoredprops.find('\n', p)==p+_tcslen(ignorepath)+1) || (ignoredprops.rfind('\n', p)==p-1)))
+			size_t p = 0;
+			while ( (p=ignoredprops.find( ignorepath,p )) != -1  )
+			{
+				if ( (p==0 || ignoredprops[p-1]==TCHAR('\n'))
+					&& (p+_tcslen(ignorepath)==ignoredprops.length() || ignoredprops[p+_tcslen(ignorepath)+1]==TCHAR('\n')) )
+				{
+					break;
+				}
+				p++;
+			}
+			if (p!=-1)
 			{
 				ignoresubmenu = CreateMenu();
 				InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
