@@ -289,23 +289,26 @@ void TortoiseBlame::StartSearch()
 
 bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 {
+	TCHAR szWhat[80];
 	int pos = SendEditor(SCI_GETCURRENTPOS);
 	int line = SendEditor(SCI_LINEFROMPOSITION, pos);
 	bool bFound = false;
 	bool bCaseSensitive = !!(flags & FR_MATCHCASE);
 
+	strcpy_s(szWhat, sizeof(szWhat), what);
+
 	if(!bCaseSensitive)
 	{
 		char *p;
-		size_t len = strlen(what);
-		for (p = what; p < what + len; p++)
+		size_t len = strlen(szWhat);
+		for (p = szWhat; p < szWhat + len; p++)
 		{
 			if (isupper(*p)&&__isascii(*p))
 				*p = _tolower(*p);
 		}
 	}
 
-	std::string sWhat = std::string(what);
+	std::string sWhat = std::string(szWhat);
 	
 	char buf[20];
 	int i=0;
@@ -327,11 +330,11 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 		_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 		if (authors[i].compare(sWhat)==0)
 			bFound = true;
-		else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), what)==0))
+		else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), szWhat)==0))
 			bFound = true;
-		else if (strcmp(buf, what) == 0)
+		else if (strcmp(buf, szWhat) == 0)
 			bFound = true;
-		else if (strstr(linebuf, what))
+		else if (strstr(linebuf, szWhat))
 			bFound = true;
 		delete [] linebuf;
 	}
@@ -355,11 +358,11 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 			_stprintf_s(buf, 20, _T("%ld"), revs[i]);
 			if (authors[i].compare(sWhat)==0)
 				bFound = true;
-			else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), what)==0))
+			else if ((!bCaseSensitive)&&(_stricmp(authors[i].c_str(), szWhat)==0))
 				bFound = true;
-			else if (strcmp(buf, what) == 0)
+			else if (strcmp(buf, szWhat) == 0)
 				bFound = true;
-			else if (strstr(linebuf, what))
+			else if (strstr(linebuf, szWhat))
 				bFound = true;
 			delete [] linebuf;
 		}
