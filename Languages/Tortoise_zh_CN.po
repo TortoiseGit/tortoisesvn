@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-28 10:58+0800\n"
+"PO-Revision-Date: 2006-03-03 17:29+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1314,6 +1314,10 @@ msgstr "是否确定要复原 %d 个项目? 从上次更新之后的<b>所有</b
 #: MenuEntry
 msgid "Arranged by &path"
 msgstr "按照路径排序(&P)"
+
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "按照路径排序"
 
 # ID:77,
 #: ID:77
@@ -4790,6 +4794,11 @@ msgstr "以图形方式显示版本和标签的分支图"
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "不论在版本库中或在本地端都显示从上次更新以后有改动的文件"
+
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions the URL got changed, not just copies"
+msgstr "显示全部URL改变的版本，不只是拷贝。"
 
 # ID:10,
 #: ID:10
