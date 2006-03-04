@@ -36,6 +36,7 @@ public:
 		Merged,
 		Deleted,
 		Added,
+		Skipped,
 		LastCommit,
 		DeletedNode,
 		AddedNode,
@@ -53,6 +54,7 @@ private:
 	CRegDWORD m_regMerged;
 	CRegDWORD m_regDeleted;
 	CRegDWORD m_regAdded;
+	CRegDWORD m_regSkipped;
 	CRegDWORD m_regLastCommit;
 	CRegDWORD m_regDeletedNode;
 	CRegDWORD m_regAddedNode;

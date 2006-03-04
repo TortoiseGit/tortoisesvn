@@ -75,6 +75,8 @@
        the new option "Patch selected". (Tobias Schäfer)
 - NEW: When reverting a file in the commit dialog the scroll position is
        now restored instead of always scrolling to the top. (Tobias Schäfer)
+- NEW: Merging now mentions the number of skipped targets and shows them in
+       red. See issue #231 for details. (Tobias Schäfer)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all

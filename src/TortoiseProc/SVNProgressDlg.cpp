@@ -267,7 +267,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		break;
 	case svn_wc_notify_skip:
 		if (content_state == svn_wc_notify_state_missing)
+		{
 			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIPMISSING);
+			data->color = m_Colors.GetColor(CColors::Skipped);
+		}
 		else
 			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIP);
 		break;
@@ -329,6 +332,7 @@ CString CSVNProgressDlg::BuildInfoString()
 	int updated = 0;
 	int merged = 0;
 	int modified = 0;
+	int skipped = 0;
 
 	for (size_t i=0; i<m_arData.size(); ++i)
 	{
@@ -367,6 +371,9 @@ CString CSVNProgressDlg::BuildInfoString()
 		case svn_wc_notify_commit_modified:
 			modified++;
 			break;
+		case svn_wc_notify_skip:
+			skipped++;
+			break;
 		}
 	}
 	if (conflicted)
@@ -375,6 +382,12 @@ CString CSVNProgressDlg::BuildInfoString()
 		infotext += temp;
 		temp.Format(_T(":%d "), conflicted);
 		infotext += temp;
+	}
+	if (skipped)
+	{
+		temp.LoadString(IDS_SVNACTION_SKIP);
+		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), skipped);
 	}
 	if (merged)
 	{
