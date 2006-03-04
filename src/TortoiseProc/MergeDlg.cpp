@@ -183,12 +183,6 @@ BOOL CMergeDlg::CheckData()
 		return FALSE;
 	}
 
-	if ( (LONG)StartRev == (LONG)EndRev )
-	{
-		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_START), IDS_ERR_MERGEIDENTICALREVISIONS, TRUE, IDI_EXCLAMATION);
-		return FALSE;
-	}
-
 	m_URLCombo.SaveHistory();
 	m_URLFrom = m_URLCombo.GetString();
 	if (!m_bUseFromURL)
@@ -198,6 +192,12 @@ BOOL CMergeDlg::CheckData()
 	}
 	else
 		m_URLTo = m_URLFrom;
+
+	if ( (LONG)StartRev == (LONG)EndRev && m_URLFrom==m_URLTo)
+	{
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_HEAD1), IDS_ERR_MERGEIDENTICALREVISIONS, TRUE, IDI_EXCLAMATION);
+		return FALSE;
+	}
 
 	UpdateData(FALSE);
 	return TRUE;
