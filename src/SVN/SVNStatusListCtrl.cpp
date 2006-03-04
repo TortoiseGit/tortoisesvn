@@ -2598,6 +2598,9 @@ CTSVNPath CSVNStatusListCtrl::GetCommonDirectory(bool bStrict)
 void CSVNStatusListCtrl::SelectAll(bool bSelect)
 {
 	CWaitCursor waitCursor;
+	// block here so the LVN_ITEMCHANGED messages
+	// get ignored
+	m_bBlock = TRUE;
 	SetRedraw(FALSE);	
 
 	int nListItems = GetItemCount();
@@ -2613,6 +2616,8 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect)
 			continue;
 		SetEntryCheck(entry,i,bSelect);
 	}
+	// unblock before redrawing
+	m_bBlock = FALSE;
 	SetRedraw(TRUE);
 	GetStatisticsString();
 }
