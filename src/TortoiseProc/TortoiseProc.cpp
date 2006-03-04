@@ -1681,10 +1681,10 @@ BOOL CTortoiseProcApp::InitInstance()
 					CString propname(props.GetItemName(i).c_str());
 					if (propname.CompareNoCase(_T("svn:ignore"))==0)
 					{
-						stdstring stemp;
 						stdstring tmp = props.GetItemValue(i);
 						//treat values as normal text even if they're not
 						value = (char *)tmp.c_str();
+						break;
 					}
 				}
 				value = value.Trim("\n\r");
