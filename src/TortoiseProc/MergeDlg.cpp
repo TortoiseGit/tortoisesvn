@@ -183,6 +183,12 @@ BOOL CMergeDlg::CheckData()
 		return FALSE;
 	}
 
+	if ( (LONG)StartRev == (LONG)EndRev )
+	{
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_START), IDS_ERR_MERGEIDENTICALREVISIONS, TRUE, IDI_EXCLAMATION);
+		return FALSE;
+	}
+
 	m_URLCombo.SaveHistory();
 	m_URLFrom = m_URLCombo.GetString();
 	if (!m_bUseFromURL)

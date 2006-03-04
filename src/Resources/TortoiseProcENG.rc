@@ -1720,6 +1720,7 @@ BEGIN
     IDS_ERR_NOTHINGTOREVERT "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
     IDS_ERR_NOCOMMONCOPYFROM 
                             "The two selected URL's are not created from the same root.\nIt's not possible to show the log messages between them!"
+	IDS_ERR_MERGEIDENTICALREVISIONS "Merging requires different revisions in 'From:' and 'To:'"
 END
 
 STRINGTABLE 
