@@ -91,9 +91,7 @@ protected:
 	afx_msg void OnBnClickedIgnorelf();
 	afx_msg void OnBnClickedOnepane();
 	afx_msg void OnBnClickedFirstdiffonload();
-	afx_msg void OnBnClickedWscompare();
-	afx_msg void OnBnClickedWsignoreleading();
-	afx_msg void OnBnClickedWsignoreall();
+	afx_msg void OnBnClickedWhitespace();
 	afx_msg void OnEnChangeTabsize();
 	afx_msg void OnCbnSelchangeFontsizes();
 	afx_msg void OnCbnSelchangeFontnames();
