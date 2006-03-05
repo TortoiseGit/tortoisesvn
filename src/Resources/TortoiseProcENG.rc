@@ -1668,7 +1668,7 @@ BEGIN
     IDS_ERR_COPYFILES       "Could not copy the files!\n<hr=100%%>\n%s"
     IDS_ERR_EXTMERGESTART   "Could not start external merge program!\n<hr=100%%>\n%s"
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
-    IDS_ERR_FAILEDIGNOREPROPERTY "Could not add %s to the ignore list!"
+    IDS_ERR_FAILEDIGNOREPROPERTY "Could not add %s to the ignored list!"
     IDS_ERR_DIFFVIEWSTART   "Could not start diff viewer!\n<hr=100%%>\n%s"
     IDS_ERR_SSL_VALIDATE    "Error validating server certificate for %s:"
     IDS_ERR_SSL_UNKNOWNCA   "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
@@ -1685,7 +1685,7 @@ BEGIN
     IDS_WARN_FOLDERNOTEMPTY "The target folder \n%s\nis not empty!\nAre you sure you want to checkout/export into that folder?"
     IDS_WARN_WARNING        "Warning"
     IDS_WARN_NOTE           "Notice"
-    IDS_WARN_NOVALIDPATH    "The path/url you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|""?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+    IDS_WARN_NOVALIDPATH    "The path/URL you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|""?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 END
 
 STRINGTABLE 
@@ -1830,7 +1830,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROC_ENTERURLLABEL  "Url:"
+    IDS_PROC_ENTERURLLABEL  "URL:"
     IDS_PROC_PATCHTITLE     "Generating patchfile..."
     IDS_PROC_SAVEPATCHTO    "Saving patchfile to:"
     IDS_PROC_REPOCREATESHAREWARN 
@@ -1911,7 +1911,7 @@ BEGIN
     IDS_PROC_CLEANUP        "cleaning up"
     IDS_PROC_REMOVEFORCE    "%s\nDo you want to remove it anyway?"
     IDS_PROC_YESTOALL       "Yes to all"
-    IDS_PROC_IGNORESUCCESS  "Added the file pattern(s)\n%s\nto the ignore list."
+    IDS_PROC_IGNORESUCCESS  "Added the file pattern(s)\n%s\nto the ignored list."
     IDS_PROC_RESOLVE        "Are you sure you want to mark the conflicted file(s) as resolved?"
     IDS_PROC_RTFM           "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
     IDS_PROC_CASERENAME     "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
@@ -1957,7 +1957,7 @@ BEGIN
     IDS_STATUSLIST_COLPROPSTATUS "Property status"
     IDS_STATUSLIST_COLREMOTETEXTSTATUS "Remote text status"
     IDS_STATUSLIST_COLREMOTEPROPSTATUS "Remote property status"
-    IDS_STATUSLIST_COLURL   "Url"
+    IDS_STATUSLIST_COLURL   "URL"
     IDS_STATUSLIST_COLEXT   "Extension"
     IDS_STATUSLIST_COLLOCK  "Lock"
     IDS_STATUSLIST_COLLOCKCOMMENT "Lock comment"
@@ -2219,7 +2219,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOBROWSE_URLALREADYEXISTS "The target url\n%s\nalready exists!"
+    IDS_REPOBROWSE_URLALREADYEXISTS "The target URL\n%s\nalready exists!"
     IDS_REPOBROWSE_INVALIDDROPDATA "Invalid data object dropped!"
 END
 

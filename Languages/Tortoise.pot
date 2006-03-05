@@ -776,7 +776,7 @@ msgstr ""
 
 #: ID:145,
 #, c-format
-msgid "Added the file pattern(s)\n%s\nto the ignore list."
+msgid "Added the file pattern(s)\n%s\nto the ignored list."
 msgstr ""
 
 #: ID:263,
@@ -1398,7 +1398,7 @@ msgstr ""
 
 #: ID:81,
 #, c-format
-msgid "Could not add %s to the ignore list!"
+msgid "Could not add %s to the ignored list!"
 msgstr ""
 
 #: ID:201,
@@ -1536,7 +1536,7 @@ msgid "Deleted node"
 msgstr ""
 
 #: ID:11,
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr ""
 
 #: ID:263,
@@ -2880,7 +2880,7 @@ msgid "Renamed remotely"
 msgstr ""
 
 #: ID:11,
-msgid "Renames files / folders inside source control"
+msgid "Renames files / folders inside version control"
 msgstr ""
 
 #: ID:3603,
@@ -3088,7 +3088,7 @@ msgid "SVN Status"
 msgstr ""
 
 #: ID:12,
-msgid "SVN Url"
+msgid "SVN URL"
 msgstr ""
 
 #: ID:14,
@@ -3096,7 +3096,7 @@ msgid "SVN mime-type"
 msgstr ""
 
 #: ID:12,
-msgid "SVN short Url"
+msgid "SVN short URL"
 msgstr ""
 
 #: MenuEntry
@@ -3287,7 +3287,7 @@ msgid "Short &date/time format in log messages"
 msgstr ""
 
 #: ID:12,
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr ""
 
 #: Control-ID:1031,
@@ -3622,7 +3622,7 @@ msgid "The patch seems outdated! The file line\n%s\nand the patchline\n%s\ndo no
 msgstr ""
 
 #: ID:88,
-msgid "The path/url you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgid "The path/URL you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 
 #: ID:314,
@@ -3638,14 +3638,14 @@ msgstr ""
 msgid "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
 msgstr ""
 
+#: ID:102,
+#, c-format
+msgid "The target URL\n%s\nalready exists!"
+msgstr ""
+
 #: ID:88,
 #, c-format
 msgid "The target folder \n%s\nis not empty!\nAre you sure you want to checkout/export into that folder?"
-msgstr ""
-
-#: ID:102,
-#, c-format
-msgid "The target url\n%s\nalready exists!"
 msgstr ""
 
 #: ID:195,
@@ -3858,7 +3858,7 @@ msgstr ""
 msgid "Two-way &Diff"
 msgstr ""
 
-#: Dlg-ID:164,
+#: ID:207,#: Dlg-ID:164,
 msgid "URL"
 msgstr ""
 
@@ -3870,7 +3870,7 @@ msgstr ""
 msgid "URL of Subversion items"
 msgstr ""
 
-#: Control-ID:65535,
+#: ID:144,#: Control-ID:65535,
 msgid "URL:"
 msgstr ""
 
@@ -3951,14 +3951,6 @@ msgstr ""
 
 #: ID:9,
 msgid "Updates the working copy to the current revision"
-msgstr ""
-
-#: ID:207,
-msgid "Url"
-msgstr ""
-
-#: ID:144,
-msgid "Url:"
 msgstr ""
 
 #: Control-ID:1064,
@@ -4346,7 +4338,7 @@ msgid "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\
 msgstr ""
 
 #: ID:14,
-msgid "svn:mime-type\nThe mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+msgid "svn:mime-type\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 
 #: ID:16,
