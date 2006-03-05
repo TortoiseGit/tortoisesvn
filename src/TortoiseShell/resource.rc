@@ -65,6 +65,7 @@ IDI_MENUFILE            ICON                    "..\\Resources\\tsvnmenufile.ico
 IDI_MENUFOLDER          ICON                    "..\\Resources\\tsvnmenufolder.ico"
 IDI_MENULINK            ICON                    "..\\Resources\\tsvnmenulink.ico"
 IDI_MENUMULTIPLE        ICON                    "..\\Resources\\tsvnmenumultiple.ico"
+IDI_PROPERTIES          ICON                    "D:\\Development\\SVN\\TortoiseSVN\\src\\Resources\\menuproperties.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -350,6 +351,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_DROPMOVERENAMEMENU  "SVN Move and rename versioned files here"
+    IDS_MENUPROPERTIES      "Properties"
+    IDS_MENUDESCPROPERTIES  "Manage Subversion properties"
 END
 
 #endif    // English (U.S.) resources

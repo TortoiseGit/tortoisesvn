@@ -166,6 +166,8 @@
 #define IDS_PROPSNOTSAVED               254
 #define IDS_MENUADDASREPLACEMENT        255
 #define IDS_DROPMOVERENAMEMENU          256
+#define IDS_MENUPROPERTIES              257
+#define IDS_MENUDESCPROPERTIES          258
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -195,6 +197,8 @@
 #define IDI_MENUFOLDER                  5155
 #define IDI_MENULINK                    5156
 #define IDI_MENUMULTIPLE                5157
+#define IDI_ICON1                       5158
+#define IDI_PROPERTIES                  5158
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020
 
@@ -202,7 +206,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5158
+#define _APS_NEXT_RESOURCE_VALUE        5159
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11020
 #define _APS_NEXT_SYMED_VALUE           5101

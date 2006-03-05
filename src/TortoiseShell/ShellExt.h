@@ -148,7 +148,8 @@ protected:
 		UnIgnore,
 		Lock,
 		Unlock,
-		UnlockForce
+		UnlockForce,
+		Properties
 	};
 
 	FileState m_State;

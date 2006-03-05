@@ -44,6 +44,7 @@
 #include "SVNAdminDir.h"
 #include ".\svnstatuslistctrl.h"
 #include "DropFiles.h"
+#include "EditPropertiesDlg.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -74,6 +75,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ADDFILE
 #define IDSVNLC_RESOLVEMINE		20
 #define IDSVNLC_REMOVE			21
 #define IDSVNLC_COMMIT			22
+#define IDSVNLC_PROPERTIES		23
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -1712,6 +1714,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 					}
 				}
+				popup.AppendMenu(MF_SEPARATOR);
+				temp.LoadString(IDS_STATUSLIST_CONTEXT_PROPERTIES);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_PROPERTIES, temp);
+
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				m_bBlock = TRUE;
 				AfxGetApp()->DoWaitCursor(1);
@@ -1719,6 +1725,27 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				bool bForce = false;
 				switch (cmd)
 				{
+				case IDSVNLC_PROPERTIES:
+					{
+						CTSVNPathList targetList;
+						FillListOfSelectedItemPaths(targetList);
+						CEditPropertiesDlg dlg;
+						dlg.SetPathList(targetList);
+						dlg.DoModal();
+						if (dlg.HasChanged())
+						{
+							// since the user might have changed/removed/added
+							// properties recursively, we don't really know
+							// which items have changed their status.
+							// So tell the parent to do a refresh.
+							CWnd* pParent = GetParent();
+							if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+							{
+								pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+							}
+						}
+					}
+					break;
 				case IDSVNLC_COMMIT:
 					{
 						CTSVNPathList targetList;

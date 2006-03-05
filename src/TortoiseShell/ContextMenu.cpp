@@ -920,6 +920,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCREATEPATCH), HMENU(MENUCREATEPATCH), INDEXMENU(MENUCREATEPATCH), idCmd++, IDS_MENUCREATEPATCH, IDI_CREATEPATCH, idCmdFirst, CreatePatch);
 	if (((isInSVN)&&(!isAdded)&&(isFolder)&&(isFolderInSVN))||(isOnlyOneItemSelected && isPatchFile))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUAPPLYPATCH), HMENU(MENUAPPLYPATCH), INDEXMENU(MENUAPPLYPATCH), idCmd++, IDS_MENUAPPLYPATCH, IDI_PATCH, idCmdFirst, ApplyPatch);
+	if (isInSVN)
+		InsertSVNMenu(ownerdrawn, ISTOP(MENUPROPERTIES), HMENU(MENUPROPERTIES), INDEXMENU(MENUPROPERTIES), idCmd++, IDS_MENUPROPERTIES, IDI_PROPERTIES, idCmdFirst, Properties);
 
 	//---- separator 
 	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
@@ -1383,6 +1385,12 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += tempfile;
 				svnCmd += _T("\" /force");
 				break;
+			case Properties:
+				tempfile = WriteFileListToTempFile();
+				svnCmd += _T("properties /path:\"");
+				svnCmd += tempfile;
+				svnCmd += _T("\"");
+				break;
 			default:
 				break;
 				//#endregion
@@ -1543,6 +1551,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 			break;
 		case UnlockForce:
 			MAKESTRING(IDS_MENUDESC_UNLOCKFORCE);
+			break;
+		case Properties:
+			MAKESTRING(IDS_MENUDESCPROPERTIES);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -2058,6 +2069,12 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			resource = MAKEINTRESOURCE(IDI_UNLOCK);
 			SETSPACE(MENUUNLOCK);
 			PREPENDSVN(MENUUNLOCK);
+			break;
+		case Properties:
+			MAKESTRING(IDS_MENUPROPERTIES);
+			resource = MAKEINTRESOURCE(IDI_PROPERTIES);
+			SETSPACE(MENUPROPERTIES);
+			PREPENDSVN(MENUPROPERTIES);
 			break;
 		default:
 			return NULL;

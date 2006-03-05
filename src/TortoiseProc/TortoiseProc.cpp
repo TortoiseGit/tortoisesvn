@@ -52,6 +52,8 @@
 #include "RevisionGraphDlg.h"
 #include "FileDiffDlg.h"
 #include "InputDlg.h"
+#include "EditPropertiesDlg.h"
+#include "EditPropertyValueDlg.h"
 #include "BrowseFolder.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"
@@ -131,7 +133,8 @@ typedef enum
 	cmdRevisionGraph,
 	cmdLock,
 	cmdUnlock,
-	cmdRebuildIconCache
+	cmdRebuildIconCache,
+	cmdProperties
 } TSVNCommand;
 
 static const struct CommandInfo
@@ -183,6 +186,7 @@ static const struct CommandInfo
 	{	cmdLock,			_T("lock"),				true	},
 	{	cmdUnlock,			_T("unlock"),			true	},
 	{	cmdRebuildIconCache,_T("rebuildiconcache"),	false	},
+	{	cmdProperties,		_T("properties"),		true	},
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -1897,6 +1901,15 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 		} 
 		//#endregion
+		//#region properties
+		if (command == cmdProperties)
+		{
+			CEditPropertiesDlg dlg;
+			dlg.SetPathList(pathList);
+			dlg.DoModal();
+		}
+		//#endregion
+
 
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);

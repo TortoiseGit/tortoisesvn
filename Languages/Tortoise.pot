@@ -95,6 +95,11 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr ""
 
+#: ID:563,
+#, c-format
+msgid "%ld paths"
+msgstr ""
+
 #: ID:226,
 #, c-format
 msgid "%s - at revision: %d"
@@ -252,7 +257,7 @@ msgstr ""
 msgid "&Dry run"
 msgstr ""
 
-#: Control-ID:1031,#: MenuEntry
+#: Control-ID:1031,#: Control-ID:1282,#: MenuEntry
 msgid "&Edit"
 msgstr ""
 
@@ -437,7 +442,7 @@ msgstr ""
 msgid "&Redo"
 msgstr ""
 
-#: Control-ID:1013,#: Control-ID:1100,
+#: Control-ID:1013,#: Control-ID:1100,#: Control-ID:1285,
 msgid "&Remove"
 msgstr ""
 
@@ -888,6 +893,10 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr ""
 
+#: Control-ID:1294,
+msgid "Apply property recursively"
+msgstr ""
+
 #: Control-ID:65535,
 msgid "Apply unified diff"
 msgstr ""
@@ -1047,7 +1056,7 @@ msgstr ""
 msgid "Can't copy \n%s\nto\n%s"
 msgstr ""
 
-#: ID:73,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr ""
 
@@ -1610,6 +1619,11 @@ msgstr ""
 msgid "Do you want to reload the documents?\nYou will lose all changes you've made!"
 msgstr ""
 
+#: ID:563,
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr ""
+
 #: ID:313,
 msgid "Do you want to save your changes?"
 msgstr ""
@@ -1640,6 +1654,10 @@ msgstr ""
 
 #: Control-ID:1237,
 msgid "Edit"
+msgstr ""
+
+#: Dlg-ID:226,#: Dlg-ID:227,
+msgid "Edit Properties"
 msgstr ""
 
 #: ID:113,
@@ -2228,6 +2246,10 @@ msgstr ""
 msgid "Mail system DLL is invalid."
 msgstr ""
 
+#: ID:17,
+msgid "Manage Subversion properties"
+msgstr ""
+
 #: ID:2051,
 msgid "Marks a file as resolved in Subversion\nMark as resolved"
 msgstr ""
@@ -2437,6 +2459,10 @@ msgstr ""
 msgid "Not enough memory to complete operation."
 msgstr ""
 
+#: ID:563,
+msgid "Not recursive"
+msgstr ""
+
 #: ID:88,
 msgid "Notice"
 msgstr ""
@@ -2449,7 +2475,7 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr ""
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr ""
 
@@ -2666,8 +2692,16 @@ msgstr ""
 msgid "Progress"
 msgstr ""
 
-#: Control-ID:65535,#: Dlg-ID:177,
+#: ID:17,#: Control-ID:65535,#: Dlg-ID:177,
 msgid "Properties"
+msgstr ""
+
+#: Control-ID:1287,
+msgid "Properties for"
+msgstr ""
+
+#: ID:209,
+msgid "Properties..."
 msgstr ""
 
 #: ID:11,
@@ -2682,8 +2716,16 @@ msgstr ""
 msgid "Property Status:"
 msgstr ""
 
+#: Control-ID:1292,
+msgid "Property name:"
+msgstr ""
+
 #: ID:207,
 msgid "Property status"
+msgstr ""
+
+#: Control-ID:1293,
+msgid "Property value:"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2728,6 +2770,10 @@ msgstr ""
 
 #: Control-ID:1260,
 msgid "Recurse into unversioned folders"
+msgstr ""
+
+#: ID:563,
+msgid "Recursive"
 msgstr ""
 
 #: ID:3603,
@@ -4339,6 +4385,10 @@ msgstr ""
 
 #: ID:15,
 msgid "tsvn:warnifnoissue\nSet to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+
+#: ID:563,
+msgid "values are different"
 msgstr ""
 
 #: ID:244,

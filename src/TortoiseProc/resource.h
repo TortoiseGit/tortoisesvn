@@ -86,6 +86,8 @@
 #define IDI_REVGRAPH_REPLACED           222
 #define IDR_REVGRAPHBAR                 223
 #define IDI_SAVEDDATA                   225
+#define IDD_EDITPROPERTIES              226
+#define IDD_EDITPROPERTYVALUE           227
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -462,19 +464,29 @@
 #define IDC_BUTTON4                     1279
 #define IDC_AUTHHISTCLEAR               1279
 #define IDS_ERR_THREADSTARTFAILED       1281
+#define IDC_EDITPROPLIST                1281
 #define IDS_ERR_EXTDIFFSTART            1282
+#define IDC_EDITPROPS                   1282
 #define IDS_ERR_NOCOMMAND               1283
+#define IDC_PROPPATH                    1283
 #define IDS_ERR_NOCOMMANDVALUE          1284
 #define IDS_ERR_NOSTATUS                1285
+#define IDC_REMOVEPROPS                 1285
 #define IDS_ERR_CLEANUP                 1286
 #define IDS_ERR_NOURLOFFILE             1287
+#define IDC_GROUP                       1287
 #define IDS_ERR_WCCHANGED               1288
 #define IDS_ERR_COPYFILES               1289
 #define IDS_ERR_EXTMERGESTART           1290
+#define IDC_PROPNAMECOMBO               1290
 #define IDS_ERR_NOTUPTODATE             1291
+#define IDC_PROPVALUE                   1291
 #define IDS_ERR_FAILEDIGNOREPROPERTY    1292
+#define IDC_PROPNAME                    1292
 #define IDS_ERR_DIFFVIEWSTART           1293
+#define IDC_PROPVALUEGROUP              1293
 #define IDS_ERR_SSL_VALIDATE            1294
+#define IDC_PROPRECURSIVE               1294
 #define IDS_ERR_SSL_UNKNOWNCA           1295
 #define IDS_ERR_SSL_CNMISMATCH          1296
 #define IDS_ERR_SSL_EXPIREDORNOTYETVALID 1297
@@ -696,6 +708,7 @@
 #define IDS_STATUSLIST_CONTEXT_EXPLORE  3331
 #define IDS_STATUSLIST_CONTEXT_RESOLVED 3332
 #define IDS_STATUSLIST_CONTEXT_COMMIT   3333
+#define IDS_STATUSLIST_CONTEXT_PROPERTIES 3334
 #define IDS_STATUSLIST_LOCKBROKEN       3340
 #define IDS_STATUSLIST_LOCKSTOLEN       3341
 #define IDS_STATUSLIST_NESTED           3350
@@ -788,6 +801,12 @@
 #define IDS_COLOURPICKER_CUSTOMTEXT     7000
 #define IDS_COLOURPICKER_DEFAULTTEXT    7001
 #define IDS_COPYDLG_FROMURL             8000
+#define IDS_EDITPROPS_NUMPATHS          9000
+#define IDS_EDITPROPS_DIFFERENTPROPVALUES 9001
+#define IDS_EDITPROPS_RECURSIVEREMOVEQUESTION 9002
+#define IDS_EDITPROPS_RECURSIVE         9003
+#define IDS_EDITPROPS_NOTRECURSIVE      9004
+#define IDS_EDITPROPS_CANCEL            9005
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773
@@ -807,9 +826,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        226
+#define _APS_NEXT_RESOURCE_VALUE        228
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1280
+#define _APS_NEXT_CONTROL_VALUE         1296
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
