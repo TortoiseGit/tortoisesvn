@@ -269,7 +269,11 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		if (content_state == svn_wc_notify_state_missing)
 		{
 			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIPMISSING);
-			data->color = m_Colors.GetColor(CColors::Skipped);
+			
+			// The color settings dialog describes the red color with
+			// "possible or real conflict / obstructed" which also applies to
+			// skipped targets during a merge. So we just use the same color.
+			data->color = m_Colors.GetColor(CColors::Conflict);
 		}
 		else
 			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIP);
