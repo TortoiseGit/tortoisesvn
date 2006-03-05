@@ -82,7 +82,7 @@ public:
 	 * the line endings detected at Load()
 	 * \param sFilePath the path to save the file to
 	 */
-	BOOL		Save(const CString& sFilePath, BOOL bIgnoreWhitespaces = FALSE, BOOL bIgnoreLineendings = FALSE, BOOL bIgnoreCase = FALSE);
+	BOOL		Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreLineendings = FALSE, BOOL bIgnoreCase = FALSE);
 	/**
 	 * Returns an error string of the last failed operation
 	 */
@@ -112,6 +112,9 @@ private:
 	void		SetErrorString();
 
 	void StripAsciiWhiteSpace(CStringA& sLine);
+
+	void StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces );
+	void StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespaces );
 
 
 private:

@@ -202,7 +202,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arBaseFile);
 		sConvertedBaseFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedBaseFilename, dwIgnoreWS > 0, bIgnoreEOL, bIgnoreCase);
+		converted.Save(sConvertedBaseFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase);
 	}
 
 	if (IsTheirFileInUse())
@@ -216,7 +216,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arTheirFile);
 		sConvertedTheirFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedTheirFilename, dwIgnoreWS > 0, bIgnoreEOL, bIgnoreCase);
+		converted.Save(sConvertedTheirFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase);
 	} // if (IsTheirFileInUse())
 
 	if (IsYourFileInUse())
@@ -230,7 +230,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arYourFile);
 		sConvertedYourFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedYourFilename, dwIgnoreWS > 0, bIgnoreEOL, bIgnoreCase);
+		converted.Save(sConvertedYourFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase);
 	} // if (IsYourFileInUse()) 
 
 	// Calculate the number of lines in the largest of the three files
