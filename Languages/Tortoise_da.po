@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r5526
+# Based on Tortoise.pot r5927
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-01-25 20:48+0100\n"
+"PO-Revision-Date: 2006-03-05 13:45+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -145,6 +145,11 @@ msgstr "%I64d kBytes overført"
 msgid "%d files selected, %d files total"
 msgstr "%d valgte filer, %d filer i alt"
 
+#: ID:563,
+#, c-format
+msgid "%ld paths"
+msgstr "%ld stier"
+
 #: ID:226,
 #, c-format
 msgid "%s - at revision: %d"
@@ -169,6 +174,16 @@ msgstr "%s : Arbejdskopi"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s ved %s"
+
+#: ID:145,
+#, c-format
+msgid "%s\\Export (%d) of %s"
+msgstr "%s\\Eksport (%d) af %s"
+
+#: ID:145,
+#, c-format
+msgid "%s\\Export of %s"
+msgstr "%s\\Eksport af %s"
 
 #: ID:145,
 #, c-format
@@ -224,10 +239,6 @@ msgstr "&Gennemse versionsarkiv"
 msgid "&Browse..."
 msgstr "&Gennemse..."
 
-#: Control-ID:1091,#: Control-ID:1094,#: Control-ID:1096,
-msgid "&Builtin"
-msgstr "&Indbygget"
-
 #: Control-ID:1051,
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
@@ -272,6 +283,15 @@ msgstr "&Kopier"
 msgid "&Copy to..."
 msgstr "&Kopier til..."
 
+#: Control-ID:1097,
+#, fuzzy
+msgid "&Custom"
+msgstr "&Personlig"
+
+#: Control-ID:1269,#: Control-ID:1096,
+msgid "&Default"
+msgstr "&Standard"
+
 #: ID:11,
 msgid "&Delete"
 msgstr "S&let"
@@ -288,7 +308,7 @@ msgstr "&Sammenlign"
 msgid "&Dry run"
 msgstr "&Testkørsel"
 
-#: Control-ID:1031,#: MenuEntry
+#: Control-ID:1031,#: Control-ID:1282,#: MenuEntry
 msgid "&Edit"
 msgstr "&Rediger"
 
@@ -312,7 +332,7 @@ msgstr "&Indtast en besked som beskriver, hvorfor du låser filen/filerne."
 msgid "&Exit"
 msgstr "&Afslut"
 
-#: Control-ID:1092,#: Control-ID:1095,#: Control-ID:1097,
+#: Control-ID:1092,#: Control-ID:1095,
 msgid "&External"
 msgstr "&Ekstern"
 
@@ -474,7 +494,7 @@ msgstr "&Seneste beskeder"
 msgid "&Redo"
 msgstr "&Gentag"
 
-#: Control-ID:1013,#: Control-ID:1100,
+#: Control-ID:1013,#: Control-ID:1100,#: Control-ID:1285,
 msgid "&Remove"
 msgstr "&Fjern"
 
@@ -558,6 +578,10 @@ msgstr "&Til URL: "
 #: MenuEntry
 msgid "&Toolbar"
 msgstr "&Værktøjslinje"
+
+#: Control-ID:1091,#: Control-ID:1094,
+msgid "&TortoiseMerge"
+msgstr "&TortoiseMerge"
 
 #: ID:9,
 msgid "&TortoiseSVN"
@@ -750,7 +774,7 @@ msgstr "Handlinger"
 msgid "Activate Task List"
 msgstr "Aktiver opgaveliste"
 
-#: ID:209,
+#: ID:209,#: Dlg-ID:155,
 msgid "Add"
 msgstr "Tilføj"
 
@@ -805,8 +829,8 @@ msgstr "Tilføjet knude"
 
 #: ID:145,
 #, c-format
-msgid "Added the file(s)\n%s\nto the ignore list."
-msgstr "Filen/filerne\n%s\nblev tilføjet \"ignorer\"-listen."
+msgid "Added the file pattern(s)\n%s\nto the ignore list."
+msgstr "Filmønstret/filmønstrene\n%s\nblev tilføjet \"ignorer\"-listen."
 
 #: ID:263,
 msgid "Adding"
@@ -922,6 +946,10 @@ msgstr "Anvender rekursivt egenskaberne på alle filer/mapper.\nEgenskaberne bug
 msgid "Apply &patch..."
 msgstr "P&åfør korrekturark..."
 
+#: Control-ID:1294,
+msgid "Apply property recursively"
+msgstr "Anvend egenskaben rekursivt"
+
 #: Control-ID:65535,
 msgid "Apply unified diff"
 msgstr "Påfør \"unified diff\""
@@ -935,10 +963,27 @@ msgstr "Er du sikker på, at filen/filerne med konflikter skal markeres som løs
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
 msgstr "Er du sikker på at du vil tilbageføre %d emne(r)? Du mister <b>alle</b> ændringer siden sidste opdatering!"
 
+#: MenuEntry
+msgid "Arranged by &path"
+msgstr "Arrangeret efter &sti"
+
+#: ID:2050,
+msgid "Arranges the nodes sorted by path"
+msgstr "Arranger knuderne efter sti"
+
 #: ID:77,
 #, c-format
 msgid "At revision: %d"
 msgstr "Ved revision: %d"
+
+#: Dlg-ID:131,#: Dlg-ID:160,
+msgid "Authentication"
+msgstr "Adgangskoder"
+
+#: Control-ID:1278,
+#, fuzzy
+msgid "Authentication data"
+msgstr "Adgangskoder"
 
 #: ID:76,#: ID:207,
 msgid "Author"
@@ -951,6 +996,10 @@ msgstr "Forfatter:                     Stefan Kueng"
 #: ID:116,
 msgid "Authors"
 msgstr "Forfattere"
+
+#: Control-ID:1265,
+msgid "Authors case insensitive"
+msgstr "Ignorer store/små bogstaver for forfattere"
 
 #: Control-ID:65535,
 msgid "Authors:"
@@ -992,6 +1041,10 @@ msgstr "&Gennemse..."
 #: Control-ID:65535,
 msgid "Base file:"
 msgstr "Basis-fil:"
+
+#: Dlg-ID:162,
+msgid "Blame"
+msgstr "Ændringsfordeling"
 
 #: ID:13,
 #, fuzzy
@@ -1059,7 +1112,7 @@ msgstr "CAP"
 msgid "Can't copy \n%s\nto\n%s"
 msgstr "Kan ikke kopiere \n%s\ntil\n%s"
 
-#: ID:73,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1104,6 +1157,10 @@ msgstr "Ret vinduesplaceringen"
 msgid "Change the window size"
 msgstr "Ret vinduesstørrelsen"
 
+#: Dlg-ID:199,
+msgid "Changed Files"
+msgstr "Ændrede filer"
+
 #: ID:163,
 #, c-format
 msgid "Changed files: %d"
@@ -1122,6 +1179,10 @@ msgstr "Hent arbejds&kopi..."
 # Autogenereret, bruges formodentlig ikke
 msgid "Check"
 msgstr "Sæt kryds"
+
+#: Dlg-ID:174,
+msgid "Check For Updates"
+msgstr "Check for opdateringer"
 
 #: Control-ID:1031,
 msgid "Check For Updates..."
@@ -1168,6 +1229,10 @@ msgstr "Der søges efter fremadrettede kopier"
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Det undersøges, om der er en nyere version af TortoiseSVN til rådighed..."
 
+#: Dlg-ID:133,
+msgid "Checkout"
+msgstr "Hent arbejdskopi"
+
 #: Control-ID:1074,
 msgid "Checkout &directory:"
 msgstr "&Mappe til arbejdskopi:"
@@ -1180,13 +1245,33 @@ msgstr "Oprydning er afsluttet"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Rydder op i afbrudte handlinger, låste filer mv."
 
-#: Control-ID:1059,
-msgid "Clear n&ow"
-msgstr "Slet n&u"
+#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1276,#: Control-ID:1279,
+msgid "Clear"
+msgstr "Slet"
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "Sletter %ld URL'er gemt for %ld arbejdskopier"
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "Sletter %ld logbeskeder gemt for %ld arbejdkopier"
+
+#: ID:196,
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "Sletter %ld brugernavne og adgangskoder, %ld SSL-certifikater og %ld brugernavne"
 
 #: ID:195,
 msgid "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
 msgstr "Sletter de gemte adgangskoder.\nDu vil skulle indtaste dit brugernavn/adgangskode til alle versionsarkiver igen."
+
+#: ID:196,
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "Sletter de gemte størrelser og posititioner for %ld dialoger"
 
 #: ID:170,
 msgid "Click here to select a recently typed message"
@@ -1228,7 +1313,7 @@ msgstr "Kommandoen mislykkedes."
 msgid "Comment"
 msgstr "Kommentar"
 
-#: Control-ID:1083,
+#: ID:209,#: Control-ID:1083,
 msgid "Commit"
 msgstr "Arkivér"
 
@@ -1325,9 +1410,17 @@ msgstr "Kopieret på server"
 msgid "Copy %s"
 msgstr "Kopier %s"
 
+#: Dlg-ID:142,
+msgid "Copy (Branch / Tag)"
+msgstr "Kopier (forgrening/mærkat)"
+
 #: ID:101,
 msgid "Copy URL to clipboard"
-msgstr "Kopier (Lav forgrening/mærkat)"
+msgstr "Kopier URL til udklipsholder"
+
+#: ID:101,
+msgid "Copy error message to clipboard"
+msgstr "Kopier fejlbesked til udklipsholder"
 
 #: ID:76,
 msgid "Copy from path"
@@ -1437,9 +1530,17 @@ msgstr "Tråden kunne ikke startes!"
 msgid "Create &patch..."
 msgstr "O&pret korrekturark"
 
+#: Dlg-ID:208,
+msgid "Create Patch"
+msgstr "Opret korrekturark"
+
+#: Dlg-ID:178,
+msgid "Create Repository"
+msgstr "Opret versionsarkiv"
+
 #: Control-ID:65535,
 msgid "Create copy in the repository from:"
-msgstr "Opret korrekturark"
+msgstr "Opret kopi i versionsarkivet fra:"
 
 #: ID:8,
 msgid "Create repositor&y here..."
@@ -1510,6 +1611,10 @@ msgstr "Sletter"
 msgid "Destination disk drive is full."
 msgstr "Destinationsdisken er fyldt op."
 
+#: Control-ID:1277,
+msgid "Dialog sizes and positions"
+msgstr "Dialogstørrelser og -positioner"
+
 #: Control-ID:65535,
 msgid "Diff file:"
 msgstr "Sammenligningsfil:"
@@ -1557,6 +1662,11 @@ msgstr "Vis programinformation, versionsnummer og copyright\nOm"
 msgid "Do you really want to move this file or folder?"
 msgstr "Er du sikker på, at du vil flytte denne fil eller mappe?"
 
+#: ID:119,
+#, c-format
+msgid "Do you really want to revert all changes in %s\nand go back to this revision?"
+msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i %s\nog gå tilbage til denne revision?"
+
 #: ID:76,
 #, c-format
 msgid "Do you really want to revert all changes to\n%s\nwhich were made in this revision?"
@@ -1573,6 +1683,11 @@ msgstr "Ønsker du at genindlæse dokumenterne for at afspejle ændringerne i in
 #: ID:313,
 msgid "Do you want to reload the documents?\nYou will lose all changes you've made!"
 msgstr "Ønsker du at genindlæse dokumenterne?\nBemærk: Du vil miste alle de ændringer, du har foretaget!"
+
+#: ID:563,
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Ønsker du at fjerne egenskaben %s rekursivt?"
 
 #: ID:313,
 msgid "Do you want to save your changes?"
@@ -1606,6 +1721,10 @@ msgstr "EXT"
 #: Control-ID:1237,
 msgid "Edit"
 msgstr "Rediger"
+
+#: Dlg-ID:226,#: Dlg-ID:227,
+msgid "Edit Properties"
+msgstr "Rediger egenskaber"
 
 #: ID:113,
 msgid "Edit author"
@@ -1650,6 +1769,10 @@ msgstr "Slår kun stavekontrollen til, hvis\negenskaben tsvn:projectlanguage er 
 #: ID:3825,
 msgid "Enlarge the window to full size"
 msgstr "Maksimer vinduet"
+
+#: Dlg-ID:135,
+msgid "Enter Log Message"
+msgstr "Indtast logbesked"
 
 #: ID:80,
 msgid "Enter URL"
@@ -1941,6 +2064,7 @@ msgstr "Hvis ikke valgt, så vises kontekstmenuen hurtigere,\nmen nogle elemente
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere version til rådighed"
 
+#: ID:195,
 msgid "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\ninstead of the last used URL."
 msgstr "Hvis valgt, så vil Flet-dialogen initialisere \"Fra:\"-URL'en med URL'en for den valgte arbejdskopi\ni stedet for den sidst brugte URL."
 
@@ -1972,9 +2096,18 @@ msgstr "Ignorer &alle blanktegn"
 msgid "Ignore &case changes"
 msgstr "Ignorer &store/små bogstaver"
 
+#: Control-ID:1267,
+#, fuzzy
+msgid "Ignore ancestry"
+msgstr "Ignorer forældreskab"
+
 #: Control-ID:1018,
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorer linje&afslutninger (anbefales)"
+
+#: Dlg-ID:139,
+msgid "Import"
+msgstr "Importer"
 
 #: Control-ID:1056,
 msgid "Import &message"
@@ -1989,6 +2122,10 @@ msgstr "Importerer filen %s"
 msgid "Imports the directory to a repository"
 msgstr "Importerer mappen til et versionsarkiv"
 
+#: Control-ID:1266,
+msgid "Include ignored files"
+msgstr "Inkluder ignorerede filer"
+
 #: Control-ID:65535,
 msgid "Include paths:"
 msgstr "Inkluder stierne:"
@@ -2001,6 +2138,10 @@ msgstr "Oprindelig import"
 #, fuzzy
 msgid "Inline whitespace diff"
 msgstr "Sammenligning af blanktegn"
+
+#: Dlg-ID:161,
+msgid "Input"
+msgstr "Input"
 
 #: ID:3603,
 msgid "Insert Clipboard contents\nPaste"
@@ -2025,6 +2166,10 @@ msgstr "Filnavnet er ugyldigt."
 #: ID:82,
 msgid "Invalid revision number! Valid revisions are:\nHEAD, BASE, PREV, COMMITTED, WC,\npositive decimal numbers,\ndates in one of the following example forms:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
 msgstr "Revisionsnummeret er ugyldigt! Gyldige revisioner er:\nHEAD, BASE, PREV, COMMITTED, WC,\npositive heltal,\ndatoer i et af følgende formater:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
+
+#: ID:83,
+msgid "Invalid revision number! Valid revisions are:\nHEAD\npositive decimal numbers,\ndates in one of the following example forms:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
+msgstr "Revisionsnummeret er ugyldigt! Gyldige revisioner er:\nHEAD\npositive heltal,\ndatoer i et af følgende formater:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
 
 #: ID:145,
 msgid "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
@@ -2075,6 +2220,10 @@ msgstr "Den placering, hvor indholdet af\nversionsarkiv-URL'en vil blive gemt."
 msgid "Lock"
 msgstr "Lås"
 
+#: Dlg-ID:191,
+msgid "Lock Files"
+msgstr "Lås filer"
+
 #: ID:209,
 msgid "Lock broken!"
 msgstr "Låsen er brudt!"
@@ -2112,6 +2261,14 @@ msgstr "Låser en fil for andre brugere og gør, at du kan redigere den."
 #: ID:126,
 msgid "Log"
 msgstr "Log"
+
+#: Dlg-ID:211,
+msgid "Log History"
+msgstr "Log-historik"
+
+#: Control-ID:1274,#: Dlg-ID:130,
+msgid "Log Messages"
+msgstr "Logbeskeder"
 
 #: Control-ID:65535,
 msgid "Log message"
@@ -2159,6 +2316,10 @@ msgstr "Laveste revision: %ld - Højeste revision: %ld - HEAD-revision: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "Mailsystem-DLL'en er ugyldig."
 
+#: ID:17,
+msgid "Manage Subversion properties"
+msgstr "Rediger Subversion-egenskaber"
+
 #: ID:2051,
 msgid "Marks a file as resolved in Subversion\nMark as resolved"
 msgstr "Markerer en fil med konflikter som løst i Subversion\nMarker som løst"
@@ -2168,6 +2329,10 @@ msgid "Max"
 msgstr "Maks"
 
 #: Control-ID:65535,
+msgid "Max. items to keep in the log message history"
+msgstr "Maksimalt antal logbeskeder gemt i historikken"
+
+#: Dlg-ID:141,#: Control-ID:65535,
 msgid "Merge"
 msgstr "Flet"
 
@@ -2183,6 +2348,10 @@ msgstr "Fletter en forgrening ind i hovedstammen"
 #Dette er overskrift i en dialog
 msgid "Merging"
 msgstr "Fletning"
+
+#: ID:83,
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "Fletning kræver forskellige revisioner eller forskellige URL'er i \"Fra:\" og \"Til:\""
 
 #: ID:76,
 msgid "Message"
@@ -2337,9 +2506,18 @@ msgstr "Der blev ikke fundet nogen billed-indkoder til %s."
 msgid "No spell corrections"
 msgstr "Ingen stavekontrol-rettelser"
 
+#: ID:196,
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr "Ingen status-cache. Kun mapper under versionskontrol får overdækning, filer gør ikke"
+
 #: ID:188,
 msgid "No thesaurus suggestions"
 msgstr "Ingen forslag fra opslagsværk"
+
+#: Control-ID:1271,
+#, fuzzy
+msgid "None"
+msgstr "Ingen"
 
 #: Control-ID:65535,
 msgid "Normal"
@@ -2353,6 +2531,10 @@ msgstr "Ikke alle indgange i registreringsdatabasen (eller INI-filen) blev slett
 msgid "Not enough memory to complete operation."
 msgstr "Der er ikke nok hukommelse til at færdiggøre handlingen."
 
+#: ID:563,
+msgid "Not recursive"
+msgstr "Ikke-rekursivt"
+
 #: ID:88,
 msgid "Notice"
 msgstr "Bemærk"
@@ -2365,7 +2547,7 @@ msgstr "Antal forfattere:"
 msgid "Number of weeks:"
 msgstr "Antal uger:"
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr "Ok"
 
@@ -2462,6 +2644,10 @@ msgstr "Indsæt filnavne"
 #: ID:376,
 msgid "Patch all"
 msgstr "Påfør korrektur på alle"
+
+#: ID:376,
+msgid "Patch selected"
+msgstr "Korrektur valgt"
 
 #: ID:157,#: ID:157,
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -2575,13 +2761,21 @@ msgstr "Program"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programmer (*.exe)|*.*|Alle filer (*.*)|*.*||"
 
-#: Control-ID:65535,
+#: Dlg-ID:134,#: Control-ID:65535,
 msgid "Progress"
 msgstr "Fremskridts-dialog"
 
-#: Control-ID:65535,
+#: ID:17,#: Control-ID:65535,#: Dlg-ID:177,
 msgid "Properties"
 msgstr "Egenskaber"
+
+#: Control-ID:1287,
+msgid "Properties for"
+msgstr "Egenskaber for"
+
+#: ID:209,
+msgid "Properties..."
+msgstr "Egenskaber..."
 
 #: ID:11,
 msgid "Property"
@@ -2595,9 +2789,17 @@ msgstr "Egenskabsside"
 msgid "Property Status:"
 msgstr "Egenskabsstatus:"
 
+#: Control-ID:1292,
+msgid "Property name:"
+msgstr "Egenskabsnavn:"
+
 #: ID:207,
 msgid "Property status"
 msgstr "Egenskabsstatus"
+
+#: Control-ID:1293,
+msgid "Property value:"
+msgstr "Egenskabsværdi:"
 
 #: Control-ID:65535,
 msgid "Proxy &timeout in seconds:"
@@ -2614,6 +2816,10 @@ msgstr "Afslutter applikationen og spørger, om dokumenterne skal gemmes\nAfslut
 #: Control-ID:1073,
 msgid "R&AM drives"
 msgstr "&Hukommelsesdrev"
+
+#: ID:114,
+msgid "R&evert to this revision"
+msgstr "Tilbag&efør til denne revision"
 
 #: ID:3697,
 # Autogenereret, bruges ikke
@@ -2640,6 +2846,10 @@ msgstr "Læs \"Daily Use Guide\" inden du går i stå..."
 #,fuzzy
 msgid "Recurse into unversioned folders"
 msgstr "Søg i ikke-versionerede mapper"
+
+#: ID:563,
+msgid "Recursive"
+msgstr "Rekursivt"
 
 #: ID:3603,
 msgid "Redo the previously undone action\nRedo"
@@ -2681,6 +2891,10 @@ msgstr "Genindlæs"
 msgid "Reloads the opened files and reverts all changes.\nReload"
 msgstr "Genindlæser åbne filer og tilbagefører alle ændringer.\nGenindlæs"
 
+#: Dlg-ID:157,
+msgid "Relocate"
+msgstr "Omlæg"
+
 #: ID:80,
 msgid "Relocating..."
 msgstr "Omlægger..."
@@ -2711,12 +2925,16 @@ msgstr "Fjernet fil/mappe"
 
 #: ID:145,
 #, c-format
-msgid "Removed the file(s)\n%s\nfrom the ignored list."
-msgstr "Fjernede filen/filerne\n%s\nfra \"ignorer\"-listen."
+msgid "Removed the file pattern(s)\n%s\nfrom the ignored list."
+msgstr "Fjernede filmønstret/filmønstrene\n%s\nfra \"ignorer\"-listen."
 
 #: ID:15,
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Fjerne filen eller filmasken fra listen af ignorerede emner"
+
+#: Dlg-ID:151,
+msgid "Rename"
+msgstr "Omdøb"
 
 #: ID:97,
 #, c-format
@@ -2765,6 +2983,10 @@ msgstr "Versionsarkivsøger"
 msgid "Repository"
 msgstr "Versionsarkiv"
 
+#: Dlg-ID:153,
+msgid "Repository Browser"
+msgstr "Versionsarkiv-søger"
+
 #: Control-ID:65535,
 msgid "Requests a username and a password"
 msgstr "Spørger efter brugernavn og adgangskode"
@@ -2772,6 +2994,10 @@ msgstr "Spørger efter brugernavn og adgangskode"
 #: ID:8,
 msgid "Res&olved..."
 msgstr "L&øst..."
+
+#: Dlg-ID:207,
+msgid "Resolve"
+msgstr "Løs"
 
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
@@ -2810,6 +3036,10 @@ msgstr "Gendannet"
 msgid "Retry"
 msgstr "Prøv igen"
 
+#: Dlg-ID:175,
+msgid "Revert"
+msgstr "Tilbagefør"
+
 #: ID:114,
 msgid "Revert changes from these revisions"
 msgstr "Tilbagefør ændringer fra disse revisioner"
@@ -2831,7 +3061,7 @@ msgstr "Revision"
 msgid "Revision %d"
 msgstr "Revision %d"
 
-#: ID:269,#: ID:270,#: ID:270,#: ID:271,
+#: ID:269,#: ID:270,#: ID:270,#: ID:272,
 #, c-format
 msgid "Revision %ld"
 msgstr "Revision %ld"
@@ -2844,6 +3074,10 @@ msgstr "Revisions&graf"
 msgid "Revision / Author:"
 msgstr "Revision/forfatter:"
 
+#: Dlg-ID:182,
+msgid "Revision Graph"
+msgstr "Revisionsgraf"
+
 #: ID:269,#: Control-ID:65535,
 msgid "Revision graph"
 msgstr "Revisionsgraf"
@@ -2851,6 +3085,11 @@ msgstr "Revisionsgraf"
 #: ID:75,
 msgid "Revision: "
 msgstr "Revision: "
+
+#: ID:272,
+#, c-format
+msgid "Revision: %ld\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
+msgstr "Revision: %ld\nURL: %s\r\nForfatter: %s\r\nDato: %s\r\n\r\nLogbesked:\r\n%s"
 
 #: ID:116,
 msgid "Revisions"
@@ -2907,6 +3146,10 @@ msgstr "SVN Eksporter hertil"
 #: ID:16,
 msgid "SVN Lock owner"
 msgstr "SVN Lås-ejer"
+
+#: ID:17,
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN Flyt og omdøb versionerede filer hertil"
 
 #: ID:12,
 msgid "SVN Move versioned files here"
@@ -2972,7 +3215,11 @@ msgstr "Gem den ændrede fil\nGem fil"
 
 #: Control-ID:1132,
 msgid "Save to clipboard"
-msgstr "Gemmer filer"
+msgstr "Gem i udklipsholder"
+
+#: Dlg-ID:108,
+msgid "Saved Data"
+msgstr "Gemt data"
 
 #: ID:103,
 #, c-format
@@ -3012,6 +3259,10 @@ msgstr "Vælg/fravælg &alle"
 #: ID:13,
 msgid "Select File..."
 msgstr "Vælg fil..."
+
+#: Dlg-ID:173,
+msgid "Select Revision"
+msgstr "Vælg revision"
 
 #: ID:78,
 msgid "Select SSH client"
@@ -3099,6 +3350,10 @@ msgstr "Indstillinger"
 msgid "Sh&ow log"
 msgstr "V&is log"
 
+#: Control-ID:1270,
+msgid "Shell"
+msgstr "Shell"
+
 #: ID:145,
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Ikon-cachen er nu blevet genopbygget."
@@ -3118,6 +3373,10 @@ msgstr "Kort Url for Subversion-emner"
 #: Control-ID:1031,
 msgid "Show &All"
 msgstr "Vis &alle"
+
+#: MenuEntry
+msgid "Show &all revisions"
+msgstr "Vis &alle revisioner"
 
 #: ID:113,
 msgid "Show &differences"
@@ -3165,10 +3424,6 @@ msgstr "Vis eller skjul statuslinjen\nVis/skjul statuslinje"
 msgid "Show or hide the toolbar\nToggle ToolBar"
 msgstr "Vis eller skjul værktøjslinjen\nVis/skjul værktøjslinje"
 
-#: Control-ID:1223,
-msgid "Show overlay status icons recursively"
-msgstr "Vis status-overdækningsikoner rekursivt"
-
 #: ID:2049,
 msgid "Show special characters for whitespaces\nShow Whitespaces"
 msgstr "Vis specielle tegn for blanktegn\nVis blanktegn"
@@ -3181,6 +3436,16 @@ msgstr "Vis ikke-ændrede filer"
 msgid "Show unversioned files"
 msgstr "Vis ikke-versionerede filer"
 
+#: ID:272,
+#, c-format
+msgid "Showing %ld nodes"
+msgstr "Viser %ld knuder"
+
+#: ID:272,
+#, c-format
+msgid "Showing graph for %s"
+msgstr "Viser graf for %s"
+
 #: ID:15,
 msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Viser en grafisk repræsentation af kopier/mærkater/forgreninger"
@@ -3188,6 +3453,11 @@ msgstr "Viser en grafisk repræsentation af kopier/mærkater/forgreninger"
 #: ID:13,
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Viser alle filer, som er ændret siden sidste opdatering, både lokalt og i versionsarkivet"
+
+#: ID:2050,
+#, fuzzy
+msgid "Shows all revisions the URL got changed, not just copies"
+msgstr "Vis alle revisioner, hvor URL'en blev ændret og ikke blot kopieret"
 
 #: ID:10,
 msgid "Shows information about TortoiseSVN"
@@ -3213,6 +3483,10 @@ msgstr "Oversprunget"
 msgid "Skipped missing target"
 msgstr "Sprang over manglende element"
 
+#: ID:196,
+msgid "Specifies how many items you want to keep in the most recent log messages dialog."
+msgstr "Angiver hvor mange filer du ønsker gemt i listen over nyeste logbeskeder."
+
 #: ID:79,
 msgid "Specify the files or folders which TortoiseSVN\nshould ignore in <b>all</b> working copies.\nSeparate the patterns with a space."
 msgstr "Angiv de filer eller mapper, som TortoiseSVN\nskal ignorere i <b>alle</b> arbejdskopier.\nAdskil mønstrene med et mellemrum."
@@ -3230,7 +3504,7 @@ msgstr "Opdel det aktive vindue i paneler\nOpdel"
 msgid "Stacked"
 msgstr "Stakket"
 
-#: ID:245,
+#: ID:245,#: Dlg-ID:179,
 msgid "Statistics"
 msgstr "Statistik"
 
@@ -3241,6 +3515,18 @@ msgstr "Status"
 #: Control-ID:65535,
 msgid "Status and action colors"
 msgstr "Farver for status og handlinger"
+
+#: Control-ID:65535,
+msgid "Status cache"
+msgstr "Status-cache"
+
+#: ID:196,
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr "Status-cachen kører i en ekstern proces, der kan viser overdækningerne rekursivt"
+
+#: ID:196,
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr "Status-cachen viser kun for én mappe, altså ingen rekursive overdækninger"
 
 #: ID:11,
 msgid "Status of item in SVN"
@@ -3261,10 +3547,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535,
 msgid "Subversion"
 msgstr "Subversion"
-
-#: Control-ID:65535,
-msgid "Subversion &authentication data:"
-msgstr "Subversion &adgangskode-data:"
 
 #: Control-ID:65535,
 msgid "Subversion configuration &file:"
@@ -3290,6 +3572,10 @@ msgstr "S&kift arbejdskopi til ny forgrening/mærkat"
 #: MenuEntry
 msgid "Switch Left<->Right"
 msgstr "Ombyt Venstre<->Højre"
+
+#: Dlg-ID:140,
+msgid "Switch To Branch / Tag"
+msgstr "Skift til forgrening/mærkat"
 
 #: ID:3606,
 msgid "Switch back to the previous window pane\nPrevious Pane"
@@ -3438,8 +3724,9 @@ msgid "The selected file appears to still have one or more conflict markers in i
 msgstr "Den valgte fil ser ud til stadig at indeholde en eller flere konfliktmarkeringer.\nEr du sikker på at du ønsker at markere filen som løst for konflikter?"
 
 #: ID:88,
-msgid "The target folder is not empty!\nAre you sure you want to checkout/export into that folder?"
-msgstr "Den valgte mappe er ikke tom!\nEr du sikker på, at du vil hente en arbejdskopi eller eksportere til denne mappe?"
+#, c-format
+msgid "The target folder \n%s\nis not empty!\nAre you sure you want to checkout/export into that folder?"
+msgstr "Den valgte mappe \n%s\ner ikke tom!\nEr du sikker på, at du vil hente en arbejdskopi eller eksportere til denne mappe?"
 
 #: ID:102,
 #, c-format
@@ -3567,128 +3854,6 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d - %s"
 msgid "TortoiseSVN %d.%d.%d, Build %d - %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 msgstr "TortoiseSVN %d.%d.%d, Build %d - %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 
-#: Dlg-ID:155,
-msgid "TortoiseSVN : Add"
-msgstr "TortoiseSVN : Tilføj"
-
-#: Dlg-ID:131,#: Dlg-ID:160,
-msgid "TortoiseSVN : Authentication"
-msgstr "TortoiseSVN : Adgangskoder"
-
-#: Dlg-ID:162,
-msgid "TortoiseSVN : Blame"
-msgstr "TortoiseSVN : Ændringsfordeling"
-
-#: Dlg-ID:199,
-msgid "TortoiseSVN : Changed Files"
-msgstr "TortoiseSVN : Ændrede filer"
-
-#: Dlg-ID:174,
-msgid "TortoiseSVN : Check For Updates"
-msgstr "TortoiseSVN : Check for opdateringer"
-
-#: Dlg-ID:133,
-msgid "TortoiseSVN : Checkout"
-msgstr "TortoiseSVN : Hent arbejdskopi"
-
-#: Dlg-ID:142,
-msgid "TortoiseSVN : Copy (Branch / Tag)"
-msgstr "TortoiseSVN : Kopier (branch/tag)"
-
-#: Dlg-ID:208,
-msgid "TortoiseSVN : Create Patch"
-msgstr "TortoiseSVN : Opret korrekturark"
-
-#: Dlg-ID:178,
-msgid "TortoiseSVN : Create Repository"
-msgstr "TortoiseSVN : Opret versionsarkiv"
-
-#: Dlg-ID:135,
-msgid "TortoiseSVN : Enter Log Message"
-msgstr "TortoiseSVN : Indtast logbesked"
-
-#: Dlg-ID:139,
-msgid "TortoiseSVN : Import"
-msgstr "TortoiseSVN : Importer"
-
-#: Dlg-ID:161,
-#, fuzzy
-msgid "TortoiseSVN : Input"
-msgstr "TortoiseSVN : Input"
-
-#: Dlg-ID:191,
-msgid "TortoiseSVN : Lock Files"
-msgstr "TortoiseSVN : Lås filer"
-
-#: Dlg-ID:211,
-msgid "TortoiseSVN : Log History"
-msgstr "TortoiseSVN : Log-historik"
-
-#: Dlg-ID:130,
-msgid "TortoiseSVN : Log Messages"
-msgstr "TortoiseSVN : Logbeskeder"
-
-#: Dlg-ID:141,
-msgid "TortoiseSVN : Merge"
-msgstr "TortoiseSVN : Flet"
-
-#: Dlg-ID:134,
-#, fuzzy
-msgid "TortoiseSVN : Progress"
-msgstr "TortoiseSVN : Fremskridt"
-
-#: Dlg-ID:177,
-msgid "TortoiseSVN : Properties"
-msgstr "TortoiseSVN : Egenskaber"
-
-#: Dlg-ID:157,
-msgid "TortoiseSVN : Relocate"
-msgstr "TortoiseSVN : Omlæg"
-
-#: Dlg-ID:151,
-msgid "TortoiseSVN : Rename"
-msgstr "TortoiseSVN : Omdøb"
-
-#: Dlg-ID:153,
-msgid "TortoiseSVN : Repository Browser"
-msgstr "TortoiseSVN : Versionsarkiv-søger"
-
-#: Dlg-ID:207,
-msgid "TortoiseSVN : Resolve"
-msgstr "TortoiseSVN : Løs"
-
-#: Dlg-ID:175,
-msgid "TortoiseSVN : Revert"
-msgstr "TortoiseSVN : Tilbagefør"
-
-#: Dlg-ID:182,
-msgid "TortoiseSVN : Revision Graph"
-msgstr "TortoiseSVN : Revisionsgraf"
-
-#: Dlg-ID:173,
-msgid "TortoiseSVN : Select Revision"
-msgstr "TortoiseSVN : Vælg revision"
-
-#: Dlg-ID:179,
-msgid "TortoiseSVN : Statistics"
-msgstr "TortoiseSVN : Statistik"
-
-#: Dlg-ID:140,
-msgid "TortoiseSVN : Switch To Branch / Tag"
-msgstr "TortoiseSVN : Skift til forgrening/etiket"
-
-#: Dlg-ID:164,
-msgid "TortoiseSVN : URL"
-msgstr "TortoiseSVN : URL"
-
-#: Dlg-ID:152,
-msgid "TortoiseSVN : Update"
-msgstr "TortoiseSVN : Opdater"
-
-#: Dlg-ID:158,
-msgid "TortoiseSVN : Working Copy"
-msgstr "TortoiseSVN : Arbejdskopi"
-
 #: ID:77,
 msgid "TortoiseSVN Add..."
 msgstr "TortoiseSVN Tilføj..."
@@ -3745,6 +3910,11 @@ msgstr "TortoiseSVN Skift..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN Opdater..."
 
+#: ID:98,
+#, c-format
+msgid "TortoiseSVN has detected similar filenames. Do you want the files:%s\nto be renamed too?"
+msgstr "TortoiseSVN har opdaget lignende filnavne. Ønsker du at filerne:%s\nogså skal omdøbes?"
+
 #: Control-ID:1162,
 msgid "Total commits analyzed:"
 msgstr "Antal analyserede arkiveringer:"
@@ -3774,6 +3944,14 @@ msgstr "Optimer TortoiseSVN"
 msgid "Two-way &Diff"
 msgstr "Tovejs-&differens"
 
+#: Dlg-ID:164,
+msgid "URL"
+msgstr "URL"
+
+#: Control-ID:1272,
+msgid "URL history"
+msgstr "URL-historik"
+
 #: ID:12,
 msgid "URL of Subversion items"
 msgstr "URL for Subversion-emner"
@@ -3785,11 +3963,6 @@ msgstr "URL:"
 #: ID:75,
 msgid "URL: "
 msgstr "URL: "
-
-#: ID:272,
-#, c-format
-msgid "URL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
-msgstr "URL: %s\r\nForfatter: %s\r\nDato: %s\r\n\r\nLogbesked:\r\n%s"
 
 #: ID:3866,#: ID:3866,
 msgid "Unable to load mail system support."
@@ -3851,6 +4024,10 @@ msgstr "Ikke låst"
 #: ID:3841,#: ID:3841,
 msgid "Untitled"
 msgstr "Ikke-navngivet"
+
+#: Dlg-ID:152,
+msgid "Update"
+msgstr "Opdater"
 
 #: ID:74,
 msgid "Updated"
@@ -3974,6 +4151,10 @@ msgstr "Advarsel!"
 msgid "Whitespace diff"
 msgstr "Forskel i blanktegn"
 
+#: Dlg-ID:158,
+msgid "Working Copy"
+msgstr "Arbejdskopi"
+
 #: ID:80,
 #, c-format
 msgid "Working copy relocated to\n%s"
@@ -4068,6 +4249,24 @@ msgstr "Zoom &ind\tCtrl-+"
 #: MenuEntry
 msgid "Zoom &out\tCtrl--"
 msgstr "Zoom &ud\tCtrl--"
+
+#: ID:2051,
+#, c-format
+msgid "Zoom 100%"
+msgstr "Zoom 100%"
+
+#: ID:2049,
+msgid "Zoom in"
+msgstr "Zoom ind"
+
+#: ID:2049,
+msgid "Zoom out"
+msgstr "Zoom ud"
+
+#: ID:2051,
+#, fuzzy
+msgid "Zoom to fit"
+msgstr "Tilpas zoom"
 
 #: ID:10,
 msgid "added"
@@ -4247,6 +4446,11 @@ msgstr "svn:mime-type\nMime-typen for filen. Denne benyttes til at afgøre, om f
 msgid "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
 msgstr "svn:needs-lock\nSæt denne til en værdi (fx '*') for at kræve låsning for denne fil.\nFilen bliver gjort skrivebeskyttet, når den hentes eller opdateres\nog indikerer derved, at en bruger skal eje en lås på filen\nfør redigering og arkivering af ændringer er mulig."
 
+#: ID:208,
+#, c-format
+msgid "switched to\r\n%s"
+msgstr "skiftet til\r\n%s"
+
 #: ID:80,#: ID:103,#: ID:103,
 #, c-format
 msgid "to %s"
@@ -4275,6 +4479,10 @@ msgstr "tsvn:projectlanguage\nSæt denne til nummeret på det sprog, som du øns
 #: ID:15,
 msgid "tsvn:warnifnoissue\nSet to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr "tsvn:warnifnoissue\nSæt denne værdi til \"yes\", hvis der skal vises en advarsel, hvis der ikke indtastes et problemnummer i arkiveringsdialogen."
+
+#: ID:563,
+msgid "values are different"
+msgstr "værdierne er forskellige"
 
 #: ID:244,
 msgid "week"
