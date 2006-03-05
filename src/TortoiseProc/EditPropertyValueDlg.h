@@ -46,6 +46,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedHelp();
 
 	DECLARE_MESSAGE_MAP()

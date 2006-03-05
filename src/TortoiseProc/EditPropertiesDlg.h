@@ -42,6 +42,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMClickEditproplist(NMHDR *pNMHDR, LRESULT *pResult);

@@ -377,3 +377,24 @@ void CEditPropertiesDlg::OnCancel()
 		return;
 	CStandAloneDialogTmpl<CResizableDialog>::OnCancel();
 }
+
+BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_F5:
+			{
+				if (m_bThreadRunning)
+					return __super::PreTranslateMessage(pMsg);
+				Refresh();
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	return __super::PreTranslateMessage(pMsg);
+}

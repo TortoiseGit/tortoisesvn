@@ -169,3 +169,25 @@ void CEditPropertyValueDlg::CheckRecursive()
 		}
 	}
 }
+
+BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_RETURN:
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					PostMessage(WM_COMMAND, IDOK);
+				}
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	return __super::PreTranslateMessage(pMsg);
+}
