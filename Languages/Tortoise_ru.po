@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 5894: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 5933: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-03 10:41+0300\n"
+"PO-Revision-Date: 2006-03-06 12:22+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +81,7 @@ msgstr "%1 содержит неверный путь."
 #: ID:3867
 #, c-format
 msgid "%1 could not be created because the directory is full."
-msgstr "%1 не может быть создан, потому что директория полна."
+msgstr "%1 не может быть создан, потому что папка полна."
 
 #: ID:3867
 #, c-format
@@ -91,7 +91,7 @@ msgstr "%1 не может быть открыт из-за большого ко
 #: ID:3867
 #, c-format
 msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 не может быть удалена: нельзя удалить текущую директорию."
+msgstr "%1 не может быть удалена, поскольку это текущая папка."
 
 #: ID:3868
 #, c-format
@@ -110,7 +110,7 @@ msgid ""
 "Continue running script?"
 msgstr ""
 "%1: %2\n"
-"Продолжать выполнение скрипта?"
+"Продолжить выполнение скрипта?"
 
 #: ID:3859
 #, c-format
@@ -120,7 +120,7 @@ msgid ""
 "Please verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
-"Не могу найти такой файл.\n"
+"Не могу найти этот файл.\n"
 "Проверьте путь и имя файла."
 
 #: ID:357
@@ -138,6 +138,11 @@ msgstr "%I64d кБайт передано"
 msgid "%d files selected, %d files total"
 msgstr "%d файлов выбрано, %d файлов всего"
 
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld путей"
+
 #: ID:226
 #, c-format
 msgid "%s - at revision: %d"
@@ -151,7 +156,7 @@ msgstr "%s : Удаленный файл"
 #: ID:151
 #, c-format
 msgid "%s : Working Base"
-msgstr "%s : Рабочая база."
+msgstr "%s : Рабочая база"
 
 #: ID:151
 #, c-format
@@ -190,8 +195,8 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr ""
 "%s\n"
-"является директорией, а не файлом!\n"
-"TortoiseMerge не может сравнивать директории."
+"является папкой, а не файлом!\n"
+"TortoiseMerge не может сравнивать папки."
 
 #: MenuEntry
 msgid "&?"
@@ -309,6 +314,7 @@ msgid "&Dry run"
 msgstr "&Пробный запуск"
 
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Редактировать"
@@ -506,6 +512,7 @@ msgstr "&Вернуть"
 
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "&Удалить"
 
@@ -778,8 +785,8 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Список директорий, разделённых новой строкой, где будут показываться пометки на значках.\n"
-"Если вы добавите \"*\" в конец пути, все поддиректории будут также включены."
+"Список путей, разделённых новой строкой, где будут показываться пометки на значках.\n"
+"Если вы добавите \"*\" в конец пути, все файлы и подпапки будут также включены."
 
 #: ID:194
 msgid ""
@@ -787,8 +794,8 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Список директорий, разделённых новой строкой, где не будут показываться пометки на значках.\n"
-"Если вы добавите \"*\" в конец пути, все поддиректории будут также исключены.\n"
+"Список путей, разделённых новой строкой, где не будут показываться пометки на значках.\n"
+"Если вы добавите \"*\" в конец пути, все файлы и подпапки будут также исключены.\n"
 "Пустой список разрешает пометки для любого пути."
 
 #: ID:3843
@@ -912,11 +919,11 @@ msgstr "Добавленнный узел"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
-"to the ignore list."
+"to the ignored list."
 msgstr ""
-"Файл(ы)\n"
+"Следующие шаблоны файлов\n"
 "%s\n"
 "добавлены в список игнорирования."
 
@@ -1071,6 +1078,10 @@ msgstr ""
 #: ID:13
 msgid "Apply &patch..."
 msgstr "Применить за&платку..."
+
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "Применить свойство рекурсивно"
 
 #: Control-ID:65535
 msgid "Apply unified diff"
@@ -1249,6 +1260,7 @@ msgstr ""
 "%s"
 
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "Отмена"
@@ -1613,8 +1625,8 @@ msgstr "Исправления"
 
 #: ID:81
 #, c-format
-msgid "Could not add %s to the ignore list!"
-msgstr "Не могу добавить %s в лист игнорирования!"
+msgid "Could not add %s to the ignored list!"
+msgstr "Не могу добавить %s в список игнорирования!"
 
 #: ID:201
 msgid "Could not check for a newer version!"
@@ -1794,7 +1806,7 @@ msgid "Deleted node"
 msgstr "Удалённый узел"
 
 #: ID:11
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr "Удаляет файлы/папки из управления версиями"
 
 #: ID:263
@@ -1916,6 +1928,11 @@ msgstr ""
 "Вы хотите перезагрузить документы?\n"
 "Вы потеряете все сделанные изменения!"
 
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Вы действительно хотите убрать свойство %s рекурсивно?"
+
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "Вы хотите сохранить изменения?"
@@ -1948,6 +1965,11 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "Поправить"
+
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Редактирование свойств"
 
 #: ID:113
 msgid "Edit author"
@@ -2704,6 +2726,10 @@ msgstr "Младшая ревизия: %ld - Старшая ревизия: %ld 
 msgid "Mail system DLL is invalid."
 msgstr "Не подходящий DLL почтовой системы."
 
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Управление свойствами Subversion "
+
 #: ID:2051
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -2736,6 +2762,10 @@ msgstr "Сливает ответвление с главным стволом"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Слияние"
+
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "Для слияния необходимы различные ревизии или различные URL в полях 'С:' и 'По:'"
 
 #: ID:76
 msgid "Message"
@@ -2936,6 +2966,10 @@ msgstr "Не все компоненты в системном реестре (�
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "Недостаточно памяти для завершения операции."
+
+#: ID:563
+msgid "Not recursive"
+msgstr "Не рекурсивно"
 
 #: ID:88
 msgid "Notice"
@@ -3188,10 +3222,19 @@ msgstr "Программы (*.exe)|*.exe|Все файлы (*.*)|*.*||"
 msgid "Progress"
 msgstr "Окно выполнения"
 
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "Свойства"
+
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Свойства для"
+
+#: ID:209
+msgid "Properties..."
+msgstr "Свойства..."
 
 #: ID:11
 msgid "Property"
@@ -3205,9 +3248,17 @@ msgstr "Страница свойств"
 msgid "Property Status:"
 msgstr "Статус свойства:"
 
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Название свойства:"
+
 #: ID:207
 msgid "Property status"
 msgstr "Состояние свойства"
+
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Значение свойства:"
 
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
@@ -3256,6 +3307,10 @@ msgstr "Прочитайте 'Daily Use Guide', пока не застряли..
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "Показать файлы из неверсионных папок"
+
+#: ID:563
+msgid "Recursive"
+msgstr "Рекурсивно"
 
 #: ID:3603
 msgid ""
@@ -3343,11 +3398,11 @@ msgstr "Удален(а) файл/папка"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
 "from the ignored list."
 msgstr ""
-"Файл(ы)\n"
+"Следующие шаблоны файлов\n"
 "%s\n"
 "удалены из списка игнорирования."
 
@@ -3379,8 +3434,8 @@ msgid "Renamed remotely"
 msgstr "Переименовано удаленно"
 
 #: ID:11
-msgid "Renames files / folders inside source control"
-msgstr "Переименовать файлы / папки внутри управления версиями"
+msgid "Renames files / folders inside version control"
+msgstr "Переименовывает файлы/папки внутри управления версиями"
 
 #: ID:3603
 msgid ""
@@ -3625,16 +3680,16 @@ msgid "SVN Status"
 msgstr "SVN Статус"
 
 #: ID:12
-msgid "SVN Url"
-msgstr "SVN Url"
+msgid "SVN URL"
+msgstr "SVN URL"
 
 #: ID:14
 msgid "SVN mime-type"
 msgstr "SVN mime-тип"
 
 #: ID:12
-msgid "SVN short Url"
-msgstr "SVN короткий Url"
+msgid "SVN short URL"
+msgstr "SVN краткий URL"
 
 #: MenuEntry
 msgid "Save &As..."
@@ -3842,8 +3897,8 @@ msgid "Short &date/time format in log messages"
 msgstr "Короткий формат &даты/времени в лог-сообщениях"
 
 #: ID:12
-msgid "Short Url of Subversion items"
-msgstr "Короткий Url subversion-объектов"
+msgid "Short URL of Subversion items"
+msgstr "Краткий URL объектов Subversion"
 
 #: Control-ID:1031
 msgid "Show &All"
@@ -4284,14 +4339,14 @@ msgstr ""
 
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Похоже, что путь/url, введенный Вами, недопустим в Windows!\n"
-"Вы можете оставить так, как есть, но в этом случае Вы можете получить ошибку позже.\n"
+"Похоже, что введенный Вами путь/URL недопустим в Windows!\n"
+"Можно попытаться оставить всё так, как есть, но в таком случае Вы можете получить ошибку позже.\n"
 "\n"
 "Корректный путь в Windows не должен содержать '<>|\"?*:' или одно из следующих имён устройств:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
@@ -4325,6 +4380,17 @@ msgstr ""
 "Похоже, в выбранном файле остались конфликтные отметки.\n"
 "Вы уверены, что хотите пометить его как улаженный?"
 
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"URL назначения\n"
+"%s\n"
+"уже существует!"
+
 #: ID:88
 #, c-format
 msgid ""
@@ -4337,17 +4403,6 @@ msgstr ""
 "%s\n"
 "не пустая!\n"
 "Вы уверены, что извлекать/экспортировать файлы надо в неё?"
-
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"URL назначения\n"
-"%s\n"
-"уже существует!"
 
 #: ID:195
 msgid ""
@@ -4407,7 +4462,7 @@ msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Есть изменения в директориях, которые включены в svn:externals.\n"
+"Есть изменения в папках, которые включены в svn:externals.\n"
 "Эти файлы <b>не</b> включены в список фиксирования. Их необходимо фиксировать отдельно."
 
 #: ID:66
@@ -4638,6 +4693,7 @@ msgid "Two-way &Diff"
 msgstr "&Различия на двух панелях"
 
 # Заголовок окна
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -4650,6 +4706,7 @@ msgstr "Предыдущие URL"
 msgid "URL of Subversion items"
 msgstr "URL объектов Subversion"
 
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -4748,14 +4805,6 @@ msgstr "Обновляет рабочую копию до указанной р�
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Обновляет рабочую копию до текущей ревизии"
-
-#: ID:207
-msgid "Url"
-msgstr "Url"
-
-#: ID:144
-msgid "Url:"
-msgstr "Url:"
 
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
@@ -5305,7 +5354,7 @@ msgid ""
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"При наличии помечает файл как выполняемый. Это свойство не может быть установлено на директории. Нерекурсивная попытка закончится неудачей, а рекурсивная -- установит свойство только на дочерние файлы."
+"При наличии помечает файл как выполняемый. Это свойство не может быть установлено на папки. Нерекурсивная попытка закончится неудачей, а рекурсивная -- установит свойство только на дочерние файлы."
 
 #: ID:14
 msgid ""
@@ -5315,7 +5364,7 @@ msgid ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"Список определителей модулей, разделенный переносами строки, каждый из которых содержит относительный путь к директории, опциональные флаги ревизий и URL. Например:\n"
+"Список определителей модулей, разделенных переносами строки, каждый из которых содержит относительный путь к папке, опциональные флаги ревизий и URL. Например:\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
@@ -5348,10 +5397,10 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Mime-тип файла. Используется для определения, сливать ли файл, и как их подавать из Apache. Mime-тип, начинающийся с 'text/' (или несуществующего mime-типа) обрабатывается как текст. Все остальное считается бинарным."
+"Mime-тип файла. Используется для определения возможности слияния файла, и как его передавать из Apache. Файлы с mime-типом, начинающимся с 'text/', или с отсутствующим mime-типом, обрабатывается как текст. Всё остальное считается бинарным."
 
 #: ID:16
 msgid ""
@@ -5435,6 +5484,10 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "При установке в \"yes\" будет появлятся предупреждение, если не указать проблему в диалоге фиксации."
+
+#: ID:563
+msgid "values are different"
+msgstr "значения различны"
 
 # статистика: номера недель
 #: ID:244
