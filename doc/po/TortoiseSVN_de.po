@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-03-06 11:49+0100\n"
+"PO-Revision-Date: 2006-03-06 16:27+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3255,9 +3255,8 @@ msgstr "Falls Sie das Gefühl haben dass TortoiseSVN Ihnen viel zu viele Dateien
 
 #: source/TortoiseSVN_en.xml:3725
 #: (para)
-#, fuzzy
 msgid "<action>Doubleclicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
-msgstr "Durch einen <action>Doppelklick</action> auf eine Datei im Übertragungsdialog wird das Diff-Programm gestartet so dass Sie die Änderungen, welche Sie vorgenommen haben, genauer ansehen können. Das Kontextmenü bietet, wie Sie im Bild sehen können, weitere Optionen."
+msgstr "Durch einen <action>Doppelklick</action> auf eine Datei im Übertragungsdialog wird das Diff-Programm gestartet so dass Sie die Änderungen, welche Sie vorgenommen haben, genauer ansehen können. Das Kontextmenü bietet, wie Sie im Bild sehen können, weitere Optionen. Sie können von hier aus auch Dateien in eine andere Anwendung, z.B einen Texteditor ziehen."
 
 #: source/TortoiseSVN_en.xml:3732
 #: (para) source/TortoiseSVN_en.xml:4418
@@ -3888,9 +3887,8 @@ msgstr "Ein Diff-Programm zu starten, um Ihnen die Änderungen zu zeigen welche 
 
 #: source/TortoiseSVN_en.xml:4570
 #: (para)
-#, fuzzy
 msgid "View the changes made in the selected revision as a Unified-Diff file (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all file changes together in a compact format."
-msgstr "Wenn Sie die Änderungen in allen Dateien in einer bestimmten Revision auf einen Blick sehen wollen, verwenden Sie das Standard-Diff (GNU Patch). Dieses Format zeigt nur die Unterschiede mit ein paar Zeilen Kontext an. Es ist schwieriger zu lesen als ein visueller Vergleich, aber es zeigt alle Änderungen auf einmal. Markieren Sie dazu im Log-Dialog die gewünschte Revision und wählen Sie <guimenuitem>Zeige Unterschiede als Standard Diff</guimenuitem> aus dem Kontextmenü."
+msgstr "Zeige die Änderungen an allen Dateien in der gewählten Revision im Standard-Diff (GNU Patch) Format. Dieses Format zeigt nur die Unterschiede mit ein paar Zeilen Kontext an. Es ist schwieriger zu lesen als ein visueller Vergleich, aber es zeigt alle Änderungen auf einmal. "
 
 #: source/TortoiseSVN_en.xml:4579
 #: (para)
@@ -5609,7 +5607,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6880
 #: (title)
 msgid "Revision Graphs"
-msgstr "Revisionsgraph"
+msgstr "Revisionsgraphen"
 
 #: source/TortoiseSVN_en.xml:6885
 #: (primary)
@@ -5630,14 +5628,13 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:6900
 #: (para)
-#, fuzzy
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
-msgstr "Dieser Befehl analysiert die Revisionsgeschichte und versucht eine Baumstruktur mit den Punkten, in denen Kopien oder Äste/Markierungen erstellt bzw. gelöscht wurden, darzustellen. Bitte beachten Sie das es mehrere Minuten dauern kann, bis alle Daten, die zur Erstellung des Graphen nötig sind geladen wurden. Dies ist abhängig von der Größe Ihres Projekts und natürlich von Ihrer Netzwerkverbindung zum Projektarchiv."
+msgstr "Dieser Befehl analysiert die Revisionsgeschichte und versucht eine Baumstruktur mit den Zeitpunkten darzustellen, in denen Kopien oder Äste/Markierungen erstellt bzw. gelöscht wurden. "
 
 #: source/TortoiseSVN_en.xml:6906
 #: (para)
 msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <literal>Apache</literal> project which currently has over 300,000 revisions you could be waiting for some time."
-msgstr ""
+msgstr "Um den Revisionsgraphen zu erzeugen, muss TortoiseSVN alle Logmeldungen der Projektarchivbasis holen. Überflüssig zu sagen, dass diese Aktion in Abhängigkeit von Netzwerk- und Servergeschwindigkeit bereits bei wenigen tausend Revisionen mehrere Minuten in Anspruch nehmen kann. Wenn Sie sich den Revisionsgraphen des <literal>Apache</literal> Projektes mit derzeit über 300.000 Revisionen anzeigen lassen, können Sie sich auf eine längere Wartezeit einstellen."
 
 #: source/TortoiseSVN_en.xml:6919
 #: (term)
@@ -5681,14 +5678,13 @@ msgstr "Alle anderen Elemente werden durch ein einfaches Rechteck dargestellt."
 
 #: source/TortoiseSVN_en.xml:6915
 #: (para)
-#, fuzzy
 msgid "The revision graph shows several types of node: <placeholder-1/> Note that by default the graph only shows the points at which items were added or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
-msgstr "Der Revisionsgraph zeigt verschiedene Knotentypen: <placeholder-1/> Beachten Sie, dass der Graph nur die Punkte zeigt, an denen Elemente hinzugefügt oder gelöscht wurden. Alle Revisionen eines Projektes anzuzeigen würde in nicht-trivialen Fällen einen riesigen Graphen erzeugen. Wenn Sie wirklich <emphasis>alle</emphasis> Revisionen sehen wollen, lönnen Sie dies über einen Schalter im <guilabel>Ansicht</guilabel> Menü aktivieren."
+msgstr "Der Revisionsgraph zeigt verschiedene Knotentypen: <placeholder-1/> Beachten Sie, dass in der Standardansicht der Graph nur die Punkte zeigt, an denen Elemente hinzugefügt oder gelöscht wurden. Alle Revisionen eines Projektes anzuzeigen würde in nicht-trivialen Fällen einen riesigen Graphen erzeugen. Wenn Sie wirklich <emphasis>alle</emphasis> Revisionen sehen wollen, können Sie dies über einen Schalter in der Werkzeugleiste oder im Menü <guilabel>Ansicht</guilabel> aktivieren."
 
 #: source/TortoiseSVN_en.xml:6962
 #: (para)
 msgid "There is also an option to arrange the graph <emphasis>by path</emphasis>. This attempts to sort the branches from the tags. Paths which contain no modifications after copying are assumed to be tags and are stacked in a single column. Branches (which contain modifications after creation) each have their own column, so you can see how the branch develops."
-msgstr ""
+msgstr "Es gibt auch eine Option, den Graphen <emphasis>nach Pfad</emphasis> zu sortieren. Damit wird versucht, die Verzweigungen und Markierungen voneinander zu trennen. Pfade, die nach ihrer Erstellung nicht mehr verändert wurden, werden als Markierungen betrachtet und in einer einzelnen Spalte ausgegeben. Verzweigungen (mit Veränderungen nach dem Erzeugen) erhalten jeweils ihre eigene Spalte, so dass Sie sehen können, wie sich der Zweig entwickelt."
 
 #: source/TortoiseSVN_en.xml:6969
 #: (para)
