@@ -210,10 +210,10 @@
 				<title>...Copy-Modify-Merge Continued</title>
 				<graphic fileref="images/ch02dia5.png"/>
 			</figure>
+			<indexterm>
+				<primary>conflict</primary>
+			</indexterm>
 			<para>
-				<indexterm>
-					<primary>conflict</primary>
-				</indexterm>
 				But what if Sally's changes <emphasis>do</emphasis> overlap
 				with Harry's changes?  What then?  This situation is called a
 				<firstterm>conflict</firstterm>, and it's usually not much of
@@ -273,10 +273,10 @@
 		<title>Subversion in Action</title>
 		<sect2 id="tsvn-basics-svn-workingcopy">
 			<title>Working Copies</title>
+			<indexterm>
+				<primary>working copy</primary>
+			</indexterm>
 			<para>
-				<indexterm>
-					<primary>working copy</primary>
-				</indexterm>
 				You've already read about working copies; now we'll
 				demonstrate how the Subversion client creates and uses
 				them.

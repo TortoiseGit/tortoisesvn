@@ -285,14 +285,14 @@ bin\htpasswd passwd &lt;username&gt;
 				</listitem>
 			</orderedlist>
 		</para>
+		<indexterm>
+			<primary>SVNPath</primary>
+		</indexterm>
+		<indexterm>
+			<primary>SVNParentPath</primary>
+		</indexterm>
 		<para>
 			A short explanation of what you just entered:
-			<indexterm>
-				<primary>SVNPath</primary>
-			</indexterm>
-			<indexterm>
-				<primary>SVNParentPath</primary>
-			</indexterm>
 			<table id="tsvn-serversetup-apache-4-table">
 				<title>Apache httpd.conf Settings</title>
 				<tgroup cols="2">
@@ -610,10 +610,10 @@ trevor = rw
 			accessing the repository from inside a LAN with a windows
 			domain controller: mod_auth_sspi!
 		</para>
+		<indexterm>
+			<primary>SSPI</primary>
+		</indexterm>
 		<para>
-			<indexterm>
-				<primary>SSPI</primary>
-			</indexterm>
 			The original SSPI module was offered by Syneapps including
 			sourcecode. But the development for it has been stopped. You can
 			still find that module on the internet - just do a

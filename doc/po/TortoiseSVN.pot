@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-03-05 23:03GMT Standard Time\n"
+"POT-Creation-Date: 2006-03-06 11:47Westeuropäische Normalzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -297,8 +297,16 @@ msgstr ""
 msgid "Shell integration"
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:400(para) 
-msgid "<indexterm significance=\"normal\"><primary>Windows shell</primary></indexterm><indexterm significance=\"normal\"><primary>explorer</primary></indexterm> TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
+#: source/TortoiseSVN_en.xml:401(primary) 
+msgid "Windows shell"
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:404(primary) 
+msgid "explorer"
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:406(para) 
+msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:413(para) 
@@ -589,8 +597,12 @@ msgstr ""
 msgid "...Copy-Modify-Merge Continued"
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:918(para) 
-msgid "<indexterm significance=\"normal\"><primary>conflict</primary></indexterm> But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
+#: source/TortoiseSVN_en.xml:919(primary) source/TortoiseSVN_en.xml:4032(primary) 
+msgid "conflict"
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:921(para) 
+msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:936(para) 
@@ -621,8 +633,12 @@ msgstr ""
 msgid "Working Copies"
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:981(para) 
-msgid "<indexterm significance=\"normal\"><primary>working copy</primary></indexterm> You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
+#: source/TortoiseSVN_en.xml:982(primary) 
+msgid "working copy"
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:984(para) 
+msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:989(para) 
@@ -1057,6 +1073,14 @@ msgstr ""
 msgid "Now you have set up Apache and Subversion, but Apache doesn't know how to handle Subversion clients like TortoiseSVN yet. To get Apache to know which URL shall be used for Subversion repositories you have to edit the Apache config file (usually located in <filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>) with any text editor you like (e.g. Notepad): <placeholder-1/>"
 msgstr ""
 
+#: source/TortoiseSVN_en.xml:1742(primary) 
+msgid "SVNPath"
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:1745(primary) source/TortoiseSVN_en.xml:1877(primary) 
+msgid "SVNParentPath"
+msgstr ""
+
 #: source/TortoiseSVN_en.xml:1750(title) 
 msgid "Apache httpd.conf Settings"
 msgstr ""
@@ -1157,16 +1181,12 @@ msgstr ""
 msgid "Using a <filename>passwd</filename> file limits and grants access to all of your repositories as a unit. If you want more control over which users have access to each folder inside a repository you can uncomment the line <screen>\n#AuthzSVNAccessFile svnaccessfile\n</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's AuthzSVNAccessFile module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. The format of the authorization-policy file used by <literal>mod_authz_svn</literal> is described in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:1741(para) 
-msgid "A short explanation of what you just entered: <indexterm significance=\"normal\"><primary>SVNPath</primary></indexterm><indexterm significance=\"normal\"><primary>SVNParentPath</primary></indexterm><placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache webserver. <placeholder-2/>"
+#: source/TortoiseSVN_en.xml:1747(para) 
+msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache webserver. <placeholder-2/>"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:1875(title) 
 msgid "Multiple Repositories"
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:1877(primary) 
-msgid "SVNParentPath"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:1880(primary) 
@@ -1246,8 +1266,12 @@ msgstr ""
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: mod_auth_sspi!"
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:2066(para) 
-msgid "<indexterm significance=\"normal\"><primary>SSPI</primary></indexterm> The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, supplied by Norbert Unterberg. This one is mod_auth_sspi 1.0.3 which supports a <literal>SSPIUsernameCase [upper|lower]</literal> directive. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
+#: source/TortoiseSVN_en.xml:2067(primary) 
+msgid "SSPI"
+msgstr ""
+
+#: source/TortoiseSVN_en.xml:2069(para) 
+msgid "The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, supplied by Norbert Unterberg. This one is mod_auth_sspi 1.0.3 which supports a <literal>SSPIUsernameCase [upper|lower]</literal> directive. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:2083(para) 
@@ -2275,10 +2299,6 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4030(title) 
 msgid "Resolving Conflicts"
-msgstr ""
-
-#: source/TortoiseSVN_en.xml:4032(primary) 
-msgid "conflict"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4055(term) 
