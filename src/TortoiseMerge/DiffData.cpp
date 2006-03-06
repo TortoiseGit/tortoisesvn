@@ -314,12 +314,22 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
 				if (sCurrentBaseLine != sCurrentYourLine)
 				{
-					if (dwIgnoreWS == 2)
+					if (dwIgnoreWS == 2 || dwIgnoreWS == 3)
 					{
 						CString s1 = m_arBaseFile.GetAt(baseline);
-						s1 = s1.TrimLeft(_T(" \t"));
 						CString s2 = sCurrentYourLine;
-						s2 = s2.TrimLeft(_T(" \t"));
+						
+						if ( dwIgnoreWS == 2 )
+						{
+							s1.TrimLeft(_T(" \t"));
+							s2.TrimLeft(_T(" \t"));
+						}
+						else
+						{
+							s1.TrimRight(_T(" \t"));
+							s2.TrimRight(_T(" \t"));
+						}
+
 						if (s1 != s2)
 						{
 							m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
@@ -393,12 +403,21 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				m_arLinesYourBaseRight.Add(yourline);
 				if (sCurrentBaseLine != sCurrentYourLine)
 				{
-					if (dwIgnoreWS == 2)
+					if (dwIgnoreWS == 2 || dwIgnoreWS == 3)
 					{
 						CString s1 = sCurrentBaseLine;
-						s1 = s1.TrimLeft(_T(" \t"));
 						CString s2 = sCurrentYourLine;
-						s2 = s2.TrimLeft(_T(" \t"));
+						if ( dwIgnoreWS == 2 )
+						{
+							s1 = s1.TrimLeft(_T(" \t"));
+							s2 = s2.TrimLeft(_T(" \t"));
+						}
+						else
+						{
+							s1 = s1.TrimRight(_T(" \t"));
+							s2 = s2.TrimRight(_T(" \t"));
+						}
+						
 						if (s1 != s2)
 						{
 							m_arStateYourBaseLeft.Add(DIFFSTATE_WHITESPACE);

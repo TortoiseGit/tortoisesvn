@@ -302,6 +302,10 @@ void CFileTextLines::StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces/* 
 		// Ignore leading whitespace
 		sLine.TrimLeft(_T(" \t"));
 		break;
+	case 3:
+		// Ignore ending whitespace
+		sLine.TrimRight(_T(" \t"));
+		break;
 	}
 }
 
@@ -319,6 +323,10 @@ void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespa
 	case 2:
 		// Ignore leading whitespace
 		sLine.TrimLeft(" \t");
+		break;
+	case 3:
+		// Ignore leading whitespace
+		sLine.TrimRight(" \t");
 		break;
 	}
 }

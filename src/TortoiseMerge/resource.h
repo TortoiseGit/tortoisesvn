@@ -52,6 +52,7 @@
 #define IDC_WSIGNORELEADING             1020
 #define IDS_ERR_PATCH_FILENOTINPATCH    1021
 #define IDC_WSIGNOREALL                 1021
+#define IDC_WSIGNOREENDING              1026
 #define IDS_ERR_PATCH_DOESNOTMATCH      1022
 #define IDC_DIFFGROUP                   1022
 #define IDS_ERR_PATCH_FILESAVE          1023
