@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-03 10:59+0900\n"
+"PO-Revision-Date: 2006-03-06 13:10+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -134,6 +134,12 @@ msgstr "%I64d kB 전송됨"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d개 선택, 전체 %d"
+
+# Control-ID:65535,
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld 개 경로"
 
 # ID:226,
 #: ID:226
@@ -345,6 +351,7 @@ msgstr "가상 실행(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "편집(&E)"
@@ -590,6 +597,7 @@ msgstr "다시실행(&R)"
 # Control-ID:1100,
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "삭제(&R)"
 
@@ -1094,13 +1102,13 @@ msgstr "추가된 노드"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
-"to the ignore list."
+"to the ignored list."
 msgstr ""
-"다음 파일을\n"
+"다음 파일 패턴\n"
 "%s\n"
-"무시 목록에 추가하였습니다. "
+"을/를 무시 목록에 추가하였습니다. "
 
 # ID:8,#:
 # ID:73,#:
@@ -1293,6 +1301,11 @@ msgstr ""
 #: ID:13
 msgid "Apply &patch..."
 msgstr "패치 적용(&P)..."
+
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "속성값을 하위 폴더에도 적용"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1514,6 +1527,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "취소"
@@ -1957,7 +1971,7 @@ msgstr "수정"
 # ID:81,
 #: ID:81
 #, c-format
-msgid "Could not add %s to the ignore list!"
+msgid "Could not add %s to the ignored list!"
 msgstr "무시 목록에 %s를 추가할 수 없습니다!"
 
 # ID:201,
@@ -2171,7 +2185,7 @@ msgstr "삭제된 노드"
 
 # ID:11,
 #: ID:11
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr "소스 컨트롤에서 파일과 폴더를 삭제"
 
 # ID:11,#:
@@ -2315,6 +2329,12 @@ msgstr ""
 "다시 읽어들이시겠습니까?\n"
 "주의: 바뀐 내용이 모두 사라집니다."
 
+# ID:145,
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "%s 속성을 하위 디렉토리에서도 삭제하시겠습니까?"
+
 # ID:313,
 #: ID:313
 msgid "Do you want to save your changes?"
@@ -2354,6 +2374,13 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "편집"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "속성 수정"
 
 # ID:76,
 #: ID:113
@@ -3256,6 +3283,11 @@ msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - 최신(HEAD) 리�
 msgid "Mail system DLL is invalid."
 msgstr "메일 시스템 DLL이 유효하지 않습니다."
 
+# Control-ID:65535,
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Subversion 속성 관리"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3295,6 +3327,11 @@ msgstr "브랜치를 선택하여 메인 트렁크에 병합함"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "병합"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "'시작:' 과 '끝:'에는 다른 리비전 혹은 URL이 들어 있어야 병합가능합니다."
 
 # ID:76,
 #: ID:76
@@ -3545,6 +3582,11 @@ msgstr "일부 레지스트리(혹은 INI파일)이 삭제되지 않았습니다
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "명령을 수행하기에 메모리가 충분하지 않습니다."
+
+# Control-ID:1018,
+#: ID:563
+msgid "Not recursive"
+msgstr "하위에 적용하지 않음"
 
 # ID:88,
 #: ID:88
@@ -3870,10 +3912,23 @@ msgstr "진행"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "속성"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "속성"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:209
+msgid "Properties..."
+msgstr "속성..."
 
 # ID:11,
 #: ID:11
@@ -3890,10 +3945,20 @@ msgstr "속성 페이지"
 msgid "Property Status:"
 msgstr "속성 상태"
 
+# Dlg-ID:107,
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "속성 이름:"
+
 # ID:207,
 #: ID:207
 msgid "Property status"
 msgstr "속성 상태"
+
+# Dlg-ID:107,
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "속성 값:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3953,6 +4018,11 @@ msgstr "Daily Use Guide 읽기"
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "버전관리 대상이 아닌 폴더도 재귀적으로 탐색"
+
+# Control-ID:1018,
+#: ID:563
+msgid "Recursive"
+msgstr "하위에도 적용"
 
 # ID:3603,
 #: ID:3603
@@ -4059,13 +4129,13 @@ msgstr "삭제된 파일/폴더"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
 "from the ignored list."
 msgstr ""
-"다음 파일을\n"
+"다음 파일 패턴\n"
 "%s\n"
-"무시 목록에 제거하였습니다. "
+"을/를 무시 목록에 제거하였습니다. "
 
 # ID:13,
 #: ID:15
@@ -4101,7 +4171,7 @@ msgstr "원격지의 파일이름 수정됨"
 
 # ID:11,
 #: ID:11
-msgid "Renames files / folders inside source control"
+msgid "Renames files / folders inside version control"
 msgstr "소스 컨트롤안의 파일 폴더의 이름 바꾸기"
 
 # ID:3603,
@@ -4404,8 +4474,8 @@ msgstr "SVN 상태"
 
 # ID:12,
 #: ID:12
-msgid "SVN Url"
-msgstr "SVN Url"
+msgid "SVN URL"
+msgstr "SVN URL"
 
 # ID:14,
 #: ID:14
@@ -4414,7 +4484,7 @@ msgstr "SVN mime-type"
 
 # ID:12,
 #: ID:12
-msgid "SVN short Url"
+msgid "SVN short URL"
 msgstr "SVN 짧은 URL"
 
 #: MenuEntry
@@ -4676,7 +4746,7 @@ msgstr "로그 메시지에 짧은 형태의 날짜/시간 형식을 사용합�
 
 # ID:12,
 #: ID:12
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr "버전 관리 대상의 짧은 URL"
 
 # ID:101,#:
@@ -5199,7 +5269,7 @@ msgstr ""
 # ID:88,
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
@@ -5243,6 +5313,18 @@ msgstr ""
 "선택된 파일에 아직도 충돌 표시가 있습니다.\n"
 "강제로 해결되었다는 표시를 하겠습니까?"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"대상 URL\n"
+"%s\n"
+"이(가) 이미 존재합니다."
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -5256,18 +5338,6 @@ msgstr ""
 "%s\n"
 "가 비어 있지 않습니다\n"
 "체크 아웃/익스포트를 강제로 진행하시겠습니까?"
-
-# ID:102,
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"대상 URL\n"
-"%s\n"
-"이(가) 이미 존재합니다."
 
 # ID:195,
 #: ID:195
@@ -5616,6 +5686,7 @@ msgstr "창을 나누어 비교(&D)"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -5632,6 +5703,7 @@ msgstr "버전 관리 대상의 URL"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -5757,16 +5829,6 @@ msgstr "작업 사본을 특정 리비전으로 업데이트"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "작업 사본을 최신 리비전으로 업데이트 합니다."
-
-# ID:207,
-#: ID:207
-msgid "Url"
-msgstr "Url"
-
-# ID:144,
-#: ID:144
-msgid "Url:"
-msgstr "Url:"
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -6449,10 +6511,10 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"파일의 MIME 타입. 병합 해야하는지 여부를 판단할 때 값이 없거나 text/ 로 되어 있는 것은 텍스트 파일로 취급하고 나머지는 바이너리로 취급합니다."
+"파일의 MIME 타입. 파일을 머지할 방법을 찾거나, Apache가 어떻게 서비스를 해야하는지를 결정하는데 사용됩니다. 'text/' (혹은 mime type이 지정되지 않거나)인 경우 텍스트 파일로 취급하고 나머지는 바이너리로 취급합니다."
 
 # ID:16,
 #: ID:16
@@ -6547,6 +6609,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "커밋 대화 상자에서 이슈가 없을 경우 경고를 보이고 싶으면 \"예\"를 선택하십시오."
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "값들이 다릅니다"
 
 # ID:244,
 #: ID:244
