@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-22 20:36+0100\n"
+"PO-Revision-Date: 2006-03-06 15:47+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -118,6 +118,11 @@ msgstr "%I64d kBytes verstuurd"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d bestanden geselecteerd, %d bestanden totaal"
+
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld paden"
 
 #: ID:226
 #, c-format
@@ -290,6 +295,7 @@ msgid "&Dry run"
 msgstr "&Proefrun"
 
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "Wijzig&en"
@@ -484,6 +490,7 @@ msgstr "&Opnieuw"
 
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "&Verwijderen"
 
@@ -886,11 +893,11 @@ msgstr "Knoop toegevoegd"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
-"to the ignore list."
+"to the ignored list."
 msgstr ""
-"Bestand(en)\n"
+"Bestandsmasker(s)\n"
 "%s\n"
 "toegevoegd aan de negeerlijst."
 
@@ -1045,6 +1052,10 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "&Pas patch toe..."
 
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "Eigenschap recursief toepassen"
+
 #: Control-ID:65535
 msgid "Apply unified diff"
 msgstr "Voer unified diff uit"
@@ -1061,6 +1072,10 @@ msgstr "Weet u zeker dat u %d onderde(e)l(en) wilt herstellen? U raakt <b>alle</
 #: MenuEntry
 msgid "Arranged by &path"
 msgstr "Gerangschikt op &pad"
+
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "Sorteer de knopen op padnaam"
 
 #: ID:77
 #, c-format
@@ -1214,6 +1229,7 @@ msgstr ""
 "%s"
 
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "Annuleren"
@@ -1525,6 +1541,10 @@ msgstr "Kopiëren (Tak / Label)"
 msgid "Copy URL to clipboard"
 msgstr "URL naar klembord kopiëren"
 
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "Kopiëer foutmelding naar klembord"
+
 #: ID:76
 msgid "Copy from path"
 msgstr "Kopiëer van pad"
@@ -1571,8 +1591,8 @@ msgstr "Correcties"
 
 #: ID:81
 #, c-format
-msgid "Could not add %s to the ignore list!"
-msgstr "%s kon niet aan de negeer-lijst worden toegevoegd!"
+msgid "Could not add %s to the ignored list!"
+msgstr "Kon %s niet aan de negeer-lijst toegevoegen!"
 
 #: ID:201
 msgid "Could not check for a newer version!"
@@ -1748,8 +1768,8 @@ msgid "Deleted node"
 msgstr "Knoop verwijderd"
 
 #: ID:11
-msgid "Deletes files / folders from source control"
-msgstr "Verwijderd bestanden/mappen uit versiebeheer"
+msgid "Deletes files / folders from version control"
+msgstr "Verwijdert bestanden/mappen uit versiebeheer"
 
 #: ID:263
 msgid "Deleting"
@@ -1869,6 +1889,11 @@ msgstr ""
 "Wilt u de bestanden opnieuw laden?\n"
 "Alle gemaakte wijzigingen gaan verloren!"
 
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Wilt u de eigenschap %s recursief verwijderen?"
+
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "Wilt u de wijzigingen opslaan?"
@@ -1903,6 +1928,11 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "Wijzigen"
+
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Eigenschappen wijzigen"
 
 #: ID:113
 msgid "Edit author"
@@ -2647,6 +2677,10 @@ msgstr "Laagste revisie: %ld - Hoogste revisie: %ld - HEAD revisie: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "De DLL van het mailsysteem is ongeldig."
 
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Subversion eigenschappen beheren"
+
 #: ID:2051
 msgid ""
 "Marks a file as resolved in Subversion\n"
@@ -2679,6 +2713,10 @@ msgstr "Voegt wijzigingen uit een tak toe aan de basislijn"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Samenvoegen"
+
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "Voor samenvoegen zijn verschillende revisies of URLs nodig in 'Van:' en 'Tot:'"
 
 #: ID:76
 msgid "Message"
@@ -2878,6 +2916,10 @@ msgstr "Niet alle registersleutels (of INI bestand) zijn verwijderd."
 msgid "Not enough memory to complete operation."
 msgstr "Onvoldoende geheugen om de opdracht uit te voeren."
 
+#: ID:563
+msgid "Not recursive"
+msgstr "Niet recursief"
+
 #: ID:88
 msgid "Notice"
 msgstr "Opmerking"
@@ -2995,6 +3037,10 @@ msgstr "Plak lijst bestandsnamen"
 #: ID:376
 msgid "Patch all"
 msgstr "Alles patchen"
+
+#: ID:376
+msgid "Patch selected"
+msgstr "Patch geselecteerd"
 
 #: ID:157
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -3122,10 +3168,19 @@ msgstr "Programma's (*.exe)|*.exe|Alle Bestanden (*.*)|*.*||"
 msgid "Progress"
 msgstr "Voortgang"
 
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "Eigenschappen"
+
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Eigenschappen voor"
+
+#: ID:209
+msgid "Properties..."
+msgstr "Eigenschappen..."
 
 #: ID:11
 msgid "Property"
@@ -3139,9 +3194,17 @@ msgstr "Eigenschappen"
 msgid "Property Status:"
 msgstr "Status Eigenschappen:"
 
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Eigenschap:"
+
 #: ID:207
 msgid "Property status"
 msgstr "Status eigenschappen"
+
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Waarde:"
 
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
@@ -3190,6 +3253,10 @@ msgstr "Lees de 'Gids voor dagelijks gebruik' voordat u vast komt te zitten"
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "Mappen zonder versiebeheer doorlopen"
+
+#: ID:563
+msgid "Recursive"
+msgstr "Recursief"
 
 #: ID:3603
 msgid ""
@@ -3276,11 +3343,11 @@ msgstr "Bestand/map verwijderd"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
 "from the ignored list."
 msgstr ""
-"Geselecteerde bestand(en)\n"
+"Geselecteerde bestandsmasker(s)\n"
 "%s\n"
 "verwijderd uit de negeerlijst."
 
@@ -3311,7 +3378,7 @@ msgid "Renamed remotely"
 msgstr "Op afstand hernoemd"
 
 #: ID:11
-msgid "Renames files / folders inside source control"
+msgid "Renames files / folders inside version control"
 msgstr "Hernoemt bestanden/mappen binnen versiebeheer"
 
 #: ID:3603
@@ -3552,7 +3619,7 @@ msgid "SVN Status"
 msgstr "SVN Status"
 
 #: ID:12
-msgid "SVN Url"
+msgid "SVN URL"
 msgstr "URL van SVN"
 
 #: ID:14
@@ -3560,7 +3627,7 @@ msgid "SVN mime-type"
 msgstr "SVN mime-type"
 
 #: ID:12
-msgid "SVN short Url"
+msgid "SVN short URL"
 msgstr "korte URL van SVN"
 
 #: MenuEntry
@@ -3766,7 +3833,7 @@ msgid "Short &date/time format in log messages"
 msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 
 #: ID:12
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr "Korte URL van Subversion onderdelen"
 
 #: Control-ID:1031
@@ -3868,6 +3935,10 @@ msgstr "Geeft een grafische weergace van kopieën, labels en takken"
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Toont alle bestanden die sinds de laatste verversing zijn gewijzigd, zowel lokaal als in het archief"
+
+#: ID:2050
+msgid "Shows all revisions the URL got changed, not just copies"
+msgstr "Toont alle revisies waarin het onderdeel (URL) gewijzigd is, niet alleen kopieën"
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -4200,13 +4271,13 @@ msgstr ""
 
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Het opgegeven pad is niet toegestaan onder Windows!\n"
+"Het opgegeven pad/URL is niet toegestaan onder Windows!\n"
 "U kunt het proberen te gebruiken, maar er kan later een fout optreden.\n"
 "\n"
 "Een geldig pad onder Windows mag geen '<>|\"?*:' bevatten en niet een van de volgende namen zijn:\n"
@@ -4241,6 +4312,17 @@ msgstr ""
 "Het geselecteerde bestand lijkt nog conflict-markeringen te bevatten.\n"
 "Weet u zeker dat u het bestand als opgelost wilt markeren?"
 
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"De doel-URL\n"
+"%s\n"
+"bestaat al!"
+
 #: ID:88
 #, c-format
 msgid ""
@@ -4253,17 +4335,6 @@ msgstr ""
 "%s\n"
 "is niet leeg!\n"
 "Weet u zeker dat u naar die map wilt ophalen/exporteren?"
-
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"De doel-URL\n"
-"%s\n"
-"bestaat al!"
 
 #: ID:195
 msgid ""
@@ -4514,6 +4585,16 @@ msgstr "TortoiseSVN Wisselen..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN Verversen..."
 
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN heeft gelijksoortige bestandsnamen gevonden. Wilt u deze bestanden\n"
+"(%s)\n"
+"ook hernoemen?"
+
 #: Control-ID:1162
 msgid "Total commits analyzed:"
 msgstr "Totaal aantal geanalyseerde vastleggingen:"
@@ -4543,6 +4624,7 @@ msgstr "TortoiseSVN tweaken"
 msgid "Two-way &Diff"
 msgstr "Tweerichtings-&Diff"
 
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -4555,6 +4637,7 @@ msgstr "URL geschiedenis"
 msgid "URL of Subversion items"
 msgstr "URL van Subversion onderdelen"
 
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -4647,14 +4730,6 @@ msgstr "Ververst de werkkopie naar een bepaalde revisie"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Ververst de werkkopie naar de huidige revisie"
-
-#: ID:207
-msgid "Url"
-msgstr "URL"
-
-#: ID:144
-msgid "Url:"
-msgstr "URL:"
 
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
@@ -5239,7 +5314,7 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
 "Het mime-type van het bestand. Wordt gebruikt om te bepalen of het bestand samengevoegd kan worden en hoe Apache het moet aanbieden. Een mime-type dat begint met 'text/' (of een ontbrekend mime-type) wordt als tekst behandeld. Alle andere mime-types worden als binair behandeld."
@@ -5258,6 +5333,15 @@ msgstr ""
 "wanneer het wordt opgehaald of ververst, zodat duidelijk is dat een\n"
 "gebruiker eerst een blokkade moet zetten op het bestand voordat het\n"
 "gewijzigd kan worden en de wijzigingen kunnen worden vastgelegd."
+
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"gewisseld naar\r\n"
+"%s"
 
 #: ID:80
 #: ID:103
@@ -5321,6 +5405,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "Gebruik \"yes\" als u gewaarschuwd wilt worden als er geen bugtracking ID\n"
 "wordt opgegeven bij het vastleggen."
+
+#: ID:563
+msgid "values are different"
+msgstr "waarden verschillen"
 
 #: ID:244
 msgid "week"
