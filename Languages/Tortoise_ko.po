@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-06 13:10+0900\n"
+"PO-Revision-Date: 2006-03-07 10:34+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1104,7 +1104,7 @@ msgstr "추가된 노드"
 msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
-"to the ignored list."
+"to the ignore list."
 msgstr ""
 "다음 파일 패턴\n"
 "%s\n"
@@ -1971,7 +1971,7 @@ msgstr "수정"
 # ID:81,
 #: ID:81
 #, c-format
-msgid "Could not add %s to the ignored list!"
+msgid "Could not add %s to the ignore list!"
 msgstr "무시 목록에 %s를 추가할 수 없습니다!"
 
 # ID:201,
@@ -2009,7 +2009,7 @@ msgstr ""
 # ID:81,
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "무시 목록에서 %s를 제거할 수 없습니다."
 
 # ID:81,
@@ -2186,7 +2186,7 @@ msgstr "삭제된 노드"
 # ID:11,
 #: ID:11
 msgid "Deletes files / folders from version control"
-msgstr "소스 컨트롤에서 파일과 폴더를 삭제"
+msgstr "버전 컨트롤에서 파일과 폴더를 삭제"
 
 # ID:11,#:
 # ID:73,
@@ -2933,6 +2933,11 @@ msgstr "대/소문자를 구분하지 않음(&C)"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "상위디렉토리를 무시함"
+
+# Control-ID:1020,
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "뒷부분의 공백 무시(&N)"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -4131,11 +4136,11 @@ msgstr "삭제된 파일/폴더"
 msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
 "다음 파일 패턴\n"
 "%s\n"
-"을/를 무시 목록에 제거하였습니다. "
+"을/를 무시 목록에서 제거하였습니다. "
 
 # ID:13,
 #: ID:15
@@ -4172,7 +4177,7 @@ msgstr "원격지의 파일이름 수정됨"
 # ID:11,
 #: ID:11
 msgid "Renames files / folders inside version control"
-msgstr "소스 컨트롤안의 파일 폴더의 이름 바꾸기"
+msgstr "버전 컨트롤안의 파일 폴더의 이름 바꾸기"
 
 # ID:3603,
 #: ID:3603
@@ -4873,8 +4878,8 @@ msgstr "로컬 저장소 및 마지막 업데이트 때 변경된 파일을 모�
 
 # ID:2050,
 #: ID:2050
-msgid "Shows all revisions the URL got changed, not just copies"
-msgstr "변경된(복사된 것 제외) URL에 대한 모든 리비전을 보여줌"
+msgid "Shows all revisions where changes were made to this item"
+msgstr "이 파일에 대하여 변경된 모든 리비전을 보여줌"
 
 # ID:10,
 #: ID:10
@@ -6118,7 +6123,7 @@ msgid ""
 "The file will be added to version control when you commit."
 msgstr ""
 "선택한 파일은 관리 대상이 아닙니다.\n"
-"커밋하기전에 먼저 추가하시면 됩니다."
+"커밋하기전에 먼저 버전 컨트롤에 대상으로 추가하시면 됩니다."
 
 # ID:195,
 #: ID:195
