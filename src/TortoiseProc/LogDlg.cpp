@@ -57,7 +57,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_bShowedAll(false),
 	m_bSelect(false),
 	m_regLastStrict(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE),
-	m_bSelectionMustBeContinuous(false)
+	m_bSelectionMustBeContinuous(false),
+	m_bShowBugtraqColumn(false)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -156,6 +157,15 @@ BOOL CLogDlg::OnInitDialog()
 	m_hAddedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONADDED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	m_hDeletedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONDELETED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	
+	if (m_hasWC)
+	{
+		m_ProjectProperties.ReadProps(m_path);
+		if (!m_ProjectProperties.sUrl.IsEmpty())
+		{
+			m_bShowBugtraqColumn = true;
+		}
+	}
+
 	m_LogList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
@@ -176,8 +186,13 @@ BOOL CLogDlg::OnInitDialog()
 	m_LogList.InsertColumn(2, temp);
 	temp.LoadString(IDS_LOG_DATE);
 	m_LogList.InsertColumn(3, temp);
+	if (m_bShowBugtraqColumn)
+	{
+		temp.LoadString(IDS_LOG_BUGIDS);
+		m_LogList.InsertColumn(4, temp);
+	}
 	temp.LoadString(IDS_LOG_MESSAGE);
-	m_LogList.InsertColumn(4, temp);
+	m_LogList.InsertColumn(m_bShowBugtraqColumn ? 5 : 4, temp);
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols(m_LogList);
 	m_LogList.SetRedraw(true);
@@ -199,10 +214,6 @@ BOOL CLogDlg::OnInitDialog()
 	CUtils::ResizeAllListCtrlCols(&m_LogMsgCtrl);
 	m_LogMsgCtrl.SetRedraw(true);
 
-	if (m_hasWC)
-	{
-		m_ProjectProperties.ReadProps(m_path);
-	}
 
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 
@@ -2543,7 +2554,20 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			else
 				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
 			break;
-		case 4: //message
+		case 4: //message or bug id
+			if (m_bShowBugtraqColumn)
+			{
+				if (itemid < m_logEntries.size())
+				{
+					CString sTemp = pLogEntry->sMessage;
+					lstrcpyn(pItem->pszText, m_ProjectProperties.GetBugIDFromLog(sTemp), pItem->cchTextMax);
+				}
+				else
+					lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+				break;
+			}
+			// fall through here!
+		case 5:
 			if (itemid < m_logEntries.size())
 			{
 				pItem->pszText = const_cast<LPWSTR>((LPCTSTR)pLogEntry->sShortMessage);

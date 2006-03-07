@@ -231,6 +231,7 @@ private:
 	bool				m_bShowedAll;
 	CString				m_sTitle;
 	bool				m_bSelect;
+	bool				m_bShowBugtraqColumn;
 	
 	CTime				m_timFrom;
 	CTime				m_timTo;

@@ -575,6 +575,7 @@
 #define IDS_LOG_COPY_SUCCESS            1830
 #define IDS_LOG_MESSAGEEDITTITLE        1831
 #define IDS_LOG_AUTHOREDITTITLE         1832
+#define IDS_LOG_BUGIDS                  1840
 #define IDS_LOG_FILTER_ALL              1850
 #define IDS_LOG_FILTER_PATHS            1851
 #define IDS_LOG_FILTER_AUTHORS          1852
