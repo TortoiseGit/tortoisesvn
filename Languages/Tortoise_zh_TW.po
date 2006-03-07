@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-01 10:13+0800\n"
+"PO-Revision-Date: 2006-03-07 10:13+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -134,6 +134,12 @@ msgstr "傳輸了 %I64d k位元組"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "選擇了 %d 個檔案, 共有 %d 個檔案"
+
+# Control-ID:65535,
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld 組路徑"
 
 # ID:77,
 #: ID:226
@@ -349,6 +355,7 @@ msgstr "試演(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "編輯(&E)"
@@ -596,6 +603,7 @@ msgstr "取消復原(&R)"
 # Control-ID:1100,
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "移除(&R)"
 
@@ -1101,11 +1109,11 @@ msgstr "新加入的節點"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
-"加入選取的檔案(們)\n"
+"加入檔名樣式(們)\n"
 "%s\n"
 "至忽略列表"
 
@@ -1302,6 +1310,11 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "套用補綴(&P)..."
 
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "套用性質至子資料夾"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
@@ -1321,6 +1334,10 @@ msgstr "確定要復原 %d 項目嗎? 從上一版本之後的<b>所有</b>變�
 #: MenuEntry
 msgid "Arranged by &path"
 msgstr "依路徑排列(&P)"
+
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "節點依路徑排列"
 
 # ID:77,
 #: ID:77
@@ -1516,6 +1533,7 @@ msgstr ""
 # ID:73,#:
 # Control-ID:2,
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "取消"
@@ -1690,19 +1708,19 @@ msgstr "清除"
 #: ID:196
 #, c-format
 msgid "Clears %ld URLs stored for %ld working copies"
-msgstr ""
+msgstr "清除了 %ld 組 URL (自 %ld 份工作複本)"
 
 # ID:196,
 #: ID:196
 #, c-format
 msgid "Clears %ld log messages stored for %ld working copies"
-msgstr ""
+msgstr "清除了 %ld 組訊息紀錄 (自 %ld 份工作複本)"
 
 # ID:196,
 #: ID:196
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
-msgstr ""
+msgstr "清除了 %ld 組帳號密碼, %ld 份 SSL 憑證, 以及 %ld 組帳號"
 
 # ID:195,
 #: ID:195
@@ -1717,7 +1735,7 @@ msgstr ""
 #: ID:196
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr ""
+msgstr "清除儲存的 %ld 個視窗位置及大小"
 
 # ID:170,
 #: ID:170
@@ -1997,8 +2015,8 @@ msgstr ""
 # ID:81,
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
-msgstr "無法從忽略列表中移除 %s!"
+msgid "Could not remove %s from the ignore list"
+msgstr "無法從忽略列表中移除 %s"
 
 # ID:81,
 #: ID:81
@@ -2175,7 +2193,7 @@ msgstr "已刪除的節點"
 
 # ID:11,
 #: ID:11
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr "從版本控制樹中刪除檔案/資料夾"
 
 # ID:11,#:
@@ -2320,6 +2338,12 @@ msgstr ""
 "確定要重新載入文件嗎?\n"
 "所有變更將不會儲存!"
 
+# ID:145,
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "確定真的要移除這個性質 %s 嗎(包含子資料夾)?"
+
 # ID:313,
 #: ID:313
 msgid "Do you want to save your changes?"
@@ -2359,6 +2383,12 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "編輯"
+
+# Control-ID:65535,
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "編輯性質"
 
 # ID:76,
 #: ID:113
@@ -2913,6 +2943,11 @@ msgstr "無視大小寫變更(&C)"
 msgid "Ignore ancestry"
 msgstr "無視之前版本"
 
+# Control-ID:1020,
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "忽略結尾的空白字元(&N)"
+
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -3264,6 +3299,11 @@ msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "郵件系統 DLL 錯誤."
 
+# Control-ID:65535,
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "管理 Subversion 性質"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3303,6 +3343,11 @@ msgstr "將分支樹合併回主幹"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "正在合併"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "合併時, '從:' 和 '到:' 的 URL 或是版本不可以相同"
 
 # ID:76,
 #: ID:76
@@ -3553,6 +3598,11 @@ msgstr "並未移除全部的登錄紀錄 (或 INI 檔案)."
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "記憶體不足, 無法完成作業."
+
+# Control-ID:1018,
+#: ID:563
+msgid "Not recursive"
+msgstr "非遞迴"
 
 # ID:88,
 #: ID:88
@@ -3878,10 +3928,21 @@ msgid "Progress"
 msgstr "進度"
 
 # Control-ID:65535,
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "性質"
+
+# Control-ID:65535,
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "性質:"
+
+# Control-ID:65535,
+#: ID:209
+msgid "Properties..."
+msgstr "性質..."
 
 # ID:11,
 #: ID:11
@@ -3898,10 +3959,20 @@ msgstr "性質頁面"
 msgid "Property Status:"
 msgstr "性質狀態:"
 
+# Dlg-ID:107,
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "性質名稱:"
+
 # Control-ID:65535,
 #: ID:207
 msgid "Property status"
 msgstr "性質狀態"
+
+# Dlg-ID:107,
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "性質值:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3962,6 +4033,11 @@ msgstr "在你卡住之前, 請先閱讀日常使用指南..."
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "遞迴搜尋無版本控制的目錄"
+
+# Control-ID:1018,
+#: ID:563
+msgid "Recursive"
+msgstr "遞迴"
 
 # ID:3603,
 #: ID:3603
@@ -4067,13 +4143,13 @@ msgstr "已移除檔案/資料夾"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
-"移除選定的檔案(們)\n"
+"自忽略列表移除\n"
 "%s\n"
-"自忽略列表."
+"檔名樣式."
 
 # ID:13,
 #: ID:15
@@ -4109,7 +4185,7 @@ msgstr "遠端重新命名完成"
 
 # ID:11,
 #: ID:11
-msgid "Renames files / folders inside source control"
+msgid "Renames files / folders inside version control"
 msgstr "重新命名版本控制樹中的檔案/資料夾"
 
 # ID:3603,
@@ -4411,8 +4487,8 @@ msgstr "SVN 狀態"
 
 # ID:12,
 #: ID:12
-msgid "SVN Url"
-msgstr "SVN Url"
+msgid "SVN URL"
+msgstr "SVN URL"
 
 # ID:14,
 #: ID:14
@@ -4421,7 +4497,7 @@ msgstr "SVN mime-type"
 
 # ID:12,
 #: ID:12
-msgid "SVN short Url"
+msgid "SVN short URL"
 msgstr "SVN 短 URL"
 
 #: MenuEntry
@@ -4487,7 +4563,7 @@ msgstr "複製至剪貼簿"
 # Dlg-ID:108,
 #: Dlg-ID:108
 msgid "Saved Data"
-msgstr ""
+msgstr "已存資料"
 
 # ID:144,
 #: ID:103
@@ -4686,7 +4762,7 @@ msgstr "記錄訊息使用簡短日期/時間格式(&D)"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr "Subversion 項目的短 URL"
 
 # Control-ID:1016,
@@ -4808,6 +4884,11 @@ msgstr "以圖型方式顯示複製/標記/分支"
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "顯示從上次更新以後變動過的檔案, 不論在檔案庫中或在本地端"
+
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions where changes were made to this item"
+msgstr "顯示所有更動過這個項目的版本"
 
 # ID:10,
 #: ID:10
@@ -5203,15 +5284,16 @@ msgstr ""
 # ID:88,
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "您輸入的路徑/URL在Windows上有錯誤!\n"
-"您可以照用, 但有可能發生錯誤.\n"
-"檔案名稱中不可以包含下列字元 '<>|\"?*:' 或是下列的裝置名:\n"
+"您可以照用, 但之後可能發生問題.\n"
+"\n"
+"檔案名稱中不可以包含下列字元 '<>|\"?*:' 或是下列的裝置名稱:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # ID:314,
@@ -5246,6 +5328,18 @@ msgstr ""
 "選擇的檔案尚有一個以上的衝突標記.\n"
 "你確定要將之視為已解決?"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"目的 URL\n"
+"%s\n"
+"已經存在!"
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -5259,18 +5353,6 @@ msgstr ""
 "%s\n"
 "有其它檔案!\n"
 "確定要取出/匯出檔案至那個資料夾嗎?"
-
-# ID:102,
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"目的 URL\n"
-"%s\n"
-"已經存在!"
 
 # ID:195,
 #: ID:195
@@ -5620,6 +5702,7 @@ msgstr "雙向比對(&D)"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -5636,6 +5719,7 @@ msgstr "Subversion 項目的 URL"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -5764,16 +5848,6 @@ msgstr "更新工作複本至指定的版本"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "更新工作複本至目前的版本"
-
-# ID:144,
-#: ID:207
-msgid "Url"
-msgstr "URL"
-
-# ID:144,
-#: ID:144
-msgid "Url:"
-msgstr "Url:"
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -6456,7 +6530,7 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
 "此檔案的 mime 類型. 用來決定檔案是否要合併, 以及由 Apache 傳送時要怎麼處理. 以 'text/' 開頭(或沒有設定)的 mime 類型視為文字. 其它則視為二進位檔."
@@ -6554,6 +6628,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "如果設為 \"yes\", 在送交對話窗沒有輸入問題時, 會顯示警告訊息."
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "不同的值"
 
 # ID:244,
 #: ID:244
