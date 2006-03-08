@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-03 09:28+0100\n"
+"PO-Revision-Date: 2006-03-08 17:02+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,6 +117,11 @@ msgstr "%I64d ko transférés"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d fichiers sélectionnés, %d fichiers au total"
+
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld chemins"
 
 #: ID:226
 #, c-format
@@ -299,6 +304,7 @@ msgid "&Dry run"
 msgstr "&Exécution fictive"
 
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Editer"
@@ -500,6 +506,7 @@ msgstr "&Refaire"
 
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "&Effacer"
 
@@ -924,13 +931,13 @@ msgstr "Noeud ajouté"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
-"Ont été ajoutés le(s) fichier(s)\n"
+"Les motifs de fichiers\n"
 "%s\n"
-"à la liste des ignorés"
+"ont été ajoutés à la liste des ignorés."
 
 #: ID:263
 msgid "Adding"
@@ -1085,6 +1092,11 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "Appliquer un &patch..."
 
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "Appliquer la propriété récursivement"
+
 #: Control-ID:65535
 msgid "Apply unified diff"
 msgstr "Appliquer un diff standard"
@@ -1235,6 +1247,11 @@ msgstr "Parcourir..."
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug-&ID/ N° d'incident"
 
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bug-ID"
+
 # Control-ID:1119,
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
@@ -1270,6 +1287,7 @@ msgstr ""
 "%s"
 
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "Annuler"
@@ -1683,7 +1701,7 @@ msgstr ""
 
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "Ne peut pas retirer %s de la liste des ignorés"
 
 #: ID:81
@@ -1831,8 +1849,8 @@ msgid "Deleted node"
 msgstr "Noeud effacé"
 
 #: ID:11
-msgid "Deletes files / folders from source control"
-msgstr "Effacer des fichiers / des répertoires sous gestion svn"
+msgid "Deletes files / folders from version control"
+msgstr "Effacer des fichiers / des répertoires sous contrôle de version"
 
 #: ID:263
 msgid "Deleting"
@@ -1954,6 +1972,11 @@ msgstr ""
 "Voulez-vous recharger les documents?\n"
 "Vous allez perdre vos dernières modifications!"
 
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Voulez-vous supprimer la propriété %s récursivement ?"
+
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "Voulez-vous sauver vos modifications?"
@@ -1987,6 +2010,11 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "Editer"
+
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Editer les propriétés"
 
 #: ID:113
 msgid "Edit author"
@@ -2465,6 +2493,10 @@ msgstr "Ignorer les &changements de casse"
 msgid "Ignore ancestry"
 msgstr "Ignorer les &changements de casse"
 
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "Ignorer les espacements en fi&nde lignes"
+
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignor&er les fins de lignes (recommandé)"
@@ -2781,6 +2813,10 @@ msgstr "Plus basse révision: %ld - Plus haute révision: %ld - Révision HEAD: 
 msgid "Mail system DLL is invalid."
 msgstr "La DLL du système de mail n'est pas valide."
 
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Gérér les propriétés Subversion"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -2816,6 +2852,11 @@ msgstr "Fusionner une branche dans le tronc principal"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Fusionnement"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "La fusion nécessite des révisions ou des URLs différentes dans 'De :' et 'A :'"
 
 #: ID:76
 msgid "Message"
@@ -3021,6 +3062,10 @@ msgstr "Certaines entrées dans le registre système (ou le fichier INI) n'ont p
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "Mémoire insuffisante pour terminer l'opération."
+
+#: ID:563
+msgid "Not recursive"
+msgstr "Non récursif"
 
 # ID:88,
 #: ID:88
@@ -3280,10 +3325,19 @@ msgstr "Programmes (*.exe)|*.*|Tous fichiers (*.*)|*.*||"
 msgid "Progress"
 msgstr "Progression"
 
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "Propriétés"
+
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Propriétés pour"
+
+#: ID:209
+msgid "Properties..."
+msgstr "Propriétés..."
 
 #: ID:11
 msgid "Property"
@@ -3297,9 +3351,17 @@ msgstr "Page des propriétés"
 msgid "Property Status:"
 msgstr "Statut des propriétés"
 
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Nom de la propriété :"
+
 #: ID:207
 msgid "Property status"
 msgstr "Statut de la propriété"
+
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Valeur de la propriété :"
 
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
@@ -3348,6 +3410,10 @@ msgstr "Lisez le \"Guide journalier\" avant d'être bloqué..."
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "Voir les fichiers hors de contrôle de version"
+
+#: ID:563
+msgid "Recursive"
+msgstr "Récursif"
 
 #: ID:3603
 msgid ""
@@ -3437,13 +3503,13 @@ msgstr "Fichier/répertoire effacé"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
-"Le(s) fichier(s)\n"
+"Les motifs de fichiers\n"
 "%s\n"
-"ont été retirés de la liste des ignorés"
+"ont été retirés de la liste des ignorés."
 
 #: ID:15
 msgid "Removes the file or filemask from the list of ignored items"
@@ -3472,8 +3538,8 @@ msgid "Renamed remotely"
 msgstr "Renommé à distance"
 
 #: ID:11
-msgid "Renames files / folders inside source control"
-msgstr "Renomme des fichiers / des répertoires sous gestion svn"
+msgid "Renames files / folders inside version control"
+msgstr "Renomme des fichiers / des répertoires sous contrôle de version"
 
 #: ID:3603
 msgid ""
@@ -3718,16 +3784,16 @@ msgid "SVN Status"
 msgstr "SVN Statut"
 
 #: ID:12
-msgid "SVN Url"
-msgstr "SVN Url"
+msgid "SVN URL"
+msgstr "SVN URL"
 
 #: ID:14
 msgid "SVN mime-type"
 msgstr "SVN mime-type"
 
 #: ID:12
-msgid "SVN short Url"
-msgstr "SVN Url simplifiée"
+msgid "SVN short URL"
+msgstr "SVN URL courte"
 
 #: MenuEntry
 msgid "Save &As..."
@@ -3941,7 +4007,7 @@ msgid "Short &date/time format in log messages"
 msgstr "Format court des &dates dans les commentaires"
 
 #: ID:12
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr "URL courte des éléments Subversion"
 
 #: Control-ID:1031
@@ -4048,8 +4114,8 @@ msgstr "Affiche tous les fichiers modifiés depuis la dernière mise à jour, lo
 
 # ID:2050,
 #: ID:2050
-msgid "Shows all revisions the URL got changed, not just copies"
-msgstr "Affiche toutes les révisions où  l'URL a été changée, pas seulement les copies"
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Affiche toutes les révisions où des changements ont été faits à cet élément"
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -4397,13 +4463,13 @@ msgstr ""
 # ID:88,
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Le chemin/url que vous avez entré semble illégal sous Windows!\n"
+"Le chemin/URL que vous avez entré semble illégal sous Windows!\n"
 "Vous pouvez quand même essayer, mais vous aurez peut-être une erreur plus tard.\n"
 "\n"
 "Un chemin valide sous windows ne doit pas contenir '<>|\"?*:' ou l'un des noms de périphériques suivant:\n"
@@ -4440,6 +4506,18 @@ msgstr ""
 "Le fichier sélectionné semble contenir un ou plusieurs marquages de conflit à l'intérieur.\n"
 "Etes-vous sûr de marquer le fichier comme conflits résolus?"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"L'URL cible\n"
+"%s\n"
+"existe déjà!"
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -4453,18 +4531,6 @@ msgstr ""
 "%s\n"
 "n'est pas vide!\n"
 "Etes vous sûr de vouloir extraire/exporter dans ce répertoire?"
-
-# ID:102,
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"L'url cible\n"
-"%s\n"
-"existe déjà!"
 
 # ID:195,
 #: ID:195
@@ -4770,6 +4836,7 @@ msgstr "Ajuster TortoiseSVN"
 msgid "Two-way &Diff"
 msgstr "&Diff bidirectionnel"
 
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -4782,6 +4849,7 @@ msgstr "Historique des URL"
 msgid "URL of Subversion items"
 msgstr "URL des éléments Subversion"
 
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -4874,14 +4942,6 @@ msgstr "Met à jour la copie de travail à une révision spécifique"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Met à jour la copie de travail dans le référentiel"
-
-#: ID:207
-msgid "Url"
-msgstr "Url"
-
-#: ID:144
-msgid "Url:"
-msgstr "Url:"
 
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
@@ -5498,7 +5558,7 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
 "Le type mime du fichier. Utilisé pour déterminer comment fusionner les fichiers, et comment le distribuer avec Apache. Un type mime commençant avec 'text/' (ou sans type) est traité comme texte. Les autres types sont traités en tant que binaire."
@@ -5595,6 +5655,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Mettre à \"Oui\" si une alerte doit être affichée quand aucun incident n'est entré dans la boîte de dialogue de livraison."
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "les valeurs sont différentes"
 
 # ID:244,
 #: ID:244
