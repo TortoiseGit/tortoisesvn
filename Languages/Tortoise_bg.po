@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-02-27 11:55+0200\n"
+"PO-Revision-Date: 2006-03-08 10:52+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -172,6 +172,12 @@ msgstr "%I64d килобайта прехвърлени"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d файлове маркирани, %d файлове общо"
+
+# Control-ID:65535,
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld пътя"
 
 # ID:77,
 #: ID:226
@@ -387,6 +393,7 @@ msgstr "&Симулация"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Редакция"
@@ -634,6 +641,7 @@ msgstr "&Повтаряне"
 # Control-ID:1100,
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "&Премахване"
 
@@ -1140,11 +1148,11 @@ msgstr "Добавен възел"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
-"Файлът/файловете са добавени\n"
+"Шаблона/-ите на имена на файлове са добавени\n"
 "%s\n"
 "към списъка за игнориране."
 
@@ -1342,6 +1350,11 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "&Кърпене..."
 
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "Рекурсивно прилагане на свойство "
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
@@ -1361,6 +1374,10 @@ msgstr "Сигурни ли сте, че желаете да отмените п
 #: MenuEntry
 msgid "Arranged by &path"
 msgstr "Подреждане според &пътя"
+
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "Подреждане възлите според пътя"
 
 # ID:77,
 #: ID:77
@@ -1511,6 +1528,11 @@ msgstr "Избор..."
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "&Номер на проблем:"
 
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Номер на проблем"
+
 # Control-ID:1119,#:
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1556,6 +1578,7 @@ msgstr ""
 # ID:73,#:
 # Control-ID:2,
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "Отказ"
@@ -2000,7 +2023,7 @@ msgstr "Поправки"
 #: ID:81
 #, c-format
 msgid "Could not add %s to the ignore list!"
-msgstr "Грешка при добавяне на %s към списъка за игнориране!"
+msgstr "Не можа да се добави %s към списъка за игнориране!"
 
 # ID:201,
 #: ID:201
@@ -2037,8 +2060,8 @@ msgstr ""
 # ID:81,
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
-msgstr "Грешка при премахнване на %s от списъка за игнориране"
+msgid "Could not remove %s from the ignore list"
+msgstr "Не можа да се премахне %s от списъка за игнориране"
 
 # ID:81,
 #: ID:81
@@ -2217,7 +2240,7 @@ msgstr "Изтрит възел"
 
 # ID:11,
 #: ID:11
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr "Изтрива контролирани файлове / папки"
 
 # ID:11,#:
@@ -2360,6 +2383,12 @@ msgstr ""
 "Желаете ли да презаредите документите?\n"
 "Ще загубите всичките си промени!"
 
+# ID:145,
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Желаете ли да премахнете рекурсивно свойството %s?"
+
 # ID:313,
 #: ID:313
 msgid "Do you want to save your changes?"
@@ -2401,6 +2430,12 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "Редакция"
+
+# Control-ID:65535,
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Редакция на свойства"
 
 # ID:76,
 #: ID:113
@@ -2953,6 +2988,11 @@ msgstr "Нечувствителност към &регистъра"
 msgid "Ignore ancestry"
 msgstr "Игнориране на предшествениците"
 
+# Control-ID:1020,
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "Игнориране на &крайните празни символи"
+
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -3304,6 +3344,11 @@ msgstr "Най-стара ревизия: %ld - Най-нова ревизия: 
 msgid "Mail system DLL is invalid."
 msgstr "DLL файлът на системата за електронна поще е невалиден."
 
+# Control-ID:65535,
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Управление на свойства в Subversion"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3343,6 +3388,11 @@ msgstr "Влива разклонение в основното течение"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Сливане"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "Сливането изисква различни ревизии или различни URL за 'От:' и 'Към:'"
 
 # ID:76,
 #: ID:76
@@ -3594,6 +3644,11 @@ msgstr "Не всички записи в системния регистър (�
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "Недостиг на оперативна памет за извършването на тази операция."
+
+# Control-ID:1018,
+#: ID:563
+msgid "Not recursive"
+msgstr "Нерекурсивно"
 
 # ID:88,
 #: ID:88
@@ -3918,10 +3973,21 @@ msgid "Progress"
 msgstr "Развитие"
 
 # Control-ID:65535,
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "Свойства"
+
+# Control-ID:65535,
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Свойства за"
+
+# Control-ID:65535,
+#: ID:209
+msgid "Properties..."
+msgstr "Свойства..."
 
 # ID:11,
 #: ID:11
@@ -3938,10 +4004,20 @@ msgstr "Страница за свойствата"
 msgid "Property Status:"
 msgstr "Състояние на свойство:"
 
+# Dlg-ID:107,
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Име на свойство:"
+
 # Control-ID:65535,
 #: ID:207
 msgid "Property status"
 msgstr "Състояние на свойство"
+
+# Dlg-ID:107,
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Стойност на свойство:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4002,6 +4078,11 @@ msgstr "Прочетете 'Упътване за всекидневна упо�
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "Обхождане и на неконтролираните директории"
+
+# Control-ID:1018,
+#: ID:563
+msgid "Recursive"
+msgstr "Рекурсивно"
 
 # ID:3603,
 #: ID:3603
@@ -4107,11 +4188,11 @@ msgstr "Премахнат файл/папка"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
-"Файлът/файловете са премахнати\n"
+"Шаблона/-ите на имена на файлове са премахнати\n"
 "%s\n"
 "от списъка за игнориране."
 
@@ -4149,8 +4230,8 @@ msgstr "Преименуван отдалечено"
 
 # ID:11,
 #: ID:11
-msgid "Renames files / folders inside source control"
-msgstr "Преименува контролирани файлове / папки"
+msgid "Renames files / folders inside version control"
+msgstr "Преименува файлове / папки под контрол"
 
 # ID:3603,
 #: ID:3603
@@ -4451,7 +4532,7 @@ msgstr "SVN състояние"
 
 # ID:12,
 #: ID:12
-msgid "SVN Url"
+msgid "SVN URL"
 msgstr "SVN URL"
 
 # ID:14,
@@ -4461,7 +4542,7 @@ msgstr "SVN МIME тип"
 
 # ID:12,
 #: ID:12
-msgid "SVN short Url"
+msgid "SVN short URL"
 msgstr "SVN кратък URL"
 
 #: MenuEntry
@@ -4726,7 +4807,7 @@ msgstr "&Кратък формат за дата/час в дневника"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr "Кратък URL на Subversion обекти"
 
 # Control-ID:1016,
@@ -4848,6 +4929,11 @@ msgstr "Показване на графично представяне на к�
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Показване на всички файлове, променени след последното обновяване - локално или в хранилището"
+
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Показва всички ревизии, в които този обект е променян"
 
 # ID:10,
 #: ID:10
@@ -5243,14 +5329,14 @@ msgstr ""
 # ID:88,
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Пътят/URL, който сте въвели, най-вероятно е невалиден под Windows!\n"
-"Можете да се опитате да го използвате, но вероятно ще получите грешка по-късно.\n"
+"Въпреки това може да се опитате да го използвате, но вероятно ще получите грешка по-късно.\n"
 "\n"
 "За да е валиден пътят под Windows, той не трябва да съдържа знаците '<>|\"?*:', както и някое от следните имена на устойства:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
@@ -5287,6 +5373,18 @@ msgstr ""
 "Избраният файл все още съдържа маркери за налични конфликти.\n"
 "Сигурни ли сте, че желаете да отбележите файла като разрешен?"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Целевият URL\n"
+"%s\n"
+"вече съществува!"
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -5300,18 +5398,6 @@ msgstr ""
 "%s\n"
 "не е празна!\n"
 "Сигурни ли сте, че желаете да изпишете/изнесете в тази папка?"
-
-# ID:102,
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"Целевият URL\n"
-"%s\n"
-"вече съществува!"
 
 # ID:195,
 #: ID:195
@@ -5661,6 +5747,7 @@ msgstr "Сравняване с &два файла"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -5677,6 +5764,7 @@ msgstr "URL на Subversion обекти"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -5802,16 +5890,6 @@ msgstr "Обновява работното копие до специфична
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Обновяване на работното копие до текущата ревизия"
-
-# ID:144,
-#: ID:207
-msgid "Url"
-msgstr "URL"
-
-# ID:144,
-#: ID:144
-msgid "Url:"
-msgstr "URL:"
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -6491,10 +6569,10 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"MIME типът на файл. Използва се за приложимост на автоматичното сливане за файла, а също и как да се покаже от Apache. Ако MIME типът започва с 'text/' (или при липсващ MIME тип), файлът се третира като текстов. Всичко друго се третира като двоична информация."
+"MIME типът на файл. По него се преценява приложимостта на автоматичното сливане за файла, а също и как да се покаже от Apache. Ако MIME типът започва с 'text/' (или при липсващ MIME тип), файлът се третира като текстов. Всичко друго се третира като двоична информация."
 
 # ID:16,
 #: ID:16
@@ -6588,6 +6666,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Установете на \"yes\", ако желаете да се показва предупреждение, когато в диалоговия прозорец за поверяване не е бил въведен номер на проблем."
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "стойностите са различни"
 
 # ID:244,
 #: ID:244
