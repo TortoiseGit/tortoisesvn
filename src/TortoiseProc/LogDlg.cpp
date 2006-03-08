@@ -2559,8 +2559,9 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				if (itemid < m_logEntries.size())
 				{
-					CString sTemp = pLogEntry->sMessage;
-					lstrcpyn(pItem->pszText, m_ProjectProperties.GetBugIDFromLog(sTemp), pItem->cchTextMax);
+					CString sTemp = m_ProjectProperties.FindBugID(pLogEntry->sMessage);
+					sTemp.Trim();
+					lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax);
 				}
 				else
 					lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
@@ -3034,22 +3035,31 @@ void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescDateSort());
 	        }
 	        break;
-	    case 4: // Message
+	    case 4: // Message or bug id
+			if (m_bShowBugtraqColumn)
 	        {
-	            if(m_bAscending)
-	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscMessageSort());
-	            else
-	                std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescMessageSort());
+				// no sorting!
+				break;
 	        }
-	        break;
+	        // fall through here
+		case 5: // Message
+			{
+				if(m_bAscending)
+					std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::AscMessageSort());
+				else
+					std::sort(m_logEntries.begin(), m_logEntries.end(), CLogDataVector::DescMessageSort());
+			}
+			break;
 	    default:
 		    ATLASSERT(0);
 		    break;
 	}
-
-	SetSortArrow(&m_LogList, m_nSortColumn, !!m_bAscending);
-	SortShownListArray();
-	m_LogList.Invalidate();
+	if ((!m_bShowBugtraqColumn)||(m_nSortColumn != 4))
+	{
+		SetSortArrow(&m_LogList, m_nSortColumn, !!m_bAscending);
+		SortShownListArray();
+		m_LogList.Invalidate();
+	}
 	*pResult = 0;
 }
 
