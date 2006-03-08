@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-03 17:29+0800\n"
+"PO-Revision-Date: 2006-03-08 16:01+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,6 +136,12 @@ msgstr "已传输 %I64d KB"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "选择了 %d 个文件，共有 %d 个文件"
+
+# Control-ID:65535,
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld 个路径"
 
 # ID:226,
 #: ID:226
@@ -347,6 +353,7 @@ msgstr "预检(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "编辑(&E)"
@@ -593,6 +600,7 @@ msgstr "重做(&R)"
 # Control-ID:1100,
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "删除(&R)"
 
@@ -1095,12 +1103,13 @@ msgstr "添加的节点"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
-"将选定的文件\n"
-"%s 添加到忽略列表"
+"将选定的文件类型\n"
+"%s\n"
+"添加到忽略列表。"
 
 # ID:8,#:
 # ID:73,#:
@@ -1295,6 +1304,11 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "应用补丁(&P)..."
 
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "递归应用该属性"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
@@ -1470,6 +1484,11 @@ msgstr "浏览..."
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug编号/问题编号(&I)："
 
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bug-ID"
+
 # Control-ID:1119,#:
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1515,6 +1534,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "取消"
@@ -1996,7 +2016,7 @@ msgstr ""
 # ID:81,
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "无法从忽略列表删除 %s！"
 
 # ID:81,
@@ -2172,7 +2192,7 @@ msgstr "删除的节点"
 
 # ID:11,
 #: ID:11
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr "从版本控制树中删除文件/文件夹"
 
 # ID:11,#:
@@ -2309,6 +2329,12 @@ msgstr ""
 "确定要重新加载文件吗?\n"
 "所有变更都将会丢失！"
 
+# ID:145,
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "确定要从该项目及其子项目删除属性 %s 吗？"
+
 # ID:313,
 #: ID:313
 msgid "Do you want to save your changes?"
@@ -2348,6 +2374,13 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "编辑"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "修改属性"
 
 # ID:76,
 #: ID:113
@@ -2904,6 +2937,11 @@ msgstr "忽略大/小写(&C)"
 msgid "Ignore ancestry"
 msgstr "忽略根源"
 
+# Control-ID:1020,
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "忽略行尾的空白字符"
+
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -3254,6 +3292,11 @@ msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "邮件系统 DLL 无效。"
 
+# Control-ID:65535,
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "管理 Subversion 属性"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3293,6 +3336,11 @@ msgstr "将分支树合并回主干"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "正在合并"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "合并指定的不同版本差异或从“起始：” URL 到“结束：” URL 之间的差异"
 
 # ID:76,
 #: ID:76
@@ -3543,6 +3591,11 @@ msgstr "没有删除全部的注册表项（或 INI 文件）。"
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "内存不足，无法完成操作。"
+
+# Control-ID:1018,
+#: ID:563
+msgid "Not recursive"
+msgstr "非递归"
 
 # ID:88,
 #: ID:88
@@ -3867,10 +3920,24 @@ msgstr "进程"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "属性"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:1287
+#, fuzzy
+msgid "Properties for"
+msgstr "属性"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:209
+msgid "Properties..."
+msgstr "属性..."
 
 # ID:11,
 #: ID:11
@@ -3887,10 +3954,20 @@ msgstr "属性页面"
 msgid "Property Status:"
 msgstr "属性状态："
 
+# Dlg-ID:107,
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "属性："
+
 # ID:207,
 #: ID:207
 msgid "Property status"
 msgstr "属性状态："
+
+# Dlg-ID:107,
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "取值："
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3950,6 +4027,11 @@ msgstr "在你卡住之前, 请先阅读日常使用指南…"
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "递归处理未进行版本控制的文件夹"
+
+# Control-ID:1018,
+#: ID:563
+msgid "Recursive"
+msgstr "递归"
 
 # ID:3603,
 #: ID:3603
@@ -4056,11 +4138,11 @@ msgstr "已删除的文件/文件夹"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
-"已将选定的文件\n"
+"已将选定的文件类型\n"
 "%s \n"
 "从忽略列表删除。"
 
@@ -4098,7 +4180,7 @@ msgstr "远程重命名完成"
 
 # ID:11,
 #: ID:11
-msgid "Renames files / folders inside source control"
+msgid "Renames files / folders inside version control"
 msgstr "重命名版本控制树中的文件/文件夹"
 
 # ID:3603,
@@ -4400,8 +4482,8 @@ msgstr "SVN 状态"
 
 # ID:12,
 #: ID:12
-msgid "SVN Url"
-msgstr "SVN Url"
+msgid "SVN URL"
+msgstr "SVN URL"
 
 # ID:14,
 #: ID:14
@@ -4410,7 +4492,7 @@ msgstr "SVN mime 类型"
 
 # ID:12,
 #: ID:12
-msgid "SVN short Url"
+msgid "SVN short URL"
 msgstr "SVN 短 URL"
 
 #: MenuEntry
@@ -4672,7 +4754,7 @@ msgstr "日志信息使用短日期/时间格式(&D)"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr "Subversion 项目的短 URL"
 
 # Control-ID:1031,
@@ -4797,8 +4879,8 @@ msgstr "不论在版本库中或在本地端都显示从上次更新以后有改
 
 # ID:2050,
 #: ID:2050
-msgid "Shows all revisions the URL got changed, not just copies"
-msgstr "显示全部URL改变的版本，不只是拷贝。"
+msgid "Shows all revisions where changes were made to this item"
+msgstr "显示该项目发生改变的全部版本"
 
 # ID:10,
 #: ID:10
@@ -5195,7 +5277,7 @@ msgstr ""
 # ID:88,
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
@@ -5204,7 +5286,7 @@ msgstr ""
 "输入的路径似乎在Windows上有错！\n"
 "你可以尝试继续，但可能会出现错误。\n"
 "\n"
-"正确windows路径不能包含“<>|\"?*:”或以下设备名：\n"
+"正确Windows路径不能包含“<>|\"?*:”或以下设备名：\n"
 "com1－com9，lpt1－lpt9，prn，aux，con，nul，clock$"
 
 # ID:314,
@@ -5239,6 +5321,18 @@ msgstr ""
 "选择的文件尚有一个以上的冲突标记。\n"
 "你确定要将其视为已解决？"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"目标 URL\n"
+"%s\n"
+"已经存在！"
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -5250,18 +5344,6 @@ msgid ""
 msgstr ""
 "目标文件夹%s非空！\n"
 "你确定要检出/导出到该文件夹吗？"
-
-# ID:102,
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"目标 URL\n"
-"%s\n"
-"已经存在！"
 
 # ID:195,
 #: ID:195
@@ -5610,6 +5692,7 @@ msgstr "双向差异(&D)"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -5626,6 +5709,7 @@ msgstr "Subversion 项目 URL"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL："
@@ -5751,16 +5835,6 @@ msgstr "更新工作拷贝至指定的版本"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "更新工作拷贝至当前的版本"
-
-# ID:207,
-#: ID:207
-msgid "Url"
-msgstr "Url"
-
-# ID:144,
-#: ID:144
-msgid "Url:"
-msgstr "Url："
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -6444,7 +6518,7 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
 "此文件的 mime 类型。用来决定文件是否要合并，以及由 Apache 传输时要怎么处理. 以“text/”开头(或没有设置)的 mime 类型视为文本文件，其它则视为二进制文件。"
@@ -6541,6 +6615,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "如果设为“是”，则在提交对话框没有输入问题时，会显示警告信息。"
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "所取值是不同的"
 
 # ID:244,
 #: ID:244
