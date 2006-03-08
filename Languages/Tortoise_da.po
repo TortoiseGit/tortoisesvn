@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r5933
+# Based on Tortoise.pot r5955
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-05 15:59+0100\n"
+"PO-Revision-Date: 2006-03-08 09:26+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -829,7 +829,7 @@ msgstr "Tilføjet knude"
 
 #: ID:145,
 #, c-format
-msgid "Added the file pattern(s)\n%s\nto the ignored list."
+msgid "Added the file pattern(s)\n%s\nto the ignore list."
 msgstr "Filmønstret/filmønstrene\n%s\nblev tilføjet \"ignorer\"-listen."
 
 #: ID:263,
@@ -1084,6 +1084,10 @@ msgstr "Gennemse..."
 #: Control-ID:1119,
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Fejl-&ID/problemnr:"
+
+#: ID:116,
+msgid "Bug-ID"
+msgstr "Bug-ID"
 
 #: Control-ID:1119,
 msgid "Bug-ID / Issue-Nr:"
@@ -1456,7 +1460,7 @@ msgstr "Rettelser"
 
 #: ID:81,
 #, c-format
-msgid "Could not add %s to the ignored list!"
+msgid "Could not add %s to the ignore list!"
 msgstr "%s kunne ikke tilføjes \"ignorer\"-listen!"
 
 #: ID:201,
@@ -1479,7 +1483,7 @@ msgstr "Det lykkedes ikke at åbne filen\n%s"
 
 #: ID:82,
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "Det lykkedes ikke at fjerne %s fra \"ignorer\"-listen"
 
 #: ID:81,
@@ -2092,6 +2096,10 @@ msgstr "Ignorer &store/små bogstaver"
 #, fuzzy
 msgid "Ignore ancestry"
 msgstr "Ignorer forældreskab"
+
+#: Control-ID:1026,
+msgid "Ignore e&nding whitespaces"
+msgstr "Ignorer &afsluttende blanktegn"
 
 #: Control-ID:1018,
 msgid "Ignore line &endings (recommended)"
@@ -2917,7 +2925,7 @@ msgstr "Fjernet fil/mappe"
 
 #: ID:145,
 #, c-format
-msgid "Removed the file pattern(s)\n%s\nfrom the ignored list."
+msgid "Removed the file pattern(s)\n%s\nfrom the ignore list."
 msgstr "Fjernede filmønstret/filmønstrene\n%s\nfra \"ignorer\"-listen."
 
 #: ID:15,
@@ -3445,9 +3453,8 @@ msgid "Shows all files which were changed since the last update, locally and in 
 msgstr "Viser alle filer, som er ændret siden sidste opdatering, både lokalt og i versionsarkivet"
 
 #: ID:2050,
-#, fuzzy
-msgid "Shows all revisions the URL got changed, not just copies"
-msgstr "Vis alle revisioner, hvor URL'en blev ændret og ikke blot kopieret"
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Vis alle revisioner, hvor der blev foretaget ændringer af dette emne"
 
 #: ID:10,
 msgid "Shows information about TortoiseSVN"
