@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-03-06 10:32+0100\n"
+"PO-Revision-Date: 2006-03-08 09:17+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -392,7 +392,7 @@ msgstr "&Ignoriere %d Objekte"
 
 #: Control-ID:1020
 msgid "&Ignore leading whitespaces"
-msgstr "Ignoriere &führende Leerzeichen"
+msgstr "&Ignoriere führende Leerzeichen"
 
 #: ID:9
 msgid "&Import..."
@@ -898,7 +898,7 @@ msgstr "Knoten hinzugefügt"
 msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
-"to the ignored list."
+"to the ignore list."
 msgstr ""
 "Die Einträge\n"
 "%s\n"
@@ -1205,6 +1205,11 @@ msgstr "Suchen..."
 #: Control-ID:1119
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug-&ID / Issue-Nr:"
+
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bug-ID"
 
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
@@ -1607,7 +1612,7 @@ msgstr "Korrekturen"
 
 #: ID:81
 #, c-format
-msgid "Could not add %s to the ignored list!"
+msgid "Could not add %s to the ignore list!"
 msgstr "Konnte %s nicht zur 'Ignorieren' Liste hinzufügen!"
 
 #: ID:201
@@ -1641,8 +1646,8 @@ msgstr ""
 
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
-msgstr "Konnte %s nicht aus der 'Ignorieren' Liste entfernen!"
+msgid "Could not remove %s from the ignore list"
+msgstr "Konnte %s aus der 'Ignorieren' Liste entfernen!"
 
 #: ID:81
 #, c-format
@@ -2419,6 +2424,10 @@ msgstr "&Groß- / Kleinschreibung ignorieren"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Vorfahren ignorieren"
+
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "Ignoriere &folgende Leerzeichen"
 
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -3393,7 +3402,7 @@ msgstr "Datei / Ordner gelöscht"
 msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
 "Die Einträge\n"
 "%s\n"
@@ -3991,8 +4000,8 @@ msgstr "Zeigt alle Dateien, die sich seit der letzten Aktualisierung lokal oder 
 
 # ID:2050,
 #: ID:2050
-msgid "Shows all revisions the URL got changed, not just copies"
-msgstr "Zeigt alle Revisionen in denen die URL geändert wurde, nicht nur Kopien"
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Zeigt alle Revisionen in denen Änderungen vorgenommen wurden."
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
