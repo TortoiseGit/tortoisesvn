@@ -119,6 +119,19 @@
 		boundary. One has a solid vertical dividing line and the other has two
 		thin vertical lines. Only the solid drag pointer works.
 	</para>
+	<tip>
+		<title>Drag and Drop</title>
+		<para>
+			You can drag files into the commit dialog from elsewhere, so
+			long as the working copies are check out from the same repository.
+			For example, you may have a huge working copy with several
+			explorer windows open to look at distant folders of the
+			hierarchy. If you want to avoid committing from the top
+			level folder (with a lengthy folder crawl to check for changes)
+			you can open the commit dialog for one folder and drag in items
+			from the other windows to include within the same atomic commit.
+		</para>
+	</tip>
 	<para>
 		Be sure to enter a log message which describes the changes you are
 		committing. This will help you to see what happened and when, as you
@@ -218,9 +231,12 @@
 	<tip>
 		<title>Integration with Bugtracking Tools</title>
 		<para>
-			If you have activated the bugtracking system, you could set one or more 
-			Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues 
-			should be comma separated. Learn more <xref linkend="tsvn-dug-bugtracker"/>.
+			If you have activated the bugtracking system, you can set one or more 
+			Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> text box. Multiple
+			issues should be comma separated. Alternatively, if you are using
+			regex-based bugtracking support, just add your issue references
+			as part of the log message.
+			Learn more <xref linkend="tsvn-dug-bugtracker"/>.
 		</para>
 	</tip>
 </sect1>

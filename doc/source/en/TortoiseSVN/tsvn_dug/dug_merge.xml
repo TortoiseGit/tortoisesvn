@@ -310,4 +310,24 @@ Rev Comments
 			by a real merge, and notes those areas where conflicts will occur.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-merge-4">
+		<title>Ignoring Ancestry</title>
+		<para>
+			Most of the time you want merge to take account of the file's history,
+			so that changes relative to a common ancestor are merged. Sometimes
+			you may need to merge files which are perhaps related, but not in
+			your repository. For example you may have imported versions 1 and 2 of
+			a third party library into two separate directories. Although they
+			are logically related, subversion has no knowledge of this because
+			it only sees the tarballs you imported. If you attempt to merge the
+			difference between these two trees you would see a complete removal
+			followed by a complete add. To make subversion use only path-based
+			differences rather than history-based differences, check the
+			<guilabel>Ignore ancestry</guilabel> box. Read more about this 
+			topic in the Subversion book,
+			<ulink url="http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4">
+				<citetitle>Noticing or Ignoring Ancestry</citetitle>
+			</ulink>
+		</para>
+	</sect2>
 </sect1>
