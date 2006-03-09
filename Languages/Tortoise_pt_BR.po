@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-15 11:55-0300\n"
+"PO-Revision-Date: 2006-03-09 14:17-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -137,6 +137,12 @@ msgstr "%I64d kBytes transferidos"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d arquivos selecionados, %d arquivos no total"
+
+# Control-ID:65535,
+#: ID:563
+#, fuzzy, c-format
+msgid "%ld paths"
+msgstr "%ld caminhos"
 
 # ID:77,
 #: ID:226
@@ -321,6 +327,7 @@ msgstr "&Personalizar"
 # ID:11,#:
 # ID:73,#:
 # ID:101,
+#: Control-ID:1269
 #: Control-ID:1096
 msgid "&Default"
 msgstr "Pa&drão"
@@ -351,6 +358,7 @@ msgstr "&Simulação"
 
 # Control-ID:1031,
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Editar"
@@ -598,6 +606,7 @@ msgstr "&Refazer"
 # Control-ID:1100,
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "&Remover"
 
@@ -1104,11 +1113,11 @@ msgstr "Nó adicionado"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
-"Adicionado(s) o(s) arquivo(s)\n"
+"Adicionado(s) o(s) padrão(ões) de arquivo\n"
 "%s\n"
 "à lista de ignorados."
 
@@ -1308,6 +1317,11 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "A&plicar Correção..."
 
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "Aplicar propriedade recursivamente"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
@@ -1328,6 +1342,10 @@ msgstr "Você tem certeza de que quer reverter %d item(s)? Você irá perder <b>
 msgid "Arranged by &path"
 msgstr "Ordenado por &caminho"
 
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "Ordenado os nós por caminho"
+
 # ID:77,
 #: ID:77
 #, c-format
@@ -1340,6 +1358,12 @@ msgstr "Na revisão: %d"
 #: Dlg-ID:160
 msgid "Authentication"
 msgstr "Autenticação"
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "Dados de Autenticação"
 
 # ID:76,
 #: ID:76
@@ -1474,6 +1498,11 @@ msgstr "Navegar..."
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug-&ID / Issue-Nr:"
 
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bug-ID"
+
 # Control-ID:1119,#:
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1518,6 +1547,7 @@ msgstr ""
 # ID:73,#:
 # Control-ID:2,
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "Cancelar"
@@ -1683,9 +1713,30 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Limpar operações interrompidas, arquivos bloqueados, ..."
 
 # Control-ID:1059,
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "Limpar Ag&ora"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "Limpar"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr ""
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr ""
 
 # ID:195,
 #: ID:195
@@ -1695,6 +1746,12 @@ msgid ""
 msgstr ""
 "Apagar as autenticações gravadas.\n"
 "Você terá que digitar nome de usuário e senha novamente para todos os repositórios."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr ""
 
 # ID:170,
 #: ID:170
@@ -1877,6 +1934,11 @@ msgstr "Copiar (Ramo / Rótulo)"
 msgid "Copy URL to clipboard"
 msgstr "Copiar URL para a área de transferência"
 
+# ID:257,
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "Copiar mensagem de erro para a área de transferência"
+
 # ID:76,
 #: ID:76
 msgid "Copy from path"
@@ -1969,7 +2031,7 @@ msgstr ""
 # ID:81,
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "Não foi possível remover %s da lista de ignorados"
 
 # ID:81,
@@ -2147,7 +2209,7 @@ msgstr "Nó excluído"
 
 # ID:11,
 #: ID:11
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr "Exclui arquivos / pastas do controle de versões"
 
 # ID:11,#:
@@ -2162,6 +2224,11 @@ msgstr "Excluindo"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "O disco de destino está cheio."
+
+# ID:3825,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "Dimensóes e posições dos diálogos"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2243,6 +2310,16 @@ msgid "Do you really want to move this file or folder?"
 msgstr "Você realmente deseja mover esse arquivo ou pasta?"
 
 # ID:76,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Você deseja realmente reverter todas as alterações em %s\n"
+"e voltar para essa revisão?"
+
+# ID:76,
 #: ID:76
 #, c-format
 msgid ""
@@ -2276,6 +2353,12 @@ msgid ""
 msgstr ""
 "Você deseja recarregar os documentos?\n"
 "Você perderá todas as alterações que você fez!"
+
+# ID:145,
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Deseja remover a propriedade %s recursivamente?"
 
 # ID:313,
 #: ID:313
@@ -2316,6 +2399,12 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "Editar"
+
+# Control-ID:65535,
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Editar Propriedades"
 
 # ID:76,
 #: ID:113
@@ -2793,9 +2882,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-#, fuzzy
 msgid "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff with the keywords expanded and the line endings adjusted."
-msgstr "Se selecionado, o TortoiseSVN cria um arquivo temporário da revisão BASE para fazer as comparações com as palavras-chave expandidas e as quebras de linha ajustadas."
+msgstr "Se selecionado, o TortoiseSVN cria um arquivo temporário da revisão BASE para comparar com as palavras-chave expandidas e os fins de linha ajustados."
 
 # ID:195,
 #: ID:195
@@ -2875,6 +2963,11 @@ msgstr "Ignora alterações de &caixa"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Ignorar descendência"
+
+# Control-ID:1020,
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "Ignorar espaços em branco no fi&nal"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -3166,6 +3259,7 @@ msgid "Log History"
 msgstr "Histórico de Logs"
 
 # Dlg-ID:130,
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Mensagens de log"
@@ -3228,6 +3322,11 @@ msgstr "Revisão mais baixa: %ld - Revisão mais alta: %ld - Revisão HEAD: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "DLL do sistema de correio inválida."
 
+# Control-ID:65535,
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Gerenciar propriedades do Subversion"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3267,6 +3366,12 @@ msgstr "Combina uma ramificação ao tronco principal"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Combinando"
+
+# ID:83,
+#: ID:83
+#, fuzzy
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "Para combinar, as revisões ou URLs em 'De:' e 'Para:' devem ser diferentes "
 
 # ID:76,
 #: ID:76
@@ -3487,10 +3592,21 @@ msgstr "Nenhum codificador de imagens encontrado para %s."
 msgid "No spell corrections"
 msgstr "Não há correções de ortografia"
 
+# ID:196,
+#: ID:196
+msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
+msgstr ""
+
 # ID:188,
 #: ID:188
 msgid "No thesaurus suggestions"
 msgstr "Não há sugestões de sinônimos"
+
+# ID:73,
+#: Control-ID:1271
+#, fuzzy
+msgid "None"
+msgstr "Não"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3508,6 +3624,11 @@ msgstr "Nem todas as entradas de registro (ou arquivo INI) foram removidas."
 #: ID:83
 msgid "Not enough memory to complete operation."
 msgstr "Memória insuficiente para completar a operação."
+
+# Control-ID:1018,
+#: ID:563
+msgid "Not recursive"
+msgstr "Não recursivo"
 
 # ID:88,
 #: ID:88
@@ -3658,6 +3779,12 @@ msgstr "Colar lista de nomes de arquivos"
 #: ID:376
 msgid "Patch all"
 msgstr "Corrigir tudo"
+
+# ID:376,
+#: ID:376
+#, fuzzy
+msgid "Patch selected"
+msgstr "Correção selecionada"
 
 # ID:157,#:
 # ID:157,
@@ -3828,10 +3955,21 @@ msgid "Progress"
 msgstr "Progresso"
 
 # Control-ID:65535,
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "Propriedades"
+
+# Control-ID:65535,
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Propriedades para"
+
+# Control-ID:65535,
+#: ID:209
+msgid "Properties..."
+msgstr "Propriedades..."
 
 # ID:11,
 #: ID:11
@@ -3848,10 +3986,20 @@ msgstr "Página de Propriedade"
 msgid "Property Status:"
 msgstr "Status da Propriedade:"
 
+# Dlg-ID:107,
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Nome da Propriedade:"
+
 # Control-ID:65535,
 #: ID:207
 msgid "Property status"
 msgstr "Status da propriedade"
+
+# Dlg-ID:107,
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Valor da Propriedade:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3876,6 +4024,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "R&AM drives"
 msgstr "Unidades R&AM"
+
+# ID:113,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "R&everter para essa revisão"
 
 # ID:3697,
 #: ID:3697
@@ -3907,6 +4060,11 @@ msgstr "Leia o 'Guia de Uso Diário' antes que você fique empacado..."
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "Usar recursão nas pastas sem controle de versão"
+
+# Control-ID:1018,
+#: ID:563
+msgid "Recursive"
+msgstr "Recursivo"
 
 # ID:3603,
 #: ID:3603
@@ -4011,11 +4169,11 @@ msgstr "Arquivo/diretório removido"
 
 # ID:13,
 #: ID:145
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
 "Removido(s) o(s) arquivo(s)\n"
 "%s\n"
@@ -4055,7 +4213,8 @@ msgstr "Renomeado remotamente"
 
 # ID:11,
 #: ID:11
-msgid "Renames files / folders inside source control"
+#, fuzzy
+msgid "Renames files / folders inside version control"
 msgstr "Renomeia arquivos / pastas no controle de versão"
 
 # ID:3603,
@@ -4212,7 +4371,7 @@ msgstr "Revisão %d"
 # ID:119,
 #: ID:269
 #: ID:270
-#: ID:271
+#: ID:272
 #, c-format
 msgid "Revision %ld"
 msgstr "Revisão %ld"
@@ -4242,6 +4401,26 @@ msgstr "Gráfico de revisões"
 #: ID:75
 msgid "Revision: "
 msgstr "Revisão:"
+
+# ID:272,
+#: ID:272
+#, c-format
+msgid ""
+"Revision: %ld\n"
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Revisão: %ld\n"
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Data: %s\r\n"
+"\r\n"
+"Messagem de log:\r\n"
+"%s"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -4315,6 +4494,11 @@ msgstr "SVN Exportar para cá"
 msgid "SVN Lock owner"
 msgstr "SVN Proprietário da trava"
 
+# ID:16,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN Mover e renomear arquivos com controle de versão para cá"
+
 # Control-ID:1073,
 #: ID:12
 msgid "SVN Move versioned files here"
@@ -4332,8 +4516,8 @@ msgstr "SVN Status"
 
 # ID:12,
 #: ID:12
-msgid "SVN Url"
-msgstr "SVN Url"
+msgid "SVN URL"
+msgstr "SVN URL"
 
 # ID:14,
 #: ID:14
@@ -4342,8 +4526,8 @@ msgstr "SVN tipo mime"
 
 # ID:12,
 #: ID:12
-msgid "SVN short Url"
-msgstr "SVN Url curto"
+msgid "SVN short URL"
+msgstr "SVN URL curta"
 
 #: MenuEntry
 msgid "Save &As..."
@@ -4404,6 +4588,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "Salvar para a área de transferência"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "Dados salvos"
 
 # ID:144,
 #: ID:103
@@ -4581,6 +4770,12 @@ msgstr "Preferências"
 msgid "Sh&ow log"
 msgstr "Exibir históric&o"
 
+# Control-ID:1270,
+#: Control-ID:1270
+#, fuzzy
+msgid "Shell"
+msgstr "Shell"
+
 # ID:145,
 #: ID:145
 msgid "Shell Icon Cache was rebuilt!"
@@ -4598,8 +4793,9 @@ msgstr "Formato curto de &data/hora no histórico"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of Subversion items"
-msgstr "Url Curta de itens do Subversion"
+#, fuzzy
+msgid "Short URL of Subversion items"
+msgstr "URL Curta de itens do Subversion"
 
 # Control-ID:1016,
 #: Control-ID:1031
@@ -4680,11 +4876,6 @@ msgstr ""
 "Visualizar ou ocultar a barra de ferramentas\n"
 "Alternar Barra de Ferramentas"
 
-# Control-ID:1223,
-#: Control-ID:1223
-msgid "Show overlay status icons recursively"
-msgstr "Mostrar sobreposições de ícones recursivamente"
-
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -4725,6 +4916,11 @@ msgstr "Exibe uma representação gráfica das cópias/rótulos/ramificações"
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Mostrar todos os arquivos que foram alterados deste a última atualização, localmente e no repositório"
+
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions where changes were made to this item"
+msgstr ""
 
 # ID:10,
 #: ID:10
@@ -4813,6 +5009,21 @@ msgstr "Status"
 msgid "Status and action colors"
 msgstr "Status e cores de ações"
 
+#: Control-ID:65535
+#, fuzzy
+msgid "Status cache"
+msgstr "Cache de status"
+
+# ID:196,
+#: ID:196
+msgid "Status cache kept in an external process, can show the overlay recursively"
+msgstr ""
+
+# ID:196,
+#: ID:196
+msgid "Status cache only for one folder, no recursive overlays"
+msgstr ""
+
 # ID:11,
 #: ID:11
 msgid "Status of item in SVN"
@@ -4838,12 +5049,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
-
-# Control-ID:1023,#:
-# Control-ID:1023,
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Dados de &autenticação do Subversion:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5111,8 +5316,9 @@ msgstr ""
 
 # ID:88,
 #: ID:88
+#, fuzzy
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
@@ -5156,6 +5362,18 @@ msgstr ""
 "O arquivo selecionado parece ainda conter uma ou mais marcas de conflito.\n"
 "Você tem certeza que quer marcar como resolvido?"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"A URL de destino\n"
+"%s\n"
+"já existe!"
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -5169,18 +5387,6 @@ msgstr ""
 "%s\n"
 "não está vazia!\n"
 "Você tem certeza que deseja obter/exportar nessa pasta?"
-
-# ID:102,
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"A url de destino\n"
-"%s\n"
-"já existe!"
 
 # ID:195,
 #: ID:195
@@ -5484,6 +5690,14 @@ msgstr "TortoiseSVN Alternar..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN Atualizar..."
 
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+
 # Control-ID:1162,
 #: Control-ID:1162
 msgid "Total commits analyzed:"
@@ -5521,9 +5735,15 @@ msgstr "Comparação em duplo senti&do"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
+
+# ID:80,
+#: Control-ID:1272
+msgid "URL history"
+msgstr "Histórico de URLs"
 
 # ID:12,
 #: ID:12
@@ -5532,6 +5752,7 @@ msgstr "URL dos itens do Subversion"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -5540,24 +5761,6 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL: "
-
-# ID:272,
-#: ID:272
-#, c-format
-msgid ""
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"URL: %s\r\n"
-"Autor: %s\r\n"
-"Data: %s\r\n"
-"\r\n"
-"MensagemLog:\r\n"
-"%s"
 
 # ID:3866,#:
 # ID:3866,
@@ -5675,16 +5878,6 @@ msgstr "Atualiza a cópia local para uma revisão específica"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Atualiza a cópia local para a revisão atual"
-
-# ID:144,
-#: ID:207
-msgid "Url"
-msgstr "Url"
-
-# ID:144,
-#: ID:144
-msgid "Url:"
-msgstr "Url:"
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -6051,6 +6244,26 @@ msgstr "Ma&is Zoom\tCtrl-+"
 msgid "Zoom &out\tCtrl--"
 msgstr "Men&os Zoom\tCtrl--"
 
+# ID:2051,
+#: ID:2051
+#, c-format
+msgid "Zoom 100%"
+msgstr "Zoom 100%"
+
+#: ID:2049
+msgid "Zoom in"
+msgstr "Mais zoom"
+
+#: ID:2049
+msgid "Zoom out"
+msgstr "Menos zoom"
+
+# ID:2051,
+#: ID:2051
+#, fuzzy
+msgid "Zoom to fit"
+msgstr "Zoom para ajustar"
+
 # ID:10,
 #: ID:10
 msgid "added"
@@ -6353,10 +6566,10 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"O tipo MIME do arquivo. Usado para determinar se o arquivo deve ser combinado, e como servi-lo a partir do Apache. Um tipo MIME inciando com 'text/' (ou a ausência de um) é tratado como texto. Qualquer outro é tratado como binário."
+"O tipo mime do arquivo. Usado para determinar se o arquivo deve ser combinado, e como servi-lo a partir do Apache. Um tipo MIME iniciando com 'text/' (ou sem tipo mime) é tratado como texto. Qualquer outro é tratado como binário."
 
 # ID:16,
 #: ID:16
@@ -6372,6 +6585,16 @@ msgstr ""
 "O arquivo será ajustado para somente-leitura quando obtido ou atualizado,\n"
 "indicando que qualquer usuário deve adquirir uma trava para o arquivo antes\n"
 "de poder editar e submeter alterações."
+
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"alternar para\r\n"
+"%s"
 
 # ID:80,
 #: ID:80
@@ -6441,6 +6664,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Ajuste para \"sim\" se um aviso deve ser mostrado quando nenhuma ocorrência for inserida no diálogo de submissão."
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "valores diferentes"
 
 # ID:244,
 #: ID:244
