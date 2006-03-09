@@ -115,7 +115,7 @@ This will only build the english HTML helpf file for TortoiseSVN
 	<!-- stylesheets and stringparams                                 -->
 	<property name="xsl.pdf.params" value="--nonet --xinclude"/>
 	<property name="xsl.pdf.file" value="pdfdoc.xsl"/>
-	<property name="xsl.chm.params" value="--nonet --xinclude --stringparam html.stylesheet styles_chm.css"/>
+	<property name="xsl.chm.params" value="--nonet --xinclude --stringparam html.stylesheet styles_chm.css --stringparam use.id.as.filename 1"/>
 	<property name="xsl.chm.file" value="htmlhelp.xsl"/>
 	<property name="xsl.html.params" value="--nonet --xinclude --stringparam html.stylesheet styles_html.css --stringparam use.id.as.filename 1"/>
 	<property name="xsl.html.file" value="htmlsingle.xsl"/>
