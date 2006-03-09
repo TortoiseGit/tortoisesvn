@@ -52,7 +52,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				InlineFunctionExpansion="0"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;../Utils;..\TortoiseShell;..\SVN;&quot;..\..\ext\svn-win32-libintl\inc&quot;"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;../Utils;..\TortoiseShell;..\SVN;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SVN_DEBUG;APU_HAVE_DB=1"
 				BasicRuntimeChecks="1"
 				RuntimeLibrary="3"
@@ -154,7 +154,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				InlineFunctionExpansion="0"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;../Utils;..\TortoiseShell;..\SVN;&quot;..\..\ext\svn-x64-libintl\inc&quot;"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;../Utils;..\TortoiseShell;..\SVN;&quot;..\..\ext\svn-x64-libintl\inc&quot;;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS;_USRDLL;SVN_DEBUG;APU_HAVE_DB=1"
 				BasicRuntimeChecks="1"
 				RuntimeLibrary="3"
@@ -258,7 +258,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="true"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;..\TortoiseShell;..\Utils;..\svn;&quot;..\..\ext\svn-win32-libintl\inc&quot;"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;..\TortoiseShell;..\Utils;..\svn;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;APU_HAVE_DB=1"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -365,7 +365,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="true"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;..\TortoiseShell;..\Utils;..\svn;&quot;..\..\ext\svn-x64-libintl\inc&quot;"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/apr/include;..\TortoiseShell;..\Utils;..\svn;&quot;..\..\ext\svn-x64-libintl\inc&quot;;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS;_USRDLL;APU_HAVE_DB=1"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -466,7 +466,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\ProgressDlg.cpp"
+				RelativePath="..\Utils\MiscUI\ProgressDlg.cpp"
 				>
 			</File>
 			<File
@@ -627,7 +627,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\ProgressDlg.h"
+				RelativePath="..\Utils\MiscUI\ProgressDlg.h"
 				>
 			</File>
 			<File
