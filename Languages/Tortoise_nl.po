@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-06 15:47+0100\n"
+"PO-Revision-Date: 2006-03-09 21:17+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -365,6 +365,7 @@ msgstr "&HEAD revisie"
 
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "&HEAD revisie"
 
@@ -504,6 +505,7 @@ msgstr "&Revisie wijzigingen ongedaan maken"
 
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Revisie"
 
@@ -895,7 +897,7 @@ msgstr "Knoop toegevoegd"
 msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
-"to the ignored list."
+"to the ignore list."
 msgstr ""
 "Bestandsmasker(s)\n"
 "%s\n"
@@ -1195,6 +1197,10 @@ msgstr "Bladeren..."
 #: Control-ID:1119
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug-&ID / Issue-Nr:"
+
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bug-ID"
 
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
@@ -1591,8 +1597,8 @@ msgstr "Correcties"
 
 #: ID:81
 #, c-format
-msgid "Could not add %s to the ignored list!"
-msgstr "Kon %s niet aan de negeer-lijst toegevoegen!"
+msgid "Could not add %s to the ignore list!"
+msgstr "Kon %s niet aan de negeerlijst toegevoegen!"
 
 #: ID:201
 msgid "Could not check for a newer version!"
@@ -1622,7 +1628,7 @@ msgstr "Kan bestand %s niet openen"
 
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "%s kon niet uit de negeerlijst worden verwijderd"
 
 #: ID:81
@@ -1982,6 +1988,10 @@ msgid ""
 msgstr ""
 "Activeert spellingscontrole alleen als\n"
 "tsvn:projectlanguage een waarde heeft"
+
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "Laatste Revisie"
 
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -2383,6 +2393,10 @@ msgstr "Negeer wijzigingen in &hoofd- en kleine letters"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Negeer oorsprong"
+
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "&Negeer spaties aan het einde"
 
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -3345,9 +3359,9 @@ msgstr "Bestand/map verwijderd"
 msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
-"Geselecteerde bestandsmasker(s)\n"
+"De bestandsmasker(s)\n"
 "%s\n"
 "verwijderd uit de negeerlijst."
 
@@ -3517,6 +3531,10 @@ msgstr "Revisie / Auteur:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Revisie schema"
+
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Revisiebereik"
 
 #: ID:269
 #: Control-ID:65535
@@ -3836,9 +3854,14 @@ msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 msgid "Short URL of Subversion items"
 msgstr "Korte URL van Subversion onderdelen"
 
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "Toon &Alles"
+
+#: ID:115
+msgid "Show &Range..."
+msgstr "Toon &Bereik..."
 
 #: MenuEntry
 msgid "Show &all revisions"
@@ -3937,8 +3960,8 @@ msgid "Shows all files which were changed since the last update, locally and in 
 msgstr "Toont alle bestanden die sinds de laatste verversing zijn gewijzigd, zowel lokaal als in het archief"
 
 #: ID:2050
-msgid "Shows all revisions the URL got changed, not just copies"
-msgstr "Toont alle revisies waarin het onderdeel (URL) gewijzigd is, niet alleen kopieën"
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Toont alle revisies waarin dit onderdeel gewijzigd is"
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -3993,6 +4016,10 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "Gestapeld"
+
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "Eerste Revisie"
 
 #: ID:245
 #: Dlg-ID:179
