@@ -22,24 +22,6 @@
  * \ingroup CommonClasses
  * A simple wrapper class for the SHBrowseForFolder API.
  * Help-Link: ms-help://MS.VSCC/MS.MSDNVS/shellcc/platform/Shell/Functions/SHBrowseForFolder.htm
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- *
- * \version 1.0
- * first version
- *
- * \date 06-2002
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CBrowseFolder
 {

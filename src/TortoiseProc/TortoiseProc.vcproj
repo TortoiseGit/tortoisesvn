@@ -48,7 +48,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;APU_HAVE_DB=1;ENABLE_NLS;THESAURUS"
 				MinimalRebuild="true"
 				ExceptionHandling="1"
@@ -138,7 +138,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN64;_WINDOWS;_DEBUG;SVN_DEBUG;APU_HAVE_DB=1;ENABLE_NLS;THESAURUS"
 				MinimalRebuild="true"
 				ExceptionHandling="1"
@@ -229,7 +229,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APU_HAVE_DB=1;THESAURUS"
 				StringPooling="true"
 				MinimalRebuild="false"
@@ -325,7 +325,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;&quot;..\..\ext\svn-win32-libintl\inc&quot;;..\Utils\scintilla\include;..\..\ext\GRETA;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN64;_WINDOWS;NDEBUG;APU_HAVE_DB=1;THESAURUS"
 				StringPooling="true"
 				MinimalRebuild="false"
@@ -440,15 +440,19 @@
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\CApr.h"
-					>
-				</File>
-				<File
 					RelativePath="..\Utils\CmdLineParser.cpp"
 					>
 				</File>
 				<File
 					RelativePath="..\Utils\CmdLineParser.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Colors.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Colors.h"
 					>
 				</File>
 				<File
@@ -508,14 +512,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\InsertControl.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\Utils\InsertControl.h"
-					>
-				</File>
-				<File
 					RelativePath="..\Utils\PathUtils.cpp"
 					>
 				</File>
@@ -556,14 +552,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\ShellFileOp.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\Utils\ShellFileOp.h"
-					>
-				</File>
-				<File
 					RelativePath="..\Utils\ShellUpdater.cpp"
 					>
 				</File>
@@ -589,6 +577,14 @@
 				</File>
 				<File
 					RelativePath="..\Utils\StringUtils.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\SysImageList.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\SysImageList.h"
 					>
 				</File>
 				<File
@@ -636,215 +632,275 @@
 				Name="UI"
 				>
 				<File
-					RelativePath="..\Utils\Balloon.cpp"
+					RelativePath="..\Utils\MiscUI\Balloon.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\Balloon.h"
+					RelativePath="..\Utils\MiscUI\Balloon.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\BrowseFolder.cpp"
+					RelativePath="..\Utils\MiscUI\BrowseFolder.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\BrowseFolder.h"
+					RelativePath="..\Utils\MiscUI\BrowseFolder.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Colors.cpp"
+					RelativePath="..\Utils\MiscUI\ColourPickerXP.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\Colors.h"
+					RelativePath="..\Utils\MiscUI\ColourPickerXP.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.cpp"
+					RelativePath="..\Utils\MiscUI\Cursor.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.h"
+					RelativePath="..\Utils\MiscUI\DIB.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\Cursor.h"
+					RelativePath="..\Utils\MiscUI\DIB.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\DIB.cpp"
+					RelativePath="..\Utils\MiscUI\FileDropEdit.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\DIB.h"
+					RelativePath="..\Utils\MiscUI\FileDropEdit.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\DlgTemplate.h"
+					RelativePath="..\Utils\MiscUI\FontPreviewCombo.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\FileDropEdit.cpp"
+					RelativePath="..\Utils\MiscUI\FontPreviewCombo.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\FileDropEdit.h"
+					RelativePath="..\Utils\MiscUI\Gradient.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\FontPreviewCombo.cpp"
+					RelativePath="..\Utils\MiscUI\Gradient.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\FontPreviewCombo.h"
+					RelativePath="..\Utils\MiscUI\HighColorTab.hpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\Gradient.cpp"
+					RelativePath="..\Utils\MiscUI\HistoryCombo.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\Gradient.h"
+					RelativePath="..\Utils\MiscUI\HistoryCombo.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\HistoryCombo.cpp"
+					RelativePath="..\Utils\MiscUI\HTMLFormatter.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\HistoryCombo.h"
+					RelativePath="..\Utils\MiscUI\HTMLFormatter.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\HTMLFormatter.cpp"
+					RelativePath="..\Utils\MiscUI\HyperLink.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\HTMLFormatter.h"
+					RelativePath="..\Utils\MiscUI\HyperLink.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\HyperLink.cpp"
+					RelativePath="..\Utils\MiscUI\InsertControl.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							ObjectFile="$(IntDir)\$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							ObjectFile="$(IntDir)\$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							ObjectFile="$(IntDir)\$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							ObjectFile="$(IntDir)\$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\InsertControl.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\HyperLink.h"
+					RelativePath="..\Utils\MiscUI\MemDC.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\MenuButton.cpp"
+					RelativePath="..\Utils\MiscUI\MenuButton.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\MenuButton.h"
+					RelativePath="..\Utils\MiscUI\MenuButton.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\MessageBox.cpp"
+					RelativePath="..\Utils\MiscUI\MessageBox.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\MessageBox.h"
+					RelativePath="..\Utils\MiscUI\MessageBox.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\MyGraph.cpp"
+					RelativePath="..\Utils\MiscUI\MyGraph.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\MyGraph.h"
+					RelativePath="..\Utils\MiscUI\MyGraph.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\OddButton.cpp"
+					RelativePath="..\Utils\MiscUI\OddButton.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\OddButton.h"
+					RelativePath="..\Utils\MiscUI\OddButton.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\ProgressDlg.cpp"
+					RelativePath="..\Utils\MiscUI\ProgressDlg.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\ProgressDlg.h"
+					RelativePath="..\Utils\MiscUI\ProgressDlg.h"
 					>
 				</File>
 				<File
-					RelativePath=".\RevisionGraphDlgDraw.cpp"
+					RelativePath="..\Utils\MiscUI\SciEdit.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\RevisionGraphDlgFunc.cpp"
+					RelativePath="..\Utils\MiscUI\SciEdit.h"
 					>
 				</File>
 				<File
-					RelativePath=".\RevisionGraphWnd.cpp"
+					RelativePath="..\Utils\MiscUI\ShellFileOp.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							ObjectFile="$(IntDir)\$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							ObjectFile="$(IntDir)\$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							ObjectFile="$(IntDir)\$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							ObjectFile="$(IntDir)\$(InputName)1.obj"
+							XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\MiscUI\ShellFileOp.h"
 					>
 				</File>
 				<File
-					RelativePath=".\RevisionGraphWnd.h"
+					RelativePath="..\Utils\MiscUI\SpellEdit.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\SciEdit.cpp"
+					RelativePath="..\Utils\MiscUI\SpellEdit.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\SciEdit.h"
+					RelativePath="..\Utils\MiscUI\SplitterControl.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\SplitterControl.cpp"
+					RelativePath="..\Utils\MiscUI\SplitterControl.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\SplitterControl.h"
+					RelativePath="..\Utils\MiscUI\StandAloneDlg.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\StandAloneDlg.h"
+					RelativePath="..\Utils\MiscUI\WaitCursorEx.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\StateDlg.cpp"
+					RelativePath="..\Utils\MiscUI\WaitCursorEx.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\StateDlg.h"
+					RelativePath="..\Utils\MiscUI\WaterEffect.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\SysImageList.cpp"
+					RelativePath="..\Utils\MiscUI\WaterEffect.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\SysImageList.h"
+					RelativePath="..\Utils\MiscUI\XPTheme.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Utils\WaitCursorEx.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\Utils\WaitCursorEx.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Utils\WaterEffect.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\Utils\WaterEffect.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Utils\XPTheme.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\Utils\XPTheme.h"
+					RelativePath="..\Utils\MiscUI\XPTheme.h"
 					>
 				</File>
 			</Filter>
@@ -1929,6 +1985,22 @@
 				</File>
 				<File
 					RelativePath=".\RevisionDlg.h"
+					>
+				</File>
+				<File
+					RelativePath=".\RevisionGraphDlgDraw.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RevisionGraphDlgFunc.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RevisionGraphWnd.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RevisionGraphWnd.h"
 					>
 				</File>
 				<File

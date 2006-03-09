@@ -47,7 +47,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\SubVersion\subversion\include;..\..\ext\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\SubVersion\subversion\include;..\..\ext\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -133,7 +133,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\SubVersion\subversion\include;..\..\ext\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\SubVersion\subversion\include;..\..\ext\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN64;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -221,7 +221,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="false"
 				RuntimeLibrary="2"
@@ -311,7 +311,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI"
 				PreprocessorDefinitions="WIN64;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="false"
 				RuntimeLibrary="2"
@@ -390,7 +390,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\BrowseFolder.cpp"
+				RelativePath="..\Utils\MiscUI\BrowseFolder.cpp"
 				>
 			</File>
 			<File
@@ -398,11 +398,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.cpp"
+				RelativePath="..\Utils\MiscUI\ColourPickerXP.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\DIB.cpp"
+				RelativePath="..\Utils\MiscUI\DIB.cpp"
 				>
 			</File>
 			<File
@@ -450,7 +450,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\Utils\FileDropEdit.cpp"
+				RelativePath="..\Utils\MiscUI\FileDropEdit.cpp"
 				>
 			</File>
 			<File
@@ -462,15 +462,15 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\FontPreviewCombo.cpp"
+				RelativePath="..\Utils\MiscUI\FontPreviewCombo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\HTMLFormatter.cpp"
+				RelativePath="..\Utils\MiscUI\HTMLFormatter.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\HyperLink.cpp"
+				RelativePath="..\Utils\MiscUI\HyperLink.cpp"
 				>
 			</File>
 			<File
@@ -490,7 +490,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\MessageBox.cpp"
+				RelativePath="..\Utils\MiscUI\MessageBox.cpp"
 				>
 			</File>
 			<File
@@ -510,7 +510,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\ProgressDlg.cpp"
+				RelativePath="..\Utils\MiscUI\ProgressDlg.cpp"
 				>
 			</File>
 			<File
@@ -590,7 +590,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\WaterEffect.cpp"
+				RelativePath="..\Utils\MiscUI\WaterEffect.cpp"
 				>
 			</File>
 			<File
@@ -598,7 +598,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\XPTheme.cpp"
+				RelativePath="..\Utils\MiscUI\XPTheme.cpp"
 				>
 			</File>
 			<File
@@ -624,11 +624,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\BrowseFolder.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\CApr.h"
+				RelativePath="..\Utils\MiscUI\BrowseFolder.h"
 				>
 			</File>
 			<File
@@ -636,11 +632,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.h"
+				RelativePath="..\Utils\MiscUI\ColourPickerXP.h"
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\DIB.h"
+				RelativePath="..\Utils\MiscUI\DIB.h"
 				>
 			</File>
 			<File
@@ -656,7 +652,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\FileDropEdit.h"
+				RelativePath="..\Utils\MiscUI\FileDropEdit.h"
 				>
 			</File>
 			<File
@@ -668,15 +664,15 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\FontPreviewCombo.h"
+				RelativePath="..\Utils\MiscUI\FontPreviewCombo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\HTMLFormatter.h"
+				RelativePath="..\Utils\MiscUI\HTMLFormatter.h"
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\HyperLink.h"
+				RelativePath="..\Utils\MiscUI\HyperLink.h"
 				>
 			</File>
 			<File
@@ -696,11 +692,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\MemDC.h"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\MessageBox.h"
+				RelativePath="..\Utils\MiscUI\MessageBox.h"
 				>
 			</File>
 			<File
@@ -720,7 +712,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\ProgressDlg.h"
+				RelativePath="..\Utils\MiscUI\ProgressDlg.h"
 				>
 			</File>
 			<File
@@ -772,7 +764,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\WaterEffect.h"
+				RelativePath="..\Utils\MiscUI\WaterEffect.h"
 				>
 			</File>
 			<File
@@ -780,11 +772,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Utils\XPTheme.h"
-				>
-			</File>
-			<File
-				RelativePath=".\XSplitter.h"
+				RelativePath="..\Utils\MiscUI\XPTheme.h"
 				>
 			</File>
 		</Filter>

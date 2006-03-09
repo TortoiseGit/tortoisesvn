@@ -32,19 +32,6 @@ class CSciEdit;
  * Helper class which extends the MFC CStringArray class. The only method added
  * to that class is AddSorted() which adds a new element in a sorted order.
  * That way the array is kept sorted.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date JAN-2005
- *
- * \author Stefan Kueng
- *
  */
 class CAutoCompletionList : public CStringArray
 {

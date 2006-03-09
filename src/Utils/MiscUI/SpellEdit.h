@@ -70,21 +70,6 @@
  * IDS_SPELLEDIT_DELETE\n
  * IDS_SPELLEDIT_PASTE\n
  * IDS_SPELLEDIT_SELECTALL\n
- *
- * \version 1.0
- * first version
- *
- * \date 04-21-2004
- *
- * \author Steve King
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- *
  */
 class CSpellEdit : public CEdit
 {

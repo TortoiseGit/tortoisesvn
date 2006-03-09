@@ -32,21 +32,6 @@
  * 3) Support for ignoring the "." and ".." directories
  *    automatically.
  * 4) No dynamic memory allocation.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 18-Feb-2004
- *
- * \author Jon Foster
- *
- * \par license
- * This code is GPL'd.
  */
 class CSimpleFileFind {
 private:

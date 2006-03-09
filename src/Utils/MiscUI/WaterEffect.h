@@ -76,32 +76,6 @@
  * 	CDialog::OnMouseMove(nFlags, point);
  * }
  * \endcode
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.1 
- * made the water density changeable (i.e. added a public variable for that)
- * \version 1.0
- * first version
- *
- * \date 5-12-2001
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \todo add a picture showing the effect for the Doxygen documentation of this class
- *
- * \bug 
- *
  */
 class CWaterEffect  
 {

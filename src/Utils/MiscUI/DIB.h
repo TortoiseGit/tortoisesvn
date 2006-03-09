@@ -25,29 +25,6 @@
  * amount of methods (just the ones I need). Especially for
  * creating 32bit 'image fields' which can be used for
  * implementing image filters.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- *
- * \version 1.1
- * found a great class for DIB's from Chris Maunder
- * at http://www.codeproject.com which has much more
- * functions. Changed this code with the help of that
- * class a bit i.e. more error checking, even fixed
- * a memory leak.
- *
- * \version 1.0
- * first version
- *
- * \date 10-18-2000
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CDib : public CObject
 {

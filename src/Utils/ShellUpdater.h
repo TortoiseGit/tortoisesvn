@@ -24,19 +24,6 @@
 * \ingroup Utils
 * This singleton class contains a list of items which require a shell-update notification
 * This update is done lazily at the end of a run of SVN operations
-*
-* \par requirements
-* win95 or later
-* winNT4 or later
-* MFC
-*
-* \version 1.0
-* first version
-*
-* \date JAN-2002
-*
-* \author Will Dean
-*
 */
 class CShellUpdater
 {

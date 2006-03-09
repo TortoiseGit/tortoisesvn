@@ -19,38 +19,17 @@
 #pragma once
 
 #include "ResizableDialog.h"
-#include "StateDlg.h"
 
 /**
-* \ingroup TortoiseProc
-*
-* A template which can be used as the base-class of dialogs which form the main dialog
-* of a 'dialog-style application'
-* Just provides the boiler-plate code for dealing with application icons
-* 
-*\remark Replace all references to CDialog or CResizableDialog in your dialog class with 
-* either CResizableStandaloneDialog or CStandalongDialog, as appropriate
-*
-*
-* \par requirements
-* win95 or later
-* winNT4 or later
-* MFC
-*
-* \version 1.0
-* first version
-*
-* \date Jan-2005
-*
-* \author Will Dean
-*
-* \par license
-* This code is absolutely free to use and modify. The code is provided "as is" with
-* no expressed or implied warranty. The author accepts no liability if it causes
-* any damage to your social life, causes your pet to fall ill, *increases* your impotence
-* or makes your car start emitting strange noises when you try to start it up.
-* This code has many bugs, but it being free means I can't be bothered to fix them
-*/
+ * \ingroup TortoiseProc
+ *
+ * A template which can be used as the base-class of dialogs which form the main dialog
+ * of a 'dialog-style application'
+ * Just provides the boiler-plate code for dealing with application icons
+ * 
+ * \remark Replace all references to CDialog or CResizableDialog in your dialog class with 
+ * either CResizableStandaloneDialog, CStandalongDialog or CStateStandAloneDialog, as appropriate
+ */
 template <typename BaseType> class CStandAloneDialogTmpl : public BaseType
 {
 protected:
@@ -132,6 +111,55 @@ const AFX_MSGMAP* PASCAL CStandAloneDialogTmpl<BaseType>::GetThisMessageMap()
 	return &messageMap; 
 }								  
 
+class CStateDialog : public CDialog, public CResizableWndState
+{
+public:
+	CStateDialog() {m_bEnableSaveRestore = false;}
+	CStateDialog(UINT /*nIDTemplate*/, CWnd* /*pParentWnd = NULL*/) {m_bEnableSaveRestore = false;}
+	CStateDialog(LPCTSTR /*lpszTemplateName*/, CWnd* /*pParentWnd = NULL*/) {m_bEnableSaveRestore = false;}
+	virtual ~CStateDialog();
+
+private:
+	// flags
+	bool m_bEnableSaveRestore;
+	bool m_bRectOnly;
+
+	// internal status
+	CString m_sSection;			// section name (identifies a parent window)
+
+protected:
+	// section to use in app's profile
+	void EnableSaveRestore(LPCTSTR pszSection, bool bRectOnly = FALSE)
+	{
+		m_sSection = pszSection;
+
+		m_bEnableSaveRestore = true;
+		m_bRectOnly = bRectOnly;
+
+		// restore immediately
+		LoadWindowRect(pszSection, bRectOnly);
+	};
+
+	virtual CWnd* GetResizableWnd() const
+	{
+		// make the layout know its parent window
+		return CWnd::FromHandle(m_hWnd);
+	};
+
+	afx_msg void OnDestroy()
+	{
+		if (m_bEnableSaveRestore)
+			SaveWindowRect(m_sSection, m_bRectOnly);
+		CDialog::OnDestroy();
+	};
+
+	DECLARE_MESSAGE_MAP()
+
+	//BEGIN_MESSAGE_MAP(CStateDialog, CDialog)
+	//	ON_WM_DESTROY()
+	//END_MESSAGE_MAP();
+
+};
 typedef CStandAloneDialogTmpl<CResizableDialog> CResizableStandAloneDialog;
 typedef CStandAloneDialogTmpl<CDialog> CStandAloneDialog;
 typedef CStandAloneDialogTmpl<CStateDialog> CStateStandAloneDialog;

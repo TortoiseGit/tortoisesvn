@@ -27,18 +27,6 @@
  * \par requirements 
  * - win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
  * - import library Shlwapi.lib
- *
- * \author Stefan Kueng
- *
- * \par license 
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness 
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \version 1.0 
- * \date 06-2002
  */
 class CRegBase
 {
@@ -102,24 +90,6 @@ public:	//members
  * to force a write use the method write();
  * another option to force reads and writes to the registry is to specify TRUE as the
  * third parameter in the constructor.
- *
- * \par requirements 
- * win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
- * import library Shlwapi.lib
- *
- * \author Stefan Kueng (stefan_kueng@catv.rol.ch)
- *
- * \par license 
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness 
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \version 1.1
- * added base class CRegBase with methods removeKey() and removeValue()
- * \version 1.0 
- * \date 06-2002
  */
 class CRegDWORD : public CRegBase
 {
@@ -208,25 +178,6 @@ protected:
  * to force a write use the method write();
  * another option to force reads and writes to the registry is to specify TRUE as the
  * third parameter in the constructor.
- *
- * \par requirements 
- * win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
- * import library Shlwapi.lib
- *
- * \author Stefan Kueng (stefan_kueng@catv.rol.ch)
- *
- * \par license 
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness 
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \version 1.1
- * corrected a bug, thanks to Hans Dietrich for the correction.
- * added base class CRegBase with methods removeKey() and removeValue()
- * \version 1.0 
- * \date 06-2002
  */
 class CRegString : public CRegBase
 {
@@ -305,25 +256,6 @@ protected:
  * to force a write use the method write();
  * another option to force reads and writes to the registry is to specify TRUE as the
  * third parameter in the constructor.
- *
- * \par requirements 
- * win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
- * import library Shlwapi.lib
- *
- * \author Stefan Kueng (stefan_kueng@catv.rol.ch)
- *
- * \par license 
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness 
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \version 1.1
- * corrected a bug, thanks to Hans Dietrich for the correction.
- * added base class CRegBase with methods removeKey() and removeValue()
- * \version 1.0 
- * \date 06-2002
  */
 class CRegRect : public CRegBase
 {
@@ -410,25 +342,6 @@ protected:
  * to force a write use the method write();
  * another option to force reads and writes to the registry is to specify TRUE as the
  * third parameter in the constructor.
- *
- * \par requirements 
- * win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
- * import library Shlwapi.lib
- *
- * \author Stefan Kueng (stefan_kueng@catv.rol.ch)
- *
- * \par license 
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness 
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \version 1.1
- * corrected a bug, thanks to Hans Dietrich for the correction.
- * added base class CRegBase with methods removeKey() and removeValue()
- * \version 1.0 
- * \date 06-2002
  */
 class CRegPoint : public CRegBase
 {
@@ -466,22 +379,6 @@ protected:
  * \ingroup CommonClasses
  * Manages a registry key (not a value). Provides methods to create and remove the
  * key and to query the list of values and subkeys.
- *
- * \par requirements 
- * - win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
- * - import library Shlwapi.lib
- *
- * \author Thomas Epting
- *
- * \par license 
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness 
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \version 1.0 
- * \date 02-2004
  */
 class CRegistryKey
 {
@@ -582,23 +479,6 @@ public:	//members
  * to force a write use the method write();
  * another option to force reads and writes to the registry is to specify TRUE as the
  * third parameter in the constructor.
- *
- * \par requirements 
- * win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
- * import library Shlwapi.lib
- *
- * \author Stefan Kueng (stefan_kueng@catv.rol.ch)
- *
- * \par license 
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness 
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \version 1.0
- * first version which uses std::string instead of CString.
- * \date 10-2002
  */
 class CRegStdString : public CRegStdBase
 {
@@ -668,22 +548,6 @@ protected:
  * to force a write use the method write();
  * another option to force reads and writes to the registry is to specify TRUE as the
  * third parameter in the constructor.
- *
- * \par requirements 
- * win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
- * import library Shlwapi.lib
- *
- * \author Stefan Kueng
- *
- * \par license 
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness 
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \version 1.0 
- * \date 11-2002
  */
 class CRegStdWORD : public CRegStdBase
 {

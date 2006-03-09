@@ -30,25 +30,6 @@
  * Simply instantiate an object of this class to make the wait cursor visible.
  * When the objects gets destructed for any reason, the wait cursor is automatically
  * hidden.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date MAY-2004
- *
- * \author Thomas Epting
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CWaitCursorEx
 {

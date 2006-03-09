@@ -17,7 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-#include "..\\Utils\\Balloon.h"
+#include "Balloon.h"
 #include "Registry.h"
 
 class CSetMisc : public CPropertyPage

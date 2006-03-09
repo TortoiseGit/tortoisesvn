@@ -299,9 +299,6 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 				{
 					// a versioned folder, so set the property!
 					m_error = svn_client_propset2 (pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, false, &m_ctx, subpool);
-#ifdef _MFC_VER
-					//CShellUpdater::Instance().AddPathForUpdate(path);
-#endif
 				}
 			}
 			status = stat.GetNextFileStatus(path);
@@ -310,9 +307,6 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 	else 
 	{
 		m_error = svn_client_propset2 (pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, false, &m_ctx, subpool);
-#ifdef _MFC_VER
-		//CShellUpdater::Instance().AddPathForUpdate(m_path);
-#endif
 	}
 	if (m_error != NULL)
 	{
@@ -336,9 +330,6 @@ BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse)
 	pname_utf8 = StringToUTF8(Name);
 
 	m_error = svn_client_propset2 (pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(), recurse, false, &m_ctx, m_pool);
-#ifdef _MFC_VER
-	//CShellUpdater::Instance().AddPathForUpdate(m_path);
-#endif
 	if (m_error != NULL)
 	{
 		return FALSE;
