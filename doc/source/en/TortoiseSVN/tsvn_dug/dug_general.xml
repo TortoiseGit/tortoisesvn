@@ -37,6 +37,56 @@
 			which is under version control.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-general-shortcuts">
+		<title>Common Shortcuts</title>
+		<para>
+			Some common operations have well-know Windows shortcuts, but do
+			not appear on buttons or in menus. If you can't work out how
+			to do something obvious, like refreshing a view, check here.
+			<variablelist>
+				<varlistentry>
+					<term>F1</term>
+					<listitem>
+						<para>
+							Help, of course.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>F5</term>
+					<listitem>
+						<para>
+							Refresh the current view. This is perhaps the single
+							most useful one-key command. For example ...
+							In Explorer this will refresh the icon overlays on your working copy.
+							In the commit dialog it will re-scan the working copy
+							to see what may need to be committed.
+							In the Revision Log dialog it will contact the repository
+							again to check for more recent changes.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Ctrl-A</term>
+					<listitem>
+						<para>
+							Select all. This can be used if you get an error message
+							and want to copy and paste into an email. Use Ctrl-A
+							to select the error message and then ...
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Ctrl-C</term>
+					<listitem>
+						<para>
+							... Copy the selected text.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-general-auth">
 		<title>Authentication</title>
 		<indexterm>
