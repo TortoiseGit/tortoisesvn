@@ -321,7 +321,7 @@ msgstr ""
 msgid "&HEAD Revision"
 msgstr ""
 
-#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,
+#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1019,#: Control-ID:1034,
 msgid "&HEAD revision"
 msgstr ""
 
@@ -454,7 +454,7 @@ msgstr ""
 msgid "&Revert changes from this revision"
 msgstr ""
 
-#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1116,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,
+#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1116,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1035,
 msgid "&Revision"
 msgstr ""
 
@@ -1060,7 +1060,7 @@ msgstr ""
 msgid "Can't copy \n%s\nto\n%s"
 msgstr ""
 
-#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr ""
 
@@ -1702,6 +1702,10 @@ msgstr ""
 
 #: ID:195,
 msgid "Enables the spellchecker only if the\ntsvn:projectlanguage property is set."
+msgstr ""
+
+#: Control-ID:65535,
+msgid "End Revision"
 msgstr ""
 
 #: ID:3825,
@@ -2483,7 +2487,7 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr ""
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr ""
 
@@ -3010,6 +3014,10 @@ msgstr ""
 msgid "Revision Graph"
 msgstr ""
 
+#: Dlg-ID:228,
+msgid "Revision Range"
+msgstr ""
+
 #: ID:269,#: Control-ID:65535,
 msgid "Revision graph"
 msgstr ""
@@ -3298,8 +3306,12 @@ msgstr ""
 msgid "Short URL of Subversion items"
 msgstr ""
 
-#: Control-ID:1031,
+#: ID:115,#: Control-ID:1031,
 msgid "Show &All"
+msgstr ""
+
+#: ID:115,
+msgid "Show &Range..."
 msgstr ""
 
 #: MenuEntry
@@ -3426,6 +3438,10 @@ msgstr ""
 
 #: Control-ID:1263,
 msgid "Stacked"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Start Revision"
 msgstr ""
 
 #: ID:245,#: Dlg-ID:179,

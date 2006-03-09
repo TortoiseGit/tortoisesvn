@@ -84,13 +84,15 @@
        #233 for details. (Tobias Schäfer)
 - NEW: Additional column in the log dialog, showing the bugtraq ID string
        assigned to the revision. See issue #199 for details. (Stefan)
+- NEW: The log dialog allows to specify a revision range to load.
+       See issue #198 for details. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
        placed in a separate column. See issue #207 for details. 
        (Tobias Schäfer)
 - CHG: All resizable dialogs now have minimize/maximize buttons. (Stefan)
-- CHG: OpenSSL is now linked statically to. 
+- CHG: OpenSSL is now linked statically. 
        See issue #221 for details. (Stefan)
 - CHG: The dialog titles don't have the "TortoiseSVN : " in front
        anymore. (Stefan)

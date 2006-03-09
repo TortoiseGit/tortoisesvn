@@ -35,6 +35,7 @@
 #include "InsertControl.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
+#include "RevisionRangeDlg.h"
 #include ".\logdlg.h"
 
 #define ICONITEMBORDER 5
@@ -92,6 +93,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_FILTERCANCEL, m_cFilterCancelButton);
 	DDX_Control(pDX, IDC_FILTERICON, m_cFilterIcon);
 	DDX_Control(pDX, IDC_HIDEPATHS, m_cHidePaths);
+	DDX_Control(pDX, IDC_GETALL, m_btnShow);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -285,6 +287,14 @@ BOOL CLogDlg::OnInitDialog()
 	}
 	
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
+
+	// set the choices for the "Show All" button
+	temp.LoadString(IDS_LOG_SHOWALL);
+	m_btnShow.AddEntry(temp);
+	temp.LoadString(IDS_LOG_SHOWRANGE);
+	m_btnShow.AddEntry(temp);
+	m_btnShow.SetCurrentEntry((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry")));
+
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
 	m_tTo = 0;
@@ -400,27 +410,57 @@ void CLogDlg::OnBnClickedGetall()
 {
 	UpdateData();
 
+	switch (m_btnShow.GetCurrentEntry())
+	{
+	case 0:	// show all
+		m_endrev = 1;
+		m_startrev = m_LogRevision;
+		m_bShowedAll = true;
+		// TODO: once svn_client_log takes a peg revision, we must only set
+		// m_bShowedAll to true if m_bStrict is false!
+		break;
+	case 1: // show range
+		{
+			// ask for a revision range
+			CRevisionRangeDlg dlg;
+			dlg.SetStartRevision(m_startrev);
+			dlg.SetEndRevision(m_endrev);
+			if (dlg.DoModal()!=IDOK)
+			{
+				return;
+			}
+			m_endrev = dlg.GetEndRevision();
+			m_startrev = dlg.GetStartRevision();
+			if (m_startrev < m_endrev)
+			{
+				svn_revnum_t temp = m_startrev;
+				m_startrev = m_endrev;
+				m_endrev = temp;
+			}
+			m_bShowedAll = false;
+		}
+		break;
+	}
 	m_LogMsgCtrl.SetItemCountEx(0);
 	m_LogMsgCtrl.Invalidate();
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
-    CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(""));
-    
-    SetSortArrow(&m_LogList, -1, true);
-    
+
+	SetSortArrow(&m_LogList, -1, true);
+
 	m_LogList.DeleteAllItems();
 	m_arShownList.RemoveAll();
 	m_logEntries.ClearAll();
-	
+
 	m_logcounter = 0;
-	m_endrev = 1;
-	m_startrev = m_LogRevision;
 	m_bCancelled = FALSE;
-	m_limit = 0;
 	m_tTo = 0;
 	m_tFrom = (DWORD)-1;
+	m_limit = 0;
+
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
@@ -429,10 +469,6 @@ void CLogDlg::OnBnClickedGetall()
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 	InterlockedExchange(&m_bNoDispUpdates, FALSE);
-	
-	// TODO: once svn_client_log takes a peg revision, we must only set
-	// m_bShowedAll to true if m_bStrict is false!
-	m_bShowedAll = true;
 }
 
 void CLogDlg::Refresh()
@@ -519,6 +555,8 @@ void CLogDlg::OnCancel()
 	UpdateData();
 	if (m_bSaveStrict)
 		m_regLastStrict = m_bStrict;
+	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
+	reg = m_btnShow.GetCurrentEntry();
 	__super::OnCancel();
 }
 
@@ -1834,6 +1872,8 @@ void CLogDlg::OnOK()
 	UpdateData();
 	if (m_bSaveStrict)
 		m_regLastStrict = m_bStrict;
+	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
+	reg = m_btnShow.GetCurrentEntry();
 }
 
 void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)

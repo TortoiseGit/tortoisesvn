@@ -88,6 +88,7 @@
 #define IDI_SAVEDDATA                   225
 #define IDD_EDITPROPERTIES              226
 #define IDD_EDITPROPERTYVALUE           227
+#define IDD_REVISIONRANGE               228
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -115,6 +116,7 @@
 #define IDC_TEMPEXTENSIONS              1027
 #define IDC_REVISON_START               1027
 #define IDC_USEREDIT                    1027
+#define IDC_REVNUM2                     1028
 #define IDC_URLCOMBO                    1029
 #define IDC_FONTNAMES                   1030
 #define IDC_LOGBUTTON                   1031
@@ -126,6 +128,8 @@
 #define IDC_REVISION_N                  1033
 #define IDC_REVISION_NUM                1034
 #define IDC_FINDBRANCHEND               1034
+#define IDC_NEWEST2                     1034
+#define IDC_REVISION_N2                 1035
 #define IDC_BROWSE                      1035
 #define IDC_BROWSE2                     1036
 #define IDC_CHECKOUTDIRECTORY_BROWSE    1036
@@ -575,6 +579,8 @@
 #define IDS_LOG_COPY_SUCCESS            1830
 #define IDS_LOG_MESSAGEEDITTITLE        1831
 #define IDS_LOG_AUTHOREDITTITLE         1832
+#define IDS_LOG_SHOWALL                 1833
+#define IDS_LOG_SHOWRANGE               1834
 #define IDS_LOG_BUGIDS                  1840
 #define IDS_LOG_FILTER_ALL              1850
 #define IDS_LOG_FILTER_PATHS            1851
@@ -827,7 +833,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        228
+#define _APS_NEXT_RESOURCE_VALUE        229
 #define _APS_NEXT_COMMAND_VALUE         32805
 #define _APS_NEXT_CONTROL_VALUE         1296
 #define _APS_NEXT_SYMED_VALUE           195

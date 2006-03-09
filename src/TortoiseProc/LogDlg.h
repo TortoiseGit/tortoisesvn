@@ -25,6 +25,7 @@
 #include "registry.h"
 #include "SplitterControl.h"
 #include "Colors.h"
+#include "MenuButton.h"
 #include "afxwin.h"
 #include "afxdtctl.h"
 
@@ -71,28 +72,6 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 /**
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox. 
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.1
- * log messages have the modified/added/removed/moved files listed
- * at the bottom.
- * \version 1.0
- * first version
- *
- * \date 10-20-2002
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CLogDlg : public CResizableStandAloneDialog, public SVN //CResizableStandAloneDialog
 {
@@ -189,6 +168,7 @@ private:
 	CListCtrl			m_LogList;
 	CListCtrl			m_LogMsgCtrl;
 	CProgressCtrl		m_LogProgress;
+	CMenuButton			m_btnShow;
 	CTSVNPath			m_path;
 	svn_revnum_t		m_startrev;
 	svn_revnum_t		m_LogRevision;
