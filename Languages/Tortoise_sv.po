@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-23 09:17+0100\n"
+"PO-Revision-Date: 2006-03-09 08:32+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -109,6 +109,11 @@ msgstr "%I64d kBytes överförda"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d filer markerade, %d filer totalt"
+
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld sökvägar"
 
 #: ID:226
 #, c-format
@@ -294,6 +299,7 @@ msgid "&Dry run"
 msgstr "&Provkör"
 
 #: Control-ID:1031
+#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Redigera"
@@ -496,6 +502,7 @@ msgstr "G&ör om"
 
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "&Ta bort"
 
@@ -918,12 +925,13 @@ msgstr "Tillagd nod"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
-"Lagt till fil(er)\n"
-"%spå undantagslistan."
+"Lagt till filmönstren\n"
+"%s\n"
+"till undantagslistan."
 
 #: ID:263
 msgid "Adding"
@@ -1080,6 +1088,11 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "Applicera &patch..."
 
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "Applicera egenskap rekursivt"
+
 #: Control-ID:65535
 msgid "Apply unified diff"
 msgstr "Applicera patch (\"Unified Diff\")"
@@ -1097,6 +1110,10 @@ msgstr "Vill du verkligen återställa %d objekt? Du kommer att förlora <b>alla
 #: MenuEntry
 msgid "Arranged by &path"
 msgstr "Sorterat efter &sökväg"
+
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "Sorterar noderna efter sökväg"
 
 #: ID:77
 #, c-format
@@ -1225,6 +1242,11 @@ msgstr "Bläddra..."
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bugg&ID / Ärendenr:"
 
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bugg-ID"
+
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "BuggID / Ärendenr:"
@@ -1259,6 +1281,7 @@ msgstr ""
 "%s"
 
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "Avbryt"
@@ -1402,13 +1425,13 @@ msgstr "Rensa"
 #: ID:196
 #, c-format
 msgid "Clears %ld URLs stored for %ld working copies"
-msgstr "Rensar %ld URLer sparade för %ld arbetskopior"
+msgstr "Rensar %ld sparade URLer för %ld arbetskopior"
 
 # ID:196,
 #: ID:196
 #, c-format
 msgid "Clears %ld log messages stored for %ld working copies"
-msgstr "Rensar %ld loggmeddelanden sparade för %ld arbetskopior"
+msgstr "Rensar %ld sparade loggmeddelanden för %ld arbetskopior"
 
 # ID:196,
 #: ID:196
@@ -1588,6 +1611,11 @@ msgstr "Kopiera (gren / märke)"
 msgid "Copy URL to clipboard"
 msgstr "Kopiera URL till urklipp"
 
+# ID:101,
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "Kopiera felmeddelande till urklipp"
+
 # ID:76,
 #: ID:76
 msgid "Copy from path"
@@ -1667,8 +1695,8 @@ msgstr "Kunde inte öppna filen %s!"
 
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
-msgstr "Kunde inte ta bort %s från undtantagslistan!"
+msgid "Could not remove %s from the ignore list"
+msgstr "Kunde inte ta bort %s från undantagslistan"
 
 #: ID:81
 #, c-format
@@ -1817,7 +1845,7 @@ msgid "Deleted node"
 msgstr "Borttagen nod"
 
 #: ID:11
-msgid "Deletes files / folders from source control"
+msgid "Deletes files / folders from version control"
 msgstr "Tar bort filer / mappar ur arkivet"
 
 #: ID:263
@@ -1941,6 +1969,11 @@ msgstr ""
 "Vill du ladda om filerna?\n"
 "Du kommer att förlora din ändringar!"
 
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Vill du ta bort egenskapen %s rekursivt?"
+
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "Vill du spara dina ändringar?"
@@ -1974,6 +2007,11 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "Redigera"
+
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Editera egenskaper"
 
 #: ID:113
 msgid "Edit author"
@@ -2454,6 +2492,10 @@ msgstr "&Ignorera ändringar mellan gemener/versaler"
 msgid "Ignore ancestry"
 msgstr "Ignorera ursprung"
 
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "I&gnorera avslutande whitespace"
+
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorera &radslut (rekommenderas)"
@@ -2770,6 +2812,10 @@ msgstr "Lägsta revisionen: %ld - Högsta revisionen: %ld - HEAD revision: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "Felaktig DLL för e-post systemet."
 
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Hantera Subversion egenskaper"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -2805,6 +2851,11 @@ msgstr "Förenar en gren med en annan"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Förenar"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "Förening kräver olika revisioner eller olika URLer i 'Från:' och 'Till:'"
 
 #: ID:76
 msgid "Message"
@@ -3010,6 +3061,10 @@ msgstr "Alla registryinställningar eller .ini-filen togs inte bort."
 msgid "Not enough memory to complete operation."
 msgstr "Otillräckligt minne för att utföra åtgärden."
 
+#: ID:563
+msgid "Not recursive"
+msgstr "Icke rekursivt"
+
 # ID:88,
 #: ID:88
 msgid "Notice"
@@ -3133,6 +3188,10 @@ msgstr "Klistra in namn på ändrade filer"
 #: ID:376
 msgid "Patch all"
 msgstr "Patcha allt"
+
+#: ID:376
+msgid "Patch selected"
+msgstr "Patcha markerade"
 
 #: ID:157
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -3262,10 +3321,19 @@ msgstr "Program (*.exe)|*.exe|Alla Files (*.*)|*.*||"
 msgid "Progress"
 msgstr "Förlopp"
 
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "Egenskaper"
+
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Egenskaper för"
+
+#: ID:209
+msgid "Properties..."
+msgstr "Egenskaper..."
 
 #: ID:11
 msgid "Property"
@@ -3279,9 +3347,17 @@ msgstr "Egenskaper"
 msgid "Property Status:"
 msgstr "Egenskapsstatus:"
 
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Egenskapsnamn:"
+
 #: ID:207
 msgid "Property status"
 msgstr "Egenskapstatus"
+
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Egenskapsvärde:"
 
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
@@ -3330,6 +3406,10 @@ msgstr "Läs i lathunden om du kört fast..."
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "Visa ej versionshanterade filer"
+
+#: ID:563
+msgid "Recursive"
+msgstr "Rekursivt"
 
 #: ID:3603
 msgid ""
@@ -3419,11 +3499,11 @@ msgstr "Fil / mapp togs bort"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
-"Tog bort filen/filerna\n"
+"Tog bort filmönstren\n"
 "%s\n"
 "från undantagslistan."
 
@@ -3454,7 +3534,7 @@ msgid "Renamed remotely"
 msgstr "Bytte namn på i arkivet"
 
 #: ID:11
-msgid "Renames files / folders inside source control"
+msgid "Renames files / folders inside version control"
 msgstr "Byter namn på filer / mappar i arkivet"
 
 #: ID:3603
@@ -3700,8 +3780,8 @@ msgstr "SVN Status"
 
 # Var används denna?
 #: ID:12
-msgid "SVN Url"
-msgstr "SVN Url"
+msgid "SVN URL"
+msgstr "SVN URL"
 
 # Var används denna?
 #: ID:14
@@ -3709,8 +3789,8 @@ msgid "SVN mime-type"
 msgstr "SVN mime-type"
 
 #: ID:12
-msgid "SVN short Url"
-msgstr "SVN Url (kort)"
+msgid "SVN short URL"
+msgstr "SVN URL (kort)"
 
 #: MenuEntry
 msgid "Save &As..."
@@ -3927,8 +4007,8 @@ msgid "Short &date/time format in log messages"
 msgstr "Kort &datum/tid format i loggmeddelanden"
 
 #: ID:12
-msgid "Short Url of Subversion items"
-msgstr "Sökväg i arkivet (kort)"
+msgid "Short URL of Subversion items"
+msgstr "URL av objekt i arkivet (kort)"
 
 #: Control-ID:1031
 msgid "Show &All"
@@ -4034,6 +4114,11 @@ msgstr "Visar en grafisk representation av kopior/märken/grenar"
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Visar alla ändrade filer sen förra uppdateringen, både lokalt och i arkivet"
+
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Visa alla revisioner där detta objekt ändrades"
 
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -4382,13 +4467,13 @@ msgstr ""
 # ID:88,
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
-"Sökvägen/urlen verkar inte vara tillåten i Windows\n"
+"Sökvägen/URL verkar inte vara tillåten i Windows\n"
 "Du kan försöka ändå, men du kan få fel senare.\n"
 "\n"
 "En giltig sökväg i windows får inte innehålla '<>|\"?*:' eller en av de följande enhetsnamnen:\n"
@@ -4425,6 +4510,18 @@ msgstr ""
 "Den valda filen verkar fortfarande ha en eller flera konfliktmarkörer i sig.\n"
 "Är du säker på att du vill markera konflikten som löst?"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"Mål URL\n"
+"%s\n"
+"finns redan!"
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -4438,18 +4535,6 @@ msgstr ""
 "%s\n"
 "är inte tom!\n"
 "Är du säker på att du vill hämta ut/exportera till den mappen?"
-
-# ID:102,
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"Mål urlen\n"
-"%s\n"
-"finns redan!"
 
 # ID:195,
 #: ID:195
@@ -4713,6 +4798,16 @@ msgstr "TortoiseSVN Växla..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN Uppdatera..."
 
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"TortoiseSVN har detekterat flera liknande filnamn. Vill du byta namn på: %s\n"
+"också?"
+
 # Control-ID:1162,
 #: Control-ID:1162
 msgid "Total commits analyzed:"
@@ -4746,6 +4841,7 @@ msgstr "Ändra inställningar för TortoiseSVN"
 msgid "Two-way &Diff"
 msgstr "2-vägs &skillnader"
 
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -4758,6 +4854,7 @@ msgstr "URL historik"
 msgid "URL of Subversion items"
 msgstr "Sökväg i arkivet"
 
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -4850,14 +4947,6 @@ msgstr "Uppdaterar arbetskopian till en specifik revision"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Uppdaterar arbetskopian till den senaste revisionen"
-
-#: ID:207
-msgid "Url"
-msgstr "Url"
-
-#: ID:144
-msgid "Url:"
-msgstr "Url:"
 
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
@@ -5203,7 +5292,6 @@ msgstr "Zooma ut"
 
 # ID:2051,
 #: ID:2051
-#, fuzzy
 msgid "Zoom to fit"
 msgstr "Anpassa"
 
@@ -5468,10 +5556,10 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Mimetyp för en fil. Används för att avgöra om det går att förena filen och hur den ska hanteras av Apache. En mimetyp som börjar med 'text/' (eller om ingen mimetyp anges) hanteras som text. Allt annat hanteras som binärdata."
+"Mime typ för en fil. Används för att avgöra om det går att förena filen och hur den ska hanteras av Apache. En mime typ som börjar med 'text/' (eller om ingen mime typ anges) hanteras som text. Allt annat hanteras som binärdata."
 
 # ID:16,
 #: ID:16
@@ -5487,6 +5575,16 @@ msgstr ""
 "Filen kommer att vara skrivskyddad när den hämtas ut eller uppdateras\n"
 "för att visa att användaren måste erhålla låset på filen innan\n"
 "de kan ändra på den och arkivera förändringar. "
+
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"Växlade till\r\n"
+"%s"
 
 #: ID:80
 #: ID:103
@@ -5552,6 +5650,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Sätt till \"yes\" om en varning skall visas om inget ärende anges i arkiveringsdialogrutan."
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "värden är olika"
 
 # ID:244,
 #: ID:244
