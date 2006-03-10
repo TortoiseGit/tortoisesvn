@@ -373,8 +373,8 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 							}
 							else
 							{
-								range.cpMin = (LONG)(offset1);
-								range.cpMax = (LONG)(offset1 + results.rlength(1));
+								range.cpMin = (LONG)(offset1 + results.rlength(0) - results.rlength(1));
+								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
 							}
 							if (range.cpMin != range.cpMax)
 							{
@@ -386,7 +386,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 								format.dwEffects = CFE_LINK;
 								pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
 							}
-							offset1 += results.rlength(1);
+							offset1 += results.rlength(0);
 						}
 					}
 				} while ((br.matched)&&((int)offset1<msg.GetLength()));
@@ -557,15 +557,15 @@ CString ProjectProperties::FindBugID(const CString& msg)
 							}
 							else
 							{
-								range.cpMin = (LONG)(offset1);
-								range.cpMax = (LONG)(offset1 + results.rlength(1));
+								range.cpMin = (LONG)(offset1 + results.rlength(0) - results.rlength(1));
+								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
 							}
 							if (range.cpMin != range.cpMax)
 							{
 								sRet += msg.Mid(range.cpMin, range.cpMax-range.cpMin);
 								sRet += _T(" ");
 							}
-							offset1 += results.rlength(1);
+							offset1 += results.rlength(0);
 						}
 					}
 				} while ((br.matched)&&((int)offset1<msg.GetLength()));

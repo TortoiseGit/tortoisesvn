@@ -964,9 +964,10 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 						}
 						else
 						{
-							Call(SCI_SETSTYLING, results.rlength(1), STYLE_BOLD);
+							Call(SCI_SETSTYLING, results.rlength(0)-results.rlength(1), STYLE_BOLD);
+							Call(SCI_SETSTYLING, results.rlength(1), STYLE_BOLDITALIC);
 						}
-						offset1 += results.rlength(1);
+						offset1 += results.rlength(0);
 					}
 				}
 				else
