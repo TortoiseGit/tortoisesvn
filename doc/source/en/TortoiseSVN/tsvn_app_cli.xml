@@ -374,7 +374,7 @@ svn switch [-r rev] URL PATH
 		<sect2 id="tsvn-cli-merge">
 			<title>Merge</title>
 			<screen>
-svn merge [--dry-run] From_URL@revN To_URL@revM PATH
+svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH
 </screen>
 			<para>
 				The <guibutton>Dry run</guibutton> performs the same merge
