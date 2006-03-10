@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-08 16:01+0800\n"
+"PO-Revision-Date: 2006-03-10 12:55+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -443,6 +443,7 @@ msgstr "最新版本(&H)"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "最新版本(&H)"
 
@@ -619,6 +620,7 @@ msgstr "复原自此版本以来的变更(&R)"
 # Control-ID:1033,
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "版本(&R)"
 
@@ -2441,6 +2443,13 @@ msgstr ""
 "仅在设置了 tsvn:projectlanguage\n"
 "时才进行拼写检查。"
 
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "结束版本"
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -3929,9 +3938,8 @@ msgstr "属性"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: Control-ID:1287
-#, fuzzy
 msgid "Properties for"
-msgstr "属性"
+msgstr "Properties for"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
@@ -4358,6 +4366,11 @@ msgid "Revision Graph"
 msgstr "版本分支图"
 
 # ID:75,
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "版本范围："
+
+# ID:75,
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4758,9 +4771,15 @@ msgid "Short URL of Subversion items"
 msgstr "Subversion 项目的短 URL"
 
 # Control-ID:1031,
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "全部显示(&A)"
+
+# Control-ID:1031,
+#: ID:115
+msgid "Show &Range..."
+msgstr "显示范围(&R)..."
 
 # ID:76,
 #: MenuEntry
@@ -4947,6 +4966,11 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "堆叠的"
+
+# ID:11,
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "起始版本"
 
 # Control-ID:1132,#:
 # Dlg-ID:179,
