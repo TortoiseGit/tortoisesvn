@@ -247,22 +247,23 @@ void CEditPropertiesDlg::OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pRes
 void CEditPropertiesDlg::OnNMClickEditproplist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	*pResult = 0;
-	// disable the "remove" and "edit" button if nothing
-	// is selected, enable them otherwise
+	// disable the "remove" button if nothing
+	// is selected, enable it otherwise
 	int selIndex = m_propList.GetSelectionMark();
 	if (selIndex < 0)
 	{
 		GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
-		GetDlgItem(IDC_EDITPROPS)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
 		return;
 	}
 	else if (m_propList.GetSelectedCount()==0)
 	{
-		// should we change the button text to "Add" here?
 		GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
 		return;
 	}
 	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(TRUE);
+	GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITBUTTON)));
 	GetDlgItem(IDC_EDITPROPS)->EnableWindow(TRUE);
 }
 
@@ -314,17 +315,19 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 void CEditPropertiesDlg::OnBnClickedEditprops()
 {
 	int selIndex = m_propList.GetSelectionMark();
-	if (selIndex < 0)
-		return;
 
 	CEditPropertyValueDlg dlg;
-
-	CString sName = m_propList.GetItemText(selIndex, 0);
-	PropValue& prop = m_properties[stdstring(sName)];
-	CString sValue = prop.value.c_str();
-	dlg.SetPropertyName(sName);
-	if (prop.allthesamevalue)
-		dlg.SetPropertyValue(sValue);
+	CString sName;
+	CString sValue;
+	if (selIndex >= 0)
+	{
+		sName = m_propList.GetItemText(selIndex, 0);
+		PropValue& prop = m_properties[stdstring(sName)];
+		sValue = prop.value.c_str();
+		dlg.SetPropertyName(sName);
+		if (prop.allthesamevalue)
+			dlg.SetPropertyValue(sValue);
+	}
 
 	if (m_pathlist.GetCount() > 1)
 		dlg.SetMultiple();

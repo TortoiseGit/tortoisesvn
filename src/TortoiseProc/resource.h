@@ -814,6 +814,8 @@
 #define IDS_EDITPROPS_RECURSIVE         9003
 #define IDS_EDITPROPS_NOTRECURSIVE      9004
 #define IDS_EDITPROPS_CANCEL            9005
+#define IDS_EDITPROPS_ADDBUTTON         9006
+#define IDS_EDITPROPS_EDITBUTTON        9007
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773
