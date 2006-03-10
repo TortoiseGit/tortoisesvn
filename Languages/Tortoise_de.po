@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-03-08 09:17+0100\n"
+"PO-Revision-Date: 2006-03-10 08:50+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -361,6 +361,7 @@ msgstr "&HEAD Revision"
 
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "&HEAD Revision"
 
@@ -500,6 +501,7 @@ msgstr "Änderungen dieser Revision &rückgängig machen"
 
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Revision"
 
@@ -2007,6 +2009,10 @@ msgid ""
 msgstr ""
 "Verwende Rechtschreibkorrektur nur,\n"
 "wenn tsvn:projectlanguage gesetzt ist."
+
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "Endrevision"
 
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -3575,6 +3581,10 @@ msgstr "Revision / Autor:"
 msgid "Revision Graph"
 msgstr "Revisionsgraph"
 
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Revisionsbereich"
+
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -3897,9 +3907,14 @@ msgstr "&Kurzes Datum- / Zeitformat"
 msgid "Short URL of Subversion items"
 msgstr "Kurze URL von Subversion-Objekten"
 
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "Zeige &Alle"
+
+#: ID:115
+msgid "Show &Range..."
+msgstr "&Zeige Bereich"
 
 #: MenuEntry
 msgid "Show &all revisions"
@@ -4058,6 +4073,10 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "Gestapelt"
+
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "Startrevision"
 
 #: ID:245
 #: Dlg-ID:179
