@@ -106,6 +106,8 @@
        check mark from the corresponding check box. (Tobias Schäfer)
 - CHG: TortoiseBlame keeps the find string intact and doesn't change
        it to lowercase anymore. (Stefan)
+- CHG: The status column in explorer now uses the same recursive setting
+       as the overlays. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When setting properties, an error message isn't hidden anymore by
