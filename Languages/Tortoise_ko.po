@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-07 10:34+0900\n"
+"PO-Revision-Date: 2006-03-10 11:08+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -441,6 +441,7 @@ msgstr "&HEAD 리비전"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "최신 리비전(&H)"
 
@@ -616,6 +617,7 @@ msgstr "이 리비전의 변경 내역을 되돌림(&R)"
 # Control-ID:1033,
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "리비전(&R)"
 
@@ -1481,6 +1483,11 @@ msgstr "찾아보기..."
 #: Control-ID:1119
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug-&ID / Issue-Nr:"
+
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "버그 ID"
 
 # Control-ID:1119,#:
 # Control-ID:1119,
@@ -2440,6 +2447,13 @@ msgid ""
 msgstr ""
 "tsvn:projectlanguage 가 설정된 경우에만\n"
 "철자검사를 수행합니다."
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "종료 리비전"
 
 # ID:3825,
 #: ID:3825
@@ -4354,6 +4368,11 @@ msgid "Revision Graph"
 msgstr "리비전 그래프"
 
 # ID:75,
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "리비전 범위"
+
+# ID:75,
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4756,9 +4775,15 @@ msgstr "버전 관리 대상의 짧은 URL"
 
 # ID:101,#:
 # Control-ID:1016,
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "모두 보기(&A)"
+
+# Control-ID:1031,
+#: ID:115
+msgid "Show &Range..."
+msgstr "범위 보기(&R)..."
 
 # ID:76,
 #: MenuEntry
@@ -4945,6 +4970,11 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "누적"
+
+# ID:11,
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "시작 리비전"
 
 # ID:74,#:
 # ID:77,#:
@@ -6123,7 +6153,7 @@ msgid ""
 "The file will be added to version control when you commit."
 msgstr ""
 "선택한 파일은 관리 대상이 아닙니다.\n"
-"커밋하기전에 먼저 버전 컨트롤에 대상으로 추가하시면 됩니다."
+"이 파일은 커밋할 때 관리 대상으로 추가됩니다."
 
 # ID:195,
 #: ID:195
