@@ -144,20 +144,23 @@ All user/site specific configuration is stored in doc.build.user.
 
 	<target name="profile" description="Profile source into a single file" >
 
-		<property name="xslt.params" value="${xsl.profile.params}"/>
-		<property name="xslt.file" value="${xsl.profile.file}"/>
-		<property name="xslt.target" value="${file.target}.tmp"/>
-	
-		<echo message="Profiling into: ${file.target}"/>
-		<call target="xsltproc"/>
+		<call target="uptodate"/>
 
-		<!-- Removes the moreinfo="" attributes added by xsltproc -->
-		<move file="${xslt.target}" tofile="${file.target}" overwrite="true">
-			<filterchain>
-				<replacestring from=" moreinfo=&quot;none&quot;" to="" />
-			</filterchain>
-		</move>
+		<if test="${not file.target.uptodate}">
+			<property name="xslt.params" value="${xsl.profile.params}"/>
+			<property name="xslt.file" value="${xsl.profile.file}"/>
+			<property name="xslt.target" value="${file.target}.tmp"/>
 
+			<echo message="Profiling into: ${file.target}"/>
+			<call target="xsltproc"/>
+
+			<!-- Removes the moreinfo="" attributes added by xsltproc -->
+			<move file="${xslt.target}" tofile="${file.target}" overwrite="true">
+				<filterchain>
+					<replacestring from=" moreinfo=&quot;none&quot;" to="" />
+				</filterchain>
+			</move>
+		</if>
 	</target>
 
 <!-- ====================================================================== -->
