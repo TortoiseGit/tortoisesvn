@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-05 21:00+0100\n"
+"PO-Revision-Date: 2006-03-11 12:26+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -214,6 +214,7 @@ msgstr "&Informazioni su TortoiseMerge..."
 
 # Control-ID:1098,
 #: ID:8
+#: ID:563
 #: Control-ID:1098
 msgid "&Add..."
 msgstr "&Aggiungi..."
@@ -354,7 +355,6 @@ msgstr "&Simulazione"
 
 # Control-ID:1031,
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Modifica"
@@ -365,7 +365,9 @@ msgid "&Edit conflicts"
 msgstr "&Edita i conflitti"
 
 # Control-ID:1099,
+#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Modifica..."
 
@@ -444,6 +446,7 @@ msgstr "Revisione di &testa"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "Revisione di &testa"
 
@@ -621,6 +624,7 @@ msgstr "&Ripristina annullando tutte le modifiche di questa revisione"
 # Control-ID:1033,
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Revisione"
 
@@ -1110,7 +1114,7 @@ msgstr "Nodo aggiunto"
 msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
-"to the ignored list."
+"to the ignore list."
 msgstr ""
 "Il o i percorsi di file\n"
 "%s\n"
@@ -1488,6 +1492,11 @@ msgstr "Sfoglia..."
 #: Control-ID:1119
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug-&ID / Issue-Nr."
+
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bug-ID"
 
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1977,7 +1986,7 @@ msgstr "Correzioni"
 # ID:81,
 #: ID:81
 #, c-format
-msgid "Could not add %s to the ignored list!"
+msgid "Could not add %s to the ignore list!"
 msgstr "Impossibile aggiungere %s alla lista 'ignora'!"
 
 # ID:201,
@@ -2013,7 +2022,7 @@ msgstr "Impossibile aprire il file/n%s"
 # ID:81,
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "Impossibile rimuovere %s dalla lista 'ignora'"
 
 # ID:81,
@@ -2447,6 +2456,13 @@ msgid ""
 msgstr ""
 "Attiva il controllo grammaticale solo se\n"
 "la proprietà tsvn:projectlanguage è impostata."
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "Fine revisione"
 
 # ID:3825,
 #: ID:3825
@@ -2942,6 +2958,11 @@ msgstr "Ignora &cambiamenti tra maiuscole/minuscole"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Ignora discendenza"
+
+# Control-ID:1020,
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "Ig&nora gli spazi a fine riga"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -4144,7 +4165,7 @@ msgstr "File/cartella rimossa"
 msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
 "Il o i percorsi dei file\n"
 "%s\n"
@@ -4360,6 +4381,11 @@ msgstr "Revisione / Autore:"
 #: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Grafico delle revisioni"
+
+# ID:75,
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Gamma delle revisioni"
 
 # ID:75,
 #: ID:269
@@ -4766,9 +4792,15 @@ msgid "Short URL of Subversion items"
 msgstr "URL corto degli elementi di Subversion"
 
 # Control-ID:1016,
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "Visualizza &tutto"
+
+# Control-ID:1031,
+#: ID:115
+msgid "Show &Range..."
+msgstr "Mostra &gamma delle revisioni..."
 
 # ID:76,
 #: MenuEntry
@@ -4887,8 +4919,8 @@ msgstr "Mostra tutti i file che hanno subito modifiche dall'ultimo aggiornamento
 
 # ID:2050,
 #: ID:2050
-msgid "Shows all revisions the URL got changed, not just copies"
-msgstr "Mostra tutte le revisioni dell'URL, non solo le copie"
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Mostra tutte le revisioni in cui sono state apportate delle modifiche a questo oggetto"
 
 # ID:10,
 #: ID:10
@@ -4955,6 +4987,11 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "Accodato"
+
+# ID:11,
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "Inizio revisione"
 
 # ID:74,#:
 # ID:77,#:
