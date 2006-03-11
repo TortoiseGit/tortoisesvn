@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r5955
+# Based on Tortoise.pot r5985
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-08 09:26+0100\n"
+"PO-Revision-Date: 2006-03-11 13:49+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,7 +203,7 @@ msgstr "&?"
 msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
-#: ID:8,#: Control-ID:1098,
+#: ID:8,#: ID:563,#: Control-ID:1098,
 msgid "&Add..."
 msgstr "&Tilføj..."
 
@@ -308,7 +308,7 @@ msgstr "&Sammenlign"
 msgid "&Dry run"
 msgstr "&Testkørsel"
 
-#: Control-ID:1031,#: Control-ID:1282,#: MenuEntry
+#: Control-ID:1031,#: MenuEntry
 msgid "&Edit"
 msgstr "&Rediger"
 
@@ -316,7 +316,7 @@ msgstr "&Rediger"
 msgid "&Edit conflicts"
 msgstr "R&ediger konflikter"
 
-#: Control-ID:1099,
+#: ID:563,#: Control-ID:1099,#: Control-ID:1282,
 msgid "&Edit..."
 msgstr "&Rediger..."
 
@@ -372,7 +372,7 @@ msgstr "&Fra revision"
 msgid "&HEAD Revision"
 msgstr "&HEAD-revision"
 
-#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,
+#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1019,#: Control-ID:1034,
 msgid "&HEAD revision"
 msgstr "&HEAD-revision"
 
@@ -506,7 +506,7 @@ msgstr "&Omdøb"
 msgid "&Revert changes from this revision"
 msgstr "&Tilbagefør ændringer fra denne revision"
 
-#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1116,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,
+#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1116,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1035,
 msgid "&Revision"
 msgstr "&Revision"
 
@@ -1114,7 +1114,7 @@ msgstr "CAP"
 msgid "Can't copy \n%s\nto\n%s"
 msgstr "Kan ikke kopiere \n%s\ntil\n%s"
 
-#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: ID:563,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1762,6 +1762,10 @@ msgstr "Slå denne til, hvis du også ønsker genvejstaster på den øverste kon
 #: ID:195,
 msgid "Enables the spellchecker only if the\ntsvn:projectlanguage property is set."
 msgstr "Slår kun stavekontrollen til, hvis\negenskaben tsvn:projectlanguage er sat."
+
+#: Control-ID:65535,
+msgid "End Revision"
+msgstr "Slut-revision"
 
 #: ID:3825,
 msgid "Enlarge the window to full size"
@@ -2547,7 +2551,7 @@ msgstr "Antal forfattere:"
 msgid "Number of weeks:"
 msgstr "Antal uger:"
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr "Ok"
 
@@ -3078,6 +3082,10 @@ msgstr "Revision/forfatter:"
 msgid "Revision Graph"
 msgstr "Revisionsgraf"
 
+#: Dlg-ID:228,
+msgid "Revision Range"
+msgstr "Revisionsinterval"
+
 #: ID:269,#: Control-ID:65535,
 msgid "Revision graph"
 msgstr "Revisionsgraf"
@@ -3368,9 +3376,13 @@ msgstr "Kort &dato/tidsformat i logbeskeder"
 msgid "Short URL of Subversion items"
 msgstr "Kort URL for Subversion-emner"
 
-#: Control-ID:1031,
+#: ID:115,#: Control-ID:1031,
 msgid "Show &All"
 msgstr "Vis &alle"
+
+#: ID:115,
+msgid "Show &Range..."
+msgstr "Vis &interval..."
 
 #: MenuEntry
 msgid "Show &all revisions"
@@ -3500,6 +3512,10 @@ msgstr "Opdel det aktive vindue i paneler\nOpdel"
 #, fuzzy
 msgid "Stacked"
 msgstr "Stakket"
+
+#: Control-ID:65535,
+msgid "Start Revision"
+msgstr "Start-revision"
 
 #: ID:245,#: Dlg-ID:179,
 msgid "Statistics"
