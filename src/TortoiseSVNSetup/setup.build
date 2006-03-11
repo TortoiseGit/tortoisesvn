@@ -59,21 +59,6 @@
 			  </setenv>
 		  </if>
   		
-		  <!-- find the path to the merge modules -->
-		  <script language="C#">			
-			  <code>
-				  <![CDATA[
-					  public static void ScriptMain(Project project)
-					  {
-						  project.Properties.Add("mergemodulepath", System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonProgramFiles)+"\\Merge Modules");
-					  }
-				  ]]>
-			  </code>
-		  </script>
-		  <setenv>
-			  <variable name="MergeModules" value="${mergemodulepath}" />
-		  </setenv>
-
 		  <exec program="candle">
 			  <arg value="-nologo" />
 			  <arg value="-out" />

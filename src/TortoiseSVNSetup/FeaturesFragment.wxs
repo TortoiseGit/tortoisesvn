@@ -22,20 +22,10 @@
 			<ComponentRef Id="C__Sounds" />
 			<ComponentRef Id="C__DiffScripts" />
 			<ComponentRef Id="C__iconsxpstyle" />
-
-			<Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
-				<Condition Level="0">(NOT Privileged)</Condition>
-				<MergeRef Id="CRT" />
-				<MergeRef Id="CRT Policy" />
-			</Feature>
-			<Feature Id="F_MFC" Level="1" Title="MFC 8.0" Description="The MFC 8.0 libs" TypicalDefault="install" Display="hidden" >
-				<Condition Level="0">(NOT Privileged)</Condition>
-				<MergeRef Id="MFC" />
-				<MergeRef Id="MFC Policy" />
-				<MergeRef Id="MFCLOC" />
-				<MergeRef Id="MFCLOC Policy" />
-			</Feature>
-
+			<ComponentRef Id="C__MFC" />
+			<ComponentRef Id="C__MFCLOC" />
+			<ComponentRef Id="C__CRT" />
+      <ComponentRef Id="C__RuntimeCopies" />
 
 			<Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install">
 				<ComponentRef Id="C__iconscvsclassic" />
