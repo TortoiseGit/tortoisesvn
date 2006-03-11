@@ -87,6 +87,8 @@ BOOL CMergeDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
+	m_tooltips.Create(this);
+
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
 	CString url = svn.GetURLFromPath(CTSVNPath(m_wcPath));
@@ -107,7 +109,9 @@ BOOL CMergeDlg::OnInitDialog()
 			m_URLTo = url;
 		}
 		GetDlgItem(IDC_WCURL)->SetWindowText(url);
+		m_tooltips.AddTool(IDC_WCURL, url);
 		GetDlgItem(IDC_WCPATH)->SetWindowText(m_wcPath.GetWinPath());
+		m_tooltips.AddTool(IDC_WCPATH, m_wcPath.GetWinPathString());
 	}
 
 	m_URLCombo.SetURLHistory(TRUE);
@@ -521,4 +525,10 @@ void CMergeDlg::OnEnChangeRevisionStart()
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
 	else
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
+}
+
+BOOL CMergeDlg::PreTranslateMessage(MSG* pMsg)
+{
+	m_tooltips.RelayEvent(pMsg);
+	return CStandAloneDialogTmpl<CDialog>::PreTranslateMessage(pMsg);
 }
