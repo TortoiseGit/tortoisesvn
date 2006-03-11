@@ -222,6 +222,7 @@ void CLogPromptDlg::OnOK()
 	//first add all the unversioned files the user selected
 	//and check if all versioned files are selected
 	int nUnchecked = 0;
+	m_bRecursive = true;
 	int nListItems = m_ListCtrl.GetItemCount();
 
 	CTSVNPathList itemsToAdd;
@@ -258,7 +259,26 @@ void CLogPromptDlg::OnOK()
 		{
 			if ((entry->status != svn_wc_status_unversioned)	&&
 				(entry->status != svn_wc_status_ignored))
+			{
 				nUnchecked++;
+
+				if ( m_bRecursive )
+				{
+					// This algorithm is for the sake of simplicity of the complexity O(N²)
+					for (int k=0; k<nListItems; k++)
+					{
+						const CSVNStatusListCtrl::FileEntry * entryK = m_ListCtrl.GetListEntry(k);
+						if (entryK->IsChecked() && entryK->GetPath().IsAncestorOf(entry->GetPath())  )
+						{
+							// Fall back to a non-recursive commit to prevent items being
+							// committed which aren't checked although its parent is checked
+							// (property change, directory deletion, ... )
+							m_bRecursive = false;
+							break;
+						}
+					}
+				}
+			}
 		}
 	} // for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
 
@@ -273,10 +293,6 @@ void CLogPromptDlg::OnOK()
 	itemsToRemove.SortByPathname();
 	svn.Remove(itemsToRemove, TRUE);
 
-	if (nUnchecked == 0)
-		m_bRecursive = TRUE;
-	else
-		m_bRecursive = FALSE;
 	if ((nUnchecked != 0)||(bCheckedInExternal)||(bHasConflicted))
 	{
 		//the next step: find all deleted files and check if they're 

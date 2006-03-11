@@ -108,6 +108,9 @@
        it to lowercase anymore. (Stefan)
 - CHG: The status column in explorer now uses the same recursive setting
        as the overlays. (Stefan)
+- CHG: It is now possible to delete directories recursively after having
+       deselected single items from the commit dialog provided that no
+       parent item would commit the deselected item. (Tobias Schäfer)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When setting properties, an error message isn't hidden anymore by
