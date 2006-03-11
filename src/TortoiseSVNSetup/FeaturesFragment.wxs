@@ -1,64 +1,64 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
-	<?include Includes.wxi?>
-	<Fragment Id="FeaturesFragment">
-		<Feature Id="DefaultFeature" Level="1" ConfigurableDirectory="INSTALLDIR" Title="TortoiseSVN" Absent="disallow" 
+  <?include Includes.wxi?>
+  <Fragment Id="FeaturesFragment">
+    <Feature Id="DefaultFeature" Level="1" ConfigurableDirectory="INSTALLDIR" Title="TortoiseSVN" Absent="disallow" 
 			TypicalDefault="install" Description="The TortoiseSVN package and dependencies." Display="expand" InstallDefault="local" >
-			<ComponentRef Id="C__infofiles" />
-			<ComponentRef Id="C__berkeleydb" />
-			<ComponentRef Id="C__iconv" />
-			<ComponentRef Id="C__apr" />
-			<ComponentRef Id="C__gettext" />
-			<ComponentRef Id="C__help_en" />
-			<ComponentRef Id="C__TortoiseSVN" />
-			<ComponentRef Id="C__TortoiseSVNShortcuts" />
-			<ComponentRef Id="C__TortoiseMerge" />
-			<ComponentRef Id="C__TortoiseMergeShortcuts" />
-			<ComponentRef Id="C__TortoiseBlame" />
-			<ComponentRef Id="C__shellregistry" />
-			<ComponentRef Id="C__machineregistry" />
-			<ComponentRef Id="C__svnprotocoll" />
-			<ComponentRef Id="C__approveshellcomponents" />
-			<ComponentRef Id="C__ProgramMenuFolder" />
-			<ComponentRef Id="C__Sounds" />
-			<ComponentRef Id="C__DiffScripts" />
-			<ComponentRef Id="C__iconsxpstyle" />
-			<ComponentRef Id="C__MFC" />
-			<ComponentRef Id="C__MFCLOC" />
-			<ComponentRef Id="C__CRT" />
+      <ComponentRef Id="C__infofiles" />
+      <ComponentRef Id="C__berkeleydb" />
+      <ComponentRef Id="C__iconv" />
+      <ComponentRef Id="C__apr" />
+      <ComponentRef Id="C__gettext" />
+      <ComponentRef Id="C__help_en" />
+      <ComponentRef Id="C__TortoiseSVN" />
+      <ComponentRef Id="C__TortoiseSVNShortcuts" />
+      <ComponentRef Id="C__TortoiseMerge" />
+      <ComponentRef Id="C__TortoiseMergeShortcuts" />
+      <ComponentRef Id="C__TortoiseBlame" />
+      <ComponentRef Id="C__shellregistry" />
+      <ComponentRef Id="C__machineregistry" />
+      <ComponentRef Id="C__svnprotocoll" />
+      <ComponentRef Id="C__approveshellcomponents" />
+      <ComponentRef Id="C__ProgramMenuFolder" />
+      <ComponentRef Id="C__Sounds" />
+      <ComponentRef Id="C__DiffScripts" />
+      <ComponentRef Id="C__iconsxpstyle" />
+      <ComponentRef Id="C__MFC" />
+      <ComponentRef Id="C__MFCLOC" />
+      <ComponentRef Id="C__CRT" />
       <ComponentRef Id="C__RuntimeCopies" />
 
-			<Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install">
-				<ComponentRef Id="C__iconscvsclassic" />
-				<ComponentRef Id="C__iconsmodern" />
-				<ComponentRef Id="C__iconsclassic" />
-				<ComponentRef Id="C__iconsmarkphippard" />
-				<ComponentRef Id="C__iconsstraight" />
-			</Feature>
-		
-			<Feature Id="DictionaryENGB" Level="1" Title="English (GB) dictionary" Description="English (GB) spell checker dictionary" TypicalDefault="install">
-				<ComponentRef Id="C__DictionaryENGB" />
-			</Feature>
-			<Feature Id="DictionaryENUS" Level="1" Title="English (US) dictionary" Description="English (US) spell checker dictionary" TypicalDefault="install">
-				<ComponentRef Id="C__DictionaryENUS" />
-			</Feature>
+      <Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install">
+        <ComponentRef Id="C__iconscvsclassic" />
+        <ComponentRef Id="C__iconsmodern" />
+        <ComponentRef Id="C__iconsclassic" />
+        <ComponentRef Id="C__iconsmarkphippard" />
+        <ComponentRef Id="C__iconsstraight" />
+      </Feature>
 
-			<Feature Id="ASPDOTNETHACKFEATURE" Level="200" Title="ASP.NET Hack" 
+      <Feature Id="DictionaryENGB" Level="1" Title="English (GB) dictionary" Description="English (GB) spell checker dictionary" TypicalDefault="install">
+        <ComponentRef Id="C__DictionaryENGB" />
+      </Feature>
+      <Feature Id="DictionaryENUS" Level="1" Title="English (US) dictionary" Description="English (US) spell checker dictionary" TypicalDefault="install">
+        <ComponentRef Id="C__DictionaryENUS" />
+      </Feature>
+
+      <Feature Id="ASPDOTNETHACKFEATURE" Level="200" Title="ASP.NET Hack" 
 				Description="Sets the SVN_ASP_DOT_NET_HACK environment variable.
 
 DO NOT INSTALL THIS FEATURE if you don't use VS.NET with Web Projects!!!"
 				TypicalDefault="install" Absent="allow" InstallDefault="source" >
-				<ComponentRef Id="C__ASPDOTNETHACK" />
-			</Feature>
+        <ComponentRef Id="C__ASPDOTNETHACK" />
+      </Feature>
 
-			<?if $(env.Platform) = "win32" ?>
-				<?if $(env.IncludeCrashReportDll) = 1 ?>
-					<Feature Id="CrashReporter" Level="1" Title="Crash Reporter" Description="In official builds, sends crash dumps to the developers." 
-						TypicalDefault="install" Display="hidden" InstallDefault="followParent">
-						<ComponentRef Id="C__crash" />
-					</Feature>
-				<?endif ?>
-			<?endif ?>
+      <?if $(env.Platform) = "win32" ?>
+      <?if $(env.IncludeCrashReportDll) = 1 ?>
+      <Feature Id="CrashReporter" Level="1" Title="Crash Reporter" Description="In official builds, sends crash dumps to the developers." 
+        TypicalDefault="install" Display="hidden" InstallDefault="followParent">
+        <ComponentRef Id="C__crash" />
+      </Feature>
+      <?endif ?>
+      <?endif ?>
 
-			</Feature>
-	</Fragment>
+    </Feature>
+  </Fragment>
 </Wix>

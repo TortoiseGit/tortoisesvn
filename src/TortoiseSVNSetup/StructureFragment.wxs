@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
-	<?include Includes.wxi?>
-	<Fragment Id="StructureFragment">
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="D__ProgramFilesFolder" Name="PFiles" LongName="Program Files">
-				<Directory Id="INSTALLDIR" Name="TSVN" LongName="TortoiseSVN">
+  <?include Includes.wxi?>
+  <Fragment Id="StructureFragment">
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="D__ProgramFilesFolder" Name="PFiles" LongName="Program Files">
+        <Directory Id="INSTALLDIR" Name="TSVN" LongName="TortoiseSVN">
 
           <Component Id="C__infofiles" Guid="$(var.GuidInfoFiles)" Win64="$(var.Win64YesNo)">
             <File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
-						<File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
-						<File Id="F__tortoisesvnlicense" Name="LICENSE.TXT" LongName="TortoiseSVN License.txt" DiskId="1" src="..\gpl.txt" />
-						<File Id="F__openssllicense" Name="OSSL_LIC.TXT" LongName="OpenSSL License.txt" DiskId="1" src="include\OpenSSL_License.txt" />
-						<File Id="F__aprlicense" Name="APR_LIC.TXT" LongName="apr License.txt" DiskId="1" src="..\..\ext\apr\LICENSE" />
-						<File Id="F__bdblicense" Name="BDB_LIC.TXT" LongName="BerkeleyDB License.txt" DiskId="1" src="include\BDB_License.txt" />
-					</Component>
+            <File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
+            <File Id="F__tortoisesvnlicense" Name="LICENSE.TXT" LongName="TortoiseSVN License.txt" DiskId="1" src="..\gpl.txt" />
+            <File Id="F__openssllicense" Name="OSSL_LIC.TXT" LongName="OpenSSL License.txt" DiskId="1" src="include\OpenSSL_License.txt" />
+            <File Id="F__aprlicense" Name="APR_LIC.TXT" LongName="apr License.txt" DiskId="1" src="..\..\ext\apr\LICENSE" />
+            <File Id="F__bdblicense" Name="BDB_LIC.TXT" LongName="BerkeleyDB License.txt" DiskId="1" src="include\BDB_License.txt" />
+          </Component>
 
           <Component Id="C__ProgramMenuFolder" Guid="$(var.GuidProgramMenuFolder)" Win64="$(var.Win64YesNo)">
-						<RemoveFolder Directory="INSTALLDIR" On="uninstall" Id="RemoveFolder_INSTALLDIR" />
-						<RemoveFolder Directory="D_TortoisePrgMenu" On="uninstall" Id="RemoveFolder_PrgMenu" />
-					</Component>
+            <RemoveFolder Directory="INSTALLDIR" On="uninstall" Id="RemoveFolder_INSTALLDIR" />
+            <RemoveFolder Directory="D_TortoisePrgMenu" On="uninstall" Id="RemoveFolder_PrgMenu" />
+          </Component>
 
           <Component Id="C__shellregistry" Guid="$(var.GuidShellRegistry)" Win64="$(var.Win64YesNo)">
             <Registry Root="HKMU" Key="Software\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
@@ -147,127 +147,127 @@
             <Environment Id="E__ASPDOTNETHACK" Action="create" Name="SVN_ASP_DOT_NET_HACK" Value="1" Permanent="yes" Part="all" System="yes" />
           </Component>
 
-        <Directory Id="D__Bin" Name="BIN" LongName="bin" >
+          <Directory Id="D__Bin" Name="BIN" LongName="bin" >
 
-				<Directory Id="D__BIN_CRT" Name="CRT" LongName="Microsoft.VC80.CRT">
-					<Component Id="C__CRT" Guid="$(var.GuidCRT)" Win64="$(var.Win64YesNo)">
-						<?if $(env.Platform) = "win32" ?>
-						<File Id="F__msvcm80" Name="msvcm80.dll" LongName="msvcm80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcm80.dll' KeyPath="yes" />
-						<File Id="F__msvcp80" Name="msvcp80.dll" LongName="msvcp80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcp80.dll' />
-						<File Id="F__msvcr80" Name="msvcr80.dll" LongName="msvcr80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcr80.dll' />
-						<File Id="F__crt80manifest" Name="CRT" LongName="Microsoft.VC80.CRT.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\Microsoft.VC80.CRT.manifest' />
-						<?endif ?>
-						<?if $(env.Platform) = "x64" ?>
-						<File Id="F__msvcm80" Name="msvcm80.dll" LongName="msvcm80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcm80.dll' KeyPath="yes" />
-						<File Id="F__msvcp80" Name="msvcp80.dll" LongName="msvcp80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcp80.dll' />
-						<File Id="F__msvcr80" Name="msvcr80.dll" LongName="msvcr80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcr80.dll' />
-						<File Id="F__crt80manifest" Name="CRT" LongName="Microsoft.VC80.CRT.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\Microsoft.VC80.CRT.manifest' />
-						<?endif ?>
-					</Component>
-				</Directory>
-				<Directory Id="D__BIN_MFC" Name="MFC" LongName="Microsoft.VC80.MFC">
-					<Component Id="C__MFC" Guid="$(var.GuidMFC)" Win64="$(var.Win64YesNo)">
-						<?if $(env.Platform) = "win32" ?>
-						<File Id="F__mfc80" Name="mfc80.dll" LongName="mfc80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\mfc80.dll' KeyPath="yes" />
-						<File Id="F__mfc80u" Name="mfc80u.dll" LongName="mfc80u.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\mfc80u.dll' />
-						<File Id="F__mfc80manifest" Name="MFCMAN" LongName="Microsoft.VC80.MFC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\Microsoft.VC80.MFC.manifest' />
-            <?endif ?>
-            <?if $(env.Platform) = "x64" ?>
-            <File Id="F__mfc80" Name="mfc80.dll" LongName="mfc80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\mfc80.dll' KeyPath="yes" />
-            <File Id="F__mfc80u" Name="mfc80u.dll" LongName="mfc80u.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\mfc80u.dll' />
-            <File Id="F__mfc80manifest" Name="MFCMAN" LongName="Microsoft.VC80.MFC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\Microsoft.VC80.MFC.manifest' />
-            <?endif ?>
-          </Component>
-        </Directory>
-        <Directory Id="D__BIN_MFCLOC" Name="MFCLOC" LongName="Microsoft.VC80.MFCLOC">
-          <Component Id="C__MFCLOC" Guid="$(var.GuidMFCLOC)" Win64="$(var.Win64YesNo)">
-            <?if $(env.Platform) = "win32" ?>
-            <File Id="F__mfc80chs" Name="MFC80CHS.dll" LongName="MFC80CHS.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80CHS.dll' KeyPath="yes" />
-            <File Id="F__mfc80CHT" Name="MFC80CHT.dll" LongName="MFC80CHT.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80CHT.dll' />
-            <File Id="F__mfc80DEU" Name="MFC80DEU.dll" LongName="MFC80DEU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80DEU.dll' />
-            <File Id="F__mfc80ENU" Name="MFC80ENU.dll" LongName="MFC80ENU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ENU.dll' />
-            <File Id="F__mfc80ESP" Name="MFC80ESP.dll" LongName="MFC80ESP.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ESP.dll' />
-            <File Id="F__mfc80FRA" Name="MFC80FRA.dll" LongName="MFC80FRA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80FRA.dll' />
-            <File Id="F__mfc80ITA" Name="MFC80ITA.dll" LongName="MFC80ITA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ITA.dll' />
-            <File Id="F__mfc80JPN" Name="MFC80JPN.dll" LongName="MFC80JPN.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80JPN.dll' />
-            <File Id="F__mfc80KOR" Name="MFC80KOR.dll" LongName="MFC80KOR.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80KOR.dll' />
-            <File Id="F__mfc80LOCmanifest" Name="MFCLOCMA" LongName="Microsoft.VC80.MFCLOC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\Microsoft.VC80.MFCLOC.manifest' />
-            <?endif ?>
-            <?if $(env.Platform) = "x64" ?>
-            <File Id="F__mfc80chs" Name="MFC80CHS.dll" LongName="MFC80CHS.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80CHS.dll' KeyPath="yes" />
-            <File Id="F__mfc80CHT" Name="MFC80CHT.dll" LongName="MFC80CHT.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80CHT.dll' />
-            <File Id="F__mfc80DEU" Name="MFC80DEU.dll" LongName="MFC80DEU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80DEU.dll' />
-            <File Id="F__mfc80ENU" Name="MFC80ENU.dll" LongName="MFC80ENU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ENU.dll' />
-            <File Id="F__mfc80ESP" Name="MFC80ESP.dll" LongName="MFC80ESP.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ESP.dll' />
-            <File Id="F__mfc80FRA" Name="MFC80FRA.dll" LongName="MFC80FRA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80FRA.dll' />
-            <File Id="F__mfc80ITA" Name="MFC80ITA.dll" LongName="MFC80ITA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ITA.dll' />
-            <File Id="F__mfc80JPN" Name="MFC80JPN.dll" LongName="MFC80JPN.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80JPN.dll' />
-            <File Id="F__mfc80KOR" Name="MFC80KOR.dll" LongName="MFC80KOR.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80KOR.dll' />
-            <File Id="F__mfc80LOCmanifest" Name="MFCLOCMA" LongName="Microsoft.VC80.MFCLOC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\Microsoft.VC80.MFCLOC.manifest' />
-            <?endif ?>
-          </Component>
-        </Directory>
+            <Directory Id="D__BIN_CRT" Name="CRT" LongName="Microsoft.VC80.CRT">
+              <Component Id="C__CRT" Guid="$(var.GuidCRT)" Win64="$(var.Win64YesNo)">
+                <?if $(env.Platform) = "win32" ?>
+                <File Id="F__msvcm80" Name="msvcm80.dll" LongName="msvcm80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcm80.dll' KeyPath="yes" />
+                <File Id="F__msvcp80" Name="msvcp80.dll" LongName="msvcp80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcp80.dll' />
+                <File Id="F__msvcr80" Name="msvcr80.dll" LongName="msvcr80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcr80.dll' />
+                <File Id="F__crt80manifest" Name="CRT" LongName="Microsoft.VC80.CRT.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\Microsoft.VC80.CRT.manifest' />
+                <?endif ?>
+                <?if $(env.Platform) = "x64" ?>
+                <File Id="F__msvcm80" Name="msvcm80.dll" LongName="msvcm80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcm80.dll' KeyPath="yes" />
+                <File Id="F__msvcp80" Name="msvcp80.dll" LongName="msvcp80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcp80.dll' />
+                <File Id="F__msvcr80" Name="msvcr80.dll" LongName="msvcr80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcr80.dll' />
+                <File Id="F__crt80manifest" Name="CRT" LongName="Microsoft.VC80.CRT.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\Microsoft.VC80.CRT.manifest' />
+                <?endif ?>
+              </Component>
+            </Directory>
+            <Directory Id="D__BIN_MFC" Name="MFC" LongName="Microsoft.VC80.MFC">
+              <Component Id="C__MFC" Guid="$(var.GuidMFC)" Win64="$(var.Win64YesNo)">
+                <?if $(env.Platform) = "win32" ?>
+                <File Id="F__mfc80" Name="mfc80.dll" LongName="mfc80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\mfc80.dll' KeyPath="yes" />
+                <File Id="F__mfc80u" Name="mfc80u.dll" LongName="mfc80u.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\mfc80u.dll' />
+                <File Id="F__mfc80manifest" Name="MFCMAN" LongName="Microsoft.VC80.MFC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\Microsoft.VC80.MFC.manifest' />
+                <?endif ?>
+                <?if $(env.Platform) = "x64" ?>
+                <File Id="F__mfc80" Name="mfc80.dll" LongName="mfc80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\mfc80.dll' KeyPath="yes" />
+                <File Id="F__mfc80u" Name="mfc80u.dll" LongName="mfc80u.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\mfc80u.dll' />
+                <File Id="F__mfc80manifest" Name="MFCMAN" LongName="Microsoft.VC80.MFC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\Microsoft.VC80.MFC.manifest' />
+                <?endif ?>
+              </Component>
+            </Directory>
+            <Directory Id="D__BIN_MFCLOC" Name="MFCLOC" LongName="Microsoft.VC80.MFCLOC">
+              <Component Id="C__MFCLOC" Guid="$(var.GuidMFCLOC)" Win64="$(var.Win64YesNo)">
+                <?if $(env.Platform) = "win32" ?>
+                <File Id="F__mfc80chs" Name="MFC80CHS.dll" LongName="MFC80CHS.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80CHS.dll' KeyPath="yes" />
+                <File Id="F__mfc80CHT" Name="MFC80CHT.dll" LongName="MFC80CHT.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80CHT.dll' />
+                <File Id="F__mfc80DEU" Name="MFC80DEU.dll" LongName="MFC80DEU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80DEU.dll' />
+                <File Id="F__mfc80ENU" Name="MFC80ENU.dll" LongName="MFC80ENU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ENU.dll' />
+                <File Id="F__mfc80ESP" Name="MFC80ESP.dll" LongName="MFC80ESP.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ESP.dll' />
+                <File Id="F__mfc80FRA" Name="MFC80FRA.dll" LongName="MFC80FRA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80FRA.dll' />
+                <File Id="F__mfc80ITA" Name="MFC80ITA.dll" LongName="MFC80ITA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ITA.dll' />
+                <File Id="F__mfc80JPN" Name="MFC80JPN.dll" LongName="MFC80JPN.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80JPN.dll' />
+                <File Id="F__mfc80KOR" Name="MFC80KOR.dll" LongName="MFC80KOR.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80KOR.dll' />
+                <File Id="F__mfc80LOCmanifest" Name="MFCLOCMA" LongName="Microsoft.VC80.MFCLOC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\Microsoft.VC80.MFCLOC.manifest' />
+                <?endif ?>
+                <?if $(env.Platform) = "x64" ?>
+                <File Id="F__mfc80chs" Name="MFC80CHS.dll" LongName="MFC80CHS.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80CHS.dll' KeyPath="yes" />
+                <File Id="F__mfc80CHT" Name="MFC80CHT.dll" LongName="MFC80CHT.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80CHT.dll' />
+                <File Id="F__mfc80DEU" Name="MFC80DEU.dll" LongName="MFC80DEU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80DEU.dll' />
+                <File Id="F__mfc80ENU" Name="MFC80ENU.dll" LongName="MFC80ENU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ENU.dll' />
+                <File Id="F__mfc80ESP" Name="MFC80ESP.dll" LongName="MFC80ESP.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ESP.dll' />
+                <File Id="F__mfc80FRA" Name="MFC80FRA.dll" LongName="MFC80FRA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80FRA.dll' />
+                <File Id="F__mfc80ITA" Name="MFC80ITA.dll" LongName="MFC80ITA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ITA.dll' />
+                <File Id="F__mfc80JPN" Name="MFC80JPN.dll" LongName="MFC80JPN.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80JPN.dll' />
+                <File Id="F__mfc80KOR" Name="MFC80KOR.dll" LongName="MFC80KOR.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80KOR.dll' />
+                <File Id="F__mfc80LOCmanifest" Name="MFCLOCMA" LongName="Microsoft.VC80.MFCLOC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\Microsoft.VC80.MFCLOC.manifest' />
+                <?endif ?>
+              </Component>
+            </Directory>
 
-        <Component Id='C__RuntimeCopies' Guid='$(var.GuidRuntimeCopy)' >
-          <File Id='F__win2kcopies' Name='readme.txt' DiskId='1' src='include\win2kcopies.txt' KeyPath='yes' />
-          <CopyFile Id="Copymsvcm80" DestinationDirectory="D__Bin" FileId="F__msvcm80" />
-          <CopyFile Id="Copymsvcp80" DestinationDirectory="D__Bin" FileId="F__msvcp80" />
-          <CopyFile Id="Copymsvcr80" DestinationDirectory="D__Bin" FileId="F__msvcr80" />
-          <CopyFile Id="Copycrtmanifest80" DestinationDirectory="D__Bin" FileId="F__crt80manifest" />
-          <CopyFile Id="Copymfc80" DestinationDirectory="D__Bin" FileId="F__mfc80" />
-          <CopyFile Id="Copymfc80u" DestinationDirectory="D__Bin" FileId="F__mfc80u" />
-          <CopyFile Id="Copymfc80manifest" DestinationDirectory="D__Bin" FileId="F__mfc80manifest" />
-          <CopyFile Id="Copymfc80chs" DestinationDirectory="D__Bin" FileId="F__mfc80chs" />
-          <CopyFile Id="Copymfc80cht" DestinationDirectory="D__Bin" FileId="F__mfc80CHT" />
-          <CopyFile Id="Copymfc80deu" DestinationDirectory="D__Bin" FileId="F__mfc80DEU" />
-          <CopyFile Id="Copymfc80enu" DestinationDirectory="D__Bin" FileId="F__mfc80ENU" />
-          <CopyFile Id="Copymfc80esp" DestinationDirectory="D__Bin" FileId="F__mfc80ESP" />
-          <CopyFile Id="Copymfc80fra" DestinationDirectory="D__Bin" FileId="F__mfc80FRA" />
-          <CopyFile Id="Copymfc80ita" DestinationDirectory="D__Bin" FileId="F__mfc80ITA" />
-          <CopyFile Id="Copymfc80jpn" DestinationDirectory="D__Bin" FileId="F__mfc80JPN" />
-          <CopyFile Id="Copymfc80kor" DestinationDirectory="D__Bin" FileId="F__mfc80KOR" />
-          <CopyFile Id="Copymfcloc80manifest" DestinationDirectory="D__Bin" FileId="F__mfc80LOCmanifest" />
-          <Condition>VersionNT &lt; 501</Condition>
-        </Component>
+            <Component Id='C__RuntimeCopies' Guid='$(var.GuidRuntimeCopy)' >
+              <File Id='F__win2kcopies' Name='readme.txt' DiskId='1' src='include\win2kcopies.txt' KeyPath='yes' />
+              <CopyFile Id="Copymsvcm80" DestinationDirectory="D__Bin" FileId="F__msvcm80" />
+              <CopyFile Id="Copymsvcp80" DestinationDirectory="D__Bin" FileId="F__msvcp80" />
+              <CopyFile Id="Copymsvcr80" DestinationDirectory="D__Bin" FileId="F__msvcr80" />
+              <CopyFile Id="Copycrtmanifest80" DestinationDirectory="D__Bin" FileId="F__crt80manifest" />
+              <CopyFile Id="Copymfc80" DestinationDirectory="D__Bin" FileId="F__mfc80" />
+              <CopyFile Id="Copymfc80u" DestinationDirectory="D__Bin" FileId="F__mfc80u" />
+              <CopyFile Id="Copymfc80manifest" DestinationDirectory="D__Bin" FileId="F__mfc80manifest" />
+              <CopyFile Id="Copymfc80chs" DestinationDirectory="D__Bin" FileId="F__mfc80chs" />
+              <CopyFile Id="Copymfc80cht" DestinationDirectory="D__Bin" FileId="F__mfc80CHT" />
+              <CopyFile Id="Copymfc80deu" DestinationDirectory="D__Bin" FileId="F__mfc80DEU" />
+              <CopyFile Id="Copymfc80enu" DestinationDirectory="D__Bin" FileId="F__mfc80ENU" />
+              <CopyFile Id="Copymfc80esp" DestinationDirectory="D__Bin" FileId="F__mfc80ESP" />
+              <CopyFile Id="Copymfc80fra" DestinationDirectory="D__Bin" FileId="F__mfc80FRA" />
+              <CopyFile Id="Copymfc80ita" DestinationDirectory="D__Bin" FileId="F__mfc80ITA" />
+              <CopyFile Id="Copymfc80jpn" DestinationDirectory="D__Bin" FileId="F__mfc80JPN" />
+              <CopyFile Id="Copymfc80kor" DestinationDirectory="D__Bin" FileId="F__mfc80KOR" />
+              <CopyFile Id="Copymfcloc80manifest" DestinationDirectory="D__Bin" FileId="F__mfc80LOCmanifest" />
+              <Condition>VersionNT &lt; 501</Condition>
+            </Component>
 
-           <Component Id="C__berkeleydb" Guid="$(var.GuidBerkeleyDB)" Win64="$(var.Win64YesNo)">
-							<File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-$(var.PlatformPathExtension)\bin\libdb43.dll" KeyPath="yes" />
-						</Component>
+            <Component Id="C__berkeleydb" Guid="$(var.GuidBerkeleyDB)" Win64="$(var.Win64YesNo)">
+              <File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-$(var.PlatformPathExtension)\bin\libdb43.dll" KeyPath="yes" />
+            </Component>
 
             <Component Id="C__apr" Guid="$(var.GuidAPR)" Win64="$(var.Win64YesNo)">
-							<File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\ext\apr\release_$(var.PlatformPathExtension)\libapr.dll" KeyPath="yes" />
-							<File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\ext\apr-util\release_$(var.PlatformPathExtension)\libaprutil.dll" />
-							<File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\ext\apr-iconv\release_$(var.PlatformPathExtension)\libapriconv.dll" />
-						</Component>
+              <File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\ext\apr\release_$(var.PlatformPathExtension)\libapr.dll" KeyPath="yes" />
+              <File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\ext\apr-util\release_$(var.PlatformPathExtension)\libaprutil.dll" />
+              <File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\ext\apr-iconv\release_$(var.PlatformPathExtension)\libapriconv.dll" />
+            </Component>
 
             <Component Id="C__gettext" Guid="$(var.GuidGettext)" Win64="$(var.Win64YesNo)">
-							<File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-$(var.PlatformPathExtension)-libintl\bin\intl3_svn.dll" KeyPath="yes" />
-						</Component>
+              <File Id="F__intl" Name="INTL3_SV.DLL" LongName="intl3_svn.dll" DiskId="1" src="..\..\ext\svn-$(var.PlatformPathExtension)-libintl\bin\intl3_svn.dll" KeyPath="yes" />
+            </Component>
 
-						<?if $(env.Platform) = "win32" ?>
-							<?if $(env.IncludeCrashReportDll) = 1 ?>
-							<Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
-								<File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="include\dbghelp.dll" />
-								<File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\CrashRpt.dll" KeyPath="yes" />
-							</Component>
-							<?endif ?>
-						<?endif ?>
+            <?if $(env.Platform) = "win32" ?>
+            <?if $(env.IncludeCrashReportDll) = 1 ?>
+            <Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
+              <File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="include\dbghelp.dll" />
+              <File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\CrashRpt.dll" KeyPath="yes" />
+            </Component>
+            <?endif ?>
+            <?endif ?>
 
             <Component Id="C__help_en" Guid="$(var.GuidHelpEN)" Win64="$(var.Win64YesNo)">
-							<File Id="F_TortoiseSVN_en" Name="TSVNHELP.CHM" LongName="TortoiseSVN_en.chm" DiskId="1" src="..\..\doc\output\TortoiseSVN_en.chm" KeyPath="yes" />
-							<File Id="F__TortoiseMerge_en" Name="TMEHELP.CHM" LongName="TortoiseMerge_en.chm" DiskId="1" src="..\..\doc\output\TortoiseMerge_en.chm" />
-							<RemoveFile Id="F__Tortoise_lang" Name="*.chm" LongName="*.chm" On="uninstall" />
-						</Component>
+              <File Id="F_TortoiseSVN_en" Name="TSVNHELP.CHM" LongName="TortoiseSVN_en.chm" DiskId="1" src="..\..\doc\output\TortoiseSVN_en.chm" KeyPath="yes" />
+              <File Id="F__TortoiseMerge_en" Name="TMEHELP.CHM" LongName="TortoiseMerge_en.chm" DiskId="1" src="..\..\doc\output\TortoiseMerge_en.chm" />
+              <RemoveFile Id="F__Tortoise_lang" Name="*.chm" LongName="*.chm" On="uninstall" />
+            </Component>
 
             <Component Id="C__TortoiseSVN" Guid="$(var.GuidTortoiseSVN)" Win64="$(var.Win64YesNo)">
               <File Id="F__TortoiseProc" Name="TORTPROC.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseProc.exe" KeyPath="yes" />
-							<File Id="F__TortoiseShell" Name="TORTSVN.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseSVN.dll" />
-							<File Id="F__TortoisePlink" Name="TORTPLI.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoisePlink.exe" />
-							<File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
-							<File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
-							<File Id="F__TSVNAutolist" Name="AUTOLIST.TXT" LongName="autolist.txt" DiskId="1" src="include\autolist.txt" />
-							<File Id="F__websiteurl" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" />
-						</Component>
+              <File Id="F__TortoiseShell" Name="TORTSVN.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseSVN.dll" />
+              <File Id="F__TortoisePlink" Name="TORTPLI.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoisePlink.exe" />
+              <File Id="F__SubWCRev" Name="SUBWCREV.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
+              <File Id="F__TSVNCache" Name="TSVNCACH.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
+              <File Id="F__TSVNAutolist" Name="AUTOLIST.TXT" LongName="autolist.txt" DiskId="1" src="include\autolist.txt" />
+              <File Id="F__websiteurl" Name="WEBSITE.URL" LongName="Website.url" src="include\Website.url" DiskId="1" />
+            </Component>
 
             <Component Id="C__TortoiseSVNShortcuts" Guid="$(var.GuidTortoiseSVNShortcuts)" Win64="$(var.Win64YesNo)">
               <Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />
@@ -280,8 +280,8 @@
             </Component>
 
             <Component Id="C__TortoiseMerge" Guid="$(var.GuidTortoiseMerge)" Win64="$(var.Win64YesNo)">
-							<File Id="F__TortoiseMerge" Name="TMERGE.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseMerge.exe" KeyPath="yes" />
-						</Component>
+              <File Id="F__TortoiseMerge" Name="TMERGE.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseMerge.exe" KeyPath="yes" />
+            </Component>
 
             <Component Id="C__TortoiseMergeShortcuts" Guid="$(var.GuidTortoiseMergeShortcuts)" Win64="$(var.Win64YesNo)">
               <Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseMerge" Value="TortoiseMerge" Type="string" />
@@ -291,357 +291,357 @@
 
             <Component Id="C__Sounds" Guid="$(var.GuidSounds)" Win64="$(var.Win64YesNo)">
               <File Id="F__sounderror" Name="TERROR.WAV" LongName="TortoiseSVN_error.wav" DiskId="1" src="..\Resources\TortoiseSVN_error.wav" KeyPath="yes" />
-							<File Id="F__soundwarning" Name="TWARN.WAV" LongName="TortoiseSVN_Warning.wav" DiskId="1" src="..\Resources\TortoiseSVN_Warning.wav" />
-							<File Id="F__soundnotification" Name="TNOTIFY.WAV" LongName="TortoiseSVN_Notification.wav" DiskId="1" src="..\Resources\TortoiseSVN_Notification.wav" />
-						</Component>
+              <File Id="F__soundwarning" Name="TWARN.WAV" LongName="TortoiseSVN_Warning.wav" DiskId="1" src="..\Resources\TortoiseSVN_Warning.wav" />
+              <File Id="F__soundnotification" Name="TNOTIFY.WAV" LongName="TortoiseSVN_Notification.wav" DiskId="1" src="..\Resources\TortoiseSVN_Notification.wav" />
+            </Component>
 
             <Component Id="C__TortoiseBlame" Guid="$(var.GuidTortoiseBlame)" Win64="$(var.Win64YesNo)">
-							<File Id="F__TortoiseBlame" Name="TBLAME.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseBlame.exe" KeyPath="yes" />
-							<File Id="F__SciLexer" Name="SCILEX.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SciLexer.dll" />
-						</Component>
+              <File Id="F__TortoiseBlame" Name="TBLAME.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseBlame.exe" KeyPath="yes" />
+              <File Id="F__SciLexer" Name="SCILEX.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SciLexer.dll" />
+            </Component>
 
-					</Directory>
+          </Directory>
 
-					<Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >
+          <Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >
 
             <Component Id="C__iconv" Guid="$(var.GuidIconv)" DiskId="1" Win64="$(var.Win64YesNo)">
-							<File Id="file0" Name="ADOBE-1.SO" LongName="adobe-stdenc.so" src="..\..\bin\$(var.ReleasePath)\iconv\adobe-stdenc.so" />
-							<File Id="file1" Name="ADOBE-2.SO" LongName="adobe-symbol.so" src="..\..\bin\$(var.ReleasePath)\iconv\adobe-symbol.so" />
-							<File Id="file2" Name="ADOBE-3.SO" LongName="adobe-zdingbats.so" src="..\..\bin\$(var.ReleasePath)\iconv\adobe-zdingbats.so" />
-							<File Id="file3" Name="big5.so" src="..\..\bin\$(var.ReleasePath)\iconv\big5.so" />
-							<File Id="file4" Name="CNS1161.SO" LongName="cns11643-plane1.so" src="..\..\bin\$(var.ReleasePath)\iconv\cns11643-plane1.so" />
-							<File Id="file5" Name="CNS1162.SO" LongName="cns11643-plane14.so" src="..\..\bin\$(var.ReleasePath)\iconv\cns11643-plane14.so" />
-							<File Id="file6" Name="CNS1163.SO" LongName="cns11643-plane2.so" src="..\..\bin\$(var.ReleasePath)\iconv\cns11643-plane2.so" />
-							<File Id="file7" Name="cp037.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp037.so" />
-							<File Id="file8" Name="cp038.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp038.so" />
-							<File Id="file9" Name="cp10000.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10000.so" />
-							<File Id="file10" Name="cp10006.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10006.so" />
-							<File Id="file11" Name="cp10007.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10007.so" />
-							<File Id="file12" Name="cp10029.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10029.so" />
-							<File Id="file13" Name="cp1006.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp1006.so" />
-							<File Id="file14" Name="cp10079.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10079.so" />
-							<File Id="file15" Name="cp10081.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10081.so" />
-							<File Id="file16" Name="cp1026.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp1026.so" />
-							<File Id="file17" Name="cp273.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp273.so" />
-							<File Id="file18" Name="cp274.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp274.so" />
-							<File Id="file19" Name="cp275.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp275.so" />
-							<File Id="file20" Name="cp277.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp277.so" />
-							<File Id="file21" Name="cp278.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp278.so" />
-							<File Id="file22" Name="cp280.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp280.so" />
-							<File Id="file23" Name="cp281.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp281.so" />
-							<File Id="file24" Name="cp284.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp284.so" />
-							<File Id="file25" Name="cp285.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp285.so" />
-							<File Id="file26" Name="cp290.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp290.so" />
-							<File Id="file27" Name="cp297.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp297.so" />
-							<File Id="file28" Name="cp420.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp420.so" />
-							<File Id="file29" Name="cp423.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp423.so" />
-							<File Id="file30" Name="cp424.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp424.so" />
-							<File Id="file31" Name="cp437.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp437.so" />
-							<File Id="file32" Name="cp500.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp500.so" />
-							<File Id="file33" Name="cp737.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp737.so" />
-							<File Id="file34" Name="cp775.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp775.so" />
-							<File Id="file35" Name="cp850.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp850.so" />
-							<File Id="file36" Name="cp851.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp851.so" />
-							<File Id="file37" Name="cp852.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp852.so" />
-							<File Id="file38" Name="cp855.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp855.so" />
-							<File Id="file39" Name="cp856.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp856.so" />
-							<File Id="file40" Name="cp857.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp857.so" />
-							<File Id="file41" Name="cp860.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp860.so" />
-							<File Id="file42" Name="cp861.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp861.so" />
-							<File Id="file43" Name="cp862.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp862.so" />
-							<File Id="file44" Name="cp863.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp863.so" />
-							<File Id="file45" Name="cp864.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp864.so" />
-							<File Id="file46" Name="cp865.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp865.so" />
-							<File Id="file47" Name="cp866.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp866.so" />
-							<File Id="file48" Name="cp868.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp868.so" />
-							<File Id="file49" Name="cp869.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp869.so" />
-							<File Id="file50" Name="cp870.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp870.so" />
-							<File Id="file51" Name="cp871.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp871.so" />
-							<File Id="file52" Name="cp874.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp874.so" />
-							<File Id="file53" Name="cp875.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp875.so" />
-							<File Id="file54" Name="cp880.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp880.so" />
-							<File Id="file55" Name="cp891.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp891.so" />
-							<File Id="file56" Name="cp903.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp903.so" />
-							<File Id="file57" Name="cp904.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp904.so" />
-							<File Id="file58" Name="cp905.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp905.so" />
-							<File Id="file59" Name="cp918.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp918.so" />
-							<File Id="file60" Name="cp932.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp932.so" />
-							<File Id="file61" Name="cp936.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp936.so" />
-							<File Id="file62" Name="cp949.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp949.so" />
-							<File Id="file63" Name="cp950.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp950.so" />
-							<File Id="file64" Name="dec-mcs.so" src="..\..\bin\$(var.ReleasePath)\iconv\dec-mcs.so" />
-							<File Id="file65" Name="EBCDIC1.SO" LongName="ebcdic-at-de-a.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-at-de-a.so" />
-							<File Id="file66" Name="EBCDIC2.SO" LongName="ebcdic-at-de.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-at-de.so" />
-							<File Id="file67" Name="EBCDIC3.SO" LongName="ebcdic-ca-fr.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-ca-fr.so" />
-							<File Id="file68" Name="EBCDIC4.SO" LongName="ebcdic-dk-no-a.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-dk-no-a.so" />
-							<File Id="file69" Name="EB4BB31.SO" LongName="ebcdic-dk-no.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-dk-no.so" />
-							<File Id="file70" Name="EB4C931.SO" LongName="ebcdic-es-a.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-es-a.so" />
-							<File Id="file71" Name="EB4C241.SO" LongName="ebcdic-es-s.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-es-s.so" />
-							<File Id="file72" Name="EBCEE11.SO" LongName="ebcdic-es.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-es.so" />
-							<File Id="file73" Name="EBECC91.SO" LongName="ebcdic-fi-se-a.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-fi-se-a.so" />
-							<File Id="file74" Name="EB2BC91.SO" LongName="ebcdic-fi-se.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-fi-se.so" />
-							<File Id="file75" Name="EBD6ED1.SO" LongName="ebcdic-fr.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-fr.so" />
-							<File Id="file76" Name="EBD6F11.SO" LongName="ebcdic-it.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-it.so" />
-							<File Id="file77" Name="EBF6F51.SO" LongName="ebcdic-pt.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-pt.so" />
-							<File Id="file78" Name="EB0FA11.SO" LongName="ebcdic-uk.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-uk.so" />
-							<File Id="file79" Name="EB0FE11.SO" LongName="ebcdic-us.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-us.so" />
-							<File Id="file80" Name="euc-jp.so" src="..\..\bin\$(var.ReleasePath)\iconv\euc-jp.so" />
-							<File Id="file81" Name="euc-kr.so" src="..\..\bin\$(var.ReleasePath)\iconv\euc-kr.so" />
-							<File Id="file82" Name="euc-tw.so" src="..\..\bin\$(var.ReleasePath)\iconv\euc-tw.so" />
-							<File Id="file83" Name="gb12345.so" src="..\..\bin\$(var.ReleasePath)\iconv\gb12345.so" />
-							<File Id="file84" Name="gb2312.so" src="..\..\bin\$(var.ReleasePath)\iconv\gb2312.so" />
-							<File Id="file85" Name="GB_2311.SO" LongName="gb_2312-80.so" src="..\..\bin\$(var.ReleasePath)\iconv\gb_2312-80.so" />
-							<File Id="file86" Name="HP-ROM1.SO" LongName="hp-roman8.so" src="..\..\bin\$(var.ReleasePath)\iconv\hp-roman8.so" />
-							<File Id="file87" Name="ISO-101.SO" LongName="iso-10646-ucs-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-10646-ucs-2.so" />
-							<File Id="file88" Name="ISO-102.SO" LongName="iso-10646-ucs-4.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-10646-ucs-4.so" />
-							<File Id="file89" Name="ISO-201.SO" LongName="iso-2022-cn.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-2022-cn.so" />
-							<File Id="file90" Name="ISO-202.SO" LongName="iso-2022-jp-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-2022-jp-2.so" />
-							<File Id="file91" Name="ISO-203.SO" LongName="iso-2022-jp.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-2022-jp.so" />
-							<File Id="file92" Name="ISO-204.SO" LongName="iso-2022-kr.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-2022-kr.so" />
-							<File Id="file93" Name="ISO-881.SO" LongName="iso-8859-1.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-1.so" />
-							<File Id="file94" Name="ISO-882.SO" LongName="iso-8859-10.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-10.so" />
-							<File Id="file95" Name="ISO-883.SO" LongName="iso-8859-13.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-13.so" />
-							<File Id="file96" Name="ISO-884.SO" LongName="iso-8859-14.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-14.so" />
-							<File Id="file97" Name="ISC94B1.SO" LongName="iso-8859-15.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-15.so" />
-							<File Id="file98" Name="ISFCC61.SO" LongName="iso-8859-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-2.so" />
-							<File Id="file99" Name="IS0DCA1.SO" LongName="iso-8859-3.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-3.so" />
-							<File Id="file100" Name="IS0DCE1.SO" LongName="iso-8859-4.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-4.so" />
-							<File Id="file101" Name="IS0DC21.SO" LongName="iso-8859-5.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-5.so" />
-							<File Id="file102" Name="IS0DC61.SO" LongName="iso-8859-6.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-6.so" />
-							<File Id="file103" Name="IS1DCA1.SO" LongName="iso-8859-7.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-7.so" />
-							<File Id="file104" Name="IS1DCE1.SO" LongName="iso-8859-8.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-8.so" />
-							<File Id="file105" Name="IS1DC21.SO" LongName="iso-8859-9.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-9.so" />
-							<File Id="file106" Name="ISO-IR1.SO" LongName="iso-ir-10.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-10.so" />
-							<File Id="file107" Name="ISO-IR2.SO" LongName="iso-ir-102.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-102.so" />
-							<File Id="file108" Name="ISO-IR3.SO" LongName="iso-ir-103.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-103.so" />
-							<File Id="file109" Name="ISO-IR4.SO" LongName="iso-ir-11.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-11.so" />
-							<File Id="file110" Name="IS2EF81.SO" LongName="iso-ir-111.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-111.so" />
-							<File Id="file111" Name="IS22091.SO" LongName="iso-ir-121.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-121.so" />
-							<File Id="file112" Name="IS220D1.SO" LongName="iso-ir-122.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-122.so" />
-							<File Id="file113" Name="IS22011.SO" LongName="iso-ir-123.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-123.so" />
-							<File Id="file114" Name="IS32051.SO" LongName="iso-ir-128.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-128.so" />
-							<File Id="file115" Name="ISEB701.SO" LongName="iso-ir-13.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-13.so" />
-							<File Id="file116" Name="IS46091.SO" LongName="iso-ir-139.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-139.so" />
-							<File Id="file117" Name="ISE3801.SO" LongName="iso-ir-14.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-14.so" />
-							<File Id="file118" Name="IS2A091.SO" LongName="iso-ir-141.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-141.so" />
-							<File Id="file119" Name="IS2A0D1.SO" LongName="iso-ir-142.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-142.so" />
-							<File Id="file120" Name="IS2A011.SO" LongName="iso-ir-143.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-143.so" />
-							<File Id="file121" Name="IS3A0D1.SO" LongName="iso-ir-146.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-146.so" />
-							<File Id="file122" Name="IS3A011.SO" LongName="iso-ir-147.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-147.so" />
-							<File Id="file123" Name="ISEB801.SO" LongName="iso-ir-15.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-15.so" />
-							<File Id="file124" Name="IS1E051.SO" LongName="iso-ir-150.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-150.so" />
-							<File Id="file125" Name="IS2E091.SO" LongName="iso-ir-151.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-151.so" />
-							<File Id="file126" Name="IS2E0D1.SO" LongName="iso-ir-152.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-152.so" />
-							<File Id="file127" Name="IS2E011.SO" LongName="iso-ir-153.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-153.so" />
-							<File Id="file128" Name="IS2E051.SO" LongName="iso-ir-154.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-154.so" />
-							<File Id="file129" Name="IS3E091.SO" LongName="iso-ir-155.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-155.so" />
-							<File Id="file130" Name="IS3E051.SO" LongName="iso-ir-158.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-158.so" />
-							<File Id="file131" Name="ISE3901.SO" LongName="iso-ir-16.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-16.so" />
-							<File Id="file132" Name="ISEB901.SO" LongName="iso-ir-17.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-17.so" />
-							<File Id="file133" Name="ISE3A01.SO" LongName="iso-ir-18.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-18.so" />
-							<File Id="file134" Name="ISEBA01.SO" LongName="iso-ir-19.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-19.so" />
-							<File Id="file135" Name="iso-ir-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-2.so" />
-							<File Id="file136" Name="ISFB6C1.SO" LongName="iso-ir-21.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-21.so" />
-							<File Id="file137" Name="ISFB8C1.SO" LongName="iso-ir-25.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-25.so" />
-							<File Id="file138" Name="ISFB9C1.SO" LongName="iso-ir-27.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-27.so" />
-							<File Id="file139" Name="ISFB981.SO" LongName="iso-ir-37.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-37.so" />
-							<File Id="file140" Name="iso-ir-4.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-4.so" />
-							<File Id="file141" Name="ISFB941.SO" LongName="iso-ir-47.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-47.so" />
-							<File Id="file142" Name="ISFBA41.SO" LongName="iso-ir-49.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-49.so" />
-							<File Id="file143" Name="ISF3601.SO" LongName="iso-ir-50.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-50.so" />
-							<File Id="file144" Name="ISFB601.SO" LongName="iso-ir-51.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-51.so" />
-							<File Id="file145" Name="ISF3801.SO" LongName="iso-ir-54.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-54.so" />
-							<File Id="file146" Name="ISFB801.SO" LongName="iso-ir-55.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-55.so" />
-							<File Id="file147" Name="ISFB901.SO" LongName="iso-ir-57.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-57.so" />
-							<File Id="file148" Name="IS046C1.SO" LongName="iso-ir-60.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-60.so" />
-							<File Id="file149" Name="IS0C6C1.SO" LongName="iso-ir-61.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-61.so" />
-							<File Id="file150" Name="IS0CAC1.SO" LongName="iso-ir-69.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-69.so" />
-							<File Id="file151" Name="IS04681.SO" LongName="iso-ir-70.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-70.so" />
-							<File Id="file152" Name="IS3EEA1.SO" LongName="iso-ir-8-1.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-8-1.so" />
-							<File Id="file153" Name="IS3EEE1.SO" LongName="iso-ir-8-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-8-2.so" />
-							<File Id="file154" Name="IS04841.SO" LongName="iso-ir-84.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-84.so" />
-							<File Id="file155" Name="IS0C841.SO" LongName="iso-ir-85.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-85.so" />
-							<File Id="file156" Name="IS04941.SO" LongName="iso-ir-86.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-86.so" />
-							<File Id="file157" Name="IS04A41.SO" LongName="iso-ir-88.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-88.so" />
-							<File Id="file158" Name="IS0CA41.SO" LongName="iso-ir-89.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-89.so" />
-							<File Id="file159" Name="IS3EE81.SO" LongName="iso-ir-9-1.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-9-1.so" />
-							<File Id="file160" Name="IS3EEC1.SO" LongName="iso-ir-9-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-9-2.so" />
-							<File Id="file161" Name="IS04601.SO" LongName="iso-ir-90.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-90.so" />
-							<File Id="file162" Name="IS0C601.SO" LongName="iso-ir-91.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-91.so" />
-							<File Id="file163" Name="IS04701.SO" LongName="iso-ir-92.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-92.so" />
-							<File Id="file164" Name="IS0C701.SO" LongName="iso-ir-93.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-93.so" />
-							<File Id="file165" Name="IS04801.SO" LongName="iso-ir-94.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-94.so" />
-							<File Id="file166" Name="IS0C801.SO" LongName="iso-ir-95.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-95.so" />
-							<File Id="file167" Name="IS04901.SO" LongName="iso-ir-96.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-96.so" />
-							<File Id="file168" Name="IS04A01.SO" LongName="iso-ir-98.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-98.so" />
-							<File Id="file169" Name="IS0CA01.SO" LongName="iso-ir-99.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-99.so" />
-							<File Id="file170" Name="ISO6461.SO" LongName="iso646-dk.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso646-dk.so" />
-							<File Id="file171" Name="ISO6462.SO" LongName="iso646-kr.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso646-kr.so" />
-							<File Id="file172" Name="JIS_X01.SO" LongName="jis_x0201.so" src="..\..\bin\$(var.ReleasePath)\iconv\jis_x0201.so" />
-							<File Id="file173" Name="JIS_X02.SO" LongName="jis_x0208-1983.so" src="..\..\bin\$(var.ReleasePath)\iconv\jis_x0208-1983.so" />
-							<File Id="file174" Name="JIS_X03.SO" LongName="jis_x0212-1990.so" src="..\..\bin\$(var.ReleasePath)\iconv\jis_x0212-1990.so" />
-							<File Id="file175" Name="johab.so" src="..\..\bin\$(var.ReleasePath)\iconv\johab.so" />
-							<File Id="file176" Name="koi8-r.so" src="..\..\bin\$(var.ReleasePath)\iconv\koi8-r.so" />
-							<File Id="file177" Name="koi8-ru.so" src="..\..\bin\$(var.ReleasePath)\iconv\koi8-ru.so" />
-							<File Id="file178" Name="koi8-u.so" src="..\..\bin\$(var.ReleasePath)\iconv\koi8-u.so" />
-							<File Id="file179" Name="ksx1001.so" src="..\..\bin\$(var.ReleasePath)\iconv\ksx1001.so" />
-							<File Id="file180" Name="mac-ce.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-ce.so" />
-							<File Id="file181" Name="MAC-CR1.SO" LongName="mac-croatian.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-croatian.so" />
-							<File Id="file182" Name="MAC-CY1.SO" LongName="mac-cyrillic.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-cyrillic.so" />
-							<File Id="file183" Name="MAC-DI1.SO" LongName="mac-dingbats.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-dingbats.so" />
-							<File Id="file184" Name="MAC-GR1.SO" LongName="mac-greek.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-greek.so" />
-							<File Id="file185" Name="MAC-IC1.SO" LongName="mac-iceland.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-iceland.so" />
-							<File Id="file186" Name="MAC-JA1.SO" LongName="mac-japan.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-japan.so" />
-							<File Id="file187" Name="MAC-RO1.SO" LongName="mac-roman.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-roman.so" />
-							<File Id="file188" Name="MAC-RO2.SO" LongName="mac-romania.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-romania.so" />
-							<File Id="file189" Name="mac-thai.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-thai.so" />
-							<File Id="file190" Name="MAC-TU1.SO" LongName="mac-turkish.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-turkish.so" />
-							<File Id="file191" Name="MAC-UK1.SO" LongName="mac-ukraine.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-ukraine.so" />
-							<File Id="file192" Name="MACINT1.SO" LongName="macintosh.so" src="..\..\bin\$(var.ReleasePath)\iconv\macintosh.so" />
-							<File Id="file193" Name="OSD_EB1.SO" LongName="osd_ebcdic_df04_1.so" src="..\..\bin\$(var.ReleasePath)\iconv\osd_ebcdic_df04_1.so" />
-							<File Id="file194" Name="OSD_EB2.SO" LongName="osd_ebcdic_df04_15.so" src="..\..\bin\$(var.ReleasePath)\iconv\osd_ebcdic_df04_15.so" />
-							<File Id="file195" Name="SHIFT_1.SO" LongName="shift_jis.so" src="..\..\bin\$(var.ReleasePath)\iconv\shift_jis.so" />
-							<File Id="file196" Name="UCS2-I1.SO" LongName="ucs2-internal.so" src="..\..\bin\$(var.ReleasePath)\iconv\ucs2-internal.so" />
-							<File Id="file197" Name="UCS4-I1.SO" LongName="ucs4-internal.so" src="..\..\bin\$(var.ReleasePath)\iconv\ucs4-internal.so" />
-							<File Id="file198" Name="UNICOD1.SO" LongName="unicode-1-1-utf-7.so" src="..\..\bin\$(var.ReleasePath)\iconv\unicode-1-1-utf-7.so" />
-							<File Id="file199" Name="us-ascii.so" src="..\..\bin\$(var.ReleasePath)\iconv\us-ascii.so" />
-							<File Id="file200" Name="utf-16.so" src="..\..\bin\$(var.ReleasePath)\iconv\utf-16.so" />
-							<File Id="file201" Name="utf-8.so" src="..\..\bin\$(var.ReleasePath)\iconv\utf-8.so" />
-							<File Id="file202" Name="WINDOW1.SO" LongName="windows-1250.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1250.so" />
-							<File Id="file203" Name="WINDOW2.SO" LongName="windows-1251.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1251.so" />
-							<File Id="file204" Name="WINDOW3.SO" LongName="windows-1252.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1252.so" />
-							<File Id="file205" Name="WINDOW4.SO" LongName="windows-1253.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1253.so" />
-							<File Id="file206" Name="WI30D31.SO" LongName="windows-1254.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1254.so" />
-							<File Id="file207" Name="WI30DF1.SO" LongName="windows-1255.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1255.so" />
-							<File Id="file208" Name="WI40DB1.SO" LongName="windows-1256.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1256.so" />
-							<File Id="file209" Name="WI40D71.SO" LongName="windows-1257.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1257.so" />
-							<File Id="file210" Name="WI40D31.SO" LongName="windows-1258.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1258.so" />
-							<File Id="file211" Name="_TBL_S1.SO" LongName="_tbl_simple.so" src="..\..\bin\$(var.ReleasePath)\iconv\_tbl_simple.so" />
-						</Component>
+              <File Id="file0" Name="ADOBE-1.SO" LongName="adobe-stdenc.so" src="..\..\bin\$(var.ReleasePath)\iconv\adobe-stdenc.so" />
+              <File Id="file1" Name="ADOBE-2.SO" LongName="adobe-symbol.so" src="..\..\bin\$(var.ReleasePath)\iconv\adobe-symbol.so" />
+              <File Id="file2" Name="ADOBE-3.SO" LongName="adobe-zdingbats.so" src="..\..\bin\$(var.ReleasePath)\iconv\adobe-zdingbats.so" />
+              <File Id="file3" Name="big5.so" src="..\..\bin\$(var.ReleasePath)\iconv\big5.so" />
+              <File Id="file4" Name="CNS1161.SO" LongName="cns11643-plane1.so" src="..\..\bin\$(var.ReleasePath)\iconv\cns11643-plane1.so" />
+              <File Id="file5" Name="CNS1162.SO" LongName="cns11643-plane14.so" src="..\..\bin\$(var.ReleasePath)\iconv\cns11643-plane14.so" />
+              <File Id="file6" Name="CNS1163.SO" LongName="cns11643-plane2.so" src="..\..\bin\$(var.ReleasePath)\iconv\cns11643-plane2.so" />
+              <File Id="file7" Name="cp037.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp037.so" />
+              <File Id="file8" Name="cp038.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp038.so" />
+              <File Id="file9" Name="cp10000.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10000.so" />
+              <File Id="file10" Name="cp10006.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10006.so" />
+              <File Id="file11" Name="cp10007.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10007.so" />
+              <File Id="file12" Name="cp10029.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10029.so" />
+              <File Id="file13" Name="cp1006.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp1006.so" />
+              <File Id="file14" Name="cp10079.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10079.so" />
+              <File Id="file15" Name="cp10081.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp10081.so" />
+              <File Id="file16" Name="cp1026.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp1026.so" />
+              <File Id="file17" Name="cp273.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp273.so" />
+              <File Id="file18" Name="cp274.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp274.so" />
+              <File Id="file19" Name="cp275.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp275.so" />
+              <File Id="file20" Name="cp277.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp277.so" />
+              <File Id="file21" Name="cp278.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp278.so" />
+              <File Id="file22" Name="cp280.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp280.so" />
+              <File Id="file23" Name="cp281.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp281.so" />
+              <File Id="file24" Name="cp284.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp284.so" />
+              <File Id="file25" Name="cp285.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp285.so" />
+              <File Id="file26" Name="cp290.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp290.so" />
+              <File Id="file27" Name="cp297.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp297.so" />
+              <File Id="file28" Name="cp420.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp420.so" />
+              <File Id="file29" Name="cp423.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp423.so" />
+              <File Id="file30" Name="cp424.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp424.so" />
+              <File Id="file31" Name="cp437.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp437.so" />
+              <File Id="file32" Name="cp500.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp500.so" />
+              <File Id="file33" Name="cp737.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp737.so" />
+              <File Id="file34" Name="cp775.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp775.so" />
+              <File Id="file35" Name="cp850.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp850.so" />
+              <File Id="file36" Name="cp851.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp851.so" />
+              <File Id="file37" Name="cp852.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp852.so" />
+              <File Id="file38" Name="cp855.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp855.so" />
+              <File Id="file39" Name="cp856.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp856.so" />
+              <File Id="file40" Name="cp857.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp857.so" />
+              <File Id="file41" Name="cp860.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp860.so" />
+              <File Id="file42" Name="cp861.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp861.so" />
+              <File Id="file43" Name="cp862.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp862.so" />
+              <File Id="file44" Name="cp863.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp863.so" />
+              <File Id="file45" Name="cp864.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp864.so" />
+              <File Id="file46" Name="cp865.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp865.so" />
+              <File Id="file47" Name="cp866.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp866.so" />
+              <File Id="file48" Name="cp868.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp868.so" />
+              <File Id="file49" Name="cp869.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp869.so" />
+              <File Id="file50" Name="cp870.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp870.so" />
+              <File Id="file51" Name="cp871.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp871.so" />
+              <File Id="file52" Name="cp874.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp874.so" />
+              <File Id="file53" Name="cp875.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp875.so" />
+              <File Id="file54" Name="cp880.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp880.so" />
+              <File Id="file55" Name="cp891.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp891.so" />
+              <File Id="file56" Name="cp903.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp903.so" />
+              <File Id="file57" Name="cp904.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp904.so" />
+              <File Id="file58" Name="cp905.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp905.so" />
+              <File Id="file59" Name="cp918.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp918.so" />
+              <File Id="file60" Name="cp932.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp932.so" />
+              <File Id="file61" Name="cp936.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp936.so" />
+              <File Id="file62" Name="cp949.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp949.so" />
+              <File Id="file63" Name="cp950.so" src="..\..\bin\$(var.ReleasePath)\iconv\cp950.so" />
+              <File Id="file64" Name="dec-mcs.so" src="..\..\bin\$(var.ReleasePath)\iconv\dec-mcs.so" />
+              <File Id="file65" Name="EBCDIC1.SO" LongName="ebcdic-at-de-a.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-at-de-a.so" />
+              <File Id="file66" Name="EBCDIC2.SO" LongName="ebcdic-at-de.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-at-de.so" />
+              <File Id="file67" Name="EBCDIC3.SO" LongName="ebcdic-ca-fr.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-ca-fr.so" />
+              <File Id="file68" Name="EBCDIC4.SO" LongName="ebcdic-dk-no-a.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-dk-no-a.so" />
+              <File Id="file69" Name="EB4BB31.SO" LongName="ebcdic-dk-no.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-dk-no.so" />
+              <File Id="file70" Name="EB4C931.SO" LongName="ebcdic-es-a.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-es-a.so" />
+              <File Id="file71" Name="EB4C241.SO" LongName="ebcdic-es-s.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-es-s.so" />
+              <File Id="file72" Name="EBCEE11.SO" LongName="ebcdic-es.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-es.so" />
+              <File Id="file73" Name="EBECC91.SO" LongName="ebcdic-fi-se-a.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-fi-se-a.so" />
+              <File Id="file74" Name="EB2BC91.SO" LongName="ebcdic-fi-se.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-fi-se.so" />
+              <File Id="file75" Name="EBD6ED1.SO" LongName="ebcdic-fr.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-fr.so" />
+              <File Id="file76" Name="EBD6F11.SO" LongName="ebcdic-it.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-it.so" />
+              <File Id="file77" Name="EBF6F51.SO" LongName="ebcdic-pt.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-pt.so" />
+              <File Id="file78" Name="EB0FA11.SO" LongName="ebcdic-uk.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-uk.so" />
+              <File Id="file79" Name="EB0FE11.SO" LongName="ebcdic-us.so" src="..\..\bin\$(var.ReleasePath)\iconv\ebcdic-us.so" />
+              <File Id="file80" Name="euc-jp.so" src="..\..\bin\$(var.ReleasePath)\iconv\euc-jp.so" />
+              <File Id="file81" Name="euc-kr.so" src="..\..\bin\$(var.ReleasePath)\iconv\euc-kr.so" />
+              <File Id="file82" Name="euc-tw.so" src="..\..\bin\$(var.ReleasePath)\iconv\euc-tw.so" />
+              <File Id="file83" Name="gb12345.so" src="..\..\bin\$(var.ReleasePath)\iconv\gb12345.so" />
+              <File Id="file84" Name="gb2312.so" src="..\..\bin\$(var.ReleasePath)\iconv\gb2312.so" />
+              <File Id="file85" Name="GB_2311.SO" LongName="gb_2312-80.so" src="..\..\bin\$(var.ReleasePath)\iconv\gb_2312-80.so" />
+              <File Id="file86" Name="HP-ROM1.SO" LongName="hp-roman8.so" src="..\..\bin\$(var.ReleasePath)\iconv\hp-roman8.so" />
+              <File Id="file87" Name="ISO-101.SO" LongName="iso-10646-ucs-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-10646-ucs-2.so" />
+              <File Id="file88" Name="ISO-102.SO" LongName="iso-10646-ucs-4.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-10646-ucs-4.so" />
+              <File Id="file89" Name="ISO-201.SO" LongName="iso-2022-cn.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-2022-cn.so" />
+              <File Id="file90" Name="ISO-202.SO" LongName="iso-2022-jp-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-2022-jp-2.so" />
+              <File Id="file91" Name="ISO-203.SO" LongName="iso-2022-jp.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-2022-jp.so" />
+              <File Id="file92" Name="ISO-204.SO" LongName="iso-2022-kr.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-2022-kr.so" />
+              <File Id="file93" Name="ISO-881.SO" LongName="iso-8859-1.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-1.so" />
+              <File Id="file94" Name="ISO-882.SO" LongName="iso-8859-10.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-10.so" />
+              <File Id="file95" Name="ISO-883.SO" LongName="iso-8859-13.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-13.so" />
+              <File Id="file96" Name="ISO-884.SO" LongName="iso-8859-14.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-14.so" />
+              <File Id="file97" Name="ISC94B1.SO" LongName="iso-8859-15.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-15.so" />
+              <File Id="file98" Name="ISFCC61.SO" LongName="iso-8859-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-2.so" />
+              <File Id="file99" Name="IS0DCA1.SO" LongName="iso-8859-3.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-3.so" />
+              <File Id="file100" Name="IS0DCE1.SO" LongName="iso-8859-4.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-4.so" />
+              <File Id="file101" Name="IS0DC21.SO" LongName="iso-8859-5.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-5.so" />
+              <File Id="file102" Name="IS0DC61.SO" LongName="iso-8859-6.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-6.so" />
+              <File Id="file103" Name="IS1DCA1.SO" LongName="iso-8859-7.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-7.so" />
+              <File Id="file104" Name="IS1DCE1.SO" LongName="iso-8859-8.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-8.so" />
+              <File Id="file105" Name="IS1DC21.SO" LongName="iso-8859-9.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-8859-9.so" />
+              <File Id="file106" Name="ISO-IR1.SO" LongName="iso-ir-10.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-10.so" />
+              <File Id="file107" Name="ISO-IR2.SO" LongName="iso-ir-102.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-102.so" />
+              <File Id="file108" Name="ISO-IR3.SO" LongName="iso-ir-103.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-103.so" />
+              <File Id="file109" Name="ISO-IR4.SO" LongName="iso-ir-11.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-11.so" />
+              <File Id="file110" Name="IS2EF81.SO" LongName="iso-ir-111.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-111.so" />
+              <File Id="file111" Name="IS22091.SO" LongName="iso-ir-121.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-121.so" />
+              <File Id="file112" Name="IS220D1.SO" LongName="iso-ir-122.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-122.so" />
+              <File Id="file113" Name="IS22011.SO" LongName="iso-ir-123.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-123.so" />
+              <File Id="file114" Name="IS32051.SO" LongName="iso-ir-128.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-128.so" />
+              <File Id="file115" Name="ISEB701.SO" LongName="iso-ir-13.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-13.so" />
+              <File Id="file116" Name="IS46091.SO" LongName="iso-ir-139.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-139.so" />
+              <File Id="file117" Name="ISE3801.SO" LongName="iso-ir-14.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-14.so" />
+              <File Id="file118" Name="IS2A091.SO" LongName="iso-ir-141.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-141.so" />
+              <File Id="file119" Name="IS2A0D1.SO" LongName="iso-ir-142.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-142.so" />
+              <File Id="file120" Name="IS2A011.SO" LongName="iso-ir-143.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-143.so" />
+              <File Id="file121" Name="IS3A0D1.SO" LongName="iso-ir-146.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-146.so" />
+              <File Id="file122" Name="IS3A011.SO" LongName="iso-ir-147.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-147.so" />
+              <File Id="file123" Name="ISEB801.SO" LongName="iso-ir-15.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-15.so" />
+              <File Id="file124" Name="IS1E051.SO" LongName="iso-ir-150.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-150.so" />
+              <File Id="file125" Name="IS2E091.SO" LongName="iso-ir-151.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-151.so" />
+              <File Id="file126" Name="IS2E0D1.SO" LongName="iso-ir-152.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-152.so" />
+              <File Id="file127" Name="IS2E011.SO" LongName="iso-ir-153.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-153.so" />
+              <File Id="file128" Name="IS2E051.SO" LongName="iso-ir-154.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-154.so" />
+              <File Id="file129" Name="IS3E091.SO" LongName="iso-ir-155.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-155.so" />
+              <File Id="file130" Name="IS3E051.SO" LongName="iso-ir-158.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-158.so" />
+              <File Id="file131" Name="ISE3901.SO" LongName="iso-ir-16.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-16.so" />
+              <File Id="file132" Name="ISEB901.SO" LongName="iso-ir-17.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-17.so" />
+              <File Id="file133" Name="ISE3A01.SO" LongName="iso-ir-18.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-18.so" />
+              <File Id="file134" Name="ISEBA01.SO" LongName="iso-ir-19.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-19.so" />
+              <File Id="file135" Name="iso-ir-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-2.so" />
+              <File Id="file136" Name="ISFB6C1.SO" LongName="iso-ir-21.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-21.so" />
+              <File Id="file137" Name="ISFB8C1.SO" LongName="iso-ir-25.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-25.so" />
+              <File Id="file138" Name="ISFB9C1.SO" LongName="iso-ir-27.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-27.so" />
+              <File Id="file139" Name="ISFB981.SO" LongName="iso-ir-37.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-37.so" />
+              <File Id="file140" Name="iso-ir-4.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-4.so" />
+              <File Id="file141" Name="ISFB941.SO" LongName="iso-ir-47.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-47.so" />
+              <File Id="file142" Name="ISFBA41.SO" LongName="iso-ir-49.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-49.so" />
+              <File Id="file143" Name="ISF3601.SO" LongName="iso-ir-50.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-50.so" />
+              <File Id="file144" Name="ISFB601.SO" LongName="iso-ir-51.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-51.so" />
+              <File Id="file145" Name="ISF3801.SO" LongName="iso-ir-54.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-54.so" />
+              <File Id="file146" Name="ISFB801.SO" LongName="iso-ir-55.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-55.so" />
+              <File Id="file147" Name="ISFB901.SO" LongName="iso-ir-57.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-57.so" />
+              <File Id="file148" Name="IS046C1.SO" LongName="iso-ir-60.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-60.so" />
+              <File Id="file149" Name="IS0C6C1.SO" LongName="iso-ir-61.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-61.so" />
+              <File Id="file150" Name="IS0CAC1.SO" LongName="iso-ir-69.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-69.so" />
+              <File Id="file151" Name="IS04681.SO" LongName="iso-ir-70.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-70.so" />
+              <File Id="file152" Name="IS3EEA1.SO" LongName="iso-ir-8-1.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-8-1.so" />
+              <File Id="file153" Name="IS3EEE1.SO" LongName="iso-ir-8-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-8-2.so" />
+              <File Id="file154" Name="IS04841.SO" LongName="iso-ir-84.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-84.so" />
+              <File Id="file155" Name="IS0C841.SO" LongName="iso-ir-85.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-85.so" />
+              <File Id="file156" Name="IS04941.SO" LongName="iso-ir-86.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-86.so" />
+              <File Id="file157" Name="IS04A41.SO" LongName="iso-ir-88.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-88.so" />
+              <File Id="file158" Name="IS0CA41.SO" LongName="iso-ir-89.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-89.so" />
+              <File Id="file159" Name="IS3EE81.SO" LongName="iso-ir-9-1.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-9-1.so" />
+              <File Id="file160" Name="IS3EEC1.SO" LongName="iso-ir-9-2.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-9-2.so" />
+              <File Id="file161" Name="IS04601.SO" LongName="iso-ir-90.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-90.so" />
+              <File Id="file162" Name="IS0C601.SO" LongName="iso-ir-91.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-91.so" />
+              <File Id="file163" Name="IS04701.SO" LongName="iso-ir-92.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-92.so" />
+              <File Id="file164" Name="IS0C701.SO" LongName="iso-ir-93.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-93.so" />
+              <File Id="file165" Name="IS04801.SO" LongName="iso-ir-94.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-94.so" />
+              <File Id="file166" Name="IS0C801.SO" LongName="iso-ir-95.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-95.so" />
+              <File Id="file167" Name="IS04901.SO" LongName="iso-ir-96.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-96.so" />
+              <File Id="file168" Name="IS04A01.SO" LongName="iso-ir-98.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-98.so" />
+              <File Id="file169" Name="IS0CA01.SO" LongName="iso-ir-99.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso-ir-99.so" />
+              <File Id="file170" Name="ISO6461.SO" LongName="iso646-dk.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso646-dk.so" />
+              <File Id="file171" Name="ISO6462.SO" LongName="iso646-kr.so" src="..\..\bin\$(var.ReleasePath)\iconv\iso646-kr.so" />
+              <File Id="file172" Name="JIS_X01.SO" LongName="jis_x0201.so" src="..\..\bin\$(var.ReleasePath)\iconv\jis_x0201.so" />
+              <File Id="file173" Name="JIS_X02.SO" LongName="jis_x0208-1983.so" src="..\..\bin\$(var.ReleasePath)\iconv\jis_x0208-1983.so" />
+              <File Id="file174" Name="JIS_X03.SO" LongName="jis_x0212-1990.so" src="..\..\bin\$(var.ReleasePath)\iconv\jis_x0212-1990.so" />
+              <File Id="file175" Name="johab.so" src="..\..\bin\$(var.ReleasePath)\iconv\johab.so" />
+              <File Id="file176" Name="koi8-r.so" src="..\..\bin\$(var.ReleasePath)\iconv\koi8-r.so" />
+              <File Id="file177" Name="koi8-ru.so" src="..\..\bin\$(var.ReleasePath)\iconv\koi8-ru.so" />
+              <File Id="file178" Name="koi8-u.so" src="..\..\bin\$(var.ReleasePath)\iconv\koi8-u.so" />
+              <File Id="file179" Name="ksx1001.so" src="..\..\bin\$(var.ReleasePath)\iconv\ksx1001.so" />
+              <File Id="file180" Name="mac-ce.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-ce.so" />
+              <File Id="file181" Name="MAC-CR1.SO" LongName="mac-croatian.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-croatian.so" />
+              <File Id="file182" Name="MAC-CY1.SO" LongName="mac-cyrillic.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-cyrillic.so" />
+              <File Id="file183" Name="MAC-DI1.SO" LongName="mac-dingbats.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-dingbats.so" />
+              <File Id="file184" Name="MAC-GR1.SO" LongName="mac-greek.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-greek.so" />
+              <File Id="file185" Name="MAC-IC1.SO" LongName="mac-iceland.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-iceland.so" />
+              <File Id="file186" Name="MAC-JA1.SO" LongName="mac-japan.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-japan.so" />
+              <File Id="file187" Name="MAC-RO1.SO" LongName="mac-roman.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-roman.so" />
+              <File Id="file188" Name="MAC-RO2.SO" LongName="mac-romania.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-romania.so" />
+              <File Id="file189" Name="mac-thai.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-thai.so" />
+              <File Id="file190" Name="MAC-TU1.SO" LongName="mac-turkish.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-turkish.so" />
+              <File Id="file191" Name="MAC-UK1.SO" LongName="mac-ukraine.so" src="..\..\bin\$(var.ReleasePath)\iconv\mac-ukraine.so" />
+              <File Id="file192" Name="MACINT1.SO" LongName="macintosh.so" src="..\..\bin\$(var.ReleasePath)\iconv\macintosh.so" />
+              <File Id="file193" Name="OSD_EB1.SO" LongName="osd_ebcdic_df04_1.so" src="..\..\bin\$(var.ReleasePath)\iconv\osd_ebcdic_df04_1.so" />
+              <File Id="file194" Name="OSD_EB2.SO" LongName="osd_ebcdic_df04_15.so" src="..\..\bin\$(var.ReleasePath)\iconv\osd_ebcdic_df04_15.so" />
+              <File Id="file195" Name="SHIFT_1.SO" LongName="shift_jis.so" src="..\..\bin\$(var.ReleasePath)\iconv\shift_jis.so" />
+              <File Id="file196" Name="UCS2-I1.SO" LongName="ucs2-internal.so" src="..\..\bin\$(var.ReleasePath)\iconv\ucs2-internal.so" />
+              <File Id="file197" Name="UCS4-I1.SO" LongName="ucs4-internal.so" src="..\..\bin\$(var.ReleasePath)\iconv\ucs4-internal.so" />
+              <File Id="file198" Name="UNICOD1.SO" LongName="unicode-1-1-utf-7.so" src="..\..\bin\$(var.ReleasePath)\iconv\unicode-1-1-utf-7.so" />
+              <File Id="file199" Name="us-ascii.so" src="..\..\bin\$(var.ReleasePath)\iconv\us-ascii.so" />
+              <File Id="file200" Name="utf-16.so" src="..\..\bin\$(var.ReleasePath)\iconv\utf-16.so" />
+              <File Id="file201" Name="utf-8.so" src="..\..\bin\$(var.ReleasePath)\iconv\utf-8.so" />
+              <File Id="file202" Name="WINDOW1.SO" LongName="windows-1250.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1250.so" />
+              <File Id="file203" Name="WINDOW2.SO" LongName="windows-1251.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1251.so" />
+              <File Id="file204" Name="WINDOW3.SO" LongName="windows-1252.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1252.so" />
+              <File Id="file205" Name="WINDOW4.SO" LongName="windows-1253.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1253.so" />
+              <File Id="file206" Name="WI30D31.SO" LongName="windows-1254.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1254.so" />
+              <File Id="file207" Name="WI30DF1.SO" LongName="windows-1255.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1255.so" />
+              <File Id="file208" Name="WI40DB1.SO" LongName="windows-1256.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1256.so" />
+              <File Id="file209" Name="WI40D71.SO" LongName="windows-1257.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1257.so" />
+              <File Id="file210" Name="WI40D31.SO" LongName="windows-1258.so" src="..\..\bin\$(var.ReleasePath)\iconv\windows-1258.so" />
+              <File Id="file211" Name="_TBL_S1.SO" LongName="_tbl_simple.so" src="..\..\bin\$(var.ReleasePath)\iconv\_tbl_simple.so" />
+            </Component>
 
-					</Directory>
+          </Directory>
 
-					<Directory Id="D__Languages" Name="Language" LongName="Languages" >
+          <Directory Id="D__Languages" Name="Language" LongName="Languages" >
 
             <Component Id="C__DictionaryENGB" Guid="$(var.GuidDictionaryENGB)" Win64="$(var.Win64YesNo)">
-							<?if $(env.DictionaryENGB) = 1 ?>
-							<File Id="F__ENGBSPELLAFF" Name="en_GB.aff" LongName="en_GB.aff" src="..\..\..\Common\Spell\en_GB.aff" DiskId="1" />
-							<File Id="F__ENGBSPELLDIC" Name="en_GB.dic" LongName="en_GB.dic" src="..\..\..\Common\Spell\en_GB.dic" DiskId="1" />
-							<?endif ?>
-						</Component>
+              <?if $(env.DictionaryENGB) = 1 ?>
+              <File Id="F__ENGBSPELLAFF" Name="en_GB.aff" LongName="en_GB.aff" src="..\..\..\Common\Spell\en_GB.aff" DiskId="1" />
+              <File Id="F__ENGBSPELLDIC" Name="en_GB.dic" LongName="en_GB.dic" src="..\..\..\Common\Spell\en_GB.dic" DiskId="1" />
+              <?endif ?>
+            </Component>
 
             <Component Id="C__DictionaryENUS" Guid="$(var.GuidDictionaryENUS)" Win64="$(var.Win64YesNo)">
-							<?if $(env.DictionaryENUS) = 1 ?>
-							<File Id="F__ENSPELLAFF" Name="en_US.aff" LongName="en_US.aff" src="..\..\..\Common\Spell\en_US.aff" DiskId="1" />
-							<File Id="F__ENSPELLDIC" Name="en_US.dic" LongName="en_US.dic" src="..\..\..\Common\Spell\en_US.dic" DiskId="1" />
-							<?endif ?>
-						</Component>
+              <?if $(env.DictionaryENUS) = 1 ?>
+              <File Id="F__ENSPELLAFF" Name="en_US.aff" LongName="en_US.aff" src="..\..\..\Common\Spell\en_US.aff" DiskId="1" />
+              <File Id="F__ENSPELLDIC" Name="en_US.dic" LongName="en_US.dic" src="..\..\..\Common\Spell\en_US.dic" DiskId="1" />
+              <?endif ?>
+            </Component>
 
-					</Directory>
+          </Directory>
 
-					<Directory Id="D__DiffScripts" Name="Diff" LongName="Diff-Scripts" >
+          <Directory Id="D__DiffScripts" Name="Diff" LongName="Diff-Scripts" >
 
             <Component Id="C__DiffScripts" Guid="$(var.GuidDiffScripts)" Win64="$(var.Win64YesNo)">
-							<File Id="F__diffdoc" Name="diff-doc.js" LongName="diff-doc.js" src="..\..\contrib\other\diff-scripts\diff-doc.js" DiskId="1" KeyPath="yes" />
-							<File Id="F__mergedoc" Name="mergedoc.js" LongName="merge-doc.js" src="..\..\contrib\other\diff-scripts\merge-doc.js" DiskId="1" />
-							<File Id="F__diffsxw" Name="diff-sxw.vbs" LongName="diff-sxw.vbs" src="..\..\contrib\other\diff-scripts\diff-sxw.vbs" DiskId="1" />
-							<File Id="F__mergesxw" Name="mergesxw.vbs" LongName="merge-sxw.vbs" src="..\..\contrib\other\diff-scripts\merge-sxw.vbs" DiskId="1" />
-						</Component>
+              <File Id="F__diffdoc" Name="diff-doc.js" LongName="diff-doc.js" src="..\..\contrib\other\diff-scripts\diff-doc.js" DiskId="1" KeyPath="yes" />
+              <File Id="F__mergedoc" Name="mergedoc.js" LongName="merge-doc.js" src="..\..\contrib\other\diff-scripts\merge-doc.js" DiskId="1" />
+              <File Id="F__diffsxw" Name="diff-sxw.vbs" LongName="diff-sxw.vbs" src="..\..\contrib\other\diff-scripts\diff-sxw.vbs" DiskId="1" />
+              <File Id="F__mergesxw" Name="mergesxw.vbs" LongName="merge-sxw.vbs" src="..\..\contrib\other\diff-scripts\merge-sxw.vbs" DiskId="1" />
+            </Component>
 
-					</Directory>
+          </Directory>
 
-					<Directory Id="ProgramMenuFolder" Name="." SourceName="USER'S" LongSource="User's Programs Menu">
-						<Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="TortoiseSVN" />
-					</Directory>
+          <Directory Id="ProgramMenuFolder" Name="." SourceName="USER'S" LongSource="User's Programs Menu">
+            <Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="TortoiseSVN" />
+          </Directory>
 
-					<Directory Id="D__icons" Name="ICONS" LongName="icons" >
-						<Directory Id="D__iconsclassic" Name="Classic" >
+          <Directory Id="D__icons" Name="ICONS" LongName="icons" >
+            <Directory Id="D__iconsclassic" Name="Classic" >
 
               <Component Id="C__iconsclassic" Guid="$(var.GuidIconsClassic)" Win64="$(var.Win64YesNo)">
-								<File Id="F__ClassicConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__ClassicInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseInSubversion.ico" />
-								<File Id="F__ClassicModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseModified.ico" />
-								<File Id="F__ClassicReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseReadOnly.ico" />
-								<File Id="F__ClassicDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseDeleted.ico" />
-								<File Id="F__ClassicLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseLocked.ico" />
-								<File Id="F__ClassicAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseAdded.ico" />
-							</Component>
+                <File Id="F__ClassicConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseConflict.ico" KeyPath="yes" />
+                <File Id="F__ClassicInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseInSubversion.ico" />
+                <File Id="F__ClassicModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseModified.ico" />
+                <File Id="F__ClassicReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseReadOnly.ico" />
+                <File Id="F__ClassicDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseDeleted.ico" />
+                <File Id="F__ClassicLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseLocked.ico" />
+                <File Id="F__ClassicAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseAdded.ico" />
+              </Component>
 
-						</Directory>
+            </Directory>
 
-						<Directory Id="D__iconscvsclassic" Name="CVSClass" LongName="CVSClassic" >
+            <Directory Id="D__iconscvsclassic" Name="CVSClass" LongName="CVSClassic" >
 
               <Component Id="C__iconscvsclassic" Guid="$(var.GuidIconsCVSClassic)" Win64="$(var.Win64YesNo)">
-								<File Id="F__CVSClassicConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__CVSClassicInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseInSubversion.ico" />
-								<File Id="F__CVSClassicModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseModified.ico" />
-								<File Id="F__CVSClassicReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseReadOnly.ico" />
-								<File Id="F__CVSClassicDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseDeleted.ico" />
-								<File Id="F__CVSClassicLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseLocked.ico" />
-								<File Id="F__CVSClassicAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseAdded.ico" />
-							</Component>
+                <File Id="F__CVSClassicConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseConflict.ico" KeyPath="yes" />
+                <File Id="F__CVSClassicInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseInSubversion.ico" />
+                <File Id="F__CVSClassicModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseModified.ico" />
+                <File Id="F__CVSClassicReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseReadOnly.ico" />
+                <File Id="F__CVSClassicDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseDeleted.ico" />
+                <File Id="F__CVSClassicLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseLocked.ico" />
+                <File Id="F__CVSClassicAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseAdded.ico" />
+              </Component>
 
-						</Directory>
+            </Directory>
 
-						<Directory Id="D__iconsmodern" Name="Modern" >
+            <Directory Id="D__iconsmodern" Name="Modern" >
 
               <Component Id="C__iconsmodern" Guid="$(var.GuidIconsModern)" Win64="$(var.Win64YesNo)">
-								<File Id="F__ModernConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__ModernInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseInSubversion.ico" />
-								<File Id="F__ModernModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseModified.ico" />
-								<File Id="F__ModernReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseReadOnly.ico" />
-								<File Id="F__ModernDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseDeleted.ico" />
-								<File Id="F__ModernLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseLocked.ico" />
-								<File Id="F__ModernAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseAdded.ico" />
-							</Component>
+                <File Id="F__ModernConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseConflict.ico" KeyPath="yes" />
+                <File Id="F__ModernInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseInSubversion.ico" />
+                <File Id="F__ModernModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseModified.ico" />
+                <File Id="F__ModernReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseReadOnly.ico" />
+                <File Id="F__ModernDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseDeleted.ico" />
+                <File Id="F__ModernLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseLocked.ico" />
+                <File Id="F__ModernAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseAdded.ico" />
+              </Component>
 
-						</Directory>
+            </Directory>
 
-						<Directory Id="D__iconsxpstyle" Name="XPStyle" >
+            <Directory Id="D__iconsxpstyle" Name="XPStyle" >
 
               <Component Id="C__iconsxpstyle" Guid="$(var.GuidIconsXPStyle)" Win64="$(var.Win64YesNo)">
-								<File Id="F__XPStyleConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__XPStyleInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseInSubversion.ico" />
-								<File Id="F__XPStyleModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseModified.ico" />
-								<File Id="F__XPStyleReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseReadOnly.ico" />
-								<File Id="F__XPStyleDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseDeleted.ico" />
-								<File Id="F__XPStyleLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseLocked.ico" />
-								<File Id="F__XPStyleAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseAdded.ico" />
-							</Component>
+                <File Id="F__XPStyleConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseConflict.ico" KeyPath="yes" />
+                <File Id="F__XPStyleInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseInSubversion.ico" />
+                <File Id="F__XPStyleModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseModified.ico" />
+                <File Id="F__XPStyleReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseReadOnly.ico" />
+                <File Id="F__XPStyleDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseDeleted.ico" />
+                <File Id="F__XPStyleLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseLocked.ico" />
+                <File Id="F__XPStyleAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseAdded.ico" />
+              </Component>
 
-						</Directory>
+            </Directory>
 
-						<Directory Id="D__iconssubclipse" Name="SUBCLI1" LongName="Subclipse" >
+            <Directory Id="D__iconssubclipse" Name="SUBCLI1" LongName="Subclipse" >
 
               <Component Id="C__iconsmarkphippard" Guid="$(var.GuidIconsMarkPhippard)" Win64="$(var.Win64YesNo)">
-								<File Id="F__SubclipseConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__SubclipseInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseInSubversion.ico" />
-								<File Id="F__SubclipseModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseModified.ico" />
-								<File Id="F__SubclipseReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseReadOnly.ico" />
-								<File Id="F__SubclipseDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseDeleted.ico" />
-								<File Id="F__SubclipseLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseLocked.ico" />
-								<File Id="F__SubclipseAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseAdded.ico" />
-							</Component>
+                <File Id="F__SubclipseConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseConflict.ico" KeyPath="yes" />
+                <File Id="F__SubclipseInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseInSubversion.ico" />
+                <File Id="F__SubclipseModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseModified.ico" />
+                <File Id="F__SubclipseReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseReadOnly.ico" />
+                <File Id="F__SubclipseDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseDeleted.ico" />
+                <File Id="F__SubclipseLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseLocked.ico" />
+                <File Id="F__SubclipseAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseAdded.ico" />
+              </Component>
 
-						</Directory>
+            </Directory>
 
-						<Directory Id="D__iconsstraight" Name="Straight" >
+            <Directory Id="D__iconsstraight" Name="Straight" >
 
               <Component Id="C__iconsstraight" Guid="$(var.GuidIconsStraight)" Win64="$(var.Win64YesNo)">
-								<File Id="F__StraightConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__StraightInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseInSubversion.ico" />
-								<File Id="F__StraightModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseModified.ico" />
-								<File Id="F__StraightReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseReadOnly.ico" />
-								<File Id="F__StraightDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseDeleted.ico" />
-								<File Id="F__StraightLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseLocked.ico" />
-								<File Id="F__StraightAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseAdded.ico" />
-							</Component>
+                <File Id="F__StraightConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseConflict.ico" KeyPath="yes" />
+                <File Id="F__StraightInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseInSubversion.ico" />
+                <File Id="F__StraightModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseModified.ico" />
+                <File Id="F__StraightReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseReadOnly.ico" />
+                <File Id="F__StraightDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseDeleted.ico" />
+                <File Id="F__StraightLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseLocked.ico" />
+                <File Id="F__StraightAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseAdded.ico" />
+              </Component>
 
-						</Directory>
-					</Directory>
+            </Directory>
+          </Directory>
 
-				</Directory>
-			</Directory>
-		</Directory>
-	</Fragment>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
 </Wix>

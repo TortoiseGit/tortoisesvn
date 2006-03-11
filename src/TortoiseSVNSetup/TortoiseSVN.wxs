@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
-	<?include Includes.wxi?>
-	<Product 	
+  <?include Includes.wxi?>
+  <Product 	
 		UpgradeCode="$(var.UpgradeGuid)" 
   	Name="$(var.ProductName) $(var.VersionNumberUserVisible)" 
 		Id="????????-????-????-????-????????????"
 		Version="$(var.VersionNumberInternal)"
 		Manufacturer="TortoiseSVN" 
 		Language="1033">
-		<Package
+    <Package
 			Id="????????-????-????-????-????????????"
 			Keywords="$(var.PackageKeywords)" 
 			Description="$(var.PackageDescription)" 
@@ -20,17 +20,17 @@
 			Compressed="yes" 
 			SummaryCodepage="1252"/>
 
-		<Upgrade Id="$(var.UpgradeGuid)" >
-			<!-- upgrade is flagged if current-install is newer than or equal to package - TODO: should make a dialog appear asking user to confirm downgrade.  -->
-			<UpgradeVersion Property="NEWERVERSIONDETECTED" Minimum="$(var.VersionNumberInternal)" OnlyDetect="yes" />
+    <Upgrade Id="$(var.UpgradeGuid)" >
+      <!-- upgrade is flagged if current-install is newer than or equal to package - TODO: should make a dialog appear asking user to confirm downgrade.  -->
+      <UpgradeVersion Property="NEWERVERSIONDETECTED" Minimum="$(var.VersionNumberInternal)" OnlyDetect="yes" />
 
-			<!-- flag is set if the install will trigger an upgrade of an existing install -->
-			<UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" Maximum="$(var.VersionNumberInternal)" IncludeMaximum="no" />
-		</Upgrade>
+      <!-- flag is set if the install will trigger an upgrade of an existing install -->
+      <UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" Maximum="$(var.VersionNumberInternal)" IncludeMaximum="no" />
+    </Upgrade>
 
-		<Media Id="1" Cabinet="TSVN.cab" EmbedCab="yes" CompressionLevel="high" />
+    <Media Id="1" Cabinet="TSVN.cab" EmbedCab="yes" CompressionLevel="high" />
 
-		<Icon Id="TSVNIcon" src="..\Resources\Tortoise.ico" />
+    <Icon Id="TSVNIcon" src="..\Resources\Tortoise.ico" />
 
     <!-- Launch Condition related properties ................................................................................. -->
     <Property Id="VERSIONIE">
@@ -38,80 +38,80 @@
     </Property>
     <Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
 
-		<Property Id="ShowChangelogCheck">1</Property>
+    <Property Id="ShowChangelogCheck">1</Property>
 
-		<Condition Message="[ProductName] requires a Windows NT based OS (Windows 2000 or later, specifically).">VersionNT</Condition>
-		<Condition Message="[ProductName] requires Windows 2000 or later."><![CDATA[VersionNT >= 500]]></Condition>
+    <Condition Message="[ProductName] requires a Windows NT based OS (Windows 2000 or later, specifically).">VersionNT</Condition>
+    <Condition Message="[ProductName] requires Windows 2000 or later."><![CDATA[VersionNT >= 500]]></Condition>
 
-		<!-- Show/Don't-show changelog related properties and custom actions ..................................................... -->
-		<Property Id="TEXTEDITOR">
-			<DirectorySearch Id="FileSearchTextEditorExe" Path="[WindowsFolder]">
-				<FileSearch Id="FileSearchTextEditorExe" Name="notepad.exe" />
-			</DirectorySearch>
-		</Property>
-		<CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" Win64="$(var.Win64YesNo)"/>
+    <!-- Show/Don't-show changelog related properties and custom actions ..................................................... -->
+    <Property Id="TEXTEDITOR">
+      <DirectorySearch Id="FileSearchTextEditorExe" Path="[WindowsFolder]">
+        <FileSearch Id="FileSearchTextEditorExe" Name="notepad.exe" />
+      </DirectorySearch>
+    </Property>
+    <CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" Win64="$(var.Win64YesNo)"/>
     <CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[INSTALLDIR]changelog.txt" Return="asyncNoWait" Win64="$(var.Win64YesNo)"/>
     <CustomAction Id="KillCache" BinaryKey="CustomActionsDLL" DllEntry="TerminateCache" Win64="$(var.Win64YesNo)"/>
     <CustomAction Id="CleanupRegistry" BinaryKey="CustomActionsDLL" DllEntry="ClearRegistry" Win64="$(var.Win64YesNo)"/>
     <Binary Id="CustomActionsDLL" src="..\..\bin\$(var.ReleasePath)\bin\CustomActions.dll" />
 
     <!-- Unsafe-check properties and custom actions .......................................................................... -->
-		<Property Id="VSDUIANDADVERTISED">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
-		<CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" Win64="$(var.Win64YesNo)"/>
+    <Property Id="VSDUIANDADVERTISED">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
+    <CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" Win64="$(var.Win64YesNo)"/>
 
-		<!-- Figure out where a previous installation was, if any ................................................................ -->
-		<Property Id="INSTALLDIR">
+    <!-- Figure out where a previous installation was, if any ................................................................ -->
+    <Property Id="INSTALLDIR">
       <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
-		</Property>
+    </Property>
     <?if $(env.Platform) = "x64" ?>
-      <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]$(var.ProductName)" Execute="immediate" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]$(var.ProductName)" Execute="immediate" Win64="$(var.Win64YesNo)"/>
     <?else ?>
-      <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]$(var.ProductName)" Execute="immediate" Win64="$(var.Win64YesNo)"/>
+    <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]$(var.ProductName)" Execute="immediate" Win64="$(var.Win64YesNo)"/>
     <?endif ?>
 
     <FragmentRef Id="StructureFragment"/>
 
-		<FragmentRef Id="FeaturesFragment" />
+    <FragmentRef Id="FeaturesFragment" />
 
-		<FragmentRef Id="UIFragment" />
+    <FragmentRef Id="UIFragment" />
 
-		<!-- Execute Sequencing ................................................................................................. -->
-		<AdminExecuteSequence />
-		<InstallExecuteSequence>
-			<!-- AppSearch must be done before RemoveExistingProducts and before FindRelatedProducts -->
-			<AppSearch Sequence="1"></AppSearch>
-			<LaunchConditions After="AppSearch" />
-			<RemoveExistingProducts After="InstallValidate"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
-			<Custom Action="CleanupRegistry" After="RemoveExistingProducts"></Custom>
-			<Custom Action="KillCache" After="CleanupRegistry">Installed</Custom>
-			<ScheduleReboot After="RegisterProduct" />
-		</InstallExecuteSequence>
-		
-		<!-- UI Sequencing ...................................................................................................... -->
-		<AdminUISequence>
-			<Show Dialog="FatalErrorDlg" OnExit="error" />
-			<Show Dialog="UserExit" OnExit="cancel" />
-			<Show Dialog="ExitDlg" OnExit="success" />
-			<Show Dialog="PrepareDlg" Before="CostInitialize"><![CDATA[]]></Show>
-			<Show Dialog="AdminWelcomeDlg" After="CostFinalize" />
-			<Show Dialog="ProgressDlg" After="AdminWelcomeDlg" />
-		</AdminUISequence>
-		<InstallUISequence>
-			<Show Dialog="FatalErrorDlg" OnExit="error" />
-			<Show Dialog="UserExit" OnExit="cancel" />
-			<Show Dialog="ExitDlg" OnExit="success" />
-			<Show Dialog="PrepareDlg" After="LaunchConditions" />
-			<Show Dialog="WelcomeDlg" After="MigrateFeatureStates"><![CDATA[NOT Installed]]></Show>
-			<Show Dialog="ResumeDlg" After="WelcomeDlg"><![CDATA[Installed AND (RESUME OR Preselected)]]></Show>
-			<Show Dialog="MaintenanceWelcomeDlg" After="ResumeDlg"><![CDATA[Installed AND NOT RESUME AND NOT Preselected]]></Show>
-			<Show Dialog="ProgressDlg" After="MaintenanceWelcomeDlg" />
+    <!-- Execute Sequencing ................................................................................................. -->
+    <AdminExecuteSequence />
+    <InstallExecuteSequence>
+      <!-- AppSearch must be done before RemoveExistingProducts and before FindRelatedProducts -->
+      <AppSearch Sequence="1"></AppSearch>
+      <LaunchConditions After="AppSearch" />
+      <RemoveExistingProducts After="InstallValidate"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
+      <Custom Action="CleanupRegistry" After="RemoveExistingProducts"></Custom>
+      <Custom Action="KillCache" After="CleanupRegistry">Installed</Custom>
+      <ScheduleReboot After="RegisterProduct" />
+    </InstallExecuteSequence>
 
-			<FindRelatedProducts Suppress="no">1</FindRelatedProducts>
+    <!-- UI Sequencing ...................................................................................................... -->
+    <AdminUISequence>
+      <Show Dialog="FatalErrorDlg" OnExit="error" />
+      <Show Dialog="UserExit" OnExit="cancel" />
+      <Show Dialog="ExitDlg" OnExit="success" />
+      <Show Dialog="PrepareDlg" Before="CostInitialize"><![CDATA[]]></Show>
+      <Show Dialog="AdminWelcomeDlg" After="CostFinalize" />
+      <Show Dialog="ProgressDlg" After="AdminWelcomeDlg" />
+    </AdminUISequence>
+    <InstallUISequence>
+      <Show Dialog="FatalErrorDlg" OnExit="error" />
+      <Show Dialog="UserExit" OnExit="cancel" />
+      <Show Dialog="ExitDlg" OnExit="success" />
+      <Show Dialog="PrepareDlg" After="LaunchConditions" />
+      <Show Dialog="WelcomeDlg" After="MigrateFeatureStates"><![CDATA[NOT Installed]]></Show>
+      <Show Dialog="ResumeDlg" After="WelcomeDlg"><![CDATA[Installed AND (RESUME OR Preselected)]]></Show>
+      <Show Dialog="MaintenanceWelcomeDlg" After="ResumeDlg"><![CDATA[Installed AND NOT RESUME AND NOT Preselected]]></Show>
+      <Show Dialog="ProgressDlg" After="MaintenanceWelcomeDlg" />
 
-			<Custom Action="DefaultTargetDir" After="PrepareDlg" />
-			<Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
-			<Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
-		</InstallUISequence>
-	</Product>
+      <FindRelatedProducts Suppress="no">1</FindRelatedProducts>
+
+      <Custom Action="DefaultTargetDir" After="PrepareDlg" />
+      <Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
+      <Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
+    </InstallUISequence>
+  </Product>
 </Wix>
 
