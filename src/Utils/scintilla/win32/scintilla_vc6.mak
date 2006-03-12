@@ -137,6 +137,7 @@ LEXOBJS=\
 	$(DIR_O)\LexGui4Cli.obj \
 	$(DIR_O)\LexHaskell.obj \
 	$(DIR_O)\LexHTML.obj \
+	$(DIR_O)\LexInno.obj \
 	$(DIR_O)\LexKix.obj \
 	$(DIR_O)\LexLisp.obj \
 	$(DIR_O)\LexLout.obj \
@@ -147,6 +148,7 @@ LEXOBJS=\
 	$(DIR_O)\LexMPT.obj \
 	$(DIR_O)\LexMSSQL.obj \
 	$(DIR_O)\LexNsis.obj \
+	$(DIR_O)\LexOpal.obj \
 	$(DIR_O)\LexOthers.obj \
 	$(DIR_O)\LexPascal.obj \
 	$(DIR_O)\LexPB.obj \
@@ -161,6 +163,7 @@ LEXOBJS=\
 	$(DIR_O)\LexSpecman.obj \
 	$(DIR_O)\LexSQL.obj \
 	$(DIR_O)\LexTADS3.obj \
+	$(DIR_O)\LexTCL.obj \
 	$(DIR_O)\LexTeX.obj \
 	$(DIR_O)\LexVB.obj \
 	$(DIR_O)\LexVerilog.obj \
@@ -327,6 +330,8 @@ $(DIR_O)\LexHaskell.obj: ..\src\LexHaskell.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexHTML.obj: ..\src\LexHTML.cxx $(LEX_HEADERS)
 
+$(DIR_O)\LexInno.obj: ..\src\LexInno.cxx $(LEX_HEADERS)
+
 $(DIR_O)\LexKix.obj: ..\src\LexKix.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexLisp.obj: ..\src\LexLisp.cxx $(LEX_HEADERS)
@@ -346,6 +351,8 @@ $(DIR_O)\LexMPT.obj: ..\src\LexMPT.cxx $(LEX_HEADERS)
 $(DIR_O)\LexMSSQL.obj: ..\src\LexMSSQL.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexNsis.obj: ..\src\LexNsis.cxx $(LEX_HEADERS)
+
+$(DIR_O)\LexOpal.obj: ..\src\LexOpal.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexOthers.obj: ..\src\LexOthers.cxx $(LEX_HEADERS)
 
@@ -374,6 +381,8 @@ $(DIR_O)\LexSpecman.obj: ..\src\LexSpecman.cxx $(LEX_HEADERS)
 $(DIR_O)\LexSQL.obj: ..\src\LexSQL.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexTADS3.obj: ..\src\LexTADS3.cxx $(LEX_HEADERS)
+
+$(DIR_O)\LexTCL.obj: ..\src\LexTCL.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexTeX.obj: ..\src\LexTeX.cxx $(LEX_HEADERS)
 

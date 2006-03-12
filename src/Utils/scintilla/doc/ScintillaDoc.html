@@ -38,7 +38,7 @@
 
     <h1>Scintilla Documentation</h1>
 
-    <p>Last edited 2/November/2005 NH</p>
+    <p>Last edited 4/February/2006 NH</p>
 
     <p>There is <a class="jump" href="Design.html">an overview of the internal design of
     Scintilla</a>.<br />
@@ -78,8 +78,8 @@
 
     <p>In the descriptions that follow, the messages are described as function calls with zero, one
     or two arguments. These two arguments are the standard <code>wParam</code> and
-    <code>lParam</code> familiar to Windows programmers. These parameters are integers that 
-    are large enough to hold pointers, and the return value is also an integer large enough to contain a 
+    <code>lParam</code> familiar to Windows programmers. These parameters are integers that
+    are large enough to hold pointers, and the return value is also an integer large enough to contain a
     pointer.
     Although the commands only use the
     arguments described, because all messages have two arguments whether Scintilla uses them or
@@ -128,6 +128,17 @@
           colour is white. If you set all intensities to 0, the colour is black. When you set a
           colour, you are making a request. What you will get depends on the capabilities of the
           system and the current screen mode.</td>
+        </tr>
+
+        <tr>
+          <th align="left" id="alpha">alpha</th>
+
+          <td>Translucency is set using an alpha value.
+		    Alpha ranges from 0 (SC_ALPHA_TRANSPARENT) which is completely transparent to
+			 255 (SC_ALPHA_OPAQUE) which is opaque. The value 256 (SC_ALPHA_NOALPHA)
+			 is opaque and uses code that is not alpha-aware and may be faster. Not all platforms support
+			 translucency and only some Scintilla features implement translucency.
+			 The default alpha value for most features is SC_ALPHA_NOALPHA.</td>
         </tr>
 
         <tr>
@@ -253,7 +264,7 @@
         <tr>
           <td>o <a class="toc" href="#EditMessagesNeverSupportedByScintilla">Edit messages never
           supported by Scintilla</a></td>
-	  
+
           <td>o <a class="toc" href="#BuildingScintilla">Building Scintilla</a></td>
         </tr>
       </tbody>
@@ -458,7 +469,7 @@
      This pair of routines sets and reads back the number of bits in each cell to use for styling,
     to a maximum of 7 style bits. The remaining bits can be used as indicators. The standard
     setting is <code>SCI_SETSTYLEBITS(5)</code>.
-    The number of styling bits needed by the current lexer can be found with 
+    The number of styling bits needed by the current lexer can be found with
     <a class="message" href="#SCI_GETSTYLEBITSNEEDED">SCI_GETSTYLEBITSNEEDED</a>.</p>
 
     <p><b id="TextRange">TextRange</b> and <b id="CharacterRange">CharacterRange</b><br />
@@ -490,7 +501,7 @@ struct TextRange {
      <code>SCI_ENCODEDFROMUTF8</code> converts a UTF-8 string into the document's
      encoding which is useful for taking the results of a find dialog, for example, and receiving
      a string of bytes that can be searched for in the document. Since the text can contain nul bytes,
-     the <code>SCI_SETLENGTHFORENCODE</code> method can be used to set the 
+     the <code>SCI_SETLENGTHFORENCODE</code> method can be used to set the
      length that will be converted. If set to -1, the length is determined by finding a nul byte.
      The length of the converted string is returned.
     </p>
@@ -764,9 +775,11 @@ struct TextToFind {
 
     <p><b id="SCI_REPLACETARGET">SCI_REPLACETARGET(int length, const char *text)</b><br />
      If <code>length</code> is -1, <code>text</code> is a zero terminated string, otherwise
-    <code>length</code> sets the number of character to replace the target with. The return value
+    <code>length</code> sets the number of character to replace the target with.
+	 After replacement, the target range refers to the replacement text.
+	 The return value
     is the length of the replacement string.<br />
-    Note that the recommanded way to delete text in the document is to set the target to the text to be removed,
+    Note that the recommended way to delete text in the document is to set the target to the text to be removed,
     and to perform a replace target with an empty string.</p>
 
     <p><b id="SCI_REPLACETARGETRE">SCI_REPLACETARGETRE(int length, const char *text)</b><br />
@@ -774,7 +787,9 @@ struct TextToFind {
     <code>text</code> is a zero terminated string, otherwise <code>length</code> is the number of
     characters to use. The replacement string is formed from the text string with any sequences of
     <code>\1</code> through <code>\9</code> replaced by tagged matches from the most recent regular
-    expression search. The return value is the length of the replacement string.</p>
+    expression search.
+	 After replacement, the target range refers to the replacement text.
+	 The return value is the length of the replacement string.</p>
 
     <p>See also: <a class="message" href="#SCI_FINDTEXT"><code>SCI_FINDTEXT</code></a></p>
 
@@ -830,7 +845,7 @@ struct TextToFind {
     <p><b id="SCI_SETPASTECONVERTENDINGS">SCI_SETPASTECONVERTENDINGS(bool convert)</b><br />
      <b id="SCI_GETPASTECONVERTENDINGS">SCI_GETPASTECONVERTENDINGS</b><br />
      If this property is set then when text is pasted any line ends are converted to match the document's
-     end of line mode as set with 
+     end of line mode as set with
      <a class="message" href="#SCI_SETEOLMODE">SCI_SETEOLMODE</a>.
      Currently only changeable on Windows. On GTK+ pasted text is always converted.</p>
 
@@ -1123,7 +1138,7 @@ struct TextToFind {
     <p><b id="SCI_GETCURLINE">SCI_GETCURLINE(int textLen, char *text)</b><br />
      This retrieves the text of the line containing the caret and returns the position within the
     line of the caret. Pass in <code>char* text</code> pointing at a buffer large enough to hold
-    the text you wish to retrieve and a terminating 0 character. 
+    the text you wish to retrieve and a terminating 0 character.
     Set <code>textLen</code> to the
     length of the buffer which must be at least 1 to hold the terminating 0 character.
     If the text argument is 0 then the length that should be allocated
@@ -1911,14 +1926,25 @@ struct TextToFind {
         </tr>
 
         <tr>
+          <th align="left"><code>STYLE_CALLTIP</code></th>
+
+          <td>38</td>
+
+          <td> Call tips normally use the font attributes defined by <code>STYLE_DEFAULT</code>.
+          Use of <a class="message" href="#SCI_CALLTIPUSESTYLE"><code>SCI_CALLTIPUSESTYLE</code></a>
+	  causes call tips to use this style instead. Only the font face name, font size,
+          foreground and background colours and character set attributes are used.</td>
+        </tr>
+
+        <tr>
           <th align="left"><code>STYLE_LASTPREDEFINED</code></th>
 
           <td>39</td>
 
           <td>To make it easier for client code to discover the range of styles that are
           predefined, this is set to the style number of the last predefined style. This is
-          currently set to 39 and the last style with an identifier is 37, which reserves space for
-          future predefined styles.</td>
+          currently set to 39 and the last style with an identifier is 38, which reserves space
+          for one future predefined style.</td>
         </tr>
 
         <tr>
@@ -2042,7 +2068,7 @@ struct TextToFind {
     <code>SC_CHARSET_TURKISH</code>, and <code>SC_CHARSET_VIETNAMESE</code>.</p>
 
     <p>The character sets supported on GTK+ are:<br />
-     <code>SC_CHARSET_ANSI</code>, <code>SC_CHARSET_CYRILLIC</code> (code page 1251), 
+     <code>SC_CHARSET_ANSI</code>, <code>SC_CHARSET_CYRILLIC</code> (code page 1251),
      <code>SC_CHARSET_EASTEUROPE</code>,
     <code>SC_CHARSET_GB2312</code>, <code>SC_CHARSET_HANGUL</code>,
     <code>SC_CHARSET_RUSSIAN</code> (KOI8-R), <code>SC_CHARSET_SHIFTJIS</code>, and
@@ -2095,6 +2121,8 @@ struct TextToFind {
      <a class="message" href="#SCI_GETCARETLINEVISIBLE">SCI_GETCARETLINEVISIBLE</a><br />
      <a class="message" href="#SCI_SETCARETLINEBACK">SCI_SETCARETLINEBACK(int colour)</a><br />
      <a class="message" href="#SCI_GETCARETLINEBACK">SCI_GETCARETLINEBACK</a><br />
+     <a class="message" href="#SCI_SETCARETLINEBACKALPHA">SCI_SETCARETLINEBACKALPHA(int alpha)</a><br />
+     <a class="message" href="#SCI_GETCARETLINEBACKALPHA">SCI_GETCARETLINEBACKALPHA</a><br />
      <a class="message" href="#SCI_SETCARETPERIOD">SCI_SETCARETPERIOD(int milliseconds)</a><br />
      <a class="message" href="#SCI_GETCARETPERIOD">SCI_GETCARETPERIOD</a><br />
      <a class="message" href="#SCI_SETCARETWIDTH">SCI_SETCARETWIDTH(int pixels)</a><br />
@@ -2131,13 +2159,20 @@ struct TextToFind {
      <b id="SCI_SETCARETLINEBACK">SCI_SETCARETLINEBACK(int <a class="jump"
     href="#colour">colour</a>)</b><br />
      <b id="SCI_GETCARETLINEBACK">SCI_GETCARETLINEBACK</b><br />
+     <b id="SCI_SETCARETLINEBACKALPHA">SCI_SETCARETLINEBACKALPHA(int <a class="jump" href="#alpha">alpha</a>)</b><br />
+     <b id="SCI_GETCARETLINEBACKALPHA">SCI_GETCARETLINEBACKALPHA</b><br />
      You can choose to make the background colour of the line containing the caret different with
     these messages. To do this, set the desired background colour with
     <code>SCI_SETCARETLINEBACK</code>, then use <code>SCI_SETCARETLINEVISIBLE(true)</code> to
     enable the effect. You can cancel the effect with <code>SCI_SETCARETLINEVISIBLE(false)</code>.
     The two <code>SCI_GETCARET*</code> functions return the state and the colour. This form of
     background colouring has highest priority when a line has markers that would otherwise change
-    the background colour.</p>
+    the background colour.
+	 The caret line may also be drawn translucently which allows other background colours to show
+	 through. This is done by setting the alpha (translucency) value by calling
+	 SCI_SETCARETLINEBACKALPHA. When the alpha is not SC_ALPHA_NOALPHA,
+	 the caret line is drawn after all other features so will affect the colour of all other features.
+	</p>
 
     <p><b id="SCI_SETCARETPERIOD">SCI_SETCARETPERIOD(int milliseconds)</b><br />
      <b id="SCI_GETCARETPERIOD">SCI_GETCARETPERIOD</b><br />
@@ -2418,8 +2453,8 @@ struct TextToFind {
     <p><b id="SCI_GRABFOCUS">SCI_GRABFOCUS</b><br />
      <b id="SCI_SETFOCUS">SCI_SETFOCUS(bool focus)</b><br />
      <b id="SCI_GETFOCUS">SCI_GETFOCUS</b><br />
-     On GTK+, focus handling is more complicated than on Windows, so Scintilla can be told with
-    this message to grab the focus.</p>
+     Scintilla can be told to grab the focus with this message. This is needed more on GTK+ where
+	 focus handling is more complicated than on Windows.</p>
 
     <p>The internal focus flag can be set with <code>SCI_SETFOCUS</code>. This is used by clients
     that have complex focus requirements such as having their own window that gets the real focus
@@ -2606,13 +2641,6 @@ struct TextToFind {
     <code>SC_MARK_ARROWS</code>, <code>SC_MARK_DOTDOTDOT</code>, <code>SC_MARK_EMPTY</code>,
     <code>SC_MARK_BACKGROUND</code> and <code>SC_MARK_FULLRECT</code>.</p>
 
-    <p><b id="SCI_MARKERDEFINEPIXMAP">SCI_MARKERDEFINEPIXMAP(int markerNumber, const char
-    *xpm)</b><br />
-     Markers can be set to pixmaps with this message. The XPM format is used for the pixmap and it
-    is limited to pixmaps that use one character per pixel. The data should be null terminated.
-    Pixmaps use the <code>SC_MARK_PIXMAP</code> marker symbol. You can find the full description of
-    the XPM format <a class="jump" href="http://koala.ilog.fr/lehors/xpm.html">here</a>.</p>
-
     <p>The <code>SC_MARK_BACKGROUND</code> marker changes the background colour of the line only.
 	The <code>SC_MARK_FULLRECT</code> symbol mirrors this, changing only the margin background colour.
     The <code>SC_MARK_EMPTY</code> symbol is invisible, allowing client code to track the movement
@@ -2627,14 +2655,10 @@ struct TextToFind {
     <code>SC_MARK_CIRCLEPLUS</code>, <code>SC_MARK_CIRCLEPLUSCONNECTED</code>,
     <code>SC_MARK_LCORNER</code>, <code>SC_MARK_LCORNERCURVE</code>, <code>SC_MARK_TCORNER</code>,
     <code>SC_MARK_TCORNERCURVE</code>, and <code>SC_MARK_VLINE</code>.</p>
-    <br />
-     <br />
      Characters can be used as markers by adding the ASCII value of the character to
     <code>SC_MARK_CHARACTER</code> (10000). For example, to use 'A' (ASCII code 65) as marker
     number 1 use:<br />
-     <code>SCI_MARKETDEFINE(1, SC_MARK_CHARACTER+65)</code>. <br />
-     <br />
-
+     <code>SCI_MARKERDEFINE(1, SC_MARK_CHARACTER+65)</code>. <br />
 
     <p>The marker numbers <code>SC_MARKNUM_FOLDER</code> and <code>SC_MARKNUM_FOLDEROPEN</code> are
     used for showing that a fold is present and open or closed. Any symbols may be assigned for
@@ -2754,6 +2778,13 @@ struct TextToFind {
       </tbody>
     </table>
 
+    <p><b id="SCI_MARKERDEFINEPIXMAP">SCI_MARKERDEFINEPIXMAP(int markerNumber, const char
+    *xpm)</b><br />
+     Markers can be set to pixmaps with this message. The XPM format is used for the pixmap and it
+    is limited to pixmaps that use one character per pixel. The data should be null terminated.
+    Pixmaps use the <code>SC_MARK_PIXMAP</code> marker symbol. You can find the full description of
+    the XPM format <a class="jump" href="http://koala.ilog.fr/lehors/xpm.html">here</a>.</p>
+
     <p><b id="SCI_MARKERSETFORE">SCI_MARKERSETFORE(int markerNumber, int <a class="jump"
     href="#colour">colour</a>)</b><br />
      <b id="SCI_MARKERSETBACK">SCI_MARKERSETBACK(int markerNumber, int <a class="jump"
@@ -2827,7 +2858,7 @@ struct TextToFind {
     href="#SCI_STARTSTYLING"><code>SCI_STARTSTYLING</code></a> with a <code>INDICS_MASK</code> mask
     and <a class="message" href="#SCI_SETSTYLING"><code>SCI_SETSTYLING</code></a> with the values
     <code>INDIC0_MASK</code>, <code>INDIC1_MASK</code> and <code>INDIC2_MASK</code>.</p>
-	
+
 	<p>If you are using indicators in a buffer that has a lexer active
 	(see <a class="message" href="#SCI_SETLEXER"><code>SCI_SETLEXER</code></a>),
 	you must save lexing state information before setting any indicators and restore it afterwards.
@@ -2928,6 +2959,15 @@ struct TextToFind {
           <td align="center">6</td>
 
           <td>A rectangle around the text.</td>
+        </tr>
+
+        <tr>
+          <td align="left"><code>INDIC_ROUNDBOX</code></td>
+
+          <td align="center">7</td>
+
+          <td>A rectangle with rounded corners around the text using translucent drawing with the
+		     interior more transparent than the border.</td>
         </tr>
       </tbody>
     </table>
@@ -3159,9 +3199,16 @@ struct TextToFind {
     <h2 id="CallTips">Call tips</h2>
 
     <p>Call tips are small windows displaying the arguments to a function and are displayed after
-    the user has typed the name of the function. There is some interaction between call tips and
-    autocompletion lists in that showing a call tip cancels any active autocompletion list, and
-    vice versa.</p>
+    the user has typed the name of the function. They normally display characters using the font
+    facename, size and character set defined by
+    <code><a class="message" href="#StyleDefinition">STYLE_DEFAULT</a></code>. You can choose to
+    use <code><a class="message" href="#StyleDefinition">STYLE_CALLTIP</a></code> to define the
+    facename, size, foreground and background colours and character set with
+    <code><a class="message" href="#SCI_CALLTIPUSESTYLE">SCI_CALLTIPUSESTYLE</a></code>.
+    This also enables support for Tab characters.
+
+    There is some interaction between call tips and autocompletion lists in that showing a
+    call tip cancels any active autocompletion list, and vice versa.</p>
 
     <p>Call tips can highlight part of the text within them. You could use this to highlight the
     current argument to a function by counting the number of commas (or whatever separator your
@@ -3192,17 +3239,22 @@ struct TextToFind {
      <a class="message" href="#SCI_CALLTIPSETBACK">SCI_CALLTIPSETBACK(int colour)</a><br />
      <a class="message" href="#SCI_CALLTIPSETFORE">SCI_CALLTIPSETFORE(int colour)</a><br />
      <a class="message" href="#SCI_CALLTIPSETFOREHLT">SCI_CALLTIPSETFOREHLT(int colour)</a><br />
+     <a class="message" href="#SCI_CALLTIPUSESTYLE">SCI_CALLTIPUSESTYLE(int tabsize)</a><br />
     </code>
-
-
 
     <p><b id="SCI_CALLTIPSHOW">SCI_CALLTIPSHOW(int posStart, const char *definition)</b><br />
      This message starts the process by displaying the call tip window. If a call tip is already
     active, this has no effect.<br />
      <code>posStart</code> is the position in the document at which to align the call tip. The call
-    tip text is aligned to start 1 line below this character.<br />
+    tip text is aligned to start 1 line below this character unless you have included up and/or
+    down arrows in the call tip text in which case the tip is aligned to the right-hand edge of
+    the rightmost arrow. The assumption is that you will start the text with something like
+    "\001 1 of 3 \002".<br />
      <code>definition</code> is the call tip text. This can contain multiple lines separated by
-    '\n' (Line Feed, ASCII code 10) characters.</p>
+    '\n' (Line Feed, ASCII code 10) characters. Do not include '\r' (Carriage Return, ASCII
+     code 13), as this will most likely print as an empty box. '\t' (Tab, ASCII code 9) is
+     supported if you set a tabsize with
+    <code><a class="message" href="#SCI_CALLTIPUSESTYLE">SCI_CALLTIPUSESTYLE</a></code>.<br /></p>
 
     <p><b id="SCI_CALLTIPCANCEL">SCI_CALLTIPCANCEL</b><br />
      This message cancels any displayed call tip. Scintilla will also cancel call tips for you if
@@ -3233,14 +3285,24 @@ struct TextToFind {
 
     <p><b id="SCI_CALLTIPSETBACK">SCI_CALLTIPSETBACK(int colour)</b><br />
      The background colour of call tips can be set with this message; the default colour is white.
-    It is not a good idea to set a dark colour as the background as the unselected text is drawn in
-    mid gray and the selected text in a dark blue.</p>
+    It is not a good idea to set a dark colour as the background as the default colour for normal
+    calltip text is mid gray and the defaultcolour for highlighted text is dark blue. This also
+    sets the background colour of <code>STYLE_CALLTIP</code>.</p>
 
     <p><b id="SCI_CALLTIPSETFORE">SCI_CALLTIPSETFORE(int colour)</b><br />
-     The colour of call tip text can be set with this message; the default colour is mid gray.</p>
+     The colour of call tip text can be set with this message; the default colour is mid gray.
+    This also sets the foreground colour of <code>STYLE_CALLTIP</code>.</p>
 
     <p><b id="SCI_CALLTIPSETFOREHLT">SCI_CALLTIPSETFOREHLT(int colour)</b><br />
-     The colour of highlighted call tip text can be set with this message; the default colour is dark blue.</p>
+     The colour of highlighted call tip text can be set with this message; the default colour
+    is dark blue.</p>
+
+    <p><b id="SCI_CALLTIPUSESTYLE">SCI_CALLTIPUSESTYLE(int tabsize)</b><br />
+     This message changes the style used for call tips from <code>STYLE_DEFAULT</code> to
+    <code>STYLE_CALLTIP</code> and sets a tab size in screen pixels. If <code>tabsize</code> is
+    less than 1, Tab characters are not treated specially. Once this call has been used, the
+    call tip foreground and background colours are also taken from the style.</p>
+
 
     <h2 id="KeyboardCommands">Keyboard commands</h2>
 
@@ -3463,7 +3525,7 @@ struct TextToFind {
 
           <td><code>SCI_BACKTAB</code></td>
         </tr>
-	
+
         <tr>
           <td><code>SCI_SELECTIONDUPLICATE</code></td>
 
@@ -3543,7 +3605,8 @@ struct TextToFind {
 
     <p><b id="SCI_NULL">SCI_NULL</b><br />
      The <code>SCI_NULL</code> does nothing and is the value assigned to keys that perform no
-    action.</p>
+    action. SCI_NULL ensures that keys do not propagate to the parent window as that may
+    cause focus to move. If you want the standard platform behaviour use the constant 0 instead.</p>
 
     <h2 id="PopupEditMenu">Popup edit menu</h2>
 
@@ -3786,6 +3849,7 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
      4. <code>pDoc</code> is set as the new document for the window.<br />
      5. If <code>pDoc</code> was 0, a new, empty document is created and attached to the
     window.</p>
+     6. If <code>pDoc</code> was not 0, its reference count is increased by 1.</p>
 
     <p><b id="SCI_CREATEDOCUMENT">SCI_CREATEDOCUMENT</b><br />
      This message creates a new, empty document and returns a pointer to it. This document is not
@@ -3884,8 +3948,8 @@ sptr_t CallScintilla(unsigned int iMessage, uptr_t wParam, sptr_t lParam){
     <code>SC_FOLDLEVELBASE</code> (1024) to allow unsigned arithmetic on folding levels. There are
     two addition flag bits. <code>SC_FOLDLEVELWHITEFLAG</code> indicates that the line is blank and
     allows it to be treated slightly different then its level may indicate. For example, blank
-    lines should generally not be fold points and will be considered part of the preceding section even though 
-    they may have a lesser fold level. 
+    lines should generally not be fold points and will be considered part of the preceding section even though
+    they may have a lesser fold level.
     <code>SC_FOLDLEVELHEADERFLAG</code> indicates that
     the line is a header (fold point).</p>
 
@@ -4642,7 +4706,7 @@ href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE</a>(lineNumber);
           <td align="left"><code>line</code></td>
 
           <td align="left">The line number at which a fold level or marker change occurred. This is
-          0 if unused.</td>
+          0 if unused and may be -1 if more than one line changed.</td>
         </tr>
 
         <tr>
@@ -5097,16 +5161,16 @@ for line = lineStart to lineEnd do SCI_ENSUREVISIBLE(line) next
     </table>
 
     <h2 id="GTK">GTK+</h2>
-    <p>On GTK+, the following functions create a Scintilla widget, communicate with it and allow 
+    <p>On GTK+, the following functions create a Scintilla widget, communicate with it and allow
     resources to be released after all Scintilla widgets hace been destroyed.</p>
     <code><a class="message" href="#scintilla_new">GtkWidget *scintilla_new()</a><br />
      <a class="message" href="#scintilla_set_id">void scintilla_set_id(ScintillaObject *sci, uptr_t id)</a><br />
      <a class="message" href="#scintilla_send_message">sptr_t scintilla_send_message(ScintillaObject *sci,unsigned int iMessage, uptr_t wParam, sptr_t lParam)</a><br />
      <a class="message" href="#scintilla_release_resources">void scintilla_release_resources()</a><br />
      </code>
-     
+
     <p><b id="scintilla_new">GtkWidget *scintilla_new()</b></b><br />
-    Create a new Scintilla widget. The returned pointer can be added to a container and displayed in the same way as other 
+    Create a new Scintilla widget. The returned pointer can be added to a container and displayed in the same way as other
     widgets.</p>
 
     <p><b id="scintilla_set_id">void scintilla_set_id(ScintillaObject *sci, uptr_t id)</b></b><br />

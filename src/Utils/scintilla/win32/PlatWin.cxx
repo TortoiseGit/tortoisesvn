@@ -64,9 +64,14 @@ static LONG_PTR GetWindowLongPtr(HWND hWnd, int nIndex) {
 }
 #endif
 
+typedef BOOL (WINAPI *AlphaBlendSig)(HDC, int, int, int, int, HDC, int, int, int, int, BLENDFUNCTION);
+
 static CRITICAL_SECTION crPlatformLock;
 static HINSTANCE hinstPlatformRes = 0;
 static bool onNT = false;
+static HMODULE hDLLImage = 0;
+static AlphaBlendSig AlphaBlendFn = 0;
+
 
 bool IsNT() {
 	return onNT;
@@ -85,10 +90,14 @@ Palette::Palette() {
 	used = 0;
 	allowRealization = false;
 	hpal = 0;
+	size = 100;
+	entries = new ColourPair[size];
 }
 
 Palette::~Palette() {
 	Release();
+	delete []entries;
+	entries = 0;
 }
 
 void Palette::Release() {
@@ -96,6 +105,9 @@ void Palette::Release() {
 	if (hpal)
 		::DeleteObject(hpal);
 	hpal = 0;
+	delete []entries;
+	size = 100;
+	entries = new ColourPair[size];
 }
 
 /**
@@ -110,11 +122,20 @@ void Palette::WantFind(ColourPair &cp, bool want) {
 				return;
 		}
 
-		if (used < numEntries) {
-			entries[used].desired = cp.desired;
-			entries[used].allocated.Set(cp.desired.AsLong());
-			used++;
+		if (used >= size) {
+			int sizeNew = size * 2;
+			ColourPair *entriesNew = new ColourPair[sizeNew];
+			for (int j=0; j<size; j++) {
+				entriesNew[j] = entries[j];
+			}
+			delete []entries;
+			entries = entriesNew;
+			size = sizeNew;
 		}
+
+		entries[used].desired = cp.desired;
+		entries[used].allocated.Set(cp.desired.AsLong());
+		used++;
 	} else {
 		for (int i=0; i < used; i++) {
 			if (entries[i].desired == cp.desired) {
@@ -339,6 +360,8 @@ public:
 	void FillRectangle(PRectangle rc, ColourAllocated back);
 	void FillRectangle(PRectangle rc, Surface &surfacePattern);
 	void RoundedRectangle(PRectangle rc, ColourAllocated fore, ColourAllocated back);
+	void AlphaRectangle(PRectangle rc, int cornerSize, ColourAllocated fill, int alphaFill,
+		ColourAllocated outline, int alphaOutline, int flags);
 	void Ellipse(PRectangle rc, ColourAllocated fore, ColourAllocated back);
 	void Copy(PRectangle rc, Point from, Surface &surfaceSource);
 
@@ -541,6 +564,79 @@ void SurfaceImpl::RoundedRectangle(PRectangle rc, ColourAllocated fore, ColourAl
 		8, 8);
 }
 
+// Plot a point into a DWORD buffer symetrically to all 4 qudrants
+static void AllFour(DWORD *pixels, int width, int height, int x, int y, DWORD val) {
+	pixels[y*width+x] = val;
+	pixels[y*width+width-1-x] = val;
+	pixels[(height-1-y)*width+x] = val;
+	pixels[(height-1-y)*width+width-1-x] = val;
+}
+
+#ifndef AC_SRC_OVER
+#define AC_SRC_OVER                 0x00
+#endif
+#ifndef AC_SRC_ALPHA
+#define AC_SRC_ALPHA		0x01
+#endif
+
+void SurfaceImpl::AlphaRectangle(PRectangle rc, int cornerSize, ColourAllocated fill, int alphaFill,
+		ColourAllocated outline, int alphaOutline, int /* flags*/ ) {
+	if (AlphaBlendFn) {
+		HDC hMemDC = ::CreateCompatibleDC(reinterpret_cast<HDC>(hdc));
+		int width = rc.Width();
+		int height = rc.Height();
+		// Ensure not distorted too much by corners when small
+		cornerSize = Platform::Minimum(cornerSize, (Platform::Minimum(width, height) / 2) - 2);
+		BITMAPINFO bpih = {sizeof(BITMAPINFOHEADER), width, height, 1, 32, BI_RGB, 0, 0, 0, 0, 0};
+		void *image = 0;
+		HBITMAP hbmMem = CreateDIBSection(reinterpret_cast<HDC>(hMemDC), &bpih,
+			DIB_RGB_COLORS, &image, NULL, 0);
+
+		HBITMAP hbmOld = SelectBitmap(hMemDC, hbmMem);
+
+		byte pixVal[4] = {0};
+		DWORD valEmpty = *(reinterpret_cast<DWORD *>(pixVal));
+		pixVal[0] = static_cast<byte>(GetBValue(fill.AsLong()) * alphaFill / 255);
+		pixVal[1] = static_cast<byte>(GetGValue(fill.AsLong()) * alphaFill / 255);
+		pixVal[2] = static_cast<byte>(GetRValue(fill.AsLong()) * alphaFill / 255);
+		pixVal[3] = static_cast<byte>(alphaFill);
+		DWORD valFill = *(reinterpret_cast<DWORD *>(pixVal));
+		pixVal[0] = static_cast<byte>(GetBValue(outline.AsLong()) * alphaOutline / 255);
+		pixVal[1] = static_cast<byte>(GetGValue(outline.AsLong()) * alphaOutline / 255);
+		pixVal[2] = static_cast<byte>(GetRValue(outline.AsLong()) * alphaOutline / 255);
+		pixVal[3] = static_cast<byte>(alphaOutline);
+		DWORD valOutline = *(reinterpret_cast<DWORD *>(pixVal));
+		DWORD *pixels = reinterpret_cast<DWORD *>(image);
+		for (int y=0; y<height; y++) {
+			for (int x=0; x<width; x++) {
+				if ((x==0) || (x==width-1) || (y == 0) || (y == height-1)) {
+					pixels[y*width+x] = valOutline;
+				} else {
+					pixels[y*width+x] = valFill;
+				}
+			}
+		}
+		for (int c=0;c<cornerSize; c++) {
+			for (int x=0;x<c+1; x++) {
+				AllFour(pixels, width, height, x, c-x, valEmpty);
+			}
+		}
+		for (int x=1;x<cornerSize; x++) {
+			AllFour(pixels, width, height, x, cornerSize-x, valOutline);
+		}
+
+		BLENDFUNCTION merge = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };
+
+		AlphaBlendFn(reinterpret_cast<HDC>(hdc), rc.left, rc.top, width, height, hMemDC, 0, 0, width, height, merge);
+
+		SelectBitmap(hMemDC, hbmOld);
+		::DeleteObject(hbmMem);
+		::DeleteObject(hMemDC);
+	} else {
+		RectangleDraw(rc, outline, fill);
+	}
+}
+
 void SurfaceImpl::Ellipse(PRectangle rc, ColourAllocated fore, ColourAllocated back) {
 	PenColour(fore);
 	BrushColor(back);
@@ -558,21 +654,54 @@ const int MAX_US_LEN = 10000;
 void SurfaceImpl::DrawTextCommon(PRectangle rc, Font &font_, int ybase, const char *s, int len, UINT fuOptions) {
 	SetFont(font_);
 	RECT rcw = RectFromPRectangle(rc);
-	if (unicodeMode) {
-		wchar_t tbuf[MAX_US_LEN];
-		int tlen = UCS2FromUTF8(s, len, tbuf, MAX_US_LEN);
-		::ExtTextOutW(hdc, rc.left, ybase, fuOptions, &rcw, tbuf, tlen, NULL);
-	} else if (IsNT() || (codePage==0) || win9xACPSame) {
-		::ExtTextOutA(hdc, rc.left, ybase, fuOptions, &rcw, s,
-			Platform::Minimum(len, maxLenText), NULL);
+	SIZE sz={0,0};
+	int pos = 0;
+	int x = rc.left;
+
+	// Text drawing may fail if the text is too big.
+	// If it does fail, slice up into segments and draw each segment.
+	const int maxSegmentLength = 0x200;
+
+	if ((!unicodeMode) && (IsNT() || (codePage==0) || win9xACPSame)) {
+		// Use ANSI calls
+		int lenDraw = Platform::Minimum(len, maxLenText);
+		if (!::ExtTextOutA(hdc, x, ybase, fuOptions, &rcw, s, lenDraw, NULL)) {
+			while (lenDraw > pos) {
+				int seglen = Platform::Minimum(maxSegmentLength, lenDraw - pos);
+				if (!::ExtTextOutA(hdc, x, ybase, fuOptions, &rcw, s+pos, seglen, NULL)) {
+					PLATFORM_ASSERT(false);
+					return;
+				}
+				::GetTextExtentPoint32A(hdc, s+pos, seglen, &sz);
+				x += sz.cx;
+				pos += seglen;
+			}
+		}
 	} else {
-		// Support Asian string display in 9x English
+		// Use Unicode calls
 		wchar_t tbuf[MAX_US_LEN];
-		int tlen = ::MultiByteToWideChar(codePage, 0, s, len, NULL, 0);
-		if (tlen > MAX_US_LEN)
-			tlen = MAX_US_LEN;
-		::MultiByteToWideChar(codePage, 0, s, len, tbuf, tlen);
-		::ExtTextOutW(hdc, rc.left, ybase, fuOptions, &rcw, tbuf, tlen, NULL);
+		int tlen;
+		if (unicodeMode) {
+			tlen = UCS2FromUTF8(s, len, tbuf, MAX_US_LEN);
+		} else {
+			// Support Asian string display in 9x English
+			tlen = ::MultiByteToWideChar(codePage, 0, s, len, NULL, 0);
+			if (tlen > MAX_US_LEN)
+				tlen = MAX_US_LEN;
+			::MultiByteToWideChar(codePage, 0, s, len, tbuf, tlen);
+		}
+		if (!::ExtTextOutW(hdc, x, ybase, fuOptions, &rcw, tbuf, tlen, NULL)) {
+			while (tlen > pos) {
+				int seglen = Platform::Minimum(maxSegmentLength, tlen - pos);
+				if (!::ExtTextOutW(hdc, x, ybase, fuOptions, &rcw, tbuf+pos, seglen, NULL)) {
+					PLATFORM_ASSERT(false);
+					return;
+				}
+				::GetTextExtentPoint32W(hdc, tbuf+pos, seglen, &sz);
+				x += sz.cx;
+				pos += seglen;
+			}
+		}
 	}
 }
 
@@ -612,7 +741,7 @@ int SurfaceImpl::WidthText(Font &font_, const char *s, int len) {
 		int tlen = UCS2FromUTF8(s, len, tbuf, MAX_US_LEN);
 		::GetTextExtentPoint32W(hdc, tbuf, tlen, &sz);
 	} else if (IsNT() || (codePage==0) || win9xACPSame) {
-		::GetTextExtentPoint32(hdc, s, Platform::Minimum(len, maxLenText), &sz);
+		::GetTextExtentPoint32A(hdc, s, Platform::Minimum(len, maxLenText), &sz);
 	} else {
 		// Support Asian string display in 9x English
 		wchar_t tbuf[MAX_US_LEN];
@@ -1415,9 +1544,9 @@ Point ListBoxX::MinTrackSize() const {
 }
 
 Point ListBoxX::MaxTrackSize() const {
-	PRectangle rc(0, 0, 
+	PRectangle rc(0, 0,
 		maxCharWidth * maxItemCharacters + TextInset.x * 2 +
-		 TextOffset() + ::GetSystemMetrics(SM_CXVSCROLL), 
+		 TextOffset() + ::GetSystemMetrics(SM_CXVSCROLL),
 		ItemHeight() * lti.Count());
 	AdjustWindowRect(&rc);
 	return Point(rc.Width(), rc.Height());
@@ -2032,6 +2161,12 @@ void Platform_Initialise(void *hInstance) {
 	onNT = osv.dwPlatformId == VER_PLATFORM_WIN32_NT;
 	::InitializeCriticalSection(&crPlatformLock);
 	hinstPlatformRes = reinterpret_cast<HINSTANCE>(hInstance);
+	if (!hDLLImage) {
+		hDLLImage = ::LoadLibrary(TEXT("Msimg32"));
+	}
+	if (hDLLImage) {
+		AlphaBlendFn = (AlphaBlendSig)::GetProcAddress(hDLLImage, "AlphaBlend");
+	}
 	ListBoxX_Register();
 }
 

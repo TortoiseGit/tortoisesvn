@@ -119,6 +119,7 @@ SOBJS=\
 	$(DIR_O)\CallTip.obj \
 	$(DIR_O)\CellBuffer.obj \
 	$(DIR_O)\ContractionState.obj \
+	$(DIR_O)\CharClassify.obj \
 	$(DIR_O)\Document.obj \
 	$(DIR_O)\Editor.obj \
 	$(DIR_O)\ExternalLexer.obj \
@@ -165,6 +166,7 @@ LEXOBJS=\
 	$(DIR_O)\LexGui4Cli.obj \
 	$(DIR_O)\LexHaskell.obj \
 	$(DIR_O)\LexHTML.obj \
+	$(DIR_O)\LexInno.obj \
 	$(DIR_O)\LexKix.obj \
 	$(DIR_O)\LexLisp.obj \
 	$(DIR_O)\LexLout.obj \
@@ -175,6 +177,7 @@ LEXOBJS=\
 	$(DIR_O)\LexMPT.obj \
 	$(DIR_O)\LexMSSQL.obj \
 	$(DIR_O)\LexNsis.obj \
+	$(DIR_O)\LexOpal.obj \
 	$(DIR_O)\LexOthers.obj \
 	$(DIR_O)\LexPascal.obj \
 	$(DIR_O)\LexPB.obj \
@@ -189,6 +192,7 @@ LEXOBJS=\
 	$(DIR_O)\LexSpecman.obj \
 	$(DIR_O)\LexSQL.obj \
 	$(DIR_O)\LexTADS3.obj \
+	$(DIR_O)\LexTCL.obj \
 	$(DIR_O)\LexTeX.obj \
 	$(DIR_O)\LexVB.obj \
 	$(DIR_O)\LexVerilog.obj \
@@ -202,6 +206,7 @@ LOBJS=\
 	$(DIR_O)\CallTip.obj \
 	$(DIR_O)\CellBuffer.obj \
 	$(DIR_O)\ContractionState.obj \
+	$(DIR_O)\CharClassify.obj \
 	$(DIR_O)\Document.obj \
 	$(DIR_O)\DocumentAccessor.obj \
 	$(DIR_O)\Editor.obj \
@@ -286,16 +291,19 @@ $(DIR_O)\CallTip.obj: ..\src\CallTip.cxx ..\include\Platform.h ..\src\CallTip.h
 
 $(DIR_O)\CellBuffer.obj: ..\src\CellBuffer.cxx ..\include\Platform.h ..\include\Scintilla.h ..\src\CellBuffer.h
 
+$(DIR_O)\CharClassify.obj: ..\src\CharClassify.cxx ..\src\CharClassify.h
+
 $(DIR_O)\ContractionState.obj: ..\src\ContractionState.cxx ..\include\Platform.h ..\src\ContractionState.h
 
 $(DIR_O)\Document.obj: ..\src\Document.cxx ..\include\Platform.h ..\include\Scintilla.h ..\src\RESearch.h \
- ..\src\CellBuffer.h ..\src\Document.h
+ ..\src\CellBuffer.h ..\src\CharClassify.h ..\src\Document.h
 
-$(DIR_O)\DocumentAccessor.obj: ..\src\DocumentAccessor.cxx ..\include\Platform.h ..\include\PropSet.h ..\include\Accessor.h ..\src\DocumentAccessor.h ..\include\Scintilla.h
+$(DIR_O)\DocumentAccessor.obj: ..\src\DocumentAccessor.cxx ..\include\Platform.h ..\include\PropSet.h \
+ ..\include\Accessor.h ..\src\DocumentAccessor.h ..\src\CharClassify.h ..\include\Scintilla.h
 
 $(DIR_O)\Editor.obj: ..\src\Editor.cxx ..\include\Platform.h ..\include\Scintilla.h ..\src\ContractionState.h \
  ..\src\CellBuffer.h ..\src\KeyMap.h ..\src\Indicator.h ..\src\LineMarker.h ..\src\Style.h ..\src\ViewStyle.h \
- ..\src\Document.h ..\src\Editor.h
+ ..\src\CharClassify.h ..\src\Document.h ..\src\Editor.h
 
 $(DIR_O)\ExternalLexer.obj: ..\src\ExternalLexer.cxx ..\include\Platform.h ..\include\Scintilla.h ..\include\SciLexer.h \
  ..\include\PropSet.h ..\include\Accessor.h ..\src\DocumentAccessor.h ..\include\Keywords.h ..\src\ExternalLexer.h
@@ -362,6 +370,8 @@ $(DIR_O)\LexHaskell.obj: ..\src\LexHaskell.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexHTML.obj: ..\src\LexHTML.cxx $(LEX_HEADERS)
 
+$(DIR_O)\LexInno.obj: ..\src\LexInno.cxx $(LEX_HEADERS)
+
 $(DIR_O)\LexKix.obj: ..\src\LexKix.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexLisp.obj: ..\src\LexLisp.cxx $(LEX_HEADERS)
@@ -381,6 +391,8 @@ $(DIR_O)\LexMPT.obj: ..\src\LexMPT.cxx $(LEX_HEADERS)
 $(DIR_O)\LexMSSQL.obj: ..\src\LexMSSQL.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexNsis.obj: ..\src\LexNsis.cxx $(LEX_HEADERS)
+
+$(DIR_O)\LexOpal.obj: ..\src\LexOpal.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexOthers.obj: ..\src\LexOthers.cxx $(LEX_HEADERS)
 
@@ -410,6 +422,8 @@ $(DIR_O)\LexSQL.obj: ..\src\LexSQL.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexTADS3.obj: ..\src\LexTADS3.cxx $(LEX_HEADERS)
 
+$(DIR_O)\LexTCL.obj: ..\src\LexTCL.cxx $(LEX_HEADERS)
+
 $(DIR_O)\LexTeX.obj: ..\src\LexTeX.cxx $(LEX_HEADERS)
 
 $(DIR_O)\LexVB.obj: ..\src\LexVB.cxx $(LEX_HEADERS)
@@ -434,27 +448,31 @@ $(DIR_O)\RESearch.obj: ..\src\RESearch.cxx ..\src\RESearch.h
 
 $(DIR_O)\ScintillaBase.obj: ..\src\ScintillaBase.cxx ..\include\Platform.h ..\include\Scintilla.h \
  ..\src\ContractionState.h ..\src\CellBuffer.h ..\src\CallTip.h ..\src\KeyMap.h ..\src\Indicator.h \
- ..\src\LineMarker.h ..\src\Style.h ..\src\ViewStyle.h ..\src\AutoComplete.h ..\src\Document.h ..\src\Editor.h \
- ..\src\ScintillaBase.h
+ ..\src\LineMarker.h ..\src\Style.h ..\src\ViewStyle.h ..\src\AutoComplete.h ..\src\CharClassify.h \
+ ..\src\Document.h ..\src\Editor.h ..\src\ScintillaBase.h
 
 $(DIR_O)\ScintillaBaseL.obj: ..\src\ScintillaBase.cxx ..\include\Platform.h ..\include\Scintilla.h ..\include\SciLexer.h \
  ..\src\ContractionState.h ..\src\CellBuffer.h ..\src\CallTip.h ..\src\KeyMap.h ..\src\Indicator.h \
- ..\src\LineMarker.h ..\src\Style.h ..\src\AutoComplete.h ..\src\ViewStyle.h ..\src\Document.h ..\src\Editor.h \
+ ..\src\LineMarker.h ..\src\Style.h ..\src\AutoComplete.h ..\src\ViewStyle.h ..\src\CharClassify.h \
+ ..\src\Document.h ..\src\Editor.h \
  ..\src\ScintillaBase.h ..\include\PropSet.h ..\include\Accessor.h ..\src\DocumentAccessor.h ..\include\KeyWords.h
 
 $(DIR_O)\ScintillaWin.obj: ScintillaWin.cxx ..\include\Platform.h ..\include\Scintilla.h \
  ..\src\ContractionState.h ..\src\CellBuffer.h ..\src\CallTip.h ..\src\KeyMap.h ..\src\Indicator.h \
- ..\src\LineMarker.h ..\src\Style.h ..\src\AutoComplete.h ..\src\ViewStyle.h ..\src\Document.h ..\src\Editor.h \
+ ..\src\LineMarker.h ..\src\Style.h ..\src\AutoComplete.h ..\src\ViewStyle.h ..\src\CharClassify.h \
+ ..\src\Document.h ..\src\Editor.h \
  ..\src\ScintillaBase.h ..\src\UniConversion.h
 
 $(DIR_O)\ScintillaWinL.obj: ScintillaWin.cxx ..\include\Platform.h ..\include\Scintilla.h ..\include\SciLexer.h \
  ..\src\ContractionState.h ..\src\CellBuffer.h ..\src\CallTip.h ..\src\KeyMap.h ..\src\Indicator.h \
- ..\src\LineMarker.h ..\src\Style.h ..\src\AutoComplete.h ..\src\ViewStyle.h ..\src\Document.h ..\src\Editor.h \
+ ..\src\LineMarker.h ..\src\Style.h ..\src\AutoComplete.h ..\src\ViewStyle.h ..\src\CharClassify.h \
+ ..\src\Document.h ..\src\Editor.h \
  ..\src\ScintillaBase.h ..\include\PropSet.h ..\include\Accessor.h ..\include\KeyWords.h ..\src\UniConversion.h
 
 $(DIR_O)\ScintillaWinS.obj: ScintillaWin.cxx ..\include\Platform.h ..\include\Scintilla.h \
  ..\src\ContractionState.h ..\src\CellBuffer.h ..\src\CallTip.h ..\src\KeyMap.h ..\src\Indicator.h \
- ..\src\LineMarker.h ..\src\Style.h ..\src\AutoComplete.h ..\src\ViewStyle.h ..\src\Document.h ..\src\Editor.h \
+ ..\src\LineMarker.h ..\src\Style.h ..\src\AutoComplete.h ..\src\ViewStyle.h ..\src\CharClassify.h \
+ ..\src\Document.h ..\src\Editor.h \
  ..\src\ScintillaBase.h ..\src\UniConversion.h
 
 $(DIR_O)\Style.obj: ..\src\Style.cxx ..\include\Platform.h ..\src\Style.h
