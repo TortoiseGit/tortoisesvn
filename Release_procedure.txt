@@ -1,58 +1,49 @@
-TSVN releases are generally cut directly from the trunk, unless there is
-a particular reason to do otherwise, eg. bugfix-only branch for older OS.
+TortoiseSVN releases are created as follows:
 
-The rationale for this is described in www/release_info.html
+* When we think we're ready for a release, we create a branch from
+  trunk, named after the next release version with an 'x' as the last
+  version number, e.g. 1.4.x.
+* From this point on, only bug fixes will go to that branch. No new
+  features or resource changes are allowed to go in there.
+* The nightly builds for the stable release is switched over to that
+  branch, so users can start testing it.
+* After about a week, a first release candidate is built and uploaded
+  for all to test.
+* If no major bugs are found in the RC, we create the official release.
+  However if some major bugs are found, those are fixed and another RC
+  is created.
 
-- about a week before the release, an announcement is made on the
-  mailing list, indicating the expected release date and encouraging
-  users to download and test the nightly builds.
-
-- during this period, only 'safe' changes are committed, ie. bugfixes,
-  resource and doc updates, and trivial changes.
-
-A major release (one which adds significant new features) is usually
-preceded by a few release candidates. These are created in the same
-way as the full release, but the requirement for 1 week's stabilisation
-may be relaxed. Release candidates are created simply to allow more
-widespread testing than can be achieved with the nightly builds.
-They are announced in the same way as a full release to encourage
-more users to take part in testing.
+After a release is made, the branch is kept until the next major release
+and bug fixes are merged back from trunk to that branch. During that time,
+we work on new features on trunk.
+Whenever we feel there are enough bug fixes merged to the stable branch
+we will create another stable release.
 
 These steps are required to generate the release:
 
-- Check the latest versions of Apache, openssl, zlib, neon and of course
+- Check the latest versions of openssl, zlib and of course
   download any newer versions available.
 - increment the version number in version.in file
 - finish the changelog.txt file, i.e. add the version title
-- run the build.bat script
+- run the Nant build script
 
 if all goes well (no errors while running the script) install the new
 version and test one last time.
 
-while the script runs, move all the old files in the filesharing area
-from the binaries folder to the binaries/archive folder.
-
-- zip the files Languages\TortoiseProcLang.dll and 
-  Languages\TortoiseMergeLang.dll to Languages_1.1.x.zip and upload that
-  to the filesharing area on tigris.org.
-
 Now commit those changes and then create the tag in the repository
 
-- run the build.bat script again
+- run the Nant build script again, passing the 'release' param.
 
 The last steps:
-- zip the files Languages\TortoiseProcLang.dll and 
-  Languages\TortoiseMergeLang.dll to Languages_1.1.x.zip and replace the
-  previously uploaded file with the current one (indicating the new revision
-  number after the last commit).
-- upload the msi files to the filesharing area on tigris.org
+- upload the files to sourceforge.net
 - edit the web files download.html, index.html, project_status.html to
   indicate the new release
 - edit the file version.txt to match the exact version number of the release
-- copy the new generated docs to the web docs folder
+- copy the changelog file to the /www folder
 - commit the web pages
 
 Announcements:
-- Mail to dev@tortoisesvn.tigris.org, announce@tortoisesvn.tigris.org
+- Mail to dev@tortoisesvn.tigris.org, users@tortoisesvn.tigris.org and announce@tortoisesvn.tigris.org
 - Add a news item on tigris.org
+- Edit the version information on sourcforge.net
 - Remember to include a link to the download page in the announcements.

@@ -24,9 +24,11 @@ and version numbers are not always aligned.</p>
 
 <h2>Does TortoiseSVN follow the same release procedure as Subversion?</h2>
 
-<p>No. Releases are almost always cut from a tag taken directly from the trunk
-rather than using a release branch. This is competely different from the
-much more conservative approach taken by the Subversion project.</p>
+<p>Almost. We also create a stablisization branch before a release, but
+we don't have as many people as the Subversion project, so we don't vote
+which changes go into a stable branch and which ones don't. Each developer
+must decide for himself if a change can go into a stable branch or not.
+</p>
 
 <p>Subversion provides the access to and management of the version control
 database. It is absolutely critical that the Subversion libraries are
@@ -45,28 +47,23 @@ dynamic development process, and less administrative overhead.</p>
 features. Normally this happens when Subversion adds a new
 feature, and TSVN grows some new UI to support it.</p>
 
-<p>A minor release includes bugfixes and some new features,
-but not large scale changes. There may still be a lot of
+<p>A minor release includes only bugfixes. There may still be a lot of
 small changes.</p>
 
 <h2>How are releases stabilised?</h2>
 
 <p>We have a nightly build site which allows many people to test the
-current trunk build. We announce each planned release about a week
-beforehand and encourage people to test the nightly builds. During
-this testing period, only 'safe' changes are committed to trunk.
-This will include bugfixes and doc updates, but no new features.</p>
+current trunk build. When we think we're ready for a new major release,
+we create a stable branch from trunk and announce this on the mailing
+list. From this point on, only bugfixes are allowed to go into that
+branch. The nightly builds from that branch are used by many people
+and gets tested that way.</p>
 
-<p>Before each major release, we normally produce at least one
-release candidate (RC) to allow for more extensive testing.
-Release Candidates are announced in the same way as full releases
-and allow even more people to get on with testing.</p>
+<p>After about a week after the creation of the stable branch, we
+release at least one release candidate (RC) to allow for more
+extensive testing. Release candidates are announced in the same way
+as full releases and allow even more people to get on with testing.
+</p>
 
-<h2>Why don't you use a stabilising branch for releases?</h2>
-
-<p>We did that at one time, but it created a lot of additional
-work, and the stability was not noticeably better.
-TortoiseSVN is developed by a very much smaller team than
-Subversion, and there just aren't enough hours in the day.</p>
 
 </html>
