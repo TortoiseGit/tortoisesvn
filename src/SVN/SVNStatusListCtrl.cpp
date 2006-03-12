@@ -1545,7 +1545,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (bEntryAdded)
 							popup.AppendMenu(MF_SEPARATOR);
 					}
-					else
+					else if (GetSelectedCount() > 1)
 					{
 						if (m_dwContextMenus & SVNSLC_POPCOMMIT)
 						{
