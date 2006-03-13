@@ -418,11 +418,11 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,12,7,274,31
     CONTROL         "Show &overlays only in explorer",IDC_ONLYEXPLORER,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,20,268,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,20,266,10
     GROUPBOX        "Status cache",IDC_STATIC,12,41,274,32
     CONTROL         "&Default",IDC_CACHEDEFAULT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,56,60,10
     CONTROL         "Shell",IDC_CACHESHELL,"Button",BS_AUTORADIOBUTTON,114,56,63,10
-    CONTROL         "None",IDC_CACHENONE,"Button",BS_AUTORADIOBUTTON,213,56,72,10
+    CONTROL         "None",IDC_CACHENONE,"Button",BS_AUTORADIOBUTTON,213,56,70,10
     GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,78,274,61
     CONTROL         "Re&movable drives",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,90,130,10
     CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,104,130,10
