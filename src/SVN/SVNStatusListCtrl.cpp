@@ -3313,3 +3313,29 @@ bool CSVNStatusListCtrl::HasPath(CTSVNPath path)
 	}
 	return false;
 }
+
+BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case 'A':
+		case 'a':
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					// select all entries
+					for (int i=0; i<GetItemCount(); ++i)
+					{
+						SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+					}
+					return TRUE;
+				}
+			}
+			break;
+		}
+	}
+
+	return CListCtrl::PreTranslateMessage(pMsg);
+}

@@ -114,6 +114,8 @@
 - CHG: The url and path in the merge dialog have a tooltip now, in case
        the url doesn't fit into the dialog, the tooltip will still show
        the complete url. See issue #234 for details. (Stefan)
+- CHG: Ctrl-A selects all entries in the status list control, which is used
+       in multiple dialogs like commit, check for modifications,... (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When setting properties, an error message isn't hidden anymore by

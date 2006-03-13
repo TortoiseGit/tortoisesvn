@@ -449,6 +449,7 @@ private:
 	CString WidthArrayToString(int WidthArray[]);
 
 	virtual void PreSubclassWindow();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	afx_msg void OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg BOOL OnToolTipText(UINT id, NMHDR *pNMHDR, LRESULT *pResult);	
