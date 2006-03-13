@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-08 10:52+0200\n"
+"PO-Revision-Date: 2006-03-13 11:17+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -253,6 +253,7 @@ msgstr "&Относно TortoiseMerge..."
 
 # Control-ID:1098,
 #: ID:8
+#: ID:563
 #: Control-ID:1098
 msgid "&Add..."
 msgstr "&Добавяне..."
@@ -393,7 +394,6 @@ msgstr "&Симулация"
 
 # Control-ID:1031,
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Редакция"
@@ -404,7 +404,9 @@ msgid "&Edit conflicts"
 msgstr "&Редакция на конфликти"
 
 # Control-ID:1099,
+#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Редакция..."
 
@@ -481,6 +483,7 @@ msgstr "&Главна ревизия"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "&Главна ревизия"
 
@@ -660,6 +663,7 @@ msgstr "&Отмяна на промените от тази ревизия"
 # Control-ID:1033,
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Ревизия"
 
@@ -2494,6 +2498,13 @@ msgid ""
 "tsvn:projectlanguage property is set."
 msgstr "Проверка на правописа, само ако е установено \"tsvn:projectlanguage\""
 
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "Крайна ревизия"
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -2736,7 +2747,7 @@ msgstr "От:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "От: (начален URL и ревизия на поредицата за сливане)"
+msgstr "От: (начален URL и ревизия на обхват за сливане)"
 
 # ID:273,
 #: ID:273
@@ -4408,6 +4419,11 @@ msgid "Revision Graph"
 msgstr "Графика на ревизиите"
 
 # ID:75,
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Обхват от ревизии"
+
+# ID:75,
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4712,12 +4728,12 @@ msgstr "Избор на програма за сливане"
 # Dlg-ID:173,
 #: ID:276
 msgid "Select revision range"
-msgstr "Диапазон от ревизии"
+msgstr "Избор на обхват от ревизии"
 
 # Dlg-ID:173,
 #: ID:276
 msgid "Select start revision"
-msgstr "Начална ревизия"
+msgstr "Избор на начална ревизия"
 
 # ID:79,
 #: ID:79
@@ -4811,9 +4827,15 @@ msgid "Short URL of Subversion items"
 msgstr "Кратък URL на Subversion обекти"
 
 # Control-ID:1016,
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "&Всички"
+
+# Control-ID:1031,
+#: ID:115
+msgid "Show &Range..."
+msgstr "Показване на &обхват от ревизии..."
 
 # ID:76,
 #: MenuEntry
@@ -4984,7 +5006,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Specify the revision range which you want to merge:"
-msgstr "Укажете поредицата от ревизии, която желаете да слеете:"
+msgstr "Укажете обхвата от ревизии, която желаете да слеете:"
 
 # ID:3604,
 #: ID:3604
@@ -5000,6 +5022,11 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "Натрупани"
+
+# ID:11,
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "Начална ревизия"
 
 # ID:74,#:
 # ID:77,
@@ -5555,7 +5582,7 @@ msgstr "До:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "До: (краен URL и ревизия на поредицата за сливане)"
+msgstr "До: (краен URL и ревизия на обхвата за сливане)"
 
 # ID:7,#:
 # ID:3585,#:
