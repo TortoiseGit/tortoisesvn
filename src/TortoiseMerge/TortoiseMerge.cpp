@@ -105,7 +105,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 		{
 			free((void*)m_pszHelpFilePath);
 			m_pszHelpFilePath=_tcsdup(sHelppath);
-			langId = 0;
+			break;
 		}
 		sHelppath.Replace(sLang, _T("_en"));
 		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf));
@@ -116,7 +116,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 		{
 			free((void*)m_pszHelpFilePath);
 			m_pszHelpFilePath=_tcsdup(sHelppath);
-			langId = 0;
+			break;
 		}
 		sHelppath.Replace(sLang, _T("_en"));
 
@@ -146,7 +146,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 		sHelpText.LoadString(IDS_COMMANDLINEHELP);
 		MessageBox(NULL, sHelpText, _T("TortoiseMerge"), MB_ICONINFORMATION);
 		return FALSE;
-	} // if (parser.HasKey(_T("?")) || parser.HasKey(_T("help"))) 
+	}
 
 	// Initialize OLE libraries
 	if (!AfxOleInit())

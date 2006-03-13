@@ -289,7 +289,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				free((void*)m_pszHelpFilePath);
 				m_pszHelpFilePath=_tcsdup(sHelppath);
-				langId = 0;
+				break;
 			}
 		}
 		sHelppath.Replace(sLang, _T("_en"));
@@ -302,7 +302,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				free((void*)m_pszHelpFilePath);
 				m_pszHelpFilePath=_tcsdup(sHelppath);
-				langId = 0;
+				break;
 			}
 		}
 		sHelppath.Replace(sLang, _T("_en"));
