@@ -209,9 +209,15 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			m_bMergesAddsDeletesOccurred = true;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_MERGED);
 		}
-		else
+		else if (((data->content_state != svn_wc_notify_state_unchanged)&&(data->content_state != svn_wc_notify_state_unknown)) || 
+			((data->prop_state != svn_wc_notify_state_unchanged)&&(data->prop_state != svn_wc_notify_state_unknown)))
 		{
 			data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATE);
+		}
+		else
+		{
+			bNoNotify = true;
+			break;
 		}
 		if (lock_state == svn_wc_notify_lock_state_unlocked)
 		{

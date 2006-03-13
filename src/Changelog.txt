@@ -116,6 +116,9 @@
        the complete url. See issue #234 for details. (Stefan)
 - CHG: Ctrl-A selects all entries in the status list control, which is used
        in multiple dialogs like commit, check for modifications,... (Stefan)
+- CHG: When merging, items which are modified in the repository but lead
+       to no changes in the working copy are not shown anymore in
+       the progress dialog. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When setting properties, an error message isn't hidden anymore by
