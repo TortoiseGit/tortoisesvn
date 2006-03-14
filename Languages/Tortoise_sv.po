@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-09 08:32+0100\n"
+"PO-Revision-Date: 2006-03-10 12:00+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -370,6 +370,7 @@ msgstr "&HEAD revision"
 
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "&HEAD revision"
 
@@ -516,6 +517,7 @@ msgstr "&Återställ till denna revisionen"
 
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Revision"
 
@@ -2066,6 +2068,11 @@ msgid ""
 msgstr ""
 "Använd rättstavning endast om \n"
 "tsvn:projectlanguage är satt."
+
+#: Control-ID:65535
+#, fuzzy
+msgid "End Revision"
+msgstr "Slutrevision"
 
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -3675,6 +3682,10 @@ msgstr "Revision / Användare:"
 msgid "Revision Graph"
 msgstr "Revisionsgraf"
 
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Revisionsintervall"
+
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4010,9 +4021,14 @@ msgstr "Kort &datum/tid format i loggmeddelanden"
 msgid "Short URL of Subversion items"
 msgstr "URL av objekt i arkivet (kort)"
 
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "Visa &alla"
+
+#: ID:115
+msgid "Show &Range..."
+msgstr "Visa &intervall..."
 
 #: MenuEntry
 msgid "Show &all revisions"
@@ -4177,6 +4193,11 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "Staplade"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Start Revision"
+msgstr "Startrevision"
 
 #: ID:245
 #: Dlg-ID:179
