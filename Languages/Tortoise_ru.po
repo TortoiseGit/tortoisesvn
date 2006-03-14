@@ -32,13 +32,13 @@
 # Help -- Справка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 5955: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 5985: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-09 09:58+0300\n"
+"PO-Revision-Date: 2006-03-14 19:25+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -207,6 +207,7 @@ msgid "&About TortoiseMerge..."
 msgstr "&О TortoiseMerge..."
 
 #: ID:8
+#: ID:563
 #: Control-ID:1098
 msgid "&Add..."
 msgstr "&Добавить..."
@@ -314,7 +315,6 @@ msgid "&Dry run"
 msgstr "&Пробный запуск"
 
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Редактировать"
@@ -324,7 +324,9 @@ msgid "&Edit conflicts"
 msgstr "Редактировать конф&ликты"
 
 # кнопка маленькая, 'Редактировать...' не помещается
+#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Исправить..."
 
@@ -386,6 +388,7 @@ msgstr "HEAD-&ревизия"
 
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "HEAD-&ревизия"
 
@@ -527,6 +530,7 @@ msgstr "&Отменить изменения из этой ревизии"
 
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Ревизия"
 
@@ -2024,6 +2028,10 @@ msgid ""
 msgstr ""
 "Проверять орфографию, только если\n"
 "задано свойство tsvn:projectlanguage."
+
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "Конечная ревизия"
 
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -3587,6 +3595,10 @@ msgstr "Ревизия / Автор:"
 msgid "Revision Graph"
 msgstr "Граф Ревизий"
 
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Ряд ревизий"
+
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -3908,9 +3920,14 @@ msgstr "Короткий формат &даты/времени в лог-соо�
 msgid "Short URL of Subversion items"
 msgstr "Краткий URL объектов Subversion"
 
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "Показать &все"
+
+#: ID:115
+msgid "Show &Range..."
+msgstr "Показать &ряд..."
 
 #: MenuEntry
 msgid "Show &all revisions"
@@ -4067,6 +4084,10 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "Стопкой"
+
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "Начальная ревизия"
 
 #: ID:245
 #: Dlg-ID:179
