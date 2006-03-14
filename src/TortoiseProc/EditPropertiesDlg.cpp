@@ -53,9 +53,9 @@ void CEditPropertiesDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, &CEditPropertiesDlg::OnBnClickedHelp)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnNMCustomdrawEditproplist)
-	ON_NOTIFY(NM_CLICK, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnNMClickEditproplist)
 	ON_BN_CLICKED(IDC_REMOVEPROPS, &CEditPropertiesDlg::OnBnClickedRemoveProps)
 	ON_BN_CLICKED(IDC_EDITPROPS, &CEditPropertiesDlg::OnBnClickedEditprops)
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnLvnItemchangedEditproplist)
 END_MESSAGE_MAP()
 
 
@@ -115,8 +115,9 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 		InterlockedExchange(&m_bThreadRunning, FALSE);
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
+	GetDlgItem(IDC_EDITPROPLIST)->SetFocus();
 
-	return TRUE;
+	return FALSE;
 }
 
 void CEditPropertiesDlg::Refresh()
@@ -244,8 +245,9 @@ void CEditPropertiesDlg::OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pRes
 
 }
 
-void CEditPropertiesDlg::OnNMClickEditproplist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR *pNMHDR, LRESULT *pResult)
 {
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 	// disable the "remove" button if nothing
 	// is selected, enable it otherwise
@@ -265,6 +267,7 @@ void CEditPropertiesDlg::OnNMClickEditproplist(NMHDR * /*pNMHDR*/, LRESULT *pRes
 	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(TRUE);
 	GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITBUTTON)));
 	GetDlgItem(IDC_EDITPROPS)->EnableWindow(TRUE);
+	*pResult = 0;
 }
 
 void CEditPropertiesDlg::OnBnClickedRemoveProps()
@@ -401,3 +404,4 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 
 	return __super::PreTranslateMessage(pMsg);
 }
+

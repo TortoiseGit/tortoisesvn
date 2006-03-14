@@ -45,9 +45,9 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMClickEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedRemoveProps();
 	afx_msg void OnBnClickedEditprops();
+	afx_msg void OnLvnItemchangedEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 private:
