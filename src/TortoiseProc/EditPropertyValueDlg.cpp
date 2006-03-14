@@ -94,6 +94,8 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("tsvn:logfilelistenglish"));
 		m_PropNames.AddString(_T("tsvn:projectlanguage"));
 	}
+	else
+		GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(FALSE);
 
 	bool bFound = false;
 	for (int i=0; i<m_PropNames.GetCount(); ++i)
