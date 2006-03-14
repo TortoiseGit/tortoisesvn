@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-07 10:13+0800\n"
+"PO-Revision-Date: 2006-03-14 10:29+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -215,6 +215,7 @@ msgstr "關於 TortoiseMerge(&A)..."
 
 # Control-ID:1098,
 #: ID:8
+#: ID:563
 #: Control-ID:1098
 msgid "&Add..."
 msgstr "加入(&A)..."
@@ -355,7 +356,6 @@ msgstr "試演(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "編輯(&E)"
@@ -366,7 +366,9 @@ msgid "&Edit conflicts"
 msgstr "編修衝突(&E)"
 
 # Control-ID:1099,
+#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "編輯(&E)..."
 
@@ -443,6 +445,7 @@ msgstr "最新版本(&H)"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "最新版本(&H)"
 
@@ -622,6 +625,7 @@ msgstr "復原自此版本以來的變更(&R)"
 # Control-ID:1033,
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "版本(&R)"
 
@@ -1488,6 +1492,11 @@ msgstr "瀏覽..."
 #: Control-ID:1119
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug編號 / 問題編號(&I):"
+
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Bug編號"
 
 # Control-ID:1119,
 #: Control-ID:1119
@@ -2448,6 +2457,13 @@ msgid ""
 msgstr ""
 "設定 tsvn:projectlanguage 時\n"
 "才啟動拼字檢查."
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "結束版本"
 
 # ID:3825,
 #: ID:3825
@@ -4363,6 +4379,11 @@ msgid "Revision Graph"
 msgstr "版本圖"
 
 # ID:75,
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "版本範圍"
+
+# ID:75,
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4766,9 +4787,15 @@ msgid "Short URL of Subversion items"
 msgstr "Subversion 項目的短 URL"
 
 # Control-ID:1016,
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "顯示全部(&A)"
+
+# Control-ID:1031,
+#: ID:115
+msgid "Show &Range..."
+msgstr "顯示範圍(&R)..."
 
 # ID:76,
 #: MenuEntry
@@ -4955,6 +4982,11 @@ msgstr ""
 #: Control-ID:1263
 msgid "Stacked"
 msgstr "堆疊的"
+
+# ID:11,
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "開始版本"
 
 # ID:74,#:
 # ID:77,
