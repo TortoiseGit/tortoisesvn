@@ -48,11 +48,13 @@ protected:
 	afx_msg void OnBnClickedRemoveProps();
 	afx_msg void OnBnClickedEditprops();
 	afx_msg void OnLvnItemchangedEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMDblclkEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 private:
 	static UINT PropsThreadEntry(LPVOID pVoid);
 	UINT PropsThread();
+	void EditProps();
 
 protected:
 	class PropValue

@@ -56,6 +56,7 @@ BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_REMOVEPROPS, &CEditPropertiesDlg::OnBnClickedRemoveProps)
 	ON_BN_CLICKED(IDC_EDITPROPS, &CEditPropertiesDlg::OnBnClickedEditprops)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnLvnItemchangedEditproplist)
+	ON_NOTIFY(NM_DBLCLK, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnNMDblclkEditproplist)
 END_MESSAGE_MAP()
 
 
@@ -314,7 +315,18 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 	Refresh();
 }
 
+void CEditPropertiesDlg::OnNMDblclkEditproplist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	EditProps();
+	*pResult = 0;
+}
+
 void CEditPropertiesDlg::OnBnClickedEditprops()
+{
+	EditProps();
+}
+
+void CEditPropertiesDlg::EditProps()
 {
 	int selIndex = m_propList.GetSelectionMark();
 
@@ -403,4 +415,5 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 
 	return __super::PreTranslateMessage(pMsg);
 }
+
 
