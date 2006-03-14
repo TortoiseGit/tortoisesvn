@@ -245,9 +245,8 @@ void CEditPropertiesDlg::OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pRes
 
 }
 
-void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR *pNMHDR, LRESULT *pResult)
+void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 	// disable the "remove" button if nothing
 	// is selected, enable it otherwise
@@ -322,7 +321,7 @@ void CEditPropertiesDlg::OnBnClickedEditprops()
 	CEditPropertyValueDlg dlg;
 	CString sName;
 	CString sValue;
-	if (selIndex >= 0)
+	if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
 		sName = m_propList.GetItemText(selIndex, 0);
 		PropValue& prop = m_properties[stdstring(sName)];
