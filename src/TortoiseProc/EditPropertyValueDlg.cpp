@@ -95,6 +95,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("tsvn:projectlanguage"));
 	}
 
+	bool bFound = false;
 	for (int i=0; i<m_PropNames.GetCount(); ++i)
 	{
 		CString sText;
@@ -102,8 +103,14 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		if (m_sPropName.Compare(sText)==0)
 		{
 			m_PropNames.SetCurSel(i);
+			bFound = true;
 			break;
 		}
+	}
+
+	if (!bFound)
+	{
+		m_PropNames.SetWindowText(m_sPropName);
 	}
 
 	UpdateData(FALSE);
