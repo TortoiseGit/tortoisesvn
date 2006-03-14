@@ -1730,9 +1730,13 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 					}
-					popup.AppendMenu(MF_SEPARATOR);
-					temp.LoadString(IDS_STATUSLIST_CONTEXT_PROPERTIES);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_PROPERTIES, temp);
+
+					if (wcStatus != svn_wc_status_deleted && wcStatus!=svn_wc_status_unversioned)
+					{
+						popup.AppendMenu(MF_SEPARATOR);
+						temp.LoadString(IDS_STATUSLIST_CONTEXT_PROPERTIES);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_PROPERTIES, temp);
+					}
 				}
 
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
