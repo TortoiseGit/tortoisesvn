@@ -283,13 +283,16 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 	CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
 	CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
 
-	int ret = CMessageBox::Show(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sRecursive, sNotRecursive, sCancel);
-	if (ret == 1)
-		bRecurse = true;
-	else if (ret == 2)
-		bRecurse = false;
-	else
-		return;
+	if ((m_pathlist.GetCount()>1)||((m_pathlist.GetCount()==1)&&(PathIsDirectory(m_pathlist[0].GetWinPath()))))
+	{
+		int ret = CMessageBox::Show(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sRecursive, sNotRecursive, sCancel);
+		if (ret == 1)
+			bRecurse = true;
+		else if (ret == 2)
+			bRecurse = false;
+		else
+			return;
+	}
 
 	CProgressDlg prog;
 	CString sTemp;
