@@ -444,7 +444,7 @@ bool CTSVNPath::ArePathStringsEqual(const CString& sP1, const CString& sP2)
 	LPCTSTR pP2 = ((LPCTSTR)sP2)+(length-1);
 	while(length-- > 0)
 	{
-		if(_totupper(*pP1--) != _totupper(*pP2--))
+		if((*pP1--) != (*pP2--))
 		{
 			return false;
 		}
@@ -486,24 +486,6 @@ bool CTSVNPath::IsEmpty() const
 // Test if both paths refer to the same item
 // Ignores case and slash direction
 bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs) const
-{
-	// Try and find a slash direction which avoids having to convert
-	// both filenames
-	if(!m_sBackslashPath.IsEmpty())
-	{
-		// *We've* got a \ path - make sure that the RHS also has a \ path
-		rhs.EnsureBackslashPathSet();
-		return ArePathStringsEqual(m_sBackslashPath, rhs.m_sBackslashPath);
-	}
-	else
-	{
-		// Assume we've got a fwdslash path and make sure that the RHS has one
-		rhs.EnsureFwdslashPathSet();
-		return ArePathStringsEqual(m_sFwdslashPath, rhs.m_sFwdslashPath);
-	}
-}
-
-bool CTSVNPath::IsEquivalentToWithCase(const CTSVNPath& rhs) const
 {
 	// Try and find a slash direction which avoids having to convert
 	// both filenames
@@ -877,7 +859,7 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
 			const CString& sPath = it->GetWinPathString();
 			if (sTempRoot.IsEmpty())
 				sTempRoot = sPath.Left(i);
-			if (sTempRoot.CompareNoCase(sPath.Left(i))!=0)
+			if (sTempRoot.Compare(sPath.Left(i))!=0)
 			{
 				bEqual = false;
 				break;
@@ -1100,7 +1082,7 @@ private:
 		ATLASSERT(list.GetCount() == 3);
 
 		ATLASSERT(list[0].GetWinPathString() == _T("A"));
-		ATLASSERT(list[1].GetWinPathString().CompareNoCase(_T("e")) == 0);
+		ATLASSERT(list[1].GetWinPathString().Compare(_T("e")) == 0);
 		ATLASSERT(list[2].GetWinPathString() == _T("Z"));
 	}
 	
@@ -1124,9 +1106,9 @@ private:
 
 		list.SortByPathname();
 
-		ATLASSERT(list[0].GetWinPathString().CompareNoCase(_T("c:\\parent")) == 0);
-		ATLASSERT(list[1].GetWinPathString().CompareNoCase(_T("c:\\test")) == 0);
-		ATLASSERT(list[2].GetWinPathString().CompareNoCase(_T("c:\\testfile")) == 0);
+		ATLASSERT(list[0].GetWinPathString().Compare(_T("c:\\parent")) == 0);
+		ATLASSERT(list[1].GetWinPathString().Compare(_T("c:\\test")) == 0);
+		ATLASSERT(list[2].GetWinPathString().Compare(_T("c:\\testfile")) == 0);
 	}
 
 #if defined(_MFC_VER)

@@ -324,7 +324,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	long now = (long)GetTickCount();
 	if(now-m_mostRecentExpiresAt < 0)
 	{
-		if(path.IsEquivalentToWithCase(m_mostRecentPath))
+		if(path.IsEquivalentTo(m_mostRecentPath))
 		{
 			return m_mostRecentStatus;
 		}

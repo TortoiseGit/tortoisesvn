@@ -179,13 +179,13 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	CString strCacheKey;
 	bool bThisDirectoryIsUnversioned = false;
 	bool bRequestForSelf = false;
-	if(path.IsEquivalentToWithCase(m_directoryPath))
+	if(path.IsEquivalentTo(m_directoryPath))
 	{
 		bRequestForSelf = true;
 	}
 
 	// In all most circumstances, we ask for the status of a member of this directory.
-	ATLASSERT(m_directoryPath.IsEquivalentToWithCase(path.GetContainingDirectory()) || bRequestForSelf);
+	ATLASSERT(m_directoryPath.IsEquivalentTo(path.GetContainingDirectory()) || bRequestForSelf);
 
 	// Check if the entries file has been changed
 	CTSVNPath entriesFilePath(m_directoryPath);
@@ -307,10 +307,13 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				{
 					if(itMap->second.DoesFileTimeMatch(path.GetLastWriteTime()))
 					{
-						// Note: the filetime matches after a modified has been committed too.
-						// So in that case, we would return a wrong status (e.g. 'modified' instead
-						// of 'normal') here.
-						return itMap->second;
+						if ((itMap->second.GetEffectiveStatus()!=svn_wc_status_missing)||(!PathFileExists(path.GetWinPath())))
+						{
+							// Note: the filetime matches after a modified has been committed too.
+							// So in that case, we would return a wrong status (e.g. 'modified' instead
+							// of 'normal') here.
+							return itMap->second;
+						}
 					}
 				}
 			}
@@ -518,7 +521,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 
 		if(svnPath.IsDirectory())
 		{
-			if(!svnPath.IsEquivalentToWithCase(pThis->m_directoryPath))
+			if(!svnPath.IsEquivalentTo(pThis->m_directoryPath))
 			{
 				if (pThis->m_bRecursive)
 				{
@@ -556,7 +559,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		// part of another working copy (nested layouts).
 		// So we have to make sure that such an 'unversioned' folder really
 		// is unversioned.
-		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentToWithCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
+		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentTo(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
 		{
 			if (svnPath.HasAdminDir())
 			{
@@ -705,7 +708,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 		{
 			CTSVNPath filePath(m_directoryPath);
 			filePath.AppendPathString(itMembers->first);
-			if ((!filePath.IsEquivalentToWithCase(m_directoryPath))&&(refreshedpaths.find(filePath)==refreshedpaths.end()))
+			if ((!filePath.IsEquivalentTo(m_directoryPath))&&(refreshedpaths.find(filePath)==refreshedpaths.end()))
 			{
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{

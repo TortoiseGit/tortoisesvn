@@ -137,10 +137,6 @@ public:
 	 */
 	bool IsEquivalentTo(const CTSVNPath& rhs) const;
 	bool operator==(const CTSVNPath& x) const {return IsEquivalentTo(x);}
-	/**
-	 * Checks if two paths are equal, also in case.
-	 */
-	bool IsEquivalentToWithCase(const CTSVNPath& rhs) const;
 	
 	/**
 	 * Checks if \c possibleDescendant is a child of this path.
