@@ -486,19 +486,19 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), (LPCTSTR)sPatchLine);
 						return FALSE; 
-					} // if (lRemoveLine > PatchLines.GetCount())
+					}
 					if (lAddLine == 0)
 						lAddLine = 1;
 					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0)&&(!HasExpandedKeyWords(sPatchLine)))
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, (LPCTSTR)PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
-					} // if (sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0) 
+					}
 					if (lAddLine > PatchLines.GetCount())
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, _T(""));
 						return FALSE; 
-					} // if (lRemoveLine >= PatchLines.GetCount()) 
+					}
 					PatchLines.RemoveAt(lAddLine-1);
 				} 
 				break;
@@ -512,7 +512,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 				break;
 			case PATCHSTATE_CONTEXT:
 				{
-					if ((lAddLine > PatchLines.GetCount())||(lRemoveLine > PatchLines.GetCount()))
+					if (lAddLine > PatchLines.GetCount())
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), (LPCTSTR)sPatchLine);
 						return FALSE; 
@@ -520,8 +520,9 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 					if (lAddLine == 0)
 						lAddLine++;
 					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0) &&
-						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0)&&
-						(!HasExpandedKeyWords(sPatchLine)))
+						(!HasExpandedKeyWords(sPatchLine)) &&
+						(lRemoveLine <= PatchLines.GetCount()) &&
+						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0))
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, (LPCTSTR)PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
