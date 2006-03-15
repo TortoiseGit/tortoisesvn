@@ -23,6 +23,12 @@
 		<if test="${platform == 'win32'}">
 			<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF gvmat32.asm" />
 			<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF inffas32.asm" />
+			<copy todir="." overwrite="true">
+			    <fileset basedir="contrib/masmx86">
+			        <include name="*.asm" />
+			        <include name="*.c" />
+			    </fileset>
+			</copy>
 		</if>
 		<if test="${platform == 'x64'}">
 			<copy todir="." overwrite="true">
