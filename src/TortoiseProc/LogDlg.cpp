@@ -582,8 +582,9 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	// so it has a fixed width. If the log message is longer than
 	// this predefined fixed with, add "..." as an indication.
 	CString sShortMessage = message;
-	// Remove newlines 'cause those are not shown nicely in the listcontrol
+	// Remove newlines and tabs 'cause those are not shown nicely in the listcontrol
 	sShortMessage.Replace(_T("\r"), _T(""));
+	sShortMessage.Replace(_T("\t"), _T(" "));
 	
 	found = sShortMessage.Find(_T("\n\n"));
 	if (found >=0)
@@ -591,6 +592,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 		sShortMessage = sShortMessage.Left(found);
 	}
 	sShortMessage.Replace('\n', ' ');
+	
 	
 	PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
 	pLogItem->bCopies = !!copies;
