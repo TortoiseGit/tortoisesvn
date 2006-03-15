@@ -320,7 +320,7 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 	Refresh();
 }
 
-void CEditPropertiesDlg::OnNMDblclkEditproplist(NMHDR *pNMHDR, LRESULT *pResult)
+void CEditPropertiesDlg::OnNMDblclkEditproplist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	EditProps();
 	*pResult = 0;
