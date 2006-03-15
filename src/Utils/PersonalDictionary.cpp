@@ -77,6 +77,8 @@ bool CPersonalDictionary::Load()
 
 bool CPersonalDictionary::AddWord(const CString& sWord)
 {
+	if (!m_bLoaded)
+		Load();
 	if (sWord.GetLength() >= PDICT_MAX_WORD_LENGTH)
 		return false;
 	dict.insert(sWord);
@@ -97,6 +99,8 @@ bool CPersonalDictionary::FindWord(const CString& sWord)
 
 bool CPersonalDictionary::Save()
 {
+	if (!m_bLoaded)
+		return false;
 	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
 	TCHAR sLang[10];
 	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
