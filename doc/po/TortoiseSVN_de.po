@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-03-14 10:59+0100\n"
+"PO-Revision-Date: 2006-03-15 11:45+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6264,17 +6264,17 @@ msgstr "Shell"
 #: source/TortoiseSVN_en.xml:7734
 #: (para)
 msgid "Caching is done directly inside the shell extension dll, but only for the currently visible folder. Each time you navigate to another folder, the status information is fetched again."
-msgstr ""
+msgstr "Die Daten direkt in der Shellerweiterungs-dll zwischengespeichert, aber nur für den aktuellen Ordner. Jedes Mal wenn Sie einen anderen Ordner öffnen, wird die Statusinformation erneut geladen."
 
 #: source/TortoiseSVN_en.xml:7740
 #: (para)
 msgid "Advantage: needs only very little memory (around 1 MB of RAM) and can show the status in <emphasis>realtime</emphasis>."
-msgstr ""
+msgstr "Vorteil: benötigt nur sehr wening Hauptspeicher (zirka 1 MB) und kann den Status in <emphasis>Echtzeit</emphasis> anzeigen."
 
 #: source/TortoiseSVN_en.xml:7744
 #: (para)
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
-msgstr ""
+msgstr "Nachteil: Da nur ein Ordner zwischengespeichert wird, kann der Status nicht rekursiv angezeigt werden. Bei großen Arbeitskopien kann es länger als mit dem Standardcache dauern, einen Ordner anzuzeigen. Obendrein steht die mime-type Spalte nicht zur Vefügung."
 
 #: source/TortoiseSVN_en.xml:7754
 #: (term)
@@ -6284,17 +6284,17 @@ msgstr "Ohne"
 #: source/TortoiseSVN_en.xml:7756
 #: (para)
 msgid "With this setting, the TortoiseSVN does not fetch the status at all in Explorer. Because of that, files don't get an overlay and folders only get a 'normal' overlay if they're versioned. No other overlays are shown, and no extra columns are available either."
-msgstr ""
+msgstr "Mit dieser Einstellung ermittelt TortoiseSVN keinerlei Statusinformationen im Explorer. Deshalb erhalten Dateien kein überlagertes Symbol und Ordner, wenn Sie versioniert sind, nur das 'Normal' Symbol. Es werden keine anderen Symbole überlagert und es stehen keine zusätzlichen Spalten zur Verfügung."
 
 #: source/TortoiseSVN_en.xml:7763
 #: (para)
 msgid "Advantage: uses absolutely no additional memory and does not slow down the Explorer at all while browsing."
-msgstr ""
+msgstr "Vorteil: Benötigt absolut keinen zusätzlichen Speicher und verlangsamt den Explorer nicht."
 
 #: source/TortoiseSVN_en.xml:7767
 #: (para)
 msgid "Disadvantage: Status information of files and folders is not shown in Explorer. To see if your working copies are modified, you have to use the \"Check for modifications\" dialog."
-msgstr ""
+msgstr "Nachteil: Im Explorer steht keinerlei Statusinformation zur Verfügung. Sie müssen deshalb mit dem \"Auf Änderungen prüfen\" Dialog nachschauen, welche Dateien in Ihrer Arbeitskopie verändert wurden."
 
 #: source/TortoiseSVN_en.xml:7695
 #: (para)
