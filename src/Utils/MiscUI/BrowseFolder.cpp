@@ -72,7 +72,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 	browseInfo.lpfn				= NULL;
 	browseInfo.lParam			= (LPARAM)this;
 	
-	if (_tcslen(m_CheckText) > 0)
+	if ((_tcslen(m_CheckText) > 0)||(!m_sDefaultPath.IsEmpty()))
 	{
 		browseInfo.lpfn = BrowseCallBackProc;
 	}
@@ -154,108 +154,111 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
 	//Initialization callback message
 	if (uMsg == BFFM_INITIALIZED)
 	{
-		bool bSecondCheckbox = (_tcslen(m_CheckText2)!=0);
-		//Rectangles for getting the positions
-		checkbox = CreateWindowEx(	0,
-									_T("BUTTON"),
-									m_CheckText,
-									WS_CHILD|WS_VISIBLE|WS_CLIPCHILDREN|BS_AUTOCHECKBOX,
-									0,100,100,50,
-									hwnd,
-									0,
-									NULL,
-									NULL);
-		if (checkbox == NULL)
-			return 0;
-
-		if (bSecondCheckbox)
+		if (_tcslen(m_CheckText) > 0)
 		{
+			bool bSecondCheckbox = (_tcslen(m_CheckText2)!=0);
 			//Rectangles for getting the positions
-			checkbox2 = CreateWindowEx(	0,
-										_T("BUTTON"),
-										m_CheckText2,
-										WS_CHILD|WS_VISIBLE|WS_CLIPCHILDREN|BS_AUTOCHECKBOX,
-										0,100,100,50,
-										hwnd,
-										0,
-										NULL,
-										NULL);
-			if (checkbox2 == NULL)
+			checkbox = CreateWindowEx(	0,
+				_T("BUTTON"),
+				m_CheckText,
+				WS_CHILD|WS_VISIBLE|WS_CLIPCHILDREN|BS_AUTOCHECKBOX,
+				0,100,100,50,
+				hwnd,
+				0,
+				NULL,
+				NULL);
+			if (checkbox == NULL)
 				return 0;
-		}
-		
-		ListView = FindWindowEx(hwnd,NULL,_T("SysTreeView32"),NULL);
-		if (ListView == NULL)
-			ListView = FindWindowEx(hwnd,NULL,_T("SHBrowseForFolder ShellNameSpace Control"),NULL);
-			
-		if (ListView == NULL)
-			return 0;
 
-		//Gets the dimensions of the windows
-		GetWindowRect(hwnd,&Dialog);
-		GetWindowRect(ListView,&ListViewRect);
-		POINT pt;
-		pt.x = ListViewRect.left;
-		pt.y = ListViewRect.top;
-		ScreenToClient(hwnd, &pt);
-		ListViewRect.top = pt.y;
-		ListViewRect.left = pt.x;
-		pt.x = ListViewRect.right;
-		pt.y = ListViewRect.bottom;
-		ScreenToClient(hwnd, &pt);
-		ListViewRect.bottom = pt.y;
-		ListViewRect.right = pt.x;
-		//Sets the listview controls dimensions
-		SetWindowPos(ListView,0,ListViewRect.left,
-								bSecondCheckbox ? ListViewRect.top+40 : ListViewRect.top+20,
-								(ListViewRect.right-ListViewRect.left),
-								bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20,
-								SWP_NOZORDER);
-		//Sets the window positions of checkbox and dialog controls
-		SetWindowPos(checkbox,HWND_BOTTOM,ListViewRect.left,
-								ListViewRect.top,
-								(ListViewRect.right-ListViewRect.left),
-								14,
-								SWP_NOZORDER);
-		if (bSecondCheckbox)
-		{
-			SetWindowPos(checkbox2,HWND_BOTTOM,ListViewRect.left,
-							ListViewRect.top+20,
-							(ListViewRect.right-ListViewRect.left),
-							14,
-							SWP_NOZORDER);
-		}
-		HWND label = FindWindowEx(hwnd, NULL, _T("STATIC"), NULL);
-		if (label)
-		{
-			HFONT hFont = (HFONT)::SendMessage(label, WM_GETFONT, 0, 0);
-			LOGFONT lf = {0};
-			GetObject(hFont, sizeof(lf), &lf);
-			HFONT hf2 = CreateFontIndirect(&lf);
-			::SendMessage(checkbox, WM_SETFONT, (WPARAM)hf2, TRUE);
 			if (bSecondCheckbox)
-				::SendMessage(checkbox2, WM_SETFONT, (WPARAM)hf2, TRUE);
-		}
-		else
-		{
-			//Sets the fonts of static controls
-			SetFont(checkbox,_T("MS Sans Serif"),12);
-			if (bSecondCheckbox)
-				SetFont(checkbox2,_T("MS Sans Serif"),12);
-		}
+			{
+				//Rectangles for getting the positions
+				checkbox2 = CreateWindowEx(	0,
+					_T("BUTTON"),
+					m_CheckText2,
+					WS_CHILD|WS_VISIBLE|WS_CLIPCHILDREN|BS_AUTOCHECKBOX,
+					0,100,100,50,
+					hwnd,
+					0,
+					NULL,
+					NULL);
+				if (checkbox2 == NULL)
+					return 0;
+			}
 
-		// Subclass the checkbox control. 
-		CBProc = (WNDPROC) SetWindowLongPtr(checkbox,GWLP_WNDPROC, (LONG_PTR) CheckBoxSubclassProc); 
-		//Sets the checkbox to checked position
-		SendMessage(checkbox,BM_SETCHECK,(WPARAM)m_bCheck,0);
-		if (bSecondCheckbox)
-		{
-			CBProc = (WNDPROC) SetWindowLongPtr(checkbox2,GWLP_WNDPROC, (LONG_PTR) CheckBoxSubclassProc2); 
-			SendMessage(checkbox2,BM_SETCHECK,(WPARAM)m_bCheck,0);
+			ListView = FindWindowEx(hwnd,NULL,_T("SysTreeView32"),NULL);
+			if (ListView == NULL)
+				ListView = FindWindowEx(hwnd,NULL,_T("SHBrowseForFolder ShellNameSpace Control"),NULL);
+
+			if (ListView == NULL)
+				return 0;
+
+			//Gets the dimensions of the windows
+			GetWindowRect(hwnd,&Dialog);
+			GetWindowRect(ListView,&ListViewRect);
+			POINT pt;
+			pt.x = ListViewRect.left;
+			pt.y = ListViewRect.top;
+			ScreenToClient(hwnd, &pt);
+			ListViewRect.top = pt.y;
+			ListViewRect.left = pt.x;
+			pt.x = ListViewRect.right;
+			pt.y = ListViewRect.bottom;
+			ScreenToClient(hwnd, &pt);
+			ListViewRect.bottom = pt.y;
+			ListViewRect.right = pt.x;
+			//Sets the listview controls dimensions
+			SetWindowPos(ListView,0,ListViewRect.left,
+				bSecondCheckbox ? ListViewRect.top+40 : ListViewRect.top+20,
+				(ListViewRect.right-ListViewRect.left),
+				bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20,
+				SWP_NOZORDER);
+			//Sets the window positions of checkbox and dialog controls
+			SetWindowPos(checkbox,HWND_BOTTOM,ListViewRect.left,
+				ListViewRect.top,
+				(ListViewRect.right-ListViewRect.left),
+				14,
+				SWP_NOZORDER);
+			if (bSecondCheckbox)
+			{
+				SetWindowPos(checkbox2,HWND_BOTTOM,ListViewRect.left,
+					ListViewRect.top+20,
+					(ListViewRect.right-ListViewRect.left),
+					14,
+					SWP_NOZORDER);
+			}
+			HWND label = FindWindowEx(hwnd, NULL, _T("STATIC"), NULL);
+			if (label)
+			{
+				HFONT hFont = (HFONT)::SendMessage(label, WM_GETFONT, 0, 0);
+				LOGFONT lf = {0};
+				GetObject(hFont, sizeof(lf), &lf);
+				HFONT hf2 = CreateFontIndirect(&lf);
+				::SendMessage(checkbox, WM_SETFONT, (WPARAM)hf2, TRUE);
+				if (bSecondCheckbox)
+					::SendMessage(checkbox2, WM_SETFONT, (WPARAM)hf2, TRUE);
+			}
+			else
+			{
+				//Sets the fonts of static controls
+				SetFont(checkbox,_T("MS Sans Serif"),12);
+				if (bSecondCheckbox)
+					SetFont(checkbox2,_T("MS Sans Serif"),12);
+			}
+
+			// Subclass the checkbox control. 
+			CBProc = (WNDPROC) SetWindowLongPtr(checkbox,GWLP_WNDPROC, (LONG_PTR) CheckBoxSubclassProc); 
+			//Sets the checkbox to checked position
+			SendMessage(checkbox,BM_SETCHECK,(WPARAM)m_bCheck,0);
+			if (bSecondCheckbox)
+			{
+				CBProc = (WNDPROC) SetWindowLongPtr(checkbox2,GWLP_WNDPROC, (LONG_PTR) CheckBoxSubclassProc2); 
+				SendMessage(checkbox2,BM_SETCHECK,(WPARAM)m_bCheck,0);
+			}
+			// send a resize message to the resized listview control. Otherwise it won't show
+			// up properly until the user resizes the window!
+			SendMessage(ListView, WM_SIZE, SIZE_RESTORED, MAKELONG(ListViewRect.right-ListViewRect.left, bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20));
 		}
-		// send a resize message to the resized listview control. Otherwise it won't show
-		// up properly until the user resizes the window!
-		SendMessage(ListView, WM_SIZE, SIZE_RESTORED, MAKELONG(ListViewRect.right-ListViewRect.left, bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20));
 		
 		// now set the default directory
 		SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)(LPCTSTR)m_sDefaultPath);
