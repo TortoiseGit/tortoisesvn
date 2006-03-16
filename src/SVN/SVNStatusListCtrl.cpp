@@ -1790,6 +1790,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							CTSVNPathList targetList;
 							FillListOfSelectedItemPaths(targetList);
 
+							// make sure that the list is reverse sorted, so that
+							// children are removed before any parents
+							targetList.SortByPathname(true);
+
 							SVN svn;
 							if (!svn.Revert(targetList, FALSE))
 							{
