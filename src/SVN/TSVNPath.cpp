@@ -1070,7 +1070,7 @@ private:
 		list.AddPath(CTSVNPath(_T("Z")));
 		list.AddPath(CTSVNPath(_T("A")));
 		list.AddPath(CTSVNPath(_T("E")));
-		list.AddPath(CTSVNPath(_T("e")));
+		list.AddPath(CTSVNPath(_T("E")));
 
 		ATLASSERT(list[2].IsEquivalentTo(list[3]));
 		ATLASSERT(list[2]==list[3]);
@@ -1082,7 +1082,7 @@ private:
 		ATLASSERT(list.GetCount() == 3);
 
 		ATLASSERT(list[0].GetWinPathString() == _T("A"));
-		ATLASSERT(list[1].GetWinPathString().Compare(_T("e")) == 0);
+		ATLASSERT(list[1].GetWinPathString().Compare(_T("E")) == 0);
 		ATLASSERT(list[2].GetWinPathString() == _T("Z"));
 	}
 	
