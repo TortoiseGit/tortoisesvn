@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-03-09 23:11GMT Standard Time\n"
+"POT-Creation-Date: 2006-03-17 14:04Westeuropäische Normalzeit\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2170,7 +2170,7 @@ msgid "The columns displayed in the bottom pane are customizable. If you <action
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:3797(para) 
-msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are check out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
+msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:3808(para) 
@@ -6124,7 +6124,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10169(screen) 
 #, no-wrap
-msgid "\nsvn merge [--dry-run] From_URL@revN To_URL@revM PATH\n"
+msgid "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10172(para) 
