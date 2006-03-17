@@ -1814,6 +1814,14 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 										if (fentry->textstatus == svn_wc_status_added)
 										{
 											fentry->textstatus = svn_wc_status_unversioned;
+											if ( fentry->IsFolder() )
+											{
+												fentry->propstatus = svn_wc_status_none;
+											}
+											else
+											{
+												fentry->propstatus = svn_wc_status_unversioned;
+											}
 											fentry->status = svn_wc_status_unversioned;
 											SetItemState(index, 0, LVIS_SELECTED);
 											SetEntryCheck(fentry, index, false);
@@ -2380,6 +2388,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								FileEntry * e = GetListEntry(index);
 								e->textstatus = svn_wc_status_added;
+								e->propstatus = svn_wc_status_none;
 								e->status = svn_wc_status_added;
 								SetEntryCheck(e,index,true);
 							}
