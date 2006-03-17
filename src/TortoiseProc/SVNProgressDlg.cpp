@@ -42,6 +42,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CSVNProgressDlg::IDD, pParent)
 	, m_Revision(_T("HEAD"))
 	, m_RevisionEnd(0)
+	, m_bLockWarning(false)
 {
 	m_bCancelled = FALSE;
 	m_bThreadRunning = FALSE;
@@ -297,6 +298,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		AddItemToList(data);
 		ReportError(SVN::GetErrorString(err));
 		bDoAddData = false;
+		if (err->apr_err == SVN_ERR_FS_OUT_OF_DATE)
+			m_bLockWarning = true;
 		break;
 	case svn_wc_notify_failed_unlock:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDUNLOCK);
@@ -304,6 +307,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		AddItemToList(data);
 		ReportError(SVN::GetErrorString(err));
 		bDoAddData = false;
+		if (err->apr_err == SVN_ERR_FS_OUT_OF_DATE)
+			m_bLockWarning = true;
 		break;
 	default:
 		break;
@@ -966,6 +971,24 @@ UINT CSVNProgressDlg::ProgressThread()
 			{
 				ReportSVNError();
 				break;
+			}
+			if (m_bLockWarning)
+			{
+				// the lock failed, because the file was outdated.
+				// ask the user wheter to update the file and try again
+				if (CMessageBox::Show(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
+				{
+					ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
+					if (!m_pSvn->Update(m_targetPathList, SVNRev::REV_HEAD, false, true))
+					{
+						ReportSVNError();
+					}
+					if (!m_pSvn->Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
+					{
+						ReportSVNError();
+						break;
+					}
+				}
 			}
 		}
 		break;

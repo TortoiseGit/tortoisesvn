@@ -2375,6 +2375,16 @@ BEGIN
     IDS_EDITPROPS_EDITBUTTON "&Edit..."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_WARN_LOCKOUTDATED   "Locking failed because a newer version exists!\nDo you want to update and try again?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SVNPROGRESS_UPDATEANDRETRY "Updating and retrying the lock..."
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

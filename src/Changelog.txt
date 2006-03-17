@@ -88,6 +88,9 @@
        See issue #198 for details. (Stefan)
 - NEW: The open dialog in TortoiseMerge can use already entered paths
        as a starting point for browsing. See issue #218 for details. (Stefan)
+- NEW: When a lock fails because the file is outdated, TSVN asks if the
+       user wants to update the file and try again locking it.
+       See issue #204 for details. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all

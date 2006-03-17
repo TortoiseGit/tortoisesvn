@@ -250,6 +250,8 @@ private:
 	CString		m_sTotalBytesTransferred;
 	CColors		m_Colors;
 
+	bool		m_bLockWarning;
+
 private:
 	// In preparation for removing SVN as base class
 	// Currently needed to avoid ambiguities with the Command Enum
