@@ -186,6 +186,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	GetGraphRect(&graphrect);
 	m_Graph.Init(this, &graphrect);
 	m_Graph.SetOwner(this);
+	m_Graph.UpdateWindow();
 
 	if (AfxBeginThread(WorkerThread, this)==NULL)
 	{
@@ -230,6 +231,7 @@ cleanup:
 	delete pDlg->m_Graph.m_pProgress;
 	pDlg->m_Graph.m_pProgress = NULL;
 	pDlg->m_Graph.InitView();
+	pDlg->m_Graph.UpdateWindow();
 	CoUninitialize();
 	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, FALSE);
 	pDlg->Invalidate();
