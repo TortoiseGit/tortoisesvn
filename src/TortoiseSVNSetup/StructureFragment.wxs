@@ -6,6 +6,24 @@
       <Directory Id="D__ProgramFilesFolder" Name="PFiles" LongName="Program Files">
         <Directory Id="INSTALLDIR" Name="TSVN" LongName="TortoiseSVN">
 
+          <?if $(env.Platform) = "win32" ?>
+          <Merge Id='CRT' Language='0' src='$(env.MergeModules)\microsoft_vc80_crt_x86.msm' DiskId='1' />
+          <Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86.msm' DiskId='1' />
+          <Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+          <Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+          <Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+          <Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+          <?endif ?>
+
+          <?if $(env.Platform) = "x64" ?>
+          <Merge Id='CRT' Language='0' src='$(env.MergeModules)\Microsoft_VC80_CRT_x86_x64.msm' DiskId='1' />
+          <Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86_x64.msm' DiskId='1' />
+          <Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86_x64.msm' DiskId='1' />
+          <Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86_x64.msm' DiskId='1' />
+          <Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86_x64.msm' DiskId='1' />
+          <Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86_x64.msm' DiskId='1' />
+          <?endif ?>
+
           <Component Id="C__infofiles" Guid="$(var.GuidInfoFiles)" Win64="$(var.Win64YesNo)">
             <File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
             <File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
@@ -148,87 +166,6 @@
           </Component>
 
           <Directory Id="D__Bin" Name="BIN" LongName="bin" >
-
-            <Directory Id="D__BIN_CRT" Name="CRT" LongName="Microsoft.VC80.CRT">
-              <Component Id="C__CRT" Guid="$(var.GuidCRT)" Win64="$(var.Win64YesNo)">
-                <?if $(env.Platform) = "win32" ?>
-                <File Id="F__msvcm80" Name="msvcm80.dll" LongName="msvcm80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcm80.dll' KeyPath="yes" />
-                <File Id="F__msvcp80" Name="msvcp80.dll" LongName="msvcp80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcp80.dll' />
-                <File Id="F__msvcr80" Name="msvcr80.dll" LongName="msvcr80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\msvcr80.dll' />
-                <File Id="F__crt80manifest" Name="CRT" LongName="Microsoft.VC80.CRT.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.CRT\Microsoft.VC80.CRT.manifest' />
-                <?endif ?>
-                <?if $(env.Platform) = "x64" ?>
-                <File Id="F__msvcm80" Name="msvcm80.dll" LongName="msvcm80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcm80.dll' KeyPath="yes" />
-                <File Id="F__msvcp80" Name="msvcp80.dll" LongName="msvcp80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcp80.dll' />
-                <File Id="F__msvcr80" Name="msvcr80.dll" LongName="msvcr80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\msvcr80.dll' />
-                <File Id="F__crt80manifest" Name="CRT" LongName="Microsoft.VC80.CRT.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.CRT\Microsoft.VC80.CRT.manifest' />
-                <?endif ?>
-              </Component>
-            </Directory>
-            <Directory Id="D__BIN_MFC" Name="MFC" LongName="Microsoft.VC80.MFC">
-              <Component Id="C__MFC" Guid="$(var.GuidMFC)" Win64="$(var.Win64YesNo)">
-                <?if $(env.Platform) = "win32" ?>
-                <File Id="F__mfc80" Name="mfc80.dll" LongName="mfc80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\mfc80.dll' KeyPath="yes" />
-                <File Id="F__mfc80u" Name="mfc80u.dll" LongName="mfc80u.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\mfc80u.dll' />
-                <File Id="F__mfc80manifest" Name="MFCMAN" LongName="Microsoft.VC80.MFC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFC\Microsoft.VC80.MFC.manifest' />
-                <?endif ?>
-                <?if $(env.Platform) = "x64" ?>
-                <File Id="F__mfc80" Name="mfc80.dll" LongName="mfc80.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\mfc80.dll' KeyPath="yes" />
-                <File Id="F__mfc80u" Name="mfc80u.dll" LongName="mfc80u.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\mfc80u.dll' />
-                <File Id="F__mfc80manifest" Name="MFCMAN" LongName="Microsoft.VC80.MFC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFC\Microsoft.VC80.MFC.manifest' />
-                <?endif ?>
-              </Component>
-            </Directory>
-            <Directory Id="D__BIN_MFCLOC" Name="MFCLOC" LongName="Microsoft.VC80.MFCLOC">
-              <Component Id="C__MFCLOC" Guid="$(var.GuidMFCLOC)" Win64="$(var.Win64YesNo)">
-                <?if $(env.Platform) = "win32" ?>
-                <File Id="F__mfc80chs" Name="MFC80CHS.dll" LongName="MFC80CHS.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80CHS.dll' KeyPath="yes" />
-                <File Id="F__mfc80CHT" Name="MFC80CHT.dll" LongName="MFC80CHT.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80CHT.dll' />
-                <File Id="F__mfc80DEU" Name="MFC80DEU.dll" LongName="MFC80DEU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80DEU.dll' />
-                <File Id="F__mfc80ENU" Name="MFC80ENU.dll" LongName="MFC80ENU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ENU.dll' />
-                <File Id="F__mfc80ESP" Name="MFC80ESP.dll" LongName="MFC80ESP.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ESP.dll' />
-                <File Id="F__mfc80FRA" Name="MFC80FRA.dll" LongName="MFC80FRA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80FRA.dll' />
-                <File Id="F__mfc80ITA" Name="MFC80ITA.dll" LongName="MFC80ITA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80ITA.dll' />
-                <File Id="F__mfc80JPN" Name="MFC80JPN.dll" LongName="MFC80JPN.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80JPN.dll' />
-                <File Id="F__mfc80KOR" Name="MFC80KOR.dll" LongName="MFC80KOR.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\MFC80KOR.dll' />
-                <File Id="F__mfc80LOCmanifest" Name="MFCLOCMA" LongName="Microsoft.VC80.MFCLOC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\x86\Microsoft.VC80.MFCLOC\Microsoft.VC80.MFCLOC.manifest' />
-                <?endif ?>
-                <?if $(env.Platform) = "x64" ?>
-                <File Id="F__mfc80chs" Name="MFC80CHS.dll" LongName="MFC80CHS.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80CHS.dll' KeyPath="yes" />
-                <File Id="F__mfc80CHT" Name="MFC80CHT.dll" LongName="MFC80CHT.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80CHT.dll' />
-                <File Id="F__mfc80DEU" Name="MFC80DEU.dll" LongName="MFC80DEU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80DEU.dll' />
-                <File Id="F__mfc80ENU" Name="MFC80ENU.dll" LongName="MFC80ENU.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ENU.dll' />
-                <File Id="F__mfc80ESP" Name="MFC80ESP.dll" LongName="MFC80ESP.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ESP.dll' />
-                <File Id="F__mfc80FRA" Name="MFC80FRA.dll" LongName="MFC80FRA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80FRA.dll' />
-                <File Id="F__mfc80ITA" Name="MFC80ITA.dll" LongName="MFC80ITA.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80ITA.dll' />
-                <File Id="F__mfc80JPN" Name="MFC80JPN.dll" LongName="MFC80JPN.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80JPN.dll' />
-                <File Id="F__mfc80KOR" Name="MFC80KOR.dll" LongName="MFC80KOR.dll" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\MFC80KOR.dll' />
-                <File Id="F__mfc80LOCmanifest" Name="MFCLOCMA" LongName="Microsoft.VC80.MFCLOC.manifest" DiskId='1' src='$(env.VS80COMNTOOLS)\..\..\VC\redist\amd64\Microsoft.VC80.MFCLOC\Microsoft.VC80.MFCLOC.manifest' />
-                <?endif ?>
-              </Component>
-            </Directory>
-
-            <Component Id='C__RuntimeCopies' Guid='$(var.GuidRuntimeCopy)' >
-              <File Id='F__win2kcopies' Name='readme.txt' DiskId='1' src='include\win2kcopies.txt' KeyPath='yes' />
-              <CopyFile Id="Copymsvcm80" DestinationDirectory="D__Bin" FileId="F__msvcm80" />
-              <CopyFile Id="Copymsvcp80" DestinationDirectory="D__Bin" FileId="F__msvcp80" />
-              <CopyFile Id="Copymsvcr80" DestinationDirectory="D__Bin" FileId="F__msvcr80" />
-              <CopyFile Id="Copycrtmanifest80" DestinationDirectory="D__Bin" FileId="F__crt80manifest" />
-              <CopyFile Id="Copymfc80" DestinationDirectory="D__Bin" FileId="F__mfc80" />
-              <CopyFile Id="Copymfc80u" DestinationDirectory="D__Bin" FileId="F__mfc80u" />
-              <CopyFile Id="Copymfc80manifest" DestinationDirectory="D__Bin" FileId="F__mfc80manifest" />
-              <CopyFile Id="Copymfc80chs" DestinationDirectory="D__Bin" FileId="F__mfc80chs" />
-              <CopyFile Id="Copymfc80cht" DestinationDirectory="D__Bin" FileId="F__mfc80CHT" />
-              <CopyFile Id="Copymfc80deu" DestinationDirectory="D__Bin" FileId="F__mfc80DEU" />
-              <CopyFile Id="Copymfc80enu" DestinationDirectory="D__Bin" FileId="F__mfc80ENU" />
-              <CopyFile Id="Copymfc80esp" DestinationDirectory="D__Bin" FileId="F__mfc80ESP" />
-              <CopyFile Id="Copymfc80fra" DestinationDirectory="D__Bin" FileId="F__mfc80FRA" />
-              <CopyFile Id="Copymfc80ita" DestinationDirectory="D__Bin" FileId="F__mfc80ITA" />
-              <CopyFile Id="Copymfc80jpn" DestinationDirectory="D__Bin" FileId="F__mfc80JPN" />
-              <CopyFile Id="Copymfc80kor" DestinationDirectory="D__Bin" FileId="F__mfc80KOR" />
-              <CopyFile Id="Copymfcloc80manifest" DestinationDirectory="D__Bin" FileId="F__mfc80LOCmanifest" />
-              <Condition>VersionNT &lt; 501</Condition>
-            </Component>
 
             <Component Id="C__berkeleydb" Guid="$(var.GuidBerkeleyDB)" Win64="$(var.Win64YesNo)">
               <File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.3-$(var.PlatformPathExtension)\bin\libdb43.dll" KeyPath="yes" />
