@@ -862,3 +862,21 @@ void CUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 		pListCtrl->SetColumnWidth(col, cx);
 	}
 }
+
+CString CUtils::ParsePathInString(const CString& Str)
+{
+	CString sToken;
+	int curPos = 0;
+	sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
+	while (!sToken.IsEmpty())
+	{
+		if ((sToken.Find('/')>=0)||(sToken.Find('\\')>=0))
+		{
+			sToken.Trim(_T("'\""));
+			return sToken;
+		}
+		sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
+	}
+	sToken.Empty();
+	return sToken;
+}

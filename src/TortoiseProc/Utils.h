@@ -23,25 +23,6 @@ class CTSVNPath;
 /**
  * \ingroup TortoiseProc
  * An Utility class with static classes.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 02-02-2003
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CUtils
 {
@@ -166,6 +147,17 @@ public:
 	 */
 	static CString GetAppParentDirectory();
 
+	/**
+	 * Resizes all columns in a list control. Considers also icons in columns
+	 * with no text.
+	 */
 	static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
 
+	/**
+	 * parses a string for a path or url. If no path or url is found,
+	 * an empty string is returned.
+	 * \remark if more than one path or url is inside the string, only
+	 * the first one is returned.
+	 */
+	static CString ParsePathInString(const CString& Str);
 };
