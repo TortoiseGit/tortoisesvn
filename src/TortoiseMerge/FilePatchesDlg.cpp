@@ -280,16 +280,35 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	GetCursorPos(&point);
 	if (popup.CreatePopupMenu())
 	{
+		UINT nFlags;
+		
+		nFlags = MF_STRING | (m_cFileList.GetSelectedCount()==1 ? MF_ENABLED : MF_DISABLED | MF_GRAYED);
+		temp.LoadString(IDS_PATCH_PREVIEW);
+		popup.AppendMenu(nFlags, ID_PATCHPREVIEW, temp);
+		popup.SetDefaultItem(ID_PATCHPREVIEW, FALSE);
+
 		temp.LoadString(IDS_PATCH_ALL);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PATCHALL, temp);
 		
-		UINT nFlags = MF_STRING | (m_cFileList.GetSelectedCount()>0 ? MF_ENABLED : MF_DISABLED | MF_GRAYED);
+		nFlags = MF_STRING | (m_cFileList.GetSelectedCount()>0 ? MF_ENABLED : MF_DISABLED | MF_GRAYED);
 		temp.LoadString(IDS_PATCH_SELECTED);
 		popup.AppendMenu(nFlags, ID_PATCHSELECTED, temp);
 		
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
 		{
+		case ID_PATCHPREVIEW:
+			{
+				if (m_pCallBack)
+				{
+					int nIndex = m_cFileList.GetSelectionMark();
+					if ( m_arFileStates.GetAt(nIndex)!=FPDLG_FILESTATE_PATCHED)
+					{
+						m_pCallBack->PatchFile(GetFullPath(nIndex), m_pPatch->GetRevision(nIndex));
+					}
+				}
+			}
+			break;
 		case ID_PATCHALL:
 			{
 				if (m_pCallBack)

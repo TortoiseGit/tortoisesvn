@@ -57,6 +57,7 @@ public:
 
 #define ID_PATCHALL					1
 #define ID_PATCHSELECTED			2
+#define ID_PATCHPREVIEW				3
 /**
  * \ingroup TortoiseMerge
  *
