@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-03-10 08:50+0100\n"
+"PO-Revision-Date: 2006-03-20 09:45+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -183,7 +183,9 @@ msgid "&About TortoiseMerge..."
 msgstr "&Über TortoiseMerge..."
 
 #: ID:8
+#: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "&Hinzufügen..."
 
@@ -291,7 +293,6 @@ msgid "&Dry run"
 msgstr "&Trockenlauf"
 
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Bearbeiten"
@@ -300,6 +301,7 @@ msgstr "&Bearbeiten"
 msgid "&Edit conflicts"
 msgstr "Konflikt b&earbeiten"
 
+#: ID:563
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Bearbeiten..."
@@ -2667,6 +2669,13 @@ msgstr "Sperre von %s gestohlen "
 msgid "Locked by %s"
 msgstr "Gesperrt durch %s"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr "Sperren fehlgeschlagen, weil eine neuere Version existiertnMöchten Sie Aktualisieren und es noch einmal versuchen?"
+
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
 msgstr "Sperrt Dateien für andere Anwender su dass nur Sie die Datei bearbeiten können."
@@ -3212,6 +3221,11 @@ msgstr "Bitte warten Sie, während der Projektarchiv-Betrachter initialisiert wi
 #: ID:211
 msgid "Please wait..."
 msgstr "Bitte warten..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Vorschau der Ergebnisdatei"
 
 #: ID:132
 #, c-format
@@ -4823,6 +4837,11 @@ msgstr "Aktualisiert die Arbeitskopie auf die angegebene Revision"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Aktualisiert die Arbeitskopie auf die neueste Version"
+
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "Aktualisiere und versuche noch einmal zu sperren..."
 
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
