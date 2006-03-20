@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-10 12:00+0100\n"
+"PO-Revision-Date: 2006-03-20 08:33+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -186,7 +186,9 @@ msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
 #: ID:8
+#: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "&Lägg till..."
 
@@ -299,7 +301,6 @@ msgid "&Dry run"
 msgstr "&Provkör"
 
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Redigera"
@@ -308,6 +309,7 @@ msgstr "&Redigera"
 msgid "&Edit conflicts"
 msgstr "&Editera konflikt"
 
+#: ID:563
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Redigera..."
@@ -2747,6 +2749,16 @@ msgstr "Lås stulet av %s"
 msgid "Locked by %s"
 msgstr "Låst av %s"
 
+# ID:89,
+#: ID:89
+#, fuzzy
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"Låsningen misslyckades eftersom det finns en nyare revision!\n"
+"Vill du uppdatera och försöka igen?"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -3309,6 +3321,11 @@ msgstr "Var god vänta medans arkivsutforskaren initieras..."
 #: ID:211
 msgid "Please wait..."
 msgstr "Vänta..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Förhandsgranska den patchade filen"
 
 #: ID:132
 #, c-format
@@ -4968,6 +4985,12 @@ msgstr "Uppdaterar arbetskopian till en specifik revision"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Uppdaterar arbetskopian till den senaste revisionen"
+
+# ID:283,
+#: ID:283
+#, fuzzy
+msgid "Updating and retrying the lock..."
+msgstr "Uppdaterar och försöker låsa..."
 
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
