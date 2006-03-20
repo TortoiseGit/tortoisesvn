@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-13 11:17+0200\n"
+"PO-Revision-Date: 2006-03-20 15:55+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -255,6 +255,7 @@ msgstr "&Относно TortoiseMerge..."
 #: ID:8
 #: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "&Добавяне..."
 
@@ -406,7 +407,6 @@ msgstr "&Редакция на конфликти"
 # Control-ID:1099,
 #: ID:563
 #: Control-ID:1099
-#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Редакция..."
 
@@ -3276,6 +3276,15 @@ msgstr "Заключването е присвоено от %s"
 msgid "Locked by %s"
 msgstr "Заключено от %s"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"Заключването пропадна, защото съществува по-нова версия!\n"
+"Желаете ли да обновите и да пробвате пак?"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -3960,6 +3969,11 @@ msgstr "Моля, изчакайте инициализацията на про�
 #: ID:211
 msgid "Please wait..."
 msgstr "Моля, изчакайте..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Преглед на закърпения файл"
 
 # ID:132,
 #: ID:132
@@ -5917,6 +5931,11 @@ msgstr "Обновява работното копие до специфична
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Обновяване на работното копие до текущата ревизия"
+
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "Обновяване и нов опит за заключване..."
 
 # Control-ID:1064,
 #: Control-ID:1064
