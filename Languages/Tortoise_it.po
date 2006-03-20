@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-17 09:22+0100\n"
+"PO-Revision-Date: 2006-03-21 00:50+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,6 +216,7 @@ msgstr "&Informazioni su TortoiseMerge..."
 #: ID:8
 #: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "&Aggiungi..."
 
@@ -367,7 +368,6 @@ msgstr "&Edita i conflitti"
 # Control-ID:1099,
 #: ID:563
 #: Control-ID:1099
-#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Modifica..."
 
@@ -3236,6 +3236,15 @@ msgstr "Blocco forzato da %s"
 msgid "Locked by %s"
 msgstr "Bloccato da %s"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"Impossibile applicare il blocc: esiste una versione più aggiornata!\n"
+"Si desidera aggiornare la copia di lavoro e tentare di nuovo?"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -3920,6 +3929,12 @@ msgstr "Attendere che il Repository Browser venga inizializzato..."
 #: ID:211
 msgid "Please wait..."
 msgstr "Attendere prego..."
+
+# ID:376,
+#: ID:376
+#, fuzzy
+msgid "Preview patched file"
+msgstr "Mostra in anteprima il file a cui è stata applicata la patch"
 
 # ID:132,
 #: ID:132
@@ -5888,6 +5903,11 @@ msgstr "Aggiorna la copia di lavoro ad una specifica revisione"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Aggiorna la copia di lavoro alla revisione corrente"
+
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "Aggiornamento e tentativo di applicare di nuovo il blocco in corso..."
 
 # Control-ID:1064,
 #: Control-ID:1064
