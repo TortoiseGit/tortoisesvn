@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-10 09:16+0100\n"
+"PO-Revision-Date: 2006-03-20 14:14+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -192,7 +192,9 @@ msgid "&About TortoiseMerge..."
 msgstr "&Au sujet de TortoiseMerge..."
 
 #: ID:8
+#: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "&Ajouter..."
 
@@ -304,7 +306,6 @@ msgid "&Dry run"
 msgstr "&Exécution fictive"
 
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Editer"
@@ -313,6 +314,7 @@ msgstr "&Editer"
 msgid "&Edit conflicts"
 msgstr "&Editer les conflits"
 
+#: ID:563
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Edition..."
@@ -2747,6 +2749,15 @@ msgstr "Verrou volé par %s"
 msgid "Locked by %s"
 msgstr "Verrouillé par %s"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"Le verrouillage a échoué car une nouvelle version existe !\n"
+"Voulez-vous mettre à jour et réessayer ?"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -3312,6 +3323,11 @@ msgstr "Veuillez patienter pendant l'initialisation du navigateur de référenti
 #: ID:211
 msgid "Please wait..."
 msgstr "Veuillez patienter..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Prévisualiser le fichier patché"
 
 #: ID:132
 #, c-format
@@ -4961,6 +4977,11 @@ msgstr "Met à jour la copie de travail à une révision spécifique"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Met à jour la copie de travail dans le référentiel"
+
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "Mise à jour et nouvel essai du verrou..."
 
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
