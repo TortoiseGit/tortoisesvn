@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-14 00:12+0800\n"
+"PO-Revision-Date: 2006-03-20 23:01+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,7 +217,9 @@ msgstr "关于 TortoiseMerge(&A)..."
 
 # Control-ID:1098,
 #: ID:8
+#: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "添加(&A)..."
 
@@ -353,7 +355,6 @@ msgstr "预检(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "编辑(&E)"
@@ -364,6 +365,7 @@ msgid "&Edit conflicts"
 msgstr "编辑冲突(&E)"
 
 # Control-ID:1099,
+#: ID:563
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "编辑(&E)..."
@@ -3222,6 +3224,15 @@ msgstr "锁定被%s偷取"
 msgid "Locked by %s"
 msgstr "被%s锁定"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"由于存在较新的版本而不能锁定！\n"
+"更新它并重新锁定吗？"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -3904,6 +3915,11 @@ msgstr "请稍候，正在启动版本库浏览器"
 #: ID:211
 msgid "Please wait..."
 msgstr "请稍候..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "预览打补丁后的文件"
 
 # ID:132,
 #: ID:132
@@ -5859,6 +5875,11 @@ msgstr "更新工作拷贝至指定的版本"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "更新工作拷贝至当前的版本"
+
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "更新并重新锁定..."
 
 # Control-ID:1064,
 #: Control-ID:1064
