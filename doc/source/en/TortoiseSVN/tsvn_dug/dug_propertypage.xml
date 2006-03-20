@@ -22,12 +22,26 @@
 		in the context menu (note: this is the normal properties menu entry
 		the explorer provides, not in the TortoiseSVN submenu!).
 		In the properties dialog box TortoiseSVN has added a new
-		property page for files/folders under Subversion control.
+		property page for files/folders under Subversion control,
+		where you can see all relevant information about the
+		selected file/directory.
+	</para>
+	<?dbhh topicname="HIDD_EDITPROPERTIES"?>
+	<?dbhh topicname="HIDD_EDITPROPERTYVALUE"?>
+	<para>
+		In addition you can read and set the Subversion properties
+		from the Windows properties dialog, but also from
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>properties</guimenuitem>
+		</menuchoice>
+		and within TSVN's status lists, from
+		<menuchoice>
+			<guimenu>Context menu</guimenu>
+			<guimenuitem>properties</guimenuitem>
+		</menuchoice>.
 	</para>
 	<para>
-		On the Subversion page you can see all relevant
-		information about the selected file/directory. In
-		addition you can read and set the Subversion properties.
 		You can add your own properties, or some properties with a 
 		special meaning in Subversion. These begin with <literal>svn:</literal>. 
 		<literal>svn:externals</literal> is such a property; see how to handle
