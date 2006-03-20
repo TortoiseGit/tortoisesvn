@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-02-21 17:25+0100\n"
+"PO-Revision-Date: 2006-03-20 21:47+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,6 +138,12 @@ msgstr "%I64d KB forgalom"
 msgid "%d files selected, %d files total"
 msgstr "%d fájl kiválasztva, %d összesen"
 
+# Control-ID:65535,
+#: ID:563
+#, c-format
+msgid "%ld paths"
+msgstr "%ld útvonalak"
+
 # ID:226,
 #: ID:226
 #, c-format
@@ -212,7 +218,9 @@ msgstr "&A TortoiseMerge névjegye..."
 
 # Control-ID:1098,
 #: ID:8
+#: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "&Hozzáad..."
 
@@ -356,6 +364,7 @@ msgid "&Edit conflicts"
 msgstr "&Ellentmondások szerkesztése"
 
 # Control-ID:1099,
+#: ID:563
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Szerkeszt..."
@@ -437,6 +446,7 @@ msgstr "&FŐ Verzió"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "&FŐ Verzió"
 
@@ -595,6 +605,7 @@ msgstr "&Újravégez"
 # Control-ID:1100,
 #: Control-ID:1013
 #: Control-ID:1100
+#: Control-ID:1285
 msgid "&Remove"
 msgstr "&Töröl"
 
@@ -613,6 +624,7 @@ msgstr "E verzió módosításainak &visszavonása"
 # Control-ID:1033,
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Verzió"
 
@@ -1096,12 +1108,12 @@ msgstr "Csomópont hozzáadva"
 #: ID:145
 #, c-format
 msgid ""
-"Added the file(s)\n"
+"Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
 "%s\n"
-"fájl(oka)t hozzáadtam\n"
+"fájlminták hozzáadva\n"
 "az elutasító listához."
 
 # ID:263,
@@ -1296,6 +1308,11 @@ msgstr ""
 msgid "Apply &patch..."
 msgstr "F&olt beépítése..."
 
+# Control-ID:1294,
+#: Control-ID:1294
+msgid "Apply property recursively"
+msgstr "Érték megadása rekrúzívan"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply unified diff"
@@ -1316,6 +1333,10 @@ msgstr "Biztos,hogy visszaállítasz %d elemet? Az <b>összes</b> módosításod
 msgid "Arranged by &path"
 msgstr "&Útvonal szerint rendezve"
 
+#: ID:2050
+msgid "Arranges the nodes sorted by path"
+msgstr "Útvonal szerint rendezés"
+
 # ID:77,
 #: ID:77
 #, c-format
@@ -1327,6 +1348,11 @@ msgstr "Verzió %d"
 #: Dlg-ID:160
 msgid "Authentication"
 msgstr "Azonosítás"
+
+# Control-ID:1023,
+#: Control-ID:1278
+msgid "Authentication data"
+msgstr "Azonosítási adat"
 
 # ID:76,
 #: ID:76
@@ -1460,6 +1486,11 @@ msgstr "Tallózás..."
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "A &hiba/téma száma:"
 
+# ID:116,
+#: ID:116
+msgid "Bug-ID"
+msgstr "Hibaszám"
+
 # Control-ID:1119,#:
 # Control-ID:1119,
 #: Control-ID:1119
@@ -1503,6 +1534,7 @@ msgstr ""
 # Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
+#: ID:563
 #: Control-ID:2
 msgid "Cancel"
 msgstr "Mégsem"
@@ -1666,9 +1698,30 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Megszakított folyamatok, zárolt fájlok eltakarítása"
 
 # Control-ID:1059,
-#: Control-ID:1059
-msgid "Clear n&ow"
-msgstr "Törlés &most"
+#: Control-ID:1273
+#: Control-ID:1275
+#: Control-ID:1276
+#: Control-ID:1279
+msgid "Clear"
+msgstr "Törlés"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld URLs stored for %ld working copies"
+msgstr "%ld címet töröl a %ld munkapéldányból"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld log messages stored for %ld working copies"
+msgstr "%ld megjegyzést töröl a %ld munkapéldányból"
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+msgstr "%ld felhasználónév/jelszó párt, %ld ssl tanúsítványt és %ld felhasználónevet töröl"
 
 # ID:195,
 #: ID:195
@@ -1678,6 +1731,12 @@ msgid ""
 msgstr ""
 "Eltávolítja az elmentett bejelentkezési információt.\n"
 "Ezeket újból be kell majd írni a tárházak elérésekor."
+
+# ID:196,
+#: ID:196
+#, c-format
+msgid "Clears the stored sizes and positions of %ld dialogs"
+msgstr "%ld ablak helyzetének és méretének elfelejtése"
 
 # ID:170,
 #: ID:170
@@ -1860,6 +1919,11 @@ msgstr "Másol (Branch / Tag)"
 msgid "Copy URL to clipboard"
 msgstr "A cím másolása a vágólapra"
 
+# ID:114,
+#: ID:101
+msgid "Copy error message to clipboard"
+msgstr "Hibaüzenet másolása a vágólapra"
+
 # ID:76,
 #: ID:76
 msgid "Copy from path"
@@ -1952,7 +2016,7 @@ msgstr ""
 # ID:82,
 #: ID:82
 #, c-format
-msgid "Could not remove %s from the ignored list"
+msgid "Could not remove %s from the ignore list"
 msgstr "%s nem távolítható el az elutasító listáról"
 
 # ID:81,
@@ -2126,8 +2190,8 @@ msgstr "Csomópont törölve"
 
 # ID:11,
 #: ID:11
-msgid "Deletes files / folders from source control"
-msgstr "Fájlok / Mappák törlése a forráskezelőből"
+msgid "Deletes files / folders from version control"
+msgstr "Fájlok / Mappák törlölve a forráskezelésből"
 
 # ID:263,
 #: ID:263
@@ -2139,6 +2203,11 @@ msgstr "Törlés"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "A célmeghajtó tele van."
+
+# ID:3825,
+#: Control-ID:1277
+msgid "Dialog sizes and positions"
+msgstr "Az ablakok helye és mérete"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2220,6 +2289,17 @@ msgid "Do you really want to move this file or folder?"
 msgstr "Biztos áthelyeted ezt a fájlt vagy mappát?"
 
 # ID:76,
+#: ID:119
+#, c-format
+msgid ""
+"Do you really want to revert all changes in %s\n"
+"and go back to this revision?"
+msgstr ""
+"Biztos visszaállítod az összes változást ebben:\n"
+"%s\n"
+"(és elveszíted a módosításokat)?"
+
+# ID:76,
 #: ID:76
 #, c-format
 msgid ""
@@ -2253,6 +2333,12 @@ msgid ""
 msgstr ""
 "Biztos hogy újratöltöd a dokumentumot?\n"
 "Az összes változtatásod elveszik!"
+
+# ID:145,
+#: ID:563
+#, c-format
+msgid "Do you want to remove the property %s recursively?"
+msgstr "Törlöd a %s értéket rekrúzívan?"
 
 # ID:313,
 #: ID:313
@@ -2293,6 +2379,13 @@ msgstr "EXT"
 #: Control-ID:1237
 msgid "Edit"
 msgstr "Szerkeszt"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Dlg-ID:226
+#: Dlg-ID:227
+msgid "Edit Properties"
+msgstr "Szerkesztési Tulajdonságok"
 
 # ID:113,
 #: ID:113
@@ -2350,6 +2443,13 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr "Bekapcsolja a helyesírás ellenőrzőt, ha a tsvn:projectlanguage aktív"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "End Revision"
+msgstr "Vég-Verzió"
 
 # ID:3825,
 #: ID:3825
@@ -2846,6 +2946,11 @@ msgstr "Kisbetű/nagybetű &nem különbség"
 msgid "Ignore ancestry"
 msgstr "Származás elutasítása"
 
+# Control-ID:1020,
+#: Control-ID:1026
+msgid "Ignore e&nding whitespaces"
+msgstr "Sor&végi láthatatlan karakterek elutasítása"
+
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -3117,6 +3222,15 @@ msgstr "A zárt ellopta %s"
 msgid "Locked by %s"
 msgstr "%s által zárolva"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"A zárolás sikertelen, mert egy frissebb verzió érhető el!\n"
+"Frissíted és újrapróbálod?"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -3134,6 +3248,7 @@ msgstr "Megjegyzések Előzménye"
 
 # Dlg-ID:130,#:
 # Control-ID:65535,
+#: Control-ID:1274
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Megjegyzések"
@@ -3197,6 +3312,11 @@ msgstr "Legrégebbi verzió: %ld - Legújabb verzió: %ld - FŐ verzió: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "A levelezőrendszer DLL-je rossz."
 
+# Control-ID:65535,
+#: ID:17
+msgid "Manage Subversion properties"
+msgstr "Subversion tulajdonságok változtatása"
+
 # ID:2051,
 #: ID:2051
 msgid ""
@@ -3236,6 +3356,11 @@ msgstr "Összegyúr egy mellékágat a főágba"
 #: Control-ID:65535
 msgid "Merging"
 msgstr "Beépítés"
+
+# ID:83,
+#: ID:83
+msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgstr "Összegyúráshoz különböző verzió vagy cím kell a 'Ettől:' és 'Eddig:' mezőkbe"
 
 # ID:76,
 #: ID:76
@@ -3483,6 +3608,11 @@ msgstr "Nem lett az összes bejegyzés (vagy INI fájl) eltávolítva."
 msgid "Not enough memory to complete operation."
 msgstr "Nincs elég memória a művelet végrehajtásához."
 
+# Control-ID:1018,
+#: ID:563
+msgid "Not recursive"
+msgstr "Nem rekrúzív"
+
 # ID:88,
 #: ID:88
 msgid "Notice"
@@ -3635,6 +3765,11 @@ msgstr "Fájlnév lista beillesztése"
 msgid "Patch all"
 msgstr "Mindet foltoz"
 
+# ID:376,
+#: ID:376
+msgid "Patch selected"
+msgstr "Folt kiválasztva"
+
 # ID:157,#:
 # ID:157,
 #: ID:157
@@ -3781,6 +3916,11 @@ msgstr "Várj amíg elindítom a Tárház böngészőt..."
 msgid "Please wait..."
 msgstr "Kérlek várj..."
 
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Foltozott fájl előmutatása"
+
 # ID:132,
 #: ID:132
 #, c-format
@@ -3805,10 +3945,23 @@ msgstr "Haladás"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
+#: ID:17
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
 msgstr "Tulajdonságok"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: Control-ID:1287
+msgid "Properties for"
+msgstr "Tulajdonságai ennek:"
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:209
+msgid "Properties..."
+msgstr "Tulajdonságok..."
 
 # ID:11,
 #: ID:11
@@ -3825,10 +3978,20 @@ msgstr "Tulajdonságok"
 msgid "Property Status:"
 msgstr "Tulajdonságok:"
 
+# Dlg-ID:107,
+#: Control-ID:1292
+msgid "Property name:"
+msgstr "Tulajdonság név:"
+
 # ID:207,
 #: ID:207
 msgid "Property status"
 msgstr "Tulajdonos állapot"
+
+# Dlg-ID:107,
+#: Control-ID:1293
+msgid "Property value:"
+msgstr "Tulajdonság érték:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3853,6 +4016,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "R&AM drives"
 msgstr "&Memória meghajtók"
+
+# ID:113,
+#: ID:114
+msgid "R&evert to this revision"
+msgstr "&Visszaállít erre a verzióra"
 
 # ID:3697,
 #: ID:3697
@@ -3884,6 +4052,11 @@ msgstr "Olvasd el a 'Napi használati utasítást' mielőtt elakadnál..."
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
 msgstr "Nem verziókezelt mappákba lépés"
+
+# Control-ID:1018,
+#: ID:563
+msgid "Recursive"
+msgstr "Rekrúzív"
 
 # ID:3603,
 #: ID:3603
@@ -3990,12 +4163,12 @@ msgstr "Fájl/mappa eltávolítva"
 #: ID:145
 #, c-format
 msgid ""
-"Removed the file(s)\n"
+"Removed the file pattern(s)\n"
 "%s\n"
-"from the ignored list."
+"from the ignore list."
 msgstr ""
 "%s\n"
-"fájl(ok) eltávolítva\n"
+"fájlmintá(k) eltávolítva\n"
 "az elutasító listáról."
 
 # ID:15,
@@ -4032,8 +4205,8 @@ msgstr "Távolról átnevezve"
 
 # ID:11,
 #: ID:11
-msgid "Renames files / folders inside source control"
-msgstr "Mappák/Fájlok átnevezése a verziórendszerben"
+msgid "Renames files / folders inside version control"
+msgstr "Átnevez fájlokat / mappákat a verziókezelésben"
 
 # ID:3603,
 #: ID:3603
@@ -4215,6 +4388,11 @@ msgstr "Verzió / Fejlesztő"
 msgid "Revision Graph"
 msgstr "Verzió Grafikon"
 
+# ID:75,
+#: Dlg-ID:228
+msgid "Revision Range"
+msgstr "Verzió Intervallum"
+
 # ID:15,#:
 # ID:269,#:
 # Dlg-ID:182,
@@ -4322,6 +4500,11 @@ msgstr "SVN Exportálás ide"
 msgid "SVN Lock owner"
 msgstr "SVN Kulcs tulajdonosa"
 
+# ID:13,
+#: ID:17
+msgid "SVN Move and rename versioned files here"
+msgstr "SVN Fájlok átnevezése és áthelyezése"
+
 # Control-ID:1073,#:
 # Control-ID:1073,
 #: ID:12
@@ -4340,7 +4523,7 @@ msgstr "SVN Állapot"
 
 # ID:12,
 #: ID:12
-msgid "SVN Url"
+msgid "SVN URL"
 msgstr "SVN Cím"
 
 # ID:14,
@@ -4350,7 +4533,7 @@ msgstr "SVN mime-típus"
 
 # ID:12,
 #: ID:12
-msgid "SVN short Url"
+msgid "SVN short URL"
 msgstr "SVN rövid cím"
 
 #: MenuEntry
@@ -4409,6 +4592,11 @@ msgstr ""
 #: Control-ID:1132
 msgid "Save to clipboard"
 msgstr "Vágólapra mentés"
+
+# Dlg-ID:108,
+#: Dlg-ID:108
+msgid "Saved Data"
+msgstr "Kimentett Adat"
 
 # ID:103,
 #: ID:103
@@ -4607,13 +4795,19 @@ msgstr "&Rövid dátumformátum a naplóban"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of Subversion items"
+msgid "Short URL of Subversion items"
 msgstr "A Subverson elemek rövid címe"
 
 # Control-ID:1031,
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "&Mindet mutat"
+
+# Control-ID:1031,
+#: ID:115
+msgid "Show &Range..."
+msgstr "&Intervallum mutatása..."
 
 #: MenuEntry
 msgid "Show &all revisions"
@@ -4731,6 +4925,11 @@ msgstr "Grafikus megjelenítése a másolásoknak/mellékágaknak/kiadásoknak"
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Az összes változtatott fájl mutatása az utolsó frissítés óta"
 
+# ID:2050,
+#: ID:2050
+msgid "Shows all revisions where changes were made to this item"
+msgstr "Az összes olyan verzió mutatása, amely változást hozott ebben az elemben"
+
 # ID:10,
 #: ID:10
 msgid "Shows information about TortoiseSVN"
@@ -4797,6 +4996,11 @@ msgstr ""
 msgid "Stacked"
 msgstr "Zárolva"
 
+# ID:11,
+#: Control-ID:65535
+msgid "Start Revision"
+msgstr "Kezdeti-Verzió"
+
 # ID:245,#:
 # Control-ID:1132,#:
 # Dlg-ID:179,
@@ -4858,11 +5062,6 @@ msgstr "Stefan Küng, Lübbe Onken"
 #: Control-ID:65535
 msgid "Subversion"
 msgstr "Subversion"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Subversion &authentication data:"
-msgstr "Subversion &hitelesítései adat:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5127,7 +5326,7 @@ msgstr ""
 # ID:88,
 #: ID:88
 msgid ""
-"The path/url you've entered seems to be illegal on Windows!\n"
+"The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
 "\n"
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
@@ -5171,6 +5370,17 @@ msgstr ""
 "A kiválasztott fájlban még vannak ellentmondások.\n"
 "Biztos hogy megoldottnak jelölöd?"
 
+# ID:102,
+#: ID:102
+#, c-format
+msgid ""
+"The target URL\n"
+"%s\n"
+"already exists!"
+msgstr ""
+"%s\n"
+"célcím már létezik!"
+
 # ID:88,
 #: ID:88
 #, c-format
@@ -5184,17 +5394,6 @@ msgstr ""
 "%s\n"
 "nem üres!\n"
 "Biztos, hogy itt akarsz dolgozni?"
-
-# ID:102,
-#: ID:102
-#, c-format
-msgid ""
-"The target url\n"
-"%s\n"
-"already exists!"
-msgstr ""
-"%s\n"
-"célcím már létezik!"
 
 # ID:195,
 #: ID:195
@@ -5499,6 +5698,16 @@ msgstr "TortoiseSVN Átkapcsoló..."
 msgid "TortoiseSVN Update..."
 msgstr "TortoiseSVN Frissítés..."
 
+# ID:98,
+#: ID:98
+#, c-format
+msgid ""
+"TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
+"to be renamed too?"
+msgstr ""
+"A TortoiseSVN azonos fájlneveket észlelt. Biztos, hogy a %s\n"
+"fájlokat is átnevezed?"
+
 # Control-ID:1162,
 #: Control-ID:1162
 msgid "Total commits analyzed:"
@@ -5536,9 +5745,15 @@ msgstr "Kettős-&eljárásű Folt"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:207
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
+
+# ID:80,
+#: Control-ID:1272
+msgid "URL history"
+msgstr "Cím előzmények"
 
 # ID:12,
 #: ID:12
@@ -5547,6 +5762,7 @@ msgstr "A Subversion elemek URL-je"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
+#: ID:144
 #: Control-ID:65535
 msgid "URL:"
 msgstr "URL:"
@@ -5667,15 +5883,10 @@ msgstr "Frissíti a munkapéldányt egy megadott verzióra"
 msgid "Updates the working copy to the current revision"
 msgstr "Frissíti a munkapéldányt a jelenlegi verzióra"
 
-# ID:207,
-#: ID:207
-msgid "Url"
-msgstr "Url"
-
-# ID:144,
-#: ID:144
-msgid "Url:"
-msgstr "Url:"
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "Frissítés és a zárolás újrapróbálása..."
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -6355,10 +6566,10 @@ msgstr ""
 #: ID:14
 msgid ""
 "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mime type beginning with 'text/' (or an absent mime type) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"A fájl mime típusa. A beépítésnél és a webszervernél (Apache) fontos. Egy mime típus ami 'text/'-el kezdődik szövegként lesz kezelve, a többi binárisként."
+"A fájl mime típusa. Összegyúrásnál és webkiszolgálásnál (Apache) fontos. Egy mime típus ami 'text/'-el kezdődik szövegként lesz kezelve, a többi binárisként."
 
 # ID:16,
 #: ID:16
@@ -6373,6 +6584,16 @@ msgstr ""
 "Bármire állíthatod (e.g. '*') hogy zárold ezt a fájt.\n"
 "Ezt csak olvashatóra lesz állítva frissítéskor,\n"
 "így a többi felhasználó nem tudja módosítani."
+
+# ID:208,
+#: ID:208
+#, c-format
+msgid ""
+"switched to\r\n"
+"%s"
+msgstr ""
+"átváltva:\r\n"
+"%s"
 
 # ID:80,#:
 # ID:103,#:
@@ -6444,6 +6665,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Állítsd igenre, és feljön egy ablak ha a megjegyzést üresen hagyod."
+
+# ID:563,
+#: ID:563
+msgid "values are different"
+msgstr "az értékek különböznek"
 
 # ID:244,
 #: ID:244
