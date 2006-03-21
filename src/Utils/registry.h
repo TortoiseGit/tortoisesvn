@@ -46,11 +46,36 @@ public:	//methods
 	 */
 	LONG removeValue() { RegOpenKeyEx(m_base, m_path, 0, KEY_WRITE, &m_hKey); return RegDeleteValue(m_hKey, (LPCTSTR)m_key); }
 
+	/**
+	 * Returns the string of the last error occurred.
+	 */
+	CString getErrorString()
+	{
+		LPVOID lpMsgBuf;
+
+		FormatMessage(
+			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM,
+			NULL,
+			LastError,
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+			(LPTSTR) &lpMsgBuf,
+			0, NULL );
+#if defined IDS_REG_ERROR
+		CString sTemp;
+		sTemp.Format(IDS_REG_ERROR, m_path, (LPCTSTR)lpMsgBuf);
+		return sTemp;
+#else
+		return CString((LPCTSTR)lpMsgBuf);
+#endif
+	};
+
 public:	//members
 	HKEY m_base;		///< handle to the registry base
 	HKEY m_hKey;		///< handle to the open registry key
 	CString m_key;		///< the name of the value
 	CString m_path;		///< the path to the key
+	LONG LastError;		///< the value of the last error occurred
 };
 
 /**
@@ -124,7 +149,7 @@ public:
 	CRegDWORD& operator&=(DWORD d) { return *this = *this & d;}
 	CRegDWORD& operator|=(DWORD d) { return *this = *this | d;}
 	CRegDWORD& operator^=(DWORD d) { return *this = *this ^ d;}
-	
+
 protected:
 
 	DWORD	m_value;					///< the cached value of the registry
@@ -199,9 +224,7 @@ public:
 	operator CString();
 	CRegString& operator=(const CString& s);
 	CRegString& operator+=(const CString& s) { return *this = (CString)*this + s; }
-	
-	
-	
+		
 protected:
 
 	CString	m_value;					///< the cached value of the registry
@@ -288,7 +311,6 @@ public:
 	CRegRect& operator&=(CRect r) { return *this = r & *this;}
 	CRegRect& operator|=(CRect r) { return *this = r | *this;}
 	
-	
 protected:
 
 	CRect	m_value;					///< the cached value of the registry
@@ -366,7 +388,6 @@ public:
 	CRegPoint& operator+=(CPoint p) { return *this = p + *this; }
 	CRegPoint& operator-=(CPoint p) { return *this = p - *this; }
 	
-	
 protected:
 
 	CPoint	m_value;					///< the cached value of the registry
@@ -441,11 +462,26 @@ public:	//methods
 	 */
 	LONG removeValue() { RegOpenKeyEx(m_base, m_path.c_str(), 0, KEY_WRITE, &m_hKey); return RegDeleteValue(m_hKey, m_key.c_str()); }
 
+	stdstring getErrorString()
+	{
+		LPVOID lpMsgBuf;
+
+		FormatMessage(
+			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM,
+			NULL,
+			LastError,
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+			(LPTSTR) &lpMsgBuf,
+			0, NULL );
+		return stdstring((LPCTSTR)lpMsgBuf);
+	}
 public:	//members
 	HKEY m_base;		///< handle to the registry base
 	HKEY m_hKey;		///< handle to the open registry key
 	stdstring m_key;		///< the name of the value
 	stdstring m_path;		///< the path to the key
+	LONG LastError;		///< the last value of the last occurred error
 };
 
 /**
@@ -501,7 +537,6 @@ public:
 	CRegStdString& operator=(stdstring s);
 	CRegStdString& operator+=(stdstring s) { return *this = (stdstring)*this + s; }
 	operator LPCTSTR();
-	
 	
 protected:
 
@@ -578,7 +613,6 @@ public:
 	CRegStdWORD& operator&=(DWORD d) { return *this = *this & d;}
 	CRegStdWORD& operator|=(DWORD d) { return *this = *this | d;}
 	CRegStdWORD& operator^=(DWORD d) { return *this = *this ^ d;}
-	
 	
 protected:
 
