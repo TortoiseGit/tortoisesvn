@@ -74,6 +74,7 @@ public:
 	BOOL IsPrev() const {return (rev.kind == svn_opt_revision_previous);}
 	BOOL IsCommitted() const {return (rev.kind == svn_opt_revision_committed);}
 	BOOL IsDate() const {return (rev.kind == svn_opt_revision_date);}
+	BOOL IsNumber() const {return (rev.kind == svn_opt_revision_number);}
 
 	CString GetDateString() const {return sDate;}
 	CString ToString() const;
