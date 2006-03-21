@@ -22,6 +22,7 @@
 #include "ShellUpdater.h"
 #include "Utils.h"
 #include ".\setlookandfeelpage.h"
+#include "MessageBox.h"
 
 
 // CSetLookAndFeelPage dialog
@@ -70,13 +71,29 @@ void CSetLookAndFeelPage::SaveData()
 	if (m_bInitialized)
 	{
 		m_regTopmenu = m_topmenu;
+		if (m_regTopmenu.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regTopmenu.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regSimpleContext = m_bSimpleContext;
+		if (m_regSimpleContext.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regSimpleContext.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		if (m_OwnerDrawn == 1)
+		{
 			m_regOwnerDrawn = 0;
+			if (m_regOwnerDrawn.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regOwnerDrawn.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
 		else if (m_OwnerDrawn == 0)
+		{
 			m_regOwnerDrawn = 1;
+			if (m_regOwnerDrawn.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regOwnerDrawn.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
 		else
+		{
 			m_regOwnerDrawn = 2;
+			if (m_regOwnerDrawn.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regOwnerDrawn.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
 	}
 }
 

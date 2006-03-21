@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetMisc.h"
+#include "MessageBox.h"
 
 
 // CSetMisc dialog
@@ -55,11 +56,23 @@ CSetMisc::~CSetMisc()
 void CSetMisc::SaveData()
 {
 	m_regUnversionedRecurse = m_bUnversionedRecurse;
+	if (m_regUnversionedRecurse.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regUnversionedRecurse.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regAutocompletion = m_bAutocompletion;
+	if (m_regAutocompletion.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regAutocompletion.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regAutocompletionTimeout = m_dwAutocompletionTimeout;
+	if (m_regAutocompletionTimeout.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regAutocompletionTimeout.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regSpell = m_bSpell;
+	if (m_regSpell.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regSpell.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regCheckRepo = m_bCheckRepo;
+	if (m_regCheckRepo.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regCheckRepo.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regMaxHistory = m_dwMaxHistory;
+	if (m_regMaxHistory.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regMaxHistory.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 }
 
 void CSetMisc::DoDataExchange(CDataExchange* pDX)

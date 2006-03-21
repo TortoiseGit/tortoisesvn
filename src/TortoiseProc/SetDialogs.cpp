@@ -25,6 +25,7 @@
 #include "..\version.h"
 #include ".\setdialogs.h"
 #include "SVN.h"
+#include "MessageBox.h"
 
 
 // CSetDialogs dialog
@@ -56,16 +57,34 @@ void CSetDialogs::SaveData()
 	if (m_bInitialized == FALSE)
 		return;
 	m_regAutoClose = m_dwAutoClose;
+	if (m_regAutoClose.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regAutoClose.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regShortDateFormat = m_bShortDateFormat;
+	if (m_regShortDateFormat.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regShortDateFormat.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	long val = _ttol(m_sDefaultLogs);
 	if (val > 5)
+	{
 		m_regDefaultLogs = val;
+		if (m_regDefaultLogs.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDefaultLogs.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	}
 	else
+	{
 		m_regDefaultLogs = 100;
+		if (m_regDefaultLogs.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDefaultLogs.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	}
 
 	m_regFontName = m_sFontName;
+	if (m_regFontName.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regFontName.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regFontSize = m_dwFontSize;
+	if (m_regFontSize.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regFontSize.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regUseWCURL = m_bUseWCURL;
+	if (m_regUseWCURL.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regUseWCURL.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 }
 
 void CSetDialogs::DoDataExchange(CDataExchange* pDX)

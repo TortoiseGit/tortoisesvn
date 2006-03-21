@@ -215,6 +215,7 @@
 #define IDC_STATISTICS                  1108
 #define IDC_URLCOMBO2                   1109
 #define IDC_COMMITLABEL                 1110
+#define IDS_REG_ERROR                   1110
 #define IDC_PROGRESS                    1111
 #define IDC_YOURVERSION                 1112
 #define IDC_CURRENTVERSION              1113

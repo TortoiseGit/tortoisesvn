@@ -25,6 +25,7 @@
 #include "..\version.h"
 #include ".\setmainpage.h"
 #include "SVN.h"
+#include "MessageBox.h"
 
 
 // CSetMainPage dialog
@@ -49,9 +50,17 @@ CSetMainPage::~CSetMainPage()
 void CSetMainPage::SaveData()
 {
 	m_regLanguage = m_dwLanguage;
+	if (m_regLanguage.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regLanguage.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regExtensions = m_sTempExtensions;
+	if (m_regExtensions.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regExtensions.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regCheckNewer = m_bCheckNewer;
+	if (m_regCheckNewer.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regCheckNewer.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
+	if (m_regLastCommitTime.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regLastCommitTime.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)

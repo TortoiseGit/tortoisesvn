@@ -313,13 +313,26 @@ void CSetOverlayIcons::SaveData()
 		if (ret != IDCANCEL)
 		{
 			m_regInSubversion = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseInSubversion.ico");
+			if (m_regInSubversion.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regInSubversion.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 			m_regModified = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseModified.ico");
+			if (m_regModified.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regModified.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 			m_regConflicted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseConflict.ico");
+			if (m_regConflicted.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regConflicted.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 			m_regReadOnly = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseReadOnly.ico");
+			if (m_regReadOnly.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regReadOnly.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 			m_regDeleted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseDeleted.ico");
+			if (m_regDeleted.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regDeleted.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 			m_regLocked = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseLocked.ico");
+			if (m_regLocked.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regLocked.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 			m_regAdded = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseAdded.ico");
-			//CShellUpdater::RebuildIcons();
+			if (m_regAdded.LastError != ERROR_SUCCESS)
+				CMessageBox::Show(m_hWnd, m_regAdded.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
 		m_sOriginalIconSet = m_sIconSet;
 	}

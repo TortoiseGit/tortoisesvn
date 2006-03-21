@@ -23,6 +23,7 @@
 #include "Globals.h"
 #include "ShellUpdater.h"
 #include ".\setoverlaypage.h"
+#include "MessageBox.h"
 
 
 // CSetOverlayPage dialog
@@ -106,23 +107,43 @@ void CSetOverlayPage::SaveData()
 	if (m_bInitialized)
 	{
 		m_regOnlyExplorer = m_bOnlyExplorer;
+		if (m_regOnlyExplorer.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regOnlyExplorer.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regDriveMaskRemovable = m_bRemovable;
+		if (m_regDriveMaskRemovable.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDriveMaskRemovable.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regDriveMaskRemote = m_bNetwork;
+		if (m_regDriveMaskRemote.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDriveMaskRemote.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regDriveMaskFixed = m_bFixed;
+		if (m_regDriveMaskFixed.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDriveMaskFixed.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regDriveMaskCDROM = m_bCDROM;
+		if (m_regDriveMaskCDROM.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDriveMaskCDROM.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regDriveMaskRAM = m_bRAM;
+		if (m_regDriveMaskRAM.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDriveMaskRAM.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regDriveMaskUnknown = m_bUnknown;
+		if (m_regDriveMaskUnknown.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDriveMaskUnknown.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_sExcludePaths.Replace(_T("\r"), _T(""));
 		if (m_sExcludePaths.Right(1).Compare(_T("\n"))!=0)
 			m_sExcludePaths += _T("\n");
 		m_regExcludePaths = m_sExcludePaths;
+		if (m_regExcludePaths.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regExcludePaths.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
 		m_sIncludePaths.Replace(_T("\r"), _T(""));
 		if (m_sIncludePaths.Right(1).Compare(_T("\n"))!=0)
 			m_sIncludePaths += _T("\n");
 		m_regIncludePaths = m_sIncludePaths;
+		if (m_regIncludePaths.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regIncludePaths.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_sIncludePaths.Replace(_T("\n"), _T("\r\n"));
 		m_regCacheType = m_dwCacheType;
+		if (m_regCacheType.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regCacheType.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 }
 

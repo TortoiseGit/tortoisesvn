@@ -133,6 +133,8 @@
        when an error occurred. See issue #230 for details. (Stefan)
 - BUG: When reverting files and folders the child items are now reverted
        before the parent items to avoid an error message. (Tobias Schäfer)
+- BUG: When a setting change couldn't be saved in the registry, no error
+       message was shown. See issue #237 for details. (Stefan)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the
