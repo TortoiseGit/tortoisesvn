@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-10 11:08+0900\n"
+"PO-Revision-Date: 2006-03-21 11:23+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -215,7 +215,9 @@ msgstr "TortoiseMerge에 대하여(&A)..."
 
 # Control-ID:1098,
 #: ID:8
+#: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "추가(&A)..."
 
@@ -351,7 +353,6 @@ msgstr "가상 실행(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "편집(&E)"
@@ -362,6 +363,7 @@ msgid "&Edit conflicts"
 msgstr "충돌 상황 편집(&E)"
 
 # Control-ID:1099,
+#: ID:563
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "편집(&E)..."
@@ -3223,6 +3225,15 @@ msgstr "잠금 소유자가 %s(으)로 바뀌었습니다."
 msgid "Locked by %s"
 msgstr "%s에 의해 잠겼습니다."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"새 버전이 존재하므로 잠금에 실패하였습니다\n"
+"다시 한 번 시도하시겠습니까?"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -3906,6 +3917,11 @@ msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
 #: ID:211
 msgid "Please wait..."
 msgstr "잠시 기다려주십시오..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "패치된 파일 미리보기"
 
 # ID:132,
 #: ID:132
@@ -5864,6 +5880,11 @@ msgstr "작업 사본을 특정 리비전으로 업데이트"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "작업 사본을 최신 리비전으로 업데이트 합니다."
+
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "업데이트 및 잠금 시도중..."
 
 # Control-ID:1064,
 #: Control-ID:1064
