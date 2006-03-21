@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-14 10:29+0800\n"
+"PO-Revision-Date: 2006-03-21 09:46+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,6 +217,7 @@ msgstr "關於 TortoiseMerge(&A)..."
 #: ID:8
 #: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "加入(&A)..."
 
@@ -368,7 +369,6 @@ msgstr "編修衝突(&E)"
 # Control-ID:1099,
 #: ID:563
 #: Control-ID:1099
-#: Control-ID:1282
 msgid "&Edit..."
 msgstr "編輯(&E)..."
 
@@ -3236,6 +3236,15 @@ msgstr "鎖定被 %s 取得"
 msgid "Locked by %s"
 msgstr "由 %s 鎖定"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"鎖定失敗! 檔案已有更新的版本.\n"
+"你要更新並再試一次嗎?"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -3920,6 +3929,11 @@ msgstr "請稍候, 檔案庫瀏覽器正在初始化..."
 #: ID:211
 msgid "Please wait..."
 msgstr "請稍候..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "預覽補綴後的檔案"
 
 # ID:132,
 #: ID:132
@@ -5880,6 +5894,11 @@ msgstr "更新工作複本至指定的版本"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "更新工作複本至目前的版本"
+
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "更新並重試鎖定中..."
 
 # Control-ID:1064,
 #: Control-ID:1064
