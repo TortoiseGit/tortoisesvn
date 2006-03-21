@@ -171,9 +171,9 @@ private:
 	CProgressCtrl		m_LogProgress;
 	CMenuButton			m_btnShow;
 	CTSVNPath			m_path;
-	svn_revnum_t		m_startrev;
-	svn_revnum_t		m_LogRevision;
-	svn_revnum_t		m_endrev;
+	SVNRev				m_startrev;
+	SVNRev				m_LogRevision;
+	SVNRev				m_endrev;
 	bool				m_bSelectionMustBeContinuous;
 	long				m_logcounter;
 	bool				m_bCancelled;

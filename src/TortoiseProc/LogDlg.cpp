@@ -45,9 +45,6 @@
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableStandAloneDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CLogDlg::IDD, pParent),
-	m_startrev(0),
-	m_LogRevision(0),
-	m_endrev(0),
 	m_logcounter(0),
 	m_nSearchIndex(0),
 	m_wParam(0),
@@ -431,11 +428,14 @@ void CLogDlg::OnBnClickedGetall()
 			}
 			m_endrev = dlg.GetEndRevision();
 			m_startrev = dlg.GetStartRevision();
-			if (m_startrev < m_endrev)
+			if ((m_endrev.IsNumber())&&(m_startrev.IsNumber()))
 			{
-				svn_revnum_t temp = m_startrev;
-				m_startrev = m_endrev;
-				m_endrev = temp;
+				if ((LONG)m_startrev < (LONG)m_endrev)
+				{
+					svn_revnum_t temp = m_startrev;
+					m_startrev = m_endrev;
+					m_endrev = temp;
+				}
 			}
 			m_bShowedAll = false;
 		}
@@ -571,8 +571,8 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 		m_limitcounter--;
 		m_LogProgress.SetPos(m_limit - m_limitcounter);
 	}
-	else
-		m_LogProgress.SetPos(m_startrev-rev+m_endrev);
+	else if (m_startrev.IsNumber() && m_startrev.IsNumber())
+		m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
 	__time64_t ttime = time/1000000L;
 	if (m_tTo < (DWORD)ttime)
 		m_tTo = (DWORD)ttime;
