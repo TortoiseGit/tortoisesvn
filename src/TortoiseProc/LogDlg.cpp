@@ -2714,6 +2714,7 @@ void CLogDlg::OnBnClickedFiltercancel()
 		m_arShownList.Add(m_logEntries[i]);
 	}
 	InterlockedExchange(&m_bNoDispUpdates, FALSE);
+	m_LogList.DeleteAllItems();
 	m_LogList.SetItemCountEx(m_arShownList.GetCount());
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
@@ -2753,6 +2754,7 @@ void CLogDlg::OnEnChangeSearchedit()
 				m_arShownList.Add(m_logEntries[i]);
 		}
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
+		m_LogList.DeleteAllItems();
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
@@ -2944,6 +2946,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		} // for (INT_PTR i=0; i<m_logEntries.size(); ++i)
 		
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
+		m_LogList.DeleteAllItems();
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
 		m_LogList.SetRedraw(false);
