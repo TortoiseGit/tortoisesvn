@@ -566,6 +566,9 @@ BEGIN
     IDS_VIEWCONTEXTMENU_USETHISFILE "Use this &whole file"
     IDS_VIEWCONTEXTMENU_USEOTHERBLOCK "Use &other text block"
     IDS_VIEWCONTEXTMENU_USEOTHERFILE "Use whole other &file"
+    IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST 
+                            "Use both text blocks (this one first)"
+    IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST "Use both text blocks (this one last)"
 END
 
 STRINGTABLE 
@@ -620,7 +623,7 @@ BEGIN
     IDS_PATCH_TITLE         "File patches"
     IDS_DIFF_TITLE          "File diffs"
     IDS_PATCH_SELECTED      "Patch selected"
-	IDS_PATCH_PREVIEW       "Preview patched file"
+    IDS_PATCH_PREVIEW       "Preview patched file"
 END
 
 STRINGTABLE 
