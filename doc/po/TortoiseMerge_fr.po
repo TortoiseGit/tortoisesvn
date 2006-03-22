@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-03-20 14:31+0100\n"
+"PO-Revision-Date: 2006-03-21 11:16+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -69,12 +69,12 @@ msgstr "Appliquer les patches"
 #: source/TortoiseMerge_en.xml:37
 #: (para)
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
-msgstr "TortoiseMerge vous aide avec ces deux tâches : <placeholder-1/>"
+msgstr "TortoiseMerge vous aide pour ces deux tâches : <placeholder-1/>"
 
 #: source/TortoiseMerge_en.xml:52
 #: (para)
 msgid "TortoiseMerge also helps you to sort out conflicted files which can occur if you're working with a source control system and others are working on the same files as you."
-msgstr "TortoiseMerge vous aide aussi pour trier les conflits de fichiers qui peuvent arriver si vous travaillez avec un système de contrôle de source et que d'autres travaillent sur les mêmes fichiers que vous."
+msgstr "TortoiseMerge vous aide aussi pour arranger les conflits de fichiers qui peuvent arriver si vous travaillez avec un système de contrôle de source et que d'autres travaillent sur les mêmes fichiers que vous."
 
 #: source/TortoiseMerge_en.xml:62
 #: (title)
@@ -89,7 +89,7 @@ msgstr "TortoiseMerge est gratuit. Vous n'avez pas à payer pour l'avoir, vous p
 #: source/TortoiseMerge_en.xml:67
 #: (para)
 msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, password:guest) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge est un projet Open Source. Cela signifie que vous avez un accès total au code source de ce programme. Vous pouvez y accèder avec ce lien <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Utilisateur:guest, mot de passe:guest) La version la plus récente (sur laquelle nous travaillons actuellement) est située sous <filename>/trunk/</filename> les versions publiées sont situées sous <filename>/tags/</filename>."
+msgstr "TortoiseMerge est un projet Open Source. Cela signifie que vous avez un accès total au code source de ce programme. Vous pouvez y accèder avec ce lien <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Utilisateur : guest, mot de passe : guest) La version la plus récente (sur laquelle nous travaillons actuellement) est située sous <filename>/trunk/</filename> les versions publiées sont situées sous <filename>/tags/</filename>."
 
 #: source/TortoiseMerge_en.xml:86
 #: (title)
@@ -189,7 +189,7 @@ msgstr "Si vous travaillez avec un système de contôle de version (i.e. Subvers
 #: source/TortoiseMerge_en.xml:202
 #: (para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
-msgstr "Le diagramme suivant vous montre les relations entre les fichiers impliqués dans un conflit:"
+msgstr "Le diagramme suivant vous montre les relations entre les fichiers impliqués dans un conflit :"
 
 #: source/TortoiseMerge_en.xml:207
 #: (title) source/TortoiseMerge_en.xml:351
@@ -204,7 +204,7 @@ msgstr "Un conflit peut aussi se produire si vous essayez d'appliquer un patch p
 #: source/TortoiseMerge_en.xml:216
 #: (para)
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patchfile for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "Mais maintenant avec TortoiseMerge, ce n'est plus nécessaire - du moins si vous travaillez avec un système de contrôle de version comme Subversion. TortoiseMerge analyse le patch pour la révision/version pour laquelle la patch a été créé et essaye automatiquement de trouver cette révision particulière depuis votre système de contrôle de version. Puis, il applique le patch et vous laisse examiner vos changements et les leur. Vous pouvez ensuite décider quels changements vous souhaitez conserver."
+msgstr "Mais maintenant avec TortoiseMerge, ce n'est plus nécessaire - du moins si vous travaillez avec un système de contrôle de version comme Subversion. TortoiseMerge analyse le patch pour la révision/version pour laquelle le patch a été créé et essaye automatiquement de trouver cette révision particulière depuis votre système de contrôle de version. Puis, il applique le patch et vous laisse examiner vos changements et les leur. Vous pouvez ensuite décider quels changements vous souhaitez conserver."
 
 #: source/TortoiseMerge_en.xml:231
 #: (title)
@@ -244,7 +244,7 @@ msgstr "Ouvrir des fichiers"
 #: source/TortoiseMerge_en.xml:285
 #: (para)
 msgid "When you start TortoiseMerge without any command line switches then you have to open the files manually, using <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
-msgstr "Quand vous démarrez TortoiseMerge sans un commutateur de ligne de commande alors vous devez ouvrir les fichiers manuellement, en utilisant <menuchoice><guimenu>Fichier</guimenu><guimenuitem>Ouvrir</guimenuitem></menuchoice>."
+msgstr "Quand vous démarrez TortoiseMerge sans commutateur de ligne de commande vous devez alors ouvrir les fichiers manuellement, en utilisant <menuchoice><guimenu>Fichier</guimenu><guimenuitem>Ouvrir</guimenuitem></menuchoice>."
 
 #: source/TortoiseMerge_en.xml:294
 #: (title)
@@ -299,7 +299,7 @@ msgstr "Les relations entre les trois fichiers sont expliquées dans le diagrame
 #: source/TortoiseMerge_en.xml:354
 #: (para)
 msgid "The base file represents the oldest version of a file, from where <literal>You</literal> and <literal>They</literal> start making changes. <literal>Mine</literal> represents the base file with all the changes <emphasis>you</emphasis> made, and <literal>Theirs</literal> is the file with all the changes <emphasis>someone else</emphasis> made to the file."
-msgstr "Le fichier de base représente la plus vieille version d'un fichier, à partir du moment où <literal>Vous</literal> et <literal> Eux</literal> ont commencé à faire des changements. <literal>A moi</literal> représente le fichier de base avec tous les changements que <emphasis>vous</emphasis> avez fait, et <literal>A eux</literal> est le fichier avec tous les changements que <emphasis>quelqu'un d'autre</emphasis> a fait au fichier."
+msgstr "Le fichier de base représente la plus vieille version d'un fichier, à partir du moment où <literal>Vous</literal> et <literal> Eux</literal> avez commencé à faire des changements. <literal>À moi</literal> représente le fichier de base avec tous les changements que <emphasis>vous</emphasis> avez fait, et <literal>À eux</literal> est le fichier avec tous les changements que <emphasis>quelqu'un d'autre</emphasis> a fait au fichier."
 
 #: source/TortoiseMerge_en.xml:364
 #: (title)
@@ -399,7 +399,7 @@ msgstr "<guibutton>Commuter vue</guibutton> choisit entre la vue panneau unique 
 #: source/TortoiseMerge_en.xml:499
 #: (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>Echanger vue gauche et droite</guibutton> En vue panneau double, échange les fenêtres gauche et droite. Quand vous comparez un fichier dans 2 arborescences différentes, au lieu de 2 révisions du même fichier, TortoiseSVN ne sait pas lequel devrait aller dans le panneau de gauche comme version<quote>de base/originale</quote>. S'il se trompe, vous pouvez modifier les panneux pour une vision plus facile."
+msgstr "<guibutton>Échanger vue gauche et droite</guibutton> En vue panneau double, échange les fenêtres gauche et droite. Quand vous comparez un fichier dans 2 arborescences différentes, au lieu de 2 révisions du même fichier, TortoiseSVN ne sait pas lequel devrait aller dans le panneau de gauche comme version<quote>de base/originale</quote>. S'il se trompe, vous pouvez modifier les panneaux pour une vision plus facile."
 
 #: source/TortoiseMerge_en.xml:510
 #: (para)
@@ -424,7 +424,7 @@ msgstr "Au-dessous de la fenêtre du bas se trouve la barre d'état. Elle affich
 #: source/TortoiseMerge_en.xml:539
 #: (title)
 msgid "Merging / Editing Conflicts"
-msgstr "Fusionner / Editer les conflits"
+msgstr "Fusionner / Éditer les conflits"
 
 #: source/TortoiseMerge_en.xml:540
 #: (para)
@@ -434,17 +434,17 @@ msgstr "TortoiseMerge ne vous <emphasis>montre</emphasis> pas seulement les diff
 #: source/TortoiseMerge_en.xml:544
 #: (para)
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr "Si vous êtes en vue panneau double, vous pouvez seulement éditer le fichier dans le panneau de droite (<literal>A moi</literal>). Pour appliquer les changements effectués dans le fichier de gauche (<literal>A eux</literal>), faites un <action>Clic droit</action> sur les lignes modifiées et sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Utiliser le bloc de texte depuis <quote>le leur</quote></guimenuitem></menuchoice>. Les changement du fichier de gauche sont alors ajoutés au fichier de droite."
+msgstr "Si vous êtes en vue panneau double, vous pouvez seulement éditer le fichier dans le panneau de droite (<literal>À moi</literal>). Pour appliquer les changements effectués dans le fichier de gauche (<literal>À eux</literal>), faites un <action>Clic droit</action> sur les lignes modifiées et sélectionnez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Utiliser le bloc de texte depuis <quote>le leur</quote></guimenuitem></menuchoice>. Les changement du fichier de gauche sont alors ajoutés au fichier de droite."
 
 #: source/TortoiseMerge_en.xml:556
 #: (para)
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Si vous êtes en vue panneau triple (parfois appelée <emphasis> vue de fusion</emphasis>) vous ne pouvez éditer le fichier que dans la vue du bas (<literal>Fusionné</literal>). Comme dans la vue panneau double, vous pouvez faire un <action>clic droit</action> sur les lignes en conflit et soit sélectionner <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Utiliser le bloc de texte depuis <quote>le leur</quote></guimenuitem></menuchoice> soit <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Utiliser le bloc de texte depuis <quote>le mien</quote></guimenuitem></menuchoice>. De plus, si vous voulez les <emphasis>deux</emphasis> blocs, vous pouvez sélectionner <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem> Utiliser le bloc de texte depuis <quote>le mien</quote> avant <quote>le leur</quote></guimenuitem></menuchoice> ou <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Utiliser le bloc de texte depuis <quote>le leur</quote> avant <quote>le mien</quote></guimenuitem></menuchoice>. Selon la commande vous avez choisi, les changements sont utilisés dans le fichier <literal>Fusionné</literal>résultant."
+msgstr "Si vous êtes en vue panneau triple (parfois appelée <emphasis> vue de fusion</emphasis>) vous ne pouvez éditer le fichier que dans la vue du bas (<literal>Fusionné</literal>). Comme dans la vue panneau double, vous pouvez faire un <action>clic droit</action> sur les lignes en conflit et soit sélectionner <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Utiliser le bloc de texte depuis <quote>le leur</quote></guimenuitem></menuchoice> soit <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Utiliser le bloc de texte depuis <quote>le mien</quote></guimenuitem></menuchoice>. De plus, si vous voulez les <emphasis>deux</emphasis> blocs, vous pouvez sélectionner <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem> Utiliser le bloc de texte depuis <quote>le mien</quote> avant <quote>le leur</quote></guimenuitem></menuchoice> ou <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Utiliser le bloc de texte depuis <quote>le leur</quote> avant <quote>le mien</quote></guimenuitem></menuchoice>. Selon la commande vous avez choisi, les changements sont utilisés dans le fichier <literal>Fusionné</literal> résultant."
 
 #: source/TortoiseMerge_en.xml:593
 #: (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr "Parfois le conflit est trop difficile pour être résolu en choisissant entre le <literal>Leur</literal> et le <literal>Mien</literal> et il reqiert une édition à la main. TortoiseMerge vous permet de faire tous les changements faciles d'abord et sauver ensuite le fichier, laissant seulement les changements difficiles à résoudre à la main."
+msgstr "Parfois le conflit est trop difficile pour être résolu en choisissant entre le <literal>Leur</literal> et le <literal>Mien</literal> et il requiert une édition à la main. TortoiseMerge vous permet de faire tous les changements faciles d'abord et sauver ensuite le fichier, laissant seulement les changements difficiles à résoudre à la main."
 
 #: source/TortoiseMerge_en.xml:601
 #: (para)
@@ -454,7 +454,7 @@ msgstr "Notez que si vous utilisez TortoiseMerge sur les même fichiers une nouv
 #: source/TortoiseMerge_en.xml:609
 #: (para)
 msgid "If you need to copy lines of text to insert in another file using your favourite text editor, you can select multiple lines to copy within TortoiseMerge. <action>Click</action> on the first line of the block, then <action>Shift+Click</action> on the last line of the block. As usual, <action>Ctrl+C</action> can be used to copy the selected lines to the clipboard."
-msgstr "Si vous avez besoin de copier des lignes de texte à insèrer dans un autre fichier avec votre éditeur de texte préféré, vous pouvez sélectionner plusieurs lignes à copier avec TortoiseMerge. <action>Cliquez</action> sur la première ligne du bloc, puis <action>Shift+cliquez</action> sur la dernière ligne du bloc. Comme d'habitude, <action>Ctrl+C</action> peut être utilisé pour copier les lignes dans le presse-papiers."
+msgstr "Si vous avez besoin de copier des lignes de texte à insèrer dans un autre fichier avec votre éditeur de texte préféré, vous pouvez sélectionner plusieurs lignes à copier avec TortoiseMerge. <action>Cliquez</action> sur la première ligne du bloc, puis <action>Maj+clic</action> sur la dernière ligne du bloc. Comme d'habitude, <action>Ctrl+C</action> peut être utilisé pour copier les lignes dans le presse-papiers."
 
 #: source/TortoiseMerge_en.xml:622
 #: (title)
@@ -499,7 +499,7 @@ msgstr "<guilabel>Comparer les espacements</guilabel> affiche tous les changemen
 #: source/TortoiseMerge_en.xml:654
 #: (para)
 msgid "<guilabel>Ignore Leading Whitespaces</guilabel> hides changes which are due solely to leading whitespace (indentation). Other whitespace changes within a line are shown <quote>inline</quote> rather than as added/removed lines."
-msgstr "<guilabel>Ignorer les espacements en début de ligne</guilabel> masque les changeents uniquement dûs à des espacements en début de ligne (indentation). Les autres changements au sein d'une ligne sont montrés <quote>dans la ligne</quote> plutôt que comme des lignes ajoutées/supprimées."
+msgstr "<guilabel>Ignorer les espacements en début de ligne</guilabel> masque les changements uniquement dûs à des espacements en début de ligne (indentation). Les autres changements au sein d'une ligne sont montrés <quote>dans la ligne</quote> plutôt que comme des lignes ajoutées/supprimées."
 
 #: source/TortoiseMerge_en.xml:660
 #: (para)
@@ -759,7 +759,7 @@ msgstr "Automatiser TortoiseMerge"
 #: source/TortoiseMerge_en.xml:856
 #: (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
-msgstr "TortoiseMerge peut être démarrer avec des paramètres de ligne de commande pour éviter de devoir passer la boîte de dialogue <guilabel>Ouvrir</guilabel> pour choisir les fichiers vous-même. C'est aussi utile si vous voulez utiliser TortoiseMerge à partir d'une autre application."
+msgstr "TortoiseMerge peut être démarré avec des paramètres de ligne de commande pour éviter de devoir passer la boîte de dialogue <guilabel>Ouvrir</guilabel> pour choisir les fichiers vous-même. C'est aussi utile si vous voulez utiliser TortoiseMerge à partir d'une autre application."
 
 #: source/TortoiseMerge_en.xml:867
 #: (title)
@@ -783,7 +783,7 @@ msgid ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
-"La plupart des commutateurs exigent  une information complémentaire comme un chemin ou autre chaîne du genre. Dans ces cas-là, ajoutez un ':' au commutateur et mettez la chaîne/chemin après. Exemple : <screen>\n"
+"La plupart des commutateurs exigent une information complémentaire comme un chemin ou autre chaîne du genre. Dans ces cas-là, ajoutez un ':' au commutateur et mettez la chaîne/chemin après. Exemple : <screen>\n"
 "/base:\"c:\\répertoire\\mon fichier de base.txt\"\n"
 "</screen>"
 
@@ -860,7 +860,7 @@ msgstr "Spécifie le fichier <placeholder-1/> utilisé dans une différenciation
 #: source/TortoiseMerge_en.xml:961
 #: (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
-msgstr "Le nom du mien fichier. Il est affiché dans le titre de vue au lieu du chemin de fichier."
+msgstr "Le nom de mon fichier. Il est affiché dans le titre de vue au lieu du chemin de fichier."
 
 #: source/TortoiseMerge_en.xml:969
 #: (emphasis)
@@ -870,7 +870,7 @@ msgstr "fusionné"
 #: source/TortoiseMerge_en.xml:968
 #: (entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr "Spécifie le fichier résultant <placeholder-1/> utilisé lors d'une différenciation tri-directionnelle. C'est le chemin du fichier où le résultat de la fusion/résolution de conflit est sauvegardé. S'il n'est pas indiqué, alors TortoiseMerge demandera à l'utilisateur où sauvegarder le résultat."
+msgstr "Spécifie le fichier <placeholder-1/> résultant utilisé lors d'une différenciation tri-directionnelle. C'est le chemin du fichier où le résultat de la fusion/résolution de conflit est sauvegardé. S'il n'est pas indiqué, alors TortoiseMerge demandera à l'utilisateur où sauvegarder le résultat."
 
 #: source/TortoiseMerge_en.xml:978
 #: (entry)
@@ -890,7 +890,7 @@ msgstr "Le chemin où un patch doit être appliqué. Si vous n'indiquez pas ce c
 #: source/TortoiseMerge_en.xml:994
 #: (entry)
 msgid "The name of the original file to patch. Used for the view title."
-msgstr "Le nom du fichier originalà patcher. Utilisé pour le titre de vue."
+msgstr "Le nom du fichier original à patcher. Utilisé pour le titre de vue."
 
 #: source/TortoiseMerge_en.xml:1001
 #: (entry)
@@ -910,7 +910,7 @@ msgstr "Force TortoiseMerge à démarrer par la vue panneau unique au lieu de la
 #: source/TortoiseMerge_en.xml:1021
 #: (entry)
 msgid "Switches the left and right view of the specified two files to diff."
-msgstr "Commute les vue gauche et droite des deux fichiers indiqués à différencier."
+msgstr "Commute les vues gauche et droite des deux fichiers indiqués à différencier."
 
 #: source/TortoiseMerge_en.xml:1036
 #: (title)
