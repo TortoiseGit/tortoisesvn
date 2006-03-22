@@ -18,8 +18,8 @@ tools\			- xsl processor, hhc.exe, ...
 you can download all the required tools as a zip package from our website:
 http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
 
-Currently you can either build the docs using batch files (which we'll remove in the near future)
-and NAnt.
+Currently you can either build the docs using NAnt. Download a current release from:
+http://sourceforge.net/project/showfiles.php?group_id=31650
 
 Please note that having spaces in your directory path will (for the time being)
 cause the documentation build process to fail.
@@ -32,6 +32,10 @@ docs as well, you need:
   (http://users.skynet.be/sbi/libxml-python/)
 - Aspell (optional) for spell checking translations
   (ftp://ftp.gnu.org/gnu/aspell/w32/)
+
+For Chm docs you need:
+- Microsofts makehm.exe, Part of visual studio, sources available on msdn
+- Microsofts html workshop, Binaries available on msdn
 
 
 Structure:
@@ -66,49 +70,8 @@ Currently nant supports three targets "all", "clean" and "potfile".
 - "clean" cleans only the output directory
 - "potfile" updates the po template from the source document.
 
-All other parameters are defined in doc.build.include.
-
-If the NAnt build process has been tested enough, the batch scripts will be removed
-
-Batch scripts:
---------------
-Make a copy of the file TortoiseVars.tmpl in the TSVN root folder and
-rename that copy to TortoiseVars.bat. Then simply adjust the paths as mentioned
-in that file.
-
-Three batch scripts are provided to build the documentation:
-
-TranslateDoc.bat:
-  will translate into the given language if the po file exists.
-  If no parameter is given, all .po files found in doc\po will be
-  used to create the corresponding target languages.
-  This script requires python, libxml2 and aspell.
-  A log is written to "translatelog.txt"
-
-Example: "TranslateDoc de" will use de.po and the English xml files to
-  build the German document stucture in source\de
-
-GenDoc.bat:
-  will loop over all known applications and build the docs in
-  English plus all .po files it finds inside "doc\po" 
-  (so don't place any nonsense or backup .po files there)
-  This script requires python and libxml2
-  The script retranslates all source files while building, so there's
-  no need to run "TranslateDoc" before "GenDoc". "GenDoc" doesn't
-  run the spellchecker on the source.
-
-source\MakeDoc.bat:
-  is called from GenDoc.bat and will generate html, pdf and chm 
-  docs for the given application and language.
-  makedoc.bat takes three or more parameters where
-  %1 = Target application to build docs for
-  %2 = Target language (as in source/en)
-  %3..%5 = any of [pdf chm html]
-
-  "makedoc tortoisesvn de pdf"      will build the pdf docs in directory source/de  
-                                    (German) for tortoisesvn. Simple.
-  "makedoc tortoisesvn en chm html" will build the chm and html docs in directory 
-                                    source/en (English)
+All other parameters are defined in doc.build.include. You can override all settings
+in doc.build.user or via the NAnt command line.
 
 Translate:
 ==========
