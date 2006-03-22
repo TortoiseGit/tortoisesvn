@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-03-22 11:17+0100\n"
+"PO-Revision-Date: 2006-03-22 16:51+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3138,172 +3138,172 @@ msgstr "Notez que si vous changez l'URL dans la propriété <literal>svn:externa
 #: source/TortoiseSVN_en.xml:3534
 #: (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
-msgstr ""
+msgstr "Vous devriez fortement considérer l'utilisation de numéros de révision explicites dans toutes vos définitions externes. Cela revient à décider quand choisir un instantané différent d'information externe et exactement quel instantané tirer. En plus du bon sens de pas être pas étonné par les changements aux référentiels tiers sur lesquels vous pourriez ne pas avoir de contrôle, utiliser des numéros de révision explicites signifie aussi que lorsque vous antidatez votre copie de travail à une révision précédente, vos définitions externes reviendront aussi à l'aspect qu'elles avaient dans cette révision précédente, ce qui signifie aussi que les copies de travail externes seront mises à jour pour correspondre à l'aspect qu'<emphasis>elles</emphasis> avaient quand votre référentiel était à cette révision précédente. Pour des projets logiciels, ce pourrait être la différence entre une réussite et un échec lors de la construction d'un ancien instantané plus de votre complexe base de code."
 
 #: source/TortoiseSVN_en.xml:3552
 #: (para)
 msgid "URLs in <literal>svn:externals</literal> definitions are absolute. You cannot use relative URLs. If you relocate your working copy, or if the external repository is relocated, these URLs will not be updated automatically. Also, if you branch a project which has external references within the same repository, the URLs in the branched copy will be unchanged; you may then want to change trunk references to branch references instead."
-msgstr ""
+msgstr "Les URL dans les définitions <literal>svn:externals</literal> sont absolues. Vous ne pouvez pas utiliser des URL relatives. Si vous transférez votre copie de travail, ou si le référentiel externe est transféré, ces URL ne seront pas mises à jour automatiquement. Aussi, si vous branchez un projet qui a des références externes dans le même référentiel, les URL dans la copie branchée seront inchangées; vous pouvez ensuite vouloir changer des références sur le tronc vers la branche à la place."
 
 #: source/TortoiseSVN_en.xml:3561
 #: (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr ""
+msgstr "Si vous avez besoin de plus d'information sur la façon dont TortoiseSVN manipule les propriétés lisez <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 #: source/TortoiseSVN_en.xml:3565
 #: (para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
-msgstr ""
+msgstr "Pour découvrir des méthodes différentes d'accéder aux sous-projets communs lisez <xref linkend=\"tsvn-howto-common-projects\"/>."
 
 #: source/TortoiseSVN_en.xml:3572
 #: (title)
 msgid "Checking Out A Working Copy"
-msgstr ""
+msgstr "Extraire une copie de travail"
 
 #: source/TortoiseSVN_en.xml:3574
 #: (primary)
 msgid "checkout"
-msgstr ""
+msgstr "extraction"
 
 #: source/TortoiseSVN_en.xml:3577
 #: (para)
 msgid "To obtain a working copy you need to do a <firstterm>checkout</firstterm> from a repository."
-msgstr ""
+msgstr "Pour obtenir une copie de travail vous devez faire une <firstterm>extraction</firstterm> à partir d'un référentiel."
 
 #: source/TortoiseSVN_en.xml:3591
 #: (title)
 msgid "The Checkout dialog"
-msgstr ""
+msgstr "La boîte de dialogue Extraire"
 
 #: source/TortoiseSVN_en.xml:3581
 #: (para)
 msgid "Select a directory in windows explorer where you want to place your working copy. <action>Right click</action> to pop up the context menu and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, which brings up the following dialog box: <placeholder-1/> If you enter a folder name that does not yet exist, then a directory with that name is created."
-msgstr ""
+msgstr "Choisissez un répertoire dans l'explorateur Windows où vous voulez placer votre copie de travail. Faites un <action>clic droit</action> pourafficher le menu contextuel et choisissez la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Extraire...</guimenuitem></menuchoice>, qui affcihe la boîte de dialogue suivante : <placeholder-1/> Si vous entrez un nom de dossier qui n'existe pas encore, alors un répertoire sera créé avec ce nom."
 
 #: source/TortoiseSVN_en.xml:3598
 #: (para)
 msgid "You should only check out into an empty directory. If you want to check out your source tree into the same directory that you imported from, Subversion will throw an error message because it will not overwrite the existing unversioned files with versioned ones. You will have to check out into a different directory or delete the existing sourcetree first."
-msgstr ""
+msgstr "Vous devriez seulement extraire dans un répertoire vide. Si vous voulez extraire votre arborescence source dans le même répertoire que vous avez importé, Subversion affichera un message d'erreur parce qu'il ne recopiera pas les fichiers non versionnés existants par les fichiers versionnés. Vous devrez extraire dans un répertoire différent ou supprimer l'arborescence source existante d'abord."
 
 #: source/TortoiseSVN_en.xml:3607
 #: (para)
 msgid "If you want to check out the top level folder only and omit all sub-folders, use the <guilabel>Only check out the top folder</guilabel> checkbox."
-msgstr ""
+msgstr "Si vous voulez extraire seulement le dossier de niveau supérieur et omettre tous les sous-dossiers, utiliser la case à cocher <guilabel>Extraire seulement le répertoire de tête</guilabel>."
 
 #: source/TortoiseSVN_en.xml:3611
 #: (para)
 msgid "If the project contains references to external projects which you do <emphasis>not</emphasis> want checked out at the same time, use the <guilabel>Omit externals</guilabel> checkbox."
-msgstr ""
+msgstr "Si le projet contient des références à des projets externes que vous ne voulez <emphasis>pas</emphasis> extraire en même temps, utilisez la case à cocher <guilabel>Omettre les externes</guilabel> ."
 
 #: source/TortoiseSVN_en.xml:3617
 #: (para)
 msgid "If either of these options are checked, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all sub-folders and all externals."
-msgstr ""
+msgstr "Si l'une de ces options est cochée, vous devrez exécuter des mises à jour de votre copie de travail en utilisant <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mettre à jour à la révision...</guimenuitem></menuchoice> au lieu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mettre à jour</guimenuitem></menuchoice>. La mise à jour standard inclura tous les sous-dossiers et toutes les externes."
 
 #: source/TortoiseSVN_en.xml:3632
 #: (para)
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr ""
+msgstr "Il est recommandé de n'extraire que la partie <literal>trunk</literal> de l'arborescence de répertoire. Si vous spécifiez le chemin parent de l'arborescence de répertoire dans l'URL alors vous pourriez finir avec un disque dur rempli puisque vous obtiendrez une copie de l'arborescence du référentiel en entier incluant chaque branche et chaque étiquette de votre projet !"
 
 #: source/TortoiseSVN_en.xml:3640
 #: (title)
 msgid "Exporting"
-msgstr ""
+msgstr "Exporter"
 
 #: source/TortoiseSVN_en.xml:3642
 #: (primary)
 msgid "export"
-msgstr ""
+msgstr "exportation"
 
 #: source/TortoiseSVN_en.xml:3644
 #: (para)
 msgid "Sometimes you may want a copy without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source. Instead of making a copy and then delete all those <filename>.svn</filename> directories manually, TortoiseSVN offers the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. If you execute this command on your working copy you'll be asked for a place to save the <literal>clean</literal> working copy without the <filename>.svn</filename> folders. Also, you can specify if you want to export <emphasis>all</emphasis> files or just the versioned files."
-msgstr ""
+msgstr "Parfois vous pouvez vouloir une copie sans ces répertoires <filename>.svn</filename>, par exemple pour créer un paquet zippé de votre source. Au lieu de faire une copie puis de supprimer tous ces répertoires <filename>.svn</filename> manuellement, TortoiseSVN propose la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. Si vous exécutez cette commande sur votre copie de travail on vous demandera un emplacement pour sauvegarder la copie de travail <literal>propre</literal> sans les répertoires <filename>.svn</filename>. Vous pouvez aussi spécifier si vous voulez exporter <emphasis>tous<emphasis> les fichiers ou seulement les fichiers versionnés."
 
 #: source/TortoiseSVN_en.xml:3661
 #: (para)
 msgid "Another way to do an export is by right-dragging a working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Une autre façon de faire une exportation consiste à glisser avec le bouton droit un dossier de la copie de travail vers un autre emplacement et choisir <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>SVN Exporter ici</guimenuitem></menuchoice> ou <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>SVN Exporter tout ici</guimenuitem></menuchoice>"
 
 #: source/TortoiseSVN_en.xml:3677
 #: (title)
 msgid "Sending Your Changes To The Repository"
-msgstr ""
+msgstr "Envoyer vos changements au référentiel"
 
 #: source/TortoiseSVN_en.xml:3679
 #: (primary)
 msgid "commit"
-msgstr ""
+msgstr "livraison"
 
 #: source/TortoiseSVN_en.xml:3682
 #: (para)
 msgid "Sending the changes you made to your working copy is known as <firstterm>committing</firstterm> the changes. But before you commit you have to make sure that your working copy is up to date. You can either use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> directly. Or you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> first, to see which files have changed locally or on the server."
-msgstr ""
+msgstr "Envoyer les changements que vous avez faits dans votre copie de travail est connue comme <firstterm>livrer</firstterm> les changements. Mais avant de livrer vous devez vous assurer que votre copie de travail est à jour. Vous pouvez soit utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mettre à jour</guimenuitem></menuchoice> directement. Soit vous pouvez d'abord utiliser <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifier les modifications</guimenuitem></menuchoice>, pour voir quels fichiers ont été changés localement ou sur le serveur."
 
 #: source/TortoiseSVN_en.xml:3707
 #: (title)
 msgid "The Commit dialog"
-msgstr ""
+msgstr "La boîte de dialogue Livrer"
 
 #: source/TortoiseSVN_en.xml:3698
 #: (para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
-msgstr ""
+msgstr "Si votre copie de travail est à jour et s'il n'y a aucun conflit, vous êtes prêts à livrer vos changements. Choisissez n'importe quel fichier et/ou dossier que vous voulez livrer, puis <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Livrer...</guimenuitem></menuchoice>. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:3711
 #: (para)
 msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit."
-msgstr ""
+msgstr "La boîte de dialogue de livraison vous montrera chaque fichier changé, y compris les fichiers ajoutés, supprimés et non-versionnés. Si vous ne voulez pas qu'un fichier modifié soit livré, décochez juste ce fichier. Si vous voulez inclure un fichier non-versionné, cochez juste ce fichier pour l'ajouter à la livraison."
 
 #: source/TortoiseSVN_en.xml:3718
 #: (para) source/TortoiseSVN_en.xml:4456
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
-msgstr ""
+msgstr "Les éléments qui ont été commutés vers un chemin de référentiel différent sont aussi indiqués en utilisant un marqueur <literal>(s)</literal>. Vous pouvez avoir commuté quelque chose en travaillant sur une branche et avoir oublié de rebasculer sur le tronc. C'est votre signe d'alarme!"
 
 #: source/TortoiseSVN_en.xml:3725
 #: (title)
 msgid "Commit files or folders?"
-msgstr ""
+msgstr "Livrer des fichiers ou des dossiers ?"
 
 #: source/TortoiseSVN_en.xml:3726
 #: (para)
 msgid "When you commit files, the commit dialog shows only the files you have selected. When you commit a folder the commit dialog will select the changed files automatically. If you forget about a new file you created, committing the folder will find it anyway. Committing a folder does <emphasis>not</emphasis> mean that every file gets marked as changed; It just makes your life easier by doing more work for you."
-msgstr ""
+msgstr "Quand vous livrez des fichiers, la boîte de dialogue de livraison montre seulement les fichiers que vous avez choisis. Quand vous livrez un dossier la boîte de dialogue de livraison choisira les fichiers modifiés automatiquement. Si vous oubliez un nouveau fichier que vous avez créé, livrer le dossier le trouvera de toute façon. La livraison d'un dossier ne veut <emphasis>pas</emphasis> dire que chaque fichier est marqué comme changé; il rendre juste votre vie plus facile en faisant plus de travail pour vous."
 
 #: source/TortoiseSVN_en.xml:3736
 #: (para)
 msgid "If you have modified files which have been included from a different repository using <literal>svn:externals</literal>, those changes cannot be included in the same atomic commit. A warning symbol below the file list tells you if this has happened, and the tooltip explains that those external files have to be committed separately."
-msgstr ""
+msgstr "Si vous avez modifié des fichiers qui ont été inclus à partir d'un référentiel différent en utilisant <literal>svn:externals</literal>, ces changements ne peuvent pas être inclus dans la même livraison atomique. Un symbole d'avertissement au-dessous de la liste de fichier vous indique si cela se produit et l'info-bulle explique que ces fichiers externes doivent être livrés séparément."
 
 #: source/TortoiseSVN_en.xml:3744
 #: (title)
 msgid "Many unversioned files in the commit dialog"
-msgstr ""
+msgstr "Beaucoup de fichiers non-versionnés dans la boîte de dialogue de livrasion"
 
 #: source/TortoiseSVN_en.xml:3751
 #: (para)
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
-msgstr ""
+msgstr "ajoutez le fichier (ou une extension de caractère de remplacement) à la liste de fichiers pour exclure sur la page de configuration. Cela affectera toutes vos copies de travail."
 
 #: source/TortoiseSVN_en.xml:3758
 #: (para)
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
-msgstr ""
+msgstr "ajoutez le fichier à la liste <literal>svn:ignore</literal> en utilisant <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ajouter à la liste des ignorés</guimenuitem></menuchoice> Cela affectera seulement le répertoire sur lequel vous mettez la propriété <literal>svn:ignore</literal>. En utilisant la boîte de dialogue de propriétés SVN, vous pouvez changer la propriété <literal>svn:ignore</literal> pour un répertoire."
 
 #: source/TortoiseSVN_en.xml:3745
 #: (para)
 msgid "If you think that the TSVN commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr ""
+msgstr "Si vous pensez que la boîte de dialogue de livraison de TSVN vous montre trop de fichiers non-versionnés (générés par un compilateur ou sauvegarde d'éditeurs par exemple), il y a plusieurs façons de gérer cela. Vous pouvez :<placeholder-1/> Lire <xref linkend=\"tsvn-dug-ignore\"/>  pour plus d'information."
 
 #: source/TortoiseSVN_en.xml:3775
 #: (para)
 msgid "<action>Doubleclicking</action> on any modified file in the commit dialog will launch the external diff tool to show your changes. The context menu will give you more options, as shown in the screenshot. You can also drag files from here into another application such as a text editor or an IDE."
-msgstr ""
+msgstr "<action>Double-cliquer</action> sur un fichier modifié dans la boîte de dialogue de livraison lancera l'outil externe de différenciation pour afficher vos changements. Le menu contextuel vous donnera plus d'options, comme indiqué sur la capture d'écran. Vous pouvez aussi glissez les fichiers vers une autre application comme un éditeur de texte ou un IDE à partir d'ici."
 
 #: source/TortoiseSVN_en.xml:3782
 #: (para) source/TortoiseSVN_en.xml:4484
 msgid "The columns displayed in the bottom pane are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time. Note that due to an implementation detail, you may see two different drag icons, depending on exactly where you position the mouse over the boundary. One has a solid vertical dividing line and the other has two thin vertical lines. Only the solid drag pointer works."
-msgstr ""
+msgstr "Les colonnes affichées dans le panneau du bas sont personnalisables. Si vous faites un <action>clic droit</action> sur n'importe quel en-tête de colonne vous verrez un menu contextuel vous permettre de choisir quelles colonnes sont affichées. Vous pouvez aussi changer la largeur de colonne en utilisant la poignée qui apparaît quand vous déplacez la souris sur la frontière d'une colonne. Ces personnalisations sont préservées, donc vous verrez les mêmes en-tête la prochaine fois. Notez qu'en raison d'un détail de mise en oeuvre, vous pouvez voir deux icônes de poignées différentes, selon exactement où vous placez la souris sur la frontière. L'une a une ligne de démarcation verticale solide et l'autre a deux fines lignes verticales. Seulement la poignée solide fonctionne."
 
 #: source/TortoiseSVN_en.xml:3797
 #: (para)
