@@ -331,6 +331,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 			temp.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchOriginal);
 			this->m_Data.m_yourFile.SetDescriptiveName(temp);
 			this->m_Data.m_theirFile.SetOutOfUse();
+			this->m_Data.m_mergedFile.SetOutOfUse();
 		}
 		else
 		{
