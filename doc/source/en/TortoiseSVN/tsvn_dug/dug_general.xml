@@ -16,6 +16,21 @@
 			explorer. Most are directly visible, when you <action>right click</action>
 			on a file or folder. The commands that are available depend on whether the
 			file or folder or its parent folder is under version control or not.
+			You can also see the TortoiseSVN menu as part of the Explorer file menu.
+		</para>
+		<para>
+			In some cases you may see several TortoiseSVN entries. This is not a bug!
+			<figure id="tsvn-dug-explorer-file-menu">
+				<title>Explorer file menu for a shortcut in a versioned folder</title>
+				<graphic fileref="../images/ExplorerFileMenu.png"/>
+			</figure>
+			This example is for an unversioned shortcut within a versioned folder, and
+			in the Explorer file menu there are <emphasis>three</emphasis> entries
+			for TortoiseSVN. One is for the folder, one for the shortcut itself,
+			and the third for the object the shortcut is pointing to.
+			To help you distinguish between them, the icons have an indicator in the
+			lower right corner to show whether the menu entry is for a file,
+			a folder, a shortcut or for multiple selected items.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-general-drag">

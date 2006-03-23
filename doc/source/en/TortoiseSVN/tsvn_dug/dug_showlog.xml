@@ -326,8 +326,18 @@
 			You can repeat this as many times as needed.
 		</para>
 		<para>
-			If you want to see <emphasis>all</emphasis> log messages right back
-			to revision 1, press <guibutton>Show All</guibutton>.
+			Next to this button there is a multi-function button which remembers
+			the last option you used it for. Click on the arrow to see the other
+			options offered.
+		</para>
+		<para>
+			Use <guibutton>Show Range ...</guibutton> if you want to view a specific
+			range of revisions. A dialog will then prompt you to enter the start
+			and end revision.
+		</para>
+		<para>
+			Use <guibutton>Show All</guibutton> if you want to see
+			<emphasis>all</emphasis> log messages from HEAD right back to revision 1.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-4">

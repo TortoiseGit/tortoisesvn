@@ -164,22 +164,6 @@
 					</para>
 				</listitem>
 			</varlistentry>
-			<varlistentry>
-				<term>Subversion authentication data</term>
-				<listitem>
-					<para>
-						When you authenticate with a subversion server, the username
-						and password are cached locally so you don't have to keep
-						entering them. To clear everything from that cache,
-						use <guibutton>Clear now</guibutton>.
-					</para>
-					<para>
-						If you want to clear auth data for one particular server only,
-						read <xref linkend="tsvn-dug-general-auth"/> for instructions
-						on how to find the cached data.
-					</para>
-				</listitem>
-			</varlistentry>
 		</variablelist>
 	</sect2>
 	<sect2 id="tsvn-dug-settings-look-feel">
@@ -968,6 +952,69 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 				but also colour codes the added and removed lines.
 			</para>
 		</sect3>
+	</sect2>
+	<sect2 id="tsvn-dug-settings-saved-datak">
+		<?dbhh topicname="HIDD_SETTINGSSAVEDDATA"?>
+		<title>Saved Data Settings</title>
+		<para>
+			<figure id="tsvn-dug-settings-dia-saved-data">
+				<title>The Settings Dialog, Saved Data Page</title>
+				<graphic fileref="../images/SettingsSavedData.png"/>
+			</figure>
+			For your convenience, TortoiseSVN saves many of the settings
+			you use, and remembers where you have been lately. If you
+			want to clear out that cache of data, you can do it here.
+		</para>
+		<variablelist>
+			<varlistentry>
+				<term>URL history</term>
+				<listitem>
+					<para>
+						Whenever you checkout a working copy, merge changes
+						or use the repository browser, TortoiseSVN keeps a record
+						of recently used URLs and offers them in a combo box.
+						Sometimes that list gets cluttered with outdated URLs
+						so it is useful to flush it out periodically.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Log messages</term>
+				<listitem>
+					<para>
+						TortoiseSVN stores recent commit log messages that you
+						enter. These are stored per repository, so if you access many
+						repositories this list can grow quite large.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Dialog sizes and positions</term>
+				<listitem>
+					<para>
+						Many dialogs remember the size and screen position that you
+						last used.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Authentication data</term>
+				<listitem>
+					<para>
+						When you authenticate with a subversion server, the username
+						and password are cached locally so you don't have to keep
+						entering them. You may want to clear this for security reasons,
+						or because you want to access the repository under a different
+						username ... does John know you are using his PC?
+					</para>
+					<para>
+						If you want to clear auth data for one particular server only,
+						read <xref linkend="tsvn-dug-general-auth"/> for instructions
+						on how to find the cached data.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 	</sect2>
 	<sect2 id="tsvn-dug-settings-registry">
 		<title>Registry Settings</title>
