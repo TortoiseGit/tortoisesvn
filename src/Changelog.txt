@@ -128,6 +128,7 @@
 - CHG: When merging, items which are modified in the repository but lead
        to no changes in the working copy are not shown anymore in
        the progress dialog. (Stefan)
+- CHG: The changed paths in the log dialog are now colored. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When setting properties, an error message isn't hidden anymore by

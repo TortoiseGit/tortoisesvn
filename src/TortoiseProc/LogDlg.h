@@ -222,6 +222,9 @@ private:
 	HICON				m_hReplacedIcon;
 	HICON				m_hAddedIcon;
 	HICON				m_hDeletedIcon;
+
+	CString sModifiedStatus, sReplacedStatus, sAddStatus, sDeleteStatus;
+
 private:
     typedef struct LogEntryData
     {   

@@ -63,6 +63,10 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_pNotifyWindow = NULL;
 	m_bThreadRunning = FALSE;
 	m_bAscending = FALSE;
+	sModifiedStatus.LoadString(IDS_SVNACTION_MODIFIED);
+	sReplacedStatus.LoadString(IDS_SVNACTION_REPLACED);
+	sAddStatus.LoadString(IDS_SVNACTION_ADD);
+	sDeleteStatus.LoadString(IDS_SVNACTION_DELETE);
 }
 
 CLogDlg::~CLogDlg()
@@ -2375,20 +2379,48 @@ void CLogDlg::OnNMCustomdrawLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 		*pResult = CDRF_DODEFAULT;
 
 		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
-
+		bool bGrayed = false;
 		if ((m_cHidePaths.GetState() & 0x0003)==BST_INDETERMINATE)
 		{
 			if ((m_currentChangedArray)&&((m_currentChangedArray->GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)))
 			{
 				if (m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+				{
 					crText = GetSysColor(COLOR_GRAYTEXT);
+					bGrayed = true;
+				}
 			}
 			else if (m_currentChangedPathList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 			{
 				if (m_currentChangedPathList[pLVCD->nmcd.dwItemSpec].GetSVNPathString().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+				{
 					crText = GetSysColor(COLOR_GRAYTEXT);
+					bGrayed = true;
+				}
 			}
 		}
+
+		if ((!bGrayed)&&(m_currentChangedArray)&&(m_currentChangedArray->GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec))
+		{
+			CString sAction = m_currentChangedArray->GetAt(pLVCD->nmcd.dwItemSpec)->sAction;
+			if (sAction.Compare(sModifiedStatus) == 0)
+			{
+				crText = m_Colors.GetColor(CColors::Modified);
+			}
+			if (sAction.Compare(sReplacedStatus) == 0)
+			{
+				crText = m_Colors.GetColor(CColors::Deleted);
+			}
+			if (sAction.Compare(sAddStatus) == 0)
+			{
+				crText = m_Colors.GetColor(CColors::Added);
+			}
+			if (sAction.Compare(sDeleteStatus) == 0)
+			{
+				crText = m_Colors.GetColor(CColors::Deleted);
+			}
+		}
+
 		// Store the color back in the NMLVCUSTOMDRAW struct.
 		pLVCD->clrText = crText;
 	}
