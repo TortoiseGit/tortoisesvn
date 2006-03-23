@@ -3175,9 +3175,9 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 			return cpath2->sAction.Compare(cpath1->sAction);
 	case 1:		// path
 		if (m_bAscendingPathList)
-			return cpath1->sPath.Compare(cpath2->sPath);
+			return cpath1->sPath.CompareNoCase(cpath2->sPath);
 		else
-			return cpath2->sPath.Compare(cpath1->sPath);
+			return cpath2->sPath.CompareNoCase(cpath1->sPath);
 	case 2:		// copyfrom path
 		if (m_bAscendingPathList)
 			return cpath1->sCopyFromPath.Compare(cpath2->sCopyFromPath);
