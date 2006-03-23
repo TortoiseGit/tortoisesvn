@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-03-21 10:28+0100\n"
+"PO-Revision-Date: 2006-03-23 09:45+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3336,7 +3336,7 @@ msgstr "<placeholder-1/> TortoiseSVN enthält eine Rechtschreibprüfung die Sie 
 #: source/TortoiseSVN_en.xml:3828
 #: (para)
 msgid "The log message window also includes a filename and function auto-completion facility. This uses regular expressions to extract class and function names from the (text) files you are committing, as well as the filenames themselves. If a word you are typing matches anything in the list (after you have typed at least 3 characters), a drop-down appears allowing you to select the full name. The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN installation <filename>bin</filename> folder. You can also define your own regexes and store them in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Of course your private autolist will not be overwritten when you update your installation of TortoiseSVN. If you are unfamiliar with regular expressions, take a look at the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Das Eingabefeld verfügt außerdem über eine Auto-Vervollständigen Funktion für Datei- und Funktionsnamen. Diese verwendet reguläre Ausdrücke, um Klassen- und Funktionsnamen aus den zu übertragenden Dateien sowie die Dateinamen selbst zu extrahieren. Sobald Sie die erste drei Zeichen eines Wortes eingeben haben, wird, falls es Übereinstimmungen gibt, eine Liste angezeigt, aus der Sie das vollständige Wort auswählen können.Die zusammen mit TortoiseSVN installierten regulären Ausdrücke finden sich im <filename>bin</filename> Ordner. Sie können obendrein Ihre eigenen regulären Ausdrücke definieren und in der Datei <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename> abspeichern. Wenn Sie sich mit regulären Ausdrücken nicht auskennen, finden Sie ausführliche Informationen sowie ein Tutorial dazu unter <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:3848
 #: (title)
@@ -4691,7 +4691,7 @@ msgstr "Wenn Sie Änderungen, welche Sie an Dateien vorgenommen haben, wieder r�
 #: source/TortoiseSVN_en.xml:5598
 #: (para) source/TortoiseSVN_en.xml:6741
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
-msgstr ""
+msgstr "Die Spalten in diesem Dialog können genau wie im <guilabel>Auf Änderungen prüfen</guilabel> Dialog angepasst werden. Lesen Sie in <xref linkend=\"tsvn-dug-wcstatus-2\"/> nach, wie das geht."
 
 #: source/TortoiseSVN_en.xml:5604
 #: (title)
