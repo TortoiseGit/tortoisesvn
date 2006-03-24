@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-21 22:53+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2006-03-24 17:24+0100\n"
+"Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -181,7 +181,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "est un répertoire, pas un fichier !\n"
-"TortoiseMerge ne peut faire de diff sur des répertoires."
+"TortoiseMerge ne peut faire de différenciation sur les répertoires."
 
 #: MenuEntry
 msgid "&?"
@@ -219,6 +219,15 @@ msgstr "&Sauvergarde du fichier original"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "&Base de données Berkeley (BDB)"
+
+#: ID:114
+msgid "&Blame differences"
+msgstr "&Condamner les différences"
+
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "&Condamner les révisions"
 
 #: ID:13
 msgid "&Blame..."
@@ -537,11 +546,11 @@ msgstr "&Enregistrer Ctrl-S"
 
 #: MenuEntry
 msgid "&Save Graph As..."
-msgstr "&Sauver le Graphique sous..."
+msgstr "&Enregistrer le graphique sous..."
 
 #: Control-ID:1023
 msgid "&Save authentication"
-msgstr "&Sauver l'authentification"
+msgstr "&Enregistrer l'authentification"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -628,7 +637,7 @@ msgstr "&Annuler\tCtrl+Z"
 
 #: MenuEntry
 msgid "&Unified diff"
-msgstr "&Diff standard"
+msgstr "&Différenciation standard"
 
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -827,7 +836,7 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"Un programme de visualisation des fichiers des fichiers de différence GNU diff (ou fichier patch).\n"
+"Un programme de visualisation des fichiers des fichiers de différence GNU (ou fichier patch).\n"
 "Si vous en avez pas d'autre, utilisez le NotePad."
 
 #: ID:9
@@ -897,11 +906,11 @@ msgstr "Ajouter (en remplacement)..."
 
 #: ID:110
 msgid "Add extension specific diff program"
-msgstr "Ajout programme de diff selon extension"
+msgstr "Ajouter un programme de différenciation selon l'extension"
 
 #: ID:110
 msgid "Add extension specific merge program"
-msgstr "Ajout programme de fusion selon extension"
+msgstr "Ajouter un programme de fusion selon l'extension"
 
 #: ID:13
 msgid "Add to &ignore list"
@@ -1032,7 +1041,7 @@ msgstr ""
 "pour résoudre les fichiers en conflit\n"
 "<hr=100%>\n"
 "Vous pouvez utiliser les paramètres suivant pour le chemin :\n"
-"%merged\tle fichier en conflit à sauvegarder\n"
+"%merged\toù enregistrer le fichier en conflit\n"
 "%theirs\t\tle fichier dans le référentiel\n"
 "%mine\t\tvotre fichier avec vos modifications\n"
 "%base\t\tle fichier original sans changement"
@@ -1547,6 +1556,10 @@ msgstr "Livrer vos modifications dans le référentiel"
 msgid "Compare &HEAD revisions"
 msgstr "Comparer les révisions &HEAD"
 
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "Comparer et &condamner avec la copie de travail"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Comparaison avec la copie de travai&l"
@@ -1668,7 +1681,7 @@ msgstr "Copie..."
 
 #: ID:188
 msgid "Corrections"
-msgstr "&Compare les révisions"
+msgstr "&Corrections"
 
 #: ID:81
 #, c-format
@@ -1729,7 +1742,7 @@ msgstr ""
 #: ID:64
 #, c-format
 msgid "Could not save the file %s!"
-msgstr "Ne peut pas sauvegarder le fichier %s !"
+msgstr "Ne peut pas enregistrer le fichier %s !"
 
 #: ID:81
 #, c-format
@@ -1983,7 +1996,7 @@ msgstr "Voulez-vous supprimer la propriété %s récursivement ?"
 
 #: ID:313
 msgid "Do you want to save your changes?"
-msgstr "Voulez-vous sauver vos modifications?"
+msgstr "Voulez-vous enregistrer vos modifications?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2133,6 +2146,16 @@ msgstr "Erreur lors de la reconstruction du Cache d'Icônes du Shell !"
 msgid "Error validating server certificate for %s:"
 msgstr "Erreur de validation du certificat serveur pour %s :"
 
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Erreur lors de la lecture/écriture de la clé de registre %s\n"
+"%s"
+
 #: Control-ID:65535
 msgid "Exceptions:"
 msgstr "Exceptions :"
@@ -2212,7 +2235,7 @@ msgstr "Echec d'ouverture du document."
 
 #: ID:3857
 msgid "Failed to save document."
-msgstr "Echec de sauvegarde du document."
+msgstr "Echec de l'enregistrement du document."
 
 # Control-ID:1217,
 #: Control-ID:1217
@@ -2292,7 +2315,7 @@ msgid ""
 "You can get GDI+ from\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 msgstr ""
-"GDI+ est requis pour sauvegarder le graphe de révision comme une image.\n"
+"GDI+ est requis pour enregistrer le graphe de révision comme une image.\n"
 "Vous pouvez obtenir GDI+ depuis\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
@@ -2475,7 +2498,7 @@ msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"Si mis, les fichiers dans des répertoires hors de contrôle de version sont visibles dans le contrôle de statut.\n"
+"Si mis, les fichiers dans des répertoires non versionnés sont visibles dans le contrôle de statut.\n"
 "Le contrôle de statut est utilisé par exemple dans la fenêtre de livraison."
 
 # ID:251,
@@ -2902,7 +2925,7 @@ msgstr "Min"
 
 #: ID:263
 msgid "Mine"
-msgstr "À moi"
+msgstr "Le mien"
 
 #: Control-ID:1023
 msgid "Misc"
@@ -3328,6 +3351,11 @@ msgstr "Veuillez patienter pendant l'initialisation du navigateur de référenti
 msgid "Please wait..."
 msgstr "Veuillez patienter..."
 
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Prévisualiser le fichier patché"
+
 #: ID:132
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -3430,7 +3458,7 @@ msgstr "Lisez le \"Guide journalier\" avant d'être bloqué..."
 
 #: Control-ID:1260
 msgid "Recurse into unversioned folders"
-msgstr "Voir les fichiers hors de contrôle de version"
+msgstr "Parcourir récursivement les répertoires non versionnés"
 
 #: ID:563
 msgid "Recursive"
@@ -3614,16 +3642,16 @@ msgstr "Résoudre"
 
 #: ID:282
 msgid "Resolve conflict using \"mine\""
-msgstr "Résoudre le conflit en utilisant \"À moi\""
+msgstr "Résoudre le conflit en utilisant \"le mien\""
 
 #: ID:282
 msgid "Resolve conflict using \"theirs\""
-msgstr "Résoudre le conflit en utilisant \"À eux\""
+msgstr "Résoudre le conflit en utilisant \"le leur\""
 
 #: ID:74
 #: ID:209
 msgid "Resolved"
-msgstr "Résoudre"
+msgstr "Résolu"
 
 #: ID:282
 #, c-format
@@ -3826,45 +3854,45 @@ msgstr "Enregistrer &sous..."
 
 #: ID:101
 msgid "Save &as..."
-msgstr "S&auver sous..."
+msgstr "Enregistrer &sous..."
 
 #: ID:3841
 msgid "Save As"
-msgstr "Sauver sous"
+msgstr "Enregistrer sous"
 
 #: ID:313
 msgid "Save as..."
-msgstr "Sauver sous..."
+msgstr "Enregistrer sous..."
 
 #: ID:3857
 #, c-format
 msgid "Save changes to %1?"
-msgstr "Sauvegarder les changements dans %1?"
+msgstr "Enregistrer les changements dans %1?"
 
 #: ID:232
 msgid "Save client certificate path"
-msgstr "Sauver le chemin du certificat client"
+msgstr "Enregistrer le chemin du certificat client"
 
 #: ID:272
 msgid "Save graph as..."
-msgstr "Sauver le graphique sous..."
+msgstr "Enregistrer le graphique sous..."
 
 #: ID:76
 msgid "Save revision &to..."
-msgstr "Sa&uver la révision sous..."
+msgstr "Enregis&trer la révision sous..."
 
 #: ID:3601
 msgid ""
 "Save the modified file\n"
 "Save file"
 msgstr ""
-"Sauver le fichier modifié\n"
-"Sauver fichier"
+"Enregistrer le fichier modifié\n"
+"Enregistrer le fichier"
 
 # Control-ID:1132,
 #: Control-ID:1132
 msgid "Save to clipboard"
-msgstr "Sauver dans le presse-papier"
+msgstr "Enregistrer dans le presse-papier"
 
 # Dlg-ID:108,
 #: Dlg-ID:108
@@ -4120,7 +4148,7 @@ msgstr "Afficher les fichiers non modifiés"
 
 #: Control-ID:1073
 msgid "Show unversioned files"
-msgstr "Voir les fichiers hors de contrôle de version"
+msgstr "Afficher les fichiers non versionnés"
 
 #: ID:272
 #, c-format
@@ -4538,7 +4566,7 @@ msgid ""
 "Are you sure you want to mark the file resolved?"
 msgstr ""
 "Le fichier sélectionné semble contenir un ou plusieurs marquages de conflit à l'intérieur.\n"
-"Etes-vous sûr de marquer le fichier comme conflits résolus?"
+"Etes-vous sûr de marquer le fichier comme résolu ?"
 
 # ID:102,
 #: ID:102
@@ -4621,7 +4649,7 @@ msgstr "Leur fichier :"
 
 #: ID:263
 msgid "Theirs"
-msgstr "À eux"
+msgstr "Le leur"
 
 #: ID:169
 msgid ""
@@ -4641,8 +4669,8 @@ msgid ""
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
 "Il y a encore des conflits non résolus à la ligne %d !\n"
-"Vous devriez résoudre ces conflits d'abord avant de sauver.\n"
-"Voulez-vous sauver le fichier avec des conflits encore présents ?\n"
+"Vous devriez résoudre ces conflits d'abord avant d'enregistrer.\n"
+"Voulez-vous enregistrer le fichier avec des conflits encore présents ?\n"
 "Si vous cliquez sur Oui, alors vous aurez à résoudre manuellement les conflits dans un autre éditeur !"
 
 # ID:82,
@@ -4868,7 +4896,7 @@ msgstr "Ajuster TortoiseSVN"
 
 #: MenuEntry
 msgid "Two-way &Diff"
-msgstr "&Diff bidirectionnel"
+msgstr "&Différenciation bidirectionnel"
 
 #: ID:207
 #: Dlg-ID:164
@@ -5020,6 +5048,14 @@ msgstr "Utiliser l'URL de la C&T comme défaut pour l'URL \"Depuis :\""
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Utiliser \"Depuis :\" URL (la plage de révisions est sélectionnable dans la boîte de dialogue de journal au-dessus)"
 
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Utiliser les deux blocs de texte (celui-ci en premier)"
+
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Utiliser les deux blocs de texte (celui-ci en dernier)"
+
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
 msgstr "Barrer les li&gnes effacées"
@@ -5034,11 +5070,11 @@ msgstr "Utiliser le bloc de texte depuis \"le &leur\""
 
 #: ID:251
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Utiliser \"m&on\" bloc de texte avant celui des \"autres\""
+msgstr "Utiliser le bloc de texte du \"m&ien\" avant \"le leur\""
 
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Utiliser le bloc de texte des \"a&utres\" avant le \"mien\""
+msgstr "Utiliser le bloc de texte du \"&leur\" avant le \"mien\""
 
 #: ID:251
 msgid "Use th&is text block"
@@ -5206,8 +5242,8 @@ msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
 msgstr ""
-"Vous avez modifié les propriétés sans les sauvegarder d'abord.\n"
-"Voulez-vous les sauvegarder maintenant?"
+"Vous avez modifié les propriétés sans les enregistrer d'abord.\n"
+"Voulez-vous les enregistrer maintenant?"
 
 # ID:251,
 #: ID:251
@@ -5508,7 +5544,7 @@ msgstr "pas de description disponible pour cette commande"
 
 #: ID:10
 msgid "non-versioned"
-msgstr "pas de gestion de version"
+msgstr "non-versionné"
 
 #: ID:10
 msgid "normal"
