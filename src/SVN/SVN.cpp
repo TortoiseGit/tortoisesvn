@@ -903,9 +903,10 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 	return TRUE;
 }
 
-BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev)
+BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg)
 {
-	Err = svn_client_blame ( path.GetSVNApiPath(),
+	Err = svn_client_blame2 ( path.GetSVNApiPath(),
+							 peg,
 							 startrev,  
 							 endrev,  
 							 blameReceiver,  

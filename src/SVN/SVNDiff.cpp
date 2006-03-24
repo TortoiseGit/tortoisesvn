@@ -30,6 +30,7 @@
 #include "FileDiffDlg.h"
 #include "ProgressDlg.h"
 #include ".\svndiff.h"
+#include "Blame.h"
 
 SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */) :
 	m_bDeleteSVN(false),
@@ -257,8 +258,9 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const C
 
 bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, 
 						  const CTSVNPath& url2, const SVNRev& rev2, 
-						  SVNRev peg /* = SVNRev( */,
-						  bool ignoreancestry /* = false */, bool nodiffdeleted /* = false */)
+						  SVNRev peg /* = SVNRev() */,
+						  bool ignoreancestry /* = false */, bool nodiffdeleted /* = false */,
+						  bool blame /* = false */)
 {
 	CTSVNPath tempfile;
 	
@@ -330,6 +332,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 				return false;
 			}
 			CFileDiffDlg fdlg;
+			fdlg.DoBlame(blame);
 			if ((!url1.IsEquivalentTo(url2))||(m_pSVN->PathIsURL(url1.GetSVNPathString())))
 			{
 				// we have to find the common root of both urls, because
@@ -364,7 +367,16 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			m_pSVN->SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
 			progDlg.ShowModeless(m_hWnd);
 			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), (LONG)rev1);
-			if (!m_pSVN->Cat(url1, peg.IsValid() ? peg : rev1, rev1, tempfile1))
+
+			CBlame blamer;
+			if (!blame && (!m_pSVN->Cat(url1, peg.IsValid() ? peg : rev1, rev1, tempfile1)))
+			{
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				return false;
+			}
+			else if (blame && (!blamer.BlameToFile(url1, 1, rev1, peg.IsValid() ? peg : rev1, tempfile1)))
 			{
 				progDlg.Stop();
 				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -374,7 +386,14 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			SetFileAttributes(tempfile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			
 			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url2.GetUIPathString(), (LONG)rev2);
-			if (!m_pSVN->Cat(url2, peg.IsValid() ? peg : rev2, rev2, tempfile2))
+			if (!blame && (!m_pSVN->Cat(url2, peg.IsValid() ? peg : rev2, rev2, tempfile2)))
+			{
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+				CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				return false;
+			}
+			else if (blame && (!blamer.BlameToFile(url2, 1, rev2, peg.IsValid() ? peg : rev2, tempfile2)))
 			{
 				progDlg.Stop();
 				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -389,7 +408,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			CString revname1, revname2;
 			revname1.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFileOrDirectoryName(), (LONG)rev1);
 			revname2.Format(_T("%s Revision %ld"), (LPCTSTR)url2.GetFileOrDirectoryName(), (LONG)rev2);
-			return !!CUtils::StartExtDiff(tempfile1, tempfile2, revname1, revname2);
+			return !!CUtils::StartExtDiff(tempfile1, tempfile2, revname1, revname2, FALSE, blame);
 		}
 	}
 	else

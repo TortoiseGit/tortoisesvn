@@ -65,6 +65,7 @@ CBlame::CBlame()
 	m_highestrev = -1;
 	m_nCounter = 0;
 	m_nHeadRev = -1;
+	m_bNoLineNo = false;
 }
 CBlame::~CBlame()
 {
@@ -84,7 +85,10 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	CStringA dateA(date);
 	CStringA authorA(author);
 
-	infolineA.Format("%6ld %6ld %30s %-30s ", linenumber, revision, dateA, authorA);
+	if (m_bNoLineNo)
+		infolineA.Format("%6ld %30s %-30s ", revision, dateA, authorA);
+	else
+		infolineA.Format("%6ld %6ld %30s %-30s ", linenumber, revision, dateA, authorA);
 	fulllineA = line;
 	fulllineA.TrimRight("\r\n");
 	fulllineA += "\n";
@@ -136,6 +140,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	if (!m_saveFile.Open(m_sSavePath, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
 		return _T("");
 	CString headline;
+	m_bNoLineNo = false;
 	headline.Format(_T("%-6s %-6s %-30s %-30s %-s \n"), _T("line"), _T("rev"), _T("date"), _T("author"), _T("content"));
 	m_saveFile.WriteString(headline);
 	m_saveFile.WriteString(_T("\n"));
@@ -195,4 +200,22 @@ BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/
 	return TRUE;
 }
 
+bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile)
+{
+	CString temp;
+	if (!m_saveFile.Open(tofile.GetWinPathString(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
+		return false;
+	m_bNoLineNo = true;
+	m_nHeadRev = endrev;
+	if (m_nHeadRev < 0)
+		m_nHeadRev = GetHEADRevision(path);
+	if (!this->Blame(path, startrev, endrev, peg))
+	{
+		m_saveFile.Close();
+		return false;
+	}
+	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
+		m_saveFile.Close();
 
+	return true;
+}

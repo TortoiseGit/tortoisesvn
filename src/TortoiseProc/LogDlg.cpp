@@ -838,10 +838,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (!m_path.IsDirectory())
 					{
-						temp.LoadString(IDS_LOG_POPUP_COMPARE);
 						if (m_hasWC)
 						{
+							temp.LoadString(IDS_LOG_POPUP_COMPARE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+							temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
 						}
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
@@ -855,10 +857,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					else
 					{
-						temp.LoadString(IDS_LOG_POPUP_COMPARE);
 						if (m_hasWC)
 						{
+							temp.LoadString(IDS_LOG_POPUP_COMPARE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+							temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
 						}
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
@@ -888,6 +892,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
+						temp.LoadString(IDS_LOG_POPUP_BLAMEREVS);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMETWO, temp);
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 						bAddSeparator = true;
@@ -1084,6 +1090,38 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						diff.SetHEADPeg(m_LogRevision);
 						diff.ShowCompare(url, rev2, url, rev1);
+					}
+					break;
+				case ID_BLAMECOMPARE:
+					{
+						//user clicked on the menu item "compare with working copy"
+						//now first get the revision which is selected
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+						long rev = pLogEntry->dwRev;
+						this->m_bCancelled = FALSE;
+						SVNDiff diff(this, this->m_hWnd, true);
+						diff.SetHEADPeg(m_LogRevision);
+						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, SVNRev(), false, false, true);
+					}
+					break;
+				case ID_BLAMETWO:
+					{
+						//user clicked on the menu item "compare revisions"
+						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+						PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long rev1 = pLogEntry->dwRev;
+						pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long rev2 = pLogEntry->dwRev;
+						m_bCancelled = FALSE;
+
+						SVNDiff diff(this, this->m_hWnd, true);
+						CTSVNPath url = m_path;
+						if (!PathIsURL(m_path.GetSVNPathString()))
+						{
+							url.SetFromSVN(GetURLFromPath(m_path));
+						}
+						diff.SetHEADPeg(m_LogRevision);
+						diff.ShowCompare(url, rev2, url, rev1, SVNRev(), false, false, true);
 					}
 					break;
 				case ID_SAVEAS:
@@ -1349,6 +1387,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
+					temp.LoadString(IDS_LOG_POPUP_BLAMEDIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMEDIFF, temp);
 					popup.SetDefaultItem(ID_DIFF, FALSE);
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
@@ -1372,7 +1412,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 				case ID_DIFF:
 					{
-						DoDiffFromLog(selIndex, rev);
+						DoDiffFromLog(selIndex, rev, false);
+					}
+					break;
+				case ID_BLAMEDIFF:
+					{
+						DoDiffFromLog(selIndex, rev, true);
 					}
 					break;
 				case ID_REVERTREV:
@@ -1919,11 +1964,11 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 	if (DiffPossible(changedpath, rev))
 	{
-		DoDiffFromLog(selIndex, rev);
+		DoDiffFromLog(selIndex, rev, false);
 	}
 }
 
-void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev)
+void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev, bool blame)
 {
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	SetPromptApp(&theApp);
@@ -1971,7 +2016,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev)
 
 	SVNDiff diff(this, this->m_hWnd, true);
 	diff.SetHEADPeg(m_LogRevision);
-	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev);
+	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev, SVNRev(), false, false, blame);
 
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();

@@ -48,6 +48,8 @@ public:
 	 * \return The path to the temporary file or an empty string in case of an error.
 	 */
 	CString		BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, CString& logfile, BOOL showprogress = TRUE);
+
+	bool		BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile);
 private:
 	BOOL		BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
 	BOOL		Cancel();
@@ -62,6 +64,7 @@ private:
 	BOOL		m_bCancelled;			///< TRUE if the operation should be cancelled
 	LONG		m_nCounter;				///< Counts the number of calls to the Cancel() callback (revisions?)
 	LONG		m_nHeadRev;				///< The HEAD revision of the file
+	bool		m_bNoLineNo;			///< if true, then the line number isn't written to the file
 
 	CString		m_sSavePath;			///< Where to save the blame data
 	CStdioFileA	m_saveFile;				///< The file object to write to

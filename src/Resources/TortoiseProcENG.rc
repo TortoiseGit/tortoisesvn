@@ -2225,6 +2225,9 @@ BEGIN
     IDS_LOG_POPUP_REVERTREVS "Revert changes from these revisions"
     IDS_LOG_POPUP_COPYTOCLIPBOARD "Copy to clipboard"
     IDS_LOG_POPUP_REVERTTOREV "R&evert to this revision"
+    IDS_LOG_POPUP_BLAMECOMPARE "Compare and &blame with working copy"
+    IDS_LOG_POPUP_BLAMEREVS "&Blame revisions"
+    IDS_LOG_POPUP_BLAMEDIFF "&Blame differences"
 END
 
 STRINGTABLE 
@@ -2389,6 +2392,11 @@ END
 STRINGTABLE 
 BEGIN
     IDS_REG_ERROR           "Error while reading/writing the registry key %s\n%s"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_FILEDIFF_POPBLAME   "&Blame revisions"
 END
 
 #endif    // English (U.S.) resources

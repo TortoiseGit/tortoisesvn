@@ -58,6 +58,9 @@
 #define ID_CONFLICTUSEMINE 26
 #define ID_REVERTTOREV	27
 #define ID_EXPLORE		28
+#define ID_BLAMECOMPARE 29
+#define ID_BLAMETWO     30
+#define ID_BLAMEDIFF    31
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
@@ -123,7 +126,7 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 	void	FillLogMessageCtrl(bool bShow = true);
-	void	DoDiffFromLog(int selIndex, svn_revnum_t rev);
+	void	DoDiffFromLog(int selIndex, svn_revnum_t rev, bool blame);
 
 	DECLARE_MESSAGE_MAP()
 public:

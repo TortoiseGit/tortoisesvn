@@ -453,8 +453,9 @@ public:
 	 * \param path the path or url of the file
 	 * \param startrev the revision from which the check is done from
 	 * \param endrev the end revision where the check is stopped
+	 * \param peg the peg revision to use
 	 */
-	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev);
+	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg = SVNRev());
 	
 	/**
 	 * Lock a file for exclusive use so no other users are allowed to edit

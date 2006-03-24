@@ -26,7 +26,7 @@
  * \ingroup SVN
  * Provides methods to diff URL's and paths.
  *
- * Note: this class shows messageboxes for errors.
+ * \remark this class shows messageboxes for errors.
  */
 class SVNDiff
 {
@@ -60,7 +60,7 @@ public:
 	 * If \a url points to a local path, then WC is used as the peg revision, otherwise
 	 * HEAD is used for the peg revision.
 	 *
-	 * Note: the peg revision is only used if \a url1 is the same as \a url2
+	 * \remark the peg revision is only used if \a url1 is the same as \a url2
 	 */
 	bool ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg = SVNRev());
 
@@ -87,7 +87,8 @@ public:
 	bool ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, 
 					 const CTSVNPath& url2, const SVNRev& rev2, 
 					 SVNRev peg = SVNRev(),
-					 bool ignoreancestry = false, bool nodiffdeleted = false);
+					 bool ignoreancestry = false, bool nodiffdeleted = false,
+					 bool blame = false);
 
 	bool DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2);
 	

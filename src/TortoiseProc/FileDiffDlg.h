@@ -21,6 +21,7 @@
 #include "StandAloneDlg.h"
 #include "SVN.h"
 #include "TSVNPath.h"
+#include "Blame.h"
 
 class CFileDiffDlg : public CResizableStandAloneDialog
 {
@@ -44,6 +45,7 @@ public:
 
 	bool	SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRepoRoot);
 	void	AddFile(FileDiff filediff);
+	void	DoBlame(bool blame = true) {m_bBlame = blame;}
 
 // Dialog Data
 	enum { IDD = IDD_DIFFFILES };
@@ -58,10 +60,12 @@ protected:
 	
 	DECLARE_MESSAGE_MAP()
 
-	void DoDiff(int selIndex);
+	void DoDiff(int selIndex, bool blame);
 private:
 	CString				m_sRepoRoot;
 	CListCtrl			m_cFileList;
 	SVN					m_SVN;
+	bool				m_bBlame;
+	CBlame				m_blamer;
 	CArray<FileDiff, FileDiff> m_arFileList;
 };

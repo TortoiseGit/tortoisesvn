@@ -97,7 +97,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="cd ..\..\Languages&#x0D;&#x0A;Make_Pot.bat&#x0D;&#x0A;"
+				CommandLine="cd ..\..\Languages\&#x0D;&#x0A;Make_Pot.bat&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -180,7 +180,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="cd ..\..\Languages&#x0D;&#x0A;Make_Pot.bat&#x0D;&#x0A;"
+				CommandLine="cd ..\..\Languages\&#x0D;&#x0A;Make_Pot.bat&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
@@ -282,15 +282,11 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Languages\res\bin167.avi"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\bin167.avi"
 			>
 		</File>
 		<File
-			RelativePath="..\Languages\res\bin168.avi"
+			RelativePath="..\Languages\res\bin167.avi"
 			>
 		</File>
 		<File
@@ -298,11 +294,15 @@
 			>
 		</File>
 		<File
+			RelativePath="..\Languages\res\bin168.avi"
+			>
+		</File>
+		<File
 			RelativePath="..\Resources\search.avi"
 			>
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseProc.manifest"
+			RelativePath="..\Resources\TortoiseProc.manifest"
 			>
 			<FileConfiguration
 				Name="Release|Win32"
@@ -322,7 +322,7 @@
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="..\Resources\TortoiseProc.manifest"
+			RelativePath="..\Languages\res\TortoiseProc.manifest"
 			>
 			<FileConfiguration
 				Name="Release|Win32"

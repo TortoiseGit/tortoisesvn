@@ -191,10 +191,12 @@ BOOL CUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, con
 	return TRUE;
 }
 
-BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait)
+BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame)
 {
 	CString viewer;
 	CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
+	CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
+	bool bUseTMerge = !!(DWORD)blamediff;
 	viewer = diffexe;
 	if (!file2.GetFileExtension().IsEmpty())
 	{
@@ -205,7 +207,7 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 			viewer = difftool;
 		}
 	}
-	if (viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
+	if (bUseTMerge||viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
 	{
 		//no registry entry (or commented out) for a diff program
 		//use TortoiseMerge
@@ -238,6 +240,9 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 		viewer.Replace(_T("%yname"), _T("\"") + file2.GetFileOrDirectoryName() + _T("\""));
 	else
 		viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
+
+	if (bBlame)
+		viewer += _T(" /blame");
 
 	if(!LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, !!bWait))
 	{
