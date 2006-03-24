@@ -94,6 +94,7 @@ public:
 	} ;
 
 	BOOL						Load();
+	void						SetBlame(bool bBlame = true) {m_bBlame = bBlame;}
 	void						LoadRegistry();
 	int							GetLineCount();
 	int							GetLineActualLength(int index);
@@ -157,4 +158,5 @@ public:
 protected:
 	CRegDWORD					m_regForegroundColors[DIFFSTATE_END];
 	CRegDWORD					m_regBackgroundColors[DIFFSTATE_END];
+	bool						m_bBlame;
 };

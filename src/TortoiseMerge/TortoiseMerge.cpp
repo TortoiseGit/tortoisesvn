@@ -268,6 +268,10 @@ BOOL CTortoiseMergeApp::InitInstance()
 	} // if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff")))) 
 
 	pFrame->m_bReadOnly = !!parser.HasKey(_T("readonly"));
+	pFrame->m_bBlame = !!parser.HasKey(_T("blame"));
+	// diffing a blame means no editing!
+	if (pFrame->m_bBlame)
+		pFrame->m_bReadOnly = true;
 	// The one and only window has been initialized, so show and update it
 	pFrame->ActivateFrame();
 	pFrame->ShowWindow(SW_SHOW);

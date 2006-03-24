@@ -456,6 +456,7 @@ void CMainFrame::OnFileOpen()
 
 BOOL CMainFrame::LoadViews(BOOL bReload)
 {
+	m_Data.SetBlame(m_bBlame);
 	m_bHasConflicts = false;
 	if (bReload)
 	{

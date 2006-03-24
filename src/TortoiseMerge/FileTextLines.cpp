@@ -285,8 +285,13 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	return bRetval;
 }
 
-void CFileTextLines::StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces/* =0 */)
+void CFileTextLines::StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces, bool blame)
 {
+	if (blame)
+	{
+		if (sLine.GetLength() > 66)
+			sLine = sLine.Mid(66);
+	}
 	switch (dwIgnoreWhitespaces)
 	{
 	case 0:
@@ -309,8 +314,13 @@ void CFileTextLines::StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces/* 
 	}
 }
 
-void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespaces /* = 0 */)
+void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespaces, bool blame)
 {
+	if (blame)
+	{
+		if (sLine.GetLength() > 66)
+			sLine = sLine.Mid(66);
+	}
 	switch (dwIgnoreWhitespaces)
 	{
 	case 0: // Compare whitespaces
@@ -352,7 +362,7 @@ void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
 	sLine.ReleaseBuffer(outputLen);
 }
 
-BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreLineendings /*= FALSE*/, BOOL bIgnoreCase /*= FALSE*/)
+BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreLineendings /*= FALSE*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
 {
 	if (bIgnoreLineendings)
 		m_LineEndings = AUTOLINE;
@@ -376,7 +386,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*
 		{
 			m_sErrorString.Format(IDS_ERR_FILE_OPEN, sFilePath);
 			return FALSE;
-		} // if (!file.Open(sSavePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary)) 
+		}
 		if (m_UnicodeType == CFileTextLines::UNICODE_LE)
 		{
 			//first write the BOM
@@ -385,7 +395,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*
 			for (int i=0; i<GetCount(); i++)
 			{
 				CString sLine = GetAt(i);
-				StripWhiteSpace(sLine,dwIgnoreWhitespaces);
+				StripWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
 				file.Write((LPCTSTR)sLine, sLine.GetLength());
@@ -416,7 +426,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*
 				CString sLineT = GetAt(i);
 				CStringA sLine = CStringA(sLineT);
 
-				StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces);
+				StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
 				switch (m_LineEndings)
@@ -451,7 +461,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*
 			for (int i=0; i<GetCount(); i++)
 			{
 				CStringA sLine = CUnicodeUtils::GetUTF8(GetAt(i));
-				StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces);
+				StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
 

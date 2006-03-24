@@ -38,9 +38,8 @@ CDiffData::CDiffData(void)
 {
 	apr_initialize();
 	g_SVNAdminDir.Init();
-	//	m_diffYourBase = NULL;
-	//	m_diffTheirBase = NULL;
-	//	m_diffTheirYourBase = NULL;
+
+	m_bBlame = false;
 
 	m_regForegroundColors[DIFFSTATE_UNKNOWN] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorUnknownF"), DIFFSTATE_UNKNOWN_DEFAULT_FG);
 	m_regForegroundColors[DIFFSTATE_NORMAL] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorNormalF"), DIFFSTATE_NORMAL_DEFAULT_FG);
@@ -202,7 +201,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arBaseFile);
 		sConvertedBaseFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedBaseFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase);
+		converted.Save(sConvertedBaseFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase, m_bBlame);
 	}
 
 	if (IsTheirFileInUse())
@@ -216,7 +215,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arTheirFile);
 		sConvertedTheirFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedTheirFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase);
+		converted.Save(sConvertedTheirFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase, m_bBlame);
 	} // if (IsTheirFileInUse())
 
 	if (IsYourFileInUse())
@@ -230,7 +229,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arYourFile);
 		sConvertedYourFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedYourFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase);
+		converted.Save(sConvertedYourFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase, m_bBlame);
 	} // if (IsYourFileInUse()) 
 
 	// Calculate the number of lines in the largest of the three files
