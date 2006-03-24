@@ -32,13 +32,13 @@
 # help -- cправка
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6076: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6105: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-24 10:59+0300\n"
+"PO-Revision-Date: 2006-03-24 19:31+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -233,6 +233,15 @@ msgstr "Сохранять &резервную копию файла"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley database (BDB)"
+
+#: ID:114
+msgid "&Blame differences"
+msgstr "&Авторы различий"
+
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "&Авторы ревизий"
 
 #: ID:13
 msgid "&Blame..."
@@ -1512,6 +1521,11 @@ msgstr "Фиксирует Ваши изменения в хранилище"
 msgid "Compare &HEAD revisions"
 msgstr "Сравнить HEAD-&ревизии"
 
+# !!! уточнить
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "Сравнить с рабочей копией и посмотреть &автора"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Сравнить с &рабочей копией"
@@ -2086,6 +2100,15 @@ msgstr "Ошибка при восстановлении кэша значков
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Ошибка проверки сертификата сервера для %s:"
+
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Ошибка при чтении/записи ключа реестра %s\n"
+"%s"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -3232,6 +3255,10 @@ msgstr "Подождите, пожалуйста, пока обозревате�
 #: ID:211
 msgid "Please wait..."
 msgstr "Подождите, пожалуйста..."
+
+#: ID:376
+msgid "Preview patched file"
+msgstr "Предпросмотр файла с заплаткой"
 
 #: ID:132
 #, c-format
@@ -4886,6 +4913,14 @@ msgstr "Задать изначально URL &рабочей копии в по
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Использовать тот же URL, как и в \"От:\"  (ряд ревизий можно выбрать в лог-диалоге выше)"
+
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Использовать оба текстовых блока (этот в начале)"
+
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Использовать оба текстовых блока (этот в конце)"
 
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
