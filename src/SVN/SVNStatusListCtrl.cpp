@@ -2290,6 +2290,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 								DeleteItem(selIndex);
 								AddEntry(entry, langID, selIndex);
+								Invalidate();
 							}
 						}
 					}
@@ -2327,6 +2328,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 								DeleteItem(selIndex);
 								AddEntry(entry, langID, selIndex);
+								Invalidate();
 							}
 						}
 					}
@@ -2364,6 +2366,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 								DeleteItem(selIndex);
 								AddEntry(entry, langID, selIndex);
+								Invalidate();
 							}
 						}
 					}
