@@ -63,64 +63,64 @@ fontBaseDir: Similar to baseDir, except that this value is used for fonts. If
 
  <!-- example -->
  
- <font metrics-file="..\..\xsl\ru\arial.xml" kerning="yes" embed-file="arial.ttf">
+ <font metrics-file="..\..\xsl\ru\arial.xml" kerning="yes" embed-file="c:/windows/fonts/arial.ttf">
     <font-triplet name="Arial" style="normal" weight="normal"/>
     <font-triplet name="ArialMT" style="normal" weight="normal"/>
     <font-triplet name="Helvetica" style="normal" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\ru\arialbd.xml" kerning="yes" embed-file="arialbd.ttf">
+ <font metrics-file="..\..\xsl\ru\arialbd.xml" kerning="yes" embed-file="c:/windows/fonts/arialbd.ttf">
     <font-triplet name="Arial" style="normal" weight="bold"/>
     <font-triplet name="ArialMT" style="normal" weight="bold"/>
     <font-triplet name="Helvetica" style="normal" weight="bold"/>
  </font>
- <font metrics-file="..\..\xsl\ru\ariali.xml" kerning="yes" embed-file="ariali.ttf">
+ <font metrics-file="..\..\xsl\ru\ariali.xml" kerning="yes" embed-file="c:/windows/fonts/ariali.ttf">
     <font-triplet name="Arial" style="italic" weight="normal"/>
     <font-triplet name="ArialMT" style="italic" weight="normal"/>
     <font-triplet name="Helvetica" style="italic" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\ru\arialbi.xml" kerning="yes" embed-file="arialbi.ttf">
+ <font metrics-file="..\..\xsl\ru\arialbi.xml" kerning="yes" embed-file="c:/windows/fonts/arialbi.ttf">
     <font-triplet name="Arial" style="italic" weight="bold"/>
     <font-triplet name="ArialMT" style="italic" weight="bold"/>
     <font-triplet name="Helvetica" style="italic" weight="bold"/>
  </font>
  
- <font metrics-file="..\..\xsl\ru\times.xml" kerning="yes" embed-file="times.ttf">
+ <font metrics-file="..\..\xsl\ru\times.xml" kerning="yes" embed-file="c:/windows/fonts/times.ttf">
     <font-triplet name="Times" style="normal" weight="normal"/>
     <font-triplet name="TimesMT" style="normal" weight="normal"/>
     <font-triplet name="Times New Roman" style="normal" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\ru\timesbd.xml" kerning="yes" embed-file="timesbd.ttf">
+ <font metrics-file="..\..\xsl\ru\timesbd.xml" kerning="yes" embed-file="c:/windows/fonts/timesbd.ttf">
     <font-triplet name="Times" style="normal" weight="bold"/>
     <font-triplet name="TimesMT" style="normal" weight="bold"/>
     <font-triplet name="Times New Roman" style="normal" weight="bold"/>
  </font>
- <font metrics-file="..\..\xsl\ru\timesi.xml" kerning="yes" embed-file="timesi.ttf">
+ <font metrics-file="..\..\xsl\ru\timesi.xml" kerning="yes" embed-file="c:/windows/fonts/timesi.ttf">
     <font-triplet name="Times" style="italic" weight="normal"/>
     <font-triplet name="TimesMT" style="italic" weight="normal"/>
     <font-triplet name="Times New Roman" style="italic" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\ru\timesbi.xml" kerning="yes" embed-file="timesbi.ttf">
+ <font metrics-file="..\..\xsl\ru\timesbi.xml" kerning="yes" embed-file="c:/windows/fonts/timesbi.ttf">
     <font-triplet name="Times" style="italic" weight="bold"/>
     <font-triplet name="TimesMT" style="italic" weight="bold"/>
     <font-triplet name="Times New Roman" style="italic" weight="bold"/>
  </font>
 
- <font metrics-file="..\..\xsl\ru\cour.xml" kerning="yes" embed-file="cour.ttf">
+ <font metrics-file="..\..\xsl\ru\cour.xml" kerning="yes" embed-file="c:/windows/fonts/cour.ttf">
     <font-triplet name="Courier" style="normal" weight="normal"/>
     <font-triplet name="CourierMT" style="normal" weight="normal"/>
     <font-triplet name="Courier New" style="normal" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\ru\courbd.xml" kerning="yes" embed-file="courbd.ttf">
+ <font metrics-file="..\..\xsl\ru\courbd.xml" kerning="yes" embed-file="c:/windows/fonts/courbd.ttf">
     <font-triplet name="Courier" style="normal" weight="bold"/>
     <font-triplet name="CourierMT" style="normal" weight="bold"/>
     <font-triplet name="Courier New" style="normal" weight="bold"/>
  </font>
- <font metrics-file="..\..\xsl\ru\couri.xml" kerning="yes" embed-file="couri.ttf">
+ <font metrics-file="..\..\xsl\ru\couri.xml" kerning="yes" embed-file="c:/windows/fonts/couri.ttf">
     <font-triplet name="Courier" style="italic" weight="normal"/>
     <font-triplet name="CourierMT" style="italic" weight="normal"/>
     <font-triplet name="Courier New" style="italic" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\ru\courbi.xml" kerning="yes" embed-file="courbi.ttf">
+ <font metrics-file="..\..\xsl\ru\courbi.xml" kerning="yes" embed-file="c:/windows/fonts/courbi.ttf">
     <font-triplet name="Courier" style="italic" weight="bold"/>
     <font-triplet name="CourierMT" style="italic" weight="bold"/>
     <font-triplet name="Courier New" style="italic" weight="bold"/>
