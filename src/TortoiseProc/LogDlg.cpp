@@ -1449,7 +1449,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						fileURL = sUrlRoot + fileURL.Trim();
 						// firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
 						// sUrl = http://mydomain.com/repos/trunk/folder
-						CString wcPath = m_path.GetWinPathString() + fileURL.Mid(sUrl.GetLength());
+						CStringA sTempA = CStringA(sUrl);
+						CUtils::Unescape(sTempA.GetBuffer());
+						sTempA.ReleaseBuffer();
+						CString sUnescapedUrl = CString(sTempA); 
+						CString wcPath = m_path.GetWinPathString() + fileURL.Mid(sUnescapedUrl.GetLength());
 						wcPath.Replace('/', '\\');
 						CString msg;
 						msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
