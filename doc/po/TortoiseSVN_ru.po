@@ -2598,39 +2598,39 @@ msgstr "Если проект содержит ссылки на внешние 
 
 #: source/TortoiseSVN_en.xml:3617(para)
 msgid "If either of these options are checked, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all sub-folders and all externals."
-msgstr ""
+msgstr "Если одна из этих опций отмечена, вы должны будете выполнить обновление вашей рабочей копии используя <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> вместо <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. Стандартное обновление включает все подпапки и внешние ссылки."
 
 #: source/TortoiseSVN_en.xml:3632(para)
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr ""
+msgstr "Также рекомендуется извлекать только часть <literal>trunk</literal> дерева папок. Если вы в URL укажете родительский путь для дерева папок, вы можете закончить полным жестким диском, т.к. вы получите копию всего хранилища, включая каждое ответвление и метку вашего проекта!"
 
 #: source/TortoiseSVN_en.xml:3640(title)
 msgid "Exporting"
-msgstr ""
+msgstr "Экспортирование"
 
 #: source/TortoiseSVN_en.xml:3642(primary)
 msgid "export"
-msgstr ""
+msgstr "экспорт"
 
 #: source/TortoiseSVN_en.xml:3644(para)
 msgid "Sometimes you may want a copy without any of those <filename>.svn</filename> directories, e.g. to create a zipped tarball of your source. Instead of making a copy and then delete all those <filename>.svn</filename> directories manually, TortoiseSVN offers the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. If you execute this command on your working copy you'll be asked for a place to save the <literal>clean</literal> working copy without the <filename>.svn</filename> folders. Also, you can specify if you want to export <emphasis>all</emphasis> files or just the versioned files."
-msgstr ""
+msgstr "Иногда вы можете хотеть получить копию безо всех папок <filename>.svn</filename>, например, для создания заархивированного tarball ваших кодов. Вместо того, чтобы сделать копию и затем удалить все папки <filename>.svn</filename> вручную, TortoiseSVN предоставляет команду <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>. Если вы выполните эту команду в вашей рабочей копии, у вас спросят место куда поместить <literal>чистую</literal> рабочую копию без папок <filename>.svn</filename>. Также вы можете выбрать экспортировать все файлы или только версионные файлы."
 
 #: source/TortoiseSVN_en.xml:3661(para)
 msgid "Another way to do an export is by right-dragging a working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Другой способ сделать экспорт - перетащить папку с рабочей копией удерживая правую клавишу мыши в новое место, и выбрать <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> или <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
 
 #: source/TortoiseSVN_en.xml:3677(title)
 msgid "Sending Your Changes To The Repository"
-msgstr ""
+msgstr "Отправка ваших изменений в хранилище"
 
 #: source/TortoiseSVN_en.xml:3679(primary)
 msgid "commit"
-msgstr ""
+msgstr "фиксация"
 
 #: source/TortoiseSVN_en.xml:3682(para)
 msgid "Sending the changes you made to your working copy is known as <firstterm>committing</firstterm> the changes. But before you commit you have to make sure that your working copy is up to date. You can either use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> directly. Or you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> first, to see which files have changed locally or on the server."
-msgstr ""
+msgstr "Отправка изменений сделанных вами в вашей рабочей копии называется <firstterm>фиксацией (committing)</firstterm>. Но перед вашей фиксацией вы должны убедиться что ваша рабочая копия находится в актуальном состоянии. Вы можете либо сразу использовать <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> или вы можете сначала использовать <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> для просмотра файлов которые были изменены локально или на сервере."
 
 #: source/TortoiseSVN_en.xml:3707(title)
 msgid "The Commit dialog"
