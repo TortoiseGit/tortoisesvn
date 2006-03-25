@@ -53,7 +53,7 @@ msgstr ""
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
-#: source/TortoiseSVN_en.xml:5(subtitle)
+#: source/TortoiseSVN_en.xml:5(subtitle)
 msgid "A Subversion client for Windows"
 msgstr "Клиент Subversion для Windows"
 
@@ -275,7 +275,7 @@ msgstr "Вывод системы и клавиатурный ввод такж�
 #: source/TortoiseSVN_en.xml:287(para)
 msgid "Important notes are marked with an icon."
 msgstr "Важные примечания помечены значком."
-
+
 #: source/TortoiseSVN_en.xml:292(para)
 msgid "Tips that make your life easier."
 msgstr "Подсказки, делающие вашу жизнь проще."
@@ -348,7 +348,7 @@ msgstr "Что делает TortoiseSVN таким хорошим клиенто
 msgid "Shell integration"
 msgstr "Интеграция с оболочкой"
 
-#: source/TortoiseSVN_en.xml:401(primary)
+#: source/TortoiseSVN_en.xml:401(primary)
 msgid "Windows shell"
 msgstr "Оболочка Windows"
 
@@ -425,8 +425,7 @@ msgstr "Возможность выбора сетевого уровня"
 # Чуть ниже говорится что Subversion может работать как модуль Apache, так и как отдельная программа.
 #: source/TortoiseSVN_en.xml:491(para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
-msgstr "В Subversion используется абстракция для доступа к хранилищу, которая делает простой реализацию новых сетевых механизмов. 
-<quote>Улучшенный</quote> сетевой сервер Subversion доступен как модуль для WEB-сервера Apache, взаимодействующий на диалекте HTTP называемым WebDAV/DeltaV. Это предоставляет Subversion большие преимущества в стабильности и взаимодействию, и предоставляет различные ключевые возможности без дополнительных затрат:  проверка личности, проверка прав доступа, сжатию потока данных при передаче, просмотр хранилища. Также доступна меньшая, автономная версия сервера Subversion. Этот сервер взаимодействует по собственному протоколу, который легко может быть туннелирован через ssh."
+msgstr "В Subversion используется абстракция для доступа к хранилищу, которая делает простой реализацию новых сетевых механизмов. <quote>Улучшенный</quote> сетевой сервер Subversion доступен как модуль для WEB-сервера Apache, взаимодействующий на диалекте HTTP называемым WebDAV/DeltaV. Это предоставляет Subversion большие преимущества в стабильности и взаимодействию, и предоставляет различные ключевые возможности без дополнительных затрат:  проверка личности, проверка прав доступа, сжатию потока данных при передаче, просмотр хранилища. Также доступна меньшая, автономная версия сервера Subversion. Этот сервер взаимодействует по собственному протоколу, который легко может быть туннелирован через ssh."
 
 # !!! дальше пока не смотрел
 #: source/TortoiseSVN_en.xml:508(term)
@@ -455,7 +454,7 @@ msgstr "Subversion не имеет исторического багажа. Он
 
 #: source/TortoiseSVN_en.xml:550(title)
 msgid "Installing TortoiseSVN"
-msgstr "Установка TortoiseSVN"
+msgstr "Установка TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:552(title)
 msgid "System requirements"
@@ -921,7 +920,7 @@ msgstr ""
 "     button.c:4\n"
 
 #: source/TortoiseSVN_en.xml:1278(para)
-msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
+msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
 msgstr "В этот момент, эта рабочая папка соответствует точно ревизии 4 в хранилище. Однако, предположим вы делаете изменения в <filename>button.c</filename>, и фиксируете изменения. Предположим, что не было других фиксаций, ваша фиксация создает ревизию 5 в хранилище и ваша рабочая копия выглядит так:"
 
 #: source/TortoiseSVN_en.xml:1286(screen)
@@ -1270,7 +1269,7 @@ msgid "tells Apache which module will be responsible to serve that URL - in this
 msgstr "указывает Apache что модуль который будет обслуживать этот URL - в данном случае модуль Subversion."
 
 #: source/TortoiseSVN_en.xml:1776(entry)
-msgid "SVNListParentPath on"
+msgid "SVNListParentPath on"
 msgstr "SVNListParentPath on"
 
 #: source/TortoiseSVN_en.xml:1777(entry)
@@ -1289,7 +1288,7 @@ msgstr "D:\\SVN"
 msgid "tells Subversion to look for repositories below <placeholder-1/>"
 msgstr "говорит Subversion искать хранилища в <placeholder-1/>"
 
-#: source/TortoiseSVN_en.xml:1790(entry)
+#: source/TortoiseSVN_en.xml:1790(entry)
 msgid "AuthType Basic"
 msgstr "AuthType Basic"
 
@@ -1459,7 +1458,7 @@ msgstr ""
 "    RewriteRule ^/svn/$ /svn_index.php [PT]\n"
 "    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
 "</screen>"
-
+
 #: source/TortoiseSVN_en.xml:1956(para)
 msgid "Save the lines above to a file <filename>svn_index.php</filename> and store that file in your web root folder. Next you have to tell Apache to show that page instead of the error: <placeholder-1/>"
 msgstr "Сохраните выше приведенные строки в файл <filename>svn_index.php</filename> и сохраните его в корневой папке вашего web сервера. Затем вы должны указать Apache отображать эту страницу вместо ошибки: <placeholder-1/>"
@@ -1923,7 +1922,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:2691(para)
 msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>SVN book</citetitle></ulink>."
 msgstr ""
-
+
 #: source/TortoiseSVN_en.xml:2699(title)
 msgid "Path-based Authorization with svnserve"
 msgstr ""
@@ -2419,6 +2418,15 @@ msgid ""
 "/tags\n"
 "</screen>"
 msgstr ""
+"Обратите внимание что имя папки, которую вы импортируете не появляется в хранилище, только ее содержимое. Например, создайте следующую структуру папок: <screen>\n"
+"C:\\Temp\\New\\trunk\n"
+"C:\\Temp\\New\\branches\n"
+"C:\\Temp\\New\\tags\n"
+"</screen> Импортируйте <filename>C:\\Temp\\New</filename> в корень хранилища, и вы увидите подобную структуру: <screen>\n"
+"/trunk\n"
+"/branches\n"
+"/tags\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:3345(para)
 msgid "You can also use the repository browser to create new folders directly in the repository."
@@ -2526,66 +2534,67 @@ msgstr ""
 "</screen> Нажмите на <guibutton>Set</guibutton> и зафиксируйте ваши изменения. Когда вы (или кто либо другой) обновите вашу рабочую копию, Subversion создаст подпапку <filename>D:\\dev\\project1\\sounds</filename> и извлечет проект звуков, другая подпапка <filename>D:\\dev\\project1\\quick graphs</filename> содержит графический проект, и в конце вложенная подпапка <filename>D:\\dev\\project1\\skins\\toolkit</filename> содержит ревизию 21 проекта skin-maker."
 
 #: source/TortoiseSVN_en.xml:3512(para)
-#: source/TortoiseSVN_en.xml:9125(para)
+#: source/TortoiseSVN_en.xml:9125(para)
 msgid "If the external project is in the same repository, any changes you make there there will be included in the commit list when you commit your main project."
 msgstr "Если внешний проект находится в том же хранилище, любые изменения, сделанные вами здесь, также будут включены в список фиксаций когда вы фиксируете основной проект."
 
 #: source/TortoiseSVN_en.xml:3517(para)
 #: source/TortoiseSVN_en.xml:9130(para)
 msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
-msgstr "Если внешний проект находится в другом хранилище, любые сделанные вами изменения во внешнем проекте будут обозначаться когда вы фиксируете основной проект, но вы должны фиксировать их отдельно."
+msgstr "Если внешний проект находится в другом хранилище, любые сделанные вами изменения во внешнем проекте будут обозначаться, когда вы фиксируете основной проект, но вы должны фиксировать их отдельно."
 
 #: source/TortoiseSVN_en.xml:3523(para)
 msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
-msgstr "Обратите внимание что если вы изменили URL в свойстве <literal>svn:externals</literal>, тогда при следующем вашем обновлении рабочей копии, Subversion удалит старую внешнюю папку и сделает свежее обновление, так что вы будете видеть что файл(-ы) <literal>Добавлен</literal>, а не был(-и) <literal>Обновлен</literal> как вы могди ожидать. Эта ситуация может произойти если вы ссылаетесь на метку из другого проекта. Когда выпускается новая версия этого проекта, вы изменяете вашу внешнюю ссылку для указывания на новую метку."
+msgstr "Обратите внимание что если вы изменили URL в свойстве <literal>svn:externals</literal>, тогда при следующем вашем обновлении рабочей копии, Subversion удалит старую внешнюю папку и сделает свежее обновление, так что вы будете видеть что файл <literal>Добавлен</literal>, а не был <literal>Обновлен</literal> как вы могли ожидать. Эта ситуация может произойти если вы ссылаетесь на метку из другого проекта. Когда выпускается новая версия этого проекта, вы изменяете вашу внешнюю ссылку для указывания на новую метку."
 
+#!!!! не переведено
 #: source/TortoiseSVN_en.xml:3534(para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex codebase."
-msgstr ""
+msgstr "Вы должны сильно подумать перед использованием номера ревизии во всех ваших внешних определениях. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. Для программных проектов это может быть различием между успешной и не успешной сборкой на старых снимках вашей комплексной базы кода."
 
 #: source/TortoiseSVN_en.xml:3552(para)
 msgid "URLs in <literal>svn:externals</literal> definitions are absolute. You cannot use relative URLs. If you relocate your working copy, or if the external repository is relocated, these URLs will not be updated automatically. Also, if you branch a project which has external references within the same repository, the URLs in the branched copy will be unchanged; you may then want to change trunk references to branch references instead."
-msgstr ""
+msgstr "URLs в определениях <literal>svn:externals</literal> абсолютные. Вы не может использовать относительные URL. Если вы перемещаете вашу рабочую копию, или если внешнее хранилище перемещается, эти URL не будут обновлены автоматически. Также, если ваше ответвление проекта имеет внешние связи с темже хранилищем, URL в копии ответвления также не будут изменены. Затем вы можете захотеть изменить стволовые ссылки (trunk references) вместо ссылок на ответвление (branch references)."
 
 #: source/TortoiseSVN_en.xml:3561(para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr ""
+msgstr "Если вы нуждаетесь в большей информации о том как TortoiseSVN обрабатывает Свойства читайте <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 #: source/TortoiseSVN_en.xml:3565(para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
-msgstr ""
+msgstr "Для нахождения различий между различными методами доступа к общим под проектами читайте <xref linkend=\"tsvn-howto-common-projects\"/>."
 
 #: source/TortoiseSVN_en.xml:3572(title)
 msgid "Checking Out A Working Copy"
-msgstr ""
-
+msgstr "Извлечение рабочей копии"
+
 #: source/TortoiseSVN_en.xml:3574(primary)
 msgid "checkout"
-msgstr ""
+msgstr "извлечение"
 
 #: source/TortoiseSVN_en.xml:3577(para)
 msgid "To obtain a working copy you need to do a <firstterm>checkout</firstterm> from a repository."
-msgstr ""
+msgstr "Для получения рабочей копии вы должны сделать <firstterm>извлечение</firstterm> из хранилища."
 
 #: source/TortoiseSVN_en.xml:3591(title)
 msgid "The Checkout dialog"
-msgstr ""
+msgstr "Диалог Извлечение"
 
 #: source/TortoiseSVN_en.xml:3581(para)
 msgid "Select a directory in windows explorer where you want to place your working copy. <action>Right click</action> to pop up the context menu and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, which brings up the following dialog box: <placeholder-1/> If you enter a folder name that does not yet exist, then a directory with that name is created."
-msgstr ""
+msgstr "Выберите папку в Проводнике где вы хотите разместить вашу рабочую копию. <action>Правый щелчок</action> для показа контекстного меню и выберите команду <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Извлечь...</guimenuitem></menuchoice>, после выбора появится следующий диалог: <placeholder-1/> Если вы ввели имя папки которое не существует, тогда создается папка с этим именем."
 
 #: source/TortoiseSVN_en.xml:3598(para)
 msgid "You should only check out into an empty directory. If you want to check out your source tree into the same directory that you imported from, Subversion will throw an error message because it will not overwrite the existing unversioned files with versioned ones. You will have to check out into a different directory or delete the existing sourcetree first."
-msgstr ""
+msgstr "Вы должны извлекать только в пустую папку. Если вы хотите извлечь ваше дерево исходников в туже папку из которой вы импортировали, Subversion отобразит сообщение об ошибке, т.к. он не может обновить существующие не версионные файлы совместно с версионными. Вы должны извлечь в другую папку, или сначала удалить существующее дерево исходников."
 
 #: source/TortoiseSVN_en.xml:3607(para)
 msgid "If you want to check out the top level folder only and omit all sub-folders, use the <guilabel>Only check out the top folder</guilabel> checkbox."
-msgstr ""
+msgstr "Если вы хотите извлечь только папку верхнего уровня и опустить все подпапки, установите пометку в поле <guilabel>Извлечь только папку верхнего уровня</guilabel> "
 
 #: source/TortoiseSVN_en.xml:3611(para)
 msgid "If the project contains references to external projects which you do <emphasis>not</emphasis> want checked out at the same time, use the <guilabel>Omit externals</guilabel> checkbox."
-msgstr ""
+msgstr "Если проект содержит ссылки на внешние проекты, которые вы <emphasis>не</emphasis> хотите извлекать в этот раз, используйте чекбокс <guilabel>Пропустить внешние (Omit externals)</guilabel> "
 
 #: source/TortoiseSVN_en.xml:3617(para)
 msgid "If either of these options are checked, you will have to perform updates to your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead of <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. The standard update will include all sub-folders and all externals."
@@ -2843,7 +2852,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4056(para)
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
-msgstr ""
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:4068(title)
 msgid "Local File Already Exists"
@@ -3476,7 +3485,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5095(para)
 msgid "KDiff3 is a free diff tool which can also handle directories. You can download it from <ulink url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
-msgstr ""
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:5105(term)
 msgid "ExamDiff"
@@ -3634,7 +3643,7 @@ msgid "*"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5356(para)
-msgid "Matches any string of characters, including the empty string (no characters)."
+msgid "Matches any string of characters, including the empty string (no characters)."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5363(term)
@@ -3856,7 +3865,7 @@ msgid "If you wish to edit an existing property, first select that property from
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5722(para)
-msgid "If you wish to remove an existing property, select that property from the list of existing properties, so that it appears in the edit area. Then click on <guibutton>Remove</guibutton>."
+msgid "If you wish to remove an existing property, select that property from the list of existing properties, so that it appears in the edit area. Then click on <guibutton>Remove</guibutton>."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5727(para)
@@ -4075,7 +4084,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6098(para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
 msgstr ""
-
+
 #: source/TortoiseSVN_en.xml:6108(para)
 msgid "If you modify a working copy created from a branch and commit, then all changes go to the new branch and <emphasis>not</emphasis> the trunk. Only the modifications are stored. The rest remains a cheap copy."
 msgstr ""
@@ -4323,7 +4332,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6577(para)
 msgid "To make sure you don't forget to release a lock you don't need any more, locked files are shown in the commit dialog and selected by default. If you continue with the commit, locks you hold on the selected files are removed, even if the files haven't been modified. If you don't want to release a lock on certain files, you can uncheck them (if they're not modified). If you want to keep a lock on a file you've modified, you have to enable the <guilabel>Keep locks</guilabel> checkbox before you commit your changes."
 msgstr ""
-
+
 #: source/TortoiseSVN_en.xml:6588(para)
 msgid "To release a lock manually, select the file(s) in your working copy for which you want to release the lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Release Lock</guimenuitem></menuchoice> There is nothing further to enter so TortoiseSVN will contact the repository and release the locks. You can also use this command on a folder to release all locks recursively."
 msgstr ""
@@ -4349,7 +4358,7 @@ msgid "Avoid Breaking and Stealing Locks"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:6623(para)
-msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
+msgid "If you break or steal someone else's lock without telling them, you could potentially cause loss of work. If you are working with unmergeable file types and you steal someone else's lock, once you release the lock they are free to check in their changes and overwrite yours. Subversion doesn't lose data, but you have lost the team-working protection that locking gave you."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:6635(title)
@@ -4710,7 +4719,7 @@ msgid "When the user enters a log message, a well defined line including the iss
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7199(para)
-msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
+msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7206(para)
@@ -4998,7 +5007,7 @@ msgstr ""
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays. Network drives can be very slow, so by default icons are not shown for working copies located on network shares. You can even disable all icon overlays, but where's the fun in that?"
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:7684(para)
+#: source/TortoiseSVN_en.xml:7684(para)
 msgid "USB Flash drives appear to be a special case in that the drive type is identified by the device itself. Some appear as fixed drives, and some as removable drives."
 msgstr ""
 
@@ -5066,7 +5075,7 @@ msgstr ""
 msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays <emphasis>only</emphasis> on that specific folder. You still can see the overlays on all files and folder inside that folder."
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:7789(para)
+#: source/TortoiseSVN_en.xml:7789(para)
 msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
 msgstr ""
 
@@ -6202,7 +6211,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9432(primary)
 msgid "command line"
-msgstr ""
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:9434(para)
 msgid "All commands are specified with the parameter <option>/command:abcd</option> where <literal>abcd</literal> is the required command name. Most of these commands need at least one path argument, which is given with <option>/path:\"some\\path\"</option>. In the following table the command refers to the <option>/command:abcd</option> parameter and the path refers to the <option>/path:\"some\\path\"</option> parameter."
@@ -6398,7 +6407,7 @@ msgstr ""
 msgid "Starts the conflicteditor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
 msgstr ""
 
-#: source/TortoiseSVN_en.xml:9685(entry)
+#: source/TortoiseSVN_en.xml:9685(entry)
 msgid "Opens the relocate dialog. The <placeholder-1/> specifies the working copy path to relocate."
 msgstr ""
 
@@ -6466,7 +6475,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:9782(para)
 msgid ""
 "Examples (which should be entered on one line): <screen>\n"
-"TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
+"TortoiseProc.exe /command:commit /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
 "                 /logmsg:\"test log message\" /notempfile /closeonend\n"
 "\n"
 "TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /notempfile /closeonend\n"
@@ -6518,7 +6527,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9855(title)
 msgid "Checkout"
-msgstr ""
+msgstr ""
 
 #: source/TortoiseSVN_en.xml:9856(screen)
 #, no-wrap
@@ -6655,7 +6664,7 @@ msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are 
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9980(title)
-msgid "Show Log"
+msgid "Show Log"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:9981(screen)
@@ -6803,7 +6812,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"svn lock -m \"LockMessage\" [--force] PATH...\n"
+"svn lock -m \"LockMessage\" [--force] PATH...\n"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10121(para)
