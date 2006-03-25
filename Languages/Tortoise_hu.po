@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-20 21:47+0100\n"
+"PO-Revision-Date: 2006-03-25 12:39+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -250,6 +250,15 @@ msgstr "&Biztonsági másolat készítése"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley adatbázis (BDB)"
+
+#: ID:114
+msgid "&Blame differences"
+msgstr "&Szemrehány eltéréseket"
+
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "&Szemrehány verziókat"
 
 # ID:13,
 #: ID:13
@@ -1830,6 +1839,11 @@ msgid "Compare &HEAD revisions"
 msgstr "A &FŐ verziók összehasonlítása"
 
 # ID:76,
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "Összehasonlít és &szemrehány a munkamásolattal"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Összehasonlítás a &munkamásolattal"
@@ -2517,6 +2531,16 @@ msgstr "Hiba az Ikonadatbázis újraépítésekor!"
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Hiba a %s szervertanusítvány érvényesítése közben:"
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Nem sikerült a %s regisztációs kulcsot írni/olvasni\n"
+"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3705,6 +3729,11 @@ msgstr "Kliens tanusítványfájl megnyitása"
 #: ID:3601
 msgid "Open file"
 msgstr "Fájl megnyitása"
+
+# Control-ID:1073,
+#: ID:282
+msgid "Open parent folder"
+msgstr "Szülőkönyvtár megnyitása"
 
 # ID:113,
 #: ID:113
@@ -5928,6 +5957,16 @@ msgstr "A &munkapéldány címeként használd az alap \"Innen:\" címet"
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Használd az \"Innen:\" URL (a verzió tartomány a fenti ablakban kiválasztható)"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Mindkét szövegmezőt használja (ezt a mezőt először)"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Mindkét szövegmezőt használja (ezt a mezőt utoljára)"
 
 # Control-ID:1066,
 #: Control-ID:1066
