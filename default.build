@@ -134,7 +134,7 @@
 			Builds all the language pack installers.
 		</description>
 		<property name="processorarchitecture" value="x86" />
-		<property name="processorarchitecture" value="x64" if="${platform == 'x64'}" />
+		<property name="processorarchitecture" value="AMD64" if="${platform == 'x64'}" />
 
 		<if test="${environment::get-variable('PROCESSOR_ARCHITECTURE') == processorarchitecture}">
 			<nant target="all">
