@@ -26,6 +26,8 @@
 #include "shlwapi.h"
 #pragma comment(lib, "shlwapi")
 
+#include "..\..\TSVNCache\CacheInterface.h"
+
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 
                        LPVOID lpReserved
@@ -36,7 +38,7 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 
 UINT __stdcall TerminateCache(MSIHANDLE hModule)
 {
-	HWND hWnd = FindWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"));
+	HWND hWnd = FindWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME);
 	if (hWnd)
 	{
 		// First, delete the registry key telling the shell where to find

@@ -50,12 +50,12 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 	}
 
 	m_hPipe = CreateFile(
-		_T("\\\\.\\pipe\\TSVNCache"),   // pipe name
+		TSVN_CACHE_PIPE_NAME,			// pipe name
 		GENERIC_READ |					// read and write access
 		GENERIC_WRITE,
 		0,								// no sharing
 		NULL,							// default security attributes
-		OPEN_EXISTING,				// opens existing pipe
+		OPEN_EXISTING,					// opens existing pipe
 		FILE_FLAG_OVERLAPPED,			// default attributes
 		NULL);							// no template file
 
@@ -64,15 +64,15 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 		// TSVNCache is running but is busy connecting a different client.
 		// Do not give up immediately but wait for a few milliseconds until
 		// the server has created the next pipe instance
-		if (WaitNamedPipe(_T("\\\\.\\pipe\\TSVNCache"), 50))
+		if (WaitNamedPipe(TSVN_CACHE_PIPE_NAME, 50))
 		{
 			m_hPipe = CreateFile(
-				_T("\\\\.\\pipe\\TSVNCache"),   // pipe name
+				TSVN_CACHE_PIPE_NAME,			// pipe name
 				GENERIC_READ |					// read and write access
 				GENERIC_WRITE,
 				0,								// no sharing
 				NULL,							// default security attributes
-				OPEN_EXISTING,				// opens existing pipe
+				OPEN_EXISTING,					// opens existing pipe
 				FILE_FLAG_OVERLAPPED,			// default attributes
 				NULL);							// no template file
 		}
@@ -217,7 +217,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 			// the cache didn't respond!
 			fSuccess = FALSE;
 			// send the cache a message to close
-			HWND hWnd = FindWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"));
+			HWND hWnd = FindWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME);
 			if (hWnd)
 			{
 				PostMessage(hWnd, WM_CLOSE, NULL, NULL);

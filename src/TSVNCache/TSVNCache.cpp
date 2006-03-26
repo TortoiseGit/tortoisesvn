@@ -124,8 +124,12 @@ void DebugOutputLastError()
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
 	CSecAttribs sa;
+#ifdef WIN64
+	HANDLE hReloadProtection = ::CreateMutex(&sa.sa, FALSE, _T("Global\\TSVNCacheReloadProtection64"));
+#else
 	HANDLE hReloadProtection = ::CreateMutex(&sa.sa, FALSE, _T("Global\\TSVNCacheReloadProtection"));
-	
+#endif
+
 	if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)
 	{
 		// An instance of TSVNCache is already running
@@ -143,7 +147,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	HANDLE hPipeThread; 
 	HANDLE hCommandWaitThread;
 	MSG msg;
-	TCHAR szWindowClass[] = {_T("TSVNCacheWindow")};
+	TCHAR szWindowClass[] = {TSVN_CACHE_WINDOW_NAME};
 
 	// create a hidden window to receive window messages.
 	WNDCLASSEX wcex;
@@ -160,7 +164,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	wcex.lpszClassName	= szWindowClass;
 	wcex.hIconSm		= 0;
 	RegisterClassEx(&wcex);
-	hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
+	hWnd = CreateWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME, WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
 	hTrayWnd = hWnd;
 	if (hWnd == NULL)
 	{
