@@ -3,7 +3,7 @@
   <?include Includes.wxi?>
   <Product 	
 		UpgradeCode="$(var.UpgradeGuid)" 
-  	Name="$(var.ProductName) $(var.VersionNumberUserVisible)" 
+  	Name="$(var.ProductName) $(var.VersionNumberUserVisible) $(var.PlatformUserVisible)" 
 		Id="????????-????-????-????-????????????"
 		Version="$(var.VersionNumberInternal)"
 		Manufacturer="TortoiseSVN" 
