@@ -9,6 +9,9 @@
 	<property name="platform" value="win32" />
 	<!-- default build tool is VS.NET2005 -->
 	<property name="buildtool" value="devenv.com" />
+	<!-- default: don't add a platform specific extension 
+	     to the bin folders 'release' / 'debug'  -->
+	<property name="bindirextension" value="" />
 
 	<include buildfile="default.build.user" />
 	
@@ -35,6 +38,7 @@
 			Compiles everything for the win64 platform.
 		</description>
 		<property name="platform" value="x64" />
+		<property name="bindirextension" value="64" />
 	</target>
 
 <!-- ====================================================================== -->

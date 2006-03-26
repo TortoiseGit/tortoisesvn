@@ -2,7 +2,8 @@
 <project name="VersionInfo" default="versioninfo">
 
 	<target name="versioninfo">
-		<if test="${not file::exists('bin\release\bin\SubWCRev.exe')}">
+		<property name="SubWCRevFileName" value="bin\release${bindirextension}\bin\SubWCRev.exe"/>
+		<if test="${not file::exists(SubWCRevFileName)}">
 			<copy
 				file="src\version.none"
 				tofile="src\version.h"
@@ -20,14 +21,14 @@
 		<!-- Debug only builds might not have all the libs required to build
 		     SubWCRev! So only use it if it exists and replace the WCREV with
 		     0 if it doesn't -->
-		<if test="${file::exists('bin\release\bin\SubWCRev.exe')}">
-			<exec program="bin\release\bin\SubWCRev.exe">
+		<if test="${file::exists(SubWCRevFileName)}">
+			<exec program="${SubWCRevFileName}">
 				<arg value="." />
 				<arg value="version.build.in" />
 				<arg value="version.build" />
 			</exec>
 		</if>
-		<if test="${not file::exists('bin\release\bin\SubWCRev.exe')}">
+		<if test="${not file::exists(SubWCRevFileName)}">
 			<loadfile file="version.build.in" property="versionbuildfile">
 				<filterchain>
 					<replacetokens begintoken="$" endtoken="$">
