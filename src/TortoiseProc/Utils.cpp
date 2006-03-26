@@ -215,6 +215,8 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 		viewer += _T("TortoiseMerge.exe");
 		viewer = _T("\"") + viewer + _T("\"");
 		viewer = viewer + _T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
+		if (bBlame)
+			viewer += _T(" /blame");
 	}
 	// check if the params are set. If not, just add the files to the command line
 	if ((viewer.Find(_T("%base"))<0)&&(viewer.Find(_T("%mine"))<0))
@@ -240,9 +242,6 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 		viewer.Replace(_T("%yname"), _T("\"") + file2.GetFileOrDirectoryName() + _T("\""));
 	else
 		viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
-
-	if (bBlame)
-		viewer += _T(" /blame");
 
 	if(!LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, !!bWait))
 	{
