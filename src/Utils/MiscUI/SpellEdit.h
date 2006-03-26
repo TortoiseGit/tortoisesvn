@@ -86,7 +86,7 @@ public:
 	void	SetMarginLine(int line) {m_nMarginLine = line;}
 	void	WordWrap(BOOL wrap);
 protected:
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	virtual void PreSubclassWindow();
     afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 

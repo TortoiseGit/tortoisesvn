@@ -51,7 +51,7 @@ BEGIN_MESSAGE_MAP(CSpellEdit, CEdit)
 END_MESSAGE_MAP()
 
 
-void CSpellEdit::OnTimer(UINT nIDEvent)
+void CSpellEdit::OnTimer(UINT_PTR nIDEvent)
 {
 	if (nIDEvent == m_timer)
 	{
@@ -534,7 +534,7 @@ void CSpellEdit::WordWrap(BOOL wrap)
 	// detach old window, attach new 
 	SetDlgCtrlID((UINT)nID+1); 
 	HWND hWndOld = Detach(); 
-	::SetWindowLongPtr(hWndOld, GWL_WNDPROC, (LONG_PTR)*GetSuperWndProcAddr()); 
+	::SetWindowLongPtr(hWndOld, GWLP_WNDPROC, (LONG_PTR)*GetSuperWndProcAddr()); 
 	ASSERT(m_hWnd == NULL); 
 	SubclassWindow(hWnd); 
 	ASSERT(m_hWnd == hWnd); 
