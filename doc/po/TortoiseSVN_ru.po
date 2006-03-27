@@ -36,7 +36,6 @@
 # versioning --
 
 msgid ""
-
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2006-03-09 23:11GMT Standard Time\n"
@@ -48,15 +47,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN\n"
-
-
 #: source/TortoiseSVN_en.xml:4(title)
 #: source/TortoiseSVN_en.xml:2792(secondary)
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:5(subtitle)
-
 msgid "A Subversion client for Windows"
 msgstr "Клиент Subversion для Windows"
 
@@ -74,7 +70,6 @@ msgstr "Küng"
 
 #: source/TortoiseSVN_en.xml:15(firstname)
 msgid "Lübbe"
-
 msgstr "Lübbe"
 
 #: source/TortoiseSVN_en.xml:16(surname)
@@ -107,7 +102,6 @@ msgstr "Бывало ли так, что после сохранения фай�
 
 #: source/TortoiseSVN_en.xml:54(para)
 msgid "Have you ever found a bug in your project and wanted to know when that bug got into your files?"
-
 msgstr "Не желали ли вы узнать, когда именно появилась ошибка, обнаруженная в вашем проекте?"
 
 #: source/TortoiseSVN_en.xml:61(para)
@@ -130,17 +124,14 @@ msgstr "Структура книги"
 msgid "This <emphasis>Preface</emphasis> explains a little about the TortoiseSVN project, the community of people who work on it, and the licensing conditions for using it and distributing it."
 msgstr "В этом <emphasis>Предисловии</emphasis> рассказывается немного о проекте TortoiseSVN, о сообществе учавствующих в нём людей, условиях лицензирования для использования и распространения."
 
-# !!! уточнить формулировку "откуда он появился"
 #: source/TortoiseSVN_en.xml:90(para)
 msgid "The <emphasis>Introduction</emphasis> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
 msgstr "Во <emphasis>Введении</emphasis> рассказывается, что представляет из себя TortoiseSVN, что он делает, историю возникновения и основы установки на ваш ПК."
-
 
 #: source/TortoiseSVN_en.xml:95(para)
 msgid "In <emphasis>Basic Concepts</emphasis> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
 msgstr "В главе <emphasis>Основные понятия</emphasis> мы даём краткое введение в систему управления версиями <emphasis>Subversion</emphasis>, лежащую в основе TortoiseSVN. Оно позаимствовано из документации проекта Subversion и объясняет различные подходы к управлению версиями, и то, как работает Subversion."
 
-#!!!!!!!!! "Поднять сервер" является жаргонизмом, более правильное и привычное для слуха, IMHO, установить, либо установить и настроить.
 #: source/TortoiseSVN_en.xml:102(para)
 msgid "Even most Subversion users will never have to set up a server themselves. The next chapter deals with how to set up such a server, and is useful for administrators."
 msgstr "Большинство пользователей Subversion никогда не столкнётся с необходимостью устанавливать сервер самостоятельно, поэтому следующая глава, объясняющая как установить и настроить сервер, будет полезна в основном администраторам."
@@ -219,7 +210,6 @@ msgid "for the beautiful icons, logo, bughunting and taking care of the document
 msgstr "за прекрасные значки, логотипы, отлов ошибок и ведение документации"
 
 #: source/TortoiseSVN_en.xml:208(term)
-
 msgid "The Subversion Book"
 msgstr "Книга о Subversion (The Subversion Book)"
 
@@ -244,7 +234,6 @@ msgid "for the patches, bug reports and new ideas, and for helping others by  an
 msgstr "за исправления, сообщения об ошибках, новые идеи и за помощь, оказанную  другим, в виде ответов на вопросы в нашем списке рассылки."
 
 #: source/TortoiseSVN_en.xml:234(term)
-
 msgid "Our Donators"
 msgstr "Нашим Дарителям"
 
@@ -259,7 +248,6 @@ msgstr "Терминология, используемая в этом доку�
 #: source/TortoiseSVN_en.xml:248(para)
 msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font.The <guilabel>Log Dialog</guilabel> for instance."
 msgstr "Для облегчения чтения документации, имена всех экранов и меню TortoiseSVN обозначены другим шрифтом. Например, <guilabel>Log Dialog</guilabel>."
-
 
 #: source/TortoiseSVN_en.xml:253(para)
 msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
@@ -284,7 +272,6 @@ msgstr "Вывод системы и клавиатурный ввод такж�
 #: source/TortoiseSVN_en.xml:287(para)
 msgid "Important notes are marked with an icon."
 msgstr "Важные примечания помечены значком."
-
 
 #: source/TortoiseSVN_en.xml:292(para)
 msgid "Tips that make your life easier."
@@ -351,9 +338,7 @@ msgstr "Возможности TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:392(para)
 msgid "What makes TortoiseSVN such a good Subversion client? Here's a short list of features."
-
 msgstr "Что делает TortoiseSVN таким хорошим клиентом Subversion? Вот краткий список возможностей:"
-
 
 #: source/TortoiseSVN_en.xml:398(term)
 msgid "Shell integration"
@@ -2706,7 +2691,7 @@ msgstr "Отправка изменений сделанных вами в ва�
 
 #: source/TortoiseSVN_en.xml:3707(title)
 msgid "The Commit dialog"
-msgstr ""
+msgstr "Диалог Фиксация"
 
 #: source/TortoiseSVN_en.xml:3698(para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
