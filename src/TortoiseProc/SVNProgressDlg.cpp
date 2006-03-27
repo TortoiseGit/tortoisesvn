@@ -537,7 +537,9 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
 	this->SetPromptParentWindow(this->m_hWnd);
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("SVNProgressDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
