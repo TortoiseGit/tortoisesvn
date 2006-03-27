@@ -2695,41 +2695,40 @@ msgstr "Диалог Фиксация"
 
 #: source/TortoiseSVN_en.xml:3698(para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
-msgstr ""
-
+msgstr "Если ваша рабочая копия в актуальном состоянии, и нет конфликтов, вы готовы к фиксации ваших изменений. Выберите любой файл и/или папку которую вы хотите зафиксировать, затем <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:3711(para)
 msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit."
-msgstr ""
+msgstr "Диалог фиксации будет отображаться для каждого измененного файла, включая добавленные, удаленные и неверсионые файлы. Если вы не хотите изменять файл которые должны быть зафиксированы, удалите отметку на этом файле. Если вы хотите включить не версионный файл, тогда отметье что этот файл должен быть добавлен к фиксации."
 
 #: source/TortoiseSVN_en.xml:3718(para)
 #: source/TortoiseSVN_en.xml:4456(para)
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
-msgstr ""
+msgstr "Элементы которые будут переданы в другие хранилища, также отображаются используя маркер <literal>(s)</literal>. Вы можете переключаться иногда когда работаете над ответвлением, и забывать переключаться обратно в основной ствол. Это ваш предупреждающий сигнал!"
 
 #: source/TortoiseSVN_en.xml:3725(title)
 msgid "Commit files or folders?"
-msgstr ""
+msgstr "Фиксация файлов или папок?"
 
 #: source/TortoiseSVN_en.xml:3726(para)
 msgid "When you commit files, the commit dialog shows only the files you have selected. When you commit a folder the commit dialog will select the changed files automatically. If you forget about a new file you created, committing the folder will find it anyway. Committing a folder does <emphasis>not</emphasis> mean that every file gets marked as changed; It just makes your life easier by doing more work for you."
-msgstr ""
+msgstr "Когда вы фиксируете файлы, диалог фиксации отображает только файлы которые вы выбрали. Когда вы фиксируете папки, диалог фиксации будет выбирать измененные файлы автоматически. Если вы забудете о новых файлах созданных вами диалог фиксирования найдет их в любом случае. Фиксация папок <emphasis>не</emphasis> означает что каждый файл будет помечен как измененный, это просто делает вашу жизнь проще делая больше работы вместо вас."
 
 #: source/TortoiseSVN_en.xml:3736(para)
 msgid "If you have modified files which have been included from a different repository using <literal>svn:externals</literal>, those changes cannot be included in the same atomic commit. A warning symbol below the file list tells you if this has happened, and the tooltip explains that those external files have to be committed separately."
-msgstr ""
+msgstr "Если вы модифицировали файлы которые были включены в различные хранилища используя <literal>svn:externals</literal>, эти изменения не будут включены в некоторую атомарную фиксацию. Символ предупреждения перед списком файлов скажет вам если вы это сделали, и подсказка (tooltip) расскажет как эти внешние файлы могут быть зафиксированы отдельно."
 
 #: source/TortoiseSVN_en.xml:3744(title)
 msgid "Many unversioned files in the commit dialog"
-msgstr ""
+msgstr "Множество не версионных файлов в диалоге фиксации"
 
 #: source/TortoiseSVN_en.xml:3751(para)
 msgid "add the file (or a wildcard extension) to the list of files to exclude on the settings page. This will affect every working copy you have."
-msgstr ""
+msgstr "добавьте файл (или подстановочное расширение) в список файлов игнорирования на странице настроек. Это будет воздействовать на каждую рабочую копию которую вы имеете."
 
 #: source/TortoiseSVN_en.xml:3758(para)
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
-msgstr ""
+msgstr "добавить файл в список <literal>svn:ignore</literal>, используя <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> Это будет иметь эффект только на папки которые правильно установлены свойством <literal>svn:ignore</literal>.Используя диалог SVN Свойства (SVN Property), вы можете для папки изменить свойство <literal>svn:ignore</literal>."
 
 #: source/TortoiseSVN_en.xml:3745(para)
 msgid "If you think that the TSVN commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
@@ -7223,5 +7222,6 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:0(None)
 msgid "translator-translation"
 msgstr "Перевод"
+
 
 
