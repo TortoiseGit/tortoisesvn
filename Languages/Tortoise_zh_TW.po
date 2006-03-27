@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-21 09:46+0800\n"
+"PO-Revision-Date: 2006-03-27 15:42+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -247,6 +247,16 @@ msgstr "備份原始檔(&B)"
 msgid "&Berkeley database (BDB)"
 msgstr "柏克萊資料庫(&BDB)"
 
+#: ID:114
+msgid "&Blame differences"
+msgstr "譴責差異(&B)"
+
+# ID:76,
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "譴責版本(&B)"
+
 # ID:13,
 #: ID:13
 msgid "&Blame..."
@@ -476,7 +486,7 @@ msgstr "隱藏 (&H)"
 # Control-ID:1170,
 #: Control-ID:1170
 msgid "&Icon Set:"
-msgstr "圖示組(&I):"
+msgstr "圖示集(&I):"
 
 # Control-ID:1021,
 #: ID:15
@@ -1839,6 +1849,11 @@ msgid "Compare &HEAD revisions"
 msgstr "比對最新版本(&H)"
 
 # ID:76,
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "與工作複本比對並譴責(&W)"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "與工作複本比對(&W)"
@@ -2531,6 +2546,16 @@ msgstr "建立圖示快取失敗!"
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "%s 伺服器憑證檢核錯誤:"
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"讀寫註冊樹時發生錯誤: %s\n"
+"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3718,6 +3743,11 @@ msgstr "開啟用戶端憑證檔"
 #: ID:3601
 msgid "Open file"
 msgstr "開啟檔案"
+
+# Control-ID:1073,
+#: ID:282
+msgid "Open parent folder"
+msgstr "開啟上層目錄"
 
 # ID:9,
 #: ID:113
@@ -5940,6 +5970,16 @@ msgstr "使用工作複本的URL做為預設的來源URL(&W)"
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "使用 \"從:\" URL(版本範圍可以從上面的視窗選擇)"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "使用兩個文字區域(先使用本區塊)"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "使用兩個文字區塊(最後使用本區塊)"
 
 # Control-ID:1066,
 #: Control-ID:1066
