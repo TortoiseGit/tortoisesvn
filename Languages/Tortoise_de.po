@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-03-22 09:52+0100\n"
+"PO-Revision-Date: 2006-03-27 09:05+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -209,6 +209,15 @@ msgstr "&Erstelle Sicherheitskopie"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley Datenbank (BDB)"
+
+#: ID:114
+msgid "&Blame differences"
+msgstr "&Unterschiede annotieren"
+
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "&Revisionen annotieren"
 
 #: ID:13
 msgid "&Blame..."
@@ -1496,6 +1505,10 @@ msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
 msgid "Compare &HEAD revisions"
 msgstr "&HEAD Revisionen vergleichen"
 
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "Vergleiche mit Arbeitskopie und &Annotiere "
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Vergleiche mit &Arbeitskopie"
@@ -2069,6 +2082,16 @@ msgstr "Fehler beim Reparieren des Shell Symbolcache!"
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Fehler bei der Validierung des Serverzerzifikats für %s:"
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Fehler beim Lesen/Schreiben des Registryschlüssels %s\n"
+"%s"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -3225,6 +3248,11 @@ msgstr "Bitte warten Sie, während der Projektarchiv-Betrachter initialisiert wi
 #: ID:211
 msgid "Please wait..."
 msgstr "Bitte warten..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Vorschau der Ergebnisdatei"
 
 #: ID:132
 #, c-format
@@ -4877,6 +4905,14 @@ msgstr "Nutze die URL der &Arbeitskopie als \"Von:\" URL"
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Verwende \"Von:\" URL (Der Revisionsbereich wird im oberen Log Dialog gewählt)"
+
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Verwende beide Blöcke (Diesen zuerst)"
+
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Verwende beide Blöcke (Diesen zuletzt)"
 
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
