@@ -38,7 +38,7 @@ CSettingsProgsUniDiff::~CSettingsProgsUniDiff()
 {
 }
 
-void CSettingsProgsUniDiff::SaveData()
+int CSettingsProgsUniDiff::SaveData()
 {
 	if (m_bInitialized)
 	{
@@ -47,6 +47,7 @@ void CSettingsProgsUniDiff::SaveData()
 
 		m_regDiffViewerPath = m_sDiffViewerPath;
 	}
+	return 0;
 }
 
 void CSettingsProgsUniDiff::DoDataExchange(CDataExchange* pDX)

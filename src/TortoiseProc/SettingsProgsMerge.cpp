@@ -60,7 +60,7 @@ BEGIN_MESSAGE_MAP(CSettingsProgsMerge, CPropertyPage)
 END_MESSAGE_MAP()
 
 
-void CSettingsProgsMerge::SaveData()
+int CSettingsProgsMerge::SaveData()
 {
 	if (m_bInitialized)
 	{
@@ -71,6 +71,7 @@ void CSettingsProgsMerge::SaveData()
 
 		m_dlgAdvMerge.SaveData();
 	}
+	return 0;
 }
 
 BOOL CSettingsProgsMerge::OnInitDialog()

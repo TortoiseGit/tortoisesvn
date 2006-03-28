@@ -29,11 +29,12 @@ public:
 	virtual ~CSetMisc();
 	/**
 	  * Saves the changed settings to the registry.
+	  * returns 0 if no restart is needed for the changes to take effect
 	  * \remark If the dialog is closed/dismissed without calling
 	  * this method first then all settings the user made must be
 	  * discarded!
 	  */
-	void SaveData();
+	int SaveData();
 	
 	UINT GetIconID() {return IDI_DIALOGS;}
 

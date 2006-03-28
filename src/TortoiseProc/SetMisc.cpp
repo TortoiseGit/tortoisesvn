@@ -53,7 +53,7 @@ CSetMisc::~CSetMisc()
 {
 }
 
-void CSetMisc::SaveData()
+int CSetMisc::SaveData()
 {
 	m_regUnversionedRecurse = m_bUnversionedRecurse;
 	if (m_regUnversionedRecurse.LastError != ERROR_SUCCESS)
@@ -73,6 +73,7 @@ void CSetMisc::SaveData()
 	m_regMaxHistory = m_dwMaxHistory;
 	if (m_regMaxHistory.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regMaxHistory.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	return 0;
 }
 
 void CSetMisc::DoDataExchange(CDataExchange* pDX)

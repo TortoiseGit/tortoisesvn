@@ -1712,6 +1712,10 @@ msgstr ""
 msgid "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
 msgstr ""
 
+#: ID:196,
+msgid "Enable this only if you're working with web projects on VS.NET2003!\nYou must restart the system for this setting to take effect."
+msgstr ""
+
 #: ID:195,
 msgid "Enables the spellchecker only if the\ntsvn:projectlanguage property is set."
 msgstr ""
@@ -2036,6 +2040,10 @@ msgstr ""
 
 #: ID:196,
 msgid "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
+msgstr ""
+
+#: ID:196,
+msgid "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
 msgstr ""
 
 #: ID:251,
@@ -4038,6 +4046,10 @@ msgstr ""
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr ""
 
+#: Control-ID:1296,
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr ""
+
 #: ID:251,
 msgid "Use both text blocks (this one first)"
 msgstr ""
@@ -4173,6 +4185,10 @@ msgstr ""
 
 #: ID:105,
 msgid "You moved more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will move each file/folder\nindividually, creating a new revision for every moved item.\n\nDo you still want to do this?"
+msgstr ""
+
+#: ID:196,
+msgid "You must restart your system for the changes to take effect."
 msgstr ""
 
 #: ID:77,

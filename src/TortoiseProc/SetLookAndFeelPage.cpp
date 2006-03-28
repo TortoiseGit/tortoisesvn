@@ -66,7 +66,7 @@ BEGIN_MESSAGE_MAP(CSetLookAndFeelPage, CPropertyPage)
 END_MESSAGE_MAP()
 
 
-void CSetLookAndFeelPage::SaveData()
+int CSetLookAndFeelPage::SaveData()
 {
 	if (m_bInitialized)
 	{
@@ -95,6 +95,7 @@ void CSetLookAndFeelPage::SaveData()
 				CMessageBox::Show(m_hWnd, m_regOwnerDrawn.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
 	}
+	return 0;
 }
 
 BOOL CSetLookAndFeelPage::OnInitDialog()

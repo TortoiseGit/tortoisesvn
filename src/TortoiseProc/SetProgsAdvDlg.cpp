@@ -57,7 +57,7 @@ void CSetProgsAdvDlg::LoadData()
 	}
 }
 
-void CSetProgsAdvDlg::SaveData()
+int CSetProgsAdvDlg::SaveData()
 {
 	if (m_ToolsValid)
 	{
@@ -86,6 +86,7 @@ void CSetProgsAdvDlg::SaveData()
 				reg_value = new_value;
 		}
 	}
+	return 0;
 }
 
 void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)

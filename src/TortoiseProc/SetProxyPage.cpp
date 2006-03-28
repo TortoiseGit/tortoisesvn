@@ -60,7 +60,7 @@ CSetProxyPage::~CSetProxyPage()
 {
 }
 
-void CSetProxyPage::SaveData()
+int CSetProxyPage::SaveData()
 {
 	if (m_bInit)
 	{
@@ -115,6 +115,7 @@ void CSetProxyPage::SaveData()
 		}
 		m_regSSHClient = m_SSHClient;
 	}
+	return 0;
 }
 
 void CSetProxyPage::DoDataExchange(CDataExchange* pDX)

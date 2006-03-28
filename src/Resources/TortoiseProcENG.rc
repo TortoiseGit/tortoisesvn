@@ -409,6 +409,8 @@ BEGIN
     PUSHBUTTON      "&Edit",IDC_EDITCONFIG,212,145,72,14
     GROUPBOX        "TortoiseSVN",IDC_STATIC,7,7,286,76
     GROUPBOX        "Subversion",IDC_STATIC,7,92,286,118
+    CONTROL         "Use ""_svn"" instead of "".svn"" directories",IDC_ASPDOTNETHACK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,173,192,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217
@@ -2312,6 +2314,12 @@ BEGIN
                             "Clears the stored sizes and positions of %ld dialogs"
     IDS_SETTINGS_SAVEDDATA_AUTH_TT 
                             "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
+    IDS_SETTINGS_DOTNETHACK_TT 
+                            "Enable this only if you're working with web projects on VS.NET2003!\nYou must restart the system for this setting to take effect."
+    IDS_SETTINGS_RESTARTSYSTEM 
+                            "You must restart your system for the changes to take effect."
+    IDS_SETTINGS_ASPHACKWARNING 
+                            "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
 END
 
 STRINGTABLE 

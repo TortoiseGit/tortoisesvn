@@ -64,7 +64,7 @@ BEGIN_MESSAGE_MAP(CSettingsProgsDiff, CPropertyPage)
 END_MESSAGE_MAP()
 
 
-void CSettingsProgsDiff::SaveData()
+int CSettingsProgsDiff::SaveData()
 {
 	if (m_bInitialized)
 	{
@@ -75,6 +75,7 @@ void CSettingsProgsDiff::SaveData()
 		m_regConvertBase = m_bConvertBase;
 		m_dlgAdvDiff.SaveData();
 	}
+	return 0;
 }
 
 BOOL CSettingsProgsDiff::OnInitDialog()

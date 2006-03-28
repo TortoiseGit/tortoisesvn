@@ -37,11 +37,12 @@ public:
 	virtual ~CSetMainPage();
 	/**
 	 * Saves the changed settings to the registry.
+	 * returns 0 if no restart is needed for the changes to take effect
 	 * \remark If the dialog is closed/dismissed without calling
 	 * this method first then all settings the user made must be
 	 * discarded!
 	 */
-	void SaveData();
+	int SaveData();
 	
 	UINT GetIconID() {return IDI_GENERAL;}
 
@@ -67,15 +68,15 @@ private:
 	CRegString		m_regLastCommitTime;
 	BOOL			m_bLastCommitTime;
 
+	BOOL			m_bUseDotNetHack;
+
 public:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnCbnSelchangeLanguagecombo();
-	afx_msg void OnEnChangeTempextensions();
+	afx_msg void OnModified();
+	afx_msg void OnASPHACK();
 	virtual BOOL OnApply();
 	afx_msg void OnBnClickedEditconfig();
-	afx_msg void OnBnClickedChecknewerversion();
 	afx_msg void OnBnClickedChecknewerbutton();
-	afx_msg void OnBnClickedCommitfiletimes();
 	afx_msg void OnBnClickedSounds();
 };

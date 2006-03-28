@@ -52,10 +52,10 @@ CSetDialogs::~CSetDialogs()
 {
 }
 
-void CSetDialogs::SaveData()
+int CSetDialogs::SaveData()
 {
 	if (m_bInitialized == FALSE)
-		return;
+		return 0;
 	m_regAutoClose = m_dwAutoClose;
 	if (m_regAutoClose.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regAutoClose.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -85,6 +85,7 @@ void CSetDialogs::SaveData()
 	m_regUseWCURL = m_bUseWCURL;
 	if (m_regUseWCURL.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regUseWCURL.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	return 0;
 }
 
 void CSetDialogs::DoDataExchange(CDataExchange* pDX)

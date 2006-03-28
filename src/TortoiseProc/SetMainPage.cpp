@@ -36,19 +36,25 @@ CSetMainPage::CSetMainPage()
 	, m_sTempExtensions(_T(""))
 	, m_bCheckNewer(TRUE)
 	, m_bLastCommitTime(FALSE)
+	, m_bUseDotNetHack(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
+	if ((GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)==0)&&(GetLastError()==ERROR_ENVVAR_NOT_FOUND))
+		m_bUseDotNetHack = false;
+	else
+		m_bUseDotNetHack = true;
 }
 
 CSetMainPage::~CSetMainPage()
 {
 }
 
-void CSetMainPage::SaveData()
+int CSetMainPage::SaveData()
 {
+	int restart = 0;
 	m_regLanguage = m_dwLanguage;
 	if (m_regLanguage.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regLanguage.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -61,6 +67,33 @@ void CSetMainPage::SaveData()
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
 	if (m_regLastCommitTime.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regLastCommitTime.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+
+	CRegString asphack_local(_T("System\\CurrentControlSet\\Control\\Session Manager\\Environment\\SVN_ASP_DOT_NET_HACK"), _T(""), FALSE, HKEY_LOCAL_MACHINE);
+	CRegString asphack_user(_T("Environment\\SVN_ASP_DOT_NET_HACK"));
+	if (m_bUseDotNetHack)
+	{
+		asphack_local = _T("*");
+		if (asphack_local.LastError)
+			asphack_user = _T("*");
+		if ((GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)==0)&&(GetLastError()==ERROR_ENVVAR_NOT_FOUND))
+		{
+			restart = 1;
+		}
+		DWORD_PTR res = 0;
+		::SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, 0, SMTO_ABORTIFHUNG, 20, &res);
+	}
+	else
+	{
+		asphack_local.removeValue();
+		asphack_user.removeValue();
+		if (GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)!=0)
+		{
+			restart = 1;
+		}
+		DWORD_PTR res = 0;
+		::SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, 0, SMTO_ABORTIFHUNG, 20, &res);
+	}
+	return restart;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -71,17 +104,19 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
 	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
+	DDX_Check(pDX, IDC_ASPDOTNETHACK, m_bUseDotNetHack);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
-	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
-	ON_EN_CHANGE(IDC_TEMPEXTENSIONS, OnEnChangeTempextensions)
+	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnModified)
+	ON_EN_CHANGE(IDC_TEMPEXTENSIONS, OnModified)
 	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
-	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
+	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnModified)
 	ON_BN_CLICKED(IDC_CHECKNEWERBUTTON, OnBnClickedChecknewerbutton)
-	ON_BN_CLICKED(IDC_COMMITFILETIMES, OnBnClickedCommitfiletimes)
+	ON_BN_CLICKED(IDC_COMMITFILETIMES, OnModified)
 	ON_BN_CLICKED(IDC_SOUNDS, OnBnClickedSounds)
+	ON_BN_CLICKED(IDC_ASPDOTNETHACK, OnASPHACK)
 END_MESSAGE_MAP()
 
 
@@ -105,6 +140,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_CHECKNEWERVERSION, IDS_SETTINGS_CHECKNEWER_TT);
 	m_tooltips.AddTool(IDC_CLEARAUTH, IDS_SETTINGS_CLEARAUTH_TT);
 	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
+	m_tooltips.AddTool(IDC_ASPDOTNETHACK, IDS_SETTINGS_DOTNETHACK_TT);
 
 	//set up the language selecting combobox
 	TCHAR buf[MAX_PATH];
@@ -151,24 +187,23 @@ BOOL CSetMainPage::PreTranslateMessage(MSG* pMsg)
 	return CPropertyPage::PreTranslateMessage(pMsg);
 }
 
-void CSetMainPage::OnCbnSelchangeLanguagecombo()
+void CSetMainPage::OnModified()
 {
 	SetModified();
 }
 
-void CSetMainPage::OnEnChangeTempextensions()
+void CSetMainPage::OnASPHACK()
 {
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedChecknewerversion()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedCommitfiletimes()
-{
-	SetModified();
+	if (CMessageBox::Show(m_hWnd, IDS_SETTINGS_ASPHACKWARNING, IDS_APPNAME, MB_ICONWARNING|MB_YESNO) == IDYES)
+	{
+		SetModified();
+	}
+	else
+	{
+		UpdateData();
+		m_bUseDotNetHack = !m_bUseDotNetHack;
+		UpdateData(FALSE);
+	}
 }
 
 BOOL CSetMainPage::OnApply()

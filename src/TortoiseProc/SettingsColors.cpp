@@ -55,10 +55,10 @@ BEGIN_MESSAGE_MAP(CSettingsColors, CPropertyPage)
 	ON_BN_CLICKED(IDC_RESTORE, OnBnClickedRestore)
 END_MESSAGE_MAP()
 
-void CSettingsColors::SaveData()
+int CSettingsColors::SaveData()
 {
 	if (!bInit)
-		return;
+		return 0;
 	m_Colors.SetColor(CColors::Added, m_cAdded.GetColor(TRUE));
 	m_Colors.SetColor(CColors::Deleted, m_cDeleted.GetColor(TRUE));
 	m_Colors.SetColor(CColors::Merged, m_cMerged.GetColor(TRUE));
@@ -67,7 +67,8 @@ void CSettingsColors::SaveData()
 	m_Colors.SetColor(CColors::AddedNode, m_cAddedNode.GetColor(TRUE));
 	m_Colors.SetColor(CColors::DeletedNode, m_cDeletedNode.GetColor(TRUE));
 	m_Colors.SetColor(CColors::RenamedNode, m_cRenamedNode.GetColor(TRUE));
-	m_Colors.SetColor(CColors::ReplacedNode, m_cReplacedNode.GetColor(TRUE));	
+	m_Colors.SetColor(CColors::ReplacedNode, m_cReplacedNode.GetColor(TRUE));
+	return 0;
 }
 
 BOOL CSettingsColors::OnInitDialog()

@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "Settings.h"
-#include ".\settings.h"
+#include "MessageBox.h"
 
 
 
@@ -96,18 +96,21 @@ void CSettings::RemovePropPages()
 
 void CSettings::SaveData()
 {
-	m_pMainPage->SaveData();
-	m_pOverlayPage->SaveData();
-	m_pOverlaysPage->SaveData();
-	m_pProxyPage->SaveData();
-	m_pProgsDiffPage->SaveData();
-	m_pProgsMergePage->SaveData();
-	m_pProgsUniDiffPage->SaveData();
-	m_pLookAndFeelPage->SaveData();
-	m_pDialogsPage->SaveData();
-	m_pMiscPage->SaveData();
-	m_pColorsPage->SaveData();
-	m_pSavedPage->SaveData();
+	int restart = 0;
+	restart |= m_pMainPage->SaveData();
+	restart |= m_pOverlayPage->SaveData();
+	restart |= m_pOverlaysPage->SaveData();
+	restart |= m_pProxyPage->SaveData();
+	restart |= m_pProgsDiffPage->SaveData();
+	restart |= m_pProgsMergePage->SaveData();
+	restart |= m_pProgsUniDiffPage->SaveData();
+	restart |= m_pLookAndFeelPage->SaveData();
+	restart |= m_pDialogsPage->SaveData();
+	restart |= m_pMiscPage->SaveData();
+	restart |= m_pColorsPage->SaveData();
+	restart |= m_pSavedPage->SaveData();
+	if (restart)
+		CMessageBox::Show(NULL, IDS_SETTINGS_RESTARTSYSTEM, IDS_APPNAME, MB_ICONINFORMATION);
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CTreePropSheet)

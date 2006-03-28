@@ -28,25 +28,6 @@
  * \ingroup TortoiseProc
  * This is the Proxy page of the settings dialog. It gives the user the
  * possibility to set the proxy settings for subversion clients.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 01-28-2003
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CSetProxyPage : public CPropertyPage
 {
@@ -58,11 +39,12 @@ public:
 
 	/**
 	 * Saves the changed settings to the registry.
+	 * returns 0 if no restart is needed for the changes to take effect
 	 * \remark If the dialog is closed/dismissed without calling
 	 * this method first then all settings the user made must be
 	 * discarded!
 	 */
-	void SaveData();
+	int SaveData();
 
 	UINT GetIconID() {return IDI_PROXY;}
 

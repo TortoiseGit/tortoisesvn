@@ -34,7 +34,7 @@ public:
 	CSettingsColors();
 	virtual ~CSettingsColors();
 
-	void SaveData();
+	int SaveData();
 
 	UINT GetIconID() {return IDI_LOOKANDFEEL;}
 

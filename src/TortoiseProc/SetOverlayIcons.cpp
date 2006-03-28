@@ -300,10 +300,10 @@ void CSetOverlayIcons::OnCbnSelchangeIconsetcombo()
 		SetModified();
 }
 
-void CSetOverlayIcons::SaveData()
+int CSetOverlayIcons::SaveData()
 {
 	if (m_sIconSet.IsEmpty())
-		return;
+		return 0;
 	if (m_sIconSet.CompareNoCase(m_sOriginalIconSet)!=0)
 	{
 		// the selected icon set has changed.
@@ -333,9 +333,11 @@ void CSetOverlayIcons::SaveData()
 			m_regAdded = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TortoiseAdded.ico");
 			if (m_regAdded.LastError != ERROR_SUCCESS)
 				CMessageBox::Show(m_hWnd, m_regAdded.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+			return 1;
 		}
 		m_sOriginalIconSet = m_sIconSet;
 	}
+	return 0;
 }
 
 BOOL CSetOverlayIcons::OnApply()

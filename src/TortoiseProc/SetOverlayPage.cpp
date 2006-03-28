@@ -102,7 +102,7 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 END_MESSAGE_MAP()
 
 
-void CSetOverlayPage::SaveData()
+int CSetOverlayPage::SaveData()
 {
 	if (m_bInitialized)
 	{
@@ -145,6 +145,7 @@ void CSetOverlayPage::SaveData()
 		if (m_regCacheType.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regCacheType.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
+	return 0;
 }
 
 BOOL CSetOverlayPage::OnInitDialog()

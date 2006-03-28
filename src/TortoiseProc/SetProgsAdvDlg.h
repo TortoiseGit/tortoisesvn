@@ -36,11 +36,12 @@ public:
 	void LoadData();
 	/**
 	 * Saves the changed tools to the registry.
+	 * returns 0 if no restart is needed for the changes to take effect
 	 * \remark If the dialog is closed/dismissed without calling
 	 * this method first then all settings the user made must be
 	 * discarded!
 	 */
-	void SaveData();
+	int SaveData();
 
 	int AddExtension(const CString& ext, const CString& tool);
 	int FindExtension(const CString& ext);
