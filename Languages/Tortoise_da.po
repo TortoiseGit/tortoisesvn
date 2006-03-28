@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r5985
+# Based on Tortoise.pot r6105
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-11 13:49+0100\n"
+"PO-Revision-Date: 2006-03-28 09:50+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,7 +203,7 @@ msgstr "&?"
 msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
-#: ID:8,#: ID:563,#: Control-ID:1098,
+#: ID:8,#: ID:563,#: Control-ID:1098,#: Control-ID:1282,
 msgid "&Add..."
 msgstr "&Tilføj..."
 
@@ -226,6 +226,16 @@ msgstr "Lav &sikkerhedskopi af oprindelig fil"
 #: Control-ID:1128,
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley database (BDB)"
+
+#: ID:114,
+#, fuzzy
+msgid "&Blame differences"
+msgstr "&Ansvar ved forskelle"
+
+#: ID:114,#: ID:322,
+#, fuzzy
+msgid "&Blame revisions"
+msgstr "&Ansvar ved revisioner"
 
 #: ID:13,
 msgid "&Blame..."
@@ -316,7 +326,7 @@ msgstr "&Rediger"
 msgid "&Edit conflicts"
 msgstr "R&ediger konflikter"
 
-#: ID:563,#: Control-ID:1099,#: Control-ID:1282,
+#: ID:563,#: Control-ID:1099,
 msgid "&Edit..."
 msgstr "&Rediger..."
 
@@ -1344,6 +1354,11 @@ msgstr "Arkiverer dine ændringer i versionsarkivet"
 msgid "Compare &HEAD revisions"
 msgstr "Sammenlign &HEAD-revisioner"
 
+#: ID:114,
+#, fuzzy
+msgid "Compare and &blame with working copy"
+msgstr "Sammenlingn og vis &ansvar i forhold til arbejdskopi"
+
 #: ID:76,
 msgid "Compare with &working copy"
 msgstr "Sammenlign med &arbejdskopien"
@@ -1812,6 +1827,11 @@ msgstr "Fejl ved genopbygning af ikon-cache."
 msgid "Error validating server certificate for %s:"
 msgstr "Der opstod en fejl under validering af servercertifikatet for %s:"
 
+#: ID:70,
+#, c-format
+msgid "Error while reading/writing the registry key %s\n%s"
+msgstr "Fejl ved læsning eller skrivning af registreringsnøglen %s\n%s"
+
 #: Control-ID:65535,
 msgid "Exceptions:"
 msgstr "Undtagelser:"
@@ -2258,6 +2278,10 @@ msgstr "Låsen er stjålet af %s"
 msgid "Locked by %s"
 msgstr "Låst af %s"
 
+#: ID:89,
+msgid "Locking failed because a newer version exists!\nDo you want to update and try again?"
+msgstr "Låsning mislykkedes fordi der findes en nyere version!\nVil du opdatere og prøve igen?"
+
 #: ID:16,
 msgid "Locks a file for other users and makes it editable by you."
 msgstr "Låser en fil for andre brugere og gør, at du kan redigere den."
@@ -2604,6 +2628,10 @@ msgstr "Åbn klient-certifikatfil"
 msgid "Open file"
 msgstr "Åbn fil"
 
+#: ID:282,
+msgid "Open parent folder"
+msgstr "Åbn overordnet mappe"
+
 #: ID:113,
 msgid "Open with..."
 msgstr "Åbn med..."
@@ -2751,6 +2779,11 @@ msgstr "Vent venligst mens versionsarkivsøgeren initialiseres..."
 #: ID:119,#: ID:211,
 msgid "Please wait..."
 msgstr "Vent venligst..."
+
+#: ID:376,
+#, fuzzy
+msgid "Preview patched file"
+msgstr "Vis filen med korrektur"
 
 #: ID:132,
 #, c-format
@@ -4052,6 +4085,10 @@ msgstr "Opdaterer arbejdskopien til en bestemt revision"
 msgid "Updates the working copy to the current revision"
 msgstr "Opdaterer arbejdskopien til den nyeste revision"
 
+#: ID:283,
+msgid "Updating and retrying the lock..."
+msgstr "Opdaterer og forsøger låsning igen..."
+
 #: Control-ID:1064,
 # Autogenereret, bruges formodentlig ikke
 msgid "Use &magnifier on locatorbar"
@@ -4080,6 +4117,14 @@ msgstr "Brug URL for &arbejdskopi som standard \"Fra:\"-URL"
 #: Control-ID:1073,
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Anvend \"Fra:\"-URL (revisionsintervallet kan vælges i log-dialogen ovenfor)"
+
+#: ID:251,
+msgid "Use both text blocks (this one first)"
+msgstr "Brug begge tekstblokke (denne først)"
+
+#: ID:251,
+msgid "Use both text blocks (this one last)"
+msgstr "Brug begge tekstblokke (denne sidst)"
 
 #: Control-ID:1066,
 msgid "Use stri&keout for deleted lines"
