@@ -299,7 +299,7 @@ All user/site specific configuration is stored in doc.build.user.
 			
 			<!-- The CHM helpcontext target resides in an external build file -->
 			<call target="help.prepare" if="${target::exists('help.prepare')}"/>
-			<call target="help.custom" if="${target::exists('help.custom')}"/>
+
 			<copy file="${path.user.css}/styles_chm.css" todir="${doc.target.work}"/>
 
 			<exec program="hhc.exe"
