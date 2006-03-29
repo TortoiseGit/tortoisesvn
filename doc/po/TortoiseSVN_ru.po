@@ -166,6 +166,7 @@ msgstr "В главе <emphasis>Основные понятия</emphasis> мы 
 #: source/TortoiseSVN_en.xml:102
 #: (para)
 
+
 msgid "Even most Subversion users will never have to set up a server themselves. The next chapter deals with how to set up such a server, and is useful for administrators."
 msgstr "Большинство пользователей Subversion никогда не столкнётся с необходимостью устанавливать сервер самостоятельно, поэтому следующая глава, объясняющая как установить и настроить сервер, будет полезна в основном администраторам."
 
@@ -377,6 +378,7 @@ msgstr "Управление версиями - это искусство упр
 #: source/TortoiseSVN_en.xml:331
 #: (title)
 msgid "What is TortoiseSVN?"
+
 
 msgstr "Что такое TortoiseSVN?"
 
@@ -868,6 +870,7 @@ msgstr "Subversion в действии"
 
 #: source/TortoiseSVN_en.xml:980
 #: (title)
+
 msgid "Working Copies"
 msgstr "Рабочие копии"
 
@@ -942,6 +945,7 @@ msgid "Schema"
 msgstr "Схема"
 
 #: source/TortoiseSVN_en.xml:1064
+
 
 #: (entry)
 msgid "Access Method"
@@ -1919,6 +1923,7 @@ msgstr ""
 msgid "In Microsoft's world, Windows domains and usernames are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. \"JUser\")."
 msgstr "В мире Microsoft, домены Windows и имена пользователей не зависят от регистра символов. Так что некоторые сетевые администраторы любят создавать учетные записи пользователей в смешанном регистре (например \"JUser\")"
 
+
 #: source/TortoiseSVN_en.xml:2145
 #: (para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
@@ -1992,6 +1997,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:2260
 #: (para)
 msgid "Open the file <filename>ssl.conf</filename> in the Apache conf folder with a text editor."
+
 msgstr "откройте в текстовом редакторе файл <filename>ssl.conf</filename> из папки conf Apache."
 
 #: source/TortoiseSVN_en.xml:2267
@@ -2050,6 +2056,7 @@ msgstr ""
 msgid ""
 "Delete the lines <screen>\n"
 "&lt;IfDefine SSL&gt;\n"
+
 "</screen> and <screen>\n"
 "&lt;/IfDefine&gt;\n"
 "</screen>"
@@ -3162,6 +3169,7 @@ msgstr "Иногда вы можете хотеть получить копию 
 #: source/TortoiseSVN_en.xml:3676
 #: (para)
 
+
 msgid "Another way to do an export is by right-dragging a working copy folder to another location and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
 msgstr "Другой способ сделать экспорт - перетащить папку с рабочей копией удерживая правую клавишу мыши в новое место, и выбрать <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export here</guimenuitem></menuchoice> или <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Subversion export all here</guimenuitem></menuchoice>"
 
@@ -3189,6 +3197,7 @@ msgstr "Диалог Фиксация"
 #: (para)
 msgid "If your working copy is up to date and there are no conflicts, you are ready to commit your changes. Select any file and/or folders you want to commit, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
 msgstr "Если ваша рабочая копия в актуальном состоянии, и нет конфликтов, вы готовы к фиксации ваших изменений. Выберите любой файл и/или папку которую вы хотите зафиксировать, затем <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>. <placeholder-1/>"
+
 
 
 #: source/TortoiseSVN_en.xml:3726
@@ -3248,6 +3257,7 @@ msgstr "Столбец отображаемый в нижней панели н�
 
 #: source/TortoiseSVN_en.xml:3812
 #: (para)
+
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
 msgstr "Вы можете перетаскивать файлы в диалог фиксации из других мест, так как рабочая копия извлечена из того же хранилища. Например, вы можете иметь огромную рабочую копию с несколькими открытыми окнами проводника для просмотра различных папок в иерархии. Если вы хотите избежать фиксации из папки верхнего уровня (с длительным ползанием по папкам для проверки изменений) вы можете открыть диалог фиксации в одной папке и перетащить файлы или папки из других окон для включения в туже атомарную фиксацию."
 
@@ -3260,6 +3270,7 @@ msgstr "Убедитесь что ввели сообщение логгиров
 #: (title)
 msgid "The Commit Dialog Spellchecker"
 msgstr "Проверка правописания в диалоге Фиксации"
+
 
 
 #: source/TortoiseSVN_en.xml:3831
@@ -3317,6 +3328,7 @@ msgstr "Фиксация удалений или замещений."
 
 #: source/TortoiseSVN_en.xml:3896
 #: (term) source/TortoiseSVN_en.xml:3998
+
 #: source/TortoiseSVN_en.xml:4457
 msgid "Black"
 msgstr "Черный"
@@ -3431,77 +3443,77 @@ msgstr "Стандартная команда обновления (Update) не
 #: source/TortoiseSVN_en.xml:4041
 #: (para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <literal>out of date</literal> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
-msgstr ""
-
+msgstr "Если вы обновите файл или папку до специфической ревизии, вы не должны делать изменения в этих файлах. Вы получите ошибку <literal>out of date</literal> когда вы попытаетесь зафиксировать их! Если вы хотите отменить изменения в файле и снова начать с ранней ревизии, вы можете откатиться (rollback) на предыдущую ревизию, из диалога Лог ревизий. Взгляните на <xref linkend=\"tsvn-howto-rollback\"/> для более полных инструкций и альтернативных методов."
+# !!!! не пререведено
 #: source/TortoiseSVN_en.xml:4051
 #: (para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
-msgstr ""
+msgstr "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> может изредка быть полезной для просмотра what your project looked like at some earlier point in its history. Но, в основном обновление индивидуальных файлов до ранней ревизии не является хорошей идеей, так как оставляет вашу рабочую копию в несовместимом состоянии. Если файл который вы обновили был переименован, вы можете найти что файл исчез из вашей рабочей копии, так как нет файла с этим именем в более ранней ревизии. Если вы просто хотите получить локальную копию старой версии файла, лучше использовать команду <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> из диалога лога для этого файла."
 
 #: source/TortoiseSVN_en.xml:4070
 #: (title)
 msgid "Multiple Files/Folders"
-msgstr ""
+msgstr "Несколько файлов и/или папок"
 
 #: source/TortoiseSVN_en.xml:4071
 #: (para)
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
-msgstr ""
+msgstr "Если вы выберите несколько файлов и папок в Проводнике, и затем выберите <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, все из этих файлов/папок будут обновлены друг за другом. TortoiseSVN убеждается что все файлы/папки полученные из одного хранилища обновлены точно до одной ревизии!. Даже если между этими обновлениями произошла другая фиксация."
 
 #: source/TortoiseSVN_en.xml:4083
 #: (title)
 msgid "Local File Already Exists"
-msgstr ""
+msgstr "Локальный файл уже существует"
 
 #: source/TortoiseSVN_en.xml:4084
 #: (para)
 msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
-msgstr ""
+msgstr "Иногда когда вы пытаетесь обновить, обновление не удается с сообщением что уже существует локальный файл с некоторым именем. Это обычно происходит когда Subversion пытается извлечь новый версионированный файл, и обнаруживает что не версионый файл с таким именем уже существует в вашей рабочей папке. Subversion никогда не пытается переписать неверсионный файл - он может содержать что либо, над чем вы работаете, и случайно имеющий такое же имя что и файл, который другой разработчик только что зафиксировал."
 
 #: source/TortoiseSVN_en.xml:4093
 #: (para)
 msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
-msgstr ""
+msgstr "Если вы получаете это сообщение об ошибке, решение очень простое, переименуйте неверсионный файл. После выполнения обновления, вы можете проверить нужен ли переименованный файл в дальнейшем."
 
 #: source/TortoiseSVN_en.xml:4098
 #: (para)
 msgid "If you keep getting error messages, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> instead to list all the problem files. That way you can deal with them all at once."
-msgstr ""
+msgstr "Если вы продолжаете получать это сообщение об ошибке, используйте <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> для получения списка всех проблемных файлов. Это поможет вам обработать их за один раз."
 
 #: source/TortoiseSVN_en.xml:4111
 #: (title)
 msgid "Resolving Conflicts"
-msgstr ""
+msgstr "Разрешение конфликтов"
 
 #: source/TortoiseSVN_en.xml:4136
 #: (term)
 msgid "filename.ext.mine"
-msgstr ""
+msgstr "filename.ext.mine"
 
 #: source/TortoiseSVN_en.xml:4138
 #: (para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
-msgstr ""
+msgstr "Это ваш файл существовавший в вашей рабочей копии перед тем, как вы выполнили обновление, без маркеров обновления. Этот файл содержит ваши последние изменения в нем, и ничего более."
 
 #: source/TortoiseSVN_en.xml:4147
 #: (term)
 msgid "filename.ext.rOLDREV"
-msgstr ""
+msgstr "filename.ext.rOLDREV"
 
 #: source/TortoiseSVN_en.xml:4149
 #: (para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
-msgstr ""
+msgstr "Этот файл содержит базовую ревизию, перед тем как вы обновили вашу рабочую копию. Содержимое этого файла соответствует состоянию файла, после последнего извлечения без ваших изменений."
 
 #: source/TortoiseSVN_en.xml:4158
 #: (term)
 msgid "filename.ext.rNEWREV"
-msgstr ""
+msgstr "filename.ext.rNEWREV"
 
 #: source/TortoiseSVN_en.xml:4160
 #: (para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
-msgstr ""
+msgstr "Этот файл был получен клиентом Subversion от сервера когда вы обновляли вашу рабочую копию. Этот файл соответствует главной (HEAD) ревизии хранилища."
 
 #: source/TortoiseSVN_en.xml:4115
 #: (para)
@@ -3512,49 +3524,57 @@ msgid ""
 "=======\n"
 "    code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
+"Однажды вы получите <emphasis>конфликт</emphasis> при обновлении ваших файлов из хранилища. Конфликт возникает когда двое или более разработчиков делают изменения в одних и тех же строках файла. Так как Subversion ничего не знает о вашем проекте, он оставляет разрешение конфликта на разработчиков. Когда возник конфликт, вы должны открыть файл с вопросом, и найти строки начинающиеся со строки <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Конфликтная область обозначена подобно этому: <screen>\n"
+"&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"    ваши изменения\n"
+"=======\n"
+"    Код объединенный из хранилища\n"
+"&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+
+"</screen> Также, для каждого файла с конфликтами Subversion помещает три дополнительных файла в вашу папку: <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:4170
 #: (para)
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
-msgstr ""
+msgstr "Вы можете либо запустить внешнюю утилиту слияния/ редактор конфликтов с помощью <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice>, либо можете использовать любой другой редактор для ручного решения конфликта. Вы должны принимать решение какой код лучше, сделать необходимые изменения и сохранить файл."
 
 #: source/TortoiseSVN_en.xml:4181
 #: (para)
 msgid "Afterwards execute the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved</guimenuitem></menuchoice> and commit your modifications to the repository. Please note that the Resolve command does not really resolve the conflict. It just removes the <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename> files, to allow you to commit your changes."
-msgstr ""
+msgstr "Позже выполните команду <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved</guimenuitem></menuchoice> и зафиксируйте ваши изменения в хранилище. Пожалуйста помните что команда Resolve реально не устраняет конфликты. Она просто удаляет файлы <filename>filename.ext.mine</filename> and <filename>filename.ext.r*</filename>, для того чтобы вы могли зафиксировать ваши изменения."
 
 #: source/TortoiseSVN_en.xml:4194
 #: (para)
-
 msgid "If you have conflicts with binary files, Subversion does not attempt to merge the files itself. The local file remains unchanged (exactly as you last changed it) and you have <filename>filename.ext.r*</filename> files. If you want to discard your changes and keep the repository version, just use the Revert command. If you want to keep your version and overwrite the repository version, use the Resolved command, then commit your version."
-msgstr ""
+msgstr "Если вы получили конфликт в бинарных файлах, Subversion не пытается объединить эти файлы. Локальные файл остается не измененным (точно таким, каким вы оставили его после последнего изменения) и вы получаете <filename>filename.ext.r*</filename> files. Если вы хотите отменить ваши изменения, и сохранить версию из хранилища, используйте команду Revert. Если вы хотите сохранить вашу версию и переписать версию в хранилище, используйте команду Resolved, затем зафиксируйте вашу версию."
 
 #: source/TortoiseSVN_en.xml:4204
 #: (para)
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
-msgstr ""
+msgstr "Вы можете использовать команду Resolved для нескольких файлов если вы выполняете ее для родительской папки и выберите <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> Появиться диалог перечисляющий все конфликтующие файлы в папке, и вы можете выбрать какие из них пометить как решенные."
 
 #: source/TortoiseSVN_en.xml:4217
 #: (title)
 msgid "Getting Status Information"
-msgstr ""
+msgstr "Получение информации о статусе"
 
 #: source/TortoiseSVN_en.xml:4219
 #: (primary) source/TortoiseSVN_en.xml:4375
 msgid "status"
-msgstr ""
+msgstr "статус"
 
 #: source/TortoiseSVN_en.xml:4221
 #: (para)
 msgid "While you are working on your working copy you often need to know which files you have changed/added/removed or renamed, or even which files got changed and committed by others."
-msgstr ""
+msgstr "Когда вы работаете с вашей рабочей копией, вы часто нуждаетесь в определении какие файлы были изменены/добавлены/удалены, или какие файлы были изменены и зафиксированы другими."
 
 #: source/TortoiseSVN_en.xml:4227
 #: (title)
 msgid "Icon Overlays"
-msgstr ""
+msgstr "Пометки на значках"
 
 #: source/TortoiseSVN_en.xml:4229
 #: (primary)
@@ -3564,27 +3584,27 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:4233
 #: (title)
 msgid "Explorer showing icon overlays"
-msgstr ""
+msgstr "Проводник с отметками на значках"
 
 #: source/TortoiseSVN_en.xml:4237
 #: (para)
 msgid "Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different."
-msgstr ""
+msgstr "Сейчас, когда вы извлекли рабочую копию из хранилища Subversion, вы можете видеть что изменились значки в Проводнике Windows. Это одна из причин почему TortoiseSVN так популярен. TortoiseSVN добавляет так называемую пометку (overlay icon) на каждый значок файла, которая отображается поверх оригинального значка. В зависимости от Subversion статуса файла, пометки различаются."
 
 #: source/TortoiseSVN_en.xml:4245
 #: (para)
 msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <literal>normal</literal>."
-msgstr ""
+msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Свеже извлеченная рабочая копия помечается зеленой галочкой. Это означает что Subversion статус  <literal>обычный (normal)</literal>."
 
 #: source/TortoiseSVN_en.xml:4250
 #: (para)
 msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <literal>modified</literal> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/> Как только вы начнете редактировать файл, статус изменяется на <literal>измененный (modified<)/literal> и пометка изменяется на красный восклицательный знак. Так что вы можете легко видеть какие файлы были изменены с момента вашего последнего обновления рабочей копии и нуждаются в фиксации."
 
 #: source/TortoiseSVN_en.xml:4258
 #: (para)
 msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <literal>conflict</literal> occurs then the icon changes to a yellow exclamation mark."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ConflictIcon.png\"/> Если в процессе обновления возник <literal>конфликт (conflict)</literal>, тогда пометка меняется на желтый восклицательный знак. "
 
 #: source/TortoiseSVN_en.xml:4263
 #: (para)
@@ -3759,6 +3779,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4528
 #: (para)
+
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file with the pristine copy (<literal>BASE</literal> revision), which was stored after the last checkout or update."
 msgstr ""
 
@@ -3893,6 +3914,7 @@ msgid "Revert changes from which were made in the selected revision. The changes
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4705
+
 #: (para)
 
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. Again, the changes are reverted in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
@@ -4136,6 +4158,7 @@ msgid "One of the commonest requirements in project development is to see what h
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:4995
+
 #: (title)
 msgid "File Differences"
 msgstr ""
@@ -4193,6 +4216,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5070
 #: (title)
 msgid "Folder Differences"
+
 msgstr "Различия в папках"
 
 #: source/TortoiseSVN_en.xml:5071
@@ -4364,6 +4388,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5274
 #: (para)
 msgid "select the files you want to add"
+
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5279
@@ -4555,6 +4580,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:5516
 #: (title)
 msgid "Do Not SVN Move Externals"
+
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5517
@@ -4915,6 +4941,7 @@ msgstr "Специфическая ревизия в хранилище"
 #: source/TortoiseSVN_en.xml:6001
 #: (para)
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
+
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:6014
@@ -5223,6 +5250,7 @@ msgid "Locking"
 msgstr "Блокирование"
 
 #: source/TortoiseSVN_en.xml:6493
+
 #: (primary)
 msgid "locking"
 msgstr "блокирование"
@@ -5270,6 +5298,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6556
 #: (para)
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
+
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:6562
@@ -5481,6 +5510,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6849
 #: (title)
 msgid "Who Changed Which Line?"
+
 msgstr "Кто изменил эту строку?"
 
 #: source/TortoiseSVN_en.xml:6851
@@ -5632,6 +5662,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7044
 #: (term)
+
 msgid "Added file/folder"
 msgstr "Добавленные файлы или папки"
 
@@ -5797,6 +5828,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7238
 #: (para)
+
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
 msgstr ""
 
@@ -5949,6 +5981,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:7465
 #: (primary)
+
 msgid "settings"
 msgstr ""
 
@@ -5973,6 +6006,7 @@ msgid "The Settings Dialog, General Page"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7478
+
 #: (para)
 msgid "<placeholder-1/> This dialog allows you to specify your preferred language, and the Subversion-specific settings."
 msgstr ""
@@ -6218,6 +6252,7 @@ msgstr ""
 msgid "Since it takes quite a while to fetch the status of a working copy, TortoiseSVN uses a cache to store the status in so the explorer doesn't get hogged too much when showing the overlays. You can choose which type of cache TortoiseSVN should use according to your system and working copy size here: <placeholder-1/>"
 msgstr ""
 
+
 #: source/TortoiseSVN_en.xml:7799
 #: (para)
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
@@ -6296,6 +6331,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:7883
 #: (term)
 msgid "Short date / time format in log messages"
+
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7885
@@ -6348,6 +6384,7 @@ msgstr ""
 #: (title)
 msgid "The Settings Dialog, Dialogs 2 Page"
 msgstr ""
+
 
 #: source/TortoiseSVN_en.xml:7956
 #: (term)
@@ -6704,6 +6741,7 @@ msgstr ""
 #: (term)
 msgid "%mname"
 msgstr ""
+
 
 #: source/TortoiseSVN_en.xml:8346
 #: (para)
@@ -7419,6 +7457,7 @@ msgid "Include a common sub-project"
 msgstr ""
 
 
+
 #: source/TortoiseSVN_en.xml:9182
 #: (primary)
 msgid "common projects"
@@ -7430,6 +7469,7 @@ msgid "Sometimes you will want to include another project within your working co
 msgstr ""
 
 
+
 #: source/TortoiseSVN_en.xml:9194
 #: (title)
 msgid "Use svn:externals"
@@ -7439,6 +7479,7 @@ msgstr ""
 #: (para)
 msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a subfolder which you want the use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-import-4\"/>."
 msgstr ""
+
 
 #: source/TortoiseSVN_en.xml:9203
 #: (para)
@@ -7490,6 +7531,7 @@ msgid ""
 "#include \"X:\\superio\\superio.h\"\n"
 "</screen>"
 msgstr ""
+
 
 
 #: source/TortoiseSVN_en.xml:9280
@@ -7728,6 +7770,7 @@ msgstr ""
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
 msgstr ""
 
+
 #: source/TortoiseSVN_en.xml:9563
 #: (para)
 msgid "<option>/closeonend:1</option> auto close if no errors"
@@ -7767,6 +7810,7 @@ msgstr ""
 #: (option)
 msgid "/revstart:xxx"
 msgstr ""
+
 
 #: source/TortoiseSVN_en.xml:9613
 #: (option)
@@ -8023,6 +8067,7 @@ msgid ""
 "\n"
 "TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /notempfile /closeonend\n"
 "\n"
+
 "TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
 "                 /revstart:50 /revend:60 /notempfile /closeonend\n"
 "</screen>"
@@ -8136,6 +8181,7 @@ msgstr ""
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
 msgstr ""
 
+
 #: source/TortoiseSVN_en.xml:9983
 #: (title)
 msgid "Update to Revision"
@@ -8181,6 +8227,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10017
 #: (para)
+
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
 msgstr ""
 
@@ -8272,6 +8319,7 @@ msgid ""
 "svn status -v PATH\n"
 "  or\n"
 "svn status -u -v PATH\n"
+
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10090
@@ -8409,6 +8457,7 @@ msgstr ""
 msgid "Get Lock"
 msgstr ""
 
+
 #: source/TortoiseSVN_en.xml:10199
 #: (para)
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
@@ -8464,6 +8513,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10236
 #: (listitem)
+
 msgid "Specific revision in repository"
 msgstr ""
 
@@ -8735,4 +8785,5 @@ msgstr ""
 #: (None)
 msgid "translator-translation"
 msgstr "Перевод"
+
 
