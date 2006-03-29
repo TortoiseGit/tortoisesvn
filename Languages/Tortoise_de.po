@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-03-27 10:25+0100\n"
+"PO-Revision-Date: 2006-03-29 09:56+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2017,6 +2017,15 @@ msgstr ""
 "Aktivieren Sie diese Option, wenn Sie Tastenkürzel im Kontextmenü verwenden wollen.\n"
 "Beachten Sie, dass die Symbole im Kontextmenü besser aussehen, wenn die Tastenkürzel deaktiviert sind."
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"Aktivieren Sie diese Option nur wenn Sie mit Web-Projekten unter VS.Net 2003 arbeiten wollen!\n"
+"Sie müssen Ihren Rechner neu starten, damit die Änderungen wirksam werden."
+
 #: ID:195
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -2435,6 +2444,19 @@ msgid ""
 msgstr ""
 "Aktivieren Sie diese Option, damit auch nicht versionierte Verzeichnisse\n"
 "im Statusfenster - zum Beispiel des Übertragen Dialogs - angezeigt werden."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"Wenn Sie diese Einstellung ändern, werden Ihre bisherigen Arbeitskopien nicht mehr erkannt!\n"
+"Sie müssen dann die Arbeitskopien erneut auschecken.\n"
+"Wenn Sie sich nicht absolut sicher sind, lesen Sie bitte die Anleitung.\n"
+"Sind Sie ganz sicher, dass Sie die Einstellung ändern wollen?"
 
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -4906,6 +4928,11 @@ msgstr "Nutze die URL der &Arbeitskopie als \"Von:\" URL"
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Verwende \"Von:\" URL (Der Revisionsbereich wird im oberen Log Dialog gewählt)"
 
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Verwende \"_svn\" anstatt \".svn\" Verzeichnissen"
+
 #: ID:251
 msgid "Use both text blocks (this one first)"
 msgstr "Verwende beide Blöcke (Diesen zuerst)"
@@ -5123,6 +5150,11 @@ msgstr ""
 "jedes Objekt einzeln verschieben und dafür jeweils eine Revision anlegen.\n"
 "\n"
 "Wollen Sie die Aktion trotzdem durchführen?"
+
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "Sie müssen Ihren Rechner neu starten, damit die Änderungen wirksam werden."
 
 #: ID:77
 msgid ""
