@@ -126,6 +126,7 @@ public:
 			if (m_relativeurl.Compare(cpath->sPath)== 0)
 			{
 				m_copyfromurl = m_reposroot + cpath->sCopyFromPath;
+				m_rev = cpath->lCopyFromRev;
 			}
 			delete cpath;
 		}
