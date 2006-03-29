@@ -378,7 +378,7 @@ UINT_PTR CALLBACK SVNPrompt::OFNHookProc(HWND hdlg, UINT uiMsg, WPARAM /*wParam*
 	return FALSE;
 }
 
-svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, void *baton, const char * /*realm*/, svn_boolean_t may_save, apr_pool_t *pool)
+svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, void *baton, const char * realm, svn_boolean_t may_save, apr_pool_t *pool)
 {
 	SVNPrompt* svn = (SVNPrompt *)baton;
 	svn_auth_cred_ssl_client_cert_pw_t *ret = (svn_auth_cred_ssl_client_cert_pw_t *)apr_pcalloc (pool, sizeof (*ret));
@@ -396,6 +396,11 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
 			{
 				CString regpath = _T("Software\\tigris.org\\Subversion\\Servers\\");
 				CString groups = regpath + _T("groups\\");
+				CString server = CString(realm);
+				int f1 = server.Find('<')+9;
+				int len = server.Find(':', 10)-f1;
+				server = server.Mid(f1, len);
+				svn->m_server = server;
 				groups += svn->m_server;
 				CRegString server_groups = CRegString(groups);
 				server_groups = svn->m_server;
