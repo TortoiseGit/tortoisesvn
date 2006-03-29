@@ -142,7 +142,6 @@
        before the parent items to avoid an error message. (Tobias Schäfer)
 - BUG: When a setting change couldn't be saved in the registry, no error
        message was shown. See issue #237 for details. (Stefan)
-- BUG: The "show log between tags" used the wrong revisions. (Stefan)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the
@@ -181,6 +180,7 @@ Version 1.3.3
 - BUG: Reverting changes from the list of modified items in the log
        dialog did not work if the path/url had spaces in them. (Stefan)
 - BUG: The ssl-client-cert-password wasn't saved correctly. (Stefan)
+- BUG: The "show log between tags" used the wrong revisions. (Stefan)
 
 Version 1.3.2
 - BUG: When copying and renaming a file by right-dragging, the "Cancel" 
