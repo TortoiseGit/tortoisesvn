@@ -112,7 +112,10 @@ void CRegDWORD::write()
 CRegDWORD::operator DWORD()
 {
 	if ((m_read)&&(!m_force))
+	{
+		LastError = 0;
 		return m_value;
+	}
 	else
 	{
 		return read();
@@ -124,6 +127,7 @@ CRegDWORD& CRegDWORD::operator =(DWORD d)
 	if ((d==m_value)&&(!m_force))
 	{
 		//no write to the registry required, its the same value
+		LastError = 0;
 		return *this;
 	}
 	m_value = d;
@@ -229,7 +233,10 @@ void CRegString::write()
 CRegString::operator CString()
 {
 	if ((m_read)&&(!m_force))
+	{
+		LastError = 0;
 		return m_value;
+	}
 	else
 	{
 		return read();
@@ -241,6 +248,7 @@ CRegString& CRegString::operator =(const CString& s)
 	if ((s==m_value)&&(!m_force))
 	{
 		//no write to the registry required, its the same value
+		LastError = 0;
 		return *this;
 	}
 	m_value = s;
@@ -343,7 +351,10 @@ void CRegRect::write()
 CRegRect::operator CRect()
 {
 	if ((m_read)&&(!m_force))
+	{
+		LastError = 0;
 		return m_value;
+	}
 	else
 	{
 		return read();
@@ -355,6 +366,7 @@ CRegRect& CRegRect::operator =(CRect s)
 	if ((s==m_value)&&(!m_force))
 	{
 		//no write to the registry required, its the same value
+		LastError = 0;
 		return *this;
 	}
 	m_value = s;
@@ -457,7 +469,10 @@ void CRegPoint::write()
 CRegPoint::operator CPoint()
 {
 	if ((m_read)&&(!m_force))
+	{
+		LastError = 0;
 		return m_value;
+	}
 	else
 	{
 		return read();
@@ -469,6 +484,7 @@ CRegPoint& CRegPoint::operator =(CPoint s)
 	if ((s==m_value)&&(!m_force))
 	{
 		//no write to the registry required, its the same value
+		LastError = 0;
 		return *this;
 	}
 	m_value = s;
@@ -643,7 +659,10 @@ void CRegStdString::write()
 CRegStdString::operator LPCTSTR()
 {
 	if ((m_read)&&(!m_force))
+	{
+		LastError = 0;
 		return m_value.c_str();
+	}
 	else
 		return read().c_str();
 }
@@ -651,7 +670,10 @@ CRegStdString::operator LPCTSTR()
 CRegStdString::operator stdstring()
 {
 	if ((m_read)&&(!m_force))
+	{
+		LastError = 0;
 		return m_value;
+	}
 	else
 	{
 		return read();
@@ -663,6 +685,7 @@ CRegStdString& CRegStdString::operator =(stdstring s)
 	if ((s.compare(m_value)==0)&&(!m_force))
 	{
 		//no write to the registry required, its the same value
+		LastError = 0;
 		return *this;
 	}
 	m_value = s;
@@ -755,7 +778,10 @@ void CRegStdWORD::write()
 CRegStdWORD::operator DWORD()
 {
 	if ((m_read)&&(!m_force))
+	{
+		LastError = 0;
 		return m_value;
+	}
 	else
 	{
 		return read();
@@ -767,6 +793,7 @@ CRegStdWORD& CRegStdWORD::operator =(DWORD d)
 	if ((d==m_value)&&(!m_force))
 	{
 		//no write to the registry required, its the same value
+		LastError = 0;
 		return *this;
 	}
 	m_value = d;
