@@ -1050,7 +1050,10 @@ void CRepositoryBrowser::OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 	LPNMREPORTVIEW pNMTreeView = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
 
 	*pResult = 0;
-	HTREEITEM hSelItem = m_treeRepository.GetItemHandle(m_treeRepository.GetFirstSelectedItem());
+	int hFirstSelItem = m_treeRepository.GetFirstSelectedItem();
+	if (hFirstSelItem == RVI_INVALID)
+		return;
+	HTREEITEM hSelItem = m_treeRepository.GetItemHandle(hFirstSelItem);
 	UINT uSelCount = m_treeRepository.GetSelectedCount();
 
 	switch (pNMTreeView->nKeys)

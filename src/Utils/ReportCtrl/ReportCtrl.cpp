@@ -1128,11 +1128,15 @@ HTREEITEM CReportCtrl::GetNextItem(HTREEITEM hItem, UINT nCode)
 		{
 			LPTREEITEM lptiSibling = lpti->lptiParent->lptiChildren;
 			ASSERT(lptiSibling != NULL);
+			if (lptiSibling == NULL)
+				return NULL;
 
 			while(lptiSibling->lptiSibling != lpti)
 			{
 				lptiSibling = lptiSibling->lptiSibling;
 				ASSERT(lptiSibling != NULL);
+				if (lptiSibling == NULL)
+					return NULL;
 			}
 
 			lpti = lptiSibling;
@@ -3926,6 +3930,8 @@ CReportCtrl::ITEM& CReportCtrl::GetItemStruct(INT iItem, INT iSubItem, UINT nMas
 		return *lpItem;
 	}
 
+	if (iItem<0)
+		return m_itemEdit;
 	return iItem == RVI_EDIT ? m_itemEdit:m_arrayItems[iItem];
 }
 
@@ -3993,6 +3999,8 @@ INT CReportCtrl::GetItemFromRow(INT iRow)
 		return iRow;
 
 	if(iRow == RVI_INVALID)
+		return RVI_INVALID;
+	if((iRow < 0)||(iRow >= m_arrayRows.GetCount()))
 		return RVI_INVALID;
 
 	return iRow == RVI_EDIT ? RVI_EDIT:m_arrayRows[iRow];
@@ -4145,6 +4153,8 @@ void CReportCtrl::SetState(INT iRow, UINT nState, UINT nMask)
 {
 	ASSERT(iRow >= RVI_EDIT);
 
+	if (iRow < RVI_EDIT)
+		return;
 	if(iRow == RVI_EDIT)
 	{
 		m_itemEdit.nState &= ~nMask;
@@ -4152,8 +4162,11 @@ void CReportCtrl::SetState(INT iRow, UINT nState, UINT nMask)
 	}
 	else if(!(m_dwStyle&RVS_OWNERDATA))
 	{
-		m_arrayItems[m_arrayRows[iRow]].nState &= ~nMask;
-		m_arrayItems[m_arrayRows[iRow]].nState |= nState&nMask;
+		if (iRow < m_arrayRows.GetCount())
+		{
+			m_arrayItems[m_arrayRows[iRow]].nState &= ~nMask;
+			m_arrayItems[m_arrayRows[iRow]].nState |= nState&nMask;
+		}
 	}
 
 	FlushCache(iRow);
@@ -4173,6 +4186,9 @@ UINT CReportCtrl::GetState(INT iRow)
 CReportCtrl::LPTREEITEM CReportCtrl::GetTreeFocus()
 {
 	INT iFocusItem = GetItemFromRow(m_iFocusRow);
+
+	if (iFocusItem==RVI_INVALID)
+		return NULL;
 
 	if(iFocusItem >= RVI_EDIT)
 		SetState(m_iFocusRow, 0, RVIS_FOCUSED);
