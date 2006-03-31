@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6105
+# Based on Tortoise.pot r6149
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-28 09:50+0100\n"
+"PO-Revision-Date: 2006-03-31 09:10+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1774,6 +1774,10 @@ msgstr "Slå genvejst&aster til for øverste kontekstmenu"
 msgid "Enable this if you want keyboard accelerators on the top level context menu too.\nNote that the context menu icons look nicer with this disabled."
 msgstr "Slå denne til, hvis du også ønsker genvejstaster på den øverste kontekstmenu.\nBemærk, at ikonerne i kontekstmenuen ser pænere ud, når dette er slået fra."
 
+#: ID:196,
+msgid "Enable this only if you're working with web projects on VS.NET2003!\nYou must restart the system for this setting to take effect."
+msgstr "Slå kun denne til, hvis du arbejder med web-projekter på VS.NET2003!\nDu skal genstarte computeren, før denne ændring træder i kraft."
+
 #: ID:195,
 msgid "Enables the spellchecker only if the\ntsvn:projectlanguage property is set."
 msgstr "Slår kun stavekontrollen til, hvis\negenskaben tsvn:projectlanguage er sat."
@@ -2099,6 +2103,10 @@ msgstr "Hvis valgt, så vil TortoiseSVN sætte tidsstemplerne på filerne til de
 #: ID:196,
 msgid "If set, files inside unversioned folders can be shown in the status control.\nThe status control is used for example in the commit dialog."
 msgstr "Hvis valgt, så kan filer i ikke-versionerede mapper vises i status-kontrollen.\nStatus-kontrollen benyttes til eksempel i \"Arkivér\"-dialogen."
+
+#: ID:196,
+msgid "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
+msgstr "Hvis du ændrer denne værdi, vil du ikke længere kunne arbejde med dine eksisterende arbejdskopier!\nDu skal derfor hente alle dine arbejdskopier igen.\nHvis du ikke er sikker på, hvad du gør, bør du læse dokumentationen.\nEr du helt sikker på, at du vil fortsætte?"
 
 #: ID:251,
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -4118,6 +4126,10 @@ msgstr "Brug URL for &arbejdskopi som standard \"Fra:\"-URL"
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Anvend \"Fra:\"-URL (revisionsintervallet kan vælges i log-dialogen ovenfor)"
 
+#: Control-ID:1296,
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Benyt \"_svn\"-mapper i stedet for \".svn\""
+
 #: ID:251,
 msgid "Use both text blocks (this one first)"
 msgstr "Brug begge tekstblokke (denne først)"
@@ -4254,6 +4266,10 @@ msgstr "Du har ikke indtastet et problemnummer!\nEr du sikker på at du vil arki
 #: ID:105,
 msgid "You moved more than one file or folder.\nIt's not possible to do that in one step, so TortoiseSVN will move each file/folder\nindividually, creating a new revision for every moved item.\n\nDo you still want to do this?"
 msgstr "Du har flyttet mere end én fil eller mappe.\nDet er ikke muligt at gøre dette i ét skridt, så TortoiseSVN vil flytte hver fil/mappe\nfor sig selv og dermed lave en ny revision for hver flyttet emne.\n\nVil du stadig gøre dette?"
+
+#: ID:196,
+msgid "You must restart your system for the changes to take effect."
+msgstr "Du skal genstarte computeren før ændringerne træder i kraft."
 
 #: ID:77,
 msgid "You selected an unversioned file.\nThe file will be added to version control when you commit."
