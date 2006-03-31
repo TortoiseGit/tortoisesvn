@@ -146,7 +146,6 @@ public:
 	 * Get a string representing the file path, optionally with a base 
 	 * section stripped off the front
 	 * Returns a string with fwdslash paths 
-	 * \todo: Is this really what's wanted?
 	 */
 	CString GetDisplayString(const CTSVNPath* pOptionalBasePath = NULL) const;
 	/**

@@ -396,8 +396,6 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 		// If a strLine is a file, svn:externals and its parent directory
 		// will also be returned by GetXXXFileStatus. Hence, we skip all
 		// status info until we find the one matching workingTarget.
-//TODO: This could probably be better done with the new filtering mechanism on 
-// the SVNstatus calls
 		if (!workingTarget.IsDirectory())
 		{
 			if (!workingTarget.IsEquivalentTo(svnPath))
@@ -784,8 +782,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 
 	m_arListArray.clear();
 
-	// TODO: This might reserve rather a lot of memory - not necessarily strictly necessary
-	// It might be better to have a guess at how much we'll need
 	m_arListArray.reserve(m_arStatusArray.size());
 	SetItemCount(m_arStatusArray.size());
 
