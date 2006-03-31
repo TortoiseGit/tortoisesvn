@@ -58,6 +58,7 @@ TortoiseBlame::TortoiseBlame()
 	m_selectedrevcolor = ::GetSysColor(COLOR_HIGHLIGHT);
 	m_selectedauthorcolor = InterColor(m_selectedrevcolor, m_texthighlightcolor, 35);
 
+	m_selectedrev = -1;
 	m_directPointer = 0;
 	m_directFunction = 0;
 }
@@ -1120,6 +1121,9 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		}
 		break;
 	case WM_RBUTTONDOWN:
+		if (app.m_selectedrev >= 0)
+			break;
+		// fall through
 	case WM_LBUTTONDOWN:
 		{
 			int y = ((int)(short)HIWORD(lParam));
