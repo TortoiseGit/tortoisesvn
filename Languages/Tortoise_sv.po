@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-20 08:33+0100\n"
+"PO-Revision-Date: 2006-03-31 11:23+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -213,6 +213,18 @@ msgstr "Skapa &backup på originalfilen"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkley database (DBD)"
+
+# Hur översätta "difference"
+#: ID:114
+#, fuzzy
+msgid "&Blame differences"
+msgstr "&Jämför skillnader per rad"
+
+#: ID:114
+#: ID:322
+#, fuzzy
+msgid "&Blame revisions"
+msgstr "&Jämför revisioner per rad"
 
 #: ID:13
 msgid "&Blame..."
@@ -1539,6 +1551,11 @@ msgstr "Sparar dina ändringar i arkivet"
 msgid "Compare &HEAD revisions"
 msgstr "Jämför &HEAD revisioner"
 
+#: ID:114
+#, fuzzy
+msgid "Compare and &blame with working copy"
+msgstr "Jämför med &arbetskopia och visa ändringar per rad"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Jämför med &arbetskopia"
@@ -2062,6 +2079,15 @@ msgstr ""
 "Aktivera om du vill ha acceleratorknappar på den högsta nivån i högerklicksmenyn.\n"
 "Observera att högerklicksmenyn ser bättre ut när detta inte är aktiverat. "
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"Aktivera endast detta om du arbetar med web projekt i VS.NET2003!\n"
+"Du måste starta om systemet för att ändringen ska börja gälla."
+
 # Control-ID:1224,
 #: ID:195
 msgid ""
@@ -2131,6 +2157,16 @@ msgstr "Ett fel upspstod när ikoncachen reparerades!"
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Fel vid validering av servercertifikat för %s:"
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Fel vid läsning/skrivning av register nyckeln %s\n"
+"%s"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -2478,6 +2514,19 @@ msgstr ""
 "Visa filer inuti ej versionshanterade mappar i status kontrollen.\n"
 "Status kontrollen används tex i arkivera dialogen. "
 
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"Om du ändrar det här värdet så kommer inte dina befintliga arbetskopior att detekteras längre!\n"
+"Du måste hämta nya arbetskopior.\n"
+"Om du är osäker läs dokumentationen.\n"
+"Är du helt säker att du vill ändra detta?"
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -2751,12 +2800,11 @@ msgstr "Låst av %s"
 
 # ID:89,
 #: ID:89
-#, fuzzy
 msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
 msgstr ""
-"Låsningen misslyckades eftersom det finns en nyare revision!\n"
+"Låsningen misslyckades eftersom det finns en nyare version!\n"
 "Vill du uppdatera och försöka igen?"
 
 # ID:16,
@@ -3159,6 +3207,11 @@ msgstr "Öppna fil med klientcertifikat"
 msgid "Open file"
 msgstr "Öppna fil"
 
+#: ID:282
+#, fuzzy
+msgid "Open parent folder"
+msgstr "Öppna mappens förälder"
+
 #: ID:113
 msgid "Open with..."
 msgstr "Öppna med..."
@@ -3325,7 +3378,7 @@ msgstr "Vänta..."
 # ID:376,
 #: ID:376
 msgid "Preview patched file"
-msgstr "Förhandsgranska den patchade filen"
+msgstr "Förhandsgrandska den patchade filen"
 
 #: ID:132
 #, c-format
@@ -5029,6 +5082,19 @@ msgstr "Använd a&rbetskopians URL som default \"Från:\" URL"
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Använd \"Från:\" URL (revisionsområdet är valbart i loggdialogen)"
 
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Använda \"_svn\" istället för \".svn\" mappar"
+
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Avnända båda textblocken (den här först)"
+
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Använd båda textblocken (den här sist)"
+
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
 msgstr "Använd överstry&kning för borttagna rader"
@@ -5243,6 +5309,11 @@ msgstr ""
 "var och en för sig, vilket leder till en ny revision för flyttat objekt.\n"
 "\n"
 "Vill du fortfarande göra detta?"
+
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "Du måste starta om systemet för ändringarna ska börja gälla. "
 
 #: ID:77
 msgid ""
