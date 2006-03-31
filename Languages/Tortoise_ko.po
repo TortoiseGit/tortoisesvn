@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-24 11:13+0900\n"
+"PO-Revision-Date: 2006-03-31 14:14+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -246,6 +246,16 @@ msgstr "원본 파일 백업(&B)"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "버클리 데이터베이스(&B) (BDB)"
+
+#: ID:114
+msgid "&Blame differences"
+msgstr "수정한 사람을 포함하여 비교(&B)"
+
+# ID:76,
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "두 리비전에 대한 수정한 사람 보기(&B)"
 
 # ID:13,
 #: ID:13
@@ -1833,6 +1843,11 @@ msgid "Compare &HEAD revisions"
 msgstr "HEAD 리비전 비교(&H)"
 
 # ID:76,
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "수정한 사람을 포함하여 작업사본과 비교(&B)"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "작업사본과 비교(&W)"
@@ -2441,6 +2456,15 @@ msgstr ""
 "최상위 컨텍스트 메뉴에서 바로가기 키를 사용하고자할 때 체크.\n"
 "컨텍스트 메뉴의 아이콘은 체크되지 않았을 때 더 좋습니다."
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"VS.NET2003으로 웹프로젝트를 진행중에만 사용하십시오\n"
+"이 값을 적용하려면 시스템을 재시작해야합니다."
+
 # Control-ID:1224,
 #: ID:195
 msgid ""
@@ -2523,6 +2547,16 @@ msgstr "쉘 아이콘 캐쉬 새로만들기에 실패하였습니다."
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "서버 인증서 확인 오류 %s:"
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"레지스트리 키 %s 를 읽거나 쓰는 도중 오류 발생\n"
+"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2924,6 +2958,19 @@ msgid ""
 msgstr ""
 "설정하면, 버전관리대상이 아닌 폴더도 상태 컨트롤에서 보여집니다.\n"
 "상태 컨트롤은 커밋 대화상자안의 예제로 사용됩니다."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"이 값을 변경하면 사용중인 작업사본은 더이상 인식할 수 없게 되며,\n"
+"다시 체크아웃하여야 합니다.\n"
+"무슨 내용인지 모를 경우, 문서를 읽어 주시기 바랍니다.\n"
+"정말 변경하시겠습니까?"
 
 # ID:251,
 #: ID:251
@@ -3706,6 +3753,11 @@ msgstr "클라이언트 인증서 파일 열기"
 #: ID:3601
 msgid "Open file"
 msgstr "파일 열기"
+
+# Control-ID:1073,
+#: ID:282
+msgid "Open parent folder"
+msgstr "상위 폴더 열기"
 
 # ID:9,
 #: ID:113
@@ -5927,6 +5979,21 @@ msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용합니다.(&W)"
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "\"시작:\" URL을 다시 사용합니다 (리비전 구간은 위 로그 보기 대화상자에서 선택가능합니다.)"
 
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "\".svn\" 디렉토리 대신 \"_svn\"을 사용"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "두 블럭 모두 사용 (이것을 원본으로 사용)"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "두 블럭 모두 사용 (이것을 비교본으로 사용)"
+
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
@@ -6166,6 +6233,11 @@ msgstr ""
 "각 이동 명령 마다 리비전이 올라가게 됩니다.\n"
 "\n"
 "계속 진행하시겠습니까?"
+
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "바뀐 설정을 사용하려면 시스템을 재시작해야합니다."
 
 # ID:77,
 #: ID:77
