@@ -15,6 +15,44 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_TORTOISEBLAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Find",                       ID_EDIT_FIND
+    END
+END
+
+IDR_BLAMEPOPUP MENU 
+BEGIN
+    POPUP "&Copy to clipboard"
+    BEGIN
+        MENUITEM "&Copy to clipboard",          ID_COPYTOCLIPBOARD
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
@@ -35,33 +73,15 @@ IDI_SMALL               ICON                    "small.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Menu
-//
-
-IDC_TORTOISEBLAME MENU 
-BEGIN
-    POPUP "&File"
-    BEGIN
-        MENUITEM "E&xit",                       IDM_EXIT
-    END
-    POPUP "&Edit"
-    BEGIN
-        MENUITEM "&Find",                       ID_EDIT_FIND
-    END
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Accelerator
 //
 
 IDC_TORTOISEBLAME ACCELERATORS 
 BEGIN
-    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
-    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
     VK_F3,          ID_EDIT_FIND,           VIRTKEY, NOINVERT
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
 END
 
 

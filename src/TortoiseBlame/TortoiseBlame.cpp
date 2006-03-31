@@ -388,6 +388,31 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	return true;
 }
 
+void TortoiseBlame::CopySelectedLogToClipboard()
+{
+	if (m_selectedrev <= 0)
+		return;
+	std::map<LONG, std::string>::iterator iter;
+	if ((iter = app.logmessages.find(m_selectedrev)) != app.logmessages.end())
+	{
+		std::string msg;
+		msg = iter->second;
+		msg += _T("\n");
+		if (OpenClipboard(app.wBlame))
+		{
+			EmptyClipboard();
+			HGLOBAL hClipboardData;
+			hClipboardData = GlobalAlloc(GMEM_DDESHARE, msg.size()+1);
+			char * pchData;
+			pchData = (char*)GlobalLock(hClipboardData);
+			strcpy_s(pchData, msg.size()+1, msg.c_str());
+			GlobalUnlock(hClipboardData);
+			SetClipboardData(CF_TEXT,hClipboardData);
+			CloseClipboard();
+		}
+	}
+}
+
 void TortoiseBlame::Notify(SCNotification *notification) 
 {
 	switch (notification->nmhdr.code) 
@@ -412,6 +437,9 @@ void TortoiseBlame::Command(int id)
 		break;
 	case ID_EDIT_FIND:
 		StartSearch();
+		break;
+	case ID_COPYTOCLIPBOARD:
+		CopySelectedLogToClipboard();
 		break;
 	default:
 		break;
@@ -973,6 +1001,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		EndPaint(app.wBlame, &ps);
 		break;
 	case WM_COMMAND:
+		app.Command(LOWORD(wParam));
 		break;
 	case WM_NOTIFY:
 		switch (((LPNMHDR)lParam)->code)
@@ -1086,6 +1115,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			}
 		}
 		break;
+	case WM_RBUTTONDOWN:
 	case WM_LBUTTONDOWN:
 		{
 			int y = ((int)(short)HIWORD(lParam));
@@ -1111,6 +1141,27 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 	case WM_SETFOCUS:
 		::SetFocus(app.wBlame);
 		app.SendEditor(SCI_GRABFOCUS);
+		break;
+	case WM_CONTEXTMENU:
+		{
+			if (app.m_selectedrev <= 0)
+				break;;
+			int xPos = GET_X_LPARAM(lParam);
+			int yPos = GET_Y_LPARAM(lParam);
+			if ((xPos < 0)||(yPos < 0))
+			{
+				// requested from keyboard, not mouse pointer
+				// use the center of the window
+				RECT rect;
+				GetClientRect(app.wBlame, &rect);
+				xPos = rect.right-rect.left;
+				yPos = rect.bottom-rect.top;
+			}
+			HMENU hMenu = LoadMenu(app.hInstance, MAKEINTRESOURCE(IDR_BLAMEPOPUP));
+			HMENU hPopMenu = GetSubMenu(hMenu, 0);
+			TrackPopupMenu(hPopMenu, TPM_LEFTALIGN | TPM_RIGHTBUTTON, xPos, yPos, 0, app.wBlame, NULL); 
+			DestroyMenu(hMenu);
+		}
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);

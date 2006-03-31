@@ -36,6 +36,15 @@ const int blockSize = 128 * 1024;
 
 #define MAX_LOG_LENGTH 2000
 
+
+#ifndef GET_X_LPARAM
+#define GET_X_LPARAM(lp)                        ((int)(short)LOWORD(lp))
+#endif
+#ifndef GET_Y_LPARAM
+#define GET_Y_LPARAM(lp)                        ((int)(short)HIWORD(lp))
+#endif
+
+
 class TortoiseBlame
 {
 public:
@@ -67,6 +76,7 @@ public:
 	void DrawBlame(HDC hDC);
 	void DrawHeader(HDC hDC);
 	void StartSearch();
+	void CopySelectedLogToClipboard();
 	bool DoSearch(LPSTR what, DWORD flags);
 
 	LONG						m_mouserev;
