@@ -396,7 +396,11 @@ void TortoiseBlame::CopySelectedLogToClipboard()
 	if ((iter = app.logmessages.find(m_selectedrev)) != app.logmessages.end())
 	{
 		std::string msg;
-		msg = iter->second;
+		msg += m_selectedauthor;
+		msg += "  ";
+		msg += app.dates[m_SelectedLine];
+		msg += '\n';
+		msg += iter->second;
 		msg += _T("\n");
 		if (OpenClipboard(app.wBlame))
 		{
@@ -1128,10 +1132,12 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				{
 					app.m_selectedrev = app.revs[line];
 					app.m_selectedauthor = app.authors[line];
+					app.m_selecteddate = app.dates[line];
 				}
 				else
 				{
 					app.m_selectedauthor.clear();
+					app.m_selecteddate.clear();
 					app.m_selectedrev = -2;
 				}
 				::InvalidateRect(app.wBlame, NULL, FALSE);

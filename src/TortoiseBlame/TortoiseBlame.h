@@ -83,6 +83,8 @@ public:
 	std::string					m_mouseauthor;
 	LONG						m_selectedrev;
 	std::string					m_selectedauthor;
+	std::string					m_selecteddate;
+
 	std::vector<LONG>			revs;
 	std::vector<std::string>	dates;
 	std::vector<std::string>	authors;
