@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-24 18:32+0100\n"
-"Last-Translator: Dinko Srkoč <dinko.srkoc@helix.hr>\n"
+"PO-Revision-Date: 2006-03-30 18:59+0100\n"
+"Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -492,7 +492,7 @@ msgstr "&Pomoć"
 
 #: MenuEntry
 msgid "&Help Topics"
-msgstr "&Sadržaj &pomoći"
+msgstr "&Sadržaj pomoći"
 
 # ID:3842,#:
 # ID:3842,
@@ -2479,6 +2479,15 @@ msgstr ""
 "Ovo omogućite ako želite kratice tipkovnice i na glavnom izborniku.\n"
 "Primijetite da ikone na izborniku izgledaju ljepše ako je ovo onemogućeno."
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"Omogućite ovo samo ako radite sa web projektima na VS.NET2003!\n"
+"Morate ponovo pokrenuti računalo kako bi izmjena postavke bila aktivirana."
+
 # ID:195,
 #: ID:195
 msgid ""
@@ -2976,6 +2985,19 @@ msgstr ""
 "Ako je postavljeno, prilikom provjere statusa pokazati će se i datoteke\n"
 "unutar mapa izvan sustava upravljanja verzijama.\n"
 "Provjera statusa se, na primjer, koristi u dijalogu za pohranu."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"Ako promjenite ovu vrijednost, vaše radne kopije ne budu prepoznate!\n"
+"Trebat ćete ponovo preuzeti radne kopije.\n"
+"Ako niste sigururni, molim pročitajte dokumentaciju.\n"
+"Da li ste uvjereni da želite ovo napraviti?"
 
 # ID:251,
 #: ID:251
@@ -6012,6 +6034,11 @@ msgstr "Koristi URL &radne kopije kao osnovni \"Iz:\" URL"
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Koristi \"Iz:\" URL (raspon revizija se može odabrati iz gornjeg dijaloga)"
 
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Koristi \"_svn\" umjesto \".svn\" mapa"
+
 # ID:251,
 #: ID:251
 msgid "Use both text blocks (this one first)"
@@ -6261,6 +6288,11 @@ msgstr ""
 "datoteku/mapu zasebno, izrađujući novu reviziju za svaku premještenu stavku.\n"
 "\n"
 "Želite li još uvijek to učiniti?"
+
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "Morate ponovo pokrenuti računalo kako bi aktivirali izmjene."
 
 # ID:77,
 #: ID:77
