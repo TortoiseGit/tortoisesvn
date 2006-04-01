@@ -39,7 +39,7 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
 	CString ext = mergedfile.GetFileExtension();
 	CString com = regCom;
-
+	bool bInternal = false;
 	if (ext != "")
 	{
 		// is there an extension specific merge tool?
@@ -53,6 +53,7 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 	if (com.IsEmpty()||(com.Left(1).Compare(_T("#"))==0))
 	{
 		// use TortoiseMerge
+		bInternal = true;
 		CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 		com = tortoiseMergePath;
 		if (com.IsEmpty())
@@ -157,7 +158,7 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 	else
 		com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
 
-	if (bReadOnly)
+	if ((bReadOnly)&&(bInternal))
 		com += _T(" /readonly");
 
 	if(!LaunchApplication(com, IDS_ERR_EXTMERGESTART, false))
