@@ -102,6 +102,9 @@
 - NEW: Context menu to copy the log message of the selected revision
        to the clipboard in TortoiseBlame.
        See issue #195 for details. (Stefan)
+- NEW: The "compare" context menu in the progress dialog will
+       do a three way diff if the updated file was merged.
+       See issue #236 for details. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all

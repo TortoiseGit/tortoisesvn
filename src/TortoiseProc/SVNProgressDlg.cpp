@@ -1472,21 +1472,59 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							break;
 						case ID_COMPARE:
 							{
-								CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, data->path, m_nUpdateStartRev);
-								SVN svn;
-								if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), m_nUpdateStartRev, tempfile))
+								// if the file was merged during update, do a three way diff between OLD, MINE, THEIRS
+								if (data->content_state == svn_wc_notify_state_merged)
 								{
-									ReportSVNError();
-									GetDlgItem(IDOK)->EnableWindow(TRUE);
-									break;
+									CTSVNPath basefile = CTempFiles::Instance().GetTempFilePath(true, data->path, m_nUpdateStartRev);
+									CTSVNPath newfile = CTempFiles::Instance().GetTempFilePath(true, data->path, SVNRev::REV_HEAD);
+									SVN svn;
+									if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), m_nUpdateStartRev, basefile))
+									{
+										ReportSVNError();
+										GetDlgItem(IDOK)->EnableWindow(TRUE);
+										break;
+									}
+									// If necessary, convert the line-endings on the file before diffing
+									if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
+									{
+										CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(false, data->path, SVNRev::REV_BASE);
+										if (!svn.Cat(data->path, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
+										{
+											temporaryFile.Reset();
+											break;
+										}
+										else
+										{
+											newfile = temporaryFile;
+										}
+									}
+
+									SetFileAttributes(newfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+									SetFileAttributes(basefile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+									CString revname, wcname, basename;
+									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), m_nUpdateStartRev);
+									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
+									basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
+									CUtils::StartExtMerge(basefile, newfile, data->path, data->path, basename, revname, wcname, CString(), true);
 								}
 								else
 								{
-									SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-									CString revname, wcname;
-									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), m_nUpdateStartRev);
-									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
-									CUtils::StartExtDiff(tempfile, data->path, revname, wcname);
+									CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, data->path, m_nUpdateStartRev);
+									SVN svn;
+									if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), m_nUpdateStartRev, tempfile))
+									{
+										ReportSVNError();
+										GetDlgItem(IDOK)->EnableWindow(TRUE);
+										break;
+									}
+									else
+									{
+										SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+										CString revname, wcname;
+										revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), m_nUpdateStartRev);
+										wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
+										CUtils::StartExtDiff(tempfile, data->path, revname, wcname);
+									}
 								}
 							}
 							break;
