@@ -861,8 +861,14 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							temp.LoadString(IDS_LOG_POPUP_COMPARE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
-							temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
+							// TODO:
+							// TortoiseMerge could be improved to take a /blame switch
+							// and then not 'cat' the files from a unified diff but
+							// blame then.
+							// But until that's implemented, the context menu entry for
+							// this feature is commented out.
+							//temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
+							//popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
 						}
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
