@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-23 22:27+0800\n"
+"PO-Revision-Date: 2006-04-02 21:33+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -248,6 +248,16 @@ msgstr "备份原始文件(&B)"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "Berkeley 数据库(BDB)(&B)"
+
+#: ID:114
+msgid "&Blame differences"
+msgstr "谴责差异(&B)"
+
+# ID:76,
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "谴责版本(&B)"
 
 # ID:13,
 #: ID:13
@@ -1835,6 +1845,11 @@ msgid "Compare &HEAD revisions"
 msgstr "与最新版本比较(&H)"
 
 # ID:76,
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "将谴责与工作拷贝比较(&B)"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "与工作拷贝比较(&W)"
@@ -2436,6 +2451,15 @@ msgstr ""
 "打开该选项可以使用快捷键来访问顶级关联菜单。\n"
 "注意，如果不使用快捷键，关联菜单的图标看起来更漂亮。"
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"仅在你使用VS.NET 2003开发Web项目时设置此选项！\n"
+"你必须重新启动系统使本选项生效。"
+
 # Control-ID:1224,
 #: ID:195
 msgid ""
@@ -2518,6 +2542,16 @@ msgstr "重建图标缓存时发生错误！"
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "%s 服务器凭证检核错误："
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"读写注册表键 %s 时发生错误\n"
+"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2922,6 +2956,19 @@ msgid ""
 msgstr ""
 "设置后，未进行版本控制的文件夹中的文件将出现在“状态控制”中。\n"
 "“状态控制”用于类似提交对话框等地方。"
+
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"如果你修改这个值，你现存的工作拷贝将再不能被识别！\n"
+"你必须重新检出工作拷贝。\n"
+"如果你不能确认，请阅读文档。\n"
+"你真的确认你要修改吗？"
 
 # ID:251,
 #: ID:251
@@ -3920,6 +3967,11 @@ msgstr "请稍候，正在启动版本库浏览器"
 #: ID:211
 msgid "Please wait..."
 msgstr "请稍候..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "预览补丁过的文件"
 
 # ID:132,
 #: ID:132
@@ -5922,6 +5974,21 @@ msgstr "使用工作拷贝的 URL 作为默认的来源 URL(&W)"
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "使用“起始：” 的 URL（版本范围可以在上面的日志对话框中选择）"
 
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "使用“_svn”目录替代“.svn”目录"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "使用两个文字区块（这个块最前）"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "使用两个文字区块（这个块最后）"
+
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
@@ -6162,6 +6229,11 @@ msgstr ""
 "并为每一个移动的文件/文件夹创建一个新的版本号。\n"
 "\n"
 "确定要继续执行该操作吗？"
+
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "你必须重新启动操作系统使改变生效。"
 
 # ID:77,
 #: ID:77
