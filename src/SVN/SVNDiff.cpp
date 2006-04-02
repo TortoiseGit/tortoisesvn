@@ -229,10 +229,13 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	{
 		if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), tempfile))
 		{
-			progDlg.Stop();
-			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-			CMessageBox::Show(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			return false;
+			if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, FALSE, FALSE, FALSE, _T(""), false, tempfile))
+			{
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+				CMessageBox::Show(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				return false;
+			}
 		}
 	}
 	if (CUtils::CheckForEmptyDiff(tempfile))
