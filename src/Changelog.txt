@@ -194,6 +194,8 @@ Version 1.3.3
 - BUG: The '/readonly' command line switch was passed not only to
        TortoiseMerge but other merge tools too (if configured). Those
        who don't know that switch then didn't work. (Stefan)
+- BUG: Deleted files were not always being counted in the statistics of the
+       progress dialog. (Tobias Schäfer)
 
 Version 1.3.2
 - BUG: When copying and renaming a file by right-dragging, the "Cancel" 
