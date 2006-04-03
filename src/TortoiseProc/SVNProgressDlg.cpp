@@ -348,6 +348,7 @@ CString CSVNProgressDlg::BuildInfoString()
 	int merged = 0;
 	int modified = 0;
 	int skipped = 0;
+	int replaced = 0;
 
 	for (size_t i=0; i<m_arData.size(); ++i)
 	{
@@ -389,6 +390,9 @@ CString CSVNProgressDlg::BuildInfoString()
 			break;
 		case svn_wc_notify_skip:
 			skipped++;
+			break;
+		case svn_wc_notify_commit_replaced:
+			replaced++;
 			break;
 		}
 	}
@@ -434,6 +438,12 @@ CString CSVNProgressDlg::BuildInfoString()
 		temp.LoadString(IDS_SVNACTION_COPY);
 		infotext += temp;
 		infotext.AppendFormat(_T(":%d "), copied);
+	}
+	if (replaced)
+	{
+		temp.LoadString(IDS_SVNACTION_REPLACED);
+		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), replaced);
 	}
 	if (updated)
 	{
