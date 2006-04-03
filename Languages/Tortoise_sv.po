@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-31 11:23+0100\n"
+"PO-Revision-Date: 2006-04-03 13:26+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -218,13 +218,13 @@ msgstr "&Berkley database (DBD)"
 #: ID:114
 #, fuzzy
 msgid "&Blame differences"
-msgstr "&Jämför skillnader per rad"
+msgstr "&Jämför och visa ändringar per rad"
 
 #: ID:114
 #: ID:322
 #, fuzzy
 msgid "&Blame revisions"
-msgstr "&Jämför revisioner per rad"
+msgstr "&Jämför revisioner och visa ändringar per rad"
 
 #: ID:13
 msgid "&Blame..."
@@ -273,7 +273,7 @@ msgstr "&Kontakta arkivet vid start"
 # Hur översätta "diff" och "BASE"
 #: Control-ID:1073
 msgid "&Convert files when diffing against BASE"
-msgstr "&Konvertera filer vid kontroll av skillnader mot basrevision"
+msgstr "&Konvertera filer vid jämförelser mot basrevision"
 
 # ID:376,
 #: MenuEntry
@@ -305,7 +305,7 @@ msgstr "&Ta bort..."
 # Hur översätta "diff"
 #: ID:12
 msgid "&Diff"
-msgstr "&Skillnader"
+msgstr "&Jämför"
 
 # ???
 #: Control-ID:1179
@@ -901,7 +901,7 @@ msgstr "Lägg till (ersätt)..."
 # Hur översätta "diff"
 #: ID:110
 msgid "Add extension specific diff program"
-msgstr "Lägg till filändelsespecifikt program för skillnader"
+msgstr "Lägg till filändelsespecifikt program för att visa skillnader"
 
 # Hur översätta "merge"
 #: ID:110
@@ -1888,7 +1888,7 @@ msgstr "Patchfil:"
 # Hur översätta "diffing"
 #: Control-ID:1022
 msgid "Diffing"
-msgstr "Letar skillnader"
+msgstr "Jämför"
 
 #: Control-ID:65535
 msgid "Directory:"
@@ -2098,7 +2098,6 @@ msgstr ""
 "tsvn:projectlanguage är satt."
 
 #: Control-ID:65535
-#, fuzzy
 msgid "End Revision"
 msgstr "Slutrevision"
 
@@ -4265,7 +4264,6 @@ msgid "Stacked"
 msgstr "Staplade"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Start Revision"
 msgstr "Startrevision"
 
@@ -5085,11 +5083,11 @@ msgstr "Använd \"Från:\" URL (revisionsområdet är valbart i loggdialogen)"
 # Control-ID:1296,
 #: Control-ID:1296
 msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr "Använda \"_svn\" istället för \".svn\" mappar"
+msgstr "Använd \"_svn\" istället för \".svn\" mappar"
 
 #: ID:251
 msgid "Use both text blocks (this one first)"
-msgstr "Avnända båda textblocken (den här först)"
+msgstr "Avnänd båda textblocken (den här först)"
 
 #: ID:251
 msgid "Use both text blocks (this one last)"
