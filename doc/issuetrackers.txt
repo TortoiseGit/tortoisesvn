@@ -110,6 +110,8 @@ The client should make sure that the string doesn't have multiple lines.
 If more than one issue number is entered by the user (separated by commas), the 
 client must make sure that there's no whitespace chars before and after the 
 comma. And also the whole issue number string must be trimmed.
+Note: if the bugtraq:logregex property is set, then this property should be
+ignored.
 
 name  : bugtraq:number
 value : "true" or "false"
@@ -149,7 +151,7 @@ a log message you could use the following regex strings:
 [Ii]ssue #?(\d+)(,? ?#?(\d+))+
 (\d+)
 
-The property bugtraq:logregex will override bugtraq:number.
+The property bugtraq:logregex will override bugtraq:number and bugtraq:message.
 If both bugtraq:logregex and bugtraq:message are set, then bugtraq:message is
 only used if the user enters an issue ID in the edit box of the commit window.
 Both are used in the log window to find the URL's to point to the issuetracker.

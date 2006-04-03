@@ -280,6 +280,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 {
 	size_t offset1 = 0;
 	size_t offset2 = 0;
+	bool bFound = false;
 
 	if (sUrl.IsEmpty())
 		return FALSE;
@@ -329,6 +330,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 									format.dwEffects = CFE_LINK;
 									pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
 									idoffset1 = idoffset2;
+									bFound = true;
 								}
 							} while(idbr.matched);
 						}
@@ -385,6 +387,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 								format.dwMask = CFM_LINK;
 								format.dwEffects = CFE_LINK;
 								pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+								bFound = true;
 							}
 							offset1 += results.rlength(0);
 						}
@@ -396,7 +399,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 		}
 	}
 
-	if (!sMessage.IsEmpty())
+	if ((!bFound)&&(!sMessage.IsEmpty()))
 	{
 		CString sBugLine;
 		CString sFirstPart;
@@ -469,6 +472,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 {
 	size_t offset1 = 0;
 	size_t offset2 = 0;
+	bool bFound = false;
 
 	CString sRet;
 	if (sUrl.IsEmpty())
@@ -513,6 +517,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 									sRet += idresults.backref(0).str().c_str();
 									sRet += _T(" ");
 									idoffset1 = idoffset2;
+									bFound = true;
 								}
 							} while(idbr.matched);
 						}
@@ -564,6 +569,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 							{
 								sRet += msg.Mid(range.cpMin, range.cpMax-range.cpMin);
 								sRet += _T(" ");
+								bFound = true;
 							}
 							offset1 += results.rlength(0);
 						}
@@ -575,7 +581,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 		}
 	}
 
-	if (!sMessage.IsEmpty())
+	if ((!bFound)&&(!sMessage.IsEmpty()))
 	{
 		CString sBugLine;
 		CString sFirstPart;

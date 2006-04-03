@@ -139,6 +139,8 @@
        to no changes in the working copy are not shown anymore in
        the progress dialog. (Stefan)
 - CHG: The changed paths in the log dialog are now colored. (Stefan)
+- CHG: If both bugtraq:message and bugtraq:logregex are set, then only
+       bugtraq:logregex is used. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When setting properties, an error message isn't hidden anymore by
