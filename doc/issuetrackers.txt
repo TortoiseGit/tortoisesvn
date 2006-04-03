@@ -111,7 +111,7 @@ If more than one issue number is entered by the user (separated by commas), the
 client must make sure that there's no whitespace chars before and after the 
 comma. And also the whole issue number string must be trimmed.
 Note: if the bugtraq:logregex property is set, then this property should be
-ignored.
+ignored for parsing the log message but only be used to show the issue ID edit box.
 
 name  : bugtraq:number
 value : "true" or "false"
