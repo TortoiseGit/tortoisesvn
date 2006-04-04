@@ -23,7 +23,7 @@ These steps are required to generate the release:
 
 - Check the latest versions of openssl, zlib and of course
   download any newer versions available.
-- increment the version number in version.in file
+- increment the version number in version.build.in file
 - finish the changelog.txt file, i.e. add the version title
 - run the Nant build script
 
