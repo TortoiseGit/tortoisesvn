@@ -1061,7 +1061,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					destinationPath.AppendPathString(dlg.m_name);
 				else
 					destinationPath.SetFromWin(dlg.m_name);
-				if (cmdLinePath.IsEquivalentTo(destinationPath))
+				if (cmdLinePath.GetWinPathString().CompareNoCase(destinationPath.GetWinPathString())==0)
 				{
 					//rename to the same file!
 					CMessageBox::Show(EXPLORERHWND, IDS_PROC_CASERENAME, IDS_APPNAME, MB_ICONERROR);
