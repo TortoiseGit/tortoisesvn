@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-27 15:42+0800\n"
+"PO-Revision-Date: 2006-04-04 13:15+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2464,6 +2464,15 @@ msgstr ""
 "如果你想要在最上層目錄使用快速鍵, 可以啟用這個選項.\n"
 "請注意: 不啟用這個選項, 選單看起來比較美觀."
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"如果你使用 TSVN 與 VS.NET2003的網頁專案, 請啟用本選項.\n"
+"必須要重新開機後這項設定才會生效."
+
 # Control-ID:1224,
 #: ID:195
 msgid ""
@@ -2958,6 +2967,19 @@ msgid ""
 msgstr ""
 "設定此選項時, 位於無版本控制目錄下的檔案也會在狀態中顯示.\n"
 "在送交視窗中就會用到這個功能."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"如果你修改了這項設定, 現有的工作複本將無法辨識!\n"
+"你必須重新取出工作複本才會正常.\n"
+"如果你不確定這個的作用, 請先閱讀說明文件.\n"
+"你真的確定要這麼做了嗎?"
 
 # ID:251,
 #: ID:251
@@ -5971,6 +5993,11 @@ msgstr "使用工作複本的URL做為預設的來源URL(&W)"
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "使用 \"從:\" URL(版本範圍可以從上面的視窗選擇)"
 
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "使用 \"_svn\" 目錄存放資料"
+
 # ID:251,
 #: ID:251
 msgid "Use both text blocks (this one first)"
@@ -6221,6 +6248,11 @@ msgstr ""
 "並為每個動作建立新的版號.\n"
 "\n"
 "確定要進行嗎?"
+
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "你需要重新開機後讓這些修改生效."
 
 # ID:77,
 #: ID:77
