@@ -1163,7 +1163,7 @@ BOOL CTortoiseProcApp::InitInstance()
 								}
 								CString sRenameMultipleQuestion;
 								sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, sRenList);
-								UINT idret = CMessageBox::Show(EXPLORERHWND, sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO);
+								UINT idret = CMessageBox::Show(EXPLORERHWND, sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
 								if (idret == IDYES)
 								{
 									CProgressDlg progress;
@@ -1193,6 +1193,10 @@ BOOL CTortoiseProcApp::InitInstance()
 										TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 										CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 									}
+								}
+								else if (idret == IDCANCEL)
+								{
+									// nothing
 								}
 							}
 						}
