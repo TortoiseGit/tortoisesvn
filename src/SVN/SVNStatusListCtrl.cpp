@@ -254,105 +254,109 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 
 BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */, bool bShowIgnores /* = false */)
 {
+	int refetchcounter = 0;
 	BOOL bRet = TRUE;
-	m_nTargetCount = 0;
-	m_bHasExternalsFromDifferentRepos = FALSE;
-	m_bHasExternals = FALSE;
-	m_bHasUnversionedItems = FALSE;
-	m_bShowIgnores = bShowIgnores;
-	m_nSortedColumn = 0;
-	m_bBlock = TRUE;
-	m_bBusy = true;
 	Invalidate();
 	// force the cursor to change
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-
-	// first clear possible status data left from
-	// previous GetStatus() calls
-	ClearStatusArray();
-
-	m_StatusFileList = pathList;
-
-	// Since svn_client_status() returns all files, even those in
-	// folders included with svn:externals we need to check if all
-	// files we get here belongs to the same repository.
-	// It is possible to commit changes in an external folder, as long
-	// as the folder belongs to the same repository (but another path),
-	// but it is not possible to commit all files if the externals are
-	// from a different repository.
-	//
-	// To check if all files belong to the same repository, we compare the
-	// UUID's - if they're identical then the files belong to the same
-	// repository and can be committed. But if they're different, then
-	// tell the user to commit all changes in the external folders
-	// first and exit.
-	CStringA sUUID;					// holds the repo UUID
-	CTSVNPathList arExtPaths;		// list of svn:external paths
-
-	SVNConfig config;
-
-	m_sURL.Empty();
-
-	m_nTargetCount = pathList.GetCount();
-
-	SVNStatus status(m_pbCanceled);
-	if(m_nTargetCount > 1 && pathList.AreAllPathsFilesInOneDirectory())
+	do 
 	{
-		// This is a special case, where we've been given a list of files
-		// all from one folder
-		// We handle them by setting a status filter, then requesting the SVN status of 
-		// all the files in the directory, filtering for the ones we're interested in
-		status.SetFilter(pathList);
+		bRet = TRUE;
+		m_nTargetCount = 0;
+		m_bHasExternalsFromDifferentRepos = FALSE;
+		m_bHasExternals = FALSE;
+		m_bHasUnversionedItems = FALSE;
+		m_bShowIgnores = bShowIgnores;
+		m_nSortedColumn = 0;
+		m_bBlock = TRUE;
+		m_bBusy = true;
 
-		// if all selected entries are files, we don't do a recursive status
-		// fetching. But if only one is a directory, we have to recurse.
-		bool recurse = false;
-		for (int fcindex=0; fcindex<pathList.GetCount(); ++fcindex)
+		// first clear possible status data left from
+		// previous GetStatus() calls
+		ClearStatusArray();
+
+		m_StatusFileList = pathList;
+
+		// Since svn_client_status() returns all files, even those in
+		// folders included with svn:externals we need to check if all
+		// files we get here belongs to the same repository.
+		// It is possible to commit changes in an external folder, as long
+		// as the folder belongs to the same repository (but another path),
+		// but it is not possible to commit all files if the externals are
+		// from a different repository.
+		//
+		// To check if all files belong to the same repository, we compare the
+		// UUID's - if they're identical then the files belong to the same
+		// repository and can be committed. But if they're different, then
+		// tell the user to commit all changes in the external folders
+		// first and exit.
+		CStringA sUUID;					// holds the repo UUID
+		CTSVNPathList arExtPaths;		// list of svn:external paths
+
+		SVNConfig config;
+
+		m_sURL.Empty();
+
+		m_nTargetCount = pathList.GetCount();
+
+		SVNStatus status(m_pbCanceled);
+		if(m_nTargetCount > 1 && pathList.AreAllPathsFilesInOneDirectory())
 		{
-			if (pathList[fcindex].IsDirectory())
+			// This is a special case, where we've been given a list of files
+			// all from one folder
+			// We handle them by setting a status filter, then requesting the SVN status of 
+			// all the files in the directory, filtering for the ones we're interested in
+			status.SetFilter(pathList);
+
+			// if all selected entries are files, we don't do a recursive status
+			// fetching. But if only one is a directory, we have to recurse.
+			bool recurse = false;
+			for (int fcindex=0; fcindex<pathList.GetCount(); ++fcindex)
 			{
-				recurse = true;
-				break;
+				if (pathList[fcindex].IsDirectory())
+				{
+					recurse = true;
+					break;
+				}
 			}
-		}
-		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse, bShowIgnores))
-		{
-			bRet = FALSE;
-		}
-	}
-	else
-	{
-		for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
-		{
-			// note:
-			// if a target specified multiple times (either directly or included
-			// in the status of a parent item) it will also show up multiple
-			// times in the list!
-			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false, true, bShowIgnores))
+			if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, recurse, bShowIgnores))
 			{
 				bRet = FALSE;
 			}
 		}
-	}
-
-	// remove the 'helper' files of conflicted items from the list.
-	// otherwise they would appear as unversioned files.
-	for (INT_PTR cind = 0; cind < m_ConflictFileList.GetCount(); ++cind)
-	{
-		for (size_t i=0; i < m_arStatusArray.size(); i++)
+		else
 		{
-			if (m_arStatusArray[i]->GetPath().IsEquivalentTo(m_ConflictFileList[cind]))
+			for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
 			{
-				delete m_arStatusArray[i];
-				m_arStatusArray.erase(m_arStatusArray.begin()+i);
-				break;
+				// note:
+				// if a target specified multiple times (either directly or included
+				// in the status of a parent item) it will also show up multiple
+				// times in the list!
+				if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false, true, bShowIgnores))
+				{
+					bRet = FALSE;
+				}
 			}
 		}
-	}
-	
-	BuildStatistics();
+
+		// remove the 'helper' files of conflicted items from the list.
+		// otherwise they would appear as unversioned files.
+		for (INT_PTR cind = 0; cind < m_ConflictFileList.GetCount(); ++cind)
+		{
+			for (size_t i=0; i < m_arStatusArray.size(); i++)
+			{
+				if (m_arStatusArray[i]->GetPath().IsEquivalentTo(m_ConflictFileList[cind]))
+				{
+					delete m_arStatusArray[i];
+					m_arStatusArray.erase(m_arStatusArray.begin()+i);
+					break;
+				}
+			}
+		}
+		refetchcounter++;
+	} while(!BuildStatistics() && (refetchcounter < 2));
 
 	m_bBlock = FALSE;
 	m_bBusy = false;
@@ -1365,8 +1369,9 @@ bool CSVNStatusListCtrl::IsEntryVersioned(const FileEntry* pEntry1)
 	return pEntry1->status != svn_wc_status_unversioned;
 }
 
-void CSVNStatusListCtrl::BuildStatistics()
+bool CSVNStatusListCtrl::BuildStatistics()
 {
+	bool bRefetchStatus = false;
 	// We partition the list of items so that it's arrange with all the versioned items first
 	// then all the unversioned items afterwards.
 	// Then we sort the versioned part of this, so that we can do quick look-ups in it
@@ -1432,12 +1437,23 @@ void CSVNStatusListCtrl::BuildStatistics()
 							itMatchingItem = std::lower_bound(m_arStatusArray.begin(), itFirstUnversionedEntry, entry, EntryPathCompareNoCase);
 
 							// adjust the case of the filename
-							MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING);
-							DeleteItem(i);
-							m_arStatusArray.erase(m_arStatusArray.begin()+i);
-							delete entry;
-							i--;
-							m_nUnversioned--;
+							if (MoveFileEx(entry->path.GetWinPath(), (*itMatchingItem)->path.GetWinPath(), MOVEFILE_REPLACE_EXISTING))
+							{
+								// We successfully adjusted the case in the filename. But there is now a file with status 'missing'
+								// in the array, because that's the status of the file before we adjusted the case.
+								// We have to refetch the status of that file.
+								// Since fetching the status of single files/directories is very expensive and there can be
+								// multiple case-renames here, we just set a flag and refetch the status at the end from scratch.
+								bRefetchStatus = true;
+								DeleteItem(i);
+								m_arStatusArray.erase(m_arStatusArray.begin()+i);
+								delete entry;
+								i--;
+								m_nUnversioned--;
+								// now that we removed an unversioned item from the array, find the first unversioned item in the 'new'
+								// list again.
+								itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
+							}
 							break;
 						}
 					}
@@ -1446,6 +1462,7 @@ void CSVNStatusListCtrl::BuildStatistics()
 			} // switch (entry->status) 
 		} // if (entry) 
 	} // for (int i=0; i < (int)m_arStatusArray.size(); ++i)
+	return !bRefetchStatus;
 }
 
 void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax)
