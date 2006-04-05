@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-21 00:50+0100\n"
+"PO-Revision-Date: 2006-04-06 00:32+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -245,6 +245,16 @@ msgstr "Fai il &backup dei file originali"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley Database (BDB)"
+
+#: ID:114
+msgid "&Blame differences"
+msgstr "&Biasima differenze"
+
+# ID:76,
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "&Biasima revisioni"
 
 # ID:13,
 #: ID:13
@@ -1839,6 +1849,11 @@ msgid "Compare &HEAD revisions"
 msgstr "Confronta revisioni di &testa"
 
 # ID:76,
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "Confronta e &biasima con la copia di &lavoro"
+
+# ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Confronta con la copia di &lavoro"
@@ -2448,6 +2463,15 @@ msgstr ""
 "Selezionando questa opzione i tasti di selezione rapida verranno attivati anche nel menu contestuale di primo livello.\n"
 "Nota: le icone del menu contestuale sono visualizzate meglio quando questa opzione non è abilitata."
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"Seleziona questo comando solo se si sta lavorando con progetti web in VS.NET2003!\n"
+"È indispensabile riavviare il sistema affinchè questo cambiamento abbia effetto."
+
 # Control-ID:1224,
 #: ID:195
 msgid ""
@@ -2530,6 +2554,16 @@ msgstr "Errore durante la ricostruzione della cache delle icone di stato!"
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Errore nel validare il certificato per %s:"
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Errore in lettura/scrittura sulla chiave di repository %s\n"
+"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2933,6 +2967,19 @@ msgid ""
 msgstr ""
 "Se impostato, i file all'interno delle cartelle non versionate possono essere mostrate nel controllo dello stato.\n"
 "Il controllo dello stato è usato, per esempio, nella finestra di invio."
+
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"Cambiando questo valore le copie di lavoro esistenti non saranno più riconosciute!\n"
+"Sarà indispensabile ritirare di nuovo le copie di lavoro.\n"
+"Se non si è sicuri di voler procedere, si consiglia di leggere la documentazione prima di continuare.\n"
+"Si è sicuri di voler procedere?"
 
 # ID:251,
 #: ID:251
@@ -3720,6 +3767,12 @@ msgstr "Apri il certificato corrente"
 msgid "Open file"
 msgstr "Apri file"
 
+# Control-ID:1073,
+#: ID:282
+#, fuzzy
+msgid "Open parent folder"
+msgstr "Livello superiore"
+
 # ID:9,
 #: ID:113
 msgid "Open with..."
@@ -3932,9 +3985,8 @@ msgstr "Attendere prego..."
 
 # ID:376,
 #: ID:376
-#, fuzzy
 msgid "Preview patched file"
-msgstr "Mostra in anteprima il file a cui è stata applicata la patch"
+msgstr "Mostra anteprima del file a cui è stata applicata la patch"
 
 # ID:132,
 #: ID:132
@@ -5950,6 +6002,21 @@ msgstr "Usa l'URL della copia di &lavoro come predefinito per il campo \"Da:\""
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Utilizzare l'Url \"Da:\" (l'intervallo delle revisioni è selezionabile attraverso la finestra di dialogo soprastante)"
 
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Nomina  \"_svn\"  la directory nascota invece di \".svn\""
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Usa entrambi i blocchi di testo (questo per primo)"
+
+# ID:251,
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Usa entrambi i blocchi di testo (questo per ultimo)"
+
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
@@ -6188,6 +6255,11 @@ msgstr ""
 "individualmente, creando una nuova revisione per ogni oggetto spostato.\n"
 "\n"
 "Si vuole procedere in questo modo?"
+
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "È necessario riavviare il sistema affinchè i cambiamenti abbiano effetto."
 
 # ID:77,
 #: ID:77
