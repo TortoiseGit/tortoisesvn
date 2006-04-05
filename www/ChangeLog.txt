@@ -1,3 +1,53 @@
+Version 1.3.3
+- BUG: When checking all items in e.g. commit, revert, ... dialogs, the
+       items could be painted black instead of the usual colors. (Stefan)
+- BUG: Added items can be conflicted too, but TSVN wouldn't show the
+       "resolved" and "edit conflicts" context menu items for such
+       files. (Stefan)
+- BUG: Check-for-modifications for an added folder/file and hitting
+       "contact repository" would show wrong min/max revisions (Stefan)
+- BUG: A commit with only committed files would fail silently, withou
+       an error message. (Stefan)
+- BUG: URLs with unescaped chars weren't treated properly in the log
+       dialog and the revision graph. (Stefan)
+- BUG: A redundant separator was shown in the context menu of the
+       progress dialog for some items. (Stefan)
+- BUG: file entries couldn't be selected anymore in the repository
+       browser. (Stefan)
+- BUG: Unignoring a wildcard pattern mistakenly reported the successfull
+       removal of the file name. (Tobias Schäfer)
+- BUG: Unignoring file names removed more than it should from svn:ignore if
+       the file name was part of another file name. (Tobias Schäfer)
+- BUG: The menu item "Remove from ignore list" was always not shown if
+       the file name was part of another file name. (Tobias Schäfer)
+- BUG: TortoiseMerge's option "Ignore leading whitespace" effectively ignored
+       all instead of only leading whitespace. (Tobias Schäfer)
+- BUG: If the bugtraq:logregex only contained a one-line regex with groups,
+       the ID part wasn't parsed correctly. (Stefan)
+- BUG: Checking/unchecking a deleted file in the commit dialog reported the
+       wrong number of selected files. (Tobias Schäfer)
+- BUG: Some patchfiles could not be applied, an error message indicating
+       that lines would not match was thrown instead. (Stefan)
+- BUG: The custom dictionary could sometimes loose entries. (Stefan)
+- BUG: When saving changes from files diffed via the patch function
+       (e.g. from show log->compare with working copy) the changes were
+       sometimes saved to the wrong file. (Stefan)
+- BUG: Reverting changes from the list of modified items in the log
+       dialog did not work if the path/url had spaces in them. (Stefan)
+- BUG: The ssl-client-cert-password wasn't saved correctly. (Stefan)
+- BUG: The "show log between tags" used the wrong revisions. (Stefan)
+- BUG: An "invalid argument error" could happen when refreshing/expanding
+       nodes in the repository browser. (Stefan)
+- BUG: The '/readonly' command line switch was passed not only to
+       TortoiseMerge but other merge tools too (if configured). Those
+       who don't know that switch then didn't work. (Stefan)
+- BUG: Deleted files were not always being counted in the statistics of the
+       progress dialog. (Tobias Schäfer)
+- BUG: When files got renamed in case only (e.g. file.txt to FILE.TXT)
+       outside Subversion, the TSVN would not correct the case of all
+       files and show files with 'missing' status in the commit or
+       check-for-modifications dialog. (Stefan)
+
 Version 1.3.2
 - BUG: When copying and renaming a file by right-dragging, the "Cancel" 
        button was ignored and the copy was done anyway. (Tobias Schäfer)
