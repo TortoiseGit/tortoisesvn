@@ -49,7 +49,7 @@ NotInstalled:
   Abort
 Proceed:
 !ifdef LangHelp
-  StrCpy $INSTDIR "$0\bin"
+  StrCpy $INSTDIR "$0bin"
   SetOutPath "$INSTDIR"
 !ifdef HelpFatal
   File "..\doc\output\TortoiseSVN_${CountryCode}.chm"
@@ -59,14 +59,14 @@ Proceed:
   File /nonfatal "..\doc\output\TortoiseMerge_${CountryCode}.chm"
 !endif
 !endif
-  StrCpy $INSTDIR "$0\Languages"
+  StrCpy $INSTDIR "$0Languages"
   SetOutPath "$INSTDIR"
   File /nonfatal "..\..\Common\Spell_Thes\${CountryCode}*.*"
   File /nonfatal "..\..\Common\Spell_Thes\th_${CountryCode}*.*"
   !insertmacro UpgradeDLL "..\bin\TortoiseProc${CountryID}.dll" "$INSTDIR\TortoiseProc${CountryID}.dll" "$INSTDIR"
   !insertmacro UpgradeDLL "..\bin\TortoiseMerge${CountryID}.dll" "$INSTDIR\TortoiseMerge${CountryID}.dll" "$INSTDIR"
 !ifdef MoFile
-  StrCpy $INSTDIR "$0\Languages\${CountryCode}\LC_MESSAGES"
+  StrCpy $INSTDIR "$0Languages\${CountryCode}\LC_MESSAGES"
   SetOutPath "$INSTDIR"
   File "subversion.mo"
 !endif
