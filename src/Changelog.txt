@@ -143,6 +143,8 @@
        bugtraq:logregex is used. (Stefan)
 - CHG: The summary info text in the progress dialog can be copied
        to the clipboard. (Stefan)
+- CHG: In the revision graph, the nodes are drawn without a shadow if
+       they're small. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When setting properties, an error message isn't hidden anymore by

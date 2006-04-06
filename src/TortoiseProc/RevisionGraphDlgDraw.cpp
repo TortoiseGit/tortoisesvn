@@ -151,32 +151,51 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 	TRY
 	{
 		// Prepare the shadow
-		CRect shadow = rect;
-		shadow.OffsetRect(SHADOW_OFFSET_PT);
-
-		brush.CreateSolidBrush(shadowc);
-		pOldBrush = pDC->SelectObject(&brush);
-		pen.CreatePen(penStyle, 1, shadowc);
-		pOldPen = pDC->SelectObject(&pen);
-
-		// Draw the shadow
-		switch( shape )
+		if (rect.Height() > 10)
 		{
-		case TSVNRectangle:
-			pDC->Rectangle(shadow);
-			break;
-		case TSVNRoundRect:
-			pDC->RoundRect(shadow, m_RoundRectPt);
-			break;
-		case TSVNOctangle:
-			DrawOctangle(pDC, shadow);
-			break;
-		case TSVNEllipse:
-			pDC->Ellipse(shadow);
-			break;
-		default:
-			ASSERT(FALSE);	//unknown type
-			return;
+			CRect shadow = rect;
+			CPoint shadowoffset = SHADOW_OFFSET_PT;
+			if (rect.Height() < 40)
+			{
+				shadowoffset.x--;
+				shadowoffset.y--;
+			}
+			if (rect.Height() < 30)
+			{
+				shadowoffset.x--;
+				shadowoffset.y--;
+			}
+			if (rect.Height() < 20)
+			{
+				shadowoffset.x--;
+				shadowoffset.y--;
+			}
+			shadow.OffsetRect(shadowoffset);
+
+			brush.CreateSolidBrush(shadowc);
+			pOldBrush = pDC->SelectObject(&brush);
+			pen.CreatePen(penStyle, 1, shadowc);
+			pOldPen = pDC->SelectObject(&pen);
+
+			// Draw the shadow
+			switch( shape )
+			{
+			case TSVNRectangle:
+				pDC->Rectangle(shadow);
+				break;
+			case TSVNRoundRect:
+				pDC->RoundRect(shadow, m_RoundRectPt);
+				break;
+			case TSVNOctangle:
+				DrawOctangle(pDC, shadow);
+				break;
+			case TSVNEllipse:
+				pDC->Ellipse(shadow);
+				break;
+			default:
+				ASSERT(FALSE);	//unknown type
+				return;
+			}
 		}
 
 		// Prepare selection
