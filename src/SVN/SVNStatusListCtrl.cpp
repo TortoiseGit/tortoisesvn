@@ -438,6 +438,21 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 				} 
 			}
 		}
+		else if (strCurrentRepositoryUUID.IsEmpty() && (s->text_status == svn_wc_status_added))
+		{
+			// An added entry doesn't have an UUID assigned to it yet.
+			// So we fetch the status of the parent directory instead and
+			// check if that one has an UUID assigned to it.
+			svn_wc_status2_t * sparent;
+			CTSVNPath svnParentPath;
+			sparent = status.GetFirstFileStatus(workingTarget.GetContainingDirectory(), svnParentPath, false, false, false);
+			if (sparent && sparent->entry && sparent->entry->uuid)
+			{
+				strCurrentRepositoryUUID = sparent->entry->uuid;
+				m_sUUID = strCurrentRepositoryUUID;
+			}
+		}
+
 		if ((wcFileStatus == svn_wc_status_unversioned)&& svnPath.IsDirectory())
 		{
 			// check if the unversioned folder is maybe versioned. This

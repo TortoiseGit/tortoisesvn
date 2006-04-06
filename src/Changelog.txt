@@ -153,6 +153,10 @@
 - BUG: When a setting change couldn't be saved in the registry, no error
        message was shown. See issue #237 for details. (Stefan)
 
+Version 1.3.4
+- BUG: When committing added files only, the log message wasn't saved
+       in the history. (Stefan)
+
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the
        items could be painted black instead of the usual colors. (Stefan)
