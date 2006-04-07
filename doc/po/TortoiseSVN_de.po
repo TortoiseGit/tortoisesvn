@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-04-07 09:33+0100\n"
+"PO-Revision-Date: 2006-04-07 10:16+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -551,7 +551,7 @@ msgstr "Übersetzungen"
 #: source/TortoiseSVN_en.xml:588
 #: (para)
 msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our Translations page at <ulink url=\"http://tortoisesvn.sourceforge.net/?q=translation_status\"><citetitle>http://tortoisesvn.sourceforge.net/?q=translation_status</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "Die TortoiseSVN Benutzerschnittstelle wurde in viele verschiedene Sprachen übersetzt, so dass auch für Sie ein passendes Sprachpaket zur Verfügung stehen könnte. Sie finden die vorhandenen Sprachpakete auf unserer <ulink url=\"http://tortoisesvn.berlios.de/?q=translation_status\"> <citetitle>Übersetzungsseite</citetitle></ulink>. Wenn für Sie nichts Passendes dabei ist, werden Sie doch einfach Projektmitglied und steuern Sie Ihre eigene Übersetzung bei ;-)"
+msgstr "Die TortoiseSVN Benutzerschnittstelle wurde in viele verschiedene Sprachen übersetzt, so dass auch für Sie ein passendes Sprachpaket zur Verfügung stehen könnte. Sie finden die vorhandenen Sprachpakete auf unserer <ulink url=\"http://tortoisesvn.sourceforge.net/translation_status\"> <citetitle>Übersetzungsseite</citetitle></ulink>. Wenn für Sie nichts Passendes dabei ist, werden Sie doch einfach Projektmitglied und steuern Sie Ihre eigene Übersetzung bei ;-)"
 
 #: source/TortoiseSVN_en.xml:599
 #: (para)
@@ -2388,7 +2388,7 @@ msgstr "Mit diesem Ansatz läuft svnserve nicht als Dienst, sondern die Secure S
 #: source/TortoiseSVN_en.xml:2682
 #: (para)
 msgid "It is beyond the scope of this documentation to detail the installation and setup of a secure shell, however you can find further information in the <ulink url=\"http://tortoisesvn.sourceforge.net/?q=faq\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>. Search for <quote>SSH</quote>."
-msgstr "Es sprengt den Rahmen dieses Handbuchs, auf die Konfiguration der Secure Shell genauer einzugehen. Auf unserer FAQ Seite finden Sie eine ausführliche Anleitung dazu. <ulink url=\"http://tortoisesvn.berlios.de/?q=faq\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>. Suchen Sie dort nach <quote>SSH</quote>."
+msgstr "Es sprengt den Rahmen dieses Handbuchs, auf die Konfiguration der Secure Shell genauer einzugehen. Auf unserer FAQ Seite finden Sie eine ausführliche Anleitung dazu. <ulink url=\"http://tortoisesvn.sourceforge.net/faq\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>. Suchen Sie dort nach <quote>SSH</quote>."
 
 #: source/TortoiseSVN_en.xml:2691
 #: (para)
@@ -4751,7 +4751,7 @@ msgstr "Nutze Übertragungs-Zeitstempel"
 #: source/TortoiseSVN_en.xml:5669
 #: (para)
 msgid "Some earlier releases of Subversion were affected by a bug which caused timestamp mismatch when you check out with the <guilabel>Use commit timestamps</guilabel> option checked. Use the Cleanup command to speed up these working copies."
-msgstr "Einige frühere Versionen von Subversion hatten einen Fehler welcher die Zeitstempel der Dateien falsch gesetzt hat wenn Sie ein Projekt mit <guilabel>Dateidatum auf \"Datum der letzten Übertragung\" setzen</guilabel> benutzt haben. Führen Sie den Aufräumen-Befehl aus um die Arbeitskopie mit korrekten Datei-Zeitstempeln zu versehen und damit die Geschwindigkeit von Subversion-Befehlen erhöhen."
+msgstr "Einige frühere Versionen von Subversion hatten einen Fehler welcher die Zeitstempel der Dateien falsch gesetzt hat, wenn Sie ein Projekt mit <guilabel>Dateidatum auf \"Datum der letzten Übertragung\" setzen</guilabel> benutzt haben. Führen Sie den Aufräumen-Befehl aus um die Arbeitskopie mit korrekten Datei-Zeitstempeln zu versehen und damit die Geschwindigkeit von Subversion-Befehlen erhöhen."
 
 #: source/TortoiseSVN_en.xml:5679
 #: (title)
@@ -7306,7 +7306,7 @@ msgstr "Häufig gestellte Fragen (FAQ)"
 #: source/TortoiseSVN_en.xml:8824
 #: (para)
 msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an interactive online FAQ at <ulink url=\"http://tortoisesvn.sourceforge.net?q=node/1\"><citetitle>Sourceforge.net</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing list <email>dev@tortoisesvn.tigris.org</email>."
-msgstr "Da TortoiseSVN sich ständig weiterentwickelt, ist es manchmal schwierig, die Dokumentation auf dem neuesten Stand zu halten. Wir unterhalten eine interaktive Online FAQ auf <ulink url=\"http://tortoisesvn.berlios.de?q=faq\"><citetitle>Berlios.de</citetitle></ulink> die eine Auswahl der am häufigsten auf der TortoiseSVN Mailingliste <email>dev@tortoisesvn.tigris.org</email> gestellten Fragen enthält."
+msgstr "Da TortoiseSVN sich ständig weiterentwickelt, ist es manchmal schwierig, die Dokumentation auf dem neuesten Stand zu halten. Wir unterhalten eine interaktive Online FAQ auf <ulink url=\"http://tortoisesvn.sourceforge.net/faq\"><citetitle>Sourceforge</citetitle></ulink> die eine Auswahl der am häufigsten auf der TortoiseSVN Mailingliste <email>dev@tortoisesvn.tigris.org</email> gestellten Fragen enthält."
 
 #: source/TortoiseSVN_en.xml:8835
 #: (para)
