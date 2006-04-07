@@ -86,6 +86,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_WM_CONTEXTMENU()
 	ON_REGISTERED_MESSAGE(WM_SVNPROGRESS, OnSVNProgress)
 	ON_WM_TIMER()
+	ON_EN_SETFOCUS(IDC_INFOTEXT, &CSVNProgressDlg::OnEnSetfocusInfotext)
 END_MESSAGE_MAP()
 
 
@@ -1637,4 +1638,12 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			}
 		}
 	}
+}
+
+void CSVNProgressDlg::OnEnSetfocusInfotext()
+{
+	CString sTemp;
+	GetDlgItem(IDC_INFOTEXT)->GetWindowText(sTemp);
+	if (sTemp.IsEmpty())
+		GetDlgItem(IDC_INFOTEXT)->HideCaret();
 }
