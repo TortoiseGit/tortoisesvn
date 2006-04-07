@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-04-05 14:02+0100\n"
+"PO-Revision-Date: 2006-04-07 09:33+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5310,7 +5310,7 @@ msgstr "Vorfahren ignorieren"
 #: source/TortoiseSVN_en.xml:6471
 #: (para)
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr ""
+msgstr "Meistens möchten Sie, dass die Vergangenheit von Dateien berücksichtigt wird, so dass Änderungen relativ zu einem gemeinsamen Vorgänger zusammengeführt werden. Manchmal möchten Sie aber auch Dateien zusammenführen, zwischen denen eine Beziehung besteht - allerdings nicht in Ihrem Projektarchiv. Sie haben zum Beispiel Versionen 1 und 2 einer externen Bibliothek in zwei verschiedene Verzeichnisse importiert. Obwohl zwischen diesen ein logischer Zusammenhang besteht, weiß Subversion nichts davon, weil es nur die separat importierten Dateibäume sieht. Wenn Sie versuchen, die Unterschiede zwischen den beiden Versionen zusammenzuführen, werden Sie ein vollständiges Entfernen gefolgt von einem vollständigen Hinzufügen erhalten. Damit Subversion nur pfadbasierte Differenzen anstelle von vergangentheitsbasierten Differenzen erzeugt, wählen Sie die <guilabel>Vorfahren ignorieren</guilabel> Option. Weitere Informationen zu diesem Thema finden Sie im Subversion Buch in <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 #: source/TortoiseSVN_en.xml:6491
 #: (title)
@@ -5690,7 +5690,7 @@ msgstr "Wenn Sie eine Datei oder einen Ordner an einen anderen Platz kopieren/ve
 #: source/TortoiseSVN_en.xml:6990
 #: (para)
 msgid "Sometimes when you try to open a path you will get an error message in place of the item details. This might happen if you specified an invalid URL, or if you don't have access permission, or if there is some other server problem. If you need to copy this message to include it in an email, just right click on it and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy error message to clipboard</guimenuitem></menuchoice>, or simply use <action>CTRL+C</action>."
-msgstr ""
+msgstr "Manchmal werden Sie, wenn Sie einen Pfad öffnen wollen, eine Fehlermeldung anstelle der Details erhalten. Das kann daran liegen, dass Sie eine falsche URL angegeben haben, nicht über entsprechende Zugriffsrechte verfügen oder dass ein Serverfehler vorliegt. Wenn Sie diese Meldung z.B. in eine E-Mail kopieren wollen, machen Sie einen Rechtsklick darauf und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Fehlermeldung in die Zwischenablage kopieren</guimenuitem> </menuchoice> oder einfach <action>Strg+C</action>."
 
 #: source/TortoiseSVN_en.xml:7005
 #: (title)
