@@ -177,16 +177,6 @@ const char* CTSVNPath::GetSVNApiPath() const
 	if (svn_path_is_url(m_sUTF8FwdslashPath))
 	{
 		m_sUTF8FwdslashPathEscaped = CUtils::PathEscape(m_sUTF8FwdslashPath);
-		// we must make sure that the protocol part of the URL
-		// is in lowercase (at least for http/https)
-		if (m_sUTF8FwdslashPathEscaped.Left(5).CompareNoCase("https")==0)
-		{
-			m_sUTF8FwdslashPathEscaped = "https" + m_sUTF8FwdslashPathEscaped.Mid(5);
-		}
-		else if (m_sUTF8FwdslashPathEscaped.Left(4).CompareNoCase("http")==0)
-		{
-			m_sUTF8FwdslashPathEscaped = "http" + m_sUTF8FwdslashPathEscaped.Mid(4);
-		}
 		return m_sUTF8FwdslashPathEscaped;
 	}
 #endif // _MFC_VER
