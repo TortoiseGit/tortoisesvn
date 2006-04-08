@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<project name="APIDoc" default="all" basedir=".">
+	<description>
+		Builds the Source code documentation
+	</description>
+	
+
+
+	<target name="all" depends="SubversionAPIdoc,TortoiseSVNAPIdoc" />
+
+	<target name="SubversionAPIdoc">
+		<loadfile file="API\DoxyfileSVN" property="SubversionDoxyFile" />
+		<echo file="Doxyfile" message="${SubversionDoxyFile}" />
+		<echo file="Doxyfile" message="HHC_LOCATION=${environment::get-variable('HHLOC')}" append="true" />
+		<mkdir dir="output" />
+		<exec program="doxygen.exe">
+			<arg value="Doxyfile" />
+		</exec>
+		<move file="output\doxygen\html\SubversionAPI.chm" tofile="output\SubversionAPI.chm" overwrite="true" />
+		<delete dir="output\doxygen" />
+		<delete file="Doxyfile" />
+	</target>
+
+	<target name="TortoiseSVNAPIdoc">
+		<loadfile file="API\Doxyfile" property="TortoiseSVNDoxyFile" />
+		<echo file="Doxyfile" message="${TortoiseSVNDoxyFile}" />
+		<echo file="Doxyfile" message="HHC_LOCATION=${environment::get-variable('HHLOC')}" append="true" />
+		<mkdir dir="output" />
+		<exec program="doxygen.exe">
+			<arg value="Doxyfile" />
+		</exec>
+		<move file="output\doxygen\html\TortoiseAPI.chm" tofile="output\TortoiseSVNAPI.chm" overwrite="true" />
+		<delete dir="output\doxygen" />
+		<delete file="Doxyfile" />
+	</target>
+
+</project>
+

@@ -70,6 +70,17 @@
 		</nant>
 	</target>
 
+	<target name="APIDocs" depends="env" >
+		<description>
+			Builds the API docs from the comments in the sourcecode
+		</description>
+		<nant target="all">
+			<buildfiles>
+				<include name="doc/APIDoc.build" />
+			</buildfiles>
+		</nant>
+	</target>
+	
 	<target name="VersionInfo" depends="VSNET,env">
 		<description>
 			Sets the version information as properties, env variables
@@ -204,6 +215,7 @@
 		<echo message="clean        : this will clean up previous builds and force a" />
 		<echo message="               complete rebuild later" />
 		<echo message="docs         : builds the docs in all languages and all formats" />
+		<echo message="APIDocs      : Builds the API docs from the sourcecode comments" />
 		<echo message="Subversion   : builds the Subversion libraries, including its" />
 		<echo message="               dependencies" />
 		<echo message="TortoiseSVN  : builds TortoiseSVN. You must have build the" />
