@@ -60,6 +60,11 @@ IDI_REVGRAPH_LASTCOMMIT ICON                    "revgraph_lastcommit.ico"
 IDI_REVGRAPH_RENAMED    ICON                    "revgraph_renamed.ico"
 IDI_REVGRAPH_REPLACED   ICON                    "revgraph_replaced.ico"
 IDI_SAVEDDATA           ICON                    "saveddata.ico"
+IDI_GRAPHBAR            ICON                    "graph-bar.ico"
+IDI_GRAPHBARSTACKED     ICON                    "graph-bar-stacked.ico"
+IDI_GRAPHLINE           ICON                    "graph-line.ico"
+IDI_GRAPHLINESTACKED    ICON                    "graph-line-stacked.ico"
+IDI_GRAPHPIE            ICON                    "graph-pie.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -650,6 +655,14 @@ BEGIN
     LTEXT           "Graph type:",IDC_GRAPHTYPELABEL,7,9,112,8
     COMBOBOX        IDC_GRAPHCOMBO,202,7,155,114,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "",IDC_GRAPH,7,23,350,157,SS_NOTIFY | WS_BORDER
+    LTEXT           "Number of weeks:",IDC_NUMWEEK,7,29,128,8
+    LTEXT           "",IDC_NUMWEEKVALUE,267,29,37,8,0,WS_EX_RIGHT
+    LTEXT           "Number of authors:",IDC_NUMAUTHOR,7,41,128,8
+    LTEXT           "",IDC_NUMAUTHORVALUE,267,41,37,8,0,WS_EX_RIGHT
+    LTEXT           "Total commits analyzed:",IDC_NUMCOMMITS,7,53,128,8
+    LTEXT           "",IDC_NUMCOMMITSVALUE,267,53,37,8,0,WS_EX_RIGHT
+    LTEXT           "Total file changes:",IDC_NUMFILECHANGES,7,65,128,8
+    LTEXT           "",IDC_NUMFILECHANGESVALUE,267,65,37,8,0,WS_EX_RIGHT
     LTEXT           "Average",IDC_AVG,202,84,38,8,0,WS_EX_RIGHT
     LTEXT           "Min",IDC_MIN,240,84,27,8,0,WS_EX_RIGHT
     LTEXT           "Max",IDC_MAX,267,84,37,8,0,WS_EX_RIGHT
@@ -671,19 +684,15 @@ BEGIN
     LTEXT           "",IDC_FILECHANGESEACHWEEKAVG,202,144,38,8,0,WS_EX_RIGHT
     LTEXT           "",IDC_FILECHANGESEACHWEEKMIN,240,144,27,8,0,WS_EX_RIGHT
     LTEXT           "",IDC_FILECHANGESEACHWEEKMAX,267,144,37,8,0,WS_EX_RIGHT
-    DEFPUSHBUTTON   "OK",IDOK,307,204,50,14
-    LTEXT           "Number of weeks:",IDC_NUMWEEK,7,29,128,8
-    LTEXT           "",IDC_NUMWEEKVALUE,267,29,37,8,0,WS_EX_RIGHT
-    LTEXT           "Number of authors:",IDC_NUMAUTHOR,7,41,128,8
-    LTEXT           "Total commits analyzed:",IDC_NUMCOMMITS,7,53,128,8
-    LTEXT           "Total file changes:",IDC_NUMFILECHANGES,7,65,128,8
-    LTEXT           "",IDC_NUMAUTHORVALUE,267,41,37,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_NUMCOMMITSVALUE,267,53,37,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_NUMFILECHANGESVALUE,267,65,37,8,0,WS_EX_RIGHT
-    CONTROL         "",IDC_SKIPPER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_BOTH | TBS_NOTICKS | TBS_TOOLTIPS | WS_TABSTOP,140,203,100,15
-    LTEXT           "Commit threshold:",IDC_SKIPPERLABEL,7,208,115,8
-    CONTROL         "Stacked",IDC_STACKED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,180,233,10
     CONTROL         "Authors case insensitive",IDC_IGNORECASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,193,233,10
+    LTEXT           "Commit threshold:",IDC_SKIPPERLABEL,7,208,115,8
+    CONTROL         "",IDC_SKIPPER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_BOTH | TBS_NOTICKS | TBS_TOOLTIPS | WS_TABSTOP,140,203,100,15
+    PUSHBUTTON      "",IDC_GRAPHPIEBUTTON,251,180,18,14,BS_ICON
+    PUSHBUTTON      "",IDC_GRAPHLINESTACKEDBUTTON,273,180,18,14,BS_ICON
+    PUSHBUTTON      "",IDC_GRAPHLINEBUTTON,295,180,18,14,BS_ICON
+    PUSHBUTTON      "",IDC_GRAPHBARSTACKEDBUTTON,317,180,18,14,BS_ICON
+    PUSHBUTTON      "",IDC_GRAPHBARBUTTON,339,180,18,14,BS_ICON
+    DEFPUSHBUTTON   "OK",IDOK,307,204,50,14
 END
 
 IDD_REPOCREATE DIALOGEX 0, 0, 186, 90
@@ -1292,6 +1301,7 @@ BEGIN
         BOTTOMMARGIN, 218
         HORZGUIDE, 23
         HORZGUIDE, 29
+        HORZGUIDE, 180
     END
 
     IDD_REPOCREATE, DIALOG

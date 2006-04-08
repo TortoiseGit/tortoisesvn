@@ -29,6 +29,7 @@ IMPLEMENT_DYNAMIC(CStatGraphDlg, CResizableStandAloneDialog)
 CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CStatGraphDlg::IDD, pParent)
 	, m_bStacked(FALSE)
+	, m_GraphType(MyGraph::Bar)
 	, m_bIgnoreAuthorCase(FALSE)
 {
 	m_parDates = NULL;
@@ -41,6 +42,11 @@ CStatGraphDlg::~CStatGraphDlg()
 	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
 		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
 	m_graphDataArray.RemoveAll();
+	DestroyIcon(m_hGraphBarIcon);
+	DestroyIcon(m_hGraphBarStackedIcon);
+	DestroyIcon(m_hGraphLineIcon);
+	DestroyIcon(m_hGraphLineStackedIcon);
+	DestroyIcon(m_hGraphPieIcon);
 }
 
 void CStatGraphDlg::DoDataExchange(CDataExchange* pDX)
@@ -49,17 +55,25 @@ void CStatGraphDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_GRAPH, m_graph);
 	DDX_Control(pDX, IDC_GRAPHCOMBO, m_cGraphType);
 	DDX_Control(pDX, IDC_SKIPPER, m_Skipper);
-	DDX_Check(pDX, IDC_STACKED, m_bStacked);
 	DDX_Check(pDX, IDC_IGNORECASE, m_bIgnoreAuthorCase);
+	DDX_Control(pDX, IDC_GRAPHBARBUTTON, m_btnGraphBar);
+	DDX_Control(pDX, IDC_GRAPHBARSTACKEDBUTTON, m_btnGraphBarStacked);
+	DDX_Control(pDX, IDC_GRAPHLINEBUTTON, m_btnGraphLine);
+	DDX_Control(pDX, IDC_GRAPHLINESTACKEDBUTTON, m_btnGraphLineStacked);
+	DDX_Control(pDX, IDC_GRAPHPIEBUTTON, m_btnGraphPie);
 }
 
 
 BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_CBN_SELCHANGE(IDC_GRAPHCOMBO, OnCbnSelchangeGraphcombo)
 	ON_WM_HSCROLL()
-	ON_BN_CLICKED(IDC_STACKED, &CStatGraphDlg::OnBnClickedStacked)
 	ON_NOTIFY(TTN_NEEDTEXT, NULL, OnNeedText)
-	ON_BN_CLICKED(IDC_IGNORECASE, &CStatGraphDlg::OnBnClickedIgnorecase)
+	ON_BN_CLICKED(IDC_IGNORECASE, &CStatGraphDlg::RedrawGraph)
+	ON_BN_CLICKED(IDC_GRAPHBARBUTTON, &CStatGraphDlg::OnBnClickedGraphbarbutton)
+	ON_BN_CLICKED(IDC_GRAPHBARSTACKEDBUTTON, &CStatGraphDlg::OnBnClickedGraphbarstackedbutton)
+	ON_BN_CLICKED(IDC_GRAPHLINEBUTTON, &CStatGraphDlg::OnBnClickedGraphlinebutton)
+	ON_BN_CLICKED(IDC_GRAPHLINESTACKEDBUTTON, &CStatGraphDlg::OnBnClickedGraphlinestackedbutton)
+	ON_BN_CLICKED(IDC_GRAPHPIEBUTTON, &CStatGraphDlg::OnBnClickedGraphpiebutton)
 END_MESSAGE_MAP()
 
 
@@ -85,6 +99,23 @@ BOOL CStatGraphDlg::OnInitDialog()
 	m_Skipper.SetRange(0, 100);
 	m_Skipper.SetPos(10);
 	m_Skipper.SetPageSize(5);
+
+	m_hGraphBarIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBAR), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hGraphBarStackedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBARSTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hGraphLineIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hGraphLineStackedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINESTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hGraphPieIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHPIE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+
+	m_btnGraphBar.SetIcon(m_hGraphBarIcon);
+	m_btnGraphBar.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
+	m_btnGraphBarStacked.SetIcon(m_hGraphBarStackedIcon);
+	m_btnGraphBarStacked.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
+	m_btnGraphLine.SetIcon(m_hGraphLineIcon);
+	m_btnGraphLine.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
+	m_btnGraphLineStacked.SetIcon(m_hGraphLineStackedIcon);
+	m_btnGraphLineStacked.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
+	m_btnGraphPie.SetIcon(m_hGraphPieIcon);
+	m_btnGraphPie.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
 
 	AddAnchor(IDC_GRAPHTYPELABEL, TOP_LEFT);
 	AddAnchor(IDC_GRAPH, TOP_LEFT, BOTTOM_RIGHT);
@@ -120,7 +151,13 @@ BOOL CStatGraphDlg::OnInitDialog()
 	AddAnchor(IDC_FILECHANGESEACHWEEKAVG, TOP_RIGHT);
 	AddAnchor(IDC_FILECHANGESEACHWEEKMIN, TOP_RIGHT);
 	AddAnchor(IDC_FILECHANGESEACHWEEKMAX, TOP_RIGHT);
-	AddAnchor(IDC_STACKED, BOTTOM_LEFT);
+
+	AddAnchor(IDC_GRAPHBARBUTTON, BOTTOM_RIGHT);
+	AddAnchor(IDC_GRAPHBARSTACKEDBUTTON, BOTTOM_RIGHT);
+	AddAnchor(IDC_GRAPHLINEBUTTON, BOTTOM_RIGHT);
+	AddAnchor(IDC_GRAPHLINESTACKEDBUTTON, BOTTOM_RIGHT);
+	AddAnchor(IDC_GRAPHPIEBUTTON, BOTTOM_RIGHT);
+
 	AddAnchor(IDC_IGNORECASE, BOTTOM_LEFT);
 	AddAnchor(IDC_SKIPPER, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SKIPPERLABEL, BOTTOM_LEFT);
@@ -172,7 +209,11 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 
 	GetDlgItem(IDC_SKIPPER)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 	GetDlgItem(IDC_SKIPPERLABEL)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
-	GetDlgItem(IDC_STACKED)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
+	m_btnGraphBar.ShowWindow(bShow ? SW_HIDE : SW_SHOW);
+	m_btnGraphBarStacked.ShowWindow(bShow ? SW_HIDE : SW_SHOW);
+	m_btnGraphLine.ShowWindow(bShow ? SW_HIDE : SW_SHOW);
+	m_btnGraphLineStacked.ShowWindow(bShow ? SW_HIDE : SW_SHOW);
+	m_btnGraphPie.ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 }
 
 void CStatGraphDlg::ShowCommitsByAuthor()
@@ -191,7 +232,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	//Set up the graph.
 	CString temp;
 	UpdateData();
-	m_graph.SetGraphType(MyGraph::Bar, !!m_bStacked);
+	m_graph.SetGraphType(m_GraphType, m_bStacked);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORY);
 	m_graph.SetYAxisLabel(temp);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORX);
@@ -265,7 +306,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 	//Set up the graph.
 	CString temp;
 	UpdateData();
-	m_graph.SetGraphType(MyGraph::Line, !!m_bStacked);
+	m_graph.SetGraphType(m_GraphType, m_bStacked);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATEY);
 	m_graph.SetYAxisLabel(temp);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATEX);
@@ -634,18 +675,22 @@ void CStatGraphDlg::ShowStats()
 
 void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 {
+	UpdateData();
 	switch (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()))
 	{
 	case 1:
-		ShowStats();
-		break;
+		// labels
+		// intended fall through
 	case 2:
-		ShowCommitsByDate();
+		// by date
+		m_btnGraphPie.EnableWindow(FALSE);
 		break;
 	case 3:
-		ShowCommitsByAuthor();
+		// by author
+		m_btnGraphPie.EnableWindow(TRUE);
 		break;
 	}
+	RedrawGraph();
 }
 
 int CStatGraphDlg::GetWeek(const CTime& time)
@@ -797,22 +842,6 @@ void CStatGraphDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	CDialog::OnHScroll(nSBCode, nPos, pScrollBar);
 }
 
-void CStatGraphDlg::OnBnClickedStacked()
-{
-	switch (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()))
-	{
-	case 1:
-		ShowStats();
-		break;
-	case 2:
-		ShowCommitsByDate();
-		break;
-	case 3:
-		ShowCommitsByAuthor();
-		break;
-	}
-}
-
 void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 {
 	TOOLTIPTEXT* pttt = (TOOLTIPTEXT*) pnmh;
@@ -824,8 +853,36 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 	}
 }
 
-void CStatGraphDlg::OnBnClickedIgnorecase()
+void CStatGraphDlg::RedrawGraph()
 {
+	m_btnGraphBar.SetState(BST_UNCHECKED);
+	m_btnGraphBarStacked.SetState(BST_UNCHECKED);
+	m_btnGraphLine.SetState(BST_UNCHECKED);
+	m_btnGraphLineStacked.SetState(BST_UNCHECKED);
+	m_btnGraphPie.SetState(BST_UNCHECKED);
+
+	if ((m_GraphType == MyGraph::Bar)&&(m_bStacked))
+	{
+		m_btnGraphBarStacked.SetState(BST_CHECKED);
+	}
+	if ((m_GraphType == MyGraph::Bar)&&(!m_bStacked))
+	{
+		m_btnGraphBar.SetState(BST_CHECKED);
+	}
+	if ((m_GraphType == MyGraph::Line)&&(m_bStacked))
+	{
+		m_btnGraphLineStacked.SetState(BST_CHECKED);
+	}
+	if ((m_GraphType == MyGraph::Line)&&(!m_bStacked))
+	{
+		m_btnGraphLine.SetState(BST_CHECKED);
+	}
+	if (m_GraphType == MyGraph::PieChart)
+	{
+		m_btnGraphPie.SetState(BST_CHECKED);
+	}
+
+
 	UpdateData();
 	switch (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()))
 	{
@@ -839,4 +896,38 @@ void CStatGraphDlg::OnBnClickedIgnorecase()
 		ShowCommitsByAuthor();
 		break;
 	}
+}
+void CStatGraphDlg::OnBnClickedGraphbarbutton()
+{
+	m_GraphType = MyGraph::Bar;
+	m_bStacked = false;
+	RedrawGraph();
+}
+
+void CStatGraphDlg::OnBnClickedGraphbarstackedbutton()
+{
+	m_GraphType = MyGraph::Bar;
+	m_bStacked = true;
+	RedrawGraph();
+}
+
+void CStatGraphDlg::OnBnClickedGraphlinebutton()
+{
+	m_GraphType = MyGraph::Line;
+	m_bStacked = false;
+	RedrawGraph();
+}
+
+void CStatGraphDlg::OnBnClickedGraphlinestackedbutton()
+{
+	m_GraphType = MyGraph::Line;
+	m_bStacked = true;
+	RedrawGraph();
+}
+
+void CStatGraphDlg::OnBnClickedGraphpiebutton()
+{
+	m_GraphType = MyGraph::PieChart;
+	m_bStacked = false;
+	RedrawGraph();
 }

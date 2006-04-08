@@ -89,6 +89,11 @@
 #define IDD_EDITPROPERTIES              226
 #define IDD_EDITPROPERTYVALUE           227
 #define IDD_REVISIONRANGE               228
+#define IDI_GRAPHBAR                    229
+#define IDI_GRAPHBARSTACKED             230
+#define IDI_GRAPHLINE                   231
+#define IDI_GRAPHLINESTACKED            232
+#define IDI_GRAPHPIE                    233
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -496,10 +501,16 @@
 #define IDS_ERR_SSL_CNMISMATCH          1296
 #define IDC_ASPDOTNETHACK               1296
 #define IDS_ERR_SSL_EXPIREDORNOTYETVALID 1297
+#define IDC_GRAPHBARBUTTON              1297
 #define IDS_SSL_ACCEPTALWAYS            1298
+#define IDC_GRAPHBARSTACKEDBUTTON       1298
 #define IDS_SSL_ACCEPTTEMP              1299
+#define IDC_GRAPHLINEBUTTON             1299
 #define IDS_SSL_REJECT                  1300
+#define IDC_GRAPHLINESTACKEDBUTTON      1300
 #define IDS_ERR_SSL_NOTYETVALID         1301
+#define IDC_GRAPHBARBUTTON5             1301
+#define IDC_GRAPHPIEBUTTON              1301
 #define IDS_ERR_SSL_EXPIRED             1302
 #define IDS_ERR_COPYITSELF              1303
 #define IDS_ERR_INVALIDREV              1304
@@ -847,9 +858,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        229
+#define _APS_NEXT_RESOURCE_VALUE        234
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1297
+#define _APS_NEXT_CONTROL_VALUE         1300
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

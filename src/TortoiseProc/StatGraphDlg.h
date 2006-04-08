@@ -20,7 +20,7 @@
 
 #include "StandAloneDlg.h"
 #include "MyGraph.h"
-#include "afxcmn.h"
+#include "XPImageButton.h"
 
 // CStatGraphDlg dialog
 
@@ -42,7 +42,11 @@ protected:
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnBnClickedStacked();
 	afx_msg void OnNeedText(NMHDR *pnmh, LRESULT *pResult);
-	afx_msg void OnBnClickedIgnorecase();
+	afx_msg void OnBnClickedGraphbarbutton();
+	afx_msg void OnBnClickedGraphbarstackedbutton();
+	afx_msg void OnBnClickedGraphlinebutton();
+	afx_msg void OnBnClickedGraphlinestackedbutton();
+	afx_msg void OnBnClickedGraphpiebutton();
 
 	DECLARE_MESSAGE_MAP()
 	
@@ -50,9 +54,23 @@ protected:
 	MyGraph			m_graph;
 	CComboBox		m_cGraphType;
 	CSliderCtrl		m_Skipper;
-	BOOL			m_bStacked;
 	BOOL			m_bIgnoreAuthorCase;
 	
+	CXPImageButton	m_btnGraphBar;
+	CXPImageButton	m_btnGraphBarStacked;
+	CXPImageButton	m_btnGraphLine;
+	CXPImageButton	m_btnGraphLineStacked;
+	CXPImageButton	m_btnGraphPie;
+
+	HICON			m_hGraphBarIcon;
+	HICON			m_hGraphBarStackedIcon;
+	HICON			m_hGraphLineIcon;
+	HICON			m_hGraphLineStackedIcon;
+	HICON			m_hGraphPieIcon;
+
+	MyGraph::GraphType	m_GraphType;
+	bool			m_bStacked;
+
 	void		ShowCommitsByDate();
 	void		ShowCommitsByAuthor();
 	void		ShowStats();
@@ -60,6 +78,7 @@ protected:
 	int			GetWeek(const CTime& time);
 
 	void		ShowLabels(BOOL bShow);
+	void		RedrawGraph();
 public:
 	CDWordArray	*	m_parDates;
 	CDWordArray	*	m_parFileChanges;
