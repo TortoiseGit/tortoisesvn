@@ -164,6 +164,7 @@ Version 1.3.4
 - BUG: In TortoiseMerge, if the left and right views were switched,
        the changes were still saved to the file which was shown
        on the right side before the switch. (Stefan)
+- BUG: Applying a patch in UTF8 could fail in certain locales. (Stefan)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the

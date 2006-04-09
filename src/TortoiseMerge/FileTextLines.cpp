@@ -266,7 +266,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			case CFileTextLines::UTF8BOM:
 			case CFileTextLines::UTF8:
 				{
-					Add(CUnicodeUtils::GetUnicode(CStringA(sLine)));
+					Add(CUnicodeUtils::GetUnicode(CUnicodeUtils::ConvertWCHARStringToUTF8(sLine)));
 				}
 				break;
 			default:
