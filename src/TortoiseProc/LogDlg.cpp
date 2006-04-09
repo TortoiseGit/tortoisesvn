@@ -691,6 +691,8 @@ UINT CLogDlg::LogThread()
 	else
 		m_LogProgress.SetRange32(m_endrev, m_startrev);
 	
+	if (!m_pegrev.IsValid())
+		m_pegrev = m_startrev;
 	if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, true, m_bStrict))
 	{
 		CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
