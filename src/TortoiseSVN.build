@@ -46,6 +46,25 @@
 	</target>
 
 	<target name="versioninfo">
+		<property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
+		<property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
+		<copy todir="..\bin\${configuration}${platformfoldername}\bin" overwrite="true" flatten="true" failonerror="false">
+			<fileset>
+				<include name="TortoiseSVNSetup\include\autolist.txt" />
+				<include name="..\ext\svn-${platform}-libintl\bin\intl3_svn.dll" />
+				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43.dll" />
+				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43d.dll" />
+				<include name="..\ext\apr\${configuration}_${platform}\libapr-1.dll" />
+				<include name="..\ext\apr-util\${configuration}_${platform}\libaprutil-1.dll" />
+				<include name="..\ext\apr-iconv\${configuration}_${platform}\libapriconv-1.dll" />
+			</fileset>
+		</copy>
+		<mkdir dir="..\bin\${configuration}${platformfoldername}\iconv" failonerror="false" />
+		<copy todir="..\bin\${configuration}${platformfoldername}\iconv" overwrite="true" failonerror="false">
+			<fileset>
+				<include name="..\ext\apr-iconv\${configuration}_${platform}\iconv\*.so" />
+			</fileset>
+		</copy>
 		<nant target="versioninfo">
 			<buildfiles>
 				<include name="..\versioninfo.build" />
@@ -71,25 +90,6 @@
 			<arg value="/rebuild" />
 			<arg value="${configuration}|${platform}" />
 		</exec>
-		<property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
-		<property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
-		<copy todir="..\bin\${configuration}${platformfoldername}\bin" overwrite="true" flatten="true" failonerror="false">
-			<fileset>
-				<include name="TortoiseSVNSetup\include\autolist.txt" />
-				<include name="..\ext\svn-${platform}-libintl\bin\intl3_svn.dll" />
-				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43.dll" />
-				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43d.dll" />
-				<include name="..\apr\${configuration}_${platform}\libapr.dll" />
-				<include name="..\apr-util\${configuration}_${platform}\libaprutil.dll" />
-				<include name="..\apr-iconv\${configuration}_${platform}\libapriconv.dll" />
-			</fileset>
-		</copy>
-		<mkdir dir="..\bin\${configuration}${platformfoldername}\iconv" failonerror="false" />
-		<copy todir="..\bin\${configuration}${platformfoldername}\iconv" overwrite="true" failonerror="false">
-			<fileset>
-				<include name="..\ext\apr-iconv\${configuration}_${platform}\iconv\*.so" />
-			</fileset>
-		</copy>
 	</target>
 
 </project>
