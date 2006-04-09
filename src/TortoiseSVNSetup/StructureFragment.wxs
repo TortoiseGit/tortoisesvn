@@ -172,9 +172,9 @@
             </Component>
 
             <Component Id="C__apr" Guid="$(var.GuidAPR)" Win64="$(var.Win64YesNo)">
-              <File Id="F__libapr" Name="LIBAPR-1.DLL" LongName="libapr-1.dll" DiskId="1" src="..\..\ext\apr\release_$(var.PlatformPathExtension)\libapr-1.dll" KeyPath="yes" />
-              <File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil-1.dll" DiskId="1" src="..\..\ext\apr-util\release_$(var.PlatformPathExtension)\libaprutil-1.dll" />
-              <File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv-1.dll" DiskId="1" src="..\..\ext\apr-iconv\release_$(var.PlatformPathExtension)\libapriconv-1.dll" />
+              <File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\ext\apr\release_$(var.PlatformPathExtension)\libapr.dll" KeyPath="yes" />
+              <File Id="F__libaprutil" Name="LIBAPRUT.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\ext\apr-util\release_$(var.PlatformPathExtension)\libaprutil.dll" />
+              <File Id="F__libapriconv" Name="LIBAPRIC.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\ext\apr-iconv\release_$(var.PlatformPathExtension)\libapriconv.dll" />
             </Component>
 
             <Component Id="C__gettext" Guid="$(var.GuidGettext)" Win64="$(var.Win64YesNo)">

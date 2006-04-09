@@ -39,7 +39,6 @@
 #include "apr_strings.h"
 #include "apr_tables.h"
 #include "apr_lib.h"
-#include "api_version.h"
 
 #include <string.h>
 #include <stdlib.h>
@@ -49,8 +48,6 @@
 #ifdef API_USE_BUILTIN_ALIASES
 #include "charset_alias.h"
 #endif
-
-#define APR_ICONV_PATH "APR_ICONV" API_STRINGIFY(API_MAJOR_VERSION) "_PATH"
 
 #ifdef WIN32
 char moduledir1[APR_PATH_MAX] = {0};
@@ -145,12 +142,8 @@ iconv_getpath(char *buf, const char *name, apr_pool_t *ctx)
 		}
 #endif
 
-        /* Fall back on APR_ICONV_PATH if APR_ICONVn_PATH isn't set...
-         * TODO: Drop support for "APR_ICONV_PATH" in apr-iconv 2.0
-         */
-        if ((!apr_env_get(&ptr, APR_ICONV_PATH, subpool)
-             || (!apr_env_get(&ptr, "APR_ICONV_PATH", subpool)))
-             && !apr_filepath_list_split(&pathelts, ptr, subpool))
+        if (!apr_env_get(&ptr, "APR_ICONV_PATH", subpool)
+            && !apr_filepath_list_split(&pathelts, ptr, subpool))
         {
             int i;
             char **elts = (char **)pathelts->elts;

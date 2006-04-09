@@ -21,10 +21,6 @@
 	<target name="build" >
 		<mkdir dir="${configuration}_${platform}" />
 		<copy file="include\apr.hw" tofile="include\apr.h" overwrite="true" />
-		<!-- we have to copy this header from the unix to the win32 folder, because it is required to build apr.
-			 Nant sorts the include dirs alphabetically, so it would always take the headers in the unix
-			 folder before the headers in the win32 folder if we would add the unix include folder too -->
-		<copy file="include\arch\unix\apr_arch_poll_private.h" tofile="include\arch\win32\apr_arch_poll_private.h" overwrite="true" />
 		<if test="${platform == 'x64'}">
 			<copy file="..\build\open.c" tofile="file_io\win32\open.c" overwrite="true" />
 			<copy file="..\build\readwrite.c" tofile="file_io\win32\readwrite.c" overwrite="true" />
@@ -41,7 +37,7 @@
 			</filterchain>
 		</loadfile>
 		<echo file="libaprver.rc" message="${rcfile}" />
-		<rc rcfile="libaprver.rc" output="${configuration}_${platform}\libapr-1.res">
+		<rc rcfile="libaprver.rc" output="${configuration}_${platform}\libapr.res">
 			<includedirs>
 				<include name="include" />
 			</includedirs>
@@ -62,7 +58,6 @@
 			<arg value="/Zi" />
 			<arg value="/errorReport:prompt" />
 			<sources>
-				<include name="atomic\win32\apr_atomic.c" />
 				<include name="dso\win32\dso.c" />
 				<include name="file_io\win32\*.c" />
 				<include name="file_io\unix\copy.c" />
@@ -84,13 +79,9 @@
 				<include name="network_io\win32\*.c" />
 				<include name="network_io\unix\inet_ntop.c" />
 				<include name="network_io\unix\inet_pton.c" />
-				<include name="network_io\unix\multicast.c" />
 				<include name="network_io\unix\sockaddr.c" />
 				<include name="passwd\*.c" />
-				<include name="poll\unix\select.c" />
-				<include name="random\unix\apr_random.c" />
-				<include name="random\unix\sha2.c" />
-				<include name="random\unix\sha2_glue.c" />
+				<include name="poll\unix\*.c" />
 				<include name="shmem\win32\*.c" />
 				<include name="strings\*.c" />
 				<include name="tables\*.c" />
@@ -104,6 +95,8 @@
 				<include name="include\arch\win32" />
 			</includedirs>
 			<defines>
+				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
+				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APR_DECLARE_EXPORT" />
 				<define name="WIN32" />
@@ -118,8 +111,8 @@
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<link 
-			output="${configuration}_${platform}\libapr-1.dll" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr-1.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr-1.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr-1.lib" ${machineoption} ${configuration}_${platform}\libapr-1.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			output="${configuration}_${platform}\libapr.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr.lib" ${machineoption} ${configuration}_${platform}\libapr.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 			</sources>
@@ -127,8 +120,8 @@
 		<exec program="mt.exe">
 			<arg value="-nologo" />
 			<arg value="-manifest" />
-			<arg value=".\${configuration}_${platform}\libapr-1.dll.intermediate.manifest" />
-			<arg value='/outputresource:".\${configuration}_${platform}\libapr-1.dll;#2"' />
+			<arg value=".\${configuration}_${platform}\libapr.dll.intermediate.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\libapr.dll;#2"' />
 		</exec>
 	</target>
 
