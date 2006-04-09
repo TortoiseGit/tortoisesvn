@@ -134,12 +134,12 @@ public:
 		return TRUE;
 	}
 	
-	SVNRev GetCopyFromRev(CTSVNPath url, CString& copyfromURL)
+	SVNRev GetCopyFromRev(CTSVNPath url, CString& copyfromURL, SVNRev pegrev)
 	{
 		SVNRev rev;
 		m_reposroot = GetRepositoryRoot(url);
 		m_relativeurl = url.GetSVNPathString().Mid(m_reposroot.GetLength());
-		if (ReceiveLog(CTSVNPathList(url), SVNRev::REV_HEAD, 1, 0, TRUE, TRUE))
+		if (ReceiveLog(CTSVNPathList(url), pegrev, SVNRev::REV_HEAD, 1, 0, TRUE, TRUE))
 		{
 			rev = m_rev;
 			copyfromURL = m_copyfromurl;

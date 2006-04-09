@@ -532,13 +532,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						// get log of first URL
 						CString sCopyFrom1, sCopyFrom2;
 						LogHelper helper;
-						SVNRev rev1 = helper.GetCopyFromRev(url1, sCopyFrom1);
+						SVNRev rev1 = helper.GetCopyFromRev(url1, sCopyFrom1, GetRevision());
 						if (!rev1.IsValid())
 						{
 							CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;
 						}
-						SVNRev rev2 = helper.GetCopyFromRev(url2, sCopyFrom2);
+						SVNRev rev2 = helper.GetCopyFromRev(url2, sCopyFrom2, GetRevision());
 						if (!rev2.IsValid())
 						{
 							CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1014,7 +1014,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CBlame blame;
 						CString tempfile;
 						CString logfile;
-						tempfile = blame.BlameToTempFile(CTSVNPath(url), dlg.StartRev, dlg.EndRev, logfile, TRUE);
+						tempfile = blame.BlameToTempFile(CTSVNPath(url), dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, TRUE);
 						if (!tempfile.IsEmpty())
 						{
 							if (logfile.IsEmpty())

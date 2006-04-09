@@ -397,11 +397,15 @@ public:
 	 * To receive the messages you need to listen to Log() events.
 	 *
 	 * \param path the file/directory to get the log of
+	 * \param revisionPeg the peg revision to anchor the log on
 	 * \param revisionStart	the revision to start the logs from
 	 * \param revisionEnd the revision to stop the logs
+	 * \param limit number of log messages to fetch, or zero for all
+	 * \param changed set to TRUE if you need the information about changed paths in each revision
+	 * \param strict if TRUE, then the log won't follow copies
 	 * \param changed TRUE if the log should follow changed paths 
 	 */
-	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict = FALSE);
+	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict = FALSE);
 	
 	/**
 	 * Checks out a file with \a revision to \a localpath.
@@ -454,8 +458,9 @@ public:
 	 * \param startrev the revision from which the check is done from
 	 * \param endrev the end revision where the check is stopped
 	 * \param peg the peg revision to use
+	 * \param ignoremimetype set to true if you want to ignore the mimetype and blame everything
 	 */
-	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg = SVNRev());
+	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg = SVNRev(), bool ignoremimetype = false);
 	
 	/**
 	 * Lock a file for exclusive use so no other users are allowed to edit

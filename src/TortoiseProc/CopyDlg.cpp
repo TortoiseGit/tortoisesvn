@@ -300,7 +300,7 @@ void CCopyDlg::OnBnClickedBrowsefrom()
 		m_pLogDlg = new CLogDlg();
 		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 		int limit = (int)(LONG)reg;
-		m_pLogDlg->SetParams(CTSVNPath(m_wcURL), SVNRev::REV_HEAD, 1, limit, TRUE);
+		m_pLogDlg->SetParams(CTSVNPath(m_wcURL), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE);
 		m_pLogDlg->SetSelect(true);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);

@@ -129,9 +129,10 @@ END_MESSAGE_MAP()
 
 
 
-void CLogDlg::SetParams(const CTSVNPath& path, svn_revnum_t startrev, svn_revnum_t endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
+void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
 {
 	m_path = path;
+	m_pegrev = pegrev;
 	m_startrev = startrev;
 	m_LogRevision = startrev;
 	m_endrev = endrev;
@@ -416,9 +417,8 @@ void CLogDlg::OnBnClickedGetall()
 	case 0:	// show all
 		m_endrev = 1;
 		m_startrev = m_LogRevision;
-		m_bShowedAll = true;
-		// TODO: once svn_client_log takes a peg revision, we must only set
-		// m_bShowedAll to true if m_bStrict is false!
+		if (m_bStrict)
+			m_bShowedAll = true;
 		break;
 	case 1: // show range
 		{
@@ -691,7 +691,7 @@ UINT CLogDlg::LogThread()
 	else
 		m_LogProgress.SetRange32(m_endrev, m_startrev);
 	
-	if (!ReceiveLog(CTSVNPathList(m_path), m_startrev, m_endrev, m_limit, true, m_bStrict))
+	if (!ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, true, m_bStrict))
 	{
 		CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}

@@ -44,10 +44,11 @@ public:
 	 * Since this operation takes a long time a progress dialog is shown if \a showprogress is set to TRUE
 	 * \param startrev the starting revision of the operation
 	 * \param endrev the revision to stop the operation
+	 * \param pegrev the peg revision
 	 * \param path the path to the file to determine the required information
 	 * \return The path to the temporary file or an empty string in case of an error.
 	 */
-	CString		BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, CString& logfile, BOOL showprogress = TRUE);
+	CString		BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, BOOL showprogress = TRUE);
 
 	bool		BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile);
 private:

@@ -396,7 +396,7 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 		m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(CString(_T("made a copy"))));
 	else
 		m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(logmsg));
-	Err = svn_client_copy2 (&commit_info,
+	Err = svn_client_copy3 (&commit_info,
 							srcPath.GetSVNApiPath(),
 							revision,
 							destPath.GetSVNApiPath(),
@@ -419,7 +419,7 @@ BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, 
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton2 = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_move3 (&commit_info,
+	Err = svn_client_move4 (&commit_info,
 							srcPath.GetSVNApiPath(),
 							destPath.GetSVNApiPath(),
 							force,
@@ -644,7 +644,7 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, B
 
 BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, const CTSVNPath& localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry, BOOL dryrun)
 {
-	Err = svn_client_merge (path1.GetSVNApiPath(),
+	Err = svn_client_merge2(path1.GetSVNApiPath(),
 							revision1,
 							path2.GetSVNApiPath(),
 							revision2,
@@ -653,6 +653,7 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 							ignoreanchestry,
 							force,
 							dryrun,
+							NULL,
 							m_pctx,
 							pool);
 	if(Err != NULL)
@@ -665,7 +666,7 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 
 BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, const CTSVNPath& destpath, BOOL force, BOOL recurse, BOOL ignoreancestry, BOOL dryrun)
 {
-	Err = svn_client_merge_peg (source.GetSVNApiPath(),
+	Err = svn_client_merge_peg2 (source.GetSVNApiPath(),
 		revision1,
 		revision2,
 		pegrevision,
@@ -674,6 +675,7 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 		ignoreancestry,
 		force,
 		dryrun,
+		NULL,
 		m_pctx,
 		pool);
 	if(Err != NULL)
@@ -817,10 +819,11 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 	return TRUE;
 }
 
-BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict /* = FALSE */)
+BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict /* = FALSE */)
 {
 	SVNPool localpool(pool);
-	Err = svn_client_log2 (MakePathArray(pathlist), 
+	Err = svn_client_log3 (MakePathArray(pathlist), 
+						revisionPeg,
 						revisionStart, 
 						revisionEnd, 
 						limit,
@@ -903,12 +906,17 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 	return TRUE;
 }
 
-BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg)
+BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, bool ignoremimetype)
 {
-	Err = svn_client_blame2 ( path.GetSVNApiPath(),
+	svn_diff_file_options_t * options = svn_diff_file_options_create(pool);
+	options->ignore_space = svn_diff_file_ignore_space_none;
+	options->ignore_eol_style = false;
+	Err = svn_client_blame3 ( path.GetSVNApiPath(),
 							 peg,
 							 startrev,  
-							 endrev,  
+							 endrev,
+							 options,
+							 ignoremimetype,
 							 blameReceiver,  
 							 (void *)this,  
 							 m_pctx,  

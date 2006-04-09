@@ -533,6 +533,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			long revend = _tstol(val);
 			val = parser.GetVal(_T("limit"));
 			int limit = _tstoi(val);
+			val = parser.GetVal(_T("revpeg"));
+			SVNRev pegrev = _tstol(val);
+			if (val.IsEmpty())
+				pegrev = SVNRev();
 			if (revstart == 0)
 			{
 				revstart = SVNRev::REV_HEAD;
@@ -553,7 +557,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
-			dlg.SetParams(cmdLinePath, revstart, revend, limit, bStrict);
+			dlg.SetParams(cmdLinePath, pegrev, revstart, revend, limit, bStrict);
 			val = parser.GetVal(_T("propspath"));
 			if (!val.IsEmpty())
 				dlg.SetProjectPropertiesPath(CTSVNPath(val));
@@ -1756,7 +1760,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CBlame blame;
 				CString tempfile;
 				CString logfile;
-				tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, logfile, TRUE);
+				tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, TRUE);
 				if (!tempfile.IsEmpty())
 				{
 					if (logfile.IsEmpty())

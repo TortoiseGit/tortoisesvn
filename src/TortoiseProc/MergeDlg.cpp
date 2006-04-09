@@ -392,7 +392,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg->SetSelect(true);
 		m_pLogDlg->m_pNotifyWindow = this;
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
-		m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+		m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
 		m_pLogDlg->ContinuousSelection(true);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	}
@@ -425,7 +425,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2->SetSelect(true);
 		m_pLogDlg2->m_pNotifyWindow = this;
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
-		m_pLogDlg2->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+		m_pLogDlg2->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
 		m_pLogDlg2->ContinuousSelection(true);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 	}
@@ -493,7 +493,7 @@ void CMergeDlg::OnBnClickedWCLog()
 		delete [] m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
-		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE, FALSE);
+		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_WC, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE, FALSE);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	} // if (!url.IsEmpty()) 
 	AfxGetApp()->DoWaitCursor(-1);

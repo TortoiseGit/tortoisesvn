@@ -127,7 +127,7 @@ BOOL CBlame::Cancel()
 	return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, CString& logfile, BOOL showprogress /* = TRUE */)
+CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, BOOL showprogress /* = TRUE */)
 {
 	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	CString temp;
@@ -159,7 +159,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	if (m_nHeadRev < 0)
 		m_nHeadRev = GetHEADRevision(path);
 	m_progressDlg.SetProgress(0, m_nHeadRev);
-	if (!this->Blame(path, startrev, endrev))
+	if (!this->Blame(path, startrev, endrev, pegrev))
 	{
 		m_saveFile.Close();
 		DeleteFile(m_sSavePath);
@@ -175,7 +175,11 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 			logfile.Empty();
 			return m_sSavePath;
 		}
-		if (!this->ReceiveLog(CTSVNPathList(path), m_nHeadRev, m_lowestrev, 0, TRUE))
+		// workaround: the peg revision can't be svn_opt_revision_working because Subversion
+		// will error out. Bug in Subversion?
+		if (pegrev.IsWorking() && !path.IsUrl())
+			pegrev = SVNRev();
+		if (!this->ReceiveLog(CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, TRUE))
 		{
 			m_saveLog.Close();
 			DeleteFile(logfile);

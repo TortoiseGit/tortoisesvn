@@ -1902,7 +1902,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 						int limit = (int)(LONG)reg;
 						CLogDlg dlg;
-						dlg.SetParams(filepath, SVNRev::REV_HEAD, 1, limit);
+						dlg.SetParams(filepath, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, 1, limit);
 						dlg.DoModal();
 					}
 					break;
