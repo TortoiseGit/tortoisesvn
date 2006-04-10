@@ -40,6 +40,12 @@ private:
 typedef CStdArray<CString> CStdCStringArray;
 typedef CStdArray<DWORD> CStdDWORDArray;
 
+class CStdioFileK : public CStdioFile
+{
+public:
+	CStdioFileK(LPCTSTR lpszFileName, UINT nOpenFlags);
+	BOOL ReadString( CStringA& rString);
+};
 
 /**
  * \ingroup TortoiseMerge
