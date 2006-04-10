@@ -801,6 +801,12 @@ UINT CSVNProgressDlg::ProgressThread()
 			if (!m_pSvn->Commit(m_targetPathList, m_sMessage, (m_Revision == 0), m_options & ProgOptKeeplocks))
 			{
 				ReportSVNError();
+				// if a non-recursive commit failed with SVN_ERR_UNSUPPORTED_FEATURE,
+				// that means a folder deletion couldn't be committed.
+				if ((m_Revision != 0)&&(m_pSvn->Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
+				{
+					ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
+				}
 			}
 		}
 		break;
