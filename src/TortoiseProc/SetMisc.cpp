@@ -34,6 +34,7 @@ CSetMisc::CSetMisc()
 	, m_bSpell(TRUE)
 	, m_bCheckRepo(FALSE)
 	, m_dwMaxHistory(25)
+	, m_bSortNumerical(FALSE)
 {
 	m_regUnversionedRecurse = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE);
 	m_bUnversionedRecurse = (DWORD)m_regUnversionedRecurse;
@@ -47,6 +48,8 @@ CSetMisc::CSetMisc()
 	m_bCheckRepo = (DWORD)m_regCheckRepo;
 	m_regMaxHistory = CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25);
 	m_dwMaxHistory = (DWORD)m_regMaxHistory;
+	m_regSortNumerical = CRegDWORD(_T("Software\\TortoiseSVN\\SortNumerical"), FALSE);
+	m_bSortNumerical = (BOOL)(DWORD)m_regSortNumerical;
 }
 
 CSetMisc::~CSetMisc()
@@ -73,6 +76,9 @@ int CSetMisc::SaveData()
 	m_regMaxHistory = m_dwMaxHistory;
 	if (m_regMaxHistory.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regMaxHistory.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regSortNumerical = m_bSortNumerical;
+	if (m_regSortNumerical.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regSortNumerical.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	return 0;
 }
 
@@ -87,6 +93,7 @@ void CSetMisc::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_REPOCHECK, m_bCheckRepo);
 	DDX_Text(pDX, IDC_MAXHISTORY, m_dwMaxHistory);
 	DDV_MinMaxUInt(pDX, m_dwMaxHistory, 1, 100);
+	DDX_Check(pDX, IDC_SORTNUMERICAL, m_bSortNumerical);
 }
 
 

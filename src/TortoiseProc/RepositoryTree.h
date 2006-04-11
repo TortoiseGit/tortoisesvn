@@ -30,25 +30,6 @@
  * \ingroup TortoiseProc
  * Implements a CTreeCtrl which browses a subversion repository. The constructor
  * takes the URL of the repository.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 02-07-2003
- *
- * \author Tim Kemp
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CRepositoryTree : public CReportCtrl
 {
@@ -114,6 +95,8 @@ public:
 	 */
 	HTREEITEM FindUrl(const CString& url);
 
+	void SortNumerical(bool bNum) {m_bSortNumerical = bNum;}
+
 public:
 	void Init(const SVNRev& revision);
 	CString MakeUrl(HTREEITEM hItem);
@@ -163,6 +146,7 @@ private:
 	bool		m_bRightDrag;
 	CDWordArray m_arDraggedIndexes;
 public:
+	bool		m_bSortNumerical;
 	int			m_nIconFolder;
 	CTSVNPathList m_DroppedPaths;	
 	ProjectProperties * m_pProjectProperties;

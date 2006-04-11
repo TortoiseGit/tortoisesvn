@@ -508,6 +508,7 @@
 #define IDC_GRAPHLINEBUTTON             1299
 #define IDS_SSL_REJECT                  1300
 #define IDC_GRAPHLINESTACKEDBUTTON      1300
+#define IDC_SORTNUMERICAL               1300
 #define IDS_ERR_SSL_NOTYETVALID         1301
 #define IDC_GRAPHPIEBUTTON              1301
 #define IDS_ERR_SSL_EXPIRED             1302
@@ -860,7 +861,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        234
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1300
+#define _APS_NEXT_CONTROL_VALUE         1301
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

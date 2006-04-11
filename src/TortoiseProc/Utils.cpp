@@ -908,3 +908,43 @@ CString CUtils::ParsePathInString(const CString& Str)
 	sToken.Empty();
 	return sToken;
 }
+
+int CUtils::CompareNumerical(LPCTSTR str1, LPCTSTR str2)
+{
+	// returns true, if x < y, false otherwise.
+	// skip same characters
+	while ((*str1 || *str2) && *str1 == *str2)
+	{
+		++str1;
+		++str2;
+	}
+
+	// parse numeric part of the first arg
+	if (IsCharAlphaNumeric(*str1) && !IsCharAlpha(*str1))
+	{
+		UINT x_num = *str1 - '0';
+		LPCTSTR str1_tmp = str1 + 1;
+		while (IsCharAlphaNumeric(*str1_tmp) && !IsCharAlpha(*str1_tmp))
+		{
+			x_num = 10 * x_num + *str1_tmp - '0';
+			++str1_tmp;
+		}
+
+		// parse numeric part of the second arg
+		if (IsCharAlphaNumeric(*str2) && !IsCharAlpha(*str2))
+		{
+			UINT y_num = *str2 - '0';
+			LPCTSTR  str2_tmp = str2 + 1;
+			while (IsCharAlphaNumeric(*str2_tmp) && !IsCharAlpha(*str2_tmp))
+			{
+				y_num = 10 * y_num + *str2_tmp - '0';
+				++str2_tmp;
+			}
+
+			// compare numeric parts of the arguments
+			return x_num - y_num;
+		}
+	}
+	// otherwise, compare literally
+	return _tcsicmp(str1, str2);
+}

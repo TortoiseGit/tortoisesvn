@@ -129,6 +129,8 @@ BOOL CRepositoryBrowser::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	bool bSortNumerical = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\SortNumerical"), FALSE);
+	m_treeRepository.SortNumerical(bSortNumerical);
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
 	m_barRepository.AssocTree(&m_treeRepository);

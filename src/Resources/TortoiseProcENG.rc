@@ -905,6 +905,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,146,271,10
     LTEXT           "Max. items to keep in the log message history",IDC_STATIC,15,107,226,8
     EDITTEXT        IDC_MAXHISTORY,252,103,31,14,ES_AUTOHSCROLL
+    GROUPBOX        "Repository browser",IDC_STATIC,7,169,286,30
+    CONTROL         "Sort items numerically",IDC_SORTNUMERICAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,182,237,10
 END
 
 IDD_SETTINGSSAVEDDATA DIALOGEX 0, 0, 300, 217
