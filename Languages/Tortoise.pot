@@ -3790,7 +3790,7 @@ msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr ""
 
 #: ID:224,
-msgid "To commit recursively, make sure all versioned entries shown in the commit dialog are checked.\nIf entries are not checked, TortoiseSVN must do a non-recursive commit."
+msgid "To commit recursively and work around this error,\nmake sure that all child items of a checked folder\nare also checked in the commit dialog.\nOtherwise, TortoiseSVN must do a non-recursive commit\nwhich does not allow directory deletion."
 msgstr ""
 
 #: Control-ID:1201,

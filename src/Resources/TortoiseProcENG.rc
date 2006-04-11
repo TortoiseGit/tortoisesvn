@@ -2420,7 +2420,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PROGRS_NONRECURSIVEHINT 
-                            "To commit recursively, make sure all versioned entries shown in the commit dialog are checked.\nIf entries are not checked, TortoiseSVN must do a non-recursive commit."
+                            "To commit recursively and work around this error,\nmake sure that all child items of a checked folder\nare also checked in the commit dialog.\nOtherwise, TortoiseSVN must do a non-recursive commit\nwhich does not allow directory deletion."
 END
 
 #endif    // English (U.S.) resources
