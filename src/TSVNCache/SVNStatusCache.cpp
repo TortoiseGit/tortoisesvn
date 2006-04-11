@@ -339,11 +339,15 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 		CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
 		CCachedDirectory * cachedDir = GetDirectoryCacheEntry(path.GetContainingDirectory());
-		if (cachedDir)
-			return m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
+		if (cachedDir != NULL)
+		{
+			m_mostRecentStatus = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
+			return m_mostRecentStatus;
+		}
 	}
 	ATLTRACE("ignored no good path %ws\n", path.GetWinPath());
-	return (m_mostRecentStatus = CStatusCacheEntry());
+	m_mostRecentStatus = CStatusCacheEntry();
+	return m_mostRecentStatus;
 }
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
