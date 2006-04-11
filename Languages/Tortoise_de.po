@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-04-07 10:35+0100\n"
+"PO-Revision-Date: 2006-04-11 10:26+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4133,10 +4133,6 @@ msgstr ""
 "Teile aktives Fenster auf\n"
 "Aufteilen"
 
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "Gestapelt"
-
 #: Control-ID:65535
 msgid "Start Revision"
 msgstr "Startrevision"
@@ -4618,6 +4614,15 @@ msgstr "Diese Eigenschaft ist nur für Dateien und nicht für Ordner zugelassen.
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Diese Eigenschaft darf nur eine Zeile haben."
+
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively, make sure all versioned entries shown in the commit dialog are checked.\n"
+"If entries are not checked, TortoiseSVN must do a non-recursive commit."
+msgstr ""
+"Um rekursiv übertragen zu können, müssen alle versionierten Einträge im Übertragen-Dialog markiert sein.\n"
+"Wenn Einträge abgewählt sind, überträgt TortoiseSVN die Daten nicht-rekursiv."
 
 #: Control-ID:1201
 msgid "To:"
