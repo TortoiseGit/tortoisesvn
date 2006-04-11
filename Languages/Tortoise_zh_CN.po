@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-02 21:33+0800\n"
+"PO-Revision-Date: 2006-04-11 10:02+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3593,9 +3593,8 @@ msgid ""
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
 msgstr ""
-"从上次提交以来没有任何文件\n"
-"修改或加入。TortoiseSVN 没有\n"
-"可执行的操作。"
+"从上次提交以来没有任何文件修改或加\n"
+"入。TortoiseSVN 没有可执行的操作。"
 
 # ID:77,
 #: ID:170
@@ -3605,10 +3604,9 @@ msgid ""
 "for TortoiseSVN to do here...\n"
 "Do you want to see the unversioned files?"
 msgstr ""
-"从上次提交以来没有任何文件\n"
-"修改或加入。 TortoiseSVN 没有\n"
-"可执行的操作。\n"
-"要查看未进行版本控制的文件吗？"
+"从上次提交以来没有任何文件修改或\n"
+"加入。TortoiseSVN 没有可执行的操\n"
+"作。要查看未进行版本控制的文件吗？"
 
 # ID:3843,#:
 # ID:3843,
@@ -5029,12 +5027,6 @@ msgstr ""
 "将当前窗口分割区块\n"
 "分割"
 
-# ID:11,#:
-# Control-ID:1002,
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "堆叠的"
-
 # ID:11,
 #: Control-ID:65535
 msgid "Start Revision"
@@ -5584,6 +5576,15 @@ msgstr "该属性只能设置在文件夹上，不能在文件上设置。"
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "该属性只允许添加一行，不能添加多行文本。"
+
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively, make sure all versioned entries shown in the commit dialog are checked.\n"
+"If entries are not checked, TortoiseSVN must do a non-recursive commit."
+msgstr ""
+"需将提交对话框中所有版本控制下的项目选中才能递归提交。\n"
+"否则，TortoiseSVN 将进行非递归的提交。"
 
 # Control-ID:65535,
 #: Control-ID:1201
