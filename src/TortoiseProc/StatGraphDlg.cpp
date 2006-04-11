@@ -684,10 +684,14 @@ void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 	case 2:
 		// by date
 		m_btnGraphPie.EnableWindow(FALSE);
+		m_btnGraphLine.EnableWindow(TRUE);
+		m_btnGraphLineStacked.EnableWindow(TRUE);
 		break;
 	case 3:
 		// by author
 		m_btnGraphPie.EnableWindow(TRUE);
+		m_btnGraphLine.EnableWindow(FALSE);
+		m_btnGraphLineStacked.EnableWindow(FALSE);
 		break;
 	}
 	RedrawGraph();
