@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6237
+# Based on Tortoise.pot r6261
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-31 09:10+0100\n"
+"PO-Revision-Date: 2006-04-12 08:52+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3033,6 +3033,10 @@ msgid "Repository Browser"
 msgstr "Versionsarkiv-søger"
 
 #: Control-ID:65535,
+msgid "Repository browser"
+msgstr "Versionsarkiv-søger"
+
+#: Control-ID:65535,
 msgid "Requests a username and a password"
 msgstr "Spørger efter brugernavn og adgangskode"
 
@@ -3533,6 +3537,10 @@ msgstr "Oversprunget"
 msgid "Skipped missing target"
 msgstr "Sprang over manglende element"
 
+#: Control-ID:1300,
+msgid "Sort items numerically"
+msgstr "Sorter emner numerisk"
+
 #: ID:196,
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Angiver hvor mange filer du ønsker gemt i listen over nyeste logbeskeder."
@@ -3864,6 +3872,10 @@ msgstr "Denne egenskab er kun tilgængelig for mapper, ikke for filer."
 #: ID:15,
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Denne egenskab må ikke indeholde flere linjer. Der tillades kun én linje."
+
+#: ID:224,
+msgid "To commit recursively and work around this error,\nmake sure that all child items of a checked folder\nare also checked in the commit dialog.\nOtherwise, TortoiseSVN must do a non-recursive commit\nwhich does not allow directory deletion."
+msgstr "For at arkivere rekursivt og omgå denne fejl\nskal du sørge for at alle emner inde i en valgt mappe\og også er valgt i arkivér-dialogen.\nEllers skal TortoiseSVN lave en ikke-rekursiv arkivering,\nsom ikke tillader sletning af mapper."
 
 #: Control-ID:1201,
 msgid "To:"
