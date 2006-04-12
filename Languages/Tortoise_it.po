@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-06 00:32+0100\n"
+"PO-Revision-Date: 2006-04-13 01:28+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -493,10 +493,10 @@ msgstr "Set di &icone:"
 msgid "&Ignore %d items"
 msgstr "&Ignora %d elementi"
 
-# Control-ID:1020,
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "&Ignora gli spazi ad inizio linea"
+# Control-ID:1067,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "&Ignora cambiamenti nelle spaziature"
 
 # ID:9,
 #: ID:9
@@ -1567,6 +1567,11 @@ msgstr "Annullamento della biasma SVN..."
 msgid "Cancelling operation..."
 msgstr "Annullamento operazione..."
 
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "Impossibile mostrare il confronto a causa di caratteri di a capo inconsistenti nel file."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Cascaded context menu"
@@ -1851,7 +1856,7 @@ msgstr "Confronta revisioni di &testa"
 # ID:76,
 #: ID:114
 msgid "Compare and &blame with working copy"
-msgstr "Confronta e &biasima con la copia di &lavoro"
+msgstr "Confronta e &biasima con la copia di lavoro"
 
 # ID:76,
 #: ID:76
@@ -2992,7 +2997,7 @@ msgid "Ignore"
 msgstr "Ignora"
 
 # Control-ID:1021,
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "Ignora &tutti gli spazi"
 
@@ -3005,11 +3010,6 @@ msgstr "Ignora &cambiamenti tra maiuscole/minuscole"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Ignora discendenza"
-
-# Control-ID:1020,
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "Ig&nora gli spazi a fine riga"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -3769,7 +3769,6 @@ msgstr "Apri file"
 
 # Control-ID:1073,
 #: ID:282
-#, fuzzy
 msgid "Open parent folder"
 msgstr "Livello superiore"
 
@@ -4320,6 +4319,11 @@ msgstr "Repository"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Repository Browser"
+
+# Dlg-ID:153,
+#: Control-ID:65535
+msgid "Repository browser"
+msgstr "Repository browser"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5019,6 +5023,11 @@ msgstr "Saltato"
 msgid "Skipped missing target"
 msgstr "Obbiettivo mancate saltato"
 
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "Ordina numericamente"
+
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -5048,12 +5057,6 @@ msgid ""
 msgstr ""
 "Separa la finestra\n"
 "Separa"
-
-# ID:11,#:
-# Control-ID:1002,
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "Accodato"
 
 # ID:11,
 #: Control-ID:65535
@@ -5607,6 +5610,21 @@ msgstr "Questa proprietà è disponibile solo per le cartelle, non per i file."
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Questa proprietà deve avere più linee. Una sola non è consentita."
+
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"Per inviare ricorsivamente e aggirare questo errore,\n"
+"assicurarsi che tutti tutti gli elementi figli di una cartella selezionata\n"
+"siano selezionati a loro volta nel dialogo di invio.\n"
+"In caso contrario TortoiseSVN è obbligato a effettuare un invio\n"
+"non ricorsivo, il quale non consente la cancellazione delle cartelle."
 
 # Control-ID:1201,
 #: Control-ID:1201
