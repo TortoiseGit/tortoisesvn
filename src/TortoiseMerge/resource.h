@@ -114,6 +114,7 @@
 #define IDC_USEBDIFF                    1068
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
+#define IDS_ERR_DIFF_NEWLINES           1081
 #define IDC_WEBLINK                     1084
 #define IDC_SUPPORTLINK                 1085
 #define IDC_FONTSIZES                   1086

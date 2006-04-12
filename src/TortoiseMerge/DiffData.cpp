@@ -252,7 +252,11 @@ BOOL CDiffData::Load()
 	// Is this a two-way diff?
 	if (IsBaseFileInUse() && IsYourFileInUse() && !IsTheirFileInUse())
 	{
-		DoTwoWayDiff(sConvertedBaseFilename, sConvertedYourFilename, dwIgnoreWS, pool);
+		if (!DoTwoWayDiff(sConvertedBaseFilename, sConvertedYourFilename, dwIgnoreWS, pool))
+		{
+			apr_pool_destroy (pool);					// free the allocated memory
+			return FALSE;
+		}
 	}
 
 	if (IsBaseFileInUse() && IsTheirFileInUse() && !IsYourFileInUse())
@@ -265,7 +269,11 @@ BOOL CDiffData::Load()
 		m_arDiff3.Reserve(lengthHint);
 		m_arStateDiff3.Reserve(lengthHint);
 
-		DoThreeWayDiff(sConvertedBaseFilename, sConvertedYourFilename, sConvertedTheirFilename, pool);
+		if (!DoThreeWayDiff(sConvertedBaseFilename, sConvertedYourFilename, sConvertedTheirFilename, pool))
+		{
+			apr_pool_destroy (pool);					// free the allocated memory
+			return FALSE;
+		}
 	}
 
 	apr_pool_destroy (pool);					// free the allocated memory
@@ -306,9 +314,19 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 	{
 		for (int i=0; i<tempdiff->original_length; i++)
 		{
+			if (baseline >= m_arBaseFile.GetCount())
+			{
+				m_sError.LoadString(IDS_ERR_DIFF_NEWLINES);
+				return false;
+			}
 			const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
 			if (tempdiff->type == svn_diff__type_common)
 			{
+				if (yourline >= m_arYourFile.GetCount())
+				{
+					m_sError.LoadString(IDS_ERR_DIFF_NEWLINES);
+					return false;
+				}
 				const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
 				m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
 				if (sCurrentBaseLine != sCurrentYourLine)

@@ -159,6 +159,8 @@
        before the parent items to avoid an error message. (Tobias Schäfer)
 - BUG: When a setting change couldn't be saved in the registry, no error
        message was shown. See issue #237 for details. (Stefan)
+- BUG: TortoiseMerge could crash when diffing files with 
+       inconsistent and MAC newlines. (Stefan)
 
 Version 1.3.4
 - BUG: When committing added files only, the log message wasn't saved
