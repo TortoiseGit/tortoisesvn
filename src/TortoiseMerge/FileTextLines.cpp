@@ -53,7 +53,7 @@ BOOL CStdioFileK::ReadString(CStringA& rString)
 		if (lpszResult == NULL && !feof(m_pStream))
 		{
 			clearerr(m_pStream);
-			AfxThrowFileException(CFileException::generic, _doserrno,
+			AfxThrowFileException(CFileException::genericException, _doserrno,
 				m_strFileName);
 		}
 
@@ -417,10 +417,8 @@ void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
 	sLine.ReleaseBuffer(outputLen);
 }
 
-BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreLineendings /*= FALSE*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
+BOOL CFileTextLines::Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
 {
-	if (bIgnoreLineendings)
-		m_LineEndings = AUTOLINE;
 	try
 	{
 		CString destPath = sFilePath;

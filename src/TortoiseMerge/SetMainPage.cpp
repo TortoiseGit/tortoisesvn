@@ -158,7 +158,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bStrikeout = m_regStrikeout;
 	m_bCaseInsensitive = m_bCaseInsensitive;
 
-	UINT uRadio = IDC_WSIGNORELEADING;
+	UINT uRadio = IDC_WSCOMPARE;
 	switch (m_nIgnoreWS)
 	{
 	case 0:
@@ -168,16 +168,13 @@ BOOL CSetMainPage::OnInitDialog()
 		uRadio = IDC_WSIGNOREALL;
 		break;
 	case 2:
-		uRadio = IDC_WSIGNORELEADING;
+		uRadio = IDC_WSIGNORECHANGED;
 		break;	
-	case 3:
-		uRadio = IDC_WSIGNOREENDING;
-		break;
 	default:
 		break;	
 	}
 
-	CheckRadioButton(IDC_WSCOMPARE, IDC_WSIGNOREENDING, uRadio);
+	CheckRadioButton(IDC_WSCOMPARE, IDC_WSIGNORECHANGED, uRadio);
 
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
@@ -251,8 +248,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_ONEPANE, OnBnClickedOnepane)
 	ON_BN_CLICKED(IDC_FIRSTDIFFONLOAD, OnBnClickedFirstdiffonload)
 	ON_BN_CLICKED(IDC_WSCOMPARE, OnBnClickedWhitespace)
-	ON_BN_CLICKED(IDC_WSIGNORELEADING, OnBnClickedWhitespace)
-	ON_BN_CLICKED(IDC_WSIGNOREENDING, OnBnClickedWhitespace)
+	ON_BN_CLICKED(IDC_WSIGNORECHANGED, OnBnClickedWhitespace)
 	ON_BN_CLICKED(IDC_WSIGNOREALL, OnBnClickedWhitespace)
 	ON_BN_CLICKED(IDC_LINENUMBERS, OnBnClickedLinenumbers)
 	ON_BN_CLICKED(IDC_MAGNIFIER, OnBnClickedMagnifier)
@@ -319,7 +315,7 @@ void CSetMainPage::OnBnClickedWhitespace()
 {
 	m_bReloadNeeded = TRUE;
 	SetModified();
-	UINT uRadio = GetCheckedRadioButton(IDC_WSCOMPARE, IDC_WSIGNOREENDING);
+	UINT uRadio = GetCheckedRadioButton(IDC_WSCOMPARE, IDC_WSIGNORECHANGED);
 	switch (uRadio)
 	{
 	case IDC_WSCOMPARE:
@@ -328,12 +324,9 @@ void CSetMainPage::OnBnClickedWhitespace()
 	case IDC_WSIGNOREALL:
 		m_nIgnoreWS = 1;
 		break;
-	case IDC_WSIGNORELEADING:
+	case IDC_WSIGNORECHANGED:
 		m_nIgnoreWS = 2;
 		break;	
-	case IDC_WSIGNOREENDING:
-		m_nIgnoreWS = 3;
-		break;
 	default:
 		break;	
 	}

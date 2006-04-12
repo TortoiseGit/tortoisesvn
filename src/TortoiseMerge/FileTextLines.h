@@ -88,7 +88,7 @@ public:
 	 * the line endings detected at Load()
 	 * \param sFilePath the path to save the file to
 	 */
-	BOOL		Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreLineendings = FALSE, BOOL bIgnoreCase = FALSE, bool bBlame = false);
+	BOOL		Save(const CString& sFilePath, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreCase = FALSE, bool bBlame = false);
 	/**
 	 * Returns an error string of the last failed operation
 	 */

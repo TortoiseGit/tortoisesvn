@@ -190,7 +190,7 @@ BOOL CDiffData::Load()
 	CRegDWORD regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);
 	CRegDWORD regIgnoreCase = CRegDWORD(_T("Software\\TortoiseMerge\\CaseInsensitive"), FALSE);
 	DWORD dwIgnoreWS = regIgnoreWS;
-	BOOL bIgnoreEOL = ((DWORD)regIgnoreEOL)!=0;
+	bool bIgnoreEOL = ((DWORD)regIgnoreEOL)!=0;
 	BOOL bIgnoreCase = ((DWORD)regIgnoreCase)!=0;
 	if (IsBaseFileInUse())
 	{
@@ -201,7 +201,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arBaseFile);
 		sConvertedBaseFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedBaseFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase, m_bBlame);
+		converted.Save(sConvertedBaseFilename, dwIgnoreWS, bIgnoreCase, m_bBlame);
 	}
 
 	if (IsTheirFileInUse())
@@ -215,8 +215,8 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arTheirFile);
 		sConvertedTheirFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedTheirFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase, m_bBlame);
-	} // if (IsTheirFileInUse())
+		converted.Save(sConvertedTheirFilename, dwIgnoreWS, bIgnoreCase, m_bBlame);
+	}
 
 	if (IsYourFileInUse())
 	{
@@ -229,8 +229,8 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arYourFile);
 		sConvertedYourFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedYourFilename, dwIgnoreWS, bIgnoreEOL, bIgnoreCase, m_bBlame);
-	} // if (IsYourFileInUse()) 
+		converted.Save(sConvertedYourFilename, dwIgnoreWS, bIgnoreCase, m_bBlame);
+	}
 
 	// Calculate the number of lines in the largest of the three files
 	int lengthHint = max(m_arBaseFile.GetCount(), m_arTheirFile.GetCount());
@@ -252,7 +252,7 @@ BOOL CDiffData::Load()
 	// Is this a two-way diff?
 	if (IsBaseFileInUse() && IsYourFileInUse() && !IsTheirFileInUse())
 	{
-		if (!DoTwoWayDiff(sConvertedBaseFilename, sConvertedYourFilename, dwIgnoreWS, pool))
+		if (!DoTwoWayDiff(sConvertedBaseFilename, sConvertedYourFilename, dwIgnoreWS, bIgnoreEOL, pool))
 		{
 			apr_pool_destroy (pool);					// free the allocated memory
 			return FALSE;
@@ -269,7 +269,7 @@ BOOL CDiffData::Load()
 		m_arDiff3.Reserve(lengthHint);
 		m_arStateDiff3.Reserve(lengthHint);
 
-		if (!DoThreeWayDiff(sConvertedBaseFilename, sConvertedYourFilename, sConvertedTheirFilename, pool))
+		if (!DoThreeWayDiff(sConvertedBaseFilename, sConvertedYourFilename, sConvertedTheirFilename, bIgnoreEOL, pool))
 		{
 			apr_pool_destroy (pool);					// free the allocated memory
 			return FALSE;
@@ -282,7 +282,7 @@ BOOL CDiffData::Load()
 
 
 bool
-CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, apr_pool_t * pool)
+CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool)
 {
 	// convert CString filenames (UTF-16 or ANSI) to UTF-8
 	CStringA sBaseFilenameUtf8 = CUnicodeUtils::GetUTF8(sBaseFilename);
@@ -290,8 +290,23 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 
 	svn_diff_t * diffYourBase = NULL;
 	svn_error_t * svnerr = NULL;
+	svn_diff_file_options_t * options = svn_diff_file_options_create(pool);
+	options->ignore_eol_style = bIgnoreEOL;
+	options->ignore_space = svn_diff_file_ignore_space_none;
+	switch (dwIgnoreWS)
+	{
+	case 0:
+		options->ignore_space = svn_diff_file_ignore_space_none;
+		break;
+	case 1:
+		options->ignore_space = svn_diff_file_ignore_space_all;
+		break;
+	case 2:
+		options->ignore_space = svn_diff_file_ignore_space_change;
+		break;
+	}
 
-	svnerr = svn_diff_file_diff(&diffYourBase, sBaseFilenameUtf8, sYourFilenameUtf8, pool);
+	svnerr = svn_diff_file_diff_2(&diffYourBase, sBaseFilenameUtf8, sYourFilenameUtf8, options, pool);
 	if (svnerr)
 	{
 		TRACE(_T("diff-error in CDiffData::Load()\n"));
@@ -511,14 +526,17 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 }
 
 bool
-CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, apr_pool_t * pool)
+CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, bool bIgnoreEOL, apr_pool_t * pool)
 {
 	// convert CString filenames (UTF-16 or ANSI) to UTF-8
 	CStringA sBaseFilenameUtf8  = CUnicodeUtils::GetUTF8(sBaseFilename);
 	CStringA sYourFilenameUtf8  = CUnicodeUtils::GetUTF8(sYourFilename);
 	CStringA sTheirFilenameUtf8 = CUnicodeUtils::GetUTF8(sTheirFilename);
 	svn_diff_t * diffTheirYourBase = NULL;
-	svn_error_t * svnerr = svn_diff_file_diff3(&diffTheirYourBase, sBaseFilenameUtf8, sTheirFilenameUtf8, sYourFilenameUtf8, pool);
+	svn_diff_file_options_t * options = svn_diff_file_options_create(pool);
+	options->ignore_eol_style = bIgnoreEOL;
+	options->ignore_space = svn_diff_file_ignore_space_none;
+	svn_error_t * svnerr = svn_diff_file_diff3_2(&diffTheirYourBase, sBaseFilenameUtf8, sTheirFilenameUtf8, sYourFilenameUtf8, options, pool);
 	if (svnerr)
 	{
 		TRACE(_T("diff-error in CDiffData::Load()\n"));
