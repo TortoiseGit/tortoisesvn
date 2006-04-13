@@ -659,6 +659,12 @@ BEGIN
     IDS_COLOURPICKER_DEFAULTTEXT "Automatic"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_ERR_PATCH_FILEFOUNDTWICE 
+                            "The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

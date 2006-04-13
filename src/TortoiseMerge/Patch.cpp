@@ -430,7 +430,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 				}
 				else
 				{
-					m_sErrorMessage.Format(_T("The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"), (LPCTSTR)temppath);
+					m_sErrorMessage.Format(IDS_ERR_PATCH_FILEFOUNDTWICE, (LPCTSTR)temppath);
 					return FALSE;
 				}
 			}
