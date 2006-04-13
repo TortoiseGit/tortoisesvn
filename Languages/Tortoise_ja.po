@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-03 21:25+0900\n"
+"PO-Revision-Date: 2006-04-13 17:55+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -501,10 +501,10 @@ msgstr "アイコンセット(&I):"
 msgid "&Ignore %d items"
 msgstr "%d 個の項目を無視する(&I)"
 
-# Control-ID:1020,
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "行頭の空白を無視する(&I)"
+# Control-ID:1067,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "空白の変更は無視する(&I)"
 
 # ID:9,
 #: ID:9
@@ -1571,6 +1571,11 @@ msgstr "注釈履歴をキャンセル中 ..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "キャンセル処理中 ..."
+
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "ファイルの改行コードに一貫性がないため、差分を表示できません。"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2995,7 +3000,7 @@ msgid "Ignore"
 msgstr "無視"
 
 # Control-ID:1021,
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "全ての空白を無視する(&A)"
 
@@ -3008,11 +3013,6 @@ msgstr "大文字／小文字の変更は無視する(&C)"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "系統情報を無視する"
-
-# Control-ID:1020,
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "行末の空白を無視する(&N)"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -3644,7 +3644,7 @@ msgstr "スペルの訂正はありません"
 # ID:196,
 #: ID:196
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "状態キャッシュを利用しない。バージョン管理されたフォルダのみオーバーレイされ、ファイルはオーバーレイ表示されません。"
+msgstr "状態をキャッシュしません。バージョン管理されたフォルダのみオーバーレイされ、ファイルはオーバーレイ表示されません。"
 
 # ID:188,
 #: ID:188
@@ -4314,6 +4314,11 @@ msgstr "リポジトリ"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
+msgstr "リポジトリブラウザ"
+
+# Dlg-ID:153,
+#: Control-ID:65535
+msgid "Repository browser"
 msgstr "リポジトリブラウザ"
 
 # Control-ID:65535,
@@ -5013,6 +5018,11 @@ msgstr "スキップ"
 msgid "Skipped missing target"
 msgstr "ターゲットが見つからないのでスキップします"
 
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "数字で項目をソートする"
+
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -5043,12 +5053,6 @@ msgid ""
 msgstr ""
 "アクティブなウィンドウを区画に分割する\n"
 "分割"
-
-# ID:11,#:
-# Control-ID:1002,
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "積み重ね"
 
 # ID:11,
 #: Control-ID:65535
@@ -5083,12 +5087,12 @@ msgstr "状態のキャッシュ"
 # ID:196,
 #: ID:196
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "状態キャッシュが外部プロセスで保持されいる場合、再帰的なオーバーレイが遅くなるかもしれません"
+msgstr "状態のキャッシュが外部プロセスで保持されいる場合、再帰的なオーバーレイが遅くなるかもしれません"
 
 # ID:196,
 #: ID:196
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "フォルダに対してのみ状態キャッシュを有効にし、再帰的なオーバーレイは行わない"
+msgstr "１つのフォルダに対してのみ状態をキャッシュし、再帰的なオーバーレイは行いません"
 
 # ID:11,
 #: ID:11
@@ -5600,6 +5604,21 @@ msgstr "このプロパティはフォルダに対してのみ有効で、ファ
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "この属性に複数行入力することはできません。１行のみにしてください。"
+
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"このエラーを回避して再帰的にコミットを行うためには、\n"
+"チェックされているフォルダに含まれる全ての項目も、\n"
+"コミットダイアログでチェックしてください。\n"
+"そうでない場合は、TortoiseSVN は非再帰的にコミットを行い、\n"
+"ディレクトリの削除を行うことはできません。"
 
 # Control-ID:1201,
 #: Control-ID:1201
