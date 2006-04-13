@@ -407,7 +407,7 @@ CString CPatch::GetRevision2(int nIndex)
 
 BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CString& sBaseFile)
 {
-	if (/*!PathFileExists(sPath) || */PathIsDirectory(sPath))
+	if (PathIsDirectory(sPath))
 	{
 		m_sErrorMessage.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, (LPCTSTR)sPath);
 		return FALSE;
@@ -419,20 +419,23 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 		CString temp = GetFilename(i);
 		temppath.Replace('/', '\\');
 		temp.Replace('/', '\\');
-		temppath = temppath.Right(temp.GetLength());
-		if (temp.CompareNoCase(temppath)==0)
+		if (temppath.Mid(temppath.GetLength()-temp.GetLength()-1, 1).CompareNoCase(_T("\\"))==0)
 		{
-			if ((nIndex < 0)&&(! temp.IsEmpty()))
+			temppath = temppath.Right(temp.GetLength());
+			if ((temp.CompareNoCase(temppath)==0))
 			{
-				nIndex = i;
+				if ((nIndex < 0)&&(! temp.IsEmpty()))
+				{
+					nIndex = i;
+				}
+				else
+				{
+					m_sErrorMessage.Format(_T("The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"), (LPCTSTR)temppath);
+					return FALSE;
+				}
 			}
-			else
-			{
-				m_sErrorMessage.Format(_T("The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"), (LPCTSTR)temppath);
-				return FALSE;
-			}
-		} // if (temp.CompareNoCase(temppath)==0) 
-	} // for (int i=0; i<GetNumberOfFiles(); i++)
+		}
+	}
 	if (nIndex < 0)
 	{
 		m_sErrorMessage.Format(IDS_ERR_PATCH_FILENOTINPATCH, (LPCTSTR)sPath);
