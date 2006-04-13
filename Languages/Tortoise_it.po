@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-13 01:28+0100\n"
+"PO-Revision-Date: 2006-04-13 23:47+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1094,6 +1094,7 @@ msgstr "Aggiungi/modifici applicazione di confronto/fusione per estensione speci
 
 # Control-ID:65535,
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "Aggiunto"
@@ -2208,6 +2209,7 @@ msgstr "&Numero predefinito di commenti"
 # ID:73,#:
 # ID:101,
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "Eliminato"
 
@@ -3470,6 +3472,7 @@ msgstr "Misto"
 
 # ID:74,
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "Modificato"
 
@@ -3656,6 +3659,7 @@ msgid "None"
 msgstr "Nessuno"
 
 # Control-ID:65535,
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Normale"
@@ -5300,6 +5304,20 @@ msgstr "Il file %s non esiste!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Il file %s non è stato trovato nel file di patch!"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"Il file %s\n"
+"è stato trovato due volte!\n"
+"Questo di regola succede quando si applica una patch\n"
+"alla cartella sbagliata."
 
 # ID:3857,#:
 # ID:3857,
