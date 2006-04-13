@@ -44,25 +44,6 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
  * must not be escaped! Escaping and unescaping of URLs is done automatically.
  * The drawback of this is that valid pathnames with sequences looking like escaped
  * chars may not work correctly under certain circumstances.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 10-20-2002
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class SVN
 {
@@ -91,6 +72,7 @@ public:
 							svn_error_t * err, apr_pool_t * pool);
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
 	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line);
+	virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node);
 
 	struct SVNLock
 	{
@@ -391,6 +373,25 @@ public:
 	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile);
 
 	/**
+	 * Finds out what files/folders have changed between two paths/revs,
+	 * without actually doing the whole diff.
+	 * The result is passed in the DiffSummarizeCallback() callback function.
+	 * \param path1 the first path/url
+	 * \param rev1 the revision of the first path/url
+	 * \param path2 the second path/url
+	 * \param rev2 the revision of the second path/url
+	 * \param recurse if true, then all children of path1/path2 are checked if they changed too
+	 * \param ignoreancestry if true, then possible ancestry between path1 and path2 is ignored
+	 */
+	bool DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, bool recurse, bool ignoreancestry);
+	
+	/**
+	* Same as DiffSummarize(), expect this method takes a peg revision
+	* to anchor the path on.
+	*/
+	bool DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, bool recurse, bool ignoreancestry);
+
+	/**
 	 * fires the Log-event on each log message from revisionStart
 	 * to revisionEnd inclusive (but never fires the event
 	 * on a given log message more than once).
@@ -594,6 +595,8 @@ public:
 	void SetAndClearProgressInfo(HWND hWnd);
 	void SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgressBar = false);
 	
+	static CString GetSummarizeActionText(svn_client_diff_summarize_kind_t kind);
+
 	static CString GetErrorString(svn_error_t * Err, int wrap = 80);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
@@ -623,6 +626,8 @@ private:
 	static void notify( void *baton,
 						const svn_wc_notify_t *notify,
 						apr_pool_t *pool);
+	static svn_error_t* summarize_func(const svn_client_diff_summarize_t *diff, 
+					void *baton, apr_pool_t *pool);
 	static svn_error_t* logReceiver(void* baton, 
 					apr_hash_t* ch_paths, 
 					svn_revnum_t rev, 

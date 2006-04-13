@@ -148,6 +148,7 @@ BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action,
 				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
 BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
+svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 #pragma warning(pop)
 
 struct log_msg_baton2
@@ -819,6 +820,35 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 	return TRUE;
 }
 
+bool SVN::DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, bool recurse, bool ignoreancestry)
+{
+	SVNPool localpool(pool);
+	Err = svn_client_diff_summarize(path1.GetSVNApiPath(), rev1,
+									path2.GetSVNApiPath(), rev2,
+									recurse, ignoreancestry,
+									summarize_func, this,
+									m_pctx, localpool);
+	if(Err != NULL)
+	{
+		return false;
+	}
+	return true;
+}
+
+bool SVN::DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, bool recurse, bool ignoreancestry)
+{
+	SVNPool localpool(pool);
+	Err = svn_client_diff_summarize_peg(path.GetSVNApiPath(), peg, rev1, rev2,
+										recurse, ignoreancestry,
+										summarize_func, this,
+										m_pctx, localpool);
+	if(Err != NULL)
+	{
+		return false;
+	}
+	return true;
+}
+
 BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict /* = FALSE */)
 {
 	SVNPool localpool(pool);
@@ -980,6 +1010,17 @@ BOOL SVN::Unlock(const CTSVNPathList& pathList, BOOL bBreakLock)
 {
 	Err = svn_client_unlock(MakePathArray(pathList), bBreakLock, m_pctx, pool);
 	return (Err == NULL);
+}
+
+svn_error_t* SVN::summarize_func(const svn_client_diff_summarize_t *diff, void *baton, apr_pool_t * /*pool*/)
+{
+	SVN * svn = (SVN *)baton;
+	if (diff)
+	{
+		CTSVNPath path = CTSVNPath(CUnicodeUtils::GetUnicode(diff->path));
+		return svn->DiffSummarizeCallback(path, diff->summarize_kind, !!diff->prop_changed, diff->node_kind);
+	}
+	return SVN_NO_ERROR;
 }
 
 svn_error_t* SVN::logReceiver(void* baton, 
@@ -1826,6 +1867,27 @@ void SVN::SetAndClearProgressInfo(CProgressDlg * pProgressDlg, bool bShowProgres
 	progress_lasttotal = 0;
 	progress_lastTicks = GetTickCount();
 	m_bShowProgressBar = bShowProgressBar;
+}
+
+CString SVN::GetSummarizeActionText(svn_client_diff_summarize_kind_t kind)
+{
+	CString sAction;
+	switch (kind)
+	{
+	case svn_client_diff_summarize_kind_normal:
+		sAction.LoadString(IDS_SVN_SUMMARIZENORMAL);
+		break;
+	case svn_client_diff_summarize_kind_added:
+		sAction.LoadString(IDS_SVN_SUMMARIZEADDED);
+		break;
+	case svn_client_diff_summarize_kind_modified:
+		sAction.LoadString(IDS_SVN_SUMMARIZEMODIFIED);
+		break;
+	case svn_client_diff_summarize_kind_deleted:
+		sAction.LoadString(IDS_SVN_SUMMARIZEDELETED);
+		break;
+	}
+	return sAction;
 }
 
 void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t * /*pool*/)
