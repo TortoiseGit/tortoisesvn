@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-31 14:14+0900\n"
+"PO-Revision-Date: 2006-04-13 10:46+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -490,10 +490,10 @@ msgstr "아이콘 모음(&I):"
 msgid "&Ignore %d items"
 msgstr "%d 개 무시(&I)"
 
-# Control-ID:1020,
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "앞부분의 공백 무시(&I)"
+# Control-ID:1067,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "대/소문자를 구분하지 않음(&I)"
 
 # ID:9,
 #: ID:9
@@ -1560,6 +1560,11 @@ msgstr "SVN 수정한 사람 보기 취소중..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "취소중..."
+
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "개행 문자가 같은 종류로 되어 있지 않아 차이점을 보일 수 없습니다."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2983,7 +2988,7 @@ msgid "Ignore"
 msgstr "무시"
 
 # Control-ID:1021,
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "모든 공백 무시(&A)"
 
@@ -2996,11 +3001,6 @@ msgstr "대/소문자를 구분하지 않음(&C)"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "상위디렉토리를 무시함"
-
-# Control-ID:1020,
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "뒷부분의 공백 무시(&N)"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -4307,6 +4307,11 @@ msgstr "저장소"
 msgid "Repository Browser"
 msgstr "저장소 브라우저"
 
+# Dlg-ID:153,
+#: Control-ID:65535
+msgid "Repository browser"
+msgstr "저장소 브라우저"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Requests a username and a password"
@@ -5004,6 +5009,11 @@ msgstr "넘김"
 msgid "Skipped missing target"
 msgstr "없는 개체는 건너뜀"
 
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "번호순으로 정렬"
+
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -5032,12 +5042,6 @@ msgid ""
 msgstr ""
 "활성화된 창을 두개로 나누기\n"
 "분리"
-
-# ID:11,#:
-# Control-ID:1002,
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "누적"
 
 # ID:11,
 #: Control-ID:65535
@@ -5589,6 +5593,21 @@ msgstr "이 속성은 폴더에만 적용되며, 파일에는 적용되지 않�
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "이 속성은 여러줄로 구성될 수 없습니다. 한 줄로만 가능합니다."
+
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"하위 폴더까지 한꺼번에 커밋을 하고,\n"
+"이 오류를 피해가려면, 커밋 대화상자에서\n"
+"하위에 있는 모든 파일을 체크 표시를 해두어야합니다.\n"
+"체크를 하지 않으면 한꺼번에 커밋을 하지 않으며,\n"
+"또한 디렉토리 삭제인 경우 수행할 수 없습니다."
 
 # Control-ID:1201,
 #: Control-ID:1201
