@@ -41,7 +41,8 @@ public:
 		AddedNode,
 		ReplacedNode,
 		RenamedNode,
-		LastCommitNode
+		LastCommitNode,
+		PropertyChanged
 	};
 	
 	COLORREF GetColor(Colors col, bool bDefault = false);
@@ -59,4 +60,5 @@ private:
 	CRegDWORD m_regReplacedNode;
 	CRegDWORD m_regRenamedNode;
 	CRegDWORD m_regLastCommitNode;
+	CRegDWORD m_regPropertyChanged;
 };

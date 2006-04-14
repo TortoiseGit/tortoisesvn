@@ -31,6 +31,7 @@ CColors::CColors(void) :
 	, m_regReplacedNode(_T("Software\\TortoiseSVN\\Colors\\ReplacedNode"), RGB(0, 255, 0))
 	, m_regRenamedNode(_T("Software\\TortoiseSVN\\Colors\\RenamedNode"), RGB(0, 0, 255))
 	, m_regLastCommitNode(_T("Software\\TortoiseSVN\\Colors\\LastCommitNode"), RGB(200, 200, 200))
+	, m_regPropertyChanged(_T("Software\\TortoiseSVN\\Colors\\PropertyChanged"), RGB(0, 50, 160))
 {
 }
 
@@ -86,6 +87,10 @@ COLORREF CColors::GetColor(Colors col, bool bDefault /*=true*/)
 		if (bDefault)
 			return RGB(200, 200, 200);
 		return (COLORREF)(DWORD)m_regLastCommitNode;
+	case PropertyChanged:
+		if (bDefault)
+			return RGB(0, 50, 160);
+		return (COLORREF)(DWORD)m_regPropertyChanged;
 	}
 	return RGB(0,0,0);
 }
@@ -111,6 +116,10 @@ void CColors::SetColor(Colors col, COLORREF cr)
 		break;
 	case LastCommit:
 		m_regLastCommit = cr;
+		break;
+	case PropertyChanged:
+		m_regPropertyChanged = cr;
+		break;
 	default:
 		ATLASSERT(false);
 	}

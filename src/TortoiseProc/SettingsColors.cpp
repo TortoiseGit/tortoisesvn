@@ -68,6 +68,7 @@ int CSettingsColors::SaveData()
 	m_Colors.SetColor(CColors::DeletedNode, m_cDeletedNode.GetColor(TRUE));
 	m_Colors.SetColor(CColors::RenamedNode, m_cRenamedNode.GetColor(TRUE));
 	m_Colors.SetColor(CColors::ReplacedNode, m_cReplacedNode.GetColor(TRUE));
+	m_Colors.SetColor(CColors::PropertyChanged, m_cModified.GetColor(TRUE));
 	return 0;
 }
 

@@ -24,6 +24,7 @@
 #include "Blame.h"
 #include "SVN.h"
 #include "HintListCtrl.h"
+#include "Colors.h"
 #include "afxwin.h"
 
 class CFileDiffDlg : public CResizableStandAloneDialog, public SVN
@@ -75,6 +76,7 @@ private:
 	static UINT			DiffThreadEntry(LPVOID pVoid);
 	UINT				DiffThread();
 
+	CColors				m_colors;
 	CHintListCtrl		m_cFileList;
 	bool				m_bBlame;
 	CBlame				m_blamer;
