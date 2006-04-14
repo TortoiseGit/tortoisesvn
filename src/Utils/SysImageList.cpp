@@ -110,13 +110,12 @@ int CSysImageList::GetPathIconIndex(const CTSVNPath& filePath) const
 {
 	CString strExtension = filePath.GetFileExtension();
 	strExtension.MakeUpper();
-	IconIndexMap::const_iterator it = m_indexCache.find(strExtension);
-	if(it == m_indexCache.end())
+	IconIndexMap::iterator it = m_indexCache.lower_bound(strExtension);
+	if (it == m_indexCache.end() || strExtension < it->first)
 	{
 		// We don't have this extension in the map
 		int iconIndex = GetFileIconIndex(filePath.GetFilename());
-		m_indexCache[strExtension] = iconIndex;
-		return iconIndex;
+		it = m_indexCache.insert(it, std::make_pair(strExtension, iconIndex));
 	}
 	// We must have found it
 	return it->second;
