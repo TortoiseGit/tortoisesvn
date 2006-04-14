@@ -24,6 +24,7 @@
 #include "Blame.h"
 #include "SVN.h"
 #include "HintListCtrl.h"
+#include "afxwin.h"
 
 class CFileDiffDlg : public CResizableStandAloneDialog, public SVN
 {
@@ -56,6 +57,9 @@ protected:
 	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg void OnEnSetfocusSecondurl();
+	afx_msg void OnEnSetfocusFirsturl();
 	
 	DECLARE_MESSAGE_MAP()
 
@@ -87,5 +91,4 @@ private:
 	bool				m_bIgnoreancestry;
 	bool				m_bDoPegDiff;
 	volatile LONG		m_bThreadRunning;
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };

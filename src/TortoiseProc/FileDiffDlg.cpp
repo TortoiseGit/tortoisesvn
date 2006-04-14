@@ -56,6 +56,8 @@ BEGIN_MESSAGE_MAP(CFileDiffDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_FILELIST, OnNMCustomdrawFilelist)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETCURSOR()
+	ON_EN_SETFOCUS(IDC_SECONDURL, &CFileDiffDlg::OnEnSetfocusSecondurl)
+	ON_EN_SETFOCUS(IDC_FIRSTURL, &CFileDiffDlg::OnEnSetfocusFirsturl)
 END_MESSAGE_MAP()
 
 
@@ -112,8 +114,20 @@ BOOL CFileDiffDlg::OnInitDialog()
 	
 	m_cFileList.SetRedraw(true);
 	
+	AddAnchor(IDC_DIFFSTATIC1, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_FIRSTURL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_DIFFSTATIC2, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SECONDURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	
+
+	CString url1, url2;
+	url1.Format(_T("%s : revision %ld"), m_path1.GetSVNPathString(), (LONG)m_rev1);
+	url2.Format(_T("%s : revision %ld"), m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString(), (LONG)m_rev2);
+
+	GetDlgItem(IDC_FIRSTURL)->SetWindowText(url1);
+	GetDlgItem(IDC_SECONDURL)->SetWindowText(url2);
+
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(DiffThreadEntry, this)==NULL)
 	{
@@ -482,3 +496,14 @@ BOOL CFileDiffDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	SetCursor(hCur);
 	return TRUE;
 }
+
+void CFileDiffDlg::OnEnSetfocusFirsturl()
+{
+	GetDlgItem(IDC_FIRSTURL)->HideCaret();
+}
+
+void CFileDiffDlg::OnEnSetfocusSecondurl()
+{
+	GetDlgItem(IDC_SECONDURL)->HideCaret();
+}
+

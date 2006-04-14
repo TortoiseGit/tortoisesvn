@@ -511,9 +511,14 @@
 #define IDC_SORTNUMERICAL               1300
 #define IDS_ERR_SSL_NOTYETVALID         1301
 #define IDC_GRAPHPIEBUTTON              1301
+#define IDC_FIRSTURL                    1301
 #define IDS_ERR_SSL_EXPIRED             1302
+#define IDC_DIFFSTATIC1                 1302
 #define IDS_ERR_COPYITSELF              1303
+#define IDC_EDIT2                       1303
+#define IDC_SECONDURL                   1303
 #define IDS_ERR_INVALIDREV              1304
+#define IDC_DIFFSTATIC2                 1304
 #define IDS_ERR_EMPTYDIFF               1305
 #define IDS_ERR_NOTHINGTOADD            1306
 #define IDS_ERR_ERROR                   1307
@@ -866,7 +871,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        234
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1301
+#define _APS_NEXT_CONTROL_VALUE         1305
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
