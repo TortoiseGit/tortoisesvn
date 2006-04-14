@@ -435,6 +435,13 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 				}
 			}
 		}
+		else if (temppath.CompareNoCase(temp)==0)
+		{
+			if ((nIndex < 0)&&(! temp.IsEmpty()))
+			{
+				nIndex = i;
+			}
+		}
 	}
 	if (nIndex < 0)
 	{
