@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-19 14:12+0100\n"
+"PO-Revision-Date: 2006-04-14 19:23+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -218,6 +218,15 @@ msgstr "&Realizar copia de seguridad del archivo original"
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley Database (BDB)"
 
+#: ID:114
+msgid "&Blame differences"
+msgstr "Ver a&utoría de las diferencias"
+
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "Ver &autoría de las revisiones"
+
 #: ID:13
 msgid "&Blame..."
 msgstr "&Autoría..."
@@ -407,9 +416,10 @@ msgstr "Conjunto de &Iconos:"
 msgid "&Ignore %d items"
 msgstr "&Ignorar %d ítems"
 
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "&Ignorar espacios en blanco al inicio de las líneas"
+# Control-ID:1067,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "&Ignorar cambios en espacios en blanco"
 
 #: ID:9
 msgid "&Import..."
@@ -867,6 +877,7 @@ msgid "Access to %1 was denied."
 msgstr "Se denegó el acceso a %1."
 
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "Acción"
 
@@ -918,6 +929,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Añadir programa de diferencias/fusión según la extensión"
 
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "Añadido"
@@ -1316,6 +1328,11 @@ msgstr "Cancelando TortoiseSVN Autoría ..."
 msgid "Cancelling operation..."
 msgstr "Cancelando operación..."
 
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "No se pueden mostrar las diferencias porque los finales de línea en el fichero son inconsistentes."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Cascaded context menu"
@@ -1525,10 +1542,6 @@ msgstr "Colores"
 msgid "Command failed."
 msgstr "El Comando falló."
 
-#: ID:319
-msgid "Comment"
-msgstr "Comentario"
-
 #: ID:209
 #: Control-ID:1083
 msgid "Commit"
@@ -1563,6 +1576,10 @@ msgstr "Confirma sus cambios al repositorio"
 #: MenuEntry
 msgid "Compare &HEAD revisions"
 msgstr "Comparar revisiones &HEAD"
+
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "Comparar y ver autoría con la copia de trabajo"
 
 #: ID:76
 msgid "Compare with &working copy"
@@ -1866,6 +1883,7 @@ msgid "Default &number of log messages"
 msgstr "&Número por defecto de mensajes de registro"
 
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "Eliminado"
 
@@ -1892,6 +1910,11 @@ msgstr "Tamaños y posiciones de los diálogos"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Fichero de diferencias:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "Diferencia entre"
 
 #: Control-ID:1022
 msgid "Diffing"
@@ -2090,6 +2113,15 @@ msgstr ""
 "Habilite esto si desea utilizar teclas aceleradoras también en el menú contextual de primer nivel.\n"
 "Tenga en cuenta que los iconos del menú contextual se verán más bonitos con esta opción dehabilitada."
 
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"¡Habilite ésto únicamente si está trabajando con proyectos web en VS.NET2003!\n"
+"Deberá reiniciar el sistema para que esta opción sea efectiva."
+
 # Control-ID:1224,
 #: ID:195
 msgid ""
@@ -2158,6 +2190,16 @@ msgstr "¡Error regenerando la Caché de Iconos del Shell!"
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Error validando el certificado de servidor para %s:"
+
+# ID:70,
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Error mientras se leía/escribía la clave del registro %s\n"
+"%s"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -2506,6 +2548,19 @@ msgstr ""
 "Si se establece, los ficheros dentro de carpetas sin versionar se pueden vern en el control de estado.\n"
 "El control de estado se utiliza por ejemplo en el diálogo de confirmación."
 
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"¡Si cambia este valor, sus copias de trabajo existentes no se volverán a reconocer!\n"
+"Deberá obtener sus copias de trabajo de nuevo.\n"
+"Si no está seguro sobre esto, por favor lea la documentación.\n"
+"¿Está absolutamente seguro de que desea hacer esto?"
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -2515,7 +2570,7 @@ msgstr "Si quiere romper el bloqueo, utilice el diálogo \"Comprobar Modificacio
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "Ignorar &todos los espacios en blanco"
 
@@ -2528,10 +2583,6 @@ msgstr "Ignorar &cambios de mayúsculas/minúsculas"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Ignorar &ancestros"
-
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "Ig&norar espacios en blanco al final de las líneas"
 
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -2780,6 +2831,15 @@ msgstr "Bloqueo robado por %s"
 msgid "Locked by %s"
 msgstr "Bloqueado por %s"
 
+# ID:89,
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"¡El bloqueo falló porque hay existe una versión más nueva!\n"
+"¿Desea actualizar y volverlo a intentar?"
+
 # ID:16,
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
@@ -2937,6 +2997,7 @@ msgid "Mixed"
 msgstr "Mixto"
 
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "Modificado"
 
@@ -3096,6 +3157,7 @@ msgid "None"
 msgstr "Ninguno"
 
 # Control-ID:65535,
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Normal"
@@ -3154,12 +3216,6 @@ msgstr "Unos o más archivos están en estado en conflicto."
 msgid "Only check out the &top folder"
 msgstr "Sólo obtener la carpeta &superior"
 
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "Sólo en %s."
-
 # ID:169,
 #: ID:169
 msgid ""
@@ -3190,6 +3246,11 @@ msgstr "Abrir archivo de certificado de cliente"
 #: ID:3601
 msgid "Open file"
 msgstr "Abrir archivo"
+
+# Control-ID:1073,
+#: ID:282
+msgid "Open parent folder"
+msgstr "Abrir carpeta padre"
 
 #: ID:113
 msgid "Open with..."
@@ -3354,10 +3415,19 @@ msgstr "Por favor, espere mientras se cancela..."
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Por favor espere mientras se inicializa el navegador de repositorios..."
 
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "Por favor, espere mientras se obtienen las diferencias..."
+
 #: ID:119
 #: ID:211
 msgid "Please wait..."
 msgstr "Por favor, espere..."
+
+# ID:376,
+#: ID:376
+msgid "Preview patched file"
+msgstr "Previsualizar fichero parcheado"
 
 #: ID:132
 #, c-format
@@ -3579,11 +3649,6 @@ msgstr "Renombrar"
 msgid "Rename %s"
 msgstr "Renombrar %s"
 
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "Renombrado desde %s"
-
 #: Control-ID:65535
 msgid "Renamed node"
 msgstr "Nodo renombrado"
@@ -3632,6 +3697,10 @@ msgstr "Repositorio"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Navegador de Repositorio"
+
+#: Control-ID:65535
+msgid "Repository browser"
+msgstr "Navegador de repositorio"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4210,6 +4279,11 @@ msgstr "Saltado"
 msgid "Skipped missing target"
 msgstr "Saltado objetivo no encontrado"
 
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "Ordenar los ítems numéricamente"
+
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -4237,10 +4311,6 @@ msgid ""
 msgstr ""
 "Dividir la ventana activa en paneles\n"
 "Dividir"
-
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "Apilado"
 
 #: Control-ID:65535
 msgid "Start Revision"
@@ -4451,6 +4521,20 @@ msgstr "¡El archivo %s no existe!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "¡El archivo %s no se encontró en el archivo de parche!"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"¡¿¡El fichero %s\n"
+"se encontró dos veces!?!\n"
+"¡Esto normlamente ocurre si aplica un fichero de parche\n"
+"en la carpeta errónea!"
 
 #: ID:3857
 msgid "The file is too large to open."
@@ -4743,6 +4827,21 @@ msgstr "Esta propiedad solo está disponible en carpetas, no en ficheros"
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Esta propiedad no puede tener múltiples líneas. Sólo se permite una línea."
 
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"Para confirmar recursivamente y evitar este error,\n"
+"asegúrese de que todos los ítems hijos de cada carpeta marcada\n"
+"también estan marcados en el diálogo de confirmación.\n"
+"Si no, TortoiseSVN deberá hacer una confirmación no-recursiva\n"
+"que no permite borrados de directorios."
+
 # Control-ID:1201,
 #: Control-ID:1201
 msgid "To:"
@@ -5022,6 +5121,11 @@ msgstr "Actualiza la copia de trabajo a una revisión específica"
 msgid "Updates the working copy to the current revision"
 msgstr "Actualiza la copia de trabajo a la revisión actual"
 
+# ID:283,
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "Actualizando y reintentando el bloqueo..."
+
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
@@ -5060,6 +5164,19 @@ msgstr "Utilizar URL de la &Copia de Trabajo como la URL \"Desde:\" por defecto"
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Utilizar la URL \"Desde:\" (el rango de revisiones es seleccionable en el diálogo de registro superior)"
+
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Utilizar directorios \"_svn\" en vez de \".svn\""
+
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Utilizar ambos bloques de texto (este primero)"
+
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Utilizar ambos bloques de texto (este el último)"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -5280,6 +5397,11 @@ msgstr ""
 "\n"
 "¿Aun así desea realizar la operación?"
 
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "Debe reiniciar su sistema para que los cambios sean efectivos."
+
 #: ID:77
 msgid ""
 "You selected an unversioned file.\n"
@@ -5387,6 +5509,11 @@ msgstr "ficheros añadidos"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "un archivo sin nombre"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "y"
 
 #: Control-ID:1085
 msgid "and support the developers"
