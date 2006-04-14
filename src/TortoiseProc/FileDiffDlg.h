@@ -22,29 +22,28 @@
 #include "SVN.h"
 #include "TSVNPath.h"
 #include "Blame.h"
+#include "SVN.h"
+#include "HintListCtrl.h"
 
-class CFileDiffDlg : public CResizableStandAloneDialog
+class CFileDiffDlg : public CResizableStandAloneDialog, public SVN
 {
 	DECLARE_DYNAMIC(CFileDiffDlg)
 public:
 	class FileDiff
 	{
 	public:
-		CString url1;
-		CString middle1;
-		CString relative1;
-		SVNRev	rev1;
-		CString url2;
-		CString middle2;
-		CString relative2;
-		SVNRev	rev2;
+		CTSVNPath path;
+		svn_client_diff_summarize_kind_t kind; 
+		bool propchanged;
+		svn_node_kind_t node;
 	};
 public:
 	CFileDiffDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CFileDiffDlg();
 
-	bool	SetUnifiedDiff(const CTSVNPath& diffFile, const CString& sRepoRoot);
-	void	AddFile(FileDiff filediff);
+	void SetDiff(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& path2, SVNRev rev2, bool recurse, bool ignoreancestry);
+	void SetDiff(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, bool recurse, bool ignoreancestry);
+
 	void	DoBlame(bool blame = true) {m_bBlame = blame;}
 
 // Dialog Data
@@ -60,12 +59,33 @@ protected:
 	
 	DECLARE_MESSAGE_MAP()
 
+	virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, 
+											svn_client_diff_summarize_kind_t kind, 
+											bool propchanged, 
+											svn_node_kind_t node);
+
+	int AddEntry(FileDiff * fd);
 	void DoDiff(int selIndex, bool blame);
+	void DiffProps(int selIndex);
 private:
-	CString				m_sRepoRoot;
-	CListCtrl			m_cFileList;
-	SVN					m_SVN;
+	static UINT			DiffThreadEntry(LPVOID pVoid);
+	UINT				DiffThread();
+
+	CHintListCtrl		m_cFileList;
 	bool				m_bBlame;
 	CBlame				m_blamer;
 	CArray<FileDiff, FileDiff> m_arFileList;
+
+	int					m_nIconFolder;
+
+	CTSVNPath			m_path1;
+	SVNRev				m_peg;
+	SVNRev				m_rev1;
+	CTSVNPath			m_path2;
+	SVNRev				m_rev2;
+	bool				m_bRecurse;
+	bool				m_bIgnoreancestry;
+	bool				m_bDoPegDiff;
+	volatile LONG		m_bThreadRunning;
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };

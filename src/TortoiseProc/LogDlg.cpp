@@ -1109,7 +1109,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						SVNDiff diff(this, this->m_hWnd, true);
 						diff.SetHEADPeg(m_LogRevision);
-						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, SVNRev(), false, false, true);
+						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, SVNRev(), false, true);
 					}
 					break;
 				case ID_BLAMETWO:
@@ -1129,7 +1129,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							url.SetFromSVN(GetURLFromPath(m_path));
 						}
 						diff.SetHEADPeg(m_LogRevision);
-						diff.ShowCompare(url, rev2, url, rev1, SVNRev(), false, false, true);
+						diff.ShowCompare(url, rev2, url, rev1, SVNRev(), false, true);
 					}
 					break;
 				case ID_SAVEAS:
@@ -2033,7 +2033,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev, bool blame)
 
 	SVNDiff diff(this, this->m_hWnd, true);
 	diff.SetHEADPeg(m_LogRevision);
-	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev, SVNRev(), false, false, blame);
+	diff.ShowCompare(CTSVNPath(secondfile), fromrev, CTSVNPath(firstfile), rev, SVNRev(), false, blame);
 
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();

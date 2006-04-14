@@ -262,7 +262,7 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const C
 bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, 
 						  const CTSVNPath& url2, const SVNRev& rev2, 
 						  SVNRev peg /* = SVNRev() */,
-						  bool ignoreancestry /* = false */, bool nodiffdeleted /* = false */,
+						  bool ignoreancestry /* = false */,
 						  bool blame /* = false */)
 {
 	CTSVNPath tempfile;
@@ -306,60 +306,19 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		
 		if (data->kind == svn_node_dir)
 		{
-			progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_UNIFIEDDIFF)));
-			if (url1.IsEquivalentTo(url2))
-			{
-				if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, TRUE, ignoreancestry, nodiffdeleted, FALSE, _T(""), tempfile))
-				{
-					progDlg.Stop();
-					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-					CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					return false;
-				}
-			}
-			else
-			{
-				if (!m_pSVN->Diff(url1, rev1, url2, rev2, TRUE, ignoreancestry, nodiffdeleted, FALSE, _T(""), false, tempfile))
-				{
-					progDlg.Stop();
-					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-					CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					return false;
-				}
-			}
 			progDlg.Stop();
-			m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-			if (CUtils::CheckForEmptyDiff(tempfile))
-			{
-				CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
-				return false;
-			}
 			CFileDiffDlg fdlg;
 			fdlg.DoBlame(blame);
-			if ((!url1.IsEquivalentTo(url2))||(m_pSVN->PathIsURL(url1.GetSVNPathString())))
+			if (url1.IsEquivalentTo(url2))
 			{
-				// we have to find the common root of both urls, because
-				// the unified diff has paths relative to that in it.
-				// now find the common root of both urls
-				CTSVNPath baseDirectory1 = url1.GetDirectory();
-				CTSVNPath baseDirectory2 = url2.GetDirectory();
-				while (!baseDirectory1.IsEquivalentTo(baseDirectory2))
-				{
-					if (baseDirectory1.GetSVNPathString().GetLength() > baseDirectory2.GetSVNPathString().GetLength())
-						baseDirectory1 = baseDirectory1.GetDirectory();
-					else
-						baseDirectory2 = baseDirectory2.GetDirectory();
-				};
-				// if url1 and url2 are equivalent and point to a dir,
-				// then the they already *are* the common root.
-				if ((url1.IsEquivalentTo(url2))&&(data->kind == svn_node_dir))
-					baseDirectory2 = url1;
-				fdlg.SetUnifiedDiff(CTSVNPath(tempfile), baseDirectory2.GetSVNPathString());
+				fdlg.SetDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, true, ignoreancestry);
+				fdlg.DoModal();
 			}
 			else
-				fdlg.SetUnifiedDiff(CTSVNPath(tempfile), CString());
-
-			fdlg.DoModal();
+			{
+				fdlg.SetDiff(url1, rev1, url2, rev2, TRUE, ignoreancestry);
+				fdlg.DoModal();
+			}
 		}
 		else
 		{

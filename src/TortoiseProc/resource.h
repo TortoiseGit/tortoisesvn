@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -818,6 +818,7 @@
 #define IDS_FILEDIFF_FILE               5100
 #define IDS_FILEDIFF_COMMENT            5101
 #define IDS_FILEDIFF_COMMENTCOPY        5102
+#define IDS_FILEDIFF_WAIT               5102
 #define IDS_FILEDIFF_COMMENTRENAMED     5103
 #define IDS_FILEDIFF_POPBLAME           5150
 #define IDS_CREATEPATCH_ADDEDFOLDERS    5400
