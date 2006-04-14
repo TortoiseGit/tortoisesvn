@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-25 12:39+0100\n"
+"PO-Revision-Date: 2006-04-15 00:49+0100\n"
 "Last-Translator: Szente-Varga Bálint <info@bociusz.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -492,10 +492,10 @@ msgstr "&Ikonok:"
 msgid "&Ignore %d items"
 msgstr "%d elem el&utasítása"
 
-# Control-ID:1020,
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "Soreleji láthatatlan karakterek e&lutasítása"
+# Control-ID:1067,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "&Láthatatlan karakter különbségek (pl. szóköz) figyelmen kívül hagyása"
 
 # ID:9,
 #: ID:9
@@ -1028,6 +1028,7 @@ msgstr "Hozzáférés %1-hez megtagadva."
 
 # ID:77,
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "Cselekvés"
 
@@ -1088,6 +1089,7 @@ msgstr "Kiterjeszésfüggő foltkészítő/összegyúró program hozzáadása/sz
 # ID:73,#:
 # Control-ID:65535,
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "Hozzáadva"
@@ -1558,6 +1560,11 @@ msgstr "SVN Szemrehányás leállítása..."
 msgid "Cancelling operation..."
 msgstr "Folyamat leállítása..."
 
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "A különbségek az ellentmondó sortörések miatt nem mutathatóak meg"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Cascaded context menu"
@@ -1792,11 +1799,6 @@ msgstr "Színek"
 #: ID:3857
 msgid "Command failed."
 msgstr "Sikertelen parancs."
-
-# Control-ID:1083,
-#: ID:319
-msgid "Comment"
-msgstr "Megjegyzés"
 
 # Control-ID:1083,
 #: ID:209
@@ -2194,6 +2196,7 @@ msgstr "Alapértelmezett naplóüzenetek &száma"
 
 # ID:73,
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "Törölve"
 
@@ -2227,6 +2230,11 @@ msgstr "Az ablakok helye és mérete"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Folt fájl:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "Különbségek"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -2450,6 +2458,15 @@ msgid ""
 msgstr ""
 "Itt kapcsolhatod be, hogy a gyorsbillentyűk működjenek a felső menüben.\n"
 "Ha nem használod kapcsold ki, mert úgy jobban néz ki a program."
+
+# ID:196,
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"Csak akkor engedélyezd, ha VS.NET2003 webprojectekkel dolgozol!\n"
+"A beállítás után a számítógépet újra kell indítani."
 
 # Control-ID:1224,
 #: ID:195
@@ -2945,6 +2962,19 @@ msgid ""
 "The status control is used for example in the commit dialog."
 msgstr "Ha be van kapcsolva, akkor a verziókezelés alatt nem lévő mappákban is lehetnek verziókezelt fájlok. Az állapotot a beküld ablakban használhatjuk."
 
+# ID:196,
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"Ha megváltoztatod ezt az értéked, akkor a munkapédányaid nem lesznek többé felismerve!\n"
+"Ezeket újból le kell töltened a kiszolgálóról.\n"
+"További információkat a leírásban találsz.\n"
+"Biztos ezt akarod tenni?"
+
 # ID:251,
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
@@ -2956,7 +2986,7 @@ msgid "Ignore"
 msgstr "Elutasít"
 
 # Control-ID:1021,
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "Az &összes láthatatlan karakter elutasítása"
 
@@ -2969,11 +2999,6 @@ msgstr "Kisbetű/nagybetű &nem különbség"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Származás elutasítása"
-
-# Control-ID:1020,
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "Sor&végi láthatatlan karakterek elutasítása"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -3434,6 +3459,7 @@ msgstr "Kevert"
 
 # ID:74,
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "Megváltoztatva"
 
@@ -3616,6 +3642,7 @@ msgid "None"
 msgstr "Nincs"
 
 # Control-ID:65535,
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Normál"
@@ -3688,12 +3715,6 @@ msgstr "Egy vagy több fájl ellentmondó"
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Csak a leg&fölső mappát ellenőrizze"
-
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "Csak ebben: %s"
 
 # ID:169,
 #: ID:169
@@ -3938,6 +3959,11 @@ msgstr "Várj, megszakítás folyamatban..."
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Várj amíg elindítom a Tárház böngészőt..."
+
+# ID:13,
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "Várj, különbségeket keresek..."
 
 # ID:119,
 #: ID:119
@@ -4216,12 +4242,6 @@ msgstr "Átnevezés"
 msgid "Rename %s"
 msgstr "%s átnevezése"
 
-# ID:97,
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "%s-ról átnevezve"
-
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -4282,6 +4302,11 @@ msgstr "Tárház"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Tárház Böngésző"
+
+# Dlg-ID:153,
+#: Control-ID:65535
+msgid "Repository browser"
+msgstr "Tárház böngésző"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4989,6 +5014,11 @@ msgstr "Kihagyva"
 msgid "Skipped missing target"
 msgstr "Hiányzó cél kihagyva"
 
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "Szám szerint rendez"
+
 # ID:196,
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -5018,12 +5048,6 @@ msgid ""
 msgstr ""
 "Aktív ablak felosztása panelekre\n"
 "Felosztás"
-
-# ID:11,#:
-# Control-ID:1002,
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "Zárolva"
 
 # ID:11,
 #: Control-ID:65535
@@ -5265,6 +5289,20 @@ msgstr "%s fájl nem létezik!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "%s fájl nem található a foltfájlban"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"A %s fájl\n"
+"kétszer lett megtalálva!?!\n"
+"Ez általában akkor történik amikor egy foltot rossz\n"
+"mappában építesz be!"
 
 # ID:3857,#:
 # ID:3857,
@@ -5571,6 +5609,21 @@ msgstr "Tulajdonságai csak a mappáknak vannak."
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "A tulajdonság csak egy sort tartalmazhat."
+
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"Hogy rekrúzívan küldj be és dolgozhass a hibán,\n"
+"nézd meg hogy az összes elem az alkönyvtárakban\n"
+"ki van jelölve a beküldési ablakban,\n"
+"különben a TortoiseSVN nem-rekrúzívan fog beküldeni,\n"
+"ami nem teszi lehetővé a mappatörlést."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -5958,6 +6011,11 @@ msgstr "A &munkapéldány címeként használd az alap \"Innen:\" címet"
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Használd az \"Innen:\" URL (a verzió tartomány a fenti ablakban kiválasztható)"
 
+# Control-ID:1296,
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "\"_svn\" mappa használata a \".svn\" mappa helyett"
+
 # ID:251,
 #: ID:251
 msgid "Use both text blocks (this one first)"
@@ -6207,6 +6265,11 @@ msgstr ""
 "\n"
 "Biztos hogy ezt teszed?"
 
+# ID:196,
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "A beállítások érvénybe léptetéséhez újra kell indítani a számítógépet."
+
 # ID:77,
 #: ID:77
 msgid ""
@@ -6321,6 +6384,11 @@ msgstr "hozzáadott fájlok"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "egy névtelen fájl"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "és"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
