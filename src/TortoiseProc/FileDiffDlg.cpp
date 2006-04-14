@@ -101,7 +101,7 @@ BOOL CFileDiffDlg::OnInitDialog()
 	CString temp;
 	temp.LoadString(IDS_FILEDIFF_FILE);
 	m_cFileList.InsertColumn(0, temp);
-	temp.LoadString(IDS_FILEDIFF_COMMENT);
+	temp.LoadString(IDS_FILEDIFF_ACTION);
 	m_cFileList.InsertColumn(1, temp);
 
 	int mincol = 0;

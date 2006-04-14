@@ -515,7 +515,6 @@
 #define IDS_ERR_SSL_EXPIRED             1302
 #define IDC_DIFFSTATIC1                 1302
 #define IDS_ERR_COPYITSELF              1303
-#define IDC_EDIT2                       1303
 #define IDC_SECONDURL                   1303
 #define IDS_ERR_INVALIDREV              1304
 #define IDC_DIFFSTATIC2                 1304
@@ -822,6 +821,7 @@
 #define IDS_LOCK_STEALCHECK             5001
 #define IDS_FILEDIFF_FILE               5100
 #define IDS_FILEDIFF_COMMENT            5101
+#define IDS_FILEDIFF_ACTION             5101
 #define IDS_FILEDIFF_COMMENTCOPY        5102
 #define IDS_FILEDIFF_WAIT               5102
 #define IDS_FILEDIFF_COMMENTRENAMED     5103
