@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-13 23:47+0100\n"
+"PO-Revision-Date: 2006-04-15 00:17+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1035,6 +1035,7 @@ msgstr "Accesso negato a %1."
 
 # ID:77,
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "Azione"
 
@@ -1809,11 +1810,6 @@ msgid "Command failed."
 msgstr "Impossibile eseguire il comando."
 
 # ID:8,
-#: ID:319
-msgid "Comment"
-msgstr "Commento"
-
-# ID:8,
 #: ID:209
 #: Control-ID:1083
 msgid "Commit"
@@ -2247,6 +2243,11 @@ msgstr "Dimensione e posizione delle finestre di dialogo"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "File di confronto:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "Differenza tra"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -3729,12 +3730,6 @@ msgstr "Uno o più file sono in conflitto."
 msgid "Only check out the &top folder"
 msgstr "Controlla solo la cartella &principale"
 
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "Solo in %s"
-
 # ID:169,
 #: ID:169
 msgid ""
@@ -3979,6 +3974,11 @@ msgstr "Si prega di attendere. Annullamento in corso..."
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Attendere che il Repository Browser venga inizializzato..."
+
+# ID:13,
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "Attendere, reperimento delle differenze..."
 
 # ID:119,
 #: ID:119
@@ -4256,12 +4256,6 @@ msgstr "Rinomina"
 #, c-format
 msgid "Rename %s"
 msgstr "Rinomina %s"
-
-# ID:97,
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "Rinominato da %s"
 
 # ID:126,
 #: Control-ID:65535
@@ -6041,7 +6035,7 @@ msgstr "Utilizzare l'Url \"Da:\" (l'intervallo delle revisioni è selezionabile 
 # Control-ID:1296,
 #: Control-ID:1296
 msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr "Nomina  \"_svn\"  la directory nascota invece di \".svn\""
+msgstr "Per le directory di stato usa  \"_svn\" invece di \".svn\""
 
 # ID:251,
 #: ID:251
@@ -6411,6 +6405,11 @@ msgstr "file aggiunti:"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "un file senza nome"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "e"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
