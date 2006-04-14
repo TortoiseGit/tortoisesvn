@@ -10,7 +10,7 @@
 # Dimitry Mardiyan <dimitry.mardiyan@gmail.com>
 # Stanislav Petrakov <stannic@yandex.ru>
 #
-# blame -- авторы файла
+# blame -- авторы файла (последний ответственный? :)
 # branch -- ответвление
 # checkout -- извлечь
 # commit -- фиксировать
@@ -29,16 +29,16 @@
 # tag -- метка
 # Unified Diff -- Объединённый файл различий (было: патч-файл)
 # whitespaces -- непечатаемые знаки (было: пустые символы)
-# you -- вы   
+# you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6149: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6274: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-03-30 12:20+0300\n"
+"PO-Revision-Date: 2006-04-14 16:14+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -327,7 +327,7 @@ msgstr "&Пробный запуск"
 #: Control-ID:1031
 #: MenuEntry
 msgid "&Edit"
-msgstr "&Редактировать"
+msgstr "&Правка"
 
 #: ID:12
 msgid "&Edit conflicts"
@@ -428,9 +428,9 @@ msgstr "Набор &значков"
 msgid "&Ignore %d items"
 msgstr "Игнорировать %d &элементов"
 
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "Игнорировать непечатаемые знаки в &начале строки"
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "Игнорировать изменения &непечатаемых знаков"
 
 #: ID:9
 msgid "&Import..."
@@ -455,7 +455,7 @@ msgstr "Пометить как &улаженный"
 #: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
-msgstr "&Слить"
+msgstr "С&лияние"
 
 #: ID:9
 msgid "&Merge..."
@@ -909,6 +909,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Добавить/Править программу различий/слияния для конкретных расширений"
 
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "Добавлено"
@@ -1289,6 +1290,10 @@ msgstr "Отмена команды \"Авторы файла\" TortoiseSVN..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "Отмена операции..."
+
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "Невозможно отобразить различия из-за несогласующихся переводов строк в файле."
 
 #: Control-ID:65535
 msgid "Cascaded context menu"
@@ -1820,6 +1825,7 @@ msgid "Default &number of log messages"
 msgstr "&Количество лог-сообщений по умолчанию"
 
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "Удалено"
 
@@ -1991,7 +1997,7 @@ msgstr "Поправить"
 #: Dlg-ID:226
 #: Dlg-ID:227
 msgid "Edit Properties"
-msgstr "Редактирование свойств"
+msgstr "Редактировать свойства"
 
 #: ID:113
 msgid "Edit author"
@@ -2012,7 +2018,7 @@ msgstr "Редактировать программу слияния для ко
 #: ID:113
 #: ID:115
 msgid "Edit log message"
-msgstr "Редактирование лог-сообщения"
+msgstr "Редактировать лог-сообщение"
 
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -2469,7 +2475,7 @@ msgstr "Если вы хотите прервать блокировку, исп
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "Игнорировать &все непечатаемые знаки"
 
@@ -2480,10 +2486,6 @@ msgstr "Игнорировать изменения &регистра"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Игнорировать предков"
-
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "Игнорировать непечатаемые знаки в &конце строки"
 
 # полностью не помещается
 #: Control-ID:1018
@@ -2872,6 +2874,7 @@ msgid "Mixed"
 msgstr "Смешанное"
 
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "Изменено"
 
@@ -3023,6 +3026,7 @@ msgstr "Без кэширования"
 
 # Род?
 # (Цвет незатронутых строк)
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Нормальное"
@@ -3549,6 +3553,10 @@ msgstr "Хранилище"
 # Заголовок окна
 #: Dlg-ID:153
 msgid "Repository Browser"
+msgstr "Обозреватель хранилища"
+
+#: Control-ID:65535
+msgid "Repository browser"
 msgstr "Обозреватель хранилища"
 
 #: Control-ID:65535
@@ -4115,6 +4123,10 @@ msgstr "Пропущено"
 msgid "Skipped missing target"
 msgstr "Пропущена отсутствующая цель"
 
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "Сортировать с учётом содержащихся чисел"
+
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Задаёт количество недавно введённых лог-сообщений, которые будут доступны для повторного выбора."
@@ -4140,10 +4152,6 @@ msgid ""
 msgstr ""
 "Разделить активное окно на панели\n"
 "Разделить"
-
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "Стопкой"
 
 #: Control-ID:65535
 msgid "Start Revision"
@@ -4347,6 +4355,19 @@ msgstr "Файл %s не существует!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Файл %s не найден в файле заплаток!"
+
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"Файл %s\n"
+"был найден дважды!?!\n"
+"Это обычно происходит при попытке применения\n"
+"файла заплаток к не той папке!"
 
 #: ID:3857
 msgid "The file is too large to open."
@@ -4618,6 +4639,20 @@ msgstr "У файла не может быть этого свойства, то
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Для этого свойства разрешена только одна строка."
+
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"Чтобы выполнить фиксацию рекурсивно и обойти эту ошибку,\n"
+"убедитесь в том, что  все дочерние элементы выбранной папки\n"
+"также выбраны в диалоге фиксации.\n"
+"Иначе TortoiseSVN должна будет сделать неркурсивную\n"
+"фиксацию, не позволяющую производить удаление папок."
 
 #: Control-ID:1201
 msgid "To:"
