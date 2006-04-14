@@ -164,6 +164,29 @@
 					</para>
 				</listitem>
 			</varlistentry>
+			<varlistentry>
+				<term>Use "_svn" instead of ".svn" directories</term>
+				<listitem>
+					<para>
+						VS.NET when used with web projects can't handle the <literal>.svn</literal>
+						folders that Subversion uses to store its internal information.
+						This is not a bug in Subversion. The bug is in VS.NET and the frontpage
+						extensions it uses. Read <xref linkend="tsvn-dug-settings-asp-dot-net"/>
+						to find out more about this issue.
+					</para>
+					<para>
+						If you want to change the behaviour of Subversion and TortoiseSVN,
+						you can use this checkbox to set the environment variable which
+						controls this.
+					</para>
+					<para>
+						You should note that changing this option will not automatically
+						convert existing working copies to use the new admin directory.
+						You will have to do that yourself using a script (See our FAQ)
+						or simply check out a fresh working copy.
+					</para>
+				</listitem>
+			</varlistentry>
 		</variablelist>
 	</sect2>
 	<sect2 id="tsvn-dug-settings-look-feel">
@@ -1071,7 +1094,9 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
 			If that variable is set, then Subversion will use <literal>_svn</literal>
 			folders instead of <literal>.svn</literal> folders. You must restart
 			your shell for that env variable to take effect. Normally that means
-			rebooting your PC.
+			rebooting your PC. To make this easier, you can now do this from
+			the general settings page using a simple checkbox - 
+			refer to <xref linkend="tsvn-dug-settings-main"/>.
 		</para>
 		<para>
 			For more information, and other ways to avoid this problem in the
