@@ -1736,6 +1736,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
 bool CLogDlg::IsSelectionContinuous()
 {
+	if ( m_LogList.GetSelectedCount()==1 )
+	{
+		return true;
+	}
+
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	bool bContinuous = (m_arShownList.GetCount() == (INT_PTR)m_logEntries.size());
 	if (bContinuous)
