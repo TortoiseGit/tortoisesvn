@@ -81,8 +81,6 @@
 						<include name="..\..\..\common\zlib" />
 					</includedirs>
 					<defines>
-						<define name="_CRT_NONSTDC_NO_DEPRECATE" />
-						<define name="_CRT_SECURE_NO_DEPRECATE" />
 						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 						<define name="APU_HAVE_DB=1" />
 						<define name="ENABLE_NLS" />
@@ -150,8 +148,6 @@
 						<include name="..\..\..\common\zlib" />
 					</includedirs>
 					<defines>
-						<define name="_CRT_NONSTDC_NO_DEPRECATE" />
-						<define name="_CRT_SECURE_NO_DEPRECATE" />
 						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 						<define name="APU_HAVE_DB=1" />
 						<define name="ENABLE_NLS" />
@@ -208,8 +204,6 @@
 				<include name="..\neon\src" />
 			</includedirs>
 			<defines>
-				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
-				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APU_HAVE_DB=1" />
 				<define name="ENABLE_NLS" />

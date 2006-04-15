@@ -36,8 +36,6 @@
 				<include name="uri\gen_uri_delims.c" />
 			</sources>
 			<defines>
-				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
-				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APR_DECLARE_EXPORT" />
 				<define name="WIN32" />
@@ -94,8 +92,6 @@
 				<include name="..\berkeley-db\db4.3-win32\include" />
 			</includedirs>
 			<defines>
-				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
-				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APR_DECLARE_EXPORT" />
 				<define name="WIN32" />
@@ -186,8 +182,6 @@
 				<include name="..\berkeley-db\db4.3-win32\include" />
 			</includedirs>
 			<defines>
-				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
-				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APU_DECLARE_EXPORT" />
 				<define name="WIN32" />
