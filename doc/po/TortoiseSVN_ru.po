@@ -380,7 +380,6 @@ msgstr "Управление версиями - это искусство упр
 #: source/TortoiseSVN_en.xml:331
 #: (title)
 msgid "What is TortoiseSVN?"
-
 msgstr "Что такое TortoiseSVN?"
 
 #: source/TortoiseSVN_en.xml:332
@@ -756,9 +755,7 @@ msgid "Versioning Models"
 msgstr "Модели версирования"
 
 #: source/TortoiseSVN_en.xml:785
-
 #: (para)
-
 msgid "All version control systems have to solve the same fundamental problem: how will the system allow users to share information, but prevent them from accidentally stepping on each other's feet? It's all too easy for users to accidentally overwrite each other's changes in the repository."
 msgstr "Всем системам управления версиями приходиться решать одну фундаментальную проблему: как система будет позволять пользователям совместно использовать информацию, не давая им при этом наступать друг другу на пятки? Слишком просто пользователи могут нечаянно перезаписать в хранилище изменения друг друга."
 
@@ -821,10 +818,9 @@ msgstr "Subversion, CVS и другие системы управления ве
 #: source/TortoiseSVN_en.xml:896
 #: (para)
 msgid "Here's an example. Say that Harry and Sally each create working copies of the same project, copied from the repository. They work concurrently, and make changes to the same file \"A\" within their copies. Sally saves her changes to the repository first. When Harry attempts to save his changes later, the repository informs him that his file A is <firstterm>out-of-date</firstterm>. In other words, that file A in the repository has somehow changed since he last copied it. So Harry asks his client to <firstterm>merge</firstterm> any new changes from the repository into his working copy of file A. Chances are that Sally's changes don't overlap with his own; so once he has both sets of changes integrated, he saves his working copy back to the repository."
-msgstr "Вот пример: скажем, и Гарри, и Салли создали свои рабочие копии одного и того же проекта, скопировав их из хранилища. Они работают одновременно, и делают изменения в файле \"A\" в своих рабочих копиях. Первой свои изменения в хранилище сохраняет Салли. Затем, когда Гарри пытается сохранить свои изменения, хранилище информирует его, что файл А <firstterm baseform=\"устаревание\">устарел</firstterm>. Другими словами, файл А в хранилище был как-то изменён с тех пор, как Гарри получил его. Поэтому Гарри просит своего клиента <firstterm baseform=\"слияние\">слить</firstterm> любые изменения из хранилища с его рабочей копией файла А. Возможно, что изменения Салли не пересекаются с его собственными, и, поскольку теперь в его рабочей копии объединены оба набора измениний, он записывает её обратно в хранилище."
+msgstr "Вот пример: скажем, и Гарри, и Салли создали свои рабочие копии одного и того же проекта, скопировав их из хранилища. Они работают одновременно, и делают изменения в файле \"A\" в своих рабочих копиях. Первой свои изменения в хранилище сохраняет Салли. Затем, когда Гарри пытается сохранить свои изменения, хранилище информирует его, что файл А <firstterm baseform=\"устаревание\">устарел</firstterm>. Другими словами, файл А в хранилище был как-то изменён с тех пор, как Гарри получил его. Поэтому Гарри просит своего клиента <firstterm baseform=\"слияние\">объединить (merge)</firstterm> любые изменения из хранилища с его рабочей копией файла А. Возможно, что изменения Салли не пересекаются с его собственными, и, поскольку теперь в его рабочей копии объединены оба набора измениний, он записывает её обратно в хранилище."
 
 #: source/TortoiseSVN_en.xml:915
-
 #: (title)
 msgid "...Copy-Modify-Merge Continued"
 msgstr "...Копирование-Изменение-Слияние. Продолжение"
@@ -851,18 +847,17 @@ msgstr "В конце концов, всё сводится к одному ре
 #: source/TortoiseSVN_en.xml:955
 #: (para)
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have un-mergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
-msgstr "Однако, есть одна общая ситуация, когда модель блокирование-изменение-разблокирование оказывается лучше: если вы имеете дело с несливаемыми файлами. Например, если ваше хранилище содержит некоторые графические изображения, и двое людей изменяют их в одно и тоже время, то нет возможности слить эти изменения вместе. Всё равно, либо Гарри, либо Салли, потеряют свои изменнения."
+msgstr "Однако, есть одна общая ситуация, когда модель блокирование-изменение-разблокирование оказывается лучше: если вы имеете дело с не объединяемыми файлами. Например, если ваше хранилище содержит некоторые графические изображения, и двое людей изменяют их в одно и тоже время, то нет возможности слить эти изменения вместе. Всё равно, либо Гарри, либо Салли, потеряют свои изменнения."
 
 #: source/TortoiseSVN_en.xml:965
 #: (title)
 msgid "What does Subversion Do?"
-
 msgstr "Что же делает Subversion?"
 
 #: source/TortoiseSVN_en.xml:966
 #: (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr "Subversion использует по умолчанию модель копирование-изменение-слияние, и в большинстве случаев это всё, что вам нужно. Однако, начиная с версии 1.2, Subversion также поддерживает блокирование файлов, так что если вы имеете несливаемые файлы, или если руководство просто вынудило вас работать в режиме с блокировками, Subversion сможет предоставить вам такую возможность."
+msgstr "По умолчанию Subversion использует модель копирование-изменение-слияние и в большинстве случаев это всё, что вам нужно. Однако, начиная с версии 1.2, Subversion также поддерживает блокирование файлов, так что если вы имеете несливаемые файлы, или если руководство просто вынудило вас работать в режиме с блокировками, Subversion сможет предоставить вам такую возможность."
 
 #: source/TortoiseSVN_en.xml:978
 #: (title)
@@ -877,7 +872,6 @@ msgstr "Рабочие копии"
 #: source/TortoiseSVN_en.xml:982
 #: (primary)
 msgid "working copy"
-
 msgstr "рабочая копия"
 
 #: source/TortoiseSVN_en.xml:984
@@ -889,7 +883,7 @@ msgstr "Вы уже читали о рабочих копиях, сейчас м
 #: source/TortoiseSVN_en.xml:989
 #: (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr "Рабочая копия Subversion - это обычное дерево папок в вашей локальной системе, содержащее набор файлов. Вы можете изменять эти файлы по своему усмотрению, и, если это исходные коды, вы можете скомпилировать программу из них обычным способом. Ваша рабочая копия - это ваша собственная личная рабочая область: Subversion никогда не вносит изменения, сделанные другими, также как и не передаёт другим изменения, сделанные вами до тех пор, пока вы сами однозначно не скажете ей сделать это."
+msgstr "Рабочая копия Subversion - это обычное дерево папок в вашей локальной системе, содержащее набор файлов. Вы можете изменять эти файлы по своему усмотрению, и, если это исходные коды, вы можете скомпилировать программу из них обычным способом. Ваша рабочая копия - это ваша собственная личная рабочая область: Subversion никогда не вносит изменения, сделанные другими, также как и не передаёт другим изменения, сделанные вами до тех пор, пока вы сами однозначно не скажете ему сделать это."
 
 #: source/TortoiseSVN_en.xml:999
 #: (para)
@@ -899,12 +893,11 @@ msgstr "После того, как вы сделаете некоторые и�
 #: source/TortoiseSVN_en.xml:1009
 #: (para)
 msgid "A working copy also contains some extra files, created and maintained by Subversion, to help it carry out these commands. In particular, each directory in your working copy contains a subdirectory named <filename>.svn</filename>, also known as the working copy <firstterm>administrative directory</firstterm>. The files in each administrative directory help Subversion recognize which files contain unpublished changes, and which files are out-of-date with respect to others' work."
-msgstr "Рабочая копия также содержит несколько дополнительных файлов, создаваемых и обслуживаемых Subversion, помогающих при выполнении этих команд. В частности, каждая папка в вашей рабочей копии содержит папку с именем <filename>.svn</filename>, также называемую <firstterm baseform=\"административная папка\">административной папкой </firstterm> рабочей копии. Файлы в каждой административной папке помогают Subversion распознавать, какие файлы содержат неопубликованные изменения, и какие файлы устарели относительно того, что было сделано другими."
+msgstr "Рабочая копия также содержит несколько дополнительных файлов, создаваемых и обслуживаемых Subversion, помогающих при выполнении этих команд. В частности, каждая папка в вашей рабочей копии содержит папку с именем <filename>.svn</filename>, называемую также <firstterm baseform=\"административная папка\">административной папкой </firstterm> рабочей копии. Файлы в каждой административной папке помогают Subversion распознавать, какие файлы содержат неопубликованные изменения, и какие файлы устарели относительно того, что было сделано другими."
 
 #: source/TortoiseSVN_en.xml:1020
 #: (para)
 msgid "A typical Subversion repository often holds the files (or source code) for several projects; usually, each project is a subdirectory in the repository's filesystem tree. In this arrangement, a user's working copy will usually correspond to a particular subtree of the repository."
-
 msgstr "Типичное хранилище Subversion часто содержит файлы (или исходники) нескольких проектов, обычно каждый проект - это подпапка в дереве файловой системы хранилища. При таком подходе, пользовательская рабочая копия будет соответствовать какому-то поддереву в хранилище."
 
 #: source/TortoiseSVN_en.xml:1027
@@ -992,12 +985,10 @@ msgid "svn://"
 msgstr "svn://"
 
 #: source/TortoiseSVN_en.xml:1098
-
 #: (literal) source/TortoiseSVN_en.xml:1107
 #: source/TortoiseSVN_en.xml:2439
 #: (primary)
 msgid "svnserve"
-
 msgstr "svnserve"
 
 #: source/TortoiseSVN_en.xml:1096
@@ -1032,11 +1023,9 @@ msgstr "Также, пользователи схемы <literal>file:</literal>
 #, no-wrap
 msgid ""
 "\n"
-
 "file:///X:/path/to/repos\n"
 "...\n"
 "file:///X|/path/to/repos\n"
-
 "...\n"
 msgstr ""
 "\n"
@@ -1060,7 +1049,7 @@ msgstr "Вы можете безопасно получить доступ к FS
 #: source/TortoiseSVN_en.xml:2858
 
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
-msgstr "Не создавайте и не обращайтесь к хранилищу на основе Berkeley DB, которое находится на разделённом сетевом ресурсе. Оно <emphasis>не может</emphasis> существовать в рамках удалённой файловой системы. И даже в том случае, если у вас назначена буква для сетевого диска. Если вы пытаетесь использовать Berkeley DB на разделённом сетевом ресурсе, результаты непредсказуемы - вы можете увидеть загадочные ошибки сразу же, или могут пройти месяцы, прежде чем вы обнаружите, что база данных хранилища коварно испорчена."
+msgstr "Не создавайте и не обращайтесь к хранилищу на основе Berkeley DB, которое находится на разделяемом сетевом ресурсе. Оно <emphasis>не может</emphasis> существовать в рамках удалённой файловой системы. И даже в том случае, если у вас назначена буква для сетевого диска. Если вы пытаетесь использовать Berkeley DB на разделённом сетевом ресурсе, результаты непредсказуемы - вы можете увидеть загадочные ошибки сразу же, или могут пройти месяцы, прежде чем вы обнаружите, что база данных хранилища коварно испорчена."
 
 #: source/TortoiseSVN_en.xml:1164
 #: (para)
@@ -1068,10 +1057,8 @@ msgid "Suppose you make changes to <filename>button.c</filename>. Since the <fil
 msgstr "Предположим, вы вносите изменения в <filename>button.c</filename>. Так как в папке <filename>.svn</filename> запоминается дата модификации файла и исходное содержимое, Subversion может узнать, что вы изменили файл. Однако, Subversion не делает ваши изменения доступными другим, пока вы явно не скажете ей об этом. Действие по опубликованию ваших изменений, обычно известно как <firstterm>фиксация</firstterm> (или <firstterm>внесение</firstterm>) изменений в хранилище."
 
 #: source/TortoiseSVN_en.xml:1174
-
 #: (para)
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
-
 msgstr "Для обнародования  ваших изменений, вы должны использовать команду Subversion <command>фиксировать (commit)</command>."
 
 #: source/TortoiseSVN_en.xml:1178
@@ -1081,13 +1068,11 @@ msgstr "Теперь ваши изменения в <filename>button.c</filename
 
 #: source/TortoiseSVN_en.xml:1184
 #: (para)
-
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
 msgstr "Предположим, вы работаете вместе с Салли, которая извлекла рабочую копию <filename>/calc</filename> в тоже время, что и вы. Когда вы фиксируете ваши изменения в <filename>button.c</filename>, рабочая копия Салли остается неизменной, Subversion изменяет рабочие копии только по запросу пользователя."
 
 #: source/TortoiseSVN_en.xml:1192
 #: (para)
-
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
 msgstr "Для приведения своего проекта в актуальное состояние, Салли может попросить Subversion <firstterm baseform=\"обновление\">обновить</firstterm> ее рабочую копию, используя команду <command>обновить (update)</command>. В результате, в её рабочую копию будут внесены как ваши изменения, так и изменения других, зафиксированные с момента извлечения Салли своей рабочей копии."
 
@@ -1170,8 +1155,6 @@ msgid ""
 "\n"
 "calc/Makefile:4\n"
 "     integer.c:4\n"
-
-
 "     button.c:5\n"
 msgstr ""
 "\n"
@@ -1180,10 +1163,9 @@ msgstr ""
 "     button.c:5\n"
 
 #: source/TortoiseSVN_en.xml:1291
-
 #: (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
-msgstr "Предположим что в этой точке, Салли фиксирует свои изменения в файл <filename>integer.c</filename>, создает ревизию 6. Если вы используете для обновления вашей рабочей копии <command>svn update</command>, она будет выглядеть подобно этому:"
+msgstr "Предположим что в этой точке, Салли фиксирует свои изменения в файл <filename>integer.c</filename>, создает ревизию 6. Если вы используете для обновления вашей рабочей копии <command>SVN Обновить...</command>, она будет выглядеть подобно этому:"
 
 #: source/TortoiseSVN_en.xml:1297
 #: (screen)
@@ -1191,7 +1173,6 @@ msgstr "Предположим что в этой точке, Салли фик�
 msgid ""
 "\n"
 "calc/Makefile:6\n"
-
 "     integer.c:6\n"
 "     button.c:6\n"
 msgstr ""
@@ -1213,11 +1194,9 @@ msgstr "Как рабочие копии отслеживают хранилищ
 #: source/TortoiseSVN_en.xml:1316
 #: (para)
 msgid "For each file in a working directory, Subversion records two essential pieces of information in the <filename>.svn/</filename> administrative area:"
-
 msgstr "Для каждого файла в рабочем каталоге, Subversion записывает информацию о двух важнейших свойствах в служебной папке .svn/:"
 
 #: source/TortoiseSVN_en.xml:1322
-
 #: (para)
 msgid "what revision your working file is based on (this is called the file's <firstterm>working revision</firstterm>), and"
 msgstr "на какой ревизии основан ваш рабочий файл (это называется <firstterm>рабочая ревизия</firstterm>) файла), и"
@@ -1240,18 +1219,17 @@ msgstr "Не измененный и не устарел"
 #: source/TortoiseSVN_en.xml:1344
 #: (para)
 msgid "The file is unchanged in the working directory, and no changes to that file have been committed to the repository since its working revision. A <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will do nothing."
-msgstr "Файл не изменялся в рабочей папке, и нет изменений, зафиксированных в хранилище, начиная с этой ревизии. Команда <command>commit</command> ничего не делает с этим файлом, и команда <command>update</command> тоже ничего не делает."
+msgstr "Файл не изменялся в рабочей папке, и нет изменений, зафиксированных в хранилище, начиная с этой ревизии. Команда <command>фиксировать</command> ничего не делает с этим файлом, и команда <command>обновить</command> тоже ничего не делает."
 
 #: source/TortoiseSVN_en.xml:1355
 #: (term)
 msgid "Locally changed, and current"
 msgstr "Изменен локально, и не устарел"
 
-
 #: source/TortoiseSVN_en.xml:1357
 #: (para)
 msgid "The file has been changed in the working directory, and no changes to that file have been committed to the repository since its base revision. There are local changes that have not been committed to the repository, thus an <command>commit</command> of the file will succeed in publishing your changes, and an <command>update</command> of the file will do nothing."
-msgstr "Файл был изменен локально, и нет зафиксированных изменений, сделанных после базовой ревизии. Локальные изменения небыли зафиксированы в хранилище, так что <command>commit</command> для файла будет успешна выполнена для опубликования ваших изменений, и команда <command>update</command> ничего не будет делать."
+msgstr "Файл был изменен локально, и нет зафиксированных изменений, сделанных после базовой ревизии. Локальные изменения небыли зафиксированы в хранилище, так что команда <command>фиксировать</command> для файла будет успешна выполнена для опубликования ваших изменений, а команда <command>обновить</command> не будет ничего делать."
 
 #: source/TortoiseSVN_en.xml:1369
 #: (term)
@@ -1261,7 +1239,7 @@ msgstr "Не изменился, и устарел"
 #: source/TortoiseSVN_en.xml:1371
 #: (para)
 msgid "The file has not been changed in the working directory, but it has been changed in the repository. The file should eventually be updated, to make it current with the public revision. An <command>commit</command> of the file will do nothing, and an <command>update</command> of the file will fold the latest changes into your working copy."
-msgstr "Файл был не был изменен в рабочей папке, но он был изменен в хранилище. Файл должен быть обновлен для синхронизации с текущей публичной ревизией. Команда <command>commit</command> не будет ничего делать, а команда <command>update</command> передаст последние изменения в вашу рабочую копию."
+msgstr "Файл был не был изменен в рабочей папке, но он был изменен в хранилище. Файл должен быть обновлен для синхронизации с текущей публичной ревизией. Команда <command>фиксировать</command> ничего не будет делать, а команда <command>обновить</command> передаст последние изменения в вашу рабочую копию."
 
 #: source/TortoiseSVN_en.xml:1383
 #: (term)
@@ -1270,10 +1248,8 @@ msgstr "Изменился и устарел"
 
 #: source/TortoiseSVN_en.xml:1385
 #: (para)
-
-
 msgid "The file has been changed both in the working directory, and in the repository. An <command>commit </command> of the file will fail with an \"out-of-date\" error. The file should be updated first; an <command>update </command> command will attempt to merge the public changes with the local changes. If Subversion can't complete the merge in a plausible way automatically, it leaves it to the user to resolve the conflict."
-msgstr "Файл был изменен и в рабочей папке и в хранилище. Команда <command>commit </command> завершится с ошибкой \"устарел (out-of-date)\". Файл должен быть сначала обновлен. Команда <command>update </command> попытается объединить публичные изменения с локальными изменениями. Если Subversion не может полностью автоматически объединить изменения в достоверной форме, он сообщает пользователю о конфликте."
+msgstr "Файл был изменен и в рабочей папке и в хранилище. Команда <command>фиксировать</command> завершится с ошибкой \"устарел (out-of-date)\". Файл должен быть сначала обновлен. Команда <command>обновить</command> попытается объединить публичные изменения с локальными изменениями. Если Subversion не может полностью автоматически объединить изменения в достоверной форме, он сообщает пользователю о конфликте."
 
 #: source/TortoiseSVN_en.xml:1402
 #: (title)
@@ -1315,7 +1291,6 @@ msgstr "Для использования TortoiseSVN (как и другого 
 msgid "If you don't have a server and/or if you only work alone then local repositories are probably your best choice. You can skip this chapter and go directly to <xref linkend=\"tsvn-repository\"/>."
 msgstr "Если вы не имеете сервера и/или если вы работаете только в одиночку, тогда локальное хранилище обычно лучший выбор для вас. Вы можете пропустить эту главу и перейти непосредственно к <xref linkend=\"tsvn-repository\"/>."
 
-
 #: source/TortoiseSVN_en.xml:1457
 #: (title)
 msgid "Apache Based Server"
@@ -1326,10 +1301,8 @@ msgstr "Сервер на базе Apache"
 msgid "Apache"
 msgstr "Apache"
 
-
 #: source/TortoiseSVN_en.xml:1463
 #: (para)
-
 msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
 msgstr "Наиболее гибкий из всех возможных серверов предназначенных для Subversion это только Apache. Не смотря на немного запутанную установку, он предлагает преимущества которые не имею другие сервера:"
 
@@ -1340,7 +1313,6 @@ msgid "WebDAV"
 msgstr "WebDAV"
 
 #: source/TortoiseSVN_en.xml:1475
-
 #: (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a \"Webfolder\" in the Windows explorer and then access it like any other folder in the filesystem"
 msgstr "Subversion сервер на базе Apache использует протокол WebDAV который хорошо поддерживают множество других программ. Вы можете, на пример, смонтировать хранилище как \"Webfolder\" в Windows Проводнике и затем работать с ним как и с другими папками в файловой системе."
@@ -1349,7 +1321,6 @@ msgstr "Subversion сервер на базе Apache использует про
 #: (term)
 msgid "Browsing The Repository"
 msgstr "Просмотр хранилища"
-
 
 #: source/TortoiseSVN_en.xml:1488
 #: (para)
@@ -1378,7 +1349,6 @@ msgid "Since Apache is very stable and secure, you automatically get the same se
 msgstr "Так как Apache очень стабильный и безопасный, вы автоматически получаете туже безопасность для вашего хранилища, включая SSL шифрирование."
 
 #: source/TortoiseSVN_en.xml:1519
-
 #: (title)
 msgid "Installing Apache"
 msgstr "Установка Apache"
@@ -1386,7 +1356,7 @@ msgstr "Установка Apache"
 #: source/TortoiseSVN_en.xml:1524
 #: (para)
 msgid "Please note that Windows XP without the servicepack 1 will lead to bogus network data and could therefore corrupt your repository!"
-msgstr "Пожалуйста помните что Windows XP без 1-го сервиспака будет передавать неправильные данные по сети, и соответственно повреждать ваше хранилище!"
+msgstr "Пожалуйста, помните что Windows XP без 1-го сервиспака будет передавать неправильные данные по сети, и соответственно повреждать ваше хранилище!"
 
 #: source/TortoiseSVN_en.xml:1532
 #: (para)
@@ -1406,13 +1376,12 @@ msgstr "Сейчас проверьте что web-сервер Apache выпо�
 #: source/TortoiseSVN_en.xml:1576
 #: (para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
-msgstr "Если вы приняли решение установить Apache как сервис, помните что по умолчанию он запускается под локальным системной учетной записью. Более безопасно для вас, создать отдельную учетную запись, под которой будет запускаться Apache."
+msgstr "Если вы приняли решение установить Apache как сервис, помните что по умолчанию он запускается под локальной системной учетной записью. Более безопасно для вас, создать отдельную учетную запись, под которой будет запускаться Apache."
 
 #: source/TortoiseSVN_en.xml:1582
-
 #: (para)
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right-click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
-msgstr "Убедитесь что учетная запись под которой запущен Apache, имеет непосредственную запись в списке доступа (ACL) папки где расположено хранилище (щелкните правой клавишей мыши на папке, Свойства, Безопасность), с уровнем \"Полный доступ\". В противном случае, пользователи не смогут фиксировать свои изменения."
+msgstr "Убедитесь что учетная запись, под которой запущен Apache, имеет непосредственную запись в списке доступа (ACL) папки где расположено хранилище (щелкните правой клавишей мыши на папке, Свойства, Безопасность), с уровнем \"Полный доступ\". В противном случае, пользователи не смогут фиксировать свои изменения."
 
 #: source/TortoiseSVN_en.xml:1588
 #: (para)
@@ -1426,19 +1395,15 @@ msgstr "Если Apache не будет иметь этих прав, ваши �
 
 #: source/TortoiseSVN_en.xml:1520
 #: (para)
-
 msgid "The first thing you need before installing Apache is a computer with either Windows2000 / WinXP+SP1 or Windows2003. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 msgstr "Первое в чем вы нуждаетесь перед установкой Apache, это компьютер с Windows2000 / WinXP+SP1 или Windows2003. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 
 #: source/TortoiseSVN_en.xml:1601
 #: (title)
 msgid "Installing Subversion"
-
 msgstr "Установка Subversion"
 
-
 #: source/TortoiseSVN_en.xml:1605
-
 #: (para)
 msgid "Download the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 msgstr "Загрузите последнюю версию Subversion с <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
@@ -1455,7 +1420,6 @@ msgstr "mod_authz_svn"
 
 #: source/TortoiseSVN_en.xml:1625
 #: (para)
-
 msgid "Using the windows explorer, go to the installation directory of Subversion (usually <filename>c:\\program files\\Subversion</filename>) and find the files <filename>/httpd/mod_dav_svn.so</filename> and <filename>mod_authz_svn.so</filename>. Copy these files to the Apache modules directory (usually <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
 msgstr "Используя Проводник Windows, перейдите в установочную папку Subversion, (обычно <filename>c:\\program files\\Subversion</filename>) и найдите файлы <filename>/httpd/mod_dav_svn.so</filename> и <filename>mod_authz_svn.so</filename>. Скопируйте эти файлы в папку модулей Apache (обычно <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
 
@@ -1467,7 +1431,7 @@ msgstr "Скопируйте файл <filename>/bin/libdb43.dll</filename> из
 #: source/TortoiseSVN_en.xml:1645
 #: (para)
 msgid "Edit Apache's configuration file (usually <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) with a text editor such as Notepad and make the following changes:"
-msgstr "отредактируйте конфигурационный файл Apache (обычно <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) с помощью текстового редактора, такого как Блокнот, и сделайте такие изменения:"
+msgstr "Отредактируйте конфигурационный файл Apache (обычно <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) с помощью текстового редактора, такого как Блокнот, и сделайте такие изменения:"
 
 #: source/TortoiseSVN_en.xml:1651
 #: (para)
@@ -1477,7 +1441,6 @@ msgid ""
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 msgstr ""
-
 "Раскоментируйте (удалите символ '<literal>#</literal>') в следующих строках: <screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen><screen>#LoadModule dav_module modules/mod_dav.so</screen> Добавьте слудующие две строки в конец секции <literal>LoadModule</literal>. <screen>\n"
 "LoadModule dav_svn_module modules/mod_dav_svn.so\n"
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
@@ -1512,13 +1475,11 @@ msgstr ""
 "SVNParentPath D:\\SVN\n"
 "AuthType Basic\n"
 "AuthName \"Subversion repositories\"\n"
-
-
 "AuthUserFile passwd\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
 "Require valid-user\n"
 "&lt;/Location&gt;\n"
-"</screen> Это настраивает Apache так что все ваши хранилища Subversion физически находятся в <filename>D:\\SVN</filename>. Хранилища которые обслуживаются по всему миру через URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Доступ ограничен для известных пользователей/паролей перечисленных в <filename>passwd</filename> file."
+"</screen> Это настраивает Apache так, что все ваши хранилища Subversion физически находятся в <filename>D:\\SVN</filename>. Хранилища которые обслуживаются по всему миру через URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Доступ ограничен для известных пользователей/паролей перечисленных в файле <filename>passwd</filename>."
 
 #: source/TortoiseSVN_en.xml:1705
 #: (para)
@@ -1531,9 +1492,8 @@ msgid ""
 msgstr ""
 "Для создания файла <filename>passwd</filename>, откройте командную строку (DOS-сессию), перейдите в папку apache2 (обычно <filename>c:\\program files\\apache group\\apache2</filename>) и создайте файл введя <screen>\n"
 "bin\\htpasswd -c passwd &lt;username&gt;\n"
-"</screen>. Эта команда создаст файл с именем passwd который используется для идентификации. Другие пользователи могут быть добавлены через <screen>\n"
+"</screen> Эта команда создаст файл с именем passwd который используется для идентификации. Другие пользователи могут быть добавлены через <screen>\n"
 "bin\\htpasswd passwd &lt;username&gt;\n"
-
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:1724
@@ -1544,7 +1504,7 @@ msgstr "Снова перезапустите сервис Apache."
 #: source/TortoiseSVN_en.xml:1729
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (where <filename>MyNewRepository</filename> is the name of the Subversion repository you created before). If all went well you should be prompted for a username and password, then you can see the contents of your repository."
-msgstr "Укажите в вашем браузере <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (где <filename>MyNewRepository</filename> это имя хранилища Subversion, созданного вами перед этим). Если все сделано правильно, у вас спросят имя пользовтаеля и пароль, затем вы сможете увидеть содержимое вашего хранилища."
+msgstr "Укажите в вашем браузере <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (где <filename>MyNewRepository</filename> это имя хранилища Subversion, созданного вами перед этим). Если все сделано правильно, у вас запросят имя пользовтаеля и пароль, затем вы сможете увидеть содержимое вашего хранилища."
 
 #: source/TortoiseSVN_en.xml:1669
 #: (para)
@@ -1555,7 +1515,6 @@ msgstr "Сейчас вы установили Apache и Subversion, но Apache
 #: (primary)
 msgid "SVNPath"
 msgstr "SVNPath"
-
 
 #: source/TortoiseSVN_en.xml:1745
 #: (primary) source/TortoiseSVN_en.xml:1877
@@ -1587,11 +1546,10 @@ msgstr "&lt;Location /svn&gt;"
 msgid "http://MyServer/svn/"
 msgstr "http://MyServer/svn/"
 
-
 #: source/TortoiseSVN_en.xml:1763
 #: (entry)
 msgid "means that the Subversion repositories are available from the URL <placeholder-1/>"
-msgstr "означает что хранилища Subversion доступны из URL <placeholder-1/>"
+msgstr "Означает что хранилища Subversion доступны из URL <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:1769
 #: (entry)
@@ -1599,13 +1557,11 @@ msgid "DAV svn"
 msgstr "DAV svn"
 
 #: source/TortoiseSVN_en.xml:1770
-
 #: (entry)
 msgid "tells Apache which module will be responsible to serve that URL - in this case the Subversion module."
-msgstr "указывает Apache что модуль который будет обслуживать этот URL - в данном случае модуль Subversion."
+msgstr "Указывает Apache что модуль который будет обслуживать этот URL - в данном случае модуль Subversion."
 
 #: source/TortoiseSVN_en.xml:1776
-
 #: (entry)
 msgid "SVNListParentPath on"
 msgstr "SVNListParentPath on"
@@ -1628,7 +1584,7 @@ msgstr "D:\\SVN"
 #: source/TortoiseSVN_en.xml:1784
 #: (entry)
 msgid "tells Subversion to look for repositories below <placeholder-1/>"
-msgstr "говорит Subversion искать хранилища в <placeholder-1/>"
+msgstr "Говорит Subversion искать хранилища в <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:1790
 #: (entry)
@@ -1640,7 +1596,6 @@ msgstr "AuthType Basic"
 msgid "is to activate basic authentication, i.e. Username/password"
 msgstr "Активирует базовую идентификацию, т.е. Пользователь/пароль"
 
-
 #: source/TortoiseSVN_en.xml:1797
 #: (entry)
 msgid "AuthName \"Subversion repositories\""
@@ -1649,12 +1604,10 @@ msgstr "AuthName \"Subversion repositories\""
 #: source/TortoiseSVN_en.xml:1798
 #: (entry)
 msgid "is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for"
-msgstr "используется как информация, при показе диалога аутентификации, для информирования пользователя куда он логинится."
+msgstr "Используется как информация, при показе диалога аутентификации, для информирования пользователя куда он логинится."
 
 #: source/TortoiseSVN_en.xml:1804
-
 #: (entry)
-
 msgid "AuthUserFile passwd"
 msgstr "AuthUserFile passwd"
 
@@ -1671,18 +1624,17 @@ msgstr "AuthzSVNAccessFile"
 #: source/TortoiseSVN_en.xml:1811
 #: (entry)
 msgid "Location of the Access file for paths inside a Subversion repository"
-msgstr "Расположение файла доступа (Access) для путей внутри хранилища Subversion"
+msgstr "Расположение файла доступа для путей внутри хранилища Subversion"
 
 #: source/TortoiseSVN_en.xml:1817
 #: (entry)
 msgid "Require valid-user"
 msgstr "Require valid-user"
 
-
 #: source/TortoiseSVN_en.xml:1818
 #: (entry)
 msgid "specifies that only users who entered a correct username/password are allowed to access the URL"
-msgstr "устанавливает что только пользователи, которые ввели правильные имя пользователя и пароль могут получать доступ к URL"
+msgstr "Указывает что только пользователи, которые ввели правильные имя пользователя и пароль могут получать доступ к URL"
 
 #: source/TortoiseSVN_en.xml:1830
 #: (para)
@@ -1698,7 +1650,6 @@ msgstr ""
 "Если вы хотите установить права доступа к хранилищу так, что бы все могли читать, но только некоторые пользователи могли записывать, вы можете изменить строку <screen>\n"
 "Require valid-user\n"
 "</screen> на <screen>\n"
-
 "&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;\n"
 "Require valid-user\n"
 "&lt;/LimitExcept&gt;\n"
@@ -1714,13 +1665,12 @@ msgid ""
 msgstr ""
 "Использование файла <filename>passwd</filename> ограничивает и предоставляет доступ ко всем вашим хранилищам как модулям. Если вам нужен больший контроль за тем какие пользователи имеют доступ к каждой папке внутри хранилища, вы можете снять комментарий со строки <screen>\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
-"</screen> и создать файл доступа Subversion. Apache будет обеспечивать что только нужные пользователи могут получить доступ к расположению <filename>/svn</filename>, и затем, передавать имя пользователя в модуль AuthzSVNAccessFile Subversion, так что он может обеспечивать более гибкий доступ, основанный на правилах перечисленных в файле доступа Subversion. Обратите внимание что пути которые указаны в <literal>repos:path</literal> или простой <literal>path</literal>. Если вы не укажете точного хранилища, это правило доступа будет применяться ко всем хранилищам, расположенным <literal>SVNParentPath</literal>. Формат файла политики идентификации используемой в <literal>mod_authz_svn</literal> описан в <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
+"</screen> и создать файл доступа Subversion. Apache будет обеспечивать, что только нужные пользователи могут получить доступ к расположению <filename>/svn</filename>, а затем, передавать имя пользователя в модуль AuthzSVNAccessFile Subversion, так что он может обеспечивать более гибкий доступ, основанный на правилах перечисленных в файле доступа Subversion. Обратите внимание что пути указаны либо в форме <literal>repos:path</literal> или просто <literal>path</literal>. Если вы не укажете точного хранилища, это правило доступа будет применяться ко всем хранилищам, расположенным ниже по иерархии <literal>SVNParentPath</literal>. Формат файла политики идентификации используемой в <literal>mod_authz_svn</literal> описан в <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
 
 #: source/TortoiseSVN_en.xml:1747
 #: (para)
-
 msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache webserver. <placeholder-2/>"
-msgstr "Короткое обсуждение что вы ввели: <placeholder-1/> Но это простой пример. Многие и многие возможности что вы можете сделать с web-сервером Apache <placeholder-2/>"
+msgstr "Короткое обсуждение введенного текста в конфигурационный файл: <placeholder-1/> Но это простой пример. Это много, множество других возможностей которые вы можете сделать с web-сервером Apache. <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:1875
 #: (title)
@@ -1728,28 +1678,24 @@ msgid "Multiple Repositories"
 msgstr "Несколько хранилищ"
 
 #: source/TortoiseSVN_en.xml:1880
-
 #: (primary)
 msgid "Index of projects"
-msgstr ""
-
+msgstr "Указатель проектов"
 
 #: source/TortoiseSVN_en.xml:1882
 #: (para)
 msgid "If you used the SVNParentPath directive then you don't have to change the Apache config file everytime you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
-msgstr "Если вы используете директиву SVNParentPath тогда не обязательно изменять настроечный файл Apache, каждый раз когда вы добавляете новое хранилище Subversion. Просто создайте новое хранилище в том же месте где и первое хранилище и все сделано! В моей фирме, я имею прямой доступ к указанной папке на сервере через SMB (обычный файловый доступ). Так что я просто создаю здесь новую папку, запускаю команду TortoiseSVN <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> и новый проект имеет дом..."
+msgstr "Если вы используете директиву SVNParentPath тогда не обязательно изменять настроечный файл Apache, каждый раз когда вы добавляете новое хранилище Subversion. Просто создайте новое хранилище в том же месте где и первое хранилище и все сделано! В моей фирме, я имею прямой доступ к указанной папке на сервере через SMB (обычный файловый доступ). Так что я просто создаю здесь новую папку, запускаю команду TortoiseSVN <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Создать хранилище здесь...</guimenuitem></menuchoice> и новый проект имеет дом..."
 
 #: source/TortoiseSVN_en.xml:1896
 #: (para)
 msgid "If you are using Subversion 1.3 or later, you can use the <literal>SVNListParentPath on</literal> directive to allow Apache to produce a listing of all available projects if you point your browser at the parent path rather than at a specific repository."
 msgstr "Если вы используете Subversion 1.3 или более поздний, вы можете использовать директиву <literal>SVNListParentPath on</literal> для разрешения Apache генерировать список всех доступных проектов, если вы подключите ваш браузер к корню, а не конкретного хранилища."
 
-
-
 #: source/TortoiseSVN_en.xml:1902
 #: (para)
 msgid "If your Subversion server is earlier than 1.3 you will just get a nasty error page showing. To get a nice looking listing of all available projects instead, you can use the following PHP script which generates the index for you automatically. (You will need to install PHP on your server in order to use the script shown below)."
-msgstr "Если ваш сервер более ранний чем 1.3 будете получать страницу с ошибкой. Для получения хорошего списка всех доступных проектов, вы можете использовать следующий PHP скрипт, который генерирует индекс автоматически. (Вы должны установить PHP на ваш сервер для использования скрипта показанного ниже)."
+msgstr "Если ваш сервер более ранний чем 1.3, вы будете получать страницу с ошибкой. Для получения списка всех доступных проектов, вы можете использовать следующий PHP скрипт, который генерирует индекс автоматически. (Вы должны установить PHP на ваш сервер для использования скрипта показанного ниже)."
 
 #: source/TortoiseSVN_en.xml:1911
 #: (programlisting)
@@ -1804,6 +1750,55 @@ msgid ""
 "&lt;/body&gt;\n"
 "&lt;/html&gt;\n"
 msgstr ""
+"\n"
+"&lt;html&gt;\n"
+"&lt;head&gt;\n"
+"&lt;title&gt;Subversion Repositories&lt;/title&gt;\n"
+"&lt;/head&gt;\n"
+"&lt;body&gt;\n"
+"\n"
+"&lt;h2&gt;Subversion Repositories&lt;/h2&gt;\n"
+"&lt;p&gt;\n"
+"&lt;?php\n"
+"    $svnparentpath = \"C:/svn\";\n"
+"    $svnparenturl = \"/svn\";\n"
+"\n"
+"    $dh = opendir( $svnparentpath );\n"
+"    if( $dh ) {\n"
+"        while( $dir = readdir( $dh ) ) {\n"
+"            $svndir = $svnparentpath . \"/\" . $dir;\n"
+"            $svndbdir = $svndir . \"/db\";\n"
+"            $svnfstypefile = $svndbdir . \"/fs-type\";\n"
+"            if( is_dir( $svndir ) &amp;&amp; is_dir( $svndbdir ) ) {\n"
+"                echo \"&lt;a href=\\\"\" . $svnparenturl . \"/\" .\n"
+"                        $dir . \"\\\"&gt;\" . $dir . \"&lt;/a&gt;\\n"
+"\";\n"
+"                if( file_exists( $svnfstypefile ) ) {\n"
+"                    $handle = fopen (\"$svnfstypefile\", \"r\");\n"
+"                    $buffer = fgets($handle, 4096);\n"
+"                    fclose( $handle );\n"
+"                    $buffer = chop( $buffer );\n"
+"                    if( strcmp( $buffer, \"fsfs\" )==0 ) {\n"
+"                        echo \" (FSFS) &lt;br /&gt;\\n"
+"\";\n"
+"                    } else {\n"
+"                        echo \" (BDB) &lt;br /&gt;\\n"
+"\";\n"
+"                    }\n"
+"                } else {\n"
+"                    echo \" (BDB) &lt;br /&gt;\\n"
+"\";\n"
+"                }\n"
+"            }\n"
+"        }\n"
+"        closedir( $dh );\n"
+"    }\n"
+"?&gt;\n"
+"&lt;/p&gt;\n"
+"\n"
+"&lt;/body&gt;\n"
+"&lt;/html&gt;\n"
+
 
 #: source/TortoiseSVN_en.xml:1962
 #: (para)
@@ -1816,7 +1811,6 @@ msgstr ""
 "#LoadModule rewrite_module modules/mod_rewrite.so\n"
 "</screen>"
 
-
 #: source/TortoiseSVN_en.xml:1971
 #: (para)
 msgid ""
@@ -1827,18 +1821,15 @@ msgid ""
 "    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
 "</screen>"
 msgstr ""
-
 "Добавьте следующие строки ниже блока &lt;Location&gt; где вы определили Subversion: <screen>\n"
 "    RewriteEngine on\n"
 "    RewriteRule ^/svn$ /svn_index.php [PT]\n"
 "    RewriteRule ^/svn/$ /svn_index.php [PT]\n"
 "    RewriteRule ^/svn/index.html$ /svn_index.php [PT] \n"
-
 "</screen>"
 
 #: source/TortoiseSVN_en.xml:1956
 #: (para)
-
 msgid "Save the lines above to a file <filename>svn_index.php</filename> and store that file in your web root folder. Next you have to tell Apache to show that page instead of the error: <placeholder-1/>"
 msgstr "Сохраните выше приведенные строки в файл <filename>svn_index.php</filename> и сохраните его в корневой папке вашего web сервера. Затем вы должны указать Apache отображать эту страницу вместо ошибки: <placeholder-1/>"
 
@@ -1855,7 +1846,7 @@ msgstr "Авторизация"
 #: source/TortoiseSVN_en.xml:1994
 #: (para)
 msgid "The mod_authz_svn module permits fine-grained control of access permissions based on usernames and repository paths. This is available with the Apache server, and as of Subversion 1.3 it is available with svnserve as well."
-msgstr "Модуль mod_authz_svn предоставляет детальное управление правами доступа, основанные на именах пользователей и пути к хранилищам. Эта возможность доступна с сервером Apache, и начиная с Subversion 1.3 достуна на svnserve."
+msgstr "Модуль mod_authz_svn предоставляет детальное управление правами доступа, основанное на именах пользователей и пути к хранилищам. Эта возможность доступна с сервером Apache, и, начиная с Subversion 1.3, достуна на svnserve."
 
 #: source/TortoiseSVN_en.xml:2000
 #: (para)
@@ -1872,7 +1863,6 @@ msgid ""
 "[/]\n"
 "* = r\n"
 "@admin = rw\n"
-
 "dangerman =\n"
 "# Allow developers complete access to their project repos\n"
 "[proj1:/]\n"
@@ -1904,7 +1894,6 @@ msgstr ""
 "[/]\n"
 "* = r\n"
 "@admin = rw\n"
-
 "dangerman =\n"
 "# Позволяет разработчикам полный доступ к их проектным хранилищам.\n"
 "[proj1:/]\n"
@@ -1923,16 +1912,15 @@ msgstr ""
 "@training = rw\n"
 "</screen>"
 
-
 #: source/TortoiseSVN_en.xml:2032
 #: (para)
 msgid "Note that checking every path can be an expensive operation, particularly in the case of the revision log. The server checks every changed path in each revision and checks it for readability, which can be time-consuming on revisions which affect large numbers of files."
-msgstr ""
+msgstr "Обратите внимание что проверка каждого путь может быть дорогой операцией, обычно в случае лога ревизий. Сервер проверяет каждый измененный путь в каждой ревизии и проверяет его для удобочитаемости, что может быть трудоемким на ревизиях влияющие на большое число файлов."
 
 #: source/TortoiseSVN_en.xml:2039
 #: (para)
 msgid "Authentication and authorizarion are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
-msgstr "Идентификация и авторизация это раздельные процессы. Если пользователь хочет получить доступ к хранилищу, он должен пройти <emphasis>оба</emphasis>, обычно требования идентификации и требования авторизации для доступа к файлу."
+msgstr "Идентификация и авторизация это раздельные процессы. Если пользователь хочет получить доступ к хранилищу, для доступа к файлу он должен пройти <emphasis>оба</emphasis>, обычно требования идентификации и требования авторизации."
 
 #: source/TortoiseSVN_en.xml:2047
 #: (title)
@@ -1942,21 +1930,19 @@ msgstr "Идентификация с использованием домена 
 #: source/TortoiseSVN_en.xml:2049
 #: (primary)
 msgid "Windows domain"
-msgstr ""
+msgstr "Домен Windows"
 
 #: source/TortoiseSVN_en.xml:2052
 #: (primary)
 msgid "domaincontroller"
 msgstr "контроллер домена"
 
-
 #: source/TortoiseSVN_en.xml:2054
 #: (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
-msgstr "Как вы можете знать, вы нуждаетесь в создании записи имя_пользователя/пароль в файле <filename>passwd</filename> для каждого пользователя. И если (по соображениям безопасности) вы хотите переодически менять их пароли, вы должны будете изменять их вручную."
+msgstr "Как вы можете уже знать, вы нуждаетесь в создании записи имя_пользователя/пароль в файле <filename>passwd</filename> для каждого пользователя. И если (по соображениям безопасности) вы хотите переодически менять их пароли, вы должны будете изменять их вручную."
 
 #: source/TortoiseSVN_en.xml:2061
-
 #: (para)
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: mod_auth_sspi!"
 msgstr "Но есть решение этой проблемы - если вы получаете доступ к хранилищу через сеть под управлением контролера домена: mod_auth_sspi!"
@@ -1969,24 +1955,27 @@ msgstr "SSPI"
 #: source/TortoiseSVN_en.xml:2069
 #: (para)
 msgid "The original SSPI module was offered by Syneapps including sourcecode. But the development for it has been stopped. You can still find that module on the internet - just do a google search for it. We also have a compiled version of it on our website, supplied by Norbert Unterberg. This one is mod_auth_sspi 1.0.3 which supports a <literal>SSPIUsernameCase [upper|lower]</literal> directive. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Get the mod_auth_sspi module</citetitle></ulink>."
-msgstr ""
+msgstr "Оригинальный модуль SSPI предложен Syneapps включая исходные коды. Но разработка его была остановлена. Вы можете найти этот модуль в Интернет - просто воспользуйтесь поиском. Мы также имеем откомпилированную версию на нашем вебсайте, предоставленный Norbert Unterberg. Это mod_auth_sspi 1.0.3 который поддерживает директиву <literal>SSPIUsernameCase [upper|lower]</literal>. <ulink url=\"http://tortoisesvn.tigris.org/mod_auth_sspi.zip\"><citetitle>Загрузить модуль mod_auth_sspi</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:2083
 #: (para)
 msgid "Download the module, copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
-msgstr ""
+msgstr "Загрузите модуль, скопируйте файл <filename>mod_auth_sspi.so</filename> в папку модулей Apache."
 
 #: source/TortoiseSVN_en.xml:2090
 #: (para)
 msgid ""
 "Edit the Apache config file: add the line <screen>\n"
 "LoadModule sspi_auth_module modules/mod_auth_sspi.so\n"
-
 "</screen> to the LoadModule's section. Make sure you insert this line <emphasis>before</emphasis> the line <screen>\n"
 "LoadModule auth_module modules/mod_auth.so\n"
-
 "</screen>"
 msgstr ""
+"Измените конфигурационный файл Apache: добавьте строку<screen>\n"
+"LoadModule sspi_auth_module modules/mod_auth_sspi.so\n"
+"</screen> в секцию LoadModule. Убедитесь что вы вставили эту строку <emphasis>перед</emphasis> строкой<screen>\n"
+"LoadModule auth_module modules/mod_auth.so\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:2103
 #: (para)
@@ -2002,25 +1991,32 @@ msgid ""
 "SSPIOfferBasic On\n"
 "</screen> within the &lt;Location /svn&gt; block. If you don't have a domain controller, leave the name of the domain control as &lt;domaincontroller&gt;."
 msgstr ""
+"Для того чтобы Subversion использовал этот тип идетнтификации вы должны изменить строку <screen>\n"
+"AuthType Basic\n"
+"</screen> to <screen>\n"
+"AuthType SSPI\n"
+"</screen> так же вы должны добавить<screen>\n"
+"SSPIAuth On\n"
+"SSPIAuthoritative On\n"
+"SSPIDomain &lt;domaincontroller&gt;\n"
+"SSPIOfferBasic On\n"
+"</screen> внутрь блока &lt;Location /svn&gt;. Если вы не имеете контроллера домена, оставьте имя контролера домена &lt;domaincontroller&gt;."
 
 #: source/TortoiseSVN_en.xml:2126
 #: (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <filename>AuthUserFile</filename> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
-
-msgstr ""
+msgstr "Обратите внимание что если вы идентифицируетесь используя SSPI, тогда вы больше не нуждаетесь в строке <filename>AuthUserFile</filename> для определения файла паролей.Apache идентифицирует ваше имя пользователя и пароль через домен Windows. Вы должны обновить список пользователей в файле <filename>svnaccessfile</filename> на ссылку на домен <literal>DOMAIN\\username</literal>."
 
 #: source/TortoiseSVN_en.xml:2136
 #: (para)
 
 msgid "Subversion AuthzSVNAccessFile files are case sensitive in regard to user names (\"JUser\" is different from \"juser\")."
-msgstr ""
+msgstr "Файлы Subversion AuthzSVNAccessFile регистро зависимы в отношении имен пользователей (\"JUser\" отличаестся от \"juser\")."
 
 #: source/TortoiseSVN_en.xml:2140
 #: (para)
 msgid "In Microsoft's world, Windows domains and usernames are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. \"JUser\")."
-
 msgstr "В мире Microsoft, домены Windows и имена пользователей не зависят от регистра символов. Так что некоторые сетевые администраторы любят создавать учетные записи пользователей в смешанном регистре (например \"JUser\")"
-
 
 #: source/TortoiseSVN_en.xml:2145
 #: (para)
@@ -2034,53 +2030,53 @@ msgstr "В результате наименьшее в чем вы можете
 
 #: source/TortoiseSVN_en.xml:2161
 #: (para)
-
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's AuthzSVNAccessFile module. You may need to experiment with the exact format of the user string in the svnaccessfile (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
-msgstr ""
+msgstr "Логи Ошибок и Доступа в Apache это лучшие ваши друзья в расшифровке проблем типа этой, так как они помогают вам определить переданное имя пользователя в Subversion модуль AuthzSVNAccessFile. Вы можете нуждаться в эксперименте с извлеченим формата строки пользователя в svnaccessfile (например <literal>DOMAIN\\user</literal> или <literal>DOMAIN//user</literal>) для того чтобы решить проблему для всех."
 
 #: source/TortoiseSVN_en.xml:2173
-
 #: (title)
 msgid "SSL and InternetExplorer"
-
 msgstr "SSL и Internet Explorer"
 
 #: source/TortoiseSVN_en.xml:2174
 #: (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
-msgstr ""
+msgstr "Если вы организуете зашиту вашего сервера с использование SSL и используете идентификацию на базе домена, вы обнаружите что просмотр хранилиша в Internet Explorer не работает везде. Не беспокойтесь - это только Internet Explorer не может идетифицироваться. Другие обозреватели не имеют этой проблемы и TortoiseSVN и другие клиеты Subversion имеют возможность идетифицироваться."
 
 #: source/TortoiseSVN_en.xml:2188
 #: (para)
 msgid "define a separate &lt;Location /path&gt; directive in the apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
-msgstr ""
+msgstr "определите отдельную директиву &lt;Location /path&gt; в файле конфигурации Apache, и добавьте <literal>SSPIBasicPreferred On</literal>. Это позволяет IE для идентификации, но другие обозреватели и Subversion не смогут идетифицировать это место."
 
 #: source/TortoiseSVN_en.xml:2198
 #: (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
-msgstr ""
+msgstr "Также поробуйте просмотреть без шифрированной идентификации (без SSL). Странно, но IE не имеет любых проблем с идентификацией если соединение не защищено с помощью SSL."
 
 #: source/TortoiseSVN_en.xml:2206
 #: (para)
-
 msgid ""
 "In the ssl \"standard\" setup there's often the following statement in apache's virtual ssl host: <screen>\n"
 "SetEnvIf User-Agent \".*MSIE.*\" \\\n"
-
 "             nokeepalive ssl-unclean-shutdown \\\n"
 "             downgrade-1.0 force-response-1.0\n"
 "</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want ntlm authentication you have to use keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> If You uncomment the whole \"SetEnvIf\" You should be able to authenticate IE with windows authentication over SSL against the apache on Win32 with included mod_auth_sspi."
 msgstr ""
+"В \"стандартной\" установке ssl часто есть следуюшее выраженин в виртуальном ssl хосте: <screen>\n"
+"SetEnvIf User-Agent \".*MSIE.*\" \\\n"
+"             nokeepalive ssl-unclean-shutdown \\\n"
+"             downgrade-1.0 force-response-1.0\n"
+"</screen> Есть (были?) серьезные основания для этой конфигурации, см. <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> Но если вы хотите использовать ntlm идентификацию вы должны использовать keepalive: <ulink url=\"http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp\"><citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle></ulink> Если вы раскоментируете целый \"SetEnvIf\" вы должны быть в состоянии идентифицироваться в IE через windows идентификацию с SSL, в apache на Win32 с включенным mod_auth_sspi."
 
 #: source/TortoiseSVN_en.xml:2183
 #: (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
-msgstr ""
+msgstr "Если вы должны использовать IE для просмотра хранилища, вы можете: <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:2233
 #: (title)
 msgid "Securing the server with SSL"
-msgstr ""
+msgstr "Обеспечение безопасности сервера с использованием SSL"
 
 #: source/TortoiseSVN_en.xml:2235
 #: (primary)
@@ -2090,12 +2086,12 @@ msgstr "SSL"
 #: source/TortoiseSVN_en.xml:2237
 #: (para)
 msgid "The apache server doesn't have SSL support installed by default due to US-export restrictions. But you can easily download the required module from somewhere else and install it yourself."
-msgstr ""
+msgstr "Сервер Apache по умолчанию не имеет установленной поддержки SSL из-за экспортных ограничений США. Но вы можете просто загрузить нужные модули из другого места и установить их самостоятельно."
 
 #: source/TortoiseSVN_en.xml:2244
 #: (para)
 msgid "First you need the required files to enable SSL. You can find those in the package available at <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Just unzip the package and then copy <filename>mod_ssl.so</filename> to the <filename>modules</filename> folder of Apache and the file <filename>openssl.exe</filename> to the <filename>bin</filename> folder. Also copy the file <filename>conf/ssl.conf</filename> to the <filename>conf</filename> folder of Apache."
-msgstr ""
+msgstr "Сначала вы нуждаетесь в файлах для разрешения SSL. Вы можете найти эти пакеты в <ulink url=\"http://hunter.campbus.com/\"><citetitle>http://hunter.campbus.com/</citetitle></ulink>. Просто разархивируйте пакет и затем скопируйте <filename>mod_ssl.so</filename> в папку <filename>modules</filename> Apache и файл <filename>openssl.exe</filename> в папку <filename>bin</filename>. Также скопируйте файл <filename>conf/ssl.conf</filename> в папку Apache <filename>conf</filename>."
 
 #: source/TortoiseSVN_en.xml:2260
 #: (para)
@@ -2129,19 +2125,13 @@ msgid ""
 "</screen> to <screen>\n"
 "SSLCertificateFile conf/ssl/my-server.cert\n"
 "</screen> the line <screen>\n"
-
 "SSLCertificateKeyFile conf/ssl.key/server.key\n"
-
 "</screen> to <screen>\n"
 "SSLCertificateKeyFile conf/ssl/my-server.key\n"
 "</screen> and the line <screen>\n"
 "SSLMutex  file:logs/ssl_mutex\n"
 "</screen> to <screen>\n"
 "SSLMutex  default\n"
-
-
-
-
 "</screen>"
 msgstr ""
 "измените строку <screen>\n"
@@ -2177,16 +2167,18 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:2320
 #: (para)
 msgid ""
-
 "Open the Apache config file (<filename>httpd.conf</filename>) and uncomment the line <screen>\n"
 "#LoadModule ssl_module modules/mod_ssl.so\n"
 "</screen>"
 msgstr ""
+"Откройте файл конфигурации Apache (<filename>httpd.conf</filename>) и раскоментируйте строку <screen>\n"
+"#LoadModule ssl_module modules/mod_ssl.so\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:2329
 #: (para)
 msgid "Openssl needs a config file. You can download a working one from <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Save the file to <filename>bin/openssl.cnf</filename>. Please note: the file has the type <filename>*.cnf</filename>. Windows treats such files in a special way but it really is just a text file!"
-msgstr ""
+msgstr "Openssl нуждается в файле настроек. Вы можете загрузить рабочий из <ulink url=\"http://tud.at/programm/openssl.cnf\"><citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>. Сохраните файл в <filename>bin/openssl.cnf</filename>. Пожалуйста помните: файл имеет тип <filename>*.cnf</filename>. Windows обрабатывается такие файлы специальным образом, но всегда как простой текстовый файл!"
 
 #: source/TortoiseSVN_en.xml:2343
 #: (para)
@@ -2194,8 +2186,9 @@ msgid ""
 "Next you need to create an SSL certificate. To do that open a command prompt (DOS-Box) and change to the apache folder (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) and type the following command: <screen>\n"
 "bin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr\n"
 "</screen> You will be asked for a passphrase. Please don't use simple words but whole sentences, e.g. a part of a poem. The longer the phrase the better. Also you have to enter the URL of your server. All other questions are optional but we recommend you fill those in too."
-msgstr ""
-
+msgstr "Затем вы должны создать SSL сертификат. Для этого откройте командную строку (DOS окно) перейдите в папку Apache (например <filename>C:\\program files\\apache group\\apache2</filename>) и введите следующую команду: <screen>\n"
+"bin\\openssl req -config bin\\openssl.cnf -new -out my-server.csr\n"
+"</screen> У вас запросят контрольную фразу (passphrase). Пожалуйста не используйте простые слова, но целые высказывания, например часть поэмы. Лучше длинные фразы. Также вы должны ввести URL вашего сервера. Все другие вопросы необязательны, но мы рекомендуем вам заполнить их тоже."
 
 #: source/TortoiseSVN_en.xml:2358
 #: (para)
@@ -2204,6 +2197,9 @@ msgid ""
 "bin\\openssl genrsa -out privkey.pem 2048\n"
 "</screen>"
 msgstr ""
+"Обычно файл <filename>privkey.pem</filename> создается автоматически, но если это не так, вы должны ввести эту команду для его создания: <screen>\n"
+"bin\\openssl genrsa -out privkey.pem 2048\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:2366
 #: (para)
@@ -2217,27 +2213,34 @@ msgid ""
 "bin\\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER\n"
 "</screen> These commands created some files in the Apache folder (<filename>my-server.der.crt</filename>, <filename>my-server.csr</filename>, <filename>my-server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>my-server.cert</filename>). Copy the files to the folder <filename>conf/ssl</filename> (e.g. <filename>C:\\program files\\apache group\\apache2\\conf\\ssl</filename>) - if this folder does not exist you have to create it first."
 msgstr ""
+"Затем введите команды <screen>\n"
+"bin\\openssl rsa -in privkey.pem -out my-server.key\n"
+"</screen> and (on one line) <screen>\n"
+"bin\\openssl x509 -in my-server.csr -out my-server.cert\n"
+"                 -req -signkey my-server.key -days 4000\n"
+"</screen> Они создают сертификаты которые будут заканчиваться через 4000 дней. И в конце введите: <screen>\n"
+"bin\\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER\n"
+"</screen> Эти команды создают некоторые файлы в папке Apache (<filename>my-server.der.crt</filename>, <filename>my-server.csr</filename>, <filename>my-server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>my-server.cert</filename>). Скопируйте эти файлы в папку <filename>conf/ssl</filename> (например <filename>C:\\program files\\apache group\\apache2\\conf\\ssl</filename>) - есои эта папка не существует вы должны сначала создать ее."
 
 #: source/TortoiseSVN_en.xml:2395
 #: (para)
-
 msgid "Restart the apache service."
 msgstr "Перезапустите сервис apache."
 
 #: source/TortoiseSVN_en.xml:2400
 #: (para)
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
-msgstr ""
+msgstr "Направьте ваш обозреватель по адресу <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
 
 #: source/TortoiseSVN_en.xml:2408
 #: (title)
 msgid "Forcing SSL access"
-msgstr ""
+msgstr "Принуждение использования SSL доступа"
 
 #: source/TortoiseSVN_en.xml:2409
 #: (para)
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-ssl (http) and only allow https access. To do this, you have to add another directive to the Subversion &lt;Location&gt; block: <literal>SSLRequireSSL</literal>."
-msgstr ""
+msgstr "Когда вы насроете SSL для того чтобы сделать ваше хранилище более безопасным, вы можете захотеть запретить обычный доступ через не SSL соединения (http) и разрешить https доступ. Для этого, вы должны добавить другую директиву в Subversion блок &lt;Location&gt;: <literal>SSLRequireSSL</literal>."
 
 #: source/TortoiseSVN_en.xml:2416
 #: (para)
@@ -2255,6 +2258,18 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"Пример &lt;Location&gt;, блок должен выглядеть подобно этому: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"DAV svn\n"
+"SVNParentPath D:\\SVN\n"
+"SSLRequireSSL\n"
+"AuthType Basic\n"
+"AuthName \"Subversion repositories\"\n"
+"AuthUserFile passwd\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #: source/TortoiseSVN_en.xml:2435
 #: (title)
@@ -2280,24 +2295,22 @@ msgstr "Установка svnserve"
 #: source/TortoiseSVN_en.xml:2457
 #: (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
-msgstr ""
+msgstr "Загрузите последнюю версию Subversion с <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:2465
 #: (para)
 msgid "Run the Subversion installer. If you run the installer on your server you can skip step 3."
-msgstr ""
-
+msgstr "Запустите установщик Subversion. Если вы запустили установщик на вашем сервере вы можете пропустить шаг 3."
 
 #: source/TortoiseSVN_en.xml:2471
 #: (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>libdb43.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr ""
+msgstr "Откройте Проводник, перейдите в папку с установленным Subversion (обычно <filename>C:\\Program Files\\Subversion</filename>) и в папке <filename>bin</filename>, найдите файлы <filename>svnserve.exe</filename>, <filename>libdb43.dll</filename>, <filename>libeay32.dll</filename> и <filename>ssleay32.dll</filename> - скопируйте эти файлы в папку на ващем сервере, например <filename>c:\\svnserve</filename>"
 
 #: source/TortoiseSVN_en.xml:2488
 #: (title)
 msgid "Running svnserve"
 msgstr "Запуск svnserve"
-
 
 #: source/TortoiseSVN_en.xml:2489
 #: (para)
@@ -2306,26 +2319,30 @@ msgid ""
 "svnserve.exe -d\n"
 "</screen> svnserve will now start waiting for incoming requests on port 3690. The -d switch tells svnserve to run as a daemon process, so it will always exist until it is manually terminated."
 msgstr ""
+"Сейчас, когда установлен svnserve, вы должны запустить его на вашем сервере. Простейший спрособ сделать это вы полнить следующую команду из командной строки или создать ярлык: <screen>\n"
+"svnserve.exe -d\n"
+"</screen> запуститься svnserve ожидая входящих запросов на порту 3690. Параметр -d говорит svnserve запуститься в режиме процесса-демона, так что он всегда выполняется до тех пор пока вы его не остановите вручную."
 
 #: source/TortoiseSVN_en.xml:2500
 #: (para)
 msgid "If you have not yet created a repository, follow the instructions given with the Apache server setup <xref linkend=\"tsvn-serversetup-apache-4\"/>."
-msgstr ""
+msgstr "Если вы еще не создали хранилище, следуйте инструкциям полученным для сервера Apache <xref linkend=\"tsvn-serversetup-apache-4\"/>."
 
 #: source/TortoiseSVN_en.xml:2505
 #: (para)
 msgid "To test that svnserve is working, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to view a repository."
-msgstr ""
+msgstr "Для того чтобы проверить что svnserve работает, используйте <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Обозреватель хранилища</guimenuitem></menuchoice> для просмотра хранилища."
 
 #: source/TortoiseSVN_en.xml:2513
 #: (para)
 msgid ""
-
 "Assuming your repository is located in <filename>c:\\repos\\TestRepo</filename>, and your server is called <filename>localhost</filename>, enter: <screen>\n"
 "svn://localhost/repos/TestRepo\n"
-
 "</screen> when prompted by the repo browser."
 msgstr ""
+"Предположим ваше хранилище расположено в <filename>c:\\repos\\TestRepo</filename>, и ваш сервер называется <filename>localhost</filename>, введите: <screen>\n"
+"svn://localhost/repos/TestRepo\n"
+"</screen> когда запуститься обозреватель хранилиша."
 
 #: source/TortoiseSVN_en.xml:2522
 #: (para)
@@ -2333,18 +2350,22 @@ msgid ""
 "You can also increase security and save time entering Url's with svnserve by using the -r switch to set the root location and restrict access to a specified directory on the server: <screen>\n"
 "svnserve.exe -d -r drive:\\path\\to\\repository\n"
 "</screen> Using the previous test as a guide, svnserve would now run as: <screen>\n"
-
 "svnserve.exe -d -r c:\\repos\n"
 "</screen> And in TortoiseSVN our repo-browser Url is now shortened to: <screen>\n"
 "svn://localhost/TestRepo\n"
 "</screen> Note that the -r switch is also needed if your repository is located on a different partition or drive than the location of svnserve on your server."
 msgstr ""
+"Вы можете также увеличить безопасность и сэкономить время на вводе адресов (Url) которые должны использоваться svnserve используя параметр -r для установки корня и ограничения доступа в конкретную папку на сервере: <screen>\n"
+"svnserve.exe -d -r drive:\\path\\to\\repository\n"
+"</screen> Используя предыдущую проверку как руководство, svnserve должен запускаться так: <screen>\n"
+"svnserve.exe -d -r c:\\repos\n"
+"</screen> И в TortoiseSVN ваш адрес в обозревателе хранилища сокращен до: <screen>\n"
+"svn://localhost/TestRepo\n"
+"</screen> Обратите внимание что параметр -r также нужен если ваше хранилище расположено на другом разделе или диске чем сам сервер svnserve."
 
 #: source/TortoiseSVN_en.xml:2553
 #: (title)
-
 msgid "Run svnserve as a Service"
-
 msgstr "Запуск svnserve как сервис"
 
 #: source/TortoiseSVN_en.xml:2555
@@ -2355,51 +2376,50 @@ msgstr "svnservice"
 #: source/TortoiseSVN_en.xml:2557
 #: (para)
 msgid "If you are concerned about always having a user logged in on your server, or worried about someone shutting down svnserve or forgetting to restart it after a reboot, it is possible to run svnserve as a windows service using a wrapper."
-msgstr ""
-
+msgstr "Если вы беспокоитесь о том чтобы всегда был залогиненый пользователь на вашем сервере, или озабочены что ктолибо может выключить svnserve или забудет запустить его после перезагрузки, возможно запустить svnserve как сервис используя обертку."
 
 #: source/TortoiseSVN_en.xml:2563
 #: (para)
 msgid "One written specifically for svnserve is <literal>SvnService</literal>. Magnus Norddahl adapted some skeleton code from Microsoft, and further improvements have been made by Daniel Thompson. Daniel's version is available for download from <ulink url=\"http://tortoisesvn.tigris.org/files/documents/406/29202/SVNServiceDT.zip\"><citetitle>tigris.org</citetitle></ulink>."
-msgstr ""
-
+msgstr "Она написана специально для svnserve это <literal>SvnService</literal>. Магнус Норддал (Magnus Norddahl) адаптировал шаблон кода от Microsoft, а дальнейшие расширения были сделаны Даниелем Томпсоном (Daniel Thompson). Версия от Даниеля доступна для загрузки с <ulink url=\"http://tortoisesvn.tigris.org/files/documents/406/29202/SVNServiceDT.zip\"><citetitle>tigris.org</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:2572
 #: (para)
 msgid "More generic tools like <ulink url=\"http://www.firedaemon.com/\"><citetitle>firedaemon</citetitle></ulink> will also work. Note that you will still need to run svnserve with the -d switch."
-msgstr ""
+msgstr "Также будут работать более общие инструменты, такие так <ulink url=\"http://www.firedaemon.com/\"><citetitle>firedaemon</citetitle></ulink>. Обратите внимание что вы должны продолжать запускать svnserve с параметром -d."
 
 #: source/TortoiseSVN_en.xml:2580
 #: (para)
 msgid "Finally, if you have access to the Windows 2000/XP/2003 resource kit you can use <ulink url=\"http://support.microsoft.com/kb/q137890/\"><citetitle>SrvAny</citetitle></ulink> from Microsoft. This is the official Microsoft way of running programs as services, but it is a bit messy (requires registry editing) and if you stop the service it will kill svnserve immediately without letting it clean up. If you don't want to install the entire reskit, you can download <emphasis>just</emphasis> the SrvAny components from <ulink url=\"http://www.petri.co.il/software/srvany.zip\"><citetitle>Daniel Petri</citetitle></ulink>."
-
-msgstr ""
+msgstr "В завершение, если вы имеете доступ к Windows 2000/XP/2003 Resource Kit вы можете использовать <ulink url=\"http://support.microsoft.com/kb/q137890/\"><citetitle>SrvAny</citetitle></ulink> от Microsoft. Это официальный путь от Microsoft для запуска программ как сервисов, но он немного неудобный (требует редактирования реестра) и если вы остановите сервис он будет немедленно убивать svnserve без позволения ему завершиться обычным способом. Если вы не хотите устанавливать целый пакет рескита, вы можете загрузить <emphasis>только</emphasis> SrvAny с <ulink url=\"http://www.petri.co.il/software/srvany.zip\"><citetitle>Daniel Petri</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:2600
 #: (title)
 msgid "Authentication with svnserve"
-msgstr ""
+msgstr "Идентификация в svnserve"
 
 #: source/TortoiseSVN_en.xml:2601
 #: (para)
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <filename>svn://</filename> Url to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
-msgstr ""
+msgstr "По умолчанию, установка svnserve обеспечивает анонимный доступ только для чтения. Это означает что вы можете использовать <filename>svn://</filename> адреса для извлечения и обновления, или использовать обозреватель хранилиша в TortoiseSVN для просмотра хранилища, но вы не будете иметь возможности фиксировать любые изменения."
 
 #: source/TortoiseSVN_en.xml:2607
 #: (para)
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
-
-msgstr ""
+msgstr "Для разрешения доступа на запись к хранилищу, вы должны отредактировать файл <filename>conf/svnserve.conf</filename> в вашей папке хранилища. Этот файл управляет конфигурацией демона svnserve, а также содержит полезную документацию."
 
 #: source/TortoiseSVN_en.xml:2613
 #: (para)
 msgid ""
 "You can enable anonymous write access by simply setting: <screen>\n"
-
 "[general]\n"
 "anon-access = write\n"
 "</screen> However, you will not know who has made changes to a repository, as the <literal>svn:author</literal> property will be empty. You will also be unable to control who makes changes to a repository. This is a somewhat risky setup!"
 msgstr ""
+"Вы можете разрешить анонимный доступ для записи просто установив: <screen>\n"
+"[general]\n"
+"anon-access = write\n"
+"</screen> Однако вы не будете знать кто сделал это изменение в хранилище, так как свойство <literal>svn:author</literal> будет пустым. Вы также не сможете контролировать кто делает изменения в хранилище. Это очень рискованная установка!"
 
 #: source/TortoiseSVN_en.xml:2624
 #: (para)
@@ -2415,14 +2435,23 @@ msgid ""
 "...\n"
 "</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
+"Один из путей избежать этого, это создать базу данных паролей: <screen>\n"
+"[general]\n"
+"anon-access = none\n"
+"auth-access = write\n"
+"password-db = userfile\n"
+"</screen> Где <literal>userfile</literal> это файл расположенный в тойже папке что и <filename>svnserve.conf</filename>. Этот файл может быть в другом месте вашей файловой системы (полезно если вы имеете несколько хранилищь которые требуют техже прав доступа) и может быть указан используя абсолютный или относительный относительно папки <filename>conf</filename> путь. Если вы включите путь, он должен быть записан <filename>/в/формате/unix/пути</filename>. Использование \\ или букв дисков не работает. Файл <filename>userfile</filename> должен иметь следующую структру: <screen>\n"
+"[users]\n"
+"username = password\n"
+"...\n"
+"</screen> Этот пример будет запрещать любой доступ для не идентифицированных (анонимных) пользователей, и предоставляет доступ для чтения и записи для пользователе указанных в <filename>userfile</filename>."
 
 #: source/TortoiseSVN_en.xml:2652
 #: (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
-msgstr ""
+msgstr "Если вы поддерживаете несколько хранилищ используя одну базуданных паролей, использование области идентификации будет делать жизнь пользователей проще для пользователей, так как TortoiseSVN может кэшировать ваши данные идентификации так что вы вводите их один раз. Более подробная информация может быть найдена в книге о Subversion, конкретно в разделе <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1\"><citetitle>Create a 'users' file and realm</citetitle></ulink> и <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2\"><citetitle>Client Credentials Caching</citetitle></ulink>"
 
 #: source/TortoiseSVN_en.xml:2670
-
 #: (title)
 msgid "Authentication with svn+ssh"
 msgstr "Идентификация с использованием svn+ssh"
@@ -2434,25 +2463,23 @@ msgstr "Другой путь идентифицировать пользова�
 
 #: source/TortoiseSVN_en.xml:2676
 #: (para)
-
 msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
-msgstr ""
+msgstr "С этой возможностью svnserve не запускается как процесс-демон, так как безопасный шелл запускает svnserve для вас, запуская его как пользователь идентифицированный SSH. Для разрешение этого, вы нуждаетесь в демоне безопасного шелла на вашем сервере."
 
 #: source/TortoiseSVN_en.xml:2682
 #: (para)
 msgid "It is beyond the scope of this documentation to detail the installation and setup of a secure shell, however you can find further information in the <ulink url=\"http://tortoisesvn.sourceforge.net/?q=faq\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>. Search for <quote>SSH</quote>."
-msgstr ""
+msgstr "Как конкретно установить и настроить безопасный шел, выходит за рамки этой документации, однако вы можете найти другую информацию в <ulink url=\"http://tortoisesvn.sourceforge.net/?q=faq\"><citetitle>TortoiseSVN FAQ</citetitle></ulink>. Искать по <quote>SSH</quote>."
 
 #: source/TortoiseSVN_en.xml:2691
 #: (para)
 msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>SVN book</citetitle></ulink>."
-msgstr ""
+msgstr "Дальнейшая информация о svnserve может быть найдена в <ulink url=\"http://svnbook.red-bean.com\"><citetitle>SVN book</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:2699
 #: (title)
 msgid "Path-based Authorization with svnserve"
-msgstr ""
-
+msgstr "Идентификация основанная на пути в svnserve"
 
 #: source/TortoiseSVN_en.xml:2700
 #: (para)
@@ -2460,16 +2487,17 @@ msgid ""
 "Starting with Subversion 1.3, svnserve supports the same <literal>mod_authz_svn</literal> path-based authorization scheme that is available with the Apache server. You need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory and add a line referring to your authorization file. <screen>\n"
 "[general]\n"
 "authz-db = authz\n"
-
 "</screen> Here, <filename>authz</filename> is a file you create to define the access permissions. You can use a separate file for each repository, or you can use the same file for several repositories. Read <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> for a description of the file format."
 msgstr ""
+"Начиная с Subversion 1.3, svnserve поддерживает ту же самую схему авторизации основанною на пути <literal>mod_authz_svn</literal> которая доступная на сервере Apache. Вы должны изменить файл <filename>conf/svnserve.conf</filename> в вашем хранилище и добавить строку ссылающуюся на файл авторизации. <screen>\n"
+"[general]\n"
+"authz-db = authz\n"
+"</screen> Здесь, <filename>authz</filename> это файл вы создаете для определения прав доступа. Вы можете использовать отдельные файлы для каждого хранилища, или вы можете использовать один файл для нескольких хранилищ. Формат файла описан в <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>."
 
 #: source/TortoiseSVN_en.xml:2722
-
 #: (para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
-msgstr "Не имеет значения с каким протоколом вы пользуетесь для доступа к хранилищу, вы всегда должны создать как хоть одно хранилище. Это можно сделать либо с помощью консольным клиентом Subversion, либо с помощью TortoiseSVN."
-
+msgstr "Не имеет значения с каким протоколом вы пользуетесь для доступа к хранилищу, вы всегда должны создать как минимум одно хранилище. Это можно сделать либо с помощью консольным клиентом Subversion, либо с помощью TortoiseSVN."
 
 #: source/TortoiseSVN_en.xml:2727
 #: (para)
@@ -2561,11 +2589,9 @@ msgstr "создайте новую папку и назовите ее напр
 msgid "<action>Right-click</action> on the newly created folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>."
 msgstr "<action>Щелкните правок кнопкой мыши</action>на вновь созданной папке, и выберите <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>."
 
-
 #: source/TortoiseSVN_en.xml:2820
 #: (para)
 msgid "A repository is then created inside the new folder. <emphasis>Don't edit those files yourself!!!</emphasis>. If you get any errors make sure that the folder is empty and not write protected."
-
 msgstr "Хранилище будет создано внутри новой папки. <emphasis>Не редактируйте эти файлы самостоятельно!!!</emphasis>. Если вы получаете любые ошибки, убедитесь что папка пустая и доступна для записи."
 
 #: source/TortoiseSVN_en.xml:2831
@@ -2602,7 +2628,6 @@ msgstr "До SVN 1.2, UNC пути имели более запутанную ф
 #: (para)
 msgid "If you really need to access a repository through a network share, create the repository with fsfs format. If you need to provide server access as well, you will need Subversion Server 1.1 or higher."
 msgstr "Если вы действительно нуждаетесь в доступе к хранилищу через сетевую шару, создайте хранилище с fsfs форматом. Если вы нуждаетесь в обеспечении хорошего серверного доступа, вы должны использовать Subversion Server 1.1 или более старший."
-
 
 #: source/TortoiseSVN_en.xml:2877
 #: (title)
@@ -2676,7 +2701,6 @@ msgstr "Ссылки для извлечения"
 #: (primary)
 msgid "checkout link"
 msgstr ""
-
 
 #: source/TortoiseSVN_en.xml:2966
 #: (para)
@@ -2881,12 +2905,9 @@ msgid "Authentication Dialog"
 msgstr "Диалог Аутентификация"
 
 #: source/TortoiseSVN_en.xml:3174
-
 #: (para)
-
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
 msgstr "Файл <filename>svn.simple</filename> содержит рекомендации для базовой установки личности (имя пользователя/пароль)."
-
 
 #: source/TortoiseSVN_en.xml:3180
 #: (para)
@@ -2897,7 +2918,6 @@ msgstr "<filename>svn.ssl.server</filename> содержит сертифика�
 #: (para)
 msgid "<filename>svn.username</filename> contains credentials for username-only authentication (no password needed)."
 msgstr "<filename>svn.username</filename> содержит рекомендации для идентификации только по имени пользователя (без пароля). "
-
 
 # !!! Подобрать более благозвучный синоним к Чекбокс
 #: source/TortoiseSVN_en.xml:3162
@@ -2911,16 +2931,13 @@ msgid "If you want to clear the authentication cache for <emphasis>all</emphasis
 msgstr "Если вы хотите очистить кеш идентификации для <emphasis>всех</emphasis> серверов, вы можете сделать это на странице <guilabel>Общие</guilabel> диалога конфигурации TortoiseSVN. Там находится кнопка, которая позволяет очистить как все закешированные данные идентификации из папок Subversion auth, так и любые идентификационные данные, сохраненные в реестре более ранними версиями TortoiseSVN. Смотрите <xref linkend=\"tsvn-dug-settings-main\"/>."
 
 #: source/TortoiseSVN_en.xml:3206
-
 #: (para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
-
 msgstr "Более полную информацию о том как настроить ваш сервер на идентификацию и управление доступом, смотрите в <xref linkend=\"tsvn-serversetup\"/>"
 
 #: source/TortoiseSVN_en.xml:3212
 #: (para)
 msgid "If you have to authenticate against a Windows NT domain, enter your username including the domain name, like: <filename>MYDOMAIN/johnd</filename>."
-
 msgstr "Если вы уже имеете идентификацию на базе домена Windows NT, введите ваше имя пользователя включая имя домена, например <filename>MYDOMAIN/johnd</filename>."
 
 #: source/TortoiseSVN_en.xml:3221
@@ -2996,15 +3013,12 @@ msgstr ""
 "/tags/paint\n"
 "/tags/calc\n"
 
-
-
 #: source/TortoiseSVN_en.xml:3263
 #: (para)
 msgid "...or by project:"
 msgstr "...или по проектам: "
 
 #: source/TortoiseSVN_en.xml:3266
-
 #: (screen)
 #, no-wrap
 msgid ""
@@ -3146,8 +3160,6 @@ msgstr "Сообщение импортирования используется
 
 #: source/TortoiseSVN_en.xml:3415
 #: (para)
-
-
 msgid "By default, files and folders which match the global-ignore patterns are <emphasis>not</emphasis> imported. To override this behaviour you can use the <guilabel>Include ignored files</guilabel> checkbox. Refer to <xref linkend=\"tsvn-dug-settings-main\"/> for more information on setting a global ignore pattern."
 msgstr "По умолчанию, файлы и папки, которые соответствуют глобальному шаблону игнорирования <emphasis>не</emphasis> импортируются. Для изменения этого поведения, вы можете использовать чекбокс <guilabel>Include ignored files</guilabel>. Более детальная информация по установке глобального шаблона игнорирования смотрите в <xref linkend=\"tsvn-dug-settings-main\"/>."
 
@@ -3201,7 +3213,6 @@ msgstr "внешние хранилища"
 #: source/TortoiseSVN_en.xml:3479
 #: (primary)
 msgid "externals"
-
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:3481
@@ -3230,15 +3241,12 @@ msgid "If the external project is in the same repository, any changes you make t
 msgstr "Если внешний проект находится в том же хранилище, любые изменения, сделанные вами здесь, также будут включены в список фиксаций когда вы фиксируете основной проект."
 
 #: source/TortoiseSVN_en.xml:3532
-
 #: (para) source/TortoiseSVN_en.xml:9216
 msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
 msgstr "Если внешний проект находится в другом хранилище, любые сделанные вами изменения во внешнем проекте будут обозначаться, когда вы фиксируете основной проект, но вы должны фиксировать такие внешние изменения отдельно."
 
 #: source/TortoiseSVN_en.xml:3538
-
 #: (para)
-
 msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <literal>Added</literal>, rather than being <literal>Updated</literal> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
 msgstr "Обратите внимание, если вы изменили URL в свойстве <literal>svn:externals</literal>, тогда при следующем вашем обновлении рабочей копии, Subversion удалит старую внешнюю папку и сделает свежее обновление, так что вы будете видеть что файл <literal>Добавлен</literal>, а не был <literal>Обновлен</literal> как вы могли ожидать. Эта ситуация может произойти если вы ссылаетесь на метку из другого проекта. Когда выпускается новая версия этого проекта, вы изменяете вашу внешнюю ссылку для указывания на новую метку."
 
@@ -3375,9 +3383,7 @@ msgstr "Элементы которые будут переданы в друг�
 
 #: source/TortoiseSVN_en.xml:3740
 #: (title)
-
 msgid "Commit files or folders?"
-
 msgstr "Фиксация файлов или папок?"
 
 #: source/TortoiseSVN_en.xml:3741
@@ -3402,13 +3408,11 @@ msgstr "добавьте файл (или подстановочное расш�
 
 #: source/TortoiseSVN_en.xml:3773
 #: (para)
-
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
 msgstr "добавить файл в список <literal>svn:ignore</literal>, используя <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Добавить в список игнорирования</guimenuitem></menuchoice> Это будет иметь эффект только на папки которые правильно установлены свойством <literal>svn:ignore</literal>.Используя диалог SVN Свойства (SVN Property), вы можете для папки изменить свойство <literal>svn:ignore</literal>."
 
 #: source/TortoiseSVN_en.xml:3760
 #: (para)
-
 msgid "If you think that the TSVN commit dialog shows you too many unversioned (e.g. compiler generated or editor backup) files, there are several ways to handle this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
 msgstr "Если вы думаете, что диалог фиксации TSVN показывает вам слишком много не версионированных файлов (например, генерируемых компилятором, или резервные копии редактора), есть несколько способов управлять этим. Вы можете <placeholder-1/> Более подробная информация содержится в разделе <xref linkend=\"tsvn-dug-ignore\"/>."
 
@@ -3438,7 +3442,6 @@ msgstr "Убедитесь что ввели сообщение логгиров
 #: (title)
 msgid "The Commit Dialog Spellchecker"
 msgstr "Проверка правописания в диалоге Фиксации"
-
 
 #: source/TortoiseSVN_en.xml:3831
 #: (para)
@@ -3490,7 +3493,6 @@ msgstr "Темно красный"
 #: source/TortoiseSVN_en.xml:3890
 #: (para)
 msgid "Committing a deletion or a replacement."
-
 msgstr "Фиксация удалений или замещений."
 
 #: source/TortoiseSVN_en.xml:3896
@@ -4148,9 +4150,7 @@ msgstr "Редактировать лог сообщений или автора
 
 #: source/TortoiseSVN_en.xml:4764
 #: (para)
-
 msgid "Search log messages as described above."
-
 msgstr "Искать лог сообщения как описано выше."
 
 #: source/TortoiseSVN_en.xml:4734
@@ -4159,7 +4159,6 @@ msgid "<placeholder-1/> If you select two revisions at once (using the usual <ke
 msgstr "<placeholder-1/> Если вы выделите две ревизии (обычно используя <keycap>Ctrl</keycap>+ клик мышкой), контекстное меню изменяется и предоставляет вам меньше возможностей: <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:4770
-
 #: (para)
 msgid "If you select multiple consecutive revisions (using the usual <keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers), the context menu will include an entry to Revert all changes which were made in that range of revisions. This is the easiest way to rollback a group of revisions in one go."
 msgstr "Если вы выберите последовательные ревизии (обычно используя модификаторы <keycap>Ctrl</keycap> или <keycap>Shift</keycap>), контекстное меню будет включать пункт для Отмены всех изменений которые сделаны в диапазоне выбранных ревизий. Это простейший путь откатить группу ревизий за один раз."
@@ -4269,7 +4268,6 @@ msgstr "Изменение сообщения логгирования и/или
 #: source/TortoiseSVN_en.xml:4896
 #: (primary)
 msgid "edit log/author"
-
 msgstr "редактирование лога/автора"
 
 #: source/TortoiseSVN_en.xml:4898
@@ -4297,7 +4295,6 @@ msgstr ""
 #: (title)
 msgid "Filtering Log Messages"
 msgstr "Фильтрация лог сообщений"
-
 
 #: source/TortoiseSVN_en.xml:4936
 #: (primary)
@@ -4371,8 +4368,6 @@ msgid "Local changes"
 msgstr "Локальные изменения"
 
 #: source/TortoiseSVN_en.xml:5000
-
-
 #: (para)
 msgid "If you want to see what changes <emphasis>you</emphasis> have made in your working copy, just use the explorer context menu and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 msgstr "Если вы хотите увидеть какие изменения <emphasis>вы</emphasis> сделали в вашей рабочей копии, просто используйте контекстное меню Проводника и выберите <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
@@ -4584,7 +4579,6 @@ msgstr "добавление"
 
 #: (title) source/TortoiseSVN_en.xml:5311
 msgid "Explorer context menu for unversioned files"
-
 msgstr "Контекстное меню Проводника для неверсионных файлов"
 
 #: source/TortoiseSVN_en.xml:5237
@@ -4598,7 +4592,6 @@ msgid "After you added the files/directories to source control the file appears 
 msgstr "После того как вы добавите файлы/папки к управлению версиями файл показывается с пометкой <literal>добавлен</literal>, которая означает что вам сначала нужно зафиксировать эти файлы/папки для того чтобы другие разработчики могли их видеть. Добавление файла/папки <emphasis>не</emphasis> воздействует на хранилище!"
 
 #: source/TortoiseSVN_en.xml:5260
-
 #: (title)
 msgid "Many Adds"
 msgstr "Множественные добавления"
@@ -4731,8 +4724,6 @@ msgstr "Подстановка символов делается Subversion, т�
 
 #: source/TortoiseSVN_en.xml:5416
 #: (para)
-
-
 msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, eg. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
 msgstr "Соответствие шаблонам регистро зависимое, это может вызвать проблемы в Windows. Вы можете добавить независимость от регистра тяжелым способом, паруя символы, т.е. для игнорирования <literal>*.tmp</literal> без учета регистра, вы должны использовать шаблон <literal>*.[Tt][Mm][Pp]</literal>."
 
@@ -4743,10 +4734,8 @@ msgstr "Если имена папок присудствуют в пути, о�
 
 #: source/TortoiseSVN_en.xml:5431
 #: (para)
-
 msgid "To ignore all <literal>CVS</literal> folders you should either specify a pattern of <literal>*CVS</literal> or better, the pair <literal>CVS */CVS</literal>. The first option works, but would also exclude something called <literal>ThisIsNotCVS</literal>. Using <literal>*/CVS</literal> alone will not work on an immediate child <literal>CVS</literal> folder, and <literal>CVS</literal> alone will not work on subfolders."
 msgstr "Для игнорирования всех папок <literal>CVS</literal> вы должны указать либо шаблон <literal>*CVS</literal> или лучше пару <literal>CVS */CVS</literal>. Первая опция работает, но должны также исключить <literal>ThisIsNotCVS</literal>. Используя единственный <literal>*/CVS</literal> не будет работать непосредственно над папкой дочерней <literal>CVS</literal>, и только <literal>CVS</literal> не работают на подпапках."
-
 
 #: source/TortoiseSVN_en.xml:5440
 #: (para)
@@ -4857,7 +4846,6 @@ msgid "Undo Changes"
 msgstr "Отмена изменений"
 
 #: source/TortoiseSVN_en.xml:5601
-
 #: (primary)
 msgid "revert"
 msgstr "возвращение"
@@ -4990,9 +4978,7 @@ msgstr "Если вы хотите удалить существующее св�
 
 #: source/TortoiseSVN_en.xml:5766
 #: (para)
-
 msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-import-4\"/>."
-
 msgstr "Свойство <literal>svn:externals</literal> может быть использовано для втягивания других проектов из того же хранилища или совершенно другого хранилища. Более подробную информацию смотрите в <xref linkend=\"tsvn-dug-import-4\"/>."
 
 #: source/TortoiseSVN_en.xml:5777
@@ -5250,10 +5236,8 @@ msgstr "В следующем диалоге введите URL ветки, ко
 
 #: source/TortoiseSVN_en.xml:6101
 #: (para)
-
 msgid "Switch works just like Update in that it never discards your local changes. Any changes you have made to your working copy which have not yet been committed will be merged when you do the Switch. If you do not want this to happen then you must either commit the changes before switching, or revert your working copy to an already-committed revision (typically HEAD)."
 msgstr "Переключение работает подобно Обновлению, так что никогда не произойдет потеря ваших локальных изменений. Любые изменения, сделанные вами, в вашей рабочей копии которые небыли зафиксированы, будут объединены когда вы делаете переключение. Если вы не хотите чтобы это произошло, вы должны зафиксировать изменения перед переключением, или откатить вашу рабочую копию до уже зафиксированной ревизии (обычно ГОЛОВНОЙ)."
-
 
 #: source/TortoiseSVN_en.xml:6112
 #: (title)
@@ -5323,7 +5307,6 @@ msgid "There are two common use cases for merging which are handled in slightly 
 msgstr "Вот два общих случая использования слияния, которые обрабатываются слегка различными путями, как описано ниже."
 
 #: source/TortoiseSVN_en.xml:6208
-
 #: (title)
 msgid "Merging a Range of Revisions"
 msgstr "Слияние диапазона ревизий"
@@ -5336,7 +5319,6 @@ msgstr "Этот метод описывает случай когда вы сд
 #: source/TortoiseSVN_en.xml:6216
 #: (title)
 msgid "The Merge Dialog"
-
 msgstr "Диалог Слияние"
 
 #: source/TortoiseSVN_en.xml:6229
@@ -5439,10 +5421,7 @@ msgstr "Объединение двух различных деревьев"
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
 msgstr "Этот метод описывает случай, когда вы сделали ветку для разработки некоторой возможности, как описано в книге по Subversion. Все основные изменения были портированы в эту ветку, понедельно, и сейчас возможность завершена, так что вы хотите объединить ее обратно в основную ветвь. Так как вы сохраняли ветку разработки возможности синхронизированной с основной веткой, последняя версия ветки и основной ствол абсолютно идентичные, за исключением изменений в ветке. Так что в этом специальном случае, вы должны объединить сравнением ветку с основным стволом."
 
-
 #: source/TortoiseSVN_en.xml:6392
-
-
 #: (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder url of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
 msgstr "В поле <guilabel>From:</guilabel> введите полный url папки <emphasis>trunk</emphasis>. Это может звучать неправильно, но помните что основная ветвь это начаельная точка в которую вы хотите добавить изменения из ветви. Вы также можете нажать <guibutton>...</guibutton> для просмотра хранилища."
@@ -5519,8 +5498,6 @@ msgstr "Блокирование"
 msgid "locking"
 msgstr "блокирование"
 
-
-
 #: source/TortoiseSVN_en.xml:6503
 #: (para)
 msgid "You are using <quote>unmergeable</quote> files, for example, graphics files. If two people change the same file, merging is not possible, so one of you will lose their changes."
@@ -5580,7 +5557,6 @@ msgstr "Блокировки записываются в хранилище, и 
 #: source/TortoiseSVN_en.xml:6580
 #: (title)
 msgid "Getting a Lock"
-
 msgstr "Установка блокировки"
 
 #: source/TortoiseSVN_en.xml:6589
@@ -5600,7 +5576,6 @@ msgstr "Если вы выберите папку и затем использу
 
 #: source/TortoiseSVN_en.xml:6615
 #: (title)
-
 msgid "Releasing a Lock"
 msgstr "Удаление блокировки"
 
@@ -5690,7 +5665,6 @@ msgstr "Более подробная информация содержится 
 #: (title)
 msgid "Creating and Applying Patches"
 msgstr "Создание и применение заплаток (patches)"
-
 
 #: source/TortoiseSVN_en.xml:6722
 #: (primary)
@@ -5826,12 +5800,10 @@ msgstr "По умолчанию файл ответственности пока
 #: source/TortoiseSVN_en.xml:6889
 #: (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
-
 msgstr "Как только вы нажмете <guibutton>OK</guibutton> TortoiseSVN начнет извлекать данные для создания файла ответственности. Пожалуйста помните: это может занять несколько минут для завершения, в зависимости от того, насколько файл изменялся, и конечно от вашего сетевого соединения с хранилищем. Как только процесс завершиться, результат будет записан во временный файл и вы сможете их увидеть."
 
 #: source/TortoiseSVN_en.xml:6899
 #: (title)
-
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
@@ -5871,7 +5843,6 @@ msgstr "обозреватель хранилища"
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
 msgstr "Иногда вы вынуждены работать непосредственно в хранилище, без получения рабочей копии. Инструмент <firstterm>Обозреватель хранилища (Repository Browser)</firstterm> поможет вам в этом. Подобно как проводник и перекрытие значков позволяют вам просматривать рабочую копию, так и Обозреватель хранилища  позволяет вам видеть структуру и статус хранилища. <placeholder-1/> С помощью Обозревателя хранилища вы можете выполнять команды подобные копированию, перемещения, перемещения и т.п. прямо в хранилище."
 
-
 #: source/TortoiseSVN_en.xml:6951
 #: (para)
 msgid "At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse. Browsing an older revision is useful if you want to e.g. recover a previously deleted file. Use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy To...</guimenuitem></menuchoice> command to do that and enter the full working copy path to where you want to recover your deleted file."
@@ -5895,7 +5866,6 @@ msgstr "Вы также можете использовать Обозреват
 #: source/TortoiseSVN_en.xml:6984
 #: (para)
 msgid "If you want to copy/move a file or folder to another location and also give it a new name at the same time, you can <action>right-drag</action> the item instead of just drag it. In that case, a rename dialog is shown where you can enter a new name for the file or folder."
-
 msgstr "Если вы хотите скопировать/переместить файл или папку в другое место, и также дать ей новое имя в одно время, вы можете использовать <action>right-drag</action> элемент вместо простого перетаскивания. В этом случае, отобразиться дилог переименования, где вы можете ввести новое имя для файла или папки."
 
 #: source/TortoiseSVN_en.xml:6990
@@ -5909,14 +5879,12 @@ msgid "Revision Graphs"
 msgstr "Граф ревизий"
 
 #: source/TortoiseSVN_en.xml:7010
-
 #: (primary)
 msgid "graph"
 msgstr "граф"
 
 #: source/TortoiseSVN_en.xml:7014
 #: (title)
-
 msgid "A Revision Graph"
 msgstr "Граф ревизий"
 
@@ -5954,7 +5922,6 @@ msgstr "Удаленные файлы или папки"
 #: (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off)."
 msgstr "Удаленные элементы такие как ответвления которые больше не нужны, отображаются с использованием восьмиугольника (прямоугольник с отрезанными углами.)"
-
 
 #: source/TortoiseSVN_en.xml:7062
 #: (term)
@@ -6020,8 +5987,6 @@ msgstr "Перемещение рабочей копии"
 #: (primary)
 msgid "relocate"
 msgstr "перемещение"
-
-
 
 #: source/TortoiseSVN_en.xml:7141
 #: (title)
@@ -6216,7 +6181,6 @@ msgstr "Это свойство содержит одно или два регу
 msgid "If only one expression is set, then the bare bug ID's must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>"
 msgstr "Если установлено только одно выражение, тогда просто ID бага должен соответствовать группе в строке регекс. Пример: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>"
 
-
 #: source/TortoiseSVN_en.xml:7393
 #: (para)
 msgid "If two expressions are set, then the first expression is used to find a string which relates to the bug ID but may contain more than just the bug ID (e.g. \"Issue #123\" or \"resolves issue 123\"). The second expression is then used to extract the bare bug ID from the string extracted with the first expression. An example:"
@@ -6226,7 +6190,6 @@ msgstr "Если введены два выражения, тогда перво
 #: (para)
 msgid "If you want to catch every pattern \"issue #XXX\" and \"issue #890, #789\" inside a log message you could use the following regex strings: <literal>[Ii]ssue #?(\\d+)(,? ?#'(\\d+))+</literal> and the second expression as <literal>(\\d+)</literal>"
 msgstr "Если вы хотите захватывать все соответствующее шаблону \"issue #XXX\" and \"issue #890, #789\" внутри лог сообщения, вы должны использовать следующий регексп:<literal>[Ii]ssue #?(\\d+)(,? ?#'(\\d+))+</literal> и второе выражение <literal>(\\d+)</literal>"
-
 
 #: source/TortoiseSVN_en.xml:7407
 #: (para)
@@ -6251,9 +6214,7 @@ msgstr "Установка свойств для папок"
 #: source/TortoiseSVN_en.xml:7433
 #: (para)
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some subfolder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each subfolder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-
 msgstr "Эти свойства должны быть установлены на папки для того, чтобы система работала. Когда вы фиксируете файл или папку свойства читаются из этой папки. Если свойства здесь не найдены, TortoiseSVN будет искать их вверх по дереву папок для нахождения их дотех пор, пока не достигнет не версионной папки, или корня дерева (например <literal>C:\\</literal>). Если вы уверены что пользователь извлекает только из например <filename>trunk/</filename> и не извлекает из некоторой подпапки, тогда вы можете установить свойства для <filename>trunk/</filename>. Если вы не можете быть уверены в этом, вы должны устанавливать свойства рекурсивно для каждой подпапки. Установка свойств глубже в иерархии проекта перекрывает установки более высоких уровней (допустим <filename>trunk/</filename>)."
-
 
 #: source/TortoiseSVN_en.xml:7454
 #: (para)
@@ -6275,12 +6236,10 @@ msgstr "настройки"
 msgid "To find out what the different settings are for, just leave your mouse pointer a second on the editbox/checkbox... and a helpful tooltip will popup."
 msgstr "Для нахождения назначения различных параметров, просто оставьте указатель мыши на секунду на поле ввода/чекбоксе ... и появится полезная подсказка."
 
-
 #: source/TortoiseSVN_en.xml:7474
 #: (title)
 msgid "General Settings"
 msgstr "Общие настройки"
-
 
 #: source/TortoiseSVN_en.xml:7476
 #: (primary)
@@ -6997,7 +6956,6 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:8262
 #: (para)
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <literal>revision</literal> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BAsE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TSVN will skip pre-processing the files."
-
 msgstr "Если вы используете свойство <literal>svn:keywords</literal> для расширения ключевых слов, и обычно <literal>revision</literal> для файла, тогда здесь может быть отличие между файлами которые чисто благодаря текущему значению ключевого слова. Также если вы используете <literal>svn:eol-style = native</literal> БАЗОВЫЙ файл будет иметь окончание строк <literal>LF</literal>, тогда как ваш файл будет иметь окончание строк <literal>CR-LF</literal>. TSVN автоматически скрывает эти отличия при первом разборе БАЗОВОГО файла для расширения ключевых слов и окончание строк перед выполнением операции сравнения. Однако это может занять длительное время с большими файлами. Если не отмечен <guilabel>Преобразовывать файлы при сравнении с БАЗОЙ </guilabel> тогда TSVN будет пропускать предобработку файлов."
 
 #: source/TortoiseSVN_en.xml:8278
@@ -7243,7 +7201,6 @@ msgid "As of Version 1.3.0 of Subversion and TortoiseSVN, you can set the enviro
 msgstr "Начиная с версии 1.3.0 Subversion и TortoiseSVN, вы можете установить переменную окружения <literal>SVN_ASP_DOT_NET_HACK</literal>. Если эта переменная установлена, тогда Subversion будет использовать папки <literal>_svn</literal> вместо папок <literal>.svn</literal>. Вы должны перезагрузить ваш Проводник для того чтобы переменная вступила в действие. Обычно это означает, что вы должны перезагрузить ПК."
 
 #: source/TortoiseSVN_en.xml:8535
-
 #: (para)
 msgid "For more information, and other ways to avoid this problem in the first place, check out the article about this in our <ulink url=\"http://tortoisesvn.sourceforge.net/node/15\"><citetitle>FAQ</citetitle></ulink>."
 msgstr "Больше информации, и другие пути обхождения этой проблемы содержаться в <ulink url=\"http://tortoisesvn.sourceforge.net/node/15\"><citetitle>FAQ</citetitle></ulink>."
@@ -7260,7 +7217,6 @@ msgstr "Перечень пожеланий"
 
 #: source/TortoiseSVN_en.xml:8552
 #: (para)
-
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
 msgstr "Так как TortoiseSVN и TortoiseMerge бесплатны, вы можете поддержать разработчиков отправляя исправления и играть активную роль в разработке. Вы также можете помочь поднять настроение во время бесконечных сидений перед экранами наших компьютеров."
 
@@ -8243,7 +8199,6 @@ msgid "Opens the import dialog. The path specifies the directory with the data t
 msgstr "Открывает диалог импорта. Путь указывает папку куда данные должны быть импортированы."
 
 #: source/TortoiseSVN_en.xml:9636
-
 #: (option)
 msgid "/rev"
 msgstr "/rev"
@@ -8340,7 +8295,6 @@ msgstr "Переименовывает файл в <placeholder-1/>. Новое 
 #: (option) source/TortoiseSVN_en.xml:9756
 msgid "/path2"
 msgstr "/path2"
-
 
 #: source/TortoiseSVN_en.xml:9750
 #: (entry)
@@ -8864,7 +8818,6 @@ msgstr "На первой стадии проверки статуса опре�
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
 msgstr "Когда вы нажмете на ОК, Subversion удалит изменения. Если вы оставите все чекбоксы выбора в их состоянию по умолчанию, TortoiseSVN использует одиночную рекурсивную (<literal>-R</literal>) отмену в рабочей копии. Если вы снимете пометки с некоторых файлов, тогда каждый путь должен быть указан индивидуально в командной строке удаления изменений."
 
-
 #: source/TortoiseSVN_en.xml:10184
 #: (screen)
 #, no-wrap
@@ -9044,8 +8997,6 @@ msgstr "TortoiseSVN просто копирует все файлы в ново�
 
 #: source/TortoiseSVN_en.xml:10289
 #: (para)
-
-
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
 msgstr "В обоих случаях, если помечен чекбокс <guilabel>игнорировать внешние</guilabel>, используется параметр <literal>--ignore-externals</literal>"
 
@@ -9259,3 +9210,4 @@ msgstr ""
 
 msgid "translator-translation"
 msgstr "Перевод"
+
