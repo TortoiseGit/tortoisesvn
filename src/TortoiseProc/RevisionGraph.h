@@ -119,6 +119,10 @@ public:
 	CString						GetLastErrorMessage();
 	static bool					IsParentOrItself(const char * parent, const char * child);
 	CPtrArray					m_arEntryPtrs;
+	size_t						m_maxurllength;
+	CString						m_maxurl;
+	int							m_maxlevel;
+	svn_revnum_t				m_numRevisions;
 
 	typedef std::multimap<svn_revnum_t, CRevisionEntry*>::iterator EntryPtrsIterator;
 	typedef std::pair<svn_revnum_t, CRevisionEntry*> EntryPair;

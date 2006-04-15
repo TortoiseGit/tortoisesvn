@@ -85,16 +85,6 @@ void CRevisionGraphWnd::SetScrollbars(int nVert, int nHorz, int oldwidth, int ol
 	SetScrollInfo(SB_HORZ, &ScrollInfo);
 }
 
-INT_PTR CRevisionGraphWnd::GetIndexOfRevision(LONG rev) const
-{
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
-	{
-		if (((CRevisionEntry*)m_arEntryPtrs.GetAt(i))->revision == rev)
-			return i;
-	}
-	return -1;
-}
-
 INT_PTR CRevisionGraphWnd::GetIndexOfRevision(source_entry * sentry)
 {
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
@@ -103,8 +93,31 @@ INT_PTR CRevisionGraphWnd::GetIndexOfRevision(source_entry * sentry)
 			if (IsParentOrItself(sentry->pathto, ((CRevisionEntry*)m_arEntryPtrs.GetAt(i))->url))
 				return i;
 	}
-	ATLTRACE("no entry for %s - revision %ld\n", sentry->pathto, sentry->revisionto);
 	return -1;
+}
+
+CRevisionEntry * CRevisionGraphWnd::GetRevisionEntry(source_entry * sentry) const
+{
+	std::multimap<svn_revnum_t, CRevisionEntry*>::const_iterator it = m_mapEntryPtrs.lower_bound(sentry->revisionto);
+	if (it != m_mapEntryPtrs.end())
+	{
+		while (it->first == sentry->revisionto)
+		{
+			if (IsParentOrItself(sentry->pathto, it->second->url))
+				return it->second;
+			++it;
+		}
+	}
+	return NULL;
+}
+CRevisionEntry * CRevisionGraphWnd::GetRevisionEntry(LONG rev) const
+{
+	std::multimap<svn_revnum_t, CRevisionEntry*>::const_iterator it = m_mapEntryPtrs.find(rev);
+	if (it != m_mapEntryPtrs.end())
+	{
+		return it->second;
+	}
+	return NULL;
 }
 
 void CRevisionGraphWnd::MarkSpaceLines(source_entry * entry, int level, svn_revnum_t startrev, svn_revnum_t endrev)
@@ -139,28 +152,21 @@ void CRevisionGraphWnd::MarkSpaceLines(source_entry * entry, int level, svn_revn
 							// before we add this, we have to check if it's a top->bottom line and not one
 							// which goes to the right around another node
 							bool nodesinbetween = true;
-							bool bStart = false;
 							if ((*it)->level == level)
 							{
 								nodesinbetween = false;
-								for (INT_PTR k=0; k<m_arEntryPtrs.GetCount(); ++k)
+
+								std::multimap<svn_revnum_t, CRevisionEntry*>::const_iterator it2 = m_mapEntryPtrs.lower_bound(reventry->revision);
+								if (it2 != m_mapEntryPtrs.end())
+									++it2;
+								while ((it2 != m_mapEntryPtrs.end())&&(it2->second->revision < sentry->revisionto))
 								{
-									CRevisionEntry * tempentry = (CRevisionEntry*)m_arEntryPtrs[k];
-									if (!bStart)
+									if (it2->second->level == reventry->level)
 									{
-										if (tempentry->revision == sentry->revisionto)
-											bStart = true;
+										nodesinbetween = true;
+										break;
 									}
-									else
-									{
-										if (tempentry->revision <= reventry->revision)
-											break;
-										if ((tempentry->revision > reventry->revision)&&(tempentry->level == reventry->level))
-										{
-											nodesinbetween = true;
-											break;
-										}
-									}
+									++it2;
 								}
 							}
 							if (nodesinbetween)
@@ -254,35 +260,27 @@ void CRevisionGraphWnd::CountEntryConnections()
 		for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
 		{
 			source_entry * sentry = (source_entry*)reventry->sourcearray[j];
-			INT_PTR index = GetIndexOfRevision(sentry);
-			if (index < 0)
+			CRevisionEntry * reventryto = GetRevisionEntry(sentry);
+			if (reventryto == NULL)
 				continue;
-			CRevisionEntry * reventryto = (CRevisionEntry*)m_arEntryPtrs[index];
 			if (reventry->level == reventryto->level)
 			{
 				// if there are entries in between, then the connection
 				// is right-up-left
 				// without entries in between, the connection is straight up
 				bool nodesinbetween = false;
-				bool bStart = false;
-				for (INT_PTR k=0; k<m_arEntryPtrs.GetCount(); ++k)
+
+				std::multimap<svn_revnum_t, CRevisionEntry*>::const_iterator it = m_mapEntryPtrs.lower_bound(reventry->revision);
+				if (it != m_mapEntryPtrs.end())
+					++it;
+				while ((it != m_mapEntryPtrs.end())&&(it->first <= reventryto->revision))
 				{
-					CRevisionEntry * tempentry = (CRevisionEntry*)m_arEntryPtrs[k];
-					if (!bStart)
+					if (it->second->level == reventry->level)
 					{
-						if (tempentry->revision == reventryto->revision)
-							bStart = true;
+						nodesinbetween = true;
+						break;
 					}
-					else
-					{
-						if (tempentry->revision <= reventry->revision)
-							break;
-						if ((tempentry->revision > reventry->revision)&&(tempentry->level == reventry->level))
-						{
-							nodesinbetween = true;
-							break;
-						}
-					}
+					++it;
 				}
 				if (nodesinbetween)
 				{
@@ -319,6 +317,8 @@ void CRevisionGraphWnd::BuildConnections()
 	// revision entry. Since there can be several entries in the
 	// same revision, this speeds up the search for the right
 	// position for drawing.
+	LARGE_INTEGER ticks;
+	QueryPerformanceCounter(&ticks);
 	m_arVertPositions.RemoveAll();
 	svn_revnum_t vprev = 0;
 	int currentvpos = 0;
@@ -360,10 +360,10 @@ void CRevisionGraphWnd::BuildConnections()
 		for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
 		{
 			source_entry * sentry = (source_entry*)reventry->sourcearray.GetAt(j);
+			CRevisionEntry * reventry2 = GetRevisionEntry(sentry);
 			INT_PTR index = GetIndexOfRevision(sentry);
-			if (index < 0)
+			if (reventry2 == NULL)
 				continue;
-			CRevisionEntry * reventry2 = ((CRevisionEntry*)m_arEntryPtrs.GetAt(index));
 			
 			// we always draw from bottom to top!			
 			CPoint * pt = new CPoint[5];
@@ -392,14 +392,14 @@ void CRevisionGraphWnd::BuildConnections()
 					pt[1].x = pt[0].x + xoffset;
 					//line up: 3
 					pt[2].x = pt[1].x;
-					pt[2].y = ((m_arVertPositions[GetIndexOfRevision(sentry)])*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom)) + m_node_rect_heigth + m_node_space_top;
+					pt[2].y = ((m_arVertPositions[index])*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom)) + m_node_rect_heigth + m_node_space_top;
 					pt[2].y += yoffset;
 					//line to middle of target rect: 4
 					pt[3].y = pt[2].y;
-					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
+					pt[3].x = ((reventry2->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
 					pt[3].x += m_node_space_left + m_node_rect_width/2;
 					//line up to target rect: 5
-					pt[4].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth) + m_node_space_top;
+					pt[4].y = (m_arVertPositions[index]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth) + m_node_space_top;
 					pt[4].x = pt[3].x;
 				}
 				else
@@ -435,15 +435,15 @@ void CRevisionGraphWnd::BuildConnections()
 					pt[1].x = pt[0].x - xoffset;
 					//line up: 3
 					pt[2].x = pt[1].x;
-					pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
+					pt[2].y = (m_arVertPositions[index]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
 					pt[2].y += yoffset;
 					//line to middle of target rect: 4
 					pt[3].y = pt[2].y;
-					pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry)))->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
+					pt[3].x = ((reventry2->level-1)*(m_node_rect_width+m_node_space_left+m_node_space_right));
 					pt[3].x += m_node_space_left + m_node_rect_width/2;
 					//line up to target rect: 5
 					pt[4].x = pt[3].x;
-					pt[4].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top);
+					pt[4].y = (m_arVertPositions[index]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_rect_heigth + m_node_space_top);
 				}
 				else
 				{
@@ -461,14 +461,11 @@ void CRevisionGraphWnd::BuildConnections()
 				LONG endrev = max(reventry->revision, reventry2->revision);
 				for (LONG k=startrev+1; k<endrev; ++k)
 				{
-					INT_PTR ind = GetIndexOfRevision(k);
-					if (ind>=0)
+					CRevisionEntry * samereventry = GetRevisionEntry(k);
+					if ((samereventry)&&(samereventry->level == reventry2->level))
 					{
-						if (((CRevisionEntry*)m_arEntryPtrs.GetAt(ind))->level == reventry2->level)
-						{
-							nodesinbetween = TRUE;
-							break;
-						}
+						nodesinbetween = TRUE;
+						break;
 					}
 				}
 				if (nodesinbetween)
@@ -495,7 +492,7 @@ void CRevisionGraphWnd::BuildConnections()
 					pt[1].x = pt[0].x + xoffset;
 					//line down: 3
 					pt[2].x = pt[1].x;
-					pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
+					pt[2].y = (m_arVertPositions[index]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top);
 					pt[2].y += yoffset;
 					//line to target: 4
 					pt[3].y = pt[2].y;
@@ -515,7 +512,7 @@ void CRevisionGraphWnd::BuildConnections()
 						pt[0].x = ((reventry2->level - 1)*(m_node_rect_width+m_node_space_left+m_node_space_right) + m_node_space_left + m_node_rect_width/2);
 						pt[1].y = pt[0].y;
 						pt[1].x = pt[0].x;
-						pt[2].y = (m_arVertPositions[GetIndexOfRevision(sentry)]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top + m_node_rect_heigth);
+						pt[2].y = (m_arVertPositions[index]*(m_node_rect_heigth+m_node_space_top+m_node_space_bottom) + m_node_space_top + m_node_rect_heigth);
 						pt[2].x = pt[0].x;
 						pt[3].y = pt[2].y;
 						pt[3].x = pt[2].x;
@@ -542,6 +539,9 @@ void CRevisionGraphWnd::BuildConnections()
 			DecrementSpaceLines(sentry);
 		}
 	}
+	LARGE_INTEGER ticks2;
+	QueryPerformanceCounter(&ticks2);
+	ATLTRACE("BuildConnections() took %ld counts\n", ticks2.LowPart-ticks.LowPart);
 }
 
 CRect * CRevisionGraphWnd::GetGraphSize()
@@ -550,26 +550,25 @@ CRect * CRevisionGraphWnd::GetGraphSize()
 		return &m_GraphRect;
 	m_GraphRect.top = 0;
 	m_GraphRect.left = 0;
-	int level = 0;
-	int revisions = 0;
 	int lastrev = -1;
-	size_t maxurllength = 0;
-	CString url;
-	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	if ((m_maxlevel == 0) || (m_numRevisions == 0) || (m_maxurllength == 0) || m_maxurl.IsEmpty())
 	{
-		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
-		if (level < reventry->level)
-			level = reventry->level;
-		if (lastrev != reventry->revision)
+		for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 		{
-			revisions++;
-			lastrev = reventry->revision;
-		}
-		size_t len = strlen(reventry->url);
-		if (maxurllength < len)
-		{
-			maxurllength = len;
-			url = CUnicodeUtils::GetUnicode(reventry->url);
+			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs[i];
+			if (m_maxlevel < reventry->level)
+				m_maxlevel = reventry->level;
+			if (lastrev != reventry->revision)
+			{
+				m_numRevisions++;
+				lastrev = reventry->revision;
+			}
+			size_t len = strlen(reventry->url);
+			if (m_maxurllength < len)
+			{
+				m_maxurllength = len;
+				m_maxurl = CUnicodeUtils::GetUnicode(reventry->url);
+			}
 		}
 	}
 
@@ -580,7 +579,7 @@ CRect * CRevisionGraphWnd::GetGraphSize()
 	if (pDC)
 	{
 		CFont * pOldFont = pDC->SelectObject(GetFont(TRUE));
-		pDC->DrawText(url, &r, DT_CALCRECT);
+		pDC->DrawText(m_maxurl, &r, DT_CALCRECT);
 		// keep the width inside reasonable values.
 		m_node_rect_width = min(int(500 * m_fZoomFactor), r.Width()+40);
 		m_node_rect_width = max(int(NODE_RECT_WIDTH * m_fZoomFactor), m_node_rect_width);
@@ -588,8 +587,8 @@ CRect * CRevisionGraphWnd::GetGraphSize()
 	}
 	ReleaseDC(pDC);
 
-	m_GraphRect.right = level * (m_node_rect_width + m_node_space_left + m_node_space_right);
-	m_GraphRect.bottom = revisions * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
+	m_GraphRect.right = m_maxlevel * (m_node_rect_width + m_node_space_left + m_node_space_right);
+	m_GraphRect.bottom = m_numRevisions * (m_node_rect_heigth + m_node_space_top + m_node_space_bottom);
 	return &m_GraphRect;
 }
 

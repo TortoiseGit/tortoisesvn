@@ -137,7 +137,8 @@ private:
 	void			CompareRevs(bool bHead);
 	void			UnifiedDiffRevs(bool bHead);
 	CTSVNPath		DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder);
-	INT_PTR			GetIndexOfRevision(LONG rev) const;
+	CRevisionEntry* GetRevisionEntry(LONG rev) const;
+	CRevisionEntry* GetRevisionEntry(source_entry * sentry) const;
 	INT_PTR			GetIndexOfRevision(source_entry * sentry);
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
 	CRect *			GetViewSize();

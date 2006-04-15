@@ -267,7 +267,10 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path, bool bShowAll /* = false 
 	}
 	m_mapEntryPtrs.clear();
 	m_arEntryPtrs.RemoveAll();
-
+	m_maxurllength = 0;
+	m_maxurl.Empty();
+	m_numRevisions = 0;
+	m_maxlevel = 0;
 
 	SVN::preparePath(path);
 	CStringA url = CUnicodeUtils::GetUTF8(path);
