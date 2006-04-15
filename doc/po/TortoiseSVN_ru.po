@@ -1685,7 +1685,7 @@ msgstr "Указатель проектов"
 #: source/TortoiseSVN_en.xml:1882
 #: (para)
 msgid "If you used the SVNParentPath directive then you don't have to change the Apache config file everytime you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
-msgstr "Если вы используете директиву SVNParentPath тогда не обязательно изменять настроечный файл Apache, каждый раз когда вы добавляете новое хранилище Subversion. Просто создайте новое хранилище в том же месте где и первое хранилище и все сделано! В моей фирме, я имею прямой доступ к указанной папке на сервере через SMB (обычный файловый доступ). Так что я просто создаю здесь новую папку, запускаю команду TortoiseSVN <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Создать хранилище здесь...</guimenuitem></menuchoice> и новый проект имеет дом..."
+msgstr "Если вы используете директиву SVNParentPath тогда не обязательно изменять настроечный файл Apache, каждый раз когда вы добавляете новое хранилище Subversion. Просто создайте новое хранилище в том же месте где и первое хранилище и все сделано! В моей фирме, я имею прямой доступ к указанной папке на сервере через SMB (обычный файловый доступ). Так что я просто создаю здесь новую папку, запускаю команду TortoiseSVN <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Создать здесь хранилище...</guimenuitem></menuchoice> и новый проект имеет дом..."
 
 #: source/TortoiseSVN_en.xml:1896
 #: (para)
@@ -2279,13 +2279,12 @@ msgstr "Сервер основанный на Svnserve"
 #: source/TortoiseSVN_en.xml:2441
 #: (para)
 msgid "There may be situations where it's not possible to use Apache as your server. Fortunately, Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection."
-msgstr ""
+msgstr "Может быть ситуация когда невозможно использование Apache как вашего сервера. К счастью, Subversion включает Svnserve - легкий отдельный сервер который использует собственный протокол через обычное TCP/IP соединение."
 
 #: source/TortoiseSVN_en.xml:2447
 #: (para)
-
 msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server."
-msgstr "Во многих случаях svnserve прост в установке и выполняется быстрее чем сервер на основе Apache."
+msgstr "Во многих случаях svnserve прост в установке и выполняется быстрее, чем сервер на основе Apache."
 
 #: source/TortoiseSVN_en.xml:2453
 #: (title)
@@ -2587,7 +2586,7 @@ msgstr "создайте новую папку и назовите ее напр
 #: source/TortoiseSVN_en.xml:2812
 #: (para)
 msgid "<action>Right-click</action> on the newly created folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>."
-msgstr "<action>Щелкните правок кнопкой мыши</action>на вновь созданной папке, и выберите <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>."
+msgstr "<action>Щелкните правок кнопкой мыши</action>на вновь созданной папке, и выберите <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Создать здесь хранилище...</guimenuitem></menuchoice>."
 
 #: source/TortoiseSVN_en.xml:2820
 #: (para)
@@ -2668,17 +2667,17 @@ msgstr "Утилита <literal>svnadmin</literal> устанавливаетс�
 #: source/TortoiseSVN_en.xml:2923
 #: (title)
 msgid "Hook Scripts"
-msgstr ""
+msgstr "Скрипты Хуков (Hook Scripts)"
 
 #: source/TortoiseSVN_en.xml:2925
 #: (primary)
 msgid "hooks"
-msgstr ""
+msgstr "хук"
 
 #: source/TortoiseSVN_en.xml:2927
 #: (para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr ""
+msgstr "Хук скрипт это программа вызываемая некоторым событием в хранилище, таким как создание новой ревизии или изменение не версионного свойства. Каждый хук обрабатывает достаточно информации чтобы сказать какое событие вызвано, какая цель(-и) этой операции, и имя пользователя который вызвал событие. В зависимости от вывода хука или возвращенного статуса, программа хука может продолжить действие, остановить его или приостановить его в некотором месте. Пожалуйста прочитайте главу <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1\"><citetitle>Hook Scripts</citetitle></ulink> в книге о Subversion Book для полного описания как реализованы хуки."
 
 #: source/TortoiseSVN_en.xml:2942
 
@@ -2691,6 +2690,12 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>"
 msgstr ""
+"Пример хук скрипта может быть найден в папке <filename>hooks</filename> хранилища. Это пример скрипта предназначен для серверов Unix/Linux но он должен быть изменен если ваш сервер на базе Windows. Хук может быть пакетным файлом или исполняемой программой. Пример ниже показывает командный файл который может быть использован для реализации хука pre-revprop-change. <screen>\n"
+"rem Only allow log messages to be changed.\n"
+"if \"%4\" == \"svn:log\" exit 0\n"
+"echo Property '%4' cannot be changed &gt;&amp;2\n"
+"exit 1\n"
+"</screen> Обратите внимание что любая посылка в stdout отвергается, если вы хотите чтобы сообщение появилось в диалоге Фиксация отвергнута, вы должны послать его в stderr. В пакетном файле для этого используется <filename>&gt;&amp;2</filename>"
 
 #: source/TortoiseSVN_en.xml:2962
 #: (title)
@@ -2700,7 +2705,7 @@ msgstr "Ссылки для извлечения"
 #: source/TortoiseSVN_en.xml:2964
 #: (primary)
 msgid "checkout link"
-msgstr ""
+msgstr "ссылка извлечения"
 
 #: source/TortoiseSVN_en.xml:2966
 #: (para)
@@ -2824,7 +2829,7 @@ msgstr "Перетащи и кинь"
 #: source/TortoiseSVN_en.xml:3091
 #: (primary)
 msgid "drag handler"
-msgstr ""
+msgstr "обработчик перетаскивания"
 
 #: source/TortoiseSVN_en.xml:3094
 #: (primary)
@@ -2985,7 +2990,6 @@ msgstr ""
 "/trunk\n"
 "/branches\n"
 "/tags\n"
-
 
 #: source/TortoiseSVN_en.xml:3251
 #: (para)
@@ -3213,7 +3217,7 @@ msgstr "внешние хранилища"
 #: source/TortoiseSVN_en.xml:3479
 #: (primary)
 msgid "externals"
-msgstr ""
+msgstr "externals"
 
 #: source/TortoiseSVN_en.xml:3481
 #: (para)
@@ -3713,7 +3717,6 @@ msgstr ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Также, для каждого файла с конфликтами Subversion помещает три дополнительных файла в вашу папку: <placeholder-1/>"
 
-
 #: source/TortoiseSVN_en.xml:4170
 #: (para)
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
@@ -3757,7 +3760,7 @@ msgstr "Пометки на значках"
 #: source/TortoiseSVN_en.xml:4229
 #: (primary)
 msgid "overlays"
-msgstr ""
+msgstr "пометки"
 
 #: source/TortoiseSVN_en.xml:4233
 #: (title)
@@ -4248,7 +4251,7 @@ msgstr "Если вы хотите просмотреть следующие с�
 #: source/TortoiseSVN_en.xml:4878
 #: (para)
 msgid "Next to this button there is a multi-function button which remembers the last option you used it for. Click on the arrow to see the other options offered."
-msgstr ""
+msgstr "Следующее для этой кнопки это многофункциональная кнопка которая запоминает последнюю использованную функцию. Нажмите на стрелку для промотра доступных опций."
 
 #: source/TortoiseSVN_en.xml:4883
 #: (para)
@@ -4289,7 +4292,7 @@ msgstr "Как только вы настроите ваш сервер с ну�
 #: source/TortoiseSVN_en.xml:4924
 #: (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
-msgstr ""
+msgstr "Так как свойства ревизий в Subversion не версионируются, изменение таких свойств (например свойства сообщение фиксации <literal>svn:log</literal>) будет презаписывать предыдущее значение свойства <emphasis>навсегда</emphasis>."
 
 #: source/TortoiseSVN_en.xml:4934
 #: (title)
@@ -4350,7 +4353,7 @@ msgstr "Просмотр различий"
 #: source/TortoiseSVN_en.xml:4984
 #: (primary)
 msgid "diff"
-msgstr ""
+msgstr "различия"
 
 #: source/TortoiseSVN_en.xml:4986
 #: (para)
@@ -4858,7 +4861,7 @@ msgstr "возврат"
 #: source/TortoiseSVN_en.xml:5619
 #: (title)
 msgid "Revert dialog"
-msgstr ""
+msgstr "Диалог Отмена"
 
 #: source/TortoiseSVN_en.xml:5606
 #: (para)
@@ -7888,7 +7891,7 @@ msgstr "Игнорировать файлы которые уже версион
 #: source/TortoiseSVN_en.xml:9308
 #: (primary)
 msgid "unversion"
-msgstr ""
+msgstr "unversion"
 
 #: source/TortoiseSVN_en.xml:9310
 #: (para)
@@ -8527,7 +8530,7 @@ msgstr "Если для обновления выбран только один 
 #: source/TortoiseSVN_en.xml:9976
 #: (para)
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
-msgstr ""
+msgstr "Нет параметра командной строки который может быть использован. <guilabel>Обновить до ревизии</guilabel> также реализует команда обновления, но предлагает больше параметров."
 
 #: source/TortoiseSVN_en.xml:9983
 #: (title)
@@ -9210,4 +9213,3 @@ msgstr ""
 
 msgid "translator-translation"
 msgstr "Перевод"
-
