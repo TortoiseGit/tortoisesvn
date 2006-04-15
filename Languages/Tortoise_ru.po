@@ -32,13 +32,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6274: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6285: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-14 16:14+0300\n"
+"PO-Revision-Date: 2006-04-15 15:01+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -862,6 +862,7 @@ msgid "Access to %1 was denied."
 msgstr "Доступ к %1 запрещен."
 
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "Действие"
 
@@ -1489,10 +1490,6 @@ msgstr "Цвета"
 msgid "Command failed."
 msgstr "Сбой в комманде."
 
-#: ID:319
-msgid "Comment"
-msgstr "Комментарий"
-
 #: ID:209
 #: Control-ID:1083
 msgid "Commit"
@@ -1852,6 +1849,10 @@ msgstr "Размеры и расположение окон"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Файл различий:"
+
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "Различие между"
 
 #: Control-ID:1022
 msgid "Diffing"
@@ -3082,11 +3083,6 @@ msgstr "Один или более файлов имеют конфликты."
 msgid "Only check out the &top folder"
 msgstr "Извлечь только папку &верхнего уровня"
 
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "Только в %s"
-
 #: ID:169
 msgid ""
 "Only numbers (optionally separated by commas)\n"
@@ -3274,6 +3270,10 @@ msgstr "Пожалуйста, подождите отмены..."
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Подождите, пожалуйста, пока обозреватель хранилища  инициализируется..."
+
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "Пожалуйста, подождите, пока мы получаем различия..."
 
 #: ID:119
 #: ID:211
@@ -3499,11 +3499,6 @@ msgstr "Переименование"
 #, c-format
 msgid "Rename %s"
 msgstr "Переименовать %s"
-
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "Переименовано из %s"
 
 #: Control-ID:65535
 msgid "Renamed node"
@@ -5294,6 +5289,10 @@ msgstr "добавленные файлы"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "непоименованный файл"
+
+#: Control-ID:1304
+msgid "and"
+msgstr "и"
 
 #: Control-ID:1085
 msgid "and support the developers"
