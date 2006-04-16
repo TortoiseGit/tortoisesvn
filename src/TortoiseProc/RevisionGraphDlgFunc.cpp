@@ -273,7 +273,7 @@ void CRevisionGraphWnd::CountEntryConnections()
 				std::multimap<svn_revnum_t, CRevisionEntry*>::const_iterator it = m_mapEntryPtrs.lower_bound(reventry->revision);
 				if (it != m_mapEntryPtrs.end())
 					++it;
-				while ((it != m_mapEntryPtrs.end())&&(it->first <= reventryto->revision))
+				while ((it != m_mapEntryPtrs.end())&&(it->first < reventryto->revision))
 				{
 					if (it->second->level == reventry->level)
 					{
@@ -317,8 +317,6 @@ void CRevisionGraphWnd::BuildConnections()
 	// revision entry. Since there can be several entries in the
 	// same revision, this speeds up the search for the right
 	// position for drawing.
-	LARGE_INTEGER ticks;
-	QueryPerformanceCounter(&ticks);
 	m_arVertPositions.RemoveAll();
 	svn_revnum_t vprev = 0;
 	int currentvpos = 0;
@@ -539,9 +537,6 @@ void CRevisionGraphWnd::BuildConnections()
 			DecrementSpaceLines(sentry);
 		}
 	}
-	LARGE_INTEGER ticks2;
-	QueryPerformanceCounter(&ticks2);
-	ATLTRACE("BuildConnections() took %ld counts\n", ticks2.LowPart-ticks.LowPart);
 }
 
 CRect * CRevisionGraphWnd::GetGraphSize()
