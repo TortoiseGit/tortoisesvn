@@ -590,13 +590,23 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 
 LRESULT CLogPromptDlg::OnFileDropped(WPARAM, LPARAM lParam)
 {
+	// if multiple files/folders are dropped
+	// this handler is called for every single item
+	// separately.
+	// To avoid creating multiple refresh threads and
+	// causing crashes, we only add the items to the
+	// list control and start a timer.
+	// When the timer expires, we start the refresh thread,
+	// but only if it isn't already running - otherwise we
+	// restart the timer.
 	CTSVNPath path;
 	path.SetFromWin((LPCTSTR)lParam);
 	if (!m_ListCtrl.HasPath(path))
 	{
 		m_pathList.AddPath(path);
 		m_pathList.RemoveDuplicates();
-		Refresh();
+		SetTimer(REFRESHTIMER, 200, NULL);
+		ATLTRACE("Item %ws dropped, timer started\n", path.GetWinPath());
 	}
 	return 0;
 }
@@ -855,8 +865,26 @@ bool CLogPromptDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
 
 void CLogPromptDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	if (nIDEvent == ENDDIALOGTIMER)
+	switch (nIDEvent)
+	{
+	case ENDDIALOGTIMER:
+		KillTimer(ENDDIALOGTIMER);
 		EndDialog(0);
+		break;
+	case REFRESHTIMER:
+		if (m_bThreadRunning)
+		{
+			SetTimer(REFRESHTIMER, 200, NULL);
+			ATLTRACE("Wait some more before refreshing\n");
+		}
+		else
+		{
+			KillTimer(REFRESHTIMER);
+			ATLTRACE("Refreshing after items dropped\n");
+			Refresh();
+		}
+		break;
+	}
 	__super::OnTimer(nIDEvent);
 }
 

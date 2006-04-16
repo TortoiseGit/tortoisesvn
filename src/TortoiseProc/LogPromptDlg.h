@@ -27,6 +27,7 @@
 #include "SciEdit.h"
 
 #define ENDDIALOGTIMER 100
+#define REFRESHTIMER   101
 
 
 /**
