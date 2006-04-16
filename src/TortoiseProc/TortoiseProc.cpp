@@ -656,10 +656,6 @@ BOOL CTortoiseProcApp::InitInstance()
 					{
 						options |= ProgOptIgnoreExternals;
 					}
-					if (CRegDWORD(_T("Software\\TortoiseSVN\\updatetorev"), (DWORD)-1)==(DWORD)-1)
-						if (SVNStatus::GetAllStatusRecursive(cmdLinePath)>svn_wc_status_normal)
-							if (CMessageBox::ShowCheck(EXPLORERHWND, IDS_WARN_UPDATETOREV_WITHMODS, IDS_APPNAME, MB_OKCANCEL | MB_ICONWARNING, _T("updatetorev"), IDS_MSGBOX_DONOTSHOWAGAIN)!=IDOK)
-								return FALSE;
 				}
 				else 
 					return FALSE;
