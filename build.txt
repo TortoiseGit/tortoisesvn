@@ -28,8 +28,9 @@ Next you need to install some utilities/programs:
 - To translate the docs, you will also need the libxml2 python bindings.
   Get them from here: http://users.skynet.be/sbi/libxml-python/
 - Install Perl. Get it from http://www.activestate.com/Products/ActivePerl/
-- Get the WiX tools from http://wix.sourceforge.net and unzip them. (*)
-  Then add it to the PATH environment variable.
+- Get the WiX Core Toolset from http://wix.sourceforge.net and unzip
+  them. (*). Then add it to the PATH environment variable.
+- Get WiX Votive from http://wix.sourceforge.net and install it.
 - If you want to include the dictionary and thesaurus in the installer/languagepacks,
   then you have to download those from http://lingucomponent.openoffice.org/.
   Important: Only the thesaurus in the format for OO2 will work! Earlier versions
