@@ -32,13 +32,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6285: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6310: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-15 15:01+0300\n"
+"PO-Revision-Date: 2006-04-17 18:05+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3766,6 +3766,10 @@ msgstr "SVN Статус"
 msgid "SVN URL"
 msgstr "SVN URL"
 
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN окончания строк"
+
 #: ID:14
 msgid "SVN mime-type"
 msgstr "SVN mime-тип"
@@ -4096,6 +4100,10 @@ msgstr "Показывает все ревизии, в которых были �
 #: ID:10
 msgid "Shows information about TortoiseSVN"
 msgstr "Показывает информацию о TortoiseSVN"
+
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "Показывает значение свойства eol-style (окончания строк)"
 
 #: ID:12
 msgid "Shows the log for the selected file / folder"
@@ -5411,7 +5419,7 @@ msgstr "список файлов пуст"
 
 #: ID:13
 msgid "ignored"
-msgstr "проигнорирован"
+msgstr "игнорируемый"
 
 #: ID:13
 msgid "incomplete"
@@ -5450,11 +5458,11 @@ msgstr "нет описания для этой команды"
 
 #: ID:10
 msgid "non-versioned"
-msgstr "неверсионный"
+msgstr "неверсирован"
 
 #: ID:10
 msgid "normal"
-msgstr "нормальн."
+msgstr "нормальный"
 
 # было: поврежденный
 # преграждённый, препятствующий?
