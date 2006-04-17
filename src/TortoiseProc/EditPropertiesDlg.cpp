@@ -148,26 +148,26 @@ UINT CEditPropertiesDlg::PropsThread()
 		SVNProperties props(m_pathlist[i]);
 		for (int p=0; p<props.GetCount(); ++p)
 		{
-			std::map<stdstring,PropValue>::iterator it = m_properties.find(props.GetItemName(p));
-			if (it != m_properties.end())
+			wide_string prop_str = props.GetItemName(p);
+			std::map<stdstring,PropValue>::iterator it = m_properties.lower_bound(prop_str);
+			if (it != m_properties.end() && it->first == prop_str)
 			{
 				it->second.count++;
-				stdstring value =  MultibyteToWide((char *)props.GetItemValue(p).c_str());
+				stdstring value = MultibyteToWide((char *)prop_str.c_str());
 				if (it->second.value.compare(value)!=0)
 					it->second.allthesamevalue = false;
 			}
 			else
 			{
-				PropValue plist;
-				stdstring value =  MultibyteToWide((char *)props.GetItemValue(p).c_str());
-				plist.value = value;
+				it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
+				stdstring value = MultibyteToWide((char *)prop_str.c_str());
+				it->second.value = value;
 				CString stemp = value.c_str();
 				stemp.Replace('\n', ' ');
 				stemp.Replace(_T("\r"), _T(""));
-				plist.value_without_newlines = stdstring((LPCTSTR)stemp);
-				plist.count = 1;
-				plist.allthesamevalue = true;
-				m_properties[props.GetItemName(p)] = plist;
+				it->second.value_without_newlines = stdstring((LPCTSTR)stemp);
+				it->second.count = 1;
+				it->second.allthesamevalue = true;
 			}
 		}
 	}

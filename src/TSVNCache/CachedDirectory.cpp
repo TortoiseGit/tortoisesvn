@@ -477,17 +477,25 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 	}
 	else
 	{
-		if ((pSVNStatus)&&(m_entryCache.find(GetCacheKey(path))!=m_entryCache.end()))
+		CString cachekey = GetCacheKey(path);
+		CacheEntryMap::iterator entry_it = m_entryCache.lower_bound(cachekey);
+		if (entry_it != m_entryCache.end() && entry_it->first == cachekey)
 		{
-			CStatusCacheEntry oldentry = m_entryCache[GetCacheKey(path)];
-			if ((oldentry.GetEffectiveStatus() > svn_wc_status_unversioned)&&
-				(oldentry.GetEffectiveStatus() != SVNStatus::GetMoreImportant(pSVNStatus->prop_status, pSVNStatus->text_status)))
+			if (pSVNStatus)
 			{
-				CSVNStatusCache::Instance().UpdateShell(path);
-				ATLTRACE("shell update for %ws\n", path.GetWinPath());
+				if (entry_it->second.GetEffectiveStatus() > svn_wc_status_unversioned &&
+					entry_it->second.GetEffectiveStatus() != SVNStatus::GetMoreImportant(pSVNStatus->prop_status, pSVNStatus->text_status))
+				{
+					CSVNStatusCache::Instance().UpdateShell(path);
+					ATLTRACE("shell update for %ws\n", path.GetWinPath());
+				}
 			}
 		}
-		m_entryCache[GetCacheKey(path)] = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly());
+		else
+		{
+			entry_it = m_entryCache.insert(entry_it, std::make_pair(cachekey, CStatusCacheEntry()));
+		}
+		entry_it->second = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), path.IsReadOnly());
 	}
 }
 

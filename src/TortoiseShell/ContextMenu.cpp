@@ -406,8 +406,10 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, BOOL istop, HMENU menu, UINT pos,
 
 HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 {
-	if ((bitmaps.size())&&(bitmaps.find(uIcon) != bitmaps.end()))
-		return bitmaps[uIcon];
+	std::map<UINT, HBITMAP>::iterator bitmap_it = bitmaps.lower_bound(uIcon);
+	if (bitmap_it != bitmaps.end() && bitmap_it->first == uIcon)
+		return bitmap_it->second;
+
 	HICON hIcon = (HICON)LoadImage(g_hResInst, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 10, 10, LR_DEFAULTCOLOR);
 	if (!hIcon)
 		return NULL;
@@ -485,7 +487,7 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 	::ReleaseDC(desktop, screen_dev); 
 	DestroyIcon(hIcon);
 	if (bmp)
-		bitmaps[uIcon] = bmp;
+		bitmaps.insert(bitmap_it, std::make_pair(uIcon, bmp));
 	return bmp;
 }
 
@@ -1021,12 +1023,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 		if (HIWORD(lpcmi->lpVerb))
 		{
 			stdstring verb = stdstring(MultibyteToWide(lpcmi->lpVerb));
-			if (myVerbsMap.find(verb) != myVerbsMap.end())
-				idCmd = myVerbsMap[verb];
+			std::map<stdstring, int>::const_iterator verb_it = myVerbsMap.lower_bound(verb);
+			if (verb_it != myVerbsMap.end() && verb_it->first == verb)
+				idCmd = verb_it->second;
 		}
 
 		// See if we have a handler interface for this id
-		if (myIDMap.find(idCmd) != myIDMap.end())
+		std::map<UINT_PTR, int>::const_iterator id_it = myIDMap.lower_bound(idCmd);
+		if (id_it != myIDMap.end() && id_it->first == idCmd)
 		{
 			STARTUPINFO startup;
 			PROCESS_INFORMATION process;
@@ -1042,7 +1046,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			//or a path to a temporary file which contains a list of filepaths
 			stdstring svnCmd = _T(" /command:");
 			stdstring tempfile;
-			switch (myIDMap[idCmd])
+			switch (id_it->second)
 			{
 				//#region case
 			case Checkout:
@@ -1421,7 +1425,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			CloseHandle(process.hThread);
 			CloseHandle(process.hProcess);
 			hr = NOERROR;
-		} // if (myIDMap.find(idCmd) != myIDMap.end()) 
+		} // if (id_it != myIDMap.end() && id_it->first == idCmp)
 	} // if ((files_.size() > 0)||(folder_.size() > 0)) 
 	return hr;
 
@@ -1435,14 +1439,15 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
                                          UINT cchMax)
 {   
 	//do we know the id?
-	if (myIDMap.find(idCmd) == myIDMap.end())
+	std::map<UINT_PTR, int>::const_iterator id_it = myIDMap.lower_bound(idCmd);
+	if (id_it == myIDMap.end() || id_it->first != idCmd)
 	{
 		return E_INVALIDARG;		//no, we don't
 	}
 
 	LoadLangDll();
 	HRESULT hr = E_INVALIDARG;
-	switch (myIDMap[idCmd])
+	switch (id_it->second)
 	{
 		case Checkout:
 			MAKESTRING(IDS_MENUDESCCHECKOUT);
@@ -1558,7 +1563,7 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
 			break;
-	} // switch (myIDMap[idCmd])
+	} // switch (id_it->second)
 	const TCHAR * desc = stringtablebuffer;
 	switch(uFlags)
 	{
@@ -1578,9 +1583,10 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 		}
 	case GCS_VERBA:
 		{
-			if (myVerbsIDMap.find(idCmd) != myVerbsIDMap.end())
+			std::map<UINT_PTR, stdstring>::const_iterator verb_id_it = myVerbsIDMap.lower_bound(idCmd);
+			if (verb_id_it != myVerbsIDMap.end() && verb_id_it->first == idCmd)
 			{
-				std::string help = WideToMultibyte(myVerbsIDMap[idCmd]);
+				std::string help = WideToMultibyte(verb_id_it->second);
 				lstrcpynA(pszName, help.c_str(), cchMax);
 				hr = S_OK;
 			}
@@ -1588,9 +1594,10 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 		break;
 	case GCS_VERBW:
 		{
-			if (myVerbsIDMap.find(idCmd) != myVerbsIDMap.end())
+			std::map<UINT_PTR, stdstring>::const_iterator verb_id_it = myVerbsIDMap.lower_bound(idCmd);
+			if (verb_id_it != myVerbsIDMap.end() && verb_id_it->first == idCmd)
 			{
-				wide_string help = myVerbsIDMap[idCmd];
+				wide_string help = verb_id_it->second;
 				ATLTRACE("verb : %ws\n", help.c_str());
 				lstrcpynW((LPWSTR)pszName, help.c_str(), cchMax); 
 				hr = S_OK;
