@@ -168,6 +168,8 @@
 #define IDS_DROPMOVERENAMEMENU          256
 #define IDS_MENUPROPERTIES              257
 #define IDS_MENUDESCPROPERTIES          258
+#define IDS_COLTITLEEOLSTYLE            259
+#define IDS_COLDESCEOLSTYLE             260
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

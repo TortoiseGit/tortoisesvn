@@ -124,7 +124,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->cChars     = 32;							// Default col width in chars
 			break;
 		case 5:
-			if ((cachetype == ShellCache::none)||(cachetype == ShellCache::dll))
+			if (cachetype == ShellCache::none)
 				return S_FALSE;
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
 			psci->scid.pid = dwIndex;
@@ -166,6 +166,21 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			MAKESTRING(IDS_COLTITLEAUTHOR);
 			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
 			MAKESTRING(IDS_COLDESCAUTHOR);
+			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
+			break;
+		case 8:
+			if (cachetype == ShellCache::none)
+				return S_FALSE;
+			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
+			psci->scid.pid = dwIndex;
+			psci->vt = VT_BSTR;
+			psci->fmt = LVCFMT_LEFT;
+			psci->cChars = 30;
+			psci->csFlags = ColumnFlags;
+
+			MAKESTRING(IDS_COLTITLEEOLSTYLE);
+			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
+			MAKESTRING(IDS_COLDESCEOLSTYLE);
 			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
 			break;
 	}
@@ -233,6 +248,21 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 			case 6:
 				GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 				szInfo = owner;
+				break;
+			case 8:
+				if (cachetype == ShellCache::none)
+					return S_FALSE;
+				if (g_ShellCache.IsPathAllowed(path))
+				{
+					SVNProperties props = SVNProperties(CTSVNPath(path));
+					for (int i=0; i<props.GetCount(); i++)
+					{
+						if (props.GetItemName(i).compare(_T("svn:eol-style"))==0)
+						{
+							szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
+						}
+					}
+				}
 				break;
 			default:
 				return S_FALSE;
