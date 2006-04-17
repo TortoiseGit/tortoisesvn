@@ -78,6 +78,7 @@ typedef struct FileStatusCacheEntry
 	const char*				author;		///< points to a (possibly) shared value
 	const char*				url;		///< points to a (possibly) shared value
 	const char*				owner;		///< points to a (possible) lock owner
+	bool					needslock;
 	svn_revnum_t			rev;
 	int						askedcounter;
 	svn_lock_t *			lock;

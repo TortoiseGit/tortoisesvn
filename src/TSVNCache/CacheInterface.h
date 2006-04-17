@@ -53,6 +53,7 @@ struct TSVNCacheResponse
 	char m_owner[255];		///< owner of the lock
 	char m_author[255];
 	bool m_readonly;		///< whether the file is write protected or not
+	bool m_needslock;		///< whether the file has the svn:needs-lock property set or not (only works with the new working copy version)
 };
 
 #endif // SVN_WC_H

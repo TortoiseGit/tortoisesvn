@@ -86,6 +86,7 @@ SVNFolderStatus::SVNFolderStatus(void)
 	invalidstatus.url = emptyString;
 	invalidstatus.rev = -1;
 	invalidstatus.owner = emptyString;
+	invalidstatus.needslock = false;
 	m_nCounter = 0;
 	sCacheKey.reserve(MAX_PATH);
 
@@ -152,6 +153,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			dirstat.url = urls.GetString(NULL);
 			dirstat.owner = owners.GetString(NULL);
 			dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
+			dirstat.needslock = false;
 			try
 			{
 				GetStatus(filepath);
@@ -347,12 +349,15 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
 	FileStatusMap * cache = &Stat->m_cache;
 	FileStatusCacheEntry s;
+	s.needslock = false;
 	if ((status)&&(status->entry))
 	{
 		s.author = Stat->authors.GetString(status->entry->cmt_author);
 		s.url = Stat->urls.GetString(status->entry->url);
 		s.rev = status->entry->cmt_rev;
 		s.owner = Stat->owners.GetString(status->entry->lock_owner);
+		if (status->entry->present_props)
+			s.needslock = strstr(status->entry->present_props, "svn:needs-lock") ? true : false;
 	}
 	else
 	{

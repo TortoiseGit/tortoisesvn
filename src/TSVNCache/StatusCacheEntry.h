@@ -61,6 +61,7 @@ private:
 	CStringA			m_sUrl;
 	CStringA			m_sOwner;
 	CStringA			m_sAuthor;
+	CStringA			m_sPresentProps;
 	svn_revnum_t		m_commitRevision;
 
 //	friend class CSVNStatusCache;
