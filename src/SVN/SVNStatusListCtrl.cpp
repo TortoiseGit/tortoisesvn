@@ -261,6 +261,27 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
+
+	m_mapFilenameToChecked.clear();
+	for (size_t i=0; i < m_arStatusArray.size(); i++)
+	{
+		FileEntry * entry = m_arStatusArray[i];
+		if ( entry->status==svn_wc_status_unversioned && entry->checked )
+		{
+			// The user manually selected an unversioned file. We remember
+			// this so that the selection can be restored when refreshing.
+			CString path = entry->GetPath().GetSVNPathString();
+			m_mapFilenameToChecked[path] = true;
+		}
+		else if ( entry->status > svn_wc_status_normal && !entry->checked )
+		{
+			// The user manually deselected a versioned file. We remember
+			// this so that the deselection can be restored when refreshing.
+			CString path = entry->GetPath().GetSVNPathString();
+			m_mapFilenameToChecked[path] = false;
+		}
+	}
+
 	do 
 	{
 		bRet = TRUE;
@@ -904,10 +925,18 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 		pApp->DoWaitCursor(-1);
 }
 
-void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int listIndex)
+void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 {
 	static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
 	static HINSTANCE hResourceHandle(AfxGetResourceHandle());
+
+	CString path = entry->GetPath().GetSVNPathString();
+	if ( m_mapFilenameToChecked.size()!=0 && m_mapFilenameToChecked.find(path) != m_mapFilenameToChecked.end() )
+	{
+		// The user manually de-/selected an item. We now restore this status
+		// when refreshing.
+		entry->checked = m_mapFilenameToChecked[path];
+	}
 
 	m_bBlock = TRUE;
 	TCHAR buf[100];
