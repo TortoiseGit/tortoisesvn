@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<style type="text/css"> /* <![CDATA[ */
+  @import "tigris-branding/css/tigris.css";
+  @import "tigris-branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="tigris-branding/css/print.css"/>
+<script type="text/javascript" src="tigris-branding/scripts/tigris.js"></script>
+<title>TortoiseSVN 1.4 Release Notes</title>
+</head>
+
+<body>
+<div class="app">
+
+<h1 style="text-align: center">TortoiseSVN 1.4 Release Notes</h1>
+
+<div class="h2" id="news" title="news">
+<h2>What's New in TortoiseSVN 1.4</h2>
+
+<p>TortoiseSVN 1.4 is a superset of all previous TortoiseSVN releases.
+Anything in 1.0.x, 1.1.x, 1.2.x or 1.3.x is also in 1.4, but 1.4 contains
+features and bugfixes not present in any earlier release. It is
+linked with Subversion 1.4.</p>
+
+<ul>
+   <li><p>Action dialogs (commit/check for modification/add...)</p>
+       <p>
+       <ul>
+       <li>
+       "Compare with BASE" is now possible for added and deleted files too.
+       The diff viewer will show the diff against an empty file in that case.
+       </li>
+       <li>
+       The columns shown are configurable. You can choose which columns are
+       shown and what sizes they have. The configuration is saved between
+       sessions. See <a href="http://tortoisesvn.berlios.de/issues/?do=details&id=80">issue #80</a> 
+       for details.
+       </li>
+       <li>
+       The 'OK' button is disabled until at least one file/folder is selected
+       to avoid empty operations.
+       </li>
+       <li>
+       Files and folders shown can be dragged to other applications. Also files and
+       folder can be dragged from the explorer on to those dialogs.
+       See <a href="http://tortoisesvn.berlios.de/issues/?do=details&id=213">issue #213</a> 
+       and <a href="http://tortoisesvn.berlios.de/issues/?do=details&id=212">issue #212</a> 
+       for details.
+       </li>
+       <li>
+       The dialogs can be interrupted while the status is fetched by clicking on 'Cancel'.
+       </li>
+       <li>
+       Switched files/folders are indicated with an '(s)' after the status text.
+       See <a href="http://tortoisesvn.berlios.de/issues/?do=details&id=229">issue #229</a> 
+       for details.
+       </li>
+       <li>
+       Subversion properties can be edited/set/deleted directly from these dialogs with
+       a right-click. See <a href="http://tortoisesvn.berlios.de/issues/?do=details&id=231">issue #231</a> 
+       for details.
+       </li>
+       </ul>
+       </p>
+   </li>
+   <li><p>Log dialog</p>
+       <p>
+       <ul>
+       <li>
+       New column showing the bugtraq ID string assigned to the revision.
+       </li>
+       <li>
+       You can now specify a range for which the log messages should be fetched
+       to avoid having to either click on 'Next 100' repeatedly or fetch all
+       messages at once.
+       </li>
+       </ul>
+       </p>
+   </li>
+   <li><p>Explorer</p>
+       <p>
+       <ul>
+       <li>
+       The context menu shows different icons depending on what entry the menu is
+       for. If you right-click on a shortcut, two entries are shown, one with a link icon
+       and one with a folder or file icon (depending on what the shortcut points to).
+       If you right-click on a file, again two entries are shown. One with a file icon for
+       the file itself, and one with a folder icon for the parent folder.
+       </li>
+       <li>
+       New "Move and rename" entry in the context menu.
+       </li>
+       <li>
+       New column for showing the svn:eol-style property.
+       </li>
+       </ul>
+       </p>
+    </li>
+    <li><p>Revision graph</p>
+        <p>
+        The Revision graph got some major improvements. It has been rewritten
+        almost completely to address some issues users reported.
+        <ul>
+        <li>
+        Analyzing the data is much faster.
+        </li>
+        <li>
+        Ability to show all revisions, not just the ones where there was a copy
+        operation.
+        </li>
+        <li>
+        Ability to have the graph sort the nodes by path.
+        </li>
+        <li>
+        Better zooming support.
+        </li>
+        </ul>
+        </p>
+    </li>
+    <li><p>Repository browser</p>
+        <p>
+        <ul>
+        <li>
+        When dragging items, folders are opened and closed automatically
+        if hoovering over them for more than two seconds.
+        </li>
+        <li>
+        Dragging items beyond the visible area makes the browser scroll the
+        view automatically.
+        </li>
+        </p>
+    </li>
+    <li><p>Status cache</p>
+        <p>
+        <ul>
+        <li>
+        An option to disable the cache process completely and either fetch the status
+        only for the currently visible folder or not show any overlays at all.
+        </li>
+        </ul>
+        </p>
+    </li>
+    <li><p></p>
+        <p>
+        <ul>
+        </ul>
+        </p>
+    </li>
+    <li><p></p>
+        <p>
+        <ul>
+        </ul>
+        </p>
+    </li>
+    <li><p></p>
+        <p>
+        <ul>
+        </ul>
+        </p>
+    </li>
+    <li><p></p>
+        <p>
+        <ul>
+        </ul>
+        </p>
+    </li>
+
+   <li>
+       Many many more small improvements and bug fixes.
+       See the <a href="/ChangeLog.txt">Change Log</a> for full details.
+   </li>
+</ul>
+
+</div>
+
+<div class="h2" id="compatibility" title="compatibility">
+<h2>Compatibility Concerns</h2>
+
+<p>
+Subversion 1.4 uses a new format for the working copy. The update is
+done automatically, you won't even notice it. But once the working copy
+has been updated, you won't be able to access it with clients linked
+to older versions of the Subversion library.
+</p>
+
+<p>Older clients and servers interoperate transparently with 1.4
+servers and clients.  Of course, some of the new 1.4 features may not
+be available unless both client and server are the latest version.
+There is <strong>no need</strong> to upgrade your repositories;
+</p>
+
+<p>If you access a BDB repository using <tt>file://</tt> access
+you will need to update that repository to BDB 4.3 format. But this is
+only necessary if you're upgrading from a TortoiseSVN version before
+1.2.
+Instructions on how to do that can be found on the
+<a href="http://subversion.tigris.org/faq.html#bdb43-upgrade">
+Subversion FAQ page</a></p>
+</div>
+
+
+</div>
+</body>
+</html>
