@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-13 10:46+0900\n"
+"PO-Revision-Date: 2006-04-17 19:18+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -493,7 +493,7 @@ msgstr "%d 개 무시(&I)"
 # Control-ID:1067,
 #: Control-ID:1021
 msgid "&Ignore whitespace changes"
-msgstr "대/소문자를 구분하지 않음(&I)"
+msgstr "공백의 차이는 무시함(&I)"
 
 # ID:9,
 #: ID:9
@@ -1029,6 +1029,7 @@ msgstr "%1에 접근하는 것이 거부되었습니다."
 
 # ID:77,
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "명령"
 
@@ -1088,6 +1089,7 @@ msgstr "확장자에 따른 비교/병합 프로그램 추가/수정"
 
 # Control-ID:65535,
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "추가됨"
@@ -1802,11 +1804,6 @@ msgid "Command failed."
 msgstr "명령 오류."
 
 # ID:8,
-#: ID:319
-msgid "Comment"
-msgstr "커밋 로그"
-
-# ID:8,
 #: ID:209
 #: Control-ID:1083
 msgid "Commit"
@@ -2203,6 +2200,7 @@ msgstr "로그 메시지 기본 개수(&N)"
 # ID:11,#:
 # ID:73,
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "삭제됨"
 
@@ -2238,6 +2236,11 @@ msgstr "대화상자 크기와 위치"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "비교 파일:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "차이점 보기"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -3459,6 +3462,7 @@ msgstr "Mixed"
 
 # ID:74,
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "수정됨"
 
@@ -3644,6 +3648,7 @@ msgid "None"
 msgstr "없음"
 
 # Control-ID:65535,
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "보통"
@@ -3712,12 +3717,6 @@ msgstr "한 개 이상의 파일이 충돌 상태입니다."
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "최상위 폴더만 체크아웃(&T)"
-
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "%s에만 존재"
 
 # ID:169,
 #: ID:169
@@ -3963,6 +3962,11 @@ msgstr "취소중입니다. 잠시 기다려주십시오..."
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
+
+# ID:13,
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "차이를 구하는 동안 잠시 기다려주십시오..."
 
 # ID:119,
 #: ID:119
@@ -4239,12 +4243,6 @@ msgstr "이름 바꾸기"
 #, c-format
 msgid "Rename %s"
 msgstr "%s 이름 바꾸기"
-
-# ID:97,
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "%s의 이름을 바꿈"
 
 # ID:126,
 #: Control-ID:65535
@@ -4573,6 +4571,11 @@ msgstr "SVN 상태"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN URL"
+
+# ID:14,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 # ID:14,
 #: ID:14
@@ -4984,6 +4987,11 @@ msgstr "이 파일에 대하여 변경된 모든 리비전을 보여줌"
 msgid "Shows information about TortoiseSVN"
 msgstr "TortoiseSVN에 대한 정보 보기"
 
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "eol-style(개행형식) 속성 보기"
+
 # ID:12,
 #: ID:12
 msgid "Shows the log for the selected file / folder"
@@ -5285,6 +5293,20 @@ msgstr "존재하지 않는 파일: %s"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "패치 파일에 없는 파일입니다.: %s "
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"파일 %s\n"
+"이(가) 두 번 발견되었습니다.\n"
+"흔히 패치 파일을 다른 폴더에 적용한 경우\n"
+"발생하는 현상입니다."
 
 # ID:3857,#:
 # ID:3857,
@@ -6372,6 +6394,11 @@ msgstr "추가된 파일"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "제목 없음"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "와(과)"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
