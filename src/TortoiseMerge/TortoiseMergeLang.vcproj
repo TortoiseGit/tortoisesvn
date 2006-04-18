@@ -96,7 +96,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="cd ..\..\Languages&#x0D;&#x0A;Make_Pot.bat&#x0D;&#x0A;"
+				CommandLine="..\..\bin\release\bin\ResText extract ..\..\bin\release\bin\TortoiseProcLang.dll ..\..\bin\release\bin\TortoiseMergeLang.dll ..\..\Languages\Tortoise.pot&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -178,7 +178,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="cd ..\..\Languages&#x0D;&#x0A;Make_Pot.bat&#x0D;&#x0A;"
+				CommandLine="..\..\bin\release64\bin\ResText extract ..\..\bin\release64\bin\TortoiseProcLang.dll ..\..\bin\release64\bin\TortoiseMergeLang.dll ..\..\Languages\Tortoise.pot&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
