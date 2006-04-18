@@ -60,7 +60,6 @@ CDirectoryWatcher::~CDirectoryWatcher(void)
 {
 	InterlockedExchange(&m_bRunning, FALSE);
 	CloseHandle(m_hThread);
-	CloseHandle(m_hCompPort);
 	AutoLocker lock(m_critSec);
 	ClearInfoMap();
 }
@@ -154,14 +153,12 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 		watchedPaths.AddPath(newroot);
 		watchedPaths.RemoveChildren();
 		CloseInfoMap();
-		CloseHandle(m_hCompPort);
 		m_hCompPort = INVALID_HANDLE_VALUE;
 		return true;
 	}
 	ATLTRACE("add path to watch %ws\n", path.GetWinPath());
 	watchedPaths.AddPath(path);
 	CloseInfoMap();
-	CloseHandle(m_hCompPort);
 	m_hCompPort = INVALID_HANDLE_VALUE;
 	return true;
 }
@@ -243,7 +240,6 @@ void CDirectoryWatcher::WorkerThread()
 						ATLTRACE("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
 						AutoLocker lock(m_critSec);
 						ClearInfoMap();
-						CloseHandle(m_hCompPort);
 						delete pDirInfo;
 						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPaths[i]);
@@ -262,7 +258,6 @@ void CDirectoryWatcher::WorkerThread()
 						ATLTRACE("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %ws\n", watchedPaths[i].GetWinPath());
 						AutoLocker lock(m_critSec);
 						ClearInfoMap();
-						CloseHandle(m_hCompPort);
 						delete pDirInfo;
 						pDirInfo = NULL;
 						watchedPaths.RemovePath(watchedPaths[i]);
@@ -387,6 +382,7 @@ void CDirectoryWatcher::ClearInfoMap()
 		}
 	}
 	watchInfoMap.clear();
+	CloseHandle(m_hCompPort);
 }
 
 CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
@@ -403,6 +399,7 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 		info->CloseDirectoryHandle();
 	}
 	watchInfoMap.clear();
+	CloseHandle(m_hCompPort);
 	return path;
 }
 
