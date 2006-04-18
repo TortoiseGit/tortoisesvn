@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-04 13:15+0800\n"
+"PO-Revision-Date: 2006-04-18 11:27+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -494,10 +494,10 @@ msgstr "圖示集(&I):"
 msgid "&Ignore %d items"
 msgstr "忽略 %d 項(&I)"
 
-# Control-ID:1020,
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "忽略開頭的空白字元(&I)"
+# Control-ID:1067,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "無視空白字元變更(&I)"
 
 # ID:9,
 #: ID:9
@@ -1036,6 +1036,7 @@ msgstr "拒絕存取 %1."
 
 # ID:77,
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "行動"
 
@@ -1095,6 +1096,7 @@ msgstr "加入/編輯針對副檔名的差異比對/合併工具"
 
 # Control-ID:65535,
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "已加入"
@@ -1567,6 +1569,11 @@ msgstr "正在取消 TortoiseSVN 譴責..."
 msgid "Cancelling operation..."
 msgstr "正在取消作業..."
 
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "無法比對差異, 因為檔案中的換行字元不一致."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Cascaded context menu"
@@ -1801,11 +1808,6 @@ msgstr "色彩"
 #: ID:3857
 msgid "Command failed."
 msgstr "命令失敗."
-
-# ID:8,
-#: ID:319
-msgid "Comment"
-msgstr "註記"
 
 # ID:8,
 #: ID:209
@@ -2205,6 +2207,7 @@ msgstr "預設的紀錄訊息數目(&N)"
 # ID:73,#:
 # ID:101,
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "已刪除"
 
@@ -2242,6 +2245,11 @@ msgstr "視窗大小與位置"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "差異檔:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "差異:"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -2992,7 +3000,7 @@ msgid "Ignore"
 msgstr "忽略"
 
 # Control-ID:1021,
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "忽略所有空白字元(&A)"
 
@@ -3005,11 +3013,6 @@ msgstr "無視大小寫變更(&C)"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "無視之前版本"
-
-# Control-ID:1020,
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "忽略結尾的空白字元(&N)"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -3470,6 +3473,7 @@ msgstr "混合"
 
 # ID:74,
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "異動"
 
@@ -3655,6 +3659,7 @@ msgid "None"
 msgstr "無"
 
 # Control-ID:65535,
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "正常"
@@ -3723,12 +3728,6 @@ msgstr "尚有一個以上的檔案處於衝突狀態."
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "僅取出最上層目錄(&T)"
-
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "僅在 %s"
 
 # ID:169,
 #: ID:169
@@ -3975,6 +3974,11 @@ msgstr "正在取消, 請稍候..."
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "請稍候, 檔案庫瀏覽器正在初始化..."
+
+# ID:13,
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "正在比對差異, 請稍候..."
 
 # ID:119,
 #: ID:119
@@ -4249,12 +4253,6 @@ msgstr "重新命名"
 msgid "Rename %s"
 msgstr "重新命名 %s"
 
-# ID:97,
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "原名是 %s"
-
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -4314,6 +4312,11 @@ msgstr "檔案庫"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
+msgstr "檔案庫瀏覽器"
+
+# Dlg-ID:153,
+#: Control-ID:65535
+msgid "Repository browser"
 msgstr "檔案庫瀏覽器"
 
 # Control-ID:65535,
@@ -4576,6 +4579,11 @@ msgstr "SVN 狀態"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN URL"
+
+# ID:14,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 # ID:14,
 #: ID:14
@@ -4988,6 +4996,11 @@ msgstr "顯示所有更動過這個項目的版本"
 msgid "Shows information about TortoiseSVN"
 msgstr "顯示關於 TortoiseSVN 的資訊"
 
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "顯示 eol-style 性質設定"
+
 # ID:12,
 #: ID:12
 msgid "Shows the log for the selected file / folder"
@@ -5012,6 +5025,11 @@ msgstr "略過"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "已跳過的缺少目標"
+
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "依數字順序排序"
 
 # ID:196,
 #: ID:196
@@ -5042,12 +5060,6 @@ msgid ""
 msgstr ""
 "將目前視窗分割區塊\n"
 "分割"
-
-# ID:11,#:
-# Control-ID:1002,
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "堆疊的"
 
 # ID:11,
 #: Control-ID:65535
@@ -5289,6 +5301,20 @@ msgstr "檔案 %s 不存在!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "補綴檔中找不到檔案: %s!"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"檔案 %s\n"
+"出現兩次!?!\n"
+"可能因為您將補綴檔套用到錯\n"
+"誤的資料夾!"
 
 # ID:3857,#:
 # ID:3857,
@@ -5599,6 +5625,21 @@ msgstr "這個性質只能設置在資料夾上, 檔案不能."
 #: ID:15
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "這個性質不能有分行. 只能輸入單行資料."
+
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"如果您要送交所有子目錄並避免此錯誤,\n"
+"請確定選定資料夾下的所有檔案及資料夾\n"
+"在送交視窗中全部都有勾選.\n"
+"否則 TortoiseSVN 將會進行不含子目錄的送交,\n"
+"也不允許刪除目錄."
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -6368,6 +6409,11 @@ msgstr "增加的檔案"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "無名檔案"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "和"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
