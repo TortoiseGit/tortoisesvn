@@ -213,6 +213,7 @@ CSVNStatusCache::~CSVNStatusCache(void)
 	for (CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin(); I != m_pInstance->m_directoryCache.end(); ++I)
 	{
 		delete I->second;
+		I->second = NULL;
 	}
 }
 
@@ -241,12 +242,16 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 	if (cdir == NULL)
 		return false;
 	typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
-	for (ChildDirStatus::iterator it = cdir->m_childDirectories.begin(); it != cdir->m_childDirectories.end(); )
+	if (cdir->m_childDirectories.size())
 	{
-		CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(it->first);
-		RemoveCacheForDirectory(childdir);
-		cdir->m_childDirectories.erase(it->first);
-		it = cdir->m_childDirectories.begin();
+		ChildDirStatus::iterator it = cdir->m_childDirectories.begin();
+		for (; it != cdir->m_childDirectories.end(); )
+		{
+			CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(it->first);
+			RemoveCacheForDirectory(childdir);
+			cdir->m_childDirectories.erase(it->first);
+			it = cdir->m_childDirectories.begin();
+		}
 	}
 	m_directoryCache.erase(cdir->m_directoryPath);
 	ATLTRACE("removed path %ws from cache\n", cdir->m_directoryPath);
