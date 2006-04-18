@@ -248,12 +248,10 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 		if (m_bIgnoreAuthorCase)
 			sAuth = sAuth.MakeLower();
 		stdstring author = stdstring(sAuth);
-		if (authorcommits.find(author) != authorcommits.end())
-		{
-			authorcommits[author] += 1;
-		}
-		else
-			authorcommits[author] = 1;
+		std::map<stdstring, LONG>::iterator it = authorcommits.lower_bound(author);
+		if (it == authorcommits.end() || it->first != author)
+			it = authorcommits.insert(it, std::make_pair(author, 0));
+		it->second++;
 		nTotalCommits++;
 	}
 
@@ -323,12 +321,10 @@ void CStatGraphDlg::ShowCommitsByDate()
 		if (m_bIgnoreAuthorCase)
 			sAuth = sAuth.MakeLower();
 		stdstring author = stdstring(sAuth);
-		if (author_commits.find(author) != author_commits.end())
-		{
-			author_commits[author] += 1;
-		}
-		else
-			author_commits[author] = 1;
+		std::map<stdstring, LONG>::iterator it = author_commits.lower_bound(author);
+		if (it == author_commits.end() || it->first != author)
+			it = author_commits.insert(it, std::make_pair(author, 0));
+		it->second++;
 		nTotalCommits++;
 	}
 
@@ -386,8 +382,9 @@ void CStatGraphDlg::ShowCommitsByDate()
 			iter = authors.begin();
 			while (iter != authors.end())
 			{
-				if (authorcommits.find(iter->first) != authorcommits.end())
-					graphData->SetData(iter->second, authorcommits[iter->first]);
+				std::map<stdstring, LONG>::iterator ac_it = authorcommits.lower_bound(iter->first);
+				if (ac_it != authorcommits.end() && ac_it->first == iter->first)
+					graphData->SetData(iter->second, ac_it->second);
 				else
 					graphData->SetData(iter->second, 0);
 				iter++;
@@ -429,34 +426,23 @@ void CStatGraphDlg::ShowCommitsByDate()
 		if (m_bIgnoreAuthorCase)
 			sAuth = sAuth.MakeLower();
 		stdstring author = stdstring(sAuth);
-		if (authorcommits.find(author) != authorcommits.end())
-		{
-			if (authors.find(author) != authors.end())
-				authorcommits[author] += 1;
-			else
-				authorcommits[stdstring((LPCTSTR)sOthers)] += 1;
-		}
-		else
-		{
-			if (authors.find(author) != authors.end())
-				authorcommits[author] = 1;
-			else if (authorcommits.find(stdstring((LPCTSTR)sOthers)) == authorcommits.end())
-				authorcommits[stdstring((LPCTSTR)sOthers)] = 1;
-			else
-				authorcommits[stdstring((LPCTSTR)sOthers)] += 1;
-		}
+		if (authors.find(author) == authors.end())
+			author = stdstring((LPCTSTR)sOthers);
+		std::map<stdstring, LONG>::iterator ac_it = authorcommits.lower_bound(author);
+		if (ac_it == authorcommits.end() || ac_it->first != author)
+			ac_it = authorcommits.insert(ac_it, std::make_pair(author, 0));
+		ac_it->second++;
 	}
 
 	MyGraphSeries * graphData = new MyGraphSeries();
 	iter = authors.begin();
 	while (iter != authors.end())
 	{
-		if (authorcommits.find(iter->first) != authorcommits.end())
-		{
-			graphData->SetData(iter->second, authorcommits[iter->first]);
-		}
-		else
-			graphData->SetData(iter->second, 0);
+		int val = 0;
+		std::map<stdstring, LONG>::const_iterator it = authorcommits.lower_bound(iter->first);
+		if (it != authorcommits.end() && it->first == iter->first)
+			val = it->second;
+		graphData->SetData(iter->second, val);
 		iter++;
 	}
 
@@ -492,9 +478,10 @@ void CStatGraphDlg::ShowStats()
 		if (m_bIgnoreAuthorCase)
 			sAuth = sAuth.MakeLower();
 		stdstring author = stdstring(sAuth);
-		if (authors.find(author) == authors.end())
+		std::map<stdstring, LONG>::iterator it = authors.lower_bound(author);
+		if (it == authors.end() || it->first != author)
 		{
-			authors[author] = m_graph.AppendGroup(author.c_str());
+			authors.insert(it, std::make_pair(author, m_graph.AppendGroup(author.c_str())));
 			numAuthors++;
 		}
 	}
@@ -520,35 +507,37 @@ void CStatGraphDlg::ShowStats()
 		if (m_bIgnoreAuthorCase)
 			sAuth = sAuth.MakeLower();
 		stdstring author = stdstring(sAuth);
-		if (authorcommits.find(author) != authorcommits.end())
-		{
-			authorcommits[author] += 1;
-		}
-		else
-		{
-			authorcommits[author] = 1;
-		}
+		std::map<stdstring, LONG>::iterator it = authorcommits.lower_bound(author);
+		if (it == authorcommits.end() || it->first != author)
+			it = authorcommits.insert(it, std::make_pair(author, 0));
+		it->second++;
 		if (nCurrentWeek != GetWeek(time))
 		{
 			std::map<stdstring, LONG>::iterator iter;
 			iter = authors.begin();
 			while (iter != authors.end())
 			{
-				if (AuthorCommits.find(iter->first) == AuthorCommits.end())
-					AuthorCommits[iter->first] = 0;
-				if (AuthorCommitsMin.find(iter->first) == AuthorCommitsMin.end())
-					AuthorCommitsMin[iter->first] = -1;
-				if (AuthorCommitsMax.find(iter->first) == AuthorCommitsMax.end())
-					AuthorCommitsMax[iter->first] = 0;
-				if (authorcommits.find(iter->first) == authorcommits.end())
-					authorcommits[iter->first] = 0;
+				std::map<stdstring, LONG>::iterator AC_it = AuthorCommits.lower_bound(iter->first);
+				if (AC_it == AuthorCommits.end() || AC_it->first != iter->first)
+					AC_it = AuthorCommits.insert(AC_it, std::make_pair(iter->first, 0));
 
-				long ac = authorcommits[iter->first];
-				AuthorCommits[iter->first] += ac;
-				if ((AuthorCommitsMin[iter->first] == -1)||(AuthorCommitsMin[iter->first] > ac))
-					AuthorCommitsMin[iter->first] = ac;
-				if (AuthorCommitsMax[iter->first] < ac)
-					AuthorCommitsMax[iter->first] = ac;
+				std::map<stdstring, LONG>::iterator ACMIN_it = AuthorCommitsMin.lower_bound(iter->first);
+				if (ACMIN_it == AuthorCommitsMin.end() || ACMIN_it->first != iter->first)
+					ACMIN_it = AuthorCommitsMin.insert(ACMIN_it, std::make_pair(iter->first, -1));
+
+				std::map<stdstring, LONG>::iterator ACMAX_it = AuthorCommitsMax.lower_bound(iter->first);
+				if (ACMAX_it == AuthorCommitsMax.end() || ACMAX_it->first != iter->first)
+					ACMAX_it = AuthorCommitsMax.insert(ACMAX_it, std::make_pair(iter->first, 0));
+
+				std::map<stdstring, LONG>::iterator ac_it = authorcommits.lower_bound(iter->first);
+				if (ac_it == authorcommits.end() || ac_it->first != iter->first)
+					ac_it = authorcommits.insert(ac_it, std::make_pair(iter->first, 0));
+
+				AC_it->second += ac_it->second;
+				if (ACMIN_it->second == -1 || ACMIN_it->second > ac_it->second)
+					ACMIN_it->second = ac_it->second;
+				if (ACMAX_it->second < ac_it->second)
+					ACMAX_it->second = ac_it->second;
 				iter++;
 			}
 			authorcommits.clear();
@@ -576,21 +565,28 @@ void CStatGraphDlg::ShowStats()
 		iter = authors.begin();
 		while (iter != authors.end())
 		{
-			if (AuthorCommits.find(iter->first) == AuthorCommits.end())
-				AuthorCommits[iter->first] = 0;
-			if (AuthorCommitsMin.find(iter->first) == AuthorCommitsMin.end())
-				AuthorCommitsMin[iter->first] = -1;
-			if (AuthorCommitsMax.find(iter->first) == AuthorCommitsMax.end())
-				AuthorCommitsMax[iter->first] = 0;
-			if (authorcommits.find(iter->first) == authorcommits.end())
-				authorcommits[iter->first] = 0;
 
-			long ac = authorcommits[iter->first];
-			AuthorCommits[iter->first] += ac;
-			if ((AuthorCommitsMin[iter->first] == -1)||(AuthorCommitsMin[iter->first] > ac))
-				AuthorCommitsMin[iter->first] = ac;
-			if (AuthorCommitsMax[iter->first] < ac)
-				AuthorCommitsMax[iter->first] = ac;
+			std::map<stdstring, LONG>::iterator AC_it = AuthorCommits.lower_bound(iter->first);
+			if (AC_it == AuthorCommits.end() || AC_it->first != iter->first)
+				AC_it = AuthorCommits.insert(AC_it, std::make_pair(iter->first, 0));
+
+			std::map<stdstring, LONG>::iterator ACMIN_it = AuthorCommitsMin.lower_bound(iter->first);
+			if (ACMIN_it == AuthorCommitsMin.end() || ACMIN_it->first != iter->first)
+				ACMIN_it = AuthorCommitsMin.insert(ACMIN_it, std::make_pair(iter->first, -1));
+
+			std::map<stdstring, LONG>::iterator ACMAX_it = AuthorCommitsMax.lower_bound(iter->first);
+			if (ACMAX_it == AuthorCommitsMax.end() || ACMAX_it->first != iter->first)
+				ACMAX_it = AuthorCommitsMax.insert(ACMAX_it, std::make_pair(iter->first, 0));
+
+			std::map<stdstring, LONG>::iterator ac_it = authorcommits.lower_bound(iter->first);
+			if (ac_it == authorcommits.end() || ac_it->first != iter->first)
+				ac_it = authorcommits.insert(ac_it, std::make_pair(iter->first, 0));
+
+			AC_it->second += ac_it->second;
+			if (ACMIN_it->second == -1 || ACMIN_it->second > ac_it->second)
+				ACMIN_it->second = ac_it->second;
+			if (ACMAX_it->second < ac_it->second)
+				ACMAX_it->second = ac_it->second;
 			iter++;
 		}
 		authorcommits.clear();
@@ -636,41 +632,46 @@ void CStatGraphDlg::ShowStats()
 	number.Format(_T("%ld"), nFileChangesMin);
 	GetDlgItem(IDC_FILECHANGESEACHWEEKMIN)->SetWindowText(number);
 
-	std::map<stdstring, LONG>::iterator iter;
-	iter = AuthorCommits.begin();
-	stdstring mostauthor;
-	stdstring leastauthor;
-
-	if (iter != AuthorCommits.end())
+	if (AuthorCommits.empty())
 	{
-		mostauthor = iter->first;
-		leastauthor = iter->first;
+		GetDlgItem(IDC_MOSTACTIVEAUTHORNAME)->SetWindowText(_T(""));
+		GetDlgItem(IDC_MOSTACTIVEAUTHORAVG)->SetWindowText(_T("0"));
+		GetDlgItem(IDC_MOSTACTIVEAUTHORMAX)->SetWindowText(_T("0"));
+		GetDlgItem(IDC_MOSTACTIVEAUTHORMIN)->SetWindowText(_T("0"));
+		GetDlgItem(IDC_LEASTACTIVEAUTHORNAME)->SetWindowText(_T(""));
+		GetDlgItem(IDC_LEASTACTIVEAUTHORAVG)->SetWindowText(_T("0"));
+		GetDlgItem(IDC_LEASTACTIVEAUTHORMAX)->SetWindowText(_T("0"));
+		GetDlgItem(IDC_LEASTACTIVEAUTHORMIN)->SetWindowText(_T("0"));
 	}
-	while (iter != AuthorCommits.end())
+	else // AuthorCommits isn't empty
 	{
-		if (AuthorCommits[mostauthor] < iter->second)
-			mostauthor = iter->first;
+		std::map<stdstring, LONG>::const_iterator iter, most_it, least_it;
+		iter = most_it = least_it = AuthorCommits.begin();
+		while (iter != AuthorCommits.end())
+		{
+			if (most_it->second < iter->second)
+				most_it = iter;
+			if (least_it->second > iter->second)
+				least_it = iter;
+			iter++;
+		}
+		// assuming AuthorCommitsMax and AuthorCommitsMin aren't empty too
+		GetDlgItem(IDC_MOSTACTIVEAUTHORNAME)->SetWindowText(most_it->first.c_str());
+		number.Format(_T("%ld"), most_it->second / nWeeks);
+		GetDlgItem(IDC_MOSTACTIVEAUTHORAVG)->SetWindowText(number);
+		number.Format(_T("%ld"), AuthorCommitsMax[most_it->first]);
+		GetDlgItem(IDC_MOSTACTIVEAUTHORMAX)->SetWindowText(number);
+		number.Format(_T("%ld"), AuthorCommitsMin[most_it->first]);
+		GetDlgItem(IDC_MOSTACTIVEAUTHORMIN)->SetWindowText(number);
 
-		if (AuthorCommits[leastauthor] > iter->second)
-			leastauthor = iter->first;
-
-		iter++;
+		GetDlgItem(IDC_LEASTACTIVEAUTHORNAME)->SetWindowText(least_it->first.c_str());
+		number.Format(_T("%ld"), least_it->second / nWeeks);
+		GetDlgItem(IDC_LEASTACTIVEAUTHORAVG)->SetWindowText(number);
+		number.Format(_T("%ld"), AuthorCommitsMax[least_it->first]);
+		GetDlgItem(IDC_LEASTACTIVEAUTHORMAX)->SetWindowText(number);
+		number.Format(_T("%ld"), AuthorCommitsMin[least_it->first]);
+		GetDlgItem(IDC_LEASTACTIVEAUTHORMIN)->SetWindowText(number);
 	}
-	GetDlgItem(IDC_MOSTACTIVEAUTHORNAME)->SetWindowText(mostauthor.c_str());
-	number.Format(_T("%ld"), AuthorCommits[mostauthor] / nWeeks);
-	GetDlgItem(IDC_MOSTACTIVEAUTHORAVG)->SetWindowText(number);
-	number.Format(_T("%ld"), AuthorCommitsMax[mostauthor]);
-	GetDlgItem(IDC_MOSTACTIVEAUTHORMAX)->SetWindowText(number);
-	number.Format(_T("%ld"), AuthorCommitsMin[mostauthor]);
-	GetDlgItem(IDC_MOSTACTIVEAUTHORMIN)->SetWindowText(number);
-
-	GetDlgItem(IDC_LEASTACTIVEAUTHORNAME)->SetWindowText(leastauthor.c_str());
-	number.Format(_T("%ld"), AuthorCommits[leastauthor] / nWeeks);
-	GetDlgItem(IDC_LEASTACTIVEAUTHORAVG)->SetWindowText(number);
-	number.Format(_T("%ld"), AuthorCommitsMax[leastauthor]);
-	GetDlgItem(IDC_LEASTACTIVEAUTHORMAX)->SetWindowText(number);
-	number.Format(_T("%ld"), AuthorCommitsMin[leastauthor]);
-	GetDlgItem(IDC_LEASTACTIVEAUTHORMIN)->SetWindowText(number);
 }
 
 void CStatGraphDlg::OnCbnSelchangeGraphcombo()

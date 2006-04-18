@@ -32,9 +32,10 @@ static TSymbolEngineMap g_cSymMap;
 
 static CSymbolEngine & GetSymbolEngine()
 {
+	DWORD CurrProcessId = GetCurrentProcessId();
 	TSymbolEngineMap::iterator	iter;
-	iter = g_cSymMap.find(GetCurrentProcessId());
-	if (iter == g_cSymMap.end()) {
+	iter = g_cSymMap.lower_bound(CurrProcessId);
+	if (iter == g_cSymMap.end() || iter->first != CurrProcessId) {
 		CSymbolEngine	cSym;
 	    HANDLE hProcess = GetCurrentProcess ( ) ;
         DWORD dwOpts = SymGetOptions ( ) ;
@@ -42,7 +43,8 @@ static CSymbolEngine & GetSymbolEngine()
         // Turn on load lines.
         SymSetOptions ( dwOpts                |
 						SYMOPT_LOAD_LINES      ) ;
-        if ( FALSE == g_cSymMap[GetCurrentProcessId()].SymInitialize ( hProcess ,
+		iter = g_cSymMap.insert(iter, std::make_pair(CurrProcessId, CSymbolEngine()));
+		if ( FALSE == iter->second.SymInitialize ( hProcess ,
                                              NULL     ,
                                              TRUE     ) )
             {
@@ -54,7 +56,7 @@ static CSymbolEngine & GetSymbolEngine()
 #endif
             }
       }
-	return g_cSymMap[GetCurrentProcessId()];
+	return iter->second;
 }
 
 static DWORD __stdcall GetModBase ( HANDLE hProcess , DWORD dwAddr )

@@ -688,10 +688,10 @@ UINT CSVNProgressDlg::ProgressThread()
 							if (st.status->entry->uuid)
 							{
 								uuid = st.status->entry->uuid;
-								UuidMap::const_iterator iter;
-								if ((iter = uuidmap.find(uuid)) == uuidmap.end())
+								UuidMap::iterator iter = uuidmap.lower_bound(uuid);
+								if (iter == uuidmap.end() || iter->first != uuid)
 								{
-									uuidmap[uuid] = headrev;
+									uuidmap.insert(iter, std::make_pair(uuid, headrev));
 									nUUIDs++;
 								}
 								else

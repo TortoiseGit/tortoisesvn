@@ -827,17 +827,15 @@ bool CRevisionGraph::Cleanup(CStringA url, bool bArrangeByPath)
 			if (reventry->url)
 			{
 				std::string surl(reventry->url);
-				std::map<std::string, view>::iterator findit = pathmap.find(surl);
-				view myview;
-				myview.count = 1;
-				myview.level = 0;
-				if (findit==pathmap.end())
-					pathmap[surl] = myview;
-				else
+				std::map<std::string, view>::iterator findit = pathmap.lower_bound(surl);
+				if (findit == pathmap.end() || findit->first != surl)
 				{
-					// that URL already is in the map, so just increase its count
-					findit->second.count++;
+					findit = pathmap.insert(findit, std::make_pair(surl, view()));
+					findit->second.count = 0;
+					findit->second.level = 0;
 				}
+				// that URL already is in the map, so just increase its count
+				findit->second.count++;
 			}
 		}
 
@@ -877,17 +875,13 @@ bool CRevisionGraph::Cleanup(CStringA url, bool bArrangeByPath)
 			CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
 			if ((lev = pathmap.find(std::string(reventry->url))) != pathmap.end())
 			{
-				std::map<int, int>::iterator levelit = levelmap.find(lev->second.level);
-				if (levelit!=levelmap.end())
+				std::map<int, int>::iterator levelit = levelmap.lower_bound(lev->second.level);
+				if (levelit == levelmap.end() || levelit->first != lev->second.level)
 				{
-					reventry->level = levelit->second;
-				}
-				else
-				{
-					reventry->level = reallevel;
-					levelmap[lev->second.level] = reallevel;
+					levelit = levelmap.insert(levelit, std::make_pair(lev->second.level, reallevel));
 					++reallevel;
 				}
+				reventry->level = levelit->second;
 			}
 			else
 				ATLASSERT(FALSE);

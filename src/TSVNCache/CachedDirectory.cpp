@@ -716,7 +716,9 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 		{
 			CTSVNPath filePath(m_directoryPath);
 			filePath.AppendPathString(itMembers->first);
-			if ((!filePath.IsEquivalentTo(m_directoryPath))&&(refreshedpaths.find(filePath)==refreshedpaths.end()))
+			std::set<CTSVNPath>::iterator refr_it;
+			if ((!filePath.IsEquivalentTo(m_directoryPath))&&
+				(((refr_it = refreshedpaths.lower_bound(filePath)) == refreshedpaths.end()) || !filePath.IsEquivalentTo(*refr_it)))
 			{
 				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 				{
@@ -726,7 +728,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 					// So start the loop again, but add this path to the refreshedpaths set
 					// to make sure we don't refresh this path again. This is to make sure
 					// that we don't end up in an endless loop.
-					refreshedpaths.insert(filePath);
+					refreshedpaths.insert(refr_it, filePath);
 					itMembers = m_entryCache.begin();
 					if (m_entryCache.size()==0)
 						return;

@@ -264,8 +264,9 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						int sel = ListView_GetSelectionMark(lvh);
 						ListView_GetItemTextEx(lvh, sel, 0, buf);
 						SetDlgItemText(m_hwnd, IDC_EDITNAME, buf);
-						if (propmap.find(stdstring(buf)) != propmap.end())
-							SetDlgItemText(m_hwnd, IDC_EDITVALUE, propmap.find(stdstring(buf))->second.c_str());
+						std::map<stdstring, stdstring>::const_iterator it;
+						if ((it = propmap.find(stdstring(buf))) != propmap.end())
+							SetDlgItemText(m_hwnd, IDC_EDITVALUE, it->second.c_str());
 						delete [] buf;
 					} // if (count > 0) 
 					else
