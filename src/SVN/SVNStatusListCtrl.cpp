@@ -871,6 +871,11 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 				}
 				AddEntry(entry, langID, listIndex++);
 			}
+			else if (entry->switched)
+			{
+				m_arListArray.push_back(i);
+				AddEntry(entry, langID, listIndex++);
+			}
 		}
 	}
 
