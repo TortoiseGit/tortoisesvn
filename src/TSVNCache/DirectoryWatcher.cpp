@@ -59,7 +59,8 @@ CDirectoryWatcher::CDirectoryWatcher(void) :
 CDirectoryWatcher::~CDirectoryWatcher(void)
 {
 	InterlockedExchange(&m_bRunning, FALSE);
-	CloseHandle(m_hThread);
+	if (m_hThread != INVALID_HANDLE_VALUE)
+		CloseHandle(m_hThread);
 	AutoLocker lock(m_critSec);
 	ClearInfoMap();
 }
@@ -67,9 +68,11 @@ CDirectoryWatcher::~CDirectoryWatcher(void)
 void CDirectoryWatcher::Stop()
 {
 	InterlockedExchange(&m_bRunning, FALSE);
-	CloseHandle(m_hThread);
+	if (m_hThread != INVALID_HANDLE_VALUE)
+		CloseHandle(m_hThread);
 	m_hThread = INVALID_HANDLE_VALUE;
-	CloseHandle(m_hCompPort);
+	if (m_hCompPort != INVALID_HANDLE_VALUE)
+		CloseHandle(m_hCompPort);
 	m_hCompPort = INVALID_HANDLE_VALUE;
 }
 
@@ -382,7 +385,9 @@ void CDirectoryWatcher::ClearInfoMap()
 		}
 	}
 	watchInfoMap.clear();
-	CloseHandle(m_hCompPort);
+	if (m_hCompPort != INVALID_HANDLE_VALUE)
+		CloseHandle(m_hCompPort);
+	m_hCompPort = INVALID_HANDLE_VALUE;
 }
 
 CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
@@ -399,7 +404,9 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 		info->CloseDirectoryHandle();
 	}
 	watchInfoMap.clear();
-	CloseHandle(m_hCompPort);
+	if (m_hCompPort != INVALID_HANDLE_VALUE)
+		CloseHandle(m_hCompPort);
+	m_hCompPort = INVALID_HANDLE_VALUE;
 	return path;
 }
 
