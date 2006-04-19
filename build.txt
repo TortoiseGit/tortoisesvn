@@ -31,10 +31,6 @@ Next you need to install some utilities/programs:
 - Get the WiX Core Toolset from http://wix.sourceforge.net and unzip
   them. (*). Then add it to the PATH environment variable.
 - Get WiX Votive from http://wix.sourceforge.net and install it.
-- If you want to include the dictionary and thesaurus in the installer/languagepacks,
-  then you have to download those from http://lingucomponent.openoffice.org/.
-  Important: Only the thesaurus in the format for OO2 will work! Earlier versions
-  will crash TSVN!!
 - Get NSIS from http://nsis.sourceforge.net and install it.
 - Install the latest Nant release. Get it from http://nant.sourceforge.net
 - Add the Nant bin folder to the PATH environment variable.
@@ -49,9 +45,12 @@ You may have to logoff/logon to make the new environment variables take effect!
   the folder from openssl-0.9.xx to openssl
 - Download the zlib source from 
   http://www.gzip.org/zlib/ and unzip it to SVN\common\zlib
-- The dictionary files should be placed in SVN\common\Spell
-  Note: the names of the files are important! They have to be
-  en_US.aff, en_US.dic, en_GB.aff and en_GB.dic.
+- If you want to include the dictionary and thesaurus in the installer/languagepacks,
+  then you have to download those from http://lingucomponent.openoffice.org/
+  and put the files in SVN\common\Spell Note: the names of the files are important!
+  They have to be en_US.aff, en_US.dic, en_GB.aff and en_GB.dic.
+  Important: Only the thesaurus in the format for OO2 will work! Earlier versions
+  will crash TSVN!!
 - Checkout the TortoiseSVN sources from the Subversion repository into
   SVN\TortoiseSVN
 - Download the tools to build the TSVN docs from 
