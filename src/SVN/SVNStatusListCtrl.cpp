@@ -293,6 +293,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		m_nSortedColumn = 0;
 		m_bBlock = TRUE;
 		m_bBusy = true;
+		Invalidate();
 
 		// first clear possible status data left from
 		// previous GetStatus() calls
