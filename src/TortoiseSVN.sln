@@ -38,8 +38,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseMergeLang", "TortoiseMerge\TortoiseMergeLang.vcproj", "{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72EFB681-1397-4193-BBF9-CA05AC52B75D} = {72EFB681-1397-4193-BBF9-CA05AC52B75D}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseProcLang", "TortoiseProc\TortoiseProcLang.vcproj", "{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72EFB681-1397-4193-BBF9-CA05AC52B75D} = {72EFB681-1397-4193-BBF9-CA05AC52B75D}
+	EndProjectSection
 EndProject
 Project("{A49CE20D-CE64-4A08-9F24-92A6443D6699}") = "WiXSetup", "TortoiseSVNSetup\WiXSetup.wixproj", "{E6749100-E168-457A-B680-BAADAF573D75}"
 EndProject
