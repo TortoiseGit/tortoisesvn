@@ -215,6 +215,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(strUrl, this);
 			if (browser.DoModal() == IDOK)
 			{
+				m_URLCombo.SetCurSel(-1);
 				m_URLCombo.SetWindowText(browser.GetPath());
 			}
 		}
@@ -227,6 +228,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 			{
 				SVN::PathToUrl(strUrl);
 
+				m_URLCombo.SetCurSel(-1);
 				m_URLCombo.SetWindowText(strUrl);
 			}
 		}
@@ -240,6 +242,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(strUrl, this);
 		if (browser.DoModal() == IDOK)
 		{
+			m_URLCombo.SetCurSel(-1);
 			m_URLCombo.SetWindowText(browser.GetPath());
 		}
 	}
@@ -252,6 +255,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 		{
 			SVN::PathToUrl(strUrl);
 
+			m_URLCombo.SetCurSel(-1);
 			m_URLCombo.SetWindowText(strUrl);
 		}
 	}
@@ -312,7 +316,7 @@ void CCheckoutDlg::OnBnClickedShowlog()
 	{
 		delete [] m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
-		m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_WC, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
+		m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
 		m_pLogDlg->m_wParam = 1;
 		m_pLogDlg->SetSelect(true);
 		m_pLogDlg->m_pNotifyWindow = this;

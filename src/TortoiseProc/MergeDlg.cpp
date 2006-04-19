@@ -261,9 +261,13 @@ void CMergeDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(strUrl, this, m_bFile);
 			if (browser.DoModal() == IDOK)
 			{
+				m_URLCombo.SetCurSel(-1);
 				m_URLCombo.SetWindowText(browser.GetPath());
 				if (m_bUseFromURL)
+				{
+					m_URLCombo2.SetCurSel(-1);
 					m_URLCombo2.SetWindowText(browser.GetPath());
+				}
 			}
 		}
 		else
@@ -275,9 +279,13 @@ void CMergeDlg::OnBnClickedBrowse()
 			{
 				SVN::PathToUrl(strUrl);
 
+				m_URLCombo.SetCurSel(-1);
 				m_URLCombo.SetWindowText(strUrl);
 				if (m_bUseFromURL)
+				{
+					m_URLCombo2.SetCurSel(-1);
 					m_URLCombo2.SetWindowText(strUrl);
+				}
 			}
 		}
 	}
@@ -290,9 +298,13 @@ void CMergeDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(strUrl, this, m_bFile);
 		if (browser.DoModal() == IDOK)
 		{
+			m_URLCombo.SetCurSel(-1);
 			m_URLCombo.SetWindowText(browser.GetPath());
 			if (m_bUseFromURL)
+			{
+				m_URLCombo2.SetCurSel(-1);
 				m_URLCombo2.SetWindowText(browser.GetPath());
+			}
 		}
 	} 
 	else
@@ -304,9 +316,13 @@ void CMergeDlg::OnBnClickedBrowse()
 		{
 			SVN::PathToUrl(strUrl);
 
+			m_URLCombo.SetCurSel(-1);
 			m_URLCombo.SetWindowText(strUrl);
 			if (m_bUseFromURL)
+			{
+				m_URLCombo2.SetCurSel(-1);
 				m_URLCombo2.SetWindowText(strUrl);
+			}
 		}
 	}
 }
@@ -327,6 +343,7 @@ void CMergeDlg::OnBnClickedBrowse2()
 			CRepositoryBrowser browser(strUrl, this, m_bFile);
 			if (browser.DoModal() == IDOK)
 			{
+				m_URLCombo2.SetCurSel(-1);
 				m_URLCombo2.SetWindowText(browser.GetPath());
 			}
 		}
@@ -339,6 +356,7 @@ void CMergeDlg::OnBnClickedBrowse2()
 			{
 				SVN::PathToUrl(strUrl);
 
+				m_URLCombo2.SetCurSel(-1);
 				m_URLCombo2.SetWindowText(strUrl);
 			}
 		}
@@ -352,6 +370,7 @@ void CMergeDlg::OnBnClickedBrowse2()
 		CRepositoryBrowser browser(strUrl, this, m_bFile);
 		if (browser.DoModal() == IDOK)
 		{
+			m_URLCombo2.SetCurSel(-1);
 			m_URLCombo2.SetWindowText(browser.GetPath());
 		}
 	} 
@@ -364,6 +383,7 @@ void CMergeDlg::OnBnClickedBrowse2()
 		{
 			SVN::PathToUrl(strUrl);
 
+			m_URLCombo2.SetCurSel(-1);
 			m_URLCombo2.SetWindowText(strUrl);
 		}
 	}
@@ -505,6 +525,7 @@ void CMergeDlg::OnCbnEditchangeUrlcombo()
 	{
 		CString str;
 		m_URLCombo.GetWindowText(str);
+		m_URLCombo2.SetCurSel(-1);
 		m_URLCombo2.SetWindowText(str);
 	}
 }

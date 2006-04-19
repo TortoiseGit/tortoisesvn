@@ -164,6 +164,9 @@
        message was shown. See issue #237 for details. (Stefan)
 - BUG: TortoiseMerge could crash when diffing files with 
        inconsistent and MAC newlines. (Stefan)
+- BUG: In dialogs where an URL is requested and that URL changed by
+       using the "..." button and the repository browser, that URL
+       wasn't used correctly. (Stefan)
 
 Version 1.3.4
 - BUG: When committing added files only, the log message wasn't saved

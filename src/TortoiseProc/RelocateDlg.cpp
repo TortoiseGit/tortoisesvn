@@ -82,6 +82,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(m_sToUrl, this);
 			if (browser.DoModal() == IDOK)
 			{
+				m_URLCombo.SetCurSel(-1);
 				m_URLCombo.SetWindowText(browser.GetPath());
 			}
 		}
@@ -93,6 +94,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 			if (folderBrowser.Show(GetSafeHwnd(), m_sToUrl) == CBrowseFolder::OK)
 			{
 				SVN::PathToUrl(m_sToUrl);
+				m_URLCombo.SetCurSel(-1);
 				m_URLCombo.SetWindowText(m_sToUrl);
 			}
 		}
@@ -106,6 +108,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(m_sToUrl, this);
 		if (browser.DoModal() == IDOK)
 		{
+			m_URLCombo.SetCurSel(-1);
 			m_URLCombo.SetWindowText(browser.GetPath());
 		}
 	}
@@ -117,6 +120,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 		if (folderBrowser.Show(GetSafeHwnd(), m_sToUrl) == CBrowseFolder::OK)
 		{
 			SVN::PathToUrl(m_sToUrl);
+			m_URLCombo.SetCurSel(-1);
 			m_URLCombo.SetWindowText(m_sToUrl);
 		}
 	}

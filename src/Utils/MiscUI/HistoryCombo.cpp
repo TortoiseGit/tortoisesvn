@@ -290,7 +290,10 @@ CString CHistoryCombo::GetString() const
 	int sel;
 	sel = GetCurSel();
 	if (sel == CB_ERR)
+	{
+		GetWindowText(str);
 		return str;
+	}
 	if ((m_bURLHistory)||(m_bPathHistory))
 	{
 		//URL and path history comboboxes are editable, so get
