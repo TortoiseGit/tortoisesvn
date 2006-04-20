@@ -77,6 +77,7 @@ public:
 
 	size_t GetCacheSize() {return m_directoryCache.size();}
 
+	void Init();
 	void Stop();
 
 	void CloseWatcherHandles(HDEVNOTIFY hdev);

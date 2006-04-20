@@ -190,6 +190,12 @@ void CSVNStatusCache::Stop()
 	m_shellUpdater.Stop();
 }
 
+void CSVNStatusCache::Init()
+{
+	m_folderCrawler.Initialise();
+	m_shellUpdater.Initialise();
+}
+
 CSVNStatusCache::CSVNStatusCache(void)
 {
 	TCHAR path[MAX_PATH];
@@ -203,9 +209,6 @@ CSVNStatusCache::CSVNStatusCache(void)
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	SHGetFolderPath(NULL, CSIDL_WINDOWS, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
-
-	m_folderCrawler.Initialise();
-	m_shellUpdater.Initialise();
 }
 
 CSVNStatusCache::~CSVNStatusCache(void)
@@ -272,6 +275,7 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 		dirtoremove = itMap->second;
 	if (dirtoremove == NULL)
 		return;
+	ATLASSERT(path.IsEquivalentTo(dirtoremove->m_directoryPath));
 	RemoveCacheForDirectory(dirtoremove);
 }
 

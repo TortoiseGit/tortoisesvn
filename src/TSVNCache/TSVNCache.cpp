@@ -140,6 +140,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	apr_initialize();
 	g_SVNAdminDir.Init();
 	CSVNStatusCache::Create();
+	CSVNStatusCache::Instance().Init();
 
 	ZeroMemory(szCurrentCrawledPath, sizeof(szCurrentCrawledPath));
 	
