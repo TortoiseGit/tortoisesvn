@@ -52,6 +52,10 @@ public:
 	 * returns false.
 	 */
 	bool AddPath(const CTSVNPath& path);
+	/**
+	 * Removes a path and all its children from the watched list.
+	 */
+	bool RemovePathAndChildren(const CTSVNPath& path);
 	
 	/**
 	 * Returns the number of recursively watched paths.
