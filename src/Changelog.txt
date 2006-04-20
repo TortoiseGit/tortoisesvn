@@ -164,9 +164,6 @@
        message was shown. See issue #237 for details. (Stefan)
 - BUG: TortoiseMerge could crash when diffing files with 
        inconsistent and MAC newlines. (Stefan)
-- BUG: In dialogs where an URL is requested and that URL changed by
-       using the "..." button and the repository browser, that URL
-       wasn't used correctly. (Stefan)
 
 Version 1.3.4
 - BUG: When committing added files only, the log message wasn't saved
@@ -178,6 +175,9 @@ Version 1.3.4
 - BUG: TortoiseMerge could report an error when applying a patch which
        had files with too similar names in it. The error was 
        "The file X was found twice!?! ...". (Stefan)
+- BUG: In dialogs where an URL is requested and that URL changed by
+       using the "..." button and the repository browser, that URL
+       wasn't used correctly. (Stefan)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the
