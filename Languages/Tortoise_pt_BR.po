@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-09 14:17-0300\n"
+"PO-Revision-Date: 2006-03-11 20:00-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -218,6 +218,7 @@ msgstr "&Sobre o TortoiseMerge..."
 
 # Control-ID:1098,
 #: ID:8
+#: ID:563
 #: Control-ID:1098
 msgid "&Add..."
 msgstr "&Adicionar..."
@@ -358,7 +359,6 @@ msgstr "&Simulação"
 
 # Control-ID:1031,
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "&Editar"
@@ -369,7 +369,9 @@ msgid "&Edit conflicts"
 msgstr "&Editar Conflitos"
 
 # Control-ID:1099,
+#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Editar..."
 
@@ -446,6 +448,7 @@ msgstr "&Revisão Mais Recente"
 # Control-ID:1019,
 #: Control-ID:1032
 #: Control-ID:1019
+#: Control-ID:1034
 msgid "&HEAD revision"
 msgstr "&Revisão Mais Recente"
 
@@ -502,7 +505,7 @@ msgstr "&Saltar para a primeira diferença ao carregar"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Language:"
-msgstr "&Linguagem:"
+msgstr "&Idioma:"
 
 # ID:188,
 #: Control-ID:1172
@@ -625,6 +628,7 @@ msgstr "&Reverter as alterações desta revisão"
 # Control-ID:1033,
 #: Control-ID:1033
 #: Control-ID:1116
+#: Control-ID:1035
 msgid "&Revision"
 msgstr "&Revisão"
 
@@ -1425,7 +1429,7 @@ msgstr "Automático"
 # ID:201,
 #: Control-ID:1073
 msgid "Automatically check for &newer versions every week"
-msgstr "Verificar automaticamente por &novas versões, a cada semana"
+msgstr "Verificar, semanalmente, se existem &novas versões"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1675,7 +1679,7 @@ msgstr "Verifique o caminho e/ou a URL entrados."
 # Control-ID:65535,
 #: ID:194
 msgid "Check those menu entries you want to appear in the submenu instead of the top context menu"
-msgstr "Marque aquelas entradas de menu que você quer que apareça no submenu ao invés do menu do nível superior"
+msgstr "Marque as entradas de menu que você quer que apareçam no submenu ao invés do menu de contexto superior"
 
 # ID:80,
 #: ID:80
@@ -1722,21 +1726,21 @@ msgstr "Limpar"
 
 # ID:196,
 #: ID:196
-#, c-format
+#, fuzzy, c-format
 msgid "Clears %ld URLs stored for %ld working copies"
-msgstr ""
+msgstr "Limpar %ld URLs armazenadas parar %ld cópias de trabalho"
 
 # ID:196,
 #: ID:196
-#, c-format
+#, fuzzy, c-format
 msgid "Clears %ld log messages stored for %ld working copies"
-msgstr ""
+msgstr "Limpar %ld mensagens de log armazenadas para %ld cópias de trabalho"
 
 # ID:196,
 #: ID:196
 #, c-format
 msgid "Clears %ld username/password pairs, %ld ssl certificates and %ld usernames"
-msgstr ""
+msgstr "Limpar %ld pares usuário/senha, %ld certificados ssl e %ld usuários"
 
 # ID:195,
 #: ID:195
@@ -1751,7 +1755,7 @@ msgstr ""
 #: ID:196
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr ""
+msgstr "Limapr os tamanhos e posições salvos de %ld diálogos"
 
 # ID:170,
 #: ID:170
@@ -2467,6 +2471,14 @@ msgstr ""
 "Habilita o verificador ortográfico apenas quando\n"
 "a propriedade tsvn:projectlanguage estiver ativa."
 
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "End Revision"
+msgstr "Revisão"
+
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
@@ -2900,7 +2912,7 @@ msgstr ""
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Se habilitado, o TortoiseSVN verifica uma vez por semana se uma nova versão está disponível"
+msgstr "Se habilitado, o TortoiseSVN verifica semanalmente se existe nova versão disponível"
 
 # ID:195,
 #: ID:195
@@ -3594,8 +3606,9 @@ msgstr "Não há correções de ortografia"
 
 # ID:196,
 #: ID:196
+#, fuzzy
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr ""
+msgstr "Sem cache de status. Apenas as pastas com controle de versão são sobrepostas, os arquivos não são"
 
 # ID:188,
 #: ID:188
@@ -4392,6 +4405,12 @@ msgid "Revision Graph"
 msgstr "Gráfico de Revisões"
 
 # ID:75,
+#: Dlg-ID:228
+#, fuzzy
+msgid "Revision Range"
+msgstr "Revisão:"
+
+# ID:75,
 #: ID:269
 #: Control-ID:65535
 msgid "Revision graph"
@@ -4798,9 +4817,16 @@ msgid "Short URL of Subversion items"
 msgstr "URL Curta de itens do Subversion"
 
 # Control-ID:1016,
+#: ID:115
 #: Control-ID:1031
 msgid "Show &All"
 msgstr "Mostr&ar Tudo"
+
+# Control-ID:1031,
+#: ID:115
+#, fuzzy
+msgid "Show &Range..."
+msgstr "Exibir mensagens de &log..."
 
 # ID:76,
 #: MenuEntry
@@ -4919,8 +4945,9 @@ msgstr "Mostrar todos os arquivos que foram alterados deste a última atualizaç
 
 # ID:2050,
 #: ID:2050
+#, fuzzy
 msgid "Shows all revisions where changes were made to this item"
-msgstr ""
+msgstr "Mostrar todas as revisões em que esse ítem foi alterado"
 
 # ID:10,
 #: ID:10
@@ -4988,6 +5015,12 @@ msgstr ""
 msgid "Stacked"
 msgstr "Sobreposto"
 
+# ID:11,
+#: Control-ID:65535
+#, fuzzy
+msgid "Start Revision"
+msgstr "SVN Revisão"
+
 # ID:74,#:
 # ID:77,
 #: ID:245
@@ -5022,7 +5055,7 @@ msgstr ""
 # ID:196,
 #: ID:196
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr ""
+msgstr "Cache de status para apenas uma pasta, sem sobreposições recursivas"
 
 # ID:11,
 #: ID:11
