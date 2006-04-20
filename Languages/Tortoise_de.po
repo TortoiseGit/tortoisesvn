@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-04-11 10:26+0100\n"
+"PO-Revision-Date: 2006-04-20 10:05+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -402,9 +402,9 @@ msgstr "&Symbole"
 msgid "&Ignore %d items"
 msgstr "&Ignoriere %d Objekte"
 
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "&Ignoriere führende Leerzeichen"
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "&Leerzeichenänderungen ignorieren"
 
 #: ID:9
 msgid "&Import..."
@@ -838,6 +838,7 @@ msgid "Access to %1 was denied."
 msgstr "Zugriff auf %1 wurde verweigert."
 
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "Aktion"
 
@@ -886,6 +887,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Diff/Merge Programm für Dateityp bearbeiten/hinzufügen"
 
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "Hinzugefügt"
@@ -1272,6 +1274,11 @@ msgstr "SVN Annotieren abbrechen..."
 msgid "Cancelling operation..."
 msgstr "Operation abbrechen..."
 
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "Kann die Unterschiede aufgrund inkonsistenter Zeilenumbrüche in der Datei nicht anzeigen."
+
 #: Control-ID:65535
 msgid "Cascaded context menu"
 msgstr "TortoiseSVN Kontextmenü"
@@ -1467,10 +1474,6 @@ msgstr "Farben"
 #: ID:3857
 msgid "Command failed."
 msgstr "Befehl konnte nicht ausgeführt werden."
-
-#: ID:319
-msgid "Comment"
-msgstr "Kommentar"
 
 #: ID:209
 #: Control-ID:1083
@@ -1801,6 +1804,7 @@ msgid "Default &number of log messages"
 msgstr "A&nzahl der angezeigten Meldungen"
 
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "Gelöscht"
 
@@ -1827,6 +1831,11 @@ msgstr "Dialoggrößen und -positionen"
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Diffdatei:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "Unterschiede zwischen"
 
 #: Control-ID:1022
 msgid "Diffing"
@@ -2466,7 +2475,7 @@ msgstr "Sie können die Sperre im \"Auf Änderungen prüfen\" Dialog aufbrechen.
 msgid "Ignore"
 msgstr "Ignorieren"
 
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "Ignoriere &alle Leerzeichen"
 
@@ -2477,10 +2486,6 @@ msgstr "&Groß- / Kleinschreibung ignorieren"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Vorfahren ignorieren"
-
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "Ignoriere &folgende Leerzeichen"
 
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -2864,6 +2869,7 @@ msgid "Mixed"
 msgstr "Gemischt"
 
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "Verändert"
 
@@ -3020,6 +3026,7 @@ msgstr "Keine Thesaurusvorschläge"
 msgid "None"
 msgstr "Ohne"
 
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Normal"
@@ -3072,12 +3079,6 @@ msgstr "Eine oder mehrere Dateien befinden sich in einem Konfliktzustand."
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Nur den &obersten Ordner auschecken"
-
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "Nur in %s"
 
 #: ID:169
 msgid ""
@@ -3265,6 +3266,10 @@ msgstr "Bitte warten Sie auf den Abbruch..."
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Bitte warten Sie, während der Projektarchiv-Betrachter initialisiert wird..."
+
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "Bitte warten Sie während wir die Unterschiede holen..."
 
 #: ID:119
 #: ID:211
@@ -3490,11 +3495,6 @@ msgstr "Umbenennen"
 msgid "Rename %s"
 msgstr "%s Umbenennen"
 
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "Umbenannt von %s"
-
 #: Control-ID:65535
 msgid "Renamed node"
 msgstr "Knoten umbenannt"
@@ -3542,6 +3542,10 @@ msgstr "Projektarchiv"
 
 #: Dlg-ID:153
 msgid "Repository Browser"
+msgstr "Projektarchiv"
+
+#: Control-ID:65535
+msgid "Repository browser"
 msgstr "Projektarchiv"
 
 #: Control-ID:65535
@@ -3752,6 +3756,10 @@ msgstr "SVN Status"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN URL"
+
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 #: ID:14
 msgid "SVN mime-type"
@@ -4085,6 +4093,11 @@ msgstr "Zeigt alle Revisionen in denen Änderungen vorgenommen wurden."
 msgid "Shows information about TortoiseSVN"
 msgstr "Zeigt Informationen über TortoiseSVN an"
 
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "Zeigt den Wert der eol-style Eigenschaft"
+
 #: ID:12
 msgid "Shows the log for the selected file / folder"
 msgstr "Zeigt das Log der gewählten Datei / Ordner"
@@ -4104,6 +4117,11 @@ msgstr "Übersprungen"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Fehlendes Ziel übersprungen"
+
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "Numerisch sortieren"
 
 # ID:196,
 #: ID:196
@@ -4338,6 +4356,20 @@ msgstr "Die Datei %s existiert nicht!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Die Datei %s wurde in der Patch-Datei nicht gefunden!"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"Die Datei %s\n"
+"wurde zweimal gefunden!?!\n"
+"Das passiert, wenn Sie eine Patchdatei im falschen Ordner\n"
+"angewendet haben!"
 
 #: ID:3857
 msgid "The file is too large to open."
@@ -4618,11 +4650,17 @@ msgstr "Diese Eigenschaft darf nur eine Zeile haben."
 # ID:224,
 #: ID:224
 msgid ""
-"To commit recursively, make sure all versioned entries shown in the commit dialog are checked.\n"
-"If entries are not checked, TortoiseSVN must do a non-recursive commit."
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
 msgstr ""
-"Um rekursiv übertragen zu können, müssen alle versionierten Einträge im Übertragen-Dialog markiert sein.\n"
-"Wenn Einträge abgewählt sind, überträgt TortoiseSVN die Daten nicht-rekursiv."
+"Um rekursiv übertragen zu können und diesen Fehler zu umgehen,\n"
+"müssen alle Unterobjekte des markierten Ordners ebenfalls\n"
+"im Übertragen-Dialog markiert sein.\n"
+"Andernfalls muss TortoiseSVN die Daten nicht-rekursiv übertragen.\n"
+"Dabei ist das Löschen von Verzeichnissen nicht erlaubt."
 
 #: Control-ID:1201
 msgid "To:"
@@ -5266,6 +5304,11 @@ msgstr "Hinzugefügte Dateien"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "eine unbenannte Datei"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "und"
 
 #: Control-ID:1085
 msgid "and support the developers"
