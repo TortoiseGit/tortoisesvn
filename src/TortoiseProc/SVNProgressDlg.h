@@ -58,25 +58,6 @@ typedef enum
  * Handles different Subversion commands and shows the notify messages
  * in a listbox. Since several Subversion commands have similar notify
  * messages they are grouped together in this single class.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 10-20-2002
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class CSVNProgressDlg : public CResizableStandAloneDialog, SVN
 {
@@ -124,6 +105,7 @@ private:
 		// The text we put into the first column (the SVN action for normal items, just text for aux items)
 		CString					sActionColumnText;	
 		CTSVNPath				path;
+		CTSVNPath				basepath;
 
 		svn_wc_notify_action_t	action;
 		svn_node_kind_t			kind;
@@ -131,7 +113,7 @@ private:
 		svn_wc_notify_state_t	content_state;
 		svn_wc_notify_state_t	prop_state;
 		svn_wc_notify_lock_state_t lock_state;
-		LONG					rev;
+		svn_revnum_t			rev;
 		COLORREF				color;
 		CString					owner;						///< lock owner
 		bool					bConflictedActionItem;		// Is this item a conflict?
@@ -227,6 +209,7 @@ public:
 	SVNRev		m_RevisionEnd;
 
 private:
+	typedef std::map<CStringA, svn_revnum_t> StringRevMap;
 
 	typedef std::vector<NotificationData *> NotificationDataVect;
 	NotificationDataVect	m_arData;
@@ -241,7 +224,10 @@ private:
 	CString		m_sMessage;
 	SVNRev		m_Revision;
 	SVNRev		m_pegRev;
-	LONG		m_nUpdateStartRev;
+	
+	CTSVNPath	m_basePath;
+	StringRevMap m_UpdateStartRevMap;
+	StringRevMap m_FinishedRevMap;
 	BOOL		m_bCancelled;
 	volatile LONG m_bThreadRunning;
 	bool		m_bConflictsOccurred;

@@ -49,7 +49,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_bConflictsOccurred = FALSE;
 	m_bErrorsOccurred = FALSE;
 	m_bMergesAddsDeletesOccurred = FALSE;
-	m_nUpdateStartRev = -1;
 	m_pThread = NULL;
 	m_options = ProgOptNone;
 	m_dwCloseOnEnd = 0;
@@ -144,6 +143,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	if ((lock)&&(lock->owner))
 		data->owner = CUnicodeUtils::GetUnicode(lock->owner);
 	data->sPathColumnText = path.GetUIPathString();
+	if (!m_basePath.IsEmpty())
+		data->basepath = m_basePath;
 	switch (data->action)
 	{
 	case svn_wc_notify_add:
@@ -259,6 +260,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 				CSoundUtils::PlayTSVNWarning();
 				// This item will now be added after the switch statement
 			}
+			if (!m_basePath.IsEmpty())
+				m_FinishedRevMap[m_basePath.GetSVNApiPath()] = rev;
 			m_RevisionEnd = rev;
 
 		}
@@ -667,8 +670,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			int targetcount = m_targetPathList.GetCount();
 			CString sfile;
 			CStringA uuid;
-			typedef std::map<CStringA, LONG> UuidMap;
-			UuidMap uuidmap;
+			StringRevMap uuidmap;
 			bool bRecursive = !!(m_options & ProgOptRecursive);
 			SVNRev revstore = m_Revision;
 			int nUUIDs = 0;
@@ -684,11 +686,12 @@ UINT CSVNProgressDlg::ProgressThread()
 					{
 						if (st.status->entry != NULL)
 						{
-							m_nUpdateStartRev = st.status->entry->cmt_rev;
+
+							m_UpdateStartRevMap[targetPath.GetSVNApiPath()] = st.status->entry->cmt_rev;
 							if (st.status->entry->uuid)
 							{
 								uuid = st.status->entry->uuid;
-								UuidMap::iterator iter = uuidmap.lower_bound(uuid);
+								StringRevMap::iterator iter = uuidmap.lower_bound(uuid);
 								if (iter == uuidmap.end() || iter->first != uuid)
 								{
 									uuidmap.insert(iter, std::make_pair(uuid, headrev));
@@ -707,7 +710,7 @@ UINT CSVNProgressDlg::ProgressThread()
 						if ((headrev = st.GetStatus(targetPath, FALSE)) != (-2))
 						{
 							if (st.status->entry != NULL)
-								m_nUpdateStartRev = st.status->entry->cmt_rev;
+								m_UpdateStartRevMap[targetPath.GetSVNApiPath()] = st.status->entry->cmt_rev;
 						}
 					}
 				} // if (m_Revision.IsHead()) 
@@ -730,7 +733,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				for(int nItem = 0; nItem < targetcount; nItem++)
 				{
 					const CTSVNPath& targetPath = m_targetPathList[nItem];
-
+					m_basePath = targetPath;
 					if (!m_pSvn->Update(CTSVNPathList(targetPath), revstore, bRecursive, m_options & ProgOptIgnoreExternals))
 					{
 						ReportSVNError();
@@ -896,9 +899,9 @@ UINT CSVNProgressDlg::ProgressThread()
 				ReportSVNError();
 				break;
 			}
-			m_nUpdateStartRev = rev;
-			if ((m_RevisionEnd >= 0)&&(m_nUpdateStartRev >= 0)
-				&&((LONG)m_RevisionEnd > (LONG)m_nUpdateStartRev))
+			m_UpdateStartRevMap[m_targetPathList[0].GetSVNApiPath()] = rev;
+			if ((m_RevisionEnd >= 0)&&(rev >= 0)
+				&&((LONG)m_RevisionEnd > (LONG)rev))
 				GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 		}
 		break;
@@ -1071,8 +1074,10 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
 {
 	if (m_targetPathList.GetCount() != 1)
 		return;
+	StringRevMap::iterator it = m_UpdateStartRevMap.begin();
+	svn_revnum_t rev = it->second;
 	CLogDlg dlg;
-	dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_RevisionEnd, m_nUpdateStartRev, 0, TRUE);
+	dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_RevisionEnd, rev, 0, TRUE);
 	dlg.DoModal();
 }
 
@@ -1490,13 +1495,21 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							break;
 						case ID_COMPARE:
 							{
+								svn_revnum_t rev = -1;
+								StringRevMap::iterator it = m_UpdateStartRevMap.end();
+								if (data->basepath.IsEmpty())
+									it = m_UpdateStartRevMap.begin();
+								else
+									it = m_UpdateStartRevMap.find(data->basepath.GetSVNApiPath());
+								if (it != m_UpdateStartRevMap.end())
+									rev = it->second;
 								// if the file was merged during update, do a three way diff between OLD, MINE, THEIRS
 								if (data->content_state == svn_wc_notify_state_merged)
 								{
-									CTSVNPath basefile = CTempFiles::Instance().GetTempFilePath(true, data->path, m_nUpdateStartRev);
+									CTSVNPath basefile = CTempFiles::Instance().GetTempFilePath(true, data->path, rev);
 									CTSVNPath newfile = CTempFiles::Instance().GetTempFilePath(true, data->path, SVNRev::REV_HEAD);
 									SVN svn;
-									if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), m_nUpdateStartRev, basefile))
+									if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, basefile))
 									{
 										ReportSVNError();
 										GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -1520,16 +1533,16 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									SetFileAttributes(newfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 									SetFileAttributes(basefile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 									CString revname, wcname, basename;
-									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), m_nUpdateStartRev);
+									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), rev);
 									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
 									basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
 									CUtils::StartExtMerge(basefile, newfile, data->path, data->path, basename, revname, wcname, CString(), true);
 								}
 								else
 								{
-									CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, data->path, m_nUpdateStartRev);
+									CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, data->path, rev);
 									SVN svn;
-									if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), m_nUpdateStartRev, tempfile))
+									if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, tempfile))
 									{
 										ReportSVNError();
 										GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -1539,7 +1552,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									{
 										SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 										CString revname, wcname;
-										revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), m_nUpdateStartRev);
+										revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), rev);
 										wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
 										CUtils::StartExtDiff(tempfile, data->path, revname, wcname);
 									}
@@ -1617,8 +1630,15 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 								int limit = (int)(DWORD)reg;
+								svn_revnum_t rev = m_RevisionEnd;
+								if (!data->basepath.IsEmpty())
+								{
+									StringRevMap::iterator it = m_FinishedRevMap.find(data->basepath.GetSVNApiPath());
+									if (it != m_FinishedRevMap.end())
+										rev = it->second;
+								}
 								CLogDlg dlg;
-								dlg.SetParams(data->path, SVNRev(), m_RevisionEnd, 1, limit, TRUE);
+								dlg.SetParams(data->path, SVNRev(), rev, 1, limit, TRUE);
 								dlg.DoModal();
 							}
 							break;
