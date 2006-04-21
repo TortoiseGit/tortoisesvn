@@ -2350,6 +2350,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								entry->status = svn_wc_status_modified;
 								entry->textstatus = svn_wc_status_modified;
+								entry->isConflicted = false;
 								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 								DeleteItem(selIndex);
 								AddEntry(entry, langID, selIndex);
@@ -2388,6 +2389,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								entry->status = svn_wc_status_modified;
 								entry->textstatus = svn_wc_status_modified;
+								entry->isConflicted = false;
 								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 								DeleteItem(selIndex);
 								AddEntry(entry, langID, selIndex);
@@ -2426,6 +2428,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								entry->status = svn_wc_status_modified;
 								entry->textstatus = svn_wc_status_modified;
+								entry->isConflicted = false;
 								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 								DeleteItem(selIndex);
 								AddEntry(entry, langID, selIndex);
