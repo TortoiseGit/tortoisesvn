@@ -1876,7 +1876,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									{
 										if (fentry->textstatus == svn_wc_status_added)
 										{
-											fentry->textstatus = svn_wc_status_unversioned;
 											if ( fentry->IsFolder() )
 											{
 												fentry->propstatus = svn_wc_status_none;
@@ -1886,6 +1885,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 												fentry->propstatus = svn_wc_status_unversioned;
 											}
 											fentry->status = svn_wc_status_unversioned;
+											fentry->isConflicted = false;
 											SetItemState(index, 0, LVIS_SELECTED);
 											SetEntryCheck(fentry, index, false);
 										}
