@@ -1741,7 +1741,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 					}
 				}
-				if (((wcStatus == svn_wc_status_conflicted)||(entry->isConflicted))&&(GetSelectedCount()==1))
+				if (((wcStatus == svn_wc_status_conflicted)||(entry->isConflicted)))
 				{
 					if ((m_dwContextMenus & SVNSLC_POPCONFLICT)||(m_dwContextMenus & SVNSLC_POPRESOLVE))
 					popup.AppendMenu(MF_SEPARATOR);
@@ -2342,20 +2342,25 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
 						{
 							SVN svn;
-							if (!svn.Resolve(filepath, FALSE))
+							WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+							POSITION pos = GetFirstSelectedItemPosition();
+							while (pos != 0)
 							{
-								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								int index;
+								index = GetNextSelectedItem(pos);
+								FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+								if (!svn.Resolve(fentry->GetPath(), FALSE))
+								{
+									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								}
+								else
+								{
+									fentry->status = svn_wc_status_modified;
+									fentry->textstatus = svn_wc_status_modified;
+									fentry->isConflicted = false;
+								}
 							}
-							else
-							{
-								entry->status = svn_wc_status_modified;
-								entry->textstatus = svn_wc_status_modified;
-								entry->isConflicted = false;
-								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-								DeleteItem(selIndex);
-								AddEntry(entry, langID, selIndex);
-								Invalidate();
-							}
+							Show(m_dwShow, 0, m_bShowFolders);
 						}
 					}
 					break;
@@ -2363,38 +2368,43 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
 						{
-							CTSVNPath theirs(filepath.GetDirectory());
-							SVNStatus stat;
-							stat.GetStatus(filepath);
-							if (stat.status)
-							{
-								if ((stat.status->entry)&&(stat.status->entry->conflict_new))
-								{
-									theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
-								}
-								else break;
-							}
-							else
-							{
-								CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-								break;
-							}
-							CopyFile(theirs.GetWinPath(), filepath.GetWinPath(), FALSE);
 							SVN svn;
-							if (!svn.Resolve(filepath, FALSE))
+							WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+							POSITION pos = GetFirstSelectedItemPosition();
+							while (pos != 0)
 							{
-								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								int index;
+								index = GetNextSelectedItem(pos);
+								FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+								CTSVNPath theirs(fentry->GetPath().GetDirectory());
+								SVNStatus stat;
+								stat.GetStatus(fentry->GetPath());
+								if (stat.status)
+								{
+									if ((stat.status->entry)&&(stat.status->entry->conflict_new))
+									{
+										theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
+									}
+									else break;
+								}
+								else
+								{
+									CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+									break;
+								}
+								CopyFile(theirs.GetWinPath(), fentry->GetPath().GetWinPath(), FALSE);
+								if (!svn.Resolve(fentry->GetPath(), FALSE))
+								{
+									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								}
+								else
+								{
+									fentry->status = svn_wc_status_modified;
+									fentry->textstatus = svn_wc_status_modified;
+									fentry->isConflicted = false;
+								}
 							}
-							else
-							{
-								entry->status = svn_wc_status_modified;
-								entry->textstatus = svn_wc_status_modified;
-								entry->isConflicted = false;
-								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-								DeleteItem(selIndex);
-								AddEntry(entry, langID, selIndex);
-								Invalidate();
-							}
+							Show(m_dwShow, 0, m_bShowFolders);
 						}
 					}
 					break;
@@ -2402,38 +2412,43 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
 						{
-							CTSVNPath mine(filepath.GetDirectory());
-							SVNStatus stat;
-							stat.GetStatus(filepath);
-							if (stat.status)
-							{
-								if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
-								{
-									mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
-								}
-								else break;
-							}
-							else
-							{
-								CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-								break;
-							}
-							CopyFile(mine.GetWinPath(), filepath.GetWinPath(), FALSE);
 							SVN svn;
-							if (!svn.Resolve(filepath, FALSE))
+							WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+							POSITION pos = GetFirstSelectedItemPosition();
+							while (pos != 0)
 							{
-								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								int index;
+								index = GetNextSelectedItem(pos);
+								FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+								CTSVNPath mine(fentry->GetPath().GetDirectory());
+								SVNStatus stat;
+								stat.GetStatus(fentry->GetPath());
+								if (stat.status)
+								{
+									if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
+									{
+										mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+									}
+									else break;
+								}
+								else
+								{
+									CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+									break;
+								}
+								CopyFile(mine.GetWinPath(), fentry->GetPath().GetWinPath(), FALSE);
+								if (!svn.Resolve(fentry->GetPath(), FALSE))
+								{
+									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								}
+								else
+								{
+									fentry->status = svn_wc_status_modified;
+									fentry->textstatus = svn_wc_status_modified;
+									fentry->isConflicted = false;
+								}
 							}
-							else
-							{
-								entry->status = svn_wc_status_modified;
-								entry->textstatus = svn_wc_status_modified;
-								entry->isConflicted = false;
-								WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-								DeleteItem(selIndex);
-								AddEntry(entry, langID, selIndex);
-								Invalidate();
-							}
+							Show(m_dwShow, 0, m_bShowFolders);
 						}
 					}
 					break;
