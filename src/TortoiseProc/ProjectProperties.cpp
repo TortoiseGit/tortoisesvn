@@ -398,8 +398,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 			catch (bad_regexpr) {}
 		}
 	}
-
-	if ((!bFound)&&(!sMessage.IsEmpty()))
+	else if ((!bFound)&&(!sMessage.IsEmpty()))
 	{
 		CString sBugLine;
 		CString sFirstPart;
@@ -580,8 +579,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 			catch (bad_regexpr) {}
 		}
 	}
-
-	if ((!bFound)&&(!sMessage.IsEmpty()))
+	else if ((!bFound)&&(!sMessage.IsEmpty()))
 	{
 		CString sBugLine;
 		CString sFirstPart;
