@@ -164,10 +164,10 @@ BOOL CLogDlg::OnInitDialog()
 	if (m_hasWC)
 	{
 		m_ProjectProperties.ReadProps(m_path);
-		if (!m_ProjectProperties.sUrl.IsEmpty())
-		{
-			m_bShowBugtraqColumn = true;
-		}
+	}
+	if (!m_ProjectProperties.sUrl.IsEmpty())
+	{
+		m_bShowBugtraqColumn = true;
 	}
 
 	m_LogList.DeleteAllItems();
