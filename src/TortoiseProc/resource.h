@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -757,6 +757,7 @@
 #define IDS_PROGRS_CLOSE_NOMERGES       3543
 #define IDS_PROGRS_NONRECURSIVEHINT     3580
 #define IDS_PROGRS_PATHATREV            3600
+#define IDS_PROGRS_UPDATEPATH           3601
 #define IDS_SSL_SAVE_CERTPATH           3700
 #define IDS_REPOSTATUS_HEADREV          3800
 #define IDS_REPOSTATUS_WCINFO           3801

@@ -734,6 +734,9 @@ UINT CSVNProgressDlg::ProgressThread()
 				{
 					const CTSVNPath& targetPath = m_targetPathList[nItem];
 					m_basePath = targetPath;
+					CString sNotify;
+					sNotify.Format(IDS_PROGRS_UPDATEPATH, m_basePath.GetWinPath());
+					ReportNotification(sNotify);
 					if (!m_pSvn->Update(CTSVNPathList(targetPath), revstore, bRecursive, m_options & ProgOptIgnoreExternals))
 					{
 						ReportSVNError();
