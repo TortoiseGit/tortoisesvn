@@ -122,8 +122,8 @@ BOOL CFileDiffDlg::OnInitDialog()
 	
 
 	CString url1, url2;
-	url1.Format(_T("%s : revision %ld"), m_path1.GetSVNPathString(), (LONG)m_rev1);
-	url2.Format(_T("%s : revision %ld"), m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString(), (LONG)m_rev2);
+	url1.Format(_T("%s : revision %s"), m_path1.GetSVNPathString(), m_rev1.ToString());
+	url2.Format(_T("%s : revision %s"), m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString(), m_rev2.ToString());
 
 	GetDlgItem(IDC_FIRSTURL)->SetWindowText(url1);
 	GetDlgItem(IDC_SECONDURL)->SetWindowText(url2);
@@ -243,7 +243,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 	progDlg.SetTitle(IDS_PROGRESSWAIT);
 	progDlg.ShowModeless(this);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)m_path1.GetUIPathString());
-	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, (LONG)m_rev1);
+	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISIONTEXT, m_rev1.ToString());
 
 	if ((fd.kind != svn_client_diff_summarize_kind_added)&&(!blame)&&(!Cat(url1, SVNRev(m_rev1), m_rev1, tempfile)))
 	{
@@ -258,7 +258,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 	SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 	progDlg.SetProgress(1, 2);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, url2.GetUIPathString());
-	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, m_rev2);
+	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISIONTEXT, m_rev2.ToString());
 	CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, url2);
 	if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!blame)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, tempfile2)))
 	{

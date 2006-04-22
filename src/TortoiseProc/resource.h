@@ -618,6 +618,7 @@
 #define IDS_PROGRESS_INFO               1905
 #define IDS_PROGRESSGETFILEREVISION     1906
 #define IDS_PROGRESSIMPORT              1907
+#define IDS_PROGRESSREVISIONTEXT        1908
 #define IDS_INPUT_ENTERLOG              2000
 #define IDS_INPUT_LOGTITLE              2001
 #define IDS_INPUT_REMOVELOGMSG          2002
