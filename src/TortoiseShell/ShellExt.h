@@ -120,6 +120,7 @@ protected:
 		Rename,
 		UpdateExt,
 		Diff,
+		UrlDiff,
 		DropCopyAdd,
 		DropMoveAdd,
 		DropMove,

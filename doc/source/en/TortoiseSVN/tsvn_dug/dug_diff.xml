@@ -31,6 +31,24 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
+				<term>Difference to another branch</term>
+				<listitem>
+					<para>
+						If you want to see what has changed on trunk (if you are
+						working on a branch) or on a specific branch (if you are
+						working on trunk), you can use the explorer context menu.
+						Just hold down the <keycap>Shift</keycap> key while you
+						right click on the file. Then select
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Diff with URL</guimenuitem>
+						</menuchoice>. In the following dialog, specify the URL in
+						the repository with which you want to compare your local
+						file to.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term>Difference from a previous revision</term>
 				<listitem>
 					<para>

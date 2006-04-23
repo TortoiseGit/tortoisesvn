@@ -115,6 +115,7 @@ typedef enum
 	cmdRemove,
 	cmdRename,
 	cmdDiff,
+	cmdUrlDiff,
 	cmdDropCopyAdd,
 	cmdDropMove,
 	cmdDropExport,
@@ -167,6 +168,7 @@ static const struct CommandInfo
 	{	cmdRemove,			_T("remove"),			true	},
 	{	cmdRename,			_T("rename"),			false	},
 	{	cmdDiff,			_T("diff"),				false	},
+	{	cmdUrlDiff,			_T("urldiff"),			false	},
 	{	cmdDropCopyAdd,		_T("dropcopyadd"),		true	},
 	{	cmdDropMove,		_T("dropmove"),			true	},
 	{	cmdDropExport,		_T("dropexport"),		true	},
@@ -1226,6 +1228,19 @@ BOOL CTortoiseProcApp::InitInstance()
 			} 
 			else
 				CUtils::StartExtDiff(CTSVNPath(path2), cmdLinePath);
+		}
+		//#endregion
+		//#region urldiff
+		if (command == cmdUrlDiff)
+		{
+			CSwitchDlg dlg;
+			dlg.SetDialogTitle(CString(MAKEINTRESOURCE(IDS_PROC_DIFFTITLE)));
+			dlg.SetUrlLabel(CString(MAKEINTRESOURCE(IDS_PROC_DIFFLABEL)));
+			if (dlg.DoModal() == IDOK)
+			{
+				SVNDiff diff;
+				diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, CTSVNPath(dlg.m_URL), dlg.Revision);
+			}
 		}
 		//#endregion
 		//#region dropcopyadd

@@ -489,10 +489,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Switch To Branch / Tag"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "&To URL: ",IDC_STATIC,7,10,44,8
+    LTEXT           "&To URL: ",IDC_URLLABEL,7,10,44,8
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,20,268,53
     PUSHBUTTON      "...",IDC_BROWSE,279,20,14,14
-    GROUPBOX        "Revision",IDC_STATIC,7,47,286,51
+    GROUPBOX        "Revision",IDC_REVGROUP,7,47,286,51
     CONTROL         "&HEAD revision",IDC_REVISION_HEAD,"Button",BS_AUTORADIOBUTTON,13,60,80,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,13,76,73,10
     EDITTEXT        IDC_REVISION_NUM,94,75,58,14,ES_AUTOHSCROLL
@@ -2432,6 +2432,12 @@ STRINGTABLE
 BEGIN
     IDS_PROGRS_NONRECURSIVEHINT 
                             "To commit recursively and work around this error,\nmake sure that all child items of a checked folder\nare also checked in the commit dialog.\nOtherwise, TortoiseSVN must do a non-recursive commit\nwhich does not allow directory deletion."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROC_DIFFTITLE      "Diff With URL"
+    IDS_PROC_DIFFLABEL      "With URL:"
 END
 
 #endif    // English (U.S.) resources

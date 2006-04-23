@@ -519,7 +519,9 @@
 #define IDS_ERR_INVALIDREV              1304
 #define IDC_DIFFSTATIC2                 1304
 #define IDS_ERR_EMPTYDIFF               1305
+#define IDC_URLLABEL                    1305
 #define IDS_ERR_NOTHINGTOADD            1306
+#define IDC_REVGROUP                    1306
 #define IDS_ERR_ERROR                   1307
 #define IDS_ERR_NOVALIDPATH             1308
 #define IDS_ERR_FAILEDUNIGNOREPROPERTY  1309
@@ -657,6 +659,8 @@
 #define IDS_PROC_ICONCACHENOTREBUILT    2315
 #define IDS_PROC_EXPORTFOLDERNAME       2316
 #define IDS_PROC_EXPORTFOLDERNAME2      2317
+#define IDS_PROC_DIFFTITLE              2330
+#define IDS_PROC_DIFFLABEL              2331
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_DIFF_WORKINGCOPY            2402
@@ -873,7 +877,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        234
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1305
+#define _APS_NEXT_CONTROL_VALUE         1307
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

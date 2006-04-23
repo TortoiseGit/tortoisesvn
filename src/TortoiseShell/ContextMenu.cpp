@@ -655,7 +655,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	LoadLangDll();
-	//bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
+	bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
 	UINT idCmd = idCmdFirst;
 
 	//create the submenu
@@ -687,8 +687,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	}
 
-	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder))
+	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder)&&(!extended))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUDIFF), HMENU(MENUDIFF),INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
+	if ((isInSVN)&&(isOnlyOneItemSelected)&&(!isFolder)&&(extended))
+		InsertSVNMenu(ownerdrawn, ISTOP(MENUDIFF), HMENU(MENUDIFF),INDEXMENU(MENUDIFF), idCmd++, IDS_MENUURLDIFF, IDI_DIFF, idCmdFirst, UrlDiff);
 
 	if (files_.size() == 2)	//compares the two selected files
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUDIFF), HMENU(MENUDIFF), INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
@@ -1200,6 +1202,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					svnCmd += folder_;
 				svnCmd += _T("\"");
 				break;
+			case UrlDiff:
+				svnCmd += _T("urldiff /path:\"");
+				if (files_.size() == 1)
+					svnCmd += files_.front();
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				break;
 			case DropCopyAdd:
 				tempfile = WriteFileListToTempFile();
 				svnCmd += _T("dropcopyadd /path:\"");
@@ -1508,6 +1518,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 			break;
 		case Diff:
 			MAKESTRING(IDS_MENUDESCDIFF);
+			break;
+		case UrlDiff:
+			MAKESTRING(IDS_MENUDESCURLDIFF);
 			break;
 		case Log:
 			MAKESTRING(IDS_MENUDESCLOG);
@@ -1980,6 +1993,14 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		case Diff:
 			MAKESTRING(IDS_MENUDIFF);
 			resource = MAKEINTRESOURCE(IDI_DIFF);
+			SETSPACE(MENUDIFF);
+			PREPENDSVN(MENUDIFF);
+			break;
+		case UrlDiff:
+			MAKESTRING(IDS_MENUURLDIFF);
+			resource = MAKEINTRESOURCE(IDI_DIFF);
+			// UrlDiff is the extended version of Diff
+			// We therefore use the settings of normal Diff
 			SETSPACE(MENUDIFF);
 			PREPENDSVN(MENUDIFF);
 			break;

@@ -116,6 +116,8 @@
        in the various status controls. (Stefan)
 - NEW: The "resolved" context menu in the explorer is enabled if
        multiple files are selected. (Stefan)
+- NEW: Context menu, available only if SHIFT is hold down while the 
+       menu is brought up, to diff a file with an URL. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
