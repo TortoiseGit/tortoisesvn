@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-04-22 21:40+0100\n"
+"PO-Revision-Date: 2006-04-23 21:45+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@netzbeisser.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -297,6 +297,11 @@ msgstr "&Löschen..."
 msgid "&Diff"
 msgstr "&Vergleich"
 
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Diff mit URL"
+
 #: Control-ID:1179
 msgid "&Dry run"
 msgstr "&Trockenlauf"
@@ -576,7 +581,7 @@ msgstr "&Bis Revision"
 msgid "&To URL:"
 msgstr "Zu &URL:"
 
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "Zu &URL:"
 
@@ -1524,6 +1529,10 @@ msgstr "Vergleiche mit B&asis"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Vergleicht die Datei mit der letzten übertragenen Revision, um Ihre Änderungen sichtbar zu machen"
 
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "Vergleicht die gewählte Datei mit einer Datei im Projektarchiv"
+
 #: ID:120
 #, c-format
 msgid "Comparing %s to %s"
@@ -1827,6 +1836,11 @@ msgstr "Ziel-Partition ist voll."
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
 msgstr "Dialoggrößen und -positionen"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "Diff mit URL"
 
 #: Control-ID:65535
 msgid "Diff file:"
@@ -3621,6 +3635,7 @@ msgstr "Macht alle Änderungen seit der letzten Aktualisierung rückgängig"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Revision"
 
@@ -5079,6 +5094,10 @@ msgstr "Warnung!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Leerzeichenvergleich"
+
+#: ID:146
+msgid "With URL:"
+msgstr "Mit URL:"
 
 #: Dlg-ID:158
 msgid "Working Copy"
