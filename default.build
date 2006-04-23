@@ -70,6 +70,17 @@
 		</nant>
 	</target>
 
+	<target name="docpot" depends="VSNET,env">
+		<description>
+			Creates the po template file for the docs.
+		</description>
+		<nant target="potfile">
+			<buildfiles>
+				<include name="doc/doc.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
 	<target name="APIDocs" depends="env" >
 		<description>
 			Builds the API docs from the comments in the sourcecode
@@ -216,6 +227,7 @@
 		<echo message="               complete rebuild later" />
 		<echo message="docs         : builds the docs in all languages and all formats" />
 		<echo message="APIDocs      : Builds the API docs from the sourcecode comments" />
+		<echo message="docpot       : Generates the po template file of the docs" />
 		<echo message="Subversion   : builds the Subversion libraries, including its" />
 		<echo message="               dependencies" />
 		<echo message="TortoiseSVN  : builds TortoiseSVN. You must have build the" />
