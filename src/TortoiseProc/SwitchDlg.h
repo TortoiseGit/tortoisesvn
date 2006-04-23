@@ -27,33 +27,26 @@
  * number to switch the working copy to. Also has a checkbox to
  * specify the current branch instead of a different branch url and
  * one checkbox to specify the newest revision.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- * MFC
- *
- * \version 1.0
- * first version
- *
- * \date 11-08-2002
- *
- * \author Stefan Kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
-class CSwitchDlg : public CStandAloneDialog
+class CSwitchDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CSwitchDlg)
 
 public:
 	CSwitchDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CSwitchDlg();
+
+	/**
+	 * Sets the text for the dialog title.
+	 * \remark this method must be called before the dialog is shown!
+	 */
+	void SetDialogTitle(const CString& sTitle);
+
+	/**
+	 * Sets the label in front of the URL combobox.
+	 * \remark this method must be called before the dialog is shown!
+	 */
+	void SetUrlLabel(const CString& sLabel);
 
 // Dialog Data
 	enum { IDD = IDD_SWITCH };
@@ -72,6 +65,8 @@ protected:
 	CString m_rev;
 	CHistoryCombo m_URLCombo;
 	BOOL	m_bFolder;
+	CString	m_sTitle;
+	CString m_sLabel;
 public:
 	CString m_path;
 	CString m_URL;

@@ -27,9 +27,9 @@
 
 // CSwitchDlg dialog
 
-IMPLEMENT_DYNAMIC(CSwitchDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CSwitchDlg, CResizableStandAloneDialog)
 CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CSwitchDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CSwitchDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, Revision(_T("HEAD"))
 {
@@ -41,25 +41,34 @@ CSwitchDlg::~CSwitchDlg()
 
 void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_NUM, m_rev);
 }
 
 
-BEGIN_MESSAGE_MAP(CSwitchDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CSwitchDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_EN_CHANGE(IDC_REVISION_NUM, &CSwitchDlg::OnEnChangeRevisionNum)
 END_MESSAGE_MAP()
 
+void CSwitchDlg::SetDialogTitle(const CString& sTitle)
+{
+	m_sTitle = sTitle;
+}
+
+void CSwitchDlg::SetUrlLabel(const CString& sLabel)
+{
+	m_sLabel = sLabel;
+}
 
 // CSwitchDlg message handlers
 
 
 BOOL CSwitchDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	CTSVNPath svnPath(m_path);
 	m_bFolder = svnPath.IsDirectory();
@@ -76,8 +85,22 @@ BOOL CSwitchDlg::OnInitDialog()
 		m_URL = m_path;
 	}
 
+	SetWindowText(m_sTitle);
+	GetDlgItem(IDC_URLLABEL)->SetWindowText(m_sLabel);
+
 	// set head revision as default revision
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+
+	AddAnchor(IDC_URLLABEL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_REVGROUP, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
+	AddAnchor(IDC_REVISION_N, TOP_LEFT);
+	AddAnchor(IDC_REVISION_NUM, TOP_LEFT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -155,7 +178,7 @@ void CSwitchDlg::OnOK()
 	m_URL = m_URLCombo.GetString();
 
 	UpdateData(FALSE);
-	CStandAloneDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CSwitchDlg::OnBnClickedHelp()
