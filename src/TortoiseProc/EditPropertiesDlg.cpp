@@ -149,18 +149,19 @@ UINT CEditPropertiesDlg::PropsThread()
 		for (int p=0; p<props.GetCount(); ++p)
 		{
 			wide_string prop_str = props.GetItemName(p);
+			stdstring prop_value = props.GetItemValue(p);
 			std::map<stdstring,PropValue>::iterator it = m_properties.lower_bound(prop_str);
 			if (it != m_properties.end() && it->first == prop_str)
 			{
 				it->second.count++;
-				stdstring value = MultibyteToWide((char *)prop_str.c_str());
+				stdstring value = MultibyteToWide((char *)prop_value.c_str());
 				if (it->second.value.compare(value)!=0)
 					it->second.allthesamevalue = false;
 			}
 			else
 			{
 				it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
-				stdstring value = MultibyteToWide((char *)prop_str.c_str());
+				stdstring value = MultibyteToWide((char *)prop_value.c_str());
 				it->second.value = value;
 				CString stemp = value.c_str();
 				stemp.Replace('\n', ' ');
