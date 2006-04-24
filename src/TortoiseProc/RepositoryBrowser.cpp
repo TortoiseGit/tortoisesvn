@@ -717,7 +717,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CString filename = svnPath.GetFileOrDirectoryName();
 						CInputDlg input(this);
 						SetupInputDlg(&input);
-						input.m_sInputText.LoadString(IDS_INPUT_ADDFOLDERLOGMSG);
+						if (m_ProjectProperties.sLogTemplate.IsEmpty())
+							input.m_sInputText.LoadString(IDS_INPUT_ADDFOLDERLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							CProgressDlg progDlg;
@@ -788,7 +789,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CString filename = path.GetFileOrDirectoryName();
 						CInputDlg input(this);
 						SetupInputDlg(&input);
-						input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
+						if (m_ProjectProperties.sLogTemplate.IsEmpty())
+							input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							CProgressDlg progDlg;
@@ -833,7 +835,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						SetupInputDlg(&input);
-						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
+						if (m_ProjectProperties.sLogTemplate.IsEmpty())
+							input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_name), GetRevision(), input.m_sInputText))
@@ -968,7 +971,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						SetupInputDlg(&input);
-						input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
+						if (m_ProjectProperties.sLogTemplate.IsEmpty())
+							input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name)), input.m_sInputText))
@@ -1128,7 +1132,8 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 	CUtils::RemoveAccelerators(dlg.m_sHintText);
 	dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 	CUtils::RemoveAccelerators(dlg.m_sTitle);
-	dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
+	if (m_ProjectProperties.sLogTemplate.IsEmpty())
+		dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
 	CUtils::RemoveAccelerators(dlg.m_sInputText);
 	dlg.m_pProjectProperties = &m_ProjectProperties;
 	if (dlg.DoModal()==IDOK)
@@ -1208,14 +1213,16 @@ void CRepositoryBrowser::OnFilesDropped(int iItem, int iSubItem, const CTSVNPath
 
 	CInputDlg input(this);
 	SetupInputDlg(&input);
-	input.m_sInputText.LoadString(IDS_INPUT_ADDFILEFOLDERMSG);
-	input.m_sInputText += _T("\r\n\r\n");
-	
-	for (int i=0; i<droppedPaths.GetCount(); ++i)
+	if (m_ProjectProperties.sLogTemplate.IsEmpty())
 	{
-		input.m_sInputText += droppedPaths[i].GetWinPathString() + _T("\r\n");
+		input.m_sInputText.LoadString(IDS_INPUT_ADDFILEFOLDERMSG);
+		input.m_sInputText += _T("\r\n\r\n");
+		for (int i=0; i<droppedPaths.GetCount(); ++i)
+		{
+			input.m_sInputText += droppedPaths[i].GetWinPathString() + _T("\r\n");
+		}
 	}
-
+	
 	if (input.DoModal() == IDOK)
 	{
 		SVN svn;

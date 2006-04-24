@@ -949,7 +949,8 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 					input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 					CUtils::RemoveAccelerators(input.m_sTitle);
 					input.m_pProjectProperties = m_pProjectProperties;
-					input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
+					if (m_pProjectProperties->sLogTemplate.IsEmpty())
+						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
 					if (input.DoModal() == IDOK)
 					{
 						for (int index=0; index<urlList.GetCount(); ++index)
@@ -1007,7 +1008,8 @@ void CRepositoryTree::OnDrop(int iItem, int iSubItem, IDataObject * pDataObj, DW
 					input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 					CUtils::RemoveAccelerators(input.m_sTitle);
 					input.m_pProjectProperties = m_pProjectProperties;
-					input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
+					if (m_pProjectProperties->sLogTemplate.IsEmpty())
+						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
 					if (input.DoModal() == IDOK)
 					{
 						for (int index=0; index<urlList.GetCount(); ++index)
