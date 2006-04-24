@@ -7,7 +7,7 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6261
+# Based on Tortoise.pot r6363
 #
 msgid ""
 msgstr ""
@@ -314,6 +314,10 @@ msgstr "&Slet..."
 msgid "&Diff"
 msgstr "&Sammenlign"
 
+#: ID:17,
+msgid "&Diff with URL"
+msgstr "&Sammenlign med URL"
+
 #: Control-ID:1179,
 msgid "&Dry run"
 msgstr "&Testkørsel"
@@ -411,9 +415,9 @@ msgstr "&Ikoner:"
 msgid "&Ignore %d items"
 msgstr "&Ignorer %d emner"
 
-#: Control-ID:1020,
-msgid "&Ignore leading whitespaces"
-msgstr "&Ignorer indledende blanktegn"
+#: Control-ID:1021,
+msgid "&Ignore whitespace changes"
+msgstr "&Ignorer forskelle i blanktegn"
 
 #: ID:9,
 msgid "&Import..."
@@ -581,7 +585,7 @@ msgstr "&Til revision"
 msgid "&To URL:"
 msgstr "&Til URL:"
 
-#: Control-ID:65535,
+#: Control-ID:1305,
 msgid "&To URL: "
 msgstr "&Til URL: "
 
@@ -772,7 +776,7 @@ msgstr "Accepter for bestandig"
 msgid "Access to %1 was denied."
 msgstr "Adgang til %1 blev afvist."
 
-#: ID:77,
+#: ID:77,#: ID:319,
 msgid "Action"
 msgstr "Handling"
 
@@ -817,7 +821,7 @@ msgstr "Tilføj \"&ignorer\"-listen"
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Tilføj/rediger filendelse-specifikt sammenlignings/flet-program"
 
-#: ID:73,#: Control-ID:65535,
+#: ID:73,#: ID:264,#: Control-ID:65535,
 msgid "Added"
 msgstr "Tilføjet"
 
@@ -1136,6 +1140,10 @@ msgstr "Annullerer TortoiseSVN ansvar..."
 msgid "Cancelling operation..."
 msgstr "Annullerer handling..."
 
+#: ID:68,
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "Forskellene kan ikke vises på grund af inkonsistente linjeafslutninger i filen."
+
 #: Control-ID:65535,
 msgid "Cascaded context menu"
 msgstr "Sekundær kontekstmenu"
@@ -1317,10 +1325,6 @@ msgstr "Farver"
 msgid "Command failed."
 msgstr "Kommandoen mislykkedes."
 
-#: ID:319,
-msgid "Comment"
-msgstr "Kommentar"
-
 #: ID:209,#: Control-ID:1083,
 msgid "Commit"
 msgstr "Arkivér"
@@ -1370,6 +1374,10 @@ msgstr "Sammenlign med b&asisfilen"
 #: ID:12,
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Sammenligner filen med den sidst arkiverede revision og viser de ændringer, du har foretaget"
+
+#: ID:17,
+msgid "Compares the selected file with a file in the repository"
+msgstr "Sammenligner den valgte fil med en fil i versionsarkivet"
 
 #: ID:120,
 #, c-format
@@ -1604,7 +1612,7 @@ msgstr "Dato"
 msgid "Default &number of log messages"
 msgstr "&Antal af logbeskeder, der vises som standard"
 
-#: ID:73,
+#: ID:73,#: ID:264,
 msgid "Deleted"
 msgstr "Slettet"
 
@@ -1628,9 +1636,17 @@ msgstr "Destinationsdisken er fyldt op."
 msgid "Dialog sizes and positions"
 msgstr "Dialogstørrelser og -positioner"
 
+#: ID:146,
+msgid "Diff With URL"
+msgstr "Sammenlign med URL"
+
 #: Control-ID:65535,
 msgid "Diff file:"
 msgstr "Sammenligningsfil:"
+
+#: Control-ID:1302,
+msgid "Difference between"
+msgstr "Forskel mellem"
 
 #: Control-ID:1022,
 msgid "Diffing"
@@ -2116,7 +2132,7 @@ msgstr "Hvis du ønsker at bryde låsen, skal du benytte dialogen \"Check for æ
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: Control-ID:1021,
+#: Control-ID:1020,
 msgid "Ignore &all whitespaces"
 msgstr "Ignorer &alle blanktegn"
 
@@ -2128,10 +2144,6 @@ msgstr "Ignorer &store/små bogstaver"
 #, fuzzy
 msgid "Ignore ancestry"
 msgstr "Ignorer forældreskab"
-
-#: Control-ID:1026,
-msgid "Ignore e&nding whitespaces"
-msgstr "Ignorer &afsluttende blanktegn"
 
 #: Control-ID:1018,
 msgid "Ignore line &endings (recommended)"
@@ -2425,7 +2437,7 @@ msgstr "Diverse"
 msgid "Mixed"
 msgstr "Blandet"
 
-#: ID:74,
+#: ID:74,#: ID:264,
 msgid "Modified"
 msgstr "Ændret"
 
@@ -2555,7 +2567,7 @@ msgstr "Ingen forslag fra opslagsværk"
 msgid "None"
 msgstr "Ingen"
 
-#: Control-ID:65535,
+#: ID:264,#: Control-ID:65535,
 msgid "Normal"
 msgstr "Normal"
 
@@ -2606,11 +2618,6 @@ msgstr "En eller flere filer indeholder konflikter."
 #: Control-ID:1073,
 msgid "Only check out the &top folder"
 msgstr "Hent kun den &øverste mappe"
-
-#: ID:319,
-#, c-format
-msgid "Only in %s"
-msgstr "Kun i %s"
 
 #: ID:169,
 msgid "Only numbers (optionally separated by commas)\nare allowed!"
@@ -2783,6 +2790,10 @@ msgstr "Vent venligst mens der annulleres..."
 #: ID:104,
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Vent venligst mens versionsarkivsøgeren initialiseres..."
+
+#: ID:319,
+msgid "Please wait while we get the differences..."
+msgstr "Vent venligst mens forskellene findes..."
 
 #: ID:119,#: ID:211,
 msgid "Please wait..."
@@ -2986,11 +2997,6 @@ msgstr "Omdøb"
 msgid "Rename %s"
 msgstr "Omdøb %s"
 
-#: ID:319,
-#, c-format
-msgid "Renamed from %s"
-msgstr "Omdøbt fra %s"
-
 #: Control-ID:65535,
 msgid "Renamed node"
 msgstr "Omdøbt knude"
@@ -3101,7 +3107,7 @@ msgstr "Tilbageført"
 msgid "Reverts all changes you made since the last update"
 msgstr "Tilbagefører alle ændringer, du har foretaget siden sidste opdatering"
 
-#: ID:76,#: ID:208,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
+#: ID:76,#: ID:208,#: Control-ID:65535,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:65535,
 msgid "Revision"
 msgstr "Revision"
 
@@ -3114,6 +3120,11 @@ msgstr "Revision %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "Revision %ld"
+
+#: ID:120,
+#, c-format
+msgid "Revision %s"
+msgstr "Revision %s"
 
 #: ID:15,
 msgid "Revision &graph"
@@ -3219,6 +3230,11 @@ msgstr "SVN Status"
 #: ID:12,
 msgid "SVN URL"
 msgstr "SVN URL"
+
+#: ID:17,
+#, fuzzy
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 #: ID:14,
 msgid "SVN mime-type"
@@ -3517,6 +3533,10 @@ msgstr "Vis alle revisioner, hvor der blev foretaget ændringer af dette emne"
 msgid "Shows information about TortoiseSVN"
 msgstr "Viser information om TortoiseSVN"
 
+#: ID:17,
+msgid "Shows the eol-style property value"
+msgstr "Viser værdien for egenskaben eol-style"
+
 #: ID:12,
 msgid "Shows the log for the selected file / folder"
 msgstr "Viser logbeskeder for den valgte fil/mappe"
@@ -3715,6 +3735,11 @@ msgstr "Filen %s eksisterer ikke!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Filen %s blev ikke fundet i korrekturfilen!"
+
+#: ID:65,
+#, c-format
+msgid "The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"
+msgstr "Filen %s\nblev fundet to gange!\nDette sker normalt, hvis der forsøges anvendt en korrekturfil på\nen forkert mappe!"
 
 #: ID:3857,#: ID:3857,
 msgid "The file is too large to open."
@@ -4100,6 +4125,11 @@ msgstr "Opdaterer arbejdskopien til en bestemt revision"
 msgid "Updates the working copy to the current revision"
 msgstr "Opdaterer arbejdskopien til den nyeste revision"
 
+#: ID:226,
+#, c-format
+msgid "Updating %s"
+msgstr "Opdaterer %s"
+
 #: ID:283,
 msgid "Updating and retrying the lock..."
 msgstr "Opdaterer og forsøger låsning igen..."
@@ -4216,6 +4246,10 @@ msgstr "Advarsel!"
 #: Control-ID:65535,
 msgid "Whitespace diff"
 msgstr "Forskel i blanktegn"
+
+#: ID:146,
+msgid "With URL:"
+msgstr "Med URL:"
 
 #: Dlg-ID:158,
 msgid "Working Copy"
@@ -4349,6 +4383,10 @@ msgstr "tilføjede filer"
 #: ID:3841,#: ID:3841,
 msgid "an unnamed file"
 msgstr "en ikke-navngivet fil"
+
+#: Control-ID:1304,
+msgid "and"
+msgstr "og"
 
 #: Control-ID:1085,#: Control-ID:1085,
 msgid "and support the developers"
