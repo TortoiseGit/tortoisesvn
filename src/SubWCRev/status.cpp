@@ -43,6 +43,9 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 		}
 		if (strncmp(sb->SubStat->UUID, status->entry->uuid, MAX_PATH) != 0)
 			return;
+	}
+	if ((status)&&(status->entry))
+	{
 		if ((status->entry->kind == svn_node_file)||(sb->SubStat->bFolders))
 		{
 			if (sb->SubStat->CmtRev < status->entry->cmt_rev)
@@ -51,14 +54,17 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 				sb->SubStat->CmtDate = status->entry->cmt_date;
 			}
 		}
-		if (sb->SubStat->MaxRev < status->entry->revision)
+		if ((status->entry->revision)&&(sb->SubStat->MaxRev < status->entry->revision))
 		{
 			sb->SubStat->MaxRev = status->entry->revision;
 		}
-		if (sb->SubStat->MinRev > status->entry->revision || sb->SubStat->MinRev == 0)
+		if ((status->entry->revision)&&(sb->SubStat->MinRev > status->entry->revision || sb->SubStat->MinRev == 0))
 		{
 			sb->SubStat->MinRev = status->entry->revision;
 		}
+	}
+	if (status)
+	{
 		switch (status->text_status)
 		{
 		case svn_wc_status_external:
