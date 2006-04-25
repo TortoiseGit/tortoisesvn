@@ -65,6 +65,7 @@ IDI_GRAPHBARSTACKED     ICON                    "graph-bar-stacked.ico"
 IDI_GRAPHLINE           ICON                    "graph-line.ico"
 IDI_GRAPHLINESTACKED    ICON                    "graph-line-stacked.ico"
 IDI_GRAPHPIE            ICON                    "graph-pie.ico"
+IDI_SWITCHLEFTRIGHT     ICON                    "switch.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -843,10 +844,11 @@ CAPTION "Changed Files"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "Difference between",IDC_DIFFSTATIC1,7,7,125,8
-    EDITTEXT        IDC_FIRSTURL,6,19,242,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    LTEXT           "and",IDC_DIFFSTATIC2,7,31,83,8
-    EDITTEXT        IDC_SECONDURL,7,44,241,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,62,241,149
+    PUSHBUTTON      "",IDC_SWITCHLEFTRIGHT,227,7,21,14,BS_ICON
+    EDITTEXT        IDC_FIRSTURL,6,22,242,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    LTEXT           "and",IDC_DIFFSTATIC2,7,34,83,8
+    EDITTEXT        IDC_SECONDURL,7,47,241,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,66,241,145
 END
 
 IDD_CREATEPATCH DIALOGEX 0, 0, 266, 204
@@ -2438,6 +2440,11 @@ STRINGTABLE
 BEGIN
     IDS_PROC_DIFFTITLE      "Diff With URL"
     IDS_PROC_DIFFLABEL      "With URL:"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_FILEDIFF_SWITCHLEFTRIGHT_TT "Switches the comparison left<->right"
 END
 
 #endif    // English (U.S.) resources

@@ -25,6 +25,8 @@
 #include "SVN.h"
 #include "HintListCtrl.h"
 #include "Colors.h"
+#include "XPImageButton.h"
+#include "Balloon.h"
 #include "afxwin.h"
 
 class CFileDiffDlg : public CResizableStandAloneDialog, public SVN
@@ -54,6 +56,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -61,6 +64,7 @@ protected:
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnEnSetfocusSecondurl();
 	afx_msg void OnEnSetfocusFirsturl();
+	afx_msg void OnBnClickedSwitchleftright();
 	
 	DECLARE_MESSAGE_MAP()
 
@@ -72,10 +76,15 @@ protected:
 	int AddEntry(FileDiff * fd);
 	void DoDiff(int selIndex, bool blame);
 	void DiffProps(int selIndex);
+	void SetURLLabels();
 private:
 	static UINT			DiffThreadEntry(LPVOID pVoid);
 	UINT				DiffThread();
 
+	CBalloon			m_tooltips;
+
+	CXPImageButton		m_SwitchButton;
+	HICON				m_hSwitchIcon;
 	CColors				m_colors;
 	CHintListCtrl		m_cFileList;
 	bool				m_bBlame;

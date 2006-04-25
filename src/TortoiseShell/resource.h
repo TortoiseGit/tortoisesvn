@@ -201,7 +201,6 @@
 #define IDI_MENUFOLDER                  5155
 #define IDI_MENULINK                    5156
 #define IDI_MENUMULTIPLE                5157
-#define IDI_ICON1                       5158
 #define IDI_PROPERTIES                  5158
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020

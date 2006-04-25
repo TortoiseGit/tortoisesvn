@@ -94,6 +94,7 @@
 #define IDI_GRAPHLINE                   231
 #define IDI_GRAPHLINESTACKED            232
 #define IDI_GRAPHPIE                    233
+#define IDI_SWITCHLEFTRIGHT             234
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -523,6 +524,7 @@
 #define IDS_ERR_NOTHINGTOADD            1306
 #define IDC_REVGROUP                    1306
 #define IDS_ERR_ERROR                   1307
+#define IDC_SWITCHLEFTRIGHT             1307
 #define IDS_ERR_NOVALIDPATH             1308
 #define IDS_ERR_FAILEDUNIGNOREPROPERTY  1309
 #define IDS_ERR_NOTHINGTOREVERT         1310
@@ -832,6 +834,7 @@
 #define IDS_FILEDIFF_WAIT               5102
 #define IDS_FILEDIFF_COMMENTRENAMED     5103
 #define IDS_FILEDIFF_POPBLAME           5150
+#define IDS_FILEDIFF_SWITCHLEFTRIGHT_TT 5190
 #define IDS_CREATEPATCH_ADDEDFOLDERS    5400
 #define IDS_SVN_PROGRESS_SPEED          5700
 #define IDS_SVN_PROGRESS_TOTALTRANSFERRED 5701
@@ -875,9 +878,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        234
+#define _APS_NEXT_RESOURCE_VALUE        235
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1307
+#define _APS_NEXT_CONTROL_VALUE         1308
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

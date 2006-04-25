@@ -41,12 +41,14 @@ CFileDiffDlg::CFileDiffDlg(CWnd* pParent /*=NULL*/)
 
 CFileDiffDlg::~CFileDiffDlg()
 {
+	DestroyIcon(m_hSwitchIcon);
 }
 
 void CFileDiffDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_FILELIST, m_cFileList);
+	DDX_Control(pDX, IDC_SWITCHLEFTRIGHT, m_SwitchButton);
 }
 
 
@@ -58,6 +60,7 @@ BEGIN_MESSAGE_MAP(CFileDiffDlg, CResizableStandAloneDialog)
 	ON_WM_SETCURSOR()
 	ON_EN_SETFOCUS(IDC_SECONDURL, &CFileDiffDlg::OnEnSetfocusSecondurl)
 	ON_EN_SETFOCUS(IDC_FIRSTURL, &CFileDiffDlg::OnEnSetfocusFirsturl)
+	ON_BN_CLICKED(IDC_SWITCHLEFTRIGHT, &CFileDiffDlg::OnBnClickedSwitchleftright)
 END_MESSAGE_MAP()
 
 
@@ -87,6 +90,9 @@ BOOL CFileDiffDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_SWITCHLEFTRIGHT, IDS_FILEDIFF_SWITCHLEFTRIGHT_TT);
+
 	m_cFileList.SetRedraw(false);
 	m_cFileList.DeleteAllItems();
 	DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP;
@@ -94,6 +100,10 @@ BOOL CFileDiffDlg::OnInitDialog()
 
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
 	m_cFileList.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
+
+	m_hSwitchIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_SWITCHLEFTRIGHT), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_SwitchButton.SetIcon(m_hSwitchIcon);
+
 
 	int c = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
@@ -115,18 +125,13 @@ BOOL CFileDiffDlg::OnInitDialog()
 	m_cFileList.SetRedraw(true);
 	
 	AddAnchor(IDC_DIFFSTATIC1, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SWITCHLEFTRIGHT, TOP_RIGHT);
 	AddAnchor(IDC_FIRSTURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_DIFFSTATIC2, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SECONDURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	
-
-	CString url1, url2;
-	url1.Format(_T("%s : revision %s"), m_path1.GetSVNPathString(), m_rev1.ToString());
-	url2.Format(_T("%s : revision %s"), m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString(), m_rev2.ToString());
-
-	GetDlgItem(IDC_FIRSTURL)->SetWindowText(url1);
-	GetDlgItem(IDC_SECONDURL)->SetWindowText(url2);
+	SetURLLabels();
 
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(DiffThreadEntry, this)==NULL)
@@ -509,3 +514,42 @@ void CFileDiffDlg::OnEnSetfocusSecondurl()
 	GetDlgItem(IDC_SECONDURL)->HideCaret();
 }
 
+
+void CFileDiffDlg::OnBnClickedSwitchleftright()
+{
+	m_cFileList.SetRedraw(false);
+	m_cFileList.DeleteAllItems();
+	for (int i=0; i<m_arFileList.GetCount(); ++i)
+	{
+		FileDiff fd = m_arFileList.GetAt(i);
+		if (fd.kind == svn_client_diff_summarize_kind_added)
+			fd.kind = svn_client_diff_summarize_kind_deleted;
+		else if (fd.kind == svn_client_diff_summarize_kind_deleted)
+			fd.kind = svn_client_diff_summarize_kind_added;
+		m_arFileList.SetAt(i, fd);
+		AddEntry(&fd);
+	}
+	m_cFileList.SetRedraw(true);
+	CTSVNPath path = m_path1;
+	m_path1 = m_path2;
+	m_path2 = path;
+	SVNRev rev = m_rev1;
+	m_rev1 = m_rev2;
+	m_rev2 = rev;
+	SetURLLabels();
+}
+
+void CFileDiffDlg::SetURLLabels()
+{
+	CString url1, url2;
+	url1.Format(_T("%s : revision %s"), m_path1.GetSVNPathString(), m_rev1.ToString());
+	url2.Format(_T("%s : revision %s"), m_bDoPegDiff ? m_path1.GetSVNPathString() : m_path2.GetSVNPathString(), m_rev2.ToString());
+
+	GetDlgItem(IDC_FIRSTURL)->SetWindowText(url1);
+	GetDlgItem(IDC_SECONDURL)->SetWindowText(url2);
+}
+BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
+{
+	m_tooltips.RelayEvent(pMsg);
+	return __super::PreTranslateMessage(pMsg);
+}

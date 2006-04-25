@@ -18,7 +18,6 @@
 #define IDC_NAME                        204
 #define IDC_DESCRIPTION                 205
 #define IDR_LICENSE                     210
-#define IDI_ICON1                       211
 #define IDS_NAME                        1000
 #define IDS_DESC                        1001
 #define IDS_TYPE                        1002
