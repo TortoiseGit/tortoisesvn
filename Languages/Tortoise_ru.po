@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-17 18:05+0300\n"
+"PO-Revision-Date: 2006-04-25 11:37+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -319,6 +319,10 @@ msgstr "&Удалить..."
 #: ID:12
 msgid "&Diff"
 msgstr "&Различия"
+
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Различие с файлом по URL"
 
 #: Control-ID:1179
 msgid "&Dry run"
@@ -606,7 +610,7 @@ msgstr "&По ревизию"
 msgid "&To URL:"
 msgstr "&В следующий URL:"
 
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&На URL:"
 
@@ -1540,6 +1544,10 @@ msgstr "Сравнить с б&азой"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Сравнивает файл с последней зафиксированной ревизией для показа сделанных вами изменений"
 
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "Сравнивает выбранный файл с файлом в хранилище"
+
 #: ID:120
 #, c-format
 msgid "Comparing %s to %s"
@@ -1845,6 +1853,10 @@ msgstr "Диск назначения полон."
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
 msgstr "Размеры и расположение окон"
+
+#: ID:146
+msgid "Diff With URL"
+msgstr "Различие с файлом по URL"
 
 #: Control-ID:65535
 msgid "Diff file:"
@@ -3630,6 +3642,7 @@ msgstr "Убирает все изменения, которые вы сдела
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Ревизия"
 
@@ -3644,6 +3657,11 @@ msgstr "Ревизия %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "Ревизия %ld"
+
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Ревизия %s"
 
 #: ID:15
 msgid "Revision &graph"
@@ -4933,6 +4951,11 @@ msgstr "Обновляет рабочую копию до указанной р�
 msgid "Updates the working copy to the current revision"
 msgstr "Обновляет рабочую копию до текущей ревизии"
 
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "Обновляется %s"
+
 #: ID:283
 msgid "Updating and retrying the lock..."
 msgstr "Производится обновление и повторная блокировка..."
@@ -5069,6 +5092,10 @@ msgstr "Предупреждение!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Различия в непеч. знаках"
+
+#: ID:146
+msgid "With URL:"
+msgstr "По URL:"
 
 # Заголовок окна
 #: Dlg-ID:158
