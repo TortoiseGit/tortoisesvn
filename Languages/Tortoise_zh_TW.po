@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-19 11:25+0800\n"
+"PO-Revision-Date: 2006-04-25 10:44+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -359,6 +359,11 @@ msgstr "刪除(&D)..."
 #: ID:12
 msgid "&Diff"
 msgstr "比對差異(&D)"
+
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "以URL比對(&R)"
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -718,7 +723,7 @@ msgid "&To URL:"
 msgstr "至URL(&T):"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "至URL(&T):"
 
@@ -1870,6 +1875,11 @@ msgstr "與基礎檔比對(&A)"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "比對此檔案與上次送交的版本並列出你所做的異動"
 
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "以選擇的檔案與檔案庫中的檔案比對"
+
 # ID:80,
 #: ID:120
 #, c-format
@@ -2240,6 +2250,11 @@ msgstr "目的磁碟已滿."
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
 msgstr "視窗大小與位置"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "以URL比對差異"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4415,6 +4430,7 @@ msgstr "復原從上次更新之後全部的變動"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "版本"
 
@@ -4431,6 +4447,12 @@ msgstr "版本 %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "版本 %ld"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "版本 %s"
 
 # ID:75,
 #: ID:15
@@ -5988,6 +6010,12 @@ msgstr "更新工作複本至指定的版本"
 msgid "Updates the working copy to the current revision"
 msgstr "更新工作複本至目前的版本"
 
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "正在更新 %s"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -6154,6 +6182,12 @@ msgstr "警告!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "空白字元差異"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr "以 URL:"
 
 # ID:151,
 #: Dlg-ID:158
