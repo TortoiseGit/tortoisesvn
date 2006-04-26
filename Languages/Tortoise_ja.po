@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-13 17:55+0900\n"
+"PO-Revision-Date: 2006-04-26 19:56+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -366,6 +366,11 @@ msgstr "削除 ...(&D)"
 #: ID:12
 msgid "&Diff"
 msgstr "差分(&D)"
+
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "URL と差分(&D)"
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -725,7 +730,7 @@ msgid "&To URL:"
 msgstr "先 URL(&T):"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "先 URL(&T):"
 
@@ -1040,6 +1045,7 @@ msgstr "%1 へのアクセスは拒否されました。"
 
 # ID:77,
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "アクション"
 
@@ -1099,6 +1105,7 @@ msgstr "追加／編集 － 拡張子に対応した差分／マージプログ�
 
 # Control-ID:65535,
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "追加"
@@ -1811,11 +1818,6 @@ msgid "Command failed."
 msgstr "コマンドの実行に失敗しました。"
 
 # ID:8,
-#: ID:319
-msgid "Comment"
-msgstr "コメント"
-
-# ID:8,
 #: ID:209
 #: Control-ID:1083
 msgid "Commit"
@@ -1875,6 +1877,11 @@ msgstr "B&ase と比較"
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "変更点を表示するために、最後にコミットしたリビジョンとファイルを比較する"
+
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "リポジトリ内のファイルと選択されたファイルを比較"
 
 # ID:80,
 #: ID:120
@@ -2213,6 +2220,7 @@ msgstr "デフォルトのログメッセージ数(&N)"
 # ID:73,#:
 # ID:101,
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "削除"
 
@@ -2246,10 +2254,20 @@ msgstr "送り先ディスクドライブはいっぱいです。"
 msgid "Dialog sizes and positions"
 msgstr "ダイアログのサイズと位置"
 
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "URL と差分"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "差分ファイル:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "差分"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -3471,6 +3489,7 @@ msgstr "ミックス"
 
 # ID:74,
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "変更"
 
@@ -3657,6 +3676,7 @@ msgid "None"
 msgstr "無し"
 
 # Control-ID:65535,
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "通常"
@@ -3725,12 +3745,6 @@ msgstr "１つ以上のファイルが衝突の状態にあります。"
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "トップフォルダのみチェックアウトする(&T)"
-
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "%s 内のみ"
 
 # ID:169,
 #: ID:169
@@ -3975,6 +3989,11 @@ msgstr "キャンセル処理が完了するまでしばらくお待ちくださ
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "リポジトリブラウザが初期化されるまでしばらくお待ちください ..."
+
+# ID:13,
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "差分を取得する間、しばらくお待ちください ..."
 
 # ID:119,
 #: ID:119
@@ -4249,12 +4268,6 @@ msgstr "名前の変更"
 msgid "Rename %s"
 msgstr "%s の名前を変更"
 
-# ID:97,
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "%s から名前を変更"
-
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -4417,6 +4430,7 @@ msgstr "最後の更新から行った全ての変更を元に戻す"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "リビジョン"
 
@@ -4433,6 +4447,12 @@ msgstr "リビジョン %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "リビジョン %ld"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "リビジョン %s"
 
 # ID:75,
 #: ID:15
@@ -4581,6 +4601,11 @@ msgstr "SVN 状態"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN URL"
+
+# ID:14,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 # ID:14,
 #: ID:14
@@ -4993,6 +5018,11 @@ msgstr "この項目に対して変更が行われた全てのリビジョンを
 msgid "Shows information about TortoiseSVN"
 msgstr "TortoiseSVN についての情報を表示"
 
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "eol-style 属性値を表示する"
+
 # ID:12,
 #: ID:12
 msgid "Shows the log for the selected file / folder"
@@ -5216,6 +5246,10 @@ msgstr "前のドキュメントウィンドウに切り替える"
 msgid "Switch working copy to another branch / tag"
 msgstr "他の分岐／タグへ作業コピーを切り替え"
 
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "左右の比較を入れ替える"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "System &sounds"
@@ -5294,6 +5328,19 @@ msgstr "ファイル %s は存在していません！"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "ファイル %s はパッチファイル内で見つかりませんでした！"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"ファイル %s\n"
+"が2回見つかりました？！\n"
+"これは、たいてい間違ったフォルダにパッチファイルを適用したときに発生します！"
 
 # ID:3857,#:
 # ID:3857,
@@ -5967,6 +6014,12 @@ msgstr "特定のリビジョンへ作業コピーを更新"
 msgid "Updates the working copy to the current revision"
 msgstr "現在のリビジョンに作業コピーを更新"
 
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "%s を更新中"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -6133,6 +6186,12 @@ msgstr "警告！"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "空白の相違"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr "With URL:"
 
 # ID:151,
 #: Dlg-ID:158
@@ -6385,6 +6444,11 @@ msgstr "追加ファイル"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "名前無しファイル"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "と"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
