@@ -32,13 +32,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6310: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6375: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-25 11:37+0300\n"
+"PO-Revision-Date: 2006-04-26 16:51+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4260,7 +4260,7 @@ msgstr "Пере&ключить рабочую копию на новое отв
 
 #: MenuEntry
 msgid "Switch Left<->Right"
-msgstr "Поменять левую и правую"
+msgstr "Поменять местами: левая <-> правая"
 
 # Заголовок окна
 #: Dlg-ID:140
@@ -4310,6 +4310,10 @@ msgstr "Переключиться на предыдущее окно докум
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Переключить рабочую копию на другое ответвление / метку"
+
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Меняет направление сравнивания: левая <-> правая"
 
 #: Control-ID:65535
 msgid "System &sounds"
