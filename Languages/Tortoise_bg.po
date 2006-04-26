@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-17 10:37+0200\n"
+"PO-Revision-Date: 2006-04-26 12:38+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -397,6 +397,11 @@ msgstr "&Изтриване..."
 #: ID:12
 msgid "&Diff"
 msgstr "&Сравняване"
+
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Сравняване с URL"
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -756,7 +761,7 @@ msgid "&To URL:"
 msgstr "&Към URL:"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&Към URL:"
 
@@ -1910,6 +1915,11 @@ msgstr "Сравняване с &база"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Сравнява файла със последната поверена ревизия, за да Ви покаже промените, които сте направили"
 
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "Сравнява избрания файл с файл в хранилището"
+
 # ID:80,
 #: ID:120
 #, c-format
@@ -2282,6 +2292,11 @@ msgstr "Дискът е пълен."
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
 msgstr "Размер и позиция на диалоговите прозорци"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "Сравняване с URL"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4455,6 +4470,7 @@ msgstr "Отменя всички промени, които сте направ
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Ревизия"
 
@@ -4471,6 +4487,12 @@ msgstr "Ревизия %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "Ревизия %ld"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Ревизия %s"
 
 # ID:75,
 #: ID:15
@@ -4619,6 +4641,11 @@ msgstr "SVN състояние"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN URL"
+
+# ID:14,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN знак за край на ред"
 
 # ID:14,
 #: ID:14
@@ -5031,6 +5058,11 @@ msgstr "Показва всички ревизии, в които този об�
 msgid "Shows information about TortoiseSVN"
 msgstr "Информация относно TortoiseSVN"
 
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "Показва стойността на свойството \"знак за край на ред\""
+
 # ID:12,
 #: ID:12
 msgid "Shows the log for the selected file / folder"
@@ -5252,6 +5284,10 @@ msgstr "Превключване към предишния прозорец на
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Превключване на работното копие към друго разклонение / етикет"
+
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Размяна на ляво с дясно при сравняване"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -6015,6 +6051,12 @@ msgstr "Обновява работното копие до специфична
 msgid "Updates the working copy to the current revision"
 msgstr "Обновяване на работното копие до текущата ревизия"
 
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "Обновяване на %s"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -6181,6 +6223,12 @@ msgstr "Внимание!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Сравняване на празни символи"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr "С URL:"
 
 # ID:151,
 #: Dlg-ID:158
