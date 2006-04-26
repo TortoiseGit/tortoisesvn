@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-03 13:26+0100\n"
+"PO-Revision-Date: 2006-04-26 08:00+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -307,6 +307,11 @@ msgstr "&Ta bort..."
 msgid "&Diff"
 msgstr "&Jämför"
 
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Jämför med URL"
+
 # ???
 #: Control-ID:1179
 msgid "&Dry run"
@@ -415,9 +420,11 @@ msgstr "&Statusikonuppsättning:"
 msgid "&Ignore %d items"
 msgstr "&Ignorera %d objekt"
 
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "&Ignorera inledande whitespace"
+# Control-ID:1067,
+#: Control-ID:1021
+#, fuzzy
+msgid "&Ignore whitespace changes"
+msgstr "&Ignorera ändringar mellan gemener/versaler"
 
 #: ID:9
 msgid "&Import..."
@@ -599,7 +606,7 @@ msgstr "&Till revision"
 msgid "&To URL:"
 msgstr "&Till URL:"
 
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&Till URL: "
 
@@ -867,6 +874,7 @@ msgid "Access to %1 was denied."
 msgstr "Åtkomst till  %1 nekades."
 
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "Åtgärd"
 
@@ -918,6 +926,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Lägg till/ändra filändelsebaserat skillnads-/föreningsprogram"
 
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "Tillagda"
@@ -1310,6 +1319,11 @@ msgstr "Avbryter visa ändringar per rad..."
 msgid "Cancelling operation..."
 msgstr "Avbryter..."
 
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "Kan inte visa skillnader eftersom nyradstecknen är inkonsistenta i filen"
+
 #: Control-ID:65535
 msgid "Cascaded context menu"
 msgstr "Popupmeny"
@@ -1512,10 +1526,6 @@ msgstr "Färger"
 msgid "Command failed."
 msgstr "Kommandot misslyckades."
 
-#: ID:319
-msgid "Comment"
-msgstr "Kommentar"
-
 #: ID:209
 #: Control-ID:1083
 msgid "Commit"
@@ -1568,6 +1578,10 @@ msgstr "Jämför med &basrevision"
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Jämför filen med den senaste arkiverade revisionen och visar de ändringar du gjort"
+
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "Jämför den valda filen med en fil i arkivet"
 
 #: ID:120
 #, c-format
@@ -1858,6 +1872,7 @@ msgid "Default &number of log messages"
 msgstr "&Standard antal loggmeddelanden"
 
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "Borttagna"
 
@@ -1881,9 +1896,19 @@ msgstr "Otillräckligt diskutrymme på målenheten."
 msgid "Dialog sizes and positions"
 msgstr "Storlek och positioner för dialoger"
 
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "Jämför med URL"
+
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Patchfil:"
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "Skillnader mellan"
 
 # Hur översätta "diffing"
 #: Control-ID:1022
@@ -2535,7 +2560,7 @@ msgstr "Om du vill bryta låset, använd \"Leta efter ändringar\" dialogen. "
 msgid "Ignore"
 msgstr "Ignorera"
 
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "Ignorera &alla whitespace"
 
@@ -2548,10 +2573,6 @@ msgstr "&Ignorera ändringar mellan gemener/versaler"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Ignorera ursprung"
-
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "I&gnorera avslutande whitespace"
 
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -2961,6 +2982,7 @@ msgid "Mixed"
 msgstr "Blandad"
 
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "Ändrad"
 
@@ -3115,6 +3137,7 @@ msgstr "Inga förslag"
 msgid "None"
 msgstr "Inga"
 
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Normal"
@@ -3170,12 +3193,6 @@ msgstr "En eller flera filer innehåller konflikter."
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "Häm&ta endast översta mappen"
-
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "Endast i %s"
 
 #: ID:169
 msgid ""
@@ -3368,6 +3385,11 @@ msgstr "Vänta medan operationen avbryts..."
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Var god vänta medans arkivsutforskaren initieras..."
+
+#: ID:319
+#, fuzzy
+msgid "Please wait while we get the differences..."
+msgstr "Vänta medan skillnader tas fram..."
 
 #: ID:119
 #: ID:211
@@ -3596,11 +3618,6 @@ msgstr "Byt namn"
 msgid "Rename %s"
 msgstr "Döp om %s"
 
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "Döptes om från %s"
-
 #: Control-ID:65535
 msgid "Renamed node"
 msgstr "Omdöpt nod"
@@ -3648,6 +3665,10 @@ msgstr "Arkiv"
 
 #: Dlg-ID:153
 msgid "Repository Browser"
+msgstr "Arkivutforskaren"
+
+#: Control-ID:65535
+msgid "Repository browser"
 msgstr "Arkivutforskaren"
 
 # Control-ID:65535,
@@ -3724,6 +3745,7 @@ msgstr "Återställer alla ändringar sedan senaste uppdateringen"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Revision"
 
@@ -3738,6 +3760,11 @@ msgstr "Revision %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "Revision %ld"
+
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Revision %s"
 
 #: ID:15
 msgid "Revision &graph"
@@ -3862,6 +3889,11 @@ msgstr "SVN Status"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN URL"
+
+# Var används denna?
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 # Var används denna?
 #: ID:14
@@ -4209,6 +4241,11 @@ msgstr "Visa alla revisioner där detta objekt ändrades"
 msgid "Shows information about TortoiseSVN"
 msgstr "Visar information om TortoiseSVN"
 
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "Visa värdet av eol-style egenskapen"
+
 #: ID:12
 msgid "Shows the log for the selected file / folder"
 msgstr "Visar historik för den valda filen / mappen"
@@ -4229,6 +4266,11 @@ msgstr "Hoppades över"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Hoppade över mål som saknades"
+
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "Sortera objekt numeriskt"
 
 # ID:196,
 #: ID:196
@@ -4257,11 +4299,6 @@ msgid ""
 msgstr ""
 "Dela det aktiva fönstret\n"
 "Dela"
-
-# Eller grupperade?
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "Staplade"
 
 #: Control-ID:65535
 msgid "Start Revision"
@@ -4405,6 +4442,10 @@ msgstr "Växla till föregående dokumentfönster"
 msgid "Switch working copy to another branch / tag"
 msgstr "Växlar över arbetskopian till en annan gren / märke"
 
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Växlar jämförelsen vänster<->höger"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "System &sounds"
@@ -4472,6 +4513,20 @@ msgstr "Filen %s finns inte!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Filen %s kunde inte hittas i patchfilen!"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"Filen %s\n"
+"hittades två gånger!?!\n"
+"Det händer vanligtvis om du applicerat en patch fil på\n"
+"fel mapp!"
 
 #: ID:3857
 msgid "The file is too large to open."
@@ -4762,6 +4817,20 @@ msgstr "Den här egenskapen är endast tillåten på mappar, inte filer."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Den här egenskapen får inte innehålla mer än en rad. "
 
+# ID:224,
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"För att lösa det här felet så se till att alla barn objekt\n"
+"till markerade mappar också är markerade i arkivera dialogen.\n"
+"Annars måste TortoiseSVN göra en icke-rekursiv arkivering\n"
+"vilket inte tillåter att mappar tas bort. "
+
 # Control-ID:1201,
 #: Control-ID:1201
 msgid "To:"
@@ -5037,6 +5106,11 @@ msgstr "Uppdaterar arbetskopian till en specifik revision"
 msgid "Updates the working copy to the current revision"
 msgstr "Uppdaterar arbetskopian till den senaste revisionen"
 
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "Uppdaterar %s"
+
 # ID:283,
 #: ID:283
 #, fuzzy
@@ -5181,6 +5255,10 @@ msgstr "Varning!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Whitespace skillnader"
+
+#: ID:146
+msgid "With URL:"
+msgstr "Med URL:"
 
 # Osäker på var denna visas
 #: Dlg-ID:158
@@ -5419,6 +5497,11 @@ msgstr "Tilllagda filer"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "en namnlös fil"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "och"
 
 #: Control-ID:1085
 msgid "and support the developers"
