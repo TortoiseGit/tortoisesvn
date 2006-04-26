@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-03-09 21:17+0100\n"
+"PO-Revision-Date: 2006-04-26 21:46+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -188,7 +188,9 @@ msgid "&About TortoiseMerge..."
 msgstr "&Over TortoiseMerge..."
 
 #: ID:8
+#: ID:563
 #: Control-ID:1098
+#: Control-ID:1282
 msgid "&Add..."
 msgstr "&Toevoegen..."
 
@@ -212,6 +214,15 @@ msgstr "&Maak reservekopie van origineel"
 #: Control-ID:1128
 msgid "&Berkeley database (BDB)"
 msgstr "&Berkeley Database (BDB)"
+
+#: ID:114
+msgid "&Blame differences"
+msgstr "&Verklaar verschillen"
+
+#: ID:114
+#: ID:322
+msgid "&Blame revisions"
+msgstr "Ver&klaar revisies"
 
 #: ID:13
 msgid "&Blame..."
@@ -290,12 +301,15 @@ msgstr "Verwij&deren"
 msgid "&Diff"
 msgstr "&Verschil"
 
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Verschil met URL"
+
 #: Control-ID:1179
 msgid "&Dry run"
 msgstr "&Proefrun"
 
 #: Control-ID:1031
-#: Control-ID:1282
 #: MenuEntry
 msgid "&Edit"
 msgstr "Wijzig&en"
@@ -304,6 +318,7 @@ msgstr "Wijzig&en"
 msgid "&Edit conflicts"
 msgstr "&Bewerk conflicten"
 
+#: ID:563
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Wijzigen..."
@@ -395,9 +410,9 @@ msgstr "&Pictogrammenset:"
 msgid "&Ignore %d items"
 msgstr "%d zaken &negeren"
 
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "&Negeer spaties aan het begin"
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "Negeer wijzigingen in &spaties en lege regels"
 
 #: ID:9
 msgid "&Import..."
@@ -569,7 +584,7 @@ msgstr "&Tot en met revisie"
 msgid "&To URL:"
 msgstr "&Naar URL:"
 
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&Naar URL:"
 
@@ -826,6 +841,7 @@ msgid "Access to %1 was denied."
 msgstr "Toegang tot %1 geweigerd."
 
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "Actie"
 
@@ -872,6 +888,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Toevoegen/wijzigen extensie-specifiek Diff/Merge programma"
 
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "Toegevoegd"
@@ -1248,6 +1265,10 @@ msgstr "Afbreken van TortoiseSVN Verklaren..."
 msgid "Cancelling operation..."
 msgstr "Opdracht wordt afgebroken..."
 
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "Verschil kan niet getoond worden omdat er verschillende soorten regeleinden in het bestand zitten."
+
 #: Control-ID:65535
 msgid "Cascaded context menu"
 msgstr "Context submenu"
@@ -1438,10 +1459,6 @@ msgstr "Kleuren"
 msgid "Command failed."
 msgstr "Opdracht mislukt."
 
-#: ID:319
-msgid "Comment"
-msgstr "Opmerking"
-
 #: ID:209
 #: Control-ID:1083
 msgid "Commit"
@@ -1475,6 +1492,10 @@ msgstr "Legt uw wijzigingen in het archief vast"
 msgid "Compare &HEAD revisions"
 msgstr "Vergelijk &HEAD revisies"
 
+#: ID:114
+msgid "Compare and &blame with working copy"
+msgstr "Vergelijk en &verklaar met werkkopie"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Vergelijk met &werkkopie"
@@ -1486,6 +1507,10 @@ msgstr "Vergelijk met &basis"
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Vergelijkt het bestand met de laatste vastgelegde revisie om de door u gemaakte wijzigingen te tonen"
+
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "Vergelijkt het geselecteerde bestand met een bestand uit het archief"
 
 #: ID:120
 #, c-format
@@ -1766,6 +1791,7 @@ msgid "Default &number of log messages"
 msgstr "&Standaard aantal logboek-boodschappen"
 
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "Verwijderd"
 
@@ -1789,9 +1815,17 @@ msgstr "De doelschijf is vol."
 msgid "Dialog sizes and positions"
 msgstr "Venster afmetingen en posities"
 
+#: ID:146
+msgid "Diff With URL"
+msgstr "Verschil met URL"
+
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "Diff-bestand:"
+
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "Verschil tussen"
 
 #: Control-ID:1022
 msgid "Diffing"
@@ -1981,6 +2015,14 @@ msgstr ""
 "Activeer deze optie als u ook sneltoetsen op het bovenste contextmenu wilt hebben.\n"
 "Let op: de menuopties zien er beter uit zonder deze optie."
 
+#: ID:196
+msgid ""
+"Enable this only if you're working with web projects on VS.NET2003!\n"
+"You must restart the system for this setting to take effect."
+msgstr ""
+"Activeer dit alleen als u web-projecten in VS.NET2003 gebruikt!\n"
+"U moet het systeem herstarten om deze instelling te activeren."
+
 #: ID:195
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -2045,6 +2087,15 @@ msgstr "Fout opgetreden bij het herstellen van de Shell Icon Cache!"
 #, c-format
 msgid "Error validating server certificate for %s:"
 msgstr "Fout bij het valideren van servercertificaat voor %s:"
+
+#: ID:70
+#, c-format
+msgid ""
+"Error while reading/writing the registry key %s\n"
+"%s"
+msgstr ""
+"Fout bij het lezen/schrijven van registersleutel %s\n"
+"%s"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -2374,6 +2425,18 @@ msgstr ""
 "Hiermee kunnen bestanden uit mappen zonder versiebeheer getoond worden in\n"
 "statusoverzichten. De vastleggen-dialoog bevat bijvoorbeeld zo'n statusoverzicht."
 
+#: ID:196
+msgid ""
+"If you change this value, your existing working copies won't be recognized anymore!\n"
+"You must check out your working copies again.\n"
+"If you're not sure about this, then please read the docs.\n"
+"Are you absolutely sure you want to do this?"
+msgstr ""
+"Als u deze waarde wijzigt, worden bestaande werkkopieën niet langer herkend!\n"
+"U moet de werkkopieën opnieuw ophalen.\n"
+"Als u het niet zeker weet, raadpleeg dan de documentatie.\n"
+"Weet u echt zeker dat u dit wilt doen?"
+
 #: ID:251
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
 msgstr "De blokkade kan verbroken worden in de dialoog 'Kijk of er wijzigingen zijn'."
@@ -2382,7 +2445,7 @@ msgstr "De blokkade kan verbroken worden in de dialoog 'Kijk of er wijzigingen z
 msgid "Ignore"
 msgstr "Negeren"
 
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "&Alle spaties en witregels negeren"
 
@@ -2393,10 +2456,6 @@ msgstr "Negeer wijzigingen in &hoofd- en kleine letters"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "Negeer oorsprong"
-
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "&Negeer spaties aan het einde"
 
 #: Control-ID:1018
 msgid "Ignore line &endings (recommended)"
@@ -2628,6 +2687,14 @@ msgstr "Blokkade gestolen door %s"
 msgid "Locked by %s"
 msgstr "Geblokkeerd door %s"
 
+#: ID:89
+msgid ""
+"Locking failed because a newer version exists!\n"
+"Do you want to update and try again?"
+msgstr ""
+"Blokkeren is mislukt vanwege een nieuwere versie!\n"
+"Wilt u verversen en het opnieuw proberen?"
+
 #: ID:16
 msgid "Locks a file for other users and makes it editable by you."
 msgstr "Blokkeert een bestand voor andere gebruikers en staat wijzigingen door uzelf toe."
@@ -2769,6 +2836,7 @@ msgid "Mixed"
 msgstr "Gemengd"
 
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "Gewijzigd"
 
@@ -2918,6 +2986,7 @@ msgstr "Geen suggesties"
 msgid "None"
 msgstr "Geen"
 
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "Normaal"
@@ -2971,11 +3040,6 @@ msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
 msgid "Only check out the &top folder"
 msgstr "Alleen de &bovenste map ophalen"
 
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "Alleen in %s"
-
 #: ID:169
 msgid ""
 "Only numbers (optionally separated by commas)\n"
@@ -3003,6 +3067,10 @@ msgstr "Open certificaatbestand"
 #: ID:3601
 msgid "Open file"
 msgstr "Open bestand"
+
+#: ID:282
+msgid "Open parent folder"
+msgstr "Open bovenliggende map"
 
 #: ID:113
 msgid "Open with..."
@@ -3159,10 +3227,18 @@ msgstr "Even geduld terwijl er wordt afgebroken..."
 msgid "Please wait while the repository browser is initialized..."
 msgstr "Even geduld a.u.b. De archief-verkenner wordt geïnitialiseerd..."
 
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "Even geduld terwijl de verschillen worden opgehaald..."
+
 #: ID:119
 #: ID:211
 msgid "Please wait..."
 msgstr "Even geduld..."
+
+#: ID:376
+msgid "Preview patched file"
+msgstr "Bekijk voorbeeld van gepatched bestand"
 
 #: ID:132
 #, c-format
@@ -3378,11 +3454,6 @@ msgstr "Hernoemen"
 msgid "Rename %s"
 msgstr "Hernoem %s"
 
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "Hernoemd van %s"
-
 #: Control-ID:65535
 msgid "Renamed node"
 msgstr "Knoop hernoemd"
@@ -3430,6 +3501,10 @@ msgstr "Archief"
 
 #: Dlg-ID:153
 msgid "Repository Browser"
+msgstr "Archief-verkenner"
+
+#: Control-ID:65535
+msgid "Repository browser"
 msgstr "Archief-verkenner"
 
 #: Control-ID:65535
@@ -3505,6 +3580,7 @@ msgstr "Maakt al uw wijzigingen sinds de laatste verversing ongedaan"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Revisie"
 
@@ -3519,6 +3595,11 @@ msgstr "Revisie %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "Revisie %ld"
+
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Revisie %s"
 
 #: ID:15
 msgid "Revision &graph"
@@ -3639,6 +3720,10 @@ msgstr "SVN Status"
 #: ID:12
 msgid "SVN URL"
 msgstr "URL van SVN"
+
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 #: ID:14
 msgid "SVN mime-type"
@@ -3967,6 +4052,10 @@ msgstr "Toont alle revisies waarin dit onderdeel gewijzigd is"
 msgid "Shows information about TortoiseSVN"
 msgstr "Toont informatie over TortoiseSVN"
 
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "Toont de waarde van de eol-style eigenschap"
+
 #: ID:12
 msgid "Shows the log for the selected file / folder"
 msgstr "Toont logboek voor geselecteerde bestand/map"
@@ -3986,6 +4075,10 @@ msgstr "Overgeslagen"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "Ontbrekend doel overgeslagen"
+
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "Sorteer onderdelen numeriek"
 
 #: ID:196
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -4012,10 +4105,6 @@ msgid ""
 msgstr ""
 "Splits actieve venster in tweeën\n"
 "Splits"
-
-#: Control-ID:1263
-msgid "Stacked"
-msgstr "Gestapeld"
 
 #: Control-ID:65535
 msgid "Start Revision"
@@ -4152,6 +4241,10 @@ msgstr "Ga naar het vorige documentvenster"
 msgid "Switch working copy to another branch / tag"
 msgstr "Schakel werkkopie naar een andere tak/label"
 
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Wisselt links <-> rechts"
+
 #: Control-ID:65535
 msgid "System &sounds"
 msgstr "Systeem&geluiden"
@@ -4217,6 +4310,19 @@ msgstr "Bestand %s bestaat niet!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Bestand %s niet aangetroffen in het patch-bestand!"
+
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"Het bestand %s\n"
+"is twee maal gevonden!?!\n"
+"Dit gebeurt meestal omdat u het patch-bestand op de\n"
+"verkeerde map heeft toegepast!"
 
 #: ID:3857
 msgid "The file is too large to open."
@@ -4489,6 +4595,21 @@ msgstr "Deze eigenschap is alleen geldig voor mappen, niet voor bestanden."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Deze eigenschap mag geen meerdere regels bevatten. Slechts één regel toegestaan."
 
+#: ID:224
+msgid ""
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
+msgstr ""
+"Om recursief vast te leggen en om deze fout heen te\n"
+"werken, moet u er voor zorgen dat alle onderdelen in\n"
+"een geselecteerde map ook geselecteerd zijn in de\n"
+"vastleggen-dialoog.\n"
+"Anders moet TortoiseSVN namelijk een niet-recursieve vastlegging\n"
+"doen en daarbij is het verwijderen van mappen niet toegestaan."
+
 #: Control-ID:1201
 msgid "To:"
 msgstr "Tot:"
@@ -4758,6 +4879,17 @@ msgstr "Ververst de werkkopie naar een bepaalde revisie"
 msgid "Updates the working copy to the current revision"
 msgstr "Ververst de werkkopie naar de huidige revisie"
 
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr ""
+"%s\n"
+"wordt ververst"
+
+#: ID:283
+msgid "Updating and retrying the lock..."
+msgstr "Opnieuw verversen en blokkade zetten..."
+
 #: Control-ID:1064
 msgid "Use &magnifier on locatorbar"
 msgstr "Toon &vergrootglas op zoekwerkbalk"
@@ -4791,6 +4923,18 @@ msgstr "Gebruik URL van &werkkopie als standaard \"Van:\" URL"
 #: Control-ID:1073
 msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 msgstr "Gebruik \"Van:\" URL (het revisiebereik kan in de bovenliggende dialoog gekozen worden)"
+
+#: Control-ID:1296
+msgid "Use \"_svn\" instead of \".svn\" directories"
+msgstr "Gebruik \"_svn\" in plaats van \".svn\" mappen"
+
+#: ID:251
+msgid "Use both text blocks (this one first)"
+msgstr "Gebruik beide tekstgedeeltes (deze eerst)"
+
+#: ID:251
+msgid "Use both text blocks (this one last)"
+msgstr "Gebruik beide tekstgedeeltes (deze laatst)"
 
 #: Control-ID:1066
 msgid "Use stri&keout for deleted lines"
@@ -4877,6 +5021,10 @@ msgstr "Waarschuwing!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Diff van spaties en witregels"
+
+#: ID:146
+msgid "With URL:"
+msgstr "Met URL:"
 
 #: Dlg-ID:158
 msgid "Working Copy"
@@ -4999,6 +5147,10 @@ msgstr ""
 "\n"
 "Wilt u hiermee doorgaan?"
 
+#: ID:196
+msgid "You must restart your system for the changes to take effect."
+msgstr "Het systeem moet herstart worden om de instellingen te activeren."
+
 #: ID:77
 msgid ""
 "You selected an unversioned file.\n"
@@ -5099,6 +5251,10 @@ msgstr "toegevoegde bestanden"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "een bestand zonder naam"
+
+#: Control-ID:1304
+msgid "and"
+msgstr "en"
 
 #: Control-ID:1085
 msgid "and support the developers"
