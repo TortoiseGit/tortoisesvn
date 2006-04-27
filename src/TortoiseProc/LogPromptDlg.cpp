@@ -908,15 +908,8 @@ void CLogPromptDlg::OnBnClickedHistory()
 			}
 			m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
 		}
-		if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
-		{
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
-		}
-		else
-		{
-			if (!m_bBlock)
-				GetDlgItem(IDOK)->EnableWindow(TRUE);
-		}
+		
+		UpdateOKButton();
 		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 	}
 	
