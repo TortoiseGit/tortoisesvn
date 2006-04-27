@@ -210,7 +210,7 @@ Version 1.3.3
        progress dialog for some items. (Stefan)
 - BUG: file entries couldn't be selected anymore in the repository
        browser. (Stefan)
-- BUG: Unignoring a wildcard pattern mistakenly reported the successfull
+- BUG: Unignoring a wildcard pattern mistakenly reported the successful
        removal of the file name. (Tobias Schäfer)
 - BUG: Unignoring file names removed more than it should from svn:ignore if
        the file name was part of another file name. (Tobias Schäfer)
@@ -284,7 +284,7 @@ Version 1.3.2
        repository browser wasn't at HEAD. (Stefan)
 - BUG: Crash in text editor and log dialog when the issuetracker regex
        strings were applied to the log message. (Stefan)
-- BUG: Crash in log dialog while retreiving log messages. (Stefan)
+- BUG: Crash in log dialog while retrieving log messages. (Stefan)
 - BUG: The "stop on copy" setting was not saved in the log dialog. (Stefan)
 - BUG: The status cache would crash when a path longer than 260 chars
        (MAX_PATH constant) was touched. (Stefan)
@@ -301,7 +301,7 @@ Version 1.3.1
        'Check for modifications' dialog.
 - BUG: The "remote status" column could show "(property changes only)"
        even if there were no property changes detected. (Stefan)
-- BUG: TortoiseBlame could crash when the mousepointer was hoovered over
+- BUG: TortoiseBlame could crash when the mouse pointer was hovered over
        just above the first visible line. (Stefan)
 - BUG: 'Create Patch' used the wrong root path. (Stefan)
 - BUG: The revision graph could crash when showing tooltips for nodes. (Stefan)
@@ -490,7 +490,7 @@ Version 1.2.2
        checking/unchecking one of them unchecks/checks all of them.
        See issue 118. (Stefan)
 - NEW: The Spellchecker ignores now numbers and doesn't mark them
-       as missspelled anymore. See issue #145. (Stefan)
+       as misspelled anymore. See issue #145. (Stefan)
 - NEW: The context menu is now shown for shortcuts too. Once for the shortcut
        (*.lnk) file itself and once for the target the shortcut points to.
        See issue #146. (Stefan)
@@ -1035,7 +1035,7 @@ Version 1.0.7
 - CHG: The property page shows now newlines as spaces
        instead of as illegal chars in the listview. (Stefan)
 - CHG: Always do a WC->URL copy, even if there are no local
-       modifcations. (Stefan)
+       modifications. (Stefan)
 - BUG: TortoiseMerge could hang when diffing certain files
        and the "ignore leading whitespaces" option turned
        on and only in two pane view. (Stefan)
@@ -1093,7 +1093,7 @@ Version 1.0.5
 - BUG: The added icon overlay wasn't shown due to a wrong registry
        entry set during installation. (Stefan Fuhrmann)
 - BUG: The revision column wasn't sorted correctly. (Stefan Fuhrmann)
-- BUG: The locatorbar in TortoiseMerge shrank continuously whith every
+- BUG: The locatorbar in TortoiseMerge shrank continuously with every
        reload. (Stefan)
 - BUG: TortoiseMerge calculated the size of the scrollbars wrong for
        files with many tabs in it. (Stefan)
@@ -1502,14 +1502,14 @@ Version 0.20.2
        (Stefan)
        
 Version 0.20.1
-- BUG: A crash occured if the ssh settings were
+- BUG: A crash occurred if the ssh settings were
        not empty. (Stefan)
 - BUG: Main page in the settings dialog lost
        the language settings if the combo-box
        wasn't touched. (Stefan)
 
 Version 0.20
-- BUG: The property page was always shown in english,
+- BUG: The property page was always shown in English,
        no matter what language was set. (Stefan)
 - BUG: The repository browser didn't work for file:///
        URLs which had escaped chars in it. (Stefan)
@@ -1603,7 +1603,7 @@ Version 0.18
        (Stefan)
 - NEW: A new entry in the main settings page can be
        used to tell TSVN to reuse the entered log-message
-       in the commit dialog even if the user cancelles
+       in the commit dialog even if the user cancels
        the dialog. This was a user request. (Stefan)
 - NEW: New right-drag command to copy files/folders
        inside a working copy. (Stefan)
@@ -1657,7 +1657,7 @@ Version 0.16
        changed in a revision then it showed "and 0 more"
        instead of the real remaining files. (Stefan)
 - CHG: Changed the behaviour of the Log and Updates
-       dialog if a network timeout occured. (Stefan)
+       dialog if a network timeout occurred. (Stefan)
 - CHG: If the option "recursive overlays" is not set
        then the status for folders is always set to
        "normal" to speed things up a little. (Stefan)
@@ -1897,11 +1897,11 @@ Version 0.11.0
 Version 0.10.0
 - BUG: if several files are selected for committing
        and the first one is unversioned or just
-       added a crash occured (Stefan)
+       added a crash occurred (Stefan)
 - BUG: if a folder was renamed in a working copy
        with a system rename (not a 'svn rename')
        then explorer crashed. Issue 39. (Stefan)
-- BUG: if an error occured while reading the
+- BUG: if an error occurred while reading the
        config file it wasn't reported. (Stefan)
 - BUG: the settings page crashed if not all pages
        were selected before hitting "ok". (Stefan)
@@ -1925,7 +1925,7 @@ Version 0.10.0
 - NEW: the add dialog now shows the files with
        the relative path so the user can better
        check if a file needs to be added or not.
-       This is especially usefull if folders
+       This is especially useful if folders
        are added. (Stefan)
 - NEW: Two new column providers: one for the URL
        of subversion files/folders and the other
@@ -1993,9 +1993,9 @@ Version 0.9 (Subversion 0.21, rev 5631)
 - BUG: import and commit log messages were limited
        in number of lines (Stefan)
 - BUG: files matching the temporary extensions were
-       not added even if the user explicitely selected
+       not added even if the user explicitly selected
        them for adding. (Stefan)
-- BUG: The folder icon overlay dissapeared if the
+- BUG: The folder icon overlay disappeared if the
        svn:ignored property was set and an ignored
        file was in the folder (Stefan)
 - NEW: in the commit dialog (logprompt) there's now
@@ -2200,7 +2200,7 @@ Version 0.5
 - ENH: issue 2: update to a specific revision is now possible through
        the shift-right-click context menu. Then the command "update"
        changes to "update to revision...". (Stefan)
-- ENH: issue #6 done. you can now sepcify a revision in the checkout 
+- ENH: issue #6 done. you can now specify a revision in the checkout 
        dialog (Tim)
 - NEW: issue #7 done. You can now browse the local filesystem for a 
        local repository. You can also browse a repository (local and 
