@@ -357,33 +357,34 @@ void CEditPropertiesDlg::EditProps()
 			dlg.SetFolder();
 	}
 
-	dlg.DoModal();
-
-	sName = dlg.GetPropertyName();
-	if (!sName.IsEmpty())
+	if ( dlg.DoModal()==IDOK )
 	{
-		CProgressDlg prog;
-		CString sTemp;
-		sTemp.LoadString(IDS_SETPROPTITLE);
-		prog.SetTitle(sTemp);
-		sTemp.LoadString(IDS_PROPWAITCANCEL);
-		prog.SetCancelMsg(sTemp);
-		prog.SetTime(TRUE);
-		prog.SetShowProgressBar(TRUE);
-		prog.ShowModal(m_hWnd);
-		for (int i=0; i<m_pathlist.GetCount(); ++i)
+		sName = dlg.GetPropertyName();
+		if (!sName.IsEmpty())
 		{
-			prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-			SVNProperties props(m_pathlist[i]);
-			if (!props.Add(sName, CStringA(dlg.GetPropertyValue()), dlg.GetRecursive()))
+			CProgressDlg prog;
+			CString sTemp;
+			sTemp.LoadString(IDS_SETPROPTITLE);
+			prog.SetTitle(sTemp);
+			sTemp.LoadString(IDS_PROPWAITCANCEL);
+			prog.SetCancelMsg(sTemp);
+			prog.SetTime(TRUE);
+			prog.SetShowProgressBar(TRUE);
+			prog.ShowModal(m_hWnd);
+			for (int i=0; i<m_pathlist.GetCount(); ++i)
 			{
-				CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+				prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
+				SVNProperties props(m_pathlist[i]);
+				if (!props.Add(sName, CStringA(dlg.GetPropertyValue()), dlg.GetRecursive()))
+				{
+					CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+				}
+				else
+					m_bChanged = true;
 			}
-			else
-				m_bChanged = true;
+			prog.Stop();
+			Refresh();
 		}
-		prog.Stop();
-		Refresh();
 	}
 }
 
