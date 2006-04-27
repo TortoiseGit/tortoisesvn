@@ -605,9 +605,11 @@ LRESULT CLogPromptDlg::OnFileDropped(WPARAM, LPARAM lParam)
 	{
 		m_pathList.AddPath(path);
 		m_pathList.RemoveDuplicates();
-		SetTimer(REFRESHTIMER, 200, NULL);
-		ATLTRACE("Item %ws dropped, timer started\n", path.GetWinPath());
 	}
+	
+	// Always start the timer, since the status of an existing item might have changed
+	SetTimer(REFRESHTIMER, 200, NULL);
+	ATLTRACE("Item %ws dropped, timer started\n", path.GetWinPath());
 	return 0;
 }
 
