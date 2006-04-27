@@ -917,6 +917,7 @@ void CLogPromptDlg::OnBnClickedHistory()
 			if (!m_bBlock)
 				GetDlgItem(IDOK)->EnableWindow(TRUE);
 		}
+		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 	}
 	
 }
