@@ -273,49 +273,52 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 
 void CEditPropertiesDlg::OnBnClickedRemoveProps()
 {
-	int selIndex = m_propList.GetSelectionMark();
-	if (selIndex < 0)
-		return;
-	bool bRecurse = false;
-	CString sName = m_propList.GetItemText(selIndex, 0);
-	CString sQuestion;
-	sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sName);
-	CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
-	CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
-	CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
-
-	if ((m_pathlist.GetCount()>1)||((m_pathlist.GetCount()==1)&&(PathIsDirectory(m_pathlist[0].GetWinPath()))))
+	POSITION pos = m_propList.GetFirstSelectedItemPosition();
+	while ( pos )
 	{
-		int ret = CMessageBox::Show(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sRecursive, sNotRecursive, sCancel);
-		if (ret == 1)
-			bRecurse = true;
-		else if (ret == 2)
-			bRecurse = false;
-		else
-			return;
-	}
+		int selIndex = m_propList.GetNextSelectedItem(pos);
 
-	CProgressDlg prog;
-	CString sTemp;
-	sTemp.LoadString(IDS_SETPROPTITLE);
-	prog.SetTitle(sTemp);
-	sTemp.LoadString(IDS_PROPWAITCANCEL);
-	prog.SetCancelMsg(sTemp);
-	prog.SetTime(TRUE);
-	prog.SetShowProgressBar(TRUE);
-	prog.ShowModal(m_hWnd);
-	for (int i=0; i<m_pathlist.GetCount(); ++i)
-	{
-		prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-		SVNProperties props(m_pathlist[i]);
-		if (!props.Remove(sName, bRecurse))
+		bool bRecurse = false;
+		CString sName = m_propList.GetItemText(selIndex, 0);
+		CString sQuestion;
+		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sName);
+		CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
+		CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
+		CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));
+
+		if ((m_pathlist.GetCount()>1)||((m_pathlist.GetCount()==1)&&(PathIsDirectory(m_pathlist[0].GetWinPath()))))
 		{
-			CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+			int ret = CMessageBox::Show(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sRecursive, sNotRecursive, sCancel);
+			if (ret == 1)
+				bRecurse = true;
+			else if (ret == 2)
+				bRecurse = false;
+			else
+				break;
 		}
-		else
-			m_bChanged = true;
+
+		CProgressDlg prog;
+		CString sTemp;
+		sTemp.LoadString(IDS_SETPROPTITLE);
+		prog.SetTitle(sTemp);
+		sTemp.LoadString(IDS_PROPWAITCANCEL);
+		prog.SetCancelMsg(sTemp);
+		prog.SetTime(TRUE);
+		prog.SetShowProgressBar(TRUE);
+		prog.ShowModal(m_hWnd);
+		for (int i=0; i<m_pathlist.GetCount(); ++i)
+		{
+			prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
+			SVNProperties props(m_pathlist[i]);
+			if (!props.Remove(sName, bRecurse))
+			{
+				CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+			}
+			else
+				m_bChanged = true;
+		}
+		prog.Stop();
 	}
-	prog.Stop();
 	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
 	GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
 	Refresh();
