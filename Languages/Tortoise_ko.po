@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-17 19:18+0900\n"
+"PO-Revision-Date: 2006-04-27 15:56+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -355,6 +355,11 @@ msgstr "삭제(&D)..."
 #: ID:12
 msgid "&Diff"
 msgstr "비교(&D)"
+
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "특정 URL과 차이를 구합니다. (&D)"
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -710,7 +715,7 @@ msgid "&To URL:"
 msgstr "대상 URL(&T):"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "대상 URL(&T):"
 
@@ -1864,6 +1869,11 @@ msgstr "작업하기 위해 꺼냈던 것과 비교(&A)"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "작업한 내용을 마지막 커밋된 버전과 비교하여 보여줍니다."
 
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "선택된 파일을 저장소의 파일과 비교합니다"
+
 # ID:80,
 #: ID:120
 #, c-format
@@ -2231,6 +2241,11 @@ msgstr "목적지 디스크가 꽉 찼습니다."
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
 msgstr "대화상자 크기와 위치"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "특정 URL과 차이를 구합니다."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4406,6 +4421,7 @@ msgstr "마지막 업데이이트 이후에 만들어진 모든 변경사항 되
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "리비전"
 
@@ -4422,6 +4438,12 @@ msgstr "리비전 %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "리비전 %ld"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "리비전 %s"
 
 # ID:75,
 #: ID:15
@@ -5215,6 +5237,10 @@ msgstr "이전 문서창으로 전환"
 msgid "Switch working copy to another branch / tag"
 msgstr "현재 작업 사본을 생성된 브랜치나 태그로 전환"
 
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "비교 화면의 좌우를 바꿉니다"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "System &sounds"
@@ -5974,6 +6000,12 @@ msgstr "작업 사본을 특정 리비전으로 업데이트"
 msgid "Updates the working copy to the current revision"
 msgstr "작업 사본을 최신 리비전으로 업데이트 합니다."
 
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "업데이트 중 %s"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -6140,6 +6172,12 @@ msgstr "TODO: Warning!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "공백 비교"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr "대상 URL:"
 
 # ID:151,
 #: Dlg-ID:158
