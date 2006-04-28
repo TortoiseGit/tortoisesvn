@@ -32,7 +32,7 @@ CBalloon::CBalloon()
 	m_ptOriginal.y = -1;
 
 	SetDelayTime(TTDT_INITIAL, 500);
-	SetDelayTime(TTDT_AUTOPOP, 5000);
+	SetDelayTime(TTDT_AUTOPOP, 30000);
 	SetNotify(FALSE);
 	SetDirection();
 	SetBehaviour();
