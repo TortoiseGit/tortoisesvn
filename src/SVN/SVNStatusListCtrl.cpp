@@ -3418,7 +3418,6 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
 		switch (pMsg->wParam)
 		{
 		case 'A':
-		case 'a':
 			{
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
 				{
