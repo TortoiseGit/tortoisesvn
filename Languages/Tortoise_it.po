@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-15 00:17+0100\n"
+"PO-Revision-Date: 2006-04-29 14:06+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -358,6 +358,11 @@ msgstr "Eli&mina..."
 #: ID:12
 msgid "&Diff"
 msgstr "&Confronta"
+
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Confronta con URL"
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -717,7 +722,7 @@ msgid "&To URL:"
 msgstr "&Vai all'URL"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&Vai all'URL"
 
@@ -1870,6 +1875,11 @@ msgstr "Confronta con la b&ase"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Confronta il file con l'ultima revisione inviata in modo da mostrare i cambiamenti apportati"
 
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "Confronta il file selezionato con quelli nel repository"
+
 # ID:80,
 #: ID:120
 #, c-format
@@ -2238,6 +2248,11 @@ msgstr "Il disco di destinazione è pieno."
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
 msgstr "Dimensione e posizione delle finestre di dialogo"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "Confronta con URL"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2809,7 +2824,7 @@ msgstr "Ottenimeno informazioni sul file..."
 # ID:269,
 #: ID:269
 msgid "Getting information from repository..."
-msgstr "Ottenimento informazioni dal repository..."
+msgstr "Consultazione del repository..."
 
 # ID:269,
 #: ID:120
@@ -4419,6 +4434,7 @@ msgstr "Annulla tutte le modifiche apportate dall'ultimo aggiornamento"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Revisione"
 
@@ -4435,6 +4451,12 @@ msgstr "Revisione %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "Revisione %ld"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Revisione %s"
 
 # ID:75,
 #: ID:15
@@ -4584,6 +4606,11 @@ msgstr "SVN Stato"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN URL"
+
+# ID:14,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 # ID:14,
 #: ID:14
@@ -4996,6 +5023,12 @@ msgstr "Mostra tutte le revisioni in cui sono state apportate delle modifiche a 
 msgid "Shows information about TortoiseSVN"
 msgstr "Mostra informazioni su TortoiseSVN"
 
+# ID:17,
+#: ID:17
+#, fuzzy
+msgid "Shows the eol-style property value"
+msgstr "Mostra il calore della proprietà eol-style"
+
 # ID:12,
 #: ID:12
 msgid "Shows the log for the selected file / folder"
@@ -5219,6 +5252,10 @@ msgstr "Vai alla finestra precedente"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Sposta la copia di lavoro su un altro ramo / etichetta"
+
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Inverte Sinistra<->Destra nella finestra di confronto"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5986,6 +6023,12 @@ msgstr "Aggiorna la copia di lavoro ad una specifica revisione"
 msgid "Updates the working copy to the current revision"
 msgstr "Aggiorna la copia di lavoro alla revisione corrente"
 
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "Aggornamento di %s"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -6152,6 +6195,12 @@ msgstr "Attenzione!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Confronta spaziature"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr "Con URL:"
 
 # ID:151,
 #: Dlg-ID:158
