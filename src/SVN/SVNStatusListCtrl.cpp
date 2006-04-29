@@ -3007,15 +3007,6 @@ void CSVNStatusListCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			::SendMessage(GetParent()->GetSafeHwnd(), WM_CLOSE, 0, 0);
 		}
 		break;
-	case ('A'):
-	case ('a'):
-		{
-			if (GetKeyState(VK_CONTROL)&0x8000)
-			{
-				SelectAll(true);
-			}
-		}
-		break;
 	}
 
 	CListCtrl::OnKeyDown(nChar, nRepCnt, nFlags);
