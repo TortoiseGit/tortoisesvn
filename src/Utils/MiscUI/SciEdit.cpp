@@ -708,13 +708,13 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			else
 			{
 				sMenuItemText.LoadString(IDS_SPELLEDIT_NOCORRECTIONS);
-				popup.AppendMenu(MF_DISABLED | MF_STRING, 0, sMenuItemText);
+				popup.AppendMenu(MF_DISABLED | MF_GRAYED | MF_STRING, 0, sMenuItemText);
 			}
 		}
 		else
 		{
 			sMenuItemText.LoadString(IDS_SPELLEDIT_NOCORRECTIONS);
-			popup.AppendMenu(MF_DISABLED | MF_STRING, 0, sMenuItemText);
+			popup.AppendMenu(MF_DISABLED | MF_GRAYED | MF_STRING, 0, sMenuItemText);
 		}
 #if THESAURUS
 		// add found thesauri to submenu's
@@ -757,7 +757,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			else
 			{
 				sMenuItemText.LoadString(IDS_SPELLEDIT_NOTHESAURUS);
-				popup.AppendMenu(MF_DISABLED | MF_STRING, 0, sMenuItemText);
+				popup.AppendMenu(MF_DISABLED | MF_GRAYED | MF_STRING, 0, sMenuItemText);
 			}
 
 			pThesaur->CleanUpAfterLookup(&pmean, count);
@@ -765,7 +765,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		else
 		{
 			sMenuItemText.LoadString(IDS_SPELLEDIT_NOTHESAURUS);
-			popup.AppendMenu(MF_DISABLED | MF_STRING, 0, sMenuItemText);
+			popup.AppendMenu(MF_DISABLED | MF_GRAYED | MF_STRING, 0, sMenuItemText);
 		}
 #endif
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
