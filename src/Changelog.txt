@@ -193,6 +193,9 @@ Version 1.3.4
 - BUG: The tsvn:logtemplate wasn't used for operations in the repository
        browser. A defautl message was used instead. (Stefan)
 - BUG: SubWCRev didn't treat added files/folders correctly. (Stefan)
+- BUG: The context menu items "Rename..." and "Delete" have been removed
+       from the working copy root folder. See issue #243 for details.
+       (Tobias Schäfer)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the
