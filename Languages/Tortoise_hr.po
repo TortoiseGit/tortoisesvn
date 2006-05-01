@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-21 18:14+0100\n"
+"PO-Revision-Date: 2006-05-01 16:37+0100\n"
 "Last-Translator: Mario <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -375,6 +375,11 @@ msgstr "&Obriši..."
 #: ID:12
 msgid "&Diff"
 msgstr "&Razlike"
+
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Razlike s URL"
 
 # Control-ID:1061,
 #: Control-ID:1179
@@ -731,7 +736,7 @@ msgid "&To URL:"
 msgstr "&U URL:"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&U URL:"
 
@@ -1886,6 +1891,11 @@ msgstr "Usporedi s o&snovom"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Uspoređuje datoteku sa zadnjom pohranjenom revizijom kako bi se vidjele izmjene koje ste učinili"
 
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "Uspoređuje označenu datoteku s datotekom iz skladišta"
+
 # ID:80,
 #: ID:120
 #, c-format
@@ -2251,6 +2261,11 @@ msgstr "Odredišni disk je pun."
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
 msgstr "Veličine i položaji dijaloga"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "Razlike s URL"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4447,6 +4462,7 @@ msgstr "Poništava sve izmjene koje su učinjene nakon zadnje obnove"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Revizija"
 
@@ -4465,6 +4481,12 @@ msgstr "Revizija %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "Revizija %ld"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Revizija %s"
 
 # ID:15,#:
 # ID:269,#:
@@ -5269,6 +5291,10 @@ msgstr "Prebaci na prozor s prethodnim dokumentom"
 msgid "Switch working copy to another branch / tag"
 msgstr "Mijenja radnu kopiju drugom granom / oznakom"
 
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Zamijeni lijevo <-> desno"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "System &sounds"
@@ -6029,6 +6055,12 @@ msgstr "Obnavlja radnu kopiju prema određenoj reviziji"
 msgid "Updates the working copy to the current revision"
 msgstr "Obnavlja radnu kopiju prema važećoj reviziji"
 
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "Obnavljanje %s"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -6195,6 +6227,12 @@ msgstr "Upozorenje!"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Razlika u razmacima"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr "URL:"
 
 # ID:151,
 #: Dlg-ID:158
