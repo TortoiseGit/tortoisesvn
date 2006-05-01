@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-11 11:15+0800\n"
+"PO-Revision-Date: 2006-05-01 19:18+0800\n"
 "Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -358,6 +358,11 @@ msgstr "删除(&D)"
 msgid "&Diff"
 msgstr "比较差异(&D)"
 
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "以URL比较(&D)"
+
 # Control-ID:1061,
 #: Control-ID:1179
 msgid "&Dry run"
@@ -492,10 +497,10 @@ msgstr "图标集(&I)："
 msgid "&Ignore %d items"
 msgstr "忽略(&I) %d 项"
 
-# Control-ID:1020,
-#: Control-ID:1020
-msgid "&Ignore leading whitespaces"
-msgstr "忽略开头的空白字符(&J)"
+# Control-ID:1067,
+#: Control-ID:1021
+msgid "&Ignore whitespace changes"
+msgstr "忽略空白的变化(&I)"
 
 # ID:9,
 #: ID:9
@@ -713,7 +718,7 @@ msgid "&To URL:"
 msgstr "至URL(&T)："
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "至URL(&T)："
 
@@ -1030,6 +1035,7 @@ msgstr "拒绝存取 %1。"
 
 # ID:77,
 #: ID:77
+#: ID:319
 msgid "Action"
 msgstr "操作"
 
@@ -1089,6 +1095,7 @@ msgstr "添加/编辑针对扩展名的差异比较/合并工具"
 
 # Control-ID:65535,
 #: ID:73
+#: ID:264
 #: Control-ID:65535
 msgid "Added"
 msgstr "已添加"
@@ -1563,6 +1570,11 @@ msgstr "正在取消 SVN 谴责..."
 msgid "Cancelling operation..."
 msgstr "正在取消操作..."
 
+# ID:68,
+#: ID:68
+msgid "Cannot show diff because of inconsistent newlines in the file."
+msgstr "由于文件中采用了不同的换行方式，不能显示其差异。"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Cascaded context menu"
@@ -1799,11 +1811,6 @@ msgid "Command failed."
 msgstr "命令失败。"
 
 # ID:8,
-#: ID:319
-msgid "Comment"
-msgstr "注释"
-
-# ID:8,
 #: ID:209
 #: Control-ID:1083
 msgid "Commit"
@@ -1863,6 +1870,11 @@ msgstr "与基础版本比较(&A)"
 #: ID:12
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "比较此文件与上次提交的版本并列出你所做的修改"
+
+# ID:13,
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "将选定的文件与版本库中的文件进行比较"
 
 # ID:80,
 #: ID:120
@@ -2200,6 +2212,7 @@ msgstr "默认的日志信息数目(&N)"
 # ID:11,#:
 # ID:73,
 #: ID:73
+#: ID:264
 msgid "Deleted"
 msgstr "已删除"
 
@@ -2231,10 +2244,20 @@ msgstr "目标磁盘已满。"
 msgid "Dialog sizes and positions"
 msgstr "窗口大小及位置"
 
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "以URL比较"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff file:"
 msgstr "补丁文件："
+
+# Control-ID:1302,
+#: Control-ID:1302
+msgid "Difference between"
+msgstr "比较"
 
 # Control-ID:1022,
 #: Control-ID:1022
@@ -2981,7 +3004,7 @@ msgid "Ignore"
 msgstr "忽略"
 
 # Control-ID:1021,
-#: Control-ID:1021
+#: Control-ID:1020
 msgid "Ignore &all whitespaces"
 msgstr "忽略所有空白字符(&A)"
 
@@ -2994,11 +3017,6 @@ msgstr "忽略大/小写(&C)"
 #: Control-ID:1267
 msgid "Ignore ancestry"
 msgstr "忽略根源"
-
-# Control-ID:1020,
-#: Control-ID:1026
-msgid "Ignore e&nding whitespaces"
-msgstr "忽略行尾的空白字符(&N)"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -3458,6 +3476,7 @@ msgstr "混合"
 
 # ID:74,
 #: ID:74
+#: ID:264
 msgid "Modified"
 msgstr "已修改"
 
@@ -3641,6 +3660,7 @@ msgid "None"
 msgstr "无"
 
 # Control-ID:65535,
+#: ID:264
 #: Control-ID:65535
 msgid "Normal"
 msgstr "正常"
@@ -3709,12 +3729,6 @@ msgstr "至少还有一个的文件处于冲突状态。"
 #: Control-ID:1073
 msgid "Only check out the &top folder"
 msgstr "仅检出最上层目录(&T)"
-
-# ID:319,
-#: ID:319
-#, c-format
-msgid "Only in %s"
-msgstr "仅在 %s"
 
 # ID:169,
 #: ID:169
@@ -3959,6 +3973,11 @@ msgstr "正在取消, 请稍候…"
 #: ID:104
 msgid "Please wait while the repository browser is initialized..."
 msgstr "请稍候，正在启动版本库浏览器"
+
+# ID:13,
+#: ID:319
+msgid "Please wait while we get the differences..."
+msgstr "正在获取差异， 请稍候..."
 
 # ID:119,
 #: ID:119
@@ -4236,12 +4255,6 @@ msgstr "重命名"
 msgid "Rename %s"
 msgstr "重命名 %s"
 
-# ID:97,
-#: ID:319
-#, c-format
-msgid "Renamed from %s"
-msgstr "重命名 %s"
-
 # ID:126,
 #: Control-ID:65535
 msgid "Renamed node"
@@ -4301,6 +4314,11 @@ msgstr "版本库"
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
+msgstr "版本库浏览器"
+
+# Dlg-ID:153,
+#: Control-ID:65535
+msgid "Repository browser"
 msgstr "版本库浏览器"
 
 # Control-ID:65535,
@@ -4399,6 +4417,7 @@ msgstr "复原从上次更新之后全部的变动"
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "版本"
 
@@ -4415,6 +4434,12 @@ msgstr "版本 %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "版本分支 %ld"
+
+# ID:119,
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "版本 %s"
 
 # ID:75,
 #: ID:15
@@ -4563,6 +4588,11 @@ msgstr "SVN 状态"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN URL"
+
+# ID:14,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN 行结束符类型"
 
 # ID:14,
 #: ID:14
@@ -4972,6 +5002,11 @@ msgstr "显示该项目发生改变的全部版本"
 msgid "Shows information about TortoiseSVN"
 msgstr "显示关于 TortoiseSVN 的信息"
 
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "显示设置的行结束符类型"
+
 # ID:12,
 #: ID:12
 msgid "Shows the log for the selected file / folder"
@@ -4996,6 +5031,11 @@ msgstr "跳过"
 #: ID:263
 msgid "Skipped missing target"
 msgstr "跳过丢失的目标项"
+
+# Control-ID:1300,
+#: Control-ID:1300
+msgid "Sort items numerically"
+msgstr "按数字顺序排序"
 
 # ID:196,
 #: ID:196
@@ -5190,6 +5230,10 @@ msgstr "切换至前一个文件窗口"
 msgid "Switch working copy to another branch / tag"
 msgstr "切换工作拷贝至其它分支/标记"
 
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "左右切换"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "System &sounds"
@@ -5268,6 +5312,20 @@ msgstr "文件 %s 不存在！"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "补丁文件中找不到文件: %s！"
+
+# ID:65,
+#: ID:65
+#, c-format
+msgid ""
+"The file %s\n"
+"was found twice!?!\n"
+"This usually happens if you applied a patchfile to the\n"
+"wrong folder!"
+msgstr ""
+"文件 %s\n"
+"出现了两次？！\n"
+"这通常发生在你将补丁\n"
+"文件应用到了错误的目录。"
 
 # ID:3857,#:
 # ID:3857,
@@ -5580,11 +5638,16 @@ msgstr "该属性只允许添加一行，不能添加多行文本。"
 # ID:224,
 #: ID:224
 msgid ""
-"To commit recursively, make sure all versioned entries shown in the commit dialog are checked.\n"
-"If entries are not checked, TortoiseSVN must do a non-recursive commit."
+"To commit recursively and work around this error,\n"
+"make sure that all child items of a checked folder\n"
+"are also checked in the commit dialog.\n"
+"Otherwise, TortoiseSVN must do a non-recursive commit\n"
+"which does not allow directory deletion."
 msgstr ""
-"需将提交对话框中所有版本控制下的项目选中才能递归提交。\n"
-"否则，TortoiseSVN 将进行非递归的提交。"
+"如果您要递归提交并避免此错误，请确认\n"
+"勾选了提交对话框中选定项目的所有子项\n"
+"目。否则， TortoiseSVN 将会进行非递归\n"
+"提交，并不允许删除目录。"
 
 # Control-ID:65535,
 #: Control-ID:1201
@@ -5929,6 +5992,12 @@ msgstr "更新工作拷贝至指定的版本"
 msgid "Updates the working copy to the current revision"
 msgstr "更新工作拷贝至当前的版本"
 
+# ID:80,
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "正在更新 %s"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -6095,6 +6164,12 @@ msgstr "警告！"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "空白字符差异"
+
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: ID:146
+msgid "With URL:"
+msgstr "URL："
 
 # ID:151,
 #: Dlg-ID:158
@@ -6350,6 +6425,11 @@ msgstr "添加文件"
 #: ID:3841
 msgid "an unnamed file"
 msgstr "未命名文件"
+
+# Control-ID:1304,
+#: Control-ID:1304
+msgid "and"
+msgstr "和"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
