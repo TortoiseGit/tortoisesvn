@@ -88,25 +88,29 @@ static apr_status_t read_with_timeout(apr_file_t *file, void *buf, apr_size_t le
                 rv = WaitForSingleObject(file->pOverlapped->hEvent, INFINITE);
             }
             switch (rv) {
-            case WAIT_OBJECT_0:
-                GetOverlappedResult(file->filehand, file->pOverlapped, 
+                case WAIT_OBJECT_0:
+                    GetOverlappedResult(file->filehand, file->pOverlapped, 
                                     &bytesRead, TRUE);
-				*nbytes = bytesRead;
+				    *nbytes = bytesRead;
+                    rv = APR_SUCCESS;
+                    break;
 
-                rv = APR_SUCCESS;
-                break;
-            case WAIT_TIMEOUT:
-                rv = APR_TIMEUP;
-                break;
-            case WAIT_FAILED:
-                rv = apr_get_os_error();
-                break;
-            default:
-                break;
+                case WAIT_TIMEOUT:
+                    rv = APR_TIMEUP;
+                    break;
+
+                case WAIT_FAILED:
+                    rv = apr_get_os_error();
+                    break;
+
+                default:
+                    break;
             }
+
             if (rv != APR_SUCCESS) {
-                if (apr_os_level >= APR_WIN_98)
+                if (apr_os_level >= APR_WIN_98) {
                     CancelIo(file->filehand);
+                }
             }
         }
         else if (rv == APR_FROM_OS_ERROR(ERROR_BROKEN_PIPE)) {
@@ -170,7 +174,11 @@ APR_DECLARE(apr_status_t) apr_file_read(apr_file_t *thefile, void *buf, apr_size
         apr_thread_mutex_lock(thefile->mutex);
 
         if (thefile->direction == 1) {
-            apr_file_flush(thefile);
+            rv = apr_file_flush(thefile);
+            if (rv != APR_SUCCESS) {
+                apr_thread_mutex_unlock(thefile->mutex);
+                return rv;
+            }
             thefile->bufpos = 0;
             thefile->direction = 0;
             thefile->dataRead = 0;
@@ -210,6 +218,8 @@ APR_DECLARE(apr_status_t) apr_file_read(apr_file_t *thefile, void *buf, apr_size
         /* Unbuffered i/o */
         apr_size_t nbytes;
         rv = read_with_timeout(thefile, buf, *len, &nbytes);
+        if (rv == APR_EOF)
+            thefile->eof_hit = TRUE;
         *len = nbytes;
     }
 
@@ -315,8 +325,20 @@ APR_DECLARE(apr_status_t) apr_file_write(apr_file_t *thefile, const void *buf, a
             (*nbytes) = 0;
             rv = apr_get_os_error();
             if (rv == APR_FROM_OS_ERROR(ERROR_IO_PENDING)) {
-                /* Wait for the pending i/o (put a timeout here?) */
-                rv = WaitForSingleObject(thefile->pOverlapped->hEvent, INFINITE);
+ 
+                DWORD timeout_ms;
+
+                if (thefile->timeout == 0) {
+                    timeout_ms = 0;
+                }
+                else if (thefile->timeout < 0) {
+                    timeout_ms = INFINITE;
+                }
+                else {
+                    timeout_ms = (DWORD)(thefile->timeout / 1000);
+                }
+	       
+                rv = WaitForSingleObject(thefile->pOverlapped->hEvent, timeout_ms);
                 switch (rv) {
                     case WAIT_OBJECT_0:
                         GetOverlappedResult(thefile->filehand, thefile->pOverlapped, &bytesWritten, TRUE);
@@ -419,8 +441,13 @@ APR_DECLARE(apr_status_t) apr_file_gets(char *str, int len, apr_file_t *thefile)
         readlen = 1;
         rv = apr_file_read(thefile, str+i, &readlen);
 
-        if (readlen != 1) {
-            rv = APR_EOF;
+        if (rv != APR_SUCCESS && rv != APR_EOF)
+            return rv;
+
+        if (readlen == 0) {
+            /* If we have bytes, defer APR_EOF to the next call */
+            if (i > 0)
+                rv = APR_SUCCESS;
             break;
         }
         
@@ -430,12 +457,6 @@ APR_DECLARE(apr_status_t) apr_file_gets(char *str, int len, apr_file_t *thefile)
         }
     }
     str[i] = 0;
-    if (i > 0) {
-        /* we stored chars; don't report EOF or any other errors;
-         * the app will find out about that on the next call
-         */
-        return APR_SUCCESS;
-    }
     return rv;
 }
 
@@ -455,38 +476,55 @@ APR_DECLARE(apr_status_t) apr_file_flush(apr_file_t *thefile)
         }
 
         return rc;
-    } else {
-        FlushFileBuffers(thefile->filehand);
-        return APR_SUCCESS;
     }
+
+    /* There isn't anything to do if we aren't buffering the output
+     * so just return success.
+     */
+    return APR_SUCCESS; 
 }
 
-static int printf_flush(apr_vformatter_buff_t *vbuff)
+struct apr_file_printf_data {
+    apr_vformatter_buff_t vbuff;
+    apr_file_t *fptr;
+    char *buf;
+};
+
+static int file_printf_flush(apr_vformatter_buff_t *buff)
 {
-    /* I would love to print this stuff out to the file, but I will
-     * get that working later.  :)  For now, just return.
-     */
-    return -1;
+    struct apr_file_printf_data *data = (struct apr_file_printf_data *)buff;
+
+    if (apr_file_write_full(data->fptr, data->buf,
+                            data->vbuff.curpos - data->buf, NULL)) {
+        return -1;
+    }
+
+    data->vbuff.curpos = data->buf;
+    return 0;
 }
 
 APR_DECLARE_NONSTD(int) apr_file_printf(apr_file_t *fptr, 
                                         const char *format, ...)
 {
-    int cc;
+    struct apr_file_printf_data data;
     va_list ap;
-    char *buf;
-    int len;
+    int count;
 
-    buf = malloc(HUGE_STRING_LEN);
-    if (buf == NULL) {
+    data.buf = malloc(HUGE_STRING_LEN);
+    if (data.buf == NULL) {
         return 0;
     }
+    data.vbuff.curpos = data.buf;
+    data.vbuff.endpos = data.buf + HUGE_STRING_LEN;
+    data.fptr = fptr;
     va_start(ap, format);
-    len = apr_vsnprintf(buf, HUGE_STRING_LEN, format, ap);
-    cc = apr_file_puts(buf, fptr);
+    count = apr_vformatter(file_printf_flush,
+                           (apr_vformatter_buff_t *)&data, format, ap);
+    /* apr_vformatter does not call flush for the last bits */
+    if (count >= 0) file_printf_flush((apr_vformatter_buff_t *)&data);
+
     va_end(ap);
-    free(buf);
-    return (cc == APR_SUCCESS) ? len : -1;
+
+    free(data.buf);
+    return count;
 }
-
-
