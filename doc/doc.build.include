@@ -124,7 +124,7 @@ This will only build the english HTML helpf file for TortoiseSVN
 		unless="${property::exists('path.gettext')}"
 	/>
 	<property name="path.subwcrev" 
-		value="../bin/release/bin/"
+		value="../bin/release${bindirextension}/bin/"
 		unless="${property::exists('path.subwcrev')}"
 	/>
 

@@ -49,13 +49,13 @@ NAnt build script for the TortoiseSVN language pack installers
 		/>
 		<echo message="Building ${langUI} dlls and installer" />
 		<!-- create the dlls -->
-		<exec program="..\bin\release\bin\restext.exe">
+		<exec program="..\bin\release${bindirextension}\bin\restext.exe">
 			<arg value="apply" />
 			<arg value="..\bin\${platformfolder}\bin\TortoiseProcLang.dll" />
 			<arg value="..\bin\TortoiseProc${langCC}.dll" />
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
-		<exec program="..\bin\release\bin\restext.exe">
+		<exec program="..\bin\release${bindirextension}\bin\restext.exe">
 			<arg value="apply" />
 			<arg value="..\bin\${platformfolder}\bin\TortoiseMergeLang.dll" />
 			<arg value="..\bin\TortoiseMerge${langCC}.dll" />
