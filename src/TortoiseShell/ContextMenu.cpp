@@ -219,8 +219,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								{
 									if (props.GetItemName(p).compare(stdstring(_T("svn:ignore")))==0)
 									{
-										stdstring st = props.GetItemValue(p);
-										ignoredprops = MultibyteToWide((char *)st.c_str());
+										std::string st = props.GetItemValue(p);
+										ignoredprops = MultibyteToWide(st.c_str());
 										break;
 									}
 								}

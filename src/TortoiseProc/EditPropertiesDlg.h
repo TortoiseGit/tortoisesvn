@@ -49,6 +49,7 @@ protected:
 	afx_msg void OnBnClickedEditprops();
 	afx_msg void OnLvnItemchangedEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedSaveprop();
 
 	DECLARE_MESSAGE_MAP()
 private:
@@ -60,12 +61,13 @@ protected:
 	class PropValue
 	{
 	public:
-		PropValue(void) : count(0), allthesamevalue(true) {};
+		PropValue(void) : count(0), allthesamevalue(true), isbinary(false) {};
 
-		stdstring	value;
+		std::string	value;
 		stdstring	value_without_newlines;
 		int			count;
 		bool		allthesamevalue;
+		bool		isbinary;
 	};
 	CTSVNPathList	m_pathlist;
 	CListCtrl		m_propList;

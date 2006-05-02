@@ -264,9 +264,17 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						int sel = ListView_GetSelectionMark(lvh);
 						ListView_GetItemTextEx(lvh, sel, 0, buf);
 						SetDlgItemText(m_hwnd, IDC_EDITNAME, buf);
-						std::map<stdstring, stdstring>::const_iterator it;
+						std::map<stdstring, std::string>::const_iterator it;
 						if ((it = propmap.find(stdstring(buf))) != propmap.end())
-							SetDlgItemText(m_hwnd, IDC_EDITVALUE, it->second.c_str());
+						{
+							if (SVNProperties::IsBinary(it->second))
+							{
+								MAKESTRING(IDS_PROPBIN);
+								SetDlgItemText(m_hwnd, IDC_EDITVALUE, stringtablebuffer);
+							}
+							else
+								SetDlgItemText(m_hwnd, IDC_EDITVALUE, MultibyteToWide(it->second).c_str());
+						}
 						delete [] buf;
 					} // if (count > 0) 
 					else
@@ -274,7 +282,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						SetDlgItemText(m_hwnd, IDC_EDITNAME, _T(""));
 						SetDlgItemText(m_hwnd, IDC_EDITVALUE, _T(""));
 					} 
-				} // if ((code == LVN_ITEMCHANGED)||(code == LVN_ITEMACTIVATE)) 
+				}
 			} // if (wParam == IDC_PROPLIST)
 			if (code == TTN_GETDISPINFO)
 			{
@@ -650,10 +658,14 @@ void CSVNPropertyPage::InitWorkfileView()
 						lvitem.stateMask = 0;
 						lvitem.cchTextMax = (int)min(_tcslen(lvitem.pszText)+1, (size_t)INT_MAX);
 						ListView_InsertItem(lvh, &lvitem);
-						temp = props.GetItemValue(i);
 						//treat values as normal text even if they're not
-						stemp = MultibyteToWide((char *)temp.c_str());
-						propmap[props.GetItemName(i)] = stemp;
+						std::string tempval = props.GetItemValue(i);
+						stemp = MultibyteToWide(tempval);
+						propmap[props.GetItemName(i)] = tempval;
+						if (props.IsBinary(i))
+						{
+							stemp.clear();
+						}
 						for (int ii=0; ii<(int)stemp.length(); ++ii)
 						{
 							if (stemp[ii] == '\n')
@@ -731,9 +743,6 @@ void CSVNPropertyPage::InitWorkfileView()
 				listproperty prop;
 				prop.name = props.GetItemName(i);
 				prop.value = props.GetItemValue(i);
-				stdstring stemp;
-				stemp = MultibyteToWide((char *)prop.value.c_str());
-				prop.value = stemp;
 				prop.count = 1;
 				BOOL found = FALSE;
 				for (std::vector<listproperty>::iterator I = proplist.begin(); I != proplist.end(); ++I)
@@ -853,6 +862,9 @@ bool CSVNPropertyPage::SaveProperties()
 	TCHAR * value = NULL;
 	GetDlgItemTextEx(m_hwnd, IDC_EDITNAME, name);
 	GetDlgItemTextEx(m_hwnd, IDC_EDITVALUE, value);
+	MAKESTRING(IDS_PROPBIN);
+	if (_tcscmp(stringtablebuffer, value)==0)
+		return true;
 	std::string t = WideToMultibyte(value);
 	HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
 	BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
@@ -887,7 +899,7 @@ bool CSVNPropertyPage::SaveProperties()
 				break;
 			}
 		}
-		if (!props.Add(name, t.c_str(), checked))
+		if (!props.Add(name, t, checked))
 		{
 			::MessageBox(m_hwnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 		}

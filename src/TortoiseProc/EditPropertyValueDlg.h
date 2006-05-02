@@ -33,10 +33,11 @@ public:
 	enum { IDD = IDD_EDITPROPERTYVALUE };
 
 	void SetPropertyName(const CString& sName) {m_sPropName = sName;}
-	void SetPropertyValue(const CString& sValue) {m_PropValue = sValue;}
-	CString GetPropertyValue() {return m_PropValue;}
+	void SetPropertyValue(const std::string& sValue);
+	std::string GetPropertyValue() {return m_PropValue;}
 	CString GetPropertyName() {return m_sPropName;}
 	bool GetRecursive() {return !!m_bRecursive;}
+	bool IsBinary() {return m_bIsBinary;}
 
 	void SetFolder() {m_bFolder = true;}
 	void SetMultiple() {m_bMultiple = true;}
@@ -48,15 +49,19 @@ protected:
 	virtual void OnCancel();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnBnClickedLoadprop();
+	afx_msg void OnEnChangePropvalue();
 
 	DECLARE_MESSAGE_MAP()
 
 	void CheckRecursive();
 protected:
 	CComboBox	m_PropNames;
-	CString		m_PropValue;
+	std::string m_PropValue;
+	CString		m_sPropValue;
 	CString		m_sPropName;
 	BOOL		m_bRecursive;
 	bool		m_bFolder;
 	bool		m_bMultiple;
+	bool		m_bIsBinary;
 };

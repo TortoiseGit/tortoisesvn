@@ -18,6 +18,9 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
+#include "SVNProperties.h"
+#include "UnicodeStrings.h"
+#include "Utils.h"
 #include "EditPropertyValueDlg.h"
 
 
@@ -27,10 +30,11 @@ IMPLEMENT_DYNAMIC(CEditPropertyValueDlg, CResizableStandAloneDialog)
 
 CEditPropertyValueDlg::CEditPropertyValueDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CEditPropertyValueDlg::IDD, pParent)
-	, m_PropValue(_T(""))
+	, m_sPropValue(_T(""))
 	, m_bRecursive(FALSE)
 	, m_bFolder(false)
 	, m_bMultiple(false)
+	, m_bIsBinary(false)
 {
 
 }
@@ -43,7 +47,7 @@ void CEditPropertyValueDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_PROPNAMECOMBO, m_PropNames);
-	DDX_Text(pDX, IDC_PROPVALUE, m_PropValue);
+	DDX_Text(pDX, IDC_PROPVALUE, m_sPropValue);
 	DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
@@ -52,6 +56,8 @@ BEGIN_MESSAGE_MAP(CEditPropertyValueDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, &CEditPropertyValueDlg::OnBnClickedHelp)
 	ON_CBN_SELCHANGE(IDC_PROPNAMECOMBO, &CEditPropertyValueDlg::CheckRecursive)
 	ON_CBN_EDITCHANGE(IDC_PROPNAMECOMBO, &CEditPropertyValueDlg::CheckRecursive)
+	ON_BN_CLICKED(IDC_LOADPROP, &CEditPropertyValueDlg::OnBnClickedLoadprop)
+	ON_EN_CHANGE(IDC_PROPVALUE, &CEditPropertyValueDlg::OnEnChangePropvalue)
 END_MESSAGE_MAP()
 
 
@@ -122,12 +128,27 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	AddAnchor(IDC_PROPNAMECOMBO, TOP_CENTER, TOP_RIGHT);
 	AddAnchor(IDC_PROPVALUEGROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROPVALUE, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOADPROP, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROPRECURSIVE, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
+}
+
+void CEditPropertyValueDlg::SetPropertyValue(const std::string& sValue)
+{
+	if (SVNProperties::IsBinary(sValue))
+	{
+		m_bIsBinary = true;
+		m_sPropValue.LoadString(IDS_EDITPROPS_BINVALUE);
+	}
+	else
+	{
+		m_bIsBinary = false;
+		m_sPropValue = MultibyteToWide(sValue.c_str()).c_str();
+	}
 }
 
 void CEditPropertyValueDlg::OnBnClickedHelp()
@@ -144,6 +165,10 @@ void CEditPropertyValueDlg::OnCancel()
 void CEditPropertyValueDlg::OnOK()
 {
 	UpdateData();
+	if (!m_bIsBinary)
+	{
+		m_PropValue = WideToMultibyte((LPCTSTR)m_sPropValue);
+	}
 	m_PropNames.GetWindowText(m_sPropName);
 	CDialog::OnOK();
 }
@@ -199,4 +224,66 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
 	}
 
 	return __super::PreTranslateMessage(pMsg);
+}
+
+void CEditPropertyValueDlg::OnBnClickedLoadprop()
+{
+	// now save the property value
+	OPENFILENAME ofn;		// common dialog box structure
+	TCHAR szFile[MAX_PATH];  // buffer for file name
+	_tcscpy_s(szFile, (LPCTSTR)m_sPropName);
+	CString temp;
+	ZeroMemory(szFile, sizeof(szFile));
+	// Initialize OPENFILENAME
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = m_hWnd;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	temp.LoadString(IDS_REPOBROWSE_OPEN);
+	CUtils::RemoveAccelerators(temp);
+	if (temp.IsEmpty())
+		ofn.lpstrTitle = NULL;
+	else
+		ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_FILEMUSTEXIST | OFN_EXPLORER;
+
+	// Display the Open dialog box. 
+	if (GetOpenFileName(&ofn)==FALSE)
+	{
+		return;
+	}
+	// first check the size of the file
+	HANDLE hFile = CreateFile(ofn.lpstrFile, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hFile != INVALID_HANDLE_VALUE)
+	{
+		DWORD size = GetFileSize(hFile, NULL);
+		FILE * stream;
+		_tfopen_s(&stream, ofn.lpstrFile, _T("rbS"));
+		char * buf = new char[size];
+		if (fread(buf, sizeof(char), size, stream)==size)
+		{
+			m_PropValue.assign(buf, size);
+		}
+		delete [] buf;
+		fclose(stream);
+		// see if the loaded file contents are binary
+		SetPropertyValue(m_PropValue);
+		UpdateData(FALSE);
+	}
+
+}
+
+void CEditPropertyValueDlg::OnEnChangePropvalue()
+{
+	UpdateData();
+	CString sTemp;
+	sTemp.LoadString(IDS_EDITPROPS_BINVALUE);
+	if ((m_bIsBinary)&&(m_sPropValue.CompareNoCase(sTemp)!=0))
+	{
+		m_sPropValue.Empty();
+		m_PropValue.clear();
+		UpdateData(FALSE);
+		m_bIsBinary = false;
+	}
 }

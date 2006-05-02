@@ -2081,9 +2081,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								if (propname.CompareNoCase(_T("svn:ignore"))==0)
 								{
 									stdstring stemp;
-									stdstring tmp = props.GetItemValue(i);
 									//treat values as normal text even if they're not
-									value = (char *)tmp.c_str();
+									value = (char *)props.GetItemValue(i).c_str();
 								}
 							}
 							if (value.IsEmpty())
@@ -2095,7 +2094,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								value += name;
 								value.Remove('\r');
 							}
-							if (!props.Add(_T("svn:ignore"), value))
+							if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
 							{
 								CString temp;
 								temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
@@ -2223,9 +2222,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								if (propname.CompareNoCase(_T("svn:ignore"))==0)
 								{
 									stdstring stemp;
-									stdstring tmp = props.GetItemValue(i);
 									//treat values as normal text even if they're not
-									value = (char *)tmp.c_str();
+									value = (char *)props.GetItemValue(i).c_str();
 								}
 							}
 							if (value.IsEmpty())
@@ -2237,7 +2235,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								value += name;
 								value.Remove('\r');
 							}
-							if (!props.Add(_T("svn:ignore"), value))
+							if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
 							{
 								CString temp;
 								temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);

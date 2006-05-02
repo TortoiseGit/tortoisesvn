@@ -57,6 +57,7 @@ BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_EDITPROPS, &CEditPropertiesDlg::OnBnClickedEditprops)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnLvnItemchangedEditproplist)
 	ON_NOTIFY(NM_DBLCLK, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnNMDblclkEditproplist)
+	ON_BN_CLICKED(IDC_SAVEPROP, &CEditPropertiesDlg::OnBnClickedSaveprop)
 END_MESSAGE_MAP()
 
 
@@ -102,6 +103,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 	AddAnchor(IDC_GROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROPPATH, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_EDITPROPLIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SAVEPROP, BOTTOM_RIGHT);
 	AddAnchor(IDC_REMOVEPROPS, BOTTOM_RIGHT);
 	AddAnchor(IDC_EDITPROPS, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -149,26 +151,27 @@ UINT CEditPropertiesDlg::PropsThread()
 		for (int p=0; p<props.GetCount(); ++p)
 		{
 			wide_string prop_str = props.GetItemName(p);
-			stdstring prop_value = props.GetItemValue(p);
+			std::string prop_value = props.GetItemValue(p);
 			std::map<stdstring,PropValue>::iterator it = m_properties.lower_bound(prop_str);
 			if (it != m_properties.end() && it->first == prop_str)
 			{
 				it->second.count++;
-				stdstring value = MultibyteToWide((char *)prop_value.c_str());
-				if (it->second.value.compare(value)!=0)
+				if (it->second.value.compare(prop_value)!=0)
 					it->second.allthesamevalue = false;
 			}
 			else
 			{
 				it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
 				stdstring value = MultibyteToWide((char *)prop_value.c_str());
-				it->second.value = value;
+				it->second.value = prop_value;
 				CString stemp = value.c_str();
 				stemp.Replace('\n', ' ');
 				stemp.Replace(_T("\r"), _T(""));
 				it->second.value_without_newlines = stdstring((LPCTSTR)stemp);
 				it->second.count = 1;
 				it->second.allthesamevalue = true;
+				if (SVNProperties::IsBinary(prop_value))
+					it->second.isbinary = true;
 			}
 		}
 	}
@@ -179,7 +182,12 @@ UINT CEditPropertiesDlg::PropsThread()
 	for (std::map<stdstring,PropValue>::iterator it = m_properties.begin(); it != m_properties.end(); ++it)
 	{
 		m_propList.InsertItem(index, it->first.c_str());
-		if (it->second.count != m_pathlist.GetCount())
+		if (it->second.isbinary)
+		{
+			m_propList.SetItemText(index, 1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_BINVALUE)));
+			m_propList.SetItemData(index, FALSE);
+		}
+		else if (it->second.count != m_pathlist.GetCount())
 		{
 			// if the property values are the same for all paths they're set
 			// but they're not set for *all* paths, then we show the entry grayed out
@@ -341,15 +349,13 @@ void CEditPropertiesDlg::EditProps()
 
 	CEditPropertyValueDlg dlg;
 	CString sName;
-	CString sValue;
 	if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
 		sName = m_propList.GetItemText(selIndex, 0);
 		PropValue& prop = m_properties[stdstring(sName)];
-		sValue = prop.value.c_str();
 		dlg.SetPropertyName(sName);
 		if (prop.allthesamevalue)
-			dlg.SetPropertyValue(sValue);
+			dlg.SetPropertyValue(prop.value);
 	}
 
 	if (m_pathlist.GetCount() > 1)
@@ -378,7 +384,7 @@ void CEditPropertiesDlg::EditProps()
 			{
 				prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
 				SVNProperties props(m_pathlist[i]);
-				if (!props.Add(sName, CStringA(dlg.GetPropertyValue()), dlg.GetRecursive()))
+				if (!props.Add(sName, dlg.IsBinary() ? dlg.GetPropertyValue() : dlg.GetPropertyValue().c_str(), dlg.GetRecursive()))
 				{
 					CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
@@ -426,4 +432,48 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 	return __super::PreTranslateMessage(pMsg);
 }
 
+void CEditPropertiesDlg::OnBnClickedSaveprop()
+{
+	int selIndex = m_propList.GetSelectionMark();
 
+	CString sName;
+	CString sValue;
+	if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
+	{
+		sName = m_propList.GetItemText(selIndex, 0);
+		PropValue& prop = m_properties[stdstring(sName)];
+		sValue = prop.value.c_str();
+		if (prop.allthesamevalue)
+		{
+			// now save the property value
+			OPENFILENAME ofn;		// common dialog box structure
+			TCHAR szFile[MAX_PATH];  // buffer for file name
+			_tcscpy_s(szFile, (LPCTSTR)sName);
+			CString temp;
+			ZeroMemory(szFile, sizeof(szFile));
+			// Initialize OPENFILENAME
+			ZeroMemory(&ofn, sizeof(OPENFILENAME));
+			ofn.lStructSize = sizeof(OPENFILENAME);
+			ofn.hwndOwner = m_hWnd;
+			ofn.lpstrFile = szFile;
+			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+			temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+			CUtils::RemoveAccelerators(temp);
+			if (temp.IsEmpty())
+				ofn.lpstrTitle = NULL;
+			else
+				ofn.lpstrTitle = temp;
+			ofn.Flags = OFN_OVERWRITEPROMPT | OFN_EXPLORER;
+
+			// Display the Open dialog box. 
+			if (GetSaveFileName(&ofn)==FALSE)
+			{
+				return;
+			}
+			FILE * stream;
+			_tfopen_s(&stream, ofn.lpstrFile, _T("wbS"));
+			fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);
+			fclose(stream);
+		}
+	}
+}

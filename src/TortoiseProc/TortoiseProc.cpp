@@ -1651,10 +1651,8 @@ BOOL CTortoiseProcApp::InitInstance()
 					CString propname(props.GetItemName(i).c_str());
 					if (propname.CompareNoCase(_T("svn:ignore"))==0)
 					{
-						stdstring stemp;
-						stdstring tmp = props.GetItemValue(i);
 						//treat values as normal text even if they're not
-						value = (char *)tmp.c_str();
+						value = (char *)props.GetItemValue(i).c_str();
 					}
 				}
 				if (value.IsEmpty())
@@ -1666,7 +1664,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					value += name;
 					value.Remove('\r');
 				}
-				if (!props.Add(_T("svn:ignore"), value))
+				if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
 				{
 					CString temp;
 					temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
@@ -1704,9 +1702,8 @@ BOOL CTortoiseProcApp::InitInstance()
 					CString propname(props.GetItemName(i).c_str());
 					if (propname.CompareNoCase(_T("svn:ignore"))==0)
 					{
-						stdstring tmp = props.GetItemValue(i);
 						//treat values as normal text even if they're not
-						value = (char *)tmp.c_str();
+						value = (char *)props.GetItemValue(i).c_str();
 						break;
 					}
 				}
@@ -1736,7 +1733,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 				else
 				{
-					if (!props.Add(_T("svn:ignore"), value))
+					if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
 					{
 						CString temp;
 						temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, name);

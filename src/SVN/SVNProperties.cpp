@@ -128,7 +128,6 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
-	//SVN::UseIEProxySettings(ctx.config);
 #endif
 
 	SVNProperties::Refresh();
@@ -144,14 +143,13 @@ int SVNProperties::GetCount()
 	return m_propCount;
 }
 
-stdstring SVNProperties::GetItem(int index, BOOL name)
+std::string SVNProperties::GetItem(int index, BOOL name)
 {
 	const void *key;
-	stdstring key_native;
 	void *val;
 	svn_string_t *propval = NULL;
 	const char *node_name_native;
-	const char *pname_utf8;
+	const char *pname_utf8 = "";
 	m_error = NULL;
 
 	if (m_props == NULL)
@@ -185,7 +183,6 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 				continue;
 
 			apr_hash_this (hi, &key, NULL, &val);
-			key_native = UTF8ToString((char *)key);
 			propval = (svn_string_t *)val;
 			pname_utf8 = (char *)key;
 
@@ -195,15 +192,15 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 			{
 				m_error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
 				if (m_error != NULL)
-					return _T("");
+					return "";
 			}
 		}
 	}
 
 	if (name)
-		return key_native;
+		return pname_utf8;
 	else if (propval)
-		return (TCHAR *)propval->data;
+		return std::string(propval->data, propval->len);
 	else
 		return NULL;
 }
@@ -211,7 +208,7 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 BOOL SVNProperties::IsSVNProperty(int index)
 {
 	const char *pname_utf8;
-	const char *name = StringToUTF8(SVNProperties::GetItem(index, true)).c_str();
+	const char *name = SVNProperties::GetItem(index, true).c_str();
 
 	svn_utf_cstring_to_utf8 (&pname_utf8, name, m_pool);
 	svn_boolean_t is_svn_prop = svn_prop_needs_translation (pname_utf8);
@@ -219,17 +216,47 @@ BOOL SVNProperties::IsSVNProperty(int index)
 	return is_svn_prop;
 }
 
-stdstring SVNProperties::GetItemName(int index)
+bool SVNProperties::IsBinary(int index)
 {
-	return SVNProperties::GetItem(index, true);
+	std::string value = GetItem(index, false);
+	return IsBinary(value);
 }
 
-stdstring SVNProperties::GetItemValue(int index)
+bool SVNProperties::IsBinary(std::string value)
+{
+	const char * pvalue = (const char *)value.c_str();
+	// check if there are any null bytes in the string
+	for (size_t i=0; i<value.size(); ++i)
+	{
+		if (*pvalue == '\0')
+		{
+			// if there are only null bytes until the end of the string,
+			// we still treat it as not binary
+			while (i<value.size())
+			{
+				if (*pvalue != '\0')
+					return true;
+				++i;
+				pvalue++;
+			}
+			return false;
+		}
+		pvalue++;
+	}
+	return false;
+}
+
+stdstring SVNProperties::GetItemName(int index)
+{
+	return UTF8ToString(SVNProperties::GetItem(index, true));
+}
+
+std::string SVNProperties::GetItemValue(int index)
 {
 	return SVNProperties::GetItem(index, false);
 }
 
-BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
+BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse)
 {
 	svn_string_t*	pval;
 	std::string		pname_utf8;
@@ -237,7 +264,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 
 	SVNPool subpool(m_pool);
 
-	pval = svn_string_create (Value, subpool);
+	pval = svn_string_ncreate (Value.c_str(), Value.size(), subpool);
 
 	pname_utf8 = StringToUTF8(Name);
 	if ((svn_prop_needs_translation (pname_utf8.c_str()))||(strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))

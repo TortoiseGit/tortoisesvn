@@ -172,6 +172,7 @@
 #define IDS_COLDESCEOLSTYLE             260
 #define IDS_MENUURLDIFF                 261
 #define IDS_MENUDESCURLDIFF             262
+#define IDS_PROPBIN                     263
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

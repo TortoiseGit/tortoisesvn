@@ -32,24 +32,6 @@
  * Subversion Properties.
  * Use this class to retreive, add and remove Subversion properties
  * for files and directories.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- *
- * \version 1.0
- * first version
- *
- * \date 10-13-2002
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
  */
 class SVNProperties
 {
@@ -83,7 +65,7 @@ public:
 	 * \param index a zero based index
 	 * \return the value of the property
 	 */
-	stdstring GetItemValue(int index);
+	std::string GetItemValue(int index);
 	/**
 	 * Checks if the property is an internal Subversion property. Internal
 	 * Subversion property names usually begin with 'svn:' and are used
@@ -104,7 +86,7 @@ public:
 	 * \param recurse TRUE if the property should be added to subdirectories/files as well
 	 * \return TRUE if the property is added successfully
 	 */
-	BOOL Add(const TCHAR * Name, const char * Value, BOOL recurse = false);
+	BOOL Add(const TCHAR * Name, std::string Value, BOOL recurse = false);
 	/**
 	 * Removes an existing property from the file/directory specified in the constructor.
 	 * \remark After using this method the indexes of the properties may change!
@@ -113,6 +95,13 @@ public:
 	 * \return TRUE if the property is removed successfully
 	 */
 	BOOL Remove(const TCHAR * Name, BOOL recurse = false);
+
+	/**
+	 * Checks if the property value is binary or text.
+	 * \return true if the property has a binary value.
+	 */
+	bool IsBinary(int index);
+	static bool IsBinary(std::string value);
 
 	/**
 	 * Returns the last error message as a CString object.
@@ -129,7 +118,7 @@ private:		//methods
 	/**
 	 * Returns either the property name (name == TRUE) or value (name == FALSE).
 	 */
-	stdstring				GetItem(int index, BOOL name);
+	std::string				GetItem(int index, BOOL name);
 
 private:		//members
 	apr_pool_t *				m_pool;				///< memory pool baton

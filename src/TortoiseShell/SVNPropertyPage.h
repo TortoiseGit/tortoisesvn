@@ -109,12 +109,12 @@ protected:
 	struct listproperty
 	{
 		stdstring name;
-		stdstring value;
+		std::string value;
 		int		  count;
 	};
 	HWND m_hwnd;
 	std::vector<stdstring> filenames;
-	std::map<stdstring, stdstring> propmap;
+	std::map<stdstring, std::string> propmap;
 	TCHAR stringtablebuffer[255];
 };
 
