@@ -674,6 +674,10 @@ UINT CLogDlg::LogThread()
 	if (!m_path.IsUrl())
 	{
 		sUrl = GetURLFromPath(m_path);
+
+		// The URL is unescaped because SVN::logReceiver
+		// returns the path in a native format
+		sUrl = SVNUrl::Unescape(sUrl);
 	}
 	m_sRelativeRoot = sUrl.Mid(m_sRepositoryRoot.GetLength());
 	

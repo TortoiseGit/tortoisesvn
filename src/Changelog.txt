@@ -196,6 +196,9 @@ Version 1.3.4
 - BUG: The context menu items "Rename..." and "Delete" have been removed
        from the working copy root folder. See issue #243 for details.
        (Tobias Schäfer)
+- BUG: Hiding unrelated changed paths did not work in the log dialog if
+       the path contained characters which needed escaping.
+       (Tobias Schäfer)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the
