@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-14 19:23+0100\n"
+"PO-Revision-Date: 2006-05-03 00:38+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -307,6 +307,11 @@ msgstr "&Eliminar..."
 msgid "&Diff"
 msgstr "&Diff"
 
+# ID:17,
+#: ID:17
+msgid "&Diff with URL"
+msgstr "&Diferenciar con URL"
+
 # Control-ID:1061,
 #: Control-ID:1179
 msgid "&Dry run"
@@ -438,6 +443,10 @@ msgstr "&Idioma:"
 msgid "&List View"
 msgstr "&Lista"
 
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Cargar..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "&Marcar como resuelto"
@@ -551,6 +560,10 @@ msgstr "&Guardar Gráfico como..."
 msgid "&Save authentication"
 msgstr "&Guardar autenticación"
 
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Guardar..."
+
 #: Control-ID:1012
 msgid "&Set"
 msgstr "&Asignar"
@@ -599,7 +612,7 @@ msgstr "&Hasta la Revisión"
 msgid "&To URL:"
 msgstr "&A la URL:"
 
-#: Control-ID:65535
+#: Control-ID:1305
 msgid "&To URL: "
 msgstr "&A la URL: "
 
@@ -676,6 +689,13 @@ msgstr "&Espacios en blanco"
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "&Copia de trabajo"
+
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(valor binario)"
 
 # Control-ID:1061,
 #: ID:219
@@ -1593,6 +1613,10 @@ msgstr "Comparar con b&ase"
 msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Compara el archivo con la última versión confirmada para mostrarle los cambios que ha realizado"
 
+#: ID:17
+msgid "Compares the selected file with a file in the repository"
+msgstr "Compara el fichero seleccionado con un fichero en el repositorio"
+
 #: ID:120
 #, c-format
 msgid "Comparing %s to %s"
@@ -1906,6 +1930,11 @@ msgstr "La unidad de disco de destino está llena."
 #: Control-ID:1277
 msgid "Dialog sizes and positions"
 msgstr "Tamaños y posiciones de los diálogos"
+
+# ID:146,
+#: ID:146
+msgid "Diff With URL"
+msgstr "Diferenciar Con URL"
 
 #: Control-ID:65535
 msgid "Diff file:"
@@ -3776,6 +3805,7 @@ msgstr "Revierte todos los cambios que ha realzizado desde la última actualizac
 #: ID:76
 #: ID:208
 #: Control-ID:65535
+#: Control-ID:1306
 msgid "Revision"
 msgstr "Revisión"
 
@@ -3790,6 +3820,11 @@ msgstr "Revisión %d"
 #, c-format
 msgid "Revision %ld"
 msgstr "Revisión %ld"
+
+#: ID:120
+#, c-format
+msgid "Revision %s"
+msgstr "Revisión %s"
 
 #: ID:15
 msgid "Revision &graph"
@@ -3915,6 +3950,11 @@ msgstr "Estado SVN"
 #: ID:12
 msgid "SVN URL"
 msgstr "SVN Url"
+
+# ID:14,
+#: ID:17
+msgid "SVN eol-style"
+msgstr "SVN eol-style"
 
 # ID:14,
 #: ID:14
@@ -4257,6 +4297,11 @@ msgstr "Muestra todas las revisiones donde se hicieron cambios a este ítem"
 msgid "Shows information about TortoiseSVN"
 msgstr "Muestra información acerca de TortoiseSVN"
 
+# ID:17,
+#: ID:17
+msgid "Shows the eol-style property value"
+msgstr "Muestra el valor de la propiedad eol-style"
+
 #: ID:12
 msgid "Shows the log for the selected file / folder"
 msgstr "Muestra el registro para el archivo / carpeta seleccionado(s)"
@@ -4453,6 +4498,10 @@ msgstr "Cambiar a la ventana de documento previa"
 #: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "Cambia la copia de trabajo a otra rama / etiqueta"
+
+#: ID:325
+msgid "Switches the comparison left<->right"
+msgstr "Cambia la comparación izquierda<->derecha"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -5121,6 +5170,11 @@ msgstr "Actualiza la copia de trabajo a una revisión específica"
 msgid "Updates the working copy to the current revision"
 msgstr "Actualiza la copia de trabajo a la revisión actual"
 
+#: ID:226
+#, c-format
+msgid "Updating %s"
+msgstr "Actualizando %s"
+
 # ID:283,
 #: ID:283
 msgid "Updating and retrying the lock..."
@@ -5266,6 +5320,10 @@ msgstr "¡ Atención !"
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Diferencia de Espacios"
+
+#: ID:146
+msgid "With URL:"
+msgstr "Con URL:"
 
 #: Dlg-ID:158
 msgid "Working Copy"
