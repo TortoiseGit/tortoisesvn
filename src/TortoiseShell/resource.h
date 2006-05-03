@@ -205,6 +205,7 @@
 #define IDI_PROPERTIES                  5158
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020
+#define IDC_EDITPROPERTIES              11021
 
 // Next default values for new objects
 // 
@@ -212,7 +213,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        5159
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         11020
+#define _APS_NEXT_CONTROL_VALUE         11022
 #define _APS_NEXT_SYMED_VALUE           5101
 #endif
 #endif

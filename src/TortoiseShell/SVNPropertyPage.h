@@ -54,25 +54,6 @@
  * \ingroup TortoiseShell
  * Displays and updates all controls on the property page. The property
  * page itself is shown by explorer.
- *
- * \par requirements
- * win95 or later
- * winNT4 or later
- *
- * \version 1.0
- * first version
- *
- * \date 10-11-2002
- *
- * \author kueng
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
  */
 class CSVNPropertyPage
 {
@@ -91,17 +72,12 @@ public:
 	 */
 	virtual BOOL PageProc(HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
 
-	//virtual const stdstring &GetFilename() const { return filename; }
-	HWND hwndTT;
-
 protected:
 	/**
 	 * Initializes the property page.
 	 */
 	virtual void InitWorkfileView();
 	void Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen);
-
-	bool SaveProperties();
 	
 	//static void Unescape(LPTSTR psz);
 	static void Unescape(char * psz);
