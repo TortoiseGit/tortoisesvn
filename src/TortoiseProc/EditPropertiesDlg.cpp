@@ -211,7 +211,11 @@ UINT CEditPropertiesDlg::PropsThread()
 		}
 		index++;
 	}
-	CUtils::ResizeAllListCtrlCols(&m_propList);
+	int maxcol = ((CHeaderCtrl*)(m_propList.GetDlgItem(0)))->GetItemCount()-1;
+	for (int col = 0; col <= maxcol; col++)
+	{
+		m_propList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+	}
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	m_propList.SetRedraw(TRUE);
