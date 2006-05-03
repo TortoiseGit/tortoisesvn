@@ -1,0 +1,60 @@
+<?php
+// $Id: tortoisesvn.module,v 1.132 2005/02/08 19:44:39 dries Exp $
+
+/**
+ * @file
+ * TortoiseSVN specific module that creates download and translation information pages.
+ */
+
+include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_data.inc");
+include("/home/groups/t/to/tortoisesvn/htdocs/includes/trans_countries.inc");
+
+//include("/home/groups/t/to/tortoisesvn/htdocs/modules/tortoisesvn/trans_data.inc");
+//include("/home/groups/t/to/tortoisesvn/htdocs/modules/tortoisesvn/trans_countries.inc");
+
+/**
+ * Implementation of hook_help().
+ */
+function tortoisesvn_help($section) {
+  switch ($section) {
+    case 'admin/modules#description':
+      return t('TortoiseSVN specific module that creates download and translation information pages.');
+    case 'admin/settings/tortoisesvn':
+      return t('The settings on this page define the parameters for the latest official release. These change with every release of TortoiseSVN.<br /> In the bottom section some general parameters for sourceforge are requested. These parameters change rarely.<br/>Both sets of settings are used to create information pages and download urls.');
+  }
+}
+
+/**
+ * Implementation of hook_settings().
+ */
+
+function tortoisesvn_settings() {
+
+  $group = form_textfield(t('Version'), 'tsvn_version', variable_get('tsvn_version', ''), 20, 10, 
+           t('The version number of the latest official TortoiseSVN release (e.g. 1.3.0).'));
+  $group.= form_textfield(t('Release date'), 'tsvn_date', variable_get('tsvn_date', '01-01-1970'), 20, 20,
+	   t('The date on which the above version of TortoiseSVN was released.'));
+  $group.= form_textfield(t('Build number'), 'tsvn_build', variable_get('tsvn_build', '') , 20, 5,
+	   t('The TortoiseSVN build number.'));
+  $group.= form_textfield(t('Subversion library version'), 'tsvn_svnlib', variable_get('tsvn_svnlib', ''), 20, 5,
+	   t('The version number of the Subversion libraries against which TortoiseSVN is linked.'));
+  $group.= form_textfield(t('Sourceforge binaries release ID'), 'tsvn_sf_release_binary', variable_get('tsvn_sf_release_binary', ''), 20, 6,
+	   t('The Sourceforge release id for the binaries.'));
+  $group.= form_textfield(t('Sourceforge language pack release ID'), 'tsvn_sf_release_language', variable_get('tsvn_sf_release_language', ''), 20, 6,
+	   t('The Sourceforge release id for the language packs .'));
+
+  $output = form_group(t('TortoiseSVN release information'), $group);
+
+  $group = form_textfield(t('Sourceforge project ID'), 'tsvn_sf_project', variable_get('tsvn_sf_project', '') , 20, 6,
+	   t('The Sourceforge project ID of TortoiseSVN.'));
+  $group.= form_textfield(t('Prefix of download url'), 'tsvn_sf_prefix', variable_get('tsvn_sf_prefix', ''), 100, 100, 
+           t('The part of the Sourceforge download URL that is placed <b>before</b> the filename.'));
+  $group.= form_textfield(t('Appendix of download url'), 'tsvn_sf_append', variable_get('tsvn_sf_append', ''), 100, 100, 
+           t('The part of the Sourceforge download URL that is placed <b>after</b> the filename.'));
+
+  $output .= form_group(t('Sourceforge download settings information'), $group);
+
+  return $output;
+}
+
+?>
