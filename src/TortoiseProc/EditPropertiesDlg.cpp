@@ -264,16 +264,19 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 	if (selIndex < 0)
 	{
 		GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
+		GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
 		GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
 		return;
 	}
 	else if (m_propList.GetSelectedCount()==0)
 	{
 		GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
+		GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
 		GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
 		return;
 	}
 	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(TRUE);
+	GetDlgItem(IDC_SAVEPROP)->EnableWindow(TRUE);
 	GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITBUTTON)));
 	GetDlgItem(IDC_EDITPROPS)->EnableWindow(TRUE);
 	*pResult = 0;
@@ -328,6 +331,7 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 		prog.Stop();
 	}
 	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
+	GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
 	GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
 	Refresh();
 }
