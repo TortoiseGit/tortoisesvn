@@ -18,9 +18,10 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
-#include "afxcmn.h"
+#include "Balloon.h"
 
 // CEditPropertyValueDlg dialog
+#define	MAX_TT_LENGTH			10000
 
 class CEditPropertyValueDlg : public CResizableStandAloneDialog
 {
@@ -56,6 +57,7 @@ protected:
 
 	void CheckRecursive();
 protected:
+	CBalloon	m_tooltips;
 	CComboBox	m_PropNames;
 	std::string m_PropValue;
 	CString		m_sPropValue;

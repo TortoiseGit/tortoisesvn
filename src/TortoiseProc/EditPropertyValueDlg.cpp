@@ -103,6 +103,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	else
 		GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(FALSE);
 
+	// select the pre-set property in the combobox
 	bool bFound = false;
 	for (int i=0; i<m_PropNames.GetCount(); ++i)
 	{
@@ -120,6 +121,11 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	{
 		m_PropNames.SetWindowText(m_sPropName);
 	}
+
+	GetDlgItem(IDC_PROPVALUE)->EnableToolTips();
+	GetDlgItem(IDC_PROPNAMECOMBO)->EnableToolTips();
+
+	m_tooltips.Create(this);
 
 	UpdateData(FALSE);
 	CheckRecursive();
@@ -201,6 +207,49 @@ void CEditPropertyValueDlg::CheckRecursive()
 			if (sName.Compare(_T("svn:mime-type"))==0)
 				m_bRecursive = TRUE;
 		}
+		UINT nText = 0;
+		if (sName.Compare(_T("svn:externals"))==0)
+			nText = IDS_TT_EXTERNALS;
+		if (sName.Compare(_T("svn:executable"))==0)
+			nText = IDS_TT_EXECUTABLE;
+		if (sName.Compare(_T("svn:needs-lock"))==0)
+			nText = IDS_TT_NEEDSLOCK;
+		if (sName.Compare(_T("svn:mime-type"))==0)
+			nText = IDS_TT_MIMETYPE;
+		if (sName.Compare(_T("svn:ignore"))==0)
+			nText = IDS_TT_IGNORE;
+		if (sName.Compare(_T("svn:keywords"))==0)
+			nText = IDS_TT_KEYWORDS;
+		if (sName.Compare(_T("svn:eol-style"))==0)
+			nText = IDS_TT_EOLSTYLE;
+		if (sName.Compare(_T("bugtraq:label"))==0)
+			nText = IDS_TT_BQLABEL;
+		if (sName.Compare(_T("bugtraq:message"))==0)
+			nText = IDS_TT_BQMESSAGE;
+		if (sName.Compare(_T("bugtraq:number"))==0)
+			nText = IDS_TT_BQNUMBER;
+		if (sName.Compare(_T("bugtraq:url"))==0)
+			nText = IDS_TT_BQURL;
+		if (sName.Compare(_T("bugtraq:warnifnoissue"))==0)
+			nText = IDS_TT_BQWARNNOISSUE;
+		if (sName.Compare(_T("bugtraq:append"))==0)
+			nText = IDS_TT_BQAPPEND;
+		if (sName.Compare(_T("tsvn:logtemplate"))==0)
+			nText = IDS_TT_TSVNLOGTEMPLATE;
+		if (sName.Compare(_T("tsvn:logwidthmarker"))==0)
+			nText = IDS_TT_TSVNLOGWIDTHMARKER;
+		if (sName.Compare(_T("tsvn:logminsize"))==0)
+			nText = IDS_TT_TSVNLOGMINSIZE;
+		if (sName.Compare(_T("tsvn:logfilelistenglish"))==0)
+			nText = IDS_TT_TSVNLOGFILELISTENGLISH;
+		if (sName.Compare(_T("tsvn:projectlanguage"))==0)
+			nText = IDS_TT_TSVNPROJECTLANGUAGE;
+
+		if (nText)
+		{
+			m_tooltips.AddTool(IDC_PROPVALUE, nText);
+			m_tooltips.AddTool(GetDlgItem(IDC_PROPNAMECOMBO)->GetWindow(GW_CHILD), nText);
+		}
 	}
 }
 
@@ -223,6 +272,7 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
+	m_tooltips.RelayEvent(pMsg);
 	return __super::PreTranslateMessage(pMsg);
 }
 
@@ -287,3 +337,4 @@ void CEditPropertyValueDlg::OnEnChangePropvalue()
 		m_bIsBinary = false;
 	}
 }
+
