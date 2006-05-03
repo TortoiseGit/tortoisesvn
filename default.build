@@ -214,6 +214,16 @@
 				<exclude name="ext/Subversion/**" />
 			</fileset>
 		</zip>
+		<exec program="md5">
+			<arg value="-obin\TortoiseSVN-${verstring}${devrelease}-src.md5" />
+			<arg value="bin\TortoiseSVN-${verstring}${devrelease}-src.zip" />
+		</exec>
+	</target>
+
+	<target name="MakeRelease" depends="VSNET,env,clean,setup,SourceTarball">
+		<description>
+			executes all Nant targets required for a release.
+		</description>
 	</target>
 
 <!-- ====================================================================== -->
