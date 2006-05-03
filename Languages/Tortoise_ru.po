@@ -10,7 +10,7 @@
 # Dimitry Mardiyan <dimitry.mardiyan@gmail.com>
 # Stanislav Petrakov <stannic@yandex.ru>
 #
-# blame -- авторы файла (последний ответственный? :)
+# blame -- авторство (было: авторы файла)
 # branch -- ответвление
 # checkout -- извлечь
 # commit -- фиксировать
@@ -18,6 +18,7 @@
 # file handle -- файловый дескриптор
 # help -- cправка
 # locking (files) -- блокирование (файлов)
+# log -- лог (-> журнал)
 # merge -- слияние
 # overlays -- пометки (на значках)
 # patch -- заплатка
@@ -32,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6375: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6418: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-26 16:51+0300\n"
+"PO-Revision-Date: 2006-05-03 15:07+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -236,16 +237,16 @@ msgstr "&Berkeley database (BDB)"
 
 #: ID:114
 msgid "&Blame differences"
-msgstr "&Авторы различий"
+msgstr "&Авторство различий"
 
 #: ID:114
 #: ID:322
 msgid "&Blame revisions"
-msgstr "&Авторы ревизий"
+msgstr "&Авторство ревизий"
 
 #: ID:13
 msgid "&Blame..."
-msgstr "&Авторы файла..."
+msgstr "&Авторство..."
 
 #: ID:138
 msgid "&Browse repository"
@@ -452,6 +453,10 @@ msgstr "&Язык:"
 msgid "&List View"
 msgstr "&Мелкие значки"
 
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Загрузить..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "Пометить как &улаженный"
@@ -562,6 +567,10 @@ msgstr "&Сохранить граф как..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Сохранить аутентификацию"
+
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Сохранить..."
 
 #: Control-ID:1012
 msgid "&Set"
@@ -685,6 +694,11 @@ msgstr "Непечатаемые &знаки"
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "Рабочей &копии"
+
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(двоичное значение)"
 
 #: ID:219
 msgid "(dry run)"
@@ -1203,7 +1217,7 @@ msgstr "Базовый файл:"
 # Заголовок окна
 #: Dlg-ID:162
 msgid "Blame"
-msgstr "Авторы файла"
+msgstr "Авторство"
 
 #: ID:13
 msgid "Blames each line of a file on an author"
@@ -1290,7 +1304,7 @@ msgstr "Отмена"
 
 #: ID:132
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr "Отмена команды \"Авторы файла\" TortoiseSVN..."
+msgstr "Отмена команды TortoiseSVN \"Авторство...\""
 
 #: ID:270
 msgid "Cancelling operation..."
@@ -1342,7 +1356,7 @@ msgstr "Измененных файлов: %d"
 
 #: Control-ID:1242
 msgid "Changes made (double-click for details):"
-msgstr "Произведены изменения (подробности - по двойному щелчку):"
+msgstr "Произведённые изменения (подробности - по двойному щелчку):"
 
 #: ID:8
 msgid "Chec&kout..."
@@ -1530,7 +1544,7 @@ msgstr "Сравнить HEAD-&ревизии"
 # !!! уточнить
 #: ID:114
 msgid "Compare and &blame with working copy"
-msgstr "Сравнить с рабочей копией и посмотреть &автора"
+msgstr "Сравнить с рабочей копией и посмотреть &авторство"
 
 #: ID:76
 msgid "Compare with &working copy"
@@ -3346,7 +3360,7 @@ msgstr "Название свойства:"
 
 #: ID:207
 msgid "Property status"
-msgstr "Состояние свойства"
+msgstr "Статус свойства"
 
 #: Control-ID:1293
 msgid "Property value:"
@@ -4752,7 +4766,7 @@ msgstr "TortoiseSVN Добавление..."
 
 #: ID:132
 msgid "TortoiseSVN Blame"
-msgstr "TortoiseSVN Авторы файла"
+msgstr "TortoiseSVN Авторство"
 
 #: ID:77
 msgid "TortoiseSVN Checkout..."
@@ -4978,7 +4992,7 @@ msgstr "Использовать &другой текстовый блок"
 
 #: Control-ID:1126
 msgid "Use &text viewer to view blames"
-msgstr "Использовать программу просмотра &текста для просмотра авторов исправлений"
+msgstr "Использовать программу просмотра &текста для показа авторства"
 
 #: ID:195
 msgid ""
