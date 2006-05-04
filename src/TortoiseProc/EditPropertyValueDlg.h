@@ -42,6 +42,7 @@ public:
 
 	void SetFolder() {m_bFolder = true;}
 	void SetMultiple() {m_bMultiple = true;}
+	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -62,6 +63,7 @@ protected:
 	std::string m_PropValue;
 	CString		m_sPropValue;
 	CString		m_sPropName;
+	CString		m_sTitle;
 	BOOL		m_bRecursive;
 	bool		m_bFolder;
 	bool		m_bMultiple;

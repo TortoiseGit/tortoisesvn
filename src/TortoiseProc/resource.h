@@ -530,6 +530,7 @@
 #define IDS_ERR_FAILEDUNIGNOREPROPERTY  1309
 #define IDC_LOADPROP                    1309
 #define IDS_ERR_NOTHINGTOREVERT         1310
+#define IDC_ADDPROPS                    1310
 #define IDS_ERR_NOCOMMONCOPYFROM        1311
 #define IDS_ERR_GDIPLUS_MISSING         1312
 #define IDS_ERR_NOTENOUGHMEMORY         1313
@@ -861,6 +862,8 @@
 #define IDS_EDITPROPS_CANCEL            9005
 #define IDS_EDITPROPS_ADDBUTTON         9006
 #define IDS_EDITPROPS_EDITBUTTON        9007
+#define IDS_EDITPROPS_ADDTITLE          9007
+#define IDS_EDITPROPS_EDITTITLE         9008
 #define IDS_EDITPROPS_BINVALUE          9020
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
@@ -883,7 +886,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        235
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1310
+#define _APS_NEXT_CONTROL_VALUE         1311
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

@@ -130,6 +130,9 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	UpdateData(FALSE);
 	CheckRecursive();
 
+	if (!m_sTitle.IsEmpty())
+		SetWindowText(m_sTitle);
+
 	AddAnchor(IDC_PROPNAME, TOP_LEFT, TOP_CENTER);
 	AddAnchor(IDC_PROPNAMECOMBO, TOP_CENTER, TOP_RIGHT);
 	AddAnchor(IDC_PROPVALUEGROUP, TOP_LEFT, BOTTOM_RIGHT);

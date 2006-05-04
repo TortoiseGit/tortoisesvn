@@ -55,7 +55,7 @@ protected:
 private:
 	static UINT PropsThreadEntry(LPVOID pVoid);
 	UINT PropsThread();
-	void EditProps();
+	void EditProps(bool bAdd = false);
 
 protected:
 	class PropValue
@@ -75,4 +75,6 @@ protected:
 	bool			m_bChanged;
 	volatile LONG	m_bThreadRunning;
 	std::map<stdstring, PropValue>	m_properties;
+public:
+	afx_msg void OnBnClickedAddprops();
 };

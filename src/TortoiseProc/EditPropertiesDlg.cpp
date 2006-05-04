@@ -58,6 +58,7 @@ BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnLvnItemchangedEditproplist)
 	ON_NOTIFY(NM_DBLCLK, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnNMDblclkEditproplist)
 	ON_BN_CLICKED(IDC_SAVEPROP, &CEditPropertiesDlg::OnBnClickedSaveprop)
+	ON_BN_CLICKED(IDC_ADDPROPS, &CEditPropertiesDlg::OnBnClickedAddprops)
 END_MESSAGE_MAP()
 
 
@@ -106,6 +107,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 	AddAnchor(IDC_SAVEPROP, BOTTOM_RIGHT);
 	AddAnchor(IDC_REMOVEPROPS, BOTTOM_RIGHT);
 	AddAnchor(IDC_EDITPROPS, BOTTOM_RIGHT);
+	AddAnchor(IDC_ADDPROPS, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	if (hWndExplorer)
@@ -269,19 +271,18 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 	{
 		GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
 		GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
-		GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
+		GetDlgItem(IDC_EDITPROPS)->EnableWindow(FALSE);
 		return;
 	}
 	else if (m_propList.GetSelectedCount()==0)
 	{
 		GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
 		GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
-		GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
+		GetDlgItem(IDC_EDITPROPS)->EnableWindow(FALSE);
 		return;
 	}
 	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(TRUE);
 	GetDlgItem(IDC_SAVEPROP)->EnableWindow(TRUE);
-	GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITBUTTON)));
 	GetDlgItem(IDC_EDITPROPS)->EnableWindow(TRUE);
 	*pResult = 0;
 }
@@ -351,20 +352,29 @@ void CEditPropertiesDlg::OnBnClickedEditprops()
 	EditProps();
 }
 
-void CEditPropertiesDlg::EditProps()
+void CEditPropertiesDlg::OnBnClickedAddprops()
+{
+	EditProps(true);
+}
+
+void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 {
 	int selIndex = m_propList.GetSelectionMark();
 
 	CEditPropertyValueDlg dlg;
 	CString sName;
-	if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
+	if ((bAdd==false)&&(selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
 		sName = m_propList.GetItemText(selIndex, 0);
 		PropValue& prop = m_properties[stdstring(sName)];
 		dlg.SetPropertyName(sName);
 		if (prop.allthesamevalue)
 			dlg.SetPropertyValue(prop.value);
+		dlg.SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITTITLE)));
 	}
+	else
+		dlg.SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDTITLE)));
+
 
 	if (m_pathlist.GetCount() > 1)
 		dlg.SetMultiple();
@@ -485,3 +495,4 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 		}
 	}
 }
+
