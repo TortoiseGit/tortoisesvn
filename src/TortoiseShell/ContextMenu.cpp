@@ -1685,7 +1685,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			if (resource == NULL)
 				return S_OK;
 			szItem = stringtablebuffer;
-			if (lpdis->itemAction & (ODA_DRAWENTIRE|ODA_SELECT))
+			//if (lpdis->itemAction & (ODA_DRAWENTIRE|ODA_SELECT))
 			{
 				int ix, iy;
 				RECT rt, rtTemp;
@@ -1750,10 +1750,18 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 				// Reason: we only get the WM_MENUCHAR message if the *whole* menu is ownerdrawn,
 				// which the top level context menu is *not*. So drawing there the accelerators
 				// is futile because they won't get used.
-				if ((_tcsncmp(szItem, _T("SVN"), 3)==0)||(myIDMap[lpdis->itemID] == SubMenu))
+				int menuID = myIDMap[lpdis->itemID];
+				if ((_tcsncmp(szItem, _T("SVN"), 3)==0)||(menuID == SubMenu)||(menuID == SubMenuFile)||(menuID == SubMenuFolder)||(menuID == SubMenuLink)||(menuID == SubMenuMultiple))
 					uFormat |= DT_HIDEPREFIX;
 				else
-					uFormat |= (lpdis->itemState & ODS_NOACCEL) ? DT_HIDEPREFIX : 0;
+				{
+					// If the "hide keyboard cues" option is turned off, we still
+					// get the ODS_NOACCEL flag! So we have to check this setting
+					// manually too.
+					BOOL bShowAccels = FALSE;
+					SystemParametersInfo(SPI_GETKEYBOARDCUES, 0, &bShowAccels, 0);
+					uFormat |= ((lpdis->itemState & ODS_NOACCEL)&&(!bShowAccels)) ? DT_HIDEPREFIX : 0;
+				}
 				if (lpdis->itemState & ODS_GRAYED)
 				{        
 					SetBkMode(lpdis->hDC, TRANSPARENT);

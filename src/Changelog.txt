@@ -201,6 +201,8 @@ Version 1.3.4
 - BUG: Hiding unrelated changed paths did not work in the log dialog if
        the path contained characters which needed escaping.
        (Tobias Schäfer)
+- BUG: If the system option "hide keyboard cues" was disabled, the explorer
+       context menu items didn't show the keyboard accelerators. (Stefan)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the
