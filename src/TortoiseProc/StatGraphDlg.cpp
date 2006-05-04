@@ -31,6 +31,7 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_bStacked(FALSE)
 	, m_GraphType(MyGraph::Bar)
 	, m_bIgnoreAuthorCase(FALSE)
+	, m_weekcount(-1)
 {
 	m_parDates = NULL;
 	m_parFileChanges = NULL;
@@ -348,19 +349,10 @@ void CStatGraphDlg::ShowCommitsByDate()
 		authors[wide_string((LPCWSTR)sOthers)] = m_graph.AppendGroup(wide_string((LPCWSTR)sOthers).c_str());
 	}
 
-	int week = 0;
-	int numweeks = 0;
 	// how many weeks do we cover here?
-	for (int weekindex = 0; weekindex<m_parDates->GetCount(); ++weekindex)
-	{
-		if (week != GetWeek(CTime((__time64_t)m_parDates->GetAt(weekindex))))
-		{
-			week = GetWeek(CTime((__time64_t)m_parDates->GetAt(weekindex)));
-			numweeks++;
-		}
-	}
+	int numweeks = GetWeeksCount();
 
-	week = 0;
+	int week = 0;
 	int weekcount = 0;
 
 	std::map<stdstring, LONG> authorcommits;
@@ -684,15 +676,22 @@ void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 		// intended fall through
 	case 2:
 		// by date
-		m_btnGraphPie.EnableWindow(FALSE);
 		m_btnGraphLine.EnableWindow(TRUE);
 		m_btnGraphLineStacked.EnableWindow(TRUE);
+		if (GetWeeksCount() > 10)
+		{
+			m_btnGraphPie.EnableWindow(FALSE);
+		}
+		m_GraphType = MyGraph::Line;
+		m_bStacked = true;
 		break;
 	case 3:
 		// by author
-		m_btnGraphPie.EnableWindow(TRUE);
 		m_btnGraphLine.EnableWindow(FALSE);
 		m_btnGraphLineStacked.EnableWindow(FALSE);
+		m_btnGraphPie.EnableWindow(TRUE);
+		m_GraphType = MyGraph::Bar;
+		m_bStacked = false;
 		break;
 	}
 	RedrawGraph();
@@ -824,6 +823,31 @@ int CStatGraphDlg::GetWeek(const CTime& time)
 	}
 	// return result
 	return iWeekOfYear;
+}
+
+int	CStatGraphDlg::GetWeeksCount()
+{
+	// Sanity check
+	if (!m_parDates)
+	{
+		return 0;
+	}
+	if (m_weekcount >= 0)
+		return m_weekcount;
+
+	// How many weeks does the time period cover?
+	int week = 0;
+	int numweeks = 0;
+	for (int weekindex = 0; weekindex<m_parDates->GetCount(); ++weekindex)
+	{
+		if (week != GetWeek(CTime((__time64_t)m_parDates->GetAt(weekindex))))
+		{
+			week = GetWeek(CTime((__time64_t)m_parDates->GetAt(weekindex)));
+			numweeks++;
+		}
+	}
+	m_weekcount = numweeks;
+	return numweeks;
 }
 
 void CStatGraphDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)

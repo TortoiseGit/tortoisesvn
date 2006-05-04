@@ -49,13 +49,13 @@ protected:
 	afx_msg void OnBnClickedGraphpiebutton();
 
 	DECLARE_MESSAGE_MAP()
-	
+
 	CPtrArray		m_graphDataArray;
 	MyGraph			m_graph;
 	CComboBox		m_cGraphType;
 	CSliderCtrl		m_Skipper;
 	BOOL			m_bIgnoreAuthorCase;
-	
+
 	CXPImageButton	m_btnGraphBar;
 	CXPImageButton	m_btnGraphBarStacked;
 	CXPImageButton	m_btnGraphLine;
@@ -76,6 +76,8 @@ protected:
 	void		ShowStats();
 
 	int			GetWeek(const CTime& time);
+	int			GetWeeksCount();
+	int			m_weekcount;
 
 	void		ShowLabels(BOOL bShow);
 	void		RedrawGraph();
