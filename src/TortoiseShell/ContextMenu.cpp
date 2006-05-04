@@ -1685,96 +1685,93 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			if (resource == NULL)
 				return S_OK;
 			szItem = stringtablebuffer;
-			//if (lpdis->itemAction & (ODA_DRAWENTIRE|ODA_SELECT))
+			int ix, iy;
+			RECT rt, rtTemp;
+			SIZE size;
+			//choose text colors
+			if (lpdis->itemState & ODS_SELECTED)
 			{
-				int ix, iy;
-				RECT rt, rtTemp;
-				SIZE size;
-				//choose text colors
-				if (lpdis->itemState & ODS_SELECTED)
-				{
-					COLORREF crText;
-					if (lpdis->itemState & ODS_GRAYED)
-						crText = SetTextColor(lpdis->hDC, GetSysColor(COLOR_GRAYTEXT)); //RGB(128, 128, 128));
-					else
-						crText = SetTextColor(lpdis->hDC, GetSysColor(COLOR_HIGHLIGHTTEXT));
-					SetBkColor(lpdis->hDC, GetSysColor(COLOR_HIGHLIGHT));
-				}
-				CopyRect(&rtTemp, &(lpdis->rcItem));
-
-				ix = lpdis->rcItem.left + space;
-				SetRect(&rt, ix, rtTemp.top, ix + 16, rtTemp.bottom);
-
-				HICON hIcon = (HICON)LoadImage(GetModuleHandle(_T("TortoiseSVN")), resource, IMAGE_ICON, 0, 0, LR_DEFAULTCOLOR);
-
-				if (hIcon == NULL)
-					return S_OK;
-				//convert the icon into a bitmap
-				ICONINFO ii;
-				if (GetIconInfo(hIcon, &ii)==FALSE)
-					return S_OK;
-				HBITMAP hbmItem = ii.hbmColor; 
-				if (hbmItem)
-				{
-					BITMAP bm;
-					GetObject(hbmItem, sizeof(bm), &bm);
-
-					int tempY = lpdis->rcItem.top + ((lpdis->rcItem.bottom - lpdis->rcItem.top) - bm.bmHeight) / 2;
-					SetRect(&rt, ix, tempY, ix + 16, tempY + 16);
-					ExtTextOut(lpdis->hDC, 0, 0, ETO_CLIPPED|ETO_OPAQUE, &rtTemp, NULL, 0, (LPINT)NULL);
-					rtTemp.left = rt.right;
-
-					HDC hDCTemp = CreateCompatibleDC(lpdis->hDC);
-					SelectObject(hDCTemp, hbmItem);
-					DrawIconEx(lpdis->hDC, rt.left , rt.top, hIcon, bm.bmWidth, bm.bmHeight,
-						0, NULL, DI_NORMAL);
-
-					DeleteDC(hDCTemp);
-					DeleteObject(hbmItem);
-				} // if (hbmItem)
-				ix = rt.right + space;
-
-				//free memory
-				DeleteObject(ii.hbmColor);
-				DeleteObject(ii.hbmMask);
-				DestroyIcon(hIcon);
-
-				//draw menu text
-				GetTextExtentPoint32(lpdis->hDC, szItem, lstrlen(szItem), &size);
-				iy = ((lpdis->rcItem.bottom - lpdis->rcItem.top) - size.cy) / 2;
-				iy = lpdis->rcItem.top + (iy>=0 ? iy : 0);
-				SetRect(&rt, ix , iy, lpdis->rcItem.right - 4, lpdis->rcItem.bottom);
-				ExtTextOut(lpdis->hDC, ix, iy, ETO_CLIPPED|ETO_OPAQUE, &rtTemp, NULL, 0, (LPINT)NULL);
-				UINT uFormat = DT_LEFT|DT_EXPANDTABS;
-				// only draw accelerators on the submenu!
-				// Reason: we only get the WM_MENUCHAR message if the *whole* menu is ownerdrawn,
-				// which the top level context menu is *not*. So drawing there the accelerators
-				// is futile because they won't get used.
-				int menuID = myIDMap[lpdis->itemID];
-				if ((_tcsncmp(szItem, _T("SVN"), 3)==0)||(menuID == SubMenu)||(menuID == SubMenuFile)||(menuID == SubMenuFolder)||(menuID == SubMenuLink)||(menuID == SubMenuMultiple))
-					uFormat |= DT_HIDEPREFIX;
-				else
-				{
-					// If the "hide keyboard cues" option is turned off, we still
-					// get the ODS_NOACCEL flag! So we have to check this setting
-					// manually too.
-					BOOL bShowAccels = FALSE;
-					SystemParametersInfo(SPI_GETKEYBOARDCUES, 0, &bShowAccels, 0);
-					uFormat |= ((lpdis->itemState & ODS_NOACCEL)&&(!bShowAccels)) ? DT_HIDEPREFIX : 0;
-				}
+				COLORREF crText;
 				if (lpdis->itemState & ODS_GRAYED)
-				{        
-					SetBkMode(lpdis->hDC, TRANSPARENT);
-					OffsetRect( &rt, 1, 1 );
-					SetTextColor( lpdis->hDC, RGB(255,255,255) );
-					DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );
-					OffsetRect( &rt, -1, -1 );
-					SetTextColor( lpdis->hDC, RGB(128,128,128) );
-					DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );         
-				}
+					crText = SetTextColor(lpdis->hDC, GetSysColor(COLOR_GRAYTEXT)); //RGB(128, 128, 128));
 				else
-					DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );
+					crText = SetTextColor(lpdis->hDC, GetSysColor(COLOR_HIGHLIGHTTEXT));
+				SetBkColor(lpdis->hDC, GetSysColor(COLOR_HIGHLIGHT));
 			}
+			CopyRect(&rtTemp, &(lpdis->rcItem));
+
+			ix = lpdis->rcItem.left + space;
+			SetRect(&rt, ix, rtTemp.top, ix + 16, rtTemp.bottom);
+
+			HICON hIcon = (HICON)LoadImage(GetModuleHandle(_T("TortoiseSVN")), resource, IMAGE_ICON, 0, 0, LR_DEFAULTCOLOR);
+
+			if (hIcon == NULL)
+				return S_OK;
+			//convert the icon into a bitmap
+			ICONINFO ii;
+			if (GetIconInfo(hIcon, &ii)==FALSE)
+				return S_OK;
+			HBITMAP hbmItem = ii.hbmColor; 
+			if (hbmItem)
+			{
+				BITMAP bm;
+				GetObject(hbmItem, sizeof(bm), &bm);
+
+				int tempY = lpdis->rcItem.top + ((lpdis->rcItem.bottom - lpdis->rcItem.top) - bm.bmHeight) / 2;
+				SetRect(&rt, ix, tempY, ix + 16, tempY + 16);
+				ExtTextOut(lpdis->hDC, 0, 0, ETO_CLIPPED|ETO_OPAQUE, &rtTemp, NULL, 0, (LPINT)NULL);
+				rtTemp.left = rt.right;
+
+				HDC hDCTemp = CreateCompatibleDC(lpdis->hDC);
+				SelectObject(hDCTemp, hbmItem);
+				DrawIconEx(lpdis->hDC, rt.left , rt.top, hIcon, bm.bmWidth, bm.bmHeight,
+					0, NULL, DI_NORMAL);
+
+				DeleteDC(hDCTemp);
+				DeleteObject(hbmItem);
+			} // if (hbmItem)
+			ix = rt.right + space;
+
+			//free memory
+			DeleteObject(ii.hbmColor);
+			DeleteObject(ii.hbmMask);
+			DestroyIcon(hIcon);
+
+			//draw menu text
+			GetTextExtentPoint32(lpdis->hDC, szItem, lstrlen(szItem), &size);
+			iy = ((lpdis->rcItem.bottom - lpdis->rcItem.top) - size.cy) / 2;
+			iy = lpdis->rcItem.top + (iy>=0 ? iy : 0);
+			SetRect(&rt, ix , iy, lpdis->rcItem.right - 4, lpdis->rcItem.bottom);
+			ExtTextOut(lpdis->hDC, ix, iy, ETO_CLIPPED|ETO_OPAQUE, &rtTemp, NULL, 0, (LPINT)NULL);
+			UINT uFormat = DT_LEFT|DT_EXPANDTABS;
+			// only draw accelerators on the submenu!
+			// Reason: we only get the WM_MENUCHAR message if the *whole* menu is ownerdrawn,
+			// which the top level context menu is *not*. So drawing there the accelerators
+			// is futile because they won't get used.
+			int menuID = myIDMap[lpdis->itemID];
+			if ((_tcsncmp(szItem, _T("SVN"), 3)==0)||(menuID == SubMenu)||(menuID == SubMenuFile)||(menuID == SubMenuFolder)||(menuID == SubMenuLink)||(menuID == SubMenuMultiple))
+				uFormat |= DT_HIDEPREFIX;
+			else
+			{
+				// If the "hide keyboard cues" option is turned off, we still
+				// get the ODS_NOACCEL flag! So we have to check this setting
+				// manually too.
+				BOOL bShowAccels = FALSE;
+				SystemParametersInfo(SPI_GETKEYBOARDCUES, 0, &bShowAccels, 0);
+				uFormat |= ((lpdis->itemState & ODS_NOACCEL)&&(!bShowAccels)) ? DT_HIDEPREFIX : 0;
+			}
+			if (lpdis->itemState & ODS_GRAYED)
+			{        
+				SetBkMode(lpdis->hDC, TRANSPARENT);
+				OffsetRect( &rt, 1, 1 );
+				SetTextColor( lpdis->hDC, RGB(255,255,255) );
+				DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );
+				OffsetRect( &rt, -1, -1 );
+				SetTextColor( lpdis->hDC, RGB(128,128,128) );
+				DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );         
+			}
+			else
+				DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, uFormat );
 			*pResult = TRUE;
 		}
 		break;
