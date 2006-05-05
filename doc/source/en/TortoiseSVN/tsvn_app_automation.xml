@@ -8,12 +8,14 @@
 			line parameters, you can automate it with batch scripts or start specific
 			commands and dialogs from other programs (e.g. your favourite text editor).
 		</para>
+		<important>
 		<para>
 			Remember that TortoiseSVN is a GUI client, and this automation guide
 			shows you how to make the TortoiseSVN dialogs appear to collect user
 			input. If you want to write a script which requires no input, you should
 			use the official Subversion command line client instead.
 		</para>
+		</important>
 	</simplesect>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 1 ============================== -->
