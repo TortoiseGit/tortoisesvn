@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6418: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6433: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-03 15:07+0300\n"
+"PO-Revision-Date: 2006-05-05 09:38+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -208,9 +208,8 @@ msgid "&About TortoiseMerge..."
 msgstr "&О TortoiseMerge..."
 
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Добавить..."
 
@@ -339,8 +338,8 @@ msgid "&Edit conflicts"
 msgstr "Редактировать конф&ликты"
 
 # кнопка маленькая, 'Редактировать...' не помещается
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Исправить..."
 
@@ -531,7 +530,6 @@ msgstr "Недавние &сообщения"
 msgid "&Redo"
 msgstr "&Вернуть"
 
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -571,10 +569,6 @@ msgstr "&Сохранить аутентификацию"
 #: Control-ID:1308
 msgid "&Save..."
 msgstr "&Сохранить..."
-
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Установить"
 
 #: ID:9
 msgid "&Settings"
@@ -910,6 +904,10 @@ msgstr "Добавить '%s' в словарь"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Добавить (как замену)..."
+
+#: ID:563
+msgid "Add Properties"
+msgstr "Добавить свойства"
 
 #: ID:110
 msgid "Add extension specific diff program"
@@ -2021,7 +2019,7 @@ msgstr "EXT"
 msgid "Edit"
 msgstr "Поправить"
 
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Редактировать свойства"
@@ -3329,8 +3327,8 @@ msgid "Progress"
 msgstr "Окно выполнения"
 
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Свойства"
 
@@ -3339,6 +3337,7 @@ msgid "Properties for"
 msgstr "Свойства для"
 
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Свойства..."
 
@@ -5523,10 +5522,6 @@ msgstr "пикселы"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "конфликтующий / мешающий"
-
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "&рекурсивно"
 
 #: ID:195
 msgid "readonly"
