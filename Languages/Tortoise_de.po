@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-05-03 11:00+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
+"PO-Revision-Date: 2006-05-05 20:54+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@netzbeisser.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -183,9 +183,8 @@ msgid "&About TortoiseMerge..."
 msgstr "&Über TortoiseMerge..."
 
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Hinzufügen..."
 
@@ -315,8 +314,8 @@ msgstr "&Bearbeiten"
 msgid "&Edit conflicts"
 msgstr "Konflikt b&earbeiten"
 
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Bearbeiten..."
 
@@ -505,7 +504,6 @@ msgstr "&Letzte-Meldungen"
 msgid "&Redo"
 msgstr "&Wiederholen"
 
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -544,10 +542,6 @@ msgstr "Anmeldedaten &speichern"
 #: Control-ID:1308
 msgid "&Save..."
 msgstr "&Speichern..."
-
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Setzen"
 
 #: ID:9
 msgid "&Settings"
@@ -889,6 +883,10 @@ msgstr "Füge '%s' zu Wörterbuch hinzu"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Hinzufügen (als Ersatz)..."
+
+#: ID:563
+msgid "Add Properties"
+msgstr "Eigenschaften hinzufügen"
 
 #: ID:110
 msgid "Add extension specific diff program"
@@ -2007,7 +2005,7 @@ msgstr "EXT"
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Eigenschaften bearbeiten"
@@ -3329,8 +3327,8 @@ msgid "Progress"
 msgstr "Fortschritt"
 
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Eigenschaften"
 
@@ -3339,6 +3337,7 @@ msgid "Properties for"
 msgstr "Eigenschaften für"
 
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Eigenschaften..."
 
@@ -5533,10 +5532,6 @@ msgstr "Pixel"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "Möglicher oder echter Konflikt / versperrt"
-
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "Re&kursiv"
 
 # ID:195,
 #: ID:195
