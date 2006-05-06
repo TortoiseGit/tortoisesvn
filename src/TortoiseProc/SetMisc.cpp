@@ -48,7 +48,7 @@ CSetMisc::CSetMisc()
 	m_bCheckRepo = (DWORD)m_regCheckRepo;
 	m_regMaxHistory = CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25);
 	m_dwMaxHistory = (DWORD)m_regMaxHistory;
-	m_regSortNumerical = CRegDWORD(_T("Software\\TortoiseSVN\\SortNumerical"), FALSE);
+	m_regSortNumerical = CRegDWORD(_T("Software\\TortoiseSVN\\SortNumerical"), TRUE);
 	m_bSortNumerical = (BOOL)(DWORD)m_regSortNumerical;
 }
 

@@ -129,7 +129,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	bool bSortNumerical = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\SortNumerical"), FALSE);
+	bool bSortNumerical = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\SortNumerical"), TRUE);
 	m_treeRepository.SortNumerical(bSortNumerical);
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
@@ -237,6 +237,30 @@ void CRepositoryBrowser::OnRVNItemRClickUpReposTree(NMHDR * /* pNMHDR */, LRESUL
 void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 {
 	*pResult = 0;
+	CRect rect;
+	m_treeRepository.GetHeaderCtrl()->GetWindowRect(rect);
+	if (rect.PtInRect(pt))
+	{
+		CMenu popup;
+		if (popup.CreatePopupMenu())
+		{
+			CString temp(MAKEINTRESOURCE(IDS_REPOBROWSE_SORTNUMERICAL));
+			UINT flags = MF_STRING | MF_ENABLED;
+			if (m_treeRepository.m_bSortNumerical)
+			{
+				flags |= MF_CHECKED;
+			}
+			popup.AppendMenu(flags, 1, temp);
+			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
+			if (cmd == 1)
+			{
+				m_treeRepository.m_bSortNumerical = !m_treeRepository.m_bSortNumerical;
+				m_treeRepository.GetHeaderCtrl()->SetSortColumn(0, TRUE);
+				m_treeRepository.ResortItems();
+			}
+		}
+		return;
+	}
 	HTREEITEM hSelItem = m_treeRepository.GetItemHandle(m_treeRepository.GetFirstSelectedItem());
 	UINT uSelCount = m_treeRepository.GetSelectedCount();
 	CString url = m_treeRepository.MakeUrl(hSelItem);
