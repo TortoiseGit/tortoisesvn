@@ -99,6 +99,13 @@
 				</listitem>
 				<listitem>
 					<para>
+						Blame the selected revision, and the file in your working copy
+						and compare the results using a visual diff tool.
+						Read <xref linkend="tsvn-dug-blame-diffs"/> for more detail.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
 						View the changes made in the selected revision as a
 						Unified-Diff file (GNU patch format). This shows
 						only the differences with a few lines of context. It
@@ -201,6 +208,13 @@
 				</listitem>
 				<listitem>
 					<para>
+						Blame the two revisions and compare the results using a
+						a visual difference tool.
+						Read <xref linkend="tsvn-dug-blame-diffs"/> for more detail.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
 						View the differences between the two selected revisions
 						as a Unified-Diff file. This works for files and folders.
 					</para>
@@ -236,6 +250,13 @@
 						Show differences made in the selected revision for the
 						selected file. This context menu is only available for
 						files shown as <literal>Modified</literal>.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Blame the selected revision and the previous revision for the
+						selected file, and show the differences using a visual diff tool.
+						Read <xref linkend="tsvn-dug-blame-diffs"/> for more detail.
 					</para>
 				</listitem>
 				<listitem>

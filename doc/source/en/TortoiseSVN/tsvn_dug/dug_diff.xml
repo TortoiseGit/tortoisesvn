@@ -104,6 +104,33 @@
 					</para>
 				</listitem>
 			</varlistentry>
+			<varlistentry>
+				<term>Difference between WC file and a URL</term>
+				<listitem>
+					<para>
+						If you want to see the differences between a file in your
+						working copy, and a file in any subversion repository,
+						you can do that directly in explorer by selecting the
+						file then holding down the <keycap>Shift</keycap> key whilst
+						right clicking to obtain the context menu. Select
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Diff with URL</guimenuitem>
+						</menuchoice>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Difference with blame information</term>
+				<listitem>
+					<para>
+						If you want to see not only the differences but also the author,
+						revision and date that changes were made, you can combine the
+						diff and blame reports from within the revision log dialog.
+						Read <xref linkend="tsvn-dug-blame-diffs"/> for more detail.
+					</para>
+				</listitem>
+			</varlistentry>
 		</variablelist>
 	</sect2>
 	<sect2 id="tsvn-dug-diff-dir">
