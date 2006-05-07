@@ -337,7 +337,6 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 	}
 	GetDlgItem(IDC_REMOVEPROPS)->EnableWindow(FALSE);
 	GetDlgItem(IDC_SAVEPROP)->EnableWindow(FALSE);
-	GetDlgItem(IDC_EDITPROPS)->SetWindowText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDBUTTON)));
 	Refresh();
 }
 
