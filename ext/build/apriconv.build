@@ -70,7 +70,7 @@
 				<property name="soname" value="${path::change-extension(fname, 'so')}" />
 				<property name="libname" value="${path::change-extension(fname, 'lib')}" />
 				<link output="${configuration}_${platform}\iconv\${soname}"
-					options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\iconv\${soname}.intermediate.manifest" /DEBUG /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"@build\BaseAddr.ref,${soname}" /IMPLIB:".\${configuration}_${platform}\iconv\${libname}" /export:iconv_module,DATA ${machineoption} ..\apr\${configuration}_${platform}\libapr.lib ${configuration}_${platform}\libapriconv.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+					options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\iconv\${soname}.intermediate.manifest" /DEBUG /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"@build\BaseAddr.ref,${soname}" /IMPLIB:".\${configuration}_${platform}\iconv\${libname}" /export:iconv_module,DATA ${machineoption} ..\apr\${configuration}_${platform}\libapr_tsvn.lib ${configuration}_${platform}\libapriconv_tsvn.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 					<sources>
 						<include name="${configuration}_${platform}\iconv\${fname}" />
 					</sources>
@@ -102,7 +102,7 @@
 			</filterchain>
 		</loadfile>
 		<echo file="libapriconvver.rc" message="${rcfile}" />
-		<rc rcfile="libapriconvver.rc" output="${configuration}_${platform}\libapriconv.res">
+		<rc rcfile="libapriconvver.rc" output="${configuration}_${platform}\libapriconv_tsvn.res">
 			<includedirs>
 				<include name="..\apr\include" />
 				<include name="include" />
@@ -146,8 +146,8 @@
 		<property name="machineoption" value="/MACHINE:X86" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<link 
-			output="${configuration}_${platform}\libapriconv.dll" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapriconv.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapriconv.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE50000" /IMPLIB:".\${configuration}_${platform}/libapriconv.lib" ${machineoption} ${configuration}_${platform}\libapriconv.res ..\apr\${configuration}_${platform}\libapr.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			output="${configuration}_${platform}\libapriconv_tsvn.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapriconv_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapriconv_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE50000" /IMPLIB:".\${configuration}_${platform}/libapriconv_tsvn.lib" ${machineoption} ${configuration}_${platform}\libapriconv_tsvn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 				<include name="xml\expat\lib\${configuration}_${platform}\*.obj" />
@@ -156,8 +156,8 @@
 		<exec program="mt.exe">
 			<arg value="-nologo" />
 			<arg value="-manifest" />
-			<arg value=".\${configuration}_${platform}\libapriconv.dll.intermediate.manifest" />
-			<arg value='/outputresource:".\${configuration}_${platform}\libapriconv.dll;#2"' />
+			<arg value=".\${configuration}_${platform}\libapriconv_tsvn.dll.intermediate.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\libapriconv_tsvn.dll;#2"' />
 		</exec>
 		<exec program="svn" failonerror="false">
 			<arg value="revert" />

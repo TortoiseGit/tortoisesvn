@@ -135,7 +135,7 @@
 			</filterchain>
 		</loadfile>
 		<echo file="libaprutilver.rc" message="${rcfile}" />
-		<rc rcfile="libaprutilver.rc" output="${configuration}_${platform}\libaprutil.res">
+		<rc rcfile="libaprutilver.rc" output="${configuration}_${platform}\libaprutil_tsvn.res">
 			<includedirs>
 				<include name="..\apr\include" />
 				<include name="include" />
@@ -196,8 +196,8 @@
 		<property name="machineoption" value="/MACHINE:X86" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<link 
-			output="${configuration}_${platform}\libaprutil.dll" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libaprutil.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libaprutil.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}_${platform}/libaprutil.lib" ${machineoption} ${configuration}_${platform}\libaprutil.res ..\apr\${configuration}_${platform}\libapr.lib ..\apr-iconv\${configuration}_${platform}\libapriconv.lib ..\berkeley-db\db4.3-win32\lib\libdb43.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			output="${configuration}_${platform}\libaprutil_tsvn.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\apr-iconv\${configuration}_${platform}\libapriconv_tsvn.lib ..\berkeley-db\db4.3-win32\lib\libdb43.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 				<include name="xml\expat\lib\${configuration}_${platform}\*.obj" />
@@ -206,8 +206,8 @@
 		<exec program="mt.exe">
 			<arg value="-nologo" />
 			<arg value="-manifest" />
-			<arg value=".\${configuration}_${platform}\libaprutil.dll.intermediate.manifest" />
-			<arg value='/outputresource:".\${configuration}_${platform}\libaprutil.dll;#2"' />
+			<arg value=".\${configuration}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\libaprutil_tsvn.dll;#2"' />
 		</exec>
 	</target>
 

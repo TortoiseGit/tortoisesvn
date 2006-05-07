@@ -37,7 +37,7 @@
 			</filterchain>
 		</loadfile>
 		<echo file="libaprver.rc" message="${rcfile}" />
-		<rc rcfile="libaprver.rc" output="${configuration}_${platform}\libapr.res">
+		<rc rcfile="libaprver.rc" output="${configuration}_${platform}\libapr_tsvn.res">
 			<includedirs>
 				<include name="include" />
 			</includedirs>
@@ -109,8 +109,8 @@
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<link 
-			output="${configuration}_${platform}\libapr.dll" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr.lib" ${machineoption} ${configuration}_${platform}\libapr.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			output="${configuration}_${platform}\libapr_tsvn.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr_tsvn.lib" ${machineoption} ${configuration}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\*.obj" />
 			</sources>
@@ -118,8 +118,8 @@
 		<exec program="mt.exe">
 			<arg value="-nologo" />
 			<arg value="-manifest" />
-			<arg value=".\${configuration}_${platform}\libapr.dll.intermediate.manifest" />
-			<arg value='/outputresource:".\${configuration}_${platform}\libapr.dll;#2"' />
+			<arg value=".\${configuration}_${platform}\libapr_tsvn.dll.intermediate.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\libapr_tsvn.dll;#2"' />
 		</exec>
 	</target>
 

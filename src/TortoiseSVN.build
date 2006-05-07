@@ -52,9 +52,9 @@
 				<include name="..\ext\svn-${platform}-libintl\bin\intl3_svn.dll" />
 				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43.dll" />
 				<include name="..\ext\berkeley-db\db4.3-${platform}\bin\libdb43d.dll" />
-				<include name="..\ext\apr\${configuration}_${platform}\libapr.dll" />
-				<include name="..\ext\apr-util\${configuration}_${platform}\libaprutil.dll" />
-				<include name="..\ext\apr-iconv\${configuration}_${platform}\libapriconv.dll" />
+				<include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn.dll" />
+				<include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn.dll" />
+				<include name="..\ext\apr-iconv\${configuration}_${platform}\libapriconv_tsvn.dll" />
 			</fileset>
 		</copy>
 		<mkdir dir="..\bin\${configuration}${bindirextension}\iconv" failonerror="false" />
