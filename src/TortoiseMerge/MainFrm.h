@@ -79,6 +79,8 @@ protected:
 	afx_msg void	OnMoving(UINT fwSide, LPRECT pRect);
 	afx_msg void	OnViewSwitchleft();
 	afx_msg void	OnUpdateViewSwitchleft(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateViewShowfilelist(CCmdUI *pCmdUI);
+	afx_msg void	OnViewShowfilelist();
 
 	DECLARE_MESSAGE_MAP()
 protected:

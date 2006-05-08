@@ -76,6 +76,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_SWITCHLEFT, OnUpdateViewSwitchleft)
 	ON_COMMAND(ID_VIEW_LINELEFT, &CMainFrame::OnViewLineleft)
 	ON_COMMAND(ID_VIEW_LINERIGHT, &CMainFrame::OnViewLineright)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_SHOWFILELIST, &CMainFrame::OnUpdateViewShowfilelist)
+	ON_COMMAND(ID_VIEW_SHOWFILELIST, &CMainFrame::OnViewShowfilelist)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -427,6 +429,7 @@ void CMainFrame::OnFileOpen()
 		return;
 	}
 	m_dlgFilePatches.ShowWindow(SW_HIDE);
+	m_dlgFilePatches.Init(NULL, NULL, CString(), NULL);
 	TRACE(_T("got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n"), (LPCTSTR)dlg.m_sBaseFile, (LPCTSTR)dlg.m_sTheirFile, (LPCTSTR)dlg.m_sYourFile, 
 		(LPCTSTR)dlg.m_sUnifiedDiffFile, (LPCTSTR)dlg.m_sPatchDirectory);
 	this->m_Data.m_baseFile.SetFileName(dlg.m_sBaseFile);
@@ -1423,3 +1426,19 @@ void CMainFrame::OnUpdateViewSwitchleft(CCmdUI *pCmdUI)
 	pCmdUI->Enable(bEnable);
 }
 
+
+void CMainFrame::OnUpdateViewShowfilelist(CCmdUI *pCmdUI)
+{
+	if (m_dlgFilePatches.HasFiles())
+	{
+		pCmdUI->Enable(true);
+	}
+	else
+		pCmdUI->Enable(false);
+	pCmdUI->SetCheck(m_dlgFilePatches.IsWindowVisible());
+}
+
+void CMainFrame::OnViewShowfilelist()
+{
+	m_dlgFilePatches.ShowWindow(m_dlgFilePatches.IsWindowVisible() ? SW_HIDE : SW_SHOW);
+}

@@ -70,6 +70,7 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 {
 	if ((pCallBack==NULL)||(pPatch==NULL))
 	{
+		m_cFileList.DeleteAllItems();
 		return FALSE;
 	}
 	m_arFileStates.RemoveAll();

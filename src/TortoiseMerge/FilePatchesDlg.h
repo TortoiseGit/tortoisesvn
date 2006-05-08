@@ -81,6 +81,7 @@ public:
 	BOOL	Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath, CWnd * pParent);
 
 	BOOL	SetFileStatusAsPatched(CString sPath);
+	bool	HasFiles() {return m_cFileList.GetItemCount()>0;}
 	enum { IDD = IDD_FILEPATCHES };
 protected:
 	CPatch *					m_pPatch;

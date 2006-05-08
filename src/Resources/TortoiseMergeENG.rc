@@ -297,6 +297,8 @@ BEGIN
     BUTTON      ID_VIEW_ONEWAYDIFF
     BUTTON      ID_VIEW_SWITCHLEFT
     SEPARATOR
+    BUTTON      ID_VIEW_SHOWFILELIST
+    SEPARATOR
     BUTTON      ID_VIEW_OPTIONS
     SEPARATOR
     BUTTON      ID_HELP
@@ -335,6 +337,8 @@ BEGIN
         MENUITEM "Switch Left<->Right",         ID_VIEW_SWITCHLEFT
         MENUITEM SEPARATOR
         MENUITEM "S&ettings",                   ID_VIEW_OPTIONS
+        MENUITEM SEPARATOR
+        MENUITEM "Show File List",              ID_VIEW_SHOWFILELIST
     END
     POPUP "&Merge"
     BEGIN
@@ -663,6 +667,11 @@ STRINGTABLE
 BEGIN
     IDS_ERR_PATCH_FILEFOUNDTWICE 
                             "The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_SHOWFILELIST    "Hide/Show the patch file list\nHides or shows the patch file list"
 END
 
 #endif    // English (U.S.) resources
