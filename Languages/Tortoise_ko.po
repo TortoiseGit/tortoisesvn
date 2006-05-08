@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-27 15:56+0900\n"
+"PO-Revision-Date: 2006-05-08 11:20+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -215,9 +215,8 @@ msgstr "TortoiseMerge에 대하여(&A)..."
 
 # Control-ID:1098,
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "추가(&A)..."
 
@@ -378,8 +377,8 @@ msgid "&Edit conflicts"
 msgstr "충돌 상황 편집(&E)"
 
 # Control-ID:1099,
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "편집(&E)..."
 
@@ -520,6 +519,11 @@ msgstr "언어(&L):"
 msgid "&List View"
 msgstr "리스트 뷰(&L)"
 
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "읽기(&L)..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "충돌해결상태로 표시(&M)"
@@ -613,7 +617,6 @@ msgstr "다시실행(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -658,10 +661,10 @@ msgstr "그래프를 다른 이름으로 저장(&S)..."
 msgid "&Save authentication"
 msgstr "인증 정보 저장(&S)"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "설정(&S)"
+# ID:313,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "다른 이름으로 저장(&S)..."
 
 # ID:9,#:
 # ID:107,
@@ -811,6 +814,13 @@ msgstr "공백(&W)"
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "작업 사본(&W)"
+
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(이진 값)"
 
 # Control-ID:1061,
 #: ID:219
@@ -1071,6 +1081,12 @@ msgstr "'%s' 를 사전에 추가"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "추가 (바꾸기)..."
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:563
+msgid "Add Properties"
+msgstr "속성 추가"
 
 # ID:110,
 #: ID:110
@@ -2424,7 +2440,7 @@ msgstr "편집"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "속성 수정"
@@ -4019,8 +4035,8 @@ msgstr "진행"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "속성"
 
@@ -4033,6 +4049,7 @@ msgstr "속성"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "속성..."
 
@@ -5043,6 +5060,11 @@ msgstr "없는 개체는 건너뜀"
 #: Control-ID:1300
 msgid "Sort items numerically"
 msgstr "번호순으로 정렬"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
+msgstr "수로 정렬"
 
 # ID:196,
 #: ID:196
@@ -6644,11 +6666,6 @@ msgstr "픽셀"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "충돌이 발생한 것 / 차단된 것"
-
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "하위에도 적용(&C)"
 
 # ID:195,
 #: ID:195
