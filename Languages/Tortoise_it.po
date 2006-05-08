@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-29 14:06+0100\n"
+"PO-Revision-Date: 2006-05-08 11:31+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -214,9 +214,8 @@ msgstr "&Informazioni su TortoiseMerge..."
 
 # Control-ID:1098,
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Aggiungi..."
 
@@ -381,8 +380,8 @@ msgid "&Edit conflicts"
 msgstr "&Edita i conflitti"
 
 # Control-ID:1099,
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Modifica..."
 
@@ -523,6 +522,11 @@ msgstr "&Lingua:"
 msgid "&List View"
 msgstr "&Lista"
 
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Carica..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "&Segna come risolto"
@@ -618,7 +622,6 @@ msgstr "&Ripeti"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -664,10 +667,11 @@ msgstr "&Salva grafico come..."
 msgid "&Save authentication"
 msgstr "&Salva l'autenticazione"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Imposta"
+# ID:101,#:
+# ID:313,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Salva..."
 
 # ID:9,#:
 # ID:107,
@@ -818,6 +822,13 @@ msgstr "&Spaziature"
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "&Copia di lavoro"
+
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(valore binario)"
 
 # Control-ID:1061,
 #: ID:219
@@ -1077,6 +1088,12 @@ msgstr "Aggiungi '%s' alla directory"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Aggiunto (come sostituto)..."
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:563
+msgid "Add Properties"
+msgstr "Aggiungi proprietà"
 
 # ID:110,
 #: ID:110
@@ -2431,7 +2448,7 @@ msgstr "Modifica"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Modifica le proprietà"
@@ -4031,8 +4048,8 @@ msgstr "Avanzamento"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Proprietà"
 
@@ -4045,6 +4062,7 @@ msgstr "Proprietà per"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Proprietà..."
 
@@ -5025,9 +5043,8 @@ msgstr "Mostra informazioni su TortoiseSVN"
 
 # ID:17,
 #: ID:17
-#, fuzzy
 msgid "Shows the eol-style property value"
-msgstr "Mostra il calore della proprietà eol-style"
+msgstr "Mostra il valore della proprietà eol-style"
 
 # ID:12,
 #: ID:12
@@ -5057,6 +5074,11 @@ msgstr "Obbiettivo mancate saltato"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
+msgstr "Ordina numericamente"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
 msgstr "Ordina numericamente"
 
 # ID:196,
@@ -6665,11 +6687,6 @@ msgstr "pixel"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "conflitto possibile o reale / ostruito"
-
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "ri&corsivo"
 
 # ID:195,
 #: ID:195
