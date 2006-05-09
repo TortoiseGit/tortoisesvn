@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6363
+# Based on Tortoise.pot r6453
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-12 08:52+0100\n"
+"PO-Revision-Date: 2006-05-09 10:50+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,7 +203,7 @@ msgstr "&?"
 msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
-#: ID:8,#: ID:563,#: Control-ID:1098,#: Control-ID:1282,
+#: ID:8,#: Control-ID:1098,#: Control-ID:1310,
 msgid "&Add..."
 msgstr "&Tilføj..."
 
@@ -330,7 +330,7 @@ msgstr "&Rediger"
 msgid "&Edit conflicts"
 msgstr "R&ediger konflikter"
 
-#: ID:563,#: Control-ID:1099,
+#: Control-ID:1099,#: Control-ID:1282,
 msgid "&Edit..."
 msgstr "&Rediger..."
 
@@ -435,6 +435,10 @@ msgstr "&Sprog:"
 msgid "&List View"
 msgstr "Vis som &liste"
 
+#: Control-ID:1309,
+msgid "&Load..."
+msgstr "&Åbn..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "&Marker som løst"
@@ -508,7 +512,7 @@ msgstr "&Seneste beskeder"
 msgid "&Redo"
 msgstr "&Gentag"
 
-#: Control-ID:1013,#: Control-ID:1100,#: Control-ID:1285,
+#: Control-ID:1100,#: Control-ID:1285,
 msgid "&Remove"
 msgstr "&Fjern"
 
@@ -540,10 +544,9 @@ msgstr "Gem graf &som..."
 msgid "&Save authentication"
 msgstr "&Gem adgangskoder"
 
-#: Control-ID:1012,
-#, fuzzy
-msgid "&Set"
-msgstr "&Sæt"
+#: Control-ID:1308,
+msgid "&Save..."
+msgstr "&Gem..."
 
 #: ID:9,
 msgid "&Settings"
@@ -656,6 +659,10 @@ msgstr "&Blanktegn"
 #: Control-ID:1183,
 msgid "&Working copy"
 msgstr "&Arbejdskopi"
+
+#: ID:17,#: ID:564,
+msgid "(binary value)"
+msgstr "(binær værdi)"
 
 #: ID:219,
 msgid "(dry run)"
@@ -804,6 +811,10 @@ msgstr "Tilføj '%s' til ordbog"
 #: ID:16,
 msgid "Add (as replacement)..."
 msgstr "Tilføj (som erstatning)..."
+
+#: ID:563,
+msgid "Add Properties"
+msgstr "Tilføj egenskaber"
 
 #: ID:110,
 msgid "Add extension specific diff program"
@@ -1750,7 +1761,7 @@ msgstr "EXT"
 msgid "Edit"
 msgstr "Rediger"
 
-#: Dlg-ID:226,#: Dlg-ID:227,
+#: ID:564,#: Dlg-ID:227,
 msgid "Edit Properties"
 msgstr "Rediger egenskaber"
 
@@ -2066,6 +2077,10 @@ msgstr "Skjul &ikke-relaterede, ændrede stier"
 #: Control-ID:1004,
 msgid "Help"
 msgstr "Hjælp"
+
+#: ID:2052,
+msgid "Hide/Show the patch file list\nHides or shows the patch file list"
+msgstr "Vis/skjul listen over filer\nSkjuler eller viser listen over filer"
 
 #: Control-ID:1127,
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -2821,7 +2836,7 @@ msgstr "Programmer (*.exe)|*.exe|Alle filer (*.*)|*.*||"
 msgid "Progress"
 msgstr "Fremskridts-dialog"
 
-#: ID:17,#: Control-ID:65535,#: Dlg-ID:177,
+#: ID:17,#: Dlg-ID:177,#: Dlg-ID:226,
 msgid "Properties"
 msgstr "Egenskaber"
 
@@ -2829,7 +2844,7 @@ msgstr "Egenskaber"
 msgid "Properties for"
 msgstr "Egenskaber for"
 
-#: ID:209,
+#: ID:209,#: Control-ID:11021,
 msgid "Properties..."
 msgstr "Egenskaber..."
 
@@ -3471,6 +3486,10 @@ msgstr "Vis kun &overdækninger i Windows Stifinder"
 msgid "Show &unversioned files"
 msgstr "Vis &ikke-versionerede filer"
 
+#: MenuEntry
+msgid "Show File List"
+msgstr "Vis filliste"
+
 #: ID:113,
 msgid "Show differences as &unified diff"
 msgstr "Vis forskelle i &unified diff-format"
@@ -3560,6 +3579,10 @@ msgstr "Sprang over manglende element"
 #: Control-ID:1300,
 msgid "Sort items numerically"
 msgstr "Sorter emner numerisk"
+
+#: ID:101,
+msgid "Sort numerical"
+msgstr "Sorter numerisk"
 
 #: ID:196,
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -3681,6 +3704,11 @@ msgstr "Skift til foregående dokumentvindue"
 #: ID:9,
 msgid "Switch working copy to another branch / tag"
 msgstr "Skift arbejdskopi til en anden forgrening/mærkat"
+
+#: ID:325,
+#, fuzzy
+msgid "Switches the comparison left<->right"
+msgstr "Ombytter sammenligningen venstre<->højre"
 
 #: Control-ID:65535,
 msgid "System &sounds"
@@ -4512,10 +4540,6 @@ msgstr "pixels"
 #: Control-ID:65535,
 msgid "possible or real conflict / obstructed"
 msgstr "mulig eller reel konflikt / spærret"
-
-#: Control-ID:1018,
-msgid "re&cursive"
-msgstr "re&kursiv"
 
 #: ID:195,
 msgid "readonly"
