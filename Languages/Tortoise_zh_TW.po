@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-02 15:11+0800\n"
+"PO-Revision-Date: 2006-05-09 10:15+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -215,9 +215,8 @@ msgstr "關於 TortoiseMerge(&A)..."
 
 # Control-ID:1098,
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "加入(&A)..."
 
@@ -382,8 +381,8 @@ msgid "&Edit conflicts"
 msgstr "編修衝突(&E)"
 
 # Control-ID:1099,
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "編輯(&E)..."
 
@@ -524,6 +523,11 @@ msgstr "語系(&L)"
 msgid "&List View"
 msgstr "清單檢視(&L)"
 
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "載入(&L)..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "標記為已解決(&M)"
@@ -619,7 +623,6 @@ msgstr "取消復原(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -665,10 +668,11 @@ msgstr "另存新檔(&S)..."
 msgid "&Save authentication"
 msgstr "儲存認證(&S)"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "設定(&S)"
+# ID:313,#:
+# ID:101,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "儲存(&S)..."
 
 # ID:107,#:
 # ID:9,
@@ -819,6 +823,13 @@ msgstr "空白字元(&W)"
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "工作複本(&W)"
+
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(二進位值)"
 
 # Control-ID:1061,
 #: ID:219
@@ -1078,6 +1089,11 @@ msgstr "將 '%s' 加入字典"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "新增(代替)..."
+
+# Control-ID:65535,
+#: ID:563
+msgid "Add Properties"
+msgstr "新增性質"
 
 # ID:110,
 #: ID:110
@@ -2432,7 +2448,7 @@ msgid "Edit"
 msgstr "編輯"
 
 # Control-ID:65535,
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "編輯性質"
@@ -2897,6 +2913,15 @@ msgstr "隱藏無關的異動路徑(&H)"
 #: Control-ID:1004
 msgid "Help"
 msgstr "說明"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"隱藏/顯示補綴檔列表\n"
+"隱藏或顯示補綴檔案列表"
 
 # Control-ID:65535,
 #: Control-ID:1127
@@ -4030,8 +4055,8 @@ msgstr "進度"
 
 # Control-ID:65535,
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "性質"
 
@@ -4042,6 +4067,7 @@ msgstr "性質:"
 
 # Control-ID:65535,
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "性質..."
 
@@ -4929,6 +4955,11 @@ msgstr "僅在檔案總管中顯示圖示覆蓋(&O)"
 msgid "Show &unversioned files"
 msgstr "顯示無版本控制的檔案(&U)"
 
+# Control-ID:1073,
+#: MenuEntry
+msgid "Show File List"
+msgstr "顯示檔案列表"
+
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5051,6 +5082,11 @@ msgstr "已跳過的缺少目標"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
+msgstr "依數字順序排序"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
 msgstr "依數字順序排序"
 
 # ID:196,
@@ -6658,11 +6694,6 @@ msgstr "圖素"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "可能衝突/阻塞"
-
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "遞迴(&C)"
 
 # ID:195,
 #: ID:195
