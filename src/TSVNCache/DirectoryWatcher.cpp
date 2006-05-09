@@ -363,6 +363,14 @@ void CDirectoryWatcher::WorkerThread()
 									continue;
 								}
 							}
+							if ((pFound = wcsstr(buf, L".tmp"))!=NULL)
+							{
+								// assume files with a .tmp extension are not versioned and interesting,
+								// so ignore them.
+								if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
+									break;
+								continue;
+							}
 							ATLTRACE("change notification: %ws\n", buf);
 							m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
 						}
