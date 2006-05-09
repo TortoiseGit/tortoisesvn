@@ -1113,7 +1113,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						SVNDiff diff(this, this->m_hWnd, true);
 						diff.SetHEADPeg(m_LogRevision);
-						diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, rev, SVNRev(), false, true);
+						diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, rev, SVNRev(), false, true);
 					}
 					break;
 				case ID_BLAMETWO:
