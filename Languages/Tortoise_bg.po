@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-04-26 12:38+0200\n"
+"PO-Revision-Date: 2006-05-09 10:24+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -253,9 +253,8 @@ msgstr "&Относно TortoiseMerge..."
 
 # Control-ID:1098,
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Добавяне..."
 
@@ -420,8 +419,8 @@ msgid "&Edit conflicts"
 msgstr "&Редакция на конфликти"
 
 # Control-ID:1099,
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Редакция..."
 
@@ -562,6 +561,11 @@ msgstr "&Език:"
 msgid "&List View"
 msgstr "&Списъчен изглед"
 
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Зареждане..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "&Отбелязване като разрешен"
@@ -657,7 +661,6 @@ msgstr "&Повтаряне"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -703,10 +706,11 @@ msgstr "&Запис на графиката като..."
 msgid "&Save authentication"
 msgstr "&Запис на удостоверението"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Установяване"
+# ID:313,#:
+# ID:101,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Запис..."
 
 # ID:107,#:
 # ID:9,
@@ -857,6 +861,13 @@ msgstr "&Празни символи"
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "&Работно копие"
+
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(двоична стойност)"
 
 # Control-ID:1061,
 #: ID:219
@@ -1117,6 +1128,11 @@ msgstr "Добавяне на '%s' в речника"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Добавяне (като заместник)..."
+
+# Control-ID:65535,
+#: ID:563
+msgid "Add Properties"
+msgstr "Добавяне на свойства"
 
 # ID:110,
 #: ID:110
@@ -1398,7 +1414,7 @@ msgstr "Подреждане според &пътя"
 
 #: ID:2050
 msgid "Arranges the nodes sorted by path"
-msgstr "Подреждане възлите според пътя"
+msgstr "Подреждане на възлите според пътя"
 
 # ID:77,
 #: ID:77
@@ -2474,7 +2490,7 @@ msgid "Edit"
 msgstr "Редакция"
 
 # Control-ID:65535,
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Редакция на свойства"
@@ -2937,6 +2953,15 @@ msgstr "&Скриване на несвързаните променени пъ�
 #: Control-ID:1004
 msgid "Help"
 msgstr "Помощ"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Скриване/показване на списъка с файлове с кръпки\n"
+"Скрива или показва списъка с файлове с кръпки"
 
 # Control-ID:65535,
 #: Control-ID:1127
@@ -4070,8 +4095,8 @@ msgstr "Развитие"
 
 # Control-ID:65535,
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Свойства"
 
@@ -4082,6 +4107,7 @@ msgstr "Свойства за"
 
 # Control-ID:65535,
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Свойства..."
 
@@ -4969,6 +4995,11 @@ msgstr "&Модификации на иконките само в Windows Explor
 msgid "Show &unversioned files"
 msgstr "Показване на &неконтролираните файлове"
 
+# Control-ID:1073,
+#: MenuEntry
+msgid "Show File List"
+msgstr "Показване на списъкa с файлове"
+
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5091,6 +5122,11 @@ msgstr "Прескочени липсващи цели"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
+msgstr "Цифрово сортиране на обектите"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
 msgstr "Цифрово сортиране"
 
 # ID:196,
@@ -6692,11 +6728,6 @@ msgstr "точки"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "вероятен или действителен конфликт / задръстени"
-
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "&рекурсивно"
 
 # ID:195,
 #: ID:195
