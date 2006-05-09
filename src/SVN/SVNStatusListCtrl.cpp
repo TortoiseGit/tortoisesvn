@@ -289,6 +289,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		m_bHasExternalsFromDifferentRepos = FALSE;
 		m_bHasExternals = FALSE;
 		m_bHasUnversionedItems = FALSE;
+		m_bHasFilesWithoutSVNNeedsLock = FALSE;
 		m_bShowIgnores = bShowIgnores;
 		m_nSortedColumn = 0;
 		m_bBlock = TRUE;
@@ -488,6 +489,11 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 		if (s->text_status == svn_wc_status_external)
 		{
 			m_bHasExternals = TRUE;
+		}
+
+		if (!s->entry->present_props || (strstr(s->entry->present_props, "svn:needs-lock")==NULL))
+		{
+			m_bHasFilesWithoutSVNNeedsLock = true;
 		}
 
 		AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals);

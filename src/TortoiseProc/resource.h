@@ -69,7 +69,7 @@
 #define IDB_LOGFILTER                   204
 #define IDD_RESOLVE                     207
 #define IDD_CREATEPATCH                 208
-#define IDI_EXTERNALWARNING             210
+#define IDI_WARNING_GENERAL             210
 #define IDD_HISTORYDLG                  211
 #define IDR_CLEANUPANI                  212
 #define IDD_SETTINGSCOLORS              212
@@ -531,6 +531,7 @@
 #define IDC_LOADPROP                    1309
 #define IDS_ERR_NOTHINGTOREVERT         1310
 #define IDC_ADDPROPS                    1310
+#define IDC_LOCKWARNING                 1311
 #define IDS_ERR_NOCOMMONCOPYFROM        1311
 #define IDS_ERR_GDIPLUS_MISSING         1312
 #define IDS_ERR_NOTENOUGHMEMORY         1313
@@ -546,6 +547,7 @@
 #define IDS_WARN_NOTE                   1406
 #define IDS_WARN_NOVALIDPATH            1407
 #define IDS_WARN_LOCKOUTDATED           1408
+#define IDS_WARN_SVNNEEDSLOCK           1409
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510
@@ -887,7 +889,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        235
 #define _APS_NEXT_COMMAND_VALUE         32805
-#define _APS_NEXT_CONTROL_VALUE         1311
+#define _APS_NEXT_CONTROL_VALUE         1312
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

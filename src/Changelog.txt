@@ -123,6 +123,9 @@
 - NEW: The patch file list window can be shown/hidden with a button
        in the TortoiseMerge toolbar and menu.
        See issue #249 for details. (Stefan)
+- NEW: The lock dialog now shows a warning when the user attempts to
+       lock files which don't have the property svn:needs-lock set.
+       See issue #246 for details. (Tobias Schäfer)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all

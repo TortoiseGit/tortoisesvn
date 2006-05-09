@@ -72,6 +72,9 @@ BOOL CLockDlg::OnInitDialog()
 	if (!m_sLockMessage.IsEmpty())
 		m_cEdit.SetText(m_sLockMessage);
 		
+	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_LOCKWARNING, IDS_WARN_SVNNEEDSLOCK);
+
 	AddAnchor(IDC_LOCKTITLELABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOCKMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
@@ -79,6 +82,7 @@ BOOL CLockDlg::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOCKWARNING, TOP_RIGHT);
 
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -143,6 +147,16 @@ UINT CLockDlg::StatusThread()
 
 	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
 	m_cFileList.Show(dwShow, dwShow, false);
+	if (m_cFileList.HasFilesWithoutSVNNeedsLock())
+	{
+		GetDlgItem(IDC_LOCKWARNING)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_LOCKWARNING)->EnableWindow();
+	}
+	else
+	{
+		GetDlgItem(IDC_LOCKWARNING)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_LOCKWARNING)->EnableWindow(FALSE);
+	}
 
 	POINT pt;
 	GetCursorPos(&pt);
@@ -163,6 +177,9 @@ UINT CLockDlg::StatusThread()
 
 BOOL CLockDlg::PreTranslateMessage(MSG* pMsg)
 {
+	if (!m_bBlock)
+		m_tooltips.RelayEvent(pMsg);
+	
 	if (pMsg->message == WM_KEYDOWN)
 	{
 		switch (pMsg->wParam)

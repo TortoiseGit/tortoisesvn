@@ -20,6 +20,7 @@
 #include "afxcmn.h"
 #include "sciedit.h"
 #include "StandAloneDlg.h"
+#include "Balloon.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
 #include "SciEdit.h"
@@ -67,4 +68,5 @@ private:
 	CSciEdit			m_cEdit;
 	ProjectProperties	m_ProjectProperties;
 	bool				m_bCancelled;
+	CBalloon			m_tooltips;
 };
