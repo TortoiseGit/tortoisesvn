@@ -113,6 +113,7 @@ void CFolderCrawler::WorkerThread()
 	hWaitHandles[0] = m_hTerminationEvent;	
 	hWaitHandles[1] = m_hWakeEvent;
 	CTSVNPath workingPath;
+	bool bFirstRunAfterWakeup = false;
 
 	for(;;)
 	{
@@ -133,7 +134,7 @@ void CFolderCrawler::WorkerThread()
 		// However, it's important that we don't do our crawling while
 		// the shell is still asking for items
 		// 
-		
+		bFirstRunAfterWakeup = true;
 		for(;;)
 		{
 			// Any locks today?
@@ -143,6 +144,12 @@ void CFolderCrawler::WorkerThread()
 				// We're in crawl hold-off 
 				ATLTRACE("Crawl hold-off\n");
 				Sleep(50);
+				continue;
+			}
+			if (bFirstRunAfterWakeup)
+			{
+				Sleep(500);
+				bFirstRunAfterWakeup = false;
 				continue;
 			}
 			if ((m_blockReleasesAt < GetTickCount())&&(!m_blockedPath.IsEmpty()))
