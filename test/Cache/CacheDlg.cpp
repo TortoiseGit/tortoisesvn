@@ -464,19 +464,20 @@ UINT CCacheDlg::WatchTestThread()
 	srand(GetTickCount());
 	filepath = m_filelist.GetAt(rand() % m_filelist.GetCount());
 	GetStatusFromRemoteCache(CTSVNPath(m_sRootPath), false);
-	for (int i=0; i < 100; ++i)
+	for (int i=0; i < 1000; ++i)
 	{
 		filepath = m_filelist.GetAt(rand() % m_filelist.GetCount());
 		GetDlgItem(IDC_FILEPATH)->SetWindowText(filepath);
 		TouchFile(filepath);
+		CopyRemoveCopy(filepath);
 		sNumber.Format(_T("%d"), i);
 		GetDlgItem(IDC_DONE)->SetWindowText(sNumber);
 	}
 
-	// create dummy directories and remove them again several times
+	 create dummy directories and remove them again several times
 	for (int outer = 0; outer<100; ++outer)
 	{
-		for (int i=0; i<100; ++i)
+		for (int i=0; i<10; ++i)
 		{
 			filepath.Format(_T("__MyDummyFolder%d"), i);
 			CreateDirectory(m_sRootPath+_T("\\")+filepath, NULL);
@@ -485,7 +486,7 @@ UINT CCacheDlg::WatchTestThread()
 			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_sRootPath+_T("\\")+filepath+_T("\\file"), NULL);
 		}
 		Sleep(1000);
-		for (int i=0; i<100; ++i)
+		for (int i=0; i<10; ++i)
 		{
 			filepath.Format(_T("__MyDummyFolder%d"), i);
 			DeleteFile(m_sRootPath+_T("\\")+filepath+_T("\\file"));
@@ -522,4 +523,26 @@ void CCacheDlg::TouchFile(const CString& path)
 		(LPFILETIME) NULL, (LPFILETIME) NULL, &ft);
 
 	CloseHandle(hFile);
+}
+
+void CCacheDlg::CopyRemoveCopy(const CString& path)
+{
+	if (PathIsDirectory(path))
+		return;
+	if (path.Find(_T(".svn"))>=0)
+		return;
+	if (CopyFile(path, path+_T(".tmp"), FALSE))
+	{
+		if (DeleteFile(path))
+		{
+			if (MoveFile(path+_T(".tmp"), path))
+				return;
+			else
+				MessageBox(_T("could not move file!"), path);
+		}
+		else
+			MessageBox(_T("could not delete file!"), path);
+	}
+	else
+		MessageBox(_T("could not copy file!"), path);
 }

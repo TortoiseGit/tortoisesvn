@@ -60,6 +60,7 @@ protected:
 	void RemoveFromCache(const CString& path);
 
 	void TouchFile(const CString& path);
+	void CopyRemoveCopy(const CString& path);
 	
 	static UINT WatchTestThreadEntry(LPVOID pVoid);
 	UINT WatchTestThread();
