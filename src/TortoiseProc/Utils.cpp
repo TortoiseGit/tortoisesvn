@@ -915,9 +915,10 @@ int CUtils::CompareNumerical(LPCTSTR x_str, LPCTSTR y_str)
 {
   LPCTSTR num_x_begin = x_str, num_y_begin = y_str;
   DWORD num_x_cnt = 0, num_y_cnt = 0;
+  int cs_cmp_result = 2;
 
   // skip same chars and remember last numeric part of strings
-  while ((*x_str || *y_str) && CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, x_str, 1, y_str, 1) == 2 /* equal */ )
+  while ((*x_str || *y_str) && CompareString(LOCALE_USER_DEFAULT, NORM_IGNORECASE | NORM_IGNOREWIDTH, x_str, 1, y_str, 1) == 2 /* equal */ )
   {
     if (IsCharNumeric(*x_str))
     {
@@ -930,6 +931,8 @@ int CUtils::CompareNumerical(LPCTSTR x_str, LPCTSTR y_str)
       num_y_begin = CharNext(y_str);
       num_x_cnt = 0;
       num_y_cnt = 0;
+	  if (cs_cmp_result == 2)
+		  cs_cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, x_str, 1, y_str, 1);
     }
     x_str = CharNext(x_str);
     y_str = CharNext(y_str);
@@ -976,20 +979,20 @@ int CUtils::CompareNumerical(LPCTSTR x_str, LPCTSTR y_str)
       // here num_x_cnt == num_y_cnt
       int cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, num_x_begin, num_x_cnt, num_y_begin, num_y_cnt);
 
-      if (cmp_result == 1 /* less */)
-        return -1;
-      if (cmp_result == 3 /* greater */)
-        return 1;
+      if (cmp_result != 2)
+        return cmp_result - 2;
       if (num_x_cnt_with_zeros != num_y_cnt_with_zeros)
         return num_x_cnt_with_zeros < num_y_cnt_with_zeros ? -1 : 1;
+	  if (cs_cmp_result != 2)
+        return cs_cmp_result - 2;
     }
   }
 
   // otherwise, compare literally
-  int cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, x_str, -1, y_str, -1);
-  if (cmp_result == 1 /* less */)
-	  return -1;
-  if (cmp_result == 3 /* greater */)
-	  return 1;
-  return 0; /* equal */
+  int cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNORECASE | NORM_IGNOREWIDTH, x_str, -1, y_str, -1);
+  if (cmp_result != 2)
+	  return cmp_result - 2;
+  if (cs_cmp_result == 2)
+	  cs_cmp_result = CompareString(LOCALE_USER_DEFAULT, NORM_IGNOREWIDTH, x_str, -1, y_str, -1);
+  return cs_cmp_result - 2;
 }
