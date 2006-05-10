@@ -491,7 +491,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 			m_bHasExternals = TRUE;
 		}
 
-		if (!s->entry->present_props || (strstr(s->entry->present_props, "svn:needs-lock")==NULL))
+		if ((s->entry)&&(!s->entry->present_props || (strstr(s->entry->present_props, "svn:needs-lock")==NULL)))
 		{
 			m_bHasFilesWithoutSVNNeedsLock = true;
 		}
