@@ -7,13 +7,13 @@
 # Jan Normann Nielsen <spam@dubbekarl.dk>
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r6453
+# Based on Tortoise.pot r6460
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-09 10:50+0100\n"
+"PO-Revision-Date: 2006-05-10 10:47+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1371,8 +1371,8 @@ msgstr "Sammenlign &HEAD-revisioner"
 
 #: ID:114,
 #, fuzzy
-msgid "Compare and &blame with working copy"
-msgstr "Sammenlingn og vis &ansvar i forhold til arbejdskopi"
+msgid "Compare and &blame with working BASE"
+msgstr "Sammenlign og vis &ansvar i forhold til basisfilen"
 
 #: ID:76,
 msgid "Compare with &working copy"
@@ -2015,6 +2015,10 @@ msgstr "Opretter korrekturfil..."
 #: ID:16,
 msgid "Get loc&k..."
 msgstr "Ta&g lås..."
+
+#: ID:89,
+msgid "Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
+msgstr "Ved at tage en lås på filer, der ikke kræver låsning, forhindrer du <b>ikke</b> andre i at redigere dem i deres arbejdskopier.\nFor at gennemføre striks låsning, skal du sætte egenskaben 'svn:needs-lock' til '*' på alle filer, der kræver låsning."
 
 #: ID:119,
 #, c-format
