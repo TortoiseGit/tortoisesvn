@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-05-07 22:05+0100\n"
-"Last-Translator: Lübbe Onken <luebbe@netzbeisser.de>\n"
+"PO-Revision-Date: 2006-05-10 09:23+0100\n"
+"Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1527,8 +1527,8 @@ msgid "Compare &HEAD revisions"
 msgstr "&HEAD Revisionen vergleichen"
 
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Vergleiche mit Arbeitskopie und &Annotiere "
+msgid "Compare and &blame with working BASE"
+msgstr "Vergleiche und &Annotiere mit Arbeitskopie BASE"
 
 #: ID:76
 msgid "Compare with &working copy"
@@ -2310,6 +2310,15 @@ msgstr "Erzeuge Patchdatei..."
 msgid "Get loc&k..."
 msgstr "&Sperre holen..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
+msgstr ""
+"Wenn Sie eine Datei sperren, für die das nicht erforderlich ist, werden Sie andere Personen <b>nicht</b> daran hindern, diese Datei in ihrer Arbeitskopie zu verändern.\n"
+"Um striktes Sperren zu aktivieren, müssen Sie die 'svn:needs-lock' Eigenschaft für die entsprechenden Dateien permanent auf '*' setzen."
+
 #: ID:119
 #, c-format
 msgid "Getting file %s"
@@ -2388,6 +2397,15 @@ msgstr "&Geänderte Pfade ohne Bezug ausblenden"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Hilfe"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Verberge/Zeige die Patchdateiliste\n"
+"Verbirgt oder zeigt die Patchdateiliste"
 
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -4050,6 +4068,10 @@ msgstr "&Überlagerte Symbole nur im Explorer anzeigen"
 #: Control-ID:1073
 msgid "Show &unversioned files"
 msgstr "Zeige &nicht versionierte Dateien"
+
+#: MenuEntry
+msgid "Show File List"
+msgstr "Zeige Dateiliste"
 
 #: ID:113
 msgid "Show differences as &unified diff"
