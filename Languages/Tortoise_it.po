@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-05-08 11:31+0100\n"
+"PO-Revision-Date: 2006-05-11 00:52+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1874,8 +1874,8 @@ msgstr "Confronta revisioni di &testa"
 
 # ID:76,
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Confronta e &biasima con la copia di lavoro"
+msgid "Compare and &blame with working BASE"
+msgstr "Confronta e &biasima con la BASE"
 
 # ID:76,
 #: ID:76
@@ -2821,6 +2821,15 @@ msgstr "Creazione della patch..."
 msgid "Get loc&k..."
 msgstr "&Blocca..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
+msgstr ""
+"Bloccare file che non necessitano di essere bloccati <b>non</b> impedirà ad altri di modificarli nella propria copia di lavoro.\n"
+"Per abilitare il blocco restrittivo applicare permanentemente la proprietà 'svn:need-lock' a '*' sui file che necessitano di essere bloccati."
+
 # ID:119,
 #: ID:119
 #, c-format
@@ -2914,6 +2923,15 @@ msgstr "&Nascondi percorsi modificati non correlati"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Aiuto"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Nascondi/Mostra la lista dei file di patch\n"
+"Nasconde o mostra la lista dei file di patch"
 
 # Control-ID:65535,
 #: Control-ID:1127
@@ -4951,6 +4969,11 @@ msgstr "&Visualizza le icone di stato solo in explorer"
 #: Control-ID:1073
 msgid "Show &unversioned files"
 msgstr "Mostra file &senza versione"
+
+# Control-ID:1073,
+#: MenuEntry
+msgid "Show File List"
+msgstr "Mostra lista dei file"
 
 # ID:113,
 #: ID:113
