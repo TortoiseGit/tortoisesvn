@@ -30,10 +30,6 @@ count_ (-1)
 
 ItemIDList::~ItemIDList()
 {
-	LPMALLOC pMalloc = NULL;
-	::SHGetMalloc(&pMalloc);
-
-	//  pMalloc->Free((void*)item_);
 }
 
 int ItemIDList::size() const
@@ -80,7 +76,6 @@ LPCSHITEMID ItemIDList::get(int index) const
 }
 stdstring ItemIDList::toString()
 {
-	LPMALLOC pMalloc = NULL;
 	IShellFolder *shellFolder = NULL;
 	IShellFolder *parentFolder = NULL;
 	STRRET name;
@@ -88,8 +83,9 @@ stdstring ItemIDList::toString()
 	stdstring ret;
 	HRESULT hr;
 
-	hr = ::SHGetMalloc(&pMalloc);
 	hr = ::SHGetDesktopFolder(&shellFolder);
+	if (!SUCCEEDED(hr))
+		return ret;
 	if (parent_)
 	{
 		hr = shellFolder->BindToObject(parent_, 0, IID_IShellFolder, (void**) &parentFolder);
@@ -104,12 +100,16 @@ stdstring ItemIDList::toString()
 	if ((parentFolder != 0)&&(item_ != 0))
 	{
 		hr = parentFolder->GetDisplayNameOf(item_, SHGDN_NORMAL | SHGDN_FORPARSING, &name);
+		if (!SUCCEEDED(hr))
+			return ret;
 		hr = StrRetToStr (&name, item_, &szDisplayName);
-	} // if (parentFolder != 0)
+		if (!SUCCEEDED(hr))
+			return ret;
+	}
 	if (szDisplayName == NULL)
 	{
 		CoTaskMemFree(szDisplayName);
-		return _T("");			//to avoid a crash!
+		return ret;			//to avoid a crash!
 	}
 	ret = szDisplayName;
 	CoTaskMemFree(szDisplayName);
