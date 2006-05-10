@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-26 08:00+0100\n"
+"PO-Revision-Date: 2006-05-10 08:03+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -186,9 +186,8 @@ msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "&Lägg till..."
 
@@ -326,8 +325,8 @@ msgstr "&Redigera"
 msgid "&Edit conflicts"
 msgstr "&Editera konflikt"
 
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "&Redigera..."
 
@@ -443,6 +442,10 @@ msgstr "&Språk:"
 msgid "&List View"
 msgstr "&List vy"
 
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "&Öppna..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "&Markera som löst"
@@ -522,7 +525,6 @@ msgstr "&Loggmeddelanden"
 msgid "&Redo"
 msgstr "G&ör om"
 
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -558,9 +560,9 @@ msgstr "&Spara graf som..."
 msgid "&Save authentication"
 msgstr "&Spara autentisering"
 
-#: Control-ID:1012
-msgid "&Set"
-msgstr "&Sätt"
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "&Spara..."
 
 #: ID:9
 msgid "&Settings"
@@ -684,6 +686,13 @@ msgstr "&Whitespace"
 #: Control-ID:1183
 msgid "&Working copy"
 msgstr "&Arbetskopia"
+
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(binärt värde)"
 
 # ???
 #: ID:219
@@ -905,6 +914,10 @@ msgstr "Lägg till '%s' till ordlistan"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "Lägg till (ersätt)..."
+
+#: ID:563
+msgid "Add Properties"
+msgstr "Lägg till egenskaper"
 
 # Hur översätta "diff"
 #: ID:110
@@ -1562,9 +1575,8 @@ msgid "Compare &HEAD revisions"
 msgstr "Jämför &HEAD revisioner"
 
 #: ID:114
-#, fuzzy
-msgid "Compare and &blame with working copy"
-msgstr "Jämför med &arbetskopia och visa ändringar per rad"
+msgid "Compare and &blame with working BASE"
+msgstr "Jämför med &arbetskopians BASE och visa ändringar per rad"
 
 #: ID:76
 msgid "Compare with &working copy"
@@ -2054,7 +2066,7 @@ msgstr "EXT"
 msgid "Edit"
 msgstr "Redigera"
 
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "Editera egenskaper"
@@ -2370,6 +2382,15 @@ msgstr "Skapar patchfil..."
 msgid "Get loc&k..."
 msgstr "Skaffa &lås..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
+msgstr ""
+"Att hämta låset för filer som inte behöver lås förhindrar <b>inte</b> andra användare från att ändra dem i deras arbetskopior.\n"
+"För att aktivera strikt låsning applicera 'svn:needs-lock' egenskapen med värdet '*' på filer som behöver låsas. "
+
 #: ID:119
 #, c-format
 msgid "Getting file %s"
@@ -2455,6 +2476,15 @@ msgstr "&Göm orelaterade ändrade sökvägar"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Hjälp"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Visa/Göm patch fillistan\n"
+"Visar eller gömmer patch fillistan"
 
 # ???
 #: Control-ID:1127
@@ -3420,8 +3450,8 @@ msgid "Progress"
 msgstr "Förlopp"
 
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "Egenskaper"
 
@@ -3430,6 +3460,7 @@ msgid "Properties for"
 msgstr "Egenskaper för"
 
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "Egenskaper..."
 
@@ -4162,6 +4193,10 @@ msgstr "Visa &ikonsymboler endast i Utforskaren"
 msgid "Show &unversioned files"
 msgstr "Visa ej &versionshanterade filer"
 
+#: MenuEntry
+msgid "Show File List"
+msgstr "Visa fillistan"
+
 # Hur översätta "diff" och "Unified diff"
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -4271,6 +4306,11 @@ msgstr "Hoppade över mål som saknades"
 #: Control-ID:1300
 msgid "Sort items numerically"
 msgstr "Sortera objekt numeriskt"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
+msgstr "Sortera numeriskt"
 
 # ID:196,
 #: ID:196
@@ -5681,10 +5721,6 @@ msgstr "pixlar"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "Möjlig eller faktisk konflikt / blockerad"
-
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "re&kursivt"
 
 # ID:195,
 #: ID:195
