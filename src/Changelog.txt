@@ -209,6 +209,8 @@ Version 1.3.4
        (Tobias Schäfer)
 - BUG: If the system option "hide keyboard cues" was disabled, the explorer
        context menu items didn't show the keyboard accelerators. (Stefan)
+- BUG: an .svn directory could get exported if it was manually selected for
+       a right-drag export operation. (Stefan)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the

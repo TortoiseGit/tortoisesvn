@@ -488,6 +488,8 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 {
 	if (revision.IsWorking())
 	{
+		if (g_SVNAdminDir.IsAdminDirPath(srcPath.GetWinPath()))
+			return FALSE;
 		// files are special!
 		if (!srcPath.IsDirectory())
 		{
