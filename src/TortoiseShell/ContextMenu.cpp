@@ -151,7 +151,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			else
 			{
 				//Enumerate PIDLs which the user has selected
-				CIDA* cida = (CIDA*)medium.hGlobal;
+				CIDA* cida = (CIDA*)GlobalLock(medium.hGlobal);
 				ItemIDList parent( GetPIDLFolder (cida));
 
 				int count = cida->cidl;
@@ -239,6 +239,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				ItemIDList child (GetPIDLItem (cida, 0), &parent);
 				if (g_ShellCache.HasSVNAdminDir(child.toString().c_str(), FALSE))
 					isInVersionedFolder = true;
+				GlobalUnlock(medium.hGlobal);
 			}
 
 
