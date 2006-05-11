@@ -735,6 +735,11 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 			} 
 		} // if (s->entry)
 
+		if ((s->entry)&&(!s->entry->present_props || (strstr(s->entry->present_props, "svn:needs-lock")==NULL)))
+		{
+			m_bHasFilesWithoutSVNNeedsLock = true;
+		}
+
 		// Do we have any external paths?
 		if(arExtPaths.GetCount() > 0)
 		{
