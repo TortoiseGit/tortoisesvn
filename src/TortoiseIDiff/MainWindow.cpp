@@ -17,7 +17,10 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #include "StdAfx.h"
+#include "commctrl.h"
 #include "MainWindow.h"
+
+#pragma comment(lib, "comctl32.lib")
 
 bool CMainWindow::RegisterAndCreateWindow()
 {
@@ -52,15 +55,24 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 {
 	if (clientrect == NULL)
 		return;
-	RECT child;
-	child.left = clientrect->left;
-	child.top = clientrect->top;
-	child.right = nSplitterPos-nSplitterBorder;
-	child.bottom = clientrect->bottom;
-	SetWindowPos(picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_SHOWWINDOW);
-	child.left = nSplitterPos+nSplitterBorder;
-	child.right = clientrect->right;
-	SetWindowPos(picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_SHOWWINDOW);
+	if (bOverlap)
+	{
+		SetWindowPos(picWindow1, NULL, clientrect->left, clientrect->top+SLIDER_HEIGHT, clientrect->right-clientrect->left, clientrect->bottom-clientrect->top-SLIDER_HEIGHT, SWP_SHOWWINDOW);
+		SetWindowPos(hTrackbar, NULL, clientrect->left, clientrect->top, clientrect->right-clientrect->left, SLIDER_HEIGHT, SWP_SHOWWINDOW);
+	}
+	else
+	{
+		RECT child;
+		child.left = clientrect->left;
+		child.top = clientrect->top;
+		child.right = nSplitterPos-nSplitterBorder;
+		child.bottom = clientrect->bottom;
+		SetWindowPos(picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_SHOWWINDOW);
+		child.left = nSplitterPos+nSplitterBorder;
+		child.right = clientrect->right;
+		SetWindowPos(picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_SHOWWINDOW);
+	}
+	InvalidateRect(*this, NULL, FALSE);
 }
 
 LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -78,11 +90,42 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			RECT rect;
 			GetClientRect(hwnd, &rect);
 			nSplitterPos = (rect.right-rect.left)/2;
+			// create a slider control
+			hTrackbar = CreateTrackbar(*this, 0, 255);
+			ShowWindow(hTrackbar, SW_HIDE);
 		}
 		break;
 	case WM_COMMAND:
 		{
-			DoCommand(LOWORD(wParam));
+			return DoCommand(LOWORD(wParam));
+		}
+		break;
+	case WM_HSCROLL:
+		{
+			if (bOverlap)
+			{
+				if (LOWORD(wParam) == TB_THUMBTRACK)
+				{
+					// while tracking, only redraw every ten ticks
+					if ((HIWORD(wParam)%10) == 0)
+						picWindow1.SetSecondPicAlpha((BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
+				}
+				else
+					picWindow1.SetSecondPicAlpha((BYTE)SendMessage(hTrackbar, TBM_GETPOS, 0, 0));
+			}
+		}
+		break;
+	case WM_PAINT:
+		{
+			PAINTSTRUCT ps;
+			HDC hdc;
+			RECT rect;
+
+			::GetClientRect(*this, &rect);
+			hdc = BeginPaint(hwnd, &ps);
+			SetBkColor(hdc, GetSysColor(COLOR_3DFACE));
+			::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+			EndPaint(hwnd, &ps);
 		}
 		break;
 	case WM_SIZE:
@@ -123,16 +166,44 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 	return 0;
 };
 
-void CMainWindow::DoCommand(int id)
+LRESULT CMainWindow::DoCommand(int id)
 {
 	switch (id) 
 	{
+	case ID_VIEW_OVERLAPIMAGES:
+		{
+			bOverlap = !bOverlap;
+			HMENU hMenu = GetMenu(*this);
+			UINT uCheck = MF_BYCOMMAND;
+			uCheck |= bOverlap ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_OVERLAPIMAGES, uCheck);
+
+			ShowWindow(picWindow2, bOverlap ? SW_HIDE : SW_SHOW);
+			ShowWindow(hTrackbar, bOverlap ? SW_SHOW : SW_HIDE);
+			if (bOverlap)
+			{
+				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
+				picWindow1.SetSecondPicAlpha(200);
+			}
+			else
+			{
+				picWindow1.SetSecondPic();
+			}
+
+			RECT rect;
+			GetClientRect(*this, &rect);
+			PositionChildren(&rect);
+			return 0;
+		}
+		break;
 	case IDM_EXIT:
 		::PostQuitMessage(0);
+		return 0;
 		break;
 	default:
 		break;
 	};
+	return 1;
 }
 
 // splitter stuff
@@ -312,3 +383,27 @@ LRESULT CMainWindow::Splitter_OnMouseMove(HWND hwnd, UINT iMsg, WPARAM wParam, L
 
 	return 0;
 }
+
+HWND CMainWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
+{ 
+	InitCommonControls();
+
+	HWND hwndTrack = CreateWindowEx( 
+		0,									// no extended styles 
+		TRACKBAR_CLASS,						// class name 
+		_T("Trackbar Control"),				// title (caption) 
+		WS_CHILD | WS_VISIBLE | TBS_HORZ,	// style 
+		10, 10,								// position 
+		200, 30,							// size 
+		hwndParent,							// parent window 
+		(HMENU)TRACKBAR_ID,					// control identifier 
+		hInstance,							// instance 
+		NULL								// no WM_CREATE parameter 
+		); 
+
+	SendMessage(hwndTrack, TBM_SETRANGE, 
+		(WPARAM) TRUE,						// redraw flag 
+		(LPARAM) MAKELONG(iMin, iMax));		// min. & max. positions 
+
+	return hwndTrack; 
+} 

@@ -44,18 +44,15 @@ BEGIN
     BEGIN
         MENUITEM "E&xit",                       IDM_EXIT
     END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Overlap images",             ID_VIEW_OVERLAPIMAGES
+    END
     POPUP "&Help"
     BEGIN
         MENUITEM "&About ...",                  IDM_ABOUT
     END
 END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Accelerator
-//
-
 
 
 #ifdef APSTUDIO_INVOKED

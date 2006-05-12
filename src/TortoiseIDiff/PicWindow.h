@@ -32,6 +32,8 @@ public:
 		, nHScrollPos(0)
 		, nVScrollPos(0)
 		, picscale(1.0)
+		, pSecondPic(NULL)
+		, alpha(255)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
 	};
@@ -39,6 +41,19 @@ public:
 	bool RegisterAndCreateWindow(HWND hParent);
 
 	void SetPic(stdstring path, stdstring title);
+	CPicture * GetPic() {return &picture;}
+	void SetSecondPic(CPicture * pPicture = NULL, const stdstring& sectit = _T(""), const stdstring& secpath = _T(""))
+	{
+		pSecondPic = pPicture;
+		pictitle2 = sectit;
+		picpath2 = secpath;
+	}
+	BYTE GetSecondPicAlpha() {return alpha;}
+	void SetSecondPicAlpha(BYTE a) 
+	{
+		alpha = a; 
+		InvalidateRect(*this, NULL, FALSE);
+	}
 
 protected:
 	// the message handler for this window
@@ -54,7 +69,11 @@ protected:
 	CPicture			picture;			///< the picture object of the image
 	bool				bValid;				///< true if the picture object is valid, i.e. if the image could be loaded and can be shown
 	double				picscale;			///< the scale factor of the image
-	bool				bFirstpaint;			///< true if the image is painted the first time. Used to initialize some stuff when the window is valid for sure.
+	bool				bFirstpaint;		///< true if the image is painted the first time. Used to initialize some stuff when the window is valid for sure.
+	CPicture *			pSecondPic;			///< if set, this is the picture to draw transparently above the original
+	stdstring 			pictitle2;			///< the title of the second picture
+	stdstring 			picpath2;			///< the path of the second picture
+	BYTE				alpha;				///< the alpha value for the transparency of the second picture
 	// scrollbar info
 	int					nVScrollPos;
 	int					nHScrollPos;

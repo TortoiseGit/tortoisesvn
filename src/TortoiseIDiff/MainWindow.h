@@ -21,6 +21,8 @@
 #include "PicWindow.h"
 #include "TortoiseIDiff.h"
 
+#define SLIDER_HEIGHT 30
+#define TRACKBAR_ID 101
 class CMainWindow : public CWindow
 {
 public:
@@ -32,6 +34,7 @@ public:
 		, bDragMode(false)
 		, nSplitterPos(100)
 		, nSplitterBorder(4)
+		, bOverlap(false)
 	{ 
 		SetWindowTitle((LPCTSTR)ResString(hInstance, IDS_APP_TITLE));
 	};
@@ -46,7 +49,8 @@ protected:
 	LRESULT CALLBACK	WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 	void				PositionChildren(RECT * clientrect = NULL);
-	void				DoCommand(int id);
+	LRESULT				DoCommand(int id);
+	HWND				CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax);
 
 	// splitter methods
 	void				DrawXorBar(HDC hdc, int x1, int y1, int width, int height);
@@ -72,6 +76,9 @@ protected:
 	int				nSplitterPos;
 	int				nSplitterBorder;
 
+	// one/two pane view
+	bool			bOverlap;
+	HWND			hTrackbar;
 
 };
 

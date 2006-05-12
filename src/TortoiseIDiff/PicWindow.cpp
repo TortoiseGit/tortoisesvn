@@ -19,6 +19,8 @@
 #include "StdAfx.h"
 #include "PicWindow.h"
 
+#pragma comment(lib, "Msimg32.lib")
+
 bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 {
 	WNDCLASSEX wcx; 
@@ -101,47 +103,41 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					picrect.top = rect.top-nVScrollPos;
 					picrect.bottom = (picrect.top + LONG(double(picture.m_Height)*picscale));
 
-					// first, 'erase' the parts which the image doesn't cover
-					RECT uncovered;
 					SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
-					if (picrect.left)
-					{
-						// rectangle left of the pic
-						uncovered.left = rect.left;
-						uncovered.right = picrect.left;
-						uncovered.top = rect.top;
-						uncovered.bottom = rect.bottom;
-						::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &uncovered, NULL, 0, NULL);
-					}
-					if (picrect.top)
-					{
-						// rectangle above the pic
-						uncovered.left = rect.left;
-						uncovered.top = rect.top;
-						uncovered.right = rect.right;
-						uncovered.bottom = picrect.top;
-						::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &uncovered, NULL, 0, NULL);
-					}
-					if (picrect.right < rect.right)
-					{
-						// rectangle right of the pic
-						uncovered.left = picrect.right;
-						uncovered.top = rect.top;
-						uncovered.right = rect.right;
-						uncovered.bottom = rect.bottom;
-						::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &uncovered, NULL, 0, NULL);
-					}
-					if (picrect.bottom < rect.bottom)
-					{
-						// rectangle below the pic
-						uncovered.left = rect.left;
-						uncovered.top = picrect.bottom;
-						uncovered.right = rect.right;
-						uncovered.bottom = rect.bottom;
-						::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &uncovered, NULL, 0, NULL);
-					}
+					::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
 
 					picture.Show(memDC, picrect);
+					if (pSecondPic)
+					{
+						CMemDC memDC2(hdc);
+
+						RECT picrect2;
+						picrect2.left =  rect.left-nHScrollPos;
+						picrect2.right = (picrect2.left + LONG(double(pSecondPic->m_Width)*picscale));
+						picrect2.top = rect.top-nVScrollPos;
+						picrect2.bottom = (picrect2.top + LONG(double(pSecondPic->m_Height)*picscale));
+
+						SetBkColor(memDC2, ::GetSysColor(COLOR_WINDOW));
+						::ExtTextOut(memDC2, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+
+						pSecondPic->Show(memDC2, picrect2);
+						BLENDFUNCTION blender;
+						blender.AlphaFormat = 0;
+						blender.BlendFlags = 0;
+						blender.BlendOp = AC_SRC_OVER;
+						blender.SourceConstantAlpha = alpha;
+						AlphaBlend(memDC, 
+									rect.left,
+									rect.top,
+									rect.right-rect.left,
+									rect.bottom-rect.top,
+									memDC2,
+									rect.left,
+									rect.top,
+									rect.right-rect.left,
+									rect.bottom-rect.top,
+									blender);
+					}
 				}
 				else
 					TextOut(memDC, 0, 0, _T("This is a TEST!!!"), 17);
@@ -165,12 +161,19 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			short zDelta = GET_WHEEL_DELTA_WPARAM(wParam);
 			RECT rect;
 			GetClientRect(&rect);
+			LONG width = picture.m_Width;
+			LONG height = picture.m_Height;
+			if (pSecondPic)
+			{
+				width = max(width, pSecondPic->m_Width);
+				height = max(height, pSecondPic->m_Height);
+			}
 			if (fwKeys & MK_SHIFT)
 			{
 				// shift means scrolling sideways
 				nHScrollPos -= zDelta;
-				if (nHScrollPos > picture.m_Width-rect.right+rect.left)
-					nHScrollPos = picture.m_Width-rect.right+rect.left;
+				if (nHScrollPos > width-rect.right+rect.left)
+					nHScrollPos = width-rect.right+rect.left;
 				if (nHScrollPos < 0)
 					nHScrollPos = 0;
 				SetupScrollBars();
@@ -187,8 +190,8 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			else
 			{
 				nVScrollPos -= zDelta;
-				if (nVScrollPos > (picture.m_Height-rect.bottom+rect.top))
-					nVScrollPos = picture.m_Height-rect.bottom+rect.top;
+				if (nVScrollPos > (height-rect.bottom+rect.top))
+					nVScrollPos = height-rect.bottom+rect.top;
 				if (nVScrollPos < 0)
 					nVScrollPos = 0;
 				SetupScrollBars();
@@ -239,8 +242,15 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	// use the path if no title is set.
 	stdstring * title = pictitle.empty() ? &picpath : &pictitle;
 
+	stdstring realtitle = *title;
+
+	if (pSecondPic)
+	{
+		realtitle = realtitle + _T(" - ") + (pictitle2.empty() ? picpath2 : pictitle2);
+	}
+
 	SIZE stringsize;
-	if (GetTextExtentPoint32(hDC, title->c_str(), title->size(), &stringsize))
+	if (GetTextExtentPoint32(hDC, realtitle.c_str(), realtitle.size(), &stringsize))
 	{
 		int nStringLength = stringsize.cx;
 
@@ -249,8 +259,8 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 			textrect.top + (HEADER_HEIGHT/2) - stringsize.cy/2,
 			ETO_CLIPPED,
 			&textrect,
-			title->c_str(),
-			title->size(),
+			realtitle.c_str(),
+			realtitle.size(),
 			NULL);
 	}
 }
@@ -264,29 +274,36 @@ void CPicWindow::SetupScrollBars()
 
 	si.fMask = SIF_POS | SIF_PAGE | SIF_RANGE | SIF_DISABLENOSCROLL;
 
+	LONG width = picture.m_Width;
+	LONG height = picture.m_Height;
+	if (pSecondPic)
+	{
+		width = max(width, pSecondPic->m_Width);
+		height = max(height, pSecondPic->m_Height);
+	}
 	si.nPos  = nVScrollPos;
 	si.nPage = rect.bottom-rect.top;
 	si.nMin  = 0;
-	si.nMax  = int(double(picture.m_Height)*picscale);
+	si.nMax  = int(double(height)*picscale);
 	SetScrollInfo(*this, SB_VERT, &si, TRUE);
 
 	si.nPos  = nHScrollPos;
 	si.nPage = rect.right-rect.left;
 	si.nMin  = 0;
-	si.nMax  = int(double(picture.m_Width)*picscale);
+	si.nMax  = int(double(width)*picscale);
 	SetScrollInfo(*this, SB_HORZ, &si, TRUE);
 
-	bool bPicWidthBigger = (int(double(picture.m_Width)*picscale) > (rect.right-rect.left));
-	bool bPicHeigthBigger = (int(double(picture.m_Height)*picscale) > (rect.bottom-rect.top));
+	bool bPicWidthBigger = (int(double(width)*picscale) > (rect.right-rect.left));
+	bool bPicHeigthBigger = (int(double(height)*picscale) > (rect.bottom-rect.top));
 	// set the scroll position so that the image is drawn centered in the window
 	// if the window is bigger than the image
 	if (!bPicWidthBigger)
 	{
-		nHScrollPos = -((rect.right-rect.left)-int(double(picture.m_Width)*picscale))/2;
+		nHScrollPos = -((rect.right-rect.left)-int(double(width)*picscale))/2;
 	}
 	if (!bPicHeigthBigger)
 	{
-		nVScrollPos = -((rect.bottom-rect.top)-int(double(picture.m_Height)*picscale))/2;
+		nVScrollPos = -((rect.bottom-rect.top)-int(double(height)*picscale))/2;
 	}
 	// if the image is smaller than the window, we don't need the scrollbars
 	ShowScrollBar(*this, SB_HORZ, bPicWidthBigger);
@@ -324,8 +341,13 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 	default:
 		return;
 	}
-	if (nVScrollPos > (picture.m_Height-rect.bottom+rect.top))
-		nVScrollPos = picture.m_Height-rect.bottom+rect.top;
+	LONG height = picture.m_Height;
+	if (pSecondPic)
+	{
+		height = max(height, pSecondPic->m_Height);
+	}
+	if (nVScrollPos > (height-rect.bottom+rect.top))
+		nVScrollPos = height-rect.bottom+rect.top;
 	if (nVScrollPos < 0)
 		nVScrollPos = 0;
 	SetupScrollBars();
@@ -362,8 +384,13 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 	default:
 		return;
 	}
-	if (nHScrollPos > picture.m_Width-rect.right+rect.left)
-		nHScrollPos = picture.m_Width-rect.right+rect.left;
+	LONG width = picture.m_Width;
+	if (pSecondPic)
+	{
+		width = max(width, pSecondPic->m_Width);
+	}
+	if (nHScrollPos > width-rect.right+rect.left)
+		nHScrollPos = width-rect.right+rect.left;
 	if (nHScrollPos < 0)
 		nHScrollPos = 0;
 	SetupScrollBars();
