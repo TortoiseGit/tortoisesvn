@@ -1,12 +1,4 @@
-#if !defined(AFX_MEMDC_H__CA1D3541_7235_11D1_ABBA_00A0243D1382__INCLUDED_)
-#define AFX_MEMDC_H__CA1D3541_7235_11D1_ABBA_00A0243D1382__INCLUDED_
-
-#if _MSC_VER >= 1000
 #pragma once
-#endif // _MSC_VER >= 1000
-// MemDC.h : header file
-//
-
 
 //////////////////////////////////////////////////
 // CMemDC - memory DC
@@ -24,11 +16,10 @@
 //
 // This class implements a memory Device Context
 
-
+#ifdef _MFC_VER
 class CMemDC : public CDC
 {
 public:
-
 	// constructor sets up the memory DC
 	CMemDC(CDC* pDC, int nOffset = 0) : CDC()
     {
@@ -129,10 +120,55 @@ private:
     CRect    m_rect;		// Rectangle of drawing area.
     BOOL     m_bMemDC;		// TRUE if CDC really is a Memory DC.
 };
+#else
+class CMemDC
+{
+public:
 
-/////////////////////////////////////////////////////////////////////////////
+	// constructor sets up the memory DC
+	CMemDC(HDC hDC, int nOffset = 0) 
+	{	
+		m_hDC = hDC;
+		m_hOldBitmap = NULL;
 
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Developer Studio will insert additional declarations immediately before the previous line.
+		::GetClipBox(m_hDC, &m_rect);
+		m_hMemDC = ::CreateCompatibleDC(m_hDC);
+		m_hBitmap = CreateCompatibleBitmap(m_hDC, m_rect.right - m_rect.left, m_rect.bottom - m_rect.top);
+		m_hOldBitmap = (HBITMAP)SelectObject(m_hMemDC, m_hBitmap);
+		SetWindowOrgEx(m_hMemDC, m_rect.left, m_rect.top, NULL);
+	}
 
-#endif // !defined(AFX_MEMDC_H__CA1D3541_7235_11D1_ABBA_00A0243D1382__INCLUDED_)
+	// Destructor copies the contents of the mem DC to the original DC
+	~CMemDC()
+	{
+		if (m_hMemDC) {	
+			// Copy the offscreen bitmap onto the screen.
+			BitBlt(m_hDC, m_rect.left, m_rect.top, m_rect.right-m_rect.left, m_rect.bottom-m_rect.top, m_hMemDC, m_rect.left, m_rect.top, SRCCOPY);
+
+			//Swap back the original bitmap.
+			SelectObject(m_hMemDC, m_hOldBitmap);
+			DeleteObject(m_hBitmap);
+			DeleteDC(m_hMemDC);
+		} else {
+			// All we need to do is replace the DC with an illegal value,
+			// this keeps us from accidently deleting the handles associated with
+			// the CDC that was passed to the constructor.
+			DeleteObject(m_hBitmap);
+			DeleteDC(m_hMemDC);
+			m_hMemDC = NULL;
+		}
+	}
+
+	// Allow usage as a pointer
+	operator HDC() {return m_hMemDC;}
+
+private:
+	HBITMAP  m_hBitmap;		// Offscreen bitmap
+	HBITMAP	 m_hOldBitmap;	// bitmap originally found in CMemDC
+	HDC      m_hDC;			// Saves CDC passed in constructor
+	HDC		 m_hMemDC;		// our own memory DC
+	RECT	 m_rect;		// Rectangle of drawing area.
+};
+
+#endif
+
