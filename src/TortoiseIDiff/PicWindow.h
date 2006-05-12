@@ -47,6 +47,7 @@ protected:
 	void				SetupScrollBars();
 	void				OnVScroll(UINT nSBCode, UINT nPos);
 	void				OnHScroll(UINT nSBCode, UINT nPos);
+	void				GetClientRect(RECT * pRect);
 
 	stdstring			picpath;			///< the path to the image we show
 	stdstring			pictitle;			///< the string to show in the image view as a title

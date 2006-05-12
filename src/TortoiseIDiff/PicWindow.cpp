@@ -60,18 +60,17 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			HDC hdc;
 			RECT rect;
 
-			GetClientRect(*this, &rect);
+			::GetClientRect(*this, &rect);
 			hdc = BeginPaint(hwnd, &ps);
 			{
 				CMemDC memDC(hdc);
 				DrawViewTitle(memDC, &rect);
 
+				GetClientRect(&rect);
 				if (bFirstpaint)
 				{
 					// make the image fit into the window: adjust the scale factor and scroll
 					// positions
-					RECT rect;
-					GetClientRect(*this, &rect);
 					if (rect.right-rect.left)
 					{
 						if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
@@ -93,9 +92,9 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				if (bValid)
 				{
 					RECT picrect;
-					picrect.left =  -nHScrollPos;
+					picrect.left =  rect.left-nHScrollPos;
 					picrect.right = (picrect.left + LONG(double(picture.m_Width)*picscale));
-					picrect.top = -nVScrollPos;
+					picrect.top = rect.top-nVScrollPos;
 					picrect.bottom = (picrect.top + LONG(double(picture.m_Height)*picscale));
 
 					// first, 'erase' the parts which the image doesn't cover
@@ -104,7 +103,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					if (picrect.left)
 					{
 						// rectangle left of the pic
-						uncovered.left = 0;
+						uncovered.left = rect.left;
 						uncovered.right = picrect.left;
 						uncovered.top = rect.top;
 						uncovered.bottom = rect.bottom;
@@ -113,7 +112,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					if (picrect.top)
 					{
 						// rectangle above the pic
-						uncovered.left = 0;
+						uncovered.left = rect.left;
 						uncovered.top = rect.top;
 						uncovered.right = rect.right;
 						uncovered.bottom = picrect.top;
@@ -215,7 +214,7 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 void CPicWindow::SetupScrollBars()
 {
 	RECT rect;
-	GetClientRect(*this, &rect);
+	GetClientRect(&rect);
 
 	SCROLLINFO si = {sizeof(si)};
 
@@ -254,7 +253,7 @@ void CPicWindow::SetupScrollBars()
 void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 {
 	RECT rect;
-	GetClientRect(*this, &rect);
+	GetClientRect(&rect);
 	switch (nSBCode)
 	{
 	case SB_BOTTOM:
@@ -292,7 +291,7 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 {
 	RECT rect;
-	GetClientRect(*this, &rect);
+	GetClientRect(&rect);
 	switch (nSBCode)
 	{
 	case SB_RIGHT:
@@ -325,4 +324,10 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 		nHScrollPos = 0;
 	SetupScrollBars();
 	InvalidateRect(*this, NULL, TRUE);
+}
+
+void CPicWindow::GetClientRect(RECT * pRect)
+{
+	::GetClientRect(*this, pRect);
+	pRect->top += HEADER_HEIGHT;
 }
