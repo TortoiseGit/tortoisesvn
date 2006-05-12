@@ -31,6 +31,12 @@ public:
 		sWindowTitle = sTitle;
 	};
 
+	/**
+	 * Sets the transparency of the window.
+	 * \remark note that this also sets the WS_EX_LAYERED style!
+	 */
+	void SetTransparency(BYTE alpha, COLORREF color = 0xFF000000);
+
 	virtual bool Create();
 	virtual bool Create(DWORD dwStyles, HWND hParent = NULL, RECT* rect = NULL);
 

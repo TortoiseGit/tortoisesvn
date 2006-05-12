@@ -95,3 +95,31 @@ bool CWindow::Create(DWORD dwStyles, HWND hParent /* = NULL */, RECT* rect /* = 
 	}
 	return (m_hwnd != NULL);
 }
+
+void CWindow::SetTransparency(BYTE alpha, COLORREF color /* = 0xFF000000 */)
+{
+	if (alpha == 255)
+	{
+		LONG exstyle = GetWindowLongPtr(*this, GWL_EXSTYLE);
+		exstyle &= ~WS_EX_LAYERED;
+		SetWindowLongPtr(*this, GWL_EXSTYLE, exstyle);
+	}
+	else
+	{
+		LONG exstyle = GetWindowLongPtr(*this, GWL_EXSTYLE);
+		exstyle |= WS_EX_LAYERED;
+		SetWindowLongPtr(*this, GWL_EXSTYLE, exstyle);
+	}
+	COLORREF col = color;
+	DWORD flags = LWA_ALPHA;
+	if (col & 0xFF000000)
+	{
+		col = RGB(255, 255, 255);
+		flags = LWA_ALPHA;
+	}
+	else
+	{
+		flags = LWA_COLORKEY;
+	}
+	SetLayeredWindowAttributes(*this, col, alpha, flags);
+}
