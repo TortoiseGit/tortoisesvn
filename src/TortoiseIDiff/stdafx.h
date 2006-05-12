@@ -34,6 +34,8 @@
 #include <tchar.h>
 #include <comdef.h>
 
+#include "MemDC.h"
+
 #ifndef stdstring
 #	ifdef UNICODE
 #		define stdstring std::wstring

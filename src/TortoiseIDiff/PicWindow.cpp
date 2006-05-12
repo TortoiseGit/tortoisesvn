@@ -52,6 +52,8 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 	{
 	case WM_CREATE:
 		break;
+	case WM_ERASEBKGND:
+		break;
 	case WM_PAINT:
 		{
 			PAINTSTRUCT ps;
@@ -59,38 +61,100 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			RECT rect;
 
 			GetClientRect(*this, &rect);
-			hdc = BeginPaint(hwnd, &ps); 
-			DrawViewTitle(hdc, &rect);
-
-			if (bValid)
+			hdc = BeginPaint(hwnd, &ps);
 			{
-				// center the image in the window
-				if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
+				CMemDC memDC(hdc);
+				DrawViewTitle(memDC, &rect);
+
+				if (bFirstpaint)
 				{
-					// image is smaller than the window
-					rect.left = ((rect.right - rect.left) - picture.m_Width)/2;
-					rect.right = rect.left + picture.m_Width;
-					rect.top = ((rect.bottom-rect.top)-picture.m_Height)/2;
-					rect.bottom = rect.top + picture.m_Height;
+					// make the image fit into the window: adjust the scale factor and scroll
+					// positions
+					RECT rect;
+					GetClientRect(*this, &rect);
+					if (rect.right-rect.left)
+					{
+						if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
+						{
+							// image is smaller than the window
+							picscale = 1.0;
+						}
+						else
+						{
+							// image is bigger than the window
+							double xscale = double(rect.right-rect.left)/double(picture.m_Width);
+							double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
+							picscale = min(yscale, xscale);
+						}
+						SetupScrollBars();
+						bFirstpaint = false;
+					}
+				}
+				if (bValid)
+				{
+					RECT picrect;
+					picrect.left =  -nHScrollPos;
+					picrect.right = (picrect.left + LONG(double(picture.m_Width)*picscale));
+					picrect.top = -nVScrollPos;
+					picrect.bottom = (picrect.top + LONG(double(picture.m_Height)*picscale));
+
+					// first, 'erase' the parts which the image doesn't cover
+					RECT uncovered;
+					SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
+					if (picrect.left)
+					{
+						// rectangle left of the pic
+						uncovered.left = 0;
+						uncovered.right = picrect.left;
+						uncovered.top = rect.top;
+						uncovered.bottom = rect.bottom;
+						::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &uncovered, NULL, 0, NULL);
+					}
+					if (picrect.top)
+					{
+						// rectangle above the pic
+						uncovered.left = 0;
+						uncovered.top = rect.top;
+						uncovered.right = rect.right;
+						uncovered.bottom = picrect.top;
+						::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &uncovered, NULL, 0, NULL);
+					}
+					if (picrect.right < rect.right)
+					{
+						// rectangle right of the pic
+						uncovered.left = picrect.right;
+						uncovered.top = rect.top;
+						uncovered.right = rect.right;
+						uncovered.bottom = rect.bottom;
+						::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &uncovered, NULL, 0, NULL);
+					}
+					if (picrect.bottom < rect.bottom)
+					{
+						// rectangle below the pic
+						uncovered.left = rect.left;
+						uncovered.top = picrect.bottom;
+						uncovered.right = rect.right;
+						uncovered.bottom = rect.bottom;
+						::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &uncovered, NULL, 0, NULL);
+					}
+
+					picture.Show(memDC, picrect);
 				}
 				else
-				{
-					// image is bigger than the window
-					double xscale = double(rect.right-rect.left)/double(picture.m_Width);
-					double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
-					double scale = min(yscale, xscale);
-					rect.left =  ((rect.right - rect.left) - LONG(double(picture.m_Width)*scale))/2;
-					rect.right = rect.left + LONG(double(picture.m_Width)*scale);
-					rect.top = ((rect.bottom-rect.top) - LONG(double(picture.m_Height)*scale))/2;
-					rect.bottom = rect.top + LONG(double(picture.m_Height)*scale);
-				}
-				picture.Show(hdc, rect);
-			}
-			else
-				TextOut(hdc, 0, 0, _T("This is a TEST!!!"), 17);
+					TextOut(memDC, 0, 0, _T("This is a TEST!!!"), 17);
 
+			}
 			EndPaint(hwnd, &ps);
 		}
+		break;
+	case WM_SIZE:
+		SetupScrollBars();
+		break;
+	case WM_VSCROLL:
+		OnVScroll(LOWORD(wParam), HIWORD(wParam));
+		break;
+	case WM_HSCROLL:
+		OnHScroll(LOWORD(wParam), HIWORD(wParam));
 		break;
 	case WM_DESTROY:
 		bWindowClosed = TRUE;
@@ -148,3 +212,117 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 	}
 }
 
+void CPicWindow::SetupScrollBars()
+{
+	RECT rect;
+	GetClientRect(*this, &rect);
+
+	SCROLLINFO si = {sizeof(si)};
+
+	si.fMask = SIF_POS | SIF_PAGE | SIF_RANGE | SIF_DISABLENOSCROLL;
+
+	si.nPos  = nVScrollPos;
+	si.nPage = rect.bottom-rect.top;
+	si.nMin  = 0;
+	si.nMax  = picture.m_Height;
+	SetScrollInfo(*this, SB_VERT, &si, TRUE);
+
+	si.nPos  = nHScrollPos;
+	si.nPage = rect.right-rect.left;
+	si.nMin  = 0;
+	si.nMax  = picture.m_Width;
+	SetScrollInfo(*this, SB_HORZ, &si, TRUE);
+
+	bool bPicWidthBigger = (int(double(picture.m_Width)/picscale) > (rect.right-rect.left));
+	bool bPicHeigthBigger = (int(double(picture.m_Height)/picscale) > (rect.bottom-rect.top));
+	// set the scroll position so that the image is drawn centered in the window
+	// if the window is bigger than the image
+	if (!bPicWidthBigger)
+	{
+		nHScrollPos = -((rect.right-rect.left)-int(double(picture.m_Width)/picscale))/2;
+	}
+	if (!bPicHeigthBigger)
+	{
+		nVScrollPos = -((rect.bottom-rect.top)-int(double(picture.m_Height)/picscale))/2;
+	}
+	// if the image is smaller than the window, we don't need the scrollbars
+	ShowScrollBar(*this, SB_HORZ, bPicWidthBigger);
+	ShowScrollBar(*this, SB_VERT, bPicHeigthBigger);
+
+}
+
+void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
+{
+	RECT rect;
+	GetClientRect(*this, &rect);
+	switch (nSBCode)
+	{
+	case SB_BOTTOM:
+		nVScrollPos = picture.m_Height;
+		break;
+	case SB_TOP:
+		nVScrollPos = 0;
+		break;
+	case SB_LINEDOWN:
+		nVScrollPos++;
+		break;
+	case SB_LINEUP:
+		nVScrollPos--;
+		break;
+	case SB_PAGEDOWN:
+		nVScrollPos += (rect.bottom-rect.top);
+		break;
+	case SB_PAGEUP:
+		nVScrollPos -= (rect.bottom-rect.top);
+		break;
+	case SB_THUMBPOSITION:
+		nVScrollPos = nPos;
+		break;
+	default:
+		return;
+	}
+	if (nVScrollPos > (picture.m_Height-rect.bottom+rect.top))
+		nVScrollPos = picture.m_Height-rect.bottom+rect.top;
+	if (nVScrollPos < 0)
+		nVScrollPos = 0;
+	SetupScrollBars();
+	InvalidateRect(*this, NULL, TRUE);
+}
+
+void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
+{
+	RECT rect;
+	GetClientRect(*this, &rect);
+	switch (nSBCode)
+	{
+	case SB_RIGHT:
+		nHScrollPos = picture.m_Width;
+		break;
+	case SB_LEFT:
+		nHScrollPos = 0;
+		break;
+	case SB_LINERIGHT:
+		nHScrollPos++;
+		break;
+	case SB_LINELEFT:
+		nHScrollPos--;
+		break;
+	case SB_PAGERIGHT:
+		nHScrollPos += (rect.right-rect.left);
+		break;
+	case SB_PAGELEFT:
+		nHScrollPos -= (rect.right-rect.left);
+		break;
+	case SB_THUMBPOSITION:
+		nHScrollPos = nPos;
+		break;
+	default:
+		return;
+	}
+	if (nHScrollPos > picture.m_Width)
+		nHScrollPos = picture.m_Width;
+	if (nHScrollPos < 0)
+		nHScrollPos = 0;
+	SetupScrollBars();
+	InvalidateRect(*this, NULL, TRUE);
+}

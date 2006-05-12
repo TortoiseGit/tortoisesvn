@@ -28,6 +28,10 @@ class CPicWindow : public CWindow
 public:
 	CPicWindow(HINSTANCE hInst, const WNDCLASSEX* wcx = NULL) : CWindow(hInst, wcx)
 		, bValid(false)
+		, bFirstpaint(true)
+		, nHScrollPos(0)
+		, nVScrollPos(0)
+		, picscale(1.0)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
 	};
@@ -40,11 +44,19 @@ protected:
 	// the message handler for this window
 	LRESULT CALLBACK	WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	void				DrawViewTitle(HDC hDC, RECT * rect);
+	void				SetupScrollBars();
+	void				OnVScroll(UINT nSBCode, UINT nPos);
+	void				OnHScroll(UINT nSBCode, UINT nPos);
 
-	stdstring			picpath;
-	stdstring			pictitle;
-	CPicture			picture;
-	bool				bValid;
-	int					charwidth;
+	stdstring			picpath;			///< the path to the image we show
+	stdstring			pictitle;			///< the string to show in the image view as a title
+	CPicture			picture;			///< the picture object of the image
+	bool				bValid;				///< true if the picture object is valid, i.e. if the image could be loaded and can be shown
+	double				picscale;			///< the scale factor of the image
+	bool				bFirstpaint;			///< true if the image is painted the first time. Used to initialize some stuff when the window is valid for sure.
+	// scrollbar info
+	int					nVScrollPos;
+	int					nHScrollPos;
+
 };
 
