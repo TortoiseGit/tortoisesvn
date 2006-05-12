@@ -17,8 +17,18 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
+#include <map>
+#include <string>
 
 using std::map;
+
+#ifndef stdstring
+#	ifdef UNICODE
+#		define stdstring std::wstring
+#	else
+#		define stdstring std::string
+#	endif
+#endif
 
 /**
  * \ingroup Utils
@@ -51,7 +61,7 @@ using std::map;
 class CCmdLineParser 
 {
 public:
-	typedef map<CString, CString> CValsMap;
+	typedef map<stdstring, stdstring> CValsMap;
 	typedef CValsMap::const_iterator ITERPOS;
 public:
 	/**
@@ -65,7 +75,7 @@ public:
 	 * returns the command line string this object was created on.
 	 * \return the command line
 	 */
-	LPCTSTR getCmdLine() const { return m_sCmdLine; }
+	LPCTSTR getCmdLine() const { return m_sCmdLine.c_str(); }
 
 	/**
 	 * Starts an iteration over all command line parameters.
@@ -82,7 +92,7 @@ public:
 	 * \param sValue returns the value
 	 * \return the next position
 	 */
-	ITERPOS getNext(ITERPOS& pos, CString& sKey, CString& sValue) const;
+	ITERPOS getNext(ITERPOS& pos, stdstring& sKey, stdstring& sValue) const;
 		
 	/**
 	 * Checks if the position is the last or if there are more key/value pairs in the command line.
@@ -125,7 +135,7 @@ private:
 	CValsMap::const_iterator findKey(LPCTSTR sKey) const;
 	const CValsMap& getVals() const { return m_valueMap; }
 private:
-	CString 	m_sCmdLine;
+	stdstring 	m_sCmdLine;
 	CValsMap	m_valueMap;
 
 	static const TCHAR m_sDelims[];

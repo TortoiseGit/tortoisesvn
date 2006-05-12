@@ -18,6 +18,8 @@
 //
 #include "stdafx.h"
 #include "CmdLineParser.h"
+#include <locale>
+#include <algorithm>
 
 const TCHAR CCmdLineParser::m_sDelims[] = _T("-/");
 const TCHAR CCmdLineParser::m_sQuotes[] = _T("\"");
@@ -39,7 +41,7 @@ CCmdLineParser::~CCmdLineParser()
 
 BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine) 
 {
-	const CString sEmpty = _T("");			//use this as a value if no actual value is given in commandline
+	const stdstring sEmpty = _T("");			//use this as a value if no actual value is given in commandline
 	int nArgs = 0;
 
 	if(!sCmdLine) 
@@ -68,18 +70,18 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 		LPCTSTR sVal = _tcspbrk(sArg, m_sValueSep);
 		if(sVal == NULL) 
 		{ 
-			CString Key(sArg);
-			Key.MakeLower();
+			stdstring Key(sArg);
+			std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
 			m_valueMap.insert(CValsMap::value_type(Key, sEmpty));
 			break;
 		} 
 		else if (sVal[0] == _T(' ') || _tcslen(sVal) == 1 ) 
 		{ 
 			// cmdline ends with /Key: or a key with no value 
-			CString Key(sArg, (int)(sVal - sArg));
-			if(!Key.IsEmpty()) 
+			stdstring Key(sArg, (int)(sVal - sArg));
+			if(!Key.empty()) 
 			{ 
-				Key.MakeLower();
+				std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
 				m_valueMap.insert(CValsMap::value_type(Key, sEmpty));
 			}
 			sCurrent = _tcsinc(sVal);
@@ -88,8 +90,8 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 		else 
 		{ 
 			// key has value
-			CString Key(sArg, (int)(sVal - sArg));
-			Key.MakeLower();
+			stdstring Key(sArg, (int)(sVal - sArg));
+			std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
 
 			sVal = _tcsinc(sVal);
 
@@ -109,8 +111,8 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 			if(sEndQuote == NULL) 
 			{ 
 				// no end quotes or terminating space, take the rest of the string to its end
-				CString csVal(sQuote);
-				if(!Key.IsEmpty()) 
+				stdstring csVal(sQuote);
+				if(!Key.empty()) 
 				{ 
 					m_valueMap.insert(CValsMap::value_type(Key, csVal));
 				}
@@ -119,9 +121,9 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 			else 
 			{ 
 				// end quote
-				if(!Key.IsEmpty()) 
+				if(!Key.empty()) 
 				{	
-					CString csVal(sQuote, (int)(sEndQuote - sQuote));
+					stdstring csVal(sQuote, (int)(sEndQuote - sQuote));
 					m_valueMap.insert(CValsMap::value_type(Key, csVal));
 				}
 				sCurrent = _tcsinc(sEndQuote);
@@ -135,8 +137,8 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 
 CCmdLineParser::CValsMap::const_iterator CCmdLineParser::findKey(LPCTSTR sKey) const 
 {
-	CString s(sKey);
-	s.MakeLower();
+	stdstring s(sKey);
+	std::transform(s.begin(), s.end(), s.begin(), ::tolower);
 	return m_valueMap.find(s);
 }
 
@@ -154,7 +156,7 @@ BOOL CCmdLineParser::HasVal(LPCTSTR sKey) const
 	CValsMap::const_iterator it = findKey(sKey);
 	if(it == m_valueMap.end()) 
 		return false;
-	if(it->second.IsEmpty()) 
+	if(it->second.empty()) 
 		return false;
 	return true;
 }
@@ -164,7 +166,7 @@ LPCTSTR CCmdLineParser::GetVal(LPCTSTR sKey) const
 	CValsMap::const_iterator it = findKey(sKey);
 	if (it == m_valueMap.end()) 
 		return 0;
-	return LPCTSTR(it->second);
+	return it->second.c_str();
 }
 
 LONG CCmdLineParser::GetLongVal(LPCTSTR sKey) const
@@ -172,7 +174,7 @@ LONG CCmdLineParser::GetLongVal(LPCTSTR sKey) const
 	CValsMap::const_iterator it = findKey(sKey);
 	if (it == m_valueMap.end())
 		return 0;
-	return _tstol(LPCTSTR(it->second));
+	return _tstol(it->second.c_str());
 }
 
 
@@ -181,11 +183,11 @@ CCmdLineParser::ITERPOS CCmdLineParser::begin() const
 	return m_valueMap.begin();
 }
 
-CCmdLineParser::ITERPOS CCmdLineParser::getNext(ITERPOS& pos, CString& sKey, CString& sValue) const 
+CCmdLineParser::ITERPOS CCmdLineParser::getNext(ITERPOS& pos, stdstring& sKey, stdstring& sValue) const 
 {
 	if (m_valueMap.end() == pos)
 	{
-		sKey.Empty();
+		sKey.clear();
 		return pos;
 	} 
 	else 
