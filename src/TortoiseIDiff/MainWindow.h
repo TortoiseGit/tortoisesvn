@@ -51,6 +51,9 @@ protected:
 	void				PositionChildren(RECT * clientrect = NULL);
 	LRESULT				DoCommand(int id);
 	HWND				CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax);
+	bool				OpenDialog();
+	static BOOL CALLBACK OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam);
+	static bool			AskForFile(HWND owner, TCHAR * path);
 
 	// splitter methods
 	void				DrawXorBar(HDC hdc, int x1, int y1, int width, int height);
@@ -59,11 +62,11 @@ protected:
 	LRESULT				Splitter_OnMouseMove(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 
 	// command line params
-	stdstring			leftpicpath;
-	stdstring			leftpictitle;
+	static stdstring	leftpicpath;
+	static stdstring	leftpictitle;
 
-	stdstring			rightpicpath;
-	stdstring			rightpictitle;
+	static stdstring	rightpicpath;
+	static stdstring	rightpictitle;
 
 	// image data
 	CPicWindow		picWindow1;

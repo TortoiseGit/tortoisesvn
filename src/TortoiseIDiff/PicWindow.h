@@ -54,6 +54,8 @@ public:
 		alpha = a; 
 		InvalidateRect(*this, NULL, FALSE);
 	}
+	void FitImageInWindow();
+	void SetZoom(double dZoom);
 
 protected:
 	// the message handler for this window

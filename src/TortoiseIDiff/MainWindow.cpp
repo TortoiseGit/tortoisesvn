@@ -18,9 +18,17 @@
 //
 #include "StdAfx.h"
 #include "commctrl.h"
+#include "Commdlg.h"
 #include "MainWindow.h"
 
 #pragma comment(lib, "comctl32.lib")
+
+stdstring	CMainWindow::leftpicpath;
+stdstring	CMainWindow::leftpictitle;
+
+stdstring	CMainWindow::rightpicpath;
+stdstring	CMainWindow::rightpictitle;
+
 
 bool CMainWindow::RegisterAndCreateWindow()
 {
@@ -170,6 +178,20 @@ LRESULT CMainWindow::DoCommand(int id)
 {
 	switch (id) 
 	{
+	case ID_FILE_OPEN:
+		{
+			if (OpenDialog())
+			{
+				picWindow1.SetPic(leftpicpath, _T(""));
+				picWindow1.FitImageInWindow();
+				picWindow2.SetPic(rightpicpath, _T(""));
+				picWindow2.FitImageInWindow();
+				RECT rect;
+				GetClientRect(*this, &rect);
+				PositionChildren(&rect);
+			}
+		}
+		break;
 	case ID_VIEW_OVERLAPIMAGES:
 		{
 			bOverlap = !bOverlap;
@@ -407,4 +429,91 @@ HWND CMainWindow::CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax)
 		(LPARAM) MAKELONG(iMin, iMax));		// min. & max. positions 
 
 	return hwndTrack; 
-} 
+}
+
+bool CMainWindow::OpenDialog()
+{
+	return (DialogBox(hInstance, MAKEINTRESOURCE(IDD_OPEN), *this, (DLGPROC)OpenDlgProc)==IDOK);
+}
+
+BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message) 
+	{
+	case WM_INITDIALOG:
+		{
+			// center on the parent window
+			HWND hParentWnd = ::GetParent(hwndDlg);
+			RECT parentrect, childrect, centeredrect;
+			GetWindowRect(hParentWnd, &parentrect);
+			GetWindowRect(hwndDlg, &childrect);
+			centeredrect.left = parentrect.left + ((parentrect.right-parentrect.left-childrect.right+childrect.left)/2);
+			centeredrect.right = centeredrect.left + (childrect.right-childrect.left);
+			centeredrect.top = parentrect.top + ((parentrect.bottom-parentrect.top-childrect.bottom+childrect.top)/2);
+			centeredrect.bottom = centeredrect.top + (childrect.bottom-childrect.top);
+			SetWindowPos(hwndDlg, NULL, centeredrect.left, centeredrect.top, centeredrect.right-centeredrect.left, centeredrect.bottom-centeredrect.top, SWP_SHOWWINDOW);
+		}
+		break;
+	case WM_COMMAND: 
+		switch (LOWORD(wParam)) 
+		{
+		case IDC_LEFTBROWSE:
+			{
+				TCHAR path[MAX_PATH] = {0};
+				if (AskForFile(hwndDlg, path))
+				{
+					SetDlgItemText(hwndDlg, IDC_LEFTIMAGE, path);
+				}
+			}
+			break;
+		case IDC_RIGHTBROWSE:
+			{
+				TCHAR path[MAX_PATH] = {0};
+				if (AskForFile(hwndDlg, path))
+				{
+					SetDlgItemText(hwndDlg, IDC_RIGHTIMAGE, path);
+				}
+			}
+			break;
+		case IDOK: 
+			{
+				TCHAR path[MAX_PATH];
+				if (!GetDlgItemText(hwndDlg, IDC_LEFTIMAGE, path, MAX_PATH)) 
+					*path = 0;
+				leftpicpath = path;
+				if (!GetDlgItemText(hwndDlg, IDC_RIGHTIMAGE, path, MAX_PATH))
+					*path = 0;
+				rightpicpath = path;
+			}
+			// Fall through. 
+		case IDCANCEL: 
+			EndDialog(hwndDlg, wParam); 
+			return TRUE; 
+		} 
+	} 
+	return FALSE; 
+}
+
+bool CMainWindow::AskForFile(HWND owner, TCHAR * path)
+{
+	OPENFILENAME ofn;		// common dialog box structure
+	// Initialize OPENFILENAME
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = owner;
+	ofn.lpstrFile = path;
+	ofn.nMaxFile = MAX_PATH;
+	ofn.lpstrTitle = ResString(hInst, IDS_OPENIMAGEFILE);
+	ofn.Flags = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST | OFN_EXPLORER;
+	ofn.hInstance = hInst;
+//Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||
+	TCHAR filters[] = _T("Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico\0All (*.*)\0*.*\0\0");
+	ofn.lpstrFilter = filters;
+	ofn.nFilterIndex = 1;
+	// Display the Open dialog box. 
+	if (GetOpenFileName(&ofn)==FALSE)
+	{
+		return false;
+	}
+	return true;
+}

@@ -216,6 +216,11 @@ void CPicWindow::SetPic(stdstring path, stdstring title)
 {
 	picpath=path;pictitle=title;
 	bValid = picture.Load(picpath);
+	if (bValid)
+	{
+		picscale = 1.0;
+		InvalidateRect(*this, NULL, FALSE);
+	}
 }
 
 void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
@@ -401,4 +406,34 @@ void CPicWindow::GetClientRect(RECT * pRect)
 {
 	::GetClientRect(*this, pRect);
 	pRect->top += HEADER_HEIGHT;
+}
+
+void CPicWindow::SetZoom(double dZoom)
+{
+	picscale = dZoom;
+	SetupScrollBars();
+	InvalidateRect(*this, NULL, TRUE);
+}
+
+void CPicWindow::FitImageInWindow()
+{
+	RECT rect;
+	GetClientRect(&rect);
+	if (rect.right-rect.left)
+	{
+		if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
+		{
+			// image is smaller than the window
+			picscale = 1.0;
+		}
+		else
+		{
+			// image is bigger than the window
+			double xscale = double(rect.right-rect.left)/double(picture.m_Width);
+			double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
+			picscale = min(yscale, xscale);
+		}
+		SetupScrollBars();
+	}
+	InvalidateRect(*this, NULL, TRUE);
 }
