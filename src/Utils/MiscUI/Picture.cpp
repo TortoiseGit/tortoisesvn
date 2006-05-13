@@ -87,6 +87,8 @@ bool CPicture::Load(stdstring sFilePathName)
 		}
 		CloseHandle(hFile);
 	}
+	else
+		return bResult;
 
 	m_Name = sFilePathName;
 	m_Weight = nSize; // Update Picture Size Info...

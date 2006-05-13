@@ -142,8 +142,25 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					}
 				}
 				else
-					TextOut(memDC, 0, 0, _T("This is a TEST!!!"), 17);
+				{
+					SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
+					::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+					SIZE stringsize;
+					ResString str = ResString(hInstance, IDS_INVALIDIMAGEINFO);
+					if (GetTextExtentPoint32(memDC, str, _tcslen(str), &stringsize))
+					{
+						int nStringLength = stringsize.cx;
 
+						ExtTextOut(memDC, 
+							max(rect.left + ((rect.right-rect.left)-nStringLength)/2, 1),
+							rect.top + ((rect.bottom-rect.top) - stringsize.cy)/2,
+							ETO_CLIPPED,
+							&rect,
+							str,
+							_tcslen(str),
+							NULL);
+					}
+				}
 			}
 			EndPaint(hwnd, &ps);
 		}
