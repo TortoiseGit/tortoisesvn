@@ -57,7 +57,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	if (mainWindow.RegisterAndCreateWindow())
 	{
-		hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_TORTOISEIDIFF));
+		hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDR_TORTOISEIDIFF));
 		if (!parser.HasVal(_T("left")))
 		{
 			PostMessage(mainWindow, WM_COMMAND, ID_FILE_OPEN, 0);

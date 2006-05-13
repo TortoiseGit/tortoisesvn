@@ -46,7 +46,7 @@ bool CMainWindow::RegisterAndCreateWindow()
 	wcx.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
 	wcx.hbrBackground = (HBRUSH)(COLOR_3DFACE+1);
 	wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF);
-	wcx.hIconSm	= LoadIcon(wcx.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+	wcx.hIconSm	= LoadIcon(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
 	if (RegisterWindow(&wcx))
 	{
 		if (Create(WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_VISIBLE, NULL))
