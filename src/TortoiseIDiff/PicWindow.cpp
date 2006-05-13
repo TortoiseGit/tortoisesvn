@@ -39,7 +39,7 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 	wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF);
 	wcx.hIconSm	= LoadIcon(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
 	RegisterWindow(&wcx);
-	if (Create(WS_CHILD | WS_HSCROLL | WS_VSCROLL | WS_VISIBLE, hParent))
+	if (CreateEx(WS_EX_ACCEPTFILES | WS_EX_CLIENTEDGE, WS_CHILD | WS_HSCROLL | WS_VSCROLL | WS_VISIBLE, hParent))
 	{
 		ShowWindow(m_hwnd, SW_SHOW);
 		UpdateWindow(m_hwnd);
