@@ -1529,7 +1529,43 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("relocate from %s to %s\n"), (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
-				if (CMessageBox::Show((EXPLORERHWND), IDS_WARN_RELOCATEREALLY, IDS_APPNAME, MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2)==IDYES)
+				// crack the urls into their components
+				TCHAR urlpath1[INTERNET_MAX_URL_LENGTH+1];
+				TCHAR urlpath2[INTERNET_MAX_URL_LENGTH+1];
+				URL_COMPONENTS components1 = {0};
+				URL_COMPONENTS components2 = {0};
+				components1.dwStructSize = sizeof(URL_COMPONENTS);
+				components1.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
+				components1.lpszUrlPath = urlpath1;
+				components2.dwStructSize = sizeof(URL_COMPONENTS);
+				components2.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
+				components2.lpszUrlPath = urlpath2;
+				InternetCrackUrl((LPCTSTR)dlg.m_sFromUrl, dlg.m_sFromUrl.GetLength(), 0, &components1);
+				InternetCrackUrl((LPCTSTR)dlg.m_sToUrl, dlg.m_sToUrl.GetLength(), 0, &components2);
+				// now compare the url components.
+				// If the 'main' parts differ (e.g. hostname, port, scheme, ...) then a relocate is
+				// necessary and we don't show a warning. But if only the path part of the url
+				// changed, we assume the user really wants to switch and show the warning.
+				bool bPossibleSwitch = true;
+				if (components1.dwSchemeLength != components2.dwSchemeLength)
+					bPossibleSwitch = false;
+				else if (_tcsncmp(components1.lpszScheme, components2.lpszScheme, components1.dwSchemeLength))
+					bPossibleSwitch = false;
+				if (components1.dwHostNameLength != components2.dwHostNameLength)
+					bPossibleSwitch = false;
+				else if (_tcsncmp(components1.lpszHostName, components2.lpszHostName, components1.dwHostNameLength))
+					bPossibleSwitch = false;
+				if (components1.dwUserNameLength != components2.dwUserNameLength)
+					bPossibleSwitch = false;
+				else if (_tcsncmp(components1.lpszUserName, components2.lpszUserName, components1.dwUserNameLength))
+					bPossibleSwitch = false;
+				if (components1.dwPasswordLength != components2.dwPasswordLength)
+					bPossibleSwitch = false;
+				else if (_tcsncmp(components1.lpszPassword, components2.lpszPassword, components1.dwPasswordLength))
+					bPossibleSwitch = false;
+				if (components1.nPort != components2.nPort)
+					bPossibleSwitch = false;
+				if ((!bPossibleSwitch)||(CMessageBox::Show((EXPLORERHWND), IDS_WARN_RELOCATEREALLY, IDS_APPNAME, MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2)==IDYES))
 				{
 					SVN s;
 
