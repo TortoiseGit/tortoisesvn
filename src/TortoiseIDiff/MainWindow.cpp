@@ -183,7 +183,8 @@ LRESULT CMainWindow::DoCommand(int id)
 			if (bOverlap)
 			{
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
-				picWindow1.SetSecondPicAlpha(200);
+				picWindow1.SetSecondPicAlpha(127);
+				SendMessage(hTrackbar, TBM_SETPOS, (WPARAM)1, (LPARAM)127);
 			}
 			else
 			{
