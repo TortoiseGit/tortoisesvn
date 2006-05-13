@@ -237,6 +237,10 @@
               <File Id="F__SciLexer" Name="SCILEX.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\SciLexer.dll" />
             </Component>
 
+            <Component Id="C__TortoiseIDiff" Guid="$(var.GuidTortoiseIDiff)" Win64="$(var.Win64YesNo)">
+              <File Id="F__TortoiseIDiff" Name="TIDIFF.EXE" LongName="TortoiseIDiff.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseIDiff.exe" KeyPath="yes" />
+            </Component>
+
           </Directory>
 
           <Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >

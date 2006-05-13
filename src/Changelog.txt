@@ -126,6 +126,9 @@
 - NEW: The lock dialog now shows a warning when the user attempts to
        lock files which don't have the property svn:needs-lock set.
        See issue #246 for details. (Tobias Schäfer)
+- NEW: Introducing TortoiseIDiff, an image diff viewer. This is a little
+       tool which shows two images side-by-side, or over each other
+       alpha blended. (Stefan)
 - CHG: The installer warns if the user tries to downgrade. See issue
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
@@ -168,6 +171,9 @@
        they're small. (Stefan)
 - CHG: When refreshing the status list with F5 the check mark of manually
        de-/selected items is restored. (Tobias Schäfer)
+- CHG: The relocate warning is only shown if the path part of the URL
+       changed and nothing else, because that indicates a possible
+       switch. (Stefan)
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When setting properties, an error message isn't hidden anymore by

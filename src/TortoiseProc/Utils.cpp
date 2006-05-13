@@ -207,6 +207,25 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 		{
 			viewer = difftool;
 		}
+		else
+		{
+			// check if we maybe should use TortoiseIDiff
+			CString sExtension = file2.GetFileExtension();
+			if ((sExtension.CompareNoCase(_T(".jpg"))==0)||
+				(sExtension.CompareNoCase(_T(".jpeg"))==0)||
+				(sExtension.CompareNoCase(_T(".bmp"))==0)||
+				(sExtension.CompareNoCase(_T(".gif"))==0)||
+				(sExtension.CompareNoCase(_T(".png"))==0)||
+				(sExtension.CompareNoCase(_T(".ico"))==0)||
+				(sExtension.CompareNoCase(_T(".dib"))==0)||
+				(sExtension.CompareNoCase(_T(".emf"))==0))
+			{
+				viewer = CUtils::GetAppDirectory();
+				viewer += _T("TortoiseIDiff.exe");
+				viewer = _T("\"") + viewer + _T("\"");
+				viewer = viewer + _T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname");
+			}
+		}
 	}
 	if (bUseTMerge||viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
 	{
