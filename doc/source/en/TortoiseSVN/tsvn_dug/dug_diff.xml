@@ -10,8 +10,12 @@
 		see what has changed. You might want to look at the differences
 		between two revisions of the same file, or the differences between
 		two separate files.
-		TortoiseSVN provides some builtin tools for this, and also
-		allows you to use your own favourite diff program.
+		TortoiseSVN provides a builtin tool named 
+		<application>TortoiseMerge</application> for viewing differences of
+		text files. For viewing differences of image files, TortoiseSVN
+		also has a tool named <application>TortoiseIDiff</application>.
+		Of course, you can user your own favourite diff program if you
+		like.
 	</para>
 	<sect2 id="tsvn-dug-diff-file">
 		<title>File Differences</title>
@@ -259,30 +263,6 @@
 						viewing unified diffs, it is much better than the
 						Windows notepad for most jobs. Download it for free
 						<ulink url="http://www.flos-freeware.ch/notepad2.html">
-							<citetitle>here</citetitle>
-						</ulink>.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>TkDiff</term>
-				<listitem>
-					<para>
-						A free diff/merge tool which uses TCL/TK.
-						Download it 
-						<ulink url="http://www.accurev.com/free/tkdiff/">
-							<citetitle>here</citetitle>
-						</ulink>.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>CVSConflictEditor</term>
-				<listitem>
-					<para>
-						This open source merge tool is buggy, but has potential.
-						Download it 
-						<ulink url="http://sourceforge.net/projects/conflicteditor/">
 							<citetitle>here</citetitle>
 						</ulink>.
 					</para>
