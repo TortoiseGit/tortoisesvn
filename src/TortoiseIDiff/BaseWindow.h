@@ -39,6 +39,7 @@ public:
 
 	virtual bool Create();
 	virtual bool Create(DWORD dwStyles, HWND hParent = NULL, RECT* rect = NULL);
+	virtual bool CreateEx(DWORD dwExStyles, DWORD dwStyles, HWND hParent = NULL, RECT* rect = NULL);
 
 	//void MsgLoop();
 	bool IsWindowClosed() { return bWindowClosed; };

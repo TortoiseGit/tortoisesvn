@@ -82,14 +82,17 @@ bool CWindow::Create()
 
 bool CWindow::Create(DWORD dwStyles, HWND hParent /* = NULL */, RECT* rect /* = NULL */)
 { 
-	// Create the window
-	
+	return CreateEx(0, dwStyles, hParent, rect);	
+}
+
+bool CWindow::CreateEx(DWORD dwExStyles, DWORD dwStyles, HWND hParent /* = NULL */, RECT* rect /* = NULL */)
+{
 	// send the this pointer as the window creation parameter
 	if (rect == NULL)
-		m_hwnd = CreateWindow(sClassName.c_str(), sWindowTitle.c_str(), dwStyles, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, hParent, NULL, hInstance, (void *)this);
+		m_hwnd = CreateWindowEx(dwExStyles, sClassName.c_str(), sWindowTitle.c_str(), dwStyles, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, hParent, NULL, hInstance, (void *)this);
 	else
 	{
-		m_hwnd = CreateWindow(sClassName.c_str(), sWindowTitle.c_str(), dwStyles, rect->left, rect->top, 
+		m_hwnd = CreateWindowEx(dwExStyles, sClassName.c_str(), sWindowTitle.c_str(), dwStyles, rect->left, rect->top, 
 			rect->right - rect->left, rect->bottom - rect->top, hParent, NULL, hInstance, 
 			(void *)this);
 	}
