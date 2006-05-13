@@ -60,10 +60,8 @@ BEGIN
     POPUP "&View"
     BEGIN
         MENUITEM "&Overlap images",             ID_VIEW_OVERLAPIMAGES
-    END
-    POPUP "&Help"
-    BEGIN
-        MENUITEM "&About ...",                  IDM_ABOUT
+        MENUITEM "&Fit Images in window",       ID_VIEW_FITIMAGESINWINDOW
+        MENUITEM "Or&iginal size",              ID_VIEW_ORININALSIZE
     END
 END
 
@@ -118,9 +116,11 @@ END
 
 IDR_TORTOISEIDIFF ACCELERATORS 
 BEGIN
-    VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "O",            ID_VIEW_OVERLAPIMAGES,  VIRTKEY, NOINVERT
+    VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
+    "F",            ID_VIEW_FITIMAGESINWINDOW, VIRTKEY, NOINVERT
+    "S",            ID_VIEW_ORININALSIZE,   VIRTKEY, NOINVERT
 END
 
 

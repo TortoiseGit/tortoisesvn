@@ -75,10 +75,10 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 		child.top = clientrect->top;
 		child.right = nSplitterPos-nSplitterBorder;
 		child.bottom = clientrect->bottom;
-		SetWindowPos(picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_SHOWWINDOW);
+		SetWindowPos(picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
 		child.left = nSplitterPos+nSplitterBorder;
 		child.right = clientrect->right;
-		SetWindowPos(picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_SHOWWINDOW);
+		SetWindowPos(picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
 	}
 	InvalidateRect(*this, NULL, FALSE);
 }
@@ -217,6 +217,24 @@ LRESULT CMainWindow::DoCommand(int id)
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
 			return 0;
+		}
+		break;
+	case ID_VIEW_FITIMAGESINWINDOW:
+		{
+			picWindow1.FitImageInWindow();
+			picWindow2.FitImageInWindow();
+			RECT rect;
+			GetClientRect(*this, &rect);
+			PositionChildren(&rect);
+		}
+		break;
+	case ID_VIEW_ORININALSIZE:
+		{
+			picWindow1.SetZoom(1.0);
+			picWindow2.SetZoom(1.0);
+			RECT rect;
+			GetClientRect(*this, &rect);
+			PositionChildren(&rect);
 		}
 		break;
 	case IDM_EXIT:
