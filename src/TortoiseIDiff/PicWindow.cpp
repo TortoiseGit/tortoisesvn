@@ -231,6 +231,12 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			FitImageInWindow();
 		}
 		break;
+	case WM_COMMAND:
+		{
+			// pass the message to our parent
+			SendMessage(GetParent(*this), WM_COMMAND, wParam, lParam);
+		}
+		break;
 	case WM_DESTROY:
 		bWindowClosed = TRUE;
 		break;
