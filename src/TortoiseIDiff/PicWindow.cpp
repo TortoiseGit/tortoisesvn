@@ -17,9 +17,11 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #include "StdAfx.h"
+#include "shellapi.h"
 #include "PicWindow.h"
 
 #pragma comment(lib, "Msimg32.lib")
+#pragma comment(lib, "shell32.lib")
 
 bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 {
@@ -201,6 +203,16 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		break;
 	case WM_LBUTTONDOWN:
 		SetFocus(*this);
+		break;
+	case WM_DROPFILES:
+		{
+			HDROP hDrop = (HDROP)wParam;		
+			TCHAR szFileName[MAX_PATH];
+			// we only use the first file dropped (if multiple files are dropped)
+			DragQueryFile(hDrop, 0, szFileName, sizeof(szFileName));
+			SetPic(szFileName, _T(""));
+			FitImageInWindow();
+		}
 		break;
 	case WM_DESTROY:
 		bWindowClosed = TRUE;
