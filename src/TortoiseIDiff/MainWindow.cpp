@@ -524,8 +524,7 @@ bool CMainWindow::AskForFile(HWND owner, TCHAR * path)
 	ofn.lpstrTitle = ResString(hInst, IDS_OPENIMAGEFILE);
 	ofn.Flags = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST | OFN_EXPLORER;
 	ofn.hInstance = hInst;
-//Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||
-	TCHAR filters[] = _T("Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico\0All (*.*)\0*.*\0\0");
+	TCHAR filters[] = _T("Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico;*.dib;*.emf;*.wmf\0All (*.*)\0*.*\0\0");
 	ofn.lpstrFilter = filters;
 	ofn.nFilterIndex = 1;
 	// Display the Open dialog box. 
