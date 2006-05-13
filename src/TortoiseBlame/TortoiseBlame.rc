@@ -10,6 +10,7 @@
 #define APSTUDIO_HIDDEN_SYMBOLS
 #include "windows.h"
 #undef APSTUDIO_HIDDEN_SYMBOLS
+#include "TortoiseBlame.rc2"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -101,13 +102,12 @@ BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""windows.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "\0"
+    "#include ""TortoiseBlame.rc2""\r\n"
 END
 
 3 TEXTINCLUDE 
 BEGIN
     "\r\n"
-    "\0"
 END
 
 #endif    // APSTUDIO_INVOKED

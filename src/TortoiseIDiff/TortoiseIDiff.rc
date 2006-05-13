@@ -10,7 +10,7 @@
 #define APSTUDIO_HIDDEN_SYMBOLS
 #include "windows.h"
 #undef APSTUDIO_HIDDEN_SYMBOLS
-#include "..\version.h"
+#include "TortoiseIDiff.rc2"
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -126,46 +126,6 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,0,6471
- PRODUCTVERSION 1,4,0,6471
- FILEFLAGSMASK 0x17L
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x4L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "080704b0"
-        BEGIN
-            VALUE "Comments", "Diff images the easy way"
-            VALUE "CompanyName", "www.tortoisesvn.org"
-            VALUE "FileDescription", "TortoiseIDiff - an image diff tool part of TortoiseSVN"
-            VALUE "FileVersion", "1, 4, 0, 6471"
-            VALUE "InternalName", "TortoiseIDiff"
-            VALUE "LegalCopyright", "Copyright (C) 2006"
-            VALUE "OriginalFilename", "TortoiseIDiff.exe"
-            VALUE "ProductName", "TortoiseIDiff"
-            VALUE "ProductVersion", "1, 4, 0, 6471"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x807, 1200
-    END
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // String Table
 //
 
@@ -206,7 +166,7 @@ BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""windows.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "#include ""..\\version.h""\0"
+    "#include ""TortoiseIDiff.rc2""\0"
 END
 
 3 TEXTINCLUDE 

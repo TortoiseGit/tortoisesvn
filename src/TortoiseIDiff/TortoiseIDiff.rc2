@@ -1,5 +1,5 @@
 //
-// TortoiseProc.RC2 - resources Microsoft Visual C++ does not edit directly
+// TortoiseIDiff.RC2 - resources Microsoft Visual C++ does not edit directly
 //
 
 #ifdef APSTUDIO_INVOKED
@@ -32,12 +32,12 @@ BEGIN
         BLOCK "040004e4"
         BEGIN
             VALUE "CompanyName", "www.tortoisesvn.org"
-            VALUE "FileDescription", "TortoiseSVN shell extension client"
+            VALUE "FileDescription", "TortoiseIDiff"
             VALUE "FileVersion", STRFILEVER
-            VALUE "InternalName", "TortoiseSVN.dll"
+            VALUE "InternalName", "TortoiseIDiff.exe"
             VALUE "LegalCopyright", "Copyright (C) 2006"
-            VALUE "OriginalFilename", "TortoiseSVN.dll"
-            VALUE "ProductName", "TortoiseSVN"
+            VALUE "OriginalFilename", "TortoiseIDiff.exe"
+            VALUE "ProductName", "TortoiseIDiff"
             VALUE "ProductVersion", STRPRODUCTVER
         END
     END
