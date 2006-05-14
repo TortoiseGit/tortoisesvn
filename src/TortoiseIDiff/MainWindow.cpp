@@ -237,6 +237,24 @@ LRESULT CMainWindow::DoCommand(int id)
 			PositionChildren(&rect);
 		}
 		break;
+	case ID_VIEW_ZOOMIN:
+		{
+			picWindow1.SetZoom(picWindow1.GetZoom()*1.1);
+			picWindow2.SetZoom(picWindow2.GetZoom()*1.1);
+			RECT rect;
+			GetClientRect(*this, &rect);
+			PositionChildren(&rect);
+		}
+		break;
+	case ID_VIEW_ZOOMOUT:
+		{
+			picWindow1.SetZoom(picWindow1.GetZoom()*0.9);
+			picWindow2.SetZoom(picWindow2.GetZoom()*0.9);
+			RECT rect;
+			GetClientRect(*this, &rect);
+			PositionChildren(&rect);
+		}
+		break;
 	case IDM_EXIT:
 		::PostQuitMessage(0);
 		return 0;

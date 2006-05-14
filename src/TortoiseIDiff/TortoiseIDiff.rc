@@ -62,6 +62,9 @@ BEGIN
         MENUITEM "&Overlap images",             ID_VIEW_OVERLAPIMAGES
         MENUITEM "&Fit Images in window",       ID_VIEW_FITIMAGESINWINDOW
         MENUITEM "Or&iginal size",              ID_VIEW_ORININALSIZE
+        MENUITEM SEPARATOR
+        MENUITEM "Zoom out",                    ID_VIEW_ZOOMOUT
+        MENUITEM "Zoom in",                     ID_VIEW_ZOOMIN
     END
 END
 
@@ -117,10 +120,13 @@ END
 IDR_TORTOISEIDIFF ACCELERATORS 
 BEGIN
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
-    "O",            ID_VIEW_OVERLAPIMAGES,  VIRTKEY, NOINVERT
-    VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
     "F",            ID_VIEW_FITIMAGESINWINDOW, VIRTKEY, NOINVERT
     "S",            ID_VIEW_ORININALSIZE,   VIRTKEY, NOINVERT
+    "O",            ID_VIEW_OVERLAPIMAGES,  VIRTKEY, NOINVERT
+    VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
+    "+",            ID_VIEW_ZOOMIN,         ASCII,  NOINVERT
+    VK_OEM_MINUS,   ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
+    VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
 END
 
 

@@ -56,6 +56,7 @@ public:
 	}
 	void FitImageInWindow();
 	void SetZoom(double dZoom);
+	double GetZoom() {return picscale;}
 
 protected:
 	// the message handler for this window
