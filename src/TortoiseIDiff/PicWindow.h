@@ -23,6 +23,11 @@
 
 #define HEADER_HEIGHT 30
 
+/**
+ * The image view window.
+ * Shows an image and provides methods to scale the image or alpha blend it
+ * over another image.
+ */
 class CPicWindow : public CWindow
 {
 public:
@@ -38,33 +43,49 @@ public:
 		SetWindowTitle(_T("Picture Window"));
 	};
 
+	/// Registers the window class and creates the window
 	bool RegisterAndCreateWindow(HWND hParent);
 
+	/// Sets the image path and title to show
 	void SetPic(stdstring path, stdstring title);
+	/// Returns the CPicture image object. Used to get an already loaded image
+	/// object without having to load it again.
 	CPicture * GetPic() {return &picture;}
+	/// Sets the path and title of the second image which is alpha blended over the original
 	void SetSecondPic(CPicture * pPicture = NULL, const stdstring& sectit = _T(""), const stdstring& secpath = _T(""))
 	{
 		pSecondPic = pPicture;
 		pictitle2 = sectit;
 		picpath2 = secpath;
 	}
+	/// Returns the currently used alpha blending value (0-255)
 	BYTE GetSecondPicAlpha() {return alpha;}
+	/// Sets the alpha blending value
 	void SetSecondPicAlpha(BYTE a) 
 	{
 		alpha = a; 
 		InvalidateRect(*this, NULL, FALSE);
 	}
+	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
+	/// Sets the zoom factor of the image
 	void SetZoom(double dZoom);
+	/// Returns the currently used zoom factor in which the image is shown.
 	double GetZoom() {return picscale;}
 
 protected:
-	// the message handler for this window
+	/// the message handler for this window
 	LRESULT CALLBACK	WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+	/// Draws the view title bar
 	void				DrawViewTitle(HDC hDC, RECT * rect);
+	/// Sets up the scrollbars as needed
 	void				SetupScrollBars();
+	/// Handles vertical scrolling
 	void				OnVScroll(UINT nSBCode, UINT nPos);
+	/// Handles horizontal scrolling
 	void				OnHScroll(UINT nSBCode, UINT nPos);
+	/// Returns the client rectangle, without the scrollbars and the view title.
+	/// Basically the rectangle the image can use.
 	void				GetClientRect(RECT * pRect);
 
 	stdstring			picpath;			///< the path to the image we show

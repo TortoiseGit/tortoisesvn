@@ -1,7 +1,10 @@
 #pragma once
 #include <string>
 
-// helper class to load resource strings
+
+/**
+ * Loads a string from the application resources.
+ */
 class ResString
 {
 	enum { MAX_RESSTRING = 255 };
@@ -12,7 +15,11 @@ private:
 	TCHAR _buf [MAX_RESSTRING + 1];
 };
 
-
+/**
+ * A base window class.
+ * Provides separate window message handlers for every window object based on
+ * this class.
+ */
 class CWindow
 {
 public:
@@ -20,7 +27,7 @@ public:
 		LPCTSTR lpszMenuName, LPCTSTR lpszClassName, HICON hIconSm);
 	virtual bool RegisterWindow(CONST WNDCLASSEX* wcx);
 
-	// static message handler to put in WNDCLASSEX structure
+	/// static message handler to put in WNDCLASSEX structure
 	static LRESULT CALLBACK stWinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 	/**

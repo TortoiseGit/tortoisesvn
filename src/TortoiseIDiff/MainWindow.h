@@ -25,6 +25,10 @@
 #define SPLITTER_BORDER 2
 #define TRACKBAR_ID 101
 
+/**
+ * The main window of TortoiseIDiff.
+ * Hosts the two image views, the menu, toolbar, slider, ...
+ */
 class CMainWindow : public CWindow
 {
 public:
@@ -40,18 +44,31 @@ public:
 		SetWindowTitle((LPCTSTR)ResString(hInstance, IDS_APP_TITLE));
 	};
 
+	/**
+	 * Registers the window class and creates the window.
+	 */
 	bool RegisterAndCreateWindow();
 
+	/**
+	 * Sets the image path and title for the left image view.
+	 */
 	void SetLeft(stdstring leftpath, stdstring lefttitle) {leftpicpath=leftpath; leftpictitle=lefttitle;}
+	/**
+	 * Sets the image path and the title for the right image view.
+	 */
 	void SetRight(stdstring rightpath, stdstring righttitle) {rightpicpath=rightpath; rightpictitle=righttitle;}
 
 protected:
-	// the message handler for this window
+	/// the message handler for this window
 	LRESULT CALLBACK	WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-
-	void				PositionChildren(RECT * clientrect = NULL);
+	/// Handles all the WM_COMMAND window messages (e.g. menu commands)
 	LRESULT				DoCommand(int id);
+
+	/// Positions the child windows. Call this after the window sizes/positions have changed.
+	void				PositionChildren(RECT * clientrect = NULL);
+	/// Creates the trackbar (the alpha blending slider control)
 	HWND				CreateTrackbar(HWND hwndParent, UINT iMin, UINT iMax);
+	/// Shows the "Open images" dialog where the user can select the images to diff
 	bool				OpenDialog();
 	static BOOL CALLBACK OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam);
 	static bool			AskForFile(HWND owner, TCHAR * path);
