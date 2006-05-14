@@ -101,7 +101,7 @@ CRevisionEntry * CRevisionGraphWnd::GetRevisionEntry(source_entry * sentry) cons
 	std::multimap<svn_revnum_t, CRevisionEntry*>::const_iterator it = m_mapEntryPtrs.lower_bound(sentry->revisionto);
 	if (it != m_mapEntryPtrs.end())
 	{
-		while (it->first == sentry->revisionto)
+		while ((it != m_mapEntryPtrs.end())&&(it->first == sentry->revisionto))
 		{
 			if (IsParentOrItself(sentry->pathto, it->second->url))
 				return it->second;
