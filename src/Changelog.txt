@@ -217,6 +217,9 @@ Version 1.3.4
        context menu items didn't show the keyboard accelerators. (Stefan)
 - BUG: an .svn directory could get exported if it was manually selected for
        a right-drag export operation. (Stefan)
+- BUG: A wrong path was used when reverting changes from the changed file
+       list in the log dialog if the selected file path was longer than
+       the one used to show the log for. (Stefan)
 
 Version 1.3.3
 - BUG: When checking all items in e.g. commit, revert, ... dialogs, the

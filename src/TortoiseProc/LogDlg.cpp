@@ -1455,6 +1455,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								break;		//exit
 							}
 						}
+						// find the working copy path of the selected item from the URL
 						CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
 
 						CString fileURL = changedpath->sPath;
@@ -1464,8 +1465,14 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CStringA sTempA = CStringA(sUrl);
 						CUtils::Unescape(sTempA.GetBuffer());
 						sTempA.ReleaseBuffer();
-						CString sUnescapedUrl = CString(sTempA); 
-						CString wcPath = m_path.GetWinPathString() + fileURL.Mid(sUnescapedUrl.GetLength());
+						CString sUnescapedUrl = CString(sTempA);
+						// find out until which char the urls are identical
+						int i=0;
+						while ((i<fileURL.GetLength())&&(i<sUnescapedUrl.GetLength())&&(fileURL[i]==sUnescapedUrl[i]))
+							i++;
+						int leftcount = m_path.GetWinPathString().GetLength()-(sUnescapedUrl.GetLength()-i);
+						CString wcPath = m_path.GetWinPathString().Left(leftcount);
+						wcPath += fileURL.Mid(i);
 						wcPath.Replace('/', '\\');
 						CString msg;
 						msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
