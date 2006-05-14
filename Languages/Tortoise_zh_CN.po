@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-01 19:18+0800\n"
-"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
+"PO-Revision-Date: 2006-05-14 22:00+0800\n"
+"Last-Translator: xingyu.wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -217,9 +217,8 @@ msgstr "关于 TortoiseMerge(&A)..."
 
 # Control-ID:1098,
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "添加(&A)..."
 
@@ -380,8 +379,8 @@ msgid "&Edit conflicts"
 msgstr "编辑冲突(&E)"
 
 # Control-ID:1099,
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "编辑(&E)..."
 
@@ -522,6 +521,11 @@ msgstr "语言(&L)"
 msgid "&List View"
 msgstr "列表视图(&L)"
 
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "载入(&L)..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "标记为已解决(&M)"
@@ -616,7 +620,6 @@ msgstr "重做(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -661,10 +664,10 @@ msgstr "保存图片为(&S)..."
 msgid "&Save authentication"
 msgstr "保存认证(&S)"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "设置(&S)"
+# ID:313,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "保存(&S)..."
 
 # ID:9,#:
 # ID:107,
@@ -815,6 +818,13 @@ msgstr "空白字符(&W)"
 msgid "&Working copy"
 msgstr "工作拷贝(&W)"
 
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "（二进制）"
+
 # Control-ID:1061,
 #: ID:219
 msgid "(dry run)"
@@ -898,7 +908,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>注意：</b>\n"
 "重定位(Relocate)命令只用于当版本库的根目录由于服务器的 IP 地址发生改变、\n"
@@ -906,14 +918,14 @@ msgstr ""
 "置中发生改变的情况。\n"
 "不论你是要转移到另一个 Subversion 版本库，或者你是要切换到当前<b>同一个\n"
 "版本库</b>的不同分支或者目录， <b>这是一个很不常用的操作。</b>\n"
-"如果你是要转移到另一个 Subversion 版本库，请从新的版本库中执行一个“干净的”\n"
-"检出操作。\n"
-"如果你是要切换到当前同一个版本库的不同分支或者目录， 请使用主菜单中的切换\n"
-"(Switch)命令。\n"
+"如果你是要转移到另一个 Subversion 版本库，请从新的版本库中执行一个“干净\n"
+"的”检出操作。\n"
+"如果你是要切换到当前同一个版本库的不同分支或者目录， 请使用主菜单中的切\n"
+"换(Switch)命令。\n"
 "\n"
 "不适当地使用重定位命令将会<b>破坏你的工作拷贝！</b>\n"
 "如果你仍然不确定重定位命令是否正是你要执行的命令，那么就很可能不是，并且你\n"
-"需要查看<b>帮助</b>。"
+"需要查看<b>帮助</b>。看完上述说明后，希望你已经完全理解了：你是否仍然要进行重定位？"
 
 # ID:145,
 #: ID:145
@@ -1072,6 +1084,12 @@ msgstr "添加“%s”到目录"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "添加（替换）..."
+
+# Control-ID:65535,#:
+# Dlg-ID:177,
+#: ID:563
+msgid "Add Properties"
+msgstr "添加属性"
 
 # ID:110,
 #: ID:110
@@ -1853,8 +1871,8 @@ msgstr "与最新版本比较(&H)"
 
 # ID:76,
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "将谴责与工作拷贝比较(&B)"
+msgid "Compare and &blame with working BASE"
+msgstr "将谴责与工作拷贝比较"
 
 # ID:76,
 #: ID:76
@@ -2419,7 +2437,7 @@ msgstr "编辑"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "修改属性"
@@ -2792,6 +2810,19 @@ msgstr "正在生成补丁文件..."
 msgid "Get loc&k..."
 msgstr "取得锁定(&K)..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"在没有设置 'svn:needs-lock' 属性的情况下给一个文件设置锁定将<b>不能</b>防止其他人修改其工作拷贝。\n"
+"如要确保锁定，请给所有需要锁定的文件增加 'svn:needs-lock' 属性，并提交这些文件。\n"
+"在文件系统中，这些文件将被设置为只读权限，只有当文件获得锁定后会才变成可写。\n"
+"注意，其他人需要更新其工作拷贝才能使其变为只读。"
+
 # ID:119,
 #: ID:119
 #, c-format
@@ -2885,6 +2916,15 @@ msgstr "隐藏无关的修改路径(&I)"
 #: Control-ID:1004
 msgid "Help"
 msgstr "帮助"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"隐藏/显示补丁文件列表\n"
+"隐藏或显示补丁文件的列表"
 
 # Control-ID:1127,
 #: Control-ID:1127
@@ -4015,8 +4055,8 @@ msgstr "进程"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "属性"
 
@@ -4029,6 +4069,7 @@ msgstr "属性"
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "属性..."
 
@@ -4913,6 +4954,11 @@ msgstr "仅在资源管理器中显示图标覆盖(&O)"
 msgid "Show &unversioned files"
 msgstr "显示非版本控制的文件(&U)"
 
+# Control-ID:1073,
+#: MenuEntry
+msgid "Show File List"
+msgstr "显示文件列表"
+
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5035,6 +5081,11 @@ msgstr "跳过丢失的目标项"
 # Control-ID:1300,
 #: Control-ID:1300
 msgid "Sort items numerically"
+msgstr "按数字顺序排序"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
 msgstr "按数字顺序排序"
 
 # ID:196,
@@ -5344,6 +5395,16 @@ msgstr ""
 "文件 \n"
 "%s\n"
 "已存在! 是否要覆盖？"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"文件夹 %s\n"
+"中包含了无版本控制的文件和/或修改过的文件。你确认要删除吗？"
 
 # ID:88,
 #: ID:88
@@ -6637,11 +6698,6 @@ msgstr "像素"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "可能或确实有冲突/有问题(obstructed)"
-
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "递归(&C)"
 
 # ID:195,
 #: ID:195
