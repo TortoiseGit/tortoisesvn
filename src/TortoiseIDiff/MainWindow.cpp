@@ -248,8 +248,8 @@ LRESULT CMainWindow::DoCommand(int id)
 		break;
 	case ID_VIEW_ZOOMOUT:
 		{
-			picWindow1.SetZoom(picWindow1.GetZoom()*0.9);
-			picWindow2.SetZoom(picWindow2.GetZoom()*0.9);
+			picWindow1.SetZoom(picWindow1.GetZoom()/1.1);
+			picWindow2.SetZoom(picWindow2.GetZoom()/1.1);
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);

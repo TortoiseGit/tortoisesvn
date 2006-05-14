@@ -201,7 +201,15 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			else if (fwKeys & MK_CONTROL)
 			{
 				// control means adjusting the scale factor
-				picscale *= (1.0 + double(zDelta)/1200.0);
+				double factor = 1;
+				for ( short z=abs(zDelta); z>0; z-=120)
+				{
+					factor *= 1.1;
+				}
+				if ( zDelta>0 )
+					picscale *= factor;
+				else
+					picscale /= factor;
 				SetupScrollBars();
 				InvalidateRect(*this, NULL, FALSE);
 				SetWindowPos(*this, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED|SWP_NOSIZE|SWP_NOREPOSITION|SWP_NOMOVE);
