@@ -137,5 +137,6 @@ private:
 	GdiplusStartupInput gdiplusStartupInput;
 	ULONG_PTR           gdiplusToken;
 	Bitmap *			pBitmap;
+	bool				bHaveGDIPlus;
 };
 

@@ -33,13 +33,15 @@ CPicture::CPicture()
 	m_Weight = 0;
 	m_Width = 0;
 	pBitmap = NULL;
+	bHaveGDIPlus = false;
 }
 
 CPicture::~CPicture()
 {
 	if (m_IPicture != NULL) 
 		FreePictureData(); // Important - Avoid Leaks...
-	GdiplusShutdown(gdiplusToken);
+	if (bHaveGDIPlus)
+		GdiplusShutdown(gdiplusToken);
 }
 
 
@@ -122,6 +124,7 @@ bool CPicture::Load(stdstring sFilePathName)
 					m_Width = pBitmap->GetWidth();
 					bResult = true;
 				}
+				bHaveGDIPlus = true;
 			}
 			else
 				pBitmap = NULL;
