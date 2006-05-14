@@ -1027,7 +1027,14 @@ BOOL CTortoiseProcApp::InitInstance()
 							(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
 						{
 							CString msg, yes, no, yestoall;
-							msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
+							if (pathList[nPath].IsDirectory())
+							{
+								msg.Format(IDS_PROC_REMOVEFORCEFOLDER, pathList[nPath].GetWinPath());
+							}
+							else
+							{
+								msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
+							}
 							yes.LoadString(IDS_MSGBOX_YES);
 							no.LoadString(IDS_MSGBOX_NO);
 							yestoall.LoadString(IDS_PROC_YESTOALL);

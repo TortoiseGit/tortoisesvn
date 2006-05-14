@@ -1956,7 +1956,7 @@ msgid "Get loc&k..."
 msgstr ""
 
 #: ID:89,
-msgid "Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
+msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 
 #: ID:119,
@@ -3703,6 +3703,11 @@ msgstr ""
 #: ID:80,
 #, c-format
 msgid "The file\n%s\nalready exists! Do you want to overwrite it?"
+msgstr ""
+
+#: ID:145,
+#, c-format
+msgid "The folder %s\ncontains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 
 #: ID:88,
