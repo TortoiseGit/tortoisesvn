@@ -294,6 +294,8 @@ public:
 	{
 		// just for safety
 		RemoveAllAnchors();
+
+		DeleteObject(m_hOldClipRgn); 
 	}
 };
 
