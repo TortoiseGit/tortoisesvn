@@ -22,7 +22,9 @@
 #include "TortoiseIDiff.h"
 
 #define SLIDER_HEIGHT 30
+#define SPLITTER_BORDER 2
 #define TRACKBAR_ID 101
+
 class CMainWindow : public CWindow
 {
 public:
@@ -33,7 +35,6 @@ public:
 		, bMoved(false)
 		, bDragMode(false)
 		, nSplitterPos(100)
-		, nSplitterBorder(4)
 		, bOverlap(false)
 	{ 
 		SetWindowTitle((LPCTSTR)ResString(hInstance, IDS_APP_TITLE));
@@ -77,7 +78,6 @@ protected:
 	bool			bMoved;
 	bool			bDragMode;
 	int				nSplitterPos;
-	int				nSplitterBorder;
 
 	// one/two pane view
 	bool			bOverlap;

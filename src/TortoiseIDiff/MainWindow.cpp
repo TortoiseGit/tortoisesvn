@@ -73,10 +73,10 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 		RECT child;
 		child.left = clientrect->left;
 		child.top = clientrect->top;
-		child.right = nSplitterPos-nSplitterBorder;
+		child.right = nSplitterPos-(SPLITTER_BORDER/2);
 		child.bottom = clientrect->bottom;
 		SetWindowPos(picWindow1, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
-		child.left = nSplitterPos+nSplitterBorder;
+		child.left = nSplitterPos+(SPLITTER_BORDER/2);
 		child.right = clientrect->right;
 		SetWindowPos(picWindow2, NULL, child.left, child.top, child.right-child.left, child.bottom-child.top, SWP_FRAMECHANGED|SWP_SHOWWINDOW);
 	}
