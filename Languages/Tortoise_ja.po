@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2006-04-26 19:56+0900\n"
+"PO-Revision-Date: 2006-05-15 14:01+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,9 +222,8 @@ msgstr "TortoiseMerge について(&A) ..."
 
 # Control-ID:1098,
 #: ID:8
-#: ID:563
 #: Control-ID:1098
-#: Control-ID:1282
+#: Control-ID:1310
 msgid "&Add..."
 msgstr "追加(&A) ..."
 
@@ -389,8 +388,8 @@ msgid "&Edit conflicts"
 msgstr "衝突の編集(&E)"
 
 # Control-ID:1099,
-#: ID:563
 #: Control-ID:1099
+#: Control-ID:1282
 msgid "&Edit..."
 msgstr "編集(&E) ..."
 
@@ -531,6 +530,11 @@ msgstr "言語(&L):"
 msgid "&List View"
 msgstr "リスト表示(&L)"
 
+# Control-ID:1098,
+#: Control-ID:1309
+msgid "&Load..."
+msgstr "開く(&L) ..."
+
 #: MenuEntry
 msgid "&Mark as resolved"
 msgstr "解消マークを付ける(&M)"
@@ -626,7 +630,6 @@ msgstr "やり直し(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
-#: Control-ID:1013
 #: Control-ID:1100
 #: Control-ID:1285
 msgid "&Remove"
@@ -672,10 +675,11 @@ msgstr "グラフを別名で保存(&S) ..."
 msgid "&Save authentication"
 msgstr "認証を保存(&S)"
 
-# Control-ID:1012,
-#: Control-ID:1012
-msgid "&Set"
-msgstr "設定(&S)"
+# ID:313,#:
+# ID:101,
+#: Control-ID:1308
+msgid "&Save..."
+msgstr "保存(&S) ..."
 
 # ID:107,#:
 # ID:9,
@@ -827,6 +831,13 @@ msgstr "空白を表示(&W)"
 msgid "&Working copy"
 msgstr "作業コピー(&W)"
 
+# ID:17,#:
+# ID:564,
+#: ID:17
+#: ID:564
+msgid "(binary value)"
+msgstr "(バイナリ値)"
+
 # Control-ID:1061,
 #: ID:219
 msgid "(dry run)"
@@ -910,7 +921,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>注意:</b>\n"
 "再配置コマンドは、サーバのIPアドレスの変更やプロトコルの変更（例: http:// から https://）、\n"
@@ -923,7 +936,8 @@ msgstr ""
 "\n"
 "正しく再配置コマンドを利用しないと、<b>作業コピーを壊してしまう可能性があります！</b>\n"
 "再配置が正しい操作であるかどうかが分からない場合は、再配置コマンドを利用する前に\n"
-"しっかりと <b>ヘルプ</b> を読んでください。"
+"しっかりと <b>ヘルプ</b> を読んでください。\n"
+"上記を読んで理解したと期待します: 再配置を実行してもよろしいですか？"
 
 # ID:145,
 #: ID:145
@@ -1082,6 +1096,11 @@ msgstr "'%s' を辞書に追加"
 #: ID:16
 msgid "Add (as replacement)..."
 msgstr "追加（置き換え） ..."
+
+# Control-ID:65535,
+#: ID:563
+msgid "Add Properties"
+msgstr "属性を追加"
 
 # ID:110,
 #: ID:110
@@ -1860,8 +1879,8 @@ msgstr "最新のリビジョンを比較(&H)"
 
 # ID:76,
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "作業コピーとの比較／注釈履歴を行う(&B)"
+msgid "Compare and &blame with working BASE"
+msgstr "作業BASEとの比較／注釈履歴を行う(&B)"
 
 # ID:76,
 #: ID:76
@@ -2435,7 +2454,7 @@ msgid "Edit"
 msgstr "編集"
 
 # Control-ID:65535,
-#: Dlg-ID:226
+#: ID:564
 #: Dlg-ID:227
 msgid "Edit Properties"
 msgstr "属性を編集"
@@ -2807,6 +2826,19 @@ msgstr "パッチファイルを作成中 ..."
 msgid "Get loc&k..."
 msgstr "ロックを取得(&K) ..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"'svn:needs-lock' 属性を設定していないファイルをロックしたとしても、他の作業コピーでそのファイルを<b>編集することができます</b>。\n"
+"ロックを正しく動作させるためには、ロックが必要なすべてのファイルに対して 'svn:needs-lock' 属性を追加し、それらをコミットしてください。\n"
+"それぞれのファイルは、ファイルシステム上で読み取り専用のフラグが設定され、ロックすることでファイルが書き込み可能になります。\n"
+"他のユーザーは、ファイルを読み取り専用として開く前に、作業コピーの更新が必要なことに注意してください。"
+
 # ID:119,
 #: ID:119
 #, c-format
@@ -2900,6 +2932,15 @@ msgstr "変更されたパスで無関係なものは表示しない(&I)"
 #: Control-ID:1004
 msgid "Help"
 msgstr "ヘルプ"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"パッチファイルのリストを非表示／非表示\n"
+"パッチファイルのリストを非表示もしくは表示する"
 
 # Control-ID:65535,
 #: Control-ID:1127
@@ -4030,8 +4071,8 @@ msgstr "進行状況"
 
 # Control-ID:65535,
 #: ID:17
-#: Control-ID:65535
 #: Dlg-ID:177
+#: Dlg-ID:226
 msgid "Properties"
 msgstr "属性"
 
@@ -4042,6 +4083,7 @@ msgstr "属性"
 
 # Control-ID:65535,
 #: ID:209
+#: Control-ID:11021
 msgid "Properties..."
 msgstr "属性 ..."
 
@@ -4929,6 +4971,11 @@ msgstr "エクスプローラ上でのみオーバーレイを表示する(&O)"
 msgid "Show &unversioned files"
 msgstr "バージョン管理外のファイルを表示する(&U)"
 
+# Control-ID:1073,
+#: MenuEntry
+msgid "Show File List"
+msgstr "ファイルリストを表示"
+
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5052,6 +5099,11 @@ msgstr "ターゲットが見つからないのでスキップします"
 #: Control-ID:1300
 msgid "Sort items numerically"
 msgstr "数字で項目をソートする"
+
+# Control-ID:1300,
+#: ID:101
+msgid "Sort numerical"
+msgstr "数字でソートする"
 
 # ID:196,
 #: ID:196
@@ -5359,6 +5411,16 @@ msgstr ""
 "ファイル\n"
 "%s\n"
 "はすでに存在しています！上書きしてもよろしいですか？"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"フォルダ %s\n"
+"は、バージョン管理外のファイルもしくは変更されたファイルを含んでいます。本当に削除してもよろしいですか？"
 
 # ID:88,
 #: ID:88
@@ -6655,11 +6717,6 @@ msgstr "画素"
 #: Control-ID:65535
 msgid "possible or real conflict / obstructed"
 msgstr "衝突もしくは可能性のあるファイル／障害のあるファイル"
-
-# Control-ID:1018,
-#: Control-ID:1018
-msgid "re&cursive"
-msgstr "再帰的(&C)"
 
 # ID:195,
 #: ID:195
