@@ -241,6 +241,12 @@
               <File Id="F__TortoiseIDiff" Name="TIDIFF.EXE" LongName="TortoiseIDiff.exe" DiskId="1" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseIDiff.exe" KeyPath="yes" />
             </Component>
 
+            <Component Id="C__TortoiseIDiffShortcuts" Guid="$(var.GuidTortoiseIDiffShortcuts)" Win64="$(var.Win64YesNo)">
+              <Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseIDiff" Value="TortoiseIDiff" Type="string" />
+              <Shortcut Id="S__TortoiseIDiff" Directory="D_TortoisePrgMenu" Name="TIDIFF" LongName="TortoiseIDiff" Advertise="no"
+                Target="[INSTALLDIR]bin\TortoiseIDiff.exe" Description="View Diff's of image files" Show="normal" />
+            </Component>
+
           </Directory>
 
           <Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >
