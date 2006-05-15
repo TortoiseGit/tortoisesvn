@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-08 11:20+0900\n"
+"PO-Revision-Date: 2006-05-15 21:30+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -905,7 +905,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>주의:</b>\n"
 "저장소 URL 변경은 저장소의 URL이 서버 IP가 바뀌거나\n"
@@ -922,7 +924,9 @@ msgstr ""
 "\n"
 "위와 같은 URL 재배치의 잘못된 사용은 <b>작업사본을 망가뜨릴 수 있습니다</b>\n"
 "지금 하시려는 작업이 이 기능이라는 확신이 서지 않는다면, 아마 실제로도 아닐것입니다.\n"
-"<b>도움말</b>을 참고할 것을 권합니다."
+"<b>도움말</b>을 참고할 것을 권합니다.\n"
+"\n"
+"자, 위 내용을 읽으셨고 이해하셨습니까? 정말 저장소의 URL을 변경할까요?"
 
 # ID:145,
 #: ID:145
@@ -1867,8 +1871,8 @@ msgstr "HEAD 리비전 비교(&H)"
 
 # ID:76,
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "수정한 사람을 포함하여 작업사본과 비교(&B)"
+msgid "Compare and &blame with working BASE"
+msgstr "꺼내온 버전(BASE)과 비교후 수정한 사람 보이기"
 
 # ID:76,
 #: ID:76
@@ -2813,6 +2817,19 @@ msgstr "패치 파일 생성 중..."
 msgid "Get loc&k..."
 msgstr "잠그기(&K)..."
 
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"'svn:needs-lock' 속성이 없이 파일들을 잠그는 것은 다른 사람들의 작업까지 잠글 수 없습니다.\n"
+"모든 사람들이 잠그고 작업하길 원하면, 'svn:needs-lock' 속성을 추가한다음 커밋하면 됩니다.\n"
+"위 속성이 들어간 파일들은 파일 시스템에서 읽기 전용 속성이 설정이 되며, 파일을 잠그게 되면 쓰기 가능하게 됩니다.\n"
+"한 번 잠그도록 파일을 설정하면, 읽기 모드로 설정되기전에 체크아웃된 작업사본들은 업데이트를 먼저해야 합니다."
+
 # ID:119,
 #: ID:119
 #, c-format
@@ -2906,6 +2923,15 @@ msgstr "관련없는 변경된 경로를 숨기기(&I)"
 #: Control-ID:1004
 msgid "Help"
 msgstr "도움말"
+
+# ID:2052,
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"패치 파일 목록을 보이거나 숨깁니다.\n"
+"패치 파일 목록을 보이거나 숨깁니다."
 
 # Control-ID:65535,
 #: Control-ID:1127
@@ -4937,6 +4963,11 @@ msgstr "탐색기에서만 오버레이를 보입니다.(&O)"
 msgid "Show &unversioned files"
 msgstr "버전관리 대상이 아닌 파일 보기(&U)"
 
+# Control-ID:1073,
+#: MenuEntry
+msgid "Show File List"
+msgstr "파일 보기"
+
 # ID:113,
 #: ID:113
 msgid "Show differences as &unified diff"
@@ -5373,6 +5404,16 @@ msgstr ""
 "이미 존재하는 파일입니다!\n"
 "%s\n"
 "덮어 쓰시겠습니까?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"%s 폴더는\n"
+"버전관리 대상이 아니거나 수정된 파일을 포함합니다. 정말 지우시겠습니까?"
 
 # ID:88,
 #: ID:88
