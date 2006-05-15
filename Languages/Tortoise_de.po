@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2006-05-10 09:23+0100\n"
+"PO-Revision-Date: 2006-05-15 09:21+0100\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -732,7 +732,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>ACHTUNG:</b>\n"
 "Der Umplatzieren Befehl wird nur verwendet, wenn sich die URL des\n"
@@ -752,7 +754,10 @@ msgstr ""
 "Ein falsch ausgeführtes Umplatzieren wird <b>Ihre Arbeitskopie ruinieren</b>!\n"
 "Wenn Sie sich nicht sicher ist, ob Umplatzieren die richtige Aktion\n"
 "ist, dann ist es wahrscheinlich nicht der Fall und sie sollten in der\n"
-"<b>Hilfe</b> nachschlagen."
+"<b>Hilfe</b> nachschlagen.\n"
+"\n"
+"Nachdem Sie diese Meldung gelesen und hoffentlich auch verstanden haben :-)\n"
+"Wollen Sie wirklich umplatzieren?"
 
 #: ID:145
 msgid ""
@@ -2313,11 +2318,15 @@ msgstr "&Sperre holen..."
 # ID:89,
 #: ID:89
 msgid ""
-"Getting a lock for files that do not need locks will <b>not</b> prevent others from editing them in their working copies.\n"
-"To enable strict locking please permanently apply the 'svn:needs-lock' property to '*' on files that need locking."
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 "Wenn Sie eine Datei sperren, für die das nicht erforderlich ist, werden Sie andere Personen <b>nicht</b> daran hindern, diese Datei in ihrer Arbeitskopie zu verändern.\n"
-"Um striktes Sperren zu aktivieren, müssen Sie die 'svn:needs-lock' Eigenschaft für die entsprechenden Dateien permanent auf '*' setzen."
+"Um striktes Sperren zu aktivieren, müssen Sie die 'svn:needs-lock' Eigenschaft für die entsprechenden Dateien permanent auf '*' setzen und diese Dateien übertragen.\n"
+"Jede Datei wird im Dateisystem schreibgeschützt und das Holen einer Sperre wird die Datei beschreibbar machen.\n"
+"Beachten Sie bitte, dass andere Anwender ihre Arbeitskopie aktualisieren müssen, bevor sie sehen, dass die Dateien schreibgeschützt sind."
 
 #: ID:119
 #, c-format
@@ -4450,6 +4459,16 @@ msgstr ""
 "Die Datei\n"
 "%s\n"
 "existiert bereits! Möchten Sie sie wirklich überschreiben?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"Der Ordner %s\n"
+"enthält nicht versionierte und/oder veränderte Dateien. Wollen Sie ihn trotzdem löschen?"
 
 #: ID:88
 #, c-format
