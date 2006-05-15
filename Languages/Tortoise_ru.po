@@ -33,13 +33,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 6433: Stanislav Petrakov <stannic@yandex.ru>
+# Версии 3826 - 6502: Stanislav Petrakov <stannic@yandex.ru>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-05 09:38+0300\n"
+"PO-Revision-Date: 2006-05-15 10:36+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -760,7 +760,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>ВНИМАНИЕ:</b>\n"
 "Команда 'Переместить' используется только в случае, если URL корня хранилища изменился\n"
@@ -775,7 +777,9 @@ msgstr ""
 "\n"
 "Неподходящее использование команды 'Переместить' <b>повредит вашу рабочую копию!</b>\n"
 "Если вы не уверены в том, что 'Переместить' - правильная операция, то, вероятно, это не то, что\n"
-"вам надо, и вам необходимо обратиться к <b>Справке</b>."
+"вам надо, и вам необходимо обратиться к <b>Справке</b>.\n"
+"\n"
+"Теперь, когда вы всё это прочитали и, будем надеятся, поняли, вы всё ещё желаете переместить?"
 
 #: ID:145
 msgid ""
@@ -1539,10 +1543,9 @@ msgstr "Фиксирует ваши изменения в хранилище"
 msgid "Compare &HEAD revisions"
 msgstr "Сравнить HEAD-&ревизии"
 
-# !!! уточнить
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "Сравнить с рабочей копией и посмотреть &авторство"
+msgid "Compare and &blame with working BASE"
+msgstr "Сравнить с рабочей базой и посмотреть &авторство"
 
 #: ID:76
 msgid "Compare with &working copy"
@@ -2321,6 +2324,19 @@ msgstr "Генерация файла заплаток..."
 msgid "Get loc&k..."
 msgstr "За&блокировать..."
 
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"Получение блокировки для файлов без установленного свойства 'svn:needs-lock' <b>не препятствует</b> редактированию\n"
+"этих файлов другими пользователями в своих рабочих копиях. Для включения строгого блокирования необходимо применить\n"
+"свойство 'svn:needs-lock' ко всем файлам, нуждающимся в блокировании, после чего зафиксировать это изменение.\n"
+"У каждого файла будет установлен атрибут 'только-для-чтения', и получение блокировки позволит записывать в этот файл.\n"
+"Заметьте, другие пользователи должны будут обновить свои рабочие копии, чтобы увидеть, что файлы стали 'только-для-чтения'."
+
 #: ID:119
 #, c-format
 msgid "Getting file %s"
@@ -2390,7 +2406,7 @@ msgstr ""
 
 #: Control-ID:1134
 msgid "Graph type:"
-msgstr "Тип графа:"
+msgstr "Тип графика:"
 
 #: Control-ID:1229
 msgid "H&ide unrelated changed paths"
@@ -2399,6 +2415,14 @@ msgstr "&Скрыть несвязанные изменённые пути"
 #: Control-ID:1004
 msgid "Help"
 msgstr "Справка"
+
+#: ID:2052
+msgid ""
+"Hide/Show the patch file list\n"
+"Hides or shows the patch file list"
+msgstr ""
+"Скрыть/показать список файлов заплатки\n"
+"Скрывает или показывает список файлов, затронутых заплаткой "
 
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -4057,6 +4081,10 @@ msgstr "Показывать &пометки только в проводник�
 msgid "Show &unversioned files"
 msgstr "Показать &неверсионные файлы"
 
+#: MenuEntry
+msgid "Show File List"
+msgstr "Показать список файлов"
+
 #: ID:113
 msgid "Show differences as &unified diff"
 msgstr "Показать различия как объединённый файл разли&чий"
@@ -4159,6 +4187,10 @@ msgstr "Пропущена отсутствующая цель"
 
 #: Control-ID:1300
 msgid "Sort items numerically"
+msgstr "Сортировать с учётом содержащихся чисел"
+
+#: ID:101
+msgid "Sort numerical"
 msgstr "Сортировать с учётом содержащихся чисел"
 
 #: ID:196
@@ -4421,6 +4453,15 @@ msgstr ""
 "Файл\n"
 "%s\n"
 "уже существует! Вы хотите перезаписать его?"
+
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"Папка %s\n"
+"содержит неверсированные и/или изменённые файлы. Вы всё равно желаете их удалить?"
 
 #: ID:88
 #, c-format
