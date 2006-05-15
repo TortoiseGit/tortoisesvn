@@ -172,6 +172,12 @@
 			</do>
 		</foreach>
 		<mkdir dir="${configuration}_${platform}\svn" />
+		<rc rcfile="build\win32\svn.rc" output="${configuration}_${platform}\svn.res">
+			<includedirs>
+				<include name="..\apr\include" />
+				<include name="subversion\include" />
+			</includedirs>
+		</rc>
 		<cl outputdir="${configuration}_${platform}\svn">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
@@ -227,7 +233,7 @@
 		<property name="bdbpath" value="..\berkeley-db\db4.3-x64" if="${platform == 'x64'}" />
 		<link 
 			output="${configuration}_${platform}\svn.exe" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\svn.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/svn.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}_${platform}\libsvn_client.lib ${configuration}_${platform}\libsvn_delta.lib ${configuration}_${platform}\libsvn_diff.lib ${configuration}_${platform}\libsvn_fs.lib ${configuration}_${platform}\libsvn_fs_base.lib ${configuration}_${platform}\libsvn_fs_fs.lib ${configuration}_${platform}\libsvn_ra.lib ${configuration}_${platform}\libsvn_ra_dav.lib ${configuration}_${platform}\libsvn_ra_local.lib ${configuration}_${platform}\libsvn_ra_svn.lib ${configuration}_${platform}\libsvn_repos.lib ${configuration}_${platform}\libsvn_subr.lib ${configuration}_${platform}\libsvn_wc.lib ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib ${bdbpath}\lib\libdb43${confletter}.lib ..\neon\${configuration}_${platform}\libneon.lib ..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\svn-${platform}-libintl\lib\intl3_svn.lib ..\apr-util\xml\expat\lib\${configuration}_${platform}\xml.lib ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib'>
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\svn.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/svn.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}_${platform}\libsvn_client.lib ${configuration}_${platform}\libsvn_delta.lib ${configuration}_${platform}\libsvn_diff.lib ${configuration}_${platform}\libsvn_fs.lib ${configuration}_${platform}\libsvn_fs_base.lib ${configuration}_${platform}\libsvn_fs_fs.lib ${configuration}_${platform}\libsvn_ra.lib ${configuration}_${platform}\libsvn_ra_dav.lib ${configuration}_${platform}\libsvn_ra_local.lib ${configuration}_${platform}\libsvn_ra_svn.lib ${configuration}_${platform}\libsvn_repos.lib ${configuration}_${platform}\libsvn_subr.lib ${configuration}_${platform}\libsvn_wc.lib ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib ${bdbpath}\lib\libdb43${confletter}.lib ..\neon\${configuration}_${platform}\libneon.lib ..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\svn-${platform}-libintl\lib\intl3_svn.lib ..\apr-util\xml\expat\lib\${configuration}_${platform}\xml.lib ${machineoption} ${configuration}_${platform}\svn.res ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\svn\*.obj" />
 			</sources>
