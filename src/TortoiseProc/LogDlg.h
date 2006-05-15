@@ -99,7 +99,7 @@ protected:
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedGetall(bool bForceAll = false);
+	afx_msg void OnBnClickedGetall();
 	afx_msg void OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
@@ -156,6 +156,7 @@ private:
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
 	bool IsSelectionContinuous();
 	void EnableOKButton();
+	void GetAll(bool bForceAll = false);
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	static int __cdecl	SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function

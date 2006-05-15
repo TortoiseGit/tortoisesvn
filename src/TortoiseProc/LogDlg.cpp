@@ -408,7 +408,12 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	m_LogMsgCtrl.SetRedraw(TRUE);
 }
 
-void CLogDlg::OnBnClickedGetall(bool bForceAll /* = false*/)
+void CLogDlg::OnBnClickedGetall()
+{
+	GetAll();
+}
+
+void CLogDlg::GetAll(bool bForceAll /* = false */)
 {
 	UpdateData();
 	INT_PTR entry = m_btnShow.GetCurrentEntry();
@@ -522,7 +527,7 @@ void CLogDlg::OnBnClickedNexthundred()
 		// since there weren't any log messages fetched before, just
 		// fetch all since we don't have an 'anchor' to fetch the 'next'
 		// messages from.
-		return OnBnClickedGetall(true);
+		return GetAll(true);
 	}
 	LONG rev = m_logEntries[m_logEntries.size()-1]->dwRev - 1;
 	if (rev < 1)
