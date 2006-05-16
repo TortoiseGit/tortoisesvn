@@ -11,10 +11,10 @@
 			Version control is the art of managing changes to
 			information. It has long been a critical tool for programmers,
 			who typically spend their time making small changes to software
-			and then undoing those changes the next day.  Imagine a team of
-			these programmers working concurrently - and perhaps even
-			simultaneously at the very same files! - and you can see why
-			a good system is needed to manage the potential chaos.
+			and then undoing or checking some of those changes the next day.  
+			Imagine a team of such developers working concurrently - and perhaps even
+			simultaneously on the very same files! - and you can see why
+			a good system is needed to <emphasis>manage the potential chaos</emphasis>.
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
@@ -30,7 +30,7 @@
 			The repository is much like an ordinary file server, except that it
 			remembers every change ever made to your files and directories.
 			This allows you to recover older versions of your files and examine
-			the history of how and when your data changed. This is why many
+			the history of how, when and who your data changed. This is why many
 			people think of Subversion and version control systems in general as
 			a sort of <quote>time machine</quote>.
 		</para>
@@ -265,10 +265,19 @@
 				TortoiseSVN comes with an easy to use installer. Doubleclick on
 				the installer file and follow the instructions. The installer
 				will take care of the rest. 
-				Make sure to select the <literal>Install for all users</literal>
-				option, unless you <emphasis>really</emphasis> want to restrict
-				its use to the current user only.
+				If you want to install TortoiseSVN for <literal>all users</literal>
+				then you must have administrator rights on your system. If you don't
+				have those rights, TortoiseSVN will automaticall install for the
+				current user only.
 			</para>
+			<important>
+				<para>
+					If you don't have the latest C-runtime and MFC libraries installed,
+					you still must have Administrator privileges to install TortoiseSVN.
+					But once those libraries are installed, you can update or install
+					TortoiseSVN without those priviledges.
+				</para>
+			</important>
 		</sect2>
 		<sect2 id="tsvn-intro-install-lang">
 			<title>Language Packs</title>
