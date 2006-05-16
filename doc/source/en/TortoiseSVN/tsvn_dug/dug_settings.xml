@@ -588,6 +588,18 @@
 						</para>
 					</listitem>
 				</varlistentry>
+				<varlistentry>
+					<term>Sort items numerically</term>
+					<listitem>
+						<para>
+                            The repository browser can use a more intelligent sorting
+                            algorithm which handles paths containing numbers better than
+                            a plain ascii sort. This is sometimes useful for getting
+                            version number tags in the correct order. This option controls
+                            the default sort type used.
+						</para>
+					</listitem>
+				</varlistentry>
 			</variablelist>
 		</sect3>
 		<sect3 id="tsvn-dug-settings-colours">

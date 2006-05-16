@@ -32,6 +32,16 @@
 		you want to recover your deleted file.
 	</para>
 	<para>
+        The main browser window looks much like any other tree browser.
+        You can click on the column headings at the top to change the sort
+        order. If you right click on the <literal>File</literal> heading
+        you can turn <literal>Numerical Sort</literal> on or off. This
+        provides a more intelligent handling of numbers than a plain
+        ascii sort does, and is useful for getting version number tags
+        in the correct order. The default state of this setting can be
+        changed in the settings dialog.
+	</para>
+	<para>
 		If you select two items, you can view the differences either as a
 		unified-diff, or as a list of files which can be visually diffed
 		using the default diff tool. This can be particularly useful for

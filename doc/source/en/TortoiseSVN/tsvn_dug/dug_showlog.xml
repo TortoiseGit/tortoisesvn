@@ -419,6 +419,15 @@
 			Note that these filters act on the messages already retrieved.
 			They do not control downloading of messages from the repository.
 		</para>
+		<para>
+            You can also filter the path names in the bottom pane using the
+            <guilabel>Hide unrelated changed paths</guilabel> checkbox.
+            Related paths are those which contain the path used to display
+            the log. If you fetch the log for a folder, that means anything
+            in that folder or below it. For a file it means just that one file.
+            The checkbox is tri-state: you can show all paths, grey out the
+            unrelated ones, or hide the unrelated paths completely.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-5">
 		<?dbhh topicname="HIDD_STATGRAPH"?>
