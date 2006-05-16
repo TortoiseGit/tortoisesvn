@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2006-05-09 10:15+0800\n"
+"PO-Revision-Date: 2006-05-16 10:36+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -914,7 +914,9 @@ msgid ""
 "\n"
 "An inadequately used Relocate command <b>will corrupt your working copy!</b>\n"
 "If you are unsure whether Relocate is the correct operation, it probably\n"
-"is not and you should consult <b>Help</b>."
+"is not and you should consult <b>Help</b>.\n"
+"\n"
+"Now that you've read and hopefully understood the above: do you still want to relocate?"
 msgstr ""
 "<b>特別注意:</b>\n"
 "重新定位的動作只用在檔案庫的最上層URL因為伺服器\n"
@@ -930,7 +932,9 @@ msgstr ""
 "\n"
 "錯誤地使用重新定位指令<b>會造成你的工作複本損毀!</b>\n"
 "如果你不確定是不是該進行重新定位, 那麼最好是不要,\n"
-"並建議您參考<b>說明文件</b>."
+"並建議您參考<b>說明文件</b>.\n"
+"\n"
+"在您仔細閱讀過以上內容並了解之後: 確定要進行重新定位嗎?"
 
 # ID:145,
 #: ID:145
@@ -1873,8 +1877,8 @@ msgstr "比對最新版本(&H)"
 
 # ID:76,
 #: ID:114
-msgid "Compare and &blame with working copy"
-msgstr "與工作複本比對並譴責(&W)"
+msgid "Compare and &blame with working BASE"
+msgstr "與工作基礎版本比對並譴責(&B)"
 
 # ID:76,
 #: ID:76
@@ -2819,6 +2823,19 @@ msgstr "正在產生補綴檔..."
 #: ID:16
 msgid "Get loc&k..."
 msgstr "取得鎖定(&K)..."
+
+# ID:89,
+#: ID:89
+msgid ""
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
+"Note that other users will need to update their working copies before they see the files as read-only."
+msgstr ""
+"鎖定沒有 'svn:needs-lock' 性質的檔案是 <b>不能</b> 防止別人在自己的工作副本中修改的.\n"
+"要啟用嚴格鎖定功能請為所有需要鎖定的檔案加上 'svn:needs-lock' 性質, 並且送交這些檔案.\n"
+"如此一來, 這些檔案就會以檔案系統上的唯讀方式設定, 並在取得鎖定時變更為可寫入.\n"
+"請注意, 其它使用者必須先更新自己的工作複本才能看到檔案變成唯讀."
 
 # ID:119,
 #: ID:119
@@ -5395,6 +5412,16 @@ msgstr ""
 "檔案 \n"
 "%s\n"
 " 已存在! 是否要覆寫?"
+
+# ID:145,
+#: ID:145
+#, c-format
+msgid ""
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+"目錄 %s\n"
+"裡有未做版本控制以及可能有已修改過的檔案. 確定要刪除嗎?"
 
 # ID:88,
 #: ID:88
