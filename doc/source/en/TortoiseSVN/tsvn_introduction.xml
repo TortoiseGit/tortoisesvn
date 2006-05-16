@@ -30,9 +30,9 @@
 			The repository is much like an ordinary file server, except that it
 			remembers every change ever made to your files and directories.
 			This allows you to recover older versions of your files and examine
-			the history of how, when and who your data changed. This is why many
-			people think of Subversion and version control systems in general as
-			a sort of <quote>time machine</quote>.
+			the history of how and when your data changed, and who changed it.
+			This is why many people think of Subversion and version control
+			systems in general as a sort of <quote>time machine</quote>.
 		</para>
 		<para>
 			Some version control systems are also software configuration
@@ -267,7 +267,7 @@
 				will take care of the rest. 
 				If you want to install TortoiseSVN for <literal>all users</literal>
 				then you must have administrator rights on your system. If you don't
-				have those rights, TortoiseSVN will automaticall install for the
+				have those rights, TortoiseSVN will automatically install for the
 				current user only.
 			</para>
 			<important>
@@ -275,7 +275,7 @@
 					If you don't have the latest C-runtime and MFC libraries installed,
 					you still must have Administrator privileges to install TortoiseSVN.
 					But once those libraries are installed, you can update or install
-					TortoiseSVN without those priviledges.
+					TortoiseSVN without those privileges.
 				</para>
 			</important>
 		</sect2>
