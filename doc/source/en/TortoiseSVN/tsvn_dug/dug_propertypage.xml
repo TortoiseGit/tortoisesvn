@@ -7,10 +7,10 @@
 	</indexterm>
 	<para>
 		<figure id="tsvn-dug-propertypage-dia-1">
-			<title>Subversion property page</title>
+			<title>Explorer property page, Subversion tab</title>
 			<graphic fileref="../images/Properties.png"/>
 		</figure>
-		Sometimes you want to have a more detailed information
+		Sometimes you want to have more detailed information
 		about a file/directory than just the icon overlay.
 		You can get all the information Subversion provides in the
 		explorer properties dialog. Just select the file or
@@ -20,219 +20,235 @@
 			<guimenuitem>properties</guimenuitem>
 		</menuchoice>
 		in the context menu (note: this is the normal properties menu entry
-		the explorer provides, not in the TortoiseSVN submenu!).
+		the explorer provides, not the one in the TortoiseSVN submenu!).
 		In the properties dialog box TortoiseSVN has added a new
 		property page for files/folders under Subversion control,
 		where you can see all relevant information about the
 		selected file/directory.
 	</para>
-	<?dbhh topicname="HIDD_EDITPROPERTIES"?>
-	<?dbhh topicname="HIDD_EDITPROPERTYVALUE"?>
-	<para>
-		In addition you can read and set the Subversion properties
-		from the Windows properties dialog, but also from
-		<menuchoice>
-			<guimenu>TortoiseSVN</guimenu>
-			<guimenuitem>properties</guimenuitem>
-		</menuchoice>
-		and within TSVN's status lists, from
-		<menuchoice>
-			<guimenu>Context menu</guimenu>
-			<guimenuitem>properties</guimenuitem>
-		</menuchoice>.
-	</para>
-	<para>
-		You can add your own properties, or some properties with a 
-		special meaning in Subversion. These begin with <literal>svn:</literal>. 
-		<literal>svn:externals</literal> is such a property; see how to handle
-		externals in <xref linkend="tsvn-dug-import-4"/>.
-		For more information about properties in Subversion see the  
-		<ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3">
-			<citetitle>Subversion Manual</citetitle>
-		</ulink>.
-	</para>
-	<para>
-		To set a property, select the required property name from the
-		combo box, then type in a value in the field below. Properties which
-		take multiple values, such as an ignore list, can be entered on
-		multiple lines. Click on <guibutton>Set</guibutton> to add that
-		property to the list.
-	</para>
-	<para>
-		If you want to apply a property to many items at once, select the
-		files/folders in explorer, then select
-		<menuchoice>
-			<guimenu>Windows Menu</guimenu>
-			<guimenuitem>properties</guimenuitem>
-		</menuchoice>
-	</para>
-	<para>
-		If you want to apply the property to <emphasis>every</emphasis> file
-		and folder in the hierarchy below the current folder, check the
-		<guilabel>Recursive</guilabel> checkbox.
-	</para>
-	<para>
-		Some properties, for example <literal>svn:needs-lock</literal>,
-		can only be applied to files, so the property name doesn't appear
-		in the drop down list for folders. You can still apply such a
-		property recursively to all files in a hierarchy, but you have
-		to type in the property name yourself.
-	</para>
-	<para>
-		If you wish to edit an existing property, first select that property
-		from the list of existing properties, so that it appears in the edit
-		area. Then procede as for a new property.
-	</para>
-	<para>
-		If you wish to remove an existing property, select that property
-		from the list of existing properties, so that it appears in the edit
-		area. Then click on <guibutton>Remove</guibutton>.
-	</para>
-	<para>
-		The <literal>svn:externals</literal> property can be used to
-		pull in other projects from the same repository or a completely
-		different repository. For more information, read
-		<xref linkend="tsvn-dug-import-4"/>.
-	</para>
-	<para>
-		TortoiseSVN has a few special properties of its own, and these begin
-		with <literal>tsvn:</literal>.
-		<itemizedlist>
-			<listitem>
-				<para>
-					<literal>tsvn:logminsize</literal>
-					sets the minimum length of a log message for a commit.
-					If you enter a shorter message than specified here, the commit
-					is disabled. This feature is very useful for reminding you to
-					supply a proper descriptive message for every commit.
-					If this property is not set,
-					or the value is zero, empty log messages are allowed.
-				</para>
-				<para>
-					<literal>tsvn:lockmsgminsize</literal>
-					sets the minimum length of a lock message.
-					If you enter a shorter message than specified here, the lock
-					is disabled. This feature is very useful for reminding you to
-					supply a proper descriptive message for every lock you get.
-					If this property is not set,
-					or the value is zero, empty lock messages are allowed.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					<literal>tsvn:logwidthmarker</literal> is used with projects which
-					require log messages to be formatted with some maximum width
-					(typically 80 characters) before a line break. Setting this
-					property to a non-zero will do 2 things in the log message
-					entry dialog: it places a marker to indicate the maximum width,
-					and it disables word wrap in the display, so that you can see
-					whether the text you entered is too long. Note: this feature
-					will only work correctly if you have a fixed-width font
-					selected for log messages.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					<literal>tsvn:logtemplate</literal> is used with projects which
-					have rules about log message formatting. The property holds
-					a multi-line text string which will be inserted in the commit
-					message box when you start a commit. You can then edit it to
-					include the required information. Note: if you are also using
-					<literal>tsvn:logminsize</literal>, be sure to set the length
-					longer than the template or you will lose the protection mechanism.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					In the Commit dialog you have the option to paste in the
-					list of changed files, including the status of each file
-					(added, modified, etc).
-					<literal>tsvn:logfilelistenglish</literal> defines whether
-					the file status is inserted in english or in the localized
-					language. If the property is not set, the default is
-					<literal>true</literal>. 
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					TortoiseSVN can use spell checker modules which are also
-					used by OpenOffice and Mozilla. If you have those installed
-					this property will determine which spell checker to use, i.e.
-					in which language the log messages for your project should
-					be written.
-					<literal>tsvn:projectlanguage</literal> sets the language
-					module the spell checking engine should use when you enter
-					a log message. You can find the values for your language
-					on this page:
-					<ulink url="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp">
-						<citetitle>MSDN: Language Identifiers</citetitle>
-					</ulink>.
-				</para>
-				<para>
-					You can enter this value in decimal, or in hexadecimal if
-					prefixed with <literal>0x</literal>.
-					For example English (US) can be entered as
-					<literal>0x0409</literal> or <literal>1033</literal>.
-				</para>
-			</listitem>
-		</itemizedlist>
-	</para>
-	<para>
-		Some <literal>tsvn:</literal> properties require a
-		<literal>true/false</literal> value. TSVN also understands
-		<literal>yes</literal> as a synonym for <literal>true</literal> and
-		<literal>no</literal> as a synonym for <literal>false</literal>.
-	</para>
-	<important>
-		<title>Set the tsvn: properties on folders</title>
-		<para>
-			These <literal>tsvn:</literal> properties must be set on
-			<emphasis>folders</emphasis> for the system to work. 
-			When you commit a file or folder the properties are read from that folder.
-			If the properties are not found there, TortoiseSVN will search upwards
-			through the folder tree to find them until it comes to an unversioned
-			folder, or the tree root (eg. <literal>C:\</literal>) is found.
-			If you can be sure that each user checks out only from e.g
-			<filename>trunk/</filename> and not some subfolder, then it is
-			sufficient to set the properties on <filename>trunk/</filename>.
-			If you can't be sure, you should set the properties recursively on each subfolder.
-			A property setting deeper in the project hierarchy overrides settings on
-			higher levels (closer to <filename>trunk/</filename>).
-		</para>
-		<para>
-			For <literal>tsvn:</literal> properties <emphasis>only</emphasis>
-			you can use the <guilabel>Recursive</guilabel> checkbox to set
-			the property to all subfolders in the hierarchy, without also
-			setting it on all files.
-		</para>
-	</important>
-	<important>
-		<title>Commit properties</title>
-		<para>
-			Subversion properties are versioned. After you change or add a 
-			property you have to commit your changes.
-		</para>
-	</important>
-	<tip>
-		<title>Conflicts on properties</title>
-		<para>
-			If there's a conflict on committing the changes, because another 
-			user has changed the same property, Subversion generates a 
-			<filename>.prej</filename> file. Delete this file after you 
-			have resolved the conflict. 
-		</para>
-	</tip>
-	<tip>
-		<title>Automatic property setting</title>
-		<para>
-			You can configure Subversion to set properties automatically 
-			on files and folders when they are added to the repository.
-			Read <xref linkend="tsvn-dug-settings"/> for further information. 
-		</para>
-	</tip>
-	<para>
-		TortoiseSVN can integrate with some bugtracking 
-		tools. This uses properties, which start with <literal>bugtraq:</literal>.
-		Read <xref linkend="tsvn-dug-bugtracker"/> for further information. 
-	</para>
+    <sect2 id="tsvn-dug-propertypage-props">
+        <title>Subversion Properties</title>
+        <?dbhh topicname="HIDD_EDITPROPERTIES"?>
+        <?dbhh topicname="HIDD_EDITPROPERTYVALUE"?>
+        <para>
+            <figure id="tsvn-dug-propertypage-dia-2">
+                <title>Subversion property page</title>
+                <graphic fileref="../images/PropertyList.png"/>
+            </figure>
+            You can read and set the Subversion properties
+            from the Windows properties dialog, but also from
+            <menuchoice>
+                <guimenu>TortoiseSVN</guimenu>
+                <guimenuitem>properties</guimenuitem>
+            </menuchoice>
+            and within TSVN's status lists, from
+            <menuchoice>
+                <guimenu>Context menu</guimenu>
+                <guimenuitem>properties</guimenuitem>
+            </menuchoice>.
+        </para>
+        <para>
+            You can add your own properties, or some properties with a 
+            special meaning in Subversion. These begin with <literal>svn:</literal>. 
+            <literal>svn:externals</literal> is such a property; see how to handle
+            externals in <xref linkend="tsvn-dug-import-4"/>.
+            For more information about properties in Subversion see the  
+            <ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3">
+                <citetitle>Subversion Manual</citetitle>
+            </ulink>.
+        </para>
+        <para>
+            To add a new property, first click on <guilabel>Add...</guilabel>.
+            Select the required property name from the combo box,
+            or type in a name of your own choice, then enter a value
+            in the box below. Properties which take multiple values, such as an
+            ignore list, can be entered on multiple lines.
+            Click on <guibutton>OK</guibutton> to add that property to the list.
+        </para>
+        <para>
+            If you want to apply a property to many items at once, select the
+            files/folders in explorer, then select
+            <menuchoice>
+                <guimenu>Context menu</guimenu>
+                <guimenuitem>properties</guimenuitem>
+            </menuchoice>
+        </para>
+        <para>
+            If you want to apply the property to <emphasis>every</emphasis> file
+            and folder in the hierarchy below the current folder, check the
+            <guilabel>Recursive</guilabel> checkbox.
+        </para>
+        <para>
+            Some properties, for example <literal>svn:needs-lock</literal>,
+            can only be applied to files, so the property name doesn't appear
+            in the drop down list for folders. You can still apply such a
+            property recursively to all files in a hierarchy, but you have
+            to type in the property name yourself.
+        </para>
+        <para>
+            If you wish to edit an existing property, select that property from
+            the list of existing properties, then click on <guibutton>Edit...</guibutton>.
+        </para>
+        <para>
+            If you wish to remove an existing property, select that property from
+            the list of existing properties, then click on <guibutton>Remove</guibutton>.
+        </para>
+        <para>
+            The <literal>svn:externals</literal> property can be used to
+            pull in other projects from the same repository or a completely
+            different repository. For more information, read
+            <xref linkend="tsvn-dug-import-4"/>.
+        </para>
+        <para>
+            TortoiseSVN can handle binary property values using files.
+            To read a binary property value, <guibutton>Save...</guibutton>
+            to a file. To set a binary value, use a hex editor or other appropriate
+            tool to create a file with the content you require, then
+            <guibutton>Load...</guibutton> from that file.
+        </para>
+        <important>
+            <title>Commit properties</title>
+            <para>
+                Subversion properties are versioned. After you change or add a 
+                property you have to commit your changes.
+            </para>
+        </important>
+        <tip>
+            <title>Conflicts on properties</title>
+            <para>
+                If there's a conflict on committing the changes, because another 
+                user has changed the same property, Subversion generates a 
+                <filename>.prej</filename> file. Delete this file after you 
+                have resolved the conflict. 
+            </para>
+        </tip>
+        <tip>
+            <title>Automatic property setting</title>
+            <para>
+                You can configure Subversion to set properties automatically 
+                on files and folders when they are added to the repository.
+                Read <xref linkend="tsvn-dug-settings"/> for further information. 
+            </para>
+        </tip>
+    </sect2>
+    <sect2 id="tsvn-dug-propertypage-tsvn-props">
+        <title>TortoiseSVN Properties</title>
+        <para>
+            TortoiseSVN has a few special properties of its own, and these begin
+            with <literal>tsvn:</literal>.
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        <literal>tsvn:logminsize</literal>
+                        sets the minimum length of a log message for a commit.
+                        If you enter a shorter message than specified here, the commit
+                        is disabled. This feature is very useful for reminding you to
+                        supply a proper descriptive message for every commit.
+                        If this property is not set,
+                        or the value is zero, empty log messages are allowed.
+                    </para>
+                    <para>
+                        <literal>tsvn:lockmsgminsize</literal>
+                        sets the minimum length of a lock message.
+                        If you enter a shorter message than specified here, the lock
+                        is disabled. This feature is very useful for reminding you to
+                        supply a proper descriptive message for every lock you get.
+                        If this property is not set,
+                        or the value is zero, empty lock messages are allowed.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <literal>tsvn:logwidthmarker</literal> is used with projects which
+                        require log messages to be formatted with some maximum width
+                        (typically 80 characters) before a line break. Setting this
+                        property to a non-zero will do 2 things in the log message
+                        entry dialog: it places a marker to indicate the maximum width,
+                        and it disables word wrap in the display, so that you can see
+                        whether the text you entered is too long. Note: this feature
+                        will only work correctly if you have a fixed-width font
+                        selected for log messages.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <literal>tsvn:logtemplate</literal> is used with projects which
+                        have rules about log message formatting. The property holds
+                        a multi-line text string which will be inserted in the commit
+                        message box when you start a commit. You can then edit it to
+                        include the required information. Note: if you are also using
+                        <literal>tsvn:logminsize</literal>, be sure to set the length
+                        longer than the template or you will lose the protection mechanism.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        In the Commit dialog you have the option to paste in the
+                        list of changed files, including the status of each file
+                        (added, modified, etc).
+                        <literal>tsvn:logfilelistenglish</literal> defines whether
+                        the file status is inserted in english or in the localized
+                        language. If the property is not set, the default is
+                        <literal>true</literal>. 
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        TortoiseSVN can use spell checker modules which are also
+                        used by OpenOffice and Mozilla. If you have those installed
+                        this property will determine which spell checker to use, i.e.
+                        in which language the log messages for your project should
+                        be written.
+                        <literal>tsvn:projectlanguage</literal> sets the language
+                        module the spell checking engine should use when you enter
+                        a log message. You can find the values for your language
+                        on this page:
+                        <ulink url="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp">
+                            <citetitle>MSDN: Language Identifiers</citetitle>
+                        </ulink>.
+                    </para>
+                    <para>
+                        You can enter this value in decimal, or in hexadecimal if
+                        prefixed with <literal>0x</literal>.
+                        For example English (US) can be entered as
+                        <literal>0x0409</literal> or <literal>1033</literal>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            Some <literal>tsvn:</literal> properties require a
+            <literal>true/false</literal> value. TSVN also understands
+            <literal>yes</literal> as a synonym for <literal>true</literal> and
+            <literal>no</literal> as a synonym for <literal>false</literal>.
+        </para>
+        <important>
+            <title>Set the tsvn: properties on folders</title>
+            <para>
+                These <literal>tsvn:</literal> properties must be set on
+                <emphasis>folders</emphasis> for the system to work. 
+                When you commit a file or folder the properties are read from that folder.
+                If the properties are not found there, TortoiseSVN will search upwards
+                through the folder tree to find them until it comes to an unversioned
+                folder, or the tree root (eg. <literal>C:\</literal>) is found.
+                If you can be sure that each user checks out only from e.g
+                <filename>trunk/</filename> and not some subfolder, then it is
+                sufficient to set the properties on <filename>trunk/</filename>.
+                If you can't be sure, you should set the properties recursively on each subfolder.
+                A property setting deeper in the project hierarchy overrides settings on
+                higher levels (closer to <filename>trunk/</filename>).
+            </para>
+            <para>
+                For <literal>tsvn:</literal> properties <emphasis>only</emphasis>
+                you can use the <guilabel>Recursive</guilabel> checkbox to set
+                the property to all subfolders in the hierarchy, without also
+                setting it on all files.
+            </para>
+        </important>
+        <para>
+            TortoiseSVN can integrate with some bugtracking 
+            tools. This uses properties, which start with <literal>bugtraq:</literal>.
+            Read <xref linkend="tsvn-dug-bugtracker"/> for further information. 
+        </para>
+    </sect2>
 </sect1>
