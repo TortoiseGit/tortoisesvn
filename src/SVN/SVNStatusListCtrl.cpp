@@ -581,6 +581,12 @@ CSVNStatusListCtrl::AddNewFileEntry(
 				cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_new));
 				m_ConflictFileList.AddPath(cpath);
 			}
+			if (pSVNStatus->entry->prejfile)
+			{
+				cpath = path.GetDirectory();
+				cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->prejfile));
+				m_ConflictFileList.AddPath(cpath);
+			}
 		}
 	}
 	
@@ -1756,9 +1762,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (((wcStatus == svn_wc_status_conflicted)||(entry->isConflicted)))
 				{
 					if ((m_dwContextMenus & SVNSLC_POPCONFLICT)||(m_dwContextMenus & SVNSLC_POPRESOLVE))
-					popup.AppendMenu(MF_SEPARATOR);
-					
-					if (m_dwContextMenus & SVNSLC_POPCONFLICT)
+						popup.AppendMenu(MF_SEPARATOR);
+
+					if ((m_dwContextMenus & SVNSLC_POPCONFLICT)&&(entry->textstatus == svn_wc_status_conflicted))
 					{
 						temp.LoadString(IDS_MENUCONFLICT);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_EDITCONFLICT, temp);
@@ -1767,6 +1773,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_RESOLVED);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
+					}
+					if ((m_dwContextMenus & SVNSLC_POPRESOLVE)&&(entry->textstatus == svn_wc_status_conflicted))
+					{
 						temp.LoadString(IDS_SVNPROGRESS_MENUUSETHEIRS);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVETHEIRS, temp);
 						temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
